@@ -1,7 +1,7 @@
 
 (object Petal
     version    	50
-    _written   	"Rose 2006.0.0.061205"
+    _written   	"Rose 2006.0.0.060314"
     charSet    	204)
 
 (object Class_Category "Requests"
@@ -424,7 +424,7 @@
 			    tool       	"MDA Generator"
 			    name       	"java:*47FCAD0E0394_48D0BDDF0274*"
 			    value      	(value Text 
-|//#UC START# *47FCAD0E0394_48D0BDDF0274*¤		List<?> eaList = QueryHelper.getListByQuery("from ExternalAuthorSimpleDAO");¤		java.util.List<Observer> result = new ArrayList<Observer> ();¤		for(Object eaObj : eaList) {¤			ExternalAuthorDAO ea = (ExternalAuthorDAO) eaObj;¤			result.add(new Observer(ea.getId(), ea.getName(), ea.getEmail(), ea.getComment()));¤		}¤		Collections.sort(¤			result¤			, new Comparator<Observer> () {¤				public int compare (Observer o1, Observer o2) {¤					return o1.getEmail().compareTo(o2.getEmail());¤				}¤			}¤		);¤		return result;¤		//#UC END# *47FCAD0E0394_48D0BDDF0274*
+|//#UC START# *47FCAD0E0394_48D0BDDF0274*¤		List<?> eaList = QueryHelper.getListByQuery("from ExternalAuthorSimpleDAO");¤		java.util.List<Observer> result = new ArrayList<Observer> ();¤		for(Object eaObj : eaList) {¤			ExternalAuthorDAO ea = (ExternalAuthorDAO) eaObj;¤			result.add(new Observer(ea.getId(), ea.getName(), ea.getEmail(), ""));¤		}¤		Collections.sort(¤			result¤			, new Comparator<Observer> () {¤				public int compare (Observer o1, Observer o2) {¤					return o1.getEmail().compareTo(o2.getEmail());¤				}¤			}¤		);¤		return result;¤		//#UC END# *47FCAD0E0394_48D0BDDF0274*
 			    ))
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -3678,7 +3678,39 @@
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0
-		    quidu      	"3DBFFE100240"))
+		    quidu      	"3DBFFE100240")
+		(object Operation "add_external_author"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1448027369588996")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"564F24E9020A"
+		    parameters 	(list Parameters
+			(object Parameter "external_author"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1448027407215149")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47872D5402BB"))
+			    quid       	"564F250F00D6"
+			    type       	"Observer"
+			    quidu      	"47872D5402BB"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
 	    class_attributes 	(list class_attribute_list
 		(object ClassAttribute "age"
 		    attributes 	(list Attribute_Set
@@ -3870,7 +3902,7 @@
 			    tool       	"MDA Generator"
 			    name       	"java:*47872E400373_4757F83900B2_GET*"
 			    value      	(value Text 
-|//#UC START# *47872E400373_4757F83900B2_GET*¤		List<Observer> result = new ArrayList<Observer>();¤		if(getProxy().getExternalAuthors() != null) {¤			for(ExternalAuthorDAO eaDAO : getProxy().getExternalAuthors()) {¤				result.add(new Observer(eaDAO.getId(), eaDAO.getName(), eaDAO.getEmail(), eaDAO.getComment()));¤			}¤		}¤		return result;¤		//#UC END# *47872E400373_4757F83900B2_GET*
+|//#UC START# *47872E400373_4757F83900B2_GET*¤		List<Observer> result = new ArrayList<Observer>();¤		if(getProxy().getExternalAuthorsLinks() != null) {¤			for(LinkedExternalAuthorDAO lead : getProxy().getExternalAuthorsLinks()) {¤				ExternalAuthorDAO eaDAO = (ExternalAuthorDAO)lead.getExternalAuthor();¤				result.add(new Observer(eaDAO.getId(), eaDAO.getName(), eaDAO.getEmail(), lead.getComment()));¤			}¤		}¤		return result;¤		//#UC END# *47872E400373_4757F83900B2_GET*
 			    ))
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -3914,7 +3946,7 @@
 			    tool       	"MDA Generator"
 			    name       	"java:*47872E400373_4C52CC2C0221_GET*"
 			    value      	(value Text 
-|//#UC START# *47872E400373_4C52CC2C0221_GET*¤		List<Observer> result = new ArrayList<Observer>();¤		if(getProxy().getExternalAuthors() != null) {¤			for(ExternalAuthorDAO eaDAO : getProxy().getExternalAuthors()) {¤				result.add(new Observer(eaDAO.getId(), eaDAO.getName(), eaDAO.getEmail(), eaDAO.getComment(), ((ExternalAuthorFromHelpDeskDAO)eaDAO).getHelpDeskQuery()));¤			}¤		}¤		return result;¤		//#UC END# *47872E400373_4C52CC2C0221_GET*
+|//#UC START# *47872E400373_4C52CC2C0221_GET*¤		List<Observer> result = new ArrayList<Observer>();¤		if(getProxy().getExternalAuthorsLinks() != null) {¤			for(LinkedExternalAuthorDAO eaDAO : getProxy().getExternalAuthorsLinks()) {¤				ExternalAuthorFromHelpDeskDAO eafhDAO = (ExternalAuthorFromHelpDeskDAO)eaDAO.getExternalAuthor();¤				result.add(¤						new Observer(¤								eafhDAO.getId(), ¤								eafhDAO.getName(), ¤								eafhDAO.getEmail(), ¤								eaDAO.getComment(), ¤								eaDAO.getHelpDeskQuery(), ¤								eaDAO.getId()¤						)¤				);¤			}¤		}¤		return result;¤		//#UC END# *47872E400373_4C52CC2C0221_GET*
 			    ))
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -10832,6 +10864,104 @@
 			    quidu      	"3DBFFE240068"))
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "ctor"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1448448184208218")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"565590B800C0"
+		    stereotype 	"ctor"
+		    parameters 	(list Parameters
+			(object Parameter "id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1448448196129901")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205"))
+			    quid       	"565590C40081"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "full_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1448448196167904")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"565590C400A7"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "email"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1448448196205907")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"565590C400CD"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "comment"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1448448196243910")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"565590C400F3"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "help_desk_query"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1448448196281913")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"565590C40119"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "linked_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1448448196320917")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205"))
+			    quid       	"565590C40140"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
 		    uid        	0))
 	    class_attributes 	(list class_attribute_list
 		(object ClassAttribute "full_name"
@@ -10972,6 +11102,33 @@
 		    documentation 	"Íîìåð çàïðîñà â HD äëÿ çàïðîñîâ rt_uo_query"
 		    type       	"string"
 		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "linked_id"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1448448117866422")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205"))
+		    quid       	"565590750351"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
 		    exportControl 	"Public"
 		    Containment 	"By Value"))
 	    language   	"MDA Generator")
@@ -16742,7 +16899,7 @@
 			    tool       	"MDA Generator"
 			    name       	"java:*48EB598F0327_4C52CC7F0158*"
 			    value      	(value Text 
-|//#UC START# *48EB598F0327_4C52CC7F0158*¤		clearAll();¤		UvsQueryPermissions uqp = new UvsQueryPermissions();¤		try {¤			State currentState = request.getCurrentState();¤		¤			uqp.setCopies(canEditCopy(request, user));¤			uqp.setImportance(canEditImportance(request, currentState, user));¤			uqp.setDocIssuer(true);¤			uqp.setState(canEditState(request, currentState, user));¤			uqp.setRestrictedStatus(canEditRestrictedStatus(request, user));¤			uqp.setOwner(canEditOwner(request, currentState, user));¤			boolean permissionsForEdit = canEditFieldsInStateInAcceptByUOManager(request, currentState, user); ¤			uqp.setIsConnected(permissionsForEdit);¤			uqp.setInternet(permissionsForEdit);¤			uqp.setInstancy(permissionsForEdit);¤			uqp.setIncludeInVersionDate(permissionsForEdit);¤			uqp.setGarDocSource(canEditGarDocSource(request, user));¤			uqp.setExternalAuthorsFromHelpDesk(canEditExternalAuthorsFromHelpDesk(request, user));¤		}¤		catch (NotStarted e) {¤			Logs.LOG_E("AbstractRequestPermissionManagerS::canEditExternalAuthors: - catch NotStarted, how?!");¤			throw new IllegalStateException(¤					"AbstractRequestPermissionManagerS::canEditExternalAuthors: - catch NotStarted, how?!");¤		}¤		return uqp;¤		//#UC END# *48EB598F0327_4C52CC7F0158*
+|//#UC START# *48EB598F0327_4C52CC7F0158*¤		clearAll();¤		UvsQueryPermissions uqp = new UvsQueryPermissions();¤		try {¤			boolean hasLabel = DpoUvsHelper.hasOgvLabelOGV(((UVSQuery)request).getDocCard().getDocIssuer());¤			//åñëè íåò ìåòîê ÎÃÂ òî ó çàïðîñà íåëüçÿ íè÷åãî ìåíÿòü, íèêàêèå ïîëÿ¤			if(hasLabel == false){¤				uqp.setCopies(false);¤				uqp.setImportance(false);¤				uqp.setDocIssuer(false);¤				uqp.setState(false);¤				uqp.setRestrictedStatus(false);¤				uqp.setIsConnected(false);¤				uqp.setInternet(false);¤				uqp.setInstancy(false);¤				uqp.setIncludeInVersionDate(false);¤				uqp.setExternalAuthorsFromHelpDesk(false);¤			}else{¤				State currentState = request.getCurrentState();¤			¤				uqp.setCopies(canEditCopy(request, user));¤				uqp.setImportance(canEditImportance(request, currentState, user));¤				uqp.setDocIssuer(true);¤				uqp.setState(canEditState(request, currentState, user));¤				uqp.setRestrictedStatus(canEditRestrictedStatus(request, user));¤				uqp.setOwner(canEditOwner(request, currentState, user));¤				boolean permissionsForEdit = canEditFieldsInStateInAcceptByUOManager(request, currentState, user); ¤				uqp.setIsConnected(permissionsForEdit);¤				uqp.setInternet(permissionsForEdit && DocCardPermissionManagerImpl.forGarDocSpaceOnly(request));¤				uqp.setInstancy(permissionsForEdit);¤				uqp.setIncludeInVersionDate(permissionsForEdit);¤				uqp.setGarDocSource(canEditGarDocSource(request, user));¤				uqp.setExternalAuthorsFromHelpDesk(canEditExternalAuthorsFromHelpDesk(request, user));¤			}¤		}¤		catch (NotStarted e) {¤			Logs.LOG_E("AbstractRequestPermissionManagerS::canEditExternalAuthors: - catch NotStarted, how?!");¤			throw new IllegalStateException(¤					"AbstractRequestPermissionManagerS::canEditExternalAuthors: - catch NotStarted, how?!");¤		}¤		return uqp;¤		//#UC END# *48EB598F0327_4C52CC7F0158*
 			    ))
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -19505,14 +19662,14 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"IsChanged"
-		    value      	""))
+		    value      	"true"))
 	    quid       	"4741A5E80025"
 	    title      	"Main"
 	    zoom       	75
 	    max_height 	28350
 	    max_width  	21600
-	    origin_x   	0
-	    origin_y   	9471
+	    origin_x   	2226
+	    origin_y   	400
 	    items      	(list diagram_item_list
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Requests::CanNotStore" @133
 		    ShowCompartmentStereotypes 	TRUE
@@ -20311,7 +20468,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(4275, 1455)
+		    location   	(4674, 1566)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -20324,26 +20481,26 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@157
-			location   	(3236, 1198)
+			location   	(3388, 1255)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	2078
+			max_width  	2572
 			justify    	0
 			label      	"• Observer")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@157
-			location   	(3236, 1148)
+			location   	(3388, 1205)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	2078
+			max_width  	2572
 			justify    	0
 			label      	"<<Struct>>")
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"47872D5402BB"
-		    width      	2096
-		    height     	638
+		    width      	2590
+		    height     	746
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Requests::ObserverList" @158
@@ -20388,7 +20545,7 @@
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object AssociationViewNew "$UNNAMED$14" @159
-		    location   	(4270, 1064)
+		    location   	(4385, 1093)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -20405,27 +20562,27 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "$UNNAMED$15" @160
 			    Parent_View 	@159
-			    location   	(715, 311)
+			    location   	(830, 340)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"47FCAD7701DE"
 			    client     	@159
 			    supplier   	@157
 			    vertices   	(list Points
-				(4270, 1064)
-				(4270, 1135))
+				(4385, 1093)
+				(4445, 1192))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$16" @161
 			    Parent_View 	@159
-			    location   	(715, 311)
+			    location   	(830, 340)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"47FCAD7701E0"
 			    client     	@159
 			    supplier   	@158
 			    vertices   	(list Points
-				(4270, 1064)
-				(4269, 994))
+				(4385, 1093)
+				(4326, 994))
 			    line_style 	0)))
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Requests::RequestPermissionManager" @162
 		    ShowCompartmentStereotypes 	TRUE
@@ -20445,27 +20602,27 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@162
-			location   	(674, 9143)
+			location   	(649, 9141)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	608
+			max_width  	658
 			justify    	0
 			label      	"• RequestPermissionManager")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@162
-			location   	(674, 9089)
+			location   	(649, 9087)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	608
+			max_width  	658
 			justify    	0
 			label      	"<<Interface>>")
 		    icon       	"Interface"
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"48030CAD00B3"
-		    width      	626
-		    height     	254
+		    width      	676
+		    height     	260
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Primitives::long long" @163
@@ -20913,7 +21070,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@182
-			location   	(171, 10031)
+			location   	(171, 10029)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	3012
@@ -20921,7 +21078,7 @@
 			label      	"• RequestPriorityManager")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@182
-			location   	(171, 9977)
+			location   	(171, 9975)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -20933,7 +21090,7 @@
 		    fill_color 	16766935
 		    quidu      	"487D96A00378"
 		    width      	3030
-		    height     	848
+		    height     	854
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Requests::RequestNotificationGateway" @183
@@ -21528,7 +21685,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@205
-			location   	(351, 9530)
+			location   	(351, 9528)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	1770
@@ -21536,7 +21693,7 @@
 			label      	"DeficitMonitor")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@205
-			location   	(351, 9476)
+			location   	(351, 9474)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -21548,7 +21705,7 @@
 		    fill_color 	16766935
 		    quidu      	"48DBB2E101D7"
 		    width      	1788
-		    height     	416
+		    height     	422
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Requests::RequestManager" @206
@@ -21743,7 +21900,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@217
-			location   	(166, 6023)
+			location   	(166, 6026)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	508
@@ -21751,7 +21908,7 @@
 			label      	"AbstractRequestLifeCycle")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@217
-			location   	(166, 5973)
+			location   	(166, 5976)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -21762,7 +21919,7 @@
 		    fill_color 	15262200
 		    quidu      	"48E1DE4B0386"
 		    width      	526
-		    height     	168
+		    height     	163
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object InheritView "" @218
@@ -21773,10 +21930,10 @@
 		    supplier   	@217
 		    vertices   	(list Points
 			(393, 6939)
-			(393, 6129))
+			(393, 6126))
 		    line_style 	3
 		    origin_attachment 	(393, 6939)
-		    terminal_attachment 	(393, 6129))
+		    terminal_attachment 	(393, 6126))
 		(object ClassView "Class" "Logical View::Primitives::a-string" @219
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
@@ -21827,7 +21984,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@220
-			location   	(2889, 120)
+			location   	(2889, 122)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	798
@@ -21835,7 +21992,7 @@
 			label      	"RequestsProcessor")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@220
-			location   	(2889, 66)
+			location   	(2889, 68)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -21847,7 +22004,7 @@
 		    fill_color 	16766935
 		    quidu      	"4776112F036C"
 		    width      	816
-		    height     	314
+		    height     	308
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object AssociationViewNew "$UNNAMED$0" @221
@@ -21926,7 +22083,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(3777, 2013)
+		    location   	(3810, 2646)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -21939,7 +22096,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@225
-			location   	(3226, 1869)
+			location   	(3259, 2502)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	1102
@@ -21947,7 +22104,7 @@
 			label      	"• RequestManagerGetter")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@225
-			location   	(3226, 1815)
+			location   	(3259, 2448)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -21980,7 +22137,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@226
-			location   	(84, 8591)
+			location   	(84, 8589)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	2016
@@ -21988,7 +22145,7 @@
 			label      	"AbstractRequestPermissionManager")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@226
-			location   	(84, 8537)
+			location   	(84, 8535)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -22000,7 +22157,7 @@
 		    fill_color 	16766935
 		    quidu      	"48EB593602EB"
 		    width      	2034
-		    height     	416
+		    height     	422
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object InheritView "" @227
@@ -22010,8 +22167,8 @@
 		    client     	@162
 		    supplier   	@226
 		    vertices   	(list Points
-			(1007, 9076)
-			(1041, 8941))
+			(1008, 9073)
+			(1040, 8944))
 		    line_style 	0)
 		(object InheritView "" @228
 		    stereotype 	TRUE
@@ -22020,7 +22177,7 @@
 		    client     	@226
 		    supplier   	@207
 		    vertices   	(list Points
-			(1059, 8524)
+			(1058, 8521)
 			(1011, 8216))
 		    line_style 	0)
 		(object InheritView "" @229
@@ -22051,27 +22208,27 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@230
-			location   	(148, 11444)
+			location   	(136, 11442)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1792
+			max_width  	1816
 			justify    	0
 			label      	"HistoryService")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@230
-			location   	(148, 11390)
+			location   	(136, 11388)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1792
+			max_width  	1816
 			justify    	0
 			label      	"<<Interface>>")
 		    icon       	"Interface"
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"49A52BC501D6"
-		    width      	1810
-		    height     	524
+		    width      	1834
+		    height     	530
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Requests::StatePeriod" @231
@@ -22325,26 +22482,26 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@241
-			location   	(2693, 4257)
+			location   	(2694, 4257)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1838
+			max_width  	1836
 			justify    	0
 			label      	"RequestDiffBuilder")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@241
-			location   	(2693, 4203)
+			location   	(2694, 4203)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1838
+			max_width  	1836
 			justify    	0
 			label      	"<<Interface>>")
 		    icon       	"Interface"
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4A2F70DD0349"
-		    width      	1856
+		    width      	1854
 		    height     	908
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -22354,7 +22511,7 @@
 		    SuppressOperation 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
-		    location   	(5748, 999)
+		    location   	(5754, 891)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -22367,7 +22524,7 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@242
-			location   	(5647, 957)
+			location   	(5653, 849)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	202
@@ -22386,7 +22543,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(5754, 1503)
+		    location   	(5739, 528)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -22399,7 +22556,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@243
-			location   	(5411, 1471)
+			location   	(5396, 496)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	686
@@ -22407,7 +22564,7 @@
 			label      	"PhaseTimeStatisticDataMap")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@243
-			location   	(5411, 1421)
+			location   	(5396, 446)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -22422,7 +22579,7 @@
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object AssociationViewNew "$UNNAMED$47" @244
-		    location   	(5750, 1230)
+		    location   	(5746, 729)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -22439,19 +22596,19 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "$UNNAMED$48" @245
 			    Parent_View 	@244
-			    location   	(818, -348)
+			    location   	(814, -849)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4AC19C8C00F1"
 			    client     	@244
 			    supplier   	@242
 			    vertices   	(list Points
-				(5750, 1230)
-				(5748, 1053))
+				(5746, 729)
+				(5751, 836))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$49" @246
 			    Parent_View 	@244
-			    location   	(818, -348)
+			    location   	(814, -849)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -22468,12 +22625,12 @@
 			    client     	@244
 			    supplier   	@243
 			    vertices   	(list Points
-				(5750, 1230)
-				(5752, 1408))
+				(5746, 729)
+				(5741, 622))
 			    line_style 	0
 			    label      	(object SegLabel @247
 				Parent_View 	@246
-				location   	(5751, 1365)
+				location   	(5742, 663)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -22691,7 +22848,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@255
-			location   	(57, 522)
+			location   	(57, 524)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	2958
@@ -22699,7 +22856,7 @@
 			label      	"• CommonRequestManager")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@255
-			location   	(57, 468)
+			location   	(57, 470)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -22711,7 +22868,7 @@
 		    fill_color 	16766935
 		    quidu      	"4741AB500371"
 		    width      	2976
-		    height     	2204
+		    height     	2198
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::Entities::Typed" @256
@@ -23091,31 +23248,31 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@269
-			location   	(876, 4140)
+			location   	(857, 4113)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1674
+			max_width  	1712
 			justify    	0
 			label      	"• AbstractRequest")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@269
-			location   	(876, 4086)
+			location   	(857, 4059)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1674
+			max_width  	1712
 			justify    	0
 			label      	"<<Interface>>")
 		    icon       	"Interface"
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4757F69E0296"
-		    width      	1692
-		    height     	2474
+		    width      	1730
+		    height     	2528
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object AssociationViewNew "$UNNAMED$3" @270
-		    location   	(779, 5304)
+		    location   	(770, 5304)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -23132,31 +23289,31 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "$UNNAMED$4" @271
 			    Parent_View 	@270
-			    location   	(332, 2679)
+			    location   	(323, 2679)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"47BA5D0600C1"
 			    client     	@270
 			    supplier   	@269
 			    vertices   	(list Points
-				(779, 5304)
-				(867, 5304))
+				(770, 5304)
+				(848, 5304))
 			    line_style 	3
-			    origin_attachment 	(779, 5304)
-			    terminal_attachment 	(867, 5304))
+			    origin_attachment 	(770, 5304)
+			    terminal_attachment 	(848, 5304))
 			(object RoleView "$UNNAMED$5" @272
 			    Parent_View 	@270
-			    location   	(332, 2679)
+			    location   	(323, 2679)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"47BA5D0600C3"
 			    client     	@270
 			    supplier   	@265
 			    vertices   	(list Points
-				(779, 5304)
+				(770, 5304)
 				(692, 5304))
 			    line_style 	3
-			    origin_attachment 	(779, 5304)
+			    origin_attachment 	(770, 5304)
 			    terminal_attachment 	(692, 5304))))
 		(object InheritView "" @273
 		    stereotype 	TRUE
@@ -23165,11 +23322,11 @@
 		    client     	@200
 		    supplier   	@269
 		    vertices   	(list Points
-			(2683, 5527)
-			(2559, 5527))
+			(2683, 5525)
+			(2578, 5525))
 		    line_style 	3
-		    origin_attachment 	(2683, 5527)
-		    terminal_attachment 	(2559, 5527))
+		    origin_attachment 	(2683, 5525)
+		    terminal_attachment 	(2578, 5525))
 		(object InheritView "" @274
 		    stereotype 	TRUE
 		    line_color 	3342489
@@ -23177,7 +23334,7 @@
 		    client     	@269
 		    supplier   	@254
 		    vertices   	(list Points
-			(866, 4863)
+			(847, 4853)
 			(511, 4675))
 		    line_style 	0)
 		(object RealizeView "" @275
@@ -23187,13 +23344,13 @@
 		    client     	@269
 		    supplier   	@217
 		    vertices   	(list Points
-			(867, 6017)
+			(848, 6017)
 			(683, 6017))
 		    line_style 	3
-		    origin_attachment 	(867, 6017)
+		    origin_attachment 	(848, 6017)
 		    terminal_attachment 	(683, 6017))
 		(object AssociationViewNew "$UNNAMED$59" @276
-		    location   	(3023, 6282)
+		    location   	(3032, 6283)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -23210,7 +23367,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "notification_gateway" @277
 			    Parent_View 	@276
-			    location   	(1310, 972)
+			    location   	(1319, 973)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -23223,7 +23380,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @278
 				Parent_View 	@277
-				location   	(2958, 6324)
+				location   	(2967, 6325)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -23245,7 +23402,7 @@
 				orientation 	1)
 			    stereotype 	(object SegLabel @279
 				Parent_View 	@277
-				location   	(2858, 6240)
+				location   	(2862, 6241)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -23270,27 +23427,27 @@
 			    client     	@276
 			    supplier   	@266
 			    vertices   	(list Points
-				(3023, 6282)
-				(3487, 6282))
+				(3032, 6283)
+				(3487, 6283))
 			    line_style 	3
-			    origin_attachment 	(3023, 6282)
-			    terminal_attachment 	(3487, 6282))
+			    origin_attachment 	(3032, 6283)
+			    terminal_attachment 	(3487, 6283))
 			(object RoleView "$UNNAMED$60" @280
 			    Parent_View 	@276
-			    location   	(1310, 972)
+			    location   	(1319, 973)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4B6A8504039F"
 			    client     	@276
 			    supplier   	@269
 			    vertices   	(list Points
-				(3023, 6282)
-				(2559, 6282))
+				(3032, 6283)
+				(2578, 6283))
 			    line_style 	3
-			    origin_attachment 	(3023, 6282)
-			    terminal_attachment 	(2559, 6282))))
+			    origin_attachment 	(3032, 6283)
+			    terminal_attachment 	(2578, 6283))))
 		(object AssociationViewNew "$UNNAMED$61" @281
-		    location   	(682, 4438)
+		    location   	(672, 4430)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -23307,7 +23464,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "mdcManager" @282
 			    Parent_View 	@281
-			    location   	(-1031, -872)
+			    location   	(-1041, -880)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -23320,7 +23477,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @283
 				Parent_View 	@282
-				location   	(641, 4328)
+				location   	(637, 4324)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -23342,7 +23499,7 @@
 				orientation 	1)
 			    stereotype 	(object SegLabel @284
 				Parent_View 	@282
-				location   	(614, 4244)
+				location   	(610, 4240)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -23367,20 +23524,20 @@
 			    client     	@281
 			    supplier   	@268
 			    vertices   	(list Points
-				(682, 4438)
+				(672, 4430)
 				(499, 4283))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$62" @285
 			    Parent_View 	@281
-			    location   	(-1031, -872)
+			    location   	(-1041, -880)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4B6ADAAE03B9"
 			    client     	@281
 			    supplier   	@269
 			    vertices   	(list Points
-				(682, 4438)
-				(866, 4594))
+				(672, 4430)
+				(847, 4578))
 			    line_style 	0)))
 		(object InheritView "" @286
 		    stereotype 	TRUE
@@ -23389,7 +23546,7 @@
 		    client     	@269
 		    supplier   	@256
 		    vertices   	(list Points
-			(1421, 4072)
+			(1415, 4045)
 			(1389, 3938))
 		    line_style 	0)
 		(object InheritView "" @287

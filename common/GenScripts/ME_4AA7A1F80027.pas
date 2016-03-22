@@ -2,6 +2,8 @@ unit MainMenu_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenu_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "MainMenu" MUID: (4AA7A1F80027)
+// Имя типа: "TMainMenuModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

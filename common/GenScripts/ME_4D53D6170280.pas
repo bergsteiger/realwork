@@ -3,6 +3,7 @@ unit ColumnResizeByMousePrimTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\ColumnResizeByMousePrimTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TColumnResizeByMousePrimTest" MUID: (4D53D6170280)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

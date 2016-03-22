@@ -3,6 +3,7 @@ unit StyleEditorNavigatorKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\StyleEditorNavigatorKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "StyleEditorNavigatorKeywordsPack" MUID: (2C3728225FEF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::StyleEditorNavigator TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_StyleEditorNavigator
 
  Tkw_StyleEditorNavigator_Control_StyleTreeView = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::StyleTreeView TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorNavigator_Control_StyleTreeView
 
  Tkw_StyleEditorNavigator_Control_StyleTreeView_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwStyleEditorNavigatorFormStyleTreeView
 
-class function Tkw_Form_StyleEditorNavigator.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::StyleEditorNavigator';
-end;//Tkw_Form_StyleEditorNavigator.GetWordNameForRegister
-
 function Tkw_Form_StyleEditorNavigator.GetString: AnsiString;
 begin
  Result := 'StyleEditorNavigatorForm';
 end;//Tkw_Form_StyleEditorNavigator.GetString
 
-class function Tkw_StyleEditorNavigator_Control_StyleTreeView.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_StyleEditorNavigator.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::StyleTreeView';
-end;//Tkw_StyleEditorNavigator_Control_StyleTreeView.GetWordNameForRegister
+ Result := 'форма::StyleEditorNavigator';
+end;//Tkw_Form_StyleEditorNavigator.GetWordNameForRegister
 
 function Tkw_StyleEditorNavigator_Control_StyleTreeView.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_StyleEditorNavigator_Control_StyleTreeView.RegisterInEngine
+
+class function Tkw_StyleEditorNavigator_Control_StyleTreeView.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::StyleTreeView';
+end;//Tkw_StyleEditorNavigator_Control_StyleTreeView.GetWordNameForRegister
 
 procedure Tkw_StyleEditorNavigator_Control_StyleTreeView_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(StyleTreeView(aCtx, l_aStyleEditorNavigatorForm));
 end;//TkwStyleEditorNavigatorFormStyleTreeView.DoDoIt
 
-class function TkwStyleEditorNavigatorFormStyleTreeView.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorNavigatorForm.StyleTreeView';
-end;//TkwStyleEditorNavigatorFormStyleTreeView.GetWordNameForRegister
-
 procedure TkwStyleEditorNavigatorFormStyleTreeView.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwStyleEditorNavigatorFormStyleTreeView.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorNavigatorForm)]);
 end;//TkwStyleEditorNavigatorFormStyleTreeView.ParamsTypes
+
+class function TkwStyleEditorNavigatorFormStyleTreeView.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorNavigatorForm.StyleTreeView';
+end;//TkwStyleEditorNavigatorFormStyleTreeView.GetWordNameForRegister
 
 initialization
  Tkw_Form_StyleEditorNavigator.RegisterInEngine;

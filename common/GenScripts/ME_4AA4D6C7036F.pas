@@ -2,6 +2,8 @@ unit fsList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\fsList.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "List" MUID: (4AA4D6C7036F)
+// Имя типа: "Tfs_List"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit F1Like_InternalOperations_Controls;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\F1Like_InternalOperations_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "InternalOperations" MUID: (4F71AD0E01FE)
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 

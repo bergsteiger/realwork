@@ -2,6 +2,7 @@ unit l3ScreenService;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ScreenService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3ScreenService" MUID: (556EE57803CD)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

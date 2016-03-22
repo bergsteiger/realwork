@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "BaseTextOperations" MUID: (4AE1A69E0156)
+// Имя типа: "_BaseTextOperations_"
 
 {$Define BaseTextOperations_imp}
 

@@ -2,6 +2,7 @@ unit vcmAggregateRefList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmAggregateRefList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmAggregateRefList" MUID: (55E6ABBA0293)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

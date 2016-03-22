@@ -30,6 +30,8 @@ uses
 type
 //#UC START# *45F7ECA8034Bci*
 //#UC END# *45F7ECA8034Bci*
+//#UC START# *45F7ECA8034Bcit*
+//#UC END# *45F7ECA8034Bcit*
  DefaultNodeBase = {abstract} class(FlagNodeBase)
  private
  // private methods
@@ -170,7 +172,7 @@ function DefaultNodeBase.pm_GetChildrenFlags: TFlagMask;
 //#UC END# *45F95D2600AB_45F7ECA8034Bget_var*
 begin
 //#UC START# *45F95D2600AB_45F7ECA8034Bget_impl*
- Result := f_children_flags
+ !!! Needs to be implemented !!!
 //#UC END# *45F95D2600AB_45F7ECA8034Bget_impl*
 end;//DefaultNodeBase.pm_GetChildrenFlags
 
@@ -179,7 +181,7 @@ procedure DefaultNodeBase.pm_SetOwnerTree(aValue: TreeBase);
 //#UC END# *45F9675A000F_45F7ECA8034Bset_var*
 begin
 //#UC START# *45F9675A000F_45F7ECA8034Bset_impl*
- f_owner_tree := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *45F9675A000F_45F7ECA8034Bset_impl*
 end;//DefaultNodeBase.pm_SetOwnerTree
 

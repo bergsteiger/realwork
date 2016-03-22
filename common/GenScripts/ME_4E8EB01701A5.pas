@@ -2,6 +2,7 @@ unit ddAutolinkDocEntry;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAutolinkDocEntry.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddAutolinkDocEntry" MUID: (4E8EB01701A5)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -3,6 +3,7 @@ unit PrimUserList_admUserList_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserList_admUserList_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "admUserList" MUID: (4C7CE4BB0161)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_admUserList = {final} class(TtfwInteger)
   {* Слово словаря для типа формы admUserList }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_admUserList
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_admUserList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::admUserList';
-end;//Tkw_FormUserType_admUserList.GetWordNameForRegister
-
 function Tkw_FormUserType_admUserList.GetInteger: Integer;
 begin
  Result := admUserList;
 end;//Tkw_FormUserType_admUserList.GetInteger
+
+class function Tkw_FormUserType_admUserList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::admUserList';
+end;//Tkw_FormUserType_admUserList.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

@@ -7,6 +7,8 @@ unit kwInclude;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwInclude.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "Include" MUID: (4DC1949F00E1)
+// Имя типа: "TkwInclude"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

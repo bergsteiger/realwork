@@ -1,59 +1,49 @@
 unit kwPopEditorInsertFormula;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwPopEditorInsertFormula.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::EditorKeyWords::pop_editor_InsertFormula
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorInsertFormula.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_InsertFormula" MUID: (502A2F3203D2)
+// Имя типа: "TkwPopEditorInsertFormula"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackWord,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwPopEditorInsertFormula = {final scriptword} class(TkwEditorFromStackWord)
- protected
- // realized methods
+ TkwPopEditorInsertFormula = {final} class(TkwEditorFromStackWord)
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorInsertFormula
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  evCommonUtils,
-  evCustomEditor
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwPopEditorInsertFormula
+ l3ImplUses
+ , evCommonUtils
+ , evCustomEditor
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorInsertFormula.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_502A2F3203D2_var*
 //#UC END# *4F4CB81200CA_502A2F3203D2_var*
 begin
@@ -63,17 +53,13 @@ begin
 end;//TkwPopEditorInsertFormula.DoWithEditor
 
 class function TkwPopEditorInsertFormula.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:InsertFormula';
 end;//TkwPopEditorInsertFormula.GetWordNameForRegister
 
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация pop_editor_InsertFormula
  TkwPopEditorInsertFormula.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация pop_editor_InsertFormula }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

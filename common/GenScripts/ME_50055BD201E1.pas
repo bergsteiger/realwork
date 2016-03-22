@@ -2,6 +2,7 @@ unit NOT_FINISHED_DictionRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\NOT_FINISHED_DictionRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DictionRes" MUID: (50055BD201E1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

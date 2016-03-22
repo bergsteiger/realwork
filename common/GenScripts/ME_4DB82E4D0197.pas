@@ -2,6 +2,7 @@ unit kwDocumentsCacheClear;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwDocumentsCacheClear.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwDocumentsCacheClear" MUID: (4DB82E4D0197)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

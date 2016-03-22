@@ -2,6 +2,7 @@ unit vcmMessageQueue;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMessageQueue.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmMessageQueue" MUID: (4E089AEB01DA)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -2,6 +2,7 @@ unit evMemoProcessor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evMemoProcessor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevMemoProcessor" MUID: (4864C01000A7)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

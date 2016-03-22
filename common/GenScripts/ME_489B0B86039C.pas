@@ -3,6 +3,7 @@ unit atCycleOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atCycleOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatCycleOperation" MUID: (489B0B86039C)
 
 interface
 

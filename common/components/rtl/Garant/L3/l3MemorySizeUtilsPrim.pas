@@ -2,6 +2,7 @@ unit l3MemorySizeUtilsPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3MemorySizeUtilsPrim.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3MemorySizeUtilsPrim" MUID: (51DADE55035E)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

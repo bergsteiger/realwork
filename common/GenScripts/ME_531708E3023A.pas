@@ -2,6 +2,7 @@ unit askRequest;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\askRequest.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TaskRequest" MUID: (531708E3023A)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

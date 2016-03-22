@@ -1,58 +1,40 @@
 unit K260442347;
+ {* [$260442347] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/K260442347.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::NSRC 7.7::K260442347
-//
-// [$260442347]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K260442347.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K260442347" MUID: (4DB0266702AF)
+// Имя типа: "TK260442347"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  EVDtoNSRCWriterTest
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , EVDtoNSRCWriterTest
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK260442347 = class(TEVDtoNSRCWriterTest)
   {* [$260442347] }
- protected
- // realized methods
+  protected
    function IsNSRCPlus: Boolean; override;
- protected
- // overridden protected methods
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK260442347
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK260442347
+ l3ImplUses
+ , TestFrameWork
+;
 
 function TK260442347.IsNSRCPlus: Boolean;
 //#UC START# *4B8545CC03D2_4DB0266702AF_var*
@@ -64,20 +46,19 @@ begin
 end;//TK260442347.IsNSRCPlus
 
 function TK260442347.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'NSRC 7.7';
 end;//TK260442347.GetFolder
 
 function TK260442347.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4DB0266702AF';
 end;//TK260442347.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK260442347.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

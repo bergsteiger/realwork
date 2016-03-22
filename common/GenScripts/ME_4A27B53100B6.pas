@@ -2,6 +2,7 @@ unit NOT_FINISHED_evControlsBlockHotSpotTester;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evControlsBlockHotSpotTester.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevControlsBlockHotSpotTester" MUID: (4A27B53100B6)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

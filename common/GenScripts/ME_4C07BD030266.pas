@@ -2,6 +2,7 @@ unit evdEmptyRowFilter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evdEmptyRowFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdEmptyRowFilter" MUID: (4C07BD030266)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

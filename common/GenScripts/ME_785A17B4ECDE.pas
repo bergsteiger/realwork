@@ -3,6 +3,7 @@ unit ConfigurationListKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\ConfigurationListKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "ConfigurationListKeywordsPack" MUID: (785A17B4ECDE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::ConfigurationList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ConfigurationList
 
  Tkw_ConfigurationList_Control_tvConfs = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::tvConfs TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConfigurationList_Control_tvConfs
 
  Tkw_ConfigurationList_Control_tvConfs_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnConfigurationListTvConfs
 
-class function Tkw_Form_ConfigurationList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ConfigurationList';
-end;//Tkw_Form_ConfigurationList.GetWordNameForRegister
-
 function Tkw_Form_ConfigurationList.GetString: AnsiString;
 begin
  Result := 'en_ConfigurationList';
 end;//Tkw_Form_ConfigurationList.GetString
 
-class function Tkw_ConfigurationList_Control_tvConfs.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_ConfigurationList.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::tvConfs';
-end;//Tkw_ConfigurationList_Control_tvConfs.GetWordNameForRegister
+ Result := 'форма::ConfigurationList';
+end;//Tkw_Form_ConfigurationList.GetWordNameForRegister
 
 function Tkw_ConfigurationList_Control_tvConfs.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_ConfigurationList_Control_tvConfs.RegisterInEngine
+
+class function Tkw_ConfigurationList_Control_tvConfs.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvConfs';
+end;//Tkw_ConfigurationList_Control_tvConfs.GetWordNameForRegister
 
 procedure Tkw_ConfigurationList_Control_tvConfs_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(tvConfs(aCtx, l_aen_ConfigurationList));
 end;//TkwEnConfigurationListTvConfs.DoDoIt
 
-class function TkwEnConfigurationListTvConfs.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_ConfigurationList.tvConfs';
-end;//TkwEnConfigurationListTvConfs.GetWordNameForRegister
-
 procedure TkwEnConfigurationListTvConfs.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwEnConfigurationListTvConfs.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConfigurationList)]);
 end;//TkwEnConfigurationListTvConfs.ParamsTypes
+
+class function TkwEnConfigurationListTvConfs.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_ConfigurationList.tvConfs';
+end;//TkwEnConfigurationListTvConfs.GetWordNameForRegister
 
 initialization
  Tkw_Form_ConfigurationList.RegisterInEngine;

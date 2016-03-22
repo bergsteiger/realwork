@@ -2,6 +2,7 @@ unit ddHyperlink;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddHyperlink.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddHyperlink" MUID: (54D9AC570374)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -42,10 +43,12 @@ procedure TddHyperlink.Write2Generator(const Generator: Ik2TagGenerator;
 //#UC START# *54D888450259_54D9AC570374_var*
 var
  j       : Integer;
+ l_HasURL: Boolean;
  l_Target: TddHyperlinkTarget;
 //#UC END# *54D888450259_54D9AC570374_var*
 begin
 //#UC START# *54D888450259_54D9AC570374_impl*
+ l_HasURL := not URL.Empty;
  StartHyperlink(Generator);
  try
   Generator.AddIntegerAtom(k2_tiStart, Start);
@@ -55,8 +58,10 @@ begin
   for j := 0 to TargetList.Hi do
   begin
    l_Target := TargetList[j];
-   l_Target.Write2Generator(Generator, LiteVersion);
+   l_Target.Write2Generator(Generator, aLiteVersion);
   end; // for j
+  if l_HasURL then
+   Generator.AddStringAtom(k2_tiURL, URL.AsWStr);
  finally
   Generator.Finish;
  end; // idHyperlink

@@ -2,6 +2,7 @@ unit ToolsAPI;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Toolsapi\ToolsAPI.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ToolsAPI" MUID: (52A1F018005B)
 
 interface
 

@@ -2,6 +2,8 @@ unit PrimeTestRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\PrimeTestRes.pas"
 // Стереотип: "VCMTestApplication"
+// Элемент модели: "PrimeTest" MUID: (5123800A0080)
+// Имя типа: "TPrimeTestRes"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

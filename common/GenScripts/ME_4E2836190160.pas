@@ -2,6 +2,7 @@ unit evDocumentEliminator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDocumentEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentEliminator" MUID: (4E2836190160)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

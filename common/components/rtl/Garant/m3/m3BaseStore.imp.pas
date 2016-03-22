@@ -5,7 +5,7 @@
 // Библиотека "m3"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3BaseStore.imp.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi For Archi::m3::Streams::m3BaseStore
+// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::m3::Streams::m3BaseStore
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

@@ -3,6 +3,7 @@ unit dsTranslation;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsTranslation.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsTranslation" MUID: (4958986800FE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

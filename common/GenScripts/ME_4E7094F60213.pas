@@ -2,6 +2,7 @@ unit nevPageBreakFormatInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevPageBreakFormatInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevPageBreakFormatInfo" MUID: (4E7094F60213)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -31,6 +31,8 @@ type
 
 //#UC START# *460A6EF8024Bci*
 //#UC END# *460A6EF8024Bci*
+//#UC START# *460A6EF8024Bcit*
+//#UC END# *460A6EF8024Bcit*
  ApplicationHelper = class
  private
  // private fields
@@ -51,7 +53,6 @@ type
    prime : ;
    prime_xml_save : ;
    server_facade : ServerFacade;
-   link : ;
    user_journal : ;
     {* Журнал работы}
    tree_factory : ;
@@ -64,6 +65,7 @@ type
    main_menu : ;
    decisions_archive_support : ;
    document_type_resolver : ;
+   link_manager : ;
    f_uid : ;
     {* Поле для свойства uid}
  private
@@ -104,7 +106,6 @@ type
      {* Очистка кешированных серверных объектов }
    procedure Init(server_facade: ServerFacade); virtual;
    constructor Make; virtual;
-   procedure GetCachedLink; virtual;
    procedure GetCachedUserJournal; virtual;
    procedure GetCachedTreeFactory; virtual;
    procedure GetCachedPropertyManager; virtual;
@@ -118,6 +119,9 @@ type
    procedure GetCachedMainMenu; virtual;
    procedure GetCachedDecisionsArchiveSupport; virtual;
    procedure GetCachedDocumentTypeResolver; virtual;
+   procedure GetCachedLinkManager; virtual;
+   class function Exists: Boolean;
+     {* Проверяет создан экземпляр синглетона или нет }
  private
  // private properties
    property uid: 
@@ -401,15 +405,6 @@ begin
 //#UC END# *474705300058_460A6EF8024B_impl*
 end;//ApplicationHelper.ServerFacade
 
-procedure ApplicationHelper.GetCachedLink;
-//#UC START# *4A4B2CED0377_460A6EF8024B_var*
-//#UC END# *4A4B2CED0377_460A6EF8024B_var*
-begin
-//#UC START# *4A4B2CED0377_460A6EF8024B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A4B2CED0377_460A6EF8024B_impl*
-end;//ApplicationHelper.GetCachedLink
-
 procedure ApplicationHelper.GetCachedUserJournal;
 //#UC START# *4A80371200CE_460A6EF8024B_var*
 //#UC END# *4A80371200CE_460A6EF8024B_var*
@@ -508,6 +503,21 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4FE86FAD00A3_460A6EF8024B_impl*
 end;//ApplicationHelper.GetCachedDocumentTypeResolver
+
+procedure ApplicationHelper.GetCachedLinkManager;
+//#UC START# *55952CE501E5_460A6EF8024B_var*
+//#UC END# *55952CE501E5_460A6EF8024B_var*
+begin
+//#UC START# *55952CE501E5_460A6EF8024B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *55952CE501E5_460A6EF8024B_impl*
+end;//ApplicationHelper.GetCachedLinkManager
+
+class function ApplicationHelper.Exists: Boolean;
+ {-}
+begin
+ Result := g_ApplicationHelper <> nil;
+end;//ApplicationHelper.Exists
 
 //#UC START# *460A6EF8024Bimpl*
 //#UC END# *460A6EF8024Bimpl*

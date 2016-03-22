@@ -2,6 +2,8 @@ unit RTFWriterTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\RTFWriterTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "RTFWriterTest" MUID: (4BACDEF50001)
+// Имя типа: "TRTFWriterTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

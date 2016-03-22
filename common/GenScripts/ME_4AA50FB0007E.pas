@@ -3,6 +3,7 @@ unit deAdmin;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\deAdmin.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdeAdmin" MUID: (4AA50FB0007E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -5,9 +5,12 @@ unit evSearch;
 { Автор: Люлин А.В. ©     }
 { Модуль: evSearch -      }
 { Начат: 27.05.1998 14:39 }
-{ $Id: evSearch.pas,v 1.323 2015/09/24 11:26:24 dinishev Exp $ }
+{ $Id: evSearch.pas,v 1.324 2016/02/05 12:30:25 dinishev Exp $ }
 
 // $Log: evSearch.pas,v $
+// Revision 1.324  2016/02/05 12:30:25  dinishev
+// {Requestlink:615922114}. Оказывается незакоммител.
+//
 // Revision 1.323  2015/09/24 11:26:24  dinishev
 // {Requestlink:607752167}
 //
@@ -3133,7 +3136,7 @@ begin
   else
    theSel.rFinish := aSel.rFinish;
  end//Layer = l3NilLong..
- else
+ else                                             
  begin
   Result := false;
   if (SearchPlace <> ev_spPara) then
@@ -3142,7 +3145,7 @@ begin
    aPara.Attr[k2_tiSegments].IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@_SearchLayer));
   end;//SearchPlace <> ev_spPara
   if Result then
-   if (aText.Len <= theSel.rFinish) then
+   if (aText <> nil) and (aText.Len <= theSel.rFinish) then
     theSel.rFinish := ev_cpAtEnd;
  end;//Layer = l3NilLong..
 end;

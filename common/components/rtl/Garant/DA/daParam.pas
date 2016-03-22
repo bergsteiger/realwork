@@ -45,6 +45,9 @@ type
    procedure Set_AsString(const aValue: AnsiString);
    function Get_AsStDate: TStDate;
    procedure Set_AsStDate(aValue: TStDate);
+   function Get_AsStTime: TStTime;
+   procedure Set_AsStTime(aValue: TStTime);
+   function Get_ParamType: TdaParamType;
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -179,13 +182,40 @@ begin
 end;//TdaParam.Get_AsStDate
 
 procedure TdaParam.Set_AsStDate(aValue: TStDate);
-//#UC START# *563C8B50016A_5555AD2A0004set_var*                                       pgDataConverter
+//#UC START# *563C8B50016A_5555AD2A0004set_var*
 //#UC END# *563C8B50016A_5555AD2A0004set_var*
 begin
 //#UC START# *563C8B50016A_5555AD2A0004set_impl*
  f_Converter.ParamToDataBase(f_Description, da_dtDate, @aValue, f_Buffer);
 //#UC END# *563C8B50016A_5555AD2A0004set_impl*
 end;//TdaParam.Set_AsStDate
+
+function TdaParam.Get_AsStTime: TStTime;
+//#UC START# *564C37CF00C4_5555AD2A0004get_var*
+//#UC END# *564C37CF00C4_5555AD2A0004get_var*
+begin
+//#UC START# *564C37CF00C4_5555AD2A0004get_impl*
+ f_Converter.ParamFromDataBase(f_Description, da_dtTime, f_Buffer, @Result);
+//#UC END# *564C37CF00C4_5555AD2A0004get_impl*
+end;//TdaParam.Get_AsStTime
+
+procedure TdaParam.Set_AsStTime(aValue: TStTime);
+//#UC START# *564C37CF00C4_5555AD2A0004set_var*
+//#UC END# *564C37CF00C4_5555AD2A0004set_var*
+begin
+//#UC START# *564C37CF00C4_5555AD2A0004set_impl*
+ f_Converter.ParamToDataBase(f_Description, da_dtTime, @aValue, f_Buffer);
+//#UC END# *564C37CF00C4_5555AD2A0004set_impl*
+end;//TdaParam.Set_AsStTime
+
+function TdaParam.Get_ParamType: TdaParamType;
+//#UC START# *5666822101CA_5555AD2A0004get_var*
+//#UC END# *5666822101CA_5555AD2A0004get_var*
+begin
+//#UC START# *5666822101CA_5555AD2A0004get_impl*
+ Result := f_Description.ParamType;
+//#UC END# *5666822101CA_5555AD2A0004get_impl*
+end;//TdaParam.Get_ParamType
 
 procedure TdaParam.Cleanup;
 //#UC START# *479731C50290_5555AD2A0004_var*

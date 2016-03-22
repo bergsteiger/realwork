@@ -2,6 +2,8 @@ unit toK;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\toK.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "toK" MUID: (52F250640165)
+// Имя типа: "TtoK"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

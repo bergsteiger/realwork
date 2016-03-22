@@ -3,6 +3,8 @@ unit Text_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Text_Form.pas"
 // Стереотип: "VCMFinalContainer"
+// Элемент модели: "Text" MUID: (4A7709C70002)
+// Имя типа: "TTextForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

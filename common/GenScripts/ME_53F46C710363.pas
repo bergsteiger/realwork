@@ -2,6 +2,7 @@ unit csAutoClassTask;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csAutoClassTask.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsAutoClassTask" MUID: (53F46C710363)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

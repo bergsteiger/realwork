@@ -1,55 +1,37 @@
 unit EVDtoNSRCOldWriterTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/EVDtoNSRCOldWriterTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::NSRCTests::TEVDtoNSRCOldWriterTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoNSRCOldWriterTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TEVDtoNSRCOldWriterTest" MUID: (4B8546940034)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  EVDtoNSRCWriterTest
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , EVDtoNSRCWriterTest
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TEVDtoNSRCOldWriterTest = {abstract} class(TEVDtoNSRCWriterTest)
- protected
- // realized methods
+  protected
    function IsNSRCPlus: Boolean; override;
- protected
- // overridden protected methods
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TEVDtoNSRCOldWriterTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TEVDtoNSRCOldWriterTest
+ l3ImplUses
+ , TestFrameWork
+;
 
 function TEVDtoNSRCOldWriterTest.IsNSRCPlus: Boolean;
 //#UC START# *4B8545CC03D2_4B8546940034_var*
@@ -61,17 +43,16 @@ begin
 end;//TEVDtoNSRCOldWriterTest.IsNSRCPlus
 
 function TEVDtoNSRCOldWriterTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'NSRCTests';
 end;//TEVDtoNSRCOldWriterTest.GetFolder
 
 function TEVDtoNSRCOldWriterTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4B8546940034';
 end;//TEVDtoNSRCOldWriterTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

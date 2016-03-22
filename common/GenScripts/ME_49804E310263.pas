@@ -3,6 +3,7 @@ unit PresentationInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\PresentationInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "PresentationInterfaces" MUID: (49804E310263)
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 

@@ -2,7 +2,7 @@
 //
 // Модуль: "w:/common/components/rtl/Garant/EVD/Const/Const.h"
 // генератор заголовочных файлов C++ (.h)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi::EVD::Const
+// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Low Level::EVD::Const
 //
 // Константы физического представления формата evd.
 //
@@ -10,8 +10,8 @@
 // Все права принадлежат ООО НПП "Гарант-Сервис".
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#ifndef __SHARED_DELPHI_EVD_CONST_H__
-#define __SHARED_DELPHI_EVD_CONST_H__
+#ifndef __SHARED_DELPHI_LOW_LEVEL_EVD_CONST_H__
+#define __SHARED_DELPHI_LOW_LEVEL_EVD_CONST_H__
 
 #include "shared/Core/sys/std_inc.h"
 
@@ -72,5 +72,5 @@ static const long pack_id_DefaultChild = pack_id_Finish - 4; // дочерний тег с т
 } // namespace EVD
 
 
-#endif //__SHARED_DELPHI_EVD_CONST_H__
+#endif //__SHARED_DELPHI_LOW_LEVEL_EVD_CONST_H__
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

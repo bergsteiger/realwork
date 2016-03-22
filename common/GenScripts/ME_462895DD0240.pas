@@ -2,6 +2,7 @@ unit RedactionInfoListHelper;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\RedactionInfoListHelper.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "RedactionInfoListHelper" MUID: (462895DD0240)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

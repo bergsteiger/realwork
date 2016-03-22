@@ -2,6 +2,7 @@ unit evPhoneEdit;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evPhoneEdit.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevPhoneEdit" MUID: (48D25DD8039D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

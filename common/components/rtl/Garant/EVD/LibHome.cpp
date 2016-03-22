@@ -2,7 +2,7 @@
 //
 // Модуль: "w:/common/components/rtl/Garant/EVD/LibHome.cpp"
 // генератор файлов реализации C++ (.cpp)
-// Generated from UML model, root element: <<Library::Category>> Shared Delphi::EVD
+// Generated from UML model, root element: <<Library::Category>> Shared Delphi Low Level::EVD
 //
 // Содержит классы и методы для обработки документов в формате EVD.
 //

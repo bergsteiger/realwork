@@ -2,6 +2,7 @@ unit NOT_FINISHED_CsServer;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_CsServer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TCsServer" MUID: (5395BFCE0389)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

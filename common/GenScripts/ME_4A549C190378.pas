@@ -3,6 +3,7 @@ unit atQuery;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atQuery.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatQuery" MUID: (4A549C190378)
 
 interface
 

@@ -175,6 +175,18 @@ type
  , dd_wuTwips
  );//TddRTFWidthUnits
 
+ TddLiteVersion = (
+   dd_lvNone
+ , dd_lvStyleOnly
+ , dd_lvTextAlign
+ );//TddLiteVersion
+
+ TddCharCapsType = (
+   ccNone
+ , ccAllCaps
+ , ccSmallCaps
+ );//TddCharCapsType
+
 implementation
 
 end.

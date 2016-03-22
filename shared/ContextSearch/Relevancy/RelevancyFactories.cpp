@@ -90,10 +90,10 @@ IAlgorithm* IAlgorithmFactoryManager::make (const Data& req_data, const Algorith
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
-// implementation of factory manager methods for IBlockAlgorithm
-bool IBlockAlgorithmFactoryManager::s_was_destroyed = false;
+// implementation of factory manager methods for IBlocksAlgorithm
+bool IBlocksAlgorithmFactoryManager::s_was_destroyed = false;
 
-IBlockAlgorithmFactoryManager::IBlockAlgorithmFactoryManager () /*throw (Core::Root::FactoryManagerWasDestroyed)*/
+IBlocksAlgorithmFactoryManager::IBlocksAlgorithmFactoryManager () /*throw (Core::Root::FactoryManagerWasDestroyed)*/
 	: m_has_registred_factories(false)
 {
 	if (s_was_destroyed == true) {
@@ -101,12 +101,12 @@ IBlockAlgorithmFactoryManager::IBlockAlgorithmFactoryManager () /*throw (Core::R
 	}
 }
 
-IBlockAlgorithmFactoryManager::~IBlockAlgorithmFactoryManager () {
+IBlocksAlgorithmFactoryManager::~IBlocksAlgorithmFactoryManager () {
 	s_was_destroyed = true;
 }
 
-void IBlockAlgorithmFactoryManager::register_factory (
-	IBlockAlgorithmAbstractFactory* factory, Core::Root::FactoryPriority priority
+void IBlocksAlgorithmFactoryManager::register_factory (
+	IBlocksAlgorithmAbstractFactory* factory, Core::Root::FactoryPriority priority
 ) /*throw (Core::Root::DuplicatedFactoryKey, Core::Root::FactoryManagerWasDestroyed)*/ {
 	if (s_was_destroyed == true) {
 		throw Core::Root::FactoryManagerWasDestroyed ();
@@ -114,34 +114,34 @@ void IBlockAlgorithmFactoryManager::register_factory (
 	Singleton::instance()->register_factory_i (factory, priority);
 }
 
-void IBlockAlgorithmFactoryManager::register_factory_i (
-	IBlockAlgorithmAbstractFactory* factory, Core::Root::FactoryPriority priority
+void IBlocksAlgorithmFactoryManager::register_factory_i (
+	IBlocksAlgorithmAbstractFactory* factory, Core::Root::FactoryPriority priority
 ) /*throw (Core::Root::DuplicatedFactoryKey)*/ {
 	m_has_registred_factories = true;
 	FactoryMap::iterator f = m_factories_map.find(factory->key());
 	if (f != m_factories_map.end() && f->second.priority == priority) {
 		throw Core::Root::DuplicatedFactoryKey (
-			"ContextSearch::Relevancy::IBlockAlgorithmFactory"
+			"ContextSearch::Relevancy::IBlocksAlgorithmFactory"
 			, factory->key()
 		);
 	}
 	if (f == m_factories_map.end() || f->second.priority <= priority) {
-		m_factories_map[factory->key()].factory = IBlockAlgorithmAbstractFactory::_duplicate(factory);
+		m_factories_map[factory->key()].factory = IBlocksAlgorithmAbstractFactory::_duplicate(factory);
 		m_factories_map[factory->key()].priority = priority;
 	}
 	
 	if (!m_single_active_factory || m_single_active_factory_priority <= priority) {
-		m_single_active_factory = IBlockAlgorithmAbstractFactory::_duplicate(factory);
+		m_single_active_factory = IBlocksAlgorithmAbstractFactory::_duplicate(factory);
 		m_single_active_factory_priority = priority;
 	}
 }
 
-IBlockAlgorithm* IBlockAlgorithmFactoryManager::make (const Data& req_data, const AlgorithmProperties& properties) /*throw (Core::Root::NoActiveFactory)*/ {
+IBlocksAlgorithm* IBlocksAlgorithmFactoryManager::make (const Data& req_data, const AlgorithmProperties& properties) /*throw (Core::Root::NoActiveFactory)*/ {
 	if (m_single_active_factory.is_nil()) {
-		throw Core::Root::NoActiveFactory ("ContextSearch::Relevancy::IBlockAlgorithmFactory");
+		throw Core::Root::NoActiveFactory ("ContextSearch::Relevancy::IBlocksAlgorithmFactory");
 	}
-	IBlockAlgorithm* ret_ = m_single_active_factory->make (req_data, properties);
-	GDS_ASSERT_MSG (ret_ != 0, ("ContextSearch::Relevancy::IBlockAlgorithmFactory impl can't return zerro"));
+	IBlocksAlgorithm* ret_ = m_single_active_factory->make (req_data, properties);
+	GDS_ASSERT_MSG (ret_ != 0, ("ContextSearch::Relevancy::IBlocksAlgorithmFactory impl can't return zerro"));
 	return ret_;
 }
 } // namespace Relevancy

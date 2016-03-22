@@ -7,6 +7,8 @@ anEditor - редактор, в котором производятся изменения. }
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorSetStyle2Block.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_SetStyle2Block" MUID: (4FF2EF7E03C7)
+// Имя типа: "TkwPopEditorSetStyle2Block"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

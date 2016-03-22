@@ -3,6 +3,7 @@ unit PreviewWithRowCompare;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\PreviewWithRowCompare.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TPreviewWithRowCompare" MUID: (4DF1E915017B)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

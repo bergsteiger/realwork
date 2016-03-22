@@ -2,6 +2,7 @@ unit SHDTestScriptEngine;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\SHDTestScriptEngine.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TSHDTestScriptEngine" MUID: (4DC3B4A603C9)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

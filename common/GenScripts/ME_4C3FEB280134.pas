@@ -3,6 +3,7 @@ unit ChangeAllTablesTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\ChangeAllTablesTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TChangeAllTablesTest" MUID: (4C3FEB280134)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

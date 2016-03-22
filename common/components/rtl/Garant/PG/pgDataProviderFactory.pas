@@ -47,7 +47,8 @@ type
    procedure LoadDBVersion(aParams: TdaDataProviderParams); override;
    function DoMakeProvider(aParams: TdaDataProviderParams;
      ForCheckLogin: Boolean;
-     AllowClearLocks: Boolean): IdaDataProvider; override;
+     AllowClearLocks: Boolean;
+     SetGlobalProvider: Boolean = True): IdaDataProvider; override;
    procedure LoginCheckSucceed(aParams: TdaDataProviderParams); override;
  public
  // realized methods
@@ -154,6 +155,8 @@ begin
   aParams.AssignParams(aEtalon);
   with aConfig do
   begin
+   aParams.Login := AsString['Login'];
+   aParams.Password := AsString['Password'];
    TpgDataProviderParams(aParams).DataServerHostName := AsString['DataServerHostName'];
    TpgDataProviderParams(aParams).DataServerPort := AsInteger['DataServerPort'];
   end;
@@ -239,13 +242,14 @@ end;//TpgDataProviderFactory.LoadDBVersion
 
 function TpgDataProviderFactory.DoMakeProvider(aParams: TdaDataProviderParams;
   ForCheckLogin: Boolean;
-  AllowClearLocks: Boolean): IdaDataProvider;
+  AllowClearLocks: Boolean;
+  SetGlobalProvider: Boolean = True): IdaDataProvider;
 //#UC START# *551D06D402AF_55D6E2FB025D_var*
 //#UC END# *551D06D402AF_55D6E2FB025D_var*
 begin
 //#UC START# *551D06D402AF_55D6E2FB025D_impl*
  Assert(aParams is TpgDataProviderParams);
- Result := TpgDataProvider.Make(TpgDataProviderParams(aParams), ForCheckLogin, AllowClearLocks);
+ Result := TpgDataProvider.Make(TpgDataProviderParams(aParams), ForCheckLogin, AllowClearLocks, SetGlobalProvider);
 //#UC END# *551D06D402AF_55D6E2FB025D_impl*
 end;//TpgDataProviderFactory.DoMakeProvider
 

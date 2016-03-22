@@ -2,6 +2,7 @@ unit evParaCollapser;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evParaCollapser.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevParaCollapser" MUID: (4E1D776103C6)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

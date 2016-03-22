@@ -1,8 +1,20 @@
 Unit Dt_ReNum;
 
-{ $Id: DT_RENUM.PAS,v 1.76 2015/06/02 14:26:30 voba Exp $ }
+{ $Id: DT_RENUM.PAS,v 1.80 2015/12/07 15:21:02 voba Exp $ }
 
 // $Log: DT_RENUM.PAS,v $
+// Revision 1.80  2015/12/07 15:21:02  voba
+// - дотачиваем обработку битых ссылок
+//
+// Revision 1.79  2015/12/02 11:40:32  lukyanets
+// Cleanup
+//
+// Revision 1.78  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
+// Revision 1.77  2015/11/23 11:37:15  lukyanets
+// Заготовки Renum
+//
 // Revision 1.76  2015/06/02 14:26:30  voba
 // -bf
 //
@@ -319,6 +331,9 @@ Type
 
 Implementation
 Uses
+ daInterfaces,
+ daSchemeConsts,
+
  HT_Dll,
  SysUtils,
  Dt_Const,
@@ -339,25 +354,8 @@ end;
 Procedure TReNumTbl.BeforeRelease;
 Begin
  if fBufferedList <> Nil then FreeBufferedList;
- //GlobalHtServer.FreeTbl[TblFamily].ExclusiveUse := False;
- (*
- RefreshSrchList;
- If fUpdInt > 0 then
- Begin
-  DiffLength := htGetDiffLength(fSrchList);
-  If DiffLength > 32 then UpdateTbl;
- end;
- *)
  Inherited;
 end;
-
-{Procedure TReNumTbl.UpdateTbl;
-Begin
- Try
-  Inherited UpdateTbl;
- except
- end;
-end;}
 
 procedure TReNumTbl.GetBufferedList;
 Var
@@ -419,6 +417,7 @@ end;
 
 Function TReNumTbl.ConvertToRealNumber(aImpID : LongInt) : LongInt;
 begin
+ Result := 0;
  if aImpID = 0 then exit;
  with InitRecord(Self) do
   if FindByUniq(rnImportID_fld, aImpID) then
@@ -548,7 +547,12 @@ end;
 
 function TReNumTbl.GetExtDocID(aID : TDocID) : TDocID;
 begin
- Assert(aID > 0,'TReNumTbl.GetExtDocID: aID = 0');
+ //Assert(aID > 0,'TReNumTbl.GetExtDocID: aID = 0');
+ if aID <= 0 then
+ begin
+  Result := cUndefDocID;
+  Exit;
+ end;
 
  if Buffered then
   Result := GetBufferedImportNumber(aID)

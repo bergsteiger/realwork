@@ -2,6 +2,7 @@ unit vtOutlinerControl;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtOutlinerControl.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtOutlinerControl" MUID: (4D46A125003A)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

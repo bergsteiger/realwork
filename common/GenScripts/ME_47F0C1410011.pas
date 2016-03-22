@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsSimpleTree" MUID: (47F0C1410011)
+// Имя типа: "_dsSimpleTree_"
 
 {$Define dsSimpleTree_imp}
 

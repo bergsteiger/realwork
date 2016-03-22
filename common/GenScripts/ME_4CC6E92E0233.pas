@@ -3,6 +3,7 @@ unit DeleteColumnToolTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\DeleteColumnToolTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TDeleteColumnToolTest" MUID: (4CC6E92E0233)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

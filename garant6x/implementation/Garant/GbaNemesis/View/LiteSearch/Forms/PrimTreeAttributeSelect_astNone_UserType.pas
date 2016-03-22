@@ -1,83 +1,63 @@
 unit PrimTreeAttributeSelect_astNone_UserType;
+ {* Поиск: Выбор реквизита }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/LiteSearch/Forms/PrimTreeAttributeSelect_astNone_UserType.pas"
-// Начат: 27.01.2009 11:56
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Базовые определения предметной области::SearchLite::View::LiteSearch::PrimTreeAttributeSelect::astNone
-//
-// Поиск: Выбор реквизита
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelect_astNone_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "astNone" MUID: (4BD6F94500AC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы astNone }
-  astNoneName = 'astNone';
-   { Строковый идентификатор пользовательского типа "Поиск: Выбор реквизита" }
-  astNone = TvcmUserType(0);
-   { Поиск: Выбор реквизита }
+ {* Константы для типа формы astNone }
+ astNoneName = 'astNone';
+  {* Строковый идентификатор пользовательского типа "Поиск: Выбор реквизита" }
+ astNone = TvcmUserType(0);
+  {* Поиск: Выбор реквизита }
 
 implementation
 
-{$If not defined(NoScripts)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_astNone = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы astNone }
+ Tkw_FormUserType_astNone = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы astNone }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_astNone
-{$IfEnd} //not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_astNone
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(NoScripts)}
-
-// start class Tkw_FormUserType_astNone
-
-class function Tkw_FormUserType_astNone.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::astNone';
-end;//Tkw_FormUserType_astNone.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_astNone.GetInteger: Integer;
- {-}
 begin
  Result := astNone;
 end;//Tkw_FormUserType_astNone.GetInteger
 
-{$IfEnd} //not NoScripts
+class function Tkw_FormUserType_astNone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::astNone';
+end;//Tkw_FormUserType_astNone.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_astNone
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_astNone.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация Tkw_FormUserType_astNone }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

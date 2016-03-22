@@ -2,6 +2,7 @@ unit kwFormFromControlWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwFormFromControlWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwFormFromControlWord" MUID: (4EB25D530395)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

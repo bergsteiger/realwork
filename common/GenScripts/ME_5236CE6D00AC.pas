@@ -3,6 +3,7 @@ unit ListUserTypes_lftRToPart_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftRToPart_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "lftRToPart" MUID: (5236CE6D00AC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -12,7 +13,6 @@ interface
 uses
  l3IntfUses
  , ListUserTypes_lftDrugInternationalNameSynonymsSynchroForm_UserType
- , ListUserTypes_lftRespondent_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -36,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftRToPart = {final} class(TtfwInteger)
   {* Слово словаря для типа формы lftRToPart }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_lftRToPart
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_lftRToPart.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::lftRToPart';
-end;//Tkw_FormUserType_lftRToPart.GetWordNameForRegister
-
 function Tkw_FormUserType_lftRToPart.GetInteger: Integer;
 begin
  Result := lftRToPart;
 end;//Tkw_FormUserType_lftRToPart.GetInteger
+
+class function Tkw_FormUserType_lftRToPart.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::lftRToPart';
+end;//Tkw_FormUserType_lftRToPart.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

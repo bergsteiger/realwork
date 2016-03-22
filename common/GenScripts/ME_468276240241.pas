@@ -3,6 +3,7 @@ unit nsComplectInfoRootNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsComplectInfoRootNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsComplectInfoRootNode" MUID: (468276240241)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit kwTypedBeginLikeCompiledCode;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwTypedBeginLikeCompiledCode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwTypedBeginLikeCompiledCode" MUID: (560937350073)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

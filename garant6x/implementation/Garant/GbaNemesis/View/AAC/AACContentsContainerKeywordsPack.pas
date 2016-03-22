@@ -3,6 +3,7 @@ unit AACContentsContainerKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\AACContentsContainerKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "AACContentsContainerKeywordsPack" MUID: (5C766280436C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -47,8 +48,8 @@ type
 'aControl' форма::AACContentsContainer TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_AACContentsContainer
 
  Tkw_AACContentsContainer_Control_pnBack = {final} class(TtfwControlString)
@@ -59,9 +60,9 @@ type
 контрол::pnBack TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContentsContainer_Control_pnBack
 
  Tkw_AACContentsContainer_Control_pnBack_Push = {final} class(TkwBynameControlPush)
@@ -84,9 +85,9 @@ type
 контрол::pnRightEx TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContentsContainer_Control_pnRightEx
 
  Tkw_AACContentsContainer_Control_pnRightEx_Push = {final} class(TkwBynameControlPush)
@@ -109,9 +110,9 @@ type
 контрол::pnRightForScroll TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContentsContainer_Control_pnRightForScroll
 
  Tkw_AACContentsContainer_Control_pnRightForScroll_Push = {final} class(TkwBynameControlPush)
@@ -134,9 +135,9 @@ type
 контрол::pnRight TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContentsContainer_Control_pnRight
 
  Tkw_AACContentsContainer_Control_pnRight_Push = {final} class(TkwBynameControlPush)
@@ -159,9 +160,9 @@ type
 контрол::pnlRightTop TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContentsContainer_Control_pnlRightTop
 
  Tkw_AACContentsContainer_Control_pnlRightTop_Push = {final} class(TkwBynameControlPush)
@@ -184,9 +185,9 @@ type
 контрол::scrRight TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContentsContainer_Control_scrRight
 
  Tkw_AACContentsContainer_Control_scrRight_Push = {final} class(TkwBynameControlPush)
@@ -209,9 +210,9 @@ type
 контрол::pnLeftEx TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContentsContainer_Control_pnLeftEx
 
  Tkw_AACContentsContainer_Control_pnLeftEx_Push = {final} class(TkwBynameControlPush)
@@ -234,9 +235,9 @@ type
 контрол::pnLeftForScroll TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContentsContainer_Control_pnLeftForScroll
 
  Tkw_AACContentsContainer_Control_pnLeftForScroll_Push = {final} class(TkwBynameControlPush)
@@ -259,9 +260,9 @@ type
 контрол::pnlLeftTop TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContentsContainer_Control_pnlLeftTop
 
  Tkw_AACContentsContainer_Control_pnlLeftTop_Push = {final} class(TkwBynameControlPush)
@@ -284,9 +285,9 @@ type
 контрол::pnLeft TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContentsContainer_Control_pnLeft
 
  Tkw_AACContentsContainer_Control_pnLeft_Push = {final} class(TkwBynameControlPush)
@@ -309,9 +310,9 @@ type
 контрол::scrLeft TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContentsContainer_Control_scrLeft
 
  Tkw_AACContentsContainer_Control_scrLeft_Push = {final} class(TkwBynameControlPush)
@@ -590,20 +591,15 @@ OBJECT VAR l_TvtScrollBar
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwAACContentsContainerFormScrLeft
 
-class function Tkw_Form_AACContentsContainer.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::AACContentsContainer';
-end;//Tkw_Form_AACContentsContainer.GetWordNameForRegister
-
 function Tkw_Form_AACContentsContainer.GetString: AnsiString;
 begin
  Result := 'AACContentsContainerForm';
 end;//Tkw_Form_AACContentsContainer.GetString
 
-class function Tkw_AACContentsContainer_Control_pnBack.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_AACContentsContainer.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::pnBack';
-end;//Tkw_AACContentsContainer_Control_pnBack.GetWordNameForRegister
+ Result := 'форма::AACContentsContainer';
+end;//Tkw_Form_AACContentsContainer.GetWordNameForRegister
 
 function Tkw_AACContentsContainer_Control_pnBack.GetString: AnsiString;
 begin
@@ -616,6 +612,11 @@ begin
  TtfwClassRef.Register(TvtProportionalPanel);
 end;//Tkw_AACContentsContainer_Control_pnBack.RegisterInEngine
 
+class function Tkw_AACContentsContainer_Control_pnBack.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnBack';
+end;//Tkw_AACContentsContainer_Control_pnBack.GetWordNameForRegister
+
 procedure Tkw_AACContentsContainer_Control_pnBack_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnBack');
@@ -626,11 +627,6 @@ class function Tkw_AACContentsContainer_Control_pnBack_Push.GetWordNameForRegist
 begin
  Result := 'контрол::pnBack:push';
 end;//Tkw_AACContentsContainer_Control_pnBack_Push.GetWordNameForRegister
-
-class function Tkw_AACContentsContainer_Control_pnRightEx.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnRightEx';
-end;//Tkw_AACContentsContainer_Control_pnRightEx.GetWordNameForRegister
 
 function Tkw_AACContentsContainer_Control_pnRightEx.GetString: AnsiString;
 begin
@@ -643,6 +639,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_AACContentsContainer_Control_pnRightEx.RegisterInEngine
 
+class function Tkw_AACContentsContainer_Control_pnRightEx.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnRightEx';
+end;//Tkw_AACContentsContainer_Control_pnRightEx.GetWordNameForRegister
+
 procedure Tkw_AACContentsContainer_Control_pnRightEx_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnRightEx');
@@ -653,11 +654,6 @@ class function Tkw_AACContentsContainer_Control_pnRightEx_Push.GetWordNameForReg
 begin
  Result := 'контрол::pnRightEx:push';
 end;//Tkw_AACContentsContainer_Control_pnRightEx_Push.GetWordNameForRegister
-
-class function Tkw_AACContentsContainer_Control_pnRightForScroll.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnRightForScroll';
-end;//Tkw_AACContentsContainer_Control_pnRightForScroll.GetWordNameForRegister
 
 function Tkw_AACContentsContainer_Control_pnRightForScroll.GetString: AnsiString;
 begin
@@ -670,6 +666,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_AACContentsContainer_Control_pnRightForScroll.RegisterInEngine
 
+class function Tkw_AACContentsContainer_Control_pnRightForScroll.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnRightForScroll';
+end;//Tkw_AACContentsContainer_Control_pnRightForScroll.GetWordNameForRegister
+
 procedure Tkw_AACContentsContainer_Control_pnRightForScroll_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnRightForScroll');
@@ -680,11 +681,6 @@ class function Tkw_AACContentsContainer_Control_pnRightForScroll_Push.GetWordNam
 begin
  Result := 'контрол::pnRightForScroll:push';
 end;//Tkw_AACContentsContainer_Control_pnRightForScroll_Push.GetWordNameForRegister
-
-class function Tkw_AACContentsContainer_Control_pnRight.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnRight';
-end;//Tkw_AACContentsContainer_Control_pnRight.GetWordNameForRegister
 
 function Tkw_AACContentsContainer_Control_pnRight.GetString: AnsiString;
 begin
@@ -697,6 +693,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_AACContentsContainer_Control_pnRight.RegisterInEngine
 
+class function Tkw_AACContentsContainer_Control_pnRight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnRight';
+end;//Tkw_AACContentsContainer_Control_pnRight.GetWordNameForRegister
+
 procedure Tkw_AACContentsContainer_Control_pnRight_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnRight');
@@ -707,11 +708,6 @@ class function Tkw_AACContentsContainer_Control_pnRight_Push.GetWordNameForRegis
 begin
  Result := 'контрол::pnRight:push';
 end;//Tkw_AACContentsContainer_Control_pnRight_Push.GetWordNameForRegister
-
-class function Tkw_AACContentsContainer_Control_pnlRightTop.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlRightTop';
-end;//Tkw_AACContentsContainer_Control_pnlRightTop.GetWordNameForRegister
 
 function Tkw_AACContentsContainer_Control_pnlRightTop.GetString: AnsiString;
 begin
@@ -724,6 +720,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_AACContentsContainer_Control_pnlRightTop.RegisterInEngine
 
+class function Tkw_AACContentsContainer_Control_pnlRightTop.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlRightTop';
+end;//Tkw_AACContentsContainer_Control_pnlRightTop.GetWordNameForRegister
+
 procedure Tkw_AACContentsContainer_Control_pnlRightTop_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlRightTop');
@@ -734,11 +735,6 @@ class function Tkw_AACContentsContainer_Control_pnlRightTop_Push.GetWordNameForR
 begin
  Result := 'контрол::pnlRightTop:push';
 end;//Tkw_AACContentsContainer_Control_pnlRightTop_Push.GetWordNameForRegister
-
-class function Tkw_AACContentsContainer_Control_scrRight.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::scrRight';
-end;//Tkw_AACContentsContainer_Control_scrRight.GetWordNameForRegister
 
 function Tkw_AACContentsContainer_Control_scrRight.GetString: AnsiString;
 begin
@@ -751,6 +747,11 @@ begin
  TtfwClassRef.Register(TvtScrollBar);
 end;//Tkw_AACContentsContainer_Control_scrRight.RegisterInEngine
 
+class function Tkw_AACContentsContainer_Control_scrRight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::scrRight';
+end;//Tkw_AACContentsContainer_Control_scrRight.GetWordNameForRegister
+
 procedure Tkw_AACContentsContainer_Control_scrRight_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('scrRight');
@@ -761,11 +762,6 @@ class function Tkw_AACContentsContainer_Control_scrRight_Push.GetWordNameForRegi
 begin
  Result := 'контрол::scrRight:push';
 end;//Tkw_AACContentsContainer_Control_scrRight_Push.GetWordNameForRegister
-
-class function Tkw_AACContentsContainer_Control_pnLeftEx.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnLeftEx';
-end;//Tkw_AACContentsContainer_Control_pnLeftEx.GetWordNameForRegister
 
 function Tkw_AACContentsContainer_Control_pnLeftEx.GetString: AnsiString;
 begin
@@ -778,6 +774,11 @@ begin
  TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_AACContentsContainer_Control_pnLeftEx.RegisterInEngine
 
+class function Tkw_AACContentsContainer_Control_pnLeftEx.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnLeftEx';
+end;//Tkw_AACContentsContainer_Control_pnLeftEx.GetWordNameForRegister
+
 procedure Tkw_AACContentsContainer_Control_pnLeftEx_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnLeftEx');
@@ -788,11 +789,6 @@ class function Tkw_AACContentsContainer_Control_pnLeftEx_Push.GetWordNameForRegi
 begin
  Result := 'контрол::pnLeftEx:push';
 end;//Tkw_AACContentsContainer_Control_pnLeftEx_Push.GetWordNameForRegister
-
-class function Tkw_AACContentsContainer_Control_pnLeftForScroll.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnLeftForScroll';
-end;//Tkw_AACContentsContainer_Control_pnLeftForScroll.GetWordNameForRegister
 
 function Tkw_AACContentsContainer_Control_pnLeftForScroll.GetString: AnsiString;
 begin
@@ -805,6 +801,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_AACContentsContainer_Control_pnLeftForScroll.RegisterInEngine
 
+class function Tkw_AACContentsContainer_Control_pnLeftForScroll.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnLeftForScroll';
+end;//Tkw_AACContentsContainer_Control_pnLeftForScroll.GetWordNameForRegister
+
 procedure Tkw_AACContentsContainer_Control_pnLeftForScroll_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnLeftForScroll');
@@ -815,11 +816,6 @@ class function Tkw_AACContentsContainer_Control_pnLeftForScroll_Push.GetWordName
 begin
  Result := 'контрол::pnLeftForScroll:push';
 end;//Tkw_AACContentsContainer_Control_pnLeftForScroll_Push.GetWordNameForRegister
-
-class function Tkw_AACContentsContainer_Control_pnlLeftTop.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlLeftTop';
-end;//Tkw_AACContentsContainer_Control_pnlLeftTop.GetWordNameForRegister
 
 function Tkw_AACContentsContainer_Control_pnlLeftTop.GetString: AnsiString;
 begin
@@ -832,6 +828,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_AACContentsContainer_Control_pnlLeftTop.RegisterInEngine
 
+class function Tkw_AACContentsContainer_Control_pnlLeftTop.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlLeftTop';
+end;//Tkw_AACContentsContainer_Control_pnlLeftTop.GetWordNameForRegister
+
 procedure Tkw_AACContentsContainer_Control_pnlLeftTop_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlLeftTop');
@@ -842,11 +843,6 @@ class function Tkw_AACContentsContainer_Control_pnlLeftTop_Push.GetWordNameForRe
 begin
  Result := 'контрол::pnlLeftTop:push';
 end;//Tkw_AACContentsContainer_Control_pnlLeftTop_Push.GetWordNameForRegister
-
-class function Tkw_AACContentsContainer_Control_pnLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnLeft';
-end;//Tkw_AACContentsContainer_Control_pnLeft.GetWordNameForRegister
 
 function Tkw_AACContentsContainer_Control_pnLeft.GetString: AnsiString;
 begin
@@ -859,6 +855,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_AACContentsContainer_Control_pnLeft.RegisterInEngine
 
+class function Tkw_AACContentsContainer_Control_pnLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnLeft';
+end;//Tkw_AACContentsContainer_Control_pnLeft.GetWordNameForRegister
+
 procedure Tkw_AACContentsContainer_Control_pnLeft_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnLeft');
@@ -870,11 +871,6 @@ begin
  Result := 'контрол::pnLeft:push';
 end;//Tkw_AACContentsContainer_Control_pnLeft_Push.GetWordNameForRegister
 
-class function Tkw_AACContentsContainer_Control_scrLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::scrLeft';
-end;//Tkw_AACContentsContainer_Control_scrLeft.GetWordNameForRegister
-
 function Tkw_AACContentsContainer_Control_scrLeft.GetString: AnsiString;
 begin
  Result := 'scrLeft';
@@ -885,6 +881,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtScrollBar);
 end;//Tkw_AACContentsContainer_Control_scrLeft.RegisterInEngine
+
+class function Tkw_AACContentsContainer_Control_scrLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::scrLeft';
+end;//Tkw_AACContentsContainer_Control_scrLeft.GetWordNameForRegister
 
 procedure Tkw_AACContentsContainer_Control_scrLeft_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -919,11 +920,6 @@ begin
  aCtx.rEngine.PushObj(pnBack(aCtx, l_aAACContentsContainerForm));
 end;//TkwAACContentsContainerFormPnBack.DoDoIt
 
-class function TkwAACContentsContainerFormPnBack.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAACContentsContainerForm.pnBack';
-end;//TkwAACContentsContainerFormPnBack.GetWordNameForRegister
-
 procedure TkwAACContentsContainerFormPnBack.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -944,6 +940,11 @@ function TkwAACContentsContainerFormPnBack.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAACContentsContainerForm)]);
 end;//TkwAACContentsContainerFormPnBack.ParamsTypes
+
+class function TkwAACContentsContainerFormPnBack.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAACContentsContainerForm.pnBack';
+end;//TkwAACContentsContainerFormPnBack.GetWordNameForRegister
 
 function TkwAACContentsContainerFormPnRightEx.pnRightEx(const aCtx: TtfwContext;
  aAACContentsContainerForm: TAACContentsContainerForm): TvtPanel;
@@ -967,11 +968,6 @@ begin
  aCtx.rEngine.PushObj(pnRightEx(aCtx, l_aAACContentsContainerForm));
 end;//TkwAACContentsContainerFormPnRightEx.DoDoIt
 
-class function TkwAACContentsContainerFormPnRightEx.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAACContentsContainerForm.pnRightEx';
-end;//TkwAACContentsContainerFormPnRightEx.GetWordNameForRegister
-
 procedure TkwAACContentsContainerFormPnRightEx.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -992,6 +988,11 @@ function TkwAACContentsContainerFormPnRightEx.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAACContentsContainerForm)]);
 end;//TkwAACContentsContainerFormPnRightEx.ParamsTypes
+
+class function TkwAACContentsContainerFormPnRightEx.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAACContentsContainerForm.pnRightEx';
+end;//TkwAACContentsContainerFormPnRightEx.GetWordNameForRegister
 
 function TkwAACContentsContainerFormPnRightForScroll.pnRightForScroll(const aCtx: TtfwContext;
  aAACContentsContainerForm: TAACContentsContainerForm): TvtPanel;
@@ -1015,11 +1016,6 @@ begin
  aCtx.rEngine.PushObj(pnRightForScroll(aCtx, l_aAACContentsContainerForm));
 end;//TkwAACContentsContainerFormPnRightForScroll.DoDoIt
 
-class function TkwAACContentsContainerFormPnRightForScroll.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAACContentsContainerForm.pnRightForScroll';
-end;//TkwAACContentsContainerFormPnRightForScroll.GetWordNameForRegister
-
 procedure TkwAACContentsContainerFormPnRightForScroll.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1040,6 +1036,11 @@ function TkwAACContentsContainerFormPnRightForScroll.ParamsTypes: PTypeInfoArray
 begin
  Result := OpenTypesToTypes([TypeInfo(TAACContentsContainerForm)]);
 end;//TkwAACContentsContainerFormPnRightForScroll.ParamsTypes
+
+class function TkwAACContentsContainerFormPnRightForScroll.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAACContentsContainerForm.pnRightForScroll';
+end;//TkwAACContentsContainerFormPnRightForScroll.GetWordNameForRegister
 
 function TkwAACContentsContainerFormPnRight.pnRight(const aCtx: TtfwContext;
  aAACContentsContainerForm: TAACContentsContainerForm): TvtPanel;
@@ -1063,11 +1064,6 @@ begin
  aCtx.rEngine.PushObj(pnRight(aCtx, l_aAACContentsContainerForm));
 end;//TkwAACContentsContainerFormPnRight.DoDoIt
 
-class function TkwAACContentsContainerFormPnRight.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAACContentsContainerForm.pnRight';
-end;//TkwAACContentsContainerFormPnRight.GetWordNameForRegister
-
 procedure TkwAACContentsContainerFormPnRight.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1088,6 +1084,11 @@ function TkwAACContentsContainerFormPnRight.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAACContentsContainerForm)]);
 end;//TkwAACContentsContainerFormPnRight.ParamsTypes
+
+class function TkwAACContentsContainerFormPnRight.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAACContentsContainerForm.pnRight';
+end;//TkwAACContentsContainerFormPnRight.GetWordNameForRegister
 
 function TkwAACContentsContainerFormPnlRightTop.pnlRightTop(const aCtx: TtfwContext;
  aAACContentsContainerForm: TAACContentsContainerForm): TvtPanel;
@@ -1111,11 +1112,6 @@ begin
  aCtx.rEngine.PushObj(pnlRightTop(aCtx, l_aAACContentsContainerForm));
 end;//TkwAACContentsContainerFormPnlRightTop.DoDoIt
 
-class function TkwAACContentsContainerFormPnlRightTop.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAACContentsContainerForm.pnlRightTop';
-end;//TkwAACContentsContainerFormPnlRightTop.GetWordNameForRegister
-
 procedure TkwAACContentsContainerFormPnlRightTop.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1136,6 +1132,11 @@ function TkwAACContentsContainerFormPnlRightTop.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAACContentsContainerForm)]);
 end;//TkwAACContentsContainerFormPnlRightTop.ParamsTypes
+
+class function TkwAACContentsContainerFormPnlRightTop.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAACContentsContainerForm.pnlRightTop';
+end;//TkwAACContentsContainerFormPnlRightTop.GetWordNameForRegister
 
 function TkwAACContentsContainerFormScrRight.scrRight(const aCtx: TtfwContext;
  aAACContentsContainerForm: TAACContentsContainerForm): TvtScrollBar;
@@ -1159,11 +1160,6 @@ begin
  aCtx.rEngine.PushObj(scrRight(aCtx, l_aAACContentsContainerForm));
 end;//TkwAACContentsContainerFormScrRight.DoDoIt
 
-class function TkwAACContentsContainerFormScrRight.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAACContentsContainerForm.scrRight';
-end;//TkwAACContentsContainerFormScrRight.GetWordNameForRegister
-
 procedure TkwAACContentsContainerFormScrRight.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1184,6 +1180,11 @@ function TkwAACContentsContainerFormScrRight.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAACContentsContainerForm)]);
 end;//TkwAACContentsContainerFormScrRight.ParamsTypes
+
+class function TkwAACContentsContainerFormScrRight.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAACContentsContainerForm.scrRight';
+end;//TkwAACContentsContainerFormScrRight.GetWordNameForRegister
 
 function TkwAACContentsContainerFormPnLeftEx.pnLeftEx(const aCtx: TtfwContext;
  aAACContentsContainerForm: TAACContentsContainerForm): TvtSizeablePanel;
@@ -1207,11 +1208,6 @@ begin
  aCtx.rEngine.PushObj(pnLeftEx(aCtx, l_aAACContentsContainerForm));
 end;//TkwAACContentsContainerFormPnLeftEx.DoDoIt
 
-class function TkwAACContentsContainerFormPnLeftEx.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAACContentsContainerForm.pnLeftEx';
-end;//TkwAACContentsContainerFormPnLeftEx.GetWordNameForRegister
-
 procedure TkwAACContentsContainerFormPnLeftEx.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1232,6 +1228,11 @@ function TkwAACContentsContainerFormPnLeftEx.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAACContentsContainerForm)]);
 end;//TkwAACContentsContainerFormPnLeftEx.ParamsTypes
+
+class function TkwAACContentsContainerFormPnLeftEx.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAACContentsContainerForm.pnLeftEx';
+end;//TkwAACContentsContainerFormPnLeftEx.GetWordNameForRegister
 
 function TkwAACContentsContainerFormPnLeftForScroll.pnLeftForScroll(const aCtx: TtfwContext;
  aAACContentsContainerForm: TAACContentsContainerForm): TvtPanel;
@@ -1255,11 +1256,6 @@ begin
  aCtx.rEngine.PushObj(pnLeftForScroll(aCtx, l_aAACContentsContainerForm));
 end;//TkwAACContentsContainerFormPnLeftForScroll.DoDoIt
 
-class function TkwAACContentsContainerFormPnLeftForScroll.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAACContentsContainerForm.pnLeftForScroll';
-end;//TkwAACContentsContainerFormPnLeftForScroll.GetWordNameForRegister
-
 procedure TkwAACContentsContainerFormPnLeftForScroll.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1280,6 +1276,11 @@ function TkwAACContentsContainerFormPnLeftForScroll.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAACContentsContainerForm)]);
 end;//TkwAACContentsContainerFormPnLeftForScroll.ParamsTypes
+
+class function TkwAACContentsContainerFormPnLeftForScroll.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAACContentsContainerForm.pnLeftForScroll';
+end;//TkwAACContentsContainerFormPnLeftForScroll.GetWordNameForRegister
 
 function TkwAACContentsContainerFormPnlLeftTop.pnlLeftTop(const aCtx: TtfwContext;
  aAACContentsContainerForm: TAACContentsContainerForm): TvtPanel;
@@ -1303,11 +1304,6 @@ begin
  aCtx.rEngine.PushObj(pnlLeftTop(aCtx, l_aAACContentsContainerForm));
 end;//TkwAACContentsContainerFormPnlLeftTop.DoDoIt
 
-class function TkwAACContentsContainerFormPnlLeftTop.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAACContentsContainerForm.pnlLeftTop';
-end;//TkwAACContentsContainerFormPnlLeftTop.GetWordNameForRegister
-
 procedure TkwAACContentsContainerFormPnlLeftTop.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1328,6 +1324,11 @@ function TkwAACContentsContainerFormPnlLeftTop.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAACContentsContainerForm)]);
 end;//TkwAACContentsContainerFormPnlLeftTop.ParamsTypes
+
+class function TkwAACContentsContainerFormPnlLeftTop.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAACContentsContainerForm.pnlLeftTop';
+end;//TkwAACContentsContainerFormPnlLeftTop.GetWordNameForRegister
 
 function TkwAACContentsContainerFormPnLeft.pnLeft(const aCtx: TtfwContext;
  aAACContentsContainerForm: TAACContentsContainerForm): TvtPanel;
@@ -1351,11 +1352,6 @@ begin
  aCtx.rEngine.PushObj(pnLeft(aCtx, l_aAACContentsContainerForm));
 end;//TkwAACContentsContainerFormPnLeft.DoDoIt
 
-class function TkwAACContentsContainerFormPnLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAACContentsContainerForm.pnLeft';
-end;//TkwAACContentsContainerFormPnLeft.GetWordNameForRegister
-
 procedure TkwAACContentsContainerFormPnLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1376,6 +1372,11 @@ function TkwAACContentsContainerFormPnLeft.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAACContentsContainerForm)]);
 end;//TkwAACContentsContainerFormPnLeft.ParamsTypes
+
+class function TkwAACContentsContainerFormPnLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAACContentsContainerForm.pnLeft';
+end;//TkwAACContentsContainerFormPnLeft.GetWordNameForRegister
 
 function TkwAACContentsContainerFormScrLeft.scrLeft(const aCtx: TtfwContext;
  aAACContentsContainerForm: TAACContentsContainerForm): TvtScrollBar;
@@ -1399,11 +1400,6 @@ begin
  aCtx.rEngine.PushObj(scrLeft(aCtx, l_aAACContentsContainerForm));
 end;//TkwAACContentsContainerFormScrLeft.DoDoIt
 
-class function TkwAACContentsContainerFormScrLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAACContentsContainerForm.scrLeft';
-end;//TkwAACContentsContainerFormScrLeft.GetWordNameForRegister
-
 procedure TkwAACContentsContainerFormScrLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1424,6 +1420,11 @@ function TkwAACContentsContainerFormScrLeft.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAACContentsContainerForm)]);
 end;//TkwAACContentsContainerFormScrLeft.ParamsTypes
+
+class function TkwAACContentsContainerFormScrLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAACContentsContainerForm.scrLeft';
+end;//TkwAACContentsContainerFormScrLeft.GetWordNameForRegister
 
 initialization
  Tkw_Form_AACContentsContainer.RegisterInEngine;

@@ -43,6 +43,7 @@ type
    ['{A5A50743-4275-4C7F-AD87-945799C7EF03}']
    procedure RegisterEvent(const aEvent: InsDefferedEvent);
    procedure RequestWriteCache;
+   procedure ForceWriteCache;
  end;//InsCachedEventsProcessor
 
 implementation

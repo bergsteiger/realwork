@@ -2,6 +2,7 @@ unit nsChangesBetweenEditionsInfo;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\nsChangesBetweenEditionsInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsChangesBetweenEditionsInfo" MUID: (4DDCD9670300)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

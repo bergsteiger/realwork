@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddFileIterator;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddFileIterator.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddFileIterator" MUID: (546C731802D0)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

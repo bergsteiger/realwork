@@ -3,6 +3,7 @@ unit nevFormatInfoUtils;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevFormatInfoUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nevFormatInfoUtils" MUID: (50052D550208)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

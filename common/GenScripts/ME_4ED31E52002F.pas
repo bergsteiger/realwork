@@ -3,6 +3,7 @@ unit evTableMarker;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTableMarker.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTableMarker" MUID: (4ED31E52002F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

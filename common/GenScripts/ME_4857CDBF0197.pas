@@ -3,6 +3,8 @@ unit evTableCell_InterfaceFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTableCell_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
+// Элемент модели: "TevTableCell" MUID: (4857CDBF0197)
+// Имя типа: "TevTableCellInterfaceFactory"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\SandBox\InterfacePtrList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "InterfacePtrList" MUID: (51E8098001DC)
+// Имя типа: "_InterfacePtrList_"
 
 {$Define InterfacePtrList_imp}
 

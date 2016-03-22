@@ -2,6 +2,7 @@ unit kwBlockResize;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwBlockResize.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwBlockResize" MUID: (514BFB250118)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

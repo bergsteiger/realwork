@@ -5,7 +5,7 @@ unit m3CommonStorageStream;
 // Библиотека "m3"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3CommonStorageStream.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3::m3CoreObjects::Tm3CommonStorageStream
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3CommonStorageStream
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

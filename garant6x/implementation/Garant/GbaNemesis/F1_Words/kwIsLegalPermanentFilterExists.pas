@@ -1,53 +1,36 @@
 unit kwIsLegalPermanentFilterExists;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwIsLegalPermanentFilterExists.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Words::Words::IsLegalPermanentFilterExists
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwIsLegalPermanentFilterExists.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "IsLegalPermanentFilterExists" MUID: (53B2B2950270)
+// Имя типа: "TkwIsLegalPermanentFilterExists"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwPermanentFilterExists,
-  FiltersUnit
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwPermanentFilterExists
+ , FiltersUnit
+;
 
-{$If not defined(NoScripts)}
 type
- TkwIsLegalPermanentFilterExists = {final scriptword} class(TkwPermanentFilterExists)
- protected
- // realized methods
+ TkwIsLegalPermanentFilterExists = {final} class(TkwPermanentFilterExists)
+  protected
    function GetFilters: IFiltersFromQuery; override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwIsLegalPermanentFilterExists
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  DataAdapter
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwIsLegalPermanentFilterExists
+ l3ImplUses
+ , DataAdapter
+;
 
 function TkwIsLegalPermanentFilterExists.GetFilters: IFiltersFromQuery;
 //#UC START# *53B2B2C800D6_53B2B2950270_var*
@@ -59,17 +42,13 @@ begin
 end;//TkwIsLegalPermanentFilterExists.GetFilters
 
 class function TkwIsLegalPermanentFilterExists.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'IsLegalPermanentFilterExists';
 end;//TkwIsLegalPermanentFilterExists.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация IsLegalPermanentFilterExists
  TkwIsLegalPermanentFilterExists.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация IsLegalPermanentFilterExists }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

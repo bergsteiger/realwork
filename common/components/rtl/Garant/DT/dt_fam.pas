@@ -1,8 +1,11 @@
 Unit Dt_Fam;
 
-{ $Id: dt_fam.pas,v 1.44 2015/04/07 12:02:52 lukyanets Exp $ }
+{ $Id: dt_fam.pas,v 1.45 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: dt_fam.pas,v $
+// Revision 1.45  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.44  2015/04/07 12:02:52  lukyanets
 // Изолируем пути
 //
@@ -213,6 +216,7 @@ uses
   SysUtils,
 
   daDataProvider,
+  daSchemeConsts,
 
   HT_Dll,
 

@@ -2,6 +2,7 @@ unit nsQueryUtils;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsQueryUtils" MUID: (4AE864B801C5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

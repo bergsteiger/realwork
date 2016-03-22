@@ -2,6 +2,7 @@ unit Tl3ProtoObject_Proxy;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\Tl3ProtoObject_Proxy.pas"
 // Стереотип: "ClassProxy"
+// Элемент модели: "Tl3ProtoObject" MUID: (561D403603DA)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

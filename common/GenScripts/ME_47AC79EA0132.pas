@@ -3,6 +3,7 @@ unit l3Dict;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Dict.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3Dict" MUID: (47AC79EA0132)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

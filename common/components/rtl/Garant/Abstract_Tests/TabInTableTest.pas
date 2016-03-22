@@ -1,96 +1,68 @@
 unit TabInTableTest;
+ {* Теситрование поведения таблицации в таблице }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Tests"
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Tests/TabInTableTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::Abstract Tests::EditorTests::TTabInTableTest
-//
-// Теситрование поведения таблицации в таблице
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\TabInTableTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TTabInTableTest" MUID: (4D5A45CE00ED)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  nevTools
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  TextEditorVisitor
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , TextEditorVisitor
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevTools
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  _CursorMover_Parent_ = TTextEditorVisitor;
  {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  TTabInTableTest = {abstract} class(_CursorMover_)
   {* Теситрование поведения таблицации в таблице }
- protected
- // realized methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
-   procedure DoVisit(aForm: TPrimTextLoadForm); override;
-     {* Обработать текст }
-   {$IfEnd} //nsTest AND not NoVCM
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    procedure CheckPoint(const aCellPoint: InevBasePoint); virtual;
    function GetDownMoveCount: Integer; virtual;
-     {* Количество смещений вниз }
+    {* Количество смещений вниз }
    function GetTabMoveCount: Integer; virtual;
-     {* Количество смещений по табуляциии }
+    {* Количество смещений по табуляциии }
+   {$If NOT Defined(NoVCM)}
+   procedure DoVisit(aForm: TPrimTextLoadForm); override;
+    {* Обработать текст }
+   {$IfEnd} // NOT Defined(NoVCM)
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TTabInTableTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork,
-  evMsgCode,
-  evOp
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ , evMsgCode
+ , evOp
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
-
-// start class TTabInTableTest
 
 procedure TTabInTableTest.CheckPoint(const aCellPoint: InevBasePoint);
 //#UC START# *4D5A4CA602E5_4D5A45CE00ED_var*
@@ -101,6 +73,7 @@ begin
 end;//TTabInTableTest.CheckPoint
 
 function TTabInTableTest.GetDownMoveCount: Integer;
+ {* Количество смещений вниз }
 //#UC START# *4D5A4CD801F7_4D5A45CE00ED_var*
 //#UC END# *4D5A4CD801F7_4D5A45CE00ED_var*
 begin
@@ -110,6 +83,7 @@ begin
 end;//TTabInTableTest.GetDownMoveCount
 
 function TTabInTableTest.GetTabMoveCount: Integer;
+ {* Количество смещений по табуляциии }
 //#UC START# *4D5A4CFB029F_4D5A45CE00ED_var*
 //#UC END# *4D5A4CFB029F_4D5A45CE00ED_var*
 begin
@@ -118,8 +92,8 @@ begin
 //#UC END# *4D5A4CFB029F_4D5A45CE00ED_impl*
 end;//TTabInTableTest.GetTabMoveCount
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 procedure TTabInTableTest.DoVisit(aForm: TPrimTextLoadForm);
+ {* Обработать текст }
 //#UC START# *4BE419AF0217_4D5A45CE00ED_var*
 var
  i       : Integer;
@@ -137,20 +111,19 @@ begin
  CheckPoint(l_Point);
 //#UC END# *4BE419AF0217_4D5A45CE00ED_impl*
 end;//TTabInTableTest.DoVisit
-{$IfEnd} //nsTest AND not NoVCM
 
 function TTabInTableTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TTabInTableTest.GetFolder
 
 function TTabInTableTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D5A45CE00ED';
 end;//TTabInTableTest.GetModelElementGUID
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

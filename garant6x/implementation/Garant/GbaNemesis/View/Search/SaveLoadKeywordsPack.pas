@@ -3,6 +3,7 @@ unit SaveLoadKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\SaveLoadKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "SaveLoadKeywordsPack" MUID: (CEA950D49586)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -48,8 +49,8 @@ type
 'aControl' форма::SaveLoad TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_SaveLoad
 
  Tkw_SaveLoad_Control_pnHeader = {final} class(TtfwControlString)
@@ -60,9 +61,9 @@ type
 контрол::pnHeader TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SaveLoad_Control_pnHeader
 
  Tkw_SaveLoad_Control_pnHeader_Push = {final} class(TkwBynameControlPush)
@@ -85,9 +86,9 @@ type
 контрол::lbHeader TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SaveLoad_Control_lbHeader
 
  Tkw_SaveLoad_Control_lbHeader_Push = {final} class(TkwBynameControlPush)
@@ -110,9 +111,9 @@ type
 контрол::pbHeader TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SaveLoad_Control_pbHeader
 
  Tkw_SaveLoad_Control_pbHeader_Push = {final} class(TkwBynameControlPush)
@@ -135,9 +136,9 @@ type
 контрол::ParentZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SaveLoad_Control_ParentZone
 
  Tkw_SaveLoad_Control_ParentZone_Push = {final} class(TkwBynameControlPush)
@@ -248,20 +249,15 @@ OBJECT VAR l_TvtPanel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwCfSaveLoadParentZone
 
-class function Tkw_Form_SaveLoad.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::SaveLoad';
-end;//Tkw_Form_SaveLoad.GetWordNameForRegister
-
 function Tkw_Form_SaveLoad.GetString: AnsiString;
 begin
  Result := 'cfSaveLoad';
 end;//Tkw_Form_SaveLoad.GetString
 
-class function Tkw_SaveLoad_Control_pnHeader.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_SaveLoad.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::pnHeader';
-end;//Tkw_SaveLoad_Control_pnHeader.GetWordNameForRegister
+ Result := 'форма::SaveLoad';
+end;//Tkw_Form_SaveLoad.GetWordNameForRegister
 
 function Tkw_SaveLoad_Control_pnHeader.GetString: AnsiString;
 begin
@@ -274,6 +270,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_SaveLoad_Control_pnHeader.RegisterInEngine
 
+class function Tkw_SaveLoad_Control_pnHeader.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnHeader';
+end;//Tkw_SaveLoad_Control_pnHeader.GetWordNameForRegister
+
 procedure Tkw_SaveLoad_Control_pnHeader_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnHeader');
@@ -284,11 +285,6 @@ class function Tkw_SaveLoad_Control_pnHeader_Push.GetWordNameForRegister: AnsiSt
 begin
  Result := 'контрол::pnHeader:push';
 end;//Tkw_SaveLoad_Control_pnHeader_Push.GetWordNameForRegister
-
-class function Tkw_SaveLoad_Control_lbHeader.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lbHeader';
-end;//Tkw_SaveLoad_Control_lbHeader.GetWordNameForRegister
 
 function Tkw_SaveLoad_Control_lbHeader.GetString: AnsiString;
 begin
@@ -301,6 +297,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_SaveLoad_Control_lbHeader.RegisterInEngine
 
+class function Tkw_SaveLoad_Control_lbHeader.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lbHeader';
+end;//Tkw_SaveLoad_Control_lbHeader.GetWordNameForRegister
+
 procedure Tkw_SaveLoad_Control_lbHeader_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lbHeader');
@@ -311,11 +312,6 @@ class function Tkw_SaveLoad_Control_lbHeader_Push.GetWordNameForRegister: AnsiSt
 begin
  Result := 'контрол::lbHeader:push';
 end;//Tkw_SaveLoad_Control_lbHeader_Push.GetWordNameForRegister
-
-class function Tkw_SaveLoad_Control_pbHeader.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pbHeader';
-end;//Tkw_SaveLoad_Control_pbHeader.GetWordNameForRegister
 
 function Tkw_SaveLoad_Control_pbHeader.GetString: AnsiString;
 begin
@@ -328,6 +324,11 @@ begin
  TtfwClassRef.Register(TPaintBox);
 end;//Tkw_SaveLoad_Control_pbHeader.RegisterInEngine
 
+class function Tkw_SaveLoad_Control_pbHeader.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pbHeader';
+end;//Tkw_SaveLoad_Control_pbHeader.GetWordNameForRegister
+
 procedure Tkw_SaveLoad_Control_pbHeader_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pbHeader');
@@ -339,11 +340,6 @@ begin
  Result := 'контрол::pbHeader:push';
 end;//Tkw_SaveLoad_Control_pbHeader_Push.GetWordNameForRegister
 
-class function Tkw_SaveLoad_Control_ParentZone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ParentZone';
-end;//Tkw_SaveLoad_Control_ParentZone.GetWordNameForRegister
-
 function Tkw_SaveLoad_Control_ParentZone.GetString: AnsiString;
 begin
  Result := 'ParentZone';
@@ -354,6 +350,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_SaveLoad_Control_ParentZone.RegisterInEngine
+
+class function Tkw_SaveLoad_Control_ParentZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ParentZone';
+end;//Tkw_SaveLoad_Control_ParentZone.GetWordNameForRegister
 
 procedure Tkw_SaveLoad_Control_ParentZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -388,11 +389,6 @@ begin
  aCtx.rEngine.PushObj(pnHeader(aCtx, l_acfSaveLoad));
 end;//TkwCfSaveLoadPnHeader.DoDoIt
 
-class function TkwCfSaveLoadPnHeader.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfSaveLoad.pnHeader';
-end;//TkwCfSaveLoadPnHeader.GetWordNameForRegister
-
 procedure TkwCfSaveLoadPnHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -413,6 +409,11 @@ function TkwCfSaveLoadPnHeader.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfSaveLoad)]);
 end;//TkwCfSaveLoadPnHeader.ParamsTypes
+
+class function TkwCfSaveLoadPnHeader.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfSaveLoad.pnHeader';
+end;//TkwCfSaveLoadPnHeader.GetWordNameForRegister
 
 function TkwCfSaveLoadLbHeader.lbHeader(const aCtx: TtfwContext;
  acfSaveLoad: TcfSaveLoad): TvtLabel;
@@ -436,11 +437,6 @@ begin
  aCtx.rEngine.PushObj(lbHeader(aCtx, l_acfSaveLoad));
 end;//TkwCfSaveLoadLbHeader.DoDoIt
 
-class function TkwCfSaveLoadLbHeader.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfSaveLoad.lbHeader';
-end;//TkwCfSaveLoadLbHeader.GetWordNameForRegister
-
 procedure TkwCfSaveLoadLbHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -461,6 +457,11 @@ function TkwCfSaveLoadLbHeader.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfSaveLoad)]);
 end;//TkwCfSaveLoadLbHeader.ParamsTypes
+
+class function TkwCfSaveLoadLbHeader.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfSaveLoad.lbHeader';
+end;//TkwCfSaveLoadLbHeader.GetWordNameForRegister
 
 function TkwCfSaveLoadPbHeader.pbHeader(const aCtx: TtfwContext;
  acfSaveLoad: TcfSaveLoad): TPaintBox;
@@ -484,11 +485,6 @@ begin
  aCtx.rEngine.PushObj(pbHeader(aCtx, l_acfSaveLoad));
 end;//TkwCfSaveLoadPbHeader.DoDoIt
 
-class function TkwCfSaveLoadPbHeader.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfSaveLoad.pbHeader';
-end;//TkwCfSaveLoadPbHeader.GetWordNameForRegister
-
 procedure TkwCfSaveLoadPbHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -509,6 +505,11 @@ function TkwCfSaveLoadPbHeader.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfSaveLoad)]);
 end;//TkwCfSaveLoadPbHeader.ParamsTypes
+
+class function TkwCfSaveLoadPbHeader.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfSaveLoad.pbHeader';
+end;//TkwCfSaveLoadPbHeader.GetWordNameForRegister
 
 function TkwCfSaveLoadParentZone.ParentZone(const aCtx: TtfwContext;
  acfSaveLoad: TcfSaveLoad): TvtPanel;
@@ -532,11 +533,6 @@ begin
  aCtx.rEngine.PushObj(ParentZone(aCtx, l_acfSaveLoad));
 end;//TkwCfSaveLoadParentZone.DoDoIt
 
-class function TkwCfSaveLoadParentZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfSaveLoad.ParentZone';
-end;//TkwCfSaveLoadParentZone.GetWordNameForRegister
-
 procedure TkwCfSaveLoadParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -557,6 +553,11 @@ function TkwCfSaveLoadParentZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfSaveLoad)]);
 end;//TkwCfSaveLoadParentZone.ParamsTypes
+
+class function TkwCfSaveLoadParentZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfSaveLoad.ParentZone';
+end;//TkwCfSaveLoadParentZone.GetWordNameForRegister
 
 initialization
  Tkw_Form_SaveLoad.RegisterInEngine;

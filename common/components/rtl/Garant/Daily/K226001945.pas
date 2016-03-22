@@ -1,70 +1,53 @@
 unit K226001945;
+ {* [RequestLink:226001945] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Daily/K226001945.pas"
-// Начат: 25.08.2010 17:11
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.6::K226001945
-//
-// {RequestLink:226001945}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K226001945.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K226001945" MUID: (4C75166400F1)
+// Имя типа: "TK226001945"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  EVDtoRTFWriterTest
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , EVDtoRTFWriterTest
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK226001945 = class(TEVDtoRTFWriterTest)
   {* [RequestLink:226001945] }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-    {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+    {* Папка в которую входит тест }
+   {$If NOT Defined(NotTunedDUnit)}
    function EtalonCanHaveDiff: Boolean; override;
-     {* Эталон может иметь эталонную разницу для конкретного компьютера. Например как в [RequestLink:234362304] }
-    {$IfEnd} //nsTest AND not NotTunedDUnit
+    {* Эталон может иметь эталонную разницу для конкретного компьютера. Например как в [RequestLink:234362304] }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK226001945
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK226001945
+ l3ImplUses
+ , TestFrameWork
+;
 
 function TK226001945.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.6';
 end;//TK226001945.GetFolder
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 function TK226001945.EtalonCanHaveDiff: Boolean;
+ {* Эталон может иметь эталонную разницу для конкретного компьютера. Например как в [RequestLink:234362304] }
 //#UC START# *4CAEE13D00E1_4C75166400F1_var*
 //#UC END# *4CAEE13D00E1_4C75166400F1_var*
 begin
@@ -72,17 +55,16 @@ begin
  Result := true;
 //#UC END# *4CAEE13D00E1_4C75166400F1_impl*
 end;//TK226001945.EtalonCanHaveDiff
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
 function TK226001945.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C75166400F1';
 end;//TK226001945.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK226001945.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

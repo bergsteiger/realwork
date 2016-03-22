@@ -3,6 +3,7 @@ unit nsToMSWordOp;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\nsToMSWordOp.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsToMSWordOp" MUID: (496DA60C03CA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

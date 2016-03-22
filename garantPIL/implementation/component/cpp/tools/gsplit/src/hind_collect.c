@@ -53,7 +53,7 @@ int collect_string_keys(set_st *map, iter_st *pit, u_int32_t *levcounts)
 void extract_stream_data(set_st *set, stream_st *pstr)
 {
 	char *p;
-	int i;
+	u_int32_t i;
 
 	if(!pstr->ref.size) {
 		set->set = 0;

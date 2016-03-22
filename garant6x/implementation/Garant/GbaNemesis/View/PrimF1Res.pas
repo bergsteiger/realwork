@@ -580,7 +580,9 @@ class procedure TPrimF1Res.LogUserActivity(aKind: TvcmOperationCallType);
 //#UC END# *4B14F1720053_4A92BBDF0126_var*
 begin
 //#UC START# *4B14F1720053_4A92BBDF0126_impl*
+ {$if not defined(Monitorings)}
  TnsUserOperationEvent.Instance.Log(aKind);
+ {$ifend}
 //#UC END# *4B14F1720053_4A92BBDF0126_impl*
 end;//TPrimF1Res.LogUserActivity
 

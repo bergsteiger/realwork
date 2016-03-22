@@ -3,6 +3,7 @@ unit nevTableRowRenderInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableRowRenderInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevTableRowRenderInfo" MUID: (4848EBFB00B0)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

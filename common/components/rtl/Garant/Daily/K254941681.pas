@@ -1,90 +1,66 @@
 unit K254941681;
+ {* [RequestLink:254941681] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Daily/K254941681.pas"
-// Начат: 22.02.2011 14:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.7::K254941681
-//
-// {RequestLink:254941681}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K254941681.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K254941681" MUID: (4D63A40F0059)
+// Имя типа: "TK254941681"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  ScrollTest
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , ScrollTest
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK254941681 = class(TScrollTest)
   {* [RequestLink:254941681] }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK254941681
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK254941681
-
+{$If NOT Defined(NoVCM)}
 function TK254941681.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.7';
 end;//TK254941681.GetFolder
 
 function TK254941681.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D63A40F0059';
 end;//TK254941681.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK254941681.Suite);
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

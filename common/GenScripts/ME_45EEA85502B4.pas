@@ -2,6 +2,7 @@ unit NotifyUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\NotifyUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Notify" MUID: (45EEA85502B4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

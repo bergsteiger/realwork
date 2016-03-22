@@ -2,6 +2,8 @@ unit ServiceTest;
 
 // Модуль: "w:\common\components\SandBox\ServiceTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "ServiceTest" MUID: (551962080380)
+// Имя типа: "TServiceTest"
 
 {$Include w:\common\components\SandBox\sbtDefine.inc}
 

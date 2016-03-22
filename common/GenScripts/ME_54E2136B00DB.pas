@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsWordUses.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "kwConfigurationsWordUses" MUID: (54E2136B00DB)
+// Имя типа: "_kwConfigurationsWordUses_"
 
 {$Define kwConfigurationsWordUses_imp}
 

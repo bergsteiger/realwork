@@ -3,6 +3,8 @@ unit PrimLogin_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimLogin_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimLogin" MUID: (4A93D80F014F)
+// Имя типа: "TPrimLoginForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

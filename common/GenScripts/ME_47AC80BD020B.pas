@@ -2,6 +2,7 @@ unit k2Except;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Except.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "k2Except" MUID: (47AC80BD020B)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

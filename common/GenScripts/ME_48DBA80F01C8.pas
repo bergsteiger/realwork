@@ -2,6 +2,7 @@ unit evControlGenerator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evControlGenerator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevControlGenerator" MUID: (48DBA80F01C8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,8 @@ unit BaseSearchCard_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\BaseSearchCard_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "BaseSearchCard" MUID: (4AB7A34401D0)
+// Имя типа: "Ten_BaseSearchCard"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

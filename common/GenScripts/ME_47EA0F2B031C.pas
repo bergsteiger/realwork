@@ -3,6 +3,7 @@ unit sdsDrugList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Drug\sdsDrugList.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsDrugList" MUID: (47EA0F2B031C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -117,6 +118,7 @@ type
    {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
  end;//TsdsDrugList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -520,5 +522,11 @@ begin
 end;//TsdsDrugList.DoGetFormSetImageIndex
 {$IfEnd} // NOT Defined(NoVCM)
 
+procedure TsdsDrugList.ClearFields;
+begin
+ f_dsBaloonWarning := nil;
+ inherited;
+end;//TsdsDrugList.ClearFields
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 end.

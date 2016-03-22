@@ -3,6 +3,7 @@ unit QueryCardAddAttributeTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\QueryCardAddAttributeTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TQueryCardAddAttributeTest" MUID: (4CA099DB01B7)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

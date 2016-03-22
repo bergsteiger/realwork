@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\CellFormatInfoCommon.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "CellFormatInfoCommon" MUID: (5209DFCE0116)
+// Имя типа: "_CellFormatInfoCommon_"
 
 {$Define CellFormatInfoCommon_imp}
 

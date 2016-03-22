@@ -2,6 +2,7 @@ unit ddPipeOutInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddPipeOutInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "ddPipeOutInterfaces" MUID: (5603ED3D011B)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -2,6 +2,7 @@ unit l3ScreenIC;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ScreenIC.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3ScreenIC" MUID: (4799F84900DD)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

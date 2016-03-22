@@ -2,6 +2,7 @@ unit l3ProcessingEnabledService;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProcessingEnabledService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3ProcessingEnabledService" MUID: (561CEB90011D)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

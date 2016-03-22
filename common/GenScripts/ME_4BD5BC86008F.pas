@@ -3,6 +3,7 @@ unit PrimSaveLoadUserTypes_slqtInpharmSearch_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtInpharmSearch_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "slqtInpharmSearch" MUID: (4BD5BC86008F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtInpharmSearch = {final} class(TtfwInteger)
   {* Слово словаря для типа формы slqtInpharmSearch }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_slqtInpharmSearch
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_slqtInpharmSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::slqtInpharmSearch';
-end;//Tkw_FormUserType_slqtInpharmSearch.GetWordNameForRegister
-
 function Tkw_FormUserType_slqtInpharmSearch.GetInteger: Integer;
 begin
  Result := slqtInpharmSearch;
 end;//Tkw_FormUserType_slqtInpharmSearch.GetInteger
+
+class function Tkw_FormUserType_slqtInpharmSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::slqtInpharmSearch';
+end;//Tkw_FormUserType_slqtInpharmSearch.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

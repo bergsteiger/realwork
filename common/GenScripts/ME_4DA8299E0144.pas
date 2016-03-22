@@ -2,6 +2,7 @@ unit BaloonWarningUserTypes_WarnTimeMachineOn_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnTimeMachineOn_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "WarnTimeMachineOn" MUID: (4DA8299E0144)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -11,7 +12,6 @@ interface
 uses
  l3IntfUses
  , BaloonWarningUserTypes_WarnInactualDocument_UserType
- , BaloonWarningUserTypes_Fake_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -34,26 +34,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_WarnTimeMachineOn = {final} class(TtfwInteger)
   {* Слово словаря для типа формы WarnTimeMachineOn }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_WarnTimeMachineOn
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_WarnTimeMachineOn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::WarnTimeMachineOn';
-end;//Tkw_FormUserType_WarnTimeMachineOn.GetWordNameForRegister
-
 function Tkw_FormUserType_WarnTimeMachineOn.GetInteger: Integer;
 begin
  Result := WarnTimeMachineOn;
 end;//Tkw_FormUserType_WarnTimeMachineOn.GetInteger
+
+class function Tkw_FormUserType_WarnTimeMachineOn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::WarnTimeMachineOn';
+end;//Tkw_FormUserType_WarnTimeMachineOn.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

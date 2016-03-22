@@ -2,6 +2,7 @@ unit vtDialogsRes;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtDialogsRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vtDialogsRes" MUID: (4B8E6793024B)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -2,6 +2,7 @@ unit tfwWordsIterator;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwWordsIterator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwWordsIterator" MUID: (55ED4D040017)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

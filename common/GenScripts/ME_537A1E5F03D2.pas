@@ -2,6 +2,8 @@ unit ToK3;
 
 // Модуль: "w:\common\components\SearchTest\ToK3.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "ToK3" MUID: (537A1E5F03D2)
+// Имя типа: "TToK3"
 
 interface
 

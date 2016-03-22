@@ -2,6 +2,7 @@ unit destPicture;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destPicture.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdestPicture" MUID: (51E8E771003A)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

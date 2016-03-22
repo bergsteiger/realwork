@@ -2,6 +2,7 @@ unit evCellsIterator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCellsIterator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCellsIterator" MUID: (4FC48D1B02AC)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

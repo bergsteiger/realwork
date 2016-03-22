@@ -144,7 +144,7 @@ static SortedCollection* transform_to_doc_collection (SortedCollection* in) {
 	return ret._retn ();
 }
 
-static RefwReleCollection* find_in_cache_ (SearchBase* base, const std::string& req, const Segments& segments) {
+static SearchResult* find_in_cache_ (Base* base, const std::string& req, const Segments& segments) {
 	const RequestCacheOffset& cache_offset = BaseCache::instance ()->get_request_cache_offset (base);
 
 	std::string context = req;
@@ -153,7 +153,7 @@ static RefwReleCollection* find_in_cache_ (SearchBase* base, const std::string& 
 	RequestCacheOffset::const_iterator it = cache_offset.find (context);
 
 	if (it != cache_offset.end ()) {
-		Core::Aptr <RefwReleCollection> ret = new RefwReleCollection ();
+		Core::Aptr <RefwReleCollection> res = new RefwReleCollection ();
 
 		std::set <long> inserted_docs;
 		std::vector <long>::const_iterator ofs_it = it->second.begin ();
@@ -179,7 +179,7 @@ static RefwReleCollection* find_in_cache_ (SearchBase* base, const std::string& 
 						RefwRele rele;
 						str->Read (&rele, sizeof (RefwRele));
 						if (inserted_docs.find (rele.DocId) == inserted_docs.end ()) {
-							ret->Collection::Add (&rele);
+							res->Collection::Add (&rele);
 							inserted_docs.insert (rele.DocId);
 						}
 					}
@@ -188,22 +188,27 @@ static RefwReleCollection* find_in_cache_ (SearchBase* base, const std::string& 
 			}
 		}
 
-		if (ret->ItemCount) {
+		if (res->ItemCount) {
 			typedef fast_collection_iterator <SortedCollection, RefwRele, REL_COL_PAGE_SIZE> Iterator;
 
-			long short_list_size = BaseCache::instance ()->get_short_list_size (base);
+			long short_size = BaseCache::instance ()->get_short_list_size (base);
 
-			if (short_list_size < ret->ItemCount) {
+			if (short_size < res->ItemCount) {
 				std::partial_sort (
-					Iterator (ret.in (), 0)
-					, Iterator (ret.in (), short_list_size)
-					, Iterator (ret.in (), ret->ItemCount)
+					Iterator (res.in (), 0)
+					, Iterator (res.in (), short_size)
+					, Iterator (res.in (), res->ItemCount)
 					, CompareByRel ()
 				);
 			} else {
-				std::sort (Iterator (ret.in (), 0), Iterator (ret.in (), ret->ItemCount), CompareByRel ());
+				std::sort (Iterator (res.in (), 0), Iterator (res.in (), res->ItemCount), CompareByRel ());
 			}
 
+			Core::Aptr <SearchResult> ret = new SearchResult ();
+			ret->is_cut = (res->ItemCount >= short_size);
+			ret->full_size = res->ItemCount;
+			res->Cut (short_size);
+			ret->list = res._retn ();
 			return ret._retn ();
 		}
 	}
@@ -211,7 +216,7 @@ static RefwReleCollection* find_in_cache_ (SearchBase* base, const std::string& 
 	return 0;
 }
 
-static SearchResult* find_in_cache (SearchBase* base, const std::string& str, const Segments& segments) {
+static SearchResult* find_in_cache (Base* base, const std::string& str, const Segments& segments) {
 	Core::Aptr <QueriesTags> tags = Interpreter::execute_ext (str);
 
 	if (tags->size () == 2) {
@@ -219,18 +224,7 @@ static SearchResult* find_in_cache (SearchBase* base, const std::string& str, co
 		QueryTag& tag = tags->back ();
 
 		if (ctx_tag.key == BODY_TYPE && tag.key == "Status" && tag.val == "2048" && tag.op == so_NOT) {
-			Core::Aptr <SortedCollection> res = find_in_cache_ (base, ctx_tag.val, segments);
-
-			if (res.is_nil () == false) {
-				long short_size = BaseCache::instance ()->get_short_list_size (base);
-
-				Core::Aptr <SearchResult> ret = new SearchResult ();
-				ret->is_cut = (res->ItemCount >= short_size);
-				ret->full_size = res->ItemCount;
-				res->Cut (short_size);
-				ret->list = res._retn ();
-				return ret._retn ();
-			}
+			return find_in_cache_ (base, ctx_tag.val, segments);
 		}
 	}
 
@@ -329,7 +323,7 @@ SearchResult* execute_pharm (
 	return searcher->execute (query, prop);
 }
 
-bool check_query (SearchBase* base, const std::string& str) {
+bool check_query (Base* base, const std::string& str) {
 	try {
 		return Searcher_i::SearchHelper::check_query (base, str);
 	} catch (...) {

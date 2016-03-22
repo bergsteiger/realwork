@@ -43,6 +43,8 @@ type
 
 //#UC START# *46013DB90157ci*
 //#UC END# *46013DB90157ci*
+//#UC START# *46013DB90157cit*
+//#UC END# *46013DB90157cit*
  FlagMaskStubPostProcess = class
  private
  // private fields
@@ -67,6 +69,8 @@ type
 
 //#UC START# *45F554750213ci*
 //#UC END# *45F554750213ci*
+//#UC START# *45F554750213cit*
+//#UC END# *45F554750213cit*
  TreeBase = {abstract} class(ActiveChangeableBase, IFakeFacetForFactory)
   {* адаптерное дерево }
  private
@@ -106,8 +110,6 @@ type
    function pm_GetFlagsMap: NodeFlagMap; virtual;
    function pm_GetIsChanged: Boolean; virtual;
    function pm_GetTreeName: AnsiString; virtual; abstract;
- protected
- // realized methods
  protected
  // protected fields
    notifiers : NotifierSet;
@@ -298,7 +300,7 @@ function TreeBase.pm_GetActiveChangeble: Boolean;
 //#UC END# *46013A67007D_45F554750213get_var*
 begin
 //#UC START# *46013A67007D_45F554750213get_impl*
- Result := f_active_changeble
+ !!! Needs to be implemented !!!
 //#UC END# *46013A67007D_45F554750213get_impl*
 end;//TreeBase.pm_GetActiveChangeble
 
@@ -307,7 +309,7 @@ procedure TreeBase.pm_SetActiveChangeble(aValue: Boolean);
 //#UC END# *46013A67007D_45F554750213set_var*
 begin
 //#UC START# *46013A67007D_45F554750213set_impl*
- f_active_changeble := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *46013A67007D_45F554750213set_impl*
 end;//TreeBase.pm_SetActiveChangeble
 
@@ -316,7 +318,7 @@ function TreeBase.pm_GetServerTree: ;
 //#UC END# *46013AE00271_45F554750213get_var*
 begin
 //#UC START# *46013AE00271_45F554750213get_impl*
- Result := f_server_tree
+ !!! Needs to be implemented !!!
 //#UC END# *46013AE00271_45F554750213get_impl*
 end;//TreeBase.pm_GetServerTree
 
@@ -325,7 +327,7 @@ function TreeBase.pm_GetFlagsMap: NodeFlagMap;
 //#UC END# *46013B1601E4_45F554750213get_var*
 begin
 //#UC START# *46013B1601E4_45F554750213get_impl*
- Result := f_flags_map
+ !!! Needs to be implemented !!!
 //#UC END# *46013B1601E4_45F554750213get_impl*
 end;//TreeBase.pm_GetFlagsMap
 
@@ -334,7 +336,7 @@ function TreeBase.pm_GetIsChanged: Boolean;
 //#UC END# *46013B4B0251_45F554750213get_var*
 begin
 //#UC START# *46013B4B0251_45F554750213get_impl*
- Result := f_is_changed
+ !!! Needs to be implemented !!!
 //#UC END# *46013B4B0251_45F554750213get_impl*
 end;//TreeBase.pm_GetIsChanged
 

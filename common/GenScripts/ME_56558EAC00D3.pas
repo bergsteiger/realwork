@@ -2,6 +2,7 @@ unit evSCSub;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSCSub.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevSCSub" MUID: (56558EAC00D3)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

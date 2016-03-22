@@ -2,6 +2,7 @@ unit tasSaveLoadRealization;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\tasSaveLoadRealization.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtasSaveLoadRealization" MUID: (54F83BC9036B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

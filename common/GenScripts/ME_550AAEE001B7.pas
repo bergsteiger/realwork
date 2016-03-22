@@ -2,6 +2,7 @@ unit sdsInpharmMainMenu;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\InpharmControllers\sdsInpharmMainMenu.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsInpharmMainMenu" MUID: (550AAEE001B7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -38,6 +39,7 @@ type
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
  end;//TsdsInpharmMainMenu
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -77,6 +79,12 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4938F7E702B7_550AAEE001B7_impl*
 end;//TsdsInpharmMainMenu.ClearAreas
+
+procedure TsdsInpharmMainMenu.ClearFields;
+begin
+ f_dsInpharmMainMenuData := nil;
+ inherited;
+end;//TsdsInpharmMainMenu.ClearFields
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

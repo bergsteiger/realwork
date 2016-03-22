@@ -2,6 +2,7 @@ unit evSubPn;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSubPn.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evSubPn" MUID: (547DC5BA0275)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

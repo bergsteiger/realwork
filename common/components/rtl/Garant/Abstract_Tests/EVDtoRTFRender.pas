@@ -1,81 +1,61 @@
 unit EVDtoRTFRender;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Tests"
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Tests/EVDtoRTFRender.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::Abstract Tests::RenderEVD::TEVDtoRTFRender
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\EVDtoRTFRender.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TEVDtoRTFRender" MUID: (52BAFC960080)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  THiddenStylesArray = array of LongInt;
 
  TEVDtoRTFRender = {abstract} class(TBaseTest)
- protected
- // overridden protected methods
-    {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-   function FileForOutput: AnsiString; override;
-     {* Стандартный файл для вывода, для текщего теста }
-    {$IfEnd} //nsTest AND not NotTunedDUnit
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    function NeedEliminateCommentDecorations: Boolean; virtual;
    function TreatExceptionAsSuccess: Boolean; virtual;
    function GetHiddenStylesLength: Integer; virtual;
    function GetHiddenStyles: THiddenStylesArray; virtual;
- published
- // published methods
+   {$If NOT Defined(NotTunedDUnit)}
+   function FileForOutput: AnsiString; override;
+    {* Стандартный файл для вывода, для текщего теста }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt;
  end;//TEVDtoRTFRender
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  eeEVDtoRTF,
-  l3Filer,
-  SysUtils,
-  l3Interfaces,
-  evStyleInterfaceEx,
-  l3Memory,
-  l3Stream,
-  l3BaseStream,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , eeEVDtoRTF
+ , l3Filer
+ , SysUtils
+ , l3Interfaces
+ , evStyleInterfaceEx
+ , l3Memory
+ , l3Stream
+ , l3BaseStream
+ , Classes
+ , TestFrameWork
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TEVDtoRTFRender
-
+{$If NOT Defined(NotTunedDUnit)}
 procedure TEVDtoRTFRender.DoIt;
 //#UC START# *52BAFCD800D9_52BAFC960080_var*
 var
@@ -242,8 +222,8 @@ begin
 //#UC END# *54BF91620371_52BAFC960080_impl*
 end;//TEVDtoRTFRender.GetHiddenStyles
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 function TEVDtoRTFRender.FileForOutput: AnsiString;
+ {* Стандартный файл для вывода, для текщего теста }
 //#UC START# *4B4F588B0241_52BAFC960080_var*
 //#UC END# *4B4F588B0241_52BAFC960080_var*
 begin
@@ -251,20 +231,19 @@ begin
  Result := OutputPath + KPage + '.rtf';
 //#UC END# *4B4F588B0241_52BAFC960080_impl*
 end;//TEVDtoRTFRender.FileForOutput
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
 function TEVDtoRTFRender.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'RenderEVD';
 end;//TEVDtoRTFRender.GetFolder
 
 function TEVDtoRTFRender.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '52BAFC960080';
 end;//TEVDtoRTFRender.GetModelElementGUID
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

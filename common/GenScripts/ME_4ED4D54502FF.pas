@@ -2,6 +2,7 @@ unit evSBSColumnHotSpot;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSBSColumnHotSpot.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevSBSColumnHotSpot" MUID: (4ED4D54502FF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

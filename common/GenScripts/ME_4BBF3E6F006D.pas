@@ -2,6 +2,7 @@ unit NOT_FINISHED_evParaFrame;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evParaFrame.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evParaFrame" MUID: (4BBF3E6F006D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

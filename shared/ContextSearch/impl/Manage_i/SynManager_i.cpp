@@ -67,26 +67,23 @@ Search::IRequestView* SynManager_i::execute (const std::string& in, bool is_defa
 		return 0;
 	}
 
-	Defs::StrStrMap pseudo;
-
 	Core::Aptr <GCL::StrVector> res = transformer->execute (
 		Synonymizer (m_communicator, m_normalizer.in ()).normalize (fixed)
 		, m_communicator->get_exclude_data ()
 		, m_communicator->get_hard_phrases ()
-		, pseudo
 	);
 
 	if (is_default == false) {
 		Search::IRequestView_var ret = this->make_view (Search::as_Partial);
 
-		if (ret->build (*res, pseudo, fixed)) {
+		if (ret->build (*res, fixed)) {
 			return ret._retn ();
 		}
 	}
 
 	Search::IRequestView_var ret = this->make_view (Search::as_Default);
 
-	ret->build (*res, pseudo, fixed);
+	ret->build (*res, fixed);
 	return ret._retn ();
 	//#UC END# *4B60638F00A6_4C3474B40266*
 }

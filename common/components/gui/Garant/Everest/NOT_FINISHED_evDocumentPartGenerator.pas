@@ -3,6 +3,7 @@ unit NOT_FINISHED_evDocumentPartGenerator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evDocumentPartGenerator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentPartGenerator" MUID: (48030DE6002F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

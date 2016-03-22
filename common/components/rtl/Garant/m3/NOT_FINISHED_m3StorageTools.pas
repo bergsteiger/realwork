@@ -2,6 +2,7 @@ unit NOT_FINISHED_m3StorageTools;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\NOT_FINISHED_m3StorageTools.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "m3StorageTools" MUID: (49B951B40141)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

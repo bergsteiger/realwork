@@ -2,6 +2,7 @@ unit NOT_FINISHED_nevFacade;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_nevFacade.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nevFacade" MUID: (47D00CC20108)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

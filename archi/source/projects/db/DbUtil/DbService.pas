@@ -1,7 +1,10 @@
 unit DbService;
 
-{ $Id: DbService.pas,v 1.27 2015/07/02 11:41:01 lukyanets Exp $ }
+{ $Id: DbService.pas,v 1.28 2015/11/26 09:46:09 lukyanets Exp $ }
 // $Log: DbService.pas,v $
+// Revision 1.28  2015/11/26 09:46:09  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.27  2015/07/02 11:41:01  lukyanets
 // Описываем словари
 //
@@ -159,7 +162,8 @@ implementation
 uses
  SysUtils,
  l3FileUtils,
- daTypes;
+ daTypes,
+ daSchemeConsts;
 
 const
  EOL = #13#10;

@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmMainMenuStripForChromeLike;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_FINISHED_vcmMainMenuStripForChromeLike.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvcmMainMenuStripForChromeLike" MUID: (545C521A0358)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

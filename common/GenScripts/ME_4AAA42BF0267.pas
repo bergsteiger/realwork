@@ -2,6 +2,8 @@ unit ShellAndMonitoringsRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ShellAndMonitoringsRes.pas"
 // Стереотип: "VCMApplication"
+// Элемент модели: "ShellAndMonitorings" MUID: (4AAA42BF0267)
+// Имя типа: "TShellAndMonitoringsRes"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -1,9 +1,12 @@
 unit alcuDictManager;
 { Менеджер изменений словарей. Работает в двух режимах - главный или ведомый }
 
-{ $Id: alcuDictManager.pas,v 1.28 2015/07/02 07:34:38 lukyanets Exp $ }
+{ $Id: alcuDictManager.pas,v 1.29 2015/11/26 08:45:26 lukyanets Exp $ }
 
 // $Log: alcuDictManager.pas,v $
+// Revision 1.29  2015/11/26 08:45:26  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.28  2015/07/02 07:34:38  lukyanets
 // Описываем словари
 //
@@ -167,7 +170,7 @@ Uses
  Base_CFG,
  l3Stream, l3Types, l3Bits, l3Tree_TLB, l3Nodes, l3FileUtils, l3String,
  ddAppConfig, ddFileIterator, ddUtils,
- daInterfaces,
+ daInterfaces, daSchemeConsts,
  dt_Dict, dt_Const,
  idFTP, StrUtils, dtSupport, dt_UserConst, dt_DictConst, Math, dt_DictTypes, TypInfo;
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevDiff.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevDiff" MUID: (49DF54E500B3)
+// Имя типа: "_nevDiff_"
 
 {$Define nevDiff_imp}
 

@@ -2,6 +2,7 @@ unit atWordOrderConverter;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\InteropWithL3\atWordOrderConverter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatWordOrderConverter" MUID: (503E615E0377)
 
 interface
 

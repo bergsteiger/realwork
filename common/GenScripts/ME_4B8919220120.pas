@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ObjectByHandleSearcher.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3ObjectByHandleSearcher" MUID: (4B8919220120)
+// Имя типа: "_l3ObjectByHandleSearcher_"
 
 {$Define l3ObjectByHandleSearcher_imp}
 

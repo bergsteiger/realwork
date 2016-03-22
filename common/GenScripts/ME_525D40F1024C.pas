@@ -2,6 +2,7 @@ unit ddTextSegmentsList;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTextSegmentsList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddTextSegmentsList" MUID: (525D40F1024C)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -3,6 +3,8 @@ unit PrimQueryCard_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimQueryCard_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimQueryCard" MUID: (497EBA4301CA)
+// Имя типа: "TPrimQueryCardForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit ConfigStorageStub;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\ConfigStorageStub.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TConfigStorageStub" MUID: (51D54BCD02DA)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

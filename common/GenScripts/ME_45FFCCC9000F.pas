@@ -2,6 +2,7 @@ unit FolderNotifier_i;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\FolderNotifier_i.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "FolderNotifier_i" MUID: (45FFCCC9000F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

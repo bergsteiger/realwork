@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsNativePara.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsNativePara" MUID: (4CED4C700123)
+// Имя типа: "_nsNativePara_"
 
 {$Define nsNativePara_imp}
 
@@ -41,7 +43,7 @@ constructor _nsNativePara_.Create(aStub: Tl3Tag);
 begin
 //#UC START# *4C6ACF6D008A_4CED4C700123_impl*
  Create(Tk2Type(aStub.TagType));
- AssignTag(aStub);
+ Tl3Variant(Self).AssignTag(aStub);
  Include(_Instance_R_(Self).f_State, ns_nsChanged);
 //#UC END# *4C6ACF6D008A_4CED4C700123_impl*
 end;//_nsNativePara_.Create

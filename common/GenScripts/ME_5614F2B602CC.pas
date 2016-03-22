@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmHistoryFormNode;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmHistoryFormNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmHistoryFormNode" MUID: (5614F2B602CC)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

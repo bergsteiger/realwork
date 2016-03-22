@@ -2,6 +2,7 @@ unit vcmChromeLikeTabbedContainerFormPrim;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabbedContainerFormPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmChromeLikeTabbedContainerFormPrim" MUID: (53C65E480231)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

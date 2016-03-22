@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabbedContainerForm.imp.pas"
 // Стереотип: "GUIControlMixIn"
+// Элемент модели: "ChromeLikeTabbedContainerForm" MUID: (550A7D5C01BC)
+// Имя типа: "_ChromeLikeTabbedContainerForm_"
 
 {$Define ChromeLikeTabbedContainerForm_imp}
 
@@ -625,7 +627,8 @@ procedure _ChromeLikeTabbedContainerForm_.DoOnNewTabRequested(aTabSet: TChromeLi
 //#UC END# *558119BD02BE_550A7D5C01BC_var*
 begin
 //#UC START# *558119BD02BE_550A7D5C01BC_impl*
- OpenNewTab;
+ OpenTabAfter(aMenuTab);
+// OpenNewTab(aOpenLast);
 //#UC END# *558119BD02BE_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.DoOnNewTabRequested
 
@@ -856,7 +859,7 @@ procedure _ChromeLikeTabbedContainerForm_.OpenNewTab(aOpenLast: Boolean = True);
 //#UC END# *55B5DA3B02AC_550A7D5C01BC_var*
 begin
 //#UC START# *55B5DA3B02AC_550A7D5C01BC_impl*
- DoOpenNewTab;
+ DoOpenNewTab(aOpenLast);
 //#UC END# *55B5DA3B02AC_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.OpenNewTab
 

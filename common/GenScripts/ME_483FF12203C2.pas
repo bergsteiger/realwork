@@ -2,6 +2,7 @@ unit atDeleteBookmarkOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atDeleteBookmarkOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatDeleteBookmarkOperation" MUID: (483FF12203C2)
 
 interface
 

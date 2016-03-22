@@ -2,6 +2,7 @@ unit kwSubPanelFromStackWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSubPanelFromStackWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwSubPanelFromStackWord" MUID: (52D646990049)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

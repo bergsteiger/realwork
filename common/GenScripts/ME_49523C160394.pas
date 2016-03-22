@@ -2,6 +2,7 @@ unit NOT_FINISHED_eeParaTools;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeParaTools.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "eeParaTools" MUID: (49523C160394)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

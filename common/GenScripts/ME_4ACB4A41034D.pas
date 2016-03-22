@@ -2,6 +2,7 @@ unit vtPngImgList;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtPngImgList.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vtPngImgList" MUID: (4ACB4A41034D)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

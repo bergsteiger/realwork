@@ -3,6 +3,8 @@ unit ExportSeparatedBySizeTest;
 
 // Модуль: "w:\archi\source\projects\ImportExportTest\ExportSeparatedBySizeTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "ExportSeparatedBySizeTest" MUID: (55FFA0650118)
+// Имя типа: "TExportSeparatedBySizeTest"
 
 {$Include w:\archi\source\projects\ImportExportTest.inc}
 

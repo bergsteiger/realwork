@@ -2,6 +2,8 @@ unit kwPopEditorGetLeftIndentDelta;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetLeftIndentDelta.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_GetLeftIndentDelta" MUID: (50AE54F001B4)
+// Имя типа: "TkwPopEditorGetLeftIndentDelta"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

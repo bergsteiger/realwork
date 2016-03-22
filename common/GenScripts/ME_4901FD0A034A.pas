@@ -3,6 +3,7 @@ unit nsCutToLeafFilter;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsCutToLeafFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsCutToLeafFilter" MUID: (4901FD0A034A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

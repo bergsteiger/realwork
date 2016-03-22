@@ -2,6 +2,7 @@ unit NOT_FINISHED_RubricatorRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Rubricator\NOT_FINISHED_RubricatorRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "RubricatorRes" MUID: (4AA790E300D4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

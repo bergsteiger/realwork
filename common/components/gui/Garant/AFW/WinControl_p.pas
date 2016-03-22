@@ -2,6 +2,7 @@ unit WinControl_p;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\WinControl_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TWinControl" MUID: (53D12ADE0303)
 
 {$Include w:\common\components\l3Define.inc}
 

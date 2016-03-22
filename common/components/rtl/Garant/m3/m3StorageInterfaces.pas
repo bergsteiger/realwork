@@ -7,7 +7,7 @@ unit m3StorageInterfaces;
 // Модуль: "w:/common/components/rtl/Garant/m3/m3StorageInterfaces.pas"
 // Начат: 30.01.2002 16:54
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi For Archi::m3::m3StorageInterfaces
+// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Low Level::m3::m3StorageInterfaces
 //
 // Интерфейсы для работы с хранилищем.
 //

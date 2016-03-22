@@ -2,6 +2,7 @@ unit evDropCombo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evDropCombo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDropCombo" MUID: (48D399A20288)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

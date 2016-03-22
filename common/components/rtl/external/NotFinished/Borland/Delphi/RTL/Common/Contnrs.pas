@@ -2,6 +2,7 @@ unit Contnrs;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\Contnrs.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Contnrs" MUID: (4807687301D4)
 
 interface
 

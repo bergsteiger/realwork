@@ -3,6 +3,7 @@ unit dsMedicFirmDocument;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicFirmDocument.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsMedicFirmDocument" MUID: (491D7D660107)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

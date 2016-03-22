@@ -3,6 +3,8 @@ unit PrimConsultationMarkOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms\PrimConsultationMarkOptions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimConsultationMarkOptions" MUID: (4C84E097023A)
+// Имя типа: "TPrimConsultationMarkOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

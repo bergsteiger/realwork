@@ -2,6 +2,7 @@ unit vcmTabbedContainersService;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmTabbedContainersService.pas"
 // Стереотип: "Service"
+// Элемент модели: "TvcmTabbedContainersService" MUID: (5538940C00DD)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

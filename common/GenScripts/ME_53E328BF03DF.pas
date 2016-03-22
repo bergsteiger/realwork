@@ -2,6 +2,7 @@ unit alcuRelPublishTaskResult;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuRelPublishTaskResult.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuRelPublishTaskResult" MUID: (53E328BF03DF)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

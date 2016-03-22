@@ -3,6 +3,7 @@ unit AdapterFacade;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\AdapterFacade.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "AdapterFacade" MUID: (4AC207650135)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

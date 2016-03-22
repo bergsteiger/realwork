@@ -1165,10 +1165,10 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"ResolvedTypeGuid"
-				    value      	"50A266140247"))
+				    value      	"5640C0F900D6"))
 			    quid       	"516C10CB03B1"
-			    type       	"SearchBase"
-			    quidu      	"50A266140247")
+			    type       	"Base"
+			    quidu      	"5640C0F900D6")
 			(object Parameter "tag"
 			    attributes 	(list Attribute_Set
 				(object Attribute
@@ -1326,10 +1326,10 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"ResolvedTypeGuid"
-				    value      	"50A266140247"))
+				    value      	"5640C0F900D6"))
 			    quid       	"556DA7610308"
-			    type       	"SearchBase"
-			    quidu      	"50A266140247")
+			    type       	"Base"
+			    quidu      	"5640C0F900D6")
 			(object Parameter "in"
 			    attributes 	(list Attribute_Set
 				(object Attribute
@@ -1691,7 +1691,7 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*50D1D25600B3*"
 			    value      	(value Text 
-|//#UC START# *50D1D25600B3*¤	if (doc_id) {¤		if (tag.key.at (0) == '!') {¤			return m_base->get_virtualindex_doc (tag.key.c_str (), tag.val.c_str (), doc_id);¤		} else {¤			return m_base->get_realindex_doc (tag.key, tag.val, doc_id);¤		}¤	} ¤¤	Core::Aptr <char, Core::ArrayDeleteDestructor <char> > key = SearchHelper::make_key (m_base, tag);¤¤	if (key.is_nil () == false) {¤		return StorageData::get (tag.key.c_str (), key.in ());¤	} ¤¤	GDS_ASSERT (0);¤	return 0;¤	//#UC END# *50D1D25600B3*
+|//#UC START# *50D1D25600B3*¤	if (doc_id) {¤		if (tag.key.at (0) == '!') {¤			return m_base->get_virtualindex_doc (tag.key.c_str (), tag.val.c_str (), doc_id);¤		} else {¤			return m_base->get_realindex_doc (tag.key, tag.val, doc_id);¤		}¤	} ¤¤	Core::Aptr <char, Core::ArrayDeleteDestructor <char> > key = SearchHelper::make_key (m_base, tag);¤¤	if (key.is_nil () == false) {¤		return StorageData::get (tag.key.c_str (), key.in ());¤	} ¤¤	GDS_ASSERT_MSG (false, ("%s: invalid index (%s) or key (%s)", GDS_CURRENT_FUNCTION, tag.key.c_str (), tag.val.c_str ()));¤	return 0;¤	//#UC END# *50D1D25600B3*
 			    )))
 		    quid       	"50D1D25600B3"
 		    documentation 	"ïîèñê"
@@ -1809,7 +1809,7 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*50D1D2AF01AB*"
 			    value      	(value Text 
-|//#UC START# *50D1D2AF01AB*¤	Core::Aptr <char, Core::ArrayDeleteDestructor <char> > key = SearchHelper::make_key (m_base, tag);¤¤	if (key.is_nil () == false) {¤		std::string from (key.in (), strlen (key.in ()) - 1);¤¤		GCL::to_upper (from);¤¤		std::string to = from + "\xFF";¤¤		GDS_ASSERT (GetDataType (tag.key.c_str ()) == SDT_DOCS);¤¤		StorageData::add (tag.key.c_str (), from.c_str (), to.c_str ());¤		return StorageData::_retn ();¤	}¤¤	GDS_ASSERT (0);¤	return 0;¤	//#UC END# *50D1D2AF01AB*
+|//#UC START# *50D1D2AF01AB*¤	Core::Aptr <char, Core::ArrayDeleteDestructor <char> > key = SearchHelper::make_key (m_base, tag);¤¤	if (key.is_nil () == false) {¤		std::string from (key.in (), strlen (key.in ()) - 1);¤¤		GCL::to_upper (from);¤¤		std::string to = from + "\xFF";¤¤		GDS_ASSERT (GetDataType (tag.key.c_str ()) == SDT_DOCS);¤¤		StorageData::add (tag.key.c_str (), from.c_str (), to.c_str ());¤		return StorageData::_retn ();¤	}¤¤	GDS_ASSERT_MSG (false, ("%s: invalid index (%s) or key (%s)", GDS_CURRENT_FUNCTION, tag.key.c_str (), tag.val.c_str ()));¤	return 0;¤	//#UC END# *50D1D2AF01AB*
 			    )))
 		    quid       	"50D1D2AF01AB"
 		    documentation 	"ïîèñê øàáëîíà"
@@ -3188,18 +3188,18 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@14
-			location   	(264, 1658)
+			location   	(257, 1652)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	168
+			max_width  	182
 			justify    	0
 			label      	"mutex")
 		    icon_style 	"None"
 		    line_color 	14803425
 		    fill_color 	14803425
 		    quidu      	"450E6C340232"
-		    width      	186
-		    height     	105
+		    width      	200
+		    height     	117
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::garantCore::Search::Searcher_i::Invoker" @15
 		    ShowCompartmentStereotypes 	TRUE
@@ -3261,7 +3261,7 @@
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object AssociationViewNew "$UNNAMED$8" @16
-		    location   	(567, 1698)
+		    location   	(571, 1698)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -3278,7 +3278,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "mutex" @17
 			    Parent_View 	@16
-			    location   	(-1131, -576)
+			    location   	(-1127, -576)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -3291,7 +3291,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @18
 				Parent_View 	@17
-				location   	(563, 1661)
+				location   	(568, 1661)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -3317,19 +3317,19 @@
 			    client     	@16
 			    supplier   	@14
 			    vertices   	(list Points
-				(567, 1698)
-				(441, 1698))
+				(571, 1698)
+				(448, 1698))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$9" @19
 			    Parent_View 	@16
-			    location   	(-1131, -576)
+			    location   	(-1127, -576)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"54D0D60B0338"
 			    client     	@16
 			    supplier   	@15
 			    vertices   	(list Points
-				(567, 1698)
+				(571, 1698)
 				(694, 1698))
 			    line_style 	0)))
 		(object ClassView "Class" "Logical View::garantCore::Search::Searcher_i::StorageData" @20
@@ -4756,8 +4756,8 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"LinkedItemGuid"
-			    value      	"50B4FE630218"))
-		    location   	(2559, 621)
+			    value      	"5107F94B015E"))
+		    location   	(1161, 2550)
 		    font       	(object Font
 			size       	8
 			face       	"Arial"
@@ -4777,8 +4777,8 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"LinkedItemGuid"
-			    value      	"5107F94B015E"))
-		    location   	(1161, 2550)
+			    value      	"50BF7C1D02EA"))
+		    location   	(2148, 1923)
 		    font       	(object Font
 			size       	8
 			face       	"Arial"
@@ -4798,8 +4798,8 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"LinkedItemGuid"
-			    value      	"50BF7C1D02EA"))
-		    location   	(2148, 1923)
+			    value      	"50B4FE630218"))
+		    location   	(2559, 621)
 		    font       	(object Font
 			size       	8
 			face       	"Arial"

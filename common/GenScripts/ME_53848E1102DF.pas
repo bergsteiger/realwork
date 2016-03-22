@@ -2,6 +2,7 @@ unit ddTaskRecord;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ddTaskRecord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddTaskRecord" MUID: (53848E1102DF)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_dt_Types;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dt_Types.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "dt_Types" MUID: (47BC51FE018B)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

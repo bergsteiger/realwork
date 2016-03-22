@@ -2,6 +2,8 @@ unit BaseChatWindowOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseChatWindowOptions_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "BaseChatWindowOptions" MUID: (4C84CB6F0007)
+// Имя типа: "TBaseChatWindowOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit kwCompiledIfElse;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledIfElse.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledIfElse" MUID: (5284E9510053)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -18,7 +19,6 @@ type
  TkwCompiledIfElse = class(TkwCompiledIF)
   private
    f_Condition: TtfwWord;
-    {* Поле для свойства Condition }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

@@ -2,6 +2,8 @@ unit VCMSandBoxTestRes;
 
 // Модуль: "w:\common\components\SandBox\VCM\VCMSandBoxTestRes.pas"
 // Стереотип: "VCMTestApplication"
+// Элемент модели: "VCMSandBoxTest" MUID: (523024100274)
+// Имя типа: "TVCMSandBoxTestRes"
 
 {$Include w:\common\components\SandBox\VCM\sbtDefine.inc}
 

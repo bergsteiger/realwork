@@ -3,6 +3,8 @@ unit TextPara_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\TextPara_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "TextPara" MUID: (485683750360)
+// Имя типа: "TextParaTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

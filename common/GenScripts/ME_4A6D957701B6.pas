@@ -2,6 +2,7 @@ unit nsUserIDList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\nsUserIDList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsUserIDList" MUID: (4A6D957701B6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

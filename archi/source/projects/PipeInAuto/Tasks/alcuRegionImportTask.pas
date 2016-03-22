@@ -91,7 +91,7 @@ begin
  try
   l_Browser.SetTaggedData(FTPParams);
   if not l_Browser.DeleteFile(f_ArchiveFileName) then
-   raise Exception.CreateFmt('%s - не удалось уалить файл: %s', [Description, f_ArchiveFileName]);
+   raise Exception.CreateFmt('%s - не удалось удалить файл: %s', [Description, f_ArchiveFileName]);
  finally
   FreeAndNil(l_Browser);
  end;
@@ -144,7 +144,9 @@ begin
   f_ArchiveFileName := aFileName;
   ForceDirectories(SourceWarehouse);
   if not Sender.GetFile(f_ArchiveFileName, SourceWarehouse) then
-   raise Exception.CreateFmt('%d - не удалось скачать файл: %s', [Description, aFileName]);
+   raise Exception.CreateFmt('%d - не удалось скачать файл: %s', [Description, aFileName])
+  else
+   l3System.Msg2Log('Получен файл %s', [f_ArchiveFileName]);
  end
  else
  begin

@@ -3,6 +3,7 @@ unit afwCaretPair;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwCaretPair.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwCaretPair" MUID: (480DD9F600F6)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
@@ -26,11 +27,11 @@ type
   {* Пара кареток (для вставки и замены). }
   private
    f_InsertMode: Boolean;
-    {* Поле для свойства InsertMode }
+    {* режим вставки? }
    f_InsCaretType: TafwInsCaretType;
-    {* Поле для свойства InsCaretType }
+    {* тип каретки для режима вставки. }
    f_OvrCaretType: TafwOvrCaretType;
-    {* Поле для свойства OvrCaretType }
+    {* тип каретки для режима замены. }
   protected
    procedure pm_SetInsertMode(aValue: Boolean);
    procedure pm_SetInsCaretType(aValue: TafwInsCaretType);

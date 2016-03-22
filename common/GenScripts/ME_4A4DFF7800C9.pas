@@ -3,6 +3,7 @@ unit atFileBasedSemaphore;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atFileBasedSemaphore.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatFileBasedSemaphore" MUID: (4A4DFF7800C9)
 
 interface
 

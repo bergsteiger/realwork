@@ -1,8 +1,11 @@
 unit ddCSV;
 
-{ $Id: ddCSV.pas,v 1.15 2014/02/18 13:34:33 lulin Exp $ }
+{ $Id: ddCSV.pas,v 1.16 2016/01/21 13:46:39 fireton Exp $ }
 
 // $Log: ddCSV.pas,v $
+// Revision 1.16  2016/01/21 13:46:39  fireton
+// - открываем файлер только на время чтения
+//
 // Revision 1.15  2014/02/18 13:34:33  lulin
 // - избавляемся от ненужного списка.
 //
@@ -103,6 +106,7 @@ type
  private
   f_CanBeChanged: Boolean;
   f_FileChanged: Boolean;
+  f_Filename: AnsiString;
   f_LineChanged: Boolean;
   f_SrcCache: Tl3StringList;
   f_Filer : Tl3CustomFiler;
@@ -117,7 +121,6 @@ type
   procedure FlushLine;
   procedure FlushUnchangedLine;
   procedure FlushUnchangedSrcCache;
-  function pm_GetFileName: AnsiString;
   function pm_GetInProcess: Boolean;
   function pm_GetValues(Index: Integer): Il3CString;
   function pm_GetValuesW(aIndex: Integer): Tl3WString;
@@ -137,7 +140,7 @@ type
   constructor Create(const aFileName: AnsiString; aCanBeChanged: Boolean = False);
   procedure Process;
   property CanBeChanged: Boolean read f_CanBeChanged write pm_SetCanBeChanged;
-  property FileName: AnsiString read pm_GetFileName;
+  property FileName: AnsiString read f_Filename write f_Filename;
   property ValuesW[aIndex: Integer]: Tl3WString read pm_GetValuesW;
  end;
 
@@ -294,7 +297,7 @@ end;
 constructor TddSectionedCSVLoader.Create(const aFileName: AnsiString; aCanBeChanged: Boolean = False);
 begin
  inherited Create;
- f_Filer := Tl3DOSFiler.Make(aFileName);
+ f_Filename := aFileName;
  f_CanBeChanged := aCanBeChanged;
 end;
 
@@ -413,14 +416,6 @@ begin
  end;
 end;
 
-function TddSectionedCSVLoader.pm_GetFileName: AnsiString;
-begin
- if Assigned(f_Filer) and (f_Filer is Tl3DOSFiler) then
-  Result := Tl3DOSFiler(f_Filer).FileName
- else
-  Result := '';
-end;
-
 function TddSectionedCSVLoader.pm_GetInProcess: Boolean;
 begin
  Result := (f_Filer <> nil) and (f_Filer.Opened);
@@ -468,35 +463,40 @@ var
  l_Name: Tl3WString;
  l_Pos: Integer;
 begin
- if f_CanBeChanged then
-  f_SrcCache := Tl3StringList.Make;
+ f_Filer := Tl3DOSFiler.Make(f_FileName);
  try
-  f_Filer.Open;
+  if f_CanBeChanged then
+   f_SrcCache := Tl3StringList.Make;
   try
-   while not f_Filer.EOF do
-   begin
-    l_Str := ReadLine;
-    if ExtractSectionName(l_Str) then
+   f_Filer.Open;
+   try
+    while not f_Filer.EOF do
     begin
-     while not f_Filer.EOF do
-      DispatchSection;
+     l_Str := ReadLine;
+     if ExtractSectionName(l_Str) then
+     begin
+      while not f_Filer.EOF do
+       DispatchSection;
+     end;
     end;
+   finally
+    f_Filer.Close;
    end;
   finally
-   f_Filer.Close;
-  end;
- finally
-  if f_CanBeChanged then
-  begin
-   FreeAndNil(f_SrcCache);
-   if f_FileChanged then
+   if f_CanBeChanged then
    begin
-    FlushLine;
-    FreeAndNil(f_NewVersionFiler);
-    DeleteFile(FileName);
-    RenameFile(f_NewFileName, FileName)
+    FreeAndNil(f_SrcCache);
+    if f_FileChanged then
+    begin
+     FlushLine;
+     FreeAndNil(f_NewVersionFiler);
+     DeleteFile(FileName);
+     RenameFile(f_NewFileName, FileName)
+    end;
    end;
   end;
+ finally
+  FreeAndNil(f_Filer);
  end;
 end;
 

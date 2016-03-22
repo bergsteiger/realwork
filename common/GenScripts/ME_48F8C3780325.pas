@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "evDataObjectFromStorable" MUID: (48F8C3780325)
+// Имя типа: "_evDataObjectFromStorable_"
 
 {$Define evDataObjectFromStorable_imp}
 
@@ -18,6 +20,7 @@ type
    function DataClass: RStorable; virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
   public
    constructor Create(const aData: _DataType_); reintroduce;
    class function Make(const aData: _DataType_): IDataObject; reintroduce;
@@ -80,6 +83,12 @@ begin
  inherited;
 //#UC END# *479731C50290_48F8C3780325_impl*
 end;//_evDataObjectFromStorable_.Cleanup
+
+procedure _evDataObjectFromStorable_.ClearFields;
+begin
+ Finalize(f_Data);
+ inherited;
+end;//_evDataObjectFromStorable_.ClearFields
 
 {$EndIf evDataObjectFromStorable_imp_impl}
 

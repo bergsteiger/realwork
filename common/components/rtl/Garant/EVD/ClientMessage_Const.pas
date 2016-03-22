@@ -5,7 +5,7 @@ unit ClientMessage_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/ClientMessage_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::ClientMessage
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::ClientMessage
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

@@ -3,6 +3,7 @@ unit evCursor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCursor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCursor" MUID: (49D245770337)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

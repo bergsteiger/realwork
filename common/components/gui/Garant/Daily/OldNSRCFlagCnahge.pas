@@ -1,70 +1,50 @@
 unit OldNSRCFlagCnahge;
+ {* Изменить флаг "Выливать в псевдографику" во всех таблицах в документе. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/OldNSRCFlagCnahge.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TOldNSRCFlagCnahge
-//
-// Изменить флаг "Выливать в псевдографику" во всех таблицах в документе.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\OldNSRCFlagCnahge.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TOldNSRCFlagCnahge" MUID: (4C3FEBB500B2)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  ChangeAllTablesTest,
-  evCustomEditor
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , ChangeAllTablesTest
+ , evCustomEditor
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TOldNSRCFlagCnahge = {abstract} class(TChangeAllTablesTest)
   {* Изменить флаг "Выливать в псевдографику" во всех таблицах в документе. }
- protected
- // realized methods
+  protected
    procedure ApplyEditorTool(aEditor: TevCustomEditor); override;
-     {* Вызов инструмента из редактора }
- protected
- // overridden protected methods
+    {* Вызов инструмента из редактора }
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TOldNSRCFlagCnahge
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TOldNSRCFlagCnahge
+ l3ImplUses
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 procedure TOldNSRCFlagCnahge.ApplyEditorTool(aEditor: TevCustomEditor);
+ {* Вызов инструмента из редактора }
 //#UC START# *4C3FF0DB0072_4C3FEBB500B2_var*
 //#UC END# *4C3FF0DB0072_4C3FEBB500B2_var*
 begin
@@ -74,17 +54,16 @@ begin
 end;//TOldNSRCFlagCnahge.ApplyEditorTool
 
 function TOldNSRCFlagCnahge.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TOldNSRCFlagCnahge.GetFolder
 
 function TOldNSRCFlagCnahge.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C3FEBB500B2';
 end;//TOldNSRCFlagCnahge.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

@@ -210,8 +210,6 @@ ref; // ME_AC46F2F5F929 DoIt
 ref; // ME_52DD085202A3 Make
 
 : ME_52DD07A0013B_ME_52DD07CE001D
- CONST UID '52DD07A0013B'
- CONST Name 'Aggregate'
  : Original ME_52DD07A0013B // Aggregate
  ;
  : Implementor ME_52DD07CE001D // TnscTreeViewState
@@ -221,8 +219,6 @@ ref; // ME_52DD085202A3 Make
 ref; // ME_52DD07A0013B_ME_52DD07CE001D Aggregate
 
 : ME_52DD07B301D9_ME_52DD07CE001D
- CONST UID '52DD07B301D9'
- CONST Name 'Wrap'
  : Original ME_52DD07B301D9 // Wrap
  ;
  : Implementor ME_52DD07CE001D // TnscTreeViewState
@@ -232,8 +228,6 @@ ref; // ME_52DD07A0013B_ME_52DD07CE001D Aggregate
 ref; // ME_52DD07B301D9_ME_52DD07CE001D Wrap
 
 : ME_479731C50290_ME_52DD07CE001D
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_52DD07CE001D // TnscTreeViewState
@@ -242,8 +236,6 @@ ref; // ME_52DD07B301D9_ME_52DD07CE001D Wrap
 ref; // ME_479731C50290_ME_52DD07CE001D Cleanup
 
 : ME_4A60B23E00C3_ME_52DD07CE001D
- CONST UID '4A60B23E00C3'
- CONST Name 'COMQueryInterface'
  : Original WL 'ME_4A60B23E00C3' '47BB24D30205.pas.ms.script' // COMQueryInterface
  ;
  : Implementor ME_52DD07CE001D // TnscTreeViewState
@@ -403,57 +395,6 @@ ref; // ME_52DD094203AE DisableDragAndDropSupport
  ;
 
 ref; // ME_52DD1C600008 f_Published
-
-: ME_8FFD05FB11B2
- CONST UID '8FFD05FB11B2'
- CONST Name 'f_SettingId'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SettingId' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52DD0971008A // TnscTreeViewPrim
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'SettingId'
-
-ref; // ME_8FFD05FB11B2 f_SettingId
-
-: ME_CFB07B17773A
- CONST UID 'CFB07B17773A'
- CONST Name 'f_InterRowMultiplier'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства InterRowMultiplier' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52DD0971008A // TnscTreeViewPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'InterRowMultiplier'
-
-ref; // ME_CFB07B17773A f_InterRowMultiplier
-
-: ME_C515BF8C00BB
- CONST UID 'C515BF8C00BB'
- CONST Name 'f_DisableDragAndDropSupport'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DisableDragAndDropSupport' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52DD0971008A // TnscTreeViewPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'DisableDragAndDropSupport'
-
-ref; // ME_C515BF8C00BB f_DisableDragAndDropSupport
 
 FORWARD ME_508F7F930094
 
@@ -620,35 +561,7 @@ ref; // ME_52DD0AF9026D DoIt
 
 ref; // ME_52DD0AF202C2 MakePath
 
-: ME_C519CB88C95F
- CONST UID 'C519CB88C95F'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscTreeViewPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52DD0971008A // TnscTreeViewPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_C519CB88C95F Ini_Reg_Class
-
-: ME_E1232FA3A41F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52DD0971008A // TnscTreeViewPrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E1232FA3A41F 
-
 : ME_4769552100DD_ME_52DD0971008A
- CONST UID '4769552100DD'
- CONST Name 'ProvideOps'
  : Original WL 'ME_4769552100DD' '467BAB7F021E.pas.ms.script' // ProvideOps
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -657,8 +570,6 @@ ref; // ME_E1232FA3A41F
 ref; // ME_4769552100DD_ME_52DD0971008A ProvideOps
 
 : ME_476BFD420341_ME_52DD0971008A
- CONST UID '476BFD420341'
- CONST Name 'IsCommandPublished'
  : Original WL 'ME_476BFD420341' '467C0CAA02AB.pas.ms.script' // IsCommandPublished
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -667,8 +578,6 @@ ref; // ME_4769552100DD_ME_52DD0971008A ProvideOps
 ref; // ME_476BFD420341_ME_52DD0971008A IsCommandPublished
 
 : ME_4951284902BD_ME_52DD0971008A
- CONST UID '4951284902BD'
- CONST Name 'Copy'
  : Original WL 'ME_4951284902BD' '495127DD017C.pas.ms.script' // Copy
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -686,8 +595,6 @@ ref; // ME_476BFD420341_ME_52DD0971008A IsCommandPublished
 ref; // ME_4951284902BD_ME_52DD0971008A Copy
 
 : ME_49EDFA3701B0_ME_52DD0971008A
- CONST UID '49EDFA3701B0'
- CONST Name 'Paste'
  : Original WL 'ME_49EDFA3701B0' '495127DD017C.pas.ms.script' // Paste
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -705,8 +612,6 @@ ref; // ME_4951284902BD_ME_52DD0971008A Copy
 ref; // ME_49EDFA3701B0_ME_52DD0971008A Paste
 
 : ME_49EE01AA02BE_ME_52DD0971008A
- CONST UID '49EE01AA02BE'
- CONST Name 'SelectAll'
  : Original WL 'ME_49EE01AA02BE' '495127DD017C.pas.ms.script' // SelectAll
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -724,8 +629,6 @@ ref; // ME_49EDFA3701B0_ME_52DD0971008A Paste
 ref; // ME_49EE01AA02BE_ME_52DD0971008A SelectAll
 
 : ME_49EE01BC022E_ME_52DD0971008A
- CONST UID '49EE01BC022E'
- CONST Name 'Deselect'
  : Original WL 'ME_49EE01BC022E' '495127DD017C.pas.ms.script' // Deselect
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -743,8 +646,6 @@ ref; // ME_49EE01AA02BE_ME_52DD0971008A SelectAll
 ref; // ME_49EE01BC022E_ME_52DD0971008A Deselect
 
 : ME_4BDAF7880236_ME_52DD0971008A
- CONST UID '4BDAF7880236'
- CONST Name 'ExpandAll'
  : Original WL 'ME_4BDAF7880236' '4BDAF7510113.pas.ms.script' // ExpandAll
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -762,8 +663,6 @@ ref; // ME_49EE01BC022E_ME_52DD0971008A Deselect
 ref; // ME_4BDAF7880236_ME_52DD0971008A ExpandAll
 
 : ME_4BDAF7A2005C_ME_52DD0971008A
- CONST UID '4BDAF7A2005C'
- CONST Name 'CollapseAll'
  : Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.pas.ms.script' // CollapseAll
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -781,8 +680,6 @@ ref; // ME_4BDAF7880236_ME_52DD0971008A ExpandAll
 ref; // ME_4BDAF7A2005C_ME_52DD0971008A CollapseAll
 
 : ME_4BDAF7B803CF_ME_52DD0971008A
- CONST UID '4BDAF7B803CF'
- CONST Name 'Wrap'
  : Original WL 'ME_4BDAF7B803CF' '4BDAF7510113.pas.ms.script' // Wrap
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -800,8 +697,6 @@ ref; // ME_4BDAF7A2005C_ME_52DD0971008A CollapseAll
 ref; // ME_4BDAF7B803CF_ME_52DD0971008A Wrap
 
 : ME_47D1602000C6_ME_52DD0971008A
- CONST UID '47D1602000C6'
- CONST Name 'Create'
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -810,8 +705,6 @@ ref; // ME_4BDAF7B803CF_ME_52DD0971008A Wrap
 ref; // ME_47D1602000C6_ME_52DD0971008A Create
 
 : ME_48BFB75F01ED_ME_52DD0971008A
- CONST UID '48BFB75F01ED'
- CONST Name 'DoKeys2Effect'
  : Original WL 'ME_48BFB75F01ED' '467BA8C8017E.pas.ms.script' // DoKeys2Effect
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -820,8 +713,6 @@ ref; // ME_47D1602000C6_ME_52DD0971008A Create
 ref; // ME_48BFB75F01ED_ME_52DD0971008A DoKeys2Effect
 
 : ME_4F9A5C410274_ME_52DD0971008A
- CONST UID '4F9A5C410274'
- CONST Name 'LoadSettings'
  : Original WL 'ME_4F9A5C410274' '53288DFA03A7.pas.ms.script' // LoadSettings
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -830,8 +721,6 @@ ref; // ME_48BFB75F01ED_ME_52DD0971008A DoKeys2Effect
 ref; // ME_4F9A5C410274_ME_52DD0971008A LoadSettings
 
 : ME_4F9A5C530398_ME_52DD0971008A
- CONST UID '4F9A5C530398'
- CONST Name 'SaveSettings'
  : Original WL 'ME_4F9A5C530398' '53288DFA03A7.pas.ms.script' // SaveSettings
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -840,8 +729,6 @@ ref; // ME_4F9A5C410274_ME_52DD0971008A LoadSettings
 ref; // ME_4F9A5C530398_ME_52DD0971008A SaveSettings
 
 : ME_5152C16A028F_ME_52DD0971008A
- CONST UID '5152C16A028F'
- CONST Name 'GetDragAndDropSupported'
  : Original WL 'ME_5152C16A028F' '4B97E7FD006C.pas.ms.script' // GetDragAndDropSupported
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -850,8 +737,6 @@ ref; // ME_4F9A5C530398_ME_52DD0971008A SaveSettings
 ref; // ME_5152C16A028F_ME_52DD0971008A GetDragAndDropSupported
 
 : ME_515584020214_ME_52DD0971008A
- CONST UID '515584020214'
- CONST Name 'CalcInterRowIndent'
  : Original WL 'ME_515584020214' '4B97E7FD006C.pas.ms.script' // CalcInterRowIndent
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -860,8 +745,6 @@ ref; // ME_5152C16A028F_ME_52DD0971008A GetDragAndDropSupported
 ref; // ME_515584020214_ME_52DD0971008A CalcInterRowIndent
 
 : ME_52DD0F440276_ME_52DD0971008A
- CONST UID '52DD0F440276'
- CONST Name 'DoSaveState'
  : Original WL 'ME_52DD0F440276' '494B947D0127.pas.ms.script' // DoSaveState
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -871,8 +754,6 @@ ref; // ME_515584020214_ME_52DD0971008A CalcInterRowIndent
 ref; // ME_52DD0F440276_ME_52DD0971008A DoSaveState
 
 : ME_52DD0F6F0223_ME_52DD0971008A
- CONST UID '52DD0F6F0223'
- CONST Name 'DoLoadState'
  : Original WL 'ME_52DD0F6F0223' '494B947D0127.pas.ms.script' // DoLoadState
  ;
  : Implementor ME_52DD0971008A // TnscTreeViewPrim
@@ -908,9 +789,6 @@ ref; // ME_52DD0F6F0223_ME_52DD0971008A DoLoadState
  ME_52DD09210222 // InterRowMultiplier
  ME_52DD094203AE // DisableDragAndDropSupport
  ME_52DD1C600008 // f_Published
- ME_8FFD05FB11B2 // f_SettingId
- ME_CFB07B17773A // f_InterRowMultiplier
- ME_C515BF8C00BB // f_DisableDragAndDropSupport
  )
  ; // Attributes
  : Operations
@@ -918,7 +796,6 @@ ref; // ME_52DD0F6F0223_ME_52DD0971008A DoLoadState
  ME_52DD0A7700AD // IsEmpty
  ME_52DD0ACE03DC // DoProvideOps
  ME_52DD0AF202C2 // MakePath
- ME_C519CB88C95F // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -948,10 +825,6 @@ ref; // ME_52DD0F6F0223_ME_52DD0971008A DoLoadState
    Seq: ( ME_52DD11500026 // nscTreeView Const
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_E1232FA3A41F // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -961,21 +834,6 @@ ref; // ME_52DD0F6F0223_ME_52DD0971008A DoLoadState
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_52DD0971008A TnscTreeViewPrim
-
-: ME_1EE938ABD0CF
- CONST UID '1EE938ABD0CF'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscTreeView' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_499C26240034 // TnscTreeView
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_1EE938ABD0CF Ini_Reg_Class
 
 FORWARD ME_4B97DC630378
 
@@ -1069,17 +927,6 @@ ref; // ME_52DD697D01E4
 
 ref; // ME_52DE2F1F00B0 
 
-: ME_57FB499C6F2C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_499C26240034 // TnscTreeView
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_57FB499C6F2C 
-
 : ME_499C26240034
  CONST UID '499C26240034'
  CONST Name 'TnscTreeView'
@@ -1094,10 +941,6 @@ ref; // ME_57FB499C6F2C
    Seq: ( ME_52DD0971008A // TnscTreeViewPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_1EE938ABD0CF // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_52DD074203B6 // InscTreeState
  ME_52DD07CE001D // TnscTreeViewState
@@ -1114,7 +957,6 @@ ref; // ME_57FB499C6F2C
  ME_52DD696800F0 // 
  ME_52DD697D01E4 // 
  ME_52DE2F1F00B0 // 
- ME_57FB499C6F2C // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -1248,56 +1090,6 @@ ref; // ME_559BCE3F0233 AllowTrucking
 
 ref; // ME_559BCE60027E HotTruckIndex
 
-: ME_17FC3522B761
- CONST UID '17FC3522B761'
- CONST Name 'f_OnAllowHotTruck'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnAllowHotTruck' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B60346A022E // TnscTreeViewHotTruck
- ;
- : Target ME_559BCDD6010D // TOnAllowHotTruck
- ;
- CONST extprop:clearViaProperty 'OnAllowHotTruck'
-
-ref; // ME_17FC3522B761 f_OnAllowHotTruck
-
-: ME_125ED7C721FA
- CONST UID '125ED7C721FA'
- CONST Name 'f_AllowTrucking'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AllowTrucking' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B60346A022E // TnscTreeViewHotTruck
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'AllowTrucking'
-
-ref; // ME_125ED7C721FA f_AllowTrucking
-
-: ME_E2D86F1A6986
- CONST UID 'E2D86F1A6986'
- CONST Name 'f_HotTruckIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HotTruckIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B60346A022E // TnscTreeViewHotTruck
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_E2D86F1A6986 f_HotTruckIndex
-
 FORWARD ME_559BCE89021B
 
 : ME_559BCE930009
@@ -1399,21 +1191,6 @@ ref; // ME_559BCEBB010C Message
 
 ref; // ME_559BCEAE01E8 CMMouseLeave
 
-: ME_7D3722F85D10
- CONST UID '7D3722F85D10'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscTreeViewHotTruck' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B60346A022E // TnscTreeViewHotTruck
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_7D3722F85D10 Ini_Reg_Class
-
 : ME_559BCF6801DE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1424,20 +1201,7 @@ ref; // ME_7D3722F85D10 Ini_Reg_Class
 
 ref; // ME_559BCF6801DE 
 
-: ME_6D6E453651EE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B60346A022E // TnscTreeViewHotTruck
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_6D6E453651EE 
-
 : ME_47D1602000C6_ME_4B60346A022E
- CONST UID '47D1602000C6'
- CONST Name 'Create'
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
  : Implementor ME_4B60346A022E // TnscTreeViewHotTruck
@@ -1446,8 +1210,6 @@ ref; // ME_6D6E453651EE
 ref; // ME_47D1602000C6_ME_4B60346A022E Create
 
 : ME_508F825303E4_ME_4B60346A022E
- CONST UID '508F825303E4'
- CONST Name 'DoOnGetItemStyle'
  : Original WL 'ME_508F825303E4' '4B97E7FD006C.pas.ms.script' // DoOnGetItemStyle
  ;
  : Implementor ME_4B60346A022E // TnscTreeViewHotTruck
@@ -1456,8 +1218,6 @@ ref; // ME_47D1602000C6_ME_4B60346A022E Create
 ref; // ME_508F825303E4_ME_4B60346A022E DoOnGetItemStyle
 
 : ME_5152C10E027B_ME_4B60346A022E
- CONST UID '5152C10E027B'
- CONST Name 'SetCursorForItem'
  : Original WL 'ME_5152C10E027B' '4B97E7FD006C.pas.ms.script' // SetCursorForItem
  ;
  : Implementor ME_4B60346A022E // TnscTreeViewHotTruck
@@ -1483,16 +1243,12 @@ ref; // ME_5152C10E027B_ME_4B60346A022E SetCursorForItem
    Seq: ( ME_559BCE1402D5 // OnAllowHotTruck
  ME_559BCE3F0233 // AllowTrucking
  ME_559BCE60027E // HotTruckIndex
- ME_17FC3522B761 // f_OnAllowHotTruck
- ME_125ED7C721FA // f_AllowTrucking
- ME_E2D86F1A6986 // f_HotTruckIndex
  )
  ; // Attributes
  : Operations
    Seq: ( ME_559BCE89021B // SetHotTruckIndex
  ME_559BCE9C0001 // UpdateTruckFromCursor
  ME_559BCEAE01E8 // CMMouseLeave
- ME_7D3722F85D10 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -1507,7 +1263,6 @@ ref; // ME_5152C10E027B_ME_4B60346A022E SetCursorForItem
  ; // Children
  : Dependencies
    Seq: ( ME_559BCF6801DE // 
- ME_6D6E453651EE // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -1858,7 +1613,6 @@ ref; // ME_4B97DC630378 nscTreeViewRes
  WL 'ME_4C52A6610123' '4C52A6610123.pas.ms.script' // Reminders
  WL 'ME_52DD68B5034F' '52DD68B5034F.pas.ms.script' // vcmDefaultOperations
  WL 'ME_53288DFA03A7' '53288DFA03A7.pas.ms.script' // NewReminders
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsEditListener.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsUserSettingsEditListener" MUID: (4958F42B0205)
+// Имя типа: "_nsUserSettingsEditListener_"
 
 {$Define nsUserSettingsEditListener_imp}
 

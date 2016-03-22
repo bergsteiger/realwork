@@ -36,7 +36,11 @@
 	(object Visibility_Relationship
 	    quid       	"4B5DCCC7018A"
 	    supplier   	"Logical View::Templates::MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes"
-	    quidu      	"470EF980003E"))
+	    quidu      	"470EF980003E")
+	(object Visibility_Relationship
+	    quid       	"56D0FE700027"
+	    supplier   	"Logical View::Templates::MDProcess$Templates::CommonTemplates::AllGenerators::DelphiGens"
+	    quidu      	"4773984F02AA"))
     exportControl 	"Public"
     logical_models 	(list unit_reference_list
 	(object Class "Component"
@@ -369,7 +373,25 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"SourceType (wiki)"
-			    value      	"wiki"))
+			    value      	"wiki")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"DerivedImplement"
+			    value      	
+|{"46E6D49602DB":{"need_collect_children":"true"}}
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"DerivedOverload"
+			    value      	"{}")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ImplementSelectType"
+			    value      	"include")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OverloadSelectType"
+			    value      	"include"))
 		    quid       	"4F952901031F"
 		    documentation 	"Распологает контрол ЗА указанным"
 		    stereotype 	"MDAAttribute"
@@ -382,7 +404,16 @@
 				    value      	"1335175509473018"))
 			    quid       	"4F95295501D5"
 			    supplier   	"Logical View::Templates::MDProcess$CoreTemplates::CoreTemplates::Core::Abstract::Документация"
-			    quidu      	"46E6D49602DB")))))
+			    quidu      	"46E6D49602DB")
+			(object Realize_Relationship
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1456537127563022"))
+			    quid       	"56D0FE270233"
+			    supplier   	"Logical View::Templates::MDProcess$Templates::CommonTemplates::AllGenerators::DelphiGens::Delphi интерфейсы и реализация"
+			    quidu      	"470F151302FD")))))
 	(object Class "Control"
 	    attributes 	(list Attribute_Set
 		(object Attribute
@@ -824,35 +855,6 @@
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0)
-		(object Operation "ToDFM"
-		    attributes 	(list Attribute_Set
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"AbstarctOperation"
-			    value      	"regular")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"IsNative"
-			    value      	"false")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"mda:*4B5DC20D00F0for4B5DC1D50227*"
-			    value      	(value Text 
-|//#UC START# *4B5DC20D00F0for4B5DC1D50227*¤	[{%S%f_NeedPutToDFM()=true}\¤	[{%f_exists_in_list(FORM_CONTROLS,"%S%f_pas_AttrName()")=false}\¤	%f_add_to_list(FORM_CONTROLS,"%S%f_pas_AttrName()")\¤	\n# object %S%f_pas_AttrName(): %S%f_pas_ResultTypeName()\¤	[{"%SD"!=""&%S{need Caption}!=false}\n#  Caption = '%SD']\¤	<%C#f_ToDFM()>\¤	[{%S%f_IsOverride()=true}\¤	<{}{}{r}%g<%C#f_ToDFM()>>\¤	]¤	# end\¤	]\¤	]¤//#UC END# *4B5DC20D00F0for4B5DC1D50227*
-			    ))
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"ElementCreationOrder"
-			    value      	"13106541631")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"forth_structure:*4B5DC20D00F0_4B5DC1D50227*"
-			    value      	"//#UC START# *4B5DC20D00F0_4B5DC1D50227*¤       NotImplemented¤      //#UC END# *4B5DC20D00F0_4B5DC1D50227*"))
-		    quid       	"4B5DC20D00F0"
-		    documentation 	"Выводит представление контрола в DFM"
-		    concurrency 	"Sequential"
-		    opExportControl 	"Public"
-		    uid        	0)
 		(object Operation "ToFields"
 		    attributes 	(list Attribute_Set
 			(object Attribute
@@ -984,7 +986,7 @@
 	    max_height 	28350
 	    max_width  	21600
 	    origin_x   	0
-	    origin_y   	162
+	    origin_y   	281
 	    items      	(list diagram_item_list
 		(object ClassView "Class" "Logical View::Templates::MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::ClassBase::readonly" @1
 		    ShowCompartmentStereotypes 	TRUE
@@ -1009,7 +1011,7 @@
 			nlines     	1
 			max_width  	346
 			justify    	0
-			label      	"readonly")
+			label      	"• readonly")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@1
 			location   	(316, 138)
@@ -1044,26 +1046,45 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@2
-			location   	(132, 518)
+			location   	(120, 529)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	708
+			max_width  	732
 			justify    	0
 			label      	"ControlPrim")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@2
-			location   	(132, 468)
+			location   	(120, 479)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	708
+			max_width  	732
 			justify    	0
 			label      	"<<MDAClass>>")
 		    icon_style 	"Label"
 		    fill_color 	14148095
 		    quidu      	"4B5DC1D50227"
-		    width      	726
-		    height     	564
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(120, 590)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	8
+			max_width  	746
+			justify    	1)
+		    width      	750
+		    height     	542
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Templates::MDProcess$CoreTemplates::CoreTemplates::Core::Abstract::WikiImplClass" @3
@@ -1085,25 +1106,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@3
-			location   	(819, 1135)
+			location   	(835, 1139)
 			nlines     	1
-			max_width  	330
+			max_width  	298
 			justify    	0
 			label      	"WikiImplClass")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@3
-			location   	(819, 1085)
+			location   	(835, 1089)
 			anchor     	10
 			nlines     	1
-			max_width  	327
+			max_width  	298
 			justify    	0
 			label      	"<<MDAClass>>")
 		    icon_style 	"Label"
 		    line_color 	4944890
 		    fill_color 	16777215
 		    quidu      	"471723E1037A"
-		    width      	348
-		    height     	188
+		    width      	316
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Templates::MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FormInner::Component" @4
@@ -1124,26 +1145,45 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@4
-			location   	(1638, 1386)
+			location   	(864, 1377)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	330
+			max_width  	1878
 			justify    	0
-			label      	"Component")
+			label      	"• Component")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@4
-			location   	(1638, 1336)
+			location   	(864, 1327)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	327
+			max_width  	1878
 			justify    	0
 			label      	"<<MDAClass>>")
 		    icon_style 	"Label"
 		    fill_color 	14148095
 		    quidu      	"4A794D1700B2"
-		    width      	348
-		    height     	274
+		    compartment 	(object Compartment
+			Parent_View 	@4
+			location   	(864, 1438)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	1878
+			justify    	1)
+		    width      	1896
+		    height     	292
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Templates::MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FormInner::FormInner" @5
@@ -1169,7 +1209,7 @@
 			nlines     	1
 			max_width  	298
 			justify    	0
-			label      	"FormInner")
+			label      	"• FormInner")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@5
 			location   	(343, 1373)
@@ -1192,7 +1232,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(6948, 1803)
+		    location   	(7317, 1803)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1205,26 +1245,45 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@6
-			location   	(6783, 1751)
+			location   	(9, 1744)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	330
+			max_width  	14616
 			justify    	0
-			label      	"Control")
+			label      	"• Control")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@6
-			location   	(6783, 1701)
+			location   	(9, 1694)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	327
+			max_width  	14616
 			justify    	0
 			label      	"<<MDAClass>>")
 		    icon_style 	"Label"
 		    fill_color 	14148095
 		    quidu      	"4A794CA201BF"
-		    width      	348
-		    height     	228
+		    compartment 	(object Compartment
+			Parent_View 	@6
+			location   	(9, 1805)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	14575
+			justify    	1)
+		    width      	14634
+		    height     	242
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Templates::MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FormInner::ControlOverride" @7
@@ -1250,7 +1309,7 @@
 			nlines     	1
 			max_width  	644
 			justify    	0
-			label      	"ControlOverride")
+			label      	"• ControlOverride")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@7
 			location   	(278, 2246)
@@ -1263,6 +1322,25 @@
 		    icon_style 	"Label"
 		    fill_color 	14148095
 		    quidu      	"4A83F1EB00AB"
+		    compartment 	(object Compartment
+			Parent_View 	@7
+			location   	(278, 2357)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	653
+			justify    	1)
 		    width      	662
 		    height     	242
 		    annotation 	8
@@ -1284,7 +1362,7 @@
 		    client     	@2
 		    supplier   	@1
 		    vertices   	(list Points
-			(487, 455)
+			(487, 466)
 			(488, 306))
 		    line_style 	0)
 		(object InheritView "" @9
@@ -1304,10 +1382,10 @@
 		    client     	@4
 		    supplier   	@5
 		    vertices   	(list Points
-			(1629, 1457)
+			(855, 1457)
 			(650, 1457))
 		    line_style 	3
-		    origin_attachment 	(1629, 1457)
+		    origin_attachment 	(855, 1457)
 		    terminal_attachment 	(650, 1457))
 		(object InheritView "" @10
 		    font       	(object Font
@@ -1327,7 +1405,7 @@
 		    supplier   	@2
 		    vertices   	(list Points
 			(490, 1360)
-			(488, 1020))
+			(488, 1009))
 		    line_style 	0)
 		(object InheritView "" @11
 		    font       	(object Font
@@ -1347,7 +1425,7 @@
 		    supplier   	@3
 		    vertices   	(list Points
 			(646, 1360)
-			(818, 1261))
+			(826, 1257))
 		    line_style 	0)
 		(object InheritView "" @12
 		    font       	(object Font
@@ -1366,11 +1444,11 @@
 		    client     	@6
 		    supplier   	@5
 		    vertices   	(list Points
-			(6776, 1689)
+			(6776, 1682)
 			(6776, 1543)
 			(650, 1543))
 		    line_style 	3
-		    origin_attachment 	(6776, 1689)
+		    origin_attachment 	(6776, 1682)
 		    terminal_attachment 	(650, 1543))
 		(object InheritView "" @13
 		    font       	(object Font
@@ -1390,11 +1468,11 @@
 		    supplier   	@6
 		    vertices   	(list Points
 			(931, 2235)
-			(6776, 2235)
-			(6776, 1917))
+			(6775, 2235)
+			(6775, 1924))
 		    line_style 	3
 		    origin_attachment 	(931, 2235)
-		    terminal_attachment 	(6776, 1917))
+		    terminal_attachment 	(6775, 1924))
 		(object UsesView "" @14
 		    font       	(object Font
 			size       	10
@@ -1408,7 +1486,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @15
 			Parent_View 	@14
-			location   	(7110, 1475)
+			location   	(7476, 1460)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -1427,19 +1505,19 @@
 			label      	"<<include>>"
 			pctDist    	0.707018
 			height     	8
-			orientation 	0)
+			orientation 	1)
 		    line_color 	3947680
 		    quidu      	"4A794CB70146"
 		    client     	@6
 		    supplier   	@6
 		    vertices   	(list Points
-			(6776, 1689)
-			(6776, 1467)
-			(7120, 1467)
-			(7120, 1689))
+			(7145, 1682)
+			(7145, 1467)
+			(7489, 1467)
+			(7489, 1682))
 		    line_style 	3
-		    origin_attachment 	(6776, 1689)
-		    terminal_attachment 	(7120, 1689))
+		    origin_attachment 	(7145, 1682)
+		    terminal_attachment 	(7489, 1682))
 		(object UsesView "" @16
 		    font       	(object Font
 			size       	10
@@ -1453,7 +1531,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @17
 			Parent_View 	@16
-			location   	(2946, 3022)
+			location   	(2943, 3022)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -1478,11 +1556,11 @@
 		    client     	@6
 		    supplier   	@7
 		    vertices   	(list Points
-			(6776, 1917)
-			(6776, 2384)
+			(6775, 1924)
+			(6775, 2384)
 			(931, 2384))
 		    line_style 	3
-		    origin_attachment 	(6776, 1917)
+		    origin_attachment 	(6775, 1924)
 		    terminal_attachment 	(931, 2384))))
 	(object ClassDiagram "Uses"
 	    attributes 	(list Attribute_Set
@@ -1499,7 +1577,7 @@
 	    origin_y   	0
 	    items      	(list diagram_item_list
 		(object CategoryView "Logical View::Templates::MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FormInner" @18
-		    location   	(351, 747)
+		    location   	(399, 759)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1512,14 +1590,14 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@18
-			location   	(7, 712)
+			location   	(55, 724)
 			nlines     	2
 			max_width  	688
 			justify    	0
 			label      	"FormInner")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@18
-			location   	(7, 662)
+			location   	(55, 674)
 			anchor     	10
 			nlines     	1
 			max_width  	688
@@ -1581,8 +1659,51 @@
 		    client     	@18
 		    supplier   	@19
 		    vertices   	(list Points
-			(335, 601)
-			(309, 347))
+			(370, 613)
+			(319, 347))
+		    line_style 	0)
+		(object CategoryView "Logical View::Templates::MDProcess$Templates::CommonTemplates::AllGenerators::DelphiGens" @21
+		    location   	(864, 240)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	15093990
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@21
+			location   	(682, 205)
+			nlines     	2
+			max_width  	364
+			justify    	0
+			label      	"DelphiGens")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@21
+			location   	(682, 155)
+			anchor     	10
+			nlines     	1
+			max_width  	364
+			justify    	0
+			label      	"<<MDALayer>>")
+		    icon_style 	"Icon"
+		    line_color 	15093990
+		    fill_color 	16777215
+		    quidu      	"4773984F02AA"
+		    width      	376
+		    height     	182)
+		(object ImportView "" @22
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"56D0FE700027"
+		    client     	@18
+		    supplier   	@21
+		    vertices   	(list Points
+			(528, 613)
+			(780, 331))
 		    line_style 	0)))
 	(object ClassDiagram "Main"
 	    attributes 	(list Attribute_Set
@@ -1598,7 +1719,7 @@
 	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
-		(object ClassView "Class" "Logical View::Templates::MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FormInner::FormInner::after" @21
+		(object ClassView "Class" "Logical View::Templates::MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FormInner::FormInner::after" @23
 		    ShowCompartmentStereotypes 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
@@ -1615,36 +1736,36 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@21
-			location   	(193, 605)
+			Parent_View 	@23
+			location   	(207, 581)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	376
+			max_width  	348
 			justify    	0
-			label      	"after")
+			label      	"• after")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@21
-			location   	(193, 555)
+			Parent_View 	@23
+			location   	(207, 531)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	374
+			max_width  	348
 			justify    	0
 			label      	"<<MDAAttribute>>")
 		    icon_style 	"Label"
 		    fill_color 	14811105
 		    quidu      	"4F952901031F"
-		    width      	394
-		    height     	180
+		    width      	366
+		    height     	228
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Templates::MDProcess$CoreTemplates::CoreTemplates::Core::Abstract::Документация" @22
+		(object ClassView "Class" "Logical View::Templates::MDProcess$CoreTemplates::CoreTemplates::Core::Abstract::Документация" @24
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
-		    location   	(376, 187)
+		    location   	(375, 186)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1656,18 +1777,18 @@
 			color      	4944890
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@22
-			location   	(190, 159)
+			Parent_View 	@24
+			location   	(189, 158)
 			nlines     	1
 			max_width  	372
 			justify    	0
-			label      	"Документация")
+			label      	"• Документация")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@22
-			location   	(190, 109)
+			Parent_View 	@24
+			location   	(189, 108)
 			anchor     	10
 			nlines     	1
-			max_width  	372
+			max_width  	369
 			justify    	0
 			label      	"<<MDAGenerator>>")
 		    icon_style 	"Label"
@@ -1678,13 +1799,83 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object RealizeView "" @23
+		(object RealizeView "" @25
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4F95295501D5"
+		    client     	@23
+		    supplier   	@24
+		    vertices   	(list Points
+			(378, 518)
+			(375, 276))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Templates::MDProcess$Templates::CommonTemplates::AllGenerators::DelphiGens::Delphi интерфейсы и реализация" @26
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1209, 174)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	4944890
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@26
+			location   	(836, 146)
+			nlines     	1
+			max_width  	746
+			justify    	0
+			label      	"• Delphi интерфейсы и реализация")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@26
+			location   	(836, 96)
+			anchor     	10
+			nlines     	1
+			max_width  	746
+			justify    	0
+			label      	"<<MDAGenerator>>")
+		    icon_style 	"Label"
+		    line_color 	4944890
+		    fill_color 	16777215
+		    quidu      	"470F151302FD"
+		    width      	764
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @27
 		    stereotype 	TRUE
 		    line_color 	3342489
-		    quidu      	"4F95295501D5"
-		    client     	@21
-		    supplier   	@22
+		    quidu      	"470F15FA0138"
+		    client     	@26
+		    supplier   	@24
 		    vertices   	(list Points
-			(379, 542)
-			(376, 277))
+			(826, 179)
+			(570, 183))
+		    line_style 	0)
+		(object RealizeView "" @28
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"56D0FE270233"
+		    client     	@23
+		    supplier   	@26
+		    vertices   	(list Points
+			(564, 530)
+			(1043, 264))
 		    line_style 	0)))))

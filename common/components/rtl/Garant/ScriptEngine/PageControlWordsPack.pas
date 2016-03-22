@@ -2,6 +2,7 @@ unit PageControlWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\PageControlWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "PageControlWordsPack" MUID: (552E49070307)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -168,11 +169,6 @@ begin
  aCtx.rEngine.PushInt(FindPageByCaption(aCtx, l_aPageControl, l_aCaption));
 end;//TkwPopPageControlFindPageByCaption.DoDoIt
 
-class function TkwPopPageControlFindPageByCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:PageControl:FindPageByCaption';
-end;//TkwPopPageControlFindPageByCaption.GetWordNameForRegister
-
 function TkwPopPageControlFindPageByCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -187,6 +183,11 @@ function TkwPopPageControlFindPageByCaption.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TElCustomPageControl), @tfw_tiString]);
 end;//TkwPopPageControlFindPageByCaption.ParamsTypes
+
+class function TkwPopPageControlFindPageByCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:PageControl:FindPageByCaption';
+end;//TkwPopPageControlFindPageByCaption.GetWordNameForRegister
 
 function TkwPopPageControlPageCaptionByIndex.PageCaptionByIndex(const aCtx: TtfwContext;
  aPageControl: TElCustomPageControl;
@@ -238,11 +239,6 @@ begin
  aCtx.rEngine.PushString(PageCaptionByIndex(aCtx, l_aPageControl, l_anIndex));
 end;//TkwPopPageControlPageCaptionByIndex.DoDoIt
 
-class function TkwPopPageControlPageCaptionByIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:PageControl:PageCaptionByIndex';
-end;//TkwPopPageControlPageCaptionByIndex.GetWordNameForRegister
-
 function TkwPopPageControlPageCaptionByIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -257,6 +253,11 @@ function TkwPopPageControlPageCaptionByIndex.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TElCustomPageControl), TypeInfo(Integer)]);
 end;//TkwPopPageControlPageCaptionByIndex.ParamsTypes
+
+class function TkwPopPageControlPageCaptionByIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:PageControl:PageCaptionByIndex';
+end;//TkwPopPageControlPageCaptionByIndex.GetWordNameForRegister
 
 function TkwPopPageControlPageByIndex.PageByIndex(const aCtx: TtfwContext;
  aPageControl: TElCustomPageControl;
@@ -297,11 +298,6 @@ begin
  aCtx.rEngine.PushObj(PageByIndex(aCtx, l_aPageControl, l_anIndex));
 end;//TkwPopPageControlPageByIndex.DoDoIt
 
-class function TkwPopPageControlPageByIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:PageControl:PageByIndex';
-end;//TkwPopPageControlPageByIndex.GetWordNameForRegister
-
 function TkwPopPageControlPageByIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TElTabSheet);
@@ -316,6 +312,11 @@ function TkwPopPageControlPageByIndex.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TElCustomPageControl), TypeInfo(Integer)]);
 end;//TkwPopPageControlPageByIndex.ParamsTypes
+
+class function TkwPopPageControlPageByIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:PageControl:PageByIndex';
+end;//TkwPopPageControlPageByIndex.GetWordNameForRegister
 
 function TkwPopPageControlGetAllPageCaptions.GetAllPageCaptions(const aCtx: TtfwContext;
  aPageControl: TElCustomPageControl): AnsiString;
@@ -354,11 +355,6 @@ begin
  aCtx.rEngine.PushString(GetAllPageCaptions(aCtx, l_aPageControl));
 end;//TkwPopPageControlGetAllPageCaptions.DoDoIt
 
-class function TkwPopPageControlGetAllPageCaptions.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:PageControl:GetAllPageCaptions';
-end;//TkwPopPageControlGetAllPageCaptions.GetWordNameForRegister
-
 function TkwPopPageControlGetAllPageCaptions.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -373,6 +369,11 @@ function TkwPopPageControlGetAllPageCaptions.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TElCustomPageControl)]);
 end;//TkwPopPageControlGetAllPageCaptions.ParamsTypes
+
+class function TkwPopPageControlGetAllPageCaptions.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:PageControl:GetAllPageCaptions';
+end;//TkwPopPageControlGetAllPageCaptions.GetWordNameForRegister
 
 initialization
  TkwPopPageControlFindPageByCaption.RegisterInEngine;

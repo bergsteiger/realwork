@@ -4,34 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_52AB0D0202FB
 
-FORWARD ME_5028DFB00090
-
-: ME_8EE095F6BFA2
- CONST UID '8EE095F6BFA2'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5028DFB00090 // TvcmControl
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_8EE095F6BFA2 Ini_Reg_Class
-
-: ME_0736037D0FE4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5028DFB00090 // TvcmControl
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_0736037D0FE4 
-
 : ME_5028DFB00090
  CONST UID '5028DFB00090'
  CONST Name 'TvcmControl'
@@ -46,14 +18,6 @@ ref; // ME_0736037D0FE4
    Seq: ( WL 'ME_48BBE37E00A2' '467BA8C8017E.pas.ms.script' // TafwCustomCommonControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_8EE095F6BFA2 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_0736037D0FE4 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
@@ -82,7 +46,6 @@ ref; // ME_5028DFB00090 TvcmControl
  ; // Children
  : Depends
    Seq: ( WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "path prefix" '/implementation/Visual'

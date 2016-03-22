@@ -5,7 +5,7 @@ unit Type_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/Type_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Atom::Class>> Shared Delphi::EVD::Standard::evdTasks::Type
+// Generated from UML model, root element: <<Atom::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::Type
 //
 // Тип объекта
 //

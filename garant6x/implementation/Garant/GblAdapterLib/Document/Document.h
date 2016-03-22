@@ -224,15 +224,6 @@ private:
 
 };
 
-class NotAllowedInTrialMode : public ::Core::Exception {
-public:
-	const char* what () const throw ();
-
-private:
-	const char* uid () const /*throw ()*/;
-
-};
-
 // Вид хинта
 enum LinkKind {
 	LK_INTERNAL_INVALID
@@ -244,6 +235,16 @@ enum LinkKind {
 	, LK_EDITION // Редакция документа
 	, LK_SCRIPT // ссылка на скрипт
 };
+
+#pragma pack (push, 1)
+
+struct LinkInfo {
+	// вид хинта
+	LinkKind kind;
+	GCI::IO::String_var hint;
+};
+
+#pragma pack (pop)
 
 class InvalidDate : public ::Core::Exception {
 public:
@@ -265,16 +266,6 @@ private:
 	const char* uid () const /*throw ()*/;
 
 };
-
-#pragma pack (push, 1)
-
-struct LinkInfo {
-	// вид хинта
-	LinkKind kind;
-	GCI::IO::String_var hint;
-};
-
-#pragma pack (pop)
 
 enum FactoryKey {
 	FK_DOCUMENT_MASTER
@@ -762,7 +753,6 @@ public:
 	) const /*throw (
 		InvalidTopicId
 		, FolderLinkNotFound
-		, NotAllowedInTrialMode
 	)*/ = 0;
 
 	// Возвращает информацию об интервале неуверенности документа. Если указанная в параметра date
@@ -1115,7 +1105,7 @@ class Link
 public:
 	virtual LinkedObjectType get_object_type () const = 0;
 
-	virtual Core::IObject* get_object () const /*throw (InvalidTopicId, FolderLinkNotFound, NotAllowedInTrialMode)*/ = 0;
+	virtual Core::IObject* get_object () const /*throw (InvalidTopicId, FolderLinkNotFound)*/ = 0;
 
 	virtual LinkInfo* get_link_info () const = 0;
 

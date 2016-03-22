@@ -2,6 +2,8 @@ unit OfficeLikeRes;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLikeRes.pas"
 // Стереотип: "VCMApplication"
+// Элемент модели: "OfficeLike" MUID: (4ADDCE970294)
+// Имя типа: "TOfficeLikeRes"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

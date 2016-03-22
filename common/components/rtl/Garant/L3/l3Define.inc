@@ -4,9 +4,12 @@
 { Автор: Люлин А.В. ©     }
 { Модуль: l3Define -      }
 { Начат: 12.04.1998 11:28 }
-{ $Id: l3Define.inc,v 1.155 2015/09/23 15:46:19 lulin Exp $ }
+{ $Id: l3Define.inc,v 1.156 2016/03/03 15:14:18 lulin Exp $ }
 
 // $Log: l3Define.inc,v $
+// Revision 1.156  2016/03/03 15:14:18  lulin
+// - боремся с утечками.
+//
 // Revision 1.155  2015/09/23 15:46:19  lulin
 // - оптимизируем.
 //
@@ -693,7 +696,9 @@
  {$EndIf  XE}
 {$EndIf DesignTimeLibrary}
 
-{$Define l3AssertSimpleMMCanFreeBlocks}
+{$IfNDef l3NotAssertSimpleMMCanFreeBlocks}
+ {$Define l3AssertSimpleMMCanFreeBlocks}
+{$EndIf  l3NotAssertSimpleMMCanFreeBlocks}
 
 {$IfDef ALCU}
  {.$Undef l3AssertSimpleMMCanFreeBlocks}

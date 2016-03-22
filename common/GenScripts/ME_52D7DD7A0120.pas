@@ -2,6 +2,8 @@ unit kwMedianBacket;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMedianBacket.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "MedianBacket" MUID: (52D7DD7A0120)
+// Имя типа: "TkwMedianBacket"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -44,6 +46,10 @@ function TkwMedianBacket.IsImmediate(const aCtx: TtfwContext): Boolean;
 begin
  Result := True;
 end;//TkwMedianBacket.IsImmediate
+
+initialization
+ TkwMedianBacket.RegisterClass;
+ {* Регистрация MedianBacket }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,87 +1,67 @@
 unit SelfInfo_ut_SelfInfo_UserType;
+ {* Регистрационные данные }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Settings/Forms/SelfInfo_ut_SelfInfo_UserType.pas"
-// Начат: 09.09.2009 16:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Основные прецеденты::Settings::View::Settings::Settings::SelfInfo::ut_SelfInfo
-//
-// Регистрационные данные
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\SelfInfo_ut_SelfInfo_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "ut_SelfInfo" MUID: (2A1D3736B42C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-    { Константы для типа формы ut_SelfInfo }
-   ut_SelfInfoName = 'ut_SelfInfo';
-    { Строковый идентификатор пользовательского типа "Регистрационные данные" }
-   ut_SelfInfo = TvcmUserType(0);
-    { Регистрационные данные }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы ut_SelfInfo }
+ ut_SelfInfoName = 'ut_SelfInfo';
+  {* Строковый идентификатор пользовательского типа "Регистрационные данные" }
+ ut_SelfInfo = TvcmUserType(0);
+  {* Регистрационные данные }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-   Tkw_FormUserType_ut_SelfInfo = {final scriptword} class(TtfwInteger)
-    {* Слово словаря для типа формы ut_SelfInfo }
-   protected
-   // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
+ Tkw_FormUserType_ut_SelfInfo = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы ut_SelfInfo }
+  protected
    function GetInteger: Integer; override;
-   end;//Tkw_FormUserType_ut_SelfInfo
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_ut_SelfInfo
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_ut_SelfInfo
-
-class function Tkw_FormUserType_ut_SelfInfo.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::ut_SelfInfo';
-end;//Tkw_FormUserType_ut_SelfInfo.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_SelfInfo.GetInteger: Integer;
- {-}
 begin
  Result := ut_SelfInfo;
 end;//Tkw_FormUserType_ut_SelfInfo.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_ut_SelfInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_SelfInfo';
+end;//Tkw_FormUserType_ut_SelfInfo.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_ut_SelfInfo
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_SelfInfo.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_ut_SelfInfo }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

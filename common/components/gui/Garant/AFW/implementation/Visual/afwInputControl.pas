@@ -2,6 +2,7 @@ unit afwInputControl;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwInputControl.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TafwInputControl" MUID: (47E1382301A5)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

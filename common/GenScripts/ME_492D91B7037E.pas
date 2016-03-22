@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsContextFilter" MUID: (492D91B7037E)
+// Имя типа: "_nsContextFilter_"
 
 {$Define nsContextFilter_imp}
 

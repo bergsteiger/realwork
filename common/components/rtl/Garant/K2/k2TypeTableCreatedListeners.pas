@@ -2,6 +2,7 @@ unit k2TypeTableCreatedListeners;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TypeTableCreatedListeners.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2TypeTableCreatedListeners" MUID: (53C7D8AB0282)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

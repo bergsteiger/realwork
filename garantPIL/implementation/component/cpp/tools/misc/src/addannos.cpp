@@ -140,6 +140,7 @@ int main_logic ( int argc, char *argv[] )
 	HIndex* cidxAnnoKind = (HIndex*) aBase->FindIndex( "AnnoKind" );
 
 	DocCollection toDelete;
+	DocCollection add_significant, del_significant;
 
 	AttrKey aKey = { ID_BORDER, IDD_INFO };
 	BTIterator* it = new BTIterator( docInd, &aKey );
@@ -156,7 +157,7 @@ int main_logic ( int argc, char *argv[] )
 		DocInfo docInfo;
 		str->Read( &docInfo, sizeof( docInfo ));
 		docInd->Close(str);
-		if ( ! ( docInfo.Status & DS_ANNO ))
+		if (!(docInfo.Status & DS_ANNO))
 			continue;
 
 		long docId = ptr->DocId;
@@ -234,6 +235,16 @@ int main_logic ( int argc, char *argv[] )
 
 			mpcxc_printfwin( "good\n" );
 
+			if (docInfo.Status_ex & DS_SIGNIFICANT) {
+				add_significant.Add (ownTopic);
+				docInfo.Status_ex &= ~DS_SIGNIFICANT;
+				docInd->Replace (docId, IDD_INFO, &docInfo, sizeof (docInfo));
+				ownDocInfo.Status_ex |= DS_SIGNIFICANT;
+			} else {
+				del_significant.Add (ownTopic);
+				ownDocInfo.Status_ex &= ~DS_SIGNIFICANT;
+			}
+
 			date	annoDate;
 			if ( wasPreAnno & wasAnonce ) {
 				if ( CompDates( &preAnnoDate, &anonceDate ) > 0 )
@@ -301,7 +312,7 @@ int main_logic ( int argc, char *argv[] )
 	for ( int i = 0; i < toDelete.ItemCount; i++ )
 		aBase->DelDoc( toDelete[ i ] );
 	{
-	short status = DS_NODOC;
+	unsigned short status = DS_NODOC;
 	Stream *str = aBase->FindIndex ("Status")->Open (&status);
 	if (str) {
 		DocCollection nodocs;
@@ -333,6 +344,24 @@ int main_logic ( int argc, char *argv[] )
 			aBase->FindIndex ("Status")->Delete (&status);
 		}
 	}
+	status = DS_SIGNIFICANT;
+	str = aBase->FindIndex ("Status_ex")->Open (&status);
+	if (str) {
+		RefCollection refs;
+		refs.Get (str);
+		refs.Minus (del_significant);
+		refs.Merge (add_significant);
+		if (refs.ItemCount) {
+			str->Seek (0);
+			refs.Put (str);
+			str->Trunc ();
+			aBase->FindIndex ("Status_ex")->Close (str);
+		} else {
+			aBase->FindIndex ("Status_ex")->Close (str);
+			aBase->FindIndex ("Status_ex")->Delete (&status);
+		}
+	}
+
 	}
 
 

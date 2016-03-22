@@ -2,6 +2,7 @@ unit vcmBaseMenuForChromeLike_p;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmBaseMenuForChromeLike_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TvcmBaseMenuForChromeLike" MUID: (54776921001A)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

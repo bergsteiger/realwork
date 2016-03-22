@@ -2,6 +2,7 @@ unit bsOpenListInfo;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\bsOpenListInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsOpenListInfo" MUID: (4AA4D8A6012B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

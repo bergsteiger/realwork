@@ -3,6 +3,7 @@ unit NOT_FINISHED_nsConst;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsConst.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsConst" MUID: (47FB50E4008E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

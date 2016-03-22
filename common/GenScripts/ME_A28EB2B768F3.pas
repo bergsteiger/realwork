@@ -3,6 +3,7 @@ unit PictureKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\PictureKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "PictureKeywordsPack" MUID: (A28EB2B768F3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -54,8 +55,8 @@ type
 'aControl' форма::Picture TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Picture
 
  Tkw_Picture_Component_ieIO = {final} class(TtfwControlString)
@@ -66,9 +67,9 @@ type
 компонент::ieIO TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Picture_Component_ieIO
 
  Tkw_Picture_Control_ieViewer = {final} class(TtfwControlString)
@@ -79,9 +80,9 @@ type
 контрол::ieViewer TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Picture_Control_ieViewer
 
  Tkw_Picture_Control_ieViewer_Push = {final} class(TkwBynameControlPush)
@@ -104,9 +105,9 @@ type
 компонент::ieProc TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Picture_Component_ieProc
 
  TkwPictureFormIeIO = {final} class(TtfwPropertyLike)
@@ -181,20 +182,15 @@ OBJECT VAR l_TImageEnProc
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPictureFormIeProc
 
-class function Tkw_Form_Picture.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Picture';
-end;//Tkw_Form_Picture.GetWordNameForRegister
-
 function Tkw_Form_Picture.GetString: AnsiString;
 begin
  Result := 'PictureForm';
 end;//Tkw_Form_Picture.GetString
 
-class function Tkw_Picture_Component_ieIO.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_Picture.GetWordNameForRegister: AnsiString;
 begin
- Result := 'компонент::ieIO';
-end;//Tkw_Picture_Component_ieIO.GetWordNameForRegister
+ Result := 'форма::Picture';
+end;//Tkw_Form_Picture.GetWordNameForRegister
 
 function Tkw_Picture_Component_ieIO.GetString: AnsiString;
 begin
@@ -207,10 +203,10 @@ begin
  TtfwClassRef.Register(TImageEnIO);
 end;//Tkw_Picture_Component_ieIO.RegisterInEngine
 
-class function Tkw_Picture_Control_ieViewer.GetWordNameForRegister: AnsiString;
+class function Tkw_Picture_Component_ieIO.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::ieViewer';
-end;//Tkw_Picture_Control_ieViewer.GetWordNameForRegister
+ Result := 'компонент::ieIO';
+end;//Tkw_Picture_Component_ieIO.GetWordNameForRegister
 
 function Tkw_Picture_Control_ieViewer.GetString: AnsiString;
 begin
@@ -223,6 +219,11 @@ begin
  TtfwClassRef.Register(TImageEnView);
 end;//Tkw_Picture_Control_ieViewer.RegisterInEngine
 
+class function Tkw_Picture_Control_ieViewer.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ieViewer';
+end;//Tkw_Picture_Control_ieViewer.GetWordNameForRegister
+
 procedure Tkw_Picture_Control_ieViewer_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ieViewer');
@@ -234,11 +235,6 @@ begin
  Result := 'контрол::ieViewer:push';
 end;//Tkw_Picture_Control_ieViewer_Push.GetWordNameForRegister
 
-class function Tkw_Picture_Component_ieProc.GetWordNameForRegister: AnsiString;
-begin
- Result := 'компонент::ieProc';
-end;//Tkw_Picture_Component_ieProc.GetWordNameForRegister
-
 function Tkw_Picture_Component_ieProc.GetString: AnsiString;
 begin
  Result := 'ieProc';
@@ -249,6 +245,11 @@ begin
  inherited;
  TtfwClassRef.Register(TImageEnProc);
 end;//Tkw_Picture_Component_ieProc.RegisterInEngine
+
+class function Tkw_Picture_Component_ieProc.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'компонент::ieProc';
+end;//Tkw_Picture_Component_ieProc.GetWordNameForRegister
 
 function TkwPictureFormIeIO.ieIO(const aCtx: TtfwContext;
  aPictureForm: TPictureForm): TImageEnIO;
@@ -272,11 +273,6 @@ begin
  aCtx.rEngine.PushObj(ieIO(aCtx, l_aPictureForm));
 end;//TkwPictureFormIeIO.DoDoIt
 
-class function TkwPictureFormIeIO.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TPictureForm.ieIO';
-end;//TkwPictureFormIeIO.GetWordNameForRegister
-
 procedure TkwPictureFormIeIO.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -297,6 +293,11 @@ function TkwPictureFormIeIO.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TPictureForm)]);
 end;//TkwPictureFormIeIO.ParamsTypes
+
+class function TkwPictureFormIeIO.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TPictureForm.ieIO';
+end;//TkwPictureFormIeIO.GetWordNameForRegister
 
 function TkwPictureFormIeViewer.ieViewer(const aCtx: TtfwContext;
  aPictureForm: TPictureForm): TImageEnView;
@@ -320,11 +321,6 @@ begin
  aCtx.rEngine.PushObj(ieViewer(aCtx, l_aPictureForm));
 end;//TkwPictureFormIeViewer.DoDoIt
 
-class function TkwPictureFormIeViewer.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TPictureForm.ieViewer';
-end;//TkwPictureFormIeViewer.GetWordNameForRegister
-
 procedure TkwPictureFormIeViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -345,6 +341,11 @@ function TkwPictureFormIeViewer.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TPictureForm)]);
 end;//TkwPictureFormIeViewer.ParamsTypes
+
+class function TkwPictureFormIeViewer.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TPictureForm.ieViewer';
+end;//TkwPictureFormIeViewer.GetWordNameForRegister
 
 function TkwPictureFormIeProc.ieProc(const aCtx: TtfwContext;
  aPictureForm: TPictureForm): TImageEnProc;
@@ -368,11 +369,6 @@ begin
  aCtx.rEngine.PushObj(ieProc(aCtx, l_aPictureForm));
 end;//TkwPictureFormIeProc.DoDoIt
 
-class function TkwPictureFormIeProc.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TPictureForm.ieProc';
-end;//TkwPictureFormIeProc.GetWordNameForRegister
-
 procedure TkwPictureFormIeProc.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -393,6 +389,11 @@ function TkwPictureFormIeProc.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TPictureForm)]);
 end;//TkwPictureFormIeProc.ParamsTypes
+
+class function TkwPictureFormIeProc.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TPictureForm.ieProc';
+end;//TkwPictureFormIeProc.GetWordNameForRegister
 
 initialization
  Tkw_Form_Picture.RegisterInEngine;

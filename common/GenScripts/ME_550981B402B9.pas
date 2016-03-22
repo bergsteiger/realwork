@@ -2,6 +2,7 @@ unit htInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\HT\htInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "htInterfaces" MUID: (550981B402B9)
 
 {$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 

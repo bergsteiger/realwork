@@ -125,8 +125,7 @@ public:
 	virtual IFragments* get_fragments (
 		const std::string& in
 		, DBCore::DocId id
-		, unsigned long word
-		, unsigned long first_word
+		, const ContextSearch::Defs::PosPair& pair
 	) = 0;
 
 	// получить список релевантных фрагментов
@@ -179,11 +178,6 @@ public:
 	static IHelper* make (Morpho::Def::ICache* cache)
 		/*throw (Core::Root::NoActiveFactory, Core::Root::FactoryManagerWasDestroyed)*/;
 };
-
-// Прогресс-индикатор
-typedef DBCore::IProgress IProgress;
-typedef DBCore::IProgress_var IProgress_var;
-typedef DBCore::IProgress_cvar IProgress_cvar;
 
 // Интерфейс для сбора детальной информации о релевантности
 typedef ContextSearch::Defs::IRelevancyInfo IRelevancyInfo;

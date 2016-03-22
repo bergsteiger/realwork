@@ -2,6 +2,7 @@ unit NOT_FINISHED_hyieutils;
 
 // Модуль: "w:\common\components\rtl\external\ImageEn\src\NOT_FINISHED_hyieutils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "hyieutils" MUID: (4B0FFBFC0188)
 
 interface
 

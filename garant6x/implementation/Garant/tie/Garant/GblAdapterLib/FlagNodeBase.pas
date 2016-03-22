@@ -28,6 +28,8 @@ uses
 type
 //#UC START# *45F52C0602BFci*
 //#UC END# *45F52C0602BFci*
+//#UC START# *45F52C0602BFcit*
+//#UC END# *45F52C0602BFcit*
  FlagNodeBase = {abstract} class
   {* םמהא ס פכאדאלט }
  protected
@@ -101,7 +103,7 @@ procedure FlagNodeBase.pm_SetFlags(aValue: TFlagMask);
 //#UC END# *45F80BA20280_45F52C0602BFset_var*
 begin
 //#UC START# *45F80BA20280_45F52C0602BFset_impl*
- f_flags := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *45F80BA20280_45F52C0602BFset_impl*
 end;//FlagNodeBase.pm_SetFlags
 

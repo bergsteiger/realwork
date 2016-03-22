@@ -2,6 +2,7 @@ unit IafwMenuUnlockedPostBuildPtrList;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\IafwMenuUnlockedPostBuildPtrList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TIafwMenuUnlockedPostBuildPtrList" MUID: (4B0529C501F5)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

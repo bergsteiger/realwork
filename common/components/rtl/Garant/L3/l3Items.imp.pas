@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Items.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3Items" MUID: (47B45152003F)
+// Имя типа: "_l3Items_"
 
 {$Define l3Items_imp}
 
@@ -20,13 +22,13 @@ type
   {$IfEnd} // Defined(l3Items_CompareItemsRec_NeedsRList)
  end;//CompareItemsRec
 
- {$If Defined(l3Items_IsProto) AND NOT Defined(l3Items_HasChanging)}
+{$If Defined(l3Items_IsProto) AND NOT Defined(l3Items_HasChanging)}
  {$Define l3Items_NoChanging}
- {$IfEnd} // Defined(l3Items_IsProto) AND NOT Defined(l3Items_HasChanging)
+{$IfEnd} // Defined(l3Items_IsProto) AND NOT Defined(l3Items_HasChanging)
 
- {$If Defined(l3Items_IsProto)}
+{$If Defined(l3Items_IsProto)}
  {$Define l3Items_NoOwner}
- {$IfEnd} // Defined(l3Items_IsProto)
+{$IfEnd} // Defined(l3Items_IsProto)
 
  _FindDataType_ = _ItemType_;
  _l3Sortable_Parent_ = _l3Items_Parent_;
@@ -37,7 +39,7 @@ type
   {* Список }
   private
    f_Count: Integer;
-    {* Поле для свойства Count }
+    {* Число элементов. }
   protected
    f_Data: _DataType_;
   protected

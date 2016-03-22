@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "kwCompiledVar" MUID: (52D3E2EE0244)
+// Имя типа: "_kwCompiledVar_"
 
 {$Define kwCompiledVar_imp}
 

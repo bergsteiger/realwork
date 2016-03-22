@@ -2,6 +2,7 @@ unit kwValue;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwValue.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwValue" MUID: (52B46DD80194)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

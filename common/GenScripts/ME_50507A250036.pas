@@ -2,6 +2,7 @@ unit atIterateDocumentsUnderControlOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atIterateDocumentsUnderControlOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatIterateDocumentsUnderControlOperation" MUID: (50507A250036)
 
 interface
 

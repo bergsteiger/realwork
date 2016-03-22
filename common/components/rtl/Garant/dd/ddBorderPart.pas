@@ -21,7 +21,8 @@ interface
 uses
   RTFtypes,
   ddBaseObject,
-  k2Interfaces
+  k2Interfaces,
+  ddTypes
   ;
 
 type
@@ -43,7 +44,7 @@ type
  protected
  // realized methods
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aLiteVersion: Boolean); override;
+     aLiteVersion: TddLiteVersion); override;
  public
  // overridden public methods
    procedure Assign(anObject: TddBaseObject); override;
@@ -121,7 +122,7 @@ begin
 end;//TddBorderPart.pm_SetEnable
 
 procedure TddBorderPart.Write2Generator(const Generator: Ik2TagGenerator;
-  aLiteVersion: Boolean);
+  aLiteVersion: TddLiteVersion);
 //#UC START# *54DC9795018B_525E2AE802B2_var*
 //#UC END# *54DC9795018B_525E2AE802B2_var*
 begin

@@ -2,6 +2,7 @@ unit k2NonOptimizeContext;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2NonOptimizeContext.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2NonOptimizeContext" MUID: (531075C102DD)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

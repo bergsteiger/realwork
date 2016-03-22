@@ -2,6 +2,7 @@ unit ncsTaskedFileDesc;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsTaskedFileDesc.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsTaskedFileDesc" MUID: (546EF14803A6)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

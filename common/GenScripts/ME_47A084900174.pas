@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3Message;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Message.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "l3Message" MUID: (47A084900174)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

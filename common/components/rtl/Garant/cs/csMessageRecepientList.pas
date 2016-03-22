@@ -58,6 +58,8 @@ type
  // public methods
    function Add(anItem: TcsMessageRecepient): TcsMessageRecepient;
    procedure Clear;
+   procedure PackEmptyRecepients;
+     {* Сигнатура метода PackEmptyRecepients }
  protected
  // protected properties
    property Items: TcsMessageRecepientListPrim
@@ -117,6 +119,24 @@ begin
  end;//try..finally
 //#UC END# *53A2DDCF036D_53A2D3BC030A_impl*
 end;//TcsMessageRecepientList.Clear
+
+procedure TcsMessageRecepientList.PackEmptyRecepients;
+//#UC START# *56E7B1F7010C_53A2D3BC030A_var*
+var
+ l_IDX: Integer;
+//#UC END# *56E7B1F7010C_53A2D3BC030A_var*
+begin
+//#UC START# *56E7B1F7010C_53A2D3BC030A_impl*
+ Lock;
+ try
+  for l_IDX := Items.Count - 1 downto 0 do
+   if Items[l_IDX].Messages.Count = 0 then
+     Items.Delete(l_IDX);
+ finally
+  Unlock;
+ end;
+//#UC END# *56E7B1F7010C_53A2D3BC030A_impl*
+end;//TcsMessageRecepientList.PackEmptyRecepients
 
 function TcsMessageRecepientList.pm_GetCount: Integer;
 //#UC START# *53A2DE24004A_53A2D3BC030Aget_var*

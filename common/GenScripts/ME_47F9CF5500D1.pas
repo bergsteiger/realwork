@@ -3,6 +3,7 @@ unit NOT_FINISHED_bsConvert;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_bsConvert.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "bsConvert" MUID: (47F9CF5500D1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

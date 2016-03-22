@@ -2,6 +2,7 @@ unit l3EtalonsWorking;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3EtalonsWorking.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "l3EtalonsWorking" MUID: (515AC8CC02BD)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -141,12 +141,16 @@ begin
     SlideMouse(0, 0);
     ResetUserInactivity;
 
-    w.SetFocus;
-    Delay(Options.Run.Timeout div 30);    
+    w.SetFocus;    
+    
+    // почему-то оболока порой неактивна, исправляем
+    ActivateF1Shell;
+    
+    Delay(Options.Run.Timeout div 10);    
     Result := MoveMouseToObject(w, 'start_law_support_help_hyperlink.bmp', 48, y+2, true, 10);
     
     //потом можно убрать задержку
-    Delay(Options.Run.Timeout div 10);
+    Delay(Options.Run.Timeout div 3);
     Log.Picture(Sys_Desktop.Picture, FUNCTION_NAME + 'Скриншот через секунды после клика.');
   except
     Result := false;
@@ -166,6 +170,7 @@ try
 
   if not GoToLawSupport then
     Raise('КЗ Правовая поддержка онлайн не открылась');
+
   if not (ClickByLawSupportHelpHyperlink or ClickByLawSupportHelpHyperlink) then
     Raise('Не получилось кликнуть по ссылке вызова справки в КЗ ППО');
 
@@ -1126,7 +1131,7 @@ begin
 //  HLTC337_5_14_7_Execute(p);
 //  HLTC337_5_14_8_Execute(p);
 ///////////////////////////////////////
-    
+
 
 
   

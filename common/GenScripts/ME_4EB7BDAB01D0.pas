@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentationFor296635421.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "BaseSearchPresentationFor296635421" MUID: (4EB7BDAB01D0)
+// Имя типа: "_BaseSearchPresentationFor296635421_"
 
 {$Define BaseSearchPresentationFor296635421_imp}
 

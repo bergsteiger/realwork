@@ -1,6 +1,6 @@
 unit GardocBridge;
 
-{ $Id: GardocBridge.pas,v 1.21 2014/04/17 13:09:22 voba Exp $ }
+{ $Id: GardocBridge.pas,v 1.22 2015/11/25 14:01:29 lukyanets Exp $ }
 
 interface
  uses
@@ -20,6 +20,7 @@ implementation
  uses
   l3Types, l3Base, l3Stream, l3FileUtils,
   l3DateSt, l3DatLst,
+  daSchemeConsts,
   dt_DictConst,
   DT_Query, Dt_ReNum, DT_LinkServ,
   DT_User, DT_Stage, dtIntf, DT_Sab;

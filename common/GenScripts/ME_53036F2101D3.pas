@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Dictionary.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3Dictionary" MUID: (53036F2101D3)
+// Имя типа: "_l3Dictionary_"
 
 {$Define l3Dictionary_imp}
 

@@ -19,7 +19,8 @@
 #include "boost/bind.hpp"
 #include "shared/GCL/str/str_conv.h"
 #include "shared/Morpho/Facade/Factory.h"
-#include "garantPIL/implementation/component/cpp/libs/gkdb/src/BaseCache.h"
+#include "shared/Morpho/Facade/Cache.h"
+#include "garantPIL/implementation/component/cpp/libs/gkdb/src/DBComm.h"
 
 namespace Search {
 
@@ -29,6 +30,8 @@ namespace Search {
 // validate
 void RequestSplit::validate (const std::string& str, std::string& out) {
 	//#UC START# *55B77C99000D*
+	size_t counter = 0;
+
 	for (std::string::const_iterator it = str.begin (), first_it = it; ; ) {
 		if (it == str.end () || *it == ' ') {
 			if (out.empty () == false && *(out.rbegin ()) != '-') {
@@ -36,6 +39,7 @@ void RequestSplit::validate (const std::string& str, std::string& out) {
 			}
 
 			out.append (first_it, it);
+			++counter;
 
 			for (; it != str.end (); ++it) {
 				if (*it != ' ') {
@@ -43,7 +47,7 @@ void RequestSplit::validate (const std::string& str, std::string& out) {
 				}
 			}
 
-			if (it == str.end ()) {
+			if (it == str.end () || counter >= DBCore::MAX_WORDS_OF_REQUEST) {
 				break;
 			}
 
@@ -61,15 +65,14 @@ void RequestSplit::validate (const std::string& str, std::string& out) {
 //////////////////////////////////////////////////////////////////////////////////////////
 // constructors and destructor
 
-RequestSplit::RequestSplit (SearchBase* base)
+RequestSplit::RequestSplit (Base* base)
 //#UC START# *55B5E95701CF_BASE_INIT*
 	: m_data (Cache::instance ()->get_ext_request (base))
 //#UC END# *55B5E95701CF_BASE_INIT*
 {
 	//#UC START# *55B5E95701CF_BODY*
-	Morpho::Def::ICache* cache = BaseCache::instance ()->get_morpho_cache_ptr ();
-	cache->load (base->abstract_base (), true);
-	m_normalizer = Morpho::Factory::make (cache);
+	DBCore::IBase_var _base = DBCore::DBFactory::make (base);
+	m_normalizer = Morpho::Factory::make (Morpho::get_cache (_base.in ()));
 	//#UC END# *55B5E95701CF_BODY*
 }
 

@@ -3,6 +3,7 @@ unit l3InternalInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3InternalInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "l3InternalInterfaces" MUID: (467C0CAA02AB)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

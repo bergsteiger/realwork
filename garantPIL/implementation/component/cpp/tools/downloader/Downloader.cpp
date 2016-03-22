@@ -140,14 +140,17 @@ CDownloaderApp::CDownloaderApp ()
 	, m_state (ds_Error)
 	, m_return_value (rc_Succesful)
 	, m_complect_id (-1)
+	, m_order_id (-1)
 	, m_time_limit_connect (-1)
 	, m_has_init (0)
 	, m_is_auto (false)
+	, m_is_revision (false)
 	, m_is_week (false)
 	, m_is_strong (false)
 	, m_is_run_update (false)
-	, m_is_rewrite (false)
+	, m_is_resume (false)
 	, m_is_etalon (false) 
+	, m_is_english (false)
 {
 	m_revision_date = COleDateTime::GetCurrentTime ();
 }
@@ -230,7 +233,8 @@ void CDownloaderApp::init_params () {
 	}
 
 	m_is_auto = Core::ParamManagerFactory::get ().is_exist ("-auto");
-	m_is_rewrite = Core::ParamManagerFactory::get ().is_exist ("-rewrite");
+	m_is_revision = Core::ParamManagerFactory::get ().is_exist ("-revision");
+	m_is_resume = Core::ParamManagerFactory::get ().is_exist ("-resume");
 	m_is_week = m_is_strong = Core::ParamManagerFactory::get ().is_exist ("-week");
 	m_is_run_update = Core::ParamManagerFactory::get ().is_exist ("-runupdate");
 
@@ -264,12 +268,15 @@ void CDownloaderApp::init_params () {
 	if (Core::ParamManagerFactory::get ().is_exist ("-from")) {
 		m_date_from = Core::ParamManagerFactory::get ().get_string ("-from");
 		std::replace (m_date_from.begin (), m_date_from.end (), '.', '-');
+		m_is_revision = false;
 	} 
 	if (Core::ParamManagerFactory::get ().is_exist ("-to")) {
 		m_date_to = Core::ParamManagerFactory::get ().get_string ("-to");
 		std::replace (m_date_to.begin (), m_date_to.end (), '.', '-');
 	}
 	if (Core::ParamManagerFactory::get ().is_exist ("-eng")) {
+		m_is_english = true;
+
 		LPTSTR file_name = PathFindFileName (__argv [0]);
 		PathRemoveExtension (file_name);
 
@@ -519,7 +526,7 @@ void CDownloaderApp::start_auto () {
 	std::string str_begin, str_end, str_begin_, str_end_;
 	{
 		COleDateTime current_date = COleDateTime::GetCurrentTime ();
-		COleDateTime beg_date = m_revision_date, end_date = current_date;
+		COleDateTime beg_date = this->get_revision (), end_date = current_date;
 
 		if (m_date_from.empty () == false) {
 			beg_date.ParseDateTime (m_date_from.c_str (), VAR_DATEVALUEONLY);
@@ -538,10 +545,10 @@ void CDownloaderApp::start_auto () {
 			throw std::exception ();
 		}
 
-		str_begin = beg_date.Format (_T ("%m-%d-%Y")).GetBuffer ();
+		str_begin = this->is_revision () || m_date_from.empty () == false ? beg_date.Format (_T ("%m-%d-%Y")).GetBuffer () : "";
 		str_end = end_date.Format (_T ("%m-%d-%Y")).GetBuffer ();
 
-		str_begin_ = beg_date.Format (_T ("%d-%m-%Y")).GetBuffer ();
+		str_begin_ = str_begin.empty () ? "0-0-0000" : beg_date.Format (_T ("%d-%m-%Y")).GetBuffer ();
 		str_end_ = end_date.Format (_T ("%d-%m-%Y")).GetBuffer ();
 
 		if (m_is_week) {
@@ -584,8 +591,11 @@ void CDownloaderApp::start_auto () {
 
 	DownloadManager obj ((m_default_path.empty ())? DConfigManager::instance ()->get ("Path") : m_default_path);
 
-	switch (obj.execute (complect_id, str_begin, str_end)) {
+	long order_id = this->is_resume () ? this->get_order_id () : 0;
+
+	switch (obj.execute (complect_id, str_begin, str_end, order_id)) {
 		case ds_Success:
+			DConfigManager::instance ()->set ("OrderId", 0);
 			DLOG->out_t (IDS_STATIC_DOWNLOAD_NORMAL);
 			break;
 		case ds_Cancel:
@@ -598,6 +608,7 @@ void CDownloaderApp::start_auto () {
 		case ds_Error:
 			throw DownloadError ();
 		case ds_NoUpdate:
+			DConfigManager::instance ()->set ("OrderId", 0);
 			str.Format (IDS_ERROR_NO_UPDATE, complect_name.c_str (), str_begin_.c_str (), str_end_.c_str ());
 			DLOG->out_t (str);
 			throw NoUpdate ();
@@ -748,7 +759,11 @@ AuthStatus CDownloaderApp::authorization (const char* login, const char* passwor
 		Connection obj (connection.in ());
 
 		ScriptManager* script_manager = ScriptManagerSingleton::instance ();
+#ifdef	_DEBUG
+		script_manager->init (m_is_auto, is_strong, login, "");
+#else
 		script_manager->init (m_is_auto, is_strong, login, m_personification_key);
+#endif
 
 		if (obj.execute_request (script_manager->get_authorization_script (password))) {
 			DLOG->out_t_ext ("%s: finish", GDS_CURRENT_FUNCTION);
@@ -762,6 +777,10 @@ AuthStatus CDownloaderApp::authorization (const char* login, const char* passwor
 
 long CDownloaderApp::get_complect_id () {
 	return ((m_complect_id < 0) ? DConfigManager::instance ()->get_int ("IdComplect") : m_complect_id);
+}
+
+long CDownloaderApp::get_order_id () {
+	return ((m_order_id < 0) ? DConfigManager::instance ()->get_int ("OrderId") : m_order_id);
 }
 
 std::string CDownloaderApp::get_complect_name (unsigned id) {
@@ -883,6 +902,13 @@ void ServerDataClient::execute () {
 			GblPilotDef::PersonificationKey_var key = function_mng->get_personification_key ();
 			std::string str_key (reinterpret_cast <const char*> (key->get_buffer ()), key->length ());
 			ptr_app->set_personification_key (str_key);
+
+			if (str_key.size ()) {
+				std::string prev_perscomplect = CryptHelper::decode (DConfigManager::instance ()->get ("PersComplect"));
+				if (prev_perscomplect.size () && prev_perscomplect != str_key) {
+					DConfigManager::instance ()->set ("OrderId", 0);
+				}
+			}
 		} catch (...) {
 			DLOG->out_t ("%s: get_personification_key: exception handled", GDS_CURRENT_FUNCTION);
 		}

@@ -2,6 +2,8 @@ unit kwPopClassInherits;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopClassInherits.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_class_Inherits" MUID: (53E0FC5E0100)
+// Имя типа: "TkwPopClassInherits"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,7 @@ unit nsBaseChatHistoryList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\nsBaseChatHistoryList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsBaseChatHistoryList" MUID: (4A6EAA6901F5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

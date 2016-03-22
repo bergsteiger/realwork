@@ -3,6 +3,8 @@ unit PrimStyleEditorContainerOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorContainerOptions_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "PrimStyleEditorContainerOptions" MUID: (4C52B21801B6)
+// Имя типа: "TPrimStyleEditorContainerOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

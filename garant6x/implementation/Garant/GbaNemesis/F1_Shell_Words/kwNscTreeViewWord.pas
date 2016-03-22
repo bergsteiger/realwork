@@ -1,80 +1,56 @@
 unit kwNscTreeViewWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Shell Words"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Shell_Words/kwNscTreeViewWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Поддержка тестов::F1 Shell Words::TreeViewWords::TkwNscTreeViewWord
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwNscTreeViewWord.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TkwNscTreeViewWord" MUID: (512FA1800269)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(Nemesis)}
-  ,
-  nscTreeView
-  {$IfEnd} //Nemesis
-  ,
-  tfwScriptingInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  kwComponentFromStackWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ {$If Defined(Nemesis)}
+ , nscTreeView
+ {$IfEnd} // Defined(Nemesis)
+ , tfwScriptingInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , kwComponentFromStackWord
+ , Classes
+;
 
-{$If not defined(NoScripts)}
 type
  {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
  TkwNscTreeViewWord = {abstract} class(_kwControlFromStackWord_)
- protected
- // realized methods
-    {$If not defined(NoScripts) AND not defined(NoVCL)}
-   procedure DoControl(aControl: TControl;
-     const aCtx: TtfwContext); override;
-    {$IfEnd} //not NoScripts AND not NoVCL
- protected
- // protected methods
+  protected
    procedure DoWithNscTreeView(aTreeView: TnscTreeView;
-     const aCtx: TtfwContext); virtual; abstract;
+    const aCtx: TtfwContext); virtual; abstract;
+   {$If NOT Defined(NoVCL)}
+   procedure DoControl(aControl: TControl;
+    const aCtx: TtfwContext); override;
+   {$IfEnd} // NOT Defined(NoVCL)
  end;//TkwNscTreeViewWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoScripts)}
-
+{$If NOT Defined(NoVCL)}
 {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
 
-// start class TkwNscTreeViewWord
-
-{$If not defined(NoScripts) AND not defined(NoVCL)}
 procedure TkwNscTreeViewWord.DoControl(aControl: TControl;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4F212C3A015A_512FA1800269_var*
 //#UC END# *4F212C3A015A_512FA1800269_var*
 begin
@@ -83,14 +59,11 @@ begin
  DoWithNscTreeView(aControl as TnscTreeView, aCtx);
 //#UC END# *4F212C3A015A_512FA1800269_impl*
 end;//TkwNscTreeViewWord.DoControl
-{$IfEnd} //not NoScripts AND not NoVCL
-
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwNscTreeViewWord
  TkwNscTreeViewWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwNscTreeViewWord }
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoScripts)
 end.

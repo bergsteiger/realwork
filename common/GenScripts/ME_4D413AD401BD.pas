@@ -3,6 +3,7 @@ unit SelectionCellTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\SelectionCellTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TSelectionCellTest" MUID: (4D413AD401BD)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas"
 // Стереотип: "GUIControlMixIn"
+// Элемент модели: "RegionableControl" MUID: (4CC81FB7008B)
+// Имя типа: "_RegionableControl_"
 
 {$Define RegionableControl_imp}
 

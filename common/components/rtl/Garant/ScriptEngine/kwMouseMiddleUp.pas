@@ -2,6 +2,8 @@ unit kwMouseMiddleUp;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseMiddleUp.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "Mouse_MiddleUp" MUID: (4F967CDF0244)
+// Имя типа: "TkwMouseMiddleUp"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

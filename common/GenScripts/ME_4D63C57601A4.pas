@@ -2,6 +2,7 @@ unit evReqGroupPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evReqGroupPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevReqGroupPainter" MUID: (4D63C57601A4)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

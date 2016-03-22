@@ -2,6 +2,7 @@ unit SearchUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\SearchUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Search" MUID: (45EEAA8E034E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

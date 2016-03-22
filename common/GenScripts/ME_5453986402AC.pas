@@ -2,6 +2,7 @@ unit ncsMessage;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsMessage.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ncsMessage" MUID: (5453986402AC)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

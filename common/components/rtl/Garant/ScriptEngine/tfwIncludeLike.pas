@@ -3,6 +3,7 @@ unit tfwIncludeLike;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIncludeLike.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwIncludeLike" MUID: (4DC3A1A30235)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

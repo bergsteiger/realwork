@@ -52,6 +52,7 @@ type
    function pm_GetSearchInfo: IdeSearchInfo;
    function pm_GetAllDocumentsFiltered: Boolean;
    function pm_GetNeedApplyPermanentFilters: Boolean;
+   function pm_GetIsChanged: Boolean;
    property List: IDynList
      read pm_GetList;
    property TimeMachineOff: Boolean
@@ -70,6 +71,8 @@ type
      read pm_GetAllDocumentsFiltered;
    property NeedApplyPermanentFilters: Boolean
      read pm_GetNeedApplyPermanentFilters;
+   property IsChanged: Boolean
+     read pm_GetIsChanged;
  end;//IdeList
 {$IfEnd} //not Admin
 

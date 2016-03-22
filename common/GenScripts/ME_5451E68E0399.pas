@@ -2,6 +2,7 @@ unit ncsConnection;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsConnection.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsConnection" MUID: (5451E68E0399)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

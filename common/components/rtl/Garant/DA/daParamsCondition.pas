@@ -19,13 +19,13 @@ unit daParamsCondition;
 interface
 
 uses
-  l3ProtoObject,
   daTypes,
-  daInterfaces
+  daInterfaces,
+  daCondition
   ;
 
 type
- TdaParamsCondition = class(Tl3ProtoObject, IdaCondition, IdaFieldFromTable, IdaParamDescription, IdaAtomicCondition)
+ TdaParamsCondition = class(TdaCondition, IdaFieldFromTable, IdaParamDescription, IdaAtomicCondition)
  private
  // private fields
    f_Field : IdaFieldDescription;
@@ -43,7 +43,8 @@ type
    function Get_DataType: TdaDataType;
    function Get_Size: Integer;
    function Get_Operation: TdaCompareOperation;
-   function BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
+   function DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString; override;
+   function Get_ParamType: TdaParamType;
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -64,6 +65,7 @@ type
 implementation
 
 uses
+  l3Base,
   SysUtils
   ;
 
@@ -166,25 +168,44 @@ begin
 //#UC END# *555D9A290122_5551DD0F02A1get_impl*
 end;//TdaParamsCondition.Get_Operation
 
-function TdaParamsCondition.BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
-//#UC START# *5608E5FE0355_5551DD0F02A1_var*
-//#UC END# *5608E5FE0355_5551DD0F02A1_var*
+function TdaParamsCondition.DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString;
+//#UC START# *56408E7F01A1_5551DD0F02A1_var*
+const
+  cMap: array [da_copEqual..da_copNotEqual] of String = (
+   '=',  // da_copEqual
+   '>=', // da_copGreaterOrEqual
+   '<=', // da_copLessOrEqual
+   '<>'  // da_copNotEqual
+  );
+//#UC END# *56408E7F01A1_5551DD0F02A1_var*
 begin
-//#UC START# *5608E5FE0355_5551DD0F02A1_impl*
+//#UC START# *56408E7F01A1_5551DD0F02A1_impl*
  case f_Operation of
-  da_copEqual:
+  da_copEqual,
+  da_copGreaterOrEqual,
+  da_copLessOrEqual,
+  da_copNotEqual:
   begin
    if f_TableAlias <> '' then
-    Result := AddCaseInsensetive(Format('%s.%s', [f_TableAlias, f_Field.Name]))
+    Result := AddCaseInsensetive(Format('%s.%s', [f_TableAlias, f_Field.SQLName]))
    else
-    Result := AddCaseInsensetive(f_Field.Name);
-   Result := Format('%s = %s', [Result, AddCaseInsensetive(aHelper.GetParamCode(f_ParamName))]);
+    Result := AddCaseInsensetive(f_Field.SQLName);
+   Result := Format('%s %s %s', [Result, cMap[f_Operation], AddCaseInsensetive(aHelper.GetParamCode(f_ParamName))]);
   end;
  else
   Assert(False);
  end;
-//#UC END# *5608E5FE0355_5551DD0F02A1_impl*
-end;//TdaParamsCondition.BuildSQLValue
+//#UC END# *56408E7F01A1_5551DD0F02A1_impl*
+end;//TdaParamsCondition.DoBuildSQL
+
+function TdaParamsCondition.Get_ParamType: TdaParamType;
+//#UC START# *56725D45021B_5551DD0F02A1get_var*
+//#UC END# *56725D45021B_5551DD0F02A1get_var*
+begin
+//#UC START# *56725D45021B_5551DD0F02A1get_impl*
+ Result := da_ptInput;
+//#UC END# *56725D45021B_5551DD0F02A1get_impl*
+end;//TdaParamsCondition.Get_ParamType
 
 procedure TdaParamsCondition.Cleanup;
 //#UC START# *479731C50290_5551DD0F02A1_var*

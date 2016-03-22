@@ -2,6 +2,7 @@ unit evParaListCursorInsertable;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evParaListCursorInsertable.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevParaListCursorInsertable" MUID: (4A3A4398010A)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

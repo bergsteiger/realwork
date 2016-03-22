@@ -697,7 +697,6 @@ HLTC73.4: Вид окна
 function HLTC73_4_4_1_Execute (var  CurrentState: OleVariant): OleVariant;
 var
  obj;
- menu;
  menuItem1, menuItem2, menuItem3;
 begin
   try
@@ -710,13 +709,12 @@ begin
     OpenDocFromList;  	
     if NOT IsExists(OpenInDocument('ТЕКСТ')) then
       Raise('Не удалось открыть документ');    
-    menu := GetFromMainWindow('ГЛАВНОЕ МЕНЮ');
     //проверяем, что доступны пункты меню: //Документы\Информация о документе
                                           //Документы\Установить закладку...
                                          //Документы\Список закладок...
-    menuItem1 := IsMenuItemEnabled(menu, 'Документы\Информация о документе');
-    menuItem2 := IsMenuItemEnabled(menu, 'Документы\Установить закладку...');
-    menuItem3 := IsMenuItemEnabled(menu, 'Документы\Список закладок...');
+    menuItem1 := IsMenuItemEnabled(nil, 'Документы\Информация о документе');
+    menuItem2 := IsMenuItemEnabled(nil, 'Документы\Установить закладку...');
+    menuItem3 := IsMenuItemEnabled(nil, 'Документы\Список закладок...');
     result := menuItem1 
       AND MenuItem2
       AND MenuItem3;   
@@ -742,7 +740,6 @@ const
   DOC_NUM = 1055132;
 var
   obj;
-  menu;
   menuItem1, menuItem2, menuItem3;
   x,y: integer;
 begin
@@ -753,10 +750,9 @@ begin
     result := GetCoordsSearchContext(obj, CONTEXT, x, y);
     if NOT result then Raise('Не удалось получить координаты искомого контекста');  
     obj.Click(x + 10, y);        
-    menu := GetFromMainWindow('ГЛАВНОЕ МЕНЮ');     
-    menuItem1 := IsMenuItemEnabled(menu, 'Документы\Информация о документе');
-    menuItem2 := IsMenuItemEnabled(menu, 'Документы\Установить закладку...');
-    menuItem3 := IsMenuItemEnabled(menu, 'Документы\Список закладок...');
+    menuItem1 := IsMenuItemEnabled(nil, 'Документы\Информация о документе');
+    menuItem2 := IsMenuItemEnabled(nil, 'Документы\Установить закладку...');
+    menuItem3 := IsMenuItemEnabled(nil, 'Документы\Список закладок...');
     result := menuItem1 
       AND MenuItem2
       AND MenuItem3;   
@@ -779,7 +775,6 @@ HLTC73.4: Вид окна
 function HLTC73_4_4_3_Execute (var  CurrentState: OleVariant): OleVariant;
 var
  obj;
- menu;
  menuItem1, menuItem2, menuItem3;
 begin
   try
@@ -792,10 +787,9 @@ begin
     if NOT result then Raise('Не удалось открыть документ');    
     if NOT GoToPPR then Raise('Не удалось перейти в ППР');
     if NOT GoByHistory('НАЗАД') then Raise('Не удалось перейти по истории назад');  
-    menu := GetFromMainWindow('ГЛАВНОЕ МЕНЮ');    
-    menuItem1 := IsMenuItemEnabled(menu, 'Документы\Информация о документе');
-    menuItem2 := IsMenuItemEnabled(menu, 'Документы\Установить закладку...');
-    menuItem3 := IsMenuItemEnabled(menu, 'Документы\Список закладок...');
+    menuItem1 := IsMenuItemEnabled(nil, 'Документы\Информация о документе');
+    menuItem2 := IsMenuItemEnabled(nil, 'Документы\Установить закладку...');
+    menuItem3 := IsMenuItemEnabled(nil, 'Документы\Список закладок...');
     result := menuItem1 
       AND MenuItem2
       AND MenuItem3;   
@@ -2240,7 +2234,7 @@ try
   obj := OpenInDocument('ТЕКСТ');
   result := IsExists(obj);
   if NOT result then Raise('Не удалось получить документ');     
-  result := NOT IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\Справка к документу',true);
+  result := NOT IsMenuItemChecked(nil,'Документы\Справка к документу',true);
   if NOT result then Raise('Почему то пункт меню "Документы\Справка к документу" почему то нажат');
   result := ClickByMainMenuItem('Документы\Справка к документу'); 
   if NOT result then Raise('Не могу кликнуть по пункту меню: "Документы\Справка к документу"');  
@@ -4167,9 +4161,8 @@ try
     Log.Error('Не удалось получить вкладку "ССЫЛКИ НА ДОКУМЕНТ"');
     Raise;
   end;
-  obj := GetFromMainWindow('ГЛАВНОЕ МЕНЮ');
   for i :=  VarArrayLowBound(typeSKR, 1) to VarArrayHighBound(typeSKR, 1) do
-    if IsMenuItemEnabled(obj, 'Документы\' + typeSKR[i]) then
+    if IsMenuItemEnabled(nil, 'Документы\' + typeSKR[i]) then
     begin
       Log.Error('Удалось найти пункт меню "Документы\' + typeSKR[i] + '"!');      
       Raise;
@@ -4528,7 +4521,7 @@ begin
 try
   result := OpenDocByNumber(DOC_NUM);
   if NOT result then Raise('Не удалось открыть документ по Alt+N');   
-  if NOT IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\Информация о документе',true) then
+  if NOT IsMenuItemChecked(nil,'Документы\Информация о документе',true) then
   begin
     result := ClickByMainMenuItem('Документы\Информация о документе'); 
     if NOT result then Raise('Не могу кликнуть по пункту меню: "Документы\Информация о документе"');   
@@ -4594,7 +4587,7 @@ try
   obj := OpenInDocument('ТЕКСТ'); 
   result := IsExists(obj);
   if NOT result then Raise('Не удалось получить ТЕКСТ');
-  if NOT IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\Информация о документе',true) then
+  if NOT IsMenuItemChecked(nil,'Документы\Информация о документе',true) then
   begin
     result := ClickByMainMenuItem('Документы\Информация о документе'); 
     if NOT result then Raise('Не могу кликнуть по пункту меню: "Документы\Информация о документе"');   
@@ -4657,7 +4650,7 @@ try
   obj := OpenInDocument('ТЕКСТ'); 
   result := IsExists(obj);
   if NOT result then Raise('Не удалось получить ТЕКСТ');
-  if NOT IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\Информация о документе',true) then
+  if NOT IsMenuItemChecked(nil,'Документы\Информация о документе',true) then
   begin
     result := ClickByMainMenuItem('Документы\Информация о документе'); 
     if NOT result then Raise('Не могу кликнуть по пункту меню: "Документы\Информация о документе"');   
@@ -4700,7 +4693,7 @@ try
   obj := OpenInDocument('ТЕКСТ'); 
   result := IsExists(obj);
   if NOT result then Raise('Не удалось получить ТЕКСТ');
-  if NOT IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\Информация о документе',true) then
+  if NOT IsMenuItemChecked(nil,'Документы\Информация о документе',true) then
   begin
     result := ClickByMainMenuItem('Документы\Информация о документе'); 
     if NOT result then Raise('Не могу кликнуть по пункту меню: "Документы\Информация о документе"');   
@@ -4940,7 +4933,7 @@ try
   obj := OpenInDocument('ТЕКСТ'); 
   result := IsExists(obj);
   if NOT result then Raise('Не удалось получить ТЕКСТ');
-  if NOT IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\Информация о документе',true) then
+  if NOT IsMenuItemChecked(nil,'Документы\Информация о документе',true) then
   begin
     result := ClickByMainMenuItem('Документы\Информация о документе'); 
     if NOT result then Raise('Не могу кликнуть по пункту меню: "Документы\Информация о документе"');   
@@ -4985,13 +4978,12 @@ var
 begin
 try
   if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
-  if IsMenuItemEnabled(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\Справка к документу') then
+  if IsMenuItemEnabled(nil,'Документы\Справка к документу') then
     Raise('Элемент меню "Документы\Справка к документу" активен, хотя у этого документа нет СПРАВКИ');
-  if IsMenuItemEnabled(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\ССЫЛКИ НА ДОКУМЕНТ') then
+  if IsMenuItemEnabled(nil,'Документы\ССЫЛКИ НА ДОКУМЕНТ') then
     Raise('Элемент меню "Документы\ССЫЛКИ НА ДОКУМЕНТ" активен, хотя у этого документа нет ССЫЛОК НА ДОКУМЕНТ');  
-  if IsMenuItemEnabled(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\ССЫЛКИ ИЗ ДОКУМЕНТА') then
+  if IsMenuItemEnabled(nil,'Документы\ССЫЛКИ ИЗ ДОКУМЕНТА') then
     Raise('Элемент меню "Документы\ССЫЛКИ ИЗ ДОКУМЕНТА" активен, хотя у этого документа нет ССЫЛОК ИЗ ДОКУМЕНТОВ');    
-    
    
   result := true;
   GoToMainMenu;  
@@ -5030,7 +5022,7 @@ try
   obj := OpenInDocument('ТЕКСТ');   
   result := IsExists(obj);
   if NOT result then Raise('Не удалось получить ТЕКСТ');
-  result := NOT IsMenuItemEnabled(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\Справка к документу');  
+  result := NOT IsMenuItemEnabled(nil,'Документы\Справка к документу');  
   if NOT result then
     Log.Error('Пункт меню Документы\Справка к документу виден');
   GoToMainMenu;  
@@ -5058,7 +5050,7 @@ begin
 try
   if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
   //Проверям что пункт меню не доступен  
-  if IsMenuItemEnabled(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\ССЫЛКИ НА ДОКУМЕНТ') then  
+  if IsMenuItemEnabled(nil,'Документы\ССЫЛКИ НА ДОКУМЕНТ') then  
   begin
     Log.Error('Пункт меню "Документы\ССЫЛКИ НА ДОКУМЕНТ" виден');
     Raise('Пункт меню "Документы\ССЫЛКИ НА ДОКУМЕНТ" виден');
@@ -5097,7 +5089,7 @@ begin
 try
   if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
   //Проверям что пункт меню не доступен  
-  if IsMenuItemEnabled(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\ССЫЛКИ ИЗ ДОКУМЕНТА') then  
+  if IsMenuItemEnabled(nil,'Документы\ССЫЛКИ ИЗ ДОКУМЕНТА') then  
   begin
     Log.Error('Пункт меню "Документы\ССЫЛКИ ИЗ ДОКУМЕНТА" виден');
     Raise('Пункт меню "Документы\ССЫЛКИ ИЗ ДОКУМЕНТА" виден');
@@ -5220,7 +5212,7 @@ try
   end;  
   obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');      
   obj.SetFocus;
-  if IsMenuItemEnabled(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\Предыдущая редакция') then
+  if IsMenuItemEnabled(nil,'Документы\Предыдущая редакция') then
   begin
     result := ClickByMainMenuItem('Документы\Предыдущая редакция'); 
     if NOT result then Raise('Не могу кликнуть по пункту меню: "Документы\Предыдущая редакция"');   
@@ -8060,7 +8052,7 @@ try
   obj := OpenInDocument('ТЕКСТ'); 
   result := IsExists(obj);
   if NOT result then Raise('Не удалось получить ТЕКСТ');
-  if NOT IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\Информация о документе',true) then
+  if NOT IsMenuItemChecked(nil,'Документы\Информация о документе',true) then
   begin
     result := ClickByMainMenuItem('Документы\Информация о документе'); 
     if NOT result then 
@@ -8109,7 +8101,7 @@ try
   obj := OpenInDocument('ТЕКСТ'); 
   result := IsExists(obj);
   if NOT result then Raise('Не удалось получить ТЕКСТ');
-  if NOT IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\Информация о документе',true) then
+  if NOT IsMenuItemChecked(nil,'Документы\Информация о документе',true) then
   begin
     result := ClickByMainMenuItem('Документы\Информация о документе'); 
     if NOT result then
@@ -8152,7 +8144,7 @@ try
   obj := OpenInDocument('ТЕКСТ'); 
   result := IsExists(obj);
   if NOT result then Raise('Не удалось получить ТЕКСТ');
-  if NOT IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\Информация о документе',true) then
+  if NOT IsMenuItemChecked(nil,'Документы\Информация о документе',true) then
   begin
     result := ClickByMainMenuItem('Документы\Информация о документе'); 
     if NOT result then
@@ -8206,7 +8198,7 @@ try
   obj := OpenInDocument('ТЕКСТ'); 
   result := IsExists(obj);
   if NOT result then Raise('Не удалось получить ТЕКСТ');
-  if NOT IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\Информация о документе',true) then
+  if NOT IsMenuItemChecked(nil,'Документы\Информация о документе',true) then
   begin
     result := ClickByMainMenuItem('Документы\Информация о документе'); 
     if NOT result then 
@@ -8278,7 +8270,7 @@ try
   obj := OpenInDocument('ТЕКСТ'); 
   result := IsExists(obj);
   if NOT result then Raise('Не удалось получить ТЕКСТ');
-  if NOT IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Документы\Информация о документе',true) then
+  if NOT IsMenuItemChecked(nil,'Документы\Информация о документе',true) then
   begin
     result := ClickByMainMenuItem('Документы\Информация о документе'); 
     if NOT result then Raise('Не могу кликнуть по пункту меню: "Документы\Информация о документе"');   
@@ -9737,14 +9729,14 @@ try
   doc := OpenInDocument('ТЕКСТ'); 
   result := IsExists(doc);
   if NOT result then Raise('Не удалось получить ТЕКСТ');
-  if NOT IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'), 'Документы\Список редакций') then   
+  if NOT IsMenuItemChecked(nil, 'Документы\Список редакций') then   
     ClickByMainMenuItem('Документы\Список редакций');
   
   obj := GetFromEditor('ВКЛАДКА НАВИГАТОРА "РЕДАКЦИИ"');
   doc.SetFocus;
   result := 
     IsExists(obj) AND obj.Visible AND 
-    IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'), 'Документы\Список редакций', true);  
+    IsMenuItemChecked(nil, 'Документы\Список редакций', true);  
   if NOT result then  
   begin
     Log.Error('ВКЛАДКА НАВИГАТОРА "РЕДАКЦИИ" не получена');
@@ -15568,7 +15560,6 @@ HLTC73.14: Контекстный поиск в документе
 function HLTC73_30_7_Execute (var  CurrentState: OleVariant): OleVariant;
 var  
   docWnd;
-  mainMenu;
   operations;
   toolBar;
   operationsOnTb;
@@ -15587,10 +15578,9 @@ try
   docWnd := GetFromFlashEditor('ТЕКСТ ДОКУМЕНТА "ФЛЭШ"');
   if NOT IsExists(docWnd) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА "ФЛЭШ"');
   
-  mainMenu := GetFromMainWindow('ГЛАВНОЕ МЕНЮ');   
   for i :=  VarArrayLowBound(operations, 1) to VarArrayHighBound(operations, 1) do
   begin
-    if IsMenuItemEnabled(mainMenu,'Файл\' + operations[i]) then    
+    if IsMenuItemEnabled(nil,'Файл\' + operations[i]) then    
     begin
       Log.Error('Для ФЛЭШТОПИКА доступен один запрещённых элементов меню: Файл\' + operations[i]);
       Raise('Для ФЛЭШТОПИКА доступен один запрещённых элементов меню: ' + operations[i]);
@@ -15788,6 +15778,8 @@ try
     'Это флэштопик 5421003. Файл 5421310.swf. Есть контексты: флэш, социальное паптнерство При обновлении удаляется.',
     'Флэштопик со строкой ввода',
     'Это флэштопик 5421044. Файл sample.swf. Есть контексты: флэш, налогоплательщик, НДС, учет. Из текста (НЕ из самого флэша) ссылка на 2001, 2001.200, 2006, 8901004. В блок 10 этого топика есть ссылка из таблицы топика 2006. В блок 20 этого топика есть ссылка из удаляемого при обновлении топика 8901004.',
+    'Это флэштопик 5421045. Файл newtab.swf',
+    'Это флэштопик 5452111. Файл 5452111.swf',
     'Picture 2101'
   ];
 
@@ -16890,7 +16882,8 @@ try
   listOne_Two := [    
     'Документ 2005'
     ];    
-  listOne_Three := [    
+  listOne_Three := [
+    'Документ 2005',    
     'Документ 2007 из сегмента 21 и 22 (Налоги, бухучет, предпринимательство. Москва и Архивы ГАРАНТа. Москва)'
     ];  
   listTwo := [    
@@ -18709,9 +18702,9 @@ begin
   Log.Message(HLTC73_27_3_Execute (cur));//После Ctrl+Z из Моих документов не удаляется закладка
 //--21.06.06----------------------------    
   Log.Message(HLTC73_27_4_Execute (cur)); 
-  Log.Message(HLTC73_28_1_Execute (cur));} 
+  Log.Message(HLTC73_28_1_Execute (cur)); 
   Log.Message(HLTC73_28_2_1_Execute (cur));
-  {Log.Message(HLTC73_28_2_3_Execute (cur));                   
+  Log.Message(HLTC73_28_2_3_Execute (cur));                   
   Log.Message(HLTC73_28_2_5_Execute (cur)); 
   Log.Message(HLTC73_28_2_7_Execute (cur));
 //--23.06.06----------------------------    
@@ -18834,9 +18827,9 @@ Log.Message(HLTC73_15_3_Execute (cur));
   //Log.Message(HLTC73_4_8_1_10_Execute (cur));
   Log.Message(HLTC73_4_8_1_11_Execute (cur));
   //Log.Message(HLTC73_4_8_1_12_Execute (cur));
-  Log.Message(HLTC73_4_8_1_13_Execute (cur));
+  Log.Message(HLTC73_4_8_1_13_Execute (cur));}
   Log.Message(HLTC73_4_8_4_1_Execute (cur));
-  //Log.Message(HLTC73_4_9_1_1_Execute (cur));
+  {//Log.Message(HLTC73_4_9_1_1_Execute (cur));
   Log.Message(HLTC73_4_9_1_5_Execute (cur));
   //Log.Message(HLTC73_4_9_1_8_Execute (cur));
   //Log.Message(HLTC73_4_9_1_9_Execute (cur));

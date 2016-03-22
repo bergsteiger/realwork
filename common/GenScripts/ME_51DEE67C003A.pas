@@ -2,6 +2,8 @@ unit ByteListTest;
 
 // Модуль: "w:\common\components\SandBox\ByteListTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "ByteListTest" MUID: (51DEE67C003A)
+// Имя типа: "TByteListTest"
 
 {$Include w:\common\components\SandBox\sbtDefine.inc}
 

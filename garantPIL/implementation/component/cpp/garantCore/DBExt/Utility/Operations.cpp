@@ -13,6 +13,8 @@
 
 #include "shared/Core/sys/std_inc.h"
 #include "garantCore/DBExt/Utility/Operations.h"
+// by <<uses>> dependencies
+#include <algorithm>
 #include <iterator>
 
 namespace DBExt {

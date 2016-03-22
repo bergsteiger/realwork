@@ -1,9 +1,12 @@
 unit alcuDocument;
 { Примитивная реализация доступа к документу }
 
-{ $Id: alcuDocument.pas,v 1.5 2015/05/20 14:02:25 lulin Exp $ }
+{ $Id: alcuDocument.pas,v 1.6 2015/11/26 08:45:26 lukyanets Exp $ }
 
 // $Log: alcuDocument.pas,v $
+// Revision 1.6  2015/11/26 08:45:26  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.5  2015/05/20 14:02:25  lulin
 // - рисуем на модели.
 //
@@ -42,6 +45,7 @@ implementation
 
 Uses
  l3Base, l3Types,
+ daSchemeConsts,
  dt_Serv, dt_CFltr, dt_Const,
  evEvdRd, evdWriter,
  m3DBInterfaces, m3DB,

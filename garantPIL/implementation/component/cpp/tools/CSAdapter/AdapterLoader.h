@@ -6,10 +6,11 @@
 #define __CONTEXT_SEARCH_ADAPTER_LOADER_H__
 
 #include "shared/GCL/os/DllLoader.h"
+#include "shared/Morpho/Facade/Cache.h"
 
 #include "garantPIL/implementation/component/cpp/garantCore/SearchAdapterLib/Adapter/Adapter.h"
 
-static const unsigned long SEARCH_ADAPTER_VERSION = 8;
+static const unsigned long SEARCH_ADAPTER_VERSION = 9;
 
 class SearchAdapter
 	: public GCL::DllLoader {
@@ -23,12 +24,12 @@ public:
 	}
 
 public:
-	SearchAdapterLib::Adapter::ISearcher* get (DBCore::IBase* base, Morpho::Def::ICache* cache, const::std::string& src) {
-		return (this->init_adapter ())? m_adapter->get (base, cache, src) : 0;
+	SearchAdapterLib::Adapter::ISearcher* get (DBCore::IBase* base, const::std::string& src) {
+		return (this->init_adapter ())? m_adapter->get (base, Morpho::get_cache (base), src) : 0;
 	}
 
-	SearchAdapterLib::Adapter::IHelper* get (DBCore::IBase* base, Morpho::Def::ICache* cache) {
-		return (this->init_adapter ())? m_adapter->get (base, cache) : 0;
+	SearchAdapterLib::Adapter::IHelper* get (DBCore::IBase* base) {
+		return (this->init_adapter ())? m_adapter->get (base, Morpho::get_cache (base)) : 0;
 	}
 
 	const DBCore::RelTuneData& get_tune_data () {

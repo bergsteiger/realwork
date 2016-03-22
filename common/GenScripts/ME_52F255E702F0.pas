@@ -2,6 +2,7 @@ unit GUIAppTester;
 
 // Модуль: "w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TGUIAppTester" MUID: (52F255E702F0)
 
 interface
 

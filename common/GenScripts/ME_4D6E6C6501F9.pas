@@ -2,6 +2,7 @@ unit nevAutoreferatDocumentAnchor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevAutoreferatDocumentAnchor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevAutoreferatDocumentAnchor" MUID: (4D6E6C6501F9)
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 

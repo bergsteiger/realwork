@@ -1,8 +1,11 @@
 unit D_spell;
 
-{ $Id: D_Spell.pas,v 1.48 2015/04/28 15:03:39 lulin Exp $ }
+{ $Id: D_Spell.pas,v 1.49 2016/02/16 10:17:28 voba Exp $ }
 
 // $Log: D_Spell.pas,v $
+// Revision 1.49  2016/02/16 10:17:28  voba
+// no message
+//
 // Revision 1.48  2015/04/28 15:03:39  lulin
 // - рефакторим.
 //
@@ -355,7 +358,7 @@ begin
    try
     l_Speller1.IgnoreFlags := [CmgSrcEvnDate,
                                CmgSrcEvnDigital,
-                               CmgSrcEvnEnglish,
+                               //CmgSrcEvnEnglish,
                                CmgSrcEvnAllCapital,
                                cmgSrcEvnNumberChar];
     Caption := cCaption + cCaptionTailRus;

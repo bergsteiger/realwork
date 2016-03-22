@@ -1,6 +1,6 @@
 unit D_stat;
 
-{ $Id: D_STAT.PAS,v 1.8 2015/07/02 07:34:41 lukyanets Exp $ }
+{ $Id: D_STAT.PAS,v 1.9 2015/11/26 08:45:28 lukyanets Exp $ }
 
 interface
 
@@ -45,6 +45,7 @@ implementation
 uses
      SysUtils,
      daTypes,
+     daSchemeConsts,
      DT_Const, Dt_Types, dt_AttrSchema,
      DT_Doc, DT_Dict, DT_User, DT_Stage,
      l3Date,

@@ -3,6 +3,7 @@ unit stDocumentPrintAndExportFontSizeItem;
 
 // Модуль: "w:\common\components\SandBox\VCM\View\Document\stDocumentPrintAndExportFontSizeItem.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TstDocumentPrintAndExportFontSizeItem" MUID: (1599BCBFE969)
 
 {$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 

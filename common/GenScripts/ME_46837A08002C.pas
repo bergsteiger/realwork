@@ -3,6 +3,7 @@ unit nsQueryInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryInterfaces.pas"
 // Стереотип: "InternalInterfaces"
+// Элемент модели: "nsQueryInterfaces" MUID: (46837A08002C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

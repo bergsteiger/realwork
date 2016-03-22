@@ -1,8 +1,23 @@
 unit RTFtypes;
 
-{ $Id: rtftypes.PAS,v 1.82 2015/10/15 11:13:12 dinishev Exp $ }
+{ $Id: rtftypes.PAS,v 1.87 2016/03/17 09:02:40 dinishev Exp $ }
 
 // $Log: rtftypes.PAS,v $
+// Revision 1.87  2016/03/17 09:02:40  dinishev
+// Поддержка новых тегов.
+//
+// Revision 1.86  2016/03/15 10:28:13  dinishev
+// {Requestlink:619725311}
+//
+// Revision 1.85  2016/02/18 09:04:06  dinishev
+// {Requestlink:617082437}. "Многострочные" колонки. Разбиение внутри колонок.
+//
+// Revision 1.84  2016/02/10 14:36:06  dinishev
+// {Requestlink:617082437}
+//
+// Revision 1.83  2016/01/29 07:40:44  dinishev
+// Не читаем праватные поля из RTF.
+//
 // Revision 1.82  2015/10/15 11:13:12  dinishev
 // {Requestlink:609602166}
 //
@@ -252,14 +267,14 @@ Type
   TShadingType = (stNone, stHoriz, stVert, stDiag, stCross, stDCross,
                   stDkHor, stDkVert, stDkfDiag, stDkbDiag, stDkCross );
   TStrikeType = (srtNone, srtSingle, srtDouble);
-  TCharCapsType  = (ccNone, ccAllCaps, ccSmallCaps, ccNotDefined);
+  //TCharCapsType  = (ccNone, ccAllCaps, ccSmallCaps);
   TContourType   = (ctNone, ctEmbo, ctEngrave, ctNotDefined);
   TACTN = (actnSpec, actnByte, actnWord);
 
   TPropType = (propNone, propChp, propPap, propSep, propDop, propStyle,
                propRow, propCell, propFrame, propFont, propTAB, propPict,
                propFormField, propLevel, propList, propColorTable,
-               propNestedCell, propNestedRow, propShape);
+               propNestedCell, propNestedRow, propShape, propField, propColumn);
                
   TRTFSubject = Integer;
 
@@ -302,7 +317,8 @@ const
   ipropCodePage  = succ(iproPAnsiCharSet);
   ipropBrdrTbl   = succ(ipropCodePage); // Рамка есть, но в редакторе свойств она не выствлена, т.е. на чтение не влияет. См. http://mdp.garant.ru/pages/viewpage.action?pageId=479402808
   ipropBrdrNil   = succ(ipropBrdrTbl); // нет рамки
-  ipropclwWidth  = succ(ipropBrdrNil); // Шириная ячейки 
+  ipropclwWidth  = succ(ipropBrdrNil); // Шириная ячейки
+  ipropSbkNone   = succ(ipropclwWidth);
 
   { Character properties }
   ipropAnime     = 100;
@@ -367,7 +383,12 @@ const
   iproplinex        = succ(ipropfet);
   ipropendnhere     = succ(iproplinex);
   ipropBreak        = succ(ipropEndnhere);
-  ipropUC           = succ(ipropBreak);      
+  ipropUC           = succ(ipropBreak);
+  ipropColNum       = succ(ipropUC);
+  ipropColCount     = succ(ipropColNum);
+  ipropColWidth     = succ(ipropColCount);
+  ipropColumn       = succ(ipropColWidth);
+  ipropColumnRight  = succ(ipropColumn);
 
   { Paragraph properties }
   ipropFirst          = 300;
@@ -451,6 +472,7 @@ const
   ipropFFDefRes       = 800;
   ipropFFRes          = succ(ipropFFDefRes);
   ipropFFType         = succ(ipropFFRes);
+  propfldpriv         = succ(ipropFFType);
 
   { List Level properties}
   iproplevelpicturenosize	 = 1000;

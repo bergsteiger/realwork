@@ -2,6 +2,7 @@ unit tfwValueTypesWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwValueTypesWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "tfwValueTypesWordsPack" MUID: (55C3714E020D)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -262,11 +263,6 @@ begin
  aCtx.rEngine.PushInt(Compare(aCtx, l_aValueTypes, l_anOther));
 end;//TkwPopValueTypesCompare.DoDoIt
 
-class function TkwPopValueTypesCompare.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ValueTypes:Compare';
-end;//TkwPopValueTypesCompare.GetWordNameForRegister
-
 function TkwPopValueTypesCompare.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -281,6 +277,11 @@ function TkwPopValueTypesCompare.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwValueTypes), TypeInfo(TtfwValueTypes)]);
 end;//TkwPopValueTypesCompare.ParamsTypes
+
+class function TkwPopValueTypesCompare.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ValueTypes:Compare';
+end;//TkwPopValueTypesCompare.GetWordNameForRegister
 
 function TkwPopValueTypesAcceptsValue.AcceptsValue(const aCtx: TtfwContext;
  aValueTypes: TtfwValueTypes;
@@ -315,11 +316,6 @@ begin
  aCtx.rEngine.PushBool(AcceptsValue(aCtx, l_aValueTypes, l_aValue));
 end;//TkwPopValueTypesAcceptsValue.DoDoIt
 
-class function TkwPopValueTypesAcceptsValue.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ValueTypes:AcceptsValue';
-end;//TkwPopValueTypesAcceptsValue.GetWordNameForRegister
-
 function TkwPopValueTypesAcceptsValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -334,6 +330,11 @@ function TkwPopValueTypesAcceptsValue.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwValueTypes), @tfw_tiStruct]);
 end;//TkwPopValueTypesAcceptsValue.ParamsTypes
+
+class function TkwPopValueTypesAcceptsValue.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ValueTypes:AcceptsValue';
+end;//TkwPopValueTypesAcceptsValue.GetWordNameForRegister
 
 function TkwPopValueTypesAdd.Add(const aCtx: TtfwContext;
  aValueTypes: TtfwValueTypes;
@@ -368,11 +369,6 @@ begin
  aCtx.rEngine.PushObj(Add(aCtx, l_aValueTypes, l_anOther));
 end;//TkwPopValueTypesAdd.DoDoIt
 
-class function TkwPopValueTypesAdd.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ValueTypes:Add';
-end;//TkwPopValueTypesAdd.GetWordNameForRegister
-
 function TkwPopValueTypesAdd.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwValueTypes);
@@ -387,6 +383,11 @@ function TkwPopValueTypesAdd.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwValueTypes), TypeInfo(TtfwValueTypes)]);
 end;//TkwPopValueTypesAdd.ParamsTypes
+
+class function TkwPopValueTypesAdd.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ValueTypes:Add';
+end;//TkwPopValueTypesAdd.GetWordNameForRegister
 
 function TkwPopValueTypesHas.Has(const aCtx: TtfwContext;
  aValueTypes: TtfwValueTypes;
@@ -421,11 +422,6 @@ begin
  aCtx.rEngine.PushBool(Has(aCtx, l_aValueTypes, l_aType));
 end;//TkwPopValueTypesHas.DoDoIt
 
-class function TkwPopValueTypesHas.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ValueTypes:Has';
-end;//TkwPopValueTypesHas.GetWordNameForRegister
-
 function TkwPopValueTypesHas.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -440,6 +436,11 @@ function TkwPopValueTypesHas.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwValueTypes), TypeInfo(TtfwValueType)]);
 end;//TkwPopValueTypesHas.ParamsTypes
+
+class function TkwPopValueTypesHas.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ValueTypes:Has';
+end;//TkwPopValueTypesHas.GetWordNameForRegister
 
 function TkwPopValueTypesEQ.EQ(const aCtx: TtfwContext;
  aValueTypes: TtfwValueTypes;
@@ -474,11 +475,6 @@ begin
  aCtx.rEngine.PushBool(EQ(aCtx, l_aValueTypes, l_anOther));
 end;//TkwPopValueTypesEQ.DoDoIt
 
-class function TkwPopValueTypesEQ.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ValueTypes:EQ';
-end;//TkwPopValueTypesEQ.GetWordNameForRegister
-
 function TkwPopValueTypesEQ.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -493,6 +489,11 @@ function TkwPopValueTypesEQ.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwValueTypes), TypeInfo(TtfwValueTypes)]);
 end;//TkwPopValueTypesEQ.ParamsTypes
+
+class function TkwPopValueTypesEQ.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ValueTypes:EQ';
+end;//TkwPopValueTypesEQ.GetWordNameForRegister
 
 function TkwPopValueTypesDefaultValue.DefaultValue(const aCtx: TtfwContext;
  aValueTypes: TtfwValueTypes): TtfwStackValue;
@@ -516,11 +517,6 @@ begin
  aCtx.rEngine.Push(DefaultValue(aCtx, l_aValueTypes));
 end;//TkwPopValueTypesDefaultValue.DoDoIt
 
-class function TkwPopValueTypesDefaultValue.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ValueTypes:DefaultValue';
-end;//TkwPopValueTypesDefaultValue.GetWordNameForRegister
-
 function TkwPopValueTypesDefaultValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiStruct;
@@ -535,6 +531,11 @@ function TkwPopValueTypesDefaultValue.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwValueTypes)]);
 end;//TkwPopValueTypesDefaultValue.ParamsTypes
+
+class function TkwPopValueTypesDefaultValue.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ValueTypes:DefaultValue';
+end;//TkwPopValueTypesDefaultValue.GetWordNameForRegister
 
 function TkwPopValueTypesMakeCustomName.MakeCustomName(const aCtx: TtfwContext;
  aValueTypes: TtfwValueTypes;
@@ -573,11 +574,6 @@ begin
  aCtx.rEngine.PushObj(MakeCustomName(aCtx, l_aValueTypes, l_aName));
 end;//TkwPopValueTypesMakeCustomName.DoDoIt
 
-class function TkwPopValueTypesMakeCustomName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ValueTypes:MakeCustomName';
-end;//TkwPopValueTypesMakeCustomName.GetWordNameForRegister
-
 function TkwPopValueTypesMakeCustomName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwValueTypes);
@@ -592,6 +588,11 @@ function TkwPopValueTypesMakeCustomName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwValueTypes), @tfw_tiString]);
 end;//TkwPopValueTypesMakeCustomName.ParamsTypes
+
+class function TkwPopValueTypesMakeCustomName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ValueTypes:MakeCustomName';
+end;//TkwPopValueTypesMakeCustomName.GetWordNameForRegister
 
 function TkwPopValueTypesAccepts.Accepts(const aCtx: TtfwContext;
  aValueTypes: TtfwValueTypes;
@@ -630,11 +631,6 @@ begin
  aCtx.rEngine.PushInt(Ord(Accepts(aCtx, l_aValueTypes, l_anOther)));
 end;//TkwPopValueTypesAccepts.DoDoIt
 
-class function TkwPopValueTypesAccepts.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ValueTypes:Accepts';
-end;//TkwPopValueTypesAccepts.GetWordNameForRegister
-
 function TkwPopValueTypesAccepts.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwValueTypesAccepts);
@@ -649,6 +645,11 @@ function TkwPopValueTypesAccepts.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwValueTypes), TypeInfo(TtfwValueTypes)]);
 end;//TkwPopValueTypesAccepts.ParamsTypes
+
+class function TkwPopValueTypesAccepts.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ValueTypes:Accepts';
+end;//TkwPopValueTypesAccepts.GetWordNameForRegister
 
 function TkwPopValueTypesName.Name(const aCtx: TtfwContext;
  aValueTypes: TtfwValueTypes): Il3CString;
@@ -672,11 +673,6 @@ begin
  aCtx.rEngine.PushString(Name(aCtx, l_aValueTypes));
 end;//TkwPopValueTypesName.DoDoIt
 
-class function TkwPopValueTypesName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ValueTypes:Name';
-end;//TkwPopValueTypesName.GetWordNameForRegister
-
 procedure TkwPopValueTypesName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -697,6 +693,11 @@ function TkwPopValueTypesName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwValueTypes)]);
 end;//TkwPopValueTypesName.ParamsTypes
+
+class function TkwPopValueTypesName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ValueTypes:Name';
+end;//TkwPopValueTypesName.GetWordNameForRegister
 
 initialization
  TkwPopValueTypesCompare.RegisterInEngine;

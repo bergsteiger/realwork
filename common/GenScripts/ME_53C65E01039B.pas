@@ -2,6 +2,7 @@ unit nsChronologyDocumentContainer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsChronologyDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsChronologyDocumentContainer" MUID: (53C65E01039B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

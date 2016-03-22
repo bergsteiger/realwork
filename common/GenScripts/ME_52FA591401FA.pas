@@ -2,6 +2,7 @@ unit NOT_FINISHED_csServerTaskTypes;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csServerTaskTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "csServerTaskTypes" MUID: (52FA591401FA)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

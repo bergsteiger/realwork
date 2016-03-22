@@ -2,6 +2,8 @@ unit CommonSearch_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\CommonSearch_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "CommonSearch" MUID: (4AA931390118)
+// Имя типа: "TCommonSearchModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -1,45 +1,35 @@
 unit kwObjectFromStackWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Автор: Люлин А.В.
-// Модуль: "kwObjectFromStackWord.pas"
-// Начат: 26.01.2012 14:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::RTL bindings::TkwObjectFromStackWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwObjectFromStackWord.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TkwObjectFromStackWord" MUID: (4F212BA80137)
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwRegisterableWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwObjectFromStackWord = {abstract} class(TtfwRegisterableWord)
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // protected methods
+  protected
    procedure DoObject(anObject: TObject;
-     const aCtx: TtfwContext); virtual; abstract;
+    const aCtx: TtfwContext); virtual; abstract;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwObjectFromStackWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwObjectFromStackWord
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwObjectFromStackWord.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F212BA80137_var*
@@ -50,12 +40,9 @@ begin
 //#UC END# *4DAEEDE10285_4F212BA80137_impl*
 end;//TkwObjectFromStackWord.DoDoIt
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwObjectFromStackWord
  TkwObjectFromStackWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwObjectFromStackWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

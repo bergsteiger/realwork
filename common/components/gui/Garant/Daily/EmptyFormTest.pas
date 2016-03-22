@@ -1,78 +1,55 @@
 unit EmptyFormTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/EmptyFormTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::EmptyFormTests::TEmptyFormTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\EmptyFormTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TEmptyFormTest" MUID: (51D5285300B7)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  ,
-  FromWithPanel_Form,
-  Types
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ , FromWithPanel_Form
+ , Types
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  _FormClass_ = TFromWithPanelForm;
  _FormProducer_Parent_ = TBaseTest;
- {$Include ..\Daily\FormProducer.imp.pas}
+ {$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
  TEmptyFormTest = {abstract} class(_FormProducer_)
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    procedure CheckControl; virtual;
- published
- // published methods
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt;
  end;//TEmptyFormTest
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3ImplUses
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-{$Include ..\Daily\FormProducer.imp.pas}
-
-// start class TEmptyFormTest
+{$If NOT Defined(NotTunedDUnit)}
+{$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
 
 procedure TEmptyFormTest.DoIt;
 //#UC START# *51D5290701CC_51D5285300B7_var*
@@ -103,17 +80,17 @@ begin
 end;//TEmptyFormTest.CheckControl
 
 function TEmptyFormTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EmptyFormTests';
 end;//TEmptyFormTest.GetFolder
 
 function TEmptyFormTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '51D5285300B7';
 end;//TEmptyFormTest.GetModelElementGUID
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //nsTest AND not NoVCM
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 end.

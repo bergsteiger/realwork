@@ -2,6 +2,7 @@ unit SecurityUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\SecurityUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Security" MUID: (45EEAA96039C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

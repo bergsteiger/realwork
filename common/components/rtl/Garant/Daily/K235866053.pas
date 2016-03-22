@@ -1,73 +1,54 @@
 unit K235866053;
+ {* [RequestLink:235866053] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Daily/K235866053.pas"
-// Начат: 04.10.2010 11:59
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.6::K235866053
-//
-// {RequestLink:235866053}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K235866053.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K235866053" MUID: (4CA9894501FF)
+// Имя типа: "TK235866053"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  EVDtoEVDWriterTest
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , EVDtoEVDWriterTest
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK235866053 = class(TEVDtoEVDWriterTest)
   {* [RequestLink:235866053] }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK235866053
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK235866053
+ l3ImplUses
+ , TestFrameWork
+;
 
 function TK235866053.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.6';
 end;//TK235866053.GetFolder
 
 function TK235866053.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4CA9894501FF';
 end;//TK235866053.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK235866053.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

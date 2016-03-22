@@ -2,6 +2,8 @@ unit toK64;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\toK64.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "toK64" MUID: (4DB6A92C025D)
+// Имя типа: "TtoK64"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

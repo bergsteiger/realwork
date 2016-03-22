@@ -2,6 +2,7 @@ unit daTableDescription;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daTableDescription.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "daTableDescription" MUID: (55CB200E0058)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
@@ -89,11 +90,12 @@ begin
 //#UC START# *55360BAB0116_55360B420250_impl*
  inherited Create;
  f_Kind := aKind;
- f_Code := aCode;
  f_Description := aDescription;
  f_IsDublicate := aDublicate;
  f_IsFake := aFake;
- f_Name := aName;
+ f_SQLName := aSQLName;
+ f_Scheme := aScheme;
+ f_IsTree := aIsTree;
 //#UC END# *55360BAB0116_55360B420250_impl*
 end;//TdaTableDescription.Create
 
@@ -154,7 +156,6 @@ begin
   Result := f_FieldList[l_Index]
  else
   Result := nil;
-// !!! Needs to be implemented !!!
 //#UC END# *55379DA40290_55360B420250get_impl*
 end;//TdaTableDescription.Get_Field
 
@@ -197,7 +198,7 @@ function TdaTableDescription.Get_SQLName: AnsiString;
 //#UC END# *5608EE130006_55360B420250get_var*
 begin
 //#UC START# *5608EE130006_55360B420250get_impl*
- Result := f_Name;
+ Result := f_SQLName;
 //#UC END# *5608EE130006_55360B420250get_impl*
 end;//TdaTableDescription.Get_SQLName
 

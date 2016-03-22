@@ -29,6 +29,7 @@ implementation
   l3FieldSortRecList, l3LongintList,
   arAttrNodes,
   daTypes,
+  daSchemeConsts,
   dtIntf, dt_Sab,
   dt_Const,
   dt_Dict, dt_Link, dt_LinkServ, dt_Query,

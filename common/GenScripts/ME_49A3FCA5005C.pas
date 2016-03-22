@@ -3,6 +3,8 @@ unit PageProperties;
 
 // Модуль: ""
 // Стереотип: "TagOverride"
+// Элемент модели: "PageProperties" MUID: (49A3FCA5005C)
+// Имя типа: "PagePropertiesTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

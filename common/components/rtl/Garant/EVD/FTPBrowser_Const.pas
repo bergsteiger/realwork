@@ -5,7 +5,7 @@ unit FTPBrowser_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/FTPBrowser_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::FTPBrowser
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::FTPBrowser
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

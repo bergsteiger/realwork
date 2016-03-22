@@ -2,6 +2,7 @@ unit kwDiffIteratorPrev;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwDiffIteratorPrev.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwDiffIteratorPrev" MUID: (4EB263BB0204)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

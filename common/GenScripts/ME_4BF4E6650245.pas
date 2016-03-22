@@ -3,6 +3,7 @@ unit SelectPtTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\SelectPtTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TSelectPtTest" MUID: (4BF4E6650245)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -3,6 +3,8 @@ unit NSRCTag_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\NSRCTag_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "NSRCTag" MUID: (484D3DF801F3)
+// Имя типа: "NSRCTagTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

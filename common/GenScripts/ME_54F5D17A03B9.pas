@@ -2,6 +2,7 @@ unit PanelProcessingPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\PanelProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "PanelProcessingPack" MUID: (54F5D17A03B9)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

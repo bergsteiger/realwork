@@ -3,6 +3,7 @@ unit l3Metafile;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Metafile.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3Metafile" MUID: (47DFD79200BD)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

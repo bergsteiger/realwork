@@ -10,6 +10,8 @@ unit kwCASE;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCASE.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "CASE" MUID: (4DBAEE8103DB)
+// Имя типа: "TkwCASE"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

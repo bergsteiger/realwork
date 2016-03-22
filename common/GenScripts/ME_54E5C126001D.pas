@@ -2,6 +2,7 @@ unit nsQueryAttribute;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryAttribute.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsQueryAttribute" MUID: (54E5C126001D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -352,9 +353,9 @@ type
     write Set_IsOk;
  end;//TqaDateReqDataHolder
 
- {$If NOT Defined(Monitorings)}
+{$If NOT Defined(Monitorings)}
  InsMisatakesCorrectorForNemesis = InsMistakesCorrector;
- {$IfEnd} // NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(Monitorings)
 
  TqaMgrSearch = class(TvcmBase, IqaMgrSearch, IevAdapterModel{$If NOT Defined(Monitorings)}
  , InsMisatakesCorrectorForNemesis
@@ -3666,7 +3667,8 @@ begin
  begin
   (f_QueryCard As InevControlListener).HideDroppedControl(True);
   ClearAttrs;
-  Self.QueryCard.CardClear
+  Self.QueryCard.CardClear;
+  f_Modified := 0;
  end;//f_QueryCard <> nil
  {$IFDEF Monitorings}
  f_Query := nil;

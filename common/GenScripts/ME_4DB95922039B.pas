@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\SystemWord.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "SystemWord" MUID: (4DB95922039B)
+// Имя типа: "_SystemWord_"
 
 {$Define SystemWord_imp}
 

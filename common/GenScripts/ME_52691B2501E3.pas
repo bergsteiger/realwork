@@ -2,6 +2,7 @@ unit NOT_FINISHED_evCursorShapeMisc;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCursorShapeMisc.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evCursorShapeMisc" MUID: (52691B2501E3)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

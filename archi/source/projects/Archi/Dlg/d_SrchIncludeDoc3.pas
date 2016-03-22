@@ -54,6 +54,7 @@ implementation
   l3Base,
   l3Date, l3Tree, l3Nodes, l3TreeInterfaces, l3Tree_TLB,
   daTypes,
+  daSchemeConsts,
   dt_const, dt_Dict,
   l3IniFile, IniShop,
   Main, d_SearchSettings, BtnDlg;

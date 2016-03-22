@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\Scripter.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "Scripter" MUID: (4DAEEA2B029A)
+// Имя типа: "_Scripter_"
 
 {$Define Scripter_imp}
 

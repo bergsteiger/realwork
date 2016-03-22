@@ -2,6 +2,8 @@ unit EVDtoEVDBlockNameAdderTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoEVDBlockNameAdderTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "EVDtoEVDBlockNameAdderTest" MUID: (4D909F2701A6)
+// Имя типа: "TEVDtoEVDBlockNameAdderTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -2,6 +2,7 @@ unit daDataProvider;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daDataProvider.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "daDataProvider" MUID: (551A7D7402B4)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

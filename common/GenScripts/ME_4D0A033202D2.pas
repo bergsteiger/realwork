@@ -2,6 +2,7 @@ unit atUserJournalHelper;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atUserJournalHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatUserJournalHelper" MUID: (4D0A033202D2)
 
 interface
 

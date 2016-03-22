@@ -3,6 +3,7 @@ unit l3Core;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Core.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "l3Core" MUID: (46A5E026007E)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

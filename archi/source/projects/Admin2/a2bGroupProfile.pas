@@ -1,8 +1,11 @@
 unit a2bGroupProfile;
 
-{ $Id: a2bGroupProfile.pas,v 1.24 2015/01/22 14:31:11 lukyanets Exp $}
+{ $Id: a2bGroupProfile.pas,v 1.25 2015/11/25 14:01:27 lukyanets Exp $}
 
 // $Log: a2bGroupProfile.pas,v $
+// Revision 1.25  2015/11/25 14:01:27  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.24  2015/01/22 14:31:11  lukyanets
 // Переносим отсылку задачи в более правильное место
 //
@@ -143,6 +146,8 @@ uses
  ddClientBaseEngine,
  csUserRequestManager,
  csServerTaskTypes,
+
+ daSchemeConsts,
 
  DT_Const,
  Dt_Acces;

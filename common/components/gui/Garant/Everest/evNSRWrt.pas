@@ -5,9 +5,57 @@ unit evNSRWrt;
 { Автор: Люлин А.В. ©     }
 { Модуль: evNSRWrt - генератор текстов в формате NSRC }
 { Начат: 04.10.1999 17:55 }
-{ $Id: evNSRWrt.pas,v 1.251 2015/10/22 15:03:42 lulin Exp $ }
+{ $Id: evNSRWrt.pas,v 1.268 2016/03/22 12:08:56 lulin Exp $ }
 
 // $Log: evNSRWrt.pas,v $
+// Revision 1.268  2016/03/22 12:08:56  lulin
+// {RequestLink;620241155}
+//
+// Revision 1.267  2016/03/16 14:25:33  lulin
+// {RequestLink:619944727}
+//
+// Revision 1.266  2016/03/16 14:09:21  lulin
+// {RequestLink:619944727}
+//
+// Revision 1.265  2016/03/16 13:38:43  lulin
+// {RequestLink:619944727}
+//
+// Revision 1.264  2016/03/14 17:14:26  lulin
+// {RequestLink:619577264}.
+// - не пишем размер шрифта.
+//
+// Revision 1.263  2016/03/14 17:08:18  lulin
+// {RequestLink:619577264}.
+// - не пишем размер шрифта.
+//
+// Revision 1.262  2016/03/14 16:42:43  lulin
+// {RequestLink:619577264}.
+// - не пишем размер шрифта.
+//
+// Revision 1.260  2016/03/10 13:02:08  lulin
+// - пишем "Заголовок приложения" как STYLE #.
+//
+// Revision 1.259  2016/02/25 12:52:12  lulin
+// http://mdp.garant.ru/pages/viewpage.action?pageId=613523384&focusedCommentId=618672977&#comment-618672977
+//
+// Revision 1.258  2016/02/25 12:10:16  lulin
+// http://mdp.garant.ru/pages/viewpage.action?pageId=613523384&focusedCommentId=618672977&#comment-618672977
+//
+// Revision 1.257  2015/12/24 07:29:44  dinishev
+// Откатил хитрую проверку на слой сегмента - картинки пропадали.
+//
+// Revision 1.256  2015/12/23 09:24:09  dinishev
+// {Requestlink:614228201}
+//
+// Revision 1.254  2015/12/23 08:09:16  dinishev
+// Cleanup
+//
+// Revision 1.253  2015/12/23 07:46:53  fireton
+// - переименовал SkipErrors в SkipInvalidPictures и сделал его свойством
+//
+// Revision 1.252  2015/12/09 11:45:50  lulin
+// - костыляем за Бежаном.
+//
 // Revision 1.251  2015/10/22 15:03:42  lulin
 // - вычисляем необходимость корректировки.
 //
@@ -777,7 +825,6 @@ type
   TevCustomNSRCWriter = class(TevCustomTextPainter, Il3ObjectWrap)
    {* Фильтр для записи текста в формате NSRC. }
     public
-     SilentErrors : Boolean;
      NeedOutDecorInfo : Boolean;
     private
     {internal fields}
@@ -809,6 +856,7 @@ type
       f_OnOutBlock     : Tl3OutExtLongEvent;
       f_OnOutHyperlink : Tl3OutExtLongEvent;
       f_OnOutShortname : TevOutExtStringEvent;
+     f_SkipInvalidPictures: Boolean;
     {$IFDEF evUseEvdStyleOnly}
     private
       function NeedEmptyPara: Boolean;
@@ -959,6 +1007,10 @@ type
         write f_PlainText
         default false;
         {-}
+     property SkipInvalidPictures: Boolean
+        read f_SkipInvalidPictures
+        write f_SkipInvalidPictures;
+        {-}
       property SkipPreformatted: Bool
         read f_SkipPreformatted
         write f_SkipPreformatted
@@ -1032,6 +1084,7 @@ implementation
 uses
   Classes,
   SysUtils,
+  StrUtils,
 
   l3Variant,
   l3Except,
@@ -1057,6 +1110,7 @@ uses
   
   evNSRCCharSkipper,
   evNSRStringFormatter,
+  //evSegmentFontSizeEliminator,
 
   Para_Const,
   Document_Const,
@@ -1146,7 +1200,7 @@ begin
  inherited;
  CodePage := CP_OEM;
  OutStyle := true;
- SilentErrors := false;
+ SkipInvalidPictures := false;
  NeedOutDecorInfo := false;
 end;
 
@@ -1560,10 +1614,14 @@ begin
    {$ENDIF evUseEvdStyleOnly}
    StyleID := 0; 
    Case StHandle of
-    ev_saTxtHeader1 {$IFDEF evUseEvdStyleOnly},
+    ev_saTxtHeader1 
+    {$IF Defined(evUseEvdStyleOnly) OR Defined(evOutDecorToNSRC)},
     {$ELSE}:
      IT := ev_itCenter;
-   {$ENDIF evUseEvdStyleOnly}
+    {$IfEnd}
+    {$If Defined(evOutDecorToNSRC)}
+    ev_saEnclosureHeader,
+    {$IfEnd}
     ev_saTxtHeader2,
     ev_saTxtHeader3, ev_saTxtHeader4:
     begin
@@ -1860,6 +1918,7 @@ function TevCustomNSRCWriter.IsMarkStyle(aParaVisible        : Bool;
  function OutDecor: String;
  var
   l_W : TevdNativeWriter;
+  l_G : Tk2TagGenerator;
   l_F : Tl3CustomFiler;
   l_Stream : Tl3StringStream;
   l_Pos : Integer;
@@ -1882,16 +1941,22 @@ function TevCustomNSRCWriter.IsMarkStyle(aParaVisible        : Bool;
       {$Else}
       !!! нужен TevdNativeWriter с поддержкой текстового формата
       {$EndIf evdNeedEverestTxt}
-      l_W.Start;
+      l_G := l_W.Use;
       try
-       l_W.StartChild(aStyledObject.TagType);
+       //TevSegmentFontSizeEliminator.SetTo(l_G);
+       l_G.Start;
        try
-        aStyledObject.WriteTag(l_W, l3_spfAll, [k2_tiStart, k2_tiFinish, k2_tiVisible]);
+        l_G.StartChild(aStyledObject.TagType);
+        try
+         aStyledObject.WriteTag(l_G, l3_spfAll, [k2_tiStart, k2_tiFinish, k2_tiVisible]);
+        finally
+         l_G.Finish;
+        end;//try..finally
        finally
-        l_W.Finish;
+        l_G.Finish;
        end;//try..finally
       finally
-       l_W.Finish;
+       FreeAndNil(l_G);
       end;//try..finally
       Result := l_Stream._String.AsString;
       Result := l3ReplaceNonReadable(Result);
@@ -1905,6 +1970,13 @@ function TevCustomNSRCWriter.IsMarkStyle(aParaVisible        : Bool;
       if (Result = evdOpenBracket + evdCloseBracket) OR
          (Result = evdOpenBracket + cc_HardSpace + evdCloseBracket) then
        Result := '';
+      if (Result <> '') then
+      begin
+       if AnsiStartsStr('{ ', Result) then
+        Delete(Result, 2, 1);
+       if AnsiEndsStr(' }', Result) then
+        Delete(Result, Length(Result) - 1, 1);
+      end;//Result <> ''
      finally
       FreeAndNil(l_W);
      end;//try..finally
@@ -1945,6 +2017,17 @@ var
  end;//OutVisible
 
 var
+ l_ValidPicture : Boolean;
+
+ procedure lp_SkipPicture;
+ begin
+  l_ValidPicture := False;
+  DeleteText := true;
+  Open := '';
+  Close := '';
+ end;
+
+var
  l_EndTextPos  : Long;
  l_FormulaText : AnsiString;
  C             : AnsiChar;
@@ -1960,7 +2043,6 @@ var
  l_BL          : Integer;
  l_H: Integer;
  l_W: Integer;
- l_ValidPicture : Boolean;
  l_TextToOut : Tl3CustomString;
 begin
  f_CheckChar := #0;
@@ -2025,9 +2107,15 @@ begin
    if ((ID >= Low(TevStandardStyle)) AND (ID <= High(TevStandardStyle))) then
    begin
     C := NSRCBrackets[-ID];
-    if ((ID >= ev_saTxtHeader4) AND (ID <= ev_saTxtHeader1)) then
+    if ((ID >= ev_saTxtHeader4) AND (ID <= ev_saTxtHeader1))
+       {$IfDef evOutDecorToNSRC}
+       OR (ID = ev_saEnclosureHeader)
+       {$EndIf evOutDecorToNSRC}
+       then
     begin
+     {$IfNDef evOutDecorToNSRC}
      if IsKindOf(k2_typSegment) then
+     {$EndIf  evOutDecorToNSRC}
       C := #0;
     end;//((ID >= ev_saTxtHeader4) AND (ID <= ev_saTxtHeader1))
     {$IfNDef evUseEvdStyleOnly}
@@ -2105,7 +2193,6 @@ begin
       else
       if IsKindOf(k2_typBitmapPara) then
       begin
-//       if not Supports(Attr[k2_tiData].AsObject, IStream, l_IStream) then
        l_EH := IntA[k2_tiExternalHandle];
        l_ValidPicture := true;
        try
@@ -2115,11 +2202,11 @@ begin
          raise El3BadDataInPara.Create(Format('Не получили поток картинки. External handle = %d', [l_EH]));
        except
         on E : Exception do
-         if SilentErrors then
+         if SkipInvalidPictures then
          begin
-          l_ValidPicture := false;
+          lp_SkipPicture;
           _Msg2Log(E.Message);
-         end//SilentErrors
+         end//SkipInvalidPictures
          else
           raise;
        end;//try..except
@@ -2146,7 +2233,6 @@ begin
            // - восстанавливем указатель ОСНОВНОГО потока
           end;//try..finally
          end;//ExtractFileExt(l_EP) = ''
-         //Assert(l_EP <> '');
          Assert(f_ExternalDocHandle <> 0);
          l_Path := l_Path + IntToStr(f_ExternalDocHandle);
          MakeDir(l_Path);
@@ -2671,7 +2757,8 @@ begin
   CorrectSwappedBrackets;
   CorrectFormulas;
   lp_CheckStyle;
-  lp_CheckIntersectionWithHyperlink;
+  //lp_CheckIntersectionWithHyperlink;
+  {RequestLink:619944727} // - убрано, т.к. починили по-другому и это мешало
 
   // Дальше идет проверка на включение пробелов в гиперссылку - будет перенос, а он не нужен...
   // http://mdp.garant.ru/pages/viewpage.action?pageId=200088144&focusedCommentId=200088151#comment-200088151

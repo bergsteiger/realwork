@@ -3,6 +3,8 @@ unit HyperLink_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\HyperLink_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "HyperLink" MUID: (485649E10305)
+// Имя типа: "HyperLinkTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

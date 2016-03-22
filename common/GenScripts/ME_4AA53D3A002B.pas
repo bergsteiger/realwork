@@ -2,6 +2,8 @@ unit fsSendConsultation;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\fsSendConsultation.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "SendConsultation" MUID: (4AA53D3A002B)
+// Имя типа: "Tfs_SendConsultation"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

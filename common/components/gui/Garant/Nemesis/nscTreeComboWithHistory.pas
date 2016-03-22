@@ -2,6 +2,7 @@ unit nscTreeComboWithHistory;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTreeComboWithHistory.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscTreeComboWithHistory" MUID: (4B97EE390310)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

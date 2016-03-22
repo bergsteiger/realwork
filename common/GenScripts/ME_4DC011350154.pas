@@ -2,6 +2,7 @@ unit sdsMainWindow;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MainWindowControllers\sdsMainWindow.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsMainWindow" MUID: (4DC011350154)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

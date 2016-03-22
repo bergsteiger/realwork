@@ -37,7 +37,12 @@ implementation
 
 {$If defined(InsiderTest) AND defined(nsTest)}
 uses
+  SysUtils
+  {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+  ,
   EverestLiteKeyWords
+  {$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+  
   {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
   ,
   kwEditorKeyWordsPack

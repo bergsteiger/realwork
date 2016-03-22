@@ -2,6 +2,7 @@ unit alcuAnnotationTaskResult;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAnnotationTaskResult.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuAnnotationTaskResult" MUID: (53F6EDF00042)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

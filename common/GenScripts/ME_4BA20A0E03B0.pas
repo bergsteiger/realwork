@@ -2,6 +2,7 @@ unit l3AsincMessageWindowRes;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3AsincMessageWindowRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3AsincMessageWindowRes" MUID: (4BA20A0E03B0)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

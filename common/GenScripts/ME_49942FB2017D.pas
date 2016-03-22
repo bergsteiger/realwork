@@ -3,6 +3,7 @@ unit vcmLocalInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmLocalInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "vcmLocalInterfaces" MUID: (49942FB2017D)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

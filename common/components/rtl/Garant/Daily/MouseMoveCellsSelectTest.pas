@@ -1,80 +1,60 @@
 unit MouseMoveCellsSelectTest;
+ {* Тест выделения с помощью мыши диапазона ячеек. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/MouseMoveCellsSelectTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EditorTests::TMouseMoveCellsSelectTest
-//
-// Тест выделения с помощью мыши диапазона ячеек.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\MouseMoveCellsSelectTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TMouseMoveCellsSelectTest" MUID: (4D3D429001F4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  MouseMoveSelectionTest,
-  nevTools,
-  l3Units
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , MouseMoveSelectionTest
+ , nevTools
+ , l3Units
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TMouseMoveCellsSelectTest = {abstract} class(TMouseMoveSelectionTest)
   {* Тест выделения с помощью мыши диапазона ячеек. }
- protected
- // overridden protected methods
+  protected
    function GetInnerPara(const aView: InevInputView;
     const aDocument: InevPara): InevPara; override;
-     {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
+    {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
    function GetPoint(const aMap: InevMap): Tl3Point; override;
-     {* Возвращает точку, на которую нужно спозиционироваться. }
+    {* Возвращает точку, на которую нужно спозиционироваться. }
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TMouseMoveCellsSelectTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  evConst,
-  TestFrameWork,
-  l3Base,
-  evOp,
-  l3InternalInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TMouseMoveCellsSelectTest
+ l3ImplUses
+ , evConst
+ , TestFrameWork
+ , l3Base
+ , evOp
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 function TMouseMoveCellsSelectTest.GetInnerPara(const aView: InevInputView;
-  const aDocument: InevPara): InevPara;
+ const aDocument: InevPara): InevPara;
+ {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
 //#UC START# *4BF4E6A00093_4D3D429001F4_var*
 //#UC END# *4BF4E6A00093_4D3D429001F4_var*
 begin
@@ -87,6 +67,7 @@ begin
 end;//TMouseMoveCellsSelectTest.GetInnerPara
 
 function TMouseMoveCellsSelectTest.GetPoint(const aMap: InevMap): Tl3Point;
+ {* Возвращает точку, на которую нужно спозиционироваться. }
 //#UC START# *4C3C927B027E_4D3D429001F4_var*
 //#UC END# *4C3C927B027E_4D3D429001F4_var*
 begin
@@ -99,17 +80,16 @@ begin
 end;//TMouseMoveCellsSelectTest.GetPoint
 
 function TMouseMoveCellsSelectTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TMouseMoveCellsSelectTest.GetFolder
 
 function TMouseMoveCellsSelectTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D3D429001F4';
 end;//TMouseMoveCellsSelectTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

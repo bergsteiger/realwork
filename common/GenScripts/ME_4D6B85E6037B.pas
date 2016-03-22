@@ -2,6 +2,7 @@ unit ScrollAndCheckCursorTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\ScrollAndCheckCursorTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TScrollAndCheckCursorTest" MUID: (4D6B85E6037B)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -3,6 +3,8 @@ unit K517772970_TcsLineRequestDefault;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TcsLineRequestDefault.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TcsLineRequestDefault" MUID: (53197377004C)
+// Имя типа: "TK517772970_TcsLineRequestDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

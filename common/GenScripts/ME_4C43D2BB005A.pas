@@ -2,6 +2,7 @@ unit BaseSearch_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "BaseSearch" MUID: (4C43D2BB005A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

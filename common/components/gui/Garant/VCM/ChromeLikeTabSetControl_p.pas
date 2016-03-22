@@ -2,6 +2,7 @@ unit ChromeLikeTabSetControl_p;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\ChromeLikeTabSetControl_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TChromeLikeTabSetControl" MUID: (551D53DB0049)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

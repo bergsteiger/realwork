@@ -3,6 +3,7 @@ unit NOT_FINISHED_evdNativeWriter;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdNativeWriter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdNativeWriter" MUID: (483D7C55027A)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

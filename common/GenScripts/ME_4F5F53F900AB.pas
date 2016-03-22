@@ -2,6 +2,8 @@ unit ItsLAW;
 
 // Модуль: "w:\MDProcess\NewGenTest\ItsLAW.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "ItsLAW" MUID: (4F5F53F900AB)
+// Имя типа: "TItsLAW"
 
 {$Include w:\MDProcess\NewGenTest\NewGenTest.inc}
 

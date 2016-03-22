@@ -388,10 +388,17 @@ function TevSimpleTextPainter.NeedAddSpaces: Boolean;
 //#UC END# *4A116B45039B_4836C450038D_var*
 begin
 //#UC START# *4A116B45039B_4836C450038D_impl*
+ {$IfDef evOutDecorToNSRC}
+ if (f_OldNSRC > 0) then
+  Result := inherited NeedAddSpaces
+ else
+  Result := false;
+ {$Else  evOutDecorToNSRC}
  if (f_OldNSRC > 0) then
   Result := inherited NeedAddSpaces
  else
   Result := (f_InCell = 0) AND not f_WasSoftEnter;
+ {$EndIf evOutDecorToNSRC}
 //#UC END# *4A116B45039B_4836C450038D_impl*
 end;//TevSimpleTextPainter.NeedAddSpaces
 

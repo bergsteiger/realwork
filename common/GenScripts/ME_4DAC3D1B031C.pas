@@ -2,6 +2,7 @@ unit WarningConst;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WarningConst.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "WarningConst" MUID: (4DAC3D1B031C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

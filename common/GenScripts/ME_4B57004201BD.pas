@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3FileUtils;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3FileUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3FileUtils" MUID: (4B57004201BD)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

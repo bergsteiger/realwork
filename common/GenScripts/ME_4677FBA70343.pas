@@ -3,6 +3,7 @@ unit l3Interfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Interfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "l3Interfaces" MUID: (4677FBA70343)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -1621,7 +1622,7 @@ end;//Tl3_SPoint_C
 //#UC START# *46A480790259impl*
 // start object Tl3_Point
 
-procedure Tl3_Point.Init(aX, aY: Integer);
+procedure Tl3_Point.Init(aX, aY: Tl3Inch);
   {-инициализирует точку}
 begin
  P.X := aX;
@@ -1851,7 +1852,7 @@ begin
  BottomRight := Tl3_Point(R.BottomRight).Add(Pt);
 end;
 
-procedure Tl3_Rect.Inflate(X, Y: Integer);
+procedure Tl3_Rect.Inflate(X, Y: Tl3Inch);
   {overload;}
   {-увеличивает размеры прямоугольника на (X, Y)}
 begin
@@ -1868,7 +1869,7 @@ begin
  BottomRight := Tl3_Point(R.BottomRight).Add(Pt);
 end;
 
-procedure Tl3_Rect.Offset(aX, aY: Integer);
+procedure Tl3_Rect.Offset(aX, aY: Tl3Inch);
   {-сдвинуть прямоугольник на (X, Y)}
 begin
  Inc(R.Top, aY);

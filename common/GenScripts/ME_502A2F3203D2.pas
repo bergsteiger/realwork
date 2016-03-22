@@ -2,6 +2,8 @@ unit kwPopEditorInsertFormula;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorInsertFormula.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_InsertFormula" MUID: (502A2F3203D2)
+// Имя типа: "TkwPopEditorInsertFormula"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

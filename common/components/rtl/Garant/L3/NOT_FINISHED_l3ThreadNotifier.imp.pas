@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3ThreadNotifier.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3ThreadNotifier" MUID: (48FD8E460027)
+// Имя типа: "_l3ThreadNotifier_"
 
 {$Define l3ThreadNotifier_imp}
 
@@ -12,7 +14,6 @@ type
   private
    f_Intf: array of IUnknown;
    f_Data: Pointer;
-    {* Поле для свойства Data }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

@@ -2,6 +2,8 @@ unit fsFolders;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\fsFolders.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "Folders" MUID: (4AA4B2ED00FE)
+// Имя типа: "Tfs_Folders"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

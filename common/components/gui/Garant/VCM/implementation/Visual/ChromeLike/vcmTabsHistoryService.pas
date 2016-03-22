@@ -29,6 +29,7 @@ type
  TvcmTabsHistoryService = {final} class(Tl3ProtoObject, IvcmHistoryService)
  public
  // realized methods
+   function Back(const aForm: IvcmEntityForm): Boolean;
    function GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
    function GetFormHistory(const aForm: IvcmEntityForm): IvcmHistory;
    procedure SaveFormState(const aForm: IvcmEntityForm);
@@ -86,6 +87,31 @@ class function TvcmTabsHistoryService.Exists: Boolean;
 begin
  Result := g_TvcmTabsHistoryService <> nil;
 end;//TvcmTabsHistoryService.Exists
+
+function TvcmTabsHistoryService.Back(const aForm: IvcmEntityForm): Boolean;
+//#UC START# *18FC3BA729CF_559BA3E6014C_var*
+var
+ l_Tab: Il3FormTab;
+ l_TabHistory: IvcmHistory;
+//#UC END# *18FC3BA729CF_559BA3E6014C_var*
+begin
+//#UC START# *18FC3BA729CF_559BA3E6014C_impl*
+ if Tl3TabbedContainersDispatcher.Instance.NeedUseTabs then
+ begin
+  // ≈сли возвращатьс€ некуда - закрываем вкладке
+  l_Tab := Tl3TabbedContainersDispatcher.Instance.GetFormTab(TForm(aForm.VCLWinControl));
+  Assert(l_Tab <> nil);
+  l_TabHistory := GetFormHistory(aForm);
+  Assert(l_TabHistory <> nil);
+  if l_TabHistory.CanBack then
+   l_TabHistory.Back
+  else
+   Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.CloseTab(l_Tab);
+ end
+ else
+   Result := g_Dispatcher.History.Back;
+//#UC END# *18FC3BA729CF_559BA3E6014C_impl*
+end;//TvcmTabsHistoryService.Back
 
 function TvcmTabsHistoryService.GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
 //#UC START# *27BEBF0EE9FD_559BA3E6014C_var*

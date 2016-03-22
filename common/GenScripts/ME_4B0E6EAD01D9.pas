@@ -2,6 +2,7 @@ unit nsSwitchVersionCommentsEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\nsSwitchVersionCommentsEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsSwitchVersionCommentsEvent" MUID: (4B0E6EAD01D9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

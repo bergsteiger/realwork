@@ -7,6 +7,9 @@ unit ddHexCharReader;
 // Родные Delphi интерфейсы (.pas)
 // Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::ddCommon::TddHexCharReader
 //
+// Читает только шестнадцатиричные символы из потока. Если они представлены в верхнем регистре -
+// переводит в нижний. Всякий мусор пропускает.
+//
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".
 //
@@ -24,6 +27,7 @@ uses
 
 type
  TddHexCharReader = class(Tl3CharSkipper)
+  {* Читает только шестнадцатиричные символы из потока. Если они представлены в верхнем регистре - переводит в нижний. Всякий мусор пропускает. }
  public
  // overridden public methods
    function GetChar: AnsiChar; override;

@@ -108,7 +108,6 @@ protected:
 	) const /*throw (
 		InvalidTopicId
 		, FolderLinkNotFound
-		, NotAllowedInTrialMode
 	)*/;
 
 	// overloaded method from Document

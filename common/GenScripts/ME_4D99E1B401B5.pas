@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtDialogsResEx;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtDialogsResEx.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vtDialogsResEx" MUID: (4D99E1B401B5)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

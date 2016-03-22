@@ -2,6 +2,7 @@ unit daProgressProcHolder;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daProgressProcHolder.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaProgressProcHolder" MUID: (552523F2014F)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

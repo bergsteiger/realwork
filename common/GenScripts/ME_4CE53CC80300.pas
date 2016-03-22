@@ -3,6 +3,7 @@ unit nsTipsDocumentContainer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DayTips\nsTipsDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsTipsDocumentContainer" MUID: (4CE53CC80300)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

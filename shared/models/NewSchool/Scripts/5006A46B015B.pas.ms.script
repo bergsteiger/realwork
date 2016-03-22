@@ -68,8 +68,6 @@ ref; // ME_1D94637FAE1A Ini_Reg_Class
 ref; // ME_2818542FBC8C 
 
 : ME_47A042E100E2_ME_5006A4A6003D
- CONST UID '47A042E100E2'
- CONST Name 'InitFields'
  : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
  ;
  : Implementor ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
@@ -119,34 +117,6 @@ ref; // ME_47A042E100E2_ME_5006A4A6003D InitFields
 
 ref; // ME_5006A4A6003D TvcmUserTypesCollectionItemPrim
 
-FORWARD ME_5006A4C80386
-
-: ME_89D5C515B069
- CONST UID '89D5C515B069'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmBaseUserTypesCollectionItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5006A4C80386 // TvcmBaseUserTypesCollectionItem
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_89D5C515B069 Ini_Reg_Class
-
-: ME_24322C53F639
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5006A4C80386 // TvcmBaseUserTypesCollectionItem
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_24322C53F639 
-
 : ME_5006A4C80386
  CONST UID '5006A4C80386'
  CONST Name 'TvcmBaseUserTypesCollectionItem'
@@ -161,14 +131,6 @@ ref; // ME_24322C53F639
    Seq: ( ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_89D5C515B069 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_24322C53F639 // 
- )
- ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -180,34 +142,6 @@ ref; // ME_24322C53F639
  CONST extprop:pas:UnitName 'vcmBaseUserTypesCollectionItem'
 
 ref; // ME_5006A4C80386 TvcmBaseUserTypesCollectionItem
-
-FORWARD ME_5006A4E003AB
-
-: ME_CF94F939EAA3
- CONST UID 'CF94F939EAA3'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvcmUserTypesCollectionItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5006A4E003AB // TvcmUserTypesCollectionItem
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CF94F939EAA3 Ini_Reg_Class
-
-: ME_4AC4E4C79259
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5006A4E003AB // TvcmUserTypesCollectionItem
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4AC4E4C79259 
 
 : ME_5006A4E003AB
  CONST UID '5006A4E003AB'
@@ -223,14 +157,6 @@ ref; // ME_4AC4E4C79259
    Seq: ( ME_5006A4C80386 // TvcmBaseUserTypesCollectionItem
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_CF94F939EAA3 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4AC4E4C79259 // 
- )
- ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'

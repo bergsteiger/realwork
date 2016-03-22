@@ -2,6 +2,7 @@ unit evStreamedDataObject;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evStreamedDataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevStreamedDataObject" MUID: (48EA32DB03E6)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

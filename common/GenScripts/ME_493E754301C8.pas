@@ -3,6 +3,7 @@ unit sdsDocumentWithFlash;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocumentWithFlash.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsDocumentWithFlash" MUID: (493E754301C8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

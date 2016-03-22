@@ -3,6 +3,8 @@ unit DictItem_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\DictItem_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "DictItem" MUID: (484D418A0359)
+// Имя типа: "DictItemTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

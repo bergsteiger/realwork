@@ -2,6 +2,7 @@ unit DeleteCharTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\DeleteCharTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TDeleteCharTest" MUID: (4CA30546032E)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

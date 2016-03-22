@@ -1,53 +1,36 @@
 unit kwF1ComplectName;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwF1ComplectName.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Words::Words::f1_ComplectName
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwF1ComplectName.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "f1_ComplectName" MUID: (50237E1C0249)
+// Имя типа: "TkwF1ComplectName"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwF1ComplectName = {final scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwF1ComplectName = {final} class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwF1ComplectName
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  bsUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwF1ComplectName
+ l3ImplUses
+ , bsUtils
+;
 
 procedure TkwF1ComplectName.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_50237E1C0249_var*
@@ -59,17 +42,13 @@ begin
 end;//TkwF1ComplectName.DoDoIt
 
 class function TkwF1ComplectName.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'f1:ComplectName';
 end;//TkwF1ComplectName.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация f1_ComplectName
  TkwF1ComplectName.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация f1_ComplectName }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

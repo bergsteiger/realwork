@@ -2,6 +2,7 @@ unit k2VariantImpl;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2VariantImpl.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2VariantImpl" MUID: (530F1BCA00B2)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

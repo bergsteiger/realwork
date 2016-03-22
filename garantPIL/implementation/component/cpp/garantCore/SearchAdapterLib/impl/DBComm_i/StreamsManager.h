@@ -57,6 +57,9 @@ private:
 	// вычислить форму
 	unsigned char get_form (const std::string& key, std::string& out_key);
 
+	// фабрика
+	DBCore::StreamsPair* make_ (const std::string& key, unsigned long flags);
+
 	// открыть стримы
 	unsigned char open (const std::string& key, bool is_form, DBCore::Streams& streams_);
 
@@ -89,7 +92,7 @@ protected:
 
 	// implemented method from DBCore::IStreamsFactory
 	// фабрика
-	DBCore::StreamsPair* make (const std::string& norma, const std::string& forma, unsigned long flags);
+	DBCore::StreamsPair* make (const std::string& key, unsigned long flags);
 }; // class StreamsManager
 
 } // namespace DBComm_i

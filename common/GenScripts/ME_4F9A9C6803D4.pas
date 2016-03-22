@@ -2,6 +2,7 @@ unit nsQuestions;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\nsQuestions.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsQuestions" MUID: (4F9A9C6803D4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

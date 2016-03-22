@@ -2,6 +2,7 @@ unit NOT_FINISHED_evGlyphFont;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evGlyphFont.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevGlyphFont" MUID: (4E56924B029C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

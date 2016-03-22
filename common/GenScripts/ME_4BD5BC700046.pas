@@ -3,6 +3,7 @@ unit PrimSaveLoadUserTypes_slqtConsult_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtConsult_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "slqtConsult" MUID: (4BD5BC700046)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtConsult = {final} class(TtfwInteger)
   {* Слово словаря для типа формы slqtConsult }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_slqtConsult
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_slqtConsult.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::slqtConsult';
-end;//Tkw_FormUserType_slqtConsult.GetWordNameForRegister
-
 function Tkw_FormUserType_slqtConsult.GetInteger: Integer;
 begin
  Result := slqtConsult;
 end;//Tkw_FormUserType_slqtConsult.GetInteger
+
+class function Tkw_FormUserType_slqtConsult.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::slqtConsult';
+end;//Tkw_FormUserType_slqtConsult.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

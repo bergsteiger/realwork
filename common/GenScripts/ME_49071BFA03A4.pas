@@ -2,6 +2,7 @@ unit nsMedicFirmsCountryFilterTreeBase;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicFirmsCountryFilterTreeBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsMedicFirmsCountryFilterTreeBase" MUID: (49071BFA03A4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

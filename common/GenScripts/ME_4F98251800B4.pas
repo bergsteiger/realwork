@@ -2,6 +2,7 @@ unit nsFiltersListenersList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersListenersList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsFiltersListenersList" MUID: (4F98251800B4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

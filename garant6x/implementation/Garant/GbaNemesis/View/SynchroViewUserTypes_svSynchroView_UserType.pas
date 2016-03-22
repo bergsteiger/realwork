@@ -1,85 +1,67 @@
 unit SynchroViewUserTypes_svSynchroView_UserType;
+ {* Синхронный просмотр }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/SynchroViewUserTypes_svSynchroView_UserType.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Core::Base Operations::View::Base Forms::SynchroViewUserTypes::svSynchroView
-//
-// Синхронный просмотр
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\SynchroViewUserTypes_svSynchroView_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "svSynchroView" MUID: (4BD6C0D30243)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы svSynchroView }
-  svSynchroViewName = 'svSynchroView';
-   { Строковый идентификатор пользовательского типа "Синхронный просмотр" }
-  svSynchroView = TvcmUserType(0);
-   { Синхронный просмотр }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы svSynchroView }
+ svSynchroViewName = 'svSynchroView';
+  {* Строковый идентификатор пользовательского типа "Синхронный просмотр" }
+ svSynchroView = TvcmUserType(0);
+  {* Синхронный просмотр }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_svSynchroView = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы svSynchroView }
+ Tkw_FormUserType_svSynchroView = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы svSynchroView }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_svSynchroView
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_svSynchroView
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_svSynchroView
-
-class function Tkw_FormUserType_svSynchroView.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::svSynchroView';
-end;//Tkw_FormUserType_svSynchroView.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_svSynchroView.GetInteger: Integer;
- {-}
 begin
  Result := svSynchroView;
 end;//Tkw_FormUserType_svSynchroView.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_svSynchroView.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::svSynchroView';
+end;//Tkw_FormUserType_svSynchroView.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_svSynchroView
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_svSynchroView.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_svSynchroView }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -3,6 +3,8 @@ unit moAAC;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moAAC.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "AAC" MUID: (4FF2E5990355)
+// Имя типа: "Tmo_AAC"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

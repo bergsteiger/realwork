@@ -2,6 +2,8 @@ unit XMLWriterTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\XMLWriterTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "XMLWriterTest" MUID: (503632AC03D9)
+// Имя типа: "TXMLWriterTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

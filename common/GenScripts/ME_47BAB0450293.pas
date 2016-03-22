@@ -2,6 +2,7 @@ unit k2ChildrenPathList;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2ChildrenPathList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2ChildrenPathList" MUID: (47BAB0450293)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

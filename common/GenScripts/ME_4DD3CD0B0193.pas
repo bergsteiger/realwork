@@ -2,6 +2,7 @@ unit l3GraphicContainerStack;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3GraphicContainerStack.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3GraphicContainerStack" MUID: (4DD3CD0B0193)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

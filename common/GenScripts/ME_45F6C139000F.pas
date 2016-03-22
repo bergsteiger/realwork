@@ -2,6 +2,7 @@ unit DelegateNodeBase;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DelegateNodeBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "DelegateNodeBase" MUID: (45F6C139000F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -62,7 +63,7 @@ function DelegateNodeBase.pm_Gethas_filtered_children: Boolean;
 //#UC END# *45FAC21A0148_45F6C139000Fget_var*
 begin
 //#UC START# *45FAC21A0148_45F6C139000Fget_impl*
- Result := f_has_filtered_children
+ !!! Needs to be implemented !!!
 //#UC END# *45FAC21A0148_45F6C139000Fget_impl*
 end;//DelegateNodeBase.pm_Gethas_filtered_children
 
@@ -71,7 +72,7 @@ procedure DelegateNodeBase.pm_Sethas_filtered_children(aValue: Boolean);
 //#UC END# *45FAC21A0148_45F6C139000Fset_var*
 begin
 //#UC START# *45FAC21A0148_45F6C139000Fset_impl*
- f_has_filtered_children := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *45FAC21A0148_45F6C139000Fset_impl*
 end;//DelegateNodeBase.pm_Sethas_filtered_children
 
@@ -80,7 +81,7 @@ procedure DelegateNodeBase.pm_Setmaster_node(aValue: RealNodeBase);
 //#UC END# *47D6BA2603CF_45F6C139000Fset_var*
 begin
 //#UC START# *47D6BA2603CF_45F6C139000Fset_impl*
- f_master_node := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *47D6BA2603CF_45F6C139000Fset_impl*
 end;//DelegateNodeBase.pm_Setmaster_node
 

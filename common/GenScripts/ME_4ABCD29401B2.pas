@@ -2,6 +2,8 @@ unit FoldersTree_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\FoldersTree_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "FoldersTree" MUID: (4ABCD29401B2)
+// Имя типа: "TenFoldersTree"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

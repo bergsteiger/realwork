@@ -2,6 +2,8 @@ unit kwRestoreSettings;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwRestoreSettings.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "RestoreSettings" MUID: (539834A703AD)
+// Имя типа: "TkwRestoreSettings"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

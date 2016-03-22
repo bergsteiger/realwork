@@ -1,8 +1,11 @@
 unit l3DateSt;
 
-{ $Id: l3DateSt.pas,v 1.29 2013/04/19 13:08:17 lulin Exp $ }
+{ $Id: l3DateSt.pas,v 1.30 2016/01/25 12:31:40 fireton Exp $ }
 
 // $Log: l3DateSt.pas,v $
+// Revision 1.30  2016/01/25 12:31:40  fireton
+// - function l3DateArrayToString
+//
 // Revision 1.29  2013/04/19 13:08:17  lulin
 // - портируем.
 //
@@ -140,37 +143,38 @@ const
     'Январь', 'Февраль' , 'Март', 'Апрель', 'Май', 'Июнь',
     'Июль',  'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь');
 
- Procedure FlexStr2DMY(DateStr : PAnsiChar; DStrLen : Word; Var Day, Month, Year : Word);
- Function  FlexStr2Date(const DateStr: AnsiString): TDateTime;
- Function  FlexStr2StDate(const DateStr: AnsiString): TStDate;
- Function  FlexStrLen2StDate(DateStr : PAnsiChar; Len : Word): TStDate;
- Function  GetMonthNameR(aMonth : Byte) : AnsiString;
- function  NormalizeDate(Const DtStr : AnsiString) : AnsiString;
+procedure FlexStr2DMY(DateStr : PAnsiChar; DStrLen : Word; Var Day, Month, Year : Word);
+function  FlexStr2Date(const DateStr: AnsiString): TDateTime;
+function  FlexStr2StDate(const DateStr: AnsiString): TStDate;
+function  FlexStrLen2StDate(DateStr : PAnsiChar; Len : Word): TStDate;
+function  GetMonthNameR(aMonth : Byte) : AnsiString;
+function  NormalizeDate(Const DtStr : AnsiString) : AnsiString;
 
- function  l3DateTimeToStr(aDate : TDateTime; const aFormat: AnsiString = '') : AnsiString;
- function  l3DateToStr(aDate : TDateTime; const aFormat: AnsiString = '') : AnsiString;
-   overload;
- function  l3DateToStr(aDate : TstDate; const aFormat: AnsiString = '') : AnsiString;
-   overload;
+function  l3DateTimeToStr(aDate : TDateTime; const aFormat: AnsiString = '') : AnsiString;
+function  l3DateToStr(aDate : TDateTime; const aFormat: AnsiString = '') : AnsiString;
+  overload;
+function  l3DateToStr(aDate : TstDate; const aFormat: AnsiString = '') : AnsiString;
+  overload;
 
- function  l3TimeToStr(aTime : TstDate; const aFormat: AnsiString = '') : AnsiString;
+function  l3TimeToStr(aTime : TstDate; const aFormat: AnsiString = '') : AnsiString;
 
- function  vtGetNearestDayOfWeek(aDayOfWeek : TStDayType; MayBeNow : Boolean = true) : TDateTime;
+function  vtGetNearestDayOfWeek(aDayOfWeek : TStDayType; MayBeNow : Boolean = true) : TDateTime;
 
- function MakeDateBoundsStr(aLowBound, aHighBound : TStDate) : AnsiString; overload;
- //function MakeDateBoundsStr(aDateBounds : Tl3DateBounds) : AnsiString;     overload;
-  {- Делает строки вида "с 01.01.2006 по 07.07.2006"}
+function MakeDateBoundsStr(aLowBound, aHighBound : TStDate) : AnsiString; overload;
+//function MakeDateBoundsStr(aDateBounds : Tl3DateBounds) : AnsiString;     overload;
+ {- Делает строки вида "с 01.01.2006 по 07.07.2006"}
 
- function MakeDateIntervalStr(aLowBound, aHighBound : TStDate; aDateSeparator : AnsiChar = '0'{use native separator}) : AnsiString;
-  {- Делает строки вида "01.01.2006-07.07.2006","01.2006","2006"}
+function MakeDateIntervalStr(aLowBound, aHighBound : TStDate; aDateSeparator : AnsiChar = '0'{use native separator}) : AnsiString;
+ {- Делает строки вида "01.01.2006-07.07.2006","01.2006","2006"}
 
- function MakeHRDateIntervalStr(aLowBound, aHighBound : TStDate) : AnsiString;
-
- {- Делает "human readable" строки вида "01-07 января 2006","январь 2006", "январь-март 2006", "2006"}
+function MakeHRDateIntervalStr(aLowBound, aHighBound : TStDate) : AnsiString;
+{- Делает "human readable" строки вида "01-07 января 2006","январь 2006", "январь-март 2006", "2006"}
 
 function l3StrToDateInterval(aDateStr: AnsiString; var StartDate: TStDate; var EndDate: TStDate): Boolean;
+{- превращает строку в диапазон дат}
 
- {- превращает строку в диапазон дат}
+function l3DateArrayToString(const aDates: array of TStDate): AnsiString;
+{- превращает массив дат в строку вида "1, 2 января, 3 февраля 2016 г." }
 
 implementation
 
@@ -935,6 +939,65 @@ begin
  StartDate := DMYtoStDate(l_D1, l_M1, l_Y1);
  EndDate   := DMYtoStDate(l_D2, l_M2, l_Y2);
  Result := True;
+end;
+
+function l3DateArrayToString(const aDates: array of TStDate): AnsiString;
+var
+ I: Integer;
+ l_D, l_CD: Integer;
+ l_M, l_CM: Integer;
+ l_Y, l_CY: Integer;
+ l_Result: AnsiString;
+
+ procedure FlushDay;
+ begin
+  if l_Result <> '' then
+   l_Result := l_Result + ', ';
+  l_Result := l_Result + IntToStr(l_D);
+ end;
+
+ procedure FlushToMonth;
+ begin
+  FlushDay;
+  l_Result := l_Result + ' ' + AnsiLowerCase(GetMonthNameR(l_M));
+ end;
+
+ procedure FlushToYear;
+ begin
+  FlushToMonth;
+  l_Result := l_Result + ' ' + IntToStr(l_Y) + ' г.';
+ end;
+
+begin
+ l_Result := '';
+ l_CD := 0;
+ l_CM := 0;
+ l_CY := 0;
+ for I := Low(aDates) to High(aDates) do
+ begin
+  StDateToDMY(aDates[I], l_D, l_M, l_Y);
+  if I = High(aDates) then
+   FlushToYear // на последней дате сливаем её по-любому
+  else
+  begin
+   if l_CY = 0 then
+    l_CY := l_Y;
+   if l_CM = 0 then
+    l_CM := l_M;
+   if (l_Y <> l_CY) then
+    FlushToYear
+   else
+    if l_M <> l_CM then
+     FlushToMonth
+    else
+     if l_D <> l_CD then
+      FlushDay;
+   l_CD := l_D;
+   l_CM := l_M;
+   l_CY := l_Y;
+  end;
+ end;
+ Result := l_Result;
 end;
 
 Initialization

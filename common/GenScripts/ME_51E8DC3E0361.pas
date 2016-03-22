@@ -2,6 +2,7 @@ unit ddPicture;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddPicture.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddPicture" MUID: (51E8DC3E0361)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -91,6 +92,7 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    function GetEmpty: Boolean; override;
+   procedure ClearFields; override;
   public
    procedure AddHexData(aHexStream: Tl3String);
     {* Добавляем строку с 16-ричными символами. }
@@ -408,30 +410,30 @@ begin
    if f_NeedWMFHeader then
     f_Stream.Write(f_WMFHeader, SizeOf(f_WMFHeader));
    f_Stream.Write(l_BinBuf^, l_Size);
-   if f_Format = pictWMF then // Старый WMF, конвертируем в EMF
-   begin
-    l_WMF := Tl3Metafile.Create;
-    try
-     f_Stream.Seek(0, soBeginning);
-     if f_NeedWMFHeader then
-     begin
-      l_WMF.LoadWMFFromStream(Stream);
-      f_NeedWMFHeader := False;
-     end // if f_NeedWMFHeader then
-     else
-      l_WMF.LoadFromStream(f_Stream);
-     l_WMF.Enhanced := True;
-     f_Stream.Seek(0, soBeginning);
-     f_Stream.Size := 0;
-     l_WMF.SaveToStream(f_Stream);
-     l_Size := f_Stream.Size;
-    finally
-     l3Free(l_WMF);
-    end;
-   end; // if f_NeedWMFHeader then
   finally
    l3System.FreeLocalMem(l_BinBuf);
   end;
+  if f_Format = pictWMF then // Старый WMF, конвертируем в EMF
+  begin
+   l_WMF := Tl3Metafile.Create;
+   try
+    f_Stream.Seek(0, soBeginning);
+    if f_NeedWMFHeader then
+    begin
+     l_WMF.LoadWMFFromStream(Stream);
+     f_NeedWMFHeader := False;
+    end // if f_NeedWMFHeader then
+    else
+     l_WMF.LoadFromStream(f_Stream);
+    l_WMF.Enhanced := True;
+    f_Stream.Seek(0, soBeginning);
+    f_Stream.Size := 0;
+    l_WMF.SaveToStream(f_Stream);
+    l_Size := f_Stream.Size;
+   finally
+    l3Free(l_WMF);
+   end;
+  end; // if f_NeedWMFHeader then
   f_IsBinary := True;
   {$IFDEF InsiderTest}
   if f_Format > pictNONE then
@@ -948,5 +950,11 @@ begin
  Result := (Width <> 0) and (Height <> 0)
 //#UC END# *55D71C0C0164_51E8DC3E0361_impl*
 end;//TddPicture.CanWrite
+
+procedure TddPicture.ClearFields;
+begin
+ ExternalPath := '';
+ inherited;
+end;//TddPicture.ClearFields
 
 end.

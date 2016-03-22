@@ -2,6 +2,8 @@ unit EVDtoXMLWiterTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoXMLWiterTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "EVDtoXMLWiterTest" MUID: (503632E400D2)
+// Имя типа: "TEVDtoXMLWiterTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -4,9 +4,12 @@ unit l3StringAdapter;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3StringAdapter -           }
 { Начат: 18.01.2008 16:08 }
-{ $Id: l3StringAdapter.pas,v 1.6 2009/07/21 12:24:40 lulin Exp $ }
+{ $Id: l3StringAdapter.pas,v 1.7 2016/02/24 10:44:42 lulin Exp $ }
 
 // $Log: l3StringAdapter.pas,v $
+// Revision 1.7  2016/02/24 10:44:42  lulin
+// - перегенерация.
+//
 // Revision 1.6  2009/07/21 12:24:40  lulin
 // {RequestLink:141264340}. №35.
 //
@@ -125,6 +128,10 @@ begin
  end;//try..finally
 end;
 
+type
+ Tl3CustomStringFriend = class(Tl3CustomString)
+ end;//Tl3CustomStringFriend
+
 function Tl3StringAdapter.COMQueryInterface(const IID: Tl3GUID; out Obj): Tl3HResult;
   //override;
   {-}
@@ -134,7 +141,7 @@ begin
   if (f_String = nil) then
    Result.SetNoInterface
   else
-   Result := f_String.COMQueryInterface(IID, Obj);
+   Result := Tl3CustomStringFriend(f_String).COMQueryInterface(IID, Obj);
  end//IID.EQ(IStream)
  else
   Result := inherited COMQueryInterface(IID, Obj);

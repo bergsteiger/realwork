@@ -3,6 +3,8 @@ unit moDocument;
 
 // Модуль: "w:\common\components\SandBox\VCM\View\moDocument.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Document" MUID: (5216340000E6)
+// Имя типа: "Tmo_Document"
 
 {$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 

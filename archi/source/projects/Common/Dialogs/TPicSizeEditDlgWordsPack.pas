@@ -2,6 +2,7 @@ unit TPicSizeEditDlgWordsPack;
 
 // Модуль: "w:\archi\source\projects\Common\Dialogs\TPicSizeEditDlgWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "TPicSizeEditDlgWordsPack" MUID: (55C8CDD703B3)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
@@ -73,11 +74,6 @@ begin
  Fake(aCtx, l_aPicSizeEditDlg);
 end;//TkwPopPicSizeEditDlgFake.DoDoIt
 
-class function TkwPopPicSizeEditDlgFake.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:PicSizeEditDlg:Fake';
-end;//TkwPopPicSizeEditDlgFake.GetWordNameForRegister
-
 function TkwPopPicSizeEditDlgFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -92,6 +88,11 @@ function TkwPopPicSizeEditDlgFake.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TPicSizeEditDlg)]);
 end;//TkwPopPicSizeEditDlgFake.ParamsTypes
+
+class function TkwPopPicSizeEditDlgFake.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:PicSizeEditDlg:Fake';
+end;//TkwPopPicSizeEditDlgFake.GetWordNameForRegister
 
 initialization
  TkwPopPicSizeEditDlgFake.RegisterInEngine;

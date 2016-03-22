@@ -3,6 +3,7 @@ unit nsDocumentStreamWrapper;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsDocumentStreamWrapper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentStreamWrapper" MUID: (47F9D43A03A7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

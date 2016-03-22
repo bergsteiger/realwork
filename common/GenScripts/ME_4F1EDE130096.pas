@@ -3,6 +3,7 @@ unit nsBaseSearchFormGUIDFactory;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\nsBaseSearchFormGUIDFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsBaseSearchFormGUIDFactory" MUID: (4F1EDE130096)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

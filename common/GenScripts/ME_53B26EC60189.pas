@@ -3,6 +3,8 @@ unit K517772970_TcsUserDefinedExport;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsUserDefinedExport.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TcsUserDefinedExport" MUID: (53B26EC60189)
+// Имя типа: "TK517772970_TcsUserDefinedExport"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

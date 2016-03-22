@@ -3,6 +3,7 @@ unit CopyPasteTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\CopyPasteTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TCopyPasteTest" MUID: (4C93529B018C)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

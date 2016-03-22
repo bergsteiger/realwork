@@ -2,6 +2,7 @@ unit l3SearchNodePrim;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3SearchNodePrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3SearchNodePrim" MUID: (4E5CDE950027)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -17,9 +18,7 @@ type
  Tl3SearchNodePrim = class(Tl3ProtoObject)
   private
    f_Data: IUnknown;
-    {* Поле для свойства Data }
    f_Text: Il3CString;
-    {* Поле для свойства Text }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

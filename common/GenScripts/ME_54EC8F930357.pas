@@ -2,6 +2,7 @@ unit vtFlashWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\vtFlashWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "vtFlashWordsPack" MUID: (54EC8F930357)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -77,11 +78,6 @@ begin
  aCtx.rEngine.PushInt(GetFrame(aCtx, l_aFlash));
 end;//TkwPopFlashGetFrame.DoDoIt
 
-class function TkwPopFlashGetFrame.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:flash:GetFrame';
-end;//TkwPopFlashGetFrame.GetWordNameForRegister
-
 function TkwPopFlashGetFrame.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -96,6 +92,11 @@ function TkwPopFlashGetFrame.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtShockwaveFlashEx)]);
 end;//TkwPopFlashGetFrame.ParamsTypes
+
+class function TkwPopFlashGetFrame.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:flash:GetFrame';
+end;//TkwPopFlashGetFrame.GetWordNameForRegister
 
 initialization
  TkwPopFlashGetFrame.RegisterInEngine;

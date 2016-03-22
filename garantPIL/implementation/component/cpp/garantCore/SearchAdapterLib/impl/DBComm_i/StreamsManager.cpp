@@ -19,6 +19,7 @@
 #include "shared/ContextSearch/Search/Search.h"
 #include "shared/ContextSearch/Search/SearchFactories.h"
 #include "garantCore/DBExt/Readers/MemoryIndex.h"
+#include "boost/algorithm/string/classification.hpp"
 
 namespace SearchAdapterLib {
 namespace DBComm_i {
@@ -76,7 +77,7 @@ void StreamsManager::close () {
 // вычислить форму
 unsigned char StreamsManager::get_form (const std::string& key, std::string& out_key) {
 	//#UC START# *4EBBD47600B7*
-	unsigned char ret = std::numeric_limits <unsigned char>::max (); // any forma is what we want
+	unsigned char ret = std::numeric_limits <unsigned char>::max (); // any form is what we want
 
 	DBCore::IIndex_var index = m_base->make (m_form_src.c_str ());
 
@@ -96,7 +97,7 @@ unsigned char StreamsManager::get_form (const std::string& key, std::string& out
 		}
 
 		if (size) {
-			const char* buf = buffer->get_data ();
+			const char* buf = buffer->get ();
 			ret = (unsigned char) buf [2];
 			out_key = buf + 4;
 		}
@@ -106,10 +107,75 @@ unsigned char StreamsManager::get_form (const std::string& key, std::string& out
 	//#UC END# *4EBBD47600B7*
 }
 
+// фабрика
+DBCore::StreamsPair* StreamsManager::make_ (const std::string& key, unsigned long flags) {
+	//#UC START# *56AA0C3802FF*
+	using namespace ContextSearch;
+
+	if (flags & Search::SP_IGNORE_CACHE) {
+		m_use_cache = false;
+		this->close ();
+		m_streams.clear ();
+	}
+
+	std::string word_form;
+
+	if (*(key.rbegin ()) == '!') {
+		GDS_ASSERT (key.size () > 1);
+		word_form.assign (key.begin (), key.end () - 1);
+	} else if (*(key.rbegin ()) == '*') {
+		GDS_ASSERT (0);
+		return 0;
+	}
+
+	DBExt::MemoryIndex* memcache = DBExt::MemoryIndex::instance ();
+	DBExt::Def::Type type = (flags & Search::SP_TITLES)? DBExt::Def::dt_Title : DBExt::Def::dt_Text;
+
+	Core::Aptr <DBCore::StreamsPair> ret;
+
+	if (word_form.empty () && memcache->is_load ()) {
+		ret = memcache->get (key, type);
+
+		if (ret.is_nil () == false) {
+			if (ret->ref_stream.is_nil () == false && ret->data_stream.is_nil () == false) {
+				return ret._retn ();
+			}
+		}
+	}
+
+	DBCore::Streams pair;
+	unsigned char form = (word_form.empty ())? this->open (key, false, pair) : this->open (word_form, true, pair);
+
+	if (pair.first && pair.second) {
+		if (ret.is_nil ()) {
+			ret = new DBCore::StreamsPair;
+		} 
+
+		DBCore::IIndex* index = (m_use_cache)? 0 : m_index.in ();
+		
+		if (ret->ref_stream.is_nil ()) {
+			ret->ref_stream = new DBExt::StreamReader (pair.first, index);
+		} else if (index) {
+			index->close_stream (pair.first);
+		}
+
+		if (ret->data_stream.is_nil ()) {
+			ret->data_stream = new DBExt::PositionsReader (pair.second, form, type, pair.has_form, index);
+		} else if (index) {
+			index->close_stream (pair.second);
+		}
+
+		return ret._retn ();
+	}
+
+	return 0;
+	//#UC END# *56AA0C3802FF*
+}
+
 // открыть стримы
 unsigned char StreamsManager::open (const std::string& key, bool is_form, DBCore::Streams& streams_) {
 	//#UC START# *4EBAA021012C*
-	unsigned char form = std::numeric_limits <unsigned char>::max (); // any forma is what we want
+	unsigned char form = std::numeric_limits <unsigned char>::max (); // any form is what we want
 
 	if (is_form) {
 		std::string new_key;
@@ -178,57 +244,31 @@ bool StreamsManager::is_valid () const {
 
 // implemented method from DBCore::IStreamsFactory
 // фабрика
-DBCore::StreamsPair* StreamsManager::make (const std::string& norma, const std::string& forma, unsigned long flags) {
+DBCore::StreamsPair* StreamsManager::make (const std::string& key, unsigned long flags) {
 	//#UC START# *5124FFCF0337_4EBA9AF30074*
-	using namespace ContextSearch;
+	if (*(key.rbegin ()) == '!' || *(key.rbegin ()) == '*') {
+		return this->make_ (key, flags);
+	} 
 
-	if (flags & Search::SP_IGNORE_CACHE) {
-		m_use_cache = false;
-		this->close ();
-		m_streams.clear ();
-	}
+	std::string s_key (1, (char) (key.size () + 1));
+	s_key += key;
 
-	DBExt::MemoryIndex* memcache = DBExt::MemoryIndex::instance ();
-	DBExt::Def::Type type = (flags & Search::SP_TITLES)? DBExt::Def::dt_Title : DBExt::Def::dt_Text;
-
-	Core::Aptr <DBCore::StreamsPair> ret;
-
-	if (forma.empty () && memcache->is_load ()) {
-		ret = memcache->get (norma, type);
-
-		if (ret.is_nil () == false) {
-			if (ret->ref_stream.is_nil () == false && ret->data_stream.is_nil () == false) {
-				return ret._retn ();
-			}
-		}
-	}
-
-	DBCore::Streams pair;
-	unsigned char form = (forma.empty ())? this->open (norma, false, pair) : this->open (forma, true, pair);
-
-	if (pair.first && pair.second) {
-		if (ret.is_nil ()) {
-			ret = new DBCore::StreamsPair;
+	if (std::find_if (key.begin (), key.end (), boost::is_any_of (" -~")) != key.end ()) {
+		if (key.size () > Morpho::Def::MAX_WORD_LEN) {
+			s_key.clear ();
+			s_key.resize (1, (char) (32));
+			s_key += key.substr (0, Morpho::Def::MAX_WORD_LEN);
 		} 
-
-		DBCore::IIndex* index = (m_use_cache)? 0 : m_index.in ();
-		
-		if (ret->ref_stream.is_nil ()) {
-			ret->ref_stream = new DBExt::StreamReader (pair.first, index);
-		} else if (index) {
-			index->close_stream (pair.first);
+		return this->make_ (s_key, flags);
+	} else if (std::find_if (key.begin (), key.end (), boost::is_digit ()) == key.end ()) {
+		Core::Aptr <DBCore::StreamsPair> ret = this->make_ (s_key, flags);
+		if (ret.is_nil () == false) {
+			return ret._retn ();
 		}
+	} 
 
-		if (ret->data_stream.is_nil ()) {
-			ret->data_stream = new DBExt::PositionsReader (pair.second, form, type, pair.has_form, index);
-		} else if (index) {
-			index->close_stream (pair.second);
-		}
-
-		return ret._retn ();
-	}
-
-	return 0;
+	s_key [0] |= 0x80; // псевдо
+	return this->make_ (s_key, flags);
 	//#UC END# *5124FFCF0337_4EBA9AF30074*
 }
 } // namespace DBComm_i

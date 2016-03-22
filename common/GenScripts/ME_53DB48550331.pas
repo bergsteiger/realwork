@@ -2,6 +2,8 @@ unit AnoncedExportTask_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\AnoncedExportTask_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "AnoncedExportTask" MUID: (53DB48550331)
+// Имя типа: "AnoncedExportTaskTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

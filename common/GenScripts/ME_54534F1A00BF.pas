@@ -2,6 +2,7 @@ unit ncsReceiveThread;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsReceiveThread.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsReceiveThread" MUID: (54534F1A00BF)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

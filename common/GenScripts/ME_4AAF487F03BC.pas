@@ -3,6 +3,8 @@ unit TreeAttributeSelect_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\TreeAttributeSelect_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "TreeAttributeSelect" MUID: (4AAF487F03BC)
+// Имя типа: "TefTreeAttributeSelect"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

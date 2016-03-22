@@ -5,9 +5,12 @@ unit evCustomEditor;
 { Начал: Люлин А.В.       }
 { Модуль: evCustomEditor - }
 { Начат: 25.11.2004 10:05 }
-{ $Id: evCustomEditor.pas,v 1.181 2015/08/19 14:14:33 dinishev Exp $ }
+{ $Id: evCustomEditor.pas,v 1.182 2016/02/12 11:29:09 lulin Exp $ }
 
 // $Log: evCustomEditor.pas,v $
+// Revision 1.182  2016/02/12 11:29:09  lulin
+// - меняем размер CodePage.
+//
 // Revision 1.181  2015/08/19 14:14:33  dinishev
 // {Requestlink:602009846}
 //
@@ -2508,8 +2511,12 @@ procedure TevCustomEditor.TextBufConvert(TBCE: TevTextBufConvertEvent; DataPtr: 
   {-конвертировать выделенный блок поблочно}
 
  function DoText(var aStr : Tl3PCharLen): Boolean;
+ var
+  l_CP : SmallInt;
  begin//DoText
-  Result := TBCE(Self, aStr.S, aStr.SLen, aStr.SCodePage, DataPtr);
+  l_CP := aStr.SCodePage;
+  Result := TBCE(Self, aStr.S, aStr.SLen, l_CP, DataPtr);
+  aStr.SCodePage := l_CP;
  end;//DoText
 
 begin

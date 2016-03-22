@@ -5,9 +5,119 @@ unit evTextFormatter;
 { Автор: Люлин А.В. ©     }
 { Модуль: evTextFormatter - текстовый экспорт}
 { Начат: 14.06.1997 12:10 }
-{ $Id: evTextFormatter.pas,v 1.223 2015/10/23 15:51:28 lulin Exp $ }
+{ $Id: evTextFormatter.pas,v 1.262 2016/03/22 14:42:59 lulin Exp $ }
 
 // $Log: evTextFormatter.pas,v $
+// Revision 1.262  2016/03/22 14:42:59  lulin
+// {RequestLink;620241155}
+//
+// Revision 1.261  2016/03/16 14:52:31  lulin
+// {RequestLink:619944727}
+//
+// Revision 1.259  2016/03/16 14:45:01  lulin
+// {RequestLink:619944727}
+//
+// Revision 1.258  2016/03/16 14:41:48  lulin
+// {RequestLink:619944727}
+//
+// Revision 1.257  2016/03/16 14:25:33  lulin
+// {RequestLink:619944727}
+//
+// Revision 1.256  2016/03/16 14:07:09  lulin
+// {RequestLink:619944727}
+//
+// Revision 1.255  2016/03/16 14:01:34  lulin
+// {RequestLink:619944727}
+//
+// Revision 1.254  2016/03/16 13:55:45  lulin
+// {RequestLink:619944727}
+//
+// Revision 1.253  2016/03/16 13:49:56  lulin
+// {RequestLink:619944727}
+//
+// Revision 1.252  2016/03/16 13:44:09  lulin
+// {RequestLink:619944727}
+//
+// Revision 1.251  2016/03/15 14:46:23  lulin
+// {RequestLink:619938320}.
+//
+// Revision 1.250  2016/03/15 14:35:42  lulin
+// {RequestLink:619938320}.
+//
+// Revision 1.249  2016/03/15 14:30:06  lulin
+// {RequestLink:619938320}.
+//
+// Revision 1.248  2016/03/15 14:17:36  lulin
+// {RequestLink:619938320}.
+//
+// Revision 1.247  2016/03/15 13:59:06  lulin
+// {RequestLink:619938320}.
+//
+// Revision 1.246  2016/03/15 13:49:59  lulin
+// {RequestLink:619938320}.
+//
+// Revision 1.245  2016/03/15 13:41:35  lulin
+// {RequestLink:619938320}.
+//
+// Revision 1.244  2016/03/15 13:30:33  lulin
+// {RequestLink:619938320}.
+//
+// Revision 1.243  2016/03/15 13:02:57  lulin
+// {RequestLink:619938320}.
+//
+// Revision 1.242  2016/03/15 11:35:50  dinishev
+// {Requestlink:602000766}
+//
+// Revision 1.241  2016/03/15 09:38:34  lulin
+// {RequestLink:615938312}.
+//
+// Revision 1.240  2016/03/15 09:00:09  lulin
+// {RequestLink:615938312}.
+//
+// Revision 1.239  2016/03/15 08:39:25  lulin
+// {RequestLink:615938312}.
+//
+// Revision 1.238  2016/03/14 17:18:55  lulin
+// {RequestLink:619577264}.
+// - не пишем размер шрифта.
+//
+// Revision 1.237  2016/03/14 17:08:18  lulin
+// {RequestLink:619577264}.
+// - не пишем размер шрифта.
+//
+// Revision 1.236  2016/03/14 16:19:27  lulin
+// {RequestLink:619577264}.
+//
+// Revision 1.235  2016/03/14 15:33:36  lulin
+// {RequestLink:619577264}.
+//
+// Revision 1.234  2016/03/14 15:30:45  lulin
+// {RequestLink:619577264}.
+//
+// Revision 1.233  2016/03/14 15:08:11  lulin
+// {RequestLink:619577264}.
+//
+// Revision 1.232  2016/03/14 15:03:04  lulin
+// {RequestLink:619577264}.
+//
+// Revision 1.230  2016/03/14 14:37:29  lulin
+// {RequestLink:619577264}.
+//
+// Revision 1.229  2016/03/14 14:24:20  lulin
+// - перегенерация.
+//
+// Revision 1.228  2016/03/14 14:16:50  lulin
+// - перегенерация.
+//
+// Revision 1.226  2016/03/14 13:21:48  lulin
+// - перегенерация.
+//
+// Revision 1.225  2015/12/23 09:24:09  dinishev
+// {Requestlink:614228201}
+//
+// Revision 1.224  2015/12/08 13:14:23  lulin
+// - очередной костыль для "красного болда".
+//
 // Revision 1.223  2015/10/23 15:51:28  lulin
 // - не выливаем псевдо-сегменты.
 //
@@ -714,8 +824,8 @@ unit evTextFormatter;
 // - от Tk2AtomR переходим к _Ik2Tag.
 //
 // Revision 1.27  2005/03/09 18:40:19  lulin
-// - remove method: Tk2AtomR.DeleteChild.
-// - new method: _Ik2Tag.DeleteChild.
+// - remove method: Tk2AtomR._DeleteChild.
+// - new method: _Ik2Tag._DeleteChild.
 //
 // Revision 1.26  2005/03/04 15:49:02  lulin
 // - спрятана процедура Tk2Type.New.
@@ -3178,6 +3288,28 @@ begin
  end;{try..finally}
 end;
 
+procedure ClearFont(aSeg: Tl3Variant);
+var
+ l_N : String;
+begin//ClearFont
+ if aSeg.IsValid then
+ begin
+  if aSeg.HasSubAtom(k2_tiFont) then
+  begin
+   aSeg.Attr[k2_tiFont].AttrW[k2_tiSize, nil] := nil;
+   if aSeg.Attr[k2_tiFont].HasSubAtom(k2_tiName) then
+   begin
+    l_N := aSeg.Attr[k2_tiFont].StrA[k2_tiName];
+    if (l_N = 'Times New Roman')
+       OR (l_N = 'Arial') then
+     aSeg.Attr[k2_tiFont].AttrW[k2_tiName, nil] := nil;
+   end;//aSeg.Attr[k2_tiFont].HasSubAtom(k2_tiName)
+   if aSeg.Attr[k2_tiFont].Empty then
+    aSeg.AttrW[k2_tiFont, nil] := nil;
+  end;//aSeg.HasSubAtom(k2_tiFont)
+ end;//aSeg.IsValid
+end;//ClearFont
+
 procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
                                                   const aText : Tl3PCharLen);
   {* - Проверяет список сегментов и склеивает соседние. }
@@ -3188,14 +3320,27 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
   begin//CheckSegment
    Result := True;
    with aSegment do
-    if HasSubAtom(k2_tiFinish) AND
-       (IntA[k2_tiFinish] > aText.SLen) then
+   begin
+    if HasSubAtom(k2_tiFinish) then
     begin
+     if (IntA[k2_tiFinish] > aText.SLen) then
+     begin
+      IntA[k2_tiFinish] := aText.SLen;
+ (*     if HasSubAtom(k2_tiStart) AND
+         (IntA[k2_tiStart] > aText.SLen) then
+       IntA[k2_tiStart] := aText.SLen;*)
+     end; // if HasSubAtom(k2_tiFinish) AND ...
+    end//HasSubAtom(k2_tiFinish)
+    else
      IntA[k2_tiFinish] := aText.SLen;
-(*     if HasSubAtom(k2_tiStart) AND
-        (IntA[k2_tiStart] > aText.SLen) then
-      IntA[k2_tiStart] := aText.SLen;*)
-    end; // if HasSubAtom(k2_tiFinish) AND ...
+    if HasSubAtom(k2_tiStart) then
+    begin
+     if (IntA[k2_tiStart] = 0) then
+      IntA[k2_tiStart] := 1;
+    end//HasSubAtom(k2_tiStart)
+    else
+     IntA[k2_tiStart] := 1;
+   end;//with aSegment
   end;//CheckSegment
 
  begin//CheckLayer
@@ -3218,7 +3363,6 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
  function CheckNeigbours(aLayer: Tl3Variant; anIndex: Long): Bool;
  var
   l_Index   : Long;
-  l_PrevSeg : Tl3Variant;
   l_Start   : Long;
   l_Finish  : Long;
 
@@ -3226,7 +3370,7 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
   var
    i       : Integer;
    l_Found : Boolean;
-  begin
+  begin//CheckSegment
    l_Found := False;
    for i := 0 to l_BoundArrayL - 1 do
     with l_Boundaries[i] do
@@ -3235,8 +3379,8 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
       if aHyperLink and not rHyperLink then
        rLayer.DeleteChild(rIndex)
       else
-       if rHyperLink and not aHyperLink then
-        aLayer.DeleteChild(l_Index);
+      if rHyperLink and not aHyperLink then
+       aLayer.DeleteChild(l_Index);
       l_Found := True;
       rStart := -1;
       rFinish := -1;
@@ -3263,10 +3407,42 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
      end;
     end; // with l_Boundaries[l_BoundArrayL] do
    end; // if not l_Found then
+  end;//CheckSegment
+
+  function SameFont(aS1 : Tl3Variant; aS2 : Tl3Variant): Boolean;
+  var
+   l_F1 : Tl3Variant;
+   l_F2 : Tl3Variant;
+  begin
+   if aS1.HasSubAtom(k2_tiFont) then
+   begin
+    if aS2.HasSubAtom(k2_tiFont) then
+    begin
+     l_F1 := aS1.Attr[k2_tiFont];
+     l_F2 := aS2.Attr[k2_tiFont];
+     Result :=
+      (l_F1.BoolA[k2_tiBold] = l_F2.BoolA[k2_tiBold])
+      AND (l_F1.BoolA[k2_tiItalic] = l_F2.BoolA[k2_tiItalic])
+      AND (l_F1.BoolA[k2_tiUnderline] = l_F2.BoolA[k2_tiUnderline])
+      AND (l_F1.BoolA[k2_tiStrikeout] = l_F2.BoolA[k2_tiStrikeout])
+      AND (l_F1.StrA[k2_tiName] = l_F2.StrA[k2_tiName])
+      AND (l_F1.IntA[k2_tiSize] = l_F2.IntA[k2_tiSize])
+      AND (l_F1.IntA[k2_tiIndex] = l_F2.IntA[k2_tiIndex])
+      ;
+    end//aS2.HasSubAtom(k2_tiFont)
+    else
+     Result := false;
+   end//aS1.HasSubAtom(k2_tiFont)
+   else
+   if aS2.HasSubAtom(k2_tiFont) then
+    Result := false
+   else
+    Result := true; 
   end;
 
  var
   l_Seg : Tl3Variant;
+  l_PrevSeg : Tl3Variant;
  begin//CheckNeigbours
   Result := True;
   with aLayer do
@@ -3277,6 +3453,8 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
    while (l_Index < ChildrenCount) do
    begin
     l_Seg := Child[l_Index];
+    ClearFont(l_Seg);
+    ClearFont(l_PrevSeg);
     if l_PrevSeg.IsValid AND
        not l_Seg.IsKindOf(k2_typHyperlink) AND
        // - Гиперссылки объединять не надо
@@ -3285,7 +3463,13 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
      l_Start := l_Seg.IntA[k2_tiStart];
      if (l_Start = Succ(l_Finish)) AND
         (l_Seg.Attr[k2_tiStyle].IsSame(l_PrevSeg.Attr[k2_tiStyle])) and
-        not l_Seg.IsKindOf(k2_typObjectSegment) then
+        not l_Seg.IsKindOf(k2_typObjectSegment)
+        AND SameFont(l_Seg, l_PrevSeg)
+(*        {$IfDef evOutDecorToNSRC}
+        AND (not l_Seg.HasSubAtom(k2_tiFont) OR l_Seg.Attr[k2_tiFont].Empty)
+        AND (not l_PrevSeg.HasSubAtom(k2_tiFont) OR l_PrevSeg.Attr[k2_tiFont].Empty)
+        {$EndIf evOutDecorToNSRC}*)
+        then
      begin
       // - Конец совпадает с началом надо объединить сегменты
        l_Finish := l_Seg.IntA[k2_tiFinish];
@@ -3314,8 +3498,8 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
     if l_PrevSeg.IsKindOf(k2_typHyperlink) then
      CheckSegment(True)
     else
-     if (l_PrevSeg.IntA[k2_tiStyle] = ev_saHyperLinkCont) then
-      CheckSegment(False);
+    if (l_PrevSeg.IntA[k2_tiStyle] = ev_saHyperLinkCont) then
+     CheckSegment(False);
     Inc(l_Index);
    end;//while (l_Index < ChildrenCount)
   end;//with aLayer
@@ -3326,7 +3510,7 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
   l_Seg      : Tl3Variant;
   l_Index    : Integer;
   l_ParaStyle: Integer;
- begin
+ begin//lp_CheckStyle
   Result := True;
   if aPara.Attr[k2_tiStyle].IsValid then
   begin
@@ -3336,6 +3520,7 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
     while (l_Index < ChildrenCount) do
     begin
      l_Seg := Child[l_Index];
+     ClearFont(l_Seg);
      if l_Seg.Attr[k2_tiStyle].IsValid and
         not l_Seg.IsKindOf(k2_typHyperlink) and not l_Seg.IsKindOf(k2_typObjectSegment) and
         (l_Seg.BoolA[k2_tiVisible] = aPara.BoolA[k2_tiVisible]) then
@@ -3348,7 +3533,243 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
      Inc(l_Index);
     end; // while (l_Index < ChildrenCount) do
   end; // if aPara.Attr[k2_tiStyle].IsValid then
- end;
+ end;//lp_CheckStyle
+
+ function CheckCrossBoundInDifferentLayers(anOurLayer: Tl3Variant; anIndex: Long): Boolean;
+
+  function CheckOurSegment(anOurSegment: Tl3Variant; anIndex: Long): Boolean;
+
+   function CheckOtherLayer(anOtherLayer: Tl3Variant; anIndex: Long): Boolean;
+
+    function CheckOtherSegment(anOtherSegment: Tl3Variant; anIndex: Long): Boolean;
+    var
+     l_OurStart : Integer;
+     l_OurFinish : Integer;
+     l_OtherStart : Integer;
+     l_OtherFinish : Integer;
+    begin//CheckOtherSegment
+     Result := true;
+     l_OurStart := anOurSegment.IntA[k2_tiStart];
+     l_OurFinish := anOurSegment.IntA[k2_tiFinish];
+     l_OtherStart := anOtherSegment.IntA[k2_tiStart];
+     l_OtherFinish := anOtherSegment.IntA[k2_tiFinish];
+
+     if (l_OurStart = l_OtherStart) AND
+        (l_OurFinish = l_OtherFinish) then
+      // - сегменты совпадают  
+      Exit;
+      
+     if (l_OurFinish <= l_OtherStart) then
+      // - наш сегмент левее
+      Exit;
+
+     if (l_OurStart > l_OtherFinish) then
+      // - наш сегмент правее
+      Exit;
+
+     if (l_OurStart < l_OtherStart) AND
+        (l_OurFinish > l_OtherFinish) then
+      // - чужой сегмент вложен в наш
+      Exit;
+
+     if (l_OurStart - 1 = l_OtherStart) AND
+        (l_OurFinish = l_OtherFinish) then
+     begin
+      // Our   :  [---]
+      // Other : [----]
+      // - концы совпадают, а наше начало больше на 1
+      anOtherSegment.IntA[k2_tiStart] := l_OurStart;
+      Exit;
+     end;
+
+     if (l_OurStart = l_OtherStart) AND
+        (l_OurFinish < l_OtherFinish) then
+     begin
+      {RequestLink:619938320}
+      {RequestLink:619944727}
+      // Our   : [---]
+      // Other : [-----]
+      anOurSegment.IntA[k2_tiFinish] := l_OtherFinish;
+      Exit;
+      // - НЕ ПРИГОДИЛОСЬ !!!
+      // - ещё как пригодилось
+     end;
+
+     if (l_OurStart = l_OtherStart) AND
+        (l_OurFinish > l_OtherFinish) then
+      // - чужой сегмент вложен в наш и касается нашего начала
+      Exit;
+
+     if (l_OurStart < l_OtherStart) AND 
+        (l_OurFinish = l_OtherFinish) then
+      // - чужой сегмент вложен в наш и касается нашего конца
+      Exit;
+
+     if (l_OurStart > l_OtherStart) AND
+        ( l_OurFinish < l_OtherFinish) then
+      // - наш сегмент целиком вложен в чужой  
+      Exit;
+
+     if (l_OurStart > l_OtherStart) AND
+        ( l_OurFinish <= l_OtherFinish) then
+      // - наш сегмент вложен в чужой и касается его конца
+      Exit;
+
+     if (l_OurStart >= l_OtherStart) AND
+        ( l_OurFinish < l_OtherFinish) then
+      // - наш сегмент вложен в чужой и касается его начала
+      Exit;
+
+     if (l_OurStart > l_OtherStart) AND
+        (l_OurStart < l_OtherFinish) AND
+        (l_OurFinish > l_OtherFinish) then
+      // Our   :   [----]
+      // Other : [----]
+     begin
+      anOurSegment.IntA[k2_tiStart] := l_OtherStart;
+      //anOurSegment.IntA[k2_tiFinish] := l_OtherFinish;
+      Exit;
+     end;
+
+     if (l_OurStart > l_OtherStart) AND
+        (l_OurStart = l_OtherFinish) AND
+        (l_OurFinish > l_OtherFinish) then
+      // Our   :     [----]
+      // Other : [----]
+     begin
+      anOurSegment.IntA[k2_tiFinish] := l_OtherFinish;
+      Exit;
+     end;    
+
+     {$IfDef nsTest}
+     Assert(false, Format('Непонятное взаимное расположение сегментов: (%d,%d) (%d,%d)', [l_OurStart, l_OurFinish, l_OtherStart, l_OtherFinish]));
+     {$Else  nsTest}
+     l3System.Msg2Log(Format('Непонятное взаимное расположение сегментов: (%d,%d) (%d,%d)', [l_OurStart, l_OurFinish, l_OtherStart, l_OtherFinish]));
+     {$EndIf nsTest}
+    end;//CheckOtherSegment
+
+   begin//CheckOtherLayer
+    Result := true;
+    if (anOurLayer <> anOtherLayer) then
+     if (anOurLayer.IntA[k2_tiHandle] < anOtherLayer.IntA[k2_tiHandle]) then
+      anOtherLayer.IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@CheckOtherSegment));
+   end;//CheckOtherLayer
+
+  begin//CheckOurSegment
+   Result := true;
+   aPara.Attr[k2_tiSegments].IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@CheckOtherLayer));
+  end;//CheckOurSegment
+
+ begin//CheckCrossBoundInDifferentLayers
+  Result := true;
+  if (anOurLayer.IntA[k2_tiHandle] < Ord(ev_slMistakes)) then
+  begin
+   if (anOurLayer.IntA[k2_tiHandle] > Ord(ev_slSuperposition)) then
+    anOurLayer.IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@CheckOurSegment));
+  end//anOurLayer.IntA[k2_tiHandle] < Ord(ev_slMistakes)
+  else
+   Result := false;
+ end;//CheckCrossBoundInDifferentLayers
+
+ function CheckCrossBoundInOneLayer(anOurLayer: Tl3Variant; anIndex: Long): Boolean;
+ var
+  l_I, l_J : Integer;
+ var
+  l_OurSeg : Tl3Variant;
+  l_OtherSeg : Tl3Variant;
+ var
+  l_OurStart : Integer;
+  l_OurFinish : Integer;
+  l_OtherStart : Integer;
+  l_OtherFinish : Integer;
+ var
+  l_Continue : Boolean;
+
+ procedure DeleteSeg(anIndex: Integer);
+ begin//DeleteSeg
+  l3System.Msg2Log(Format('Удалён пересекающийся сегмент. Стиль сегмента: %d Стиль другого сегмента: %d',
+                          [l_OurSeg.IntA[k2_tiStyle], l_OtherSeg.IntA[k2_tiStyle]]));
+  l3System.Msg2Log(Format('Координаты сегментов: (%d,%d) (%d,%d)', [l_OurStart, l_OurFinish, l_OtherStart, l_OtherFinish]));
+
+  anOurLayer.DeleteChild(anIndex);
+  l_Continue := true;
+ end;//DeleteSeg
+ 
+ begin//CheckCrossBoundInOneLayer
+  Result := true;
+  if (anOurLayer.IntA[k2_tiHandle] = Ord(ev_slView)) then
+  begin
+   l_I := 0;
+   while (l_I < anOurLayer.ChildrenCount) do
+   begin
+    l_Continue := false;
+    l_J := 0;
+    while (l_J < anOurLayer.ChildrenCount) do
+    begin
+     if (l_I <> l_J) then
+     begin
+      l_OurSeg := anOurLayer.Child[l_I];
+      l_OtherSeg := anOurLayer.Child[l_J];
+      l_OurStart := l_OurSeg.IntA[k2_tiStart];
+      l_OurFinish := l_OurSeg.IntA[k2_tiFinish];
+      l_OtherStart := l_OtherSeg.IntA[k2_tiStart];
+      l_OtherFinish := l_OtherSeg.IntA[k2_tiFinish];
+
+      Inc(l_J);
+      
+      if (l_OurFinish <= l_OtherStart) then
+       // - наш сегмент левее
+       continue;
+
+      if (l_OurStart > l_OtherFinish) then
+       // - наш сегмент правее
+       continue;
+
+      if (l_OurStart <= l_OtherStart) AND
+         (l_OurFinish >= l_OtherStart) AND
+         (l_OurFinish <= l_OtherFinish) then
+      begin
+       // Our   :  [---]
+       // Other :  [----]
+
+       // Our   :  [---]
+       // Other :   [---]
+
+       // Our   :  [---]
+       // Other :  [---]
+
+       if (l_OurStart < l_OtherStart) then
+        l_OtherSeg.IntA[k2_tiStart] := l_OurStart;
+
+       DeleteSeg(l_I);
+       break;
+      end;
+
+      if (l_OurStart < l_OtherStart) AND (l_OurFinish > l_OtherFinish) then
+       // Our   :  [-----]
+       // Other :   [---]
+      begin
+       DeleteSeg(l_J);
+       break;
+      end;
+
+      {$IfDef nsTest}
+      Assert(false, Format('Непонятное взаимное расположение сегментов: (%d,%d) (%d,%d)', [l_OurStart, l_OurFinish, l_OtherStart, l_OtherFinish]));
+      {$Else  nsTest}
+      l3System.Msg2Log(Format('Непонятное взаимное расположение сегментов: (%d,%d) (%d,%d)', [l_OurStart, l_OurFinish, l_OtherStart, l_OtherFinish]));
+      {$EndIf nsTest}
+      
+     end//l_I <> l_J
+     else
+      Inc(l_J);
+    end;//while (l_J < anOurLayer.ChildrenCount)
+    if l_Continue then
+     continue
+    else
+     Inc(l_I);
+   end;//while (l_I < anOurLayer.ChildrenCount)
+  end;//(anOurLayer.IntA[k2_tiHandle] = Ord(ev_slView))
+ end;//CheckCrossBoundInOneLayer
 
 begin
  with aPara do
@@ -3360,6 +3781,17 @@ begin
   // - Объединяем соседние сегменты
   SetLength(l_Boundaries, 0);
   Attr[k2_tiSegments].IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@lp_CheckStyle));
+  // - удаляем сегменты со стилем параграфа
+  Attr[k2_tiSegments].IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@CheckCrossBoundInDifferentLayers));
+  // - правим пересекающиеся сегменты на разных слоях
+
+  Attr[k2_tiSegments].IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@CheckCrossBoundInOneLayer));
+  // - правим пересекающиеся сегменты на одном слое
+
+(*  l_BoundArrayL := 0;
+  Attr[k2_tiSegments].IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@CheckNeigbours));
+  // - Объединяем соседние сегменты
+  SetLength(l_Boundaries, 0);*)
  end;//with aPara
 end;
 
@@ -4403,56 +4835,17 @@ procedure TevCustomTextPainter.PaintLine(ParaVisible : Bool;
                                          S           : Tl3String;
                                          Obj   : Tl3Variant;
                                          First, aLast : Bool);
-  {virtual;}                                           
+  {virtual;}
   {-}
-
-var
- l_Pos    : Long;
- l_OpenPos: Integer;
-
- function lp_CheckSingleChar: Boolean;
- var
-  i         : Integer;
-  l_Char    : AnsiChar;
-  l_Start   : Integer;
-  l_PrevChar: AnsiChar;
- begin
-  Result := False;
-  l_PrevChar := #0;
-  if l_OpenPos = l3NilLong then
-   l_Start := 0
-  else
-   l_Start := l_OpenPos;
-  for i := l_Start to l_Pos - 1 do
-  begin
-   l_Char := S[i];
-   if l_Char = ev_NSRCHyperlink then
-   begin
-    l_PrevChar := #0;
-    Break;
-   end;
-   if (l_Char in ev_NSRCSimple) then
-    if l_PrevChar = l_Char then
-     l_PrevChar := #0
-    else
-     l_PrevChar := l_Char;
-  end; // for i := l_OpenPos to l_Pos do
-  if l_PrevChar <> #0 then
-  begin
-   Result := True;
-   S.Insert(l3PCharLen(l_PrevChar), l_Pos);
-   S.Insert(l3PCharLen(l_PrevChar), l_Pos);
-   Inc(l_Pos);
-  end; // if l_PrevChar <> #0 then
- end;
-
 var
  i        : Integer;
  l_Open   : AnsiString;
  l_Close  : AnsiString;
+ l_Pos    : Long;
  l_Seg    : Bool;
  l_Del    : Boolean;
  l_DelPos : Integer;
+ l_OpenPos: Integer;
 begin
  l_Del := false;
  l_DelPos := 0;
@@ -4508,18 +4901,16 @@ begin
    Dec(l_Pos);
   if l_Del then
    TevHackString(S).f_Owner.NotifyDeletion(S, l_DelPos, 1);
-  if (l_Pos <= S.Len) then
+  if (l_Pos <= S.Len) and (l_Close <> '') then
   begin
-   if (l_Close[1] = ev_NSRCHyperlink) then
-    if not lp_CheckSingleChar then
-     if (l_OpenPos <> l3NilLong) and (S[l_Pos] in ev_NSRCSimple) then
-     begin
-      i := l_Pos - 1;
-      while (i >= l_OpenPos) and not (S[i] in ev_NSRCAll) do
-       Dec(i);
-      if S[i] = S[l_Pos] then
-       Inc(l_Pos);
-     end; // if (l_Close[0] = ev_NSRCHyperlink) and (S[l_Pos] in ev_NSRCSimple) then
+   if (l_OpenPos <> l3NilLong) and (l_Close[1] = ev_NSRCHyperlink) and (S[l_Pos] in ev_NSRCSimple) then
+   begin
+    i := l_Pos - 1;
+    while (i >= l_OpenPos) and not (S[i] in ev_NSRCAll) do
+     Dec(i);
+    if S[i] = S[l_Pos] then
+     Inc(l_Pos);
+   end; // if (l_Close[0] = ev_NSRCHyperlink) and (S[l_Pos] in ev_NSRCSimple) then
    S.Insert(l3PCharLen(l_Close), l_Pos);
   end;//l_Pos <= S.Len
  end;//IsMarkStyle..

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\VScroll.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "VScroll" MUID: (4B548BE50138)
+// Имя типа: "_VScroll_"
 
 {$Define VScroll_imp}
 

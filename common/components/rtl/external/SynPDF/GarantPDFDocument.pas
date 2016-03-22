@@ -38,6 +38,9 @@ type
    f_DevFactor : Single;
     {* Задублированная переменная из TpdfCanvas, т.к. "оригинальная" считается внутри RenderMetaFile, когда нужны другие расчеты.}
  protected
+ // overridden protected methods
+   procedure DoSet4Etalon(aValue: Boolean); override;
+ protected
  // protected methods
    procedure InitPrinterPxPerInch(anPPIX: Integer;
      anPPIY: Integer);
@@ -83,14 +86,7 @@ begin
  InitPrinterPxPerInch(aPPX, aPPY);
  GeneratePDF15File := True;
  UseUniscribe := False;
- if aForEtalon then
- begin
-  EmbeddedTTF := False;
-  GeneratePDF15File := False;
-  CompressionMethod := cmNone;
- end // if aForEtalon then
- else
-  EmbeddedTTF := True;
+ ForEtalon := aForEtalon;
 //#UC END# *54632D530392_54632B090390_impl*
 end;//TGarantPDFDocument.Create
 
@@ -117,5 +113,21 @@ begin
  Canvas.RenderMetaFile(aMetaFile, f_Scale, l_Right, l_Top);
 //#UC END# *54632E0400DF_54632B090390_impl*
 end;//TGarantPDFDocument.RenderNewPage
+
+procedure TGarantPDFDocument.DoSet4Etalon(aValue: Boolean);
+//#UC START# *56B471530132_54632B090390_var*
+//#UC END# *56B471530132_54632B090390_var*
+begin
+//#UC START# *56B471530132_54632B090390_impl*
+ if aValue then
+ begin
+  EmbeddedTTF := False;
+  GeneratePDF15File := False;
+  CompressionMethod := cmNone;
+ end // if aForEtalon then
+ else
+  EmbeddedTTF := True;
+//#UC END# *56B471530132_54632B090390_impl*
+end;//TGarantPDFDocument.DoSet4Etalon
 
 end.

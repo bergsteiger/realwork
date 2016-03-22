@@ -104,8 +104,12 @@ uses
   ,
   Editwin
   {$IfEnd} //AppClientSide
+  
+  {$If not defined(NoVCL)}
   ,
-  Menus,
+  Menus
+  {$IfEnd} //not NoVCL
+  ,
   daTypes
   {$If not defined(Nemesis)}
   ,

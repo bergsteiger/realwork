@@ -2,6 +2,7 @@ unit NOT_FINISHED_gtUtils3;
 
 // Модуль: "w:\common\components\rtl\external\gnotice_Shared\Source\Rtl\NOT_FINISHED_gtUtils3.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "gtUtils3" MUID: (540014C10254)
 
 interface
 

@@ -3,6 +3,7 @@ unit NOT_FINISHED_dd_lcBaseFilter;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcBaseFilter.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "dd_lcBaseFilter" MUID: (4EA662DD02E1)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

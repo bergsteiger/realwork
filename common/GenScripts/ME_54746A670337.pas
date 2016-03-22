@@ -2,6 +2,7 @@ unit ncsTaskProgress;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsTaskProgress.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsTaskProgress" MUID: (54746A670337)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

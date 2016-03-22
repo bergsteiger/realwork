@@ -2,6 +2,7 @@ unit nsSettingsUtils;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsSettingsUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsSettingsUtils" MUID: (4AD5BB450335)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

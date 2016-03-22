@@ -3,6 +3,8 @@ unit Translation_WarningBaloon_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Translation_WarningBaloon_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "Translation_WarningBaloon" MUID: (4EE22F340060)
+// Имя типа: "TTranslation_WarningBaloonForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

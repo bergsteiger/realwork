@@ -3,6 +3,7 @@ unit destNormSpec;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destNormSpec.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdestNormSpec" MUID: (56BB14F503A0)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

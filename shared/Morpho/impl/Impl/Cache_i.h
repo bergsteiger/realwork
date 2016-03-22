@@ -68,9 +68,6 @@ private:
 	// загрузка данных для псевдоморфологии
 	void load_pseudo (DBCore::IIndex* index);
 
-	// загрузка однословных синонимов
-	void load_simple_syns (DBCore::IIndex* index);
-
 //////////////////////////////////////////////////////////////////////////////////////////
 // self data
 private:
@@ -111,16 +108,8 @@ protected:
 	virtual const Def::FixedPairs& get_syn_pairs () const;
 
 	// implemented method from Def::ICache
-	// синонимы
-	virtual const Def::Synonyms& get_syns () const;
-
-	// implemented method from Def::ICache
-	// синонимы
-	virtual const GCL::StrVector& get_syns (const std::string& key);
-
-	// implemented method from Def::ICache
 	// загрузка
-	virtual void load (DBCore::IBase* base, bool load_ssyn);
+	virtual void load (DBCore::IBase* base);
 }; // class Cache_i
 
 } // namespace Impl

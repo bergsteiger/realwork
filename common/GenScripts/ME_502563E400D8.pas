@@ -2,6 +2,7 @@ unit atBits;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atBits.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatBits" MUID: (502563E400D8)
 
 interface
 

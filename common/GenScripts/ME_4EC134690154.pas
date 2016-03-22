@@ -3,6 +3,8 @@ unit kwF1BaseDate;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwF1BaseDate.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "f1_BaseDate" MUID: (4EC134690154)
+// Имя типа: "TkwF1BaseDate"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

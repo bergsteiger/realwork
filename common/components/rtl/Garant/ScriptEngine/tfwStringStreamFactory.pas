@@ -2,6 +2,7 @@ unit tfwStringStreamFactory;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStringStreamFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwStringStreamFactory" MUID: (52F4FAF80376)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

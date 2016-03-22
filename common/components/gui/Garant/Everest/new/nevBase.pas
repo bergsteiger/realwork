@@ -233,7 +233,7 @@ type
 
 const
   { StoreDefaults }
- evDefaultStoreFlags = evdInterfaces.evd_DefaultStoreFlags;
+ evDefaultStoreFlags = evd_DefaultStoreFlags;
 
 type
   TnevShapePart = (
@@ -343,6 +343,7 @@ type
 
  InevViewMetrics = interface(InevMetrics)
    ['{F727E8B4-54BC-4980-BF0D-5D3635152090}']
+   function NeedTotalRecalc: Boolean;
    function pm_GetIsWebStyle: Boolean;
    function pm_GetShowDocumentParts: Boolean;
    function pm_GetShowSpecial: Boolean;

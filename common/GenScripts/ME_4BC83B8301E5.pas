@@ -3,6 +3,7 @@ unit k2PureMixIns;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2PureMixIns.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "k2PureMixIns" MUID: (4BC83B8301E5)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

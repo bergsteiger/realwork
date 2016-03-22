@@ -2,6 +2,7 @@ unit l3AsyncTask;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3AsyncTask.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3AsyncTask" MUID: (549BC5C50174)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

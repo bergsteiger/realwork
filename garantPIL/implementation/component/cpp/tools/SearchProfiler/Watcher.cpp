@@ -53,8 +53,7 @@ class Watcher_i
 	: virtual public IWatcher
 	, virtual public Core::RefCountObjectBase {
 public:
-	Watcher_i () {
-	}
+	Watcher_i () { }
 
 	virtual void start () {
 		hi_res_counter.start ();
@@ -80,12 +79,7 @@ private:
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 IWatcher* WatcherFactory::make () {
-	IWatcher_var ret;
-	try {
-		ret = new Watcher_i ();
-	} catch (...) {
-	}	
-	return ret._retn ();
+	return new Watcher_i ();
 }
 
 }

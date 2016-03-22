@@ -2,6 +2,7 @@ unit NOT_FINISHED_Dt_containers;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_Dt_containers.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Dt_containers" MUID: (537F6D3F0319)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

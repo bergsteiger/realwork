@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dCommonDiction.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "dCommonDiction" MUID: (4936B78E0024)
+// Имя типа: "_dCommonDiction_"
 
 {$Define dCommonDiction_imp}
 

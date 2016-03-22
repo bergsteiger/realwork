@@ -2,6 +2,7 @@ unit vcmMenuItemClickListenerList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMenuItemClickListenerList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmMenuItemClickListenerList" MUID: (53E9DCDF0259)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -2,6 +2,7 @@ unit caTabledQuery;
 
 // Модуль: "w:\common\components\rtl\Garant\ComboAccess\caTabledQuery.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcaTabledQuery" MUID: (56C6DB730289)
 
 {$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 

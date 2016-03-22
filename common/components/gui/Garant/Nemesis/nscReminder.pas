@@ -2,6 +2,7 @@ unit nscReminder;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscReminder.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nscReminder" MUID: (535E3A1A018A)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

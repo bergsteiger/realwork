@@ -2,6 +2,7 @@ unit nevWaiterList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevWaiterList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevWaiterList" MUID: (47ED17150259)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

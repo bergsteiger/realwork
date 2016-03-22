@@ -2,6 +2,7 @@ unit CheckLst;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\CheckLst.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "CheckLst" MUID: (51F24E760273)
 
 interface
 
@@ -20,6 +21,9 @@ implementation
 {$If NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , CheckListBoxWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 {$IfEnd} // NOT Defined(NoVCL)
 

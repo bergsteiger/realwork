@@ -3,6 +3,7 @@ unit MergeAndCheckSelectionTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\MergeAndCheckSelectionTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TMergeAndCheckSelectionTest" MUID: (4CE133F801BA)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

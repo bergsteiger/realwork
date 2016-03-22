@@ -2,6 +2,7 @@ unit nsCommentMemoryStream;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsCommentMemoryStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsCommentMemoryStream" MUID: (4CED41A900AA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit evdTextToFirstParaAdder;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdTextToFirstParaAdder.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdTextToFirstParaAdder" MUID: (4CDD7C01013F)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

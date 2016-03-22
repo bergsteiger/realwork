@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtUnicodeButtonControl.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vtUnicodeButtonControl" MUID: (5179415C0005)
+// Имя типа: "_vtUnicodeButtonControl_"
 
 {$Define vtUnicodeButtonControl_imp}
 

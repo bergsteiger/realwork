@@ -3,6 +3,8 @@ unit PrimLeftEdition_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimLeftEdition_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimLeftEdition" MUID: (4A6D5A80013C)
+// Имя типа: "TPrimLeftEditionForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

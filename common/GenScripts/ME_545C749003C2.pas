@@ -2,6 +2,7 @@ unit arResultDeliverer;
 
 // Модуль: "w:\archi\source\projects\Archi\Processing\arResultDeliverer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarResultDeliverer" MUID: (545C749003C2)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
@@ -42,6 +43,7 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
+   procedure ClearFields; override;
   public
    constructor Create(const aWeakListener: IarResultDelivererListner); reintroduce;
    procedure TerminateProcess;
@@ -399,6 +401,12 @@ begin
  ncsFileTransferReg.ncsClientRegister;
 //#UC END# *47A042E100E2_545C749003C2_impl*
 end;//TarResultDeliverer.InitFields
+
+procedure TarResultDeliverer.ClearFields;
+begin
+ ServerHost := '';
+ inherited;
+end;//TarResultDeliverer.ClearFields
 {$IfEnd} // Defined(AppClientSide)
 
 end.

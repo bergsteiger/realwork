@@ -2,6 +2,7 @@ unit csAACImport;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csAACImport.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsAACImport" MUID: (5317040F0257)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

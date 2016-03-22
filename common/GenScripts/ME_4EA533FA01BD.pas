@@ -3,6 +3,7 @@ unit NOT_FINISHED_dd_lcSectionEliminator;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcSectionEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tdd_lcSectionEliminator" MUID: (4EA533FA01BD)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

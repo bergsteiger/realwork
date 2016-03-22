@@ -2,6 +2,7 @@ unit pgJournalCache;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgJournalCache.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "pgJournalCache" MUID: (564ACBC5032E)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 

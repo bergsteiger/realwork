@@ -5,9 +5,22 @@ unit l3String;
 { Автор: Люлин А.В. ©                 }
 { Модуль: evString - методы для работы со строками}
 { Начат: 12.12.1996                   }
-{ $Id: l3String.pas,v 1.330 2015/10/12 10:59:18 lulin Exp $ }
+{ $Id: l3String.pas,v 1.334 2016/02/08 11:46:46 fireton Exp $ }
 
 // $Log: l3String.pas,v $
+// Revision 1.334  2016/02/08 11:46:46  fireton
+// - l3StrLength для Il3CString
+//
+// Revision 1.333  2016/01/26 12:03:30  fireton
+// - не падаем с AV в l3ChangeCodePage в случае, если передали nil
+//
+// Revision 1.332  2016/01/20 10:46:50  fireton
+// - l3ChangeCodePage для Il3CString
+//
+// Revision 1.331  2015/11/12 07:21:13  fireton
+// - Нормальная диагностика ошибок при экспорте
+// - Считаем пустые документы, справки и аннотации правильно
+//
 // Revision 1.330  2015/10/12 10:59:18  lulin
 // - переводим искомую строку в верхний регистр.
 //
@@ -984,6 +997,7 @@ uses
   l3Chars,
   l3Types,
   l3Interfaces,
+  l3StringList,
   ElStrUtils
   ;
 
@@ -1058,7 +1072,8 @@ function l3DStr(const aStr: Tl3WString): Tl3DString;
 function l3DStr(const aStr: Il3CString): Tl3DString;
   overload;
   {-}
-function l3ChangeCodePage(const aString: AnsiString; anOldCodePage, aNewCodePage: Long): AnsiString;
+function l3ChangeCodePage(const aString: AnsiString; anOldCodePage, aNewCodePage: Long): AnsiString; overload;
+function l3ChangeCodePage(const aString: Il3CString; aNewCodePage: Long): Il3CString; overload;
   {* - изменяет кодировку символов в строке. }
 procedure l3Replace(St            : PAnsiChar;
                     aReplaceChars : TChars;
@@ -1396,6 +1411,8 @@ function l3AddBackSlashL(const DirName : AnsiString) : AnsiString;
 function l3MakeUpperCase(aStr: PAnsiChar; aLen : Long; aCodePage: Long = CP_ANSI): Boolean;
 function l3MakeLowerCase(aStr: PAnsiChar; aLen : Long; aCodePage: Long = CP_ANSI): Boolean;
 
+function l3StringListToStr(const aList: Tl3StringList): AnsiString;
+
 {$IFNDEF Delphi6}
 function WideUpperCase(const S: WideString): WideString;
 {$EndIF  Delphi6}
@@ -1616,7 +1633,9 @@ function l3InSet(aChar: WideChar; const aSet : TCharSet): Boolean;
   {-}
 function l3WideToChar(aChar: WideChar): AnsiChar;
   {-}
-function l3StrLength(const S: AnsiString): Longint;
+function l3StrLength(const S: AnsiString): Longint; overload;
+  {-}
+function l3StrLength(const S: Il3CString): Longint; overload;
   {-}
 function l3StrRefCount(const S: AnsiString): Longint;
   {-}
@@ -1711,7 +1730,7 @@ uses
   l3Except,
   l3InterfacedString,
   l3BMSearch
-  ;
+  , l3_String;
 
 function l3StrLen(Str: PAnsiChar) : Cardinal;
   {-возвращает длину строки или 0 если строка = nil}
@@ -4131,6 +4150,29 @@ begin
   Result := aString
  else
   Result := l3PCharLen2String(l3PCharLen(aString, anOldCodePage), aNewCodePage);
+end;
+
+function l3ChangeCodePage(const aString: Il3CString; aNewCodePage: Long): Il3CString;
+var
+ l_CodePage: Integer;
+ l_Str: Tl3InterfacedString;
+begin
+ if l3IsNil(aString) or (aString.AsWStr.SCodePage = aNewCodePage) then
+  Result := aString
+ else
+ begin
+  l_Str := Tl3InterfacedString.Make(aString.AsWStr);
+  try
+   if (aNewCodePage = CP_ANSI) and (GetACP <> CP_RussianWin) then
+    l_CodePage := CP_RussianWin
+   else
+    l_CodePage := aNewCodePage;
+   l_Str.CodePage := l_CodePage;
+   Result := l_Str;
+  finally
+   FreeAndNil(l_Str);
+  end;
+ end;
 end;
 
 function l3MakeUpperCase(aStr: PAnsiChar; aLen : Long; aCodePage: Long = CP_ANSI): Boolean;
@@ -6668,6 +6710,24 @@ begin
    aValue := aValue - Arabics[j];
     Result := Result + Romans[j];
   end;
+end;
+
+function l3StringListToStr(const aList: Tl3StringList): AnsiString;
+var
+ I : Integer;
+begin
+ Result := '';
+ if Assigned(aList) and (aList.Count > 0) then
+  for I := 0 to aList.Count - 1 do
+   Result := Result + l3Str(aList.ItemW[I]) + #13#10;
+end;
+
+function l3StrLength(const S: Il3CString): Longint; overload;
+begin
+ if not l3IsNil(S) then
+  Result := S.AsWStr.SLen
+ else
+  Result := 0; 
 end;
 
 end.

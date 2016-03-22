@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\dsSituation.imp.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsSituation" MUID: (49242CB201D0)
+// Имя типа: "_dsSituation_"
 
 {$Define dsSituation_imp}
 

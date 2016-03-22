@@ -23,42 +23,62 @@ namespace GCL {
 
 //#UC START# *450135E90109_USER_DEFINITION*
 struct OrphanStr {
-	typedef unsigned OrphanType;
-	const char* str;
-	OrphanStr (char* s, OrphanType orphan) : str (s), m_orphan (orphan) {}
-	OrphanStr (const char* s) : str (s), m_orphan (false) {}
+private:
+	typedef bool OrphanType;
+	OrphanType m_orphan;
+	ACE_UINT16 m_size;
+	const char* m_str;
+
+public:
+	OrphanStr (char* s, OrphanType orphan) : m_str (s), m_orphan (orphan), m_size (0) {}
+	OrphanStr (const char* s) : m_str (s), m_orphan (false), m_size (0) {}
+	OrphanStr (const char* s, size_t len) : m_str (s), m_orphan (false) {
+		GDS_ASSERT (len <= std::numeric_limits<ACE_UINT16>::max ());
+		m_size = static_cast<ACE_UINT16> (len);
+	}
+
 	~OrphanStr () {
 		if (m_orphan) {
 			// это ошибка: мы не знаем как была выделена пам€ть, а как удал€ть типа знаем...
 			// надо параметризовать класс DeleteDestructor'ом
-			delete str;
+			delete m_str;
 		}
 	}
+
 	// There are not a real copy. It is to return OrphanStr from functions ONLY
 	OrphanStr (const OrphanStr& os) {
-		str = os.str;
+		m_str = os.m_str;
 		m_orphan = os.m_orphan;
+		m_size = os.m_size;
 		const_cast <OrphanStr&> (os).m_orphan = false;
 	}
+
 	OrphanStr& operator= (const OrphanStr& os); /* { GARANT_ISOCPP: is NOT used by linker
 		if (m_orphan) {
-			delete str;
+			delete m_str;
 		}
-		str = os.str;
+		m_str = os.m_str;
 		m_orphan = os.m_orphan;
 		const_cast <OrphanStr&> (os).m_orphan = false;
 	} */
-	// It is DANGEROUSLY to use because of temporary objects.
-	/*inline operator const char* () const;*/
-	inline char* get (OrphanType orphan) {
-		m_orphan = orphan;
-		return const_cast <char*> (str);
+
+	char* release () {
+		GDS_ASSERT (m_orphan == true);
+		m_orphan = false;
+		return const_cast <char*> (m_str);
 	}
-	inline bool is_orphan () const {
-		return m_orphan != 0;
+
+	bool is_orphan () const {
+		return m_orphan;
 	}
-private:
-	OrphanType m_orphan;
+
+	const char* data () const {
+		return m_str;
+	}
+
+	size_t size () const {
+		return m_size ? m_size : (m_str ? ACE_OS::strlen (m_str) : 0);
+	}
 };
 //#UC END# *450135E90109_USER_DEFINITION*
 

@@ -2,6 +2,7 @@ unit vcmTabsHistoryService;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabsHistoryService.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmTabsHistoryService" MUID: (559BA3CE0056)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

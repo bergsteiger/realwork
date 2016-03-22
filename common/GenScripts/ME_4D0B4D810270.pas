@@ -3,6 +3,7 @@ unit nsIFilterFromQueryList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\nsIFilterFromQueryList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsIFilterFromQueryList" MUID: (4D0B4D810270)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit m3StorageBlock;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3StorageBlock.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "m3StorageBlock" MUID: (5411C54C0194)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
@@ -377,6 +378,8 @@ begin
   Assert(not Self.f_BufferModified);
   f_Manager.Lock;
   try
+   if (m3TOCBuffers = nil) then
+    m3TOCBuffers := l3NewMemoryChain(m3ClusterSize);
    m3TOCBuffers^.AllocItemZ(Pointer(Self.f_Body), f_Manager.ClusterBodySize);
    if (Self.Position <> -1) then
    // - иначе нечего читать, видимо это НОВЫЙ блок, который только начинают писать
@@ -601,7 +604,8 @@ end;//Tm3StorageBlock.Cleanup
 
 initialization
 //#UC START# *5413162303A4*
- m3TOCBuffers := l3NewMemoryChain(m3ClusterSize);
+ if (m3TOCBuffers = nil) then
+  m3TOCBuffers := l3NewMemoryChain(m3ClusterSize);
 //#UC END# *5413162303A4*
 
 end.

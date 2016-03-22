@@ -3,6 +3,8 @@ unit F1LikeFormWithBS_Form;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\F1LikeFormWithBS_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "F1LikeFormWithBS" MUID: (4D6CB4B7035F)
+// Имя типа: "TF1LikeFormWithBSForm"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

@@ -1,63 +1,46 @@
 unit ExportSeparatedBySizeTest;
+ {* Экспорт в NSRC, разделённые по размеру с помощью свойства DivideBy }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SimpleTests"
-// Модуль: "W:/archi/source/projects/ImportExportTest/ExportSeparatedBySizeTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> archi$ImportExprortTest::SimpleTests::ExportPipeTests::ExportSeparatedBySizeTest
-//
-// Экспорт в NSRC, разделённые по размеру с помощью свойства DivideBy
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\archi\source\projects\ImportExportTest\ExportSeparatedBySizeTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "ExportSeparatedBySizeTest" MUID: (55FFA0650118)
+// Имя типа: "TExportSeparatedBySizeTest"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include W:\archi\source\projects\ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  ExportPipeTestPrim
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , ExportPipeTestPrim
+;
 
-{$If defined(nsTest)}
 type
  TExportSeparatedBySizeTest = class(TExportPipeTestPrim)
   {* Экспорт в NSRC, разделённые по размеру с помощью свойства DivideBy }
- protected
- // realized methods
+  protected
    procedure TuneExportPipe; override;
-     {* Процедура настройки трубы. Метод для перекрытия в потомках. }
- protected
- // overridden protected methods
+    {* Процедура настройки трубы. Метод для перекрытия в потомках. }
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TExportSeparatedBySizeTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork,
-  ddPipeOutInterfaces,
-  l3Base
-  ;
-{$IfEnd} //nsTest
-
-{$If defined(nsTest)}
-
-// start class TExportSeparatedBySizeTest
+ l3ImplUses
+ , TestFrameWork
+ , ddPipeOutInterfaces
+ , l3Base
+;
 
 procedure TExportSeparatedBySizeTest.TuneExportPipe;
+ {* Процедура настройки трубы. Метод для перекрытия в потомках. }
 //#UC START# *55EEA16603AE_55FFA0650118_var*
 //#UC END# *55EEA16603AE_55FFA0650118_var*
 begin
@@ -68,20 +51,19 @@ begin
 end;//TExportSeparatedBySizeTest.TuneExportPipe
 
 function TExportSeparatedBySizeTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'ExportPipeTests';
 end;//TExportSeparatedBySizeTest.GetFolder
 
 function TExportSeparatedBySizeTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '55FFA0650118';
 end;//TExportSeparatedBySizeTest.GetModelElementGUID
 
-{$IfEnd} //nsTest
-
 initialization
  TestFramework.RegisterTest(TExportSeparatedBySizeTest.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

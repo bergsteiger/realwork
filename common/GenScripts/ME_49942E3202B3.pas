@@ -3,6 +3,7 @@ unit vcmGUI;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmGUI.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "vcmGUI" MUID: (49942E3202B3)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
@@ -33,7 +34,7 @@ type
   function MessageDlg(const aMsg: IvcmCString;
    const aKey: AnsiString;
    aDlgType: TMsgDlgType = Dialogs.mtCustom;
-   aButtons: TMsgDlgButtons = Dialogs.[mbOK]): Integer; overload;
+   aButtons: TMsgDlgButtons = [mbOK]): Integer; overload;
   function MessageDlg(const aMsg: TvcmMessageID): Integer; overload;
   procedure Say(const aMsg: TvcmMessageID); overload;
   procedure Say(const aMsg: TvcmMessageID;

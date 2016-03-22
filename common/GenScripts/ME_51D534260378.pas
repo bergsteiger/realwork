@@ -2,6 +2,8 @@ unit FromWithPanel_Form;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\FromWithPanel_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "FromWithPanel" MUID: (51D534260378)
+// Имя типа: "TFromWithPanelForm"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

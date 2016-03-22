@@ -2,6 +2,7 @@ unit ProgressIndicatorSupportUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ProgressIndicatorSupportUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "ProgressIndicatorSupport" MUID: (45EEA87702A5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

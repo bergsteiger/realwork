@@ -3,6 +3,8 @@ unit PrimGroupPropertyOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupPropertyOptions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimGroupPropertyOptions" MUID: (4C8A09E103B7)
+// Имя типа: "TPrimGroupPropertyOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

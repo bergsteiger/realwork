@@ -2,6 +2,7 @@ unit vtInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "vtInterfaces" MUID: (4F8BEB580354)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

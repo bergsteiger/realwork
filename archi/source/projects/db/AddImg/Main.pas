@@ -1,7 +1,10 @@
 unit Main;
 
-{ $Id: Main.pas,v 1.15 2015/07/02 11:40:58 lukyanets Exp $ }
+{ $Id: Main.pas,v 1.16 2015/11/26 09:31:17 lukyanets Exp $ }
 // $Log: Main.pas,v $
+// Revision 1.16  2015/11/26 09:31:17  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.15  2015/07/02 11:40:58  lukyanets
 // Описываем словари
 //
@@ -116,6 +119,7 @@ uses
  IniFiles,
 
  daTypes,
+ daSchemeConsts,
 
  Ht_Const,
 

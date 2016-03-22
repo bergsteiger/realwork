@@ -2,6 +2,7 @@ unit NOT_FINISHED_nevInternalInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_nevInternalInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "nevInternalInterfaces" MUID: (47F0893F0220)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

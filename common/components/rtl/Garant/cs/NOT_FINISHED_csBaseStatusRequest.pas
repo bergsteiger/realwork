@@ -2,6 +2,7 @@ unit NOT_FINISHED_csBaseStatusRequest;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csBaseStatusRequest.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "csBaseStatusRequest" MUID: (531707520169)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

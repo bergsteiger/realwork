@@ -1,59 +1,41 @@
 unit HTMLtoEVDWriterTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Daily/HTMLtoEVDWriterTest.pas"
-// Начат: 29.09.2011 18:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::HTML::HTMLtoEVDWriterTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\HTMLtoEVDWriterTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "HTMLtoEVDWriterTest" MUID: (4E847D990353)
+// Имя типа: "THTMLtoEVDWriterTest"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  WriterTest
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , WriterTest
+ , ddHTMLReader
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  THTMLtoEVDWriterTest = {abstract} class(TWriterTest)
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    procedure HTMLtoEVD(const aFileName: AnsiString);
+   procedure TuningReader(aHTMLReader: TddHTMLReader); virtual;
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//THTMLtoEVDWriterTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  ddHTMLReader,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class THTMLtoEVDWriterTest
+ l3ImplUses
+ , TestFrameWork
+ , SysUtils
+;
 
 procedure THTMLtoEVDWriterTest.HTMLtoEVD(const aFileName: AnsiString);
 //#UC START# *4E847EEE02DB_4E847D990353_var*
@@ -63,6 +45,7 @@ var
 begin
 //#UC START# *4E847EEE02DB_4E847D990353_impl*
  l_Reader := TddHTMLReader.Make(FileFromCurrent(aFileName));
+ TuningReader(l_Reader);
  try
   SomeFormatToEVD(l_Reader);
  finally
@@ -71,18 +54,26 @@ begin
 //#UC END# *4E847EEE02DB_4E847D990353_impl*
 end;//THTMLtoEVDWriterTest.HTMLtoEVD
 
+procedure THTMLtoEVDWriterTest.TuningReader(aHTMLReader: TddHTMLReader);
+//#UC START# *56A613A30375_4E847D990353_var*
+//#UC END# *56A613A30375_4E847D990353_var*
+begin
+//#UC START# *56A613A30375_4E847D990353_impl*
+ 
+//#UC END# *56A613A30375_4E847D990353_impl*
+end;//THTMLtoEVDWriterTest.TuningReader
+
 function THTMLtoEVDWriterTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'HTML';
 end;//THTMLtoEVDWriterTest.GetFolder
 
 function THTMLtoEVDWriterTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4E847D990353';
 end;//THTMLtoEVDWriterTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

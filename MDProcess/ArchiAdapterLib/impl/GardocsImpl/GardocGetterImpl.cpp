@@ -46,11 +46,12 @@ Gardocs::GardocList* GardocGetterImpl::gardocs_by_confluenceid_list (
 	Gardocs::CommunicationFailure
 )*/ {
 	//#UC START# *5499A01C011F_5499A0B701E7*
-	LOG_D(("%s - START", GDS_CURRENT_FUNCTION));
+	LOG_D(("%s - START (confluenceidList.size=%d)", GDS_CURRENT_FUNCTION, confluenceidList.size()));
 	try {
 		InvocationAspect<ArchiGate::DocCardRemote::GardocGetter> action;
 
 		::ArchiGate::DocCardRemote::LongList corbaList (confluenceidList.size());
+		corbaList.length(confluenceidList.size());
 		for (unsigned int i = 0; i < confluenceidList.size(); i++) {
 			corbaList[i] = confluenceidList[i];
 		}
@@ -79,6 +80,7 @@ Gardocs::GardocList* GardocGetterImpl::gardocs_by_topic_list (
 		InvocationAspect<ArchiGate::DocCardRemote::GardocGetter> action;
 
 		::ArchiGate::DocCardRemote::LongList corbaList (topicList.size());
+		corbaList.length(topicList.size());
 		for (unsigned int i = 0; i < topicList.size(); i++) {
 			corbaList[i] = topicList[i];
 		}

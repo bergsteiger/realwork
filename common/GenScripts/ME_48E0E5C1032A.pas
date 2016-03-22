@@ -2,6 +2,7 @@ unit nevControl;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevControl.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnevControl" MUID: (48E0E5C1032A)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

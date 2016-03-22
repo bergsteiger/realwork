@@ -28,6 +28,8 @@ uses
 type
 //#UC START# *45F585F802AFci*
 //#UC END# *45F585F802AFci*
+//#UC START# *45F585F802AFcit*
+//#UC END# *45F585F802AFcit*
  Tree = {abstract} class(TreeBase)
  private
  // private fields
@@ -78,7 +80,7 @@ function Tree.pm_GetTreeName: AnsiString;
 //#UC END# *460259A6032C_45F585F802AFget_var*
 begin
 //#UC START# *460259A6032C_45F585F802AFget_impl*
- Result := f_tree_name
+ !!! Needs to be implemented !!!
 //#UC END# *460259A6032C_45F585F802AFget_impl*
 end;//Tree.pm_GetTreeName
 
@@ -87,7 +89,7 @@ procedure Tree.pm_SetTreeName(const aValue: AnsiString);
 //#UC END# *460259A6032C_45F585F802AFset_var*
 begin
 //#UC START# *460259A6032C_45F585F802AFset_impl*
- f_tree_name := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *460259A6032C_45F585F802AFset_impl*
 end;//Tree.pm_SetTreeName
 

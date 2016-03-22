@@ -3,6 +3,7 @@ unit PrimAttributeSelect_utSingleSearch_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimAttributeSelect_utSingleSearch_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utSingleSearch" MUID: (4BD6F83503B7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -32,26 +33,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utSingleSearch = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utSingleSearch }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utSingleSearch
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utSingleSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utSingleSearch';
-end;//Tkw_FormUserType_utSingleSearch.GetWordNameForRegister
-
 function Tkw_FormUserType_utSingleSearch.GetInteger: Integer;
 begin
  Result := utSingleSearch;
 end;//Tkw_FormUserType_utSingleSearch.GetInteger
+
+class function Tkw_FormUserType_utSingleSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utSingleSearch';
+end;//Tkw_FormUserType_utSingleSearch.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

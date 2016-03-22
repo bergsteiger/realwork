@@ -2,6 +2,8 @@ unit kwVcmHistoryGetBackCount;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmHistoryGetBackCount.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "vcm_History_GetBackCount" MUID: (4FC4C90B002D)
+// Имя типа: "TkwVcmHistoryGetBackCount"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

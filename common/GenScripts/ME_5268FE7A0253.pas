@@ -2,6 +2,7 @@ unit ddParaList;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddParaList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddParaList" MUID: (5268FE7A0253)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

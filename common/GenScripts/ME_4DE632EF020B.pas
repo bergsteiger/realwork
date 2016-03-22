@@ -26,6 +26,7 @@ unit kwArchiCloseDocument;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiCloseDocument.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwArchiCloseDocument" MUID: (4DE632EF020B)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

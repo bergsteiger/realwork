@@ -1,8 +1,14 @@
 unit ddAutoLinkDataSource;
 
-{ $Id: ddAutoLinkDataSource.pas,v 1.18 2015/07/02 07:36:05 lukyanets Exp $ }
+{ $Id: ddAutoLinkDataSource.pas,v 1.20 2015/11/25 14:01:46 lukyanets Exp $ }
 
 // $Log: ddAutoLinkDataSource.pas,v $
+// Revision 1.20  2015/11/25 14:01:46  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
+// Revision 1.19  2015/11/23 11:37:13  lukyanets
+// Заготовки Renum
+//
 // Revision 1.18  2015/07/02 07:36:05  lukyanets
 // Описываем словари
 //
@@ -169,8 +175,10 @@ uses
  l3LongintListPrim,
  l3Base,
 
+ daInterfaces,
  daDataProvider,
  daTypes,
+ daSchemeConsts,
 
  DT_Const,
  DT_SrchQueries,

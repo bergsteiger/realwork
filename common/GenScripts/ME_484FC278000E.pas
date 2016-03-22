@@ -3,6 +3,8 @@ unit Para_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\Para_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Para" MUID: (484FC278000E)
+// Имя типа: "ParaTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

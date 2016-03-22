@@ -41,8 +41,8 @@ uses
   vcmInterfaces
   {$IfEnd} //not NoVCM
   ,
-  Messages,
   bsTypes,
+  bsInterfaces,
   eeInterfaces,
   DocumentAndListInterfaces,
   TreeInterfaces,
@@ -61,7 +61,8 @@ uses
   FoldersDomainInterfaces,
   L10nInterfaces,
   PreviewInterfaces,
-  eeTreeViewExport
+  eeTreeViewExport,
+  l3ProtoObject
   {$If defined(Nemesis)}
   ,
   nscContextFilter
@@ -184,6 +185,82 @@ type
     aCount: Cardinal); virtual;
  end;//TnsViewSameDocumentsEvent
 
+  TPrimListFormStateOption = (
+    lfoContextFilterState
+  , lfoTopItemIndex
+  , lfoCurrentIndex
+  , lfoTreeStructState
+  , lfoInner
+  );//TPrimListFormStateOption
+
+  TPrimListFormStateOptions = set of TPrimListFormStateOption;
+
+ IPrimListFormState = interface(IvcmBase)
+   ['{05608760-BE05-4CBD-B87E-A50CB768DCA8}']
+   function pm_GetInnerState: IvcmBase;
+   function pm_GetContextFilterState: IUnknown;
+   function pm_GetTreeStructState: InsTreeStructState;
+   function pm_GetTopItemIndex: Integer;
+   function pm_GetCurrentIndex: Integer;
+   function pm_GetOptions: TPrimListFormStateOptions;
+   property InnerState: IvcmBase
+     read pm_GetInnerState;
+   property ContextFilterState: IUnknown
+     read pm_GetContextFilterState;
+   property TreeStructState: InsTreeStructState
+     read pm_GetTreeStructState;
+   property TopItemIndex: Integer
+     read pm_GetTopItemIndex;
+   property CurrentIndex: Integer
+     read pm_GetCurrentIndex;
+   property Options: TPrimListFormStateOptions
+     read pm_GetOptions;
+ end;//IPrimListFormState
+
+ _afwApplicationDataUpdate_Parent_ = Tl3ProtoObject;
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
+ TPrimListFormState = class(_afwApplicationDataUpdate_, IPrimListFormState)
+ private
+ // private fields
+   f_InnerState : IvcmBase;
+   f_ContextFilterState : IUnknown;
+   f_TreeStructState : InsTreeStructState;
+   f_TopItemIndex : Integer;
+   f_Options : TPrimListFormStateOptions;
+   f_CurrentIndex : Integer;
+ protected
+ // realized methods
+   function pm_GetInnerState: IvcmBase;
+   function pm_GetContextFilterState: IUnknown;
+   function pm_GetTreeStructState: InsTreeStructState;
+   function pm_GetTopItemIndex: Integer;
+   function pm_GetOptions: TPrimListFormStateOptions;
+   function pm_GetCurrentIndex: Integer;
+ protected
+ // overridden protected methods
+   procedure FinishDataUpdate; override;
+ public
+ // overridden public methods
+   function QueryInterface(const IID: TGUID;
+   out Obj): HResult; override;
+     {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
+ public
+ // public methods
+   constructor Create(const aInnerState: IvcmBase;
+     const aContextFilterState: IUnknown;
+     const aTreeStructState: InsTreeStructState;
+     aTopItemIndex: Integer;
+     aCurrentIndex: Integer;
+     aOptions: TPrimListFormStateOptions); reintroduce;
+   class function Make(const aInnerState: IvcmBase;
+     const aContextFilterState: IUnknown;
+     const aTreeStructState: InsTreeStructState;
+     aTopItemIndex: Integer;
+     aCurrentIndex: Integer;
+     aOptions: TPrimListFormStateOptions): IPrimListFormState; reintroduce;
+     {* Сигнатура фабрики TPrimListFormState.Make }
+ end;//TPrimListFormState
+
 var
   { Локализуемые строки DocumentListHintConst }
  str_lntAAC : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lntAAC'; rValue : 'Энциклопедия решений');
@@ -234,8 +311,6 @@ type
   {* Список документов }
  private
  // private fields
-   f_NeedDirtyHackForScrollbar : Boolean;
-    {* http://mdp.garant.ru/pages/viewpage.action?pageId=527687338}
    f_AllowCallCurrentChangedOnTest : Boolean;
    f_ListPanel : TvtPanel;
     {* Поле для свойства ListPanel}
@@ -292,11 +367,8 @@ type
      var aFocused: Boolean);
    procedure TvListFooterClick(Sender: TObject);
    function TvListGetNodeType(anIndex: Integer): TbsListNodeType;
-   procedure DirtyHackForScrollbar;
-     {* http://mdp.garant.ru/pages/viewpage.action?pageId=527687338 }
    procedure CallCurrentChanged;
      {* Сигнатура метода CallCurrentChanged }
-   procedure WMWindowPosChanged(var Msg: TMessage); message WM_WINDOWPOSCHANGED;
  protected
  // property methods
    function pm_GetNoMoreThanOneSelected: Boolean;
@@ -616,11 +688,25 @@ type
     const aNew: IvcmViewAreaController); override;
      {* Изменился источник данных. Для перекрытия в потомках }
    {$IfEnd} //not NoVCM
+   {$If not defined(NoVCM)}
+   function DoSaveState(out theState: IvcmBase;
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; override;
+     {* Сохраняет состояние формы. Для перекрытия в потомках }
+   {$IfEnd} //not NoVCM
+   {$If not defined(NoVCM)}
+   function DoLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType): Boolean; override;
+     {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} //not NoVCM
    function NeedsStatusBarItems: Boolean; override;
      {* Определяет, что операции в статусной строке таки надо публиковать }
    {$If not defined(NoVCM)}
    procedure InitControls; override;
      {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} //not NoVCM
+   {$If not defined(NoVCM)}
+   procedure PageActive; override;
    {$IfEnd} //not NoVCM
    procedure ClearFields; override;
      {* Сигнатура метода ClearFields }
@@ -749,6 +835,7 @@ uses
   nsSaveDialog,
   nsConst,
   Printers,
+  afwFacade,
   bsUtils,
   BaseTreeSupportUnit,
   nsUtils,
@@ -767,7 +854,6 @@ uses
   {$IfEnd} //not NoVCL
   ,
   l3Tree_TLB,
-  afwFacade,
   nsFiltersContainer,
   evdStyles
   {$If not defined(NoVCL)}
@@ -791,6 +877,7 @@ uses
   ,
   Windows,
   nscDocumentHistory,
+  vtLister,
   l3MessageID
   {$If not defined(NoScripts)}
   ,
@@ -1218,22 +1305,6 @@ begin
  Result := dsList.ListNodeType(tvList.GetNode(anIndex));
 //#UC END# *51DC1AA10279_497DDB2B001B_impl*
 end;//TPrimListForm.TvListGetNodeType
-
-procedure TPrimListForm.DirtyHackForScrollbar;
-//#UC START# *54464CC601D1_497DDB2B001B_var*
-//#UC END# *54464CC601D1_497DDB2B001B_var*
-begin
-//#UC START# *54464CC601D1_497DDB2B001B_impl*
- if Assigned(tvList) then
-  if tvList.HandleAllocated then
-   if f_NeedDirtyHackForScrollbar then
-   begin
-    SetWindowPos(tvList.Handle, 0, 0, 0, 0, 0, SWP_NOSIZE or SWP_NOMOVE or
-     SWP_NOZORDER or SWP_NOACTIVATE or SWP_FRAMECHANGED);
-    f_NeedDirtyHackForScrollbar := False;
-   end;
-//#UC END# *54464CC601D1_497DDB2B001B_impl*
-end;//TPrimListForm.DirtyHackForScrollbar
 
 procedure TPrimListForm.CallCurrentChanged;
 //#UC START# *5527D24201E7_497DDB2B001B_var*
@@ -1794,6 +1865,120 @@ begin
  GetLogger.AddEvent(LE_VIEW_SAME_DOCUMENTS, l_Data);
 //#UC END# *4B0CF288004C_4B0CF2510084_impl*
 end;//TnsViewSameDocumentsEvent.Log
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
+
+// start class TPrimListFormState
+
+constructor TPrimListFormState.Create(const aInnerState: IvcmBase;
+  const aContextFilterState: IUnknown;
+  const aTreeStructState: InsTreeStructState;
+  aTopItemIndex: Integer;
+  aCurrentIndex: Integer;
+  aOptions: TPrimListFormStateOptions);
+//#UC START# *5677BAD7012E_5677B9280204_var*
+//#UC END# *5677BAD7012E_5677B9280204_var*
+begin
+//#UC START# *5677BAD7012E_5677B9280204_impl*
+ inherited Create;
+ f_InnerState := aInnerState;
+ f_ContextFilterState := aContextFilterState;
+ f_TreeStructState := aTreeStructState;
+ f_TopItemIndex := aTopItemIndex;
+ f_CurrentIndex := aCurrentIndex;
+ f_Options := aOptions;
+//#UC END# *5677BAD7012E_5677B9280204_impl*
+end;//TPrimListFormState.Create
+
+class function TPrimListFormState.Make(const aInnerState: IvcmBase;
+  const aContextFilterState: IUnknown;
+  const aTreeStructState: InsTreeStructState;
+  aTopItemIndex: Integer;
+  aCurrentIndex: Integer;
+  aOptions: TPrimListFormStateOptions): IPrimListFormState;
+var
+ l_Inst : TPrimListFormState;
+begin
+ l_Inst := Create(aInnerState, aContextFilterState, aTreeStructState, aTopItemIndex, aCurrentIndex, aOptions);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;
+
+function TPrimListFormState.pm_GetInnerState: IvcmBase;
+//#UC START# *5677BA0B01C2_5677B9280204get_var*
+//#UC END# *5677BA0B01C2_5677B9280204get_var*
+begin
+//#UC START# *5677BA0B01C2_5677B9280204get_impl*
+ Result := f_InnerState;
+//#UC END# *5677BA0B01C2_5677B9280204get_impl*
+end;//TPrimListFormState.pm_GetInnerState
+
+function TPrimListFormState.pm_GetContextFilterState: IUnknown;
+//#UC START# *5677BA5B0133_5677B9280204get_var*
+//#UC END# *5677BA5B0133_5677B9280204get_var*
+begin
+//#UC START# *5677BA5B0133_5677B9280204get_impl*
+ Result := f_ContextFilterState;
+//#UC END# *5677BA5B0133_5677B9280204get_impl*
+end;//TPrimListFormState.pm_GetContextFilterState
+
+function TPrimListFormState.pm_GetTreeStructState: InsTreeStructState;
+//#UC START# *56A8ADEE0129_5677B9280204get_var*
+//#UC END# *56A8ADEE0129_5677B9280204get_var*
+begin
+//#UC START# *56A8ADEE0129_5677B9280204get_impl*
+ Result := f_TreeStructState; 
+//#UC END# *56A8ADEE0129_5677B9280204get_impl*
+end;//TPrimListFormState.pm_GetTreeStructState
+
+function TPrimListFormState.pm_GetTopItemIndex: Integer;
+//#UC START# *56A9C9980259_5677B9280204get_var*
+//#UC END# *56A9C9980259_5677B9280204get_var*
+begin
+//#UC START# *56A9C9980259_5677B9280204get_impl*
+ Result := f_TopItemIndex;
+//#UC END# *56A9C9980259_5677B9280204get_impl*
+end;//TPrimListFormState.pm_GetTopItemIndex
+
+function TPrimListFormState.pm_GetOptions: TPrimListFormStateOptions;
+//#UC START# *56A9DE4C03A0_5677B9280204get_var*
+//#UC END# *56A9DE4C03A0_5677B9280204get_var*
+begin
+//#UC START# *56A9DE4C03A0_5677B9280204get_impl*
+ Result := f_Options;
+//#UC END# *56A9DE4C03A0_5677B9280204get_impl*
+end;//TPrimListFormState.pm_GetOptions
+
+function TPrimListFormState.pm_GetCurrentIndex: Integer;
+//#UC START# *56E152870083_5677B9280204get_var*
+//#UC END# *56E152870083_5677B9280204get_var*
+begin
+//#UC START# *56E152870083_5677B9280204get_impl*
+ Result := f_CurrentIndex;
+//#UC END# *56E152870083_5677B9280204get_impl*
+end;//TPrimListFormState.pm_GetCurrentIndex
+
+function TPrimListFormState.QueryInterface(const IID: TGUID;
+  out Obj): HResult;
+//#UC START# *47A0AD3A01F7_5677B9280204_var*
+//#UC END# *47A0AD3A01F7_5677B9280204_var*
+begin
+//#UC START# *47A0AD3A01F7_5677B9280204_impl*
+ Result := inherited QueryInterface(IID, Obj);
+//#UC END# *47A0AD3A01F7_5677B9280204_impl*
+end;//TPrimListFormState.QueryInterface
+
+procedure TPrimListFormState.FinishDataUpdate;
+//#UC START# *47EA4E9002C6_5677B9280204_var*
+//#UC END# *47EA4E9002C6_5677B9280204_var*
+begin
+//#UC START# *47EA4E9002C6_5677B9280204_impl*
+ f_Options := [];
+ f_TreeStructState := nil;
+//#UC END# *47EA4E9002C6_5677B9280204_impl*
+end;//TPrimListFormState.FinishDataUpdate
 
 function TPrimListForm.pm_GetNoMoreThanOneSelected: Boolean;
 //#UC START# *4C3AA8E0004C_497DDB2B001Bget_var*
@@ -1952,16 +2137,6 @@ begin
 //#UC END# *4B5580C902B0_497DDB2B001B_impl*
 end;//TPrimListForm.ListOpsTest
 
-procedure TPrimListForm.WMWindowPosChanged(var Msg: TMessage);
-//#UC START# *54464C55009D_497DDB2B001B_var*
-//#UC END# *54464C55009D_497DDB2B001B_var*
-begin
-//#UC START# *54464C55009D_497DDB2B001B_impl*
- inherited;
- DirtyHackForScrollbar;
-//#UC END# *54464C55009D_497DDB2B001B_impl*
-end;//TPrimListForm.WMWindowPosChanged
-
 procedure TPrimListForm.LftRespondentsSynchroFormQueryMaximized(aSender: TObject);
 //#UC START# *068F6EC47A8A_497DDB2B001B_var*
 //#UC END# *068F6EC47A8A_497DDB2B001B_var*
@@ -2025,7 +2200,7 @@ begin
  if (aParams.Control = tvList) then
  begin
   SelectionOpsTest(aParams);
-  nsDisableOperationInTrialMode(aParams);
+  //nsDisableOperationInTrialMode(aParams);
  end//aParams.Control = tvList
  else
   if not aParams.CallControl then
@@ -4095,9 +4270,118 @@ begin
 //#UC START# *497469C90140_497DDB2B001B_impl*
  inherited;
  f_AllowCallCurrentChangedOnTest := True;
- f_NeedDirtyHackForScrollbar := True;
+
+ tvList.SelfDrawNodes := Assigned(dsDocumentList) and dsDocumentList.IsSnippet;
+ if tvList.HandleAllocated then
+  PostMessage(tvList.Handle, msg_vtInvalidateNCArea, 0, 0);
 //#UC END# *497469C90140_497DDB2B001B_impl*
 end;//TPrimListForm.NotifyDataSourceChanged
+{$IfEnd} //not NoVCM
+
+{$If not defined(NoVCM)}
+function TPrimListForm.DoSaveState(out theState: IvcmBase;
+  aStateType: TvcmStateType;
+  aForClone: Boolean): Boolean;
+//#UC START# *49806ED503D5_497DDB2B001B_var*
+var
+ l_InnerState: IvcmBase;
+ l_cfState: IUnknown;
+ l_cfStateMaker: IvcmState;
+ l_TreeStructStateProvider: InsTreeStructStateProvider;
+ l_TreeStructState: InsTreeStructState;
+//#UC END# *49806ED503D5_497DDB2B001B_var*
+begin
+//#UC START# *49806ED503D5_497DDB2B001B_impl*
+ theState := nil;
+ l_InnerState := nil;
+ l_TreeStructState := nil;
+ Result := inherited DoSaveState(l_InnerState, aStateType, aForClone);
+ if aForClone and tvList.IsTreeAssign then
+ begin
+  if Supports(tvList.TreeStruct, InsTreeStructStateProvider, l_TreeStructStateProvider) then
+   l_TreeStructState := l_TreeStructStateProvider.MakeState;
+  if Supports(cfList, IvcmState, l_cfStateMaker) then
+   if l_cfStateMaker.SaveState(l_cfState, vcm_stContent) then
+    theState := TPrimListFormState.Make(l_InnerState, l_cfState, l_TreeStructState, tvList.TopIndex, tvList.Current,
+                                        [lfoContextFilterState, lfoTopItemIndex, lfoCurrentIndex, lfoTreeStructState, lfoInner]);
+  if (theState = nil) then
+   theState := TPrimListFormState.Make(l_InnerState, nil, nil, 0, 0, [lfoInner]);
+ end;
+ if (theState = nil) then
+  theState := l_InnerState;
+//#UC END# *49806ED503D5_497DDB2B001B_impl*
+end;//TPrimListForm.DoSaveState
+{$IfEnd} //not NoVCM
+
+{$If not defined(NoVCM)}
+function TPrimListForm.DoLoadState(const aState: IvcmBase;
+  aStateType: TvcmStateType): Boolean;
+//#UC START# *49807428008C_497DDB2B001B_var*
+var
+ l_StateReceiver: IvcmState;
+ l_State: IPrimListFormState;
+ l_TreeStructState: InsTreeStructState;
+ l_TreeStructStateConsumer: InsTreeStructStateConsumer;
+ l_InnerState: IvcmBase;
+ l_WasActive: Boolean;
+//#UC END# *49807428008C_497DDB2B001B_var*
+begin
+//#UC START# *49807428008C_497DDB2B001B_impl*
+ if (UserType = lftDrugList) and (aStateType = vcm_stContent) then
+ begin
+  if Supports(aState, IPrimListFormState, l_State) then
+  begin
+   l_InnerState := l_State.InnerState;
+   if (l_State.ContextFilterState <> nil) then
+   begin
+    if Supports(cfList, IvcmState, l_StateReceiver) then
+    begin
+     // Всё ниженаписанное выглядит ужасно, но проблема в том, что
+     // в TnscContextFilter написано много какого-то странного кода,
+     // трогать который страшно
+     // http://mdp.garant.ru/pages/viewpage.action?pageId=609593354
+
+     tvList.TreeStruct;
+     // - Иначе TreeStruct получится при отрисовке и контекстный фильтр зачем-то
+     // затрёт свой контекст
+     if (lfoContextFilterState in l_State.Options) then
+     begin
+      cfList.BeginAssignState;
+      l_StateReceiver.LoadState(l_State.ContextFilterState, aStateType);
+      l_WasActive := cfList.Active;
+      cfList.Active := False;
+      // - если будет Active - контекст почему-то будет считаться неверным
+      // и его покрасят в красный цвет
+      cfList.EndAssignState;
+      cfList.Active := l_WasActive;
+     end;
+    end;
+    Result := True;
+   end
+   else
+    Result := inherited DoLoadState(l_InnerState, aStateType);
+  end
+  else
+   Assert(False)
+ end
+ else
+ begin
+  l_InnerState := aState;
+  if Supports(aState, IPrimListFormState, l_State) then
+  begin
+   l_InnerState := l_State.InnerState;
+   if (lfoCurrentIndex in l_State.Options) then
+    tvList.Current := l_State.CurrentIndex;
+   if (lfoTreeStructState in l_State.Options) then
+    if Supports(tvList.TreeStruct, InsTreeStructStateConsumer, l_TreeStructStateConsumer) then
+     l_TreeStructStateConsumer.AssignState(l_State.TreeStructState);
+   if (lfoTopItemIndex in l_State.Options) then
+    tvList.TopIndex := l_State.TopItemIndex;
+  end;
+  Result := inherited DoLoadState(l_InnerState, aStateType);
+ end; 
+//#UC END# *49807428008C_497DDB2B001B_impl*
+end;//TPrimListForm.DoLoadState
 {$IfEnd} //not NoVCM
 
 function TPrimListForm.NeedsStatusBarItems: Boolean;
@@ -4116,7 +4400,6 @@ procedure TPrimListForm.InitControls;
 begin
 //#UC START# *4A8E8F2E0195_497DDB2B001B_impl*
  inherited;
- f_NeedDirtyHackForScrollbar := True;
  ActiveControl := tvList;
  tvList.NonTrackScroll := true;
  tvList.StyleId := ev_saTxtNormalANSI;
@@ -4132,53 +4415,65 @@ begin
  end;//with ListPanel
  with cfList do
  begin
-   Left := 0;
-   Top := 0;
-   Width := 399;
-   Height := 35;
-   ImageIndex := 77;
-   ContextFilterTarget := tvList;
-   OnChange := cfListChange;
-   OnWrongContext := cfListWrongContext;
+  Left := 0;
+  Top := 0;
+  Width := 399;
+  Height := 35;
+  ImageIndex := 77;
+  ContextFilterTarget := tvList;
+  OnChange := cfListChange;
+  OnWrongContext := cfListWrongContext;
  end;
  with tvList do
  begin
-   Left := 0;
-   Top := 35;
-   Width := 399;
-   Height := 458;
-   OnCountChanged := tvListCountChanged;
-   OnAfterFirstPaint := tvListAfterFirstPaint;
-   OnCurrentIndexChanged := tvListCurrentIndexChanged;
-   Align := alClient;
-   BorderStyle := bsNone;
-   TabOrder := 0;
-   MultiSelect := True;
-   MultiStrokeItem := True;
-   ActionElementMode := l3_amSecondSingleClick;
-   NeedStatus := True;
-   OnGetItemIconHint := tvListGetItemIconHint;
-   OnMakeTreeSource := tvListMakeTreeSource;
-   OnGetItemImage := tvListGetItemImage;
-   OnActionElement := tvListActionElement;
-   OnCurrentChanged := tvListCurrentChanged;
-   OnTreeChanged := tvListTreeChanged;
-   OnRootChanged := tvListRootChanged;
-   OnSelectCountChanged := tvListSelectCountChanged;
-   OnFormatStatusInfo := tvListFormatStatusInfo;
-   OnNewCharPressed := tvListNewCharPressed;
-   OnCheckFocusedInPaint := tvListCheckFocusedInPaint;
-   OnGetNodeType := TvListGetNodeType;
-   DragAndDropSupported := True;
-   FooterCaption := str_ListFooterCaption.AsStr;
-   OnFooterClick := tvListFooterClick;
-   SettingId := 'stidListTree';
-   InterRowMultiplier := 2;             
-   OpenChipColor := $ADADAD; //414849886 
-   OpenChipBorderColor := $ADADAD;
+  Left := 0;
+  Top := 35;
+  Width := 399;
+  Height := 458;
+  OnCountChanged := tvListCountChanged;
+  OnAfterFirstPaint := tvListAfterFirstPaint;
+  OnCurrentIndexChanged := tvListCurrentIndexChanged;
+  Align := alClient;
+  BorderStyle := bsNone;
+  TabOrder := 0;
+  MultiSelect := True;
+  MultiStrokeItem := True;
+  ActionElementMode := l3_amSecondSingleClick;
+  NeedStatus := True;
+  OnGetItemIconHint := tvListGetItemIconHint;
+  OnMakeTreeSource := tvListMakeTreeSource;
+  OnGetItemImage := tvListGetItemImage;
+  OnActionElement := tvListActionElement;
+  OnCurrentChanged := tvListCurrentChanged;
+  OnTreeChanged := tvListTreeChanged;
+  OnRootChanged := tvListRootChanged;
+  OnSelectCountChanged := tvListSelectCountChanged;
+  OnFormatStatusInfo := tvListFormatStatusInfo;
+  OnNewCharPressed := tvListNewCharPressed;
+  OnCheckFocusedInPaint := tvListCheckFocusedInPaint;
+  OnGetNodeType := TvListGetNodeType;
+  DragAndDropSupported := True;
+  FooterCaption := str_ListFooterCaption.AsStr;
+  OnFooterClick := tvListFooterClick;
+  SettingId := 'stidListTree';
+  InterRowMultiplier := 2;             
+  OpenChipColor := $ADADAD; //414849886 
+  OpenChipBorderColor := $ADADAD;
  end;
 //#UC END# *4A8E8F2E0195_497DDB2B001B_impl*
 end;//TPrimListForm.InitControls
+{$IfEnd} //not NoVCM
+
+{$If not defined(NoVCM)}
+procedure TPrimListForm.PageActive;
+//#UC START# *4C52E8030278_497DDB2B001B_var*
+//#UC END# *4C52E8030278_497DDB2B001B_var*
+begin
+//#UC START# *4C52E8030278_497DDB2B001B_impl*
+ if (dsList <> nil) then
+  dsList.CurrentChanged(tvList.GetCurrentNode);
+//#UC END# *4C52E8030278_497DDB2B001B_impl*
+end;//TPrimListForm.PageActive
 {$IfEnd} //not NoVCM
 
 procedure TPrimListForm.ClearFields;

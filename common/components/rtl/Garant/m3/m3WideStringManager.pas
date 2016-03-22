@@ -5,7 +5,7 @@ unit m3WideStringManager;
 // Библиотека "m3"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3WideStringManager.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3::m3CoreObjects::Tm3WideStringManager
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3WideStringManager
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

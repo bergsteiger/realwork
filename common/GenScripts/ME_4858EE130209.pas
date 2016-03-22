@@ -2,6 +2,8 @@ unit arList_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\arList_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "List" MUID: (4858EE130209)
+// Имя типа: "ListTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

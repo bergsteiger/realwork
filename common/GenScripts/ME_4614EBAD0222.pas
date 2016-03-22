@@ -2,6 +2,7 @@ unit ActiveChangeableBase;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ActiveChangeableBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ActiveChangeableBase" MUID: (4614EBAD0222)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

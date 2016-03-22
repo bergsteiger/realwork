@@ -3,6 +3,8 @@ unit evArchi_Schema;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evArchi_Schema.pas"
 // Стереотип: "TagTable"
+// Элемент модели: "evArchi" MUID: (4858ED4C002C)
+// Имя типа: "TevArchiSchema"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

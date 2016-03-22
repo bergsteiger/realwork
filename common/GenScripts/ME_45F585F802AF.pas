@@ -2,6 +2,7 @@ unit ree;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tree" MUID: (45F585F802AF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -29,6 +30,7 @@ type
  Tree = {abstract} class(TreeBase)
   private
    change_mutex: mutex;
+   f_tree_name: AnsiString;
   protected
    new_node_map: NewNodeMap;
    new_node_back_map: NewNodeBackMap;
@@ -66,7 +68,7 @@ function Tree.pm_Gettree_name: AnsiString;
 //#UC END# *460259A6032C_45F585F802AFget_var*
 begin
 //#UC START# *460259A6032C_45F585F802AFget_impl*
- Result := f_tree_name
+ !!! Needs to be implemented !!!
 //#UC END# *460259A6032C_45F585F802AFget_impl*
 end;//Tree.pm_Gettree_name
 
@@ -75,7 +77,7 @@ procedure Tree.pm_Settree_name(const aValue: AnsiString);
 //#UC END# *460259A6032C_45F585F802AFset_var*
 begin
 //#UC START# *460259A6032C_45F585F802AFset_impl*
- f_tree_name := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *460259A6032C_45F585F802AFset_impl*
 end;//Tree.pm_Settree_name
 

@@ -3,6 +3,7 @@ unit NOT_FINISHED_LibPQ;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\NOT_FINISHED_LibPQ.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "LibPQ" MUID: (556C43B0014B)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 

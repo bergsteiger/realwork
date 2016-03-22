@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "BaseDocument" MUID: (49870A7E033E)
+// Имя типа: "_BaseDocument_"
 
 {$Define BaseDocument_imp}
 

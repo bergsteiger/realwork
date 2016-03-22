@@ -142,11 +142,13 @@ type
    f_CheckFont : TddCheckFontType;
    f_Char : AnsiChar;
    f_FontName : Tl3String;
+   f_RepeatSymbol : Boolean;
    f_FieldType : TddFieldType;
     {* Поле для свойства FieldType}
  private
  // private methods
    function CheckFieldType(aText: Tl3String): Boolean;
+   function DoAddAnsiChar(aText: AnsiChar): Boolean;
  protected
  // property methods
    function Get_FieldType: TddFieldType;
@@ -203,11 +205,13 @@ type
  public
  // public methods
    procedure AppendData(aFieldDest: TddRTFDestination);
+   function Valid: Boolean;
  end;//TdestFieldResult
 
  TdestField = class(TddRTFDestination)
  private
  // private fields
+   f_Private : Boolean;
    f_FielsInsruction : TdestFieldInstruction;
     {* Поле для свойства FielsInsruction}
    f_FormField : TdestFormField;
@@ -225,6 +229,12 @@ type
  // overridden protected methods
    procedure Cleanup; override;
      {* Функция очистки полей объекта. }
+ public
+ // overridden public methods
+   procedure ApplyProperty(propType: TPropType;
+     What: TIProp;
+     Value: LongInt;
+     aState: TddRTFState); override;
  public
  // public properties
    property FielsInsruction: TdestFieldInstruction
@@ -246,7 +256,11 @@ uses
   SysUtils,
   l3Chars,
   l3Types,
-  l3String
+  l3String,
+  l3Const,
+  l3Interfaces,
+  ddTextParagraph,
+  ddHyperlink
   ;
 
 // start class TdestFormFieldItem
@@ -414,6 +428,7 @@ begin
   for i := Low(TddFieldType) to High(TddFieldType) do
    if l3Compare(caFieldStrArray[i], aText.AsWStr, l3_siCaseUnsensitive) = 0 then
    begin
+    f_RepeatSymbol := False;
     f_FieldType := i;
     Result := True;
     Break;
@@ -428,6 +443,29 @@ begin
    end; // if l3Compare(caFieldStrArray[dd_fieldHyperlinkMailTo], aText.AsWStr, l3_siCaseUnsensitive) = 0 then
 //#UC END# *550A97780325_51D277ED01E9_impl*
 end;//TdestFieldInstruction.CheckFieldType
+
+function TdestFieldInstruction.DoAddAnsiChar(aText: AnsiChar): Boolean;
+//#UC START# *56AA042E0205_51D277ED01E9_var*
+//#UC END# *56AA042E0205_51D277ED01E9_var*
+begin
+//#UC START# *56AA042E0205_51D277ED01E9_impl*
+ Result := False;
+ if not f_CustomRTFReader.ReadURL then Exit;
+ if f_FieldType = dd_fieldHyperlink then
+  if f_RepeatSymbol and (aText = 'l') then
+  begin
+   f_Instruction := f_Instruction + cc_Number;
+   f_RepeatSymbol := False;
+   Result := True;
+  end // if f_RepeatSymbol and (aText = 'l') then
+  else
+   if aText = cc_Colon then
+   begin
+    f_Instruction := f_Instruction + aText;
+    Result := True;
+   end; // if aText = cc_Colon then
+//#UC END# *56AA042E0205_51D277ED01E9_impl*
+end;//TdestFieldInstruction.DoAddAnsiChar
 
 procedure TdestFieldInstruction.Instruction2Result;
 //#UC START# *51D27B1A00FA_51D277ED01E9_var*
@@ -460,6 +498,10 @@ procedure TdestFieldInstruction.Instruction2Result;
 begin
 //#UC START# *51D27B1A00FA_51D277ED01E9_impl*
  case f_FieldType of
+  dd_fieldHyperlink: if f_CustomRTFReader.ReadURL then
+                      f_ValueType := dd_vtFull
+                     else
+                      f_ValueType := dd_vtEmpty;
   dd_fieldHyperlinkMailTo: f_ValueType := dd_vtFull;
   dd_fieldSymbol:
    begin
@@ -546,6 +588,7 @@ begin
  f_CheckFont := dd_cfNone;
  f_FieldType := dd_fieldUnknown;
  FreeAndNil(f_FontName);
+ f_RepeatSymbol := False;
  inherited;
 //#UC END# *51D27A48038E_51D277ED01E9_impl*
 end;//TdestFieldInstruction.Clear
@@ -582,8 +625,9 @@ begin
  else
   if (f_FieldType in [dd_fieldHyperlink, dd_fieldHyperlinkMailTo]) then
   begin
-   if not (aText in [cc_HardSpace, cc_DoubleQuote, cc_Colon]) then
-    f_Instruction := f_Instruction + aText;
+   if not DoAddAnsiChar(aText) then
+    if not (aText in [cc_HardSpace, cc_DoubleQuote, cc_Colon]) then
+     f_Instruction := f_Instruction + aText;
   end // if (f_FieldType in [dd_fieldHyperlink, dd_fieldHyperlinkMailTo]) then
   else
    f_Instruction := f_Instruction + aText;
@@ -606,7 +650,8 @@ begin
      f_FontName.Append(aText.AsWStr);
   end // if f_FieldType = dd_fieldSymbol then
   else
-   f_Instruction := f_Instruction + aText.AsString;
+   if not ((aText.Len = 1) and DoAddAnsiChar(aText.Ch[0])) then
+    f_Instruction := f_Instruction + aText.AsString;
 //#UC END# *51D27C3302EC_51D277ED01E9_impl*
 end;//TdestFieldInstruction.AddString
 
@@ -618,11 +663,15 @@ procedure TdestFieldInstruction.ParseSymbol(Symbol: Integer;
 begin
 //#UC START# *51E8CFEF027A_51D277ED01E9_impl*
  inherited; 
- if (Symbol = symbolRepeateText) and (f_FieldType = dd_fieldHyperlinkMailTo) then
- begin
-  f_FieldType := dd_fieldHyperlink;
-  f_Instruction := '';
- end; // if Symbol = symbolRepeateText then
+ if (Symbol = symbolRepeateText) then
+  if (f_FieldType = dd_fieldHyperlink) and f_CustomRTFReader.ReadURL then
+   f_RepeatSymbol := True
+  else
+  if (f_FieldType = dd_fieldHyperlinkMailTo) then
+  begin
+   f_FieldType := dd_fieldHyperlink;
+   f_Instruction := '';
+  end; // if Symbol = symbolRepeateText then
 //#UC END# *51E8CFEF027A_51D277ED01E9_impl*
 end;//TdestFieldInstruction.ParseSymbol
 // start class TdestFieldResult
@@ -633,7 +682,7 @@ procedure TdestFieldResult.AppendData(aFieldDest: TddRTFDestination);
  procedure lp_CheckLastPara;
  begin
   if LastParagraph = nil then
-   AddTextPara(False, 1);
+   AddTextPara2Document;
  end;
 
 var
@@ -660,11 +709,33 @@ begin
      else
       AddFormula(LastParagraph, csFormulaRepresent[carCharID2FormualRepresent[l_FieldInsruction.f_Char]])
     else
-     LastParagraph.Text.AsString := l_FieldInsruction.f_Instruction;
+     if l_FieldInsruction.f_FieldType = dd_fieldHyperlink then
+      LastParagraph.AddHyperlinkWithURL(1, l_FieldInsruction.f_Instruction)
+     else
+      LastParagraph.Text.AsString := l_FieldInsruction.f_Instruction;
    end; // if l_FieldInsruction.f_ValueType <>
   end; // if aFieldDest is TdestFieldInstruction then
 //#UC END# *550BDF10022A_51D2785D029C_impl*
 end;//TdestFieldResult.AppendData
+
+function TdestFieldResult.Valid: Boolean;
+//#UC START# *565EAB580248_51D2785D029C_var*
+const
+ csConsPlusHyperlink: Tl3PCharLenPrim = (S         : 'consultantplus://offline/ref';
+                                         SLen      : 28;
+                                         SCodePage : CP_ANSI
+                                         );
+var
+ l_TextPara: TddTextParagraph;
+//#UC END# *565EAB580248_51D2785D029C_var*
+begin
+//#UC START# *565EAB580248_51D2785D029C_impl*
+ Result := True;
+ l_TextPara := LastParagraph;
+ if l_TextPara <> nil then
+  Result := l3Pos(l_TextPara.Text.AsWStr, csConsPlusHyperlink) = l3NotFound; 
+//#UC END# *565EAB580248_51D2785D029C_impl*
+end;//TdestFieldResult.Valid
 
 procedure TdestFieldResult.Clear;
 //#UC START# *51D27A48038E_51D2785D029C_var*
@@ -761,7 +832,7 @@ var
 begin
 //#UC START# *5461BEC2017D_51D2776D03C3_impl*                       
  l_ClearFieldResult := f_FieldResult <> nil;
- if (aNewDest is TdestNorm) then
+ if (aNewDest is TdestNorm) and not f_Private then
  begin
   l_FieldType := f_FielsInsruction.FieldType;
   if aNewDest = f_FieldResult then
@@ -773,9 +844,10 @@ begin
     f_FieldResult.AppendData(f_FormField)
    else
     f_FieldResult.AppendData(f_FielsInsruction);
-   TdestNorm(aNewDest).Append(aState, f_FieldResult, True);
+   if f_FieldResult.Valid then
+    TdestNorm(aNewDest).Append(aState, f_FieldResult, True);
   end; // if aNewDest <> f_FieldResult then
- end;
+ end; // if (aNewDest is TdestNorm) and f_Private then
  f_FielsInsruction.Clear;
  if f_FormField <> nil then
   f_FormField.Clear;
@@ -807,7 +879,21 @@ begin
  f_FielsInsruction := nil;
  f_FormField := nil;
  f_FieldResult := nil;
+ f_Private := False;
 //#UC END# *479731C50290_51D2776D03C3_impl*
 end;//TdestField.Cleanup
+
+procedure TdestField.ApplyProperty(propType: TPropType;
+  What: TIProp;
+  Value: LongInt;
+  aState: TddRTFState);
+//#UC START# *51D27EC50388_51D2776D03C3_var*
+//#UC END# *51D27EC50388_51D2776D03C3_var*
+begin
+//#UC START# *51D27EC50388_51D2776D03C3_impl*
+ if (propType = propField) and (What = propfldpriv) then
+  f_Private := True;
+//#UC END# *51D27EC50388_51D2776D03C3_impl*
+end;//TdestField.ApplyProperty
 
 end.

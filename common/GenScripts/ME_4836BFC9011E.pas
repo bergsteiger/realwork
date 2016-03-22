@@ -3,6 +3,7 @@ unit NOT_FINISHED_k2CustomFileGenerator;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2CustomFileGenerator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2CustomFileGenerator" MUID: (4836BFC9011E)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

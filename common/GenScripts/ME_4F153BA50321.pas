@@ -2,6 +2,7 @@ unit nsWarningDocumentContainer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsWarningDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsWarningDocumentContainer" MUID: (4F153BA50321)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

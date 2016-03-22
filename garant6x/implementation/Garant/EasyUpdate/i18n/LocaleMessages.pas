@@ -47,15 +47,17 @@ type
  // EasyUpdateParamsForm
   , c_EasyUpdateParamsFormCaption
   , c_EasyUpdateParamsFormDownloadTabSheetCaption
+  , c_EasyUpdateParamsFormDownloadRevisionCheckBoxCaption
   , c_EasyUpdateParamsFormDownloadRetryCheckBoxCaption
   , c_EasyUpdateParamsFormDownloadRestoreCheckBoxCaption
   , c_EasyUpdateParamsFormDownloadRestoreMinutesLabelCaption
+  , c_EasyUpdateParamsFormDownloadResumeCheckBoxCaption
   , c_EasyUpdateParamsFormDownloadSaveToLabelCaption
   , c_EasyUpdateParamsFormDownloadUserAgentLabelCaption
-  , c_EasyUpdateParamsFormDownloadNotificationCheckBoxCaption
-  , c_EasyUpdateParamsFormDownloadNotificationStatusLabelTrueCaption
-  , c_EasyUpdateParamsFormDownloadNotificationStatusLabelFalseCaption
-  , c_EasyUpdateParamsFormDownloadNotificationParametersLabelCaption
+  , c_EasyUpdateParamsFormDownloadSendReportCheckBoxCaption
+  , c_EasyUpdateParamsFormDownloadSendReportStatusLabelTrueCaption
+  , c_EasyUpdateParamsFormDownloadSendReportStatusLabelFalseCaption
+  , c_EasyUpdateParamsFormDownloadSendReportParametersLabelCaption
   , c_EasyUpdateParamsFormDownloadRestoreAllBitBtnCaption
   , c_EasyUpdateParamsFormUpdateTabSheetCaption
   , c_EasyUpdateParamsFormUpdateNoBackupCheckBoxCaption
@@ -63,10 +65,11 @@ type
   , c_EasyUpdateParamsFormUpdateSearchInLabelCaption
   , c_EasyUpdateParamsFormUpdateAdminPasswordLabelCaption
   , c_EasyUpdateParamsFormUpdateAdminPasswordCommentLabelCaption
-  , c_EasyUpdateParamsFormUpdateNotificationCheckBoxCaption
-  , c_EasyUpdateParamsFormUpdateNotificationStatusLabelTrueCaption
-  , c_EasyUpdateParamsFormUpdateNotificationStatusLabelFalseCaption
-  , c_EasyUpdateParamsFormUpdateNotificationParametersLabelCaption
+  , c_EasyUpdateParamsFormUpdateSendReportCheckBoxCaption
+  , c_EasyUpdateParamsFormUpdateSkipWarningCheckBoxCaption
+  , c_EasyUpdateParamsFormUpdateSendReportStatusLabelTrueCaption
+  , c_EasyUpdateParamsFormUpdateSendReportStatusLabelFalseCaption
+  , c_EasyUpdateParamsFormUpdateSendReportParametersLabelCaption
   , c_EasyUpdateParamsFormUpdateRestoreAllBitBtnCaption
   , c_EasyUpdateParamsFormScheduleTabSheetCaption
   , c_EasyUpdateParamsFormScheduleDownloadEnabledCheckBoxCaption
@@ -321,6 +324,11 @@ var
    ; r_Russian: '—качивание обновлений'
   )
   , (
+   r_Current: nil  // c_EasyUpdateParamsFormDownloadRevisionCheckBoxCaption
+   ; r_English: 'Permit follow-up downloading'
+   ; r_Russian: 'ƒопускать повторные скачивани€'
+  )
+  , (
    r_Current: nil  // c_EasyUpdateParamsFormDownloadRetryCheckBoxCaption
    ; r_English: 'If no updates available, check for them each 20 minutes'
    ; r_Russian: '¬ случае отсутстви€ обновлений повтор€ть попытку скачивани€ каждые 20 минут'
@@ -336,6 +344,11 @@ var
    ; r_Russian: 'минут'
   )
   , (
+   r_Current: nil  // c_EasyUpdateParamsFormDownloadResumeCheckBoxCaption
+   ; r_English: 'Continue interrupted downloading next time'
+   ; r_Russian: 'ѕродолжать прерванное скачивание при следующем запуске'
+  )
+  , (
    r_Current: nil  // c_EasyUpdateParamsFormDownloadSaveToLabelCaption
    ; r_English: 'Save updates to'
    ; r_Russian: '—охран€ть обновлени€ в'
@@ -346,22 +359,22 @@ var
    ; r_Russian: '»дентифицировать как'
   )
   , (
-   r_Current: nil  // c_EasyUpdateParamsFormDownloadNotificationCheckBoxCaption
+   r_Current: nil  // c_EasyUpdateParamsFormDownloadSendReportCheckBoxCaption
    ; r_English: 'At end of download send mail report'
    ; r_Russian: 'ѕо завершении скачивани€ посылать уведомление по почте'
   )
   , (
-   r_Current: nil  // c_EasyUpdateParamsFormDownloadNotificationStatusLabelTrueCaption
+   r_Current: nil  // c_EasyUpdateParamsFormDownloadSendReportStatusLabelTrueCaption
    ; r_English: '[Parameters exist]'
    ; r_Russian: '[ѕараметры настроены]'
   )
   , (
-   r_Current: nil  // c_EasyUpdateParamsFormDownloadNotificationStatusLabelFalseCaption
+   r_Current: nil  // c_EasyUpdateParamsFormDownloadSendReportStatusLabelFalseCaption
    ; r_English: '[Parameters not exist]'
    ; r_Russian: '[ѕараметры незаданы]'
   )
   , (
-   r_Current: nil  // c_EasyUpdateParamsFormDownloadNotificationParametersLabelCaption
+   r_Current: nil  // c_EasyUpdateParamsFormDownloadSendReportParametersLabelCaption
    ; r_English: 'Setup mail parameters'
    ; r_Russian: 'Ќастроить параметры почты'
   )
@@ -401,22 +414,27 @@ var
    ; r_Russian: '(если он отличаетс€ от умолчательного)'
   )
   , (
-   r_Current: nil  // c_EasyUpdateParamsFormUpdateNotificationCheckBoxCaption
+   r_Current: nil  // c_EasyUpdateParamsFormUpdateSendReportCheckBoxCaption
    ; r_English: 'At end of apply send mail report'
    ; r_Russian: 'ѕо завершении применени€ посылать уведомление по почте'
   )
   , (
-   r_Current: nil  // c_EasyUpdateParamsFormUpdateNotificationStatusLabelTrueCaption
+   r_Current: nil  // c_EasyUpdateParamsFormUpdateSkipWarningCheckBoxCaption
+   ; r_English: 'Launch update even in the absence of space'
+   ; r_Russian: '«апускать обновление даже в случае нехватки места'
+  )
+  , (
+   r_Current: nil  // c_EasyUpdateParamsFormUpdateSendReportStatusLabelTrueCaption
    ; r_English: '[Parameters exist]'
    ; r_Russian: '[ѕараметры настроены]'
   )
   , (
-   r_Current: nil  // c_EasyUpdateParamsFormUpdateNotificationStatusLabelFalseCaption
+   r_Current: nil  // c_EasyUpdateParamsFormUpdateSendReportStatusLabelFalseCaption
    ; r_English: '[Parameters not exist]'
    ; r_Russian: '[ѕараметры незаданы]'
   )
   , (
-   r_Current: nil  // c_EasyUpdateParamsFormUpdateNotificationParametersLabelCaption
+   r_Current: nil  // c_EasyUpdateParamsFormUpdateSendReportParametersLabelCaption
    ; r_English: 'Setup mail parameters'
    ; r_Russian: 'Ќастроить параметры почты'
   )

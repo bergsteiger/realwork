@@ -4,34 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4C52C05501D8
 
-FORWARD ME_4C52C0600246
-
-: ME_CD42F1656185
- CONST UID 'CD42F1656185'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtSpinEdit' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C52C0600246 // TvtSpinEdit
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CD42F1656185 Ini_Reg_Class
-
-: ME_E2102A1C5166
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C52C0600246 // TvtSpinEdit
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E2102A1C5166 
-
 : ME_4C52C0600246
  CONST UID '4C52C0600246'
  CONST Name 'TvtSpinEdit'
@@ -42,14 +14,6 @@ ref; // ME_E2102A1C5166
  CONST Abstraction at_regular
  : Parent ME_4C52C05501D8 // Editors
  ;
- : Operations
-   Seq: ( ME_CD42F1656185 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_E2102A1C5166 // 
- )
- ; // Dependencies
  : Injected
    Seq: ( WL 'ME_5E9C4EDE6DA3' '4F6094D80196.pas.ms.script' // 
  )
@@ -80,9 +44,5 @@ ref; // ME_4C52C0600246 TvtSpinEdit
    Seq: ( ME_4C52C0600246 // TvtSpinEdit
  )
  ; // Children
- : Depends
-   Seq: ( WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- )
- ; // Depends
 
 ref; // ME_4C52C05501D8 Editors

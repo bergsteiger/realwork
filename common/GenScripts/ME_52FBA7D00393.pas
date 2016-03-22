@@ -2,6 +2,7 @@ unit ArchiUserList;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\ArchiUserList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TArchiUserList" MUID: (52FBA7D00393)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

@@ -3,6 +3,7 @@ unit vcmWritersInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmWritersInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "vcmWritersInterfaces" MUID: (499D629D026C)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

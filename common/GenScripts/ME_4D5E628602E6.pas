@@ -2,6 +2,7 @@ unit vgScenePrim;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgScenePrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgScenePrim" MUID: (4D5E628602E6)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

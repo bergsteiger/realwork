@@ -3,6 +3,7 @@ unit atAdapterTest;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Runner\atAdapterTest.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatAdapterTest" MUID: (4AC3488802F7)
 
 interface
 

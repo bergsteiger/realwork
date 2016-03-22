@@ -2,6 +2,7 @@ unit DefineSearchDateUtils;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\DefineSearchDateUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DefineSearchDateUtils" MUID: (51B5CB1100AE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -9,6 +9,8 @@ unit kwPopEditorResizeTableColumn;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorResizeTableColumn.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_ResizeTableColumn" MUID: (4E3644790235)
+// Имя типа: "TkwPopEditorResizeTableColumn"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

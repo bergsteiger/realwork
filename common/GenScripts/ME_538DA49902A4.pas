@@ -2,6 +2,7 @@ unit CsConst;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\CsConst.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "CsConst" MUID: (538DA49902A4)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

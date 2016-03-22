@@ -2,6 +2,7 @@ unit l3FontManagerEx;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3FontManagerEx.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3FontManagerEx" MUID: (4B88F0F00211)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

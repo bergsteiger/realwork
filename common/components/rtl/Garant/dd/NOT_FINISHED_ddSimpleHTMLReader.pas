@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddSimpleHTMLReader;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddSimpleHTMLReader.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddSimpleHTMLReader" MUID: (51F0E640000D)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

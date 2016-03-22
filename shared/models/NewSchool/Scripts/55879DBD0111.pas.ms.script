@@ -58,8 +58,6 @@ ref; // ME_9432F7C1A797 Ml3PopupControlService
 FORWARD ME_824B0D4B2322
 
 : ME_D2E4642CC7BC_ME_824B0D4B2322
- CONST UID 'D2E4642CC7BC'
- CONST Name 'IsPopupControlWindow'
  : Original ME_D2E4642CC7BC // IsPopupControlWindow
  ;
  : Implementor ME_824B0D4B2322 // Il3PopupControlService
@@ -112,23 +110,6 @@ ref; // ME_824B0D4B2322 Il3PopupControlService
 
 ref; // ME_896C42BFD042 Alien
 
-: ME_70016CFB3F60
- CONST UID '70016CFB3F60'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55879E12008D // Tl3PopupControlService
- ;
- : Target ME_824B0D4B2322 // Il3PopupControlService
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_70016CFB3F60 f_Alien
-
 : ME_5587A30D0297
  CONST Name 'aControlWnd'
  CONST Class class_Parameter
@@ -157,24 +138,12 @@ ref; // ME_5587A30D0297 aControlWnd
 ref; // ME_55879E4401FC IsPopupControlWindow
 
 : ME_D2E4642CC7BC_ME_55879E12008D
- CONST UID 'D2E4642CC7BC'
- CONST Name 'IsPopupControlWindow'
  : Original ME_D2E4642CC7BC // IsPopupControlWindow
  ;
  : Implementor ME_55879E12008D // Tl3PopupControlService
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_D2E4642CC7BC_ME_55879E12008D IsPopupControlWindow
-
-: ME_5000565C019C_ME_55879E12008D
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_55879E12008D // Tl3PopupControlService
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_55879E12008D ClearFields
 
 : ME_55879E12008D
  CONST UID '55879E12008D'
@@ -196,7 +165,6 @@ ref; // ME_5000565C019C_ME_55879E12008D ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_896C42BFD042 // Alien
- ME_70016CFB3F60 // f_Alien
  )
  ; // Attributes
  : Operations
@@ -207,10 +175,6 @@ ref; // ME_5000565C019C_ME_55879E12008D ClearFields
    Seq: ( ME_D2E4642CC7BC_ME_55879E12008D // IsPopupControlWindow
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_55879E12008D // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_9432F7C1A797 // Ml3PopupControlService
  ME_824B0D4B2322 // Il3PopupControlService

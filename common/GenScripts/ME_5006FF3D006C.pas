@@ -2,6 +2,7 @@ unit atSaveFoldersQueryToXMLOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSaveFoldersQueryToXMLOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatSaveFoldersQueryToXMLOperation" MUID: (5006FF3D006C)
 
 interface
 

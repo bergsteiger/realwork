@@ -3,6 +3,8 @@ unit AdminAppRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AdminAppRes.pas"
 // Стереотип: "VCMApplication"
+// Элемент модели: "AdminApp" MUID: (4AA517B5037A)
+// Имя типа: "TAdminAppRes"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

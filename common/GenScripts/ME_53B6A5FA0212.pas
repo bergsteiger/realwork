@@ -2,6 +2,7 @@ unit alcuAutoExportTaskPrim;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAutoExportTaskPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuAutoExportTaskPrim" MUID: (53B6A5FA0212)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

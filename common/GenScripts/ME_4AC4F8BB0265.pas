@@ -3,6 +3,8 @@ unit PrimTurnOnTimeMachine_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimTurnOnTimeMachine_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimTurnOnTimeMachine" MUID: (4AC4F8BB0265)
+// Имя типа: "TPrimTurnOnTimeMachineForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

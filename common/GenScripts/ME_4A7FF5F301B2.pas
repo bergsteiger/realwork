@@ -2,6 +2,7 @@ unit UserJournalUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\UserJournalUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "UserJournal" MUID: (4A7FF5F301B2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

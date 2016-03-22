@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmMessagesCollectionItem;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmMessagesCollectionItem.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmMessagesCollectionItem" MUID: (4E01E6DF003A)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3ItemsStorage;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3ItemsStorage.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ItemsStorage" MUID: (4908A9FF0357)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

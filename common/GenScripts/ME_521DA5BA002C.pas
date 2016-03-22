@@ -3,6 +3,8 @@ unit moList;
 
 // Модуль: "w:\common\components\SandBox\VCM\View\moList.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "List" MUID: (521DA5BA002C)
+// Имя типа: "Tmo_List"
 
 {$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 

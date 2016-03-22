@@ -41,8 +41,6 @@ project (T_GblAdapterServer) : project_generic_core_corba, project_subsystem_win
 	libs  += GblConsultingC_corba
 	after += GblConsultingClientC_corba
 	libs  += GblConsultingClientC_corba
-	after += GblExternalSearchManagerC_corba
-	libs  += GblExternalSearchManagerC_corba
 	after += GblFiltersC_corba
 	libs  += GblFiltersC_corba
 	after += GblFoldersC_corba
@@ -57,8 +55,6 @@ project (T_GblAdapterServer) : project_generic_core_corba, project_subsystem_win
 	libs  += GblPrimeC_corba
 	after += GblRemoteDocumentSupportC_corba
 	libs  += GblRemoteDocumentSupportC_corba
-	after += GblSearchMachineC_corba
-	libs  += GblSearchMachineC_corba
 	after += GblSettingsC_corba
 	libs  += GblSettingsC_corba
 	after += GblUnderControlC_corba
@@ -224,9 +220,6 @@ project (T_GblAdapterServer) : project_generic_core_corba, project_subsystem_win
 	after += GblChatSupportS_corba
 	libs  += GblChatSupportS_corba
 
-	after += GblSearchMachineS_corba
-	libs  += GblSearchMachineS_corba
-
 	after += GslSessionIdentifierS_corba
 	libs  += GslSessionIdentifierS_corba
 
@@ -246,9 +239,10 @@ project (T_GblAdapterServer) : project_generic_core_corba, project_subsystem_win
 
 	after += GslAuthenticatorS_corba
 	libs  += GslAuthenticatorS_corba
-
-	after += curl
-	libs  += curl
+                     
+	libs  += curl                         
+	libs  += libeay32                         
+	libs  += ssleay32
 
 	after += json
 	libs  += json
@@ -257,7 +251,7 @@ project (T_GblAdapterServer) : project_generic_core_corba, project_subsystem_win
 	libs  += boost_thread
 
 	after += boost_system
-	libs += boost_system
+	libs  += boost_system
 
 	Source_Files {
 		Version {

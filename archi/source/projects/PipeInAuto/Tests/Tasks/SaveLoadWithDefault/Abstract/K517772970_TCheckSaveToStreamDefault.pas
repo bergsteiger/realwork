@@ -1,78 +1,53 @@
 unit K517772970_TCheckSaveToStreamDefault;
+ {* [RequestLink:517772970] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Low Level Tests"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tests/Tasks/SaveLoadWithDefault/Abstract/K517772970_TCheckSaveToStreamDefault.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> archi$AutoPipeServer$Garant::Low Level Tests::AbstractTasksSaveLoadWithDefault::K517772970_TCheckSaveToStreamDefault
-//
-// {RequestLink:517772970}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\Abstract\K517772970_TCheckSaveToStreamDefault.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K517772970_TCheckSaveToStreamDefault" MUID: (53170DE90011)
+// Имя типа: "TK517772970_TCheckSaveToStreamDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  ddServerTask
-  {$IfEnd} //not Nemesis
-  ,
-  K517772970_TCheckSaveToStream
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest
+ l3IntfUses
+ , K517772970_TCheckSaveToStream
+ {$If NOT Defined(Nemesis)}
+ , ddServerTask
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
 type
  TK517772970_TCheckSaveToStreamDefault = {abstract} class(TK517772970_TCheckSaveToStream)
   {* [RequestLink:517772970] }
- protected
- // realized methods
+  protected
+   function GetTaskClass: TddTaskClass; virtual; abstract;
    function TaskClass: TddTaskClass; override;
    procedure InitTask(Task: TddTaskItem); override;
- protected
- // overridden protected methods
-   {$If defined(nsTest)}
+   {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   {$IfEnd} //nsTest
-   {$If defined(nsTest)}
+    {* Папка в которую входит тест }
+   {$IfEnd} // Defined(nsTest)
+   {$If Defined(nsTest)}
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
-   {$IfEnd} //nsTest
- protected
- // protected methods
-   function GetTaskClass: TddTaskClass; virtual; abstract;
+    {* Идентификатор элемента модели, который описывает тест }
+   {$IfEnd} // Defined(nsTest)
  end;//TK517772970_TCheckSaveToStreamDefault
-{$IfEnd} //AppServerSide AND InsiderTest
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
 uses
-  SysUtils
-  {$If defined(nsTest)}
-  ,
-  TestFrameWork
-  {$IfEnd} //nsTest
-  ,
-  l3Filer
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest
-
-{$If defined(AppServerSide) AND defined(InsiderTest)}
-
-// start class TK517772970_TCheckSaveToStreamDefault
+ l3ImplUses
+ {$If Defined(nsTest)}
+ , TestFrameWork
+ {$IfEnd} // Defined(nsTest)
+ , l3Filer
+ , SysUtils
+;
 
 function TK517772970_TCheckSaveToStreamDefault.TaskClass: TddTaskClass;
 //#UC START# *5320088202FB_53170DE90011_var*
@@ -92,22 +67,21 @@ begin
 //#UC END# *532008D203BA_53170DE90011_impl*
 end;//TK517772970_TCheckSaveToStreamDefault.InitTask
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 function TK517772970_TCheckSaveToStreamDefault.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'AbstractTasksSaveLoadWithDefault';
 end;//TK517772970_TCheckSaveToStreamDefault.GetFolder
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 function TK517772970_TCheckSaveToStreamDefault.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '53170DE90011';
 end;//TK517772970_TCheckSaveToStreamDefault.GetModelElementGUID
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
-{$IfEnd} //AppServerSide AND InsiderTest
-
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 end.

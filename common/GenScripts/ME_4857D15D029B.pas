@@ -3,6 +3,8 @@ unit SBSCell_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\SBSCell_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "SBSCell" MUID: (4857D15D029B)
+// Имя типа: "SBSCellTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

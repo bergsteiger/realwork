@@ -2,6 +2,8 @@ unit MainWithReminders_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainWithReminders_Form.pas"
 // Стереотип: "VCMMainForm"
+// Элемент модели: "MainWithReminders" MUID: (4F7DAC14027A)
+// Имя типа: "TMainWithRemindersForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

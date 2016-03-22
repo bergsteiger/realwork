@@ -3,6 +3,8 @@ unit K431386215;
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\K431386215.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K431386215" MUID: (512DCAD901C3)
+// Имя типа: "TK431386215"
 
 interface
 

@@ -3,6 +3,8 @@ unit moChangesBetweenEditions;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moChangesBetweenEditions.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "ChangesBetweenEditions" MUID: (4DDBAEB503DF)
+// Имя типа: "Tmo_ChangesBetweenEditions"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

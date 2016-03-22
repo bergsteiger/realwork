@@ -2,6 +2,7 @@ unit LoggingWrapperInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\LoggingWrapperInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "LoggingWrapperInterfaces" MUID: (55B75E6E034C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

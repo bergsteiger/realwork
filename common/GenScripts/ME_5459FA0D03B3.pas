@@ -2,6 +2,7 @@ unit m3HashHandleListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3HashHandleListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3HashHandleListPrim" MUID: (5459FA0D03B3)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

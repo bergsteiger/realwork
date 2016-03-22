@@ -2,6 +2,7 @@ unit l3CustomLongintListView;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CustomLongintListView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CustomLongintListView" MUID: (4DEFB340025B)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

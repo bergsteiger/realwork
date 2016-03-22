@@ -2,6 +2,7 @@ unit atFileIterator;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atFileIterator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatFileIterator" MUID: (50254E240133)
 
 interface
 

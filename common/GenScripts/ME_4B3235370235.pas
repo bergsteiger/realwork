@@ -2,6 +2,7 @@ unit VCMBaseTest;
 
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\VCMBaseTest.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "VCMBaseTest" MUID: (4B3235370235)
 
 {$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 

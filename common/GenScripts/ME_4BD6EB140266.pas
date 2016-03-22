@@ -3,6 +3,7 @@ unit PrimFoldersTree_utFoldersTree_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersTree_utFoldersTree_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utFoldersTree" MUID: (4BD6EB140266)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -11,7 +12,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
- , PrimFoldersTree_utSaveOpen_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -35,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utFoldersTree = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utFoldersTree }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utFoldersTree
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utFoldersTree.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utFoldersTree';
-end;//Tkw_FormUserType_utFoldersTree.GetWordNameForRegister
-
 function Tkw_FormUserType_utFoldersTree.GetInteger: Integer;
 begin
  Result := utFoldersTree;
 end;//Tkw_FormUserType_utFoldersTree.GetInteger
+
+class function Tkw_FormUserType_utFoldersTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utFoldersTree';
+end;//Tkw_FormUserType_utFoldersTree.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

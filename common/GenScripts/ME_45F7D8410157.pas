@@ -2,6 +2,7 @@ unit RealNodeBase;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\RealNodeBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "RealNodeBase" MUID: (45F7D8410157)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -165,7 +166,7 @@ function RealNodeBase.pm_Getname: IString;
 //#UC END# *45FFE327036B_45F7D8410157get_var*
 begin
 //#UC START# *45FFE327036B_45F7D8410157get_impl*
- Result := f_name
+ !!! Needs to be implemented !!!
 //#UC END# *45FFE327036B_45F7D8410157get_impl*
 end;//RealNodeBase.pm_Getname
 
@@ -174,7 +175,7 @@ procedure RealNodeBase.pm_Setname(const aValue: IString);
 //#UC END# *45FFE327036B_45F7D8410157set_var*
 begin
 //#UC START# *45FFE327036B_45F7D8410157set_impl*
- f_name := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *45FFE327036B_45F7D8410157set_impl*
 end;//RealNodeBase.pm_Setname
 

@@ -3,6 +3,7 @@ unit ListUserTypes_lftCorrespondentsSynchroForm_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftCorrespondentsSynchroForm_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "lftCorrespondentsSynchroForm" MUID: (4BD58A460089)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftCorrespondentsSynchroForm = {final} class(TtfwInteger)
   {* Слово словаря для типа формы lftCorrespondentsSynchroForm }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_lftCorrespondentsSynchroForm
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_lftCorrespondentsSynchroForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::lftCorrespondentsSynchroForm';
-end;//Tkw_FormUserType_lftCorrespondentsSynchroForm.GetWordNameForRegister
-
 function Tkw_FormUserType_lftCorrespondentsSynchroForm.GetInteger: Integer;
 begin
  Result := lftCorrespondentsSynchroForm;
 end;//Tkw_FormUserType_lftCorrespondentsSynchroForm.GetInteger
+
+class function Tkw_FormUserType_lftCorrespondentsSynchroForm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::lftCorrespondentsSynchroForm';
+end;//Tkw_FormUserType_lftCorrespondentsSynchroForm.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

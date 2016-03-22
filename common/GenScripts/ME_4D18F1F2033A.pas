@@ -3,6 +3,7 @@ unit nsFindIteratorNewFindPositionList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsFindIteratorNewFindPositionList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsFindIteratorNewFindPositionList" MUID: (4D18F1F2033A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

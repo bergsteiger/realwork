@@ -1720,11 +1720,11 @@ begin
         end; 
       DBST_SOURCE: // это для источника (откуда копируем)
         case dbType of
-          DBT_OLD           : Result := 'testbase\fullbase\130524';
-          DBT_NEW           : Result := 'testbase\fullbase\130527';
-          DBT_MINI          : Result := 'testbase\mini';
-          DBT_MINI_NO_PRIME : Result := 'testbase\mini_noprime';
-          DBT_CONSULTING    : Result := 'testbase\valid';
+          DBT_OLD           : Result := 'for_test\fullbase\130524';
+          DBT_NEW           : Result := 'for_test\fullbase\130527';
+          DBT_MINI          : Result := 'for_test\mini';
+          DBT_MINI_NO_PRIME : Result := 'for_test\mini_noprime';
+          DBT_CONSULTING    : Result := 'for_test\valid';
         else
           Raise('Неизвестный dbType!');
         end;        
@@ -3855,7 +3855,7 @@ var
 begin
   try    
     p := GetF1PrimeProcess(2000, 2, false); //Ищем наш процесс
-    if NOT IsExists(p) then // у нас может случится глюк, что процесс будет существовать, но не будет open, поэтому пробуем его получить как обычный процесс
+    if NOT IsExists(p) then // у нас может случится глюк, процесс будет существовать, но не будет open, поэтому пробуем его получить как обычный процесс
       p := Sys.WaitProcess(PRIME_PROCESS_NAME, 0);        
 
     if endProcessDelay = -1 then endProcessDelay := Options.Run.Timeout div 3;
@@ -3901,7 +3901,7 @@ begin
         end;
         countOfAttempt := countOfAttempt - 1;
         Delay(endProcessDelay);
-        CloseF1Prime (countOfAttempt, endProcessDelay);
+        CloseF1Prime(countOfAttempt, endProcessDelay);
       end
       else
       begin
@@ -4107,7 +4107,7 @@ try
     //Для работы с диалоговыми окнами после запуска оболочки 
     OPER_WELCOME_INFO:
     begin
-      if isClosePrimeInfo then
+      if isCloseAdvaiceOfDay then      
       begin
         Log.Message('OPER_WELCOME_INFO: Пытаемся закрыть форму "СОВЕТ ДНЯ"');
         res := IDLO_ERROR;
@@ -4120,7 +4120,7 @@ try
         res := IDLO_NOERROR;
       end;
 
-      if isCloseAdvaiceOfDay then
+      if isClosePrimeInfo then
       begin
         Log.Message('OPER_WELCOME_INFO: Пытаемся закрыть диалог настройки "Прайма"');
         res := IDLO_ERROR;
@@ -4139,10 +4139,9 @@ try
           //http://mdp.garant.ru/pages/viewpage.action?pageId=556147293&focusedCommentId=564264806#comment-564264806
           //w.Restore;
           //w.Maximize;
-
-          SetSettingsForF1ShellTabs;
         end;
       end;
+      SetSettingsForF1ShellTabs;
     end;
     OPER_LOGIN_ANYHOW:
     begin
@@ -4253,10 +4252,14 @@ try
         
         if isCloseErrorMessages then
         begin
-          w := GetFromShell('КНОПКА "ОК" ФОРМЫ СООБЩЕНИЯ');
-          ClickOnVgSceneObject(w, 'IsClickBySendMsg:=true');
+          //Для консольной версии лучше через Enter, там окно бывает снизу
+          if IsExists(w) then
+            w.Keys('[Enter]');
+          //w := GetFromShell('КНОПКА "ОК" ФОРМЫ СООБЩЕНИЯ');
+          //ClickOnVgSceneObject(w, 'IsClickBySendMsg:=true');
+
           //Даем окну время закрыться
-          Delay(1000);
+          Delay(500);
         end;
       end
       else

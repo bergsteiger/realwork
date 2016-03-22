@@ -3,6 +3,7 @@ unit ListAnalizerKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\ListAnalizerKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ListAnalizerKeywordsPack" MUID: (F05ED964BBD9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -45,8 +46,8 @@ type
 'aControl' форма::ListAnalizer TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ListAnalizer
 
  Tkw_ListAnalizer_Control_BackgroundPanel = {final} class(TtfwControlString)
@@ -57,9 +58,9 @@ type
 контрол::BackgroundPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ListAnalizer_Control_BackgroundPanel
 
  Tkw_ListAnalizer_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
@@ -82,9 +83,9 @@ type
 контрол::ListTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ListAnalizer_Control_ListTree
 
  Tkw_ListAnalizer_Control_ListTree_Push = {final} class(TkwBynameControlPush)
@@ -147,20 +148,15 @@ OBJECT VAR l_TeeTreeView
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwListAnalizerFormListTree
 
-class function Tkw_Form_ListAnalizer.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ListAnalizer';
-end;//Tkw_Form_ListAnalizer.GetWordNameForRegister
-
 function Tkw_Form_ListAnalizer.GetString: AnsiString;
 begin
  Result := 'ListAnalizerForm';
 end;//Tkw_Form_ListAnalizer.GetString
 
-class function Tkw_ListAnalizer_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_ListAnalizer.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::BackgroundPanel';
-end;//Tkw_ListAnalizer_Control_BackgroundPanel.GetWordNameForRegister
+ Result := 'форма::ListAnalizer';
+end;//Tkw_Form_ListAnalizer.GetWordNameForRegister
 
 function Tkw_ListAnalizer_Control_BackgroundPanel.GetString: AnsiString;
 begin
@@ -173,6 +169,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ListAnalizer_Control_BackgroundPanel.RegisterInEngine
 
+class function Tkw_ListAnalizer_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BackgroundPanel';
+end;//Tkw_ListAnalizer_Control_BackgroundPanel.GetWordNameForRegister
+
 procedure Tkw_ListAnalizer_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BackgroundPanel');
@@ -184,11 +185,6 @@ begin
  Result := 'контрол::BackgroundPanel:push';
 end;//Tkw_ListAnalizer_Control_BackgroundPanel_Push.GetWordNameForRegister
 
-class function Tkw_ListAnalizer_Control_ListTree.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ListTree';
-end;//Tkw_ListAnalizer_Control_ListTree.GetWordNameForRegister
-
 function Tkw_ListAnalizer_Control_ListTree.GetString: AnsiString;
 begin
  Result := 'ListTree';
@@ -199,6 +195,11 @@ begin
  inherited;
  TtfwClassRef.Register(TeeTreeView);
 end;//Tkw_ListAnalizer_Control_ListTree.RegisterInEngine
+
+class function Tkw_ListAnalizer_Control_ListTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ListTree';
+end;//Tkw_ListAnalizer_Control_ListTree.GetWordNameForRegister
 
 procedure Tkw_ListAnalizer_Control_ListTree_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -233,11 +234,6 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aListAnalizerForm));
 end;//TkwListAnalizerFormBackgroundPanel.DoDoIt
 
-class function TkwListAnalizerFormBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TListAnalizerForm.BackgroundPanel';
-end;//TkwListAnalizerFormBackgroundPanel.GetWordNameForRegister
-
 procedure TkwListAnalizerFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -258,6 +254,11 @@ function TkwListAnalizerFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TListAnalizerForm)]);
 end;//TkwListAnalizerFormBackgroundPanel.ParamsTypes
+
+class function TkwListAnalizerFormBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TListAnalizerForm.BackgroundPanel';
+end;//TkwListAnalizerFormBackgroundPanel.GetWordNameForRegister
 
 function TkwListAnalizerFormListTree.ListTree(const aCtx: TtfwContext;
  aListAnalizerForm: TListAnalizerForm): TeeTreeView;
@@ -281,11 +282,6 @@ begin
  aCtx.rEngine.PushObj(ListTree(aCtx, l_aListAnalizerForm));
 end;//TkwListAnalizerFormListTree.DoDoIt
 
-class function TkwListAnalizerFormListTree.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TListAnalizerForm.ListTree';
-end;//TkwListAnalizerFormListTree.GetWordNameForRegister
-
 procedure TkwListAnalizerFormListTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -306,6 +302,11 @@ function TkwListAnalizerFormListTree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TListAnalizerForm)]);
 end;//TkwListAnalizerFormListTree.ParamsTypes
+
+class function TkwListAnalizerFormListTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TListAnalizerForm.ListTree';
+end;//TkwListAnalizerFormListTree.GetWordNameForRegister
 
 initialization
  Tkw_Form_ListAnalizer.RegisterInEngine;

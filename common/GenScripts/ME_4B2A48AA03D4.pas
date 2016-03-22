@@ -3,6 +3,7 @@ program DailyTest;
 
 // Модуль: "w:\common\components\DailyTest\DailyTest.dpr"
 // Стереотип: "TestTarget"
+// Элемент модели: "Daily" MUID: (4B2A48AA03D4)
 
 {$Include w:\common\components\DailyTest\DailyTest.inc}
 

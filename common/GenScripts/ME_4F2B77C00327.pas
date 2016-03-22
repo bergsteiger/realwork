@@ -3,6 +3,7 @@ unit evTableTools;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTableTools.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evTableTools" MUID: (4F2B77C00327)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

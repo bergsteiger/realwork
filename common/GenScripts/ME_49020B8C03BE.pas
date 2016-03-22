@@ -2,6 +2,7 @@ unit nsLayerFilter;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsLayerFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsLayerFilter" MUID: (49020B8C03BE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

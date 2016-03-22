@@ -3,6 +3,7 @@ unit F1TagDataProviderInterface;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\F1TagDataProviderInterface.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "F1TagDataProviderInterface" MUID: (4C6E92E9016E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

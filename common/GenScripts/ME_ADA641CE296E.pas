@@ -3,6 +3,7 @@ unit elCustomEdit_ut_elCustomEdit_UserType;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\elCustomEdit_ut_elCustomEdit_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_elCustomEdit" MUID: (ADA641CE296E)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
@@ -32,26 +33,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_elCustomEdit = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_elCustomEdit }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_elCustomEdit
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_elCustomEdit.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_elCustomEdit';
-end;//Tkw_FormUserType_ut_elCustomEdit.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_elCustomEdit.GetInteger: Integer;
 begin
  Result := ut_elCustomEdit;
 end;//Tkw_FormUserType_ut_elCustomEdit.GetInteger
+
+class function Tkw_FormUserType_ut_elCustomEdit.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_elCustomEdit';
+end;//Tkw_FormUserType_ut_elCustomEdit.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

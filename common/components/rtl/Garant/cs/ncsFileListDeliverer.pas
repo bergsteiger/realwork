@@ -67,7 +67,8 @@ uses
   ncsOneFileDeliverer,
   ncsFileDesc,
   l3Interfaces,
-  l3FileUtils
+  l3FileUtils,
+  l3Base
   ;
 {$IfEnd} //not Nemesis
 
@@ -127,6 +128,7 @@ begin
  f_LocalPath := aLocalPath;
 //#UC END# *5472DC690380_546F398E0203_impl*
 end;//TncsFileListDeliverer.Create
+// start class TncsFileListDeliverer
 
 function TncsFileListDeliverer.Execute(const aList: FileDescHelper): Boolean;
 //#UC START# *546F3BE702A4_546F398E0203_var*
@@ -144,18 +146,27 @@ begin
   if Assigned(f_Progressor) then
    f_Progressor.ProcessUpdate(piCurrent, 0, 'Передача файлов');
   if not f_Transporter.Processing then
+  begin
+   l3System.Msg2Log('Обшика доставки - обрыв связи');
    Exit;
+  end;
   for l_IDX := 0 to f_Data.Count - 1 do
   begin
    if not f_Transporter.Processing then
+   begin
+    l3System.Msg2Log('Обшика доставки - обрыв связи');
     Exit;
+   end;
    if not f_Data[l_IDX].DoProcess(f_Progressor) then
     Exit;
   end;
   Result := aList.Count > 0;
   if Result then
+  begin
+   l3System.Msg2Log('Доставка - переименование файлов');
    for l_IDX := 0 to f_Data.Count - 1 do
     f_Data[l_IDX].CommitDelivery;
+  end;
  finally
   f_Data.Clear;
   if Assigned(f_Progressor) then

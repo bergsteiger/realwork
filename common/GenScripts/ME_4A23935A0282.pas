@@ -3,6 +3,7 @@ unit afwNavigation;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\afwNavigation.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "afwNavigation" MUID: (4A23935A0282)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

@@ -20,12 +20,12 @@ interface
 
 implementation
 
-{$If not defined(XE)}
+{$If not defined(NoVGScene) AND not defined(XE)}
 uses
   vgVisualObject_p,
   tc5OpenApp {a},
   tc6OpenApp {a}
   ;
-{$IfEnd} //not XE
+{$IfEnd} //not NoVGScene AND not XE
 
 end.

@@ -1,90 +1,63 @@
 unit K165512428;
+ {* [RequestLink:165512428] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Daily/K165512428.pas"
-// Начат: 29.06.2010 17:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.6::K165512428
-//
-// {RequestLink:165512428}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K165512428.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K165512428" MUID: (4C29F9B202F8)
+// Имя типа: "TK165512428"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  SearchAndReplacePrimTest
-  {$IfEnd} //nsTest AND not NoVCM
-  ,
-  nevTools,
-  evTypes
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , SearchAndReplacePrimTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevTools
+ , evTypes
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK165512428 = class(TSearchAndReplacePrimTest)
   {* [RequestLink:165512428] }
- protected
- // realized methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    function Searcher: IevSearcher; override;
-   {$IfEnd} //nsTest AND not NoVCM
-   {$If defined(nsTest) AND not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function Replacer: IevReplacer; override;
-   {$IfEnd} //nsTest AND not NoVCM
-   {$If defined(nsTest) AND not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function Options: TevSearchOptionSet; override;
-   {$IfEnd} //nsTest AND not NoVCM
- protected
- // overridden protected methods
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK165512428
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  evSearch,
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , evSearch
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK165512428
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TK165512428.Searcher: IevSearcher;
 //#UC START# *4C288BAA0058_4C29F9B202F8_var*
 //#UC END# *4C288BAA0058_4C29F9B202F8_var*
@@ -93,9 +66,7 @@ begin
  Result := TevMorphologySearcher.Make('Приказом Минобороны');
 //#UC END# *4C288BAA0058_4C29F9B202F8_impl*
 end;//TK165512428.Searcher
-{$IfEnd} //nsTest AND not NoVCM
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 function TK165512428.Replacer: IevReplacer;
 //#UC START# *4C288BFC002C_4C29F9B202F8_var*
 //#UC END# *4C288BFC002C_4C29F9B202F8_var*
@@ -104,9 +75,7 @@ begin
  Result := TevTextReplacer.Make('$$$', Options);
 //#UC END# *4C288BFC002C_4C29F9B202F8_impl*
 end;//TK165512428.Replacer
-{$IfEnd} //nsTest AND not NoVCM
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 function TK165512428.Options: TevSearchOptionSet;
 //#UC START# *4C288CC60231_4C29F9B202F8_var*
 //#UC END# *4C288CC60231_4C29F9B202F8_var*
@@ -115,23 +84,22 @@ begin
  Result := [ev_soGlobal, ev_soReplace, ev_soReplaceAll];
 //#UC END# *4C288CC60231_4C29F9B202F8_impl*
 end;//TK165512428.Options
-{$IfEnd} //nsTest AND not NoVCM
 
 function TK165512428.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.6';
 end;//TK165512428.GetFolder
 
 function TK165512428.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C29F9B202F8';
 end;//TK165512428.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK165512428.Suite);
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

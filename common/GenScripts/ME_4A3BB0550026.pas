@@ -3,6 +3,7 @@ unit nevBitmapParaAnchor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevBitmapParaAnchor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevBitmapParaAnchor" MUID: (4A3BB0550026)
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 

@@ -3,6 +3,7 @@ unit nevPrintView;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevPrintView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevPrintView" MUID: (4812119C00C1)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

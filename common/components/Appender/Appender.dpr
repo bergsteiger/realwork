@@ -1,22 +1,33 @@
 program Appender;
 
+//{$APPTYPE CONSOLE}
+
 uses
- SysUtils
+ SysUtils,
+ l3Types,
+ l3Filer,
+ l3Base
  ;
 
 var
- F : Text;
+ F : Tl3CustomDOSFiler;
  N : AnsiString;
 begin
- N := ParamStr(1);
- AssignFile(F, N);
- if FileExists(N) then
-  Append(F)
- else
-  Rewrite(F);
  try
-  WriteLn(F, ParamStr(2));
- finally
-  CloseFile(F);
- end;//try..finally
+  N := ParamStr(1);
+  F := Tl3CustomDOSFiler.Make(N, l3_fmAppend, false);
+  try
+   F.Open;
+   try
+    F.WriteLn(ParamStr(2));
+   finally
+    F.Close;
+   end;//try..finally
+  finally
+   FreeAndNil(F);
+  end;//try..finally
+ except
+  on E: Exception do
+   l3System.Exception2Log(E);
+ end;//try..except
 end.

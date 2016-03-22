@@ -20,7 +20,6 @@
 #include "boost/bind.hpp"
 
 //#UC START# *50A510FD01FE_CUSTOM_INCLUDES*
-#include "shared/GCL/alg/move_to_front.h"
 //#UC END# *50A510FD01FE_CUSTOM_INCLUDES*
 
 namespace Search {
@@ -132,12 +131,12 @@ QueriesTags* Interpreter::execute_ext (const std::string& str) {
 	//#UC START# *55BB733D014D*
 	Core::Aptr <QueriesTags> ret = Interpreter::execute (str, true);
 
-	QueriesTags::iterator or_end = GCL::move_to_front (ret->begin (), ret->end (), IsOrOperation ());
-	QueriesTags::iterator and_end = GCL::move_to_front (or_end, ret->end (), IsAndOperation ());
+	QueriesTags::iterator or_end = std::partition (ret->begin (), ret->end (), IsOrOperation ());
+	QueriesTags::iterator and_end = std::partition (or_end, ret->end (), IsAndOperation ());
 
-	GCL::move_to_front (ret->begin (), or_end, IsClassOrMkb ());
-	GCL::move_to_front (or_end, and_end, IsClassOrMkb ());
-	GCL::move_to_front (and_end, ret->end (), IsClassOrMkb ());
+	std::partition (ret->begin (), or_end, IsClassOrMkb ());
+	std::partition (or_end, and_end, IsClassOrMkb ());
+	std::partition (and_end, ret->end (), IsClassOrMkb ());
 
 	return ret._retn ();
 	//#UC END# *55BB733D014D*

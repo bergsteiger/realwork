@@ -1,8 +1,11 @@
 unit dd_lcDocIDGenerator;
 { Генерация номеров для постановлений от различных источников }
 
-{ $Id: dd_lcDocIDGenerator.pas,v 1.29 2015/07/02 11:41:28 lukyanets Exp $ }
+{ $Id: dd_lcDocIDGenerator.pas,v 1.30 2015/11/26 09:05:21 lukyanets Exp $ }
 // $Log: dd_lcDocIDGenerator.pas,v $
+// Revision 1.30  2015/11/26 09:05:21  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.29  2015/07/02 11:41:28  lukyanets
 // Описываем словари
 //
@@ -154,7 +157,7 @@ type
 implementation
 
 uses
-   l3Base, k2Tags, Math, SysUtils, daTypes, Dt_Serv, dt_AttrSchema,
+   l3Base, k2Tags, Math, SysUtils, daTypes, daSchemeConsts, Dt_Serv, dt_AttrSchema,
  DT_Const, Dt_Query, dtIntf, dt_Sab, DT_Doc, DT_LinkServ, DT_Link, DT_DictConst, DT_Dict, DT_Renum,
  rxStrUtils, StrUtils, l3ProtoPtrRecListPrim, dd_lcSourceUtils, dd_lcUtils,
  {dd_lcCodeCorrector,} HT_Const, HT_Dll, l3FileUtils, dt_err, ddUtils,

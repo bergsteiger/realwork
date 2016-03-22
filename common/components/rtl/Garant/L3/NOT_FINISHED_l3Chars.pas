@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3Chars;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Chars.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "l3Chars" MUID: (476BE98C01B8)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -19,7 +19,6 @@ unit htDataProviderParams;
 interface
 
 uses
-  Classes,
   dt_Types,
   daDataProviderParams,
   k2Base
@@ -27,10 +26,6 @@ uses
 
 type
  ThtDataProviderParams = class(TdaDataProviderParams)
- private
- // private fields
-   f_AliasesList : TStringList;
-    {* Поле для свойства AliasesList}
  protected
  // property methods
    function pm_GetStationName: AnsiString;
@@ -43,14 +38,9 @@ type
    procedure pm_SetLockPath(const aValue: AnsiString);
  protected
  // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
    class function GetTaggedDataType: Tk2Type; override;
  public
  // overridden public methods
-   procedure CorrectAfterSet; override;
-     {* Сигнатура метода CorrectAfterSet }
    procedure ChangeBasePath(const aPath: AnsiString); override;
    procedure AssignParams(aParams: TdaDataProviderParams); override;
  public
@@ -58,8 +48,6 @@ type
    function MakePathRec: TPathRec;
  public
  // public properties
-   property AliasesList: TStringList
-     read f_AliasesList;
    property StationName: AnsiString
      read pm_GetStationName
      write pm_SetStationName;
@@ -155,42 +143,11 @@ begin
  TaggedData.StrW[k2_attrLockPath, nil] := (aValue);
 end;//ThtDataProviderParams.pm_SetLockPath
 
-procedure ThtDataProviderParams.Cleanup;
-//#UC START# *479731C50290_54F9AF6B00DD_var*
-//#UC END# *479731C50290_54F9AF6B00DD_var*
-begin
-//#UC START# *479731C50290_54F9AF6B00DD_impl*
- FreeAndNil(f_AliasesList);
- inherited;
-//#UC END# *479731C50290_54F9AF6B00DD_impl*
-end;//ThtDataProviderParams.Cleanup
-
-procedure ThtDataProviderParams.InitFields;
-//#UC START# *47A042E100E2_54F9AF6B00DD_var*
-//#UC END# *47A042E100E2_54F9AF6B00DD_var*
-begin
-//#UC START# *47A042E100E2_54F9AF6B00DD_impl*
- inherited;
- f_AliasesList := TStringList.Create;
-//#UC END# *47A042E100E2_54F9AF6B00DD_impl*
-end;//ThtDataProviderParams.InitFields
-
 class function ThtDataProviderParams.GetTaggedDataType: Tk2Type;
  {-}
 begin
  Result := k2_typHyTechProviderParams;
 end;//ThtDataProviderParams.GetTaggedDataType
-
-procedure ThtDataProviderParams.CorrectAfterSet;
-//#UC START# *55194F830311_54F9AF6B00DD_var*
-//#UC END# *55194F830311_54F9AF6B00DD_var*
-begin
-//#UC START# *55194F830311_54F9AF6B00DD_impl*
- f_AliasesList.Clear;
- if DocStoragePath <> '' then
-  f_AliasesList.Add(Format('FamilyPath=%s', [DocStoragePath]));
-//#UC END# *55194F830311_54F9AF6B00DD_impl*
-end;//ThtDataProviderParams.CorrectAfterSet
 
 procedure ThtDataProviderParams.ChangeBasePath(const aPath: AnsiString);
 //#UC START# *55195AE803E0_54F9AF6B00DD_var*
@@ -213,7 +170,6 @@ begin
  inherited;
  if aParams is ThtDataProviderParams then
  begin
-  AliasesList.Assign(ThtDataProviderParams(aParams).AliasesList);
   StationName := ThtDataProviderParams(aParams).StationName;
   TablePath := ThtDataProviderParams(aParams).TablePath;
   TmpDirPath := ThtDataProviderParams(aParams).TmpDirPath;

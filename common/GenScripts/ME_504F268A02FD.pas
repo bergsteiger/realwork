@@ -2,6 +2,7 @@ unit atStringToBitMaskConverterBase;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringToBitMaskConverterBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatStringToBitMaskConverterBase" MUID: (504F268A02FD)
 
 interface
 

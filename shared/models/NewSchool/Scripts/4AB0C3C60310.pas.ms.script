@@ -1380,8 +1380,6 @@ ref; // ME_515D4C4F020D Char$XE
 FORWARD ME_47913BA402ED
 
 : ME_47913C24007F_ME_47913BA402ED
- CONST UID '47913C24007F'
- CONST Name '__AddRef'
  : Original ME_47913C24007F // __AddRef
  ;
  : Implementor ME_47913BA402ED // IUnknown$Def
@@ -1391,8 +1389,6 @@ FORWARD ME_47913BA402ED
 ref; // ME_47913C24007F_ME_47913BA402ED __AddRef
 
 : ME_47913C5301A1_ME_47913BA402ED
- CONST UID '47913C5301A1'
- CONST Name '__Release'
  : Original ME_47913C5301A1 // __Release
  ;
  : Implementor ME_47913BA402ED // IUnknown$Def
@@ -1402,8 +1398,6 @@ ref; // ME_47913C24007F_ME_47913BA402ED __AddRef
 ref; // ME_47913C5301A1_ME_47913BA402ED __Release
 
 : ME_47913CBF0265_ME_47913BA402ED
- CONST UID '47913CBF0265'
- CONST Name 'QueryInterface'
  : Original ME_47913CBF0265 // QueryInterface
  ;
  : Implementor ME_47913BA402ED // IUnknown$Def
@@ -1735,40 +1729,6 @@ ref; // ME_4787A41F02C5 Message
 
 ref; // ME_4787A43A016A HelpContext
 
-: ME_3DFD05B206FE
- CONST UID '3DFD05B206FE'
- CONST Name 'f_Message'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Message' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4787A405013D // Exception
- ;
- : Target ME_476136D3010B // String
- ;
- CONST extprop:clearViaProperty 'Message'
-
-ref; // ME_3DFD05B206FE f_Message
-
-: ME_C9DD50814F7E
- CONST UID 'C9DD50814F7E'
- CONST Name 'f_HelpContext'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HelpContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4787A405013D // Exception
- ;
- : Target ME_46A606AC03B2 // Integer
- ;
- CONST extprop:clearViaProperty 'HelpContext'
-
-ref; // ME_C9DD50814F7E f_HelpContext
-
 : ME_4787A405013D
  CONST UID '4787A405013D'
  CONST Name 'Exception'
@@ -1787,8 +1747,6 @@ ref; // ME_C9DD50814F7E f_HelpContext
  : Attributes
    Seq: ( ME_4787A41F02C5 // Message
  ME_4787A43A016A // HelpContext
- ME_3DFD05B206FE // f_Message
- ME_C9DD50814F7E // f_HelpContext
  )
  ; // Attributes
  CONST "force usage" true

@@ -2,6 +2,7 @@ unit NOT_FINISHED_CsNotification;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_CsNotification.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "CsNotification" MUID: (52FB98CB008D)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

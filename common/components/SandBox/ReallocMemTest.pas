@@ -1,38 +1,32 @@
 unit ReallocMemTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "ReallocMemTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCase::Class Shared Delphi Sand Box::SandBoxTest::Emba::TReallocMemTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\ReallocMemTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TReallocMemTest" MUID: (51643E02018F)
 
-{$Include ..\SandBox\sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , TestFrameWork
+;
 
-{$If defined(nsTest)}
 type
  TReallocMemTest = class(TTestCase)
- published
- // published methods
+  published
    procedure DoIt;
  end;//TReallocMemTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
-
-// start class TReallocMemTest
+{$If Defined(nsTest)}
+uses
+ l3ImplUses
+;
 
 procedure TReallocMemTest.DoIt;
 //#UC START# *51643E2202AA_51643E02018F_var*
@@ -87,9 +81,8 @@ begin
 //#UC END# *51643E2202AA_51643E02018F_impl*
 end;//TReallocMemTest.DoIt
 
-{$IfEnd} //nsTest
-
 initialization
  TestFramework.RegisterTest(TReallocMemTest.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

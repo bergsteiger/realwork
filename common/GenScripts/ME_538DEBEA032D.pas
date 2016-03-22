@@ -2,6 +2,7 @@ unit CsReplyTool;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\CsReplyTool.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TCsReplyTool" MUID: (538DEBEA032D)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

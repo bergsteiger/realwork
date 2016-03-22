@@ -1,9 +1,12 @@
 unit alcuRelCorrector;
 { Задача, добавляющая информацию о публикации в справку }
 
-{ $Id: alcuRelCorrector.pas,v 1.16 2014/10/23 07:08:06 lukyanets Exp $ }
+{ $Id: alcuRelCorrector.pas,v 1.17 2016/03/16 11:00:31 lukyanets Exp $ }
 
 // $Log: alcuRelCorrector.pas,v $
+// Revision 1.17  2016/03/16 11:00:31  lukyanets
+// Похоже портим экземпляр Exception
+//
 // Revision 1.16  2014/10/23 07:08:06  lukyanets
 // Обращаемся к несуществующему параметру
 //
@@ -187,7 +190,7 @@ begin
         begin
          l3System.Msg2Log('* Вылет по exception!');
          l3System.Exception2Log(E);
-         raise E;
+         raise;
         end;
         {$ELSE}
         raise;

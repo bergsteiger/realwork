@@ -3,6 +3,8 @@ unit K553427493_notBad;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\K553427493_notBad.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K553427493_notBad" MUID: (53BC206602B8)
+// Имя типа: "TK553427493_notBad"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

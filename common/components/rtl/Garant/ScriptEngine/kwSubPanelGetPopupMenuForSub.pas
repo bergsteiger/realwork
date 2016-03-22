@@ -9,6 +9,8 @@ aSubPanelSub - объект класса TevSubPanelSub }
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSubPanelGetPopupMenuForSub.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "SubPanel_GetPopupMenuForSub" MUID: (53EE014B03AC)
+// Имя типа: "TkwSubPanelGetPopupMenuForSub"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

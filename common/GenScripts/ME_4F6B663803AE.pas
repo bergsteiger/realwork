@@ -3,6 +3,8 @@ unit moParentAndChild;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\moParentAndChild.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "ParentAndChild" MUID: (4F6B663803AE)
+// Имя типа: "Tmo_ParentAndChild"
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 

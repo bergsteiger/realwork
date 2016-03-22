@@ -2,6 +2,7 @@ unit nsGroupTreeStructWithDrop;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsGroupTreeStructWithDrop.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsGroupTreeStructWithDrop" MUID: (49F16EE7010F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

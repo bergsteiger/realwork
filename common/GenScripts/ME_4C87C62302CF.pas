@@ -3,6 +3,8 @@ unit PrimQueryCardOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimQueryCardOptions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimQueryCardOptions" MUID: (4C87C62302CF)
+// Имя типа: "TPrimQueryCardOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -101,15 +103,19 @@ procedure TPrimQueryCardOptionsForm.Edit_Paste_Test(const aParams: IvcmTestParam
  {* Вставка }
 //#UC START# *49EDFA3701B0_4C87C62302CFtest_var*
 var
- l_Control : IevCustomEditorControl;
+ l_CustControl: IevCustomEditorControl;
+ l_Control: IevEditorControl;
 //#UC END# *49EDFA3701B0_4C87C62302CFtest_var*
 begin
 //#UC START# *49EDFA3701B0_4C87C62302CFtest_impl*
  if aParams.CallControl and aParams.Op.Flag[vcm_ofEnabled] then
  begin
-  l_Control := evGetCustomControl(Editor.Selection.Cursor.MostInner.Obj^.AsObject);
-  aParams.Op.Flag[vcm_ofEnabled] := Assigned(l_Control) and
-   l_Control.Visible and (l_Control.ControlType in evEditControls);
+  l_CustControl := evGetCustomControl(Editor.Selection.Cursor.MostInner.Obj^.AsObject);
+  aParams.Op.Flag[vcm_ofEnabled] := Assigned(l_CustControl)
+                                and l_CustControl.Visible
+                                and (l_CustControl.ControlType in evEditControls);
+  if Supports(l_CustControl, IevEditorControl, l_Control) then
+   aParams.Op.Flag[vcm_ofEnabled] := aParams.Op.Flag[vcm_ofEnabled] and l_Control.Enabled;
  end;
 //#UC END# *49EDFA3701B0_4C87C62302CFtest_impl*
 end;//TPrimQueryCardOptionsForm.Edit_Paste_Test

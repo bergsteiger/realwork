@@ -3,6 +3,8 @@ unit CommentPara_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\CommentPara_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "CommentPara" MUID: (4857C9C20131)
+// Имя типа: "CommentParaTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

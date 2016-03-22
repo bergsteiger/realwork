@@ -2,6 +2,7 @@ unit deListSet;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\deListSet.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdeListSet" MUID: (4926AE3900B9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -75,7 +76,8 @@ begin
                   aNodeForPositioning,
                   aSearchInfo,
                   aAllDocumentsFiltered,
-                  aNeedApplyPermanentFilters);
+                  aNeedApplyPermanentFilters,
+                  aIsChanged);
  f_List_SynchroView_Form := sva_List_SynchroView_Document;
 //#UC END# *4B1F7C63023F_4926AE3900B9_impl*
 end;//TdeListSet.Create

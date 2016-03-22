@@ -1,76 +1,54 @@
 unit TextEditorVisitorPrim;
+ {* Тест, работающий с текстом документа через редактор, но не изменяющий его }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Daily/TextEditorVisitorPrim.pas"
-// Начат: 07.05.2010 17:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TTextEditorVisitorPrim
-//
-// Тест, работающий с текстом документа через редактор, но не изменяющий его
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\TextEditorVisitorPrim.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TTextEditorVisitorPrim" MUID: (4BE418BB001F)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TextViaEditorProcessorPrim,
-  PrimTextLoad_Form
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , TextViaEditorProcessorPrim
+ , PrimTextLoad_Form
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TTextEditorVisitorPrim = {abstract} class(TTextViaEditorProcessorPrim)
   {* Тест, работающий с текстом документа через редактор, но не изменяющий его }
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    procedure VisitText(const aStr: AnsiString = 'Load');
-     {* Собственно процедура обработки текста }
+    {* Собственно процедура обработки текста }
    procedure DoVisit(aForm: TPrimTextLoadForm); virtual; abstract;
-     {* Обработать текст }
+    {* Обработать текст }
    function TreatExceptionAsSuccess: Boolean; virtual;
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TTextEditorVisitorPrim
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  l3Base,
-  k2OperationContainer,
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TTextEditorVisitorPrim
+ l3ImplUses
+ , TestFrameWork
+ , l3Base
+ , k2OperationContainer
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TTextEditorVisitorPrim.VisitText(const aStr: AnsiString = 'Load');
+ {* Собственно процедура обработки текста }
 //#UC START# *4BE4196E0367_4BE418BB001F_var*
 var
  l_F : _FormClass_;
@@ -123,17 +101,16 @@ begin
 end;//TTextEditorVisitorPrim.TreatExceptionAsSuccess
 
 function TTextEditorVisitorPrim.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TTextEditorVisitorPrim.GetFolder
 
 function TTextEditorVisitorPrim.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4BE418BB001F';
 end;//TTextEditorVisitorPrim.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

@@ -2,6 +2,7 @@ unit NOT_FINISHED_orb;
 
 // Модуль: "w:\common\components\rtl\external\MTDOrb\src\orb\NOT_FINISHED_orb.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "orb" MUID: (4CA0D35D00BF)
 
 {$Include w:\common\components\l3Define.inc}
 

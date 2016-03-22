@@ -2,6 +2,7 @@ unit nevGarbageInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevGarbageInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "nevGarbageInterfaces" MUID: (4F4B74180276)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

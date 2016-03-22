@@ -5,7 +5,7 @@ unit m3StorageBlock;
 // Библиотека "m3"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3StorageBlock.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::m3::m3CoreObjects::m3StorageBlock
+// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::m3::m3CoreObjects::m3StorageBlock
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".
@@ -369,6 +369,8 @@ begin
   Assert(not Self.f_BufferModified);
   f_Manager.Lock;
   try
+   if (m3TOCBuffers = nil) then
+    m3TOCBuffers := l3NewMemoryChain(m3ClusterSize);
    m3TOCBuffers^.AllocItemZ(Pointer(Self.f_Body), f_Manager.ClusterBodySize);
    if (Self.Position <> -1) then
    // - иначе нечего читать, видимо это НОВЫЙ блок, который только начинают писать
@@ -624,7 +626,8 @@ end;//Tm3StorageBlock.Cleanup
 
 initialization
 //#UC START# *5413162303A4*
- m3TOCBuffers := l3NewMemoryChain(m3ClusterSize);
+ if (m3TOCBuffers = nil) then
+  m3TOCBuffers := l3NewMemoryChain(m3ClusterSize);
 //#UC END# *5413162303A4*
 
 end.

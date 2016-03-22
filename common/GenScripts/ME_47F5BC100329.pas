@@ -3,6 +3,7 @@ unit dsFilters;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\List\dsFilters.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsFilters" MUID: (47F5BC100329)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

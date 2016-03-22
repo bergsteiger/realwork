@@ -2,6 +2,7 @@ unit ncsServiceProviderParamsFactory;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsServiceProviderParamsFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsServiceProviderParamsFactory" MUID: (54F04779024B)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

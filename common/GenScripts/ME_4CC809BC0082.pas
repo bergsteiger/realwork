@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Skins\RegionableForm.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "RegionableForm" MUID: (4CC809BC0082)
+// Имя типа: "_RegionableForm_"
 
 {$Define RegionableForm_imp}
 

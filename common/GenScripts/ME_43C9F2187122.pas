@@ -3,6 +3,7 @@ unit StyleEditorFont_ut_StyleEditorFont_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorFont_ut_StyleEditorFont_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_StyleEditorFont" MUID: (43C9F2187122)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_StyleEditorFont = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_StyleEditorFont }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_StyleEditorFont
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_StyleEditorFont.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_StyleEditorFont';
-end;//Tkw_FormUserType_ut_StyleEditorFont.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_StyleEditorFont.GetInteger: Integer;
 begin
  Result := ut_StyleEditorFont;
 end;//Tkw_FormUserType_ut_StyleEditorFont.GetInteger
+
+class function Tkw_FormUserType_ut_StyleEditorFont.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_StyleEditorFont';
+end;//Tkw_FormUserType_ut_StyleEditorFont.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

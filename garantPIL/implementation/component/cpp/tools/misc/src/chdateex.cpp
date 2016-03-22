@@ -114,7 +114,7 @@ int main_logic ( int argc, char *argv[] )
 						}
 
 						std::set<std::string> dates = map_id_dates.find (id)->second;
-						for_id += b_english_base ? "from " : "от ";
+						for_id += b_english_base ? "dated " : "от ";
 						for (std::set<std::string>::const_iterator date_it = dates.begin (); date_it != dates.end (); date_it++) {
 							if (date_it != dates.begin ())
 								for_id += ", ";
@@ -130,7 +130,7 @@ int main_logic ( int argc, char *argv[] )
 						b_last_empty_date = true;
 					} else {
 						if (b_last_empty_date)
-							for_id += b_english_base ? "from " : "от ";
+							for_id += b_english_base ? "dated " : "от ";
 
 						const char *at_date_it = map_date_it->first.c_str ();
 						char year [5], month [4], day [4];

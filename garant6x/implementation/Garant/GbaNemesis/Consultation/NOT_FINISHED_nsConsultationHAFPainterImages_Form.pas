@@ -2,6 +2,8 @@ unit NOT_FINISHED_nsConsultationHAFPainterImages_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\NOT_FINISHED_nsConsultationHAFPainterImages_Form.pas"
 // Стереотип: "VCMDataModule"
+// Элемент модели: "nsConsultationHAFPainterImages" MUID: (4CF37C170269)
+// Имя типа: "TnsConsultationHAFPainterImagesForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

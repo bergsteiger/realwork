@@ -32,18 +32,11 @@ class RequestTransformer_i:
 {
 	SET_OBJECT_COUNTER (RequestTransformer_i)
 	friend class RequestTransformer_i_factory; // self factory
-
-//////////////////////////////////////////////////////////////////////////////////////////
-// nested declarations
-private:
-	// Константы
-	static const size_t MAX_WORDS_OF_REQUEST; // максимальное количество слов в морфозапросе
-
 //////////////////////////////////////////////////////////////////////////////////////////
 // static member methods and data
 private:
 	// исключить слова и фразы
-	static void exclude (std::string& str, const GCL::StrVector& data, bool is_fake);
+	static void _exclude (std::string& str, const GCL::StrVector& data);
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // constructors and destructor
@@ -79,20 +72,11 @@ protected:
 
 	// implemented method from Manage::IRequestTransformer
 	// исключение стоп-слов
-	size_t exclude (std::string& req, const GCL::StrVector& data, const DBComm::PSDTemplates& templates, bool is_fake);
+	size_t exclude (std::string& req, const GCL::StrVector& data);
 
 	// implemented method from Manage::IRequestTransformer
 	// выполнить
-	GCL::StrVector* execute (
-		const std::string& in
-		, const GCL::StrVector& data
-		, const GCL::StrVector& hard
-		, Defs::StrStrMap& pseudo
-	);
-
-	// implemented method from Manage::IRequestTransformer
-	// исключение стоп-слов
-	void unchecked_exclude (std::string& req, const GCL::StrVector& data);
+	GCL::StrVector* execute (const std::string& in, const GCL::StrVector& data, const GCL::StrVector& hard);
 }; // class RequestTransformer_i
 
 } // namespace Manage_i

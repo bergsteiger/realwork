@@ -2,6 +2,8 @@ unit kwMouseRightUp;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseRightUp.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "Mouse_RightUp" MUID: (4F967CBF016D)
+// Имя типа: "TkwMouseRightUp"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

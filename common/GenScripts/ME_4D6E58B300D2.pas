@@ -2,6 +2,7 @@ unit nsF1AutoreferatDocumentTagNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\nsF1AutoreferatDocumentTagNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsF1AutoreferatDocumentTagNode" MUID: (4D6E58B300D2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

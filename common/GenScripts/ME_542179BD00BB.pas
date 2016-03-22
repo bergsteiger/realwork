@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3PersistentList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "m3PersistentList" MUID: (542179BD00BB)
+// Имя типа: "_m3PersistentList_"
 
 {$Define m3PersistentList_imp}
 

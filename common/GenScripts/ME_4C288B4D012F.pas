@@ -3,6 +3,7 @@ unit SearchAndReplacePrimTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\SearchAndReplacePrimTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TSearchAndReplacePrimTest" MUID: (4C288B4D012F)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

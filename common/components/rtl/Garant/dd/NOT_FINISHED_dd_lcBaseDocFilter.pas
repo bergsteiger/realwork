@@ -2,6 +2,7 @@ unit NOT_FINISHED_dd_lcBaseDocFilter;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcBaseDocFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tdd_lcBaseDocFilter" MUID: (4EA664B0011D)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

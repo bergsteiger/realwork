@@ -2,6 +2,7 @@ unit evCustomMemoContainer;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCustomMemoContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomMemoContainer" MUID: (482D888D039E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

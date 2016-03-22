@@ -2,6 +2,7 @@ unit ncsMessageClassList;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsMessageClassList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsMessageClassList" MUID: (54539F0C00AD)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

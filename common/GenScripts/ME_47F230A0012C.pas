@@ -3,6 +3,7 @@ unit nsINodesClipboardDataObject;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsINodesClipboardDataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsINodesClipboardDataObject" MUID: (47F230A0012C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

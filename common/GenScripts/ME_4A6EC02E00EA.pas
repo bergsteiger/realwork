@@ -3,6 +3,8 @@ unit LeftEdition_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\LeftEdition_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "LeftEdition" MUID: (4A6EC02E00EA)
+// Имя типа: "TLeftEditionForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

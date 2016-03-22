@@ -3,6 +3,8 @@ unit ReleaseItsLAW;
 
 // Модуль: "w:\common\components\TFWTest\ReleaseItsLAW.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "ReleaseItsLAW" MUID: (F8EECE1AEED7)
+// Имя типа: "TReleaseItsLAW"
 
 interface
 

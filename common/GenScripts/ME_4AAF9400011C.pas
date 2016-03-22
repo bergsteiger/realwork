@@ -2,6 +2,7 @@ unit nsPostingsTreeSingle;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\nsPostingsTreeSingle.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsPostingsTreeSingle" MUID: (4AAF9400011C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

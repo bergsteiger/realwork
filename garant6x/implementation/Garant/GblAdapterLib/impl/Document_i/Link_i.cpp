@@ -170,7 +170,7 @@ GCI::IO::String* Link_i::get_linked_hint () const {
 }
 
 // implemented method from Link
-Core::IObject* Link_i::get_object () const /*throw (InvalidTopicId, FolderLinkNotFound, NotAllowedInTrialMode)*/ {
+Core::IObject* Link_i::get_object () const /*throw (InvalidTopicId, FolderLinkNotFound)*/ {
 	//#UC START# *51A61EF0013E_51A6189A00F0*
 	ObjectFromLink_var object_from_link = 
 				ObjectFromLinkFactory::make (m_server_link, LinkedObjectTypeConvertorSingleton::instance ()->get (m_server_link->get_link_object_type ()));

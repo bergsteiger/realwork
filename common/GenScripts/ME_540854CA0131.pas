@@ -2,6 +2,7 @@ unit m3StoreHeaderDataNew;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3StoreHeaderDataNew.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3StoreHeaderDataNew" MUID: (540854CA0131)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

@@ -3,6 +3,7 @@ unit NOT_FINISHED_nsDocumentTools;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\NOT_FINISHED_nsDocumentTools.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsDocumentTools" MUID: (47F61C4C0040)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

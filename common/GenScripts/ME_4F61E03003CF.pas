@@ -3,6 +3,7 @@ unit npNavigatorList;
 
 // Модуль: "w:\common\components\gui\Garant\VT\npNavigatorList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnpNavigatorList" MUID: (4F61E03003CF)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

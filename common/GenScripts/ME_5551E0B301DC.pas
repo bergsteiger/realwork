@@ -2,6 +2,7 @@ unit daSelectFieldListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daSelectFieldListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaSelectFieldListPrim" MUID: (5551E0B301DC)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

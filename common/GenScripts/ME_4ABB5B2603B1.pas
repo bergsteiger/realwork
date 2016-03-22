@@ -3,6 +3,7 @@ unit l3StringPtr;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3StringPtr.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3StringPtr" MUID: (4ABB5B2603B1)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

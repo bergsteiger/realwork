@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "SelectOperation" MUID: (4D4137E30326)
+// Имя типа: "_SelectOperation_"
 
 {$Define SelectOperation_imp}
 

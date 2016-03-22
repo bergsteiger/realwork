@@ -14,8 +14,8 @@
 
 #define IS_NUMBER(ch) ((rv_uc(ch)>=rv_uc('0')&&rv_uc(ch)<=rv_uc('9')))
 
-#define IS_R_ANUM(ch) (IS_NUMBER(ch)|| (rv_uc(ch)>=rv_uc('A')&&rv_uc(ch)<=rv_uc('Z'))|| (rv_uc(ch)>=rv_uc('a')&&rv_uc(ch)<=rv_uc('z') )|| (rv_uc(ch)>=rv_uc('€')&&rv_uc(ch)<=rv_uc('Ÿ'))|| (rv_uc(ch)>=rv_uc(' ')&&rv_uc(ch)<=rv_uc('¯'))|| (rv_uc(ch)>=rv_uc('à')&&rv_uc(ch)<=rv_uc('ï')) || rv_uc(ch) == rv_uc('ð') || rv_uc(ch) == rv_uc('ñ') )
-#define IS_R_ANUM_WIN(ch) (IS_NUMBER(ch)|| (rv_uc(ch)>=rv_uc('A')&&rv_uc(ch)<=rv_uc('Z'))|| (rv_uc(ch)>=rv_uc('a')&&rv_uc(ch)<=rv_uc('z') )|| (rv_uc(ch)>=rv_uc('À')&&rv_uc(ch)<=rv_uc('ß'))|| (rv_uc(ch)>=rv_uc('à')&&rv_uc(ch)<=rv_uc('ÿ'))|| rv_uc(ch)==rv_uc('¸') || rv_uc(ch)==rv_uc('¨') )
+#define IS_R_ANUM(ch) (IS_NUMBER(ch)|| (rv_uc(ch)>=rv_uc('A')&&rv_uc(ch)<=rv_uc('Z'))|| (rv_uc(ch)>=rv_uc('a')&&rv_uc(ch)<=rv_uc('z') )|| (rv_uc(ch)>=rv_uc('€')&&rv_uc(ch)<=rv_uc('Ÿ'))|| (rv_uc(ch)>=rv_uc(' ')&&rv_uc(ch)<=rv_uc('¯'))|| (rv_uc(ch)>=rv_uc('à')&&rv_uc(ch)<=rv_uc('ï')) || rv_uc(ch) == rv_uc('ð') || rv_uc(ch) == rv_uc('ñ') || rv_uc(ch) == rv_uc('ö') || rv_uc(ch) == rv_uc('÷') )
+#define IS_R_ANUM_WIN(ch) (IS_NUMBER(ch)|| (rv_uc(ch)>=rv_uc('A')&&rv_uc(ch)<=rv_uc('Z'))|| (rv_uc(ch)>=rv_uc('a')&&rv_uc(ch)<=rv_uc('z') )|| (rv_uc(ch)>=rv_uc('À')&&rv_uc(ch)<=rv_uc('ß'))|| (rv_uc(ch)>=rv_uc('à')&&rv_uc(ch)<=rv_uc('ÿ'))|| rv_uc(ch)==rv_uc('¸') || rv_uc(ch)==rv_uc('¨') || rv_uc(ch)==rv_uc('¢') || rv_uc(ch)==rv_uc('¡'))
 
 // - (¤¥ä¨§) â¥¯¥àì à §¤¥«¨â¥«ì
 #define IS_CTX_CHAR(c) (IS_R_ANUM(c)||rv_uc(c)==rv_uc('/'))
@@ -23,8 +23,8 @@
 #define IS_CTX_CHAR_WIN(c) (IS_R_ANUM_WIN(c)||rv_uc(c)==rv_uc('/'))
 // ¡ë«® #define IS_CTX_CHAR_WIN(c) (IS_R_ANUM_WIN(c)||(c)==rv_uc('-')||(c)==rv_uc('/'))
 
-#define IS_CTX_CHAR_NORMLS_56(c) ((c=='%')||(rv_uc(c)>=rv_uc('à')&&rv_uc(c)<=rv_uc('ï')) || (rv_uc(c)>=rv_uc('€')&&rv_uc(c)<=rv_uc('Ÿ')) || (rv_uc(c)>=rv_uc(' ')&&rv_uc(c)<=rv_uc('¯')) || rv_uc(c) == rv_uc('ð') || rv_uc(c) == rv_uc('ñ') || IS_NUMBER(c)|| (rv_uc(c)>=rv_uc('A')&&rv_uc(c)<=rv_uc('Z'))|| (rv_uc(c)>=rv_uc('a')&&rv_uc(c)<=rv_uc('z') ))
-#define IS_CTX_CHAR_NORMLS_62(c) ((c=='%')||(rv_uc(c)>=rv_uc('à')&&rv_uc(c)<=rv_uc('ÿ')) || (rv_uc(c)>=rv_uc('À')&&rv_uc(c)<=rv_uc('ß')) || IS_NUMBER(c) || rv_uc(c)==rv_uc('¸') || rv_uc(c)==rv_uc('¨') || (rv_uc(c)>=rv_uc('A')&&rv_uc(c)<=rv_uc('Z'))|| (rv_uc(c)>=rv_uc('a')&&rv_uc(c)<=rv_uc('z') ))
+#define IS_CTX_CHAR_NORMLS_56(c) ((c=='%')||(rv_uc(c)>=rv_uc('à')&&rv_uc(c)<=rv_uc('ï')) || (rv_uc(c)>=rv_uc('€')&&rv_uc(c)<=rv_uc('Ÿ')) || (rv_uc(c)>=rv_uc(' ')&&rv_uc(c)<=rv_uc('¯')) || rv_uc(c) == rv_uc('ð') || rv_uc(c) == rv_uc('ñ') || rv_uc(c) == rv_uc('ö') || rv_uc(c) == rv_uc('÷') || IS_NUMBER(c)|| (rv_uc(c)>=rv_uc('A')&&rv_uc(c)<=rv_uc('Z'))|| (rv_uc(c)>=rv_uc('a')&&rv_uc(c)<=rv_uc('z') ))
+#define IS_CTX_CHAR_NORMLS_62(c) ((c=='%')||(rv_uc(c)>=rv_uc('à')&&rv_uc(c)<=rv_uc('ÿ')) || (rv_uc(c)>=rv_uc('À')&&rv_uc(c)<=rv_uc('ß')) || IS_NUMBER(c) || rv_uc(c)==rv_uc('¸') || rv_uc(c)==rv_uc('¨') || rv_uc(c)==rv_uc('¢') || rv_uc(c)==rv_uc('¡') || (rv_uc(c)>=rv_uc('A')&&rv_uc(c)<=rv_uc('Z'))|| (rv_uc(c)>=rv_uc('a')&&rv_uc(c)<=rv_uc('z') ))
 
 #endif // __GARANT_CONTEXT_DEFINES__
 

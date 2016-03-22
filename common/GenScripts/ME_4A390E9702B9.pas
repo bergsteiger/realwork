@@ -2,6 +2,7 @@ unit evTabIndentMarker;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTabIndentMarker.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTabIndentMarker" MUID: (4A390E9702B9)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

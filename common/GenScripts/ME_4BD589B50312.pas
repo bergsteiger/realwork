@@ -3,6 +3,7 @@ unit ListUserTypes_lftConsultation_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftConsultation_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "lftConsultation" MUID: (4BD589B50312)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftConsultation = {final} class(TtfwInteger)
   {* Слово словаря для типа формы lftConsultation }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_lftConsultation
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_lftConsultation.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::lftConsultation';
-end;//Tkw_FormUserType_lftConsultation.GetWordNameForRegister
-
 function Tkw_FormUserType_lftConsultation.GetInteger: Integer;
 begin
  Result := lftConsultation;
 end;//Tkw_FormUserType_lftConsultation.GetInteger
+
+class function Tkw_FormUserType_lftConsultation.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::lftConsultation';
+end;//Tkw_FormUserType_lftConsultation.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

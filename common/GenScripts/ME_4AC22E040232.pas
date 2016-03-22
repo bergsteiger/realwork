@@ -3,6 +3,7 @@ unit OldTreeInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\OldTreeInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "OldTreeInterfaces" MUID: (4AC22E040232)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

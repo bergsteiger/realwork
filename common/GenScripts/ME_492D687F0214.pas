@@ -3,6 +3,7 @@ unit dsDocumentListCR;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentListCR.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsDocumentListCR" MUID: (492D687F0214)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

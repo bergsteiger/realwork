@@ -3,6 +3,8 @@ unit K517772970_TaskRequest;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TaskRequest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TaskRequest" MUID: (53202A820364)
+// Имя типа: "TK517772970_TaskRequest"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

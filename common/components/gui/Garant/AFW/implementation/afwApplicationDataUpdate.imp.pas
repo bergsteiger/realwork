@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "afwApplicationDataUpdate" MUID: (47EA4BEF0140)
+// Имя типа: "_afwApplicationDataUpdate_"
 
 {$Define afwApplicationDataUpdate_imp}
 

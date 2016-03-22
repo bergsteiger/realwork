@@ -3,6 +3,8 @@ unit kwMainFormFindDocuments;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwMainFormFindDocuments.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "MainForm_FindDocuments" MUID: (4F8D503400FD)
+// Имя типа: "TkwMainFormFindDocuments"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

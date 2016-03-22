@@ -3,6 +3,7 @@ unit Base_Operations_Chat_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_Chat_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "Chat" MUID: (4A8AE21B0210)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

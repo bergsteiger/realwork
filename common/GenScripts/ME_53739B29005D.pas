@@ -2,6 +2,8 @@
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\TaskSaver.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "TaskSaver" MUID: (53739B29005D)
+// Имя типа: "_TaskSaver_"
 
 {$Define TaskSaver_imp}
 

@@ -2,6 +2,7 @@ unit m3LZOInflateStreamNew;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3LZOInflateStreamNew.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3LZOInflateStreamNew" MUID: (542AA48C0354)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

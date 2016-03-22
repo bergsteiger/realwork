@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "Para2Point" MUID: (4CED0194038A)
+// Имя типа: "_Para2Point_"
 
 {$Define Para2Point_imp}
 

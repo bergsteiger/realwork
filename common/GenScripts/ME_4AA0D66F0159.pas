@@ -2,6 +2,8 @@ unit Inpharm_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Inpharm_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "Inpharm" MUID: (4AA0D66F0159)
+// Имя типа: "TInpharmModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

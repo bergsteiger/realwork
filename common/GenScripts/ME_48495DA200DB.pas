@@ -3,6 +3,8 @@ unit Time_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\Time_Const.pas"
 // Стереотип: "Atom"
+// Элемент модели: "Time" MUID: (48495DA200DB)
+// Имя типа: "TimeAtom"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

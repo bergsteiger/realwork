@@ -1,69 +1,48 @@
 unit K289933137;
+ {* [RequestLink:289933137] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Daily/K289933137.pas"
-// Начат: 05.10.2011 17:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.7 Lulin::K289933137
-//
-// {RequestLink:289933137}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K289933137.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K289933137" MUID: (4E8C5F6502AA)
+// Имя типа: "TK289933137"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK289933137 = class(TBaseTest)
   {* [RequestLink:289933137] }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt;
  end;//TK289933137
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  l3KeyWrd,
-  l3Except,
-  SysUtils,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , l3KeyWrd
+ , l3Except
+ , SysUtils
+ , TestFrameWork
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK289933137
-
+{$If NOT Defined(NotTunedDUnit)}
 procedure TK289933137.DoIt;
 //#UC START# *4E8C5F96027B_4E8C5F6502AA_var*
 var
@@ -92,20 +71,20 @@ begin
 end;//TK289933137.DoIt
 
 function TK289933137.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.7 Lulin';
 end;//TK289933137.GetFolder
 
 function TK289933137.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4E8C5F6502AA';
 end;//TK289933137.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK289933137.Suite);
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

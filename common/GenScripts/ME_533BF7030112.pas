@@ -2,6 +2,7 @@ unit vgRemindersLineWithState;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vgRemindersLineWithState.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgRemindersLineWithState" MUID: (533BF7030112)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

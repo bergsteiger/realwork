@@ -2,6 +2,7 @@ unit evHiddenFilter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evHiddenFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevHiddenFilter" MUID: (47ECBAA30322)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
@@ -57,6 +58,9 @@ uses
  , nevFormatInfo
  , nevFormatInfoFactory
  , k2Tags
+ {$If NOT Defined(NoScripts)}
+ , kwFiltersAndGeneratorsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 class function TevHiddenFilter.SetTo(aHiddenStyles: TevStandardStyles;

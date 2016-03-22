@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsTypes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\NOT_FINISHED_nsTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsTypes" MUID: (4A6854C70390)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

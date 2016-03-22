@@ -2,6 +2,7 @@ unit nevShapePrimRefList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevShapePrimRefList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevShapePrimRefList" MUID: (4E6E1EB1013F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

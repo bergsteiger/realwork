@@ -2,6 +2,7 @@ unit NOT_FINISHED_alcuAutoClassifier;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoClassifier.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "alcuAutoClassifier" MUID: (5303549A038F)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

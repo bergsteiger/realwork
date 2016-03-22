@@ -53,6 +53,8 @@ implementation
 uses
   StrShop,
 
+  daSchemeConsts,
+
   DT_Const,
   dt_DictConst,
   DT_Dict,

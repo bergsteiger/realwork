@@ -2,6 +2,7 @@ unit Math;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\Math.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Math" MUID: (4808A20402DC)
 
 interface
 

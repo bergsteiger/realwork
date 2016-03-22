@@ -3,6 +3,8 @@ unit K517772970_TcsSpellCorrectTaskDefault;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TcsSpellCorrectTaskDefault.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TcsSpellCorrectTaskDefault" MUID: (53B25CAB001A)
+// Имя типа: "TK517772970_TcsSpellCorrectTaskDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

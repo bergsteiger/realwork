@@ -2,6 +2,7 @@ unit nevListFormatInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevListFormatInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevListFormatInfo" MUID: (4815B8510359)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
@@ -169,7 +170,8 @@ var l_Vert: Boolean;
 begin
 //#UC START# *4E709676009E_4815B8510359_impl*
  l_FixedWidth := Obj.AsObject.BoolA[k2_tiFixedWidth];
- if AllowTotalRecalc OR
+ if aView.NeedTotalRecalc OR
+    AllowTotalRecalc OR
     InPara(k2_typTable) then
  begin
   l_Space := Self.Get_Spacing;
@@ -567,7 +569,7 @@ procedure TnevListFormatInfo.DoRecalc(const aView: InevViewMetrics);
 //#UC END# *4E7094780214_4815B8510359_var*
 begin
 //#UC START# *4E7094780214_4815B8510359_impl*
- RecalcImpl;
+ RecalcImpl(aView);
  Self.wMap(nil);
 //#UC END# *4E7094780214_4815B8510359_impl*
 end;//TnevListFormatInfo.DoRecalc

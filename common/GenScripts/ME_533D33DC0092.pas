@@ -2,6 +2,7 @@ unit ChromeLikeWinUtils;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeWinUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ChromeLikeWinUtils" MUID: (533D33DC0092)
 
 interface
 

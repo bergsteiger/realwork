@@ -2,6 +2,7 @@ unit ddServerTaskManagerForTests;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\ddServerTaskManagerForTests.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddServerTaskManagerForTests" MUID: (52F8E8A101EC)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

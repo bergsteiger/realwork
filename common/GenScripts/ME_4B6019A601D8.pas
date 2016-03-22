@@ -2,6 +2,7 @@ unit nscFocusLabel;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscFocusLabel.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscFocusLabel" MUID: (4B6019A601D8)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -21,9 +22,7 @@ type
  TnscFocusLabel = class(TvtFocusLabel)
   private
    f_HotTruck: Boolean;
-    {* Поле для свойства HotTruck }
    f_AllowTrucking: Boolean;
-    {* Поле для свойства AllowTrucking }
   private
    procedure SetHotTruck(aValue: Boolean);
    procedure UpdateTruckFromCursor;

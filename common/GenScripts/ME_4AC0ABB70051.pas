@@ -2,6 +2,7 @@ unit nsFormCoordinates;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\nsFormCoordinates.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsFormCoordinates" MUID: (4AC0ABB70051)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

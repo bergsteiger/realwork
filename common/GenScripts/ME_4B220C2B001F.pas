@@ -3,6 +3,7 @@ unit dBaseDocument;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocument.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdBaseDocument" MUID: (4B220C2B001F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

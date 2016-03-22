@@ -7,141 +7,45 @@
 #include <fstream>
 #include "boost/bind.hpp"
 
-#include "shared/GCL/str/str_conv.h"
 #include "shared/Morpho/Facade/Factory.h"
-#include "shared/ContextSearch/Common/ContextUtility.h"
 
 #include "garantCore/SearchAdapterLib/Cache/Cache.h"
 
 #include "RequestTransformer.h"
+#include "DBComm.h"
 
 namespace RequestTransform {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-RequestTransformer::RequestTransformer (const std::string& path) {
-	m_base = new ToolsBase (path);
+static void add_word (const std::string& word, GCL::StrVector& lemmas) {
+	lemmas.push_back (word);
 
-	SearchAdapterLib::Cache::instance ()->init (m_base->abstract_base ());
+	const DBComm::Synonyms& syns = SearchAdapterLib::Cache::instance ()->get ()->get_ssyns ();
 
-	Morpho::Def::ICache_var cache = Morpho::Factory::make ();
-	cache->load (m_base->abstract_base (), true);
+	DBComm::SynPair pair;
+	pair.key = word;
 
-	m_env.normalizer = Morpho::Factory::make (cache.in ());
-	m_query = Manage::IQueryFactory::make (m_env, SearchAdapterLib::Cache::instance ()->get ());
-}
+	DBComm::Synonyms::const_iterator it = std::lower_bound (syns.begin (), syns.end (), pair, DBComm::SynCompare ());
 
-RequestTransformer::~RequestTransformer () {
-}
-
-void RequestTransformer::execute (const std::string& in, const std::string& out) {
-	std::ifstream ifs (in.c_str ());
-
-	if (ifs) {
-		std::ofstream ofs (out.c_str (), std::ios_base::trunc);
-
-		if (ofs) {
-			std::string str;
-
-			while (!ifs.eof ()) {
-				std::getline (ifs, str);
-
-				if (str.empty () == false && str [0] != ';') {
-					GCL::StrVector lemmas;
-
-					ofs << str << ": ";
-					this->out_requests (ofs, lemmas, str);
-					ofs << ": ";
-					this->out_lemmas (ofs, lemmas); // печать всех полученных лемм
-					ofs << std::endl;
-				}
-			}
-
-			ofs.close ();
-		} else {
-			LOG_E (("%s: can't open %s", GDS_CURRENT_FUNCTION, out.c_str ()));
-		}
-
-		ifs.close ();
-	} else {
-		LOG_E (("%s: can't open %s", GDS_CURRENT_FUNCTION, in.c_str ()));
+	if (it != syns.end () && it->key == word) {
+		lemmas.insert (lemmas.end (), it->data.begin (), it->data.end ());
 	}
 }
 
-// Печать списка запросов
-void RequestTransformer::out_requests (std::ofstream& ofs, GCL::StrVector& lemmas, const std::string& str) {
-	m_query->clear ();
-	m_query->add (Defs::Request (str), false);
+static void out_req (std::ofstream& ofs, GCL::StrVector& lemmas, const Search::SplitRequest& req, size_t& count) {
+	std::for_each (req.context.begin (), req.context.end (), boost::bind (&add_word, _1, boost::ref (lemmas)));
 
-	size_t count = 0;
-
-	Core::Aptr <Search::SplitRequests> requests = m_query->get_data ();
-
-	std::for_each (requests->begin (), requests->end ()
-		, boost::bind (&RequestTransformer::out_request, this
-		, boost::ref (ofs)
-		, boost::ref (lemmas), _1
-		, boost::ref (count))
-	);
-}
-
-// Нормализация
-void RequestTransformer::normalize (const std::string& word, RequestList& reqs, GCL::StrVector& lemmas) {
-	if (*(word.rbegin ()) == '!' || *(word.rbegin ()) == '*') {
-		for (RequestList::iterator it = reqs.begin (); it != reqs.end (); ++it) {
-			it->push_back (word);
-		}
-		lemmas.push_back (std::string (" ") + word);
-	} else {
-		std::string forma;
-
-		Morpho::Def::NSettings info;
-		info.as_key = false;
-
-		{
-			Core::Aptr <GCL::StrSet> normas = m_env.normalizer->execute (word, forma, info);
-
-			if (reqs.size ()) {
-				RequestList tmp;
-
-				for (RequestList::const_iterator _it = reqs.begin (); _it != reqs.end (); ++_it) {
-					for (GCL::StrSet::const_iterator it = normas->begin (); it != normas->end (); ++it) {
-						tmp.push_back (*_it);
-						tmp.back ().push_back (*it);
-					}
-				}
-
-				reqs.swap (tmp);
-			} else {
-				for (GCL::StrSet::const_iterator it = normas->begin (); it != normas->end (); ++it) {
-					reqs.push_back (GCL::StrVector (1, *it));
-				}
-			}
-		}
-
-		{
-			info.is_extended = true;
-			info.as_key = false;
-
-			Core::Aptr <GCL::StrSet> normas = m_env.normalizer->execute (word, forma, info);
-
-			lemmas.insert (lemmas.begin (), normas->begin (), normas->end ());
-		}
-	}
-}
-
-// Печать синонимированного нормализованного запроса
-void out_norm_request (std::ofstream& ofs, const Search::Phrase& req, const Relevancy::Data& data, size_t& count) {
 	if (count) {
 		ofs << ";";
 	}
 
 	++count;
 
-	Search::Phrase::const_iterator it_begin = req.begin (), it_end = req.end ();
+	Search::Phrase::const_iterator it_begin = req.context.begin (), it_end = req.context.end ();
 
-	const Relevancy::Positions& strongs = data.strongs;
-	const Relevancy::Frames& frames = data.frames;
+	const Relevancy::Positions& strongs = req.data.strongs;
+	const Relevancy::Frames& frames = req.data.frames;
 
 	Relevancy::Frames::const_iterator f_it = frames.begin ();
 
@@ -170,33 +74,73 @@ void out_norm_request (std::ofstream& ofs, const Search::Phrase& req, const Rele
 	}
 }
 
-// Печать синонимированного запроса
-void RequestTransformer::out_request (
-	std::ofstream& ofs
-	, GCL::StrVector& lemmas
-	, const Search::SplitRequest& req
-	, size_t& count
-) {
-	RequestList out;
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	std::for_each (req.context.begin (), req.context.end ()
-		, boost::bind (&RequestTransformer::normalize, this, _1
-		, boost::ref (out)
-		, boost::ref (lemmas))
-	);
+RequestTransformer::RequestTransformer (const std::string& path) {
+	m_base = new ToolsBase (path);
 
-	std::for_each (out.begin (), out.end ()
-		, boost::bind (&RequestTransform::out_norm_request
-		, boost::ref (ofs), _1, req.data
-		, boost::ref (count))
-	);
+	DBCore::IBase_var base = DBCore::DBFactory::make (m_base.in ());
+
+	SearchAdapterLib::Cache::instance ()->init (base.in ());
+
+	Morpho::Def::ICache_var cache = Morpho::Factory::make ();
+	cache->load (base.in ());
+
+	Manage::Env env;
+	env.normalizer = Morpho::Factory::make (cache.in ());
+	m_query = Manage::IQueryFactory::make (env, SearchAdapterLib::Cache::instance ()->get ());
 }
 
-// Печать всех полученных лемм
-void RequestTransformer::out_lemmas (std::ofstream& ofs, GCL::StrVector& lemmas) {
-	std::sort (lemmas.begin (), lemmas.end ());
-	lemmas.erase (std::unique (lemmas.begin (), lemmas.end ()), lemmas.end ());
-	std::copy (lemmas.begin (), lemmas.end (), std::ostream_iterator <std::string> (ofs, " "));
+RequestTransformer::~RequestTransformer () {
+}
+
+void RequestTransformer::execute (const std::string& in, const std::string& out) {
+	std::ifstream ifs (in.c_str ());
+
+	if (ifs) {
+		std::ofstream ofs (out.c_str (), std::ios_base::trunc);
+
+		if (ofs) {
+			std::string str;
+
+			while (!ifs.eof ()) {
+				std::getline (ifs, str);
+
+				if (str.empty () == false && str [0] != ';') {
+					ofs << str << ": ";
+
+					m_query->clear ();
+					m_query->add (Defs::Request (str), false);
+
+					Core::Aptr <Search::SplitRequests> requests = m_query->get_data ();
+
+					size_t count = 0;
+
+					GCL::StrVector lemmas;
+
+					std::for_each (requests->begin (), requests->end ()
+						, boost::bind (&out_req, boost::ref (ofs), boost::ref (lemmas), _1, boost::ref (count))
+					);
+
+					ofs << ": ";
+
+					std::sort (lemmas.begin (), lemmas.end ());
+					lemmas.erase (std::unique (lemmas.begin (), lemmas.end ()), lemmas.end ());
+					std::copy (lemmas.begin (), lemmas.end (), std::ostream_iterator <std::string> (ofs, " "));
+
+					ofs << std::endl;
+				}
+			}
+
+			ofs.close ();
+		} else {
+			LOG_E (("%s: can't open %s", GDS_CURRENT_FUNCTION, out.c_str ()));
+		}
+
+		ifs.close ();
+	} else {
+		LOG_E (("%s: can't open %s", GDS_CURRENT_FUNCTION, in.c_str ()));
+	}
 }
 
 }

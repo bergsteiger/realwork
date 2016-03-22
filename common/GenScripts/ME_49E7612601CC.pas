@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevTinyParaXTool.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevTinyParaXTool" MUID: (49E7612601CC)
+// Имя типа: "_nevTinyParaXTool_"
 
 {$Define nevTinyParaXTool_imp}
 
@@ -18,6 +20,7 @@
    class function IsCacheable: Boolean; override;
     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   procedure ClearFields; override;
   public
    constructor Create(aTag: Tl3Variant); reintroduce;
   protected
@@ -67,6 +70,12 @@ begin
 //#UC END# *47A6FEE600FC_49E7612601CC_impl*
 end;//_nevTinyParaXTool_.IsCacheable
 {$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+procedure _nevTinyParaXTool_.ClearFields;
+begin
+ Finalize(f_ParaX);
+ inherited;
+end;//_nevTinyParaXTool_.ClearFields
 
 {$EndIf nevTinyParaXTool_imp_impl}
 

@@ -3,6 +3,7 @@ unit nsSplashInfo;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Splash\nsSplashInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsSplashInfo" MUID: (499D24A503A6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

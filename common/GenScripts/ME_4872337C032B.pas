@@ -2,6 +2,7 @@ unit ctComboBoxStringsItemNode;
 
 // Модуль: "w:\common\components\gui\Garant\VT\ComboTree\ctComboBoxStringsItemNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TctComboBoxStringsItemNode" MUID: (4872337C032B)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

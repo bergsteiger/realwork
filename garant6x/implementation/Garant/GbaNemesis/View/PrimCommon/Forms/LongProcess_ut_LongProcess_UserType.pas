@@ -1,83 +1,63 @@
 unit LongProcess_ut_LongProcess_UserType;
+ {* Информация }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimCommon/Forms/LongProcess_ut_LongProcess_UserType.pas"
-// Начат: 21.08.2009 20:15
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Базовые определения предметной области::F1 Application Template::View::PrimCommon::PrimCommon::LongProcess::ut_LongProcess
-//
-// Информация
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LongProcess_ut_LongProcess_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "ut_LongProcess" MUID: (F1A5C94EB755)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-    { Константы для типа формы ut_LongProcess }
-   ut_LongProcessName = 'ut_LongProcess';
-    { Строковый идентификатор пользовательского типа "Информация" }
-   ut_LongProcess = TvcmUserType(0);
-    { Информация }
+ {* Константы для типа формы ut_LongProcess }
+ ut_LongProcessName = 'ut_LongProcess';
+  {* Строковый идентификатор пользовательского типа "Информация" }
+ ut_LongProcess = TvcmUserType(0);
+  {* Информация }
 
 implementation
 
-{$If not defined(NoScripts)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-   Tkw_FormUserType_ut_LongProcess = {final scriptword} class(TtfwInteger)
-    {* Слово словаря для типа формы ut_LongProcess }
-   protected
-   // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
+ Tkw_FormUserType_ut_LongProcess = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы ut_LongProcess }
+  protected
    function GetInteger: Integer; override;
-   end;//Tkw_FormUserType_ut_LongProcess
-{$IfEnd} //not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_ut_LongProcess
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(NoScripts)}
-
-// start class Tkw_FormUserType_ut_LongProcess
-
-class function Tkw_FormUserType_ut_LongProcess.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::ut_LongProcess';
-end;//Tkw_FormUserType_ut_LongProcess.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_LongProcess.GetInteger: Integer;
- {-}
 begin
  Result := ut_LongProcess;
 end;//Tkw_FormUserType_ut_LongProcess.GetInteger
 
-{$IfEnd} //not NoScripts
+class function Tkw_FormUserType_ut_LongProcess.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_LongProcess';
+end;//Tkw_FormUserType_ut_LongProcess.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_ut_LongProcess
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_LongProcess.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация Tkw_FormUserType_ut_LongProcess }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

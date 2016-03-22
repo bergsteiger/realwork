@@ -2,6 +2,7 @@ unit daProgressSubscriberList;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daProgressSubscriberList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaProgressSubscriberList" MUID: (552514FD0144)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

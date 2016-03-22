@@ -2,6 +2,7 @@ unit vtHintWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\vtHintWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "vtHintWordsPack" MUID: (54EC8A6F01D7)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -96,11 +97,6 @@ begin
 //#UC END# *4DAEEDE10285_602888D14BF8_impl*
 end;//TkwApplicationCancelHint.DoDoIt
 
-class function TkwApplicationCancelHint.GetWordNameForRegister: AnsiString;
-begin
- Result := 'application:CancelHint';
-end;//TkwApplicationCancelHint.GetWordNameForRegister
-
 function TkwApplicationCancelHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -110,6 +106,11 @@ function TkwApplicationCancelHint.GetAllParamsCount(const aCtx: TtfwContext): In
 begin
  Result := 0;
 end;//TkwApplicationCancelHint.GetAllParamsCount
+
+class function TkwApplicationCancelHint.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'application:CancelHint';
+end;//TkwApplicationCancelHint.GetWordNameForRegister
 
 function TkwApplicationIsHintVisible.application_IsHintVisible(const aCtx: TtfwContext): Boolean;
  {* Реализация слова скрипта application:IsHintVisible }
@@ -127,11 +128,6 @@ begin
  aCtx.rEngine.PushBool(application_IsHintVisible(aCtx));
 end;//TkwApplicationIsHintVisible.DoDoIt
 
-class function TkwApplicationIsHintVisible.GetWordNameForRegister: AnsiString;
-begin
- Result := 'application:IsHintVisible';
-end;//TkwApplicationIsHintVisible.GetWordNameForRegister
-
 function TkwApplicationIsHintVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -146,6 +142,11 @@ function TkwApplicationIsHintVisible.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwApplicationIsHintVisible.ParamsTypes
+
+class function TkwApplicationIsHintVisible.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'application:IsHintVisible';
+end;//TkwApplicationIsHintVisible.GetWordNameForRegister
 
 function TkwApplicationGetLastHint.application_GetLastHint(const aCtx: TtfwContext): Il3CString;
  {* Реализация слова скрипта application:GetLastHint }
@@ -166,11 +167,6 @@ begin
  aCtx.rEngine.PushString(application_GetLastHint(aCtx));
 end;//TkwApplicationGetLastHint.DoDoIt
 
-class function TkwApplicationGetLastHint.GetWordNameForRegister: AnsiString;
-begin
- Result := 'application:GetLastHint';
-end;//TkwApplicationGetLastHint.GetWordNameForRegister
-
 function TkwApplicationGetLastHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -185,6 +181,11 @@ function TkwApplicationGetLastHint.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwApplicationGetLastHint.ParamsTypes
+
+class function TkwApplicationGetLastHint.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'application:GetLastHint';
+end;//TkwApplicationGetLastHint.GetWordNameForRegister
 
 initialization
  TkwApplicationCancelHint.RegisterInEngine;

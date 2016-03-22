@@ -3,6 +3,7 @@ unit TextViaEditorProcessorPrim;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\TextViaEditorProcessorPrim.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTextViaEditorProcessorPrim" MUID: (4BE047320379)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
@@ -27,7 +28,7 @@ type
   {* Обработчик текста через редактор }
   private
    f_ScrollCount: Integer;
-    {* Поле для свойства ScrollCount }
+    {* Количество прокруток до конца документа }
   protected
    procedure Load(aForm: TPrimTextLoadForm;
     const aFileName: AnsiString;

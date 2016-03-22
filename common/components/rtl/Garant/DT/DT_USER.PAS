@@ -1,8 +1,14 @@
 Unit Dt_user;
 
-{ $Id: DT_USER.PAS,v 1.158 2015/11/03 09:02:40 lukyanets Exp $ }
+{ $Id: DT_USER.PAS,v 1.160 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: DT_USER.PAS,v $
+// Revision 1.160  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
+// Revision 1.159  2015/11/10 13:58:49  lukyanets
+// Рисуем дерево условий
+//
 // Revision 1.158  2015/11/03 09:02:40  lukyanets
 // Cleanup
 //
@@ -700,6 +706,7 @@ Implementation
 Uses daInterfaces,
      daDataProvider,
      daTypes,
+     daSchemeConsts,
      HT_Dll,
      Dt_err,
      DT_Misc,
@@ -715,7 +722,6 @@ Uses daInterfaces,
      l3Tree_TLB,
      dt_DictConst,
      dt_DictIntf, Windows;
-
 
 type
  TActiveUsersQuery = class(Tl3Base)

@@ -2,6 +2,8 @@ unit OutlinerTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\OutlinerTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "OutlinerTest" MUID: (4D46B552013B)
+// Имя типа: "TOutlinerTest"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

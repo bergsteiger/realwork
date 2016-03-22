@@ -3,6 +3,7 @@ unit InsUserSettingsEditListenerPtrList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\InsUserSettingsEditListenerPtrList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TInsUserSettingsEditListenerPtrList" MUID: (4914488702EC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

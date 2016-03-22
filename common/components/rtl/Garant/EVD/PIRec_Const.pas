@@ -7,7 +7,7 @@ unit PIRec_Const;
 // Модуль: "w:/common/components/rtl/Garant/EVD/PIRec_Const.pas"
 // Начат: 07.06.2008 19:47
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdNative::PIRec
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdNative::PIRec
 //
 // Источник опубликования
 //

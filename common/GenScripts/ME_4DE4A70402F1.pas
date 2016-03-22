@@ -2,6 +2,8 @@ unit toK;
 
 // Модуль: "w:\archi\source\projects\Archi\toK.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "toK" MUID: (4DE4A70402F1)
+// Имя типа: "TtoK"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

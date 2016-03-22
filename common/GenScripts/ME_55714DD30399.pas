@@ -2,6 +2,7 @@ unit vcmStringIDExHelper;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmStringIDExHelper.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmStringIDExHelper" MUID: (55714DD30399)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

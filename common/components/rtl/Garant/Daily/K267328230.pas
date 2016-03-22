@@ -1,79 +1,57 @@
 unit K267328230;
+ {* [$267328230] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/K267328230.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.7::K267328230
-//
-// [$267328230]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K267328230.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K267328230" MUID: (4E54DF040323)
+// Имя типа: "TK267328230"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  ScrollAndLinesTest,
-  Types
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , ScrollAndLinesTest
+ , Types
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK267328230 = class(TScrollAndLinesTest)
   {* [$267328230] }
- protected
- // realized methods
+  protected
    function GetScrollCount: Integer; override;
- protected
- // overridden protected methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    function GetNormalFontSize: Integer; override;
-     {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
-   {$IfEnd} //nsTest AND not NoVCM
-   {$If defined(nsTest) AND not defined(NoVCM)}
+    {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function FormExtent: TPoint; override;
-     {* Размеры формы }
-   {$IfEnd} //nsTest AND not NoVCM
+    {* Размеры формы }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK267328230
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK267328230
+ l3ImplUses
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 function TK267328230.GetScrollCount: Integer;
 //#UC START# *4E54E5E2009E_4E54DF040323_var*
@@ -84,8 +62,9 @@ begin
 //#UC END# *4E54E5E2009E_4E54DF040323_impl*
 end;//TK267328230.GetScrollCount
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TK267328230.GetNormalFontSize: Integer;
+ {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
 //#UC START# *4C07AC6F036D_4E54DF040323_var*
 //#UC END# *4C07AC6F036D_4E54DF040323_var*
 begin
@@ -93,10 +72,11 @@ begin
  Result := 12;
 //#UC END# *4C07AC6F036D_4E54DF040323_impl*
 end;//TK267328230.GetNormalFontSize
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TK267328230.FormExtent: TPoint;
+ {* Размеры формы }
 //#UC START# *4C08CF700318_4E54DF040323_var*
 //#UC END# *4C08CF700318_4E54DF040323_var*
 begin
@@ -105,23 +85,22 @@ begin
  Result.Y := 650;
 //#UC END# *4C08CF700318_4E54DF040323_impl*
 end;//TK267328230.FormExtent
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TK267328230.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.7';
 end;//TK267328230.GetFolder
 
 function TK267328230.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4E54DF040323';
 end;//TK267328230.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK267328230.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

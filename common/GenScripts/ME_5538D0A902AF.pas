@@ -2,6 +2,7 @@ unit daFieldDescription;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daFieldDescription.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaFieldDescription" MUID: (5538D0A902AF)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
@@ -63,7 +64,7 @@ constructor TdaFieldDescription.Create(const aSQLName: AnsiString;
 begin
 //#UC START# *5538D15A03E5_5538D0A902AF_impl*
  inherited Create;
- f_Name := aName;
+ f_SQLName := aSQLName;
  f_Description := aDesc;
  f_Required := aRequired;
  f_DataType := aType;
@@ -92,7 +93,7 @@ function TdaFieldDescription.Get_SQLName: AnsiString;
 //#UC END# *5538AA34030F_5538D0A902AFget_var*
 begin
 //#UC START# *5538AA34030F_5538D0A902AFget_impl*
- Result := f_Name;
+ Result := f_SQLName;
 //#UC END# *5538AA34030F_5538D0A902AFget_impl*
 end;//TdaFieldDescription.Get_SQLName
 

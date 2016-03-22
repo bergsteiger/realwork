@@ -2,6 +2,7 @@ unit nscConst;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscConst.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nscConst" MUID: (4CFF747800AA)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

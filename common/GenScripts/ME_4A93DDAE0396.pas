@@ -3,6 +3,8 @@ unit PrimLongProcess_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimLongProcess_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimLongProcess" MUID: (4A93DDAE0396)
+// Имя типа: "TPrimLongProcessForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

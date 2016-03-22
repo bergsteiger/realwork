@@ -2,6 +2,7 @@ unit NOT_FINISHED_evSectionBreakHotSpot;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evSectionBreakHotSpot.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evSectionBreakHotSpot" MUID: (53D0B0A10259)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

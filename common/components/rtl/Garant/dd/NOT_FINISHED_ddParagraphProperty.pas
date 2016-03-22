@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddParagraphProperty;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddParagraphProperty.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddParagraphProperty" MUID: (51DBBDD6011E)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

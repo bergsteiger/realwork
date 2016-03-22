@@ -3,6 +3,7 @@ unit nsTreeStruct;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsTreeStruct.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsTreeStruct" MUID: (46835B4001A4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -342,7 +343,10 @@ begin
    RootNode.SetAllFlag(FM_SELECTION, True)
   else
    if aMode = sbDeselect then
+   begin
+    f_SelectedIndexList.Clear;
     RootNode.SetAllFlag(FM_SELECTION, False);
+   end;
   l_NewSelectCount := RootNode.GetFlagCount(FM_SELECTION);
   SelectCountChanged(l_OldSelectCount, l_NewSelectCount);
  end;
@@ -398,6 +402,7 @@ constructor TnsTreeStruct.Create(const aRoot: INodeBase;
 begin
 //#UC START# *48FDD9270194_46835B4001A4_impl*
  inherited Create;
+ f_SelectedIndexList := Tl3LongintList.Create;
  Self.OneLevel := aOneLevel;
  f_ShowRoot := aShowRoot;
  MakeRootNode(aRoot);
@@ -1162,6 +1167,7 @@ begin
   l_Node.SetFlag(FM_SELECTION, aValue);
   if (RootNode <> nil) then
   begin
+   DoSelectionChanged(anIndex, aValue);
    l_CurSelectCount := RootNode.GetFlagCount(FM_SELECTION);
    if aValue then
     SelectCountChanged(l_CurSelectCount - 1, l_CurSelectCount)
@@ -1347,6 +1353,7 @@ procedure TnsTreeStruct.Cleanup;
 //#UC END# *479731C50290_46835B4001A4_var*
 begin
 //#UC START# *479731C50290_46835B4001A4_impl*
+ FreeAndNil(f_SelectedIndexList);
  Root := nil;
  inherited;
 //#UC END# *479731C50290_46835B4001A4_impl*

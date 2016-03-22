@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "SelectTablePart" MUID: (4CC815A00031)
+// Имя типа: "_SelectTablePart_"
 
 {$Define SelectTablePart_imp}
 

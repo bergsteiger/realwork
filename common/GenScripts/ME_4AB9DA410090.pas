@@ -3,6 +3,8 @@ unit StartupTips_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\Forms\StartupTips_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "StartupTips" MUID: (4AB9DA410090)
+// Имя типа: "TefStartupTips"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

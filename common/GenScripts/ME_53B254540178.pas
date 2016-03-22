@@ -2,6 +2,7 @@ unit NOT_FINISHED_csSpellCorrectTask;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csSpellCorrectTask.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsSpellCorrectTask" MUID: (53B254540178)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -2,6 +2,7 @@ unit RectWrap;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\RectWrap.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TRectWrap" MUID: (547869730335)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

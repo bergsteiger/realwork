@@ -2,6 +2,7 @@ unit ContentChecker;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ContentChecker.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ContentChecker" MUID: (461CD65E0280)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,8 @@ unit Division_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\Division_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Division" MUID: (4857A4E70176)
+// Имя типа: "DivisionTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

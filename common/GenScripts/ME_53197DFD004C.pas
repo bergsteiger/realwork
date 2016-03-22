@@ -3,6 +3,8 @@ unit K517772970_TGetDictEditQueryDefault;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TGetDictEditQueryDefault.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TGetDictEditQueryDefault" MUID: (53197DFD004C)
+// Имя типа: "TK517772970_TGetDictEditQueryDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

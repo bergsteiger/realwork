@@ -2,6 +2,7 @@ unit NOT_FINISHED_DebugStr;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_DebugStr.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DebugStr" MUID: (4926B55401A2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

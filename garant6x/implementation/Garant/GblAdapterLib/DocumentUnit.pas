@@ -225,8 +225,6 @@ end;
 // Возвращается в случае попытки получения несуществующей редакции объекта.
 ERedactionNotFound = class (Exception);
 
-ENotAllowedInTrialMode = class (Exception);
-
 // Вид хинта
 PLinkKind = ^TLinkKind;
 TLinkKind = (
@@ -240,18 +238,18 @@ TLinkKind = (
 	, LK_SCRIPT // ссылка на скрипт
 );
 
+PLinkInfo = ^TLinkInfo;
+TLinkInfo = packed record
+	rKind: TLinkKind; // вид хинта
+	rHint: IString;
+end;
+
 EInvalidDate = class (Exception);
 
 // Толковый словарь не установлен в системе.
 // Возвращается в случае вызова операции "поиск толкования" и отсутствии в системе толкового
 // словаря.
 EExplanationDictionaryNotInstalled = class (Exception);
-
-PLinkInfo = ^TLinkInfo;
-TLinkInfo = packed record
-	rKind: TLinkKind; // вид хинта
-	rHint: IString;
-end;
 
 PFactoryKey = ^TFactoryKey;
 TFactoryKey = (
@@ -1044,7 +1042,7 @@ IDocument = interface (IEntityBase) ['{2906776F-DD41-403A-AF10-DDD0F9BD6590}']
 		aRid: TRedactionID;
 		out aObjType: TLinkedObjectType;
 		out aObj {: IUnknown}
-	); stdcall; // can raise EInvalidTopicId, EFolderLinkNotFound, ENotAllowedInTrialMode
+	); stdcall; // can raise EInvalidTopicId, EFolderLinkNotFound
 
 	// Возвращает расширенную информацию по отсутствующему объекту (pid - идентификатор и класс
 	// объекта по ссылке)
@@ -1366,7 +1364,7 @@ ILink = interface (IInterface) ['{FBA5DE98-0FAD-4647-B2DE-AB788A6DDFE6}']
 
 	procedure GetObject (
 		out aRet {: IUnknown}
-	); stdcall; // can raise EInvalidTopicId, EFolderLinkNotFound, ENotAllowedInTrialMode
+	); stdcall; // can raise EInvalidTopicId, EFolderLinkNotFound
 
 	function GetObjectType (): TLinkedObjectType; stdcall;
 end;

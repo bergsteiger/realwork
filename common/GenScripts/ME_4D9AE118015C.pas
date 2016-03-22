@@ -3,6 +3,7 @@ unit ScrollUpAndDownAndCheckShapes;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\ScrollUpAndDownAndCheckShapes.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TScrollUpAndDownAndCheckShapes" MUID: (4D9AE118015C)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

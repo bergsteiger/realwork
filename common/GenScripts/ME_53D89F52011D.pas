@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmChromeLikeTabCaptionProvider" MUID: (53D89F52011D)
+// Имя типа: "_vcmChromeLikeTabCaptionProvider_"
 
 {$Define vcmChromeLikeTabCaptionProvider_imp}
 

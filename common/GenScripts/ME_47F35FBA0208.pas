@@ -2,6 +2,7 @@ unit NOT_FINISHED_evDefaultContext;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evDefaultContext.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDefaultContext" MUID: (47F35FBA0208)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

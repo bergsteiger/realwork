@@ -2,6 +2,7 @@ unit evDropTree;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evDropTree.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TevDropTree" MUID: (47D0211D0209)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

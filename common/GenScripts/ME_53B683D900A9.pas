@@ -2,6 +2,7 @@ unit csLineRequestPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csLineRequestPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsLineRequestPrim" MUID: (53B683D900A9)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

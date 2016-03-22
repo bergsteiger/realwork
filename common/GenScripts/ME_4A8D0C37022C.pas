@@ -3,6 +3,8 @@ unit SimpleDocumentTextPara_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\SimpleDocumentTextPara_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "SimpleDocumentTextPara" MUID: (4A8D0C37022C)
+// Имя типа: "SimpleDocumentTextParaTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

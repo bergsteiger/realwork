@@ -223,6 +223,8 @@ class DynListNode
 public:
 	// Получить идентифкатор документа из ноды списка
 	virtual ObjectId get_document_id () const = 0;
+
+	virtual const GCI::IO::String* get_snippet_text () const = 0;
 };
 
 /// factory interface for DynListNode

@@ -2,6 +2,7 @@ unit nscHideField;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscHideField.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscHideField" MUID: (4AC9C67300A2)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -24,7 +25,6 @@ type
  TnscCustomHideField = class(_nsUnknownComponentWithIvcmState_)
   private
    f_SettingId: AnsiString;
-    {* Поле для свойства SettingId }
   protected
    procedure pm_SetSettingId(const aValue: AnsiString); virtual;
    function MakeSettingId(const aSettingId: AnsiString): AnsiString;
@@ -36,6 +36,7 @@ type
    {$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
    procedure SaveSettings; override;
    {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
+   procedure ClearFields; override;
   public
    {$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
    function DoLoadState(const theState: IUnknown;
@@ -64,7 +65,6 @@ type
  TnscHideFieldState = class(Tl3ProtoObject, InscHideFieldState)
   private
    f_State: ThfState;
-    {* Поле для свойства State }
   protected
    function pm_GetState: ThfState;
    procedure pm_SetState(aValue: ThfState);
@@ -223,6 +223,12 @@ begin
 //#UC END# *4F9AB19F020B_4E732E0B0308_impl*
 end;//TnscCustomHideField.DoSaveState
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
+
+procedure TnscCustomHideField.ClearFields;
+begin
+ SettingId := '';
+ inherited;
+end;//TnscCustomHideField.ClearFields
 
 class function TnscHideFieldState.Make: InscHideFieldState;
 var

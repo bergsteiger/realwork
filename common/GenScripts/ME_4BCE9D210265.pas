@@ -3,6 +3,8 @@ unit elCustomEdit_Form;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\elCustomEdit_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "elCustomEdit" MUID: (4BCE9D210265)
+// Имя типа: "TelCustomEditForm"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

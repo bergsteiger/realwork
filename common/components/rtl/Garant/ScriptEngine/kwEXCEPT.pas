@@ -2,6 +2,8 @@ unit kwEXCEPT;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEXCEPT.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "EXCEPT" MUID: (52D7DDC80366)
+// Имя типа: "TkwEXCEPT"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

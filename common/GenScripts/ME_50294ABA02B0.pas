@@ -2,6 +2,7 @@ unit atStringsFromFile;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringsFromFile.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatStringsFromFile" MUID: (50294ABA02B0)
 
 interface
 

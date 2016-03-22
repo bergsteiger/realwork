@@ -2,6 +2,7 @@ unit evTextParaConst;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTextParaConst.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "evTextParaConst" MUID: (480F77890296)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

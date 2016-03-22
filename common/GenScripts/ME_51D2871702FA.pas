@@ -2,6 +2,7 @@ unit ddRTFState;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddRTFState.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddRTFState" MUID: (51D2871702FA)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

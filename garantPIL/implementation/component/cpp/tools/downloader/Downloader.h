@@ -84,17 +84,26 @@ public:
 	std::string get_complect_name (unsigned id);
 
 	long get_complect_id ();
+	long get_order_id ();
 
 	void show_help (const char* page_htm);
 
 // Inline implementation
 public:
+	inline bool is_english () const {
+		return m_is_english;
+	}
+
 	inline bool is_auto () const {
 		return m_is_auto;
 	}
 
-	inline bool is_rewrite () const {
-		return m_is_rewrite;
+	inline bool is_revision () const {
+		return m_is_revision;
+	}
+
+	inline bool is_resume () const {
+		return m_is_resume;
 	}
 
 	inline void set_etalon_value (bool value) {
@@ -107,6 +116,10 @@ public:
 
 	inline void set_personification_key (const std::string& key) {
 		m_personification_key = key;
+	}
+
+	inline std::string get_personification_key () {
+		return m_personification_key;
 	}
 
 	inline DownloadState get_state () const {
@@ -175,15 +188,18 @@ private:
 	Core::Aptr <GCL::DllLoader> m_res_loader;   // resource loader
 	Core::AtomicOp <long> m_has_init;
 
+	bool m_is_english;
 	bool m_is_auto;                    // auto mode flag
+	bool m_is_revision;                // http://mdp.garant.ru/pages/viewpage.action?pageId=617312841
 	bool m_is_week;                    // only week
 	bool m_is_strong;                  // mode of the run application
 	bool m_is_run_update;              // run of update utilite
-	bool m_is_rewrite;                 // rewrite mode flag (only for auto mode)
+	bool m_is_resume;                  // http://mdp.garant.ru/pages/viewpage.action?pageId=617312753
 	bool m_is_etalon;
 
 	long m_complect_id;                // complect's id
 	long m_time_limit_connect;         // time limit of attempts of connections
+	long m_order_id;                   // id формирования заказа на дельту
 
 	DownloadState m_state;             // download state
 	ReturnCode m_return_value;         // return code

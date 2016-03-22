@@ -3,6 +3,7 @@ unit QueryCardKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\QueryCardKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "QueryCardKeywordsPack" MUID: (ED7E2BA7F4EF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -45,8 +46,8 @@ type
 'aControl' форма::QueryCard TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_QueryCard
 
  Tkw_QueryCard_Control_Editor = {final} class(TtfwControlString)
@@ -57,9 +58,9 @@ type
 контрол::Editor TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_QueryCard_Control_Editor
 
  Tkw_QueryCard_Control_Editor_Push = {final} class(TkwBynameControlPush)
@@ -82,9 +83,9 @@ type
 компонент::TextSource TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_QueryCard_Component_TextSource
 
  TkwEnQueryCardEditor = {final} class(TtfwPropertyLike)
@@ -135,20 +136,15 @@ OBJECT VAR l_TevTextSource
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnQueryCardTextSource
 
-class function Tkw_Form_QueryCard.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::QueryCard';
-end;//Tkw_Form_QueryCard.GetWordNameForRegister
-
 function Tkw_Form_QueryCard.GetString: AnsiString;
 begin
  Result := 'enQueryCard';
 end;//Tkw_Form_QueryCard.GetString
 
-class function Tkw_QueryCard_Control_Editor.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_QueryCard.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::Editor';
-end;//Tkw_QueryCard_Control_Editor.GetWordNameForRegister
+ Result := 'форма::QueryCard';
+end;//Tkw_Form_QueryCard.GetWordNameForRegister
 
 function Tkw_QueryCard_Control_Editor.GetString: AnsiString;
 begin
@@ -161,6 +157,11 @@ begin
  TtfwClassRef.Register(TevQueryCardEditor);
 end;//Tkw_QueryCard_Control_Editor.RegisterInEngine
 
+class function Tkw_QueryCard_Control_Editor.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Editor';
+end;//Tkw_QueryCard_Control_Editor.GetWordNameForRegister
+
 procedure Tkw_QueryCard_Control_Editor_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Editor');
@@ -172,11 +173,6 @@ begin
  Result := 'контрол::Editor:push';
 end;//Tkw_QueryCard_Control_Editor_Push.GetWordNameForRegister
 
-class function Tkw_QueryCard_Component_TextSource.GetWordNameForRegister: AnsiString;
-begin
- Result := 'компонент::TextSource';
-end;//Tkw_QueryCard_Component_TextSource.GetWordNameForRegister
-
 function Tkw_QueryCard_Component_TextSource.GetString: AnsiString;
 begin
  Result := 'TextSource';
@@ -187,6 +183,11 @@ begin
  inherited;
  TtfwClassRef.Register(TevTextSource);
 end;//Tkw_QueryCard_Component_TextSource.RegisterInEngine
+
+class function Tkw_QueryCard_Component_TextSource.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'компонент::TextSource';
+end;//Tkw_QueryCard_Component_TextSource.GetWordNameForRegister
 
 function TkwEnQueryCardEditor.Editor(const aCtx: TtfwContext;
  aenQueryCard: TenQueryCard): TevQueryCardEditor;
@@ -210,11 +211,6 @@ begin
  aCtx.rEngine.PushObj(Editor(aCtx, l_aenQueryCard));
 end;//TkwEnQueryCardEditor.DoDoIt
 
-class function TkwEnQueryCardEditor.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenQueryCard.Editor';
-end;//TkwEnQueryCardEditor.GetWordNameForRegister
-
 procedure TkwEnQueryCardEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -235,6 +231,11 @@ function TkwEnQueryCardEditor.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenQueryCard)]);
 end;//TkwEnQueryCardEditor.ParamsTypes
+
+class function TkwEnQueryCardEditor.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenQueryCard.Editor';
+end;//TkwEnQueryCardEditor.GetWordNameForRegister
 
 function TkwEnQueryCardTextSource.TextSource(const aCtx: TtfwContext;
  aenQueryCard: TenQueryCard): TevTextSource;
@@ -258,11 +259,6 @@ begin
  aCtx.rEngine.PushObj(TextSource(aCtx, l_aenQueryCard));
 end;//TkwEnQueryCardTextSource.DoDoIt
 
-class function TkwEnQueryCardTextSource.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenQueryCard.TextSource';
-end;//TkwEnQueryCardTextSource.GetWordNameForRegister
-
 procedure TkwEnQueryCardTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -283,6 +279,11 @@ function TkwEnQueryCardTextSource.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenQueryCard)]);
 end;//TkwEnQueryCardTextSource.ParamsTypes
+
+class function TkwEnQueryCardTextSource.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenQueryCard.TextSource';
+end;//TkwEnQueryCardTextSource.GetWordNameForRegister
 
 initialization
  Tkw_Form_QueryCard.RegisterInEngine;

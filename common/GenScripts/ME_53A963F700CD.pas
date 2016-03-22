@@ -2,6 +2,7 @@ unit k2Attributes;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Attributes.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2Attributes" MUID: (53A963F700CD)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

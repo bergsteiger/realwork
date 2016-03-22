@@ -2,6 +2,7 @@ unit TaskPanelWords;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\TaskPanelWords.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "TaskPanelWords" MUID: (5101345E0143)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -114,11 +115,6 @@ begin
  aCtx.rEngine.PushObj(GetHideField(aCtx, l_aTaskPanel, l_anIndex));
 end;//TkwPopTaskPanelGetHideField.DoDoIt
 
-class function TkwPopTaskPanelGetHideField.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:TaskPanel:GetHideField';
-end;//TkwPopTaskPanelGetHideField.GetWordNameForRegister
-
 function TkwPopTaskPanelGetHideField.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TnscTasksPanelHideField);
@@ -133,6 +129,11 @@ function TkwPopTaskPanelGetHideField.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnscTasksPanelView), TypeInfo(Integer)]);
 end;//TkwPopTaskPanelGetHideField.ParamsTypes
+
+class function TkwPopTaskPanelGetHideField.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:TaskPanel:GetHideField';
+end;//TkwPopTaskPanelGetHideField.GetWordNameForRegister
 
 function TkwPopTaskPanelCount.Count(const aCtx: TtfwContext;
  aTaskPanel: TnscTasksPanelView): Integer;
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushInt(Count(aCtx, l_aTaskPanel));
 end;//TkwPopTaskPanelCount.DoDoIt
 
-class function TkwPopTaskPanelCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:TaskPanel:Count';
-end;//TkwPopTaskPanelCount.GetWordNameForRegister
-
 procedure TkwPopTaskPanelCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwPopTaskPanelCount.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnscTasksPanelView)]);
 end;//TkwPopTaskPanelCount.ParamsTypes
+
+class function TkwPopTaskPanelCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:TaskPanel:Count';
+end;//TkwPopTaskPanelCount.GetWordNameForRegister
 
 initialization
  TkwPopTaskPanelGetHideField.RegisterInEngine;

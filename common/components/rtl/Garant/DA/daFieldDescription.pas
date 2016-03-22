@@ -29,7 +29,7 @@ type
  private
  // private fields
    f_Table : Pointer;
-   f_Name : AnsiString;
+   f_SQLName : AnsiString;
    f_Description : AnsiString;
    f_Required : Boolean;
    f_DataType : TdaDataType;
@@ -37,7 +37,7 @@ type
    f_Size : Integer;
  protected
  // realized methods
-   function Get_Name: AnsiString;
+   function Get_SQLName: AnsiString;
    function Get_Description: AnsiString;
    function Get_DataType: TdaDataType;
    function Get_Required: Boolean;
@@ -45,15 +45,15 @@ type
    function Get_Index: Integer;
    procedure BindToTable(const aTable: IdaTableDescription = nil;
     anIndex: Integer = -1);
-   function Get_SIze: Integer;
+   function Get_Size: Integer;
  public
  // public methods
-   constructor Create(const aName: AnsiString;
+   constructor Create(const aSQLName: AnsiString;
      const aDesc: AnsiString;
      aRequired: Boolean;
      aType: TdaDataType;
      aSize: Integer = 0); reintroduce;
-   class function Make(const aName: AnsiString;
+   class function Make(const aSQLName: AnsiString;
      const aDesc: AnsiString;
      aRequired: Boolean;
      aType: TdaDataType;
@@ -65,7 +65,7 @@ implementation
 
 // start class TdaFieldDescription
 
-constructor TdaFieldDescription.Create(const aName: AnsiString;
+constructor TdaFieldDescription.Create(const aSQLName: AnsiString;
   const aDesc: AnsiString;
   aRequired: Boolean;
   aType: TdaDataType;
@@ -75,7 +75,7 @@ constructor TdaFieldDescription.Create(const aName: AnsiString;
 begin
 //#UC START# *5538D15A03E5_5538D0A902AF_impl*
  inherited Create;
- f_Name := aName;
+ f_SQLName := aSQLName;
  f_Description := aDesc;
  f_Required := aRequired;
  f_DataType := aType;
@@ -83,7 +83,7 @@ begin
 //#UC END# *5538D15A03E5_5538D0A902AF_impl*
 end;//TdaFieldDescription.Create
 
-class function TdaFieldDescription.Make(const aName: AnsiString;
+class function TdaFieldDescription.Make(const aSQLName: AnsiString;
   const aDesc: AnsiString;
   aRequired: Boolean;
   aType: TdaDataType;
@@ -91,7 +91,7 @@ class function TdaFieldDescription.Make(const aName: AnsiString;
 var
  l_Inst : TdaFieldDescription;
 begin
- l_Inst := Create(aName, aDesc, aRequired, aType, aSize);
+ l_Inst := Create(aSQLName, aDesc, aRequired, aType, aSize);
  try
   Result := l_Inst;
  finally
@@ -99,14 +99,14 @@ begin
  end;//try..finally
 end;
 
-function TdaFieldDescription.Get_Name: AnsiString;
+function TdaFieldDescription.Get_SQLName: AnsiString;
 //#UC START# *5538AA34030F_5538D0A902AFget_var*
 //#UC END# *5538AA34030F_5538D0A902AFget_var*
 begin
 //#UC START# *5538AA34030F_5538D0A902AFget_impl*
- Result := f_Name;
+ Result := f_SQLName;
 //#UC END# *5538AA34030F_5538D0A902AFget_impl*
-end;//TdaFieldDescription.Get_Name
+end;//TdaFieldDescription.Get_SQLName
 
 function TdaFieldDescription.Get_Description: AnsiString;
 //#UC START# *5538AA4302F7_5538D0A902AFget_var*
@@ -164,13 +164,13 @@ begin
 //#UC END# *5538AB95021E_5538D0A902AF_impl*
 end;//TdaFieldDescription.BindToTable
 
-function TdaFieldDescription.Get_SIze: Integer;
+function TdaFieldDescription.Get_Size: Integer;
 //#UC START# *553A064A03B1_5538D0A902AFget_var*
 //#UC END# *553A064A03B1_5538D0A902AFget_var*
 begin
 //#UC START# *553A064A03B1_5538D0A902AFget_impl*
  Result := f_Size;
 //#UC END# *553A064A03B1_5538D0A902AFget_impl*
-end;//TdaFieldDescription.Get_SIze
+end;//TdaFieldDescription.Get_Size
 
 end.

@@ -77,21 +77,6 @@ ref; // ME_556427E500A4 DoIt
 
 ref; // ME_556427DD0163 Create
 
-: ME_9C6E86501AB3
- CONST UID '9C6E86501AB3'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwSourcePointWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_556427250160 // TkwSourcePointWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_9C6E86501AB3 Ini_Reg_Class
-
 : ME_556427B901BD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -102,19 +87,7 @@ ref; // ME_9C6E86501AB3 Ini_Reg_Class
 
 ref; // ME_556427B901BD 
 
-: ME_5000565C019C_ME_556427250160
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_556427250160 // TkwSourcePointWord
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_556427250160 ClearFields
-
 : ME_556317DE02B5_ME_556427250160
- CONST UID '556317DE02B5'
- CONST Name 'SourcePoint'
  : Original WL 'ME_556317DE02B5' '4DAF19F600C5.pas.ms.script' // SourcePoint
  ;
  : Implementor ME_556427250160 // TkwSourcePointWord
@@ -143,12 +116,10 @@ ref; // ME_556317DE02B5_ME_556427250160 SourcePoint
  ; // Attributes
  : Operations
    Seq: ( ME_556427DD0163 // Create
- ME_9C6E86501AB3 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
-   Seq: ( ME_5000565C019C_ME_556427250160 // ClearFields
- ME_556317DE02B5_ME_556427250160 // SourcePoint
+   Seq: ( ME_556317DE02B5_ME_556427250160 // SourcePoint
  )
  ; // Overridden
  : Dependencies
@@ -244,8 +215,6 @@ ref; // ME_53E4860E0005
 ref; // ME_55C0A3D00000 
 
 : ME_4DAEEDE10285_ME_52D3E2EE0244
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_52D3E2EE0244 // kwCompiledVar
@@ -254,8 +223,6 @@ ref; // ME_55C0A3D00000
 ref; // ME_4DAEEDE10285_ME_52D3E2EE0244 DoDoIt
 
 : ME_479731C50290_ME_52D3E2EE0244
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_52D3E2EE0244 // kwCompiledVar
@@ -264,8 +231,6 @@ ref; // ME_4DAEEDE10285_ME_52D3E2EE0244 DoDoIt
 ref; // ME_479731C50290_ME_52D3E2EE0244 Cleanup
 
 : ME_52CFC11603C8_ME_52D3E2EE0244
- CONST UID '52CFC11603C8'
- CONST Name 'ResultTypeInfo'
  : Original WL 'ME_52CFC11603C8' '4DAF19F600C5.pas.ms.script' // ResultTypeInfo
  ;
  : Implementor ME_52D3E2EE0244 // kwCompiledVar
@@ -275,8 +240,6 @@ ref; // ME_479731C50290_ME_52D3E2EE0244 Cleanup
 ref; // ME_52CFC11603C8_ME_52D3E2EE0244 ResultTypeInfo
 
 : ME_52D00B00031A_ME_52D3E2EE0244
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_52D3E2EE0244 // kwCompiledVar
@@ -285,8 +248,6 @@ ref; // ME_52CFC11603C8_ME_52D3E2EE0244 ResultTypeInfo
 ref; // ME_52D00B00031A_ME_52D3E2EE0244 SetValuePrim
 
 : ME_52D399A00173_ME_52D3E2EE0244
- CONST UID '52D399A00173'
- CONST Name 'GetValue'
  : Original WL 'ME_52D399A00173' '4DAF19F600C5.pas.ms.script' // GetValue
  ;
  : Implementor ME_52D3E2EE0244 // kwCompiledVar
@@ -295,8 +256,6 @@ ref; // ME_52D00B00031A_ME_52D3E2EE0244 SetValuePrim
 ref; // ME_52D399A00173_ME_52D3E2EE0244 GetValue
 
 : ME_52D399D40140_ME_52D3E2EE0244
- CONST UID '52D399D40140'
- CONST Name 'IsVarLike'
  : Original WL 'ME_52D399D40140' '4DAF19F600C5.pas.ms.script' // IsVarLike
  ;
  : Implementor ME_52D3E2EE0244 // kwCompiledVar
@@ -305,8 +264,6 @@ ref; // ME_52D399A00173_ME_52D3E2EE0244 GetValue
 ref; // ME_52D399D40140_ME_52D3E2EE0244 IsVarLike
 
 : ME_52EA6A2C0111_ME_52D3E2EE0244
- CONST UID '52EA6A2C0111'
- CONST Name 'SetResultTypeInfo'
  : Original WL 'ME_52EA6A2C0111' '4DAF19F600C5.pas.ms.script' // SetResultTypeInfo
  ;
  : Implementor ME_52D3E2EE0244 // kwCompiledVar
@@ -315,8 +272,6 @@ ref; // ME_52D399D40140_ME_52D3E2EE0244 IsVarLike
 ref; // ME_52EA6A2C0111_ME_52D3E2EE0244 SetResultTypeInfo
 
 : ME_559A470F0288_ME_52D3E2EE0244
- CONST UID '559A470F0288'
- CONST Name 'CanClearInRecursiveCalls'
  : Original WL 'ME_559A470F0288' '4DAF19F600C5.pas.ms.script' // CanClearInRecursiveCalls
  ;
  : Implementor ME_52D3E2EE0244 // kwCompiledVar
@@ -453,24 +408,7 @@ ref; // ME_55EEDB540277 DoIt
 
 ref; // ME_55EEDB4E00B3 Create
 
-: ME_0E888E20A724
- CONST UID '0E888E20A724'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwCompiledWordPrimPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55EEDAFE018F // TkwCompiledWordPrimPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_0E888E20A724 Ini_Reg_Class
-
 : ME_479731C50290_ME_55EEDAFE018F
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_55EEDAFE018F // TkwCompiledWordPrimPrim
@@ -479,8 +417,6 @@ ref; // ME_0E888E20A724 Ini_Reg_Class
 ref; // ME_479731C50290_ME_55EEDAFE018F Cleanup
 
 : ME_47A6FEE600FC_ME_55EEDAFE018F
- CONST UID '47A6FEE600FC'
- CONST Name 'IsCacheable'
  : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
  ;
  : Implementor ME_55EEDAFE018F // TkwCompiledWordPrimPrim
@@ -490,8 +426,6 @@ ref; // ME_479731C50290_ME_55EEDAFE018F Cleanup
 ref; // ME_47A6FEE600FC_ME_55EEDAFE018F IsCacheable
 
 : ME_4F43C9A10139_ME_55EEDAFE018F
- CONST UID '4F43C9A10139'
- CONST Name 'WordProducer'
  : Original WL 'ME_4F43C9A10139' '4DAF19F600C5.pas.ms.script' // WordProducer
  ;
  : Implementor ME_55EEDAFE018F // TkwCompiledWordPrimPrim
@@ -501,8 +435,6 @@ ref; // ME_47A6FEE600FC_ME_55EEDAFE018F IsCacheable
 ref; // ME_4F43C9A10139_ME_55EEDAFE018F WordProducer
 
 : ME_52D6B62E001B_ME_55EEDAFE018F
- CONST UID '52D6B62E001B'
- CONST Name 'GetEndBracket'
  : Original WL 'ME_52D6B62E001B' '4DAF19F600C5.pas.ms.script' // GetEndBracket
  ;
  : Implementor ME_55EEDAFE018F // TkwCompiledWordPrimPrim
@@ -511,8 +443,6 @@ ref; // ME_4F43C9A10139_ME_55EEDAFE018F WordProducer
 ref; // ME_52D6B62E001B_ME_55EEDAFE018F GetEndBracket
 
 : ME_52D7DC84019E_ME_55EEDAFE018F
- CONST UID '52D7DC84019E'
- CONST Name 'AcceptMedianBracket'
  : Original WL 'ME_52D7DC84019E' '4DAF19F600C5.pas.ms.script' // AcceptMedianBracket
  ;
  : Implementor ME_55EEDAFE018F // TkwCompiledWordPrimPrim
@@ -540,7 +470,6 @@ ref; // ME_52D7DC84019E_ME_55EEDAFE018F AcceptMedianBracket
  ; // Attributes
  : Operations
    Seq: ( ME_55EEDB4E00B3 // Create
- ME_0E888E20A724 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -599,22 +528,6 @@ ref; // ME_4DCBD660009C RkwCompiledWordWorker
  CONST "reads field" true
 
 ref; // ME_53DB7F940102 WordToWork
-
-: ME_AA2776B22574
- CONST UID 'AA2776B22574'
- CONST Name 'f_WordToWork'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства WordToWork' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4DCBD50101CB // TkwCompiledWordWorker
- ;
- : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
-
-ref; // ME_AA2776B22574 f_WordToWork
 
 FORWARD ME_4DCBB0CD028D
 
@@ -679,21 +592,6 @@ ref; // ME_4DCBB0DB03D3 DoIt
 
 ref; // ME_4DCBB0CD028D Create
 
-: ME_E34F7C4443D2
- CONST UID 'E34F7C4443D2'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwCompiledWordWorker' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DCBD50101CB // TkwCompiledWordWorker
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_E34F7C4443D2 Ini_Reg_Class
-
 : ME_4DCBD5B100CB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -715,8 +613,6 @@ ref; // ME_4DCBD5B100CB
 ref; // ME_4DCBD5B3014D 
 
 : ME_479731C50290_ME_4DCBD50101CB
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4DCBD50101CB // TkwCompiledWordWorker
@@ -741,12 +637,10 @@ ref; // ME_479731C50290_ME_4DCBD50101CB Cleanup
  ; // Inherits
  : Attributes
    Seq: ( ME_53DB7F940102 // WordToWork
- ME_AA2776B22574 // f_WordToWork
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4DCBB0CD028D // Create
- ME_E34F7C4443D2 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -938,21 +832,6 @@ ref; // ME_52D41C8A0320 DoIt
 
 ref; // ME_52D41C7F027B GetCode
 
-: ME_4A7FD1C56638
- CONST UID '4A7FD1C56638'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwCompiledWordPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52D3C5F90029 // TkwCompiledWordPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4A7FD1C56638 Ini_Reg_Class
-
 : ME_52D3C6D002C1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -964,8 +843,6 @@ ref; // ME_4A7FD1C56638 Ini_Reg_Class
 ref; // ME_52D3C6D002C1 
 
 : ME_479731C50290_ME_52D3C5F90029
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_52D3C5F90029 // TkwCompiledWordPrim
@@ -974,8 +851,6 @@ ref; // ME_52D3C6D002C1
 ref; // ME_479731C50290_ME_52D3C5F90029 Cleanup
 
 : ME_47A6FEE600FC_ME_52D3C5F90029
- CONST UID '47A6FEE600FC'
- CONST Name 'IsCacheable'
  : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
  ;
  : Implementor ME_52D3C5F90029 // TkwCompiledWordPrim
@@ -985,8 +860,6 @@ ref; // ME_479731C50290_ME_52D3C5F90029 Cleanup
 ref; // ME_47A6FEE600FC_ME_52D3C5F90029 IsCacheable
 
 : ME_52CFCF4B02C6_ME_52D3C5F90029
- CONST UID '52CFCF4B02C6'
- CONST Name 'ParentWord'
  : Original WL 'ME_52CFCF4B02C6' '4DAF19F600C5.pas.ms.script' // ParentWord
  ;
  : Implementor ME_52D3C5F90029 // TkwCompiledWordPrim
@@ -996,8 +869,6 @@ ref; // ME_47A6FEE600FC_ME_52D3C5F90029 IsCacheable
 ref; // ME_52CFCF4B02C6_ME_52D3C5F90029 ParentWord
 
 : ME_52D523A40118_ME_52D3C5F90029
- CONST UID '52D523A40118'
- CONST Name 'GetCompiler'
  : Original WL 'ME_52D523A40118' '4DAF19F600C5.pas.ms.script' // GetCompiler
  ;
  : Implementor ME_52D3C5F90029 // TkwCompiledWordPrim
@@ -1006,8 +877,6 @@ ref; // ME_52CFCF4B02C6_ME_52D3C5F90029 ParentWord
 ref; // ME_52D523A40118_ME_52D3C5F90029 GetCompiler
 
 : ME_52D5425A037F_ME_52D3C5F90029
- CONST UID '52D5425A037F'
- CONST Name 'GetInParam'
  : Original WL 'ME_52D5425A037F' '4DAF19F600C5.pas.ms.script' // GetInParam
  ;
  : Implementor ME_52D3C5F90029 // TkwCompiledWordPrim
@@ -1016,8 +885,6 @@ ref; // ME_52D523A40118_ME_52D3C5F90029 GetCompiler
 ref; // ME_52D5425A037F_ME_52D3C5F90029 GetInParam
 
 : ME_5673E71002C8_ME_52D3C5F90029
- CONST UID '5673E71002C8'
- CONST Name 'SetParent'
  : Original WL 'ME_5673E71002C8' '4DAF19F600C5.pas.ms.script' // SetParent
  ;
  : Implementor ME_52D3C5F90029 // TkwCompiledWordPrim
@@ -1046,7 +913,6 @@ ref; // ME_5673E71002C8_ME_52D3C5F90029 SetParent
  : Operations
    Seq: ( ME_4DC9723702F5 // Create
  ME_52D41C7F027B // GetCode
- ME_4A7FD1C56638 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -1095,22 +961,6 @@ FORWARD ME_55A4E9940396
  CONST "reads field" true
 
 ref; // ME_52D55DF500C4 Code
-
-: ME_57D286D23822
- CONST UID '57D286D23822'
- CONST Name 'f_Code'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Code' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_55A4E9940396 // tfwCodeCompiler
- ;
- : Target WL 'ME_4DB6CAC402B4' '54F07F0302C2.pas.ms.script' // TtfwWordRefList
- ;
-
-ref; // ME_57D286D23822 f_Code
 
 FORWARD ME_55A4EA4402A7
 
@@ -1178,8 +1028,6 @@ ref; // ME_55A4E9D80212
 ref; // ME_55A4E9E00152 
 
 : ME_479731C50290_ME_55A4E9940396
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_55A4E9940396 // tfwCodeCompiler
@@ -1188,8 +1036,6 @@ ref; // ME_55A4E9E00152
 ref; // ME_479731C50290_ME_55A4E9940396 Cleanup
 
 : ME_4DB6CB1703AD_ME_55A4E9940396
- CONST UID '4DB6CB1703AD'
- CONST Name 'DoAddCodePart'
  : Original WL 'ME_4DB6CB1703AD' '4DAF19F600C5.pas.ms.script' // DoAddCodePart
  ;
  : Implementor ME_55A4E9940396 // tfwCodeCompiler
@@ -1198,8 +1044,6 @@ ref; // ME_479731C50290_ME_55A4E9940396 Cleanup
 ref; // ME_4DB6CB1703AD_ME_55A4E9940396 DoAddCodePart
 
 : ME_52D40F640308_ME_55A4E9940396
- CONST UID '52D40F640308'
- CONST Name 'HasCode'
  : Original WL 'ME_52D40F640308' '4DAF19F600C5.pas.ms.script' // HasCode
  ;
  : Implementor ME_55A4E9940396 // tfwCodeCompiler
@@ -1208,8 +1052,6 @@ ref; // ME_4DB6CB1703AD_ME_55A4E9940396 DoAddCodePart
 ref; // ME_52D40F640308_ME_55A4E9940396 HasCode
 
 : ME_52D4191402A2_ME_55A4E9940396
- CONST UID '52D4191402A2'
- CONST Name 'CodeCount'
  : Original WL 'ME_52D4191402A2' '4DAF19F600C5.pas.ms.script' // CodeCount
  ;
  : Implementor ME_55A4E9940396 // tfwCodeCompiler
@@ -1218,8 +1060,6 @@ ref; // ME_52D40F640308_ME_55A4E9940396 HasCode
 ref; // ME_52D4191402A2_ME_55A4E9940396 CodeCount
 
 : ME_52D523A40118_ME_55A4E9940396
- CONST UID '52D523A40118'
- CONST Name 'GetCompiler'
  : Original WL 'ME_52D523A40118' '4DAF19F600C5.pas.ms.script' // GetCompiler
  ;
  : Implementor ME_55A4E9940396 // tfwCodeCompiler
@@ -1245,7 +1085,6 @@ ref; // ME_52D523A40118_ME_55A4E9940396 GetCompiler
  ; // Implements
  : Attributes
    Seq: ( ME_52D55DF500C4 // Code
- ME_57D286D23822 // f_Code
  )
  ; // Attributes
  : Operations
@@ -1292,22 +1131,6 @@ ref; // ME_55A4E9940396 tfwCodeCompiler
 
 ref; // ME_4F4BC6F60191 Holded
 
-: ME_73B02A0F8E02
- CONST UID '73B02A0F8E02'
- CONST Name 'f_Holded'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Holded' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F4BC6DB02F4 // TkwForwardDeclarationHolder
- ;
- : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
-
-ref; // ME_73B02A0F8E02 f_Holded
-
 FORWARD ME_52D405B300E2
 
 : ME_52D405C80098
@@ -1351,21 +1174,6 @@ ref; // ME_52D405BB02B8 DoIt
 
 ref; // ME_52D405B300E2 Create
 
-: ME_EFBED4607DCC
- CONST UID 'EFBED4607DCC'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwForwardDeclarationHolder' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4BC6DB02F4 // TkwForwardDeclarationHolder
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_EFBED4607DCC Ini_Reg_Class
-
 : ME_55CB5C2901CA
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
@@ -1378,8 +1186,6 @@ ref; // ME_EFBED4607DCC Ini_Reg_Class
 ref; // ME_55CB5C2901CA 
 
 : ME_4DAEEDE10285_ME_4F4BC6DB02F4
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4F4BC6DB02F4 // TkwForwardDeclarationHolder
@@ -1388,8 +1194,6 @@ ref; // ME_55CB5C2901CA
 ref; // ME_4DAEEDE10285_ME_4F4BC6DB02F4 DoDoIt
 
 : ME_479731C50290_ME_4F4BC6DB02F4
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4F4BC6DB02F4 // TkwForwardDeclarationHolder
@@ -1398,8 +1202,6 @@ ref; // ME_4DAEEDE10285_ME_4F4BC6DB02F4 DoDoIt
 ref; // ME_479731C50290_ME_4F4BC6DB02F4 Cleanup
 
 : ME_558D2BCA0324_ME_4F4BC6DB02F4
- CONST UID '558D2BCA0324'
- CONST Name 'GetRef'
  : Original WL 'ME_558D2BCA0324' '4DAF19F600C5.pas.ms.script' // GetRef
  ;
  : Implementor ME_4F4BC6DB02F4 // TkwForwardDeclarationHolder
@@ -1408,8 +1210,6 @@ ref; // ME_479731C50290_ME_4F4BC6DB02F4 Cleanup
 ref; // ME_558D2BCA0324_ME_4F4BC6DB02F4 GetRef
 
 : ME_55AFD7DA0258_ME_4F4BC6DB02F4
- CONST UID '55AFD7DA0258'
- CONST Name 'WordName'
  : Original WL 'ME_55AFD7DA0258' '4DAF19F600C5.pas.ms.script' // WordName
  ;
  : Implementor ME_4F4BC6DB02F4 // TkwForwardDeclarationHolder
@@ -1433,12 +1233,10 @@ ref; // ME_55AFD7DA0258_ME_4F4BC6DB02F4 WordName
  ; // Inherits
  : Attributes
    Seq: ( ME_4F4BC6F60191 // Holded
- ME_73B02A0F8E02 // f_Holded
  )
  ; // Attributes
  : Operations
    Seq: ( ME_52D405B300E2 // Create
- ME_EFBED4607DCC // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -2276,21 +2074,6 @@ ref; // ME_56094167010A DoIt
 
 ref; // ME_560941240035 CheckWordInfoOnCompile
 
-: ME_C4164DE2BE92
- CONST UID 'C4164DE2BE92'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwCompilingWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DB6C8F30161 // TtfwCompilingWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_C4164DE2BE92 Ini_Reg_Class
-
 : ME_4DB6C9E90372
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2434,8 +2217,6 @@ ref; // ME_4F3E7B9D0233
 ref; // ME_52D6BF320084 
 
 : ME_4DAEEDE10285_ME_4DB6C8F30161
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4DB6C8F30161 // TtfwCompilingWord
@@ -2444,8 +2225,6 @@ ref; // ME_52D6BF320084
 ref; // ME_4DAEEDE10285_ME_4DB6C8F30161 DoDoIt
 
 : ME_4DB6D7F70155_ME_4DB6C8F30161
- CONST UID '4DB6D7F70155'
- CONST Name 'IsImmediate'
  : Original WL 'ME_4DB6D7F70155' '4DAF19F600C5.pas.ms.script' // IsImmediate
  ;
  : Implementor ME_4DB6C8F30161 // TtfwCompilingWord
@@ -2454,8 +2233,6 @@ ref; // ME_4DAEEDE10285_ME_4DB6C8F30161 DoDoIt
 ref; // ME_4DB6D7F70155_ME_4DB6C8F30161 IsImmediate
 
 : ME_4F477C2C03B9_ME_4DB6C8F30161
- CONST UID '4F477C2C03B9'
- CONST Name 'CompiledWordClassPrim'
  : Original WL 'ME_4F477C2C03B9' '4DAF19F600C5.pas.ms.script' // CompiledWordClassPrim
  ;
  : Implementor ME_4DB6C8F30161 // TtfwCompilingWord
@@ -2464,8 +2241,6 @@ ref; // ME_4DB6D7F70155_ME_4DB6C8F30161 IsImmediate
 ref; // ME_4F477C2C03B9_ME_4DB6C8F30161 CompiledWordClassPrim
 
 : ME_52D6B62E001B_ME_4DB6C8F30161
- CONST UID '52D6B62E001B'
- CONST Name 'GetEndBracket'
  : Original WL 'ME_52D6B62E001B' '4DAF19F600C5.pas.ms.script' // GetEndBracket
  ;
  : Implementor ME_4DB6C8F30161 // TtfwCompilingWord
@@ -2504,7 +2279,6 @@ ref; // ME_52D6B62E001B_ME_4DB6C8F30161 GetEndBracket
  ME_4F3BCE1501F0 // AfterCodePartAdded
  ME_53E21481021D // DoKeyword
  ME_560941240035 // CheckWordInfoOnCompile
- ME_C4164DE2BE92 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -2549,21 +2323,6 @@ ref; // ME_4DB6C8F30161 TtfwCompilingWord
 
 FORWARD ME_52D55D7B0178
 
-: ME_ADD86373F002
- CONST UID 'ADD86373F002'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwRuntimeWordWithCode' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52D55D7B0178 // TkwRuntimeWordWithCode
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_ADD86373F002 Ini_Reg_Class
-
 : ME_52D55DDA011A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2585,8 +2344,6 @@ ref; // ME_52D55DDA011A
 ref; // ME_52D4056D00E1 
 
 : ME_479731C50290_ME_52D55D7B0178
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_52D55D7B0178 // TkwRuntimeWordWithCode
@@ -2595,8 +2352,6 @@ ref; // ME_52D4056D00E1
 ref; // ME_479731C50290_ME_52D55D7B0178 Cleanup
 
 : ME_52D41C7F027B_ME_52D55D7B0178
- CONST UID '52D41C7F027B'
- CONST Name 'GetCode'
  : Original ME_52D41C7F027B // GetCode
  ;
  : Implementor ME_52D55D7B0178 // TkwRuntimeWordWithCode
@@ -2605,8 +2360,6 @@ ref; // ME_479731C50290_ME_52D55D7B0178 Cleanup
 ref; // ME_52D41C7F027B_ME_52D55D7B0178 GetCode
 
 : ME_52D56341033B_ME_52D55D7B0178
- CONST UID '52D56341033B'
- CONST Name 'GetNewWordDefinitor'
  : Original WL 'ME_52D56341033B' '4DAF19F600C5.pas.ms.script' // GetNewWordDefinitor
  ;
  : Implementor ME_52D55D7B0178 // TkwRuntimeWordWithCode
@@ -2615,8 +2368,6 @@ ref; // ME_52D41C7F027B_ME_52D55D7B0178 GetCode
 ref; // ME_52D56341033B_ME_52D55D7B0178 GetNewWordDefinitor
 
 : ME_52D5637A031E_ME_52D55D7B0178
- CONST UID '52D5637A031E'
- CONST Name 'GetKeywordFinder'
  : Original WL 'ME_52D5637A031E' '4DAF19F600C5.pas.ms.script' // GetKeywordFinder
  ;
  : Implementor ME_52D55D7B0178 // TkwRuntimeWordWithCode
@@ -2625,8 +2376,6 @@ ref; // ME_52D56341033B_ME_52D55D7B0178 GetNewWordDefinitor
 ref; // ME_52D5637A031E_ME_52D55D7B0178 GetKeywordFinder
 
 : ME_52D56A980103_ME_52D55D7B0178
- CONST UID '52D56A980103'
- CONST Name 'DoCompileInParameterPopCode'
  : Original WL 'ME_52D56A980103' '4DAF19F600C5.pas.ms.script' // DoCompileInParameterPopCode
  ;
  : Implementor ME_52D55D7B0178 // TkwRuntimeWordWithCode
@@ -2649,10 +2398,6 @@ ref; // ME_52D56A980103_ME_52D55D7B0178 DoCompileInParameterPopCode
  ME_55A4E9940396 // tfwCodeCompiler
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_ADD86373F002 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_52D55D7B0178 // Cleanup
  ME_52D41C7F027B_ME_52D55D7B0178 // GetCode
@@ -2679,24 +2424,7 @@ ref; // ME_52D55D7B0178 TkwRuntimeWordWithCode
 
 FORWARD ME_52D69DF30179
 
-: ME_B0B1E382B90C
- CONST UID 'B0B1E382B90C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwRuntimeWordWithCodeExecution' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52D69DF30179 // TkwRuntimeWordWithCodeExecution
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B0B1E382B90C Ini_Reg_Class
-
 : ME_4DAEEDE10285_ME_52D69DF30179
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_52D69DF30179 // TkwRuntimeWordWithCodeExecution
@@ -2718,10 +2446,6 @@ ref; // ME_4DAEEDE10285_ME_52D69DF30179 DoDoIt
    Seq: ( ME_52D55D7B0178 // TkwRuntimeWordWithCode
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B0B1E382B90C // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_52D69DF30179 // DoDoIt
  )
@@ -2835,24 +2559,7 @@ ref; // ME_551294AF0050 DoIt
 
 ref; // ME_5512949D0048 DoRun
 
-: ME_B239E65B0791
- CONST UID 'B239E65B0791'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwAnonimousWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DB9BB43017B // TtfwAnonimousWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B239E65B0791 Ini_Reg_Class
-
 : ME_4F3AB3600008_ME_4DB9BB43017B
- CONST UID '4F3AB3600008'
- CONST Name 'IsAnonimous'
  : Original WL 'ME_4F3AB3600008' '4DAF19F600C5.pas.ms.script' // IsAnonimous
  ;
  : Implementor ME_4DB9BB43017B // TtfwAnonimousWord
@@ -2877,7 +2584,6 @@ ref; // ME_4F3AB3600008_ME_4DB9BB43017B IsAnonimous
  : Operations
    Seq: ( ME_4DB9BBD6024F // DoCompiledWord
  ME_5512949D0048 // DoRun
- ME_B239E65B0791 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -3105,21 +2811,6 @@ ref; // ME_5284D8570004 DoIt
 
 ref; // ME_5284D8180211 MakeCompiledWordWorker
 
-: ME_B69A31A56AB3
- CONST UID 'B69A31A56AB3'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwWordWorker' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DCBD489023A // TtfwWordWorker
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B69A31A56AB3 Ini_Reg_Class
-
 FORWARD ME_52DFE4E403E7
 
 : ME_52DFE7E002AB
@@ -3143,8 +2834,6 @@ ref; // ME_52DFE7E002AB
 ref; // ME_54D39C300080 
 
 : ME_4DB6C99F026E_ME_4DCBD489023A
- CONST UID '4DB6C99F026E'
- CONST Name 'EndBracket'
  : Original ME_4DB6C99F026E // EndBracket
  ;
  : Implementor ME_4DCBD489023A // TtfwWordWorker
@@ -3153,8 +2842,6 @@ ref; // ME_54D39C300080
 ref; // ME_4DB6C99F026E_ME_4DCBD489023A EndBracket
 
 : ME_4DB6CE2302C9_ME_4DCBD489023A
- CONST UID '4DB6CE2302C9'
- CONST Name 'AfterCompile'
  : Original ME_4DB6CE2302C9 // AfterCompile
  ;
  : Implementor ME_4DCBD489023A // TtfwWordWorker
@@ -3163,8 +2850,6 @@ ref; // ME_4DB6C99F026E_ME_4DCBD489023A EndBracket
 ref; // ME_4DB6CE2302C9_ME_4DCBD489023A AfterCompile
 
 : ME_4DB9B446039A_ME_4DCBD489023A
- CONST UID '4DB9B446039A'
- CONST Name 'AfterWordMaxCount'
  : Original ME_4DB9B446039A // AfterWordMaxCount
  ;
  : Implementor ME_4DCBD489023A // TtfwWordWorker
@@ -3173,8 +2858,6 @@ ref; // ME_4DB6CE2302C9_ME_4DCBD489023A AfterCompile
 ref; // ME_4DB9B446039A_ME_4DCBD489023A AfterWordMaxCount
 
 : ME_4DBAEE0D028D_ME_4DCBD489023A
- CONST UID '4DBAEE0D028D'
- CONST Name 'CompiledWordClass'
  : Original ME_4DBAEE0D028D // CompiledWordClass
  ;
  : Implementor ME_4DCBD489023A // TtfwWordWorker
@@ -3202,7 +2885,6 @@ ref; // ME_4DBAEE0D028D_ME_4DCBD489023A CompiledWordClass
  ME_4F219FA10268 // FillCompiledWorker
  ME_4F41566A02E5 // CompileWordWorker
  ME_5284D8180211 // MakeCompiledWordWorker
- ME_B69A31A56AB3 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -3344,21 +3026,6 @@ ref; // ME_4F37B40A0021 DoIt
 
 ref; // ME_4F37B3F10318 GetNewWordName
 
-: ME_CE9F45AA51E6
- CONST UID 'CE9F45AA51E6'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwNewWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DB9B6D20168 // TtfwNewWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CE9F45AA51E6 Ini_Reg_Class
-
 : ME_4DB9B72601E2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3400,8 +3067,6 @@ ref; // ME_54D38668011F
 ref; // ME_55A6A10502B1 
 
 : ME_4DB6CDDA038B_ME_4DB9B6D20168
- CONST UID '4DB6CDDA038B'
- CONST Name 'BeforeCompile'
  : Original ME_4DB6CDDA038B // BeforeCompile
  ;
  : Implementor ME_4DB9B6D20168 // TtfwNewWord
@@ -3410,8 +3075,6 @@ ref; // ME_55A6A10502B1
 ref; // ME_4DB6CDDA038B_ME_4DB9B6D20168 BeforeCompile
 
 : ME_4DB6CE2302C9_ME_4DB9B6D20168
- CONST UID '4DB6CE2302C9'
- CONST Name 'AfterCompile'
  : Original ME_4DB6CE2302C9 // AfterCompile
  ;
  : Implementor ME_4DB9B6D20168 // TtfwNewWord
@@ -3436,7 +3099,6 @@ ref; // ME_4DB6CE2302C9_ME_4DB9B6D20168 AfterCompile
  : Operations
    Seq: ( ME_4F219629036A // FinishDefinitionOfNewWord
  ME_4F37B3F10318 // GetNewWordName
- ME_CE9F45AA51E6 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -3525,37 +3187,6 @@ ref; // ME_52E9252E00F4 f_RightParams
 
 ref; // ME_53E467A70306 f_LeftWordRefs
 
-: ME_57FA1EF6534C
- CONST UID '57FA1EF6534C'
- CONST Name 'f_LocalDictionary'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LocalDictionary' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4DB6CA4F010D // TkwCompiledWord
- ;
- : Target WL 'ME_4DAEECD90016' '4F2275C00012.pas.ms.script' // TtfwDictionary
- ;
-
-ref; // ME_57FA1EF6534C f_LocalDictionary
-
-: ME_BA017E9DB4D8
- CONST UID 'BA017E9DB4D8'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwCompiledWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DB6CA4F010D // TkwCompiledWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_BA017E9DB4D8 Ini_Reg_Class
-
 : ME_4DB6CB9A02FE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3609,8 +3240,6 @@ ref; // ME_52E9312200C6
 ref; // ME_52E931970226 
 
 : ME_479731C50290_ME_4DB6CA4F010D
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3619,8 +3248,6 @@ ref; // ME_52E931970226
 ref; // ME_479731C50290_ME_4DB6CA4F010D Cleanup
 
 : ME_47A6FEE600FC_ME_4DB6CA4F010D
- CONST UID '47A6FEE600FC'
- CONST Name 'IsCacheable'
  : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3630,8 +3257,6 @@ ref; // ME_479731C50290_ME_4DB6CA4F010D Cleanup
 ref; // ME_47A6FEE600FC_ME_4DB6CA4F010D IsCacheable
 
 : ME_4DAEEDE10285_ME_4DB6CA4F010D
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3640,8 +3265,6 @@ ref; // ME_47A6FEE600FC_ME_4DB6CA4F010D IsCacheable
 ref; // ME_4DAEEDE10285_ME_4DB6CA4F010D DoDoIt
 
 : ME_4DB6CF7202CB_ME_4DB6CA4F010D
- CONST UID '4DB6CF7202CB'
- CONST Name 'IsCompiled'
  : Original WL 'ME_4DB6CF7202CB' '4DAF19F600C5.pas.ms.script' // IsCompiled
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3650,8 +3273,6 @@ ref; // ME_4DAEEDE10285_ME_4DB6CA4F010D DoDoIt
 ref; // ME_4DB6CF7202CB_ME_4DB6CA4F010D IsCompiled
 
 : ME_4DB6D7F70155_ME_4DB6CA4F010D
- CONST UID '4DB6D7F70155'
- CONST Name 'IsImmediate'
  : Original WL 'ME_4DB6D7F70155' '4DAF19F600C5.pas.ms.script' // IsImmediate
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3660,8 +3281,6 @@ ref; // ME_4DB6CF7202CB_ME_4DB6CA4F010D IsCompiled
 ref; // ME_4DB6D7F70155_ME_4DB6CA4F010D IsImmediate
 
 : ME_4F4161BC0024_ME_4DB6CA4F010D
- CONST UID '4F4161BC0024'
- CONST Name 'DoDefineInParameter'
  : Original WL 'ME_4F4161BC0024' '4DAF19F600C5.pas.ms.script' // DoDefineInParameter
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3670,8 +3289,6 @@ ref; // ME_4DB6D7F70155_ME_4DB6CA4F010D IsImmediate
 ref; // ME_4F4161BC0024_ME_4DB6CA4F010D DoDefineInParameter
 
 : ME_4F4177910352_ME_4DB6CA4F010D
- CONST UID '4F4177910352'
- CONST Name 'CompileInParameterPopCodeFromString'
  : Original WL 'ME_4F4177910352' '4DAF19F600C5.pas.ms.script' // CompileInParameterPopCodeFromString
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3680,8 +3297,6 @@ ref; // ME_4F4161BC0024_ME_4DB6CA4F010D DoDefineInParameter
 ref; // ME_4F4177910352_ME_4DB6CA4F010D CompileInParameterPopCodeFromString
 
 : ME_4F49428A01EA_ME_4DB6CA4F010D
- CONST UID '4F49428A01EA'
- CONST Name 'StoreState'
  : Original WL 'ME_4F49428A01EA' '4DAF19F600C5.pas.ms.script' // StoreState
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3690,8 +3305,6 @@ ref; // ME_4F4177910352_ME_4DB6CA4F010D CompileInParameterPopCodeFromString
 ref; // ME_4F49428A01EA_ME_4DB6CA4F010D StoreState
 
 : ME_4F4942C50339_ME_4DB6CA4F010D
- CONST UID '4F4942C50339'
- CONST Name 'RestoreState'
  : Original WL 'ME_4F4942C50339' '4DAF19F600C5.pas.ms.script' // RestoreState
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3700,8 +3313,6 @@ ref; // ME_4F49428A01EA_ME_4DB6CA4F010D StoreState
 ref; // ME_4F4942C50339_ME_4DB6CA4F010D RestoreState
 
 : ME_52B43311021D_ME_4DB6CA4F010D
- CONST UID '52B43311021D'
- CONST Name 'InnerDictionary'
  : Original WL 'ME_52B43311021D' '4DAF19F600C5.pas.ms.script' // InnerDictionary
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3711,8 +3322,6 @@ ref; // ME_4F4942C50339_ME_4DB6CA4F010D RestoreState
 ref; // ME_52B43311021D_ME_4DB6CA4F010D InnerDictionary
 
 : ME_52D40FAA0073_ME_4DB6CA4F010D
- CONST UID '52D40FAA0073'
- CONST Name 'HasLocalDictionary'
  : Original WL 'ME_52D40FAA0073' '4DAF19F600C5.pas.ms.script' // HasLocalDictionary
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3721,8 +3330,6 @@ ref; // ME_52B43311021D_ME_4DB6CA4F010D InnerDictionary
 ref; // ME_52D40FAA0073_ME_4DB6CA4F010D HasLocalDictionary
 
 : ME_52D5425A037F_ME_4DB6CA4F010D
- CONST UID '52D5425A037F'
- CONST Name 'GetInParam'
  : Original WL 'ME_52D5425A037F' '4DAF19F600C5.pas.ms.script' // GetInParam
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3731,8 +3338,6 @@ ref; // ME_52D40FAA0073_ME_4DB6CA4F010D HasLocalDictionary
 ref; // ME_52D5425A037F_ME_4DB6CA4F010D GetInParam
 
 : ME_52D56341033B_ME_4DB6CA4F010D
- CONST UID '52D56341033B'
- CONST Name 'GetNewWordDefinitor'
  : Original WL 'ME_52D56341033B' '4DAF19F600C5.pas.ms.script' // GetNewWordDefinitor
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3741,8 +3346,6 @@ ref; // ME_52D5425A037F_ME_4DB6CA4F010D GetInParam
 ref; // ME_52D56341033B_ME_4DB6CA4F010D GetNewWordDefinitor
 
 : ME_52D5637A031E_ME_4DB6CA4F010D
- CONST UID '52D5637A031E'
- CONST Name 'GetKeywordFinder'
  : Original WL 'ME_52D5637A031E' '4DAF19F600C5.pas.ms.script' // GetKeywordFinder
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3751,8 +3354,6 @@ ref; // ME_52D56341033B_ME_4DB6CA4F010D GetNewWordDefinitor
 ref; // ME_52D5637A031E_ME_4DB6CA4F010D GetKeywordFinder
 
 : ME_52D56A980103_ME_4DB6CA4F010D
- CONST UID '52D56A980103'
- CONST Name 'DoCompileInParameterPopCode'
  : Original WL 'ME_52D56A980103' '4DAF19F600C5.pas.ms.script' // DoCompileInParameterPopCode
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3761,8 +3362,6 @@ ref; // ME_52D5637A031E_ME_4DB6CA4F010D GetKeywordFinder
 ref; // ME_52D56A980103_ME_4DB6CA4F010D DoCompileInParameterPopCode
 
 : ME_52E9282B0271_ME_4DB6CA4F010D
- CONST UID '52E9282B0271'
- CONST Name 'RightParamsCount'
  : Original WL 'ME_52E9282B0271' '4DAF19F600C5.pas.ms.script' // RightParamsCount
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3771,8 +3370,6 @@ ref; // ME_52D56A980103_ME_4DB6CA4F010D DoCompileInParameterPopCode
 ref; // ME_52E9282B0271_ME_4DB6CA4F010D RightParamsCount
 
 : ME_53C90EC00136_ME_4DB6CA4F010D
- CONST UID '53C90EC00136'
- CONST Name 'ClearState'
  : Original WL 'ME_53C90EC00136' '4DAF19F600C5.pas.ms.script' // ClearState
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3781,8 +3378,6 @@ ref; // ME_52E9282B0271_ME_4DB6CA4F010D RightParamsCount
 ref; // ME_53C90EC00136_ME_4DB6CA4F010D ClearState
 
 : ME_53E4914101D2_ME_4DB6CA4F010D
- CONST UID '53E4914101D2'
- CONST Name 'LeftWordRefParamsCount'
  : Original WL 'ME_53E4914101D2' '4DAF19F600C5.pas.ms.script' // LeftWordRefParamsCount
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3791,8 +3386,6 @@ ref; // ME_53C90EC00136_ME_4DB6CA4F010D ClearState
 ref; // ME_53E4914101D2_ME_4DB6CA4F010D LeftWordRefParamsCount
 
 : ME_55769895035B_ME_4DB6CA4F010D
- CONST UID '55769895035B'
- CONST Name 'GetRightParam'
  : Original WL 'ME_55769895035B' '4DAF19F600C5.pas.ms.script' // GetRightParam
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3801,8 +3394,6 @@ ref; // ME_53E4914101D2_ME_4DB6CA4F010D LeftWordRefParamsCount
 ref; // ME_55769895035B_ME_4DB6CA4F010D GetRightParam
 
 : ME_559687E6025A_ME_4DB6CA4F010D
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3811,8 +3402,6 @@ ref; // ME_55769895035B_ME_4DB6CA4F010D GetRightParam
 ref; // ME_559687E6025A_ME_4DB6CA4F010D GetAllParamsCount
 
 : ME_55A7D34102A0_ME_4DB6CA4F010D
- CONST UID '55A7D34102A0'
- CONST Name 'DoCheckWord'
  : Original WL 'ME_55A7D34102A0' '4DAF19F600C5.pas.ms.script' // DoCheckWord
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3821,8 +3410,6 @@ ref; // ME_559687E6025A_ME_4DB6CA4F010D GetAllParamsCount
 ref; // ME_55A7D34102A0_ME_4DB6CA4F010D DoCheckWord
 
 : ME_55ACE5210310_ME_4DB6CA4F010D
- CONST UID '55ACE5210310'
- CONST Name 'GetKeywordByName'
  : Original WL 'ME_55ACE5210310' '4DAF19F600C5.pas.ms.script' // GetKeywordByName
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3831,8 +3418,6 @@ ref; // ME_55A7D34102A0_ME_4DB6CA4F010D DoCheckWord
 ref; // ME_55ACE5210310_ME_4DB6CA4F010D GetKeywordByName
 
 : ME_55ACF0F5025D_ME_4DB6CA4F010D
- CONST UID '55ACF0F5025D'
- CONST Name 'GetParentFinder'
  : Original WL 'ME_55ACF0F5025D' '4DAF19F600C5.pas.ms.script' // GetParentFinder
  ;
  : Implementor ME_4DB6CA4F010D // TkwCompiledWord
@@ -3860,13 +3445,8 @@ ref; // ME_55ACF0F5025D_ME_4DB6CA4F010D GetParentFinder
  ME_4F417F010252 // f_InParams
  ME_52E9252E00F4 // f_RightParams
  ME_53E467A70306 // f_LeftWordRefs
- ME_57FA1EF6534C // f_LocalDictionary
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_BA017E9DB4D8 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_4DB6CA4F010D // Cleanup
  ME_47A6FEE600FC_ME_4DB6CA4F010D // IsCacheable
@@ -3916,21 +3496,6 @@ ref; // ME_4DB6CA4F010D TkwCompiledWord
 
 FORWARD ME_52D6AC0F0186
 
-: ME_9500ED19BA57
- CONST UID '9500ED19BA57'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация CloseBracket' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52D6AC0F0186 // CloseBracket
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_9500ED19BA57 Ini_Reg_Class
-
 : ME_52D6B91401A7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3942,8 +3507,6 @@ ref; // ME_9500ED19BA57 Ini_Reg_Class
 ref; // ME_52D6B91401A7 
 
 : ME_4DAEEDE10285_ME_52D6AC0F0186
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_52D6AC0F0186 // CloseBracket
@@ -3952,8 +3515,6 @@ ref; // ME_52D6B91401A7
 ref; // ME_4DAEEDE10285_ME_52D6AC0F0186 DoDoIt
 
 : ME_4DB6D7F70155_ME_52D6AC0F0186
- CONST UID '4DB6D7F70155'
- CONST Name 'IsImmediate'
  : Original WL 'ME_4DB6D7F70155' '4DAF19F600C5.pas.ms.script' // IsImmediate
  ;
  : Implementor ME_52D6AC0F0186 // CloseBracket
@@ -3962,8 +3523,6 @@ ref; // ME_4DAEEDE10285_ME_52D6AC0F0186 DoDoIt
 ref; // ME_4DB6D7F70155_ME_52D6AC0F0186 IsImmediate
 
 : ME_52D6ABCB0026_ME_52D6AC0F0186
- CONST UID '52D6ABCB0026'
- CONST Name 'IsCloseBracket'
  : Original WL 'ME_52D6ABCB0026' '4DAF19F600C5.pas.ms.script' // IsCloseBracket
  ;
  : Implementor ME_52D6AC0F0186 // CloseBracket
@@ -3985,10 +3544,6 @@ ref; // ME_52D6ABCB0026_ME_52D6AC0F0186 IsCloseBracket
    Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9500ED19BA57 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_52D6AC0F0186 // DoDoIt
  )
@@ -4017,21 +3572,6 @@ ref; // ME_52D6AC0F0186 CloseBracket
 
 FORWARD ME_4DBAEF29031F
 
-: ME_193627308835
- CONST UID '193627308835'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwBeginLikeWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DBAEF29031F // TtfwBeginLikeWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_193627308835 Ini_Reg_Class
-
 FORWARD ME_52DFF03B0030
 
 : ME_52DFF05800FB
@@ -4045,8 +3585,6 @@ FORWARD ME_52DFF03B0030
 ref; // ME_52DFF05800FB 
 
 : ME_4DB6CE2302C9_ME_4DBAEF29031F
- CONST UID '4DB6CE2302C9'
- CONST Name 'AfterCompile'
  : Original ME_4DB6CE2302C9 // AfterCompile
  ;
  : Implementor ME_4DBAEF29031F // TtfwBeginLikeWord
@@ -4055,8 +3593,6 @@ ref; // ME_52DFF05800FB
 ref; // ME_4DB6CE2302C9_ME_4DBAEF29031F AfterCompile
 
 : ME_4DBAEE0D028D_ME_4DBAEF29031F
- CONST UID '4DBAEE0D028D'
- CONST Name 'CompiledWordClass'
  : Original ME_4DBAEE0D028D // CompiledWordClass
  ;
  : Implementor ME_4DBAEF29031F // TtfwBeginLikeWord
@@ -4079,10 +3615,6 @@ ref; // ME_4DBAEE0D028D_ME_4DBAEF29031F CompiledWordClass
    Seq: ( ME_4DB9BB43017B // TtfwAnonimousWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_193627308835 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DB6CE2302C9_ME_4DBAEF29031F // AfterCompile
  ME_4DBAEE0D028D_ME_4DBAEF29031F // CompiledWordClass
@@ -4105,24 +3637,7 @@ ref; // ME_4DBAEE0D028D_ME_4DBAEF29031F CompiledWordClass
 
 ref; // ME_4DBAEF29031F TtfwBeginLikeWord
 
-: ME_30080BCB4DC3
- CONST UID '30080BCB4DC3'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwBeginLikeCompiledCode' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52DFF03B0030 // TkwBeginLikeCompiledCode
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_30080BCB4DC3 Ini_Reg_Class
-
 : ME_52CFC11603C8_ME_52DFF03B0030
- CONST UID '52CFC11603C8'
- CONST Name 'ResultTypeInfo'
  : Original WL 'ME_52CFC11603C8' '4DAF19F600C5.pas.ms.script' // ResultTypeInfo
  ;
  : Implementor ME_52DFF03B0030 // TkwBeginLikeCompiledCode
@@ -4132,8 +3647,6 @@ ref; // ME_30080BCB4DC3 Ini_Reg_Class
 ref; // ME_52CFC11603C8_ME_52DFF03B0030 ResultTypeInfo
 
 : ME_52DFE48500BB_ME_52DFF03B0030
- CONST UID '52DFE48500BB'
- CONST Name 'GetAsCaller'
  : Original WL 'ME_52DFE48500BB' '4DAF19F600C5.pas.ms.script' // GetAsCaller
  ;
  : Implementor ME_52DFF03B0030 // TkwBeginLikeCompiledCode
@@ -4142,8 +3655,6 @@ ref; // ME_52CFC11603C8_ME_52DFF03B0030 ResultTypeInfo
 ref; // ME_52DFE48500BB_ME_52DFF03B0030 GetAsCaller
 
 : ME_55CB5B8C004E_ME_52DFF03B0030
- CONST UID '55CB5B8C004E'
- CONST Name 'MakeRefForCompile'
  : Original WL 'ME_55CB5B8C004E' '4DAF19F600C5.pas.ms.script' // MakeRefForCompile
  ;
  : Implementor ME_52DFF03B0030 // TkwBeginLikeCompiledCode
@@ -4165,10 +3676,6 @@ ref; // ME_55CB5B8C004E_ME_52DFF03B0030 MakeRefForCompile
    Seq: ( ME_4DB6CA4F010D // TkwCompiledWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_30080BCB4DC3 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_52CFC11603C8_ME_52DFF03B0030 // ResultTypeInfo
  ME_52DFE48500BB_ME_52DFF03B0030 // GetAsCaller
@@ -4187,21 +3694,6 @@ ref; // ME_55CB5B8C004E_ME_52DFF03B0030 MakeRefForCompile
 ref; // ME_52DFF03B0030 TkwBeginLikeCompiledCode
 
 FORWARD ME_4F3BC124004D
-
-: ME_5C173D4988C9
- CONST UID '5C173D4988C9'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwConstLike' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F3BC124004D // TtfwConstLike
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5C173D4988C9 Ini_Reg_Class
 
 : ME_52D69E4203B7
  CONST Class class_Dependency
@@ -4226,8 +3718,6 @@ FORWARD ME_551E87F00212
 ref; // ME_551E881103A0 
 
 : ME_4DB6C99F026E_ME_4F3BC124004D
- CONST UID '4DB6C99F026E'
- CONST Name 'EndBracket'
  : Original ME_4DB6C99F026E // EndBracket
  ;
  : Implementor ME_4F3BC124004D // TtfwConstLike
@@ -4236,8 +3726,6 @@ ref; // ME_551E881103A0
 ref; // ME_4DB6C99F026E_ME_4F3BC124004D EndBracket
 
 : ME_4DB9B446039A_ME_4F3BC124004D
- CONST UID '4DB9B446039A'
- CONST Name 'AfterWordMaxCount'
  : Original ME_4DB9B446039A // AfterWordMaxCount
  ;
  : Implementor ME_4F3BC124004D // TtfwConstLike
@@ -4246,8 +3734,6 @@ ref; // ME_4DB6C99F026E_ME_4F3BC124004D EndBracket
 ref; // ME_4DB9B446039A_ME_4F3BC124004D AfterWordMaxCount
 
 : ME_4DBAEE0D028D_ME_4F3BC124004D
- CONST UID '4DBAEE0D028D'
- CONST Name 'CompiledWordClass'
  : Original ME_4DBAEE0D028D // CompiledWordClass
  ;
  : Implementor ME_4F3BC124004D // TtfwConstLike
@@ -4269,10 +3755,6 @@ ref; // ME_4DBAEE0D028D_ME_4F3BC124004D CompiledWordClass
    Seq: ( ME_4DB9B6D20168 // TtfwNewWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5C173D4988C9 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DB6C99F026E_ME_4F3BC124004D // EndBracket
  )
@@ -4302,24 +3784,7 @@ ref; // ME_4F3BC124004D TtfwConstLike
 
 FORWARD ME_4DBFC3520093
 
-: ME_10248728ADB5
- CONST UID '10248728ADB5'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwConst' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DBFC3520093 // TtfwConst
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_10248728ADB5 Ini_Reg_Class
-
 : ME_4DB9B502013D_ME_4DBFC3520093
- CONST UID '4DB9B502013D'
- CONST Name 'AcceptsKeyWordAfter'
  : Original ME_4DB9B502013D // AcceptsKeyWordAfter
  ;
  : Implementor ME_4DBFC3520093 // TtfwConst
@@ -4342,10 +3807,6 @@ ref; // ME_4DB9B502013D_ME_4DBFC3520093 AcceptsKeyWordAfter
    Seq: ( ME_4F3BC124004D // TtfwConstLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_10248728ADB5 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DB9B502013D_ME_4DBFC3520093 // AcceptsKeyWordAfter
  )
@@ -4467,21 +3928,6 @@ ref; // ME_556305F800A9 tfwOtherWordRunner
 
 FORWARD ME_5512E4070106
 
-: ME_34481A24701F
- CONST UID '34481A24701F'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwWordWorkerEx' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5512E4070106 // TtfwWordWorkerEx
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_34481A24701F Ini_Reg_Class
-
 FORWARD ME_5512E3740036
 
 : ME_5512E41B01BA
@@ -4495,8 +3941,6 @@ FORWARD ME_5512E3740036
 ref; // ME_5512E41B01BA 
 
 : ME_4DCBD67C0362_ME_5512E4070106
- CONST UID '4DCBD67C0362'
- CONST Name 'CompiledWorkerClass'
  : Original ME_4DCBD67C0362 // CompiledWorkerClass
  ;
  : Implementor ME_5512E4070106 // TtfwWordWorkerEx
@@ -4518,10 +3962,6 @@ ref; // ME_4DCBD67C0362_ME_5512E4070106 CompiledWorkerClass
    Seq: ( ME_4DCBD489023A // TtfwWordWorker
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_34481A24701F // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DCBD67C0362_ME_5512E4070106 // CompiledWorkerClass
  )
@@ -4541,24 +3981,7 @@ ref; // ME_4DCBD67C0362_ME_5512E4070106 CompiledWorkerClass
 
 ref; // ME_5512E4070106 TtfwWordWorkerEx
 
-: ME_A9C1E172FE25
- CONST UID 'A9C1E172FE25'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwConstLikeCompiled' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_551E87F00212 // TkwConstLikeCompiled
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A9C1E172FE25 Ini_Reg_Class
-
 : ME_551544E2001A_ME_551E87F00212
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_551E87F00212 // TkwConstLikeCompiled
@@ -4580,10 +4003,6 @@ ref; // ME_551544E2001A_ME_551E87F00212 GetResultTypeInfo
    Seq: ( ME_52D69DF30179 // TkwRuntimeWordWithCodeExecution
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A9C1E172FE25 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_551544E2001A_ME_551E87F00212 // GetResultTypeInfo
  )
@@ -4613,21 +4032,6 @@ ref; // ME_551E87F00212 TkwConstLikeCompiled
 
 ref; // ME_5512E3CE0022 f_WordToRun
 
-: ME_550C7371F297
- CONST UID '550C7371F297'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwCompiledWordWorkerEx' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5512E3740036 // TkwCompiledWordWorkerEx
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_550C7371F297 Ini_Reg_Class
-
 : ME_5512E3EA0069
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4639,8 +4043,6 @@ ref; // ME_550C7371F297 Ini_Reg_Class
 ref; // ME_5512E3EA0069 
 
 : ME_4DAEEDE10285_ME_5512E3740036
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_5512E3740036 // TkwCompiledWordWorkerEx
@@ -4649,8 +4051,6 @@ ref; // ME_5512E3EA0069
 ref; // ME_4DAEEDE10285_ME_5512E3740036 DoDoIt
 
 : ME_55630CB40207_ME_5512E3740036
- CONST UID '55630CB40207'
- CONST Name 'GetWordToRun'
  : Original ME_55630CB40207 // GetWordToRun
  ;
  : Implementor ME_5512E3740036 // TkwCompiledWordWorkerEx
@@ -4659,8 +4059,6 @@ ref; // ME_4DAEEDE10285_ME_5512E3740036 DoDoIt
 ref; // ME_55630CB40207_ME_5512E3740036 GetWordToRun
 
 : ME_4DCBB0CD028D_ME_5512E3740036
- CONST UID '4DCBB0CD028D'
- CONST Name 'Create'
  : Original ME_4DCBB0CD028D // Create
  ;
  : Implementor ME_5512E3740036 // TkwCompiledWordWorkerEx
@@ -4669,8 +4067,6 @@ ref; // ME_55630CB40207_ME_5512E3740036 GetWordToRun
 ref; // ME_4DCBB0CD028D_ME_5512E3740036 Create
 
 : ME_52CFC11603C8_ME_5512E3740036
- CONST UID '52CFC11603C8'
- CONST Name 'ResultTypeInfo'
  : Original WL 'ME_52CFC11603C8' '4DAF19F600C5.pas.ms.script' // ResultTypeInfo
  ;
  : Implementor ME_5512E3740036 // TkwCompiledWordWorkerEx
@@ -4701,10 +4097,6 @@ ref; // ME_52CFC11603C8_ME_5512E3740036 ResultTypeInfo
    Seq: ( ME_5512E3CE0022 // f_WordToRun
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_550C7371F297 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_5512E3740036 // DoDoIt
  ME_55630CB40207_ME_5512E3740036 // GetWordToRun
@@ -4732,21 +4124,6 @@ ref; // ME_5512E3740036 TkwCompiledWordWorkerEx
 
 FORWARD ME_4DBB04B6014C
 
-: ME_452B29911739
- CONST UID '452B29911739'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwCompiledVar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DBB04B6014C // TkwCompiledVar
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_452B29911739 Ini_Reg_Class
-
 : ME_52E9090903B0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4758,8 +4135,6 @@ ref; // ME_452B29911739 Ini_Reg_Class
 ref; // ME_52E9090903B0 
 
 : ME_4DC9723702F5_ME_4DBB04B6014C
- CONST UID '4DC9723702F5'
- CONST Name 'Create'
  : Original ME_4DC9723702F5 // Create
  ;
  : Implementor ME_4DBB04B6014C // TkwCompiledVar
@@ -4768,8 +4143,6 @@ ref; // ME_52E9090903B0
 ref; // ME_4DC9723702F5_ME_4DBB04B6014C Create
 
 : ME_52D6B62E001B_ME_4DBB04B6014C
- CONST UID '52D6B62E001B'
- CONST Name 'GetEndBracket'
  : Original WL 'ME_52D6B62E001B' '4DAF19F600C5.pas.ms.script' // GetEndBracket
  ;
  : Implementor ME_4DBB04B6014C // TkwCompiledVar
@@ -4778,8 +4151,6 @@ ref; // ME_4DC9723702F5_ME_4DBB04B6014C Create
 ref; // ME_52D6B62E001B_ME_4DBB04B6014C GetEndBracket
 
 : ME_52D7DC84019E_ME_4DBB04B6014C
- CONST UID '52D7DC84019E'
- CONST Name 'AcceptMedianBracket'
  : Original WL 'ME_52D7DC84019E' '4DAF19F600C5.pas.ms.script' // AcceptMedianBracket
  ;
  : Implementor ME_4DBB04B6014C // TkwCompiledVar
@@ -4802,10 +4173,6 @@ ref; // ME_52D7DC84019E_ME_4DBB04B6014C AcceptMedianBracket
  ME_52D3E2EE0244 // kwCompiledVar
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_452B29911739 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DC9723702F5_ME_4DBB04B6014C // Create
  ME_52D6B62E001B_ME_4DBB04B6014C // GetEndBracket
@@ -4847,22 +4214,6 @@ FORWARD ME_4DB6E4630256
  CONST "reads field" true
 
 ref; // ME_5284E103030E WordToWork
-
-: ME_5FE10FA62743
- CONST UID '5FE10FA62743'
- CONST Name 'f_WordToWork'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства WordToWork' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4DB6E4630256 // TkwCompiledWordContainer
- ;
- : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
-
-ref; // ME_5FE10FA62743 f_WordToWork
 
 FORWARD ME_4DB6E4AB01B1
 
@@ -4917,21 +4268,6 @@ ref; // ME_4DB6E4B201CE DoIt
 
 ref; // ME_4DB6E4AB01B1 Create
 
-: ME_7FC21124D9B0
- CONST UID '7FC21124D9B0'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwCompiledWordContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DB6E4630256 // TkwCompiledWordContainer
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_7FC21124D9B0 Ini_Reg_Class
-
 : ME_4DB6E4E200F0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4953,8 +4289,6 @@ ref; // ME_4DB6E4E200F0
 ref; // ME_4DB6E5030234 
 
 : ME_479731C50290_ME_4DB6E4630256
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4DB6E4630256 // TkwCompiledWordContainer
@@ -4979,12 +4313,10 @@ ref; // ME_479731C50290_ME_4DB6E4630256 Cleanup
  ; // Inherits
  : Attributes
    Seq: ( ME_5284E103030E // WordToWork
- ME_5FE10FA62743 // f_WordToWork
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4DB6E4AB01B1 // Create
- ME_7FC21124D9B0 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -5104,21 +4436,6 @@ ref; // ME_4DB6F4DA01BF DoIt
 
 ref; // ME_4DB6F4CB03BE Create
 
-: ME_B8536B51D8B7
- CONST UID 'B8536B51D8B7'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwDualCompiledWordContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DBAC27801EF // TkwDualCompiledWordContainer
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B8536B51D8B7 Ini_Reg_Class
-
 : ME_4DBAC31D03A9
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -5150,8 +4467,6 @@ ref; // ME_4DBACAFF0071
 ref; // ME_53DA7B8B0160 
 
 : ME_479731C50290_ME_4DBAC27801EF
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4DBAC27801EF // TkwDualCompiledWordContainer
@@ -5181,7 +4496,6 @@ ref; // ME_479731C50290_ME_4DBAC27801EF Cleanup
  ; // Attributes
  : Operations
    Seq: ( ME_4DB6F4CB03BE // Create
- ME_B8536B51D8B7 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -5207,24 +4521,7 @@ ref; // ME_479731C50290_ME_4DBAC27801EF Cleanup
 
 ref; // ME_4DBAC27801EF TkwDualCompiledWordContainer
 
-: ME_ABA9D4CCEC6C
- CONST UID 'ABA9D4CCEC6C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwTemporaryCompiledCode' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52DFE4E403E7 // TkwTemporaryCompiledCode
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_ABA9D4CCEC6C Ini_Reg_Class
-
 : ME_4DAEEDE10285_ME_52DFE4E403E7
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_52DFE4E403E7 // TkwTemporaryCompiledCode
@@ -5233,8 +4530,6 @@ ref; // ME_ABA9D4CCEC6C Ini_Reg_Class
 ref; // ME_4DAEEDE10285_ME_52DFE4E403E7 DoDoIt
 
 : ME_52DFE48500BB_ME_52DFE4E403E7
- CONST UID '52DFE48500BB'
- CONST Name 'GetAsCaller'
  : Original WL 'ME_52DFE48500BB' '4DAF19F600C5.pas.ms.script' // GetAsCaller
  ;
  : Implementor ME_52DFE4E403E7 // TkwTemporaryCompiledCode
@@ -5257,10 +4552,6 @@ ref; // ME_52DFE48500BB_ME_52DFE4E403E7 GetAsCaller
    Seq: ( ME_52D55D7B0178 // TkwRuntimeWordWithCode
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_ABA9D4CCEC6C // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_52DFE4E403E7 // DoDoIt
  )
@@ -5339,24 +4630,7 @@ ref; // ME_4F37AE97001D DoIt
 
 ref; // ME_4F37AE8B03CE Create
 
-: ME_CF1744ADC9EA
- CONST UID 'CF1744ADC9EA'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwWordPtrWorker' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F37ADFF0150 // TkwWordPtrWorker
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CF1744ADC9EA Ini_Reg_Class
-
 : ME_479731C50290_ME_4F37ADFF0150
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4F37ADFF0150 // TkwWordPtrWorker
@@ -5384,7 +4658,6 @@ ref; // ME_479731C50290_ME_4F37ADFF0150 Cleanup
  ; // Attributes
  : Operations
    Seq: ( ME_4F37AE8B03CE // Create
- ME_CF1744ADC9EA // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -5406,24 +4679,7 @@ ref; // ME_4F37ADFF0150 TkwWordPtrWorker
 
 FORWARD ME_4F37AEBB0209
 
-: ME_F51B7E89D0FF
- CONST UID 'F51B7E89D0FF'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwWordPtrPushWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F37AEBB0209 // TkwWordPtrPushWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F51B7E89D0FF Ini_Reg_Class
-
 : ME_4DAEEDE10285_ME_4F37AEBB0209
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4F37AEBB0209 // TkwWordPtrPushWord
@@ -5432,8 +4688,6 @@ ref; // ME_F51B7E89D0FF Ini_Reg_Class
 ref; // ME_4DAEEDE10285_ME_4F37AEBB0209 DoDoIt
 
 : ME_558D2BCA0324_ME_4F37AEBB0209
- CONST UID '558D2BCA0324'
- CONST Name 'GetRef'
  : Original WL 'ME_558D2BCA0324' '4DAF19F600C5.pas.ms.script' // GetRef
  ;
  : Implementor ME_4F37AEBB0209 // TkwWordPtrPushWord
@@ -5442,8 +4696,6 @@ ref; // ME_4DAEEDE10285_ME_4F37AEBB0209 DoDoIt
 ref; // ME_558D2BCA0324_ME_4F37AEBB0209 GetRef
 
 : ME_55AFD7DA0258_ME_4F37AEBB0209
- CONST UID '55AFD7DA0258'
- CONST Name 'WordName'
  : Original WL 'ME_55AFD7DA0258' '4DAF19F600C5.pas.ms.script' // WordName
  ;
  : Implementor ME_4F37AEBB0209 // TkwWordPtrPushWord
@@ -5465,10 +4717,6 @@ ref; // ME_55AFD7DA0258_ME_4F37AEBB0209 WordName
    Seq: ( ME_4F37ADFF0150 // TkwWordPtrWorker
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F51B7E89D0FF // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_4F37AEBB0209 // DoDoIt
  )
@@ -5506,21 +4754,6 @@ FORWARD ME_558D7FFE0092
  ;
 
 ref; // ME_559A6AE50141 f_Value
-
-: ME_478304909F0F
- CONST UID '478304909F0F'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwObjRefParam' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_558D7FFE0092 // TkwObjRefParam
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_478304909F0F Ini_Reg_Class
 
 FORWARD ME_53E377040339
 
@@ -5591,8 +4824,6 @@ ref; // ME_55BF74AB003E
 ref; // ME_55BF74F80106 
 
 : ME_4DAEEDE10285_ME_558D7FFE0092
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_558D7FFE0092 // TkwObjRefParam
@@ -5601,8 +4832,6 @@ ref; // ME_55BF74F80106
 ref; // ME_4DAEEDE10285_ME_558D7FFE0092 DoDoIt
 
 : ME_52CFC11603C8_ME_558D7FFE0092
- CONST UID '52CFC11603C8'
- CONST Name 'ResultTypeInfo'
  : Original WL 'ME_52CFC11603C8' '4DAF19F600C5.pas.ms.script' // ResultTypeInfo
  ;
  : Implementor ME_558D7FFE0092 // TkwObjRefParam
@@ -5612,8 +4841,6 @@ ref; // ME_4DAEEDE10285_ME_558D7FFE0092 DoDoIt
 ref; // ME_52CFC11603C8_ME_558D7FFE0092 ResultTypeInfo
 
 : ME_52D00B00031A_ME_558D7FFE0092
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_558D7FFE0092 // TkwObjRefParam
@@ -5622,8 +4849,6 @@ ref; // ME_52CFC11603C8_ME_558D7FFE0092 ResultTypeInfo
 ref; // ME_52D00B00031A_ME_558D7FFE0092 SetValuePrim
 
 : ME_52D399A00173_ME_558D7FFE0092
- CONST UID '52D399A00173'
- CONST Name 'GetValue'
  : Original WL 'ME_52D399A00173' '4DAF19F600C5.pas.ms.script' // GetValue
  ;
  : Implementor ME_558D7FFE0092 // TkwObjRefParam
@@ -5632,8 +4857,6 @@ ref; // ME_52D00B00031A_ME_558D7FFE0092 SetValuePrim
 ref; // ME_52D399A00173_ME_558D7FFE0092 GetValue
 
 : ME_52D399D40140_ME_558D7FFE0092
- CONST UID '52D399D40140'
- CONST Name 'IsVarLike'
  : Original WL 'ME_52D399D40140' '4DAF19F600C5.pas.ms.script' // IsVarLike
  ;
  : Implementor ME_558D7FFE0092 // TkwObjRefParam
@@ -5642,8 +4865,6 @@ ref; // ME_52D399A00173_ME_558D7FFE0092 GetValue
 ref; // ME_52D399D40140_ME_558D7FFE0092 IsVarLike
 
 : ME_52EA6A2C0111_ME_558D7FFE0092
- CONST UID '52EA6A2C0111'
- CONST Name 'SetResultTypeInfo'
  : Original WL 'ME_52EA6A2C0111' '4DAF19F600C5.pas.ms.script' // SetResultTypeInfo
  ;
  : Implementor ME_558D7FFE0092 // TkwObjRefParam
@@ -5652,8 +4873,6 @@ ref; // ME_52D399D40140_ME_558D7FFE0092 IsVarLike
 ref; // ME_52EA6A2C0111_ME_558D7FFE0092 SetResultTypeInfo
 
 : ME_558D2BCA0324_ME_558D7FFE0092
- CONST UID '558D2BCA0324'
- CONST Name 'GetRef'
  : Original WL 'ME_558D2BCA0324' '4DAF19F600C5.pas.ms.script' // GetRef
  ;
  : Implementor ME_558D7FFE0092 // TkwObjRefParam
@@ -5662,8 +4881,6 @@ ref; // ME_52EA6A2C0111_ME_558D7FFE0092 SetResultTypeInfo
 ref; // ME_558D2BCA0324_ME_558D7FFE0092 GetRef
 
 : ME_559A470F0288_ME_558D7FFE0092
- CONST UID '559A470F0288'
- CONST Name 'CanClearInRecursiveCalls'
  : Original WL 'ME_559A470F0288' '4DAF19F600C5.pas.ms.script' // CanClearInRecursiveCalls
  ;
  : Implementor ME_558D7FFE0092 // TkwObjRefParam
@@ -5672,8 +4889,6 @@ ref; // ME_558D2BCA0324_ME_558D7FFE0092 GetRef
 ref; // ME_559A470F0288_ME_558D7FFE0092 CanClearInRecursiveCalls
 
 : ME_559A4C5801D8_ME_558D7FFE0092
- CONST UID '559A4C5801D8'
- CONST Name 'IsInParam'
  : Original WL 'ME_559A4C5801D8' '4DAF19F600C5.pas.ms.script' // IsInParam
  ;
  : Implementor ME_558D7FFE0092 // TkwObjRefParam
@@ -5699,10 +4914,6 @@ ref; // ME_559A4C5801D8_ME_558D7FFE0092 IsInParam
    Seq: ( ME_559A6AE50141 // f_Value
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_478304909F0F // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_558D7FFE0092 // DoDoIt
  )
@@ -5738,24 +4949,7 @@ ref; // ME_558D7FFE0092 TkwObjRefParam
 
 FORWARD ME_559AA1BE0237
 
-: ME_70F7372CBD52
- CONST UID '70F7372CBD52'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwRefParam' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_559AA1BE0237 // TkwRefParam
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_70F7372CBD52 Ini_Reg_Class
-
 : ME_558D2BCA0324_ME_559AA1BE0237
- CONST UID '558D2BCA0324'
- CONST Name 'GetRef'
  : Original WL 'ME_558D2BCA0324' '4DAF19F600C5.pas.ms.script' // GetRef
  ;
  : Implementor ME_559AA1BE0237 // TkwRefParam
@@ -5764,8 +4958,6 @@ ref; // ME_70F7372CBD52 Ini_Reg_Class
 ref; // ME_558D2BCA0324_ME_559AA1BE0237 GetRef
 
 : ME_559A470F0288_ME_559AA1BE0237
- CONST UID '559A470F0288'
- CONST Name 'CanClearInRecursiveCalls'
  : Original WL 'ME_559A470F0288' '4DAF19F600C5.pas.ms.script' // CanClearInRecursiveCalls
  ;
  : Implementor ME_559AA1BE0237 // TkwRefParam
@@ -5787,10 +4979,6 @@ ref; // ME_559A470F0288_ME_559AA1BE0237 CanClearInRecursiveCalls
    Seq: ( ME_558D7FFE0092 // TkwObjRefParam
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_70F7372CBD52 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_558D2BCA0324_ME_559AA1BE0237 // GetRef
  ME_559A470F0288_ME_559AA1BE0237 // CanClearInRecursiveCalls
@@ -5805,24 +4993,7 @@ ref; // ME_559A470F0288_ME_559AA1BE0237 CanClearInRecursiveCalls
 
 ref; // ME_559AA1BE0237 TkwRefParam
 
-: ME_B0ACBB83C0F3
- CONST UID 'B0ACBB83C0F3'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwRightParam' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52E91D6202F4 // TkwRightParam
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B0ACBB83C0F3 Ini_Reg_Class
-
 : ME_52CFC11603C8_ME_52E91D6202F4
- CONST UID '52CFC11603C8'
- CONST Name 'ResultTypeInfo'
  : Original WL 'ME_52CFC11603C8' '4DAF19F600C5.pas.ms.script' // ResultTypeInfo
  ;
  : Implementor ME_52E91D6202F4 // TkwRightParam
@@ -5832,8 +5003,6 @@ ref; // ME_B0ACBB83C0F3 Ini_Reg_Class
 ref; // ME_52CFC11603C8_ME_52E91D6202F4 ResultTypeInfo
 
 : ME_52E91D9D0024_ME_52E91D6202F4
- CONST UID '52E91D9D0024'
- CONST Name 'IsRightParam'
  : Original WL 'ME_52E91D9D0024' '4DAF19F600C5.pas.ms.script' // IsRightParam
  ;
  : Implementor ME_52E91D6202F4 // TkwRightParam
@@ -5842,8 +5011,6 @@ ref; // ME_52CFC11603C8_ME_52E91D6202F4 ResultTypeInfo
 ref; // ME_52E91D9D0024_ME_52E91D6202F4 IsRightParam
 
 : ME_52EA6A2C0111_ME_52E91D6202F4
- CONST UID '52EA6A2C0111'
- CONST Name 'SetResultTypeInfo'
  : Original WL 'ME_52EA6A2C0111' '4DAF19F600C5.pas.ms.script' // SetResultTypeInfo
  ;
  : Implementor ME_52E91D6202F4 // TkwRightParam
@@ -5865,10 +5032,6 @@ ref; // ME_52EA6A2C0111_ME_52E91D6202F4 SetResultTypeInfo
    Seq: ( ME_559AA1BE0237 // TkwRefParam
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B0ACBB83C0F3 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_52CFC11603C8_ME_52E91D6202F4 // ResultTypeInfo
  ME_52E91D9D0024_ME_52E91D6202F4 // IsRightParam
@@ -5884,24 +5047,7 @@ ref; // ME_52EA6A2C0111_ME_52E91D6202F4 SetResultTypeInfo
 
 ref; // ME_52E91D6202F4 TkwRightParam
 
-: ME_050ED1D6FBF7
- CONST UID '050ED1D6FBF7'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwRightLiteralParam' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_559A730E020E // TkwRightLiteralParam
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_050ED1D6FBF7 Ini_Reg_Class
-
 : ME_52CFC11603C8_ME_559A730E020E
- CONST UID '52CFC11603C8'
- CONST Name 'ResultTypeInfo'
  : Original WL 'ME_52CFC11603C8' '4DAF19F600C5.pas.ms.script' // ResultTypeInfo
  ;
  : Implementor ME_559A730E020E // TkwRightLiteralParam
@@ -5911,8 +5057,6 @@ ref; // ME_050ED1D6FBF7 Ini_Reg_Class
 ref; // ME_52CFC11603C8_ME_559A730E020E ResultTypeInfo
 
 : ME_52EA6A2C0111_ME_559A730E020E
- CONST UID '52EA6A2C0111'
- CONST Name 'SetResultTypeInfo'
  : Original WL 'ME_52EA6A2C0111' '4DAF19F600C5.pas.ms.script' // SetResultTypeInfo
  ;
  : Implementor ME_559A730E020E // TkwRightLiteralParam
@@ -5934,10 +5078,6 @@ ref; // ME_52EA6A2C0111_ME_559A730E020E SetResultTypeInfo
    Seq: ( ME_52E91D6202F4 // TkwRightParam
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_050ED1D6FBF7 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_52CFC11603C8_ME_559A730E020E // ResultTypeInfo
  ME_52EA6A2C0111_ME_559A730E020E // SetResultTypeInfo
@@ -5966,24 +5106,7 @@ ref; // ME_559A730E020E TkwRightLiteralParam
 
 ref; // ME_559A7B67005C f_TypeInfo
 
-: ME_1FD213B3FE20
- CONST UID '1FD213B3FE20'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwRightParamEx' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_559A7B3C014E // TkwRightParamEx
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_1FD213B3FE20 Ini_Reg_Class
-
 : ME_52CFC11603C8_ME_559A7B3C014E
- CONST UID '52CFC11603C8'
- CONST Name 'ResultTypeInfo'
  : Original WL 'ME_52CFC11603C8' '4DAF19F600C5.pas.ms.script' // ResultTypeInfo
  ;
  : Implementor ME_559A7B3C014E // TkwRightParamEx
@@ -5993,8 +5116,6 @@ ref; // ME_1FD213B3FE20 Ini_Reg_Class
 ref; // ME_52CFC11603C8_ME_559A7B3C014E ResultTypeInfo
 
 : ME_52EA6A2C0111_ME_559A7B3C014E
- CONST UID '52EA6A2C0111'
- CONST Name 'SetResultTypeInfo'
  : Original WL 'ME_52EA6A2C0111' '4DAF19F600C5.pas.ms.script' // SetResultTypeInfo
  ;
  : Implementor ME_559A7B3C014E // TkwRightParamEx
@@ -6020,10 +5141,6 @@ ref; // ME_52EA6A2C0111_ME_559A7B3C014E SetResultTypeInfo
    Seq: ( ME_559A7B67005C // f_TypeInfo
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_1FD213B3FE20 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_52CFC11603C8_ME_559A7B3C014E // ResultTypeInfo
  ME_52EA6A2C0111_ME_559A7B3C014E // SetResultTypeInfo
@@ -6038,24 +5155,7 @@ ref; // ME_52EA6A2C0111_ME_559A7B3C014E SetResultTypeInfo
 
 ref; // ME_559A7B3C014E TkwRightParamEx
 
-: ME_F8D904B038F1
- CONST UID 'F8D904B038F1'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwLeftWordRefParam' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53E377040339 // TkwLeftWordRefParam
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F8D904B038F1 Ini_Reg_Class
-
 : ME_52CFC11603C8_ME_53E377040339
- CONST UID '52CFC11603C8'
- CONST Name 'ResultTypeInfo'
  : Original WL 'ME_52CFC11603C8' '4DAF19F600C5.pas.ms.script' // ResultTypeInfo
  ;
  : Implementor ME_53E377040339 // TkwLeftWordRefParam
@@ -6065,8 +5165,6 @@ ref; // ME_F8D904B038F1 Ini_Reg_Class
 ref; // ME_52CFC11603C8_ME_53E377040339 ResultTypeInfo
 
 : ME_52EA6A2C0111_ME_53E377040339
- CONST UID '52EA6A2C0111'
- CONST Name 'SetResultTypeInfo'
  : Original WL 'ME_52EA6A2C0111' '4DAF19F600C5.pas.ms.script' // SetResultTypeInfo
  ;
  : Implementor ME_53E377040339 // TkwLeftWordRefParam
@@ -6075,8 +5173,6 @@ ref; // ME_52CFC11603C8_ME_53E377040339 ResultTypeInfo
 ref; // ME_52EA6A2C0111_ME_53E377040339 SetResultTypeInfo
 
 : ME_53E389100169_ME_53E377040339
- CONST UID '53E389100169'
- CONST Name 'IsLeftWordRefParam'
  : Original WL 'ME_53E389100169' '4DAF19F600C5.pas.ms.script' // IsLeftWordRefParam
  ;
  : Implementor ME_53E377040339 // TkwLeftWordRefParam
@@ -6098,10 +5194,6 @@ ref; // ME_53E389100169_ME_53E377040339 IsLeftWordRefParam
    Seq: ( ME_559AA1BE0237 // TkwRefParam
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F8D904B038F1 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_52CFC11603C8_ME_53E377040339 // ResultTypeInfo
  ME_52EA6A2C0111_ME_53E377040339 // SetResultTypeInfo
@@ -6232,8 +5324,6 @@ ref; // ME_55EF0C53018A TtfwRefParamWordInfo
 FORWARD ME_55EF0CD701A0
 
 : ME_55EF0D710242_ME_55EF0CD701A0
- CONST UID '55EF0D710242'
- CONST Name 'GetWordInfo'
  : Original ME_55EF0D710242 // GetWordInfo
  ;
  : Implementor ME_55EF0CD701A0 // TkwObjRefParamWordInfo
@@ -6272,8 +5362,6 @@ ref; // ME_55EF0CD701A0 TkwObjRefParamWordInfo
 FORWARD ME_55EF0CF00017
 
 : ME_55EF0D710242_ME_55EF0CF00017
- CONST UID '55EF0D710242'
- CONST Name 'GetWordInfo'
  : Original ME_55EF0D710242 // GetWordInfo
  ;
  : Implementor ME_55EF0CF00017 // TkwLeftWordRefParamWordInfo
@@ -6312,8 +5400,6 @@ ref; // ME_55EF0CF00017 TkwLeftWordRefParamWordInfo
 FORWARD ME_55EF0D18027B
 
 : ME_55EF0D710242_ME_55EF0D18027B
- CONST UID '55EF0D710242'
- CONST Name 'GetWordInfo'
  : Original ME_55EF0D710242 // GetWordInfo
  ;
  : Implementor ME_55EF0D18027B // TkwRightParamWordInfo
@@ -6352,8 +5438,6 @@ ref; // ME_55EF0D18027B TkwRightParamWordInfo
 FORWARD ME_55EF1501024E
 
 : ME_55EF0D710242_ME_55EF1501024E
- CONST UID '55EF0D710242'
- CONST Name 'GetWordInfo'
  : Original ME_55EF0D710242 // GetWordInfo
  ;
  : Implementor ME_55EF1501024E // TkwRightLiteralParamWordInfo
@@ -6445,21 +5529,6 @@ ref; // ME_559A72ED0078 DoIt
 
 ref; // ME_559A72E202EB ClassForCreate
 
-: ME_9F8E0C4E7226
- CONST UID '9F8E0C4E7226'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwLeftParam' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4158EB01D9 // TkwLeftParam
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_9F8E0C4E7226 Ini_Reg_Class
-
 : ME_559A72B603A7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -6471,8 +5540,6 @@ ref; // ME_9F8E0C4E7226 Ini_Reg_Class
 ref; // ME_559A72B603A7 
 
 : ME_558D2BCA0324_ME_4F4158EB01D9
- CONST UID '558D2BCA0324'
- CONST Name 'GetRef'
  : Original WL 'ME_558D2BCA0324' '4DAF19F600C5.pas.ms.script' // GetRef
  ;
  : Implementor ME_4F4158EB01D9 // TkwLeftParam
@@ -6481,8 +5548,6 @@ ref; // ME_559A72B603A7
 ref; // ME_558D2BCA0324_ME_4F4158EB01D9 GetRef
 
 : ME_559A4C5801D8_ME_4F4158EB01D9
- CONST UID '559A4C5801D8'
- CONST Name 'IsInParam'
  : Original WL 'ME_559A4C5801D8' '4DAF19F600C5.pas.ms.script' // IsInParam
  ;
  : Implementor ME_4F4158EB01D9 // TkwLeftParam
@@ -6507,7 +5572,6 @@ ref; // ME_559A4C5801D8_ME_4F4158EB01D9 IsInParam
  ; // Inherits
  : Operations
    Seq: ( ME_559A72E202EB // ClassForCreate
- ME_9F8E0C4E7226 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden

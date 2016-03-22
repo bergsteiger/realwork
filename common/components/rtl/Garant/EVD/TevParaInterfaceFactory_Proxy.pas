@@ -2,6 +2,7 @@ unit TevParaInterfaceFactory_Proxy;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\TevParaInterfaceFactory_Proxy.pas"
 // Стереотип: "InterfaceFactoryProxy"
+// Элемент модели: "TevParaInterfaceFactory" MUID: (56D074460007)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

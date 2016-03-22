@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2SimpleTagListPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "k2SimpleTagListPrim" MUID: (4A5F28820363)
+// Имя типа: "_k2SimpleTagListPrim_"
 
 {$Define k2SimpleTagListPrim_imp}
 

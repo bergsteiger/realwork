@@ -2,6 +2,7 @@ unit TableToolsTestPrim;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\TableToolsTestPrim.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTableToolsTestPrim" MUID: (4CE38AD60265)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

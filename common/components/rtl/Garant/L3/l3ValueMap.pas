@@ -3,6 +3,7 @@ unit l3ValueMap;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ValueMap.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ValueMap" MUID: (478797300345)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -26,7 +27,6 @@ type
   {* базовая реализация мап "строка"-что-то. }
   private
    f_rMapID: Tl3ValueMapID;
-    {* Поле для свойства rMapID }
   protected
    procedure DoGetDisplayNames(const aList: Il3StringsEx); virtual;
    function GetMapSize: Integer; virtual;

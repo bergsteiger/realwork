@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3Canvas;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Canvas.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3Canvas" MUID: (478E3C97021E)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

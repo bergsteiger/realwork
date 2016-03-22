@@ -1,86 +1,66 @@
 unit K228691360;
+ {* [RequestLink:228691360] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Daily/K228691360.pas"
-// Начат: 28.07.2010 11:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.6::K228691360
-//
-// {RequestLink:228691360}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K228691360.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K228691360" MUID: (4C4FDCEA03CB)
+// Имя типа: "TK228691360"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  InsertStreamTest,
-  evCustomEditorWindow,
-  l3Variant
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , InsertStreamTest
+ , evCustomEditorWindow
+ , l3Variant
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  _CursorMover_Parent_ = TInsertStreamTest;
  {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  TK228691360 = class(_CursorMover_)
   {* [RequestLink:228691360] }
- protected
- // realized methods
+  protected
    function TextForInsert: AnsiString; override;
-     {* Текст для вставки }
+    {* Текст для вставки }
    procedure Navigate(aText: TevCustomEditorWindow;
     const anOp: Il3OpPack); override;
-     {* Устанавливает курсор или выделение }
- protected
- // overridden protected methods
+    {* Устанавливает курсор или выделение }
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK228691360
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  evMsgCode,
-  evOp,
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
+ l3ImplUses
+ , evMsgCode
+ , evOp
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
-// start class TK228691360
-
 function TK228691360.TextForInsert: AnsiString;
+ {* Текст для вставки }
 //#UC START# *4C4FDCBA002F_4C4FDCEA03CB_var*
 //#UC END# *4C4FDCBA002F_4C4FDCEA03CB_var*
 begin
@@ -90,7 +70,8 @@ begin
 end;//TK228691360.TextForInsert
 
 procedure TK228691360.Navigate(aText: TevCustomEditorWindow;
-  const anOp: Il3OpPack);
+ const anOp: Il3OpPack);
+ {* Устанавливает курсор или выделение }
 //#UC START# *4C4FE56300FB_4C4FDCEA03CB_var*
 //#UC END# *4C4FE56300FB_4C4FDCEA03CB_var*
 begin
@@ -104,20 +85,19 @@ begin
 end;//TK228691360.Navigate
 
 function TK228691360.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.6';
 end;//TK228691360.GetFolder
 
 function TK228691360.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C4FDCEA03CB';
 end;//TK228691360.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK228691360.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

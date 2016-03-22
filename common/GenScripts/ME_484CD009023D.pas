@@ -3,6 +3,8 @@ unit evNative_Schema;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evNative_Schema.pas"
 // Стереотип: "TagTable"
+// Элемент модели: "evNative" MUID: (484CD009023D)
+// Имя типа: "TevNativeSchema"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

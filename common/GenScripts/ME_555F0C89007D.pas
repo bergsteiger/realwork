@@ -2,6 +2,7 @@ unit htDataSchemeHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\HT\htDataSchemeHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ThtDataSchemeHelper" MUID: (555F0C89007D)
 
 {$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
@@ -81,7 +82,9 @@ const
   'LNK#K',
   'PRIOR','RENUM','STAGE','LOG',
   'ACTIV', 'ALARM', 'CTRL',
-  'FILE'{Dup1}, 'FILE'{Dup2}
+  'FILE'{Dup1}, 'FILE'{Dup2},
+  'ALINKML', 'ALINKVL',
+  'ALINKMR', 'ALINKVR'
  );
 //#UC END# *555EF7F5009F_555F0C89007D_var*
 begin
@@ -89,7 +92,10 @@ begin
  if TableFamily(aTable) = 0 then
   Result := ConcatDirName(f_Params.TablePath, cMap[aTable])
  else
-  Result := ConcatDirName(f_Params.DocStoragePath, cMap[aTable] + IntToHex(TableFamily(aTable), 3));
+  if aTable in [da_ftAutolinkDocumentsLocal, da_ftAutolinkEditionsLocal, da_ftAutolinkDocumentsRemote, da_ftAutolinkEditionsRemote] then
+   Result := ConcatDirName(f_Params.DocStoragePath, 'garant\' + cMap[aTable])
+  else
+   Result := ConcatDirName(f_Params.DocStoragePath, 'garant\' + cMap[aTable] + IntToHex(TableFamily(aTable), 3));
 //#UC END# *555EF7F5009F_555F0C89007D_impl*
 end;//ThtDataSchemeHelper.TableFullPath
 
@@ -99,7 +105,8 @@ const
  cIndexMap: array [TdaTables] of Integer = (
   1,1,0,0,0,0,0,1,0,0,
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0
  );
 
  cPasswordMap : Array [0..1] of AnsiString = ('','corvax');
@@ -117,7 +124,8 @@ const
  cMap: array [TdaTables] of TdaFamilyID = (
   0,0,0,0,0,0,0,0,0,0,
   1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+  1,1,1,1
  );
 //#UC END# *555EF83803BE_555F0C89007D_var*
 begin

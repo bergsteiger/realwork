@@ -2,6 +2,7 @@ unit dDiction;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\dDiction.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdDiction" MUID: (4936CCA700F0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

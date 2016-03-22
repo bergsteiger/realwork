@@ -2,6 +2,7 @@ unit nsOpenDocumentFromLinkEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsOpenDocumentFromLinkEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsOpenDocumentFromLinkEvent" MUID: (4B0A781302C3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

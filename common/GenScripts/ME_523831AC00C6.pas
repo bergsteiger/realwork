@@ -2,6 +2,8 @@ unit LostNodeAppConfigTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\LostNodeAppConfigTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "LostNodeAppConfigTest" MUID: (523831AC00C6)
+// Имя типа: "TLostNodeAppConfigTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

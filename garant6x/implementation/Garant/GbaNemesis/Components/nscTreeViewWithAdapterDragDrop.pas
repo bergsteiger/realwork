@@ -41,7 +41,7 @@ uses
   nsEntitiesTreeDataObject
   {$If not defined(NoScripts)}
   ,
-  tfwClassRef
+  TtfwClassRef_Proxy
   {$IfEnd} //not NoScripts
   
   ;

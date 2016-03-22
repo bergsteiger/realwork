@@ -1,87 +1,67 @@
 unit PrimPreview_utPrintPreview_UserType;
+ {* Предварительный просмотр печати }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimPreview_utPrintPreview_UserType.pas"
-// Начат: 15.09.2009 14:41
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::PrimPreview::utPrintPreview
-//
-// Предварительный просмотр печати
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPreview_utPrintPreview_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "utPrintPreview" MUID: (4C6D0F2700E1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы utPrintPreview }
-  utPrintPreviewName = 'utPrintPreview';
-   { Строковый идентификатор пользовательского типа "Предварительный просмотр печати" }
-  utPrintPreview = TvcmUserType(0);
-   { Предварительный просмотр печати }
-{$IfEnd} //not Admin
+ {* Константы для типа формы utPrintPreview }
+ utPrintPreviewName = 'utPrintPreview';
+  {* Строковый идентификатор пользовательского типа "Предварительный просмотр печати" }
+ utPrintPreview = TvcmUserType(0);
+  {* Предварительный просмотр печати }
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
-{$If not defined(Admin) AND not defined(NoScripts)}
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_utPrintPreview = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы utPrintPreview }
+ Tkw_FormUserType_utPrintPreview = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы utPrintPreview }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_utPrintPreview
-{$IfEnd} //not Admin AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_utPrintPreview
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_utPrintPreview
-
-class function Tkw_FormUserType_utPrintPreview.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::utPrintPreview';
-end;//Tkw_FormUserType_utPrintPreview.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utPrintPreview.GetInteger: Integer;
- {-}
 begin
  Result := utPrintPreview;
 end;//Tkw_FormUserType_utPrintPreview.GetInteger
 
-{$IfEnd} //not Admin AND not NoScripts
-{$IfEnd} //not Admin
+class function Tkw_FormUserType_utPrintPreview.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utPrintPreview';
+end;//Tkw_FormUserType_utPrintPreview.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_utPrintPreview
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utPrintPreview.RegisterInEngine;
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация Tkw_FormUserType_utPrintPreview }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

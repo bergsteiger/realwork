@@ -2,6 +2,7 @@ unit ddExceptionHandler;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddExceptionHandler.pas"
 // Стереотип: "ServiceImplementation"
+// Элемент модели: "TddExceptionHandler" MUID: (55893A8B0110)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -3,6 +3,7 @@ unit UserListKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\UserListKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "UserListKeywordsPack" MUID: (551DFEBFD5FA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -48,8 +49,8 @@ type
 'aControl' форма::UserList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_UserList
 
  Tkw_UserList_Control_BackgroundPanel = {final} class(TtfwControlString)
@@ -60,9 +61,9 @@ type
 контрол::BackgroundPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserList_Control_BackgroundPanel
 
  Tkw_UserList_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
@@ -85,9 +86,9 @@ type
 контрол::ContextFilter TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserList_Control_ContextFilter
 
  Tkw_UserList_Control_ContextFilter_Push = {final} class(TkwBynameControlPush)
@@ -110,9 +111,9 @@ type
 контрол::trUserList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserList_Control_trUserList
 
  Tkw_UserList_Control_trUserList_Push = {final} class(TkwBynameControlPush)
@@ -199,20 +200,15 @@ OBJECT VAR l_TeeTreeView
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEfUserListTrUserList
 
-class function Tkw_Form_UserList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::UserList';
-end;//Tkw_Form_UserList.GetWordNameForRegister
-
 function Tkw_Form_UserList.GetString: AnsiString;
 begin
  Result := 'efUserList';
 end;//Tkw_Form_UserList.GetString
 
-class function Tkw_UserList_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_UserList.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::BackgroundPanel';
-end;//Tkw_UserList_Control_BackgroundPanel.GetWordNameForRegister
+ Result := 'форма::UserList';
+end;//Tkw_Form_UserList.GetWordNameForRegister
 
 function Tkw_UserList_Control_BackgroundPanel.GetString: AnsiString;
 begin
@@ -225,6 +221,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_UserList_Control_BackgroundPanel.RegisterInEngine
 
+class function Tkw_UserList_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BackgroundPanel';
+end;//Tkw_UserList_Control_BackgroundPanel.GetWordNameForRegister
+
 procedure Tkw_UserList_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BackgroundPanel');
@@ -235,11 +236,6 @@ class function Tkw_UserList_Control_BackgroundPanel_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::BackgroundPanel:push';
 end;//Tkw_UserList_Control_BackgroundPanel_Push.GetWordNameForRegister
-
-class function Tkw_UserList_Control_ContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ContextFilter';
-end;//Tkw_UserList_Control_ContextFilter.GetWordNameForRegister
 
 function Tkw_UserList_Control_ContextFilter.GetString: AnsiString;
 begin
@@ -252,6 +248,11 @@ begin
  TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_UserList_Control_ContextFilter.RegisterInEngine
 
+class function Tkw_UserList_Control_ContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ContextFilter';
+end;//Tkw_UserList_Control_ContextFilter.GetWordNameForRegister
+
 procedure Tkw_UserList_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ContextFilter');
@@ -263,11 +264,6 @@ begin
  Result := 'контрол::ContextFilter:push';
 end;//Tkw_UserList_Control_ContextFilter_Push.GetWordNameForRegister
 
-class function Tkw_UserList_Control_trUserList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::trUserList';
-end;//Tkw_UserList_Control_trUserList.GetWordNameForRegister
-
 function Tkw_UserList_Control_trUserList.GetString: AnsiString;
 begin
  Result := 'trUserList';
@@ -278,6 +274,11 @@ begin
  inherited;
  TtfwClassRef.Register(TeeTreeView);
 end;//Tkw_UserList_Control_trUserList.RegisterInEngine
+
+class function Tkw_UserList_Control_trUserList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::trUserList';
+end;//Tkw_UserList_Control_trUserList.GetWordNameForRegister
 
 procedure Tkw_UserList_Control_trUserList_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -312,11 +313,6 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aefUserList));
 end;//TkwEfUserListBackgroundPanel.DoDoIt
 
-class function TkwEfUserListBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserList.BackgroundPanel';
-end;//TkwEfUserListBackgroundPanel.GetWordNameForRegister
-
 procedure TkwEfUserListBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -337,6 +333,11 @@ function TkwEfUserListBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserList)]);
 end;//TkwEfUserListBackgroundPanel.ParamsTypes
+
+class function TkwEfUserListBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserList.BackgroundPanel';
+end;//TkwEfUserListBackgroundPanel.GetWordNameForRegister
 
 function TkwEfUserListContextFilter.ContextFilter(const aCtx: TtfwContext;
  aefUserList: TefUserList): TnscContextFilter;
@@ -360,11 +361,6 @@ begin
  aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aefUserList));
 end;//TkwEfUserListContextFilter.DoDoIt
 
-class function TkwEfUserListContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserList.ContextFilter';
-end;//TkwEfUserListContextFilter.GetWordNameForRegister
-
 procedure TkwEfUserListContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -385,6 +381,11 @@ function TkwEfUserListContextFilter.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserList)]);
 end;//TkwEfUserListContextFilter.ParamsTypes
+
+class function TkwEfUserListContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserList.ContextFilter';
+end;//TkwEfUserListContextFilter.GetWordNameForRegister
 
 function TkwEfUserListTrUserList.trUserList(const aCtx: TtfwContext;
  aefUserList: TefUserList): TeeTreeView;
@@ -408,11 +409,6 @@ begin
  aCtx.rEngine.PushObj(trUserList(aCtx, l_aefUserList));
 end;//TkwEfUserListTrUserList.DoDoIt
 
-class function TkwEfUserListTrUserList.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserList.trUserList';
-end;//TkwEfUserListTrUserList.GetWordNameForRegister
-
 procedure TkwEfUserListTrUserList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -433,6 +429,11 @@ function TkwEfUserListTrUserList.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserList)]);
 end;//TkwEfUserListTrUserList.ParamsTypes
+
+class function TkwEfUserListTrUserList.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserList.trUserList';
+end;//TkwEfUserListTrUserList.GetWordNameForRegister
 
 initialization
  Tkw_Form_UserList.RegisterInEngine;

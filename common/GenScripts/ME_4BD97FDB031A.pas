@@ -2,6 +2,7 @@ unit Search_FormDefinitions_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search_FormDefinitions_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "FormDefinitions" MUID: (4BD97FDB031A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -51,8 +52,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_Form_QueryCard_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы QueryCard
 ----
@@ -64,9 +65,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_QueryCard_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_Preview_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы Preview
 ----
@@ -78,9 +80,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_Preview_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_SaveLoad_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы SaveLoad
 ----
@@ -92,7 +95,7 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_SaveLoad_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
 class function Tkw_Form_QueryCard_ID.GetWordNameForRegister: AnsiString;

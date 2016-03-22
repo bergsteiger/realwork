@@ -3,6 +3,7 @@ unit atAdapterTestCommandLine;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Runner\atAdapterTestCommandLine.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatAdapterTestCommandLine" MUID: (4AC347FD023D)
 
 interface
 

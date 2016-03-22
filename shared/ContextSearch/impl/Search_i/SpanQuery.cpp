@@ -17,6 +17,7 @@
 #include "boost/algorithm/string/split.hpp"
 #include "boost/algorithm/string/classification.hpp"
 #include "shared/ContextSearch/Common/Constants.h"
+#include "shared/ContextSearch/Common/ContextUtility.h"
 
 namespace ContextSearch {
 namespace Search_i {
@@ -58,21 +59,11 @@ SpanQuery::SpanQuery (const std::string& key, const Search::AlgorithmProperties&
 	if (m_size == 1) {
 		m_offset = m_size;
 	} else if (prop.flags & Search::SP_STRONG_DEFLATE) {
-		size_t frame_count = 0, strong_count = 0, space_count = 0;
-		{
-			for (std::string::const_iterator it = key.begin (); it != key.end (); ++it) {
-				if (*it == ' ') {
-					++space_count;
-				} else if (*it == '~') {
-					++frame_count;
-				} else if (*it == '-') {
-					++strong_count;
-				} 
-			}
-		}
+		ContextUtility::MarkupCounters counters;
+		ContextUtility::get_markup_counters (key, counters);
 
-		if (frame_count == 0) {
-			if (space_count == 0) {
+		if (counters.frame == 0) {
+			if (counters.space == 0) {
 				if (m_searcher->add (key, 0)) {
 					m_size = 1;
 				} else {
@@ -84,7 +75,7 @@ SpanQuery::SpanQuery (const std::string& key, const Search::AlgorithmProperties&
 
 				m_new_key = key.substr (0, key.find ('-'));
 				m_offset = m_size;
-			} else if (strong_count) {
+			} else if (counters.strong) {
 				GCL::StrVector spans;
 				boost::split (spans, key, boost::is_space ());
 

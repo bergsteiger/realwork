@@ -3,6 +3,8 @@ unit EditionsContainer_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\EditionsContainer_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "EditionsContainer" MUID: (4A6EC095039C)
+// Имя типа: "TEditionsContainerForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

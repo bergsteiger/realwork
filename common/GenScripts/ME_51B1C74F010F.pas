@@ -2,6 +2,7 @@ unit NOT_FINISHED_dt_IFltr;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_dt_IFltr.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "dt_IFltr" MUID: (51B1C74F010F)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

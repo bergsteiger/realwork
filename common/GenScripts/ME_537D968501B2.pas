@@ -8,6 +8,8 @@ anExt Editor:Text:SaveAs
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwEditorTextSaveAs.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "Editor_Text_SaveAs" MUID: (537D968501B2)
+// Имя типа: "TkwEditorTextSaveAs"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

@@ -2,6 +2,8 @@ unit kwPermanentFilterExists;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwPermanentFilterExists.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "PermanentFilterExists" MUID: (53B2B1460348)
+// Имя типа: "TkwPermanentFilterExists"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
@@ -67,6 +69,10 @@ begin
  aCtx.rEngine.PushBool(l_Result);
 //#UC END# *4DAEEDE10285_53B2B1460348_impl*
 end;//TkwPermanentFilterExists.DoDoIt
+
+initialization
+ TkwPermanentFilterExists.RegisterClass;
+ {* Регистрация PermanentFilterExists }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

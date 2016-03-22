@@ -2,6 +2,8 @@ unit WikiToEVDWriterTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\WikiToEVDWriterTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "WikiToEVDWriterTest" MUID: (4D6BE6F801DF)
+// Имя типа: "TWikiToEVDWriterTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

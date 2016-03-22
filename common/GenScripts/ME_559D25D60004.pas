@@ -2,6 +2,7 @@ unit vcmOperationDefList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmOperationDefList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmOperationDefList" MUID: (559D25D60004)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

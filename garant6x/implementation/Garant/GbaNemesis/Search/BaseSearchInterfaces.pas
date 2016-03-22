@@ -116,6 +116,7 @@ type
 
  InsSearchWindow = interface(IUnknown)
    ['{793F257C-3520-4B48-AE36-4CB918875D2E}']
+   function pm_GetIsActive: Boolean;
    function Get_Container: IvcmContainer;
    procedure ParamsChanged;
    procedure PresentationChanged;
@@ -126,6 +127,8 @@ type
    procedure ActivateWindow(aNeedFlash: Boolean = True);
    procedure CheckFragmentsCount;
    procedure ForceUpdateClassForHistory;
+   property IsActive: Boolean
+     read pm_GetIsActive;
    property Container: IvcmContainer
      read Get_Container;
  end;//InsSearchWindow
@@ -318,6 +321,7 @@ type
  , ns_sseNeedShowWindow
  , ns_sseOpenKind
  , ns_sseActiveClass
+ , ns_sseSearchArea
  );//TnsBaseSearchStateElement
 
  TnsBaseSearchStateElements = set of TnsBaseSearchStateElement;
@@ -329,6 +333,8 @@ type
    function pm_GetOpenKind: TnsBaseSearchOpenKind;
    function pm_GetElements: TnsBaseSearchStateElements;
    function pm_GetCurrentSearchClass: InsBaseSearchClass;
+   function pm_GetSearchArea: TnsSearchArea;
+   function pm_GetNeedActivate: Boolean;
    property Context: Il3CString
      read pm_GetContext;
    property NeedShowWindow: Boolean
@@ -339,6 +345,10 @@ type
      read pm_GetElements;
    property CurrentSearchClass: InsBaseSearchClass
      read pm_GetCurrentSearchClass;
+   property SearchArea: TnsSearchArea
+     read pm_GetSearchArea;
+   property NeedActivate: Boolean
+     read pm_GetNeedActivate;
  end;//InsBaseSearcherInitialState
 
  InsBaseSearchInitialStateProvider = interface(IUnknown)
@@ -510,6 +520,10 @@ type
    property BaseSearcher: InsBaseSearcher
      read Get_BaseSearcher;
  end;//InsBaseSearcherProvider
+
+const
+  { SearchStateElementConstants }
+ ns_sseAll = [ns_sseContext, ns_sseNeedShowWindow, ns_sseOpenKind, ns_sseActiveClass, ns_sseSearchArea];
 {$IfEnd} //not Admin
 
 implementation

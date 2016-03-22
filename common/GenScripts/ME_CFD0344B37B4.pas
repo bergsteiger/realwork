@@ -3,6 +3,8 @@ unit ReleaseToK2;
 
 // Модуль: "w:\common\components\SearchTest\ReleaseToK2.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "ReleaseToK2" MUID: (CFD0344B37B4)
+// Имя типа: "TReleaseToK2"
 
 interface
 

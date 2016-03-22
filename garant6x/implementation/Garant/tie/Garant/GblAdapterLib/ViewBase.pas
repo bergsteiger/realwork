@@ -86,7 +86,7 @@ function ViewBase.pm_GetMode: TFlagMask;
 //#UC END# *46025C6602BF_45F57B6C0128get_var*
 begin
 //#UC START# *46025C6602BF_45F57B6C0128get_impl*
- Result := f_mode
+ !!! Needs to be implemented !!!
 //#UC END# *46025C6602BF_45F57B6C0128get_impl*
 end;//ViewBase.pm_GetMode
 
@@ -95,7 +95,7 @@ function ViewBase.pm_GetParentTreeRoot: DefaultNodeBase;
 //#UC END# *46025C860251_45F57B6C0128get_var*
 begin
 //#UC START# *46025C860251_45F57B6C0128get_impl*
- Result := f_parent_tree_root
+ !!! Needs to be implemented !!!
 //#UC END# *46025C860251_45F57B6C0128get_impl*
 end;//ViewBase.pm_GetParentTreeRoot
 
@@ -104,7 +104,7 @@ function ViewBase.pm_GetMaximumLevelsRestriction: unsigned integer;
 //#UC END# *46025C9E01D4_45F57B6C0128get_var*
 begin
 //#UC START# *46025C9E01D4_45F57B6C0128get_impl*
- Result := f_maximum_levels_restriction
+ !!! Needs to be implemented !!!
 //#UC END# *46025C9E01D4_45F57B6C0128get_impl*
 end;//ViewBase.pm_GetMaximumLevelsRestriction
 
@@ -113,7 +113,7 @@ function ViewBase.pm_GetAutoOpen: Boolean;
 //#UC END# *46025CBB01B5_45F57B6C0128get_var*
 begin
 //#UC START# *46025CBB01B5_45F57B6C0128get_impl*
- Result := f_auto_open
+ !!! Needs to be implemented !!!
 //#UC END# *46025CBB01B5_45F57B6C0128get_impl*
 end;//ViewBase.pm_GetAutoOpen
 

@@ -3,6 +3,7 @@ unit ListUserTypes_lftDrugList_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftDrugList_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "lftDrugList" MUID: (4BD58B4002A1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftDrugList = {final} class(TtfwInteger)
   {* Слово словаря для типа формы lftDrugList }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_lftDrugList
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_lftDrugList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::lftDrugList';
-end;//Tkw_FormUserType_lftDrugList.GetWordNameForRegister
-
 function Tkw_FormUserType_lftDrugList.GetInteger: Integer;
 begin
  Result := lftDrugList;
 end;//Tkw_FormUserType_lftDrugList.GetInteger
+
+class function Tkw_FormUserType_lftDrugList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::lftDrugList';
+end;//Tkw_FormUserType_lftDrugList.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

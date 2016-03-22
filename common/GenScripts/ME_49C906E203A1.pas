@@ -3,6 +3,7 @@ unit k2TransparentTag;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TransparentTag.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2TransparentTag" MUID: (49C906E203A1)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

@@ -2,6 +2,7 @@ unit k2OperationContainerRefList;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2OperationContainerRefList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2OperationContainerRefList" MUID: (47E3D0820267)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

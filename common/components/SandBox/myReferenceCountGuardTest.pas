@@ -1,46 +1,35 @@
 unit myReferenceCountGuardTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "myReferenceCountGuardTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCase::Class Shared Delphi Sand Box::SandBoxTest::Core::TmyReferenceCountGuardTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\myReferenceCountGuardTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TmyReferenceCountGuardTest" MUID: (516D58890258)
 
-{$Include ..\SandBox\sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , TestFrameWork
+;
 
-{$If defined(nsTest)}
 type
  TmyReferenceCountGuardTest = class(TTestCase)
- published
- // published methods
+  published
    procedure DoIt;
    procedure CheckWithClause;
  end;//TmyReferenceCountGuardTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  SysUtils,
-  myReferenceCountGuard
-  ;
-{$IfEnd} //nsTest
-
-{$If defined(nsTest)}
-
-// start class TmyReferenceCountGuardTest
+ l3ImplUses
+ , SysUtils
+ , myReferenceCountGuard
+;
 
 procedure TmyReferenceCountGuardTest.DoIt;
 //#UC START# *516D58B001F4_516D58890258_var*
@@ -78,9 +67,8 @@ begin
 //#UC END# *516D61EF0340_516D58890258_impl*
 end;//TmyReferenceCountGuardTest.CheckWithClause
 
-{$IfEnd} //nsTest
-
 initialization
  TestFramework.RegisterTest(TmyReferenceCountGuardTest.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

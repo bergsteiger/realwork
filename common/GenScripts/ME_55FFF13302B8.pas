@@ -3,6 +3,8 @@ unit ExportBySizeAndMain;
 
 // Модуль: "w:\archi\source\projects\ImportExportTest\ExportBySizeAndMain.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "ExportBySizeAndMain" MUID: (55FFF13302B8)
+// Имя типа: "TExportBySizeAndMain"
 
 {$Include w:\archi\source\projects\ImportExportTest.inc}
 

@@ -2,6 +2,7 @@ unit ddRTFUnits;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddRTFUnits.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddRTFUnits" MUID: (521AFA27009B)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

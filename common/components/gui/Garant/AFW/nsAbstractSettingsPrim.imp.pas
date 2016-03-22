@@ -2,13 +2,14 @@
 
 // Модуль: "w:\common\components\gui\Garant\AFW\nsAbstractSettingsPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsAbstractSettingsPrim" MUID: (4AD58B6C0289)
+// Имя типа: "_nsAbstractSettingsPrim_"
 
 {$Define nsAbstractSettingsPrim_imp}
 
  _nsAbstractSettingsPrim_ = {abstract} class(_nsAbstractSettingsPrim_Parent_)
   private
    f_Settings: _SettingsClass_;
-    {* Поле для свойства Settings }
   protected
    procedure NotifySettingChanged(const aSettingID: TafwSettingId); virtual;
    function TryToRestore(const aSettingID: TafwSettingId): Boolean; virtual;
@@ -22,6 +23,7 @@
     const aSettingId: TafwSettingId); virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
   public
    constructor Create(const aSettings: _SettingsClass_); reintroduce;
    function LoadInteger(const aSettingId: TafwSettingId;
@@ -420,6 +422,12 @@ begin
  inherited;
 //#UC END# *479731C50290_4AD58B6C0289_impl*
 end;//_nsAbstractSettingsPrim_.Cleanup
+
+procedure _nsAbstractSettingsPrim_.ClearFields;
+begin
+ Finalize(f_Settings);
+ inherited;
+end;//_nsAbstractSettingsPrim_.ClearFields
 
 {$EndIf nsAbstractSettingsPrim_imp_impl}
 

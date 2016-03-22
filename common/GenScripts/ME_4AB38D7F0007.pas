@@ -2,6 +2,7 @@ unit m4DictTypes;
 
 // Модуль: "w:\common\components\rtl\Garant\m4\m4DictTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "m4DictTypes" MUID: (4AB38D7F0007)
 
 {$Include w:\common\components\rtl\Garant\m4\m4Define.inc}
 

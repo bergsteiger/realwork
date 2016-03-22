@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmIterator.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmIterator" MUID: (5582BCBE00C3)
+// Имя типа: "_vcmIterator_"
 
 {$Define vcmIterator_imp}
 

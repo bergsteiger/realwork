@@ -2,6 +2,7 @@ unit ddClientMessagePrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ddClientMessagePrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddClientMessagePrim" MUID: (53B24355031B)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

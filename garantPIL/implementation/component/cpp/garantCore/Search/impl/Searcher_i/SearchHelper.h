@@ -14,9 +14,9 @@
 #define __GARANTCORE_SEARCH_SEARCHER_I_SEARCHHELPER_H__
 
 #include "shared/Core/sys/std_inc.h"
-#include "garantPIL/implementation/component/cpp/libs/gkdb/src/SearchB.h"
 #include "garantCore/Search/Def/Def.h"
 #include "garantPIL/implementation/component/cpp/libs/gkdb/src/collect.h"
+#include "garantPIL/implementation/component/cpp/libs/gkdb/src/Base.h"
 
 namespace Search {
 namespace Searcher_i {
@@ -27,7 +27,7 @@ class SearchHelper {
 // self methods
 public:
 	// проверка на валидность
-	static bool check_query (SearchBase* base, const std::string& in);
+	static bool check_query (Base* base, const std::string& in);
 
 	// копирование коллекции
 	static SortedCollection* copy_collection (const SortedCollection* in);
@@ -39,7 +39,7 @@ public:
 	static char* make_date_key (const std::string& str);
 
 	// фабрика ключей для хранилища
-	static char* make_key (SearchBase* base, const QueryTag& tag);
+	static char* make_key (Base* base, const QueryTag& tag);
 
 	// трансформация
 	static SortedCollection* transform_for_title_search (SortedCollection* in, const SortedCollection* list);

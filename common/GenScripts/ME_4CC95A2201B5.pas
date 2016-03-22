@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Skins\SkinnedForm.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "SkinnedForm" MUID: (4CC95A2201B5)
+// Имя типа: "_SkinnedForm_"
 
 {$Define SkinnedForm_imp}
 

@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3InterfacedStringList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3InterfacedStringList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3InterfacedStringList" MUID: (4912A9950311)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -19,7 +20,6 @@ type
   {* Класс реализующий строки с возможностью хранения интерфейса }
   private
    f_Intf: IUnknown;
-    {* Поле для свойства Intf }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

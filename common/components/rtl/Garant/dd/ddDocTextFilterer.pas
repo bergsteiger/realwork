@@ -1,8 +1,11 @@
 unit ddDocTextFilterer;
 
-{ $Id: ddDocTextFilterer.pas,v 1.5 2015/05/20 14:02:21 lulin Exp $ }
+{ $Id: ddDocTextFilterer.pas,v 1.6 2015/11/26 08:45:43 lukyanets Exp $ }
 
 // $Log: ddDocTextFilterer.pas,v $
+// Revision 1.6  2015/11/26 08:45:43  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.5  2015/05/20 14:02:21  lulin
 // - рисуем на модели.
 //
@@ -70,6 +73,8 @@ uses
  l3FileUtils,
 
  m3StorageInterfaces,
+
+ daSchemeConsts,
 
  DT_Const,
  DT_Serv;

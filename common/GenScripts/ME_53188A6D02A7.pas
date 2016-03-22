@@ -2,6 +2,7 @@ unit k2FontName;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2FontName.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2FontName" MUID: (53188A6D02A7)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
@@ -31,7 +32,6 @@ type
  Tk2FontName = class(_k2Tag_, Il3TagRef)
   private
    f_LogFont: Tl3LogFont;
-    {* Поле для свойства LogFont }
   protected
    {$If NOT Defined(k2TagIsAtomic)}
    function SetAtomPrim(const aProp: _PropIn_;

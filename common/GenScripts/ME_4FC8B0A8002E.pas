@@ -2,6 +2,7 @@ unit atExecuteUserJournalOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atExecuteUserJournalOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatExecuteUserJournalOperation" MUID: (4FC8B0A8002E)
 
 interface
 

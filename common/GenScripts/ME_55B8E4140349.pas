@@ -2,6 +2,7 @@ unit ContainedActionsWordspack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ContainedActionsWordspack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ContainedActionsWordspack" MUID: (55B8E4140349)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -73,11 +74,6 @@ begin
  Execute(aCtx, l_aContainedAction);
 end;//TkwPopContainedActionExecute.DoDoIt
 
-class function TkwPopContainedActionExecute.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ContainedAction:Execute';
-end;//TkwPopContainedActionExecute.GetWordNameForRegister
-
 function TkwPopContainedActionExecute.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -92,6 +88,11 @@ function TkwPopContainedActionExecute.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TContainedAction)]);
 end;//TkwPopContainedActionExecute.ParamsTypes
+
+class function TkwPopContainedActionExecute.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ContainedAction:Execute';
+end;//TkwPopContainedActionExecute.GetWordNameForRegister
 
 initialization
  TkwPopContainedActionExecute.RegisterInEngine;

@@ -2,6 +2,7 @@ unit atCompareSavedListOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atCompareSavedListOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatCompareSavedListOperation" MUID: (5397319401E6)
 
 interface
 

@@ -3,6 +3,8 @@ unit TextSegment_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\TextSegment_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "TextSegment" MUID: (484FDC4F013F)
+// Имя типа: "TextSegmentTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

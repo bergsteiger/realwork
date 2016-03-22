@@ -3,6 +3,7 @@ unit l3Tree_TLB;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Tree_TLB.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "l3Tree_TLB" MUID: (476BF10A0280)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

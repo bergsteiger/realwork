@@ -2,6 +2,7 @@ unit ncsServerParamsStorage;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsServerParamsStorage.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsServerParamsStorage" MUID: (5507E70200AF)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

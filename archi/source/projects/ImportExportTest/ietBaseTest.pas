@@ -1,103 +1,97 @@
 unit ietBaseTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ImportExportTestLibrary"
-// Модуль: "W:/archi/source/projects/ImportExportTest/ietBaseTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> archi$ImportExprortTest::ImportExportTestLibrary::ImportExport::TietBaseTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\archi\source\projects\ImportExportTest\ietBaseTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TietBaseTest" MUID: (51948F2601E9)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include W:\archi\source\projects\ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  ddImportPipe,
-  ExportPipe,
-  evdDTTypes,
-  archiDBTest
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , archiDBTest
+ , ddImportPipe
+ , ExportPipe
+ , evdDTTypes
+;
 
-{$If defined(nsTest)}
 type
  TietBaseTest = {abstract} class(TarchiDBTest)
- private
- // private methods
+  private
    procedure DoImport;
    procedure DoExport;
    procedure CompareResults;
    procedure TopicEvent(aTopicNo: Integer;
-     const aMessage: AnsiString);
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
-    {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-   function OutputFolderName: AnsiString; override;
-     {* Папка, в которую пишутся выходные файлы. }
-    {$IfEnd} //nsTest AND not NotTunedDUnit
- protected
- // protected methods
+    const aMessage: AnsiString);
+  protected
    procedure DoBeforeImport(const aPipe: TddImportPipe); virtual;
    procedure DoAfterImport(const aPipe: TddImportPipe); virtual;
    procedure DoBeforeExport(const aPipe: TExportPipe); virtual;
    procedure DoAfterExport(const aPipe: TExportPipe); virtual;
    function GetOutputPath: AnsiString;
    function GetOutputFormat: TepSupportFileType; virtual;
- published
- // published methods
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
+   {$If NOT Defined(NotTunedDUnit)}
+   function OutputFolderName: AnsiString; override;
+    {* Папка, в которую пишутся выходные файлы. }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+  published
    procedure DoIt;
  end;//TietBaseTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  dt_AttrSchema
-  {$If defined(Archi) AND not defined(Nemesis)}
-  ,
-  dt_LinkServ
-  {$IfEnd} //Archi AND not Nemesis
-  ,
-  SysUtils,
-  dt_Const
-  {$If not defined(Nemesis)}
-  ,
-  dt_Sab
-  {$IfEnd} //not Nemesis
-  ,
-  dt_Types,
-  ddPipeOutInterfaces
-  {$If not defined(Nemesis)}
-  ,
-  dt_Renum
-  {$IfEnd} //not Nemesis
-  
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  ,
-  l3IniFile,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest
+ l3ImplUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ , l3IniFile
+ , TestFrameWork
+ , dt_AttrSchema
+ {$If Defined(Archi) AND NOT Defined(Nemesis)}
+ , dt_LinkServ
+ {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
+ , SysUtils
+ , dt_Const
+ {$If NOT Defined(Nemesis)}
+ , dt_Sab
+ {$IfEnd} // NOT Defined(Nemesis)
+ , dt_Types
+ , ddPipeOutInterfaces
+ {$If NOT Defined(Nemesis)}
+ , dt_Renum
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(nsTest)}
-
-// start class TietBaseTest
+procedure TietBaseTest.DoIt;
+//#UC START# *5194BE87016F_51948F2601E9_var*
+//#UC END# *5194BE87016F_51948F2601E9_var*
+begin
+//#UC START# *5194BE87016F_51948F2601E9_impl*
+ UnpackDatabase;
+ try
+  ConnectToDatabase;
+  try
+   ClearTestFolder;
+   DoImport;
+   DoExport;
+  finally
+   DisconnectFromDatabase;
+  end;
+ finally
+  DeleteDatabase;
+ end;
+ CompareResults;
+//#UC END# *5194BE87016F_51948F2601E9_impl*
+end;//TietBaseTest.DoIt
 
 procedure TietBaseTest.DoImport;
 //#UC START# *5195F5F7001A_51948F2601E9_var*
@@ -193,40 +187,6 @@ begin
 //#UC END# *5195F6E701B6_51948F2601E9_impl*
 end;//TietBaseTest.CompareResults
 
-procedure TietBaseTest.TopicEvent(aTopicNo: Integer;
-  const aMessage: AnsiString);
-//#UC START# *519A1C2700C4_51948F2601E9_var*
-//#UC END# *519A1C2700C4_51948F2601E9_var*
-begin
-//#UC START# *519A1C2700C4_51948F2601E9_impl*
- if f_SabFiller = nil then
-  f_SabFiller := f_NumSab.MakeValueSetFiller(rnImportID_fld);
- f_SabFiller.AddValue(aTopicNo); 
-//#UC END# *519A1C2700C4_51948F2601E9_impl*
-end;//TietBaseTest.TopicEvent
-
-procedure TietBaseTest.DoIt;
-//#UC START# *5194BE87016F_51948F2601E9_var*
-//#UC END# *5194BE87016F_51948F2601E9_var*
-begin
-//#UC START# *5194BE87016F_51948F2601E9_impl*
- UnpackDatabase;
- try
-  ConnectToDatabase;
-  try
-   ClearTestFolder;
-   DoImport;
-   DoExport;
-  finally
-   DisconnectFromDatabase;
-  end;
- finally
-  DeleteDatabase;
- end;
- CompareResults;
-//#UC END# *5194BE87016F_51948F2601E9_impl*
-end;//TietBaseTest.DoIt
-
 procedure TietBaseTest.DoBeforeImport(const aPipe: TddImportPipe);
 //#UC START# *5195F73400EE_51948F2601E9_var*
 //#UC END# *5195F73400EE_51948F2601E9_var*
@@ -263,6 +223,18 @@ begin
 //#UC END# *5195F7BA0056_51948F2601E9_impl*
 end;//TietBaseTest.DoAfterExport
 
+procedure TietBaseTest.TopicEvent(aTopicNo: Integer;
+ const aMessage: AnsiString);
+//#UC START# *519A1C2700C4_51948F2601E9_var*
+//#UC END# *519A1C2700C4_51948F2601E9_var*
+begin
+//#UC START# *519A1C2700C4_51948F2601E9_impl*
+ if f_SabFiller = nil then
+  f_SabFiller := f_NumSab.MakeValueSetFiller(rnImportID_fld);
+ f_SabFiller.AddValue(aTopicNo); 
+//#UC END# *519A1C2700C4_51948F2601E9_impl*
+end;//TietBaseTest.TopicEvent
+
 function TietBaseTest.GetOutputPath: AnsiString;
 //#UC START# *519C80CD01E4_51948F2601E9_var*
 //#UC END# *519C80CD01E4_51948F2601E9_var*
@@ -282,19 +254,20 @@ begin
 end;//TietBaseTest.GetOutputFormat
 
 function TietBaseTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'ImportExport';
 end;//TietBaseTest.GetFolder
 
 function TietBaseTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '51948F2601E9';
 end;//TietBaseTest.GetModelElementGUID
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 function TietBaseTest.OutputFolderName: AnsiString;
+ {* Папка, в которую пишутся выходные файлы. }
 //#UC START# *51B1A75D0367_51948F2601E9_var*
 //#UC END# *51B1A75D0367_51948F2601E9_var*
 begin
@@ -302,8 +275,7 @@ begin
  Result := ClassName + '_out';
 //#UC END# *51B1A75D0367_51948F2601E9_impl*
 end;//TietBaseTest.OutputFolderName
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //nsTest
-
+{$IfEnd} // Defined(nsTest)
 end.

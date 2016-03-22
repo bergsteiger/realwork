@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmChromeLikeTabIconUpdater" MUID: (543E3A600253)
+// Имя типа: "_vcmChromeLikeTabIconUpdater_"
 
 {$Define vcmChromeLikeTabIconUpdater_imp}
 

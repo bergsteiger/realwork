@@ -3,6 +3,7 @@ unit deProfile;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\deProfile.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdeProfile" MUID: (4AA5275401A5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

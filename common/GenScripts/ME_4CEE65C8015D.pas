@@ -2,6 +2,7 @@ unit nsCommentModifier;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsCommentModifier.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsCommentModifier" MUID: (4CEE65C8015D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

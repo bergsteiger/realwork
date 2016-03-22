@@ -3,6 +3,8 @@ unit evTable_InterfaceFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTable_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
+// Элемент модели: "TevTable" MUID: (4857E163036B)
+// Имя типа: "TevTableInterfaceFactory"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

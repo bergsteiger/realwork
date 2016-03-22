@@ -1,7 +1,10 @@
 Unit Dt_Stage;
 
-{ $Id: Dt_Stage.pas,v 1.84 2015/04/03 11:30:43 lukyanets Exp $ }
+{ $Id: Dt_Stage.pas,v 1.85 2015/11/25 14:01:48 lukyanets Exp $ }
 // $Log: Dt_Stage.pas,v $
+// Revision 1.85  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.84  2015/04/03 11:30:43  lukyanets
 // Изолируем HT
 //
@@ -352,6 +355,7 @@ uses
  l3Base, m0Const,
 
  daDataProvider,
+ daSchemeConsts,
 
  HT_Dll,
 

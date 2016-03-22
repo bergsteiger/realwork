@@ -272,10 +272,20 @@ type
   function  pm_GetDownloadRestoreTime: Integer;
   procedure pm_SetDownloadRestoreTime(const a_Value: Integer);
  private
+  class function DownloadResumeFlagName: string;
+  //
+  function  pm_GetDownloadResumeFlag: Boolean;
+  procedure pm_SetDownloadResumeFlag(const a_Value: Boolean);
+ private
   class function DownloadRetryFlagName: string;
   //
   function  pm_GetDownloadRetryFlag: Boolean;
   procedure pm_SetDownloadRetryFlag(const a_Value: Boolean);
+ private
+  class function DownloadRevisionFlagName: string;
+  //
+  function  pm_GetDownloadRevisionFlag: Boolean;
+  procedure pm_SetDownloadRevisionFlag(const a_Value: Boolean);
  private
   class function DownloadSendReportFlagName: string;
   //
@@ -316,6 +326,11 @@ type
   //
   function  pm_GetUpdateSendReportFlag: Boolean;
   procedure pm_SetUpdateSendReportFlag(const a_Value: Boolean);
+ private
+  class function UpdateSkipWarningFlagName: string;
+  //
+  function  pm_GetUpdateSkipWarningFlag: Boolean;
+  procedure pm_SetUpdateSkipWarningFlag(const a_Value: Boolean);
  private
   class function RunAtEndEnabledName: string;
   //
@@ -463,7 +478,11 @@ type
   property DownloadRestoreFlag: Boolean read pm_GetDownloadRestoreFlag write pm_SetDownloadRestoreFlag;
   property DownloadRestoreTime: Integer read pm_GetDownloadRestoreTime write pm_SetDownloadRestoreTime;
   //
+  property DownloadResumeFlag: Boolean read pm_GetDownloadResumeFlag write pm_SetDownloadResumeFlag;
+  //
   property DownloadRetryFlag: Boolean read pm_GetDownloadRetryFlag write pm_SetDownloadRetryFlag;
+  //
+  property DownloadRevisionFlag: Boolean read pm_GetDownloadRevisionFlag write pm_SetDownloadRevisionFlag;
   //
   property DownloadSendReportFlag: Boolean read pm_GetDownloadSendReportFlag write pm_SetDownloadSendReportFlag;
  public
@@ -479,6 +498,8 @@ type
   property UpdatePath: string read pm_GetUpdatePath write pm_SetUpdatePath;
   //
   property UpdateSendReportFlag: Boolean read pm_GetUpdateSendReportFlag write pm_SetUpdateSendReportFlag;
+  //
+  property UpdateSkipWarningFlag: Boolean read pm_GetUpdateSkipWarningFlag write pm_SetUpdateSkipWarningFlag;
  public
   property RunAtEndEnabled: Boolean read pm_GetRunAtEndEnabled write pm_SetRunAtEndEnabled;
   //
@@ -1235,6 +1256,21 @@ begin
  SetCurrentSettingsStringValue(DownloadRestoreTimeName, IntToStr(a_Value));
 end;
 
+class function TEasyUpdateSupport.DownloadResumeFlagName: string;
+begin
+ Result := 'DOWNLOAD_RESUME';
+end;
+
+function TEasyUpdateSupport.pm_GetDownloadResumeFlag: Boolean;
+begin
+ Result := GetCurrentSettingsBooleanValue(DownloadResumeFlagName);
+end;
+
+procedure TEasyUpdateSupport.pm_SetDownloadResumeFlag(const a_Value: Boolean);
+begin
+ SetCurrentSettingsBooleanValue(DownloadResumeFlagName, a_Value);
+end;
+
 class function TEasyUpdateSupport.DownloadRetryFlagName: string;
 begin
  Result := 'DOWNLOAD_RETRY';
@@ -1248,6 +1284,21 @@ end;
 procedure TEasyUpdateSupport.pm_SetDownloadRetryFlag(const a_Value: Boolean);
 begin
  SetCurrentSettingsBooleanValue(DownloadRetryFlagName, a_Value);
+end;
+
+class function TEasyUpdateSupport.DownloadRevisionFlagName: string;
+begin
+ Result := 'DOWNLOAD_REVISION';
+end;
+
+function TEasyUpdateSupport.pm_GetDownloadRevisionFlag: Boolean;
+begin
+ Result := GetCurrentSettingsBooleanValue(DownloadRevisionFlagName);
+end;
+
+procedure TEasyUpdateSupport.pm_SetDownloadRevisionFlag(const a_Value: Boolean);
+begin
+ SetCurrentSettingsBooleanValue(DownloadRevisionFlagName, a_Value);
 end;
 
 class function TEasyUpdateSupport.DownloadSendReportFlagName: string;
@@ -1368,6 +1419,21 @@ end;
 procedure TEasyUpdateSupport.pm_SetUpdateSendReportFlag(const a_Value: Boolean);
 begin
  SetCurrentSettingsBooleanValue(UpdateSendReportFlagName, a_Value);
+end;
+
+class function TEasyUpdateSupport.UpdateSkipWarningFlagName: string;
+begin
+ Result := 'UPDATE_SKIP_WARNING';
+end;
+
+function TEasyUpdateSupport.pm_GetUpdateSkipWarningFlag: Boolean;
+begin
+ Result := GetCurrentSettingsBooleanValue(UpdateSkipWarningFlagName);
+end;
+
+procedure TEasyUpdateSupport.pm_SetUpdateSkipWarningFlag(const a_Value: Boolean);
+begin
+ SetCurrentSettingsBooleanValue(UpdateSkipWarningFlagName, a_Value);
 end;
 
 class function TEasyUpdateSupport.RunAtEndEnabledName: string;

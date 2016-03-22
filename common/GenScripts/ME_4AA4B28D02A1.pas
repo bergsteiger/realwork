@@ -2,6 +2,8 @@ unit fsAutoreferatAfterSearch;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\fsAutoreferatAfterSearch.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "AutoreferatAfterSearch" MUID: (4AA4B28D02A1)
+// Имя типа: "Tfs_AutoreferatAfterSearch"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

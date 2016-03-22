@@ -3,6 +3,7 @@ unit nsTagString;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsTagString.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsTagString" MUID: (467FCA0F01C6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

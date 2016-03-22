@@ -80,7 +80,7 @@ type
 implementation
 Uses
  l3Base, l3Memory, l3String, l3Base64, l3Stream, l3Filer,
- k2Tags,
+ k2Tags, daSchemeConsts,
  NumAndDate_Const, Document_Const, Type_Const, DictItem_Const,
  SysUtils, StrUtils, Participant_Const, l3LingLib, ddUtils, l3FileUtils, l3Types, dd_lcPageNumberEliminator,
  dd_lcTableEliminator, dd_lcSectionEliminator, SectionBreak_Const, ddParticipantsConst,

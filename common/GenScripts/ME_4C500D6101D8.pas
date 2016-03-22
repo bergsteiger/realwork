@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "CursorMover" MUID: (4C500D6101D8)
+// Имя типа: "_CursorMover_"
 
 {$Define CursorMover_imp}
 

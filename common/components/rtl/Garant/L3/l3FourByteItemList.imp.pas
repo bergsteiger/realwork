@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3FourByteItemList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3FourByteItemList" MUID: (47B5C2EA02CB)
+// Имя типа: "_l3FourByteItemList_"
 
 {$Define l3FourByteItemList_imp}
 

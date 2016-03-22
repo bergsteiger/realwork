@@ -2,6 +2,8 @@ unit RoundedControlsTest;
 
 // Модуль: "w:\common\components\SandBox\RoundedControlsTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "RoundedControlsTest" MUID: (517C11C6019A)
+// Имя типа: "TRoundedControlsTest"
 
 {$Include w:\common\components\SandBox\sbtDefine.inc}
 

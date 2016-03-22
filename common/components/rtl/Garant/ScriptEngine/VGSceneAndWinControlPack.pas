@@ -2,6 +2,7 @@ unit VGSceneAndWinControlPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\VGSceneAndWinControlPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "VGSceneAndWinControlPack" MUID: (551D4A0E03DD)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -140,11 +141,6 @@ begin
  aCtx.rEngine.PushObj(FindVGControlByName(aCtx, l_aControl, l_aName));
 end;//TkwPopControlFindVGControlByName.DoDoIt
 
-class function TkwPopControlFindVGControlByName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:FindVGControlByName';
-end;//TkwPopControlFindVGControlByName.GetWordNameForRegister
-
 function TkwPopControlFindVGControlByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TvgObject);
@@ -159,6 +155,11 @@ function TkwPopControlFindVGControlByName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TWinControl), @tfw_tiString]);
 end;//TkwPopControlFindVGControlByName.ParamsTypes
+
+class function TkwPopControlFindVGControlByName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:FindVGControlByName';
+end;//TkwPopControlFindVGControlByName.GetWordNameForRegister
 
 initialization
  TkwPopControlFindVGControlByName.RegisterInEngine;

@@ -2,6 +2,7 @@ unit ctButtonEdit;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\ctButtonEdit.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TctButtonEdit" MUID: (482AE8CA0176)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

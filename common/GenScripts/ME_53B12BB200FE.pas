@@ -2,6 +2,8 @@ unit kwClearPharmContextSearchHistory;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwClearPharmContextSearchHistory.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "ClearPharmContextSearchHistory" MUID: (53B12BB200FE)
+// Имя типа: "TkwClearPharmContextSearchHistory"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

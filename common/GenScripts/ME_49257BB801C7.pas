@@ -3,6 +3,7 @@ unit dsMedicFirmList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicFirmList.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsMedicFirmList" MUID: (49257BB801C7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit tfwDictionaryExPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryExPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwDictionaryExPrim" MUID: (55A4FCDC01B8)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

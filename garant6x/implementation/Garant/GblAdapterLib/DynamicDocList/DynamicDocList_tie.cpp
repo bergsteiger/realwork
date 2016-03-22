@@ -1023,6 +1023,16 @@ _DLL_TRY
 _DLL_CATCH
 }
 
+void __stdcall DynListNode_tie::get_snippet_text_56D44B0E0092 (
+	GCI::IO::IString_tie*& ret_
+) const {
+_DLL_TRY
+
+	const GCI::IO::String* ret = m_impl->get_snippet_text();
+	GCI::IO::String_tie::make_tie(ret, ret_);
+_DLL_CATCH
+}
+
 
 
 } // namespace GblAdapterLib

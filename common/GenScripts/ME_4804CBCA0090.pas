@@ -3,6 +3,7 @@ unit evBitmapParaPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evBitmapParaPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevBitmapParaPainter" MUID: (4804CBCA0090)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

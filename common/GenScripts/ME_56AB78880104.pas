@@ -2,6 +2,7 @@ unit l3CanvasUtils;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CanvasUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3CanvasUtils" MUID: (56AB78880104)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

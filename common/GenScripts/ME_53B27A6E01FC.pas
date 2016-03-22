@@ -2,6 +2,7 @@ unit csDictEditQueryPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csDictEditQueryPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsDictEditQueryPrim" MUID: (53B27A6E01FC)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

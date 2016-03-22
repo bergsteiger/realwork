@@ -2,6 +2,7 @@ unit tfwInitedDictionariesListIterator;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwInitedDictionariesListIterator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwInitedDictionariesListIterator" MUID: (55E9AD120155)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

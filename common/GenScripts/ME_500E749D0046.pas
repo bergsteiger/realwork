@@ -2,6 +2,7 @@ unit dsAACDocumentPrim;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\dsAACDocumentPrim.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsAACDocumentPrim" MUID: (500E749D0046)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

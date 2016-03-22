@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmDropDownMenuForChromeLike;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_FINISHED_vcmDropDownMenuForChromeLike.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvcmDropDownMenuForChromeLike" MUID: (545C51F90170)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

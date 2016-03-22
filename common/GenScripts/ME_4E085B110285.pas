@@ -4,6 +4,7 @@ unit bsDocumentMissingMessage;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\bsDocumentMissingMessage.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsDocumentMissingMessage" MUID: (4E085B110285)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,9 +2,15 @@
 Unit evAutoBlock;
 {* Автоматическая расстановка блоков в документе }
 
-// $Id: evAutoBlock.pas,v 1.86 2015/05/07 10:50:00 dinishev Exp $
+// $Id: evAutoBlock.pas,v 1.88 2016/02/03 09:13:31 dinishev Exp $
 
 // $Log: evAutoBlock.pas,v $
+// Revision 1.88  2016/02/03 09:13:31  dinishev
+// {Requestlink:617055158}
+//
+// Revision 1.87  2016/02/02 11:55:29  dinishev
+// Cleanup
+//
 // Revision 1.86  2015/05/07 10:50:00  dinishev
 // {Requestlink:598614369}
 //
@@ -863,8 +869,8 @@ type
  TddBlockNotify = procedure (const WasText : Boolean;
                              const Cursor  : InevBasePoint = nil) of object;
 
-  TddBlockStructureSearcher = class(TevStyleSearcher)
-  private
+ TddBlockStructureSearcher = class(TevStyleSearcher)
+ private
   f_ArticleNumber    : Longint;
   f_BlockIDList      : Tl3ProtoObjectRefList;
   f_BlockName        : ShortString;
@@ -880,7 +886,7 @@ type
   f_SBSIndex         : Byte;
   f_SearchParagraphs : Boolean;
   f_WaitForFootnote  : Boolean;
-  protected
+ protected
   procedure AddID(const aName: ShortString; aBlockID: TddBlockType);
   function CheckColorSelection(aStyle: Long; Sender : Tl3Variant; S :
       Tl3CustomString; const aSel  : TevPair; aText : AnsiString; out theSel  :
@@ -889,7 +895,7 @@ type
       TevPair; out theSel: TevPair): Bool;
   function CheckContentTable(Sender : Tl3Variant; S: Tl3CustomString; aSel:
       TevPair; out theSel: TevPair): Bool;
-  function CheckDigits(aText: Tl3CustomString; var Num: Integer): TddBlockType;
+  function CheckDigits(aText: Tl3CustomString; var Num: Integer; aStart: Integer = 0): TddBlockType;
   function CheckFootnote(Sender : Tl3Variant; S: Tl3CustomString; aSel:
       TevPair; out theSel: TevPair): Bool;
   function CheckHeader(Sender : Tl3Variant; S: Tl3CustomString; aSel: TevPair;
@@ -899,7 +905,7 @@ type
   procedure InitBlockIDList;
   procedure MakeBlockName(const aSt: AnsiString);
   procedure Cleanup; override;
-  public
+ public
   constructor Create(aOwner: TevSearchToolOwner); override;
   function DoCheck(const aView : InevView;
                    const aTag        : InevObject;
@@ -908,8 +914,10 @@ type
                    const aStartPrev  : InevBasePoint;
                    const aFinishPrev : InevBasePoint;
                    out theSel        : TevPair): Bool; override;
-  function DoCheckText(Sender : Tl3Variant; S            : Tl3CustomString;
-      const aSel  : TevPair; out theSel  : TevPair): Bool; override;
+  function DoCheckText(Sender    : Tl3Variant;
+                       S         : Tl3CustomString;
+                       const aSel: TevPair;
+                       out theSel: TevPair): Bool; override;
   procedure DoStart; override;
   property ArticleNumber: Integer
    read f_ArticleNumber;
@@ -920,20 +928,20 @@ type
   property BlockType: TddBlockType
    read f_BlockType
    write f_BlockType;
-  property CommentText      : Tl3String
+  property CommentText: Tl3String
    read f_CommentText;
   property FromStartDocument: Boolean
    read f_FromStartDocument
    write f_FromStartDocument;
-  property OnNotFound       : TddBlockNotify
+  property OnNotFound: TddBlockNotify
    read f_OnNotFound
    write f_OnNotFound;
-  property PreambleFound    : Byte
+  property PreambleFound: Byte
    read f_PreambleFound;
   property SearchParagraphs: Boolean
    read f_SearchParagraphs
    write f_SearchParagraphs;
-  end;
+ end;
 
 const
  MaxDeepLevel = 9;
@@ -1121,6 +1129,12 @@ uses
  TextPara_Const,
  SBS_Const,
  Table_Const;
+
+const
+ csListSeparator = [cc_Dot, cc_RightBracket];
+ csRussianUpperLetter = cc_UpRussian - ['Ё'];
+ csNumbrChars = ['N','№'];
+ csFootSeparatorChars = [cc_Minus, cc_Underline];
 
 procedure CreateBlockStructure(DocEditor: TevCustomEditor
                                {$IFNDEF evNotArchi};
@@ -1669,7 +1683,7 @@ begin
     begin
      if Length(aText) > Length('Приложение ') then
      begin
-      if aText[Length('Приложение ')+1] in (cc_Digits+['N','№']) then
+      if aText[Length('Приложение ') + 1] in (cc_Digits + csNumbrChars) then
        f_BlockType:= dd_btAppendix
       else
        f_BlockType:= dd_btPseudoDocument
@@ -1759,24 +1773,25 @@ begin
 end;
 
 function TddBlockStructureSearcher.CheckDigits(aText: Tl3CustomString;
-                                               var Num: Integer): TddBlockType;
+                                               var Num: Integer;
+                                               aStart: Integer = 0): TddBlockType;
 var
- index: Integer;
+ l_Index   : Integer;
+ l_Bracket : Boolean;
  l_DotCount: Integer;
- l_Bracket: Boolean;
 begin
- index:= 0;
- l_DotCount:= 0;
- l_Bracket:= False;
- Result:= dd_btNone;
- while (aText.Ch[index] in (cc_Digits+cc_RomeDigits+['.', ')'])) and (index < aText.Len) do
+ l_Index := aStart;
+ l_DotCount := 0;
+ l_Bracket := False;
+ Result := dd_btNone;
+ while (aText.Ch[l_Index] in (cc_Digits + cc_RomeDigits + csListSeparator)) and (l_Index < aText.Len) do
  begin
-  if aText.Ch[index] = '.' then
+  if aText.Ch[l_Index] = cc_Dot then
    Inc(l_DotCount)
   else
-  if aText.Ch[index] = ')' then
+  if aText.Ch[l_Index] = cc_RightBracket then
    l_Bracket:= True;
-  Inc(index);
+  Inc(l_Index);
  end; //while
  // Дробные номера пунктов - не нужно проверять наличие цифры после точки
  // рассматриваются только номера не глубже X.X.X.
@@ -1784,7 +1799,7 @@ begin
   0: if l_Bracket then
    Result:= dd_btParagraphBracket;
   1:
-   if aText.Ch[Pred(index)] in cc_Digits then
+   if aText.Ch[Pred(l_Index)] in cc_Digits then
     Result:= dd_btParagraphArabic
    else
     Result:= dd_btParagraphRoman;
@@ -1797,7 +1812,7 @@ begin
   Result:= dd_btNone;
  end; // case
  if Result = dd_btParagraphArabic then
-  Num:= StrToIntDef(System.Copy(aText.AsString, 1, index), 0)
+  Num:= StrToIntDef(System.Copy(aText.AsString, 1, l_Index), 0)
  else
   Num:= -1;
 end;
@@ -1808,11 +1823,11 @@ begin
  if f_WaitForFootnote then
  begin
   // тут может быть формула!
-  if (S.First = '*') and not EvIsParaFormula(Sender.AsObject) then       
+  if (S.First = cc_Austerisk) and not EvIsParaFormula(Sender.AsObject) then       
   begin
    f_WaitForFootnote:= False;
    f_BlockType:= dd_btFootnoteBody;
-  end;//S.First = '*'
+  end;//S.First = cc_Austerisk
  end//f_WaitForFootnote
  else
  if (S.IsOEM) and l3AllCharsInCharSet(S.St, S.Len, [cc_HLine]) then
@@ -1821,7 +1836,7 @@ begin
   f_BlockType:= dd_btStartFootnote;
  end//S.IsOEM
  else
- if not S.IsOEM and l3AllCharsInCharSet(S.St, S.Len, ['-', '_']) then
+ if not S.IsOEM and l3AllCharsInCharSet(S.St, S.Len, csFootSeparatorChars) then
  begin
   f_WaitForFootnote:= True;
   f_BlockType:= dd_btStartFootnote;
@@ -1869,9 +1884,7 @@ begin
   if f_SearchParagraphs or not ByteBool(f_PreambleFound) then
   begin
    if S.First in cc_Digits then
-   begin
     f_BlockType:= CheckDigits(S, l_Num);
-   end;//S.First in cc_Digits
   end//f_SearchParagraphs or not ByteBool(f_PreambleFound)
   else
   if S.First = cc_ParagraphSign then
@@ -1888,10 +1901,10 @@ begin
     f_BlockType:= dd_btSubSectionArabic;
   end//S.First in cc_Digits
   else
-  if (Upcase(S.First) in ['A'..'Z']) and (S.Len > 1) and (S.Ch[1] in ['.', ')']) then
+  if (Upcase(S.First) in cc_UpEnglish) and (S.Len > 1) and (S.Ch[1] in csListSeparator) then
    f_BlockType:= dd_btSectionLatin
   else
-  if (Upcase(S.First) in ['А'..'Я']) and (S.Len > 1) and (S.Ch[1] in ['.', ')']) then
+  if (Upcase(S.First) in csRussianUpperLetter) and (S.Len > 1) and (S.Ch[1] in csListSeparator) then
    f_BlockType:= dd_btSectionCyr
   else
   if Pos('(утв.', aText) <> 0 then
@@ -1909,23 +1922,45 @@ end;
 
 function TddBlockStructureSearcher.CheckParagraph(Sender : Tl3Variant; S:
     Tl3CustomString; aSel: TevPair; out theSel: TevPair): Bool;
+
+ function lp_CheckText: Boolean;
+ var
+  l_Num  : Integer;
+  l_First: Integer;
+  l_IsOEM: Boolean;
+ begin
+  Result := False;
+  l_IsOEM := False;
+  Handle := ev_saTxtNormalANSI;
+  Result := inherited DoCheckText(Sender, S, aSel, theSel);
+  if not Result then
+  begin
+   Handle := ev_saTxtNormalOEM;
+   l_IsOEM := True;
+   Result := inherited DoCheckText(Sender, S, aSel, theSel);
+  end; // if not Result then
+  if Result then
+  begin
+   l_First := 0;
+   if l_IsOEM then
+    while (l_First < S.Len) and (S.Ch[l_First] = cc_HardSpace) do
+     Inc(l_First);
+   if S.Ch[l_First] in (cc_Digits + cc_RomeDigits) then
+    f_BlockType := CheckDigits(S, l_Num, l_First)
+   else
+   if (Upcase(S.First) in cc_UpEnglish) and (S.Len > 1) and (S.Ch[1] in csListSeparator) then
+    f_BlockType := dd_btParagraphLatin
+   else
+   if (AnsiUpperCase(S.First)[1] in csRussianUpperLetter) and (S.Len > 1) and (S.Ch[1] in csListSeparator) then
+    f_BlockType := dd_btParagraphCyr
+  end; // Search(Sender, S, aSel, theSel)
+ end;
+
 var
  l_Num: Integer;
  i: Integer;
 begin
- Handle:= ev_saTxtNormalANSI;
- if inherited DoCheckText(Sender, S, aSel, theSel) then
- begin
-  if S.First in (cc_Digits + cc_RomeDigits) then
-   f_BlockType:= CheckDigits(S, l_Num)
-  else
-  if (Upcase(S.First) in ['A'..'Z']) and (S.Len > 1) and (S.Ch[1] in ['.', ')']) then
-   f_BlockType:= dd_btParagraphLatin
-  else
-  if (AnsiUpperCase(S.First)[1] in ['А'..'Я']) and (S.Len > 1) and (S.Ch[1] in ['.', ')']) then
-   f_BlockType:= dd_btParagraphCyr
- end // Search(Sender, S, aSel, theSel)
- else
+ if not lp_CheckText then
  begin
   Handle:= ev_saANSIDOS;
   if inherited DoCheckText(Sender, S, aSel, theSel) then
@@ -1934,7 +1969,7 @@ begin
    begin
     i:= 32;
     l_Num:= 0;
-    while (S.Ch[i] = ' ') and (i <> 42) do
+    while (S.Ch[i] = cc_HardSpace) and (i <> 42) do
     begin
      Inc(i);
      Inc(l_Num);
@@ -2133,7 +2168,7 @@ begin
  f_BlockName:= '';
  if (lNameStrLen > 0) then
  begin
-  f_BlockText:= AnsiReplaceStr(Copy(Trim(aSt), 1, 73), #10, #32);
+  f_BlockText:= AnsiReplaceStr(Copy(Trim(aSt), 1, 73), cc_SoftEnter, cc_HardSpace);
   j:= 1;
   if not (aSt[1] in (cc_Digits+cc_RomeDigits)) then
    while (j <= lNameStrLen) and not (aSt[j] in (cc_Digits+cc_RomeDigits)) do
@@ -2656,7 +2691,7 @@ begin
    begin
     l_IBI.Closed:= True;
     if l_IBI.RealType = dd_cbNone then
-     l_IBI.BlockName:= l_IBI.BlockName + ' ' + f_Searcher.BlockName;
+     l_IBI.BlockName:= l_IBI.BlockName + cc_HardSpace + f_Searcher.BlockName;
     f_WasText:= False;
     f_WasEmpty:= False;
    end // not l_BlockInfo.Closed

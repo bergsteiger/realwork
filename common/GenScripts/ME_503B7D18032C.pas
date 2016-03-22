@@ -2,6 +2,7 @@ unit atFiltrateTreeOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atFiltrateTreeOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatFiltrateTreeOperation" MUID: (503B7D18032C)
 
 interface
 

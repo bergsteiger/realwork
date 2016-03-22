@@ -2,6 +2,8 @@ unit GZipUnzipTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\GZipUnzipTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "GZipUnzipTest" MUID: (4FFD57940035)
+// Имя типа: "TGZipUnzipTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

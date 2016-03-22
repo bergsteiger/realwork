@@ -2,6 +2,7 @@ unit vtHideField;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtHideField.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtHideField" MUID: (4E732D7F0082)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

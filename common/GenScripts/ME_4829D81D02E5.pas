@@ -3,6 +3,7 @@ unit evCustomMemo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCustomMemo.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TevCustomMemo" MUID: (4829D81D02E5)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

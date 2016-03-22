@@ -4739,7 +4739,7 @@ DWORD	internet_autorization (void* params) {
 		((CTestBreeder32App*)AfxGetApp())->Log(aLogString);
 
 		try {
-			if (m_connection->open_request (request, 0)) {
+			if (m_connection->open_request (request, "Accept: application/json,*/*\r\nAccept-Encoding: identity\r\n")) {
 				try {
 					if (m_connection->send_request ()) {
 						((CTestBreeder32App*)AfxGetApp())->Log("Пароль отправлен, получаем ответ от сервера\n");
@@ -4860,7 +4860,7 @@ DWORD	internet_complete (void* params) {
 		sprintf (request, "/datasetup/install?key=%s&time=%ld&status=%ld", val10.GetBuffer (0), install_time, breeder_dialog->install_status);
 
 		try {
-			if (m_connection->open_request (request, 0)) {
+			if (m_connection->open_request (request, "Accept: application/json,*/*\r\nAccept-Encoding: identity\r\n")) {
 				try {
 					m_connection->send_request ();
 				} catch (...) {}

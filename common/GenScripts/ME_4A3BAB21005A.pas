@@ -3,6 +3,7 @@ unit nevSolidParaAnchor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevSolidParaAnchor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevSolidParaAnchor" MUID: (4A3BAB21005A)
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
@@ -161,7 +162,8 @@ begin
  inherited;
  if (aPoint <> nil) then
  begin
-  f_Y := aPoint.AsLeaf.PaintOffsetY(aView, ObjMap(aView));
+  if not (aPoint.AsObject.IsKindOf(k2_typLeafParaDecorationsHolder) and (aPoint.Obj.ChildrenCount = 1)) then
+   f_Y := aPoint.AsLeaf.PaintOffsetY(aView, ObjMap(aView));
   SignalScroll;
  end;//aPoint <> nil
 //#UC END# *4B1D0220010E_4A3BAB21005A_impl*

@@ -2,6 +2,7 @@ unit NOT_FINISHED_evTextParaOpEx;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTextParaOpEx.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evTextParaOpEx" MUID: (4A391544029B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

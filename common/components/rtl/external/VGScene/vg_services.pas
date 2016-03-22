@@ -446,6 +446,8 @@ function TvgGetComponentBoundsImpl.GetBounds(aComponent: TComponent): TRect;
 var
  VO: TvgVisualObject;
  TL, BR: TvgPoint;
+const
+ c_EmptyRect: TRect = (Left: 0; Top: 0; Right: 0; Bottom: 0);
 //#UC END# *BB0BB5CAA29B_5522D81901CB_var*
 begin
 //#UC START# *BB0BB5CAA29B_5522D81901CB_impl*
@@ -456,7 +458,7 @@ begin
   BR := VO.Scene.LocalToScreen(VO.LocalToAbsolute(vgPoint(VO.Width, VO.Height)));
   Result := Rect(Trunc(TL.X), Trunc(TL.Y), Trunc(BR.X), Trunc(BR.Y));
  end else
-  Result := EmptyRect;
+  Result := c_EmptyRect;
 //#UC END# *BB0BB5CAA29B_5522D81901CB_impl*
 end;//TvgGetComponentBoundsImpl.GetBounds
 {$IfEnd} //not NoVCL

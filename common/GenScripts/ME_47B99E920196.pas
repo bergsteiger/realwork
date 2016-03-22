@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3UncomparabeObjectRefList" MUID: (47B99E920196)
+// Имя типа: "_l3UncomparabeObjectRefList_"
 
 {$Define l3UncomparabeObjectRefList_imp}
 

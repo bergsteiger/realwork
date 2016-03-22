@@ -3,6 +3,7 @@ unit kwGotoSub;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwGotoSub.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwGotoSub" MUID: (4EEF07E80201)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

@@ -3,6 +3,7 @@ unit ForbidAutoregistration_ut_ForbidAutoregistration_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\ForbidAutoregistration_ut_ForbidAutoregistration_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_ForbidAutoregistration" MUID: (5E9859CE8259)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_ForbidAutoregistration = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_ForbidAutoregistration }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_ForbidAutoregistration
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_ForbidAutoregistration.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_ForbidAutoregistration';
-end;//Tkw_FormUserType_ut_ForbidAutoregistration.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_ForbidAutoregistration.GetInteger: Integer;
 begin
  Result := ut_ForbidAutoregistration;
 end;//Tkw_FormUserType_ut_ForbidAutoregistration.GetInteger
+
+class function Tkw_FormUserType_ut_ForbidAutoregistration.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_ForbidAutoregistration';
+end;//Tkw_FormUserType_ut_ForbidAutoregistration.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

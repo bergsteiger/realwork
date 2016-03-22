@@ -2,6 +2,7 @@ unit ExtCtrls;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\ExtCtrls.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ExtCtrls" MUID: (48C7C95C0221)
 
 interface
 

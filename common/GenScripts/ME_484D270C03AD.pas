@@ -2,6 +2,7 @@ unit evFramePart_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evFramePart_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WevFramePart" MUID: (484D270C03AD)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

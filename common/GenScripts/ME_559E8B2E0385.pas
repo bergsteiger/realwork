@@ -2,6 +2,7 @@ unit tfwDictionaryEx;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryEx.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwDictionaryEx" MUID: (559E8B2E0385)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -24,25 +25,19 @@ type
  TtfwDictionaryEx = class(TtfwDictionaryExPrim)
   private
    f_UsedDictionaries: TtfwDictionaryPtrList;
-    {* Поле для свойства UsedDictionaries }
    f_FileName: Il3CString;
-    {* Поле для свойства FileName }
    f_FileDateTime: TDateTime;
-    {* Поле для свойства FileDateTime }
    f_Stream: TtfwStreamFactory;
-    {* Поле для свойства Stream }
    f_InitCode: TtfwInitCodeWord;
-    {* Поле для свойства InitCode }
    f_ExportedDictionaries: TtfwDictionaryPtrList;
-    {* Поле для свойства ExportedDictionaries }
   protected
    function FindInUsedDictionary(anOther: TtfwDictionary;
     const aName: Il3CString): TtfwKeyWord; virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    function DoCheckWord(const aName: Il3CString): TtfwKeyWord; override;
-   procedure ClearFields; override;
    function DoGetDRbyCName(const aName: Il3CString): TtfwKeyWord; override;
+   procedure ClearFields; override;
   public
    procedure RunInitCode(aRunned: TtfwInitedDictionariesList;
     const aCtx: TtfwContext); virtual;
@@ -121,7 +116,7 @@ begin
    if (l_KW.Dictionary = Self) then
    begin
     l_W := l_KW.Word;
-    if l_W.IsVarLike then
+    if l_W.IsVarLike AND not l_W.IsGlobalVar then
      l_W.InitValue(aCtx);
    end;//l_KW.Dictionary = Self
   end;//for l_Index
@@ -286,12 +281,6 @@ begin
 //#UC END# *4F465D580021_559E8B2E0385_impl*
 end;//TtfwDictionaryEx.DoCheckWord
 
-procedure TtfwDictionaryEx.ClearFields;
-begin
- f_FileName := nil;
- inherited;
-end;//TtfwDictionaryEx.ClearFields
-
 function TtfwDictionaryEx.DoGetDRbyCName(const aName: Il3CString): TtfwKeyWord;
 //#UC START# *559FF0210296_559E8B2E0385_var*
 var
@@ -300,7 +289,7 @@ var
 begin
 //#UC START# *559FF0210296_559E8B2E0385_impl*
  Result := inherited DoGetDRbyCName(aName);
- if (Result = nil) then
+ if (Result = nil) OR (Result.Word = nil) then
   if (f_UsedDictionaries <> nil) then
    for l_Index := Pred(f_UsedDictionaries.Count) downto 0 do
    begin
@@ -341,6 +330,12 @@ begin
     end;//anOther = f_UsedDictionaries[l_Index]
 //#UC END# *55A4FD6401D3_559E8B2E0385_impl*
 end;//TtfwDictionaryEx.UsesDictionary
+
+procedure TtfwDictionaryEx.ClearFields;
+begin
+ f_FileName := nil;
+ inherited;
+end;//TtfwDictionaryEx.ClearFields
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

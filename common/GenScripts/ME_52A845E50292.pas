@@ -2,6 +2,7 @@ unit vcmWinControlActionLink;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmWinControlActionLink.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmWinControlActionLink" MUID: (52A845E50292)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

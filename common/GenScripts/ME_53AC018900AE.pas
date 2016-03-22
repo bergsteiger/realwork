@@ -2,6 +2,7 @@ unit ddTaskItemPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\ddTaskItemPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddTaskItemPrim" MUID: (53AC018900AE)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

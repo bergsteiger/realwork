@@ -3,6 +3,7 @@ unit nsControlParaNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsControlParaNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsControlParaNode" MUID: (467FCDFD01B9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

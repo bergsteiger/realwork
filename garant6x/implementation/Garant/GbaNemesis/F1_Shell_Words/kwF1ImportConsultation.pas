@@ -1,56 +1,36 @@
 unit kwF1ImportConsultation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Shell Words"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Shell_Words/kwF1ImportConsultation.pas"
-// Начат: 06.06.2011 19:53
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Shell Words::F1 Shell Words::TkwF1ImportConsultation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwF1ImportConsultation.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwF1ImportConsultation" MUID: (4DECF7F4001F)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwF1ImportConsultation = {scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwF1ImportConsultation = class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwF1ImportConsultation
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  DataAdapter,
-  nsTypes
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwF1ImportConsultation
+ l3ImplUses
+ , DataAdapter
+ , nsTypes
+;
 
 procedure TkwF1ImportConsultation.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DECF7F4001F_var*
@@ -66,17 +46,13 @@ begin
 end;//TkwF1ImportConsultation.DoDoIt
 
 class function TkwF1ImportConsultation.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'f1::ImportConsultation';
 end;//TkwF1ImportConsultation.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwF1ImportConsultation
  TkwF1ImportConsultation.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwF1ImportConsultation }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

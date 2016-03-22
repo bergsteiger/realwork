@@ -2,6 +2,7 @@ unit caUserManager;
 
 // Модуль: "w:\common\components\rtl\Garant\ComboAccess\caUserManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcaUserManager" MUID: (56C428E4014A)
 
 {$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 
@@ -25,6 +26,7 @@ type
     const aPassword: AnsiString;
     RequireAdminRights: Boolean;
     out theUserID: TdaUserID): TdaLoginError;
+   function IsUserAdmin(anUserID: TdaUserID): Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -83,6 +85,16 @@ begin
  Assert((Result = l_Result) and (theUserID = l_UserID))
 //#UC END# *5628D14D0151_56C428E4014A_impl*
 end;//TcaUserManager.CheckPassword
+
+function TcaUserManager.IsUserAdmin(anUserID: TdaUserID): Boolean;
+//#UC START# *56EA993D0218_56C428E4014A_var*
+//#UC END# *56EA993D0218_56C428E4014A_var*
+begin
+//#UC START# *56EA993D0218_56C428E4014A_impl*
+ Result := f_HTManager.IsUserAdmin(anUserID);
+ Assert(Result = f_PGManager.IsUserAdmin(anUserID));
+//#UC END# *56EA993D0218_56C428E4014A_impl*
+end;//TcaUserManager.IsUserAdmin
 
 procedure TcaUserManager.Cleanup;
  {* Функция очистки полей объекта. }

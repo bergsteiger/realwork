@@ -2,6 +2,8 @@ unit fsAdmin;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\fsAdmin.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "Admin" MUID: (4AA5128C0195)
+// Имя типа: "Tfs_Admin"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

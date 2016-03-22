@@ -3,6 +3,7 @@ unit nevTools;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevTools.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "nevTools" MUID: (47C5207602D1)
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
@@ -92,15 +93,6 @@ type
  end;//MnevBordersHolder
  *)
 
- InevObject = interface;
-
- InevObjectModify = interface(InevBase)
-  ['{BF4E81B7-9E9C-44BD-83AA-0882AD0D4ABD}']
-  function Delete(anInMerge: Boolean;
-   const anOp: InevOp = nil): Boolean;
-   {* удаляет параграф aPara. }
- end;//InevObjectModify
-
  InevPara = interface;
 
  InevRange = interface;
@@ -120,6 +112,15 @@ type
  InevBaseLine4Anchor = interface;
 
  InevBaseLine4Print = interface;
+
+ InevObject = interface;
+
+ InevObjectModify = interface(InevBase)
+  ['{BF4E81B7-9E9C-44BD-83AA-0882AD0D4ABD}']
+  function Delete(anInMerge: Boolean;
+   const anOp: InevOp = nil): Boolean;
+   {* удаляет параграф aPara. }
+ end;//InevObjectModify
 
  InevObject = interface(InevObjectPrim)
   {* Отображаемый объект }
@@ -160,17 +161,17 @@ type
    read pm_GetAnchorID;
  end;//InevObject
 
- InevParaInternal = interface(InevPara)
-  {* Параграф, "для тех кто знает". }
-  ['{F6C01987-BE37-4FB9-8041-0040A532C5FA}']
-  procedure SignalPID(aPID: TnevParaIndex);
- end;//InevParaInternal
-
  InevDocumentContainer = interface;
 
  InevParaList = interface;
 
  InevSubList = interface;
+
+ InevParaInternal = interface(InevPara)
+  {* Параграф, "для тех кто знает". }
+  ['{F6C01987-BE37-4FB9-8041-0040A532C5FA}']
+  procedure SignalPID(aPID: TnevParaIndex);
+ end;//InevParaInternal
 
  InevPara = interface(InevObject)
   {* Утилита для работы с тегом как с параграфом. }
@@ -199,6 +200,8 @@ type
   property BackColor: TnevColor
    read pm_GetBackColor;
  end;//InevPara
+
+ IevMarker = interface;
 
  InevDataFormatting = interface;
 
@@ -237,8 +240,6 @@ type
    const anOpPack: InevOp = nil): Boolean;
  end;//InevDataFormattingModify
 
- IevMarker = interface;
-
  InevDataFormatting = interface(InevBase)
   ['{5469167E-A7B9-46CE-8AEE-F7AD9EAEBF0A}']
   function GetFont(const aView: InevView;
@@ -247,6 +248,8 @@ type
   function GetStyle(Stop: PInteger = nil): Tl3Variant;
   function Modify(const aView: InevView): InevDataFormattingModify;
  end;//InevDataFormatting
+
+ InevLocation = interface;
 
  TnevInsertStringFlag = (
   {* Флаг операций удаления/вставки строки. }
@@ -303,8 +306,6 @@ type
    const anOp: InevOp = nil): Boolean;
  end;//InevTextModify
 
- InevLocation = interface;
-
  InevText = interface(InevBase)
   ['{E439B50A-FDBE-40A6-8598-49E9337300B2}']
   function CanBeDeleted: Boolean;
@@ -349,6 +350,8 @@ type
    aStart: Integer = l3Types.l3MinIndex): Integer;
    {* Итератор по вложенным выделенным объектам }
  end;//InevRangePrim
+
+ InevDataObjectPrim2 = interface;
 
  TevClearMode = (
   ev_cmAll
@@ -503,8 +506,6 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   property Obj: PInevObject
    read Get_Obj;
  end;//IevTableRange
-
- InevDataObjectPrim2 = interface;
 
  InevRange = interface(InevRangePrim)
   {* Выделенная часть объекта. }
@@ -663,6 +664,8 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  end;//MnevViewBounds
  *)
 
+ InevControlView = interface;
+
  InevPointListener = interface(InevBase)
   {* Объект, принимающий уведомления об изменении курсора. }
   ['{0EED36AA-2313-405B-B10C-0A9CF236DBB0}']
@@ -716,9 +719,9 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  end;//MnevPointModify
  *)
 
+{$If Defined(evNeedMarkers)}
  IevMarkersSource = interface;
 
- {$If Defined(evNeedMarkers)}
  //_ItemType_ = IevMarker;
  IevROMarkersList = interface(InevBase)
   ['{14427E27-7A02-4F6D-A4A0-992BA73B980C}']
@@ -742,16 +745,12 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    read pm_GetCount;
    {* Число элементов. }
  end;//IevROMarkersList
- {$IfEnd} // Defined(evNeedMarkers)
 
- {$If Defined(evNeedMarkers)}
  IevMarkersList = interface(IevROMarkersList)
   ['{76D9BD7F-98F1-4DEC-B264-A0C609F49574}']
   function Add(const anItem: IevMarker): Integer;
  end;//IevMarkersList
- {$IfEnd} // Defined(evNeedMarkers)
 
- {$If Defined(evNeedMarkers)}
  IevMarkersSource = interface(InevBase)
   {* Источник маркеров, в частности для линеек (см. TevRuler) }
   ['{99735A49-8C58-41FC-B064-FB6A7303E510}']
@@ -759,7 +758,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    const aList: IevMarkersList);
    {* получить маркеры из источника в aList. }
  end;//IevMarkersSource
- {$IfEnd} // Defined(evNeedMarkers)
+{$IfEnd} // Defined(evNeedMarkers)
 
  (*
  MnevPaintOffsetY = interface
@@ -842,8 +841,6 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    const anOp: InevOp);
  end;//MnevCorrectMove
  *)
-
- InevControlView = interface;
 
  InevBasePoint = interface(InevLocation)
   {* Базовая точка внутри объекта }
@@ -1272,6 +1269,8 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    {* Данные для отображения изменились }
  end;//InevViewArea
 
+ InevInputView = interface;
+
  InevControl = interface;
 
  InevSelection = interface(InevBase)
@@ -1308,8 +1307,6 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   property View: InevView
    read pm_GetView;
  end;//InevSelection
-
- InevInputView = interface;
 
  InevControl = interface(IafwControl)
   {* Контрол вывода. }
@@ -1640,6 +1637,10 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    {* Сохраняет ноду дерева в G }
  end;//IevTreeDataObject
 
+ InevTextSource = interface;
+
+ IevDocument = interface;
+
  IevDocumentPreviewInfo = interface(InevBase)
   ['{EC69D517-A0E6-4DC8-8635-C24364D70DDE}']
   function pm_GetHAFMacroReplacer: IafwHAFMacroReplacer;
@@ -1721,10 +1722,6 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    aParent: Tl3Variant;
    aChild: Tl3Variant): Boolean;
  end;//InevWaiter
-
- InevTextSource = interface;
-
- IevDocument = interface;
 
  InevDocumentContainer = interface(InevObjectHolder)
   {* Контейнер документа. Служит для связи документа с редакторами, View, и TextSource. }
@@ -1943,11 +1940,11 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  end;//BasePrimitives
  *)
 
+ IevDocumentPart = interface;
+
  InevSubList_Iterate_Action = function(const anItem: IevSub;
   anIndex: Integer): Boolean;
   {* Тип подитеративной функции для InevSubList.Iterate }
-
- IevDocumentPart = interface;
 
  InevSubList = interface(InevBase)
   {* Список меток. }

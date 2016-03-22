@@ -2,6 +2,7 @@ unit k2DictionaryIDIndexPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2DictionaryIDIndexPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2DictionaryIDIndexPrim" MUID: (5304CA0F01F5)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

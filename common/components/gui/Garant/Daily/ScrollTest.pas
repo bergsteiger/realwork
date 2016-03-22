@@ -1,74 +1,52 @@
 unit ScrollTest;
+ {* Тест скроллирования документа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Daily/ScrollTest.pas"
-// Начат: 13.05.2010 16:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TScrollTest
-//
-// Тест скроллирования документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\ScrollTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TScrollTest" MUID: (4BEBF13B0076)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  PrimScrollTest,
-  PrimTextLoad_Form
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , PrimScrollTest
+ , PrimTextLoad_Form
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TScrollTest = {abstract} class(TPrimScrollTest)
   {* Тест скроллирования документа }
- protected
- // realized methods
+  protected
    procedure DoVisit(aForm: TPrimTextLoadForm); override;
-     {* Обработать текст }
- protected
- // overridden protected methods
+    {* Обработать текст }
    function GetNormalFontSize: Integer; override;
-     {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
+    {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TScrollTest
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TScrollTest
+ l3ImplUses
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 procedure TScrollTest.DoVisit(aForm: TPrimTextLoadForm);
+ {* Обработать текст }
 //#UC START# *4BE419AF0217_4BEBF13B0076_var*
 //#UC END# *4BE419AF0217_4BEBF13B0076_var*
 begin
@@ -78,6 +56,7 @@ begin
 end;//TScrollTest.DoVisit
 
 function TScrollTest.GetNormalFontSize: Integer;
+ {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
 //#UC START# *4C07AC6F036D_4BEBF13B0076_var*
 //#UC END# *4C07AC6F036D_4BEBF13B0076_var*
 begin
@@ -87,17 +66,16 @@ begin
 end;//TScrollTest.GetNormalFontSize
 
 function TScrollTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TScrollTest.GetFolder
 
 function TScrollTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4BEBF13B0076';
 end;//TScrollTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

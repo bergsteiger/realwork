@@ -3,6 +3,7 @@ unit l3LongintListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3LongintListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3LongintListPrim" MUID: (4773DC930147)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

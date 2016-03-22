@@ -3,6 +3,7 @@ unit NOT_FINISHED_dd_lcYearCodeCorrector;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcYearCodeCorrector.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tdd_lcYearCodeCorrector" MUID: (4EA535910388)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

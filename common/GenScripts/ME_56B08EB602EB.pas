@@ -2,6 +2,7 @@ unit arBelaCountryList;
 
 // Модуль: "w:\common\components\rtl\Garant\ar\arBelaCountryList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarBelaCountryList" MUID: (56B08EB602EB)
 
 {$Include w:\common\components\l3Define.inc}
 

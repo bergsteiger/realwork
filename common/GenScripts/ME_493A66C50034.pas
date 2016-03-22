@@ -2,6 +2,7 @@ unit dMedicFirmList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dMedicFirmList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdMedicFirmList" MUID: (493A66C50034)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

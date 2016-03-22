@@ -8,8 +8,11 @@ unit bsUtils;
 { Описание   : Общие функции и процедуры бизнес слоя;                          }
 {------------------------------------------------------------------------------}
 
-// $Id: bsUtils.pas,v 1.63 2015/10/01 12:28:19 morozov Exp $
+// $Id: bsUtils.pas,v 1.64 2016/02/12 13:57:35 kostitsin Exp $
 // $Log: bsUtils.pas,v $
+// Revision 1.64  2016/02/12 13:57:35  kostitsin
+// {requestlink: 612742232 }
+//
 // Revision 1.63  2015/10/01 12:28:19  morozov
 // {RequestLink: 608114858}
 //
@@ -947,7 +950,8 @@ function bsCalcUniqueName(const aParent: Il3Node; const aName: Il3CString; const
 {$If not Defined(Admin) AND not Defined(Monitorings)}
 procedure bsEditorAddWikiPara(const aGen  : Ik2TagGenerator;
                               const aText : Tl3WString;
-                              aFixedFont  : Boolean);
+                              aFixedFont  : Boolean;
+                              aDeleteLink : Boolean);
 procedure bsEditorAddPara(const aGen     : Ik2TagGenerator;
                           const aText    : Tl3WString;
                           aFixedFont     : Boolean;
@@ -1248,17 +1252,24 @@ end;
 {$If not Defined(Admin) AND not Defined(Monitorings)}
 procedure bsEditorAddWikiPara(const aGen  : Ik2TagGenerator;
                               const aText : Tl3WString;
-                              aFixedFont  : Boolean);
+                              aFixedFont  : Boolean;
+                              aDeleteLink : Boolean);
 var
  l_G : Ik2TagGenerator;
  l_E : TevDocumentEliminator;
  l_S : Il3CString;
 begin
  l_S := l3CStr(aText);
- l_S := l3StringReplace(l_S,
-                        str_wgReferenceHyperlinkSearchText.AsWStr,
-                        str_wgReferenceHyperlinkReplaceText.AsWStr,
-                        [rfReplaceAll]);
+ if not aDeleteLink then
+  l_S := l3StringReplace(l_S,
+                         str_wgReferenceHyperlinkSearchText.AsWStr,
+                         str_wgReferenceHyperlinkReplaceText.AsWStr,
+                         [rfReplaceAll])
+ else
+  l_S := l3StringReplace(l_S,
+                         str_wgReferenceHyperlinkSearchText.AsWStr,
+                         nsWStr(''),
+                         [rfReplaceAll]);
  if aFixedFont then
  begin
   l_S := l3Cat('{fontsize:12}'#13#10 +

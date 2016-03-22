@@ -3,6 +3,7 @@ unit l3List_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\l3List_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "Wl3List" MUID: (4849461200AA)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

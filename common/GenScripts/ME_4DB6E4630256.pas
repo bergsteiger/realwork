@@ -3,6 +3,7 @@ unit kwCompiledWordContainer;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledWordContainer" MUID: (4DB6E4630256)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -20,7 +21,6 @@ type
   {* Контейнер для зарезервированных слов. }
   private
    f_WordToWork: TtfwWord;
-    {* Поле для свойства WordToWork }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

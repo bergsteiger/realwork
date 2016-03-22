@@ -1,8 +1,11 @@
 unit dt_TblInfo;
 
-{ $Id: dt_TblInfo.pas,v 1.11 2015/10/30 08:54:57 lukyanets Exp $ }
+{ $Id: dt_TblInfo.pas,v 1.12 2016/01/22 12:18:59 lukyanets Exp $ }
 
 // $Log: dt_TblInfo.pas,v $
+// Revision 1.12  2016/01/22 12:18:59  lukyanets
+// ѕереосмысливаем мигратор
+//
 // Revision 1.11  2015/10/30 08:54:57  lukyanets
 // Ќеинициализированные пол€
 //
@@ -106,7 +109,7 @@ type
   function  IsTblHeld: Boolean; virtual; abstract;
 
   procedure SetTextDecor(aDelimiter: Char; aQuote : Char);
-  function  GenRecStr(pRec : Pointer) : AnsiString;
+  function  GenRecStr(pRec : Pointer; AddEmtryTailColumnCount: Integer = 0) : AnsiString;
      {- генерирует "Human Readable" строку из тела записи. »спользуетс€ дл€ отладки}
   function  GenRecHeaderStr : AnsiString;
   {- генерирует "Human Readable" строку из названий полей записи. »спользуетс€ дл€ отладки}
@@ -538,13 +541,15 @@ begin
   Result := aField;
 end;
 
-function TdtTblInfo.GenRecStr(pRec : Pointer) : AnsiString;
+function TdtTblInfo.GenRecStr(pRec : Pointer; AddEmtryTailColumnCount: Integer = 0) : AnsiString;
 var
  I : Word;
 begin
  Result := ValueAsString(1, PAnsiChar(pRec) + FldOffset[1]);
  for I := 2 to FldCount do
   Result := Result + fDelimiter + ValueAsString(I, PAnsiChar(pRec) + FldOffset[I]);
+ for I := 1 to AddEmtryTailColumnCount do
+  Result := Result + fDelimiter + '~~~NULL~~~';
 end;
 
 function TdtTblInfo.GenRecHeaderStr : AnsiString;

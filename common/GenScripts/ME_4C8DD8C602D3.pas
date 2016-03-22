@@ -2,6 +2,8 @@ unit PrimTasksPanelMenu_Module;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\PrimTasksPanelMenu_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "PrimTasksPanelMenu" MUID: (4C8DD8C602D3)
+// Имя типа: "TPrimTasksPanelMenuModule"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

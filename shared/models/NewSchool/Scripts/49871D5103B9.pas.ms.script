@@ -78,22 +78,6 @@ ref; // ME_503DEC5200A9 Provider
 
 ref; // ME_503DECB70334 f_Provider
 
-: ME_87B9BAB425B8
- CONST UID '87B9BAB425B8'
- CONST Name 'f_Def'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Def' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_503DEB310216 // TOperationInternalDef
- ;
- : Target WL 'ME_4980350B00FA' '490838E10313.pas.ms.script' // InscStatusBarItemDef
- ;
-
-ref; // ME_87B9BAB425B8 f_Def
-
 FORWARD ME_503DFE350045
 
 : ME_503DFE4901D4
@@ -148,24 +132,12 @@ ref; // ME_503DFE3D024E DoIt
 ref; // ME_503DFE350045 Create
 
 : ME_479731C50290_ME_503DEB310216
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_503DEB310216 // TOperationInternalDef
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_503DEB310216 Cleanup
-
-: ME_5000565C019C_ME_503DEB310216
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_503DEB310216 // TOperationInternalDef
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_503DEB310216 ClearFields
 
 : ME_503DEB310216
  CONST UID '503DEB310216'
@@ -185,7 +157,6 @@ ref; // ME_5000565C019C_ME_503DEB310216 ClearFields
    Seq: ( ME_503DEC330219 // Def
  ME_503DEC5200A9 // Provider
  ME_503DECB70334 // f_Provider
- ME_87B9BAB425B8 // f_Def
  )
  ; // Attributes
  : Operations
@@ -194,7 +165,6 @@ ref; // ME_5000565C019C_ME_503DEB310216 ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_503DEB310216 // Cleanup
- ME_5000565C019C_ME_503DEB310216 // ClearFields
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
@@ -205,34 +175,6 @@ ref; // ME_5000565C019C_ME_503DEB310216 ClearFields
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_503DEB310216 TOperationInternalDef
-
-FORWARD ME_503DE730029F
-
-: ME_FE6A44C8A31C
- CONST UID 'FE6A44C8A31C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscStatusBarDock' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_503DE730029F // TnscStatusBarDock
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_FE6A44C8A31C Ini_Reg_Class
-
-: ME_8BE1D88E9B44
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_503DE730029F // TnscStatusBarDock
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_8BE1D88E9B44 
 
 : ME_503DE730029F
  CONST UID '503DE730029F'
@@ -252,14 +194,6 @@ ref; // ME_8BE1D88E9B44
    Seq: ( WL 'ME_47D67714034A' '467823B7002C.pas.ms.script' // IafwAlwaysOnTopControl
  )
  ; // Implements
- : Operations
-   Seq: ( ME_FE6A44C8A31C // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_8BE1D88E9B44 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -740,21 +674,6 @@ ref; // ME_504F1E340367 Msg
 
 ref; // ME_504F1E0F03AE WMGetTextLength
 
-: ME_B749442CE8C6
- CONST UID 'B749442CE8C6'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscStatusBar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B749442CE8C6 Ini_Reg_Class
-
 : ME_503DF8F0018A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -953,20 +872,7 @@ ref; // ME_50602F78001B
 
 ref; // ME_50603CD901CF 
 
-: ME_5D713AB381FA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A08E030D // TnscStatusBar
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_5D713AB381FA 
-
 : ME_473D95CA02B5_ME_4E15A08E030D
- CONST UID '473D95CA02B5'
- CONST Name 'UpdateStrings'
  : Original WL 'ME_473D95CA02B5' '467823B7002C.pas.ms.script' // UpdateStrings
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
@@ -975,8 +881,6 @@ ref; // ME_5D713AB381FA
 ref; // ME_473D95CA02B5_ME_4E15A08E030D UpdateStrings
 
 : ME_498036D4036F_ME_4E15A08E030D
- CONST UID '498036D4036F'
- CONST Name 'RegisterProvider'
  : Original WL 'ME_498036D4036F' '490838E10313.pas.ms.script' // RegisterProvider
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
@@ -985,8 +889,6 @@ ref; // ME_473D95CA02B5_ME_4E15A08E030D UpdateStrings
 ref; // ME_498036D4036F_ME_4E15A08E030D RegisterProvider
 
 : ME_498036E00030_ME_4E15A08E030D
- CONST UID '498036E00030'
- CONST Name 'UnregisterProvider'
  : Original WL 'ME_498036E00030' '490838E10313.pas.ms.script' // UnregisterProvider
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
@@ -995,8 +897,6 @@ ref; // ME_498036D4036F_ME_4E15A08E030D RegisterProvider
 ref; // ME_498036E00030_ME_4E15A08E030D UnregisterProvider
 
 : ME_479731C50290_ME_4E15A08E030D
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
@@ -1005,8 +905,6 @@ ref; // ME_498036E00030_ME_4E15A08E030D UnregisterProvider
 ref; // ME_479731C50290_ME_4E15A08E030D Cleanup
 
 : ME_47D1602000C6_ME_4E15A08E030D
- CONST UID '47D1602000C6'
- CONST Name 'Create'
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
@@ -1015,8 +913,6 @@ ref; // ME_479731C50290_ME_4E15A08E030D Cleanup
 ref; // ME_47D1602000C6_ME_4E15A08E030D Create
 
 : ME_4A97E78202FC_ME_4E15A08E030D
- CONST UID '4A97E78202FC'
- CONST Name 'SetParent'
  : Original WL 'ME_4A97E78202FC' '4799D29F033F.pas.ms.script' // SetParent
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
@@ -1025,8 +921,6 @@ ref; // ME_47D1602000C6_ME_4E15A08E030D Create
 ref; // ME_4A97E78202FC_ME_4E15A08E030D SetParent
 
 : ME_4F2A599E0283_ME_4E15A08E030D
- CONST UID '4F2A599E0283'
- CONST Name 'SetBounds'
  : Original WL 'ME_4F2A599E0283' '4799D29F033F.pas.ms.script' // SetBounds
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
@@ -1035,8 +929,6 @@ ref; // ME_4A97E78202FC_ME_4E15A08E030D SetParent
 ref; // ME_4F2A599E0283_ME_4E15A08E030D SetBounds
 
 : ME_503DE79F02BA_ME_4E15A08E030D
- CONST UID '503DE79F02BA'
- CONST Name 'IsGToolbarSizeNeeded'
  : Original WL 'ME_503DE79F02BA' '5028887002FD.pas.ms.script' // IsGToolbarSizeNeeded
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
@@ -1045,8 +937,6 @@ ref; // ME_4F2A599E0283_ME_4E15A08E030D SetBounds
 ref; // ME_503DE79F02BA_ME_4E15A08E030D IsGToolbarSizeNeeded
 
 : ME_5058B29A007C_ME_4E15A08E030D
- CONST UID '5058B29A007C'
- CONST Name 'AdjustSizeForPanels'
  : Original WL 'ME_5058B29A007C' '5028887002FD.pas.ms.script' // AdjustSizeForPanels
  ;
  : Implementor ME_4E15A08E030D // TnscStatusBar
@@ -1095,7 +985,6 @@ ref; // ME_5058B29A007C_ME_4E15A08E030D AdjustSizeForPanels
  ME_504F30D900F7 // AllVisiblePanelsText
  ME_504F1A870252 // WMGetText
  ME_504F1E0F03AE // WMGetTextLength
- ME_B749442CE8C6 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -1138,7 +1027,6 @@ ref; // ME_5058B29A007C_ME_4E15A08E030D AdjustSizeForPanels
  ME_50601018029A // 
  ME_50602F78001B // 
  ME_50603CD901CF // 
- ME_5D713AB381FA // 
  )
  ; // Dependencies
  : Injected
@@ -1486,8 +1374,6 @@ ref; // ME_4FEC3D9A0253 Make
 ref; // ME_506039230134 
 
 : ME_4980370D001D_ME_4FEC3C34003F
- CONST UID '4980370D001D'
- CONST Name 'Caption'
  : Original WL 'ME_4980370D001D' '490838E10313.pas.ms.script' // Caption
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
@@ -1497,8 +1383,6 @@ ref; // ME_506039230134
 ref; // ME_4980370D001D_ME_4FEC3C34003F Caption
 
 : ME_4980371E0167_ME_4FEC3C34003F
- CONST UID '4980371E0167'
- CONST Name 'UseToolTip'
  : Original WL 'ME_4980371E0167' '490838E10313.pas.ms.script' // UseToolTip
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
@@ -1508,8 +1392,6 @@ ref; // ME_4980370D001D_ME_4FEC3C34003F Caption
 ref; // ME_4980371E0167_ME_4FEC3C34003F UseToolTip
 
 : ME_4980372D0191_ME_4FEC3C34003F
- CONST UID '4980372D0191'
- CONST Name 'RequireAutoPopup'
  : Original WL 'ME_4980372D0191' '490838E10313.pas.ms.script' // RequireAutoPopup
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
@@ -1519,8 +1401,6 @@ ref; // ME_4980371E0167_ME_4FEC3C34003F UseToolTip
 ref; // ME_4980372D0191_ME_4FEC3C34003F RequireAutoPopup
 
 : ME_4980373B02B6_ME_4FEC3C34003F
- CONST UID '4980373B02B6'
- CONST Name 'AutoPopupTimeout'
  : Original WL 'ME_4980373B02B6' '490838E10313.pas.ms.script' // AutoPopupTimeout
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
@@ -1530,8 +1410,6 @@ ref; // ME_4980372D0191_ME_4FEC3C34003F RequireAutoPopup
 ref; // ME_4980373B02B6_ME_4FEC3C34003F AutoPopupTimeout
 
 : ME_4980374B0266_ME_4FEC3C34003F
- CONST UID '4980374B0266'
- CONST Name 'TootTipKind'
  : Original WL 'ME_4980374B0266' '490838E10313.pas.ms.script' // TootTipKind
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
@@ -1541,8 +1419,6 @@ ref; // ME_4980373B02B6_ME_4FEC3C34003F AutoPopupTimeout
 ref; // ME_4980374B0266_ME_4FEC3C34003F TootTipKind
 
 : ME_4ADC59C6003B_ME_4FEC3C34003F
- CONST UID '4ADC59C6003B'
- CONST Name 'ShowCaption'
  : Original WL 'ME_4ADC59C6003B' '490838E10313.pas.ms.script' // ShowCaption
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
@@ -1552,8 +1428,6 @@ ref; // ME_4980374B0266_ME_4FEC3C34003F TootTipKind
 ref; // ME_4ADC59C6003B_ME_4FEC3C34003F ShowCaption
 
 : ME_4BCEAF1A00EE_ME_4FEC3C34003F
- CONST UID '4BCEAF1A00EE'
- CONST Name 'Enabled'
  : Original WL 'ME_4BCEAF1A00EE' '490838E10313.pas.ms.script' // Enabled
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
@@ -1563,8 +1437,6 @@ ref; // ME_4ADC59C6003B_ME_4FEC3C34003F ShowCaption
 ref; // ME_4BCEAF1A00EE_ME_4FEC3C34003F Enabled
 
 : ME_5060385E0190_ME_4FEC3C34003F
- CONST UID '5060385E0190'
- CONST Name 'SubscribedList'
  : Original WL 'ME_5060385E0190' '490838E10313.pas.ms.script' // SubscribedList
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
@@ -1574,8 +1446,6 @@ ref; // ME_4BCEAF1A00EE_ME_4FEC3C34003F Enabled
 ref; // ME_5060385E0190_ME_4FEC3C34003F SubscribedList
 
 : ME_5060388903AB_ME_4FEC3C34003F
- CONST UID '5060388903AB'
- CONST Name 'SubscribeOnNotification'
  : Original WL 'ME_5060388903AB' '490838E10313.pas.ms.script' // SubscribeOnNotification
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
@@ -1584,8 +1454,6 @@ ref; // ME_5060385E0190_ME_4FEC3C34003F SubscribedList
 ref; // ME_5060388903AB_ME_4FEC3C34003F SubscribeOnNotification
 
 : ME_479731C50290_ME_4FEC3C34003F
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4FEC3C34003F // TnscStatusBarItemDef
@@ -1858,8 +1726,6 @@ ref; // ME_D2026D5AB932 DoIt
 ref; // ME_4FEC4982036E Make
 
 : ME_4FF315450358_ME_4FEC3C5B007C
- CONST UID '4FF315450358'
- CONST Name 'SeparatorPos'
  : Original WL 'ME_4FF315450358' '490838E10313.pas.ms.script' // SeparatorPos
  ;
  : Implementor ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
@@ -1869,8 +1735,6 @@ ref; // ME_4FEC4982036E Make
 ref; // ME_4FF315450358_ME_4FEC3C5B007C SeparatorPos
 
 : ME_4FF3157D0385_ME_4FEC3C5B007C
- CONST UID '4FF3157D0385'
- CONST Name 'IsSeparatorVisible'
  : Original WL 'ME_4FF3157D0385' '490838E10313.pas.ms.script' // IsSeparatorVisible
  ;
  : Implementor ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
@@ -1880,8 +1744,6 @@ ref; // ME_4FF315450358_ME_4FEC3C5B007C SeparatorPos
 ref; // ME_4FF3157D0385_ME_4FEC3C5B007C IsSeparatorVisible
 
 : ME_4FF3159402B4_ME_4FEC3C5B007C
- CONST UID '4FF3159402B4'
- CONST Name 'Width'
  : Original WL 'ME_4FF3159402B4' '490838E10313.pas.ms.script' // Width
  ;
  : Implementor ME_4FEC3C5B007C // TnscStatusBarDelimiterDef
@@ -2464,8 +2326,6 @@ ref; // ME_4FFAFB0B03CC MakeSNoCaption
 ref; // ME_4FEC6C0702BD 
 
 : ME_4FE9F49C0299_ME_49871E4F01AF
- CONST UID '4FE9F49C0299'
- CONST Name 'Operation'
  : Original WL 'ME_4FE9F49C0299' '490838E10313.pas.ms.script' // Operation
  ;
  : Implementor ME_49871E4F01AF // TnscStatusBarOperationDef
@@ -2523,35 +2383,7 @@ ref; // ME_4FE9F49C0299_ME_49871E4F01AF Operation
 
 ref; // ME_49871E4F01AF TnscStatusBarOperationDef
 
-: ME_F48DF6D30E2B
- CONST UID 'F48DF6D30E2B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscSizeGripPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5058B67D0085 // TnscSizeGripPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F48DF6D30E2B Ini_Reg_Class
-
-: ME_001016A79D20
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5058B67D0085 // TnscSizeGripPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_001016A79D20 
-
 : ME_53CE39CD0045_ME_5058B67D0085
- CONST UID '53CE39CD0045'
- CONST Name 'GetFormToResize'
  : Original WL 'ME_53CE39CD0045' '4C43E8750153.pas.ms.script' // GetFormToResize
  ;
  : Implementor ME_5058B67D0085 // TnscSizeGripPanel
@@ -2574,18 +2406,10 @@ ref; // ME_53CE39CD0045_ME_5058B67D0085 GetFormToResize
  WL 'ME_505DA5E7038D' '505DA8FC03CF.pas.ms.script' // nscStatusBarItemNotification
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F48DF6D30E2B // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_53CE39CD0045_ME_5058B67D0085 // GetFormToResize
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_001016A79D20 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -2598,21 +2422,6 @@ ref; // ME_53CE39CD0045_ME_5058B67D0085 GetFormToResize
 
 ref; // ME_5058B67D0085 TnscSizeGripPanel
 
-: ME_223F98A8DA79
- CONST UID '223F98A8DA79'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscStatusBarButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_503DE6F30027 // TnscStatusBarButton
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_223F98A8DA79 Ini_Reg_Class
-
 : ME_506028E800FD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2623,20 +2432,7 @@ ref; // ME_223F98A8DA79 Ini_Reg_Class
 
 ref; // ME_506028E800FD 
 
-: ME_267EE990926A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_503DE6F30027 // TnscStatusBarButton
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_267EE990926A 
-
 : ME_503DE82B0311_ME_503DE6F30027
- CONST UID '503DE82B0311'
- CONST Name 'IsGtbToolbarButtonSizeNeeded'
  : Original WL 'ME_503DE82B0311' '4C43E8750153.pas.ms.script' // IsGtbToolbarButtonSizeNeeded
  ;
  : Implementor ME_503DE6F30027 // TnscStatusBarButton
@@ -2645,8 +2441,6 @@ ref; // ME_267EE990926A
 ref; // ME_503DE82B0311_ME_503DE6F30027 IsGtbToolbarButtonSizeNeeded
 
 : ME_503E27CA010E_ME_503DE6F30027
- CONST UID '503E27CA010E'
- CONST Name 'GetIsAutoCenter'
  : Original WL 'ME_503E27CA010E' '4C43E8750153.pas.ms.script' // GetIsAutoCenter
  ;
  : Implementor ME_503DE6F30027 // TnscStatusBarButton
@@ -2655,8 +2449,6 @@ ref; // ME_503DE82B0311_ME_503DE6F30027 IsGtbToolbarButtonSizeNeeded
 ref; // ME_503E27CA010E_ME_503DE6F30027 GetIsAutoCenter
 
 : ME_504779E00385_ME_503DE6F30027
- CONST UID '504779E00385'
- CONST Name 'CalcSize'
  : Original WL 'ME_504779E00385' '4C43E8750153.pas.ms.script' // CalcSize
  ;
  : Implementor ME_503DE6F30027 // TnscStatusBarButton
@@ -2665,8 +2457,6 @@ ref; // ME_503E27CA010E_ME_503DE6F30027 GetIsAutoCenter
 ref; // ME_504779E00385_ME_503DE6F30027 CalcSize
 
 : ME_50477A430157_ME_503DE6F30027
- CONST UID '50477A430157'
- CONST Name 'NeedAutoDown'
  : Original WL 'ME_50477A430157' '4C43E8750153.pas.ms.script' // NeedAutoDown
  ;
  : Implementor ME_503DE6F30027 // TnscStatusBarButton
@@ -2689,10 +2479,6 @@ ref; // ME_50477A430157_ME_503DE6F30027 NeedAutoDown
  WL 'ME_505DA5E7038D' '505DA8FC03CF.pas.ms.script' // nscStatusBarItemNotification
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_223F98A8DA79 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_503DE82B0311_ME_503DE6F30027 // IsGtbToolbarButtonSizeNeeded
  ME_503E27CA010E_ME_503DE6F30027 // GetIsAutoCenter
@@ -2702,7 +2488,6 @@ ref; // ME_50477A430157_ME_503DE6F30027 NeedAutoDown
  ; // Overridden
  : Dependencies
    Seq: ( ME_506028E800FD // 
- ME_267EE990926A // 
  )
  ; // Dependencies
  : Injected
@@ -2722,32 +2507,6 @@ ref; // ME_50477A430157_ME_503DE6F30027 NeedAutoDown
 
 ref; // ME_503DE6F30027 TnscStatusBarButton
 
-: ME_A6AAB635D05F
- CONST UID 'A6AAB635D05F'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscStatusBarPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_503DEACA03BB // TnscStatusBarPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A6AAB635D05F Ini_Reg_Class
-
-: ME_37D41B14F846
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_503DEACA03BB // TnscStatusBarPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_37D41B14F846 
-
 : ME_503DEACA03BB
  CONST UID '503DEACA03BB'
  CONST Name 'TnscStatusBarPanel'
@@ -2763,14 +2522,6 @@ ref; // ME_37D41B14F846
  WL 'ME_505DA5E7038D' '505DA8FC03CF.pas.ms.script' // nscStatusBarItemNotification
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A6AAB635D05F // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_37D41B14F846 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
@@ -2783,32 +2534,6 @@ ref; // ME_37D41B14F846
  CONST extprop:pas:UnitName 'nscStatusBarPanel'
 
 ref; // ME_503DEACA03BB TnscStatusBarPanel
-
-: ME_17B951BE1BDF
- CONST UID '17B951BE1BDF'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscStatusBarSep' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5058B74F01A1 // TnscStatusBarSep
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_17B951BE1BDF Ini_Reg_Class
-
-: ME_B994E13048DB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5058B74F01A1 // TnscStatusBarSep
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_B994E13048DB 
 
 : ME_5058B74F01A1
  CONST UID '5058B74F01A1'
@@ -2825,14 +2550,6 @@ ref; // ME_B994E13048DB
  WL 'ME_505DA5E7038D' '505DA8FC03CF.pas.ms.script' // nscStatusBarItemNotification
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_17B951BE1BDF // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_B994E13048DB // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -2893,7 +2610,6 @@ ref; // ME_5058B74F01A1 TnscStatusBarSep
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "UseNewGen" true

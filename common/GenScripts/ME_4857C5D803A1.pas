@@ -3,6 +3,8 @@ unit SimpleDocument_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\SimpleDocument_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "SimpleDocument" MUID: (4857C5D803A1)
+// Имя типа: "SimpleDocumentTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

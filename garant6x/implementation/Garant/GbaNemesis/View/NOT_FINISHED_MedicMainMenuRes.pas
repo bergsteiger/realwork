@@ -2,6 +2,7 @@ unit NOT_FINISHED_MedicMainMenuRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_MedicMainMenuRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "MedicMainMenuRes" MUID: (4AA7E9CB034A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit nsWindowsListPrim;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\nsWindowsListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsWindowsListPrim" MUID: (4ADC5146016D)
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

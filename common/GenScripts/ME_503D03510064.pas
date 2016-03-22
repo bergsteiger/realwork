@@ -2,6 +2,7 @@ unit atDumpTreeOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atDumpTreeOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatDumpTreeOperation" MUID: (503D03510064)
 
 interface
 

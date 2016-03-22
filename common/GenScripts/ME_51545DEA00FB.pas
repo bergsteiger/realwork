@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\SandBox\StackPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "StackPrim" MUID: (51545DEA00FB)
+// Имя типа: "_StackPrim_"
 
 {$Define StackPrim_imp}
 

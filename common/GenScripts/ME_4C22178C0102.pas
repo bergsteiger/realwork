@@ -2,6 +2,7 @@ unit evHAFPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evHAFPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevHAFPainter" MUID: (4C22178C0102)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

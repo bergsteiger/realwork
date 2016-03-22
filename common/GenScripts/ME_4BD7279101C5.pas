@@ -3,6 +3,8 @@ unit PrimConfigurationList_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimConfigurationList_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimConfigurationList" MUID: (4BD7279101C5)
+// Имя типа: "TPrimConfigurationListForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

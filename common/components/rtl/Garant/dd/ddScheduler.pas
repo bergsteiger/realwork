@@ -2,9 +2,42 @@ unit ddScheduler;
 {* Класс Планировщик }
 { Автор: Дудко Д.В.  }
 { Начат: 11.11.2003  }
-{ $Id: ddScheduler.pas,v 1.101 2015/10/14 07:08:12 lukyanets Exp $ }
+{ $Id: ddScheduler.pas,v 1.112 2016/03/04 09:35:41 lukyanets Exp $ }
 
 // $Log: ddScheduler.pas,v $
+// Revision 1.112  2016/03/04 09:35:41  lukyanets
+// Отвалились вложенные задания
+//
+// Revision 1.111  2016/03/02 11:06:43  lukyanets
+// Меньше гадим в лог
+//
+// Revision 1.110  2016/03/01 13:19:09  lukyanets
+// Текут LocalStub
+//
+// Revision 1.109  2016/03/01 12:56:18  lukyanets
+// Текут LocalStub
+//
+// Revision 1.108  2016/02/25 13:43:25  lukyanets
+// Временный механизм откладывания выполнения
+//
+// Revision 1.107  2016/02/25 12:44:44  lukyanets
+// Cleanup
+//
+// Revision 1.106  2016/02/25 08:17:31  lukyanets
+// Cleanup
+//
+// Revision 1.105  2016/02/19 11:48:49  lukyanets
+// Заготовки вилочного запроса
+//
+// Revision 1.104  2016/01/21 06:41:52  lukyanets
+// Cleanup
+//
+// Revision 1.103  2015/12/22 11:38:17  lukyanets
+// Выводим в лог потребление виндовых ресурсов
+//
+// Revision 1.102  2015/12/10 13:16:41  lukyanets
+// Логируем потребление памяти
+//
 // Revision 1.101  2015/10/14 07:08:12  lukyanets
 // Cleanup
 //
@@ -338,7 +371,7 @@ Uses
  ddAppConfigConst;
 
 type
- TddSchedulerTaskPeriodicity = (stOnce,       // заданы время и дата
+  TddSchedulerTaskPeriodicity = (stOnce,       // заданы время и дата
                          stEveryDay,   // задано время
                          stEveryWeek,  // заданы время и день недели
                          stEveryMonth, // заданы время и день месяца
@@ -354,6 +387,8 @@ type
                            st_dowSaturday,
                            st_dowSunday);
   TddSchedulerDays = set of TddSchedulerDayOfWeek;
+
+  TddSchedulerTaskResult = (strOk, strFailed, strRequestDelay);
 
   TddSchedulerTime = class(Tl3Base)
   private
@@ -372,13 +407,13 @@ type
     FExcludeDates: Tl3ObjectRefList;
     FIncludeDates: Tl3ObjectRefList;
     f_Deleted: Boolean;
-    f_Done: Boolean;
     f_ExecuteByTimer: Boolean;
     f_IsChanged: Boolean;
     f_Master: TddSchedulerTask;
     f_Params: TddAppConfigNode;
     f_UID: Integer;
     f_NextScheduledTime: TDateTime;
+    f_ExecuteResult: TddSchedulerTaskResult;
     procedure AssignExcludeDates(aSource: TddSchedulerTask);
     procedure AssignIncludeDates(aSource: TddSchedulerTask);
     procedure CreateParams;
@@ -395,7 +430,7 @@ type
     function pm_GetDay: Word;
     function pm_GetPeriodicity: TddSchedulerTaskPeriodicity;
     function pm_GetPrevFullDateTime(NearDate: TDateTime): TDateTime;
-    function pm_GetSubTask(Index: Integer): TddCalendarTaskType;
+    function pm_GetSubTaskType(Index: Integer): TddCalendarTaskType;
     function pm_GetSubTaskCount: Integer;
     function pm_GetTaskDate: TDateTime;
     function pm_GetTaskTime: TDateTime;
@@ -411,6 +446,7 @@ type
     procedure pm_SetUID(const aValue: Integer);
     procedure pm_SetWrongDays(const aValue: TddSchedulerDays);
     procedure TypeChanged(aItem: TddBaseConfigItem; const aValue: TddConfigValue);
+    procedure ClearSubTasks;
  protected
     procedure Cleanup; override;
     function GetNearestDateTime(const aNow: TDateTime): TDateTime; virtual;
@@ -439,7 +475,7 @@ type
     property Caption: AnsiString read pm_GetCaption write pm_SetCaption;
     property Day: Word read pm_GetDay write pm_SetDay;
     property Deleted: Boolean read f_Deleted write f_Deleted;
-    property Done: Boolean read f_Done write f_Done;
+    property ExecuteResult: TddSchedulerTaskResult read f_ExecuteResult write f_ExecuteResult;
     property ExcludeDates[Index: Integer]: TddSchedulerTime read
             GetExcludeDates;
     property ExcludeDatesCount: Integer read GetExcludeDatesCount;
@@ -453,7 +489,7 @@ type
     property Params: TddAppConfigNode read f_Params;
     property Periodicity: TddSchedulerTaskPeriodicity read pm_GetPeriodicity write pm_SetPeriodicity;
     property PrevFullDateTime[NearDate: TDateTime]: TDateTime read pm_GetPrevFullDateTime;
-    property SubTask[Index: Integer]: TddCalendarTaskType read pm_GetSubTask;
+    property SubTaskType[Index: Integer]: TddCalendarTaskType read pm_GetSubTaskType;
     property SubTaskCount: Integer read pm_GetSubTaskCount;
     property TaskDate: TDateTime read pm_GetTaskDate write pm_SetTaskDate;
     property TaskTime: TDateTime read pm_GetTaskTime write pm_SetTaskTime;
@@ -465,12 +501,20 @@ type
 
   TddTaskColor = procedure (aTaskID: TddCalendarTaskType; out aColor: TColor) of object;
 
-  TddSchedulerTaskHandler = procedure (aTask: TddSchedulerTask) of object;
+  TddSchedulerTaskHandler = procedure (const aTask: TddSchedulerTask) of object;
 
   PddSchedulerTaskHandlerRec = ^TddSchedulerTaskHandlerRec;
   TddSchedulerTaskHandlerRec = record
    rTaskType: TddCalendarTaskType;
    rHandler : TddSchedulerTaskHandler;
+  end;
+
+  TddSchedulerCanRunTaskHandler = procedure (const aTask: TddSchedulerTask; var CanRun: Boolean) of object;
+
+  PddSchedulerCanRunTaskHandlerRec = ^TddSchedulerCanRunTaskHandlerRec;
+  TddSchedulerCanRunTaskHandlerRec = record
+   rTaskType: TddCalendarTaskType;
+   rHandler : TddSchedulerCanRunTaskHandler;
   end;
 
   TddScheduler = class(Tl3Base)
@@ -481,6 +525,7 @@ type
     f_Timer: Tl3Timer;
     f_ExecuteHandlerList: Tl3RecList;
     f_ChangeHandlerList: Tl3RecList;
+    f_CanRunHandlerList: Tl3RecList;
     f_IsChanged: Boolean;
     f_DisableCounter: Integer;
     f_DelayedTasks: Tl3ObjectRefList;
@@ -489,10 +534,12 @@ type
     f_Running: Boolean;
     f_NeedRecalc: Boolean;
     f_FromTimer: Boolean;
+    f_FakeSubTask: TddSchedulerTask;
     procedure AddHandler(aList: Tl3RecList; aTaskType: TddCalendarTaskType; aTaskHandler: TddSchedulerTaskHandler);
     function ColorOnID(aTaskType: TddCalendarTaskType): TColor;
     procedure DelHandler(aList: Tl3RecList; aTaskType: TddCalendarTaskType; aTaskHandler: TddSchedulerTaskHandler);
-    function ExecuteTask(aTask: TddSchedulerTask; aWithSubTasks: Boolean): Boolean;
+    function ExecuteTask(const aTask: TddSchedulerTask; aWithSubTasks, AllowDelay, AskForExecution: Boolean): TddSchedulerTaskResult;
+    procedure DelayTask(const aTask: TddSchedulerTask);
     function GetCount: Integer;
     function GetTasks(Index: Integer): TddSchedulerTask;
     function GetUID: Integer;
@@ -500,7 +547,9 @@ type
     procedure _OnTimer(Sender: TObject);
     procedure DoLocalTimeChange(Sender: TObject);
     function FindHandler(aList: Tl3RecList; aTaskType: TddCalendarTaskType; aTaskHandler: TddSchedulerTaskHandler): Integer;
+    function FindCanRunHandler(aTaskType: TddCalendarTaskType; aTaskHandler: TddSchedulerCanRunTaskHandler): Integer;
     function GetTaskHandler(aTaskType: TddCalendarTaskType; out theHandler: TddSchedulerTaskHandler): Boolean;
+    function GetCanRunTaskHandler(aTaskType: TddCalendarTaskType; out theHandler: TddSchedulerCanRunTaskHandler): Boolean;
     procedure pm_SetIsChanged(const Value: Boolean);
     procedure ReFillTaskQueue(aNow: TDateTime; aList: TObjectList = nil);
     procedure ProcessTaskQueue(aNow: TDateTime);
@@ -511,6 +560,8 @@ type
     procedure EndWork;
     function IsInWork: Boolean;
     procedure DoDoLocalTimeChange(aFromTimer: Boolean);
+    function CanRunTask(const aTask: TddSchedulerTask; aWithSubTasks: Boolean): Boolean;
+    function GetFakeSubTask(const aParent: TddSchedulerTask; aTaskType: TddCalendarTaskType): TddSchedulerTask;
   protected
     procedure Cleanup; override;
   public
@@ -521,6 +572,8 @@ type
     procedure DelExecuteHandler(aTaskType: TddCalendarTaskType; aTaskHandler: TddSchedulerTaskHandler);
     procedure AddChangeHandler(aTaskType: TddCalendarTaskType; aTaskHandler: TddSchedulerTaskHandler);
     procedure DelChangeHandler(aTaskType: TddCalendarTaskType; aTaskHandler: TddSchedulerTaskHandler);
+    procedure AddCanRunHandler(aTaskType: TddCalendarTaskType; aTaskHandler: TddSchedulerCanRunTaskHandler);
+    procedure DelCanRunHandler(aTaskType: TddCalendarTaskType; aTaskHandler: TddSchedulerCanRunTaskHandler);
     procedure CheckDelayedTasks;
 
     procedure Assign(P: TddScheduler); //override;
@@ -1183,9 +1236,9 @@ begin
   Result:= l_Prev;
 end;
 
-function TddSchedulerTask.pm_GetSubTask(Index: Integer): TddCalendarTaskType;
+function TddSchedulerTask.pm_GetSubTaskType(Index: Integer): TddCalendarTaskType;
 begin
- Result := TddCalendarTaskType((Params.AsObject[NestedAlias] as TddSimpleListDataAdapter).Values[Index, 'Type'].AsInteger); //TddSchedulerTask(f_Container.Items[Index]);
+ Result := TddCalendarTaskType((Params.AsObject[NestedAlias] as TddSimpleListDataAdapter).Values[Index, 'Type'].AsInteger);
 end;
 
 function TddSchedulerTask.pm_GetSubTaskCount: Integer;
@@ -1370,6 +1423,7 @@ begin
   f_TaskQueue := TObjectList.Create(True);
   f_ExecuteHandlerList := Tl3RecList.Create(SizeOf(TddSchedulerTaskHandlerRec));
   f_ChangeHandlerList := Tl3RecList.Create(SizeOf(TddSchedulerTaskHandlerRec));
+  f_CanRunHandlerList := Tl3RecList.Create(SizeOf(TddSchedulerCanRunTaskHandlerRec));
   f_IsChanged := False;
 end;
 
@@ -1607,8 +1661,10 @@ begin
  l3Free(f_Tasks);
  l3Free(f_TaskQueue);
  l3Free(f_DelayedTasks);
+ l3Free(f_CanRunHandlerList);
  l3Free(f_ExecuteHandlerList);
  l3Free(f_ChangeHandlerList);
+ l3Free(f_FakeSubTask);
  inherited;
 end;
 
@@ -1632,8 +1688,8 @@ begin
   aList.Delete(l_Idx);
 end;
 
-function TddScheduler.ExecuteTask(aTask: TddSchedulerTask; aWithSubTasks: Boolean): Boolean;
-
+function TddScheduler.ExecuteTask(const aTask: TddSchedulerTask; aWithSubTasks, AllowDelay, AskForExecution: Boolean): TddSchedulerTaskResult;
+(*
  function CheckHandler(aData: Pointer; anIndex: Integer): Boolean;
  var
   l_HandlerRec: PddSchedulerTaskHandlerRec;
@@ -1643,16 +1699,7 @@ function TddScheduler.ExecuteTask(aTask: TddSchedulerTask; aWithSubTasks: Boolea
   if l_HandlerRec.rTaskType = aTask.TaskType then
    l_HandlerRec.rHandler(aTask);
  end;
-
- function RunSlaves(aData: Pointer; anIndex: Integer): Boolean;
- var
-  l_Task: TddSchedulerTask;
- begin
-  Result := True;
-  l_Task := TddSchedulerTask(aData^);
-  if l_Task.TaskType in ddCalendarEventArray[aTask.TaskType].Slaves then
-   Result:= ExecuteTask(l_Task, True);
- end;
+*)
 
 var
  I: Integer;
@@ -1663,49 +1710,54 @@ var
 begin
  BeginWork;
  try
+  Result:= strFailed;
   if aTask.Deleted then
    Exit;
-  Result:= False;
   if not ScheduleEnabled then
-  begin
-   f_DelayedTasks.Remove(aTask);
-   f_DelayedTasks.Add(aTask);
-  end
+   DelayTask(aTask)
   else
   begin
+   aTask.ExecuteResult := strFailed;
+   if AskForExecution then
+    if not CanRunTask(aTask, aWithSubTasks) then
+    begin
+     if AllowDelay then
+      DelayTask(aTask);
+     Exit;
+    end;
    l3System.Msg2Log('Выполняется задача: %s, запланированная на %s', [aTask.Caption, DateTimeToStr(aTask.NextScheduledTime)]);
    // Маловероятно, что у задачи несколько обработчиков f_ExecuteHandlerList.IterateAllF(l3L2IA(@CheckHandler));
    if GetTaskHandler(aTask.TaskType, l_Handler) then
+    l_Handler(aTask)
+   else
+    aTask.ExecuteResult := strOk;
+   Result:= aTask.ExecuteResult;
+   if Result = strOk then
    begin
-    l_Handler(aTask);
-    if aTask <> nil then
-     Result:= aTask.Done
-    else
-     Result:= True;
-   end; // GetTaskHandler(aTask.TaskType, l_Handler)
-   if Result then
-   begin
-    TaskList.IterateAllF(l3L2IA(@RunSlaves));
-    if aWithSubTasks then
+    if (Result = strOk) and aWithSubTasks then
      for i:= 0 to Pred(aTask.SubTaskCount) do
      begin
-      l_SubTaskType:= aTask.SubTask[i];
+      l_SubTaskType:= aTask.SubTaskType[i];
       if l_SubTaskType <> aTask.TaskType then
       begin
-       l_SubTask:= GetTaskByTaskType(l_SubTaskType);
+       l_SubTask := GetFakeSubTask(aTask, l_SubTaskType);
        if GetTaskHandler(l_SubTaskType, l_Handler) then
        begin
         l3System.Msg2Log('Выполняется связанная задача: %s', [ddCalendarEventArray[l_SubTaskType].Caption]);
+        l_SubTask.ExecuteResult := strFailed;
         l_Handler(l_SubTask);
-        if (l_SubTask <> nil) and not l_SubTask.Done then
+        if l_SubTask.ExecuteResult <> strOk then
         begin
-         Result:= False;
+         aTask.ExecuteResult := l_SubTask.ExecuteResult;
+         Result:= aTask.ExecuteResult;
          break;
         end;
        end;
-      end; // aTask.SubTask[i] <> aTask.TaskType
+      end; // aTask.SubTaskType[i] <> aTask.TaskType
      end; // for i
-   end; // aTask.Done
+   end; // Result
+   if AllowDelay and (aTask.ExecuteResult = strRequestDelay) then
+    DelayTask(aTask);
   end; // not ScheduleEnabled
  finally
   EndWork;
@@ -1782,7 +1834,7 @@ begin
   if ddCalendarEventArray[l_TT].Required then
   begin
    l_Found := -1;
-   f_Tasks.IterateAll(l3L2IA(@FindTask));
+   f_Tasks.IterateAllF(l3L2IA(@FindTask));
    if l_Found < 0 then // required задание не найдено
    begin
     if theExplanation <> '' then
@@ -1884,8 +1936,8 @@ begin
    if Assigned(f_OnChangeTask) then
      f_OnChangeTask(Self);
 
-   l3System.Msg2Log('SCHEDUL ANOW = %s', [DateTimeToStr(aNow)], l3_msgLevel3);
-   l3System.Msg2Log('SCHEDUL NOW = %s', [DateTimeToStr(Now)], l3_msgLevel3);
+   l3System.Msg2Log('SCHEDUL ANOW = %s', [DateTimeToStr(aNow)], l3_msgLevel10);
+   l3System.Msg2Log('SCHEDUL NOW = %s', [DateTimeToStr(Now)], l3_msgLevel10);
 
    if CompareDateTime(Now, l_Task.NextScheduledTime) = GreaterThanValue then
    begin
@@ -1901,8 +1953,8 @@ begin
     else
      f_Timer.Interval:= MillisecondsBetween(Now, l_Task.NextScheduledTime)+MagicEpsilon;
     l_RunTime := l_Task.NextScheduledTime - Now;
-    l3System.Msg2Log('SCHEDUL Будет запущена через %d дней %s', [Trunc(l_RunTime), TimeToStr(l_RunTime)]);
-    l3System.Msg2Log('SCHEDUL TASK DATE = %s', [DateTimeToStr(l_Task.NextScheduledTime)], l3_msgLevel3);
+    l3System.Msg2Log('SCHEDUL Будет запущена через %d дней %s', [Trunc(l_RunTime), TimeToStr(l_RunTime)], l3_msgLevel10);
+    l3System.Msg2Log('SCHEDUL TASK DATE = %s', [DateTimeToStr(l_Task.NextScheduledTime)], l3_msgLevel10);
     f_Timer.Enabled:= True;
    end;
   end;
@@ -2014,7 +2066,7 @@ var
  begin
   Result := True;
   l_Task := TddSchedulerTask(aData^);
-  ExecuteTask(l_Task, True);
+  ExecuteTask(l_Task, True, True, True);
  end;
 
 begin
@@ -2022,9 +2074,9 @@ begin
  begin
   l_List := Tl3ObjectRefList.Make;
   try
-   f_DelayedTasks.IterateAll(l3L2IA(@DoCopy));
+   f_DelayedTasks.IterateAllF(l3L2IA(@DoCopy));
    f_DelayedTasks.Clear;
-   l_List.IterateAll(l3L2IA(@DoExecute));
+   l_List.IterateAllF(l3L2IA(@DoExecute));
   finally
    FreeAndNil(l_List);
   end;
@@ -2084,7 +2136,7 @@ begin
   if aList = nil then
     aList := f_TaskQueue;
   aList.Clear;
-  f_Tasks.IterateAll(l3L2IA(@ProcessTask));
+  f_Tasks.IterateAllF(l3L2IA(@ProcessTask));
   aList.Sort(@QueueSort)
 end;
 
@@ -2098,7 +2150,7 @@ begin
    Exit;
   if CompareDateTime(TddSchedulerTask(f_TaskQueue[l_IDX]).NextScheduledTime, aNow) <> GreaterThanValue then
   begin
-   ExecuteTask(TddSchedulerTask(f_TaskQueue[l_IDX]), True);
+   ExecuteTask(TddSchedulerTask(f_TaskQueue[l_IDX]), True, True, False);
    f_TaskQueue.Delete(l_IDX);
   end
   else
@@ -2205,6 +2257,110 @@ begin
  finally
   EndWork;
  end;
+end;
+
+procedure TddScheduler.DelayTask(const aTask: TddSchedulerTask);
+begin
+ f_DelayedTasks.Remove(aTask);
+ f_DelayedTasks.Add(aTask);
+end;
+
+function TddScheduler.CanRunTask(const aTask: TddSchedulerTask; aWithSubTasks: Boolean): Boolean;
+var
+ l_Result: Boolean;
+ I: Integer;
+ l_Handler: TddSchedulerCanRunTaskHandler;
+ l_SubTaskType: TddCalendarTaskType;
+
+begin
+ l_Result := True;
+ if GetCanRunTaskHandler(aTask.TaskType, l_Handler) then
+  l_Handler(aTask, l_Result);
+ if l_Result and aWithSubTasks then
+  for i:= 0 to Pred(aTask.SubTaskCount) do
+  begin
+   l_SubTaskType:= aTask.SubTaskType[i];
+   if l_SubTaskType <> aTask.TaskType then
+   begin
+    if not CanRunTask(GetFakeSubTask(aTask, l_SubTaskType), False) then
+    begin
+     l_Result := False;
+     Break;
+    end;
+   end; // aTask.SubTaskType[i] <> aTask.TaskType
+  end; // for i
+ Result := l_Result;
+end;
+
+procedure TddScheduler.AddCanRunHandler(aTaskType: TddCalendarTaskType;
+  aTaskHandler: TddSchedulerCanRunTaskHandler);
+var
+ l_Rec: TddSchedulerCanRunTaskHandlerRec;
+begin
+ if FindCanRunHandler(aTaskType, aTaskHandler) < 0 then
+ begin
+  l_Rec.rTaskType := aTaskType;
+  l_Rec.rHandler := aTaskHandler;
+  f_CanRunHandlerList.Add(l_Rec);
+ end;
+end;
+
+procedure TddScheduler.DelCanRunHandler(aTaskType: TddCalendarTaskType;
+  aTaskHandler: TddSchedulerCanRunTaskHandler);
+var
+ l_Idx: Integer;
+begin
+ l_Idx := FindCanRunHandler(aTaskType, aTaskHandler);
+ if l_Idx >= 0 then
+  f_CanRunHandlerList.Delete(l_Idx);
+end;
+
+function TddScheduler.FindCanRunHandler(
+  aTaskType: TddCalendarTaskType;
+  aTaskHandler: TddSchedulerCanRunTaskHandler): Integer;
+var
+ l_Rec: TddSchedulerCanRunTaskHandlerRec;
+begin
+ l_Rec.rTaskType := aTaskType;
+ l_Rec.rHandler := aTaskHandler;
+ if not f_CanRunHandlerList.FindPart(l_Rec, SizeOf(TddSchedulerCanRunTaskHandlerRec), Result) then
+  Result := -1;
+end;
+
+function TddScheduler.GetCanRunTaskHandler(aTaskType: TddCalendarTaskType;
+  out theHandler: TddSchedulerCanRunTaskHandler): Boolean;
+var
+ i: Integer;
+ l_Handler: TddSchedulerCanRunTaskHandlerRec;
+
+begin
+ Result := False;
+ for i:= 0 to f_CanRunHandlerList.Hi do
+ begin
+  l_Handler:= PddSchedulerCanRunTaskHandlerRec(f_CanRunHandlerList.ItemSlot(i))^;
+  if l_Handler.rTaskType = aTaskType then
+  begin
+   theHandler:= l_Handler.rHandler;
+   Result:= True;
+   break;
+  end; // l_Handler.rTaskType = aTaskType
+ end; // for i
+end;
+
+function TddScheduler.GetFakeSubTask(const aParent: TddSchedulerTask;
+  aTaskType: TddCalendarTaskType): TddSchedulerTask;
+begin
+ if f_FakeSubTask = nil then
+  f_FakeSubTask := TddSchedulerTask.Create;
+ f_FakeSubTask.Assign(aParent);
+ f_FakeSubTask.TaskType := aTaskType;
+ f_FakeSubTask.ClearSubTasks;
+ Result := f_FakeSubTask;
+end;
+
+procedure TddSchedulerTask.ClearSubTasks;
+begin
+ (Params.AsObject[NestedAlias] as TddSimpleListDataAdapter).ClearItems;
 end;
 
 end.

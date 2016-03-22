@@ -2,6 +2,7 @@ unit ddAppConfig;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfig.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfig" MUID: (4B990EF000AA)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -195,6 +196,7 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure BeforeRelease; override;
+   procedure ClearFields; override;
   public
    constructor Create(const aStorage: IddConfigStorage = nil); reintroduce;
    function FindNode(aItem: TddBaseConfigItem): TddCustomConfigNode;
@@ -2595,6 +2597,14 @@ begin
  inherited;
 //#UC END# *49BFC98902FF_4B990F100126_impl*
 end;//TddAppConfiguration.BeforeRelease
+
+procedure TddAppConfiguration.ClearFields;
+begin
+ DialogCaption := '';
+ FontName := '';
+ RequiredMessage := '';
+ inherited;
+end;//TddAppConfiguration.ClearFields
 
 constructor TddCNode.Create(aNode: TddCustomConfigNode);
 //#UC START# *521486E4013C_52148644004C_var*

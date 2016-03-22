@@ -2,6 +2,7 @@ unit nsPrimeSettings;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsPrimeSettings.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsPrimeSettings" MUID: (4C99AEBC01B3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

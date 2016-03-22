@@ -2,6 +2,7 @@ unit RadioGroupWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\RadioGroupWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "RadioGroupWordsPack" MUID: (54F58770000F)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -75,11 +76,6 @@ begin
  aCtx.rEngine.PushInt(ItemIndex(aCtx, l_aRadioGroup));
 end;//TkwPopRadioGroupItemIndex.DoDoIt
 
-class function TkwPopRadioGroupItemIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:RadioGroup:ItemIndex';
-end;//TkwPopRadioGroupItemIndex.GetWordNameForRegister
-
 procedure TkwPopRadioGroupItemIndex.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 var l_RadioGroup: TRadioGroup;
@@ -110,6 +106,11 @@ function TkwPopRadioGroupItemIndex.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TRadioGroup)]);
 end;//TkwPopRadioGroupItemIndex.ParamsTypes
+
+class function TkwPopRadioGroupItemIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:RadioGroup:ItemIndex';
+end;//TkwPopRadioGroupItemIndex.GetWordNameForRegister
 
 initialization
  TkwPopRadioGroupItemIndex.RegisterInEngine;

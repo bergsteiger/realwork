@@ -2,6 +2,8 @@ unit fsDrugDocument;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\fsDrugDocument.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "DrugDocument" MUID: (4AA12BE1014F)
+// Имя типа: "Tfs_DrugDocument"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

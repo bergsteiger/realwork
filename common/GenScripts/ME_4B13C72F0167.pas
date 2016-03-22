@@ -2,6 +2,8 @@ unit PrimTasksPanel_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimTasksPanel_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimTasksPanel" MUID: (4B13C72F0167)
+// Имя типа: "TPrimTasksPanelForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

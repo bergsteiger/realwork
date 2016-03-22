@@ -2,6 +2,7 @@ unit mmmTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\mmmTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TmmmTree" MUID: (490C3BE30324)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,8 @@ unit kwTryFinally;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwTryFinally.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TryFinally" MUID: (4DBAC542005F)
+// Имя типа: "TkwTryFinally"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -327,31 +327,6 @@ void	Collection :: Merge ( int page )
 
 void Collection::fromDelete (long index) {
 	this->Cut (index);
-
-	// TODO: удалить!
-	/*
-	if ( index < 0 || index >= ItemCount )
-		return;
-
-	long count_to_delete = ItemCount - index;
-
-	int page = PageCount - 1;
-
-	while (Count [page] <= count_to_delete) {
-		ItemCount -= Count [page];
-		count_to_delete -= Count [page];
-		Count [page] = 0;
-		if (page) {
-			this->Merge (page - 1);
-			--page;
-		} else {
-			break;
-		}
-	}
-	for (; count_to_delete; --count_to_delete) {
-		this->atDelete (ItemCount - 1);
-	}
-	*/
 }
 
 bool Collection::Inflated () {
@@ -366,8 +341,9 @@ bool Collection::Inflated () {
 }
 
 void Collection::Deflate () {
-	if (0 == ItemCount)
-		return ;
+	if (ItemCount == 0) {
+		return;
+	}
 
 	size_t pos = 0;
 

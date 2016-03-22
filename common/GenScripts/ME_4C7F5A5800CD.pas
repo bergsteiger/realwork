@@ -2,6 +2,8 @@ unit PrimFiltersOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\PrimFiltersOptions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimFiltersOptions" MUID: (4C7F5A5800CD)
+// Имя типа: "TPrimFiltersOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

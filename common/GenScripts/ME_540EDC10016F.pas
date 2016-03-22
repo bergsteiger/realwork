@@ -2,6 +2,7 @@ unit l3Mutex;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Mutex.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3Mutex" MUID: (540EDC10016F)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

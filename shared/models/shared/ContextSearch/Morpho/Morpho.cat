@@ -1587,7 +1587,7 @@
 		    tool       	"MDA Generator"
 		    name       	"cpp:*5273986F01D9_52739AA90277_52739B1C03DF_BODY*"
 		    value      	(value Text 
-|//#UC START# *5273986F01D9_52739AA90277_52739B1C03DF_BODY*¤	GDS_ASSERT (comm);¤	GDS_ASSERT (normalizer);¤¤	m_transformer = Manage::IRequestTransformerFactory::make (normalizer);¤	m_synonymizer = new Synonymizer (comm, normalizer);¤	//#UC END# *5273986F01D9_52739AA90277_52739B1C03DF_BODY*
+|//#UC START# *5273986F01D9_52739AA90277_52739B1C03DF_BODY*¤	GDS_ASSERT (comm);¤	GDS_ASSERT (normalizer);¤¤	m_synonymizer = new Synonymizer (comm, normalizer);¤	//#UC END# *5273986F01D9_52739AA90277_52739B1C03DF_BODY*
 		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
@@ -1663,7 +1663,7 @@
 		    tool       	"MDA Generator"
 		    name       	"cpp:*5273986F01D9_52739AA90277_5391DAF7015C_BODY*"
 		    value      	(value Text 
-|//#UC START# *5273986F01D9_52739AA90277_5391DAF7015C_BODY*¤	//#UC END# *5273986F01D9_52739AA90277_5391DAF7015C_BODY*
+|//#UC START# *5273986F01D9_52739AA90277_5391DAF7015C_BODY*¤	m_normalizer = Morpho::Def::INormalizer::_duplicate (normalizer);¤	//#UC END# *5273986F01D9_52739AA90277_5391DAF7015C_BODY*
 		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
@@ -1884,13 +1884,13 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*528CD00602B1_52739B1C03DF*"
 			    value      	(value Text 
-|//#UC START# *528CD00602B1_52739B1C03DF*¤	try {¤		return this->make_spans (in, pseudo);¤	} catch (Search::InvalidSpans&) {¤		//LOG_I ((ex.what ()));¤	} catch (...) {¤		LOG_UEX ((GDS_CURRENT_FUNCTION));¤	}¤¤	return false;¤	//#UC END# *528CD00602B1_52739B1C03DF*
+|//#UC START# *528CD00602B1_52739B1C03DF*¤	try {¤		return this->make_spans (in);¤	} catch (Search::InvalidSpans&) {¤		//LOG_I ((ex.what ()));¤	} catch (...) {¤		LOG_UEX ((GDS_CURRENT_FUNCTION));¤	}¤¤	return false;¤	//#UC END# *528CD00602B1_52739B1C03DF*
 			    ))
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"cpp:*528CD00602B1_5390900700B2*"
 			    value      	(value Text 
-|//#UC START# *528CD00602B1_5390900700B2*¤	GDS_ASSERT (in.empty () == false);¤¤	bool was_exceeded_limit = false;¤¤	RequestsInfo info;¤¤	try {¤		std::for_each (in.begin (), in.end () // ñèíîíèìèçàöèÿ¤			, boost::bind (&ViewAsSequence_i::mutate, this, _1, boost::ref (info))¤		);¤	} catch (ExceededLimit& ex) {¤		was_exceeded_limit = true;¤		LOG_I ((ex.what ()));¤	} catch (...) {¤		LOG_UEX (("%s: mutate", GDS_CURRENT_FUNCTION));¤	}¤¤	{¤		std::sort (info.begin (), info.end ()); // ñîðòèðîâêà ïî óáûâàíèþ êîëè÷åñòâà ñèíîíèìè÷íûõ çàìåí¤¤		RequestsInfo::iterator it = std::remove_if (info.begin (), info.end ()¤			, boost::bind (&std::string::empty, boost::bind (&ReqData::text, _1))¤		);¤¤		info.erase (it, info.end ());¤	}¤¤	//print_info (info);¤¤	// Èñêëþ÷åíèå ñòîï-ñëîâ & ôîðìèðîâàíèå ðåçóëüòèðóþùåãî êîíòåéíåðà¤¤	const GCL::StrVector& exl_data = m_communicator->get_exclude_data ();¤¤	const DBComm::PSDTemplates fake;¤	//const DBComm::PSDTemplates& templates = (ext_multiply)? m_communicator->get_templates () : fake;¤¤	bool invalid_req_size = (this->transform (info, exl_data, fake) > MAX_WORDS_COUNT);¤¤	GCL::StrSet ret;¤¤	if (was_exceeded_limit || invalid_req_size) {¤		std::string corrected = src;¤		m_transformer->exclude (corrected,  exl_data, fake, false);¤		ret.insert (corrected); // èñõîäíûé èñïðàâëåííûé çàïðîñ¤	}¤¤	for (RequestsInfo::iterator it = info.begin (); it != info.end (); ++it) {¤		if (pseudo.empty () == false) {¤			ContextUtility::replace (it->text, pseudo); // çàìåíÿåì ïñåâäîíîðìàëèçîâàííûå ôîðìû íà èñõîäíûå¤		}¤¤		ret.insert (it->text);¤	}¤¤	m_sequence.reserve (ret.size ());¤¤	std::for_each (ret.begin (), ret.end (), boost::bind (&ViewAsSequence_i::add_request, this, _1));¤¤	return true;¤	//#UC END# *528CD00602B1_5390900700B2*
+|//#UC START# *528CD00602B1_5390900700B2*¤	GDS_ASSERT (in.empty () == false);¤¤	bool was_exceeded_limit = false;¤¤	RequestsInfo info;¤¤	try {¤		std::for_each (in.begin (), in.end () // ñèíîíèìèçàöèÿ¤			, boost::bind (&ViewAsSequence_i::mutate, this, _1, boost::ref (info))¤		);¤	} catch (ExceededLimit& ex) {¤		was_exceeded_limit = true;¤		LOG_I ((ex.what ()));¤	} catch (...) {¤		LOG_UEX (("%s: mutate", GDS_CURRENT_FUNCTION));¤	}¤¤	{¤		std::sort (info.begin (), info.end ()); // ñîðòèðîâêà ïî óáûâàíèþ êîëè÷åñòâà ñèíîíèìè÷íûõ çàìåí¤¤		RequestsInfo::iterator it = std::remove_if (info.begin (), info.end ()¤			, boost::bind (&std::string::empty, boost::bind (&ReqData::text, _1))¤		);¤¤		info.erase (it, info.end ());¤	}¤¤	//print_info (info);¤¤	// Ôîðìèðîâàíèå ðåçóëüòèðóþùåãî êîíòåéíåðà¤¤	bool invalid_req_size = (this->transform (info) > MAX_WORDS_COUNT);¤¤	GCL::StrSet ret;¤¤	if (was_exceeded_limit || invalid_req_size) {¤		std::string corrected = src;¤		m_transformer->exclude (corrected,  m_communicator->get_exclude_data ());¤		ret.insert (corrected); // èñõîäíûé èñïðàâëåííûé çàïðîñ¤	}¤¤	for (RequestsInfo::iterator it = info.begin (); it != info.end (); ++it) {¤		ret.insert (it->text);¤	}¤¤	m_sequence.reserve (ret.size ());¤¤	std::for_each (ret.begin (), ret.end (), boost::bind (&ViewAsSequence_i::add_request, this, _1));¤¤	return true;¤	//#UC END# *528CD00602B1_5390900700B2*
 			    ))
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -1915,18 +1915,6 @@
 			    quid       	"5390A4BB00C3"
 			    type       	"Phrase"
 			    quidu      	"4516A1750280")
-			(object Parameter "pseudo"
-			    attributes 	(list Attribute_Set
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ElementCreationOrder"
-				    value      	"1401988283324436")
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ResolvedTypeGuid"
-				    value      	"4E00B98E0235"))
-			    quid       	"5390A4BB0144"
-			    type       	"StrStrMap")
 			(object Parameter "src"
 			    attributes 	(list Attribute_Set
 				(object Attribute
@@ -2623,7 +2611,7 @@
 	    max_height 	28350
 	    max_width  	21600
 	    origin_x   	0
-	    origin_y   	0
+	    origin_y   	720
 	    items      	(list diagram_item_list
 		(object ClassView "Class" "Logical View::shared::ContextSearch::Search::IAlgorithm" @1
 		    ShowCompartmentStereotypes 	TRUE
@@ -3218,26 +3206,26 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@15
-			location   	(512, 1284)
+			location   	(565, 1287)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	542
+			max_width  	436
 			justify    	0
 			label      	"RelevancyDocuments")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@15
-			location   	(512, 1234)
+			location   	(565, 1238)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	542
+			max_width  	436
 			justify    	0
 			label      	"<<Typedef>>")
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"4516962B02BF"
-		    width      	560
-		    height     	167
+		    width      	454
+		    height     	158
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::shared::ContextSearch::Defs::RelevancyDocuments" @16
@@ -3298,7 +3286,7 @@
 		    client     	@15
 		    supplier   	@16
 		    vertices   	(list Points
-			(1063, 1305)
+			(1010, 1305)
 			(1254, 1305))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::shared::ContextSearch::Search::IWorker" @18
@@ -3319,19 +3307,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@18
-			location   	(127, 3432)
+			location   	(128, 3432)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	916
+			max_width  	914
 			justify    	0
 			label      	"IWorker")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@18
-			location   	(127, 3383)
+			location   	(128, 3383)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	916
+			max_width  	914
 			justify    	0
 			label      	"<<Interface>>")
 		    icon       	"Interface"
@@ -3340,7 +3328,7 @@
 		    quidu      	"506D833C002E"
 		    compartment 	(object Compartment
 			Parent_View 	@18
-			location   	(127, 3492)
+			location   	(128, 3492)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -3357,7 +3345,7 @@
 			nlines     	6
 			max_width  	934
 			justify    	1)
-		    width      	934
+		    width      	932
 		    height     	434
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -3485,7 +3473,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(354, 1794)
+		    location   	(354, 1815)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -3498,7 +3486,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@21
-			location   	(167, 1766)
+			location   	(167, 1787)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	374
@@ -3506,7 +3494,7 @@
 			label      	"• CanceledByUser")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@21
-			location   	(167, 1716)
+			location   	(167, 1737)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -3538,19 +3526,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@22
-			location   	(127, 2861)
+			location   	(128, 2862)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1624
+			max_width  	1622
 			justify    	0
 			label      	"• IRequestView")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@22
-			location   	(127, 2812)
+			location   	(128, 2813)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1624
+			max_width  	1622
 			justify    	0
 			label      	"<<Interface>>")
 		    icon       	"Interface"
@@ -3559,7 +3547,7 @@
 		    quidu      	"5273986F01D9"
 		    compartment 	(object Compartment
 			Parent_View 	@22
-			location   	(127, 2921)
+			location   	(128, 2922)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -3576,8 +3564,8 @@
 			nlines     	7
 			max_width  	1646
 			justify    	1)
-		    width      	1642
-		    height     	484
+		    width      	1640
+		    height     	482
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::shared::ContextSearch::Search::InvisibleBlocks" @23
@@ -3600,26 +3588,26 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@23
-			location   	(646, 1545)
+			location   	(687, 1548)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	394
+			max_width  	312
 			justify    	0
 			label      	"InvisibleBlocks")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@23
-			location   	(646, 1495)
+			location   	(687, 1499)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	394
+			max_width  	312
 			justify    	0
 			label      	"<<Typedef>>")
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"527B85F70282"
-		    width      	412
-		    height     	167
+		    width      	330
+		    height     	158
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::shared::ContextSearch::Defs::InvisibleBlocks" @24
@@ -3680,7 +3668,7 @@
 		    client     	@23
 		    supplier   	@24
 		    vertices   	(list Points
-			(1049, 1566)
+			(1008, 1566)
 			(1254, 1567))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::shared::ContextSearch::Defs::IFilter" @26
@@ -3744,26 +3732,26 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@27
-			location   	(718, 2067)
+			location   	(765, 2070)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	328
+			max_width  	234
 			justify    	0
 			label      	"IFilter")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@27
-			location   	(718, 2017)
+			location   	(765, 2021)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	325
+			max_width  	234
 			justify    	0
 			label      	"<<Typedef>>")
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"52FBA81203B3"
-		    width      	346
-		    height     	167
+		    width      	252
+		    height     	158
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object InheritView "" @28
@@ -3783,7 +3771,7 @@
 		    client     	@27
 		    supplier   	@26
 		    vertices   	(list Points
-			(1055, 2086)
+			(1008, 2086)
 			(1255, 2085))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::shared::ContextSearch::Search::IResCollector" @29
@@ -3806,26 +3794,26 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@29
-			location   	(690, 1806)
+			location   	(727, 1809)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	348
+			max_width  	274
 			justify    	0
 			label      	"IResCollector")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@29
-			location   	(690, 1756)
+			location   	(727, 1760)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	348
+			max_width  	274
 			justify    	0
 			label      	"<<Typedef>>")
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"532868720249"
-		    width      	366
-		    height     	167
+		    width      	292
+		    height     	158
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::shared::ContextSearch::Defs::IResCollector" @30
@@ -3886,7 +3874,7 @@
 		    client     	@29
 		    supplier   	@30
 		    vertices   	(list Points
-			(1047, 1827)
+			(1010, 1827)
 			(1253, 1827))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::shared::ContextSearch::Search::InvalidSpans" @32
@@ -3894,7 +3882,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(303, 2058)
+		    location   	(303, 2073)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -3907,7 +3895,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@32
-			location   	(168, 2030)
+			location   	(168, 2045)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	270
@@ -3915,11 +3903,11 @@
 			label      	"InvalidSpans")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@32
-			location   	(168, 1980)
+			location   	(168, 1995)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	267
+			max_width  	270
 			justify    	0
 			label      	"<<Exception>>")
 		    icon_style 	"Label"
@@ -4227,21 +4215,21 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@43
-			location   	(1768, 554)
+			location   	(1772, 560)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	214
+			max_width  	206
 			justify    	0
 			label      	"a-string")
 		    icon_style 	"None"
 		    line_color 	14803425
 		    fill_color 	14803425
 		    quidu      	"452257A0036F"
-		    width      	232
-		    height     	117
+		    width      	224
+		    height     	105
 		    autoResize 	TRUE)
 		(object AssociationViewNew "$UNNAMED$7" @44
-		    location   	(1875, 756)
+		    location   	(1875, 753)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -4258,26 +4246,26 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "$UNNAMED$8" @45
 			    Parent_View 	@44
-			    location   	(-171, -177)
+			    location   	(-171, -180)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F6093D30381"
 			    client     	@44
 			    supplier   	@43
 			    vertices   	(list Points
-				(1875, 756)
-				(1875, 658))
+				(1875, 753)
+				(1875, 652))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$9" @46
 			    Parent_View 	@44
-			    location   	(-171, -177)
+			    location   	(-171, -180)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F6093D3038A"
 			    client     	@44
 			    supplier   	@35
 			    vertices   	(list Points
-				(1875, 756)
+				(1875, 753)
 				(1876, 854))
 			    line_style 	0)))
 		(object ClassView "Class" "Logical View::shared::ContextSearch::Search::Phrases" @47
@@ -4539,7 +4527,7 @@
 			    tool       	"MDA Generator"
 			    name       	"LineVertices"
 			    value      	"1857,442;2068,441"))
-		    location   	(1638, 600)
+		    location   	(1640, 600)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -4561,15 +4549,15 @@
 				    name       	"LineVertices"
 				    value      	"1962,441;2068,441"))
 			    Parent_View 	@55
-			    location   	(1455, -492)
+			    location   	(1457, -492)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"452F9E8203C8"
 			    client     	@55
 			    supplier   	@43
 			    vertices   	(list Points
-				(1638, 600)
-				(1758, 600))
+				(1640, 600)
+				(1762, 600))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$2" @57
 			    attributes 	(list Attribute_Set
@@ -4578,14 +4566,14 @@
 				    name       	"LineVertices"
 				    value      	"1962,441;1857,442"))
 			    Parent_View 	@55
-			    location   	(1455, -492)
+			    location   	(1457, -492)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"452F9E8203CA"
 			    client     	@55
 			    supplier   	@54
 			    vertices   	(list Points
-				(1638, 600)
+				(1640, 600)
 				(1518, 600))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$21" @58
@@ -4851,4 +4839,45 @@
 			    vertices   	(list Points
 				(1163, 600)
 				(1032, 600))
-			    line_style 	0)))))))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::shared::ContextSearch::Defs::Positions" @73
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2820, 168)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	6572835
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@73
+			location   	(2715, 141)
+			nlines     	1
+			max_width  	210
+			justify    	0
+			label      	"Positions")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@73
+			location   	(2715, 91)
+			anchor     	10
+			nlines     	1
+			max_width  	210
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    line_color 	6572835
+		    fill_color 	16777215
+		    quidu      	"4E1F0DBE03E4"
+		    width      	228
+		    height     	178
+		    annotation 	8
+		    autoResize 	TRUE)))))

@@ -2,6 +2,7 @@ unit KeyWordPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\KeyWordPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "KeyWordPack" MUID: (55895F0A01BF)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -163,11 +164,6 @@ begin
  SetWord(aCtx, l_aKeyWord, l_aWord);
 end;//TkwPopKeyWordSetWord.DoDoIt
 
-class function TkwPopKeyWordSetWord.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:KeyWord:SetWord';
-end;//TkwPopKeyWordSetWord.GetWordNameForRegister
-
 function TkwPopKeyWordSetWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -182,6 +178,11 @@ function TkwPopKeyWordSetWord.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwKeyWord), TypeInfo(TtfwWord)]);
 end;//TkwPopKeyWordSetWord.ParamsTypes
+
+class function TkwPopKeyWordSetWord.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:KeyWord:SetWord';
+end;//TkwPopKeyWordSetWord.GetWordNameForRegister
 
 function TkwPopKeyWordWord.Word(const aCtx: TtfwContext;
  aKeyWord: TtfwKeyWord): TtfwWord;
@@ -205,11 +206,6 @@ begin
  aCtx.rEngine.PushObj(Word(aCtx, l_aKeyWord));
 end;//TkwPopKeyWordWord.DoDoIt
 
-class function TkwPopKeyWordWord.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:KeyWord:Word';
-end;//TkwPopKeyWordWord.GetWordNameForRegister
-
 procedure TkwPopKeyWordWord.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -230,6 +226,11 @@ function TkwPopKeyWordWord.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwKeyWord)]);
 end;//TkwPopKeyWordWord.ParamsTypes
+
+class function TkwPopKeyWordWord.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:KeyWord:Word';
+end;//TkwPopKeyWordWord.GetWordNameForRegister
 
 function TkwPopKeyWordName.Name(const aCtx: TtfwContext;
  aKeyWord: TtfwKeyWord): Il3CString;
@@ -257,11 +258,6 @@ begin
  aCtx.rEngine.PushString(Name(aCtx, l_aKeyWord));
 end;//TkwPopKeyWordName.DoDoIt
 
-class function TkwPopKeyWordName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:KeyWord:Name';
-end;//TkwPopKeyWordName.GetWordNameForRegister
-
 procedure TkwPopKeyWordName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -282,6 +278,11 @@ function TkwPopKeyWordName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwKeyWord)]);
 end;//TkwPopKeyWordName.ParamsTypes
+
+class function TkwPopKeyWordName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:KeyWord:Name';
+end;//TkwPopKeyWordName.GetWordNameForRegister
 
 function TkwPopKeyWordDictionary.Dictionary(const aCtx: TtfwContext;
  aKeyWord: TtfwKeyWord): TtfwDictionary;
@@ -309,11 +310,6 @@ begin
  aCtx.rEngine.PushObj(Dictionary(aCtx, l_aKeyWord));
 end;//TkwPopKeyWordDictionary.DoDoIt
 
-class function TkwPopKeyWordDictionary.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:KeyWord:Dictionary';
-end;//TkwPopKeyWordDictionary.GetWordNameForRegister
-
 procedure TkwPopKeyWordDictionary.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -334,6 +330,11 @@ function TkwPopKeyWordDictionary.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwKeyWord)]);
 end;//TkwPopKeyWordDictionary.ParamsTypes
+
+class function TkwPopKeyWordDictionary.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:KeyWord:Dictionary';
+end;//TkwPopKeyWordDictionary.GetWordNameForRegister
 
 initialization
  TkwPopKeyWordSetWord.RegisterInEngine;

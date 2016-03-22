@@ -2,6 +2,7 @@ unit m3StorageIndexAdapter;
 
 // Модуль: "w:\common\components\rtl\Garant\TestsSupport\m3StorageIndexAdapter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3StorageIndexAdapter" MUID: (4F19108601F3)
 
 {$Include w:\common\components\l3Define.inc}
 
@@ -25,6 +26,8 @@ type
    f_PhaseStr: AnsiString;
     {* Поле для свойства PhaseStr }
    {$IfEnd} // NOT Defined(nsTest)
+  protected
+   procedure ClearFields; override;
   public
    procedure DoBuildIndex(aFilesMeter: Tl3ProgressProc);
    class function Exists: Boolean;
@@ -122,5 +125,15 @@ begin
  end;
  Result := g_Tm3StorageIndexAdapter;
 end;//Tm3StorageIndexAdapter.Instance
+
+procedure Tm3StorageIndexAdapter.ClearFields;
+begin
+ BaseName := '';
+ DirName := '';
+ {$If NOT Defined(nsTest)}
+ f_PhaseStr := '';
+ {$IfEnd} // NOT Defined(nsTest)
+ inherited;
+end;//Tm3StorageIndexAdapter.ClearFields
 
 end.

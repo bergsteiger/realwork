@@ -2,6 +2,7 @@ unit tfwResourceStreamFactory;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwResourceStreamFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwResourceStreamFactory" MUID: (55795DB3008C)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

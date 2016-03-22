@@ -3,6 +3,7 @@ unit dsEditionsContainerData;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEditionsContainerData.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsEditionsContainerData" MUID: (4A717F6E0327)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

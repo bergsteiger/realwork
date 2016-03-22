@@ -2,6 +2,7 @@ unit evEditDocumentContainer;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evEditDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevEditDocumentContainer" MUID: (482D8A0D02E3)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

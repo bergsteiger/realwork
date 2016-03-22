@@ -2,6 +2,8 @@ unit f1TextStyle_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\f1TextStyle_Const.pas"
 // Стереотип: "TagOverride"
+// Элемент модели: "TextStyle" MUID: (4862215A02D8)
+// Имя типа: "TextStyleTag"
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

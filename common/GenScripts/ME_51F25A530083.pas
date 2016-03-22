@@ -2,6 +2,7 @@ unit ddAutolinkArbitraryDocList;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAutolinkArbitraryDocList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddAutolinkArbitraryDocList" MUID: (51F25A530083)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

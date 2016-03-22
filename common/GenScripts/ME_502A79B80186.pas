@@ -2,6 +2,8 @@
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "atExecutesQueryAddOn" MUID: (502A79B80186)
+// Имя типа: "_atExecutesQueryAddOn_"
 
 {$Define atExecutesQueryAddOn_imp}
 

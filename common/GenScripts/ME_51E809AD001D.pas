@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\SandBox\InterfaceRefList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "InterfaceRefList" MUID: (51E809AD001D)
+// Имя типа: "_InterfaceRefList_"
 
 {$Define InterfaceRefList_imp}
 

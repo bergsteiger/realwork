@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimText.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimText" MUID: (495118ED00F6)
+// Имя типа: "_PrimText_"
 
 {$Define PrimText_imp}
 

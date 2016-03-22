@@ -3,6 +3,8 @@ unit Block_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\Block_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Block" MUID: (4857A87D0337)
+// Имя типа: "BlockTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

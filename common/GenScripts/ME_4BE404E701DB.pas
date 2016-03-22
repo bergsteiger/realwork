@@ -2,6 +2,7 @@ unit k2Context;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Context.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2Context" MUID: (4BE404E701DB)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

@@ -2,6 +2,7 @@ unit kwCompiledFunction;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledFunction.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledFunction" MUID: (4F3BEDFE0051)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -20,7 +21,6 @@ type
  TkwCompiledFunction = class(TkwCompiledProcedureWithStackChecking)
   private
    f_ResultVar: TkwCompiledVar;
-    {* Поле для свойства ResultVar }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

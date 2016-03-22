@@ -3,6 +3,8 @@ unit NSRCtoNSRCTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\NSRCtoNSRCTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "NSRCtoNSRCTest" MUID: (4CE67D90013B)
+// Имя типа: "TNSRCtoNSRCTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

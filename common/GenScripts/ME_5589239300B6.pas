@@ -2,6 +2,7 @@ unit l3ExceptionHandler;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ExceptionHandler.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3ExceptionHandler" MUID: (5589239300B6)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

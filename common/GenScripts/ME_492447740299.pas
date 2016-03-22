@@ -3,6 +3,7 @@ unit dsTreeAttributeFirstLevel;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\dsTreeAttributeFirstLevel.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsTreeAttributeFirstLevel" MUID: (492447740299)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit nscDocumentListTreeView;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Components\nscDocumentListTreeView.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscDocumentListTreeView" MUID: (51D56E9F004B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -100,12 +101,8 @@ begin
  begin
   l_Node := TreeStruct.Nodes[Current];
   Result := l3Str(l_Node.Text);
-  if IsDocumentWithSnippets(Current) and TreeStruct.IsExpanded(l_Node) then
-  begin
-   l_Node := l_Node.Child;
-   Result := Result + #13#10 + l3Str(l_Node.Text);
-  end;
- end else
+ end
+ else
   Result := '';
 //#UC END# *51E01CC7023D_51D56E9F004B_impl*
 end;//TnscDocumentListTreeView.GetCurrentText
@@ -169,10 +166,9 @@ begin
  ViewOptions := [voShowInterRowSpace,
   voShowIcons,
   voShowExpandable,
-  voShowOpenChip,
+  voShowOpenChip{,
   voDoNotShowFocusRect,
-  voFullLineSelect];
- f_AllSelected := False;
+  voFullLineSelect}];
 //#UC END# *47D1602000C6_51D56E9F004B_impl*
 end;//TnscDocumentListTreeView.Create
 
@@ -212,29 +208,21 @@ var
 //#UC END# *508F825303E4_51D56E9F004B_var*
 begin
 //#UC START# *508F825303E4_51D56E9F004B_impl*
- if IsFirstSnippet(aItemIndex) then
-  inherited DoOnGetItemStyle(aItemIndex - 1, aFont, aTextBackColor, aItemBackColor, aVJustify, aFocused, theImageVertOffset)
- else
-  inherited DoOnGetItemStyle(aItemIndex, aFont, aTextBackColor, aItemBackColor, aVJustify, aFocused, theImageVertOffset);
- if Assigned(TreeStruct.Nodes[aItemIndex]) then
-  if (not IsEmpty) then
-  begin
-   l_Color := aFont.ForeColor;
-   try
-    l_Node := TreeStruct.Nodes[aItemIndex];
-    if (l_Node.GetLevel > 1) then
+ inherited DoOnGetItemStyle(aItemIndex, aFont, aTextBackColor, aItemBackColor, aVJustify, aFocused, theImageVertOffset);
+ if not SelfDrawNodes then
+  if Assigned(TreeStruct.Nodes[aItemIndex]) then
+   if not IsEmpty then
+   begin
+    l_Color := aFont.ForeColor;
+    try
+     l_Node := TreeStruct.Nodes[aItemIndex];
      if l_IsVisited(l_Node) then
-      evGetStyleFont(aFont, ev_saVisitedSnippetInList)
-     else
-      evGetStyleFont(aFont, ev_saSnippet)
-    else
-    if l_IsVisited(l_Node) then
-     evGetStyleFont(aFont, ev_saVisitedDocumentInList);
-   finally
-    if aFocused then
-     aFont.ForeColor := l_Color;
+      evGetStyleFont(aFont, ev_saVisitedDocumentInList);
+    finally
+     if aFocused then
+      aFont.ForeColor := l_Color;
+    end;
    end;
-  end;
 //#UC END# *508F825303E4_51D56E9F004B_impl*
 end;//TnscDocumentListTreeView.DoOnGetItemStyle
 

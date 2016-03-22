@@ -3,6 +3,7 @@ unit SearchAndReplaceTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\SearchAndReplaceTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TSearchAndReplaceTest" MUID: (4BE04F030356)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

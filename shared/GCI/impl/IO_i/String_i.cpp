@@ -117,6 +117,7 @@ const char* String_i::add (const char* str) {
 	unsigned long alen = static_cast<unsigned long> (std::strlen (str));
 	unsigned long len = m_string ? static_cast<unsigned long> (std::strlen (m_string)) : 0;
 	if (len + alen + 1 <= m_max) {
+		GDS_ASSERT(m_string);
 		std::memcpy (m_string + len, str, alen + 1);
 	} else {
 		char* new_str = new char [len + alen + 1];

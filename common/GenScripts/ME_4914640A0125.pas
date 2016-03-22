@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentFromList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "dsDocumentFromList" MUID: (4914640A0125)
+// Имя типа: "_dsDocumentFromList_"
 
 {$Define dsDocumentFromList_imp}
 

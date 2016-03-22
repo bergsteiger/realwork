@@ -101,7 +101,7 @@ end;
 function TalcuBaseEngine._WriteName(aClient: TcsClientInfo): Boolean;
 begin
  Result := False;
- l3System.Msg2Log(UserNameByID(aClient.ClientID, aClient.ListenIp));
+ l3System.Msg2Log(UserNameByID(aClient.ClientID, aClient.ListenIp, aClient.LoginName));
 end;
 
 function TalcuBaseEngine._CloseSession(aClient: TcsClientInfo): Boolean;

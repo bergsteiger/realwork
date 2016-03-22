@@ -2,6 +2,7 @@ unit ComboBoxStrings;
 
 // Модуль: "w:\common\components\gui\Garant\VT\ComboTree\ComboBoxStrings.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TComboBoxStrings" MUID: (48721FA80370)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

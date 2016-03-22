@@ -2,6 +2,7 @@ unit evSelection;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSelection.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evSelection" MUID: (4A2D30DB039E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,8 @@ unit EditionsRes_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\EditionsRes_Form.pas"
 // Стереотип: "VCMDataModule"
+// Элемент модели: "EditionsRes" MUID: (4B50828502D7)
+// Имя типа: "TEditionsResForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

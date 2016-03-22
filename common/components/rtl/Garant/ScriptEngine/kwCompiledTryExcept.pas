@@ -3,6 +3,7 @@ unit kwCompiledTryExcept;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledTryExcept.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledTryExcept" MUID: (4DBADEE702A8)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -26,6 +26,7 @@ uses
   ddTextParagraph,
   l3MetafileHeader,
   k2Interfaces,
+  ddTypes,
   ddCustomDestination,
   ddDocumentAtom,
   l3ProtoObject
@@ -108,7 +109,7 @@ type
    procedure Clear; override;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
      aNeedProcessRow: Boolean;
-     LiteVersion: Boolean); override;
+     LiteVersion: TddLiteVersion); override;
    constructor Create(aDetination: TddCustomDestination); override;
    function IsTextPara: Boolean; override;
    function IsPicture: Boolean; override;
@@ -210,7 +211,6 @@ uses
   k2Tags,
   l3Math,
   evdTypes,
-  ddTypes,
   ddEVDTypesSupport,
   ddConst,
   l3ImageUtils,
@@ -577,30 +577,30 @@ begin
    if f_NeedWMFHeader then
     f_Stream.Write(f_WMFHeader, SizeOf(f_WMFHeader));
    f_Stream.Write(l_BinBuf^, l_Size);
-   if f_Format = pictWMF then // Старый WMF, конвертируем в EMF
-   begin
-    l_WMF := Tl3Metafile.Create;
-    try
-     f_Stream.Seek(0, soBeginning);
-     if f_NeedWMFHeader then
-     begin
-      l_WMF.LoadWMFFromStream(Stream);
-      f_NeedWMFHeader := False;
-     end // if f_NeedWMFHeader then
-     else
-      l_WMF.LoadFromStream(f_Stream);
-     l_WMF.Enhanced := True;
-     f_Stream.Seek(0, soBeginning);
-     f_Stream.Size := 0;
-     l_WMF.SaveToStream(f_Stream);
-     l_Size := f_Stream.Size;
-    finally
-     l3Free(l_WMF);
-    end;
-   end; // if f_NeedWMFHeader then
   finally
    l3System.FreeLocalMem(l_BinBuf);
   end;
+  if f_Format = pictWMF then // Старый WMF, конвертируем в EMF
+  begin
+   l_WMF := Tl3Metafile.Create;
+   try
+    f_Stream.Seek(0, soBeginning);
+    if f_NeedWMFHeader then
+    begin
+     l_WMF.LoadWMFFromStream(Stream);
+     f_NeedWMFHeader := False;
+    end // if f_NeedWMFHeader then
+    else
+     l_WMF.LoadFromStream(f_Stream);
+    l_WMF.Enhanced := True;
+    f_Stream.Seek(0, soBeginning);
+    f_Stream.Size := 0;
+    l_WMF.SaveToStream(f_Stream);
+    l_Size := f_Stream.Size;
+   finally
+    l3Free(l_WMF);
+   end;
+  end; // if f_NeedWMFHeader then
   f_IsBinary := True;
   {$IFDEF InsiderTest}
   if f_Format > pictNONE then
@@ -821,7 +821,7 @@ end;//TddPicture.Clear
 
 procedure TddPicture.Write2Generator(const Generator: Ik2TagGenerator;
   aNeedProcessRow: Boolean;
-  LiteVersion: Boolean);
+  LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_51E8DC3E0361_var*
 var
  l_Width  : Integer;

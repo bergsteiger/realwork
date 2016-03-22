@@ -3,6 +3,7 @@ unit NOT_FINISHED_vtUtils;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vtUtils" MUID: (47F4853203E7)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

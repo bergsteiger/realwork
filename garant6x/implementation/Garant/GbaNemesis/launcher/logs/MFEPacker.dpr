@@ -37,7 +37,7 @@ var
  l_OutputMFFile: string;
 begin
  WriteLN;
- WriteLN (Format ('TOOL "%s" (C) SIE "GARANT-SERVICE-UNIVERSITY" LLC, 1990-2015', [ExtractFileName (ParamStr (0))]));
+ WriteLN (Format ('TOOL "%s" (C) SIE "GARANT-SERVICE-UNIVERSITY" LLC, 1990-2016', [ExtractFileName (ParamStr (0))]));
  //
  GetOpt(l_InputIniFile, l_OutputMFFile);
  //

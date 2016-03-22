@@ -2,6 +2,7 @@ unit MakeCORunner;
 
 // Модуль: "w:\common\components\MakeCO\MakeCORunner.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TMakeCORunner" MUID: (55C1F539010F)
 
 {$Include w:\common\components\MakeCO\MakeCO.inc}
 
@@ -30,7 +31,12 @@ class procedure TMakeCORunner.Run;
 //#UC END# *55C1F54A0327_55C1F539010F_var*
 begin
 //#UC START# *55C1F54A0327_55C1F539010F_impl*
- TtfwCOMaker.Make(ParamStr(1));
+ try
+  TtfwCOMaker.Make(ParamStr(1));
+ except
+  on E: Exception do
+   WriteLn(E.Message);
+ end;//try..except
 //#UC END# *55C1F54A0327_55C1F539010F_impl*
 end;//TMakeCORunner.Run
 

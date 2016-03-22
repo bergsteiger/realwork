@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtFocusLabel;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtFocusLabel.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtFocusLabel" MUID: (4A9B9BC00258)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_pi;
 
 // Модуль: "w:\common\components\rtl\external\MTDOrb\src\idl\NOT_FINISHED_pi.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "pi" MUID: (4CA0D16702D5)
 
 {$Include w:\common\components\l3Define.inc}
 

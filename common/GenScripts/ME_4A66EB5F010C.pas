@@ -2,6 +2,7 @@ unit nsChatMessage;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\nsChatMessage.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsChatMessage" MUID: (4A66EB5F010C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit evStrictContentsElementEliminator;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evStrictContentsElementEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevStrictContentsElementEliminator" MUID: (4CA2FFC10275)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

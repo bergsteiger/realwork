@@ -2,6 +2,7 @@ unit vtMultilineHint;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtMultilineHint.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvtMultilineHint" MUID: (50C61AAC00BF)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -2,6 +2,7 @@ unit tfwStandardDictionaries;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStandardDictionaries.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwStandardDictionaries" MUID: (55B0E7AD026B)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

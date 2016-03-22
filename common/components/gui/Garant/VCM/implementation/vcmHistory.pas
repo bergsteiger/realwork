@@ -711,6 +711,7 @@ begin
  Result := Make(aForm, aStateType, l_Form.FormID, l_Form.UserType, l_Form.ZoneType, vcm_hitNone, l_Form.SubUserType, False);
 //#UC END# *5508119800FB_5506DC4F0011_impl*
 end;//TvcmHistoryItemBase.Make
+// start class TvcmHistoryItemBase
 
 function TvcmHistoryItemBase.pm_GetSavingClone: Boolean;
 //#UC START# *559F88140365_5506DC4F0011get_var*
@@ -1988,9 +1989,10 @@ begin
    g_Dispatcher.FormDispatcher.Unlock;
   end;//try..finally
   if not l_Accept then
-  begin
-   Result := Forward;
-  end;
+   if CanForward then
+    Result := Forward
+   else
+    Back(True);
  end;//f_Current >= 0
 //#UC END# *49955A3202E4_5506D56E02FB_impl*
 end;//TvcmHistory.Forward

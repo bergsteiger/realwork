@@ -2,6 +2,7 @@ unit vcmLayoutImplementation;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmLayoutImplementation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmLayoutImplementation" MUID: (4F82714B0271)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

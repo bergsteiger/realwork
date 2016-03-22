@@ -2,6 +2,8 @@ unit AACTextContainerPrim_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACTextContainerPrim_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "AACTextContainerPrim" MUID: (500406E901E5)
+// Имя типа: "TAACTextContainerPrimForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -158,8 +160,7 @@ procedure TAACTextContainerPrimForm.lblLinkToContentClick(Sender: TObject);
 //#UC END# *502A7459031B_500406E901E5_var*
 begin
 //#UC START# *502A7459031B_500406E901E5_impl*
- //TbsHyperLinkProcessorPrim.RunScript('57970000 Открыть');
- nsOpenLink(57970000, 0, dptNone);
+ nsOpenDocumentByNumber(57970000 + c_InternalDocShift, 0, dptSub, false)
 //#UC END# *502A7459031B_500406E901E5_impl*
 end;//TAACTextContainerPrimForm.lblLinkToContentClick
 

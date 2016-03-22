@@ -2,6 +2,7 @@ unit evLocation;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evLocation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevLocation" MUID: (4A3A5B9F0064)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

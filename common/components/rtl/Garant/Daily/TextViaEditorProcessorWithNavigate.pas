@@ -1,94 +1,65 @@
 unit TextViaEditorProcessorWithNavigate;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Daily/TextViaEditorProcessorWithNavigate.pas"
-// Начат: 16.09.2010 17:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EditorTests::TTextViaEditorProcessorWithNavigate
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\TextViaEditorProcessorWithNavigate.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TTextViaEditorProcessorWithNavigate" MUID: (4C9214C80098)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  evCustomEditorWindow
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  TextViaEditorProcessor
-  {$IfEnd} //nsTest AND not NoVCM
-  ,
-  l3Variant
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , TextViaEditorProcessor
+ {$IfEnd} // NOT Defined(NoVCM)
+ , evCustomEditorWindow
+ , l3Variant
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  _Navigator_Parent_ = TTextViaEditorProcessor;
  {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Navigator.imp.pas}
  TTextViaEditorProcessorWithNavigate = {abstract} class(_Navigator_)
- protected
- // realized methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
-   procedure Process(aForm: TPrimTextLoadForm); override;
-     {* Собственно процесс обработки текста }
-   {$IfEnd} //nsTest AND not NoVCM
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    procedure DoProcess(aText: TevCustomEditorWindow;
     const anOp: Il3OpPack); virtual; abstract;
+   {$If NOT Defined(NoVCM)}
+   procedure Process(aForm: TPrimTextLoadForm); override;
+    {* Собственно процесс обработки текста }
+   {$IfEnd} // NOT Defined(NoVCM)
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TTextViaEditorProcessorWithNavigate
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Navigator.imp.pas}
 
-// start class TTextViaEditorProcessorWithNavigate
-
-{$If defined(nsTest) AND not defined(NoVCM)}
 procedure TTextViaEditorProcessorWithNavigate.Process(aForm: TPrimTextLoadForm);
+ {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4C9214C80098_var*
 var
  l_Op : Il3OpPack;
@@ -107,20 +78,19 @@ begin
  end;//with aForm.Text
 //#UC END# *4BE13147032C_4C9214C80098_impl*
 end;//TTextViaEditorProcessorWithNavigate.Process
-{$IfEnd} //nsTest AND not NoVCM
 
 function TTextViaEditorProcessorWithNavigate.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TTextViaEditorProcessorWithNavigate.GetFolder
 
 function TTextViaEditorProcessorWithNavigate.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C9214C80098';
 end;//TTextViaEditorProcessorWithNavigate.GetModelElementGUID
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

@@ -22,6 +22,7 @@ interface
 
 uses
   l3Interfaces,
+  l3Core,
   l3Units,
   Classes,
   Printers,
@@ -95,7 +96,6 @@ uses
   l3Const,
   l3Math,
   Consts,
-  l3Core,
   l3MemUtils,
   l3Interlocked,
   l3InternalInterfaces

@@ -3,6 +3,7 @@ unit CompInfo_ut_CompInfo_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CompInfo_ut_CompInfo_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_CompInfo" MUID: (A462190E3592)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_CompInfo = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_CompInfo }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_CompInfo
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_CompInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_CompInfo';
-end;//Tkw_FormUserType_ut_CompInfo.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_CompInfo.GetInteger: Integer;
 begin
  Result := ut_CompInfo;
 end;//Tkw_FormUserType_ut_CompInfo.GetInteger
+
+class function Tkw_FormUserType_ut_CompInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_CompInfo';
+end;//Tkw_FormUserType_ut_CompInfo.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

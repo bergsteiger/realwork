@@ -1,87 +1,67 @@
 unit StyleEditorFont_ut_StyleEditorFont_UserType;
+ {* Параметры шрифта }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Settings/Forms/StyleEditorFont_ut_StyleEditorFont_UserType.pas"
-// Начат: 09.09.2009 16:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Основные прецеденты::Settings::View::Settings::Settings::StyleEditorFont::ut_StyleEditorFont
-//
-// Параметры шрифта
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorFont_ut_StyleEditorFont_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "ut_StyleEditorFont" MUID: (43C9F2187122)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-    { Константы для типа формы ut_StyleEditorFont }
-   ut_StyleEditorFontName = 'ut_StyleEditorFont';
-    { Строковый идентификатор пользовательского типа "Параметры шрифта" }
-   ut_StyleEditorFont = TvcmUserType(0);
-    { Параметры шрифта }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы ut_StyleEditorFont }
+ ut_StyleEditorFontName = 'ut_StyleEditorFont';
+  {* Строковый идентификатор пользовательского типа "Параметры шрифта" }
+ ut_StyleEditorFont = TvcmUserType(0);
+  {* Параметры шрифта }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-   Tkw_FormUserType_ut_StyleEditorFont = {final scriptword} class(TtfwInteger)
-    {* Слово словаря для типа формы ut_StyleEditorFont }
-   protected
-   // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
+ Tkw_FormUserType_ut_StyleEditorFont = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы ut_StyleEditorFont }
+  protected
    function GetInteger: Integer; override;
-   end;//Tkw_FormUserType_ut_StyleEditorFont
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_ut_StyleEditorFont
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_ut_StyleEditorFont
-
-class function Tkw_FormUserType_ut_StyleEditorFont.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::ut_StyleEditorFont';
-end;//Tkw_FormUserType_ut_StyleEditorFont.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_StyleEditorFont.GetInteger: Integer;
- {-}
 begin
  Result := ut_StyleEditorFont;
 end;//Tkw_FormUserType_ut_StyleEditorFont.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_ut_StyleEditorFont.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_StyleEditorFont';
+end;//Tkw_FormUserType_ut_StyleEditorFont.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_ut_StyleEditorFont
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_StyleEditorFont.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_ut_StyleEditorFont }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

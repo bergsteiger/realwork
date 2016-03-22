@@ -1,45 +1,34 @@
 unit myInterfacedObjectTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "myInterfacedObjectTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCase::Class Shared Delphi Sand Box::SandBoxTest::Core::TmyInterfacedObjectTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\myInterfacedObjectTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TmyInterfacedObjectTest" MUID: (516D4FB9038C)
 
-{$Include ..\SandBox\sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , TestFrameWork
+;
 
-{$If defined(nsTest)}
 type
  TmyInterfacedObjectTest = class(TTestCase)
- published
- // published methods
+  published
    procedure DoIt;
  end;//TmyInterfacedObjectTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  myInterfacedObject,
-  SysUtils
-  ;
-{$IfEnd} //nsTest
-
-{$If defined(nsTest)}
-
-// start class TmyInterfacedObjectTest
+ l3ImplUses
+ , myInterfacedObject
+ , SysUtils
+;
 
 procedure TmyInterfacedObjectTest.DoIt;
 //#UC START# *516D4FDE0133_516D4FB9038C_var*
@@ -76,9 +65,8 @@ begin
 //#UC END# *516D4FDE0133_516D4FB9038C_impl*
 end;//TmyInterfacedObjectTest.DoIt
 
-{$IfEnd} //nsTest
-
 initialization
  TestFramework.RegisterTest(TmyInterfacedObjectTest.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

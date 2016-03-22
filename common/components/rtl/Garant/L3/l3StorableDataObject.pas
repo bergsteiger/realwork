@@ -3,6 +3,7 @@ unit l3StorableDataObject;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3StorableDataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3StorableDataObject" MUID: (4680F7E70110)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

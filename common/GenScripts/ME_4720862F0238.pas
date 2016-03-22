@@ -3,6 +3,7 @@ unit m3StorageInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3StorageInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "m3StorageInterfaces" MUID: (4720862F0238)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

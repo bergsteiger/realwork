@@ -2,6 +2,7 @@ unit k2ToolCacheList;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2ToolCacheList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2ToolCacheList" MUID: (531EFB040349)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

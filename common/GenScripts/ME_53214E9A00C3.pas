@@ -3,6 +3,8 @@ unit K517772970_TalcuAnnotationTask;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuAnnotationTask.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TalcuAnnotationTask" MUID: (53214E9A00C3)
+// Имя типа: "TK517772970_TalcuAnnotationTask"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

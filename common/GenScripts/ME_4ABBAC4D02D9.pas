@@ -3,6 +3,8 @@ unit TasksPanel_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\TasksPanel_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "TasksPanel" MUID: (4ABBAC4D02D9)
+// Имя типа: "Ten_TasksPanel"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

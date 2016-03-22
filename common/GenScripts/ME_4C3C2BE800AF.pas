@@ -3,6 +3,7 @@ unit ColumnAlignHorisontallyTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\ColumnAlignHorisontallyTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TColumnAlignHorisontallyTest" MUID: (4C3C2BE800AF)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

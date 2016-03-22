@@ -67,11 +67,12 @@ type
  // realized methods
    procedure Write2Generator(const Generator: Ik2TagGenerator;
      aNeedProcessRow: Boolean;
-     LiteVersion: Boolean); override;
+     LiteVersion: TddLiteVersion); override;
  protected
  // overridden protected methods
    procedure Cleanup; override;
      {* Функция очистки полей объекта. }
+   function GetEmpty: Boolean; override;
    procedure DoClose; override;
  public
  // overridden public methods
@@ -99,6 +100,8 @@ type
    procedure ApplyExternalCellPropsDef(aRow: TddTableRow);
    procedure ApplyCellProperty(aCEP: TddCellProperty);
    procedure SetVMerged2LastCell(aFirst: Boolean);
+   function InsertCell(anIndex: Integer): TddTableCell;
+   function CellIndex(aCell: TddTableCell): Integer;
  public
  // public properties
    property TAP: TddRowProperty
@@ -241,18 +244,18 @@ procedure TddTableRow.AddCellProp(aCellProps: TddCellProperty;
   aClearBorder: TddClearBoder);
 //#UC START# *518A4F870014_4FACE1370377_var*
 var
- l_Cell: TddCellProperty;
+ l_CellProp: TddCellProperty;
 //#UC END# *518A4F870014_4FACE1370377_var*
 begin
 //#UC START# *518A4F870014_4FACE1370377_impl*
  if f_CellPropsCompleate then
   ClearCellProps;
- l_Cell:= TddCellProperty.Create(aClearBorder);
+ l_CellProp := TddCellProperty.Create(aClearBorder);
  try
-  l_Cell.Assign(aCellProps);
-  f_CellProps.Add(l_Cell);
+  l_CellProp.Assign(aCellProps);
+  f_CellProps.Add(l_CellProp);
  finally
-  FreeAndNil(l_Cell);
+  FreeAndNil(l_CellProp);
  end;
 //#UC END# *518A4F870014_4FACE1370377_impl*
 end;//TddTableRow.AddCellProp
@@ -428,6 +431,32 @@ begin
  f_HasMerged := True;
 //#UC END# *54EC68190248_4FACE1370377_impl*
 end;//TddTableRow.SetVMerged2LastCell
+
+function TddTableRow.InsertCell(anIndex: Integer): TddTableCell;
+//#UC START# *56BD92CC03B8_4FACE1370377_var*
+var
+ l_Cell: TddTableCell;
+//#UC END# *56BD92CC03B8_4FACE1370377_var*
+begin
+//#UC START# *56BD92CC03B8_4FACE1370377_impl*
+ l_Cell := TddTableCell.Create(f_Destination);
+ try
+  f_CellList.Insert(anIndex, l_Cell);
+  Result := l_Cell;
+ finally
+  FreeAndNil(l_Cell);
+ end;
+//#UC END# *56BD92CC03B8_4FACE1370377_impl*
+end;//TddTableRow.InsertCell
+
+function TddTableRow.CellIndex(aCell: TddTableCell): Integer;
+//#UC START# *56C56DDB01F7_4FACE1370377_var*
+//#UC END# *56C56DDB01F7_4FACE1370377_var*
+begin
+//#UC START# *56C56DDB01F7_4FACE1370377_impl*
+ Result := f_CellList.IndexOf(aCell);
+//#UC END# *56C56DDB01F7_4FACE1370377_impl*
+end;//TddTableRow.CellIndex
 
 procedure TddTableRow.pm_SetTAP(aValue: TddRowProperty);
 //#UC START# *518A479603CD_4FACE1370377set_var*
@@ -621,7 +650,7 @@ end;//TddTableRow.pm_GetCellByPos
 
 procedure TddTableRow.Write2Generator(const Generator: Ik2TagGenerator;
   aNeedProcessRow: Boolean;
-  LiteVersion: Boolean);
+  LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_4FACE1370377_var*
 var
  i     : Integer;
@@ -641,12 +670,71 @@ var
    end; // for i := 0 to l_Cell.Count - 1 do
  end;
 
+ function lp_CalcCellWidth(const aCell: TddTableCell; aIndex: Integer): Integer;
+ var
+  l_Delta: Integer;
+ begin
+  Result := 0;
+  if (aIndex > 0) then
+   l_Delta := CellWidth[aIndex - 1]
+  else
+  begin
+   l_Delta := TAP.Left - TAP.trwWidthB;
+   if l_Delta > aCell.Props.CellOffset then
+    l_Delta := 0;
+  end;
+  if (aCell.Props.CellOffset <= 0) and (aCell.Props.CellWidth > 0) then
+   Result := aCell.Props.CellWidth
+  else
+   Result := aCell.Props.CellOffset - l_Delta;
+ end;
+
 var
- l_Delta    : Integer;
- l_Count    : Integer;
+ l_Count: Integer;
+
+ procedure lp_DeleteCell(anIndex: Integer);
+ begin
+  DeleteCell(anIndex);
+  Dec(l_Count);
+ end;
+
+ procedure lp_CheckHead(const aCell: TddTableCell; anIndex: Integer);
+ var
+  l_Width   : Integer;
+  l_LastCell: TddTableCell;
+ begin
+  if (l_Count = 1) and (anIndex = 0) and (aCell.Props.VMergeFirst or aCell.Props.VMerged) then
+  begin
+   l_LastCell := f_CellList[anIndex + 1];
+   l_Width := lp_CalcCellWidth(l_LastCell, anIndex + 1);
+   if (l_Width < ddGetMinimalCellWidth) and l_LastCell.IsCellEmpty then
+   begin
+    lp_DeleteCell(anIndex + 1);
+    aCell.Props.CellOffset := aCell.Props.CellOffset + l_Width;
+    aCell.Props.VMergeFirst := False;
+    aCell.Props.VMerged := False;
+   end; // if (l_Width < ddGetMinimalCellWidth) and l_LastCell.IsCellEmpty then
+  end; // if (i = l_Count - 1) then
+ end;
+
+ function lp_OneLetter(aCell: TddTableCell): Boolean;
+ var
+  l_TextPara: TddTextParagraph;
+ begin
+  Result := False;
+  if not Result then
+   if (aCell.Count = 1) then
+   begin
+    l_TextPara := aCell.LastTextPara;
+    if l_TextPara <> nil then
+     Result := (l_TextPara.Text.Len = 1);
+   end; // if (aCell.Count = 1) then
+ end;
+
+var
  l_Width    : Integer;
  l_OldWidth : Integer;
- l_SkipNext : Boolean;
+ l_NextWidth: Integer;
  l_PrevWidth: Integer;
 //#UC END# *518A504F00F5_4FACE1370377_var*
 begin
@@ -655,55 +743,49 @@ begin
  if (l_Count = 0) and f_CellList[0].Props.VMerged then Exit;
  StartTableRow(Generator);
  try
-  if not LiteVersion then
+  if LiteVersion = dd_lvNone then
    TAP.Border.Write2Generator(Generator);
   l_PrevWidth := 0;
-  l_SkipNext := False;
-  for i := 0 to l_Count do
+  i := 0;
+  while i <= l_Count do
   begin
-   if l_SkipNext then
-   begin
-    l_SkipNext := False;
-    Continue;
-   end; // if l_SkipNext then
    l_Cell := Cells[i];
-   if (i > 0) then
-    l_Delta := CellWidth[Pred(i)]
-   else
-   begin
-    l_Delta := TAP.Left - TAP.trwWidthB;
-    if l_Delta > l_Cell.Props.CellOffset then
-     l_Delta := 0;
-   end;
-   if (l_Cell.Props.CellOffset < 0) and (l_Cell.Props.CellWidth > 0) then
-    l_Width := l_Cell.Props.CellWidth
-   else
-    l_Width := l_Cell.Props.CellOffset - l_Delta;
+   l_Width := lp_CalcCellWidth(l_Cell, i);
    if (l_Width < l3AlingDelta) or ((l_Width + l_PrevWidth) < 0) then
    //                               ^ - http://mdp.garant.ru/pages/viewpage.action?pageId=607532072
     if l_Cell.IsCellEmpty then
     begin
      Inc(l_PrevWidth, l_Width);
+     lp_DeleteCell(i);
      Continue;
     end // if l_Cell.IsCellEmpty then
     else
      if (i < l_Count) and Cells[i + 1].IsCellEmpty then
      begin
-      Inc(l_Width, CellWidth[i + 1]);
+      l_NextWidth := CellWidth[i + 1];
+      if (l_NextWidth < 0) and (Cells[i + 1].Props.CellWidth > 0) then
+       Inc(l_Width, Cells[i + 1].Props.CellWidth)
+      else
+       Inc(l_Width, l_NextWidth);
       if l_Width < 0 then
        l_Width := ddGetMinimalCellWidth;
-      l_SkipNext := True;
+      lp_DeleteCell(i + 1);
+      if (l_Width < ddGetMinimalCellWidth) then
+       if (((i + 1) < l_Count) and (Cells[i + 2].IsCellEmpty)) or lp_OneLetter(l_Cell) or (l_Width = 0) then
+       Continue;
      end // if (i < l_Count) and CellWidth[i + 1].IsCellEmtpy then
      else
       l_Width := ddGetMinimalCellWidth;
    Inc(l_Width, l_PrevWidth);
    l_PrevWidth := 0;
-   Assert(l_Width >= l3AlingDelta); // Пускай лучше здесь валится, чем при отрисовке...
+   Assert(l_Width >= l3AlingDelta, Format('Очень узкая ячейка № %d в таблице: %d', [i, l_Width])); // Пускай лучше здесь валится, чем при отрисовке...
    l_OldWidth := l_Cell.Props.CellOffset;
    l_Cell.Props.CellOffset := l_Width;
+   lp_CheckHead(l_Cell, i);
    try
     lp_ChecktrwWidthB;
     l_Cell.Write2Generator(Generator, aNeedProcessRow, LiteVersion);
+    Inc(i);
    finally
     l_Cell.Props.CellOffset := l_OldWidth;
    end;
@@ -727,6 +809,29 @@ begin
  inherited;
 //#UC END# *479731C50290_4FACE1370377_impl*
 end;//TddTableRow.Cleanup
+
+function TddTableRow.GetEmpty: Boolean;
+//#UC START# *4A54E03B009A_4FACE1370377_var*
+var
+ i      : Integer;
+ l_Empty: Boolean;
+//#UC END# *4A54E03B009A_4FACE1370377_var*
+begin
+//#UC START# *4A54E03B009A_4FACE1370377_impl*
+ Result := inherited GetEmpty;
+ if not Result then
+ begin
+  l_Empty := True;
+  for i := 0 to f_CellList.Count - 1 do
+   if not f_CellList[i].IsCellEmpty then
+   begin
+    l_Empty := False;
+    Break;
+   end; // if not f_CellList[i].IsCellEmpty then
+   Result := l_Empty;
+ end; // if not Result then
+//#UC END# *4A54E03B009A_4FACE1370377_impl*
+end;//TddTableRow.GetEmpty
 
 procedure TddTableRow.Clear;
 //#UC START# *518A48F500CF_4FACE1370377_var*

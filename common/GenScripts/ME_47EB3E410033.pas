@@ -3,6 +3,7 @@ unit dDrugList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Drug\dDrugList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdDrugList" MUID: (47EB3E410033)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit DocumentUserTypes_dftNone_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftNone_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "dftNone" MUID: (4B040A4A0373)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftNone = {final} class(TtfwInteger)
   {* Слово словаря для типа формы dftNone }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_dftNone
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_dftNone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::dftNone';
-end;//Tkw_FormUserType_dftNone.GetWordNameForRegister
-
 function Tkw_FormUserType_dftNone.GetInteger: Integer;
 begin
  Result := dftNone;
 end;//Tkw_FormUserType_dftNone.GetInteger
+
+class function Tkw_FormUserType_dftNone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::dftNone';
+end;//Tkw_FormUserType_dftNone.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

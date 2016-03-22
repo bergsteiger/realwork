@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevBreakParaAnchorModify.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevBreakParaAnchorModify" MUID: (4B1D1CE30270)
+// Имя типа: "_nevBreakParaAnchorModify_"
 
 {$Define nevBreakParaAnchorModify_imp}
 

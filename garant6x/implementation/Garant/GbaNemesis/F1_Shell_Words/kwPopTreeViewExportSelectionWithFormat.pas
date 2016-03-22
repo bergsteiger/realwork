@@ -1,79 +1,59 @@
 unit kwPopTreeViewExportSelectionWithFormat;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Shell Words"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Shell_Words/kwPopTreeViewExportSelectionWithFormat.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Shell Words::TreeViewWords::pop_TreeView_ExportSelectionWithFormat
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwPopTreeViewExportSelectionWithFormat.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_TreeView_ExportSelectionWithFormat" MUID: (512FA2CC033C)
+// Имя типа: "TkwPopTreeViewExportSelectionWithFormat"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(Admin) AND not defined(Monitorings)}
-  ,
-  PrimListOptions_Form
-  {$IfEnd} //not Admin AND not Monitorings
-  ,
-  kwNscTreeViewWord
-  {$If defined(Nemesis)}
-  ,
-  nscTreeView
-  {$IfEnd} //Nemesis
-  ,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwNscTreeViewWord
+ {$If Defined(Nemesis)}
+ , nscTreeView
+ {$IfEnd} // Defined(Nemesis)
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopTreeViewExportSelectionWithFormat = {final scriptword} class(TkwNscTreeViewWord)
- protected
- // realized methods
+ TkwPopTreeViewExportSelectionWithFormat = {final} class(TkwNscTreeViewWord)
+  protected
    procedure DoWithNscTreeView(aTreeView: TnscTreeView;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopTreeViewExportSelectionWithFormat
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  nsTypes,
-  bsTypes,
-  afwFacade
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
+ l3ImplUses
+ {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ , PrimListOptions_Form
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+ , nsTypes
+ , bsTypes
+ , afwFacade
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
-  TPrimListOptionsFormHack = class(TPrimListOptionsForm)
-  end;//TPrimListOptionsFormHack
-
-// start class TkwPopTreeViewExportSelectionWithFormat
+ TPrimListOptionsFormHack = class(TPrimListOptionsForm)
+ end;//TPrimListOptionsFormHack
 
 procedure TkwPopTreeViewExportSelectionWithFormat.DoWithNscTreeView(aTreeView: TnscTreeView;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *512FA22703B6_512FA2CC033C_var*
 var
  l_Form: TCustomForm;
@@ -84,22 +64,19 @@ begin
  l_Form := afw.GetParentForm(aTreeView);
  RunnerAssert(Assigned(l_Form) and (l_Form is TPrimListOptionsForm), 'Что-то не то со списком. Родительская форма не определена или не того класса.', aCtx);
  l_FF := TnsFileFormat(aCtx.rEngine.PopInt);
- aCtx.rEngine.PushString(TPrimListOptionsFormHack(l_Form).dsList.ListAsString(bs_slkTitlesFullTree, True, l_FF));
+ with TPrimListOptionsFormHack(l_Form) do
+  aCtx.rEngine.PushString(dsList.ListAsString(CalcSaveListKind, True, l_FF));
 //#UC END# *512FA22703B6_512FA2CC033C_impl*
 end;//TkwPopTreeViewExportSelectionWithFormat.DoWithNscTreeView
 
 class function TkwPopTreeViewExportSelectionWithFormat.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:TreeView:ExportSelectionWithFormat';
 end;//TkwPopTreeViewExportSelectionWithFormat.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_TreeView_ExportSelectionWithFormat
  TkwPopTreeViewExportSelectionWithFormat.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_TreeView_ExportSelectionWithFormat }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

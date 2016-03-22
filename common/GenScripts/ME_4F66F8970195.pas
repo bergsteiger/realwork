@@ -2,6 +2,7 @@ unit l3GetMessageListenersList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3GetMessageListenersList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3GetMessageListenersList" MUID: (4F66F8970195)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

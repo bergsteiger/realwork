@@ -3,6 +3,7 @@ unit NewsLineKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\NewsLineKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "NewsLineKeywordsPack" MUID: (7F393F8A2EA8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::NewsLine TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_NewsLine
 
  Tkw_NewsLine_Control_DateList = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::DateList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewsLine_Control_DateList
 
  Tkw_NewsLine_Control_DateList_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TnscTreeViewForNewsLine
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnNewsLineDateList
 
-class function Tkw_Form_NewsLine.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::NewsLine';
-end;//Tkw_Form_NewsLine.GetWordNameForRegister
-
 function Tkw_Form_NewsLine.GetString: AnsiString;
 begin
  Result := 'enNewsLine';
 end;//Tkw_Form_NewsLine.GetString
 
-class function Tkw_NewsLine_Control_DateList.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_NewsLine.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::DateList';
-end;//Tkw_NewsLine_Control_DateList.GetWordNameForRegister
+ Result := 'форма::NewsLine';
+end;//Tkw_Form_NewsLine.GetWordNameForRegister
 
 function Tkw_NewsLine_Control_DateList.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewForNewsLine);
 end;//Tkw_NewsLine_Control_DateList.RegisterInEngine
+
+class function Tkw_NewsLine_Control_DateList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::DateList';
+end;//Tkw_NewsLine_Control_DateList.GetWordNameForRegister
 
 procedure Tkw_NewsLine_Control_DateList_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(DateList(aCtx, l_aenNewsLine));
 end;//TkwEnNewsLineDateList.DoDoIt
 
-class function TkwEnNewsLineDateList.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenNewsLine.DateList';
-end;//TkwEnNewsLineDateList.GetWordNameForRegister
-
 procedure TkwEnNewsLineDateList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwEnNewsLineDateList.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenNewsLine)]);
 end;//TkwEnNewsLineDateList.ParamsTypes
+
+class function TkwEnNewsLineDateList.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenNewsLine.DateList';
+end;//TkwEnNewsLineDateList.GetWordNameForRegister
 
 initialization
  Tkw_Form_NewsLine.RegisterInEngine;

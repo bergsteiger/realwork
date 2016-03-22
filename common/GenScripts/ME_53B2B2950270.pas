@@ -2,6 +2,8 @@ unit kwIsLegalPermanentFilterExists;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwIsLegalPermanentFilterExists.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "IsLegalPermanentFilterExists" MUID: (53B2B2950270)
+// Имя типа: "TkwIsLegalPermanentFilterExists"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

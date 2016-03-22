@@ -3,6 +3,7 @@ unit OldSituationSearchKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\OldSituationSearchKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "OldSituationSearchKeywordsPack" MUID: (BAC7C7067E9E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -49,8 +50,8 @@ type
 'aControl' форма::OldSituationSearch TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_OldSituationSearch
 
  Tkw_OldSituationSearch_Control_BackgroundPanel = {final} class(TtfwControlString)
@@ -61,9 +62,9 @@ type
 контрол::BackgroundPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_BackgroundPanel
 
  Tkw_OldSituationSearch_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
@@ -86,9 +87,9 @@ type
 контрол::ContextFilter TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_ContextFilter
 
  Tkw_OldSituationSearch_Control_ContextFilter_Push = {final} class(TkwBynameControlPush)
@@ -111,9 +112,9 @@ type
 контрол::InnerBackgroundPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_InnerBackgroundPanel
 
  Tkw_OldSituationSearch_Control_InnerBackgroundPanel_Push = {final} class(TkwBynameControlPush)
@@ -136,9 +137,9 @@ type
 контрол::BotomPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_BotomPanel
 
  Tkw_OldSituationSearch_Control_BotomPanel_Push = {final} class(TkwBynameControlPush)
@@ -161,9 +162,9 @@ type
 контрол::ParentZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_ParentZone
 
  Tkw_OldSituationSearch_Control_ParentZone_Push = {final} class(TkwBynameControlPush)
@@ -186,9 +187,9 @@ type
 контрол::ZoneContainer TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_ZoneContainer
 
  Tkw_OldSituationSearch_Control_ZoneContainer_Push = {final} class(TkwBynameControlPush)
@@ -211,9 +212,9 @@ type
 контрол::ChildZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_ChildZone
 
  Tkw_OldSituationSearch_Control_ChildZone_Push = {final} class(TkwBynameControlPush)
@@ -236,9 +237,9 @@ type
 контрол::MainZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_MainZone
 
  Tkw_OldSituationSearch_Control_MainZone_Push = {final} class(TkwBynameControlPush)
@@ -445,20 +446,15 @@ OBJECT VAR l_TvtSizeablePanel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwCfOldSituationSearchMainZone
 
-class function Tkw_Form_OldSituationSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::OldSituationSearch';
-end;//Tkw_Form_OldSituationSearch.GetWordNameForRegister
-
 function Tkw_Form_OldSituationSearch.GetString: AnsiString;
 begin
  Result := 'cfOldSituationSearch';
 end;//Tkw_Form_OldSituationSearch.GetString
 
-class function Tkw_OldSituationSearch_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_OldSituationSearch.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::BackgroundPanel';
-end;//Tkw_OldSituationSearch_Control_BackgroundPanel.GetWordNameForRegister
+ Result := 'форма::OldSituationSearch';
+end;//Tkw_Form_OldSituationSearch.GetWordNameForRegister
 
 function Tkw_OldSituationSearch_Control_BackgroundPanel.GetString: AnsiString;
 begin
@@ -471,6 +467,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_OldSituationSearch_Control_BackgroundPanel.RegisterInEngine
 
+class function Tkw_OldSituationSearch_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BackgroundPanel';
+end;//Tkw_OldSituationSearch_Control_BackgroundPanel.GetWordNameForRegister
+
 procedure Tkw_OldSituationSearch_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BackgroundPanel');
@@ -481,11 +482,6 @@ class function Tkw_OldSituationSearch_Control_BackgroundPanel_Push.GetWordNameFo
 begin
  Result := 'контрол::BackgroundPanel:push';
 end;//Tkw_OldSituationSearch_Control_BackgroundPanel_Push.GetWordNameForRegister
-
-class function Tkw_OldSituationSearch_Control_ContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ContextFilter';
-end;//Tkw_OldSituationSearch_Control_ContextFilter.GetWordNameForRegister
 
 function Tkw_OldSituationSearch_Control_ContextFilter.GetString: AnsiString;
 begin
@@ -498,6 +494,11 @@ begin
  TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_OldSituationSearch_Control_ContextFilter.RegisterInEngine
 
+class function Tkw_OldSituationSearch_Control_ContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ContextFilter';
+end;//Tkw_OldSituationSearch_Control_ContextFilter.GetWordNameForRegister
+
 procedure Tkw_OldSituationSearch_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ContextFilter');
@@ -508,11 +509,6 @@ class function Tkw_OldSituationSearch_Control_ContextFilter_Push.GetWordNameForR
 begin
  Result := 'контрол::ContextFilter:push';
 end;//Tkw_OldSituationSearch_Control_ContextFilter_Push.GetWordNameForRegister
-
-class function Tkw_OldSituationSearch_Control_InnerBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::InnerBackgroundPanel';
-end;//Tkw_OldSituationSearch_Control_InnerBackgroundPanel.GetWordNameForRegister
 
 function Tkw_OldSituationSearch_Control_InnerBackgroundPanel.GetString: AnsiString;
 begin
@@ -525,6 +521,11 @@ begin
  TtfwClassRef.Register(TvtProportionalPanel);
 end;//Tkw_OldSituationSearch_Control_InnerBackgroundPanel.RegisterInEngine
 
+class function Tkw_OldSituationSearch_Control_InnerBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::InnerBackgroundPanel';
+end;//Tkw_OldSituationSearch_Control_InnerBackgroundPanel.GetWordNameForRegister
+
 procedure Tkw_OldSituationSearch_Control_InnerBackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('InnerBackgroundPanel');
@@ -535,11 +536,6 @@ class function Tkw_OldSituationSearch_Control_InnerBackgroundPanel_Push.GetWordN
 begin
  Result := 'контрол::InnerBackgroundPanel:push';
 end;//Tkw_OldSituationSearch_Control_InnerBackgroundPanel_Push.GetWordNameForRegister
-
-class function Tkw_OldSituationSearch_Control_BotomPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::BotomPanel';
-end;//Tkw_OldSituationSearch_Control_BotomPanel.GetWordNameForRegister
 
 function Tkw_OldSituationSearch_Control_BotomPanel.GetString: AnsiString;
 begin
@@ -552,6 +548,11 @@ begin
  TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_OldSituationSearch_Control_BotomPanel.RegisterInEngine
 
+class function Tkw_OldSituationSearch_Control_BotomPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BotomPanel';
+end;//Tkw_OldSituationSearch_Control_BotomPanel.GetWordNameForRegister
+
 procedure Tkw_OldSituationSearch_Control_BotomPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BotomPanel');
@@ -562,11 +563,6 @@ class function Tkw_OldSituationSearch_Control_BotomPanel_Push.GetWordNameForRegi
 begin
  Result := 'контрол::BotomPanel:push';
 end;//Tkw_OldSituationSearch_Control_BotomPanel_Push.GetWordNameForRegister
-
-class function Tkw_OldSituationSearch_Control_ParentZone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ParentZone';
-end;//Tkw_OldSituationSearch_Control_ParentZone.GetWordNameForRegister
 
 function Tkw_OldSituationSearch_Control_ParentZone.GetString: AnsiString;
 begin
@@ -579,6 +575,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_OldSituationSearch_Control_ParentZone.RegisterInEngine
 
+class function Tkw_OldSituationSearch_Control_ParentZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ParentZone';
+end;//Tkw_OldSituationSearch_Control_ParentZone.GetWordNameForRegister
+
 procedure Tkw_OldSituationSearch_Control_ParentZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ParentZone');
@@ -589,11 +590,6 @@ class function Tkw_OldSituationSearch_Control_ParentZone_Push.GetWordNameForRegi
 begin
  Result := 'контрол::ParentZone:push';
 end;//Tkw_OldSituationSearch_Control_ParentZone_Push.GetWordNameForRegister
-
-class function Tkw_OldSituationSearch_Control_ZoneContainer.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ZoneContainer';
-end;//Tkw_OldSituationSearch_Control_ZoneContainer.GetWordNameForRegister
 
 function Tkw_OldSituationSearch_Control_ZoneContainer.GetString: AnsiString;
 begin
@@ -606,6 +602,11 @@ begin
  TtfwClassRef.Register(TvtProportionalPanel);
 end;//Tkw_OldSituationSearch_Control_ZoneContainer.RegisterInEngine
 
+class function Tkw_OldSituationSearch_Control_ZoneContainer.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ZoneContainer';
+end;//Tkw_OldSituationSearch_Control_ZoneContainer.GetWordNameForRegister
+
 procedure Tkw_OldSituationSearch_Control_ZoneContainer_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ZoneContainer');
@@ -616,11 +617,6 @@ class function Tkw_OldSituationSearch_Control_ZoneContainer_Push.GetWordNameForR
 begin
  Result := 'контрол::ZoneContainer:push';
 end;//Tkw_OldSituationSearch_Control_ZoneContainer_Push.GetWordNameForRegister
-
-class function Tkw_OldSituationSearch_Control_ChildZone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ChildZone';
-end;//Tkw_OldSituationSearch_Control_ChildZone.GetWordNameForRegister
 
 function Tkw_OldSituationSearch_Control_ChildZone.GetString: AnsiString;
 begin
@@ -633,6 +629,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_OldSituationSearch_Control_ChildZone.RegisterInEngine
 
+class function Tkw_OldSituationSearch_Control_ChildZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ChildZone';
+end;//Tkw_OldSituationSearch_Control_ChildZone.GetWordNameForRegister
+
 procedure Tkw_OldSituationSearch_Control_ChildZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ChildZone');
@@ -644,11 +645,6 @@ begin
  Result := 'контрол::ChildZone:push';
 end;//Tkw_OldSituationSearch_Control_ChildZone_Push.GetWordNameForRegister
 
-class function Tkw_OldSituationSearch_Control_MainZone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::MainZone';
-end;//Tkw_OldSituationSearch_Control_MainZone.GetWordNameForRegister
-
 function Tkw_OldSituationSearch_Control_MainZone.GetString: AnsiString;
 begin
  Result := 'MainZone';
@@ -659,6 +655,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_OldSituationSearch_Control_MainZone.RegisterInEngine
+
+class function Tkw_OldSituationSearch_Control_MainZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::MainZone';
+end;//Tkw_OldSituationSearch_Control_MainZone.GetWordNameForRegister
 
 procedure Tkw_OldSituationSearch_Control_MainZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -693,11 +694,6 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_acfOldSituationSearch));
 end;//TkwCfOldSituationSearchBackgroundPanel.DoDoIt
 
-class function TkwCfOldSituationSearchBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfOldSituationSearch.BackgroundPanel';
-end;//TkwCfOldSituationSearchBackgroundPanel.GetWordNameForRegister
-
 procedure TkwCfOldSituationSearchBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -718,6 +714,11 @@ function TkwCfOldSituationSearchBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfOldSituationSearch)]);
 end;//TkwCfOldSituationSearchBackgroundPanel.ParamsTypes
+
+class function TkwCfOldSituationSearchBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfOldSituationSearch.BackgroundPanel';
+end;//TkwCfOldSituationSearchBackgroundPanel.GetWordNameForRegister
 
 function TkwCfOldSituationSearchContextFilter.ContextFilter(const aCtx: TtfwContext;
  acfOldSituationSearch: TcfOldSituationSearch): TnscContextFilter;
@@ -741,11 +742,6 @@ begin
  aCtx.rEngine.PushObj(ContextFilter(aCtx, l_acfOldSituationSearch));
 end;//TkwCfOldSituationSearchContextFilter.DoDoIt
 
-class function TkwCfOldSituationSearchContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfOldSituationSearch.ContextFilter';
-end;//TkwCfOldSituationSearchContextFilter.GetWordNameForRegister
-
 procedure TkwCfOldSituationSearchContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -766,6 +762,11 @@ function TkwCfOldSituationSearchContextFilter.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfOldSituationSearch)]);
 end;//TkwCfOldSituationSearchContextFilter.ParamsTypes
+
+class function TkwCfOldSituationSearchContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfOldSituationSearch.ContextFilter';
+end;//TkwCfOldSituationSearchContextFilter.GetWordNameForRegister
 
 function TkwCfOldSituationSearchInnerBackgroundPanel.InnerBackgroundPanel(const aCtx: TtfwContext;
  acfOldSituationSearch: TcfOldSituationSearch): TvtProportionalPanel;
@@ -789,11 +790,6 @@ begin
  aCtx.rEngine.PushObj(InnerBackgroundPanel(aCtx, l_acfOldSituationSearch));
 end;//TkwCfOldSituationSearchInnerBackgroundPanel.DoDoIt
 
-class function TkwCfOldSituationSearchInnerBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfOldSituationSearch.InnerBackgroundPanel';
-end;//TkwCfOldSituationSearchInnerBackgroundPanel.GetWordNameForRegister
-
 procedure TkwCfOldSituationSearchInnerBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -814,6 +810,11 @@ function TkwCfOldSituationSearchInnerBackgroundPanel.ParamsTypes: PTypeInfoArray
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfOldSituationSearch)]);
 end;//TkwCfOldSituationSearchInnerBackgroundPanel.ParamsTypes
+
+class function TkwCfOldSituationSearchInnerBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfOldSituationSearch.InnerBackgroundPanel';
+end;//TkwCfOldSituationSearchInnerBackgroundPanel.GetWordNameForRegister
 
 function TkwCfOldSituationSearchBotomPanel.BotomPanel(const aCtx: TtfwContext;
  acfOldSituationSearch: TcfOldSituationSearch): TvtSizeablePanel;
@@ -837,11 +838,6 @@ begin
  aCtx.rEngine.PushObj(BotomPanel(aCtx, l_acfOldSituationSearch));
 end;//TkwCfOldSituationSearchBotomPanel.DoDoIt
 
-class function TkwCfOldSituationSearchBotomPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfOldSituationSearch.BotomPanel';
-end;//TkwCfOldSituationSearchBotomPanel.GetWordNameForRegister
-
 procedure TkwCfOldSituationSearchBotomPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -862,6 +858,11 @@ function TkwCfOldSituationSearchBotomPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfOldSituationSearch)]);
 end;//TkwCfOldSituationSearchBotomPanel.ParamsTypes
+
+class function TkwCfOldSituationSearchBotomPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfOldSituationSearch.BotomPanel';
+end;//TkwCfOldSituationSearchBotomPanel.GetWordNameForRegister
 
 function TkwCfOldSituationSearchParentZone.ParentZone(const aCtx: TtfwContext;
  acfOldSituationSearch: TcfOldSituationSearch): TvtPanel;
@@ -885,11 +886,6 @@ begin
  aCtx.rEngine.PushObj(ParentZone(aCtx, l_acfOldSituationSearch));
 end;//TkwCfOldSituationSearchParentZone.DoDoIt
 
-class function TkwCfOldSituationSearchParentZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfOldSituationSearch.ParentZone';
-end;//TkwCfOldSituationSearchParentZone.GetWordNameForRegister
-
 procedure TkwCfOldSituationSearchParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -910,6 +906,11 @@ function TkwCfOldSituationSearchParentZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfOldSituationSearch)]);
 end;//TkwCfOldSituationSearchParentZone.ParamsTypes
+
+class function TkwCfOldSituationSearchParentZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfOldSituationSearch.ParentZone';
+end;//TkwCfOldSituationSearchParentZone.GetWordNameForRegister
 
 function TkwCfOldSituationSearchZoneContainer.ZoneContainer(const aCtx: TtfwContext;
  acfOldSituationSearch: TcfOldSituationSearch): TvtProportionalPanel;
@@ -933,11 +934,6 @@ begin
  aCtx.rEngine.PushObj(ZoneContainer(aCtx, l_acfOldSituationSearch));
 end;//TkwCfOldSituationSearchZoneContainer.DoDoIt
 
-class function TkwCfOldSituationSearchZoneContainer.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfOldSituationSearch.ZoneContainer';
-end;//TkwCfOldSituationSearchZoneContainer.GetWordNameForRegister
-
 procedure TkwCfOldSituationSearchZoneContainer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -958,6 +954,11 @@ function TkwCfOldSituationSearchZoneContainer.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfOldSituationSearch)]);
 end;//TkwCfOldSituationSearchZoneContainer.ParamsTypes
+
+class function TkwCfOldSituationSearchZoneContainer.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfOldSituationSearch.ZoneContainer';
+end;//TkwCfOldSituationSearchZoneContainer.GetWordNameForRegister
 
 function TkwCfOldSituationSearchChildZone.ChildZone(const aCtx: TtfwContext;
  acfOldSituationSearch: TcfOldSituationSearch): TvtPanel;
@@ -981,11 +982,6 @@ begin
  aCtx.rEngine.PushObj(ChildZone(aCtx, l_acfOldSituationSearch));
 end;//TkwCfOldSituationSearchChildZone.DoDoIt
 
-class function TkwCfOldSituationSearchChildZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfOldSituationSearch.ChildZone';
-end;//TkwCfOldSituationSearchChildZone.GetWordNameForRegister
-
 procedure TkwCfOldSituationSearchChildZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1006,6 +1002,11 @@ function TkwCfOldSituationSearchChildZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfOldSituationSearch)]);
 end;//TkwCfOldSituationSearchChildZone.ParamsTypes
+
+class function TkwCfOldSituationSearchChildZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfOldSituationSearch.ChildZone';
+end;//TkwCfOldSituationSearchChildZone.GetWordNameForRegister
 
 function TkwCfOldSituationSearchMainZone.MainZone(const aCtx: TtfwContext;
  acfOldSituationSearch: TcfOldSituationSearch): TvtSizeablePanel;
@@ -1029,11 +1030,6 @@ begin
  aCtx.rEngine.PushObj(MainZone(aCtx, l_acfOldSituationSearch));
 end;//TkwCfOldSituationSearchMainZone.DoDoIt
 
-class function TkwCfOldSituationSearchMainZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfOldSituationSearch.MainZone';
-end;//TkwCfOldSituationSearchMainZone.GetWordNameForRegister
-
 procedure TkwCfOldSituationSearchMainZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1054,6 +1050,11 @@ function TkwCfOldSituationSearchMainZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfOldSituationSearch)]);
 end;//TkwCfOldSituationSearchMainZone.ParamsTypes
+
+class function TkwCfOldSituationSearchMainZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfOldSituationSearch.MainZone';
+end;//TkwCfOldSituationSearchMainZone.GetWordNameForRegister
 
 initialization
  Tkw_Form_OldSituationSearch.RegisterInEngine;

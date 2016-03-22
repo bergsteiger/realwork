@@ -279,7 +279,7 @@ begin
                                   not (f_Preview.PreviewResetting or
                                        f_Preview.InProcess);
  {$If not defined(Admin) AND not defined(Monitorings)}
- nsDisableOperationInTrialMode(aParams);
+ //nsDisableOperationInTrialMode(aParams);
  {$IfEnd} //not Admin AND not Monitorings
 //#UC END# *4A97EBE702F8_4C52BA5D01A8test_impl*
 end;//TPrimPrintDialogOptionsForm.Result_Ok_Test

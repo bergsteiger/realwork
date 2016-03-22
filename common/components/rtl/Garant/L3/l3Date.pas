@@ -5,9 +5,12 @@ unit l3Date;
 { Автор: TurboPower Software ©        }
 { Модуль: l3Date -                    }
 { Начат: 19.11.1999 17:55             }
-{ $Id: l3Date.pas,v 1.39 2015/11/06 12:33:31 lukyanets Exp $ }
+{ $Id: l3Date.pas,v 1.40 2015/11/18 13:37:18 lukyanets Exp $ }
 
 // $Log: l3Date.pas,v $
+// Revision 1.40  2015/11/18 13:37:18  lukyanets
+// Готовимся писать в журнал
+//
 // Revision 1.39  2015/11/06 12:33:31  lukyanets
 // Готовимся рисовать дерево условий
 //
@@ -208,6 +211,7 @@ type
   TStBondDateType = (bdtActual, bdt30E360, bdt30360);
     {* An enumerated type used for calculating bond date differences. }
 
+  PStTime = ^TStTime;
   TStTime = LongInt;
     {* STDATE handles time in a manner similar to dates, representing a given
     time of day as the number of seconds since midnight. }

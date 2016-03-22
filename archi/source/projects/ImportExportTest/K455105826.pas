@@ -1,95 +1,68 @@
 unit K455105826;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ImportExportTestLibrary"
-// Модуль: "W:/archi/source/projects/ImportExportTest/K455105826.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> archi$ImportExprortTest::ImportExportTestLibrary::ImportExport::TK455105826
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\archi\source\projects\ImportExportTest\K455105826.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TK455105826" MUID: (519CA57101A1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include W:\archi\source\projects\ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  ietBaseTest
-  {$If not defined(Nemesis)}
-  ,
-  dt_Jour
-  {$IfEnd} //not Nemesis
-  ,
-  ddImportPipe
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , ietBaseTest
+ {$If NOT Defined(Nemesis)}
+ , dt_Jour
+ {$IfEnd} // NOT Defined(Nemesis)
+ , ddImportPipe
+;
 
-{$If defined(nsTest)}
 type
  TK455105826 = class(TietBaseTest)
- private
- // private fields
-   f_LockJournal : TAbstractJournal;
- protected
- // overridden protected methods
+  private
+   f_LockJournal: TAbstractJournal;
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
    procedure DoBeforeImport(const aPipe: TddImportPipe); override;
    procedure DoAfterImport(const aPipe: TddImportPipe); override;
  end;//TK455105826
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  dt_Const
-  {$If not defined(Nemesis)}
-  ,
-  dt_IFltr
-  {$IfEnd} //not Nemesis
-  ,
-  dt_Types
-  {$If not defined(Nemesis)}
-  ,
-  dt_Lock
-  {$IfEnd} //not Nemesis
-  
-  {$If defined(Archi) AND not defined(Nemesis)}
-  ,
-  dt_LinkServ
-  {$IfEnd} //Archi AND not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  dt_Doc
-  {$IfEnd} //not Nemesis
-  ,
-  SysUtils,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest
-
-{$If defined(nsTest)}
-
-// start class TK455105826
+ l3ImplUses
+ , dt_Const
+ {$If NOT Defined(Nemesis)}
+ , dt_IFltr
+ {$IfEnd} // NOT Defined(Nemesis)
+ , dt_Types
+ {$If NOT Defined(Nemesis)}
+ , dt_Lock
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(Archi) AND NOT Defined(Nemesis)}
+ , dt_LinkServ
+ {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , dt_Doc
+ {$IfEnd} // NOT Defined(Nemesis)
+ , SysUtils
+ , TestFrameWork
+;
 
 function TK455105826.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'ImportExport';
 end;//TK455105826.GetFolder
 
 function TK455105826.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '519CA57101A1';
 end;//TK455105826.GetModelElementGUID
@@ -129,9 +102,8 @@ begin
 //#UC END# *5195F75F02CB_519CA57101A1_impl*
 end;//TK455105826.DoAfterImport
 
-{$IfEnd} //nsTest
-
 initialization
  TestFramework.RegisterTest(TK455105826.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

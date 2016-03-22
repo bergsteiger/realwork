@@ -3,6 +3,7 @@ unit TextMetricsTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\TextMetricsTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTextMetricsTest" MUID: (4D076A0C03C4)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

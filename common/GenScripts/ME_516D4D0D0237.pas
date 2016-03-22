@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\UnknownImpl.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "UnknownImpl" MUID: (516D4D0D0237)
+// Имя типа: "_UnknownImpl_"
 
 {$Define UnknownImpl_imp}
 

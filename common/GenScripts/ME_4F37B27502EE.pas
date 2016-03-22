@@ -2,6 +2,7 @@ unit tfwProcedure;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwProcedure.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwProcedure" MUID: (4F37B27502EE)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

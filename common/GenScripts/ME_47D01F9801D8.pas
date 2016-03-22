@@ -2,6 +2,7 @@ unit evControlContainerEX;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evControlContainerEX.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevControlContainerEX" MUID: (47D01F9801D8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -1,74 +1,54 @@
 unit PrimScrollTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Daily/PrimScrollTest.pas"
-// Начат: 21.09.2010 15:43
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TPrimScrollTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\PrimScrollTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TPrimScrollTest" MUID: (4C9899150030)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TextEditorVisitor
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , TextEditorVisitor
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TPrimScrollTest = {abstract} class(TTextEditorVisitor)
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- public
- // overridden public methods
+    {* Идентификатор элемента модели, который описывает тест }
+  public
    function NotForTerminalSession: Boolean; override;
-     {* Не запускать тест в терминальной сессии }
+    {* Не запускать тест в терминальной сессии }
  end;//TPrimScrollTest
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TPrimScrollTest
+ l3ImplUses
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 function TPrimScrollTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TPrimScrollTest.GetFolder
 
 function TPrimScrollTest.NotForTerminalSession: Boolean;
+ {* Не запускать тест в терминальной сессии }
 //#UC START# *4C988C1B0246_4C9899150030_var*
 //#UC END# *4C988C1B0246_4C9899150030_var*
 begin
@@ -78,11 +58,10 @@ begin
 end;//TPrimScrollTest.NotForTerminalSession
 
 function TPrimScrollTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C9899150030';
 end;//TPrimScrollTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

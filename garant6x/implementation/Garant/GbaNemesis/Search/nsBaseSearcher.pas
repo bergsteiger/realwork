@@ -1,8 +1,23 @@
 unit nsBaseSearcher;
 
-// $Id: nsBaseSearcher.pas,v 1.182 2015/11/05 10:03:01 morozov Exp $
+// $Id: nsBaseSearcher.pas,v 1.187 2015/12/22 12:14:20 morozov Exp $
 
 // $Log: nsBaseSearcher.pas,v $
+// Revision 1.187  2015/12/22 12:14:20  morozov
+// {RequestLink: 609899254}
+//
+// Revision 1.186  2015/12/22 10:57:49  morozov
+// {RequestLink: 613712939}
+//
+// Revision 1.185  2015/12/18 09:52:33  morozov
+// {RequestLink: 612549121}
+//
+// Revision 1.184  2015/12/18 06:36:59  morozov
+// {RequestLink: 613712939}
+//
+// Revision 1.183  2015/11/18 12:06:13  morozov
+// {RequestLink: 611210158}
+//
 // Revision 1.182  2015/11/05 10:03:01  morozov
 // {RequestLink: 610745222}
 //
@@ -768,6 +783,7 @@ type
    f_InitialOpenKind: TnsBaseSearchOpenKind;
    f_IsWindowOpened: Boolean;
    f_ClassSetFromState: Boolean;
+   f_NeedActivate: Boolean;
   private
    procedure pm_SetExampleText(const aValue: Il3CString);
      {-}
@@ -895,6 +911,10 @@ uses
  Common_FormDefinitions_Controls,
  Search_FormDefinitions_Controls,
  nsTreeStruct
+
+ ,
+ Controls,
+ Windows
  ;
 
 type
@@ -905,22 +925,30 @@ type
   f_NeedShowWindow: Boolean;
   f_OpenKind: TnsBaseSearchOpenKind;
   f_CurrentSearchClass: InsBaseSearchClass;
+  f_SearchArea: TnsSearchArea;
+  f_NeedActivate: Boolean;
  protected
   function pm_GetContext: Il3CString;
   function pm_GetNeedShowWindow: Boolean;
   function pm_GetOpenKind: TnsBaseSearchOpenKind;
   function pm_GetElements: TnsBaseSearchStateElements;
   function pm_GetCurrentSearchClass: InsBaseSearchClass;
+  function pm_GetSearchArea: TnsSearchArea;
+  function pm_GetNeedActivate: Boolean;
   procedure CleanUp; override;
  public
   constructor Create(aStateElements: TnsBaseSearchStateElements;
    const aContext: Il3CString; aNeedShowWindow: Boolean;
    aOpenKind: TnsBaseSearchOpenKind;
-   const aCurrentSearchClass: InsBaseSearchClass);
+   const aCurrentSearchClass: InsBaseSearchClass;
+   aSearchArea: TnsSearchArea;
+   aNeedActivate: Boolean);
   class function Make(aStateElements: TnsBaseSearchStateElements;
    const aContext: Il3CString; aNeedShowWindow: Boolean;
    aOpenKind: TnsBaseSearchOpenKind;
-   const aCurrentSearchClass: InsBaseSearchClass): InsBaseSearcherInitialState;
+   const aCurrentSearchClass: InsBaseSearchClass;
+   aSearchArea: TnsSearchArea;
+   aNeedActivate: Boolean): InsBaseSearcherInitialState;
  end;
 
 function TnsBaseSearcherInitialState.pm_GetContext: Il3CString;
@@ -948,6 +976,16 @@ begin
  Result := f_CurrentSearchClass;
 end;
 
+function TnsBaseSearcherInitialState.pm_GetSearchArea: TnsSearchArea;
+begin
+ Result := f_SearchArea;
+end;
+
+function TnsBaseSearcherInitialState.pm_GetNeedActivate: Boolean;
+begin
+ Result := f_NeedActivate;
+end;
+
 procedure TnsBaseSearcherInitialState.CleanUp;
 begin
  f_Context := nil;
@@ -958,7 +996,9 @@ end;
 constructor TnsBaseSearcherInitialState.Create(aStateElements: TnsBaseSearchStateElements;
    const aContext: Il3CString; aNeedShowWindow: Boolean;
    aOpenKind: TnsBaseSearchOpenKind;
-   const aCurrentSearchClass: InsBaseSearchClass);   
+   const aCurrentSearchClass: InsBaseSearchClass;
+   aSearchArea: TnsSearchArea;
+   aNeedActivate: Boolean);   
 begin
  inherited Create;
  f_StateElements := aStateElements;
@@ -970,16 +1010,22 @@ begin
   f_OpenKind := aOpenKind;
  if (ns_sseActiveClass in aStateElements) then
   f_CurrentSearchClass := aCurrentSearchClass;
+ if (ns_sseSearchArea in aStateElements) then
+  f_SearchArea := aSearchArea;
+ f_NeedActivate := aNeedActivate;
 end;
 
 class function TnsBaseSearcherInitialState.Make(aStateElements: TnsBaseSearchStateElements;
  const aContext: Il3CString; aNeedShowWindow: Boolean;
  aOpenKind: TnsBaseSearchOpenKind;
- const aCurrentSearchClass: InsBaseSearchClass): InsBaseSearcherInitialState;
+ const aCurrentSearchClass: InsBaseSearchClass;
+ aSearchArea: TnsSearchArea;
+ aNeedActivate: Boolean): InsBaseSearcherInitialState;
 var
  l_State: TnsBaseSearcherInitialState;
 begin
- l_State := Create(aStateElements, aContext, aNeedShowWindow, aOpenKind, aCurrentSearchClass);
+ l_State := Create(aStateElements, aContext, aNeedShowWindow, aOpenKind,
+  aCurrentSearchClass, aSearchArea, aNeedActivate);
  try
   Result := l_State;
  finally
@@ -999,7 +1045,6 @@ end;//InitFields
 
 procedure TnsBaseSearcher.Cleanup;
 begin
- TnsBaseSearchClasses.Instance.Unsubscribe(Self as InsBaseSearchClassesListener);
  f_ContextHistory.RemoveNotifier(Self);
  f_ContextHistory := nil;
  NotifyVisibleWatcher(False);
@@ -1013,6 +1058,7 @@ begin
  f_FirstClass := nil;
  f_SavedClass := nil;
  f_InitialContext := nil;
+ TnsBaseSearchClasses.Instance.Unsubscribe(Self as InsBaseSearchClassesListener); 
  inherited;
 end;
 
@@ -1346,7 +1392,7 @@ begin
   end;//case OpenKind of
  if ByUser then
  begin
-  if (not f_ClassSetFromState) then
+  if (not f_ClassSetFromState) and (not f_InitialNeedShowWindow) then
    ActiveClass := f_FirstClass;
   NotifyVisibleWatcher;
   UpdateContextFromHistory;
@@ -1360,11 +1406,11 @@ begin
   begin
    if (l_Container.rContainer <> nil) then
    begin
-    if (l_OldCont.AsForm.VCLWinControl <> l_Container.rContainer.AsForm.VCLWinControl) then
+    if (not l_OldCont.IsSame(l_Container.rContainer)) then
      CloseSearchWindow;
    end//l_Container.rContainer <> nil
    else
-   if (l_OldCont.AsForm.VCLWinControl <> Container.AsForm.VCLWinControl) then
+   if (not l_OldCont.IsSame(Container)) then
     CloseSearchWindow;
   end//l_OldCont <> nil
   else
@@ -1418,8 +1464,8 @@ begin
     (Assigned(f_Presentation) and
      InsBaseSearchPresentation(f_Presentation).AutoActivateWindow) then
  begin
-  if SearchWindow <> nil then // http://mdp.garant.ru/pages/viewpage.action?pageId=297705374
-    SearchWindow.ActivateWindow(ByUser);
+(*  if SearchWindow <> nil then // http://mdp.garant.ru/pages/viewpage.action?pageId=297705374
+    SearchWindow.ActivateWindow(ByUser); *)
   if ByUser or
      (Assigned(f_Presentation) and
       InsBaseSearchPresentation(f_Presentation).IsQueryCard) then
@@ -1436,9 +1482,14 @@ procedure TnsBaseSearcher.ShowWindowByUser(OpenKind: TnsBaseSearchOpenKind);
 var
  l_Form : IvcmEntityForm;
 begin
+ f_NeedActivate := True;
  f_OpenKind := OpenKind;
  if Assigned(f_Presentation) then
-  ShowWindow(True, OpenKind)
+ begin
+  ShowWindow(True, OpenKind);
+  if (f_SearchWindow <> nil) then
+   InsSearchWindow(f_SearchWindow).ActivateWindow(True);
+ end 
  else
  if (OpenKind = ns_bsokGlobal) then
  begin
@@ -1909,15 +1960,18 @@ function TnsBaseSearcher.MakeStateParams(aStateElements: TnsBaseSearchStateEleme
 var
  l_NeedOpenWindow: Boolean;
  l_StateElements: TnsBaseSearchStateElements;
+ l_NeedActivate: Boolean;
 begin
  l_StateElements := aStateElements;
  l_NeedOpenWindow := (aForClone and f_IsWindowOpened and (f_SearchWindow <> nil)) or
-   (not l3IsNil(f_Context)) and f_Searched and f_WindowOpenedByUser;
+   (not l3IsNil(f_Context)) and (f_Searched or aForClone) and (f_WindowOpenedByUser or aForClone);
+ l_NeedActivate := f_IsWindowOpened and (f_SearchWindow <> nil) and InsSearchWindow(f_SearchWindow).IsActive;
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=566792807,
  // http://mdp.garant.ru/pages/viewpage.action?pageId=567573990
  if aForClone then
   l_StateElements := l_StateElements + [ns_sseActiveClass];
- Result := TnsBaseSearcherInitialState.Make(l_StateElements, f_Context, l_NeedOpenWindow, f_OpenKind, pm_GetActiveClass);
+ Result := TnsBaseSearcherInitialState.Make(l_StateElements, f_Context,
+  l_NeedOpenWindow, f_OpenKind, pm_GetActiveClass, pm_GetArea, l_NeedActivate);
 end;
 
 procedure TnsBaseSearcher.AssignState(const aState: InsBaseSearcherInitialState);
@@ -1927,12 +1981,19 @@ begin
   if (ns_sseContext in aState.Elements) then
    f_InitialContext := aState.Context;
   if (ns_sseNeedShowWindow in aState.Elements) then
+  begin
    f_InitialNeedShowWindow := aState.NeedShowWindow;
+   f_WindowOpenedByUser := f_InitialNeedShowWindow;
+   f_IsWindowOpened := f_InitialNeedShowWindow;
+  end; 
   if (ns_sseOpenKind in aState.Elements) then
    f_InitialOpenKind := aState.OpenKind;
   if (ns_sseActiveClass in aState.Elements) then
    ActiveClass := aState.CurrentSearchClass;
+  if (ns_sseSearchArea in aState.Elements) then
+   pm_SetArea(aState.SearchArea);
   f_ClassSetFromState := (ns_sseActiveClass in aState.Elements);
+  f_NeedActivate := aState.NeedActivate;
  end;
 end;
 

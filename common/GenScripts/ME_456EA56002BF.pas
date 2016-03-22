@@ -3,6 +3,7 @@ unit BaseTypesUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\BaseTypesUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "BaseTypes" MUID: (456EA56002BF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -306,6 +307,7 @@ type
    {* Гос. и муниципальные учреждения }
   , NM_LAW_FOR_ALL
    {* Право для всех }
+  , NM_GOS_ZAKUPKI
  );//TNavigatorMenuItemType
 
  TSearchResultType = (

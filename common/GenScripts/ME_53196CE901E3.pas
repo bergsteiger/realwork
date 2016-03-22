@@ -3,6 +3,8 @@ unit K517772970_TalcuRelPublishTaskDefault;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TalcuRelPublishTaskDefault.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TalcuRelPublishTaskDefault" MUID: (53196CE901E3)
+// Имя типа: "TK517772970_TalcuRelPublishTaskDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

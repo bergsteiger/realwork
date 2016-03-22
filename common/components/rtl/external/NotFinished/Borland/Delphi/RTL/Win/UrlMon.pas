@@ -2,6 +2,7 @@ unit UrlMon;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\UrlMon.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "UrlMon" MUID: (4A042F5D03B2)
 
 interface
 

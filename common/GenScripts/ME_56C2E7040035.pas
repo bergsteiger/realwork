@@ -2,6 +2,7 @@ unit caDataConverter;
 
 // Модуль: "w:\common\components\rtl\Garant\ComboAccess\caDataConverter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcaDataConverter" MUID: (56C2E7040035)
 
 {$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 

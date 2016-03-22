@@ -3,6 +3,8 @@ unit TabStop_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\TabStop_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "TabStop" MUID: (484FD50602E9)
+// Имя типа: "TabStopTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

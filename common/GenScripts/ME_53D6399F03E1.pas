@@ -2,6 +2,7 @@ unit k2InterfaceMapper;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2InterfaceMapper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2InterfaceMapper" MUID: (53D6399F03E1)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

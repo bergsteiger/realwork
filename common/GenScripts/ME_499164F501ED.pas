@@ -3,6 +3,7 @@ unit ConfigInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\ConfigInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "ConfigInterfaces" MUID: (499164F501ED)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

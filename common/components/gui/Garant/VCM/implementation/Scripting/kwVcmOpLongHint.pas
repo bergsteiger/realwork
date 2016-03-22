@@ -2,6 +2,8 @@ unit kwVcmOpLongHint;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpLongHint.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "vcm_op_LongHint" MUID: (52301B0C0177)
+// Имя типа: "TkwVcmOpLongHint"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

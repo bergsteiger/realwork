@@ -2,6 +2,7 @@ unit alcuTaskChangeHelper;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuTaskChangeHelper.pas"
 // Стереотип: "ServiceImplementation"
+// Элемент модели: "TalcuTaskChangeHelper" MUID: (5583CD3601BD)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

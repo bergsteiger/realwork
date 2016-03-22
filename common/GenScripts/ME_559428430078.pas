@@ -2,6 +2,7 @@ unit kwCompiledWordWorkerWordPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordWorkerWordPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "kwCompiledWordWorkerWordPack" MUID: (559428430078)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -74,11 +75,6 @@ begin
  aCtx.rEngine.PushObj(Compiled(aCtx, l_aCompiledWordWorkerWord));
 end;//TkwPopCompiledWordWorkerWordCompiled.DoDoIt
 
-class function TkwPopCompiledWordWorkerWordCompiled.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:CompiledWordWorkerWord:Compiled';
-end;//TkwPopCompiledWordWorkerWordCompiled.GetWordNameForRegister
-
 procedure TkwPopCompiledWordWorkerWordCompiled.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -99,6 +95,11 @@ function TkwPopCompiledWordWorkerWordCompiled.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TkwCompiledWordWorkerWord)]);
 end;//TkwPopCompiledWordWorkerWordCompiled.ParamsTypes
+
+class function TkwPopCompiledWordWorkerWordCompiled.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:CompiledWordWorkerWord:Compiled';
+end;//TkwPopCompiledWordWorkerWordCompiled.GetWordNameForRegister
 
 initialization
  TkwPopCompiledWordWorkerWordCompiled.RegisterInEngine;

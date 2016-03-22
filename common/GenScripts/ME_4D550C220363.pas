@@ -2,6 +2,7 @@ unit vgInterfaces;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "vgInterfaces" MUID: (4D550C220363)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

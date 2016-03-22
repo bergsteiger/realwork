@@ -3,6 +3,7 @@ unit TestNameList;
 
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\TestNameList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TTestNameList" MUID: (4D1AEAC80371)
 
 {$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 

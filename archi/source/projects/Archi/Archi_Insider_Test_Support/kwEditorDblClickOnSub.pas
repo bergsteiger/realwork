@@ -1,61 +1,42 @@
 unit kwEditorDblClickOnSub;
+ {* Двойной щелчок на сабе. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwEditorDblClickOnSub.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::Scripting::TkwEditorDblClickOnSub
-//
-// Двойной щелчок на сабе.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwEditorDblClickOnSub.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwEditorDblClickOnSub" MUID: (4DFB3B88027A)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  arEditorControl,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , arEditorControl
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwEditorDblClickOnSub = {scriptword} class(TarEditorControl)
+ TkwEditorDblClickOnSub = class(TarEditorControl)
   {* Двойной щелчок на сабе. }
- protected
- // realized methods
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
     const anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwEditorDblClickOnSub
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  arArchiTestsAdapter
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwEditorDblClickOnSub
+ l3ImplUses
+ , arArchiTestsAdapter
+;
 
 procedure TkwEditorDblClickOnSub.DoWithEditor(const aCtx: TtfwContext;
-  const anEditor: TevCustomEditorWindow);
+ const anEditor: TevCustomEditorWindow);
 //#UC START# *4DE7421F03DF_4DFB3B88027A_var*
 //#UC END# *4DE7421F03DF_4DFB3B88027A_var*
 begin
@@ -68,17 +49,13 @@ begin
 end;//TkwEditorDblClickOnSub.DoWithEditor
 
 class function TkwEditorDblClickOnSub.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'окно_редактора:изменить_саб';
 end;//TkwEditorDblClickOnSub.GetWordNameForRegister
 
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация TkwEditorDblClickOnSub
  TkwEditorDblClickOnSub.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация TkwEditorDblClickOnSub }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

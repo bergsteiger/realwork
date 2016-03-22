@@ -2,6 +2,7 @@ unit SystemStr;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\SystemStr.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "SystemStr" MUID: (54F443CF018E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

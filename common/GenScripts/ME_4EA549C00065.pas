@@ -2,6 +2,7 @@ unit NOT_FINISHED_dd_lcSourceConverter;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcSourceConverter.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "dd_lcSourceConverter" MUID: (4EA549C00065)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

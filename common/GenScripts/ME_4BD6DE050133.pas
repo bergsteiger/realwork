@@ -3,6 +3,7 @@ unit PrimMedicFirmList_mflMain_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicFirmList_mflMain_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "mflMain" MUID: (4BD6DE050133)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_mflMain = {final} class(TtfwInteger)
   {* Слово словаря для типа формы mflMain }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_mflMain
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_mflMain.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::mflMain';
-end;//Tkw_FormUserType_mflMain.GetWordNameForRegister
-
 function Tkw_FormUserType_mflMain.GetInteger: Integer;
 begin
  Result := mflMain;
 end;//Tkw_FormUserType_mflMain.GetInteger
+
+class function Tkw_FormUserType_mflMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::mflMain';
+end;//Tkw_FormUserType_mflMain.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

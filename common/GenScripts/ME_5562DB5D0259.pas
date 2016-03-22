@@ -2,6 +2,7 @@ unit vtCalendarPanel;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtCalendarPanel.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtCalendarPanel" MUID: (5562DB5D0259)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

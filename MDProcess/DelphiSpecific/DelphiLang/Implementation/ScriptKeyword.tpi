@@ -58,8 +58,12 @@ p is immediate:tribool=undefined ? Определяет - является ли слово исполняемым во
 	%f_addG(%S,%{TtfwRegisterableWord})\
 	]\
 
+	[{%S#f_UseNewGenRec()!=true}{\
+	%f_set_var(WasRegisterInEngine,"true")\
+	}\
 	[{%S%f_IsMixIn()!=true}\
 	[{%Sa!=abstract}\
+
 	[{"%{TtfwRegisterableWord.GetWordNameForRegister}N"=""}%f_find_element(4DB0614603C8,TtfwRegisterableWord.GetWordNameForRegister)]\
 	%S%f_add_override(%{TtfwRegisterableWord.GetWordNameForRegister}U)\
 	%{TtfwRegisterableWord.GetWordNameForRegister}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWord.GetWordNameForRegister},%S)_var,\
@@ -74,8 +78,9 @@ p is immediate:tribool=undefined ? Определяет - является ли слово исполняемым во
 	]\
 	;\
 	)\
-	%f_SpellRegisterInEngine(%S)\
 	]\
+
+	%f_SpellRegisterInEngine(%S)\
 	]\
 
 	[{"%S{is immediate}"!="undefined"&"%S{is immediate}"!=""}\
@@ -87,6 +92,7 @@ p is immediate:tribool=undefined ? Определяет - является ли слово исполняемым во
 	%{TtfwWord.IsImmediate}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.IsImmediate},%S)_impl,\
 	 Result := %S{is immediate};\
 	)\
+	]\
 	]
 //#UC END# *4B2A19E3038Bfor4F2C0D86003E*
 

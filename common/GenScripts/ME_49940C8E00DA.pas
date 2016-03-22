@@ -3,6 +3,7 @@ unit vcmTaskPanelInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmTaskPanelInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "vcmTaskPanelInterfaces" MUID: (49940C8E00DA)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -2,6 +2,7 @@ unit vcmTabbedContainerRes;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainerRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmTabbedContainerRes" MUID: (537AE06700E8)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

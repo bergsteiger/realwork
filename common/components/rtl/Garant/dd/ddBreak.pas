@@ -23,7 +23,8 @@ uses
   RTFtypes,
   ddSectionProperty,
   ddCustomDestination,
-  k2Interfaces
+  k2Interfaces,
+  ddTypes
   ;
 
 type
@@ -38,7 +39,7 @@ type
  // realized methods
    procedure Write2Generator(const Generator: Ik2TagGenerator;
      aNeedProcessRow: Boolean;
-     LiteVersion: Boolean); override;
+     LiteVersion: TddLiteVersion); override;
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -84,7 +85,7 @@ end;//TddBreak.HasDefaultParams
 
 procedure TddBreak.Write2Generator(const Generator: Ik2TagGenerator;
   aNeedProcessRow: Boolean;
-  LiteVersion: Boolean);
+  LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_51E8EFD50162_var*
 //#UC END# *518A504F00F5_51E8EFD50162_var*
 begin

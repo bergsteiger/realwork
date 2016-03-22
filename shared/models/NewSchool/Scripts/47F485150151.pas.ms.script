@@ -1108,8 +1108,6 @@ ref; // ME_552FE01A0138 CheckInProgress
 ref; // ME_14FB172E8673 Exists
 
 : ME_4F79CEDF005A_ME_4F0C0B870141
- CONST UID '4F79CEDF005A'
- CONST Name 'MouseListenerNotify'
  : Original WL 'ME_4F79CEDF005A' '4677FBA70343.pas.ms.script' // MouseListenerNotify
  ;
  : Implementor ME_4F0C0B870141 // TDragDataSupport
@@ -1118,8 +1116,6 @@ ref; // ME_14FB172E8673 Exists
 ref; // ME_4F79CEDF005A_ME_4F0C0B870141 MouseListenerNotify
 
 : ME_4F79CF3400BB_ME_4F0C0B870141
- CONST UID '4F79CF3400BB'
- CONST Name 'WndProcListenerNotify'
  : Original WL 'ME_4F79CF3400BB' '4677FBA70343.pas.ms.script' // WndProcListenerNotify
  ;
  : Implementor ME_4F0C0B870141 // TDragDataSupport
@@ -1128,8 +1124,6 @@ ref; // ME_4F79CEDF005A_ME_4F0C0B870141 MouseListenerNotify
 ref; // ME_4F79CF3400BB_ME_4F0C0B870141 WndProcListenerNotify
 
 : ME_4F79CF9200A0_ME_4F0C0B870141
- CONST UID '4F79CF9200A0'
- CONST Name 'WndProcRetListenerNotify'
  : Original WL 'ME_4F79CF9200A0' '4677FBA70343.pas.ms.script' // WndProcRetListenerNotify
  ;
  : Implementor ME_4F0C0B870141 // TDragDataSupport
@@ -1278,34 +1272,6 @@ ref; // ME_4F0C0B6801C7 DragData
 
 FORWARD ME_4F0C23870303
 
-FORWARD ME_4F0C239A01E1
-
-: ME_4F45CCF3596A
- CONST UID '4F45CCF3596A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F0C239A01E1 // TvtForm
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4F45CCF3596A Ini_Reg_Class
-
-: ME_C20B8DE7380F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F0C239A01E1 // TvtForm
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_C20B8DE7380F 
-
 : ME_4F0C239A01E1
  CONST UID '4F0C239A01E1'
  CONST Name 'TvtForm'
@@ -1320,14 +1286,6 @@ ref; // ME_C20B8DE7380F
    Seq: ( WL 'ME_49525A0F034B' '495259B50283.pas.ms.script' // Tl3Form
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4F45CCF3596A // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_C20B8DE7380F // 
- )
- ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -1388,7 +1346,6 @@ ref; // ME_4F0C23870303 vtForm
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_4F635E1901E5' '4F635E1901E5.pas.ms.script' // l3Listeners
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

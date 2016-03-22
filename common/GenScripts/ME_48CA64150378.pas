@@ -3,6 +3,7 @@ unit l3FrameObject;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3FrameObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3FrameObject" MUID: (48CA64150378)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

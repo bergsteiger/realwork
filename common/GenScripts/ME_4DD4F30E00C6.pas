@@ -2,6 +2,7 @@ unit l3ConvertersList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ConvertersList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ConvertersList" MUID: (4DD4F30E00C6)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

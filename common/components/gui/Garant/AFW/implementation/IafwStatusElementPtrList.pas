@@ -2,6 +2,7 @@ unit IafwStatusElementPtrList;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\IafwStatusElementPtrList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TIafwStatusElementPtrList" MUID: (4F6C75F500F1)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

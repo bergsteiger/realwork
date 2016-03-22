@@ -1,6 +1,6 @@
 unit Main;
 
-{ $Id: MAIN.PAS,v 1.116 2015/09/11 07:42:05 voba Exp $ }
+{ $Id: MAIN.PAS,v 1.120 2016/02/15 16:08:19 voba Exp $ }
 
 {$I arDefine.inc }
 
@@ -616,7 +616,6 @@ type
 
 var
   MainForm: TMainForm;
-  RunNonServer : boolean = False;
 
   function CheckRunCondition : Boolean;
   procedure GlobalInit;
@@ -631,6 +630,7 @@ implementation
 
 uses
      daDataProvider,
+     daSchemeConsts,
      HT_Const,
      dtIntf, DT_Sab, DT_SabHelp, DT_Record,
      dt_ATbl,
@@ -730,7 +730,8 @@ uses
      dd_lcRelatedSearcher,
      SavedQuery,
      vtDebug,
-     D_CorrectExportFolder;
+     D_CorrectExportFolder,
+     arSpeller;
 
 resourcestring
  sidStyleFileName = 'Style.evs';
@@ -749,9 +750,6 @@ const
 var
  DisabledDict : set of TdaDictionaryType = [];
  CSC : TCSClient = nil;
-
-type
- ERunNonServer = class(Exception);
 
 function GetDictSetString(DictSet : TDLTypeSet; Var Cnt : Byte) : AnsiString;
 var
@@ -908,10 +906,13 @@ begin
   end
   else
    Abort;
+
+ InitSpeller;
 end;
 
 procedure GlobalDone;
 begin
+ ReleaseSpeller;
  SaveIniRec;
  DoneArchiBaseEngine;
  DoneConfigs;
@@ -947,7 +948,7 @@ procedure TMainForm.FormCreate(Sender: TObject);
    SubDescriptors.OnDefineBlockIndex := DoGetBlockIndex;
    // Если версия уже была, надо запросить с сервера новую дату
    // (или вычислить, если работаем без сервера)
-   if RunNonServer then
+   if g_BaseEngine.ServiceParams.StandAlone then
    begin
     if IniRec.NextVersionDate <= SysUtils.Date then
     begin
@@ -2597,7 +2598,7 @@ end;
 
 procedure TMainForm.seZoomKeyPress(Sender: TObject; var Key: Char);
 begin
- if FCurrentChild <> nil then
+ if (FCurrentChild is TDocEditorWindow) then
   TDocEditorWindow(FCurrentChild).seZoomKeyPress(Sender, Key);
 end;
 
@@ -2974,7 +2975,7 @@ begin
    for i := 0 to Pred(MDIChildCount) do
     if MDIChildren[i] is TDocEditorWindow then
      (MDIChildren[i] as TDocEditorWindow).DocTextEditor.UpdateHRuler;
-   if (not RunNonServer) and (not l_OldNVDFromServer) and (IniRec.NVDFromServer) then
+   if (not g_BaseEngine.ServiceParams.StandAlone) and (not l_OldNVDFromServer) and (IniRec.NVDFromServer) then
     ArchiRequestManager.RequestNextVersionDate;  
   end;
  finally

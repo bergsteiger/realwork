@@ -3,6 +3,8 @@ unit DocSubLayer_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\DocSubLayer_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "DocSubLayer" MUID: (484FBE6D037E)
+// Имя типа: "DocSubLayerTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

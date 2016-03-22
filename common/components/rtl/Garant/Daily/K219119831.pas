@@ -1,63 +1,46 @@
 unit K219119831;
+ {* [RequestLink:219119831] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Daily/K219119831.pas"
-// Начат: 18.06.2010
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.5::K219119831
-//
-// {RequestLink:219119831}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K219119831.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K219119831" MUID: (4C1B2A4701FC)
+// Имя типа: "TK219119831"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  EVDtoEVDWriterTest
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , EVDtoEVDWriterTest
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK219119831 = class(TEVDtoEVDWriterTest)
   {* [RequestLink:219119831] }
- protected
- // overridden protected methods
+  protected
    function UseFullEVDReader: Boolean; override;
-     {* Использовать ли ПОЛНЫЙ evdReader (с чтением текста тоже) }
+    {* Использовать ли ПОЛНЫЙ evdReader (с чтением текста тоже) }
    function DisableParserLog: Boolean; override;
-     {* Запретить парсеру выводить в лог }
+    {* Запретить парсеру выводить в лог }
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK219119831
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK219119831
+ l3ImplUses
+ , TestFrameWork
+;
 
 function TK219119831.UseFullEVDReader: Boolean;
+ {* Использовать ли ПОЛНЫЙ evdReader (с чтением текста тоже) }
 //#UC START# *4C1B2B0203A2_4C1B2A4701FC_var*
 //#UC END# *4C1B2B0203A2_4C1B2A4701FC_var*
 begin
@@ -67,6 +50,7 @@ begin
 end;//TK219119831.UseFullEVDReader
 
 function TK219119831.DisableParserLog: Boolean;
+ {* Запретить парсеру выводить в лог }
 //#UC START# *4C1B47BA03AC_4C1B2A4701FC_var*
 //#UC END# *4C1B47BA03AC_4C1B2A4701FC_var*
 begin
@@ -76,20 +60,19 @@ begin
 end;//TK219119831.DisableParserLog
 
 function TK219119831.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.5';
 end;//TK219119831.GetFolder
 
 function TK219119831.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C1B2A4701FC';
 end;//TK219119831.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK219119831.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

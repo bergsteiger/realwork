@@ -3,6 +3,7 @@ unit evUnblockEmptyParaFilter;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evUnblockEmptyParaFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevUnblockEmptyParaFilter" MUID: (4C56D4E002D2)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

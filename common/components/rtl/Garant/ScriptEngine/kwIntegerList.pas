@@ -2,6 +2,7 @@ unit kwIntegerList;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwIntegerList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwIntegerList" MUID: (4F3E40D003E5)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

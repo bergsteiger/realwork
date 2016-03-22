@@ -7,7 +7,7 @@ unit k2Tag_Const;
 // Модуль: "w:/common/components/rtl/Garant/K2/k2Tag_Const.pas"
 // Начат: 17.07.1998 16:29
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Atom::Class>> Shared Delphi::K2::Standard::k2Native::Tag
+// Generated from UML model, root element: <<Atom::Class>> Shared Delphi Low Level::K2::Standard::k2Native::Tag
 //
 // Класс с переменным набором свойств
 //

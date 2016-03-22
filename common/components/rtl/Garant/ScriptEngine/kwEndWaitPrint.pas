@@ -2,6 +2,8 @@ unit kwEndWaitPrint;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEndWaitPrint.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "EndWait_Print" MUID: (4F72BA72006B)
+// Имя типа: "TkwEndWaitPrint"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

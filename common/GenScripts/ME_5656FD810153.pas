@@ -2,6 +2,7 @@ unit evSCCollectFilter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSCCollectFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevSCCollectFilter" MUID: (5656FD810153)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

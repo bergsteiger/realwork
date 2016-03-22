@@ -236,55 +236,7 @@ end;
 
 {
   TYPE: Работа с меню
-  DESC: Говорит, доступен ли пункт главного меню
-  RESULT:
-  REMARK:
-}
-function IsMenuItemEnabled(
-  menuRoot: OleVariant; 
-  const itemPath: String // путь к элементу меню
-): Boolean;
-  var 
-    itemPathToClick, lastItemName : String;
-    isMainMenu : boolean;
-    oMenuItem;
-begin
-  try
-    isMainMenu := StringCompare('*MainMenu*', menuRoot.VCLClass);
-    if isMainMenu then
-    begin
-      if VarToBool(gbl_F1ShellTabsEnabled) then
-      begin
-        try
-          oMenuItem := _ClickByTabbedMainMenuItem(itemPath, false, false);
-          Result := oMenuItem.rItem.Enabled;
-        finally
-          CloseMainMenu;
-        end;
-        Exit;
-      end
-      else
-      begin
-        // прокликиваем по меню, для его обновления
-        itemPathToClick := itemPath;
-        Delete(itemPathToClick, 1+Length(itemPathToClick) - Length(AnsiStrRScan(itemPathToClick, '\')), Length(itemPathToClick));
-      
-        if ClickByMainMenuItem_NonTabbed(itemPathToClick) then
-          GetMainWindow.MainMenu.Close;
-      end;
-    end;
-
-    GetMenuItemPathByPath(menuRoot, itemPath, true, true, true, true);
-    Result := true;
-  except 
-    Result := false;
-    CommonExceptionHandler;
-  end;
-end;
-
-{
-  TYPE: Работа с меню
-  DESC: Говорит, доступен ли пункт попап-меню
+  DESC: Говорит, доступен ли пункт попап меню
   RESULT:
   REMARK:
 }
@@ -324,6 +276,59 @@ end;
 
 {
   TYPE: Работа с меню
+  DESC: Говорит, доступен ли пункт меню
+  RESULT:
+  REMARK:
+}
+function IsMenuItemEnabled(
+  menuRoot: OleVariant; 
+  const itemPath: String // путь к элементу меню
+): Boolean;
+  var 
+    itemPathToClick, lastItemName : String;
+    isMainMenu : boolean;
+    oMenuItem;
+begin
+  try
+    Result := false;
+    
+    // в будущем можно сделать отдельную функцию IsMainMenuItemEnabled, а пока если menuRoot = nil - значит ГМ
+    isMainMenu := (menuRoot = nil) or StringCompare('*MainMenu*', menuRoot.VCLClass);
+    
+    if isMainMenu then
+    begin
+      if VarToBool(gbl_F1ShellTabsEnabled) then
+      begin
+        try
+          oMenuItem := _ClickByTabbedMainMenuItem(itemPath, false, false);
+          Result := oMenuItem.rItem.Enabled;
+        finally
+          CloseMainMenu;
+        end;
+        Exit;
+      end
+      else
+      begin
+        menuRoot := GetFromMainWindow('ГЛАВНОЕ МЕНЮ');
+        // прокликиваем по меню, для его обновления
+        itemPathToClick := itemPath;
+        Delete(itemPathToClick, 1+Length(itemPathToClick) - Length(AnsiStrRScan(itemPathToClick, '\')), Length(itemPathToClick));
+      
+        if ClickByMainMenuItem_NonTabbed(itemPathToClick) then
+          GetMainWindow.MainMenu.Close;
+      end;
+    end;
+
+    GetMenuItemPathByPath(menuRoot, itemPath, true, true, true, true);
+    Result := true;
+  except 
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с меню
   DESC: Говорит, отмечен ли пункт меню
   RESULT:
   REMARK:
@@ -340,8 +345,12 @@ function IsMenuItemChecked(
 begin
   try
     Result := false;
-    isMainMenu := StringCompare('*MainMenu*', menuRoot.VCLClass);
+    
+    // в будущем можно сделать отдельную функцию IsMainMenuItemChecked, а пока если menuRoot = nil - значит ГМ  
+    isMainMenu := (menuRoot = nil) or StringCompare('*MainMenu*', menuRoot.VCLClass);
+
     if isMainMenu then
+    begin
       if VarToBool(gbl_F1ShellTabsEnabled) then
       begin
         try
@@ -354,6 +363,7 @@ begin
       end
       else
       begin
+        menuRoot := GetFromMainWindow('ГЛАВНОЕ МЕНЮ');
         // прокликиваем по меню, для его обновления
         itemPathToClick := itemPath;
         Delete(itemPathToClick, 1+Length(itemPathToClick) - Length(AnsiStrRScan(itemPathToClick, '\')), Length(itemPathToClick) );
@@ -361,6 +371,7 @@ begin
         if ClickByMainMenuItem_NonTabbed(itemPathToClick) then
           GetMainWindow.MainMenu.Close;
       end;               
+    end;
 
     Result := GetMenuItemByPath(menuRoot, itemPath).Checked;
   except
@@ -754,34 +765,6 @@ begin
   end;  
 end;
 
-procedure ClickByMainMenuItem_Test;
-  const
-    FUNCTION_NAME = 'ClickByMainMenuItem_Test';
-  var
-    oMenu;        
-begin
-  try
-  {  oMenu := ClickByMainMenuItem('Файл');
-    
-    oMenu := ClickByMainMenuItem('Файл\Основное меню');
-    oMenu := ClickByMainMenuItem('Файл\Выбор конфигурации');
-    oMenu := ClickByMainMenuItem('Файл\Выбор конфигурации\Расширенная');}
-    
-    Log.Message(IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'), 'Файл\Выбор конфигурации\Расширенная'));
-    Log.Message(IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'), 'Файл\Выбор конфигурации\Основная'));
-    
-    oMenu := ClickByMainMenuItem('Файл\Выбор конфигурации\Основная');
-    
-    Log.Message(IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'), 'Файл\Выбор конфигурации\Расширенная'));
-    Log.Message(IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'), 'Файл\Выбор конфигурации\Основная'));
- 
-    
-  except
-    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
-    Raise;
-  end;
-end;
-
 procedure _____END_MENU_WORK;begin;end;
 
 {
@@ -1049,7 +1032,7 @@ begin
   try
     GetMainWindow.SetFocus;
     // проверяем по пункту главного меню (временно, потом надо сделать по нормальному)
-    if IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),'Вид\Панель задач',true) then
+    if IsMenuItemChecked(nil, 'Вид\Панель задач', true) then
       //Закрываем панель задач  
       ClickByMainMenuItem('Вид\Панель задач')
     else
@@ -1190,18 +1173,25 @@ const
   REMARK:
 }
 function GetSortType : String;
-  var
-    mainWnd, menuItem, mainMenu : OleVariant;
-    i : integer;
+var
+  i, menuItem;
 begin
   try
     Result := '';
-    mainWnd := GetMainWindow;
-    mainMenu := GetFromMainWindow('ГЛАВНОЕ МЕНЮ');
-    mainWnd.SetFocus;
-    if IsMenuItemEnabled(mainMenu, 'Документы\Сортировать список') then
-    begin
-      menuItem := GetMenuItemByPath(mainMenu, 'Документы\Сортировать список');
+    try
+      if VarToBool(gbl_F1ShellTabsEnabled) then
+      begin
+        menuItem := _ClickByTabbedMainMenuItem('Документы\Сортировать список', false, false).rItem;
+        if not menuItem.Enabled then
+          Raise('Невозможно получить тип сортировки, подменю "Документы\Сортировать список" не активно!');
+      end
+      else
+      begin
+        if not IsMenuItemEnabled(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'), 'Документы\Сортировать список') then
+          Raise('Невозможно получить тип сортировки, подменю "Документы\Сортировать список" не активно!');
+        menuItem := GetMenuItemByPath(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'), 'Документы\Сортировать список');
+      end;
+
       for i := 0 to menuItem.Count - 1 do
         if menuItem.Items[i].Checked then
         begin
@@ -1210,7 +1200,9 @@ begin
         end;
       if (Result <> '') AND NOT ((Result = SORT_BY_JUROR_STRENGTH) OR (Result = SORT_BY_PUBLICATION_DATE) OR (Result = SORT_BY_EDITION_DATE) OR (Result = SORT_BY_RELEVANCE)) then
         Log.Warning('Активен пункт меню "' + Result + '", но он не найден среди констант!', '',  pmNormal, GetLogAttr('EXCEPTION'));
-    end;  
+    finally
+      CloseMainMenu;
+    end;
   except
     Log.Message('GetSortType: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
     CommonExceptionHandler;
@@ -1224,23 +1216,23 @@ end;
   REMARK:
 }
 function GetSortDirection : String;
-  var
-    mainWnd, menuItem, mainMenu : OleVariant;
-    i : integer;
 begin
   try
     Result := '';
-    mainWnd := GetMainWindow;
-    mainMenu := GetFromMainWindow('ГЛАВНОЕ МЕНЮ');
-    mainWnd.SetFocus;
-    if IsMenuItemEnabled(mainMenu, 'Документы\Сортировать список') then
+// убираем, чтобы время не тратить зря
+//    if not IsMenuItemEnabled(nil, 'Документы\Сортировать список') then
+//      Raise('Невозможно получить направление сортировки, подменю "Документы\Сортировать список" не активно!');
+
+    if IsMenuItemEnabled(nil, 'Документы\Отсортировано по убыванию') then
     begin
-      if IsMenuItemEnabled(mainMenu, 'Документы\Отсортировано по убыванию') AND NOT IsMenuItemEnabled(mainMenu, 'Документы\Отсортировано по возрастанию') then
-        Result := SORT_DESCENDING
-      else 
-      if NOT IsMenuItemEnabled(mainMenu, 'Документы\Отсортировано по убыванию') AND IsMenuItemEnabled(mainMenu, 'Документы\Отсортировано по возрастанию') then
+      if not IsMenuItemEnabled(nil, 'Документы\Отсортировано по возрастанию') then
+        Result := SORT_DESCENDING;
+    end
+    else 
+    begin
+      if IsMenuItemEnabled(nil, 'Документы\Отсортировано по возрастанию') then
         Result := SORT_ASCENDING;
-    end;   
+    end;
   except
     Log.Message('GetSortType: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
     CommonExceptionHandler;
@@ -1314,13 +1306,8 @@ end;
 procedure SelectMainMenuOpenDocPart(const Press:Boolean = True);
 const
   C_DOCPART = 'Документы\Открывать документы в*';
-var
-	w;
 begin
-  w := GetMainWindow;
-  w.SetFocus;
-  if IsMenuItemEnabled(w.Menu, C_DOCPART) and (IsMenuItemChecked(w.Menu, C_DOCPART) <> Press)
-    then
+  if IsMenuItemEnabled(nil, C_DOCPART) and (IsMenuItemChecked(nil, C_DOCPART) <> Press) then
     ClickByMainMenuItem(C_DOCPART);
 end;
 
@@ -1401,7 +1388,7 @@ begin
   Result := nil;
   
   if doOpen then
-    if not IsMenuItemChecked(GetMainWindow.Menu, 'Вид\*Документы*на*контроле*') then
+    if not IsMenuItemChecked(nil, 'Вид\*Документы*на*контроле*') then
       ClickByMainMenuItem('Вид\*Документы*на*контроле*');
 
   onControlTab := GetFromNaviGator('ВКЛАДКА НАВИГАТОРА "ДОКУМЕНТЫ НА КОНТРОЛЕ"');

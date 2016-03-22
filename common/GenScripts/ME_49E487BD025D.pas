@@ -2,6 +2,7 @@ unit NOT_FINISHED_k2TagTerminator;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2TagTerminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2TagTerminator" MUID: (49E487BD025D)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

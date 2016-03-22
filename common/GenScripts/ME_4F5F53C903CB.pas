@@ -3,6 +3,7 @@ program NewGenTest;
 
 // Модуль: "w:\MDProcess\NewGenTest\NewGenTest.dpr"
 // Стереотип: "TestTarget"
+// Элемент модели: "NewGen" MUID: (4F5F53C903CB)
 
 {$Include w:\MDProcess\NewGenTest\NewGenTest.inc}
 

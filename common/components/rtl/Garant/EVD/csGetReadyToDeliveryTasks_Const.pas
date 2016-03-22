@@ -5,7 +5,7 @@ unit csGetReadyToDeliveryTasks_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/csGetReadyToDeliveryTasks_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::csGetReadyToDeliveryTasks
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::csGetReadyToDeliveryTasks
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

@@ -3,6 +3,7 @@ unit k2Layer;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Layer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2Layer" MUID: (47AC597C0320)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

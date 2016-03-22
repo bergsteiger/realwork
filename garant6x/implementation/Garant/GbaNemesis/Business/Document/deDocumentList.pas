@@ -60,7 +60,8 @@ type
      const aNodeForPositioning: Il3SimpleNode;
      const aSearchInfo: IdeSearchInfo;
      aAllDocumentsFiltered: Boolean;
-     aNeedApplyPermanentFilters: Boolean); reintroduce;
+     aNeedApplyPermanentFilters: Boolean;
+     aIsChanged: Boolean); reintroduce;
    class function Make(const aList: IDynList;
      aOpenFrom: TbsListOpenFrom = lofNone;
      aTimeMachineOff: Boolean = True;
@@ -68,7 +69,8 @@ type
      const aNodeForPositioning: Il3SimpleNode = nil;
      const aSearchInfo: IdeSearchInfo = nil;
      aAllDocumentsFiltered: Boolean = False;
-     aNeedApplyPermanentFilters: Boolean = True): IdeDocumentList; reintroduce;
+     aNeedApplyPermanentFilters: Boolean = True;
+     aIsChanged: Boolean = False): IdeDocumentList; reintroduce;
  end;//TdeDocumentList
 {$IfEnd} //not Admin AND not Monitorings
 
@@ -95,7 +97,7 @@ constructor TdeDocumentList.CreateClonned(const aList: IDynList;
 begin
 //#UC START# *4B1F7A850082_492FF76202CA_impl*
  Create(aList, aOpenFrom, aTimeMachineOff,
-   aWhatDoingIfOneDoc, aNodeForPositioning, aSearchInfo, pm_GetAllDocumentsFiltered, True);
+   aWhatDoingIfOneDoc, aNodeForPositioning, aSearchInfo, pm_GetAllDocumentsFiltered, True, pm_GetIsChanged);
 //#UC END# *4B1F7A850082_492FF76202CA_impl*
 end;//TdeDocumentList.CreateClonned
 
@@ -106,7 +108,8 @@ constructor TdeDocumentList.Create(const aList: IDynList;
   const aNodeForPositioning: Il3SimpleNode;
   const aSearchInfo: IdeSearchInfo;
   aAllDocumentsFiltered: Boolean;
-  aNeedApplyPermanentFilters: Boolean);
+  aNeedApplyPermanentFilters: Boolean;
+  aIsChanged: Boolean);
 //#UC START# *4B1F7AFB00BF_492FF76202CA_var*
 //#UC END# *4B1F7AFB00BF_492FF76202CA_var*
 begin
@@ -117,7 +120,8 @@ begin
                   aNodeForPositioning,
                   aSearchInfo,
                   aAllDocumentsFiltered,
-                  aNeedApplyPermanentFilters);
+                  aNeedApplyPermanentFilters,
+                  aIsChanged);
  f_OpenFrom := aOpenFrom;
 //#UC END# *4B1F7AFB00BF_492FF76202CA_impl*
 end;//TdeDocumentList.Create
@@ -129,11 +133,12 @@ class function TdeDocumentList.Make(const aList: IDynList;
   const aNodeForPositioning: Il3SimpleNode = nil;
   const aSearchInfo: IdeSearchInfo = nil;
   aAllDocumentsFiltered: Boolean = False;
-  aNeedApplyPermanentFilters: Boolean = True): IdeDocumentList;
+  aNeedApplyPermanentFilters: Boolean = True;
+  aIsChanged: Boolean = False): IdeDocumentList;
 var
  l_Inst : TdeDocumentList;
 begin
- l_Inst := Create(aList, aOpenFrom, aTimeMachineOff, aWhatDoingIfOneDoc, aNodeForPositioning, aSearchInfo, aAllDocumentsFiltered, aNeedApplyPermanentFilters);
+ l_Inst := Create(aList, aOpenFrom, aTimeMachineOff, aWhatDoingIfOneDoc, aNodeForPositioning, aSearchInfo, aAllDocumentsFiltered, aNeedApplyPermanentFilters, aIsChanged);
  try
   Result := l_Inst;
  finally

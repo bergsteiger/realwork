@@ -2,6 +2,7 @@ unit TextViaEditorProcessorWithExternalSave;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\TextViaEditorProcessorWithExternalSave.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTextViaEditorProcessorWithExternalSave" MUID: (4D0771BA0367)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

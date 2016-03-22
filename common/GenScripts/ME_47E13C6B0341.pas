@@ -2,6 +2,7 @@ unit Forms;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Forms.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Forms" MUID: (47E13C6B0341)
 
 interface
 
@@ -119,10 +120,10 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , ScrollingWinControlWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , ScrollingWinControlWordsPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , FormsProcessingPack

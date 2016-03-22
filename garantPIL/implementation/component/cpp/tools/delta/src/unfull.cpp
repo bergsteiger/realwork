@@ -251,7 +251,7 @@ void	UnFull::delete_deleted_docs ()
 		}		
 	}
 
-	extern short	docTags [93];
+	extern short	docTags [94];
 
 	double progress_step = 100.0 / ((sizeof (docTags) + sizeof (tags)) / sizeof (short) + 2), current_progress = 0;
 	current_progress += progress_step; screen->SetProgress ((int) current_progress);
@@ -2885,7 +2885,7 @@ static unsigned char localDos2WinTable[ 256 ] = {
 /*192-*/	0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F,
 /*208-*/	0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0xA6, 0x5F, 0x5F,
 /*224-*/	0xF0, 0xF1, 0xF2, 0xF3, 0xF4, 0xF5, 0xF6, 0xF7, 0xF8, 0xF9, 0xFA, 0xFB, 0xFC, 0xFD, 0xFE, 0xFF,
-/*240-*/	0xA8, 0xB8, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0x5F, 0xB0, 0xB7, 0xB7, 0x5F, 0xB9, 0xB1, 0xA8, 0xA0 
+/*240-*/	0xA8, 0xB8, 0x5F, 0x5F, 0x5F, 0x5F,  161,  162, 0xB0, 0xB7, 0xB7, 0x5F, 0xB9, 0xB1, 0xA8, 0xA0 
 };
 
 void	localDos2Win( char* aBuffer, long aLen )
@@ -3609,6 +3609,8 @@ int UnFull::RestoreAttr ()
 		TagAttrRestore ( m_lDocId, IDD_TAG, "IDD_TAG");
 	if ( m_pAttrMask [13] & M_ATR_PROFDATE )
 		TagAttrRestore ( m_lDocId, IDD_PROFDATE, "IDD_PROFDATE");
+	if ( m_pAttrMask [13] & M_ATR_INVISIBLEBLOCKSLENS )
+		TagAttrRestore ( m_lDocId, IDD_INVISIBLEBLOCKSLENS, "IDD_INVISIBLEBLOCKSLENS");
 
 	if (addsubnames.size ()) {
 		for (std::map<long,std::string>::const_iterator map_it = addsubnames.begin (); map_it != addsubnames.end (); map_it++) {
@@ -3690,6 +3692,7 @@ void UnFull :: TagAttrRestore ( long lDocId, int iTag, const char* log_str)
 	case IDD_PARAGCTXLENS:
 	case IDD_INVISIBLELENS:
 	case IDD_INVISIBLERELES:
+	case IDD_INVISIBLEBLOCKSLENS:
 	case IDD_MARKEDTEXT:
 	case IDD_SAMES:
 		{
@@ -3705,7 +3708,7 @@ void UnFull :: TagAttrRestore ( long lDocId, int iTag, const char* log_str)
 				//удалить старый ключ
 				docInd->Del(lDocId,iTag);
 			}
-			if (iTag == IDD_MARKEDTEXT || iTag == IDD_INVISIBLELENS || iTag == IDD_INVISIBLERELES) {
+			if (iTag == IDD_MARKEDTEXT || iTag == IDD_INVISIBLELENS || iTag == IDD_INVISIBLERELES || iTag == IDD_INVISIBLEBLOCKSLENS) {
 				if (s_UpdDocs.find (m_lDocId) == s_UpdDocs.end () && (m_pNewInfo->Status & (DS_DOC|DS_EDITION)))
 					s_UpdDocs.insert (m_lDocId);
 			}
@@ -4513,9 +4516,10 @@ void UnFull :: TagAttrRestore ( long lDocId, int iTag, const char* log_str)
 			short new_DS_MEDTOPIC = m_pNewInfo->Status_ex & DS_MEDTOPIC;
 			short new_DS_MDICTTOPIC = m_pNewInfo->Status_ex & DS_MDICTTOPIC;
 			short new_DS_IZM = m_pNewInfo->Status_ex & DS_IZM;
+			short new_DS_SIGNIFICANT = m_pNewInfo->Status_ex & DS_SIGNIFICANT;
 			short new_DS_DATE = m_pNewInfo->Status_ex & DS_DATE;
 			short new_DS_FLASH = m_pNewInfo->Status_ex & DS_FLASH;
-			short old_DS_NARCOTIC = 0, old_DS_NOTNARCOTIC = 0, old_DS_FIRMTOPIC = 0, old_DS_MEDTOPIC = 0, old_DS_MDICTTOPIC = 0, old_DS_IZM = 0, old_DS_DATE = 0, old_DS_FLASH = 0;
+			short old_DS_NARCOTIC = 0, old_DS_NOTNARCOTIC = 0, old_DS_FIRMTOPIC = 0, old_DS_MEDTOPIC = 0, old_DS_MDICTTOPIC = 0, old_DS_IZM = 0, old_DS_DATE = 0, old_DS_FLASH = 0, old_DS_SIGNIFICANT = 0;
 			if (!bNewDoc) {
 				old_DS_NARCOTIC = m_pOldInfo->Status_ex & DS_NARCOTIC;
 				old_DS_NOTNARCOTIC = m_pOldInfo->Status_ex & DS_NOTNARCOTIC;
@@ -4523,6 +4527,7 @@ void UnFull :: TagAttrRestore ( long lDocId, int iTag, const char* log_str)
 				old_DS_MEDTOPIC = m_pOldInfo->Status_ex & DS_MEDTOPIC;
 				old_DS_MDICTTOPIC = m_pOldInfo->Status_ex & DS_MDICTTOPIC;
 				old_DS_IZM = m_pOldInfo->Status_ex & DS_IZM;
+				old_DS_SIGNIFICANT = m_pOldInfo->Status_ex & DS_SIGNIFICANT;
 				old_DS_DATE = m_pOldInfo->Status_ex & DS_DATE;
 				old_DS_FLASH = m_pOldInfo->Status_ex & DS_FLASH;
 			}
@@ -4567,6 +4572,12 @@ void UnFull :: TagAttrRestore ( long lDocId, int iTag, const char* log_str)
 					DelStatusExRef (statusex_index, &old_DS_IZM, ref);
 				if (new_DS_IZM)
 					AddStatusExRef (statusex_index, &new_DS_IZM, ref);
+			}
+			if ((lDocId < ID_ANNOPLUS + ID_BORDER) && (old_DS_SIGNIFICANT != new_DS_SIGNIFICANT)) {
+				if (old_DS_SIGNIFICANT)
+					DelStatusExRef (statusex_index, &old_DS_SIGNIFICANT, ref);
+				if (new_DS_SIGNIFICANT)
+					AddStatusExRef (statusex_index, &new_DS_SIGNIFICANT, ref);
 			}
 			if (old_DS_DATE != new_DS_DATE) {
 				if (old_DS_DATE)
@@ -7448,6 +7459,10 @@ int UnFull :: DelIndByAttr ( int iTag, long lDocId )
 		}
 		if (((DocInfo*) vOldBuff)->Status_ex & DS_IZM) {
 			short status_ex = DS_IZM;
+			DelStatusExRef (statusex_index, &status_ex, ref, iTag);
+		}
+		if ((lDocId < ID_ANNOPLUS + ID_BORDER) && (((DocInfo*) vOldBuff)->Status_ex & DS_SIGNIFICANT)) {
+			short status_ex = DS_SIGNIFICANT;
 			DelStatusExRef (statusex_index, &status_ex, ref, iTag);
 		}
 		if (((DocInfo*) vOldBuff)->Status_ex & DS_DATE) {

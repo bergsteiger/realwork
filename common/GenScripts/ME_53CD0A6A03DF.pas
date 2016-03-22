@@ -3,6 +3,8 @@ unit kwAutoCompleteClear;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwAutoCompleteClear.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "AutoComplete_Clear" MUID: (53CD0A6A03DF)
+// Имя типа: "TkwAutoCompleteClear"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

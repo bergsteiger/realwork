@@ -2,6 +2,7 @@ unit kwNscTreeViewWord;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwNscTreeViewWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwNscTreeViewWord" MUID: (512FA1800269)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

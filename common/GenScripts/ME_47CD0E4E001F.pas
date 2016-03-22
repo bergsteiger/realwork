@@ -3,6 +3,7 @@ unit vtNavigatorForm;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtNavigatorForm.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvtNavigatorForm" MUID: (47CD0E4E001F)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -2,6 +2,7 @@ unit daParamList;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daParamList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaParamList" MUID: (5555C169038C)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

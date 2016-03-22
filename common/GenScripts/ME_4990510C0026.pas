@@ -3,6 +3,7 @@ unit SearchDomainInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\SearchDomainInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "SearchDomainInterfaces" MUID: (4990510C0026)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

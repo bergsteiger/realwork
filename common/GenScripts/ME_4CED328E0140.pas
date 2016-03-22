@@ -2,6 +2,7 @@ unit nsCommentStorer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsCommentStorer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsCommentStorer" MUID: (4CED328E0140)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

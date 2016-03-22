@@ -2,6 +2,7 @@ unit NOT_FINISHED_ZipForge;
 
 // Модуль: "w:\common\components\rtl\external\ZipForge\Source\NOT_FINISHED_ZipForge.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ZipForge" MUID: (519C98F80363)
 
 interface
 

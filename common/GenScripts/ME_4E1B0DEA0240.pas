@@ -14,6 +14,8 @@ focused:control:push pop:editor:RepaintCheckWithEtalon
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorRepaintAndCheckWithEtalon.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_RepaintAndCheckWithEtalon" MUID: (4E1B0DEA0240)
+// Имя типа: "TkwPopEditorRepaintAndCheckWithEtalon"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

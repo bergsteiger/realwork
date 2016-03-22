@@ -1,8 +1,15 @@
 Unit Dt_EGen;
 
-{ $Id: Dt_EGen.pas,v 1.118 2015/07/02 07:36:07 lukyanets Exp $ }
+{ $Id: Dt_EGen.pas,v 1.120 2015/11/23 11:37:15 lukyanets Exp $ }
 
 // $Log: Dt_EGen.pas,v $
+// Revision 1.120  2015/11/23 11:37:15  lukyanets
+// Заготовки Renum
+//
+// Revision 1.119  2015/11/12 07:21:12  fireton
+// - Нормальная диагностика ошибок при экспорте
+// - Считаем пустые документы, справки и аннотации правильно
+//
 // Revision 1.118  2015/07/02 07:36:07  lukyanets
 // Описываем словари
 //
@@ -387,6 +394,7 @@ Type
    procedure UnLinkListner(const aListner: IddDocumentListner);
 
    procedure ExportAnnoClassData(aFile : TFileName; aProgress : Tl3ProgressProc; aEmpty : Boolean; WithoutAbolished : Boolean = False);
+   function GetRelatedIDs: ISab;
    function RelatedCount(out aAnnoCount: Integer): Integer;
 
    property AnsiCodePage: Integer read f_AnsiCodePage write f_AnsiCodePage;
@@ -424,6 +432,7 @@ Uses
      l3Base, l3RecList, l3Chars, l3Tree_TLB, l3Nodes, l3Stream,  l3TreeInterfaces,
      k2Tags,
      m2xltlib,
+     daInterfaces,
      daDataProvider,
      dt_ImpExpTypes,
      Dt_Doc, Dt_Link, Dt_LinkServ, Dt_Err, dt_Log, Dt_Lock,
@@ -1124,6 +1133,16 @@ begin
   da_dlAccGroups :
    GetDictList(DictServer(ffamily).DictTbl[aDictType],'Экспорт Групп доступа',aFile,aProgress);
  end;
+end;
+
+function TDocExportGenerator.GetRelatedIDs: ISab;
+var
+ lVal: Integer;
+begin
+ Result := MakeSabCopy(fCurDocSAB);
+ lVal:= 0;
+ Result.SubSelect(fRelated_fld, lVal, NOT_EQUAL);
+ Result.ValuesOfKey(fRelated_fld);
 end;
 
 function TDocExportGenerator.pm_GetDocSab: ISab;

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atDeleteFoldersObjectAddon.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "atDeleteFoldersObjectAddon" MUID: (4FCF9DCF00E8)
+// Имя типа: "_atDeleteFoldersObjectAddon_"
 
 {$Define atDeleteFoldersObjectAddon_imp}
 

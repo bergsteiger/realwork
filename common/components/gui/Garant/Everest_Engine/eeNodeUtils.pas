@@ -2,6 +2,7 @@ unit eeNodeUtils;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeNodeUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "eeNodeUtils" MUID: (54C4FE950098)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

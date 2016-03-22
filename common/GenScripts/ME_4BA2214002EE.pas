@@ -2,6 +2,7 @@ unit l3ConstStrings;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ConstStrings.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ConstStrings" MUID: (4BA2214002EE)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

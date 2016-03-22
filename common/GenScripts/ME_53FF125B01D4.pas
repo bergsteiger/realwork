@@ -2,6 +2,7 @@ unit m3LinkedStream;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3LinkedStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3LinkedStream" MUID: (53FF125B01D4)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

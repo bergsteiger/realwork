@@ -2,6 +2,7 @@ unit pgParamList;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgParamList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgParamList" MUID: (560B866002FB)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 

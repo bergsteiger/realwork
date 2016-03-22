@@ -1,79 +1,54 @@
 unit K210438932;
+ {* [RequestLink:210438932] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Daily/K210438932.pas"
-// Начат: 13.05.2010 16:37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.5::K210438932
-//
-// {RequestLink:210438932}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K210438932.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K210438932" MUID: (4BEBF26700DA)
+// Имя типа: "TK210438932"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  ScrollTest
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , ScrollTest
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK210438932 = class(TScrollTest)
   {* [RequestLink:210438932] }
- protected
- // overridden protected methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    function ScrollByPage: Boolean; override;
-   {$IfEnd} //nsTest AND not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK210438932
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK210438932
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TK210438932.ScrollByPage: Boolean;
 //#UC START# *4BEBFE020080_4BEBF26700DA_var*
 //#UC END# *4BEBFE020080_4BEBF26700DA_var*
@@ -82,23 +57,22 @@ begin
  Result := false;
 //#UC END# *4BEBFE020080_4BEBF26700DA_impl*
 end;//TK210438932.ScrollByPage
-{$IfEnd} //nsTest AND not NoVCM
 
 function TK210438932.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.5';
 end;//TK210438932.GetFolder
 
 function TK210438932.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4BEBF26700DA';
 end;//TK210438932.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK210438932.Suite);
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

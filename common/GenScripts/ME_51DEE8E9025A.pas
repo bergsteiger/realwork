@@ -2,6 +2,8 @@ unit Int64ListTest;
 
 // Модуль: "w:\common\components\SandBox\Int64ListTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "Int64ListTest" MUID: (51DEE8E9025A)
+// Имя типа: "TInt64ListTest"
 
 {$Include w:\common\components\SandBox\sbtDefine.inc}
 

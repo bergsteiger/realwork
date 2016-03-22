@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Drug\sdsBaseDrugDocument.imp.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "sdsBaseDrugDocument" MUID: (47F075CD00DC)
+// Имя типа: "_sdsBaseDrugDocument_"
 
 {$Define sdsBaseDrugDocument_imp}
 

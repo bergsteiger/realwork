@@ -3,6 +3,7 @@ unit l3TreeFilters;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3TreeFilters.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3TreeFilters" MUID: (48FF4EC501F6)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

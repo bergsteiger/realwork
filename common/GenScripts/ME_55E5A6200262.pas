@@ -2,6 +2,7 @@ unit IedTableWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\IedTableWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "IedTableWordsPack" MUID: (55E5A6200262)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -308,11 +309,6 @@ begin
  aCtx.rEngine.PushBool(InsertRows(aCtx, l_aTable, l_NumRows));
 end;//TkwPopTableInsertRows.DoDoIt
 
-class function TkwPopTableInsertRows.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Table:InsertRows';
-end;//TkwPopTableInsertRows.GetWordNameForRegister
-
 function TkwPopTableInsertRows.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -327,6 +323,11 @@ function TkwPopTableInsertRows.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedTable), TypeInfo(Integer)]);
 end;//TkwPopTableInsertRows.ParamsTypes
+
+class function TkwPopTableInsertRows.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Table:InsertRows';
+end;//TkwPopTableInsertRows.GetWordNameForRegister
 
 function TkwPopTableSplit.Split(const aCtx: TtfwContext;
  const aTable: IedTable): Boolean;
@@ -354,11 +355,6 @@ begin
  aCtx.rEngine.PushBool(Split(aCtx, l_aTable));
 end;//TkwPopTableSplit.DoDoIt
 
-class function TkwPopTableSplit.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Table:Split';
-end;//TkwPopTableSplit.GetWordNameForRegister
-
 function TkwPopTableSplit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -373,6 +369,11 @@ function TkwPopTableSplit.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableSplit.ParamsTypes
+
+class function TkwPopTableSplit.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Table:Split';
+end;//TkwPopTableSplit.GetWordNameForRegister
 
 function TkwPopTableMerge.Merge(const aCtx: TtfwContext;
  const aTable: IedTable): Boolean;
@@ -400,11 +401,6 @@ begin
  aCtx.rEngine.PushBool(Merge(aCtx, l_aTable));
 end;//TkwPopTableMerge.DoDoIt
 
-class function TkwPopTableMerge.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Table:Merge';
-end;//TkwPopTableMerge.GetWordNameForRegister
-
 function TkwPopTableMerge.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -419,6 +415,11 @@ function TkwPopTableMerge.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableMerge.ParamsTypes
+
+class function TkwPopTableMerge.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Table:Merge';
+end;//TkwPopTableMerge.GetWordNameForRegister
 
 function TkwPopTableDelete.Delete(const aCtx: TtfwContext;
  const aTable: IedTable): Boolean;
@@ -446,11 +447,6 @@ begin
  aCtx.rEngine.PushBool(Delete(aCtx, l_aTable));
 end;//TkwPopTableDelete.DoDoIt
 
-class function TkwPopTableDelete.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Table:Delete';
-end;//TkwPopTableDelete.GetWordNameForRegister
-
 function TkwPopTableDelete.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -465,6 +461,11 @@ function TkwPopTableDelete.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableDelete.ParamsTypes
+
+class function TkwPopTableDelete.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Table:Delete';
+end;//TkwPopTableDelete.GetWordNameForRegister
 
 function TkwPopTableRowCount.RowCount(const aCtx: TtfwContext;
  const aTable: IedTable): Integer;
@@ -492,11 +493,6 @@ begin
  aCtx.rEngine.PushInt(RowCount(aCtx, l_aTable));
 end;//TkwPopTableRowCount.DoDoIt
 
-class function TkwPopTableRowCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Table:RowCount';
-end;//TkwPopTableRowCount.GetWordNameForRegister
-
 function TkwPopTableRowCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -511,6 +507,11 @@ function TkwPopTableRowCount.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableRowCount.ParamsTypes
+
+class function TkwPopTableRowCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Table:RowCount';
+end;//TkwPopTableRowCount.GetWordNameForRegister
 
 function TkwPopTableCell.Cell(const aCtx: TtfwContext;
  const aTable: IedTable): IedCell;
@@ -538,11 +539,6 @@ begin
  aCtx.rEngine.PushIntf(Cell(aCtx, l_aTable), TypeInfo(IedCell));
 end;//TkwPopTableCell.DoDoIt
 
-class function TkwPopTableCell.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Table:Cell';
-end;//TkwPopTableCell.GetWordNameForRegister
-
 function TkwPopTableCell.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(IedCell);
@@ -557,6 +553,11 @@ function TkwPopTableCell.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableCell.ParamsTypes
+
+class function TkwPopTableCell.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Table:Cell';
+end;//TkwPopTableCell.GetWordNameForRegister
 
 function TkwPopTableCells.Cells(const aCtx: TtfwContext;
  const aTable: IedTable): IedCells;
@@ -584,11 +585,6 @@ begin
  aCtx.rEngine.PushIntf(Cells(aCtx, l_aTable), TypeInfo(IedCells));
 end;//TkwPopTableCells.DoDoIt
 
-class function TkwPopTableCells.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Table:Cells';
-end;//TkwPopTableCells.GetWordNameForRegister
-
 function TkwPopTableCells.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(IedCells);
@@ -603,6 +599,11 @@ function TkwPopTableCells.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableCells.ParamsTypes
+
+class function TkwPopTableCells.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Table:Cells';
+end;//TkwPopTableCells.GetWordNameForRegister
 
 function TkwPopTableColumn.Column(const aCtx: TtfwContext;
  const aTable: IedTable): IedColumn;
@@ -630,11 +631,6 @@ begin
  aCtx.rEngine.PushIntf(Column(aCtx, l_aTable), TypeInfo(IedColumn));
 end;//TkwPopTableColumn.DoDoIt
 
-class function TkwPopTableColumn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Table:Column';
-end;//TkwPopTableColumn.GetWordNameForRegister
-
 function TkwPopTableColumn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(IedColumn);
@@ -649,6 +645,11 @@ function TkwPopTableColumn.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableColumn.ParamsTypes
+
+class function TkwPopTableColumn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Table:Column';
+end;//TkwPopTableColumn.GetWordNameForRegister
 
 function TkwPopTableColumnsIterator.ColumnsIterator(const aCtx: TtfwContext;
  const aTable: IedTable): IedColumnsIterator;
@@ -676,11 +677,6 @@ begin
  aCtx.rEngine.PushIntf(ColumnsIterator(aCtx, l_aTable), TypeInfo(IedColumnsIterator));
 end;//TkwPopTableColumnsIterator.DoDoIt
 
-class function TkwPopTableColumnsIterator.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Table:ColumnsIterator';
-end;//TkwPopTableColumnsIterator.GetWordNameForRegister
-
 function TkwPopTableColumnsIterator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(IedColumnsIterator);
@@ -695,6 +691,11 @@ function TkwPopTableColumnsIterator.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableColumnsIterator.ParamsTypes
+
+class function TkwPopTableColumnsIterator.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Table:ColumnsIterator';
+end;//TkwPopTableColumnsIterator.GetWordNameForRegister
 
 function TkwPopTableRowsIterator.RowsIterator(const aCtx: TtfwContext;
  const aTable: IedTable): IedRowsIterator;
@@ -722,11 +723,6 @@ begin
  aCtx.rEngine.PushIntf(RowsIterator(aCtx, l_aTable), TypeInfo(IedRowsIterator));
 end;//TkwPopTableRowsIterator.DoDoIt
 
-class function TkwPopTableRowsIterator.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Table:RowsIterator';
-end;//TkwPopTableRowsIterator.GetWordNameForRegister
-
 function TkwPopTableRowsIterator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(IedRowsIterator);
@@ -741,6 +737,11 @@ function TkwPopTableRowsIterator.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableRowsIterator.ParamsTypes
+
+class function TkwPopTableRowsIterator.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Table:RowsIterator';
+end;//TkwPopTableRowsIterator.GetWordNameForRegister
 
 function TkwPopTableOldNSRC.OldNSRC(const aCtx: TtfwContext;
  const aTable: IedTable): Boolean;
@@ -779,11 +780,6 @@ begin
  aCtx.rEngine.PushBool(OldNSRC(aCtx, l_aTable));
 end;//TkwPopTableOldNSRC.DoDoIt
 
-class function TkwPopTableOldNSRC.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Table:OldNSRC';
-end;//TkwPopTableOldNSRC.GetWordNameForRegister
-
 procedure TkwPopTableOldNSRC.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 var l_Table: IedTable;
@@ -814,6 +810,11 @@ function TkwPopTableOldNSRC.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableOldNSRC.ParamsTypes
+
+class function TkwPopTableOldNSRC.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Table:OldNSRC';
+end;//TkwPopTableOldNSRC.GetWordNameForRegister
 
 initialization
  TkwPopTableInsertRows.RegisterInEngine;

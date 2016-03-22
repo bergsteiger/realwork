@@ -14,7 +14,6 @@
 #define __SHARED_CONTEXTSEARCH_RELEVANCYCORE_FRAGMENTSOPERATIONS_H__
 
 #include "shared/Core/sys/std_inc.h"
-#include "shared/ContextSearch/Relevancy/Relevancy.h"
 #include "shared/ContextSearch/Defs/Defs.h"
 
 namespace ContextSearch {
@@ -34,18 +33,6 @@ private:
 		unsigned long _max;
 	};
 
-public:
-	// Настройки сортировки
-	struct SortProperties {
-		// позиция слова в параграфе
-		unsigned long word;
-		// позиция первого слова в параграфе
-		unsigned long first_word;
-
-		SortProperties (unsigned long word_, unsigned long first_word_);
-	};
-
-private:
 	// Унарный функтор для поиска фрагмента по позиции
 	struct PositionFinder : public std::unary_function<Defs::Fragment, bool> {
 		bool operator () (const Defs::Fragment& param_) const;
@@ -60,10 +47,10 @@ private:
 // self methods
 public:
 	// удалить пересекающиеся фрагменты
-	static void filtration (Relevancy::Fragments& vect);
+	static void filtration (Defs::Fragments& vect);
 
 	// сортировка фрагментов
-	static void sort (Relevancy::Fragments& vect, const SortProperties& prop);
+	static void sort (Defs::Fragments& vect, const Defs::PosPair& pair);
 
 private:
 	// сравнение фрагментов
@@ -73,7 +60,7 @@ private:
 	static void get_range_values (const Defs::Fragment& in, RangeValues& out);
 
 	// печать
-	static void print (const Relevancy::Fragments& vect);
+	static void print (const Defs::Fragments& vect);
 
 }; // class FragmentsOperations
 

@@ -3,6 +3,7 @@ unit nsEditionTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsEditionTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsEditionTree" MUID: (4909F77F0154)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

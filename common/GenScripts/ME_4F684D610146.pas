@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddTableConvParamDlg;
 
 // Модуль: "w:\archi\source\projects\Common\Dialogs\NOT_FINISHED_ddTableConvParamDlg.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddTableConvParamDlg" MUID: (4F684D610146)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 

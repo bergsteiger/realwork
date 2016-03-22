@@ -3,6 +3,8 @@ unit moDocumentListFromFile;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moDocumentListFromFile.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "DocumentListFromFile" MUID: (4DA44B030054)
+// Имя типа: "Tmo_DocumentListFromFile"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

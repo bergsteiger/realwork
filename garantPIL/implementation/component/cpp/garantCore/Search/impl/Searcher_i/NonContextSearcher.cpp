@@ -56,7 +56,7 @@ SortedCollection* NonContextSearcher::find (const QueryTag& tag, unsigned long d
 		return StorageData::get (tag.key.c_str (), key.in ());
 	} 
 
-	GDS_ASSERT (0);
+	GDS_ASSERT_MSG (false, ("%s: invalid index (%s) or key (%s)", GDS_CURRENT_FUNCTION, tag.key.c_str (), tag.val.c_str ()));
 	return 0;
 	//#UC END# *50D1D25600B3*
 }
@@ -79,7 +79,7 @@ SortedCollection* NonContextSearcher::find_pattern (const QueryTag& tag) {
 		return StorageData::_retn ();
 	}
 
-	GDS_ASSERT (0);
+	GDS_ASSERT_MSG (false, ("%s: invalid index (%s) or key (%s)", GDS_CURRENT_FUNCTION, tag.key.c_str (), tag.val.c_str ()));
 	return 0;
 	//#UC END# *50D1D2AF01AB*
 }

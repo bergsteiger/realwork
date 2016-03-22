@@ -3,6 +3,7 @@ unit ddRTFShape;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddRTFShape.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddRTFShape" MUID: (5596481703C3)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

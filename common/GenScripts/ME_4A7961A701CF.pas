@@ -2,6 +2,7 @@ unit vtPanel;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtPanel.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtPanel" MUID: (4A7961A701CF)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

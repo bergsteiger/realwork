@@ -3,6 +3,7 @@ unit NOT_FINISHED_dd_lcResolutionFormatter;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcResolutionFormatter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tdd_lcResolutionFormatter" MUID: (4EBB994102CF)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

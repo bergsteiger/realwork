@@ -2,6 +2,7 @@ unit vcmCommandIDsList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmCommandIDsList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmCommandIDsList" MUID: (4A8D76720025)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

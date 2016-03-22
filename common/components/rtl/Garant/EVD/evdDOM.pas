@@ -3,6 +3,7 @@ unit evdDOM;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdDOM.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "DOM" MUID: (4A23D24F0125)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

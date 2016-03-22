@@ -3,6 +3,8 @@ unit ShutDown_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\ShutDown_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "ShutDown" MUID: (4A8EC8950152)
+// Имя типа: "TShutDownForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

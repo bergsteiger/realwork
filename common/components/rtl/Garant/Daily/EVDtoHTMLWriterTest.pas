@@ -1,61 +1,45 @@
 unit EVDtoHTMLWriterTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/EVDtoHTMLWriterTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::HTML::EVDtoHTMLWriterTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoHTMLWriterTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "EVDtoHTMLWriterTest" MUID: (516E72CA0386)
+// Имя типа: "TEVDtoHTMLWriterTest"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  l3Filer,
-  k2CustomFileReader,
-  ddHTMLWriter,
-  WriterTest
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , WriterTest
+ , l3Filer
+ , ddHTMLWriter
+ , k2CustomFileReader
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TEVDtoHTMLWriterTest = {abstract} class(TWriterTest)
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    procedure EVDtoHTML(const aFileName: AnsiString);
    procedure SomeFormatToHTML(aReader: Tk2CustomFileReader);
+   procedure TuningHTMLGenerator(aHTMLReader: TddHTMLGenerator); virtual;
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TEVDtoHTMLWriterTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  evdNativeReader,
-  SysUtils,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TEVDtoHTMLWriterTest
+ l3ImplUses
+ , TestFrameWork
+ , evdNativeReader
+ , SysUtils
+;
 
 procedure TEVDtoHTMLWriterTest.EVDtoHTML(const aFileName: AnsiString);
 //#UC START# *516E73FC02CE_516E72CA0386_var*
@@ -74,15 +58,15 @@ begin
 end;//TEVDtoHTMLWriterTest.EVDtoHTML
 
 procedure TEVDtoHTMLWriterTest.SomeFormatToHTML(aReader: Tk2CustomFileReader);
+var l_Filter: Tl3CustomFiler;
+var l_Writer: TddHTMLGenerator;
 //#UC START# *516E775B03C9_516E72CA0386_var*
 //#UC END# *516E775B03C9_516E72CA0386_var*
-var
- l_Filter : Tl3CustomFiler;
- l_Writer : TddHTMLGenerator;
 begin
 //#UC START# *516E775B03C9_516E72CA0386_impl*
  l_Writer := TddHTMLGenerator.Create;
  try
+  TuningHTMLGenerator(l_Writer);
   l_Filter := FilerForOutput;
   try
    l_Writer.Filer := l_Filter;
@@ -97,18 +81,26 @@ begin
 //#UC END# *516E775B03C9_516E72CA0386_impl*
 end;//TEVDtoHTMLWriterTest.SomeFormatToHTML
 
+procedure TEVDtoHTMLWriterTest.TuningHTMLGenerator(aHTMLReader: TddHTMLGenerator);
+//#UC START# *56D9300D018D_516E72CA0386_var*
+//#UC END# *56D9300D018D_516E72CA0386_var*
+begin
+//#UC START# *56D9300D018D_516E72CA0386_impl*
+ 
+//#UC END# *56D9300D018D_516E72CA0386_impl*
+end;//TEVDtoHTMLWriterTest.TuningHTMLGenerator
+
 function TEVDtoHTMLWriterTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'HTML';
 end;//TEVDtoHTMLWriterTest.GetFolder
 
 function TEVDtoHTMLWriterTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '516E72CA0386';
 end;//TEVDtoHTMLWriterTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

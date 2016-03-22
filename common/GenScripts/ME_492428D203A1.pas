@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\CurrentChangedListener.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "CurrentChangedListener" MUID: (492428D203A1)
+// Имя типа: "_CurrentChangedListener_"
 
 {$Define CurrentChangedListener_imp}
 

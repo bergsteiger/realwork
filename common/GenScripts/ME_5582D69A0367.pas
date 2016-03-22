@@ -2,6 +2,7 @@ unit nsNodeBaseList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\nsNodeBaseList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsNodeBaseList" MUID: (5582D69A0367)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit l3Printer;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Printer.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3Printer" MUID: (4799D83F0260)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

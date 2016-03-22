@@ -2,6 +2,7 @@ unit evSubCompareInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSubCompareInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "evSubCompareInterfaces" MUID: (56555BA603A8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

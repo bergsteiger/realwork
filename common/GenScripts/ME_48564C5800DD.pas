@@ -3,6 +3,8 @@ unit ObjectSegment_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\ObjectSegment_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "ObjectSegment" MUID: (48564C5800DD)
+// Имя типа: "ObjectSegmentTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

@@ -2,6 +2,7 @@ unit l3BaseWithID;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3BaseWithID.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3BaseWithID" MUID: (47BD85FA015F)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -16,7 +17,6 @@ type
  Tl3BaseWithID = class(Tl3ProtoObject)
   private
    f_ID: Integer;
-    {* Поле для свойства ID }
   public
    constructor Create(aHandle: Integer); reintroduce; virtual;
   public

@@ -2,6 +2,7 @@ unit kwWordPtrPushWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwWordPtrPushWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwWordPtrPushWord" MUID: (4F37AEBB0209)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

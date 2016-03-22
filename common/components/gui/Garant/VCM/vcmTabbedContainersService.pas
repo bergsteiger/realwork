@@ -49,6 +49,7 @@ type
  // realized methods
    function GetTabIcon(const aTab: Il3FormTab): Integer;
    function IsInBF(aContainedForm: TForm): Boolean;
+   function GetTabCaption(const aTab: Il3FormTab): AnsiString;
    procedure CloseTab(const aTab: Il3FormTab);
    procedure Subscribe(const aListener: Il3TabbedContainersListener);
    procedure Lock;
@@ -67,6 +68,7 @@ type
    procedure ActivateForm(aForm: TForm);
    function NeedUseTabs: Boolean;
    procedure TileWindowsVertical;
+   procedure ContainedFormBecomeActive(aForm: TForm);
    function IsTabEmpty(const aTab: Il3FormTab): Boolean;
    function CloneTab(const aTab: Il3FormTab): Il3FormTab;
    function GetFormTab(aForm: TForm): Il3FormTab;
@@ -119,6 +121,8 @@ type
    function GetActiveTabbedContainer: Il3TabbedContainer;
    function IsInBF(aContainedForm: TForm): Boolean;
    function GetTabIcon(const aTab: Il3FormTab): Integer;
+   procedure ContainedFormBecomeActive(aForm: TForm);
+   function GetTabCaption(const aTab: Il3FormTab): AnsiString;
  end;//IvcmTabbedContainersService
 
  TvcmTabbedContainersService = {final} class(Tl3ProtoObject)
@@ -133,6 +137,7 @@ type
  // realized methods
    function GetTabIcon(const aTab: Il3FormTab): Integer;
    function IsInBF(aContainedForm: TForm): Boolean;
+   function GetTabCaption(const aTab: Il3FormTab): AnsiString;
    procedure CloseTab(const aTab: Il3FormTab);
    procedure Subscribe(const aListener: Il3TabbedContainersListener);
    procedure Lock;
@@ -152,6 +157,7 @@ type
    procedure ActivateForm(aForm: TForm);
    function NeedUseTabs: Boolean;
    procedure TileWindowsVertical;
+   procedure ContainedFormBecomeActive(aForm: TForm);
    function IsTabEmpty(const aTab: Il3FormTab): Boolean;
    function CloneTab(const aTab: Il3FormTab): Il3FormTab;
    function GetFormTab(aForm: TForm): Il3FormTab;
@@ -262,6 +268,15 @@ begin
  Result := TvcmTabbedContainersService.Instance.IsInBF(aContainedForm);
 //#UC END# *06D14140190A_5539E9010272_impl*
 end;//TvcmTabbedContainersDispatcher.IsInBF
+
+function TvcmTabbedContainersDispatcher.GetTabCaption(const aTab: Il3FormTab): AnsiString;
+//#UC START# *086A3DF2665B_5539E9010272_var*
+//#UC END# *086A3DF2665B_5539E9010272_var*
+begin
+//#UC START# *086A3DF2665B_5539E9010272_impl*
+ Result := TvcmTabbedContainersService.Instance.GetTabCaption(aTab);
+//#UC END# *086A3DF2665B_5539E9010272_impl*
+end;//TvcmTabbedContainersDispatcher.GetTabCaption
 
 procedure TvcmTabbedContainersDispatcher.CloseTab(const aTab: Il3FormTab);
 //#UC START# *0E111B36F193_5539E9010272_var*
@@ -417,6 +432,15 @@ begin
 //#UC END# *9D76EEC368A2_5539E9010272_impl*
 end;//TvcmTabbedContainersDispatcher.TileWindowsVertical
 
+procedure TvcmTabbedContainersDispatcher.ContainedFormBecomeActive(aForm: TForm);
+//#UC START# *AEF0183D2054_5539E9010272_var*
+//#UC END# *AEF0183D2054_5539E9010272_var*
+begin
+//#UC START# *AEF0183D2054_5539E9010272_impl*
+ TvcmTabbedContainersService.Instance.ContainedFormBecomeActive(aForm);
+//#UC END# *AEF0183D2054_5539E9010272_impl*
+end;//TvcmTabbedContainersDispatcher.ContainedFormBecomeActive
+
 function TvcmTabbedContainersDispatcher.IsTabEmpty(const aTab: Il3FormTab): Boolean;
 //#UC START# *BFD6868132D2_5539E9010272_var*
 //#UC END# *BFD6868132D2_5539E9010272_var*
@@ -525,6 +549,18 @@ begin
   Result := False;
 //#UC END# *06D14140190A_5538940C00DD_impl*
 end;//TvcmTabbedContainersService.IsInBF
+
+function TvcmTabbedContainersService.GetTabCaption(const aTab: Il3FormTab): AnsiString;
+//#UC START# *086A3DF2665B_5538940C00DD_var*
+//#UC END# *086A3DF2665B_5538940C00DD_var*
+begin
+//#UC START# *086A3DF2665B_5538940C00DD_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.GetTabCaption(aTab)
+ else
+  Result := '<заголовок вкладки>';
+//#UC END# *086A3DF2665B_5538940C00DD_impl*
+end;//TvcmTabbedContainersService.GetTabCaption
 
 procedure TvcmTabbedContainersService.CloseTab(const aTab: Il3FormTab);
 //#UC START# *0E111B36F193_5538940C00DD_var*
@@ -725,6 +761,16 @@ begin
   vcmDispatcher.TileWindowsVertical;
 //#UC END# *9D76EEC368A2_5538940C00DD_impl*
 end;//TvcmTabbedContainersService.TileWindowsVertical
+
+procedure TvcmTabbedContainersService.ContainedFormBecomeActive(aForm: TForm);
+//#UC START# *AEF0183D2054_5538940C00DD_var*
+//#UC END# *AEF0183D2054_5538940C00DD_var*
+begin
+//#UC START# *AEF0183D2054_5538940C00DD_impl*
+ if (f_Alien <> nil) then
+  f_Alien.ContainedFormBecomeActive(aForm);
+//#UC END# *AEF0183D2054_5538940C00DD_impl*
+end;//TvcmTabbedContainersService.ContainedFormBecomeActive
 
 function TvcmTabbedContainersService.IsTabEmpty(const aTab: Il3FormTab): Boolean;
 //#UC START# *BFD6868132D2_5538940C00DD_var*

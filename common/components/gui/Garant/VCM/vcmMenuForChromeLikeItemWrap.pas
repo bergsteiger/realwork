@@ -20,8 +20,12 @@ interface
 
 {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(XE)}
 uses
-  Classes,
+  Classes
+  {$If not defined(NoVCL)}
+  ,
   Menus
+  {$IfEnd} //not NoVCL
+  
   {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
   ,
   vcmMainMenuForChromeLikeTypes
@@ -34,7 +38,9 @@ uses
 {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(XE)}
 type
 //#UC START# *5477971800CEci*
-//#UC END# *5477971800CEci*
+ //#UC END# *5477971800CEci*
+//#UC START# *5477971800CEcit*
+ //#UC END# *5477971800CEcit*
  TvcmMenuForChromeLikeItemWrap = class(TPersistent)
  private
  // private fields
@@ -58,7 +64,7 @@ type
     read f_Item.rItem;
    property rRect : TRectWrap
     read pm_GetRRectStub;
-//#UC END# *5477971800CEpubl*
+ //#UC END# *5477971800CEpubl*
  end;//TvcmMenuForChromeLikeItemWrap
 {$IfEnd} //not NoTabs AND not NoVCM AND not XE
 

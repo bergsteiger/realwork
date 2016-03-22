@@ -3,6 +3,7 @@ unit ShutDownKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\ShutDownKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ShutDownKeywordsPack" MUID: (7FB5E199E37C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -49,8 +50,8 @@ type
 'aControl' форма::ShutDown TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ShutDown
 
  Tkw_ShutDown_Component_ShutdownTimer = {final} class(TtfwControlString)
@@ -61,9 +62,9 @@ type
 компонент::ShutdownTimer TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Component_ShutdownTimer
 
  Tkw_ShutDown_Control_vtPanel1 = {final} class(TtfwControlString)
@@ -74,9 +75,9 @@ type
 контрол::vtPanel1 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_vtPanel1
 
  Tkw_ShutDown_Control_vtPanel1_Push = {final} class(TkwBynameControlPush)
@@ -99,9 +100,9 @@ type
 контрол::LeftPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_LeftPanel
 
  Tkw_ShutDown_Control_LeftPanel_Push = {final} class(TkwBynameControlPush)
@@ -124,9 +125,9 @@ type
 контрол::Image TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_Image
 
  Tkw_ShutDown_Control_Image_Push = {final} class(TkwBynameControlPush)
@@ -149,9 +150,9 @@ type
 контрол::CenterPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_CenterPanel
 
  Tkw_ShutDown_Control_CenterPanel_Push = {final} class(TkwBynameControlPush)
@@ -174,9 +175,9 @@ type
 контрол::TopSpacerPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_TopSpacerPanel
 
  Tkw_ShutDown_Control_TopSpacerPanel_Push = {final} class(TkwBynameControlPush)
@@ -199,9 +200,9 @@ type
 контрол::WarningText TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_WarningText
 
  Tkw_ShutDown_Control_WarningText_Push = {final} class(TkwBynameControlPush)
@@ -224,9 +225,9 @@ type
 контрол::RightSpacerPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_RightSpacerPanel
 
  Tkw_ShutDown_Control_RightSpacerPanel_Push = {final} class(TkwBynameControlPush)
@@ -249,9 +250,9 @@ type
 контрол::pnlBottom TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_pnlBottom
 
  Tkw_ShutDown_Control_pnlBottom_Push = {final} class(TkwBynameControlPush)
@@ -274,9 +275,9 @@ type
 контрол::CloseButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_CloseButton
 
  Tkw_ShutDown_Control_CloseButton_Push = {final} class(TkwBynameControlPush)
@@ -531,20 +532,15 @@ OBJECT VAR l_TvtButton
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwShutDownFormCloseButton
 
-class function Tkw_Form_ShutDown.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ShutDown';
-end;//Tkw_Form_ShutDown.GetWordNameForRegister
-
 function Tkw_Form_ShutDown.GetString: AnsiString;
 begin
  Result := 'ShutDownForm';
 end;//Tkw_Form_ShutDown.GetString
 
-class function Tkw_ShutDown_Component_ShutdownTimer.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_ShutDown.GetWordNameForRegister: AnsiString;
 begin
- Result := 'компонент::ShutdownTimer';
-end;//Tkw_ShutDown_Component_ShutdownTimer.GetWordNameForRegister
+ Result := 'форма::ShutDown';
+end;//Tkw_Form_ShutDown.GetWordNameForRegister
 
 function Tkw_ShutDown_Component_ShutdownTimer.GetString: AnsiString;
 begin
@@ -557,10 +553,10 @@ begin
  TtfwClassRef.Register(TTimer);
 end;//Tkw_ShutDown_Component_ShutdownTimer.RegisterInEngine
 
-class function Tkw_ShutDown_Control_vtPanel1.GetWordNameForRegister: AnsiString;
+class function Tkw_ShutDown_Component_ShutdownTimer.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::vtPanel1';
-end;//Tkw_ShutDown_Control_vtPanel1.GetWordNameForRegister
+ Result := 'компонент::ShutdownTimer';
+end;//Tkw_ShutDown_Component_ShutdownTimer.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_vtPanel1.GetString: AnsiString;
 begin
@@ -573,6 +569,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ShutDown_Control_vtPanel1.RegisterInEngine
 
+class function Tkw_ShutDown_Control_vtPanel1.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::vtPanel1';
+end;//Tkw_ShutDown_Control_vtPanel1.GetWordNameForRegister
+
 procedure Tkw_ShutDown_Control_vtPanel1_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('vtPanel1');
@@ -583,11 +584,6 @@ class function Tkw_ShutDown_Control_vtPanel1_Push.GetWordNameForRegister: AnsiSt
 begin
  Result := 'контрол::vtPanel1:push';
 end;//Tkw_ShutDown_Control_vtPanel1_Push.GetWordNameForRegister
-
-class function Tkw_ShutDown_Control_LeftPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::LeftPanel';
-end;//Tkw_ShutDown_Control_LeftPanel.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_LeftPanel.GetString: AnsiString;
 begin
@@ -600,6 +596,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ShutDown_Control_LeftPanel.RegisterInEngine
 
+class function Tkw_ShutDown_Control_LeftPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::LeftPanel';
+end;//Tkw_ShutDown_Control_LeftPanel.GetWordNameForRegister
+
 procedure Tkw_ShutDown_Control_LeftPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('LeftPanel');
@@ -610,11 +611,6 @@ class function Tkw_ShutDown_Control_LeftPanel_Push.GetWordNameForRegister: AnsiS
 begin
  Result := 'контрол::LeftPanel:push';
 end;//Tkw_ShutDown_Control_LeftPanel_Push.GetWordNameForRegister
-
-class function Tkw_ShutDown_Control_Image.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::Image';
-end;//Tkw_ShutDown_Control_Image.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_Image.GetString: AnsiString;
 begin
@@ -627,6 +623,11 @@ begin
  TtfwClassRef.Register(TImage);
 end;//Tkw_ShutDown_Control_Image.RegisterInEngine
 
+class function Tkw_ShutDown_Control_Image.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Image';
+end;//Tkw_ShutDown_Control_Image.GetWordNameForRegister
+
 procedure Tkw_ShutDown_Control_Image_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Image');
@@ -637,11 +638,6 @@ class function Tkw_ShutDown_Control_Image_Push.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'контрол::Image:push';
 end;//Tkw_ShutDown_Control_Image_Push.GetWordNameForRegister
-
-class function Tkw_ShutDown_Control_CenterPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::CenterPanel';
-end;//Tkw_ShutDown_Control_CenterPanel.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_CenterPanel.GetString: AnsiString;
 begin
@@ -654,6 +650,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ShutDown_Control_CenterPanel.RegisterInEngine
 
+class function Tkw_ShutDown_Control_CenterPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::CenterPanel';
+end;//Tkw_ShutDown_Control_CenterPanel.GetWordNameForRegister
+
 procedure Tkw_ShutDown_Control_CenterPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('CenterPanel');
@@ -664,11 +665,6 @@ class function Tkw_ShutDown_Control_CenterPanel_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::CenterPanel:push';
 end;//Tkw_ShutDown_Control_CenterPanel_Push.GetWordNameForRegister
-
-class function Tkw_ShutDown_Control_TopSpacerPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::TopSpacerPanel';
-end;//Tkw_ShutDown_Control_TopSpacerPanel.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_TopSpacerPanel.GetString: AnsiString;
 begin
@@ -681,6 +677,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ShutDown_Control_TopSpacerPanel.RegisterInEngine
 
+class function Tkw_ShutDown_Control_TopSpacerPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::TopSpacerPanel';
+end;//Tkw_ShutDown_Control_TopSpacerPanel.GetWordNameForRegister
+
 procedure Tkw_ShutDown_Control_TopSpacerPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('TopSpacerPanel');
@@ -691,11 +692,6 @@ class function Tkw_ShutDown_Control_TopSpacerPanel_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::TopSpacerPanel:push';
 end;//Tkw_ShutDown_Control_TopSpacerPanel_Push.GetWordNameForRegister
-
-class function Tkw_ShutDown_Control_WarningText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::WarningText';
-end;//Tkw_ShutDown_Control_WarningText.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_WarningText.GetString: AnsiString;
 begin
@@ -708,6 +704,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_ShutDown_Control_WarningText.RegisterInEngine
 
+class function Tkw_ShutDown_Control_WarningText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::WarningText';
+end;//Tkw_ShutDown_Control_WarningText.GetWordNameForRegister
+
 procedure Tkw_ShutDown_Control_WarningText_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('WarningText');
@@ -718,11 +719,6 @@ class function Tkw_ShutDown_Control_WarningText_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::WarningText:push';
 end;//Tkw_ShutDown_Control_WarningText_Push.GetWordNameForRegister
-
-class function Tkw_ShutDown_Control_RightSpacerPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::RightSpacerPanel';
-end;//Tkw_ShutDown_Control_RightSpacerPanel.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_RightSpacerPanel.GetString: AnsiString;
 begin
@@ -735,6 +731,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ShutDown_Control_RightSpacerPanel.RegisterInEngine
 
+class function Tkw_ShutDown_Control_RightSpacerPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::RightSpacerPanel';
+end;//Tkw_ShutDown_Control_RightSpacerPanel.GetWordNameForRegister
+
 procedure Tkw_ShutDown_Control_RightSpacerPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('RightSpacerPanel');
@@ -745,11 +746,6 @@ class function Tkw_ShutDown_Control_RightSpacerPanel_Push.GetWordNameForRegister
 begin
  Result := 'контрол::RightSpacerPanel:push';
 end;//Tkw_ShutDown_Control_RightSpacerPanel_Push.GetWordNameForRegister
-
-class function Tkw_ShutDown_Control_pnlBottom.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlBottom';
-end;//Tkw_ShutDown_Control_pnlBottom.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_pnlBottom.GetString: AnsiString;
 begin
@@ -762,6 +758,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ShutDown_Control_pnlBottom.RegisterInEngine
 
+class function Tkw_ShutDown_Control_pnlBottom.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlBottom';
+end;//Tkw_ShutDown_Control_pnlBottom.GetWordNameForRegister
+
 procedure Tkw_ShutDown_Control_pnlBottom_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlBottom');
@@ -773,11 +774,6 @@ begin
  Result := 'контрол::pnlBottom:push';
 end;//Tkw_ShutDown_Control_pnlBottom_Push.GetWordNameForRegister
 
-class function Tkw_ShutDown_Control_CloseButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::CloseButton';
-end;//Tkw_ShutDown_Control_CloseButton.GetWordNameForRegister
-
 function Tkw_ShutDown_Control_CloseButton.GetString: AnsiString;
 begin
  Result := 'CloseButton';
@@ -788,6 +784,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtButton);
 end;//Tkw_ShutDown_Control_CloseButton.RegisterInEngine
+
+class function Tkw_ShutDown_Control_CloseButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::CloseButton';
+end;//Tkw_ShutDown_Control_CloseButton.GetWordNameForRegister
 
 procedure Tkw_ShutDown_Control_CloseButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -822,11 +823,6 @@ begin
  aCtx.rEngine.PushObj(ShutdownTimer(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormShutdownTimer.DoDoIt
 
-class function TkwShutDownFormShutdownTimer.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TShutDownForm.ShutdownTimer';
-end;//TkwShutDownFormShutdownTimer.GetWordNameForRegister
-
 procedure TkwShutDownFormShutdownTimer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -847,6 +843,11 @@ function TkwShutDownFormShutdownTimer.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormShutdownTimer.ParamsTypes
+
+class function TkwShutDownFormShutdownTimer.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TShutDownForm.ShutdownTimer';
+end;//TkwShutDownFormShutdownTimer.GetWordNameForRegister
 
 function TkwShutDownFormVtPanel1.vtPanel1(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
@@ -870,11 +871,6 @@ begin
  aCtx.rEngine.PushObj(vtPanel1(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormVtPanel1.DoDoIt
 
-class function TkwShutDownFormVtPanel1.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TShutDownForm.vtPanel1';
-end;//TkwShutDownFormVtPanel1.GetWordNameForRegister
-
 procedure TkwShutDownFormVtPanel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -895,6 +891,11 @@ function TkwShutDownFormVtPanel1.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormVtPanel1.ParamsTypes
+
+class function TkwShutDownFormVtPanel1.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TShutDownForm.vtPanel1';
+end;//TkwShutDownFormVtPanel1.GetWordNameForRegister
 
 function TkwShutDownFormLeftPanel.LeftPanel(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
@@ -918,11 +919,6 @@ begin
  aCtx.rEngine.PushObj(LeftPanel(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormLeftPanel.DoDoIt
 
-class function TkwShutDownFormLeftPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TShutDownForm.LeftPanel';
-end;//TkwShutDownFormLeftPanel.GetWordNameForRegister
-
 procedure TkwShutDownFormLeftPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -943,6 +939,11 @@ function TkwShutDownFormLeftPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormLeftPanel.ParamsTypes
+
+class function TkwShutDownFormLeftPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TShutDownForm.LeftPanel';
+end;//TkwShutDownFormLeftPanel.GetWordNameForRegister
 
 function TkwShutDownFormImage.Image(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TImage;
@@ -966,11 +967,6 @@ begin
  aCtx.rEngine.PushObj(Image(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormImage.DoDoIt
 
-class function TkwShutDownFormImage.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TShutDownForm.Image';
-end;//TkwShutDownFormImage.GetWordNameForRegister
-
 procedure TkwShutDownFormImage.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -991,6 +987,11 @@ function TkwShutDownFormImage.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormImage.ParamsTypes
+
+class function TkwShutDownFormImage.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TShutDownForm.Image';
+end;//TkwShutDownFormImage.GetWordNameForRegister
 
 function TkwShutDownFormCenterPanel.CenterPanel(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
@@ -1014,11 +1015,6 @@ begin
  aCtx.rEngine.PushObj(CenterPanel(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormCenterPanel.DoDoIt
 
-class function TkwShutDownFormCenterPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TShutDownForm.CenterPanel';
-end;//TkwShutDownFormCenterPanel.GetWordNameForRegister
-
 procedure TkwShutDownFormCenterPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1039,6 +1035,11 @@ function TkwShutDownFormCenterPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormCenterPanel.ParamsTypes
+
+class function TkwShutDownFormCenterPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TShutDownForm.CenterPanel';
+end;//TkwShutDownFormCenterPanel.GetWordNameForRegister
 
 function TkwShutDownFormTopSpacerPanel.TopSpacerPanel(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
@@ -1062,11 +1063,6 @@ begin
  aCtx.rEngine.PushObj(TopSpacerPanel(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormTopSpacerPanel.DoDoIt
 
-class function TkwShutDownFormTopSpacerPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TShutDownForm.TopSpacerPanel';
-end;//TkwShutDownFormTopSpacerPanel.GetWordNameForRegister
-
 procedure TkwShutDownFormTopSpacerPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1087,6 +1083,11 @@ function TkwShutDownFormTopSpacerPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormTopSpacerPanel.ParamsTypes
+
+class function TkwShutDownFormTopSpacerPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TShutDownForm.TopSpacerPanel';
+end;//TkwShutDownFormTopSpacerPanel.GetWordNameForRegister
 
 function TkwShutDownFormWarningText.WarningText(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtLabel;
@@ -1110,11 +1111,6 @@ begin
  aCtx.rEngine.PushObj(WarningText(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormWarningText.DoDoIt
 
-class function TkwShutDownFormWarningText.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TShutDownForm.WarningText';
-end;//TkwShutDownFormWarningText.GetWordNameForRegister
-
 procedure TkwShutDownFormWarningText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1135,6 +1131,11 @@ function TkwShutDownFormWarningText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormWarningText.ParamsTypes
+
+class function TkwShutDownFormWarningText.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TShutDownForm.WarningText';
+end;//TkwShutDownFormWarningText.GetWordNameForRegister
 
 function TkwShutDownFormRightSpacerPanel.RightSpacerPanel(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
@@ -1158,11 +1159,6 @@ begin
  aCtx.rEngine.PushObj(RightSpacerPanel(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormRightSpacerPanel.DoDoIt
 
-class function TkwShutDownFormRightSpacerPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TShutDownForm.RightSpacerPanel';
-end;//TkwShutDownFormRightSpacerPanel.GetWordNameForRegister
-
 procedure TkwShutDownFormRightSpacerPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1183,6 +1179,11 @@ function TkwShutDownFormRightSpacerPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormRightSpacerPanel.ParamsTypes
+
+class function TkwShutDownFormRightSpacerPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TShutDownForm.RightSpacerPanel';
+end;//TkwShutDownFormRightSpacerPanel.GetWordNameForRegister
 
 function TkwShutDownFormPnlBottom.pnlBottom(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
@@ -1206,11 +1207,6 @@ begin
  aCtx.rEngine.PushObj(pnlBottom(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormPnlBottom.DoDoIt
 
-class function TkwShutDownFormPnlBottom.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TShutDownForm.pnlBottom';
-end;//TkwShutDownFormPnlBottom.GetWordNameForRegister
-
 procedure TkwShutDownFormPnlBottom.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1231,6 +1227,11 @@ function TkwShutDownFormPnlBottom.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormPnlBottom.ParamsTypes
+
+class function TkwShutDownFormPnlBottom.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TShutDownForm.pnlBottom';
+end;//TkwShutDownFormPnlBottom.GetWordNameForRegister
 
 function TkwShutDownFormCloseButton.CloseButton(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtButton;
@@ -1254,11 +1255,6 @@ begin
  aCtx.rEngine.PushObj(CloseButton(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormCloseButton.DoDoIt
 
-class function TkwShutDownFormCloseButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TShutDownForm.CloseButton';
-end;//TkwShutDownFormCloseButton.GetWordNameForRegister
-
 procedure TkwShutDownFormCloseButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1279,6 +1275,11 @@ function TkwShutDownFormCloseButton.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormCloseButton.ParamsTypes
+
+class function TkwShutDownFormCloseButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TShutDownForm.CloseButton';
+end;//TkwShutDownFormCloseButton.GetWordNameForRegister
 
 initialization
  Tkw_Form_ShutDown.RegisterInEngine;

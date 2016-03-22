@@ -2,6 +2,7 @@ unit ActiveChangeableProxy;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ActiveChangeableProxy.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ActiveChangeableProxy" MUID: (4614E05A0222)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

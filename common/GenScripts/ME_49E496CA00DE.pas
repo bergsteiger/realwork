@@ -3,6 +3,7 @@ unit NOT_FINISHED_evUserCommentFilter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evUserCommentFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevUserCommentFilter" MUID: (49E496CA00DE)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

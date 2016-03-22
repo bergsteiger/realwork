@@ -2,6 +2,7 @@ unit NOT_FINISHED_k2ForkGenerator;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2ForkGenerator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2ForkGenerator" MUID: (53BBFCA20372)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

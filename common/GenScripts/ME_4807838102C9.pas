@@ -2,6 +2,7 @@ unit atListener;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atListener.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatListener" MUID: (4807838102C9)
 
 interface
 

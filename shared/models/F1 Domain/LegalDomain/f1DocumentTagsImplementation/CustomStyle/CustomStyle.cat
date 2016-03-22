@@ -31,7 +31,23 @@
 	(object Attribute
 	    tool       	"MDA Generator"
 	    name       	"SourceType (wiki)"
-	    value      	"wiki"))
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script)"
+	    value      	"w:/shared/models/NewSchool/Scripts/53AC08AA02C7.pas.ms.script")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script.runner)"
+	    value      	"w:/shared/models/NewSchool/Scripts/53AC08AA02C7.pas.ms.script.runner")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script.runner)"
+	    value      	"file"))
     quid       	"53AC08AA02C7"
     stereotype 	"Unit"
     visible_categories 	(list visibility_relationship_list
@@ -340,7 +356,7 @@
 			    value      	"false"))
 		    quid       	"53AC5A6C03CA"
 		    stereotype 	"uses"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::SysUtils"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::SysUtils"
 		    quidu      	"47877EB202FB")
 		(object Uses_Relationship
 		    attributes 	(list Attribute_Set
@@ -499,7 +515,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*53AC3FF3021A_53AC08C900D0_impl*"
-			    value      	"//#UC START# *53AC3FF3021A_53AC08C900D0_impl*¤ if LinkViewKind[aSeg] = ev_lvkUnknown then¤ begin¤  l_Addr := GetLinkAddress(aSeg);¤  if (l_Addr.TypeID <> CI_TOPIC) then¤   Exit;¤  if Supports(aPara.DocumentContainer, IDocument, l_Doc) then¤  begin¤   with l_Topic do¤   begin¤    rPid.rObjectId := TObjectId(l_Addr.DocID);¤    rPid.rClassId := TClassId(l_Addr.TypeID);¤    rPosition.rPoint := Cardinal(l_Addr.SubID);¤    rPosition.rType := PT_SUB;¤   end;¤   if l_Topic.rPid.rClassId <> 0 then¤   begin¤    if evInPara(aPara.AsObject, k2_typDocument, l_DocV) then¤     l_ExtID := l_DocV.rLong(k2_tiExternalHandle, -1);¤¤    l_Doc.GetLink(l_ExtID, l_Topic, l_Addr.RevisionID, l_Link);¤    LinkViewKind[aSeg] := lc_Map[l_Link.GetKind];¤   end;¤  end;¤ end;¤//#UC END# *53AC3FF3021A_53AC08C900D0_impl*"))
+			    value      	"//#UC START# *53AC3FF3021A_53AC08C900D0_impl*¤ if LinkViewKind[aSeg] = ev_lvkUnknown then¤ begin¤  l_ExtID := 0;¤  l_Addr := GetLinkAddress(aSeg);¤  if (l_Addr.TypeID <> CI_TOPIC) then¤   Exit;¤  if Supports(aPara.DocumentContainer, IDocument, l_Doc) then¤  begin¤   with l_Topic do¤   begin¤    rPid.rObjectId := TObjectId(l_Addr.DocID);¤    rPid.rClassId := TClassId(l_Addr.TypeID);¤    rPosition.rPoint := Cardinal(l_Addr.SubID);¤    rPosition.rType := PT_SUB;¤   end;¤   if l_Topic.rPid.rClassId <> 0 then¤   begin¤    if evInPara(aPara.AsObject, k2_typDocument, l_DocV) then¤     l_ExtID := l_DocV.rLong(k2_tiExternalHandle, -1);¤¤    l_Doc.GetLink(l_ExtID, l_Topic, l_Addr.RevisionID, l_Link);¤    LinkViewKind[aSeg] := lc_Map[l_Link.GetKind];¤   end;¤  end;¤ end;¤//#UC END# *53AC3FF3021A_53AC08C900D0_impl*"))
 		    quid       	"53AC3FF3021A"
 		    stereotype 	"method"
 		    exportControl 	"Private"
@@ -881,7 +897,7 @@
 		    quidu      	"53AC3FF3021A"
 		    compartment 	(object Compartment
 			Parent_View 	@5
-			location   	(108, 1099)
+			location   	(108, 1109)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -1081,11 +1097,11 @@
 			    supplier   	@7
 			    vertices   	(list Points
 				(460, 422)
-				(487, 257))
+				(486, 257))
 			    line_style 	0
 			    label      	(object SegLabel @13
 				Parent_View 	@12
-				location   	(487, 296)
+				location   	(486, 296)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -1164,7 +1180,7 @@
 		    quidu      	"5542334A00E6"
 		    compartment 	(object Compartment
 			Parent_View 	@15
-			location   	(103, 1427)
+			location   	(103, 1437)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -2222,7 +2238,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::SysUtils" @51
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::SysUtils" @51
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE

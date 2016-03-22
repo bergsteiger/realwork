@@ -2,6 +2,7 @@ unit AttributeExplorerWordsPack;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\AttributeExplorerWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "AttributeExplorerWordsPack" MUID: (553109700297)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
@@ -112,11 +113,6 @@ begin
  GotoOnAttrNode(aCtx, l_aAttrExplorer, l_anAttrID);
 end;//TkwAttrExplorerGotoOnAttrNode.DoDoIt
 
-class function TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister: AnsiString;
-begin
- Result := 'AttrExplorer:GotoOnAttrNode';
-end;//TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister
-
 function TkwAttrExplorerGotoOnAttrNode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -131,6 +127,11 @@ function TkwAttrExplorerGotoOnAttrNode.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAttrExplorer), TypeInfo(TdtAttribute)]);
 end;//TkwAttrExplorerGotoOnAttrNode.ParamsTypes
+
+class function TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'AttrExplorer:GotoOnAttrNode';
+end;//TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister
 
 initialization
  TAttributeExplorerWordsPackResNameGetter.Register;

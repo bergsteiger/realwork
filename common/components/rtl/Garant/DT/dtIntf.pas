@@ -1,8 +1,11 @@
 unit dtIntf;
 
-{ $Id: dtIntf.pas,v 1.10 2015/09/10 15:02:26 voba Exp $ }
+{ $Id: dtIntf.pas,v 1.11 2016/01/22 12:18:59 lukyanets Exp $ }
 
 // $Log: dtIntf.pas,v $
+// Revision 1.11  2016/01/22 12:18:59  lukyanets
+// ѕереосмысливаем мигратор
+//
 // Revision 1.10  2015/09/10 15:02:26  voba
 // no message
 //
@@ -69,7 +72,7 @@ type
   procedure CheckFieldNum(aField: Word);
 
   procedure SetTextDecor(aDelimiter: Char; aQuote : Char);
-  function  GenRecStr(pRec : Pointer) : AnsiString;
+  function  GenRecStr(pRec : Pointer; AddEmtryTailColumnCount: Integer = 0) : AnsiString;
      {- генерирует "Human Readable" строку из тела записи. »спользуетс€ дл€ отладки}
   function  GenRecHeaderStr : AnsiString;
   {- генерирует "Human Readable" строку из названий полей записи. »спользуетс€ дл€ отладки}

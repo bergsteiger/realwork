@@ -2,6 +2,7 @@ unit NOT_FINISHED_AdminRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\NOT_FINISHED_AdminRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "AdminRes" MUID: (49246C1F015D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

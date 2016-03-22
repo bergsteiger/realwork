@@ -2,6 +2,7 @@ unit NOT_FINISHED_imageenio;
 
 // Модуль: "w:\common\components\rtl\external\ImageEn\src\NOT_FINISHED_imageenio.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "imageenio" MUID: (4ACDBE7800FD)
 
 interface
 

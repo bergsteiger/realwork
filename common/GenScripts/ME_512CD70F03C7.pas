@@ -2,6 +2,7 @@ unit nsExternalObjectModelPart;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ExternalObjects\nsExternalObjectModelPart.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsExternalObjectModelPart" MUID: (512CD70F03C7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

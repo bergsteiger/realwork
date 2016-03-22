@@ -3,6 +3,8 @@ unit K604494903;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\K604494903.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K604494903" MUID: (55C1EE7D00A7)
+// Имя типа: "TK604494903"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -3,6 +3,7 @@ unit nsComplectInfoTreeStruct;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsComplectInfoTreeStruct.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsComplectInfoTreeStruct" MUID: (468368FC017F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

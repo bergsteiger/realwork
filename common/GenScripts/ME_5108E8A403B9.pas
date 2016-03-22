@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\DeletingRowCorrector.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "DeletingRowCorrector" MUID: (5108E8A403B9)
+// Имя типа: "_DeletingRowCorrector_"
 
 {$Define DeletingRowCorrector_imp}
 

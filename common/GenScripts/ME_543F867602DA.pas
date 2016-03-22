@@ -2,6 +2,7 @@ unit m3FileRegion;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3FileRegion.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "m3FileRegion" MUID: (543F867602DA)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

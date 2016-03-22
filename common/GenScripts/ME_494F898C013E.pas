@@ -3,6 +3,7 @@ unit OfficeLike_Usual_Controls;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Usual_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "Usual" MUID: (494F898C013E)
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

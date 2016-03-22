@@ -2,6 +2,7 @@ unit nevControlsBlockIevCommonControlMapper;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevControlsBlockIevCommonControlMapper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevControlsBlockIevCommonControlMapper" MUID: (53D637420240)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

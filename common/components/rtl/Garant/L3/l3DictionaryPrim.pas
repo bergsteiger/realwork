@@ -2,6 +2,7 @@ unit l3DictionaryPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3DictionaryPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3DictionaryPrim" MUID: (4B88E96A02CC)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

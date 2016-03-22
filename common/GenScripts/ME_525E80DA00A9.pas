@@ -3,6 +3,8 @@ unit EditablePart_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\EditablePart_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "EditablePart" MUID: (525E80DA00A9)
+// Имя типа: "EditablePartTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

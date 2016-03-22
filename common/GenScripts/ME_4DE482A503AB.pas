@@ -3,6 +3,7 @@ unit ArchiAutoTest;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\ArchiAutoTest.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TArchiAutoTest" MUID: (4DE482A503AB)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

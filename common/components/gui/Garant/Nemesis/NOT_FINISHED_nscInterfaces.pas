@@ -2,6 +2,7 @@ unit NOT_FINISHED_nscInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "nscInterfaces" MUID: (4AC9AFCE00DC)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

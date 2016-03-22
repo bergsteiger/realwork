@@ -2,6 +2,7 @@ unit ShadowWnd;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\ShadowWnd.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ShadowWnd" MUID: (545C5B8703C7)
 
 interface
 

@@ -2,6 +2,7 @@ unit nsPromptForDocFilter;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsPromptForDocFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsPromptForDocFilter" MUID: (4AA4D6CF02A9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

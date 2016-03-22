@@ -3,6 +3,7 @@ unit nsAppConfigRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Config\nsAppConfigRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsAppConfigRes" MUID: (4B97B148028B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

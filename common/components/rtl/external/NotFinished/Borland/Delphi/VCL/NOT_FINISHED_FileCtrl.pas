@@ -2,6 +2,7 @@ unit NOT_FINISHED_FileCtrl;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\NOT_FINISHED_FileCtrl.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "FileCtrl" MUID: (4AAF960E0065)
 
 interface
 

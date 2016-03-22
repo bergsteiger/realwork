@@ -3,6 +3,7 @@ unit afwCustomCaretType;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwCustomCaretType.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwCustomCaretType" MUID: (480DC4B90226)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
@@ -62,25 +63,25 @@ type
   {* Тип формы каретки. }
   private
    f_OnChange: TNotifyEvent;
-    {* Поле для свойства OnChange }
+    {* нотификация об изменении параметров каретки. }
    f_Shape: TafwCaretShape;
-    {* Поле для свойства Shape }
+    {* форма курсора. }
    f_Bitmap: TBitmap;
-    {* Поле для свойства Bitmap }
+    {* картинка курсора. }
    f_BitmapHotSpotX: Integer;
-    {* Поле для свойства BitmapHotSpotX }
+    {* смещение каретки относительно картинки по оси X. }
    f_BitmapHotSpotY: Integer;
-    {* Поле для свойства BitmapHotSpotY }
+    {* смещение каретки относительно картинки по оси Y. }
    f_Align: TafwCaretAlign;
-    {* Поле для свойства Align }
+    {* выравнивание курсора. }
    f_BlinkTime: Word;
-    {* Поле для свойства BlinkTime }
+    {* период мигания курсора (в милисекундах). }
    f_CaretHeight: Integer;
-    {* Поле для свойства CaretHeight }
+    {* высота курсора. }
    f_CaretWidth: Integer;
-    {* Поле для свойства CaretWidth }
+    {* ширина курсора. }
    f_IsGray: Boolean;
-    {* Поле для свойства IsGray }
+    {* курсор серый? }
   protected
    procedure pm_SetShape(aValue: TafwCaretShape);
    procedure pm_SetBitmap(aValue: TBitmap);

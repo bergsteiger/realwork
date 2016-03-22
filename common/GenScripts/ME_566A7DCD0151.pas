@@ -2,6 +2,7 @@ unit daQuery;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daQuery.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaQuery" MUID: (566A7DCD0151)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

@@ -2,6 +2,7 @@ unit ViewBase;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ViewBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ViewBase" MUID: (45F57B6C0128)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -66,7 +67,7 @@ function ViewBase.pm_Getmode: TFlagMask;
 //#UC END# *46025C6602BF_45F57B6C0128get_var*
 begin
 //#UC START# *46025C6602BF_45F57B6C0128get_impl*
- Result := f_mode
+ !!! Needs to be implemented !!!
 //#UC END# *46025C6602BF_45F57B6C0128get_impl*
 end;//ViewBase.pm_Getmode
 
@@ -75,7 +76,7 @@ function ViewBase.pm_Getparent_tree_root: DefaultNodeBase;
 //#UC END# *46025C860251_45F57B6C0128get_var*
 begin
 //#UC START# *46025C860251_45F57B6C0128get_impl*
- Result := f_parent_tree_root
+ !!! Needs to be implemented !!!
 //#UC END# *46025C860251_45F57B6C0128get_impl*
 end;//ViewBase.pm_Getparent_tree_root
 
@@ -84,7 +85,7 @@ function ViewBase.pm_Getmaximum_levels_restriction: unsigned integer;
 //#UC END# *46025C9E01D4_45F57B6C0128get_var*
 begin
 //#UC START# *46025C9E01D4_45F57B6C0128get_impl*
- Result := f_maximum_levels_restriction
+ !!! Needs to be implemented !!!
 //#UC END# *46025C9E01D4_45F57B6C0128get_impl*
 end;//ViewBase.pm_Getmaximum_levels_restriction
 
@@ -93,7 +94,7 @@ function ViewBase.pm_Getauto_open: Boolean;
 //#UC END# *46025CBB01B5_45F57B6C0128get_var*
 begin
 //#UC START# *46025CBB01B5_45F57B6C0128get_impl*
- Result := f_auto_open
+ !!! Needs to be implemented !!!
 //#UC END# *46025CBB01B5_45F57B6C0128get_impl*
 end;//ViewBase.pm_Getauto_open
 

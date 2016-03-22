@@ -1,8 +1,11 @@
 Unit Dt_Acces;
 
-{ $Id: Dt_acces.pas,v 1.42 2015/07/02 07:36:07 lukyanets Exp $ }
+{ $Id: Dt_acces.pas,v 1.43 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: Dt_acces.pas,v $
+// Revision 1.43  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.42  2015/07/02 07:36:07  lukyanets
 // Описываем словари
 //
@@ -202,6 +205,7 @@ Implementation
 Uses
  daDataProvider,
  daTypes,
+ daSchemeConsts,
  DIALOGS,
  l3String,
  HT_Const,

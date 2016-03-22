@@ -2,6 +2,8 @@ unit kwPopEditorAlignCellsBoundary;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorAlignCellsBoundary.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_AlignCellsBoundary" MUID: (4FC7144702FC)
+// Имя типа: "TkwPopEditorAlignCellsBoundary"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
@@ -26,8 +28,8 @@ type
     anEditor: TevCustomEditorWindow); override;
    function OpenLog: AnsiString;
    procedure CloseLog(const aLogName: AnsiString);
-   class function GetWordNameForRegister: AnsiString; override;
    procedure ClearFields; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorAlignCellsBoundary
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -99,16 +101,16 @@ begin
 //#UC END# *4FC707E401BA_4FC7144702FC_impl*
 end;//TkwPopEditorAlignCellsBoundary.CloseLog
 
-class function TkwPopEditorAlignCellsBoundary.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:editor:AlignCellsBoundary';
-end;//TkwPopEditorAlignCellsBoundary.GetWordNameForRegister
-
 procedure TkwPopEditorAlignCellsBoundary.ClearFields;
 begin
  f_ScriptCaller := nil;
  inherited;
 end;//TkwPopEditorAlignCellsBoundary.ClearFields
+
+class function TkwPopEditorAlignCellsBoundary.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:editor:AlignCellsBoundary';
+end;//TkwPopEditorAlignCellsBoundary.GetWordNameForRegister
 
 initialization
  TkwPopEditorAlignCellsBoundary.RegisterInEngine;

@@ -2,6 +2,7 @@ unit NOT_FINISHED_evLinePainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evLinePainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevLinePainter" MUID: (49DA328801C9)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,7 @@ unit PrimContactList_chatAddContact_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\PrimContactList_chatAddContact_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "chatAddContact" MUID: (4BD5B5C8019F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_chatAddContact = {final} class(TtfwInteger)
   {* Слово словаря для типа формы chatAddContact }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_chatAddContact
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_chatAddContact.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::chatAddContact';
-end;//Tkw_FormUserType_chatAddContact.GetWordNameForRegister
-
 function Tkw_FormUserType_chatAddContact.GetInteger: Integer;
 begin
  Result := chatAddContact;
 end;//Tkw_FormUserType_chatAddContact.GetInteger
+
+class function Tkw_FormUserType_chatAddContact.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::chatAddContact';
+end;//Tkw_FormUserType_chatAddContact.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

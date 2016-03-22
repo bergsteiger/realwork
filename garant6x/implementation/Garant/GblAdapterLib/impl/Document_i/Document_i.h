@@ -383,7 +383,6 @@ protected:
 	) const /*throw (
 		InvalidTopicId
 		, FolderLinkNotFound
-		, NotAllowedInTrialMode
 	)*/;
 
 	// implemented method from Document

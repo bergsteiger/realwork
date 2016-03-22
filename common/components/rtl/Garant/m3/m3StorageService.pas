@@ -5,7 +5,7 @@ unit m3StorageService;
 // Библиотека "m3$DB"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3StorageService.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi For Archi::m3$DB::m3DB::Tm3StorageService
+// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3StorageService
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

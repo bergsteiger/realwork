@@ -3,6 +3,7 @@ unit dsAnnotation;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsAnnotation.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsAnnotation" MUID: (493D4783035C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

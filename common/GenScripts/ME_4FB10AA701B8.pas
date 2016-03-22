@@ -2,6 +2,7 @@ unit ddTextParaString;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTextParaString.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddTextParaString" MUID: (4FB10AA701B8)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

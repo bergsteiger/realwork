@@ -3,6 +3,7 @@ unit AttributesKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\AttributesKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "AttributesKeywordsPack" MUID: (312806286B17)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::Attributes TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Attributes
 
  Tkw_Attributes_Control_tvAttributes = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::tvAttributes TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Attributes_Control_tvAttributes
 
  Tkw_Attributes_Control_tvAttributes_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwAttributesFormTvAttributes
 
-class function Tkw_Form_Attributes.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Attributes';
-end;//Tkw_Form_Attributes.GetWordNameForRegister
-
 function Tkw_Form_Attributes.GetString: AnsiString;
 begin
  Result := 'AttributesForm';
 end;//Tkw_Form_Attributes.GetString
 
-class function Tkw_Attributes_Control_tvAttributes.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_Attributes.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::tvAttributes';
-end;//Tkw_Attributes_Control_tvAttributes.GetWordNameForRegister
+ Result := 'форма::Attributes';
+end;//Tkw_Form_Attributes.GetWordNameForRegister
 
 function Tkw_Attributes_Control_tvAttributes.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_Attributes_Control_tvAttributes.RegisterInEngine
+
+class function Tkw_Attributes_Control_tvAttributes.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvAttributes';
+end;//Tkw_Attributes_Control_tvAttributes.GetWordNameForRegister
 
 procedure Tkw_Attributes_Control_tvAttributes_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(tvAttributes(aCtx, l_aAttributesForm));
 end;//TkwAttributesFormTvAttributes.DoDoIt
 
-class function TkwAttributesFormTvAttributes.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAttributesForm.tvAttributes';
-end;//TkwAttributesFormTvAttributes.GetWordNameForRegister
-
 procedure TkwAttributesFormTvAttributes.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwAttributesFormTvAttributes.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAttributesForm)]);
 end;//TkwAttributesFormTvAttributes.ParamsTypes
+
+class function TkwAttributesFormTvAttributes.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAttributesForm.tvAttributes';
+end;//TkwAttributesFormTvAttributes.GetWordNameForRegister
 
 initialization
  Tkw_Form_Attributes.RegisterInEngine;

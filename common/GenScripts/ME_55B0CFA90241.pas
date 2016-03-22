@@ -2,6 +2,7 @@ unit f1StartupCompletedService;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\f1StartupCompletedService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tf1StartupCompletedService" MUID: (55B0CFA90241)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -8,6 +8,7 @@ unit kwClearDataBase;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearDataBase.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwClearDataBase" MUID: (4E4A181002B0)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

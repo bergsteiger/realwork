@@ -3,6 +3,7 @@ unit evCollapserHyperlink;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCollapserHyperlink.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCollapserHyperlink" MUID: (55F6C74B033E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

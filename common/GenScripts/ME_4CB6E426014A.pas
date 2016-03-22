@@ -3,6 +3,7 @@ unit ScrollByLineTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\ScrollByLineTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TScrollByLineTest" MUID: (4CB6E426014A)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

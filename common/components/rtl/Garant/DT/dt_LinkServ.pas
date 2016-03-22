@@ -1,9 +1,12 @@
 
 Unit Dt_LinkServ;
 
-{ $Id: dt_LinkServ.pas,v 1.20 2015/07/02 11:41:29 lukyanets Exp $ }
+{ $Id: dt_LinkServ.pas,v 1.21 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: dt_LinkServ.pas,v $
+// Revision 1.21  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.20  2015/07/02 11:41:29  lukyanets
 // Описываем словари
 //
@@ -211,6 +214,7 @@ procedure FreeLinkServer;
 implementation
 uses SysUtils, WinProcs,
      daDataProvider,
+     daSchemeConsts,
      HT_Dll,
      Dt_Err, Dt_Misc,
      dt_Table,

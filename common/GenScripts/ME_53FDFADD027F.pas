@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3HeaderIDSupplier.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "m3HeaderIDSupplier" MUID: (53FDFADD027F)
+// Имя типа: "_m3HeaderIDSupplier_"
 
 {$Define m3HeaderIDSupplier_imp}
 

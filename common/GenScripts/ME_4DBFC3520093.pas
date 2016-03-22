@@ -3,6 +3,7 @@ unit tfwConst;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwConst.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwConst" MUID: (4DBFC3520093)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

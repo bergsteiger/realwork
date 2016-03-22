@@ -2,6 +2,7 @@ unit NOT_FINISHED_evHyperlink;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evHyperlink.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevHyperlink" MUID: (4A269BB40125)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

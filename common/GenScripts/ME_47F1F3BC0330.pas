@@ -3,6 +3,7 @@ unit evParaTools;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evParaTools.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evParaTools" MUID: (47F1F3BC0330)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
@@ -614,7 +615,10 @@ begin
     aView.IsObjectCollapsed[l_OwnerPara] := False;
    l_OwnerPara := l_OwnerPara.OwnerObj;
   end; //while (l_Owner <> nil) do
- end; // if aPara.IsKindOf(k2_typLeafPara) then
+ end // if aPara.IsKindOf(k2_typLeafPara) then
+ else
+  if EvExpandedText(aPara.AsObject) then
+   aView.IsObjectCollapsed[aPara] := False;
 //#UC END# *55F7F2C60135_47F1F3BC0330_impl*
 end;//evExpandOwnerStyleBlocks
 

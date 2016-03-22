@@ -5,9 +5,12 @@ unit evSegLst;
 { Автор: Люлин А.В. ©     }
 { Модуль: evSegLst - описание списка отрезков}
 { Начат: 13.03.1997 16:39 }
-{ $Id: evSegLst.pas,v 1.158 2015/08/20 10:32:18 dinishev Exp $ }
+{ $Id: evSegLst.pas,v 1.159 2016/03/10 11:35:47 dinishev Exp $ }
 
 // $Log: evSegLst.pas,v $
+// Revision 1.159  2016/03/10 11:35:47  dinishev
+// Проверка тестов.
+//
 // Revision 1.158  2015/08/20 10:32:18  dinishev
 // {Requestlink:605831168}
 //
@@ -902,8 +905,6 @@ begin
  try
   Result := l_List;
   evSegmentsLayer_IterateSegmentsF(aPara, aLayer, aStart, aFinish, L2Mk2ChildrenIterateChildrenFAction(@_AddSegment));
-  if l_IgnoreHypelink then
-   l_List.Add(aDecorSegment);
  finally
   l3Free(l_List);
  end;//try..finally

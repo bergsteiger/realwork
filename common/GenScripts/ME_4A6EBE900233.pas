@@ -3,6 +3,8 @@ unit Diff_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\Diff_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "Diff" MUID: (4A6EBE900233)
+// Имя типа: "TDiffForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit l3TabbedContainersDispatcher;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3TabbedContainersDispatcher.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3TabbedContainersDispatcher" MUID: (553213D902E0)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -210,7 +211,7 @@ type
  Tl3TabbedContainersDispatcher = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3TabbedContainersDispatcher;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3TabbedContainersDispatcher }
   protected
    procedure pm_SetAlien(const aValue: Il3TabbedContainersDispatcher);
    procedure ClearFields; override;

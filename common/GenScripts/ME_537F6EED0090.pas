@@ -2,6 +2,7 @@ unit dtNumRangeList;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\dtNumRangeList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdtNumRangeList" MUID: (537F6EED0090)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

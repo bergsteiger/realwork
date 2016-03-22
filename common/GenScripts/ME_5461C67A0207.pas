@@ -2,6 +2,7 @@ unit destSkip;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destSkip.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdestSkip" MUID: (5461C67A0207)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

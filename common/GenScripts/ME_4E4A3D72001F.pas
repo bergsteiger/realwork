@@ -2,6 +2,7 @@ unit NOT_FINISHED_JclMiscel;
 
 // Модуль: "w:\common\components\rtl\external\JEDI\source\windows\NOT_FINISHED_JclMiscel.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "JclMiscel" MUID: (4E4A3D72001F)
 
 {$Include w:\common\components\l3Define.inc}
 

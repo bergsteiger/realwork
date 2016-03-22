@@ -2,6 +2,7 @@ unit bsUserCRListInfo;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\bsUserCRListInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsUserCRListInfo" MUID: (493D4E4D0146)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

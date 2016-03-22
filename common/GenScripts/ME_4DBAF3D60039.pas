@@ -3,6 +3,8 @@ unit kwDEFAULT;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwDEFAULT.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "DEFAULT" MUID: (4DBAF3D60039)
+// Имя типа: "TkwDEFAULT"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

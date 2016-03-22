@@ -129,12 +129,12 @@ int parse_cmdline(int argc, char **argv)
 				set_language(1);
 				break;
 			case 'r': // Set output bases path
-				len = strlen(optarg);
+				len = (int)(0x7FFFFFFF & strlen(optarg));
 				gs_resfile = (char *)malloc(len+2);
 				strcpy(gs_resfile, optarg);
 				break;
 			case 'l': // Set output bases path
-				len = strlen(optarg);
+				len = (int)(0x7FFFFFFF & strlen(optarg));
 				gs_logfile = (char *)malloc(len+2);
 				strcpy(gs_logfile, optarg);
 				break;
@@ -142,7 +142,7 @@ int parse_cmdline(int argc, char **argv)
 				debug_level = atoi(optarg);
 				break;
 			case 'o': // Set output bases path
-				len = strlen(optarg);
+				len = (int)(0x7FFFFFFF & strlen(optarg));
 				output_path = (char *)malloc(len+2);
 				strcpy(output_path, optarg);
 				if(output_path[len-1] != DIRECTORIES_TERM) {
@@ -376,9 +376,6 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
   #endif
 										*BNameIndx= "NBCntxt.str", *FNameIndx0= "NFContxt.str", *NameIndx= FNameIndx0;
 #endif
-/*#if defined(__DOS32__) || defined(__WIN32__)
-	int new_segcount;
-#endif*/
 	char *msg, msg01[]="\toutputed path - specified!\n", msg02[]="Finished "
 #ifdef BRDR32
 		, *s, *missing
@@ -393,16 +390,7 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
 #endif
 	set_st *doclists;
 	int LocalContext= 0;
-/*
-	long zzz[]= {1,3,5,6,7,9,10,11,13,14}, *pzzz= zzz, xx= 12;
-	int sss= 10;
 
-	bsearch_nxt(xx, &pzzz, &sss);
-	xx= 5;
-	bsearch_nxt(xx, &pzzz, &sss);
-	xx= 6;
-	bsearch_nxt(xx, &pzzz, &sss);
-*/
 	if(pCntx == 0){
 		LocalContext= 1;
 		pCntx= CreateContext(0);
@@ -424,9 +412,7 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
 	if(!segcount) {
 		printf("Error: Nothing to do\n");
 		return -1;
-	}/*else if(segcount == -735){
-		;
-	}*/else if(segcount == -1){
+	}else if(segcount == -1){
 		printf("Error: a few resultanted bases equally by name.\n");
 		return -2;
 	}else if(segcount == -2){
@@ -458,15 +444,6 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
 
 #endif /* HAS_RLIMIT */
 
-/*#if defined(__DOS32__) || defined(__WIN32__)
-	new_segcount = test_files(segcount);
-	if(new_segcount != segcount) {
-		sprintf(msg, get_message(MSG_LIMIT), new_segcount);
-		ShowMessageFromContext(pCntx, msg);
-		segcount = new_segcount;
-		//sleep(5); ///!!!
-	}
-#endif*/
 	if(global_options & 0x80000000) fclose(file_in);
 	psrcbase = (base_st *)alloca(sizeof(base_st));
 	bzero((caddr_t)psrcbase, sizeof(base_st));
@@ -607,7 +584,6 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
 			for(;i; i--) close_base(targets+i-1);
 			printf("Can't create the base %s\n", destname);
 			printf("The system reported: %s\n", strerror(errno));
-			//if(fileBuffRead != 0){free(fileBuffRead); fileBuffRead= 0;}
 			free(targets);
 			return -5;
 		}
@@ -678,6 +654,7 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
 		for(iOut=0; iOut<sizeof(index_names)/sizeof(*index_names); iOut++) {
 			if(!strcmp (index_names [iOut], "Attribs") && split_turbo){
 				for(i=0; i<segcount; i++){
+#if defined(MULTI_INDEX_STREAM_FILE) && !defined(_WIN64)
 					if(targets[i].pSubToms->pStr->fat_chain){
 						if(targets[i].pSubToms->pStr->cused) {
 							flush_write_cache(targets[i].pSubToms->pStr);
@@ -700,6 +677,7 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
 					close_pgfile((pgfile_st *)targets[i].pSubToms->pStr);
 					if(targets[i].pSubToms->pStr->fat)
 						free(targets[i].pSubToms->pStr->fat);
+#endif
 					if(targets[i].flags & BF_READY)
 						set_info(targets[i].pSubToms->pKey, "Ready", &(targets[i].ready_flags), 4);
 					close_pgfile(targets[i].pSubToms->pKey);
@@ -865,10 +843,11 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
 				release_iter(spitW);
 			}
 			str_0= pdstr->str;
-			while(load_stream_ex(spit->str, (pref= get_stref(spit,0)), psstr, &(spit->strinfo))){
+			while(spit->pkey && load_stream_ex(spit->str, (pref= get_stref(spit,0)), psstr, &(spit->strinfo))){
+				char *new_data= 0;
 				i= segcount;
 				if(spit->nstreams == 3){
-					char *new_data= 0, *new_write, *pTmpBuff= pTmpBuff0;
+					char *new_write, *pTmpBuff= pTmpBuff0;
 					u_int32_t nxt_sz= 0;
 
 					if(psstr->flags & SF_FREEBUF)
@@ -910,6 +889,7 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
 						}
 						if(pR){
 	// при мульти-выливании дл€ попул€рных букв //
+#ifndef _WIN64
 	if(spit->pkey[0] == 2 && (spit->pkey[1] == -62 || spit->pkey[1] == -56)){
 		// стрим позиций читаем через файл
 		char tmpBaseName[1024], *fnd= strrchr(pdstr->str->pgfile.name, '.');
@@ -943,7 +923,9 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
 		}while(psstr->ref.size);
 		c_io_close(hFlush);
 		ace_os_unlink(tmpBaseName);
-	}else{
+	}else
+#endif
+	  {
 		do{
 			*(u_int32_t*)new_write= *(u_int32_t*)pTmpBuff;
 			nxt_sz= ((ref_st*)pTmpBuff)->sub - nxt_sz;
@@ -994,7 +976,7 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
 						pR= sp;
 						do{
 							if((pR+(((ref_st*)pTmpBuff)->sub - nxt_sz))-sp > (readStep + rmpv)){
-								rmpv= (spage+readStep) - pR;
+								rmpv = (u_int32_t)(0xFFFFFFFF & ((spage + readStep) - pR));
 								if((((ref_st*)pTmpBuff)->sub - nxt_sz) > readStep){
 									u_int32_t szRlc= 1+ (((ref_st*)pTmpBuff)->sub - nxt_sz) / spit->str->pgfile.pfhdr->page_size;
 									char *spgeN= (char*)malloc((readStep= szRlc*spit->str->pgfile.pfhdr->page_size)+readStep);
@@ -1031,24 +1013,29 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
 					}
 					if(psstr->flags & SF_FREEBUF){
 						free(psstr->data);
-					}else
+					}else{
 						psstr->flags |= SF_FREEBUF;
+					}
 					psstr->rec= psstr->data= new_data;
 					psstr->ref.size= new_write-new_data;
 				}
-				while(i--){
-					if(pCurrIndexN == FNameIndx){
-						BasesMask= ((u_int64_t)1) << i;
-						if((psstr->pAForms= bsearch(spit->pkey,
-														pPut, sNodes, sizeof(*pPut),
-														CompStringsZZZX))
-							&& !(psstr->pAForms->BasesMask & BasesMask))
-							;
-						else{
-							move_stream(psstr, pdstr[i*2].str, pref);
-							add_key(pin+i, spit->pkey);
-						}
-					}else{
+				if(pCurrIndexN == FNameIndx){
+				  while(i--){
+					BasesMask= ((u_int64_t)1) << i;
+					if((psstr->pAForms= bsearch(spit->pkey,
+													pPut, sNodes, sizeof(*pPut),
+													CompStringsZZZX))
+						&& !(psstr->pAForms->BasesMask & BasesMask))
+						;
+					else{
+						move_stream(psstr, pdstr[i*2].str, pref);
+						add_key(pin+i, spit->pkey);
+					}
+				  }
+				  release_stream(psstr);
+				  next_key(spit);
+				}else{
+					while(i--){
 						psstr->curr_B= i;
 						if(!i){
 							pdstr->str= str_0;
@@ -1072,27 +1059,31 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
 							close_stream(pdstr+1);
 							create_stream(pin, pdstr+1);
 							pdstr[1].flags |= SF_NOALLOC;
-						}else if(prin->trunc_NContxt_str(	doclists+i, pin+i, spit, psstr, pdstr))
+						}else{
+							if(prin->trunc_NContxt_str(	doclists+i, pin+i, spit, psstr, pdstr))
 								return -1;
-				  }
-				}
-				release_stream(psstr);
-				if(!next_key(spit))
-					break;
-
-				if(get_stref(spit,1)->size == 32 && get_stref(spit,2)->size > 0x10000){
-					pdstr[0].flags &= ~SF_NOALLOC;
-					close_stream(pdstr);
-					pdstr[1].flags &= ~SF_NOALLOC;
-					close_stream(pdstr+1);
-					create_stream(pin, pdstr);
-					create_stream(pin, pdstr+1);
-					pdstr[0].flags |= SF_NOALLOC;
-					pdstr[1].flags |= SF_NOALLOC;
+						}
+					}
+		#ifdef _WIN64
+					psstr->flags |= SF_FREEBUF;
+		#endif
+					release_stream(psstr);
+					if(next_key(spit)){
+						if(get_stref(spit,1)->size == 32 && get_stref(spit,2)->size > 0x10000){
+							pdstr[0].flags &= ~SF_NOALLOC;
+							close_stream(pdstr);
+							pdstr[1].flags &= ~SF_NOALLOC;
+							close_stream(pdstr+1);
+							create_stream(pin, pdstr);
+							create_stream(pin, pdstr+1);
+							pdstr[0].flags |= SF_NOALLOC;
+							pdstr[1].flags |= SF_NOALLOC;
+						}
+					}
 				}
 			}
 			release_iter(spit);
-			for(i=0; i<segcount; i++){
+			for (i = 0; i<segcount; i++){
 				close_index(pin+i);
 			  if(pCurrIndexN == FNameIndx){
 				pdstr[i*2].flags &= ~SF_NOALLOC;
@@ -1105,6 +1096,9 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
 				}
 			  }else{
 				  close_index(pin+i+1+segcount);
+#if defined(MULTI_INDEX_STREAM_FILE) && defined(_WIN64)
+				  flush_streams_file(targets + i + 1 + segcount, pin[i + 1 + segcount].str);
+#endif
 				  pf0= pin[i].pf;
 				  memset(pin+i, 0, sizeof(*pin));
 				  pin[i].pf= pf0;
@@ -1113,13 +1107,18 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
 			close_stream(psstr);
 			if(pCurrIndexN == FNameIndx)
 				break;
-			pf0= prin->pf;
-			str0= prin->str;
-			memset(psstr, 0, sizeof(*psstr));
-			memset(spit, 0, sizeof(*spit));
-			memset(prin, 0, sizeof(*prin));
-			open_index(psrcbase, FNameIndx, prin, 1);
-			pCurrIndexN= FNameIndx;
+			else{
+#if defined(MULTI_INDEX_STREAM_FILE) && defined(_WIN64)
+				flush_streams_file(psrcbase, prin->str);
+#endif
+				pf0= prin->pf;
+				str0= prin->str;
+				memset(psstr, 0, sizeof(*psstr));
+				memset(spit, 0, sizeof(*spit));
+				memset(prin, 0, sizeof(*prin));
+				open_index(psrcbase, FNameIndx, prin, 1);
+				pCurrIndexN= FNameIndx;
+			}
 		} while (1);
 		free(spit);
 		free(psstr);
@@ -1163,7 +1162,7 @@ int gsplit_Method(int argc, char **argv, void *pCntx)
 #endif
 		if(segset[i].isDocsList == 1){
 			int len;
-			len=strlen(targets[i].ndt.PrmExt.FileName)+1;
+			len = (int)(0x7FFFFFFF & (strlen(targets[i].ndt.PrmExt.FileName) + 1));
 			pFileName= (char*)malloc(len+1);
 			GetBasedExtFileName((char*)memcpy(pFileName,targets[i].ndt.PrmExt.FileName,len+1), 1);
 		}

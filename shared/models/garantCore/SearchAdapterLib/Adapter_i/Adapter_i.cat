@@ -299,12 +299,14 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"cpp:*4EC2A3F40141_BASE_INIT*"
-			    value      	"//#UC START# *4EC2A3F40141_BASE_INIT*¤//#UC END# *4EC2A3F40141_BASE_INIT*")
+			    value      	
+|//#UC START# *4EC2A3F40141_BASE_INIT*¤	: m_uwc (false)¤//#UC END# *4EC2A3F40141_BASE_INIT*
+			    )
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"cpp:*4EC2A3F40141_BODY*"
 			    value      	(value Text 
-|//#UC START# *4EC2A3F40141_BODY*¤	std::string form_src;¤¤	if (src == "Context.str") {¤		form_src = src;¤		m_uwc = true;¤	} else {¤		form_src = "NFContxt";¤¤		std::string::const_iterator it = std::find_if (src.begin (), src.end (), boost::is_digit ());¤¤		if (it != src.end ()) {¤			form_src.append (it, std::find_if (it, src.end (), !boost::is_digit ()));¤		}¤¤		form_src += ".str";¤	}¤¤	m_env.normalizer = Morpho::Factory::make (cache);¤	m_env.factory = new DBComm_i::StreamsManager (base, src, form_src);¤	m_env.wild_mng = new DBComm_i::WildCard_i (base, form_src, 1000, m_env.normalizer.in ());¤	//#UC END# *4EC2A3F40141_BODY*
+|//#UC START# *4EC2A3F40141_BODY*¤	std::string form_src;¤¤	if (src == "Context.str") {¤		form_src = src;¤		m_uwc = true;¤	} else {¤		form_src = "NFContxt";¤¤		std::string::const_iterator it = std::find_if (src.begin (), src.end (), boost::is_digit ());¤¤		if (it != src.end ()) {¤			std::string str (it, std::find_if (it, src.end (), !boost::is_digit ())); ¤			form_src += str;¤			m_uwc = (str == "7");¤		}¤¤		form_src += ".str";¤	}¤¤	m_env.normalizer = Morpho::Factory::make (cache);¤	m_env.factory = new DBComm_i::StreamsManager (base, src, form_src);¤	m_env.wild_mng = new DBComm_i::WildCard_i (base, form_src, 1000, m_env.normalizer.in ());¤	//#UC END# *4EC2A3F40141_BODY*
 			    )))
 		    quid       	"4EC2A3F40141"
 		    stereotype 	"ctor"
@@ -726,9 +728,9 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"NESTED GENERATED WikiPageID (wiki)"
-		    value      	
+		    value      	(value Text 
 |Nemesis-Core,key:NMSCore,guid:4E9EB1330139/Home/Ìîäåëü ïðîåêòà "garantCore"/SearchAdapterLib/Adapter_i/Searcher_i/Documents_i|4ED3A60A02FB::4ED3A60A02FB;Nemesis-Core,key:NMSCore,guid:4E9EB1330139/Home/Ìîäåëü ïðîåêòà "garantCore"/SearchAdapterLib/Adapter_i/Searcher_i/Fragments_i|4ED3A7AB000A::4ED3A7AB000A;Nemesis-Core,key:NMSCore,guid:4E9EB1330139/Home/Ìîäåëü ïðîåêòà "garantCore"/SearchAdapterLib/Adapter_i/Searcher_i/Positions_i|4ED3A7CB0110::4ED3A7CB0110
-		    )
+		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"cpp:*4ECE68240089_CUSTOM_INCLUDES*"
@@ -736,9 +738,9 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"cpp:*4ECE68240089*"
-		    value      	
+		    value      	(value Text 
 |//#UC START# *4ECE68240089*¤template <typename Type, typename Data>¤class Impl : virtual public Type, virtual public Core::RefCountObjectBase {¤	SET_OBJECT_COUNTER (Impl)¤public:¤	explicit Impl (Data* d) : m_data (d) { }¤¤protected:¤	const Data& data () const { return *m_data; }¤¤private:¤	Core::Aptr <Data> m_data;¤};¤//#UC END# *4ECE68240089*
-		    )
+		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"h:*4ECE68240089_CUSTOM_INCLUDES*"
@@ -1628,7 +1630,7 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@12
-			location   	(1850, 608)
+			location   	(1850, 609)
 			nlines     	1
 			max_width  	572
 			justify    	0
@@ -1709,7 +1711,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@14
-			location   	(1246, 607)
+			location   	(1246, 608)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	286

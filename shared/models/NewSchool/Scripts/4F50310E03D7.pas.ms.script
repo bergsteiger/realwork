@@ -10,21 +10,6 @@ FORWARD ME_4F5037E30231
 
 FORWARD ME_52EB991C028F
 
-: ME_EE8F249909F2
- CONST UID 'EE8F249909F2'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwCompiledArray' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52EB991C028F // TkwCompiledArray
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_EE8F249909F2 Ini_Reg_Class
-
 : ME_52EB996C00FE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -46,8 +31,6 @@ ref; // ME_52EB996C00FE
 ref; // ME_52EB9E7A02EC 
 
 : ME_4DAEEDE10285_ME_52EB991C028F
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_52EB991C028F // TkwCompiledArray
@@ -56,8 +39,6 @@ ref; // ME_52EB9E7A02EC
 ref; // ME_4DAEEDE10285_ME_52EB991C028F DoDoIt
 
 : ME_52CFC11603C8_ME_52EB991C028F
- CONST UID '52CFC11603C8'
- CONST Name 'ResultTypeInfo'
  : Original WL 'ME_52CFC11603C8' '4DAF19F600C5.pas.ms.script' // ResultTypeInfo
  ;
  : Implementor ME_52EB991C028F // TkwCompiledArray
@@ -67,8 +48,6 @@ ref; // ME_4DAEEDE10285_ME_52EB991C028F DoDoIt
 ref; // ME_52CFC11603C8_ME_52EB991C028F ResultTypeInfo
 
 : ME_551544E2001A_ME_52EB991C028F
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_52EB991C028F // TkwCompiledArray
@@ -90,10 +69,6 @@ ref; // ME_551544E2001A_ME_52EB991C028F GetResultTypeInfo
    Seq: ( WL 'ME_52DFF03B0030' '54F079B5035C.pas.ms.script' // TkwBeginLikeCompiledCode
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_EE8F249909F2 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DAEEDE10285_ME_52EB991C028F // DoDoIt
  ME_52CFC11603C8_ME_52EB991C028F // ResultTypeInfo
@@ -116,20 +91,6 @@ ref; // ME_52EB991C028F TkwCompiledArray
 
 FORWARD ME_4F5037FA03C6
 
-: ME_8A4F6C4F45CD
- CONST UID '8A4F6C4F45CD'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация CloseArray' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F5037FA03C6 // CloseArray
- ;
-
-ref; // ME_8A4F6C4F45CD Ini_Reg
-
 : ME_52EB8FE403DE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -139,16 +100,6 @@ ref; // ME_8A4F6C4F45CD Ini_Reg
  ;
 
 ref; // ME_52EB8FE403DE 
-
-: ME_4DB0614603C8_ME_4F5037FA03C6
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_4F5037FA03C6 // CloseArray
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4F5037FA03C6 GetWordNameForRegister
 
 : ME_4F5037FA03C6
  CONST UID '4F5037FA03C6'
@@ -164,14 +115,6 @@ ref; // ME_4DB0614603C8_ME_4F5037FA03C6 GetWordNameForRegister
    Seq: ( WL 'ME_52D6AC0F0186' '54F079B5035C.pas.ms.script' // CloseBracket
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_8A4F6C4F45CD // Ini_Reg
- )
- ; // Operations
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_4F5037FA03C6 // GetWordNameForRegister
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_52EB8FE403DE // 
  )
@@ -186,20 +129,6 @@ ref; // ME_4DB0614603C8_ME_4F5037FA03C6 GetWordNameForRegister
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F5037FA03C6 CloseArray
-
-: ME_15ACCB4AA1FE
- CONST UID '15ACCB4AA1FE'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация OpenArray' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F5037E30231 // OpenArray
- ;
-
-ref; // ME_15ACCB4AA1FE Ini_Reg
 
 : ME_52EB994F0116
  CONST Class class_Dependency
@@ -232,8 +161,6 @@ ref; // ME_52EB99A4010D
 ref; // ME_55114E3C00E6 
 
 : ME_4DB6C99F026E_ME_4F5037E30231
- CONST UID '4DB6C99F026E'
- CONST Name 'EndBracket'
  : Original WL 'ME_4DB6C99F026E' '54F079B5035C.pas.ms.script' // EndBracket
  ;
  : Implementor ME_4F5037E30231 // OpenArray
@@ -241,19 +168,7 @@ ref; // ME_55114E3C00E6
  CONST OpKind opkind_Implemented
 ref; // ME_4DB6C99F026E_ME_4F5037E30231 EndBracket
 
-: ME_4DB0614603C8_ME_4F5037E30231
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_4F5037E30231 // OpenArray
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4F5037E30231 GetWordNameForRegister
-
 : ME_4DBAEE0D028D_ME_4F5037E30231
- CONST UID '4DBAEE0D028D'
- CONST Name 'CompiledWordClass'
  : Original WL 'ME_4DBAEE0D028D' '54F079B5035C.pas.ms.script' // CompiledWordClass
  ;
  : Implementor ME_4F5037E30231 // OpenArray
@@ -275,17 +190,12 @@ ref; // ME_4DBAEE0D028D_ME_4F5037E30231 CompiledWordClass
    Seq: ( WL 'ME_4DBAEF29031F' '54F079B5035C.pas.ms.script' // TtfwBeginLikeWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_15ACCB4AA1FE // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DB6C99F026E_ME_4F5037E30231 // EndBracket
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_4F5037E30231 // GetWordNameForRegister
- ME_4DBAEE0D028D_ME_4F5037E30231 // CompiledWordClass
+   Seq: ( ME_4DBAEE0D028D_ME_4F5037E30231 // CompiledWordClass
  )
  ; // Overridden
  : Children
@@ -327,8 +237,6 @@ FORWARD ME_DB8D8DCA5554
 ref; // ME_0725B7AA0CBF RegAxiom
 
 : ME_55B7A3AF0359_ME_DB8D8DCA5554
- CONST UID '55B7A3AF0359'
- CONST Name 'ResName'
  : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
  ;
  : Implementor ME_DB8D8DCA5554 // TArrayProcessingPackResNameGetter
@@ -417,20 +325,6 @@ ref; // ME_6546C301B9B2 aArray
 
 ref; // ME_428D1CC30289 Clear
 
-: ME_F9D611D8EE24
- CONST UID 'F9D611D8EE24'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Array_Clear' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_878FE88B604D // Array_Clear
- ;
-
-ref; // ME_F9D611D8EE24 Ini_Reg
-
 : ME_0E504A162F2D
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -454,8 +348,6 @@ ref; // ME_0E504A162F2D
 ref; // ME_91F5361FC792 
 
 : ME_4DAEEDE10285_ME_878FE88B604D
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_878FE88B604D // Array_Clear
@@ -463,19 +355,7 @@ ref; // ME_91F5361FC792
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_878FE88B604D DoDoIt
 
-: ME_4DB0614603C8_ME_878FE88B604D
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_878FE88B604D // Array_Clear
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_878FE88B604D GetWordNameForRegister
-
 : ME_551544E2001A_ME_878FE88B604D
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_878FE88B604D // Array_Clear
@@ -484,8 +364,6 @@ ref; // ME_4DB0614603C8_ME_878FE88B604D GetWordNameForRegister
 ref; // ME_551544E2001A_ME_878FE88B604D GetResultTypeInfo
 
 : ME_559687E6025A_ME_878FE88B604D
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_878FE88B604D // Array_Clear
@@ -494,8 +372,6 @@ ref; // ME_551544E2001A_ME_878FE88B604D GetResultTypeInfo
 ref; // ME_559687E6025A_ME_878FE88B604D GetAllParamsCount
 
 : ME_5617F4D00243_ME_878FE88B604D
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_878FE88B604D // Array_Clear
@@ -521,7 +397,6 @@ ref; // ME_5617F4D00243_ME_878FE88B604D ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_428D1CC30289 // Clear
- ME_F9D611D8EE24 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -529,8 +404,7 @@ ref; // ME_5617F4D00243_ME_878FE88B604D ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_878FE88B604D // GetWordNameForRegister
- ME_551544E2001A_ME_878FE88B604D // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_878FE88B604D // GetResultTypeInfo
  ME_559687E6025A_ME_878FE88B604D // GetAllParamsCount
  ME_5617F4D00243_ME_878FE88B604D // ParamsTypes
  )
@@ -666,20 +540,6 @@ ref; // ME_B57897A30706 aValue
 
 ref; // ME_2550EECFAAC1 DoSetValue
 
-: ME_8EAD9A1D078E
- CONST UID '8EAD9A1D078E'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Array_Item' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_E14E90E5EF2D // Array_Item
- ;
-
-ref; // ME_8EAD9A1D078E Ini_Reg
-
 : ME_5641B659C0F3
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -703,8 +563,6 @@ ref; // ME_5641B659C0F3
 ref; // ME_6E269FB4C9E6 
 
 : ME_4DAEEDE10285_ME_E14E90E5EF2D
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_E14E90E5EF2D // Array_Item
@@ -712,19 +570,7 @@ ref; // ME_6E269FB4C9E6
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_E14E90E5EF2D DoDoIt
 
-: ME_4DB0614603C8_ME_E14E90E5EF2D
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_E14E90E5EF2D // Array_Item
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_E14E90E5EF2D GetWordNameForRegister
-
 : ME_52D00B00031A_ME_E14E90E5EF2D
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_E14E90E5EF2D // Array_Item
@@ -733,8 +579,6 @@ ref; // ME_4DB0614603C8_ME_E14E90E5EF2D GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_E14E90E5EF2D SetValuePrim
 
 : ME_551544E2001A_ME_E14E90E5EF2D
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_E14E90E5EF2D // Array_Item
@@ -743,8 +587,6 @@ ref; // ME_52D00B00031A_ME_E14E90E5EF2D SetValuePrim
 ref; // ME_551544E2001A_ME_E14E90E5EF2D GetResultTypeInfo
 
 : ME_559687E6025A_ME_E14E90E5EF2D
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_E14E90E5EF2D // Array_Item
@@ -753,8 +595,6 @@ ref; // ME_551544E2001A_ME_E14E90E5EF2D GetResultTypeInfo
 ref; // ME_559687E6025A_ME_E14E90E5EF2D GetAllParamsCount
 
 : ME_5617C8A30023_ME_E14E90E5EF2D
- CONST UID '5617C8A30023'
- CONST Name 'BindParams'
  : Original WL 'ME_5617C8A30023' '55CCADD2013D.pas.ms.script' // BindParams
  ;
  : Implementor ME_E14E90E5EF2D // Array_Item
@@ -763,8 +603,6 @@ ref; // ME_559687E6025A_ME_E14E90E5EF2D GetAllParamsCount
 ref; // ME_5617C8A30023_ME_E14E90E5EF2D BindParams
 
 : ME_5617F4D00243_ME_E14E90E5EF2D
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_E14E90E5EF2D // Array_Item
@@ -791,7 +629,6 @@ ref; // ME_5617F4D00243_ME_E14E90E5EF2D ParamsTypes
  : Operations
    Seq: ( ME_66E011EC054E // Item
  ME_2550EECFAAC1 // DoSetValue
- ME_8EAD9A1D078E // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -799,8 +636,7 @@ ref; // ME_5617F4D00243_ME_E14E90E5EF2D ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_E14E90E5EF2D // GetWordNameForRegister
- ME_52D00B00031A_ME_E14E90E5EF2D // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_E14E90E5EF2D // SetValuePrim
  ME_551544E2001A_ME_E14E90E5EF2D // GetResultTypeInfo
  ME_559687E6025A_ME_E14E90E5EF2D // GetAllParamsCount
  ME_5617C8A30023_ME_E14E90E5EF2D // BindParams
@@ -877,20 +713,6 @@ ref; // ME_9F9B5E9AD1CE aArray
 
 ref; // ME_155569C67894 Reverted
 
-: ME_4C67301ED149
- CONST UID '4C67301ED149'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Array_Reverted' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_68189B4B7D71 // Array_Reverted
- ;
-
-ref; // ME_4C67301ED149 Ini_Reg
-
 : ME_CCFDFE779613
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -914,8 +736,6 @@ ref; // ME_CCFDFE779613
 ref; // ME_425D4EAD4AB6 
 
 : ME_4DAEEDE10285_ME_68189B4B7D71
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_68189B4B7D71 // Array_Reverted
@@ -923,19 +743,7 @@ ref; // ME_425D4EAD4AB6
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_68189B4B7D71 DoDoIt
 
-: ME_4DB0614603C8_ME_68189B4B7D71
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_68189B4B7D71 // Array_Reverted
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_68189B4B7D71 GetWordNameForRegister
-
 : ME_551544E2001A_ME_68189B4B7D71
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_68189B4B7D71 // Array_Reverted
@@ -944,8 +752,6 @@ ref; // ME_4DB0614603C8_ME_68189B4B7D71 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_68189B4B7D71 GetResultTypeInfo
 
 : ME_559687E6025A_ME_68189B4B7D71
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_68189B4B7D71 // Array_Reverted
@@ -954,8 +760,6 @@ ref; // ME_551544E2001A_ME_68189B4B7D71 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_68189B4B7D71 GetAllParamsCount
 
 : ME_5617F4D00243_ME_68189B4B7D71
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_68189B4B7D71 // Array_Reverted
@@ -981,7 +785,6 @@ ref; // ME_5617F4D00243_ME_68189B4B7D71 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_155569C67894 // Reverted
- ME_4C67301ED149 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -989,8 +792,7 @@ ref; // ME_5617F4D00243_ME_68189B4B7D71 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_68189B4B7D71 // GetWordNameForRegister
- ME_551544E2001A_ME_68189B4B7D71 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_68189B4B7D71 // GetResultTypeInfo
  ME_559687E6025A_ME_68189B4B7D71 // GetAllParamsCount
  ME_5617F4D00243_ME_68189B4B7D71 // ParamsTypes
  )
@@ -1076,20 +878,6 @@ ref; // ME_A561AECA3ADB aLambda
 
 ref; // ME_781431CE844D Filter
 
-: ME_164F3CD17773
- CONST UID '164F3CD17773'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Array_Filter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_BE2AD2FE44CF // Array_Filter
- ;
-
-ref; // ME_164F3CD17773 Ini_Reg
-
 : ME_57B476B0CA13
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1113,8 +901,6 @@ ref; // ME_57B476B0CA13
 ref; // ME_DD3283D984CE 
 
 : ME_4DAEEDE10285_ME_BE2AD2FE44CF
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_BE2AD2FE44CF // Array_Filter
@@ -1122,19 +908,7 @@ ref; // ME_DD3283D984CE
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_BE2AD2FE44CF DoDoIt
 
-: ME_4DB0614603C8_ME_BE2AD2FE44CF
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_BE2AD2FE44CF // Array_Filter
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_BE2AD2FE44CF GetWordNameForRegister
-
 : ME_551544E2001A_ME_BE2AD2FE44CF
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_BE2AD2FE44CF // Array_Filter
@@ -1143,8 +917,6 @@ ref; // ME_4DB0614603C8_ME_BE2AD2FE44CF GetWordNameForRegister
 ref; // ME_551544E2001A_ME_BE2AD2FE44CF GetResultTypeInfo
 
 : ME_559687E6025A_ME_BE2AD2FE44CF
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_BE2AD2FE44CF // Array_Filter
@@ -1153,8 +925,6 @@ ref; // ME_551544E2001A_ME_BE2AD2FE44CF GetResultTypeInfo
 ref; // ME_559687E6025A_ME_BE2AD2FE44CF GetAllParamsCount
 
 : ME_5617F4D00243_ME_BE2AD2FE44CF
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_BE2AD2FE44CF // Array_Filter
@@ -1180,7 +950,6 @@ ref; // ME_5617F4D00243_ME_BE2AD2FE44CF ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_781431CE844D // Filter
- ME_164F3CD17773 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -1188,8 +957,7 @@ ref; // ME_5617F4D00243_ME_BE2AD2FE44CF ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_BE2AD2FE44CF // GetWordNameForRegister
- ME_551544E2001A_ME_BE2AD2FE44CF // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_BE2AD2FE44CF // GetResultTypeInfo
  ME_559687E6025A_ME_BE2AD2FE44CF // GetAllParamsCount
  ME_5617F4D00243_ME_BE2AD2FE44CF // ParamsTypes
  )
@@ -1275,20 +1043,6 @@ ref; // ME_DD1DB5AAA851 aLambda
 
 ref; // ME_7FA64661B5E5 Map
 
-: ME_EEC688F1BC68
- CONST UID 'EEC688F1BC68'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Array_Map' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D82A8E4E72B // Array_Map
- ;
-
-ref; // ME_EEC688F1BC68 Ini_Reg
-
 : ME_9E57B9E8914C
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1312,8 +1066,6 @@ ref; // ME_9E57B9E8914C
 ref; // ME_7DC0D7FDA27A 
 
 : ME_4DAEEDE10285_ME_4D82A8E4E72B
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4D82A8E4E72B // Array_Map
@@ -1321,19 +1073,7 @@ ref; // ME_7DC0D7FDA27A
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4D82A8E4E72B DoDoIt
 
-: ME_4DB0614603C8_ME_4D82A8E4E72B
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_4D82A8E4E72B // Array_Map
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4D82A8E4E72B GetWordNameForRegister
-
 : ME_551544E2001A_ME_4D82A8E4E72B
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_4D82A8E4E72B // Array_Map
@@ -1342,8 +1082,6 @@ ref; // ME_4DB0614603C8_ME_4D82A8E4E72B GetWordNameForRegister
 ref; // ME_551544E2001A_ME_4D82A8E4E72B GetResultTypeInfo
 
 : ME_559687E6025A_ME_4D82A8E4E72B
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_4D82A8E4E72B // Array_Map
@@ -1352,8 +1090,6 @@ ref; // ME_551544E2001A_ME_4D82A8E4E72B GetResultTypeInfo
 ref; // ME_559687E6025A_ME_4D82A8E4E72B GetAllParamsCount
 
 : ME_5617F4D00243_ME_4D82A8E4E72B
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_4D82A8E4E72B // Array_Map
@@ -1379,7 +1115,6 @@ ref; // ME_5617F4D00243_ME_4D82A8E4E72B ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_7FA64661B5E5 // Map
- ME_EEC688F1BC68 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -1387,8 +1122,7 @@ ref; // ME_5617F4D00243_ME_4D82A8E4E72B ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_4D82A8E4E72B // GetWordNameForRegister
- ME_551544E2001A_ME_4D82A8E4E72B // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_4D82A8E4E72B // GetResultTypeInfo
  ME_559687E6025A_ME_4D82A8E4E72B // GetAllParamsCount
  ME_5617F4D00243_ME_4D82A8E4E72B // ParamsTypes
  )
@@ -1472,20 +1206,6 @@ ref; // ME_E795974E33B6 aLambda
 
 ref; // ME_78836988FFF5 Iterate
 
-: ME_42BA8E11C31B
- CONST UID '42BA8E11C31B'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Array_Iterate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_67F9FD4545C9 // Array_Iterate
- ;
-
-ref; // ME_42BA8E11C31B Ini_Reg
-
 : ME_09B141698594
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1509,8 +1229,6 @@ ref; // ME_09B141698594
 ref; // ME_369D60E4F7E8 
 
 : ME_4DAEEDE10285_ME_67F9FD4545C9
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_67F9FD4545C9 // Array_Iterate
@@ -1518,19 +1236,7 @@ ref; // ME_369D60E4F7E8
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_67F9FD4545C9 DoDoIt
 
-: ME_4DB0614603C8_ME_67F9FD4545C9
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_67F9FD4545C9 // Array_Iterate
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_67F9FD4545C9 GetWordNameForRegister
-
 : ME_551544E2001A_ME_67F9FD4545C9
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_67F9FD4545C9 // Array_Iterate
@@ -1539,8 +1245,6 @@ ref; // ME_4DB0614603C8_ME_67F9FD4545C9 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_67F9FD4545C9 GetResultTypeInfo
 
 : ME_559687E6025A_ME_67F9FD4545C9
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_67F9FD4545C9 // Array_Iterate
@@ -1549,8 +1253,6 @@ ref; // ME_551544E2001A_ME_67F9FD4545C9 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_67F9FD4545C9 GetAllParamsCount
 
 : ME_5617F4D00243_ME_67F9FD4545C9
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_67F9FD4545C9 // Array_Iterate
@@ -1576,7 +1278,6 @@ ref; // ME_5617F4D00243_ME_67F9FD4545C9 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_78836988FFF5 // Iterate
- ME_42BA8E11C31B // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -1584,8 +1285,7 @@ ref; // ME_5617F4D00243_ME_67F9FD4545C9 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_67F9FD4545C9 // GetWordNameForRegister
- ME_551544E2001A_ME_67F9FD4545C9 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_67F9FD4545C9 // GetResultTypeInfo
  ME_559687E6025A_ME_67F9FD4545C9 // GetAllParamsCount
  ME_5617F4D00243_ME_67F9FD4545C9 // ParamsTypes
  )
@@ -1669,20 +1369,6 @@ ref; // ME_277574C28F8C aValue
 
 ref; // ME_4A28BF387B4A Add
 
-: ME_43D1F628B768
- CONST UID '43D1F628B768'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Array_Add' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A57E4097FCC5 // Array_Add
- ;
-
-ref; // ME_43D1F628B768 Ini_Reg
-
 : ME_AAA85F9D1C60
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1706,8 +1392,6 @@ ref; // ME_AAA85F9D1C60
 ref; // ME_5EAA49B20E6C 
 
 : ME_4DAEEDE10285_ME_A57E4097FCC5
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_A57E4097FCC5 // Array_Add
@@ -1715,19 +1399,7 @@ ref; // ME_5EAA49B20E6C
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_A57E4097FCC5 DoDoIt
 
-: ME_4DB0614603C8_ME_A57E4097FCC5
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_A57E4097FCC5 // Array_Add
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_A57E4097FCC5 GetWordNameForRegister
-
 : ME_551544E2001A_ME_A57E4097FCC5
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_A57E4097FCC5 // Array_Add
@@ -1736,8 +1408,6 @@ ref; // ME_4DB0614603C8_ME_A57E4097FCC5 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_A57E4097FCC5 GetResultTypeInfo
 
 : ME_559687E6025A_ME_A57E4097FCC5
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_A57E4097FCC5 // Array_Add
@@ -1746,8 +1416,6 @@ ref; // ME_551544E2001A_ME_A57E4097FCC5 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_A57E4097FCC5 GetAllParamsCount
 
 : ME_5617F4D00243_ME_A57E4097FCC5
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_A57E4097FCC5 // Array_Add
@@ -1773,7 +1441,6 @@ ref; // ME_5617F4D00243_ME_A57E4097FCC5 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_4A28BF387B4A // Add
- ME_43D1F628B768 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -1781,8 +1448,7 @@ ref; // ME_5617F4D00243_ME_A57E4097FCC5 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_A57E4097FCC5 // GetWordNameForRegister
- ME_551544E2001A_ME_A57E4097FCC5 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_A57E4097FCC5 // GetResultTypeInfo
  ME_559687E6025A_ME_A57E4097FCC5 // GetAllParamsCount
  ME_5617F4D00243_ME_A57E4097FCC5 // ParamsTypes
  )
@@ -1857,20 +1523,6 @@ ref; // ME_425D9907C910 aLambda
 
 ref; // ME_D84558AB12E8 FunctorToIterator
 
-: ME_274672CB6B05
- CONST UID '274672CB6B05'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Array_FunctorToIterator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_AC4DA64FB94F // Array_FunctorToIterator
- ;
-
-ref; // ME_274672CB6B05 Ini_Reg
-
 : ME_176ACCF7B251
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1894,8 +1546,6 @@ ref; // ME_176ACCF7B251
 ref; // ME_E44A252788A5 
 
 : ME_4DAEEDE10285_ME_AC4DA64FB94F
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_AC4DA64FB94F // Array_FunctorToIterator
@@ -1903,19 +1553,7 @@ ref; // ME_E44A252788A5
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_AC4DA64FB94F DoDoIt
 
-: ME_4DB0614603C8_ME_AC4DA64FB94F
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_AC4DA64FB94F // Array_FunctorToIterator
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_AC4DA64FB94F GetWordNameForRegister
-
 : ME_551544E2001A_ME_AC4DA64FB94F
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_AC4DA64FB94F // Array_FunctorToIterator
@@ -1924,8 +1562,6 @@ ref; // ME_4DB0614603C8_ME_AC4DA64FB94F GetWordNameForRegister
 ref; // ME_551544E2001A_ME_AC4DA64FB94F GetResultTypeInfo
 
 : ME_559687E6025A_ME_AC4DA64FB94F
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_AC4DA64FB94F // Array_FunctorToIterator
@@ -1934,8 +1570,6 @@ ref; // ME_551544E2001A_ME_AC4DA64FB94F GetResultTypeInfo
 ref; // ME_559687E6025A_ME_AC4DA64FB94F GetAllParamsCount
 
 : ME_5617F4D00243_ME_AC4DA64FB94F
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_AC4DA64FB94F // Array_FunctorToIterator
@@ -1961,7 +1595,6 @@ ref; // ME_5617F4D00243_ME_AC4DA64FB94F ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_D84558AB12E8 // FunctorToIterator
- ME_274672CB6B05 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -1969,8 +1602,7 @@ ref; // ME_5617F4D00243_ME_AC4DA64FB94F ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_AC4DA64FB94F // GetWordNameForRegister
- ME_551544E2001A_ME_AC4DA64FB94F // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_AC4DA64FB94F // GetResultTypeInfo
  ME_559687E6025A_ME_AC4DA64FB94F // GetAllParamsCount
  ME_5617F4D00243_ME_AC4DA64FB94F // ParamsTypes
  )
@@ -2056,20 +1688,6 @@ ref; // ME_58C674E7BDFD anOther
 
 ref; // ME_AE1CCBE76617 Join
 
-: ME_046419FFD865
- CONST UID '046419FFD865'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Array_Join' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F83E51FB5EAA // Array_Join
- ;
-
-ref; // ME_046419FFD865 Ini_Reg
-
 : ME_D0000B7679FE
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -2093,8 +1711,6 @@ ref; // ME_D0000B7679FE
 ref; // ME_B0E2750B046E 
 
 : ME_4DAEEDE10285_ME_F83E51FB5EAA
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_F83E51FB5EAA // Array_Join
@@ -2102,19 +1718,7 @@ ref; // ME_B0E2750B046E
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F83E51FB5EAA DoDoIt
 
-: ME_4DB0614603C8_ME_F83E51FB5EAA
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_F83E51FB5EAA // Array_Join
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_F83E51FB5EAA GetWordNameForRegister
-
 : ME_551544E2001A_ME_F83E51FB5EAA
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_F83E51FB5EAA // Array_Join
@@ -2123,8 +1727,6 @@ ref; // ME_4DB0614603C8_ME_F83E51FB5EAA GetWordNameForRegister
 ref; // ME_551544E2001A_ME_F83E51FB5EAA GetResultTypeInfo
 
 : ME_559687E6025A_ME_F83E51FB5EAA
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_F83E51FB5EAA // Array_Join
@@ -2133,8 +1735,6 @@ ref; // ME_551544E2001A_ME_F83E51FB5EAA GetResultTypeInfo
 ref; // ME_559687E6025A_ME_F83E51FB5EAA GetAllParamsCount
 
 : ME_5617F4D00243_ME_F83E51FB5EAA
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_F83E51FB5EAA // Array_Join
@@ -2160,7 +1760,6 @@ ref; // ME_5617F4D00243_ME_F83E51FB5EAA ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_AE1CCBE76617 // Join
- ME_046419FFD865 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -2168,8 +1767,7 @@ ref; // ME_5617F4D00243_ME_F83E51FB5EAA ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_F83E51FB5EAA // GetWordNameForRegister
- ME_551544E2001A_ME_F83E51FB5EAA // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_F83E51FB5EAA // GetResultTypeInfo
  ME_559687E6025A_ME_F83E51FB5EAA // GetAllParamsCount
  ME_5617F4D00243_ME_F83E51FB5EAA // ParamsTypes
  )
@@ -2255,20 +1853,6 @@ ref; // ME_557C688BC325 aLambda
 
 ref; // ME_3CA55B4BDAA5 Trunc
 
-: ME_28EAF0D17C0C
- CONST UID '28EAF0D17C0C'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Array_Trunc' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_BD92B7361A83 // Array_Trunc
- ;
-
-ref; // ME_28EAF0D17C0C Ini_Reg
-
 : ME_EB24DBBD9139
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -2292,8 +1876,6 @@ ref; // ME_EB24DBBD9139
 ref; // ME_69D95FC6A421 
 
 : ME_4DAEEDE10285_ME_BD92B7361A83
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_BD92B7361A83 // Array_Trunc
@@ -2301,19 +1883,7 @@ ref; // ME_69D95FC6A421
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_BD92B7361A83 DoDoIt
 
-: ME_4DB0614603C8_ME_BD92B7361A83
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_BD92B7361A83 // Array_Trunc
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_BD92B7361A83 GetWordNameForRegister
-
 : ME_551544E2001A_ME_BD92B7361A83
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_BD92B7361A83 // Array_Trunc
@@ -2322,8 +1892,6 @@ ref; // ME_4DB0614603C8_ME_BD92B7361A83 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_BD92B7361A83 GetResultTypeInfo
 
 : ME_559687E6025A_ME_BD92B7361A83
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_BD92B7361A83 // Array_Trunc
@@ -2332,8 +1900,6 @@ ref; // ME_551544E2001A_ME_BD92B7361A83 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_BD92B7361A83 GetAllParamsCount
 
 : ME_5617F4D00243_ME_BD92B7361A83
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_BD92B7361A83 // Array_Trunc
@@ -2359,7 +1925,6 @@ ref; // ME_5617F4D00243_ME_BD92B7361A83 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_3CA55B4BDAA5 // Trunc
- ME_28EAF0D17C0C // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -2367,8 +1932,7 @@ ref; // ME_5617F4D00243_ME_BD92B7361A83 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_BD92B7361A83 // GetWordNameForRegister
- ME_551544E2001A_ME_BD92B7361A83 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_BD92B7361A83 // GetResultTypeInfo
  ME_559687E6025A_ME_BD92B7361A83 // GetAllParamsCount
  ME_5617F4D00243_ME_BD92B7361A83 // ParamsTypes
  )
@@ -2454,20 +2018,6 @@ ref; // ME_3576BB448C44 aCount
 
 ref; // ME_A24C2DBFCDED Slice
 
-: ME_054DAAF9E71E
- CONST UID '054DAAF9E71E'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Array_Slice' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_2892AD069398 // Array_Slice
- ;
-
-ref; // ME_054DAAF9E71E Ini_Reg
-
 : ME_CAF6395DCAC3
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -2491,8 +2041,6 @@ ref; // ME_CAF6395DCAC3
 ref; // ME_3F32FBE4470E 
 
 : ME_4DAEEDE10285_ME_2892AD069398
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_2892AD069398 // Array_Slice
@@ -2500,19 +2048,7 @@ ref; // ME_3F32FBE4470E
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_2892AD069398 DoDoIt
 
-: ME_4DB0614603C8_ME_2892AD069398
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_2892AD069398 // Array_Slice
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_2892AD069398 GetWordNameForRegister
-
 : ME_551544E2001A_ME_2892AD069398
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_2892AD069398 // Array_Slice
@@ -2521,8 +2057,6 @@ ref; // ME_4DB0614603C8_ME_2892AD069398 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_2892AD069398 GetResultTypeInfo
 
 : ME_559687E6025A_ME_2892AD069398
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_2892AD069398 // Array_Slice
@@ -2531,8 +2065,6 @@ ref; // ME_551544E2001A_ME_2892AD069398 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_2892AD069398 GetAllParamsCount
 
 : ME_5617F4D00243_ME_2892AD069398
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_2892AD069398 // Array_Slice
@@ -2558,7 +2090,6 @@ ref; // ME_5617F4D00243_ME_2892AD069398 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_A24C2DBFCDED // Slice
- ME_054DAAF9E71E // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -2566,8 +2097,7 @@ ref; // ME_5617F4D00243_ME_2892AD069398 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_2892AD069398 // GetWordNameForRegister
- ME_551544E2001A_ME_2892AD069398 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_2892AD069398 // GetResultTypeInfo
  ME_559687E6025A_ME_2892AD069398 // GetAllParamsCount
  ME_5617F4D00243_ME_2892AD069398 // ParamsTypes
  )
@@ -2642,20 +2172,6 @@ ref; // ME_6F61D18493C4 aArray
 
 ref; // ME_87ED8662D31C Count
 
-: ME_330085E77356
- CONST UID '330085E77356'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Array_Count' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F4E1D8EB306A // Array_Count
- ;
-
-ref; // ME_330085E77356 Ini_Reg
-
 : ME_626464DED683
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -2679,8 +2195,6 @@ ref; // ME_626464DED683
 ref; // ME_E4F84AE50BE7 
 
 : ME_4DAEEDE10285_ME_F4E1D8EB306A
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_F4E1D8EB306A // Array_Count
@@ -2688,19 +2202,7 @@ ref; // ME_E4F84AE50BE7
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F4E1D8EB306A DoDoIt
 
-: ME_4DB0614603C8_ME_F4E1D8EB306A
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_F4E1D8EB306A // Array_Count
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_F4E1D8EB306A GetWordNameForRegister
-
 : ME_52D00B00031A_ME_F4E1D8EB306A
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_F4E1D8EB306A // Array_Count
@@ -2709,8 +2211,6 @@ ref; // ME_4DB0614603C8_ME_F4E1D8EB306A GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_F4E1D8EB306A SetValuePrim
 
 : ME_551544E2001A_ME_F4E1D8EB306A
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_F4E1D8EB306A // Array_Count
@@ -2719,8 +2219,6 @@ ref; // ME_52D00B00031A_ME_F4E1D8EB306A SetValuePrim
 ref; // ME_551544E2001A_ME_F4E1D8EB306A GetResultTypeInfo
 
 : ME_559687E6025A_ME_F4E1D8EB306A
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_F4E1D8EB306A // Array_Count
@@ -2729,8 +2227,6 @@ ref; // ME_551544E2001A_ME_F4E1D8EB306A GetResultTypeInfo
 ref; // ME_559687E6025A_ME_F4E1D8EB306A GetAllParamsCount
 
 : ME_5617F4D00243_ME_F4E1D8EB306A
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_F4E1D8EB306A // Array_Count
@@ -2756,7 +2252,6 @@ ref; // ME_5617F4D00243_ME_F4E1D8EB306A ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_87ED8662D31C // Count
- ME_330085E77356 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -2764,8 +2259,7 @@ ref; // ME_5617F4D00243_ME_F4E1D8EB306A ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_F4E1D8EB306A // GetWordNameForRegister
- ME_52D00B00031A_ME_F4E1D8EB306A // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_F4E1D8EB306A // SetValuePrim
  ME_551544E2001A_ME_F4E1D8EB306A // GetResultTypeInfo
  ME_559687E6025A_ME_F4E1D8EB306A // GetAllParamsCount
  ME_5617F4D00243_ME_F4E1D8EB306A // ParamsTypes
@@ -3357,8 +2851,6 @@ ref; // ME_B50913AC16D1
 ref; // ME_AFD963B372DE 
 
 : ME_47D8233603DD_ME_4F50313101D1
- CONST UID '47D8233603DD'
- CONST Name 'First'
  : Original WL 'ME_47D8233603DD' '47D810610398.pas.ms.script' // First
  ;
  : Implementor ME_4F50313101D1 // ArrayProcessingPack
@@ -3368,8 +2860,6 @@ ref; // ME_AFD963B372DE
 ref; // ME_47D8233603DD_ME_4F50313101D1 First
 
 : ME_47D823570315_ME_4F50313101D1
- CONST UID '47D823570315'
- CONST Name 'Last'
  : Original WL 'ME_47D823570315' '47D810610398.pas.ms.script' // Last
  ;
  : Implementor ME_4F50313101D1 // ArrayProcessingPack
@@ -3379,8 +2869,6 @@ ref; // ME_47D8233603DD_ME_4F50313101D1 First
 ref; // ME_47D823570315_ME_4F50313101D1 Last
 
 : ME_47D8248802AD_ME_4F50313101D1
- CONST UID '47D8248802AD'
- CONST Name 'Items'
  : Original WL 'ME_47D8248802AD' '47D810610398.pas.ms.script' // Items
  ;
  : Implementor ME_4F50313101D1 // ArrayProcessingPack
@@ -3391,8 +2879,6 @@ ref; // ME_47D823570315_ME_4F50313101D1 Last
 ref; // ME_47D8248802AD_ME_4F50313101D1 Items
 
 : ME_47E381E203D2_ME_4F50313101D1
- CONST UID '47E381E203D2'
- CONST Name 'Empty'
  : Original WL 'ME_47E381E203D2' '47D810610398.pas.ms.script' // Empty
  ;
  : Implementor ME_4F50313101D1 // ArrayProcessingPack
@@ -3402,8 +2888,6 @@ ref; // ME_47D8248802AD_ME_4F50313101D1 Items
 ref; // ME_47E381E203D2_ME_4F50313101D1 Empty
 
 : ME_482955910076_ME_4F50313101D1
- CONST UID '482955910076'
- CONST Name 'IndexOf'
  : Original WL 'ME_482955910076' '47D810610398.pas.ms.script' // IndexOf
  ;
  : Implementor ME_4F50313101D1 // ArrayProcessingPack
@@ -3412,8 +2896,6 @@ ref; // ME_47E381E203D2_ME_4F50313101D1 Empty
 ref; // ME_482955910076_ME_4F50313101D1 IndexOf
 
 : ME_482958A203D0_ME_4F50313101D1
- CONST UID '482958A203D0'
- CONST Name 'Add'
  : Original WL 'ME_482958A203D0' '47D810610398.pas.ms.script' // Add
  ;
  : Implementor ME_4F50313101D1 // ArrayProcessingPack
@@ -3422,8 +2904,6 @@ ref; // ME_482955910076_ME_4F50313101D1 IndexOf
 ref; // ME_482958A203D0_ME_4F50313101D1 Add
 
 : ME_4BB08B8902F2_ME_4F50313101D1
- CONST UID '4BB08B8902F2'
- CONST Name 'Count'
  : Original WL 'ME_4BB08B8902F2' '47D810610398.pas.ms.script' // Count
  ;
  : Implementor ME_4F50313101D1 // ArrayProcessingPack
@@ -3433,8 +2913,6 @@ ref; // ME_482958A203D0_ME_4F50313101D1 Add
 ref; // ME_4BB08B8902F2_ME_4F50313101D1 Count
 
 : ME_4F62FF5D0327_ME_4F50313101D1
- CONST UID '4F62FF5D0327'
- CONST Name 'Clear'
  : Original WL 'ME_4F62FF5D0327' '4DAF19F600C5.pas.ms.script' // Clear
  ;
  : Implementor ME_4F50313101D1 // ArrayProcessingPack
@@ -3443,8 +2921,6 @@ ref; // ME_4BB08B8902F2_ME_4F50313101D1 Count
 ref; // ME_4F62FF5D0327_ME_4F50313101D1 Clear
 
 : ME_52E23B7A00EC_ME_4F50313101D1
- CONST UID '52E23B7A00EC'
- CONST Name 'ForEach'
  : Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.pas.ms.script' // ForEach
  ;
  : Implementor ME_4F50313101D1 // ArrayProcessingPack
@@ -3453,8 +2929,6 @@ ref; // ME_4F62FF5D0327_ME_4F50313101D1 Clear
 ref; // ME_52E23B7A00EC_ME_4F50313101D1 ForEach
 
 : ME_52E23BB102FA_ME_4F50313101D1
- CONST UID '52E23BB102FA'
- CONST Name 'ForEachBack'
  : Original WL 'ME_52E23BB102FA' '4DAF19F600C5.pas.ms.script' // ForEachBack
  ;
  : Implementor ME_4F50313101D1 // ArrayProcessingPack
@@ -3463,8 +2937,6 @@ ref; // ME_52E23B7A00EC_ME_4F50313101D1 ForEach
 ref; // ME_52E23BB102FA_ME_4F50313101D1 ForEachBack
 
 : ME_55CDF40C03D4_ME_4F50313101D1
- CONST UID '55CDF40C03D4'
- CONST Name 'SetItem'
  : Original WL 'ME_55CDF40C03D4' '4DAF19F600C5.pas.ms.script' // SetItem
  ;
  : Implementor ME_4F50313101D1 // ArrayProcessingPack
@@ -3473,8 +2945,6 @@ ref; // ME_52E23BB102FA_ME_4F50313101D1 ForEachBack
 ref; // ME_55CDF40C03D4_ME_4F50313101D1 SetItem
 
 : ME_55E849210175_ME_4F50313101D1
- CONST UID '55E849210175'
- CONST Name 'ItemsCountInSlice'
  : Original WL 'ME_55E849210175' '4DAF19F600C5.pas.ms.script' // ItemsCountInSlice
  ;
  : Implementor ME_4F50313101D1 // ArrayProcessingPack
@@ -3847,8 +3317,6 @@ ref; // ME_55E84F680257 DoIt
 ref; // ME_55E84F5F00ED GetItemsCountInSlice
 
 : ME_47D8233603DD_ME_52E270AE02EA
- CONST UID '47D8233603DD'
- CONST Name 'First'
  : Original WL 'ME_47D8233603DD' '47D810610398.pas.ms.script' // First
  ;
  : Implementor ME_52E270AE02EA // TtfwArrayView
@@ -3858,8 +3326,6 @@ ref; // ME_55E84F5F00ED GetItemsCountInSlice
 ref; // ME_47D8233603DD_ME_52E270AE02EA First
 
 : ME_47D823570315_ME_52E270AE02EA
- CONST UID '47D823570315'
- CONST Name 'Last'
  : Original WL 'ME_47D823570315' '47D810610398.pas.ms.script' // Last
  ;
  : Implementor ME_52E270AE02EA // TtfwArrayView
@@ -3869,8 +3335,6 @@ ref; // ME_47D8233603DD_ME_52E270AE02EA First
 ref; // ME_47D823570315_ME_52E270AE02EA Last
 
 : ME_47D8248802AD_ME_52E270AE02EA
- CONST UID '47D8248802AD'
- CONST Name 'Items'
  : Original WL 'ME_47D8248802AD' '47D810610398.pas.ms.script' // Items
  ;
  : Implementor ME_52E270AE02EA // TtfwArrayView
@@ -3881,8 +3345,6 @@ ref; // ME_47D823570315_ME_52E270AE02EA Last
 ref; // ME_47D8248802AD_ME_52E270AE02EA Items
 
 : ME_47E381E203D2_ME_52E270AE02EA
- CONST UID '47E381E203D2'
- CONST Name 'Empty'
  : Original WL 'ME_47E381E203D2' '47D810610398.pas.ms.script' // Empty
  ;
  : Implementor ME_52E270AE02EA // TtfwArrayView
@@ -3892,8 +3354,6 @@ ref; // ME_47D8248802AD_ME_52E270AE02EA Items
 ref; // ME_47E381E203D2_ME_52E270AE02EA Empty
 
 : ME_482955910076_ME_52E270AE02EA
- CONST UID '482955910076'
- CONST Name 'IndexOf'
  : Original WL 'ME_482955910076' '47D810610398.pas.ms.script' // IndexOf
  ;
  : Implementor ME_52E270AE02EA // TtfwArrayView
@@ -3902,8 +3362,6 @@ ref; // ME_47E381E203D2_ME_52E270AE02EA Empty
 ref; // ME_482955910076_ME_52E270AE02EA IndexOf
 
 : ME_482958A203D0_ME_52E270AE02EA
- CONST UID '482958A203D0'
- CONST Name 'Add'
  : Original WL 'ME_482958A203D0' '47D810610398.pas.ms.script' // Add
  ;
  : Implementor ME_52E270AE02EA // TtfwArrayView
@@ -3912,8 +3370,6 @@ ref; // ME_482955910076_ME_52E270AE02EA IndexOf
 ref; // ME_482958A203D0_ME_52E270AE02EA Add
 
 : ME_4BB08B8902F2_ME_52E270AE02EA
- CONST UID '4BB08B8902F2'
- CONST Name 'Count'
  : Original WL 'ME_4BB08B8902F2' '47D810610398.pas.ms.script' // Count
  ;
  : Implementor ME_52E270AE02EA // TtfwArrayView
@@ -3923,8 +3379,6 @@ ref; // ME_482958A203D0_ME_52E270AE02EA Add
 ref; // ME_4BB08B8902F2_ME_52E270AE02EA Count
 
 : ME_4F62FF5D0327_ME_52E270AE02EA
- CONST UID '4F62FF5D0327'
- CONST Name 'Clear'
  : Original WL 'ME_4F62FF5D0327' '4DAF19F600C5.pas.ms.script' // Clear
  ;
  : Implementor ME_52E270AE02EA // TtfwArrayView
@@ -3933,8 +3387,6 @@ ref; // ME_4BB08B8902F2_ME_52E270AE02EA Count
 ref; // ME_4F62FF5D0327_ME_52E270AE02EA Clear
 
 : ME_52E23B7A00EC_ME_52E270AE02EA
- CONST UID '52E23B7A00EC'
- CONST Name 'ForEach'
  : Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.pas.ms.script' // ForEach
  ;
  : Implementor ME_52E270AE02EA // TtfwArrayView
@@ -3943,8 +3395,6 @@ ref; // ME_4F62FF5D0327_ME_52E270AE02EA Clear
 ref; // ME_52E23B7A00EC_ME_52E270AE02EA ForEach
 
 : ME_52E23BB102FA_ME_52E270AE02EA
- CONST UID '52E23BB102FA'
- CONST Name 'ForEachBack'
  : Original WL 'ME_52E23BB102FA' '4DAF19F600C5.pas.ms.script' // ForEachBack
  ;
  : Implementor ME_52E270AE02EA // TtfwArrayView
@@ -3953,8 +3403,6 @@ ref; // ME_52E23B7A00EC_ME_52E270AE02EA ForEach
 ref; // ME_52E23BB102FA_ME_52E270AE02EA ForEachBack
 
 : ME_55CDF40C03D4_ME_52E270AE02EA
- CONST UID '55CDF40C03D4'
- CONST Name 'SetItem'
  : Original WL 'ME_55CDF40C03D4' '4DAF19F600C5.pas.ms.script' // SetItem
  ;
  : Implementor ME_52E270AE02EA // TtfwArrayView
@@ -3963,8 +3411,6 @@ ref; // ME_52E23BB102FA_ME_52E270AE02EA ForEachBack
 ref; // ME_55CDF40C03D4_ME_52E270AE02EA SetItem
 
 : ME_55E849210175_ME_52E270AE02EA
- CONST UID '55E849210175'
- CONST Name 'ItemsCountInSlice'
  : Original WL 'ME_55E849210175' '4DAF19F600C5.pas.ms.script' // ItemsCountInSlice
  ;
  : Implementor ME_52E270AE02EA // TtfwArrayView
@@ -3973,8 +3419,6 @@ ref; // ME_55CDF40C03D4_ME_52E270AE02EA SetItem
 ref; // ME_55E849210175_ME_52E270AE02EA ItemsCountInSlice
 
 : ME_47A6FEE600FC_ME_52E270AE02EA
- CONST UID '47A6FEE600FC'
- CONST Name 'IsCacheable'
  : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
  ;
  : Implementor ME_52E270AE02EA // TtfwArrayView
@@ -3982,16 +3426,6 @@ ref; // ME_55E849210175_ME_52E270AE02EA ItemsCountInSlice
  CONST OpKind opkind_Overridden
  CONST "ifndef" 'DesignTimeLibrary'
 ref; // ME_47A6FEE600FC_ME_52E270AE02EA IsCacheable
-
-: ME_5000565C019C_ME_52E270AE02EA
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_52E270AE02EA // TtfwArrayView
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_52E270AE02EA ClearFields
 
 : ME_52E270AE02EA
  CONST UID '52E270AE02EA'
@@ -4040,7 +3474,6 @@ ref; // ME_5000565C019C_ME_52E270AE02EA ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_47A6FEE600FC_ME_52E270AE02EA // IsCacheable
- ME_5000565C019C_ME_52E270AE02EA // ClearFields
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
@@ -4055,8 +3488,6 @@ ref; // ME_5000565C019C_ME_52E270AE02EA ClearFields
 ref; // ME_52E270AE02EA TtfwArrayView
 
 : ME_52E666E80335_ME_52E271D60114
- CONST UID '52E666E80335'
- CONST Name 'DoForEach'
  : Original ME_52E666E80335 // DoForEach
  ;
  : Implementor ME_52E271D60114 // TtfwRevertedArrayView
@@ -4065,8 +3496,6 @@ ref; // ME_52E270AE02EA TtfwArrayView
 ref; // ME_52E666E80335_ME_52E271D60114 DoForEach
 
 : ME_52E666F6036E_ME_52E271D60114
- CONST UID '52E666F6036E'
- CONST Name 'DoForEachBack'
  : Original ME_52E666F6036E // DoForEachBack
  ;
  : Implementor ME_52E271D60114 // TtfwRevertedArrayView
@@ -4138,22 +3567,6 @@ ref; // ME_52EA8AFB0166 f_Lambda
  CONST "reads field" true
 
 ref; // ME_55E8661C0305 ItemsCountInSlice
-
-: ME_279C8205E039
- CONST UID '279C8205E039'
- CONST Name 'f_ItemsCountInSlice'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ItemsCountInSlice' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_52EA8AD102B0 // TtfwTwoLambdas
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_279C8205E039 f_ItemsCountInSlice
 
 FORWARD ME_52EA8B2403DD
 
@@ -4228,21 +3641,6 @@ ref; // ME_52EA8B2A03CA DoIt
 
 ref; // ME_52EA8B2403DD Create
 
-: ME_3475B0A12529
- CONST UID '3475B0A12529'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwTwoLambdas' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52EA8AD102B0 // TtfwTwoLambdas
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_3475B0A12529 Ini_Reg_Class
-
 : ME_52EA8AF401E8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4254,8 +3652,6 @@ ref; // ME_3475B0A12529 Ini_Reg_Class
 ref; // ME_52EA8AF401E8 
 
 : ME_479731C50290_ME_52EA8AD102B0
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_52EA8AD102B0 // TtfwTwoLambdas
@@ -4264,8 +3660,6 @@ ref; // ME_52EA8AF401E8
 ref; // ME_479731C50290_ME_52EA8AD102B0 Cleanup
 
 : ME_47A6FEE600FC_ME_52EA8AD102B0
- CONST UID '47A6FEE600FC'
- CONST Name 'IsCacheable'
  : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
  ;
  : Implementor ME_52EA8AD102B0 // TtfwTwoLambdas
@@ -4291,12 +3685,10 @@ ref; // ME_47A6FEE600FC_ME_52EA8AD102B0 IsCacheable
  : Attributes
    Seq: ( ME_52EA8AFB0166 // f_Lambda
  ME_55E8661C0305 // ItemsCountInSlice
- ME_279C8205E039 // f_ItemsCountInSlice
  )
  ; // Attributes
  : Operations
    Seq: ( ME_52EA8B2403DD // Create
- ME_3475B0A12529 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -4517,8 +3909,6 @@ ref; // ME_52EA8EE702FA TwoLabdasClass
 ref; // ME_52E66CC20315 
 
 : ME_479731C50290_ME_52E666BC0270
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_52E666BC0270 // TtfwLambdedArrayView
@@ -4527,8 +3917,6 @@ ref; // ME_52E66CC20315
 ref; // ME_479731C50290_ME_52E666BC0270 Cleanup
 
 : ME_52E666E80335_ME_52E666BC0270
- CONST UID '52E666E80335'
- CONST Name 'DoForEach'
  : Original ME_52E666E80335 // DoForEach
  ;
  : Implementor ME_52E666BC0270 // TtfwLambdedArrayView
@@ -4537,8 +3925,6 @@ ref; // ME_479731C50290_ME_52E666BC0270 Cleanup
 ref; // ME_52E666E80335_ME_52E666BC0270 DoForEach
 
 : ME_52E666F6036E_ME_52E666BC0270
- CONST UID '52E666F6036E'
- CONST Name 'DoForEachBack'
  : Original ME_52E666F6036E // DoForEachBack
  ;
  : Implementor ME_52E666BC0270 // TtfwLambdedArrayView
@@ -4598,24 +3984,7 @@ ref; // ME_52E666BC0270 TtfwLambdedArrayView
 
 FORWARD ME_52EA87EA0325
 
-: ME_9C66D4F8F409
- CONST UID '9C66D4F8F409'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwMapLambda' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52EA87EA0325 // TtfwMapLambda
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_9C66D4F8F409 Ini_Reg_Class
-
 : ME_4DAEEDE10285_ME_52EA87EA0325
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_52EA87EA0325 // TtfwMapLambda
@@ -4637,10 +4006,6 @@ ref; // ME_4DAEEDE10285_ME_52EA87EA0325 DoDoIt
    Seq: ( ME_52EA8AD102B0 // TtfwTwoLambdas
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9C66D4F8F409 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_52EA87EA0325 // DoDoIt
  )
@@ -4655,8 +4020,6 @@ ref; // ME_4DAEEDE10285_ME_52EA87EA0325 DoDoIt
 ref; // ME_52EA87EA0325 TtfwMapLambda
 
 : ME_52EA8EE702FA_ME_52E6733C0163
- CONST UID '52EA8EE702FA'
- CONST Name 'TwoLabdasClass'
  : Original ME_52EA8EE702FA // TwoLabdasClass
  ;
  : Implementor ME_52E6733C0163 // TtfwMappedArrayView
@@ -4699,24 +4062,7 @@ ref; // ME_52E6733C0163 TtfwMappedArrayView
 
 FORWARD ME_52EA87C200D8
 
-: ME_CB43E4DD6D05
- CONST UID 'CB43E4DD6D05'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwFilterLambda' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52EA87C200D8 // TtfwFilterLambda
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CB43E4DD6D05 Ini_Reg_Class
-
 : ME_4DAEEDE10285_ME_52EA87C200D8
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_52EA87C200D8 // TtfwFilterLambda
@@ -4738,10 +4084,6 @@ ref; // ME_4DAEEDE10285_ME_52EA87C200D8 DoDoIt
    Seq: ( ME_52EA8AD102B0 // TtfwTwoLambdas
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_CB43E4DD6D05 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_52EA87C200D8 // DoDoIt
  )
@@ -4756,8 +4098,6 @@ ref; // ME_4DAEEDE10285_ME_52EA87C200D8 DoDoIt
 ref; // ME_52EA87C200D8 TtfwFilterLambda
 
 : ME_52EA8EE702FA_ME_52E6752A0047
- CONST UID '52EA8EE702FA'
- CONST Name 'TwoLabdasClass'
  : Original ME_52EA8EE702FA // TwoLabdasClass
  ;
  : Implementor ME_52E6752A0047 // TtfwFilteredArrayView
@@ -4857,21 +4197,6 @@ ref; // ME_52EB8CE102A9 DoIt
 
 ref; // ME_52EB8CDA0033 Create
 
-: ME_CC1140B9F475
- CONST UID 'CC1140B9F475'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwArrayCollector' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52EB8C930076 // TtfwArrayCollector
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CC1140B9F475 Ini_Reg_Class
-
 : ME_52EB8D1F0204
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4883,8 +4208,6 @@ ref; // ME_CC1140B9F475 Ini_Reg_Class
 ref; // ME_52EB8D1F0204 
 
 : ME_4DAEEDE10285_ME_52EB8C930076
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_52EB8C930076 // TtfwArrayCollector
@@ -4893,8 +4216,6 @@ ref; // ME_52EB8D1F0204
 ref; // ME_4DAEEDE10285_ME_52EB8C930076 DoDoIt
 
 : ME_479731C50290_ME_52EB8C930076
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_52EB8C930076 // TtfwArrayCollector
@@ -4922,7 +4243,6 @@ ref; // ME_479731C50290_ME_52EB8C930076 Cleanup
  ; // Attributes
  : Operations
    Seq: ( ME_52EB8CDA0033 // Create
- ME_CC1140B9F475 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -5084,8 +4404,6 @@ ref; // ME_52EB870001DE
 ref; // ME_52EB8C6701FC 
 
 : ME_52E23B7A00EC_ME_52EB863801C3
- CONST UID '52E23B7A00EC'
- CONST Name 'ForEach'
  : Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.pas.ms.script' // ForEach
  ;
  : Implementor ME_52EB863801C3 // TtfwIteratorFromFunctor
@@ -5094,8 +4412,6 @@ ref; // ME_52EB8C6701FC
 ref; // ME_52E23B7A00EC_ME_52EB863801C3 ForEach
 
 : ME_52E23BB102FA_ME_52EB863801C3
- CONST UID '52E23BB102FA'
- CONST Name 'ForEachBack'
  : Original WL 'ME_52E23BB102FA' '4DAF19F600C5.pas.ms.script' // ForEachBack
  ;
  : Implementor ME_52EB863801C3 // TtfwIteratorFromFunctor
@@ -5104,8 +4420,6 @@ ref; // ME_52E23B7A00EC_ME_52EB863801C3 ForEach
 ref; // ME_52E23BB102FA_ME_52EB863801C3 ForEachBack
 
 : ME_55CDF40C03D4_ME_52EB863801C3
- CONST UID '55CDF40C03D4'
- CONST Name 'SetItem'
  : Original WL 'ME_55CDF40C03D4' '4DAF19F600C5.pas.ms.script' // SetItem
  ;
  : Implementor ME_52EB863801C3 // TtfwIteratorFromFunctor
@@ -5114,8 +4428,6 @@ ref; // ME_52E23BB102FA_ME_52EB863801C3 ForEachBack
 ref; // ME_55CDF40C03D4_ME_52EB863801C3 SetItem
 
 : ME_55E849210175_ME_52EB863801C3
- CONST UID '55E849210175'
- CONST Name 'ItemsCountInSlice'
  : Original WL 'ME_55E849210175' '4DAF19F600C5.pas.ms.script' // ItemsCountInSlice
  ;
  : Implementor ME_52EB863801C3 // TtfwIteratorFromFunctor
@@ -5124,8 +4436,6 @@ ref; // ME_55CDF40C03D4_ME_52EB863801C3 SetItem
 ref; // ME_55E849210175_ME_52EB863801C3 ItemsCountInSlice
 
 : ME_479731C50290_ME_52EB863801C3
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_52EB863801C3 // TtfwIteratorFromFunctor
@@ -5344,8 +4654,6 @@ ref; // ME_B7C25576F445 DoIt
 ref; // ME_55E02BC80035 Make
 
 : ME_52E23B7A00EC_ME_55E02B5D0129
- CONST UID '52E23B7A00EC'
- CONST Name 'ForEach'
  : Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.pas.ms.script' // ForEach
  ;
  : Implementor ME_55E02B5D0129 // TtfwJoinIterator
@@ -5354,8 +4662,6 @@ ref; // ME_55E02BC80035 Make
 ref; // ME_52E23B7A00EC_ME_55E02B5D0129 ForEach
 
 : ME_52E23BB102FA_ME_55E02B5D0129
- CONST UID '52E23BB102FA'
- CONST Name 'ForEachBack'
  : Original WL 'ME_52E23BB102FA' '4DAF19F600C5.pas.ms.script' // ForEachBack
  ;
  : Implementor ME_55E02B5D0129 // TtfwJoinIterator
@@ -5364,8 +4670,6 @@ ref; // ME_52E23B7A00EC_ME_55E02B5D0129 ForEach
 ref; // ME_52E23BB102FA_ME_55E02B5D0129 ForEachBack
 
 : ME_55CDF40C03D4_ME_55E02B5D0129
- CONST UID '55CDF40C03D4'
- CONST Name 'SetItem'
  : Original WL 'ME_55CDF40C03D4' '4DAF19F600C5.pas.ms.script' // SetItem
  ;
  : Implementor ME_55E02B5D0129 // TtfwJoinIterator
@@ -5374,24 +4678,12 @@ ref; // ME_52E23BB102FA_ME_55E02B5D0129 ForEachBack
 ref; // ME_55CDF40C03D4_ME_55E02B5D0129 SetItem
 
 : ME_55E849210175_ME_55E02B5D0129
- CONST UID '55E849210175'
- CONST Name 'ItemsCountInSlice'
  : Original WL 'ME_55E849210175' '4DAF19F600C5.pas.ms.script' // ItemsCountInSlice
  ;
  : Implementor ME_55E02B5D0129 // TtfwJoinIterator
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_55E849210175_ME_55E02B5D0129 ItemsCountInSlice
-
-: ME_5000565C019C_ME_55E02B5D0129
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_55E02B5D0129 // TtfwJoinIterator
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_55E02B5D0129 ClearFields
 
 : ME_55E02B5D0129
  CONST UID '55E02B5D0129'
@@ -5428,10 +4720,6 @@ ref; // ME_5000565C019C_ME_55E02B5D0129 ClearFields
  ME_55E849210175_ME_55E02B5D0129 // ItemsCountInSlice
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_55E02B5D0129 // ClearFields
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -5445,24 +4733,7 @@ ref; // ME_55E02B5D0129 TtfwJoinIterator
 
 FORWARD ME_55E0417101EC
 
-: ME_68F2989F7DC8
- CONST UID '68F2989F7DC8'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwTruncLambda' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55E0417101EC // TtfwTruncLambda
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_68F2989F7DC8 Ini_Reg_Class
-
 : ME_4DAEEDE10285_ME_55E0417101EC
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_55E0417101EC // TtfwTruncLambda
@@ -5484,10 +4755,6 @@ ref; // ME_4DAEEDE10285_ME_55E0417101EC DoDoIt
    Seq: ( ME_52EA8AD102B0 // TtfwTwoLambdas
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_68F2989F7DC8 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_55E0417101EC // DoDoIt
  )
@@ -5502,8 +4769,6 @@ ref; // ME_4DAEEDE10285_ME_55E0417101EC DoDoIt
 ref; // ME_55E0417101EC TtfwTruncLambda
 
 : ME_52EA8EE702FA_ME_55E0413800EA
- CONST UID '52EA8EE702FA'
- CONST Name 'TwoLabdasClass'
  : Original ME_52EA8EE702FA // TwoLabdasClass
  ;
  : Implementor ME_55E0413800EA // TtfwTruncatedArrayView
@@ -5637,21 +4902,6 @@ ref; // ME_55E59180014E DoIt
 
 ref; // ME_55E591790250 Create
 
-: ME_8793DA57B47E
- CONST UID '8793DA57B47E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwSliceLambda' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55E59111027A // TtfwSliceLambda
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_8793DA57B47E Ini_Reg_Class
-
 : ME_55E592500375
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -5663,8 +4913,6 @@ ref; // ME_8793DA57B47E Ini_Reg_Class
 ref; // ME_55E592500375 
 
 : ME_4DAEEDE10285_ME_55E59111027A
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_55E59111027A // TtfwSliceLambda
@@ -5673,8 +4921,6 @@ ref; // ME_55E592500375
 ref; // ME_4DAEEDE10285_ME_55E59111027A DoDoIt
 
 : ME_479731C50290_ME_55E59111027A
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_55E59111027A // TtfwSliceLambda
@@ -5683,8 +4929,6 @@ ref; // ME_4DAEEDE10285_ME_55E59111027A DoDoIt
 ref; // ME_479731C50290_ME_55E59111027A Cleanup
 
 : ME_47A6FEE600FC_ME_55E59111027A
- CONST UID '47A6FEE600FC'
- CONST Name 'IsCacheable'
  : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
  ;
  : Implementor ME_55E59111027A // TtfwSliceLambda
@@ -5714,7 +4958,6 @@ ref; // ME_47A6FEE600FC_ME_55E59111027A IsCacheable
  ; // Attributes
  : Operations
    Seq: ( ME_55E591790250 // Create
- ME_8793DA57B47E // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -5878,8 +5121,6 @@ ref; // ME_1F6710B65948 DoIt
 ref; // ME_55E590F002BA Make
 
 : ME_52E666E80335_ME_55E5904F02A5
- CONST UID '52E666E80335'
- CONST Name 'DoForEach'
  : Original ME_52E666E80335 // DoForEach
  ;
  : Implementor ME_55E5904F02A5 // TtfwSliceView
@@ -5888,8 +5129,6 @@ ref; // ME_55E590F002BA Make
 ref; // ME_52E666E80335_ME_55E5904F02A5 DoForEach
 
 : ME_52E666F6036E_ME_55E5904F02A5
- CONST UID '52E666F6036E'
- CONST Name 'DoForEachBack'
  : Original ME_52E666F6036E // DoForEachBack
  ;
  : Implementor ME_55E5904F02A5 // TtfwSliceView
@@ -5898,8 +5137,6 @@ ref; // ME_52E666E80335_ME_55E5904F02A5 DoForEach
 ref; // ME_52E666F6036E_ME_55E5904F02A5 DoForEachBack
 
 : ME_55E84F5F00ED_ME_55E5904F02A5
- CONST UID '55E84F5F00ED'
- CONST Name 'GetItemsCountInSlice'
  : Original ME_55E84F5F00ED // GetItemsCountInSlice
  ;
  : Implementor ME_55E5904F02A5 // TtfwSliceView
@@ -5970,22 +5207,6 @@ FORWARD ME_55ED4AE00282
 
 ref; // ME_55ED4B57036E Dictionary
 
-: ME_22EA81E96617
- CONST UID '22EA81E96617'
- CONST Name 'f_Dictionary'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Dictionary' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_55ED4AE00282 // TtfwMembersIteratorPrim
- ;
- : Target WL 'ME_4F4659980048' '4F463D910318.pas.ms.script' // TtfwDictionaryPrim
- ;
-
-ref; // ME_22EA81E96617 f_Dictionary
-
 FORWARD ME_52E29FCF00BC
 
 : ME_52E29FE50211
@@ -6040,8 +5261,6 @@ ref; // ME_52E29FCF00BC Create
 ref; // ME_55ED4B5C0329 
 
 : ME_479731C50290_ME_55ED4AE00282
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_55ED4AE00282 // TtfwMembersIteratorPrim
@@ -6065,7 +5284,6 @@ ref; // ME_479731C50290_ME_55ED4AE00282 Cleanup
  ; // Inherits
  : Attributes
    Seq: ( ME_55ED4B57036E // Dictionary
- ME_22EA81E96617 // f_Dictionary
  )
  ; // Attributes
  : Operations
@@ -6104,8 +5322,6 @@ FORWARD ME_52E7D66E02FF
 ref; // ME_52E7D73800CE 
 
 : ME_479731C50290_ME_52E7D66E02FF
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_52E7D66E02FF // TtfwCodeIterator
@@ -6219,8 +5435,6 @@ ref; // ME_52E29FF60123 Make
 ref; // ME_52E29FB101E4 
 
 : ME_52E23B7A00EC_ME_52E29F1A037E
- CONST UID '52E23B7A00EC'
- CONST Name 'ForEach'
  : Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.pas.ms.script' // ForEach
  ;
  : Implementor ME_52E29F1A037E // TtfwMembersIterator
@@ -6229,8 +5443,6 @@ ref; // ME_52E29FB101E4
 ref; // ME_52E23B7A00EC_ME_52E29F1A037E ForEach
 
 : ME_52E23BB102FA_ME_52E29F1A037E
- CONST UID '52E23BB102FA'
- CONST Name 'ForEachBack'
  : Original WL 'ME_52E23BB102FA' '4DAF19F600C5.pas.ms.script' // ForEachBack
  ;
  : Implementor ME_52E29F1A037E // TtfwMembersIterator
@@ -6239,8 +5451,6 @@ ref; // ME_52E23B7A00EC_ME_52E29F1A037E ForEach
 ref; // ME_52E23BB102FA_ME_52E29F1A037E ForEachBack
 
 : ME_55CDF40C03D4_ME_52E29F1A037E
- CONST UID '55CDF40C03D4'
- CONST Name 'SetItem'
  : Original WL 'ME_55CDF40C03D4' '4DAF19F600C5.pas.ms.script' // SetItem
  ;
  : Implementor ME_52E29F1A037E // TtfwMembersIterator
@@ -6249,8 +5459,6 @@ ref; // ME_52E23BB102FA_ME_52E29F1A037E ForEachBack
 ref; // ME_55CDF40C03D4_ME_52E29F1A037E SetItem
 
 : ME_55E849210175_ME_52E29F1A037E
- CONST UID '55E849210175'
- CONST Name 'ItemsCountInSlice'
  : Original WL 'ME_55E849210175' '4DAF19F600C5.pas.ms.script' // ItemsCountInSlice
  ;
  : Implementor ME_52E29F1A037E // TtfwMembersIterator
@@ -6259,8 +5467,6 @@ ref; // ME_55CDF40C03D4_ME_52E29F1A037E SetItem
 ref; // ME_55E849210175_ME_52E29F1A037E ItemsCountInSlice
 
 : ME_479731C50290_ME_52E29F1A037E
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_52E29F1A037E // TtfwMembersIterator
@@ -6379,8 +5585,6 @@ ref; // ME_86961C049B47 DoIt
 ref; // ME_55ED4BEE00BC Make
 
 : ME_52E23B7A00EC_ME_55ED4BC100BB
- CONST UID '52E23B7A00EC'
- CONST Name 'ForEach'
  : Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.pas.ms.script' // ForEach
  ;
  : Implementor ME_55ED4BC100BB // TtfwKeywordsIterator
@@ -6389,8 +5593,6 @@ ref; // ME_55ED4BEE00BC Make
 ref; // ME_52E23B7A00EC_ME_55ED4BC100BB ForEach
 
 : ME_52E23BB102FA_ME_55ED4BC100BB
- CONST UID '52E23BB102FA'
- CONST Name 'ForEachBack'
  : Original WL 'ME_52E23BB102FA' '4DAF19F600C5.pas.ms.script' // ForEachBack
  ;
  : Implementor ME_55ED4BC100BB // TtfwKeywordsIterator
@@ -6399,8 +5601,6 @@ ref; // ME_52E23B7A00EC_ME_55ED4BC100BB ForEach
 ref; // ME_52E23BB102FA_ME_55ED4BC100BB ForEachBack
 
 : ME_55CDF40C03D4_ME_55ED4BC100BB
- CONST UID '55CDF40C03D4'
- CONST Name 'SetItem'
  : Original WL 'ME_55CDF40C03D4' '4DAF19F600C5.pas.ms.script' // SetItem
  ;
  : Implementor ME_55ED4BC100BB // TtfwKeywordsIterator
@@ -6409,8 +5609,6 @@ ref; // ME_52E23BB102FA_ME_55ED4BC100BB ForEachBack
 ref; // ME_55CDF40C03D4_ME_55ED4BC100BB SetItem
 
 : ME_55E849210175_ME_55ED4BC100BB
- CONST UID '55E849210175'
- CONST Name 'ItemsCountInSlice'
  : Original WL 'ME_55E849210175' '4DAF19F600C5.pas.ms.script' // ItemsCountInSlice
  ;
  : Implementor ME_55ED4BC100BB // TtfwKeywordsIterator

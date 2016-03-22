@@ -2,6 +2,7 @@ unit evLeafParaPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evLeafParaPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevLeafParaPainter" MUID: (49DB53330394)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -5,9 +5,21 @@ unit l3FileUtils;
 { Автор: Бабанин В.Б. ©               }
 { Модуль: l3FileUtils -               }
 { Начат: 12.04.98 16:27               }
-{ $Id: l3FileUtils.pas,v 1.86 2015/10/26 12:57:08 fireton Exp $ }
+{ $Id: l3FileUtils.pas,v 1.91 2016/03/16 09:39:45 dinishev Exp $ }
 
 // $Log: l3FileUtils.pas,v $
+// Revision 1.91  2016/03/16 09:39:45  dinishev
+// Не падаем при копировани залоченных файлов.
+//
+// Revision 1.90  2016/03/16 09:38:30  dinishev
+// Reformat
+//
+// Revision 1.89  2016/03/16 09:21:08  dinishev
+// Reformat
+//
+// Revision 1.87  2016/01/13 10:54:58  lukyanets
+// Выводим в лог имя файла
+//
 // Revision 1.86  2015/10/26 12:57:08  fireton
 // - диагностируем ошибку чтения файла
 //
@@ -1567,98 +1579,97 @@ procedure CopyDirEx(Sour, Dest: TFileName; ProgressProc: Tl3ProgressProc);
 
 procedure CopyFileEx(Sour, Dest: TFileName; ProgressProc: Tl3ProgressProc; CopyMode: Byte =
     cmWriteOver);
- Var
-  FromF, ToF          : Integer;
-  NumRead, NumWritten : Integer;
-  buf                 : pointer;
-  BufSize             : LongInt;
-  FAge                : Longint;
-  FAttr               : Integer;
-  l_ErrStr            : string;
-  TmpName             : TFileName;
-  TmpLog              : Boolean;
-  l_TotalWritten,
-  l_FileSize          : Int64;
- Begin
-  TmpLog :=False;
-  if (Length(Sour) = 0) or (Length(Dest) = 0) or not FileExists(Sour)
-    then raise Exception.Create('Неверное имя файла');
-  BufSize:= Min(MaxAvail, 32*1024);
-  //If BufSize>32*1024 then Bufsize:=32*1024;
-  l3System.GetLocalMem(buf,BufSize);
-  Try
-    FAttr:= FileGetAttr(Sour);
-    FromF:=FileOpen(Sour,fmOpenRead and fmShareDenyWrite);
-    if (FromF < 0) then
+var
+ FromF, ToF          : Integer;
+ NumRead, NumWritten : Integer;
+ buf                 : Pointer;
+ BufSize             : LongInt;
+ FAge                : Longint;
+ FAttr               : Integer;
+ l_ErrStr            : string;
+ TmpName             : TFileName;
+ TmpLog              : Boolean;
+ l_TotalWritten,
+ l_FileSize          : Int64;
+Begin
+ TmpLog := False;
+ if (Length(Sour) = 0) or (Length(Dest) = 0) or not FileExists(Sour) then
+  raise Exception.Create('Неверное имя файла');
+ BufSize := Min(MaxAvail, 32 * 1024);
+ l3System.GetLocalMem(buf, BufSize);
+ try
+   FAttr := FileGetAttr(Sour);
+   FromF := FileOpen(Sour, fmShareDenyWrite);
+   if (FromF < 0) then
+   begin
+    {$IfOpt D+}
+    l3System.Msg2Log('Не могу открыть ' + Sour);
+    RaiseLastOSError;
+    {$Else  D+}
+    raise EInOutError.Create('Не могу открыть'#13 + Sour);
+    {$EndIf D+}
+   end;//FromF < 0
+   FAge := FileGetDate(FromF);
+   try
+    if ((CopyMode and cmAppend) <> 0) and FileExists(Dest) then
     begin
-     {$IfOpt D+}
-     RaiseLastOSError;
-     {$Else  D+}
-     Raise EInOutError.Create('Не могу открыть'#13+Sour);
-     {$EndIf D+}
-    end;//FromF < 0
-    FAge:=FileGetDate(FromF);
-    {Reset(FromF, 1);}
-    Try
-     If ((CopyMode and cmAppend) <> 0) and FileExists(Dest) then
-     Begin
-      ToF:=FileOpen(Dest,fmOpenWrite);
-      FileSeek(ToF,0,2);
-      TmpLog :=False;
-     end
-     else
-     Begin
-      TmpName:=GetUniqFileName(ExtractFilePath(Dest), 'cpy', '.tmp');
-      MakeDir(ExtractFilePath(Dest));
-      ToF:=FileCreate(TmpName);
-      TmpLog :=True;
-     end;
-     l_FileSize:= GetFileSize(Sour);
-     l_TotalWritten:= 0;
-     if Assigned(ProgressProc) then
-      ProgressProc(0, 100, ExtractFileName(Sour));
-     Try
-      repeat
-       NumRead:=FileRead(FromF,buf^,BufSize);
-       if NumRead < 0 then
-       begin
-        l_ErrStr := SysErrorMessage(GetLastError);
-        raise EInOutError.CreateFmt('Ошибка чтения файла %s (%s)', [Sour, l_ErrStr]);
-       end;
-       NumWritten:=FileWrite(ToF,buf^,NumRead);
-       if NumWritten = -1 then
-       begin
-        l_ErrStr := SysErrorMessage(GetLastError);
-        raise EInOutError.CreateFmt('Ошибка при записи в файл %s (%s)', [Dest, l_ErrStr]);
-       end;
-       Inc(l_TotalWritten, NumWritten);
-       if Assigned(ProgressProc) and (l_FileSize <> 0) then
-        ProgressProc(1, l_TotalWritten * 100 div l_FileSize);
-      until (NumRead = 0) or (NumWritten <> NumRead);
-      FileSetDate(ToF, FAge);
-     finally
-      FileClose(ToF);
-      if Assigned(ProgressProc) then
-       ProgressProc(2, 100);
-     end;
-     if l_TotalWritten <> l_FileSize then
-      raise EInOutError.CreateFmt('Не совпадает размер файла %s %d <> %d', [Sour, l_FileSize, l_TotalWritten]);
-     If TmpLog then
-     begin
-      If (CopyMode and cmNoBakCopy) <> 0 then
-       DeleteFile(Dest);
-      RenameFileSafe(TmpName, Dest);
-     end;
-     FileSetAttr(Dest,FAttr);
-    finally
-      FileClose(FromF);
+     ToF := FileOpen(Dest,fmOpenWrite);
+     FileSeek(ToF, 0, 2);
+     TmpLog := False;
+    end // if ((CopyMode and cmAppend) <> 0) and FileExists(Dest) then
+    else
+    begin
+     TmpName := GetUniqFileName(ExtractFilePath(Dest), 'cpy', '.tmp');
+     MakeDir(ExtractFilePath(Dest));
+     ToF := FileCreate(TmpName);
+     TmpLog := True;
     end;
-    If (CopyMode and cmDeleteSource) <> 0 then
-     DeleteFile(Sour);
-  finally
-    l3System.FreeLocalMem(buf);
-  end;
+    l_FileSize := GetFileSize(Sour);
+    l_TotalWritten := 0;
+    if Assigned(ProgressProc) then
+     ProgressProc(0, 100, ExtractFileName(Sour));
+    try
+     repeat
+      NumRead := FileRead(FromF, buf^, BufSize);
+      if NumRead < 0 then
+      begin
+       l_ErrStr := SysErrorMessage(GetLastError);
+       raise EInOutError.CreateFmt('Ошибка чтения файла %s (%s)', [Sour, l_ErrStr]);
+      end; //
+      NumWritten := FileWrite(ToF, buf^, NumRead);
+      if NumWritten = -1 then
+      begin
+       l_ErrStr := SysErrorMessage(GetLastError);
+       raise EInOutError.CreateFmt('Ошибка при записи в файл %s (%s)', [Dest, l_ErrStr]);
+      end; // if NumWritten = -1 then
+      Inc(l_TotalWritten, NumWritten);
+      if Assigned(ProgressProc) and (l_FileSize <> 0) then
+       ProgressProc(1, l_TotalWritten * 100 div l_FileSize);
+     until (NumRead = 0) or (NumWritten <> NumRead);
+     FileSetDate(ToF, FAge);
+    finally
+     FileClose(ToF);
+     if Assigned(ProgressProc) then
+      ProgressProc(2, 100);
+    end;
+    if l_TotalWritten <> l_FileSize then
+     raise EInOutError.CreateFmt('Не совпадает размер файла %s %d <> %d', [Sour, l_FileSize, l_TotalWritten]);
+    if TmpLog then
+    begin
+     if (CopyMode and cmNoBakCopy) <> 0 then
+      DeleteFile(Dest);
+     RenameFileSafe(TmpName, Dest);
+    end; // if TmpLog then
+    FileSetAttr(Dest,FAttr);
+   finally
+    FileClose(FromF);
+   end;
+   if (CopyMode and cmDeleteSource) <> 0 then
+    DeleteFile(Sour);
+ finally
+  l3System.FreeLocalMem(buf);
  end;
+end;
 
 function l3ChangeFileFolder(const aFileName, aNewFolder: string): string;
 begin

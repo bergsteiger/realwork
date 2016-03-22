@@ -3,6 +3,7 @@ unit evContentsNodeFilter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evContentsNodeFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevContentsNodeFilter" MUID: (4DFEF1DF009F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

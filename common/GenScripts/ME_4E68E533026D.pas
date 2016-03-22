@@ -2,6 +2,7 @@ unit evResultFontHolder;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evResultFontHolder.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevResultFontHolder" MUID: (4E68E533026D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

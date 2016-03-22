@@ -1,6 +1,7 @@
 unit kwInnerIncludedInChildren;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwInnerIncludedInChildren.pas"
+// Стереотип: "SimpleClass"
 
 {$Include seDefine.inc}
 
@@ -69,6 +70,10 @@ begin
  theNewContext.rCompiler := f_WordToIncludeTo;
 //#UC END# *4F3AA59B025A_4F476A6300C3_impl*
 end;//TkwInnerIncludedInChildren.FillContext
+
+initialization
+!!! Lost ini !!!
+ {* Регистрация TkwInnerIncludedInChildren }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

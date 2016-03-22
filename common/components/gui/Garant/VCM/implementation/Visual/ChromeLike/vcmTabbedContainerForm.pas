@@ -138,7 +138,8 @@ type
    function CheckFormTabParams(aForm: TForm; const aParams: Il3TabParams): Il3TabParams; override;
    procedure BeforeClosing; override;
    procedure ReleaseResources; override;
-   procedure DoOpenNewTab; override;
+   procedure DoOpenNewTab(aOpenLast: Boolean); override;
+   procedure DoOpenTabAfter(const aTab: Il3FormTab); override;
    procedure DoUpdateCaption; override;
  public
  // overridden public methods
@@ -202,7 +203,9 @@ uses
   SysUtils,
   vcmForm,
   ChromeLikeTabSetTypes,
-  ChromeLikeTabSetRes
+  ChromeLikeTabSetRes,
+  vcmMainMenuBuilder,
+  vcmMenus
   ;
 {$IfEnd} //not NoVCM AND not NoVGScene
 
@@ -481,16 +484,21 @@ procedure TvcmTabbedContainerForm.UpdateMenu(aFormWithMenu: TForm = nil);
 var
  l_Form: TForm;
 begin
- if (aFormWithMenu = nil) then
-  l_Form := TabSet.SelectedForm
- else
-  l_Form := aFormWithMenu;
- if (l_Form <> nil) then
+ if (f_CurrentMainMenu.Items.Count = 0) then
  begin
-  f_CurrentMainMenu := lp_GetFormMenu(l_Form);
-  if (f_CurrentMainMenu <> nil) then
-   f_Menu.MenuItem := f_CurrentMainMenu.Items;
+  TvcmMainMenuBuilder.Instance.BuildMainMenu(f_CurrentMainMenu.Items);
+  f_Menu.MenuItem := f_CurrentMainMenu.Items;
  end;
+// if (aFormWithMenu = nil) then
+//  l_Form := TabSet.SelectedForm
+// else
+//  l_Form := aFormWithMenu;
+// if (l_Form <> nil) then
+// begin
+//  f_CurrentMainMenu := lp_GetFormMenu(l_Form);
+//  if (f_CurrentMainMenu <> nil) then
+//   f_Menu.MenuItem := f_CurrentMainMenu.Items;
+// end;
 end;//TvcmTabbedContainerForm.UpdateMenu
 
 procedure TvcmTabbedContainerForm.EnableRemindersActivity;
@@ -573,7 +581,7 @@ end;
 
 procedure TvcmTabbedContainerForm.AddNewTab;
 begin
- DoOpenNewTab;
+ DoOpenNewTab(True);
 end;
 
 function TvcmTabbedContainerForm.pm_GetFormCount: Integer;
@@ -835,7 +843,7 @@ procedure TvcmTabbedContainerForm.DockToAnother(const aMousePoint: TPoint;
   aForm: TForm);
 begin
  TvcmTabbedContainerFormDispatcher.Instance.TryDockToTabSet(aMousePoint,
-  TvcmEntityForm(TabSet.Tabs[0].Form), Self);
+  TvcmEntityForm(aForm), Self);
 end;//TvcmTabbedContainerForm.DockToAnother
 
 function TvcmTabbedContainerForm.DoGetCanOpenNewTab: Boolean;
@@ -850,6 +858,7 @@ begin
  FreeAndNil(f_Menu);
  FreeAndNil(f_BackgroundBitmap);
  f_FormSetHistory := nil;
+ FreeAndNil(f_CurrentMainMenu);
  inherited;
 end;//TvcmTabbedContainerForm.Cleanup
 
@@ -894,6 +903,11 @@ begin
  f_BackgroundBitmap := Tl3Bitmap.Create;
  f_DisableLoadFromSettings := not aNeedLoadFromSettings;
  inherited Create(AOwner);
+ f_CurrentMainMenu := TMainMenu.Create(nil);
+ f_CurrentMainMenu.AutoHotkeys := maManual;
+ f_CurrentMainMenu.DrawGraphicChecks := True;
+ f_CurrentMainMenu.Images := vcmGetMenuImages;
+
  f_FormSetHistory := TvcmFormSetHistory.Make;
  DoLoadFromSettings;
  LoadSettings;
@@ -967,8 +981,8 @@ begin
   SetActiveWindow(l_Form.Handle);
   SetWindowPos(l_Form.Handle, HWND(0), l_Form.Left, l_Form.Top, l_Form.Width, l_Form.Height,
    SWP_NOSIZE or SWP_NOMOVE or SWP_NOZORDER);
-//  TvgRemindersLineManager.UpdateRemindersActions;
-//  TvgRemindersLineManager.CheckZOrder;
+  TvgRemindersLineManager.UpdateRemindersActions;
+  TvgRemindersLineManager.CheckZOrder;
   UpdateContainerCaption;
   UpdateMenu(l_Form);
   SetFocusToSelectedForm;
@@ -1023,8 +1037,8 @@ begin
   l_Form := aForm as TvcmEntityForm;
 
   if (aParams <> nil) then
-   TabSet.UpdateFormTab(aForm, aParams);
-
+   TabSet.UpdateFormTab(aForm, aParams)
+  else
   if (TvcmTabbedContainerFormDispatcher.Instance.ContainerCount <= 1) and
      (TabSet.TabCount = 1) then
   begin
@@ -1102,13 +1116,33 @@ begin
  inherited;
 end;
 
-procedure TvcmTabbedContainerForm.DoOpenNewTab;
+procedure TvcmTabbedContainerForm.DoOpenNewTab(aOpenLast: Boolean);
 var
  l_ContainedForm: IvcmContainedForm;
 begin
  if Supports(TabSet.SelectedForm, IvcmContainedForm, l_ContainedForm) then
  begin
-  l_ContainedForm.OpenNew(vcm_okInNewTab)
+  l_ContainedForm.OpenNew(vcm_okInNewTab, aOpenLast)
+ end
+ else
+  Assert(False);
+end;
+
+procedure TvcmTabbedContainerForm.DoOpenTabAfter(const aTab: Il3FormTab);
+var
+ l_ContainedForm: IvcmContainedForm;
+ l_TabbedForm: IvcmEntityForm;
+begin
+ if (aTab = nil) then
+  DoOpenNewTab(True)
+ else
+ if Supports(aTab.TabbedForm, IvcmContainedForm, l_ContainedForm) then
+ begin
+  if (aTab <> nil) then
+   Supports(aTab.TabbedForm, IvcmEntityForm, l_TabbedForm)
+  else
+   l_TabbedForm := nil;
+  l_ContainedForm.OpenNew(vcm_okInNewTab, False, l_TabbedForm)
  end
  else
   Assert(False);

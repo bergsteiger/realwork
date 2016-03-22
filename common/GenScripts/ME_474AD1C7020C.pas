@@ -3,6 +3,7 @@ library RenderEVD;
 
 // Модуль: "w:\common\components\RenderEVD\RenderEVD.dpr"
 // Стереотип: "AdapterTarget"
+// Элемент модели: "RenderEVD" MUID: (474AD1C7020C)
 
 {$Include w:\common\components\l3XE.inc}
 

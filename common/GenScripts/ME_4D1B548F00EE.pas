@@ -2,6 +2,7 @@ unit WorkWithDocumentInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces\WorkWithDocumentInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "WorkWithDocumentInterfaces" MUID: (4D1B548F00EE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

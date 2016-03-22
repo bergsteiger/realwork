@@ -3,6 +3,7 @@ unit nsReqCellNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsReqCellNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsReqCellNode" MUID: (467FCE67008F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit NOT_FINISHED_evCustomTextFormatter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomTextFormatter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomTextFormatter" MUID: (4836BEB200A2)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

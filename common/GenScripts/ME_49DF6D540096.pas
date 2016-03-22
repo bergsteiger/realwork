@@ -2,6 +2,7 @@ unit evLeafParaCursor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evLeafParaCursor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevLeafParaCursor" MUID: (49DF6D540096)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

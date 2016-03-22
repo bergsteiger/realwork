@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevParentPointFactory" MUID: (49D251E600DA)
+// Имя типа: "_nevParentPointFactory_"
 
 {$Define nevParentPointFactory_imp}
 

@@ -472,8 +472,10 @@ var
 begin
   try
     Result := true;
-    user_name := 'Tabs_' + CompName;      
+    if not VarToBool(gbl_F1ShellTabsEnabled) then
+      Exit;
 
+    user_name := 'Tabs_' + CompName;      
     Log.Message('«апускаем оболочку и логинимс€ пользователем "' + user_name + '", пароль "' + user_name + '"', '',  pmNormal, GetLogAttr('YELLOW'));
     if not RestartF1Shell(3, Options.Run.Timeout div 6, user_name, user_name) then
       Raise('Ќе получилось запустить оболочку и залогинитьс€!');  
@@ -521,8 +523,10 @@ var
 begin
   try
     Result := true;
-    user_name := 'TabsFocus_' + CompName;
+    if not VarToBool(gbl_F1ShellTabsEnabled) then
+      Exit;
 
+    user_name := 'TabsFocus_' + CompName;
     if not RestartF1Shell(3, Options.Run.Timeout div 6, user_name, user_name) then
       Raise('Ќе получилось запустить оболочку и залогинитьс€!');  
 
@@ -718,9 +722,13 @@ try
 	for i := VarArrayLowBound(contextsArray, 1) to VarArrayHighBound(contextsArray, 1) do
   begin
     Log.Message(FUNCTION_NAME + ': ƒелаем базовый поиск контекста: "' + contextsArray[i] + '"', '',  pmNormal, GetLogAttr('YELLOW'));
-    if not BaseSearch(nil, contextsArray[i], 'searchType:=' + SRCH_BASE) then
+    if not BaseSearch(nil, contextsArray[i], 'IsCloseWindow:=false;searchType:=' + SRCH_BASE) then
       Result := ErrorResult(FUNCTION_NAME + ': Ѕазовый поиск контекста: "' + contextsArray[i] + '" не прошел');
 
+    if not OpenDocFromList('*', GetList) then
+      Result := ErrorResult('Ќе получилось открыть первый документ списка после поиска контекста: "' + contextsArray[i] + '"');
+    CloseTabIfNeeded;
+      
     if not IsExists(GetF1ShellProcess) then
       Raise('Ќе найден процесс оболочки, прекращаем поиски!');
   end;
@@ -1311,7 +1319,9 @@ begin
 //  F1Search_CreateList(p);
 //  F1Search_CompareLists(p);
 ///////////////////////////////////////
-//  OpenTabsAndFocus_Execute(p);
+
+
+
 
 
 

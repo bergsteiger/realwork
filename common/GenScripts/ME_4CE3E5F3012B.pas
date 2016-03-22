@@ -3,6 +3,7 @@ unit SelectRowAndDeleteTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\SelectRowAndDeleteTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TSelectRowAndDeleteTest" MUID: (4CE3E5F3012B)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

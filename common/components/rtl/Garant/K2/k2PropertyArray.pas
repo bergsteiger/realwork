@@ -2,6 +2,7 @@ unit k2PropertyArray;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2PropertyArray.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2PropertyArray" MUID: (53AABF30022F)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

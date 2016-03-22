@@ -3,6 +3,7 @@ unit bsInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\bsInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "bsInterfaces" MUID: (47ECAAF901F8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -295,7 +296,7 @@ type
   function GetCRNodeByValue(const aValue: Il3CString): IbsFrozenNode;
  end;//IbsCRSettingsConverter
 
- {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  IbsConsultationManager = interface
   {* Менеджер консультаций }
   ['{371A71E1-37C7-48F1-B015-FF347960C55C}']
@@ -317,7 +318,7 @@ type
   property CurrentStatus: TbsConsultationOperations
    read pm_GetCurrentStatus;
  end;//IbsConsultationManager
- {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
  InsUserFlagsFilters = interface(Il3TreeFilters)
   ['{70949CA2-C90A-40F3-8138-627F0EA90920}']
@@ -336,7 +337,7 @@ type
    read pm_GetPermanentUserFlags;
  end;//InsUserFlagsFilters
 
- {$If Defined(Admin)}
+{$If Defined(Admin)}
  IbsSelectedUsers = interface
   {* Выделенные пользователи }
   ['{55285BB9-CBAD-4A66-BF73-93BB93EAC2D6}']
@@ -352,9 +353,9 @@ type
   property UID[anIndex: Integer]: Integer
    read pm_GetUID;
  end;//IbsSelectedUsers
- {$IfEnd} // Defined(Admin)
+{$IfEnd} // Defined(Admin)
 
- {$If Defined(Admin)}
+{$If Defined(Admin)}
  IbsUserTreeData = interface(Il3Nodes)
   {* Данные для d&d пользователей в группы }
   ['{682E3AE7-4510-476F-AC9C-1C405D8E96F3}']
@@ -366,7 +367,7 @@ type
   property Users: IbsSelectedUsers
    read pm_GetUsers;
  end;//IbsUserTreeData
- {$IfEnd} // Defined(Admin)
+{$IfEnd} // Defined(Admin)
 
  InsTreeStructState = interface
   ['{B5B7BD25-911C-40C5-BEA7-197F865C795A}']

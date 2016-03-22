@@ -2,6 +2,7 @@ unit arInterfaces;
 
 // Модуль: "w:\archi\source\projects\Archi\Editor\arInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "arInterfaces" MUID: (53EC893302E3)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

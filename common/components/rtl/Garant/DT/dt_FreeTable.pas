@@ -2,8 +2,11 @@ unit dt_FreeTable;
 
 // Облегченный вариант таблицы для работы с FREE
 
-{ $Id: dt_FreeTable.pas,v 1.3 2014/04/17 13:04:31 voba Exp $ }
+{ $Id: dt_FreeTable.pas,v 1.4 2015/11/26 08:45:44 lukyanets Exp $ }
 // $Log: dt_FreeTable.pas,v $
+// Revision 1.4  2015/11/26 08:45:44  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.3  2014/04/17 13:04:31  voba
 // - перенес ISab из DT_Sab в dtIntf
 //
@@ -80,6 +83,7 @@ implementation
 
 Uses
  SysUtils,
+ daSchemeConsts,
  dt_Err,
  l3String,
  ht_Dll, dtIntf, dt_Sab;

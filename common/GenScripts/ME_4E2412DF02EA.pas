@@ -3,6 +3,7 @@ unit evNodePainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evNodePainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevNodePainter" MUID: (4E2412DF02EA)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

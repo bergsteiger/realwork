@@ -1,85 +1,67 @@
 unit PrimStyleEditorExample_utStyleEditorExample_UserType;
+ {* Текстовое окно редактора стилей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Settings/Forms/PrimStyleEditorExample_utStyleEditorExample_UserType.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Основные прецеденты::Settings::View::Settings::PrimStyleEditorExample::utStyleEditorExample
-//
-// Текстовое окно редактора стилей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorExample_utStyleEditorExample_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "utStyleEditorExample" MUID: (4BD6DFC00310)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы utStyleEditorExample }
-  utStyleEditorExampleName = 'utStyleEditorExample';
-   { Строковый идентификатор пользовательского типа "Текстовое окно редактора стилей" }
-  utStyleEditorExample = TvcmUserType(0);
-   { Текстовое окно редактора стилей }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы utStyleEditorExample }
+ utStyleEditorExampleName = 'utStyleEditorExample';
+  {* Строковый идентификатор пользовательского типа "Текстовое окно редактора стилей" }
+ utStyleEditorExample = TvcmUserType(0);
+  {* Текстовое окно редактора стилей }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_utStyleEditorExample = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы utStyleEditorExample }
+ Tkw_FormUserType_utStyleEditorExample = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы utStyleEditorExample }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_utStyleEditorExample
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_utStyleEditorExample
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_utStyleEditorExample
-
-class function Tkw_FormUserType_utStyleEditorExample.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::utStyleEditorExample';
-end;//Tkw_FormUserType_utStyleEditorExample.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utStyleEditorExample.GetInteger: Integer;
- {-}
 begin
  Result := utStyleEditorExample;
 end;//Tkw_FormUserType_utStyleEditorExample.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_utStyleEditorExample.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utStyleEditorExample';
+end;//Tkw_FormUserType_utStyleEditorExample.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_utStyleEditorExample
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utStyleEditorExample.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_utStyleEditorExample }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

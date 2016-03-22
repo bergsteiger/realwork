@@ -2,6 +2,7 @@ unit atAddLastQueryToJournalOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atAddLastQueryToJournalOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatAddLastQueryToJournalOperation" MUID: (500D895D02A3)
 
 interface
 

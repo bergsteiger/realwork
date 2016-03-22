@@ -1,6 +1,6 @@
 unit D_GetNum;
 
-{ $Id: D_GETNUM.PAS,v 1.19 2015/04/09 10:26:02 dinishev Exp $ }
+{ $Id: D_GETNUM.PAS,v 1.21 2016/03/03 14:00:23 voba Exp $ }
 
 interface
 
@@ -38,8 +38,6 @@ type
     function  GetNumber : Longint;
     procedure PasteListItemToTheForm(aIdx: Integer);
     procedure pm_SetNeedSubs(const Value: Boolean);
-    procedure _ReadMRUEntry(const ItStr: ShortString; var UserParam: Pointer);
-    function  _WriteMRUEntry(var ItStr: ShortString; var UserParam: Pointer): Boolean;
     procedure ReadMRUList;
     procedure SaveMRUList;
     procedure StrToForm(aString: string);
@@ -147,21 +145,14 @@ var
 begin
  if UserConfig <> nil then
  begin
-  UserConfig.Section := cDocIDMRUList;
   f_MRUListSrc.Clear;
-  UserConfig.ReadParamExtList('Entry', _ReadMRUEntry, l_Tmp);
+  UserConfig[cDocIDMRUList].ReadParamList('Entry', f_MRUListSrc);
  end;
 end;
 
 procedure TGetNumberDlg.SaveMRUList;
-var
- l_P    : Pointer;
- l_Count: Longint;
 begin
- l_Count := 0;
- l_P := @l_Count;
- UserConfig.Section := cDocIDMRUList;
- UserConfig.WriteParamExtList('Entry', _WriteMRUEntry, l_P);
+ UserConfig[cDocIDMRUList].WriteParamList('Entry', f_MRUListSrc, cMaxMRUEntryCount);
 end;
 
 procedure TGetNumberDlg.StrToForm(aString: string);
@@ -172,21 +163,6 @@ begin
  DecompileSrcLine(aString, l_Num, l_Ext);
  edNumber.Text := l_Num;
  chkRenum.Checked := l_Ext;
-end;
-
-procedure TGetNumberDlg._ReadMRUEntry(const ItStr: ShortString; var UserParam: Pointer);
-begin
- f_MRUListSrc.Add(ItStr);
-end;
-
-function TGetNumberDlg._WriteMRUEntry(var ItStr: ShortString; var UserParam: Pointer): Boolean;
-begin
- Result := (PLongint(UserParam)^ <= cMaxMRUEntryCount) and (PLongint(UserParam)^ < f_MRUListSrc.Count);
- if Result then
- begin
-  ItStr := f_MRUListSrc.Strings[PLongint(UserParam)^];
-  Inc(PLongint(UserParam)^);
- end;
 end;
 
 function GetIDNumberPrim(var aDocID : TDocID; var aSubID: TSubID; var Renum : Boolean; aWinCaption : String;

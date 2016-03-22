@@ -3,6 +3,7 @@ unit elCustomEditKeywordsPack;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\elCustomEditKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "elCustomEditKeywordsPack" MUID: (0494F2189245)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
@@ -41,8 +42,8 @@ type
 'aControl' форма::elCustomEdit TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_elCustomEdit
 
  Tkw_elCustomEdit_Component_Edit = {final} class(TtfwControlString)
@@ -53,9 +54,9 @@ type
 компонент::Edit TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_elCustomEdit_Component_Edit
 
  TkwElCustomEditFormEdit = {final} class(TtfwPropertyLike)
@@ -82,20 +83,15 @@ OBJECT VAR l_TelCustomEdit
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwElCustomEditFormEdit
 
-class function Tkw_Form_elCustomEdit.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::elCustomEdit';
-end;//Tkw_Form_elCustomEdit.GetWordNameForRegister
-
 function Tkw_Form_elCustomEdit.GetString: AnsiString;
 begin
  Result := 'elCustomEditForm';
 end;//Tkw_Form_elCustomEdit.GetString
 
-class function Tkw_elCustomEdit_Component_Edit.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_elCustomEdit.GetWordNameForRegister: AnsiString;
 begin
- Result := 'компонент::Edit';
-end;//Tkw_elCustomEdit_Component_Edit.GetWordNameForRegister
+ Result := 'форма::elCustomEdit';
+end;//Tkw_Form_elCustomEdit.GetWordNameForRegister
 
 function Tkw_elCustomEdit_Component_Edit.GetString: AnsiString;
 begin
@@ -107,6 +103,11 @@ begin
  inherited;
  TtfwClassRef.Register(TelCustomEdit);
 end;//Tkw_elCustomEdit_Component_Edit.RegisterInEngine
+
+class function Tkw_elCustomEdit_Component_Edit.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'компонент::Edit';
+end;//Tkw_elCustomEdit_Component_Edit.GetWordNameForRegister
 
 function TkwElCustomEditFormEdit.Edit(const aCtx: TtfwContext;
  aelCustomEditForm: TelCustomEditForm): TelCustomEdit;
@@ -130,11 +131,6 @@ begin
  aCtx.rEngine.PushObj(Edit(aCtx, l_aelCustomEditForm));
 end;//TkwElCustomEditFormEdit.DoDoIt
 
-class function TkwElCustomEditFormEdit.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TelCustomEditForm.Edit';
-end;//TkwElCustomEditFormEdit.GetWordNameForRegister
-
 procedure TkwElCustomEditFormEdit.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -155,6 +151,11 @@ function TkwElCustomEditFormEdit.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TelCustomEditForm)]);
 end;//TkwElCustomEditFormEdit.ParamsTypes
+
+class function TkwElCustomEditFormEdit.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TelCustomEditForm.Edit';
+end;//TkwElCustomEditFormEdit.GetWordNameForRegister
 
 initialization
  Tkw_Form_elCustomEdit.RegisterInEngine;

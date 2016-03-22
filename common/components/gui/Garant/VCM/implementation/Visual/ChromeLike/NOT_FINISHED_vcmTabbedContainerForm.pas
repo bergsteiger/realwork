@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmTabbedContainerForm;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_FINISHED_vcmTabbedContainerForm.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvcmTabbedContainerForm" MUID: (534F69E702D9)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
@@ -170,14 +171,14 @@ uses
  , ChromeLikeTabParams
  , vcmFormSetHistory
  , vcmMainMenuBuilder
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , vcmMenuManager
  , vcmFormsUtils
  , SysUtils
  , vcmForm
  , vcmMessages
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type _Instance_R_ = TvcmTabbedContainerForm;

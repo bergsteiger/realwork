@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Sortable.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3Sortable" MUID: (47B3245E0148)
+// Имя типа: "_l3Sortable_"
 
 {$Define l3Sortable_imp}
 
@@ -12,7 +14,7 @@ type
   private
    {$If NOT Defined(l3Items_NoSort)}
    f_Duplicates: Tl3Duplicates;
-    {* Поле для свойства Duplicates }
+    {* Как поступать с дубликатами. }
    {$IfEnd} // NOT Defined(l3Items_NoSort)
   private
    procedure Swap(var I1: _ItemType_;

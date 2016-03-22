@@ -1,9 +1,28 @@
 unit alcuPrime;
 { Обработка экспорта аннотаций для Прайма }
 
-{ $Id: alcuPrime.pas,v 1.12 2015/07/02 11:40:58 lukyanets Exp $ }
+{ $Id: alcuPrime.pas,v 1.18 2016/02/17 11:58:09 fireton Exp $ }
 
 // $Log: alcuPrime.pas,v $
+// Revision 1.18  2016/02/17 11:58:09  fireton
+// - корректно присваиваем статус задания
+//
+// Revision 1.17  2016/02/09 11:37:43  fireton
+// - не выливаем документы с меткой HANG
+//
+// Revision 1.16  2015/12/21 07:46:07  lukyanets
+// Несовпадение параметров
+//
+// Revision 1.15  2015/11/26 08:45:26  lukyanets
+// КОнстанты переехали
+//
+// Revision 1.14  2015/11/23 15:54:58  fireton
+// - статистика выливки прайма по annokind
+//
+// Revision 1.13  2015/11/11 13:17:41  fireton
+// - Нормальная диагностика ошибок при экспорте
+// - Считаем пустые документы, справки и аннотации правильно
+//
 // Revision 1.12  2015/07/02 11:40:58  lukyanets
 // Описываем словари
 //
@@ -175,6 +194,7 @@ interface
 
 Uses
  l3Base,
+ l3LongintList,
  classes,
  ht_Const,
  ddProgressObj,
@@ -203,6 +223,7 @@ type
   function MakeAnnotations(aFrom, aTo: TDateTime; out DocSab: ISab; out TodayList, AllDaysList, NamesList: TStrings): ISab;
   procedure SaveCurDocs(aSab: ISab);
   procedure MakeAnnodate(out StartDate, FinishDate: TDateTime);
+  function BuildAnnoStatistics(const aTopicList: Tl3LongintList): AnsiString;
  protected
   procedure CombineNames(aNamesList, aMissedNamesList: TStrings);
   procedure Cleanup; override;
@@ -228,14 +249,19 @@ implementation
 
 Uses
  SysUtils, DateUtils, Types,
- daTypes,
+ l3Filer,
+ daTypes, daSchemeConsts,
  dt_Const, dt_AttrSchema, dt_ImpExpTypes,
  dt_Dict, dt_Doc, dt_Serv, dt_Query, dt_SrchQueries,
- l3Stream, l3FileUtils, l3Types, l3Date,  l3LongintList,
+ dt_Link, dt_LinkServ, dt_Renum,
+ l3Stream, l3FileUtils, l3Types, l3Date,  
  ddUtils, ddAnnotations,  ddHTMLAnno,
  alcuStrings, alcuUtils,
- ht_dll, Forms, l3String, Math, l3ShellUtils, DT_LinkServ, csTaskTypes,
- StrUtils, dt_Utils, ddDocTypeDetector;
+ ht_dll, Forms, l3String, Math, l3ShellUtils, csTaskTypes,
+ StrUtils, dt_Utils, ddDocTypeDetector, ddPipeOutInterfaces,
+ ddAnnoKindStatisticList, ddAnnoKindStatisticListPrim, ddAnnoKindSortItem,
+ l3LongintListPrim, l3InterfaceList,
+ ddNSRCConst;
 
 function TalcuPrime.AnalyzeAnnoLog(aLogFileName: string): Boolean;
 begin
@@ -287,192 +313,237 @@ var
  l_TodayList, l_AllDaysList: TStrings;
  l_NamesList, l_MissedNamesList: TStrings;
  i: Integer;
+ l_AnnoList: AnsiString;
  l_FileName, l_ExportFolder: String;
  l_Attach: TStrings;
- l_Result: Integer;
+ l_Result: Cardinal;
  l_ExeName: String;
  l_Q: TdtDocListQuery;
+ l_Errors: TStringList;
+ l_FileNamePart: AnsiString;
+ l_LogFileName: AnsiString;
+ l_Filer : Tl3DOSFiler;
+ l_IsSuccess: Boolean;
+ l_ListFileName: AnsiString;
 begin
- f_TaskResult.IsSuccess := False;
- // Собственно аннотации
- MakeAnnodate(l_StartDate, l_FinishDate);
- l3System.Msg2Log('Экспорт Прайм с %s по %s', [DateToStr(l_StartDate), DateToStr(l_FinishDate)]);
- l_FileName := MakeAnnoFileName(SafeValidFolder(f_TaskParams.TargetFolder), l_FinishDate);
- if l_FileName = '' then
- begin
-  f_TaskResult.ReportMessage := 'Не задана группа документов, экспорт невозможен';
-  f_TaskResult.ReportSubject := SalcuRequestService_Eksportannotaciy;
-  f_TaskResult.NeedReport := f_TaskParams.eMailNotifyList <> '';
-  l3System.Msg2Log(f_TaskResult.ReportMessage);
- end
- else
- begin
-  l_NamesList := TStringList.Create;
-  try
-   l_MissedNamesList:= TStringList.Create;
+ l_Errors := TStringList.Create;
+ try
+  f_TaskResult.IsSuccess := False;
+  l_IsSuccess := False;
+  // Собственно аннотации
+  MakeAnnodate(l_StartDate, l_FinishDate);
+  l3System.Msg2Log('Экспорт Прайм с %s по %s', [DateToStr(l_StartDate), DateToStr(l_FinishDate)]);
+  l_FileName := MakeAnnoFileName(SafeValidFolder(f_TaskParams.TargetFolder), l_FinishDate);
+  l_LogFileName := l_FileName + '.log';
+  if l_FileName = '' then
+  begin
+   f_TaskResult.ReportMessage := 'Не задана группа документов, экспорт невозможен';
+   f_TaskResult.ReportSubject := SalcuRequestService_Eksportannotaciy;
+   f_TaskResult.NeedReport := f_TaskParams.eMailNotifyList <> '';
+   l3System.Msg2Log(f_TaskResult.ReportMessage);
+  end
+  else
+  begin
+   l_NamesList := TStringList.Create;
    try
-    // Загружаем предыдущие аннотации
-    if FileExists(MissedListFileName) then
-     l_MissedNamesList.LoadFromFile(MissedListFileName);
-    l_TodayList := TStringList.Create;
+    l_MissedNamesList:= TStringList.Create;
     try
-     l_AllDaysList := TStringList.Create;
+     // Загружаем предыдущие аннотации
+     if FileExists(MissedListFileName) then
+      l_MissedNamesList.LoadFromFile(MissedListFileName);
+     l_TodayList := TStringList.Create;
      try
-      {$IFDEF DEBUG_PRIME}
-      (* ОТЛАДОЧНЫЙ КОД *)
-      l_Q := TdtDocListQuery.Create;
+      l_AllDaysList := TStringList.Create;
       try
-       l_Q.AddID(949216);
-       tmpSab := l_Q.GetDocIdList;
-      finally
-       FreeAndNil(l_Q);
-      end;
-      {$ELSE}
-      tmpSab:= MakeAnnotations(l_StartDate, l_FinishDate, tmpSab2, l_TodayList, l_AllDaysList, l_NamesList);
-      if f_Aborted then
-        Exit;
-      {$ENDIF}
-      CombineNames(l_NamesList, l_MissedNamesList);
-      if (tmpSab.Count > 0) and not f_Aborted then
-      begin
-       with TddAnnotationPipe.Create do
+       {$IFDEF DEBUG_PRIME}
+       (* ОТЛАДОЧНЫЙ КОД *)
+       l_Q := TdtDocListQuery.Create;
        try
-        f_PipeToAbort := Pipe;
-        Pipe.Family:= CurrentFamily;
-        Pipe.DocSab:= tmpSab;
-        Pipe.ExportDocTypes:= [dtAnnotation];
-        Pipe.ExportDirectory:= SafeValidFolder(f_TaskParams.TargetFolder);
-        //ForceDirectories(Pipe.ExportDirectory);
-        FileName := l_FileName;
-        Pipe.Progressor := aProgressor;
-        Execute;
-        if f_Aborted then
-          Exit;
-        l_ExeName:= f_TaskParams.ExternalProcessor;
-        if l_ExeName <> '' then
-         l_Result:= FileExecuteWait(l_ExeName,
-                                    f_TaskParams.OutFolder,
-                                    ExtractFileDir(l_ExeName),  esMinimized)
-        else
-         l_Result:= 0;
-        if l_Result <> 0 then
-         l3System.Msg2Log('Ошибка %d выполнения файла %s', [l_Result, l_ExeName]);
-        f_TaskResult.IsSuccess := (l_Result = 0) and AnalyzeAnnoLog(l_FileName + '.log') and not f_Aborted;
-        if f_TaskResult.IsSuccess then
-        begin
-         DateTimeToString(l_DateStr, SalcuRequestService_HNn, Now);
-         l_Msg := SysUtils.Format(SalcuRequestService_Zdravstvuytedorogiepol_zovateli+
-                         SalcuRequestService_Speshuuvedomit_toannotaciikolies,
-                         [Pipe.TopicDone, l_DateStr]);
-         // Добавляем список аннотаций
-         l_Msg:= l_Msg + #13#10'Список аннотаций'#13#10;
-         for i:= 0 to Pipe.TopicsList.Hi do
-          l_Msg:= l_Msg + IntToStr(Pipe.TopicsList[i]) + #13#10;
-         l_Msg:= l_Msg + #13#10;
+        l_Q.AddID(24825905);
+        tmpSab := l_Q.GetDocIdList;
+        tmpSab2 := MakeSabCopy(tmpSab);
+       finally
+        FreeAndNil(l_Q);
+       end;
+       {$ELSE}
+       tmpSab:= MakeAnnotations(l_StartDate, l_FinishDate, tmpSab2, l_TodayList, l_AllDaysList, l_NamesList);
+       if f_Aborted then
+         Exit;
+       {$ENDIF}
+       CombineNames(l_NamesList, l_MissedNamesList);
+       if (tmpSab.Count > 0) and not f_Aborted then
+       begin
+        with TddAnnotationPipe.Create do
+        try
+         f_PipeToAbort := Pipe;
+         Pipe.Family:= CurrentFamily;
+         Pipe.DocSab:= tmpSab;
+         Pipe.ExportDocTypes:= [dtAnnotation];
+         Pipe.ExportDirectory:= SafeValidFolder(f_TaskParams.TargetFolder);
+         //ForceDirectories(Pipe.ExportDirectory);
+         FileName := l_FileName;
+         Pipe.Progressor := aProgressor;
+         Execute;
+         if f_Aborted then
+           Exit;
 
-         if f_TaskParams.PrimeRobotEMail <> '' then
+         l_ExeName:= f_TaskParams.ExternalProcessor;
+
+         if l_ExeName <> '' then
+          l_Result:= FileExecuteWait(l_ExeName,
+                                     f_TaskParams.OutFolder,
+                                     ExtractFileDir(l_ExeName),  esMinimized)
+         else
+          l_Result:= 0;
+         if l_Result <> 0 then
          begin
-          f_TaskResult.NeedSendToRobot := True;
+          l_Msg := Format('Ошибка %d выполнения файла %s', [l_Result, l_ExeName]);
+          l3System.Msg2Log(l_Msg);
+          l_Errors.Add(l_Msg);
+         end;
+
+         l_IsSuccess := (l_Result = 0) and (ErrorList.Count = 0) and AnalyzeAnnoLog(l_LogFileName) and not f_Aborted;
+
+         if l_IsSuccess then
+         begin
+          DateTimeToString(l_DateStr, SalcuRequestService_HNn, Now);
+          l_Msg := SysUtils.Format(SalcuRequestService_Zdravstvuytedorogiepol_zovateli+
+                          SalcuRequestService_Speshuuvedomit_toannotaciikolies,
+                          [Pipe.TopicDone, l_DateStr]);
+          // Добавляем список аннотаций
+          l_Msg:= l_Msg + #13#10'Список аннотаций'#13#10;
+          //l_Result := Pipe.TopicsList[1];
+          l_AnnoList := BuildAnnoStatistics(Pipe.TopicsList);
+
+          l_Msg:= l_Msg + l_AnnoList + #13#10;
+
+          if f_TaskParams.PrimeRobotEMail <> '' then
+          begin
+           f_TaskResult.NeedSendToRobot := True;
+           l_Attach:= TStringList.Create;
+           try
+            l_FileNamePart := ExtractFileName(l_FileName);
+            if l_ExeName <> '' then
+             if l3IsRelativePath(f_TaskParams.OutFolder) then
+              l_Attach.Add(ConcatDirName(ConcatDirName(ExtractFileDir(l_ExeName), f_TaskParams.OutFolder), l_FileNamePart))
+             else
+              l_Attach.Add(ConcatDirName(f_TaskParams.OutFolder, l_FileNamePart))
+            else
+             l_Attach.Add(ConcatDirName(Pipe.ExportDirectory, l_FileNamePart));
+            l_ListFileName := ConcatDirName(Pipe.ExportDirectory, ChangeFileExt(l_FileNamePart, '.lst'));
+            l_Filer := Tl3DOSFiler.Make(l_ListFileName, l3_fmWrite);
+            try
+             l_Filer.Open;
+             l_Filer.WriteLn(l_AnnoList);
+            finally
+             FreeAndNil(l_Filer);
+            end;
+            l_Attach.Add(l_ListFileName);
+            f_TaskResult.RobotAttach := l_Attach.Text;
+            f_TaskResult.RobotMessage := Format('Прайм с %s по %s', [DateToStr(l_StartDate), DateToStr(l_FinishDate)]);
+           finally
+            l3Free(l_Attach);
+           end;
+          end; // f_TaskParams.PrimeRobotEMail <> ''
+         end
+         else // l_IsSuccess
+         begin
           l_Attach:= TStringList.Create;
           try
-           if l_ExeName <> '' then
-            if l3IsRelativePath(f_TaskParams.OutFolder) then
-             l_Attach.Add(ConcatDirName(ConcatDirName(ExtractFileDir(l_ExeName), f_TaskParams.OutFolder), ExtractFileName(l_FileName)))
-            else
-             l_Attach.Add(ConcatDirName(f_TaskParams.OutFolder, ExtractFileName(l_FileName)))
-           else
-            l_Attach.Add(ConcatDirName(Pipe.ExportDirectory, ExtractFileName(l_FileName)));
-           f_TaskResult.RobotAttach := l_Attach.Text;
-           f_TaskResult.RobotMessage := Format('Прайм с %s по %s', [DateToStr(l_StartDate), DateToStr(l_FinishDate)]);
+           l_Msg := 'Во время экспорта аннотаций произошли ошибки.'#13#10#13#10;
+           if l_Errors.Count > 0 then
+            l_Msg := l_Msg + l_Errors.Text + #13#10#13#10;
+           if ErrorList.Count > 0 then
+            l_Msg := l_Msg + ErrorList.Text + #13#10#13#10;
+           if FileExists(l_LogFileName) then
+           begin
+            l_Attach.Add(l_LogFileName);
+            f_TaskResult.ReportAttach := l_Attach.Text;
+            l_Msg := l_Msg + 'Лог с ошибками - во вложении.';
+           end;
+           f_TaskResult.ReportSubject := 'ОШИБКИ экспорта аннотаций';
+           f_TaskResult.NeedReport := f_TaskParams.eMailNotifyList <> '';
+           f_TaskResult.ReportMessage := l_Msg;
           finally
-           l3Free(l_Attach);
+           l3Free(l_attach);
           end;
-         end; // f_TaskParams.PrimeRobotEMail <> ''
-        end
-        else
-        begin
-         l_Attach:= TStringList.Create;
-         try
-          l_Attach.Add(l_FileName + '.log');
+         end; // SizeofFile(aLogFileName) > 0
 
-          f_TaskResult.ReportMessage := 'Ошибки оформления подключенных аннотаций во вложении';
-          f_TaskResult.ReportSubject := 'Ошибки аннотаций';
-          f_TaskResult.NeedReport := f_TaskParams.eMailNotifyList <> '';
-          f_TaskResult.ReportAttach := l_Attach.Text;
-         finally
-          l3Free(l_attach);
-         end;
-        end; // SizeofFile(aLogFileName) > 0
-
-       finally
-        f_PipeToAbort := nil;
-        Free;
+        finally
+         f_PipeToAbort := nil;
+         Free;
+        end;
+       end
+       else
+       begin
+        l_Msg := SalcuRequestService_Spriskorbiemsoobtshayutonebyloek;
+        if f_Aborted then
+          l_Msg := l_Msg + 'Процесс прерван.';
+        Tl3FileStream.Create(l_FileName, l3_fmWrite).Free;
+        l3System.Msg2Log(l_Msg);
+        f_TaskResult.ReportMessage := l_Msg;
+        f_TaskResult.ReportSubject := 'Экспорт завершился почти успешно';
+        f_TaskResult.NeedReport := f_TaskParams.eMailNotifyList <> '';
        end;
-      end
-      else
-      begin
-       l_Msg := SalcuRequestService_Spriskorbiemsoobtshayutonebyloek;
-       if f_Aborted then
-         l_Msg := l_Msg + 'Процесс прерван.';
-       Tl3FileStream.Create(l_FileName, l3_fmWrite).Free;
-       l3System.Msg2Log(l_Msg);
-       f_TaskResult.ReportMessage := l_Msg;
-       f_TaskResult.ReportSubject := 'Экспорт завершился почти успешно';
-       f_TaskResult.NeedReport := f_TaskParams.eMailNotifyList <> '';
+       if f_TaskParams.ExportDocuments then
+       begin
+        // Добавить к l_Msg списки документов
+        if l_TodayList.Count > 0 then
+         l_Msg := l_Msg  + #13#10#13#10'К сожалению, сегодня не закончена обработка следующих документов:'#13#10#13#10 + l_TodayList.Text;
+        if l_AlldaysList.Count > 0 then
+         l_Msg := l_Msg  + #13#10#13#10'Ожидают завершения обработки следующие документы:'#13#10#13#10 + l_AllDaysList.Text;
+       end; // f_TaskParams.ExportDocuments
+      finally
+       l3Free(l_AllDaysList);
       end;
+     finally
+      l3Free(l_TodayList);
+     end;
+
+     if l_IsSuccess then
+     begin
       if f_TaskParams.ExportDocuments then
       begin
-       // Добавить к l_Msg списки документов
-       if l_TodayList.Count > 0 then
-        l_Msg := l_Msg  + #13#10#13#10'К сожалению, сегодня не закончена обработка следующих документов:'#13#10#13#10 + l_TodayList.Text;
-       if l_AlldaysList.Count > 0 then
-        l_Msg := l_Msg  + #13#10#13#10'Ожидают завершения обработки следующие документы:'#13#10#13#10 + l_AllDaysList.Text;
-      end; // f_TaskParams.ExportDocuments
-     finally
-      l3Free(l_AllDaysList);
-     end;
-    finally
-     l3Free(l_TodayList);
-    end;
-    if f_TaskResult.IsSuccess then
-    begin
-     if f_TaskParams.ExportDocuments then
-     begin
-      if f_Aborted then
-        Exit;
-      l3System.Msg2Log('Экспорт аннотаций на сайт');
-      ExportAnnos(tmpSab, aProgressor, l_NamesList, l_MissedNamesList);
-      if l_MissedNamesList.Count > 0 then
-       l_MissedNamesList.SaveToFile(MissedListFileName);
-      // Экспорт документов от аннотаций
-      l3System.Msg2Log('Экспорт документов от аннотаций');
-      if f_Aborted then
-        Exit;
-      if not ExportDocsOnAnno(tmpSab2, aProgressor) then
-       l_Msg := l_Msg + #13#10#13#10'К сожалению, документы не попали на сервер Прайма'
-      else
-      begin
-       l_FileName := f_TaskParams.DocListFileName;
-       // Проверить доступность папки
-       l_ExportFolder := SafeValidFolder(f_TaskParams.DocListFolder);
-       if l_FileName <> '' then
-        l_FileName := ConcatDirName(l_ExportFolder, l_FileName);
-       if l_FileName <> '' then
-        l_NamesList.SaveToFile(l_FileName);
+       if f_Aborted then
+         Exit;
+       l3System.Msg2Log('Экспорт аннотаций на сайт');
+       //raise EAccessViolation.Create('test');
+       ExportAnnos(tmpSab, aProgressor, l_NamesList, l_MissedNamesList);
+       if l_MissedNamesList.Count > 0 then
+        l_MissedNamesList.SaveToFile(MissedListFileName);
+       // Экспорт документов от аннотаций
+       l3System.Msg2Log('Экспорт документов от аннотаций');
+       if f_Aborted then
+         Exit;
+       if not ExportDocsOnAnno(tmpSab2, aProgressor) then
+        l_Msg := l_Msg + #13#10#13#10'К сожалению, документы не попали на сервер Прайма'
+       else
+       begin
+        l_FileName := f_TaskParams.DocListFileName;
+        // Проверить доступность папки
+        l_ExportFolder := SafeValidFolder(f_TaskParams.DocListFolder);
+        if l_FileName <> '' then
+         l_FileName := ConcatDirName(l_ExportFolder, l_FileName);
+        if l_FileName <> '' then
+         l_NamesList.SaveToFile(l_FileName);
+       end;
       end;
-     end;
-     // Отправка письма
-     f_TaskResult.ReportMessage := l_Msg;
-     f_TaskResult.ReportSubject := SalcuRequestService_Eksportannotaciy;
-     f_TaskResult.NeedReport := f_TaskParams.eMailNotifyList <> '';
-     f_TaskResult.NextDate := IncDay(l_FinishDate);
-    end; // Result
+      // Отправка письма
+      f_TaskResult.ReportMessage := l_Msg;
+      f_TaskResult.ReportSubject := SalcuRequestService_Eksportannotaciy;
+      f_TaskResult.NeedReport := f_TaskParams.eMailNotifyList <> '';
+      f_TaskResult.NextDate := IncDay(l_FinishDate);
+     end; // Result
+     f_TaskResult.IsSuccess := l_IsSuccess;
+    finally
+     FreeAndNil(l_MissedNamesList);
+    end;
    finally
-    FreeAndNil(l_MissedNamesList);
+    l3Free(l_NamesList);
    end;
-  finally
-   l3Free(l_NamesList);
   end;
+ finally
+  FreeAndNil(l_Errors);
  end;
 end;
 
@@ -604,7 +675,7 @@ begin
   f_TaskParams.BelongsIDList.ToList(l_List);
   if (l_List <> nil) and not l_List.Empty then
   begin
-   l_BelongsStr:= DictServer(CurrentFamily).Dict[da_dlBases].GetShortName(l_List.Items[0]);
+   l_BelongsStr := DictServer(CurrentFamily).Dict[da_dlBases].GetShortName(l_List.Items[0]);
    Result := ConcatDirName(aFolder, l_DateStr + '_' + l_BelongsStr + SalcuRequestService_Nsr);
   end
   else
@@ -670,6 +741,11 @@ begin
   finally
    FreeAndNil(l_List);
   end;
+
+  // Выкидываем доки с меткой "зависших"
+  l_Q := TdtStatusMaskQuery.Create(dstatHang);
+  SQNot(l_Q);
+  TdtAndQuery(l_Anno).AddQueryF(l_Q);
 
   Result := MakeSabCopy(l_Anno.FoundList);
   Result.ValuesOfKey(fId_Fld); // это не криво ли? Потом все равно превращается в RES_RECORD...
@@ -1059,6 +1135,93 @@ begin
   f_Aborted := True;
   if Assigned(f_PipeToAbort) then
     f_PipeToAbort.Aborted := True;
+end;
+
+function TalcuPrime.BuildAnnoStatistics(const aTopicList: Tl3LongintList): AnsiString;
+type
+ PACRec = ^TACRec;
+ TACRec = packed record
+  rDocID : TDocID;
+  rDictID: TDictID;
+ end;
+var
+ I, J: Integer;
+ l_DropList: Tl3LongintList;
+ l_Sab1, l_Sab2: ISab;
+ l_JSab: IJoinSab;
+ l_SC : ISabCursor;
+ l_Rec: PACRec;
+ l_Idx: Integer;
+ l_StatList: TddAnnoKindStatisticList;
+ l_StatItem: IddAnnoKindSortItem;
+ l_Name : AnsiString;
+ l_RTbl, l_LTbl : ITblInfo;
+begin
+ Result := '';
+ l_StatList := TddAnnoKindStatisticList.MakeSorted;
+ try
+  l_RTbl := LinkServer(CurrentFamily).Renum;
+  l_LTbl := LinkServer(CurrentFamily).Attribute[atAnnoClasses];
+  l_Sab1 := MakeValueSet(l_RTbl, rnImportID_fld, aTopicList);
+  l_Sab1.RecordsByKey;
+  l_Sab2 := MakeAllRecords(l_LTbl);
+  l_JSab := MakeJoinSab(l_Sab1, rnRealID_fld, l_Sab2, lnkDocIDFld);
+  l_Sab1 := nil;
+  l_Sab2 := nil;
+  l_JSab.SortJoin([JFRec(l_RTbl, rnImportID_fld)]);
+  l_SC := l_JSab.MakeJoinSabCursor([JFRec(l_RTbl, rnImportID_fld), JFRec(l_LTbl, lnkDictIDFld)]);
+  l_DropList := Tl3LongintList.MakeSorted;
+  try
+   for I := 0 to l_SC.Count-1 do
+   begin
+    l_Rec := l_SC.GetItem(I);
+    if l_DropList.IndexOf(l_Rec.rDictID) < 0 then
+    begin
+     // в списке отвергнутых этого DictID нет, проверяем в списке статистики
+     if l_StatList.FindData(l_Rec.rDictID, l_Idx) then
+      l_StatItem := l_StatList.Items[l_Idx]
+     else
+     begin
+      // этот элемент словаря раньше не попадался, надо его проанализировать
+      l_Name := DictServer(CurrentFamily).Dict[da_dlAnnoClasses].GetFullDictItemName(l_Rec.rDictID, False);
+      if AnsiStartsText(class_AnnoKind, l_Name) then
+      begin
+       // это новый ANNOKIND, надо создать свежий элемент статистики
+       Delete(l_Name, 1, Length(class_AnnoKind)); // обрезаем имя
+       l_StatItem := TddAnnoKindSortItem.Make(l_Name, l_Rec.rDictID);
+       l_StatList.Add(l_StatItem);
+      end
+      else
+      begin
+       // это не ANNOKIND, заносим в список отвергнутых ID и продолжаем обработку
+       l_DropList.Add(l_Rec.rDictID);
+       Continue;
+      end;
+      
+     end;
+     // добавляем DocID к списку элемента статистики
+     l_StatItem.Add(l_Rec.rDocID);
+    end;
+   end;
+  finally
+   FreeAndNil(l_DropList);
+  end;
+  // Статистика собрана, теперь выводим её
+  l_StatList.SortIndex := dd_siByName; // сортируем по имени ANNOKIND-ов
+  for I := 0 to l_StatList.Hi do
+  begin
+   l_StatItem := l_StatList.Items[I];
+   l_Name := Format('%s (%d):', [l3Str(l_StatItem.Name), l_StatItem.Count]);
+   if Result <> '' then
+    Result := Result + #13#10#13#10 + l_Name
+   else
+    Result := l_Name;
+   for J := 0 to l_StatItem.Count-1 do
+    Result := Result + Format(#13#10' %d', [l_StatItem.Topics[J]]);
+  end;
+ finally
+  FreeAndNil(l_StatList);
+ end;
 end;
 
 end.

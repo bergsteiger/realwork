@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithRedactions.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "WorkWithRedactions" MUID: (4A7B03ED01E3)
+// Имя типа: "_WorkWithRedactions_"
 
 {$Define WorkWithRedactions_imp}
 

@@ -2,6 +2,7 @@ unit K465700807;
 
 // Модуль: "w:\archi\source\projects\ImportExportTest\K465700807.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TK465700807" MUID: (51CC0A110114)
 
 {$Include w:\archi\source\projects\ImportExportTest.inc}
 

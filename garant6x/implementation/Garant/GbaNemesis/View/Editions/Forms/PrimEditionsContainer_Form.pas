@@ -112,11 +112,6 @@ type
    function MakePrefixedCaption(const aPrefixStr: Il3CString;
      aShort: Boolean = True): Il3CString;
  protected
- // property methods
-   function pm_GetBackgroundPanel: TvtProportionalPanel;
-   function pm_GetPnLeft: TvtSizeablePanel;
-   function pm_GetPnRight: TvtPanel;
- protected
  // realized methods
    procedure Edition_PrevChange_Test(const aParams: IvcmTestParamsPrim);
      {* Предыдущее изменение }
@@ -166,11 +161,11 @@ type
  public
  // public properties
    property BackgroundPanel: TvtProportionalPanel
-     read pm_GetBackgroundPanel;
+     read f_BackgroundPanel;
    property pnLeft: TvtSizeablePanel
-     read pm_GetPnLeft;
+     read f_pnLeft;
    property pnRight: TvtPanel
-     read pm_GetPnRight;
+     read f_pnRight;
  end;//TPrimEditionsContainerForm
 
  TvcmContainerFormRef = TPrimEditionsContainerForm;
@@ -391,27 +386,6 @@ begin
   Result := nil;
 //#UC END# *54630D2702E1_4A6EC0D0020C_impl*
 end;//TPrimEditionsContainerForm.MakePrefixedCaption
-
-function TPrimEditionsContainerForm.pm_GetBackgroundPanel: TvtProportionalPanel;
-begin
- if (f_BackgroundPanel = nil) then
-  f_BackgroundPanel := FindComponent('BackgroundPanel') As TvtProportionalPanel;
- Result := f_BackgroundPanel;
-end;
-
-function TPrimEditionsContainerForm.pm_GetPnLeft: TvtSizeablePanel;
-begin
- if (f_pnLeft = nil) then
-  f_pnLeft := FindComponent('pnLeft') As TvtSizeablePanel;
- Result := f_pnLeft;
-end;
-
-function TPrimEditionsContainerForm.pm_GetPnRight: TvtPanel;
-begin
- if (f_pnRight = nil) then
-  f_pnRight := FindComponent('pnRight') As TvtPanel;
- Result := f_pnRight;
-end;
 
 procedure TPrimEditionsContainerForm.Sync(const aPara: TnsParaCoord);
 //#UC START# *4A79AB290196_4A6EC0D0020C_var*
@@ -639,10 +613,19 @@ end;
 procedure TPrimEditionsContainerForm.MakeControls;
 begin
  inherited;
- with DefineZone(vcm_ztChild, pnLeft) do
+ f_BackgroundPanel := TvtProportionalPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_pnLeft := TvtSizeablePanel.Create(Self);
+ f_pnLeft.Name := 'pnLeft';
+ f_pnLeft.Parent := BackgroundPanel;
+ with DefineZone(vcm_ztChild, f_pnLeft) do
  begin
  end;//with DefineZone(vcm_ztChild, f_pnLeft)
- with DefineZone(vcm_ztMain, pnRight) do
+ f_pnRight := TvtPanel.Create(Self);
+ f_pnRight.Name := 'pnRight';
+ f_pnRight.Parent := BackgroundPanel;
+ with DefineZone(vcm_ztMain, f_pnRight) do
  begin
  end;//with DefineZone(vcm_ztMain, f_pnRight)
  with AddUsertype(utEditionsContainerName,

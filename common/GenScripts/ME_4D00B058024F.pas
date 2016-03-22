@@ -3,6 +3,7 @@ unit l3FrameLinesSpy;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3FrameLinesSpy.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3FrameLinesSpy" MUID: (4D00B058024F)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

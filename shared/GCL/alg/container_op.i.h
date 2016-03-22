@@ -68,22 +68,6 @@ _C& normalize (const _C& base, _C& target, bool with_back) {
 
 	return target;
 };
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// for std::set
-
-template <class _Key, class _Compare, class _Allocator>
-std::set<_Key, _Compare, _Allocator>& merge (
-	std::set<_Key, _Compare, _Allocator>& cont
-	, const std::set<_Key, _Compare, _Allocator>& operand
-) {
-	for (std::set<_Key, _Compare, _Allocator>::iterator it = operand.begin(); it != operand.end(); it++) {
-		if (cont.find(*it) == cont.end()) {
-			cont.insert(*it);
-		}
-	}
-	return cont;
-}
 //#UC END# *450130B00213*
 
 } // namespace GCL

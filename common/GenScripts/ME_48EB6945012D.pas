@@ -2,6 +2,7 @@ unit evReaderDataObject;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evReaderDataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevReaderDataObject" MUID: (48EB6945012D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

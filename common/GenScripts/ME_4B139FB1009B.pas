@@ -2,6 +2,7 @@ unit nsCachedEventsProcessor;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsCachedEventsProcessor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsCachedEventsProcessor" MUID: (4B139FB1009B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

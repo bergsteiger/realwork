@@ -2,6 +2,7 @@ unit tfwParserTokenListTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\tfwParserTokenListTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TtfwParserTokenListTest" MUID: (55784B4C022C)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

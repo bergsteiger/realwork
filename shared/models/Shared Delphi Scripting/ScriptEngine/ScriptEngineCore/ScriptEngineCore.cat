@@ -47,6 +47,14 @@
 	(object Attribute
 	    tool       	"MDA Generator"
 	    name       	"SourceType (pas.script)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script.runner)"
+	    value      	"w:/shared/models/NewSchool/Scripts/4F7338A800A7.pas.ms.script.runner")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script.runner)"
 	    value      	"file"))
     quid       	"4F7338A800A7"
     stereotype 	"Unit"
@@ -138,7 +146,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (intf.pas)"
-		    value      	"w:/common/components/rtl/Garant/ScriptEngine/tfwValueStack.pas")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (intf.pas)"
@@ -150,10 +158,18 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (pas.script)"
-		    value      	"w:/shared/models/NewSchool/Scripts/4DB009CF0103.pas.ms.script")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (pas.script)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script.runner)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script.runner)"
 		    value      	"file"))
 	    quid       	"4DB009CF0103"
 	    documentation 	"Ñòåê ïåðåìåííûõ. Ñþäà ïîìåùàþòñÿ/âûâîäÿòñÿ ïåðåìåííûå ïðè èñïîëíåíèè ñêðèïòà."
@@ -477,7 +493,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (intf.pas)"
-		    value      	"w:/common/components/rtl/Garant/ScriptEngine/tfwScriptEnginePrim.pas")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (intf.pas)"
@@ -549,7 +565,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (pas.script)"
-		    value      	"w:/shared/models/NewSchool/Scripts/4F733A0701F0.pas.ms.script")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (pas.script)"
@@ -557,7 +573,15 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"NESTED GENERATED FILES (pas.script)"
-		    value      	"w:/shared/models/NewSchool/Scripts/0E35F4A13373.pas.ms.script::0E35F4A13373;w:/shared/models/NewSchool/Scripts/1232EFF702C0.pas.ms.script::1232EFF702C0;w:/shared/models/NewSchool/Scripts/9D70F200F25F.pas.ms.script::9D70F200F25F"))
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script.runner)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script.runner)"
+		    value      	"file"))
 	    quid       	"4F733A0701F0"
 	    stereotype 	"SimpleClass"
 	    superclasses 	(list inheritance_relationship_list
@@ -1307,7 +1331,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*4F733B9C0064_4F733A0701F0_impl*"
-			    value      	(value Text "//#UC START# *4F733B9C0064_4F733A0701F0_impl*¤ Assert(f_UserDictionary = nil);¤ {$IfDef seCacheDict}¤ if Self.CacheDict then¤  ValidateCode;¤ {$EndIf seCacheDict}¤ f_UserDictionary := nil;¤ try¤  f_Dictionaries := TtfwDictionaryList.Create;¤  try¤   f_CascadeDict := true;¤   f_ScriptFileName := aStream.FileName;¤   l_N := TtfwCStringFactory.C(f_ScriptFileName);¤   l_NeedCompile := true;¤   {$IfDef seCacheDict}¤   if Self.CacheDict then¤   begin¤    l_D := TtfwMainDictionaryCache.Instance.FindDictionary(l_N);¤    if (l_D <> nil) then¤    begin¤     l_D.SetRefTo(f_MainDictionary);¤     l_NeedCompile := false;¤    end//l_D <> nil¤    else¤    begin¤     f_MainDictionary := TtfwMainDictionary.Create(aStream, [TtfwAutoregisteredDiction.Instance]);¤     TtfwMainDictionaryCache.Instance.Add(f_MainDictionary);¤    end;//l_D <> nil¤   end//Self.CacheDict¤   else¤   {$EndIf seCacheDict}¤    f_MainDictionary := TtfwMainDictionary.Create(aStream, [TtfwAutoregisteredDiction.Instance]);¤   try¤    f_MainDictionary.SetRefTo(f_UserDictionary);¤    f_Dictionaries.Add(f_MainDictionary);¤    if l_NeedCompile then¤     l_P := TtfwParser.Make(aStream)¤    else¤     l_P := nil;¤    try¤     l3FillChar(l_Ctx, SizeOf(l_Ctx));¤     l_Ctx.rCaller := aCaller;¤     l_Ctx.rEngine := Self;¤     l_Ctx.rParser := l_P;¤     l_Ctx.rCompiler := Self;¤     //l_Ctx.rCompiler := nil;¤     l_Ctx.rException := nil;¤     l_Ctx.rTypeInfo := TtfwWordInfoE.Instance;¤     l_Ctx.rStoredValuesStack := TtfwStoredValuesStack.Make;¤     l_Ctx.rStreamFactory := aStream;¤     try¤      if l_NeedCompile then¤      begin¤       try¤        try¤         l_Ctx.rKeyWords := Self;¤         try¤          try¤           Self.DoIt(l_Ctx);¤          except¤           ExceptionStackToLog;¤           {$IfDef seCacheDict}¤           if Self.CacheDict then¤            TtfwMainDictionaryCache.Instance.Remove(f_MainDictionary);¤           {$EndIf seCacheDict}¤           raise;¤          end;//try..except¤          if (l_Ctx.rEngine.ValuesCount <> 0) then¤           CompilerAssert(false,¤                  'Ïîñëå êîìïèëÿöèè ñòåê äîëæíåí áûòü ïóñòîé: ' +¤                  f_ScriptFileName +¤                  ' Âåðõíåå çíà÷åíèå ñòåêà: ' + l3Str(l_Ctx.rEngine.PopPrintable) +¤                  ' Îñòàâøååñÿ êîëè÷åñòâî ýëåìåíòîâ: ' + IntToStr(l_Ctx.rEngine.ValuesCount),¤                  l_Ctx);¤         finally¤          l_Ctx.rKeyWords := nil;¤         end;//try..finally¤        finally¤         l_P := nil;¤        end;//try..finally¤¤        FreeAndNil(f_ExceptionStack);¤       finally¤        try¤         l_Ctx.rParser := nil;¤        finally¤         aStream.CloseStream;¤        end;//try..finally ¤       end;//try..finally¤      end;//l_NeedCompile¤      try¤       if not aCaller.CompileOnly then¤       begin¤        Tl3ScriptService.Instance.EnterScript;¤        try¤         Self.RunCompiled(l_Ctx);¤        finally¤         Tl3ScriptService.Instance.LeaveScript;¤        end;//try..finally ¤       end;//not aCaller.CompileOnly¤      except¤       on EtfwExit do¤        ;¤       on EtfwHalt do¤        ;¤       else¤       begin¤        FailToLog;¤        raise;¤       end;//else¤      end;//try..except¤      if (l_Ctx.rEngine.ValuesCount <> 0) then¤       RunnerError(¤              'Ïîñëå âûïîëíåíèÿ ñòåê äîëæíåí áûòü ïóñòîé: ' +¤              f_ScriptFileName +¤              ' Âåðõíåå çíà÷åíèå ñòåêà: ' + l3Str(l_Ctx.rEngine.PopPrintable) +¤              ' Îñòàâøååñÿ êîëè÷åñòâî ýëåìåíòîâ: ' + IntToStr(l_Ctx.rEngine.ValuesCount + 1),¤              l_Ctx);¤¤     finally¤      try¤       l_Ctx.rEngine := nil;¤      finally¤       l_Ctx.rStoredValuesStack := nil¤      end;//try..finally¤     end;//try..finally¤    finally¤     l_P := nil;¤    end;//try..finally¤   finally¤    FreeAndNil(f_MainDictionary);¤   end;//try..finally¤  finally¤   FreeAndNil(f_Dictionaries);¤  end;//try..finally¤ finally¤  FreeAndNil(f_UserDictionary);¤ end;//try..finally¤//#UC END# *4F733B9C0064_4F733A0701F0_impl*"))
+			    value      	(value Text "//#UC START# *4F733B9C0064_4F733A0701F0_impl*¤ Assert(f_UserDictionary = nil);¤ {$IfNDef seDisableValidateCode}¤ {$IfDef seCacheDict}¤ if Self.CacheDict then¤  ValidateCode;¤ {$EndIf seCacheDict}¤ {$EndIf  seDisableValidateCode}¤ f_UserDictionary := nil;¤ try¤  f_Dictionaries := TtfwDictionaryList.Create;¤  try¤   f_ScriptFileName := aStream.FileName;¤   l_N := TtfwCStringFactory.C(f_ScriptFileName);¤   l_NeedCompile := true;¤   {$IfDef seCacheDict}¤   if Self.CacheDict AND not l3IsNil(l_N) then¤   begin¤    l_D := TtfwMainDictionaryCache.Instance.FindDictionary(l_N);¤    if (l_D <> nil) then¤    begin¤     l_D.SetRefTo(f_MainDictionary);¤     l_NeedCompile := false;¤    end//l_D <> nil¤    else¤    begin¤     f_MainDictionary := TtfwMainDictionary.Create(aStream, [TtfwAutoregisteredDiction.Instance]);¤     TtfwMainDictionaryCache.Instance.Add(f_MainDictionary);¤    end;//l_D <> nil¤   end//Self.CacheDict¤   else¤   {$EndIf seCacheDict}¤    f_MainDictionary := TtfwMainDictionary.Create(aStream, [TtfwAutoregisteredDiction.Instance]);¤   try¤    f_MainDictionary.SetRefTo(f_UserDictionary);¤    f_Dictionaries.Add(f_MainDictionary);¤    if l_NeedCompile then¤     l_P := TtfwParser.Make(aStream)¤    else¤     l_P := nil;¤    try¤     l3FillChar(l_Ctx, SizeOf(l_Ctx));¤     l_Ctx.rCaller := aCaller;¤     l_Ctx.rEngine := Self;¤     l_Ctx.rParser := l_P;¤     l_Ctx.rCompiler := Self;¤     //l_Ctx.rCompiler := nil;¤     l_Ctx.rException := nil;¤     l_Ctx.rTypeInfo := TtfwWordInfoE.Instance;¤     l_Ctx.rStoredValuesStack := TtfwStoredValuesStack.Make;¤     l_Ctx.rStreamFactory := aStream;¤     try¤      if l_NeedCompile then¤      begin¤       try¤        try¤         l_Ctx.rKeyWords := Self;¤         try¤          try¤           Self.DoIt(l_Ctx);¤          except¤           ExceptionStackToLog;¤           {$IfDef seCacheDict}¤           if Self.CacheDict then¤            TtfwMainDictionaryCache.Instance.Remove(f_MainDictionary);¤           {$EndIf seCacheDict}¤           raise;¤          end;//try..except¤          if (l_Ctx.rEngine.ValuesCount <> 0) then¤           CompilerAssert(false,¤                  'Ïîñëå êîìïèëÿöèè ñòåê äîëæíåí áûòü ïóñòîé: ' +¤                  f_ScriptFileName +¤                  ' Âåðõíåå çíà÷åíèå ñòåêà: ' + l3Str(l_Ctx.rEngine.PopPrintable) +¤                  ' Îñòàâøååñÿ êîëè÷åñòâî ýëåìåíòîâ: ' + IntToStr(l_Ctx.rEngine.ValuesCount),¤                  l_Ctx);¤         finally¤          l_Ctx.rKeyWords := nil;¤         end;//try..finally¤        finally¤         l_P := nil;¤        end;//try..finally¤¤        FreeAndNil(f_ExceptionStack);¤       finally¤        try¤         l_Ctx.rParser := nil;¤        finally¤         aStream.CloseStream;¤        end;//try..finally ¤       end;//try..finally¤      end;//l_NeedCompile¤      try¤       if not aCaller.CompileOnly then¤       begin¤        Tl3ScriptService.Instance.EnterScript;¤        try¤         Self.RunCompiled(l_Ctx);¤        finally¤         Tl3ScriptService.Instance.LeaveScript;¤        end;//try..finally ¤       end;//not aCaller.CompileOnly¤      except¤       on EtfwExit do¤        ;¤       on EtfwHalt do¤        ;¤       else¤       begin¤        FailToLog;¤        raise;¤       end;//else¤      end;//try..except¤      if (l_Ctx.rEngine.ValuesCount <> 0) then¤       RunnerError(¤              'Ïîñëå âûïîëíåíèÿ ñòåê äîëæíåí áûòü ïóñòîé: ' +¤              f_ScriptFileName +¤              ' Âåðõíåå çíà÷åíèå ñòåêà: ' + l3Str(l_Ctx.rEngine.PopPrintable) +¤              ' Îñòàâøååñÿ êîëè÷åñòâî ýëåìåíòîâ: ' + IntToStr(l_Ctx.rEngine.ValuesCount + 1),¤              l_Ctx);¤¤     finally¤      try¤       l_Ctx.rEngine := nil;¤      finally¤       l_Ctx.rStoredValuesStack := nil¤      end;//try..finally¤     end;//try..finally¤    finally¤     l_P := nil;¤    end;//try..finally¤   finally¤    FreeAndNil(f_MainDictionary);¤   end;//try..finally¤  finally¤   FreeAndNil(f_Dictionaries);¤  end;//try..finally¤ finally¤  FreeAndNil(f_UserDictionary);¤ end;//try..finally¤//#UC END# *4F733B9C0064_4F733A0701F0_impl*"))
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*4F733B9C0064_4DC90A1E03C2_var*"
@@ -1940,7 +1964,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (intf.pas)"
-		    value      	"w:/common/components/rtl/Garant/ScriptEngine/tfwStoredValuesStack.pas")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (intf.pas)"
@@ -1956,10 +1980,18 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (pas.script)"
-		    value      	"w:/shared/models/NewSchool/Scripts/4F49416600CB.pas.ms.script")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (pas.script)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script.runner)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script.runner)"
 		    value      	"file"))
 	    quid       	"4F49416600CB"
 	    stereotype 	"SimpleClass"
@@ -2255,7 +2287,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (intf.pas)"
-		    value      	"w:/common/components/rtl/Garant/ScriptEngine/seWordsInfo.pas")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (intf.pas)"
@@ -2263,10 +2295,18 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (pas.script)"
-		    value      	"w:/shared/models/NewSchool/Scripts/53E107920007.pas.ms.script")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (pas.script)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script.runner)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script.runner)"
 		    value      	"file"))
 	    quid       	"53E107920007"
 	    stereotype 	"UtilityPack"
@@ -2460,7 +2500,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (intf.pas)"
-		    value      	"w:/common/components/rtl/Garant/ScriptEngine/l3ScriptService.pas")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (intf.pas)"
@@ -2512,7 +2552,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (pas.script)"
-		    value      	"w:/shared/models/NewSchool/Scripts/5509AA5400EA.pas.ms.script")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (pas.script)"
@@ -2520,7 +2560,15 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"NESTED GENERATED FILES (pas.script)"
-		    value      	"w:/shared/models/NewSchool/Scripts/6BE52CB3FAAA.pas.ms.script::6BE52CB3FAAA;w:/shared/models/NewSchool/Scripts/9C233F68363D.pas.ms.script::9C233F68363D;w:/shared/models/NewSchool/Scripts/CCCC37E2A99B.pas.ms.script::CCCC37E2A99B;w:/shared/models/NewSchool/Scripts/DAC1F2DB132D.pas.ms.script::DAC1F2DB132D;w:/shared/models/NewSchool/Scripts/EC920DB7EE66.pas.ms.script::EC920DB7EE66"))
+		    value      	"w:/shared/models/NewSchool/Scripts/6BE52CB3FAAA.pas.ms.script::6BE52CB3FAAA;w:/shared/models/NewSchool/Scripts/DAC1F2DB132D.pas.ms.script::DAC1F2DB132D;w:/shared/models/NewSchool/Scripts/EC920DB7EE66.pas.ms.script::EC920DB7EE66")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script.runner)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script.runner)"
+		    value      	"file"))
 	    quid       	"5509AA5400EA"
 	    stereotype 	"Service"
 	    operations 	(list Operations
@@ -2596,7 +2644,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (intf.pas)"
-		    value      	"w:/common/components/rtl/Garant/ScriptEngine/tfwSourcePointList.pas")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (intf.pas)"
@@ -2612,10 +2660,18 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (pas.script)"
-		    value      	"w:/shared/models/NewSchool/Scripts/55648E420189.pas.ms.script")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (pas.script)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script.runner)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script.runner)"
 		    value      	"file"))
 	    quid       	"55648E420189"
 	    stereotype 	"SimpleClass"
@@ -2656,7 +2712,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (intf.pas)"
-		    value      	"w:/common/components/rtl/Garant/ScriptEngine/tfwScriptEngineExInterfaces.pas")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (intf.pas)"
@@ -2672,10 +2728,18 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (pas.script)"
-		    value      	"w:/shared/models/NewSchool/Scripts/55E9A8990116.pas.ms.script")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (pas.script)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script.runner)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script.runner)"
 		    value      	"file"))
 	    quid       	"55E9A8990116"
 	    stereotype 	"UtilityPack"
@@ -3268,48 +3332,6 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"ElementCreationOrder"
-		    value      	"1437565264476329"))
-	    quid       	"55AF814E0114"
-	    roles      	(list role_list
-		(object Role "f_CascadeDict"
-		    attributes 	(list Attribute_Set
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"AbstarctOperation"
-			    value      	"regular")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"ElementCreationOrder"
-			    value      	"1437565272159341")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"IsNative"
-			    value      	"false")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"SELF GENERATED FILE (pas.script)"
-			    value      	"")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"SourceType (pas.script)"
-			    value      	"file"))
-		    quid       	"55AF814F0290"
-		    label      	"f_CascadeDict"
-		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean"
-		    quidu      	"46A603BB0391"
-		    Containment 	"By Value"
-		    exportControl 	"Private"
-		    is_navigable 	TRUE)
-		(object Role "$UNNAMED$21"
-		    quid       	"55AF815001B4"
-		    supplier   	"Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwScriptEnginePrim"
-		    quidu      	"4F733A0701F0"
-		    is_aggregate 	TRUE)))
-	(object Association "$UNNAMED$22"
-	    attributes 	(list Attribute_Set
-		(object Attribute
-		    tool       	"MDA Generator"
-		    name       	"ElementCreationOrder"
 		    value      	"1437580065149583"))
 	    quid       	"55AFBB2001A3"
 	    roles      	(list role_list
@@ -3342,12 +3364,12 @@
 		    Containment 	"By Value"
 		    exportControl 	"Private"
 		    is_navigable 	TRUE)
-		(object Role "$UNNAMED$23"
+		(object Role "$UNNAMED$21"
 		    quid       	"55AFBB21008B"
 		    supplier   	"Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwScriptEnginePrim"
 		    quidu      	"4F733A0701F0"
 		    is_aggregate 	TRUE)))
-	(object Association "$UNNAMED$24"
+	(object Association "$UNNAMED$22"
 	    attributes 	(list Attribute_Set
 		(object Attribute
 		    tool       	"MDA Generator"
@@ -3423,11 +3445,11 @@
 		    supplier   	"Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionaryList"
 		    quidu      	"55A4E71403B3"
 		    is_navigable 	TRUE)
-		(object Role "$UNNAMED$25"
+		(object Role "$UNNAMED$23"
 		    quid       	"55E9A95F028F"
 		    supplier   	"Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::tfwScriptEngineExInterfaces::ItfwScriptEngineEx"
 		    quidu      	"55E9A8DB03A4")))
-	(object Association "$UNNAMED$26"
+	(object Association "$UNNAMED$24"
 	    attributes 	(list Attribute_Set
 		(object Attribute
 		    tool       	"MDA Generator"
@@ -3471,11 +3493,11 @@
 		    supplier   	"Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwInitedDictionariesList"
 		    quidu      	"55A53B44029F"
 		    is_navigable 	TRUE)
-		(object Role "$UNNAMED$27"
+		(object Role "$UNNAMED$25"
 		    quid       	"55E9A9930393"
 		    supplier   	"Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::tfwScriptEngineExInterfaces::ItfwScriptEngineEx"
 		    quidu      	"55E9A8DB03A4")))
-	(object Association "$UNNAMED$28"
+	(object Association "$UNNAMED$26"
 	    attributes 	(list Attribute_Set
 		(object Attribute
 		    tool       	"MDA Generator"
@@ -3551,11 +3573,11 @@
 		    supplier   	"Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwMainDictionary"
 		    quidu      	"55A0005D02CC"
 		    is_navigable 	TRUE)
-		(object Role "$UNNAMED$29"
+		(object Role "$UNNAMED$27"
 		    quid       	"55E9A9BA02C1"
 		    supplier   	"Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::tfwScriptEngineExInterfaces::ItfwScriptEngineEx"
 		    quidu      	"55E9A8DB03A4")))
-	(object Association "$UNNAMED$30"
+	(object Association "$UNNAMED$28"
 	    attributes 	(list Attribute_Set
 		(object Attribute
 		    tool       	"MDA Generator"
@@ -3631,7 +3653,7 @@
 		    supplier   	"Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::WordsList::TtfwWordRefList"
 		    quidu      	"4DB6CAC402B4"
 		    is_navigable 	TRUE)
-		(object Role "$UNNAMED$31"
+		(object Role "$UNNAMED$29"
 		    quid       	"55ED5976031C"
 		    supplier   	"Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::tfwScriptEngineExInterfaces::ItfwScriptEngineEx"
 		    quidu      	"55E9A8DB03A4"))))
@@ -3642,7 +3664,7 @@
 	    zoom       	100
 	    max_height 	28350
 	    max_width  	21600
-	    origin_x   	422
+	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::L3::StringUtils::l3String" @1
@@ -3664,25 +3686,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@1
-			location   	(1732, 991)
+			location   	(1747, 995)
 			nlines     	1
-			max_width  	328
+			max_width  	298
 			justify    	0
-			label      	"l3String")
+			label      	"• l3String")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@1
-			location   	(1732, 941)
+			location   	(1747, 945)
 			anchor     	10
 			nlines     	1
-			max_width  	325
+			max_width  	298
 			justify    	0
 			label      	"<<UtilityPack>>")
 		    icon_style 	"Label"
 		    line_color 	658175
 		    fill_color 	16777215
 		    quidu      	"47878E0E0191"
-		    width      	346
-		    height     	188
+		    width      	316
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::tfwScriptingInterfaces::ValueStack" @2
@@ -3704,25 +3726,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@2
-			location   	(348, 658)
+			location   	(385, 662)
 			nlines     	1
-			max_width  	480
+			max_width  	406
 			justify    	0
 			label      	"ValueStack")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@2
-			location   	(348, 608)
+			location   	(385, 612)
 			anchor     	10
 			nlines     	1
-			max_width  	480
+			max_width  	406
 			justify    	0
 			label      	"<<PureMixIn>>")
 		    icon_style 	"Label"
 		    line_color 	12615680
 		    fill_color 	16777215
 		    quidu      	"4DB048620395"
-		    width      	498
-		    height     	188
+		    width      	424
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::L3::l3CoreObjects::l3RecordListPrim" @3
@@ -3744,25 +3766,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@3
-			location   	(1629, 217)
+			location   	(1599, 221)
 			nlines     	1
-			max_width  	360
+			max_width  	420
 			justify    	0
-			label      	"l3RecordListPrim")
+			label      	"• l3RecordListPrim")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@3
-			location   	(1629, 167)
+			location   	(1599, 171)
 			anchor     	10
 			nlines     	1
-			max_width  	360
+			max_width  	420
 			justify    	0
 			label      	"<<Impurity>>")
 		    icon_style 	"Label"
 		    line_color 	9342520
 		    fill_color 	16777215
 		    quidu      	"4B223ADC02BF"
-		    width      	378
-		    height     	188
+		    width      	438
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::L3::l3CoreObjects::Tl3ProtoDataContainer" @4
@@ -3784,25 +3806,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@4
-			location   	(987, 199)
+			location   	(966, 203)
 			nlines     	1
-			max_width  	444
+			max_width  	486
 			justify    	0
-			label      	"Tl3ProtoDataContainer")
+			label      	"• Tl3ProtoDataContainer")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@4
-			location   	(987, 149)
+			location   	(966, 153)
 			anchor     	10
 			nlines     	1
-			max_width  	444
+			max_width  	486
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"4A54DD4E036F"
-		    width      	462
-		    height     	188
+		    width      	504
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::Array::TtfwValueList" @5
@@ -3829,7 +3851,7 @@
 			nlines     	1
 			max_width  	338
 			justify    	0
-			label      	"TtfwValueList")
+			label      	"• TtfwValueList")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@5
 			location   	(1040, 558)
@@ -3864,7 +3886,7 @@
 		    supplier   	@3
 		    vertices   	(list Points
 			(1347, 545)
-			(1661, 343))
+			(1668, 339))
 		    line_style 	0)
 		(object InheritView "" @7
 		    font       	(object Font
@@ -3884,7 +3906,7 @@
 		    supplier   	@4
 		    vertices   	(list Points
 			(1209, 545)
-			(1209, 325))
+			(1209, 321))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::tfwTypeInfo::TtfwStackValue" @8
 		    ShowCompartmentStereotypes 	TRUE
@@ -3905,24 +3927,24 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@8
-			location   	(421, 224)
+			location   	(422, 224)
 			nlines     	1
-			max_width  	328
+			max_width  	326
 			justify    	0
 			label      	"TtfwStackValue")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@8
-			location   	(421, 174)
+			location   	(422, 174)
 			anchor     	10
 			nlines     	1
-			max_width  	325
+			max_width  	326
 			justify    	0
 			label      	"<<StaticObject>>")
 		    icon_style 	"Label"
 		    line_color 	2313060
 		    fill_color 	16777215
 		    quidu      	"4DB00A510300"
-		    width      	346
+		    width      	344
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -4071,25 +4093,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@15
-			location   	(1430, 1474)
+			location   	(1443, 1478)
 			nlines     	1
-			max_width  	326
+			max_width  	300
 			justify    	0
 			label      	"Ml3Unknown")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@15
-			location   	(1430, 1424)
+			location   	(1443, 1428)
 			anchor     	10
 			nlines     	1
-			max_width  	326
+			max_width  	297
 			justify    	0
 			label      	"<<MixInMirror>>")
 		    icon_style 	"Label"
 		    line_color 	16711680
 		    fill_color 	16777215
 		    quidu      	"4A5CB93700CF"
-		    width      	344
-		    height     	188
+		    width      	318
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::tfwScriptingInterfaces::ItfwScriptEngine" @16
@@ -4150,7 +4172,7 @@
 		    supplier   	@2
 		    vertices   	(list Points
 			(393, 917)
-			(507, 784))
+			(510, 780))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::L3::l3CoreObjects::l3InterfaceRefListPrim" @18
 		    ShowCompartmentStereotypes 	TRUE
@@ -4171,14 +4193,14 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@18
-			location   	(3109, 739)
+			location   	(3109, 743)
 			nlines     	1
 			max_width  	436
 			justify    	0
 			label      	"l3InterfaceRefListPrim")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@18
-			location   	(3109, 689)
+			location   	(3109, 693)
 			anchor     	10
 			nlines     	1
 			max_width  	436
@@ -4189,7 +4211,7 @@
 		    fill_color 	16777215
 		    quidu      	"47B9AF6E0228"
 		    width      	454
-		    height     	188
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::tfwScriptingInterfaces::ItfwStoredValuesStack" @19
@@ -4211,14 +4233,14 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@19
-			location   	(2343, 256)
+			location   	(2343, 260)
 			nlines     	1
 			max_width  	450
 			justify    	0
 			label      	"ItfwStoredValuesStack")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@19
-			location   	(2343, 206)
+			location   	(2343, 210)
 			anchor     	10
 			nlines     	1
 			max_width  	450
@@ -4229,7 +4251,7 @@
 		    fill_color 	16777215
 		    quidu      	"4F4940D4029A"
 		    width      	468
-		    height     	188
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwStoredValuesStack" @20
@@ -4291,7 +4313,7 @@
 		    supplier   	@4
 		    vertices   	(list Points
 			(2355, 673)
-			(1440, 319))
+			(1445, 321))
 		    line_style 	0)
 		(object InheritView "" @22
 		    font       	(object Font
@@ -4331,7 +4353,7 @@
 		    supplier   	@19
 		    vertices   	(list Points
 			(2583, 673)
-			(2571, 382))
+			(2571, 378))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::tfwScriptingInterfaces::ItfwStoredValues" @24
 		    ShowCompartmentStereotypes 	TRUE
@@ -4352,29 +4374,29 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@24
-			location   	(3141, 260)
+			location   	(3148, 260)
 			nlines     	1
-			max_width  	420
+			max_width  	406
 			justify    	0
 			label      	"ItfwStoredValues")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@24
-			location   	(3141, 210)
+			location   	(3148, 210)
 			anchor     	10
 			nlines     	1
-			max_width  	420
+			max_width  	406
 			justify    	0
 			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    line_color 	16714250
 		    fill_color 	16777215
 		    quidu      	"4F494729028E"
-		    width      	438
+		    width      	424
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object AssociationViewNew "" @25
-		    location   	(2966, 288)
+		    location   	(2970, 288)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -4391,7 +4413,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "" @26
 			    Parent_View 	@25
-			    location   	(2696, 168)
+			    location   	(2700, 168)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -4404,7 +4426,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @27
 				Parent_View 	@26
-				location   	(2835, 330)
+				location   	(2837, 330)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -4431,12 +4453,12 @@
 			    client     	@25
 			    supplier   	@19
 			    vertices   	(list Points
-				(2966, 288)
+				(2970, 288)
 				(2802, 288))
 			    line_style 	0)
 			(object RoleView "ItemType" @28
 			    Parent_View 	@25
-			    location   	(2696, 168)
+			    location   	(2700, 168)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -4449,7 +4471,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @29
 				Parent_View 	@28
-				location   	(3098, 330)
+				location   	(3103, 330)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -4471,7 +4493,7 @@
 				orientation 	1)
 			    stereotype 	(object SegLabel @30
 				Parent_View 	@28
-				location   	(3125, 252)
+				location   	(3130, 252)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -4496,8 +4518,8 @@
 			    client     	@25
 			    supplier   	@24
 			    vertices   	(list Points
-				(2966, 288)
-				(3131, 288))
+				(2970, 288)
+				(3138, 288))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$4" @31
 		    location   	(2968, 525)
@@ -4644,25 +4666,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@37
-			location   	(267, 1921)
+			location   	(240, 1925)
 			nlines     	1
-			max_width  	492
+			max_width  	546
 			justify    	0
-			label      	"TtfwAutoregisteredDiction")
+			label      	"• TtfwAutoregisteredDiction")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@37
-			location   	(267, 1871)
+			location   	(240, 1875)
 			anchor     	10
 			nlines     	1
-			max_width  	492
+			max_width  	546
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"4DB05FF60115"
-		    width      	510
-		    height     	188
+		    width      	564
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::seWordsInfo" @38
@@ -4683,27 +4705,27 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@38
-			location   	(1081, 1910)
+			location   	(1095, 1909)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	328
+			max_width  	300
 			justify    	0
 			label      	"seWordsInfo")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@38
-			location   	(1081, 1860)
+			location   	(1095, 1859)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	325
+			max_width  	297
 			justify    	0
 			label      	"<<UtilityPack>>")
 		    icon_style 	"Label"
 		    line_color 	7885055
 		    fill_color 	14145535
 		    quidu      	"53E107920007"
-		    width      	346
-		    height     	180
+		    width      	318
+		    height     	182
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::Tl3ScriptService" @39
@@ -4724,19 +4746,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@39
-			location   	(1677, 1851)
+			location   	(1516, 1842)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	318
+			max_width  	640
 			justify    	0
 			label      	"Tl3ScriptService")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@39
-			location   	(1677, 1801)
+			location   	(1516, 1792)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	318
+			max_width  	640
 			justify    	0
 			label      	"<<Service>>")
 		    icon_style 	"Label"
@@ -4744,7 +4766,7 @@
 		    quidu      	"5509AA5400EA"
 		    compartment 	(object Compartment
 			Parent_View 	@39
-			location   	(1677, 1912)
+			location   	(1516, 1903)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -4761,8 +4783,8 @@
 			nlines     	3
 			max_width  	643
 			justify    	1)
-		    width      	336
-		    height     	274
+		    width      	658
+		    height     	292
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::tfwScriptingInterfaces::TtfwSourcePoint" @40
@@ -4784,25 +4806,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@40
-			location   	(2411, 1096)
+			location   	(2416, 1100)
 			nlines     	1
-			max_width  	416
+			max_width  	406
 			justify    	0
 			label      	"TtfwSourcePoint")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@40
-			location   	(2411, 1046)
+			location   	(2416, 1050)
 			anchor     	10
 			nlines     	1
-			max_width  	416
+			max_width  	406
 			justify    	0
 			label      	"<<StaticObject>>")
 		    icon_style 	"Label"
 		    line_color 	2313060
 		    fill_color 	16777215
 		    quidu      	"55647DF70372"
-		    width      	434
-		    height     	188
+		    width      	424
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwValueStack" @41
@@ -4879,7 +4901,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @44
 			Parent_View 	@43
-			location   	(1550, 911)
+			location   	(1557, 910)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -4905,7 +4927,7 @@
 		    supplier   	@1
 		    vertices   	(list Points
 			(1381, 1033)
-			(1722, 1026))
+			(1737, 1025))
 		    line_style 	0)
 		(object RealizeView "" @45
 		    font       	(object Font
@@ -4925,7 +4947,7 @@
 		    supplier   	@2
 		    vertices   	(list Points
 			(1043, 946)
-			(756, 784))
+			(748, 780))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwSourcePointList" @46
 		    ShowCompartmentStereotypes 	TRUE
@@ -4985,7 +5007,7 @@
 		    supplier   	@4
 		    vertices   	(list Points
 			(2366, 1413)
-			(1301, 325))
+			(1297, 321))
 		    line_style 	0)
 		(object InheritView "" @48
 		    font       	(object Font
@@ -5005,10 +5027,10 @@
 		    supplier   	@3
 		    vertices   	(list Points
 			(2408, 1413)
-			(1857, 343))
+			(1855, 339))
 		    line_style 	0)
 		(object AssociationViewNew "$UNNAMED$8" @49
-		    location   	(2536, 1317)
+		    location   	(2537, 1315)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -5025,7 +5047,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "ItemType" @50
 			    Parent_View 	@49
-			    location   	(79, -189)
+			    location   	(80, -191)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -5038,7 +5060,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @51
 				Parent_View 	@50
-				location   	(2533, 1225)
+				location   	(2533, 1221)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -5060,7 +5082,7 @@
 				orientation 	0)
 			    stereotype 	(object SegLabel @52
 				Parent_View 	@50
-				location   	(2622, 1147)
+				location   	(2560, 1143)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -5085,19 +5107,19 @@
 			    client     	@49
 			    supplier   	@40
 			    vertices   	(list Points
-				(2536, 1317)
-				(2578, 1222))
+				(2537, 1315)
+				(2579, 1218))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$9" @53
 			    Parent_View 	@49
-			    location   	(79, -189)
+			    location   	(80, -191)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55648E52034D"
 			    client     	@49
 			    supplier   	@46
 			    vertices   	(list Points
-				(2536, 1317)
+				(2537, 1315)
 				(2495, 1413))
 			    line_style 	0)))
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwScriptEnginePrim" @54
@@ -5123,7 +5145,7 @@
 			nlines     	1
 			max_width  	458
 			justify    	0
-			label      	"TtfwScriptEnginePrim")
+			label      	"• TtfwScriptEnginePrim")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@54
 			location   	(686, 1427)
@@ -5252,7 +5274,7 @@
 		    supplier   	@15
 		    vertices   	(list Points
 			(1153, 1506)
-			(1420, 1506))
+			(1433, 1506))
 		    line_style 	0)
 		(object RealizeView "" @61
 		    font       	(object Font
@@ -5328,7 +5350,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @65
 			Parent_View 	@64
-			location   	(803, 1808)
+			location   	(800, 1810)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -5354,7 +5376,7 @@
 		    supplier   	@37
 		    vertices   	(list Points
 			(830, 1597)
-			(597, 1858))
+			(593, 1862))
 		    line_style 	0)
 		(object UsesView "" @66
 		    font       	(object Font
@@ -5369,7 +5391,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @67
 			Parent_View 	@66
-			location   	(1174, 1651)
+			location   	(1174, 1650)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -5395,7 +5417,7 @@
 		    supplier   	@38
 		    vertices   	(list Points
 			(983, 1597)
-			(1174, 1847))
+			(1174, 1846))
 		    line_style 	0)
 		(object UsesView "" @68
 		    font       	(object Font
@@ -5410,7 +5432,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @69
 			Parent_View 	@68
-			location   	(1442, 1615)
+			location   	(1365, 1580)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -5436,7 +5458,7 @@
 		    supplier   	@39
 		    vertices   	(list Points
 			(1116, 1597)
-			(1667, 1849))
+			(1515, 1779))
 		    line_style 	0)
 		(object AssociationViewNew "$UNNAMED$10" @70
 		    location   	(1702, 1506)
@@ -5533,7 +5555,7 @@
 			nlines     	1
 			max_width  	420
 			justify    	0
-			label      	"TtfwCompilingWord")
+			label      	"• TtfwCompilingWord")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@74
 			location   	(129, 1425)
@@ -5588,7 +5610,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@76
-			location   	(533, 2348)
+			location   	(533, 2347)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	536
@@ -5596,7 +5618,7 @@
 			label      	"tfwScriptEngineExInterfaces")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@76
-			location   	(533, 2298)
+			location   	(533, 2297)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -5608,7 +5630,7 @@
 		    fill_color 	14145535
 		    quidu      	"55E9A8990116"
 		    width      	554
-		    height     	180
+		    height     	182
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object UsesView "" @77
@@ -5650,7 +5672,7 @@
 		    supplier   	@76
 		    vertices   	(list Points
 			(901, 1597)
-			(812, 2285))
+			(812, 2284))
 		    line_style 	0)))
 	(object ClassDiagram "Uses"
 	    quid       	"4F7339620251"
@@ -6588,7 +6610,7 @@
 		    quidu      	"4DF069C60159"
 		    compartment 	(object Compartment
 			Parent_View 	@115
-			location   	(581, 1727)
+			location   	(581, 1737)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -6603,7 +6625,7 @@
 			fill_color 	16777215
 			anchor     	2
 			nlines     	2
-			max_width  	1141
+			max_width  	1140
 			justify    	1)
 		    width      	272
 		    height     	228
@@ -6728,7 +6750,7 @@
 		    quidu      	"55EFF78F01D7"
 		    compartment 	(object Compartment
 			Parent_View 	@119
-			location   	(254, 2138)
+			location   	(254, 2148)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -6803,25 +6825,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@121
-			location   	(171, 172)
+			location   	(178, 176)
 			nlines     	1
-			max_width  	252
+			max_width  	238
 			justify    	0
-			label      	"l3CStr")
+			label      	"• l3CStr")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@121
-			location   	(171, 122)
+			location   	(178, 126)
 			anchor     	10
 			nlines     	1
-			max_width  	250
+			max_width  	238
 			justify    	0
 			label      	"<<method>>")
 		    icon_style 	"Label"
 		    line_color 	7874680
 		    fill_color 	16777215
 		    quidu      	"4AA7888B0076"
-		    width      	270
-		    height     	188
+		    width      	256
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::L3::StringUtils::l3String" @122
@@ -6843,25 +6865,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@122
-			location   	(676, 172)
+			location   	(690, 176)
 			nlines     	1
-			max_width  	328
+			max_width  	300
 			justify    	0
-			label      	"l3String")
+			label      	"• l3String")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@122
-			location   	(676, 122)
+			location   	(690, 126)
 			anchor     	10
 			nlines     	1
-			max_width  	325
+			max_width  	297
 			justify    	0
 			label      	"<<UtilityPack>>")
 		    icon_style 	"Label"
 		    line_color 	658175
 		    fill_color 	16777215
 		    quidu      	"47878E0E0191"
-		    width      	346
-		    height     	188
+		    width      	318
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::SysUtils" @123
@@ -6883,25 +6905,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@123
-			location   	(1111, 145)
+			location   	(1125, 149)
 			nlines     	1
-			max_width  	328
+			max_width  	300
 			justify    	0
 			label      	"SysUtils")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@123
-			location   	(1111, 95)
+			location   	(1125, 99)
 			anchor     	10
 			nlines     	1
-			max_width  	325
+			max_width  	297
 			justify    	0
 			label      	"<<UtilityPack>>")
 		    icon_style 	"Label"
 		    line_color 	658175
 		    fill_color 	16777215
 		    quidu      	"47877EB202FB"
-		    width      	346
-		    height     	188
+		    width      	318
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::L3::l3CoreObjects::Tl3StringList" @124
@@ -6923,25 +6945,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@124
-			location   	(1469, 202)
+			location   	(1478, 206)
 			nlines     	1
-			max_width  	356
+			max_width  	338
 			justify    	0
-			label      	"Tl3StringList")
+			label      	"• Tl3StringList")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@124
-			location   	(1469, 152)
+			location   	(1478, 156)
 			anchor     	10
 			nlines     	1
-			max_width  	354
+			max_width  	338
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"4773DCE302FF"
-		    width      	374
-		    height     	188
+		    width      	356
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwScriptEnginePrim::Script" @125
@@ -6962,19 +6984,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@125
-			location   	(472, 1430)
+			location   	(85, 1400)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	370
+			max_width  	1144
 			justify    	0
 			label      	"Script")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@125
-			location   	(472, 1380)
+			location   	(85, 1350)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	367
+			max_width  	1144
 			justify    	0
 			label      	"<<virtualmethod>>")
 		    icon_style 	"Label"
@@ -6982,7 +7004,7 @@
 		    quidu      	"4F733B9C0064"
 		    compartment 	(object Compartment
 			Parent_View 	@125
-			location   	(472, 1535)
+			location   	(85, 1515)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -6997,10 +7019,10 @@
 			fill_color 	16777215
 			anchor     	2
 			nlines     	2
-			max_width  	1141
+			max_width  	1140
 			justify    	1)
-		    width      	388
-		    height     	228
+		    width      	1162
+		    height     	288
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::L3::l3Types::Indexes" @126
@@ -7022,25 +7044,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@126
-			location   	(1410, 493)
+			location   	(1425, 497)
 			nlines     	1
-			max_width  	318
+			max_width  	288
 			justify    	0
 			label      	"Indexes")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@126
-			location   	(1410, 443)
+			location   	(1425, 447)
 			anchor     	10
 			nlines     	1
-			max_width  	315
+			max_width  	288
 			justify    	0
 			label      	"<<Constants>>")
 		    icon_style 	"Label"
 		    line_color 	6579300
 		    fill_color 	16777215
 		    quidu      	"476F9605006B"
-		    width      	336
-		    height     	188
+		    width      	306
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::L3::l3CoreObjects::l3Filer::Tl3CustomFiler" @127
@@ -7062,25 +7084,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@127
-			location   	(124, 946)
+			location   	(120, 950)
 			nlines     	1
-			max_width  	358
+			max_width  	366
 			justify    	0
-			label      	"Tl3CustomFiler")
+			label      	"• Tl3CustomFiler")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@127
-			location   	(124, 896)
+			location   	(120, 900)
 			anchor     	10
 			nlines     	1
-			max_width  	358
+			max_width  	366
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"47A0679D00E4"
-		    width      	376
-		    height     	188
+		    width      	384
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::L3::Parser::l3Parser" @128
@@ -7102,25 +7124,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@128
-			location   	(697, 970)
+			location   	(711, 974)
 			nlines     	1
-			max_width  	328
+			max_width  	300
 			justify    	0
-			label      	"l3Parser")
+			label      	"• l3Parser")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@128
-			location   	(697, 920)
+			location   	(711, 924)
 			anchor     	10
 			nlines     	1
-			max_width  	325
+			max_width  	297
 			justify    	0
 			label      	"<<UtilityPack>>")
 		    icon_style 	"Label"
 		    line_color 	658175
 		    fill_color 	16777215
 		    quidu      	"4C1B475101C5"
-		    width      	346
-		    height     	188
+		    width      	318
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::L3::l3Chars::Ext Chars" @129
@@ -7142,25 +7164,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@129
-			location   	(1398, 754)
+			location   	(1413, 758)
 			nlines     	1
-			max_width  	318
+			max_width  	288
 			justify    	0
 			label      	"Ext Chars")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@129
-			location   	(1398, 704)
+			location   	(1413, 708)
 			anchor     	10
 			nlines     	1
-			max_width  	315
+			max_width  	288
 			justify    	0
 			label      	"<<Constants>>")
 		    icon_style 	"Label"
 		    line_color 	6579300
 		    fill_color 	16777215
 		    quidu      	"47A082F101DB"
-		    width      	336
-		    height     	188
+		    width      	306
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::L3::l3CoreObjects::l3Stream::Tl3NamedTextStream" @130
@@ -7182,25 +7204,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@130
-			location   	(1284, 1033)
+			location   	(1257, 1037)
 			nlines     	1
-			max_width  	426
+			max_width  	480
 			justify    	0
-			label      	"Tl3NamedTextStream")
+			label      	"• Tl3NamedTextStream")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@130
-			location   	(1284, 983)
+			location   	(1257, 987)
 			anchor     	10
 			nlines     	1
-			max_width  	426
+			max_width  	480
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"495230C40219"
-		    width      	444
-		    height     	188
+		    width      	498
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::L3::l3CoreObjects::l3Memory" @131
@@ -7222,25 +7244,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@131
-			location   	(1273, 1321)
+			location   	(1322, 1325)
 			nlines     	1
-			max_width  	400
+			max_width  	302
 			justify    	0
-			label      	"l3Memory")
+			label      	"• l3Memory")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@131
-			location   	(1273, 1271)
+			location   	(1322, 1275)
 			anchor     	10
 			nlines     	1
-			max_width  	400
+			max_width  	302
 			justify    	0
 			label      	"<<UtilityPack>>")
 		    icon_style 	"Label"
 		    line_color 	658175
 		    fill_color 	16777215
 		    quidu      	"47AB1FDE03E4"
-		    width      	418
-		    height     	188
+		    width      	320
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::Array::TtfwArray" @132
@@ -7266,7 +7288,7 @@
 			nlines     	1
 			max_width  	330
 			justify    	0
-			label      	"TtfwArray")
+			label      	"• TtfwArray")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@132
 			location   	(1920, 462)
@@ -7341,19 +7363,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@134
-			location   	(218, 1820)
+			location   	(104, 1790)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	260
+			max_width  	488
 			justify    	0
-			label      	"RunInitCode")
+			label      	"• RunInitCode")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@134
-			location   	(218, 1770)
+			location   	(104, 1740)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	260
+			max_width  	488
 			justify    	0
 			label      	"<<method>>")
 		    icon_style 	"Label"
@@ -7361,7 +7383,7 @@
 		    quidu      	"55A3BFB102D7"
 		    compartment 	(object Compartment
 			Parent_View 	@134
-			location   	(218, 1925)
+			location   	(104, 1905)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -7378,8 +7400,8 @@
 			nlines     	2
 			max_width  	490
 			justify    	1)
-		    width      	278
-		    height     	228
+		    width      	506
+		    height     	288
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionaryPtrList" @135
@@ -7401,25 +7423,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@135
-			location   	(1450, 1945)
+			location   	(1454, 1949)
 			nlines     	1
-			max_width  	442
+			max_width  	434
 			justify    	0
 			label      	"TtfwDictionaryPtrList")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@135
-			location   	(1450, 1895)
+			location   	(1454, 1899)
 			anchor     	10
 			nlines     	1
-			max_width  	442
+			max_width  	434
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"559F5E060345"
-		    width      	460
-		    height     	188
+		    width      	452
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionaryCache" @136
@@ -7441,25 +7463,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@136
-			location   	(2668, 2176)
+			location   	(2657, 2180)
 			nlines     	1
-			max_width  	442
+			max_width  	464
 			justify    	0
-			label      	"TtfwDictionaryCache")
+			label      	"• TtfwDictionaryCache")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@136
-			location   	(2668, 2126)
+			location   	(2657, 2130)
 			anchor     	10
 			nlines     	1
-			max_width  	442
+			max_width  	464
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"55A3DF0603C6"
-		    width      	460
-		    height     	188
+		    width      	482
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwScriptEnginePrim::EnterCode" @137
@@ -7480,19 +7502,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@137
-			location   	(242, 2213)
+			location   	(125, 2183)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	254
+			max_width  	488
 			justify    	0
-			label      	"EnterCode")
+			label      	"• EnterCode")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@137
-			location   	(242, 2163)
+			location   	(125, 2133)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	254
+			max_width  	488
 			justify    	0
 			label      	"<<method>>")
 		    icon_style 	"Label"
@@ -7500,7 +7522,7 @@
 		    quidu      	"55A5290003B5"
 		    compartment 	(object Compartment
 			Parent_View 	@137
-			location   	(242, 2318)
+			location   	(125, 2298)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -7517,8 +7539,8 @@
 			nlines     	2
 			max_width  	490
 			justify    	1)
-		    width      	272
-		    height     	228
+		    width      	506
+		    height     	288
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwScriptEnginePrim::LeaveCode" @138
@@ -7539,19 +7561,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@138
-			location   	(254, 2600)
+			location   	(137, 2570)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	254
+			max_width  	488
 			justify    	0
-			label      	"LeaveCode")
+			label      	"• LeaveCode")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@138
-			location   	(254, 2550)
+			location   	(137, 2520)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	254
+			max_width  	488
 			justify    	0
 			label      	"<<method>>")
 		    icon_style 	"Label"
@@ -7559,7 +7581,7 @@
 		    quidu      	"55A5291701A8"
 		    compartment 	(object Compartment
 			Parent_View 	@138
-			location   	(254, 2705)
+			location   	(137, 2685)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -7576,8 +7598,8 @@
 			nlines     	2
 			max_width  	490
 			justify    	1)
-		    width      	272
-		    height     	228
+		    width      	506
+		    height     	288
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionaryListPrim" @139
@@ -7599,25 +7621,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@139
-			location   	(3232, 1543)
+			location   	(3233, 1547)
 			nlines     	1
-			max_width  	442
+			max_width  	440
 			justify    	0
 			label      	"TtfwDictionaryListPrim")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@139
-			location   	(3232, 1493)
+			location   	(3233, 1497)
 			anchor     	10
 			nlines     	1
-			max_width  	442
+			max_width  	440
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"559E758B01BB"
-		    width      	460
-		    height     	188
+		    width      	458
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::CodeFlowSupport::seThreadSupport::TseWorkThreadList" @140
@@ -7643,7 +7665,7 @@
 			nlines     	1
 			max_width  	456
 			justify    	0
-			label      	"TseWorkThreadList")
+			label      	"• TseWorkThreadList")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@140
 			location   	(2700, 138)
@@ -7679,25 +7701,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@141
-			location   	(3272, 1849)
+			location   	(3242, 1853)
 			nlines     	1
-			max_width  	488
+			max_width  	548
 			justify    	0
-			label      	"TtfwMainDictionaryCache")
+			label      	"• TtfwMainDictionaryCache")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@141
-			location   	(3272, 1799)
+			location   	(3242, 1803)
 			anchor     	10
 			nlines     	1
-			max_width  	488
+			max_width  	548
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"55A63D300062"
-		    width      	506
-		    height     	188
+		    width      	566
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwMainDictionaryList" @142
@@ -7719,25 +7741,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@142
-			location   	(3214, 826)
+			location   	(3216, 830)
 			nlines     	1
-			max_width  	442
+			max_width  	438
 			justify    	0
 			label      	"TtfwMainDictionaryList")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@142
-			location   	(3214, 776)
+			location   	(3216, 780)
 			anchor     	10
 			nlines     	1
-			max_width  	442
+			max_width  	438
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"55A63D16038C"
-		    width      	460
-		    height     	188
+		    width      	456
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwScriptEnginePrim::RunCompiled" @143
@@ -7758,19 +7780,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@143
-			location   	(192, 2978)
+			location   	(91, 2948)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	366
+			max_width  	568
 			justify    	0
 			label      	"RunCompiled")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@143
-			location   	(192, 2928)
+			location   	(91, 2898)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	363
+			max_width  	568
 			justify    	0
 			label      	"<<virtualmethod>>")
 		    icon_style 	"Label"
@@ -7778,7 +7800,7 @@
 		    quidu      	"4DC90A79006D"
 		    compartment 	(object Compartment
 			Parent_View 	@143
-			location   	(192, 3083)
+			location   	(91, 3063)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -7795,8 +7817,8 @@
 			nlines     	2
 			max_width  	568
 			justify    	1)
-		    width      	384
-		    height     	228
+		    width      	586
+		    height     	288
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Parsing::Parser::TtfwParser" @144
@@ -7858,25 +7880,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@145
-			location   	(2490, 541)
+			location   	(2463, 545)
 			nlines     	1
-			max_width  	492
+			max_width  	546
 			justify    	0
-			label      	"TtfwAutoregisteredDiction")
+			label      	"• TtfwAutoregisteredDiction")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@145
-			location   	(2490, 491)
+			location   	(2463, 495)
 			anchor     	10
 			nlines     	1
-			max_width  	492
+			max_width  	546
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"4DB05FF60115"
-		    width      	510
-		    height     	188
+		    width      	564
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::tfwScriptingInterfaces::ItfwScriptEngine" @146
@@ -7898,25 +7920,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@146
-			location   	(1921, 202)
+			location   	(1996, 206)
 			nlines     	1
-			max_width  	556
+			max_width  	406
 			justify    	0
 			label      	"ItfwScriptEngine")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@146
-			location   	(1921, 152)
+			location   	(1996, 156)
 			anchor     	10
 			nlines     	1
-			max_width  	556
+			max_width  	406
 			justify    	0
 			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    line_color 	16714250
 		    fill_color 	16777215
 		    quidu      	"4DB008DD01BD"
-		    width      	574
-		    height     	188
+		    width      	424
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwScriptEnginePrim::CacheDict" @147
@@ -7937,19 +7959,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@147
-			location   	(891, 2216)
+			location   	(866, 2186)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	366
+			max_width  	416
 			justify    	0
 			label      	"CacheDict")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@147
-			location   	(891, 2166)
+			location   	(866, 2136)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	363
+			max_width  	416
 			justify    	0
 			label      	"<<virtualmethod>>")
 		    icon_style 	"Label"
@@ -7957,7 +7979,7 @@
 		    quidu      	"55AF8A9D03A2"
 		    compartment 	(object Compartment
 			Parent_View 	@147
-			location   	(891, 2321)
+			location   	(866, 2301)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -7974,8 +7996,8 @@
 			nlines     	2
 			max_width  	340
 			justify    	1)
-		    width      	384
-		    height     	228
+		    width      	434
+		    height     	288
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::String" @148
@@ -7997,25 +8019,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@148
-			location   	(1325, 1618)
+			location   	(1335, 1622)
 			nlines     	1
-			max_width  	260
+			max_width  	240
 			justify    	0
 			label      	"String")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@148
-			location   	(1325, 1568)
+			location   	(1335, 1572)
 			anchor     	10
 			nlines     	1
-			max_width  	258
+			max_width  	238
 			justify    	0
 			label      	"<<Typedef>>")
 		    icon_style 	"Label"
 		    line_color 	2313060
 		    fill_color 	16777215
 		    quidu      	"476136D3010B"
-		    width      	278
-		    height     	188
+		    width      	258
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionaryList" @149
@@ -8037,25 +8059,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@149
-			location   	(2073, 2248)
+			location   	(2075, 2252)
 			nlines     	1
-			max_width  	438
+			max_width  	434
 			justify    	0
 			label      	"TtfwDictionaryList")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@149
-			location   	(2073, 2198)
+			location   	(2075, 2202)
 			anchor     	10
 			nlines     	1
-			max_width  	438
+			max_width  	434
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"55A4E71403B3"
-		    width      	456
-		    height     	188
+		    width      	452
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionaryStack" @150
@@ -8077,25 +8099,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@150
-			location   	(2008, 1840)
+			location   	(2012, 1844)
 			nlines     	1
-			max_width  	442
+			max_width  	434
 			justify    	0
 			label      	"TtfwDictionaryStack")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@150
-			location   	(2008, 1790)
+			location   	(2012, 1794)
 			anchor     	10
 			nlines     	1
-			max_width  	442
+			max_width  	434
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"559E7FC70157"
-		    width      	460
-		    height     	188
+		    width      	452
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionaryEx" @151
@@ -8117,25 +8139,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@151
-			location   	(2484, 832)
+			location   	(2561, 836)
 			nlines     	1
-			max_width  	588
+			max_width  	434
 			justify    	0
 			label      	"TtfwDictionaryEx")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@151
-			location   	(2484, 782)
+			location   	(2561, 786)
 			anchor     	10
 			nlines     	1
-			max_width  	588
+			max_width  	434
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"559E8B2E0385"
-		    width      	606
-		    height     	188
+		    width      	452
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwInitedDictionariesList" @152
@@ -8157,14 +8179,14 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@152
-			location   	(3164, 1177)
+			location   	(3164, 1181)
 			nlines     	1
 			max_width  	476
 			justify    	0
 			label      	"TtfwInitedDictionariesList")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@152
-			location   	(3164, 1127)
+			location   	(3164, 1131)
 			anchor     	10
 			nlines     	1
 			max_width  	476
@@ -8175,7 +8197,7 @@
 		    fill_color 	16777215
 		    quidu      	"55A53B44029F"
 		    width      	494
-		    height     	188
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwMainDictionary" @153
@@ -8197,68 +8219,28 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@153
-			location   	(2608, 1495)
+			location   	(2612, 1499)
 			nlines     	1
-			max_width  	442
+			max_width  	434
 			justify    	0
 			label      	"TtfwMainDictionary")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@153
-			location   	(2608, 1445)
+			location   	(2612, 1449)
 			anchor     	10
 			nlines     	1
-			max_width  	442
+			max_width  	434
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"55A0005D02CC"
-		    width      	460
-		    height     	188
+		    width      	452
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean" @154
-		    ShowCompartmentStereotypes 	TRUE
-		    SuppressAttribute 	TRUE
-		    SuppressOperation 	TRUE
-		    IncludeAttribute 	TRUE
-		    IncludeOperation 	TRUE
-		    location   	(3726, 333)
-		    font       	(object Font
-			size       	10
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	FALSE
-			underline  	FALSE
-			strike     	FALSE
-			color      	2313060
-			default_color 	FALSE)
-		    label      	(object ItemLabel
-			Parent_View 	@154
-			location   	(3596, 301)
-			nlines     	1
-			max_width  	260
-			justify    	0
-			label      	"Boolean")
-		    stereotype 	(object ItemLabel
-			Parent_View 	@154
-			location   	(3596, 251)
-			anchor     	10
-			nlines     	1
-			max_width  	258
-			justify    	0
-			label      	"<<Typedef>>")
-		    icon_style 	"Label"
-		    line_color 	2313060
-		    fill_color 	16777215
-		    quidu      	"46A603BB0391"
-		    width      	278
-		    height     	188
-		    annotation 	8
-		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::WordsList::TtfwWordRefList" @155
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::WordsList::TtfwWordRefList" @154
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -8276,14 +8258,14 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@155
+			Parent_View 	@154
 			location   	(3262, 2192)
 			nlines     	1
 			max_width  	388
 			justify    	0
-			label      	"TtfwWordRefList")
+			label      	"• TtfwWordRefList")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@155
+			Parent_View 	@154
 			location   	(3262, 2142)
 			anchor     	10
 			nlines     	1
@@ -8298,7 +8280,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwScriptEnginePrim" @156
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwScriptEnginePrim" @155
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -8316,29 +8298,29 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@156
-			location   	(513, 549)
+			Parent_View 	@155
+			location   	(497, 549)
 			nlines     	1
-			max_width  	426
+			max_width  	458
 			justify    	0
-			label      	"TtfwScriptEnginePrim")
+			label      	"• TtfwScriptEnginePrim")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@156
-			location   	(513, 499)
+			Parent_View 	@155
+			location   	(497, 499)
 			anchor     	10
 			nlines     	1
-			max_width  	426
+			max_width  	458
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"4F733A0701F0"
-		    width      	444
+		    width      	476
 		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object UsesView "" @157
+		(object UsesView "" @156
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8349,9 +8331,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @158
-			Parent_View 	@157
-			location   	(442, 483)
+		    stereotype 	(object SegLabel @157
+			Parent_View 	@156
+			location   	(438, 481)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8373,13 +8355,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"4F733B2301B8"
-		    client     	@156
+		    client     	@155
 		    supplier   	@121
 		    vertices   	(list Points
 			(628, 486)
-			(408, 298))
+			(403, 294))
 		    line_style 	0)
-		(object UsesView "" @159
+		(object UsesView "" @158
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8390,9 +8372,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @160
-			Parent_View 	@159
-			location   	(666, 357)
+		    stereotype 	(object SegLabel @159
+			Parent_View 	@158
+			location   	(667, 356)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8414,13 +8396,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"4F733B290360"
-		    client     	@156
+		    client     	@155
 		    supplier   	@122
 		    vertices   	(list Points
 			(751, 486)
-			(809, 298))
+			(811, 294))
 		    line_style 	0)
-		(object UsesView "" @161
+		(object UsesView "" @160
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8431,9 +8413,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @162
-			Parent_View 	@161
-			location   	(922, 281)
+		    stereotype 	(object SegLabel @161
+			Parent_View 	@160
+			location   	(924, 279)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8455,13 +8437,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"4F733B3900B7"
-		    client     	@156
+		    client     	@155
 		    supplier   	@123
 		    vertices   	(list Points
 			(839, 486)
-			(1141, 271))
+			(1146, 267))
 		    line_style 	0)
-		(object UsesView "" @163
+		(object UsesView "" @162
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8472,9 +8454,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @164
-			Parent_View 	@163
-			location   	(1163, 283)
+		    stereotype 	(object SegLabel @163
+			Parent_View 	@162
+			location   	(1170, 280)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8496,13 +8478,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"4F733B91016A"
-		    client     	@156
+		    client     	@155
 		    supplier   	@124
 		    vertices   	(list Points
-			(948, 488)
-			(1459, 301))
+			(953, 486)
+			(1468, 298))
 		    line_style 	0)
-		(object UsesView "" @165
+		(object UsesView "" @164
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8513,9 +8495,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @166
-			Parent_View 	@165
-			location   	(1170, 426)
+		    stereotype 	(object SegLabel @165
+			Parent_View 	@164
+			location   	(1185, 424)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8537,13 +8519,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"4F733BD500BE"
-		    client     	@156
+		    client     	@155
 		    supplier   	@126
 		    vertices   	(list Points
-			(948, 557)
-			(1400, 533))
+			(964, 555)
+			(1415, 532))
 		    line_style 	0)
-		(object UsesView "" @167
+		(object UsesView "" @166
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8554,9 +8536,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @168
-			Parent_View 	@167
-			location   	(469, 702)
+		    stereotype 	(object SegLabel @167
+			Parent_View 	@166
+			location   	(461, 703)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8578,13 +8560,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"4F733BFF024C"
-		    client     	@156
+		    client     	@155
 		    supplier   	@144
 		    vertices   	(list Points
-			(503, 580)
+			(487, 581)
 			(421, 585))
 		    line_style 	0)
-		(object UsesView "" @169
+		(object UsesView "" @168
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8595,9 +8577,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @170
-			Parent_View 	@169
-			location   	(601, 854)
+		    stereotype 	(object SegLabel @169
+			Parent_View 	@168
+			location   	(599, 856)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8619,13 +8601,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"4F733C1F005A"
-		    client     	@156
+		    client     	@155
 		    supplier   	@127
 		    vertices   	(list Points
 			(637, 653)
-			(399, 883))
+			(394, 887))
 		    line_style 	0)
-		(object UsesView "" @171
+		(object UsesView "" @170
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8636,9 +8618,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @172
-			Parent_View 	@171
-			location   	(904, 745)
+		    stereotype 	(object SegLabel @171
+			Parent_View 	@170
+			location   	(905, 747)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8660,13 +8642,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"4F733C3A0122"
-		    client     	@156
+		    client     	@155
 		    supplier   	@128
 		    vertices   	(list Points
 			(750, 653)
-			(831, 907))
+			(832, 911))
 		    line_style 	0)
-		(object UsesView "" @173
+		(object UsesView "" @172
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8677,9 +8659,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @174
-			Parent_View 	@173
-			location   	(1199, 569)
+		    stereotype 	(object SegLabel @173
+			Parent_View 	@172
+			location   	(1214, 573)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8701,13 +8683,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"4F733C7102DE"
-		    client     	@156
+		    client     	@155
 		    supplier   	@129
 		    vertices   	(list Points
-			(948, 627)
-			(1388, 741))
+			(964, 630)
+			(1403, 745))
 		    line_style 	0)
-		(object UsesView "" @175
+		(object UsesView "" @174
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8718,9 +8700,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @176
-			Parent_View 	@175
-			location   	(1167, 711)
+		    stereotype 	(object SegLabel @175
+			Parent_View 	@174
+			location   	(1172, 714)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8742,13 +8724,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"4F733D0C003E"
-		    client     	@156
+		    client     	@155
 		    supplier   	@130
 		    vertices   	(list Points
 			(856, 653)
-			(1349, 970))
+			(1357, 974))
 		    line_style 	0)
-		(object UsesView "" @177
+		(object UsesView "" @176
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8759,9 +8741,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @178
-			Parent_View 	@177
-			location   	(1180, 873)
+		    stereotype 	(object SegLabel @177
+			Parent_View 	@176
+			location   	(1182, 875)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8783,14 +8765,14 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"52612C0101E8"
-		    client     	@156
+		    client     	@155
 		    supplier   	@131
 		    vertices   	(list Points
 			(806, 653)
-			(1381, 1258))
+			(1385, 1262))
 		    line_style 	0)
-		(object AssociationViewNew "$UNNAMED$6" @179
-		    location   	(1085, 1104)
+		(object AssociationViewNew "$UNNAMED$6" @178
+		    location   	(1087, 1106)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8805,9 +8787,9 @@
 		    line_color 	3947680
 		    quidu      	"52612C1A03E4"
 		    roleview_list 	(list RoleViews
-			(object RoleView "f_ScriptFileName" @180
-			    Parent_View 	@179
-			    location   	(407, 531)
+			(object RoleView "f_ScriptFileName" @179
+			    Parent_View 	@178
+			    location   	(409, 533)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -8818,9 +8800,9 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @181
-				Parent_View 	@180
-				location   	(1295, 1488)
+			    label      	(object SegLabel @180
+				Parent_View 	@179
+				location   	(1298, 1492)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -8843,25 +8825,25 @@
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"52612C1B02A5"
-			    client     	@179
+			    client     	@178
 			    supplier   	@148
 			    vertices   	(list Points
-				(1085, 1104)
-				(1390, 1555))
+				(1087, 1106)
+				(1393, 1559))
 			    line_style 	0)
-			(object RoleView "$UNNAMED$7" @182
-			    Parent_View 	@179
-			    location   	(407, 531)
+			(object RoleView "$UNNAMED$7" @181
+			    Parent_View 	@178
+			    location   	(409, 533)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"52612C1B031A"
-			    client     	@179
-			    supplier   	@156
+			    client     	@178
+			    supplier   	@155
 			    vertices   	(list Points
-				(1085, 1104)
+				(1087, 1106)
 				(781, 653))
 			    line_style 	0)))
-		(object RealizeView "" @183
+		(object RealizeView "" @182
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8875,13 +8857,13 @@
 		    stereotype 	TRUE
 		    line_color 	3947680
 		    quidu      	"4F733A56022C"
-		    client     	@156
+		    client     	@155
 		    supplier   	@146
 		    vertices   	(list Points
-			(948, 518)
-			(1911, 298))
+			(964, 514)
+			(1986, 281))
 		    line_style 	0)
-		(object UsesView "" @184
+		(object UsesView "" @183
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8892,9 +8874,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @185
-			Parent_View 	@184
-			location   	(1427, 435)
+		    stereotype 	(object SegLabel @184
+			Parent_View 	@183
+			location   	(1435, 435)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8916,13 +8898,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"5565BDAE0384"
-		    client     	@156
+		    client     	@155
 		    supplier   	@132
 		    vertices   	(list Points
-			(948, 564)
+			(964, 564)
 			(1910, 543))
 		    line_style 	0)
-		(object UsesView "" @186
+		(object UsesView "" @185
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8933,9 +8915,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @187
-			Parent_View 	@186
-			location   	(1464, 600)
+		    stereotype 	(object SegLabel @186
+			Parent_View 	@185
+			location   	(1471, 600)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8957,14 +8939,14 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"559D68390162"
-		    client     	@156
+		    client     	@155
 		    supplier   	@133
 		    vertices   	(list Points
-			(948, 616)
+			(964, 618)
 			(1931, 817))
 		    line_style 	0)
-		(object AssociationViewNew "$UNNAMED$12" @188
-		    location   	(1503, 1419)
+		(object AssociationViewNew "$UNNAMED$12" @187
+		    location   	(1505, 1421)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8979,9 +8961,9 @@
 		    line_color 	3947680
 		    quidu      	"559E7FDD03B5"
 		    roleview_list 	(list RoleViews
-			(object RoleView "f_Dictionaries" @189
-			    Parent_View 	@188
-			    location   	(777, 849)
+			(object RoleView "f_Dictionaries" @188
+			    Parent_View 	@187
+			    location   	(779, 851)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -8992,9 +8974,9 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @190
-				Parent_View 	@189
-				location   	(2034, 2059)
+			    label      	(object SegLabel @189
+				Parent_View 	@188
+				location   	(2038, 2063)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -9017,26 +8999,26 @@
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"559E7FDE0313"
-			    client     	@188
+			    client     	@187
 			    supplier   	@149
 			    vertices   	(list Points
-				(1503, 1419)
-				(2205, 2185))
+				(1505, 1421)
+				(2209, 2189))
 			    line_style 	0)
-			(object RoleView "$UNNAMED$13" @191
-			    Parent_View 	@188
-			    location   	(777, 849)
+			(object RoleView "$UNNAMED$13" @190
+			    Parent_View 	@187
+			    location   	(779, 851)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"559E7FDE0315"
-			    client     	@188
-			    supplier   	@156
+			    client     	@187
+			    supplier   	@155
 			    vertices   	(list Points
-				(1503, 1419)
+				(1505, 1421)
 				(802, 653))
 			    line_style 	0)))
-		(object AssociationViewNew "$UNNAMED$14" @192
-		    location   	(1471, 1215)
+		(object AssociationViewNew "$UNNAMED$14" @191
+		    location   	(1473, 1217)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -9051,9 +9033,9 @@
 		    line_color 	3947680
 		    quidu      	"559E7FEC0180"
 		    roleview_list 	(list RoleViews
-			(object RoleView "f_DictionariesStack" @193
-			    Parent_View 	@192
-			    location   	(745, 645)
+			(object RoleView "f_DictionariesStack" @192
+			    Parent_View 	@191
+			    location   	(747, 647)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -9064,9 +9046,9 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @194
-				Parent_View 	@193
-				location   	(1965, 1696)
+			    label      	(object SegLabel @193
+				Parent_View 	@192
+				location   	(1969, 1700)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -9089,25 +9071,25 @@
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"559E7FED00E8"
-			    client     	@192
+			    client     	@191
 			    supplier   	@150
 			    vertices   	(list Points
-				(1471, 1215)
-				(2121, 1777))
+				(1473, 1217)
+				(2126, 1781))
 			    line_style 	0)
-			(object RoleView "$UNNAMED$15" @195
-			    Parent_View 	@192
-			    location   	(745, 645)
+			(object RoleView "$UNNAMED$15" @194
+			    Parent_View 	@191
+			    location   	(747, 647)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"559E7FED00F2"
-			    client     	@192
-			    supplier   	@156
+			    client     	@191
+			    supplier   	@155
 			    vertices   	(list Points
-				(1471, 1215)
+				(1473, 1217)
 				(821, 653))
 			    line_style 	0)))
-		(object UsesView "" @196
+		(object UsesView "" @195
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -9118,9 +9100,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @197
-			Parent_View 	@196
-			location   	(1714, 452)
+		    stereotype 	(object SegLabel @196
+			Parent_View 	@195
+			location   	(1709, 452)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -9142,14 +9124,14 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"4F7348AE019B"
-		    client     	@156
+		    client     	@155
 		    supplier   	@145
 		    vertices   	(list Points
-			(948, 570)
-			(2480, 572))
+			(964, 570)
+			(2453, 572))
 		    line_style 	0)
-		(object AssociationViewNew "$UNNAMED$0" @198
-		    location   	(1711, 709)
+		(object AssociationViewNew "$UNNAMED$0" @197
+		    location   	(1757, 716)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -9164,9 +9146,9 @@
 		    line_color 	3947680
 		    quidu      	"4F733A1B010E"
 		    roleview_list 	(list RoleViews
-			(object RoleView "$UNNAMED$1" @199
-			    Parent_View 	@198
-			    location   	(-1619, -401)
+			(object RoleView "$UNNAMED$1" @198
+			    Parent_View 	@197
+			    location   	(-1573, -394)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -9177,9 +9159,9 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @200
-				Parent_View 	@199
-				location   	(1106, 581)
+			    label      	(object SegLabel @199
+				Parent_View 	@198
+				location   	(1129, 584)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -9203,15 +9185,15 @@
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F733A1B0382"
-			    client     	@198
-			    supplier   	@156
+			    client     	@197
+			    supplier   	@155
 			    vertices   	(list Points
-				(1711, 709)
-				(948, 600))
+				(1757, 716)
+				(964, 602))
 			    line_style 	0)
-			(object RoleView "f_UserDictionary" @201
-			    Parent_View 	@198
-			    location   	(-1619, -401)
+			(object RoleView "f_UserDictionary" @200
+			    Parent_View 	@197
+			    location   	(-1573, -394)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -9222,9 +9204,9 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @202
-				Parent_View 	@201
-				location   	(2328, 756)
+			    label      	(object SegLabel @201
+				Parent_View 	@200
+				location   	(2397, 766)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -9247,13 +9229,13 @@
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4F733A1B0370"
-			    client     	@198
+			    client     	@197
 			    supplier   	@151
 			    vertices   	(list Points
-				(1711, 709)
-				(2474, 819))
+				(1757, 716)
+				(2551, 830))
 			    line_style 	0)))
-		(object UsesView "" @203
+		(object UsesView "" @202
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -9264,9 +9246,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @204
-			Parent_View 	@203
-			location   	(1294, 1202)
+		    stereotype 	(object SegLabel @203
+			Parent_View 	@202
+			location   	(1296, 1204)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -9288,13 +9270,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"55A3C6D501E4"
-		    client     	@156
+		    client     	@155
 		    supplier   	@135
 		    vertices   	(list Points
 			(782, 653)
-			(1606, 1882))
+			(1609, 1886))
 		    line_style 	0)
-		(object UsesView "" @205
+		(object UsesView "" @204
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -9305,9 +9287,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @206
-			Parent_View 	@205
-			location   	(1873, 1288)
+		    stereotype 	(object SegLabel @205
+			Parent_View 	@204
+			location   	(1876, 1290)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -9329,14 +9311,14 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"55A3DF9C020B"
-		    client     	@156
+		    client     	@155
 		    supplier   	@136
 		    vertices   	(list Points
 			(837, 653)
-			(2764, 2113))
+			(2771, 2117))
 		    line_style 	0)
-		(object AssociationViewNew "$UNNAMED$18" @207
-		    location   	(2051, 885)
+		(object AssociationViewNew "$UNNAMED$18" @206
+		    location   	(2059, 887)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -9351,9 +9333,9 @@
 		    line_color 	3947680
 		    quidu      	"55A53B0500BA"
 		    roleview_list 	(list RoleViews
-			(object RoleView "f_InitedDictionaries" @208
-			    Parent_View 	@207
-			    location   	(1325, 315)
+			(object RoleView "f_InitedDictionaries" @207
+			    Parent_View 	@206
+			    location   	(1333, 317)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -9364,9 +9346,9 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @209
-				Parent_View 	@208
-				location   	(2943, 1056)
+			    label      	(object SegLabel @208
+				Parent_View 	@207
+				location   	(2945, 1057)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -9389,25 +9371,25 @@
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55A53B06011E"
-			    client     	@207
+			    client     	@206
 			    supplier   	@152
 			    vertices   	(list Points
-				(2051, 885)
+				(2059, 887)
 				(3154, 1149))
 			    line_style 	0)
-			(object RoleView "$UNNAMED$19" @210
-			    Parent_View 	@207
-			    location   	(1325, 315)
+			(object RoleView "$UNNAMED$19" @209
+			    Parent_View 	@206
+			    location   	(1333, 317)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55A53B060120"
-			    client     	@207
-			    supplier   	@156
+			    client     	@206
+			    supplier   	@155
 			    vertices   	(list Points
-				(2051, 885)
-				(948, 621))
+				(2059, 887)
+				(964, 625))
 			    line_style 	0)))
-		(object UsesView "" @211
+		(object UsesView "" @210
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -9418,9 +9400,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @212
-			Parent_View 	@211
-			location   	(2125, 958)
+		    stereotype 	(object SegLabel @211
+			Parent_View 	@210
+			location   	(2130, 960)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -9442,13 +9424,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"559E76B4027A"
-		    client     	@156
+		    client     	@155
 		    supplier   	@139
 		    vertices   	(list Points
-			(948, 651)
-			(3222, 1489))
+			(953, 653)
+			(3223, 1490))
 		    line_style 	0)
-		(object UsesView "" @213
+		(object UsesView "" @212
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -9459,9 +9441,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @214
-			Parent_View 	@213
-			location   	(1801, 276)
+		    stereotype 	(object SegLabel @213
+			Parent_View 	@212
+			location   	(1809, 275)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -9483,13 +9465,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"55A53C420242"
-		    client     	@156
+		    client     	@155
 		    supplier   	@140
 		    vertices   	(list Points
-			(948, 533)
+			(964, 530)
 			(2690, 253))
 		    line_style 	0)
-		(object UsesView "" @215
+		(object UsesView "" @214
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -9500,9 +9482,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @216
-			Parent_View 	@215
-			location   	(2162, 1112)
+		    stereotype 	(object SegLabel @215
+			Parent_View 	@214
+			location   	(2167, 1114)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -9524,13 +9506,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"55A63D5E0333"
-		    client     	@156
+		    client     	@155
 		    supplier   	@141
 		    vertices   	(list Points
 			(905, 653)
-			(3316, 1786))
+			(3326, 1790))
 		    line_style 	0)
-		(object UsesView "" @217
+		(object UsesView "" @216
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -9541,9 +9523,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @218
-			Parent_View 	@217
-			location   	(1816, 935)
+		    stereotype 	(object SegLabel @217
+			Parent_View 	@216
+			location   	(1819, 936)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -9565,14 +9547,14 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"55A000BD0308"
-		    client     	@156
+		    client     	@155
 		    supplier   	@153
 		    vertices   	(list Points
 			(909, 653)
-			(2621, 1432))
+			(2630, 1436))
 		    line_style 	0)
-		(object AssociationViewNew "$UNNAMED$16" @219
-		    location   	(1765, 1042)
+		(object AssociationViewNew "$UNNAMED$16" @218
+		    location   	(1769, 1044)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -9587,9 +9569,9 @@
 		    line_color 	3947680
 		    quidu      	"55A4E87F00DA"
 		    roleview_list 	(list RoleViews
-			(object RoleView "MainDictionary" @220
-			    Parent_View 	@219
-			    location   	(1039, 472)
+			(object RoleView "MainDictionary" @219
+			    Parent_View 	@218
+			    location   	(1043, 474)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -9600,9 +9582,9 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @221
-				Parent_View 	@220
-				location   	(2434, 1392)
+			    label      	(object SegLabel @220
+				Parent_View 	@219
+				location   	(2442, 1396)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -9622,9 +9604,9 @@
 				pctDist    	0.800000
 				height     	42
 				orientation 	1)
-			    stereotype 	(object SegLabel @222
-				Parent_View 	@220
-				location   	(2523, 1314)
+			    stereotype 	(object SegLabel @221
+				Parent_View 	@219
+				location   	(2531, 1318)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -9646,25 +9628,25 @@
 				orientation 	0)
 			    line_color 	3342489
 			    quidu      	"55A4E8800332"
-			    client     	@219
+			    client     	@218
 			    supplier   	@153
 			    vertices   	(list Points
-				(1765, 1042)
-				(2621, 1432))
+				(1769, 1044)
+				(2630, 1436))
 			    line_style 	0)
-			(object RoleView "$UNNAMED$17" @223
-			    Parent_View 	@219
-			    location   	(1039, 472)
+			(object RoleView "$UNNAMED$17" @222
+			    Parent_View 	@218
+			    location   	(1043, 474)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55A4E8800337"
-			    client     	@219
-			    supplier   	@156
+			    client     	@218
+			    supplier   	@155
 			    vertices   	(list Points
-				(1765, 1042)
+				(1769, 1044)
 				(909, 653))
 			    line_style 	0)))
-		(object UsesView "" @224
+		(object UsesView "" @223
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -9675,9 +9657,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @225
-			Parent_View 	@224
-			location   	(2089, 595)
+		    stereotype 	(object SegLabel @224
+			Parent_View 	@223
+			location   	(2098, 595)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -9699,85 +9681,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"55A66C30003F"
-		    client     	@156
+		    client     	@155
 		    supplier   	@142
 		    vertices   	(list Points
-			(948, 593)
-			(3204, 833))
+			(964, 594)
+			(3206, 833))
 		    line_style 	0)
-		(object AssociationViewNew "$UNNAMED$20" @226
-		    location   	(2267, 447)
-		    font       	(object Font
-			size       	10
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	FALSE
-			underline  	FALSE
-			strike     	FALSE
-			color      	0
-			default_color 	TRUE)
-		    stereotype 	TRUE
-		    line_color 	3947680
-		    quidu      	"55AF814E0114"
-		    roleview_list 	(list RoleViews
-			(object RoleView "f_CascadeDict" @227
-			    Parent_View 	@226
-			    location   	(1541, -123)
-			    font       	(object Font
-				size       	10
-				face       	"Arial"
-				charSet    	204
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    label      	(object SegLabel @228
-				Parent_View 	@227
-				location   	(3319, 322)
-				font       	(object Font
-				    size       	10
-				    face       	"Arial"
-				    charSet    	204
-				    bold       	FALSE
-				    italics    	FALSE
-				    underline  	FALSE
-				    strike     	FALSE
-				    color      	0
-				    default_color 	TRUE)
-				anchor     	1
-				anchor_loc 	1
-				nlines     	1
-				max_width  	292
-				justify    	0
-				label      	"-f_CascadeDict"
-				pctDist    	0.800000
-				height     	42
-				orientation 	0)
-			    stereotype 	TRUE
-			    line_color 	3342489
-			    quidu      	"55AF814F0290"
-			    client     	@226
-			    supplier   	@154
-			    vertices   	(list Points
-				(2267, 447)
-				(3586, 342))
-			    line_style 	0)
-			(object RoleView "$UNNAMED$21" @229
-			    Parent_View 	@226
-			    location   	(1541, -123)
-			    stereotype 	TRUE
-			    line_color 	3342489
-			    quidu      	"55AF815001B4"
-			    client     	@226
-			    supplier   	@156
-			    vertices   	(list Points
-				(2267, 447)
-				(948, 552))
-			    line_style 	0)))
-		(object AssociationViewNew "$UNNAMED$22" @230
+		(object AssociationViewNew "$UNNAMED$20" @225
 		    location   	(2085, 1391)
 		    font       	(object Font
 			size       	10
@@ -9793,8 +9703,8 @@
 		    line_color 	3947680
 		    quidu      	"55AFBB2001A3"
 		    roleview_list 	(list RoleViews
-			(object RoleView "f_DisabledForHelp" @231
-			    Parent_View 	@230
+			(object RoleView "f_DisabledForHelp" @226
+			    Parent_View 	@225
 			    location   	(1359, 821)
 			    font       	(object Font
 				size       	10
@@ -9806,8 +9716,8 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @232
-				Parent_View 	@231
+			    label      	(object SegLabel @227
+				Parent_View 	@226
 				location   	(3041, 2017)
 				font       	(object Font
 				    size       	10
@@ -9831,25 +9741,25 @@
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55AFBB210081"
-			    client     	@230
-			    supplier   	@155
+			    client     	@225
+			    supplier   	@154
 			    vertices   	(list Points
 				(2085, 1391)
 				(3307, 2129))
 			    line_style 	0)
-			(object RoleView "$UNNAMED$23" @233
-			    Parent_View 	@230
+			(object RoleView "$UNNAMED$21" @228
+			    Parent_View 	@225
 			    location   	(1359, 821)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55AFBB21008B"
-			    client     	@230
-			    supplier   	@156
+			    client     	@225
+			    supplier   	@155
 			    vertices   	(list Points
 				(2085, 1391)
 				(863, 653))
 			    line_style 	0)))
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwStandardDictionaries" @234
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwStandardDictionaries" @229
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -9867,29 +9777,29 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@234
-			location   	(3544, 562)
+			Parent_View 	@229
+			location   	(3515, 566)
 			nlines     	1
-			max_width  	478
+			max_width  	536
 			justify    	0
-			label      	"TtfwStandardDictionaries")
+			label      	"• TtfwStandardDictionaries")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@234
-			location   	(3544, 512)
+			Parent_View 	@229
+			location   	(3515, 516)
 			anchor     	10
 			nlines     	1
-			max_width  	478
+			max_width  	536
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"55B0E7AD026B"
-		    width      	496
-		    height     	188
+		    width      	554
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object UsesView "" @235
+		(object UsesView "" @230
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -9900,9 +9810,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @236
-			Parent_View 	@235
-			location   	(2242, 462)
+		    stereotype 	(object SegLabel @231
+			Parent_View 	@230
+			location   	(2235, 462)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -9924,13 +9834,13 @@
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"55B1EC1E011F"
-		    client     	@156
-		    supplier   	@234
+		    client     	@155
+		    supplier   	@229
 		    vertices   	(list Points
-			(948, 571)
-			(3534, 591))
+			(964, 571)
+			(3505, 591))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::tfwScriptEngineExInterfaces::ItfwScriptEngineEx" @237
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::tfwScriptEngineExInterfaces::ItfwScriptEngineEx" @232
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -9948,29 +9858,29 @@
 			color      	16714250
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@237
-			location   	(1433, 2437)
+			Parent_View 	@232
+			location   	(1502, 2441)
 			nlines     	1
-			max_width  	644
+			max_width  	506
 			justify    	0
 			label      	"ItfwScriptEngineEx")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@237
-			location   	(1433, 2387)
+			Parent_View 	@232
+			location   	(1502, 2391)
 			anchor     	10
 			nlines     	1
-			max_width  	644
+			max_width  	506
 			justify    	0
 			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    line_color 	16714250
 		    fill_color 	16777215
 		    quidu      	"55E9A8DB03A4"
-		    width      	662
-		    height     	188
+		    width      	524
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object RealizeView "" @238
+		(object RealizeView "" @233
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -9984,13 +9894,13 @@
 		    stereotype 	TRUE
 		    line_color 	3947680
 		    quidu      	"55E9A8F40050"
-		    client     	@156
-		    supplier   	@237
+		    client     	@155
+		    supplier   	@232
 		    vertices   	(list Points
 			(771, 653)
-			(1703, 2374))
+			(1705, 2378))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwScriptEnginePrim::Shift" @239
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwScriptEnginePrim::Shift" @234
 		    ShowCompartmentStereotypes 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
@@ -10007,28 +9917,28 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@239
-			location   	(1049, 2759)
+			Parent_View 	@234
+			location   	(842, 2729)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	266
+			max_width  	680
 			justify    	0
-			label      	"Shift")
+			label      	"• Shift")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@239
-			location   	(1049, 2709)
+			Parent_View 	@234
+			location   	(842, 2679)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	266
+			max_width  	680
 			justify    	0
 			label      	"<<method>>")
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"55E9C2600353"
 		    compartment 	(object Compartment
-			Parent_View 	@239
-			location   	(1049, 2864)
+			Parent_View 	@234
+			location   	(842, 2844)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -10045,17 +9955,17 @@
 			nlines     	2
 			max_width  	681
 			justify    	1)
-		    width      	284
-		    height     	228
+		    width      	698
+		    height     	288
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object Label @240
+		(object Label @235
 		    attributes 	(list Attribute_Set
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"LinkedItemGuid"
 			    value      	"55A3BFB102D7"))
-		    location   	(99, 1977)
+		    location   	(105, 1977)
 		    font       	(object Font
 			size       	8
 			face       	"Arial"
@@ -10070,13 +9980,13 @@
 		    max_width  	12
 		    justify    	1
 		    label      	"protected")
-		(object Label @241
+		(object Label @236
 		    attributes 	(list Attribute_Set
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"LinkedItemGuid"
 			    value      	"55AF8A9D03A2"))
-		    location   	(861, 2373)
+		    location   	(864, 2373)
 		    font       	(object Font
 			size       	8
 			face       	"Arial"
@@ -10091,7 +10001,7 @@
 		    max_width  	12
 		    justify    	1
 		    label      	"protected")
-		(object Label @242
+		(object Label @237
 		    attributes 	(list Attribute_Set
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -10130,7 +10040,7 @@
 	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwStoredValuesStack::Create" @243
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwStoredValuesStack::Create" @238
 		    ShowCompartmentStereotypes 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
@@ -10147,7 +10057,7 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@243
+			Parent_View 	@238
 			location   	(179, 179)
 			fill_color 	13434879
 			nlines     	1
@@ -10155,7 +10065,7 @@
 			justify    	0
 			label      	"Create")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@243
+			Parent_View 	@238
 			location   	(179, 129)
 			fill_color 	13434879
 			anchor     	10
@@ -10167,8 +10077,8 @@
 		    fill_color 	12712062
 		    quidu      	"4F49438E0354"
 		    compartment 	(object Compartment
-			Parent_View 	@243
-			location   	(179, 284)
+			Parent_View 	@238
+			location   	(179, 294)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -10189,7 +10099,7 @@
 		    height     	228
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::tfwScriptingInterfaces::ItfwStoredValuesStack" @244
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::tfwScriptingInterfaces::ItfwStoredValuesStack" @239
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -10207,14 +10117,14 @@
 			color      	16714250
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@244
+			Parent_View 	@239
 			location   	(789, 244)
 			nlines     	1
 			max_width  	450
 			justify    	0
 			label      	"ItfwStoredValuesStack")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@244
+			Parent_View 	@239
 			location   	(789, 194)
 			anchor     	10
 			nlines     	1
@@ -10229,7 +10139,7 @@
 		    height     	188
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwStoredValuesStack::Make" @245
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwStoredValuesStack::Make" @240
 		    ShowCompartmentStereotypes 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
@@ -10246,7 +10156,7 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@245
+			Parent_View 	@240
 			location   	(505, 635)
 			fill_color 	13434879
 			nlines     	1
@@ -10254,7 +10164,7 @@
 			justify    	0
 			label      	"Make")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@245
+			Parent_View 	@240
 			location   	(505, 585)
 			fill_color 	13434879
 			anchor     	10
@@ -10269,27 +10179,27 @@
 		    height     	228
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object InheritView "" @246
+		(object InheritView "" @241
 		    stereotype 	TRUE
 		    line_color 	3342489
 		    quidu      	"4F4943B301CA"
-		    client     	@245
-		    supplier   	@243
+		    client     	@240
+		    supplier   	@238
 		    vertices   	(list Points
 			(626, 572)
 			(441, 345))
 		    line_style 	0)
-		(object RealizeView "" @247
+		(object RealizeView "" @242
 		    stereotype 	TRUE
 		    line_color 	3342489
 		    quidu      	"4F4943B502EA"
-		    client     	@245
-		    supplier   	@244
+		    client     	@240
+		    supplier   	@239
 		    vertices   	(list Points
 			(800, 572)
 			(944, 370))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwStoredValuesStack" @248
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwStoredValuesStack" @243
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -10307,14 +10217,14 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@248
+			Parent_View 	@243
 			location   	(870, 1023)
 			nlines     	1
 			max_width  	462
 			justify    	0
 			label      	"TtfwStoredValuesStack")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@248
+			Parent_View 	@243
 			location   	(870, 973)
 			anchor     	10
 			nlines     	1
@@ -10329,17 +10239,17 @@
 		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object RealizeView "" @249
+		(object RealizeView "" @244
 		    stereotype 	TRUE
 		    line_color 	3342489
 		    quidu      	"4F49417401CD"
-		    client     	@248
-		    supplier   	@244
+		    client     	@243
+		    supplier   	@239
 		    vertices   	(list Points
 			(1091, 960)
 			(1023, 370))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::tfwScriptingInterfaces::TtfwKeyWord" @250
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::tfwScriptingInterfaces::TtfwKeyWord" @245
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -10357,14 +10267,14 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@250
+			Parent_View 	@245
 			location   	(129, 1015)
 			nlines     	1
 			max_width  	522
 			justify    	0
 			label      	"TtfwKeyWord")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@250
+			Parent_View 	@245
 			location   	(129, 965)
 			anchor     	10
 			nlines     	1
@@ -10379,7 +10289,7 @@
 		    height     	188
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object UsesView "" @251
+		(object UsesView "" @246
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -10390,8 +10300,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @252
-			Parent_View 	@251
+		    stereotype 	(object SegLabel @247
+			Parent_View 	@246
 			location   	(761, 1164)
 			font       	(object Font
 			    size       	10
@@ -10414,13 +10324,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"55A52B220169"
-		    client     	@248
-		    supplier   	@250
+		    client     	@243
+		    supplier   	@245
 		    vertices   	(list Points
 			(860, 1044)
 			(660, 1045))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::tfwScriptingInterfaces::TtfwStoredValue" @253
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::tfwScriptingInterfaces::TtfwStoredValue" @248
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -10438,14 +10348,14 @@
 			color      	2313060
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@253
+			Parent_View 	@248
 			location   	(790, 1516)
 			nlines     	1
 			max_width  	556
 			justify    	0
 			label      	"TtfwStoredValue")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@253
+			Parent_View 	@248
 			location   	(790, 1466)
 			anchor     	10
 			nlines     	1
@@ -10460,7 +10370,7 @@
 		    height     	188
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::StoredValues::TtfwStoredValues" @254
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::StoredValues::TtfwStoredValues" @249
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -10478,14 +10388,14 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@254
+			Parent_View 	@249
 			location   	(301, 1424)
 			nlines     	1
 			max_width  	358
 			justify    	0
 			label      	"TtfwStoredValues")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@254
+			Parent_View 	@249
 			location   	(301, 1374)
 			anchor     	10
 			nlines     	1
@@ -10500,7 +10410,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object UsesView "" @255
+		(object UsesView "" @250
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -10511,8 +10421,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @256
-			Parent_View 	@255
+		    stereotype 	(object SegLabel @251
+			Parent_View 	@250
 			location   	(859, 1344)
 			font       	(object Font
 			    size       	10
@@ -10535,13 +10445,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"55A52B4C02B8"
-		    client     	@248
-		    supplier   	@254
+		    client     	@243
+		    supplier   	@249
 		    vertices   	(list Points
 			(971, 1127)
 			(616, 1361))
 		    line_style 	0)
-		(object UsesView "" @257
+		(object UsesView "" @252
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -10552,8 +10462,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @258
-			Parent_View 	@257
+		    stereotype 	(object SegLabel @253
+			Parent_View 	@252
 			location   	(1204, 1297)
 			font       	(object Font
 			    size       	10
@@ -10576,13 +10486,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"55A52B8A0352"
-		    client     	@248
-		    supplier   	@253
+		    client     	@243
+		    supplier   	@248
 		    vertices   	(list Points
 			(1094, 1127)
 			(1074, 1453))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::Array::TtfwArray" @259
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::Array::TtfwArray" @254
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -10600,14 +10510,14 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@259
+			Parent_View 	@254
 			location   	(1443, 1535)
 			nlines     	1
 			max_width  	330
 			justify    	0
 			label      	"TtfwArray")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@259
+			Parent_View 	@254
 			location   	(1443, 1485)
 			anchor     	10
 			nlines     	1
@@ -10622,7 +10532,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object UsesView "" @260
+		(object UsesView "" @255
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -10633,8 +10543,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @261
-			Parent_View 	@260
+		    stereotype 	(object SegLabel @256
+			Parent_View 	@255
 			location   	(1436, 1216)
 			font       	(object Font
 			    size       	10
@@ -10657,8 +10567,8 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"55A530FF00F8"
-		    client     	@248
-		    supplier   	@259
+		    client     	@243
+		    supplier   	@254
 		    vertices   	(list Points
 			(1182, 1127)
 			(1519, 1472))
@@ -10681,7 +10591,7 @@
 	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::seWordsInfo::GetWordDirectives" @262
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::seWordsInfo::GetWordDirectives" @257
 		    ShowCompartmentStereotypes 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
@@ -10698,7 +10608,7 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@262
+			Parent_View 	@257
 			location   	(447, 221)
 			fill_color 	13434879
 			nlines     	1
@@ -10706,7 +10616,7 @@
 			justify    	0
 			label      	"GetWordDirectives")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@262
+			Parent_View 	@257
 			location   	(447, 171)
 			fill_color 	13434879
 			anchor     	10
@@ -10718,8 +10628,8 @@
 		    fill_color 	15781360
 		    quidu      	"53E10704024E"
 		    compartment 	(object Compartment
-			Parent_View 	@262
-			location   	(447, 326)
+			Parent_View 	@257
+			location   	(447, 336)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -10734,13 +10644,13 @@
 			fill_color 	16777215
 			anchor     	2
 			nlines     	2
-			max_width  	1056
+			max_width  	1053
 			justify    	1)
 		    width      	402
 		    height     	228
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::L3::StringUtils::l3String" @263
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::L3::StringUtils::l3String" @258
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -10758,14 +10668,14 @@
 			color      	658175
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@263
+			Parent_View 	@258
 			location   	(355, 767)
 			nlines     	1
 			max_width  	328
 			justify    	0
 			label      	"l3String")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@263
+			Parent_View 	@258
 			location   	(355, 717)
 			anchor     	10
 			nlines     	1
@@ -10780,7 +10690,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object UsesView "" @264
+		(object UsesView "" @259
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -10791,8 +10701,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @265
-			Parent_View 	@264
+		    stereotype 	(object SegLabel @260
+			Parent_View 	@259
 			location   	(692, 572)
 			font       	(object Font
 			    size       	10
@@ -10815,8 +10725,8 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"53E10CE00323"
-		    client     	@262
-		    supplier   	@263
+		    client     	@257
+		    supplier   	@258
 		    vertices   	(list Points
 			(611, 387)
 			(539, 704))
@@ -10835,7 +10745,7 @@
 	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionaryList" @266
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionaryList" @261
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -10853,14 +10763,14 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@266
+			Parent_View 	@261
 			location   	(1209, 205)
 			nlines     	1
 			max_width  	438
 			justify    	0
 			label      	"TtfwDictionaryList")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@266
+			Parent_View 	@261
 			location   	(1209, 155)
 			anchor     	10
 			nlines     	1
@@ -10875,7 +10785,7 @@
 		    height     	188
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwInitedDictionariesList" @267
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwInitedDictionariesList" @262
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -10893,14 +10803,14 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@267
+			Parent_View 	@262
 			location   	(1274, 541)
 			nlines     	1
 			max_width  	476
 			justify    	0
 			label      	"TtfwInitedDictionariesList")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@267
+			Parent_View 	@262
 			location   	(1274, 491)
 			anchor     	10
 			nlines     	1
@@ -10915,7 +10825,7 @@
 		    height     	188
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwMainDictionary" @268
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwMainDictionary" @263
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -10933,14 +10843,14 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@268
+			Parent_View 	@263
 			location   	(1306, 868)
 			nlines     	1
 			max_width  	442
 			justify    	0
 			label      	"TtfwMainDictionary")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@268
+			Parent_View 	@263
 			location   	(1306, 818)
 			anchor     	10
 			nlines     	1
@@ -10955,7 +10865,7 @@
 		    height     	188
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::WordsList::TtfwWordRefList" @269
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::WordsList::TtfwWordRefList" @264
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -10973,14 +10883,14 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@269
+			Parent_View 	@264
 			location   	(613, 1076)
 			nlines     	1
 			max_width  	388
 			justify    	0
 			label      	"TtfwWordRefList")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@269
+			Parent_View 	@264
 			location   	(613, 1026)
 			anchor     	10
 			nlines     	1
@@ -10995,7 +10905,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::tfwScriptEngineExInterfaces::ItfwScriptEngineEx" @270
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::tfwScriptEngineExInterfaces::ItfwScriptEngineEx" @265
 		    ShowCompartmentStereotypes 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
@@ -11012,7 +10922,7 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@270
+			Parent_View 	@265
 			location   	(299, 415)
 			fill_color 	13434879
 			nlines     	1
@@ -11020,7 +10930,7 @@
 			justify    	0
 			label      	"ItfwScriptEngineEx")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@270
+			Parent_View 	@265
 			location   	(299, 365)
 			fill_color 	13434879
 			anchor     	10
@@ -11036,7 +10946,7 @@
 		    height     	230
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object AssociationViewNew "$UNNAMED$24" @271
+		(object AssociationViewNew "$UNNAMED$22" @266
 		    location   	(1006, 346)
 		    font       	(object Font
 			size       	10
@@ -11052,8 +10962,8 @@
 		    line_color 	3947680
 		    quidu      	"55E9A95F0109"
 		    roleview_list 	(list RoleViews
-			(object RoleView "Dictionaries" @272
-			    Parent_View 	@271
+			(object RoleView "Dictionaries" @267
+			    Parent_View 	@266
 			    location   	(442, 10)
 			    font       	(object Font
 				size       	10
@@ -11065,8 +10975,8 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @273
-				Parent_View 	@272
+			    label      	(object SegLabel @268
+				Parent_View 	@267
 				location   	(1151, 265)
 				font       	(object Font
 				    size       	10
@@ -11087,8 +10997,8 @@
 				pctDist    	0.800000
 				height     	42
 				orientation 	0)
-			    stereotype 	(object SegLabel @274
-				Parent_View 	@272
+			    stereotype 	(object SegLabel @269
+				Parent_View 	@267
 				location   	(1240, 187)
 				font       	(object Font
 				    size       	10
@@ -11111,25 +11021,25 @@
 				orientation 	0)
 			    line_color 	3342489
 			    quidu      	"55E9A95F027B"
-			    client     	@271
-			    supplier   	@266
+			    client     	@266
+			    supplier   	@261
 			    vertices   	(list Points
 				(1006, 346)
-				(1199, 295))
+				(1199, 294))
 			    line_style 	0)
-			(object RoleView "$UNNAMED$25" @275
-			    Parent_View 	@271
+			(object RoleView "$UNNAMED$23" @270
+			    Parent_View 	@266
 			    location   	(442, 10)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55E9A95F028F"
-			    client     	@271
-			    supplier   	@270
+			    client     	@266
+			    supplier   	@265
 			    vertices   	(list Points
 				(1006, 346)
 				(814, 397))
 			    line_style 	0)))
-		(object AssociationViewNew "$UNNAMED$26" @276
+		(object AssociationViewNew "$UNNAMED$24" @271
 		    location   	(1039, 520)
 		    font       	(object Font
 			size       	10
@@ -11145,8 +11055,8 @@
 		    line_color 	3947680
 		    quidu      	"55E9A99301C0"
 		    roleview_list 	(list RoleViews
-			(object RoleView "InitedDictionaries" @277
-			    Parent_View 	@276
+			(object RoleView "InitedDictionaries" @272
+			    Parent_View 	@271
 			    location   	(475, 184)
 			    font       	(object Font
 				size       	10
@@ -11158,8 +11068,8 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @278
-				Parent_View 	@277
+			    label      	(object SegLabel @273
+				Parent_View 	@272
 				location   	(1215, 582)
 				font       	(object Font
 				    size       	10
@@ -11180,8 +11090,8 @@
 				pctDist    	0.800000
 				height     	42
 				orientation 	1)
-			    stereotype 	(object SegLabel @279
-				Parent_View 	@277
+			    stereotype 	(object SegLabel @274
+				Parent_View 	@272
 				location   	(1304, 504)
 				font       	(object Font
 				    size       	10
@@ -11204,25 +11114,25 @@
 				orientation 	0)
 			    line_color 	3342489
 			    quidu      	"55E9A993038B"
-			    client     	@276
-			    supplier   	@267
+			    client     	@271
+			    supplier   	@262
 			    vertices   	(list Points
 				(1039, 520)
-				(1264, 545))
+				(1264, 544))
 			    line_style 	0)
-			(object RoleView "$UNNAMED$27" @280
-			    Parent_View 	@276
+			(object RoleView "$UNNAMED$25" @275
+			    Parent_View 	@271
 			    location   	(475, 184)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55E9A9930393"
-			    client     	@276
-			    supplier   	@270
+			    client     	@271
+			    supplier   	@265
 			    vertices   	(list Points
 				(1039, 520)
-				(814, 496))
+				(814, 495))
 			    line_style 	0)))
-		(object AssociationViewNew "$UNNAMED$28" @281
+		(object AssociationViewNew "$UNNAMED$26" @276
 		    location   	(1064, 694)
 		    font       	(object Font
 			size       	10
@@ -11238,8 +11148,8 @@
 		    line_color 	3947680
 		    quidu      	"55E9A9BA007D"
 		    roleview_list 	(list RoleViews
-			(object RoleView "MainDictionary" @282
-			    Parent_View 	@281
+			(object RoleView "MainDictionary" @277
+			    Parent_View 	@276
 			    location   	(512, 256)
 			    font       	(object Font
 				size       	10
@@ -11251,8 +11161,8 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @283
-				Parent_View 	@282
+			    label      	(object SegLabel @278
+				Parent_View 	@277
 				location   	(1248, 821)
 				font       	(object Font
 				    size       	10
@@ -11273,8 +11183,8 @@
 				pctDist    	0.800000
 				height     	42
 				orientation 	1)
-			    stereotype 	(object SegLabel @284
-				Parent_View 	@282
+			    stereotype 	(object SegLabel @279
+				Parent_View 	@277
 				location   	(1337, 743)
 				font       	(object Font
 				    size       	10
@@ -11297,25 +11207,25 @@
 				orientation 	0)
 			    line_color 	3342489
 			    quidu      	"55E9A9BA02AD"
-			    client     	@281
-			    supplier   	@268
+			    client     	@276
+			    supplier   	@263
 			    vertices   	(list Points
 				(1064, 694)
 				(1315, 805))
 			    line_style 	0)
-			(object RoleView "$UNNAMED$29" @285
-			    Parent_View 	@281
+			(object RoleView "$UNNAMED$27" @280
+			    Parent_View 	@276
 			    location   	(512, 256)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55E9A9BA02C1"
-			    client     	@281
-			    supplier   	@270
+			    client     	@276
+			    supplier   	@265
 			    vertices   	(list Points
 				(1064, 694)
-				(813, 583))
+				(814, 583))
 			    line_style 	0)))
-		(object AssociationViewNew "$UNNAMED$30" @286
+		(object AssociationViewNew "$UNNAMED$28" @281
 		    location   	(683, 798)
 		    font       	(object Font
 			size       	10
@@ -11331,8 +11241,8 @@
 		    line_color 	3342489
 		    quidu      	"55ED5976016E"
 		    roleview_list 	(list RoleViews
-			(object RoleView "DisabledForHelp" @287
-			    Parent_View 	@286
+			(object RoleView "DisabledForHelp" @282
+			    Parent_View 	@281
 			    location   	(131, 330)
 			    font       	(object Font
 				size       	10
@@ -11344,8 +11254,8 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @288
-				Parent_View 	@287
+			    label      	(object SegLabel @283
+				Parent_View 	@282
 				location   	(714, 985)
 				font       	(object Font
 				    size       	10
@@ -11366,8 +11276,8 @@
 				pctDist    	0.800000
 				height     	42
 				orientation 	1)
-			    stereotype 	(object SegLabel @289
-				Parent_View 	@287
+			    stereotype 	(object SegLabel @284
+				Parent_View 	@282
 				location   	(667, 907)
 				font       	(object Font
 				    size       	10
@@ -11390,20 +11300,20 @@
 				orientation 	1)
 			    line_color 	3342489
 			    quidu      	"55ED597602F4"
-			    client     	@286
-			    supplier   	@269
+			    client     	@281
+			    supplier   	@264
 			    vertices   	(list Points
 				(683, 798)
 				(770, 1013))
 			    line_style 	0)
-			(object RoleView "$UNNAMED$31" @290
-			    Parent_View 	@286
+			(object RoleView "$UNNAMED$29" @285
+			    Parent_View 	@281
 			    location   	(131, 330)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55ED5976031C"
-			    client     	@286
-			    supplier   	@270
+			    client     	@281
+			    supplier   	@265
 			    vertices   	(list Points
 				(683, 798)
 				(597, 583))

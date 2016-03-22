@@ -199,7 +199,7 @@ try
     Delay(Options.Run.Timeout);      
     if not IsExists(GetMainWindow) then
       Raise('Похоже оболочка не запустилась в режиме автологина!');
-    if not IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),  MENU_AUTOLOGIN) then
+    if not IsMenuItemChecked(nil,  MENU_AUTOLOGIN) then
       Result := ErrorResult('В режиме автологина не стоит галка в пункте главного меню "' + MENU_AUTOLOGIN + '"')
     else
       //HLTC70.2.7 снимаем галку
@@ -220,7 +220,7 @@ try
     Delay(Options.Run.Timeout);      
     if not IsExists(GetMainWindow) then
       Raise('Похоже оболочка не запустилась в режиме автологина!');
-    if not IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),  MENU_AUTOLOGIN) then
+    if not IsMenuItemChecked(nil,  MENU_AUTOLOGIN) then
       Result := ErrorResult('В режиме автологина не стоит галка в пункте главного меню "' + MENU_AUTOLOGIN + '"')
     else
       ClickByMainMenuItem(MENU_AUTOLOGIN);
@@ -323,7 +323,7 @@ try
     // HLTC70.2.12.1, снимаем галку с автологина
     if DoLoginOperation(LOGINNAME, LOGINNAME, OPER_LOGIN_EXISTING_USER, 'isAutoLogin:=2') <> IDLO_NOERROR then
       Raise('Не получилось залогиниться под существующим пользователем и паролем "' + LOGINNAME + '"');
-    if IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'),  MENU_AUTOLOGIN) then
+    if IsMenuItemChecked(nil, MENU_AUTOLOGIN) then
       Result := ErrorResult('После отключения автологина стоит галка в пункте главного меню "' + MENU_AUTOLOGIN + '"');
   finally
     CloseF1Shell;
@@ -772,7 +772,7 @@ try
     'apps\winNT\F1UsersImport.exe',    
     'apps\winNT\csadapter.dll',
     'apps\winNT\gl.dll',
-    'apps\winNT\gu711.dll',
+    'apps\winNT\gu712.dll',
     'apps\winNT\GU7tr.dll',
     'apps\winNT\f1consultingchecker.run',
     'apps\winNT\f1datasetup.run',
@@ -852,7 +852,7 @@ try
     'apps\winNT\csadapter.dll',
     'apps\winNT\gl.dll',
     'apps\winNT\gsock32.dll',
-    'apps\winNT\gu711.dll',
+    'apps\winNT\gu712.dll',
     'apps\winNT\GU7tr.dll',
     'apps\winNT\f1consultingchecker.run',
     'apps\winNT\f1datasetup.run',
@@ -934,7 +934,7 @@ try
     'apps\winNT\csadapter.dll',
     'apps\winNT\gl.dll',
     'apps\winNT\gsock32.dll',
-    'apps\winNT\gu711.dll',
+    'apps\winNT\gu712.dll',
     'apps\winNT\GU7tr.dll',
     'apps\winNT\f1consultingchecker.run',
     'apps\winNT\f1datasetup.run',

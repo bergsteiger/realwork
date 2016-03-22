@@ -3,6 +3,7 @@ unit nsDocumentPreview;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsDocumentPreview.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentPreview" MUID: (47F22D5701A7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

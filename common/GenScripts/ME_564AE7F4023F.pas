@@ -4,6 +4,7 @@ unit NOT_FINISHED_vcmMainMenuBuilder;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmMainMenuBuilder.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmMainMenuBuilder" MUID: (564AE7F4023F)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

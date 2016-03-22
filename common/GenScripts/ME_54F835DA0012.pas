@@ -2,6 +2,7 @@ unit tasSaveLoadProxy;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\tasSaveLoadProxy.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "tasSaveLoadProxy" MUID: (54F835DA0012)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

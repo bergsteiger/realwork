@@ -50,12 +50,7 @@ private:
 //////////////////////////////////////////////////////////////////////////////////////////
 // constructors and destructor
 public:
-	SearchStream (
-		const std::string& norma
-		, const std::string& forma
-		, DBComm::IStreamsFactory* factory
-		, unsigned long flags
-	);
+	SearchStream (const std::string& key, DBComm::IStreamsFactory* factory, unsigned long flags);
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // self methods

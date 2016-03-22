@@ -3,6 +3,7 @@ unit vtLister;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtLister.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtLister" MUID: (4CFFE3470249)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
@@ -298,159 +299,108 @@ event to notify when the top index changes }
    f_VScrollPersistent: Boolean;
    f_States: TvtListerStates;
    f_SelectArray: Tl3LogicalArray;
-    {* Поле для свойства SelectArray }
    f_ViewOptions: TvtViewOptions;
-    {* Поле для свойства ViewOptions }
    f_DrawPoints: Tl3LongintList;
-    {* Поле для свойства DrawPoints }
    f_AllowWithoutCurrent: Boolean;
-    {* Поле для свойства AllowWithoutCurrent }
+    {* допустимо отсутствие текущего. }
    f_Caret: TafwCaret;
-    {* Поле для свойства Caret }
    f_VJustify: TvtVJustify;
-    {* Поле для свойства VJustify }
    f_FooterCaption: AnsiString;
-    {* Поле для свойства FooterCaption }
    f_FooterVisible: Boolean;
-    {* Поле для свойства FooterVisible }
    f_FooterStyleID: Tl3StyleId;
-    {* Поле для свойства FooterStyleID }
    f_FooterActiveStyleID: Tl3StyleId;
-    {* Поле для свойства FooterActiveStyleID }
    f_FooterFont: TFont;
-    {* Поле для свойства FooterFont }
    f_FooterActiveFont: TFont;
-    {* Поле для свойства FooterActiveFont }
    f_OnFooterClick: TNotifyEvent;
-    {* Поле для свойства OnFooterClick }
    f_FooterSelected: Boolean;
-    {* Поле для свойства FooterSelected }
    f_InterRowIndent: Integer;
-    {* Поле для свойства InterRowIndent }
+    {* промежуток между элементами дерева }
    f_OnVScrollVisibleChanged: TNotifyEvent;
-    {* Поле для свойства OnVScrollVisibleChanged }
+    {* изменилась видимость вертикальной полосы прокрутки }
    f_OnHScrollVisibleChanged: TNotifyEvent;
-    {* Поле для свойства OnHScrollVisibleChanged }
+    {* изменилась видимость горизонтальной полосы прокрутки }
    f_SearchStr: AnsiString;
-    {* Поле для свойства SearchStr }
    f_AutoRowHeight: Boolean;
-    {* Поле для свойства AutoRowHeight }
    f_Columns: Byte;
-    {* Поле для свойства Columns }
    f_Header: TvtListerHeader;
-    {* Поле для свойства Header }
    f_IntegralHeight: Boolean;
-    {* Поле для свойства IntegralHeight }
    f_Current: LongInt;
-    {* Поле для свойства Current }
+    {* индекс текущего элемента }
    f_Images: TCustomImageList;
-    {* Поле для свойства Images }
+    {* список картинок для отображения перед элементами }
    f_MultiStrokeItem: Boolean;
-    {* Поле для свойства MultiStrokeItem }
    f_PickedList: Boolean;
-    {* Поле для свойства PickedList }
+    {* отображать ли галочки перед элементами }
    f_TriplePicked: Boolean;
-    {* Поле для свойства TriplePicked }
+    {* отображать ли "третье состояние" галочки перед элементами }
    f_ReadOnly: Boolean;
-    {* Поле для свойства ReadOnly }
+    {* признак запрещения редактирования }
    f_MultiSelect: Boolean;
-    {* Поле для свойства MultiSelect }
    f_Options: TvlOptions;
-    {* Поле для свойства Options }
    f_Total: LongInt;
-    {* Поле для свойства Total }
+    {* количество элементов }
    f_ProtectColor: TOvcColors;
-    {* Поле для свойства ProtectColor }
    f_SelectColor: TOvcColors;
-    {* Поле для свойства SelectColor }
    f_SelectNonFocusColor: TOvcColors;
-    {* Поле для свойства SelectNonFocusColor }
    f_DisableAlignTopIndex: Boolean;
-    {* Поле для свойства DisableAlignTopIndex }
    f_TopIndex: LongInt;
-    {* Поле для свойства TopIndex }
    f_UseTabStops: Boolean;
-    {* Поле для свойства UseTabStops }
    f_FixAnchor: Boolean;
-    {* Поле для свойства FixAnchor }
    f_UseStyleTable: Boolean;
-    {* Поле для свойства UseStyleTable }
+    {* использовать изменение таблицы стилей }
    f_StyleId: Tl3StyleId;
-    {* Поле для свойства StyleId }
+    {* идентификатор стиля в таблице стилей }
    f_ActionElementMode: Tl3ActionElementMode;
-    {* Поле для свойства ActionElementMode }
    f_DrawGrid: Boolean;
-    {* Поле для свойства DrawGrid }
    f_TreatDefaultColorAsWindowColor: Boolean;
-    {* Поле для свойства TreatDefaultColorAsWindowColor }
    {$If Defined(Nemesis)}
    f_NonTrackScroll: Boolean;
-    {* Поле для свойства NonTrackScroll }
    {$IfEnd} // Defined(Nemesis)
    f_OnToggleSelection: TvtToggleSelectionEvent;
-    {* Поле для свойства OnToggleSelection }
    f_OnCharToItem: TCharToItemEvent;
-    {* Поле для свойства OnCharToItem }
    f_OnGetItemPainter: TGetItemPainterEvent;
-    {* Поле для свойства OnGetItemPainter }
+    {* событие для получения автономного "рисовальщика" элемента }
    f_OnGetStrItem: TGetStrItemEvent;
-    {* Поле для свойства OnGetStrItem }
+    {* событие для получения строчки элемента }
    f_OnGetPCharItem: TGetPCharItemEvent;
-    {* Поле для свойства OnGetPCharItem }
+    {* событие для получения строчки элемента (в виде PChar). }
    f_OnGetItemImageIndex: TGetItemImageIndex;
-    {* Поле для свойства OnGetItemImageIndex }
    f_OnGetItemImageOverlays: TOnGetItemImageOverlays;
-    {* Поле для свойства OnGetItemImageOverlays }
    f_OnGetItemPickImage: TGetPickItemImage;
-    {* Поле для свойства OnGetItemPickImage }
+    {* событие для получения картинки галки (Pick) для элемента. Если ItemIndex < 0,
+то Index картинки считать не надо (используется для получения ImageList) }
    f_OnGetItemIconHint: TGetItemHint;
-    {* Поле для свойства OnGetItemIconHint }
+    {* событие для получения hint'a для картинки элемента. }
    f_OnGetItemTextHint: TGetItemTextHint;
-    {* Поле для свойства OnGetItemTextHint }
+    {* событи для получения hint-а к тексту элемента. }
    f_OnGetItemCursor: TGetItemCursor;
-    {* Поле для свойства OnGetItemCursor }
+    {* событие для получения Cursor для элемента. }
    f_OnGetItemColor: TGetItemColorEvent;
-    {* Поле для свойства OnGetItemColor }
+    {* событие для получения цвета элемента. }
    f_OnGetItemFont: TGetItemFontEvent;
-    {* Поле для свойства OnGetItemFont }
+    {* событие для получения шрифта элемента. }
    f_OnGetItemImageState: TGetItemImageState;
-    {* Поле для свойства OnGetItemImageState }
    f_OnGetItemStatus: TGetItemStatusEvent;
-    {* Поле для свойства OnGetItemStatus }
    f_OnIsSelected: TIsSelectedEvent;
-    {* Поле для свойства OnIsSelected }
    f_OnSelect: TSelectEvent;
-    {* Поле для свойства OnSelect }
    f_OnSelectChange: TSelectEvent;
-    {* Поле для свойства OnSelectChange }
    f_OnSelectChanged: TSelectEvent;
-    {* Поле для свойства OnSelectChanged }
    f_OnTopIndexChanged: TTopIndexChanged;
-    {* Поле для свойства OnTopIndexChanged }
+    {* нотификация об изменении верхнего видимого элемента. }
    f_OnCurrentChanged: TCurrentChanged;
-    {* Поле для свойства OnCurrentChanged }
+    {* нотификация об изменении текущего }
    f_OnValidateCurrent: TValidateCurrent;
-    {* Поле для свойства OnValidateCurrent }
+    {* нотификация на корректировку номера текущего элемента }
    f_OnCountChanged: TCountChanged;
-    {* Поле для свойства OnCountChanged }
    f_OnUserCommand: TUserCommandEvent;
-    {* Поле для свойства OnUserCommand }
    f_OnIsCommandProcessed: TCommandProcessedEvent;
-    {* Поле для свойства OnIsCommandProcessed }
    f_OnActionElement: TActionElement;
-    {* Поле для свойства OnActionElement }
    f_OnResize: TNotifyEvent;
-    {* Поле для свойства OnResize }
    f_OnRMouseDown: TMouseEvent;
-    {* Поле для свойства OnRMouseDown }
    f_OnLMouseDown: TMouseEvent;
-    {* Поле для свойства OnLMouseDown }
    f_OnQuickSearchStrChanged: TQuickSearchStrChanged;
-    {* Поле для свойства OnQuickSearchStrChanged }
    f_OnGetCellItemImage: TGetCellItemImage;
-    {* Поле для свойства OnGetCellItemImage }
    f_OnNeedRecalcConstraints: TNotifyEvent;
-    {* Поле для свойства OnNeedRecalcConstraints }
   protected
    f_HintTimer: TTimer;
    f_TabsFirstIndent: Integer;
@@ -766,6 +716,7 @@ event to notify when the top index changes }
    {$IfEnd} // NOT Defined(NoVCL)
    procedure Notification(AComponent: TComponent;
     Operation: TOperation); override;
+   procedure ClearFields; override;
   public
    function GetImagesStored: Boolean; virtual;
    function CalcInterRowIndent: Integer; virtual;
@@ -1175,7 +1126,6 @@ event to notify when the top index changes }
   {* Видимый элемент для отображения списка строк из Tl3DataList }
   private
    f_Items: Tl3CustomDataList;
-    {* Поле для свойства Items }
   private
    procedure DStrOnIsSelected(Sender: TObject;
     Index: LongInt;
@@ -1212,15 +1162,14 @@ event to notify when the top index changes }
  TvtCustomIStrListListerPrim = class(TvtCustomLister)
   private
    f_Items: Il3ViewStringList;
-    {* Поле для свойства Items }
   protected
    procedure pm_SetItems(const aValue: Il3ViewStringList);
    function GetItems: Il3ViewStringList;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure DoChanged; override;
-   procedure ClearFields; override;
    function DoOnGetItem(Index: LongInt): Il3CString; override;
+   procedure ClearFields; override;
   public
    property Items: Il3ViewStringList
     read f_Items
@@ -3313,149 +3262,144 @@ var
 //#UC END# *5152BB1A0168_4CFFE36B00FA_var*
 begin
 //#UC START# *5152BB1A0168_4CFFE36B00FA_impl*
- g_InSetTop := true;
- try
-  f_NeedCurrentVisible := False;
-  if csDesigning in ComponentState then
-   Exit;
-  if Index < 0 then
-   Index := -1;
-  Index := Min(Index, Pred(f_Total));
-  if Index <> f_TopIndex then
+ f_NeedCurrentVisible := False;
+ if csDesigning in ComponentState then
+  Exit;
+ if Index < 0 then
+  Index := -1;
+ Index := Min(Index, Pred(f_Total));
+ if Index <> f_TopIndex then
+ begin
+  if (Index >= 0) and (Index <= f_HighIndex) then
   begin
-   if (Index >= 0) and (Index <= f_HighIndex) then
-   begin
-    CN := Canvas;
-    CN.BeginPaint;
-    try
-     CN.DrawEnabled := true;
+   CN := Canvas;
+   CN.BeginPaint;
+   try
+    CN.DrawEnabled := true;
 
-     if (f_Current >= f_TopIndex) and (f_Current < f_TopIndex + ItemOnScreen(True)) then
-      vlbDrawFocusRect(CN, f_Current);
+    if (f_Current >= f_TopIndex) and (f_Current < f_TopIndex + ItemOnScreen(True)) then
+     vlbDrawFocusRect(CN, f_Current);
 
-     SaveD := f_TopIndex;
+    SaveD := f_TopIndex;
 
-     {if we can't make the requested item the top one, at least show it}
-     //if f_MultiStrokeItem or (Index + f_Rows -1 <= f_HighIndex)
-     // then f_TopIndex := Index
-     // else f_TopIndex := f_HighIndex - f_Rows + 1;
+    {if we can't make the requested item the top one, at least show it}
+    //if f_MultiStrokeItem or (Index + f_Rows -1 <= f_HighIndex)
+    // then f_TopIndex := Index
+    // else f_TopIndex := f_HighIndex - f_Rows + 1;
 
-     f_TopIndex := Index;
-     if f_TopIndex < 0 then
-      f_TopIndex := 0;
+    f_TopIndex := Index;
+    if f_TopIndex < 0 then
+     f_TopIndex := 0;
 
-     AlignTopIndex;
+    AlignTopIndex;
 
-     vlbSetVScrollPos;
+    vlbSetVScrollPos;
 
-     if SaveD <> f_TopIndex then
-     begin
-      ClipArea := ClientRect;
-      {adjust top of the clipping region to exclude the header, if any}
-      if ShowHeader then
-       with ClipArea do
-        Top := Top + f_Header.Height;
-      TopIndentArea := ClipArea;
+    if SaveD <> f_TopIndex then
+    begin
+     ClipArea := ClientRect;
+     {adjust top of the clipping region to exclude the header, if any}
+     if ShowHeader then
       with ClipArea do
-      begin
-       Top := Top + InterRowIndent;
-       TopIndentArea.Bottom := TopIndentArea.Top + InterRowIndent;
-       Windows.InvalidateRect(Handle, @TopIndentArea, True);
-       if ((Bottom - Top) > 0) and ((Right - Left) > 0) then
-        if SaveD > f_HighIndex then
-         Windows.InvalidateRect(Handle, @ClipArea, True)
-        else
-          {adjust bottom of the clipping region to an even number of rows}
-         with ClipArea do
-          if UseDrawPoints then
+       Top := Top + f_Header.Height;
+     TopIndentArea := ClipArea;
+     with ClipArea do
+     begin
+      Top := Top + InterRowIndent;
+      TopIndentArea.Bottom := TopIndentArea.Top + InterRowIndent;
+      Windows.InvalidateRect(Handle, @TopIndentArea, True);
+      if ((Bottom - Top) > 0) and ((Right - Left) > 0) then
+       if SaveD > f_HighIndex then
+        Windows.InvalidateRect(Handle, @ClipArea, True)
+       else
+         {adjust bottom of the clipping region to an even number of rows}
+        with ClipArea do
+         if UseDrawPoints then
+         begin
+          DY := SaveD - f_TopIndex;
+          ScrollArea := ClipArea;
+          if (DrawPoints.Count <= 0) then
+           ScrollArea.Bottom := ClientHeight
+          else
+           ScrollArea.Bottom := DrawPoints.Last;
+          if ScrollArea.Bottom > ClientHeight then
+           ScrollArea.Bottom := ClientHeight;
+          if DY > 0 then {ScrollDown}
+           DropDrawPoints; {New Item Height Table}
+          if CanScrollWindow AND
+             (Abs(DY) < ItemOnScreen(false)) then
+            {scroll the window setting up a clipping region}
           begin
-           DY := SaveD - f_TopIndex;
-           ScrollArea := ClipArea;
-           if (DrawPoints.Count <= 0) then
-            ScrollArea.Bottom := ClientHeight
-           else
-            ScrollArea.Bottom := DrawPoints.Last;
-           if ScrollArea.Bottom > ClientHeight then
-            ScrollArea.Bottom := ClientHeight;
-           if DY > 0 then {ScrollDown}
-            DropDrawPoints; {New Item Height Table}
-           if CanScrollWindow AND
-              (Abs(DY) < ItemOnScreen(false)) then
-             {scroll the window setting up a clipping region}
+           l_CR := ClipArea;
+           if DY > 0 then
+            {Down}
            begin
-            l_CR := ClipArea;
-            if DY > 0 then
-             {Down}
-            begin
-             ScrollArea.Bottom := ClientHeight - DrawPoints[Pred(DY)];
-             l_CR.Bottom := l_CR.Top + DrawPoints[Pred(DY)];
-             ShiftArea(DrawPoints[Pred(DY)]);
-             Inc(f_CaretPoint.Y,DrawPoints[Pred(DY)]);
-            end//if DY > 0 then
-            else
-             {Up}
-            begin
-             DY := Abs(DY);
-             Inc(ScrollArea.Top,DrawPoints[Pred(DY)]);
-             {l_CR.Top := l_CR.Bottom - Integer(lDrawPointArray[Pred(DY)]);}
-             l_CR.Top := l_CR.Top + (ScrollArea.Bottom - ScrollArea.Top);
-             ShiftArea(-(DrawPoints[Pred(DY)]));
-             Dec(f_CaretPoint.Y,DrawPoints[Pred(DY)]);
-             DropDrawPoints;
-            end;//if DY > 0 then
-            Windows.InvalidateRect(Handle, @l_CR, True);
-           end//if Abs(DY) < ItemOnScreen(false) then
+            ScrollArea.Bottom := ClientHeight - DrawPoints[Pred(DY)];
+            l_CR.Bottom := l_CR.Top + DrawPoints[Pred(DY)];
+            ShiftArea(DrawPoints[Pred(DY)]);
+            Inc(f_CaretPoint.Y,DrawPoints[Pred(DY)]);
+           end//if DY > 0 then
            else
+            {Up}
            begin
-            Windows.InvalidateRect(Handle, @ClipArea, True);
+            DY := Abs(DY);
+            Inc(ScrollArea.Top,DrawPoints[Pred(DY)]);
+            {l_CR.Top := l_CR.Bottom - Integer(lDrawPointArray[Pred(DY)]);}
+            l_CR.Top := l_CR.Top + (ScrollArea.Bottom - ScrollArea.Top);
+            ShiftArea(-(DrawPoints[Pred(DY)]));
+            Dec(f_CaretPoint.Y,DrawPoints[Pred(DY)]);
             DropDrawPoints;
-           end;//if Abs(DY) < ItemOnScreen(false) then
-          end//if UseDrawPoints then
+           end;//if DY > 0 then
+           Windows.InvalidateRect(Handle, @l_CR, True);
+          end//if Abs(DY) < ItemOnScreen(false) then
           else
           begin
-           //ClipArea.Bottom := ClipArea.Top + ((ClipArea.Bottom - ClipArea.Top) div RowHeight) * RowHeight;
-            {adjust bottom of the clipping region to an even number of rows}
-           DY := SaveD - f_TopIndex;
-           if CanScrollWindow AND
-              (Abs(DY) < ItemOnScreen(false)) then
-            {scroll the window setting up a clipping region}
+           Windows.InvalidateRect(Handle, @ClipArea, True);
+           DropDrawPoints;
+          end;//if Abs(DY) < ItemOnScreen(false) then
+         end//if UseDrawPoints then
+         else
+         begin
+          //ClipArea.Bottom := ClipArea.Top + ((ClipArea.Bottom - ClipArea.Top) div RowHeight) * RowHeight;
+           {adjust bottom of the clipping region to an even number of rows}
+          DY := SaveD - f_TopIndex;
+          if CanScrollWindow AND
+             (Abs(DY) < ItemOnScreen(false)) then
+           {scroll the window setting up a clipping region}
+          begin
+           ScrollArea := ClipArea;
+           l_CR := ClipArea;
+           if DY > 0 then {Down}
            begin
-            ScrollArea := ClipArea;
-            l_CR := ClipArea;
-            if DY > 0 then {Down}
-            begin
-             Dec(ScrollArea.Bottom, DY * CompleteRowHeight);
-             l_CR.Bottom := l_CR.Top + DY * CompleteRowHeight;
-            end
-            else {Up}
-            begin
-             Inc(ScrollArea.Top, DY * CompleteRowHeight);
-             l_CR.Top := l_CR.Bottom - DY * CompleteRowHeight;
-            end;
-            ShiftArea(DY * CompleteRowHeight);
-            Inc(f_CaretPoint.Y, DY * CompleteRowHeight);
-            Windows.InvalidateRect(Handle, @l_CR, True);
-           end//if Abs(DY) < ItemOnScreen(false) then
-           else
-            Windows.InvalidateRect(Handle, @ClipArea, True);
-          end;//if UseDrawPoints then
-      end;//with ClipArea do
-     end;//if SaveD <> f_TopIndex then
-     {pm_SetCurrent(f_Current);}
-     if (f_Current >= f_TopIndex) and (f_Current < f_TopIndex + ItemOnScreen(True)) then
-      vlbDrawFocusRect(CN, f_Current);
-     {notify that top index has changed}
-     if SaveD <> f_TopIndex then
-      DoOnTopIndexChanged(f_TopIndex);
-    finally
-     CN.EndPaint;
-    end;{try..finally}
-   end;//if (Index >= 0) and (Index <= f_HighIndex) then
-  end;//if Index <> f_TopIndex then
-  SetCaret;
- finally
-  g_InSetTop := false;
- end;//try..finally
+            Dec(ScrollArea.Bottom, DY * CompleteRowHeight);
+            l_CR.Bottom := l_CR.Top + DY * CompleteRowHeight;
+           end
+           else {Up}
+           begin
+            Inc(ScrollArea.Top, DY * CompleteRowHeight);
+            l_CR.Top := l_CR.Bottom - DY * CompleteRowHeight;
+           end;
+           ShiftArea(DY * CompleteRowHeight);
+           Inc(f_CaretPoint.Y, DY * CompleteRowHeight);
+           Windows.InvalidateRect(Handle, @l_CR, True);
+          end//if Abs(DY) < ItemOnScreen(false) then
+          else
+           Windows.InvalidateRect(Handle, @ClipArea, True);
+         end;//if UseDrawPoints then
+     end;//with ClipArea do
+    end;//if SaveD <> f_TopIndex then
+    {pm_SetCurrent(f_Current);}
+    if (f_Current >= f_TopIndex) and (f_Current < f_TopIndex + ItemOnScreen(True)) then
+     vlbDrawFocusRect(CN, f_Current);
+    {notify that top index has changed}
+    if SaveD <> f_TopIndex then
+     DoOnTopIndexChanged(f_TopIndex);
+   finally
+    CN.EndPaint;
+   end;{try..finally}
+  end;//if (Index >= 0) and (Index <= f_HighIndex) then
+ end;//if Index <> f_TopIndex then
+ SetCaret;
 
  if NeedInitScrollInfoInvlbInitScrollInfo then
   vlbInitScrollInfo;
@@ -3873,7 +3817,7 @@ begin
  if (aIndex = f_Current) then
  begin
   //если ткнули в текущий, а он не выделен, то надо выделить
-  if (f_Current >= 0) and (total > 0) and not (PickedList or Selected[f_Current]) then
+  if (f_Current >= 0) and (total > 0) and not (PickedList or Selected[f_Current]) and not f_LockSelectChange then
    Selected[f_Current] := True;
   Exit;
  end;
@@ -5495,8 +5439,8 @@ begin
   end;
   if (not PickedList and f_MultiSelect) then
   begin
-   DoOnSelect(f_Current, 1);
-   InvalidateItem(f_Current);
+//   DoOnSelect(f_Current, 1); //закомментировал из-за 619559545
+//   InvalidateItem(f_Current);
   end;
  end;
 //#UC END# *515998420356_4CFFE36B00FA_impl*
@@ -7628,6 +7572,13 @@ begin
 end;//TvtCustomListerPrim.MouseWheelHandler
 {$IfEnd} // NOT Defined(NoVCL)
 
+procedure TvtCustomListerPrim.ClearFields;
+begin
+ FooterCaption := '';
+ SearchStr := '';
+ inherited;
+end;//TvtCustomListerPrim.ClearFields
+
 function TvtCustomLister.FontStore: Boolean;
 //#UC START# *515AEA0D02C1_515062D301C4_var*
 //#UC END# *515AEA0D02C1_515062D301C4_var*
@@ -7814,12 +7765,6 @@ begin
 //#UC END# *48BD5F8303C4_5154154E0275_impl*
 end;//TvtCustomIStrListListerPrim.DoChanged
 
-procedure TvtCustomIStrListListerPrim.ClearFields;
-begin
- Items := nil;
- inherited;
-end;//TvtCustomIStrListListerPrim.ClearFields
-
 function TvtCustomIStrListListerPrim.DoOnGetItem(Index: LongInt): Il3CString;
 //#UC START# *5152C3EC011B_5154154E0275_var*
 //#UC END# *5152C3EC011B_5154154E0275_var*
@@ -7831,6 +7776,12 @@ begin
   Result := nil;
 //#UC END# *5152C3EC011B_5154154E0275_impl*
 end;//TvtCustomIStrListListerPrim.DoOnGetItem
+
+procedure TvtCustomIStrListListerPrim.ClearFields;
+begin
+ Items := nil;
+ inherited;
+end;//TvtCustomIStrListListerPrim.ClearFields
 
 //#UC START# *515405400086impl*
 //#UC END# *515405400086impl*

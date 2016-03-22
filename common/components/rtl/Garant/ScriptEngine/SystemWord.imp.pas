@@ -1,29 +1,30 @@
 {$IfNDef SystemWord_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Модуль: "SystemWord.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::VCL bindings::SystemWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\SystemWord.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "SystemWord" MUID: (4DB95922039B)
+// Имя типа: "_SystemWord_"
 
 {$Define SystemWord_imp}
-{$If not defined(NoScripts)}
- _SystemWord_ = {abstract mixin} class(_SystemWord_Parent_)
+
+{$If NOT Defined(NoScripts)}
+ _SystemWord_ = {abstract} class(_SystemWord_Parent_)
  end;//_SystemWord_
-{$Else}
 
- _SystemWord_ = _SystemWord_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_SystemWord_ = _SystemWord_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else SystemWord_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef SystemWord_imp_impl}
 
+{$Define SystemWord_imp_impl}
 
-{$IfEnd} //not NoScripts
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf SystemWord_imp_impl}
 
 {$EndIf SystemWord_imp}
+

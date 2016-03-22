@@ -1041,8 +1041,6 @@ ref; // ME_569F6AF50075 anIndex
 ref; // ME_569F6ADC0330 FieldByIndex
 
 : ME_55C860390259_ME_552FADE50173
- CONST UID '55C860390259'
- CONST Name 'IterateFieldsF'
  : Original ME_55C860390259 // IterateFieldsF
  ;
  : Implementor ME_552FADE50173 // IdaTableDescription
@@ -1126,6 +1124,22 @@ ref; // ME_554092F701E2 CurStatisticTreeRoot
  CONST "pm" false
 
 ref; // ME_5541F3E6031F UserID
+
+: ME_56EBDD1F0184
+ CONST UID '56EBDD1F0184'
+ CONST Name 'CurSessionID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5540922C0376 // IdaJournal
+ ;
+ : Target WL 'ME_5549D14D035E' '5432448401BC.pas.ms.script' // TdaSessionID
+ ;
+ CONST "pm" false
+
+ref; // ME_56EBDD1F0184 CurSessionID
 
 : ME_559E2BBC0397
  CONST Name 'FromDate'
@@ -1684,6 +1698,7 @@ ref; // ME_554A037B0325 SessionDone
  : Attributes
    Seq: ( ME_554092F701E2 // CurStatisticTreeRoot
  ME_5541F3E6031F // UserID
+ ME_56EBDD1F0184 // CurSessionID
  )
  ; // Attributes
  : Operations
@@ -3013,8 +3028,6 @@ ref; // ME_56091D4B0014 aHelper
 ref; // ME_5608E5FE0355 BuildSQLValue
 
 : ME_564089E3039B_ME_5551DC5C020D
- CONST UID '564089E3039B'
- CONST Name 'Iterate'
  : Original ME_564089E3039B // Iterate
  ;
  : Implementor ME_5551DC5C020D // IdaCondition
@@ -3406,6 +3419,32 @@ ref; // ME_5628D23B03BD theUserID
 
 ref; // ME_5628D14D0151 CheckPassword
 
+: ME_56EA99550202
+ CONST Name 'anUserID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_56EA99550202 anUserID
+
+: ME_56EA993D0218
+ CONST UID '56EA993D0218'
+ CONST Name 'IsUserAdmin'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_56EA99550202 // anUserID
+ )
+ ; // Parameters
+
+ref; // ME_56EA993D0218 IsUserAdmin
+
 : ME_5628D14000F6
  CONST UID '5628D14000F6'
  CONST GUID '43BA4AB7-F7E0-4020-AD1B-A6807EBDFCE3'
@@ -3419,6 +3458,7 @@ ref; // ME_5628D14D0151 CheckPassword
  ;
  : Operations
    Seq: ( ME_5628D14D0151 // CheckPassword
+ ME_56EA993D0218 // IsUserAdmin
  )
  ; // Operations
  CONST extprop:rc:SelfName 'daUserManager'
@@ -3675,8 +3715,6 @@ ref; // ME_568107B2034D aSortField
 ref; // ME_567D12D00384 AddOrderBy
 
 : ME_5549C42400DA_ME_5549C4060117
- CONST UID '5549C42400DA'
- CONST Name 'OpenResultSet'
  : Original ME_5549C42400DA // OpenResultSet
  ;
  : Implementor ME_5549C4060117 // IdaTabledQuery
@@ -3685,8 +3723,6 @@ ref; // ME_567D12D00384 AddOrderBy
 ref; // ME_5549C42400DA_ME_5549C4060117 OpenResultSet
 
 : ME_5551BB340256_ME_5549C4060117
- CONST UID '5551BB340256'
- CONST Name 'Prepare'
  : Original ME_5551BB340256 // Prepare
  ;
  : Implementor ME_5549C4060117 // IdaTabledQuery
@@ -3695,8 +3731,6 @@ ref; // ME_5549C42400DA_ME_5549C4060117 OpenResultSet
 ref; // ME_5551BB340256_ME_5549C4060117 Prepare
 
 : ME_5551BEA500AE_ME_5549C4060117
- CONST UID '5551BEA500AE'
- CONST Name 'Param'
  : Original ME_5551BEA500AE // Param
  ;
  : Implementor ME_5549C4060117 // IdaTabledQuery
@@ -3706,8 +3740,6 @@ ref; // ME_5551BB340256_ME_5549C4060117 Prepare
 ref; // ME_5551BEA500AE_ME_5549C4060117 Param
 
 : ME_555334DD023B_ME_5549C4060117
- CONST UID '555334DD023B'
- CONST Name 'UnPrepare'
  : Original ME_555334DD023B // UnPrepare
  ;
  : Implementor ME_5549C4060117 // IdaTabledQuery
@@ -3716,8 +3748,6 @@ ref; // ME_5551BEA500AE_ME_5549C4060117 Param
 ref; // ME_555334DD023B_ME_5549C4060117 UnPrepare
 
 : ME_564318160268_ME_5549C4060117
- CONST UID '564318160268'
- CONST Name 'BuildSQLValue'
  : Original ME_564318160268 // BuildSQLValue
  ;
  : Implementor ME_5549C4060117 // IdaTabledQuery
@@ -4189,8 +4219,6 @@ FORWARD ME_5666D0D8031A
 ref; // ME_5666D0EB0129 Execute
 
 : ME_5549C42400DA_ME_5666D0D8031A
- CONST UID '5549C42400DA'
- CONST Name 'OpenResultSet'
  : Original ME_5549C42400DA // OpenResultSet
  ;
  : Implementor ME_5666D0D8031A // IdaFunction
@@ -4199,8 +4227,6 @@ ref; // ME_5666D0EB0129 Execute
 ref; // ME_5549C42400DA_ME_5666D0D8031A OpenResultSet
 
 : ME_5551BB340256_ME_5666D0D8031A
- CONST UID '5551BB340256'
- CONST Name 'Prepare'
  : Original ME_5551BB340256 // Prepare
  ;
  : Implementor ME_5666D0D8031A // IdaFunction
@@ -4209,8 +4235,6 @@ ref; // ME_5549C42400DA_ME_5666D0D8031A OpenResultSet
 ref; // ME_5551BB340256_ME_5666D0D8031A Prepare
 
 : ME_5551BEA500AE_ME_5666D0D8031A
- CONST UID '5551BEA500AE'
- CONST Name 'Param'
  : Original ME_5551BEA500AE // Param
  ;
  : Implementor ME_5666D0D8031A // IdaFunction
@@ -4220,8 +4244,6 @@ ref; // ME_5551BB340256_ME_5666D0D8031A Prepare
 ref; // ME_5551BEA500AE_ME_5666D0D8031A Param
 
 : ME_555334DD023B_ME_5666D0D8031A
- CONST UID '555334DD023B'
- CONST Name 'UnPrepare'
  : Original ME_555334DD023B // UnPrepare
  ;
  : Implementor ME_5666D0D8031A // IdaFunction
@@ -4230,8 +4252,6 @@ ref; // ME_5551BEA500AE_ME_5666D0D8031A Param
 ref; // ME_555334DD023B_ME_5666D0D8031A UnPrepare
 
 : ME_564318160268_ME_5666D0D8031A
- CONST UID '564318160268'
- CONST Name 'BuildSQLValue'
  : Original ME_564318160268 // BuildSQLValue
  ;
  : Implementor ME_5666D0D8031A // IdaFunction
@@ -5129,6 +5149,19 @@ ref; // ME_561796070253 BeginImpersonate
 
 ref; // ME_5617961F0105 EndImpersonate
 
+: ME_56F0F6180156
+ CONST UID '56F0F6180156'
+ CONST Name 'HasJournal'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_54EDC87C00B5 // IdaDataProvider
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56F0F6180156 HasJournal
+
 : ME_54EDC87C00B5
  CONST UID '54EDC87C00B5'
  CONST GUID 'CB4A320D-C320-42C5-AD66-8C45A9DD91AC'
@@ -5179,6 +5212,7 @@ ref; // ME_5617961F0105 EndImpersonate
  ME_5525144701F3 // UnSubscribeProgress
  ME_561796070253 // BeginImpersonate
  ME_5617961F0105 // EndImpersonate
+ ME_56F0F6180156 // HasJournal
  )
  ; // Operations
  CONST extprop:rc:SelfName 'daDataProvider'
@@ -5280,6 +5314,30 @@ ref; // ME_56D822E60083 anID
 
 ref; // ME_56BC6437030F RegisterFreeExtDocID
 
+: ME_56EBDDD90005
+ CONST Name 'aSessionID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5549D14D035E' '5432448401BC.pas.ms.script' // TdaSessionID
+ ;
+
+ref; // ME_56EBDDD90005 aSessionID
+
+: ME_56EBDD7002F8
+ CONST UID '56EBDD7002F8'
+ CONST Name 'SetAlienJournalData'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56BC63EF028D // IdaComboAccessDataProviderHelper
+ ;
+ : Parameters
+   Seq: ( ME_56EBDDD90005 // aSessionID
+ )
+ ; // Parameters
+
+ref; // ME_56EBDD7002F8 SetAlienJournalData
+
 : ME_56BC63EF028D
  CONST UID '56BC63EF028D'
  CONST GUID '603EDD09-200D-48A3-A7AC-E58665C5439E'
@@ -5294,6 +5352,7 @@ ref; // ME_56BC6437030F RegisterFreeExtDocID
  : Operations
    Seq: ( ME_56BC642200D0 // RegisterFreeExtObjID
  ME_56BC6437030F // RegisterFreeExtDocID
+ ME_56EBDD7002F8 // SetAlienJournalData
  )
  ; // Operations
  CONST extprop:rc:SelfName 'daComboAccessDataProviderHelper'
@@ -5303,29 +5362,39 @@ ref; // ME_56BC63EF028D IdaComboAccessDataProviderHelper
 
 FORWARD ME_56C193DB0058
 
-: ME_56E2A267034F
+: ME_56EBE34A0249
+ CONST Name 'anUserID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_56EBE34A0249 anUserID
+
+: ME_56EBE34A0259
  CONST Name 'aSessionID'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5549D14D035E' '5432448401BC.pas.ms.script' // TdaSessionID
  ;
 
-ref; // ME_56E2A267034F aSessionID
+ref; // ME_56EBE34A0259 aSessionID
 
 : ME_56E2A25501A6
  CONST UID '56E2A25501A6'
- CONST Name 'SetAlienSessionID'
+ CONST Name 'SetAlienData'
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  : Parent ME_56C193DB0058 // IdaComboAccessJournalHelper
  ;
  : Parameters
-   Seq: ( ME_56E2A267034F // aSessionID
+   Seq: ( ME_56EBE34A0249 // anUserID
+ ME_56EBE34A0259 // aSessionID
  )
  ; // Parameters
 
-ref; // ME_56E2A25501A6 SetAlienSessionID
+ref; // ME_56E2A25501A6 SetAlienData
 
 : ME_56E2A7EF01EB
  CONST Name 'aOperation'
@@ -5459,7 +5528,7 @@ ref; // ME_56E2B57C01FA MakeAlienResultSet
  : Parent ME_5432518A0316 // daInterfaces
  ;
  : Operations
-   Seq: ( ME_56E2A25501A6 // SetAlienSessionID
+   Seq: ( ME_56E2A25501A6 // SetAlienData
  ME_56E2A7DB03CE // LogAlienEvent
  ME_56E2B57C01FA // MakeAlienResultSet
  )
@@ -5517,6 +5586,47 @@ ref; // ME_56E152F4011D AddParam
 
 ref; // ME_56E153570073 IdaComboAccessQueryHelper
 
+FORWARD ME_5549D23F016E
+
+: ME_5549D2510373
+ CONST UID '5549D2510373'
+ CONST Name 'BlankSession'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5549D23F016E // SessionConst
+ ;
+ : Target WL 'ME_5549D14D035E' '5432448401BC.pas.ms.script' // TdaSessionID
+ ;
+ CONST Value '-1'
+ : ValueType WL 'ME_5549D14D035E' '5432448401BC.pas.ms.script' // TdaSessionID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '-1'
+
+ref; // ME_5549D2510373 BlankSession
+
+: ME_5549D23F016E
+ CONST UID '5549D23F016E'
+ CONST Name 'SessionConst'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5432518A0316 // daInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_5549D2510373 // BlankSession
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_5549D23F016E SessionConst
+
 : ME_5432518A0316
  CONST UID '5432518A0316'
  CONST Name 'daInterfaces'
@@ -5566,6 +5676,7 @@ ref; // ME_56E153570073 IdaComboAccessQueryHelper
  ME_55229480008E // UserConsts
  ME_562E03C70029 // UserFlagConst
  ME_5652D1F60348 // UndefinedIDs
+ ME_5549D23F016E // SessionConst
  )
  ; // Constants
  : Depends

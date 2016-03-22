@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\SynchroViewUserTypes.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "SynchroViewUserTypes" MUID: (4FFBDD570171)
+// Имя типа: "_SynchroViewUserTypes_"
 
 {$Define SynchroViewUserTypes_imp}
 

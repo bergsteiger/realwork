@@ -3,6 +3,7 @@ unit Enumeration_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\Enumeration_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WEnumeration" MUID: (484944E301AF)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

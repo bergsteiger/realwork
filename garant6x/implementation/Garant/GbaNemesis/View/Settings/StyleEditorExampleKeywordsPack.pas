@@ -3,6 +3,7 @@ unit StyleEditorExampleKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\StyleEditorExampleKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "StyleEditorExampleKeywordsPack" MUID: (509C799A0733)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -48,8 +49,8 @@ type
 'aControl' форма::StyleEditorExample TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_StyleEditorExample
 
  Tkw_StyleEditorExample_Component_TextSource = {final} class(TtfwControlString)
@@ -60,9 +61,9 @@ type
 компонент::TextSource TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorExample_Component_TextSource
 
  Tkw_StyleEditorExample_Control_EditorPanel = {final} class(TtfwControlString)
@@ -73,9 +74,9 @@ type
 контрол::EditorPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorExample_Control_EditorPanel
 
  Tkw_StyleEditorExample_Control_EditorPanel_Push = {final} class(TkwBynameControlPush)
@@ -98,9 +99,9 @@ type
 контрол::Editor TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorExample_Control_Editor
 
  Tkw_StyleEditorExample_Control_Editor_Push = {final} class(TkwBynameControlPush)
@@ -187,20 +188,15 @@ OBJECT VAR l_TeeEditorWithoutOperations
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwStyleEditorExampleFormEditor
 
-class function Tkw_Form_StyleEditorExample.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::StyleEditorExample';
-end;//Tkw_Form_StyleEditorExample.GetWordNameForRegister
-
 function Tkw_Form_StyleEditorExample.GetString: AnsiString;
 begin
  Result := 'StyleEditorExampleForm';
 end;//Tkw_Form_StyleEditorExample.GetString
 
-class function Tkw_StyleEditorExample_Component_TextSource.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_StyleEditorExample.GetWordNameForRegister: AnsiString;
 begin
- Result := 'компонент::TextSource';
-end;//Tkw_StyleEditorExample_Component_TextSource.GetWordNameForRegister
+ Result := 'форма::StyleEditorExample';
+end;//Tkw_Form_StyleEditorExample.GetWordNameForRegister
 
 function Tkw_StyleEditorExample_Component_TextSource.GetString: AnsiString;
 begin
@@ -213,10 +209,10 @@ begin
  TtfwClassRef.Register(TnscTextSource);
 end;//Tkw_StyleEditorExample_Component_TextSource.RegisterInEngine
 
-class function Tkw_StyleEditorExample_Control_EditorPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_StyleEditorExample_Component_TextSource.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::EditorPanel';
-end;//Tkw_StyleEditorExample_Control_EditorPanel.GetWordNameForRegister
+ Result := 'компонент::TextSource';
+end;//Tkw_StyleEditorExample_Component_TextSource.GetWordNameForRegister
 
 function Tkw_StyleEditorExample_Control_EditorPanel.GetString: AnsiString;
 begin
@@ -229,6 +225,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_StyleEditorExample_Control_EditorPanel.RegisterInEngine
 
+class function Tkw_StyleEditorExample_Control_EditorPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::EditorPanel';
+end;//Tkw_StyleEditorExample_Control_EditorPanel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorExample_Control_EditorPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('EditorPanel');
@@ -240,11 +241,6 @@ begin
  Result := 'контрол::EditorPanel:push';
 end;//Tkw_StyleEditorExample_Control_EditorPanel_Push.GetWordNameForRegister
 
-class function Tkw_StyleEditorExample_Control_Editor.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::Editor';
-end;//Tkw_StyleEditorExample_Control_Editor.GetWordNameForRegister
-
 function Tkw_StyleEditorExample_Control_Editor.GetString: AnsiString;
 begin
  Result := 'Editor';
@@ -255,6 +251,11 @@ begin
  inherited;
  TtfwClassRef.Register(TeeEditorWithoutOperations);
 end;//Tkw_StyleEditorExample_Control_Editor.RegisterInEngine
+
+class function Tkw_StyleEditorExample_Control_Editor.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Editor';
+end;//Tkw_StyleEditorExample_Control_Editor.GetWordNameForRegister
 
 procedure Tkw_StyleEditorExample_Control_Editor_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -289,11 +290,6 @@ begin
  aCtx.rEngine.PushObj(TextSource(aCtx, l_aStyleEditorExampleForm));
 end;//TkwStyleEditorExampleFormTextSource.DoDoIt
 
-class function TkwStyleEditorExampleFormTextSource.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorExampleForm.TextSource';
-end;//TkwStyleEditorExampleFormTextSource.GetWordNameForRegister
-
 procedure TkwStyleEditorExampleFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -314,6 +310,11 @@ function TkwStyleEditorExampleFormTextSource.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorExampleForm)]);
 end;//TkwStyleEditorExampleFormTextSource.ParamsTypes
+
+class function TkwStyleEditorExampleFormTextSource.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorExampleForm.TextSource';
+end;//TkwStyleEditorExampleFormTextSource.GetWordNameForRegister
 
 function TkwStyleEditorExampleFormEditorPanel.EditorPanel(const aCtx: TtfwContext;
  aStyleEditorExampleForm: TStyleEditorExampleForm): TvtPanel;
@@ -337,11 +338,6 @@ begin
  aCtx.rEngine.PushObj(EditorPanel(aCtx, l_aStyleEditorExampleForm));
 end;//TkwStyleEditorExampleFormEditorPanel.DoDoIt
 
-class function TkwStyleEditorExampleFormEditorPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorExampleForm.EditorPanel';
-end;//TkwStyleEditorExampleFormEditorPanel.GetWordNameForRegister
-
 procedure TkwStyleEditorExampleFormEditorPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -362,6 +358,11 @@ function TkwStyleEditorExampleFormEditorPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorExampleForm)]);
 end;//TkwStyleEditorExampleFormEditorPanel.ParamsTypes
+
+class function TkwStyleEditorExampleFormEditorPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorExampleForm.EditorPanel';
+end;//TkwStyleEditorExampleFormEditorPanel.GetWordNameForRegister
 
 function TkwStyleEditorExampleFormEditor.Editor(const aCtx: TtfwContext;
  aStyleEditorExampleForm: TStyleEditorExampleForm): TeeEditorWithoutOperations;
@@ -385,11 +386,6 @@ begin
  aCtx.rEngine.PushObj(Editor(aCtx, l_aStyleEditorExampleForm));
 end;//TkwStyleEditorExampleFormEditor.DoDoIt
 
-class function TkwStyleEditorExampleFormEditor.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorExampleForm.Editor';
-end;//TkwStyleEditorExampleFormEditor.GetWordNameForRegister
-
 procedure TkwStyleEditorExampleFormEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -410,6 +406,11 @@ function TkwStyleEditorExampleFormEditor.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorExampleForm)]);
 end;//TkwStyleEditorExampleFormEditor.ParamsTypes
+
+class function TkwStyleEditorExampleFormEditor.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorExampleForm.Editor';
+end;//TkwStyleEditorExampleFormEditor.GetWordNameForRegister
 
 initialization
  Tkw_Form_StyleEditorExample.RegisterInEngine;

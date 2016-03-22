@@ -76,10 +76,6 @@ type
    function NeedPrintingChild(const aChild: InevPara): Boolean; override;
    procedure CheckNeedLaterFilling(const aPainterHolder: InevPaintersHolder;
      const aChildMap: InevMap); override;
- protected
- // protected methods
-   procedure CorrectRowHeightByTopSpace(var aDelta: Integer); virtual;
-     {* Добавить величину отступа верхней границы блока для КЗ. }
  end;//TevTableRowPainter
 {$IfEnd} //evNeedPainters
 
@@ -164,15 +160,6 @@ var
  begin
   l_CellPoint := GetRowPoint(l_MaxIndex, l_Real);
   lp_CheckAfterEnd;
-  (*if (l_CellPoint = nil) and (l_HeadMax > -1) then
-   l_CellPoint := GetRowPoint(l_HeadMax, l_Real);
-  if (l_HeadMax > -1) and (l_CellPoint <> nil) and l_CellPoint.AfterEnd and ((l_Real = nil) or l_Real.AfterEnd) then
-  begin
-   l_Height := FormatInfo.Height;
-   l_CellPoint := nil;
-  end // if (l_HeadMax > -1) and (l_CellPoint <> nil) and l_CellPoint.AfterEnd and (l_Real = nil) then
-  else
-   lp_CheckAfterEnd;*)
  end;
 
 var
@@ -180,6 +167,7 @@ var
  l_Leaf     : InevLeafPoint;
  l_Inner    : InevBasePoint;
  l_LeafFI   : TnevFormatInfoPrim;
+ l_PaintY   : Integer;
  l_MIPoint  : InevBasePoint;
  l_BottomM  : Integer;
  l_ChildID  : Integer;
@@ -209,29 +197,28 @@ begin
       l_LeafFI := l_CellFI.InfoForChild(l_MIPoint.Obj^);
       l_View := Area.rView.As_InevView;
       l_BottomM := l_CellFI.Spacing.Bottom;
-      l_Delta := l_LeafFI.Height - l_Leaf.PaintOffsetY(l_View, l_LeafFI) + l_BottomM - Map.Bounds.Top;
-      l_Cell.AsList.IterateParaF(nevL2PIA(@IncDelta), l_MIPoint.Obj^.PID + 1);
-      CorrectRowHeightByTopSpace(l_Delta);
-      if (l_Delta > 0) then
-       if ((l_Delta - l_Height) mod l_BottomM) = 0 then
-        l_Height := l_Delta
-       else
-        l_Height := Min(l_Height, l_Delta)
+      l_PaintY := l_Leaf.PaintOffsetY(l_View, l_LeafFI);
+      if l_PaintY = 0 then
+       l_Delta := l_LeafFI.Height + l_BottomM
       else
-       (*if l_HeadMax > -1 then
-        l_Height := FormatInfo.Height
-       else*)
-        if (TevMergeStatus(l_Cell.AsObject.IntA[k2_tiMergeStatus]) = ev_msNone) then
-         if (l_Delta < 0) and ((Map.Bounds.Bottom - Map.Bounds.Top) < 2 * l3Epsilon) then
-         begin
-          l_Height := -l_Delta + l_Height + l_BottomM - Map.Bounds.Top;
-          Map.SetDrawnTop(Map.Bounds.Top - l_Height);
-         end; // if (l_Delta < 0) and ((Map.Bounds.Bottom - Map.Bounds.Top) < 2 * evEpsilon) then
+       l_Delta := l_LeafFI.Height - l_PaintY + l_BottomM - Map.Bounds.Top;
+      l_Cell.AsList.IterateParaF(nevL2PIA(@IncDelta), l_MIPoint.Obj^.PID + 1);
+      if l_CellPoint.AtStart then
+       Inc(l_Delta, l_BottomM);
+      if (l_Delta > 0) then
+       l_Height := Min(l_Height, l_Delta)
+      else
+       if (TevMergeStatus(l_Cell.AsObject.IntA[k2_tiMergeStatus]) = ev_msNone) then // http://mdp.garant.ru/pages/viewpage.action?pageId=425284919
+        if (l_Delta < 0) then // http://mdp.garant.ru/pages/viewpage.action?pageId=379247543
+        begin
+         l_Height := -l_Delta + l_Height + l_BottomM - Map.Bounds.Top;
+         Map.SetDrawnTop(Map.Bounds.Top - l_Height);
+        end; // if (l_Delta < 0) and ((Map.Bounds.Bottom - Map.Bounds.Top) < 2 * evEpsilon) then
      end; // if (l_Leaf <> nil) then
     end // if l_MIPoint.Owner.IsSame(l_Cell) then
     else
     begin
-     // V - $370383768. Но CheckHeight был сделан для корректной прокрутки по горизонтали, а код ниже её не гарантирует в случае вложенных табилц...
+     // V - $370383768. Но CheckHeight был сделан для корректной прокрутки по горизонтали, а код выше её не гарантирует в случае вложенных табилц...
      if l_MIPoint.HasBaseLine then // Указатель на верхнюю строку дочерней таблицы
      begin
       l_ChildID := l_CellPoint.Obj.PID;
@@ -301,18 +288,6 @@ begin
   Result := TopAnchor.InnerFor(l_Para, aRealPoint);
 //#UC END# *508FA94102B2_48C7E98600AB_impl*
 end;//TevTableRowPainter.GetRowPoint
-
-procedure TevTableRowPainter.CorrectRowHeightByTopSpace(var aDelta: Integer);
-//#UC START# *50D3F47002CA_48C7E98600AB_var*
-//#UC END# *50D3F47002CA_48C7E98600AB_var*
-begin
-//#UC START# *50D3F47002CA_48C7E98600AB_impl*
- {$IFDEF Nemesis}
- if not Area.rCanvas.IsVirtual and ParentPainter.DrawingTopmostChild then
-  Inc(aDelta, FormatInfo.ParentInfo.ParentInfo.Spacing.Top + FormatInfo.ParentInfo.Spacing.Top);
- {$ENDIF Nemesis}
-//#UC END# *50D3F47002CA_48C7E98600AB_impl*
-end;//TevTableRowPainter.CorrectRowHeightByTopSpace
 
 function TevTableRowPainter.CheckChildren(const aFI: TnevFormatInfoPrim;
   const aCanvas: Il3Canvas): Boolean;
@@ -504,7 +479,7 @@ var
    if Area.rCanvas.Printing then
     l_Bounds.Bottom := Min(l_Bounds.Bottom, Area.rCanvas.GlobalClipRect.Bottom);
    Map.SetDrawnBottom(l_Bounds.BottomRight);
-   aFrame.rRect := l_Bounds;//Map.Bounds;
+   aFrame.rRect := l_Bounds;
   end; // if (ParaX.ChildrenCount > 1) and (l_DeltaH - (l_Bounds.Bottom - l_Bounds.Top) >= l3Epsilon) then
  end;
 
@@ -532,7 +507,7 @@ begin
     {$IFDEF nsTest}
     l_UseCheck4Printing := True;
     {$ENDIF nsTest}
-   end
+   end // if Check4Printing(l_DeltaH) then
    else
     if (BottomAnchor <> nil) and
        BottomAnchor.HasBaseLine and (BottomAnchor.InnerForChildThatNotAfterEnd(FormatInfo, nev_itNone) = nil) then
@@ -555,7 +530,7 @@ begin
   if l_UseCheck4Printing then
    l_Data.rHeight := Map.Bounds.Bottom
   else
-   l_Data.rHeight := l_Bounds.Bottom;//Map.Bounds.Bottom;
+   l_Data.rHeight := l_Bounds.Bottom;
   l_Data.rPage := Area.rCanvas.PageNumber;
   l_Data.rTopAnchorID := TopAnchor.Obj.PID;
   TPrintRowHeightsSpy.Instance.AddRowData(l_Data);

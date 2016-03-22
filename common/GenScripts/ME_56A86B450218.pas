@@ -2,6 +2,7 @@ unit caDataProviderParams;
 
 // Модуль: "w:\common\components\rtl\Garant\ComboAccess\caDataProviderParams.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcaDataProviderParams" MUID: (56A86B450218)
 
 {$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 

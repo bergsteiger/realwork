@@ -3,6 +3,8 @@ unit K517772970_TcsAutoAnnoExport;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsAutoAnnoExport.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TcsAutoAnnoExport" MUID: (53217E7F02A0)
+// Имя типа: "TK517772970_TcsAutoAnnoExport"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

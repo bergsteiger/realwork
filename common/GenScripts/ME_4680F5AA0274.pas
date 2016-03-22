@@ -3,6 +3,7 @@ unit l3DataObject;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3DataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3DataObject" MUID: (4680F5AA0274)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -26,7 +27,6 @@ type
    f_DragBitmap: Il3Bitmap;
    f_FilesNames: Tl3StringList;
    f_Formats: Tl3LongintList;
-    {* Поле для свойства Formats }
   protected
    function DoGetData(const aFormatEtcIn: TFormatEtc;
     var medium: Tl3StoragePlace): HResult; virtual;

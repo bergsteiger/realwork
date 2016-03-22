@@ -2,6 +2,7 @@ unit vcmCustomHelpers;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmCustomHelpers.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmCustomHelpers" MUID: (551442A301CD)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

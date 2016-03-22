@@ -2,6 +2,7 @@ unit ddServerStatusRequestPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ddServerStatusRequestPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddServerStatusRequestPrim" MUID: (53B6843E03A3)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

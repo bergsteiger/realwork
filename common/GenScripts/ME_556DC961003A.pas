@@ -2,6 +2,7 @@ unit m3PluginSupport;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3PluginSupport.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "m3PluginSupport" MUID: (556DC961003A)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

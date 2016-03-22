@@ -2,6 +2,7 @@ unit kwOperationsRegistrar;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwOperationsRegistrar.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwOperationsRegistrar" MUID: (52A73D1701B9)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

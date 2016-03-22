@@ -2,6 +2,8 @@ unit PrimPreview_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPreview_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimPreview" MUID: (4AAF6F4E010E)
+// Имя типа: "TPrimPreviewForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -216,7 +218,11 @@ begin
  if IsModalForm then
   ModalResult := mrCancel
  else
+ {$If not defined(Admin) AND not defined(Monitorings)}
+  TvcmHistoryService.Instance.Back(As_IvcmEntityForm);
+ {$Else}
   Dispatcher.History.Back;
+ {$IfEnd} //not Admin AND not Monitorings
 //#UC END# *4A8AD46D0226_4AAF6F4E010Eexec_impl*
 end;//TPrimPreviewForm.Result_Cancel_Execute
 

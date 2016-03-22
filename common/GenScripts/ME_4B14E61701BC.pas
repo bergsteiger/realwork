@@ -2,6 +2,7 @@ unit nsBackEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsBackEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsBackEvent" MUID: (4B14E61701BC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

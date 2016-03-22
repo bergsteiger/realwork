@@ -3,6 +3,8 @@ unit PrimChangesBetweenEditons_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\PrimChangesBetweenEditons_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimChangesBetweenEditons" MUID: (4DDCD636016C)
+// Имя типа: "TPrimChangesBetweenEditonsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit RegisteredTasksTest;
 
 // Модуль: "w:\archi\source\projects\Archi\Tests\RegisteredTasksTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TRegisteredTasksTest" MUID: (53BA8FB5015D)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

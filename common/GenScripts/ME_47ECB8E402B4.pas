@@ -3,6 +3,7 @@ unit NOT_FINISHED_evdPageParamsFilter;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdPageParamsFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdPageParamsFilter" MUID: (47ECB8E402B4)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

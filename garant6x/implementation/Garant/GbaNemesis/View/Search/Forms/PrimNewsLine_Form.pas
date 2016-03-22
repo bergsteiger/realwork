@@ -24,6 +24,12 @@ interface
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
+  Classes
+  {$If not defined(NoVCM)}
+  ,
+  vcmExternalInterfaces
+  {$IfEnd} //not NoVCM
+  ,
   l3TreeInterfaces,
   l3ControlsTypes
   {$If not defined(NoVCL)}
@@ -43,6 +49,7 @@ uses
   vcmUserControls
   {$IfEnd} //not NoVCM
   ,
+  l3ProtoObject,
   Autoreferat_InternalOperations_Controls,
   Base_Operations_Strange_Controls,
   Base_Operations_Editions_Controls
@@ -62,20 +69,48 @@ uses
   nscTreeViewForNewsLine
   {$If not defined(NoVCM)}
   ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
   vcmInterfaces
   {$IfEnd} //not NoVCM
   ,
-  PrimNewsLine_nltMain_UserType,
-  vcmControllers {a}
+  PrimNewsLine_nltMain_UserType
+  {$If not defined(NoVCM)}
+  ,
+  vcmControllers
+  {$IfEnd} //not NoVCM
+  
   ;
 {$IfEnd} //not Admin AND not Monitorings
 
 {$If not defined(Admin) AND not defined(Monitorings)}
+type
+ IPrimNewsLineFormState = interface(IvcmBase)
+   ['{D9676E96-C512-47E1-8218-6622AED4E675}']
+   function pm_GetCurrentNewsLineIndex: Integer;
+   function pm_GetInnerState: IvcmBase;
+   property CurrentNewsLineIndex: Integer
+     read pm_GetCurrentNewsLineIndex;
+   property InnerState: IvcmBase
+     read pm_GetInnerState;
+ end;//IPrimNewsLineFormState
+
+ TPrimNewsLineFormState = class(Tl3ProtoObject, IPrimNewsLineFormState)
+ private
+ // private fields
+   f_CurrentNewsLineIndex : Integer;
+   f_InnerState : IvcmBase;
+ protected
+ // realized methods
+   function pm_GetCurrentNewsLineIndex: Integer;
+   function pm_GetInnerState: IvcmBase;
+ public
+ // public methods
+   constructor Create(aCurrentNewsLineIndex: Integer;
+     const aInnerState: IvcmBase); reintroduce;
+   class function Make(aCurrentNewsLineIndex: Integer;
+     const aInnerState: IvcmBase): IPrimNewsLineFormState; reintroduce;
+     {* Сигнатура фабрики TPrimNewsLineFormState.Make }
+ end;//TPrimNewsLineFormState
+
 var
   { Локализуемые строки Local }
  str_NewsLineIsNotSetup : Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'NewsLineIsNotSetup'; rValue : 'Индивидуальные параметры новостной ленты ПРАЙМ не заданы. Вы можете настроить новостную ленту ПРАЙМ в соответствии с вашими профессиональными интересами, заполнив анкету.');
@@ -95,6 +130,7 @@ type
  private
  // private fields
    f_InDataChanging : Boolean;
+   f_CurrentNewsLineIndex : Integer;
    f_DateList : TnscTreeViewForNewsLine;
     {* Поле для свойства DateList}
  protected
@@ -128,6 +164,22 @@ type
      {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure FinishDataUpdate; override;
+   {$If not defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+     {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} //not NoVCM
+   {$If not defined(NoVCM)}
+   function DoSaveState(out theState: IvcmBase;
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; override;
+     {* Сохраняет состояние формы. Для перекрытия в потомках }
+   {$IfEnd} //not NoVCM
+   {$If not defined(NoVCM)}
+   function DoLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType): Boolean; override;
+     {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} //not NoVCM
    {$If not defined(NoVCM)}
    procedure InitControls; override;
      {* Процедура инициализации контролов. Для перекрытия в потомках }
@@ -325,6 +377,50 @@ begin
  end;
 //#UC END# *5242A678004A_497EBEC4031D_impl*
 end;//TPrimNewsLineForm.OpenAutoreferat
+// start class TPrimNewsLineFormState
+
+constructor TPrimNewsLineFormState.Create(aCurrentNewsLineIndex: Integer;
+  const aInnerState: IvcmBase);
+//#UC START# *567116EC034D_567115A7039D_var*
+//#UC END# *567116EC034D_567115A7039D_var*
+begin
+//#UC START# *567116EC034D_567115A7039D_impl*
+ inherited Create;
+ f_CurrentNewsLineIndex := aCurrentNewsLineIndex;
+ f_InnerState := aInnerState;
+//#UC END# *567116EC034D_567115A7039D_impl*
+end;//TPrimNewsLineFormState.Create
+
+class function TPrimNewsLineFormState.Make(aCurrentNewsLineIndex: Integer;
+  const aInnerState: IvcmBase): IPrimNewsLineFormState;
+var
+ l_Inst : TPrimNewsLineFormState;
+begin
+ l_Inst := Create(aCurrentNewsLineIndex, aInnerState);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;
+
+function TPrimNewsLineFormState.pm_GetCurrentNewsLineIndex: Integer;
+//#UC START# *5671156B01AD_567115A7039Dget_var*
+//#UC END# *5671156B01AD_567115A7039Dget_var*
+begin
+//#UC START# *5671156B01AD_567115A7039Dget_impl*
+ Result := f_CurrentNewsLineIndex;
+//#UC END# *5671156B01AD_567115A7039Dget_impl*
+end;//TPrimNewsLineFormState.pm_GetCurrentNewsLineIndex
+
+function TPrimNewsLineFormState.pm_GetInnerState: IvcmBase;
+//#UC START# *56713E9A012D_567115A7039Dget_var*
+//#UC END# *56713E9A012D_567115A7039Dget_var*
+begin
+//#UC START# *56713E9A012D_567115A7039Dget_impl*
+ Result := f_InnerState;
+//#UC END# *56713E9A012D_567115A7039Dget_impl*
+end;//TPrimNewsLineFormState.pm_GetInnerState
 
 procedure TPrimNewsLineForm.DataChanged;
 //#UC START# *49918CC5036B_497EBEC4031D_var*
@@ -430,6 +526,65 @@ begin
 end;//TPrimNewsLineForm.FinishDataUpdate
 
 {$If not defined(NoVCM)}
+procedure TPrimNewsLineForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+  const aNew: IvcmViewAreaController);
+//#UC START# *497469C90140_497EBEC4031D_var*
+//#UC END# *497469C90140_497EBEC4031D_var*
+begin
+//#UC START# *497469C90140_497EBEC4031D_impl*
+ inherited;
+ if Assigned(aNew) then
+  f_CurrentNewsLineIndex := DateList.Current;
+//#UC END# *497469C90140_497EBEC4031D_impl*
+end;//TPrimNewsLineForm.NotifyDataSourceChanged
+{$IfEnd} //not NoVCM
+
+{$If not defined(NoVCM)}
+function TPrimNewsLineForm.DoSaveState(out theState: IvcmBase;
+  aStateType: TvcmStateType;
+  aForClone: Boolean): Boolean;
+//#UC START# *49806ED503D5_497EBEC4031D_var*
+var
+ l_InnerState: IvcmBase;
+//#UC END# *49806ED503D5_497EBEC4031D_var*
+begin
+//#UC START# *49806ED503D5_497EBEC4031D_impl*
+ l_InnerState := nil;
+ inherited DoSaveState(theState, aStateType, aForClone);
+ theState := TPrimNewsLineFormState.Make(f_CurrentNewsLineIndex{DateList.Current}, l_InnerState);
+ Result := true;
+//#UC END# *49806ED503D5_497EBEC4031D_impl*
+end;//TPrimNewsLineForm.DoSaveState
+{$IfEnd} //not NoVCM
+
+{$If not defined(NoVCM)}
+function TPrimNewsLineForm.DoLoadState(const aState: IvcmBase;
+  aStateType: TvcmStateType): Boolean;
+//#UC START# *49807428008C_497EBEC4031D_var*
+var
+ l_WasDataChanging: Boolean;
+ l_State: IPrimNewsLineFormState;
+ l_InnerState: IvcmBase;
+//#UC END# *49807428008C_497EBEC4031D_var*
+begin
+//#UC START# *49807428008C_497EBEC4031D_impl*
+ if Supports(aState, IPrimNewsLineFormState, l_State) then
+ begin
+  l_InnerState := l_State.InnerState;
+  l_WasDataChanging := f_InDataChanging;
+  f_InDataChanging := True;
+  DateList.Current := l_State.CurrentNewsLineIndex;
+  f_CurrentNewsLineIndex := l_State.CurrentNewsLineIndex;
+  f_InDataChanging := False or l_WasDataChanging;
+ end
+ else
+  l_InnerState := aState; 
+ Result := inherited DoLoadState(l_InnerState, aStateType);
+//#UC END# *49807428008C_497EBEC4031D_impl*
+end;//TPrimNewsLineForm.DoLoadState
+{$IfEnd} //not NoVCM
+
+{$If not defined(NoVCM)}
 procedure TPrimNewsLineForm.InitControls;
 //#UC START# *4A8E8F2E0195_497EBEC4031D_var*
 //#UC END# *4A8E8F2E0195_497EBEC4031D_var*
@@ -458,7 +613,11 @@ procedure TPrimNewsLineForm.DoLoadFromSettings;
 //#UC END# *4E7C2AA3037E_497EBEC4031D_var*
 begin
 //#UC START# *4E7C2AA3037E_497EBEC4031D_impl*
- TnsNewsLine.Make.LoadThemeFromSettings;
+ with TnsNewsLine.Make do
+ begin
+  MakeCurrentThemeTreeStruct;
+  LoadThemeFromSettings;
+ end;
  UpdateNewsLineTree;
  inherited;
 //#UC END# *4E7C2AA3037E_497EBEC4031D_impl*

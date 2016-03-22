@@ -2,6 +2,7 @@ unit NOT_FINISHED_evEditorWithOperations;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evEditorWithOperations.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TevEditorWithOperations" MUID: (4829D85C03C1)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

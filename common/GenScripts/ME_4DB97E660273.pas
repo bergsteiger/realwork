@@ -2,6 +2,7 @@ unit BaloonWarningUserTypes_remListModified_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remListModified_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "remListModified" MUID: (4DB97E660273)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -11,7 +12,6 @@ interface
 uses
  l3IntfUses
  , BaloonWarningUserTypes_WarnTimeMachineException_UserType
- , BaloonWarningUserTypes_Fake_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -34,26 +34,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_remListModified = {final} class(TtfwInteger)
   {* Слово словаря для типа формы remListModified }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_remListModified
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_remListModified.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::remListModified';
-end;//Tkw_FormUserType_remListModified.GetWordNameForRegister
-
 function Tkw_FormUserType_remListModified.GetInteger: Integer;
 begin
  Result := remListModified;
 end;//Tkw_FormUserType_remListModified.GetInteger
+
+class function Tkw_FormUserType_remListModified.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::remListModified';
+end;//Tkw_FormUserType_remListModified.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

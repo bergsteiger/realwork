@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsTaggedTreeInfo.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsTaggedTreeInfo" MUID: (490070F20004)
+// Имя типа: "_nsTaggedTreeInfo_"
 
 {$Define nsTaggedTreeInfo_imp}
 

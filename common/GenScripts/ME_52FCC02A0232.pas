@@ -2,6 +2,7 @@ unit l3ProtoObjectWithHandle;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoObjectWithHandle.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProtoObjectWithHandle" MUID: (52FCC02A0232)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

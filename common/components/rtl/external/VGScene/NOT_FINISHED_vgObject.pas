@@ -2,6 +2,7 @@ unit NOT_FINISHED_vgObject;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vgObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgObject" MUID: (4D4956480326)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

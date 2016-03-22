@@ -125,7 +125,7 @@ begin
    l_SegStyle := Document.StyleTable[aSeg.CHP.Style];
    if l_SegStyle <> nil then
    begin
-    l_TmpCHP := TddCharacterProperty(aSeg.CHP.Diff(l_SegStyle.CHP));
+    l_TmpCHP := TddCharacterProperty(aSeg.CHP.Diff(l_SegStyle.CHP, False));
     try
      if l_SegStyle.StyleDef = sdCharacter then
       l_Format := Style2RTF(l_SegStyle, propUndefined, False) + CHP2RTF(l_TmpCHP, nil, False)
@@ -138,7 +138,7 @@ begin
   end // if aSeg.CHP.Style <> propUndefined then
   else //aSeg.Style <> propUndefined
   begin
-   l_SegCHP:= TddCharacterProperty(aSeg.CHP.Diff(aPara.CHP));
+   l_SegCHP:= TddCharacterProperty(aSeg.CHP.Diff(aPara.CHP, False));
    try
     l_Format := DiffCHP2RTF(l_SegCHP, aPara.CHP);
    finally

@@ -151,7 +151,9 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"cpp:*4D306C4201BA_CUSTOM_INCLUDES*"
-		    value      	(value Text "//#UC START# *4D306C4201BA_CUSTOM_INCLUDES*¤#include <set>¤//#UC END# *4D306C4201BA_CUSTOM_INCLUDES*"))
+		    value      	(value Text 
+|//#UC START# *4D306C4201BA_CUSTOM_INCLUDES*¤#include "shared/Morpho/impl/Impl/MorphoAnalyzer.h"¤//#UC END# *4D306C4201BA_CUSTOM_INCLUDES*
+		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"cpp:*4D306C4201BA*"
@@ -293,7 +295,7 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*4D352089034F*"
 			    value      	(value Text 
-|//#UC START# *4D352089034F*¤	std::vector <std::string> context;¤	boost::split (context, req, boost::is_punct () || boost::is_space ());¤¤	DBCore::Bytes tmp (1, 0);¤¤	typedef std::set <unsigned char> Parts;¤¤	Parts parts;¤¤	for (std::vector <std::string>::iterator it = context.begin (); it != context.end (); ++it) {¤		if (*(it->rbegin ()) == '!') {¤			it->erase (it->size () - 1);¤		}¤¤		//PartsSpeechAnalyzer::get_parts_of_speech (*it, parts);¤¤		if (out.empty ()) {¤			for (Parts::const_iterator _it = parts.begin (); _it != parts.end (); ++_it) {¤				tmp [0] = *_it;¤				out.push_back (tmp);¤			}¤		} else if (parts.size () > 1) {¤			DBCore::PSDTemplates data;¤			data.reserve (out.size () * parts.size ());¤¤			for (DBCore::PSDTemplates::const_iterator _it = out.begin (); _it != out.end (); ++_it) {¤				for (Parts::const_iterator __it = parts.begin (); __it != parts.end (); ++__it) {¤					data.push_back (*_it);¤					data.back ().push_back (*__it);¤				}¤			}¤¤			out = data;¤		} else {¤			unsigned char item = *(parts.begin ());¤¤			for (DBCore::PSDTemplates::iterator _it = out.begin (); _it != out.end (); ++_it) {¤				_it->push_back (item);¤			}¤		}¤¤		parts.clear ();¤	}¤¤#ifdef _DEBUG¤	/*¤	std::cout << std::endl;¤¤	for (DBCore::PSDTemplates::const_iterator it = out.begin (); it != out.end (); ++it) {¤		std::copy (it->begin (), it->end (), std::ostream_iterator <short> (std::cout, " "));¤		std::cout << std::endl;¤	}¤	std::cout << std::endl;¤	*/¤#endif¤	//#UC END# *4D352089034F*
+|//#UC START# *4D352089034F*¤	std::vector <std::string> context;¤	boost::split (context, req, boost::is_punct () || boost::is_space ());¤¤	DBCore::Bytes tmp (1, 0);¤¤	typedef std::set <unsigned char> Parts;¤¤	Parts parts;¤¤	Impl::MorphoAnalyzer analyzer (0, 0);¤¤	for (std::vector <std::string>::iterator it = context.begin (); it != context.end (); ++it) {¤		if (*(it->rbegin ()) == '!') {¤			it->erase (it->size () - 1);¤		}¤¤		analyzer.get_parts_of_speech (*it, parts);¤¤		if (out.empty ()) {¤			for (Parts::const_iterator _it = parts.begin (); _it != parts.end (); ++_it) {¤				tmp [0] = *_it;¤				out.push_back (tmp);¤			}¤		} else if (parts.size () > 1) {¤			DBCore::PSDTemplates data;¤			data.reserve (out.size () * parts.size ());¤¤			for (DBCore::PSDTemplates::const_iterator _it = out.begin (); _it != out.end (); ++_it) {¤				for (Parts::const_iterator __it = parts.begin (); __it != parts.end (); ++__it) {¤					data.push_back (*_it);¤					data.back ().push_back (*__it);¤				}¤			}¤¤			out = data;¤		} else {¤			unsigned char item = *(parts.begin ());¤¤			for (DBCore::PSDTemplates::iterator _it = out.begin (); _it != out.end (); ++_it) {¤				_it->push_back (item);¤			}¤		}¤¤		parts.clear ();¤	}¤¤#ifdef _DEBUG¤	/*¤	std::cout << std::endl;¤¤	for (DBCore::PSDTemplates::const_iterator it = out.begin (); it != out.end (); ++it) {¤		std::copy (it->begin (), it->end (), std::ostream_iterator <short> (std::cout, " "));¤		std::cout << std::endl;¤	}¤	std::cout << std::endl;¤	*/¤#endif¤	//#UC END# *4D352089034F*
 			    )))
 		    quid       	"4D352089034F"
 		    documentation 	"ãåíåðàöèÿ ÷àñòèðå÷íûõ ïðåäñòàâëåíèé çàïðîñà"

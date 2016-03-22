@@ -2,6 +2,7 @@ unit vcmFormGUIDFromMainFormList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmFormGUIDFromMainFormList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormGUIDFromMainFormList" MUID: (4F1EDCBC012F)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

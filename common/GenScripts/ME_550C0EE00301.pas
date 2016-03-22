@@ -2,6 +2,8 @@ unit fsInpharmMainMenu;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\fsInpharmMainMenu.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "InpharmMainMenu" MUID: (550C0EE00301)
+// Имя типа: "Tfs_InpharmMainMenu"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

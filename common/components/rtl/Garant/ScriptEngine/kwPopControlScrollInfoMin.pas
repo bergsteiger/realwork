@@ -1,42 +1,38 @@
 unit kwPopControlScrollInfoMin;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Модуль: "kwPopControlScrollInfoMin.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::ScrollInfoProcessing::pop_control_ScrollInfo_Min
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopControlScrollInfoMin.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_control_ScrollInfo_Min" MUID: (51793B050115)
+// Имя типа: "TkwPopControlScrollInfoMin"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  kwScrollInfoWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+ , kwScrollInfoWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
 type
- TkwPopControlScrollInfoMin = {final scriptword} class(TkwScrollInfoWord)
- protected
- // realized methods
+ TkwPopControlScrollInfoMin = {final} class(TkwScrollInfoWord)
+  protected
    procedure DoScrollInfo(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopControlScrollInfoMin
-{$IfEnd} //not NoScripts AND not NoVCL
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-
-// start class TkwPopControlScrollInfoMin
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+uses
+ l3ImplUses
+ , Windows
+ , Controls
+ , Forms
+;
 
 procedure TkwPopControlScrollInfoMin.DoScrollInfo(const aCtx: TtfwContext);
 //#UC START# *51793A950073_51793B050115_var*
@@ -48,17 +44,13 @@ begin
 end;//TkwPopControlScrollInfoMin.DoScrollInfo
 
 class function TkwPopControlScrollInfoMin.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:control:ScrollInfo:Min';
 end;//TkwPopControlScrollInfoMin.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts AND not NoVCL
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_control_ScrollInfo_Min
  TkwPopControlScrollInfoMin.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация pop_control_ScrollInfo_Min }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

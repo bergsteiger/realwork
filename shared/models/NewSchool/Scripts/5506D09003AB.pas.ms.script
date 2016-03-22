@@ -42,8 +42,6 @@ ref; // ME_62280531B792 Ml3DocumentsCacheService
 FORWARD ME_8089B05A548A
 
 : ME_0AC8DEBDD602_ME_8089B05A548A
- CONST UID '0AC8DEBDD602'
- CONST Name 'Clear'
  : Original ME_0AC8DEBDD602 // Clear
  ;
  : Implementor ME_8089B05A548A // Il3DocumentsCacheService
@@ -96,23 +94,6 @@ ref; // ME_8089B05A548A Il3DocumentsCacheService
 
 ref; // ME_F334FE8B4BEF Alien
 
-: ME_B6E7C8738D7E
- CONST UID 'B6E7C8738D7E'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5506FEA6012A // Tl3DocumentsCacheService
- ;
- : Target ME_8089B05A548A // Il3DocumentsCacheService
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_B6E7C8738D7E f_Alien
-
 : ME_5506FEB701D1
  CONST UID '5506FEB701D1'
  CONST Name 'Clear'
@@ -126,24 +107,12 @@ ref; // ME_B6E7C8738D7E f_Alien
 ref; // ME_5506FEB701D1 Clear
 
 : ME_0AC8DEBDD602_ME_5506FEA6012A
- CONST UID '0AC8DEBDD602'
- CONST Name 'Clear'
  : Original ME_0AC8DEBDD602 // Clear
  ;
  : Implementor ME_5506FEA6012A // Tl3DocumentsCacheService
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_0AC8DEBDD602_ME_5506FEA6012A Clear
-
-: ME_5000565C019C_ME_5506FEA6012A
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_5506FEA6012A // Tl3DocumentsCacheService
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_5506FEA6012A ClearFields
 
 : ME_5506FEA6012A
  CONST UID '5506FEA6012A'
@@ -165,7 +134,6 @@ ref; // ME_5000565C019C_ME_5506FEA6012A ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_F334FE8B4BEF // Alien
- ME_B6E7C8738D7E // f_Alien
  )
  ; // Attributes
  : Operations
@@ -176,10 +144,6 @@ ref; // ME_5000565C019C_ME_5506FEA6012A ClearFields
    Seq: ( ME_0AC8DEBDD602_ME_5506FEA6012A // Clear
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_5506FEA6012A // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_62280531B792 // Ml3DocumentsCacheService
  ME_8089B05A548A // Il3DocumentsCacheService

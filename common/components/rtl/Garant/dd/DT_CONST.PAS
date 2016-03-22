@@ -1,8 +1,23 @@
 Unit Dt_Const;     
 
-{ $Id: DT_CONST.PAS,v 1.61 2015/10/23 10:31:35 lukyanets Exp $ }
+{ $Id: DT_CONST.PAS,v 1.66 2015/11/27 12:38:22 lukyanets Exp $ }
 
 // $Log: DT_CONST.PAS,v $
+// Revision 1.66  2015/11/27 12:38:22  lukyanets
+// Cleanup
+//
+// Revision 1.65  2015/11/26 08:45:43  lukyanets
+// КОнстанты переехали
+//
+// Revision 1.64  2015/11/25 14:01:46  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
+// Revision 1.63  2015/11/25 07:22:12  lukyanets
+// Заготовки для выдачи номеров
+//
+// Revision 1.62  2015/11/23 11:37:13  lukyanets
+// Заготовки Renum
+//
 // Revision 1.61  2015/10/23 10:31:35  lukyanets
 // Готовимся проверять логин
 //
@@ -750,7 +765,7 @@ const
 
   MaxStatusMask  = 1;
 
-  cUndefDocID : TDocID  = -1;
+//  cUndefDocID : TDocID  = -1;
   cUndefSubID : TSubID  = -1;
 
   MinSrchDate    = 1;
@@ -835,8 +850,9 @@ const
   {- юридические операции, которых в доке по две не бывает}
 
 const
- MainTblsFamily = 0;
- CurrentFamily = 1;
+// Перенесено в daSchemeConsts
+// MainTblsFamily = 0;
+// CurrentFamily = 1;
 
  TblPassW : Array [0..1] of String[8] = ('','corvax');
 
@@ -915,6 +931,7 @@ const
   // Процесс, снимающий залочки, получил неверный путь к базе данных.
  cCLProcessGetWrongFullBasePath = cClearLocksGeneralError + 7;
 
+(* Перенесено в daSchemeConsts
  //Free Table Names
  NameDictExternalNumber = 'DictExtN';
  ftnDocIDExternal       = 'DOCIDEXT';
@@ -934,15 +951,17 @@ const
  ftnDocIDFAS9           = 'FAS9'; // ФАС СЗО
  ftnDocIDFAS10          = 'FAS10'; // ФАС МО
  ftnImgHandle           = 'HIMAGE'; //для получения ID используйте function GlobalDataProvider.GetFreeExtObjID(aFamily : TFamilyID): TDocID;
-
+*)
  {процедуры имен и паролей таблиц}
  function FamTblPrefName(aTable: TFamTbls): AnsiString;
  function TableName(aFamily: TFamilyID; aTblID: Integer; aTblPart : TdtAttrTblPart = atpMain): AnsiString;
+ function CalcTableIndex(aFamily: TFamilyID; aTableName: AnsiString; aTblPart : TdtAttrTblPart = atpMain): Integer;
  function TablePassword(aFamily: TFamilyID; aTblID : Integer): AnsiString;
 
 implementation
 uses
- SysUtils;
+ SysUtils,
+ daSchemeConsts;
 
 const
  scFakeTableUse = 'Использование фиктивной таблицы';
@@ -962,6 +981,32 @@ begin
   Assert(TFamTbls(aTblID) <> ftNone, scFakeTableUse);
   Result := FamTblNames[TFamTbls(aTblID)] + cAttrTblPartSuffix[aTblPart] + IntToHex(aFamily, 3);
  end;
+end;
+
+function CalcTableIndex(aFamily: TFamilyID; aTableName: AnsiString; aTblPart : TdtAttrTblPart = atpMain): Integer;
+var
+ l_IDX: Integer;
+begin
+ Result := -1;
+ if aFamily = MainTblsFamily then
+  for l_IDX := Ord(Low(TMainTbls)) to Ord(High(TMainTbls)) do
+  begin
+   if AnsiSameText(MainTblNames[TMainTbls(l_IDX)], aTableName) then
+   begin
+    Result := l_IDX;
+    Exit;
+   end;
+  end
+ else
+  for l_IDX := Ord(Low(TFamTbls)) to Ord(High(TFamTbls)) do
+  begin
+   if AnsiSameText(FamTblNames[TFamTbls(l_IDX)], aTableName) then
+   begin
+    Result := l_IDX;
+    Assert(TFamTbls(Result) <> ftNone, scFakeTableUse);
+    Exit;
+   end;
+  end; 
 end;
 
 function TablePassword(aFamily: TFamilyID; aTblID : Integer): AnsiString;

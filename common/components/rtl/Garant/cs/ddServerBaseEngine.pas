@@ -14,12 +14,13 @@ type
   f_CSServer: TCSServer;
   f_ServerHostName: String;
   f_ServerPort: Integer;
+  f_AutolinkEnabled: Boolean;
   procedure ServerLoginExData(out aDataParams: TdaDataProviderParams; out TheFlags: TdaBaseFlags);
   procedure ServerGetIsBaseLocked(out theIsBaseLocked: Boolean);
   function _ReIndexTable(const aFileName: AnsiString): Boolean;
-    function pm_GetBaseFlags: TdaBaseFlags;
-    function CSCheckPassword(const aLoginName, aPassword: AnsiString;
-      RequireAdminRights: Boolean; out theUserID: TCsClientID): Boolean;
+  function pm_GetBaseFlags: TdaBaseFlags;
+  function CSCheckPassword(const aLoginName, aPassword: AnsiString;
+    RequireAdminRights: Boolean; out theUserID: TCsClientID): Boolean;
  protected
   procedure CreateCommunications; override;
   function DoStart: Boolean; override;
@@ -29,7 +30,7 @@ type
   function pm_GetServerPort: Integer; override;
  public
   constructor Make(const aDataParams: TdaDataProviderParams; const aServerHostName: AnsiString;
-      aServerPort: Integer = 32100);
+      aServerPort: Integer = 32100; AutolinkEnabled: Boolean = False);
   procedure cs_GetBaseStatus(aPipe: TCSDataPipe);
   procedure ReindexTables(aFamily: Integer);
   procedure RepairTable(const aTable: AnsiString);
@@ -52,11 +53,12 @@ const
 
 
 constructor TServerBaseEngine.Make(const aDataParams: TdaDataProviderParams;
-  const aServerHostName: string; aServerPort: Integer = 32100);
+  const aServerHostName: string; aServerPort: Integer = 32100; AutolinkEnabled: Boolean = False);
 begin
  Create(aDataParams);
  f_ServerHostName := aServerHostName;
  f_ServerPort := aServerPort;
+ f_AutolinkEnabled := AutolinkEnabled;
 end;
 
 procedure TServerBaseEngine.CreateCommunications;
@@ -187,10 +189,12 @@ end;
 
 function TServerBaseEngine.pm_GetBaseFlags: TdaBaseFlags;
 begin
-  Result := [];
-  {$IFDEF AAC}
-  Include(Result, bfAAC);
-  {$ENDIF AAC}
+ Result := [];
+ {$IFDEF AAC}
+ Include(Result, bfAAC);
+ {$ENDIF AAC}
+ if f_AutolinkEnabled then
+  Include(Result, bfAutoLink);
 end;
 
 procedure TServerBaseEngine.ServerGetIsBaseLocked(

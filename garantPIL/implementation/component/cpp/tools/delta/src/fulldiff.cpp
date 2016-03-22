@@ -1371,6 +1371,7 @@ int Full::TagAttrDiff ( long lDocId, int iTag, int bNewDoc, char* s_tag )
 	case IDD_PARAGCTXLENS:
 	case IDD_INVISIBLELENS:
 	case IDD_INVISIBLERELES:
+	case IDD_INVISIBLEBLOCKSLENS:
 	case IDD_MARKEDTEXT:
 	case IDD_SAMES:
 		
@@ -1648,6 +1649,7 @@ int Full::CreateAttrDiff ( long lDocId, char* pLevelMask, int bNewDoc )
 	if ( TagAttrDiff ( lDocId, IDD_SAMES, bNewDoc, "IDD_SAMES" ) )                  pLevelMask [13] |= M_ATR_SAMES;
 	if ( TagAttrDiff ( lDocId, IDD_TAG, bNewDoc, "IDD_TAG" ) )                pLevelMask [13] |= M_ATR_TAG;
 	if ( TagAttrDiff ( lDocId, IDD_PROFDATE, bNewDoc, "IDD_PROFDATE" ) )                pLevelMask [13] |= M_ATR_PROFDATE;
+	if ( TagAttrDiff ( lDocId, IDD_INVISIBLEBLOCKSLENS, bNewDoc, "IDD_INVISIBLEBLOCKSLENS" ) )                pLevelMask [13] |= M_ATR_INVISIBLEBLOCKSLENS;
 
 	} //if (!b_texts_only)
 
@@ -2181,6 +2183,7 @@ int	Full::PreWork()
 			to_diff.push_back ("TMWM");
 			to_diff.push_back (AUX_FILTER_JSONS);
 			to_diff.push_back (AUX_LIST_KINDS);
+			to_diff.push_back (AUX_LIST_KINDS_SORTED);
 			to_diff.push_back (AUX_IMPORTANT_ANNOS);
 			to_diff.push_back (AUX_IMPORTANT_ANNOS_1);
 			to_diff.push_back (AUX_IMPORTANT_ANNOS_2);

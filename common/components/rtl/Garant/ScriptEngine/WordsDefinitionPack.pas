@@ -2,6 +2,7 @@ unit WordsDefinitionPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\WordsDefinitionPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "WordsDefinitionPack" MUID: (4F43ABD0026F)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -31,8 +32,8 @@ uses
 type
  TkwFUNCTION = {final} class(TtfwProcedure)
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwFUNCTION
 
  TkwNewWord = {final} class(TtfwProcedure)
@@ -51,8 +52,8 @@ type
  TkwOPERATOR = {final} class(TtfwProcedure)
   {* Определяет операторы, которые могут принимать слова как слева, так и справа }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function AddedParameters: Tl3CStringArray; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwOPERATOR
 
  TkwWordWorker = {final} class(TtfwProcedure)
@@ -61,11 +62,6 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function AddedParameters: Tl3CStringArray; override;
  end;//TkwWordWorker
-
-class function TkwFUNCTION.GetWordNameForRegister: AnsiString;
-begin
- Result := 'FUNCTION';
-end;//TkwFUNCTION.GetWordNameForRegister
 
 function TkwFUNCTION.CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim;
 //#UC START# *4DBAEE0D028D_4F3BEDEB009F_var*
@@ -76,15 +72,15 @@ begin
 //#UC END# *4DBAEE0D028D_4F3BEDEB009F_impl*
 end;//TkwFUNCTION.CompiledWordClass
 
+class function TkwFUNCTION.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'FUNCTION';
+end;//TkwFUNCTION.GetWordNameForRegister
+
 class function TkwNewWord.GetWordNameForRegister: AnsiString;
 begin
  Result := ':';
 end;//TkwNewWord.GetWordNameForRegister
-
-class function TkwOPERATOR.GetWordNameForRegister: AnsiString;
-begin
- Result := 'OPERATOR';
-end;//TkwOPERATOR.GetWordNameForRegister
 
 function TkwOPERATOR.AddedParameters: Tl3CStringArray;
 //#UC START# *4F3FF55403AB_53E466AC0341_var*
@@ -94,6 +90,11 @@ begin
  Result := nil;
 //#UC END# *4F3FF55403AB_53E466AC0341_impl*
 end;//TkwOPERATOR.AddedParameters
+
+class function TkwOPERATOR.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'OPERATOR';
+end;//TkwOPERATOR.GetWordNameForRegister
 
 class function TkwWordWorker.GetWordNameForRegister: AnsiString;
 begin

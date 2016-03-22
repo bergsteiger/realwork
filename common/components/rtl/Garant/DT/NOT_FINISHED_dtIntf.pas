@@ -2,6 +2,7 @@ unit NOT_FINISHED_dtIntf;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_dtIntf.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "dtIntf" MUID: (559D0BE101B4)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

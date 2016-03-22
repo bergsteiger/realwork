@@ -2,6 +2,7 @@ unit vtOutliner;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtOutliner.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtOutliner" MUID: (515DA5860015)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
@@ -1429,7 +1430,7 @@ begin
    if AlignTopIndex then
     DropDrawPoints;
 
-   NCur:=TreeStruct.GetIndex(l_Node);
+   NCur := TreeStruct.GetIndex(l_Node);
    if NCur >= 0 then
     InternalSetCurrent(NCur);
   finally
@@ -1493,10 +1494,10 @@ begin
   if not Assigned(f_TreeStruct) or Assigned(l_Current) and
     l_Current.IsSame(aNode) then
    Exit;
-  Result  := f_TreeStruct.MakeNodeVisible(aNode);
+  Result := f_TreeStruct.MakeNodeVisible(aNode);
   if Result < 0 then
    Exit;
-  Total   := TreeStruct.CountView;
+  Total := TreeStruct.CountView;
   if IsInChange then
    f_SaveCurrentNode := aNode
   else

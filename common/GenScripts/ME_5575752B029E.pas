@@ -2,6 +2,7 @@ unit destShapeRslt;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destShapeRslt.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdestShapeRslt" MUID: (5575752B029E)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

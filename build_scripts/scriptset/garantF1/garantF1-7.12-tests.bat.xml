@@ -35,9 +35,6 @@
 		&ru.garant.extensions.properties.signTargetMaxCyclesCount;
 		&ru.garant.extensions.properties.signTimestampServer;
 
-		&ru.garant.extensions.properties.svnRoot;
-		&ru.garant.extensions.properties.svnUpdateMaxCyclesCount;
-
 		&ru.garant.extensions.properties.workRootDir;
 	<!-- } properties -->
 
@@ -51,8 +48,6 @@
 		&ru.garant.extensions.scriptdefs.cleanupPasBuilds;
 
 		&ru.garant.extensions.scriptdefs.cleanupCvsByOutput;
-
-		&ru.garant.extensions.scriptdefs.cleanupSvnByPath;
 
 		&ru.garant.extensions.scriptdefs.copyDirToDir;
 
@@ -71,9 +66,6 @@
 
 		&ru.garant.extensions.scriptdefs.setCvsTagByList;
 		&ru.garant.extensions.scriptdefs.updateCvsByList;
-
-		&ru.garant.extensions.scriptdefs.setSvnTagByList;
-		&ru.garant.extensions.scriptdefs.updateSvnByList;
 
 		&ru.garant.extensions.scriptdefs.signTarget;
 	<!-- } scriptdefs -->
@@ -299,11 +291,9 @@
 			mount.path = "${properties.externalMountPath.win64}"
 		/>
 
-<!-- -->
 <!--
-		// empty
+		// do nothing
 -->
-<!-- -->
 
 		<ru.garant.extensions.scriptdefs.unmountResource
 			mount.root = "${properties.externalMountRoot}"
@@ -515,17 +505,6 @@
 			pas.target.root.dir = "${properties.pasTargetRootDir}/garant6x/implementation/Garant/ExtendUtils/FlashViewer"
 		/>
 
-<!-- HCAdapterTest
-		<ru.garant.extensions.scriptdefs.buildPasTarget
-			pas.target.project.name = "HCAdapterTest.dpr"
-			pas.target.compile.name = "HCAdapterTest.dpr"
-
-			pas.target.config.file = "${properties.pasTargetRootDir}/garant6x/test/implementation/HCAdapter/_cfg/HCAdapterTest.cfg"
-
-			pas.target.root.dir = "${properties.pasTargetRootDir}/garant6x/test/implementation/HCAdapter"
-		/>
-HCAdapterTest !-->
-
 		<ru.garant.extensions.scriptdefs.buildPasTarget
 			pas.target.project.name = "AdminAppTest.dpr"
 			pas.target.compile.name = "AdminAppTest.dpr"
@@ -564,11 +543,9 @@ HCAdapterTest !-->
 		<ru.garant.extensions.scriptdefs.cleanupPasBuilds
 		/>
 
-<!-- -->
 <!--
-		// empty
+		// do nothing
 -->
-<!-- -->
 
 		<echo
 			message = "TARGET PASSED"
@@ -685,11 +662,9 @@ HCAdapterTest !-->
 			mount.path = "${properties.buildOutputMountPath}"
 		/>
 
-<!-- -->
 <!--
-		// empty
+		// do nothing
 -->
-<!-- -->
 
 		<ru.garant.extensions.scriptdefs.unmountResource
 			mount.root = "${properties.buildOutputMountRoot}"
@@ -1005,8 +980,8 @@ HCAdapterTest !-->
 		/>
 
 		<ru.garant.extensions.scriptdefs.copyFile
-			file = "${properties.cvsRootDir}common/components/rtl/external/Doc2Rtf/wrs6.dll"
-			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/wrs6.dll"
+			file = "${properties.cvsRootDir}common/components/rtl/external/Doc2Rtf/wrs7.dll"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/wrs7.dll"
 		/>
 
 		<ru.garant.extensions.scriptdefs.copyFile
@@ -1081,13 +1056,6 @@ HCAdapterTest !-->
 			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/flash/FlashViewer.exe"
 		/>
 
-<!-- HCAdapterTest
-		<ru.garant.extensions.scriptdefs.copyFile
-			file = "${properties.buildRoot}/exe/HCAdapterTest.exe"
-			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/client/winNT/HCAdapterTest.exe"
-		/>
-HCAdapterTest !-->
-
 		<ru.garant.extensions.scriptdefs.copyFile
 			file = "${properties.buildRoot}/exe/AdminAppTest.exe"
 			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/AdminAppTest.exe"
@@ -1141,11 +1109,9 @@ HCAdapterTest !-->
 			mount.path = "${properties.buildOutputMountPath}"
 		/>
 
-<!-- -->
 <!--
-		// empty
+		// do nothing
 -->
-<!-- -->
 
 		<ru.garant.extensions.scriptdefs.unmountResource
 			mount.root = "${properties.buildOutputMountRoot}"
@@ -1246,14 +1212,6 @@ HCAdapterTest !-->
 
 			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/flash"
 		/>
-
-<!-- HCAdapterTest
-		<ru.garant.extensions.scriptdefs.manifestTarget
-			manifest.target = "HCAdapterTest.exe"
-
-			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/client/winNT"
-		/>
-HCAdapterTest !-->
 
 		<ru.garant.extensions.scriptdefs.manifestTarget
 			manifest.target = "AdminAppTest.exe"
@@ -1420,14 +1378,6 @@ HCAdapterTest !-->
 			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/flash"
 		/>
 
-<!-- HCAdapterTest
-		<ru.garant.extensions.scriptdefs.signTarget
-			sign.target = "HCAdapterTest.exe"
-
-			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/client/winNT"
-		/>
-HCAdapterTest !-->
-
 		<ru.garant.extensions.scriptdefs.signTarget
 			sign.target = "AdminAppTest.exe"
 
@@ -1460,6 +1410,7 @@ HCAdapterTest !-->
 		name = "updateCvs"
 		unless = "disable-updateCvs"
 	>
+
 <!-- -->
 		<ru.garant.extensions.scriptdefs.updateCvsByList
 			cvs.dirset.list = "${properties.cvsDirsetListForUpdate}"

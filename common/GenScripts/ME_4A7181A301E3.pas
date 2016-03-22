@@ -3,6 +3,7 @@ unit sdsCompareEditions;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\sdsCompareEditions.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsCompareEditions" MUID: (4A7181A301E3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -97,6 +98,7 @@ type
    {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
  end;//TsdsCompareEditions
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -313,6 +315,15 @@ begin
  Result := nsTabIconIndex(titCompareEditions);
 //#UC END# *53B3BF9C00EF_4A7181A301E3_impl*
 end;//TsdsCompareEditions.DoGetFormSetImageIndex
+
+procedure TsdsCompareEditions.ClearFields;
+begin
+ f_Left := nil;
+ f_Right := nil;
+ f_EditionsContainerData := nil;
+ f_EditionsList := nil;
+ inherited;
+end;//TsdsCompareEditions.ClearFields
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

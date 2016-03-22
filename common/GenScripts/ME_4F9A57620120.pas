@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VT\nsUnknownComponent.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsUnknownComponent" MUID: (4F9A57620120)
+// Имя типа: "_nsUnknownComponent_"
 
 {$Define nsUnknownComponent_imp}
 

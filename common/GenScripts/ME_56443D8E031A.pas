@@ -2,6 +2,7 @@ unit nsFiltersUtils;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsFiltersUtils" MUID: (56443D8E031A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

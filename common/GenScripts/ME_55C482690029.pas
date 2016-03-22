@@ -2,6 +2,7 @@ unit tfwDefaultScriptCaller;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDefaultScriptCaller.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwDefaultScriptCaller" MUID: (55C482690029)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

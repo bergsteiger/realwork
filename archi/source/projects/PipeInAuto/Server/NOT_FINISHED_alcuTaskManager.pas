@@ -2,6 +2,7 @@ unit NOT_FINISHED_alcuTaskManager;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\NOT_FINISHED_alcuTaskManager.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "alcuTaskManager" MUID: (52F8BE3100F5)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

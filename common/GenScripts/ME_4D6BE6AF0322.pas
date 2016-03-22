@@ -2,6 +2,7 @@ unit evWikiReader;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evWikiReader.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevWikiReader" MUID: (4D6BE6AF0322)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

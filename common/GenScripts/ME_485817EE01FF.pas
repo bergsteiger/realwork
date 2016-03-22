@@ -3,6 +3,8 @@ unit XML_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\XML_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "XML" MUID: (485817EE01FF)
+// Имя типа: "XMLTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

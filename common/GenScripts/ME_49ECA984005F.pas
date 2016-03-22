@@ -3,6 +3,7 @@ unit sdsInternetAgent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\InternetAgent\sdsInternetAgent.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsInternetAgent" MUID: (49ECA984005F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -41,6 +42,7 @@ type
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
  end;//TsdsInternetAgent
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -80,6 +82,12 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4938F7E702B7_49ECA984005F_impl*
 end;//TsdsInternetAgent.ClearAreas
+
+procedure TsdsInternetAgent.ClearFields;
+begin
+ f_MainViewArea := nil;
+ inherited;
+end;//TsdsInternetAgent.ClearFields
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

@@ -2,7 +2,7 @@
 #include "shared/Core/fix/wine.h"
 
 /*
- * $Id: update.cpp,v 2.293 2015/10/26 04:36:31 yaroslav Exp $
+ * $Id: update.cpp,v 2.296 2016/03/21 09:51:03 yaroslav Exp $
  */
 			      // update.cpp //
 ///////////////////////////////////////////////////////////////////////////////
@@ -156,19 +156,19 @@ public:
 		AllocSysBuf();
 		if ( !file -> GetAttr ( "FatSize", &fatPages, sizeof ( short ) ) )
 			fatPages = 1;
-		m_deletedFat= (int gk_huge *)::malloc((8887 + fatPages)*(long)file->PageSize);
+		m_deletedFat= (int gk_huge *)::malloc((8887 + *(unsigned short*)&fatPages)*(long)file->PageSize);
 		Fat = m_deletedFat + (8887 * (file->PageSize / sizeof(*m_deletedFat)));
 #ifdef DLT_IN_OLD_CONTEXT
-		memset(m_deletedFat,0,(8887 + fatPages)*(long)file->PageSize);
+		memset(m_deletedFat,0,(8887 + *(unsigned short*)&fatPages)*(long)file->PageSize);
 #else
 		memset(m_deletedFat,0,8887*(long)file->PageSize);
 		if ( file -> GetPage ( 1, Fat ) )	// Fat already exists
 		{
 			char gk_huge *ptr = (char gk_huge *) Fat;
-			for ( long page = Fat [1] & ~FAT_CHAIN, pageCount = 0; 
-				page != 0; page = Fat [page] & ~FAT_CHAIN, pageCount++ )
+			unsigned short pageCount = 0;
+			for ( long page = Fat [1] & ~FAT_CHAIN; page != 0; page = Fat [page] & ~FAT_CHAIN, pageCount++ )
 			{
-				assert(pageCount < fatPages);
+				assert(pageCount < *(unsigned short*)&fatPages);
 				ptr += file -> PageSize;
 				if(!file -> GetPage ( page, ptr )){
 					file= 0;
@@ -2449,14 +2449,14 @@ int MergeStreams(	CSReader &tmpBig, index_st *pin, LPPL_ZZZ pNew, long isLast, s
 								break;
 							if(write_stream(pdstr, &oldtmpRf.Sub, sizeof(long)) != sizeof(long))
 								return -1;
-							oldtmpRf.Sub= (long)oldtmpVl;
+							oldtmpRf.Sub= (long)(*(unsigned char*)&oldtmpVl);
 							cc= psstr->ArrayIOffsCount;
 							while(cc--){
-								if(psstr->ArrayIOffs[cc].i == (unsigned char)(oldtmpVl&0x7f))
+								if(psstr->ArrayIOffs[cc].i == *(unsigned char*)&oldtmpVl)
 									break;
 							}
 							if(cc == -1){
-								psstr->ArrayIOffs[psstr->ArrayIOffsCount].i= (unsigned char)(oldtmpVl&0x7f);
+								psstr->ArrayIOffs[psstr->ArrayIOffsCount].i= *(unsigned char*)&oldtmpVl;
 								psstr->ArrayIOffsCount++;
 							}
 							if(write_stream(pdstr, &oldtmpRf.Sub, sizeof(long)) != sizeof(long))
@@ -2466,14 +2466,14 @@ int MergeStreams(	CSReader &tmpBig, index_st *pin, LPPL_ZZZ pNew, long isLast, s
 						}
 						if(write_stream(pdstr, &oldtmpRf.Sub, sizeof(long)) != sizeof(long))
 							return -1;
-						oldtmpRf.Sub= oldtmpVl;
+						oldtmpRf.Sub= (long)(*(unsigned char*)&oldtmpVl);
 						cc= psstr->ArrayIOffsCount;
 						while(cc--){
-							if(psstr->ArrayIOffs[cc].i == (unsigned char)(oldtmpVl&0x7f))
+							if(psstr->ArrayIOffs[cc].i == *(unsigned char*)&oldtmpVl)
 								break;
 						}
 						if(cc == -1){
-							psstr->ArrayIOffs[psstr->ArrayIOffsCount].i= (unsigned char)(oldtmpVl&0x7f);
+							psstr->ArrayIOffs[psstr->ArrayIOffsCount].i= *(unsigned char*)&oldtmpVl;
 							psstr->ArrayIOffsCount++;
 						}
 						if(write_stream(pdstr, &oldtmpRf.Sub, sizeof(long)) != sizeof(long))
@@ -2965,7 +2965,7 @@ void N_WCU::CopyAsFlush(DocIterator *pUpDoc)
 		///////////////////////////////////////////////////////////////////
 		u_intFormOld_tCtxLongSetSplayMap tmpFOld(lsdef);
 		streamfile_st *str0;
-		pgfile_st *pfIndex1, *pfIndex2;
+		pgfile_st *pfIndex1, *pfIndex2, *pf0;
 		streamfile_st *pfIndex1str, *pfIndex2str;
 		streamfile_st *str00;
 		delete []pAllWordPos; pAllWordPos= 0;
@@ -3351,7 +3351,7 @@ free(pAA);*/
 		}else{
 	(pdstr+1)->flags &= ~SF_NOALLOC;
 	close_stream(pdstr+1);
-	pgfile_st *pf0= pin->pf;
+	pf0= pin->pf;
 	pfIndex1= pf0;
 	pfIndex1str= pin->str;
 	str0= pin->str;
@@ -3599,6 +3599,7 @@ free(pAA);*/
 		free(pin);
 		free(streams->file->SystemPageBuf);
 		free(file->SystemPageBuf);
+		str0->hits= (fat_rec_type *)pf0;
 		RestoreNamesFiles(gs_target_name, str0, file, streams);
 #ifndef NOT_NEW_FILES_FOR_NFCONTEXT
 		if(m_pNIdList != (long*)-1){
@@ -3634,6 +3635,7 @@ void N_WCU::RestoreNamesFiles(char *gs_target_name, void *strR, PagedFile *file_
 					*fnd0= strrchr(gs_old_name, '.'),
 					*fnd= strrchr(gs_target_name, '.');
 			streamfile_st *str0= (streamfile_st *)strR;
+			pgfile_st *pf0= (pgfile_st *)(str0->hits);str0->hits= 0;
 			int jj, ii, PackFlag= 0;
 			if(file__->IsPacked())
 				PackFlag++;
@@ -3642,14 +3644,33 @@ void N_WCU::RestoreNamesFiles(char *gs_target_name, void *strR, PagedFile *file_
 					if(c_io_close(file__->m_postFileHandles[jj]))
 						abort();
 				}
-
+				if(jj > 0){
+  ////////////////////
+  if(file__->m_postFileHandles[jj] == -1 && (!pf0 || pf0->postFileHandles[jj] == -1))
+	  break;
+  char *pFileName= 0;
+  if((ii=strlen(file__->m_readed.FileName)+1) < 2 ||
+		(pFileName= (char*)malloc(ii+1)) == 0 ||
+			GetBasedExtFileName((char*)memcpy(pFileName,file__->m_readed.FileName,ii+1) , jj) == 0){
+	abort();
+  }
+  strcpy(fnd0+1, strrchr(pFileName, '.')+1);
+  strcpy(fnd+1, strrchr(gs_old_name, '.')+1);
+  if(pFileName)
+	free(pFileName);
+  if(file__->m_postFileHandles[jj] != -1)
+	ace_os_unlink(gs_old_name);
+  if(pf0->postFileHandles[jj] != -1)
+	  ace_os_rename(gs_target_name, gs_old_name);
+  ////////////////////
+				}else{
+					ace_os_unlink(gs_old_name);
+					strcpy(fnd+1, strrchr(gs_old_name, '.')+1);
+					ace_os_rename(gs_target_name, gs_old_name);
+					*file__->m_postFileHandles= c_io_open(gs_old_name, ACE_OS_O_RDONLY|ACE_OS_O_BINARY);
+					file__->SetFileHandle(*file__->m_postFileHandles);
+				}
 			}
-			ace_os_unlink(gs_old_name);
-			strcpy(fnd+1, strrchr(gs_old_name, '.')+1);
-			ace_os_rename(gs_target_name, gs_old_name);
-			*file__->m_postFileHandles= c_io_open(gs_old_name, ACE_OS_O_RDONLY|ACE_OS_O_BINARY);
-			file__->SetFileHandle(*file__->m_postFileHandles);
-
 			for(jj=0; jj < MAX_COUNT_FILE_HANDLES+1; jj++){
 				if(streams__->file->m_postFileHandles[jj] != -1){
 					if(c_io_close(streams__->file->m_postFileHandles[jj]))
@@ -3698,7 +3719,7 @@ void open_pgfiles_from_Base(base_st& thisBase, PagedFile *file, StreamFile * str
 			!open_pgfile_from_PagedFile(streams->file, &thisBase.str.pgfile))
 		exit(-4);
 	{
-		thisBase.str.fat_size= streams->fatPages;
+		thisBase.str.fat_size= *(u_int16_t*)&(streams->fatPages);
 		thisBase.str.fat = (fat_rec_type *)streams->Fat;
 	}
 }

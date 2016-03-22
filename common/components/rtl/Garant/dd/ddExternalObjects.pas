@@ -2,9 +2,18 @@ unit ddExternalObjects;
 { Поддержка различных типов внешних объектов  }
 
 
-{ $Id: ddExternalObjects.pas,v 1.11 2014/02/13 12:14:54 lulin Exp $ }
+{ $Id: ddExternalObjects.pas,v 1.14 2016/02/29 07:07:03 lukyanets Exp $ }
 
 // $Log: ddExternalObjects.pas,v $
+// Revision 1.14  2016/02/29 07:07:03  lukyanets
+// Не собиралось
+//
+// Revision 1.13  2016/02/26 16:16:10  voba
+// - лингвомодули можно подключать в инишнике
+//
+// Revision 1.12  2015/11/25 14:01:46  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.11  2014/02/13 12:14:54  lulin
 // - рефакторим безликие списки.
 //
@@ -84,16 +93,13 @@ type
   function GetObjects(Handle: Integer): TddExternalObject;
   function GetStrings: TStrings;
   function IniFileName: AnsiString;
-  procedure OnReadItem(const ItStr: ShortString; var UserParam: Pointer);
-  function OnWriteItem(var ItStr: ShortString; var UserParam: Pointer): Boolean;
  protected
   procedure Cleanup; override;
   procedure LoadFromFile;
   procedure SaveToFile;
  public
   constructor Create{(anOwner: TObject = nil)}; //override;
-  function AddObject(aTypeExtension, aDescription, aSeeAlsoText: ShortString):
-      Integer;
+  function AddObject(aTypeExtension, aDescription, aSeeAlsoText: ShortString): Integer;
   procedure DeleteObject(theHandle: Tl3Handle);
   procedure Revert;
   procedure Save;
@@ -117,6 +123,7 @@ const
 implementation
 Uses
  l3String, l3FileUtils, l3IniFile,
+ daSchemeConsts,
  dt_Serv, dt_Const,
  Math,
  SysUtils
@@ -132,7 +139,7 @@ end;
 const
  recExternalObject = 'SDSS';
 Type
- _Rec = record
+ _Rec = packed record
    Descript: ShortString;
    Handle  : Integer;
    TypeExt : Shortstring;
@@ -244,61 +251,48 @@ begin
 end;
 
 procedure TddExternalObjectsManager.LoadFromFile;
+
+ procedure OnReadItem(const ItStr: ShortString);
+ var
+  l_Item: TddExternalObject;
+  l_Rec : _Rec;
+ begin
+  l_Item := TddExternalObject.Create{(nil)};
+  try
+   l3FormatStringToRec(ItStr, l_Rec, recExternalObject);
+   l_Item.Handle := l_Rec.Handle;
+   l_Item.Description := l_Rec.Descript;
+   l_Item.TypeExtension := l_Rec.TypeExt;
+   l_Item.SeeAlsoText := l_Rec.SeeAlso;
+   f_List.Add(l_Item);
+   FMaxHandle := Max(fMaxHandle, l_Item.Handle);
+  finally
+   l3Free(l_Item);
+  end;
+ end;
+
+
 var
- l_Params : Pointer;
+ lIterFunc : TOnSetListItem;
+
 begin
  f_List.Clear;
  with TCfgList.Create(IniFileName) do
  try
   Section:= 'ExternalObjects';
   FMaxHandle := 0;
-  ReadParamExtList('Item', OnReadItem, l_Params);
+  lIterFunc := MakeRGLStub(@OnReadItem);
+  try
+   ReadParamExtList('Item', lIterFunc);
+  finally
+   FreeRGLStub(lIterFunc);
+  end;
+
   if f_List.Count > 0 then
    Inc(FMaxHandle);
  finally
   Free;
  end;
-end;
-
-procedure TddExternalObjectsManager.OnReadItem(const ItStr: ShortString; var UserParam: Pointer);
-var
- l_Item: TddExternalObject;
- l_Rec : _Rec;
-begin
- l_Item := TddExternalObject.Create{(nil)};
- try
-  l3FormatStringToRec(ItStr, l_Rec, recExternalObject);
-  l_Item.Handle := l_Rec.Handle;
-  l_Item.Description := l_Rec.Descript;
-  l_Item.TypeExtension := l_Rec.TypeExt;
-  l_Item.SeeAlsoText := l_Rec.SeeAlso;
-  f_List.Add(l_Item);
-  FMaxHandle := Max(fMaxHandle, l_Item.Handle);
- finally
-  l3Free(l_Item);
- end;
-end;
-
-function TddExternalObjectsManager.OnWriteItem(var ItStr: ShortString; var
-    UserParam: Pointer): Boolean;
-var
- l_Item: TddExternalObject;
- Index: Integer;
- l_rec : _Rec;
-begin
- Result := False; // больше нет элементов
- Index := PInteger(UserParam)^;
- if Index < f_List.Count then
- begin
-  l_Item := TddExternalObject(f_List.Items[Index]);
-  l_Rec.Handle := l_Item.Handle;
-  l_Rec.Descript := l_Item.Description;
-  l_Rec.TypeExt := l_Item.TypeExtension;
-  l_Rec.SeeAlso := l_Item.SeeAlsoText;
-  ItStr := l3RecToFormatString(l_Rec, recExternalObject);
-  Inc(PInteger(UserParam)^);
-  Result := True;
- end; // Index < f_List.Count
 end;
 
 procedure TddExternalObjectsManager.Revert;
@@ -312,21 +306,44 @@ begin
 end;
 
 procedure TddExternalObjectsManager.SaveToFile;
+ var
+  lIndex : integer;
+
+ function OnWriteItem(var ItStr: ShortString): Boolean;
+ var
+  l_Item: TddExternalObject;
+  l_rec : _Rec;
+ begin
+  Result := False; // больше нет элементов
+  if lIndex < f_List.Count then
+  begin
+   l_Item := TddExternalObject(f_List.Items[lIndex]);
+   l_Rec.Handle := l_Item.Handle;
+   l_Rec.Descript := l_Item.Description;
+   l_Rec.TypeExt := l_Item.TypeExtension;
+   l_Rec.SeeAlso := l_Item.SeeAlsoText;
+   ItStr := l3RecToFormatString(l_Rec, recExternalObject);
+   Inc(lIndex);
+   Result := True;
+  end; // Index < f_List.Count
+ end;
+
 var
- l_Params: PInteger;
+ lIterFunc : TOnGetListItem;
+
 begin
- GetMem(l_Params, SizeOf(Integer));
+ lIndex := 0;
+ with TCfgList.Create(IniFileName) do
  try
-  l_Params^:= 0;
-  with TCfgList.Create(IniFileName) do
+  Section:= 'ExternalObjects';
+  lIterFunc := MakeWGLStub(@OnWriteItem);
   try
-   Section:= 'ExternalObjects';
-   WriteParamExtList('Item', OnWriteItem, Pointer(l_Params));
+   WriteParamExtList('Item', lIterFunc);
   finally
-   Free;
+   FreeWGLStub(lIterFunc);
   end;
  finally
-  FreeMem(l_Params);
+  Free;
  end;
 end;
 

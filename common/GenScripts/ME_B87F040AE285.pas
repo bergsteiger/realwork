@@ -3,6 +3,7 @@ unit ContactListKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\ContactListKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ContactListKeywordsPack" MUID: (B87F040AE285)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -48,8 +49,8 @@ type
 'aControl' форма::ContactList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ContactList
 
  Tkw_ContactList_Control_BackgroundPanel = {final} class(TtfwControlString)
@@ -60,9 +61,9 @@ type
 контрол::BackgroundPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ContactList_Control_BackgroundPanel
 
  Tkw_ContactList_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
@@ -85,9 +86,9 @@ type
 контрол::ContextFilter TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ContactList_Control_ContextFilter
 
  Tkw_ContactList_Control_ContextFilter_Push = {final} class(TkwBynameControlPush)
@@ -110,9 +111,9 @@ type
 контрол::trContactList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ContactList_Control_trContactList
 
  Tkw_ContactList_Control_trContactList_Push = {final} class(TkwBynameControlPush)
@@ -199,20 +200,15 @@ OBJECT VAR l_TeeTreeView
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwContactListFormTrContactList
 
-class function Tkw_Form_ContactList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ContactList';
-end;//Tkw_Form_ContactList.GetWordNameForRegister
-
 function Tkw_Form_ContactList.GetString: AnsiString;
 begin
  Result := 'ContactListForm';
 end;//Tkw_Form_ContactList.GetString
 
-class function Tkw_ContactList_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_ContactList.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::BackgroundPanel';
-end;//Tkw_ContactList_Control_BackgroundPanel.GetWordNameForRegister
+ Result := 'форма::ContactList';
+end;//Tkw_Form_ContactList.GetWordNameForRegister
 
 function Tkw_ContactList_Control_BackgroundPanel.GetString: AnsiString;
 begin
@@ -225,6 +221,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ContactList_Control_BackgroundPanel.RegisterInEngine
 
+class function Tkw_ContactList_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BackgroundPanel';
+end;//Tkw_ContactList_Control_BackgroundPanel.GetWordNameForRegister
+
 procedure Tkw_ContactList_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BackgroundPanel');
@@ -235,11 +236,6 @@ class function Tkw_ContactList_Control_BackgroundPanel_Push.GetWordNameForRegist
 begin
  Result := 'контрол::BackgroundPanel:push';
 end;//Tkw_ContactList_Control_BackgroundPanel_Push.GetWordNameForRegister
-
-class function Tkw_ContactList_Control_ContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ContextFilter';
-end;//Tkw_ContactList_Control_ContextFilter.GetWordNameForRegister
 
 function Tkw_ContactList_Control_ContextFilter.GetString: AnsiString;
 begin
@@ -252,6 +248,11 @@ begin
  TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_ContactList_Control_ContextFilter.RegisterInEngine
 
+class function Tkw_ContactList_Control_ContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ContextFilter';
+end;//Tkw_ContactList_Control_ContextFilter.GetWordNameForRegister
+
 procedure Tkw_ContactList_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ContextFilter');
@@ -263,11 +264,6 @@ begin
  Result := 'контрол::ContextFilter:push';
 end;//Tkw_ContactList_Control_ContextFilter_Push.GetWordNameForRegister
 
-class function Tkw_ContactList_Control_trContactList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::trContactList';
-end;//Tkw_ContactList_Control_trContactList.GetWordNameForRegister
-
 function Tkw_ContactList_Control_trContactList.GetString: AnsiString;
 begin
  Result := 'trContactList';
@@ -278,6 +274,11 @@ begin
  inherited;
  TtfwClassRef.Register(TeeTreeView);
 end;//Tkw_ContactList_Control_trContactList.RegisterInEngine
+
+class function Tkw_ContactList_Control_trContactList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::trContactList';
+end;//Tkw_ContactList_Control_trContactList.GetWordNameForRegister
 
 procedure Tkw_ContactList_Control_trContactList_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -312,11 +313,6 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aContactListForm));
 end;//TkwContactListFormBackgroundPanel.DoDoIt
 
-class function TkwContactListFormBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TContactListForm.BackgroundPanel';
-end;//TkwContactListFormBackgroundPanel.GetWordNameForRegister
-
 procedure TkwContactListFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -337,6 +333,11 @@ function TkwContactListFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TContactListForm)]);
 end;//TkwContactListFormBackgroundPanel.ParamsTypes
+
+class function TkwContactListFormBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TContactListForm.BackgroundPanel';
+end;//TkwContactListFormBackgroundPanel.GetWordNameForRegister
 
 function TkwContactListFormContextFilter.ContextFilter(const aCtx: TtfwContext;
  aContactListForm: TContactListForm): TnscContextFilter;
@@ -360,11 +361,6 @@ begin
  aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aContactListForm));
 end;//TkwContactListFormContextFilter.DoDoIt
 
-class function TkwContactListFormContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TContactListForm.ContextFilter';
-end;//TkwContactListFormContextFilter.GetWordNameForRegister
-
 procedure TkwContactListFormContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -385,6 +381,11 @@ function TkwContactListFormContextFilter.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TContactListForm)]);
 end;//TkwContactListFormContextFilter.ParamsTypes
+
+class function TkwContactListFormContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TContactListForm.ContextFilter';
+end;//TkwContactListFormContextFilter.GetWordNameForRegister
 
 function TkwContactListFormTrContactList.trContactList(const aCtx: TtfwContext;
  aContactListForm: TContactListForm): TeeTreeView;
@@ -408,11 +409,6 @@ begin
  aCtx.rEngine.PushObj(trContactList(aCtx, l_aContactListForm));
 end;//TkwContactListFormTrContactList.DoDoIt
 
-class function TkwContactListFormTrContactList.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TContactListForm.trContactList';
-end;//TkwContactListFormTrContactList.GetWordNameForRegister
-
 procedure TkwContactListFormTrContactList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -433,6 +429,11 @@ function TkwContactListFormTrContactList.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TContactListForm)]);
 end;//TkwContactListFormTrContactList.ParamsTypes
+
+class function TkwContactListFormTrContactList.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TContactListForm.trContactList';
+end;//TkwContactListFormTrContactList.GetWordNameForRegister
 
 initialization
  Tkw_Form_ContactList.RegisterInEngine;

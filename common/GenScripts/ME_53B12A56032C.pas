@@ -2,6 +2,8 @@ unit kwClearContextSearchHistory;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwClearContextSearchHistory.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "ClearContextSearchHistory" MUID: (53B12A56032C)
+// Имя типа: "TkwClearContextSearchHistory"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
@@ -46,6 +48,10 @@ begin
  NsGetContextHistory(GetContextHistoryKind).Clear;
 //#UC END# *4DAEEDE10285_53B12A56032C_impl*
 end;//TkwClearContextSearchHistory.DoDoIt
+
+initialization
+ TkwClearContextSearchHistory.RegisterClass;
+ {* Регистрация ClearContextSearchHistory }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

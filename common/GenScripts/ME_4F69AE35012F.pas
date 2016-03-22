@@ -2,6 +2,7 @@ unit kwQueryCardFormWord;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwQueryCardFormWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwQueryCardFormWord" MUID: (4F69AE35012F)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

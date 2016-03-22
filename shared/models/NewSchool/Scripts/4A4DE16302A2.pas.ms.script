@@ -36,8 +36,6 @@ ref; // ME_53AAC0110237 l3Items_NoSort
 ref; // ME_53AABFA60396 ItemType
 
 : ME_47B2C42A0163_ME_53AABF30022F
- CONST UID '47B2C42A0163'
- CONST Name 'AssignItem'
  : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
  ;
  : Implementor ME_53AABF30022F // Tk2PropertyArray
@@ -48,8 +46,6 @@ ref; // ME_53AABFA60396 ItemType
 ref; // ME_47B2C42A0163_ME_53AABF30022F AssignItem
 
 : ME_47B99D4503A2_ME_53AABF30022F
- CONST UID '47B99D4503A2'
- CONST Name 'CompareExistingItems'
  : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
  ;
  : Implementor ME_53AABF30022F // Tk2PropertyArray
@@ -314,6 +310,456 @@ ref; // ME_4A4DE0BF039E Tk2Base
 
 FORWARD ME_4FFEF43201C7
 
+: ME_4A4DE0E600F4
+ CONST UID '4A4DE0E600F4'
+ CONST Name 'f_tmpName'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4A4DE0E600F4 f_tmpName
+
+: ME_4A4DEC8E00C2
+ CONST UID '4A4DEC8E00C2'
+ CONST Name 'TagIndex'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4A4DEC8E00C2 TagIndex
+
+: ME_4A4DEE580305
+ CONST UID '4A4DEE580305'
+ CONST Name 'AtomType'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4A4DEE580305 AtomType
+
+: ME_4A4DF48F02F1
+ CONST UID '4A4DF48F02F1'
+ CONST Name 'EmptyMapping'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4A4DF48F02F1 EmptyMapping
+
+: ME_4A4DF4D90012
+ CONST UID '4A4DF4D90012'
+ CONST Name 'ReadOnly'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4A4DF4D90012 ReadOnly
+
+: ME_4A4DF71B035B
+ CONST UID '4A4DF71B035B'
+ CONST Name 'MappingTarget'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4A4DF71B035B MappingTarget
+
+: ME_4A4DF7DB00CB
+ CONST UID '4A4DF7DB00CB'
+ CONST Name 'NeedMarkModified'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4A4DF7DB00CB NeedMarkModified
+
+: ME_4A4DF88301A2
+ CONST UID '4A4DF88301A2'
+ CONST Name 'DefaultValue'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4A4DF88301A2 DefaultValue
+
+: ME_4A4DF8C101CC
+ CONST UID '4A4DF8C101CC'
+ CONST Name 'Shared'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4A4DF8C101CC Shared
+
+: ME_4A4DF9A2024D
+ CONST UID '4A4DF9A2024D'
+ CONST Name 'AtomIndex'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4A4DF9A2024D AtomIndex
+
+: ME_4A4DFBFB034D
+ CONST UID '4A4DFBFB034D'
+ CONST Name 'ParentType'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target ME_4FFEF43201C7 // Tk2TypePrimPrim
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4A4DFBFB034D ParentType
+
+FORWARD ME_4B85667B0066
+
+: ME_4B856696014A
+ CONST Name 'anOwner'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4A4DE5000202 // Tk2TypePrim
+ ;
+
+ref; // ME_4B856696014A anOwner
+
+: ME_4B85668D03AD
+ CONST UID '4B85668D03AD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B85667B0066 // Create
+ ;
+ : Parameters
+   Seq: ( ME_4B856696014A // anOwner
+ )
+ ; // Parameters
+
+ref; // ME_4B85668D03AD DoIt
+
+: ME_4B85667B0066
+ CONST UID '4B85667B0066'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Operations
+   Seq: ( ME_4B85668D03AD // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4B85667B0066 Create
+
+FORWARD ME_5357A18303D6
+
+: ME_5357A19C021C
+ CONST Name 'theProp'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_5331A06F028A' '47913B47006E.pas.ms.script' // Tl3VariantDef
+ ;
+
+ref; // ME_5357A19C021C theProp
+
+: ME_5357A19501FE
+ CONST UID '5357A19501FE'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5357A18303D6 // IsThisArray
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_5357A19C021C // theProp
+ )
+ ; // Parameters
+
+ref; // ME_5357A19501FE DoIt
+
+: ME_5357A18303D6
+ CONST UID '5357A18303D6'
+ CONST Name 'IsThisArray'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Operations
+   Seq: ( ME_5357A19501FE // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5357A18303D6 IsThisArray
+
+: ME_4A4DFCF403B7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4A4DFCF403B7 
+
+: ME_4A5357CA02D1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4A5357CA02D1 
+
+: ME_53A986B8022D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ : Target WL 'ME_53A963F700CD' '53A963DD0356.pas.ms.script' // Tk2Attributes
+ ;
+
+ref; // ME_53A986B8022D 
+
+: ME_4A4DE5340236_ME_4A4DE5850182
+ : Original ME_4A4DE5340236 // TagType
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4A4DE5340236_ME_4A4DE5850182 TagType
+
+: ME_479731C50290_ME_4A4DE5850182
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4A4DE5850182 Cleanup
+
+: ME_47A869BB02DE_ME_4A4DE5850182
+ : Original WL 'ME_47A869BB02DE' '47913B47006E.pas.ms.script' // GetAsPCharLen
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A869BB02DE_ME_4A4DE5850182 GetAsPCharLen
+
+: ME_480DD1890221_ME_4A4DE5850182
+ : Original WL 'ME_480DD1890221' '4AB0997B00A2.pas.ms.script' // GetOwner
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_480DD1890221_ME_4A4DE5850182 GetOwner
+
+: ME_4A4DE1FE035C_ME_4A4DE5850182
+ : Original WL 'ME_4A4DE1FE035C' '47913B47006E.pas.ms.script' // GetIsProp
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4A4DE1FE035C_ME_4A4DE5850182 GetIsProp
+
+: ME_4A4DE5AF036A_ME_4A4DE5850182
+ : Original ME_4A4DE5AF036A // AsProp
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_4A4DE5AF036A_ME_4A4DE5850182 AsProp
+
+: ME_5331A12D0103_ME_4A4DE5850182
+ : Original WL 'ME_5331A12D0103' '47913B47006E.pas.ms.script' // IDw
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "pm" true
+ref; // ME_5331A12D0103_ME_4A4DE5850182 IDw
+
+: ME_5356910A0042_ME_4A4DE5850182
+ : Original WL 'ME_5356910A0042' '47913B47006E.pas.ms.script' // DoDoMakeTag
+ ;
+ : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5356910A0042_ME_4A4DE5850182 DoDoMakeTag
+
+: ME_4A4DE5850182
+ CONST UID '4A4DE5850182'
+ CONST Name 'Tk2CustomPropertyPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Базовое описание свойств' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A4DE48C0344 // k2Prim
+ ;
+ : Inherits
+   Seq: ( ME_4A4DE0BF039E // Tk2Base
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4A4DE0E600F4 // f_tmpName
+ ME_4A4DEC8E00C2 // TagIndex
+ ME_4A4DEE580305 // AtomType
+ ME_4A4DF48F02F1 // EmptyMapping
+ ME_4A4DF4D90012 // ReadOnly
+ ME_4A4DF71B035B // MappingTarget
+ ME_4A4DF7DB00CB // NeedMarkModified
+ ME_4A4DF88301A2 // DefaultValue
+ ME_4A4DF8C101CC // Shared
+ ME_4A4DF9A2024D // AtomIndex
+ ME_4A4DFBFB034D // ParentType
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4B85667B0066 // Create
+ ME_5357A18303D6 // IsThisArray
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4A4DE5340236_ME_4A4DE5850182 // TagType
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4A4DE5850182 // Cleanup
+ ME_47A869BB02DE_ME_4A4DE5850182 // GetAsPCharLen
+ ME_480DD1890221_ME_4A4DE5850182 // GetOwner
+ ME_4A4DE1FE035C_ME_4A4DE5850182 // GetIsProp
+ ME_4A4DE5AF036A_ME_4A4DE5850182 // AsProp
+ ME_5331A12D0103_ME_4A4DE5850182 // IDw
+ ME_5356910A0042_ME_4A4DE5850182 // DoDoMakeTag
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4A4DFCF403B7 // 
+ ME_4A5357CA02D1 // 
+ ME_53A986B8022D // 
+ )
+ ; // Dependencies
+ : Forwarded
+   Seq: ( ME_4FFEF43201C7 // Tk2TypePrimPrim
+ )
+ ; // Forwarded
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '03.07.2009 15:03'
+ CONST extprop:rc:SelfName 'PropertyPrim'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4A4DE5850182 Tk2CustomPropertyPrim
+
 : ME_5260173603A3
  CONST UID '5260173603A3'
  CONST Name 'Tk2TypeIDPrim'
@@ -496,8 +942,6 @@ ref; // ME_5478635B0395 DoIt
 ref; // ME_547863510376 Assign
 
 : ME_479731C50290_ME_4A4E1D7C01DB
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4A4E1D7C01DB // Tk2TypeIDs
@@ -506,8 +950,6 @@ ref; // ME_547863510376 Assign
 ref; // ME_479731C50290_ME_4A4E1D7C01DB Cleanup
 
 : ME_47A042E100E2_ME_4A4E1D7C01DB
- CONST UID '47A042E100E2'
- CONST Name 'InitFields'
  : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
  ;
  : Implementor ME_4A4E1D7C01DB // Tk2TypeIDs
@@ -687,90 +1129,6 @@ ref; // ME_4E7074080099 FormatInfoFactory
  CONST "writes field" true
 
 ref; // ME_4FFEF74A0141 TypeTable
-
-: ME_B8BEFDD24070
- CONST UID 'B8BEFDD24070'
- CONST Name 'f_ID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_B8BEFDD24070 f_ID
-
-: ME_A8A7A09B21B7
- CONST UID 'A8A7A09B21B7'
- CONST Name 'f_AtomType'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AtomType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
- ;
- : Target WL 'ME_4767749802D1' '4767743E00E5.pas.ms.script' // PTypeInfo
- ;
- CONST extprop:clearViaProperty 'AtomType'
-
-ref; // ME_A8A7A09B21B7 f_AtomType
-
-: ME_9B04698A01C7
- CONST UID '9B04698A01C7'
- CONST Name 'f_DisabledChildTypeIDs'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DisabledChildTypeIDs' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
- ;
- : Target ME_4A4E1D7C01DB // Tk2TypeIDs
- ;
- CONST extprop:clearViaProperty 'DisabledChildTypeIDs'
-
-ref; // ME_9B04698A01C7 f_DisabledChildTypeIDs
-
-: ME_FD75FB83D9B5
- CONST UID 'FD75FB83D9B5'
- CONST Name 'f_FormatInfoFactory'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FormatInfoFactory' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
- ;
- : Target WL 'ME_476775CB036A' '4AB0C3C60310.pas.ms.script' // TClass
- ;
- CONST extprop:clearViaProperty 'FormatInfoFactory'
-
-ref; // ME_FD75FB83D9B5 f_FormatInfoFactory
-
-: ME_CDC72412587B
- CONST UID 'CDC72412587B'
- CONST Name 'f_TypeTable'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TypeTable' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_4FFEF43201C7 // Tk2TypePrimPrim
- ;
- : Target ME_4A4E1F7A029F // Tk2TypeTablePrim
- ;
- CONST extprop:clearViaProperty 'TypeTable'
-
-ref; // ME_CDC72412587B f_TypeTable
 
 FORWARD ME_4C177E9D0375
 
@@ -966,8 +1324,6 @@ ref; // ME_52601998019B
 ref; // ME_5266A6B103C9 
 
 : ME_4A4DE5340236_ME_4FFEF43201C7
- CONST UID '4A4DE5340236'
- CONST Name 'TagType'
  : Original ME_4A4DE5340236 // TagType
  ;
  : Implementor ME_4FFEF43201C7 // Tk2TypePrimPrim
@@ -978,8 +1334,6 @@ ref; // ME_5266A6B103C9
 ref; // ME_4A4DE5340236_ME_4FFEF43201C7 TagType
 
 : ME_479731C50290_ME_4FFEF43201C7
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4FFEF43201C7 // Tk2TypePrimPrim
@@ -988,8 +1342,6 @@ ref; // ME_4A4DE5340236_ME_4FFEF43201C7 TagType
 ref; // ME_479731C50290_ME_4FFEF43201C7 Cleanup
 
 : ME_532AE8F2009A_ME_4FFEF43201C7
- CONST UID '532AE8F2009A'
- CONST Name 'GetIsOrd'
  : Original WL 'ME_532AE8F2009A' '47913B47006E.pas.ms.script' // GetIsOrd
  ;
  : Implementor ME_4FFEF43201C7 // Tk2TypePrimPrim
@@ -998,8 +1350,6 @@ ref; // ME_479731C50290_ME_4FFEF43201C7 Cleanup
 ref; // ME_532AE8F2009A_ME_4FFEF43201C7 GetIsOrd
 
 : ME_533129DC037C_ME_4FFEF43201C7
- CONST UID '533129DC037C'
- CONST Name 'GetIsKindOfPrim'
  : Original WL 'ME_533129DC037C' '47913B47006E.pas.ms.script' // GetIsKindOfPrim
  ;
  : Implementor ME_4FFEF43201C7 // Tk2TypePrimPrim
@@ -1030,11 +1380,6 @@ ref; // ME_533129DC037C_ME_4FFEF43201C7 GetIsKindOfPrim
  ME_4C177F23037E // DisabledChildTypeIDs
  ME_4E7074080099 // FormatInfoFactory
  ME_4FFEF74A0141 // TypeTable
- ME_B8BEFDD24070 // f_ID
- ME_A8A7A09B21B7 // f_AtomType
- ME_9B04698A01C7 // f_DisabledChildTypeIDs
- ME_FD75FB83D9B5 // f_FormatInfoFactory
- ME_CDC72412587B // f_TypeTable
  )
  ; // Attributes
  : Operations
@@ -1074,574 +1419,6 @@ ref; // ME_533129DC037C_ME_4FFEF43201C7 GetIsKindOfPrim
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FFEF43201C7 Tk2TypePrimPrim
-
-: ME_4A4DE0E600F4
- CONST UID '4A4DE0E600F4'
- CONST Name 'f_tmpName'
- CONST Class class_Attribute
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_4A4DE0E600F4 f_tmpName
-
-: ME_4A4DEC8E00C2
- CONST UID '4A4DEC8E00C2'
- CONST Name 'TagIndex'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "needs field" false
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_4A4DEC8E00C2 TagIndex
-
-: ME_4A4DEE580305
- CONST UID '4A4DEE580305'
- CONST Name 'AtomType'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target ME_4FFEF43201C7 // Tk2TypePrimPrim
- ;
- CONST "needs field" true
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_4A4DEE580305 AtomType
-
-: ME_4A4DF48F02F1
- CONST UID '4A4DF48F02F1'
- CONST Name 'EmptyMapping'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "needs field" false
- CONST "pm" true
-
-ref; // ME_4A4DF48F02F1 EmptyMapping
-
-: ME_4A4DF4D90012
- CONST UID '4A4DF4D90012'
- CONST Name 'ReadOnly'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "needs field" false
- CONST "pm" true
-
-ref; // ME_4A4DF4D90012 ReadOnly
-
-: ME_4A4DF71B035B
- CONST UID '4A4DF71B035B'
- CONST Name 'MappingTarget'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "needs field" false
- CONST "pm" true
-
-ref; // ME_4A4DF71B035B MappingTarget
-
-: ME_4A4DF7DB00CB
- CONST UID '4A4DF7DB00CB'
- CONST Name 'NeedMarkModified'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "needs field" true
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_4A4DF7DB00CB NeedMarkModified
-
-: ME_4A4DF88301A2
- CONST UID '4A4DF88301A2'
- CONST Name 'DefaultValue'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "needs field" false
- CONST "pm" true
-
-ref; // ME_4A4DF88301A2 DefaultValue
-
-: ME_4A4DF8C101CC
- CONST UID '4A4DF8C101CC'
- CONST Name 'Shared'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "needs field" true
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_4A4DF8C101CC Shared
-
-: ME_4A4DF9A2024D
- CONST UID '4A4DF9A2024D'
- CONST Name 'AtomIndex'
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "needs field" true
- CONST "pm" true
- CONST "reads field" true
- CONST "writes field" true
-
-ref; // ME_4A4DF9A2024D AtomIndex
-
-: ME_4A4DFBFB034D
- CONST UID '4A4DFBFB034D'
- CONST Name 'ParentType'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_lnk
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target ME_4FFEF43201C7 // Tk2TypePrimPrim
- ;
- CONST "needs field" true
- CONST "pm" true
- CONST "reads field" true
-
-ref; // ME_4A4DFBFB034D ParentType
-
-: ME_5A21EAC24E37
- CONST UID '5A21EAC24E37'
- CONST Name 'f_TagIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TagIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_5A21EAC24E37 f_TagIndex
-
-: ME_9F579E61858F
- CONST UID '9F579E61858F'
- CONST Name 'f_AtomType'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AtomType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target ME_4FFEF43201C7 // Tk2TypePrimPrim
- ;
- CONST extprop:clearViaProperty 'AtomType'
-
-ref; // ME_9F579E61858F f_AtomType
-
-: ME_138D4E38FEB6
- CONST UID '138D4E38FEB6'
- CONST Name 'f_NeedMarkModified'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NeedMarkModified' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'NeedMarkModified'
-
-ref; // ME_138D4E38FEB6 f_NeedMarkModified
-
-: ME_425BDF57575D
- CONST UID '425BDF57575D'
- CONST Name 'f_Shared'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Shared' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'Shared'
-
-ref; // ME_425BDF57575D f_Shared
-
-: ME_4341F0AAB149
- CONST UID '4341F0AAB149'
- CONST Name 'f_AtomIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AtomIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'AtomIndex'
-
-ref; // ME_4341F0AAB149 f_AtomIndex
-
-: ME_DFFFA2701895
- CONST UID 'DFFFA2701895'
- CONST Name 'f_ParentType'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ParentType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target ME_4FFEF43201C7 // Tk2TypePrimPrim
- ;
-
-ref; // ME_DFFFA2701895 f_ParentType
-
-FORWARD ME_4B85667B0066
-
-: ME_4B856696014A
- CONST Name 'anOwner'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4A4DE5000202 // Tk2TypePrim
- ;
-
-ref; // ME_4B856696014A anOwner
-
-: ME_4B85668D03AD
- CONST UID '4B85668D03AD'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B85667B0066 // Create
- ;
- : Parameters
-   Seq: ( ME_4B856696014A // anOwner
- )
- ; // Parameters
-
-ref; // ME_4B85668D03AD DoIt
-
-: ME_4B85667B0066
- CONST UID '4B85667B0066'
- CONST Name 'Create'
- CONST Class class_Class
- : Stereotype st_Constructor ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Operations
-   Seq: ( ME_4B85668D03AD // DoIt
- )
- ; // Operations
-
-ref; // ME_4B85667B0066 Create
-
-FORWARD ME_5357A18303D6
-
-: ME_5357A19C021C
- CONST Name 'theProp'
- CONST Class class_Parameter
- : Stereotype st_out ;
- : Target WL 'ME_5331A06F028A' '47913B47006E.pas.ms.script' // Tl3VariantDef
- ;
-
-ref; // ME_5357A19C021C theProp
-
-: ME_5357A19501FE
- CONST UID '5357A19501FE'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5357A18303D6 // IsThisArray
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_5357A19C021C // theProp
- )
- ; // Parameters
-
-ref; // ME_5357A19501FE DoIt
-
-: ME_5357A18303D6
- CONST UID '5357A18303D6'
- CONST Name 'IsThisArray'
- CONST Class class_Class
- : Stereotype st_virtualmethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Operations
-   Seq: ( ME_5357A19501FE // DoIt
- )
- ; // Operations
-
-ref; // ME_5357A18303D6 IsThisArray
-
-: ME_4A4DFCF403B7
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_4A4DFCF403B7 
-
-: ME_4A5357CA02D1
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
- ;
-
-ref; // ME_4A5357CA02D1 
-
-: ME_53A986B8022D
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- : Target WL 'ME_53A963F700CD' '53A963DD0356.pas.ms.script' // Tk2Attributes
- ;
-
-ref; // ME_53A986B8022D 
-
-: ME_4A4DE5340236_ME_4A4DE5850182
- CONST UID '4A4DE5340236'
- CONST Name 'TagType'
- : Original ME_4A4DE5340236 // TagType
- ;
- : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- CONST OpKind opkind_Implemented
- CONST "needs field" false
- CONST "pm" true
-ref; // ME_4A4DE5340236_ME_4A4DE5850182 TagType
-
-: ME_479731C50290_ME_4A4DE5850182
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
- : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_479731C50290_ME_4A4DE5850182 Cleanup
-
-: ME_47A869BB02DE_ME_4A4DE5850182
- CONST UID '47A869BB02DE'
- CONST Name 'GetAsPCharLen'
- : Original WL 'ME_47A869BB02DE' '47913B47006E.pas.ms.script' // GetAsPCharLen
- ;
- : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_47A869BB02DE_ME_4A4DE5850182 GetAsPCharLen
-
-: ME_480DD1890221_ME_4A4DE5850182
- CONST UID '480DD1890221'
- CONST Name 'GetOwner'
- : Original WL 'ME_480DD1890221' '4AB0997B00A2.pas.ms.script' // GetOwner
- ;
- : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_480DD1890221_ME_4A4DE5850182 GetOwner
-
-: ME_4A4DE1FE035C_ME_4A4DE5850182
- CONST UID '4A4DE1FE035C'
- CONST Name 'GetIsProp'
- : Original WL 'ME_4A4DE1FE035C' '47913B47006E.pas.ms.script' // GetIsProp
- ;
- : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4A4DE1FE035C_ME_4A4DE5850182 GetIsProp
-
-: ME_4A4DE5AF036A_ME_4A4DE5850182
- CONST UID '4A4DE5AF036A'
- CONST Name 'AsProp'
- : Original ME_4A4DE5AF036A // AsProp
- ;
- : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- CONST OpKind opkind_Overridden
- CONST "needs field" false
- CONST "pm" true
-ref; // ME_4A4DE5AF036A_ME_4A4DE5850182 AsProp
-
-: ME_5331A12D0103_ME_4A4DE5850182
- CONST UID '5331A12D0103'
- CONST Name 'IDw'
- : Original WL 'ME_5331A12D0103' '47913B47006E.pas.ms.script' // IDw
- ;
- : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- CONST OpKind opkind_Overridden
- CONST "pm" true
-ref; // ME_5331A12D0103_ME_4A4DE5850182 IDw
-
-: ME_5356910A0042_ME_4A4DE5850182
- CONST UID '5356910A0042'
- CONST Name 'DoDoMakeTag'
- : Original WL 'ME_5356910A0042' '47913B47006E.pas.ms.script' // DoDoMakeTag
- ;
- : Implementor ME_4A4DE5850182 // Tk2CustomPropertyPrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5356910A0042_ME_4A4DE5850182 DoDoMakeTag
-
-: ME_4A4DE5850182
- CONST UID '4A4DE5850182'
- CONST Name 'Tk2CustomPropertyPrim'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Базовое описание свойств' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_4A4DE48C0344 // k2Prim
- ;
- : Inherits
-   Seq: ( ME_4A4DE0BF039E // Tk2Base
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_4A4DE0E600F4 // f_tmpName
- ME_4A4DEC8E00C2 // TagIndex
- ME_4A4DEE580305 // AtomType
- ME_4A4DF48F02F1 // EmptyMapping
- ME_4A4DF4D90012 // ReadOnly
- ME_4A4DF71B035B // MappingTarget
- ME_4A4DF7DB00CB // NeedMarkModified
- ME_4A4DF88301A2 // DefaultValue
- ME_4A4DF8C101CC // Shared
- ME_4A4DF9A2024D // AtomIndex
- ME_4A4DFBFB034D // ParentType
- ME_5A21EAC24E37 // f_TagIndex
- ME_9F579E61858F // f_AtomType
- ME_138D4E38FEB6 // f_NeedMarkModified
- ME_425BDF57575D // f_Shared
- ME_4341F0AAB149 // f_AtomIndex
- ME_DFFFA2701895 // f_ParentType
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_4B85667B0066 // Create
- ME_5357A18303D6 // IsThisArray
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4A4DE5340236_ME_4A4DE5850182 // TagType
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_479731C50290_ME_4A4DE5850182 // Cleanup
- ME_47A869BB02DE_ME_4A4DE5850182 // GetAsPCharLen
- ME_480DD1890221_ME_4A4DE5850182 // GetOwner
- ME_4A4DE1FE035C_ME_4A4DE5850182 // GetIsProp
- ME_4A4DE5AF036A_ME_4A4DE5850182 // AsProp
- ME_5331A12D0103_ME_4A4DE5850182 // IDw
- ME_5356910A0042_ME_4A4DE5850182 // DoDoMakeTag
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_4A4DFCF403B7 // 
- ME_4A5357CA02D1 // 
- ME_53A986B8022D // 
- )
- ; // Dependencies
- CONST "author" 'Люлин А.В.'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" true
- CONST "register in scripts" 'undefined'
- CONST "started" '03.07.2009 15:03'
- CONST extprop:rc:SelfName 'PropertyPrim'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4A4DE5850182 Tk2CustomPropertyPrim
 
 : ME_469F7AFD0224
  CONST UID '469F7AFD0224'
@@ -1754,8 +1531,6 @@ ref; // ME_4A4DEAE0006B Prop
 ref; // ME_4A532A65006D f_Tags
 
 : ME_479731C50290_ME_4A4DE5000202
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4A4DE5000202 // Tk2TypePrim
@@ -1764,8 +1539,6 @@ ref; // ME_4A532A65006D f_Tags
 ref; // ME_479731C50290_ME_4A4DE5000202 Cleanup
 
 : ME_47A042E100E2_ME_4A4DE5000202
- CONST UID '47A042E100E2'
- CONST Name 'InitFields'
  : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
  ;
  : Implementor ME_4A4DE5000202 // Tk2TypePrim
@@ -1774,8 +1547,6 @@ ref; // ME_479731C50290_ME_4A4DE5000202 Cleanup
 ref; // ME_47A042E100E2_ME_4A4DE5000202 InitFields
 
 : ME_47A869BB02DE_ME_4A4DE5000202
- CONST UID '47A869BB02DE'
- CONST Name 'GetAsPCharLen'
  : Original WL 'ME_47A869BB02DE' '47913B47006E.pas.ms.script' // GetAsPCharLen
  ;
  : Implementor ME_4A4DE5000202 // Tk2TypePrim
@@ -1784,8 +1555,6 @@ ref; // ME_47A042E100E2_ME_4A4DE5000202 InitFields
 ref; // ME_47A869BB02DE_ME_4A4DE5000202 GetAsPCharLen
 
 : ME_5331A12D0103_ME_4A4DE5000202
- CONST UID '5331A12D0103'
- CONST Name 'IDw'
  : Original WL 'ME_5331A12D0103' '47913B47006E.pas.ms.script' // IDw
  ;
  : Implementor ME_4A4DE5000202 // Tk2TypePrim
@@ -1926,8 +1695,8 @@ ref; // ME_53317DDB0223 Il3OpPack
  : Children
    Seq: ( ME_4A4E1F7A029F // Tk2TypeTablePrim
  ME_4A4DE0BF039E // Tk2Base
- ME_4FFEF43201C7 // Tk2TypePrimPrim
  ME_4A4DE5850182 // Tk2CustomPropertyPrim
+ ME_4FFEF43201C7 // Tk2TypePrimPrim
  ME_469F7AFD0224 // Ik2Op
  ME_4A4DE5000202 // Tk2TypePrim
  ME_4A52FBA90049 // Tk2ArrayPropertyPrim
@@ -2060,8 +1829,6 @@ ref; // ME_53C7DA940208 DoIt
 ref; // ME_53C7DA8400D6 NotifyListeners
 
 : ME_47B07CF403D0_ME_53C7D8AB0282
- CONST UID '47B07CF403D0'
- CONST Name 'IsSameItems'
  : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
  ;
  : Implementor ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
@@ -2071,8 +1838,6 @@ ref; // ME_53C7DA8400D6 NotifyListeners
 ref; // ME_47B07CF403D0_ME_53C7D8AB0282 IsSameItems
 
 : ME_47B2C42A0163_ME_53C7D8AB0282
- CONST UID '47B2C42A0163'
- CONST Name 'AssignItem'
  : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
  ;
  : Implementor ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
@@ -2083,8 +1848,6 @@ ref; // ME_47B07CF403D0_ME_53C7D8AB0282 IsSameItems
 ref; // ME_47B2C42A0163_ME_53C7D8AB0282 AssignItem
 
 : ME_47B935AF0066_ME_53C7D8AB0282
- CONST UID '47B935AF0066'
- CONST Name 'FillItem'
  : Original WL 'ME_47B935AF0066' '47BB24D30205.pas.ms.script' // FillItem
  ;
  : Implementor ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
@@ -2093,8 +1856,6 @@ ref; // ME_47B2C42A0163_ME_53C7D8AB0282 AssignItem
 ref; // ME_47B935AF0066_ME_53C7D8AB0282 FillItem
 
 : ME_47B94A5C006E_ME_53C7D8AB0282
- CONST UID '47B94A5C006E'
- CONST Name 'FreeItem'
  : Original WL 'ME_47B94A5C006E' '47BB24D30205.pas.ms.script' // FreeItem
  ;
  : Implementor ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners
@@ -2103,8 +1864,6 @@ ref; // ME_47B935AF0066_ME_53C7D8AB0282 FillItem
 ref; // ME_47B94A5C006E_ME_53C7D8AB0282 FreeItem
 
 : ME_47B99D4503A2_ME_53C7D8AB0282
- CONST UID '47B99D4503A2'
- CONST Name 'CompareExistingItems'
  : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
  ;
  : Implementor ME_53C7D8AB0282 // Tk2TypeTableCreatedListeners

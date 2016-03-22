@@ -2,6 +2,7 @@ unit NOT_FINISHED_RTFtypes;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_RTFtypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "RTFtypes" MUID: (518A1E9F0274)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

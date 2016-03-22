@@ -29,18 +29,20 @@ type
   f_MainPanel: TPanel;
    f_MainPageControl: TPageControl;
     f_DownloadTabSheet: TTabSheet;
+     f_DownloadRevisionCheckBox: TCheckBox;
      f_DownloadRetryCheckBox: TCheckBox;
      f_DownloadRestoreCheckBox: TCheckBox;
      f_DownloadRestoreEdit: TEdit;
      f_DownloadRestoreMinutesLabel: TLabel;
+     f_DownloadResumeCheckBox: TCheckBox;
      f_DownloadSaveToLabel: TLabel;
      f_DownloadSaveToEdit: TEdit;
      f_DownloadSaveToSelectButton: TButton;
      f_DownloadUserAgentLabel: TLabel;
      f_DownloadUserAgentEdit: TEdit;
-     f_DownloadNotificationCheckBox: TCheckBox;
-     f_DownloadNotificationStatusLabel: TLabel;
-     f_DownloadNotificationParametersLabel: TLabel;
+     f_DownloadSendReportCheckBox: TCheckBox;
+     f_DownloadSendReportStatusLabel: TLabel;
+     f_DownloadSendReportParametersLabel: TLabel;
      f_DownloadRestoreAllBitBtn: TBitBtn;
     f_UpdateTabSheet: TTabSheet;
      f_UpdateNoBackupCheckBox: TCheckBox;
@@ -50,9 +52,10 @@ type
      f_UpdateSearchInSelectButton: TButton;
      f_UpdateAdminPasswordLabel: TLabel;
      f_UpdateAdminPasswordCommentLabel: TLabel;
-     f_UpdateNotificationCheckBox: TCheckBox;
-     f_UpdateNotificationStatusLabel: TLabel;
-     f_UpdateNotificationParametersLabel: TLabel;
+     f_UpdateSendReportCheckBox: TCheckBox;
+     f_UpdateSkipWarningCheckBox: TCheckBox;
+     f_UpdateSendReportStatusLabel: TLabel;
+     f_UpdateSendReportParametersLabel: TLabel;
      f_UpdateRestoreAllBitBtn: TBitBtn;
     f_ScheduleTabSheet: TTabSheet;
      f_ScheduleDownloadEnabledCheckBox: TCheckBox;
@@ -124,7 +127,7 @@ type
   //
   procedure ScheduleRestoreAllBitBtnClick(a_Sender: TObject);
   //
-  procedure NotificationParametersLabelClick(a_Sender: TObject);
+  procedure SendReportParametersLabelClick(a_Sender: TObject);
   //
   procedure CommonHelpBitBtnClick(a_Sender: TObject);
   procedure CommonSaveBitBtnClick(a_Sender: TObject);
@@ -143,12 +146,15 @@ type
    ; const a_RemoveArchiveFlag: Boolean
    ; const a_LookIn: string
    ; const a_SendReport: Boolean
+   ; const a_SkipWarning: Boolean
   );
   //
   procedure InvalidateLoadStatus(
-   const a_RetryFlag: Boolean
+   const a_RevisionFlag: Boolean
+   ; const a_RetryFlag: Boolean
    ; const a_RestoreFlag: Boolean
    ; const a_RestoreTime: Integer
+   ; const a_ResumeFlag: Boolean
    ; const a_SaveTo: string
    ; const a_Process: string
    ; const a_SendReport: Boolean
@@ -169,16 +175,20 @@ type
    ; const a_Sunday: TDateTime
   );
  private
+  f_DownloadRevisionCheckBoxState: Boolean;
+  //
   f_DownloadRetryCheckBoxState: Boolean;
   //
   f_DownloadRestoreCheckBoxState: Boolean;
   f_DownloadRestoreEditState: string;
   //
+  f_DownloadResumeCheckBoxState: Boolean;
+  //
   f_DownloadSaveToEditState: string;
   //
   f_DownloadUserAgentEditState: string;
   //
-  f_DownloadNotificationCheckBoxState: Boolean;
+  f_DownloadSendReportCheckBoxState: Boolean;
   //
   f_UpdateNoBackupCheckBoxState: Boolean;
   //
@@ -186,7 +196,9 @@ type
   //
   f_UpdateSearchInEditState: string;
   //
-  f_UpdateNotificationCheckBoxState: Boolean;
+  f_UpdateSendReportCheckBoxState: Boolean;
+  //
+  f_UpdateSkipWarningCheckBoxState: Boolean;
   //
   f_ScheduleDownloadEnabledCheckBoxState: Boolean;
   //
@@ -235,17 +247,22 @@ begin
  //
  f_DownloadTabSheet.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormDownloadTabSheetCaption);
  //
+ f_DownloadRevisionCheckBox.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormDownloadRevisionCheckBoxCaption);
+ //
  f_DownloadRetryCheckBox.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormDownloadRetryCheckBoxCaption);
  //
  f_DownloadRestoreCheckBox.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormDownloadRestoreCheckBoxCaption);
  f_DownloadRestoreMinutesLabel.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormDownloadRestoreMinutesLabelCaption);
  //
+ f_DownloadResumeCheckBox.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormDownloadResumeCheckBoxCaption);
+ //
  f_DownloadSaveToLabel.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormDownloadSaveToLabelCaption);
  //
  f_DownloadUserAgentLabel.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormDownloadUserAgentLabelCaption);
  //
- f_DownloadNotificationCheckBox.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormDownloadNotificationCheckBoxCaption);
- f_DownloadNotificationParametersLabel.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormDownloadNotificationParametersLabelCaption);
+ f_DownloadSendReportCheckBox.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormDownloadSendReportCheckBoxCaption);
+ //
+ f_DownloadSendReportParametersLabel.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormDownloadSendReportParametersLabelCaption);
  //
  f_DownloadRestoreAllBitBtn.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormDownloadRestoreAllBitBtnCaption);
  //
@@ -260,8 +277,11 @@ begin
  f_UpdateAdminPasswordLabel.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormUpdateAdminPasswordLabelCaption);
  f_UpdateAdminPasswordCommentLabel.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormUpdateAdminPasswordCommentLabelCaption);
  //
- f_UpdateNotificationCheckBox.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormUpdateNotificationCheckBoxCaption);
- f_UpdateNotificationParametersLabel.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormUpdateNotificationParametersLabelCaption);
+ f_UpdateSendReportCheckBox.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormUpdateSendReportCheckBoxCaption);
+ //
+ f_UpdateSkipWarningCheckBox.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormUpdateSkipWarningCheckBoxCaption);
+ //
+ f_UpdateSendReportParametersLabel.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormUpdateSendReportParametersLabelCaption);
  //
  f_UpdateRestoreAllBitBtn.Caption := GetCurrentLocaleMessage(c_EasyUpdateParamsFormUpdateRestoreAllBitBtnCaption);
  //
@@ -315,7 +335,7 @@ end;
 
 procedure TEasyUpdateParamsForm.DownloadRestoreAllBitBtnClick(a_Sender: TObject);
 begin
- InvalidateLoadStatus(True, True, 5, '%GARANT%\delta', 'F1Download', False);
+ InvalidateLoadStatus(False, True, True, 5, False, '%GARANT%\delta', 'F1Download', False);
 end;
 
 procedure TEasyUpdateParamsForm.UpdateAdminPasswordLabelClick(a_Sender: TObject);
@@ -351,7 +371,7 @@ end;
 
 procedure TEasyUpdateParamsForm.UpdateRestoreAllBitBtnClick(a_Sender: TObject);
 begin
- InvalidateApplyStatus(False, False, '%GARANT%\delta', False);
+ InvalidateApplyStatus(False, False, '%GARANT%\delta', False, False);
 end;
 
 procedure TEasyUpdateParamsForm.ScheduleRunAtEndCheckBoxClick(Sender: TObject);
@@ -538,7 +558,7 @@ begin
  end;
 end;
 
-procedure TEasyUpdateParamsForm.NotificationParametersLabelClick(a_Sender: TObject);
+procedure TEasyUpdateParamsForm.SendReportParametersLabelClick(a_Sender: TObject);
 begin
  Hide;
  try
@@ -600,6 +620,9 @@ begin
   with f_ScheduleDownloadEnabledCheckBox do
    DownloadEnabledFlag := Checked and Enabled;
   //
+  with f_DownloadRevisionCheckBox do
+   DownloadRevisionFlag := Checked and Enabled;
+  //
   with f_DownloadRetryCheckBox do
    DownloadRetryFlag := Checked and Enabled;
   //
@@ -608,11 +631,14 @@ begin
   //
   DownloadRestoreTime := StrToInt(f_DownloadRestoreEdit.Text);
   //
+  with f_DownloadResumeCheckBox do
+   DownloadResumeFlag := Checked and Enabled;
+  //
   DownloadPath := f_DownloadSaveToEdit.Text;
   //
   DownloadID := f_DownloadUserAgentEdit.Text;
   //
-  with f_DownloadNotificationCheckBox do
+  with f_DownloadSendReportCheckBox do
    DownloadSendReportFlag := Checked and Enabled;
   //
   with f_ScheduleUpdateEnabledCheckBox do
@@ -626,8 +652,11 @@ begin
   //
   UpdatePath := f_UpdateSearchInEdit.Text;
   //
-  with f_UpdateNotificationCheckBox do
+  with f_UpdateSendReportCheckBox do
    UpdateSendReportFlag := Checked and Enabled;
+  //
+  with f_UpdateSkipWarningCheckBox do
+   UpdateSkipWarningFlag := Checked and Enabled;
   //
   with f_ScheduleRunAtEndCheckBox do
    RunAtEndEnabled := Checked and Enabled;
@@ -740,12 +769,15 @@ begin
    , UpdateRemoveArchiveFlag
    , UpdatePath
    , UpdateSendReportFlag
+   , UpdateSkipWarningFlag
   );
   //
   InvalidateLoadStatus(
-   DownloadRetryFlag
+   DownloadRevisionFlag
+   , DownloadRetryFlag
    , DownloadRestoreFlag
    , DownloadRestoreTime
+   , DownloadResumeFlag
    , DownloadPath
    , DownloadID
    , DownloadSendReportFlag
@@ -773,6 +805,7 @@ procedure TEasyUpdateParamsForm.InvalidateApplyStatus(
  ; const a_RemoveArchiveFlag: Boolean
  ; const a_LookIn: string
  ; const a_SendReport: Boolean
+ ; const a_SkipWarning: Boolean
 );
 begin
  f_UpdateNoBackupCheckBox.Checked := a_NoBackupFlag;
@@ -781,28 +814,36 @@ begin
  //
  f_UpdateSearchInEdit.Text := a_LookIn;
  //
- f_UpdateNotificationCheckBox.Checked := a_SendReport;
+ f_UpdateSendReportCheckBox.Checked := a_SendReport;
+ //
+ f_UpdateSkipWarningCheckBox.Checked := a_SkipWarning;
 end;
 
 procedure TEasyUpdateParamsForm.InvalidateLoadStatus(
- const a_RetryFlag: Boolean
+ const a_RevisionFlag: Boolean
+ ; const a_RetryFlag: Boolean
  ; const a_RestoreFlag: Boolean
  ; const a_RestoreTime: Integer
+ ; const a_ResumeFlag: Boolean
  ; const a_SaveTo: string
  ; const a_Process: string
  ; const a_SendReport: Boolean
 );
 begin
+ f_DownloadRevisionCheckBox.Checked := a_RevisionFlag;
+ //
  f_DownloadRetryCheckBox.Checked := a_RetryFlag;
  //
  f_DownloadRestoreCheckBox.Checked := a_RestoreFlag;
  f_DownloadRestoreEdit.Text := Format('%.02u', [a_RestoreTime]);
  //
+ f_DownloadResumeCheckBox.Checked := a_ResumeFlag;
+ //
  f_DownloadSaveToEdit.Text := a_SaveTo;
  //
  f_DownloadUserAgentEdit.Text := a_Process;
  //
- f_DownloadNotificationCheckBox.Checked := a_SendReport;
+ f_DownloadSendReportCheckBox.Checked := a_SendReport;
 end;
 
 procedure TEasyUpdateParamsForm.InvalidateScheduleStatus(
@@ -859,16 +900,20 @@ end;
 
 procedure TEasyUpdateParamsForm.StoreState;
 begin
+ f_DownloadRevisionCheckBoxState := f_DownloadRevisionCheckBox.Checked;
+ //
  f_DownloadRetryCheckBoxState := f_DownloadRetryCheckBox.Checked;
  //
  f_DownloadRestoreCheckBoxState := f_DownloadRestoreCheckBox.Checked;
  f_DownloadRestoreEditState := f_DownloadRestoreEdit.Text;
  //
+ f_DownloadResumeCheckBoxState := f_DownloadResumeCheckBox.Checked;
+ //
  f_DownloadSaveToEditState := f_DownloadSaveToEdit.Text;
  //
  f_DownloadUserAgentEditState := f_DownloadUserAgentEdit.Text;
  //
- f_DownloadNotificationCheckBoxState := f_DownloadNotificationCheckBox.Checked;
+ f_DownloadSendReportCheckBoxState := f_DownloadSendReportCheckBox.Checked;
  //
  f_UpdateNoBackupCheckBoxState := f_UpdateNoBackupCheckBox.Checked;
  //
@@ -876,7 +921,9 @@ begin
  //
  f_UpdateSearchInEditState := f_UpdateSearchInEdit.Text;
  //
- f_UpdateNotificationCheckBoxState := f_UpdateNotificationCheckBox.Checked;
+ f_UpdateSendReportCheckBoxState := f_UpdateSendReportCheckBox.Checked;
+ //
+ f_UpdateSkipWarningCheckBoxState := f_UpdateSkipWarningCheckBox.Checked;
  //
  f_ScheduleDownloadEnabledCheckBoxState := f_ScheduleDownloadEnabledCheckBox.Checked;
  //
@@ -939,7 +986,9 @@ begin
  //
  f_ScheduleDownloadEnabledCheckBox.Checked := f_ScheduleDownloadEnabledCheckBoxState;
  //
- f_UpdateNotificationCheckBox.Checked := f_UpdateNotificationCheckBoxState;
+ f_UpdateSkipWarningCheckBox.Checked := f_UpdateSkipWarningCheckBoxState;
+ //
+ f_UpdateSendReportCheckBox.Checked := f_UpdateSendReportCheckBoxState;
  //
  f_UpdateSearchInEdit.Text := f_UpdateSearchInEditState;
  //
@@ -947,16 +996,20 @@ begin
  //
  f_UpdateNoBackupCheckBox.Checked := f_UpdateNoBackupCheckBoxState;
  //
- f_DownloadNotificationCheckBox.Checked := f_DownloadNotificationCheckBoxState;
+ f_DownloadSendReportCheckBox.Checked := f_DownloadSendReportCheckBoxState;
  //
  f_DownloadUserAgentEdit.Text := f_DownloadUserAgentEditState;
  //
  f_DownloadSaveToEdit.Text := f_DownloadSaveToEditState;
  //
+ f_DownloadResumeCheckBox.Checked := f_DownloadResumeCheckBoxState;
+ //
  f_DownloadRestoreEdit.Text := f_DownloadRestoreEditState;
  f_DownloadRestoreCheckBox.Checked := f_DownloadRestoreCheckBoxState;
  //
  f_DownloadRetryCheckBox.Checked := f_DownloadRetryCheckBoxState;
+ //
+ f_DownloadRevisionCheckBox.Checked := f_DownloadRevisionCheckBoxState;
 end;
 
 

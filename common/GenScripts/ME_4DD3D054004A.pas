@@ -2,6 +2,7 @@ unit l3IEBitmapContainerStack;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3IEBitmapContainerStack.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3IEBitmapContainerStack" MUID: (4DD3D054004A)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

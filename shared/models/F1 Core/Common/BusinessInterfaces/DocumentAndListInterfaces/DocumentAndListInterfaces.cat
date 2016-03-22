@@ -75,7 +75,23 @@
 	(object Attribute
 	    tool       	"MDA Generator"
 	    name       	"NESTED GENERATED WikiPageID (wiki)"
-	    value      	"Nemesis,key:NMS,guid:4AC23B8E0397/Home/Core/Common/BusinessInterfaces/DocumentAndListInterfaces/IdsSimilarDocuments|558D0B7601C0::558D0B7601C0"))
+	    value      	"Nemesis,key:NMS,guid:4AC23B8E0397/Home/Core/Common/BusinessInterfaces/DocumentAndListInterfaces/IdsSimilarDocuments|558D0B7601C0::558D0B7601C0")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script.runner)"
+	    value      	"w:/shared/models/NewSchool/Scripts/491B305A0096.pas.ms.script.runner")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script.runner)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script)"
+	    value      	"w:/shared/models/NewSchool/Scripts/491B305A0096.pas.ms.script")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script)"
+	    value      	"file"))
     quid       	"491B305A0096"
     documentation 	"Èíòåðôåéñû áèçíåñ ñëîÿ äëÿ ðàáîòû ñ äîêóìåíòîì è ñïèñêîì äîêóìåíòîâ"
     stereotype 	"ControllerInterfaces"
@@ -2713,11 +2729,11 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*47F32E5D01B0_47E9EDA800FE_var*"
-			    value      	"//#UC START# *47F32E5D01B0_47E9EDA800FE_var*¤var¤ l_NewList: IDynList;¤//#UC END# *47F32E5D01B0_47E9EDA800FE_var*")
+			    value      	"//#UC START# *47F32E5D01B0_47E9EDA800FE_var*¤var¤ l_NewList: IDynList;¤ l_AllDocumentsFiltered: Boolean;¤//#UC END# *47F32E5D01B0_47E9EDA800FE_var*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*47F32E5D01B0_47E9EDA800FE_impl*"
-			    value      	"//#UC START# *47F32E5D01B0_47E9EDA800FE_impl*¤ Result := nil;¤ l_NewList := bsListClone(ImpList);¤ if Assigned(l_NewList) then¤ try¤  Result := DataForNewList(l_NewList);¤ finally¤  l_NewList := nil;¤ end;{try..finally}¤//#UC END# *47F32E5D01B0_47E9EDA800FE_impl*")
+			    value      	"//#UC START# *47F32E5D01B0_47E9EDA800FE_impl*¤ Result := nil;¤ l_AllDocumentsFiltered := False;¤ try¤  l_NewList := bsListClone(ImpList);¤  Assert(l_NewList <> nil);¤  l_AllDocumentsFiltered := bsIsListEmpty(l_NewList) and¤   l_NewList.GetIsFiltered and f_AllDocumentFiltered;¤ except¤  on EAllContentIsFiltered do¤   l_AllDocumentsFiltered := True;¤ end;¤ if Assigned(l_NewList) then¤ try¤  Result := DataForNewList(l_NewList, l_AllDocumentsFiltered);¤ finally¤  l_NewList := nil;¤ end;{try..finally}¤//#UC END# *47F32E5D01B0_47E9EDA800FE_impl*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*47F32E5D01B0_47E9EDC602B2_var*"
@@ -2844,11 +2860,11 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*47F60D510152_47E9EDA800FE_var*"
-			    value      	(value Text "//#UC START# *47F60D510152_47E9EDA800FE_var*¤¤  procedure lp_UpdateSimpleTree;¤   {* Íåîáõîäèìî ïåðåäàòü êîíòåêñòíûé ôèëüòð, ÷òîáû íå ïîëó÷èëîñü, ÷òî ïîñëå¤      ïðèìåíåíèÿ ôèëüòðà-çàïðîñà, êîíòåêñò îêðàñèòñÿ êðàñíûì öâåòîì. }¤  var¤   l_Tree    : Il3FilterableTree;¤   l_IntTree : InsInternalFilterableTree;¤  begin¤   // Ïîëó÷èì èíôîðìàöèþ î ôèëüòðàõ äåðåâà:¤   Supports(pm_GetSimpleTree, Il3FilterableTree, l_Tree);¤   // Îáíóëèì äåðåâî, äëÿ ïîëó÷åíèÿ íîâîãî TreeStruct:¤   pm_SetSimpleTree(nil);¤   // Îáíîâèì ôèëüòðû:¤   if (l_Tree <> nil) and¤     Supports(pm_GetSimpleTree, InsInternalFilterableTree, l_IntTree) then¤    l_IntTree.SetFilters(l_Tree.CloneFilters);¤  end;¤¤var¤ l_Filterable: IFilterable;¤¤  procedure lp_DeleteFromActiveFilters;¤  var¤   l_Index: Integer;¤   l_Filter: IFilterFromQuery;¤  begin¤   l_Index := 0;¤   while l_Index < f_ActiveFilters.Count do¤   begin¤    f_ActiveFilters.pm_GetItem(l_Index, l_Filter);¤    if l_Filter.IsSame(aFilter) then¤     f_ActiveFilters.Delete(l_Index)¤    else¤     Inc(l_Index);¤   end;//while l_Index < f_ActiveFilters.Count¤  end;//lp_DeleteFromActiveFilters¤¤  procedure lp_DeleteFilter;¤  begin¤   lp_DeleteFromActiveFilters;¤   try¤    l_Filterable.DeleteFilter(aFilter, True);¤    l_Filterable.ApplyFilters(f_ActiveFilters);¤    f_AllDocumentFiltered := False;¤   except¤    on EAllContentIsFiltered do¤     f_AllDocumentFiltered := True;¤   end;//try..except¤  end;//lp_DeleteFilter¤¤  function lp_AddFilter: Boolean;¤¤   function lp_HasFilter: Boolean;¤   var¤    l_Index : Integer;¤    l_Filter: IFilterFromQuery;¤   begin¤    for l_Index := 0 to Pred(f_ActiveFilters.Count) do¤    begin¤     f_ActiveFilters.pm_GetItem(l_Index, l_Filter);¤     if l_Filter.IsSame(aFilter) then¤     begin¤      Result := True;¤      Exit;¤     end;//l_Filter.IsSame(aFilter)¤    end;//for l_Index¤    Result := False;¤   end;¤¤  begin¤   if lp_HasFilter then¤    Result := False¤   else¤   begin¤    Result := True;¤    f_ActiveFilters.Add(aFilter);¤    if not f_AllDocumentFiltered then¤    try¤     l_Filterable.AddFilter(aFilter, True);¤    except¤     on EAllContentIsFiltered do¤      f_AllDocumentFiltered := True;¤     on ENotAllAttributesRestored do¤     begin¤      lp_DeleteFromActiveFilters;¤      raise;¤     end;¤    end;//try..except¤   end;//if lp_HasFilter then¤  end;//lp_AddFilter¤¤var¤ l_NeedResetTree: Boolean;¤//#UC END# *47F60D510152_47E9EDA800FE_var*"))
+			    value      	(value Text "//#UC START# *47F60D510152_47E9EDA800FE_var*¤¤  procedure lp_UpdateSimpleTree;¤   {* Íåîáõîäèìî ïåðåäàòü êîíòåêñòíûé ôèëüòð, ÷òîáû íå ïîëó÷èëîñü, ÷òî ïîñëå¤      ïðèìåíåíèÿ ôèëüòðà-çàïðîñà, êîíòåêñò îêðàñèòñÿ êðàñíûì öâåòîì. }¤  var¤   l_Tree    : Il3FilterableTree;¤   l_IntTree : InsInternalFilterableTree;¤  begin¤   // Ïîëó÷èì èíôîðìàöèþ î ôèëüòðàõ äåðåâà:¤   Supports(pm_GetSimpleTree, Il3FilterableTree, l_Tree);¤   // Îáíóëèì äåðåâî, äëÿ ïîëó÷åíèÿ íîâîãî TreeStruct:¤   pm_SetSimpleTree(nil);¤   // Îáíîâèì ôèëüòðû:¤   if (l_Tree <> nil) and¤     Supports(pm_GetSimpleTree, InsInternalFilterableTree, l_IntTree) then¤    l_IntTree.SetFilters(l_Tree.CloneFilters);¤  end;¤¤var¤ l_Filterable: IFilterable;¤¤  procedure lp_DeleteFilter;¤  begin¤   RemoveFilter(f_ActiveFilters, aFilter);¤   try¤    l_Filterable.DeleteFilter(aFilter, True);¤    l_Filterable.ApplyFilters(f_ActiveFilters);¤    f_AllDocumentFiltered := False;¤   except¤    on EAllContentIsFiltered do¤     f_AllDocumentFiltered := True;¤   end;//try..except¤  end;//lp_DeleteFilter¤¤  function lp_AddFilter: Boolean;¤  begin¤   if HasFilter(f_ActiveFilters, aFilter) then¤    Result := False¤   else¤   begin¤    Result := True;¤    f_ActiveFilters.Add(aFilter);¤    if not f_AllDocumentFiltered then¤    try¤     l_Filterable.AddFilter(aFilter, True);¤    except¤     on EAllContentIsFiltered do¤      f_AllDocumentFiltered := True;¤     on ENotAllAttributesRestored do¤     begin¤      RemoveFilter(f_ActiveFilters, aFilter);¤      raise;¤     end;¤    end;//try..except¤   end;//if HasFilter then¤  end;//lp_AddFilter¤¤var¤ l_NeedResetTree: Boolean;¤ ¤const¤ c_MaxListLengthToFilter = 1000000;¤//#UC END# *47F60D510152_47E9EDA800FE_var*"))
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*47F60D510152_47E9EDA800FE_impl*"
-			    value      	"//#UC START# *47F60D510152_47E9EDA800FE_impl*¤ Result := False;¤ l_NeedResetTree := CheckFullList;¤ if Supports(ImpList, IFilterable, l_Filterable) then¤ try¤  // Äîáàâèòü:¤  if aAdd then¤  begin¤   Result := lp_AddFilter;¤   if not Result  then¤    Exit;¤  end//if aAdd then¤  // Óäàëèòü:¤  else¤   lp_DeleteFilter;¤  // Îáíîâèì äåðåâî, åñëè ôèëüòðû ïðèìåíèëèñü:¤  if l_NeedResetTree or (not f_AllDocumentFiltered) then¤   lp_UpdateSimpleTree;¤  Result := True;¤ finally¤  l_Filterable := nil;¤ end;//try..finally¤//#UC END# *47F60D510152_47E9EDA800FE_impl*")
+			    value      	"//#UC START# *47F60D510152_47E9EDA800FE_impl*¤ Result := False;¤ l_NeedResetTree := CheckFullList;¤¤ if not DefDataAdapter.IsInternal then¤  if (Assigned(Root) and (Root.GetChildCount > c_MaxListLengthToFilter)) (*or¤     (Assigned(ImpList) and (ImpList.GetFullListSize > c_MaxListLengthToFilter))*) then¤   raise EListIsTooLong.Create('');¤¤ if Supports(ImpList, IFilterable, l_Filterable) then¤ try¤  // Äîáàâèòü:¤  if aAdd then¤  begin¤   Result := lp_AddFilter;¤   if not Result  then¤    Exit;¤  end//if aAdd then¤  // Óäàëèòü:¤  else¤   lp_DeleteFilter;¤  // Îáíîâèì äåðåâî, åñëè ôèëüòðû ïðèìåíèëèñü:¤  if l_NeedResetTree or (not f_AllDocumentFiltered) then¤   lp_UpdateSimpleTree;¤  Result := True;¤ finally¤  l_Filterable := nil;¤ end;//try..finally¤//#UC END# *47F60D510152_47E9EDA800FE_impl*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*47F60D510152_47E9EDC602B2_var*"
@@ -2958,7 +2974,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*47F6180E0359_47E9EDA800FE_impl*"
-			    value      	"//#UC START# *47F6180E0359_47E9EDA800FE_impl*¤ DoDeleteNodes;¤//#UC END# *47F6180E0359_47E9EDA800FE_impl*")
+			    value      	"//#UC START# *47F6180E0359_47E9EDA800FE_impl*¤ DoDeleteNodes;¤ f_IsChanged := True;¤//#UC END# *47F6180E0359_47E9EDA800FE_impl*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*47F6180E0359_47E9EDC602B2_var*"
@@ -3452,11 +3468,11 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*47F9FABC001D_47E9EDA800FE_var*"
-			    value      	"//#UC START# *47F9FABC001D_47E9EDA800FE_var*¤var¤ l_Filterable: IFilterable;¤ l_ActiveFilters: IFiltersFromQuery;¤ i,¤ l_Count: LongInt;¤ l_Filter: IFilterFromQuery;¤//#UC END# *47F9FABC001D_47E9EDA800FE_var*")
+			    value      	"//#UC START# *47F9FABC001D_47E9EDA800FE_var*¤var¤ l_Filterable: IFilterable;¤ l_ActiveFilters: IFiltersFromQuery;¤ i,¤ l_Count: LongInt;¤//#UC END# *47F9FABC001D_47E9EDA800FE_var*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*47F9FABC001D_47E9EDA800FE_impl*"
-			    value      	"//#UC START# *47F9FABC001D_47E9EDA800FE_impl*¤ Result := False;¤ if Assigned(ImpList) and Supports(ImpList, IFilterable, l_Filterable) then¤ try¤  l_Filterable.GetActiveFilters(l_ActiveFilters);¤  if Assigned(l_ActiveFilters) then¤  try¤   l_Count := l_ActiveFilters.Count;¤   if l_Count > 0 then¤    for i := 0 to Pred(l_Count) do¤    begin¤     l_ActiveFilters.pm_GetItem(I, l_Filter);¤     Result := aFilter.IsSame(l_Filter);¤     if Result then¤      break;¤    end;//for i := 0 to Pred(l_Count) do¤  finally¤   l_ActiveFilters := nil;¤  end;{try..finally}¤ finally¤  l_Filterable := nil;¤ end;//if Supports(ImpList, IFilterable, l_Filterable) then¤//#UC END# *47F9FABC001D_47E9EDA800FE_impl*")
+			    value      	"//#UC START# *47F9FABC001D_47E9EDA800FE_impl*¤ Result := False;¤ if Assigned(ImpList) and Supports(ImpList, IFilterable, l_Filterable) then¤ try¤  l_Filterable.GetActiveFilters(l_ActiveFilters);¤  if Assigned(l_ActiveFilters) then¤  try¤   Result := HasFilter(l_ActiveFilters, aFilter);¤   if Result then¤    exit;¤  finally¤   l_ActiveFilters := nil;¤  end;{try..finally}¤ finally¤  l_Filterable := nil;¤ end;//if Supports(ImpList, IFilterable, l_Filterable) then¤//#UC END# *47F9FABC001D_47E9EDA800FE_impl*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*47F9FABC001D_47E9EDC602B2_var*"
@@ -4262,7 +4278,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*47F1E7000276_47E9EDA800FEget_impl*"
-			    value      	"//#UC START# *47F1E7000276_47E9EDA800FEget_impl*¤ Result := bsIsListChanged(ImpList);¤//#UC END# *47F1E7000276_47E9EDA800FEget_impl*")
+			    value      	"//#UC START# *47F1E7000276_47E9EDA800FEget_impl*¤ Result := f_IsChanged;¤// Result := bsIsListChanged(ImpList);¤//#UC END# *47F1E7000276_47E9EDA800FEget_impl*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"ResolvedTypeGuid"
@@ -4374,7 +4390,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*47F272B40292_47E9EDA800FEget_impl*"
-			    value      	"//#UC START# *47F272B40292_47E9EDA800FEget_impl*¤ Result := f_AllDocumentFiltered or (not ((ImpList <> nil) and¤           (RootManager.RootNode <> nil) and RootManager.RootNode.HasChildren));¤//#UC END# *47F272B40292_47E9EDA800FEget_impl*")
+			    value      	"//#UC START# *47F272B40292_47E9EDA800FEget_impl*¤// if (ImpList <> nil) and (RootManager <> nil) and¤//    (RootManager.RootNode = nil) then¤//  pm_GetRoot;¤//  - http://mdp.garant.ru/pages/viewpage.action?pageId=606109792¤¤ Result := f_AllDocumentFiltered or (not ((ImpList <> nil) and¤           (RootManager.RootNode <> nil) and RootManager.RootNode.HasChildren));¤//#UC END# *47F272B40292_47E9EDA800FEget_impl*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"ResolvedTypeGuid"
@@ -6876,7 +6892,7 @@
 				    name       	"ElementCreationOrder"
 				    value      	"705049726981"))
 			    quid       	"4DF9E5B9006D"
-			    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean"
+			    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean"
 			    quidu      	"46A603BB0391")))
 		(object Class "ContentsConstants"
 		    attributes 	(list Attribute_Set
@@ -8559,7 +8575,7 @@
 			    name       	"ElementCreationOrder"
 			    value      	"1318862124142371"))
 		    quid       	"4E9C3D2C0083"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::IUnknown"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::IUnknown"
 		    quidu      	"46A451250363"))
 	    realized_interfaces 	(list realize_rel_list
 		(object Realize_Relationship
@@ -9281,7 +9297,7 @@
 		    documentation 	"íàëè÷èå ïîõîæèõ äîêóìåíòîâ"
 		    stereotype 	"readonly"
 		    label      	"HasSimilarDocuments"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean"
 		    quidu      	"46A603BB0391"
 		    is_navigable 	TRUE)
 		(object Role "$UNNAMED$11"
@@ -9647,7 +9663,7 @@
 		    quid       	"4B17F03C0327"
 		    stereotype 	"writeonly"
 		    label      	"wHas"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean"
 		    quidu      	"46A603BB0391"
 		    is_navigable 	TRUE)
 		(object Role "$UNNAMED$23"
@@ -10104,7 +10120,7 @@
 		    quid       	"4D2DDF9B034E"
 		    stereotype 	"readonly"
 		    label      	"Empty"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean"
 		    quidu      	"46A603BB0391"
 		    is_navigable 	TRUE)
 		(object Role "$UNNAMED$41"
@@ -10318,7 +10334,7 @@
 		    quid       	"4D404C490215"
 		    stereotype 	"readonly"
 		    label      	"ContentsListCount"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Integer"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Integer"
 		    quidu      	"46A606AC03B2"
 		    keys       	(list class_attribute_list
 			(object ClassAttribute "aListType"
@@ -10452,7 +10468,7 @@
 		    quid       	"4D4173FE02CC"
 		    stereotype 	"readonly"
 		    label      	"ContentsListParaID"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Integer"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Integer"
 		    quidu      	"46A606AC03B2"
 		    keys       	(list class_attribute_list
 			(object ClassAttribute "anIndex"
@@ -10543,7 +10559,7 @@
 			    value      	"false"))
 		    quid       	"4D4188EE025E"
 		    label      	"rIndex"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Integer"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Integer"
 		    quidu      	"46A606AC03B2"
 		    Containment 	"By Reference"
 		    is_navigable 	TRUE)
@@ -10617,7 +10633,7 @@
 		    quid       	"4E7B5DED03A2"
 		    stereotype 	"readonly"
 		    label      	"Empty"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean"
 		    quidu      	"46A603BB0391"
 		    is_navigable 	TRUE)
 		(object Role "$UNNAMED$66"
@@ -10737,7 +10753,7 @@
 		    quid       	"4EFC5A31016E"
 		    stereotype 	"readonly"
 		    label      	"ForSynchroView"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean"
 		    quidu      	"46A603BB0391"
 		    is_navigable 	TRUE)
 		(object Role "$UNNAMED$70"
@@ -10883,6 +10899,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15908010
 		    quidu      	"492571A202F1"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(924, 4412)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	6
+			max_width  	1040
+			justify    	1)
 		    width      	1054
 		    height     	442
 		    annotation 	8
@@ -10963,6 +10998,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15908010
 		    quidu      	"49217D9D00BD"
+		    compartment 	(object Compartment
+			Parent_View 	@4
+			location   	(119, 8301)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	762
+			justify    	1)
 		    width      	776
 		    height     	242
 		    annotation 	8
@@ -11004,6 +11058,25 @@
 		    line_color 	7885055
 		    fill_color 	15908010
 		    quidu      	"4921869901CF"
+		    compartment 	(object Compartment
+			Parent_View 	@5
+			location   	(89, 7873)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	1318
+			justify    	1)
 		    width      	1346
 		    height     	242
 		    annotation 	8
@@ -11085,6 +11158,25 @@
 		    line_color 	7885055
 		    fill_color 	15908010
 		    quidu      	"491D662901FD"
+		    compartment 	(object Compartment
+			Parent_View 	@7
+			location   	(86, 5949)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	1040
+			justify    	1)
 		    width      	1054
 		    height     	342
 		    annotation 	8
@@ -11125,6 +11217,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15908010
 		    quidu      	"47E9F032005A"
+		    compartment 	(object Compartment
+			Parent_View 	@8
+			location   	(1650, 9818)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	31
+			max_width  	2150
+			justify    	1)
 		    width      	2174
 		    height     	1692
 		    annotation 	8
@@ -11166,6 +11277,25 @@
 		    line_color 	7885055
 		    fill_color 	16766935
 		    quidu      	"4922AD4B0136"
+		    compartment 	(object Compartment
+			Parent_View 	@9
+			location   	(1625, 9013)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	887
+			justify    	1)
 		    width      	902
 		    height     	292
 		    annotation 	8
@@ -11482,6 +11612,25 @@
 		    icon_style 	"Label"
 		    fill_color 	13011097
 		    quidu      	"493E4E520011"
+		    compartment 	(object Compartment
+			Parent_View 	@20
+			location   	(86, 7395)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	375
+			justify    	1)
 		    width      	460
 		    height     	292
 		    annotation 	8
@@ -11585,6 +11734,25 @@
 		    icon_style 	"Label"
 		    fill_color 	16777152
 		    quidu      	"49145C530239"
+		    compartment 	(object Compartment
+			Parent_View 	@23
+			location   	(2586, 5869)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	6
+			max_width  	1100
+			justify    	1)
 		    width      	1118
 		    height     	442
 		    annotation 	8
@@ -11665,6 +11833,25 @@
 		    icon_style 	"Label"
 		    fill_color 	16777152
 		    quidu      	"496F33D900C1"
+		    compartment 	(object Compartment
+			Parent_View 	@25
+			location   	(2442, 6722)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	875
+			justify    	1)
 		    width      	890
 		    height     	242
 		    annotation 	8
@@ -11831,6 +12018,25 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4937D8C80242"
+		    compartment 	(object Compartment
+			Parent_View 	@30
+			location   	(1012, 1705)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	787
+			justify    	1)
 		    width      	802
 		    height     	242
 		    annotation 	8
@@ -11916,6 +12122,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15908010
 		    quidu      	"4AE56DB003D5"
+		    compartment 	(object Compartment
+			Parent_View 	@33
+			location   	(2581, 572)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	993
+			justify    	1)
 		    width      	1012
 		    height     	242
 		    annotation 	8
@@ -11956,6 +12181,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15908010
 		    quidu      	"4AE575E00174"
+		    compartment 	(object Compartment
+			Parent_View 	@34
+			location   	(2528, 915)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	1868
+			justify    	1)
 		    width      	1872
 		    height     	242
 		    annotation 	8
@@ -11997,6 +12241,25 @@
 		    line_color 	7885055
 		    fill_color 	15908010
 		    quidu      	"47E9F00100A2"
+		    compartment 	(object Compartment
+			Parent_View 	@35
+			location   	(171, 11877)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	43
+			max_width  	3046
+			justify    	1)
 		    width      	3078
 		    height     	2292
 		    annotation 	8
@@ -12227,6 +12490,25 @@
 		    line_color 	7885055
 		    fill_color 	15908010
 		    quidu      	"47EA0356011B"
+		    compartment 	(object Compartment
+			Parent_View 	@42
+			location   	(240, 805)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	12
+			max_width  	2096
+			justify    	1)
 		    width      	2124
 		    height     	742
 		    annotation 	8
@@ -12335,6 +12617,25 @@
 		    line_color 	7885055
 		    fill_color 	13011097
 		    quidu      	"47EA0F8D010D"
+		    compartment 	(object Compartment
+			Parent_View 	@46
+			location   	(939, 3038)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	909
+			justify    	1)
 		    width      	928
 		    height     	242
 		    annotation 	8
@@ -12518,6 +12819,25 @@
 		    line_color 	7885055
 		    fill_color 	16766935
 		    quidu      	"49391DE00244"
+		    compartment 	(object Compartment
+			Parent_View 	@52
+			location   	(3886, 1307)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	690
+			justify    	1)
 		    width      	706
 		    height     	242
 		    annotation 	8
@@ -13053,6 +13373,25 @@
 		    line_color 	7885055
 		    fill_color 	16777152
 		    quidu      	"4DC14229028D"
+		    compartment 	(object Compartment
+			Parent_View 	@74
+			location   	(610, 7432)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	2000
+			justify    	1)
 		    width      	2030
 		    height     	242
 		    annotation 	8
@@ -13137,6 +13476,25 @@
 		    line_color 	7885055
 		    fill_color 	16777152
 		    quidu      	"4953D2FA030F"
+		    compartment 	(object Compartment
+			Parent_View 	@77
+			location   	(23, 6720)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	2375
+			justify    	1)
 		    width      	2402
 		    height     	242
 		    annotation 	8
@@ -13177,6 +13535,25 @@
 		    icon_style 	"Label"
 		    fill_color 	13011097
 		    quidu      	"4E92C3A5037B"
+		    compartment 	(object Compartment
+			Parent_View 	@78
+			location   	(839, 2353)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	2109
+			justify    	1)
 		    width      	2124
 		    height     	242
 		    annotation 	8
@@ -13565,7 +13942,7 @@
 			(2010, 2229)
 			(2108, 2129))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::IUnknown" @95
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::IUnknown" @95
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -15555,7 +15932,7 @@
 		    supplier   	@177
 		    vertices   	(list Points
 			(368, 619)
-			(364, 362))
+			(365, 411))
 		    line_style 	0)))
 	(object ClassDiagram "Main"
 	    attributes 	(list Attribute_Set
@@ -15597,7 +15974,7 @@
 			label      	"IdsDocument")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@180
-			location   	(102, 103)
+			location   	(102, 102)
 			anchor     	10
 			nlines     	1
 			max_width  	460
@@ -15608,10 +15985,10 @@
 		    fill_color 	16777215
 		    quidu      	"491D662901FD"
 		    width      	480
-		    height     	167
+		    height     	169
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean" @181
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean" @181
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -15901,7 +16278,7 @@
 		    height     	186
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean" @191
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean" @191
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -16061,7 +16438,7 @@
 			    supplier   	@188
 			    vertices   	(list Points
 				(354, 420)
-				(296, 312))
+				(297, 312))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$17" @197
 			    Parent_View 	@193
@@ -16166,7 +16543,7 @@
 			    supplier   	@192
 			    vertices   	(list Points
 				(564, 417)
-				(502, 528))
+				(504, 528))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$20" @203
 		    location   	(781, 417)
@@ -16247,7 +16624,7 @@
 			    supplier   	@190
 			    vertices   	(list Points
 				(781, 417)
-				(966, 306))
+				(967, 306))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$21" @207
 			    Parent_View 	@203
@@ -16259,7 +16636,7 @@
 			    supplier   	@192
 			    vertices   	(list Points
 				(781, 417)
-				(595, 528))
+				(596, 528))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$22" @208
 		    location   	(864, 532)
@@ -16340,7 +16717,7 @@
 			    supplier   	@191
 			    vertices   	(list Points
 				(864, 532)
-				(1026, 500))
+				(1026, 501))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$23" @212
 			    Parent_View 	@208
@@ -16352,7 +16729,7 @@
 			    supplier   	@192
 			    vertices   	(list Points
 				(864, 532)
-				(703, 563))
+				(703, 564))
 			    line_style 	0)))))
 	(object ClassDiagram "Main"
 	    attributes 	(list Attribute_Set
@@ -16653,7 +17030,7 @@
 			    supplier   	@213
 			    vertices   	(list Points
 				(534, 411)
-				(459, 283))
+				(460, 283))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$30" @223
 		    location   	(958, 626)
@@ -17006,7 +17383,7 @@
 			    supplier   	@216
 			    vertices   	(list Points
 				(517, 834)
-				(599, 707))
+				(601, 707))
 			    line_style 	0)
 			(object RoleView "ListType" @239
 			    Parent_View 	@236
@@ -17071,7 +17448,7 @@
 			    supplier   	@235
 			    vertices   	(list Points
 				(517, 834)
-				(433, 962))
+				(434, 962))
 			    line_style 	0)))))
 	(object ClassDiagram "Main"
 	    attributes 	(list Attribute_Set
@@ -17182,7 +17559,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean" @244
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean" @244
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -17457,7 +17834,7 @@
 			    supplier   	@244
 			    vertices   	(list Points
 				(710, 456)
-				(869, 312))
+				(870, 312))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$70" @256
 			    Parent_View 	@252
@@ -17469,7 +17846,7 @@
 			    supplier   	@245
 			    vertices   	(list Points
 				(710, 456)
-				(549, 600))
+				(550, 600))
 			    line_style 	0)))))
 	(object ClassDiagram "Main"
 	    attributes 	(list Attribute_Set
@@ -17630,6 +18007,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"500E5D5D0268"
+		    compartment 	(object Compartment
+			Parent_View 	@260
+			location   	(496, 1648)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	353
+			justify    	1)
 		    width      	368
 		    height     	288
 		    annotation 	8
@@ -17872,6 +18268,25 @@
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"500E5CDD00C5"
+		    compartment 	(object Compartment
+			Parent_View 	@267
+			location   	(1092, 1055)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	259
+			justify    	1)
 		    width      	376
 		    height     	338
 		    annotation 	8
@@ -17975,7 +18390,7 @@
 			    supplier   	@268
 			    vertices   	(list Points
 				(748, 403)
-				(632, 510))
+				(634, 510))
 			    line_style 	0)
 			(object RoleView "Container" @272
 			    Parent_View 	@269
@@ -18040,7 +18455,7 @@
 			    supplier   	@264
 			    vertices   	(list Points
 				(748, 403)
-				(860, 296))
+				(863, 296))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$4" @275
 		    location   	(954, 593)
@@ -18423,6 +18838,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"53D8C6EA038C"
+		    compartment 	(object Compartment
+			Parent_View 	@292
+			location   	(447, 2031)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	375
+			justify    	1)
 		    width      	506
 		    height     	288
 		    annotation 	8
@@ -18463,6 +18897,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"54B3A7C7038F"
+		    compartment 	(object Compartment
+			Parent_View 	@293
+			location   	(1025, 2032)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	375
+			justify    	1)
 		    width      	414
 		    height     	288
 		    annotation 	8
@@ -18728,11 +19181,30 @@
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"4D403BC20320"
+		    compartment 	(object Compartment
+			Parent_View 	@302
+			location   	(861, 1810)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	350
+			justify    	1)
 		    width      	492
 		    height     	338
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Integer" @303
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Integer" @303
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -19535,7 +20007,7 @@
 				(1542, 1098)
 				(1542, 879))
 			    line_style 	0)))
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Integer" @336
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Integer" @336
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -19615,7 +20087,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Integer" @338
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Integer" @338
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -19655,7 +20127,7 @@
 		    height     	178
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean" @339
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean" @339
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -19794,7 +20266,7 @@
 			    supplier   	@340
 			    vertices   	(list Points
 				(352, 446)
-				(353, 613))
+				(354, 613))
 			    line_style 	0)
 			(object RoleView "DocInfo" @344
 			    Parent_View 	@341
@@ -20033,7 +20505,7 @@
 			    supplier   	@315
 			    vertices   	(list Points
 				(547, 954)
-				(677, 1129))
+				(678, 1129))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$45" @356
 			    Parent_View 	@352
@@ -20045,7 +20517,7 @@
 			    supplier   	@340
 			    vertices   	(list Points
 				(547, 954)
-				(417, 780))
+				(416, 780))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$46" @357
 		    location   	(950, 742)
@@ -20138,7 +20610,7 @@
 			    supplier   	@340
 			    vertices   	(list Points
 				(950, 742)
-				(595, 714))
+				(595, 715))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$50" @362
 		    location   	(941, 1049)
@@ -20312,7 +20784,7 @@
 			    supplier   	@336
 			    vertices   	(list Points
 				(766, 453)
-				(1037, 291))
+				(1037, 293))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$53" @371
 			    Parent_View 	@367
@@ -20334,7 +20806,7 @@
 			    supplier   	@340
 			    vertices   	(list Points
 				(766, 453)
-				(492, 613))
+				(495, 613))
 			    line_style 	0
 			    label      	(object SegLabel @372
 				Parent_View 	@371
@@ -20437,7 +20909,7 @@
 			    supplier   	@337
 			    vertices   	(list Points
 				(1047, 444)
-				(1514, 275))
+				(1514, 276))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$55" @377
 			    Parent_View 	@373
@@ -20459,7 +20931,7 @@
 			    supplier   	@340
 			    vertices   	(list Points
 				(1047, 444)
-				(579, 613))
+				(580, 613))
 			    line_style 	0
 			    label      	(object SegLabel @378
 				Parent_View 	@377
@@ -20562,7 +21034,7 @@
 			    supplier   	@338
 			    vertices   	(list Points
 				(1064, 607)
-				(1533, 547))
+				(1533, 548))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$57" @383
 			    Parent_View 	@379
@@ -20584,7 +21056,7 @@
 			    supplier   	@340
 			    vertices   	(list Points
 				(1064, 607)
-				(595, 665))
+				(595, 666))
 			    line_style 	0
 			    label      	(object SegLabel @384
 				Parent_View 	@383
@@ -20699,7 +21171,7 @@
 			    supplier   	@340
 			    vertices   	(list Points
 				(1342, 460)
-				(595, 637))
+				(595, 639))
 			    line_style 	0)))))
 	(object ClassDiagram "Main"
 	    attributes 	(list Attribute_Set
@@ -20909,7 +21381,7 @@
 			    supplier   	@391
 			    vertices   	(list Points
 				(368, 431)
-				(363, 277))
+				(364, 277))
 			    line_style 	0)))))
 	(object ClassDiagram "Main"
 	    attributes 	(list Attribute_Set
@@ -21203,7 +21675,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean" @405
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean" @405
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -21750,7 +22222,7 @@
 			    supplier   	@401
 			    vertices   	(list Points
 				(319, 417)
-				(325, 278))
+				(326, 278))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$33" @430
 			    Parent_View 	@426
@@ -21762,7 +22234,7 @@
 			    supplier   	@425
 			    vertices   	(list Points
 				(319, 417)
-				(314, 557))
+				(313, 557))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$34" @431
 		    location   	(577, 412)
@@ -21843,7 +22315,7 @@
 			    supplier   	@402
 			    vertices   	(list Points
 				(577, 412)
-				(746, 268))
+				(747, 268))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$35" @435
 			    Parent_View 	@431
@@ -21855,7 +22327,7 @@
 			    supplier   	@425
 			    vertices   	(list Points
 				(577, 412)
-				(405, 557))
+				(408, 557))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$36" @436
 		    location   	(837, 429)
@@ -21948,7 +22420,7 @@
 			    supplier   	@425
 			    vertices   	(list Points
 				(837, 429)
-				(463, 578))
+				(463, 579))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$38" @441
 		    location   	(546, 638)
@@ -22029,7 +22501,7 @@
 			    supplier   	@404
 			    vertices   	(list Points
 				(546, 638)
-				(630, 637))
+				(630, 638))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$39" @445
 			    Parent_View 	@441
@@ -22041,7 +22513,7 @@
 			    supplier   	@425
 			    vertices   	(list Points
 				(546, 638)
-				(463, 638))
+				(463, 639))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$40" @446
 		    location   	(330, 832)
@@ -22122,7 +22594,7 @@
 			    supplier   	@405
 			    vertices   	(list Points
 				(330, 832)
-				(341, 940))
+				(342, 940))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$41" @450
 			    Parent_View 	@446
@@ -22227,7 +22699,7 @@
 			    supplier   	@425
 			    vertices   	(list Points
 				(780, 946)
-				(440, 724))
+				(439, 724))
 			    line_style 	0)))))
 	(object ClassDiagram "Main"
 	    attributes 	(list Attribute_Set
@@ -22279,6 +22751,25 @@
 		    icon_style 	"Label"
 		    fill_color 	12712062
 		    quidu      	"4D41890002DF"
+		    compartment 	(object Compartment
+			Parent_View 	@456
+			location   	(79, 239)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	1068
+			justify    	1)
 		    width      	1054
 		    height     	282
 		    annotation 	8
@@ -22334,6 +22825,25 @@
 		    icon_style 	"Label"
 		    fill_color 	16119285
 		    quidu      	"493E4FE20195"
+		    compartment 	(object Compartment
+			Parent_View 	@457
+			location   	(144, 273)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	1
+			max_width  	425
+			justify    	1)
 		    width      	440
 		    height     	238
 		    annotation 	8
@@ -22375,6 +22885,25 @@
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"4DB9936C03DD"
+		    compartment 	(object Compartment
+			Parent_View 	@458
+			location   	(87, 620)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	7
+			max_width  	837
+			justify    	1)
 		    width      	850
 		    height     	538
 		    annotation 	8
@@ -22416,6 +22945,25 @@
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"4DB993ED02C1"
+		    compartment 	(object Compartment
+			Parent_View 	@459
+			location   	(97, 1255)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	5
+			max_width  	521
+			justify    	1)
 		    width      	534
 		    height     	438
 		    annotation 	8
@@ -22471,6 +23019,25 @@
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"4DF9DD9400BD"
+		    compartment 	(object Compartment
+			Parent_View 	@460
+			location   	(65, 267)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	225
+			justify    	1)
 		    width      	516
 		    height     	288
 		    annotation 	8
@@ -22556,7 +23123,7 @@
 				(408, 507)
 				(453, 636))
 			    line_style 	0)))
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean" @465
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean" @465
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -22643,6 +23210,25 @@
 		    icon_style 	"Label"
 		    fill_color 	16119285
 		    quidu      	"4DF9E5C301BA"
+		    compartment 	(object Compartment
+			Parent_View 	@467
+			location   	(85, 1164)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	1
+			max_width  	2103
+			justify    	1)
 		    width      	2134
 		    height     	238
 		    annotation 	8

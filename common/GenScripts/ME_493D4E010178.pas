@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dDocInfo.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "dDocInfo" MUID: (493D4E010178)
+// Имя типа: "_dDocInfo_"
 
 {$Define dDocInfo_imp}
 

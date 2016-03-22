@@ -3,6 +3,8 @@ unit DictRec_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\DictRec_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "DictRec" MUID: (484D3F82010B)
+// Имя типа: "DictRecTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

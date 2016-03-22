@@ -1,86 +1,67 @@
 unit InsertBreakInTextTableTest;
+ {* Вставка текста в моноширинную таблицу в режиме рисования текста. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/InsertBreakInTextTableTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EditorTests::TInsertBreakInTextTableTest
-//
-// Вставка текста в моноширинную таблицу в режиме рисования текста.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\InsertBreakInTextTableTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TInsertBreakInTextTableTest" MUID: (4CD7EBBB02D3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TextViaEditorProcessorWithNavigate,
-  evCustomEditorWindow,
-  l3Variant
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , TextViaEditorProcessorWithNavigate
+ , evCustomEditorWindow
+ , l3Variant
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  _CursorMover_Parent_ = TTextViaEditorProcessorWithNavigate;
  {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  TInsertBreakInTextTableTest = {abstract} class(_CursorMover_)
   {* Вставка текста в моноширинную таблицу в режиме рисования текста. }
- protected
- // realized methods
+  protected
    procedure Navigate(aText: TevCustomEditorWindow;
     const anOp: Il3OpPack); override;
-     {* Устанавливает курсор или выделение }
+    {* Устанавливает курсор или выделение }
    procedure DoProcess(aText: TevCustomEditorWindow;
     const anOp: Il3OpPack); override;
- protected
- // overridden protected methods
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TInsertBreakInTextTableTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  nevBase,
-  TestFrameWork,
-  evMsgCode,
-  evOp
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
+ l3ImplUses
+ , nevBase
+ , TestFrameWork
+ , evMsgCode
+ , evOp
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
-// start class TInsertBreakInTextTableTest
-
 procedure TInsertBreakInTextTableTest.Navigate(aText: TevCustomEditorWindow;
-  const anOp: Il3OpPack);
+ const anOp: Il3OpPack);
+ {* Устанавливает курсор или выделение }
 //#UC START# *4C4FE56300FB_4CD7EBBB02D3_var*
 var
  i : Integer;
@@ -94,7 +75,7 @@ begin
 end;//TInsertBreakInTextTableTest.Navigate
 
 procedure TInsertBreakInTextTableTest.DoProcess(aText: TevCustomEditorWindow;
-  const anOp: Il3OpPack);
+ const anOp: Il3OpPack);
 //#UC START# *4C9214F6002C_4CD7EBBB02D3_var*
 //#UC END# *4C9214F6002C_4CD7EBBB02D3_var*
 begin
@@ -105,17 +86,16 @@ begin
 end;//TInsertBreakInTextTableTest.DoProcess
 
 function TInsertBreakInTextTableTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TInsertBreakInTextTableTest.GetFolder
 
 function TInsertBreakInTextTableTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4CD7EBBB02D3';
 end;//TInsertBreakInTextTableTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

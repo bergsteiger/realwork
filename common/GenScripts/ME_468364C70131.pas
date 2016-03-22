@@ -3,6 +3,7 @@ unit nsAttributeTreeStruct;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeTreeStruct.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsAttributeTreeStruct" MUID: (468364C70131)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit VerticalCursorMovingTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\VerticalCursorMovingTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TVerticalCursorMovingTest" MUID: (4D79E1800396)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

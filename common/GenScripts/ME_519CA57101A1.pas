@@ -2,6 +2,7 @@ unit K455105826;
 
 // Модуль: "w:\archi\source\projects\ImportExportTest\K455105826.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TK455105826" MUID: (519CA57101A1)
 
 {$Include w:\archi\source\projects\ImportExportTest.inc}
 

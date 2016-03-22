@@ -2,6 +2,7 @@ unit evDocument_Wrap;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDocument_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WevDocument" MUID: (4857B5D901D7)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

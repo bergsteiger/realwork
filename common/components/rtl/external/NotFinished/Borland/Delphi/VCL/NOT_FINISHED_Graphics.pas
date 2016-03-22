@@ -2,6 +2,7 @@ unit NOT_FINISHED_Graphics;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\NOT_FINISHED_Graphics.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Graphics" MUID: (47D15712022D)
 
 interface
 

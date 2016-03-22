@@ -3,6 +3,7 @@ unit l3DynamicArray;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3DynamicArray.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3DynamicArray" MUID: (479DFD5300C5)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

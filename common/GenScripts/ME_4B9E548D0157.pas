@@ -2,6 +2,7 @@ unit ddHTMLWriterRes;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddHTMLWriterRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddHTMLWriterRes" MUID: (4B9E548D0157)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

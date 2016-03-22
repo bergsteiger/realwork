@@ -4218,7 +4218,7 @@ object dmStdRes: TdmStdRes
             ImageIndex = 181
             OperationType = vcm_otCheck
             FormActivate.Name = 'efList'
-            FormActivate.UserType = 16
+            FormActivate.UserType = 15
             FormActivate.ZoneType = vcm_ztChild
             FormActivate.DoExecuteIfExists = True
             FormActivate.RepeatedActivationBehaviour = vcm_rabInactivate

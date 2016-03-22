@@ -4,9 +4,18 @@ unit l3_String;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3_String -                 }
 { Начат: 18.01.2008 15:56 }
-{ $Id: l3_String.pas,v 1.35 2015/08/25 12:03:24 lulin Exp $ }
+{ $Id: l3_String.pas,v 1.38 2016/02/12 11:29:11 lulin Exp $ }
 
 // $Log: l3_String.pas,v $
+// Revision 1.38  2016/02/12 11:29:11  lulin
+// - меняем размер CodePage.
+//
+// Revision 1.37  2016/01/26 14:08:40  lulin
+// - боремся с выжиранием памяти.
+//
+// Revision 1.36  2016/01/26 13:53:42  lulin
+// - боремся с выжиранием памяти.
+//
 // Revision 1.35  2015/08/25 12:03:24  lulin
 // - нельзя так CodePage чистить. Впрочем я так и думал.
 //
@@ -227,7 +236,7 @@ type
        property Ch;
          default;
          {-}
-       property _CodePage: SmallInt
+       property _CodePage: Integer
          write f_String.SCodePage;
          {-}
        property StSize: Long
@@ -466,6 +475,9 @@ begin
  Result := true;
 end;
 
+const
+ cMaxCachedMemorySize = 2 * 1024 * 1024;
+
 procedure Tl3_String.BeforeAddToCache;
   {override;}
   {-}
@@ -475,6 +487,12 @@ begin
  Tl3Ptr(f_String.S).Clear;
  f_String.SLen := 0;
  {$Else  l3NoObjectCache}
+ if (StSize >= cMaxCachedMemorySize) then
+ begin
+  Tl3Ptr(f_String.S).Clear;
+  f_String.SLen := 0;
+ end//StSize >= cMaxCachedMemorySize
+ else
  if not Empty then
  begin
   if (f_String.SCodePage = CP_Unicode) then
@@ -601,7 +619,7 @@ procedure Tl3_String.Insert(const aSt       : Tl3WString;
   Inc(NStSize, aSt.SLen * aRepeat * l_CharSize);
   with Tl3Ptr(f_String.S) do
   begin
-   SetSize(Succ(NStSize));
+   SetSizePaged(Succ(NStSize));
    l_St := AsPointer;
    if (f_String.SLen = 0) then
     l_St^ := #0;
@@ -726,7 +744,7 @@ procedure Tl3_String.pm_SetStSize(Value: Long);
 begin
  if (Tl3Ptr(f_String.S).GetSize < Value) then
  begin
-  Tl3Ptr(f_String.S).SetSize(Value);
+  Tl3Ptr(f_String.S).SetSizePaged(Value);
   f_String.SLen := Min(f_String.SLen, Pred(Value));
   // !!! вообще-то для Unicode здесь - проеб !!!
  end;//Tl3Ptr(f_String.S).GetSize < Value

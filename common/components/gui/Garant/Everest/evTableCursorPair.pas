@@ -223,7 +223,7 @@ begin
  with (l_Row As InevTableRow) do
  begin
   theStartCell := FindCell(aStartOffset, 0);
-  theFinishCell := FindCell(aFinishOffset, 0);
+  theFinishCell := FindCell(aFinishOffset, 0, True);
  end;//with (l_Row As InevTableRow)
 //#UC END# *47C7DBA00306_5108D3850245_impl*
 end;//TevTableCursorPair.Offset2Cells

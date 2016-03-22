@@ -2,6 +2,8 @@ unit kwElse;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwElse.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "else" MUID: (5284F739012F)
+// Имя типа: "TkwElse"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -20,12 +22,12 @@ type
  TkwElse = {final} class(TtfwWordWorker)
   protected
    function CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker; override;
-   class function GetWordNameForRegister: AnsiString; override;
    function AfterWordMaxCount(const aCtx: TtfwContext): Integer; override;
    procedure DoCompiledWord(aWord: TtfwWord;
     const aContext: TtfwContext); override;
    function MakeCompiledWordWorker(const aContext: TtfwContext;
     aRightParams: TkwCompiledWordPrim): TtfwWord; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwElse
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -47,11 +49,6 @@ begin
  Result := nil;
 //#UC END# *4DCBD67C0362_5284F739012F_impl*
 end;//TkwElse.CompiledWorkerClass
-
-class function TkwElse.GetWordNameForRegister: AnsiString;
-begin
- Result := 'else';
-end;//TkwElse.GetWordNameForRegister
 
 function TkwElse.AfterWordMaxCount(const aCtx: TtfwContext): Integer;
 //#UC START# *4DB9B446039A_5284F739012F_var*
@@ -88,6 +85,11 @@ begin
  Result := aRightParams.GetCode(aContext)[0].Use;
 //#UC END# *5284D8180211_5284F739012F_impl*
 end;//TkwElse.MakeCompiledWordWorker
+
+class function TkwElse.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'else';
+end;//TkwElse.GetWordNameForRegister
 
 initialization
  TkwElse.RegisterInEngine;

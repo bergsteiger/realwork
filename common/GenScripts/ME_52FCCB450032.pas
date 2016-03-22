@@ -2,6 +2,7 @@ unit l3ProtoPersistentWithHandleRefList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoPersistentWithHandleRefList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProtoPersistentWithHandleRefList" MUID: (52FCCB450032)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

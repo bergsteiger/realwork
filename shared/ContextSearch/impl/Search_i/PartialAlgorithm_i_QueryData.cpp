@@ -16,11 +16,14 @@
 // by <<uses>> dependencies
 #include "boost/algorithm/string/join.hpp"
 #include "boost/algorithm/string/classification.hpp"
-#include "boost/algorithm/string/split.hpp"
 #include "shared/ContextSearch/Common/Constants.h"
 #include "shared/ContextSearch/MorphoBase/RequestBuilder.h"
 
 //#UC START# *521207E7010D_CUSTOM_INCLUDES*
+#include "boost/bind.hpp"
+#include "boost/algorithm/string/split.hpp"
+
+#include "shared/ContextSearch/MorphoBase/KeysFactory.h"
 #include "shared/ContextSearch/RelevancyCore/DebugInfo.h"
 //#UC END# *521207E7010D_CUSTOM_INCLUDES*
 
@@ -43,11 +46,24 @@ struct Helper {
 		}
 #endif
 	}
+
+	static void out (const std::string& context, const Relevancy::Positions& data) {
+#ifdef _DEBUG
+		std::cout << "\n\n" << context << "\nstrongs: ";
+		std::copy (data.begin (), data.end (), std::ostream_iterator <long> (std::cout, " "));
+		std::cout << std::endl;
+#endif
+	}
 };
 
 bool compare_mask_less_ (unsigned long x, unsigned long y) {
 	return (x & POS_TEXT) < (y & POS_TEXT);
 }
+
+// TODO: 
+// - a если запрос из одинаковых слов (НК НК)?
+// - при сортировке спанов нужно проверять есть ли они в memcache
+// - не искать идентичные спаны
 //#UC END# *521207E7010D*
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -75,11 +91,6 @@ PartialAlgorithm_i::QueryData::QueryData (
 //#UC END# *5212083C0314_BASE_INIT*
 {
 	//#UC START# *5212083C0314_BODY*
-
-	// TODO: a если запрос из одинаковых слов (НК НК)?
-	// TODO: при сортировке спанов нужно проверять есть ли они в memcache
-	// TODO: не искать идентичные спаны
-
 	std::string context;
 
 	size_t count = 0;
@@ -108,18 +119,18 @@ PartialAlgorithm_i::QueryData::QueryData (
 
 	m_context = boost::join (in, " ");
 
+	size_t context_size = std::count_if (m_context.begin (), m_context.end (), boost::is_any_of (" -~")) + 1;
+
+	m_invb_searcher = new InvbSearcher (m_context, count == context_size, properties.comm);
+
 	Relevancy::Data data;
 	RequestBuilder::make (context, data);
 
-#ifdef _DEBUG
-	std::cout << "\n\n" << m_context << "\nstrongs: ";
-	std::copy (data.strongs.begin (), data.strongs.end (), std::ostream_iterator <long> (std::cout, " "));
-	std::cout << std::endl;
-#endif
+	Helper::out (m_context, data.strongs);
 
 	Relevancy::AlgorithmProperties prop;
 	prop.count = count;
-	prop.rcount = std::count_if (m_context.begin (), m_context.end (), boost::is_any_of (" -~")) + 1;
+	prop.rcount = context_size;
 	prop.info = properties.collector;
 
 	if (properties.max_fragment) {
@@ -135,18 +146,7 @@ PartialAlgorithm_i::QueryData::QueryData (
 		}
 	}
 
-	{
-		GCL::StrVector parts;
-		boost::split (parts, context, boost::is_any_of (" -~"));
-
-		Search::PhraseEx phrase (parts.size ());
-
-		for (size_t i = 0; i < parts.size (); ++i) {
-			boost::split (phrase [i], parts [i], boost::is_any_of (","));
-		}
-
-		properties.normalizer->init_identical (phrase, prop.identical);
-	}
+	KeysFactory (properties.comm).get_identical (context, prop.identical);
 
 	Relevancy::AlgorithmSelector selector = Relevancy::as_Default;
 
@@ -159,6 +159,7 @@ PartialAlgorithm_i::QueryData::QueryData (
 	}
 
 	m_algorithm = Relevancy::IAlgorithmFactory::make (data, prop, selector);
+	m_invb_algorithm = Relevancy::IBlocksAlgorithmFactory::make (data, prop);
 	//#UC END# *5212083C0314_BODY*
 }
 
@@ -254,6 +255,19 @@ void PartialAlgorithm_i::QueryData::get_fragments (Relevancy::Fragments& out, DB
 			out.insert (out.end (), data->begin (), data->end ());
 		}
 
+		if (has_block) {
+			Core::Aptr <Relevancy::BlockEntries> entries = m_invb_searcher->get (doc_id);
+
+			if (entries.is_nil () == false) {
+				data = m_invb_algorithm->get_fragments (*entries, m_data);
+
+				if (data.is_nil () == false) {
+					out.insert (out.end (), data->begin (), data->end ());
+				}
+			}
+		}
+
+		/*
 		const Defs::InvisibleBlocks& blocks = m_communicator->get_invisible_blocks ();
 
 		Defs::InvisibleBlocks::const_iterator it = blocks.find (doc_id);
@@ -265,6 +279,7 @@ void PartialAlgorithm_i::QueryData::get_fragments (Relevancy::Fragments& out, DB
 				out.insert (out.end (), data->begin (), data->end ());
 			}
 		}
+		*/
 	}
 	//#UC END# *538C9BBE034F*
 }
@@ -287,7 +302,9 @@ void PartialAlgorithm_i::QueryData::get_relevancy (Relevancy::RelevancyDocInfo& 
 		static const Defs::InvisibleData def;
 		static const Defs::PositionsRel rel_def;
 
-		Defs::RelevancyInfo info;
+		const Defs::PositionsRel& rel_data = (r_it != r_data.end ())? r_it->second : rel_def;
+
+		Defs::RelevancyInfo info, invb_info;
 
 		//Core::Aptr <DebugInfo> di = (DebugInfo*) DebugInfo::make (out.doc_id == 12181735, m_algorithm.in ());
 
@@ -299,9 +316,21 @@ void PartialAlgorithm_i::QueryData::get_relevancy (Relevancy::RelevancyDocInfo& 
 			info
 			, m_data
 			, (b_it != b_data.end ())? b_it->second : def
-			, (r_it != r_data.end ())? r_it->second : rel_def
+			, rel_data
 			, has_block
 		);
+
+		if (has_block) {
+			Core::Aptr <Relevancy::BlockEntries> entries = m_invb_searcher->get (out.doc_id);
+
+			if (entries.is_nil () == false) {
+				m_invb_algorithm->get_relevancy_info (invb_info, m_data, rel_data, *entries);
+
+				if (invb_info.relevancy_value > info.relevancy_value) {
+					info = invb_info;
+				}
+			}
+		}
 
 		if (info != 0) {
 			if (m_collector) {

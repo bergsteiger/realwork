@@ -1,85 +1,66 @@
 unit K258610458;
+ {* [$258610458] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/K258610458.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.7::K258610458
-//
-// [$258610458]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K258610458.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K258610458" MUID: (4D88869000F9)
+// Имя типа: "TK258610458"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  MouseSelectPtTest,
-  nevTools,
-  l3Units
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , MouseSelectPtTest
+ , nevTools
+ , l3Units
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK258610458 = class(TMouseSelectPtTest)
   {* [$258610458] }
- protected
- // overridden protected methods
+  protected
    function GetInnerPara(const aView: InevInputView;
     const aDocument: InevPara): InevPara; override;
-     {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
-   {$If defined(nsTest) AND not defined(NoVCM)}
+    {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
+   {$If NOT Defined(NoVCM)}
    function GetNormalFontSize: Integer; override;
-     {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
-   {$IfEnd} //nsTest AND not NoVCM
-   {$If defined(nsTest) AND not defined(NoVCM)}
+    {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure CheckTopAnchor(const aView: InevInputView); override;
-     {* проверить якорь начала отрисовки после окончания прокрутки }
-   {$IfEnd} //nsTest AND not NoVCM
+    {* проверить якорь начала отрисовки после окончания прокрутки }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetPoint(const aMap: InevMap): Tl3Point; override;
-     {* Возвращает точку, на которую нужно спозиционироваться. }
+    {* Возвращает точку, на которую нужно спозиционироваться. }
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK258610458
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK258610458
+ l3ImplUses
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 function TK258610458.GetInnerPara(const aView: InevInputView;
-  const aDocument: InevPara): InevPara;
+ const aDocument: InevPara): InevPara;
+ {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
 //#UC START# *4BF4E6A00093_4D88869000F9_var*
 //#UC END# *4BF4E6A00093_4D88869000F9_var*
 begin
@@ -89,8 +70,9 @@ begin
 //#UC END# *4BF4E6A00093_4D88869000F9_impl*
 end;//TK258610458.GetInnerPara
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TK258610458.GetNormalFontSize: Integer;
+ {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
 //#UC START# *4C07AC6F036D_4D88869000F9_var*
 //#UC END# *4C07AC6F036D_4D88869000F9_var*
 begin
@@ -98,10 +80,11 @@ begin
  Result := 12;
 //#UC END# *4C07AC6F036D_4D88869000F9_impl*
 end;//TK258610458.GetNormalFontSize
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TK258610458.CheckTopAnchor(const aView: InevInputView);
+ {* проверить якорь начала отрисовки после окончания прокрутки }
 //#UC START# *4C1F0A260192_4D88869000F9_var*
 //#UC END# *4C1F0A260192_4D88869000F9_var*
 begin
@@ -109,9 +92,10 @@ begin
  Check(aView.TopAnchor.AtStart);
 //#UC END# *4C1F0A260192_4D88869000F9_impl*
 end;//TK258610458.CheckTopAnchor
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TK258610458.GetPoint(const aMap: InevMap): Tl3Point;
+ {* Возвращает точку, на которую нужно спозиционироваться. }
 //#UC START# *4C3C927B027E_4D88869000F9_var*
 //#UC END# *4C3C927B027E_4D88869000F9_var*
 begin
@@ -123,20 +107,19 @@ begin
 end;//TK258610458.GetPoint
 
 function TK258610458.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.7';
 end;//TK258610458.GetFolder
 
 function TK258610458.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D88869000F9';
 end;//TK258610458.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK258610458.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

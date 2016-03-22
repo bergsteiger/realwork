@@ -2,6 +2,7 @@ unit nsHyperlinkToDocumentProducerConst;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\LinksToGarant\nsHyperlinkToDocumentProducerConst.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsHyperlinkToDocumentProducerConst" MUID: (4CDD778501AA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

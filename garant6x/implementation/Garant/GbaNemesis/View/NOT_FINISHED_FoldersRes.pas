@@ -2,6 +2,7 @@ unit NOT_FINISHED_FoldersRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_FoldersRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "FoldersRes" MUID: (4C3F3CC20022)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

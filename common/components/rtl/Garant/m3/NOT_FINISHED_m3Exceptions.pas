@@ -2,6 +2,7 @@ unit NOT_FINISHED_m3Exceptions;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\NOT_FINISHED_m3Exceptions.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "m3Exceptions" MUID: (540725D100E7)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

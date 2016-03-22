@@ -2,6 +2,8 @@ unit IntegerListTest;
 
 // Модуль: "w:\common\components\SandBox\IntegerListTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "IntegerListTest" MUID: (51DEB2FA00B0)
+// Имя типа: "TIntegerListTest"
 
 {$Include w:\common\components\SandBox\sbtDefine.inc}
 

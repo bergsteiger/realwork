@@ -3,6 +3,8 @@ unit PrimSelfInfo_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimSelfInfo_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimSelfInfo" MUID: (4B5430390380)
+// Имя типа: "TPrimSelfInfoForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

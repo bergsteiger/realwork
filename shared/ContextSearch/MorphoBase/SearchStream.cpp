@@ -32,12 +32,7 @@ bool SearchStream::compare_mask_less (unsigned long x, unsigned long y) {
 //////////////////////////////////////////////////////////////////////////////////////////
 // constructors and destructor
 
-SearchStream::SearchStream (
-	const std::string& norma
-	, const std::string& forma
-	, DBComm::IStreamsFactory* factory
-	, unsigned long flags
-)
+SearchStream::SearchStream (const std::string& key, DBComm::IStreamsFactory* factory, unsigned long flags)
 //#UC START# *45213E0E0213_BASE_INIT*
 	: m_count (0)
 	, m_is_bad (false)
@@ -51,7 +46,7 @@ SearchStream::SearchStream (
 	GDS_ASSERT (factory);
 
 	if (factory) {
-		m_pair = factory->make (norma, forma, flags);
+		m_pair = factory->make (key, flags);
 	}
 	//#UC END# *45213E0E0213_BODY*
 }

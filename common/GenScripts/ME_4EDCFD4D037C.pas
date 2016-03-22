@@ -2,6 +2,7 @@ unit nsListWarningGenerator;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\PrimListControllers\nsListWarningGenerator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsListWarningGenerator" MUID: (4EDCFD4D037C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

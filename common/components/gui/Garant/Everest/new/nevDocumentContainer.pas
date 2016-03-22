@@ -1347,7 +1347,6 @@ begin
  {$IfNDef Nemesis}
  if Atom.IsKindOf(k2_typDocument) then
  begin
-  Document.IntA[k2_tiMaxSubID] := Max(f_MaxSubID, Document.IntA[k2_tiMaxSubID]);
   if not fl_FlagsIteratorCalled then
   begin
    fl_FlagsIteratorCalled := True;
@@ -1390,14 +1389,14 @@ procedure TnevDocumentContainer.DoAddAtom(G: Tk2TagGenerator;
 
  procedure lp_CheckMaxSubID;
  begin
-  f_MaxSubID := Max(aSource.AsLong, f_MaxSubID);
+  Document.IntA[k2_tiMaxSubID] := Max(aSource.AsLong, Document.IntA[k2_tiMaxSubID]);
  end;
 
 //#UC END# *47F225DF02CC_47F0870E0034_var*
 begin
 //#UC START# *47F225DF02CC_47F0870E0034_impl*
- if Prop = k2_tiMaxSubID then
-  lp_CheckMaxSubID;
+ If Prop = k2_tiMaxSubID then  //!!VV сохраненный k2_tiMaxSubID при загрузке игнорируем, вычисляем исходя из максимального SubID
+  Document.IntA[k2_tiMaxSubID] := 0; //зануляем, будем вычислять
  if (Prop = k2_tiHandle) then
  begin
   if Atom.IsKindOf(k2_typBlock) then
@@ -1438,7 +1437,7 @@ begin
       (anAtom.Box.ChildrenCount = 0) then
     Result := false;
    if not Result and anAtom.IsKindOf(k2_typTableCell) and (TevMergeStatus(anAtom.Box.IntA[k2_tiMergeStatus]) = ev_msContinue) then
-    Result := True; 
+    Result := True;
    if Result AND anAtom.IsKindOf(k2_typCommentPara) AND
       not anAtom.Box.HasSubAtom(k2_tiHandle) then
     RealizeSub(anAtom.Box.IntA[k2_tiLayerID], anAtom.Box, anAtom.Box,
@@ -1480,7 +1479,7 @@ begin
   end;//not anAtom.IsKindOf(k2_typDocumentSub)..
   with anAtom.Box.Attr[k2_tiHandle] do
    if IsValid then
-    f_MaxSubID := Max(f_MaxSubID, AsLong);
+    Document.IntA[k2_tiMaxSubID] := Max(Document.IntA[k2_tiMaxSubID], AsLong);
  end//anAtom.IsKindOf(k2_typSub)
  else
  if anAtom.IsKindOf(k2_typTextSegment) then
@@ -2878,7 +2877,6 @@ procedure TnevDocumentContainer.Cleanup;
 //#UC END# *479731C50290_47F0870E0034_var*
 begin
 //#UC START# *479731C50290_47F0870E0034_impl*
- f_MaxSubID := 0;
  f_SubChangeListener := nil;
  FreeAndNil(f_InfoPreviewCache);
  FreeAndNil(f_DocumentPreviewCache);
@@ -2899,7 +2897,6 @@ begin
 //#UC START# *47A042E100E2_47F0870E0034_impl*
  inherited;
  f_Loading := false;
- f_MaxSubID := 0;
 //#UC END# *47A042E100E2_47F0870E0034_impl*
 end;//TnevDocumentContainer.InitFields
 

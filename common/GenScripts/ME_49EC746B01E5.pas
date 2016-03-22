@@ -3,6 +3,8 @@ unit PrimInternetAgent_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms\PrimInternetAgent_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimInternetAgent" MUID: (49EC746B01E5)
+// Имя типа: "TPrimInternetAgentForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

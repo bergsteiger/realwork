@@ -2,6 +2,7 @@ unit NOT_FINISHED_evButton;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evButton.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TevButton" MUID: (52A085A703D4)
 
 interface
 

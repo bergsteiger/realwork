@@ -15,6 +15,7 @@
 #include "garantCore/SearchAdapterLib/Cache/Cache.h"
 
 #include "PairsBuilder.h"
+#include "DBComm.h"
 
 namespace ConnectedContexts {
 
@@ -67,10 +68,12 @@ PairsBuilder::PairsBuilder (const std::string& path) /*: m_count (0)*/ {
 
 	m_base = new ToolsBase (path);
 
-	SearchAdapterLib::Cache::instance ()->init (m_base->abstract_base ());
+	DBCore::IBase_var _base = DBCore::DBFactory::make (m_base.in ());
+
+	SearchAdapterLib::Cache::instance ()->init (_base.in ());
 
 	Morpho::Def::ICache_var cache = Morpho::Factory::make ();
-	cache->load (m_base->abstract_base (), true);
+	cache->load (_base.in ());
 
 	m_env.normalizer = Morpho::Factory::make (cache.in ());
 }
@@ -115,22 +118,24 @@ void PairsBuilder::execute (const Properties& properties) {
 	}
 }
 
-void PairsBuilder::get_syns (const std::string& req, GCL::StrVector& out, Manage::IQuery* query) {
-	m_normalizer->execute_for_phrase (req, out);
+GCL::StrVector* PairsBuilder::get_syns (const std::string& req, Manage::IQuery* query) {
+	Core::Aptr <GCL::StrVector> res = m_normalizer->execute_for_phrase (req);
 
 	query->clear ();
 
-	for (GCL::StrVector::const_iterator it = out.begin (); it != out.end (); ++it) {
+	for (GCL::StrVector::const_iterator it = res->begin (); it != res->end (); ++it) {
 		query->add (Defs::Request (*it), false);
 	}
 
 	Core::Aptr <Search::SplitRequests> requests = query->get_data ();
 
-	out.resize (requests->size ());
+	res->resize (requests->size ());
 
-	for (size_t i = 0; i < out.size (); ++i) {
-		out [i] = boost::join (requests->at (i).context, " ");
+	for (size_t i = 0; i < res->size (); ++i) {
+		res->at (i) = boost::join (requests->at (i).context, " ");
 	}
+
+	return res._retn ();
 }
 
 void PairsBuilder::build_dict (const std::string& path) {
@@ -141,18 +146,15 @@ void PairsBuilder::build_dict (const std::string& path) {
 
 		std::string str;
 
-		Manage::IQuery_var query = Manage::IQueryFactory::make (
-			m_env, SearchAdapterLib::Cache::instance ()->get ()
-		);
+		Manage::IQuery_var query = Manage::IQueryFactory::make (m_env, SearchAdapterLib::Cache::instance ()->get ());
 
 		while (!ifs.eof ()) {
 			std::getline (ifs, str);
 
 			if (str.empty () == false && str [0] != ';') {
-				GCL::StrVector data;
-				this->get_syns (str, data, query.in ());
+				Core::Aptr <GCL::StrVector> data = this->get_syns (str, query.in ());
 
-				std::for_each (data.begin (), data.end ()
+				std::for_each (data->begin (), data->end ()
 					, boost::bind (&Helper::add, boost::ref (m_dict), _1, str)
 				);
 			}

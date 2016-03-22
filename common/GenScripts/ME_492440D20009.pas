@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsValueMaps;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsValueMaps.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsValueMaps" MUID: (492440D20009)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

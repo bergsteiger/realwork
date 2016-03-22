@@ -2,6 +2,7 @@ unit l3UnitsTools;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3UnitsTools.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3UnitsTools" MUID: (4A3918BB0114)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

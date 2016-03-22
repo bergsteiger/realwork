@@ -2,6 +2,7 @@ unit XMLIntf;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Internet\XMLIntf.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "XMLIntf" MUID: (483E97460331)
 
 interface
 

@@ -2,6 +2,7 @@ unit nsContextListForSearchViaEverestOwnSearcher;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsContextListForSearchViaEverestOwnSearcher.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsContextListForSearchViaEverestOwnSearcher" MUID: (4D8A1D6700A0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

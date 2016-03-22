@@ -2,6 +2,8 @@ unit PrimUserList_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserList_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimUserList" MUID: (49480F0901B9)
+// Имя типа: "TPrimUserListForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit dsInpharmMainMenu;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\InpharmControllers\dsInpharmMainMenu.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsInpharmMainMenu" MUID: (550C0DA5022E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

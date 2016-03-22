@@ -56,7 +56,7 @@ implementation
 
 uses
  TextPara_Const, k2Tags, l3Base, l3PrimString, Document_Const,
- NumAndDate_Const, DT_Const, StrUtils, k2Base;
+ NumAndDate_Const, daSchemeConsts, StrUtils, k2Base;
 
 type
  TDocRec = packed record

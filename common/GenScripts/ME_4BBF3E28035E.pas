@@ -3,6 +3,7 @@ unit evUsialParagraph;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evUsialParagraph.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevUsialParagraph" MUID: (4BBF3E28035E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

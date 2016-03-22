@@ -3,6 +3,7 @@ unit BaloonWarningUserTypes_Fake_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_Fake_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "Fake" MUID: (4F5E13160332)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_Fake = {final} class(TtfwInteger)
   {* Слово словаря для типа формы Fake }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_Fake
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_Fake.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::Fake';
-end;//Tkw_FormUserType_Fake.GetWordNameForRegister
-
 function Tkw_FormUserType_Fake.GetInteger: Integer;
 begin
  Result := Fake;
 end;//Tkw_FormUserType_Fake.GetInteger
+
+class function Tkw_FormUserType_Fake.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::Fake';
+end;//Tkw_FormUserType_Fake.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

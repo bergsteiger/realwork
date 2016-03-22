@@ -2,6 +2,7 @@ unit nscSizeGripPanel;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscSizeGripPanel.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscSizeGripPanel" MUID: (5058B67D0085)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -40,10 +41,10 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3Base
 ;
 
 {$If NOT Defined(NoTB97)}

@@ -2,6 +2,7 @@ unit NOT_FINISHED_k2InPlaceGenerator;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2InPlaceGenerator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2InPlaceGenerator" MUID: (4C6D285C0052)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

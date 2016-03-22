@@ -3,6 +3,7 @@ unit ddTextToTableConverters;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTextToTableConverters.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddTextToTableConverters" MUID: (4DCA38890051)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

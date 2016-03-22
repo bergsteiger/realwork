@@ -3,6 +3,7 @@ unit l3ProcedureList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProcedureList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProcedureList" MUID: (47BB38C40154)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

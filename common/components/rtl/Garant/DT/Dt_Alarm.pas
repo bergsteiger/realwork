@@ -1,8 +1,11 @@
 unit Dt_Alarm;
 
-{ $Id: Dt_Alarm.pas,v 1.29 2013/10/30 10:36:40 voba Exp $ }
+{ $Id: Dt_Alarm.pas,v 1.30 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: Dt_Alarm.pas,v $
+// Revision 1.30  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.29  2013/10/30 10:36:40  voba
 // - отказ от fSrchList
 //
@@ -160,6 +163,7 @@ type
 
 implementation
 uses SysUtils,
+     daSchemeConsts,
      HT_Dll,
      dt_DictConst,
      dt_AttrSchema,

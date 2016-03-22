@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmComponentDestroyer.imp.pas"
 // Стереотип: "GUIControlMixIn"
+// Элемент модели: "vcmComponentDestroyer" MUID: (53BFC8CF0329)
+// Имя типа: "_vcmComponentDestroyer_"
 
 {$Define vcmComponentDestroyer_imp}
 

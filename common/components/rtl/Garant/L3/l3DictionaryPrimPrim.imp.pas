@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3DictionaryPrimPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3DictionaryPrimPrim" MUID: (53148D6A00AE)
+// Имя типа: "_l3DictionaryPrimPrim_"
 
 {$Define l3DictionaryPrimPrim_imp}
 
@@ -12,7 +14,7 @@
  _l3DictionaryPrimPrim_ = {abstract} class(_l3DelphiStringSearcherPrim_)
   private
    f_Default: _StringType_;
-    {* Поле для свойства Default }
+    {* Элемент по умолчанию }
   protected
    procedure pm_SetDefault(const aValue: _StringType_); virtual;
    function pm_GetDRByName(const aName: AnsiString): _StringType_; virtual;

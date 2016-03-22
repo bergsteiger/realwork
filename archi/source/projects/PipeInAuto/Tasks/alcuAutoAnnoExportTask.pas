@@ -39,6 +39,7 @@ uses
  l3LongintList,
 
  daTypes,
+ daSchemeConsts,
  
  dt_Types,
  dt_Const,
@@ -133,6 +134,11 @@ begin
 
    l_Var:= True;
    l_Q:= TdtMainAttrQuery.Create(fHasAnno_fld, l_Var);
+   l_ResQuery.AddQueryF(l_Q);
+
+   // Выкидываем доки с меткой "зависших"
+   l_Q := TdtStatusMaskQuery.Create(dstatHang);
+   SQNot(l_Q);
    l_ResQuery.AddQueryF(l_Q);
 
    if not l_ResQuery.IsEmpty then

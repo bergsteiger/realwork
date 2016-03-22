@@ -2,6 +2,7 @@ unit evCustomPrintDataSaver;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCustomPrintDataSaver.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evCustomPrintDataSaver" MUID: (4F72F4E202FB)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

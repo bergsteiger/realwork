@@ -321,12 +321,11 @@ uses
   TtfwClassRef_Proxy
   {$IfEnd} //not NoScripts
   ,
-  l3Base {a},
-  StdRes {a},
   nsTypes,
   nsManagers,
   sdsDocument,
   sdsDocumentWithFlash,
+  l3Base {a},
   bsUtils,
   l3MessageID,
   SysUtils,
@@ -357,7 +356,8 @@ uses
   ,
   tfwScriptingTypes
   {$IfEnd} //not NoScripts
-  
+  ,
+  StdRes {a}
   {$If defined(Nemesis)}
   ,
   nscTextSource

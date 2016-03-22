@@ -2,6 +2,7 @@ unit l3PrinterInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3PrinterInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "l3PrinterInterfaces" MUID: (556F09AA036E)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

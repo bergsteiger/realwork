@@ -2,6 +2,7 @@ unit nscTreeView;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTreeView.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscTreeView" MUID: (499C26240034)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -67,11 +68,8 @@ type
   private
    f_Published: Boolean;
    f_SettingId: AnsiString;
-    {* Поле для свойства SettingId }
    f_InterRowMultiplier: Integer;
-    {* Поле для свойства InterRowMultiplier }
    f_DisableDragAndDropSupport: Boolean;
-    {* Поле для свойства DisableDragAndDropSupport }
   protected
    procedure pm_SetSettingId(const aValue: AnsiString);
    procedure pm_SetInterRowMultiplier(aValue: Integer);
@@ -102,6 +100,7 @@ type
     aStateType: TvcmStateType;
     aForClone: Boolean): Boolean; override;
    {$IfEnd} // NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)
+   procedure ClearFields; override;
   public
    {$If NOT Defined(NoVCM)}
    procedure Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
@@ -741,6 +740,12 @@ begin
 //#UC END# *52DD0F6F0223_52DD0971008A_impl*
 end;//TnscTreeViewPrim.DoLoadState
 {$IfEnd} // NOT Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)
+
+procedure TnscTreeViewPrim.ClearFields;
+begin
+ SettingId := '';
+ inherited;
+end;//TnscTreeViewPrim.ClearFields
 
 //#UC START# *499C26240034impl*
 //#UC END# *499C26240034impl*

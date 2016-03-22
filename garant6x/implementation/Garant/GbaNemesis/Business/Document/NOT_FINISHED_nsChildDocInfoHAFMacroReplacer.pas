@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsChildDocInfoHAFMacroReplacer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\NOT_FINISHED_nsChildDocInfoHAFMacroReplacer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsChildDocInfoHAFMacroReplacer" MUID: (49589FF7027D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsRealBlockNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_FINISHED_nsRealBlockNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsRealBlockNode" MUID: (46834CF0024F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

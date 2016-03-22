@@ -2,6 +2,7 @@ unit vtHideFieldUtils;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtHideFieldUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vtHideFieldUtils" MUID: (5110ED94010E)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

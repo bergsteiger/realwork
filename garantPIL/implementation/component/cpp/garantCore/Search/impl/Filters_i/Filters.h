@@ -42,7 +42,7 @@ public:
 	Filter (SortedCollection* in, MergeOp op);
 	Filter (const SearchAdapterLib::Adapter::LongVector& in, MergeOp op);
 	Filter (Index* index, const char* key, MergeOp op);
-	Filter (SearchBase* base, const char* name, const char* key, MergeOp op);
+	Filter (Base* base, const char* name, const char* key, MergeOp op);
 
 public:
 	virtual IFilter* in () const;

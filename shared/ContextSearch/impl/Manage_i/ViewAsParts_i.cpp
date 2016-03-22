@@ -22,6 +22,7 @@
 #include "boost/xpressive/xpressive.hpp"
 #include "boost/bind.hpp"
 #include "shared/ContextSearch/Common/Comparators.h"
+#include "shared/ContextSearch/Common/ContextUtility.h"
 
 namespace ContextSearch {
 namespace Manage_i {
@@ -65,6 +66,18 @@ void ViewAsParts_i::add_phrase (const GCL::StrVector& in, Search::PhraseEx& out)
 	//#UC END# *528A39530159*
 }
 
+// строгая фраза
+bool ViewAsParts_i::is_strong (const std::string& str) {
+	//#UC START# *56AF6495031F*
+	if (str != "-") {
+		if (std::find (str.begin (), str.end (), '-') != str.end ()) {
+			return (std::find (str.begin (), str.end (), ' ') == str.end ());
+		}
+	}
+	return false;
+	//#UC END# *56AF6495031F*
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // constructors and destructor
@@ -78,7 +91,6 @@ ViewAsParts_i::ViewAsParts_i (DBComm::IDBCommunicator* comm, Morpho::Def::INorma
 	GDS_ASSERT (comm);
 	GDS_ASSERT (normalizer);
 
-	m_transformer = Manage::IRequestTransformerFactory::make (normalizer);
 	m_synonymizer = new Synonymizer (comm, normalizer);
 	//#UC END# *5273986F01D9_52739AA90277_52739B1C03DF_BODY*
 }
@@ -92,29 +104,19 @@ ViewAsParts_i::~ViewAsParts_i () {
 // self implementation
 
 // добавить
-void ViewAsParts_i::add (const Search::StringSet& in, const ContextUtility::StrStrMap& pseudo) {
+void ViewAsParts_i::add (const Search::StringSet& in) {
 	//#UC START# *528A0160039C*
 	Search::Phrase phrase;
 	phrase.reserve (in.size ());
 
 	for (Search::StringSet::const_iterator it = in.begin (); it != in.end (); ++it) {
-		if (*it != "-") {
-			std::string span = *it;
-
-			m_transformer->unchecked_exclude (span, m_communicator->get_exclude_data ());
-
-			if (span.empty () == false) {
-				phrase.push_back (span);
-			}
+		if (it->empty () == false && *it != "-") {
+			phrase.push_back (*it);
 		}
 	}
 
 	if (phrase.empty ()) {
 		return;
-	}
-
-	if (pseudo.empty () == false) {
-		std::for_each (phrase.begin (), phrase.end (), boost::bind (&ContextUtility::replace, _1, pseudo));
 	}
 
 	m_was_compression |= this->deflate (phrase);
@@ -230,7 +232,7 @@ bool ViewAsParts_i::deflate (GCL::StrVector& out) {
 }
 
 // создать контейнер спанов
-bool ViewAsParts_i::make_spans (const GCL::StrVector& in, const ContextUtility::StrStrMap& pseudo) {
+bool ViewAsParts_i::make_spans (const GCL::StrVector& in) {
 	//#UC START# *528613E2031C*
 	GDS_ASSERT (in.empty () == false);
 
@@ -245,7 +247,7 @@ bool ViewAsParts_i::make_spans (const GCL::StrVector& in, const ContextUtility::
 	std::string str;
 
 	for (Search::PhraseEx::const_iterator it = res->begin (); it != res->end (); ++it) {
-		if (it->size () == 1) {
+		if (it->size () == 1 && ViewAsParts_i::is_strong (*(it->begin ())) == false) {
 			if (*(it->begin ()) != "-") {
 				if (str.empty () == false) {
 					str += " ";
@@ -258,17 +260,17 @@ bool ViewAsParts_i::make_spans (const GCL::StrVector& in, const ContextUtility::
 				GCL::StrSet item;
 				item.insert (str);
 				str.clear ();
-				this->add (item, pseudo);
+				this->add (item);
 			}
 
-			this->add (*it, pseudo);
+			this->add (*it);
 		}
 	}
 
 	if (str.empty () == false) {
 		GCL::StrSet item;
 		item.insert (str);
-		this->add (item, pseudo);
+		this->add (item);
 	}
 
 	if (m_spans.size () > 1) {
@@ -290,10 +292,10 @@ bool ViewAsParts_i::make_spans (const GCL::StrVector& in, const ContextUtility::
 
 // implemented method from Search::IRequestView
 // создать
-bool ViewAsParts_i::build (const Search::Phrase& in, const Morpho::Def::StrStrMap& pseudo, const std::string& src) {
+bool ViewAsParts_i::build (const Search::Phrase& in, const std::string& src) {
 	//#UC START# *528CD00602B1_52739B1C03DF*
 	try {
-		return this->make_spans (in, pseudo);
+		return this->make_spans (in);
 	} catch (Search::InvalidSpans&) {
 		//LOG_I ((ex.what ()));
 	} catch (...) {

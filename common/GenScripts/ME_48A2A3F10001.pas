@@ -3,6 +3,7 @@ unit atAbortOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atAbortOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatAbortOperation" MUID: (48A2A3F10001)
 
 interface
 

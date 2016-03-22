@@ -18,8 +18,190 @@
 #include "shared/ContextSearch/Common/Constants.h"
 #include "boost/bind.hpp"
 
+//#UC START# *45165B0202CE_CUSTOM_INCLUDES*
+//#UC END# *45165B0202CE_CUSTOM_INCLUDES*
+
 namespace ContextSearch {
 namespace Relevancy_i {
+
+//#UC START# *45165B0202CE*
+struct PosFinder : public std::unary_function <Defs::Position, bool> {
+	PosFinder (Defs::Position point) : m_point (point) {}
+
+	bool operator () (Defs::Position val) const {
+		return (val & POS_TEXT) > m_point;
+	}
+
+
+	Defs::Position m_point;
+};
+
+void Algorithm_i::calc (
+	Defs::RelevancyInfo& info
+	, const Relevancy::DataVector& positions
+	, const Defs::PositionsRel& rel_data
+	, size_t pos
+) {
+	if (pos < positions.size ()) {
+		if (pos == m_point) {
+			if (m_markup [pos] != Relevancy::mt_None) {
+				GDS_ASSERT (pos);
+
+				Defs::Position prev = m_chain [pos - 1] & POS_TEXT;
+				Defs::Position point = m_chain [pos] & POS_TEXT;
+
+				if (m_markup [pos] == Relevancy::mt_Strong) {
+					if (prev + 1 != point) {
+						return;
+					}
+				} else if (m_markup [pos] == Relevancy::mt_Frame) {
+					if (prev > point) {
+						if (prev - point > 2) {
+							return;
+						}
+					} else {
+						if (point - prev > 2) {
+							return;
+						}
+					}
+				}
+			} 
+
+			this->calc (info, positions, rel_data, pos + 1);
+			return;
+		}
+
+		const Defs::Positions& data = positions [pos];
+
+		Defs::Positions::const_iterator it = data.begin (), it_end = data.end ();
+
+		if (m_markup [pos] == Relevancy::mt_Strong) {
+			GDS_ASSERT (pos);
+
+			Defs::Position prev = m_chain [pos - 1] & POS_TEXT;
+
+			it = std::lower_bound (it, it_end, prev + 1, RelevancyUtility::compare_mask_less);
+
+			if (it != it_end && (*it & POS_TEXT) == prev + 1) {
+				if ((*it & POS_FLAGS) != POS_INVISIBLE_BLOCK) {
+					m_chain [pos] = *it;
+					this->calc (info, positions, rel_data, pos + 1);
+				}
+			}
+
+			return;
+		} 
+
+		Defs::Position min, max;
+
+		if (pos == 0) {
+			min = m_chain [m_point] & POS_TEXT;
+			max = min;
+		} else if (pos == 1) {
+			Defs::Position point = m_chain [m_point] & POS_TEXT;
+			Defs::Position val = m_chain.front () & POS_TEXT;
+
+			if (point > val) {
+				min = val;
+				max = point;
+			} else {
+				min = point;
+				max = val;
+			}
+		} else {
+			min = m_chain.front () & POS_TEXT;
+			max = min;
+
+			for (Defs::Positions::const_iterator _it = m_chain.begin () + 1; _it != m_chain.begin () + pos; ++_it) {
+				if (min > (*_it & POS_TEXT)) {
+					min = (*_it & POS_TEXT);
+				} else if (max < (*_it & POS_TEXT)) {
+					max = (*_it & POS_TEXT);
+				}
+			}
+		} 
+
+		//it = std::upper_bound (it, it_end, max - m_ext_fragment, RelevancyUtility::compare_mask_less);
+		m_index [pos] = std::find_if (m_index [pos], it_end, PosFinder (max - m_ext_fragment));
+
+		bool no_strong = (pos && pos + 1 < positions.size () && m_markup [pos + 1] == Relevancy::mt_None);
+
+		size_t count = 0;
+
+		for (it = m_index [pos]; it != it_end; ++it) {
+			if ((*it & POS_FLAGS) == POS_INVISIBLE_BLOCK) {
+				continue; // пока не заработает фильтр в ридере
+			}
+
+			Defs::Position val = *it & POS_TEXT;
+
+			if (val < max) {
+				if (max - val >= m_ext_fragment) {
+					continue;
+				}
+			} else {
+				if (val - min >= m_ext_fragment) {
+					break;
+				}
+			}
+
+			if (val == (m_chain [m_point] & POS_TEXT)) {
+				continue; // идентичная
+			}
+
+			if (pos) {
+				if (m_markup [pos] == Relevancy::mt_Frame) {
+					Defs::Position item = m_chain [pos - 1] & POS_TEXT;
+
+					if (item > val) {
+						if (item - val > 2) {
+							continue;
+						}
+					} else {
+						if (val - item > 2) {
+							break;
+						}
+					}
+				}
+
+				if (std::find (m_chain.begin (), m_chain.begin () + pos, *it) != m_chain.begin () + pos) {
+					continue; // идентичная
+				}
+
+				if (count && no_strong) {
+					if (val < min) {
+						m_chain [pos] = *it;
+						continue;
+					} else {
+						Defs::Position prev = m_chain [pos] & POS_TEXT;
+						if (prev >= min) {
+							break;
+						}
+					}
+				}
+			} 
+		
+			m_chain [pos] = *it;
+			this->calc (info, positions, rel_data, pos + 1);
+			++count;
+		}
+
+	} else {
+		//std::copy (m_chain.begin (), m_chain.end (), std::ostream_iterator <long> (std::cout, ","));
+		//std::cout << std::endl;
+
+		static const Defs::InvisibleData empty;
+
+		Defs::RelevancyInfo cur_info;
+		RelevancyCore::get_relevancy_info (cur_info, m_chain, empty, rel_data);
+
+		if (info.relevancy_value < cur_info.relevancy_value) {
+			info.relevancy_value = cur_info.relevancy_value;
+			info.position = RelevancyUtility::get_position (m_chain);
+		} 
+	}
+}
+//#UC END# *45165B0202CE*
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // static member methods
@@ -29,14 +211,7 @@ bool Algorithm_i::get_block_positions (const Relevancy::DataVector& in, const De
 	//#UC START# *4D6BB24202E2*
 	Defs::Position pos = mask & POS_TEXT;
 
-	size_t length = 0;
-	{
-		Defs::InvisibleData::const_iterator it = inv_data.find (pos);
-
-		if (it != inv_data.end ()) {
-			length = it->second.length; // длина блока
-		}
-	}
+	size_t length = Algorithm_i::get_block_len (pos, inv_data);
 
 	if (length) {
 		out.resize (in.size ());
@@ -90,6 +265,14 @@ size_t Algorithm_i::get_point (const Relevancy::DataVector& in, size_t block_poi
 	//#UC END# *4D6BC0F500D6*
 }
 
+// длина блока
+size_t Algorithm_i::get_block_len (Defs::Position pos, const Defs::InvisibleData& data) {
+	//#UC START# *56A62D1C009B*
+	Defs::InvisibleData::const_iterator it = data.find (pos);
+	return (it == data.end ())? 0 : it->second.length;
+	//#UC END# *56A62D1C009B*
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // constructors and destructor
@@ -102,6 +285,28 @@ Algorithm_i::Algorithm_i (const Relevancy::Data& req_data, const Relevancy::Algo
 //#UC END# *451659E800BB_45165C3A01A5_45165B0202CE_BASE_INIT*
 {
 	//#UC START# *451659E800BB_45165C3A01A5_45165B0202CE_BODY*
+
+	//
+	{
+	m_markup.resize (properties.count, Relevancy::mt_None);
+
+	{
+		for (Relevancy::Positions::const_iterator it = req_data.strongs.begin (); it != req_data.strongs.end (); ++it) {
+			m_markup [*it] = Relevancy::mt_Strong;
+		}
+	}
+
+	const Relevancy::Frames& frames = req_data.frames;
+
+	for (Relevancy::Frames::const_iterator it = frames.begin (); it != frames.end (); ++it) {
+		for (size_t i = 1; i < it->count; ++i) {
+			GDS_ASSERT (m_markup [it->pos + i] == Relevancy::mt_None && it->pos + i < m_markup.size ());
+			m_markup [it->pos + i] = Relevancy::mt_Frame;
+		}
+	}
+	}
+	//
+
 	m_ext_fragment = (unsigned long) (properties.max_fragment + Relevancy::EXT_LEN);
 
 	if (req_data.frames.empty () == false) {
@@ -863,9 +1068,11 @@ void Algorithm_i::get_inv_block_relevancy (
 	info.relevancy_value = 0;
 	info.position = 0;
 
+	/*
 	if (this->make_block_chains (positions, inv_data)) {
 		RelevancyCore::get_relevancy_info (info, inv_data, rel_data, true);
 	}
+	*/
 	//#UC END# *51FFC0600198_45165B0202CE*
 }
 
@@ -881,6 +1088,34 @@ void Algorithm_i::get_relevancy_info (
 	//#UC START# *45165A6600FA_45165B0202CE*
 	info.relevancy_value = 0;
 	info.position = 0;
+
+	//Core::GDS::StopWatchEx sw (GDS_CURRENT_FUNCTION);
+
+	/**
+	size_t data_size = positions.size ();
+	size_t sz = std::numeric_limits <size_t>::max ();
+
+	m_chain.resize (data_size);
+	m_index.resize (data_size);
+
+	for (size_t i = 0; i < data_size; ++i) {
+		m_index [i] = positions [i].begin ();
+
+		if (sz > positions [i].size ()) {
+			sz = positions [i].size ();
+			m_point = i;
+		}
+	}
+
+	Relevancy::Positions::const_iterator it = positions [m_point].begin (), it_end = positions [m_point].end ();
+
+	for (; it != it_end; ++it) {
+		m_chain [m_point] = *it;
+		this->calc (info, positions, rel_data, 0);
+	}
+
+	return;
+	/**/
 
 	if (RelevancyCore::properties ().identical.empty () && m_frames.empty ()) {
 		RelevancyCore::get_relevancy_partial_strong (info, positions, rel_data);

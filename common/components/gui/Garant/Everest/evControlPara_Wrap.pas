@@ -2,6 +2,7 @@ unit evControlPara_Wrap;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evControlPara_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WevControlPara" MUID: (4857FECB0092)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

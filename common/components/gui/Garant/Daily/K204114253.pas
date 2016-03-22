@@ -1,83 +1,63 @@
 unit K204114253;
+ {* [$204114253] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/K204114253.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::K204114253
-//
-// [$204114253]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\K204114253.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K204114253" MUID: (4BCE9DB603BB)
+// Имя типа: "TK204114253"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  elCustomEdit
-  {$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM) AND not defined(NotTunedDUnit)}
-  ,
-  VCMBaseTest
-  {$IfEnd} //nsTest AND not NoScripts AND not NoVCM AND not NotTunedDUnit
-  ,
-  elCustomEdit_Form,
-  Types
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}
+ , VCMBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)
+ , elCustomEdit_Form
+ , Types
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  _FormClass_ = TelCustomEditForm;
  _FormProducer_Parent_ = TVCMBaseTest;
- {$Include ..\Daily\FormProducer.imp.pas}
+ {$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
  TK204114253 = class(_FormProducer_)
   {* [$204114253] }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt;
  end;//TK204114253
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  l3Base,
-  evdSchema,
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3ImplUses
+ , elCustomEdit
+ , evdSchema
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-{$Include ..\Daily\FormProducer.imp.pas}
-
+{$If NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}
 type
-  TelCustomEditHack = class(TelCustomEdit)
-  end;//TelCustomEditHack
+ TelCustomEditHack = class(TelCustomEdit)
+ end;//TelCustomEditHack
 
-// start class TK204114253
+{$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
 
 procedure TK204114253.DoIt;
 //#UC START# *4BCE9E6D027F_4BCE9DB603BB_var*
@@ -103,20 +83,20 @@ begin
 end;//TK204114253.DoIt
 
 function TK204114253.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TK204114253.GetFolder
 
 function TK204114253.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4BCE9DB603BB';
 end;//TK204114253.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoVCM
-
 initialization
  TestFramework.RegisterTest(TK204114253.Suite);
+{$IfEnd} // NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 end.

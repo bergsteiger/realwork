@@ -3,6 +3,7 @@ unit evdChildrenCountEliminator;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdChildrenCountEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdChildrenCountEliminator" MUID: (4E84542E03B5)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

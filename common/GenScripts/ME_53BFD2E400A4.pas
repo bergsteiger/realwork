@@ -3,6 +3,7 @@ unit DocumentUserTypes_dftChronology_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftChronology_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "dftChronology" MUID: (53BFD2E400A4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -12,7 +13,6 @@ interface
 uses
  l3IntfUses
  , DocumentUserTypes_dftAACContentsRight_UserType
- , DocumentUserTypes_dftRelatedDoc_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -36,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftChronology = {final} class(TtfwInteger)
   {* Слово словаря для типа формы dftChronology }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_dftChronology
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_dftChronology.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::dftChronology';
-end;//Tkw_FormUserType_dftChronology.GetWordNameForRegister
-
 function Tkw_FormUserType_dftChronology.GetInteger: Integer;
 begin
  Result := dftChronology;
 end;//Tkw_FormUserType_dftChronology.GetInteger
+
+class function Tkw_FormUserType_dftChronology.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::dftChronology';
+end;//Tkw_FormUserType_dftChronology.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

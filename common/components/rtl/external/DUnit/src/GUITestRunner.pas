@@ -1,7 +1,7 @@
-{ $Id: GUITestRunner.pas,v 1.119 2015/10/21 08:39:44 dinishev Exp $ }
+{ $Id: GUITestRunner.pas,v 1.126 2016/02/09 14:44:15 kostitsin Exp $ }
 {: DUnit: An XTreme testing framework for Delphi programs.
    @author  The DUnit Group.
-   @version $Revision: 1.119 $ 2001/03/08 uberto
+   @version $Revision: 1.126 $ 2001/03/08 uberto
 }
 (*
  * The contents of this file are subject to the Mozilla Public
@@ -1687,12 +1687,16 @@ begin
 end;
 
 procedure TGUITestRunner.TestTreeKeyPress(Sender: TObject; var Key: Char);
+var
+ I: Integer;
+ l_Sel: Boolean;
 begin
- if (Key = ' ') and (TestTree.Selected <> nil) then
+ if (Key = ' ') and (TestTree.SelectionCount > 0) then
  begin
-  SwitchNodeState(TestTree.Selected);
+  l_Sel := GetNodeEnabled(TestTree.Selections[0]);
+  for I := 0 to TestTree.SelectionCount - 1 do
+   SetNodeState(TestTree.Selections[I], not l_Sel);
   UpdateStatus(True);
-  Key := #0
  end;
 end;
 
@@ -2630,23 +2634,29 @@ begin
  end; // if evFindEdit.Modified then
  if FTestTreeSeacher.Find then
  begin
-  TestTree.Selected := FTestTreeSeacher.aFoundNode;
-  if acNeedSelect.Checked or acNeedSelectAll.Checked then // А здесь мы делаем выделяем все...
-  begin
-   SelectCurrentActionExecute(TestTree.Selected);
-   if acNeedSelectAll.Checked then
+   TestTree.Selected := FTestTreeSeacher.aFoundNode;
+   if acNeedSelect.Checked or acNeedSelectAll.Checked then // А здесь мы делаем выделяем все...
    begin
-    l_FirstSelNode := TestTree.Selected;
-    FTestTreeSeacher.aFoundNode := TestTree.Selected;
-    while FTestTreeSeacher.Find do
-    begin
-     TestTree.Selected := FTestTreeSeacher.aFoundNode;
+    TestTree.Items.BeginUpdate;
+    try
      SelectCurrentActionExecute(TestTree.Selected);
-    end; // while FTestTreeSeacher.Find do
-    TestTree.Selected := l_FirstSelNode;
-   end; //if acNeedSelectAll.Checked then
-  end; // if acNeedSelect.Checked then
- end
+     if acNeedSelectAll.Checked then
+     begin
+      l_FirstSelNode := TestTree.Selected;
+      FTestTreeSeacher.aFoundNode := TestTree.Selected;
+      while FTestTreeSeacher.Find do
+      begin
+       TestTree.Selected := FTestTreeSeacher.aFoundNode;
+       SelectCurrentActionExecute(TestTree.Selected);
+      end; // while FTestTreeSeacher.Find do
+      TestTree.Selected := l_FirstSelNode;
+     end; //if acNeedSelectAll.Checked then
+    finally
+     TestTree.Items.EndUpdate;
+    end;
+    GoToNextSelectedTestActionExecute(Sender);
+   end; // if acNeedSelect.Checked then
+ end // if FTestTreeSeacher.Find then
  else
   ShowMessage('Тест с подходящим названием не найден!');
  TestTree.SetFocus;
@@ -3016,11 +3026,12 @@ begin
  try
   l_Out.Open;
   try
-   l_Node := FTestTreeSeacher.GetStartNode;
+   l_Node := TestTree.Items[0];
+   l_Node := l_Node.GetNext; // Корневой узел не рассматриваем...
    while l_Node <> nil do
    begin
     l_Test := NodeToTest(l_Node);
-    if (l_Test <> nil) and (l_Test.Enabled) and (IsTestMethod(l_Test)) then
+    if (l_Test <> nil) and GetNodeEnabled(l_Node) and IsTestMethod(l_Test) then
     begin
      l_Test := NodeToTest(l_Node.Parent);
      if l_Test.HasScriptChildren then
@@ -3297,15 +3308,17 @@ begin
 end;
 
 procedure TGUITestRunner.Try2RemeberInHistory;
+const
+ cnItemCount = 19;
 var
  l_Index: Integer;
 begin
  if not evFindEdit.Items.FindData(evFindEdit.Buffer, l_Index) then
  begin
-  evFindEdit.Items.Add(evFindEdit.Text);
-  if evFindEdit.Items.Count > 20 then
+  if evFindEdit.Items.Count > cnItemCount then
    evFindEdit.Items.DeleteLast;
- end;
+  evFindEdit.Items.Add(evFindEdit.Text);
+ end; // if not evFindEdit.Items.FindData(evFindEdit.Buffer, l_Index) then
 end;
 
 procedure TGUITestRunner.ReadSubDirs(aMenuItem: TMenuItem; aExt,

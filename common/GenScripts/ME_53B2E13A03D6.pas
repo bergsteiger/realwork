@@ -2,6 +2,8 @@ unit kwConfigurationWord;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationWord.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "ConfigurationWord" MUID: (53B2E13A03D6)
+// Имя типа: "TkwConfigurationWord"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
@@ -49,6 +51,10 @@ begin
   RunnerAssert(False, 'Не передана конфигурация!', aCtx);
 //#UC END# *53B2E1D201CE_53B2E13A03D6_impl*
 end;//TkwConfigurationWord.DoWithConfigurations
+
+initialization
+ TkwConfigurationWord.RegisterClass;
+ {* Регистрация ConfigurationWord }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

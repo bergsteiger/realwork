@@ -3,6 +3,7 @@ unit AboutKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\AboutKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "AboutKeywordsPack" MUID: (7A2FEC0CB105)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -49,8 +50,8 @@ type
 'aControl' форма::About TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_About
 
  Tkw_About_Control_pbLogo = {final} class(TtfwControlString)
@@ -61,9 +62,9 @@ type
 контрол::pbLogo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_pbLogo
 
  Tkw_About_Control_pbLogo_Push = {final} class(TkwBynameControlPush)
@@ -86,9 +87,9 @@ type
 контрол::ShellInfoLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_ShellInfoLabel
 
  Tkw_About_Control_ShellInfoLabel_Push = {final} class(TkwBynameControlPush)
@@ -111,9 +112,9 @@ type
 контрол::AdapterInfoLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_AdapterInfoLabel
 
  Tkw_About_Control_AdapterInfoLabel_Push = {final} class(TkwBynameControlPush)
@@ -136,9 +137,9 @@ type
 контрол::UserCountLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_UserCountLabel
 
  Tkw_About_Control_UserCountLabel_Push = {final} class(TkwBynameControlPush)
@@ -161,9 +162,9 @@ type
 контрол::OwnerLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_OwnerLabel
 
  Tkw_About_Control_OwnerLabel_Push = {final} class(TkwBynameControlPush)
@@ -186,9 +187,9 @@ type
 контрол::ShellCaptionLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_ShellCaptionLabel
 
  Tkw_About_Control_ShellCaptionLabel_Push = {final} class(TkwBynameControlPush)
@@ -211,9 +212,9 @@ type
 контрол::OwnerCaptionLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_OwnerCaptionLabel
 
  Tkw_About_Control_OwnerCaptionLabel_Push = {final} class(TkwBynameControlPush)
@@ -236,9 +237,9 @@ type
 контрол::UserInfoGroupBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_UserInfoGroupBox
 
  Tkw_About_Control_UserInfoGroupBox_Push = {final} class(TkwBynameControlPush)
@@ -261,9 +262,9 @@ type
 контрол::EMailCaptionLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_EMailCaptionLabel
 
  Tkw_About_Control_EMailCaptionLabel_Push = {final} class(TkwBynameControlPush)
@@ -286,9 +287,9 @@ type
 контрол::EMailLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_EMailLabel
 
  Tkw_About_Control_EMailLabel_Push = {final} class(TkwBynameControlPush)
@@ -311,9 +312,9 @@ type
 контрол::LoginCaptionLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_LoginCaptionLabel
 
  Tkw_About_Control_LoginCaptionLabel_Push = {final} class(TkwBynameControlPush)
@@ -336,9 +337,9 @@ type
 контрол::UserCaptionLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_UserCaptionLabel
 
  Tkw_About_Control_UserCaptionLabel_Push = {final} class(TkwBynameControlPush)
@@ -361,9 +362,9 @@ type
 контрол::UserNameLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_UserNameLabel
 
  Tkw_About_Control_UserNameLabel_Push = {final} class(TkwBynameControlPush)
@@ -386,9 +387,9 @@ type
 контрол::LoginLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_LoginLabel
 
  Tkw_About_Control_LoginLabel_Push = {final} class(TkwBynameControlPush)
@@ -411,9 +412,9 @@ type
 контрол::CopyrightCaptionLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_CopyrightCaptionLabel
 
  Tkw_About_Control_CopyrightCaptionLabel_Push = {final} class(TkwBynameControlPush)
@@ -436,9 +437,9 @@ type
 контрол::OkButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_OkButton
 
  Tkw_About_Control_OkButton_Push = {final} class(TkwBynameControlPush)
@@ -461,9 +462,9 @@ type
 контрол::UserCountCaptionLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_UserCountCaptionLabel
 
  Tkw_About_Control_UserCountCaptionLabel_Push = {final} class(TkwBynameControlPush)
@@ -486,9 +487,9 @@ type
 контрол::AdapterCaptionLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_About_Control_AdapterCaptionLabel
 
  Tkw_About_Control_AdapterCaptionLabel_Push = {final} class(TkwBynameControlPush)
@@ -935,20 +936,15 @@ OBJECT VAR l_TvtLabel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEfAboutAdapterCaptionLabel
 
-class function Tkw_Form_About.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::About';
-end;//Tkw_Form_About.GetWordNameForRegister
-
 function Tkw_Form_About.GetString: AnsiString;
 begin
  Result := 'efAbout';
 end;//Tkw_Form_About.GetString
 
-class function Tkw_About_Control_pbLogo.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_About.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::pbLogo';
-end;//Tkw_About_Control_pbLogo.GetWordNameForRegister
+ Result := 'форма::About';
+end;//Tkw_Form_About.GetWordNameForRegister
 
 function Tkw_About_Control_pbLogo.GetString: AnsiString;
 begin
@@ -961,6 +957,11 @@ begin
  TtfwClassRef.Register(TPaintBox);
 end;//Tkw_About_Control_pbLogo.RegisterInEngine
 
+class function Tkw_About_Control_pbLogo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pbLogo';
+end;//Tkw_About_Control_pbLogo.GetWordNameForRegister
+
 procedure Tkw_About_Control_pbLogo_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pbLogo');
@@ -971,11 +972,6 @@ class function Tkw_About_Control_pbLogo_Push.GetWordNameForRegister: AnsiString;
 begin
  Result := 'контрол::pbLogo:push';
 end;//Tkw_About_Control_pbLogo_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_ShellInfoLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ShellInfoLabel';
-end;//Tkw_About_Control_ShellInfoLabel.GetWordNameForRegister
 
 function Tkw_About_Control_ShellInfoLabel.GetString: AnsiString;
 begin
@@ -988,6 +984,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_About_Control_ShellInfoLabel.RegisterInEngine
 
+class function Tkw_About_Control_ShellInfoLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ShellInfoLabel';
+end;//Tkw_About_Control_ShellInfoLabel.GetWordNameForRegister
+
 procedure Tkw_About_Control_ShellInfoLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ShellInfoLabel');
@@ -998,11 +999,6 @@ class function Tkw_About_Control_ShellInfoLabel_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::ShellInfoLabel:push';
 end;//Tkw_About_Control_ShellInfoLabel_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_AdapterInfoLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::AdapterInfoLabel';
-end;//Tkw_About_Control_AdapterInfoLabel.GetWordNameForRegister
 
 function Tkw_About_Control_AdapterInfoLabel.GetString: AnsiString;
 begin
@@ -1015,6 +1011,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_About_Control_AdapterInfoLabel.RegisterInEngine
 
+class function Tkw_About_Control_AdapterInfoLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::AdapterInfoLabel';
+end;//Tkw_About_Control_AdapterInfoLabel.GetWordNameForRegister
+
 procedure Tkw_About_Control_AdapterInfoLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('AdapterInfoLabel');
@@ -1025,11 +1026,6 @@ class function Tkw_About_Control_AdapterInfoLabel_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::AdapterInfoLabel:push';
 end;//Tkw_About_Control_AdapterInfoLabel_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_UserCountLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::UserCountLabel';
-end;//Tkw_About_Control_UserCountLabel.GetWordNameForRegister
 
 function Tkw_About_Control_UserCountLabel.GetString: AnsiString;
 begin
@@ -1042,6 +1038,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_About_Control_UserCountLabel.RegisterInEngine
 
+class function Tkw_About_Control_UserCountLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::UserCountLabel';
+end;//Tkw_About_Control_UserCountLabel.GetWordNameForRegister
+
 procedure Tkw_About_Control_UserCountLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('UserCountLabel');
@@ -1052,11 +1053,6 @@ class function Tkw_About_Control_UserCountLabel_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::UserCountLabel:push';
 end;//Tkw_About_Control_UserCountLabel_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_OwnerLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::OwnerLabel';
-end;//Tkw_About_Control_OwnerLabel.GetWordNameForRegister
 
 function Tkw_About_Control_OwnerLabel.GetString: AnsiString;
 begin
@@ -1069,6 +1065,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_About_Control_OwnerLabel.RegisterInEngine
 
+class function Tkw_About_Control_OwnerLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::OwnerLabel';
+end;//Tkw_About_Control_OwnerLabel.GetWordNameForRegister
+
 procedure Tkw_About_Control_OwnerLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('OwnerLabel');
@@ -1079,11 +1080,6 @@ class function Tkw_About_Control_OwnerLabel_Push.GetWordNameForRegister: AnsiStr
 begin
  Result := 'контрол::OwnerLabel:push';
 end;//Tkw_About_Control_OwnerLabel_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_ShellCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ShellCaptionLabel';
-end;//Tkw_About_Control_ShellCaptionLabel.GetWordNameForRegister
 
 function Tkw_About_Control_ShellCaptionLabel.GetString: AnsiString;
 begin
@@ -1096,6 +1092,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_About_Control_ShellCaptionLabel.RegisterInEngine
 
+class function Tkw_About_Control_ShellCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ShellCaptionLabel';
+end;//Tkw_About_Control_ShellCaptionLabel.GetWordNameForRegister
+
 procedure Tkw_About_Control_ShellCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ShellCaptionLabel');
@@ -1106,11 +1107,6 @@ class function Tkw_About_Control_ShellCaptionLabel_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::ShellCaptionLabel:push';
 end;//Tkw_About_Control_ShellCaptionLabel_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_OwnerCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::OwnerCaptionLabel';
-end;//Tkw_About_Control_OwnerCaptionLabel.GetWordNameForRegister
 
 function Tkw_About_Control_OwnerCaptionLabel.GetString: AnsiString;
 begin
@@ -1123,6 +1119,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_About_Control_OwnerCaptionLabel.RegisterInEngine
 
+class function Tkw_About_Control_OwnerCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::OwnerCaptionLabel';
+end;//Tkw_About_Control_OwnerCaptionLabel.GetWordNameForRegister
+
 procedure Tkw_About_Control_OwnerCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('OwnerCaptionLabel');
@@ -1133,11 +1134,6 @@ class function Tkw_About_Control_OwnerCaptionLabel_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::OwnerCaptionLabel:push';
 end;//Tkw_About_Control_OwnerCaptionLabel_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_UserInfoGroupBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::UserInfoGroupBox';
-end;//Tkw_About_Control_UserInfoGroupBox.GetWordNameForRegister
 
 function Tkw_About_Control_UserInfoGroupBox.GetString: AnsiString;
 begin
@@ -1150,6 +1146,11 @@ begin
  TtfwClassRef.Register(TvtGroupBox);
 end;//Tkw_About_Control_UserInfoGroupBox.RegisterInEngine
 
+class function Tkw_About_Control_UserInfoGroupBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::UserInfoGroupBox';
+end;//Tkw_About_Control_UserInfoGroupBox.GetWordNameForRegister
+
 procedure Tkw_About_Control_UserInfoGroupBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('UserInfoGroupBox');
@@ -1160,11 +1161,6 @@ class function Tkw_About_Control_UserInfoGroupBox_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::UserInfoGroupBox:push';
 end;//Tkw_About_Control_UserInfoGroupBox_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_EMailCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::EMailCaptionLabel';
-end;//Tkw_About_Control_EMailCaptionLabel.GetWordNameForRegister
 
 function Tkw_About_Control_EMailCaptionLabel.GetString: AnsiString;
 begin
@@ -1177,6 +1173,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_About_Control_EMailCaptionLabel.RegisterInEngine
 
+class function Tkw_About_Control_EMailCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::EMailCaptionLabel';
+end;//Tkw_About_Control_EMailCaptionLabel.GetWordNameForRegister
+
 procedure Tkw_About_Control_EMailCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('EMailCaptionLabel');
@@ -1187,11 +1188,6 @@ class function Tkw_About_Control_EMailCaptionLabel_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::EMailCaptionLabel:push';
 end;//Tkw_About_Control_EMailCaptionLabel_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_EMailLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::EMailLabel';
-end;//Tkw_About_Control_EMailLabel.GetWordNameForRegister
 
 function Tkw_About_Control_EMailLabel.GetString: AnsiString;
 begin
@@ -1204,6 +1200,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_About_Control_EMailLabel.RegisterInEngine
 
+class function Tkw_About_Control_EMailLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::EMailLabel';
+end;//Tkw_About_Control_EMailLabel.GetWordNameForRegister
+
 procedure Tkw_About_Control_EMailLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('EMailLabel');
@@ -1214,11 +1215,6 @@ class function Tkw_About_Control_EMailLabel_Push.GetWordNameForRegister: AnsiStr
 begin
  Result := 'контрол::EMailLabel:push';
 end;//Tkw_About_Control_EMailLabel_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_LoginCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::LoginCaptionLabel';
-end;//Tkw_About_Control_LoginCaptionLabel.GetWordNameForRegister
 
 function Tkw_About_Control_LoginCaptionLabel.GetString: AnsiString;
 begin
@@ -1231,6 +1227,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_About_Control_LoginCaptionLabel.RegisterInEngine
 
+class function Tkw_About_Control_LoginCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::LoginCaptionLabel';
+end;//Tkw_About_Control_LoginCaptionLabel.GetWordNameForRegister
+
 procedure Tkw_About_Control_LoginCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('LoginCaptionLabel');
@@ -1241,11 +1242,6 @@ class function Tkw_About_Control_LoginCaptionLabel_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::LoginCaptionLabel:push';
 end;//Tkw_About_Control_LoginCaptionLabel_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_UserCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::UserCaptionLabel';
-end;//Tkw_About_Control_UserCaptionLabel.GetWordNameForRegister
 
 function Tkw_About_Control_UserCaptionLabel.GetString: AnsiString;
 begin
@@ -1258,6 +1254,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_About_Control_UserCaptionLabel.RegisterInEngine
 
+class function Tkw_About_Control_UserCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::UserCaptionLabel';
+end;//Tkw_About_Control_UserCaptionLabel.GetWordNameForRegister
+
 procedure Tkw_About_Control_UserCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('UserCaptionLabel');
@@ -1268,11 +1269,6 @@ class function Tkw_About_Control_UserCaptionLabel_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::UserCaptionLabel:push';
 end;//Tkw_About_Control_UserCaptionLabel_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_UserNameLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::UserNameLabel';
-end;//Tkw_About_Control_UserNameLabel.GetWordNameForRegister
 
 function Tkw_About_Control_UserNameLabel.GetString: AnsiString;
 begin
@@ -1285,6 +1281,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_About_Control_UserNameLabel.RegisterInEngine
 
+class function Tkw_About_Control_UserNameLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::UserNameLabel';
+end;//Tkw_About_Control_UserNameLabel.GetWordNameForRegister
+
 procedure Tkw_About_Control_UserNameLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('UserNameLabel');
@@ -1295,11 +1296,6 @@ class function Tkw_About_Control_UserNameLabel_Push.GetWordNameForRegister: Ansi
 begin
  Result := 'контрол::UserNameLabel:push';
 end;//Tkw_About_Control_UserNameLabel_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_LoginLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::LoginLabel';
-end;//Tkw_About_Control_LoginLabel.GetWordNameForRegister
 
 function Tkw_About_Control_LoginLabel.GetString: AnsiString;
 begin
@@ -1312,6 +1308,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_About_Control_LoginLabel.RegisterInEngine
 
+class function Tkw_About_Control_LoginLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::LoginLabel';
+end;//Tkw_About_Control_LoginLabel.GetWordNameForRegister
+
 procedure Tkw_About_Control_LoginLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('LoginLabel');
@@ -1322,11 +1323,6 @@ class function Tkw_About_Control_LoginLabel_Push.GetWordNameForRegister: AnsiStr
 begin
  Result := 'контрол::LoginLabel:push';
 end;//Tkw_About_Control_LoginLabel_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_CopyrightCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::CopyrightCaptionLabel';
-end;//Tkw_About_Control_CopyrightCaptionLabel.GetWordNameForRegister
 
 function Tkw_About_Control_CopyrightCaptionLabel.GetString: AnsiString;
 begin
@@ -1339,6 +1335,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_About_Control_CopyrightCaptionLabel.RegisterInEngine
 
+class function Tkw_About_Control_CopyrightCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::CopyrightCaptionLabel';
+end;//Tkw_About_Control_CopyrightCaptionLabel.GetWordNameForRegister
+
 procedure Tkw_About_Control_CopyrightCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('CopyrightCaptionLabel');
@@ -1349,11 +1350,6 @@ class function Tkw_About_Control_CopyrightCaptionLabel_Push.GetWordNameForRegist
 begin
  Result := 'контрол::CopyrightCaptionLabel:push';
 end;//Tkw_About_Control_CopyrightCaptionLabel_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_OkButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::OkButton';
-end;//Tkw_About_Control_OkButton.GetWordNameForRegister
 
 function Tkw_About_Control_OkButton.GetString: AnsiString;
 begin
@@ -1366,6 +1362,11 @@ begin
  TtfwClassRef.Register(TvtButton);
 end;//Tkw_About_Control_OkButton.RegisterInEngine
 
+class function Tkw_About_Control_OkButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::OkButton';
+end;//Tkw_About_Control_OkButton.GetWordNameForRegister
+
 procedure Tkw_About_Control_OkButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('OkButton');
@@ -1376,11 +1377,6 @@ class function Tkw_About_Control_OkButton_Push.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'контрол::OkButton:push';
 end;//Tkw_About_Control_OkButton_Push.GetWordNameForRegister
-
-class function Tkw_About_Control_UserCountCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::UserCountCaptionLabel';
-end;//Tkw_About_Control_UserCountCaptionLabel.GetWordNameForRegister
 
 function Tkw_About_Control_UserCountCaptionLabel.GetString: AnsiString;
 begin
@@ -1393,6 +1389,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_About_Control_UserCountCaptionLabel.RegisterInEngine
 
+class function Tkw_About_Control_UserCountCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::UserCountCaptionLabel';
+end;//Tkw_About_Control_UserCountCaptionLabel.GetWordNameForRegister
+
 procedure Tkw_About_Control_UserCountCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('UserCountCaptionLabel');
@@ -1404,11 +1405,6 @@ begin
  Result := 'контрол::UserCountCaptionLabel:push';
 end;//Tkw_About_Control_UserCountCaptionLabel_Push.GetWordNameForRegister
 
-class function Tkw_About_Control_AdapterCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::AdapterCaptionLabel';
-end;//Tkw_About_Control_AdapterCaptionLabel.GetWordNameForRegister
-
 function Tkw_About_Control_AdapterCaptionLabel.GetString: AnsiString;
 begin
  Result := 'AdapterCaptionLabel';
@@ -1419,6 +1415,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_About_Control_AdapterCaptionLabel.RegisterInEngine
+
+class function Tkw_About_Control_AdapterCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::AdapterCaptionLabel';
+end;//Tkw_About_Control_AdapterCaptionLabel.GetWordNameForRegister
 
 procedure Tkw_About_Control_AdapterCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -1453,11 +1454,6 @@ begin
  aCtx.rEngine.PushObj(pbLogo(aCtx, l_aefAbout));
 end;//TkwEfAboutPbLogo.DoDoIt
 
-class function TkwEfAboutPbLogo.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.pbLogo';
-end;//TkwEfAboutPbLogo.GetWordNameForRegister
-
 procedure TkwEfAboutPbLogo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1478,6 +1474,11 @@ function TkwEfAboutPbLogo.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutPbLogo.ParamsTypes
+
+class function TkwEfAboutPbLogo.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.pbLogo';
+end;//TkwEfAboutPbLogo.GetWordNameForRegister
 
 function TkwEfAboutShellInfoLabel.ShellInfoLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1501,11 +1502,6 @@ begin
  aCtx.rEngine.PushObj(ShellInfoLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutShellInfoLabel.DoDoIt
 
-class function TkwEfAboutShellInfoLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.ShellInfoLabel';
-end;//TkwEfAboutShellInfoLabel.GetWordNameForRegister
-
 procedure TkwEfAboutShellInfoLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1526,6 +1522,11 @@ function TkwEfAboutShellInfoLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutShellInfoLabel.ParamsTypes
+
+class function TkwEfAboutShellInfoLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.ShellInfoLabel';
+end;//TkwEfAboutShellInfoLabel.GetWordNameForRegister
 
 function TkwEfAboutAdapterInfoLabel.AdapterInfoLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1549,11 +1550,6 @@ begin
  aCtx.rEngine.PushObj(AdapterInfoLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutAdapterInfoLabel.DoDoIt
 
-class function TkwEfAboutAdapterInfoLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.AdapterInfoLabel';
-end;//TkwEfAboutAdapterInfoLabel.GetWordNameForRegister
-
 procedure TkwEfAboutAdapterInfoLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1574,6 +1570,11 @@ function TkwEfAboutAdapterInfoLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutAdapterInfoLabel.ParamsTypes
+
+class function TkwEfAboutAdapterInfoLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.AdapterInfoLabel';
+end;//TkwEfAboutAdapterInfoLabel.GetWordNameForRegister
 
 function TkwEfAboutUserCountLabel.UserCountLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1597,11 +1598,6 @@ begin
  aCtx.rEngine.PushObj(UserCountLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutUserCountLabel.DoDoIt
 
-class function TkwEfAboutUserCountLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.UserCountLabel';
-end;//TkwEfAboutUserCountLabel.GetWordNameForRegister
-
 procedure TkwEfAboutUserCountLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1622,6 +1618,11 @@ function TkwEfAboutUserCountLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutUserCountLabel.ParamsTypes
+
+class function TkwEfAboutUserCountLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.UserCountLabel';
+end;//TkwEfAboutUserCountLabel.GetWordNameForRegister
 
 function TkwEfAboutOwnerLabel.OwnerLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1645,11 +1646,6 @@ begin
  aCtx.rEngine.PushObj(OwnerLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutOwnerLabel.DoDoIt
 
-class function TkwEfAboutOwnerLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.OwnerLabel';
-end;//TkwEfAboutOwnerLabel.GetWordNameForRegister
-
 procedure TkwEfAboutOwnerLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1670,6 +1666,11 @@ function TkwEfAboutOwnerLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutOwnerLabel.ParamsTypes
+
+class function TkwEfAboutOwnerLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.OwnerLabel';
+end;//TkwEfAboutOwnerLabel.GetWordNameForRegister
 
 function TkwEfAboutShellCaptionLabel.ShellCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1693,11 +1694,6 @@ begin
  aCtx.rEngine.PushObj(ShellCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutShellCaptionLabel.DoDoIt
 
-class function TkwEfAboutShellCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.ShellCaptionLabel';
-end;//TkwEfAboutShellCaptionLabel.GetWordNameForRegister
-
 procedure TkwEfAboutShellCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1718,6 +1714,11 @@ function TkwEfAboutShellCaptionLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutShellCaptionLabel.ParamsTypes
+
+class function TkwEfAboutShellCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.ShellCaptionLabel';
+end;//TkwEfAboutShellCaptionLabel.GetWordNameForRegister
 
 function TkwEfAboutOwnerCaptionLabel.OwnerCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1741,11 +1742,6 @@ begin
  aCtx.rEngine.PushObj(OwnerCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutOwnerCaptionLabel.DoDoIt
 
-class function TkwEfAboutOwnerCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.OwnerCaptionLabel';
-end;//TkwEfAboutOwnerCaptionLabel.GetWordNameForRegister
-
 procedure TkwEfAboutOwnerCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1766,6 +1762,11 @@ function TkwEfAboutOwnerCaptionLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutOwnerCaptionLabel.ParamsTypes
+
+class function TkwEfAboutOwnerCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.OwnerCaptionLabel';
+end;//TkwEfAboutOwnerCaptionLabel.GetWordNameForRegister
 
 function TkwEfAboutUserInfoGroupBox.UserInfoGroupBox(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtGroupBox;
@@ -1789,11 +1790,6 @@ begin
  aCtx.rEngine.PushObj(UserInfoGroupBox(aCtx, l_aefAbout));
 end;//TkwEfAboutUserInfoGroupBox.DoDoIt
 
-class function TkwEfAboutUserInfoGroupBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.UserInfoGroupBox';
-end;//TkwEfAboutUserInfoGroupBox.GetWordNameForRegister
-
 procedure TkwEfAboutUserInfoGroupBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1814,6 +1810,11 @@ function TkwEfAboutUserInfoGroupBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutUserInfoGroupBox.ParamsTypes
+
+class function TkwEfAboutUserInfoGroupBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.UserInfoGroupBox';
+end;//TkwEfAboutUserInfoGroupBox.GetWordNameForRegister
 
 function TkwEfAboutEMailCaptionLabel.EMailCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1837,11 +1838,6 @@ begin
  aCtx.rEngine.PushObj(EMailCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutEMailCaptionLabel.DoDoIt
 
-class function TkwEfAboutEMailCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.EMailCaptionLabel';
-end;//TkwEfAboutEMailCaptionLabel.GetWordNameForRegister
-
 procedure TkwEfAboutEMailCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1862,6 +1858,11 @@ function TkwEfAboutEMailCaptionLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutEMailCaptionLabel.ParamsTypes
+
+class function TkwEfAboutEMailCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.EMailCaptionLabel';
+end;//TkwEfAboutEMailCaptionLabel.GetWordNameForRegister
 
 function TkwEfAboutEMailLabel.EMailLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1885,11 +1886,6 @@ begin
  aCtx.rEngine.PushObj(EMailLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutEMailLabel.DoDoIt
 
-class function TkwEfAboutEMailLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.EMailLabel';
-end;//TkwEfAboutEMailLabel.GetWordNameForRegister
-
 procedure TkwEfAboutEMailLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1910,6 +1906,11 @@ function TkwEfAboutEMailLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutEMailLabel.ParamsTypes
+
+class function TkwEfAboutEMailLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.EMailLabel';
+end;//TkwEfAboutEMailLabel.GetWordNameForRegister
 
 function TkwEfAboutLoginCaptionLabel.LoginCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1933,11 +1934,6 @@ begin
  aCtx.rEngine.PushObj(LoginCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutLoginCaptionLabel.DoDoIt
 
-class function TkwEfAboutLoginCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.LoginCaptionLabel';
-end;//TkwEfAboutLoginCaptionLabel.GetWordNameForRegister
-
 procedure TkwEfAboutLoginCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1958,6 +1954,11 @@ function TkwEfAboutLoginCaptionLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutLoginCaptionLabel.ParamsTypes
+
+class function TkwEfAboutLoginCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.LoginCaptionLabel';
+end;//TkwEfAboutLoginCaptionLabel.GetWordNameForRegister
 
 function TkwEfAboutUserCaptionLabel.UserCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1981,11 +1982,6 @@ begin
  aCtx.rEngine.PushObj(UserCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutUserCaptionLabel.DoDoIt
 
-class function TkwEfAboutUserCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.UserCaptionLabel';
-end;//TkwEfAboutUserCaptionLabel.GetWordNameForRegister
-
 procedure TkwEfAboutUserCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2006,6 +2002,11 @@ function TkwEfAboutUserCaptionLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutUserCaptionLabel.ParamsTypes
+
+class function TkwEfAboutUserCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.UserCaptionLabel';
+end;//TkwEfAboutUserCaptionLabel.GetWordNameForRegister
 
 function TkwEfAboutUserNameLabel.UserNameLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -2029,11 +2030,6 @@ begin
  aCtx.rEngine.PushObj(UserNameLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutUserNameLabel.DoDoIt
 
-class function TkwEfAboutUserNameLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.UserNameLabel';
-end;//TkwEfAboutUserNameLabel.GetWordNameForRegister
-
 procedure TkwEfAboutUserNameLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2054,6 +2050,11 @@ function TkwEfAboutUserNameLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutUserNameLabel.ParamsTypes
+
+class function TkwEfAboutUserNameLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.UserNameLabel';
+end;//TkwEfAboutUserNameLabel.GetWordNameForRegister
 
 function TkwEfAboutLoginLabel.LoginLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -2077,11 +2078,6 @@ begin
  aCtx.rEngine.PushObj(LoginLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutLoginLabel.DoDoIt
 
-class function TkwEfAboutLoginLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.LoginLabel';
-end;//TkwEfAboutLoginLabel.GetWordNameForRegister
-
 procedure TkwEfAboutLoginLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2102,6 +2098,11 @@ function TkwEfAboutLoginLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutLoginLabel.ParamsTypes
+
+class function TkwEfAboutLoginLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.LoginLabel';
+end;//TkwEfAboutLoginLabel.GetWordNameForRegister
 
 function TkwEfAboutCopyrightCaptionLabel.CopyrightCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -2125,11 +2126,6 @@ begin
  aCtx.rEngine.PushObj(CopyrightCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutCopyrightCaptionLabel.DoDoIt
 
-class function TkwEfAboutCopyrightCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.CopyrightCaptionLabel';
-end;//TkwEfAboutCopyrightCaptionLabel.GetWordNameForRegister
-
 procedure TkwEfAboutCopyrightCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2150,6 +2146,11 @@ function TkwEfAboutCopyrightCaptionLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutCopyrightCaptionLabel.ParamsTypes
+
+class function TkwEfAboutCopyrightCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.CopyrightCaptionLabel';
+end;//TkwEfAboutCopyrightCaptionLabel.GetWordNameForRegister
 
 function TkwEfAboutOkButton.OkButton(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtButton;
@@ -2173,11 +2174,6 @@ begin
  aCtx.rEngine.PushObj(OkButton(aCtx, l_aefAbout));
 end;//TkwEfAboutOkButton.DoDoIt
 
-class function TkwEfAboutOkButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.OkButton';
-end;//TkwEfAboutOkButton.GetWordNameForRegister
-
 procedure TkwEfAboutOkButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2198,6 +2194,11 @@ function TkwEfAboutOkButton.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutOkButton.ParamsTypes
+
+class function TkwEfAboutOkButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.OkButton';
+end;//TkwEfAboutOkButton.GetWordNameForRegister
 
 function TkwEfAboutUserCountCaptionLabel.UserCountCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -2221,11 +2222,6 @@ begin
  aCtx.rEngine.PushObj(UserCountCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutUserCountCaptionLabel.DoDoIt
 
-class function TkwEfAboutUserCountCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.UserCountCaptionLabel';
-end;//TkwEfAboutUserCountCaptionLabel.GetWordNameForRegister
-
 procedure TkwEfAboutUserCountCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2246,6 +2242,11 @@ function TkwEfAboutUserCountCaptionLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutUserCountCaptionLabel.ParamsTypes
+
+class function TkwEfAboutUserCountCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.UserCountCaptionLabel';
+end;//TkwEfAboutUserCountCaptionLabel.GetWordNameForRegister
 
 function TkwEfAboutAdapterCaptionLabel.AdapterCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -2269,11 +2270,6 @@ begin
  aCtx.rEngine.PushObj(AdapterCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutAdapterCaptionLabel.DoDoIt
 
-class function TkwEfAboutAdapterCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefAbout.AdapterCaptionLabel';
-end;//TkwEfAboutAdapterCaptionLabel.GetWordNameForRegister
-
 procedure TkwEfAboutAdapterCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2294,6 +2290,11 @@ function TkwEfAboutAdapterCaptionLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutAdapterCaptionLabel.ParamsTypes
+
+class function TkwEfAboutAdapterCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefAbout.AdapterCaptionLabel';
+end;//TkwEfAboutAdapterCaptionLabel.GetWordNameForRegister
 
 initialization
  Tkw_Form_About.RegisterInEngine;

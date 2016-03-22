@@ -41,6 +41,9 @@ project (Search) : project_generic_core {
 	after += GCL
 	libs  += GCL
 
+	after += DB
+	libs  += DB
+
 	after += Morpho
 	libs  += Morpho
 
@@ -60,6 +63,7 @@ project (Search) : project_generic_core {
 		ContextSearch {
 			./../Search/ContextSearch/Collector_i.h
 			./../Search/ContextSearch/ContextSearcher.h
+			./../Search/ContextSearch/Progress_i.h
 			./../Search/ContextSearch/RelevancyTuner.h
 			./../Search/ContextSearch/RequestSplit.h
 		}
@@ -69,8 +73,9 @@ project (Search) : project_generic_core {
 		}
 	
 		External_ {
-			./../../garantPIL/implementation/component/cpp/libs/gkdb/src/BaseCache.h
 			./../../garantPIL/implementation/component/cpp/tools/CSAdapter/AdapterLoader.h
+			./../../garantPIL/implementation/component/cpp/libs/gkdb/src/DBComm.h
+			./../../shared/Morpho/Facade/Cache.h
 		}
 	
 		Facade {
@@ -151,6 +156,7 @@ project (Search) : project_generic_core {
 		ContextSearch {
 			./../Search/ContextSearch/Collector_i.cpp
 			./../Search/ContextSearch/ContextSearcher.cpp
+			./../Search/ContextSearch/Progress_i.cpp
 			./../Search/ContextSearch/RelevancyTuner.cpp
 			./../Search/ContextSearch/RequestSplit.cpp
 		}

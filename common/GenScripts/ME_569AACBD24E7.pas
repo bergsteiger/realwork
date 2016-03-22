@@ -3,6 +3,7 @@ unit DictionContainerKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\DictionContainerKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "DictionContainerKeywordsPack" MUID: (569AACBD24E7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -50,8 +51,8 @@ type
 'aControl' форма::DictionContainer TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_DictionContainer
 
  Tkw_DictionContainer_Control_pnBackground = {final} class(TtfwControlString)
@@ -62,9 +63,9 @@ type
 контрол::pnBackground TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DictionContainer_Control_pnBackground
 
  Tkw_DictionContainer_Control_pnBackground_Push = {final} class(TkwBynameControlPush)
@@ -87,9 +88,9 @@ type
 контрол::NavigatorZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DictionContainer_Control_NavigatorZone
 
  Tkw_DictionContainer_Control_NavigatorZone_Push = {final} class(TkwBynameControlPush)
@@ -112,9 +113,9 @@ type
 контрол::pnWorkArea TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DictionContainer_Control_pnWorkArea
 
  Tkw_DictionContainer_Control_pnWorkArea_Push = {final} class(TkwBynameControlPush)
@@ -137,9 +138,9 @@ type
 контрол::ChildZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DictionContainer_Control_ChildZone
 
  Tkw_DictionContainer_Control_ChildZone_Push = {final} class(TkwBynameControlPush)
@@ -162,9 +163,9 @@ type
 контрол::pnHeader TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DictionContainer_Control_pnHeader
 
  Tkw_DictionContainer_Control_pnHeader_Push = {final} class(TkwBynameControlPush)
@@ -187,9 +188,9 @@ type
 контрол::lbHeader TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DictionContainer_Control_lbHeader
 
  Tkw_DictionContainer_Control_lbHeader_Push = {final} class(TkwBynameControlPush)
@@ -212,9 +213,9 @@ type
 контрол::pbHeader TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DictionContainer_Control_pbHeader
 
  Tkw_DictionContainer_Control_pbHeader_Push = {final} class(TkwBynameControlPush)
@@ -237,9 +238,9 @@ type
 контрол::ParentZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DictionContainer_Control_ParentZone
 
  Tkw_DictionContainer_Control_ParentZone_Push = {final} class(TkwBynameControlPush)
@@ -446,20 +447,15 @@ OBJECT VAR l_TvtPanel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwDictionContainerFormParentZone
 
-class function Tkw_Form_DictionContainer.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::DictionContainer';
-end;//Tkw_Form_DictionContainer.GetWordNameForRegister
-
 function Tkw_Form_DictionContainer.GetString: AnsiString;
 begin
  Result := 'DictionContainerForm';
 end;//Tkw_Form_DictionContainer.GetString
 
-class function Tkw_DictionContainer_Control_pnBackground.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_DictionContainer.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::pnBackground';
-end;//Tkw_DictionContainer_Control_pnBackground.GetWordNameForRegister
+ Result := 'форма::DictionContainer';
+end;//Tkw_Form_DictionContainer.GetWordNameForRegister
 
 function Tkw_DictionContainer_Control_pnBackground.GetString: AnsiString;
 begin
@@ -472,6 +468,11 @@ begin
  TtfwClassRef.Register(TvtProportionalPanel);
 end;//Tkw_DictionContainer_Control_pnBackground.RegisterInEngine
 
+class function Tkw_DictionContainer_Control_pnBackground.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnBackground';
+end;//Tkw_DictionContainer_Control_pnBackground.GetWordNameForRegister
+
 procedure Tkw_DictionContainer_Control_pnBackground_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnBackground');
@@ -482,11 +483,6 @@ class function Tkw_DictionContainer_Control_pnBackground_Push.GetWordNameForRegi
 begin
  Result := 'контрол::pnBackground:push';
 end;//Tkw_DictionContainer_Control_pnBackground_Push.GetWordNameForRegister
-
-class function Tkw_DictionContainer_Control_NavigatorZone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::NavigatorZone';
-end;//Tkw_DictionContainer_Control_NavigatorZone.GetWordNameForRegister
 
 function Tkw_DictionContainer_Control_NavigatorZone.GetString: AnsiString;
 begin
@@ -499,6 +495,11 @@ begin
  TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_DictionContainer_Control_NavigatorZone.RegisterInEngine
 
+class function Tkw_DictionContainer_Control_NavigatorZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::NavigatorZone';
+end;//Tkw_DictionContainer_Control_NavigatorZone.GetWordNameForRegister
+
 procedure Tkw_DictionContainer_Control_NavigatorZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('NavigatorZone');
@@ -509,11 +510,6 @@ class function Tkw_DictionContainer_Control_NavigatorZone_Push.GetWordNameForReg
 begin
  Result := 'контрол::NavigatorZone:push';
 end;//Tkw_DictionContainer_Control_NavigatorZone_Push.GetWordNameForRegister
-
-class function Tkw_DictionContainer_Control_pnWorkArea.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnWorkArea';
-end;//Tkw_DictionContainer_Control_pnWorkArea.GetWordNameForRegister
 
 function Tkw_DictionContainer_Control_pnWorkArea.GetString: AnsiString;
 begin
@@ -526,6 +522,11 @@ begin
  TtfwClassRef.Register(TvtProportionalPanel);
 end;//Tkw_DictionContainer_Control_pnWorkArea.RegisterInEngine
 
+class function Tkw_DictionContainer_Control_pnWorkArea.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnWorkArea';
+end;//Tkw_DictionContainer_Control_pnWorkArea.GetWordNameForRegister
+
 procedure Tkw_DictionContainer_Control_pnWorkArea_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnWorkArea');
@@ -536,11 +537,6 @@ class function Tkw_DictionContainer_Control_pnWorkArea_Push.GetWordNameForRegist
 begin
  Result := 'контрол::pnWorkArea:push';
 end;//Tkw_DictionContainer_Control_pnWorkArea_Push.GetWordNameForRegister
-
-class function Tkw_DictionContainer_Control_ChildZone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ChildZone';
-end;//Tkw_DictionContainer_Control_ChildZone.GetWordNameForRegister
 
 function Tkw_DictionContainer_Control_ChildZone.GetString: AnsiString;
 begin
@@ -553,6 +549,11 @@ begin
  TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_DictionContainer_Control_ChildZone.RegisterInEngine
 
+class function Tkw_DictionContainer_Control_ChildZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ChildZone';
+end;//Tkw_DictionContainer_Control_ChildZone.GetWordNameForRegister
+
 procedure Tkw_DictionContainer_Control_ChildZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ChildZone');
@@ -563,11 +564,6 @@ class function Tkw_DictionContainer_Control_ChildZone_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::ChildZone:push';
 end;//Tkw_DictionContainer_Control_ChildZone_Push.GetWordNameForRegister
-
-class function Tkw_DictionContainer_Control_pnHeader.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnHeader';
-end;//Tkw_DictionContainer_Control_pnHeader.GetWordNameForRegister
 
 function Tkw_DictionContainer_Control_pnHeader.GetString: AnsiString;
 begin
@@ -580,6 +576,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_DictionContainer_Control_pnHeader.RegisterInEngine
 
+class function Tkw_DictionContainer_Control_pnHeader.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnHeader';
+end;//Tkw_DictionContainer_Control_pnHeader.GetWordNameForRegister
+
 procedure Tkw_DictionContainer_Control_pnHeader_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnHeader');
@@ -590,11 +591,6 @@ class function Tkw_DictionContainer_Control_pnHeader_Push.GetWordNameForRegister
 begin
  Result := 'контрол::pnHeader:push';
 end;//Tkw_DictionContainer_Control_pnHeader_Push.GetWordNameForRegister
-
-class function Tkw_DictionContainer_Control_lbHeader.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lbHeader';
-end;//Tkw_DictionContainer_Control_lbHeader.GetWordNameForRegister
 
 function Tkw_DictionContainer_Control_lbHeader.GetString: AnsiString;
 begin
@@ -607,6 +603,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_DictionContainer_Control_lbHeader.RegisterInEngine
 
+class function Tkw_DictionContainer_Control_lbHeader.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lbHeader';
+end;//Tkw_DictionContainer_Control_lbHeader.GetWordNameForRegister
+
 procedure Tkw_DictionContainer_Control_lbHeader_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lbHeader');
@@ -617,11 +618,6 @@ class function Tkw_DictionContainer_Control_lbHeader_Push.GetWordNameForRegister
 begin
  Result := 'контрол::lbHeader:push';
 end;//Tkw_DictionContainer_Control_lbHeader_Push.GetWordNameForRegister
-
-class function Tkw_DictionContainer_Control_pbHeader.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pbHeader';
-end;//Tkw_DictionContainer_Control_pbHeader.GetWordNameForRegister
 
 function Tkw_DictionContainer_Control_pbHeader.GetString: AnsiString;
 begin
@@ -634,6 +630,11 @@ begin
  TtfwClassRef.Register(TPaintBox);
 end;//Tkw_DictionContainer_Control_pbHeader.RegisterInEngine
 
+class function Tkw_DictionContainer_Control_pbHeader.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pbHeader';
+end;//Tkw_DictionContainer_Control_pbHeader.GetWordNameForRegister
+
 procedure Tkw_DictionContainer_Control_pbHeader_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pbHeader');
@@ -645,11 +646,6 @@ begin
  Result := 'контрол::pbHeader:push';
 end;//Tkw_DictionContainer_Control_pbHeader_Push.GetWordNameForRegister
 
-class function Tkw_DictionContainer_Control_ParentZone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ParentZone';
-end;//Tkw_DictionContainer_Control_ParentZone.GetWordNameForRegister
-
 function Tkw_DictionContainer_Control_ParentZone.GetString: AnsiString;
 begin
  Result := 'ParentZone';
@@ -660,6 +656,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_DictionContainer_Control_ParentZone.RegisterInEngine
+
+class function Tkw_DictionContainer_Control_ParentZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ParentZone';
+end;//Tkw_DictionContainer_Control_ParentZone.GetWordNameForRegister
 
 procedure Tkw_DictionContainer_Control_ParentZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -694,11 +695,6 @@ begin
  aCtx.rEngine.PushObj(pnBackground(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormPnBackground.DoDoIt
 
-class function TkwDictionContainerFormPnBackground.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TDictionContainerForm.pnBackground';
-end;//TkwDictionContainerFormPnBackground.GetWordNameForRegister
-
 procedure TkwDictionContainerFormPnBackground.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -719,6 +715,11 @@ function TkwDictionContainerFormPnBackground.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormPnBackground.ParamsTypes
+
+class function TkwDictionContainerFormPnBackground.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TDictionContainerForm.pnBackground';
+end;//TkwDictionContainerFormPnBackground.GetWordNameForRegister
 
 function TkwDictionContainerFormNavigatorZone.NavigatorZone(const aCtx: TtfwContext;
  aDictionContainerForm: TDictionContainerForm): TvtSizeablePanel;
@@ -742,11 +743,6 @@ begin
  aCtx.rEngine.PushObj(NavigatorZone(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormNavigatorZone.DoDoIt
 
-class function TkwDictionContainerFormNavigatorZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TDictionContainerForm.NavigatorZone';
-end;//TkwDictionContainerFormNavigatorZone.GetWordNameForRegister
-
 procedure TkwDictionContainerFormNavigatorZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -767,6 +763,11 @@ function TkwDictionContainerFormNavigatorZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormNavigatorZone.ParamsTypes
+
+class function TkwDictionContainerFormNavigatorZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TDictionContainerForm.NavigatorZone';
+end;//TkwDictionContainerFormNavigatorZone.GetWordNameForRegister
 
 function TkwDictionContainerFormPnWorkArea.pnWorkArea(const aCtx: TtfwContext;
  aDictionContainerForm: TDictionContainerForm): TvtProportionalPanel;
@@ -790,11 +791,6 @@ begin
  aCtx.rEngine.PushObj(pnWorkArea(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormPnWorkArea.DoDoIt
 
-class function TkwDictionContainerFormPnWorkArea.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TDictionContainerForm.pnWorkArea';
-end;//TkwDictionContainerFormPnWorkArea.GetWordNameForRegister
-
 procedure TkwDictionContainerFormPnWorkArea.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -815,6 +811,11 @@ function TkwDictionContainerFormPnWorkArea.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormPnWorkArea.ParamsTypes
+
+class function TkwDictionContainerFormPnWorkArea.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TDictionContainerForm.pnWorkArea';
+end;//TkwDictionContainerFormPnWorkArea.GetWordNameForRegister
 
 function TkwDictionContainerFormChildZone.ChildZone(const aCtx: TtfwContext;
  aDictionContainerForm: TDictionContainerForm): TvtSizeablePanel;
@@ -838,11 +839,6 @@ begin
  aCtx.rEngine.PushObj(ChildZone(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormChildZone.DoDoIt
 
-class function TkwDictionContainerFormChildZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TDictionContainerForm.ChildZone';
-end;//TkwDictionContainerFormChildZone.GetWordNameForRegister
-
 procedure TkwDictionContainerFormChildZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -863,6 +859,11 @@ function TkwDictionContainerFormChildZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormChildZone.ParamsTypes
+
+class function TkwDictionContainerFormChildZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TDictionContainerForm.ChildZone';
+end;//TkwDictionContainerFormChildZone.GetWordNameForRegister
 
 function TkwDictionContainerFormPnHeader.pnHeader(const aCtx: TtfwContext;
  aDictionContainerForm: TDictionContainerForm): TvtPanel;
@@ -886,11 +887,6 @@ begin
  aCtx.rEngine.PushObj(pnHeader(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormPnHeader.DoDoIt
 
-class function TkwDictionContainerFormPnHeader.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TDictionContainerForm.pnHeader';
-end;//TkwDictionContainerFormPnHeader.GetWordNameForRegister
-
 procedure TkwDictionContainerFormPnHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -911,6 +907,11 @@ function TkwDictionContainerFormPnHeader.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormPnHeader.ParamsTypes
+
+class function TkwDictionContainerFormPnHeader.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TDictionContainerForm.pnHeader';
+end;//TkwDictionContainerFormPnHeader.GetWordNameForRegister
 
 function TkwDictionContainerFormLbHeader.lbHeader(const aCtx: TtfwContext;
  aDictionContainerForm: TDictionContainerForm): TvtLabel;
@@ -934,11 +935,6 @@ begin
  aCtx.rEngine.PushObj(lbHeader(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormLbHeader.DoDoIt
 
-class function TkwDictionContainerFormLbHeader.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TDictionContainerForm.lbHeader';
-end;//TkwDictionContainerFormLbHeader.GetWordNameForRegister
-
 procedure TkwDictionContainerFormLbHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -959,6 +955,11 @@ function TkwDictionContainerFormLbHeader.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormLbHeader.ParamsTypes
+
+class function TkwDictionContainerFormLbHeader.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TDictionContainerForm.lbHeader';
+end;//TkwDictionContainerFormLbHeader.GetWordNameForRegister
 
 function TkwDictionContainerFormPbHeader.pbHeader(const aCtx: TtfwContext;
  aDictionContainerForm: TDictionContainerForm): TPaintBox;
@@ -982,11 +983,6 @@ begin
  aCtx.rEngine.PushObj(pbHeader(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormPbHeader.DoDoIt
 
-class function TkwDictionContainerFormPbHeader.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TDictionContainerForm.pbHeader';
-end;//TkwDictionContainerFormPbHeader.GetWordNameForRegister
-
 procedure TkwDictionContainerFormPbHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1007,6 +1003,11 @@ function TkwDictionContainerFormPbHeader.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormPbHeader.ParamsTypes
+
+class function TkwDictionContainerFormPbHeader.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TDictionContainerForm.pbHeader';
+end;//TkwDictionContainerFormPbHeader.GetWordNameForRegister
 
 function TkwDictionContainerFormParentZone.ParentZone(const aCtx: TtfwContext;
  aDictionContainerForm: TDictionContainerForm): TvtPanel;
@@ -1030,11 +1031,6 @@ begin
  aCtx.rEngine.PushObj(ParentZone(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormParentZone.DoDoIt
 
-class function TkwDictionContainerFormParentZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TDictionContainerForm.ParentZone';
-end;//TkwDictionContainerFormParentZone.GetWordNameForRegister
-
 procedure TkwDictionContainerFormParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1055,6 +1051,11 @@ function TkwDictionContainerFormParentZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormParentZone.ParamsTypes
+
+class function TkwDictionContainerFormParentZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TDictionContainerForm.ParentZone';
+end;//TkwDictionContainerFormParentZone.GetWordNameForRegister
 
 initialization
  Tkw_Form_DictionContainer.RegisterInEngine;

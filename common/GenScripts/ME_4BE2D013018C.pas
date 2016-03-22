@@ -3,6 +3,7 @@ unit NOT_FINISHED_evNSRCConst;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_evNSRCConst.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evNSRCConst" MUID: (4BE2D013018C)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -2,6 +2,7 @@ unit RegisterVcmControls;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\RegisterVcmControls.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "RegisterVcmControls" MUID: (52B16BA20032)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

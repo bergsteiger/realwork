@@ -2,6 +2,7 @@ unit NOT_FINISHED_evdSchema;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evdSchema.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evdSchema" MUID: (4B322E2E0270)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

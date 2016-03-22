@@ -2,6 +2,7 @@ unit vtNavigatorRes;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtNavigatorRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vtNavigatorRes" MUID: (4B8D2783018D)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -2,6 +2,7 @@ unit l3GetComponentFromPointHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3GetComponentFromPointHelper.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3GetComponentFromPointHelper" MUID: (551AB8CA014A)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -39,7 +40,7 @@ type
  Tl3GetComponentFromPointHelper = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3GetComponentFromPointHelper;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3GetComponentFromPointHelper }
   protected
    procedure pm_SetAlien(const aValue: Il3GetComponentFromPointHelper);
    procedure ClearFields; override;

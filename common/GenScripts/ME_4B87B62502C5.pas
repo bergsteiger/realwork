@@ -2,6 +2,7 @@ unit evSubPanelSubArrayPrim;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSubPanelSubArrayPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevSubPanelSubArrayPrim" MUID: (4B87B62502C5)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

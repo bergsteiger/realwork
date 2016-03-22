@@ -8,8 +8,6 @@
 #include <boost/ptr_container/ptr_map.hpp>
 
 #include "SortAttrCache.h"
-#include "ContextPartsHelper.h"
-
 #include "stdbase.h"
 
 typedef std::map <std::string, std::string> StrStrMap;
@@ -46,7 +44,7 @@ class SearchBase : public YBase {
 public:
 	SearchBase (const char* name, int mode = ACE_OS_O_RDONLY);
 
-	virtual ~SearchBase();
+	virtual ~SearchBase ();
 
 public:
 	virtual bool check_version ();
@@ -85,7 +83,6 @@ public:
 	long find_paras_with_word (long doc_id, long word);
 	long get_para_by_word (long doc_id, long word, bool need_para_id);
 	void get_para_pair (long doc_id, long word, long& para, long& pos);
-	void get_words (long para, long id, unsigned long& word, unsigned long& first_word);
 	WordsParas* get_paras_and_words (long id, const std::vector <unsigned long>& words);
 
 	void load_relevancy_changes (DBCore::RelevancyTuneData& out);
@@ -137,11 +134,6 @@ public:
 	bool is_doc_in_super (long id);
 	bool FillSmallInfoDoc (long id, std::string& name, std::vector <std::string>& segment_names, bool is_russian);
 
-public:
-	DBCore::IBase* abstract_base () {
-		return m_search_base.in ();
-	}
-
 protected:
 	virtual	bool IsMultiThreadsR () {
 		return false;
@@ -167,16 +159,12 @@ private:
 	bool word_check_mistake (const char*, std::string&);
 	void correct_single_word (const char* in, std::string& result, bool& b_wastransliteration, bool& b_onlylatin);
 
-	char* get_swords_data (long id, long& sz);
-
 	void get_incorrect (const std::string& str, GCL::StrSet& words);
 	bool is_present (const GCL::StrSet& keys);
 	bool is_present (const std::string& word, bool is_wild);
 
 private:
 	Core::Mutex m_mutex;
-
-	DBCore::IBase_var m_search_base;
 
 	bool m_is_morpho_exist;
 	long language_tag;

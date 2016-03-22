@@ -2,6 +2,7 @@ unit ddAnnoKindSortItem;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\PipeOut\ddAnnoKindSortItem.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddAnnoKindSortItem" MUID: (564C627A03D0)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

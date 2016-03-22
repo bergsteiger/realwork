@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmMenuItemsCollection;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmMenuItemsCollection.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmMenuItemsCollection" MUID: (52A824420357)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

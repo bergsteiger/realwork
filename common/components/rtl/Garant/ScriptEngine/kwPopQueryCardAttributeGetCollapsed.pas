@@ -2,6 +2,8 @@ unit kwPopQueryCardAttributeGetCollapsed;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeGetCollapsed.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_QueryCard_Attribute_GetCollapsed" MUID: (4FEF23900010)
+// Имя типа: "TkwPopQueryCardAttributeGetCollapsed"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

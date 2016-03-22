@@ -1,79 +1,57 @@
 unit K227477159;
+ {* [$227477159] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/K227477159.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.6::K227477159
-//
-// [$227477159]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K227477159.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K227477159" MUID: (4C45569C0111)
+// Имя типа: "TK227477159"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  ScrollBackByLineTest
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , ScrollBackByLineTest
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK227477159 = class(TScrollBackByLineTest)
   {* [$227477159] }
- protected
- // overridden protected methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    function MaxHeight: Integer; override;
-     {* Если возвращается не 0, то будет организован цикл подбора высоты от FormExtent.Y до MaxHeight }
-   {$IfEnd} //nsTest AND not NoVCM
+    {* Если возвращается не 0, то будет организован цикл подбора высоты от FormExtent.Y до MaxHeight }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK227477159
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK227477159
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TK227477159.MaxHeight: Integer;
+ {* Если возвращается не 0, то будет организован цикл подбора высоты от FormExtent.Y до MaxHeight }
 //#UC START# *4C0E56F000A4_4C45569C0111_var*
 //#UC END# *4C0E56F000A4_4C45569C0111_var*
 begin
@@ -81,23 +59,22 @@ begin
  Result := 12;
 //#UC END# *4C0E56F000A4_4C45569C0111_impl*
 end;//TK227477159.MaxHeight
-{$IfEnd} //nsTest AND not NoVCM
 
 function TK227477159.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.6';
 end;//TK227477159.GetFolder
 
 function TK227477159.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C45569C0111';
 end;//TK227477159.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK227477159.Suite);
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

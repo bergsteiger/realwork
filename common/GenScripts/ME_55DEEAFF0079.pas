@@ -2,6 +2,7 @@ unit ddTk2TypeList;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTk2TypeList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddTk2TypeList" MUID: (55DEEAFF0079)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

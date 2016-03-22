@@ -2,6 +2,7 @@ unit nevFormatInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevFormatInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevFormatInfo" MUID: (4810DFE100B4)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

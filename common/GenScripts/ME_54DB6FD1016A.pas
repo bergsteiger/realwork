@@ -2,6 +2,7 @@ unit StatusBarButtonWords;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\StatusBarButtonWords.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "StatusBarButtonWords" MUID: (54DB6FD1016A)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -75,11 +76,6 @@ begin
  aCtx.rEngine.PushBool(IsDown(aCtx, l_aStatusBarButton));
 end;//TkwPopStatusBarButtonIsDown.DoDoIt
 
-class function TkwPopStatusBarButtonIsDown.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:StatusBarButton:IsDown';
-end;//TkwPopStatusBarButtonIsDown.GetWordNameForRegister
-
 function TkwPopStatusBarButtonIsDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -94,6 +90,11 @@ function TkwPopStatusBarButtonIsDown.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnscStatusBarButton)]);
 end;//TkwPopStatusBarButtonIsDown.ParamsTypes
+
+class function TkwPopStatusBarButtonIsDown.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:StatusBarButton:IsDown';
+end;//TkwPopStatusBarButtonIsDown.GetWordNameForRegister
 
 initialization
  TkwPopStatusBarButtonIsDown.RegisterInEngine;

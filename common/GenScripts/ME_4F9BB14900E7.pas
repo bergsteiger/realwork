@@ -2,6 +2,7 @@ unit nsQuestionsWithChoices;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\nsQuestionsWithChoices.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsQuestionsWithChoices" MUID: (4F9BB14900E7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

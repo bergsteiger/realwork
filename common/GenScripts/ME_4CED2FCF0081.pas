@@ -3,6 +3,7 @@ unit CellMouseSelectionTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\CellMouseSelectionTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TCellMouseSelectionTest" MUID: (4CED2FCF0081)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

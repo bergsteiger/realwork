@@ -3,6 +3,8 @@ unit kwScriptCompileAndProcess;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwScriptCompileAndProcess.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "script_CompileAndProcess" MUID: (53DA248C0014)
+// Имя типа: "TkwScriptCompileAndProcess"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -3,6 +3,7 @@ unit IUnknownRefList;
 
 // Модуль: "w:\common\components\SandBox\IUnknownRefList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TIUnknownRefList" MUID: (51E80A960173)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

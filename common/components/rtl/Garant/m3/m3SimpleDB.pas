@@ -5,7 +5,7 @@ unit m3SimpleDB;
 // Библиотека "m3$DB"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3SimpleDB.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3$DB::m3DB::Tm3SimpleDB
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3SimpleDB
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

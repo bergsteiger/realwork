@@ -2,6 +2,7 @@ unit daUtils;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "daUtils" MUID: (5437B276039C)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

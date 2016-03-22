@@ -2,6 +2,8 @@ unit eeDocument_Schema;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocument_Schema.pas"
 // Стереотип: "TagTable"
+// Элемент модели: "eeDocument" MUID: (4B72E1CE0002)
+// Имя типа: "TeeDocumentSchema"
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

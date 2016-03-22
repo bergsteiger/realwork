@@ -1,86 +1,68 @@
 unit PrimSaveLoadUserTypes_slqtLegislationReview_UserType;
+ {* Поиск: ПРАЙМ. Обзор изменений законодательства }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimSaveLoadUserTypes_slqtLegislationReview_UserType.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::PrimSaveLoadUserTypes::slqtLegislationReview
-//
-// Поиск: ПРАЙМ. Обзор изменений законодательства
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtLegislationReview_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "slqtLegislationReview" MUID: (4BD5BBDE032E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimSaveLoadUserTypes_slqtFilters_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ , PrimSaveLoadUserTypes_slqtFilters_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы slqtLegislationReview }
-  slqtLegislationReviewName = 'slqtLegislationReview';
-   { Строковый идентификатор пользовательского типа "Поиск: ПРАЙМ. Обзор изменений законодательства" }
-  slqtLegislationReview = TvcmUserType(slqtFilters + 1);
-   { Поиск: ПРАЙМ. Обзор изменений законодательства }
-{$IfEnd} //not Admin
+ {* Константы для типа формы slqtLegislationReview }
+ slqtLegislationReviewName = 'slqtLegislationReview';
+  {* Строковый идентификатор пользовательского типа "Поиск: ПРАЙМ. Обзор изменений законодательства" }
+ slqtLegislationReview = TvcmUserType(slqtFilters + 1);
+  {* Поиск: ПРАЙМ. Обзор изменений законодательства }
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
-{$If not defined(Admin) AND not defined(NoScripts)}
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_slqtLegislationReview = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы slqtLegislationReview }
+ Tkw_FormUserType_slqtLegislationReview = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы slqtLegislationReview }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_slqtLegislationReview
-{$IfEnd} //not Admin AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_slqtLegislationReview
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_slqtLegislationReview
-
-class function Tkw_FormUserType_slqtLegislationReview.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::slqtLegislationReview';
-end;//Tkw_FormUserType_slqtLegislationReview.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_slqtLegislationReview.GetInteger: Integer;
- {-}
 begin
  Result := slqtLegislationReview;
 end;//Tkw_FormUserType_slqtLegislationReview.GetInteger
 
-{$IfEnd} //not Admin AND not NoScripts
-{$IfEnd} //not Admin
+class function Tkw_FormUserType_slqtLegislationReview.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::slqtLegislationReview';
+end;//Tkw_FormUserType_slqtLegislationReview.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_slqtLegislationReview
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtLegislationReview.RegisterInEngine;
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация Tkw_FormUserType_slqtLegislationReview }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

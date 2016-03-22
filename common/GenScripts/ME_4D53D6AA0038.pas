@@ -3,6 +3,7 @@ unit ColumnResizeWithCtrl;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\ColumnResizeWithCtrl.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TColumnResizeWithCtrl" MUID: (4D53D6AA0038)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

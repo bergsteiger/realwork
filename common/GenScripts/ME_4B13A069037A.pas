@@ -2,6 +2,7 @@ unit nsPrimCachedEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsPrimCachedEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsPrimCachedEvent" MUID: (4B13A069037A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

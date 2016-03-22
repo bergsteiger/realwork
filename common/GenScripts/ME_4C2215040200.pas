@@ -2,6 +2,7 @@ unit NOT_FINISHED_evCustomHAFMacroReplacer;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomHAFMacroReplacer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomHAFMacroReplacer" MUID: (4C2215040200)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

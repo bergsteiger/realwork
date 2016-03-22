@@ -2,6 +2,7 @@ unit NOT_FINISHED_eeButton;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_eeButton.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TeeButton" MUID: (4DD0F321010A)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

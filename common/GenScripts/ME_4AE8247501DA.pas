@@ -3,6 +3,8 @@ unit PrimStyleEditorNavigator_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorNavigator_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimStyleEditorNavigator" MUID: (4AE8247501DA)
+// Имя типа: "TPrimStyleEditorNavigatorForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

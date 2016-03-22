@@ -2,6 +2,7 @@ unit pgDataProviderParams;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgDataProviderParams.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgDataProviderParams" MUID: (55D6CFA5009E)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 

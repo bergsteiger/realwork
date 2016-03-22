@@ -2,6 +2,7 @@ unit tfwIteratorFromFunctor;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIteratorFromFunctor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwIteratorFromFunctor" MUID: (52EB863801C3)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

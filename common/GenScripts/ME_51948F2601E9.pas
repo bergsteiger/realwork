@@ -2,6 +2,7 @@ unit ietBaseTest;
 
 // Модуль: "w:\archi\source\projects\ImportExportTest\ietBaseTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TietBaseTest" MUID: (51948F2601E9)
 
 {$Include w:\archi\source\projects\ImportExportTest.inc}
 

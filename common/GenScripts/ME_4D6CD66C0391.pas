@@ -2,6 +2,7 @@ unit evCommentsEliminator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCommentsEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCommentsEliminator" MUID: (4D6CD66C0391)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

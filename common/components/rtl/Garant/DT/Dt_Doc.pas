@@ -1,8 +1,14 @@
 Unit Dt_Doc;
 
-{ $Id: Dt_Doc.pas,v 1.307 2015/10/23 14:15:50 voba Exp $ }
+{ $Id: Dt_Doc.pas,v 1.309 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: Dt_Doc.pas,v $
+// Revision 1.309  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
+// Revision 1.308  2015/11/23 11:37:15  lukyanets
+// Заготовки Renum
+//
 // Revision 1.307  2015/10/23 14:15:50  voba
 // -bf : замена ссылок в корреспондентах выдавала AV если ссылок не найдено
 //
@@ -1166,6 +1172,8 @@ uses
      WinProcs, Contnrs, Windows, Forms,
      daDataProvider,
      daTypes,
+     daInterfaces,
+     daSchemeConsts,
      HT_Dll,
      Dt_Err, Dt_Misc,  Dt_Serv, Dt_Link, Dt_LinkServ, Dt_DictConst, Dt_Prior,
      Dt_Hyper,

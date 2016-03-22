@@ -1,56 +1,38 @@
 unit kwClearTemplateStorage;
+ {* Очищает данные для 'Текстового шаблона' }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwClearTemplateStorage.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::CommonArchiWords::ClearTemplateStorage
-//
-// Очищает данные для 'Текстового шаблона'
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearTemplateStorage.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "ClearTemplateStorage" MUID: (53B647A9029B)
+// Имя типа: "TkwClearTemplateStorage"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwClearTemplateStorage = {final scriptword} class(TtfwRegisterableWord)
+ TkwClearTemplateStorage = {final} class(TtfwRegisterableWord)
   {* Очищает данные для 'Текстового шаблона' }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwClearTemplateStorage
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
-  arArchiTestAdapter2
-  ;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwClearTemplateStorage
+ l3ImplUses
+ , arArchiTestAdapter2
+;
 
 procedure TkwClearTemplateStorage.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53B647A9029B_var*
@@ -62,17 +44,13 @@ begin
 end;//TkwClearTemplateStorage.DoDoIt
 
 class function TkwClearTemplateStorage.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'ClearTemplateStorage';
 end;//TkwClearTemplateStorage.GetWordNameForRegister
 
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация ClearTemplateStorage
  TkwClearTemplateStorage.RegisterInEngine;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация ClearTemplateStorage }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
 end.

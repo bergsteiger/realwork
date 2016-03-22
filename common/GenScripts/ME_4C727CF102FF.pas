@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParentedTagData.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsParentedTagData" MUID: (4C727CF102FF)
+// Имя типа: "_nsParentedTagData_"
 
 {$Define nsParentedTagData_imp}
 

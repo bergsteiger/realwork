@@ -3,6 +3,8 @@ unit K517772970_TalcuAnoncedExport;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuAnoncedExport.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TalcuAnoncedExport" MUID: (53218413023C)
+// Имя типа: "TK517772970_TalcuAnoncedExport"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

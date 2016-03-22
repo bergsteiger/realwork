@@ -2,6 +2,7 @@ unit atStringHelper;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atStringHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatStringHelper" MUID: (48B5671301C7)
 
 interface
 

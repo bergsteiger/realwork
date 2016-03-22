@@ -3,6 +3,8 @@ unit NOT_FINISHED_PageSetup_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\NOT_FINISHED_PageSetup_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "PageSetup" MUID: (4AAF86650309)
+// Имя типа: "Ten_PageSetup"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -67,10 +69,10 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , PageSetupKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , PageSetupKeywordsPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 

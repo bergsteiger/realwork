@@ -3,6 +3,7 @@ unit DrawSelectionInTableTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\DrawSelectionInTableTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TDrawSelectionInTableTest" MUID: (4D6F501303E4)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

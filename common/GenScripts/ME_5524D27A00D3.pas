@@ -2,6 +2,7 @@ unit daLongProcessSubscriberList;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daLongProcessSubscriberList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaLongProcessSubscriberList" MUID: (5524D27A00D3)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

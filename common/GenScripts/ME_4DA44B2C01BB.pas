@@ -3,6 +3,8 @@ unit PrimDocumentListFromFile_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentListFromFile\PrimDocumentListFromFile_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "PrimDocumentListFromFile" MUID: (4DA44B2C01BB)
+// Имя типа: "TPrimDocumentListFromFileModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

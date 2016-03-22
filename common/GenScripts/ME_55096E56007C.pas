@@ -2,6 +2,7 @@ unit NOT_FINISHED_ChromeLikeTabSetStyles;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\NOT_FINISHED_ChromeLikeTabSetStyles.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ChromeLikeTabSetStyles" MUID: (55096E56007C)
 
 interface
 

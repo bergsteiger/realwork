@@ -2,6 +2,7 @@ unit afwCustomCommonTextControl;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonTextControl.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TafwCustomCommonTextControl" MUID: (48BBD6550261)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

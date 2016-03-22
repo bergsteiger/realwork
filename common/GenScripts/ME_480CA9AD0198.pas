@@ -2,6 +2,7 @@ unit NOT_FINISHED_evSectionPara;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_evSectionPara.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evSectionPara" MUID: (480CA9AD0198)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

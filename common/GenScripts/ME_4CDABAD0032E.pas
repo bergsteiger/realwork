@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Printing\Printable.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "Printable" MUID: (4CDABAD0032E)
+// Имя типа: "_Printable_"
 
 {$Define Printable_imp}
 

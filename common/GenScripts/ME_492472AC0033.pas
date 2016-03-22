@@ -2,6 +2,7 @@ unit deNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\deNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdeNode" MUID: (492472AC0033)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

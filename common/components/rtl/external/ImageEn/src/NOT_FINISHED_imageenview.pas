@@ -2,6 +2,7 @@ unit NOT_FINISHED_imageenview;
 
 // Модуль: "w:\common\components\rtl\external\ImageEn\src\NOT_FINISHED_imageenview.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "imageenview" MUID: (4ACDBC4A0003)
 
 interface
 
@@ -21,10 +22,10 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , ImageEnPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , ImageEnPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 

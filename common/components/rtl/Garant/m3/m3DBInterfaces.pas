@@ -7,7 +7,7 @@ unit m3DBInterfaces;
 // Модуль: "w:/common/components/rtl/Garant/m3/m3DBInterfaces.pas"
 // Начат: 18.08.2004 19:37
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi For Archi::m3$DB::m3DBInterfaces
+// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Low Level::m3$DB::m3DBInterfaces
 //
 // Интерфейсы для работы с хранилищем документов Архивариуса.
 //

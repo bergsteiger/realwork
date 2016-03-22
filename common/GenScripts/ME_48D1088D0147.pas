@@ -2,6 +2,7 @@ unit NOT_FINISHED_nevFontPrim;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_nevFontPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevFontPrim" MUID: (48D1088D0147)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

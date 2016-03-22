@@ -1,84 +1,66 @@
 unit BaloonWarningUserTypes_ControlledChangingWarning_UserType;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/BaloonWarningUserTypes_ControlledChangingWarning_UserType.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Core::Base Operations::View::Base Forms::BaloonWarningUserTypes::ControlledChangingWarning
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_ControlledChangingWarning_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "ControlledChangingWarning" MUID: (4DBFF6FD020F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  BaloonWarningUserTypes_OldBaseWarning_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  BaloonWarningUserTypes_Fake_UserType
-  ;
+ l3IntfUses
+ , BaloonWarningUserTypes_OldBaseWarning_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы ControlledChangingWarning }
-  ControlledChangingWarningName = 'ControlledChangingWarning';
-   { Строковый идентификатор пользовательского типа "" }
-  ControlledChangingWarning = TvcmUserType(OldBaseWarning + 1);
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы ControlledChangingWarning }
+ ControlledChangingWarningName = 'ControlledChangingWarning';
+  {* Строковый идентификатор пользовательского типа "" }
+ ControlledChangingWarning = TvcmUserType(OldBaseWarning + 1);
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_ControlledChangingWarning = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы ControlledChangingWarning }
+ Tkw_FormUserType_ControlledChangingWarning = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы ControlledChangingWarning }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_ControlledChangingWarning
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_ControlledChangingWarning
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_ControlledChangingWarning
-
-class function Tkw_FormUserType_ControlledChangingWarning.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::ControlledChangingWarning';
-end;//Tkw_FormUserType_ControlledChangingWarning.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ControlledChangingWarning.GetInteger: Integer;
- {-}
 begin
  Result := ControlledChangingWarning;
 end;//Tkw_FormUserType_ControlledChangingWarning.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_ControlledChangingWarning.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ControlledChangingWarning';
+end;//Tkw_FormUserType_ControlledChangingWarning.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_ControlledChangingWarning
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ControlledChangingWarning.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_ControlledChangingWarning }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -2,6 +2,7 @@ unit tfwKeyWordPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwKeyWordPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwKeyWordPrim" MUID: (4FFEEC080367)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -17,7 +18,6 @@ type
  TtfwKeyWordPrim = {abstract} class(Tl3PrimString)
   private
    f_AsCStr: Il3CString;
-    {* Поле для свойства AsCStr }
   protected
    procedure ClearFields; override;
   public

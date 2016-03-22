@@ -1,8 +1,20 @@
 unit CustEditWin;
 
-{ $Id: CustEditWin.pas,v 1.31 2015/06/25 10:46:19 dinishev Exp $ }
+{ $Id: CustEditWin.pas,v 1.36 2015/12/25 12:49:10 voba Exp $ }
 
 // $Log: CustEditWin.pas,v $
+// Revision 1.36  2015/12/25 12:49:10  voba
+// no message
+//
+// Revision 1.34  2015/12/10 13:58:40  voba
+// -k:613297314
+//
+// Revision 1.33  2015/11/26 08:45:27  lukyanets
+// КОнстанты переехали
+//
+// Revision 1.32  2015/11/23 11:36:56  lukyanets
+// Заготовки Renum
+//
 // Revision 1.31  2015/06/25 10:46:19  dinishev
 // Установка полосатого стиля на таблицу.
 //
@@ -849,7 +861,9 @@ uses
  Com_Cnst,
  DictsSup,
 
+ daInterfaces,
  daDataProvider,
+ daSchemeConsts,
 
  DT_Record,
  DT_Err,
@@ -1920,35 +1934,39 @@ var
  lHintStr     : AnsiString;
  lUserDocID   : TDocID;
 begin
- if l3IOk(aHotSpot.QueryInterface(IevHyperlink, l_Hyperlink)) then
+ if l3IOk(aHotSpot.QueryInterface(IevHyperlink, l_Hyperlink)) and l_Hyperlink.Exists and (l_Hyperlink.Kind = ev_lvkUnknown {ссылка обыкновенная}) then
   try
    if not l3IsNil(l_Hyperlink.Hint) then
     Result := l3PCharLen2String(l_Hyperlink.Hint)
    else
     If l3IOk(l_Hyperlink.QueryInterface(IevAddressList, l_AddresList)) then
      try
-      for I := 0 to Pred(l_AddresList.Count) do
-       with l_AddresList[I]{$IfDef XE4}.rTafwAddress{$EndIf} do
-       begin
-        if Length(lHintStr) > 0 then lHintStr := lHintStr + #13;
-        lUserDocID := LinkServer(DocFamily).Renum.GetExtDocID(NormDocID(DocID));
+      if l_AddresList.Count = 0 then
+       vtMessageDlg(l3Fmt(l3CStr(@sidHlinkErr), [l_Hyperlink.ID]),  mtError)
+      else
+      begin
+       for I := 0 to Pred(l_AddresList.Count) do
+        with l_AddresList[I]{$IfDef XE4}.rTafwAddress{$EndIf} do
+        begin
+         if Length(lHintStr) > 0 then lHintStr := lHintStr + #13;
+         lUserDocID := LinkServer(DocFamily).Renum.GetExtDocID(NormDocID(DocID));
 
-        if lUserDocID <> cUndefDocID then
-         lHintStr := lHintStr + Format('%d.%d', [lUserDocID, SubID])
+         if lUserDocID <> cUndefDocID then
+          lHintStr := lHintStr + Format('%d.%d', [lUserDocID, SubID])
+         else
+          lHintStr := lHintStr + Format('#%d.%d', [NormDocID(DocID), SubID]);
+        end;
+        I := Pos('|',aHint);
+        if I = 0 then
+         Result := lHintStr + '|' + aHint
         else
-         lHintStr := lHintStr + Format('#%d.%d', [NormDocID(DocID), SubID]);
-       end;
-       I := Pos('|',aHint);
-       if I = 0 then
-        Result := lHintStr + '|' + aHint
-       else
-        Result := lHintStr + System.Copy(aHint, I, Length(aHint) - I);
-       try
-        l_Hyperlink.Hint := l3PCharLen(Result);
-       except
-        l3System.Msg2Log(Format('Проблемы с гиперссылкой в топике %d',[Document.DocID]));
-
-       end;
+         Result := lHintStr + System.Copy(aHint, I, Length(aHint) - I);
+        try
+         l_Hyperlink.Hint := l3PCharLen(Result);
+        except
+         l3System.Msg2Log(Format('Проблемы с гиперссылкой в топике %d',[Document.DocID]));
+        end;
+      end;
      finally
       l_AddresList := nil;
      end;

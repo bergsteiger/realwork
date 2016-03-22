@@ -2,6 +2,7 @@ unit tfwIntegerConstantRegistrator;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIntegerConstantRegistrator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwIntegerConstantRegistrator" MUID: (53C7C4BF03D9)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

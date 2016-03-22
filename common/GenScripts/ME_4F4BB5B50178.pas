@@ -3,6 +3,8 @@ unit kwFORWARD;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwFORWARD.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "FORWARD" MUID: (4F4BB5B50178)
+// Имя типа: "TkwFORWARD"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -22,7 +24,6 @@ type
   protected
    function EndBracket(const aContext: TtfwContext;
     aSilent: Boolean): RtfwWord; override;
-   class function GetWordNameForRegister: AnsiString; override;
    function AfterWordMaxCount(const aCtx: TtfwContext): Integer; override;
    function AcceptsKeyWordAfter(const aContext: TtfwContext;
     aWordNumber: Integer): Boolean; override;
@@ -30,6 +31,7 @@ type
     aCompiled: TkwCompiledWordPrim;
     const aContext: TtfwContext); override;
     {* Завершает определение вновь созданного слова }
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwFORWARD
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -51,11 +53,6 @@ begin
  Result := nil;
 //#UC END# *4DB6C99F026E_4F4BB5B50178_impl*
 end;//TkwFORWARD.EndBracket
-
-class function TkwFORWARD.GetWordNameForRegister: AnsiString;
-begin
- Result := 'FORWARD';
-end;//TkwFORWARD.GetWordNameForRegister
 
 function TkwFORWARD.AfterWordMaxCount(const aCtx: TtfwContext): Integer;
 //#UC START# *4DB9B446039A_4F4BB5B50178_var*
@@ -98,6 +95,11 @@ begin
  end;//try..finally
 //#UC END# *4F219629036A_4F4BB5B50178_impl*
 end;//TkwFORWARD.FinishDefinitionOfNewWord
+
+class function TkwFORWARD.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'FORWARD';
+end;//TkwFORWARD.GetWordNameForRegister
 
 initialization
  TkwFORWARD.RegisterInEngine;

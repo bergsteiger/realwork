@@ -3,6 +3,7 @@ unit kwPrintDataSaver;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPrintDataSaver.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwPrintDataSaver" MUID: (4F72AE860228)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

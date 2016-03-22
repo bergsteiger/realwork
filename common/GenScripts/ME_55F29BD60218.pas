@@ -3,6 +3,7 @@ unit archiDBTest;
 
 // Модуль: "w:\archi\source\projects\ImportExportTest\ArchiDBTests\archiDBTest.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarchiDBTest" MUID: (55F29BD60218)
 
 {$Include w:\archi\source\projects\ImportExportTest.inc}
 

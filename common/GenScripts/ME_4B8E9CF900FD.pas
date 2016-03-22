@@ -2,6 +2,7 @@ unit vcmCustomizeToolsRes;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmCustomizeToolsRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmCustomizeToolsRes" MUID: (4B8E9CF900FD)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

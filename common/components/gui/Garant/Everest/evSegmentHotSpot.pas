@@ -709,7 +709,7 @@ function TevSegmentHotSpot.MButtonUp(const aView: InevControlView;
 //#UC END# *49DB468302A5_4A268E590029_var*
 begin
 //#UC START# *49DB468302A5_4A268E590029_impl*
- Result := TryDoHyperlink(aView, cEffectMap[True]);
+ Result := TryDoHyperlink(aView, [afw_jteRequestNewTab, afw_jteRequestNoActivate]);
 //#UC END# *49DB468302A5_4A268E590029_impl*
 end;//TevSegmentHotSpot.MButtonUp
 

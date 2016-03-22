@@ -2,6 +2,8 @@
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "atProcessNamedFoldersObjectOperation" MUID: (484FA0FD0223)
+// Имя типа: "_atProcessNamedFoldersObjectOperation_"
 
 {$Define atProcessNamedFoldersObjectOperation_imp}
 

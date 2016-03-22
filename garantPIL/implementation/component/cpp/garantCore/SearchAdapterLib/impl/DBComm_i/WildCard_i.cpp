@@ -87,9 +87,9 @@ GCL::StrSet* WildCard_i::get (const std::string& in) {
 				Core::Aptr <GCL::StrSet> res;
 
 				if (norm_buf [0] & 0x80) {
-					ret->insert (norm_buf);
+					ret->insert (norm_buf + 1); // нулевой байт игнорируем
 				} else {
-					Core::Aptr <GCL::StrSet> res = m_normalizer->execute ((is_context_str)? k + 1: k, true);
+					Core::Aptr <GCL::StrSet> res = m_normalizer->execute ((is_context_str)? k + 1: k, false);
 					ret->insert (res->begin (), res->end ());
 				}
 			}

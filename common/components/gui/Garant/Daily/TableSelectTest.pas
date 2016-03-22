@@ -1,84 +1,59 @@
 unit TableSelectTest;
+ {* Базовый тест для работы с выделением таблицы }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/TableSelectTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TTableSelectTest
-//
-// Базовый тест для работы с выделением таблицы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\TableSelectTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TTableSelectTest" MUID: (4C382CB00345)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  nevTools,
-  TextEditorVisitor,
-  PrimTextLoad_Form
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , TextEditorVisitor
+ , nevTools
+ , PrimTextLoad_Form
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TTableSelectTest = {abstract} class(TTextEditorVisitor)
   {* Базовый тест для работы с выделением таблицы }
- protected
- // realized methods
-   procedure DoVisit(aForm: TPrimTextLoadForm); override;
-     {* Обработать текст }
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    function GetTablePara(const aDocument: InevParaList): InevParaList; virtual; abstract;
-     {* Возвращает параграф с таблицей }
+    {* Возвращает параграф с таблицей }
    function SelectColumn(var aColID: Integer): Boolean; virtual;
-     {* Выделить колонку aColID }
+    {* Выделить колонку aColID }
+   procedure DoVisit(aForm: TPrimTextLoadForm); override;
+    {* Обработать текст }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TTableSelectTest
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evOp,
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TTableSelectTest
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evOp
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 function TTableSelectTest.SelectColumn(var aColID: Integer): Boolean;
+ {* Выделить колонку aColID }
 //#UC START# *4C382DC50185_4C382CB00345_var*
 //#UC END# *4C382DC50185_4C382CB00345_var*
 begin
@@ -89,6 +64,7 @@ begin
 end;//TTableSelectTest.SelectColumn
 
 procedure TTableSelectTest.DoVisit(aForm: TPrimTextLoadForm);
+ {* Обработать текст }
 //#UC START# *4BE419AF0217_4C382CB00345_var*
 var
  l_ColID     : Integer;
@@ -103,17 +79,16 @@ begin
 end;//TTableSelectTest.DoVisit
 
 function TTableSelectTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TTableSelectTest.GetFolder
 
 function TTableSelectTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C382CB00345';
 end;//TTableSelectTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

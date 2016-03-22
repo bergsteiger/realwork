@@ -2,6 +2,7 @@ unit ContextSearchSupportUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ContextSearchSupportUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "ContextSearchSupport" MUID: (456FED4903D8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -90,23 +90,23 @@ class IProgress
 	: virtual public ::Core::IObject
 {
 public:
-	// инициализация
-	virtual void init (size_t div, size_t pos) = 0;
-
 	// проверка, остановлен ли процесс пользователем
 	virtual bool canceled_by_user () = 0;
 
+	// инициализация
+	virtual void init (size_t div, size_t pos) = 0;
+
 	// пауза
 	virtual void pause (bool pause) = 0;
+
+	// set
+	virtual void plus () = 0;
 
 	// позиционирование
 	virtual void set (size_t value) = 0;
 
 	// установить максимальное значение
 	virtual void set_border (size_t value) = 0;
-
-	// set
-	virtual void plus () = 0;
 };
 
 class IBuffer;
@@ -117,11 +117,8 @@ class IBuffer
 	: virtual public ::Core::IObject
 {
 public:
-	// получить данные
-	virtual const char* get_data () const = 0;
-
-	// инициализация
-	virtual void set_data (char* data) = 0;
+	// данные
+	virtual const char* get () const = 0;
 };
 
 class IIndex;
@@ -167,9 +164,6 @@ class IBase
 public:
 	// фабрика
 	virtual IIndex* make (const char* name) = 0;
-
-	// фабрика
-	virtual IProgress* make_progress () = 0;
 };
 
 // Тип для идентификатора документа
@@ -294,7 +288,7 @@ public:
 	virtual bool is_valid () const = 0;
 
 	// фабрика
-	virtual StreamsPair* make (const std::string& norma, const std::string& forma, unsigned long flags) = 0;
+	virtual StreamsPair* make (const std::string& key, unsigned long flags) = 0;
 };
 
 #pragma pack (push, 1)
@@ -334,7 +328,7 @@ public:
 	virtual IBase* get (size_t i) = 0;
 
 	// размер
-	virtual size_t get_size () const = 0;
+	virtual size_t size () const = 0;
 };
 
 #pragma pack (push, 1)
@@ -426,6 +420,9 @@ struct RelPair {
 
 // RelTuneData
 typedef std::vector < RelPair > RelTuneData;
+
+// Константы
+static const size_t MAX_WORDS_OF_REQUEST = 15; // максимальное количество слов в контекстном запросе
 
 } // namespace DBCore
 

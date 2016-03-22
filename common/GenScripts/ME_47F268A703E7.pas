@@ -2,6 +2,7 @@ unit evParaNode;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\evParaNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevParaNode" MUID: (47F268A703E7)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

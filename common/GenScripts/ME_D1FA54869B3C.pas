@@ -3,6 +3,7 @@ unit ChildKeywordsPack;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\ChildKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ChildKeywordsPack" MUID: (D1FA54869B3C)
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
@@ -47,8 +48,8 @@ type
 'aControl' форма::Child TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Child
 
  Tkw_Child_Control_ChildZone = {final} class(TtfwControlString)
@@ -59,9 +60,9 @@ type
 контрол::ChildZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Child_Control_ChildZone
 
  Tkw_Child_Control_ChildZone_Push = {final} class(TkwBynameControlPush)
@@ -84,9 +85,9 @@ type
 контрол::MainPageTab TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Child_Control_MainPageTab
 
  Tkw_Child_Control_MainPageTab_Push = {final} class(TkwBynameControlPush)
@@ -149,20 +150,15 @@ OBJECT VAR l_TElTabSheet
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwChildFormMainPageTab
 
-class function Tkw_Form_Child.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Child';
-end;//Tkw_Form_Child.GetWordNameForRegister
-
 function Tkw_Form_Child.GetString: AnsiString;
 begin
  Result := 'ChildForm';
 end;//Tkw_Form_Child.GetString
 
-class function Tkw_Child_Control_ChildZone.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_Child.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::ChildZone';
-end;//Tkw_Child_Control_ChildZone.GetWordNameForRegister
+ Result := 'форма::Child';
+end;//Tkw_Form_Child.GetWordNameForRegister
 
 function Tkw_Child_Control_ChildZone.GetString: AnsiString;
 begin
@@ -175,6 +171,11 @@ begin
  TtfwClassRef.Register(TnscFormsPageControl);
 end;//Tkw_Child_Control_ChildZone.RegisterInEngine
 
+class function Tkw_Child_Control_ChildZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ChildZone';
+end;//Tkw_Child_Control_ChildZone.GetWordNameForRegister
+
 procedure Tkw_Child_Control_ChildZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ChildZone');
@@ -186,11 +187,6 @@ begin
  Result := 'контрол::ChildZone:push';
 end;//Tkw_Child_Control_ChildZone_Push.GetWordNameForRegister
 
-class function Tkw_Child_Control_MainPageTab.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::MainPageTab';
-end;//Tkw_Child_Control_MainPageTab.GetWordNameForRegister
-
 function Tkw_Child_Control_MainPageTab.GetString: AnsiString;
 begin
  Result := 'MainPageTab';
@@ -201,6 +197,11 @@ begin
  inherited;
  TtfwClassRef.Register(TElTabSheet);
 end;//Tkw_Child_Control_MainPageTab.RegisterInEngine
+
+class function Tkw_Child_Control_MainPageTab.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::MainPageTab';
+end;//Tkw_Child_Control_MainPageTab.GetWordNameForRegister
 
 procedure Tkw_Child_Control_MainPageTab_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -235,11 +236,6 @@ begin
  aCtx.rEngine.PushObj(ChildZone(aCtx, l_aChildForm));
 end;//TkwChildFormChildZone.DoDoIt
 
-class function TkwChildFormChildZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TChildForm.ChildZone';
-end;//TkwChildFormChildZone.GetWordNameForRegister
-
 procedure TkwChildFormChildZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -260,6 +256,11 @@ function TkwChildFormChildZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TChildForm)]);
 end;//TkwChildFormChildZone.ParamsTypes
+
+class function TkwChildFormChildZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TChildForm.ChildZone';
+end;//TkwChildFormChildZone.GetWordNameForRegister
 
 function TkwChildFormMainPageTab.MainPageTab(const aCtx: TtfwContext;
  aChildForm: TChildForm): TElTabSheet;
@@ -283,11 +284,6 @@ begin
  aCtx.rEngine.PushObj(MainPageTab(aCtx, l_aChildForm));
 end;//TkwChildFormMainPageTab.DoDoIt
 
-class function TkwChildFormMainPageTab.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TChildForm.MainPageTab';
-end;//TkwChildFormMainPageTab.GetWordNameForRegister
-
 procedure TkwChildFormMainPageTab.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -308,6 +304,11 @@ function TkwChildFormMainPageTab.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TChildForm)]);
 end;//TkwChildFormMainPageTab.ParamsTypes
+
+class function TkwChildFormMainPageTab.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TChildForm.MainPageTab';
+end;//TkwChildFormMainPageTab.GetWordNameForRegister
 
 initialization
  Tkw_Form_Child.RegisterInEngine;

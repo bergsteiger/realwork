@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3UnknownPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3UnknownPrim" MUID: (47913F4E02E0)
+// Имя типа: "_l3UnknownPrim_"
 
 {$Define l3UnknownPrim_imp}
 

@@ -3,6 +3,8 @@ unit Navigator_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\Navigator_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "Navigator" MUID: (4ABBB23903D8)
+// Имя типа: "Ten_Navigator"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

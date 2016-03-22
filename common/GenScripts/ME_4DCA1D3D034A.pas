@@ -3,6 +3,7 @@ unit HorzMergeCells;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\HorzMergeCells.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "THorzMergeCells" MUID: (4DCA1D3D034A)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

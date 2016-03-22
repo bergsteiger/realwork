@@ -30,6 +30,8 @@ uses
 type
 //#UC START# *45F7C10C005Dci*
 //#UC END# *45F7C10C005Dci*
+//#UC START# *45F7C10C005Dcit*
+//#UC END# *45F7C10C005Dcit*
  NodeServerTree = {abstract} class(Tree, IListener)
   {* јдаптерное дерево, с кешом сервантов (эмул€ци€ мультифабрики) }
  protected

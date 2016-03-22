@@ -3,6 +3,7 @@ unit bsUserDataObject;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\bsUserDataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsUserDataObject" MUID: (49F552BA0035)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

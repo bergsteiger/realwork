@@ -3,6 +3,7 @@ unit SuccessTest;
 
 // Модуль: "w:\common\components\rtl\Garant\TestForTFW\SuccessTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TSuccessTest" MUID: (4CA0B27401E4)
 
 interface
 

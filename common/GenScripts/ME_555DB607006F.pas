@@ -2,6 +2,7 @@ unit evdNativeReaderServices;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdNativeReaderServices.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evdNativeReaderServices" MUID: (555DB607006F)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

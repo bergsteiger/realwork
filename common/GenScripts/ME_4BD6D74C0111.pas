@@ -3,6 +3,7 @@ unit PrimWorkJournal_utWorkJournal_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\Forms\PrimWorkJournal_utWorkJournal_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utWorkJournal" MUID: (4BD6D74C0111)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utWorkJournal = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utWorkJournal }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utWorkJournal
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utWorkJournal.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utWorkJournal';
-end;//Tkw_FormUserType_utWorkJournal.GetWordNameForRegister
-
 function Tkw_FormUserType_utWorkJournal.GetInteger: Integer;
 begin
  Result := utWorkJournal;
 end;//Tkw_FormUserType_utWorkJournal.GetInteger
+
+class function Tkw_FormUserType_utWorkJournal.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utWorkJournal';
+end;//Tkw_FormUserType_utWorkJournal.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

@@ -2,6 +2,7 @@ unit ncsSendTask;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsSendTask.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsSendTask" MUID: (54855C2F0088)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -2,6 +2,7 @@ unit nsLangToContextMap;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsLangToContextMap.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsLangToContextMap" MUID: (490837B901D4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

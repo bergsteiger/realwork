@@ -1,56 +1,38 @@
 unit kwMainFormFindDocuments;
+ {* Вызывает поиск документов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwMainFormFindDocuments.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::CommonArchiWords::MainForm_FindDocuments
-//
-// Вызывает поиск документов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwMainFormFindDocuments.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "MainForm_FindDocuments" MUID: (4F8D503400FD)
+// Имя типа: "TkwMainFormFindDocuments"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwMainFormFindDocuments = {final scriptword} class(TtfwRegisterableWord)
+ TkwMainFormFindDocuments = {final} class(TtfwRegisterableWord)
   {* Вызывает поиск документов. }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwMainFormFindDocuments
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
-  Main
-  ;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwMainFormFindDocuments
+ l3ImplUses
+ , Main
+;
 
 procedure TkwMainFormFindDocuments.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F8D503400FD_var*
@@ -63,17 +45,13 @@ begin
 end;//TkwMainFormFindDocuments.DoDoIt
 
 class function TkwMainFormFindDocuments.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'MainForm:FindDocuments';
 end;//TkwMainFormFindDocuments.GetWordNameForRegister
 
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация MainForm_FindDocuments
  TkwMainFormFindDocuments.RegisterInEngine;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация MainForm_FindDocuments }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
 end.

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\SandBox\List.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "List" MUID: (51DEB07E03E4)
+// Имя типа: "_List_"
 
 {$Define List_imp}
 

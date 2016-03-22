@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentBaseSearcher.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "DocumentBaseSearcher" MUID: (4B4DB88E01B6)
+// Имя типа: "_DocumentBaseSearcher_"
 
 {$Define DocumentBaseSearcher_imp}
 

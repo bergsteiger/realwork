@@ -2,6 +2,7 @@ unit AutolinkFilterWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\AutolinkFilterWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "AutolinkFilterWordsPack" MUID: (552CF9C50052)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -80,11 +81,6 @@ begin
  aCtx.rEngine.PushIntf(filter_AutolinkFilter(aCtx), TypeInfo(Ik2TagGenerator));
 end;//TkwFilterAutolinkFilter.DoDoIt
 
-class function TkwFilterAutolinkFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'filter:AutolinkFilter';
-end;//TkwFilterAutolinkFilter.GetWordNameForRegister
-
 function TkwFilterAutolinkFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Ik2TagGenerator);
@@ -100,6 +96,11 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwFilterAutolinkFilter.ParamsTypes
 
+class function TkwFilterAutolinkFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'filter:AutolinkFilter';
+end;//TkwFilterAutolinkFilter.GetWordNameForRegister
+
 procedure TkwFilterCleanAutolinkFilter.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_30FF429786F9_var*
 //#UC END# *4DAEEDE10285_30FF429786F9_var*
@@ -108,11 +109,6 @@ begin
  Tl3AutolinkService.Instance.CleanAutolinkFilter;
 //#UC END# *4DAEEDE10285_30FF429786F9_impl*
 end;//TkwFilterCleanAutolinkFilter.DoDoIt
-
-class function TkwFilterCleanAutolinkFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'filter:CleanAutolinkFilter';
-end;//TkwFilterCleanAutolinkFilter.GetWordNameForRegister
 
 function TkwFilterCleanAutolinkFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -123,6 +119,11 @@ function TkwFilterCleanAutolinkFilter.GetAllParamsCount(const aCtx: TtfwContext)
 begin
  Result := 0;
 end;//TkwFilterCleanAutolinkFilter.GetAllParamsCount
+
+class function TkwFilterCleanAutolinkFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'filter:CleanAutolinkFilter';
+end;//TkwFilterCleanAutolinkFilter.GetWordNameForRegister
 
 initialization
  TkwFilterAutolinkFilter.RegisterInEngine;

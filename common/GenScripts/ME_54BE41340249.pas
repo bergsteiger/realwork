@@ -2,6 +2,7 @@ unit NOT_FINISHED_eeSubList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeSubList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TeeSubList" MUID: (54BE41340249)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

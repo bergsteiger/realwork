@@ -44,7 +44,8 @@ type
    procedure LoadDBVersion(aParams: TdaDataProviderParams); override;
    function DoMakeProvider(aParams: TdaDataProviderParams;
      ForCheckLogin: Boolean;
-     AllowClearLocks: Boolean): IdaDataProvider; override;
+     AllowClearLocks: Boolean;
+     SetGlobalProvider: Boolean = True): IdaDataProvider; override;
    procedure LoginCheckSucceed(aParams: TdaDataProviderParams); override;
  public
  // realized methods
@@ -265,13 +266,14 @@ end;//ThtDataProviderFactory.LoadDBVersion
 
 function ThtDataProviderFactory.DoMakeProvider(aParams: TdaDataProviderParams;
   ForCheckLogin: Boolean;
-  AllowClearLocks: Boolean): IdaDataProvider;
+  AllowClearLocks: Boolean;
+  SetGlobalProvider: Boolean = True): IdaDataProvider;
 //#UC START# *551D06D402AF_54FEAD4402AB_var*
 //#UC END# *551D06D402AF_54FEAD4402AB_var*
 begin
 //#UC START# *551D06D402AF_54FEAD4402AB_impl*
  Assert(aParams is ThtDataProviderParams);
- Result := ThtDataProvider.Make(ThtDataProviderParams(aParams), ForCheckLogin, AllowClearLocks);
+ Result := ThtDataProvider.Make(ThtDataProviderParams(aParams), ForCheckLogin, AllowClearLocks, SetGlobalProvider);
 //#UC END# *551D06D402AF_54FEAD4402AB_impl*
 end;//ThtDataProviderFactory.DoMakeProvider
 

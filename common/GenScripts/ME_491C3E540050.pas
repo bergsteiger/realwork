@@ -3,6 +3,7 @@ unit ConsultationInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\ConsultationInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "ConsultationInterfaces" MUID: (491C3E540050)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

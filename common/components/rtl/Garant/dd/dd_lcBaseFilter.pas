@@ -1,8 +1,11 @@
 unit dd_lcBaseFilter;
 // Базовые фильтры
 
-{ $Id: dd_lcBaseFilter.pas,v 1.11 2013/04/05 12:04:30 lulin Exp $ }
+{ $Id: dd_lcBaseFilter.pas,v 1.12 2016/02/16 06:47:57 lukyanets Exp $ }
 // $Log: dd_lcBaseFilter.pas,v $
+// Revision 1.12  2016/02/16 06:47:57  lukyanets
+// Не собиралось
+//
 // Revision 1.11  2013/04/05 12:04:30  lulin
 // - портируем.
 //
@@ -99,7 +102,7 @@ type
 implementation
 
 uses
- l3Base, ddValueList, SysUtils, l3LingLib;
+ l3Base, ddValueList, SysUtils, l3LingLib, l3SpellMisc;
 
 procedure Tdd_lcBaseFilter.ErrorReaction(const aMsg: AnsiString);
 begin

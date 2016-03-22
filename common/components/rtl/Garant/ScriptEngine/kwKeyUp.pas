@@ -5,6 +5,8 @@ unit kwKeyUp;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwKeyUp.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "KeyUp" MUID: (5220A3FC021A)
+// Имя типа: "TkwKeyUp"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -1,84 +1,66 @@
 unit BaloonWarningUserTypes_remUnreadConsultations_UserType;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/BaloonWarningUserTypes_remUnreadConsultations_UserType.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Core::Base Operations::View::Base Forms::BaloonWarningUserTypes::remUnreadConsultations
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remUnreadConsultations_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "remUnreadConsultations" MUID: (4DBFF59201D0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  BaloonWarningUserTypes_remTimeMachineWarning_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  BaloonWarningUserTypes_Fake_UserType
-  ;
+ l3IntfUses
+ , BaloonWarningUserTypes_remTimeMachineWarning_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы remUnreadConsultations }
-  remUnreadConsultationsName = 'remUnreadConsultations';
-   { Строковый идентификатор пользовательского типа "" }
-  remUnreadConsultations = TvcmUserType(remTimeMachineWarning + 1);
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы remUnreadConsultations }
+ remUnreadConsultationsName = 'remUnreadConsultations';
+  {* Строковый идентификатор пользовательского типа "" }
+ remUnreadConsultations = TvcmUserType(remTimeMachineWarning + 1);
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_remUnreadConsultations = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы remUnreadConsultations }
+ Tkw_FormUserType_remUnreadConsultations = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы remUnreadConsultations }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_remUnreadConsultations
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_remUnreadConsultations
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_remUnreadConsultations
-
-class function Tkw_FormUserType_remUnreadConsultations.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::remUnreadConsultations';
-end;//Tkw_FormUserType_remUnreadConsultations.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_remUnreadConsultations.GetInteger: Integer;
- {-}
 begin
  Result := remUnreadConsultations;
 end;//Tkw_FormUserType_remUnreadConsultations.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_remUnreadConsultations.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::remUnreadConsultations';
+end;//Tkw_FormUserType_remUnreadConsultations.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_remUnreadConsultations
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_remUnreadConsultations.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_remUnreadConsultations }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

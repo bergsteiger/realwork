@@ -3,6 +3,7 @@ unit TwoEmptyParaForOneReplacerTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\TwoEmptyParaForOneReplacerTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTwoEmptyParaForOneReplacerTest" MUID: (4C31CC59002B)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

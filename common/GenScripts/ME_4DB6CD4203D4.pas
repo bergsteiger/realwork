@@ -3,6 +3,7 @@ unit kwString;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwString.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwString" MUID: (4DB6CD4203D4)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -22,7 +23,6 @@ type
   {* Помещает значение в стек как строковое. }
   private
    f_Value: Il3CString;
-    {* Поле для свойства Value }
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
    procedure Cleanup; override;
@@ -76,12 +76,6 @@ begin
 //#UC END# *479731C50290_4DB6CD4203D4_impl*
 end;//TkwString.Cleanup
 
-procedure TkwString.ClearFields;
-begin
- f_Value := nil;
- inherited;
-end;//TkwString.ClearFields
-
 function TkwString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 //#UC START# *551544E2001A_4DB6CD4203D4_var*
 //#UC END# *551544E2001A_4DB6CD4203D4_var*
@@ -99,6 +93,12 @@ begin
  Result := f_Value;
 //#UC END# *55AFD7DA0258_4DB6CD4203D4_impl*
 end;//TkwString.WordName
+
+procedure TkwString.ClearFields;
+begin
+ f_Value := nil;
+ inherited;
+end;//TkwString.ClearFields
 
 initialization
  TkwString.RegisterClass;

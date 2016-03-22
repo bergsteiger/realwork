@@ -3,6 +3,8 @@ unit fsMedicDiction;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\fsMedicDiction.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "MedicDiction" MUID: (4AA12BA501E4)
+// Имя типа: "Tfs_MedicDiction"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

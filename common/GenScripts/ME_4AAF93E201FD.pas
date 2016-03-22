@@ -2,6 +2,7 @@ unit nsPostingsLine;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\nsPostingsLine.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsPostingsLine" MUID: (4AAF93E201FD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -436,9 +437,12 @@ begin
    l_SameNameIndex := lp_GetNameIndex(l_NewName);
    if (l_SameNameIndex >= 0) and (l_SameNameIndex <> EditNodeIndex) then
     raise EDuplicateName.Create('');
-   l_Item.SetName(nsIStr(l_NewName));
-   if Assigned(f_OnEditNode) then
-    f_OnEditNode(f_EditNodeIndex, l_NewName);
+   if not aCheckOnly then
+   begin
+    l_Item.SetName(nsIStr(l_NewName));
+    if Assigned(f_OnEditNode) then
+     f_OnEditNode(f_EditNodeIndex, l_NewName);
+   end;
   end;
  finally
   l_List := nil;
@@ -607,18 +611,21 @@ begin
   begin
    Result := False;
    try
-    ChangeCaption;
-    Result := True;
+    CheckAndChangeCaption(True);
    except
     on EDuplicateName do
     begin
      vcmSay(inf_PostingAlreadyExist);
+     Result := False;
      Exit;
     end;//EDuplicateName
    end;//try..except
 
    if vcmAsk(qr_QueryWasSaved) then
-    lp_Save
+   begin
+    CheckAndChangeCaption(False);
+    lp_Save;
+   end
    else
     Result := False;
   end

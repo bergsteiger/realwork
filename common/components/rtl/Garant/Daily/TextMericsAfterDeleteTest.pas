@@ -1,93 +1,69 @@
 unit TextMericsAfterDeleteTest;
+ {* Проверка метрик после удаления. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/TextMericsAfterDeleteTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EditorTests::TTextMericsAfterDeleteTest
-//
-// Проверка метрик после удаления.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\TextMericsAfterDeleteTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TTextMericsAfterDeleteTest" MUID: (4D1B16D302DD)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TextMetricsTest,
-  nevTools,
-  evCustomEditorWindow
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , TextMetricsTest
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevTools
+ , evCustomEditorWindow
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  _SelectTablePart_Parent_ = TTextMetricsTest;
  {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
  TTextMericsAfterDeleteTest = {abstract} class(_SelectTablePart_)
   {* Проверка метрик после удаления. }
- protected
- // overridden protected methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure Process(aForm: TPrimTextLoadForm); override;
-     {* Собственно процесс обработки текста }
-   {$IfEnd} //nsTest AND not NoVCM
+    {* Собственно процесс обработки текста }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function NeedSelection: Boolean; override;
-     {* Нужно ли чего-нибудь выделять. }
+    {* Нужно ли чего-нибудь выделять. }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TTextMericsAfterDeleteTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork,
-  evOp
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
+ l3ImplUses
+ , TestFrameWork
+ , evOp
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
 
-// start class TTextMericsAfterDeleteTest
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TTextMericsAfterDeleteTest.Process(aForm: TPrimTextLoadForm);
+ {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4D1B16D302DD_var*
 //#UC END# *4BE13147032C_4D1B16D302DD_var*
 begin
@@ -96,15 +72,16 @@ begin
  aForm.Text.Range.Delete;
 //#UC END# *4BE13147032C_4D1B16D302DD_impl*
 end;//TTextMericsAfterDeleteTest.Process
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TTextMericsAfterDeleteTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TTextMericsAfterDeleteTest.GetFolder
 
 function TTextMericsAfterDeleteTest.NeedSelection: Boolean;
+ {* Нужно ли чего-нибудь выделять. }
 //#UC START# *4CC8189D02DF_4D1B16D302DD_var*
 //#UC END# *4CC8189D02DF_4D1B16D302DD_var*
 begin
@@ -114,11 +91,10 @@ begin
 end;//TTextMericsAfterDeleteTest.NeedSelection
 
 function TTextMericsAfterDeleteTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D1B16D302DD';
 end;//TTextMericsAfterDeleteTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

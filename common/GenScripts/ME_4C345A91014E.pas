@@ -3,6 +3,7 @@ unit TableToolsTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\TableToolsTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTableToolsTest" MUID: (4C345A91014E)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

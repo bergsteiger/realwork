@@ -2,6 +2,7 @@ unit atChatWorker;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atChatWorker.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatChatWorker" MUID: (4B683B57028D)
 
 interface
 

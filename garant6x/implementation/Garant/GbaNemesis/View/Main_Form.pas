@@ -659,7 +659,11 @@ begin
     with PIntegrationData(aMessage.CopyDataStruct^.lpData)^ do
     begin
      if OpenInNewWindow then
-      OpenNewMainWindow;
+      if OpenNewMainWindow = nil then
+      begin
+       aMessage.Result := GI_TOOMANYOPENWINDOWS;
+       Exit;
+      end;
       // - http://mdp.garant.ru/pages/viewpage.action?pageId=566789558
      if Supports(Self.Dispatcher.FormDispatcher.MainForm[Self.Dispatcher.FormDispatcher.MainFormsCount-1],
       InsIntegrationProcessor, l_Processor) then
@@ -1004,7 +1008,7 @@ begin
    GC_OPEN_CONSULT:
     Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Search_OpenConsult);
    GC_PRIME:
-    Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Monitorings_OpenNewsLine);
+    TdmStdRes.OpenNewsLine(True)
    else
     TdmStdRes.OpenMainMenuIfNeeded(aContainer);
   end;//case aCommand

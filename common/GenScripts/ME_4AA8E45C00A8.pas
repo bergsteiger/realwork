@@ -2,6 +2,8 @@ unit UserList_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\UserList_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "UserList" MUID: (4AA8E45C00A8)
+// Имя типа: "TefUserList"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

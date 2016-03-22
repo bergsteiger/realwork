@@ -3,6 +3,7 @@ unit nevNavigation;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevNavigation.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "nevNavigation" MUID: (4A251D6E00BD)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

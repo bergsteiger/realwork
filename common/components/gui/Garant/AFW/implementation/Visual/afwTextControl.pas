@@ -2,6 +2,7 @@ unit afwTextControl;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwTextControl.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TafwTextControl" MUID: (48BBF1470238)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

@@ -3,6 +3,7 @@ unit Messages;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\Messages.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Messages" MUID: (476F78840219)
 
 interface
 

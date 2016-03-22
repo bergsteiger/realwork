@@ -3,6 +3,8 @@ unit Login_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Login_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "Login" MUID: (4A93D829005C)
+// Имя типа: "TLoginForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit ItfwKeywordFinderWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ItfwKeywordFinderWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ItfwKeywordFinderWordsPack" MUID: (559BCED301F0)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -112,11 +113,6 @@ begin
  aCtx.rEngine.PushObj(KeywordByName(aCtx, l_aKeywordFinder, l_aName));
 end;//TkwPopKeywordFinderKeywordByName.DoDoIt
 
-class function TkwPopKeywordFinderKeywordByName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:KeywordFinder:KeywordByName';
-end;//TkwPopKeywordFinderKeywordByName.GetWordNameForRegister
-
 function TkwPopKeywordFinderKeywordByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwKeyWord);
@@ -131,6 +127,11 @@ function TkwPopKeywordFinderKeywordByName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwKeywordFinder), @tfw_tiString]);
 end;//TkwPopKeywordFinderKeywordByName.ParamsTypes
+
+class function TkwPopKeywordFinderKeywordByName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:KeywordFinder:KeywordByName';
+end;//TkwPopKeywordFinderKeywordByName.GetWordNameForRegister
 
 function TkwPopKeywordFinderParentFinder.ParentFinder(const aCtx: TtfwContext;
  aKeywordFinder: TtfwKeywordFinder): TtfwKeywordFinder;
@@ -158,11 +159,6 @@ begin
  aCtx.rEngine.PushObj(ParentFinder(aCtx, l_aKeywordFinder));
 end;//TkwPopKeywordFinderParentFinder.DoDoIt
 
-class function TkwPopKeywordFinderParentFinder.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:KeywordFinder:ParentFinder';
-end;//TkwPopKeywordFinderParentFinder.GetWordNameForRegister
-
 procedure TkwPopKeywordFinderParentFinder.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -183,6 +179,11 @@ function TkwPopKeywordFinderParentFinder.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwKeywordFinder)]);
 end;//TkwPopKeywordFinderParentFinder.ParamsTypes
+
+class function TkwPopKeywordFinderParentFinder.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:KeywordFinder:ParentFinder';
+end;//TkwPopKeywordFinderParentFinder.GetWordNameForRegister
 
 initialization
  TkwPopKeywordFinderKeywordByName.RegisterInEngine;

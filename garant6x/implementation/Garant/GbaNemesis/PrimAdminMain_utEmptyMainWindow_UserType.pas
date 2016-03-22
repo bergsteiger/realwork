@@ -1,86 +1,67 @@
 unit PrimAdminMain_utEmptyMainWindow_UserType;
+ {* Главное окно }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/PrimAdminMain_utEmptyMainWindow_UserType.pas"
-// Начат: 07.09.2009 18:30
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Администратор::Admin$Shell::AdminApp::PrimAdminMain::utEmptyMainWindow
-//
-// Главное окно
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\PrimAdminMain_utEmptyMainWindow_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "utEmptyMainWindow" MUID: (4BD84DBE0387)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы utEmptyMainWindow }
-  utEmptyMainWindowName = 'utEmptyMainWindow';
-   { Строковый идентификатор пользовательского типа "Главное окно" }
-  utEmptyMainWindow = TvcmUserType(0);
-   { Главное окно }
-{$IfEnd} //Admin
+ {* Константы для типа формы utEmptyMainWindow }
+ utEmptyMainWindowName = 'utEmptyMainWindow';
+  {* Строковый идентификатор пользовательского типа "Главное окно" }
+ utEmptyMainWindow = TvcmUserType(0);
+  {* Главное окно }
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
-{$If defined(Admin) AND not defined(NoScripts)}
+{$If Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_utEmptyMainWindow = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы utEmptyMainWindow }
+ Tkw_FormUserType_utEmptyMainWindow = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы utEmptyMainWindow }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_utEmptyMainWindow
-{$IfEnd} //Admin AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_utEmptyMainWindow
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If defined(Admin) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_utEmptyMainWindow
-
-class function Tkw_FormUserType_utEmptyMainWindow.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::utEmptyMainWindow';
-end;//Tkw_FormUserType_utEmptyMainWindow.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utEmptyMainWindow.GetInteger: Integer;
- {-}
 begin
  Result := utEmptyMainWindow;
 end;//Tkw_FormUserType_utEmptyMainWindow.GetInteger
 
-{$IfEnd} //Admin AND not NoScripts
-{$IfEnd} //Admin
+class function Tkw_FormUserType_utEmptyMainWindow.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utEmptyMainWindow';
+end;//Tkw_FormUserType_utEmptyMainWindow.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_utEmptyMainWindow
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utEmptyMainWindow.RegisterInEngine;
-{$IfEnd} //Admin AND not NoScripts
+ {* Регистрация Tkw_FormUserType_utEmptyMainWindow }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Admin)
 
 end.

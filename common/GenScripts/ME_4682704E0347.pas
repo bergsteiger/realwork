@@ -2,6 +2,7 @@ unit nsSingleAttributeStorable;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSingleAttributeStorable.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsSingleAttributeStorable" MUID: (4682704E0347)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

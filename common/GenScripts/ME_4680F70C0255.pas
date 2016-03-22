@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3BitmapDataObject;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3BitmapDataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3BitmapDataObject" MUID: (4680F70C0255)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

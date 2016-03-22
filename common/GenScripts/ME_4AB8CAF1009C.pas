@@ -3,6 +3,8 @@ unit DefineSearchDate_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\DefineSearchDate_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "DefineSearchDate" MUID: (4AB8CAF1009C)
+// Имя типа: "Ten_DefineSearchDate"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

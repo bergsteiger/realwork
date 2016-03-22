@@ -396,7 +396,9 @@ type
    constructor Create(aTabSet: TChromeLikeTabSetControlPrim); reintroduce;
  end;//TChromeLikeNewTabButton
 
- TChromeLikeTabSetNewTabRequested = procedure (aTabSet: TChromeLikeTabSetControlPrim) of object;
+ TChromeLikeTabSetNewTabRequested = procedure (aTabSet: TChromeLikeTabSetControlPrim;
+  aMenuTab: TChromeLikeTab;
+  aOpenLast: Boolean) of object;
 
  TChromeLikeTabSetControl = class(TChromeLikeTabSetControlPrim, IChromeLikeCaptionControl)
  private
@@ -1230,7 +1232,7 @@ procedure TChromeLikeTabSetControl.ActNewTabExecute(Sender: TObject);
 begin
 //#UC START# *553F1FF80348_5507EFFD01FE_impl*
  if Assigned(f_OnNewTabRequested) then
-  f_OnNewTabRequested(Self);
+  f_OnNewTabRequested(Self, (Sender as TChromeLikeTabAction).Tab, False);
 //#UC END# *553F1FF80348_5507EFFD01FE_impl*
 end;//TChromeLikeTabSetControl.ActNewTabExecute
 
@@ -1396,11 +1398,19 @@ end;//TChromeLikeTabSetControl.IsLastTab
 
 procedure TChromeLikeTabSetControl.DoOnNewTabButtonClick(Sender: TObject);
 //#UC START# *55669D6C03B4_5507EFFD01FE_var*
+var
+ l_Tab: TChromeLikeTab;
 //#UC END# *55669D6C03B4_5507EFFD01FE_var*
 begin
 //#UC START# *55669D6C03B4_5507EFFD01FE_impl*
  if Assigned(f_OnNewTabRequested) then
-  f_OnNewTabRequested(Self);
+ begin
+  if (Sender is TChromeLikeTabAction) then
+   l_Tab := TChromeLikeTabAction(Sender).Tab
+  else
+   l_Tab := nil;
+  f_OnNewTabRequested(Self, l_Tab, True);
+ end;
 //#UC END# *55669D6C03B4_5507EFFD01FE_impl*
 end;//TChromeLikeTabSetControl.DoOnNewTabButtonClick
 
@@ -1715,6 +1725,7 @@ var
  l_Container: Il3TabbedContainer;
  l_ContainerLeftTopPt: TPoint;
  l_TabParams: Il3TabParams;
+ l_FocusedControl: TWinControl;
 //#UC END# *5507F5620368_5507EFFD01FE_var*
 begin
 //#UC START# *5507F5620368_5507EFFD01FE_impl*
@@ -1727,6 +1738,8 @@ begin
   UpdateWindow(Handle);
 
   l_Form := aTab.Form;
+
+  l_FocusedControl := FindControl(Windows.GetFocus);
 
   l_ContainerLeftTopPt := ClientToScreen(Point(aTab.PositionRect.Left, ClientHeight));
 
@@ -1750,7 +1763,8 @@ begin
   end;
   l_Container.MakeVisible(l_ContainerLeftTopPt);
   l_Form.Visible := True;
-
+  if ((l_FocusedControl <> nil) and l_FocusedControl.CanFocus) then
+   l_FocusedControl.SetFocus;
  finally
   l_TabParams := nil;
  end;

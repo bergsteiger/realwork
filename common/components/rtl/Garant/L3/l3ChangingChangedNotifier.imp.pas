@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ChangingChangedNotifier.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3ChangingChangedNotifier" MUID: (48FCA1F20259)
+// Имя типа: "_l3ChangingChangedNotifier_"
 
 {$Define l3ChangingChangedNotifier_imp}
 

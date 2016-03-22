@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmStringCollection;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmStringCollection.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmStringCollection" MUID: (52A1F31601D0)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

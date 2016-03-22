@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmControl;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmControl.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvcmControl" MUID: (5028DFB00090)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

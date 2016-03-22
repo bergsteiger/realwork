@@ -2,6 +2,7 @@ unit NOT_FINISHED_evCustomFont;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomFont.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomFont" MUID: (547DB5C300FE)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

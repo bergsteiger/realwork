@@ -2,6 +2,8 @@ unit kwPopEditorParaCoordsToScreen;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaCoordsToScreen.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_ParaCoordsToScreen" MUID: (4EEB66D703A9)
+// Имя типа: "TkwPopEditorParaCoordsToScreen"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -3,6 +3,7 @@ unit TurnOnTimeMachineKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOnTimeMachineKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "TurnOnTimeMachineKeywordsPack" MUID: (F86C24CC18D1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -50,8 +51,8 @@ type
 'aControl' форма::TurnOnTimeMachine TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_TurnOnTimeMachine
 
  Tkw_TurnOnTimeMachine_Control_rb_totmOnDate = {final} class(TtfwControlString)
@@ -62,9 +63,9 @@ type
 контрол::rb_totmOnDate TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnDate
 
  Tkw_TurnOnTimeMachine_Control_rb_totmOnDate_Push = {final} class(TkwBynameControlPush)
@@ -87,9 +88,9 @@ type
 контрол::rb_totmOnCurrentRedation TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation
 
  Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation_Push = {final} class(TkwBynameControlPush)
@@ -112,9 +113,9 @@ type
 контрол::deDate TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TurnOnTimeMachine_Control_deDate
 
  Tkw_TurnOnTimeMachine_Control_deDate_Push = {final} class(TkwBynameControlPush)
@@ -137,9 +138,9 @@ type
 контрол::pbDialogIcon TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TurnOnTimeMachine_Control_pbDialogIcon
 
  Tkw_TurnOnTimeMachine_Control_pbDialogIcon_Push = {final} class(TkwBynameControlPush)
@@ -162,9 +163,9 @@ type
 контрол::lblTurnOnTimeMachineInfo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo
 
  Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo_Push = {final} class(TkwBynameControlPush)
@@ -187,9 +188,9 @@ type
 контрол::btnOk TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TurnOnTimeMachine_Control_btnOk
 
  Tkw_TurnOnTimeMachine_Control_btnOk_Push = {final} class(TkwBynameControlPush)
@@ -212,9 +213,9 @@ type
 контрол::btnCancel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TurnOnTimeMachine_Control_btnCancel
 
  Tkw_TurnOnTimeMachine_Control_btnCancel_Push = {final} class(TkwBynameControlPush)
@@ -397,20 +398,15 @@ OBJECT VAR l_TvtButton
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnTurnOnTimeMachineBtnCancel
 
-class function Tkw_Form_TurnOnTimeMachine.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::TurnOnTimeMachine';
-end;//Tkw_Form_TurnOnTimeMachine.GetWordNameForRegister
-
 function Tkw_Form_TurnOnTimeMachine.GetString: AnsiString;
 begin
  Result := 'en_TurnOnTimeMachine';
 end;//Tkw_Form_TurnOnTimeMachine.GetString
 
-class function Tkw_TurnOnTimeMachine_Control_rb_totmOnDate.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_TurnOnTimeMachine.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::rb_totmOnDate';
-end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnDate.GetWordNameForRegister
+ Result := 'форма::TurnOnTimeMachine';
+end;//Tkw_Form_TurnOnTimeMachine.GetWordNameForRegister
 
 function Tkw_TurnOnTimeMachine_Control_rb_totmOnDate.GetString: AnsiString;
 begin
@@ -423,6 +419,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnDate.RegisterInEngine
 
+class function Tkw_TurnOnTimeMachine_Control_rb_totmOnDate.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::rb_totmOnDate';
+end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnDate.GetWordNameForRegister
+
 procedure Tkw_TurnOnTimeMachine_Control_rb_totmOnDate_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('rb_totmOnDate');
@@ -433,11 +434,6 @@ class function Tkw_TurnOnTimeMachine_Control_rb_totmOnDate_Push.GetWordNameForRe
 begin
  Result := 'контрол::rb_totmOnDate:push';
 end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnDate_Push.GetWordNameForRegister
-
-class function Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::rb_totmOnCurrentRedation';
-end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation.GetWordNameForRegister
 
 function Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation.GetString: AnsiString;
 begin
@@ -450,6 +446,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation.RegisterInEngine
 
+class function Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::rb_totmOnCurrentRedation';
+end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation.GetWordNameForRegister
+
 procedure Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('rb_totmOnCurrentRedation');
@@ -460,11 +461,6 @@ class function Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation_Push.GetWo
 begin
  Result := 'контрол::rb_totmOnCurrentRedation:push';
 end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation_Push.GetWordNameForRegister
-
-class function Tkw_TurnOnTimeMachine_Control_deDate.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::deDate';
-end;//Tkw_TurnOnTimeMachine_Control_deDate.GetWordNameForRegister
 
 function Tkw_TurnOnTimeMachine_Control_deDate.GetString: AnsiString;
 begin
@@ -477,6 +473,11 @@ begin
  TtfwClassRef.Register(TvtDblClickDateEdit);
 end;//Tkw_TurnOnTimeMachine_Control_deDate.RegisterInEngine
 
+class function Tkw_TurnOnTimeMachine_Control_deDate.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::deDate';
+end;//Tkw_TurnOnTimeMachine_Control_deDate.GetWordNameForRegister
+
 procedure Tkw_TurnOnTimeMachine_Control_deDate_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('deDate');
@@ -487,11 +488,6 @@ class function Tkw_TurnOnTimeMachine_Control_deDate_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::deDate:push';
 end;//Tkw_TurnOnTimeMachine_Control_deDate_Push.GetWordNameForRegister
-
-class function Tkw_TurnOnTimeMachine_Control_pbDialogIcon.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pbDialogIcon';
-end;//Tkw_TurnOnTimeMachine_Control_pbDialogIcon.GetWordNameForRegister
 
 function Tkw_TurnOnTimeMachine_Control_pbDialogIcon.GetString: AnsiString;
 begin
@@ -504,6 +500,11 @@ begin
  TtfwClassRef.Register(TPaintBox);
 end;//Tkw_TurnOnTimeMachine_Control_pbDialogIcon.RegisterInEngine
 
+class function Tkw_TurnOnTimeMachine_Control_pbDialogIcon.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pbDialogIcon';
+end;//Tkw_TurnOnTimeMachine_Control_pbDialogIcon.GetWordNameForRegister
+
 procedure Tkw_TurnOnTimeMachine_Control_pbDialogIcon_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pbDialogIcon');
@@ -514,11 +515,6 @@ class function Tkw_TurnOnTimeMachine_Control_pbDialogIcon_Push.GetWordNameForReg
 begin
  Result := 'контрол::pbDialogIcon:push';
 end;//Tkw_TurnOnTimeMachine_Control_pbDialogIcon_Push.GetWordNameForRegister
-
-class function Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lblTurnOnTimeMachineInfo';
-end;//Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo.GetWordNameForRegister
 
 function Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo.GetString: AnsiString;
 begin
@@ -531,6 +527,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo.RegisterInEngine
 
+class function Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblTurnOnTimeMachineInfo';
+end;//Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo.GetWordNameForRegister
+
 procedure Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lblTurnOnTimeMachineInfo');
@@ -541,11 +542,6 @@ class function Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo_Push.GetWo
 begin
  Result := 'контрол::lblTurnOnTimeMachineInfo:push';
 end;//Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo_Push.GetWordNameForRegister
-
-class function Tkw_TurnOnTimeMachine_Control_btnOk.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btnOk';
-end;//Tkw_TurnOnTimeMachine_Control_btnOk.GetWordNameForRegister
 
 function Tkw_TurnOnTimeMachine_Control_btnOk.GetString: AnsiString;
 begin
@@ -558,6 +554,11 @@ begin
  TtfwClassRef.Register(TvtButton);
 end;//Tkw_TurnOnTimeMachine_Control_btnOk.RegisterInEngine
 
+class function Tkw_TurnOnTimeMachine_Control_btnOk.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btnOk';
+end;//Tkw_TurnOnTimeMachine_Control_btnOk.GetWordNameForRegister
+
 procedure Tkw_TurnOnTimeMachine_Control_btnOk_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('btnOk');
@@ -569,11 +570,6 @@ begin
  Result := 'контрол::btnOk:push';
 end;//Tkw_TurnOnTimeMachine_Control_btnOk_Push.GetWordNameForRegister
 
-class function Tkw_TurnOnTimeMachine_Control_btnCancel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btnCancel';
-end;//Tkw_TurnOnTimeMachine_Control_btnCancel.GetWordNameForRegister
-
 function Tkw_TurnOnTimeMachine_Control_btnCancel.GetString: AnsiString;
 begin
  Result := 'btnCancel';
@@ -584,6 +580,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtButton);
 end;//Tkw_TurnOnTimeMachine_Control_btnCancel.RegisterInEngine
+
+class function Tkw_TurnOnTimeMachine_Control_btnCancel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btnCancel';
+end;//Tkw_TurnOnTimeMachine_Control_btnCancel.GetWordNameForRegister
 
 procedure Tkw_TurnOnTimeMachine_Control_btnCancel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -618,11 +619,6 @@ begin
  aCtx.rEngine.PushObj(rb_totmOnDate(aCtx, l_aen_TurnOnTimeMachine));
 end;//TkwEnTurnOnTimeMachineRbTotmOnDate.DoDoIt
 
-class function TkwEnTurnOnTimeMachineRbTotmOnDate.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_TurnOnTimeMachine.rb_totmOnDate';
-end;//TkwEnTurnOnTimeMachineRbTotmOnDate.GetWordNameForRegister
-
 procedure TkwEnTurnOnTimeMachineRbTotmOnDate.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -643,6 +639,11 @@ function TkwEnTurnOnTimeMachineRbTotmOnDate.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_TurnOnTimeMachine)]);
 end;//TkwEnTurnOnTimeMachineRbTotmOnDate.ParamsTypes
+
+class function TkwEnTurnOnTimeMachineRbTotmOnDate.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_TurnOnTimeMachine.rb_totmOnDate';
+end;//TkwEnTurnOnTimeMachineRbTotmOnDate.GetWordNameForRegister
 
 function TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.rb_totmOnCurrentRedation(const aCtx: TtfwContext;
  aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine): TvtRadioButton;
@@ -666,11 +667,6 @@ begin
  aCtx.rEngine.PushObj(rb_totmOnCurrentRedation(aCtx, l_aen_TurnOnTimeMachine));
 end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.DoDoIt
 
-class function TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_TurnOnTimeMachine.rb_totmOnCurrentRedation';
-end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetWordNameForRegister
-
 procedure TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -691,6 +687,11 @@ function TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.ParamsTypes: PTypeInfoArr
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_TurnOnTimeMachine)]);
 end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.ParamsTypes
+
+class function TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_TurnOnTimeMachine.rb_totmOnCurrentRedation';
+end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetWordNameForRegister
 
 function TkwEnTurnOnTimeMachineDeDate.deDate(const aCtx: TtfwContext;
  aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine): TvtDblClickDateEdit;
@@ -714,11 +715,6 @@ begin
  aCtx.rEngine.PushObj(deDate(aCtx, l_aen_TurnOnTimeMachine));
 end;//TkwEnTurnOnTimeMachineDeDate.DoDoIt
 
-class function TkwEnTurnOnTimeMachineDeDate.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_TurnOnTimeMachine.deDate';
-end;//TkwEnTurnOnTimeMachineDeDate.GetWordNameForRegister
-
 procedure TkwEnTurnOnTimeMachineDeDate.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -739,6 +735,11 @@ function TkwEnTurnOnTimeMachineDeDate.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_TurnOnTimeMachine)]);
 end;//TkwEnTurnOnTimeMachineDeDate.ParamsTypes
+
+class function TkwEnTurnOnTimeMachineDeDate.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_TurnOnTimeMachine.deDate';
+end;//TkwEnTurnOnTimeMachineDeDate.GetWordNameForRegister
 
 function TkwEnTurnOnTimeMachinePbDialogIcon.pbDialogIcon(const aCtx: TtfwContext;
  aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine): TPaintBox;
@@ -762,11 +763,6 @@ begin
  aCtx.rEngine.PushObj(pbDialogIcon(aCtx, l_aen_TurnOnTimeMachine));
 end;//TkwEnTurnOnTimeMachinePbDialogIcon.DoDoIt
 
-class function TkwEnTurnOnTimeMachinePbDialogIcon.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_TurnOnTimeMachine.pbDialogIcon';
-end;//TkwEnTurnOnTimeMachinePbDialogIcon.GetWordNameForRegister
-
 procedure TkwEnTurnOnTimeMachinePbDialogIcon.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -787,6 +783,11 @@ function TkwEnTurnOnTimeMachinePbDialogIcon.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_TurnOnTimeMachine)]);
 end;//TkwEnTurnOnTimeMachinePbDialogIcon.ParamsTypes
+
+class function TkwEnTurnOnTimeMachinePbDialogIcon.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_TurnOnTimeMachine.pbDialogIcon';
+end;//TkwEnTurnOnTimeMachinePbDialogIcon.GetWordNameForRegister
 
 function TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.lblTurnOnTimeMachineInfo(const aCtx: TtfwContext;
  aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine): TvtLabel;
@@ -810,11 +811,6 @@ begin
  aCtx.rEngine.PushObj(lblTurnOnTimeMachineInfo(aCtx, l_aen_TurnOnTimeMachine));
 end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.DoDoIt
 
-class function TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_TurnOnTimeMachine.lblTurnOnTimeMachineInfo';
-end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetWordNameForRegister
-
 procedure TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -835,6 +831,11 @@ function TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.ParamsTypes: PTypeInfoAr
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_TurnOnTimeMachine)]);
 end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.ParamsTypes
+
+class function TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_TurnOnTimeMachine.lblTurnOnTimeMachineInfo';
+end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetWordNameForRegister
 
 function TkwEnTurnOnTimeMachineBtnOk.btnOk(const aCtx: TtfwContext;
  aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine): TvtButton;
@@ -858,11 +859,6 @@ begin
  aCtx.rEngine.PushObj(btnOk(aCtx, l_aen_TurnOnTimeMachine));
 end;//TkwEnTurnOnTimeMachineBtnOk.DoDoIt
 
-class function TkwEnTurnOnTimeMachineBtnOk.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_TurnOnTimeMachine.btnOk';
-end;//TkwEnTurnOnTimeMachineBtnOk.GetWordNameForRegister
-
 procedure TkwEnTurnOnTimeMachineBtnOk.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -883,6 +879,11 @@ function TkwEnTurnOnTimeMachineBtnOk.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_TurnOnTimeMachine)]);
 end;//TkwEnTurnOnTimeMachineBtnOk.ParamsTypes
+
+class function TkwEnTurnOnTimeMachineBtnOk.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_TurnOnTimeMachine.btnOk';
+end;//TkwEnTurnOnTimeMachineBtnOk.GetWordNameForRegister
 
 function TkwEnTurnOnTimeMachineBtnCancel.btnCancel(const aCtx: TtfwContext;
  aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine): TvtButton;
@@ -906,11 +907,6 @@ begin
  aCtx.rEngine.PushObj(btnCancel(aCtx, l_aen_TurnOnTimeMachine));
 end;//TkwEnTurnOnTimeMachineBtnCancel.DoDoIt
 
-class function TkwEnTurnOnTimeMachineBtnCancel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_TurnOnTimeMachine.btnCancel';
-end;//TkwEnTurnOnTimeMachineBtnCancel.GetWordNameForRegister
-
 procedure TkwEnTurnOnTimeMachineBtnCancel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -931,6 +927,11 @@ function TkwEnTurnOnTimeMachineBtnCancel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_TurnOnTimeMachine)]);
 end;//TkwEnTurnOnTimeMachineBtnCancel.ParamsTypes
+
+class function TkwEnTurnOnTimeMachineBtnCancel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_TurnOnTimeMachine.btnCancel';
+end;//TkwEnTurnOnTimeMachineBtnCancel.GetWordNameForRegister
 
 initialization
  Tkw_Form_TurnOnTimeMachine.RegisterInEngine;

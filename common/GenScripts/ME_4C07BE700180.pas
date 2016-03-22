@@ -2,6 +2,8 @@ unit EVDtoEVDEmptyRowTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoEVDEmptyRowTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "EVDtoEVDEmptyRowTest" MUID: (4C07BE700180)
+// Имя типа: "TEVDtoEVDEmptyRowTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

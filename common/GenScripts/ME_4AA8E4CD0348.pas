@@ -3,6 +3,8 @@ unit GroupList_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\GroupList_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "GroupList" MUID: (4AA8E4CD0348)
+// Имя типа: "TefGroupList"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

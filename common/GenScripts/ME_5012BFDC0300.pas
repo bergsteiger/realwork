@@ -2,6 +2,7 @@ unit l3RTTI;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3RTTI.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3RTTI" MUID: (5012BFDC0300)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

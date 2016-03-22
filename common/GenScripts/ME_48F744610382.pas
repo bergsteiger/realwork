@@ -2,6 +2,7 @@ unit nsNodesInterfacedDataObject;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\nsNodesInterfacedDataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsNodesInterfacedDataObject" MUID: (48F744610382)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

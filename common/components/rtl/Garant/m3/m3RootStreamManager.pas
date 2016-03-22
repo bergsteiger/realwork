@@ -5,7 +5,7 @@ unit m3RootStreamManager;
 // Библиотека "m3"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3RootStreamManager.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3::m3CoreObjects::Tm3RootStreamManager
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3RootStreamManager
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".
@@ -447,7 +447,7 @@ begin
    RootStream.LoadHeader;
    try
     if (Logger <> nil) then
-     Logger.ToLog('Распределяем элементы FAT');
+     Logger.ToLog('begin: Распределяем элементы FAT');
     if (f_AllocatedFATElements = nil) then
      f_AllocatedFATElements := Tl3RevertedInt64List.MakeSorted(l3_dupError);
     Result := DoAllocNewFATElement(false);
@@ -480,6 +480,8 @@ begin
       else
        break;
      end;//for l_Index
+    if (Logger <> nil) then
+     Logger.ToLog('end: Распределяем элементы FAT');
    finally
     RootStream.SaveHeader;
    end;//try..finally 
@@ -626,9 +628,11 @@ begin
     if (Result = -1) then
     begin
      if (Logger <> nil) then
-      Logger.ToLog('Распределяем кластеры');
+      Logger.ToLog('begin: Распределяем кластеры');
      Result := DoAlloc;
-     Assert(Result >= 0); 
+     if (Logger <> nil) then
+      Logger.ToLog('end: Распределяем кластеры');
+     Assert(Result >= 0);
     end//Result = -1
     else
     begin

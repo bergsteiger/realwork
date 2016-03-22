@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\ScrollSupport.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "ScrollSupport" MUID: (4CE2958803D0)
+// Имя типа: "_ScrollSupport_"
 
 {$Define ScrollSupport_imp}
 

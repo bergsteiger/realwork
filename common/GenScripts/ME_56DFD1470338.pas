@@ -2,6 +2,7 @@ unit caResultSet;
 
 // Модуль: "w:\common\components\rtl\Garant\ComboAccess\caResultSet.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcaResultSet" MUID: (56DFD1470338)
 
 {$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 

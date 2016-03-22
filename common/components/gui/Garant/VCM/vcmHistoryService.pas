@@ -33,6 +33,7 @@ uses
    procedure SaveFormState(const aForm: IvcmEntityForm);
    function GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
    function IsInBF(const aForm: IvcmEntityForm): Boolean;
+   function Back(const aForm: IvcmEntityForm): Boolean;
  end;//MvcmHistoryService
 *)
 
@@ -45,6 +46,7 @@ type
    procedure SaveFormState(const aForm: IvcmEntityForm);
    function GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
    function IsInBF(const aForm: IvcmEntityForm): Boolean;
+   function Back(const aForm: IvcmEntityForm): Boolean;
  end;//IvcmHistoryService
 
  TvcmHistoryService = {final} class(Tl3ProtoObject)
@@ -57,6 +59,7 @@ type
    procedure pm_SetAlien(const aValue: IvcmHistoryService);
  public
  // realized methods
+   function Back(const aForm: IvcmEntityForm): Boolean;
    function GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
    function GetFormHistory(const aForm: IvcmEntityForm): IvcmHistory;
    procedure SaveFormState(const aForm: IvcmEntityForm);
@@ -126,6 +129,18 @@ class function TvcmHistoryService.Exists: Boolean;
 begin
  Result := g_TvcmHistoryService <> nil;
 end;//TvcmHistoryService.Exists
+
+function TvcmHistoryService.Back(const aForm: IvcmEntityForm): Boolean;
+//#UC START# *18FC3BA729CF_559BA19C0076_var*
+//#UC END# *18FC3BA729CF_559BA19C0076_var*
+begin
+//#UC START# *18FC3BA729CF_559BA19C0076_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.Back(aForm)
+ else
+  Result := g_Dispatcher.History.Back;
+//#UC END# *18FC3BA729CF_559BA19C0076_impl*
+end;//TvcmHistoryService.Back
 
 function TvcmHistoryService.GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
 //#UC START# *27BEBF0EE9FD_559BA19C0076_var*

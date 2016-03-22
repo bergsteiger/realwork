@@ -3,6 +3,7 @@ unit evCommentParaDecorator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCommentParaDecorator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCommentParaDecorator" MUID: (49E48A670254)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

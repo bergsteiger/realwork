@@ -19,10 +19,10 @@ unit daDataProviderParams;
 interface
 
 uses
+  Classes,
   l3IniFile,
   l3Variant,
   daTypes,
-  Classes,
   k2Base
   ;
 
@@ -36,6 +36,8 @@ type
  // private fields
    f_UserID : TdaUserID;
     {* Поле для свойства UserID}
+   f_AliasesList : TStringList;
+    {* Поле для свойства AliasesList}
  protected
  // property methods
    function pm_GetFullHomeDirPath: AnsiString; virtual;
@@ -56,9 +58,14 @@ type
  public
  // realized methods
    class function GetTaggedDataType: Tk2Type; override;
+ protected
+ // overridden protected methods
+   procedure Cleanup; override;
+     {* Функция очистки полей объекта. }
+   procedure InitFields; override;
  public
  // public methods
-   procedure CorrectAfterSet; virtual;
+   procedure CorrectAfterSet;
      {* Сигнатура метода CorrectAfterSet }
    procedure ChangeBasePath(const aPath: AnsiString); virtual;
    procedure AssignParams(aParams: TdaDataProviderParams); virtual;
@@ -72,6 +79,8 @@ type
    property FullHomeDirPath: AnsiString
      read pm_GetFullHomeDirPath;
      {* Полный путь к домашнему каталогу (с ID пользователя) }
+   property AliasesList: TStringList
+     read f_AliasesList;
    property Login: AnsiString
      read pm_GetLogin
      write pm_SetLogin;
@@ -119,7 +128,9 @@ procedure TdaDataProviderParams.CorrectAfterSet;
 //#UC END# *55194F830311_54F9A60200A8_var*
 begin
 //#UC START# *55194F830311_54F9A60200A8_impl*
-// Do Nothing;
+ f_AliasesList.Clear;
+ if DocStoragePath <> '' then
+  f_AliasesList.Add(Format('FamilyPath=%s', [DocStoragePath]));
 //#UC END# *55194F830311_54F9A60200A8_impl*
 end;//TdaDataProviderParams.CorrectAfterSet
 
@@ -148,6 +159,7 @@ begin
  HomeDirPath := aParams.HomeDirPath;
  DocBaseVersion := aParams.DocBaseVersion;
  AdminBaseVersion := aParams.AdminBaseVersion;
+ AliasesList.Assign(aParams.AliasesList);
 //#UC END# *553A37E902C9_54F9A60200A8_impl*
 end;//TdaDataProviderParams.AssignParams
 
@@ -290,5 +302,25 @@ class function TdaDataProviderParams.GetTaggedDataType: Tk2Type;
 begin
  Result := k2_typDataProviderParams;
 end;//TdaDataProviderParams.GetTaggedDataType
+
+procedure TdaDataProviderParams.Cleanup;
+//#UC START# *479731C50290_54F9A60200A8_var*
+//#UC END# *479731C50290_54F9A60200A8_var*
+begin
+//#UC START# *479731C50290_54F9A60200A8_impl*
+ FreeAndNil(f_AliasesList);
+ inherited;
+//#UC END# *479731C50290_54F9A60200A8_impl*
+end;//TdaDataProviderParams.Cleanup
+
+procedure TdaDataProviderParams.InitFields;
+//#UC START# *47A042E100E2_54F9A60200A8_var*
+//#UC END# *47A042E100E2_54F9A60200A8_var*
+begin
+//#UC START# *47A042E100E2_54F9A60200A8_impl*
+ inherited;
+ f_AliasesList := TStringList.Create;
+//#UC END# *47A042E100E2_54F9A60200A8_impl*
+end;//TdaDataProviderParams.InitFields
 
 end.

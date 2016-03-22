@@ -2,6 +2,7 @@ unit afwLongProcessVisualizer;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwLongProcessVisualizer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwLongProcessVisualizer" MUID: (47877AB8026C)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

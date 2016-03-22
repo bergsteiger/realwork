@@ -2,6 +2,7 @@ unit nevStringCache;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevStringCache.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevStringCache" MUID: (4E71FC4D02BF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit nsTimeMachineOffEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\nsTimeMachineOffEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsTimeMachineOffEvent" MUID: (4B1653D10039)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

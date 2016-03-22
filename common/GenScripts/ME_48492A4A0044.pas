@@ -3,6 +3,8 @@ unit k2Handle_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Handle_Const.pas"
 // Стереотип: "Atom"
+// Элемент модели: "Handle" MUID: (48492A4A0044)
+// Имя типа: "HandleAtom"
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

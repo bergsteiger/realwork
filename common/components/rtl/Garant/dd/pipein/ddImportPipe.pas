@@ -1,9 +1,12 @@
 //..........................................................................................................................................................................................................................................................
 unit ddImportPipe;
 { Верхний слой трубы для импорта - знает про входные форматы и цикл }
-{ $Id: ddImportPipe.pas,v 1.97 2015/07/02 07:36:08 lukyanets Exp $ }
+{ $Id: ddImportPipe.pas,v 1.98 2015/11/25 07:22:10 lukyanets Exp $ }
 
 // $Log: ddImportPipe.pas,v $
+// Revision 1.98  2015/11/25 07:22:10  lukyanets
+// Заготовки для выдачи номеров
+//
 // Revision 1.97  2015/07/02 07:36:08  lukyanets
 // Описываем словари
 //
@@ -584,7 +587,7 @@ uses
 
  daDataProvider,
 
- DT_DOC, ComCtrls, evEvdRd, ddUtils,
+ DT_DOC, ComCtrls, evEvdRd, ddUtils, daSchemeConsts,
  dt_User, ddNSRCUtils, k2Tags, k2Base, l3Except, evTxtRd,
  ddDocReader, l3languages, BAse_CFG, {ddArbitralCourtReader,} Document_Const,
  dd_lcClassOpenerFilter, ddKTExtractor, ddAutoLinkFilter, ddAutoIncludeFilter,

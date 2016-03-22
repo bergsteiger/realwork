@@ -3,6 +3,7 @@ unit SysUtils;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Sys\SysUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "SysUtils" MUID: (47877EB202FB)
 
 interface
 
@@ -24,9 +25,7 @@ type
   {* Base Exception. }
   private
    f_Message: AnsiString;
-    {* Поле для свойства Message }
    f_HelpContext: Integer;
-    {* Поле для свойства HelpContext }
   public
    property Message: AnsiString
     read f_Message

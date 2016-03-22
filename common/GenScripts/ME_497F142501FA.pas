@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "BaseDocumentForDocumentModule" MUID: (497F142501FA)
+// Имя типа: "_BaseDocumentForDocumentModule_"
 
 {$Define BaseDocumentForDocumentModule_imp}
 

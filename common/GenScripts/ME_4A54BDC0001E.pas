@@ -3,6 +3,7 @@ unit atSendConsultationOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSendConsultationOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatSendConsultationOperation" MUID: (4A54BDC0001E)
 
 interface
 

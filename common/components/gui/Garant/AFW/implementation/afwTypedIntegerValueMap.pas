@@ -3,6 +3,7 @@ unit afwTypedIntegerValueMap;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwTypedIntegerValueMap.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "afwTypedIntegerValueMap" MUID: (478E304501CC)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

@@ -2,6 +2,8 @@ unit kwMouseLeftDown;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseLeftDown.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "Mouse_LeftDown" MUID: (4F71C11F02F2)
+// Имя типа: "TkwMouseLeftDown"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,7 @@ unit l3ProtoObjectRefSortableList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoObjectRefSortableList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProtoObjectRefSortableList" MUID: (4D5BF8B60011)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

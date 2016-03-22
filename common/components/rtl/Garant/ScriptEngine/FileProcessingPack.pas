@@ -2,6 +2,7 @@ unit FileProcessingPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "FileProcessingPack" MUID: (4F4FD7EA00EB)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -764,11 +765,6 @@ begin
  aCtx.rEngine.PushFile(OpenRead(aCtx, l_aName));
 end;//TkwFileOpenRead.DoDoIt
 
-class function TkwFileOpenRead.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:OpenRead';
-end;//TkwFileOpenRead.GetWordNameForRegister
-
 function TkwFileOpenRead.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwFile);
@@ -783,6 +779,11 @@ function TkwFileOpenRead.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile), @tfw_tiString]);
 end;//TkwFileOpenRead.ParamsTypes
+
+class function TkwFileOpenRead.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:OpenRead';
+end;//TkwFileOpenRead.GetWordNameForRegister
 
 function TkwFileOpenWrite.OpenWrite(const aCtx: TtfwContext;
  const aName: AnsiString): ItfwFile;
@@ -810,11 +811,6 @@ begin
  aCtx.rEngine.PushFile(OpenWrite(aCtx, l_aName));
 end;//TkwFileOpenWrite.DoDoIt
 
-class function TkwFileOpenWrite.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:OpenWrite';
-end;//TkwFileOpenWrite.GetWordNameForRegister
-
 function TkwFileOpenWrite.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwFile);
@@ -829,6 +825,11 @@ function TkwFileOpenWrite.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile), @tfw_tiString]);
 end;//TkwFileOpenWrite.ParamsTypes
+
+class function TkwFileOpenWrite.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:OpenWrite';
+end;//TkwFileOpenWrite.GetWordNameForRegister
 
 function TkwFileEOF.EOF(const aCtx: TtfwContext;
  const aFile: ItfwFile): Boolean;
@@ -856,11 +857,6 @@ begin
  aCtx.rEngine.PushBool(EOF(aCtx, l_aFile));
 end;//TkwFileEOF.DoDoIt
 
-class function TkwFileEOF.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:EOF';
-end;//TkwFileEOF.GetWordNameForRegister
-
 function TkwFileEOF.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -875,6 +871,11 @@ function TkwFileEOF.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile)]);
 end;//TkwFileEOF.ParamsTypes
+
+class function TkwFileEOF.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:EOF';
+end;//TkwFileEOF.GetWordNameForRegister
 
 function TkwFileReadLn.ReadLn(const aCtx: TtfwContext;
  const aFile: ItfwFile): Il3CString;
@@ -902,11 +903,6 @@ begin
  aCtx.rEngine.PushString(ReadLn(aCtx, l_aFile));
 end;//TkwFileReadLn.DoDoIt
 
-class function TkwFileReadLn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:ReadLn';
-end;//TkwFileReadLn.GetWordNameForRegister
-
 function TkwFileReadLn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -921,6 +917,11 @@ function TkwFileReadLn.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile)]);
 end;//TkwFileReadLn.ParamsTypes
+
+class function TkwFileReadLn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:ReadLn';
+end;//TkwFileReadLn.GetWordNameForRegister
 
 procedure TkwFileWriteLn.WriteLn(const aCtx: TtfwContext;
  const aFile: ItfwFile;
@@ -959,11 +960,6 @@ begin
  WriteLn(aCtx, l_aFile, l_aValue);
 end;//TkwFileWriteLn.DoDoIt
 
-class function TkwFileWriteLn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:WriteLn';
-end;//TkwFileWriteLn.GetWordNameForRegister
-
 function TkwFileWriteLn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -978,6 +974,11 @@ function TkwFileWriteLn.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile), @tfw_tiString]);
 end;//TkwFileWriteLn.ParamsTypes
+
+class function TkwFileWriteLn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:WriteLn';
+end;//TkwFileWriteLn.GetWordNameForRegister
 
 procedure TkwFileWriteChar.WriteChar(const aCtx: TtfwContext;
  const aFile: ItfwFile;
@@ -1016,11 +1017,6 @@ begin
  WriteChar(aCtx, l_aFile, l_aValue);
 end;//TkwFileWriteChar.DoDoIt
 
-class function TkwFileWriteChar.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:WriteChar';
-end;//TkwFileWriteChar.GetWordNameForRegister
-
 function TkwFileWriteChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1035,6 +1031,11 @@ function TkwFileWriteChar.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile), TypeInfo(AnsiChar)]);
 end;//TkwFileWriteChar.ParamsTypes
+
+class function TkwFileWriteChar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:WriteChar';
+end;//TkwFileWriteChar.GetWordNameForRegister
 
 procedure TkwFileWriteStr.WriteStr(const aCtx: TtfwContext;
  const aFile: ItfwFile;
@@ -1073,11 +1074,6 @@ begin
  WriteStr(aCtx, l_aFile, l_aValue);
 end;//TkwFileWriteStr.DoDoIt
 
-class function TkwFileWriteStr.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:WriteStr';
-end;//TkwFileWriteStr.GetWordNameForRegister
-
 function TkwFileWriteStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1093,6 +1089,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile), @tfw_tiString]);
 end;//TkwFileWriteStr.ParamsTypes
 
+class function TkwFileWriteStr.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:WriteStr';
+end;//TkwFileWriteStr.GetWordNameForRegister
+
 procedure TkwFileReadLines.ReadLines(const aCtx: TtfwContext;
  aWord: TtfwWord;
  const aFile: ItfwFile);
@@ -1104,11 +1105,6 @@ begin
  aFile.ForEach(aWord, aCtx);
 //#UC END# *B66526463736_4D96B2094588_impl*
 end;//TkwFileReadLines.ReadLines
-
-class function TkwFileReadLines.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:ReadLines';
-end;//TkwFileReadLines.GetWordNameForRegister
 
 function TkwFileReadLines.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
@@ -1155,6 +1151,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile)]);
 end;//TkwFileReadLines.ParamsTypes
 
+class function TkwFileReadLines.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:ReadLines';
+end;//TkwFileReadLines.GetWordNameForRegister
+
 procedure TkwFileWriteWStr.WriteWStr(const aCtx: TtfwContext;
  const aFile: ItfwFile;
  const aValue: TtfwStackValue);
@@ -1199,11 +1200,6 @@ begin
  WriteWStr(aCtx, l_aFile, l_aValue);
 end;//TkwFileWriteWStr.DoDoIt
 
-class function TkwFileWriteWStr.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:WriteWStr';
-end;//TkwFileWriteWStr.GetWordNameForRegister
-
 function TkwFileWriteWStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1218,6 +1214,11 @@ function TkwFileWriteWStr.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile), @tfw_tiStruct]);
 end;//TkwFileWriteWStr.ParamsTypes
+
+class function TkwFileWriteWStr.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:WriteWStr';
+end;//TkwFileWriteWStr.GetWordNameForRegister
 
 function TkwFileReadWStrLn.ReadWStrLn(const aCtx: TtfwContext;
  const aFile: ItfwFile): Tl3PCharLen;
@@ -1245,11 +1246,6 @@ begin
  aCtx.rEngine.PushWStr(ReadWStrLn(aCtx, l_aFile));
 end;//TkwFileReadWStrLn.DoDoIt
 
-class function TkwFileReadWStrLn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:ReadWStrLn';
-end;//TkwFileReadWStrLn.GetWordNameForRegister
-
 function TkwFileReadWStrLn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiWString;
@@ -1264,6 +1260,11 @@ function TkwFileReadWStrLn.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile)]);
 end;//TkwFileReadWStrLn.ParamsTypes
+
+class function TkwFileReadWStrLn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:ReadWStrLn';
+end;//TkwFileReadWStrLn.GetWordNameForRegister
 
 procedure TkwFileWriteWStrLn.WriteWStrLn(const aCtx: TtfwContext;
  const aFile: ItfwFile;
@@ -1309,11 +1310,6 @@ begin
  WriteWStrLn(aCtx, l_aFile, l_aValue);
 end;//TkwFileWriteWStrLn.DoDoIt
 
-class function TkwFileWriteWStrLn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:WriteWStrLn';
-end;//TkwFileWriteWStrLn.GetWordNameForRegister
-
 function TkwFileWriteWStrLn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1328,6 +1324,11 @@ function TkwFileWriteWStrLn.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile), @tfw_tiStruct]);
 end;//TkwFileWriteWStrLn.ParamsTypes
+
+class function TkwFileWriteWStrLn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:WriteWStrLn';
+end;//TkwFileWriteWStrLn.GetWordNameForRegister
 
 function TkwDeleteFile.DeleteFile(const aCtx: TtfwContext;
  const aName: AnsiString): Boolean;
@@ -1355,11 +1356,6 @@ begin
  aCtx.rEngine.PushBool(DeleteFile(aCtx, l_aName));
 end;//TkwDeleteFile.DoDoIt
 
-class function TkwDeleteFile.GetWordNameForRegister: AnsiString;
-begin
- Result := 'DeleteFile';
-end;//TkwDeleteFile.GetWordNameForRegister
-
 function TkwDeleteFile.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1374,6 +1370,11 @@ function TkwDeleteFile.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwDeleteFile.ParamsTypes
+
+class function TkwDeleteFile.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'DeleteFile';
+end;//TkwDeleteFile.GetWordNameForRegister
 
 function TkwRenameFile.RenameFile(const aCtx: TtfwContext;
  const aNewName: AnsiString;
@@ -1412,11 +1413,6 @@ begin
  aCtx.rEngine.PushBool(RenameFile(aCtx, l_aNewName, l_anOldName));
 end;//TkwRenameFile.DoDoIt
 
-class function TkwRenameFile.GetWordNameForRegister: AnsiString;
-begin
- Result := 'RenameFile';
-end;//TkwRenameFile.GetWordNameForRegister
-
 function TkwRenameFile.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1431,6 +1427,11 @@ function TkwRenameFile.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwRenameFile.ParamsTypes
+
+class function TkwRenameFile.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'RenameFile';
+end;//TkwRenameFile.GetWordNameForRegister
 
 procedure TkwCopyFilesByMask.CopyFilesByMask(const aCtx: TtfwContext;
  const aSourceDir: AnsiString;
@@ -1480,11 +1481,6 @@ begin
  CopyFilesByMask(aCtx, l_aSourceDir, l_aDestDir, l_aFileMask);
 end;//TkwCopyFilesByMask.DoDoIt
 
-class function TkwCopyFilesByMask.GetWordNameForRegister: AnsiString;
-begin
- Result := 'CopyFilesByMask';
-end;//TkwCopyFilesByMask.GetWordNameForRegister
-
 function TkwCopyFilesByMask.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1499,6 +1495,11 @@ function TkwCopyFilesByMask.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwCopyFilesByMask.ParamsTypes
+
+class function TkwCopyFilesByMask.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'CopyFilesByMask';
+end;//TkwCopyFilesByMask.GetWordNameForRegister
 
 procedure TkwCopyFile.CopyFile(const aCtx: TtfwContext;
  const aSourceFile: AnsiString;
@@ -1548,11 +1549,6 @@ begin
  CopyFile(aCtx, l_aSourceFile, l_aDestFile, l_aCopyMode);
 end;//TkwCopyFile.DoDoIt
 
-class function TkwCopyFile.GetWordNameForRegister: AnsiString;
-begin
- Result := 'CopyFile';
-end;//TkwCopyFile.GetWordNameForRegister
-
 function TkwCopyFile.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1567,6 +1563,11 @@ function TkwCopyFile.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, TypeInfo(Integer)]);
 end;//TkwCopyFile.ParamsTypes
+
+class function TkwCopyFile.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'CopyFile';
+end;//TkwCopyFile.GetWordNameForRegister
 
 procedure TkwPureDir.PureDir(const aCtx: TtfwContext;
  const aName: AnsiString);
@@ -1594,11 +1595,6 @@ begin
  PureDir(aCtx, l_aName);
 end;//TkwPureDir.DoDoIt
 
-class function TkwPureDir.GetWordNameForRegister: AnsiString;
-begin
- Result := 'PureDir';
-end;//TkwPureDir.GetWordNameForRegister
-
 function TkwPureDir.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1613,6 +1609,11 @@ function TkwPureDir.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwPureDir.ParamsTypes
+
+class function TkwPureDir.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'PureDir';
+end;//TkwPureDir.GetWordNameForRegister
 
 procedure TkwDeleteFilesByMask.DeleteFilesByMask(const aCtx: TtfwContext;
  const aDirName: AnsiString;
@@ -1651,11 +1652,6 @@ begin
  DeleteFilesByMask(aCtx, l_aDirName, l_aMask);
 end;//TkwDeleteFilesByMask.DoDoIt
 
-class function TkwDeleteFilesByMask.GetWordNameForRegister: AnsiString;
-begin
- Result := 'DeleteFilesByMask';
-end;//TkwDeleteFilesByMask.GetWordNameForRegister
-
 function TkwDeleteFilesByMask.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1670,6 +1666,11 @@ function TkwDeleteFilesByMask.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwDeleteFilesByMask.ParamsTypes
+
+class function TkwDeleteFilesByMask.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'DeleteFilesByMask';
+end;//TkwDeleteFilesByMask.GetWordNameForRegister
 
 procedure TkwProcessFilesWithMask.ProcessFilesWithMask(const aCtx: TtfwContext;
  const aDirName: AnsiString;
@@ -1742,11 +1743,6 @@ begin
  ProcessFilesWithMask(aCtx, l_aDirName, l_aFileMask, l_aProc);
 end;//TkwProcessFilesWithMask.DoDoIt
 
-class function TkwProcessFilesWithMask.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ProcessFilesWithMask';
-end;//TkwProcessFilesWithMask.GetWordNameForRegister
-
 function TkwProcessFilesWithMask.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1761,6 +1757,11 @@ function TkwProcessFilesWithMask.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, TypeInfo(TtfwWord)]);
 end;//TkwProcessFilesWithMask.ParamsTypes
+
+class function TkwProcessFilesWithMask.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ProcessFilesWithMask';
+end;//TkwProcessFilesWithMask.GetWordNameForRegister
 
 procedure TkwProcessSubDirs.ProcessSubDirs(const aCtx: TtfwContext;
  const aDirName: AnsiString;
@@ -1822,11 +1823,6 @@ begin
  ProcessSubDirs(aCtx, l_aDirName, l_aProc);
 end;//TkwProcessSubDirs.DoDoIt
 
-class function TkwProcessSubDirs.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ProcessSubDirs';
-end;//TkwProcessSubDirs.GetWordNameForRegister
-
 function TkwProcessSubDirs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1841,6 +1837,11 @@ function TkwProcessSubDirs.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(TtfwWord)]);
 end;//TkwProcessSubDirs.ParamsTypes
+
+class function TkwProcessSubDirs.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ProcessSubDirs';
+end;//TkwProcessSubDirs.GetWordNameForRegister
 
 function TkwFileSize.FileSize(const aCtx: TtfwContext;
  const aFileName: AnsiString): Integer;
@@ -1868,11 +1869,6 @@ begin
  aCtx.rEngine.PushInt(FileSize(aCtx, l_aFileName));
 end;//TkwFileSize.DoDoIt
 
-class function TkwFileSize.GetWordNameForRegister: AnsiString;
-begin
- Result := 'FileSize';
-end;//TkwFileSize.GetWordNameForRegister
-
 function TkwFileSize.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1887,6 +1883,11 @@ function TkwFileSize.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwFileSize.ParamsTypes
+
+class function TkwFileSize.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'FileSize';
+end;//TkwFileSize.GetWordNameForRegister
 
 function TkwCompareFiles.CompareFiles(const aCtx: TtfwContext;
  const aFile1: AnsiString;
@@ -1939,11 +1940,6 @@ begin
  aCtx.rEngine.PushBool(CompareFiles(aCtx, l_aFile1, l_aFile2, l_aHeaderBegin));
 end;//TkwCompareFiles.DoDoIt
 
-class function TkwCompareFiles.GetWordNameForRegister: AnsiString;
-begin
- Result := 'CompareFiles';
-end;//TkwCompareFiles.GetWordNameForRegister
-
 function TkwCompareFiles.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1958,6 +1954,11 @@ function TkwCompareFiles.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwCompareFiles.ParamsTypes
+
+class function TkwCompareFiles.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'CompareFiles';
+end;//TkwCompareFiles.GetWordNameForRegister
 
 initialization
  TFileProcessingPackResNameGetter.Register;

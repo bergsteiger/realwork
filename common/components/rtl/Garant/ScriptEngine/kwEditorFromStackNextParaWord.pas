@@ -2,6 +2,7 @@ unit kwEditorFromStackNextParaWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackNextParaWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwEditorFromStackNextParaWord" MUID: (50BA0C4E001B)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

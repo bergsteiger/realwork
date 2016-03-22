@@ -3,6 +3,7 @@ unit Admin_Users_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin_Users_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "Users" MUID: (494FD61000CC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

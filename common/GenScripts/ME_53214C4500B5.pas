@@ -3,6 +3,8 @@ unit K517772970_TcsImportTaskItem;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TcsImportTaskItem.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TcsImportTaskItem" MUID: (53214C4500B5)
+// Имя типа: "TK517772970_TcsImportTaskItem"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

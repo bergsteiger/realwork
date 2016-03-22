@@ -2,6 +2,7 @@ unit NOT_FINISHED_CsReply;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_CsReply.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TCsReply" MUID: (538DEBDF0374)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

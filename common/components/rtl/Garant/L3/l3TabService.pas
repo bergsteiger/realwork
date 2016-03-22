@@ -2,6 +2,7 @@ unit l3TabService;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3TabService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3TabService" MUID: (550AE937003B)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -29,7 +30,7 @@ type
  Tl3TabService = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3TabService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3TabService }
   protected
    procedure pm_SetAlien(const aValue: Il3TabService);
    procedure ClearFields; override;

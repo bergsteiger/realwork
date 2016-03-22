@@ -3,6 +3,7 @@ unit nsFilterableTreeStruct;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsFilterableTreeStruct.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsFilterableTreeStruct" MUID: (46835BD201D6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

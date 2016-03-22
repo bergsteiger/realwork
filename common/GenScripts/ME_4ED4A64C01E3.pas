@@ -2,6 +2,7 @@ unit evSBSColumnBorderMarker;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSBSColumnBorderMarker.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevSBSColumnBorderMarker" MUID: (4ED4A64C01E3)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

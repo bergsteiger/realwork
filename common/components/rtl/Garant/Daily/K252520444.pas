@@ -1,76 +1,57 @@
 unit K252520444;
+ {* [$252520444] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/K252520444.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.7::K252520444
-//
-// [$252520444]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K252520444.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K252520444" MUID: (4D676F85029E)
+// Имя типа: "TK252520444"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  DrawTest,
-  Types
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , DrawTest
+ , Types
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK252520444 = class(TDrawTest)
   {* [$252520444] }
- protected
- // overridden protected methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    function FormExtent: TPoint; override;
-     {* Размеры формы }
-   {$IfEnd} //nsTest AND not NoVCM
+    {* Размеры формы }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK252520444
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork,
-  nevTools
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ , nevTools
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK252520444
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TK252520444.FormExtent: TPoint;
+ {* Размеры формы }
 //#UC START# *4C08CF700318_4D676F85029E_var*
 //#UC END# *4C08CF700318_4D676F85029E_var*
 begin
@@ -79,23 +60,22 @@ begin
  Result.Y := 600;
 //#UC END# *4C08CF700318_4D676F85029E_impl*
 end;//TK252520444.FormExtent
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TK252520444.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.7';
 end;//TK252520444.GetFolder
 
 function TK252520444.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D676F85029E';
 end;//TK252520444.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK252520444.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

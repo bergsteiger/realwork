@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtShockwaveFlashEx;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtShockwaveFlashEx.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvtShockwaveFlashEx" MUID: (4981A4AE0282)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
@@ -23,10 +24,10 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , vtFlashWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , vtFlashWordsPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 

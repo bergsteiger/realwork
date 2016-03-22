@@ -2,6 +2,7 @@ unit NOT_FINISHED_ObjList;
 
 // Модуль: "w:\archi\source\projects\Archi\Main\NOT_FINISHED_ObjList.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ObjList" MUID: (4F0C09DA02DE)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

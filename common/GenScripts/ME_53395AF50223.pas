@@ -2,6 +2,7 @@ unit l3DwmUtils;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3DwmUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3DwmUtils" MUID: (53395AF50223)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

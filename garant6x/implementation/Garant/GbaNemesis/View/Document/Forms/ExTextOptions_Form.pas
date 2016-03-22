@@ -394,6 +394,7 @@ uses
   BaloonWarningUserTypes_WarnTimeMachineWarning_UserType,
   BaloonWarningUserTypes_WarnInactualDocument_UserType,
   nsUseDocumentSubPanelOperationEvent,
+  bsUtilsConst,
   l3MessageID
   {$If not defined(NoScripts)}
   ,
@@ -880,6 +881,8 @@ procedure TExTextOptionsForm.SetReminderOpParams(const aParams: IvcmTestParamsPr
  end;//RefineBaloonHint
 
 //#UC START# *4C7FAE9B01E1_4C7F801D0304_var*
+var
+ l_Hint: Il3CString;
 //#UC END# *4C7FAE9B01E1_4C7F801D0304_var*
 begin
 //#UC START# *4C7FAE9B01E1_4C7F801D0304_impl*
@@ -888,8 +891,12 @@ begin
   Flag[vcm_ofVisible] := (aInfo <> nil);
   if Flag[vcm_ofVisible] then
   begin
-   Hint := RefineBaloonHint(aInfo);
-   LongHint := Hint;
+   l_Hint := RefineBaloonHint(aInfo);
+   if not Document.HasRelatedDoc then
+    if l3Ends(str_wgReferenceHyperlinkSearchText.AsCStr, l_Hint) then
+     l3SetLen(l_Hint, l3Len(l_Hint) - l3Len(str_wgReferenceHyperlinkSearchText.AsCStr));
+   Hint := l_Hint;
+   LongHint := l_Hint;
    Caption := aCaption;
   end;//Flag[vcm_ofVisible]
  end;//with aParams.Op do

@@ -21,6 +21,8 @@ interface
 type
 //#UC START# *4614EBAD0222ci*
 //#UC END# *4614EBAD0222ci*
+//#UC START# *4614EBAD0222cit*
+//#UC END# *4614EBAD0222cit*
  ActiveChangeableBase = class
 //#UC START# *4614EBAD0222publ*
 //#UC END# *4614EBAD0222publ*

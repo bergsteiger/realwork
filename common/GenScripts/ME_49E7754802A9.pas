@@ -2,6 +2,7 @@ unit l3ProtoObject;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProtoObject" MUID: (49E7754802A9)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

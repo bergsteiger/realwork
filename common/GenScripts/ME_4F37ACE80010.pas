@@ -2,6 +2,7 @@ unit CompilationPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\CompilationPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "CompilationPack" MUID: (4F37ACE80010)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

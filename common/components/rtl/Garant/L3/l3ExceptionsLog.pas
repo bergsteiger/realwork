@@ -7,11 +7,17 @@ unit l3ExceptionsLog;
 //
 // Copyright (c) 1997-2000 by Archivarius Team, free for non commercial use.
 //
-// $Id: l3ExceptionsLog.pas,v 1.47 2015/08/21 14:58:22 lulin Exp $
+// $Id: l3ExceptionsLog.pas,v 1.49 2015/12/11 21:27:40 lulin Exp $
 //
 *)
 
 // $Log: l3ExceptionsLog.pas,v $
+// Revision 1.49  2015/12/11 21:27:40  lulin
+// - отлаживаем для удалённой сессии.
+//
+// Revision 1.48  2015/12/11 21:12:23  lulin
+// - отлаживаем для удалённой сессии.
+//
 // Revision 1.47  2015/08/21 14:58:22  lulin
 // - подтачиваем.
 //
@@ -559,6 +565,8 @@ constructor Tl3ExceptionsLog.Create(const ALogFileName : AnsiString ='';
 {$IFDEF _m0LOGSAV1}
 var
  LCompSize : LongInt;
+ l_SessionName : String;
+ l_ConsoleId : Integer;
 {$ENDIF}
 begin
  {$If Defined(nsTest)}
@@ -586,9 +594,20 @@ begin
  SetLength(FCompHandle, LCompSize);
 
  if l3IsRemoteSession then
+ begin
  //if SameText(SysUtils.GetEnvironmentVariable('SESSIONNAME'), 'Console') then
   // -  подключены к консоли
-  FCompHandle := FCompHandle + Format('.%s.%d', [SysUtils.GetEnvironmentVariable('SESSIONNAME'), Integer(l3WTSGetActiveConsoleSessionId)]);
+  l_SessionName := SysUtils.GetEnvironmentVariable('SESSIONNAME');
+  try
+   if (l_SessionName = 'Console') OR (FCompHandle = 'LULIN-NEST') then
+    l_ConsoleId := 0
+   else
+    l_ConsoleId := Integer(l3WTSGetActiveConsoleSessionId);
+  except
+   l_ConsoleId := 0;
+  end;//try..except
+  FCompHandle := FCompHandle + Format('.%s.%d', [l_SessionName, l_ConsoleId]);
+ end; 
 
  LogFileName := ALogFileName;
 {$ENDIF}

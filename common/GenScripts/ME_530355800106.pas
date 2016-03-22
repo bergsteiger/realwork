@@ -2,6 +2,7 @@ unit NOT_FINISHED_alcuExport;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuExport.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuExport" MUID: (530355800106)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

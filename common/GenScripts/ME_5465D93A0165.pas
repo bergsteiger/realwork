@@ -2,6 +2,7 @@ unit alcuGetReadyToDeliveryTasksExecutor;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuGetReadyToDeliveryTasksExecutor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuGetReadyToDeliveryTasksExecutor" MUID: (5465D93A0165)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

@@ -61,8 +61,7 @@ protected:
 	virtual Adapter::IFragments* get_fragments (
 		const std::string& in
 		, DBCore::DocId id
-		, unsigned long word
-		, unsigned long first_word
+		, const ContextSearch::Defs::PosPair& pair
 	);
 
 	// implemented method from Adapter::ISearcher

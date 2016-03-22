@@ -2,6 +2,7 @@ unit evSegment;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSegment.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evSegment" MUID: (4A3919200142)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

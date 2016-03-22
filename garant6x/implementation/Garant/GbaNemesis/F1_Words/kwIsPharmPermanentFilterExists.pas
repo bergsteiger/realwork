@@ -1,53 +1,36 @@
 unit kwIsPharmPermanentFilterExists;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwIsPharmPermanentFilterExists.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Words::Words::IsPharmPermanentFilterExists
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwIsPharmPermanentFilterExists.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "IsPharmPermanentFilterExists" MUID: (53B2B2730077)
+// Имя типа: "TkwIsPharmPermanentFilterExists"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwPermanentFilterExists,
-  FiltersUnit
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwPermanentFilterExists
+ , FiltersUnit
+;
 
-{$If not defined(NoScripts)}
 type
- TkwIsPharmPermanentFilterExists = {final scriptword} class(TkwPermanentFilterExists)
- protected
- // realized methods
+ TkwIsPharmPermanentFilterExists = {final} class(TkwPermanentFilterExists)
+  protected
    function GetFilters: IFiltersFromQuery; override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwIsPharmPermanentFilterExists
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  DataAdapter
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwIsPharmPermanentFilterExists
+ l3ImplUses
+ , DataAdapter
+;
 
 function TkwIsPharmPermanentFilterExists.GetFilters: IFiltersFromQuery;
 //#UC START# *53B2B2C800D6_53B2B2730077_var*
@@ -59,17 +42,13 @@ begin
 end;//TkwIsPharmPermanentFilterExists.GetFilters
 
 class function TkwIsPharmPermanentFilterExists.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'IsPharmPermanentFilterExists';
 end;//TkwIsPharmPermanentFilterExists.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация IsPharmPermanentFilterExists
  TkwIsPharmPermanentFilterExists.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация IsPharmPermanentFilterExists }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

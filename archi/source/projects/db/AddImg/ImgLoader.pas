@@ -1,7 +1,10 @@
 unit ImgLoader;
 
-{ $Id: ImgLoader.pas,v 1.13 2010/02/04 10:29:46 narry Exp $ }
+{ $Id: ImgLoader.pas,v 1.14 2015/11/26 09:31:17 lukyanets Exp $ }
 // $Log: ImgLoader.pas,v $
+// Revision 1.14  2015/11/26 09:31:17  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.13  2010/02/04 10:29:46  narry
 // - сборка под 131 версию базы
 //
@@ -82,6 +85,7 @@ implementation
 
 uses
  Dialogs, SysUtils,
+ daSchemeConsts,
  Dt_Doc,
  Dt_Log,
  dt_Renum,

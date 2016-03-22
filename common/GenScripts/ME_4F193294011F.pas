@@ -2,6 +2,7 @@ unit StgIndexTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Archi_Tests\StgIndexTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TStgIndexTest" MUID: (4F193294011F)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Archi_Tests\TestDefine.inc.pas}
 

@@ -443,7 +443,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"java:*4757F83900B2_CUSTOM_IMPORT*"
-		    value      	"//#UC START# *4757F83900B2_CUSTOM_IMPORT*¤import ru.garant.shared.ConfluenceCore.PageSupport.GarPageManager;¤import ru.garant.shared.ConfluenceCore.ActionSupport.ActionContext;¤import ru.garant.shared.ConfluenceCore.ActionSupport.ActionContextThreadLocalFactory;¤import ru.garant.MDProcess.CaseAgreementChange.Entities.CaseLifeCycle;¤import java.lang.reflect.InvocationTargetException;¤import java.util.*;¤import java.util.regex.Matcher;¤import java.util.regex.Pattern;¤¤import javax.servlet.http.HttpServletRequest;¤¤import org.apache.commons.beanutils.PropertyUtils;¤import org.apache.commons.collections.CollectionUtils;¤import org.apache.commons.lang.StringUtils;¤import org.springframework.orm.hibernate.SessionFactoryUtils;¤¤import ru.garant.MDProcess.ConfluenceMDChange.MdcCommon.MDCManager;¤¤import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;¤import com.atlassian.confluence.core.ContentPropertyManager;¤import com.atlassian.confluence.core.DefaultSaveContext;¤import com.atlassian.confluence.core.SaveContext;¤import com.atlassian.confluence.labels.Label;¤import com.atlassian.confluence.labels.LabelManager;¤import com.atlassian.confluence.labels.LabelParser;¤import com.atlassian.confluence.pages.PageManager;¤import com.atlassian.user.User;¤import com.opensymphony.webwork.ServletActionContext;¤¤import net.sf.hibernate.HibernateException;¤import net.sf.hibernate.Query;¤import net.sf.hibernate.Session;¤¤import ru.garant.shared.ConfluenceCore.Helpers.ContainerManager;¤import ru.garant.shared.FSM.BaseEvent;¤import ru.garant.shared.FSM.NotStarted;¤import ru.garant.shared.FSM.PreEnterFailed;¤import ru.garant.shared.FSM.SaveFailed;¤import ru.garant.shared.FSM.State;¤import ru.garant.shared.FSM.ValidationFailed;¤import ru.garant.shared.GCI.I18N.Messages;¤import ru.garant.shared.GCL.DateUtils;¤import ru.garant.shared.GCL.DateUtils.WrongFormat;¤¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.Observer;¤¤import ru.garant.MDProcess.ConfluencePlugins.DiscussionsSupport.GarantHibernate;¤import ru.garant.MDProcess.ConfluencePlugins.DiscussionsSupport.UnreadDocument;¤¤import ru.garant.MDProcess.ConfluenceMDChange.MDChangeDAO.AbstractRequestDAOProxy;¤import ru.garant.MDProcess.ConfluenceMDChange.MDChangeDAO.ExecutionGroupDAOProxy;¤import ru.garant.MDProcess.ConfluenceMDChange.MDChangeDAO.ExternalAuthorDAO;¤import ru.garant.MDProcess.ConfluenceMDChange.MDChangeDAO.ExternalAuthorSimpleDAO;¤¤import ru.garant.MDProcess.ConfluenceMDChange.Releases.ReleaseLifeCycle;¤import ru.garant.MDProcess.ConfluenceMDChange.Releases.ReleaseManager;¤import ru.garant.MDProcess.HRChange.Entities.HRManager;¤import ru.garant.MDProcess.HRChange.Entities.Leader;¤import ru.garant.MDProcess.HRChange.HRChangeDAO.LeaderData;¤¤//#UC END# *4757F83900B2_CUSTOM_IMPORT*")
+		    value      	"//#UC START# *4757F83900B2_CUSTOM_IMPORT*¤import ru.garant.shared.ConfluenceCore.PageSupport.GarPageManager;¤import ru.garant.shared.ConfluenceCore.ActionSupport.ActionContext;¤import ru.garant.shared.ConfluenceCore.ActionSupport.ActionContextThreadLocalFactory;¤import ru.garant.MDProcess.CaseAgreementChange.Entities.CaseLifeCycle;¤import java.lang.reflect.InvocationTargetException;¤import java.util.*;¤import java.util.regex.Matcher;¤import java.util.regex.Pattern;¤¤import javax.servlet.http.HttpServletRequest;¤¤import org.apache.commons.beanutils.PropertyUtils;¤import org.apache.commons.collections.CollectionUtils;¤import org.apache.commons.lang.StringUtils;¤import org.springframework.orm.hibernate.SessionFactoryUtils;¤¤import ru.garant.MDProcess.ConfluenceMDChange.MdcCommon.MDCManager;¤¤import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;¤import com.atlassian.confluence.core.ContentPropertyManager;¤import com.atlassian.confluence.core.DefaultSaveContext;¤import com.atlassian.confluence.core.SaveContext;¤import com.atlassian.confluence.labels.Label;¤import com.atlassian.confluence.labels.LabelManager;¤import com.atlassian.confluence.labels.LabelParser;¤import com.atlassian.confluence.pages.PageManager;¤import com.atlassian.user.User;¤import com.opensymphony.webwork.ServletActionContext;¤¤import net.sf.hibernate.HibernateException;¤import net.sf.hibernate.Query;¤import net.sf.hibernate.Session;¤¤import ru.garant.shared.ConfluenceCore.Helpers.ContainerManager;¤import ru.garant.shared.FSM.BaseEvent;¤import ru.garant.shared.FSM.NotStarted;¤import ru.garant.shared.FSM.PreEnterFailed;¤import ru.garant.shared.FSM.SaveFailed;¤import ru.garant.shared.FSM.State;¤import ru.garant.shared.FSM.ValidationFailed;¤import ru.garant.shared.GCI.I18N.Messages;¤import ru.garant.shared.GCL.DateUtils;¤import ru.garant.shared.GCL.DateUtils.WrongFormat;¤¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.Observer;¤¤import ru.garant.MDProcess.ConfluencePlugins.DiscussionsSupport.GarantHibernate;¤import ru.garant.MDProcess.ConfluencePlugins.DiscussionsSupport.UnreadDocument;¤¤import ru.garant.MDProcess.ConfluenceMDChange.MDChangeDAO.AbstractRequestDAOProxy;¤import ru.garant.MDProcess.ConfluenceMDChange.MDChangeDAO.ExecutionGroupDAOProxy;¤import ru.garant.MDProcess.ConfluenceMDChange.MDChangeDAO.ExternalAuthorDAO;¤import ru.garant.MDProcess.ConfluenceMDChange.MDChangeDAO.ExternalAuthorSimpleDAO;¤import ru.garant.MDProcess.ConfluenceMDChange.MDChangeDAO.LinkedExternalAuthorDAO;¤¤import ru.garant.MDProcess.ConfluenceMDChange.Releases.ReleaseLifeCycle;¤import ru.garant.MDProcess.ConfluenceMDChange.Releases.ReleaseManager;¤import ru.garant.MDProcess.HRChange.Entities.HRManager;¤import ru.garant.MDProcess.HRChange.Entities.Leader;¤import ru.garant.MDProcess.HRChange.HRChangeDAO.LeaderData;¤¤//#UC END# *4757F83900B2_CUSTOM_IMPORT*")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"java:*4757F83900B2_CUSTOM_CLASS_DEFINITION*"
@@ -452,7 +452,7 @@
 		    tool       	"MDA Generator"
 		    name       	"java:*4757F83900B2_CUSTOM_METHODS_AND_DATA*"
 		    value      	(value Text 
-|//#UC START# *4757F83900B2_CUSTOM_METHODS_AND_DATA*¤	¤	private long id_ = 0;¤	¤	private Page page_ = null;¤	¤	private RequestImportance importance_;¤¤	protected AbstractRequestType type_;¤	¤	protected AbstractEvent currentEvent_ = null;¤	¤	private AbstractRequestDAOProxy proxy_ = null;¤	¤	private AbstractRequestDAOProxy prevProxyData_ = null;¤	¤	¤	protected AbstractRequestDAOProxy getProxy() {¤		if(proxy_ == null) {¤			if(id_ != 0) { // existing request¤				try {¤					AbstractRequestDAOProxy currentData = loadProxy(getSession(), id_);¤					proxy_ = currentData.clone();¤				} catch (HibernateException e) {¤					final String msg = "AbstractRequestS::getProxy - can't load proxy id='" + id_ + "'";¤					Logs.LOG_E(msg);¤					throw new RuntimeException(msg, e);¤				} catch (CloneNotSupportedException ex) {¤					String pcn = getProxy().getClass().getName();¤					final String msg = "AbstractRequestS::getProxy - can't clone proxy (class='" + pcn + "')";¤					Logs.LOG_E(msg);¤					throw new RuntimeException(msg, ex);¤				} ¤			} else {¤				if (proxy_ == null) { // new request¤					proxy_ = createProxy();¤					proxy_.setPage(page_);¤				}¤				if (page_ != null) {¤					id_ = page_.getId();¤					try {¤						AbstractRequestDAOProxy currentData = loadProxy(getSession(), id_);¤						if (currentData != null) { ¤							// already has data - use same id to override it¤							proxy_.setId(id_);¤						}¤					} catch (Exception e) {¤						Logs.LOG_SEX(e);¤					}¤				}¤			}¤		}¤		return proxy_;¤	}¤	¤	protected abstract Class<? extends AbstractRequestDAOProxy> getProxyClass();¤	¤	protected abstract AbstractRequestDAOProxy createProxy();¤	¤	private AbstractRequestDAOProxy loadProxy(Session session, long id) throws HibernateException {¤		return (AbstractRequestDAOProxy) session.get(getProxyClass(), id);¤	}¤	¤	/**¤	 * @param <T>¤	 * @return current data object state from DB ¤	 */¤	protected <T extends AbstractRequestDAOProxy> T loadCurrentData() {¤		Session session = ContainerManager.Factory.get().getSession();¤		try {¤			return (T) loadProxy(session, id_);¤		} catch (HibernateException e) {¤			Logs.LOG_W("AbstractRequestS::loadCurrentData - " + e);¤		}¤		return null;¤	}¤	¤	public void setId(final long id) {¤		//dchuiko: î÷åíü ãíóñíûé õàê äëÿ ïåðåíîñà çàïðîñîâ¤		id_ = id;¤		getProxy().setId(id);¤	}¤	¤	public void setPage (final Page page) {¤		//ses: î÷åíü ãíóñíûé õàê äëÿ èìïîðòà ñòàðûõ çàïðîñîâ â íîâóþ àðõèòåêòóðó (â ñóùíîñòü Request)¤		id_ = page.getId();¤		page_ = page;¤		getProxy().setPage(page);¤	}¤	¤	private static final long MIN_FORECAST_TIME = 1000l * 60l * 60l;¤	// 8 working hours in a day; 5 days in a week; 4 weeks in a month - 3 working months total¤	private static final long MAX_FORECAST_TIME = 1000l * 60l * 60l * 8l * 5l * 4l * 3l;¤	¤	private String generalValidation_ = null;¤	¤	protected void setGeneralValidationMessage (String message) {¤		generalValidation_ = message;¤	}¤	¤	protected void preCommit() {¤		¤	}¤		¤	private void setEtc (long newForecast) {¤		if (newForecast != 0) {¤			if (MIN_FORECAST_TIME > newForecast || newForecast > MAX_FORECAST_TIME) {¤				generalValidation_ = Messages.Factory.messages().get("abstractrequests.interval.future.work.time");¤			} else {¤				setForecastTime(newForecast);¤				long inActiveTime = getInActiveState() != null ? getInActiveState().getTime() : 0;¤				setForecastTime(inActiveTime + newForecast);¤			}¤		} else {¤			generalValidation_ = Messages.Factory.messages().get("abstractrequests.interval.future.work.time");¤		}¤	}¤	¤	private void setForecastTime (long newForecast) {¤		¤		boolean isManager = MDCManager.Factory.get(getPage().getSpaceKey()).isDevelopmentManager(¤				AuthenticatedUserThreadLocal.getUsername());¤		¤		if (newForecast == getProxy().getExpectedTime()) {¤			if (isManager) {¤				// reject developer's forecast¤				setUnacceptedForecastTime(0);¤			}¤			return;¤		}¤		¤		setChangeType(ChangeType.VERSION_MAJOR);¤		¤		boolean shouldUpdateInitialForecast = getProxy().getFirstExpectedTime() == 0 || inAcceptingStates();¤		boolean shouldUpdateForecast = shouldUpdateInitialForecast || isManager¤				|| !inExecutionOrAssignmentStates();¤		¤		if (shouldUpdateForecast) {¤			getProxy().setAcceptedExpectedTime(newForecast);¤			long delta = newForecast - getProxy().getExpectedTime();¤			getProxy().setExpectedTime(newForecast);¤			// clear unaccepted forecast¤			setUnacceptedForecastTime(0);¤¤			if (delta > 0) {¤				DeficitMonitor.Factory.make().newConfirmedPlan(this, AuthenticatedUserThreadLocal.getUsername(), delta);¤			}¤			onForecastChanged();¤		}¤		¤		if(shouldUpdateInitialForecast) {¤			getProxy().setFirstExpectedTime(newForecast);¤		}¤		¤		if (!shouldUpdateForecast) {¤			setUnacceptedForecastTime(newForecast);¤		}¤	}¤	¤	protected void setStateForecastTime(long newStateForecast) {¤		if(getProxy().getExpectedStateTime() == newStateForecast) {¤			return;¤		}¤//		if (newStateForecast > new Date().getTime()) {¤			getProxy().setExpectedStateTime(newStateForecast);¤			¤			setChangeType(ChangeType.VERSION_MINOR);¤			onStateForecastChanged(); ¤//		} else {¤//			generalValidation_ = Messages.Factory.messages().get("abstractrequests.state.forecast.time.future");¤//		}¤	}¤	¤	protected abstract long getTimeDifference(long initialForecast, AbstractState currentState);¤		¤	private long getTimeDifference (long initialForecast) {¤		try {¤			AbstractState state = (AbstractState) getCurrentState();¤			return getTimeDifference(initialForecast, state);¤		} catch (NotStarted e) {¤			Logs.LOG_E("AbstractRequestS::getTimeDifference - " + e);¤			return 0;¤		}¤	}¤	¤	protected long getCompletionTimeDifference(long initialForecast, AbstractState currentState) {¤		return 0;¤	}¤	¤	private long getCompletionTimeDifference (long initialForecast) {¤		try {¤			AbstractState state = (AbstractState) getCurrentState();¤			return getCompletionTimeDifference(initialForecast, state);¤		} catch (NotStarted e) {¤			Logs.LOG_E("AbstractRequestS::getCompletionTimeDifference - " + e);¤			return 0;¤		}¤	}¤	¤	private long getIdleTime (long startTime) {¤		Collection<String> executors = getExecutorLogins();¤		if (CollectionUtils.isEmpty(executors)) {¤			return 0;¤		}¤		long sumIdleTime = 0;¤		for (String executor : executors) {¤			sumIdleTime += EventsLogManager.Factory.get().getFullStateTimes(executor, startTime,¤																			EventType.STOP_WORK,¤																			EventType.START_WORK);¤		}¤		return sumIdleTime / executors.size();¤	}¤	¤	private AbstractEvent getEventById (String eventId) {¤		for (BaseEvent ev : getCurrentState().getAvailableEvents(this)) {¤			AbstractEvent ae = (AbstractEvent) ev;¤			if (eventId.equals(ae.getGuid())) {¤				return ae;¤			}¤		}¤		return null;¤	}¤	¤	protected AbstractEvent getEventByName (String eventName) {¤		for (BaseEvent ev : getCurrentState().getAvailableEvents(this)) {¤			AbstractEvent ae = (AbstractEvent) ev;¤			if (ae.getTitle().equals(eventName)) {¤				return ae;¤			}¤		}¤		return null;¤	}¤¤	private boolean inExecutionOrAssignmentStates () {¤		try {¤			AbstractState currentState = (AbstractState) getCurrentState();¤			return currentState instanceof Assigned¤					|| getManager().isInExecutionState(currentState);¤		} catch (NotStarted e) {¤			Logs.LOG_E("RequestS::inExecutionState: catch NotStarted, request in incorrect state, how?!");¤			return false;¤		}¤	}¤	¤	protected boolean inChangeInitialCompletionTimeStates () {¤		try {¤			AbstractState currentState = (AbstractState) getCurrentState();¤			return currentState instanceof OnAccept;¤		} catch (NotStarted e) {¤			Logs.LOG_E("AbstractRequestS::inChangeCompletionTimeStates: catch NotStarted, request in incorrect state, how?!");¤			return false;¤		}¤	}¤	¤	private boolean inAcceptingStates () {¤		try {¤			AbstractState currentState = (AbstractState) getCurrentState();¤			return currentState instanceof OnAccept;¤		} catch (NotStarted e) {¤			Logs.LOG_E("AbstractRequestS::inAcceptingStates: catch NotStarted, request in incorrect state, how?!");¤			return false;¤		}¤	}¤	¤	private boolean onInitReleaseFilled_ = false;¤	protected boolean getOnInitReleaseFilled() {¤		return onInitReleaseFilled_;¤	}¤	¤	protected ru.garant.shared.FSM.State getStateByCurrentType() {¤		Page p = getPage();¤		Label l = Helper.getStateLabel(p);¤		if (l != null) {¤			for (State st : getAllStates()) {¤				AbstractState state = (AbstractState) st;¤				if (l.getName().equals(state.getGuid())) {¤					return state;¤				}¤			}¤		}¤		return null;¤	}¤	¤	protected void onCompletionTimeChanged() {¤		needToSync_ = true;¤	}¤	¤	protected void onForecastChanged() {¤		needToSync_ = true;¤	}¤	¤	protected void onStateForecastChanged() {¤		//needToSync_ = true;¤		if (getStateTimeDifference() >= 0) {¤			DeficitMonitor.Factory.make().newConfirmedStatePlan(this);¤		}¤	}¤	¤	protected void onImportanceChanged () {¤		GarantHibernate uds = new GarantHibernate (ContainerManager.Factory.get().getSessionFactory());¤		UnreadDocument ud = uds.get (UnreadDocument.class, getPage().getId ());¤		if (ud == null) {¤			ud = new UnreadDocument (getPage().getId ());¤			uds.save (ud);¤			ud.setLastModificationDate(getPage().getLastModificationDate());¤		}¤		ud.addUsersThatUnreadAssigned(getExecutorLogins());¤		User user = AuthenticatedUserThreadLocal.getUser ();¤		if (user != null) {¤			ud.removeFromUnreadAssigned(user.getName ());¤		}¤	}¤	¤	protected void onStateChanged () {¤		GarantHibernate uds = new GarantHibernate(ContainerManager.Factory.get().getSessionFactory());¤		UnreadDocument ud = uds.get(UnreadDocument.class, getPage().getId());¤		if (ud == null) {¤			ud = new UnreadDocument(getPage().getId());¤			uds.save(ud);¤			ud.setLastModificationDate(getPage().getLastModificationDate());¤		}¤		ud.addUserThatUnreadOwn(getPage().getCreatorName());¤		¤		User developmentManager = MDCManager.Factory.get(getPage().getSpace()).getActiveDevelopmentManager();¤		User user = AuthenticatedUserThreadLocal.getUser();¤		if (developmentManager != null) {¤			if (user != null && user.getName().equals(developmentManager.getName())) {¤				//do nothing¤			} else {¤				ud.addUserThatUnreadOwn(developmentManager.getName());¤			}			¤		}¤		¤		if (user != null) {¤			ud.removeFromUnreadOwn(user.getName());¤		}¤¤		DeficitMonitor.Factory.make().newConfirmedStatePlan(this);¤		¤		needToSync_ = true;¤	}¤	¤	protected void onOwnerChanged (ExecutionGroupDAOProxy currentExecutors, ExecutionGroupDAOProxy prevExecutors, byte prevState) {¤		GarantHibernate uds = new GarantHibernate (ContainerManager.Factory.get().getSessionFactory());¤		if(prevExecutors != null) {¤			UnreadDocument ud = uds.get (UnreadDocument.class, getPage().getId ());¤			if (ud == null) {¤				ud = new UnreadDocument (getPage().getId ());¤				uds.save (ud);¤				ud.setLastModificationDate(getPage().getLastModificationDate());¤			}¤			ud.removeFromUnreadAssigned(prevExecutors.getMembers());¤		}¤		¤		onImportanceChanged();¤¤		if (currentExecutors != null) {¤			List<String> newOwners = new LinkedList<String>(currentExecutors.getMembers());¤			if (prevExecutors != null) {¤				newOwners.removeAll(prevExecutors.getMembers());¤			}¤			getNotificationGateway().queueAssignmentEmails(newOwners, prevState);¤		}¤	}¤¤	protected <T extends AbstractRequestDAOProxy> void mergeProperties (T target, T source)¤			throws IllegalAccessException, InvocationTargetException, NoSuchMethodException,¤			HibernateException {¤		PropertyUtils.copyProperties(target, source);¤	}¤	¤	protected void updateExternalAuthors () throws HibernateException {¤		Set<ExternalAuthorDAO> externalAuthors = getProxy().getExternalAuthors();¤		Set<ExternalAuthorDAO> eaInHibernate = new HashSet<ExternalAuthorDAO>();¤		for (ExternalAuthorDAO ea : externalAuthors) {¤			ExternalAuthorDAO eaInHib = findExternalAuthor(ea.getId(), ea.getEmail(), ea.getName());¤			if(eaInHib != null) {¤				eaInHib.setComment(ea.getComment());¤			} else {¤				getSession().save(ea);¤				eaInHib = ea;¤			}¤			eaInHibernate.add(eaInHib);¤			if (!getOriginalExternalAuthors().contains(eaInHib)) {¤				Observer addedEa = new Observer(eaInHib.getId(), eaInHib.getName(), eaInHib.getEmail(),¤						eaInHib.getComment());¤				getNotificationGateway().queueAssignmentEmailsForExternalAuthor(addedEa);¤			}¤		}¤		getProxy().setExternalAuthors(eaInHibernate);¤	}¤	¤	protected ExternalAuthorDAO findExternalAuthor(long id, String email, String name) throws HibernateException {¤		Query q = getSession().createQuery(¤				"FROM ExternalAuthorDAO ead"¤				+ " WHERE ead.email" + ((email == null) ? " IS NULL" : "='" + email + "'")¤				+ " AND ead.name" + ((name == null) ? " IS NULL" : "='" + name + "'")¤				);¤		List<ExternalAuthorDAO> existingEaList = q.list();¤		if (existingEaList != null && existingEaList.size() > 0) {¤			for (ExternalAuthorDAO existingEa : existingEaList) {¤				if (existingEa.getId() == id) {¤					return existingEa;¤				}¤			}¤			return existingEaList.get(0);¤		} ¤		return null;¤	}¤	¤	private static final String UNACCEPTED_FORECAST_TIME_KEY = ¤		"ru.garant.MDProcess.ConfluenceMDChange.RequestsImpl.RequestS.UnacceptedForecastTime";¤	¤	private void setUnacceptedForecastTime (long timeInMillis) {¤		ContentPropertyManager contentPropertyManager = ContainerManager.Factory.get()¤				.getContentPropertyManager();¤		contentPropertyManager.setStringProperty(getPage(), UNACCEPTED_FORECAST_TIME_KEY, Long¤				.toString(timeInMillis));¤	}¤	¤	private byte getImportanceSortValue () {¤		return (byte) getImportance().getId();¤	}¤	¤	protected byte getStateSortValue () {¤		try {¤			return ((AbstractState)getCurrentState()).getSortValue();¤		} catch (ru.garant.shared.FSM.NotStarted e) {¤			Logs.LOG_E("RequestS::getStateSortValue: catch ru.garant.shared.FSM.NotStarted - how?!");¤			throw new IllegalStateException ();¤		}¤	}¤	¤	private boolean isImportingOldRequest () {¤		boolean isImportOldRequestAction = false;¤		try {¤			HttpServletRequest reqHTTP = ServletActionContext.getRequest();¤			if (reqHTTP != null) {¤				StringBuffer requestURL = reqHTTP.getRequestURL();¤				String actionName = requestURL.substring(requestURL.lastIndexOf("/") + 1);¤				if (actionName != null && actionName.equals("importoldrequest.action")) {¤					isImportOldRequestAction = true;¤				}¤			}¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤		}¤		return isImportOldRequestAction;¤	}¤	¤	private void checkImporanceChange (boolean isImportOldRequestAction) {¤		if (getImportance() == null) {¤			return;¤		}¤		Label importanceLabel = Helper.getImportanceLabel(getPage());¤		String importanceLabelGuid = getImportance().getLabel();¤		if (importanceLabel == null || !importanceLabelGuid.equals(importanceLabel.getName())) {¤			LabelManager labelManager = ContainerManager.Factory.get().getLabelManager();¤			if (importanceLabel != null) {¤				labelManager.removeLabel(getPage(), importanceLabel);¤			}¤			LabelParser.parse(importanceLabelGuid).addLabel(getPage(), labelManager);¤			if (!isImportOldRequestAction) {¤				onImportanceChanged();¤			}¤		}¤	}¤	¤	private void checkStateChange (boolean isImportOldRequestAction) throws NotStarted {¤		Label stateLabel = Helper.getStateLabel(getPage());¤		String stateLabelGuid = ((AbstractState) getCurrentState()).getGuid();¤		if (stateLabel == null || !stateLabelGuid.equals(stateLabel.getName())) {¤			Label new_label = ContainerManager.Factory.get().getLabelManager().getLabel(stateLabelGuid);¤			if(new_label == null){¤				Label label = new Label(stateLabelGuid);¤				label.setCreationDate(new Date());¤				label.setLastModificationDate(new Date());¤				new_label = ContainerManager.Factory.get().getLabelManager().createLabel(label);¤			}¤			GarPageManager.Factory.get().changeLabel(getPage(), stateLabel, new_label);¤/*¤			LabelManager labelManager = ContainerManager.Factory.get().getLabelManager();¤			if (stateLabel != null) {¤				labelManager.removeLabel(getPage(), stateLabel);¤			}¤			LabelParser.parse(stateLabelGuid).addLabel(getPage(), labelManager);¤*/			¤			if (!isImportOldRequestAction) {¤				onStateChanged();¤			}¤		}¤	}¤	¤	protected void preSetAttributes () {¤	}¤¤	protected void setAttributes () {¤		getProxy().setImportance(getImportanceSortValue());¤		getProxy().setState(getStateSortValue());¤		getProxy().setPriority(getPriority());¤		getProxy().setExecutionGroup(getExecutionGroup().save());¤		getProxy().setSortExecutorName(getExecutionGroup().getSortValue());¤		getProxy().setExecutionGroupDecision(getExecutionGroupDecision().save());¤	}¤¤	protected void postSetAttributes () {¤	}¤	¤	private static final String EXCERPT_REGEXP = "\\{excerpt\\:hidden=true\\}.*\\{excerpt\\}";¤	private static final String EXCERPT_MACRO_START = "{excerpt:hidden=true}";¤	private static final String EXCERPT_MACRO_END = "{excerpt}";¤	¤	protected String changePageContent (String text) {¤		String caption = EXCERPT_MACRO_START + "\r\n";¤		caption += getManager().makeRequestSummary(this);¤		caption += "\r\n" + EXCERPT_MACRO_END;¤		if (text.startsWith(EXCERPT_MACRO_START)) {¤			final String escapedText = Matcher.quoteReplacement(caption);¤			return Pattern.compile(EXCERPT_REGEXP, Pattern.DOTALL).matcher(text).replaceFirst(escapedText);¤		}  ¤		return caption + "\r\n" + text;¤	}¤	¤	protected <T extends AbstractRequestDAOProxy> void makeVersionForNew (Session session, T currentData) {¤		needToSync_ = true;¤		¤		String content = changePageContent("{ExecutorDecisionMacro}\r\n" + getPage().getContent());¤		getPage().setContent(content);¤	}¤	¤	protected <T extends AbstractRequestDAOProxy> void makeVersionForExisting (Session session, T currentData)¤			throws CloneNotSupportedException, HibernateException {¤		if (!getChangeType().hasChanges()) {¤			return;¤		}¤		¤		PageManager pm = ContainerManager.Factory.get().getPageManager();¤		Page p = getPage();¤		Page originalPage = (Page) p.clone();¤¤		p.setContent(changePageContent(p.getContent()));¤		pm.saveContentEntity(p, originalPage, makeSaveContext());¤		ContainerManager.Factory.get().getSession().flush();¤		currentData.makeVersion(getProxy());¤	}¤	¤	private SaveContext makeSaveContext () {¤		SaveContext sc = new DefaultSaveContext();¤		sc.setMinorEdit(!getChangeType().hasMajorVersionChanges());¤		return sc;¤	}¤	¤	¤	protected Session getSession () {¤		return ContainerManager.Factory.get().getSession();¤	}¤	¤	protected void commonValidation () throws ValidationFailed {¤		if (generalValidation_ != null) {¤			throw new ValidationFailed(6, generalValidation_);¤		}¤	}¤	¤	protected void onPreFinalState() {¤		setExecutor(null);¤		setPriority(RequestPriorityManager.Factory.get().getFinalStatePriority());¤	}¤	¤	protected void doFinishDevelop () {¤		getProxy().setWorkCompleteAt(new Date());		¤	}¤	¤	private AbstractRequestNotificationGateway notificationGateway_;¤¤	private ExecutionGroup executionGroup_;¤¤	protected ExecutionGroup getExecutionGroup () {¤		if (executionGroup_ == null) {¤			executionGroup_ = ExecutionGroup.Factory.get(getProxy().getId());¤		}¤		return executionGroup_;¤	}¤	¤	private ExecutionGroupDecision executionGroupDecision_;¤¤	protected ExecutionGroupDecision getExecutionGroupDecision () {¤		if (executionGroupDecision_ == null) {¤			executionGroupDecision_ = createExecutionGroupDecision();¤		}¤		return executionGroupDecision_;¤	}¤	¤	protected ExecutionGroupDecision createExecutionGroupDecision () {¤		ExecutionGroupDecision res =¤				ExecutionGroupDecision.Factory.get(getProxy(), ExecutionGroupDecisionType.SINGLE);¤		res.addCompletionListener(this);¤		if (res.getMembers().size() < getExecutors().size()) {¤			res.putMembers(getExecutorLogins());¤		}¤		return res;¤	}¤	¤	protected void setExternalAuthors(List<Observer> externalAuthors, boolean replaceOriginal) {¤		HashSet<ExternalAuthorDAO> extAuthors = new HashSet<ExternalAuthorDAO>();¤		for(Observer observer : externalAuthors) {¤			ExternalAuthorDAO ea = null;¤			try{¤				ea = findExternalAuthor(observer.getId(), observer.getEmail(), observer.getFullName());¤			}catch(HibernateException ex){¤				Logs.LOG_SEX(ex);¤			}¤			if(ea == null){¤				ea = new ExternalAuthorSimpleDAO();¤				ea.setId(observer.getId());¤				ea.setEmail(observer.getEmail());¤				ea.setName(observer.getFullName());¤				 ea.setComment(observer.getComment());¤			}¤			extAuthors.add(ea);¤		}¤		if (extAuthors.equals(getProxy().getExternalAuthors())) {¤			return;¤		}¤		if (originalExternalAuthors_ == null) {¤			originalExternalAuthors_ = new HashSet<ExternalAuthorDAO>(getProxy().getExternalAuthors());¤		}¤		getProxy().setExternalAuthors(extAuthors);¤		if (replaceOriginal) {¤			originalExternalAuthors_ = extAuthors;¤		}¤		setChangeType(ChangeType.VERSION_MINOR);¤	}¤	¤	protected abstract AbstractRequestNotificationGateway createNotificationGateway ();¤	¤	protected boolean needToSync_ = false;¤	¤	protected void resetExpectedTime () {¤		Date inActiveState = getInActiveState();¤		long inActiveTime = (inActiveState == null) ? 0 : inActiveState.getTime();¤		if (inActiveTime != getProxy().getExpectedTime()) {¤			ContainerManager.Factory.get().getContentPropertyManager().setStringProperty(¤				getProxy().getPage()¤				, "MDProcess.ConfluenceMDChange.RequestsImpl.preEnterActionClosed.expectedTime"¤				, Long.valueOf(getProxy().getExpectedTime()).toString()¤			);¤			getProxy().setExpectedTime(inActiveTime);¤		}¤	}¤	¤	protected static enum ChangeType {¤		NONE(0), SIMPLE(1), VERSION_MINOR(2), VERSION_MAJOR(3);¤¤		private int weight_ = 0;¤¤		private ChangeType(int weight) {¤			this.weight_ = weight;¤		}¤¤		int getWeight () {¤			return weight_;¤		}¤¤		public boolean hasChanges () {¤			return this != NONE;¤		}¤¤		public boolean hasVersionChanges () {¤			return this == VERSION_MAJOR || this == VERSION_MINOR;¤		}¤¤		public boolean hasMajorVersionChanges () {¤			return this == VERSION_MAJOR;¤		}¤	}¤¤	private ChangeType changeType_ = ChangeType.NONE;¤¤	protected ChangeType getChangeType () {¤		return changeType_;¤	}¤¤	protected void setChangeType (ChangeType type) {¤		if (changeType_.getWeight() < type.getWeight()) {¤			changeType_ = type;¤		}¤	}¤¤	private boolean isChangedExternalAuthors(){¤		Set<ExternalAuthorDAO> externalAuthors = getProxy().getExternalAuthors();¤		Set<ExternalAuthorDAO> originalAuthors = getOriginalExternalAuthors();¤		if(originalAuthors == null || externalAuthors == null){¤			return false;¤		}else if(originalAuthors.containsAll(externalAuthors) && externalAuthors.size() == originalAuthors.size()){¤			return false;¤		}¤		return true;¤	}¤	¤	// Åñëè ÷¸-òî äîñîõðàíèòü íàäî¤	protected void afterSave () {¤		¤	}¤	¤	public static boolean jUnitHackForNoCommitExecution = false; ¤	//#UC END# *4757F83900B2_CUSTOM_METHODS_AND_DATA*
+|//#UC START# *4757F83900B2_CUSTOM_METHODS_AND_DATA*¤	¤	private long id_ = 0;¤	¤	private Page page_ = null;¤	¤	private RequestImportance importance_;¤¤	protected AbstractRequestType type_;¤	¤	protected AbstractEvent currentEvent_ = null;¤	¤	private AbstractRequestDAOProxy proxy_ = null;¤	¤	private AbstractRequestDAOProxy prevProxyData_ = null;¤	¤	¤	protected AbstractRequestDAOProxy getProxy() {¤		if(proxy_ == null) {¤			if(id_ != 0) { // existing request¤				try {¤					AbstractRequestDAOProxy currentData = loadProxy(getSession(), id_);¤					proxy_ = currentData.clone();¤				} catch (HibernateException e) {¤					final String msg = "AbstractRequestS::getProxy - can't load proxy id='" + id_ + "'";¤					Logs.LOG_E(msg);¤					throw new RuntimeException(msg, e);¤				} catch (CloneNotSupportedException ex) {¤					String pcn = getProxy().getClass().getName();¤					final String msg = "AbstractRequestS::getProxy - can't clone proxy (class='" + pcn + "')";¤					Logs.LOG_E(msg);¤					throw new RuntimeException(msg, ex);¤				} ¤			} else {¤				if (proxy_ == null) { // new request¤					proxy_ = createProxy();¤					proxy_.setPage(page_);¤				}¤				if (page_ != null) {¤					id_ = page_.getId();¤					try {¤						AbstractRequestDAOProxy currentData = loadProxy(getSession(), id_);¤						if (currentData != null) { ¤							// already has data - use same id to override it¤							proxy_.setId(id_);¤						}¤					} catch (Exception e) {¤						Logs.LOG_SEX(e);¤					}¤				}¤			}¤		}¤		return proxy_;¤	}¤	¤	protected abstract Class<? extends AbstractRequestDAOProxy> getProxyClass();¤	¤	protected abstract AbstractRequestDAOProxy createProxy();¤	¤	private AbstractRequestDAOProxy loadProxy(Session session, long id) throws HibernateException {¤		return (AbstractRequestDAOProxy) session.get(getProxyClass(), id);¤	}¤	¤	/**¤	 * @param <T>¤	 * @return current data object state from DB ¤	 */¤	protected <T extends AbstractRequestDAOProxy> T loadCurrentData() {¤		Session session = ContainerManager.Factory.get().getSession();¤		try {¤			return (T) loadProxy(session, id_);¤		} catch (HibernateException e) {¤			Logs.LOG_W("AbstractRequestS::loadCurrentData - " + e);¤		}¤		return null;¤	}¤	¤	public void setId(final long id) {¤		//dchuiko: î÷åíü ãíóñíûé õàê äëÿ ïåðåíîñà çàïðîñîâ¤		id_ = id;¤		getProxy().setId(id);¤	}¤	¤	public void setPage (final Page page) {¤		//ses: î÷åíü ãíóñíûé õàê äëÿ èìïîðòà ñòàðûõ çàïðîñîâ â íîâóþ àðõèòåêòóðó (â ñóùíîñòü Request)¤		id_ = page.getId();¤		page_ = page;¤		getProxy().setPage(page);¤	}¤	¤	private static final long MIN_FORECAST_TIME = 1000l * 60l * 60l;¤	// 8 working hours in a day; 5 days in a week; 4 weeks in a month - 3 working months total¤	private static final long MAX_FORECAST_TIME = 1000l * 60l * 60l * 8l * 5l * 4l * 3l;¤	¤	private String generalValidation_ = null;¤	¤	protected void setGeneralValidationMessage (String message) {¤		generalValidation_ = message;¤	}¤	¤	protected void preCommit() {¤		¤	}¤		¤	private void setEtc (long newForecast) {¤		if (newForecast != 0) {¤			if (MIN_FORECAST_TIME > newForecast || newForecast > MAX_FORECAST_TIME) {¤				generalValidation_ = Messages.Factory.messages().get("abstractrequests.interval.future.work.time");¤			} else {¤				setForecastTime(newForecast);¤				long inActiveTime = getInActiveState() != null ? getInActiveState().getTime() : 0;¤				setForecastTime(inActiveTime + newForecast);¤			}¤		} else {¤			generalValidation_ = Messages.Factory.messages().get("abstractrequests.interval.future.work.time");¤		}¤	}¤	¤	private void setForecastTime (long newForecast) {¤		¤		boolean isManager = MDCManager.Factory.get(getPage().getSpaceKey()).isDevelopmentManager(¤				AuthenticatedUserThreadLocal.getUsername());¤		¤		if (newForecast == getProxy().getExpectedTime()) {¤			if (isManager) {¤				// reject developer's forecast¤				setUnacceptedForecastTime(0);¤			}¤			return;¤		}¤		¤		setChangeType(ChangeType.VERSION_MAJOR);¤		¤		boolean shouldUpdateInitialForecast = getProxy().getFirstExpectedTime() == 0 || inAcceptingStates();¤		boolean shouldUpdateForecast = shouldUpdateInitialForecast || isManager¤				|| !inExecutionOrAssignmentStates();¤		¤		if (shouldUpdateForecast) {¤			getProxy().setAcceptedExpectedTime(newForecast);¤			long delta = newForecast - getProxy().getExpectedTime();¤			getProxy().setExpectedTime(newForecast);¤			// clear unaccepted forecast¤			setUnacceptedForecastTime(0);¤¤			if (delta > 0) {¤				DeficitMonitor.Factory.make().newConfirmedPlan(this, AuthenticatedUserThreadLocal.getUsername(), delta);¤			}¤			onForecastChanged();¤		}¤		¤		if(shouldUpdateInitialForecast) {¤			getProxy().setFirstExpectedTime(newForecast);¤		}¤		¤		if (!shouldUpdateForecast) {¤			setUnacceptedForecastTime(newForecast);¤		}¤	}¤	¤	protected void setStateForecastTime(long newStateForecast) {¤		if(getProxy().getExpectedStateTime() == newStateForecast) {¤			return;¤		}¤//		if (newStateForecast > new Date().getTime()) {¤			getProxy().setExpectedStateTime(newStateForecast);¤			¤			setChangeType(ChangeType.VERSION_MINOR);¤			onStateForecastChanged(); ¤//		} else {¤//			generalValidation_ = Messages.Factory.messages().get("abstractrequests.state.forecast.time.future");¤//		}¤	}¤	¤	protected abstract long getTimeDifference(long initialForecast, AbstractState currentState);¤		¤	private long getTimeDifference (long initialForecast) {¤		try {¤			AbstractState state = (AbstractState) getCurrentState();¤			return getTimeDifference(initialForecast, state);¤		} catch (NotStarted e) {¤			Logs.LOG_E("AbstractRequestS::getTimeDifference - " + e);¤			return 0;¤		}¤	}¤	¤	protected long getCompletionTimeDifference(long initialForecast, AbstractState currentState) {¤		return 0;¤	}¤	¤	private long getCompletionTimeDifference (long initialForecast) {¤		try {¤			AbstractState state = (AbstractState) getCurrentState();¤			return getCompletionTimeDifference(initialForecast, state);¤		} catch (NotStarted e) {¤			Logs.LOG_E("AbstractRequestS::getCompletionTimeDifference - " + e);¤			return 0;¤		}¤	}¤	¤	private long getIdleTime (long startTime) {¤		Collection<String> executors = getExecutorLogins();¤		if (CollectionUtils.isEmpty(executors)) {¤			return 0;¤		}¤		long sumIdleTime = 0;¤		for (String executor : executors) {¤			sumIdleTime += EventsLogManager.Factory.get().getFullStateTimes(executor, startTime,¤																			EventType.STOP_WORK,¤																			EventType.START_WORK);¤		}¤		return sumIdleTime / executors.size();¤	}¤	¤	private AbstractEvent getEventById (String eventId) {¤		for (BaseEvent ev : getCurrentState().getAvailableEvents(this)) {¤			AbstractEvent ae = (AbstractEvent) ev;¤			if (eventId.equals(ae.getGuid())) {¤				return ae;¤			}¤		}¤		return null;¤	}¤	¤	protected AbstractEvent getEventByName (String eventName) {¤		for (BaseEvent ev : getCurrentState().getAvailableEvents(this)) {¤			AbstractEvent ae = (AbstractEvent) ev;¤			if (ae.getTitle().equals(eventName)) {¤				return ae;¤			}¤		}¤		return null;¤	}¤¤	private boolean inExecutionOrAssignmentStates () {¤		try {¤			AbstractState currentState = (AbstractState) getCurrentState();¤			return currentState instanceof Assigned¤					|| getManager().isInExecutionState(currentState);¤		} catch (NotStarted e) {¤			Logs.LOG_E("RequestS::inExecutionState: catch NotStarted, request in incorrect state, how?!");¤			return false;¤		}¤	}¤	¤	protected boolean inChangeInitialCompletionTimeStates () {¤		try {¤			AbstractState currentState = (AbstractState) getCurrentState();¤			return currentState instanceof OnAccept;¤		} catch (NotStarted e) {¤			Logs.LOG_E("AbstractRequestS::inChangeCompletionTimeStates: catch NotStarted, request in incorrect state, how?!");¤			return false;¤		}¤	}¤	¤	private boolean inAcceptingStates () {¤		try {¤			AbstractState currentState = (AbstractState) getCurrentState();¤			return currentState instanceof OnAccept;¤		} catch (NotStarted e) {¤			Logs.LOG_E("AbstractRequestS::inAcceptingStates: catch NotStarted, request in incorrect state, how?!");¤			return false;¤		}¤	}¤	¤	private boolean onInitReleaseFilled_ = false;¤	protected boolean getOnInitReleaseFilled() {¤		return onInitReleaseFilled_;¤	}¤	¤	protected ru.garant.shared.FSM.State getStateByCurrentType() {¤		Page p = getPage();¤		Label l = Helper.getStateLabel(p);¤		if (l != null) {¤			for (State st : getAllStates()) {¤				AbstractState state = (AbstractState) st;¤				if (l.getName().equals(state.getGuid())) {¤					return state;¤				}¤			}¤		}¤		return null;¤	}¤	¤	protected void onCompletionTimeChanged() {¤		needToSync_ = true;¤	}¤	¤	protected void onForecastChanged() {¤		needToSync_ = true;¤	}¤	¤	protected void onStateForecastChanged() {¤		//needToSync_ = true;¤		if (getStateTimeDifference() >= 0) {¤			DeficitMonitor.Factory.make().newConfirmedStatePlan(this);¤		}¤	}¤	¤	protected void onImportanceChanged () {¤		GarantHibernate uds = new GarantHibernate (ContainerManager.Factory.get().getSessionFactory());¤		UnreadDocument ud = uds.get (UnreadDocument.class, getPage().getId ());¤		if (ud == null) {¤			ud = new UnreadDocument (getPage().getId ());¤			uds.save (ud);¤			ud.setLastModificationDate(getPage().getLastModificationDate());¤		}¤		ud.addUsersThatUnreadAssigned(getExecutorLogins());¤		User user = AuthenticatedUserThreadLocal.getUser ();¤		if (user != null) {¤			ud.removeFromUnreadAssigned(user.getName ());¤		}¤	}¤	¤	protected void onStateChanged () {¤		GarantHibernate uds = new GarantHibernate(ContainerManager.Factory.get().getSessionFactory());¤		UnreadDocument ud = uds.get(UnreadDocument.class, getPage().getId());¤		if (ud == null) {¤			ud = new UnreadDocument(getPage().getId());¤			uds.save(ud);¤			ud.setLastModificationDate(getPage().getLastModificationDate());¤		}¤		ud.addUserThatUnreadOwn(getPage().getCreatorName());¤		¤		User developmentManager = MDCManager.Factory.get(getPage().getSpace()).getActiveDevelopmentManager();¤		User user = AuthenticatedUserThreadLocal.getUser();¤		if (developmentManager != null) {¤			if (user != null && user.getName().equals(developmentManager.getName())) {¤				//do nothing¤			} else {¤				ud.addUserThatUnreadOwn(developmentManager.getName());¤			}			¤		}¤		¤		if (user != null) {¤			ud.removeFromUnreadOwn(user.getName());¤		}¤¤		DeficitMonitor.Factory.make().newConfirmedStatePlan(this);¤		¤		needToSync_ = true;¤	}¤	¤	protected void onOwnerChanged (ExecutionGroupDAOProxy currentExecutors, ExecutionGroupDAOProxy prevExecutors, byte prevState) {¤		GarantHibernate uds = new GarantHibernate (ContainerManager.Factory.get().getSessionFactory());¤		if(prevExecutors != null) {¤			UnreadDocument ud = uds.get (UnreadDocument.class, getPage().getId ());¤			if (ud == null) {¤				ud = new UnreadDocument (getPage().getId ());¤				uds.save (ud);¤				ud.setLastModificationDate(getPage().getLastModificationDate());¤			}¤			ud.removeFromUnreadAssigned(prevExecutors.getMembers());¤		}¤		¤		onImportanceChanged();¤¤		if (currentExecutors != null) {¤			List<String> newOwners = new LinkedList<String>(currentExecutors.getMembers());¤			if (prevExecutors != null) {¤				newOwners.removeAll(prevExecutors.getMembers());¤			}¤			getNotificationGateway().queueAssignmentEmails(newOwners, prevState);¤		}¤	}¤¤	protected <T extends AbstractRequestDAOProxy> void mergeProperties (T target, T source)¤			throws IllegalAccessException, InvocationTargetException, NoSuchMethodException,¤			HibernateException {¤		PropertyUtils.copyProperties(target, source);¤	}¤	¤	protected void updateExternalAuthors () throws HibernateException {¤/*		List<LinkedExternalAuthorDAO> externalAuthors = getProxy().getExternalAuthorsLinks();¤//		List<LinkedExternalAuthorDAO> eaInHibernate = new ArrayList<LinkedExternalAuthorDAO>();¤		for (LinkedExternalAuthorDAO lea : externalAuthors) {¤			ExternalAuthorDAO ea = (ExternalAuthorDAO)lea.getExternalAuthor();¤			ExternalAuthorDAO eaInHib = findExternalAuthor(ea.getId(), ea.getEmail(), ea.getName());¤			if(eaInHib != null) {¤				eaInHib.setComment(ea.getComment());¤			} else {¤				getSession().save(ea);¤				eaInHib = ea;¤			}¤			LinkedExternalAuthorDAO lead = new LinkedExternalAuthorDAO(this.getProxy(), eaInHib);¤			¤			getSession().save(lead);¤¤			eaInHibernate.add(lead);¤			¤			if (!getOriginalExternalAuthors().contains(lea)) {¤				Observer addedEa = new Observer(ea.getId(), ea.getName(), ea.getEmail(), ea.getComment());¤				getNotificationGateway().queueAssignmentEmailsForExternalAuthor(addedEa);¤			}¤		}¤//		getProxy().setExternalAuthorsLinks(eaInHibernate);¤ ¤ */¤	}¤	¤	protected ExternalAuthorDAO findExternalAuthor(long id, String email, String name) throws HibernateException {¤		Query q = getSession().createQuery(¤				"FROM ExternalAuthorDAO ead"¤				+ " WHERE ead.email" + ((email == null) ? " IS NULL" : "='" + email + "'")¤				+ " AND ead.name" + ((name == null) ? " IS NULL" : "='" + name + "'")¤				);¤		List<ExternalAuthorDAO> existingEaList = q.list();¤		if (existingEaList != null && existingEaList.size() > 0) {¤			for (ExternalAuthorDAO existingEa : existingEaList) {¤				if (existingEa.getId() == id) {¤					return existingEa;¤				}¤			}¤			return existingEaList.get(0);¤		} ¤		return null;¤	}¤	¤	private static final String UNACCEPTED_FORECAST_TIME_KEY = ¤		"ru.garant.MDProcess.ConfluenceMDChange.RequestsImpl.RequestS.UnacceptedForecastTime";¤	¤	private void setUnacceptedForecastTime (long timeInMillis) {¤		ContentPropertyManager contentPropertyManager = ContainerManager.Factory.get()¤				.getContentPropertyManager();¤		contentPropertyManager.setStringProperty(getPage(), UNACCEPTED_FORECAST_TIME_KEY, Long¤				.toString(timeInMillis));¤	}¤	¤	private byte getImportanceSortValue () {¤		return (byte) getImportance().getId();¤	}¤	¤	protected byte getStateSortValue () {¤		try {¤			return ((AbstractState)getCurrentState()).getSortValue();¤		} catch (ru.garant.shared.FSM.NotStarted e) {¤			Logs.LOG_E("RequestS::getStateSortValue: catch ru.garant.shared.FSM.NotStarted - how?!");¤			throw new IllegalStateException ();¤		}¤	}¤	¤	private boolean isImportingOldRequest () {¤		boolean isImportOldRequestAction = false;¤		try {¤			HttpServletRequest reqHTTP = ServletActionContext.getRequest();¤			if (reqHTTP != null) {¤				StringBuffer requestURL = reqHTTP.getRequestURL();¤				String actionName = requestURL.substring(requestURL.lastIndexOf("/") + 1);¤				if (actionName != null && actionName.equals("importoldrequest.action")) {¤					isImportOldRequestAction = true;¤				}¤			}¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤		}¤		return isImportOldRequestAction;¤	}¤	¤	private void checkImporanceChange (boolean isImportOldRequestAction) {¤		if (getImportance() == null) {¤			return;¤		}¤		Label importanceLabel = Helper.getImportanceLabel(getPage());¤		String importanceLabelGuid = getImportance().getLabel();¤		if (importanceLabel == null || !importanceLabelGuid.equals(importanceLabel.getName())) {¤			LabelManager labelManager = ContainerManager.Factory.get().getLabelManager();¤			if (importanceLabel != null) {¤				labelManager.removeLabel(getPage(), importanceLabel);¤			}¤			LabelParser.parse(importanceLabelGuid).addLabel(getPage(), labelManager);¤			if (!isImportOldRequestAction) {¤				onImportanceChanged();¤			}¤		}¤	}¤	¤	private void checkStateChange (boolean isImportOldRequestAction) throws NotStarted {¤		Label stateLabel = Helper.getStateLabel(getPage());¤		String stateLabelGuid = ((AbstractState) getCurrentState()).getGuid();¤		if (stateLabel == null || !stateLabelGuid.equals(stateLabel.getName())) {¤			Label new_label = ContainerManager.Factory.get().getLabelManager().getLabel(stateLabelGuid);¤			if(new_label == null){¤				Label label = new Label(stateLabelGuid);¤				label.setCreationDate(new Date());¤				label.setLastModificationDate(new Date());¤				new_label = ContainerManager.Factory.get().getLabelManager().createLabel(label);¤			}¤			GarPageManager.Factory.get().changeLabel(getPage(), stateLabel, new_label);¤/*¤			LabelManager labelManager = ContainerManager.Factory.get().getLabelManager();¤			if (stateLabel != null) {¤				labelManager.removeLabel(getPage(), stateLabel);¤			}¤			LabelParser.parse(stateLabelGuid).addLabel(getPage(), labelManager);¤*/			¤			if (!isImportOldRequestAction) {¤				onStateChanged();¤			}¤		}¤	}¤	¤	protected void preSetAttributes () {¤	}¤¤	protected void setAttributes () {¤		getProxy().setImportance(getImportanceSortValue());¤		getProxy().setState(getStateSortValue());¤		getProxy().setPriority(getPriority());¤		getProxy().setExecutionGroup(getExecutionGroup().save());¤		getProxy().setSortExecutorName(getExecutionGroup().getSortValue());¤		getProxy().setExecutionGroupDecision(getExecutionGroupDecision().save());¤	}¤¤	protected void postSetAttributes () {¤	}¤	¤	private static final String EXCERPT_REGEXP = "\\{excerpt\\:hidden=true\\}.*\\{excerpt\\}";¤	private static final String EXCERPT_MACRO_START = "{excerpt:hidden=true}";¤	private static final String EXCERPT_MACRO_END = "{excerpt}";¤	¤	protected String changePageContent (String text) {¤		String caption = EXCERPT_MACRO_START + "\r\n";¤		caption += getManager().makeRequestSummary(this);¤		caption += "\r\n" + EXCERPT_MACRO_END;¤		if (text.startsWith(EXCERPT_MACRO_START)) {¤			final String escapedText = Matcher.quoteReplacement(caption);¤			return Pattern.compile(EXCERPT_REGEXP, Pattern.DOTALL).matcher(text).replaceFirst(escapedText);¤		}  ¤		return caption + "\r\n" + text;¤	}¤	¤	protected <T extends AbstractRequestDAOProxy> void makeVersionForNew (Session session, T currentData) {¤		needToSync_ = true;¤		¤		String content = changePageContent("{ExecutorDecisionMacro}\r\n" + getPage().getContent());¤		getPage().setContent(content);¤	}¤	¤	protected <T extends AbstractRequestDAOProxy> void makeVersionForExisting (Session session, T currentData)¤			throws CloneNotSupportedException, HibernateException {¤		if (!getChangeType().hasChanges()) {¤			return;¤		}¤		¤		PageManager pm = ContainerManager.Factory.get().getPageManager();¤		Page p = getPage();¤		Page originalPage = (Page) p.clone();¤¤		p.setContent(changePageContent(p.getContent()));¤		pm.saveContentEntity(p, originalPage, makeSaveContext());¤		ContainerManager.Factory.get().getSession().flush();¤		currentData.makeVersion(getProxy());¤	}¤	¤	private SaveContext makeSaveContext () {¤		SaveContext sc = new DefaultSaveContext();¤		sc.setMinorEdit(!getChangeType().hasMajorVersionChanges());¤		return sc;¤	}¤	¤	¤	protected Session getSession () {¤		return ContainerManager.Factory.get().getSession();¤	}¤	¤	protected void commonValidation () throws ValidationFailed {¤		if (generalValidation_ != null) {¤			throw new ValidationFailed(6, generalValidation_);¤		}¤	}¤	¤	protected void onPreFinalState() {¤		setExecutor(null);¤		setPriority(RequestPriorityManager.Factory.get().getFinalStatePriority());¤	}¤	¤	protected void doFinishDevelop () {¤		getProxy().setWorkCompleteAt(new Date());		¤	}¤	¤	private AbstractRequestNotificationGateway notificationGateway_;¤¤	private ExecutionGroup executionGroup_;¤¤	protected ExecutionGroup getExecutionGroup () {¤		if (executionGroup_ == null) {¤			executionGroup_ = ExecutionGroup.Factory.get(getProxy().getId());¤		}¤		return executionGroup_;¤	}¤	¤	private ExecutionGroupDecision executionGroupDecision_;¤¤	protected ExecutionGroupDecision getExecutionGroupDecision () {¤		if (executionGroupDecision_ == null) {¤			executionGroupDecision_ = createExecutionGroupDecision();¤		}¤		return executionGroupDecision_;¤	}¤	¤	protected ExecutionGroupDecision createExecutionGroupDecision () {¤		ExecutionGroupDecision res =¤				ExecutionGroupDecision.Factory.get(getProxy(), ExecutionGroupDecisionType.SINGLE);¤		res.addCompletionListener(this);¤		if (res.getMembers().size() < getExecutors().size()) {¤			res.putMembers(getExecutorLogins());¤		}¤		return res;¤	}¤	¤	protected void setExternalAuthors(List<Observer> externalAuthors, boolean replaceOriginal) {¤		List<Long> eaIds = new ArrayList<Long>(); ¤		List<LinkedExternalAuthorDAO> leaList = new ArrayList(getProxy().getExternalAuthorsLinks());¤		for(LinkedExternalAuthorDAO lea : leaList){¤			eaIds.add(lea.getExternalAuthor().getId());¤		}¤¤		for(Observer observer : externalAuthors) {¤			ExternalAuthorDAO ea = null;¤			try{¤				ea = findExternalAuthor(observer.getId(), observer.getEmail(), observer.getFullName());¤				if(ea == null){¤					ea = new ExternalAuthorSimpleDAO();¤					ea.setId(observer.getId());¤					ea.setEmail(observer.getEmail());¤					ea.setName(observer.getFullName());¤	¤					getSession().save(ea);¤					getSession().flush();¤				}¤				if(eaIds.contains(observer.getId()) == false){¤					getProxy().addExternalAuthor(ea, observer.getComment(), observer.getHelpDeskQuery());¤				}else{¤					eaIds.remove(observer.getId());¤				}¤			}catch(Exception ex){¤				Logs.LOG_SEX(ex);¤			}¤		}¤		if(eaIds.size() > 0){¤			for(LinkedExternalAuthorDAO lea : leaList){¤				if(eaIds.contains(lea.getExternalAuthor().getId())){¤					getProxy().removeExternalAuthor(lea.getExternalAuthor());¤				}¤			}¤		}¤		if (originalExternalAuthors_ == null) {¤			originalExternalAuthors_ = new ArrayList<LinkedExternalAuthorDAO>(getProxy().getExternalAuthorsLinks());¤		}¤		if (replaceOriginal) {¤			originalExternalAuthors_ = getProxy().getExternalAuthorsLinks();¤		}¤		setChangeType(ChangeType.VERSION_MINOR);¤	}¤	¤	protected abstract AbstractRequestNotificationGateway createNotificationGateway ();¤	¤	protected boolean needToSync_ = false;¤	¤	protected void resetExpectedTime () {¤		Date inActiveState = getInActiveState();¤		long inActiveTime = (inActiveState == null) ? 0 : inActiveState.getTime();¤		if (inActiveTime != getProxy().getExpectedTime()) {¤			ContainerManager.Factory.get().getContentPropertyManager().setStringProperty(¤				getProxy().getPage()¤				, "MDProcess.ConfluenceMDChange.RequestsImpl.preEnterActionClosed.expectedTime"¤				, Long.valueOf(getProxy().getExpectedTime()).toString()¤			);¤			getProxy().setExpectedTime(inActiveTime);¤		}¤	}¤	¤	protected static enum ChangeType {¤		NONE(0), SIMPLE(1), VERSION_MINOR(2), VERSION_MAJOR(3);¤¤		private int weight_ = 0;¤¤		private ChangeType(int weight) {¤			this.weight_ = weight;¤		}¤¤		int getWeight () {¤			return weight_;¤		}¤¤		public boolean hasChanges () {¤			return this != NONE;¤		}¤¤		public boolean hasVersionChanges () {¤			return this == VERSION_MAJOR || this == VERSION_MINOR;¤		}¤¤		public boolean hasMajorVersionChanges () {¤			return this == VERSION_MAJOR;¤		}¤	}¤¤	private ChangeType changeType_ = ChangeType.NONE;¤¤	protected ChangeType getChangeType () {¤		return changeType_;¤	}¤¤	protected void setChangeType (ChangeType type) {¤		if (changeType_.getWeight() < type.getWeight()) {¤			changeType_ = type;¤		}¤	}¤¤	private boolean isChangedExternalAuthors(){¤		List<LinkedExternalAuthorDAO> externalAuthors = getProxy().getExternalAuthorsLinks();¤		List<LinkedExternalAuthorDAO> originalAuthors = getOriginalExternalAuthors();¤		if(originalAuthors == null || externalAuthors == null){¤			return false;¤		}else if(originalAuthors.containsAll(externalAuthors) && externalAuthors.size() == originalAuthors.size()){¤			return false;¤		}¤		return true;¤	}¤	¤	// Åñëè ÷¸-òî äîñîõðàíèòü íàäî¤	protected void afterSave () {¤		¤	}¤	¤	public static boolean jUnitHackForNoCommitExecution = false; ¤¤	public void addExternalAuthor (final Observer externalAuthor) {¤		ExternalAuthorDAO ea = null;¤		try{¤			ea = findExternalAuthor(externalAuthor.getId(), externalAuthor.getEmail(), externalAuthor.getFullName());¤		}catch(HibernateException ex){¤			Logs.LOG_SEX(ex);¤		}¤		if(ea == null){¤			ea = new ExternalAuthorSimpleDAO();¤			ea.setId(externalAuthor.getId());¤			ea.setEmail(externalAuthor.getEmail());¤			ea.setName(externalAuthor.getFullName());¤			try{¤				getSession().save(ea);¤				getSession().flush();¤			}catch(Exception ex){¤				Logs.LOG_SEX(ex);¤			}¤			getNotificationGateway().queueAssignmentEmailsForExternalAuthor(externalAuthor);¤		}¤		getProxy().addExternalAuthor(ea, externalAuthor.getComment(), externalAuthor.getHelpDeskQuery());¤		setChangeType(ChangeType.VERSION_MINOR);¤	}¤	//#UC END# *4757F83900B2_CUSTOM_METHODS_AND_DATA*
 		    ))
 		(object Attribute
 		    tool       	"MDA Generator User Properties"
@@ -1071,7 +1071,7 @@
 			    tool       	"MDA Generator"
 			    name       	"java:*4ACB2F2F0308_GET_ACCESSOR*"
 			    value      	(value Text 
-|//#UC START# *4ACB2F2F0308_GET_ACCESSOR*¤		if (originalExternalAuthors_ == null) {¤			originalExternalAuthors_ = getProxy().getExternalAuthors();¤		}¤		return originalExternalAuthors_;¤		//#UC END# *4ACB2F2F0308_GET_ACCESSOR*
+|//#UC START# *4ACB2F2F0308_GET_ACCESSOR*¤		if (originalExternalAuthors_ == null) {¤			originalExternalAuthors_ = new ArrayList<LinkedExternalAuthorDAO>(getProxy().getExternalAuthorsLinks());¤		}¤		return originalExternalAuthors_;¤		//#UC END# *4ACB2F2F0308_GET_ACCESSOR*
 			    ))
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -1082,7 +1082,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"ResolvedTypeGuid"
-			    value      	"4E8054DE001F")
+			    value      	"564F25F200F5")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"ElementCreationOrder"
@@ -1090,8 +1090,8 @@
 		    quid       	"4ACB2F2F0308"
 		    documentation 	"ñîñòîÿíèå ñïèñêà âíåøíèõ àâòîðîâ íà ìîìåíò ïîñëåäíåé çàãðóçêè èç ÁÄ"
 		    stereotype 	"property"
-		    type       	"ExternalAuthorDaoSet"
-		    quidu      	"4E8054DE001F"
+		    type       	"ExternalAuthorDaoList"
+		    quidu      	"564F25F200F5"
 		    exportControl 	"Protected"
 		    Containment 	"By Value"))
 	    language   	"MDA Generator"
@@ -4892,7 +4892,7 @@
 		    tool       	"MDA Generator"
 		    name       	"java:*49A531B703D3_CUSTOM_METHODS_AND_DATA*"
 		    value      	(value Text 
-|//#UC START# *49A531B703D3_CUSTOM_METHODS_AND_DATA*¤	private static void appendToRequest (List<Changeset> changes, AbstractRequest req) {¤		if (changes.size() > 0) {			¤			User currentUser = AuthenticatedUserThreadLocal.getUser();¤			try {¤				AuthenticatedUserThreadLocal.setUser(¤					ContainerManager.Factory.get().getUserAccessor().getUser(changes.get(0).getAuthor())¤				);¤				¤				AbstractPage original = null;¤				try {¤					original = (AbstractPage)req.getPage().clone();¤				} catch (CloneNotSupportedException e) {¤					Logs.LOG_SEX(e);¤					throw new NullPointerException ("appendToRequest: " + e.getMessage());¤				}¤				¤				if (RequestHistory.Factory.current().appendToRequestPage(¤						changes¤						, req ¤					)¤				) {¤					saveChangedContent (req.getPage(), original, changes.get(0).getKey());					¤				}¤			} finally {¤				AuthenticatedUserThreadLocal.setUser(currentUser);¤			}¤			¤			makePersistentLinkWithRequest (changes, req);¤		}¤	}¤	¤	private static void makePersistentLinkWithRequest (List<Changeset> changes, AbstractRequest req) {¤		Session s = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤		try {¤			AbstractRequestDAOProxy ar = (AbstractRequestDAOProxy)s.load(AbstractRequestDAOProxy.class, req.getPage().getId());¤			for (Changeset ch : changes) {¤				ChangesetDAO chdao = (ChangesetDAO)s.load(¤						ChangesetDAO.class¤						, ((ru.garant.MDProcess.CodeRepository.PersistentInformationImpl.PersistentChangeset)ch).getId()¤						);¤				ar.getChangesets().add(chdao);¤			}¤		} catch (HibernateException e) {¤			Logs.LOG_SEX(e);¤			throw new IllegalStateException ("HistoryServiceImpl::appendToRequest: " + e.getMessage());				¤		}¤	}¤	¤	private static Map<Long, List<Changeset>> groupBySpace (List<Changeset> changes) {¤		Map<Long, List<Changeset>> ret = new HashMap<Long, List<Changeset>> ();¤		for (Changeset ch : changes) {¤			String spaceKey = ch.linkedSpace();¤			if (spaceKey == null) {¤				//ses: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ continue¤				//spaceKey = UNLINKED_NEWS_SPACE_KEY;¤				continue;¤			}				¤			long spaceId = ContainerManager.Factory.get().getSpaceManager().getSpace(spaceKey).getId();¤			List<Changeset> ar =  ret.get(spaceId);¤			if (ar == null) {¤				ar = new LinkedList<Changeset> ();¤				ret.put(spaceId, ar);¤				ar.add(ch);¤			} else {¤				if (!ar.get(ar.size()-1).getKey().equals(ch.getKey())) {¤					ar.add(ch);¤				}¤			}				¤		}¤		return ret;		¤	}¤	¤	private static void onUnlinkedCommit (List<Changeset> changes, long spaceId) {¤		if (changes.size() > 0) {¤			User currentUser = AuthenticatedUserThreadLocal.getUser();¤			try {¤				AuthenticatedUserThreadLocal.setUser(¤					ContainerManager.Factory.get().getUserAccessor().getUser(changes.get(0).getAuthor())¤				);¤				¤				BlogPost p = getCurrentUnlinkedNews (spaceId);¤				BlogPost original = null;¤				¤				try {¤					original = (BlogPost)p.clone();¤				} catch (CloneNotSupportedException e) {¤					Logs.LOG_SEX(e);¤					throw new NullPointerException ("onUnlinkedCommit: " + e.getMessage());¤				}				¤				¤				String newContent = RequestHistory.Factory.current().appendToText(¤					changes¤					, p.getContent() ¤				);¤				p.setContent(newContent);¤				¤				saveChangedContent (p, original, changes.get(0).getKey());				¤			} finally {¤				AuthenticatedUserThreadLocal.setUser(currentUser);¤			}¤¤		}¤	}¤	¤	final private static String UNLINKED_NEWS_TITLE = Messages.Factory.messages ().get("blogpost.unlinked.history");¤	final private static String UNLINKED_NEWS_SPACE_KEY = "OIT";¤	synchronized private static BlogPost getCurrentUnlinkedNews (long spaceId) {¤		Space sp = ContainerManager.Factory.get().getSpaceManager().getSpace(spaceId);¤		Calendar c = Calendar.getInstance();¤		c.setTime(new Date ());¤		BlogPost ret = ContainerManager.Factory.get().getPageManager().getBlogPost(¤			sp.getKey()¤			, UNLINKED_NEWS_TITLE¤			,  c¤		);¤		if (ret == null) {¤			ret = new BlogPost ();¤			ret.setTitle(UNLINKED_NEWS_TITLE);¤			ret.setCreatorName("robot");¤			ret.setSpace(sp);¤			ContainerManager.Factory.get().getPageManager().saveContentEntity(ret, null);¤			ContainerManager.Factory.get().getLabelManager().addLabel(ret, new Label("important"));			¤		}¤		return ret;¤	}¤	¤	public static String debugTest() {¤		//ses: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2¤		¤		long st = System.currentTimeMillis();¤		String ret = "";¤		/*try {¤			//DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");¤			//Date from = df.parse("2009-03-30 02:00:00");¤			¤			Session s = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤			Query q = s.createQuery(¤				"select ll.content.id from Labelling as ll"¤				+ " where ll.label.name like 'code_%'"¤			);¤			int i = 0;¤			List res	 = q.list();¤			String idsAsString = "";¤			for (Object o : res) {¤				Long id = (Long)o;¤				if (idsAsString.length() > 0) {¤					idsAsString += ",";¤				}¤				idsAsString += id.toString();				¤			}¤			¤			Map<Long, List<RowInList>> map = calculateLinkedRequestWithModelElements (¤				" WHERE source.pageid IN (" + idsAsString + ")"¤			);¤			¤			Set<Long> keys = map.keySet();¤			for (Long id : map.keySet()) {¤				if (id == 136938436) {¤					int t = 0;¤				}¤				RequestListInModelElementRenderer.replace(id, map.get(id));¤				¤				i++;¤				if (i%100 == 0) {¤					Logs.LOG_D(String.format("processed %d/%d", i, keys.size()));¤					s.flush ();¤¤				}¤			}			¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤		}¤		Logs.LOG_D("debugTest: " + (System.currentTimeMillis()-st) + "ms");*/¤		return ret;¤	}¤	¤	private static Map<Long, List<StatePeriod>> calculateActivePeriods (Date from) {¤		long st = System.currentTimeMillis();¤		¤		//TODO: (ses) ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.		¤		Date to = new Date ();¤		¤		Map<Long, List<StatePeriod>> maps = new HashMap<Long, List<StatePeriod>> ();¤		try {¤			AbstractState state = AbstractRequestLifeCycle.ST_ACTIVE;¤			¤			Session session = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤			//TODO: ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½¤¤			String sQuery = "select r.id, c.lastModificationDate, c.originalVersion.id, r.state, executors"¤				+ " from AbstractRequestDAOProxy as r"¤				+ "	join r.page as c"¤				+ " left join r.executionGroup as executors"¤				+ " where c.lastModificationDate >= :from"¤				+ " and c.lastModificationDate < :to"¤				+ " order by c.lastModificationDate, c.version"¤			;¤			Query q = session.createQuery(sQuery);¤			q.setTimestamp("from", from);¤			q.setTimestamp("to", to);¤			q.setCacheable(true);¤			¤			int i = 0;¤			List<Object[]> lst = (List<Object[]>)q.list();¤			for (Object[] res : lst) {¤				long versionId = (Long)res[0];¤				Date lastmoddate = (Date)res[1];¤				long originalVersionId = (null == res[2]) ? versionId: (Long)res[2];¤				byte stateVal = (Byte)res[3];¤				ExecutionGroupDAOProxy etr = (ExecutionGroupDAOProxy)res[4];¤				Set<String> members = (etr == null) ? new HashSet<String>(): etr.getMembers();¤				¤				if (stateVal == state.getSortValue()) {¤					List<StatePeriod> periods = maps.get(originalVersionId);¤					if (periods == null) {¤						periods = new LinkedList<StatePeriod> ();¤						maps.put(originalVersionId, periods);¤						¤						StatePeriod sp = new StatePeriod ();¤						sp.setExecutors(members);¤						¤						AbstractRequestDAOProxy prevver = getRequestPrevver (versionId, session);¤						if (prevver != null && prevver.getState() == stateVal) {¤							sp.setFrom(from);¤						} else {¤							sp.setFrom(lastmoddate);¤						}¤						¤						sp.setTo(null);¤						periods.add(sp);						¤					} else {¤						StatePeriod last = periods.get(periods.size()-1);¤						if (last.getTo() == null) {¤							continue;¤						} else {¤							StatePeriod sp = new StatePeriod ();¤							sp.setExecutors(members);¤							sp.setFrom(lastmoddate);¤							sp.setTo(null);¤							periods.add(sp);¤						}¤					}¤				} else {¤					List<StatePeriod> periods = maps.get(originalVersionId);¤					if (periods != null) {¤						StatePeriod last = periods.get(periods.size()-1);¤						if (last.getTo() == null) {¤							last.setTo(lastmoddate);¤						}¤					} else {¤						AbstractRequestDAOProxy prevver = getRequestPrevver (versionId, session);¤						if (prevver != null && prevver.getState() == state.getSortValue()) {¤							periods = new LinkedList<StatePeriod> ();¤							maps.put(originalVersionId, periods);¤								¤							StatePeriod sp = new StatePeriod ();¤							Set<String> executors = prevver.getExecutionGroup() != null ? prevver.getExecutionGroup().getMembers() : Collections.<String>emptySet();¤							sp.setExecutors(executors);¤							sp.setFrom(from);¤							sp.setTo(lastmoddate);¤							periods.add(sp);						¤						}¤					}¤				}¤				¤				i++;¤				if (i % 100 == 0) {¤					Logs.LOG_I(String.format(¤						"HistoryService:calculateActivePeriods - period %d/%d"¤						, i¤						, lst.size()¤					));¤				}			¤				¤			}¤			¤			String processedReqs = "";¤			for (Long req : maps.keySet()) {¤				List<StatePeriod> periods = maps.get(req);¤				StatePeriod last = periods.get(periods.size()-1);					¤				if (last.getTo() == null) {¤					last.setTo(to);¤				}¤				¤				if (processedReqs.length() > 0) {¤					processedReqs += ",";¤				}¤				processedReqs += req.toString();¤			}¤			¤			sQuery = "select r.id, executors, c.lastModificationDate"¤				+ " from AbstractRequestDAOProxy as r"¤				+ "	join r.page as c"¤				+ " left join r.executionGroup as executors"¤				+ " where r.state = " + state.getSortValue()¤				+ ((processedReqs.length() > 0) ? " and r.id not in (" + processedReqs + ")": "")¤				+ " and c.contentStatus='current'"¤				+ " and c.originalVersion is null"¤			;¤			¤			for (Object[] res : (List<Object[]>)session.createQuery(sQuery).list()) {¤				Date lastmoddate = (Date)res[2];¤				if (lastmoddate.before(from)) {¤					long id = (Long)res[0];¤					ExecutionGroupDAOProxy etr = (ExecutionGroupDAOProxy)res[1];				¤					StatePeriod sp = new StatePeriod ();¤					sp.setExecutors((null == etr) ? new HashSet<String> (): etr.getMembers());¤					sp.setFrom(from);¤					sp.setTo(to);¤				¤					maps.put(id, Arrays.asList(sp));¤				}¤			}¤			¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤			throw new IllegalStateException (e);¤		}¤		Logs.LOG_D("calculateActivePeriods - " + (System.currentTimeMillis()-st) + "ms");¤		return maps;¤	}¤	¤	private static AbstractRequestDAOProxy getRequestPrevver (long reqId, Session session) throws Exception {¤		ContentEntityObject prevver = ContainerManager.Factory.get().getPageManager().getPreviousVersion(¤			ContainerManager.Factory.get().getPageManager().getById(reqId)¤		);¤		¤		if (prevver != null) {¤			return (AbstractRequestDAOProxy)session.get(¤				AbstractRequestDAOProxy.class¤				, prevver.getId()¤			);¤		}¤		return null;¤	}¤	¤	private static long searchLinkedRequest (Map<Long, List<StatePeriod>> maps, Changeset changeset) {¤		Date time = changeset.getDate();¤		String author = changeset.getAuthor();¤		for (Long req : maps.keySet()) {¤			List<StatePeriod> periods = maps.get(req);¤			for (StatePeriod sp : periods) {¤				if (¤					sp.contains(author)¤					&& time.compareTo(sp.getFrom()) >= 0¤					&& time.compareTo(sp.getTo()) < 0¤				) {¤					return req;¤				}¤			}¤		}¤		return 0;¤	}¤	¤	private static void saveChangedContent (AbstractPage page, AbstractPage original, String keyOfFirstChangeset) {¤		ContainerManager.Factory.get().getPageManager().saveContentEntity(¤			page¤			, original¤			, new com.atlassian.confluence.core.DefaultSaveContext ()¤		);¤		Icon icon = IconSelectorInVelocity.getTypeIcon("forgui_add_changeset");¤		DiffInfoHelper.setSpecialChangesMark(¤			page¤			, icon.toHtml(icon.getTooltip(), "SPECIAL")¤			, String.format(¤				"/ru/garant/MDProcess/CodeRepositoryView/RequestSupport/RepositoryChangesXPlugin/RepositoryChangesXPackage/diffinreqhistory.action?pageId=%s&originalVersion=%s"¤				, String.valueOf(page.getId())¤				, String.valueOf(page.getVersion())¤			)¤		);¤		¤		storeKeyOfFirstChangeset (page, keyOfFirstChangeset);		¤	}¤	¤	private static void storeKeyOfFirstChangeset (AbstractPage page, String keyOfFirstChangeset) {¤		ContainerManager.Factory.get().getContentPropertyManager().setStringProperty(¤			page¤			, page.getVersion() + ".KEY_OF_FIRST_CHANGESET"¤			, keyOfFirstChangeset¤		);		¤	}¤	¤	¤	private static Map<Long, List<RowInList>> calculateLinkedRequestWithModelElements (String wherePartForDBQuery) throws Exception {¤		long st = System.currentTimeMillis();¤		Map<Long, List<RowInList>> ret = new HashMap<Long, List<RowInList>> ();¤		¤		Session session = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤		¤		PreparedStatement ps = null;¤		ResultSet rs = null;¤		String mysql = ¤			"SELECT STRAIGHT_JOIN source.pageid, ch.modkey, g.contentid, source.path, ch.repo"¤			+ " FROM gar_source source"¤			+ " JOIN gar_revision rev ON (rev.sourceid = source.sourceid)"¤			+ " JOIN gar_changeset ch ON (ch.changesetid = rev.changesetid)"¤			+ " JOIN gar_request g ON (g.contentid = ch.requestid)"¤			+ " JOIN content c ON (c.contentid = g.contentid)"¤			+ wherePartForDBQuery¤			+ " AND source.pageid IS NOT NULL"¤		;¤		¤		ps = session.connection().prepareStatement(mysql);¤		rs = ps.executeQuery();¤		¤		while (rs.next()) {¤			Long id = rs.getLong(1);¤			String key = rs.getString(2);¤			Long reqId = rs.getLong(3);¤			String path = rs.getString(4);¤			String repo = rs.getString(5);¤			List<RowInList> changes = ret.get(id);¤			if (changes == null) {¤				changes = new ArrayList<RowInList> ();¤				ret.put(id, changes);¤			}¤			¤			RowInList current = null;¤			for (RowInList ril : changes) {¤				if (ril.getRequest().getPage().getId() == reqId) {¤					current = ril;¤					break;¤				}¤			}¤			if (current == null) {¤				current = new RowInList ();¤				current.setRequest(CommonRequestManager.Factory.get().getEntity(reqId));¤				changes.add(current);¤			}¤			current.getMarkedRevison().add(path);¤			¤			Changeset corr = Changeset.Factory.get(repo + "/" + key);¤			for (Changeset ch : current.getCorrespondingChanges()) {¤				if (ch.getKey().equals(corr.getKey())) {¤					//ses: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½¤					//ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ¤					corr = null;¤					break;¤				}¤			}¤			if (corr != null) {¤				current.getCorrespondingChanges().add(corr);¤			}¤		}¤		¤		Logs.LOG_D(String.format("calculateLinkedRequestWithModelElement execute in %dms", (System.currentTimeMillis()-st)));¤		return ret;¤	}¤	¤	private static String getLinkedElementPagesAsStringList (Set<String> changedPaths) throws Exception {¤		if (changedPaths.size() == 0) {¤			return "";¤		}¤		String paths = "";¤		for (String ss : changedPaths) {¤			if (paths.length() > 0) {¤				paths += ",";¤			}¤			paths += "'" + ss + "'";¤		}¤		Map<Long, List<RowInList>> map = calculateLinkedRequestWithModelElements (¤			" WHERE source.path IN (" + paths + ")"¤		);¤		if (map.size() == 0) {¤			return "";¤		}¤			¤		String elemIds = "";¤		for (Long id : map.keySet()) {¤			if (elemIds.length() > 0) {¤				elemIds += ",";¤			}¤			elemIds += id.toString();¤		}¤		return elemIds;¤	}¤	¤	private static void tryToUpdateElementPages (Set<String> changedPaths) {¤		try {¤			Session s = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤			s.flush();¤			//ses: TODO - ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½-ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½.ï¿½. ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½¤			updateElementPages (getLinkedElementPagesAsStringList (changedPaths), true);¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤		}¤	}¤	private static void updateElementPages (String elemIdsAsString, boolean isMinorChanges) throws Exception {¤		if (elemIdsAsString.length() == 0) {¤			return;¤		}¤		¤		Map<Long, List<RowInList>> map = calculateLinkedRequestWithModelElements (¤			" WHERE source.pageid IN (" + elemIdsAsString + ")"¤		);¤¤		long i = 0;¤		Set<Long> keys = map.keySet();¤		for (Long id : keys) {¤			Logs.LOG_D(String.format(¤				"*************************\n" +¤				"ID: %d\n" +¤				"*************************\n"¤				, id.longValue()¤			));¤			¤			User currentUser = AuthenticatedUserThreadLocal.getUser();¤			try {¤				List<RowInList> rils = map.get(id);¤				for (RowInList ril : rils) {¤					Collections.sort(ril.getCorrespondingChanges(), new Comparator<Changeset>() {¤						public int compare (Changeset c1, Changeset c2) {¤							return c2.getDate().compareTo(c1.getDate());¤						}¤					});¤				}					¤				Collections.sort(rils, new Comparator<RowInList>() {¤					public int compare (RowInList r1, RowInList r2) {¤						return r1.getCorrespondingChanges().get(0).getDate().compareTo(r2.getCorrespondingChanges().get(0).getDate());¤					}¤				});¤				¤				¤				AuthenticatedUserThreadLocal.setUser(¤					ContainerManager.Factory.get().getUserAccessor().getUser(rils.get(0).getCorrespondingChanges().get(0).getAuthor())¤				);¤				¤				if (isMinorChanges) {¤					RequestListInModelElementRenderer.replace(id, rils);¤				} else {			¤					Page page = ContainerManager.Factory.get().getPageManager().getPage(id);¤					Page original = (Page)page.clone();¤				¤					RequestListInModelElementRenderer.replace(id, rils);¤				¤					ContainerManager.Factory.get().getPageManager().saveContentEntity(¤						page¤						, original¤						, new com.atlassian.confluence.core.DefaultSaveContext ()¤					);¤				}			¤			} finally {¤				AuthenticatedUserThreadLocal.setUser(currentUser);¤			}¤			¤			¤			i++;¤			if (i%100 == 0) {¤				Logs.LOG_D(String.format("processed %d/%d", i, keys.size()));¤				SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false).flush ();¤			}¤		}			¤	}¤	private static final String NEED_TO_UPDATE = "HistoryServiceImpl.NEED_TO_UPDATE"; ¤	private static Boolean needToUpdateMutex = new Boolean (true);¤	private static boolean isNeedToUpdate (AbstractPage p) {¤		String s = ContainerManager.Factory.get().getContentPropertyManager().getStringProperty(¤			p¤			, NEED_TO_UPDATE¤		);¤		if (s == null) {¤			return false;¤		}¤		return "true".equals(s);¤	}¤	¤	//#UC END# *49A531B703D3_CUSTOM_METHODS_AND_DATA*
+|//#UC START# *49A531B703D3_CUSTOM_METHODS_AND_DATA*¤	private static void appendToRequest (List<Changeset> changes, AbstractRequest req) {¤		if (changes.size() > 0) {			¤			User currentUser = AuthenticatedUserThreadLocal.getUser();¤			try {¤				AuthenticatedUserThreadLocal.setUser(¤					ContainerManager.Factory.get().getUserAccessor().getUser(changes.get(0).getAuthor())¤				);¤				¤				AbstractPage original = null;¤				try {¤					original = (AbstractPage)req.getPage().clone();¤				} catch (CloneNotSupportedException e) {¤					Logs.LOG_SEX(e);¤					throw new NullPointerException ("appendToRequest: " + e.getMessage());¤				}¤				¤				if (RequestHistory.Factory.current().appendToRequestPage(¤						changes¤						, req ¤					)¤				) {¤					saveChangedContent (req.getPage(), original, changes.get(0).getKey());					¤				}¤			} finally {¤				AuthenticatedUserThreadLocal.setUser(currentUser);¤			}¤			¤			makePersistentLinkWithRequest (changes, req);¤		}¤	}¤	¤	private static void makePersistentLinkWithRequest (List<Changeset> changes, AbstractRequest req) {¤		Session s = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤		try {¤			AbstractRequestDAOProxy ar = (AbstractRequestDAOProxy)s.load(AbstractRequestDAOProxy.class, req.getPage().getId());¤			for (Changeset ch : changes) {¤				ChangesetDAO chdao = (ChangesetDAO)s.load(¤						ChangesetDAO.class¤						, ((ru.garant.MDProcess.CodeRepository.PersistentInformationImpl.PersistentChangeset)ch).getId()¤						);¤				ar.getChangesets().add(chdao);¤			}¤		} catch (HibernateException e) {¤			Logs.LOG_SEX(e);¤			throw new IllegalStateException ("HistoryServiceImpl::appendToRequest: " + e.getMessage());				¤		}¤	}¤	¤	private static Map<Long, List<Changeset>> groupBySpace (List<Changeset> changes) {¤		Map<Long, List<Changeset>> ret = new HashMap<Long, List<Changeset>> ();¤		for (Changeset ch : changes) {¤			String spaceKey = ch.linkedSpace();¤			if (spaceKey == null) {¤				//ses: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ continue¤				//spaceKey = UNLINKED_NEWS_SPACE_KEY;¤				continue;¤			}				¤			long spaceId = ContainerManager.Factory.get().getSpaceManager().getSpace(spaceKey).getId();¤			List<Changeset> ar =  ret.get(spaceId);¤			if (ar == null) {¤				ar = new LinkedList<Changeset> ();¤				ret.put(spaceId, ar);¤				ar.add(ch);¤			} else {¤				if (!ar.get(ar.size()-1).getKey().equals(ch.getKey())) {¤					ar.add(ch);¤				}¤			}				¤		}¤		return ret;		¤	}¤	¤	private static void onUnlinkedCommit (List<Changeset> changes, long spaceId) {¤		if (changes.size() > 0) {¤			User currentUser = AuthenticatedUserThreadLocal.getUser();¤			try {¤				AuthenticatedUserThreadLocal.setUser(¤					ContainerManager.Factory.get().getUserAccessor().getUser(changes.get(0).getAuthor())¤				);¤				¤				BlogPost p = getCurrentUnlinkedNews (spaceId);¤				BlogPost original = null;¤				¤				try {¤					original = (BlogPost)p.clone();¤				} catch (CloneNotSupportedException e) {¤					Logs.LOG_SEX(e);¤					throw new NullPointerException ("onUnlinkedCommit: " + e.getMessage());¤				}				¤				¤				String newContent = RequestHistory.Factory.current().appendToText(¤					changes¤					, p.getContent() ¤				);¤				p.setContent(newContent);¤				¤				saveChangedContent (p, original, changes.get(0).getKey());				¤			} finally {¤				AuthenticatedUserThreadLocal.setUser(currentUser);¤			}¤¤		}¤	}¤	¤	final private static String UNLINKED_NEWS_TITLE = Messages.Factory.messages ().get("blogpost.unlinked.history");¤	final private static String UNLINKED_NEWS_SPACE_KEY = "OIT";¤	synchronized private static BlogPost getCurrentUnlinkedNews (long spaceId) {¤		Space sp = ContainerManager.Factory.get().getSpaceManager().getSpace(spaceId);¤		Calendar c = Calendar.getInstance();¤		c.setTime(new Date ());¤		BlogPost ret = ContainerManager.Factory.get().getPageManager().getBlogPost(¤			sp.getKey()¤			, UNLINKED_NEWS_TITLE¤			,  c¤		);¤		if (ret == null) {¤			ret = new BlogPost ();¤			ret.setTitle(UNLINKED_NEWS_TITLE);¤			ret.setCreatorName("robot");¤			ret.setSpace(sp);¤			ContainerManager.Factory.get().getPageManager().saveContentEntity(ret, null);¤			ContainerManager.Factory.get().getLabelManager().addLabel(ret, new Label("important"));			¤		}¤		return ret;¤	}¤	¤	public static String debugTest() {¤		//ses: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2¤		¤		long st = System.currentTimeMillis();¤		String ret = "";¤		/*try {¤			//DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");¤			//Date from = df.parse("2009-03-30 02:00:00");¤			¤			Session s = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤			Query q = s.createQuery(¤				"select ll.content.id from Labelling as ll"¤				+ " where ll.label.name like 'code_%'"¤			);¤			int i = 0;¤			List res	 = q.list();¤			String idsAsString = "";¤			for (Object o : res) {¤				Long id = (Long)o;¤				if (idsAsString.length() > 0) {¤					idsAsString += ",";¤				}¤				idsAsString += id.toString();				¤			}¤			¤			Map<Long, List<RowInList>> map = calculateLinkedRequestWithModelElements (¤				" WHERE source.pageid IN (" + idsAsString + ")"¤			);¤			¤			Set<Long> keys = map.keySet();¤			for (Long id : map.keySet()) {¤				if (id == 136938436) {¤					int t = 0;¤				}¤				RequestListInModelElementRenderer.replace(id, map.get(id));¤				¤				i++;¤				if (i%100 == 0) {¤					Logs.LOG_D(String.format("processed %d/%d", i, keys.size()));¤					s.flush ();¤¤				}¤			}			¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤		}¤		Logs.LOG_D("debugTest: " + (System.currentTimeMillis()-st) + "ms");*/¤		return ret;¤	}¤	¤	public static Map<Long, List<StatePeriod>> calculateActivePeriods (final Date from) {¤		long st = System.currentTimeMillis();¤		¤		//TODO: (ses) ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.		¤		final Date to = new Date ();¤		¤		Map<Long, List<StatePeriod>> maps = new HashMap<Long, List<StatePeriod>> ();¤		try {¤			final AbstractState activeState = AbstractRequestLifeCycle.ST_ACTIVE;¤			¤			Session session = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤			//TODO: ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½¤¤			String sQuery = "select r.id, c.lastModificationDate, c.originalVersion.id, r.state, executors"¤				+ " from AbstractRequestDAOProxy as r"¤				+ "	join r.page as c"¤				+ " left join r.executionGroup as executors"¤				+ " where c.lastModificationDate >= :from"¤				+ " and c.lastModificationDate < :to"¤				+ " order by c.lastModificationDate, c.version"¤			;¤			Query q = session.createQuery(sQuery);¤			q.setTimestamp("from", from);¤			q.setTimestamp("to", to);¤			q.setCacheable(true);¤			¤			int i = 0;¤			List<Object[]> lst = (List<Object[]>)q.list();¤			for (Object[] res : lst) {¤				long versionId = (Long)res[0];¤				Date lastmoddate = (Date)res[1];¤				long originalVersionId = (null == res[2]) ? versionId: (Long)res[2];¤				byte stateVal = (Byte)res[3];¤				ExecutionGroupDAOProxy etr = (ExecutionGroupDAOProxy)res[4];¤				Set<String> members = (etr == null) ? new HashSet<String>(): etr.getMembers();¤				¤				if (stateVal == activeState.getSortValue()) {¤					List<StatePeriod> periods = maps.get(originalVersionId);¤					if (periods == null) {¤						periods = new LinkedList<StatePeriod> ();¤						maps.put(originalVersionId, periods);¤						¤						StatePeriod sp = new StatePeriod ();¤						sp.setExecutors(members);¤						¤						AbstractRequestDAOProxy prevver = getRequestPrevver (versionId, session);¤						if (prevver != null && prevver.getState() == stateVal) {¤							sp.setFrom(from);¤						} else {¤							sp.setFrom(lastmoddate);¤						}¤						¤						sp.setTo(null);¤						periods.add(sp);						¤					} else {¤						StatePeriod last = periods.get(periods.size()-1);¤						if (last.getTo() == null) {¤							continue;¤						} else {¤							StatePeriod sp = new StatePeriod ();¤							sp.setExecutors(members);¤							sp.setFrom(lastmoddate);¤							sp.setTo(null);¤							periods.add(sp);¤						}¤					}¤				} else {¤					List<StatePeriod> periods = maps.get(originalVersionId);¤					if (periods != null) {¤						StatePeriod last = periods.get(periods.size()-1);¤						if (last.getTo() == null) {¤							last.setTo(lastmoddate);¤						}¤					} else {¤						AbstractRequestDAOProxy prevver = getRequestPrevver (versionId, session);¤						if (prevver != null && prevver.getState() == activeState.getSortValue()) {¤							periods = new LinkedList<StatePeriod> ();¤							maps.put(originalVersionId, periods);¤								¤							StatePeriod sp = new StatePeriod ();¤							Set<String> executors = prevver.getExecutionGroup() != null ? prevver.getExecutionGroup().getMembers() : Collections.<String>emptySet();¤							sp.setExecutors(executors);¤							sp.setFrom(from);¤							sp.setTo(lastmoddate);¤							periods.add(sp);						¤						}¤					}¤				}¤				¤				i++;¤				if (i % 100 == 0) {¤					Logs.LOG_I(String.format(¤						"HistoryService:calculateActivePeriods - period %d/%d"¤						, i¤						, lst.size()¤					));¤				}			¤				¤			}¤			¤			String processedReqs = "";¤			for (Long req : maps.keySet()) {¤				List<StatePeriod> periods = maps.get(req);¤				StatePeriod last = periods.get(periods.size()-1);					¤				if (last.getTo() == null) {¤					last.setTo(to);¤				}¤				¤				if (processedReqs.length() > 0) {¤					processedReqs += ",";¤				}¤				processedReqs += req.toString();¤			}¤			¤			sQuery = "select r.id, executors, c.lastModificationDate"¤				+ " from AbstractRequestDAOProxy as r"¤				+ "	join r.page as c"¤				+ " left join r.executionGroup as executors"¤				+ " where r.state = " + activeState.getSortValue()¤				+ ((processedReqs.length() > 0) ? " and r.id not in (" + processedReqs + ")": "")¤				+ " and c.contentStatus='current'"¤				+ " and c.originalVersion is null"¤			;¤			¤			for (Object[] res : (List<Object[]>)session.createQuery(sQuery).list()) {¤				Date lastmoddate = (Date)res[2];¤				if (lastmoddate.before(from)) {¤					long id = (Long)res[0];¤					ExecutionGroupDAOProxy etr = (ExecutionGroupDAOProxy)res[1];				¤					StatePeriod sp = new StatePeriod ();¤					sp.setExecutors((null == etr) ? new HashSet<String> (): etr.getMembers());¤					sp.setFrom(from);¤					sp.setTo(to);¤				¤					maps.put(id, Arrays.asList(sp));¤				}¤			}¤			¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤			throw new IllegalStateException (e);¤		}¤		Logs.LOG_D("calculateActivePeriods (from: " + from.toString() + ") - " + (System.currentTimeMillis()-st) + "ms");¤		return maps;¤	}¤	¤	private static AbstractRequestDAOProxy getRequestPrevver (long reqId, Session session) throws Exception {¤		ContentEntityObject prevver = ContainerManager.Factory.get().getPageManager().getPreviousVersion(¤			ContainerManager.Factory.get().getPageManager().getById(reqId)¤		);¤		¤		if (prevver != null) {¤			return (AbstractRequestDAOProxy)session.get(¤				AbstractRequestDAOProxy.class¤				, prevver.getId()¤			);¤		}¤		return null;¤	}¤	¤	private static long searchLinkedRequest (Map<Long, List<StatePeriod>> maps, Changeset changeset) {¤		Date time = changeset.getDate();¤		String author = changeset.getAuthor();¤		for (Long req : maps.keySet()) {¤			List<StatePeriod> periods = maps.get(req);¤			for (StatePeriod sp : periods) {¤				if (¤					sp.contains(author)¤					&& time.compareTo(sp.getFrom()) >= 0¤					&& time.compareTo(sp.getTo()) < 0¤				) {¤					return req;¤				}¤			}¤		}¤		return 0;¤	}¤	¤	private static void saveChangedContent (AbstractPage page, AbstractPage original, String keyOfFirstChangeset) {¤		ContainerManager.Factory.get().getPageManager().saveContentEntity(¤			page¤			, original¤			, new com.atlassian.confluence.core.DefaultSaveContext ()¤		);¤		Icon icon = IconSelectorInVelocity.getTypeIcon("forgui_add_changeset");¤		DiffInfoHelper.setSpecialChangesMark(¤			page¤			, icon.toHtml(icon.getTooltip(), "SPECIAL")¤			, String.format(¤				"/ru/garant/MDProcess/CodeRepositoryView/RequestSupport/RepositoryChangesXPlugin/RepositoryChangesXPackage/diffinreqhistory.action?pageId=%s&originalVersion=%s"¤				, String.valueOf(page.getId())¤				, String.valueOf(page.getVersion())¤			)¤		);¤		¤		storeKeyOfFirstChangeset (page, keyOfFirstChangeset);		¤	}¤	¤	private static void storeKeyOfFirstChangeset (AbstractPage page, String keyOfFirstChangeset) {¤		ContainerManager.Factory.get().getContentPropertyManager().setStringProperty(¤			page¤			, page.getVersion() + ".KEY_OF_FIRST_CHANGESET"¤			, keyOfFirstChangeset¤		);		¤	}¤	¤	¤	private static Map<Long, List<RowInList>> calculateLinkedRequestWithModelElements (String wherePartForDBQuery) throws Exception {¤		long st = System.currentTimeMillis();¤		Map<Long, List<RowInList>> ret = new HashMap<Long, List<RowInList>> ();¤		¤		Session session = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤		¤		PreparedStatement ps = null;¤		ResultSet rs = null;¤		String mysql = ¤			"SELECT STRAIGHT_JOIN source.pageid, ch.modkey, g.contentid, source.path, ch.repo"¤			+ " FROM gar_source source"¤			+ " JOIN gar_revision rev ON (rev.sourceid = source.sourceid)"¤			+ " JOIN gar_changeset ch ON (ch.changesetid = rev.changesetid)"¤			+ " JOIN gar_request g ON (g.contentid = ch.requestid)"¤			+ " JOIN content c ON (c.contentid = g.contentid)"¤			+ wherePartForDBQuery¤			+ " AND source.pageid IS NOT NULL"¤		;¤		¤		ps = session.connection().prepareStatement(mysql);¤		rs = ps.executeQuery();¤		¤		while (rs.next()) {¤			Long id = rs.getLong(1);¤			String key = rs.getString(2);¤			Long reqId = rs.getLong(3);¤			String path = rs.getString(4);¤			String repo = rs.getString(5);¤			List<RowInList> changes = ret.get(id);¤			if (changes == null) {¤				changes = new ArrayList<RowInList> ();¤				ret.put(id, changes);¤			}¤			¤			RowInList current = null;¤			for (RowInList ril : changes) {¤				if (ril.getRequest().getPage().getId() == reqId) {¤					current = ril;¤					break;¤				}¤			}¤			if (current == null) {¤				current = new RowInList ();¤				current.setRequest(CommonRequestManager.Factory.get().getEntity(reqId));¤				changes.add(current);¤			}¤			current.getMarkedRevison().add(path);¤			¤			Changeset corr = Changeset.Factory.get(repo + "/" + key);¤			for (Changeset ch : current.getCorrespondingChanges()) {¤				if (ch.getKey().equals(corr.getKey())) {¤					//ses: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½¤					//ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ¤					corr = null;¤					break;¤				}¤			}¤			if (corr != null) {¤				current.getCorrespondingChanges().add(corr);¤			}¤		}¤		¤		Logs.LOG_D(String.format("calculateLinkedRequestWithModelElement execute in %dms", (System.currentTimeMillis()-st)));¤		return ret;¤	}¤	¤	private static String getLinkedElementPagesAsStringList (Set<String> changedPaths) throws Exception {¤		if (changedPaths.size() == 0) {¤			return "";¤		}¤		String paths = "";¤		for (String ss : changedPaths) {¤			if (paths.length() > 0) {¤				paths += ",";¤			}¤			paths += "'" + ss + "'";¤		}¤		Map<Long, List<RowInList>> map = calculateLinkedRequestWithModelElements (¤			" WHERE source.path IN (" + paths + ")"¤		);¤		if (map.size() == 0) {¤			return "";¤		}¤			¤		String elemIds = "";¤		for (Long id : map.keySet()) {¤			if (elemIds.length() > 0) {¤				elemIds += ",";¤			}¤			elemIds += id.toString();¤		}¤		return elemIds;¤	}¤	¤	private static void tryToUpdateElementPages (Set<String> changedPaths) {¤		try {¤			Session s = SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤			s.flush();¤			//ses: TODO - ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½-ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½.ï¿½. ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½¤			updateElementPages (getLinkedElementPagesAsStringList (changedPaths), true);¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤		}¤	}¤	private static void updateElementPages (String elemIdsAsString, boolean isMinorChanges) throws Exception {¤		if (elemIdsAsString.length() == 0) {¤			return;¤		}¤		¤		Map<Long, List<RowInList>> map = calculateLinkedRequestWithModelElements (¤			" WHERE source.pageid IN (" + elemIdsAsString + ")"¤		);¤¤		long i = 0;¤		Set<Long> keys = map.keySet();¤		for (Long id : keys) {¤			Logs.LOG_D(String.format(¤				"*************************\n" +¤				"ID: %d\n" +¤				"*************************\n"¤				, id.longValue()¤			));¤			¤			User currentUser = AuthenticatedUserThreadLocal.getUser();¤			try {¤				List<RowInList> rils = map.get(id);¤				for (RowInList ril : rils) {¤					Collections.sort(ril.getCorrespondingChanges(), new Comparator<Changeset>() {¤						public int compare (Changeset c1, Changeset c2) {¤							return c2.getDate().compareTo(c1.getDate());¤						}¤					});¤				}					¤				Collections.sort(rils, new Comparator<RowInList>() {¤					public int compare (RowInList r1, RowInList r2) {¤						return r1.getCorrespondingChanges().get(0).getDate().compareTo(r2.getCorrespondingChanges().get(0).getDate());¤					}¤				});¤				¤				¤				AuthenticatedUserThreadLocal.setUser(¤					ContainerManager.Factory.get().getUserAccessor().getUser(rils.get(0).getCorrespondingChanges().get(0).getAuthor())¤				);¤				¤				if (isMinorChanges) {¤					RequestListInModelElementRenderer.replace(id, rils);¤				} else {			¤					Page page = ContainerManager.Factory.get().getPageManager().getPage(id);¤					Page original = (Page)page.clone();¤				¤					RequestListInModelElementRenderer.replace(id, rils);¤				¤					ContainerManager.Factory.get().getPageManager().saveContentEntity(¤						page¤						, original¤						, new com.atlassian.confluence.core.DefaultSaveContext ()¤					);¤				}			¤			} finally {¤				AuthenticatedUserThreadLocal.setUser(currentUser);¤			}¤			¤			¤			i++;¤			if (i%100 == 0) {¤				Logs.LOG_D(String.format("processed %d/%d", i, keys.size()));¤				SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false).flush ();¤			}¤		}			¤	}¤	private static final String NEED_TO_UPDATE = "HistoryServiceImpl.NEED_TO_UPDATE"; ¤	private static Boolean needToUpdateMutex = new Boolean (true);¤	private static boolean isNeedToUpdate (AbstractPage p) {¤		String s = ContainerManager.Factory.get().getContentPropertyManager().getStringProperty(¤			p¤			, NEED_TO_UPDATE¤		);¤		if (s == null) {¤			return false;¤		}¤		return "true".equals(s);¤	}¤	¤	//#UC END# *49A531B703D3_CUSTOM_METHODS_AND_DATA*
 		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
@@ -6923,6 +6923,23 @@
 	    documentation 	"ñïèñîê âíåøíèõ àâòîðîâ"
 	    stereotype 	"UnsortedSet"
 	    language   	"MDA Generator")
+	(object Class "ExternalAuthorDaoList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1448027634246136")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"564F25F200F5"
+	    stereotype 	"List"
+	    language   	"MDA Generator")
 	(object Association "$UNNAMED$0"
 	    quid       	"4B02A7560212"
 	    roles      	(list role_list
@@ -7108,6 +7125,38 @@
 		    quid       	"4E8054EB0036"
 		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::ExternalAuthorDaoSet"
 		    quidu      	"4E8054DE001F"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$16"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1448027652732194"))
+	    quid       	"564F26040136"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$17"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1448027656132390")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"564F260402D4"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::MDChangeDAO::LinkedExternalAuthorDAO"
+		    quidu      	"5641AC5D0057"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$18"
+		    quid       	"564F260402DA"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::ExternalAuthorDaoList"
+		    quidu      	"564F25F200F5"
 		    is_aggregate 	TRUE))))
     logical_presentations 	(list unit_reference_list
 	(object ClassDiagram "Main"
@@ -7115,14 +7164,14 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"IsChanged"
-		    value      	""))
+		    value      	"true"))
 	    quid       	"4741B762015E"
 	    title      	"Main"
 	    zoom       	100
 	    max_height 	28350
 	    max_width  	21600
 	    origin_x   	0
-	    origin_y   	3819
+	    origin_y   	1578
 	    items      	(list diagram_item_list
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::RequestManagerS" @1
 		    ShowCompartmentStereotypes 	TRUE
@@ -8872,19 +8921,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@50
-			location   	(90, 2828)
+			location   	(78, 2822)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1176
+			max_width  	1200
 			justify    	0
 			label      	"• AbstractRequestS")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@50
-			location   	(90, 2778)
+			location   	(78, 2772)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1176
+			max_width  	1200
 			justify    	0
 			label      	"<<Servant>>")
 		    icon_style 	"Label"
@@ -8892,7 +8941,7 @@
 		    quidu      	"4757F83900B2"
 		    compartment 	(object Compartment
 			Parent_View 	@50
-			location   	(90, 2889)
+			location   	(78, 2883)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8907,10 +8956,10 @@
 			fill_color 	16777215
 			anchor     	2
 			nlines     	4
-			max_width  	1200
+			max_width  	1197
 			justify    	1)
-		    width      	1194
-		    height     	330
+		    width      	1218
+		    height     	342
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object UsesView "" @51
@@ -8926,7 +8975,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @52
 			Parent_View 	@51
-			location   	(590, 3320)
+			location   	(588, 3323)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8951,7 +9000,7 @@
 		    client     	@50
 		    supplier   	@48
 		    vertices   	(list Points
-			(582, 3096)
+			(577, 3102)
 			(391, 3424))
 		    line_style 	0)
 		(object UsesView "" @53
@@ -8967,7 +9016,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @54
 			Parent_View 	@53
-			location   	(844, 3289)
+			location   	(844, 3291)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -8992,7 +9041,7 @@
 		    client     	@50
 		    supplier   	@49
 		    vertices   	(list Points
-			(721, 3096)
+			(722, 3102)
 			(808, 3427))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::RequestPermissionManagerS" @55
@@ -9587,7 +9636,7 @@
 		    supplier   	@50
 		    vertices   	(list Points
 			(1635, 2834)
-			(1275, 2870))
+			(1287, 2869))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Requests::Request" @75
 		    ShowCompartmentStereotypes 	TRUE
@@ -11632,17 +11681,17 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@148
-			location   	(111, 2512)
+			location   	(91, 2516)
 			nlines     	1
-			max_width  	384
+			max_width  	424
 			justify    	0
 			label      	"• AbstractRequest")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@148
-			location   	(111, 2462)
+			location   	(91, 2466)
 			anchor     	10
 			nlines     	1
-			max_width  	384
+			max_width  	424
 			justify    	0
 			label      	"<<Interface>>")
 		    icon       	"Interface"
@@ -11650,8 +11699,8 @@
 		    line_color 	16714250
 		    fill_color 	16777215
 		    quidu      	"4757F69E0296"
-		    width      	402
-		    height     	188
+		    width      	442
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::SingleExecutionGroupDecision" @149
@@ -11831,19 +11880,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@153
-			location   	(3690, 457)
+			location   	(3681, 444)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1188
+			max_width  	1206
 			justify    	0
 			label      	"• ExecutionGroup")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@153
-			location   	(3690, 407)
+			location   	(3681, 394)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1188
+			max_width  	1206
 			justify    	0
 			label      	"<<LocalInterface>>")
 		    icon_style 	"Label"
@@ -11851,7 +11900,7 @@
 		    quidu      	"4B05046102A0"
 		    compartment 	(object Compartment
 			Parent_View 	@153
-			location   	(3690, 518)
+			location   	(3681, 505)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -11866,10 +11915,10 @@
 			fill_color 	16777215
 			anchor     	2
 			nlines     	9
-			max_width  	1216
+			max_width  	1203
 			justify    	1)
-		    width      	1206
-		    height     	566
+		    width      	1224
+		    height     	592
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::ExecutionGroupS" @154
@@ -11920,7 +11969,7 @@
 		    supplier   	@153
 		    vertices   	(list Points
 			(4260, 1214)
-			(4270, 961))
+			(4270, 974))
 		    line_style 	0)
 		(object RealizeView "" @156
 		    font       	(object Font
@@ -11989,8 +12038,8 @@
 		    client     	@50
 		    supplier   	@148
 		    vertices   	(list Points
-			(517, 2765)
-			(394, 2638))
+			(511, 2759)
+			(390, 2634))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::ExecutionGroupDecisionCompletionListener" @159
 		    ShowCompartmentStereotypes 	TRUE
@@ -12058,7 +12107,7 @@
 		    client     	@50
 		    supplier   	@159
 		    vertices   	(list Points
-			(1180, 3096)
+			(1197, 3102)
 			(2515, 3538))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::ExecutionGroupDecisionCompletionListenerList" @161
@@ -13132,57 +13181,7 @@
 		    height     	188
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::MDChangeDAO::ExternalAuthorDAO" @206
-		    ShowCompartmentStereotypes 	TRUE
-		    SuppressAttribute 	TRUE
-		    SuppressOperation 	TRUE
-		    IncludeAttribute 	TRUE
-		    IncludeOperation 	TRUE
-		    location   	(5697, 372)
-		    font       	(object Font
-			size       	10
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	TRUE
-			underline  	FALSE
-			strike     	FALSE
-			color      	705320
-			default_color 	FALSE)
-		    label      	(object ItemLabel
-			Parent_View 	@206
-			location   	(5503, 340)
-			nlines     	1
-			max_width  	388
-			justify    	0
-			label      	"ExternalAuthorDAO")
-		    stereotype 	(object ItemLabel
-			Parent_View 	@206
-			location   	(5503, 290)
-			anchor     	10
-			nlines     	1
-			max_width  	388
-			justify    	0
-			label      	"<<SimpleClass>>")
-		    icon_style 	"Label"
-		    line_color 	705320
-		    fill_color 	16777215
-		    quidu      	"47876B79029E"
-		    width      	406
-		    height     	188
-		    annotation 	8
-		    autoResize 	TRUE)
-		(object InheritView "" @207
-		    stereotype 	TRUE
-		    line_color 	3342489
-		    quidu      	"4E5E2C90033F"
-		    client     	@205
-		    supplier   	@206
-		    vertices   	(list Points
-			(4898, 213)
-			(5493, 330))
-		    line_style 	0)
-		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::ExternalAuthorDaoSet" @208
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::ExternalAuthorDaoSet" @206
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressOperation 	TRUE
 		    IncludeAttribute 	TRUE
@@ -13200,7 +13199,7 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@208
+			Parent_View 	@206
 			location   	(5099, 821)
 			fill_color 	13434879
 			nlines     	1
@@ -13208,7 +13207,7 @@
 			justify    	0
 			label      	"ExternalAuthorDaoSet")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@208
+			Parent_View 	@206
 			location   	(5099, 771)
 			fill_color 	13434879
 			anchor     	10
@@ -13223,47 +13222,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object AssociationViewNew "$UNNAMED$13" @209
-		    location   	(5503, 612)
-		    font       	(object Font
-			size       	10
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	FALSE
-			underline  	FALSE
-			strike     	FALSE
-			color      	0
-			default_color 	TRUE)
-		    stereotype 	TRUE
-		    line_color 	3342489
-		    quidu      	"4E8054EA029B"
-		    roleview_list 	(list RoleViews
-			(object RoleView "$UNNAMED$14" @210
-			    Parent_View 	@209
-			    location   	(187, -237)
-			    stereotype 	TRUE
-			    line_color 	3342489
-			    quidu      	"4E8054EB002E"
-			    client     	@209
-			    supplier   	@206
-			    vertices   	(list Points
-				(5503, 612)
-				(5620, 466))
-			    line_style 	0)
-			(object RoleView "$UNNAMED$15" @211
-			    Parent_View 	@209
-			    location   	(187, -237)
-			    stereotype 	TRUE
-			    line_color 	3342489
-			    quidu      	"4E8054EB0036"
-			    client     	@209
-			    supplier   	@208
-			    vertices   	(list Points
-				(5503, 612)
-				(5385, 758))
-			    line_style 	0)))
-		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::MDChangeDAO::ExternalAuthorSimpleDAO" @212
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::MDChangeDAO::ExternalAuthorSimpleDAO" @207
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -13281,14 +13240,14 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@212
+			Parent_View 	@207
 			location   	(1060, 3373)
 			nlines     	1
 			max_width  	538
 			justify    	0
 			label      	"• ExternalAuthorSimpleDAO")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@212
+			Parent_View 	@207
 			location   	(1060, 3323)
 			anchor     	10
 			nlines     	1
@@ -13303,7 +13262,7 @@
 		    height     	188
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object UsesView "" @213
+		(object UsesView "" @208
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -13314,9 +13273,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @214
-			Parent_View 	@213
-			location   	(1122, 3107)
+		    stereotype 	(object SegLabel @209
+			Parent_View 	@208
+			location   	(1126, 3110)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -13339,8 +13298,335 @@
 		    line_color 	3342489
 		    quidu      	"4F852A0A00F2"
 		    client     	@50
-		    supplier   	@212
+		    supplier   	@207
 		    vertices   	(list Points
-			(905, 3096)
+			(912, 3102)
 			(1200, 3310))
-		    line_style 	0)))))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestsImpl::ExternalAuthorDaoList" @210
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(5940, 831)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@210
+			location   	(5722, 802)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	436
+			justify    	0
+			label      	"ExternalAuthorDaoList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@210
+			location   	(5722, 752)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	436
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"564F25F200F5"
+		    width      	454
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::MDChangeDAO::ExternalAuthorDAO" @211
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(5697, 372)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705320
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@211
+			location   	(5503, 340)
+			nlines     	1
+			max_width  	388
+			justify    	0
+			label      	"ExternalAuthorDAO")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@211
+			location   	(5503, 290)
+			anchor     	10
+			nlines     	1
+			max_width  	388
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	705320
+		    fill_color 	16777215
+		    quidu      	"47876B79029E"
+		    width      	406
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @212
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4E5E2C90033F"
+		    client     	@205
+		    supplier   	@211
+		    vertices   	(list Points
+			(4898, 213)
+			(5493, 330))
+		    line_style 	0)
+		(object AssociationViewNew "$UNNAMED$13" @213
+		    location   	(5503, 612)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4E8054EA029B"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$14" @214
+			    Parent_View 	@213
+			    location   	(187, -237)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4E8054EB002E"
+			    client     	@213
+			    supplier   	@211
+			    vertices   	(list Points
+				(5503, 612)
+				(5620, 466))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$15" @215
+			    Parent_View 	@213
+			    location   	(187, -237)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4E8054EB0036"
+			    client     	@213
+			    supplier   	@206
+			    vertices   	(list Points
+				(5503, 612)
+				(5385, 758))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::MDChangeDAO::LinkedExternalAuthorDAO" @216
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(6576, 363)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705320
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@216
+			location   	(6307, 335)
+			nlines     	1
+			max_width  	538
+			justify    	0
+			label      	"• LinkedExternalAuthorDAO")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@216
+			location   	(6307, 285)
+			anchor     	10
+			nlines     	1
+			max_width  	538
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	705320
+		    fill_color 	16777215
+		    quidu      	"5641AC5D0057"
+		    width      	556
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "" @217
+		    location   	(6098, 367)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"5641AD6A02F3"
+		    roleview_list 	(list RoleViews
+			(object RoleView "" @218
+			    Parent_View 	@217
+			    location   	(401, -5)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @219
+				Parent_View 	@218
+				location   	(6256, 407)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5641AD6B0211"
+			    client     	@217
+			    supplier   	@216
+			    vertices   	(list Points
+				(6098, 367)
+				(6297, 365))
+			    line_style 	0)
+			(object RoleView "external_author" @220
+			    Parent_View 	@217
+			    location   	(401, -5)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @221
+				Parent_View 	@220
+				location   	(5941, 411)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	308
+				justify    	0
+				label      	"+external_author"
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	(object SegLabel @222
+				Parent_View 	@220
+				location   	(5904, 333)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	10
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	"<<property>>"
+				pctDist    	0.500000
+				height     	120
+				orientation 	0)
+			    line_color 	3342489
+			    quidu      	"5641AD6B020B"
+			    client     	@217
+			    supplier   	@211
+			    vertices   	(list Points
+				(6098, 367)
+				(5900, 369))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$16" @223
+		    location   	(6257, 596)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"564F26040136"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$17" @224
+			    Parent_View 	@223
+			    location   	(317, -235)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"564F260402D4"
+			    client     	@223
+			    supplier   	@216
+			    vertices   	(list Points
+				(6257, 596)
+				(6451, 453))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$18" @225
+			    Parent_View 	@223
+			    location   	(317, -235)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"564F260402DA"
+			    client     	@223
+			    supplier   	@210
+			    vertices   	(list Points
+				(6257, 596)
+				(6063, 739))
+			    line_style 	0)))))))

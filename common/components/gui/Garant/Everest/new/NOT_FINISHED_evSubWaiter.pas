@@ -2,6 +2,7 @@ unit NOT_FINISHED_evSubWaiter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_evSubWaiter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevSubWaiter" MUID: (4988405001B5)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

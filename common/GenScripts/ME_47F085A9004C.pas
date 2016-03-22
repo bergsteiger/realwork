@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "dBaseDocumentWithAttributes" MUID: (47F085A9004C)
+// Имя типа: "_dBaseDocumentWithAttributes_"
 
 {$Define dBaseDocumentWithAttributes_imp}
 

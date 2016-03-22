@@ -98,7 +98,7 @@ procedure TddSectionProperty.Clear;
 begin
 //#UC START# *518A13330058_51DBBE7802D5_impl*
  inherited;
- cCols:= 1;                  { number of column }
+ f_cCols := 0;                  { number of column }
  ColsSpace:= 720;    { пространство между колонками }
  LineBetween:= False;  { линия между колонками }
  SBK:= sbkPg;                    { section break type  }

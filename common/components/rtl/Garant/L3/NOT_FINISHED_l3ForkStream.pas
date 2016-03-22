@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3ForkStream;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3ForkStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ForkStream" MUID: (555B41360103)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -2,6 +2,7 @@ unit Refcounted;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\Refcounted.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TRefcounted" MUID: (516137AD0362)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

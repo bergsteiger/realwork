@@ -3,6 +3,7 @@ unit CheckTopAnchorTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\CheckTopAnchorTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TCheckTopAnchorTest" MUID: (4C3C771A002D)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

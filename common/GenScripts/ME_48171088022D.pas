@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevChildSpy.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevChildSpy" MUID: (48171088022D)
+// Имя типа: "_nevChildSpy_"
 
 {$Define nevChildSpy_imp}
 

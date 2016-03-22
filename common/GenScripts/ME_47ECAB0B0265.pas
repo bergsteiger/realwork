@@ -4,6 +4,7 @@ unit NOT_FINISHED_evMsgCode;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evMsgCode.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "evMsgCode" MUID: (47ECAB0B0265)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

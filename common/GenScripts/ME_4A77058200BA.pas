@@ -3,6 +3,7 @@ unit Base_Operations_Editions_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_Editions_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "Editions" MUID: (4A77058200BA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

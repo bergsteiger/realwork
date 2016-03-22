@@ -1,118 +1,88 @@
 unit FormulaRender;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Tests"
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Tests/FormulaRender.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::Abstract Tests::RenderEVD::TFormulaRender
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\FormulaRender.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TFormulaRender" MUID: (4EEF59B40075)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  eeRenderFormula
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  TextEditorVisitor
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , TextEditorVisitor
+ {$IfEnd} // NOT Defined(NoVCM)
+ , eeRenderFormula
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TFormulaRender = {abstract} class(TTextEditorVisitor)
- private
- // private fields
-   f_ParaNumber : Integer;
-   f_FormulaNumber : Integer;
-   f_RenderTarget : TeeRenderTarget;
- protected
- // realized methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
-   procedure DoVisit(aForm: TPrimTextLoadForm); override;
-     {* Обработать текст }
-   {$IfEnd} //nsTest AND not NoVCM
- protected
- // overridden protected methods
-    {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-   function FileForOutput: AnsiString; override;
-     {* Стандартный файл для вывода, для текщего теста }
-    {$IfEnd} //nsTest AND not NotTunedDUnit
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-    {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-   function RaiseIfEtalonCreated: Boolean; override;
-    {$IfEnd} //nsTest AND not NotTunedDUnit
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
-    {$If defined(XE) AND defined(nsTest) AND not defined(NotTunedDUnit)}
-   function EtalonNeedsXE: Boolean; override;
-    {$IfEnd} //XE AND nsTest AND not NotTunedDUnit
- protected
- // protected methods
+  private
+   f_ParaNumber: Integer;
+   f_FormulaNumber: Integer;
+   f_RenderTarget: TeeRenderTarget;
+  protected
    function GetZoom: Integer; virtual;
+   {$If NOT Defined(NoVCM)}
+   procedure DoVisit(aForm: TPrimTextLoadForm); override;
+    {* Обработать текст }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NotTunedDUnit)}
+   function FileForOutput: AnsiString; override;
+    {* Стандартный файл для вывода, для текщего теста }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   {$If NOT Defined(NotTunedDUnit)}
+   function RaiseIfEtalonCreated: Boolean; override;
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
+   {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
+   function EtalonNeedsXE: Boolean; override;
+   {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
  end;//TFormulaRender
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  l3Memory,
-  l3Stream,
-  nevTools,
-  evTypes,
-  SysUtils,
-  l3Interfaces,
-  l3Filer,
-  evdInterfaces,
-  Formula_Const,
-  k2Tags,
-  evdTypes,
-  ObjectSegment_Const,
-  l3Variant,
-  evOp
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  ,
-  l3ImageUtils,
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , l3Memory
+ , l3Stream
+ , nevTools
+ , evTypes
+ , SysUtils
+ , l3Interfaces
+ , l3Filer
+ , evdInterfaces
+ , Formula_Const
+ , k2Tags
+ , evdTypes
+ , ObjectSegment_Const
+ , l3Variant
+ , evOp
+ {$If NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ , l3ImageUtils
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TFormulaRender
-
+{$If NOT Defined(NoVCM)}
 function TFormulaRender.GetZoom: Integer;
 //#UC START# *4EF0A04A0286_4EEF59B40075_var*
 //#UC END# *4EF0A04A0286_4EEF59B40075_var*
@@ -122,8 +92,8 @@ begin
 //#UC END# *4EF0A04A0286_4EEF59B40075_impl*
 end;//TFormulaRender.GetZoom
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 procedure TFormulaRender.DoVisit(aForm: TPrimTextLoadForm);
+ {* Обработать текст }
 //#UC START# *4BE419AF0217_4EEF59B40075_var*
 
  function FormulaCount(aPara: Tl3Tag): Integer;
@@ -227,10 +197,10 @@ begin
  Check(L_RenderedCount > 0, 'Похоже, что не отрендерили ни одной формулы');
 //#UC END# *4BE419AF0217_4EEF59B40075_impl*
 end;//TFormulaRender.DoVisit
-{$IfEnd} //nsTest AND not NoVCM
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 function TFormulaRender.FileForOutput: AnsiString;
+ {* Стандартный файл для вывода, для текщего теста }
 //#UC START# *4B4F588B0241_4EEF59B40075_var*
 var
  l_Suff : String;
@@ -255,15 +225,15 @@ begin
  end;//Case f_RenderTarget
 //#UC END# *4B4F588B0241_4EEF59B40075_impl*
 end;//TFormulaRender.FileForOutput
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
 function TFormulaRender.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'RenderEVD';
 end;//TFormulaRender.GetFolder
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 function TFormulaRender.RaiseIfEtalonCreated: Boolean;
 //#UC START# *4CA5DAD4014C_4EEF59B40075_var*
 //#UC END# *4CA5DAD4014C_4EEF59B40075_var*
@@ -272,15 +242,15 @@ begin
  Result := false;
 //#UC END# *4CA5DAD4014C_4EEF59B40075_impl*
 end;//TFormulaRender.RaiseIfEtalonCreated
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
 function TFormulaRender.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4EEF59B40075';
 end;//TFormulaRender.GetModelElementGUID
 
-{$If defined(XE) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
 function TFormulaRender.EtalonNeedsXE: Boolean;
 //#UC START# *51AF49E5001B_4EEF59B40075_var*
 //#UC END# *51AF49E5001B_4EEF59B40075_var*
@@ -289,8 +259,8 @@ begin
  Result := true;
 //#UC END# *51AF49E5001B_4EEF59B40075_impl*
 end;//TFormulaRender.EtalonNeedsXE
-{$IfEnd} //XE AND nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // NOT Defined(NoVCM)
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

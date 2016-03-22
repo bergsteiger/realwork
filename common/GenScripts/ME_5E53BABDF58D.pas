@@ -3,6 +3,7 @@ unit PrintDialog_ut_PrintDialog_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrintDialog_ut_PrintDialog_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_PrintDialog" MUID: (5E53BABDF58D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_PrintDialog = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_PrintDialog }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_PrintDialog
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_PrintDialog.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_PrintDialog';
-end;//Tkw_FormUserType_ut_PrintDialog.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_PrintDialog.GetInteger: Integer;
 begin
  Result := ut_PrintDialog;
 end;//Tkw_FormUserType_ut_PrintDialog.GetInteger
+
+class function Tkw_FormUserType_ut_PrintDialog.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_PrintDialog';
+end;//Tkw_FormUserType_ut_PrintDialog.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

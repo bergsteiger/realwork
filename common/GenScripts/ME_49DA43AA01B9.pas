@@ -3,6 +3,7 @@ unit evSBSCellPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSBSCellPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevSBSCellPainter" MUID: (49DA43AA01B9)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

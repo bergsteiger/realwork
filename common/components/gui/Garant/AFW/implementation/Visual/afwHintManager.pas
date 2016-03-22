@@ -2,6 +2,7 @@ unit afwHintManager;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwHintManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwHintManager" MUID: (48C7C8A9035E)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_FormFrameDecorator;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\NOT_FINISHED_FormFrameDecorator.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TFormFrameDecorator" MUID: (54211E830399)
 
 interface
 

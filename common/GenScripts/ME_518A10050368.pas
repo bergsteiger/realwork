@@ -2,6 +2,7 @@ unit ddRowProperty;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddRowProperty.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddRowProperty" MUID: (518A10050368)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

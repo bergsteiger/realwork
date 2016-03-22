@@ -45,6 +45,7 @@ type
    f_Pool : TnevFormatPoolBase;
    f_FormatCanvas : InevInfoCanvas;
    f_AllowRubberTables : TnevRubberTablesMode;
+   f_NeedTotalRecalc : Boolean;
  protected
  // realized methods
    function pm_GetLimitWidth: TnevInch;
@@ -60,6 +61,7 @@ type
    function IsTagCollapsed(aTag: Tl3Variant): Boolean;
    function Get_Data: InevObjectPrim;
    function Get_AACLike: TnevAACLikeMode;
+   function NeedTotalRecalc: Boolean;
  protected
  // overridden property methods
    function pm_GetLocSpacing: TnevRect; override;
@@ -136,6 +138,7 @@ begin
  // ”¡–¿ÕŒ! http://mdp.garant.ru/pages/viewpage.action?pageId=142610892
   {$ENDIF Nemesis}*)
   f_Extent := Extent;
+  f_NeedTotalRecalc := NeedTotalRecalc;
  end;//with aView.Metrics
 //#UC END# *4815CF1D0047_4815B8D801D8_impl*
 end;//TnevRootFormatInfo.Create
@@ -265,6 +268,15 @@ begin
  Result := f_AACLike;
 //#UC END# *501F96A80050_4815B8D801D8get_impl*
 end;//TnevRootFormatInfo.Get_AACLike
+
+function TnevRootFormatInfo.NeedTotalRecalc: Boolean;
+//#UC START# *565F03C80029_4815B8D801D8_var*
+//#UC END# *565F03C80029_4815B8D801D8_var*
+begin
+//#UC START# *565F03C80029_4815B8D801D8_impl*
+ Result := f_NeedTotalRecalc;
+//#UC END# *565F03C80029_4815B8D801D8_impl*
+end;//TnevRootFormatInfo.NeedTotalRecalc
 
 procedure TnevRootFormatInfo.Cleanup;
 //#UC START# *479731C50290_4815B8D801D8_var*

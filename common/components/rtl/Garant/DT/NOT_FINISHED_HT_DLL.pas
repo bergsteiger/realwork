@@ -2,6 +2,7 @@ unit NOT_FINISHED_HT_DLL;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_HT_DLL.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "HT_DLL" MUID: (55533C7600A0)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

@@ -2,6 +2,7 @@ unit vcmOperationsManager;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmOperationsManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmOperationsManager" MUID: (52A73A5900E2)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

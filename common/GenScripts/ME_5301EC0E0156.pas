@@ -2,6 +2,7 @@ unit ddAppConfigBase;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddAppConfigBase" MUID: (5301EC0E0156)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

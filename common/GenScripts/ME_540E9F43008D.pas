@@ -2,6 +2,7 @@ unit nsHAFPainterWithoutSettings;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsHAFPainterWithoutSettings.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsHAFPainterWithoutSettings" MUID: (540E9F43008D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

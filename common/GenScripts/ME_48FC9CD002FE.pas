@@ -2,13 +2,14 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3LockedChangePrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3LockedChangePrim" MUID: (48FC9CD002FE)
+// Имя типа: "_l3LockedChangePrim_"
 
 {$Define l3LockedChangePrim_imp}
 
  _l3LockedChangePrim_ = class(_l3LockedChangePrim_Parent_)
   private
    f_ChangeCount: Integer;
-    {* Поле для свойства ChangeCount }
   protected
    procedure FireChanging; virtual;
    procedure FireChanged; virtual;

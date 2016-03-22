@@ -2,6 +2,7 @@ unit NOT_FINISHED_eePreviewPanel;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eePreviewPanel.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TeePreviewPanel" MUID: (4CFFD97801C0)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

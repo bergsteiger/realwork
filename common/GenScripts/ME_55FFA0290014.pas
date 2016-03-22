@@ -3,6 +3,8 @@ unit ExportSeparatedByMainTest;
 
 // Модуль: "w:\archi\source\projects\ImportExportTest\ExportSeparatedByMainTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "ExportSeparatedByMainTest" MUID: (55FFA0290014)
+// Имя типа: "TExportSeparatedByMainTest"
 
 {$Include w:\archi\source\projects\ImportExportTest.inc}
 

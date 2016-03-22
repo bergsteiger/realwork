@@ -2,6 +2,7 @@ unit l3BaseRecList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3BaseRecList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3BaseRecList" MUID: (479DF7E200A3)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

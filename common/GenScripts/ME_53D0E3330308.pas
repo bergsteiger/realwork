@@ -2,6 +2,7 @@ unit alcuAsyncTaskFinishedNotifierList;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAsyncTaskFinishedNotifierList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuAsyncTaskFinishedNotifierList" MUID: (53D0E3330308)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

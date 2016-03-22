@@ -2,6 +2,7 @@ unit l3SimpleObject;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3SimpleObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3SimpleObject" MUID: (47BC391D0259)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

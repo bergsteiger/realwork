@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsPageSetup;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_nsPageSetup.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsPageSetup" MUID: (4ABB686202B1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

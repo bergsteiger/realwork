@@ -348,9 +348,9 @@ void NsrcGenerator_i::write_text (size_t count, size_t& offset) {
 		ObjectSegments::iterator it = m_objects.begin () + m_obj_pos;
 
 		for (size_t i = 0; i < count; ++i) {
-			m_buffer.inout () [i + l_offset] = m_text [i + offset];
+			m_buffer.inout () [i + l_offset] = m_text ? m_text [i + offset] : m_buffer.inout () [i + l_offset - 1];
 
-			if (m_text [i + offset] == '*') {
+			if (m_text && m_text [i + offset] == '*') {
 				it = std::find (it, m_objects.end (), offset + i + 1);
 
 				if (it != m_objects.end ()) {

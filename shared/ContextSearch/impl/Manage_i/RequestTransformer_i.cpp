@@ -22,15 +22,10 @@ namespace ContextSearch {
 namespace Manage_i {
 
 //////////////////////////////////////////////////////////////////////////////////////////
-// nested implementation
-// Константы
-const size_t RequestTransformer_i::MAX_WORDS_OF_REQUEST = 15; // максимальное количество слов в морфозапросе
-
-//////////////////////////////////////////////////////////////////////////////////////////
 // static member methods
 
 // исключить слова и фразы
-void RequestTransformer_i::exclude (std::string& str, const GCL::StrVector& data, bool is_fake) {
+void RequestTransformer_i::_exclude (std::string& str, const GCL::StrVector& data) {
 	//#UC START# *4B5AAD5A0109*
 	std::string res, rest, cur;
 
@@ -68,7 +63,7 @@ void RequestTransformer_i::exclude (std::string& str, const GCL::StrVector& data
 		} else if (cur.size () != it->size ()) {
 			req += it->size () + 1;
 
-			if (is_fake && res.empty () == false) {
+			if (res.empty () == false) {
 				char prev = *res.rbegin ();
 
 				if (prev >= '0' && prev <= '9' && *req >= '0' && *req <= '9') {
@@ -157,7 +152,10 @@ void RequestTransformer_i::exclude_hard (std::string& req, const GCL::StrVector&
 		}
 	}
 
-	this->exclude (req, data, DBComm::PSDTemplates (), true);
+	if (this->exclude (req, data) > 2) {
+		//PartsSpeechAnalyzer::set_frames (templates, req);
+	}
+
 	std::replace (req.begin (), req.end (), '=', ' ');
 	//#UC END# *53FCB8F600CA*
 }
@@ -185,8 +183,8 @@ void RequestTransformer_i::correct (const std::string& in, std::string& out) {
 	GCL::StrVector parts;
 	ContextUtility::split (parts, in, true);
 
-	if (parts.size () > MAX_WORDS_OF_REQUEST) {
-		parts.erase (parts.begin () + MAX_WORDS_OF_REQUEST, parts.end ());
+	if (parts.size () > DBCore::MAX_WORDS_OF_REQUEST) {
+		parts.erase (parts.begin () + DBCore::MAX_WORDS_OF_REQUEST, parts.end ());
 	}
 
 	for (GCL::StrVector::iterator it = parts.begin (); it != parts.end (); ++it) {
@@ -249,12 +247,7 @@ void RequestTransformer_i::correct (const std::string& in, std::string& out) {
 
 // implemented method from Manage::IRequestTransformer
 // исключение стоп-слов
-size_t RequestTransformer_i::exclude (
-	std::string& req
-	, const GCL::StrVector& data
-	, const DBComm::PSDTemplates& templates
-	, bool is_fake
-) {
+size_t RequestTransformer_i::exclude (std::string& req, const GCL::StrVector& data) {
 	//#UC START# *4B5AA43F01EC_4B5AA66F0097*
 	GDS_ASSERT (req.empty () == false);
 
@@ -262,27 +255,13 @@ size_t RequestTransformer_i::exclude (
 
 	std::string str = req;
 
-	RequestTransformer_i::exclude (str, data, is_fake);
+	RequestTransformer_i::_exclude (str, data);
 
-	if (is_fake) {
-		size_t count = std::count_if (str.begin (), str.end (), boost::is_any_of (" =-~"));
-
-		if (count != str.size ()) { // если во фразе остались слова
-			req = str;
-		}
-	} else if (str.empty () == false) { // если во фразе остались слова
-		req = str;
+	if (std::count_if (str.begin (), str.end (), boost::is_any_of (" =-~")) != str.size ()) {
+		req = str; // если во фразе остались слова
 	}
 
-	size_t ret = ContextUtility::get_words_count (req);
-
-	/*
-	if (ret > 2) {
-		PartsSpeechAnalyzer::set_frames (templates, req);
-	}
-	*/
-
-	return ret;
+	return ContextUtility::get_words_count (req);
 	//#UC END# *4B5AA43F01EC_4B5AA66F0097*
 }
 
@@ -292,10 +271,9 @@ GCL::StrVector* RequestTransformer_i::execute (
 	const std::string& in
 	, const GCL::StrVector& data
 	, const GCL::StrVector& hard
-	, Defs::StrStrMap& pseudo
 ) {
 	//#UC START# *53FCAB670039_4B5AA66F0097*
-	Core::Aptr <GCL::StrVector> ret = m_normalizer->execute_for_phrase (in, pseudo);
+	Core::Aptr <GCL::StrVector> ret = m_normalizer->execute_for_phrase (in);
 
 	std::for_each (ret->begin (), ret->end ()
 		, boost::bind (&RequestTransformer_i::exclude_hard, this, _1, data, hard)
@@ -305,18 +283,6 @@ GCL::StrVector* RequestTransformer_i::execute (
 	ret->erase (std::unique (ret->begin (), ret->end ()), ret->end ());
 	return ret._retn ();
 	//#UC END# *53FCAB670039_4B5AA66F0097*
-}
-
-// implemented method from Manage::IRequestTransformer
-// исключение стоп-слов
-void RequestTransformer_i::unchecked_exclude (std::string& req, const GCL::StrVector& data) {
-	//#UC START# *528E26DF01E7_4B5AA66F0097*
-	GDS_ASSERT (req.empty () == false);
-
-	GCL::to_upper (req);
-
-	RequestTransformer_i::exclude (req, data, false);
-	//#UC END# *528E26DF01E7_4B5AA66F0097*
 }
 } // namespace Manage_i
 } // namespace ContextSearch

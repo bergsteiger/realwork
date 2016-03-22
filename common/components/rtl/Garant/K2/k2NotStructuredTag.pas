@@ -2,6 +2,7 @@ unit k2NotStructuredTag;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2NotStructuredTag.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2NotStructuredTag" MUID: (533E8F8D0334)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

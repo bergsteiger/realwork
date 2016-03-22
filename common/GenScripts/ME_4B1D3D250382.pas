@@ -2,6 +2,7 @@ unit PrimPrimListInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\PrimPrimListInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "PrimPrimListInterfaces" MUID: (4B1D3D250382)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -5,7 +5,7 @@ unit k2OList_Const;
 // Библиотека "K2"
 // Модуль: "w:/common/components/rtl/Garant/K2/k2OList_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::K2::CoreTypes::k2Core::OList
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::K2::CoreTypes::k2Core::OList
 //
 // Список объектов
 //

@@ -1,8 +1,11 @@
 unit dt_SabHelp;
 {Хелперы для ISab}
-{ $Id: dt_SabHelp.pas,v 1.3 2015/09/10 15:04:43 voba Exp $ }
+{ $Id: dt_SabHelp.pas,v 1.4 2016/01/22 12:18:59 lukyanets Exp $ }
 
 // $Log: dt_SabHelp.pas,v $
+// Revision 1.4  2016/01/22 12:18:59  lukyanets
+// Переосмысливаем мигратор
+//
 // Revision 1.3  2015/09/10 15:04:43  voba
 // no message
 //
@@ -25,7 +28,7 @@ interface
 
  procedure OutValueSab2Stream(const aSab : ISab; const aStream : IStream);
 
- procedure OutRecSabToFile(const aSab : ISab; const aFileName : AnsiString; aQuote : Char = '"'; aDelimiter : Char = #9);
+ procedure OutRecSabToFile(const aSab : ISab; const aFileName : AnsiString; aQuote : Char = '"'; aDelimiter : Char = #9; AddEmtryTailColumnCount: Integer = 0);
 
 implementation
 uses
@@ -71,7 +74,7 @@ begin
  end;
 end;
 
-procedure OutRecSabToFile(const aSab : ISab; const aFileName : AnsiString; aQuote : Char = '"'; aDelimiter : Char = #9);
+procedure OutRecSabToFile(const aSab : ISab; const aFileName : AnsiString; aQuote : Char = '"'; aDelimiter : Char = #9; AddEmtryTailColumnCount: Integer = 0);
 var
  lRAProcStub : TdtRecAccessProc;
  l_Filer : Tl3DOSFiler;
@@ -79,7 +82,7 @@ var
  function lRecAccessProc(aItemPtr : Pointer) : Boolean;
  begin
   Result := True;
-  l_Filer.Writeln(aSab.Table.GenRecStr(aItemPtr));
+  l_Filer.Writeln(aSab.Table.GenRecStr(aItemPtr, AddEmtryTailColumnCount));
  end;
 
 begin

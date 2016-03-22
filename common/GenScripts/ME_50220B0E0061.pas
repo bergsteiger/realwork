@@ -2,6 +2,7 @@ unit vtScrollBar;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtScrollBar.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtScrollBar" MUID: (50220B0E0061)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

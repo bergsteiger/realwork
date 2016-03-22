@@ -2,6 +2,7 @@ unit l3ProtoPtrRecListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoPtrRecListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProtoPtrRecListPrim" MUID: (479DF9C5033A)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -2,6 +2,7 @@ unit vtSpeedButton;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtSpeedButton.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtSpeedButton" MUID: (4C43D65C0204)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -1,1 +1,0 @@
-copy /Y M:\NewSchool\Scripts\*.ms.dict H:\Dropbox\mindstream\Examples\Scripts\Real\

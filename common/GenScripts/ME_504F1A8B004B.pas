@@ -2,6 +2,7 @@ unit atDocumentUnderControlOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atDocumentUnderControlOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatDocumentUnderControlOperation" MUID: (504F1A8B004B)
 
 interface
 

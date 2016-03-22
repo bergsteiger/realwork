@@ -431,7 +431,7 @@ HLTC393: Инфарм
 }
 function HLTC393_5_3_Execute (var  CurrentState: OleVariant): OleVariant;
 const
-  FIRMS_COUNT = '3131';
+  FIRMS_COUNT = '3132';
 var
   firms;  
   frimsWnd;
@@ -551,8 +551,8 @@ try
     if i = 0 then
     begin
       Sys.Keys('[Apps]');
-      if NOT ClickByPopupMenuItem(firmsWnd, 'Документ\Установить закладку...') then
-        Raise('Не удалось вызвать пункт контекстного меню Документ\Установить закладку...');
+      if NOT ClickByPopupMenuItem(firmsWnd, 'Установить закладку...') then
+        Raise('Не удалось вызвать пункт контекстного меню "Установить закладку..."');
     end
     else
     begin    
@@ -598,7 +598,7 @@ HLTC393: Инфарм
 }
 function HLTC393_5_7_Execute (var  CurrentState: OleVariant): OleVariant;
 const
-  ALL_FIRMS_COUNT = '3131';
+  ALL_FIRMS_COUNT = '3132';
 var
   firms;
   firmsWnd;
@@ -1485,7 +1485,7 @@ try
       Raise('Не удалось открыть препарат из списка Лекарственных препаратов' + preparations[i][0]);      
     medicalProductsWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');       
     if NOT IsExists(medicalProductsWnd) then Raise('Не удалось получить ТЕКСТ ПРЕПАРАТА');
-    str := CopyToClipBoard(medicalProductsWnd, 'STRING', 'Trim:=true');
+    str := CopyToClipBoard(medicalProductsWnd, 'STRING', 'Trim:=true')+'*';
     if NOT StringCompare(str, preparations[i][1]) then 
       Raise('После открытия Мед.препарата его текст не эталонен: ' + str);
     CloseTabIfNeeded;//закрываем вклаку  

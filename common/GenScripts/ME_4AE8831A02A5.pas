@@ -3,6 +3,8 @@ unit PrimOldSituationSearch_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimOldSituationSearch_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "PrimOldSituationSearch" MUID: (4AE8831A02A5)
+// Имя типа: "TPrimOldSituationSearchForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

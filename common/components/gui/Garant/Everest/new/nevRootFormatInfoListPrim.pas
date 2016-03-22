@@ -112,6 +112,8 @@ begin
  if (Result = 0) then
   Result := Ord(A.IsWebStyle) - Ord(B.IsWebStyle);
  if (Result = 0) then
+  Result := Ord(A.NeedTotalRecalc) - Ord(B.NeedTotalRecalc);
+ if (Result = 0) then
   Result := Ord(A.AllowRubberTables) - Ord(B.AllowRubberTables);
  if (Result = 0) then
   Result := Ord(A.ShowDocumentParts) - Ord(B.ShowDocumentParts);

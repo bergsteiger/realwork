@@ -3,6 +3,7 @@ unit ListUserTypes_lftSimilarDocuments_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftSimilarDocuments_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "lftSimilarDocuments" MUID: (4BD589E40083)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftSimilarDocuments = {final} class(TtfwInteger)
   {* Слово словаря для типа формы lftSimilarDocuments }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_lftSimilarDocuments
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_lftSimilarDocuments.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::lftSimilarDocuments';
-end;//Tkw_FormUserType_lftSimilarDocuments.GetWordNameForRegister
-
 function Tkw_FormUserType_lftSimilarDocuments.GetInteger: Integer;
 begin
  Result := lftSimilarDocuments;
 end;//Tkw_FormUserType_lftSimilarDocuments.GetInteger
+
+class function Tkw_FormUserType_lftSimilarDocuments.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::lftSimilarDocuments';
+end;//Tkw_FormUserType_lftSimilarDocuments.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

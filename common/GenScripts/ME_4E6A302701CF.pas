@@ -2,6 +2,7 @@ unit nevDocumentFormatInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevDocumentFormatInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevDocumentFormatInfo" MUID: (4E6A302701CF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

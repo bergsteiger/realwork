@@ -2,6 +2,7 @@ unit NOT_FINISHED_m3ArchiveStorage;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\NOT_FINISHED_m3ArchiveStorage.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3ArchiveStorage" MUID: (541813A902DD)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

@@ -2,6 +2,7 @@ program SandBoxTest;
 
 // Модуль: "w:\common\components\SandBoxTest\SandBoxTest.dpr"
 // Стереотип: "TestTarget"
+// Элемент модели: "SandBox" MUID: (515586050382)
 
 {$Include w:\common\components\SandBoxTest\sbtDefine.inc}
 

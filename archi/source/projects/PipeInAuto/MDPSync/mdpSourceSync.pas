@@ -1,6 +1,6 @@
 unit mdpSourceSync;
 
-{ $Id: mdpSourceSync.pas,v 1.5 2015/08/27 09:47:14 fireton Exp $ }
+{ $Id: mdpSourceSync.pas,v 1.6 2015/11/26 09:31:18 lukyanets Exp $ }
 
 {$IFDEF MDP_TEST}
  {$DEFINE MDP_TOFILE}
@@ -43,6 +43,7 @@ uses
 
  daTypes,
  daDataProvider,
+ daSchemeConsts,
 
  dt_Types,
  dt_Const,

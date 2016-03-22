@@ -3,6 +3,8 @@ unit moSearch;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moSearch.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Search" MUID: (4AA641D100B7)
+// Имя типа: "Tmo_Search"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

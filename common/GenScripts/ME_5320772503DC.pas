@@ -2,6 +2,7 @@ unit evStyle;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evStyle.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevStyle" MUID: (5320772503DC)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

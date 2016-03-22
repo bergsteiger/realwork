@@ -2,6 +2,8 @@ unit kwStyleTableChanged;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwStyleTableChanged.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "StyleTable_Changed" MUID: (4E68CC460163)
+// Имя типа: "TkwStyleTableChanged"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

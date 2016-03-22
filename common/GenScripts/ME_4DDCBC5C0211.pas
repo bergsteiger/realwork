@@ -2,6 +2,8 @@ unit fsViewChangedFragments;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\fsViewChangedFragments.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "ViewChangedFragments" MUID: (4DDCBC5C0211)
+// Имя типа: "Tfs_ViewChangedFragments"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

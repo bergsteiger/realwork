@@ -5,7 +5,7 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
   Height = 342
   BorderIcons = [biSystemMenu]
   Caption = #1043#1040#1056#1040#1053#1058': '#1055#1072#1088#1072#1084#1077#1090#1088#1099' '#1072#1074#1090#1086#1084#1072#1090#1080#1095#1077#1089#1082#1086#1075#1086' '#1086#1073#1085#1086#1074#1083#1077#1085#1080#1103
-  Color = $00F9F8FA
+  Color = 16382202
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -20,22 +20,22 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
     Left = 0
     Top = 0
     Width = 554
-    Height = 249
+    Height = 246
     Align = alClient
     TabOrder = 0
     object f_MainPageControl: TPageControl
       Left = 1
       Top = 1
       Width = 552
-      Height = 247
-      ActivePage = f_ScheduleTabSheet
+      Height = 244
+      ActivePage = f_UpdateTabSheet
       Align = alClient
       TabOrder = 0
       object f_DownloadTabSheet: TTabSheet
         Caption = #1057#1082#1072#1095#1080#1074#1072#1085#1080#1077' '#1086#1073#1085#1086#1074#1083#1077#1085#1080#1081
         object f_DownloadRestoreMinutesLabel: TLabel
           Left = 403
-          Top = 41
+          Top = 44
           Width = 124
           Height = 13
           AutoSize = False
@@ -43,21 +43,21 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
         end
         object f_DownloadSaveToLabel: TLabel
           Left = 40
-          Top = 72
+          Top = 86
           Width = 125
           Height = 13
           Caption = #1057#1086#1093#1088#1072#1085#1103#1090#1100' '#1086#1073#1085#1086#1074#1083#1077#1085#1080#1103' '#1074
         end
         object f_DownloadUserAgentLabel: TLabel
           Left = 40
-          Top = 104
+          Top = 116
           Width = 119
           Height = 13
           Caption = #1048#1076#1077#1085#1090#1080#1092#1080#1094#1080#1088#1086#1074#1072#1090#1100' '#1082#1072#1082
         end
-        object f_DownloadNotificationParametersLabel: TLabel
+        object f_DownloadSendReportParametersLabel: TLabel
           Left = 40
-          Top = 161
+          Top = 189
           Width = 173
           Height = 13
           Cursor = crHandPoint
@@ -68,9 +68,9 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
           Font.Name = 'MS Sans Serif'
           Font.Style = [fsBold, fsUnderline]
           ParentFont = False
-          OnClick = NotificationParametersLabelClick
+          OnClick = SendReportParametersLabelClick
         end
-        object f_DownloadNotificationStatusLabel: TLabel
+        object f_DownloadSendReportStatusLabel: TLabel
           Left = 382
           Top = 138
           Width = 145
@@ -85,7 +85,7 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
         end
         object f_DownloadRetryCheckBox: TCheckBox
           Left = 17
-          Top = 8
+          Top = 24
           Width = 510
           Height = 17
           Caption = 
@@ -95,7 +95,7 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
         end
         object f_DownloadRestoreCheckBox: TCheckBox
           Left = 17
-          Top = 40
+          Top = 43
           Width = 340
           Height = 17
           Caption = #1055#1088#1080' '#1086#1073#1088#1099#1074#1077' '#1089#1086#1077#1076#1080#1085#1077#1085#1080#1103' '#1087#1099#1090#1072#1090#1100#1089#1103' '#1074#1086#1089#1089#1090#1072#1085#1072#1074#1083#1080#1074#1072#1090#1100' '#1074' '#1090#1077#1095#1077#1085#1080#1077
@@ -103,7 +103,7 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
         end
         object f_DownloadRestoreEdit: TEdit
           Left = 360
-          Top = 38
+          Top = 41
           Width = 39
           Height = 21
           AutoSize = False
@@ -114,7 +114,7 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
         end
         object f_DownloadSaveToEdit: TEdit
           Left = 172
-          Top = 70
+          Top = 84
           Width = 330
           Height = 21
           AutoSize = False
@@ -122,16 +122,16 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
         end
         object f_DownloadUserAgentEdit: TEdit
           Left = 172
-          Top = 102
+          Top = 114
           Width = 355
           Height = 21
           AutoSize = False
           TabOrder = 4
         end
-        object f_DownloadNotificationCheckBox: TCheckBox
+        object f_DownloadSendReportCheckBox: TCheckBox
           Left = 17
           Top = 136
-          Width = 330
+          Width = 510
           Height = 17
           Caption = #1055#1086' '#1079#1072#1074#1077#1088#1096#1077#1085#1080#1080' '#1089#1082#1072#1095#1080#1074#1072#1085#1080#1103' '#1087#1086#1089#1099#1083#1072#1090#1100' '#1091#1074#1077#1076#1086#1084#1083#1077#1085#1080#1077' '#1087#1086' '#1087#1086#1095#1090#1077
           TabOrder = 5
@@ -164,13 +164,29 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
           NumGlyphs = 2
         end
         object f_DownloadSaveToSelectButton: TButton
-          Left = 507
-          Top = 69
+          Left = 506
+          Top = 83
           Width = 20
           Height = 20
           Caption = '...'
           TabOrder = 7
           OnClick = DownloadSaveToSelectButtonClick
+        end
+        object f_DownloadResumeCheckBox: TCheckBox
+          Left = 17
+          Top = 62
+          Width = 510
+          Height = 17
+          Caption = #1055#1088#1086#1076#1086#1083#1078#1072#1090#1100' '#1087#1088#1077#1088#1074#1072#1085#1085#1086#1077' '#1089#1082#1072#1095#1080#1074#1072#1085#1080#1077' '#1087#1088#1080' '#1089#1083#1077#1076#1091#1102#1097#1077#1084' '#1079#1072#1087#1091#1089#1082#1077
+          TabOrder = 8
+        end
+        object f_DownloadRevisionCheckBox: TCheckBox
+          Left = 17
+          Top = 5
+          Width = 510
+          Height = 17
+          Caption = #1044#1086#1087#1091#1089#1082#1072#1090#1100' '#1087#1086#1074#1090#1086#1088#1085#1099#1077' '#1089#1082#1072#1095#1080#1074#1072#1085#1080#1103
+          TabOrder = 9
         end
       end
       object f_UpdateTabSheet: TTabSheet
@@ -190,9 +206,9 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
           Height = 13
           Caption = '('#1077#1089#1083#1080' '#1086#1085' '#1086#1090#1083#1080#1095#1072#1077#1090#1089#1103' '#1086#1090' '#1091#1084#1086#1083#1095#1072#1090#1077#1083#1100#1085#1086#1075#1086')'
         end
-        object f_UpdateNotificationParametersLabel: TLabel
+        object f_UpdateSendReportParametersLabel: TLabel
           Left = 40
-          Top = 161
+          Top = 189
           Width = 173
           Height = 13
           Cursor = crHandPoint
@@ -203,7 +219,7 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
           Font.Name = 'MS Sans Serif'
           Font.Style = [fsBold, fsUnderline]
           ParentFont = False
-          OnClick = NotificationParametersLabelClick
+          OnClick = SendReportParametersLabelClick
         end
         object f_UpdateAdminPasswordLabel: TLabel
           Left = 40
@@ -220,7 +236,7 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
           ParentFont = False
           OnClick = UpdateAdminPasswordLabelClick
         end
-        object f_UpdateNotificationStatusLabel: TLabel
+        object f_UpdateSendReportStatusLabel: TLabel
           Left = 382
           Top = 138
           Width = 145
@@ -257,10 +273,10 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
           AutoSize = False
           TabOrder = 2
         end
-        object f_UpdateNotificationCheckBox: TCheckBox
+        object f_UpdateSendReportCheckBox: TCheckBox
           Left = 17
           Top = 136
-          Width = 330
+          Width = 510
           Height = 17
           Caption = #1055#1086' '#1079#1072#1074#1077#1088#1096#1077#1085#1080#1080' '#1087#1088#1080#1084#1077#1085#1077#1085#1080#1103' '#1087#1086#1089#1099#1083#1072#1090#1100' '#1091#1074#1077#1076#1086#1084#1083#1077#1085#1080#1077' '#1087#1086' '#1087#1086#1095#1090#1077
           TabOrder = 3
@@ -293,13 +309,21 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
           NumGlyphs = 2
         end
         object f_UpdateSearchInSelectButton: TButton
-          Left = 507
+          Left = 506
           Top = 69
           Width = 20
           Height = 20
           Caption = '...'
           TabOrder = 5
           OnClick = UpdateSearchInSelectButtonClick
+        end
+        object f_UpdateSkipWarningCheckBox: TCheckBox
+          Left = 17
+          Top = 159
+          Width = 510
+          Height = 17
+          Caption = #1047#1072#1087#1091#1089#1082#1072#1090#1100' '#1086#1073#1085#1086#1074#1083#1077#1085#1080#1077' '#1076#1072#1078#1077' '#1074' '#1089#1083#1091#1095#1072#1077' '#1085#1077#1093#1074#1072#1090#1082#1080' '#1084#1077#1089#1090#1072
+          TabOrder = 6
         end
       end
       object f_ScheduleTabSheet: TTabSheet
@@ -546,7 +570,7 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
   end
   object f_BottomPanel: TPanel
     Left = 0
-    Top = 249
+    Top = 246
     Width = 554
     Height = 57
     Align = alBottom
@@ -588,6 +612,6 @@ object EasyUpdateParamsForm: TEasyUpdateParamsForm
     Options = [ofHideReadOnly, ofNoChangeDir, ofPathMustExist, ofFileMustExist, ofEnableSizing, ofDontAddToRecent]
     OptionsEx = [ofExNoPlacesBar]
     Left = 455
-    Top = 25
+    Top = 60
   end
 end

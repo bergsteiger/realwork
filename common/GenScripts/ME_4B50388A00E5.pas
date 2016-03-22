@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserPropertyImpl.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsUserPropertyImpl" MUID: (4B50388A00E5)
+// Имя типа: "_nsUserPropertyImpl_"
 
 {$Define nsUserPropertyImpl_imp}
 

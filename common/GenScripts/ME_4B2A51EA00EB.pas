@@ -2,6 +2,7 @@ unit TestFilerReadLn;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\TestFilerReadLn.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTestFilerReadLn" MUID: (4B2A51EA00EB)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -2,6 +2,7 @@ unit ddNSRCStackItemList;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddNSRCStackItemList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddNSRCStackItemList" MUID: (55DC85CA02E3)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -6,9 +6,12 @@ unit ddKW_r;
  = начат под конец рабочего  дня     =
  = 15 апреля последнего года ХХ века =
  ===================================== }
-{ $Id: ddKW_r.pas,v 1.68 2015/07/02 07:36:05 lukyanets Exp $ }
+{ $Id: ddKW_r.pas,v 1.69 2015/11/26 08:45:43 lukyanets Exp $ }
 
 // $Log: ddKW_r.pas,v $
+// Revision 1.69  2015/11/26 08:45:43  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.68  2015/07/02 07:36:05  lukyanets
 // Описываем словари
 //
@@ -311,6 +314,8 @@ uses
   l3String,
 
   afwFacade,
+
+  daSchemeConsts,
 
   dtIntf, dt_Sab,
   dt_Serv,

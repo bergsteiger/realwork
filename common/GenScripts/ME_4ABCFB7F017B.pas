@@ -3,6 +3,8 @@ unit Consultation_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Consultation_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "Consultation" MUID: (4ABCFB7F017B)
+// Имя типа: "TConsultationModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

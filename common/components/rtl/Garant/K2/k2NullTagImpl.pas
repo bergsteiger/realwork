@@ -3,6 +3,7 @@ unit k2NullTagImpl;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2NullTagImpl.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2NullTagImpl" MUID: (49A6ABFB02BA)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

@@ -3,6 +3,7 @@ unit dsUserList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsUserList.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsUserList" MUID: (49246742002B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

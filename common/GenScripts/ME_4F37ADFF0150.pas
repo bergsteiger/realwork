@@ -2,6 +2,7 @@ unit kwWordPtrWorker;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwWordPtrWorker.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwWordPtrWorker" MUID: (4F37ADFF0150)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

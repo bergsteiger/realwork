@@ -3,6 +3,7 @@ unit l3VCLFormPtrList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3VCLFormPtrList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3VCLFormPtrList" MUID: (4DAEBDD2010D)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Presentation\deDocInfoProvider.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "deDocInfoProvider" MUID: (4F54899502EA)
+// Имя типа: "_deDocInfoProvider_"
 
 {$Define deDocInfoProvider_imp}
 

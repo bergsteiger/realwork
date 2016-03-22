@@ -2,6 +2,7 @@ unit EverestLiteTestSuite;
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestInsiderTests\EverestLiteTestSuite.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TEverestLiteTestSuite" MUID: (512DB031030F)
 
 interface
 

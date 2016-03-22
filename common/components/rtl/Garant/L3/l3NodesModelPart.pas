@@ -2,6 +2,7 @@ unit l3NodesModelPart;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3NodesModelPart.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3NodesModelPart" MUID: (54C61BFC0342)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -247,7 +248,6 @@ type
  Tl3Node = class(Tl3CustomNode, Il3ChangeNotifier, Il3RootNode)
   private
    f_NotifiedObjList: Tl3LongintList;
-    {* Поле для свойства NotifiedObjList }
   protected
    function pm_GetNext: Tl3Node; virtual; abstract;
    procedure pm_SetNext(aValue: Tl3Node); virtual; abstract;
@@ -320,7 +320,6 @@ type
    f_Parent: Tl3Node;
    f_Child: Tl3Node;
    f_Childcount: Integer;
-    {* Поле для свойства Childcount }
   protected
    function pm_GetFlags: Integer; override;
    procedure pm_SetFlags(aValue: Integer); override;
@@ -463,9 +462,7 @@ type
  Tl3ListItemNode = class(Tl3CustomNode, Il3HandleNode, Il3NodeNotifyRecipient)
   private
    f_ListNode: Tl3CustomListContainerNode;
-    {* Поле для свойства ListNode }
    f_ListItem: Integer;
-    {* Поле для свойства ListItem }
   protected
    procedure pm_SetListNode(aValue: Tl3CustomListContainerNode); virtual;
    function pm_GetHandle: Integer; virtual;
@@ -521,7 +518,6 @@ type
  Tl3ListContainerNode = class(Tl3CustomListContainerNode)
   private
    f_Items: TStringList;
-    {* Поле для свойства Items }
   protected
    function pm_GetItems: TStringList;
    procedure pm_SetItems(aValue: TStringList);
@@ -554,7 +550,6 @@ type
  Tl3DataListContainerNode = class(Tl3CustomListContainerNode)
   private
    f_Items: Tl3StringDataList;
-    {* Поле для свойства Items }
   protected
    function pm_GetItems: Tl3StringDataList;
    procedure pm_SetItems(aValue: Tl3StringDataList);
@@ -597,7 +592,6 @@ type
  Tl3IListContainerNode = class(Tl3CustomListContainerNode)
   private
    f_Items: Il3HandledStringList;
-    {* Поле для свойства Items }
   protected
    function pm_GetItems: Il3HandledStringList;
    procedure pm_SetItems(const aValue: Il3HandledStringList);
@@ -618,10 +612,10 @@ type
     aNewIndex: Integer); override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
    procedure DoReleaseChilds; override;
    procedure DeleteChildItem(aIndex: Integer;
     const aDelete: Il3Node); override;
+   procedure ClearFields; override;
   public
    property Items: Il3HandledStringList
     read pm_GetItems
@@ -950,7 +944,7 @@ function Tl3PrimNode.CanExpandCollapseAll: Boolean;
 //#UC END# *4772433F0008_4ADDDFE60236_var*
 begin
 //#UC START# *4772433F0008_4ADDDFE60236_impl*
- Result := False;
+ Result := GetCanExpandCollapseAll;
 //#UC END# *4772433F0008_4ADDDFE60236_impl*
 end;//Tl3PrimNode.CanExpandCollapseAll
 
@@ -959,6 +953,7 @@ procedure Tl3PrimNode.ExpandCollapseAll(anExpand: Boolean);
 //#UC END# *47724349030A_4ADDDFE60236_var*
 begin
 //#UC START# *47724349030A_4ADDDFE60236_impl*
+ DoExpandCollapseAll(anExpand);
 //#UC END# *47724349030A_4ADDDFE60236_impl*
 end;//Tl3PrimNode.ExpandCollapseAll
 
@@ -4082,12 +4077,6 @@ begin
 //#UC END# *479731C50290_4ADDE158034A_impl*
 end;//Tl3IListContainerNode.Cleanup
 
-procedure Tl3IListContainerNode.ClearFields;
-begin
- Items := nil;
- inherited;
-end;//Tl3IListContainerNode.ClearFields
-
 procedure Tl3IListContainerNode.DoReleaseChilds;
 //#UC START# *54C8E22F0223_4ADDE158034A_var*
 //#UC END# *54C8E22F0223_4ADDE158034A_var*
@@ -4112,6 +4101,12 @@ begin
  Items.Delete(aIndex);
 //#UC END# *54CBBF3C0184_4ADDE158034A_impl*
 end;//Tl3IListContainerNode.DeleteChildItem
+
+procedure Tl3IListContainerNode.ClearFields;
+begin
+ Items := nil;
+ inherited;
+end;//Tl3IListContainerNode.ClearFields
 
 function Tl3DataListItemNode.Get_Data: PAnsiChar;
 //#UC START# *54CF92730021_4ADDE1D8022Fget_var*

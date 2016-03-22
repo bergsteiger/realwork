@@ -2,6 +2,7 @@ unit CodeBranchingPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\CodeBranchingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "CodeBranchingPack" MUID: (5284E8BD02CB)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

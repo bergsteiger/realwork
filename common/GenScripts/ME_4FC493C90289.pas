@@ -2,6 +2,7 @@ unit evRow;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evRow.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevRow" MUID: (4FC493C90289)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

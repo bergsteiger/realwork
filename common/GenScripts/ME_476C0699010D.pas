@@ -3,6 +3,7 @@ unit evdConst;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdConst.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Const" MUID: (476C0699010D)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

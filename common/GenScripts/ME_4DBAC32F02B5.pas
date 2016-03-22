@@ -2,6 +2,7 @@ unit tfwDualWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDualWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwDualWord" MUID: (4DBAC32F02B5)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmRepositoryEx;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmRepositoryEx.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmRepositoryEx" MUID: (55D3257800A1)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

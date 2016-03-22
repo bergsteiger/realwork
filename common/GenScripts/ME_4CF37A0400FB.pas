@@ -3,6 +3,7 @@ unit nsConsultationDocumentContainerNew;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\nsConsultationDocumentContainerNew.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsConsultationDocumentContainerNew" MUID: (4CF37A0400FB)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

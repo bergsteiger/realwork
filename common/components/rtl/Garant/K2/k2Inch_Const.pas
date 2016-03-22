@@ -7,7 +7,7 @@ unit k2Inch_Const;
 // Модуль: "w:/common/components/rtl/Garant/K2/k2Inch_Const.pas"
 // Начат: 17.07.1998 16:29
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Atom::Class>> Shared Delphi::K2::Standard::k2Native::Inch
+// Generated from UML model, root element: <<Atom::Class>> Shared Delphi Low Level::K2::Standard::k2Native::Inch
 //
 // Дюйм
 //

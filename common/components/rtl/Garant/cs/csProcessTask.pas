@@ -131,7 +131,7 @@ type
     procedure SetCommentToDefault;
     procedure SaveTaskToPipe(aPipe: TCsDataPipe);
     function IsHiddenFromUser: Boolean; virtual;
-    function IsUnimportant: Boolean;
+    function IsUnimportant(aNow: TDateTime = 0; MaxDayAge: Integer = 2): Boolean;
     property RunProgress: Long read f_RunProgress;
     property RunComment: AnsiString read f_RunComment;
     property TaskResult: TcsTaskResult read f_TaskResult;
@@ -192,6 +192,27 @@ const
   10,  // cs_tsAsyncRun { Исполнение в отцепленном процессе }
   35   // cs_tsAsyncError { выполнение в отцепленном процессе привело к ошибке }
  );
+
+function CompareTaskForActiveList(const A, B: TddProcessTask): Integer;
+begin
+ if (A = B) then
+  Result := 0
+ else
+ begin
+  Result:= CompareValue(A.Priority, B.Priority);
+  if Result = 0 then
+  begin
+   Result := CompareDateTime(A.Date, B.Date);
+   if Result = 0 then
+    Result := CompareValue(A.UserID, B.UserID);
+   if Result = 0 then
+    Result := CompareValue(Ord(A.TaskType), Ord(B.TaskType));
+   if Result = 0 then
+    Result := CompareStr(A.TaskID, B.TaskID);
+  end;
+ end;
+end;
+
 
 function CompareTaskStatus(aStatus1, aStatus2: TcsTaskStatus): Integer;
 begin
@@ -316,7 +337,7 @@ begin
  else
   Self.Comment := aErrorMessage;
  StatusW:= cs_tsError;
- l3System.Stack2Log(Format('TASKERROR fired for task: %s', [Self.Comment]));
+ l3System.Stack2Log(Format('TASKERROR fired for task: %s (%s)', [Self.Comment, Self.TaskID]));
  TcsTaskChangeHelper.Instance.TaskGotErrorStatus;
 end;
 
@@ -395,7 +416,7 @@ begin
    if not (E is El3AbortLoad) and not (E is EAbort) then
    begin
     StatusW := cs_tsError;
-    l3System.Msg2Log(Format('TASKERROR fired for task: %s', [Self.Comment]));
+    l3System.Msg2Log(Format('TASKERROR fired for task: %s (%s)', [Self.Comment, Self.TaskID]));
     l3System.Exception2Log(E);
    end;
    {$EndIf nsTest}
@@ -428,7 +449,7 @@ end;
 
 function TddProcessTask.CompareWith(anObject: TddProcessTask): Integer;
 begin
- Result := CompareTaskByPriority(Self, anObject);
+ Result := CompareTaskForActiveList(Self, anObject);
 end;
 
 procedure TddProcessTask.CorrectStatus;
@@ -470,7 +491,7 @@ begin
  else
    Self.Comment := aErrorMessage;
  StatusW:= cs_tsAsyncError;
- l3System.Stack2Log(Format('TASKERROR fired for task: %s', [Self.Comment]));
+ l3System.Stack2Log(Format('TASKERROR fired for task: %s (%s)', [Self.Comment, Self.TaskID]));
  TcsTaskChangeHelper.Instance.TaskGotErrorStatus;
 end;
 
@@ -578,7 +599,7 @@ begin
     if not (E is El3AbortLoad) and not (E is EAbort) then
     begin
      StatusW := cs_tsError;
-     l3System.Msg2Log(Format('TASKERROR fired for task: %s', [Self.Comment]));
+     l3System.Msg2Log(Format('TASKERROR fired for task: %s (%s)', [Self.Comment, Self.TaskID]));
      l3System.Exception2Log(E);
     end;
     {$EndIf nsTest}
@@ -623,7 +644,7 @@ end;
   {$If defined(AppServerSide)}
 procedure TddProcessTask.RunEnded(const aServices: IcsRunTaskServices);
 begin
-// Do nothing;
+// Do nothing
 end;
   {$IfEnd defined(AppServerSide)}
 
@@ -679,9 +700,11 @@ begin
  Result := False;
 end;
 
-function TddProcessTask.IsUnimportant: Boolean;
+function TddProcessTask.IsUnimportant(aNow: TDateTime = 0; MaxDayAge: Integer = 2): Boolean;
 begin
- Result := (Status in [cs_tsDone]) and (IsHiddenFromUser or ((Now - Self.Date) >= 2));
+ if aNow = 0 then
+  aNow := Now;
+ Result := (Status in [cs_tsDone]) and (IsHiddenFromUser or ((aNow - Self.Date) >= MaxDayAge));
 end;
 
 end.

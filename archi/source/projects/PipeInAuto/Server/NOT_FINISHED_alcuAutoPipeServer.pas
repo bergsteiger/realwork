@@ -2,6 +2,7 @@ unit NOT_FINISHED_alcuAutoPipeServer;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\NOT_FINISHED_alcuAutoPipeServer.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "alcuAutoPipeServer" MUID: (52F8C95A006E)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

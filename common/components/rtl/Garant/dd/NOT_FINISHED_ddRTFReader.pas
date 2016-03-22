@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddRTFReader;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddRTFReader.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddRTFReader" MUID: (4C971BD4031B)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

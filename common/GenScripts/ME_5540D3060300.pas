@@ -2,6 +2,7 @@ unit htJournal;
 
 // Модуль: "w:\common\components\rtl\Garant\HT\htJournal.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ThtJournal" MUID: (5540D3060300)
 
 {$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
@@ -242,8 +243,6 @@ Var
 begin
 //#UC START# *5549F6220397_5540D3060300_impl*
 // BigBrother.PutBBRec(aOperation, aFamilyID, aExtID, aData);
-
-
  if CurSessionID = BlankSession then
   raise EHtErrors.CreateInt(ecNotEnable);
 

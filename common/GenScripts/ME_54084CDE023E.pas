@@ -2,6 +2,7 @@ unit m3StoreHeaderDataPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3StoreHeaderDataPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3StoreHeaderDataPrim" MUID: (54084CDE023E)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

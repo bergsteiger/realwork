@@ -208,6 +208,10 @@ IDynListNode = interface (IInterface) ['{FAE957F6-A5EA-4AB6-9EC2-8514B696A1C1}']
 	function DontUseMe: Pointer;
 	// Получить идентифкатор документа из ноды списка
 	function GetDocumentId (): TObjectId; stdcall;
+
+	procedure GetSnippetText (
+		out aRet {: IString}
+	); stdcall;
 end;
 
 implementation

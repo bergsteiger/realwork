@@ -3,6 +3,8 @@ unit evSectionBreak_InterfaceFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSectionBreak_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
+// Элемент модели: "TevSectionBreak" MUID: (48567BD10027)
+// Имя типа: "TevSectionBreakInterfaceFactory"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

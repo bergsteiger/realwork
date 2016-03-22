@@ -2,6 +2,7 @@ unit atOperationParameter;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atOperationParameter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatOperationParameter" MUID: (48089A46022D)
 
 interface
 

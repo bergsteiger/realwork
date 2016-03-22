@@ -3,6 +3,7 @@ program AdapterTest;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterTest.dpr"
 // Стереотип: "ExeTarget"
+// Элемент модели: "AdapterTest" MUID: (4DE8C9A603C1)
 
 interface
 

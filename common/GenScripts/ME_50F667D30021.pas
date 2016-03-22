@@ -3,6 +3,7 @@ unit PrimProgressIndicator_utProgressIndicator_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimProgressIndicator_utProgressIndicator_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utProgressIndicator" MUID: (50F667D30021)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utProgressIndicator = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utProgressIndicator }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utProgressIndicator
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utProgressIndicator.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utProgressIndicator';
-end;//Tkw_FormUserType_utProgressIndicator.GetWordNameForRegister
-
 function Tkw_FormUserType_utProgressIndicator.GetInteger: Integer;
 begin
  Result := utProgressIndicator;
 end;//Tkw_FormUserType_utProgressIndicator.GetInteger
+
+class function Tkw_FormUserType_utProgressIndicator.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utProgressIndicator';
+end;//Tkw_FormUserType_utProgressIndicator.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

@@ -2,6 +2,8 @@ unit kwPopTreeViewExportSelectionWithFormat;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwPopTreeViewExportSelectionWithFormat.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_TreeView_ExportSelectionWithFormat" MUID: (512FA2CC033C)
+// Имя типа: "TkwPopTreeViewExportSelectionWithFormat"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
@@ -62,7 +64,8 @@ begin
  l_Form := afw.GetParentForm(aTreeView);
  RunnerAssert(Assigned(l_Form) and (l_Form is TPrimListOptionsForm), 'Что-то не то со списком. Родительская форма не определена или не того класса.', aCtx);
  l_FF := TnsFileFormat(aCtx.rEngine.PopInt);
- aCtx.rEngine.PushString(TPrimListOptionsFormHack(l_Form).dsList.ListAsString(bs_slkTitlesFullTree, True, l_FF));
+ with TPrimListOptionsFormHack(l_Form) do
+  aCtx.rEngine.PushString(dsList.ListAsString(CalcSaveListKind, True, l_FF));
 //#UC END# *512FA22703B6_512FA2CC033C_impl*
 end;//TkwPopTreeViewExportSelectionWithFormat.DoWithNscTreeView
 

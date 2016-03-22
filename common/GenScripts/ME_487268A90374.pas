@@ -2,6 +2,7 @@ unit ctFakeBoxStrings;
 
 // Модуль: "w:\common\components\gui\Garant\VT\ComboTree\ctFakeBoxStrings.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TctFakeBoxStrings" MUID: (487268A90374)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

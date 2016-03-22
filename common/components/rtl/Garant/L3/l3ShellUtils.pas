@@ -18,7 +18,7 @@ type
 
 function FileExecute(const FileName, Params, StartDir: string; InitialState: TExecState): THandle;
 
-function FileExecuteWait(const FileName, Params, StartDir: string; InitialState: TExecState): Integer;
+function FileExecuteWait(const FileName, Params, StartDir: string; InitialState: TExecState): Cardinal;
 
 implementation
 
@@ -175,7 +175,7 @@ const
     (SW_SHOWNORMAL, SW_MINIMIZE, SW_SHOWMAXIMIZED, SW_HIDE);
     
 function FileExecuteWait(const FileName, Params, StartDir: string;
-  InitialState: TExecState): Integer;
+  InitialState: TExecState): Cardinal;
 var
   Info: TShellExecuteInfo;
   ExitCode: DWORD;
@@ -197,7 +197,7 @@ begin
     until (ExitCode <> STILL_ACTIVE) or Application.Terminated;
     Result := ExitCode;
   end
-  else Result := -1;
+  else Result := Cardinal(-1);
 end;
 
 function FileExecute(const FileName, Params, StartDir: string; InitialState: TExecState): THandle;

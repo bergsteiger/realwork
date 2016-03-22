@@ -2,6 +2,7 @@ unit tb97WordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tb97WordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "tb97WordsPack" MUID: (54F591820236)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -74,11 +75,6 @@ begin
  aCtx.rEngine.PushBool(Down(aCtx, l_aTB97Button));
 end;//TkwPopTB97ButtonDown.DoDoIt
 
-class function TkwPopTB97ButtonDown.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:TB97Button:Down';
-end;//TkwPopTB97ButtonDown.GetWordNameForRegister
-
 procedure TkwPopTB97ButtonDown.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -99,6 +95,11 @@ function TkwPopTB97ButtonDown.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomToolbarButton97)]);
 end;//TkwPopTB97ButtonDown.ParamsTypes
+
+class function TkwPopTB97ButtonDown.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:TB97Button:Down';
+end;//TkwPopTB97ButtonDown.GetWordNameForRegister
 
 initialization
  TkwPopTB97ButtonDown.RegisterInEngine;

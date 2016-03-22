@@ -2,6 +2,7 @@ unit evHotSpotProxy;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evHotSpotProxy.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevHotSpotProxy" MUID: (4E1D76D101D0)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

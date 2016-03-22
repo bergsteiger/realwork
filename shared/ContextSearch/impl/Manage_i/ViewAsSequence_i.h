@@ -16,7 +16,6 @@
 
 #include "shared/Core/sys/std_inc.h"
 #include <vector>
-#include "shared/GCL/data/std_defs.h"
 #include "shared/ContextSearch/Search/Search.h"
 #include "shared/ContextSearch/DBComm/DBComm.h"
 #include "shared/ContextSearch/Manage/Manage.h"
@@ -113,7 +112,7 @@ private:
 	void mutate (const std::string& str, RequestsInfo& info);
 
 	// модификация списка синонимичных запросов
-	size_t transform (RequestsInfo& info, const GCL::StrVector& data, const DBComm::PSDTemplates& templates);
+	size_t transform (RequestsInfo& info);
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // self data
@@ -132,7 +131,7 @@ protected:
 
 	// implemented method from Search::IRequestView
 	// создать
-	bool build (const Search::Phrase& in, const Morpho::Def::StrStrMap& pseudo, const std::string& src);
+	bool build (const Search::Phrase& in, const std::string& src);
 
 	// implemented method from Search::IRequestView
 	// список синонимичных

@@ -40,11 +40,28 @@ public:
 	static const short MIN_DATE; // минимальна€ дата
 	static const short MAX_DATE; // максимальна€ дата
 
+	// —четчики
+	struct MarkupCounters {
+		// пробелы
+		size_t space;
+		// строгость
+		size_t strong;
+		// рамки
+		size_t frame;
+		MarkupCounters () : space(0), strong(0), frame(0) {
+			//#UC START# *56D818E70165_DEF_INIT_CTOR*
+			//#UC END# *56D818E70165_DEF_INIT_CTOR**cpp*
+		}
+	};
+
 //////////////////////////////////////////////////////////////////////////////////////////
 // self methods
 public:
 	// возвратить первое слово и смещение на второе  в исходной строке
 	static size_t get_first_word (std::string& out, const char* src);
+
+	// счетчики разметки
+	static void get_markup_counters (const std::string& in, MarkupCounters& out);
 
 	// мес€ц как строка
 	static const char* get_month (size_t num);

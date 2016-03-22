@@ -3,6 +3,7 @@ unit NOT_FINISHED_k2CustomFileParser;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2CustomFileParser.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2CustomFileParser" MUID: (483E81520007)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

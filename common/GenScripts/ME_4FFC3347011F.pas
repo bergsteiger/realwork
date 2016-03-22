@@ -2,6 +2,7 @@ unit vcmBaseCollectionItem;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmBaseCollectionItem.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmBaseCollectionItem" MUID: (4FFC3347011F)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
@@ -41,6 +42,7 @@ type
     {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
    function GetDisplayName: String; override;
    function GetNamePath: String; override;
+   procedure ClearFields; override;
   public
    function MakeID(const aName: AnsiString): Integer; virtual;
    function GetID: Integer; virtual;
@@ -284,6 +286,13 @@ begin
  end;//Name = ''
 //#UC END# *55CCBC12038F_55D076150061_impl*
 end;//TvcmBaseCollectionItemPrim.GetNamePath
+
+procedure TvcmBaseCollectionItemPrim.ClearFields;
+begin
+ Name := '';
+ Caption := '';
+ inherited;
+end;//TvcmBaseCollectionItemPrim.ClearFields
 
 //#UC START# *4FFC3347011Fimpl*
 //#UC END# *4FFC3347011Fimpl*

@@ -2,6 +2,7 @@ unit nsSaveQueryEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\nsSaveQueryEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsSaveQueryEvent" MUID: (51BEFA6F00E3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit SelectColumnAndDelete;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\SelectColumnAndDelete.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TSelectColumnAndDelete" MUID: (4C99945800BC)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

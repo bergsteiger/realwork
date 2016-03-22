@@ -3,6 +3,7 @@ unit nevVirtualView;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevVirtualView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevVirtualView" MUID: (4811FD87039D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

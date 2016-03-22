@@ -2,6 +2,7 @@ unit nsSplashVisualizer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Splash\nsSplashVisualizer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsSplashVisualizer" MUID: (499D5F560195)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

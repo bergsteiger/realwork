@@ -63,7 +63,7 @@ protected:
 	virtual GCI::IO::String* get_linked_hint () const;
 
 	// implemented method from Link
-	virtual Core::IObject* get_object () const /*throw (InvalidTopicId, FolderLinkNotFound, NotAllowedInTrialMode)*/;
+	virtual Core::IObject* get_object () const /*throw (InvalidTopicId, FolderLinkNotFound)*/;
 
 	// implemented method from Link
 	virtual LinkedObjectType get_object_type () const;

@@ -2,6 +2,7 @@ unit ReminderWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ReminderWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ReminderWordsPack" MUID: (534FA99B02BB)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -400,11 +401,6 @@ begin
  Click(aCtx, l_aReminder);
 end;//TkwPopReminderClick.DoDoIt
 
-class function TkwPopReminderClick.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:Click';
-end;//TkwPopReminderClick.GetWordNameForRegister
-
 function TkwPopReminderClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -419,6 +415,11 @@ function TkwPopReminderClick.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderClick.ParamsTypes
+
+class function TkwPopReminderClick.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:Click';
+end;//TkwPopReminderClick.GetWordNameForRegister
 
 procedure TkwPopReminderMove.Move(const aCtx: TtfwContext;
  aReminder: TvgReminder;
@@ -458,11 +459,6 @@ begin
  Move(aCtx, l_aReminder, l_aDelta);
 end;//TkwPopReminderMove.DoDoIt
 
-class function TkwPopReminderMove.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:Move';
-end;//TkwPopReminderMove.GetWordNameForRegister
-
 function TkwPopReminderMove.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -477,6 +473,11 @@ function TkwPopReminderMove.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder), @tfw_tiStruct]);
 end;//TkwPopReminderMove.ParamsTypes
+
+class function TkwPopReminderMove.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:Move';
+end;//TkwPopReminderMove.GetWordNameForRegister
 
 function TkwPopReminderFindEditor.FindEditor(const aCtx: TtfwContext;
  aReminder: TvgReminder): TComponent;
@@ -514,11 +515,6 @@ begin
  aCtx.rEngine.PushObj(FindEditor(aCtx, l_aReminder));
 end;//TkwPopReminderFindEditor.DoDoIt
 
-class function TkwPopReminderFindEditor.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:FindEditor';
-end;//TkwPopReminderFindEditor.GetWordNameForRegister
-
 function TkwPopReminderFindEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TComponent);
@@ -533,6 +529,11 @@ function TkwPopReminderFindEditor.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderFindEditor.ParamsTypes
+
+class function TkwPopReminderFindEditor.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:FindEditor';
+end;//TkwPopReminderFindEditor.GetWordNameForRegister
 
 function TkwPopReminderGetPopupMenu.GetPopupMenu(const aCtx: TtfwContext;
  aReminder: TvgReminder): TMenuItem;
@@ -564,11 +565,6 @@ begin
  aCtx.rEngine.PushObj(GetPopupMenu(aCtx, l_aReminder));
 end;//TkwPopReminderGetPopupMenu.DoDoIt
 
-class function TkwPopReminderGetPopupMenu.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:GetPopupMenu';
-end;//TkwPopReminderGetPopupMenu.GetWordNameForRegister
-
 function TkwPopReminderGetPopupMenu.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TMenuItem);
@@ -583,6 +579,11 @@ function TkwPopReminderGetPopupMenu.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderGetPopupMenu.ParamsTypes
+
+class function TkwPopReminderGetPopupMenu.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:GetPopupMenu';
+end;//TkwPopReminderGetPopupMenu.GetWordNameForRegister
 
 function TkwPopReminderImageIndex.ImageIndex(const aCtx: TtfwContext;
  aReminder: TvgReminder): Integer;
@@ -606,11 +607,6 @@ begin
  aCtx.rEngine.PushInt(ImageIndex(aCtx, l_aReminder));
 end;//TkwPopReminderImageIndex.DoDoIt
 
-class function TkwPopReminderImageIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:ImageIndex';
-end;//TkwPopReminderImageIndex.GetWordNameForRegister
-
 procedure TkwPopReminderImageIndex.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -631,6 +627,11 @@ function TkwPopReminderImageIndex.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderImageIndex.ParamsTypes
+
+class function TkwPopReminderImageIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:ImageIndex';
+end;//TkwPopReminderImageIndex.GetWordNameForRegister
 
 function TkwPopReminderUserType.UserType(const aCtx: TtfwContext;
  aReminder: TvgReminder): Integer;
@@ -654,11 +655,6 @@ begin
  aCtx.rEngine.PushInt(UserType(aCtx, l_aReminder));
 end;//TkwPopReminderUserType.DoDoIt
 
-class function TkwPopReminderUserType.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:UserType';
-end;//TkwPopReminderUserType.GetWordNameForRegister
-
 procedure TkwPopReminderUserType.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -679,6 +675,11 @@ function TkwPopReminderUserType.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderUserType.ParamsTypes
+
+class function TkwPopReminderUserType.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:UserType';
+end;//TkwPopReminderUserType.GetWordNameForRegister
 
 function TkwPopReminderIsBaloonVisible.IsBaloonVisible(const aCtx: TtfwContext;
  aReminder: TvgReminder): Boolean;
@@ -706,11 +707,6 @@ begin
  aCtx.rEngine.PushBool(IsBaloonVisible(aCtx, l_aReminder));
 end;//TkwPopReminderIsBaloonVisible.DoDoIt
 
-class function TkwPopReminderIsBaloonVisible.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:IsBaloonVisible';
-end;//TkwPopReminderIsBaloonVisible.GetWordNameForRegister
-
 procedure TkwPopReminderIsBaloonVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -731,6 +727,11 @@ function TkwPopReminderIsBaloonVisible.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderIsBaloonVisible.ParamsTypes
+
+class function TkwPopReminderIsBaloonVisible.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:IsBaloonVisible';
+end;//TkwPopReminderIsBaloonVisible.GetWordNameForRegister
 
 function TkwPopReminderVisible.Visible(const aCtx: TtfwContext;
  aReminder: TvgReminder): Boolean;
@@ -754,11 +755,6 @@ begin
  aCtx.rEngine.PushBool(Visible(aCtx, l_aReminder));
 end;//TkwPopReminderVisible.DoDoIt
 
-class function TkwPopReminderVisible.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:Visible';
-end;//TkwPopReminderVisible.GetWordNameForRegister
-
 procedure TkwPopReminderVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -779,6 +775,11 @@ function TkwPopReminderVisible.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderVisible.ParamsTypes
+
+class function TkwPopReminderVisible.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:Visible';
+end;//TkwPopReminderVisible.GetWordNameForRegister
 
 function TkwPopReminderName.Name(const aCtx: TtfwContext;
  aReminder: TvgReminder): AnsiString;
@@ -802,11 +803,6 @@ begin
  aCtx.rEngine.PushString(Name(aCtx, l_aReminder));
 end;//TkwPopReminderName.DoDoIt
 
-class function TkwPopReminderName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:Name';
-end;//TkwPopReminderName.GetWordNameForRegister
-
 procedure TkwPopReminderName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -827,6 +823,11 @@ function TkwPopReminderName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderName.ParamsTypes
+
+class function TkwPopReminderName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:Name';
+end;//TkwPopReminderName.GetWordNameForRegister
 
 function TkwPopReminderFlash.Flash(const aCtx: TtfwContext;
  aReminder: TvgReminder): Boolean;
@@ -850,11 +851,6 @@ begin
  aCtx.rEngine.PushBool(Flash(aCtx, l_aReminder));
 end;//TkwPopReminderFlash.DoDoIt
 
-class function TkwPopReminderFlash.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:Flash';
-end;//TkwPopReminderFlash.GetWordNameForRegister
-
 procedure TkwPopReminderFlash.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -875,6 +871,11 @@ function TkwPopReminderFlash.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderFlash.ParamsTypes
+
+class function TkwPopReminderFlash.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:Flash';
+end;//TkwPopReminderFlash.GetWordNameForRegister
 
 function TkwPopReminderTextBackColor.TextBackColor(const aCtx: TtfwContext;
  aReminder: TvgReminder): AnsiString;
@@ -902,11 +903,6 @@ begin
  aCtx.rEngine.PushString(TextBackColor(aCtx, l_aReminder));
 end;//TkwPopReminderTextBackColor.DoDoIt
 
-class function TkwPopReminderTextBackColor.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:TextBackColor';
-end;//TkwPopReminderTextBackColor.GetWordNameForRegister
-
 procedure TkwPopReminderTextBackColor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -927,6 +923,11 @@ function TkwPopReminderTextBackColor.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderTextBackColor.ParamsTypes
+
+class function TkwPopReminderTextBackColor.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:TextBackColor';
+end;//TkwPopReminderTextBackColor.GetWordNameForRegister
 
 function TkwPopReminderShowHint.ShowHint(const aCtx: TtfwContext;
  aReminder: TvgReminder): Boolean;
@@ -950,11 +951,6 @@ begin
  aCtx.rEngine.PushBool(ShowHint(aCtx, l_aReminder));
 end;//TkwPopReminderShowHint.DoDoIt
 
-class function TkwPopReminderShowHint.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:ShowHint';
-end;//TkwPopReminderShowHint.GetWordNameForRegister
-
 procedure TkwPopReminderShowHint.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -975,6 +971,11 @@ function TkwPopReminderShowHint.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderShowHint.ParamsTypes
+
+class function TkwPopReminderShowHint.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:ShowHint';
+end;//TkwPopReminderShowHint.GetWordNameForRegister
 
 function TkwPopReminderCaption.Caption(const aCtx: TtfwContext;
  aReminder: TvgReminder): Il3CString;
@@ -998,11 +999,6 @@ begin
  aCtx.rEngine.PushString(Caption(aCtx, l_aReminder));
 end;//TkwPopReminderCaption.DoDoIt
 
-class function TkwPopReminderCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:Caption';
-end;//TkwPopReminderCaption.GetWordNameForRegister
-
 procedure TkwPopReminderCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1023,6 +1019,11 @@ function TkwPopReminderCaption.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderCaption.ParamsTypes
+
+class function TkwPopReminderCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:Caption';
+end;//TkwPopReminderCaption.GetWordNameForRegister
 
 function TkwPopReminderHint.Hint(const aCtx: TtfwContext;
  aReminder: TvgReminder): Il3CString;
@@ -1046,11 +1047,6 @@ begin
  aCtx.rEngine.PushString(Hint(aCtx, l_aReminder));
 end;//TkwPopReminderHint.DoDoIt
 
-class function TkwPopReminderHint.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:Hint';
-end;//TkwPopReminderHint.GetWordNameForRegister
-
 procedure TkwPopReminderHint.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1071,6 +1067,11 @@ function TkwPopReminderHint.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderHint.ParamsTypes
+
+class function TkwPopReminderHint.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:Hint';
+end;//TkwPopReminderHint.GetWordNameForRegister
 
 function TkwPopReminderPopupForm.PopupForm(const aCtx: TtfwContext;
  aReminder: TvgReminder): TvtPopupFormModelPart;
@@ -1094,11 +1095,6 @@ begin
  aCtx.rEngine.PushObj(PopupForm(aCtx, l_aReminder));
 end;//TkwPopReminderPopupForm.DoDoIt
 
-class function TkwPopReminderPopupForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:PopupForm';
-end;//TkwPopReminderPopupForm.GetWordNameForRegister
-
 procedure TkwPopReminderPopupForm.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1119,6 +1115,11 @@ function TkwPopReminderPopupForm.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderPopupForm.ParamsTypes
+
+class function TkwPopReminderPopupForm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:PopupForm';
+end;//TkwPopReminderPopupForm.GetWordNameForRegister
 
 initialization
  TkwPopReminderClick.RegisterInEngine;

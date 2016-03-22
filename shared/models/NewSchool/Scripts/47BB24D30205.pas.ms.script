@@ -470,24 +470,6 @@ ref; // ME_47A1B1A702A5 ItemType
 
 ref; // ME_4A6599C1023B Duplicates
 
-: ME_29C5CDD75913
- CONST UID '29C5CDD75913'
- CONST Name 'f_Duplicates'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Duplicates' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47B3245E0148 // l3Sortable
- ;
- : Target WL 'ME_47614B2901AE' '4678193C009C.pas.ms.script' // Tl3Duplicates
- ;
- CONST "ifndef" 'l3Items_NoSort'
- CONST extprop:clearViaProperty 'Duplicates'
-
-ref; // ME_29C5CDD75913 f_Duplicates
-
 : ME_47B5AE6B0294
  CONST UID '47B5AE6B0294'
  CONST Name 'Sort'
@@ -733,7 +715,6 @@ ref; // ME_47C51B8E00FA Cleanup
  ME_47B9802D02E7 // Hi
  ME_47A1B1A702A5 // ItemType
  ME_4A6599C1023B // Duplicates
- ME_29C5CDD75913 // f_Duplicates
  )
  ; // Attributes
  : Operations
@@ -1012,23 +993,6 @@ ref; // ME_47BEE088001A Count
  ;
 
 ref; // ME_47B5945C00C0 
-
-: ME_FD0A4834F08B
- CONST UID 'FD0A4834F08B'
- CONST Name 'f_Count'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Count' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47B45152003F // l3Items
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'Count'
-
-ref; // ME_FD0A4834F08B f_Count
 
 : ME_47B486D50032
  CONST Name 'Index'
@@ -1780,8 +1744,6 @@ ref; // ME_4B87FCF8038B BeforeFreeItem
 ref; // ME_4DD4EC1E0174 
 
 : ME_47B5B5F1038E_ME_47B45152003F
- CONST UID '47B5B5F1038E'
- CONST Name 'DoCompareItems'
  : Original ME_47B5B5F1038E // DoCompareItems
  ;
  : Implementor ME_47B45152003F // l3Items
@@ -1790,8 +1752,6 @@ ref; // ME_4DD4EC1E0174
 ref; // ME_47B5B5F1038E_ME_47B45152003F DoCompareItems
 
 : ME_47B5B88203A7_ME_47B45152003F
- CONST UID '47B5B88203A7'
- CONST Name 'Swap'
  : Original ME_47B5B88203A7 // Swap
  ;
  : Implementor ME_47B45152003F // l3Items
@@ -1800,8 +1760,6 @@ ref; // ME_47B5B5F1038E_ME_47B45152003F DoCompareItems
 ref; // ME_47B5B88203A7_ME_47B45152003F Swap
 
 : ME_47B9BAFD01F4_ME_47B45152003F
- CONST UID '47B9BAFD01F4'
- CONST Name 'CompareItemWithData'
  : Original ME_47B9BAFD01F4 // CompareItemWithData
  ;
  : Implementor ME_47B45152003F // l3Items
@@ -1835,7 +1793,6 @@ ref; // ME_47B9BAFD01F4_ME_47B45152003F CompareItemWithData
  ME_47B9BBE10063 // FindDataType
  ME_47BEE088001A // Count
  ME_47B5945C00C0 // 
- ME_FD0A4834F08B // f_Count
  )
  ; // Attributes
  : Operations
@@ -2001,8 +1958,6 @@ ref; // ME_4BB09A4A0311 DoIt
 ref; // ME_4BB09A40008E MakeI
 
 : ME_4BB08B8902F2_ME_47CED1980057
- CONST UID '4BB08B8902F2'
- CONST Name 'Count'
  : Original WL 'ME_4BB08B8902F2' '47D810610398.pas.ms.script' // Count
  ;
  : Implementor ME_47CED1980057 // l3InterfacedList
@@ -2180,8 +2135,6 @@ ref; // ME_5738FC697CCD DoIt
 ref; // ME_54D9E09D018D DoChanging
 
 : ME_4A5CBFFE0157_ME_4A5CBFAB03AF
- CONST UID '4A5CBFFE0157'
- CONST Name 'Changing'
  : Original WL 'ME_4A5CBFFE0157' '47D810610398.pas.ms.script' // Changing
  ;
  : Implementor ME_4A5CBFAB03AF // l3Changing
@@ -2190,8 +2143,6 @@ ref; // ME_54D9E09D018D DoChanging
 ref; // ME_4A5CBFFE0157_ME_4A5CBFAB03AF Changing
 
 : ME_4A5CC00B03D5_ME_4A5CBFAB03AF
- CONST UID '4A5CC00B03D5'
- CONST Name 'Changed'
  : Original WL 'ME_4A5CC00B03D5' '47D810610398.pas.ms.script' // Changed
  ;
  : Implementor ME_4A5CBFAB03AF // l3Changing
@@ -2274,23 +2225,6 @@ FORWARD ME_48FC9CD002FE
 
 ref; // ME_48FC9D1101DC ChangeCount
 
-: ME_8A7E5D3767BC
- CONST UID '8A7E5D3767BC'
- CONST Name 'f_ChangeCount'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ChangeCount' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_48FC9CD002FE // l3LockedChangePrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'ChangeCount'
-
-ref; // ME_8A7E5D3767BC f_ChangeCount
-
 : ME_48FC9D1F016E
  CONST UID '48FC9D1F016E'
  CONST Name 'FireChanging'
@@ -2327,8 +2261,6 @@ ref; // ME_48FC9D300237 FireChanged
 ref; // ME_48FC9D5E0310 IsChanging
 
 : ME_54D9E08D0212_ME_48FC9CD002FE
- CONST UID '54D9E08D0212'
- CONST Name 'DoChanged'
  : Original ME_54D9E08D0212 // DoChanged
  ;
  : Implementor ME_48FC9CD002FE // l3LockedChangePrim
@@ -2337,8 +2269,6 @@ ref; // ME_48FC9D5E0310 IsChanging
 ref; // ME_54D9E08D0212_ME_48FC9CD002FE DoChanged
 
 : ME_54D9E09D018D_ME_48FC9CD002FE
- CONST UID '54D9E09D018D'
- CONST Name 'DoChanging'
  : Original ME_54D9E09D018D // DoChanging
  ;
  : Implementor ME_48FC9CD002FE // l3LockedChangePrim
@@ -2362,7 +2292,6 @@ ref; // ME_54D9E09D018D_ME_48FC9CD002FE DoChanging
  ; // Implements
  : Attributes
    Seq: ( ME_48FC9D1101DC // ChangeCount
- ME_8A7E5D3767BC // f_ChangeCount
  )
  ; // Attributes
  : Operations
@@ -2492,8 +2421,6 @@ FORWARD ME_47CFE7F00221
 ref; // ME_4B17E91B002A 
 
 : ME_47A0AD3A01F7_ME_4A60B2220398
- CONST UID '47A0AD3A01F7'
- CONST Name 'QueryInterface'
  : Original ME_47A0AD3A01F7 // QueryInterface
  ;
  : Implementor ME_4A60B2220398 // l3COMQueryInterface
@@ -2701,8 +2628,6 @@ ref; // ME_4B8688ED0168 Ml3Items
 FORWARD ME_4BE42D490361
 
 : ME_467813E40207_ME_4BE42D490361
- CONST UID '467813E40207'
- CONST Name 'CheckStamp'
  : Original WL 'ME_467813E40207' '47D810610398.pas.ms.script' // CheckStamp
  ;
  : Implementor ME_4BE42D490361 // l3CheckStamp

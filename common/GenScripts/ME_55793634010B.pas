@@ -2,6 +2,7 @@ unit testCConstDelphiString;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\testCConstDelphiString.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtestCConstDelphiString" MUID: (55793634010B)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

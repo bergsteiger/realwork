@@ -2,6 +2,7 @@ unit NOT_FINISHED_JclSysInfo;
 
 // Модуль: "w:\common\components\rtl\external\JEDI\source\common\NOT_FINISHED_JclSysInfo.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "JclSysInfo" MUID: (4B4DCD220000)
 
 {$Include w:\common\components\l3Define.inc}
 

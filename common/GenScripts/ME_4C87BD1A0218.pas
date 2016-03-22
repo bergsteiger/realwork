@@ -2,6 +2,7 @@ unit nsNewsLine;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\nsNewsLine.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsNewsLine" MUID: (4C87BD1A0218)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

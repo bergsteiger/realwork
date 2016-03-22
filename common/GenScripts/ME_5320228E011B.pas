@@ -3,6 +3,8 @@ unit K517772970_TddCommonDataRequest;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddCommonDataRequest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TddCommonDataRequest" MUID: (5320228E011B)
+// Имя типа: "TK517772970_TddCommonDataRequest"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

@@ -2,6 +2,7 @@ unit DropDownTree;
 
 // Модуль: "w:\common\components\gui\Garant\VT\ComboTree\DropDownTree.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TDropDownTree" MUID: (53F1DC8F01AD)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

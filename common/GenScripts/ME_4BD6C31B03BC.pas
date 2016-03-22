@@ -3,6 +3,7 @@ unit WarningUserTypes_Warning_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WarningUserTypes_Warning_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "Warning" MUID: (4BD6C31B03BC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_Warning = {final} class(TtfwInteger)
   {* Слово словаря для типа формы Warning }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_Warning
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_Warning.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::Warning';
-end;//Tkw_FormUserType_Warning.GetWordNameForRegister
-
 function Tkw_FormUserType_Warning.GetInteger: Integer;
 begin
  Result := Warning;
 end;//Tkw_FormUserType_Warning.GetInteger
+
+class function Tkw_FormUserType_Warning.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::Warning';
+end;//Tkw_FormUserType_Warning.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

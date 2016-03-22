@@ -1,84 +1,57 @@
 unit InsertStreamTest;
+ {* Тест вставки в редактор текста при помощи InsertStream }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Daily/InsertStreamTest.pas"
-// Начат: 28.07.2010 11:30
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EditorTests::TInsertStreamTest
-//
-// Тест вставки в редактор текста при помощи InsertStream
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\InsertStreamTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TInsertStreamTest" MUID: (4C4FDC620374)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TextViaEditorProcessorWithNavigate,
-  evCustomEditorWindow,
-  l3Variant
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , TextViaEditorProcessorWithNavigate
+ , evCustomEditorWindow
+ , l3Variant
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TInsertStreamTest = {abstract} class(TTextViaEditorProcessorWithNavigate)
   {* Тест вставки в редактор текста при помощи InsertStream }
- protected
- // realized methods
+  protected
+   function TextForInsert: AnsiString; virtual; abstract;
+    {* Текст для вставки }
    procedure DoProcess(aText: TevCustomEditorWindow;
     const anOp: Il3OpPack); override;
- protected
- // overridden protected methods
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
-   function TextForInsert: AnsiString; virtual; abstract;
-     {* Текст для вставки }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TInsertStreamTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  l3Memory,
-  SysUtils,
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TInsertStreamTest
+ l3ImplUses
+ , l3Interfaces
+ , l3Memory
+ , SysUtils
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 procedure TInsertStreamTest.DoProcess(aText: TevCustomEditorWindow;
-  const anOp: Il3OpPack);
+ const anOp: Il3OpPack);
 //#UC START# *4C9214F6002C_4C4FDC620374_var*
 var
  l_Stream : Tl3ConstMemoryStream;
@@ -100,17 +73,16 @@ begin
 end;//TInsertStreamTest.DoProcess
 
 function TInsertStreamTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TInsertStreamTest.GetFolder
 
 function TInsertStreamTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C4FDC620374';
 end;//TInsertStreamTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

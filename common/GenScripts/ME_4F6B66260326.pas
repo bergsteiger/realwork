@@ -2,6 +2,8 @@ unit ParentAndChildPrim_Module;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\ParentAndChildPrim_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "ParentAndChildPrim" MUID: (4F6B66260326)
+// Имя типа: "TParentAndChildPrimModule"
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 

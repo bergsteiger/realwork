@@ -2,6 +2,7 @@ unit vcmFormSetContainerRegistry;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormSetContainerRegistry.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormSetContainerRegistry" MUID: (5559A3F601FD)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -2,6 +2,7 @@ unit tfwClipboardFormatWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwClipboardFormatWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwClipboardFormatWord" MUID: (5052EB370166)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

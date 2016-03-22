@@ -2,6 +2,7 @@ unit m3NormalFormsManager;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3NormalFormsManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3NormalFormsManager" MUID: (545A1B76019B)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

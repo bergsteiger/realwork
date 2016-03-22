@@ -48,13 +48,23 @@ public:
 		return ret;
 	}
 
-	std::string create_order (long id, const std::string& from, const std::string& to) {
-		std::string ret = "/delta/order/create?complect_id=";
-		ret += boost::lexical_cast <std::string> (id);
-		ret += "&from_date=";
-		ret += from;
-		ret += "&to_date=";
-		ret += to;
+	std::string create_order (long id, const std::string& from, const std::string& to, long order_id = 0) {
+		std::string ret = "/delta/order/";
+		if (order_id) {
+			ret += "restore?complect_id=";
+			ret += boost::lexical_cast <std::string> (id);
+			ret += "&order_id=";
+			ret += boost::lexical_cast <std::string> (order_id);
+		} else {
+			ret += "create?complect_id=";
+			ret += boost::lexical_cast <std::string> (id);
+			if (from.empty () == false) {
+				ret += "&from_date=";
+				ret += from;
+			}
+			ret += "&to_date=";
+			ret += to;
+		}
 		ret += "&login=";
 		ret += m_login;
 		if (m_personification_key.size ()) {

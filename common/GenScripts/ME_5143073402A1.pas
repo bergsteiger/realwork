@@ -9,6 +9,8 @@ OpenWith 'MyEvd.doc'
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwOpenWith.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "OpenWith" MUID: (5143073402A1)
+// Имя типа: "TkwOpenWith"
 
 interface
 

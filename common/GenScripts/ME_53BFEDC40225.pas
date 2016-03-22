@@ -3,6 +3,7 @@ unit dsChronology;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsChronology.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsChronology" MUID: (53BFEDC40225)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

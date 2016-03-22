@@ -2,6 +2,7 @@ unit NOT_FINISHED_MainMenuNewRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_MainMenuNewRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "MainMenuNewRes" MUID: (4AA7E9E60251)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

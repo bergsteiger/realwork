@@ -3,6 +3,8 @@ unit PIRec_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\PIRec_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "PIRec" MUID: (484FCF7C03C2)
+// Имя типа: "PIRecTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

@@ -1,7 +1,10 @@
 unit DT_DbReformer;
 
-{ $Id: DT_DbReformer.pas,v 1.16 2015/07/09 14:17:41 voba Exp $ }
+{ $Id: DT_DbReformer.pas,v 1.17 2015/11/25 07:22:13 lukyanets Exp $ }
 // $Log: DT_DbReformer.pas,v $
+// Revision 1.17  2015/11/25 07:22:13  lukyanets
+// Заготовки для выдачи номеров
+//
 // Revision 1.16  2015/07/09 14:17:41  voba
 // -bf расчет приорити
 //
@@ -480,6 +483,7 @@ uses
  l3String,
  daInterfaces,
  daTypes,
+ daSchemeConsts,
  DT_Misc,
  dt_FRee,
  dtIntf, dt_Sab,

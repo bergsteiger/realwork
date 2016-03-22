@@ -43,6 +43,14 @@
 	(object Attribute
 	    tool       	"MDA Generator"
 	    name       	"SourceType (pas.script)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script.runner)"
+	    value      	"w:/shared/models/NewSchool/Scripts/4A8AD3C70195.pas.ms.script.runner")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script.runner)"
 	    value      	"file"))
     quid       	"4A8AD3C70195"
     documentation 	"–ÂÁÛÎ¸Ú‡Ú ‰Ë‡ÎÓ„‡"
@@ -216,7 +224,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*4A8AD46D0226_4AAF6F4E010Eexec_impl*"
-			    value      	"//#UC START# *4A8AD46D0226_4AAF6F4E010Eexec_impl*§ if IsModalForm then§  ModalResult := mrCancel§ else§  Dispatcher.History.Back;§//#UC END# *4A8AD46D0226_4AAF6F4E010Eexec_impl*")
+			    value      	"//#UC START# *4A8AD46D0226_4AAF6F4E010Eexec_impl*§ if IsModalForm then§  ModalResult := mrCancel§ else§ {$If not defined(Admin) AND not defined(Monitorings)}§  TvcmHistoryService.Instance.Back(As_IvcmEntityForm);§ {$Else}§  Dispatcher.History.Back;§ {$IfEnd} //not Admin AND not Monitorings§//#UC END# *4A8AD46D0226_4AAF6F4E010Eexec_impl*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*4A8AD46D0226_4AC4EF5600B4test_var*"
@@ -393,9 +401,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"WikiPageID (wiki)"
-			    value      	(value Text 
-|Shared (delphi),key:SHD,guid:4A82FE48010A/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "Shared Delphi Operations"/OfficeLike/UserInteraction/Result/Result$Cancel/Cancel|4C762AB601E1
-			    ))
+			    value      	(value Text "Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Operations/OfficeLike/UserInteraction/Result/Result$Cancel/Cancel|4C762AB601E1"))
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"SourceType (wiki)"
@@ -663,11 +669,11 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*4A97EBE702F8_4AAF6F4E010Eexec_var*"
-			    value      	"//#UC START# *4A97EBE702F8_4AAF6F4E010Eexec_var*§//#UC END# *4A97EBE702F8_4AAF6F4E010Eexec_var*")
+			    value      	"//#UC START# *4A97EBE702F8_4AAF6F4E010Eexec_var*§var§ l_Printed: Boolean;§//#UC END# *4A97EBE702F8_4AAF6F4E010Eexec_var*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*4A97EBE702F8_4AAF6F4E010Eexec_impl*"
-			    value      	"//#UC START# *4A97EBE702F8_4AAF6F4E010Eexec_impl*§ PreviewPanel.Print;§ if IsModalForm then§  ModalResult := mrOk§ else§  Dispatcher.History.Back;§//#UC END# *4A97EBE702F8_4AAF6F4E010Eexec_impl*")
+			    value      	"//#UC START# *4A97EBE702F8_4AAF6F4E010Eexec_impl*§ l_Printed := PreviewPanel.Print;§ if IsModalForm then§  ModalResult := mrOk§ else§  if l_Printed then§   Dispatcher.History.Back;§//#UC END# *4A97EBE702F8_4AAF6F4E010Eexec_impl*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*4A97EBE702F8_4AC4EF5600B4test_var*"
@@ -811,7 +817,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*4A97EBE702F8_4C52BA5D01A8exec_impl*"
-			    value      	"//#UC START# *4A97EBE702F8_4C52BA5D01A8exec_impl*§ if (f_Preview <> nil) then§ begin§  if Supports(f_Preview, InsSuperComplexDocumentPreview, l_SuperPreview) then§  try§   if poDocumentNames.Checked then§    l_SuperPreview.SuperContentKind := ns_spkDocumentTitles;§   if poDocumentTexts.Checked then§   begin§    l_SuperPreview.SuperContentKind := ns_spkDocumentTexts;§    if rbPrintSelected.Checked then§     Supports(l_SuperPreview.SuperCurrent.Selection, InsTreeMultiDocumentPreviewContainer, l_MultiDocumentPreviewContainer)§    else§     Supports(l_SuperPreview.SuperCurrent.Document, InsTreeMultiDocumentPreviewContainer, l_MultiDocumentPreviewContainer);§    if not afw.Application.IsInternal and (l_MultiDocumentPreviewContainer.ApproxDocCount > c_MaxDocumentInListLimit) then§    begin§     Say(war_TryToPrintTooManyDocs,[c_MaxDocumentInListLimit]);§     Exit;§    end;§    l_MultiDocumentPreviewContainer.Prepare;§   end§   else§    if Assigned(l_SuperPreview.DocumentTexts) then§    begin§     if rbPrintSelected.Checked then§      Supports(l_SuperPreview.DocumentTexts.Selection, InsTreeMultiDocumentPreviewContainer, l_MultiDocumentPreviewContainer)§     else§      Supports(l_SuperPreview.DocumentTexts.Document, InsTreeMultiDocumentPreviewContainer, l_MultiDocumentPreviewContainer);§     if (l_MultiDocumentPreviewContainer.ApproxDocCount > c_MaxTotalDocumentInListLimit) then§     begin§      Say(war_TryToPrintTooManyTotalDocs,[c_MaxTotalDocumentInListLimit]);§      Exit;§     end;§    end;§  finally§   l_SuperPreview := nil;§  end;§  if Supports(f_Preview, IafwComplexDocumentPreview, l_Preview) then§   try§    if rbPrintCurrent.Checked then§     l_Preview.ContentKind := afw_pckDocument§    else§    if rbPrintAll.Checked then§     l_Preview.ContentKind := afw_pckDocument§    else§    if rbPrintSelected.Checked then§     l_Preview.ContentKind := afw_pckSelection§    else§    if rbPrintInterval.Checked then§     l_Preview.ContentKind := afw_pckDocument;§   finally§    l_Preview := nil;§   end;//try..finally§  f_Preview.Printer.PrinterIndex := cbPrinter.ItemIndex;§  if rbPrintCurrent.Checked then§   l_Interval := IntToStr(Succ(f_Preview.CurrentPage))§  else§  if rbPrintInterval.Checked then§   l_Interval := l3Str(edPrintInterval.Text)§  else§   l_Interval := '';§  try§   l_RangeMgr := Tl3RangeManager.Make(l_Interval);§  except§   on ERangeManagerParseError do§   begin§    Say(err_PageRangeParse);§    FocusControl(edPrintInterval);§    Exit;§   end;§   on EConvertError do§   begin§    Say(err_PageRangeParse);§    FocusControl(edPrintInterval);§    Exit;§   end;§   on EIntOverflow do§   begin§    Say(err_PageRangeParse);§    FocusControl(edPrintInterval);§    Exit;§   end;§  end;//try..except§§  try§   f_Preview.Print(TafwPagesInterval(cbOddEven.ItemIndex),§                   l_RangeMgr,§                   edCopyCount.AsInteger,§                   '',§                   CollateCheckBox.CHecked);§  except§   on EevNothingToPrint do§   begin§    Say(err_PageRangeParse);§    FocusControl(edPrintInterval);§    Exit;§   end;§  end;§  if cbPrintInfo.Checked AND§     Supports(f_Preview, IafwComplexDocumentPreview, l_Preview) then§   try§    if (l_Preview.Info <> nil) then§    begin§     // - ÔÂ˜‡Ú‡ÂÏ ÒÔ‡‚ÍÛ§     l_Preview.Info.Print(afw_piAll, nil,§                          edCopyCount.AsInteger,§                          '',§                          CollateCheckBox.CHecked);§    end;§   finally§    l_Preview := nil;§   end;//try..finally§  ModalResult := mrOk;§ end;//f_Preview <> nil§//#UC END# *4A97EBE702F8_4C52BA5D01A8exec_impl*")
+			    value      	"//#UC START# *4A97EBE702F8_4C52BA5D01A8exec_impl*§ if (f_Preview <> nil) then§ begin§  if Supports(f_Preview, InsSuperComplexDocumentPreview, l_SuperPreview) then§  try§   if poDocumentNames.Checked then§    l_SuperPreview.SuperContentKind := ns_spkDocumentTitles;§   if poDocumentTexts.Checked then§   begin§    l_SuperPreview.SuperContentKind := ns_spkDocumentTexts;§    if rbPrintSelected.Checked then§     Supports(l_SuperPreview.SuperCurrent.Selection, InsTreeMultiDocumentPreviewContainer, l_MultiDocumentPreviewContainer)§    else§     Supports(l_SuperPreview.SuperCurrent.Document, InsTreeMultiDocumentPreviewContainer, l_MultiDocumentPreviewContainer);§    if not afw.Application.IsInternal and (l_MultiDocumentPreviewContainer.ApproxDocCount > c_MaxDocumentInListLimit) then§    begin§     Say(war_TryToPrintTooManyDocs,[c_MaxDocumentInListLimit]);§     Exit;§    end;§    l_MultiDocumentPreviewContainer.Prepare;§   end§   else§    if Assigned(l_SuperPreview.DocumentTexts) then§    begin§     if rbPrintSelected.Checked then§      Supports(l_SuperPreview.DocumentTexts.Selection, InsTreeMultiDocumentPreviewContainer, l_MultiDocumentPreviewContainer)§     else§      Supports(l_SuperPreview.DocumentTexts.Document, InsTreeMultiDocumentPreviewContainer, l_MultiDocumentPreviewContainer);§     if (l_MultiDocumentPreviewContainer.ApproxDocCount > c_MaxTotalDocumentInListLimit) then§     begin§      Say(war_TryToPrintTooManyTotalDocs,[c_MaxTotalDocumentInListLimit]);§      Exit;§     end;§    end;§  finally§   l_SuperPreview := nil;§  end;§  if Supports(f_Preview, IafwComplexDocumentPreview, l_Preview) then§   try§    if rbPrintCurrent.Checked then§     l_Preview.ContentKind := afw_pckDocument§    else§    if rbPrintAll.Checked then§     l_Preview.ContentKind := afw_pckDocument§    else§    if rbPrintSelected.Checked then§     l_Preview.ContentKind := afw_pckSelection§    else§    if rbPrintInterval.Checked then§     l_Preview.ContentKind := afw_pckDocument;§   finally§    l_Preview := nil;§   end;//try..finally§  f_Preview.Printer.PrinterIndex := cbPrinter.ItemIndex;§  if rbPrintCurrent.Checked then§   l_Interval := IntToStr(Succ(f_Preview.CurrentPage))§  else§  if rbPrintInterval.Checked then§   l_Interval := l3Str(edPrintInterval.Text)§  else§   l_Interval := '';§  try§   l_RangeMgr := Tl3RangeManager.Make(l_Interval);§  except§   on ERangeManagerParseError do§   begin§    Say(err_PageRangeParse);§    FocusControl(edPrintInterval);§    Exit;§   end;§   on EConvertError do§   begin§    Say(err_PageRangeParse);§    FocusControl(edPrintInterval);§    Exit;§   end;§   on EIntOverflow do§   begin§    Say(err_PageRangeParse);§    FocusControl(edPrintInterval);§    Exit;§   end;§  end;//try..except§§  try§   f_Preview.Print(TafwPagesInterval(cbOddEven.ItemIndex),§                   l_RangeMgr,§                   edCopyCount.AsInteger,§                   '',§                   CollateCheckBox.CHecked);§  except§   on EevNothingToPrint do§   begin§    Say(err_PageRangeParse);§    FocusControl(edPrintInterval);§    Exit;§   end;§   on EevInvalidPrintMargins do§   begin§    ModalResult := mrCancel;§    raise;§   end;§  end;§  if cbPrintInfo.Checked AND§     Supports(f_Preview, IafwComplexDocumentPreview, l_Preview) then§   try§    if (l_Preview.Info <> nil) then§    begin§     // - ÔÂ˜‡Ú‡ÂÏ ÒÔ‡‚ÍÛ§     l_Preview.Info.Print(afw_piAll, nil,§                          edCopyCount.AsInteger,§                          '',§                          CollateCheckBox.CHecked);§    end;§   finally§    l_Preview := nil;§   end;//try..finally§  ModalResult := mrOk;§ end;//f_Preview <> nil§//#UC END# *4A97EBE702F8_4C52BA5D01A8exec_impl*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*4A97EBE702F8_4ABCD261014Btest_var*"
@@ -1395,9 +1401,7 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"WikiPageID (wiki)"
-				    value      	(value Text 
-|Shared (delphi),key:SHD,guid:4A82FE48010A/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "Shared Delphi Operations"/OfficeLike/UserInteraction/Result/Result$Ok/Ok/Search|4C7BB8030161
-				    ))
+				    value      	(value Text "Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Operations/OfficeLike/UserInteraction/Result/Result$Ok/Ok/Search|4C7BB8030161"))
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"SourceType (wiki)"
@@ -1438,9 +1442,7 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"WikiPageID (wiki)"
-				    value      	(value Text 
-|Shared (delphi),key:SHD,guid:4A82FE48010A/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "Shared Delphi Operations"/OfficeLike/UserInteraction/Result/Result$Ok/Ok/Print|4C7BB81C034E
-				    ))
+				    value      	(value Text "Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Operations/OfficeLike/UserInteraction/Result/Result$Ok/Ok/Print|4C7BB81C034E"))
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"SourceType (wiki)"
@@ -1465,9 +1467,7 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"WikiPageID (wiki)"
-				    value      	(value Text 
-|Shared (delphi),key:SHD,guid:4A82FE48010A/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "Shared Delphi Operations"/OfficeLike/UserInteraction/Result/Result$Ok/Ok/AttributesSelect|4C7BB83202D7
-				    ))
+				    value      	(value Text "Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Operations/OfficeLike/UserInteraction/Result/Result$Ok/Ok/AttributesSelect|4C7BB83202D7"))
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"SourceType (wiki)"
@@ -1492,9 +1492,7 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"WikiPageID (wiki)"
-				    value      	(value Text 
-|Shared (delphi),key:SHD,guid:4A82FE48010A/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "Shared Delphi Operations"/OfficeLike/UserInteraction/Result/Result$Ok/Ok/ConsultationMark|4C7BB845007F
-				    ))
+				    value      	(value Text "Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Operations/OfficeLike/UserInteraction/Result/Result$Ok/Ok/ConsultationMark|4C7BB845007F"))
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"SourceType (wiki)"
@@ -1519,9 +1517,7 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"WikiPageID (wiki)"
-				    value      	(value Text 
-|Shared (delphi),key:SHD,guid:4A82FE48010A/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "Shared Delphi Operations"/OfficeLike/UserInteraction/Result/Result$Ok/Ok/Analize|4C7BB85501D3
-				    ))
+				    value      	(value Text "Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Operations/OfficeLike/UserInteraction/Result/Result$Ok/Ok/Analize|4C7BB85501D3"))
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"SourceType (wiki)"
@@ -2288,9 +2284,7 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"WikiPageID (wiki)"
-				    value      	(value Text 
-|Shared (delphi),key:SHD,guid:4A82FE48010A/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "Shared Delphi Operations"/OfficeLike/UserInteraction/Result/Result$CancelWithState/Cancel/Close|4C7BB88D033F
-				    ))
+				    value      	(value Text "Shared (delphi),key:SHD,guid:4A82FE48010A/Home/Operations/OfficeLike/UserInteraction/Result/Result$CancelWithState/Cancel/Close|4C7BB88D033F"))
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"SourceType (wiki)"
@@ -2317,7 +2311,7 @@
 	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
-		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Cancel" @1
+		(object ClassView "Class" "Logical View::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Cancel" @1
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    IncludeAttribute 	TRUE
@@ -2359,7 +2353,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Ok" @2
+		(object ClassView "Class" "Logical View::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Ok" @2
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    IncludeAttribute 	TRUE
@@ -2401,7 +2395,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$CancelWithState" @3
+		(object ClassView "Class" "Logical View::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$CancelWithState" @3
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    IncludeAttribute 	TRUE
@@ -2457,7 +2451,7 @@
 	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
-		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Ok::Ok" @4
+		(object ClassView "Class" "Logical View::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Ok::Ok" @4
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -2477,27 +2471,27 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@4
-			location   	(133, 145)
+			location   	(135, 156)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	388
+			max_width  	384
 			justify    	0
 			label      	"Ok")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@4
-			location   	(133, 95)
+			location   	(135, 106)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	386
+			max_width  	381
 			justify    	0
 			label      	"<<VCMOperation>>")
 		    icon_style 	"Label"
 		    line_color 	7885055
 		    fill_color 	10025880
 		    quidu      	"4C762A1501FC"
-		    width      	406
-		    height     	188
+		    width      	402
+		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)))
 	(object ClassDiagram "Main"
@@ -2514,7 +2508,7 @@
 	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
-		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Cancel::Cancel" @5
+		(object ClassView "Class" "Logical View::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Cancel::Cancel" @5
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -2534,7 +2528,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@5
-			location   	(75, 145)
+			location   	(75, 156)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	390
@@ -2542,18 +2536,18 @@
 			label      	"Cancel")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@5
-			location   	(75, 95)
+			location   	(75, 106)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	390
+			max_width  	388
 			justify    	0
 			label      	"<<VCMOperation>>")
 		    icon_style 	"Label"
 		    fill_color 	10025880
 		    quidu      	"4C762AB601E1"
 		    width      	408
-		    height     	188
+		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)))
 	(object ClassDiagram "Main"
@@ -2570,7 +2564,7 @@
 	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
-		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$CancelWithState::Cancel" @6
+		(object ClassView "Class" "Logical View::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$CancelWithState::Cancel" @6
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -2590,27 +2584,27 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@6
-			location   	(63, 157)
+			location   	(146, 168)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	558
+			max_width  	392
 			justify    	0
 			label      	"Cancel")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@6
-			location   	(63, 107)
+			location   	(146, 118)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	558
+			max_width  	392
 			justify    	0
 			label      	"<<VCMOperation>>")
 		    icon_style 	"Label"
 		    line_color 	7885055
 		    fill_color 	10025880
 		    quidu      	"4C762C910358"
-		    width      	576
-		    height     	188
+		    width      	410
+		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)))
 	(object ClassDiagram "Main"
@@ -2627,7 +2621,7 @@
 	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
-		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Ok::Ok::Search" @7
+		(object ClassView "Class" "Logical View::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Ok::Ok::Search" @7
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -2647,29 +2641,29 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@7
-			location   	(92, 145)
+			location   	(91, 156)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	482
+			max_width  	484
 			justify    	0
 			label      	"Search")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@7
-			location   	(92, 95)
+			location   	(91, 106)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	482
+			max_width  	481
 			justify    	0
 			label      	"<<VCMOperationState>>")
 		    icon_style 	"Label"
 		    fill_color 	16777152
 		    quidu      	"4C7BB8030161"
-		    width      	500
-		    height     	188
+		    width      	502
+		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Ok::Ok::Print" @8
+		(object ClassView "Class" "Logical View::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Ok::Ok::Print" @8
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -2689,29 +2683,29 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@8
-			location   	(104, 436)
+			location   	(101, 447)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	482
+			max_width  	488
 			justify    	0
 			label      	"Print")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@8
-			location   	(104, 386)
+			location   	(101, 397)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	482
+			max_width  	485
 			justify    	0
 			label      	"<<VCMOperationState>>")
 		    icon_style 	"Label"
 		    fill_color 	16777152
 		    quidu      	"4C7BB81C034E"
-		    width      	500
-		    height     	188
+		    width      	506
+		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Ok::Ok::AttributesSelect" @9
+		(object ClassView "Class" "Logical View::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Ok::Ok::AttributesSelect" @9
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -2731,7 +2725,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@9
-			location   	(113, 772)
+			location   	(113, 783)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	482
@@ -2739,21 +2733,21 @@
 			label      	"AttributesSelect")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@9
-			location   	(113, 722)
+			location   	(113, 733)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	482
+			max_width  	479
 			justify    	0
 			label      	"<<VCMOperationState>>")
 		    icon_style 	"Label"
 		    fill_color 	16777152
 		    quidu      	"4C7BB83202D7"
 		    width      	500
-		    height     	188
+		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Ok::Ok::ConsultationMark" @10
+		(object ClassView "Class" "Logical View::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Ok::Ok::ConsultationMark" @10
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -2773,7 +2767,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@10
-			location   	(116, 1087)
+			location   	(116, 1098)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	482
@@ -2781,21 +2775,21 @@
 			label      	"ConsultationMark")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@10
-			location   	(116, 1037)
+			location   	(116, 1048)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	482
+			max_width  	479
 			justify    	0
 			label      	"<<VCMOperationState>>")
 		    icon_style 	"Label"
 		    fill_color 	16777152
 		    quidu      	"4C7BB845007F"
 		    width      	500
-		    height     	188
+		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Ok::Ok::Analize" @11
+		(object ClassView "Class" "Logical View::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$Ok::Ok::Analize" @11
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -2815,26 +2809,26 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@11
-			location   	(119, 1426)
+			location   	(118, 1437)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	482
+			max_width  	484
 			justify    	0
 			label      	"Analize")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@11
-			location   	(119, 1376)
+			location   	(118, 1387)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	482
+			max_width  	481
 			justify    	0
 			label      	"<<VCMOperationState>>")
 		    icon_style 	"Label"
 		    fill_color 	16777152
 		    quidu      	"4C7BB85501D3"
-		    width      	500
-		    height     	188
+		    width      	502
+		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)))
 	(object ClassDiagram "Main"
@@ -2851,7 +2845,7 @@
 	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
-		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$CancelWithState::Cancel::Close" @12
+		(object ClassView "Class" "Logical View::Shared Delphi Operations::OfficeLike::UserInteraction::Result::Result$CancelWithState::Cancel::Close" @12
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -2871,25 +2865,25 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@12
-			location   	(86, 166)
+			location   	(95, 177)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	500
+			max_width  	482
 			justify    	0
 			label      	"Close")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@12
-			location   	(86, 116)
+			location   	(95, 127)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	497
+			max_width  	482
 			justify    	0
 			label      	"<<VCMOperationState>>")
 		    icon_style 	"Label"
 		    fill_color 	16777152
 		    quidu      	"4C7BB88D033F"
-		    width      	518
-		    height     	188
+		    width      	500
+		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)))))

@@ -3,6 +3,8 @@ unit Stage_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\Stage_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Stage" MUID: (484FCCAC0171)
+// Имя типа: "StageTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

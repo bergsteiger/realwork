@@ -2,6 +2,7 @@ unit k2EVDWriterService;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2EVDWriterService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tk2EVDWriterService" MUID: (555DCEA8017E)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
@@ -33,7 +34,7 @@ type
  Tk2EVDWriterService = {final} class(Tl3ProtoObject)
   private
    f_Alien: Ik2EVDWriterService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Ik2EVDWriterService }
   protected
    procedure pm_SetAlien(const aValue: Ik2EVDWriterService);
    procedure ClearFields; override;

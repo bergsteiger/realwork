@@ -3,6 +3,7 @@ unit nsAutoreferatDocumentContainer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\nsAutoreferatDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsAutoreferatDocumentContainer" MUID: (4CE6937D031D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -145,7 +146,7 @@ begin
  begin
   try
    f_DocumentInfo.Doc.GetTextProviderDescList(l_Ds);
-   Assert(l_Ds <> nil);
+   //Assert(l_Ds <> nil);
   except
    on ECannotFindData do
    begin

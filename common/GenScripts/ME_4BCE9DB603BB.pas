@@ -3,6 +3,8 @@ unit K204114253;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\K204114253.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K204114253" MUID: (4BCE9DB603BB)
+// Имя типа: "TK204114253"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

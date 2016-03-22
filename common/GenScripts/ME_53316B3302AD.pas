@@ -2,6 +2,7 @@ unit k2SpecialTag;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2SpecialTag.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2SpecialTag" MUID: (53316B3302AD)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

@@ -2,6 +2,8 @@ unit kwBaseRelCorrecter;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwBaseRelCorrecter.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "base_RelCorrecter" MUID: (526E5B5D033B)
+// Имя типа: "TkwBaseRelCorrecter"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

@@ -2,6 +2,7 @@ unit nsLogEventData;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogEventData.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsLogEventData" MUID: (55B760CE036A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

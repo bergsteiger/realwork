@@ -2,6 +2,7 @@ unit FakeBox_p;
 
 // Модуль: "w:\common\components\gui\Garant\VT\FakeBox_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TFakeBox" MUID: (499A86AA0326)
 
 {$Include w:\common\components\l3Define.inc}
 

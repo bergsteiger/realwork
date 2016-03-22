@@ -188,7 +188,7 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*4B5AA43F01EC_4B5AA66F0097*"
 			    value      	(value Text 
-|//#UC START# *4B5AA43F01EC_4B5AA66F0097*¤	GDS_ASSERT (req.empty () == false);¤¤	GCL::to_upper (req);¤¤	std::string str = req;¤¤	RequestTransformer_i::exclude (str, data, is_fake);¤¤	if (is_fake) {¤		size_t count = std::count_if (str.begin (), str.end (), boost::is_any_of (" =-~"));¤¤		if (count != str.size ()) { // åñëè âî ôðàçå îñòàëèñü ñëîâà¤			req = str;¤		}¤	} else if (str.empty () == false) { // åñëè âî ôðàçå îñòàëèñü ñëîâà¤		req = str;¤	}¤¤	size_t ret = ContextUtility::get_words_count (req);¤¤	/*¤	if (ret > 2) {¤		PartsSpeechAnalyzer::set_frames (templates, req);¤	}¤	*/¤¤	return ret;¤	//#UC END# *4B5AA43F01EC_4B5AA66F0097*
+|//#UC START# *4B5AA43F01EC_4B5AA66F0097*¤	GDS_ASSERT (req.empty () == false);¤¤	GCL::to_upper (req);¤¤	std::string str = req;¤¤	RequestTransformer_i::_exclude (str, data);¤¤	if (std::count_if (str.begin (), str.end (), boost::is_any_of (" =-~")) != str.size ()) {¤		req = str; // åñëè âî ôðàçå îñòàëèñü ñëîâà¤	}¤¤	return ContextUtility::get_words_count (req);¤	//#UC END# *4B5AA43F01EC_4B5AA66F0097*
 			    ))
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -227,33 +227,7 @@
 				    value      	"44FEBE2F034D"))
 			    quid       	"4D353FF800CE"
 			    type       	"StrVector"
-			    quidu      	"44FEBE2F034D")
-			(object Parameter "templates"
-			    attributes 	(list Attribute_Set
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ElementCreationOrder"
-				    value      	"444199957851")
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ResolvedTypeGuid"
-				    value      	"535525890226"))
-			    quid       	"4D353FF80133"
-			    type       	"PSDTemplates"
-			    quidu      	"535525890226")
-			(object Parameter "is_fake"
-			    attributes 	(list Attribute_Set
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ElementCreationOrder"
-				    value      	"1373025087508501")
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ResolvedTypeGuid"
-				    value      	"3DBFFE100240"))
-			    quid       	"51D6B33F01EC"
-			    type       	"boolean"
-			    quidu      	"3DBFFE100240"))
+			    quidu      	"44FEBE2F034D"))
 		    result     	"size"
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
@@ -277,7 +251,7 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*51D6B5F8027C_4B5AA66F0097*"
 			    value      	(value Text 
-|//#UC START# *51D6B5F8027C_4B5AA66F0097*¤	GCL::StrVector parts;¤	ContextUtility::split (parts, in, true);¤¤	if (parts.size () > MAX_WORDS_OF_REQUEST) {¤		parts.erase (parts.begin () + MAX_WORDS_OF_REQUEST, parts.end ());¤	}¤¤	for (GCL::StrVector::iterator it = parts.begin (); it != parts.end (); ++it) {¤		if (out.size ()) {¤			out += ' ';¤		}¤¤		std::string str = *it;¤¤		bool is_date = false;¤¤		if (it->at (0) != 'N') {¤			size_t count = std::count_if (it->begin (), it->end (), boost::is_any_of ("./-"));¤¤			if (count == 0 || count == 2) {¤				if (ContextUtility::is_date (this->correct_date (str))) {¤					std::replace_if (str.begin (), str.end (), boost::is_punct (), ' ');¤					is_date = true;¤				}¤			}¤¤			if (is_date == false && count < 2) {¤				if (it + 1 != parts.end ()) {¤					std::string str_date = *it + '-' + *(it + 1);¤¤					if (ContextUtility::is_date (this->correct_date (str_date))) {¤						str = str_date;¤						std::replace_if (str.begin (), str.end (), boost::is_punct (), ' ');¤						is_date = true;¤						it += 1;¤					}¤				}¤			}¤¤			if (is_date == false && parts.size () - std::distance (parts.begin (), it) > 2) {¤				std::string year = *(it + 2);¤¤				if (ContextUtility::is_date (str, *(it + 1), this->correct_date (year))) {¤					str += ' ';¤					str += *(it + 1);¤					str += ' ';¤					str += year;¤					is_date = true;¤					it += 2;¤				}¤			}¤		}¤¤		if (is_date == false) {¤			str = *it;¤			std::replace_if (str.begin (), str.end (), !boost::bind (&ContextUtility::is_valid_char, _1), '-');¤		} else if (it + 1 != parts.end () && this->is_year (*(it + 1))) {¤			++it;¤		}¤¤		out += str;¤	}¤	//#UC END# *51D6B5F8027C_4B5AA66F0097*
+|//#UC START# *51D6B5F8027C_4B5AA66F0097*¤	GCL::StrVector parts;¤	ContextUtility::split (parts, in, true);¤¤	if (parts.size () > DBCore::MAX_WORDS_OF_REQUEST) {¤		parts.erase (parts.begin () + DBCore::MAX_WORDS_OF_REQUEST, parts.end ());¤	}¤¤	for (GCL::StrVector::iterator it = parts.begin (); it != parts.end (); ++it) {¤		if (out.size ()) {¤			out += ' ';¤		}¤¤		std::string str = *it;¤¤		bool is_date = false;¤¤		if (it->at (0) != 'N') {¤			size_t count = std::count_if (it->begin (), it->end (), boost::is_any_of ("./-"));¤¤			if (count == 0 || count == 2) {¤				if (ContextUtility::is_date (this->correct_date (str))) {¤					std::replace_if (str.begin (), str.end (), boost::is_punct (), ' ');¤					is_date = true;¤				}¤			}¤¤			if (is_date == false && count < 2) {¤				if (it + 1 != parts.end ()) {¤					std::string str_date = *it + '-' + *(it + 1);¤¤					if (ContextUtility::is_date (this->correct_date (str_date))) {¤						str = str_date;¤						std::replace_if (str.begin (), str.end (), boost::is_punct (), ' ');¤						is_date = true;¤						it += 1;¤					}¤				}¤			}¤¤			if (is_date == false && parts.size () - std::distance (parts.begin (), it) > 2) {¤				std::string year = *(it + 2);¤¤				if (ContextUtility::is_date (str, *(it + 1), this->correct_date (year))) {¤					str += ' ';¤					str += *(it + 1);¤					str += ' ';¤					str += year;¤					is_date = true;¤					it += 2;¤				}¤			}¤		}¤¤		if (is_date == false) {¤			str = *it;¤			std::replace_if (str.begin (), str.end (), !boost::bind (&ContextUtility::is_valid_char, _1), '-');¤		} else if (it + 1 != parts.end () && this->is_year (*(it + 1))) {¤			++it;¤		}¤¤		out += str;¤	}¤	//#UC END# *51D6B5F8027C_4B5AA66F0097*
 			    )))
 		    quid       	"51D6B5F8027C"
 		    documentation 	"êîððåêòèðîâêà"
@@ -312,63 +286,6 @@
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0)
-		(object Operation "unchecked_exclude"
-		    attributes 	(list Attribute_Set
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"ElementCreationOrder"
-			    value      	"1385047775534737")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"AbstarctOperation"
-			    value      	"abstract")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"IsNative"
-			    value      	"false")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"ResolvedTypeGuid"
-			    value      	"")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"cpp:*528E26DF01E7_4B5AA66F0097*"
-			    value      	(value Text 
-|//#UC START# *528E26DF01E7_4B5AA66F0097*¤	GDS_ASSERT (req.empty () == false);¤¤	GCL::to_upper (req);¤¤	RequestTransformer_i::exclude (req, data, false);¤	//#UC END# *528E26DF01E7_4B5AA66F0097*
-			    )))
-		    quid       	"528E26DF01E7"
-		    documentation 	"èñêëþ÷åíèå ñòîï-ñëîâ"
-		    stereotype 	"chg"
-		    parameters 	(list Parameters
-			(object Parameter "inout req"
-			    attributes 	(list Attribute_Set
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ElementCreationOrder"
-				    value      	"1385047814110944")
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ResolvedTypeGuid"
-				    value      	"452257A0036F"))
-			    quid       	"528E2706006E"
-			    type       	"a-string"
-			    quidu      	"452257A0036F")
-			(object Parameter "data"
-			    attributes 	(list Attribute_Set
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ElementCreationOrder"
-				    value      	"1385047814184949")
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ResolvedTypeGuid"
-				    value      	"44FEBE2F034D"))
-			    quid       	"528E270600B8"
-			    type       	"StrVector"
-			    quidu      	"44FEBE2F034D"))
-		    concurrency 	"Sequential"
-		    opExportControl 	"Public"
-		    uid        	0)
 		(object Operation "execute"
 		    attributes 	(list Attribute_Set
 			(object Attribute
@@ -391,7 +308,7 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*53FCAB670039_4B5AA66F0097*"
 			    value      	(value Text 
-|//#UC START# *53FCAB670039_4B5AA66F0097*¤	Core::Aptr <GCL::StrVector> ret = m_normalizer->execute_for_phrase (in, pseudo);¤¤	std::for_each (ret->begin (), ret->end ()¤		, boost::bind (&RequestTransformer_i::exclude_hard, this, _1, data, hard)¤	);¤¤	std::sort (ret->begin (), ret->end ());¤	ret->erase (std::unique (ret->begin (), ret->end ()), ret->end ());¤	return ret._retn ();¤	//#UC END# *53FCAB670039_4B5AA66F0097*
+|//#UC START# *53FCAB670039_4B5AA66F0097*¤	Core::Aptr <GCL::StrVector> ret = m_normalizer->execute_for_phrase (in);¤¤	std::for_each (ret->begin (), ret->end ()¤		, boost::bind (&RequestTransformer_i::exclude_hard, this, _1, data, hard)¤	);¤¤	std::sort (ret->begin (), ret->end ());¤	ret->erase (std::unique (ret->begin (), ret->end ()), ret->end ());¤	return ret._retn ();¤	//#UC END# *53FCAB670039_4B5AA66F0097*
 			    )))
 		    quid       	"53FCAB670039"
 		    documentation 	"âûïîëíèòü"
@@ -435,19 +352,7 @@
 				    value      	"44FEBE2F034D"))
 			    quid       	"53FCAC83000D"
 			    type       	"StrVector"
-			    quidu      	"44FEBE2F034D")
-			(object Parameter "inout pseudo"
-			    attributes 	(list Attribute_Set
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ElementCreationOrder"
-				    value      	"1409068163204258")
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ResolvedTypeGuid"
-				    value      	"53FCAA8303AF"))
-			    quid       	"53FCAC8300CC"
-			    type       	"Defs::StrStrMap"))
+			    quidu      	"44FEBE2F034D"))
 		    result     	"StrVector"
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
@@ -522,7 +427,7 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*4B60638F00A6_4C3474B40266*"
 			    value      	(value Text 
-|//#UC START# *4B60638F00A6_4C3474B40266*¤	Manage::IRequestTransformer_var transformer = Manage::IRequestTransformerFactory::make (m_normalizer.in ());¤¤	std::string fixed;¤	transformer->correct (in, fixed); // êîððåêòèðîâêà èñõîäíîãî êîíòåêñòà¤¤	if (fixed.empty ()) {¤		return 0;¤	}¤¤	Defs::StrStrMap pseudo;¤¤	Core::Aptr <GCL::StrVector> res = transformer->execute (¤		Synonymizer (m_communicator, m_normalizer.in ()).normalize (fixed)¤		, m_communicator->get_exclude_data ()¤		, m_communicator->get_hard_phrases ()¤		, pseudo¤	);¤¤	if (is_default == false) {¤		Search::IRequestView_var ret = this->make_view (Search::as_Partial);¤¤		if (ret->build (*res, pseudo, fixed)) {¤			return ret._retn ();¤		}¤	}¤¤	Search::IRequestView_var ret = this->make_view (Search::as_Default);¤¤	ret->build (*res, pseudo, fixed);¤	return ret._retn ();¤	//#UC END# *4B60638F00A6_4C3474B40266*
+|//#UC START# *4B60638F00A6_4C3474B40266*¤	Manage::IRequestTransformer_var transformer = Manage::IRequestTransformerFactory::make (m_normalizer.in ());¤¤	std::string fixed;¤	transformer->correct (in, fixed); // êîððåêòèðîâêà èñõîäíîãî êîíòåêñòà¤¤	if (fixed.empty ()) {¤		return 0;¤	}¤¤	Core::Aptr <GCL::StrVector> res = transformer->execute (¤		Synonymizer (m_communicator, m_normalizer.in ()).normalize (fixed)¤		, m_communicator->get_exclude_data ()¤		, m_communicator->get_hard_phrases ()¤	);¤¤	if (is_default == false) {¤		Search::IRequestView_var ret = this->make_view (Search::as_Partial);¤¤		if (ret->build (*res, fixed)) {¤			return ret._retn ();¤		}¤	}¤¤	Search::IRequestView_var ret = this->make_view (Search::as_Default);¤¤	ret->build (*res, fixed);¤	return ret._retn ();¤	//#UC END# *4B60638F00A6_4C3474B40266*
 			    ))
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -1296,14 +1201,14 @@
 	    max_height 	28350
 	    max_width  	21600
 	    origin_x   	0
-	    origin_y   	1270
+	    origin_y   	1269
 	    items      	(list diagram_item_list
 		(object ClassView "Class" "Logical View::shared::ContextSearch::Manage::IRequestTransformer" @1
 		    ShowCompartmentStereotypes 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1116, 2505)
+		    location   	(840, 2478)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1316,46 +1221,27 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@1
-			location   	(125, 2346)
+			location   	(116, 2344)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1982
+			max_width  	1448
 			justify    	0
 			label      	"IRequestTransformer")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@1
-			location   	(125, 2296)
+			location   	(116, 2294)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1982
+			max_width  	1448
 			justify    	0
 			label      	"<<Interface>>")
 		    icon       	"Interface"
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4B5AA36E0301"
-		    compartment 	(object Compartment
-			Parent_View 	@1
-			location   	(125, 2407)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	6
-			max_width  	2032
-			justify    	1)
-		    width      	2000
-		    height     	442
+		    width      	1466
+		    height     	392
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::shared::ContextSearch::Manage::ISynManager" @2
@@ -1363,7 +1249,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(888, 1332)
+		    location   	(891, 1332)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1376,45 +1262,26 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@2
-			location   	(124, 1248)
+			location   	(116, 1248)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1528
+			max_width  	1550
 			justify    	0
 			label      	"ISynManager")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@2
-			location   	(124, 1198)
+			location   	(116, 1198)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1528
+			max_width  	1550
 			justify    	0
 			label      	"<<Interface>>")
 		    icon       	"Interface"
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4B6062A203A3"
-		    compartment 	(object Compartment
-			Parent_View 	@2
-			location   	(124, 1309)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	3
-			max_width  	1547
-			justify    	1)
-		    width      	1546
+		    width      	1568
 		    height     	292
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -1436,45 +1303,26 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@3
-			location   	(126, 1619)
+			location   	(115, 1619)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1446
+			max_width  	1468
 			justify    	0
 			label      	"• IQuery")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@3
-			location   	(126, 1569)
+			location   	(115, 1569)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1446
+			max_width  	1468
 			justify    	0
 			label      	"<<Interface>>")
 		    icon       	"Interface"
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4ECF7A350135"
-		    compartment 	(object Compartment
-			Parent_View 	@3
-			location   	(126, 1680)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	10
-			max_width  	1467
-			justify    	1)
-		    width      	1464
+		    width      	1486
 		    height     	642
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -1565,7 +1413,7 @@
 			location   	(723, 883)
 			anchor     	10
 			nlines     	1
-			max_width  	237
+			max_width  	238
 			justify    	0
 			label      	"<<Typedef>>")
 		    icon_style 	"Label"
@@ -1637,24 +1485,24 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@7
-			location   	(186, 179)
+			location   	(208, 179)
 			nlines     	1
-			max_width  	318
+			max_width  	274
 			justify    	0
 			label      	"• INormalizer")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@7
-			location   	(186, 129)
+			location   	(208, 129)
 			anchor     	10
 			nlines     	1
-			max_width  	318
+			max_width  	274
 			justify    	0
 			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    line_color 	16714250
 		    fill_color 	16777215
 		    quidu      	"4E0099F603D4"
-		    width      	336
+		    width      	292
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -1717,25 +1565,25 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@9
-			location   	(488, 555)
+			location   	(486, 555)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	212
+			max_width  	216
 			justify    	0
 			label      	"Env")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@9
-			location   	(488, 505)
+			location   	(486, 505)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	209
+			max_width  	213
 			justify    	0
 			label      	"<<Struct>>")
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"51CEB2B2029F"
-		    width      	230
+		    width      	234
 		    height     	184
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -1968,7 +1816,7 @@
 			color      	0
 			default_color 	TRUE)
 		    stereotype 	TRUE
-		    line_color 	3342489
+		    line_color 	3947680
 		    quidu      	"5540D8650234"
 		    roleview_list 	(list RoleViews
 			(object RoleView "wild_mng" @23

@@ -4,16 +4,9 @@
 
 #include "ace/ACE.h"
 
-#include "shared/Morpho/Facade/Factory.h"
-
-#include "ContextPartsHelper.h"
 #include "BaseCache.h"
 
 BaseCache::BaseCache () : m_short_list_size (0), is_protected_para_init (false) {
-	m_cache = Morpho::Factory::make ();
-}
-
-BaseCache::~BaseCache () {
 }
 
 const MorphoHashes& BaseCache::get_morpho_hashes (Base* base) {
@@ -34,10 +27,10 @@ const MorphoHashes& BaseCache::get_morpho_hashes (Base* base) {
 	return m_morpho_hashes;
 }
 
-const BaseInfoMap& BaseCache::get_map_baseinfos (Base *base) {
+const BaseInfo_& BaseCache::get_base_info (Base *base) {
 	GUARD (m_mutex);
 
-	if (m_map_baseinfos.empty ()) {
+	if (m_base_info.empty ()) {
 		Stream *str = base->FindIndex ("Aux")->Open ("Base");
 		if (str) {
 			int count = str->Length () / sizeof (BaseInfo);
@@ -46,13 +39,13 @@ const BaseInfoMap& BaseCache::get_map_baseinfos (Base *base) {
 				gk_bzero (&baseInfo, sizeof (baseInfo));
 				str->Read (&baseInfo, sizeof (BaseInfo));
 				std::pair<std::string,std::string> names (baseInfo.Name, baseInfo.NameEng);
-				m_map_baseinfos.insert (std::map<short, std::pair<std::string,std::string> >::value_type (baseInfo.BaseId, names));
+				m_base_info.insert (std::map<short, std::pair<std::string, std::string> >::value_type (baseInfo.BaseId, names));
 			}
 			base->FindIndex ("Aux")->Close (str);
 		}
 	}
 
-	return m_map_baseinfos;
+	return m_base_info;
 }
 
 const TypingErrors& BaseCache::get_typing_errors (Base* base) {
@@ -89,22 +82,8 @@ const GCL::StrSet& BaseCache::get_good_words (Base* base) {
 	return m_good_words;
 }
 
-Morpho::Def::ICache* BaseCache::get_morpho_cache_ptr () {
-	return m_cache.in ();
-}
-
-Morpho::Def::INormalizer* BaseCache::make (DBCore::IBase* base) {
-	GDS_ASSERT (base);
-	m_cache->load (base, true);
-	return Morpho::Factory::make (m_cache.in ());
-}
-
 void BaseCache::release () {
 	AllDocsCache::instance ()->release ();
-	ContextPartsHelper::fini ();
-
-	m_cache->clear ();
-
 	{
 		GUARD (m_find_in_cache_mutex);
 		m_request_cache_offset.clear ();
@@ -124,7 +103,7 @@ void BaseCache::release () {
 		m_short_list_size = 0;
 		is_protected_para_init = false;
 
-		m_map_baseinfos.clear ();
+		m_base_info.clear ();
 		m_map_doc_edis.clear ();
 
 		std::vector <short> ().swap (m_here_segs);

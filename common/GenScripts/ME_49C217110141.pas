@@ -2,6 +2,7 @@ unit evEpsilonLongIntList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evEpsilonLongIntList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevEpsilonLongIntList" MUID: (49C217110141)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

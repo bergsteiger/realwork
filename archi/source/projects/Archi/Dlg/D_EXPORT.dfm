@@ -8,6 +8,7 @@ inherited ExportDlg: TExportDlg
   ClientHeight = 558
   ClientWidth = 556
   OnActivate = FormActivate
+  OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 16

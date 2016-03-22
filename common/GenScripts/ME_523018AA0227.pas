@@ -2,6 +2,8 @@ unit kwVcmOpImageIndex;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpImageIndex.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "vcm_op_ImageIndex" MUID: (523018AA0227)
+// Имя типа: "TkwVcmOpImageIndex"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

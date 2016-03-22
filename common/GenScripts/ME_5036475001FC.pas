@@ -2,6 +2,8 @@
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "atHasStringParamAddOn" MUID: (5036475001FC)
+// Имя типа: "_atHasStringParamAddOn_"
 
 {$Define atHasStringParamAddOn_imp}
 

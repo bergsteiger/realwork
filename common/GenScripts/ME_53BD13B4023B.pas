@@ -2,6 +2,7 @@ unit evdTasksHelpers;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdTasksHelpers.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evdTasksHelpers" MUID: (53BD13B4023B)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
@@ -63,7 +64,6 @@ type
  TevdTagHelper = class(Tl3ProtoObject)
   private
    f_Value: Tl3Tag;
-    {* Поле для свойства Value }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

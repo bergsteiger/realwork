@@ -2,6 +2,7 @@ unit afwCustomCommonControl;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonControl.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TafwCustomCommonControl" MUID: (48BBE37E00A2)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

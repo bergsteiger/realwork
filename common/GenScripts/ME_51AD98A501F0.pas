@@ -2,6 +2,7 @@ unit PageCountTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\PageCountTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TPageCountTest" MUID: (51AD98A501F0)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

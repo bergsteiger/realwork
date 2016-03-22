@@ -3,6 +3,7 @@ unit MedicListSynchroViewKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\MedicListSynchroViewKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "MedicListSynchroViewKeywordsPack" MUID: (5F5E4EB27C9F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::MedicListSynchroView TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_MedicListSynchroView
 
  Tkw_MedicListSynchroView_Control_ztChild = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::ztChild TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicListSynchroView_Control_ztChild
 
  Tkw_MedicListSynchroView_Control_ztChild_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TvtPanel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnMedicListSynchroViewZtChild
 
-class function Tkw_Form_MedicListSynchroView.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::MedicListSynchroView';
-end;//Tkw_Form_MedicListSynchroView.GetWordNameForRegister
-
 function Tkw_Form_MedicListSynchroView.GetString: AnsiString;
 begin
  Result := 'en_MedicListSynchroView';
 end;//Tkw_Form_MedicListSynchroView.GetString
 
-class function Tkw_MedicListSynchroView_Control_ztChild.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_MedicListSynchroView.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::ztChild';
-end;//Tkw_MedicListSynchroView_Control_ztChild.GetWordNameForRegister
+ Result := 'форма::MedicListSynchroView';
+end;//Tkw_Form_MedicListSynchroView.GetWordNameForRegister
 
 function Tkw_MedicListSynchroView_Control_ztChild.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MedicListSynchroView_Control_ztChild.RegisterInEngine
+
+class function Tkw_MedicListSynchroView_Control_ztChild.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ztChild';
+end;//Tkw_MedicListSynchroView_Control_ztChild.GetWordNameForRegister
 
 procedure Tkw_MedicListSynchroView_Control_ztChild_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(ztChild(aCtx, l_aen_MedicListSynchroView));
 end;//TkwEnMedicListSynchroViewZtChild.DoDoIt
 
-class function TkwEnMedicListSynchroViewZtChild.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MedicListSynchroView.ztChild';
-end;//TkwEnMedicListSynchroViewZtChild.GetWordNameForRegister
-
 procedure TkwEnMedicListSynchroViewZtChild.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwEnMedicListSynchroViewZtChild.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicListSynchroView)]);
 end;//TkwEnMedicListSynchroViewZtChild.ParamsTypes
+
+class function TkwEnMedicListSynchroViewZtChild.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MedicListSynchroView.ztChild';
+end;//TkwEnMedicListSynchroViewZtChild.GetWordNameForRegister
 
 initialization
  Tkw_Form_MedicListSynchroView.RegisterInEngine;

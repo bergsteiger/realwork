@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3BitArr;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3BitArr.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3BitArr" MUID: (47AC5ABE00B6)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

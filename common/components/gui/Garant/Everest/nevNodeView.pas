@@ -33,6 +33,7 @@ type
  // overridden protected methods
    procedure Cleanup; override;
      {* Функция очистки полей объекта. }
+   function GetNeedTotalRecalc: Boolean; override;
  public
  // public methods
    constructor Create(const aNode: InevObject;
@@ -86,5 +87,14 @@ begin
  inherited;
 //#UC END# *479731C50290_4E24140802B9_impl*
 end;//TnevNodeView.Cleanup
+
+function TnevNodeView.GetNeedTotalRecalc: Boolean;
+//#UC START# *565F0492012D_4E24140802B9_var*
+//#UC END# *565F0492012D_4E24140802B9_var*
+begin
+//#UC START# *565F0492012D_4E24140802B9_impl*
+ Result := true; 
+//#UC END# *565F0492012D_4E24140802B9_impl*
+end;//TnevNodeView.GetNeedTotalRecalc
 
 end.

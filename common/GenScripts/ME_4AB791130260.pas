@@ -2,6 +2,8 @@ unit PrimBaseSearch_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearch_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimBaseSearch" MUID: (4AB791130260)
+// Имя типа: "TPrimBaseSearchForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -1455,6 +1457,7 @@ function TPrimBaseSearchForm.DoLoadState(const aState: IvcmBase;
 //#UC START# *49807428008C_4AB791130260_var*
 var
  l_State : InsBaseSearchFormState;
+ l_BaseSearcherState: InsBaseSearcherInitialState;
 //#UC END# *49807428008C_4AB791130260_var*
 begin
 //#UC START# *49807428008C_4AB791130260_impl*
@@ -1476,11 +1479,10 @@ begin
   end//l_State = nil
   else
   begin
-   f_BaseSearcher := l_State.Data as InsBaseSearcher;
+   f_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
+   f_BaseSearcher.AssignState((l_State.Data as InsBaseSearcher).MakeStateParams(ns_sseAll, True));
    Assert(f_BaseSearcher <> nil);
-   f_BaseSearcher.WindowData.ActiveClass := l_State.ActiveClass;
-   // http://mdp.garant.ru/pages/viewpage.action?pageId=269069309&focusedCommentId=296635902#comment-296635902
-   Self.f_ActiveClassForSaveInHistory := l_State.ActiveClass;
+   f_ActiveClassForSaveInHistory := l_State.ActiveClass;
    // http://mdp.garant.ru/pages/viewpage.action?pageId=327826220
    AfterSearcherSet;
    Result := true;
@@ -1576,7 +1578,7 @@ function TPrimBaseSearchForm.DoGetNeedSaveToTabHistory: Boolean;
 //#UC END# *55B9F0BD0069_4AB791130260_var*
 begin
 //#UC START# *55B9F0BD0069_4AB791130260_impl*
- Result := not MainMenuLikeBaseSearch;
+ Result := {not MainMenuLikeBaseSearch}True;
 //#UC END# *55B9F0BD0069_4AB791130260_impl*
 end;//TPrimBaseSearchForm.DoGetNeedSaveToTabHistory
 

@@ -2,6 +2,8 @@ unit F1LikeTextLoad_Form;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\F1LikeTextLoad_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "F1LikeTextLoad" MUID: (4C9B31190392)
+// Имя типа: "TF1LikeTextLoadForm"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

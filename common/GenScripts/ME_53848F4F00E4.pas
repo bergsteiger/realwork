@@ -2,6 +2,7 @@ unit ddTaskClassManager;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ddTaskClassManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddTaskClassManager" MUID: (53848F4F00E4)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

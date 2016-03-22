@@ -60,10 +60,6 @@
 #include "garantServer/src/Business/GblUserJournal/Home/Server.h"
 #include "garantServer/src/Business/GblChatSupport/Server/ChatSupportServerHome.h"
 
-// Поисковая машина
-#include "garantServer/src/Business/GblSearchMachine/Home/Server.h"
-#include "garantServer/src/Business/GblSearchMachine/Home/Client.h"
-
 // Поддержка ревизий документов через internet
 #include "garantServer/src/Business/GblRemoteDocumentSupport/Server/RemoteDocumentSupportServerHome.h"
 #include "garantServer/src/Business/GblRemoteDocumentSupport/GblRemoteDocumentSupportC.h"
@@ -195,10 +191,6 @@ void Desktop::run () {
 
 	gcm_manager->register_component (new GblConsultingClientServer::ConsultingClientServerHome ());   //     инициализируем HTIOP
 	gcm_manager->register_component (new GCM::GCMSimpleClient (GblConsultingClient::ComponentKey_c)); // }}}
-
-	// Поисковая машина
-	gcm_manager->register_component (new GCM::GCMSimpleClient (GblSearchMachine::ComponentKey_c));
-	gcm_manager->register_component (new GblSearchMachineServer::SearchMachineServerHome (false));
 
 	// Поддержка ревизий документов через internet
 	gcm_manager->register_component (new GblRemoteDocumentSupportServer::RemoteDocumentSupportServerHome ());

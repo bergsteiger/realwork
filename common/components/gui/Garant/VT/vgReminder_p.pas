@@ -2,6 +2,7 @@ unit vgReminder_p;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vgReminder_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TvgReminder" MUID: (536B5D600367)
 
 {$Include w:\common\components\l3Define.inc}
 

@@ -2,6 +2,8 @@ unit kwVcmDispatcherLock;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmDispatcherLock.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "vcm_Dispatcher_Lock" MUID: (4F69B99001E0)
+// Имя типа: "TkwVcmDispatcherLock"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

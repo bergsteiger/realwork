@@ -91,8 +91,7 @@ Adapter::IDocuments* Searcher_i::get_documents (
 Adapter::IFragments* Searcher_i::get_fragments (
 	const std::string& in
 	, DBCore::DocId id
-	, unsigned long word
-	, unsigned long first_word
+	, const ContextSearch::Defs::PosPair& pair
 ) {
 	//#UC START# *4ECE778602D4_4ECE68240089*
 	Adapter::IFragments_var ret;
@@ -102,9 +101,8 @@ Adapter::IFragments* Searcher_i::get_fragments (
 
 		if (res.is_nil () == false) {
 			if (res->empty () == false) {
-				ContextSearch::FragmentsOperations::SortProperties prop (word, first_word);
 				ContextSearch::FragmentsOperations::filtration (*(res.inout ())); // удаление пересекающихся
-				ContextSearch::FragmentsOperations::sort (*(res.inout ()), prop); // сортировка
+				ContextSearch::FragmentsOperations::sort (*(res.inout ()), pair); // сортировка
 			}
 			ret = new Impl <Adapter::IFragments, ContextSearch::Defs::Fragments> (res._retn ());
 		}

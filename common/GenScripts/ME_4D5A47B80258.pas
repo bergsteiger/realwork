@@ -2,6 +2,7 @@ unit nevObjectList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevObjectList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevObjectList" MUID: (4D5A47B80258)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

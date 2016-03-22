@@ -3,6 +3,7 @@ unit PrimeInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\PrimeInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "PrimeInterfaces" MUID: (499032720106)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

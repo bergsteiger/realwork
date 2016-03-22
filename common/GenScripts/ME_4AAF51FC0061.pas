@@ -2,6 +2,8 @@ unit SelectedAttributes_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\SelectedAttributes_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "SelectedAttributes" MUID: (4AAF51FC0061)
+// Имя типа: "TenSelectedAttributes"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

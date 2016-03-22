@@ -2,6 +2,7 @@ library GblAdapter;
 
 // Модуль: "w:\garant6x\implementation\Garant\GblAdapter\GblAdapter.dpr"
 // Стереотип: "AdapterTargetUnion"
+// Элемент модели: "GblAdapter" MUID: (47397FF900B6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

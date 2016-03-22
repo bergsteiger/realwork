@@ -3,6 +3,7 @@ unit NOT_FINISHED_nscArrangeGridCell;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscArrangeGridCell.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nscArrangeGridCell" MUID: (4AC9DB95006B)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

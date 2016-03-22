@@ -3,6 +3,7 @@ unit ContentsUserTypes_utContents_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ContentsUserTypes_utContents_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utContents" MUID: (4BD71CAC000C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utContents = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utContents }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utContents
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utContents.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utContents';
-end;//Tkw_FormUserType_utContents.GetWordNameForRegister
-
 function Tkw_FormUserType_utContents.GetInteger: Integer;
 begin
  Result := utContents;
 end;//Tkw_FormUserType_utContents.GetInteger
+
+class function Tkw_FormUserType_utContents.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utContents';
+end;//Tkw_FormUserType_utContents.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

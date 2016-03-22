@@ -3,6 +3,7 @@ unit evControlParaHotSpotTester;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evControlParaHotSpotTester.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevControlParaHotSpotTester" MUID: (4A27A8C70359)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

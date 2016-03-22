@@ -3,6 +3,7 @@ unit evCell;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCell.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCell" MUID: (502CC6560261)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -5,9 +5,12 @@ unit evTypes;
 { Автор: Люлин А.В. ©  }
 { Модуль: evTypes - описание базовых типов библиотеки }
 { Начат: 11.12.96 }
-{ $Id: evTypes.pas,v 1.87 2015/08/18 13:18:19 lulin Exp $ }
+{ $Id: evTypes.pas,v 1.88 2016/03/15 10:27:59 dinishev Exp $ }
 
 // $Log: evTypes.pas,v $
+// Revision 1.88  2016/03/15 10:27:59  dinishev
+// {Requestlink:619725311}
+//
 // Revision 1.87  2015/08/18 13:18:19  lulin
 // http://mdp.garant.ru/pages/viewpage.action?pageId=433561370&focusedCommentId=605821164#comment-605821164
 //
@@ -470,6 +473,8 @@ var
     {* - формат Doc. }
   cf_PDF        : TevFormat = 0;
     {* - формат PDF. }
+   cf_ODF        : TevFormat = 0;
+    {* - формат ODF. }
   {$IfNDef evExternalProduct}
   cf_NSRC       : TevFormat = 0;
     {* - формат NSRC. }

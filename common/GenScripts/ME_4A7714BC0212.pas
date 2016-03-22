@@ -3,6 +3,8 @@ unit moDocument;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moDocument.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Document" MUID: (4A7714BC0212)
+// Имя типа: "Tmo_Document"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

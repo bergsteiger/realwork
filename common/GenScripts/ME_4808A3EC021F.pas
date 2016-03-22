@@ -2,6 +2,7 @@ unit atScenario;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atScenario.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatScenario" MUID: (4808A3EC021F)
 
 interface
 

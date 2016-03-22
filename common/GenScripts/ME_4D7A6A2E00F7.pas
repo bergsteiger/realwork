@@ -2,6 +2,8 @@ unit DictionContainer_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\DictionContainer_Form.pas"
 // Стереотип: "VCMFinalContainer"
+// Элемент модели: "DictionContainer" MUID: (4D7A6A2E00F7)
+// Имя типа: "TDictionContainerForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

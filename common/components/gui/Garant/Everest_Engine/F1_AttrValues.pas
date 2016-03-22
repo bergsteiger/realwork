@@ -75,12 +75,14 @@ var
   { Локализуемое значения атрибута TextStyle_EditionNumber_Name_Value }
  str_TextStyle_Snippet_Name_Value : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TextStyle_Snippet_Name_Value'; rValue : 'Дочерний элемент списка');
   { Локализуемое значения атрибута TextStyle_Snippet_Name_Value }
- str_TextStyle_VisitedDocumentInList_Name_Value : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TextStyle_VisitedDocumentInList_Name_Value'; rValue : 'Посещенный документ списка');
-  { Локализуемое значения атрибута TextStyle_VisitedDocumentInList_Name_Value }
+ str_TextStyle_DocumentInList_Name_Value : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TextStyle_DocumentInList_Name_Value'; rValue : 'Документ в списке');
+  { Локализуемое значения атрибута TextStyle_DocumentInList_Name_Value }
  str_TextStyle_VisitedSnippetInList_Name_Value : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TextStyle_VisitedSnippetInList_Name_Value'; rValue : 'Посещенный дочерний элемент списка');
   { Локализуемое значения атрибута TextStyle_VisitedSnippetInList_Name_Value }
  str_TextStyle_TechComment_Name_Value : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TextStyle_TechComment_Name_Value'; rValue : 'Технический комментарий');
   { Локализуемое значения атрибута TextStyle_TechComment_Name_Value }
+ str_TextStyle_VisitedDocumentInList_Name_Value : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TextStyle_VisitedDocumentInList_Name_Value'; rValue : 'Посещенный документ списка');
+  { Локализуемое значения атрибута TextStyle_VisitedDocumentInList_Name_Value }
 {$IfEnd} //Nemesis
 
 implementation
@@ -190,8 +192,8 @@ initialization
  str_TextStyle_Snippet_Name_Value.Init;
 {$IfEnd} //Nemesis
 {$If defined(Nemesis)}
-// Инициализация str_TextStyle_VisitedDocumentInList_Name_Value
- str_TextStyle_VisitedDocumentInList_Name_Value.Init;
+// Инициализация str_TextStyle_DocumentInList_Name_Value
+ str_TextStyle_DocumentInList_Name_Value.Init;
 {$IfEnd} //Nemesis
 {$If defined(Nemesis)}
 // Инициализация str_TextStyle_VisitedSnippetInList_Name_Value
@@ -200,6 +202,10 @@ initialization
 {$If defined(Nemesis)}
 // Инициализация str_TextStyle_TechComment_Name_Value
  str_TextStyle_TechComment_Name_Value.Init;
+{$IfEnd} //Nemesis
+{$If defined(Nemesis)}
+// Инициализация str_TextStyle_VisitedDocumentInList_Name_Value
+ str_TextStyle_VisitedDocumentInList_Name_Value.Init;
 {$IfEnd} //Nemesis
 
 end.

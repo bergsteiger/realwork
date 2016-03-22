@@ -2,6 +2,7 @@ unit NOT_FINISHED_nscTabTable;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscTabTable.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnscTabTable" MUID: (4AC9CB12015D)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

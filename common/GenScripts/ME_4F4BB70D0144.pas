@@ -2,6 +2,7 @@ unit kwForwardDeclaration;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwForwardDeclaration.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwForwardDeclaration" MUID: (4F4BB70D0144)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -20,7 +21,6 @@ type
  TkwForwardDeclaration = class(TtfwWord)
   private
    f_RealWord: TtfwWord;
-    {* Поле для свойства RealWord }
   protected
    procedure pm_SetRealWord(aValue: TtfwWord);
    procedure DoDoIt(const aCtx: TtfwContext); override;
@@ -62,6 +62,8 @@ procedure TkwForwardDeclaration.pm_SetRealWord(aValue: TtfwWord);
 begin
 //#UC START# *4F4BB75C021E_4F4BB70D0144set_impl*
  aValue.SetRefTo(f_RealWord);
+ if (f_RealWord <> nil) then
+  f_RealWord.Key := Self.Key;
 //#UC END# *4F4BB75C021E_4F4BB70D0144set_impl*
 end;//TkwForwardDeclaration.pm_SetRealWord
 

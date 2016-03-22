@@ -3,6 +3,7 @@ unit dsSelectedAttributes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\dsSelectedAttributes.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsSelectedAttributes" MUID: (49241B9903B7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

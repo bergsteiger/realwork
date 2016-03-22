@@ -2,6 +2,7 @@ unit evFontName_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\evFontName_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WevFontName" MUID: (484CEA1E0104)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

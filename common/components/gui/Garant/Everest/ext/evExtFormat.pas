@@ -5,9 +5,12 @@ unit evExtFormat;
 { Автор: Люлин А.В. ©     }
 { Модуль: evExtFormat - }
 { Начат: 28.08.2001 17:40 }
-{ $Id: evExtFormat.pas,v 1.37 2015/10/08 11:15:46 dinishev Exp $ }
+{ $Id: evExtFormat.pas,v 1.38 2015/11/23 12:55:19 dinishev Exp $ }
 
 // $Log: evExtFormat.pas,v $
+// Revision 1.38  2015/11/23 12:55:19  dinishev
+// {Requestlink:612100517}
+//
 // Revision 1.37  2015/10/08 11:15:46  dinishev
 // {Requestlink:588548123}. Выставил флга для Немезиса.
 //
@@ -171,7 +174,9 @@ uses
   ddNSRC_r,
   {$EndIf  evExternalProduct}
   ddHTML_r,
-  {$IfNDef Nemesis}
+  {$IfDef Nemesis}
+  evTabStopsFilter,
+  {$ELSE}
   {$IfNDef NoZIP}
   ddDocReader,
   {$EndIf  NoZIP}
@@ -190,7 +195,10 @@ procedure GetReader(Sender     : TObject;
                     var theReader : Tk2CustomReader;
                     const aFileName: AnsiString = '');
 var
- l_PictureReader: TevPictureReader;                    
+ {$IFDEF Nemesis}
+ l_TagGenerator : Tk2TagGenerator;
+ {$ENDIF Nemesis}
+ l_PictureReader: TevPictureReader;
 begin
  if (theReader = nil) then
  begin
@@ -215,6 +223,13 @@ begin
    {$IFEND}
    {$IFDEF Nemesis}
    TevRTFReader(theReader).IdenticalRowWidths := True;
+   l_TagGenerator := nil;
+   TevTabStopsFilter.SetTo(l_TagGenerator);
+   try
+    (theReader as Ik2TagGeneratorChainEnd).Link(l_TagGenerator);
+   finally
+    l3Free(l_TagGenerator);
+   end;
    {$ENDIF Nemesis}
   end//Format = cf_RTF..
   {$IfNDef evExternalProduct}

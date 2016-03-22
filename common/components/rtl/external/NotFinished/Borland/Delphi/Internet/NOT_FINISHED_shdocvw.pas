@@ -2,6 +2,7 @@ unit NOT_FINISHED_shdocvw;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Internet\NOT_FINISHED_shdocvw.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "shdocvw" MUID: (49EC9CF0030B)
 
 interface
 

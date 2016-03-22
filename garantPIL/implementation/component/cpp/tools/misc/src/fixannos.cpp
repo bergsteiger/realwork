@@ -79,6 +79,8 @@ int main_logic ( int argc, char *argv[] )
 
 	std::set<long> docs_with_annodate, docs_with_annouser, docs_with_annoorg, docs_with_annotax, docs_with_annointerest, docs_with_annokind;
 
+	DocCollection ds_significant;
+
 	DocCollection toDelete;
 
 	for (std::vector<Base*>::const_iterator base_it = aBase->bases_ptrs.begin (); base_it != aBase->bases_ptrs.end (); base_it++) {
@@ -153,6 +155,13 @@ int main_logic ( int argc, char *argv[] )
 				}
 
 				mpcxc_printfwin( "good\n" );
+
+				if (docInfo.Status_ex & DS_SIGNIFICANT) {
+					docInfo.Status_ex &= ~DS_SIGNIFICANT;
+					aBase->ReplaceAttr (docId, IDD_INFO, &docInfo, sizeof (DocInfo));
+					ownDocInfo.Status_ex |= DS_SIGNIFICANT;
+					ds_significant.Add (ownTopic);
+				}
 
 				date	annoDate;
 				if ( wasPreAnno & wasAnonce ) {
@@ -329,7 +338,7 @@ int main_logic ( int argc, char *argv[] )
 		aBase->base_for_doc (id)->DelDoc (id);
 	}
 	{
-	short status = DS_NODOC;
+	unsigned short status = DS_NODOC;
 	Stream *str = aBase->FindIndex ("Status")->Open (&status);
 	if (str) {
 		DocCollection nodocs;
@@ -359,6 +368,19 @@ int main_logic ( int argc, char *argv[] )
 		} else {
 			aBase->FindIndex ("Status")->Close (str);
 			aBase->FindIndex ("Status")->Delete (&status);
+		}
+	}
+	if (ds_significant.ItemCount) {
+		status = DS_SIGNIFICANT;
+		str = aBase->FindIndex ("Status_ex")->Open (&status, 1);
+		if (str) {
+			RefCollection refs;
+			refs.Get (str);
+			refs.Merge (ds_significant);
+			str->Seek (0);
+			refs.Put (str);
+			str->Trunc ();
+			aBase->FindIndex ("Status_ex")->Close (str);
 		}
 	}
 	}

@@ -2,6 +2,7 @@ unit evInevDrawingShapeMapper;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evInevDrawingShapeMapper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevInevDrawingShapeMapper" MUID: (53D8EF87005F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

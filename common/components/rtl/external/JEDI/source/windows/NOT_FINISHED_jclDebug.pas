@@ -2,6 +2,7 @@ unit NOT_FINISHED_jclDebug;
 
 // Модуль: "w:\common\components\rtl\external\JEDI\source\windows\NOT_FINISHED_jclDebug.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "jclDebug" MUID: (4B72BED1017B)
 
 {$Include w:\common\components\l3Define.inc}
 

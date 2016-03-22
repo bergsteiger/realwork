@@ -3,6 +3,7 @@ unit BaseSearchCardKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\BaseSearchCardKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "BaseSearchCardKeywordsPack" MUID: (FF8F1CA57FA2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -51,8 +52,8 @@ type
 'aControl' форма::BaseSearchCard TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_BaseSearchCard
 
  Tkw_BaseSearchCard_Control_pnlMain = {final} class(TtfwControlString)
@@ -63,9 +64,9 @@ type
 контрол::pnlMain TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_BaseSearchCard_Control_pnlMain
 
  Tkw_BaseSearchCard_Control_pnlMain_Push = {final} class(TkwBynameControlPush)
@@ -88,9 +89,9 @@ type
 контрол::hfBaseSearch TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_BaseSearchCard_Control_hfBaseSearch
 
  Tkw_BaseSearchCard_Control_hfBaseSearch_Push = {final} class(TkwBynameControlPush)
@@ -113,9 +114,9 @@ type
 контрол::lrBaseSearch TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_BaseSearchCard_Control_lrBaseSearch
 
  Tkw_BaseSearchCard_Control_lrBaseSearch_Push = {final} class(TkwBynameControlPush)
@@ -138,9 +139,9 @@ type
 контрол::CardTextLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_BaseSearchCard_Control_CardTextLabel
 
  Tkw_BaseSearchCard_Control_CardTextLabel_Push = {final} class(TkwBynameControlPush)
@@ -251,20 +252,15 @@ OBJECT VAR l_TnscSimpleEditor
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnBaseSearchCardCardTextLabel
 
-class function Tkw_Form_BaseSearchCard.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::BaseSearchCard';
-end;//Tkw_Form_BaseSearchCard.GetWordNameForRegister
-
 function Tkw_Form_BaseSearchCard.GetString: AnsiString;
 begin
  Result := 'en_BaseSearchCard';
 end;//Tkw_Form_BaseSearchCard.GetString
 
-class function Tkw_BaseSearchCard_Control_pnlMain.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_BaseSearchCard.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::pnlMain';
-end;//Tkw_BaseSearchCard_Control_pnlMain.GetWordNameForRegister
+ Result := 'форма::BaseSearchCard';
+end;//Tkw_Form_BaseSearchCard.GetWordNameForRegister
 
 function Tkw_BaseSearchCard_Control_pnlMain.GetString: AnsiString;
 begin
@@ -277,6 +273,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_BaseSearchCard_Control_pnlMain.RegisterInEngine
 
+class function Tkw_BaseSearchCard_Control_pnlMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlMain';
+end;//Tkw_BaseSearchCard_Control_pnlMain.GetWordNameForRegister
+
 procedure Tkw_BaseSearchCard_Control_pnlMain_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlMain');
@@ -287,11 +288,6 @@ class function Tkw_BaseSearchCard_Control_pnlMain_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::pnlMain:push';
 end;//Tkw_BaseSearchCard_Control_pnlMain_Push.GetWordNameForRegister
-
-class function Tkw_BaseSearchCard_Control_hfBaseSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::hfBaseSearch';
-end;//Tkw_BaseSearchCard_Control_hfBaseSearch.GetWordNameForRegister
 
 function Tkw_BaseSearchCard_Control_hfBaseSearch.GetString: AnsiString;
 begin
@@ -304,6 +300,11 @@ begin
  TtfwClassRef.Register(TnscHideField);
 end;//Tkw_BaseSearchCard_Control_hfBaseSearch.RegisterInEngine
 
+class function Tkw_BaseSearchCard_Control_hfBaseSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::hfBaseSearch';
+end;//Tkw_BaseSearchCard_Control_hfBaseSearch.GetWordNameForRegister
+
 procedure Tkw_BaseSearchCard_Control_hfBaseSearch_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('hfBaseSearch');
@@ -314,11 +315,6 @@ class function Tkw_BaseSearchCard_Control_hfBaseSearch_Push.GetWordNameForRegist
 begin
  Result := 'контрол::hfBaseSearch:push';
 end;//Tkw_BaseSearchCard_Control_hfBaseSearch_Push.GetWordNameForRegister
-
-class function Tkw_BaseSearchCard_Control_lrBaseSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lrBaseSearch';
-end;//Tkw_BaseSearchCard_Control_lrBaseSearch.GetWordNameForRegister
 
 function Tkw_BaseSearchCard_Control_lrBaseSearch.GetString: AnsiString;
 begin
@@ -331,6 +327,11 @@ begin
  TtfwClassRef.Register(TnscLister);
 end;//Tkw_BaseSearchCard_Control_lrBaseSearch.RegisterInEngine
 
+class function Tkw_BaseSearchCard_Control_lrBaseSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lrBaseSearch';
+end;//Tkw_BaseSearchCard_Control_lrBaseSearch.GetWordNameForRegister
+
 procedure Tkw_BaseSearchCard_Control_lrBaseSearch_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lrBaseSearch');
@@ -342,11 +343,6 @@ begin
  Result := 'контрол::lrBaseSearch:push';
 end;//Tkw_BaseSearchCard_Control_lrBaseSearch_Push.GetWordNameForRegister
 
-class function Tkw_BaseSearchCard_Control_CardTextLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::CardTextLabel';
-end;//Tkw_BaseSearchCard_Control_CardTextLabel.GetWordNameForRegister
-
 function Tkw_BaseSearchCard_Control_CardTextLabel.GetString: AnsiString;
 begin
  Result := 'CardTextLabel';
@@ -357,6 +353,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscSimpleEditor);
 end;//Tkw_BaseSearchCard_Control_CardTextLabel.RegisterInEngine
+
+class function Tkw_BaseSearchCard_Control_CardTextLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::CardTextLabel';
+end;//Tkw_BaseSearchCard_Control_CardTextLabel.GetWordNameForRegister
 
 procedure Tkw_BaseSearchCard_Control_CardTextLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -391,11 +392,6 @@ begin
  aCtx.rEngine.PushObj(pnlMain(aCtx, l_aen_BaseSearchCard));
 end;//TkwEnBaseSearchCardPnlMain.DoDoIt
 
-class function TkwEnBaseSearchCardPnlMain.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_BaseSearchCard.pnlMain';
-end;//TkwEnBaseSearchCardPnlMain.GetWordNameForRegister
-
 procedure TkwEnBaseSearchCardPnlMain.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -416,6 +412,11 @@ function TkwEnBaseSearchCardPnlMain.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_BaseSearchCard)]);
 end;//TkwEnBaseSearchCardPnlMain.ParamsTypes
+
+class function TkwEnBaseSearchCardPnlMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_BaseSearchCard.pnlMain';
+end;//TkwEnBaseSearchCardPnlMain.GetWordNameForRegister
 
 function TkwEnBaseSearchCardHfBaseSearch.hfBaseSearch(const aCtx: TtfwContext;
  aen_BaseSearchCard: Ten_BaseSearchCard): TnscHideField;
@@ -439,11 +440,6 @@ begin
  aCtx.rEngine.PushObj(hfBaseSearch(aCtx, l_aen_BaseSearchCard));
 end;//TkwEnBaseSearchCardHfBaseSearch.DoDoIt
 
-class function TkwEnBaseSearchCardHfBaseSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_BaseSearchCard.hfBaseSearch';
-end;//TkwEnBaseSearchCardHfBaseSearch.GetWordNameForRegister
-
 procedure TkwEnBaseSearchCardHfBaseSearch.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -464,6 +460,11 @@ function TkwEnBaseSearchCardHfBaseSearch.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_BaseSearchCard)]);
 end;//TkwEnBaseSearchCardHfBaseSearch.ParamsTypes
+
+class function TkwEnBaseSearchCardHfBaseSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_BaseSearchCard.hfBaseSearch';
+end;//TkwEnBaseSearchCardHfBaseSearch.GetWordNameForRegister
 
 function TkwEnBaseSearchCardLrBaseSearch.lrBaseSearch(const aCtx: TtfwContext;
  aen_BaseSearchCard: Ten_BaseSearchCard): TnscLister;
@@ -487,11 +488,6 @@ begin
  aCtx.rEngine.PushObj(lrBaseSearch(aCtx, l_aen_BaseSearchCard));
 end;//TkwEnBaseSearchCardLrBaseSearch.DoDoIt
 
-class function TkwEnBaseSearchCardLrBaseSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_BaseSearchCard.lrBaseSearch';
-end;//TkwEnBaseSearchCardLrBaseSearch.GetWordNameForRegister
-
 procedure TkwEnBaseSearchCardLrBaseSearch.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -512,6 +508,11 @@ function TkwEnBaseSearchCardLrBaseSearch.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_BaseSearchCard)]);
 end;//TkwEnBaseSearchCardLrBaseSearch.ParamsTypes
+
+class function TkwEnBaseSearchCardLrBaseSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_BaseSearchCard.lrBaseSearch';
+end;//TkwEnBaseSearchCardLrBaseSearch.GetWordNameForRegister
 
 function TkwEnBaseSearchCardCardTextLabel.CardTextLabel(const aCtx: TtfwContext;
  aen_BaseSearchCard: Ten_BaseSearchCard): TnscSimpleEditor;
@@ -535,11 +536,6 @@ begin
  aCtx.rEngine.PushObj(CardTextLabel(aCtx, l_aen_BaseSearchCard));
 end;//TkwEnBaseSearchCardCardTextLabel.DoDoIt
 
-class function TkwEnBaseSearchCardCardTextLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_BaseSearchCard.CardTextLabel';
-end;//TkwEnBaseSearchCardCardTextLabel.GetWordNameForRegister
-
 procedure TkwEnBaseSearchCardCardTextLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -560,6 +556,11 @@ function TkwEnBaseSearchCardCardTextLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_BaseSearchCard)]);
 end;//TkwEnBaseSearchCardCardTextLabel.ParamsTypes
+
+class function TkwEnBaseSearchCardCardTextLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_BaseSearchCard.CardTextLabel';
+end;//TkwEnBaseSearchCardCardTextLabel.GetWordNameForRegister
 
 initialization
  Tkw_Form_BaseSearchCard.RegisterInEngine;

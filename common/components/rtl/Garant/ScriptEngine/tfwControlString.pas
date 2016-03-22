@@ -1,55 +1,43 @@
 unit tfwControlString;
+ {* Слово для регистрации контрола и его класса }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Модуль: "tfwControlString.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::VCL bindings::TtfwControlString
-//
-// Слово для регистрации контрола и его класса
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwControlString.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TtfwControlString" MUID: (508527F30183)
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwString
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwString
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwControlString = {abstract} class(TtfwString)
   {* Слово для регистрации контрола и его класса }
- public
- // public methods
+  public
    class procedure Register(const aName: AnsiString;
-     aClass: TClass);
+    aClass: TClass);
  end;//TtfwControlString
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base,
-  l3Except,
-  tfwClassRef,
-  SysUtils,
-  StrUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwControlString
+ l3ImplUses
+ , l3Base
+ , l3Except
+ , tfwClassRef
+ , SysUtils
+ , StrUtils
+;
 
 class procedure TtfwControlString.Register(const aName: AnsiString;
-  aClass: TClass);
+ aClass: TClass);
 //#UC START# *508528490090_508527F30183_var*
 //#UC END# *508528490090_508527F30183_var*
 begin
@@ -59,12 +47,9 @@ begin
 //#UC END# *508528490090_508527F30183_impl*
 end;//TtfwControlString.Register
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwControlString
  TtfwControlString.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwControlString }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

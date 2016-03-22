@@ -3,6 +3,7 @@ unit evCursorConst;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCursorConst.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evCursorConst" MUID: (4A38ED8203CD)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

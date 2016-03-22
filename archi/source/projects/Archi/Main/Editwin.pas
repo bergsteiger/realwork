@@ -1,6 +1,6 @@
 unit Editwin;
 
-{ $Id: Editwin.pas,v 1.175 2015/10/06 13:54:29 voba Exp $ }
+{ $Id: Editwin.pas,v 1.182 2016/03/15 12:40:08 lukyanets Exp $ }
 
 {$I arDefine.inc}
 
@@ -1059,6 +1059,8 @@ uses
  StrUtils,
  ObjExpl,
 
+ daInterfaces,
+
  ResShop,
  StrShop,
  IniShop,
@@ -1068,6 +1070,8 @@ uses
  ObjExWin,
  ObjList,
  InsDWin,
+
+ ddClientBaseEngine,
 
  evCommonRes,
 
@@ -1186,6 +1190,7 @@ uses
 
  daDataProvider,
  daTypes,
+ daSchemeConsts,
 
  Dt_ATbl,
  Dt_Active,
@@ -2973,19 +2978,18 @@ begin
    CheckForCourtCase;
   }
 
-  // если был закрыт этап "Начальная юробработка", то проверить на принадлежность
-   // к изменяющим документам и проставить нужный usertype (K 77758589)
-   l_StagesTool := (Document.AttrManager.GetDocAttribute(atStages) as IStageDocAttributeTool);
-   if (not f_IsJurStageClosed) and (l_StagesTool.CheckStageClosed(stUrObr)) then
-    if GetIZMChecker.CheckoutForIZM(Document.DocID) then
-     cbUserType.ItemIndex := Integer(utIZM);
-
   try
    SaveDocParam; //перекладываем параметры шапки из контролов в EVD
 
+    // если был закрыт этап "Начальная юробработка", то проверить на принадлежность
+   // к изменяющим документам и проставить нужный usertype (K 77758589)
+   l_StagesTool := (Document.AttrManager.GetDocAttribute(atStages) as IStageDocAttributeTool);
+   if (not f_IsJurStageClosed) and (l_StagesTool.CheckStageClosed(stUrObr)) then
+    if GetIZMChecker.CheckoutForIZM(Document) then
+     cbUserType.ItemIndex := Integer(utIZM);
+
    if aFullSave and not l3System.Keyboard.Key[VK_SHIFT].Down then //для отладки проблем с пользовательскими номерами
     CheckRequiredFields;
-
 
    if aFullSave and Document.HasSpravka and
       not Document.IsPossibleSpr and
@@ -4632,9 +4636,10 @@ end;
 
 procedure TDocEditorWindow.SetUserDocID(aUserDocID: Integer);
 begin
+ if (Document.UserDocID = aUserDocID) then Exit;
+
  Document.UserDocID := aUserDocID;
- //then
- // Document.AddLog(acAttrWork);
+ Document.AddLog(acAttrWork);
 
  edtDocID.AsInteger := aUserDocID;
  edtDocID.Tag := 0;
@@ -4677,7 +4682,8 @@ var
  lCurCtrl : TvtSpinEdit;
 begin
  if (TComponent(Sender).Tag = 1) then
-  if (edtDocID.AsInteger <= 0) then
+  if (edtDocID.AsInteger <= 0) or
+     (Document.UserDocID <> edtDocID.AsInteger) and (Document.UserDocID <> 0) and (vtMessageDlg(l3CStr(@sidChangeDocIDAsk), mtWarning, [mbYes, mbNo]) <> mrYes) then
   begin
    edtDocID.AsInteger := Document.UserDocID;
    TComponent(Sender).Tag := 0;
@@ -4716,7 +4722,8 @@ var
 begin
  if (TComponent(Sender).Tag = 1) then
  begin
-  if (edtSprDocID.AsInteger <= 0) then
+  if (edtSprDocID.AsInteger <= 0) or
+     (Document.Spravka <> nil) and (Document.Spravka.UserDocID <> edtSprDocID.AsInteger) and (Document.Spravka.UserDocID <> 0) and (vtMessageDlg(l3CStr(@sidChangeDocIDAsk), mtWarning, [mbYes, mbNo]) <> mrYes) then
    RevertSprNumber
   else
   begin
@@ -6985,6 +6992,7 @@ var
  lHandleSub : TSubID;
  lNewDocID, lNewDocRealID : TDocID;
  lNewSubID : TSubID;
+ lCount : cardinal;
 
 begin
   lNewDocID := cUndefDocID;
@@ -7023,7 +7031,7 @@ begin
      if lSubList.Count = 0 then
       Exit;
 
-     CurDocument.DocServer.ChangeDestDoc(DocID, lNewDocRealID, lNewSubID, lSubList);
+     lCount := CurDocument.DocServer.ChangeDestDoc(DocID, lNewDocRealID, lNewSubID, lSubList);
     finally
      l3Free(lSubList);
     end;
@@ -7032,15 +7040,18 @@ begin
    if fSelectedSubList <> nil then
    begin
     if fSelectedSubList.Count > 0 then
-     CurDocument.DocServer.ChangeDestDoc(DocID, lNewDocRealID, lNewSubID, fSelectedSubList, Document.CorespondentsList.CurSab);
+     lCount := CurDocument.DocServer.ChangeDestDoc(DocID, lNewDocRealID, lNewSubID, fSelectedSubList, Document.CorespondentsList.CurSab);
    end
    else
-    CurDocument.DocServer.ChangeDestDoc(DocID, lNewDocRealID, lNewSubID, nil, Document.CorespondentsList.CurSab);
+    lCount := CurDocument.DocServer.ChangeDestDoc(DocID, lNewDocRealID, lNewSubID, nil, Document.CorespondentsList.CurSab);
   finally
    Screen.Cursor := crDefault;
   end;
 
-  vtMessageDlg(l3Fmt(sidProcessDoneFmt, ['замены ссылок']), mtInformation);
+  if lCount > 0 then
+   vtMessageDlg(l3Fmt(sidProcessDoneFmt, ['замены ссылок']), mtInformation)
+  else
+   vtMessageDlg(l3CStr(sidNoSuchRef), mtInformation);
 end;
 
 procedure TDocEditorWindow.cbCorSourcesChange(Sender: TObject);
@@ -8348,7 +8359,7 @@ begin
  evSetTextParaLimit(FullNameMEdit.TextSource, 1);
  {$IFNDEF InsiderTest}
  UserConfig.Section := 'PREFERENCES';
- acToolsAutolink.Visible := UserConfig.ReadParamBoolDef(sEnableAutolinkParam, False);
+ acToolsAutolink.Visible := UserConfig.ReadParamBoolDef(sEnableAutolinkParam, False) and (bfAutoLink in g_BaseEngine.BaseFlags);
  {$ENDIF InsiderTest}
  f_CanStylizeBlocks := True; //UserConfig.ReadParamBoolDef(sCanStylizeBlocks, False);
 end;

@@ -460,8 +460,8 @@ var
 begin
 //#UC START# *55A4F6E1037D_47B97312006D_impl*
  Assert((g_Dispatcher.History = nil) OR
-        not g_Dispatcher.History.InBF, 'Iaeucy nicaaaaou nai?ee i?e iaaeaaoee ii enoi?ee');
-// Assert(not g_InMake, 'Iaeucy nicaaaaou aei?aiiua nai?ee');
+        not g_Dispatcher.History.InBF, 'Нельзя создавать сборки при навигации по истории');
+// Assert(not g_InMake, 'Нельзя создавать вложенные сборки');
 // g_InMake := true;
  try
   l_Factory := GetInstance As TvcmFormSetFactory;

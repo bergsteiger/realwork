@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtForm;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtForm.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vtForm" MUID: (4F0C23870303)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -2,6 +2,7 @@ unit ncsTaskSendExecutorFactory;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsTaskSendExecutorFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsTaskSendExecutorFactory" MUID: (5481B39101AF)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

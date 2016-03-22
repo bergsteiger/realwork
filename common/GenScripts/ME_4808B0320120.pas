@@ -2,6 +2,7 @@ unit atSleepOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSleepOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatSleepOperation" MUID: (4808B0320120)
 
 interface
 

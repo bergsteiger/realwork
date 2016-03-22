@@ -2,6 +2,7 @@ unit arResultDeliveryInterfaces;
 
 // Модуль: "w:\archi\source\projects\Archi\Processing\arResultDeliveryInterfaces.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "arResultDeliveryInterfaces" MUID: (549A9AB80233)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

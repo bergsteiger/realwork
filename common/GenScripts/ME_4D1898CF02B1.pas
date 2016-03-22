@@ -2,6 +2,7 @@ unit PreviewWithLinesTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\PreviewWithLinesTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TPreviewWithLinesTest" MUID: (4D1898CF02B1)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

@@ -2,6 +2,7 @@ unit vtColorBox;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtColorBox.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtColorBox" MUID: (5270BBC702C7)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

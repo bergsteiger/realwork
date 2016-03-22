@@ -3,6 +3,7 @@ unit PrimSettings_cutSettings_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimSettings_cutSettings_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "cutSettings" MUID: (4C6D0A3801F3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_cutSettings = {final} class(TtfwInteger)
   {* Слово словаря для типа формы cutSettings }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_cutSettings
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_cutSettings.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::cutSettings';
-end;//Tkw_FormUserType_cutSettings.GetWordNameForRegister
-
 function Tkw_FormUserType_cutSettings.GetInteger: Integer;
 begin
  Result := cutSettings;
 end;//Tkw_FormUserType_cutSettings.GetInteger
+
+class function Tkw_FormUserType_cutSettings.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::cutSettings';
+end;//Tkw_FormUserType_cutSettings.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

@@ -2,6 +2,7 @@ unit alcuDetachedExecutor;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuDetachedExecutor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuDetachedExecutor" MUID: (54BE24CC00D4)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

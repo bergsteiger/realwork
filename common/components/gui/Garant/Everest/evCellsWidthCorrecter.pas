@@ -571,7 +571,7 @@ procedure TevCellsWidthCorrecter.CheckRowsWithSingleCell;
 begin
 //#UC START# *4FA530670256_4F2B767D015E_impl*
  if f_RowsWithSingleCell <> nil then
-  f_RowsWithSingleCell.IterateAll(l3L2IA(@lp_CheckItem));
+  f_RowsWithSingleCell.IterateAllF(l3L2IA(@lp_CheckItem));
 //#UC END# *4FA530670256_4F2B767D015E_impl*
 end;//TevCellsWidthCorrecter.CheckRowsWithSingleCell
 

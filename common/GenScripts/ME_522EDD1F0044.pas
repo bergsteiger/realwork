@@ -3,6 +3,7 @@ unit NOT_FINISHED_evFontInterface;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evFontInterface.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevFontInterface" MUID: (522EDD1F0044)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

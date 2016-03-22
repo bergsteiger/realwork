@@ -7,6 +7,8 @@ MainForm:FormClose
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwMainFormFormClose.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "MainForm_FormClose" MUID: (53EB19070285)
+// Имя типа: "TkwMainFormFormClose"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

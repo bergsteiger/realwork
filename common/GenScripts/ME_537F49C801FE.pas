@@ -2,6 +2,7 @@ unit CsCommon;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\CsCommon.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "CsCommon" MUID: (537F49C801FE)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

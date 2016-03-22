@@ -2,6 +2,7 @@ unit tfwParserInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwParserInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "tfwParserInterfaces" MUID: (52EF72190220)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

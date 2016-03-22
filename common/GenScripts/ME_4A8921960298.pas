@@ -3,6 +3,8 @@ unit List_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\List_Form.pas"
 // Стереотип: "VCMFinalContainer"
+// Элемент модели: "List" MUID: (4A8921960298)
+// Имя типа: "TefList"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -31,6 +31,30 @@ namespace ContextSearch {
 //#UC START# *53567E4D0007*
 static const std::string str_SET = "SET";
 
+Synonymizer::ExprType Synonymizer::get_expr_type (
+	std::string::const_iterator beg, std::string::const_iterator end
+) {
+	size_t sz = std::distance (beg, end);
+
+	bool is_digit = (*beg >= '0' && *beg <= '9');
+
+	if (sz == 0) {
+		GDS_ASSERT (0);
+	} else if (sz == 1) {
+		return (is_digit)? et_Digit : et_Simple;
+	} else if (sz > 2 && sz < 5 && *(beg + 1) == ':') {
+		return et_Colon;
+	} else if (is_digit && std::find_if (beg, end, !boost::is_digit ()) == end) {
+		return et_Digit;
+	} else if (sz > 2 && std::find_if (beg, end, boost::is_any_of ("^|")) != end) {
+		return et_Bool;
+	} else if (sz > 5 && *beg == 'S') {
+		return et_Set;
+	}
+
+	return et_None;
+}
+
 bool Synonymizer::check (
 	std::string& out
 	, std::string::const_iterator i_beg
@@ -70,11 +94,34 @@ bool Synonymizer::check (
 	return true;
 }
 
+bool Synonymizer::check_set (
+	std::string& str
+	, std::string& span
+	, std::string::const_iterator s_beg
+	, std::string::const_iterator s_end
+	, bool strong
+) {
+	std::string::const_iterator f_it, l_it;
+	f_it = std::search (s_beg, s_end, str_SET.begin (), str_SET.end ());
+
+	if (f_it != s_end) {
+		f_it = std::find (f_it, s_end, '(');
+		l_it = std::find (f_it, s_end, ')');
+
+		if (f_it != s_end && l_it != s_end) {
+			return Synonymizer::is_exist (str, span, f_it + 1, l_it, strong);
+		}
+	}
+
+	return false;
+}
+
 bool Synonymizer::is_exist (
 	std::string& str
 	, std::string& span
 	, std::string::const_iterator s_beg
 	, std::string::const_iterator s_end
+	, bool strong
 ) {
 	using namespace boost::xpressive;
 
@@ -84,7 +131,11 @@ bool Synonymizer::is_exist (
 	for (; cur != end; ++cur) {
 		const std::string& val = *cur;
 
-		if (val.size () <= str.size ()) {
+		if (strong) {
+			if (val == str) {
+				return true;
+			}
+		} else if (val.size () <= str.size ()) {
 			if (val.compare (0, val.size (), str, 0, val.size ()) == 0) {
 				span = val;
 				str.erase (str.begin (), str.begin () + span.size ());
@@ -96,110 +147,101 @@ bool Synonymizer::is_exist (
 	return false;
 }
 
-bool Synonymizer::is_exist (
-	const std::string& str
-	, std::string::const_iterator s_beg
-	, std::string::const_iterator s_end
-) {
-	using namespace boost::xpressive;
+bool Synonymizer::check_simple (std::string& str, std::string& span, char attr, bool strong) {
+	if (strong) {
+		return this->check (str, attr);
+	} else {
+		std::string::iterator it;
 
-	sregex re = +~(set = ',');
-	sregex_token_iterator cur (s_beg, s_end, re), end;
+		if (attr == 'X') {
+			it = std::find_if (str.begin (), str.end (), !boost::is_digit ());
+		} else if (attr == 'W') {
+			it = std::find_if (str.begin (), str.end (),  boost::is_digit ());
+		} else {
+			it = str.end (); // неизвестно где граница
+		}
 
-	for (; cur != end; ++cur) {
-		const std::string& val = *cur;
+		if (it != str.begin ()) {
+			span.assign (str.begin (), it);
 
-		if (val == str) {
-			return true;
+			if (attr == 'X' || attr == 'W' || attr == 'Z' || this->check (span, attr)) {
+				str.erase (str.begin (), it);
+				return true;
+			}
 		}
 	}
 
 	return false;
 }
 
-bool Synonymizer::check (const std::string& str, char attr) {
-	switch (attr) {
-		case 'X':
-			return (std::find_if (str.begin (), str.end (), !boost::is_digit ()) == str.end ());
-		case 'W':
-			return (std::find_if (str.begin (), str.end (),  boost::is_digit ()) == str.end ());
-		case 'V':
-			return this->check (str, 1, 6);
-		case 'N':
-			return this->check (str, 7, 24);
-		case 'A':
-			return this->check (str, 25, 26);
-		case 'P':
-			return this->check (str, 27, 32);
-		case 'D':
-			return this->check (str, 33, 36);
-		case 'I':
-			return this->check (str, 37, 42);
-		case 'G':
-			return this->check (str, 43, 47);
-		case 'U':
-			return this->check (str, 48, 54);
-		case 'S':
-			return this->check (str, 59, 60);
-		case 'Z':
-			return true;
-	}
-
-	return false;
-}
-
-bool Synonymizer::check (
-	const std::string& str
+bool Synonymizer::check_bool (
+	std::string& str
+	, std::string& span
 	, std::string::const_iterator beg
 	, std::string::const_iterator end
+	, bool strong
 ) {
-	if (str.empty ()) {
-		return false;
-	}
+	GDS_ASSERT (beg != end);
 
-	size_t sz = std::distance (beg, end);
+	bool ret = false;
 
-	GDS_ASSERT (sz);
+	char op = '|';
 
-	if (sz == 1 && this->check (str, *beg)) {
-		return true;
-	}
-	
-	if (sz > 2) {
-		if (std::find (beg, end, '|') != end) {
-			using namespace boost::xpressive;
+	for (std::string::const_iterator it = beg, it_end = beg; ; ++it_end) {
+		it_end = std::find_if (it = it_end, end, boost::is_any_of ("^|"));
 
-			sregex re = +~(set = '|');
-			sregex_token_iterator cur (beg, end, re), _end;
+		if (op == '|') {
+			if (ret == false) {
+				ret = this->check (str, span, it, it_end, strong);
 
-			for (; cur != _end; ++cur) {
-				const std::string& val = *cur;
-
-				if (this->check (str, val.begin (), val.end ())) {
-					return true;
+				if (ret && strong) {
+					span = str;
 				}
+			}
+		} else if (op == '^') {
+			if (ret == false || this->check (span, span, it, it_end, true)) {
+				return false;
 			}
 		} else {
-			if (sz < 5 && *(beg + 1) == ':') {
-				size_t len = boost::lexical_cast <size_t> (std::string (beg + 2, end));
-				return (len == str.size () && this->check (str, *beg));
-			}
-
-			std::string::const_iterator f_it, l_it;
-			f_it = std::search (beg, end, str_SET.begin (), str_SET.end ());
-
-			if (f_it != end) {
-				f_it = std::find (f_it, end, '(');
-				l_it = std::find (f_it, end, ')');
-
-				if (f_it != end && l_it != end) {
-					return Synonymizer::is_exist (str, f_it + 1, l_it);
-				}
-			}
+			GDS_ASSERT (0); // неизвестна€ операци€
 		}
-	} else if (std::find_if (beg, end, !boost::is_digit ()) == end) {
-		unsigned short val = boost::lexical_cast <unsigned short> (std::string (beg, end));
-		return this->check (str, (unsigned char) (val & 0xFF), (unsigned char) (val & 0xFF));
+
+		if (it_end == end) {
+			break;
+		} 
+
+		op = *it_end;
+	}
+
+	return ret;
+}
+
+bool Synonymizer::check_len (
+   std::string& str
+   , std::string& span
+   , std::string::const_iterator beg
+   , std::string::const_iterator end
+   , bool strong
+) {
+	GDS_ASSERT (beg != end);
+
+	size_t len = boost::lexical_cast <size_t> (std::string (beg + 2, end));
+
+	if (strong) {
+		return (len == str.size () && this->check (str, *beg));
+	} else if (len <= str.size ()) {
+		std::string::iterator it = std::find_if (str.begin (), str.end (), !boost::is_digit ());
+
+		if (it == str.end ()) {
+			span = str.substr (0, len);
+		} else {
+			span.assign (str.begin (), it);
+		}
+
+		if (len == span.size () && this->check (span, *beg)) {
+			str = str.substr (len);
+			return true;
+		}
 	}
 
 	return false;
@@ -210,73 +252,31 @@ bool Synonymizer::check (
 	, std::string& span
 	, std::string::const_iterator beg
 	, std::string::const_iterator end
+	, bool strong
 ) {
 	if (str.empty ()) {
 		return false;
 	}
 
-	size_t sz = std::distance (beg, end);
+	switch (Synonymizer::get_expr_type (beg, end)) {
+		case et_Simple:
+			return this->check_simple (str, span, *beg, strong);
+		case et_Colon:
+			return this->check_len (str, span, beg, end, strong);
+		case et_Bool:
+			return this->check_bool (str, span, beg, end, strong);
+		case et_Set:
+			return Synonymizer::check_set (str, span, beg, end, strong);
+		case et_Digit:
+			{
+				unsigned short val = boost::lexical_cast <unsigned short> (std::string (beg, end));
 
-	GDS_ASSERT (sz);
-
-	if (sz == 1) {
-		std::string::iterator it;
-
-		char attr = *beg;
-
-		if (attr == 'Z') {
-			it = str.end (); // неизвестно где граница
-		} else if (attr == 'X') {
-			it = std::find_if (str.begin (), str.end (), !boost::is_digit ());
-		} else {
-			it = std::find_if (str.begin (), str.end (),  boost::is_digit ());
-		}
-
-		if (it != str.begin ()) {
-			span.assign (str.begin (), it);
-			str.erase (str.begin (), it);
-
-			if (attr == 'X' || attr == 'W' || attr == 'Z') {
-				return true;
-			} else {
-				return this->check (span, attr);
-			}
-		}
-	}
-	
-	if (sz > 2) {
-		if (sz < 5 && *(beg + 1) == ':') {
-			size_t len = boost::lexical_cast <size_t> (std::string (beg + 2, end));
-
-			if (len <= str.size ()) {
-				span = str.substr (0, len);
-
-				if (this->check (span, *beg)) {
-					str = str.substr (len);
+				if (this->check (str, (unsigned char) (val & 0xFF), (unsigned char) (val & 0xFF))) {
+					span = str;
 					return true;
-				} 
-			}
-		} else {
-			std::string::const_iterator f_it, l_it;
-			f_it = std::search (beg, end, str_SET.begin (), str_SET.end ());
-
-			if (f_it != end) {
-				f_it = std::find (f_it, end, '(');
-				l_it = std::find (f_it, end, ')');
-
-				if (f_it != end && l_it != end) {
-					return Synonymizer::is_exist (str, span, f_it + 1, l_it);
 				}
 			}
-		}
-	} else if (std::find_if (beg, end, !boost::is_digit ()) == end) {
-		unsigned short val = boost::lexical_cast <unsigned short> (std::string (beg, end));
-
-		if (this->check (str, (unsigned char) (val & 0xFF), (unsigned char) (val & 0xFF))) {
-			span = str;
-			return true;
-		}
-	} 
+	}
 
 	return false;
 }
@@ -325,23 +325,6 @@ void Synonymizer::transform (std::string& str, EnvMap& env) {
 	sregex re = '[' >> (s1 = +_d) >> ']';
 	str = regex_replace (str, re, boost::xpressive::ref (env) [s1]);
 	//#UC END# *5369E19C0156*
-}
-
-// возвратить список синонимичных замен дл€ шаблона
-Search::Phrase* Synonymizer::get_for_template (const Search::Phrase& values, const Search::Phrase& data) {
-	//#UC START# *536B5A6E0008*
-	GDS_ASSERT (values.empty () == false);
-
-	EnvMap env;
-
-	for (size_t i = 0; i < values.size (); ++i) {
-		env [boost::lexical_cast <std::string> (i + 1)] = values [i];
-	}
-
-	Core::Aptr <Search::Phrase> ret = new Search::Phrase (data);
-	std::for_each (ret->begin (), ret->end (), boost::bind (&Synonymizer::transform, _1, env));
-	return ret._retn ();
-	//#UC END# *536B5A6E0008*
 }
 
 // разделение буквоцифр
@@ -482,6 +465,40 @@ bool Synonymizer::check (const std::string& str, unsigned char x, unsigned char 
 	//#UC END# *535FE04F02B3*
 }
 
+// проверка на соответствие стереотипу
+bool Synonymizer::check (const std::string& str, char attr) {
+	//#UC START# *56A0DA8502F7*
+	switch (attr) {
+		case 'X':
+			return (std::find_if (str.begin (), str.end (), !boost::is_digit ()) == str.end ());
+		case 'W':
+			return (std::find_if (str.begin (), str.end (),  boost::is_digit ()) == str.end ());
+		case 'V':
+			return this->check (str, 1, 6);
+		case 'N':
+			return this->check (str, 7, 24);
+		case 'A':
+			return this->check (str, 25, 26);
+		case 'P':
+			return this->check (str, 27, 32);
+		case 'D':
+			return this->check (str, 33, 36);
+		case 'I':
+			return this->check (str, 37, 42);
+		case 'G':
+			return this->check (str, 43, 47);
+		case 'U':
+			return this->check (str, 48, 54);
+		case 'S':
+			return this->check (str, 59, 60);
+		case 'Z':
+			return true;
+	}
+
+	return false;
+	//#UC END# *56A0DA8502F7*
+}
+
 // поиск синонимичного вхождени€ удовлетвор€ющего шаблону
 bool Synonymizer::find_template (
 	const std::string& str
@@ -604,13 +621,35 @@ Search::Phrase* Synonymizer::get (const std::string& str, size_t& offset) {
 	//#UC END# *5370F5E20174*
 }
 
+// возвратить список синонимичных замен дл€ шаблона
+Search::Phrase* Synonymizer::get_for_template (const Search::Phrase& values, const Search::Phrase& data) {
+	//#UC START# *536B5A6E0008*
+	GDS_ASSERT (values.empty () == false);
+
+	EnvMap env;
+
+	for (size_t i = 0; i < values.size (); ++i) {
+		env [boost::lexical_cast <std::string> (i + 1)] = values [i];
+	}
+
+	Core::Aptr <Search::Phrase> ret = new Search::Phrase ();
+
+	for (Search::Phrase::const_iterator it = data.begin (); it != data.end (); ++it) {
+		std::string copy_str = *it;
+		Synonymizer::transform (copy_str, env);
+		Core::Aptr <Search::Phrase> res = m_normalizer->execute_for_phrase (copy_str);
+		ret->insert (ret->end (), res->begin (), res->end ());
+	}
+
+	return ret._retn ();
+	//#UC END# *536B5A6E0008*
+}
+
 // проверка на шаблон
 bool Synonymizer::is_template (const std::string& str, const std::string& syn, Pattern& out) {
 	//#UC START# *535FA333010A*
 	out.len = 0;
 	out.values.clear ();
-
-	TemplateType type;
 
 	std::string::const_iterator str_it_, str_it = str.begin ();
 	std::string::const_iterator syn_it_, syn_it = syn.begin ();
@@ -637,59 +676,46 @@ bool Synonymizer::is_template (const std::string& str, const std::string& syn, P
 
 		size_t count = std::count (syn_it_, syn_it, '<');
 
-		if (count == 0) {
-			type = tt_None;
-		} else if (count == 1 && *syn_it_ == '<' && *(syn_it - 1) == '>') {
-			type = tt_Simple;
-		} else {
-			type = tt_Complex;
-		}
+		std::string str_val, val;
 
-		if (type == tt_Simple) {
-			std::string str_val (str_it_, str_it);
+		if (count == 0) { // no expression
+			if (std::distance (str_it_, str_it) != std::distance (syn_it_, syn_it)) {
+				return false;
+			}
+			if (std::equal (str_it_, str_it, syn_it_) == false) {
+				return false;
+			}
+		} else if (count == 1 && *syn_it_ == '<' && *(syn_it - 1) == '>') { // simple
+			str_val.assign (str_it_, str_it);
 
-			if (this->check (str_val, syn_it_ + 1, syn_it - 1)) {
+			if (this->check (str_val, val, syn_it_ + 1, syn_it - 1, true)) {
 				out.values.push_back (str_val);
 			} else {
 				return false;
 			}
-		} else if (type == tt_Complex) {
-			std::string str_val, val;
+		} else if (Synonymizer::check (str_val, str_it_, str_it, syn_it_, syn_it)) { // complex
+			for (std::string::const_iterator it = syn_it_, l_it = it; it != syn_it;) {
+				it = std::find (l_it, syn_it, '<');
 
-			if (Synonymizer::check (str_val, str_it_, str_it, syn_it_, syn_it)) {
-				std::string::const_iterator it = syn_it_, l_it = it;
+				if (it != syn_it) {
+					l_it = std::find (it + 1, syn_it, '>');
 
-				for (; it != syn_it;) {
-					it = std::find (l_it, syn_it, '<');
-
-					if (it != syn_it) {
-						l_it = std::find (it + 1, syn_it, '>');
-
-						if (l_it != syn_it) {
-							if (this->check (str_val, val, it + 1, l_it)) {
-								out.values.push_back (val);
-							} else {
-								return false;
-							}
-							++l_it;
+					if (l_it != syn_it) {
+						if (this->check (str_val, val, it + 1, l_it, false)) {
+							out.values.push_back (val);
+						} else {
+							return false;
 						}
+						++l_it;
 					}
 				}
-
-				if (str_val.empty () == false) {
-					return false;
-				}
-			} else {
-				return false;
-			}
-		} else if (type == tt_None) {
-			if (std::distance (str_it_, str_it) != std::distance (syn_it_, syn_it)) {
-				return false;
 			}
 
-			if (std::equal (str_it_, str_it, syn_it_) == false) {
+			if (str_val.empty () == false) {
 				return false;
 			}
+		} else {
+			return false;
 		}
 
 		if (syn_it == syn.end ()) {

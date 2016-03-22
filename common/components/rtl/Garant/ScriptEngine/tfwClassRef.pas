@@ -2,6 +2,7 @@ unit tfwClassRef;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwClassRef.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwClassRef" MUID: (508528D10384)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

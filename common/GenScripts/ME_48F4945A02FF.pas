@@ -3,6 +3,7 @@ unit evStringStorable;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evStringStorable.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevStringStorable" MUID: (48F4945A02FF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

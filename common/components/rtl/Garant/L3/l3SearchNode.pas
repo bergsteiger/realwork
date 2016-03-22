@@ -2,6 +2,7 @@ unit l3SearchNode;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3SearchNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3SearchNode" MUID: (4E5CDF9303B7)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

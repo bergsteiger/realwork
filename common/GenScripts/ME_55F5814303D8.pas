@@ -2,6 +2,7 @@ unit vcmControlList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmControlList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmControlList" MUID: (55F5814303D8)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

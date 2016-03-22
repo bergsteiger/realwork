@@ -3,6 +3,7 @@ unit sdsAAC;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\sdsAAC.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsAAC" MUID: (4FF2E6B003C4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -155,6 +156,7 @@ type
    {$If NOT Defined(NoVCM)}
    function GetDataForClone: _InitDataType_; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
  end;//TsdsAAC
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -694,5 +696,13 @@ begin
 end;//TsdsAAC.GetDataForClone
 {$IfEnd} // NOT Defined(NoVCM)
 
+procedure TsdsAAC.ClearFields;
+begin
+ f_Container := nil;
+ f_Left := nil;
+ f_Right := nil;
+ inherited;
+end;//TsdsAAC.ClearFields
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 end.

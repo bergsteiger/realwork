@@ -2,6 +2,7 @@ unit m3TOCHandle;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3TOCHandle.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3TOCHandle" MUID: (54219331013F)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

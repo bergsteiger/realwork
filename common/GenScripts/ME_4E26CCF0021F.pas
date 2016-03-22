@@ -3,6 +3,7 @@ unit evContentsNodeFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evContentsNodeFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevContentsNodeFactory" MUID: (4E26CCF0021F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

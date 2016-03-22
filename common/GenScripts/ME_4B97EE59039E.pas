@@ -3,6 +3,7 @@ unit nscCustomTreeComboWithHistoryRes;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscCustomTreeComboWithHistoryRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nscCustomTreeComboWithHistoryRes" MUID: (4B97EE59039E)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

@@ -3,6 +3,7 @@ unit k2TypeModelPart;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TypeModelPart.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2TypeModelPart" MUID: (4BC46A770394)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

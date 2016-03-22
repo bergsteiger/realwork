@@ -2,6 +2,7 @@ unit NOT_FINISHED_F_DocList;
 
 // Модуль: "w:\archi\source\projects\Archi\Frames\NOT_FINISHED_F_DocList.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "F_DocList" MUID: (4F8D739701F7)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

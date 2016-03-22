@@ -2,6 +2,7 @@ unit ChromeLikeBaseVisualObjectPrim;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseVisualObjectPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TChromeLikeBaseVisualObjectPrim" MUID: (5506A3B0036E)
 
 interface
 

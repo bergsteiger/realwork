@@ -3,6 +3,7 @@ unit l3SimpleTree;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3SimpleTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3SimpleTree" MUID: (48724DAD02E0)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

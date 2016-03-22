@@ -293,7 +293,7 @@ static void filter_string_stream(stream_st *pdstr, stream_st *psstr, set_st *pma
 	p = psstr->data;
 	length = psstr->ref.size;
 	for( ;length; length -= slen) {
-		slen = strlen(p) + 1;
+		slen = (u_int32_t)(0x7fffffff & (strlen(p) + 1));
 		item.key = p;
 		pitem = (hkey_item *)bsearch(&item, pmap->set, pmap->count, pmap->reclen, hkeyitemstrcmp);
 		if ( pitem ) {

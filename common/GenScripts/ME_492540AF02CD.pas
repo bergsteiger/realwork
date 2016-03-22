@@ -3,6 +3,7 @@ unit CommonDictionInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\CommonDictionInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "CommonDictionInterfaces" MUID: (492540AF02CD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

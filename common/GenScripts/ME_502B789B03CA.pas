@@ -3,6 +3,7 @@ unit evTextInTableCorrector;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTextInTableCorrector.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTextInTableCorrector" MUID: (502B789B03CA)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

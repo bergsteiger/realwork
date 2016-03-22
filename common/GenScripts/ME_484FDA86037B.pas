@@ -2,6 +2,7 @@ unit atSaveListToFolderOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSaveListToFolderOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatSaveListToFolderOperation" MUID: (484FDA86037B)
 
 interface
 

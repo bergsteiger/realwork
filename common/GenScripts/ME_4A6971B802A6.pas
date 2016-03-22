@@ -2,6 +2,8 @@ unit BaseChat_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\BaseChat_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "BaseChat" MUID: (4A6971B802A6)
+// Имя типа: "TBaseChatModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

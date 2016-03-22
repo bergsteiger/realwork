@@ -3,6 +3,7 @@ unit vcmProfilerInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmProfilerInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "vcmProfilerInterfaces" MUID: (499425E50365)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

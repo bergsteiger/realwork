@@ -3,6 +3,7 @@ unit NOT_FINISHED_bsUtils;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_bsUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "bsUtils" MUID: (47F21FE90379)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

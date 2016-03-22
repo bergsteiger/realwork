@@ -2,6 +2,7 @@ unit ddAnnoKindStatisticList;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\PipeOut\ddAnnoKindStatisticList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddAnnoKindStatisticList" MUID: (564C6BCB02EF)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

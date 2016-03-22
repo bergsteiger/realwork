@@ -3,6 +3,7 @@ unit nsInternetUtils;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nsInternetUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsInternetUtils" MUID: (49EEF16603C9)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -48,6 +49,7 @@ uses
  , l3Base
  , l3Types
  , SysUtils
+ , l3LongintList
 ;
 
 function nsIsGarantURL(const anURL: WideString): Boolean;
@@ -79,49 +81,139 @@ function nsParseLocalDocumentURL(const anURL: WideString;
  out SubID: Integer): Boolean;
  {* Разобрать локальную ссылку на документ }
 //#UC START# *4BEBC4090016_49EEF16603C9_var*
-var
- l_Pos: Integer;
- l_URL: Il3CString;
- l_InitedDoc: Boolean;
+type
+ TnsLocalDocumentURLKind = (ns_ukInvalid, ns_ukDocID, ns_ukDocIDWithSubID,
+  ns_ukDocIDWithPageNumber, ns_ukFull);
+const
+ //Общая регулярка
+ cBaseDocumentMask: String = 'https?\:\/\/(base.garant.ru)\/[0-9]+\/?([0-9]+)(\/)?(#(block_)?[0-9]+)$';
+ //Только номер документа
+ cDocIDOnlyMask: String = 'https?\:\/\/(base.garant.ru)\/[0-9]+\/?$';
+ //Номер документа с сабом
+ cDocIDWithSubIDMask: String = 'https?\:\/\/(base.garant.ru)\/[0-9]+\/(#(block_)?[0-9]+)$';
+ //Номер документа со страницей
+ cDocIDWithPageNumberMask: String = 'https?\:\/\/(base.garant.ru)\/[0-9]+\/[0-9]+\/?$';
+ //Номер документа со страницей и сабом:
+ cDocIDWithPageNumAndSubIDMask: String = 'https?\:\/\/(base.garant.ru)\/[0-9]+\/([0-9]+)(\/)(#(block_)?[0-9]+)$';
+ cSharpChar: String = '#';
+ cBlockMark: String = '#block_';
 
- function lp_Iterate(const aStr : Tl3PCharLen; IsLast: Bool): Bool;
- var
-  l_ID: Integer;
-  l_Str: String;
+ function lp_GetURLKind(const aStr: WideString): TnsLocalDocumentURLKind;
  begin
-  Result := True;
-  l_Str := l3Str(aStr);
-  if not l_InitedDoc then
-   if TryStrToInt(l_Str, l_ID) then
+  if l3CheckStrByPattern(cDocIDWithPageNumAndSubIDMask, l3PCharLen(anURL)) then
+   Result := ns_ukFull
+  else
+  if l3CheckStrByPattern(cDocIDWithSubIDMask, l3PCharLen(anURL)) then
+   Result := ns_ukDocIDWithSubID
+  else
+  if l3CheckStrByPattern(cDocIDWithPageNumberMask, l3PCharLen(anURL)) then
+   Result := ns_ukDocIDWithPageNumber
+  else
+  if l3CheckStrByPattern(cDocIDOnlyMask, l3PCharLen(anURL)) then
+   Result := ns_ukDocID
+  else
+   Result := ns_ukInvalid;
+ end;
+
+ function lp_TryParseInt(const aString: String;
+  const aAfterSubstrs: array of String; out aVal: Integer): Boolean;
+ var
+  l_Index: Integer;
+  l_SubStrPos: Integer;
+  l_SubStrEndPos: Integer;
+  l_IntStr: String;
+ begin
+  Result := False;
+  for l_Index := Low(aAfterSubstrs) to High(aAfterSubstrs) do
+  begin
+   l_SubStrPos := Pos(aAfterSubStrs[l_Index], aString);
+   Result := l_SubStrPos <> 0;
+   aVal := 0;
+   if Result then
    begin
-    DocID := l_ID;
-    l_InitedDoc := True;
+    l_SubStrEndPos := l_SubStrPos + Length(aAfterSubstrs[l_Index]);
+    l_IntStr := Copy(aString, l_SubStrEndPos,
+     (Length(aString) - l_SubStrEndPos) + 1);
+    Result := TryStrToInt(l_IntStr, aVal);
+    if Result then
+     Break;
    end;
-  if (Length(l_Str) > 1) and (l_Str[1] = '#') then
-   if TryStrToInt(Copy(l_Str, 2, Length(l_Str) - 1), l_ID) then
-    SubID := l_ID;
+  end;
+ end;
+
+ procedure lp_Parse(const aStr: WideString; aNumbers: Tl3LongIntList);
+ var
+  l_Index: Integer;
+  l_LastDigitIndex: Integer;
+  l_Number: Integer;
+  l_NumberStr: String;
+  l_NumberStrLen: Integer;
+ begin
+  l_LastDigitIndex := 1;
+  for l_Index := 1 to Length(aStr) do
+  begin
+   if (aStr[l_Index] = '/') or (l_Index = Length(aStr)) then
+   begin
+    l_NumberStrLen := l_Index - l_LastDigitIndex;
+    if (l_Index <> Length(aStr)) or (aStr[l_Index] = '/') then
+     Dec(l_NumberStrLen);
+    l_NumberStr := Copy(aStr, Succ(l_LastDigitIndex), l_NumberStrLen);
+    if TryStrToInt(l_NumberStr, l_Number) then
+     aNumbers.Add(l_Number)
+    else
+    if lp_TryParseInt(l_NumberStr, [cSharpChar, cBlockMark], l_Number) then
+     aNumbers.Add(l_Number);
+    l_LastDigitIndex := l_Index;
+   end;
+  end;
  end;
 
 const
  cStart = 'base.garant.ru/';
+var
+ l_Numbers: Tl3LongIntList;
+ l_UrlKind: TnsLocalDocumentURLKind;
+ l_Url: WideString;
+ l_Pos: Integer;
 //#UC END# *4BEBC4090016_49EEF16603C9_var*
 begin
 //#UC START# *4BEBC4090016_49EEF16603C9_impl*
+ DocID := 0;
+ SubID := 0;
  Result := nsIsLocalDocumentURL(anURL);
  if Result then
  begin
-  l_URL := l3CStr(anURL);
-  l_Pos := l3Pos(l_URL, cStart);
-  if l_Pos = l3NotFound then
+  l_Pos := Pos(cStart, anURL);
+  if l_Pos = 0 then
    Result := False
   else
   begin
-   l3Delete(l_URL, 0, l_Pos + Length(cStart));
-   l_InitedDoc := False;
-   DocID := 0;
-   SubID := 0;
-   l3ParseWordsExF(l_URL.AsWStr, l3L2WA(@lp_Iterate),['/']);
-   Result := l_InitedDoc;
+   l_Url := anURL;
+   Delete(l_URL, 0, l_Pos + Length(cStart));
+   l_Numbers := Tl3LongIntList.Create;
+   try
+    lp_Parse(l_Url, l_Numbers);
+    l_UrlKind := lp_GetURLKind(anURL);
+    Result := l_UrlKind in [ns_ukFull, ns_ukDocIDWithSubID, ns_ukDocIDWithPageNumber, ns_ukDocID];
+    case l_UrlKind of
+     ns_ukDocIDWithPageNumber:
+       DocID := l_Numbers[0];
+     ns_ukFull:
+      begin
+       DocID := l_Numbers[0];
+       SubID := l_Numbers[2];
+      end;
+     ns_ukDocIDWithSubID:
+      begin
+       DocID := l_Numbers[0];
+       SubID := l_Numbers[1];
+      end;
+     ns_ukDocID:
+       DocID := l_Numbers[0];
+    end;
+   finally
+    FreeAndNil(l_Numbers);
+   end;
   end;
  end;
 //#UC END# *4BEBC4090016_49EEF16603C9_impl*

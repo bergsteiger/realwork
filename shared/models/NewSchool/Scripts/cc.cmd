@@ -1,4 +1,4 @@
-call c.cmd 4F7D7B980383.pas.ms.script.runner
+call c.cmd 55879DBD0111.pas.ms.script.runner 
 
 rem call c.cmd 4DAF19F600C5.pas.ms.script.runner
 rem tfwScriptingInterfaces

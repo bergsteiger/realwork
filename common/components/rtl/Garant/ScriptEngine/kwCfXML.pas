@@ -2,6 +2,8 @@ unit kwCFXML;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCFXML.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "CF_XML" MUID: (4FF436960135)
+// Имя типа: "TkwCFXML"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,7 @@ unit kwDocEditorSetModified;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwDocEditorSetModified.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwDocEditorSetModified" MUID: (4E01E88B029B)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

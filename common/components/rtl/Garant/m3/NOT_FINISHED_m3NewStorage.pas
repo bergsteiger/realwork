@@ -2,6 +2,7 @@ unit NOT_FINISHED_m3NewStorage;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\NOT_FINISHED_m3NewStorage.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "m3NewStorage" MUID: (53FDEEB502A6)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

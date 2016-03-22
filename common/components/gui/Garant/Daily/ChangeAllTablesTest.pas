@@ -1,76 +1,54 @@
 unit ChangeAllTablesTest;
+ {* Работа со всеми таблицами документа. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/ChangeAllTablesTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TChangeAllTablesTest
-//
-// Работа со всеми таблицами документа.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\ChangeAllTablesTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TChangeAllTablesTest" MUID: (4C3FEB280134)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  evCustomEditor,
-  TextViaEditorProcessor,
-  PrimTextLoad_Form
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , TextViaEditorProcessor
+ , evCustomEditor
+ , PrimTextLoad_Form
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TChangeAllTablesTest = {abstract} class(TTextViaEditorProcessor)
   {* Работа со всеми таблицами документа. }
- protected
- // realized methods
-   procedure Process(aForm: TPrimTextLoadForm); override;
-     {* Собственно процесс обработки текста }
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    procedure ApplyEditorTool(aEditor: TevCustomEditor); virtual; abstract;
-     {* Вызов инструмента из редактора }
+    {* Вызов инструмента из редактора }
+   procedure Process(aForm: TPrimTextLoadForm); override;
+    {* Собственно процесс обработки текста }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TChangeAllTablesTest
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  evTypes,
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TChangeAllTablesTest
+ l3ImplUses
+ , evTypes
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 procedure TChangeAllTablesTest.Process(aForm: TPrimTextLoadForm);
+ {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4C3FEB280134_var*
 //#UC END# *4BE13147032C_4C3FEB280134_var*
 begin
@@ -81,17 +59,16 @@ begin
 end;//TChangeAllTablesTest.Process
 
 function TChangeAllTablesTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TChangeAllTablesTest.GetFolder
 
 function TChangeAllTablesTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C3FEB280134';
 end;//TChangeAllTablesTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

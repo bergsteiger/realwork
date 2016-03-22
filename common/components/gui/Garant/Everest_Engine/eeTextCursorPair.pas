@@ -2,6 +2,7 @@ unit eeTextCursorPair;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeTextCursorPair.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TeeTextCursorPair" MUID: (54BE505F0038)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

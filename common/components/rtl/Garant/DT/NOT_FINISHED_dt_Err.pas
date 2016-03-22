@@ -2,6 +2,7 @@ unit NOT_FINISHED_dt_Err;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_dt_Err.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "dt_Err" MUID: (555F034A01B6)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

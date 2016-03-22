@@ -2,6 +2,7 @@ unit htFromTable;
 
 // Модуль: "w:\common\components\rtl\Garant\HT\htFromTable.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ThtFromTable" MUID: (55530BB9007A)
 
 {$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
@@ -48,7 +49,6 @@ function ThtFromTable.Get_Handle: ThtTblHandle;
 begin
 //#UC START# *555C8490016F_55530BB9007Aget_impl*
  Result := f_Handle;
-// !!! Needs to be implemented !!!
 //#UC END# *555C8490016F_55530BB9007Aget_impl*
 end;//ThtFromTable.Get_Handle
 

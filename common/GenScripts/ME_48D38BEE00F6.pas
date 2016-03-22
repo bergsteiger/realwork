@@ -2,6 +2,7 @@ unit evDropCalendarControl;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evDropCalendarControl.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDropCalendarControl" MUID: (48D38BEE00F6)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

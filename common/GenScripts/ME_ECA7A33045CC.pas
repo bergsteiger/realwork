@@ -3,6 +3,7 @@ unit ChatHistoryKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\ChatHistoryKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "ChatHistoryKeywordsPack" MUID: (ECA7A33045CC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -46,8 +47,8 @@ type
 'aControl' форма::ChatHistory TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ChatHistory
 
  Tkw_ChatHistory_Control_HistoryEditor = {final} class(TtfwControlString)
@@ -58,9 +59,9 @@ type
 контрол::HistoryEditor TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ChatHistory_Control_HistoryEditor
 
  Tkw_ChatHistory_Control_HistoryEditor_Push = {final} class(TkwBynameControlPush)
@@ -99,20 +100,15 @@ OBJECT VAR l_TnscChatMemo
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwChatHistoryFormHistoryEditor
 
-class function Tkw_Form_ChatHistory.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ChatHistory';
-end;//Tkw_Form_ChatHistory.GetWordNameForRegister
-
 function Tkw_Form_ChatHistory.GetString: AnsiString;
 begin
  Result := 'ChatHistoryForm';
 end;//Tkw_Form_ChatHistory.GetString
 
-class function Tkw_ChatHistory_Control_HistoryEditor.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_ChatHistory.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::HistoryEditor';
-end;//Tkw_ChatHistory_Control_HistoryEditor.GetWordNameForRegister
+ Result := 'форма::ChatHistory';
+end;//Tkw_Form_ChatHistory.GetWordNameForRegister
 
 function Tkw_ChatHistory_Control_HistoryEditor.GetString: AnsiString;
 begin
@@ -124,6 +120,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscChatMemo);
 end;//Tkw_ChatHistory_Control_HistoryEditor.RegisterInEngine
+
+class function Tkw_ChatHistory_Control_HistoryEditor.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::HistoryEditor';
+end;//Tkw_ChatHistory_Control_HistoryEditor.GetWordNameForRegister
 
 procedure Tkw_ChatHistory_Control_HistoryEditor_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -158,11 +159,6 @@ begin
  aCtx.rEngine.PushObj(HistoryEditor(aCtx, l_aChatHistoryForm));
 end;//TkwChatHistoryFormHistoryEditor.DoDoIt
 
-class function TkwChatHistoryFormHistoryEditor.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TChatHistoryForm.HistoryEditor';
-end;//TkwChatHistoryFormHistoryEditor.GetWordNameForRegister
-
 procedure TkwChatHistoryFormHistoryEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -183,6 +179,11 @@ function TkwChatHistoryFormHistoryEditor.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TChatHistoryForm)]);
 end;//TkwChatHistoryFormHistoryEditor.ParamsTypes
+
+class function TkwChatHistoryFormHistoryEditor.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TChatHistoryForm.HistoryEditor';
+end;//TkwChatHistoryFormHistoryEditor.GetWordNameForRegister
 
 initialization
  Tkw_Form_ChatHistory.RegisterInEngine;

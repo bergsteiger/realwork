@@ -3,6 +3,7 @@ unit evStyleTableFontSizeCorrector;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evStyleTableFontSizeCorrector.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevStyleTableFontSizeCorrector" MUID: (4E32AB1401C0)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

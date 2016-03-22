@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Daily\LoadUnits.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "LoadUnits" MUID: (509B4CC20221)
+// Имя типа: "_LoadUnits_"
 
 {$Define LoadUnits_imp}
 

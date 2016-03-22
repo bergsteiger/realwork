@@ -4,9 +4,12 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, LibPQ, Spin;
+  Dialogs, StdCtrls, LibPQ, Spin, ExtCtrls, AppEvnts;
 
 type
+  TLockKind = (lkShared, lkExclusive);
+  TLockAction = (laLock, laUnLock);
+
   TForm1 = class(TForm)
     Button1: TButton;
     Memo1: TMemo;
@@ -35,6 +38,16 @@ type
     Button5: TButton;
     Button6: TButton;
     Button7: TButton;
+    Button8: TButton;
+    Button9: TButton;
+    Button10: TButton;
+    Button11: TButton;
+    RadioGroup1: TRadioGroup;
+    RadioGroup2: TRadioGroup;
+    Button12: TButton;
+    Button13: TButton;
+    ApplicationEvents1: TApplicationEvents;
+    Button14: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure ConnectBtnClick(Sender: TObject);
@@ -57,9 +70,26 @@ type
     procedure Button5Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
     procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+    procedure Button11Click(Sender: TObject);
+    procedure Button12Click(Sender: TObject);
+    procedure Button13Click(Sender: TObject);
+    procedure ApplicationEvents1Idle(Sender: TObject; var Done: Boolean);
+    procedure Button14Click(Sender: TObject);
   private
     { Private declarations }
     f_Conn: PPGconn;
+    f_Conn2: PPGconn;
+    f_MemFree: Int64;
+    f_MemReserve: Int64;
+    procedure AquireConn(var theConn: PPGconn);
+    procedure ReleaseConn(var theConn: PPGconn);
+    function Conn(anIndex: Integer): PPGConn;
+    procedure LockAction(aConn: PPGConn; aKind: TLockKind; anAction: TLockAction);
+    procedure SetMemFree(aMem : Int64);
+    procedure SetMemReserved(aMem : Int64);
   public
     { Public declarations }
   end;
@@ -71,11 +101,10 @@ implementation
 
 uses
 //  LibPQ,
+  pgUtils,
   l3StopWatch;
 
 const
-// cLogin =   'postgresql://postgres:admin@cooker3:5432\postgres';
-// cLogin =   'postgresql://postgres:admin@cooker3:5432\postgres?client_encoding=WIN1251';
  cLogin =   'postgresql://postgres:admin@cooker3:5432/archi?client_encoding=WIN1251';
 
 {$R *.dfm}
@@ -214,48 +243,13 @@ begin
 end;
 
 procedure TForm1.ConnectBtnClick(Sender: TObject);
-var
-  l_Result: PPGResult;
 begin
-  f_Conn := PQconnectdb(cLogin);
-  if PQstatus(f_Conn) <> CONNECTION_OK then
-  begin
-   Memo1.Lines.Add(PQerrorMessage(f_Conn));
-   raise Exception.Create(PQerrorMessage(f_Conn));
-  end
-  else
-   Memo1.Lines.Add('OK!');
-
-(*  l_Result := PQExec(f_COnn, 'begin');
-  try
-   if PQresultStatus(l_Result) <> PGRES_COMMAND_OK then
-     raise Exception.CreateFmt('Begin failed: ', [PQerrorMessage(f_conn)]);
-  finally
-   PQClear(l_Result);
-  end;*)
-  Memo1.Lines.Add('Finish');
+  AquireConn(f_Conn);
 end;
 
 procedure TForm1.DisconnectBtnClick(Sender: TObject);
-var
-  l_Result: PPGResult;
 begin
-  if PQstatus(f_Conn) <> CONNECTION_OK then
-  begin
-   Memo1.Lines.Add(PQerrorMessage(f_Conn));
-   raise Exception.Create(PQerrorMessage(f_Conn));
-  end;
-
-(*  l_Result := PQExec(f_COnn, 'end');
-  try
-   if PQresultStatus(l_Result) <> PGRES_COMMAND_OK then
-     raise Exception.CreateFmt('end failed: ', [PQerrorMessage(f_conn)]);
-  finally
-   PQClear(l_Result);
-  end;*)
-
-  PQfinish(f_Conn);
-  Memo1.Lines.Add('Finish');
+  ReleaseConn(f_Conn);
 end;
 
 procedure TForm1.OpenBtnClick(Sender: TObject);
@@ -792,7 +786,7 @@ begin
    raise Exception.Create(PQerrorMessage(f_Conn));
   end;
 
-  l_Result := PQprepare(f_Conn, 'TestStmt', 'select * from archi.file', 0, nil);
+  l_Result := PQprepare(f_Conn, 'TestStmt', 'select * from archi.documents', 0, nil);
 
   l_Msg := UTF8Decode(PQresultErrorMessage(l_Result));
   if l_Msg <> '' then
@@ -828,7 +822,6 @@ begin
   Memo1.Lines.Add(Format('DataReceived %d records, %d fields', [PQntuples(l_Result), PQnfields(l_Result)]));
 
   PQclear(l_Result);
-
 end;
 
 procedure TForm1.Button5Click(Sender: TObject);
@@ -915,6 +908,280 @@ begin
   end;
   PQclear(l_Result);
   Memo1.Lines.Add('Finish');
+end;
+
+procedure TForm1.AquireConn(var theConn: PPGconn);
+var
+  l_Result: PPGResult;
+begin
+  theConn := PQconnectdb(cLogin);
+  if PQstatus(theConn) <> CONNECTION_OK then
+  begin
+   Memo1.Lines.Add(PQerrorMessage(theConn));
+   raise Exception.Create(PQerrorMessage(theConn));
+  end
+  else
+   Memo1.Lines.Add('OK!');
+  Memo1.Lines.Add('Finish');
+end;
+
+procedure TForm1.Button8Click(Sender: TObject);
+begin
+  AquireConn(f_Conn2);
+end;
+
+procedure TForm1.ReleaseConn(var theConn: PPGconn);
+var
+  l_Result: PPGResult;
+begin
+  if PQstatus(theConn) <> CONNECTION_OK then
+  begin
+   Memo1.Lines.Add(PQerrorMessage(theConn));
+   raise Exception.Create(PQerrorMessage(theConn));
+  end;
+  PQfinish(theConn);
+  Memo1.Lines.Add('Finish');
+end;
+
+procedure TForm1.Button9Click(Sender: TObject);
+begin
+  ReleaseConn(f_Conn2);
+end;
+
+procedure TForm1.Button10Click(Sender: TObject);
+begin
+  LockAction(Conn(RadioGroup1.ItemIndex), TLockKind(RadioGroup2.ItemIndex), laLock);
+end;
+
+procedure TForm1.Button11Click(Sender: TObject);
+begin
+  LockAction(Conn(RadioGroup1.ItemIndex), TLockKind(RadioGroup2.ItemIndex), laUnlock);
+end;
+
+function TForm1.Conn(anIndex: Integer): PPGConn;
+begin
+  Case anIndex of
+    0: Result := f_Conn;
+    1: Result := f_Conn2;
+  else
+    Result := nil;
+  end;
+end;
+
+procedure TForm1.LockAction(aConn: PPGConn; aKind: TLockKind;
+  anAction: TLockAction);
+var
+  l_Result: PPGResult;
+  l_Msg: WideString;
+  l_Str: String;
+  l_IDX: Integer;
+
+const
+  cMap: array[TLockAction, TLockKind] of String = (
+   ('pg_try_advisory_lock_shared', 'pg_try_advisory_lock'),  // Lock
+   ('pg_advisory_unlock_shared', 'pg_advisory_unlock')   // unLock
+  );
+begin
+  if PQstatus(aConn) <> CONNECTION_OK then
+  begin
+   Memo1.Lines.Add(PQerrorMessage(aConn));
+   raise Exception.Create(PQerrorMessage(aConn));
+  end;
+
+  l_Str := Format('select %s(-1)', [cMap[anAction, aKind]]);
+  Memo1.Lines.Add(l_Str);
+
+  l_Result := PQExec(aConn, PAnsiChar(l_Str));
+  l_Msg := UTF8Decode(PQresultErrorMessage(l_Result));
+  if l_Msg <> '' then
+   Memo1.Lines.Add(l_Msg)
+  else
+  begin
+   for l_IDX := 0 to PQntuples(l_Result) - 1 do
+   begin
+     l_Str := PQgetvalue(l_Result, l_IDX, 0);
+     if l_Str = 't' then
+       Memo1.Lines.Add('Success')
+     else
+       Memo1.Lines.Add('FAILED');
+   end;
+  end;
+  PQclear(l_Result);
+end;
+
+procedure TForm1.Button12Click(Sender: TObject);
+var
+  l_Result: PPGResult;
+  l_Msg: WideString;
+  l_Str: String;
+  l_IDX: Integer;
+  l_IDX2: Integer;
+begin
+  if PQstatus(f_Conn) <> CONNECTION_OK then
+  begin
+   Memo1.Lines.Add(PQerrorMessage(f_Conn));
+   raise Exception.Create(PQerrorMessage(f_Conn));
+  end;
+
+  l_Result := PQExec(f_Conn, 'select p.proargtypes, p.proallargtypes, p.proargmodes, p.proargnames from pg_proc p JOIN pg_namespace ns ON (p.pronamespace = ns.oid) where p.proname = ''test_out2'' and ns.nspname = ''archi''');
+  l_Msg := PQresultErrorMessage(l_Result);
+  if l_Msg <> '' then
+   Memo1.Lines.Add(l_Msg)
+  else
+  begin
+   Memo1.Lines.Add(Format('DataReceived %d records, %d fields', [PQntuples(l_Result), PQnfields(l_Result)]));
+   for l_IDX := 0 to PQntuples(l_Result) - 1 do
+   begin
+     l_Str := '';
+     for l_IDX2 := 0 to PQnfields(l_Result) - 1 do
+       l_Str := l_Str + ' ' + PQgetvalue(l_Result, l_IDX, l_IDX2);
+     Memo1.Lines.Add(l_Str);
+   end;
+  end;
+  PQclear(l_Result);
+  Memo1.Lines.Add('Finish');
+end;
+
+function GetMaxAvailVirtualMemory(aFlag : DWORD = MEM_FREE): LongWord;
+var
+ l_Info: TMemoryBasicInformation;
+ l_Ptr: PAnsiChar;
+ l_Res: LongWord;
+
+ l_Entry: TProcessHeapEntry;
+begin
+ l_Ptr := Pointer(0);
+ Result := 0;
+ l_Res := VirtualQuery(l_Ptr, l_Info, SizeOf(l_Info));
+ if l_Res <> SizeOf(l_Info) then
+  RaiseLastOSError;
+ while l_Res = SizeOf(l_Info) do
+ begin
+  if ((l_Info.State and aFlag) <> 0) and (l_Info.RegionSize > Result) then
+   Result := l_Info.RegionSize;
+  Inc(l_Ptr, l_Info.RegionSize);
+  l_Res := VirtualQuery(l_Ptr, l_Info, SizeOf(l_Info));
+ end;
+end;
+
+function GetMaxAvailHeapMemory: LongWord;
+var
+ l_Info: TMemoryBasicInformation;
+ l_Ptr: PAnsiChar;
+ l_Res: LongWord;
+
+ l_Entry: TProcessHeapEntry;
+begin
+ l_Ptr := Pointer(0);
+ Result := 0;
+ l_Entry.lpData := nil;
+ while HeapWalk(GetProcessHeap, l_Entry) do
+ begin
+  if ((l_Entry.wFlags and PROCESS_HEAP_UNCOMMITTED_RANGE) <> 0) and (l_Entry.cbData > Result) then
+   Result := l_Entry.cbData;
+  if ((l_Entry.wFlags and PROCESS_HEAP_REGION) <> 0) and (l_Entry.dwUnCommittedSize > Result) then
+   Result := l_Entry.dwUnCommittedSize;
+ end;
+end;
+
+procedure TForm1.Button13Click(Sender: TObject);
+var
+ l_Ptr: Pointer;
+ l_S: TMemoryStatus;
+ l_T: Cardinal;
+ l_Done: Boolean;
+begin
+ Memo1.Lines.Add(FormatFloat('Virtual #,###', GetMaxAvailVirtualMemory));
+ Memo1.Lines.Add(FormatFloat('Heap #,###', GetMaxAvailHeapMemory));
+ l_S.dwLength := SizeOf(l_S);
+ GlobalMemoryStatus(l_S);
+ Memo1.Lines.Add(FormatFloat('Mem #,###', l_S.dwAvailVirtual));
+
+ GetMem(l_Ptr, GetMaxAvailVirtualMemory - 1024*1024);
+ Memo1.Lines.Add(FormatFloat('Virtual #,###', GetMaxAvailVirtualMemory));
+ Memo1.Lines.Add(FormatFloat('Heap #,###', GetMaxAvailHeapMemory));
+ l_S.dwLength := SizeOf(l_S);
+ GlobalMemoryStatus(l_S);
+ Memo1.Lines.Add(FormatFloat('Mem #,###', l_S.dwAvailVirtual));
+
+ FreeMem(l_Ptr);
+ Memo1.Lines.Add(FormatFloat('Virtual #,###', GetMaxAvailVirtualMemory));
+ Memo1.Lines.Add(FormatFloat('Heap #,###', GetMaxAvailHeapMemory));
+ l_S.dwLength := SizeOf(l_S);
+ GlobalMemoryStatus(l_S);
+ Memo1.Lines.Add(FormatFloat('Mem #,###', l_S.dwAvailVirtual));
+
+ Memo1.Lines.Add(FormatFloat('HEAP #,###', HeapCompact(GetProcessHeap, 0)));
+ Application.ProcessMessages;
+ Memo1.Lines.Add(FormatFloat('Virtual #,###', GetMaxAvailVirtualMemory));
+ Memo1.Lines.Add(FormatFloat('Heap #,###', GetMaxAvailHeapMemory));
+ l_S.dwLength := SizeOf(l_S);
+ GlobalMemoryStatus(l_S);
+ Memo1.Lines.Add(FormatFloat('Mem #,###', l_S.dwAvailVirtual));
+
+ HeapCompact(GetProcessHeap, 0);
+ Application.ProcessMessages;
+ Memo1.Lines.Add(FormatFloat('Virtual #,###', GetMaxAvailVirtualMemory));
+ Memo1.Lines.Add(FormatFloat('Heap #,###', GetMaxAvailHeapMemory));
+ l_S.dwLength := SizeOf(l_S);
+ GlobalMemoryStatus(l_S);
+ Memo1.Lines.Add(FormatFloat('Mem #,###', l_S.dwAvailVirtual));
+ ApplicationEvents1Idle(nil, l_Done);
+ Memo1.Lines.Add('Exit');
+end;
+
+procedure TForm1.ApplicationEvents1Idle(Sender: TObject;
+  var Done: Boolean);
+begin
+ SetMemFree(GetMaxAvailVirtualMemory(MEM_FREE));
+ SetMemReserved(GetMaxAvailVirtualMemory(MEM_RESERVE));
+ PostMessage(Handle, WM_NULL, 0, 0);
+end;
+
+procedure TForm1.SetMemFree(aMem: Int64);
+begin
+ if f_MemFree <> aMem then
+ begin
+  f_MemFree := aMem;
+  Memo1.Lines.Add(FormatFloat('FREE CHANGED #,###', aMem));
+ end;
+end;
+
+procedure TForm1.SetMemReserved(aMem: Int64);
+begin
+ if f_MemReserve <> aMem then
+ begin
+  f_MemReserve := aMem;
+  Memo1.Lines.Add(FormatFloat('RESERVED CHANGED #,###', aMem));
+ end;
+end;
+
+procedure TForm1.Button14Click(Sender: TObject);
+var
+  l_Result: PPGResult;
+  l_IDX, l_IDX2: Integer;
+  l_Str: String;
+begin
+  l_Result := PQExec(f_Conn, PAnsiChar(Format('select * from pg_prepared_statements', [l_IDX])));
+
+  for l_IDX := 0 to PQntuples(l_Result) - 1 do
+  begin
+    l_Str := '';
+    for l_IDX2 := 0 to PQnfields(l_Result) - 1 do
+      l_Str := l_Str + ' ' + PQgetvalue(l_Result, l_IDX, l_IDX2);
+    Memo1.Lines.Add(l_Str);
+  end;
+  Memo1.Lines.Add(Format('Prepared statement Received %d records, %d fields', [PQntuples(l_Result), PQnfields(l_Result)]));
+
+  PQclear(l_Result);
+
+
+  l_Result := PQExec(f_Conn, PAnsiChar('DEALLOCATE PREPARE "TestStmt"'));
+  try
+    PgCheckStatus(l_Result);
+  finally
+    PQclear(l_Result);
+  end
 end;
 
 end.

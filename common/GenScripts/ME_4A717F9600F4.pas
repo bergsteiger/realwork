@@ -3,6 +3,7 @@ unit dsLeftEdition;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsLeftEdition.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsLeftEdition" MUID: (4A717F9600F4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

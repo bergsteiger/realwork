@@ -3,6 +3,7 @@ unit PrimNewsLine_nltMain_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimNewsLine_nltMain_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "nltMain" MUID: (4BD71E1103CD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_nltMain = {final} class(TtfwInteger)
   {* Слово словаря для типа формы nltMain }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_nltMain
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_nltMain.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::nltMain';
-end;//Tkw_FormUserType_nltMain.GetWordNameForRegister
-
 function Tkw_FormUserType_nltMain.GetInteger: Integer;
 begin
  Result := nltMain;
 end;//Tkw_FormUserType_nltMain.GetInteger
+
+class function Tkw_FormUserType_nltMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::nltMain';
+end;//Tkw_FormUserType_nltMain.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

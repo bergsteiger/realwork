@@ -3,6 +3,7 @@ unit evdDocumentBufferedFilter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evdDocumentBufferedFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdDocumentBufferedFilter" MUID: (56387286026A)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,7 @@ unit InternetSupportUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\InternetSupportUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "InternetSupport" MUID: (4BD132D103B9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

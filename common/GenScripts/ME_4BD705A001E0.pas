@@ -3,6 +3,7 @@ unit PrimRightEdition_utRightEdition_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimRightEdition_utRightEdition_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utRightEdition" MUID: (4BD705A001E0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utRightEdition = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utRightEdition }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utRightEdition
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utRightEdition.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utRightEdition';
-end;//Tkw_FormUserType_utRightEdition.GetWordNameForRegister
-
 function Tkw_FormUserType_utRightEdition.GetInteger: Integer;
 begin
  Result := utRightEdition;
 end;//Tkw_FormUserType_utRightEdition.GetInteger
+
+class function Tkw_FormUserType_utRightEdition.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utRightEdition';
+end;//Tkw_FormUserType_utRightEdition.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

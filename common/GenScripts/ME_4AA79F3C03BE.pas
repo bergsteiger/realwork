@@ -3,6 +3,8 @@ unit moSettings;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moSettings.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Settings" MUID: (4AA79F3C03BE)
+// Имя типа: "Tmo_Settings"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit l3InterfaceList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3InterfaceList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3InterfaceList" MUID: (4773DC580043)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

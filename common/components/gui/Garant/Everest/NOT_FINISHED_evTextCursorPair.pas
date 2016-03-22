@@ -2,6 +2,7 @@ unit NOT_FINISHED_evTextCursorPair;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTextCursorPair.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTextCursorPair" MUID: (53D64B570304)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

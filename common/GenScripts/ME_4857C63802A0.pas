@@ -3,6 +3,8 @@ unit TinyDocument_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\TinyDocument_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "TinyDocument" MUID: (4857C63802A0)
+// Имя типа: "TinyDocumentTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

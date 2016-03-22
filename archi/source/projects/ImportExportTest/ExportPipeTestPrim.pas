@@ -1,133 +1,108 @@
 unit ExportPipeTestPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SimpleTests"
-// Модуль: "W:/archi/source/projects/ImportExportTest/ExportPipeTestPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> archi$ImportExprortTest::SimpleTests::ExportPipeTests::ExportPipeTestPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\archi\source\projects\ImportExportTest\ExportPipeTestPrim.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "ExportPipeTestPrim" MUID: (55ED52510115)
+// Имя типа: "TExportPipeTestPrim"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include W:\archi\source\projects\ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  ExportPipe,
-  archiDBTest
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , archiDBTest
+ , ExportPipe
+;
 
-{$If defined(nsTest)}
 type
  _DTTypesUser_Parent_ = TarchiDBTest;
- {$Include ..\ImportExportTest\DTTypesUser.imp.pas}
+ {$Include w:\archi\source\projects\ImportExportTest\DTTypesUser.imp.pas}
  TExportPipeTestPrim = {abstract} class(_DTTypesUser_)
- private
- // private fields
-   f_IsNSRC : Boolean;
-   f_Pipe : TExportPipe;
-    {* Поле для свойства Pipe}
- private
- // private methods
+  private
+   f_IsNSRC: Boolean;
+   f_Pipe: TExportPipe;
+  private
    procedure FillDocSub;
-     {* Формирование выборки для экспорта (она одна для всех потомков) }
+    {* Формирование выборки для экспорта (она одна для всех потомков) }
    procedure InternalExport;
    procedure CompareResults;
    procedure CheckNumberOfTopicsInResult;
- protected
- // property methods
+  protected
    function pm_GetPipe: TExportPipe;
- protected
- // overridden protected methods
+   procedure TuneExportPipe; virtual; abstract;
+    {* Процедура настройки трубы. Метод для перекрытия в потомках. }
+   function GetResultHeaderStartingChar: AnsiChar; virtual;
    procedure Cleanup; override;
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
-    {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+    {* Идентификатор элемента модели, который описывает тест }
+   {$If NOT Defined(NotTunedDUnit)}
    function OutputFolderName: AnsiString; override;
-     {* Папка, в которую пишутся выходные файлы. }
-    {$IfEnd} //nsTest AND not NotTunedDUnit
- protected
- // protected methods
-   procedure TuneExportPipe; virtual; abstract;
-     {* Процедура настройки трубы. Метод для перекрытия в потомках. }
-   function GetResultHeaderStartingChar: AnsiChar; virtual;
- public
- // public properties
-   property Pipe: TExportPipe
-     read pm_GetPipe;
- published
- // published methods
+    {* Папка, в которую пишутся выходные файлы. }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+  published
    procedure DoExport;
-     {* Собственно, экспорт }
+    {* Собственно, экспорт }
+  public
+   property Pipe: TExportPipe
+    read pm_GetPipe;
  end;//TExportPipeTestPrim
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  dtIntf
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  dt_Sab
-  {$IfEnd} //not Nemesis
-  ,
-  dt_Const,
-  dt_Types,
-  l3FileUtils,
-  ddFileIterator
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  ,
-  l3Filer,
-  l3Interfaces,
-  l3String
-  {$If not defined(Nemesis)}
-  ,
-  dt_Renum
-  {$IfEnd} //not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  dt_Doc
-  {$IfEnd} //not Nemesis
-  
-  {$If defined(Archi) AND not defined(Nemesis)}
-  ,
-  dt_LinkServ
-  {$IfEnd} //Archi AND not Nemesis
-  ,
-  SysUtils,
-  TestFrameWork,
-  ddPipeOutInterfaces,
-  l3Base
-  ;
-{$IfEnd} //nsTest
+ l3ImplUses
+ {$If NOT Defined(Nemesis)}
+ , dt_Sab
+ {$IfEnd} // NOT Defined(Nemesis)
+ , dt_Const
+ {$If NOT Defined(Nemesis)}
+ , dt_Renum
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , dt_Doc
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(Archi) AND NOT Defined(Nemesis)}
+ , dt_LinkServ
+ {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
+ , SysUtils
+ , TestFrameWork
+ , ddPipeOutInterfaces
+ , l3Base
+ {$If NOT Defined(Nemesis)}
+ , dtIntf
+ {$IfEnd} // NOT Defined(Nemesis)
+ , dt_Types
+ , l3FileUtils
+ , ddFileIterator
+ {$If NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ , l3Filer
+ , l3Interfaces
+ , l3String
+;
 
-{$If defined(nsTest)}
+{$Include w:\archi\source\projects\ImportExportTest\DTTypesUser.imp.pas}
 
-{$Include ..\ImportExportTest\DTTypesUser.imp.pas}
-
-// start class TExportPipeTestPrim
+function TExportPipeTestPrim.pm_GetPipe: TExportPipe;
+//#UC START# *55ED54F10251_55ED52510115get_var*
+//#UC END# *55ED54F10251_55ED52510115get_var*
+begin
+//#UC START# *55ED54F10251_55ED52510115get_impl*
+ if f_Pipe = nil then
+  f_Pipe := TExportPipe.Create;
+ Result := f_Pipe; 
+//#UC END# *55ED54F10251_55ED52510115get_impl*
+end;//TExportPipeTestPrim.pm_GetPipe
 
 procedure TExportPipeTestPrim.FillDocSub;
+ {* Формирование выборки для экспорта (она одна для всех потомков) }
 //#UC START# *55ED5FF503B2_55ED52510115_var*
 var
  l_Sab: ISab;
@@ -161,6 +136,29 @@ begin
  Pipe.DocSab := l_Sab;
 //#UC END# *55ED5FF503B2_55ED52510115_impl*
 end;//TExportPipeTestPrim.FillDocSub
+
+procedure TExportPipeTestPrim.DoExport;
+ {* Собственно, экспорт }
+//#UC START# *55EEA1AC0299_55ED52510115_var*
+//#UC END# *55EEA1AC0299_55ED52510115_var*
+begin
+//#UC START# *55EEA1AC0299_55ED52510115_impl*
+ UnpackDatabase;
+ try
+  ConnectToDatabase;
+  try
+   ClearTestFolder;
+   InternalExport;
+   FreeAndNil(f_Pipe);
+  finally
+   DisconnectFromDatabase;
+  end;
+ finally
+  DeleteDatabase;
+ end;
+ CompareResults;
+//#UC END# *55EEA1AC0299_55ED52510115_impl*
+end;//TExportPipeTestPrim.DoExport
 
 procedure TExportPipeTestPrim.InternalExport;
 //#UC START# *55F2E1EE014B_55ED52510115_var*
@@ -262,6 +260,15 @@ begin
 //#UC END# *55F2E21F02A5_55ED52510115_impl*
 end;//TExportPipeTestPrim.CompareResults
 
+function TExportPipeTestPrim.GetResultHeaderStartingChar: AnsiChar;
+//#UC START# *55F806E500B6_55ED52510115_var*
+//#UC END# *55F806E500B6_55ED52510115_var*
+begin
+//#UC START# *55F806E500B6_55ED52510115_impl*
+ Result := ';'; // по умолчанию выливаем в NSRC
+//#UC END# *55F806E500B6_55ED52510115_impl*
+end;//TExportPipeTestPrim.GetResultHeaderStartingChar
+
 procedure TExportPipeTestPrim.CheckNumberOfTopicsInResult;
 //#UC START# *55FFFF57037B_55ED52510115_var*
 var
@@ -308,48 +315,6 @@ begin
 //#UC END# *55FFFF57037B_55ED52510115_impl*
 end;//TExportPipeTestPrim.CheckNumberOfTopicsInResult
 
-procedure TExportPipeTestPrim.DoExport;
-//#UC START# *55EEA1AC0299_55ED52510115_var*
-//#UC END# *55EEA1AC0299_55ED52510115_var*
-begin
-//#UC START# *55EEA1AC0299_55ED52510115_impl*
- UnpackDatabase;
- try
-  ConnectToDatabase;
-  try
-   ClearTestFolder;
-   InternalExport;
-   FreeAndNil(f_Pipe);
-  finally
-   DisconnectFromDatabase;
-  end;
- finally
-  DeleteDatabase;
- end;
- CompareResults;
-//#UC END# *55EEA1AC0299_55ED52510115_impl*
-end;//TExportPipeTestPrim.DoExport
-
-function TExportPipeTestPrim.GetResultHeaderStartingChar: AnsiChar;
-//#UC START# *55F806E500B6_55ED52510115_var*
-//#UC END# *55F806E500B6_55ED52510115_var*
-begin
-//#UC START# *55F806E500B6_55ED52510115_impl*
- Result := ';'; // по умолчанию выливаем в NSRC
-//#UC END# *55F806E500B6_55ED52510115_impl*
-end;//TExportPipeTestPrim.GetResultHeaderStartingChar
-
-function TExportPipeTestPrim.pm_GetPipe: TExportPipe;
-//#UC START# *55ED54F10251_55ED52510115get_var*
-//#UC END# *55ED54F10251_55ED52510115get_var*
-begin
-//#UC START# *55ED54F10251_55ED52510115get_impl*
- if f_Pipe = nil then
-  f_Pipe := TExportPipe.Create;
- Result := f_Pipe; 
-//#UC END# *55ED54F10251_55ED52510115get_impl*
-end;//TExportPipeTestPrim.pm_GetPipe
-
 procedure TExportPipeTestPrim.Cleanup;
 //#UC START# *4B2F40FD0088_55ED52510115_var*
 //#UC END# *4B2F40FD0088_55ED52510115_var*
@@ -361,19 +326,20 @@ begin
 end;//TExportPipeTestPrim.Cleanup
 
 function TExportPipeTestPrim.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'ExportPipeTests';
 end;//TExportPipeTestPrim.GetFolder
 
 function TExportPipeTestPrim.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '55ED52510115';
 end;//TExportPipeTestPrim.GetModelElementGUID
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 function TExportPipeTestPrim.OutputFolderName: AnsiString;
+ {* Папка, в которую пишутся выходные файлы. }
 //#UC START# *51B1A75D0367_55ED52510115_var*
 //#UC END# *51B1A75D0367_55ED52510115_var*
 begin
@@ -381,8 +347,7 @@ begin
  Result := ClassName + '_out';
 //#UC END# *51B1A75D0367_55ED52510115_impl*
 end;//TExportPipeTestPrim.OutputFolderName
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //nsTest
-
+{$IfEnd} // Defined(nsTest)
 end.

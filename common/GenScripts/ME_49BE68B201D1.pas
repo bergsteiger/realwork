@@ -3,6 +3,7 @@ unit l3ProxyStream;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProxyStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProxyStream" MUID: (49BE68B201D1)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

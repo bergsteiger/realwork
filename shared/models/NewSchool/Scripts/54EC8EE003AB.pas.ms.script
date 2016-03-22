@@ -54,20 +54,6 @@ ref; // ME_D13698D43F80 aFlash
 
 ref; // ME_974085042BA3 GetFrame
 
-: ME_6E0576DC9040
- CONST UID '6E0576DC9040'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_Flash_GetFrame' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E9CC5473030 // pop_Flash_GetFrame
- ;
-
-ref; // ME_6E0576DC9040 Ini_Reg
-
 : ME_75545AFBFBB4
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -91,8 +77,6 @@ ref; // ME_75545AFBFBB4
 ref; // ME_9B163E83E770 
 
 : ME_4DAEEDE10285_ME_4E9CC5473030
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4E9CC5473030 // pop_Flash_GetFrame
@@ -100,19 +84,7 @@ ref; // ME_9B163E83E770
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4E9CC5473030 DoDoIt
 
-: ME_4DB0614603C8_ME_4E9CC5473030
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_4E9CC5473030 // pop_Flash_GetFrame
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4E9CC5473030 GetWordNameForRegister
-
 : ME_551544E2001A_ME_4E9CC5473030
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_4E9CC5473030 // pop_Flash_GetFrame
@@ -121,8 +93,6 @@ ref; // ME_4DB0614603C8_ME_4E9CC5473030 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_4E9CC5473030 GetResultTypeInfo
 
 : ME_559687E6025A_ME_4E9CC5473030
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_4E9CC5473030 // pop_Flash_GetFrame
@@ -131,8 +101,6 @@ ref; // ME_551544E2001A_ME_4E9CC5473030 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_4E9CC5473030 GetAllParamsCount
 
 : ME_5617F4D00243_ME_4E9CC5473030
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_4E9CC5473030 // pop_Flash_GetFrame
@@ -158,7 +126,6 @@ ref; // ME_5617F4D00243_ME_4E9CC5473030 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_974085042BA3 // GetFrame
- ME_6E0576DC9040 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -166,8 +133,7 @@ ref; // ME_5617F4D00243_ME_4E9CC5473030 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_4E9CC5473030 // GetWordNameForRegister
- ME_551544E2001A_ME_4E9CC5473030 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_4E9CC5473030 // GetResultTypeInfo
  ME_559687E6025A_ME_4E9CC5473030 // GetAllParamsCount
  ME_5617F4D00243_ME_4E9CC5473030 // ParamsTypes
  )

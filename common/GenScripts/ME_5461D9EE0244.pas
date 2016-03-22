@@ -2,6 +2,7 @@ unit ncsReplyWaiter;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsReplyWaiter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsReplyWaiter" MUID: (5461D9EE0244)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

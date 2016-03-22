@@ -3,6 +3,7 @@ unit MouseSelectPtTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\MouseSelectPtTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TMouseSelectPtTest" MUID: (4D8890B102E6)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

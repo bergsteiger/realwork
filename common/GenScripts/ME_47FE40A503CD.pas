@@ -2,6 +2,7 @@ unit nevConfirm;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevConfirm.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevConfirm" MUID: (47FE40A503CD)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,7 @@ unit Base_Operations_View_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_View_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "View" MUID: (4A7C0A8202A9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

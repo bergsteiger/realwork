@@ -1,42 +1,35 @@
 {$IfNDef kwControlFromStackWord_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Автор: Люлин А.В.
-// Модуль: "kwControlFromStackWord.imp.pas"
-// Начат: 26.01.2012 14:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::VCL bindings::kwControlFromStackWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "kwControlFromStackWord" MUID: (4F212C120371)
+// Имя типа: "_kwControlFromStackWord_"
 
 {$Define kwControlFromStackWord_imp}
-{$If not defined(NoScripts) AND not defined(NoVCL)}
- _kwControlFromStackWord_ = {abstract mixin} class(TkwComponentFromStackWord)
- protected
- // realized methods
-   procedure DoComponent(aComponent: TComponent;
-     const aCtx: TtfwContext); override;
- protected
- // protected methods
+
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ _kwControlFromStackWord_ = {abstract} class(TkwComponentFromStackWord)
+  protected
    procedure DoControl(aControl: TControl;
-     const aCtx: TtfwContext); virtual; abstract;
+    const aCtx: TtfwContext); virtual; abstract;
+   procedure DoComponent(aComponent: TComponent;
+    const aCtx: TtfwContext); override;
  end;//_kwControlFromStackWord_
-{$Else}
 
- _kwControlFromStackWord_ = TkwComponentFromStackWord;
+{$Else NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 
-{$IfEnd} //not NoScripts AND not NoVCL
+_kwControlFromStackWord_ = TkwComponentFromStackWord;
 
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 {$Else kwControlFromStackWord_imp}
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$IfNDef kwControlFromStackWord_imp_impl}
 
-// start class _kwControlFromStackWord_
+{$Define kwControlFromStackWord_imp_impl}
 
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 procedure _kwControlFromStackWord_.DoComponent(aComponent: TComponent;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4F21485E0184_4F212C120371_var*
 //#UC END# *4F21485E0184_4F212C120371_var*
 begin
@@ -45,7 +38,9 @@ begin
  DoControl(aComponent As TControl, aCtx);
 //#UC END# *4F21485E0184_4F212C120371_impl*
 end;//_kwControlFromStackWord_.DoComponent
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
-{$IfEnd} //not NoScripts AND not NoVCL
+{$EndIf kwControlFromStackWord_imp_impl}
 
 {$EndIf kwControlFromStackWord_imp}
+

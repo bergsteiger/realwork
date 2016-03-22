@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Daily\FormUnits.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "FormUnits" MUID: (509A43E800C8)
+// Имя типа: "_FormUnits_"
 
 {$Define FormUnits_imp}
 

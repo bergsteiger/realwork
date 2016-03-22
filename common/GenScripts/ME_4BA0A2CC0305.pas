@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControlResetter.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "UnderControlResetter" MUID: (4BA0A2CC0305)
+// Имя типа: "_UnderControlResetter_"
 
 {$Define UnderControlResetter_imp}
 

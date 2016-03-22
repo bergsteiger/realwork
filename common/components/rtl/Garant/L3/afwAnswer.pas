@@ -3,6 +3,7 @@ unit afwAnswer;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\afwAnswer.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "afwAnswer" MUID: (4E03119F00B2)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

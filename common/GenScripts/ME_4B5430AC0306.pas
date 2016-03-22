@@ -3,6 +3,8 @@ unit SelfInfo_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\SelfInfo_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "SelfInfo" MUID: (4B5430AC0306)
+// Имя типа: "TSelfInfoForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

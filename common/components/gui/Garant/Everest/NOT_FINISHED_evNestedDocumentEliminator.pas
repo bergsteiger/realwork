@@ -2,6 +2,7 @@ unit NOT_FINISHED_evNestedDocumentEliminator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evNestedDocumentEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevNestedDocumentEliminator" MUID: (4B72BF9003D0)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

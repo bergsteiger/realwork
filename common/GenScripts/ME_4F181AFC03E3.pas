@@ -2,6 +2,7 @@ unit nsStringValueMapFactoryRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStringValueMapFactoryRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsStringValueMapFactoryRes" MUID: (4F181AFC03E3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

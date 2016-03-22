@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddDocumentFilter;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddDocumentFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddDocumentFilter" MUID: (4EA664CE002E)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -3,6 +3,7 @@ unit nsMedicDictionTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicDictionTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsMedicDictionTree" MUID: (49070AD5032C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit atSetCommentOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSetCommentOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatSetCommentOperation" MUID: (483FF1480190)
 
 interface
 

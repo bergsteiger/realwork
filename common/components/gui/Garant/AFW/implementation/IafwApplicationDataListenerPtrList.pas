@@ -3,6 +3,7 @@ unit IafwApplicationDataListenerPtrList;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\IafwApplicationDataListenerPtrList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TIafwApplicationDataListenerPtrList" MUID: (49143C860391)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

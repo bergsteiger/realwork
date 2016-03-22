@@ -2,6 +2,7 @@ unit nsStartupSupport;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStartupSupport.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsStartupSupport" MUID: (55B26A1C0277)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -1987,13 +1988,17 @@ begin
    ShowWindow(Application.MainForm.Handle, SW_RESTORE);
 
   l_CurrWnd := GetForegroundWindow;
-  l_MyTID := GetCurrentThreadId;
-  l_CurrTID := GetWindowThreadProcessId(l_CurrWnd, nil);
-  AttachThreadInput(l_MyTID, l_CurrTID, True);
-  try
-   SetForegroundWindow(Application.MainForm.Handle);
-  finally
-   AttachThreadInput(l_MyTID, l_CurrTID, False);
+  if (l_CurrWnd <> Application.MainForm.Handle) then
+  begin
+   l_MyTID := GetCurrentThreadId;
+   l_CurrTID := GetWindowThreadProcessId(l_CurrWnd, nil);
+   AttachThreadInput(l_MyTID, l_CurrTID, True);
+   try
+    BringWindowToTop(Application.MainForm.Handle);
+    SetForegroundWindow(Application.MainForm.Handle);
+   finally
+    AttachThreadInput(l_MyTID, l_CurrTID, False);
+   end;
   end;
  end;
 //#UC END# *55F80B1F01CD_4AA7C26401C4_impl*

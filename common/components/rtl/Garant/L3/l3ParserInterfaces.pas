@@ -2,6 +2,7 @@ unit l3ParserInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ParserInterfaces.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3ParserInterfaces" MUID: (4DC95A8D016F)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

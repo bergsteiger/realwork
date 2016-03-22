@@ -3,6 +3,7 @@ unit DictionKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\DictionKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "DictionKeywordsPack" MUID: (AFB2BEF3C662)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -48,8 +49,8 @@ type
 'aControl' форма::Diction TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Diction
 
  Tkw_Diction_Control_BackgroundPanel = {final} class(TtfwControlString)
@@ -60,9 +61,9 @@ type
 контрол::BackgroundPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Diction_Control_BackgroundPanel
 
  Tkw_Diction_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
@@ -85,9 +86,9 @@ type
 контрол::ContextFilter TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Diction_Control_ContextFilter
 
  Tkw_Diction_Control_ContextFilter_Push = {final} class(TkwBynameControlPush)
@@ -110,9 +111,9 @@ type
 контрол::WordsTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Diction_Control_WordsTree
 
  Tkw_Diction_Control_WordsTree_Push = {final} class(TkwBynameControlPush)
@@ -199,20 +200,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnDictionWordsTree
 
-class function Tkw_Form_Diction.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Diction';
-end;//Tkw_Form_Diction.GetWordNameForRegister
-
 function Tkw_Form_Diction.GetString: AnsiString;
 begin
  Result := 'enDiction';
 end;//Tkw_Form_Diction.GetString
 
-class function Tkw_Diction_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_Diction.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::BackgroundPanel';
-end;//Tkw_Diction_Control_BackgroundPanel.GetWordNameForRegister
+ Result := 'форма::Diction';
+end;//Tkw_Form_Diction.GetWordNameForRegister
 
 function Tkw_Diction_Control_BackgroundPanel.GetString: AnsiString;
 begin
@@ -225,6 +221,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_Diction_Control_BackgroundPanel.RegisterInEngine
 
+class function Tkw_Diction_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BackgroundPanel';
+end;//Tkw_Diction_Control_BackgroundPanel.GetWordNameForRegister
+
 procedure Tkw_Diction_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BackgroundPanel');
@@ -235,11 +236,6 @@ class function Tkw_Diction_Control_BackgroundPanel_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::BackgroundPanel:push';
 end;//Tkw_Diction_Control_BackgroundPanel_Push.GetWordNameForRegister
-
-class function Tkw_Diction_Control_ContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ContextFilter';
-end;//Tkw_Diction_Control_ContextFilter.GetWordNameForRegister
 
 function Tkw_Diction_Control_ContextFilter.GetString: AnsiString;
 begin
@@ -252,6 +248,11 @@ begin
  TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_Diction_Control_ContextFilter.RegisterInEngine
 
+class function Tkw_Diction_Control_ContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ContextFilter';
+end;//Tkw_Diction_Control_ContextFilter.GetWordNameForRegister
+
 procedure Tkw_Diction_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ContextFilter');
@@ -263,11 +264,6 @@ begin
  Result := 'контрол::ContextFilter:push';
 end;//Tkw_Diction_Control_ContextFilter_Push.GetWordNameForRegister
 
-class function Tkw_Diction_Control_WordsTree.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::WordsTree';
-end;//Tkw_Diction_Control_WordsTree.GetWordNameForRegister
-
 function Tkw_Diction_Control_WordsTree.GetString: AnsiString;
 begin
  Result := 'WordsTree';
@@ -278,6 +274,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_Diction_Control_WordsTree.RegisterInEngine
+
+class function Tkw_Diction_Control_WordsTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::WordsTree';
+end;//Tkw_Diction_Control_WordsTree.GetWordNameForRegister
 
 procedure Tkw_Diction_Control_WordsTree_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -312,11 +313,6 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aenDiction));
 end;//TkwEnDictionBackgroundPanel.DoDoIt
 
-class function TkwEnDictionBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenDiction.BackgroundPanel';
-end;//TkwEnDictionBackgroundPanel.GetWordNameForRegister
-
 procedure TkwEnDictionBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -337,6 +333,11 @@ function TkwEnDictionBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenDiction)]);
 end;//TkwEnDictionBackgroundPanel.ParamsTypes
+
+class function TkwEnDictionBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenDiction.BackgroundPanel';
+end;//TkwEnDictionBackgroundPanel.GetWordNameForRegister
 
 function TkwEnDictionContextFilter.ContextFilter(const aCtx: TtfwContext;
  aenDiction: TenDiction): TnscContextFilter;
@@ -360,11 +361,6 @@ begin
  aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aenDiction));
 end;//TkwEnDictionContextFilter.DoDoIt
 
-class function TkwEnDictionContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenDiction.ContextFilter';
-end;//TkwEnDictionContextFilter.GetWordNameForRegister
-
 procedure TkwEnDictionContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -385,6 +381,11 @@ function TkwEnDictionContextFilter.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenDiction)]);
 end;//TkwEnDictionContextFilter.ParamsTypes
+
+class function TkwEnDictionContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenDiction.ContextFilter';
+end;//TkwEnDictionContextFilter.GetWordNameForRegister
 
 function TkwEnDictionWordsTree.WordsTree(const aCtx: TtfwContext;
  aenDiction: TenDiction): TnscTreeViewWithAdapterDragDrop;
@@ -408,11 +409,6 @@ begin
  aCtx.rEngine.PushObj(WordsTree(aCtx, l_aenDiction));
 end;//TkwEnDictionWordsTree.DoDoIt
 
-class function TkwEnDictionWordsTree.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenDiction.WordsTree';
-end;//TkwEnDictionWordsTree.GetWordNameForRegister
-
 procedure TkwEnDictionWordsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -433,6 +429,11 @@ function TkwEnDictionWordsTree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenDiction)]);
 end;//TkwEnDictionWordsTree.ParamsTypes
+
+class function TkwEnDictionWordsTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenDiction.WordsTree';
+end;//TkwEnDictionWordsTree.GetWordNameForRegister
 
 initialization
  Tkw_Form_Diction.RegisterInEngine;

@@ -1,87 +1,67 @@
 unit PrimBaseSearch_BaseSearch_UserType;
+ {* Базовый поиск }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/BaseSearch/Forms/PrimBaseSearch_BaseSearch_UserType.pas"
-// Начат: 21.09.2009 18:43
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Основные прецеденты::BaseSearch::View::BaseSearch$Module::PrimBaseSearch::BaseSearch
-//
-// Базовый поиск
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearch_BaseSearch_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "BaseSearch" MUID: (4D7A37D90398)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы BaseSearch }
-  BaseSearchName = 'BaseSearch';
-   { Строковый идентификатор пользовательского типа "Базовый поиск" }
-  BaseSearch = TvcmUserType(0);
-   { Базовый поиск }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы BaseSearch }
+ BaseSearchName = 'BaseSearch';
+  {* Строковый идентификатор пользовательского типа "Базовый поиск" }
+ BaseSearch = TvcmUserType(0);
+  {* Базовый поиск }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_BaseSearch = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы BaseSearch }
+ Tkw_FormUserType_BaseSearch = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы BaseSearch }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_BaseSearch
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_BaseSearch
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_BaseSearch
-
-class function Tkw_FormUserType_BaseSearch.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::BaseSearch';
-end;//Tkw_FormUserType_BaseSearch.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_BaseSearch.GetInteger: Integer;
- {-}
 begin
  Result := BaseSearch;
 end;//Tkw_FormUserType_BaseSearch.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_BaseSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::BaseSearch';
+end;//Tkw_FormUserType_BaseSearch.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_BaseSearch
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_BaseSearch.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_BaseSearch }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

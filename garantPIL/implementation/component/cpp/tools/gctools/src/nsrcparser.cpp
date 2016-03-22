@@ -3,7 +3,7 @@
 #include "MyPipe.h"
 
 /*
- * $Id: nsrcparser.cpp,v 2.699 2015/10/13 10:05:51 young Exp $
+ * $Id: nsrcparser.cpp,v 2.708 2016/03/11 13:42:11 young Exp $
 */
 
 #include <algorithm>
@@ -1151,6 +1151,8 @@ void nsrcParser :: finishTopic()
 		dbproc->setTopicStatus_ex (me, DS_NOCOMPARE, 0);
 	if (Info.Status_ex & DS_IZM)
 		dbproc->setTopicStatus_ex (me, DS_IZM, 0);
+	if (Info.Status_ex & DS_SIGNIFICANT)
+		dbproc->setTopicStatus_ex (me, DS_SIGNIFICANT, 0);
 	if (Info.Status_ex & DS_DATE)
 		dbproc->setTopicStatus_ex (me, DS_DATE, 0);
 
@@ -1483,6 +1485,7 @@ void nsrcParser :: mkNewPara ( const char *s, int l )
 			paraStyle = PS_RIGHT;
 			break;
 #ifdef	JUST_CHECKER
+		case 'S':
 			if (bEnglish)
 				paraStyle = PS_SIDEBYSIDE;
 			else
@@ -4397,6 +4400,12 @@ void nsrcParser :: addLine( const char *s, int l, const char* nsrc_filename, int
 				}
 			}
 			else if( IS_CMD(ANNOSIGNIFICANT,s,l) ) {
+				const char *ptr;
+				int len = 0;
+				if ((len=CMD_CALL3(ANNOSIGNIFICANT,getChars,s,l,ptr)) > 0) {
+					if (!strcmp (ptr, "└═"))
+						Info.Status_ex |= DS_SIGNIFICANT;
+				}
 			}
 /*ANNOORGANIZATION*/
 			else if( IS_CMD(ANNOORGANIZATION,s,l) )
@@ -6263,7 +6272,7 @@ int nsrcParser::checkPara(const unsigned char *s, int l, const unsigned char*& s
 		}
 		if (s[i] == AT_FORMULA) {
 			std::pair<long,std::string> apair (_line_in_nsrc, _nsrc_filename);
-			if (!strnicmp ((const char*)(s+i+1),"pic:",4)) {
+			if ((i + 4 < l) && !strnicmp ((const char*)(s+i+1),"pic:",4)) {
 				//ЙЮПРХМЙЮ
 				/*
 				pic:go2011.png;topic:10800201;bloffs:2;res:72
@@ -6827,13 +6836,13 @@ int nsrcParser :: makeParaData(unsigned char *dst, const unsigned char *s, int l
 			case 5:
 			case 6:
 				if ( *sc == 1 && paraStyle == PS_CENTERED ) {
-					bFace = bFace - 1;
-					if ( bFace  && dst - sdst > 2 && *(dst-1) == ' ' && *(dst-2) == 1 ) {
+					bFace = 1 - bFace;
+					if ( bFace  && dst - sdst > 2 && *(dst-1) == ' ' && *(dst-2) == 1 && ((lc > 6 && strncmp ((char*)sc+1, "decor", 5)) || lc <= 6)) {
 						*(dst-2) = 10; //softbreak
 						dst--;
 						sc++;
 					} else
-					if ( bFace && dst - sdst > 2 && *(dst-1) == 1 ) {
+					if ( bFace && dst - sdst > 2 && *(dst-1) == 1 && ((lc > 6 && strncmp ((char*)sc+1, "decor", 5)) || lc <= 6)) {
 						*(dst-1) = 10; //softbreak
 						sc++;
 					} else {
@@ -7168,16 +7177,22 @@ void nsrcParser :: issuePrefPara(const unsigned char *s, int l)
 		sc = save_sc;
 		delete[] (unsigned char*)sc;
 	}
-	if (styleh) {
-		dbproc->addTopicParaHeights (me, (char*) &cpn, sizeof (long));
-		dbproc->addTopicParaHeights (me, (char*) &styleh, sizeof (long));
-		para_styleh_pairs.push_back (cpn);
-		para_styleh_pairs.push_back (styleh);
-	}
 
-	endParaEx ();
-	dbproc->addTopicPara (me,PS_PREFORMATTED,paraFinalBuf,dst-paraFinalBuf);
-	paraCount++;
+	if( dst - paraFinalBuf + sizeof(struct para_header) < MAX_PARA_LEN - sizeof (BlockHeader) - 512) {
+		if (styleh) {
+			dbproc->addTopicParaHeights (me, (char*) &cpn, sizeof (long));
+			dbproc->addTopicParaHeights (me, (char*) &styleh, sizeof (long));
+			para_styleh_pairs.push_back (cpn);
+			para_styleh_pairs.push_back (styleh);
+		}
+
+		endParaEx ();
+		dbproc->addTopicPara (me,PS_PREFORMATTED,paraFinalBuf,dst-paraFinalBuf);
+		paraCount++;
+	} else {
+		gclog.printfC (errors, AdvLogger::LOG_ERROR, AdvLogger::CD_KOI, "Слишком длинный параграф. Пропущен.\n");
+		cpn--;
+	}
 #ifdef	VERSION61
 	lastSkippedPara = -1;		
 #endif

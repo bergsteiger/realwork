@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\AbstactChatWindowList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "AbstactChatWindowList" MUID: (4A6EAB540196)
+// Имя типа: "_AbstactChatWindowList_"
 
 {$Define AbstactChatWindowList_imp}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CommonForTextAndFlashAndMedicFirmList.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "CommonForTextAndFlashAndMedicFirmList" MUID: (4986EB4D0179)
+// Имя типа: "_CommonForTextAndFlashAndMedicFirmList_"
 
 {$Define CommonForTextAndFlashAndMedicFirmList_imp}
 

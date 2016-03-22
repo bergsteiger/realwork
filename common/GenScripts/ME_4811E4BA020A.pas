@@ -2,6 +2,7 @@ unit nevBaseDrawView;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevBaseDrawView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevBaseDrawView" MUID: (4811E4BA020A)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

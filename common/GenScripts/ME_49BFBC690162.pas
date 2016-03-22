@@ -3,6 +3,7 @@ unit m3PrimDB;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3PrimDB.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3PrimDB" MUID: (49BFBC690162)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

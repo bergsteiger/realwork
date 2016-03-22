@@ -2,6 +2,7 @@ unit vcmEntityFormsIterable;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmEntityFormsIterable.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmEntityFormsIterable" MUID: (53D1DC9C03E7)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

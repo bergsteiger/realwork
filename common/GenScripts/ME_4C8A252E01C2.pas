@@ -5,6 +5,7 @@ unit vtNavigator;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtNavigator.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtNavigator" MUID: (4C8A252E01C2)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
@@ -496,6 +497,7 @@ type
    procedure PositionDockRect(DragDockObject: TDragDockObject); override;
    {$IfEnd} // NOT Defined(NoVCL)
    procedure AfterDestroyCalled; override;
+   procedure ClearFields; override;
   public
    procedure RegisterStateChanged(aLink: TnpChangeLink);
     {* подписать клиента на нотификацию об изменении состояния навигатора }
@@ -4919,6 +4921,16 @@ begin
  inherited;
 //#UC END# *52BC2B9401F3_52BAD1C40174_impl*
 end;//TvtNavigatorPrim.AfterDestroyCalled
+
+procedure TvtNavigatorPrim.ClearFields;
+begin
+ AutoHideOffHint := '';
+ AutoHideOnHint := '';
+ MinimizedOnHint := '';
+ MinimizedOffHint := '';
+ CloseHint := '';
+ inherited;
+end;//TvtNavigatorPrim.ClearFields
 
 function TnpHeaderPrim.pm_GetAlign: TAlign;
 //#UC START# *52BAC726019F_52BABCB3015Cget_var*

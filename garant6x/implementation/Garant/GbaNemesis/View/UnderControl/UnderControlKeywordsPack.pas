@@ -3,6 +3,7 @@ unit UnderControlKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControl\UnderControlKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "UnderControlKeywordsPack" MUID: (F4128D86DA56)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -39,8 +40,8 @@ type
 'aControl' форма::UnderControl TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_UnderControl
 
  Tkw_UnderControl_Control_UnderControlList = {final} class(TtfwControlString)
@@ -51,9 +52,9 @@ type
 контрол::UnderControlList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UnderControl_Control_UnderControlList
 
  Tkw_UnderControl_Control_UnderControlList_Push = {final} class(TkwBynameControlPush)
@@ -68,20 +69,15 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UnderControl_Control_UnderControlList_Push
 
-class function Tkw_Form_UnderControl.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::UnderControl';
-end;//Tkw_Form_UnderControl.GetWordNameForRegister
-
 function Tkw_Form_UnderControl.GetString: AnsiString;
 begin
  Result := 'enUnderControl';
 end;//Tkw_Form_UnderControl.GetString
 
-class function Tkw_UnderControl_Control_UnderControlList.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_UnderControl.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::UnderControlList';
-end;//Tkw_UnderControl_Control_UnderControlList.GetWordNameForRegister
+ Result := 'форма::UnderControl';
+end;//Tkw_Form_UnderControl.GetWordNameForRegister
 
 function Tkw_UnderControl_Control_UnderControlList.GetString: AnsiString;
 begin
@@ -93,6 +89,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_UnderControl_Control_UnderControlList.RegisterInEngine
+
+class function Tkw_UnderControl_Control_UnderControlList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::UnderControlList';
+end;//Tkw_UnderControl_Control_UnderControlList.GetWordNameForRegister
 
 procedure Tkw_UnderControl_Control_UnderControlList_Push.DoDoIt(const aCtx: TtfwContext);
 begin

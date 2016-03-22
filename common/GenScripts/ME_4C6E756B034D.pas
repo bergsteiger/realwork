@@ -2,6 +2,7 @@ unit nsSectionBreakNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsSectionBreakNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsSectionBreakNode" MUID: (4C6E756B034D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

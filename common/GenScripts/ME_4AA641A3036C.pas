@@ -3,6 +3,8 @@ unit Search_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Search_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "Search" MUID: (4AA641A3036C)
+// Имя типа: "TSearchModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

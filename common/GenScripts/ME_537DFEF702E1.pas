@@ -3,6 +3,8 @@ unit Task_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\Task_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Task" MUID: (537DFEF702E1)
+// Имя типа: "TaskTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

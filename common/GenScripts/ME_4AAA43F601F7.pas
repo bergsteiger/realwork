@@ -2,6 +2,8 @@ unit ShellAndMonitoringsMain_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ShellAndMonitoringsMain_Form.pas"
 // Стереотип: "VCMMainForm"
+// Элемент модели: "ShellAndMonitoringsMain" MUID: (4AAA43F601F7)
+// Имя типа: "TShellAndMonitoringsMainForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

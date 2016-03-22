@@ -3,6 +3,8 @@ unit ReleaseItsLAW;
 
 // Модуль: "w:\common\components\DailyTest\ReleaseItsLAW.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "ReleaseItsLAW" MUID: (97FE67497778)
+// Имя типа: "TReleaseItsLAW"
 
 {$Include w:\common\components\DailyTest\DailyTest.inc}
 

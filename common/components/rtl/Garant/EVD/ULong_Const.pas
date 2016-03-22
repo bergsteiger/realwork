@@ -5,7 +5,7 @@ unit ULong_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/ULong_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Atom::Class>> Shared Delphi::EVD::Standard::evdTasks::ULong
+// Generated from UML model, root element: <<Atom::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::ULong
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

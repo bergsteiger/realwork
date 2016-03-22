@@ -2,6 +2,7 @@ unit evdDocumentMarksEliminator;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdDocumentMarksEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdDocumentMarksEliminator" MUID: (4E664CB30360)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

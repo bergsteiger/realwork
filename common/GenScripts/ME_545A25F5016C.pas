@@ -2,6 +2,7 @@ unit l3SizedPoolManager;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3SizedPoolManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3SizedPoolManager" MUID: (545A25F5016C)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

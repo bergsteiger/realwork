@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmFormDataSourcePrimWithFlexUseCaseControllerType" MUID: (5017EAF4027D)
+// Имя типа: "_vcmFormDataSourcePrimWithFlexUseCaseControllerType_"
 
 {$Define vcmFormDataSourcePrimWithFlexUseCaseControllerType_imp}
 
@@ -47,6 +49,7 @@
     {* существуют ли данные в текущих условиях. Например, на текущей базе. }
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
   public
    constructor Create(const aDataSource: _UseCaseControllerType_); reintroduce;
    class function Make(const aDataSource: _UseCaseControllerType_): _FormDataSourceType_; reintroduce;
@@ -295,6 +298,12 @@ begin
  inherited;
 //#UC END# *479731C50290_5017EAF4027D_impl*
 end;//_vcmFormDataSourcePrimWithFlexUseCaseControllerType_.Cleanup
+
+procedure _vcmFormDataSourcePrimWithFlexUseCaseControllerType_.ClearFields;
+begin
+ Finalize(f_UseCaseController);
+ inherited;
+end;//_vcmFormDataSourcePrimWithFlexUseCaseControllerType_.ClearFields
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$EndIf vcmFormDataSourcePrimWithFlexUseCaseControllerType_imp_impl}

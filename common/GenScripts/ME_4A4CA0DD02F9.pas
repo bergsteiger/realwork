@@ -3,6 +3,7 @@ unit atGetCRListFromDocumentOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atGetCRListFromDocumentOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatGetCRListFromDocumentOperation" MUID: (4A4CA0DD02F9)
 
 interface
 

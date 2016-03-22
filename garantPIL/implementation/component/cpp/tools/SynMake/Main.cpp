@@ -60,6 +60,12 @@ public:
 			m_path = Core::ParamManagerFactory::get ().get_string ("-path");
 		}
 
+		if (Core::ParamManagerFactory::get ().is_exist ("-stop")) {
+			m_stop_path = Core::ParamManagerFactory::get ().get_string ("-stop");
+		}
+
+		m_is_hard = Core::ParamManagerFactory::get ().is_exist ("-hard");
+
 		std::cout 
 			<< std::endl
 			<< "SynMaker "
@@ -76,13 +82,12 @@ public:
 			<< std::endl
 			<< "path: " << m_path
 			<< std::endl
+			<< "stop_path: " << m_stop_path
+			<< std::endl
 			<< std::endl 
 			<< "---------------------------------------------" 
 			<< std::endl 
 			<< std::endl;
-	}
-
-	virtual ~Executor () {
 	}
 
 	void execute () {
@@ -95,7 +100,7 @@ public:
 			FactoryRegistrator::execute ();
 
 			SynMake::SynMaker obj (m_path);
-			obj.execute (m_in, m_out);
+			obj.execute (m_in, m_out, m_stop_path, m_is_hard);
 
 		} catch (...) {
 			LOG_UEX (("%s", GDS_CURRENT_FUNCTION));
@@ -106,9 +111,12 @@ public:
 	}
 
 public:
+	bool m_is_hard;
+
 	std::string m_in;
 	std::string m_out;
 	std::string m_path;
+	std::string m_stop_path;
 };
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -128,6 +136,6 @@ int main (int argc, char* argv []) {
 	return (int) ret;
 }
 
-//-in "C:\in.txt" -out "C:\out.txt" -path "C:\Program Files\Garant\data2\data"
+//-in "C:\syns.csv" -out "C:\syns.txt" -path "C:\Program Files\Garant\data2\data" -stop "C:\D\syns_stop.txt"
 //-in "C:\syns.csv" -out "C:\syns.txt" -path "C:\Program Files\Garant\data2\data"
 

@@ -2,6 +2,7 @@ unit vgReminderConsts;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vgReminderConsts.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vgReminderConsts" MUID: (53344F290121)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

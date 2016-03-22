@@ -1,71 +1,51 @@
 unit InsertRowTest;
+ {* Тест вставки строки }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/InsertRowTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TInsertRowTest
-//
-// Тест вставки строки
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\InsertRowTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TInsertRowTest" MUID: (4CAAC9D601A2)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TextViaEditorProcessor,
-  PrimTextLoad_Form
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , TextViaEditorProcessor
+ , PrimTextLoad_Form
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TInsertRowTest = {abstract} class(TTextViaEditorProcessor)
   {* Тест вставки строки }
- protected
- // realized methods
+  protected
    procedure Process(aForm: TPrimTextLoadForm); override;
-     {* Собственно процесс обработки текста }
- protected
- // overridden protected methods
+    {* Собственно процесс обработки текста }
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TInsertRowTest
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  evOp,
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TInsertRowTest
+ l3ImplUses
+ , evOp
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 procedure TInsertRowTest.Process(aForm: TPrimTextLoadForm);
+ {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4CAAC9D601A2_var*
 var
  i: Integer;
@@ -79,17 +59,16 @@ begin
 end;//TInsertRowTest.Process
 
 function TInsertRowTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TInsertRowTest.GetFolder
 
 function TInsertRowTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4CAAC9D601A2';
 end;//TInsertRowTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

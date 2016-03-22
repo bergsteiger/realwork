@@ -2,6 +2,8 @@
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverterImp.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "atStringConverterImp" MUID: (503E313601ED)
+// Имя типа: "_atStringConverterImp_"
 
 {$Define atStringConverterImp_imp}
 

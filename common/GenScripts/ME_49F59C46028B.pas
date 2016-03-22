@@ -2,6 +2,7 @@ unit bsSelectedUsers;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\bsSelectedUsers.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsSelectedUsers" MUID: (49F59C46028B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit nevCloakFormatInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevCloakFormatInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevCloakFormatInfo" MUID: (4E5F550D0032)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

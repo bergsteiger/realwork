@@ -3,6 +3,7 @@ unit edCellTypesList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\edCellTypesList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TedCellTypesList" MUID: (511205FA00E2)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

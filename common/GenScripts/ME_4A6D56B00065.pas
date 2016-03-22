@@ -3,6 +3,7 @@ unit EditionsInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\EditionsInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "EditionsInterfaces" MUID: (4A6D56B00065)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

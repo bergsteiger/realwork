@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Утилита используется для получения ID региона по его имени. Применяется совместно с программой RegionTool.")> 
 <Assembly: AssemblyCompany("ООО НПП Гарант-Сервис-Университет")> 
 <Assembly: AssemblyProduct("RegTool")> 
-<Assembly: AssemblyCopyright("Copyright © Гарант-Сервис-Университет, 2015")> 
+<Assembly: AssemblyCopyright("Copyright © Гарант-Сервис-Университет, 2016")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' используя "*", как показано ниже:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.17")> 
-<Assembly: AssemblyFileVersion("1.0.0.17")> 
+<Assembly: AssemblyVersion("1.0.0.18")> 
+<Assembly: AssemblyFileVersion("1.0.0.18")> 

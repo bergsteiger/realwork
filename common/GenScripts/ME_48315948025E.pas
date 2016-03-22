@@ -3,6 +3,7 @@ unit EditableBox;
 
 // Модуль: "w:\common\components\gui\Garant\VT\ComboTree\EditableBox.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TEditableBox" MUID: (48315948025E)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -3,6 +3,7 @@ unit NOT_FINISHED_F_ImageView;
 
 // Модуль: "w:\archi\source\projects\Archi\Frames\NOT_FINISHED_F_ImageView.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "F_ImageView" MUID: (4F8D785201A4)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

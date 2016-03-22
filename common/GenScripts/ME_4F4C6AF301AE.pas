@@ -3,6 +3,7 @@ unit evTableColumn;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTableColumn.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evTableColumn" MUID: (4F4C6AF301AE)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
@@ -18,8 +19,8 @@ uses
  , l3Variant
 ;
 
+{$If Defined(evNeedEditableCursors)}
 type
- {$If Defined(evNeedEditableCursors)}
  TevColumn = class(TevColumnBorderMarker, IedCellsIterator, IedColumn)
   {* Реализует интерфейс IedColumn для колонки таблицы. }
   private
@@ -63,7 +64,7 @@ type
     write Set_Width;
     {* Ширина колонки. }
  end;//TevColumn
- {$IfEnd} // Defined(evNeedEditableCursors)
+{$IfEnd} // Defined(evNeedEditableCursors)
 
 {$IfEnd} // Defined(evUseVisibleCursors)
 implementation

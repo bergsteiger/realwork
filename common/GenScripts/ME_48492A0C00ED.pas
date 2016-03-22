@@ -3,6 +3,8 @@ unit k2Long_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Long_Const.pas"
 // Стереотип: "Atom"
+// Элемент модели: "Long" MUID: (48492A0C00ED)
+// Имя типа: "LongAtom"
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

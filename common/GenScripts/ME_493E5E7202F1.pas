@@ -2,6 +2,7 @@ unit dDocument;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Document\dDocument.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdDocument" MUID: (493E5E7202F1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

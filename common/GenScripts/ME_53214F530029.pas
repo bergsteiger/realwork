@@ -3,6 +3,8 @@ unit K517772970_TRemoteDictEditQuery;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TRemoteDictEditQuery.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TRemoteDictEditQuery" MUID: (53214F530029)
+// Имя типа: "TK517772970_TRemoteDictEditQuery"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

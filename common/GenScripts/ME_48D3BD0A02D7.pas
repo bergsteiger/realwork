@@ -3,6 +3,7 @@ unit evReq;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evReq.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevReq" MUID: (48D3BD0A02D7)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

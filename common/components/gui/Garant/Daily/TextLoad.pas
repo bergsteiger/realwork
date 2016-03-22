@@ -1,76 +1,58 @@
 unit TextLoad;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/TextLoad.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TTextLoad
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\TextLoad.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TTextLoad" MUID: (4B30C90601EB)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TextViaEditorProcessorPrim
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , TextViaEditorProcessorPrim
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TTextLoad = class(TTextViaEditorProcessorPrim)
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure LoadGK;
-     {* Загрузка ГК }
+    {* Загрузка ГК }
    procedure LoadBigTableFromTextEVD;
-     {* Загрузка боольшой таблицы из текстового EVD }
-   procedure K172361288;
-     {* Тест по мотивам [RequestLink:172361288]. }
+    {* Загрузка боольшой таблицы из текстового EVD }
+   procedure K_172361288;
+    {* Тест по мотивам [RequestLink:172361288]. }
  end;//TTextLoad
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  k2Base,
-  ddSectionRepair,
-  k2DocumentBuffer,
-  SysUtils,
-  k2TagGen,
-  l3Variant,
-  TextLoad_Form,
-  TestFrameWork,
-  vcmBase
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TTextLoad
+ l3ImplUses
+ , TextLoad_Form
+ , TestFrameWork
+ , k2Base
+ , ddSectionRepair
+ , k2DocumentBuffer
+ , SysUtils
+ , k2TagGen
+ , l3Variant
+ , vcmBase
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 procedure TTextLoad.LoadGK;
+ {* Загрузка ГК }
 //#UC START# *4B30E6A60217_4B30C90601EB_var*
 var
  l_F  : _FormClass_;
@@ -93,6 +75,7 @@ begin
 end;//TTextLoad.LoadGK
 
 procedure TTextLoad.LoadBigTableFromTextEVD;
+ {* Загрузка боольшой таблицы из текстового EVD }
 //#UC START# *4B3248DC01E6_4B30C90601EB_var*
 var
  l_F  : _FormClass_;
@@ -114,7 +97,8 @@ begin
 //#UC END# *4B3248DC01E6_4B30C90601EB_impl*
 end;//TTextLoad.LoadBigTableFromTextEVD
 
-procedure TTextLoad.K172361288;
+procedure TTextLoad.K_172361288;
+ {* Тест по мотивам [RequestLink:172361288]. }
 //#UC START# *4B32542D039D_4B30C90601EB_var*
 var
  l_F  : _FormClass_;
@@ -152,23 +136,22 @@ begin
   l_F.Free;
  end;//try..finally
 //#UC END# *4B32542D039D_4B30C90601EB_impl*
-end;//TTextLoad.K172361288
+end;//TTextLoad.K_172361288
 
 function TTextLoad.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TTextLoad.GetFolder
 
 function TTextLoad.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4B30C90601EB';
 end;//TTextLoad.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoVCM
-
 initialization
  TestFramework.RegisterTest(TTextLoad.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

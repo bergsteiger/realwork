@@ -2,6 +2,7 @@ unit evFormulaPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evFormulaPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevFormulaPainter" MUID: (4804CC63006C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

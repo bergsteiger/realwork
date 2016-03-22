@@ -2,6 +2,7 @@ unit evConstStringData;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evConstStringData.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevConstStringData" MUID: (48F4CF9903D6)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

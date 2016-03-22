@@ -3,6 +3,8 @@ unit PrimF1Res;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimF1Res.pas"
 // Стереотип: "VCMApplication"
+// Элемент модели: "PrimF1" MUID: (4A92BBDF0126)
+// Имя типа: "TPrimF1Res"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -331,7 +333,9 @@ class procedure TPrimF1Res.LogUserActivity(aKind: TvcmOperationCallType);
 //#UC END# *4B14F1720053_4A92BBDF0126_var*
 begin
 //#UC START# *4B14F1720053_4A92BBDF0126_impl*
+ {$if not defined(Monitorings)}
  TnsUserOperationEvent.Instance.Log(aKind);
+ {$ifend}
 //#UC END# *4B14F1720053_4A92BBDF0126_impl*
 end;//TPrimF1Res.LogUserActivity
 

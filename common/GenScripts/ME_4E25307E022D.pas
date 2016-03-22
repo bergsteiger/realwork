@@ -2,6 +2,7 @@ unit NOT_FINISHED_DictsSup;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_DictsSup.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DictsSup" MUID: (4E25307E022D)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

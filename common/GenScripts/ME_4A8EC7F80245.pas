@@ -3,6 +3,8 @@ unit moCommon;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moCommon.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "Common" MUID: (4A8EC7F80245)
+// Имя типа: "Tmo_Common"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

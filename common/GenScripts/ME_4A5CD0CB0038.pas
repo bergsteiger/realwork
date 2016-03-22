@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevParaListViewBounds.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevParaListViewBounds" MUID: (4A5CD0CB0038)
+// Имя типа: "_nevParaListViewBounds_"
 
 {$Define nevParaListViewBounds_imp}
 

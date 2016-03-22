@@ -5,7 +5,7 @@ unit m3BaseStream;
 // Библиотека "m3"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3BaseStream.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3::Streams::Tm3BaseStream
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::Streams::Tm3BaseStream
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

@@ -2,6 +2,7 @@ unit destFontTable;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destFontTable.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "destFontTable" MUID: (54E1900902C9)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

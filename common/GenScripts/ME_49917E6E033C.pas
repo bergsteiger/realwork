@@ -3,6 +3,7 @@ unit ProfilersInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\ProfilersInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "ProfilersInterfaces" MUID: (49917E6E033C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

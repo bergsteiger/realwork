@@ -2,6 +2,7 @@ unit NOT_FINISHED_ctTypes;
 
 // Модуль: "w:\common\components\gui\Garant\VT\ComboTree\NOT_FINISHED_ctTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ctTypes" MUID: (4A8432960266)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

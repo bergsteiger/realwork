@@ -2,6 +2,7 @@ unit vcmMessageFormPrim;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMessageFormPrim.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvcmMessageFormPrim" MUID: (4F91452D0004)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

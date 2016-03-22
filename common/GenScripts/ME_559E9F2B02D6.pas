@@ -2,6 +2,7 @@ unit adminUserNodeList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\adminUserNodeList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TadminUserNodeList" MUID: (559E9F2B02D6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

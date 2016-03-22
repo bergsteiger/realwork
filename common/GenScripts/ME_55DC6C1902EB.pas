@@ -2,6 +2,7 @@ unit segTarget;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\segTarget.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TsegTarget" MUID: (55DC6C1902EB)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

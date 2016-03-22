@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "kwControlFromStackWord" MUID: (4F212C120371)
+// Имя типа: "_kwControlFromStackWord_"
 
 {$Define kwControlFromStackWord_imp}
 

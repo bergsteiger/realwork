@@ -39,6 +39,7 @@ public:
 	void out (const ContextSearch::Relevancy::Fragments& data);
 	void out (const ContextSearch::DBComm::StrPairVector& data);
 	void out (const ContextSearch::DBComm::Synonyms& data);
+	void out (const ContextSearch::DBComm::InvisibleDataIndex& data);
 	void out (const ContextSearch::Defs::InvisibleBlocks& map);
 	void out (const ContextSearch::Defs::InvisibleRel& map);
 	void out (const Morpho::Def::StrStrMap& map);

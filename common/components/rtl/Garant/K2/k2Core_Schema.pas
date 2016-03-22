@@ -5,7 +5,7 @@ unit k2Core_Schema;
 // Библиотека "K2"
 // Модуль: "w:/common/components/rtl/Garant/K2/k2Core_Schema.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TagTable::Class>> Shared Delphi::K2::CoreTypes::k2Core
+// Generated from UML model, root element: <<TagTable::Class>> Shared Delphi Low Level::K2::CoreTypes::k2Core
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

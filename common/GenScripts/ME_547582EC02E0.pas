@@ -2,6 +2,7 @@ unit ncsDeliveryResult;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsDeliveryResult.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsDeliveryResult" MUID: (547582EC02E0)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

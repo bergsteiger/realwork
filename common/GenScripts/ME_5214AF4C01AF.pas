@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddIniStorage;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddIniStorage.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddIniStorage" MUID: (5214AF4C01AF)
 
 interface
 

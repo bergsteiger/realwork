@@ -2,6 +2,7 @@ unit tfwStringToEnumValue;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStringToEnumValue.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwStringToEnumValue" MUID: (553132CA032A)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

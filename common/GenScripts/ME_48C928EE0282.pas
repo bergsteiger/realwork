@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDelayedPainters.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "evDelayedPainters" MUID: (48C928EE0282)
+// Имя типа: "_evDelayedPainters_"
 
 {$Define evDelayedPainters_imp}
 

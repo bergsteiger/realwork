@@ -1,6 +1,6 @@
 unit arVAnouncedBlackList;
 
-{ $Id: arVAnouncedBlackList.pas,v 1.5 2014/04/17 13:09:06 voba Exp $ }
+{ $Id: arVAnouncedBlackList.pas,v 1.6 2015/11/25 14:01:28 lukyanets Exp $ }
 
 interface
 uses
@@ -21,6 +21,8 @@ uses
  IniShop,
  l3Interfaces,
  l3Base,
+
+ daSchemeConsts,
 
  dt_Const,
  dt_AttrSchema,

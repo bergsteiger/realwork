@@ -2,6 +2,7 @@ unit TTextSearchDlgWordsPack;
 
 // Модуль: "w:\archi\source\projects\Common\Dialogs\TTextSearchDlgWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "TTextSearchDlgWordsPack" MUID: (55C8CD3401D2)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
@@ -74,11 +75,6 @@ begin
  Fake(aCtx, l_aTextSearchDlg);
 end;//TkwPopTextSearchDlgFake.DoDoIt
 
-class function TkwPopTextSearchDlgFake.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:TextSearchDlg:Fake';
-end;//TkwPopTextSearchDlgFake.GetWordNameForRegister
-
 function TkwPopTextSearchDlgFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -93,6 +89,11 @@ function TkwPopTextSearchDlgFake.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTextSearchDlg)]);
 end;//TkwPopTextSearchDlgFake.ParamsTypes
+
+class function TkwPopTextSearchDlgFake.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:TextSearchDlg:Fake';
+end;//TkwPopTextSearchDlgFake.GetWordNameForRegister
 
 initialization
  TkwPopTextSearchDlgFake.RegisterInEngine;

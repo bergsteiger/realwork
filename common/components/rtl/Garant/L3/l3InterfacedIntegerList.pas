@@ -2,6 +2,7 @@ unit l3InterfacedIntegerList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3InterfacedIntegerList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3InterfacedIntegerList" MUID: (4CA9A422001B)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

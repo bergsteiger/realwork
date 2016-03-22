@@ -3,6 +3,7 @@ unit destWord6Number;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destWord6Number.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdestWord6Number" MUID: (51DD081A0082)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -22,6 +23,8 @@ type
   private
    f_ItemText: AnsiString;
     {* Поле для свойства ItemText }
+  protected
+   procedure ClearFields; override;
   public
    procedure Close(aState: TddRTFState;
     aNewDest: TddRTFDestination); override;
@@ -85,5 +88,11 @@ begin
  f_ItemText := f_Itemtext + aText;
 //#UC END# *51D27C0402E9_51DD081A0082_impl*
 end;//TdestWord6Number.AddAnsiChar
+
+procedure TdestWord6Number.ClearFields;
+begin
+ ItemText := '';
+ inherited;
+end;//TdestWord6Number.ClearFields
 
 end.

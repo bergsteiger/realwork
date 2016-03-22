@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmUtils;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmUtils" MUID: (4AA9377803B5)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

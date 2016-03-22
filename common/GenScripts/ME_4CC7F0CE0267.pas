@@ -2,6 +2,8 @@ unit PrimBaseSearchOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearchOptions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimBaseSearchOptions" MUID: (4CC7F0CE0267)
+// Имя типа: "TPrimBaseSearchOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

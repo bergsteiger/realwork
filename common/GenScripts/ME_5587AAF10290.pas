@@ -2,6 +2,7 @@ unit vcmPopupControlWindowService;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmPopupControlWindowService.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmPopupControlWindowService" MUID: (5587AAF10290)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

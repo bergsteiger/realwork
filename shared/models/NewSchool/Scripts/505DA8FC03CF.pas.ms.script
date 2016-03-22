@@ -93,23 +93,6 @@ ref; // ME_505DA749005F f_NotificationClients
 
 ref; // ME_506037F90133 ItemDef
 
-: ME_3DB9A4EBE83E
- CONST UID '3DB9A4EBE83E'
- CONST Name 'f_ItemDef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ItemDef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_505DA5E7038D // nscStatusBarItemNotification
- ;
- : Target WL 'ME_4980350B00FA' '490838E10313.pas.ms.script' // InscStatusBarItemDef
- ;
- CONST extprop:clearViaProperty 'ItemDef'
-
-ref; // ME_3DB9A4EBE83E f_ItemDef
-
 : ME_5060229A032B
  CONST Name 'aMessage'
  CONST Class class_Parameter
@@ -179,8 +162,6 @@ ref; // ME_50601EAB020A
 ref; // ME_50601EAD02A5 
 
 : ME_505DA97101BB_ME_505DA5E7038D
- CONST UID '505DA97101BB'
- CONST Name 'Subscribe'
  : Original ME_505DA97101BB // Subscribe
  ;
  : Implementor ME_505DA5E7038D // nscStatusBarItemNotification
@@ -189,8 +170,6 @@ ref; // ME_50601EAD02A5
 ref; // ME_505DA97101BB_ME_505DA5E7038D Subscribe
 
 : ME_505DA9AF003E_ME_505DA5E7038D
- CONST UID '505DA9AF003E'
- CONST Name 'Unsubscribe'
  : Original ME_505DA9AF003E // Unsubscribe
  ;
  : Implementor ME_505DA5E7038D // nscStatusBarItemNotification
@@ -199,8 +178,6 @@ ref; // ME_505DA97101BB_ME_505DA5E7038D Subscribe
 ref; // ME_505DA9AF003E_ME_505DA5E7038D Unsubscribe
 
 : ME_505DA9D50000_ME_505DA5E7038D
- CONST UID '505DA9D50000'
- CONST Name 'SendNotificationToClients'
  : Original ME_505DA9D50000 // SendNotificationToClients
  ;
  : Implementor ME_505DA5E7038D // nscStatusBarItemNotification
@@ -209,8 +186,6 @@ ref; // ME_505DA9AF003E_ME_505DA5E7038D Unsubscribe
 ref; // ME_505DA9D50000_ME_505DA5E7038D SendNotificationToClients
 
 : ME_505DCA6603AA_ME_505DA5E7038D
- CONST UID '505DCA6603AA'
- CONST Name 'Notify'
  : Original ME_505DCA6603AA // Notify
  ;
  : Implementor ME_505DA5E7038D // nscStatusBarItemNotification
@@ -219,8 +194,6 @@ ref; // ME_505DA9D50000_ME_505DA5E7038D SendNotificationToClients
 ref; // ME_505DCA6603AA_ME_505DA5E7038D Notify
 
 : ME_505DD53B0349_ME_505DA5E7038D
- CONST UID '505DD53B0349'
- CONST Name 'Visible'
  : Original ME_505DD53B0349 // Visible
  ;
  : Implementor ME_505DA5E7038D // nscStatusBarItemNotification
@@ -230,8 +203,6 @@ ref; // ME_505DCA6603AA_ME_505DA5E7038D Notify
 ref; // ME_505DD53B0349_ME_505DA5E7038D Visible
 
 : ME_505DDE8F02A1_ME_505DA5E7038D
- CONST UID '505DDE8F02A1'
- CONST Name 'NotificationClients'
  : Original ME_505DDE8F02A1 // NotificationClients
  ;
  : Implementor ME_505DA5E7038D // nscStatusBarItemNotification
@@ -241,8 +212,6 @@ ref; // ME_505DD53B0349_ME_505DA5E7038D Visible
 ref; // ME_505DDE8F02A1_ME_505DA5E7038D NotificationClients
 
 : ME_50603D930238_ME_505DA5E7038D
- CONST UID '50603D930238'
- CONST Name 'ItemDef'
  : Original ME_50603D930238 // ItemDef
  ;
  : Implementor ME_505DA5E7038D // nscStatusBarItemNotification
@@ -252,24 +221,12 @@ ref; // ME_505DDE8F02A1_ME_505DA5E7038D NotificationClients
 ref; // ME_50603D930238_ME_505DA5E7038D ItemDef
 
 : ME_479731C50290_ME_505DA5E7038D
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_505DA5E7038D // nscStatusBarItemNotification
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_505DA5E7038D Cleanup
-
-: ME_5000565C019C_ME_505DA5E7038D
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_505DA5E7038D // nscStatusBarItemNotification
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_505DA5E7038D ClearFields
 
 : ME_505DA5E7038D
  CONST UID '505DA5E7038D'
@@ -289,7 +246,6 @@ ref; // ME_5000565C019C_ME_505DA5E7038D ClearFields
  : Attributes
    Seq: ( ME_505DA749005F // f_NotificationClients
  ME_506037F90133 // ItemDef
- ME_3DB9A4EBE83E // f_ItemDef
  )
  ; // Attributes
  : Operations
@@ -308,7 +264,6 @@ ref; // ME_5000565C019C_ME_505DA5E7038D ClearFields
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_505DA5E7038D // Cleanup
- ME_5000565C019C_ME_505DA5E7038D // ClearFields
  )
  ; // Overridden
  : Constants

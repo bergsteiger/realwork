@@ -3,6 +3,7 @@ unit DrawTestPrim;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\DrawTestPrim.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TDrawTestPrim" MUID: (4CAC405703AE)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

@@ -2,6 +2,7 @@ unit tfwValueTypes;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwValueTypes.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwValueTypes" MUID: (55BF2B000047)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

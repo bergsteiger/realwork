@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtCheckBox;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtCheckBox.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtCheckBox" MUID: (5179419B01DA)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -9,6 +9,8 @@ Create
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwCreate.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "Create" MUID: (512D9C2D013F)
+// Имя типа: "TkwCreate"
 
 interface
 

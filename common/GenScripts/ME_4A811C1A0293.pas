@@ -2,6 +2,8 @@ unit BaseWorkJournal_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\BaseWorkJournal_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "BaseWorkJournal" MUID: (4A811C1A0293)
+// Имя типа: "TBaseWorkJournalModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

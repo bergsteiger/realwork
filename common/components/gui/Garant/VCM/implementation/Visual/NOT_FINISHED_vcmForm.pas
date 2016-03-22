@@ -3,6 +3,7 @@ unit NOT_FINISHED_vcmForm;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmForm.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmForm" MUID: (47F4EED50062)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

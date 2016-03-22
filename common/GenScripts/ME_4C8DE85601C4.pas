@@ -3,6 +3,8 @@ unit moTasksPanelMenu;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\moTasksPanelMenu.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "TasksPanelMenu" MUID: (4C8DE85601C4)
+// Имя типа: "Tmo_TasksPanelMenu"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

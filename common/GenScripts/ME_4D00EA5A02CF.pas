@@ -3,6 +3,7 @@ unit nsFindIteratorNewForDiction;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsFindIteratorNewForDiction.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsFindIteratorNewForDiction" MUID: (4D00EA5A02CF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

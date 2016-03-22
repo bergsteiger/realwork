@@ -2,6 +2,7 @@ unit afwDockingInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\afwDockingInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "afwDockingInterfaces" MUID: (4DA835360142)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

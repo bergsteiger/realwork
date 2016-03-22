@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs,
   vtForm, OvcBase,  vtlister, Menus, ComCtrls, vtStatusBar, vtStringLister,
-  afwControl, afwInputControl, afwControlPrim, afwBaseControl;
+  afwControl, afwInputControl, afwControlPrim, afwBaseControl, ActnList;
 
 type
   TWinList = class(TvtForm)
@@ -15,6 +15,9 @@ type
     miGoto: TMenuItem;
     miDel: TMenuItem;
     ListFooter: TvtStatusBar;
+    WinActList: TActionList;
+    acGoToWin: TAction;
+    acCloseWin: TAction;
     procedure lstWinSetCurrentChanged(Sender: TObject; aNewCurrent, aOldCurrent: Integer);
     procedure lstWinSetActionElement(Sender: TObject; Index: Integer);
     procedure miDelClick(Sender: TObject);

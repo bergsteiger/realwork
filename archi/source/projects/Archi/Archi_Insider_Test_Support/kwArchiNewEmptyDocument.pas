@@ -1,47 +1,35 @@
 unit kwArchiNewEmptyDocument;
+ {* *Формат:* Создать_пустой
+*Описание:* Создание пустого документа. 
+*Пример:*
+[code]
+ Создать_пустой
+[code]
+*Результат:*
+ Создает пустой документ
+*Примечания:*
+ В скриптах напрямую практически не используется, так как есть более удобные функции в файле:
+[code]
+  w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"
+[code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwArchiNewEmptyDocument.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::Scripting::TkwArchiNewEmptyDocument
-//
-// *Формат:* Создать_пустой
-// *Описание:* Создание пустого документа.
-// *Пример:*
-// {code}
-// Создать_пустой
-// {code}
-// *Результат:*
-// Создает пустой документ
-// *Примечания:*
-// В скриптах напрямую практически не используется, так как есть более удобные функции в файле:
-// {code}
-// w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"
-// {code}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiNewEmptyDocument.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwArchiNewEmptyDocument" MUID: (4E8EE51103C2)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  kwCreateNewFile,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , kwCreateNewFile
+ , tfwScriptingInterfaces
+;
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwArchiNewEmptyDocument = {scriptword} class(TkwCreateNewFile)
+ TkwArchiNewEmptyDocument = class(TkwCreateNewFile)
   {* *Формат:* Создать_пустой
 *Описание:* Создание пустого документа. 
 *Пример:*
@@ -55,28 +43,18 @@ type
 [code]
   w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"
 [code] }
- protected
- // realized methods
+  protected
    function DoWithFileName(const aCtx: TtfwContext): AnsiString; override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwArchiNewEmptyDocument
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  arArchiTestsAdapter,
-  dt_Types,
-  SysUtils
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwArchiNewEmptyDocument
+ l3ImplUses
+;
 
 function TkwArchiNewEmptyDocument.DoWithFileName(const aCtx: TtfwContext): AnsiString;
 //#UC START# *52BD79600196_4E8EE51103C2_var*
@@ -88,17 +66,13 @@ begin
 end;//TkwArchiNewEmptyDocument.DoWithFileName
 
 class function TkwArchiNewEmptyDocument.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Создать_пустой';
 end;//TkwArchiNewEmptyDocument.GetWordNameForRegister
 
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация TkwArchiNewEmptyDocument
  TkwArchiNewEmptyDocument.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация TkwArchiNewEmptyDocument }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

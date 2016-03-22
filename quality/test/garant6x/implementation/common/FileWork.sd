@@ -136,7 +136,8 @@ try
                         (['{\*\generator', '}']),
                         ([#251#252#252#252#253#253#253#255#255#255, #33#249]), //for gif files                        
                         (['<personification_key>', '</personification_key>']),
-                        (['<query comment=', '>'])
+                        (['<query comment=', '>']),
+                        ([' modification_date="', '"']) // для сравнения psx-файлов
                       ];
   buf1 := TrimEx(f1);
   buf2 := TrimEx(f2);  
@@ -1109,7 +1110,7 @@ try
       begin
         lineBuf := inFile.ReadLine;
         if (lineBuf <> '') then
-          buf := buf + '[' + IntToStr(inFile.Line) + ']: ' +  lineBuf + EndOfLine;
+          buf := buf + '[' + IntToStr(inFile.Line - 1) + ']: ' +  lineBuf + EndOfLine;
       end;
     end
     else
@@ -1125,7 +1126,7 @@ try
             begin
               res := true; for j := VarArrayLowBound(exceptionsStrings, 1) to VarArrayHighBound(exceptionsStrings, 1) do if Pos(exceptionsStrings[j], lineBuf) <> 0 then begin res := false; break; end;
                          //одинаковые строки не пишем (если был перезапуск) 
-              if res and (Pos(lineBuf, outFileBuf) = 0) then buf := buf + '[' + IntToStr(inFile.Line) + ']: ' +  lineBuf + EndOfLine; break;
+              if res and (Pos(lineBuf, outFileBuf) = 0) then buf := buf + '[' + IntToStr(inFile.Line - 1) + ']: ' +  lineBuf + EndOfLine; break;
             end;
         end;
       end;
@@ -1164,9 +1165,9 @@ try
     if isFromLastLogPositionCounter and isSaveLastPositionCounter then
     begin
       case logPositionCounterName of 
-        LOG_COUNTER_NAME_SERVER: gbl_LastPositonInServerLog := inFile.Line;
-        LOG_COUNTER_NAME_CLIENT: gbl_LastPositonInClientLog := inFile.Line;
-        LOG_COUNTER_NAME_SHELL: gbl_LastPositonInShellLog := inFile.Line;
+        LOG_COUNTER_NAME_SERVER: gbl_LastPositonInServerLog := inFile.Line - 1;
+        LOG_COUNTER_NAME_CLIENT: gbl_LastPositonInClientLog := inFile.Line - 1;
+        LOG_COUNTER_NAME_SHELL: gbl_LastPositonInShellLog := inFile.Line - 1;
       end; 
     end;
 
@@ -1584,32 +1585,30 @@ begin
 end;
 
 {
-Записывает в лог операцию удаления файлов 
+  Записывает в лог операцию удаления файлов 
 }
 procedure WriteDelOperInLog(
   path : string;
   functionName : string 
 );
-const
-  DELLOGS_FOLDER = '\\strelka\c$\DelLogs';
 var
-  fileObj;
-  fileName;
+  fileObj, fileName, dirName;
 begin
-  fileName := Utilities.IncludeTrailingBackslash(DELLOGS_FOLDER) + COMPNAME + '___' + DateToStr(Utilities.Date) + '.log';
+  dirName := GetPathTo(PATH_TO_LOGS_DELETED);
+  fileName := Utilities.IncludeTrailingBackslash(dirName) + COMPNAME + '___' + DateToStr(Utilities.Date) + '.log';
 
-  if NOT Utilities.DirectoryExists(DELLOGS_FOLDER) then
-    Utilities.CreateDir(DELLOGS_FOLDER);
+  if NOT Utilities.DirectoryExists(dirName) then
+    Utilities.CreateDir(dirName);
 
   AssignFile(fileObj, fileName);
-  if FileExists(fileName) then  
+  if FileExists(fileName) then
     Append(fileObj)
   else
     Rewrite(fileObj);
   if path = '' then path := 'null';
   
   write(fileObj, path + '   |   ' +  TimeToStr(Utilities.Time) + '    |    func:=' + functionName + endOfLine);
-  closeFile(fileObj);  
+  closeFile(fileObj);
 end;
 
 {

@@ -3,6 +3,8 @@ unit K517772970_TddNonEditableDictsRequestDefault;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TddNonEditableDictsRequestDefault.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TddNonEditableDictsRequestDefault" MUID: (53197A9A0212)
+// Имя типа: "TK517772970_TddNonEditableDictsRequestDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

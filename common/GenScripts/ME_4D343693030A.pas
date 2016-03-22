@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmTasksPanel;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmTasksPanel.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmTasksPanel" MUID: (4D343693030A)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

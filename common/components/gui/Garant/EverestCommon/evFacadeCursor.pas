@@ -2,6 +2,7 @@ unit evFacadeCursor;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evFacadeCursor.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evFacadeCursor" MUID: (48EEE8A503AB)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

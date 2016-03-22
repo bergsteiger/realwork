@@ -102,13 +102,12 @@ int NTService::init (int argc, char* argv[]) {
 		m_argv_save = (char**)ACE_OS::malloc ((argc + args.argc ()) * sizeof (char*));
 
 		// Copy the values into the internal args buffer.
-		int i;
 		for (int i = 0; i < argc; i++) {
 			m_argv_save[i] = ACE_OS::strdup (argv[i]);
 		}
 
 		int j = 0;
-		for (i = argc; i < static_cast<int> (args.argc () + argc); ++i) {
+		for (int i = argc; i < static_cast<int> (args.argc () + argc); ++i) {
 			m_argv_save [i] = ACE_OS::strdup (args.argv ()[j++]);
 		}
 

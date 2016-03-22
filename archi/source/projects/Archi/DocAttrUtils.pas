@@ -1,6 +1,6 @@
 unit DocAttrUtils;
 
-{ $Id: DocAttrUtils.pas,v 1.23 2015/10/09 10:40:57 voba Exp $ }
+{ $Id: DocAttrUtils.pas,v 1.25 2015/11/25 14:01:28 lukyanets Exp $ }
 {$I arDefine.inc}
 interface
  Uses
@@ -81,6 +81,7 @@ uses
   k2Tags,
   Com_Cnst,
   daTypes,
+  daSchemeConsts,
   dt_DictConst,
   dt_LinkServ;
 
@@ -656,7 +657,7 @@ function GetDictNameLength(aAttrID : TdaDictionaryType) : integer;
 begin
  case aAttrID of
   da_dlSources     : Result := 95;
-  da_dlTypes       : Result := 56;
+  da_dlTypes       : Result := 95;
   da_dlClasses     : Result := 95;
   da_dlNewClasses_Deprecated  : Result := 95;
   da_dlPrefixes    : Result := 79;

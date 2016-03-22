@@ -2,6 +2,7 @@ unit nsEditionsContainerData;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsEditionsContainerData.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsEditionsContainerData" MUID: (4AE03B550243)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

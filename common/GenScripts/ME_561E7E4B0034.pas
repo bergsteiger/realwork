@@ -2,6 +2,7 @@ unit evUnicodeFormulasToUnicodeConverter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evUnicodeFormulasToUnicodeConverter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevUnicodeFormulasToUnicodeConverter" MUID: (561E7E4B0034)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,7 @@ unit l3CClassList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CClassList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CClassList" MUID: (4773DC3502A7)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

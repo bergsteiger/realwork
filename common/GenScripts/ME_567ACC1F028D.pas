@@ -2,6 +2,7 @@ unit kwKeyValuesPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwKeyValuesPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "kwKeyValuesPack" MUID: (567ACC1F028D)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -63,11 +64,6 @@ begin
  aCtx.rEngine.PushObj(Create(aCtx));
 end;//TkwKeyValuesCreate.DoDoIt
 
-class function TkwKeyValuesCreate.GetWordNameForRegister: AnsiString;
-begin
- Result := 'KeyValues:Create';
-end;//TkwKeyValuesCreate.GetWordNameForRegister
-
 function TkwKeyValuesCreate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TkwKeyValues);
@@ -82,6 +78,11 @@ function TkwKeyValuesCreate.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TkwKeyValues)]);
 end;//TkwKeyValuesCreate.ParamsTypes
+
+class function TkwKeyValuesCreate.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'KeyValues:Create';
+end;//TkwKeyValuesCreate.GetWordNameForRegister
 
 initialization
  TkwKeyValuesCreate.RegisterInEngine;

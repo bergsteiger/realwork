@@ -1,91 +1,66 @@
 unit K218824755;
+ {* [RequestLink:218824755] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/rtl/Garant/Daily/K218824755.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.5::K218824755
-//
-// {RequestLink:218824755}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K218824755.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K218824755" MUID: (4C1B56120220)
+// Имя типа: "TK218824755"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  ComplexScrollByLines
-  {$IfEnd} //nsTest AND not NoVCM
-  ,
-  nevTools
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , ComplexScrollByLines
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevTools
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK218824755 = class(TComplexScrollByLines)
   {* [RequestLink:218824755] }
- protected
- // realized methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    function GetScrollLineCount2Down: Integer; override;
-     {* количество строк для прокрутки вниз }
-   {$IfEnd} //nsTest AND not NoVCM
-   {$If defined(nsTest) AND not defined(NoVCM)}
+    {* количество строк для прокрутки вниз }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function GetScrollLineCount2Up: Integer; override;
-     {* количество строк для прокрутки вверх }
-   {$IfEnd} //nsTest AND not NoVCM
- protected
- // overridden protected methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+    {* количество строк для прокрутки вверх }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure CheckTopAnchor(const aView: InevInputView); override;
-     {* проверить якорь начала отрисовки после окончания прокрутки }
-   {$IfEnd} //nsTest AND not NoVCM
+    {* проверить якорь начала отрисовки после окончания прокрутки }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK218824755
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK218824755
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TK218824755.GetScrollLineCount2Down: Integer;
+ {* количество строк для прокрутки вниз }
 //#UC START# *4C1B13B6016B_4C1B56120220_var*
 //#UC END# *4C1B13B6016B_4C1B56120220_var*
 begin
@@ -93,10 +68,9 @@ begin
  Result := 8;
 //#UC END# *4C1B13B6016B_4C1B56120220_impl*
 end;//TK218824755.GetScrollLineCount2Down
-{$IfEnd} //nsTest AND not NoVCM
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 function TK218824755.GetScrollLineCount2Up: Integer;
+ {* количество строк для прокрутки вверх }
 //#UC START# *4C1B140B002A_4C1B56120220_var*
 //#UC END# *4C1B140B002A_4C1B56120220_var*
 begin
@@ -104,10 +78,9 @@ begin
  Result := 2;
 //#UC END# *4C1B140B002A_4C1B56120220_impl*
 end;//TK218824755.GetScrollLineCount2Up
-{$IfEnd} //nsTest AND not NoVCM
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 procedure TK218824755.CheckTopAnchor(const aView: InevInputView);
+ {* проверить якорь начала отрисовки после окончания прокрутки }
 //#UC START# *4C1F0A260192_4C1B56120220_var*
 //#UC END# *4C1F0A260192_4C1B56120220_var*
 begin
@@ -115,23 +88,22 @@ begin
  
 //#UC END# *4C1F0A260192_4C1B56120220_impl*
 end;//TK218824755.CheckTopAnchor
-{$IfEnd} //nsTest AND not NoVCM
 
 function TK218824755.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.5';
 end;//TK218824755.GetFolder
 
 function TK218824755.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C1B56120220';
 end;//TK218824755.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK218824755.Suite);
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

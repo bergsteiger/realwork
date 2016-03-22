@@ -199,16 +199,22 @@ procedure TdestShapeInst.ApplyProperty(propType: TPropType;
   Value: LongInt;
   aState: TddRTFState);
 //#UC START# *51D27EC50388_5460C1530245_var*
+const
+ cnMinValue = Low(Integer) div 2;
 //#UC END# *51D27EC50388_5460C1530245_var*
 begin
 //#UC START# *51D27EC50388_5460C1530245_impl*
  if propType = propShape then
+ begin
+  if cnMinValue > Value then
+   Value := 0;
   case What of
    ipropLeft: ShapeLeft := Value;
    ipropRight: ShapeRight := Value;
    ipropTop: ShapeTop := Value;
    ipropBottom: ShapeBottom := Value;
-  end; 
+  end;
+ end;
 //#UC END# *51D27EC50388_5460C1530245_impl*
 end;//TdestShapeInst.ApplyProperty
 

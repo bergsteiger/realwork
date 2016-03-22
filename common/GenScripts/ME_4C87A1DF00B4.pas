@@ -2,6 +2,8 @@ unit PrimCommonDictionOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimCommonDictionOptions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimCommonDictionOptions" MUID: (4C87A1DF00B4)
+// Имя типа: "TPrimCommonDictionOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -498,6 +500,8 @@ begin
    end;//if not l3IsNil(dsCommonDiction.Context) then
   end;//if not aFromHistory then
  end;//dsCommonDiction <> nil
+
+ PostMessage(WordsTree.Handle, msg_vtInvalidateNCArea, 0, 0);
 //#UC END# *497469C90140_4C87A1DF00B4_impl*
 end;//TPrimCommonDictionOptionsForm.NotifyDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)

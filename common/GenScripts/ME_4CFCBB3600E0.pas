@@ -2,6 +2,8 @@ unit NewBaseSearchForDFM_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\NewBaseSearchForDFM_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "NewBaseSearchForDFM" MUID: (4CFCBB3600E0)
+// Имя типа: "TNewBaseSearchForDFMForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

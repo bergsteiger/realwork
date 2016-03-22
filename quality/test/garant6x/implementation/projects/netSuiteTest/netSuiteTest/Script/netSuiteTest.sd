@@ -281,12 +281,11 @@ procedure RunPSTool(
   const hostName : String;
   psTool : String;
   const params : OleVariant;
-  const timeDelay : integer = 5000
+  const timeDelay : integer = 500
 );
   var 
-    login, password, ipAddr, batFileName, batFileBody, command : String;
+    login, password, ipAddr, batFileName, batFileBody, pathToTool, command : String;
     i : integer;
-    pathToTool;
 begin
   try
     hostName := AnsiUpperCase(hostName);
@@ -314,7 +313,10 @@ begin
     pathToTool := '';
     case psTool of
       'START REMOTE INTERACTIVE':
-        pathToTool := 'call "' + ExpandUNCFileName(GetPathTo(PATH_TO_UTILS) + 'Bat\start_program.bat') + '" ' + hostName + ' ' + login + ' ' + password + ' ';
+				begin
+	        pathToTool := 'call "' + ExpandUNCFileName(GetPathTo(PATH_TO_UTILS) + 'Bat\start_program.bat') + '" ' + hostName + ' ' + login + ' ' + password + ' ';
+          params := [''];
+				end;
       'START' : 
         pathToTool := '';
       'RESTART':
@@ -323,7 +325,13 @@ begin
 	          pathToTool := 'shutdown.exe -r -f -t 15'  // отказываемся от неработающего psshutdown на W8, хотя на W10 работает
 					else
           	pathToTool := '"' + ExpandUNCFileName(GetPathTo(PATH_TO_PSTOOLS) + 'psshutdown.exe') + '" -accepteula -r -f -t 15';
-
+          params := [''];
+        end;
+      'SYNCDATETIME':
+        begin
+          pathToTool := 'date ' + Utilities.FormatDateTime('dd-mm-yyyy', Utilities.Now)
+                        + EndOfLine +
+                        'time ' + Utilities.FormatDateTime('hh:nn:ss', Utilities.Now);
           params := [''];
         end;
       'SETREADY': 
@@ -346,9 +354,16 @@ begin
         batFileBody := batFileBody + 'call ';
       batFileBody := batFileBody + pathToTool + params[i] + EndOfLine;
     end;  
-    batFileBody := batFileBody + 'del %~f0';
+
+    //batFileBody := batFileBody + 'del %~f0';
+		// делаем, чтобы удалялись временные батники, указываем каталог windows, куда psexec копирует копию
+		command := GetRandomString(12);
+    batFileBody := batFileBody + 'del c:\windows\' + command + '.bat';
+
     // сохраняем его     
-    batFileName := IncludeTrailingBackslash( GetTempDirectory ) + GetRandomString(12) + '.bat';
+    //batFileName := IncludeTrailingBackslash(GetTempDirectory) + GetRandomString(12) + '.bat';
+		//чтобы не плодить батники изменяем путь
+    batFileName := IncludeTrailingBackslash(GetTempDirectory) + command + '.bat';
     DeleteFile(batFileName);
     SaveStrToFile(batFileName, batFileBody);    
           
@@ -372,12 +387,14 @@ procedure RunPSToolOnEnabledTasks(
   const psTool : String;
   const params : String;
   const jobName : String;
-  const timeDelay : integer = 0
+  const timeDelay : integer = 50
 );
 var tasks, task : OleVariant;
     i, j : integer;
+		wasLaunch: boolean;
 begin
   try
+		wasLaunch := false;
     tasks := NetworkSuite.Jobs.ItemByName[jobName].Tasks;
     for i := 0 to tasks.Count - 1 do
     begin
@@ -385,8 +402,9 @@ begin
       if task.Active then
       begin
         try
-					for j := 1 to 2 do //может это поможет, а то не всегда пускается
+					//for j := 1 to 2 do //может это поможет, а то не всегда пускается
 					begin
+						wasLaunch := true;
 	          if IsArray(params) then
 	            RunPSTool(task.Host.Address, psTool, params, timeDelay)
 	          else 
@@ -398,6 +416,8 @@ begin
         end;  
       end;
     end;  
+		if wasLaunch then
+			Delay(15000);
   except
     Log.Error('RunPSToolOnEnabledTasks: ', ExceptionMessage);
   end;
@@ -537,11 +557,17 @@ begin
     RunPSToolOnEnabledTasks('pskill', 'testcomplete', jobName);
     RunPSToolOnEnabledTasks('pskill', 'testexecute',  jobName);
 
+		// устанавливаем единое время и чтобы не было проблем на границе 0:00, проверяем
+		if aqDateTime.GetHours(aqDateTime.Time) < 23 then
+	    RunPSToolOnEnabledTasks('syncdatetime', '', jobName);
+
     ///////////////////////////////////////////////
     // перезапускаем
     RunPSToolOnEnabledTasks('restart', '', jobName);
     // ждем пока начнется и завершится перезагрузка
     Delay(5*60*1000);
+		// чистим TEMP-каталог, чтобы не копить сотни тысяч файлов
+		DeleteFilesExt(IncludeTrailingBackslash(GetTempDirectory) + '*.bat');
     ///////////////////////////////////////////////
 
     // ждем либо таймаут, либо пока все машины не станут активными
@@ -587,7 +613,7 @@ begin
       else
 			begin
         RunPSToolOnEnabledTasks('setready', '', jobName);
-		    Delay(10000);
+		    Delay(30000);
         
         // выключаем неперегрузившиеся машины
 	      for i := 0 to (tasks.Count - 1) do
@@ -882,7 +908,7 @@ begin
       
       'BuildPath := \\builds-store.garant.ru\garant-nemesis\deployment\!daily-GARANTF1-7_12\' + EndOfLine +
       'InstallerPath := \\builds-store.garant.ru\garant-nemesis\deployment\!daily-GARANTF1-7_12-installer\' + EndOfLine +
-      'DataBasesPath := \\builds-store.garant.ru\garant-nemesis\deployment\data\7.12\' + EndOfLine +
+      'DataBasesPath := \\builds-store.garant.ru\garant-nemesis\deployment\data\7.11\' + EndOfLine +
 
       'DestinationPath := C:\TestStand\' + EndOfLine + 
 			'IsRunOnBigDatabase := true' + EndOfLine +
@@ -1046,7 +1072,7 @@ begin
 
     Log.Message(FUNCTION_NAME + 'Начинаем ждать синхронизации машин и остановки проекта.');
     //StarterSynchroPoints(SSPOP_WAIT_ON_END_SP, sspContext); //не нужно пока
-    NetworkSuite.WaitForState(ns_Idle, 20*60*60*1000);
+    NetworkSuite.WaitForState(ns_Idle, 16*60*60*1000);
     
     Log.Message(FUNCTION_NAME + 'Закончили выполнять StartDailyTests.');
   except

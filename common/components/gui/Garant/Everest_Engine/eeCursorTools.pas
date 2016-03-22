@@ -2,6 +2,7 @@ unit eeCursorTools;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeCursorTools.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "eeCursorTools" MUID: (54BE4C0B0137)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

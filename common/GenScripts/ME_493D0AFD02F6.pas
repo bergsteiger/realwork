@@ -3,6 +3,7 @@ unit sdsTips;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DayTips\sdsTips.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsTips" MUID: (493D0AFD02F6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,8 @@ unit toKAdmin;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\toKAdmin.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "toKAdmin" MUID: (5123A75E00D5)
+// Имя типа: "TtoKAdmin"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

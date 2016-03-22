@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TagBox.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "k2TagBox" MUID: (48CF9748004F)
+// Имя типа: "_k2TagBox_"
 
 {$Define k2TagBox_imp}
 

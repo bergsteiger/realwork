@@ -2,6 +2,7 @@ unit ddVirtualTable;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddVirtualTable.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddVirtualTable" MUID: (4F683CE400D6)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

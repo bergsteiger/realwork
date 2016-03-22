@@ -2,6 +2,8 @@ unit kwVcmOpCaption;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpCaption.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "vcm_op_Caption" MUID: (5230180F029A)
+// Имя типа: "TkwVcmOpCaption"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

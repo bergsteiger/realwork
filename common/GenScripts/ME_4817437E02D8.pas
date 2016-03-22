@@ -2,6 +2,7 @@ unit atDeleteCommentOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atDeleteCommentOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatDeleteCommentOperation" MUID: (4817437E02D8)
 
 interface
 

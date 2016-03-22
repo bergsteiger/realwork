@@ -3,6 +3,7 @@ program ReleaseTFWTest;
 
 // Модуль: "w:\common\components\TFWTest\ReleaseTFWTest.dpr"
 // Стереотип: "TestTarget"
+// Элемент модели: "ReleaseTFW" MUID: (ECB151341247)
 
 interface
 

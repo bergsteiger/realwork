@@ -2,6 +2,7 @@ unit AutoPipeServerTestsRunner;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\AutoPipeServerTestsRunner.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TAutoPipeServerTestsRunner" MUID: (52F24FD90066)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

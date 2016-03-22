@@ -3,6 +3,7 @@ unit dsMedicDiction;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicDiction.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsMedicDiction" MUID: (4925595900C8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

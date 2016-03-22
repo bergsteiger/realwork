@@ -1,62 +1,42 @@
 unit EVDtoNSRCWriterTest;
+ {* Тест записи из EVD в NSRC }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/EVDtoNSRCWriterTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::NSRCTests::TEVDtoNSRCWriterTest
-//
-// Тест записи из EVD в NSRC
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoNSRCWriterTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TEVDtoNSRCWriterTest" MUID: (4B85456C0154)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  NSRCWriterTest
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , NSRCWriterTest
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TEVDtoNSRCWriterTest = {abstract} class(TNSRCWriterTest)
   {* Тест записи из EVD в NSRC }
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    function IsNSRCPlus: Boolean; virtual; abstract;
- published
- // published methods
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt;
  end;//TEVDtoNSRCWriterTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  l3Except,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TEVDtoNSRCWriterTest
+ l3ImplUses
+ , TestFrameWork
+ , l3Except
+;
 
 procedure TEVDtoNSRCWriterTest.DoIt;
 //#UC START# *4B853EA60332_4B85456C0154_var*
@@ -74,17 +54,16 @@ begin
 end;//TEVDtoNSRCWriterTest.DoIt
 
 function TEVDtoNSRCWriterTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'NSRCTests';
 end;//TEVDtoNSRCWriterTest.GetFolder
 
 function TEVDtoNSRCWriterTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4B85456C0154';
 end;//TEVDtoNSRCWriterTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

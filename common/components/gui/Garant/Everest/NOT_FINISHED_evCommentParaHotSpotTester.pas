@@ -2,6 +2,7 @@ unit NOT_FINISHED_evCommentParaHotSpotTester;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCommentParaHotSpotTester.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCommentParaHotSpotTester" MUID: (53D247570237)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

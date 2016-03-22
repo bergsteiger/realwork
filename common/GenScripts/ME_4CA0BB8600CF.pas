@@ -3,6 +3,7 @@ unit KBridge;
 
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\KBridge.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TKBridge" MUID: (4CA0BB8600CF)
 
 {$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 

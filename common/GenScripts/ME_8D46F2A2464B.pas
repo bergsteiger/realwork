@@ -3,6 +3,7 @@ unit Logo_ut_Logo_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Logo_ut_Logo_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_Logo" MUID: (8D46F2A2464B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -31,26 +32,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_Logo = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_Logo }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_Logo
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_Logo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_Logo';
-end;//Tkw_FormUserType_ut_Logo.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_Logo.GetInteger: Integer;
 begin
  Result := ut_Logo;
 end;//Tkw_FormUserType_ut_Logo.GetInteger
+
+class function Tkw_FormUserType_ut_Logo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_Logo';
+end;//Tkw_FormUserType_ut_Logo.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

@@ -3,6 +3,8 @@ unit ParaList_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\ParaList_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "ParaList" MUID: (48579E4A003C)
+// Имя типа: "ParaListTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

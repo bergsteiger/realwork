@@ -4,6 +4,7 @@ unit kwEndAddSubByMouse;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwEndAddSubByMouse.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwEndAddSubByMouse" MUID: (4F0C009200D7)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

@@ -1,8 +1,14 @@
 Unit Dt_Mail;
 
-{ $Id: Dt_Mail.pas,v 1.55 2015/05/26 10:52:08 voba Exp $ }
+{ $Id: Dt_Mail.pas,v 1.57 2015/12/29 11:36:44 lukyanets Exp $ }
 
 // $Log: Dt_Mail.pas,v $
+// Revision 1.57  2015/12/29 11:36:44  lukyanets
+// Пишем ID письма на котором упали
+//
+// Revision 1.56  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.55  2015/05/26 10:52:08  voba
 // - k:600314823
 //
@@ -240,6 +246,8 @@ uses
   l3InterfacedString,
 
   daDataProvider,
+  daSchemeConsts,
+  
   Dt_Const, Dt_Serv, Dt_Err, Dt_User,
   Dt_Doc,
 
@@ -402,16 +410,19 @@ Begin
   If Not MailFile.ReadParamStr('Type',lStr)
    then
     raise Exception.Create('INI файл почтового ящика испорчен!'#13+
-                           'Загрузка невозможна.');
+                           'Загрузка невозможна.'#13+
+                           Format('Письмо № %d', [aMailIndex]));
   TmpType:=StrToInt(lStr) and Not mlWasRead;
   If Not MailFile.ReadParamString('File',DataName)
    then
     raise Exception.Create('INI файл почтового ящика испорчен!'#13+
-                           'Загрузка невозможна.');
+                           'Загрузка невозможна.'#13+
+                           Format('Письмо № %d', [aMailIndex]));
   If Not l3FileUtils.FileExists(GlobalDataProvider.CurHomePath+DataName)
    then
     raise Exception.Create('Потерян файл данных почтового ящика!'#13+
-                           'Загрузка невозможна.');
+                           'Загрузка невозможна.'#13+
+                           Format('Письмо № %d', [aMailIndex]));
 
   Case TMailType(TmpType) of
    mlNone :

@@ -2,6 +2,7 @@ unit tfwTruncatedArrayView;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwTruncatedArrayView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwTruncatedArrayView" MUID: (55E0413800EA)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -35,12 +36,24 @@ uses
 
 procedure TtfwTruncLambda.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_55E0417101EC_var*
-var
- l_V : TtfwStackValue;
+(*var
+ l_V : TtfwStackValue;*)
 //#UC END# *4DAEEDE10285_55E0417101EC_var*
 begin
 //#UC START# *4DAEEDE10285_55E0417101EC_impl*
- l_V := aCtx.rEngine.Pop;
+ aCtx.rEngine.Dup;
+ f_Lambda.DoIt(aCtx);
+ if aCtx.rEngine.PopBool then
+ begin
+  WordToWork.DoIt(aCtx);
+ end//aCtx.rEngine.PopBool
+ else
+ begin
+  aCtx.rEngine.Drop;
+//  raise EtfwBreakIterator.Create('Выход из итератора');
+  raise EtfwBreakIterator.Instance;
+ end;//aCtx.rEngine.PopBool
+(* l_V := aCtx.rEngine.Pop;
  try
   aCtx.rEngine.Push(l_V);
   f_Lambda.DoIt(aCtx);
@@ -50,10 +63,11 @@ begin
    WordToWork.DoIt(aCtx);
   end//aCtx.rEngine.PopBool
   else
-   raise EtfwBreakIterator.Create('Выход из итератора');
+//   raise EtfwBreakIterator.Create('Выход из итератора');
+   raise EtfwBreakIterator.Instance;
  finally
   Finalize(l_V);
- end;//try..finally
+ end;//try..finally*)
 //#UC END# *4DAEEDE10285_55E0417101EC_impl*
 end;//TtfwTruncLambda.DoDoIt
 

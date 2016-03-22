@@ -3,6 +3,8 @@ unit ControlPara_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\ControlPara_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "ControlPara" MUID: (4857923F0186)
+// Имя типа: "ControlParaTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

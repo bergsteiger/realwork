@@ -122,32 +122,6 @@ ref; // ME_52A085CE03AC TevCustomButton
 
 ref; // ME_52A08684012E TevCustomButtonActionLink
 
-: ME_21D2749BD720
- CONST UID '21D2749BD720'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TevButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52A085A703D4 // TevButton
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_21D2749BD720 Ini_Reg_Class
-
-: ME_7AF4ED7ED8FE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52A085A703D4 // TevButton
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_7AF4ED7ED8FE 
-
 : ME_52A085A703D4
  CONST UID '52A085A703D4'
  CONST Name 'TevButton'
@@ -162,19 +136,11 @@ ref; // ME_7AF4ED7ED8FE
    Seq: ( ME_52A085CE03AC // TevCustomButton
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_21D2749BD720 // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_52A085CE03AC // TevCustomButton
  ME_52A08684012E // TevCustomButtonActionLink
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_7AF4ED7ED8FE // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'

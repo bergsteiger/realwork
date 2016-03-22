@@ -3,6 +3,8 @@ unit TagName_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\TagName_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "TagName" MUID: (48581BEE0318)
+// Имя типа: "TagNameTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

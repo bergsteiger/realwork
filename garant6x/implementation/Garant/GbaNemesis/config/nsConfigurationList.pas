@@ -3,10 +3,13 @@ unit nsConfigurationList;
 // Библиотека : Проект Немезис;
 // Название   : nsConfigurationList;
 // Назначение : Список конфигураций системы;
-// Версия     : $Id: nsConfigurationList.pas,v 1.28 2014/07/15 15:58:53 kostitsin Exp $
+// Версия     : $Id: nsConfigurationList.pas,v 1.29 2016/03/04 14:59:12 lulin Exp $
 
 (*-------------------------------------------------------------------------------
    $Log: nsConfigurationList.pas,v $
+   Revision 1.29  2016/03/04 14:59:12  lulin
+   - перегенерация.
+
    Revision 1.28  2014/07/15 15:58:53  kostitsin
    {requestlink: 555091992 }
 
@@ -187,6 +190,7 @@ uses
   l3Nodes,
   l3String,
   l3StringList,
+  l3TreeInterfaces,
 
   afwFacade,
 

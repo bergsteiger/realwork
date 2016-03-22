@@ -3,6 +3,7 @@ unit PrimParent_utHistory_UserType;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_utHistory_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utHistory" MUID: (4F72C32000CF)
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
@@ -31,26 +32,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utHistory = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utHistory }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utHistory
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utHistory.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utHistory';
-end;//Tkw_FormUserType_utHistory.GetWordNameForRegister
-
 function Tkw_FormUserType_utHistory.GetInteger: Integer;
 begin
  Result := utHistory;
 end;//Tkw_FormUserType_utHistory.GetInteger
+
+class function Tkw_FormUserType_utHistory.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utHistory';
+end;//Tkw_FormUserType_utHistory.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

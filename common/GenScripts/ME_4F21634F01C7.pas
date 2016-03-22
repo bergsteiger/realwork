@@ -2,6 +2,7 @@ unit CodeFlowWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\CodeFlowWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "CodeFlowWordsPack" MUID: (4F21634F01C7)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -100,11 +101,6 @@ begin
 //#UC END# *D14B34278240_05ABA7975E25_impl*
 end;//TkwMODAL.MODAL
 
-class function TkwMODAL.GetWordNameForRegister: AnsiString;
-begin
- Result := 'MODAL';
-end;//TkwMODAL.GetWordNameForRegister
-
 function TkwMODAL.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 1;
@@ -150,6 +146,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
 end;//TkwMODAL.ParamsTypes
 
+class function TkwMODAL.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'MODAL';
+end;//TkwMODAL.GetWordNameForRegister
+
 procedure TkwTHREAD.THREAD(const aCtx: TtfwContext;
  aWord: TtfwWord);
  {* Реализация слова скрипта THREAD }
@@ -160,11 +161,6 @@ begin
  TseWorkThreadList.Instance.AddAndResumeThread(aCtx, aWord);
 //#UC END# *A56425D1C72F_44C318D8896A_impl*
 end;//TkwTHREAD.THREAD
-
-class function TkwTHREAD.GetWordNameForRegister: AnsiString;
-begin
- Result := 'THREAD';
-end;//TkwTHREAD.GetWordNameForRegister
 
 function TkwTHREAD.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
@@ -200,6 +196,11 @@ function TkwTHREAD.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwTHREAD.ParamsTypes
+
+class function TkwTHREAD.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'THREAD';
+end;//TkwTHREAD.GetWordNameForRegister
 
 initialization
  TkwMODAL.RegisterInEngine;

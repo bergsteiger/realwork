@@ -242,20 +242,24 @@ end;
 
 procedure TConfigDialog.CreateImages;
 var
-  l_BMP: TBitmap;
+  l_BMP: Tl3Bitmap;
   i: Integer;
 begin
   for i:= Low(TaskColors) to High(TaskColors) do
   begin
-   l_BMP:= TBitmap.Create;
-   l_BMP.Width := 16;
-   l_BMP.Height := 16;
-   with l_BMP.Canvas do
-   begin
-    Brush.Color := TaskColors[i];
-    FillRect(Rect(3,3,13,13));
-   end; // with l_BMP.Canvas
-   TaskImages.Add(l_BMP, nil{l_BMP})
+   l_BMP:= Tl3Bitmap.Create;
+   try
+    l_BMP.Width := 16;
+    l_BMP.Height := 16;
+    with l_BMP.Canvas do
+    begin
+     Brush.Color := TaskColors[i];
+     FillRect(Rect(3,3,13,13));
+    end; // with l_BMP.Canvas
+    TaskImages.Add(l_BMP, nil{l_BMP})
+   finally
+    FreeAndNil(l_BMP);
+   end;
   end;
 end;
 

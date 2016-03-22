@@ -5,9 +5,16 @@ unit l3Filer;
 { Автор: Люлин А.В. c                 }
 { Модуль: l3Filer - функции виртуальной файловой системы}
 { Начат: 08.04.1997 18:33             }
-{ $Id: l3Filer.pas,v 1.203 2015/10/09 14:48:40 kostitsin Exp $ }
+{ $Id: l3Filer.pas,v 1.205 2016/01/26 12:02:20 fireton Exp $ }
 
 // $Log: l3Filer.pas,v $
+// Revision 1.205  2016/01/26 12:02:20  fireton
+// - корректируем f_StreamPos при Readln (чтобы работал Seek c soCurrent
+//   в случае если он происходит назад через границу буфера [UngetChars])
+//
+// Revision 1.204  2015/12/28 15:13:11  lulin
+// - заготовочка следилки за списком скриптов.
+//
 // Revision 1.203  2015/10/09 14:48:40  kostitsin
 // {requestlink: 604917289 } - инициализируем неинициализированное
 //
@@ -1150,7 +1157,7 @@ begin
        raise;
     end;//try..except
    end;//if IsWriteMode(Mode)
-   if (Mode = l3_fmRead) then
+   if (Mode = l3_fmRead) OR (Mode = l3_fmExclusiveReadWrite) then
    begin
     StartIndicator;
     LoadBuffer;
@@ -1234,7 +1241,8 @@ begin
  Result := DoOpen;
  if Opened then begin
   Case aMode of
-   l3_fmRead   :
+   l3_fmRead,
+   l3_fmExclusiveReadWrite:
     //if Result then
      LoadBuffer;
    l3_fmAppend :
@@ -1820,7 +1828,7 @@ begin
    else
     raise;
  end;//try..except
- if (Mode = l3_fmRead) AND (l3IsNil(f_BufS) OR (f_BufferOffset >= f_BufS.SLen)) then
+ if ((Mode = l3_fmRead) OR (Mode = l3_fmExclusiveReadWrite)) AND (l3IsNil(f_BufS) OR (f_BufferOffset >= f_BufS.SLen)) then
   LoadBuffer
   {-на самом деле это сделано для правильного выставления EOF}
  else
@@ -1839,6 +1847,7 @@ function Tl3CustomFiler.ReadLn: Tl3WString;
   procedure DecPtr;
   begin
    Dec(f_BufferOffset, 2);
+   Dec(f_StreamPos, 2);
    Inc(l_Rest, 2);
    Dec(Result.SLen);
   end;
@@ -1867,7 +1876,7 @@ function Tl3CustomFiler.ReadLn: Tl3WString;
     end;//Result.SLen > 0
     f_BufferOffset := Result.SLen * SizeOf(WideChar);
     l_Cnt := f_Stream.Read(f_BufS.S[f_BufferOffset], f_BufSize - 2 - f_BufferOffset);
-    Inc(f_StreamPos, l_Cnt);
+    //Inc(f_StreamPos, l_Cnt);
     Indicator.Progress(Pos);
     f_Buffer.Len := l_Cnt + f_BufferOffset;
     if (f_BufS.SLen <> l_Cnt + f_BufferOffset) then
@@ -1881,6 +1890,7 @@ function Tl3CustomFiler.ReadLn: Tl3WString;
   procedure IncPtr;
   begin
    Inc(f_BufferOffset, 2);
+   Inc(f_StreamPos, 2);
    Dec(l_Rest, 2);
    Inc(Result.SLen);
    DoLoad;
@@ -1960,6 +1970,7 @@ function Tl3CustomFiler.ReadLn: Tl3WString;
   procedure DecPtr;
   begin
    Dec(f_BufferOffset);
+   Dec(f_StreamPos);
    Inc(l_Rest);
    Dec(Result.SLen);
   end;
@@ -1987,7 +1998,7 @@ function Tl3CustomFiler.ReadLn: Tl3WString;
     end;//Result.SLen > 0
     f_BufferOffset := Result.SLen;
     l_Cnt := f_Stream.Read(f_BufS.S[f_BufferOffset], Pred(f_BufSize) - f_BufferOffset);
-    Inc(f_StreamPos, l_Cnt);
+    // Inc(f_StreamPos, l_Cnt);
     Indicator.Progress(Pos);
     f_Buffer.Len := l_Cnt + f_BufferOffset;
     if (f_BufS.SLen <> l_Cnt + f_BufferOffset) then
@@ -2001,6 +2012,7 @@ function Tl3CustomFiler.ReadLn: Tl3WString;
   procedure IncPtr;
   begin
    Inc(f_BufferOffset);
+   Inc(f_StreamPos);
    Dec(l_Rest);
    Inc(Result.SLen);
    DoLoad;
@@ -2091,6 +2103,7 @@ function Tl3CustomFiler.ReadHexLn(const aLineChars: TCharSet; aFinishChar: AnsiC
   procedure DecPtr;
   begin
    Dec(f_BufferOffset);
+   Dec(f_StreamPos);
    Inc(l_Rest);
    Dec(Result.SLen);
   end;
@@ -2118,7 +2131,7 @@ function Tl3CustomFiler.ReadHexLn(const aLineChars: TCharSet; aFinishChar: AnsiC
     end;//Result.SLen > 0
     f_BufferOffset := Result.SLen;
     l_Cnt := f_Stream.Read(f_BufS.S[f_BufferOffset], Pred(f_BufSize) - f_BufferOffset);
-    Inc(f_StreamPos, l_Cnt);
+    //Inc(f_StreamPos, l_Cnt);
     Indicator.Progress(Pos);
     f_Buffer.Len := l_Cnt + f_BufferOffset;
     if (f_BufS.SLen <> l_Cnt + f_BufferOffset) then
@@ -2132,6 +2145,7 @@ function Tl3CustomFiler.ReadHexLn(const aLineChars: TCharSet; aFinishChar: AnsiC
   procedure IncPtr;
   begin
    Inc(f_BufferOffset);
+   Inc(f_StreamPos);
    Dec(l_Rest);
    Inc(Result.SLen);
    DoLoad;

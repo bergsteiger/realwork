@@ -2,6 +2,8 @@ unit kwF1ComplectName;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwF1ComplectName.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "f1_ComplectName" MUID: (50237E1C0249)
+// Имя типа: "TkwF1ComplectName"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

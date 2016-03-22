@@ -3,6 +3,7 @@ unit CreateFilterKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\CreateFilterKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "CreateFilterKeywordsPack" MUID: (546F4B05C2D7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -47,8 +48,8 @@ type
 'aControl' форма::CreateFilter TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_CreateFilter
 
  Tkw_CreateFilter_Control_NameLabel = {final} class(TtfwControlString)
@@ -59,9 +60,9 @@ type
 контрол::NameLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CreateFilter_Control_NameLabel
 
  Tkw_CreateFilter_Control_NameLabel_Push = {final} class(TkwBynameControlPush)
@@ -84,9 +85,9 @@ type
 контрол::FilterName TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CreateFilter_Control_FilterName
 
  Tkw_CreateFilter_Control_FilterName_Push = {final} class(TkwBynameControlPush)
@@ -149,20 +150,15 @@ OBJECT VAR l_TnscEdit
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwCreateFilterFormFilterName
 
-class function Tkw_Form_CreateFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::CreateFilter';
-end;//Tkw_Form_CreateFilter.GetWordNameForRegister
-
 function Tkw_Form_CreateFilter.GetString: AnsiString;
 begin
  Result := 'CreateFilterForm';
 end;//Tkw_Form_CreateFilter.GetString
 
-class function Tkw_CreateFilter_Control_NameLabel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_CreateFilter.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::NameLabel';
-end;//Tkw_CreateFilter_Control_NameLabel.GetWordNameForRegister
+ Result := 'форма::CreateFilter';
+end;//Tkw_Form_CreateFilter.GetWordNameForRegister
 
 function Tkw_CreateFilter_Control_NameLabel.GetString: AnsiString;
 begin
@@ -175,6 +171,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_CreateFilter_Control_NameLabel.RegisterInEngine
 
+class function Tkw_CreateFilter_Control_NameLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::NameLabel';
+end;//Tkw_CreateFilter_Control_NameLabel.GetWordNameForRegister
+
 procedure Tkw_CreateFilter_Control_NameLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('NameLabel');
@@ -186,11 +187,6 @@ begin
  Result := 'контрол::NameLabel:push';
 end;//Tkw_CreateFilter_Control_NameLabel_Push.GetWordNameForRegister
 
-class function Tkw_CreateFilter_Control_FilterName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FilterName';
-end;//Tkw_CreateFilter_Control_FilterName.GetWordNameForRegister
-
 function Tkw_CreateFilter_Control_FilterName.GetString: AnsiString;
 begin
  Result := 'FilterName';
@@ -201,6 +197,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscEdit);
 end;//Tkw_CreateFilter_Control_FilterName.RegisterInEngine
+
+class function Tkw_CreateFilter_Control_FilterName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FilterName';
+end;//Tkw_CreateFilter_Control_FilterName.GetWordNameForRegister
 
 procedure Tkw_CreateFilter_Control_FilterName_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -235,11 +236,6 @@ begin
  aCtx.rEngine.PushObj(NameLabel(aCtx, l_aCreateFilterForm));
 end;//TkwCreateFilterFormNameLabel.DoDoIt
 
-class function TkwCreateFilterFormNameLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCreateFilterForm.NameLabel';
-end;//TkwCreateFilterFormNameLabel.GetWordNameForRegister
-
 procedure TkwCreateFilterFormNameLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -260,6 +256,11 @@ function TkwCreateFilterFormNameLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCreateFilterForm)]);
 end;//TkwCreateFilterFormNameLabel.ParamsTypes
+
+class function TkwCreateFilterFormNameLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCreateFilterForm.NameLabel';
+end;//TkwCreateFilterFormNameLabel.GetWordNameForRegister
 
 function TkwCreateFilterFormFilterName.FilterName(const aCtx: TtfwContext;
  aCreateFilterForm: TCreateFilterForm): TnscEdit;
@@ -283,11 +284,6 @@ begin
  aCtx.rEngine.PushObj(FilterName(aCtx, l_aCreateFilterForm));
 end;//TkwCreateFilterFormFilterName.DoDoIt
 
-class function TkwCreateFilterFormFilterName.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCreateFilterForm.FilterName';
-end;//TkwCreateFilterFormFilterName.GetWordNameForRegister
-
 procedure TkwCreateFilterFormFilterName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -308,6 +304,11 @@ function TkwCreateFilterFormFilterName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCreateFilterForm)]);
 end;//TkwCreateFilterFormFilterName.ParamsTypes
+
+class function TkwCreateFilterFormFilterName.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCreateFilterForm.FilterName';
+end;//TkwCreateFilterFormFilterName.GetWordNameForRegister
 
 initialization
  Tkw_Form_CreateFilter.RegisterInEngine;

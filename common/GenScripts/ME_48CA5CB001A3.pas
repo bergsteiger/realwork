@@ -3,6 +3,7 @@ unit l3CoordinateMap;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CoordinateMap.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CoordinateMap" MUID: (48CA5CB001A3)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

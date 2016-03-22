@@ -3,6 +3,7 @@ unit UserPropertyKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\UserPropertyKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "UserPropertyKeywordsPack" MUID: (1E34DCC9548E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -50,8 +51,8 @@ type
 'aControl' форма::UserProperty TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_UserProperty
 
  Tkw_UserProperty_Control_pnMainData = {final} class(TtfwControlString)
@@ -62,9 +63,9 @@ type
 контрол::pnMainData TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_pnMainData
 
  Tkw_UserProperty_Control_pnMainData_Push = {final} class(TkwBynameControlPush)
@@ -87,9 +88,9 @@ type
 контрол::f_TopPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_f_TopPanel
 
  Tkw_UserProperty_Control_f_TopPanel_Push = {final} class(TkwBynameControlPush)
@@ -112,9 +113,9 @@ type
 контрол::UserNameLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_UserNameLabel
 
  Tkw_UserProperty_Control_UserNameLabel_Push = {final} class(TkwBynameControlPush)
@@ -137,9 +138,9 @@ type
 контрол::PasswordLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_PasswordLabel
 
  Tkw_UserProperty_Control_PasswordLabel_Push = {final} class(TkwBynameControlPush)
@@ -162,9 +163,9 @@ type
 контрол::LoginLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_LoginLabel
 
  Tkw_UserProperty_Control_LoginLabel_Push = {final} class(TkwBynameControlPush)
@@ -187,9 +188,9 @@ type
 контрол::EMailLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_EMailLabel
 
  Tkw_UserProperty_Control_EMailLabel_Push = {final} class(TkwBynameControlPush)
@@ -212,9 +213,9 @@ type
 контрол::ConfirmPasswordLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_ConfirmPasswordLabel
 
  Tkw_UserProperty_Control_ConfirmPasswordLabel_Push = {final} class(TkwBynameControlPush)
@@ -237,9 +238,9 @@ type
 контрол::GroupLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_GroupLabel
 
  Tkw_UserProperty_Control_GroupLabel_Push = {final} class(TkwBynameControlPush)
@@ -262,9 +263,9 @@ type
 контрол::edPassword TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edPassword
 
  Tkw_UserProperty_Control_edPassword_Push = {final} class(TkwBynameControlPush)
@@ -287,9 +288,9 @@ type
 контрол::edUserName TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edUserName
 
  Tkw_UserProperty_Control_edUserName_Push = {final} class(TkwBynameControlPush)
@@ -312,9 +313,9 @@ type
 контрол::edLogin TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edLogin
 
  Tkw_UserProperty_Control_edLogin_Push = {final} class(TkwBynameControlPush)
@@ -337,9 +338,9 @@ type
 контрол::edEmail TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edEmail
 
  Tkw_UserProperty_Control_edEmail_Push = {final} class(TkwBynameControlPush)
@@ -362,9 +363,9 @@ type
 контрол::edConfirm TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edConfirm
 
  Tkw_UserProperty_Control_edConfirm_Push = {final} class(TkwBynameControlPush)
@@ -387,9 +388,9 @@ type
 контрол::edGroup TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edGroup
 
  Tkw_UserProperty_Control_edGroup_Push = {final} class(TkwBynameControlPush)
@@ -412,9 +413,9 @@ type
 контрол::f_MiddlePanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_f_MiddlePanel
 
  Tkw_UserProperty_Control_f_MiddlePanel_Push = {final} class(TkwBynameControlPush)
@@ -437,9 +438,9 @@ type
 контрол::edPrivilegedUser TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edPrivilegedUser
 
  Tkw_UserProperty_Control_edPrivilegedUser_Push = {final} class(TkwBynameControlPush)
@@ -462,9 +463,9 @@ type
 контрол::edBuyConsulting TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edBuyConsulting
 
  Tkw_UserProperty_Control_edBuyConsulting_Push = {final} class(TkwBynameControlPush)
@@ -487,9 +488,9 @@ type
 контрол::f_DontDeleteIdleUserPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel
 
  Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel_Push = {final} class(TkwBynameControlPush)
@@ -512,9 +513,9 @@ type
 контрол::edDontDeleteIdleUser TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edDontDeleteIdleUser
 
  Tkw_UserProperty_Control_edDontDeleteIdleUser_Push = {final} class(TkwBynameControlPush)
@@ -537,9 +538,9 @@ type
 контрол::f_BottomPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_f_BottomPanel
 
  Tkw_UserProperty_Control_f_BottomPanel_Push = {final} class(TkwBynameControlPush)
@@ -562,9 +563,9 @@ type
 контрол::InfoLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_InfoLabel
 
  Tkw_UserProperty_Control_InfoLabel_Push = {final} class(TkwBynameControlPush)
@@ -587,9 +588,9 @@ type
 контрол::edHasSharedFilters TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edHasSharedFilters
 
  Tkw_UserProperty_Control_edHasSharedFilters_Push = {final} class(TkwBynameControlPush)
@@ -1132,20 +1133,15 @@ OBJECT VAR l_TvtCheckBox
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEfUserPropertyEdHasSharedFilters
 
-class function Tkw_Form_UserProperty.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::UserProperty';
-end;//Tkw_Form_UserProperty.GetWordNameForRegister
-
 function Tkw_Form_UserProperty.GetString: AnsiString;
 begin
  Result := 'efUserProperty';
 end;//Tkw_Form_UserProperty.GetString
 
-class function Tkw_UserProperty_Control_pnMainData.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_UserProperty.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::pnMainData';
-end;//Tkw_UserProperty_Control_pnMainData.GetWordNameForRegister
+ Result := 'форма::UserProperty';
+end;//Tkw_Form_UserProperty.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_pnMainData.GetString: AnsiString;
 begin
@@ -1158,6 +1154,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_UserProperty_Control_pnMainData.RegisterInEngine
 
+class function Tkw_UserProperty_Control_pnMainData.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnMainData';
+end;//Tkw_UserProperty_Control_pnMainData.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_pnMainData_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnMainData');
@@ -1168,11 +1169,6 @@ class function Tkw_UserProperty_Control_pnMainData_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::pnMainData:push';
 end;//Tkw_UserProperty_Control_pnMainData_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_f_TopPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::f_TopPanel';
-end;//Tkw_UserProperty_Control_f_TopPanel.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_f_TopPanel.GetString: AnsiString;
 begin
@@ -1185,6 +1181,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_UserProperty_Control_f_TopPanel.RegisterInEngine
 
+class function Tkw_UserProperty_Control_f_TopPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::f_TopPanel';
+end;//Tkw_UserProperty_Control_f_TopPanel.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_f_TopPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('f_TopPanel');
@@ -1195,11 +1196,6 @@ class function Tkw_UserProperty_Control_f_TopPanel_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::f_TopPanel:push';
 end;//Tkw_UserProperty_Control_f_TopPanel_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_UserNameLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::UserNameLabel';
-end;//Tkw_UserProperty_Control_UserNameLabel.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_UserNameLabel.GetString: AnsiString;
 begin
@@ -1212,6 +1208,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_UserProperty_Control_UserNameLabel.RegisterInEngine
 
+class function Tkw_UserProperty_Control_UserNameLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::UserNameLabel';
+end;//Tkw_UserProperty_Control_UserNameLabel.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_UserNameLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('UserNameLabel');
@@ -1222,11 +1223,6 @@ class function Tkw_UserProperty_Control_UserNameLabel_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::UserNameLabel:push';
 end;//Tkw_UserProperty_Control_UserNameLabel_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_PasswordLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::PasswordLabel';
-end;//Tkw_UserProperty_Control_PasswordLabel.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_PasswordLabel.GetString: AnsiString;
 begin
@@ -1239,6 +1235,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_UserProperty_Control_PasswordLabel.RegisterInEngine
 
+class function Tkw_UserProperty_Control_PasswordLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::PasswordLabel';
+end;//Tkw_UserProperty_Control_PasswordLabel.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_PasswordLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('PasswordLabel');
@@ -1249,11 +1250,6 @@ class function Tkw_UserProperty_Control_PasswordLabel_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::PasswordLabel:push';
 end;//Tkw_UserProperty_Control_PasswordLabel_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_LoginLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::LoginLabel';
-end;//Tkw_UserProperty_Control_LoginLabel.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_LoginLabel.GetString: AnsiString;
 begin
@@ -1266,6 +1262,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_UserProperty_Control_LoginLabel.RegisterInEngine
 
+class function Tkw_UserProperty_Control_LoginLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::LoginLabel';
+end;//Tkw_UserProperty_Control_LoginLabel.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_LoginLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('LoginLabel');
@@ -1276,11 +1277,6 @@ class function Tkw_UserProperty_Control_LoginLabel_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::LoginLabel:push';
 end;//Tkw_UserProperty_Control_LoginLabel_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_EMailLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::EMailLabel';
-end;//Tkw_UserProperty_Control_EMailLabel.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_EMailLabel.GetString: AnsiString;
 begin
@@ -1293,6 +1289,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_UserProperty_Control_EMailLabel.RegisterInEngine
 
+class function Tkw_UserProperty_Control_EMailLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::EMailLabel';
+end;//Tkw_UserProperty_Control_EMailLabel.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_EMailLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('EMailLabel');
@@ -1303,11 +1304,6 @@ class function Tkw_UserProperty_Control_EMailLabel_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::EMailLabel:push';
 end;//Tkw_UserProperty_Control_EMailLabel_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_ConfirmPasswordLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ConfirmPasswordLabel';
-end;//Tkw_UserProperty_Control_ConfirmPasswordLabel.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_ConfirmPasswordLabel.GetString: AnsiString;
 begin
@@ -1320,6 +1316,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_UserProperty_Control_ConfirmPasswordLabel.RegisterInEngine
 
+class function Tkw_UserProperty_Control_ConfirmPasswordLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ConfirmPasswordLabel';
+end;//Tkw_UserProperty_Control_ConfirmPasswordLabel.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_ConfirmPasswordLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ConfirmPasswordLabel');
@@ -1330,11 +1331,6 @@ class function Tkw_UserProperty_Control_ConfirmPasswordLabel_Push.GetWordNameFor
 begin
  Result := 'контрол::ConfirmPasswordLabel:push';
 end;//Tkw_UserProperty_Control_ConfirmPasswordLabel_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_GroupLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::GroupLabel';
-end;//Tkw_UserProperty_Control_GroupLabel.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_GroupLabel.GetString: AnsiString;
 begin
@@ -1347,6 +1343,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_UserProperty_Control_GroupLabel.RegisterInEngine
 
+class function Tkw_UserProperty_Control_GroupLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::GroupLabel';
+end;//Tkw_UserProperty_Control_GroupLabel.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_GroupLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('GroupLabel');
@@ -1357,11 +1358,6 @@ class function Tkw_UserProperty_Control_GroupLabel_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::GroupLabel:push';
 end;//Tkw_UserProperty_Control_GroupLabel_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_edPassword.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edPassword';
-end;//Tkw_UserProperty_Control_edPassword.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_edPassword.GetString: AnsiString;
 begin
@@ -1374,6 +1370,11 @@ begin
  TtfwClassRef.Register(TnscComboBoxWithPwdChar);
 end;//Tkw_UserProperty_Control_edPassword.RegisterInEngine
 
+class function Tkw_UserProperty_Control_edPassword.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edPassword';
+end;//Tkw_UserProperty_Control_edPassword.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_edPassword_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edPassword');
@@ -1384,11 +1385,6 @@ class function Tkw_UserProperty_Control_edPassword_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::edPassword:push';
 end;//Tkw_UserProperty_Control_edPassword_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_edUserName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edUserName';
-end;//Tkw_UserProperty_Control_edUserName.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_edUserName.GetString: AnsiString;
 begin
@@ -1401,6 +1397,11 @@ begin
  TtfwClassRef.Register(TnscEdit);
 end;//Tkw_UserProperty_Control_edUserName.RegisterInEngine
 
+class function Tkw_UserProperty_Control_edUserName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edUserName';
+end;//Tkw_UserProperty_Control_edUserName.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_edUserName_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edUserName');
@@ -1411,11 +1412,6 @@ class function Tkw_UserProperty_Control_edUserName_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::edUserName:push';
 end;//Tkw_UserProperty_Control_edUserName_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_edLogin.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edLogin';
-end;//Tkw_UserProperty_Control_edLogin.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_edLogin.GetString: AnsiString;
 begin
@@ -1428,6 +1424,11 @@ begin
  TtfwClassRef.Register(TnscEdit);
 end;//Tkw_UserProperty_Control_edLogin.RegisterInEngine
 
+class function Tkw_UserProperty_Control_edLogin.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edLogin';
+end;//Tkw_UserProperty_Control_edLogin.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_edLogin_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edLogin');
@@ -1438,11 +1439,6 @@ class function Tkw_UserProperty_Control_edLogin_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::edLogin:push';
 end;//Tkw_UserProperty_Control_edLogin_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_edEmail.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edEmail';
-end;//Tkw_UserProperty_Control_edEmail.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_edEmail.GetString: AnsiString;
 begin
@@ -1455,6 +1451,11 @@ begin
  TtfwClassRef.Register(TnscEdit);
 end;//Tkw_UserProperty_Control_edEmail.RegisterInEngine
 
+class function Tkw_UserProperty_Control_edEmail.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edEmail';
+end;//Tkw_UserProperty_Control_edEmail.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_edEmail_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edEmail');
@@ -1465,11 +1466,6 @@ class function Tkw_UserProperty_Control_edEmail_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::edEmail:push';
 end;//Tkw_UserProperty_Control_edEmail_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_edConfirm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edConfirm';
-end;//Tkw_UserProperty_Control_edConfirm.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_edConfirm.GetString: AnsiString;
 begin
@@ -1482,6 +1478,11 @@ begin
  TtfwClassRef.Register(TnscComboBoxWithPwdChar);
 end;//Tkw_UserProperty_Control_edConfirm.RegisterInEngine
 
+class function Tkw_UserProperty_Control_edConfirm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edConfirm';
+end;//Tkw_UserProperty_Control_edConfirm.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_edConfirm_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edConfirm');
@@ -1492,11 +1493,6 @@ class function Tkw_UserProperty_Control_edConfirm_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::edConfirm:push';
 end;//Tkw_UserProperty_Control_edConfirm_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_edGroup.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edGroup';
-end;//Tkw_UserProperty_Control_edGroup.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_edGroup.GetString: AnsiString;
 begin
@@ -1509,6 +1505,11 @@ begin
  TtfwClassRef.Register(TvtComboBoxQS);
 end;//Tkw_UserProperty_Control_edGroup.RegisterInEngine
 
+class function Tkw_UserProperty_Control_edGroup.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edGroup';
+end;//Tkw_UserProperty_Control_edGroup.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_edGroup_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edGroup');
@@ -1519,11 +1520,6 @@ class function Tkw_UserProperty_Control_edGroup_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::edGroup:push';
 end;//Tkw_UserProperty_Control_edGroup_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_f_MiddlePanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::f_MiddlePanel';
-end;//Tkw_UserProperty_Control_f_MiddlePanel.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_f_MiddlePanel.GetString: AnsiString;
 begin
@@ -1536,6 +1532,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_UserProperty_Control_f_MiddlePanel.RegisterInEngine
 
+class function Tkw_UserProperty_Control_f_MiddlePanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::f_MiddlePanel';
+end;//Tkw_UserProperty_Control_f_MiddlePanel.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_f_MiddlePanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('f_MiddlePanel');
@@ -1546,11 +1547,6 @@ class function Tkw_UserProperty_Control_f_MiddlePanel_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::f_MiddlePanel:push';
 end;//Tkw_UserProperty_Control_f_MiddlePanel_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_edPrivilegedUser.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edPrivilegedUser';
-end;//Tkw_UserProperty_Control_edPrivilegedUser.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_edPrivilegedUser.GetString: AnsiString;
 begin
@@ -1563,6 +1559,11 @@ begin
  TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_UserProperty_Control_edPrivilegedUser.RegisterInEngine
 
+class function Tkw_UserProperty_Control_edPrivilegedUser.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edPrivilegedUser';
+end;//Tkw_UserProperty_Control_edPrivilegedUser.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_edPrivilegedUser_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edPrivilegedUser');
@@ -1573,11 +1574,6 @@ class function Tkw_UserProperty_Control_edPrivilegedUser_Push.GetWordNameForRegi
 begin
  Result := 'контрол::edPrivilegedUser:push';
 end;//Tkw_UserProperty_Control_edPrivilegedUser_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_edBuyConsulting.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edBuyConsulting';
-end;//Tkw_UserProperty_Control_edBuyConsulting.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_edBuyConsulting.GetString: AnsiString;
 begin
@@ -1590,6 +1586,11 @@ begin
  TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_UserProperty_Control_edBuyConsulting.RegisterInEngine
 
+class function Tkw_UserProperty_Control_edBuyConsulting.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edBuyConsulting';
+end;//Tkw_UserProperty_Control_edBuyConsulting.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_edBuyConsulting_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edBuyConsulting');
@@ -1600,11 +1601,6 @@ class function Tkw_UserProperty_Control_edBuyConsulting_Push.GetWordNameForRegis
 begin
  Result := 'контрол::edBuyConsulting:push';
 end;//Tkw_UserProperty_Control_edBuyConsulting_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::f_DontDeleteIdleUserPanel';
-end;//Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel.GetString: AnsiString;
 begin
@@ -1617,6 +1613,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel.RegisterInEngine
 
+class function Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::f_DontDeleteIdleUserPanel';
+end;//Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('f_DontDeleteIdleUserPanel');
@@ -1627,11 +1628,6 @@ class function Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel_Push.GetWordNa
 begin
  Result := 'контрол::f_DontDeleteIdleUserPanel:push';
 end;//Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_edDontDeleteIdleUser.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edDontDeleteIdleUser';
-end;//Tkw_UserProperty_Control_edDontDeleteIdleUser.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_edDontDeleteIdleUser.GetString: AnsiString;
 begin
@@ -1644,6 +1640,11 @@ begin
  TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_UserProperty_Control_edDontDeleteIdleUser.RegisterInEngine
 
+class function Tkw_UserProperty_Control_edDontDeleteIdleUser.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edDontDeleteIdleUser';
+end;//Tkw_UserProperty_Control_edDontDeleteIdleUser.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_edDontDeleteIdleUser_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edDontDeleteIdleUser');
@@ -1654,11 +1655,6 @@ class function Tkw_UserProperty_Control_edDontDeleteIdleUser_Push.GetWordNameFor
 begin
  Result := 'контрол::edDontDeleteIdleUser:push';
 end;//Tkw_UserProperty_Control_edDontDeleteIdleUser_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_f_BottomPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::f_BottomPanel';
-end;//Tkw_UserProperty_Control_f_BottomPanel.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_f_BottomPanel.GetString: AnsiString;
 begin
@@ -1671,6 +1667,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_UserProperty_Control_f_BottomPanel.RegisterInEngine
 
+class function Tkw_UserProperty_Control_f_BottomPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::f_BottomPanel';
+end;//Tkw_UserProperty_Control_f_BottomPanel.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_f_BottomPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('f_BottomPanel');
@@ -1681,11 +1682,6 @@ class function Tkw_UserProperty_Control_f_BottomPanel_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::f_BottomPanel:push';
 end;//Tkw_UserProperty_Control_f_BottomPanel_Push.GetWordNameForRegister
-
-class function Tkw_UserProperty_Control_InfoLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::InfoLabel';
-end;//Tkw_UserProperty_Control_InfoLabel.GetWordNameForRegister
 
 function Tkw_UserProperty_Control_InfoLabel.GetString: AnsiString;
 begin
@@ -1698,6 +1694,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_UserProperty_Control_InfoLabel.RegisterInEngine
 
+class function Tkw_UserProperty_Control_InfoLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::InfoLabel';
+end;//Tkw_UserProperty_Control_InfoLabel.GetWordNameForRegister
+
 procedure Tkw_UserProperty_Control_InfoLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('InfoLabel');
@@ -1709,11 +1710,6 @@ begin
  Result := 'контрол::InfoLabel:push';
 end;//Tkw_UserProperty_Control_InfoLabel_Push.GetWordNameForRegister
 
-class function Tkw_UserProperty_Control_edHasSharedFilters.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edHasSharedFilters';
-end;//Tkw_UserProperty_Control_edHasSharedFilters.GetWordNameForRegister
-
 function Tkw_UserProperty_Control_edHasSharedFilters.GetString: AnsiString;
 begin
  Result := 'edHasSharedFilters';
@@ -1724,6 +1720,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_UserProperty_Control_edHasSharedFilters.RegisterInEngine
+
+class function Tkw_UserProperty_Control_edHasSharedFilters.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edHasSharedFilters';
+end;//Tkw_UserProperty_Control_edHasSharedFilters.GetWordNameForRegister
 
 procedure Tkw_UserProperty_Control_edHasSharedFilters_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -1758,11 +1759,6 @@ begin
  aCtx.rEngine.PushObj(pnMainData(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyPnMainData.DoDoIt
 
-class function TkwEfUserPropertyPnMainData.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.pnMainData';
-end;//TkwEfUserPropertyPnMainData.GetWordNameForRegister
-
 procedure TkwEfUserPropertyPnMainData.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1783,6 +1779,11 @@ function TkwEfUserPropertyPnMainData.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyPnMainData.ParamsTypes
+
+class function TkwEfUserPropertyPnMainData.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.pnMainData';
+end;//TkwEfUserPropertyPnMainData.GetWordNameForRegister
 
 function TkwEfUserPropertyFTopPanel.f_TopPanel(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtPanel;
@@ -1806,11 +1807,6 @@ begin
  aCtx.rEngine.PushObj(f_TopPanel(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyFTopPanel.DoDoIt
 
-class function TkwEfUserPropertyFTopPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.f_TopPanel';
-end;//TkwEfUserPropertyFTopPanel.GetWordNameForRegister
-
 procedure TkwEfUserPropertyFTopPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1831,6 +1827,11 @@ function TkwEfUserPropertyFTopPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyFTopPanel.ParamsTypes
+
+class function TkwEfUserPropertyFTopPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.f_TopPanel';
+end;//TkwEfUserPropertyFTopPanel.GetWordNameForRegister
 
 function TkwEfUserPropertyUserNameLabel.UserNameLabel(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtLabel;
@@ -1854,11 +1855,6 @@ begin
  aCtx.rEngine.PushObj(UserNameLabel(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyUserNameLabel.DoDoIt
 
-class function TkwEfUserPropertyUserNameLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.UserNameLabel';
-end;//TkwEfUserPropertyUserNameLabel.GetWordNameForRegister
-
 procedure TkwEfUserPropertyUserNameLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1879,6 +1875,11 @@ function TkwEfUserPropertyUserNameLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyUserNameLabel.ParamsTypes
+
+class function TkwEfUserPropertyUserNameLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.UserNameLabel';
+end;//TkwEfUserPropertyUserNameLabel.GetWordNameForRegister
 
 function TkwEfUserPropertyPasswordLabel.PasswordLabel(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtLabel;
@@ -1902,11 +1903,6 @@ begin
  aCtx.rEngine.PushObj(PasswordLabel(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyPasswordLabel.DoDoIt
 
-class function TkwEfUserPropertyPasswordLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.PasswordLabel';
-end;//TkwEfUserPropertyPasswordLabel.GetWordNameForRegister
-
 procedure TkwEfUserPropertyPasswordLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1927,6 +1923,11 @@ function TkwEfUserPropertyPasswordLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyPasswordLabel.ParamsTypes
+
+class function TkwEfUserPropertyPasswordLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.PasswordLabel';
+end;//TkwEfUserPropertyPasswordLabel.GetWordNameForRegister
 
 function TkwEfUserPropertyLoginLabel.LoginLabel(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtLabel;
@@ -1950,11 +1951,6 @@ begin
  aCtx.rEngine.PushObj(LoginLabel(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyLoginLabel.DoDoIt
 
-class function TkwEfUserPropertyLoginLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.LoginLabel';
-end;//TkwEfUserPropertyLoginLabel.GetWordNameForRegister
-
 procedure TkwEfUserPropertyLoginLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1975,6 +1971,11 @@ function TkwEfUserPropertyLoginLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyLoginLabel.ParamsTypes
+
+class function TkwEfUserPropertyLoginLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.LoginLabel';
+end;//TkwEfUserPropertyLoginLabel.GetWordNameForRegister
 
 function TkwEfUserPropertyEMailLabel.EMailLabel(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtLabel;
@@ -1998,11 +1999,6 @@ begin
  aCtx.rEngine.PushObj(EMailLabel(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyEMailLabel.DoDoIt
 
-class function TkwEfUserPropertyEMailLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.EMailLabel';
-end;//TkwEfUserPropertyEMailLabel.GetWordNameForRegister
-
 procedure TkwEfUserPropertyEMailLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2023,6 +2019,11 @@ function TkwEfUserPropertyEMailLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyEMailLabel.ParamsTypes
+
+class function TkwEfUserPropertyEMailLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.EMailLabel';
+end;//TkwEfUserPropertyEMailLabel.GetWordNameForRegister
 
 function TkwEfUserPropertyConfirmPasswordLabel.ConfirmPasswordLabel(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtLabel;
@@ -2046,11 +2047,6 @@ begin
  aCtx.rEngine.PushObj(ConfirmPasswordLabel(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyConfirmPasswordLabel.DoDoIt
 
-class function TkwEfUserPropertyConfirmPasswordLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.ConfirmPasswordLabel';
-end;//TkwEfUserPropertyConfirmPasswordLabel.GetWordNameForRegister
-
 procedure TkwEfUserPropertyConfirmPasswordLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2071,6 +2067,11 @@ function TkwEfUserPropertyConfirmPasswordLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyConfirmPasswordLabel.ParamsTypes
+
+class function TkwEfUserPropertyConfirmPasswordLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.ConfirmPasswordLabel';
+end;//TkwEfUserPropertyConfirmPasswordLabel.GetWordNameForRegister
 
 function TkwEfUserPropertyGroupLabel.GroupLabel(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtLabel;
@@ -2094,11 +2095,6 @@ begin
  aCtx.rEngine.PushObj(GroupLabel(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyGroupLabel.DoDoIt
 
-class function TkwEfUserPropertyGroupLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.GroupLabel';
-end;//TkwEfUserPropertyGroupLabel.GetWordNameForRegister
-
 procedure TkwEfUserPropertyGroupLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2119,6 +2115,11 @@ function TkwEfUserPropertyGroupLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyGroupLabel.ParamsTypes
+
+class function TkwEfUserPropertyGroupLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.GroupLabel';
+end;//TkwEfUserPropertyGroupLabel.GetWordNameForRegister
 
 function TkwEfUserPropertyEdPassword.edPassword(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TnscComboBoxWithPwdChar;
@@ -2142,11 +2143,6 @@ begin
  aCtx.rEngine.PushObj(edPassword(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyEdPassword.DoDoIt
 
-class function TkwEfUserPropertyEdPassword.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.edPassword';
-end;//TkwEfUserPropertyEdPassword.GetWordNameForRegister
-
 procedure TkwEfUserPropertyEdPassword.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2167,6 +2163,11 @@ function TkwEfUserPropertyEdPassword.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyEdPassword.ParamsTypes
+
+class function TkwEfUserPropertyEdPassword.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.edPassword';
+end;//TkwEfUserPropertyEdPassword.GetWordNameForRegister
 
 function TkwEfUserPropertyEdUserName.edUserName(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TnscEdit;
@@ -2190,11 +2191,6 @@ begin
  aCtx.rEngine.PushObj(edUserName(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyEdUserName.DoDoIt
 
-class function TkwEfUserPropertyEdUserName.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.edUserName';
-end;//TkwEfUserPropertyEdUserName.GetWordNameForRegister
-
 procedure TkwEfUserPropertyEdUserName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2215,6 +2211,11 @@ function TkwEfUserPropertyEdUserName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyEdUserName.ParamsTypes
+
+class function TkwEfUserPropertyEdUserName.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.edUserName';
+end;//TkwEfUserPropertyEdUserName.GetWordNameForRegister
 
 function TkwEfUserPropertyEdLogin.edLogin(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TnscEdit;
@@ -2238,11 +2239,6 @@ begin
  aCtx.rEngine.PushObj(edLogin(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyEdLogin.DoDoIt
 
-class function TkwEfUserPropertyEdLogin.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.edLogin';
-end;//TkwEfUserPropertyEdLogin.GetWordNameForRegister
-
 procedure TkwEfUserPropertyEdLogin.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2263,6 +2259,11 @@ function TkwEfUserPropertyEdLogin.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyEdLogin.ParamsTypes
+
+class function TkwEfUserPropertyEdLogin.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.edLogin';
+end;//TkwEfUserPropertyEdLogin.GetWordNameForRegister
 
 function TkwEfUserPropertyEdEmail.edEmail(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TnscEdit;
@@ -2286,11 +2287,6 @@ begin
  aCtx.rEngine.PushObj(edEmail(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyEdEmail.DoDoIt
 
-class function TkwEfUserPropertyEdEmail.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.edEmail';
-end;//TkwEfUserPropertyEdEmail.GetWordNameForRegister
-
 procedure TkwEfUserPropertyEdEmail.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2311,6 +2307,11 @@ function TkwEfUserPropertyEdEmail.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyEdEmail.ParamsTypes
+
+class function TkwEfUserPropertyEdEmail.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.edEmail';
+end;//TkwEfUserPropertyEdEmail.GetWordNameForRegister
 
 function TkwEfUserPropertyEdConfirm.edConfirm(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TnscComboBoxWithPwdChar;
@@ -2334,11 +2335,6 @@ begin
  aCtx.rEngine.PushObj(edConfirm(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyEdConfirm.DoDoIt
 
-class function TkwEfUserPropertyEdConfirm.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.edConfirm';
-end;//TkwEfUserPropertyEdConfirm.GetWordNameForRegister
-
 procedure TkwEfUserPropertyEdConfirm.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2359,6 +2355,11 @@ function TkwEfUserPropertyEdConfirm.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyEdConfirm.ParamsTypes
+
+class function TkwEfUserPropertyEdConfirm.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.edConfirm';
+end;//TkwEfUserPropertyEdConfirm.GetWordNameForRegister
 
 function TkwEfUserPropertyEdGroup.edGroup(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtComboBoxQS;
@@ -2382,11 +2383,6 @@ begin
  aCtx.rEngine.PushObj(edGroup(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyEdGroup.DoDoIt
 
-class function TkwEfUserPropertyEdGroup.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.edGroup';
-end;//TkwEfUserPropertyEdGroup.GetWordNameForRegister
-
 procedure TkwEfUserPropertyEdGroup.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2407,6 +2403,11 @@ function TkwEfUserPropertyEdGroup.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyEdGroup.ParamsTypes
+
+class function TkwEfUserPropertyEdGroup.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.edGroup';
+end;//TkwEfUserPropertyEdGroup.GetWordNameForRegister
 
 function TkwEfUserPropertyFMiddlePanel.f_MiddlePanel(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtPanel;
@@ -2430,11 +2431,6 @@ begin
  aCtx.rEngine.PushObj(f_MiddlePanel(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyFMiddlePanel.DoDoIt
 
-class function TkwEfUserPropertyFMiddlePanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.f_MiddlePanel';
-end;//TkwEfUserPropertyFMiddlePanel.GetWordNameForRegister
-
 procedure TkwEfUserPropertyFMiddlePanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2455,6 +2451,11 @@ function TkwEfUserPropertyFMiddlePanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyFMiddlePanel.ParamsTypes
+
+class function TkwEfUserPropertyFMiddlePanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.f_MiddlePanel';
+end;//TkwEfUserPropertyFMiddlePanel.GetWordNameForRegister
 
 function TkwEfUserPropertyEdPrivilegedUser.edPrivilegedUser(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtCheckBox;
@@ -2478,11 +2479,6 @@ begin
  aCtx.rEngine.PushObj(edPrivilegedUser(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyEdPrivilegedUser.DoDoIt
 
-class function TkwEfUserPropertyEdPrivilegedUser.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.edPrivilegedUser';
-end;//TkwEfUserPropertyEdPrivilegedUser.GetWordNameForRegister
-
 procedure TkwEfUserPropertyEdPrivilegedUser.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2503,6 +2499,11 @@ function TkwEfUserPropertyEdPrivilegedUser.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyEdPrivilegedUser.ParamsTypes
+
+class function TkwEfUserPropertyEdPrivilegedUser.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.edPrivilegedUser';
+end;//TkwEfUserPropertyEdPrivilegedUser.GetWordNameForRegister
 
 function TkwEfUserPropertyEdBuyConsulting.edBuyConsulting(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtCheckBox;
@@ -2526,11 +2527,6 @@ begin
  aCtx.rEngine.PushObj(edBuyConsulting(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyEdBuyConsulting.DoDoIt
 
-class function TkwEfUserPropertyEdBuyConsulting.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.edBuyConsulting';
-end;//TkwEfUserPropertyEdBuyConsulting.GetWordNameForRegister
-
 procedure TkwEfUserPropertyEdBuyConsulting.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2551,6 +2547,11 @@ function TkwEfUserPropertyEdBuyConsulting.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyEdBuyConsulting.ParamsTypes
+
+class function TkwEfUserPropertyEdBuyConsulting.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.edBuyConsulting';
+end;//TkwEfUserPropertyEdBuyConsulting.GetWordNameForRegister
 
 function TkwEfUserPropertyFDontDeleteIdleUserPanel.f_DontDeleteIdleUserPanel(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtPanel;
@@ -2574,11 +2575,6 @@ begin
  aCtx.rEngine.PushObj(f_DontDeleteIdleUserPanel(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyFDontDeleteIdleUserPanel.DoDoIt
 
-class function TkwEfUserPropertyFDontDeleteIdleUserPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.f_DontDeleteIdleUserPanel';
-end;//TkwEfUserPropertyFDontDeleteIdleUserPanel.GetWordNameForRegister
-
 procedure TkwEfUserPropertyFDontDeleteIdleUserPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2599,6 +2595,11 @@ function TkwEfUserPropertyFDontDeleteIdleUserPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyFDontDeleteIdleUserPanel.ParamsTypes
+
+class function TkwEfUserPropertyFDontDeleteIdleUserPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.f_DontDeleteIdleUserPanel';
+end;//TkwEfUserPropertyFDontDeleteIdleUserPanel.GetWordNameForRegister
 
 function TkwEfUserPropertyEdDontDeleteIdleUser.edDontDeleteIdleUser(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtCheckBox;
@@ -2622,11 +2623,6 @@ begin
  aCtx.rEngine.PushObj(edDontDeleteIdleUser(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyEdDontDeleteIdleUser.DoDoIt
 
-class function TkwEfUserPropertyEdDontDeleteIdleUser.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.edDontDeleteIdleUser';
-end;//TkwEfUserPropertyEdDontDeleteIdleUser.GetWordNameForRegister
-
 procedure TkwEfUserPropertyEdDontDeleteIdleUser.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2647,6 +2643,11 @@ function TkwEfUserPropertyEdDontDeleteIdleUser.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyEdDontDeleteIdleUser.ParamsTypes
+
+class function TkwEfUserPropertyEdDontDeleteIdleUser.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.edDontDeleteIdleUser';
+end;//TkwEfUserPropertyEdDontDeleteIdleUser.GetWordNameForRegister
 
 function TkwEfUserPropertyFBottomPanel.f_BottomPanel(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtPanel;
@@ -2670,11 +2671,6 @@ begin
  aCtx.rEngine.PushObj(f_BottomPanel(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyFBottomPanel.DoDoIt
 
-class function TkwEfUserPropertyFBottomPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.f_BottomPanel';
-end;//TkwEfUserPropertyFBottomPanel.GetWordNameForRegister
-
 procedure TkwEfUserPropertyFBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2695,6 +2691,11 @@ function TkwEfUserPropertyFBottomPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyFBottomPanel.ParamsTypes
+
+class function TkwEfUserPropertyFBottomPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.f_BottomPanel';
+end;//TkwEfUserPropertyFBottomPanel.GetWordNameForRegister
 
 function TkwEfUserPropertyInfoLabel.InfoLabel(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtLabel;
@@ -2718,11 +2719,6 @@ begin
  aCtx.rEngine.PushObj(InfoLabel(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyInfoLabel.DoDoIt
 
-class function TkwEfUserPropertyInfoLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.InfoLabel';
-end;//TkwEfUserPropertyInfoLabel.GetWordNameForRegister
-
 procedure TkwEfUserPropertyInfoLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2743,6 +2739,11 @@ function TkwEfUserPropertyInfoLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyInfoLabel.ParamsTypes
+
+class function TkwEfUserPropertyInfoLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.InfoLabel';
+end;//TkwEfUserPropertyInfoLabel.GetWordNameForRegister
 
 function TkwEfUserPropertyEdHasSharedFilters.edHasSharedFilters(const aCtx: TtfwContext;
  aefUserProperty: TefUserProperty): TvtCheckBox;
@@ -2766,11 +2767,6 @@ begin
  aCtx.rEngine.PushObj(edHasSharedFilters(aCtx, l_aefUserProperty));
 end;//TkwEfUserPropertyEdHasSharedFilters.DoDoIt
 
-class function TkwEfUserPropertyEdHasSharedFilters.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefUserProperty.edHasSharedFilters';
-end;//TkwEfUserPropertyEdHasSharedFilters.GetWordNameForRegister
-
 procedure TkwEfUserPropertyEdHasSharedFilters.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2791,6 +2787,11 @@ function TkwEfUserPropertyEdHasSharedFilters.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefUserProperty)]);
 end;//TkwEfUserPropertyEdHasSharedFilters.ParamsTypes
+
+class function TkwEfUserPropertyEdHasSharedFilters.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefUserProperty.edHasSharedFilters';
+end;//TkwEfUserPropertyEdHasSharedFilters.GetWordNameForRegister
 
 initialization
  Tkw_Form_UserProperty.RegisterInEngine;

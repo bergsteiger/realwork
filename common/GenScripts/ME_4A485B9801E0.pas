@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCacheableStyleTableListener.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "evCacheableStyleTableListener" MUID: (4A485B9801E0)
+// Имя типа: "_evCacheableStyleTableListener_"
 
 {$Define evCacheableStyleTableListener_imp}
 

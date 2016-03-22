@@ -5,7 +5,7 @@ unit AnnotationTask_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/AnnotationTask_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::AnnotationTask
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::AnnotationTask
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".
@@ -73,6 +73,8 @@ function k2_attrCommentsIDList: Integer;
 function k2_attrExcludeDocTypesIDList: Integer;
 
 function k2_attrExcludeDocBasesIDList: Integer;
+
+function k2_attrAnnoFilenameTemplate: Integer;
 function k2_typAnnotationTask: AnnotationTaskTag;
 
 implementation
@@ -266,6 +268,16 @@ begin
  if (g_k2_attrExcludeDocBasesIDList = -1) then
   g_k2_attrExcludeDocBasesIDList :=  Tk2Attributes.Instance.CheckIDByName('ExcludeDocBasesIDList');
  Result := g_k2_attrExcludeDocBasesIDList;
+end;
+
+var
+ g_k2_attrAnnoFilenameTemplate: Integer = -1;
+
+function k2_attrAnnoFilenameTemplate: Integer;
+begin
+ if (g_k2_attrAnnoFilenameTemplate = -1) then
+  g_k2_attrAnnoFilenameTemplate :=  Tk2Attributes.Instance.CheckIDByName('AnnoFilenameTemplate');
+ Result := g_k2_attrAnnoFilenameTemplate;
 end;
 
 

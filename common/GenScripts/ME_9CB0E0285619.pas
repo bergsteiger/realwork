@@ -3,6 +3,7 @@ unit RememberPasswordKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\RememberPasswordKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "RememberPasswordKeywordsPack" MUID: (9CB0E0285619)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -48,8 +49,8 @@ type
 'aControl' форма::RememberPassword TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_RememberPassword
 
  Tkw_RememberPassword_Control_EMailLabel = {final} class(TtfwControlString)
@@ -60,9 +61,9 @@ type
 контрол::EMailLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RememberPassword_Control_EMailLabel
 
  Tkw_RememberPassword_Control_EMailLabel_Push = {final} class(TkwBynameControlPush)
@@ -85,9 +86,9 @@ type
 контрол::HintLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RememberPassword_Control_HintLabel
 
  Tkw_RememberPassword_Control_HintLabel_Push = {final} class(TkwBynameControlPush)
@@ -110,9 +111,9 @@ type
 контрол::btnCancel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RememberPassword_Control_btnCancel
 
  Tkw_RememberPassword_Control_btnCancel_Push = {final} class(TkwBynameControlPush)
@@ -135,9 +136,9 @@ type
 контрол::btnSend TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RememberPassword_Control_btnSend
 
  Tkw_RememberPassword_Control_btnSend_Push = {final} class(TkwBynameControlPush)
@@ -160,9 +161,9 @@ type
 контрол::edEmail TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RememberPassword_Control_edEmail
 
  Tkw_RememberPassword_Control_edEmail_Push = {final} class(TkwBynameControlPush)
@@ -297,20 +298,15 @@ OBJECT VAR l_TnscEdit
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwRememberPasswordFormEdEmail
 
-class function Tkw_Form_RememberPassword.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::RememberPassword';
-end;//Tkw_Form_RememberPassword.GetWordNameForRegister
-
 function Tkw_Form_RememberPassword.GetString: AnsiString;
 begin
  Result := 'RememberPasswordForm';
 end;//Tkw_Form_RememberPassword.GetString
 
-class function Tkw_RememberPassword_Control_EMailLabel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_RememberPassword.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::EMailLabel';
-end;//Tkw_RememberPassword_Control_EMailLabel.GetWordNameForRegister
+ Result := 'форма::RememberPassword';
+end;//Tkw_Form_RememberPassword.GetWordNameForRegister
 
 function Tkw_RememberPassword_Control_EMailLabel.GetString: AnsiString;
 begin
@@ -323,6 +319,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_RememberPassword_Control_EMailLabel.RegisterInEngine
 
+class function Tkw_RememberPassword_Control_EMailLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::EMailLabel';
+end;//Tkw_RememberPassword_Control_EMailLabel.GetWordNameForRegister
+
 procedure Tkw_RememberPassword_Control_EMailLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('EMailLabel');
@@ -333,11 +334,6 @@ class function Tkw_RememberPassword_Control_EMailLabel_Push.GetWordNameForRegist
 begin
  Result := 'контрол::EMailLabel:push';
 end;//Tkw_RememberPassword_Control_EMailLabel_Push.GetWordNameForRegister
-
-class function Tkw_RememberPassword_Control_HintLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::HintLabel';
-end;//Tkw_RememberPassword_Control_HintLabel.GetWordNameForRegister
 
 function Tkw_RememberPassword_Control_HintLabel.GetString: AnsiString;
 begin
@@ -350,6 +346,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_RememberPassword_Control_HintLabel.RegisterInEngine
 
+class function Tkw_RememberPassword_Control_HintLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::HintLabel';
+end;//Tkw_RememberPassword_Control_HintLabel.GetWordNameForRegister
+
 procedure Tkw_RememberPassword_Control_HintLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('HintLabel');
@@ -360,11 +361,6 @@ class function Tkw_RememberPassword_Control_HintLabel_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::HintLabel:push';
 end;//Tkw_RememberPassword_Control_HintLabel_Push.GetWordNameForRegister
-
-class function Tkw_RememberPassword_Control_btnCancel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btnCancel';
-end;//Tkw_RememberPassword_Control_btnCancel.GetWordNameForRegister
 
 function Tkw_RememberPassword_Control_btnCancel.GetString: AnsiString;
 begin
@@ -377,6 +373,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_RememberPassword_Control_btnCancel.RegisterInEngine
 
+class function Tkw_RememberPassword_Control_btnCancel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btnCancel';
+end;//Tkw_RememberPassword_Control_btnCancel.GetWordNameForRegister
+
 procedure Tkw_RememberPassword_Control_btnCancel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('btnCancel');
@@ -387,11 +388,6 @@ class function Tkw_RememberPassword_Control_btnCancel_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::btnCancel:push';
 end;//Tkw_RememberPassword_Control_btnCancel_Push.GetWordNameForRegister
-
-class function Tkw_RememberPassword_Control_btnSend.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btnSend';
-end;//Tkw_RememberPassword_Control_btnSend.GetWordNameForRegister
 
 function Tkw_RememberPassword_Control_btnSend.GetString: AnsiString;
 begin
@@ -404,6 +400,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_RememberPassword_Control_btnSend.RegisterInEngine
 
+class function Tkw_RememberPassword_Control_btnSend.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btnSend';
+end;//Tkw_RememberPassword_Control_btnSend.GetWordNameForRegister
+
 procedure Tkw_RememberPassword_Control_btnSend_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('btnSend');
@@ -415,11 +416,6 @@ begin
  Result := 'контрол::btnSend:push';
 end;//Tkw_RememberPassword_Control_btnSend_Push.GetWordNameForRegister
 
-class function Tkw_RememberPassword_Control_edEmail.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edEmail';
-end;//Tkw_RememberPassword_Control_edEmail.GetWordNameForRegister
-
 function Tkw_RememberPassword_Control_edEmail.GetString: AnsiString;
 begin
  Result := 'edEmail';
@@ -430,6 +426,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscEdit);
 end;//Tkw_RememberPassword_Control_edEmail.RegisterInEngine
+
+class function Tkw_RememberPassword_Control_edEmail.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edEmail';
+end;//Tkw_RememberPassword_Control_edEmail.GetWordNameForRegister
 
 procedure Tkw_RememberPassword_Control_edEmail_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -464,11 +465,6 @@ begin
  aCtx.rEngine.PushObj(EMailLabel(aCtx, l_aRememberPasswordForm));
 end;//TkwRememberPasswordFormEMailLabel.DoDoIt
 
-class function TkwRememberPasswordFormEMailLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TRememberPasswordForm.EMailLabel';
-end;//TkwRememberPasswordFormEMailLabel.GetWordNameForRegister
-
 procedure TkwRememberPasswordFormEMailLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -489,6 +485,11 @@ function TkwRememberPasswordFormEMailLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TRememberPasswordForm)]);
 end;//TkwRememberPasswordFormEMailLabel.ParamsTypes
+
+class function TkwRememberPasswordFormEMailLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TRememberPasswordForm.EMailLabel';
+end;//TkwRememberPasswordFormEMailLabel.GetWordNameForRegister
 
 function TkwRememberPasswordFormHintLabel.HintLabel(const aCtx: TtfwContext;
  aRememberPasswordForm: TRememberPasswordForm): TvtLabel;
@@ -512,11 +513,6 @@ begin
  aCtx.rEngine.PushObj(HintLabel(aCtx, l_aRememberPasswordForm));
 end;//TkwRememberPasswordFormHintLabel.DoDoIt
 
-class function TkwRememberPasswordFormHintLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TRememberPasswordForm.HintLabel';
-end;//TkwRememberPasswordFormHintLabel.GetWordNameForRegister
-
 procedure TkwRememberPasswordFormHintLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -537,6 +533,11 @@ function TkwRememberPasswordFormHintLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TRememberPasswordForm)]);
 end;//TkwRememberPasswordFormHintLabel.ParamsTypes
+
+class function TkwRememberPasswordFormHintLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TRememberPasswordForm.HintLabel';
+end;//TkwRememberPasswordFormHintLabel.GetWordNameForRegister
 
 function TkwRememberPasswordFormBtnCancel.btnCancel(const aCtx: TtfwContext;
  aRememberPasswordForm: TRememberPasswordForm): TElPopupButton;
@@ -560,11 +561,6 @@ begin
  aCtx.rEngine.PushObj(btnCancel(aCtx, l_aRememberPasswordForm));
 end;//TkwRememberPasswordFormBtnCancel.DoDoIt
 
-class function TkwRememberPasswordFormBtnCancel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TRememberPasswordForm.btnCancel';
-end;//TkwRememberPasswordFormBtnCancel.GetWordNameForRegister
-
 procedure TkwRememberPasswordFormBtnCancel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -585,6 +581,11 @@ function TkwRememberPasswordFormBtnCancel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TRememberPasswordForm)]);
 end;//TkwRememberPasswordFormBtnCancel.ParamsTypes
+
+class function TkwRememberPasswordFormBtnCancel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TRememberPasswordForm.btnCancel';
+end;//TkwRememberPasswordFormBtnCancel.GetWordNameForRegister
 
 function TkwRememberPasswordFormBtnSend.btnSend(const aCtx: TtfwContext;
  aRememberPasswordForm: TRememberPasswordForm): TElPopupButton;
@@ -608,11 +609,6 @@ begin
  aCtx.rEngine.PushObj(btnSend(aCtx, l_aRememberPasswordForm));
 end;//TkwRememberPasswordFormBtnSend.DoDoIt
 
-class function TkwRememberPasswordFormBtnSend.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TRememberPasswordForm.btnSend';
-end;//TkwRememberPasswordFormBtnSend.GetWordNameForRegister
-
 procedure TkwRememberPasswordFormBtnSend.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -633,6 +629,11 @@ function TkwRememberPasswordFormBtnSend.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TRememberPasswordForm)]);
 end;//TkwRememberPasswordFormBtnSend.ParamsTypes
+
+class function TkwRememberPasswordFormBtnSend.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TRememberPasswordForm.btnSend';
+end;//TkwRememberPasswordFormBtnSend.GetWordNameForRegister
 
 function TkwRememberPasswordFormEdEmail.edEmail(const aCtx: TtfwContext;
  aRememberPasswordForm: TRememberPasswordForm): TnscEdit;
@@ -656,11 +657,6 @@ begin
  aCtx.rEngine.PushObj(edEmail(aCtx, l_aRememberPasswordForm));
 end;//TkwRememberPasswordFormEdEmail.DoDoIt
 
-class function TkwRememberPasswordFormEdEmail.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TRememberPasswordForm.edEmail';
-end;//TkwRememberPasswordFormEdEmail.GetWordNameForRegister
-
 procedure TkwRememberPasswordFormEdEmail.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -681,6 +677,11 @@ function TkwRememberPasswordFormEdEmail.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TRememberPasswordForm)]);
 end;//TkwRememberPasswordFormEdEmail.ParamsTypes
+
+class function TkwRememberPasswordFormEdEmail.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TRememberPasswordForm.edEmail';
+end;//TkwRememberPasswordFormEdEmail.GetWordNameForRegister
 
 initialization
  Tkw_Form_RememberPassword.RegisterInEngine;

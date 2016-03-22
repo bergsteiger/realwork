@@ -2,13 +2,15 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsDocumentContainer" MUID: (4C6A955F00D6)
+// Имя типа: "_nsDocumentContainer_"
 
 {$Define nsDocumentContainer_imp}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _afwApplicationDataUpdate_Parent_ = _nsDocumentContainer_Parent_;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
- _nsDocumentContainer_ = class(_afwApplicationDataUpdate_, InsDocumentAdornments, IdeDocInfoProvider, InevCommentTextProvider)
+ _nsDocumentContainer_ = class(_afwApplicationDataUpdate_, InsDocumentAdornments, IdeDocInfoProvider)
   {* Контейнер документа, работающий с IdeDocInfo }
   private
    f_Bookmarks: IBookmarkList;

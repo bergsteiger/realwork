@@ -2,6 +2,7 @@ unit m3ReadOnlyRootStreamManager;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3ReadOnlyRootStreamManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3ReadOnlyRootStreamManager" MUID: (5441022F00F3)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

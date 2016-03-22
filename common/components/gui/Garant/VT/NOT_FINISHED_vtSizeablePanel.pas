@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtSizeablePanel;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtSizeablePanel.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtSizeablePanel" MUID: (4A7961300264)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

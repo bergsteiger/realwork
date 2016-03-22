@@ -32,14 +32,15 @@ type
  private
  // private fields
    f_Factory : IdaTableQueryFactory;
-   f_PasswordQuery : IdaQuery;
-   f_UserFlagsQuery : IdaQuery;
+   f_PasswordQuery : IdaTabledQuery;
+   f_UserFlagsQuery : IdaTabledQuery;
  protected
  // realized methods
    function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
     RequireAdminRights: Boolean;
     out theUserID: TdaUserID): TdaLoginError;
+   function IsUserAdmin(anUserID: TdaUserID): Boolean;
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -148,6 +149,27 @@ begin
   Result := da_leOk;
 //#UC END# *5628D14D0151_5629FC88034B_impl*
 end;//TpgUserManager.CheckPassword
+
+function TpgUserManager.IsUserAdmin(anUserID: TdaUserID): Boolean;
+//#UC START# *56EA993D0218_5629FC88034B_var*
+var
+ l_ResultSet: IdaResultSet;
+//#UC END# *56EA993D0218_5629FC88034B_var*
+begin
+//#UC START# *56EA993D0218_5629FC88034B_impl*
+ Result := (anUserID = usSupervisor);
+ if not Result then
+ begin
+  f_UserFlagsQuery.Param['p_UserID'].AsLargeInt := anUserID;
+  l_ResultSet := f_UserFlagsQuery.OpenResultSet;
+  try
+   Result := not l_ResultSet.IsEmpty and ((l_ResultSet.Field['Active'].AsByte and usAdmin) = usAdmin);
+  finally
+   l_ResultSet := nil;
+  end;
+ end;
+//#UC END# *56EA993D0218_5629FC88034B_impl*
+end;//TpgUserManager.IsUserAdmin
 
 procedure TpgUserManager.Cleanup;
 //#UC START# *479731C50290_5629FC88034B_var*

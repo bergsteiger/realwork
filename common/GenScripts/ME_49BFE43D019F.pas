@@ -3,6 +3,7 @@ unit m3NewVersionStream;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3NewVersionStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3NewVersionStream" MUID: (49BFE43D019F)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

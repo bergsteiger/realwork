@@ -1,55 +1,38 @@
 unit kwIsMyDocumentsEmpty;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwIsMyDocumentsEmpty.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Words::Words::IsMyDocumentsEmpty
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwIsMyDocumentsEmpty.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "IsMyDocumentsEmpty" MUID: (53B2CAE50115)
+// Имя типа: "TkwIsMyDocumentsEmpty"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwIsMyDocumentsEmpty = {final scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwIsMyDocumentsEmpty = {final} class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwIsMyDocumentsEmpty
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  FoldersUnit,
-  DataAdapter,
-  BaseTreeSupportUnit
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwIsMyDocumentsEmpty
+ l3ImplUses
+ , FoldersUnit
+ , DataAdapter
+ , BaseTreeSupportUnit
+;
 
 procedure TkwIsMyDocumentsEmpty.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53B2CAE50115_var*
@@ -79,17 +62,13 @@ begin
 end;//TkwIsMyDocumentsEmpty.DoDoIt
 
 class function TkwIsMyDocumentsEmpty.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'IsMyDocumentsEmpty';
 end;//TkwIsMyDocumentsEmpty.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация IsMyDocumentsEmpty
  TkwIsMyDocumentsEmpty.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация IsMyDocumentsEmpty }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

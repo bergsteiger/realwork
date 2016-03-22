@@ -2,6 +2,7 @@ unit vcmLockListenerList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmLockListenerList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmLockListenerList" MUID: (55F96D940088)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

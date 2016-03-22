@@ -2,6 +2,7 @@ unit evPersistentDataObject;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evPersistentDataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevPersistentDataObject" MUID: (48F4732803C8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

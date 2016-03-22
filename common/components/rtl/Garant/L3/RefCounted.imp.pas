@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\RefCounted.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "RefCounted" MUID: (51614065019A)
+// Имя типа: "_RefCounted_"
 
 {$Define RefCounted_imp}
 

@@ -3,6 +3,8 @@ unit Type_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\Type_Const.pas"
 // Стереотип: "Atom"
+// Элемент модели: "Type" MUID: (48495DDB017B)
+// Имя типа: "TypeAtom"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

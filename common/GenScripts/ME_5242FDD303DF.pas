@@ -2,6 +2,7 @@ unit afwSettingsChangePublisherPrim;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\afwSettingsChangePublisherPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwSettingsChangePublisherPrim" MUID: (5242FDD303DF)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

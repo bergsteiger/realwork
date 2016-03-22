@@ -3,6 +3,7 @@ unit TestStringUtils;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\TestStringUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "TestStringUtils" MUID: (499C3E6803D8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

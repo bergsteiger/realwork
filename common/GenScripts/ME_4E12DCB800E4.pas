@@ -3,6 +3,7 @@ unit RowSelectionTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\RowSelectionTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TRowSelectionTest" MUID: (4E12DCB800E4)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

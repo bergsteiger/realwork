@@ -1,9 +1,15 @@
 
 unit Dt_Dict;
 
-{ $Id: DT_DICT.PAS,v 1.432 2015/11/03 09:02:40 lukyanets Exp $ }
+{ $Id: DT_DICT.PAS,v 1.434 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: DT_DICT.PAS,v $
+// Revision 1.434  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
+// Revision 1.433  2015/11/24 14:08:24  voba
+// -bf убрал конкурентную запись дерева словаря. Теперь дерево переписываем только при апдейте, в спокойной обстановке
+//
 // Revision 1.432  2015/11/03 09:02:40  lukyanets
 // Cleanup
 //
@@ -1281,6 +1287,7 @@ Uses
  m4DictScanner,
 
  daTypes,
+ daSchemeConsts,
 
  //mgCPQStr,
  HT_Const,
@@ -1484,6 +1491,8 @@ Type
                       aType      : TdaDictionaryType;
                       aTable: Integer = 0); override;
 
+   procedure   UpdateTbl; override;
+
    procedure   GetDictList(aList : TPersistent;Caps : Boolean);
    procedure   GetDictListOnSab(Values : SAB;aList : TPersistent;Caps : Boolean);
 
@@ -1556,11 +1565,12 @@ Type
    //fDictType       : TdaDictionaryType;
    fTreeObj        : TTreeStrorage;
 
-   fTreeChanged,
+   //fTreeChanged,
    fIsEqualLoaded  : Boolean;
 
    fChildNodeClass : TDictLeafNodeClass;
 
+   fInReload : boolean; // спецрежим для оптимизации загрузки словаря из внешнего источника
    function  GetDictRootNode : TDictAbsNode; override;
 
    procedure setChildNodeClass(aVal : TDictLeafNodeClass);
@@ -1578,7 +1588,7 @@ Type
         {-}
    function pm_GetHandle : Integer; override;
 
-   procedure BeforeRelease; override;
+   //procedure BeforeRelease; override;
    procedure Cleanup; override;
   private
    procedure   CloseTreeObj;
@@ -1587,11 +1597,13 @@ Type
    constructor CreateWithInit(aDict : TDictionary);
 
    procedure   Load;
-   procedure   Save(MaySaved : Tl3NodeAction = nil;ForceSaving : boolean = False);
+   procedure   Save; // только для Reload
+   procedure   StartReload; // начинаем процесс загрузки словаря из внешнего источника, заканчиваем вызовом Save
+
    procedure   ClearAllData;
 
    procedure   DataChanged(aOperation : TOperActionType;aID,aParentID,aNextID : TDictID);
-   procedure DeleteFromTbl(aID, aHairID: TDictID; aDateToDelete: TDateTime);
+   procedure   DeleteFromTbl(aID, aHairID: TDictID; aDateToDelete: TDateTime);
    procedure   EditNameInTbl(aID : TDictID; const aName : Tl3WString);
    procedure   EditNonKeyValueInTbl(aID : TDictID; aFld : Word; aValue : Pointer);
    procedure   ChangeKeyValues(aFld : ThtField; var theOldValue; var theNewValue);
@@ -1825,8 +1837,8 @@ Type
   function  GetExtItemDataSize : Integer;
  public
   constructor Create(aFamily : TFamilyID; aDictType : TdaDictionaryType); Reintroduce;
-  procedure   Update;
-  procedure   Save;
+  procedure   Update; // не вызывается, все делается с таблицами напрямую по имени (что неправильно)
+  //procedure   Save;
 
   function    Lock : Boolean;
   procedure   UnLock;
@@ -1976,9 +1988,9 @@ Type
    procedure  AddDictChangeNotifiedObj(aObj : IDictChangeNotifyRecipient);
    procedure  DelDictChangeNotifiedObj(aObj : IDictChangeNotifyRecipient);
 
-   procedure  Update;
-   procedure  SaveDict(aDict : TdaDictionaryType);
-   procedure  SaveAllDicts;
+   procedure  Update; // не вызывается, все делается с таблицами напрямую по имени (что неправильно)
+   //procedure  SaveDict(aDict : TdaDictionaryType);
+   //procedure  SaveAllDicts;
    procedure  ReloadDict(aDict : TdaDictionaryType);
 
    procedure  GetNumberList(aTyp : TDNType;aList : TStrings);
@@ -2569,6 +2581,12 @@ procedure TDictionaryTbl.Cleanup;
 begin
  l3Free(fItemList);
  Inherited;
+end;
+
+procedure TDictionaryTbl.UpdateTbl;
+begin
+ inherited;
+ ClearDelNumbers;
 end;
 
 procedure TDictionaryTbl.DropTblData;
@@ -3486,11 +3504,11 @@ begin
  //fDictType := fDict.DictType;
  fChildNodeClass:=TDictLeafNode;
  OpenTreeObj;
- fTreeChanged:=False;
+ //fTreeChanged:=False;
  fIsEqualLoaded:=False;
 end;
 
-procedure TDictRootNode.BeforeRelease;
+(*procedure TDictRootNode.BeforeRelease;
 begin
  Try
   if fTreeChanged then Save;
@@ -3498,6 +3516,7 @@ begin
   Inherited;
  end;
 end;
+*)
 
 procedure TDictRootNode.Cleanup;
 begin
@@ -3649,7 +3668,7 @@ begin
    ReleaseChilds;
    fTreeObj.Load(Self);
    IterateF(l3L2NA(@IterHandler1),0);
-   fTreeChanged:=False;
+   //fTreeChanged:=False;
 
  (*
    // Add missing items from dict to tree
@@ -3664,38 +3683,43 @@ begin
   begin
    ReleaseChilds;
    fDict.DictTbl.ItemList.IterateAllF(l3L2IA(@IterHandler2));
-   fTreeChanged:=False;
+   //fTreeChanged:=False;
   end;
  fIsEqualLoaded:=False;
 end;
 
-procedure TDictRootNode.Save(MaySaved : Tl3NodeAction;ForceSaving : boolean);
+procedure TDictRootNode.StartReload; // начинаем процесс загрузки словаря из внешнего источника, заканчиваем вызовом Save
 begin
- if fTreeChanged or ForceSaving then
+ ClearAllData;
+ fInReload := True;
+end;
+
+procedure TDictRootNode.Save;
+begin
+ if not fInReload then
  begin
-  {$IFNDEF EnableClassEdit}
-  if fDict.DictType = da_dlClasses then
-   l3System.Stack2Log(SysUtils.Format('Запись дерева классов fTreeChanged = %d',[ord(fTreeChanged)]));
-  {$ENDIF}
-  fTreeObj.Save(Self,MaySaved);
-  fTreeChanged:=False;
+  l3System.Stack2Log(Format('Непонятный вызов TDictRootNode.Save dict=%s', [GetEnumName(TypeInfo(TdaDictionaryType), ord(fDict.DictType))]));
+  Exit;
  end;
+ fTreeObj.Save(Self);
+ fInReload := false;
 end;
 
 procedure TDictRootNode.ClearAllData;
 begin
  fTreeObj.Clear;
  ReleaseChilds;
- fTreeChanged:=False;
+ //fTreeChanged:=False;
 end;
 
 procedure TDictRootNode.DataChanged(aOperation : TOperActionType;
                                     aID,aParentID,aNextID : TDictID);
 begin
+ if fInReload then Exit;
  fTreeObj.AddChangeRec(aOperation,aID,aParentID,aNextID);
  if aOperation = atMove then
   fDict.SendEditMessage(atMove,aID,aParentID,aNextID);
- fTreeChanged := True;
+ //fTreeChanged := True;
  {$IFNDEF EnableClassEdit}
  if fDict.DictType = da_dlClasses then
   l3System.Stack2Log('Модификация дерева классов');
@@ -4938,14 +4962,16 @@ end;
 
 procedure TDictionary.Update;
 begin
-  Tbl.UpdateTbl;
+ Tbl.UpdateTbl;
+ UpdateTreeStuct(Tbl.TblFullName);
 end;
 
-procedure TDictionary.Save;
+(*procedure TDictionary.Save;
 begin
  if fRootNode <> nil then
   fRootNode.Save;
 end;
+*)
 
 function TDictionary.Lock : Boolean;
 begin
@@ -5070,6 +5096,7 @@ var
  TmpDictItem : IDictItem;
  TmpLeafNode : TDictLeafNode;
  lParentNode : Il3Node;
+ lNextNodeID : Integer;
 begin
  TmpDictItem:=DictTbl.AddDictItem(aID, aNameR, aNameE, aShortName, aIsPrivate, aIsNonperiodic);
 
@@ -5086,9 +5113,15 @@ begin
  finally
   l3Free(TmpLeafNode);
  end;
- RootNode.DataChanged(atAdd,TmpDictItem.Handle,(lParentNode as IDictItem).Handle,0);
 
- SendEditMessage(atAdd, TmpDictItem.Handle, (lParentNode as IDictItem).Handle, 0);
+ if Result.IsLast then
+  lNextNodeID := 0
+ else
+  lNextNodeID := (Result.Nextnode as Il3HandleNode).Handle;
+
+ RootNode.DataChanged(atAdd,TmpDictItem.Handle,(lParentNode as IDictItem).Handle, lNextNodeID);
+
+ SendEditMessage(atAdd, TmpDictItem.Handle, (lParentNode as IDictItem).Handle, lNextNodeID);
 end;
 
 procedure TDictionary.RealAddEqualToTbl(aFirstID, aSecondID : TDictID);
@@ -5576,6 +5609,7 @@ begin
   Dict[I].Update;
 end;
 
+(*
 procedure TDictionaryServer.SaveDict(aDict : TdaDictionaryType);
 begin
  if fFamily = 0 then raise EHtErrors.CreateInt(ecNotAssigned);
@@ -5592,6 +5626,7 @@ begin
  for lDict := da_dlSources to High(TdaDictionaryType) do
   SaveDict(lDict);
 end;
+*)
 
 procedure TDictionaryServer.ReloadDict(aDict : TdaDictionaryType);
 begin
@@ -6471,7 +6506,7 @@ begin
    // Удаление "удаленных" элементов из дерева
    lCurJourTree:=DictRootNode[aJourDict];
    l3IterateSubTreeF(lCurJourTree,l3L2NA(@IterHandler),0);
-   lCurJourTree.Save(nil,True);
+   //lCurJourTree.Save(nil,True);
 
    // Копирование данных дерева
    if Assigned(Dict[aNormalDict].RootNode) then

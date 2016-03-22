@@ -2,6 +2,7 @@ unit m3BaseHashInfoStream;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3BaseHashInfoStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3BaseHashInfoStream" MUID: (53FF322603A8)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

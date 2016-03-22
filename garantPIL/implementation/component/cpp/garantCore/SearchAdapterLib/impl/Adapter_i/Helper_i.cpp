@@ -120,7 +120,7 @@ Adapter::ISynRequest* Helper_i::synonymy (const char* req) {
 	Search::IRequestView_var view;
 	view = Search::IRequestViewFactory::make (Cache::instance ()->get (), m_normalizer.in (), Search::as_Default);
 
-	view->build (GCL::StrVector (1, str), std::map <std::string, std::string> (), str);
+	view->build (GCL::StrVector (1, str), str);
 
 	return new SynRequest_i (view->get_sequence ());
 	//#UC END# *55CDD31B034D_4ED500FA02BB*
@@ -143,10 +143,8 @@ Adapter::IStrings* Helper_i::transform (const std::string& str) {
 
 	DBComm::IDBCommunicator* comm = Cache::instance ()->get ();
 
-	Defs::StrStrMap pseudo;
-
 	Core::Aptr <GCL::StrVector> res;
-	res = transformer->execute (fixed, comm->get_exclude_data (), comm->get_hard_phrases (), pseudo);
+	res = transformer->execute (fixed, comm->get_exclude_data (), comm->get_hard_phrases ());
 
 	return (res->empty ())? 0 : new Words_i (*res);
 	//#UC END# *4FD0A6370192_4ED500FA02BB*

@@ -2,6 +2,7 @@ unit tfwDictionaryCache;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryCache.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwDictionaryCache" MUID: (55A3DF0603C6)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

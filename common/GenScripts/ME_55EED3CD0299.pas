@@ -2,6 +2,7 @@ unit alcuMdpDocImporter;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuMdpDocImporter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuMdpDocImporter" MUID: (55EED3CD0299)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
@@ -64,6 +65,7 @@ function TalcuMdpDocImporter.HasToImport: Boolean;
 begin
 //#UC START# *55EEDEC7035D_55EED3CD0299_impl*
  Result := True;
+// По хорошему нужен ответ от Гардока о наличии документов для импорта. 
 // !!! Needs to be implemented !!!
 //#UC END# *55EEDEC7035D_55EED3CD0299_impl*
 end;//TalcuMdpDocImporter.HasToImport

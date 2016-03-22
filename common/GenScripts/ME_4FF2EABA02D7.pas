@@ -3,6 +3,8 @@ unit fsAAC;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\fsAAC.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "AAC" MUID: (4FF2EABA02D7)
+// Имя типа: "Tfs_AAC"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

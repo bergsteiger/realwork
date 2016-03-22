@@ -2,6 +2,8 @@ unit kwWaitNo;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwWaitNo.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "wait_No" MUID: (4DB94AE60059)
+// Имя типа: "TkwWaitNo"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

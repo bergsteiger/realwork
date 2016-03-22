@@ -1,72 +1,54 @@
 unit RTFWriterTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/RTFWriterTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::RTF::RTFWriterTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\RTFWriterTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "RTFWriterTest" MUID: (4BACDEF50001)
+// Имя типа: "TRTFWriterTest"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  l3Filer,
-  k2CustomFileReader,
-  evdNativeReader,
-  ddRTFWriter,
-  WriterTest
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , WriterTest
+ , ddRTFWriter
+ , l3Filer
+ , k2CustomFileReader
+ , evdNativeReader
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TRTFWriterTest = {abstract} class(TWriterTest)
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    procedure SomeFormatToRTF(aReader: Tk2CustomFileReader;
-     NeedCheck: Boolean = true);
+    NeedCheck: Boolean = True);
    procedure EVDtoRTF(const aFileName: AnsiString;
-     NeedCheck: Boolean = true);
+    NeedCheck: Boolean = True);
    function UseExternalLinks: Boolean; virtual;
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TRTFWriterTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TRTFWriterTest
+ l3ImplUses
+ , TestFrameWork
+ , SysUtils
+;
 
 procedure TRTFWriterTest.SomeFormatToRTF(aReader: Tk2CustomFileReader;
-  NeedCheck: Boolean = true);
+ NeedCheck: Boolean = True);
+var l_Writer: TevRTFObjectGenerator;
+var l_Filer: Tl3CustomFiler;
 //#UC START# *4BACDF18014F_4BACDEF50001_var*
 //#UC END# *4BACDF18014F_4BACDEF50001_var*
-var
- l_Writer : TevRTFObjectGenerator;
- l_Filer : Tl3CustomFiler;
 begin
 //#UC START# *4BACDF18014F_4BACDEF50001_impl*
  l_Writer := TevRTFObjectGenerator.Create;
@@ -90,11 +72,10 @@ begin
 end;//TRTFWriterTest.SomeFormatToRTF
 
 procedure TRTFWriterTest.EVDtoRTF(const aFileName: AnsiString;
-  NeedCheck: Boolean = true);
+ NeedCheck: Boolean = True);
+var l_Reader: TevdNativeReader;
 //#UC START# *4BACE0B20173_4BACDEF50001_var*
 //#UC END# *4BACE0B20173_4BACDEF50001_var*
-var
- l_Reader : TevdNativeReader;
 begin
 //#UC START# *4BACE0B20173_4BACDEF50001_impl*
  l_Reader := TevdNativeReader.Make(FileFromCurrent(aFileName));
@@ -123,17 +104,16 @@ begin
 end;//TRTFWriterTest.UseExternalLinks
 
 function TRTFWriterTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'RTF';
 end;//TRTFWriterTest.GetFolder
 
 function TRTFWriterTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4BACDEF50001';
 end;//TRTFWriterTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

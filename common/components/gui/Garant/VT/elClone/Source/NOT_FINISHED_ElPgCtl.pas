@@ -2,6 +2,7 @@ unit NOT_FINISHED_ElPgCtl;
 
 // Модуль: "w:\common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElPgCtl.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ElPgCtl" MUID: (499ABF6E01B5)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
@@ -31,10 +32,10 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , PageControlWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , PageControlWordsPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 

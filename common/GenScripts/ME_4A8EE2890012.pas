@@ -3,6 +3,8 @@ unit Redactions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Redactions_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "Redactions" MUID: (4A8EE2890012)
+// Имя типа: "TRedactionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "afwShortcutsHandler" MUID: (49EF346400A4)
+// Имя типа: "_afwShortcutsHandler_"
 
 {$Define afwShortcutsHandler_imp}
 

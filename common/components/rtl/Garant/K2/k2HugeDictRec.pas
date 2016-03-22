@@ -2,6 +2,7 @@ unit k2HugeDictRec;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2HugeDictRec.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2HugeDictRec" MUID: (4E15EFFA0214)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

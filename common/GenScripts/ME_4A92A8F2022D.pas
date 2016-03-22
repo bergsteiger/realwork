@@ -2,6 +2,7 @@ unit JournalTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\JournalTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "JournalTree" MUID: (4A92A8F2022D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit vcmUserTypeDescr;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmUserTypeDescr.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmUserTypeDescr" MUID: (51EF7EEB01E5)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

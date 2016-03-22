@@ -2,6 +2,7 @@ unit l3BaseWithIDList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3BaseWithIDList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3BaseWithIDList" MUID: (47BD8675002D)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

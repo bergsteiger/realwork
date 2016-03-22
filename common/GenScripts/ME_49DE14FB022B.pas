@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevMostInner.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevMostInner" MUID: (49DE14FB022B)
+// Имя типа: "_nevMostInner_"
 
 {$Define nevMostInner_imp}
 

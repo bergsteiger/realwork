@@ -2,6 +2,7 @@ unit NOT_FINISHED_UsersMacro;
 
 // Модуль: "w:\archi\source\projects\Archi\Main\NOT_FINISHED_UsersMacro.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "UsersMacro" MUID: (4E4B60A30391)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

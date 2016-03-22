@@ -17,9 +17,13 @@
         Me.LabelCompanyName.Text = My.Application.Info.CompanyName
         Me.TextBoxDescription.Text = My.Application.Info.Description
     End Sub
-
     Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OKButton.Click
         Me.Close()
     End Sub
-
+    Private Sub LogoPictureBox_Click(sender As Object, e As EventArgs) Handles LogoPictureBox.Click
+        TextBoxDescription.Text = "Не нужно часто кликать по мне..."
+    End Sub
+    Private Sub LogoPictureBox_DoubleClick(sender As Object, e As EventArgs) Handles LogoPictureBox.DoubleClick
+        TextBoxDescription.Text = "Утилита используется для получения ID региона по его имени. Применяется совместно с программой RegionTool."
+    End Sub
 End Class

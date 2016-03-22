@@ -2,6 +2,7 @@ unit nscStatusBarButton;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscStatusBarButton.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscStatusBarButton" MUID: (503DE6F30027)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -59,12 +60,12 @@ uses
  , ActnList
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , StatusBarButtonWords
  {$IfEnd} // NOT Defined(NoScripts)
  , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoTB97)}

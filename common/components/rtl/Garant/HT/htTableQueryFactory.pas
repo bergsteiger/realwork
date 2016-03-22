@@ -34,7 +34,7 @@ type
  protected
  // realized methods
    function MakeTabledQuery(const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaQuery;
+    const anAlias: AnsiString = ''): IdaTabledQuery;
    function MakeSelectField(const aTableAlias: AnsiString;
     const aField: IdaFieldDescription;
     const anAlias: AnsiString = ''): IdaSelectField;
@@ -44,6 +44,14 @@ type
     const aParamName: AnsiString): IdaCondition;
    function GetUserNameStr(anUserID: LargeInt): AnsiString;
    function Get_DataConverter: IdaDataConverter;
+   function MakeLogicCondition(const aLeft: IdaCondition;
+    anOperation: TdaLogicOperation;
+    const aRight: IdaCondition): IdaCondition;
+   function MakeSubQueryCondition(const aTableAlias: AnsiString;
+    const aField: IdaFieldDescription;
+    const aQuery: IdaTabledQuery): IdaCondition;
+   function MakeSortField(const aSelectField: IdaSelectField;
+    aSortOrder: TdaSortOrder = da_soAscending): IdaSortField;
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -67,7 +75,10 @@ uses
   ,
   dt_User
   {$IfEnd} //not Nemesis
-  
+  ,
+  daLogicCondition,
+  daSubQueryCondition,
+  daSortField
   ;
 
 // start class ThtTableQueryFactory
@@ -98,7 +109,7 @@ begin
 end;
 
 function ThtTableQueryFactory.MakeTabledQuery(const aTable: IdaTableDescription;
-  const anAlias: AnsiString = ''): IdaQuery;
+  const anAlias: AnsiString = ''): IdaTabledQuery;
 //#UC START# *5549C65D038D_554C7FE80228_var*
 //#UC END# *5549C65D038D_554C7FE80228_var*
 begin
@@ -147,6 +158,38 @@ begin
  Result := f_DataConverter;
 //#UC END# *55C1BFA402E3_554C7FE80228get_impl*
 end;//ThtTableQueryFactory.Get_DataConverter
+
+function ThtTableQueryFactory.MakeLogicCondition(const aLeft: IdaCondition;
+  anOperation: TdaLogicOperation;
+  const aRight: IdaCondition): IdaCondition;
+//#UC START# *56405475021D_554C7FE80228_var*
+//#UC END# *56405475021D_554C7FE80228_var*
+begin
+//#UC START# *56405475021D_554C7FE80228_impl*
+ Result := TdaLogicCondition.Make(aLeft, anOperation, aRight);
+//#UC END# *56405475021D_554C7FE80228_impl*
+end;//ThtTableQueryFactory.MakeLogicCondition
+
+function ThtTableQueryFactory.MakeSubQueryCondition(const aTableAlias: AnsiString;
+  const aField: IdaFieldDescription;
+  const aQuery: IdaTabledQuery): IdaCondition;
+//#UC START# *5641E5DB02C3_554C7FE80228_var*
+//#UC END# *5641E5DB02C3_554C7FE80228_var*
+begin
+//#UC START# *5641E5DB02C3_554C7FE80228_impl*
+ Result := TdaSubQueryCondition.Make(aTableALias, aField, aQuery);
+//#UC END# *5641E5DB02C3_554C7FE80228_impl*
+end;//ThtTableQueryFactory.MakeSubQueryCondition
+
+function ThtTableQueryFactory.MakeSortField(const aSelectField: IdaSelectField;
+  aSortOrder: TdaSortOrder = da_soAscending): IdaSortField;
+//#UC START# *56811844032C_554C7FE80228_var*
+//#UC END# *56811844032C_554C7FE80228_var*
+begin
+//#UC START# *56811844032C_554C7FE80228_impl*
+ Result := TdaSortField.Make(aSelectField, aSortOrder);
+//#UC END# *56811844032C_554C7FE80228_impl*
+end;//ThtTableQueryFactory.MakeSortField
 
 procedure ThtTableQueryFactory.Cleanup;
 //#UC START# *479731C50290_554C7FE80228_var*

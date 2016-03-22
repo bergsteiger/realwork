@@ -2,6 +2,7 @@ unit NOT_FINISHED_ChromeLikeTabGlyph;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\NOT_FINISHED_ChromeLikeTabGlyph.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TChromeLikeTabGlyph" MUID: (537EE67F021B)
 
 interface
 

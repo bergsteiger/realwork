@@ -9,6 +9,8 @@ unit kwSaveWithOtherExtention;
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwSaveWithOtherExtention.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "SaveWithOtherExtention" MUID: (512DD336009D)
+// Имя типа: "TkwSaveWithOtherExtention"
 
 interface
 

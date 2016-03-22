@@ -1,70 +1,47 @@
 unit kwConfigurationsWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwConfigurationsWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Words::Words::ConfigurationsWord
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsWord.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "ConfigurationsWord" MUID: (53B2E10F03C0)
+// Имя типа: "TkwConfigurationsWord"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SettingsUnit,
-  tfwScriptingInterfaces,
-  tfwRegisterableWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , SettingsUnit
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  _kwConfigurationsWordUses_Parent_ = TtfwRegisterableWord;
- {$Include ..\F1_Words\kwConfigurationsWordUses.imp.pas}
- TkwConfigurationsWord = {abstract scriptword} class(_kwConfigurationsWordUses_)
- private
- // private fields
-   f_ConfigurationManager : IConfigurationManager;
-    {* Поле для свойства ConfigurationManager}
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsWordUses.imp.pas}
+ TkwConfigurationsWord = {abstract} class(_kwConfigurationsWordUses_)
+  private
+   f_ConfigurationManager: IConfigurationManager;
+  protected
    procedure DoWithConfigurations(const aCtx: TtfwContext); virtual; abstract;
- protected
- // protected properties
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   procedure ClearFields; override;
+  protected
    property ConfigurationManager: IConfigurationManager
-     read f_ConfigurationManager;
+    read f_ConfigurationManager;
  end;//TkwConfigurationsWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  DataAdapter
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , DataAdapter
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\F1_Words\kwConfigurationsWordUses.imp.pas}
-
-// start class TkwConfigurationsWord
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsWordUses.imp.pas}
 
 procedure TkwConfigurationsWord.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53B2E10F03C0_var*
@@ -81,14 +58,14 @@ begin
 end;//TkwConfigurationsWord.DoDoIt
 
 procedure TkwConfigurationsWord.ClearFields;
- {-}
 begin
- {$If not defined(NoScripts)}
  f_ConfigurationManager := nil;
- {$IfEnd} //not NoScripts
  inherited;
 end;//TkwConfigurationsWord.ClearFields
 
-{$IfEnd} //not NoScripts
+initialization
+ TkwConfigurationsWord.RegisterClass;
+ {* Регистрация ConfigurationsWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

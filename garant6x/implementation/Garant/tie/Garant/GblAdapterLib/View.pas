@@ -27,6 +27,8 @@ uses
 type
 //#UC START# *45F6583E001Fci*
 //#UC END# *45F6583E001Fci*
+//#UC START# *45F6583E001Fcit*
+//#UC END# *45F6583E001Fcit*
  View = {abstract} class(ViewBase)
  protected
  // realized methods

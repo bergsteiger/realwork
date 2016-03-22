@@ -3,6 +3,7 @@ unit TipsUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\TipsUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Tips" MUID: (47B30C7D02F3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

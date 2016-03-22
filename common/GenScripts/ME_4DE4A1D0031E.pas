@@ -3,6 +3,7 @@ program ArchiTest;
 
 // Модуль: "w:\archi\source\projects\Archi\ArchiTest.dpr"
 // Стереотип: "TestTarget"
+// Элемент модели: "Archi" MUID: (4DE4A1D0031E)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

@@ -3,6 +3,8 @@ unit ExportToSingleNSRTest;
 
 // Модуль: "w:\archi\source\projects\ImportExportTest\ExportToSingleNSRTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "ExportToSingleNSRTest" MUID: (55FF9F1102C9)
+// Имя типа: "TExportToSingleNSRTest"
 
 {$Include w:\archi\source\projects\ImportExportTest.inc}
 

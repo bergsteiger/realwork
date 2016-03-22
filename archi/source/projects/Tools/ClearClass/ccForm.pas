@@ -40,6 +40,7 @@ Uses
  dt_Types, dt_Serv, dt_Const,
  afwVCL,
  StrUtils, ddClientBaseEngine,
+ daSchemeConsts,
  Math, DT_Link, DT_LinkServ, DT_DictConst, DT_Dict, rxStrUtils,
  dt_AttrSchema, l3LongintListPrim, DT_Doc, ddHeaderFilter, k2Interfaces,
   Dt_ReNum, l3FileUtils, stFileOp, ddUtils, DT_Stage, l3Stream, l3Memory,

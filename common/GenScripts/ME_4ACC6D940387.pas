@@ -3,6 +3,7 @@ unit BannerUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\BannerUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Banner" MUID: (4ACC6D940387)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

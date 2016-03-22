@@ -2,6 +2,7 @@ unit evExpandedTextCollapser;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evExpandedTextCollapser.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevExpandedTextCollapser" MUID: (552FAA38015B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

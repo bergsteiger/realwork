@@ -1,55 +1,39 @@
 unit EVDtoEVDWriterTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/EVDtoEVDWriterTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EVD::EVDtoEVDWriterTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoEVDWriterTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "EVDtoEVDWriterTest" MUID: (4C07B5E300F2)
+// Имя типа: "TEVDtoEVDWriterTest"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  EVDWriterTest
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , EVDWriterTest
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TEVDtoEVDWriterTest = {abstract} class(TEVDWriterTest)
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt;
  end;//TEVDtoEVDWriterTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TEVDtoEVDWriterTest
+ l3ImplUses
+ , TestFrameWork
+;
 
 procedure TEVDtoEVDWriterTest.DoIt;
 //#UC START# *4C07B5F90205_4C07B5E300F2_var*
@@ -61,17 +45,16 @@ begin
 end;//TEVDtoEVDWriterTest.DoIt
 
 function TEVDtoEVDWriterTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EVD';
 end;//TEVDtoEVDWriterTest.GetFolder
 
 function TEVDtoEVDWriterTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C07B5E300F2';
 end;//TEVDtoEVDWriterTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

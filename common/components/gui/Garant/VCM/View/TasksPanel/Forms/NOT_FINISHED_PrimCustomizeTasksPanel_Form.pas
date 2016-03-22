@@ -3,6 +3,8 @@ unit NOT_FINISHED_PrimCustomizeTasksPanel_Form;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\Forms\NOT_FINISHED_PrimCustomizeTasksPanel_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimCustomizeTasksPanel" MUID: (4C8E4D21001F)
+// Имя типа: "TPrimCustomizeTasksPanelForm"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

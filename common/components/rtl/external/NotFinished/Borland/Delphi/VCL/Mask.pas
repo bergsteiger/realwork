@@ -2,6 +2,7 @@ unit Mask;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Mask.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Mask" MUID: (52A9ADB60286)
 
 interface
 

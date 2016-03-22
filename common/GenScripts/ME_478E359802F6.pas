@@ -3,6 +3,7 @@ unit l3StringValueMapManager;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3StringValueMapManager.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3StringValueMapManager" MUID: (478E359802F6)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -1,81 +1,58 @@
 unit RegisteredTasksTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/Archi/Tests/RegisteredTasksTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> archi$Test::Tasks::Registering::TRegisteredTasksTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Tests\RegisteredTasksTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TRegisteredTasksTest" MUID: (53BA8FB5015D)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  {$If not defined(Nemesis)}
-  ,
-  ddServerTask
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //InsiderTest AND nsTest
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(InsiderTest) AND defined(nsTest)}
 type
  TRegisteredTasksTest = class(TBaseTest)
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt;
  end;//TRegisteredTasksTest
-{$IfEnd} //InsiderTest AND nsTest
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest)}
 uses
-  l3Filer,
-  SysUtils,
-  TypInfo,
-  k2Base
-  {$If not defined(Nemesis)}
-  ,
-  ddTaskClassManager
-  {$IfEnd} //not Nemesis
-  ,
-  evdTaskTypes,
-  TestFrameWork
-  ;
-{$IfEnd} //InsiderTest AND nsTest
+ l3ImplUses
+ {$If NOT Defined(Nemesis)}
+ , ddServerTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ddTaskClassManager
+ {$IfEnd} // NOT Defined(Nemesis)
+ , evdTaskTypes
+ , TestFrameWork
+ , l3Filer
+ , SysUtils
+ , TypInfo
+ , k2Base
+;
 
-{$If defined(InsiderTest) AND defined(nsTest)}
-
+{$If NOT Defined(NotTunedDUnit)}
 type
-  TddTaskItemFriend = class(TddTaskItem)
-  end;//TddTaskItemFriend
+ RddTaskItemFriend = class of TddTaskItemFriend;
 
-  RddTaskItemFriend = class of TddTaskItemFriend;
-
-// start class TRegisteredTasksTest
+ TddTaskItemFriend = class(TddTaskItem)
+ end;//TddTaskItemFriend
 
 procedure TRegisteredTasksTest.DoIt;
 //#UC START# *53BA902B00C5_53BA8FB5015D_var*
@@ -116,20 +93,20 @@ begin
 end;//TRegisteredTasksTest.DoIt
 
 function TRegisteredTasksTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Registering';
 end;//TRegisteredTasksTest.GetFolder
 
 function TRegisteredTasksTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '53BA8FB5015D';
 end;//TRegisteredTasksTest.GetModelElementGUID
 
-{$IfEnd} //InsiderTest AND nsTest
-
 initialization
  TestFramework.RegisterTest(TRegisteredTasksTest.Suite);
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 end.

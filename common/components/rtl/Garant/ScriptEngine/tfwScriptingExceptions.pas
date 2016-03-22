@@ -2,6 +2,7 @@ unit tfwScriptingExceptions;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingExceptions.pas"
 // Стереотип: "InternalInterfaces"
+// Элемент модели: "tfwScriptingExceptions" MUID: (55BB9712001F)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

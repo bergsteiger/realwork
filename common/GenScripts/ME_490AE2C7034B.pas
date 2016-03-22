@@ -3,6 +3,7 @@ unit nsHistoryTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsHistoryTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsHistoryTree" MUID: (490AE2C7034B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

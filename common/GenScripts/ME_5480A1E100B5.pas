@@ -2,6 +2,7 @@ unit m3TempStream;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3TempStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3TempStream" MUID: (5480A1E100B5)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

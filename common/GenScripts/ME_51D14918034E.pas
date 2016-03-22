@@ -2,6 +2,7 @@ unit vcmOperationsDefIteratorForContextMenu;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmOperationsDefIteratorForContextMenu.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmOperationsDefIteratorForContextMenu" MUID: (51D14918034E)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

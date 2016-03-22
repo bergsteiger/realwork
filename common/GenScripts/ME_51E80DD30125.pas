@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\SandBox\ListTest.imp.pas"
 // Стереотип: "TestCaseMixIn"
+// Элемент модели: "ListTest" MUID: (51E80DD30125)
+// Имя типа: "_ListTest_"
 
 {$Define ListTest_imp}
 

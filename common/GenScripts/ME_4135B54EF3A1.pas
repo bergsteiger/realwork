@@ -3,6 +3,7 @@ unit MainMenuChangeableMainMenuTypeSettingRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenuChangeableMainMenuTypeSettingRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "MainMenuChangeableMainMenuTypeSettingRes" MUID: (4135B54EF3A1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

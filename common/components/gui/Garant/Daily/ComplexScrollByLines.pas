@@ -1,76 +1,55 @@
 unit ComplexScrollByLines;
+ {* Тест вида - прокрутили на несколько строк вниз, а потом на несколько вверх. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/ComplexScrollByLines.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::ComplexScrollByLines
-//
-// Тест вида - прокрутили на несколько строк вниз, а потом на несколько вверх.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\ComplexScrollByLines.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "ComplexScrollByLines" MUID: (4C1B135F02B0)
+// Имя типа: "TComplexScrollByLines"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TextEditorVisitor,
-  PrimTextLoad_Form
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , TextEditorVisitor
+ , PrimTextLoad_Form
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TComplexScrollByLines = {abstract} class(TTextEditorVisitor)
   {* Тест вида - прокрутили на несколько строк вниз, а потом на несколько вверх. }
- protected
- // realized methods
-   procedure DoVisit(aForm: TPrimTextLoadForm); override;
-     {* Обработать текст }
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    function GetScrollLineCount2Down: Integer; virtual; abstract;
-     {* количество строк для прокрутки вниз }
+    {* количество строк для прокрутки вниз }
    function GetScrollLineCount2Up: Integer; virtual; abstract;
-     {* количество строк для прокрутки вверх }
+    {* количество строк для прокрутки вверх }
+   procedure DoVisit(aForm: TPrimTextLoadForm); override;
+    {* Обработать текст }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TComplexScrollByLines
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TComplexScrollByLines
+ l3ImplUses
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 procedure TComplexScrollByLines.DoVisit(aForm: TPrimTextLoadForm);
+ {* Обработать текст }
 //#UC START# *4BE419AF0217_4C1B135F02B0_var*
 //#UC END# *4BE419AF0217_4C1B135F02B0_var*
 begin
@@ -82,17 +61,16 @@ begin
 end;//TComplexScrollByLines.DoVisit
 
 function TComplexScrollByLines.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TComplexScrollByLines.GetFolder
 
 function TComplexScrollByLines.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C1B135F02B0';
 end;//TComplexScrollByLines.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

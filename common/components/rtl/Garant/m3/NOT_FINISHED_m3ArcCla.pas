@@ -2,6 +2,7 @@ unit NOT_FINISHED_m3ArcCla;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\NOT_FINISHED_m3ArcCla.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "m3ArcCla" MUID: (542A9FC5028B)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

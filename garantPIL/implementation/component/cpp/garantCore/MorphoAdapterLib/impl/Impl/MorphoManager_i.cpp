@@ -18,8 +18,6 @@
 #include "shared/Morpho/Def/Def.h"
 
 //#UC START# *4EA41FC20359_CUSTOM_INCLUDES*
-#include "shared/Morpho/Facade/Factory.h"
-#include "SearchB.h"
 //#UC END# *4EA41FC20359_CUSTOM_INCLUDES*
 
 namespace MorphoAdapterLib {
@@ -52,7 +50,7 @@ MorphoManager_i::~MorphoManager_i () {
 // деинициализация
 void MorphoManager_i::done () {
 	//#UC START# *4EA41F7F0354_4EA41FC20359*
-	//Morpho::Def::ICachedNormalizerFactory::instance ().clear ();
+	GDS_ASSERT (0);
 	//#UC END# *4EA41F7F0354_4EA41FC20359*
 }
 
@@ -60,12 +58,7 @@ void MorphoManager_i::done () {
 // инициализация
 void MorphoManager_i::init (const char* base_path) {
 	//#UC START# *4EA41F5C039F_4EA41FC20359*
-	GDS_ASSERT (base_path);
-	Core::Aptr <ToolsBase> base = new ToolsBase (std::string (base_path));
-
-	Morpho::Def::ICache_var cache = Morpho::Factory::make ();
-	cache->load (base->abstract_base (), false);
-	//Morpho::Def::ICachedNormalizerFactory::instance ().init (cache.in ());
+	GDS_ASSERT (0);
 	//#UC END# *4EA41F5C039F_4EA41FC20359*
 }
 } // namespace Impl

@@ -3,6 +3,7 @@ unit NOT_FINISHED_bsConst;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_bsConst.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "bsConst" MUID: (47FAFA9601C8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

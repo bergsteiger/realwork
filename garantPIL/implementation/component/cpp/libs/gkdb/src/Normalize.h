@@ -26,7 +26,7 @@ public:
 			DBCore::IBase_var obj = DBCore::DBFactory::make (base);
 
 			Morpho::Def::ICache_var cache = Morpho::Factory::make ();
-			cache->load (obj.in (), true);
+			cache->load (obj.in ());
 
 			m_normalizer = Morpho::Factory::make (cache.in ());
 		}

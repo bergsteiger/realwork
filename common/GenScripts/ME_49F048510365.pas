@@ -2,6 +2,7 @@ unit NOT_FINISHED_evStyleTableTools;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evStyleTableTools.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evStyleTableTools" MUID: (49F048510365)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

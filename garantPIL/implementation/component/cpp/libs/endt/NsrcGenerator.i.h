@@ -143,6 +143,7 @@ namespace EndtTools {
 		case CI_ENO:
 		case CI_SCRIPT:
 		case CI_PHARM_MULTI:
+		case CI_SEARCH_QUERY:
 			ret = REFTYPE_REFLIST;
 			break;
 		case CI_BLOB:

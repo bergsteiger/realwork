@@ -2,6 +2,7 @@ unit SearchInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\SearchInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "SearchInterfaces" MUID: (491DAF4202EE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

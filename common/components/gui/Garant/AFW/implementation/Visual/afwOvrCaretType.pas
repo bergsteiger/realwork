@@ -2,6 +2,7 @@ unit afwOvrCaretType;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwOvrCaretType.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwOvrCaretType" MUID: (480DD2B200D2)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

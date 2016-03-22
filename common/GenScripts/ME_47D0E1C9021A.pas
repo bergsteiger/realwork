@@ -2,6 +2,7 @@ unit vcmFormHandler;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmFormHandler.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormHandler" MUID: (47D0E1C9021A)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

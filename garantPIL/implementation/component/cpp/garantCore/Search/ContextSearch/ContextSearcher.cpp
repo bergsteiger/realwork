@@ -18,12 +18,15 @@
 #include "garantCore/Search/impl/Filters_i/Filters.h"
 #include "garantCore/Search/Cache/Cache.h"
 #include "garantCore/Search/ContextSearch/RelevancyTuner.h"
-#include "garantPIL/implementation/component/cpp/tools/CSAdapter/AdapterLoader.h"
-#include "garantPIL/implementation/component/cpp/libs/gkdb/src/BaseCache.h"
 #include "garantCore/Search/ContextSearch/RequestSplit.h"
+#include "garantPIL/implementation/component/cpp/tools/CSAdapter/AdapterLoader.h"
+#include "garantCore/Search/ContextSearch/Progress_i.h"
 
 //#UC START# *50ACE4D50116_CUSTOM_INCLUDES*
 #include "boost/thread.hpp"
+
+#include "DBComm.h"
+#include "ContextPartsHelper.h"
 //#UC END# *50ACE4D50116_CUSTOM_INCLUDES*
 
 namespace Search {
@@ -31,7 +34,7 @@ namespace Search {
 //#UC START# *50ACE4D50116*
 SearchAdapterLib::Adapter::ISearcher* make_searcher (Base* base, const std::string& src) {
 	DBCore::IBase_var _base = DBCore::DBFactory::make (base);
-	return SearchAdapter::instance ()->get (_base.in (), BaseCache::instance ()->get_morpho_cache_ptr (), src);
+	return SearchAdapter::instance ()->get (_base.in (), src);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -151,7 +154,7 @@ RefwReleCollection* ContextSearcher::search (
 // constructors and destructor
 
 ContextSearcher::ContextSearcher (
-	SearchBase* base
+	Base* base
 	, SearchAdapterLib::Adapter::IRelevancyInfo* info
 	, const GCL::StrVector& src
 )
@@ -162,8 +165,7 @@ ContextSearcher::ContextSearcher (
 //#UC END# *50ED842E00B5_BASE_INIT*
 {
 	//#UC START# *50ED842E00B5_BODY*
-	BaseCache::instance ()->get_morpho_cache_ptr ()->load (m_base->abstract_base (), true);
-	m_progress = m_base->abstract_base ()->make_progress ();
+	m_progress = new Progress_i (base);
 
 	if (m_src.empty ()) {
 		ContextPartsHelper::get_context_parts_names (m_src, false);
@@ -237,12 +239,13 @@ SortedCollection* ContextSearcher::execute (SearchAdapterLib::Adapter::IFilter* 
 		ret->Merge (*res);
 	}
 
-	RelevancyTuner tuner (m_info_collector);
+	if (ret.is_nil () == false) {
+		Core::Aptr <DBCore::RelTuneData> informers = Cache::instance ()->get_informers (m_base, m_requests [0].context);
 
-	Core::Aptr <DBCore::RelTuneData> informers = Cache::instance ()->get_informers (m_base, m_requests [0].context);
-
-	tuner.execute (ret.inout (), *informers, ContextSearch::Defs::dt_INFORM);
-	tuner.execute (ret.inout (), SearchAdapter::instance ()->get_tune_data (), ContextSearch::Defs::dt_RCH);
+		RelevancyTuner tuner (m_info_collector);
+		tuner.execute (ret.inout (), *informers, ContextSearch::Defs::dt_INFORM);
+		tuner.execute (ret.inout (), SearchAdapter::instance ()->get_tune_data (), ContextSearch::Defs::dt_RCH);
+	}
 
 	return ret._retn ();
 	//#UC END# *50ED5AD00196*

@@ -2,6 +2,7 @@ unit kwCompiledScriptCompileAndProcess;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledScriptCompileAndProcess.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledScriptCompileAndProcess" MUID: (53DA24F802A7)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -110,13 +111,13 @@ procedure TkwCompiledScriptCompileAndProcess.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53DA24F802A7_var*
 var
  l_Controller : TkwMainCodeController;
- l_Stream     : TtfwFileStreamFactory;
+ l_Stream     : TtfwStreamFactory;
 //#UC END# *4DAEEDE10285_53DA24F802A7_var*
 begin
 //#UC START# *4DAEEDE10285_53DA24F802A7_impl*
  f_NativeCaller := aCtx.rCaller;
  try
-  l_Stream := TtfwFileStreamFactory.Create(aCtx.rEngine.PopDelphiString);
+  l_Stream := Self.MakeStream(aCtx.rEngine.PopDelphiString);
   try
    l_Controller := TkwMainCodeController.Create(WordToWork, @aCtx);
    try

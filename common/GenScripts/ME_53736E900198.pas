@@ -3,6 +3,8 @@ unit K517789752;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\Import\K517789752.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517789752" MUID: (53736E900198)
+// Имя типа: "TK517789752"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

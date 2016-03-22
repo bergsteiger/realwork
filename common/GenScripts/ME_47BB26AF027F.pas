@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ListOperations.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3ListOperations" MUID: (47BB26AF027F)
+// Имя типа: "_l3ListOperations_"
 
 {$Define l3ListOperations_imp}
 

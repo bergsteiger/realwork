@@ -3,6 +3,7 @@ unit vgPtrList;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgPtrList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgPtrList" MUID: (4D52D86D0330)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

@@ -2,6 +2,7 @@ unit EditorParaCoordsToScreenPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\EditorParaCoordsToScreenPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "EditorParaCoordsToScreenPack" MUID: (4F954F670262)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

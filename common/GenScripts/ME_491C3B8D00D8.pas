@@ -3,6 +3,7 @@ unit dsAutoreferat;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\dsAutoreferat.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsAutoreferat" MUID: (491C3B8D00D8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

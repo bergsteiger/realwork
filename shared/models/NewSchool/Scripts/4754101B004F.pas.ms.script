@@ -48,32 +48,6 @@ FORWARD ME_475410380119
 
 ref; // ME_475416990003 Controller
 
-: ME_795EEB6A33AB
- CONST UID '795EEB6A33AB'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TOvcBase' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_475410380119 // TOvcBase
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_795EEB6A33AB Ini_Reg_Class
-
-: ME_E825044EA968
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_475410380119 // TOvcBase
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E825044EA968 
-
 : ME_475410380119
  CONST UID '475410380119'
  CONST Name 'TOvcBase'
@@ -93,14 +67,6 @@ ref; // ME_E825044EA968
    Seq: ( ME_475416990003 // Controller
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_795EEB6A33AB // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_E825044EA968 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
@@ -210,7 +176,6 @@ ref; // ME_515956AC0167 OvcExcpt
    Seq: ( WL 'ME_47541DF90101' '47541DF90101.pas.ms.script' // l3InterfacedComponent
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

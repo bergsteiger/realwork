@@ -2,6 +2,7 @@ unit dsSynchroViewWarning;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsSynchroViewWarning.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsSynchroViewWarning" MUID: (4EFC5A8502E2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

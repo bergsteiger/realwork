@@ -3,6 +3,7 @@ unit afwPreviewNotifierPtrList;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwPreviewNotifierPtrList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwPreviewNotifierPtrList" MUID: (47ED0A030258)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

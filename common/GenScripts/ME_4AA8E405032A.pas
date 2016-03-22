@@ -3,6 +3,8 @@ unit ForbidAutoregistration_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\ForbidAutoregistration_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "ForbidAutoregistration" MUID: (4AA8E405032A)
+// Имя типа: "TefForbidAutoregistration"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

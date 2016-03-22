@@ -3,6 +3,8 @@ unit NemesisMain_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NemesisMain_Form.pas"
 // Стереотип: "VCMMainForm"
+// Элемент модели: "NemesisMain" MUID: (4958D2EA00CC)
+// Имя типа: "TNemesisMainForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -380,13 +382,18 @@ function TNemesisMainForm.OpenNewMainForm(aOpenKind: TvcmMainFormOpenKind;
 var
  l_TabCont: TvcmTabbedContainerForm;
  l_Cont: IvcmContainer;
+ l_OpenAfter: TvcmEntityForm;
 //#UC END# *5566B0FA013A_4958D2EA00CC_var*
 begin
 //#UC START# *5566B0FA013A_4958D2EA00CC_impl*
  Result := nil;
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=600654481
+ if (aOpenAfter = nil) then
+  l_OpenAfter := nil
+ else
+  l_OpenAfter := TvcmEntityForm(aOpenAfter.VCLWinControl);
  l_Cont := TvcmTabbedContainerFormDispatcher.Instance.MakeAndPlaceVCMContainer(Self As IvcmContainerMaker,
-  Self as IvcmContainer, aOpenKind, True, (aOpenKind = vcm_okInNewTab));
+  Self as IvcmContainer, aOpenKind, True, aOpenLast, l_OpenAfter);
  if (l_Cont <> nil) then
  begin
   Result := l_Cont.AsForm.VCLWinControl as TvcmMainForm;
@@ -650,7 +657,7 @@ var
 //#UC END# *53AD17180374_4958D2EA00CC_var*
 begin
 //#UC START# *53AD17180374_4958D2EA00CC_impl*
- Result := OpenNewMainForm(vcm_okInNewWindow);
+ Result := OpenNewMainForm(vcm_okInNewWindow, True);
 //#UC END# *53AD17180374_4958D2EA00CC_impl*
 end;//TNemesisMainForm.OpenNewMainWindow
 
@@ -780,7 +787,7 @@ function TNemesisMainForm.DoOpenNew(aOpenKind: TvcmMainFormOpenKind;
 //#UC END# *5566C7BD037F_4958D2EA00CC_var*
 begin
 //#UC START# *5566C7BD037F_4958D2EA00CC_impl*
- Result := OpenNewMainForm(aOpenKind) as IvcmContainedForm;
+ Result := OpenNewMainForm(aOpenKind, aOpenLast, aOpenAfter) as IvcmContainedForm;
 //#UC END# *5566C7BD037F_4958D2EA00CC_impl*
 end;//TNemesisMainForm.DoOpenNew
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)

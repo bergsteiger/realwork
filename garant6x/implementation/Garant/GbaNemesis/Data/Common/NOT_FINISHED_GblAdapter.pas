@@ -3,6 +3,7 @@ unit NOT_FINISHED_GblAdapter;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_GblAdapter.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "GblAdapter" MUID: (4912B19E0139)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

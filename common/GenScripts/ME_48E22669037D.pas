@@ -2,6 +2,7 @@ unit evQueryCardEditor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evQueryCardEditor.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TevQueryCardEditor" MUID: (48E22669037D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

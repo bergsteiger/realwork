@@ -2,6 +2,7 @@ unit CsQueryRequesterTool;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\CsQueryRequesterTool.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TCsQueryRequesterTool" MUID: (538DA33503D9)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -2,6 +2,7 @@ unit evTextParaMultiSelectionBlock;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTextParaMultiSelectionBlock.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTextParaMultiSelectionBlock" MUID: (48ECD68E0010)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

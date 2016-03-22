@@ -2,6 +2,7 @@ unit ddClientMessageSortableList;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ddClientMessageSortableList.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddClientMessageSortableList" MUID: (53A2F5F9024F)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

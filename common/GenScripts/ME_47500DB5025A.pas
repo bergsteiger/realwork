@@ -3,6 +3,7 @@ unit TreeNameTranslator;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\TreeNameTranslator.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "TreeNameTranslator" MUID: (47500DB5025A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

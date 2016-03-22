@@ -3,6 +3,7 @@ unit ListUserTypes_lftUserCR2_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftUserCR2_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "lftUserCR2" MUID: (4BD589720381)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftUserCR2 = {final} class(TtfwInteger)
   {* Слово словаря для типа формы lftUserCR2 }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_lftUserCR2
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_lftUserCR2.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::lftUserCR2';
-end;//Tkw_FormUserType_lftUserCR2.GetWordNameForRegister
-
 function Tkw_FormUserType_lftUserCR2.GetInteger: Integer;
 begin
  Result := lftUserCR2;
 end;//Tkw_FormUserType_lftUserCR2.GetInteger
+
+class function Tkw_FormUserType_lftUserCR2.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::lftUserCR2';
+end;//Tkw_FormUserType_lftUserCR2.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

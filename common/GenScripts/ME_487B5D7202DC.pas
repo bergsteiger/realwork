@@ -3,6 +3,7 @@ unit evWindowCursor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evWindowCursor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevWindowCursor" MUID: (487B5D7202DC)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit ncsSynchroCompatibilityClientTransporter;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsSynchroCompatibilityClientTransporter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsSynchroCompatibilityClientTransporter" MUID: (54E33DBC0063)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

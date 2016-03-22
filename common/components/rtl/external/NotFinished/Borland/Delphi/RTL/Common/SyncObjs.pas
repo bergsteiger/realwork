@@ -2,6 +2,7 @@ unit SyncObjs;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\SyncObjs.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "SyncObjs" MUID: (48078324039E)
 
 interface
 

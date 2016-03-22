@@ -3,6 +3,8 @@ unit SBS_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\SBS_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "SBS" MUID: (4857E2A70175)
+// Имя типа: "SBSTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

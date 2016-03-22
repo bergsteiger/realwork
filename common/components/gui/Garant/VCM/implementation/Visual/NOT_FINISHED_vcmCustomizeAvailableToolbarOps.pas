@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmCustomizeAvailableToolbarOps;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmCustomizeAvailableToolbarOps.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmCustomizeAvailableToolbarOps" MUID: (4C90B97A00B9)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

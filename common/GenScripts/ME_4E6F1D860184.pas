@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDecorHotSpotTester.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "evDecorHotSpotTester" MUID: (4E6F1D860184)
+// Имя типа: "_evDecorHotSpotTester_"
 
 {$Define evDecorHotSpotTester_imp}
 

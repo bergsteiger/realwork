@@ -2,6 +2,8 @@ unit kwPreview;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPreview.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "Preview" MUID: (530B30360258)
+// Имя типа: "TkwPreview"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

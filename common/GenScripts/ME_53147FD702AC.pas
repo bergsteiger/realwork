@@ -2,6 +2,7 @@ unit l3FontManagerPrimPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3FontManagerPrimPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3FontManagerPrimPrim" MUID: (53147FD702AC)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_arTextOfDocument;
 
 // Модуль: "w:\archi\source\projects\Archi\Editor\NOT_FINISHED_arTextOfDocument.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarTextOfDocument" MUID: (4E0072E100DB)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

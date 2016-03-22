@@ -2,6 +2,7 @@ unit kwCommonArchiWords;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwCommonArchiWords.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "kwCommonArchiWords" MUID: (4F619597030C)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

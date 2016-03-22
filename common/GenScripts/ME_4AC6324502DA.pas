@@ -3,6 +3,8 @@ unit PrimDefineSearchDate_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimDefineSearchDate_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimDefineSearchDate" MUID: (4AC6324502DA)
+// Имя типа: "TPrimDefineSearchDateForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

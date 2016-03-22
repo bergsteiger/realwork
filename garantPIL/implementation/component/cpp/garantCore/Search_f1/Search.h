@@ -24,7 +24,7 @@ namespace Search {
 		, bool show_short_list
 	);
 
-	bool check_query (SearchBase* base, const std::string& str);
+	bool check_query (Base* base, const std::string& str);
 }
 
 #endif //__SEARCH_F1_H__

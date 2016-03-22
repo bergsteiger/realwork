@@ -3,6 +3,7 @@ unit evRowAndTableTypeSupport;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evRowAndTableTypeSupport.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevRowAndTableTypeSupport" MUID: (5112379700A6)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

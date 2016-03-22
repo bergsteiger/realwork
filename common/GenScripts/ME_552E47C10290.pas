@@ -2,6 +2,7 @@ unit ListerWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ListerWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ListerWordsPack" MUID: (552E47C10290)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -162,11 +163,6 @@ begin
  SelectWithShift(aCtx, l_aLister, l_aFinish);
 end;//TkwPopListerSelectWithShift.DoDoIt
 
-class function TkwPopListerSelectWithShift.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Lister:SelectWithShift';
-end;//TkwPopListerSelectWithShift.GetWordNameForRegister
-
 function TkwPopListerSelectWithShift.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -181,6 +177,11 @@ function TkwPopListerSelectWithShift.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomLister), TypeInfo(Integer)]);
 end;//TkwPopListerSelectWithShift.ParamsTypes
+
+class function TkwPopListerSelectWithShift.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Lister:SelectWithShift';
+end;//TkwPopListerSelectWithShift.GetWordNameForRegister
 
 function TkwPopListerGetSelected.GetSelected(const aCtx: TtfwContext;
  aLister: TvtCustomLister;
@@ -219,11 +220,6 @@ begin
  aCtx.rEngine.PushBool(GetSelected(aCtx, l_aLister, l_anIndex));
 end;//TkwPopListerGetSelected.DoDoIt
 
-class function TkwPopListerGetSelected.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Lister:GetSelected';
-end;//TkwPopListerGetSelected.GetWordNameForRegister
-
 function TkwPopListerGetSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -238,6 +234,11 @@ function TkwPopListerGetSelected.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomLister), TypeInfo(Integer)]);
 end;//TkwPopListerGetSelected.ParamsTypes
+
+class function TkwPopListerGetSelected.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Lister:GetSelected';
+end;//TkwPopListerGetSelected.GetWordNameForRegister
 
 function TkwPopListerFooterCaption.FooterCaption(const aCtx: TtfwContext;
  aLister: TvtCustomLister): AnsiString;
@@ -265,11 +266,6 @@ begin
  aCtx.rEngine.PushString(FooterCaption(aCtx, l_aLister));
 end;//TkwPopListerFooterCaption.DoDoIt
 
-class function TkwPopListerFooterCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Lister:FooterCaption';
-end;//TkwPopListerFooterCaption.GetWordNameForRegister
-
 function TkwPopListerFooterCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -284,6 +280,11 @@ function TkwPopListerFooterCaption.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomLister)]);
 end;//TkwPopListerFooterCaption.ParamsTypes
+
+class function TkwPopListerFooterCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Lister:FooterCaption';
+end;//TkwPopListerFooterCaption.GetWordNameForRegister
 
 function TkwPopListerCurrent.Current(const aCtx: TtfwContext;
  aLister: TvtCustomLister): Integer;
@@ -307,11 +308,6 @@ begin
  aCtx.rEngine.PushInt(Current(aCtx, l_aLister));
 end;//TkwPopListerCurrent.DoDoIt
 
-class function TkwPopListerCurrent.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Lister:Current';
-end;//TkwPopListerCurrent.GetWordNameForRegister
-
 procedure TkwPopListerCurrent.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -332,6 +328,11 @@ function TkwPopListerCurrent.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomLister)]);
 end;//TkwPopListerCurrent.ParamsTypes
+
+class function TkwPopListerCurrent.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Lister:Current';
+end;//TkwPopListerCurrent.GetWordNameForRegister
 
 initialization
  TkwPopListerSelectWithShift.RegisterInEngine;

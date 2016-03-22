@@ -3,6 +3,7 @@ unit kwDeleteSub;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwDeleteSub.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwDeleteSub" MUID: (4E01AD1F02CA)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

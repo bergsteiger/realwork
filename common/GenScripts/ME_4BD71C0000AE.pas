@@ -3,6 +3,7 @@ unit PrimTreeAttributeFirstLevel_flSituation_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimTreeAttributeFirstLevel_flSituation_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "flSituation" MUID: (4BD71C0000AE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_flSituation = {final} class(TtfwInteger)
   {* Слово словаря для типа формы flSituation }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_flSituation
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_flSituation.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::flSituation';
-end;//Tkw_FormUserType_flSituation.GetWordNameForRegister
-
 function Tkw_FormUserType_flSituation.GetInteger: Integer;
 begin
  Result := flSituation;
 end;//Tkw_FormUserType_flSituation.GetInteger
+
+class function Tkw_FormUserType_flSituation.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::flSituation';
+end;//Tkw_FormUserType_flSituation.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

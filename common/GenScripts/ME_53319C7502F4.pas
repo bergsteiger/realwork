@@ -2,6 +2,7 @@ unit vgRemindersLineForm;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vgRemindersLineForm.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvgRemindersLineForm" MUID: (53319C7502F4)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

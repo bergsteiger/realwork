@@ -2,6 +2,7 @@ unit csMdpImportDocs;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csMdpImportDocs.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsMdpImportDocs" MUID: (55EEC220007F)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

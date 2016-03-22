@@ -3,6 +3,7 @@ program SearchTest;
 
 // Модуль: "w:\common\components\SearchTest\SearchTest.dpr"
 // Стереотип: "TestTarget"
+// Элемент модели: "Search" MUID: (511B4CA100B2)
 
 interface
 

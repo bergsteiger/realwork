@@ -2,6 +2,7 @@ unit dd_lcHiddenTextExtractor;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\dd_lcHiddenTextExtractor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tdd_lcHiddenTextExtractor" MUID: (538C1D82017A)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

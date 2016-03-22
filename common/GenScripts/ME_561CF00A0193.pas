@@ -2,6 +2,7 @@ unit alcuProcessingEnabledService;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuProcessingEnabledService.pas"
 // Стереотип: "ServiceImplementation"
+// Элемент модели: "TalcuProcessingEnabledService" MUID: (561CF00A0193)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

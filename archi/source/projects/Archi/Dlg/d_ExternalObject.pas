@@ -44,10 +44,10 @@ begin
   begin
    aTopicID := Value;
    aObjType := TddExternalObject(cbObjType.Items.Objects[cbObjType.ItemIndex]).Handle;
-   ExtObjManager.Save;
+   //ExtObjManager.Save;
   end // Result
-  else
-   ExtObjManager.Revert;
+  //else
+   //ExtObjManager.Revert;
  finally
   Free;
  end;

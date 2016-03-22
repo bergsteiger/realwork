@@ -3,6 +3,7 @@ unit l3FrameObjectList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3FrameObjectList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3FrameObjectList" MUID: (48CA6C24020B)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

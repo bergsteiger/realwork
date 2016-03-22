@@ -1,45 +1,34 @@
 unit RefcountedTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "RefcountedTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCase::Class Shared Delphi Sand Box::SandBoxTest::Core::TRefcountedTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\RefcountedTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TRefcountedTest" MUID: (5161393802B7)
 
-{$Include ..\SandBox\sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , TestFrameWork
+;
 
-{$If defined(nsTest)}
 type
  TRefcountedTest = class(TTestCase)
- published
- // published methods
+  published
    procedure DoIt;
  end;//TRefcountedTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  Refcounted,
-  SysUtils
-  ;
-{$IfEnd} //nsTest
-
-{$If defined(nsTest)}
-
-// start class TRefcountedTest
+ l3ImplUses
+ , Refcounted
+ , SysUtils
+;
 
 procedure TRefcountedTest.DoIt;
 //#UC START# *516139A803D5_5161393802B7_var*
@@ -66,9 +55,8 @@ begin
 //#UC END# *516139A803D5_5161393802B7_impl*
 end;//TRefcountedTest.DoIt
 
-{$IfEnd} //nsTest
-
 initialization
  TestFramework.RegisterTest(TRefcountedTest.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

@@ -3,6 +3,7 @@ unit evTextManipulationInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\evTextManipulationInterfaces.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evTextManipulationInterfaces" MUID: (4A2548350036)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

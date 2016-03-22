@@ -2,6 +2,7 @@ unit m3CommonStorage;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3CommonStorage.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3CommonStorage" MUID: (542176490191)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

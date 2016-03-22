@@ -3,6 +3,7 @@ unit PrimSaveLoadUserTypes_slqtLegislationReview_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtLegislationReview_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "slqtLegislationReview" MUID: (4BD5BBDE032E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtLegislationReview = {final} class(TtfwInteger)
   {* Слово словаря для типа формы slqtLegislationReview }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_slqtLegislationReview
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_slqtLegislationReview.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::slqtLegislationReview';
-end;//Tkw_FormUserType_slqtLegislationReview.GetWordNameForRegister
-
 function Tkw_FormUserType_slqtLegislationReview.GetInteger: Integer;
 begin
  Result := slqtLegislationReview;
 end;//Tkw_FormUserType_slqtLegislationReview.GetInteger
+
+class function Tkw_FormUserType_slqtLegislationReview.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::slqtLegislationReview';
+end;//Tkw_FormUserType_slqtLegislationReview.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

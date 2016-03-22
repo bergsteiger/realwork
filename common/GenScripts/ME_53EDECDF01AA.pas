@@ -2,6 +2,7 @@ unit csDecisionPhrasesHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csDecisionPhrasesHelper.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "csDecisionPhrasesHelper" MUID: (53EDECDF01AA)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

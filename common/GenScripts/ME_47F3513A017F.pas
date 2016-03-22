@@ -3,6 +3,7 @@ unit evDocumentContainerWithProcessor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\evDocumentContainerWithProcessor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentContainerWithProcessor" MUID: (47F3513A017F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

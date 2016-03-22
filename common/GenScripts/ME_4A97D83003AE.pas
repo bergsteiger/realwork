@@ -3,6 +3,8 @@ unit Folders_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\Folders_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "Folders" MUID: (4A97D83003AE)
+// Имя типа: "TcfFolders"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

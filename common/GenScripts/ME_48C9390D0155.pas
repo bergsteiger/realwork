@@ -3,6 +3,7 @@ unit evSBSPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSBSPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevSBSPainter" MUID: (48C9390D0155)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

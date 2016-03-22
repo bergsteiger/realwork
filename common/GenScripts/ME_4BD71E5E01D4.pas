@@ -3,6 +3,7 @@ unit PrimPostingsList_MyPostingList_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsList_MyPostingList_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "MyPostingList" MUID: (4BD71E5E01D4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_MyPostingList = {final} class(TtfwInteger)
   {* Слово словаря для типа формы MyPostingList }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_MyPostingList
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_MyPostingList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::MyPostingList';
-end;//Tkw_FormUserType_MyPostingList.GetWordNameForRegister
-
 function Tkw_FormUserType_MyPostingList.GetInteger: Integer;
 begin
  Result := MyPostingList;
 end;//Tkw_FormUserType_MyPostingList.GetInteger
+
+class function Tkw_FormUserType_MyPostingList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::MyPostingList';
+end;//Tkw_FormUserType_MyPostingList.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

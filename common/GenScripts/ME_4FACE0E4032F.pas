@@ -2,6 +2,7 @@ unit ddDocumentAtom;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddDocumentAtom.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddDocumentAtom" MUID: (4FACE0E4032F)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

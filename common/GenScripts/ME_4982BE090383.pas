@@ -3,6 +3,7 @@ unit vcmControllers;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmControllers.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "vcmControllers" MUID: (4982BE090383)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -3,6 +3,7 @@ unit DrawTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\DrawTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TDrawTest" MUID: (4CC7F3170362)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

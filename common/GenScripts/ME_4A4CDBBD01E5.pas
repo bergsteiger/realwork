@@ -3,6 +3,7 @@ unit atSortListOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSortListOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatSortListOperation" MUID: (4A4CDBBD01E5)
 
 interface
 

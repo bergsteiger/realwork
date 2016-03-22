@@ -2,6 +2,7 @@ unit ddCellList;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddCellList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddCellList" MUID: (5189EA0F01BE)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

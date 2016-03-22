@@ -2,6 +2,7 @@ unit NOT_FINISHED_vg_objects;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vg_objects.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vg_objects" MUID: (4CFE2C72021C)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

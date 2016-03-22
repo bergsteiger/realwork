@@ -1,9 +1,18 @@
 unit alcuConfigTypes;
 { Специальные типы для настройки Парня }
 
-{ $Id: alcuConfigTypes.pas,v 1.55 2015/10/14 07:07:55 lukyanets Exp $ }
+{ $Id: alcuConfigTypes.pas,v 1.58 2016/03/04 09:34:31 lukyanets Exp $ }
 
 // $Log: alcuConfigTypes.pas,v $
+// Revision 1.58  2016/03/04 09:34:31  lukyanets
+// Отвалились вложенные задания
+//
+// Revision 1.57  2015/12/02 12:14:32  lukyanets
+// Падали на кривом инишнике
+//
+// Revision 1.56  2015/11/26 08:45:26  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.55  2015/10/14 07:07:55  lukyanets
 // Cleanup
 //
@@ -199,6 +208,7 @@ type
   public
     function DeleteItem(Index: Integer): Boolean; override;
     function EditItem(Index: Integer): Boolean; override;
+    procedure ClearItems; override;
     procedure Load(const aStorage: IddConfigStorage; const aAlias: AnsiString); override;
     procedure Save(const aStorage: IddConfigStorage; const aAlias: AnsiString); override;
   end;
@@ -409,6 +419,7 @@ uses
  l3Bits, l3String,
  ddUtils,
  {$IFNDEF Service}
+ daSchemeConsts,
  dt_Dict,
  {$ENDIF}
  alcuMailServer, alcuEmailNotifyDlg, alcuRegionEditDlg, ExtCtrls, Windows, Graphics,
@@ -1229,6 +1240,11 @@ begin
  inherited;
 end;
 
+procedure TalcuEmailAdapter.ClearItems;
+begin
+ Assert(False, 'ClearItems don''t implemented');
+end;
+
 { TalcuAsyncRunTaskItem }
 
 procedure TalcuAsyncRunTaskItem._OnTreeChange(Sender: TObject;
@@ -1672,6 +1688,7 @@ end;
 
 procedure TalcuUserListMap.RefreshList;
 begin
+ if UserManager <> nil then
   UserManager.GetFiltredUserList(f_UserList);
 end;
 

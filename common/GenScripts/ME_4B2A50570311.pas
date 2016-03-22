@@ -2,6 +2,7 @@ unit TestGlobals;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\TestGlobals.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "TestGlobals" MUID: (4B2A50570311)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

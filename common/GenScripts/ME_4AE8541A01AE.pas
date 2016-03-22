@@ -2,6 +2,7 @@ unit vtLabel;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtLabel.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtLabel" MUID: (4AE8541A01AE)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

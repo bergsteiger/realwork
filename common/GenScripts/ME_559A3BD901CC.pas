@@ -2,6 +2,7 @@ unit daJournal;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daJournal.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaJournal" MUID: (559A3BD901CC)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
@@ -85,7 +86,8 @@ type
    procedure StartCaching;
    procedure StopCaching;
    procedure SessionDone;
-   procedure SetAlienSessionID(aSessionID: TdaSessionID);
+   procedure SetAlienData(anUserID: TdaUserID;
+    aSessionID: TdaSessionID);
    procedure LogAlienEvent(aOperation: TdaJournalOperation;
     aFamilyID: TdaFamilyID;
     aExtID: LongInt;
@@ -95,6 +97,7 @@ type
     aDocID: TdaDocID;
     UserOrGroupID: TdaUserID;
     UserGr: Boolean): IdaResultSet;
+   function Get_CurSessionID: TdaSessionID;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
@@ -121,9 +124,6 @@ uses
  , l3TreeInterfaces
 ;
 
-const
- BlankSession: TdaSessionID = -1;
-
 constructor TdaJournal.Create(const aFactory: IdaTableQueryFactory);
 //#UC START# *559A424301EE_559A3BD901CC_var*
 //#UC END# *559A424301EE_559A3BD901CC_var*
@@ -141,7 +141,7 @@ end;//TdaJournal.Create
 function TdaJournal.GetNewSessionID: TdaSessionID;
 //#UC START# *5549F9E70184_559A3BD901CC_var*
 var
- l_Query: IdaQuery;
+ l_Query: IdaTabledQuery;
  Uniq    : Boolean;
  TmpDate : TStDate;
  l_ResultSet: IdaResultSet;
@@ -153,8 +153,8 @@ begin
   Result:=BlankSession;
   TmpDate:=(CurrentDate - DMYtoStDate(1,1,1998)) mod 24855;
   Result:=TmpDate * 24 * 60 * 60 + CurrentTime;
-  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtJournal)['ID_Session']));
-  l_Query.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtJournal)['ID_Session'], da_copEqual, 'p_SessionID');
+  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtJournal)['session_id']));
+  l_Query.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtJournal)['session_id'], da_copEqual, 'p_SessionID');
   l_Query.Prepare;
   try
    Repeat
@@ -665,15 +665,30 @@ begin
 //#UC END# *554A037B0325_559A3BD901CC_impl*
 end;//TdaJournal.SessionDone
 
-procedure TdaJournal.SetAlienSessionID(aSessionID: TdaSessionID);
+procedure TdaJournal.SetAlienData(anUserID: TdaUserID;
+ aSessionID: TdaSessionID);
 //#UC START# *56E2A25501A6_559A3BD901CC_var*
 //#UC END# *56E2A25501A6_559A3BD901CC_var*
 begin
 //#UC START# *56E2A25501A6_559A3BD901CC_impl*
- f_CurSessionID := aSessionID;
- SessionChanged;
+ if f_CurUser <> anUserID then
+ begin
+  if f_CurSessionID <> BlankSession then
+  begin
+   LogEvent(da_oobSessionEnd, 0, 0, 0);
+   f_CurSessionID := BlankSession
+  end;
+  f_CurUser := anUserID;
+  UserChanged(f_CurUser);
+  if f_CurUser<>0 then
+  begin
+    f_CurSessionID := aSessionID;
+    SessionChanged;
+    LogEvent(da_oobSessionBegin, 0, LongInt(f_CurUser), 0);
+  end;
+ end;
 //#UC END# *56E2A25501A6_559A3BD901CC_impl*
-end;//TdaJournal.SetAlienSessionID
+end;//TdaJournal.SetAlienData
 
 procedure TdaJournal.LogAlienEvent(aOperation: TdaJournalOperation;
  aFamilyID: TdaFamilyID;
@@ -699,6 +714,15 @@ begin
  Result := MakeResultSet(FromDate, ToDate, aDocID, UserOrGroupID, UserGr);
 //#UC END# *56E2B57C01FA_559A3BD901CC_impl*
 end;//TdaJournal.MakeAlienResultSet
+
+function TdaJournal.Get_CurSessionID: TdaSessionID;
+//#UC START# *56EBDD1F0184_559A3BD901CCget_var*
+//#UC END# *56EBDD1F0184_559A3BD901CCget_var*
+begin
+//#UC START# *56EBDD1F0184_559A3BD901CCget_impl*
+ Result := f_CurSessionID;
+//#UC END# *56EBDD1F0184_559A3BD901CCget_impl*
+end;//TdaJournal.Get_CurSessionID
 
 procedure TdaJournal.Cleanup;
  {* Функция очистки полей объекта. }

@@ -2,6 +2,7 @@ unit Pl3MessageIDList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\Pl3MessageIDList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TPl3MessageIDList" MUID: (4F9BCB620208)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

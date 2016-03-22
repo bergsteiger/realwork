@@ -2,6 +2,8 @@ unit AutoExportTaskResult_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\AutoExportTaskResult_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "AutoExportTaskResult" MUID: (540018FF02F8)
+// Имя типа: "AutoExportTaskResultTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

@@ -3,6 +3,7 @@ unit NOT_FINISHED_evdPlainTextWriter;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdPlainTextWriter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdPlainTextWriter" MUID: (4836BF8E0222)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

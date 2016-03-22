@@ -1,79 +1,54 @@
 unit K517772970_TcsUserDefinedExportDefault;
+ {* [RequestLink:517772970] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Low Level Tests"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tests/Tasks/SaveLoadWithDefault/K517772970_TcsUserDefinedExportDefault.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> archi$AutoPipeServer$Garant::Low Level Tests::TasksSaveLoadWithDefault::K517772970_TcsUserDefinedExportDefault
-//
-// {RequestLink:517772970}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TcsUserDefinedExportDefault.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K517772970_TcsUserDefinedExportDefault" MUID: (53B26F0301AE)
+// Имя типа: "TK517772970_TcsUserDefinedExportDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
 uses
-  K517772970_TCheckSaveToStreamDefault
-  {$If not defined(Nemesis)}
-  ,
-  ddServerTask
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest
+ l3IntfUses
+ , K517772970_TCheckSaveToStreamDefault
+ {$If NOT Defined(Nemesis)}
+ , ddServerTask
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
 type
  TK517772970_TcsUserDefinedExportDefault = class(TK517772970_TCheckSaveToStreamDefault)
   {* [RequestLink:517772970] }
- protected
- // realized methods
+  protected
    function GetTaskClass: TddTaskClass; override;
- protected
- // overridden protected methods
-   {$If defined(nsTest)}
+   {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   {$IfEnd} //nsTest
-   {$If defined(nsTest)}
+    {* Папка в которую входит тест }
+   {$IfEnd} // Defined(nsTest)
+   {$If Defined(nsTest)}
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
-   {$IfEnd} //nsTest
+    {* Идентификатор элемента модели, который описывает тест }
+   {$IfEnd} // Defined(nsTest)
  end;//TK517772970_TcsUserDefinedExportDefault
-{$IfEnd} //AppServerSide AND InsiderTest
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  csUserDefinedExport
-  {$IfEnd} //not Nemesis
-  
-  {$If defined(nsTest)}
-  ,
-  TestFrameWork
-  {$IfEnd} //nsTest
-  ,
-  l3Filer,
-  SysUtils
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest
-
-{$If defined(AppServerSide) AND defined(InsiderTest)}
-
-// start class TK517772970_TcsUserDefinedExportDefault
+ l3ImplUses
+ {$If NOT Defined(Nemesis)}
+ , csUserDefinedExport
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(nsTest)}
+ , TestFrameWork
+ {$IfEnd} // Defined(nsTest)
+ , l3Filer
+ , SysUtils
+;
 
 function TK517772970_TcsUserDefinedExportDefault.GetTaskClass: TddTaskClass;
 //#UC START# *53170E4100CF_53B26F0301AE_var*
@@ -84,25 +59,24 @@ begin
 //#UC END# *53170E4100CF_53B26F0301AE_impl*
 end;//TK517772970_TcsUserDefinedExportDefault.GetTaskClass
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 function TK517772970_TcsUserDefinedExportDefault.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'TasksSaveLoadWithDefault';
 end;//TK517772970_TcsUserDefinedExportDefault.GetFolder
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 function TK517772970_TcsUserDefinedExportDefault.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '53B26F0301AE';
 end;//TK517772970_TcsUserDefinedExportDefault.GetModelElementGUID
-{$IfEnd} //nsTest
-
-{$IfEnd} //AppServerSide AND InsiderTest
+{$IfEnd} // Defined(nsTest)
 
 initialization
  TestFramework.RegisterTest(TK517772970_TcsUserDefinedExportDefault.Suite);
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
 end.

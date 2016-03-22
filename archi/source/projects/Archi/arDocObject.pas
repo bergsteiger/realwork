@@ -1,8 +1,11 @@
 unit arDocObject;
 
-{ $Id: arDocObject.pas,v 1.23 2015/04/08 11:20:16 dinishev Exp $ }
+{ $Id: arDocObject.pas,v 1.24 2015/11/25 14:01:28 lukyanets Exp $ }
 
 // $Log: arDocObject.pas,v $
+// Revision 1.24  2015/11/25 14:01:28  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.23  2015/04/08 11:20:16  dinishev
 // Отъехал TK401515832. PDF определялся как JPEG-картинка.
 //
@@ -212,6 +215,8 @@ uses
  m3StorageInterfaces,
 
  evBitmapReader,
+
+ daSchemeConsts,
 
  DT_Const,
  DT_Serv,

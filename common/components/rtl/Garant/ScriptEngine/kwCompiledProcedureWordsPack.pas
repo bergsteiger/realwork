@@ -2,6 +2,7 @@ unit kwCompiledProcedureWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledProcedureWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "kwCompiledProcedureWordsPack" MUID: (5673E7B00334)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -63,11 +64,6 @@ begin
  aCtx.rEngine.PushObj(Create(aCtx));
 end;//TkwCompiledProcedureCreate.DoDoIt
 
-class function TkwCompiledProcedureCreate.GetWordNameForRegister: AnsiString;
-begin
- Result := 'CompiledProcedure:Create';
-end;//TkwCompiledProcedureCreate.GetWordNameForRegister
-
 function TkwCompiledProcedureCreate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TkwCompiledProcedure);
@@ -82,6 +78,11 @@ function TkwCompiledProcedureCreate.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TkwCompiledProcedure)]);
 end;//TkwCompiledProcedureCreate.ParamsTypes
+
+class function TkwCompiledProcedureCreate.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'CompiledProcedure:Create';
+end;//TkwCompiledProcedureCreate.GetWordNameForRegister
 
 initialization
  TkwCompiledProcedureCreate.RegisterInEngine;

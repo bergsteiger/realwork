@@ -2,6 +2,7 @@ unit alcuAnoncedExportPrim;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAnoncedExportPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuAnoncedExportPrim" MUID: (53DB5CFF017D)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

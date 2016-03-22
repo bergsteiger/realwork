@@ -2,6 +2,7 @@ unit atXMLScenarioGenerator;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atXMLScenarioGenerator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatXMLScenarioGenerator" MUID: (483EC52400C9)
 
 interface
 

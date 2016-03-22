@@ -9,7 +9,6 @@ FORWARD ME_5135EFD80062
 FORWARD ME_5135F0090070
 
 : ME_5135F02401D6
- CONST UID '5135F02401D6'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5135EFD80062 // Integration
@@ -20,7 +19,6 @@ FORWARD ME_5135F0090070
 ref; // ME_5135F02401D6 
 
 : ME_DFC02ECFD153
- CONST UID 'DFC02ECFD153'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -55,22 +53,7 @@ ref; // ME_DFC02ECFD153
 
 ref; // ME_5135EFD80062 Integration
 
-: ME_A5C15305E574
- CONST UID 'A5C15305E574'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация integration_OpenLink' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5135F0090070 // integration_OpenLink
- ;
-
-ref; // ME_A5C15305E574 Ini_Reg
-
 : ME_5135F029035E
- CONST UID '5135F029035E'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5135F0090070 // integration_OpenLink
@@ -81,7 +64,6 @@ ref; // ME_A5C15305E574 Ini_Reg
 ref; // ME_5135F029035E 
 
 : ME_51371E4800F0
- CONST UID '51371E4800F0'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5135F0090070 // integration_OpenLink
@@ -92,24 +74,12 @@ ref; // ME_5135F029035E
 ref; // ME_51371E4800F0 
 
 : ME_4DAEEDE10285_ME_5135F0090070
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_5135F0090070 // integration_OpenLink
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_5135F0090070 DoDoIt
-
-: ME_4DB0614603C8_ME_5135F0090070
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_5135F0090070 // integration_OpenLink
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_5135F0090070 GetWordNameForRegister
 
 : ME_5135F0090070
  CONST UID '5135F0090070'
@@ -125,18 +95,10 @@ ref; // ME_4DB0614603C8_ME_5135F0090070 GetWordNameForRegister
    Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A5C15305E574 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_5135F0090070 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_5135F0090070 // GetWordNameForRegister
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_5135F029035E // 
  ME_51371E4800F0 // 

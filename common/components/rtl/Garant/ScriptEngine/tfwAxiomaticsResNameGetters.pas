@@ -2,6 +2,7 @@ unit tfwAxiomaticsResNameGetters;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetters.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwAxiomaticsResNameGetters" MUID: (55B7A39F0035)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

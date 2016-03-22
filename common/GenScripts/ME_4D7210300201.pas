@@ -3,6 +3,7 @@ unit ScrollParamsTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\ScrollParamsTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TScrollParamsTest" MUID: (4D7210300201)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

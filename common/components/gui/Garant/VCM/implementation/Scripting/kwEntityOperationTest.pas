@@ -2,6 +2,7 @@ unit kwEntityOperationTest;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwEntityOperationTest.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwEntityOperationTest" MUID: (5230072D031A)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

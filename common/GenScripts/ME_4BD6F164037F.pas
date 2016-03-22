@@ -3,6 +3,7 @@ unit PrimCommonDiction_utTips_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimCommonDiction_utTips_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utTips" MUID: (4BD6F164037F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utTips = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utTips }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utTips
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utTips.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utTips';
-end;//Tkw_FormUserType_utTips.GetWordNameForRegister
-
 function Tkw_FormUserType_utTips.GetInteger: Integer;
 begin
  Result := utTips;
 end;//Tkw_FormUserType_utTips.GetInteger
+
+class function Tkw_FormUserType_utTips.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utTips';
+end;//Tkw_FormUserType_utTips.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

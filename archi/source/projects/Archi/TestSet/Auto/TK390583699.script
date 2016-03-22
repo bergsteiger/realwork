@@ -9,16 +9,6 @@ PROCEDURE "Создать каталог, если он не существует" STRING IN aNameDir
 
 PROCEDURE "Подготовка к копированию" STRING IN aDestDir
 	"Создать каталог, если он не существует {(aDestDir)}"
-	"Очистить каталог {(aDestDir)}"	
-;
-
-PROCEDURE "Создать временный каталог, если он не существует" STRING IN aArchiTestTmp
-	aArchiTestTmp sysutils:ForceDirectories ASSERT
-;
-
-PROCEDURE "Подготовка к копированию в временный каталог" STRING IN aArchiTestTmp
-	"Создать временный каталог, если он не существует {(aArchiTestTmp)}"
-	"Очистить каталог {(aArchiTestTmp)}"
 ;
 
 PROCEDURE "Копировать в каталог для теста dll" STRING IN aDestDir STRING IN aSourceDir
@@ -27,7 +17,7 @@ PROCEDURE "Копировать в каталог для теста dll" STRING IN aDestDir STRING IN aSou
 
 PROCEDURE "Копировать из каталога в каталог для теста исполняемый файл" STRING IN aSourceDir STRING IN aDestDir STRING IN aFile 
 	STRING VAR l_Archi_Path
-	[ aSourceDir aFile ] strings:Cat >>> l_Archi_Path
+	[ aSourceDir '\' aFile ] strings:Cat >>> l_Archi_Path
 	STRING VAR l_DestDirArchiTest
  	[ aDestDir '\' aFile ] strings:Cat >>> l_DestDirArchiTest
 	"Не создавать копию перезаписываемого файла" l_DestDirArchiTest l_Archi_Path CopyFile
@@ -46,15 +36,27 @@ PROCEDURE "Копировать в каталог для теста файл" STRING IN aDestDir STRING IN aFi
 	"Не создавать копию перезаписываемого файла" l_DestDirArchiTest l_Archi_CVS_Path CopyFile
 ;
 
-PROCEDURE "Копирование библиотек в временный каталог" STRING IN aArchiTestTmp STRING IN aSourceDir
-	 "Все dll" aArchiTestTmp aSourceDir CopyFilesByMask
-;
-
 PROCEDURE "Копирование исполняемых файлов" STRING IN aDestDir STRING IN aSourceDir
+	"Копировать в каталог {(aDestDir)} для теста dll {(aSourceDir)}"
 	"Копировать в каталог {(aDestDir)} для теста файл {('ArchiTest.ini')}"
 	"Копировать в каталог {(aDestDir)} для теста файл {('OneTest.txt')}"
-	"Копировать из каталога {(aSourceDir)} в каталог {(aDestDir)} для теста исполняемый файл {('ArchiTest.exe')}"
 	"Копировать из каталога {(aSourceDir)} в каталог {(aDestDir)} для теста исполняемый файл {('ArchiTest.map')}"
+	"Копировать из каталога {(aSourceDir)} в каталог {(aDestDir)} для теста исполняемый файл {('ArchiTest.exe')}"
+;
+
+PROCEDURE "Запуск второй копии тестового Архивариуса" STRING IN aSourceDir STRING IN aDestDir
+	STRING VAR l_File
+ 	STRING VAR l_TempFile
+ 	STRING VAR l_CMD 
+ 	script:FileName '' sysutils:ChangeFileExt
+ 	sysutils:ExtractFileName >>> l_File
+ 	l_File >>> l_TempFile 
+ 	l_TempFile '_' + >>> l_TempFile
+ 	STRING VAR l_CMDLINE
+ 	[ "Путь к копии Архивариуса {(aSourceDir)}" >>> aDestDir 'ArchiTest.exe TestSet\' '-toK -FakeK -File:OneTest.txt' l_TempFile ' TestSet\' l_File ' -a'] strings:Cat >>> l_CMDLINE	
+	l_CMDLINE WinExec
+ 	5000 SLEEP // Чтобы предыдущаяя программа могла спокойно выполниться !
+ 	[ "Путь к копии Архивариуса {(aSourceDir)}" >>> aDestDir 'TestSet\' l_TempFile ] strings:Cat >>> l_TempFile
 ;
 
 Тест TK390583699
@@ -66,22 +68,18 @@ PROCEDURE "Копирование исполняемых файлов" STRING IN aDestDir STRING IN aSourceD
            	"Путь Архивариуса" >>> l_SourceDir
           	STRING VAR l_DestDir 
            	"Путь к копии Архивариуса {(l_SourceDir)}" >>> l_DestDir
-		STRING VAR l_ArchiTestTmp
- 		[ l_DestDir '\' 'Tmp\' ] strings:Cat >>>  l_ArchiTestTmp
 	TRY 
 		"Подготовка к копированию {(l_DestDir)}"
-		"Копирование исполняемых файлов {(l_DestDir)} {(l_SourceDir)}"
-		"Подготовка к копированию в временный каталог {(l_ArchiTestTmp)}"
-		"Копирование библиотек в временный каталог {(l_ArchiTestTmp)} {(l_SourceDir)}"
-		"Копировать в каталог {(l_DestDir)} для теста dll {(l_ArchiTestTmp)}"
+		"Копирование исполняемых файлов {(l_DestDir)} {(l_SourceDir)}"   		
 		"Распаковка тестовой базы"
-		"Запуск второй копии тестового Архивариуса {(l_DestDir)}"
+		"Запуск второй копии тестового Архивариуса {(l_SourceDir)} {(l_DestDir)}"
 		"Сравнить с эталоном количество открытых окон Арчи"
 	FINALLY
-		"Очистить каталог {(l_DestDir)}"
                 "Очистка после теста"
+		"Очистить каталог {(l_DestDir)}"	
 	END
 	)
 ;
 
 TK390583699
+

@@ -3,6 +3,8 @@ unit PrimPageSetup_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPageSetup_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimPageSetup" MUID: (4AAF8637036A)
+// Имя типа: "TPrimPageSetupForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

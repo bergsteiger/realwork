@@ -3,6 +3,8 @@ unit VCMSandBoxRes;
 
 // Модуль: "w:\common\components\SandBox\VCM\VCMSandBoxRes.pas"
 // Стереотип: "VCMApplication"
+// Элемент модели: "VCMSandBox" MUID: (521649770277)
+// Имя типа: "TVCMSandBoxRes"
 
 {$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 

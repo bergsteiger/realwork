@@ -41,7 +41,7 @@ Filter::Filter (Index* index, const char* key, MergeOp op)
 	, m_data (FiltersFactory::make (index, key, op)) {
 }
 
-Filter::Filter (SearchBase* base, const char* name, const char* key, MergeOp op) 
+Filter::Filter (Base* base, const char* name, const char* key, MergeOp op) 
 	: FilterData ()
 	, m_data (FiltersFactory::make (base, name, key, op)) {
 }

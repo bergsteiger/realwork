@@ -1,52 +1,39 @@
 unit kwDocEditorSetModified;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwDocEditorSetModified.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::Scripting::TkwDocEditorSetModified
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwDocEditorSetModified.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwDocEditorSetModified" MUID: (4E01E88B029B)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  arEditorControl,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , arEditorControl
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwDocEditorSetModified = {scriptword} class(TarEditorControl)
- protected
- // realized methods
+ TkwDocEditorSetModified = class(TarEditorControl)
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
     const anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwDocEditorSetModified
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwDocEditorSetModified
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwDocEditorSetModified.DoWithEditor(const aCtx: TtfwContext;
-  const anEditor: TevCustomEditorWindow);
+ const anEditor: TevCustomEditorWindow);
 //#UC START# *4DE7421F03DF_4E01E88B029B_var*
 //#UC END# *4DE7421F03DF_4E01E88B029B_var*
 begin
@@ -59,17 +46,13 @@ begin
 end;//TkwDocEditorSetModified.DoWithEditor
 
 class function TkwDocEditorSetModified.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'окно_редактора:редактор:SetModified';
 end;//TkwDocEditorSetModified.GetWordNameForRegister
 
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация TkwDocEditorSetModified
  TkwDocEditorSetModified.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация TkwDocEditorSetModified }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

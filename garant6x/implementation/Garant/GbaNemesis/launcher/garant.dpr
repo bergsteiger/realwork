@@ -2078,7 +2078,7 @@ begin
  l_IniFileName := ReplaceAliases('$(ThisIniFileName)');
  //
  case StrToIntDef(GetStringFromIniFile(l_IniFileName, c_IniFileVersionSectionName, '-IniFile'), -1) of
-  0..19: // [Version]\-IniFile
+  0..20: // [Version]\-IniFile
   begin
    l_ProductValue := GetStringFromIniFile(l_IniFileName, c_IniFileVersionSectionName, '-Product');
    //
@@ -3705,7 +3705,6 @@ begin
     end
    else
     Win32Check(False);
-   //
    RunProcess(Application, ReplaceAliases('$(LocaleProductName)'));
   finally
    CoUninitialize;

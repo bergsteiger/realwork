@@ -2,6 +2,7 @@ unit TextLoad;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\TextLoad.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTextLoad" MUID: (4B30C90601EB)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

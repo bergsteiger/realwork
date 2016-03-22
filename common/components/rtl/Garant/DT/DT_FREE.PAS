@@ -1,7 +1,19 @@
 Unit Dt_Free;
 
-{ $Id: DT_FREE.PAS,v 1.73 2014/04/17 13:04:31 voba Exp $ }
+{ $Id: DT_FREE.PAS,v 1.78 2015/11/30 11:31:05 lukyanets Exp $ }
 // $Log: DT_FREE.PAS,v $
+// Revision 1.78  2015/11/30 11:31:05  lukyanets
+// Реанимируем починку интервалов
+//
+// Revision 1.77  2015/11/30 08:51:50  lukyanets
+// Реанимируем починку интервалов
+//
+// Revision 1.75  2015/11/27 12:38:24  lukyanets
+// Cleanup
+//
+// Revision 1.74  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.73  2014/04/17 13:04:31  voba
 // - перенес ISab из DT_Sab в dtIntf
 //
@@ -449,6 +461,8 @@ Type
 implementation
 
 uses
+  daSchemeConsts,
+  
   HT_Dll,
 
   SysUtils,
@@ -460,7 +474,8 @@ uses
 
   Dt_Err,
   Dt_Serv,
-  DT_Misc
+  DT_Misc,
+  dt_AttrSchema
   ;
 
 const
@@ -486,16 +501,10 @@ Begin
 end;
 
 Function TFreeTbl.NameForSearch(const aTableName: TTblNameStr): TNameArr;
-const
- c_BadFamily = -1;
 Var
  TmpStr : ShortString;
 Begin
- TmpStr:=UpperCase(aTableName);
- If (TblFamily <> MainTblsFamily)
-  and (TblFamily = StrToIntDef(Copy(aTableName, Length(aTableName) - 2, 3), c_BadFamily)) // последние 3 символа являются номером семейства
- then
-   SetLength(TmpStr,Length(TmpStr)-3);
+ TmpStr:=PrefName(aTableName);
  l3StringToArray(Result,SizeOf(Result),TmpStr);
 end;
 
@@ -744,8 +753,7 @@ begin
  l_Nums := TList.Create;
  try
   // получение данных из таблицы
-  RefreshSrchList;
-  htSearch(@fSrchList,
+  htSearch(nil,
            l_AllRecs,
            Handle,
            ftTblName,
@@ -1872,18 +1880,21 @@ var
  l_FoundByLimit: Sab;
  l_MaxUsedId: Integer;
  l_Table: TAbsHtTbl;
+ l_TableIndex: Integer;
 begin
  Result := False;
- { TODO -oАнтон Жучков -cRefactoring : Жертва рефакторинга. Надо восстановить функционал. }
- (*
+ l_TableIndex := CalcTableIndex(TblFamily, PrefName(aName));
+ if l_TableIndex < 0 then
+  Exit;
+ if (TblFamily <> CurrentFamily) or not IsTableHasPassport(TFamTbls(l_TableIndex)) then
+  Exit;
  if StartTA(MaxFreeOpTime) then
  try
-  RefreshSrchList;
   // фильтрация по TblName с меткой
   l_MarkedTblName := NameForSearch(aName);
   AddMark(l_MarkedTblName);
 
-  htSearch(@fSrchList,
+  htSearch(nil,
            l_FoundByMarkedName,
            Handle,
            ftTblName,
@@ -1893,7 +1904,7 @@ begin
   try
    if (l_FoundByMarkedName.gFoundCnt > 0) then
    begin
-    l_Table := GlobalHtServer.GetTblObjectEx(TblFamily, PrefName(aName));
+    l_Table := GlobalHtServer.GetTblObjectEx(TblFamily, l_TableIndex);
 
     Ht(htOpenResults(l_FoundByMarkedName, ROPEN_READ, nil, 0));
     try
@@ -1942,7 +1953,6 @@ begin
   RollBackTA;
   raise;
  end;
- *)
 end;
 
 procedure TFreeTbl.AddMark(var aNameArr: TNameArr);

@@ -3,6 +3,8 @@ unit K517772970_TddRunCommandTask;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddRunCommandTask.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TddRunCommandTask" MUID: (53214E4C0344)
+// Имя типа: "TK517772970_TddRunCommandTask"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

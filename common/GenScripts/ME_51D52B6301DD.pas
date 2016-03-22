@@ -3,6 +3,7 @@ unit AppConfigBaseTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\AppConfigBaseTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TAppConfigBaseTest" MUID: (51D52B6301DD)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

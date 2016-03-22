@@ -1,86 +1,68 @@
 unit PrimSaveLoadUserTypes_slqtOldKW_UserType;
+ {* Поиск: По ситуации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimSaveLoadUserTypes_slqtOldKW_UserType.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::PrimSaveLoadUserTypes::slqtOldKW
-//
-// Поиск: По ситуации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtOldKW_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "slqtOldKW" MUID: (4BD5BB9E0201)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimSaveLoadUserTypes_slqtKW_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ , PrimSaveLoadUserTypes_slqtKW_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы slqtOldKW }
-  slqtOldKWName = 'slqtOldKW';
-   { Строковый идентификатор пользовательского типа "Поиск: По ситуации" }
-  slqtOldKW = TvcmUserType(slqtKW + 1);
-   { Поиск: По ситуации }
-{$IfEnd} //not Admin
+ {* Константы для типа формы slqtOldKW }
+ slqtOldKWName = 'slqtOldKW';
+  {* Строковый идентификатор пользовательского типа "Поиск: По ситуации" }
+ slqtOldKW = TvcmUserType(slqtKW + 1);
+  {* Поиск: По ситуации }
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
-{$If not defined(Admin) AND not defined(NoScripts)}
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_slqtOldKW = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы slqtOldKW }
+ Tkw_FormUserType_slqtOldKW = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы slqtOldKW }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_slqtOldKW
-{$IfEnd} //not Admin AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_slqtOldKW
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_slqtOldKW
-
-class function Tkw_FormUserType_slqtOldKW.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::slqtOldKW';
-end;//Tkw_FormUserType_slqtOldKW.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_slqtOldKW.GetInteger: Integer;
- {-}
 begin
  Result := slqtOldKW;
 end;//Tkw_FormUserType_slqtOldKW.GetInteger
 
-{$IfEnd} //not Admin AND not NoScripts
-{$IfEnd} //not Admin
+class function Tkw_FormUserType_slqtOldKW.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::slqtOldKW';
+end;//Tkw_FormUserType_slqtOldKW.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_slqtOldKW
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtOldKW.RegisterInEngine;
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация Tkw_FormUserType_slqtOldKW }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

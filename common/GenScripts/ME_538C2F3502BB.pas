@@ -2,6 +2,8 @@ unit RTFtoEVDWithiddenTextExtractor;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\RTFtoEVDWithiddenTextExtractor.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "RTFtoEVDWithiddenTextExtractor" MUID: (538C2F3502BB)
+// Имя типа: "TRTFtoEVDWithiddenTextExtractor"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

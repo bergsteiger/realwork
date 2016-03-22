@@ -17,6 +17,7 @@
 #include "shared/ContextSearch/Search/Search.h"
 #include "shared/ContextSearch/Relevancy/Relevancy.h"
 #include "shared/ContextSearch/MorphoBase/Searcher.h"
+#include "shared/ContextSearch/MorphoBase/InvbSearcher.h"
 
 namespace ContextSearch {
 namespace Search_i {
@@ -35,6 +36,12 @@ public:
 	// algorithm
 	Relevancy::IAlgorithm* get_algorithm ();
 
+	// algorithm
+	Relevancy::IBlocksAlgorithm* get_invb_algorithm ();
+
+	// searcher
+	InvbSearcher* get_invb_searcher ();
+
 	// searcher
 	Searcher* get_searcher ();
 
@@ -46,6 +53,10 @@ private:
 // self data
 private:
 	Relevancy::IAlgorithm_var m_algorithm;
+
+	Relevancy::IBlocksAlgorithm_var m_invb_algorithm;
+
+	Core::Box<InvbSearcher> m_invb_searcher;
 
 	Core::Box<Searcher> m_searcher;
 }; // class RequestAnalyzer

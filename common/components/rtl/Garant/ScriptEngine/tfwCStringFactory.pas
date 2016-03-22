@@ -2,6 +2,7 @@ unit tfwCStringFactory;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCStringFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwCStringFactory" MUID: (4F473F9402D8)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

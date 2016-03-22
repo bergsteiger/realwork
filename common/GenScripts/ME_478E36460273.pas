@@ -3,6 +3,7 @@ unit afwValueMaps;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwValueMaps.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "afwValueMaps" MUID: (478E36460273)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Presentation\ucpHAFMacroReplacerFactory.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "ucpHAFMacroReplacerFactory" MUID: (4F546FD3028F)
+// Имя типа: "_ucpHAFMacroReplacerFactory_"
 
 {$Define ucpHAFMacroReplacerFactory_imp}
 

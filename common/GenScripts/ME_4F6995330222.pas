@@ -2,6 +2,7 @@ unit QueryCardProcessingPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\QueryCardProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "QueryCardProcessingPack" MUID: (4F6995330222)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

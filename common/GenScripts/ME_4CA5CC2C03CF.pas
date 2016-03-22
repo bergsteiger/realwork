@@ -3,6 +3,7 @@ unit nevShapesPaintedSpy;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevShapesPaintedSpy.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevShapesPaintedSpy" MUID: (4CA5CC2C03CF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

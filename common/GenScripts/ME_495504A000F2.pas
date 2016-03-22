@@ -2,6 +2,7 @@ unit dsBasesAccess;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsBasesAccess.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsBasesAccess" MUID: (495504A000F2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

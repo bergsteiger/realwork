@@ -3,6 +3,7 @@ unit evdHeaderHyperlinkAdder;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evdHeaderHyperlinkAdder.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdHeaderHyperlinkAdder" MUID: (4CF50F7D0203)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

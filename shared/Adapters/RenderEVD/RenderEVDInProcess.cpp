@@ -110,7 +110,7 @@ bool RenderEVDInProcess::get_rtf_by_evd (
 		GUARD (m_lib_guard);
 		return ignored_styles.empty () ?
 			function_ptr (evd_stream_tie.ptr (), rtf_stream_tie.ptr (), 0, 0, link_host)
-			: function_ptr (evd_stream_tie.ptr (), rtf_stream_tie.ptr (), &ignored_styles[0], ignored_styles.size (), link_host);
+			: function_ptr (evd_stream_tie.ptr (), rtf_stream_tie.ptr (), &ignored_styles[0], static_cast<ACE_INT32> (ignored_styles.size ()), link_host);
 }
 
 bool RenderEVDInProcess::set_style_table (const std::string& style_table) {

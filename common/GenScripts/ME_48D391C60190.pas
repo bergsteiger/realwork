@@ -2,6 +2,7 @@ unit DateUtils;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\DateUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DateUtils" MUID: (48D391C60190)
 
 interface
 

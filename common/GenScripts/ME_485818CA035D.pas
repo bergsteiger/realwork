@@ -3,6 +3,8 @@ unit ExtDataPara_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\ExtDataPara_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "ExtDataPara" MUID: (485818CA035D)
+// Имя типа: "ExtDataParaTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,7 @@ unit ListUserTypes_lftSynchroView_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftSynchroView_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "lftSynchroView" MUID: (4BD5888802BA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftSynchroView = {final} class(TtfwInteger)
   {* Слово словаря для типа формы lftSynchroView }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_lftSynchroView
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_lftSynchroView.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::lftSynchroView';
-end;//Tkw_FormUserType_lftSynchroView.GetWordNameForRegister
-
 function Tkw_FormUserType_lftSynchroView.GetInteger: Integer;
 begin
  Result := lftSynchroView;
 end;//Tkw_FormUserType_lftSynchroView.GetInteger
+
+class function Tkw_FormUserType_lftSynchroView.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::lftSynchroView';
+end;//Tkw_FormUserType_lftSynchroView.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

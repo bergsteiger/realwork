@@ -578,7 +578,7 @@
 		(object Attribute
 		    tool       	"MDA Generator User Properties"
 		    name       	"need UC"
-		    value      	"false")
+		    value      	"true")
 		(object Attribute
 		    tool       	"MDA Generator User Properties"
 		    name       	"non virtual base"
@@ -586,11 +586,15 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"cpp:*5103B47A00C4_CUSTOM_INCLUDES*"
-		    value      	(value Text "//#UC START# *5103B47A00C4_CUSTOM_INCLUDES*¤//#UC END# *5103B47A00C4_CUSTOM_INCLUDES*"))
+		    value      	(value Text 
+|//#UC START# *5103B47A00C4_CUSTOM_INCLUDES*¤#include <boost/scoped_ptr.hpp>¤#include "garantPIL/implementation/component/cpp/libs/gkdb/src/ContextPartsHelper.h"¤//#UC END# *5103B47A00C4_CUSTOM_INCLUDES*
+		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"cpp:*5103B47A00C4*"
-		    value      	(value Text "//#UC START# *5103B47A00C4*¤//#UC END# *5103B47A00C4*"))
+		    value      	(value Text 
+|//#UC START# *5103B47A00C4*¤SearchAdapterLib::Adapter::ISearcher* get_searcher (Base* base, long id) {¤	DBCore::IBase_var _base = DBCore::DBFactory::make (base);¤	return SearchAdapter::instance ()->get (_base.in (), ContextPartsHelper::get_context_index_name (id));¤}¤¤static ContextSearch::Defs::PosPair* get_pos_pair (Base* base, long id, long para) {¤	GDS_ASSERT (para >= 0);¤¤	Core::Aptr <ContextSearch::Defs::PosPair> ret = new ContextSearch::Defs::PosPair ();¤¤	long ids_size = 0, size = 0;¤¤	Core::Aptr <long, DataDestructor> para_ids;¤	para_ids = reinterpret_cast <long*> (base->LoadAttrEx (id, IDD2_PARAIDS, ids_size));¤¤	if (para_ids.is_nil () == false) {¤		std::string src = ContextPartsHelper::get_swords_index_name (id);¤		Core::Aptr <char, Core::ArrayDeleteDestructor <char> > buffer = base->get_swords_data (src, id, size);¤¤		if (size) {¤			const char* buf = buffer.in ();¤			::memcpy (&(ret->first), buf, 3);¤¤			const long* beg = para_ids.in ();¤			const long* end = beg + (ids_size / sizeof (long));¤			const long* loc = std::find (beg, end, para);¤¤			if (loc != end) {¤				::memcpy (&(ret->second), buf + 3 * std::min <size_t> (std::distance (beg, loc), size / 3), 3);¤			}¤		}¤	}¤¤	return ret._retn ();¤}¤//#UC END# *5103B47A00C4*
+		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"h:*5103B47A00C4_CUSTOM_INCLUDES*"
@@ -613,24 +617,6 @@
 	    documentation 	"Ïîìîùíèê"
 	    stereotype 	"UtilityClass"
 	    used_nodes 	(list uses_relationship_list
-		(object Uses_Relationship
-		    attributes 	(list Attribute_Set
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"ElementCreationOrder"
-			    value      	"1359200166235066")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"AbstarctOperation"
-			    value      	"regular")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"IsNative"
-			    value      	"false"))
-		    quid       	"5103BFA600EA"
-		    stereotype 	"uses"
-		    supplier   	"Logical View::garantCore::Search::External_::BaseCache"
-		    quidu      	"50DB1CA901CD")
 		(object Uses_Relationship
 		    attributes 	(list Attribute_Set
 			(object Attribute
@@ -684,7 +670,25 @@
 		    quid       	"55B6082002ED"
 		    stereotype 	"uses"
 		    supplier   	"Logical View::garantCore::Search::ContextSearch::RequestSplit"
-		    quidu      	"55B5E8A90038"))
+		    quidu      	"55B5E8A90038")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1447164159658162")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"5641F8FF0290"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::garantCore::Search::External_::DBFactory"
+		    quidu      	"5640B85F0366"))
 	    operations 	(list Operations
 		(object Operation "get_positions"
 		    attributes 	(list Attribute_Set
@@ -722,10 +726,10 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"ResolvedTypeGuid"
-				    value      	"50A266140247"))
+				    value      	"5640C0F900D6"))
 			    quid       	"5103B67600EA"
-			    type       	"SearchBase"
-			    quidu      	"50A266140247")
+			    type       	"Base"
+			    quidu      	"5640C0F900D6")
 			(object Parameter "reqs"
 			    attributes 	(list Attribute_Set
 				(object Attribute
@@ -779,7 +783,7 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*5103B6ED0254*"
 			    value      	(value Text 
-|//#UC START# *5103B6ED0254*¤	GDS_ASSERT (para >= 0);¤¤	unsigned long word = 0, first_word = 0;¤	base->get_words (para, doc_id, word, first_word);¤¤	SearchAdapterLib::Adapter::ISearcher_var searcher = get_searcher (base, doc_id);¤	GDS_ASSERT (searcher.is_nil () == false);¤¤	return (searcher.is_nil ())? 0 : searcher->get_fragments (in, doc_id, word, first_word);¤	//#UC END# *5103B6ED0254*
+|//#UC START# *5103B6ED0254*¤	SearchAdapterLib::Adapter::ISearcher_var searcher = get_searcher (base, doc_id);¤	GDS_ASSERT (searcher.is_nil () == false);¤¤	boost::scoped_ptr <ContextSearch::Defs::PosPair> pair (get_pos_pair (base, doc_id, para));¤	return (searcher.is_nil ())? 0 : searcher->get_fragments (in, doc_id, *pair);¤	//#UC END# *5103B6ED0254*
 			    )))
 		    quid       	"5103B6ED0254"
 		    documentation 	"ðåëåâàíòíûå ôðàãìåíòû"
@@ -793,10 +797,10 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"ResolvedTypeGuid"
-				    value      	"50A266140247"))
+				    value      	"5640C0F900D6"))
 			    quid       	"5103BF13001C"
-			    type       	"SearchBase"
-			    quidu      	"50A266140247")
+			    type       	"Base"
+			    quidu      	"5640C0F900D6")
 			(object Parameter "in"
 			    attributes 	(list Attribute_Set
 				(object Attribute
@@ -859,69 +863,12 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*5103C15E00CC*"
 			    value      	(value Text 
-|//#UC START# *5103C15E00CC*¤	SearchAdapter::instance ()->reset ();¤	Cache::instance ()->reset ();¤	//#UC END# *5103C15E00CC*
+|//#UC START# *5103C15E00CC*¤	SearchAdapter::instance ()->reset ();¤	Cache::instance ()->reset ();¤	Morpho::release_cache ();¤	ContextPartsHelper::fini ();¤	//#UC END# *5103C15E00CC*
 			    )))
 		    quid       	"5103C15E00CC"
 		    documentation 	"î÷èñòêà êýøåé"
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
-		    uid        	0)
-		(object Operation "get_searcher"
-		    attributes 	(list Attribute_Set
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"ElementCreationOrder"
-			    value      	"1365088918933881")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"AbstarctOperation"
-			    value      	"final")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"IsNative"
-			    value      	"false")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"ResolvedTypeGuid"
-			    value      	"4ECE64720232")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"cpp:*515D9A96038F*"
-			    value      	(value Text 
-|//#UC START# *515D9A96038F*¤	GDS_ASSERT (base);¤¤	Morpho::Def::ICache* cache = BaseCache::instance ()->get_morpho_cache_ptr ();¤	cache->load (base->abstract_base (), true);¤¤	std::string src = ContextPartsHelper::get_context_index_name (id);¤	return SearchAdapter::instance ()->get (base->abstract_base (), cache, src);¤	//#UC END# *515D9A96038F*
-			    )))
-		    quid       	"515D9A96038F"
-		    documentation 	"searcher"
-		    parameters 	(list Parameters
-			(object Parameter "inout base"
-			    attributes 	(list Attribute_Set
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ElementCreationOrder"
-				    value      	"1365088983140554")
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ResolvedTypeGuid"
-				    value      	"50A266140247"))
-			    quid       	"515D9AD7008B"
-			    type       	"SearchBase"
-			    quidu      	"50A266140247")
-			(object Parameter "id"
-			    attributes 	(list Attribute_Set
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ElementCreationOrder"
-				    value      	"1438945680529730")
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ResolvedTypeGuid"
-				    value      	"3DBFFD7002C2"))
-			    quid       	"55C491900205"
-			    type       	"long"
-			    quidu      	"3DBFFD7002C2"))
-		    result     	"Adapter::ISearcher"
-		    concurrency 	"Sequential"
-		    opExportControl 	"Private"
 		    uid        	0)
 		(object Operation "load_memcache"
 		    attributes 	(list Attribute_Set
@@ -944,7 +891,7 @@
 |//#UC START# *52BAF12602BA*¤	SearchAdapter::instance ()->load_memcache (settings);¤	//#UC END# *52BAF12602BA*
 			    )))
 		    quid       	"52BAF12602BA"
-		    documentation 	"çàãðóçêà memcache"
+		    documentation 	"memcache"
 		    parameters 	(list Parameters
 			(object Parameter "settings"
 			    attributes 	(list Attribute_Set
@@ -975,7 +922,7 @@
 	    zoom       	95
 	    max_height 	28350
 	    max_width  	21600
-	    origin_x   	0
+	    origin_x   	873
 	    origin_y   	0
 	    items      	(list diagram_item_list
 		(object ClassView "Class" "Logical View::garantCore::Search::Facade::Factory" @1
@@ -1253,7 +1200,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(2340, 1593)
+		    location   	(2247, 1602)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1266,14 +1213,14 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@9
-			location   	(2174, 1566)
+			location   	(2081, 1575)
 			nlines     	1
 			max_width  	332
 			justify    	0
 			label      	"• Cache")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@9
-			location   	(2174, 1516)
+			location   	(2081, 1525)
 			anchor     	10
 			nlines     	1
 			max_width  	329
@@ -1293,7 +1240,7 @@
 		    SuppressOperation 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
-		    location   	(1008, 2274)
+		    location   	(948, 2274)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1306,7 +1253,7 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@10
-			location   	(787, 2247)
+			location   	(727, 2247)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	442
@@ -1314,7 +1261,7 @@
 			label      	"• CSAdapterLoad")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@10
-			location   	(787, 2197)
+			location   	(727, 2197)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -1359,7 +1306,7 @@
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	277
+			max_width  	280
 			justify    	0
 			label      	"<<UtilityPack>>")
 		    icon_style 	"Label"
@@ -1395,7 +1342,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1008, 1743)
+		    location   	(948, 1743)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1408,19 +1355,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@13
-			location   	(172, 1588)
+			location   	(176, 1613)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1672
+			max_width  	1544
 			justify    	0
 			label      	"• Helper")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@13
-			location   	(172, 1538)
+			location   	(176, 1563)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1672
+			max_width  	1544
 			justify    	0
 			label      	"<<UtilityClass>>")
 		    icon_style 	"Label"
@@ -1429,7 +1376,7 @@
 		    quidu      	"5103B47A00C4"
 		    compartment 	(object Compartment
 			Parent_View 	@13
-			location   	(172, 1648)
+			location   	(176, 1673)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -1443,55 +1390,14 @@
 			icon_style 	"Icon"
 			fill_color 	16777215
 			anchor     	2
-			nlines     	6
-			max_width  	1693
+			nlines     	5
+			max_width  	1565
 			justify    	1)
-		    width      	1690
-		    height     	434
+		    width      	1562
+		    height     	384
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "• SearchCache" @14
-		    ShowCompartmentStereotypes 	TRUE
-		    SuppressAttribute 	TRUE
-		    SuppressOperation 	TRUE
-		    IncludeAttribute 	TRUE
-		    IncludeOperation 	TRUE
-		    location   	(513, 2274)
-		    font       	(object Font
-			size       	10
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	FALSE
-			underline  	FALSE
-			strike     	FALSE
-			color      	658120
-			default_color 	FALSE)
-		    label      	(object ItemLabel
-			Parent_View 	@14
-			location   	(361, 2247)
-			fill_color 	13434879
-			nlines     	1
-			max_width  	304
-			justify    	0
-			label      	"• SearchCache")
-		    stereotype 	(object ItemLabel
-			Parent_View 	@14
-			location   	(361, 2197)
-			fill_color 	13434879
-			anchor     	10
-			nlines     	1
-			max_width  	304
-			justify    	0
-			label      	"<<UtilityPack>>")
-		    icon_style 	"Label"
-		    line_color 	14803425
-		    fill_color 	14803425
-		    width      	322
-		    height     	178
-		    annotation 	8
-		    autoResize 	TRUE)
-		(object UsesView "" @15
+		(object UsesView "" @14
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1502,9 +1408,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @16
-			Parent_View 	@15
-			location   	(633, 2073)
+		    stereotype 	(object SegLabel @15
+			Parent_View 	@14
+			location   	(1054, 2062)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -1521,61 +1427,18 @@
 			max_width  	450
 			justify    	0
 			label      	"<<uses>>"
-			pctDist    	0.500000
-			height     	120
-			orientation 	0)
-		    line_color 	3947680
-		    quidu      	"5103BFA600EA"
-		    client     	@13
-		    supplier   	@14
-		    vertices   	(list Points
-			(513, 1960)
-			(513, 2185))
-		    line_style 	3
-		    origin_attachment 	(513, 1960)
-		    terminal_attachment 	(513, 2185))
-		(object UsesView "" @17
-		    font       	(object Font
-			size       	10
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	FALSE
-			underline  	FALSE
-			strike     	FALSE
-			color      	0
-			default_color 	TRUE)
-		    stereotype 	(object SegLabel @18
-			Parent_View 	@17
-			location   	(1128, 2079)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			anchor     	10
-			anchor_loc 	1
-			nlines     	1
-			max_width  	450
-			justify    	0
-			label      	"<<uses>>"
-			pctDist    	0.537383
-			height     	120
+			pctDist    	0.508929
+			height     	106
 			orientation 	0)
 		    line_color 	3947680
 		    quidu      	"5103BFD50359"
 		    client     	@13
 		    supplier   	@10
 		    vertices   	(list Points
-			(1008, 1960)
-			(1008, 2184))
+			(948, 1935)
+			(948, 2184))
 		    line_style 	0)
-		(object UsesView "" @19
+		(object UsesView "" @16
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1586,9 +1449,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @20
-			Parent_View 	@19
-			location   	(1997, 1559)
+		    stereotype 	(object SegLabel @17
+			Parent_View 	@16
+			location   	(1887, 1587)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -1613,12 +1476,12 @@
 		    client     	@13
 		    supplier   	@9
 		    vertices   	(list Points
-			(1853, 1593)
-			(2165, 1593))
+			(1729, 1621)
+			(2072, 1621))
 		    line_style 	3
-		    origin_attachment 	(1853, 1593)
-		    terminal_attachment 	(2165, 1593))
-		(object UsesView "" @21
+		    origin_attachment 	(1729, 1621)
+		    terminal_attachment 	(2072, 1621))
+		(object UsesView "" @18
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1629,8 +1492,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @22
-			Parent_View 	@21
+		    stereotype 	(object SegLabel @19
+			Parent_View 	@18
 			location   	(562, 417)
 			font       	(object Font
 			    size       	10
@@ -1659,14 +1522,14 @@
 			(669, 527)
 			(669, 305))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::garantCore::Search::ContextSearch::RequestSplit" @23
+		(object ClassView "Class" "Logical View::garantCore::Search::ContextSearch::RequestSplit" @20
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(2340, 1890)
+		    location   	(2247, 1875)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1678,15 +1541,15 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@23
-			location   	(2174, 1863)
+			Parent_View 	@20
+			location   	(2081, 1848)
 			nlines     	1
 			max_width  	332
 			justify    	0
 			label      	"• RequestSplit")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@23
-			location   	(2174, 1813)
+			Parent_View 	@20
+			location   	(2081, 1798)
 			anchor     	10
 			nlines     	1
 			max_width  	329
@@ -1700,7 +1563,7 @@
 		    height     	178
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object UsesView "" @24
+		(object UsesView "" @21
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1711,9 +1574,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @25
-			Parent_View 	@24
-			location   	(2001, 1840)
+		    stereotype 	(object SegLabel @22
+			Parent_View 	@21
+			location   	(1891, 1828)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -1736,13 +1599,99 @@
 		    line_color 	3947680
 		    quidu      	"55B6082002ED"
 		    client     	@13
+		    supplier   	@20
+		    vertices   	(list Points
+			(1729, 1860)
+			(2072, 1860))
+		    line_style 	3
+		    origin_attachment 	(1729, 1860)
+		    terminal_attachment 	(2072, 1860))
+		(object ClassView "Class" "Logical View::garantCore::Search::External_::DBFactory" @23
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1452, 2274)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@23
+			location   	(1312, 2247)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	280
+			justify    	0
+			label      	"• DBFactory")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@23
+			location   	(1312, 2197)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	280
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"5640B85F0366"
+		    width      	298
+		    height     	178
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @24
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @25
+			Parent_View 	@24
+			location   	(1572, 2060)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"5641F8FF0290"
+		    client     	@13
 		    supplier   	@23
 		    vertices   	(list Points
-			(1853, 1872)
-			(2165, 1872))
+			(1452, 1934)
+			(1452, 2185))
 		    line_style 	3
-		    origin_attachment 	(1853, 1872)
-		    terminal_attachment 	(2165, 1872))))
+		    origin_attachment 	(1452, 1934)
+		    terminal_attachment 	(1452, 2185))))
 	(object ClassDiagram "Main"
 	    attributes 	(list Attribute_Set
 		(object Attribute

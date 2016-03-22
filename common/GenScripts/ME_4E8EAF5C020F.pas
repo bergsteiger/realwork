@@ -3,6 +3,7 @@ unit ddAutolinkInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAutolinkInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "ddAutolinkInterfaces" MUID: (4E8EAF5C020F)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -1,48 +1,40 @@
 unit Int64ListTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "Int64ListTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCase::Class Shared Delphi Sand Box::SandBoxTest::FinalContainersTests::Int64ListTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\Int64ListTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "Int64ListTest" MUID: (51DEE8E9025A)
+// Имя типа: "TInt64ListTest"
 
-{$Include ..\SandBox\sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork,
-  Int64List
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , TestFrameWork
+ , Int64List
+;
 
-{$If defined(nsTest)}
 type
  _ListType_ = TInt64List;
- {$Include ..\SandBox\AtomicListTest.imp.pas}
+ {$Include w:\common\components\SandBox\AtomicListTest.imp.pas}
  TInt64ListTest = class(_AtomicListTest_)
  end;//TInt64ListTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //nsTest
+ l3ImplUses
+ , SysUtils
+;
 
-{$If defined(nsTest)}
-
-{$Include ..\SandBox\AtomicListTest.imp.pas}
-
-
-{$IfEnd} //nsTest
+{$Include w:\common\components\SandBox\AtomicListTest.imp.pas}
 
 initialization
  TestFramework.RegisterTest(TInt64ListTest.Suite);
+{$IfEnd} // Defined(nsTest)
+
 end.

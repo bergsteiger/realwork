@@ -2,6 +2,7 @@ unit nscTreeViewWithAdapterDragDrop;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Components\nscTreeViewWithAdapterDragDrop.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscTreeViewWithAdapterDragDrop" MUID: (52DE57DF007B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

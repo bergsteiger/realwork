@@ -2,6 +2,7 @@ unit atStringListWithOwn;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringListWithOwn.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatStringListWithOwn" MUID: (4807752C025A)
 
 interface
 

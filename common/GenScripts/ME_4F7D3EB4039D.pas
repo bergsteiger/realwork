@@ -3,6 +3,7 @@ unit evOutTextParaEliminator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evOutTextParaEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevOutTextParaEliminator" MUID: (4F7D3EB4039D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

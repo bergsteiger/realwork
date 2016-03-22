@@ -2,6 +2,7 @@ unit RefcountedTest;
 
 // Модуль: "w:\common\components\SandBox\RefcountedTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TRefcountedTest" MUID: (5161393802B7)
 
 {$Include w:\common\components\SandBox\sbtDefine.inc}
 

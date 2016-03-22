@@ -2,6 +2,7 @@ unit csCourtDecisionSabCheckerParams;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csCourtDecisionSabCheckerParams.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsCourtDecisionSabCheckerParams" MUID: (53EDB09201BF)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

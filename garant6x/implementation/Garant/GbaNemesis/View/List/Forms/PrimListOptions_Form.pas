@@ -861,7 +861,8 @@ procedure TPrimListOptionsForm.File_Print_Test(const aParams: IvcmTestParamsPrim
 //#UC END# *49521D8E0295_4C46AA3401DBtest_var*
 begin
 //#UC START# *49521D8E0295_4C46AA3401DBtest_impl*
- ListOpsWithTrialModeTest(aParams);
+ //ListOpsWithTrialModeTest(aParams);
+ ListOpsTest(aParams);
 //#UC END# *49521D8E0295_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.File_Print_Test
 {$IfEnd} //not NoVCM
@@ -889,7 +890,8 @@ procedure TPrimListOptionsForm.File_PrintDialog_Test(const aParams: IvcmTestPara
 //#UC END# *495220DE0298_4C46AA3401DBtest_var*
 begin
 //#UC START# *495220DE0298_4C46AA3401DBtest_impl*
- ListOpsWithTrialModeTest(aParams);
+ //ListOpsWithTrialModeTest(aParams);
+ ListOpsTest(aParams);
 //#UC END# *495220DE0298_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.File_PrintDialog_Test
 {$IfEnd} //not NoVCM
@@ -958,7 +960,8 @@ procedure TPrimListOptionsForm.File_Save_Test(const aParams: IvcmTestParamsPrim)
 //#UC END# *495235F401C0_4C46AA3401DBtest_var*
 begin
 //#UC START# *495235F401C0_4C46AA3401DBtest_impl*
- ListOpsWithTrialModeTest(aParams);
+ //ListOpsWithTrialModeTest(aParams);
+ ListOpsTest(aParams);
 //#UC END# *495235F401C0_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.File_Save_Test
 {$IfEnd} //not NoVCM
@@ -979,7 +982,8 @@ procedure TPrimListOptionsForm.File_ToMSWord_Test(const aParams: IvcmTestParamsP
 //#UC END# *495238EB0160_4C46AA3401DBtest_var*
 begin
 //#UC START# *495238EB0160_4C46AA3401DBtest_impl*
- ListOpsWithTrialModeTest(aParams);
+ //ListOpsWithTrialModeTest(aParams);
+ ListOpsTest(aParams);
  TnsToMSWordOp.Test(aParams);
 //#UC END# *495238EB0160_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.File_ToMSWord_Test
@@ -1050,7 +1054,8 @@ procedure TPrimListOptionsForm.File_SendMailAsAttachment_Test(const aParams: Ivc
 //#UC END# *495253870002_4C46AA3401DBtest_var*
 begin
 //#UC START# *495253870002_4C46AA3401DBtest_impl*
- ListOpsWithTrialModeTest(aParams);
+ //ListOpsWithTrialModeTest(aParams);
+ ListOpsTest(aParams);
 //#UC END# *495253870002_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.File_SendMailAsAttachment_Test
 
@@ -1316,12 +1321,15 @@ procedure TPrimListOptionsForm.Tree_ExpandAll_Execute(const aParams: IvcmExecute
 //#UC END# *4BDAF7880236_4C46AA3401DBexec_var*
 begin
 //#UC START# *4BDAF7880236_4C46AA3401DBexec_impl*
- tvList.LockChangeSelected;
- try
-  aParams.CallControl;
- finally
-  tvList.UnLockChangeSelected;
- end;//try..finally
+ with tvList.TreeView.Tree do
+ begin
+  Changing;
+  try
+   aParams.CallControl;
+  finally
+   Changed;
+  end;
+ end;
 //#UC END# *4BDAF7880236_4C46AA3401DBexec_impl*
 end;//TPrimListOptionsForm.Tree_ExpandAll_Execute
 {$IfEnd} //not NoVCM
@@ -1332,12 +1340,15 @@ procedure TPrimListOptionsForm.Tree_CollapseAll_Execute(const aParams: IvcmExecu
 //#UC END# *4BDAF7A2005C_4C46AA3401DBexec_var*
 begin
 //#UC START# *4BDAF7A2005C_4C46AA3401DBexec_impl*
- tvList.LockChangeSelected;
- try
-  aParams.CallControl;
- finally
-  tvList.UnLockChangeSelected;
- end;//try..finally
+ with tvList.TreeView.Tree do
+ begin
+  Changing;
+  try
+   aParams.CallControl;
+  finally
+   Changed;
+  end;
+ end;
 //#UC END# *4BDAF7A2005C_4C46AA3401DBexec_impl*
 end;//TPrimListOptionsForm.Tree_CollapseAll_Execute
 {$IfEnd} //not NoVCM
@@ -1604,7 +1615,8 @@ procedure TPrimListOptionsForm.Document_PrintDialog_Test(const aParams: IvcmTest
 begin
 //#UC START# *4C5285F5004B_4C46AA3401DBtest_impl*
  if not ForbidOpForDocumentSchema(aParams) then
-  DocumentOpsWithTrialModeTest(aParams);
+  //DocumentOpsWithTrialModeTest(aParams);
+  DocumentOpsTest(aParams);
 //#UC END# *4C5285F5004B_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.Document_PrintDialog_Test
 
@@ -1645,7 +1657,8 @@ procedure TPrimListOptionsForm.Document_Save_Test(const aParams: IvcmTestParamsP
 begin
 //#UC START# *4C52861800F7_4C46AA3401DBtest_impl*
  if not ForbidOpForDocumentSchema(aParams) then
-  DocumentOpsWithTrialModeTest(aParams);
+  //DocumentOpsWithTrialModeTest(aParams);
+  DocumentOpsTest(aParams);
 //#UC END# *4C52861800F7_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.Document_Save_Test
 
@@ -1696,7 +1709,8 @@ procedure TPrimListOptionsForm.Document_Print_Test(const aParams: IvcmTestParams
 begin
 //#UC START# *4C52879C00F4_4C46AA3401DBtest_impl*
  if not ForbidOpForDocumentSchema(aParams) then
-  DocumentOpsWithTrialModeTest(aParams);
+  //DocumentOpsWithTrialModeTest(aParams);
+  DocumentOpsTest(aParams);
 //#UC END# *4C52879C00F4_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.Document_Print_Test
 

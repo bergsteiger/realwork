@@ -2,6 +2,7 @@ unit PrimScrollTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\PrimScrollTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TPrimScrollTest" MUID: (4C9899150030)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

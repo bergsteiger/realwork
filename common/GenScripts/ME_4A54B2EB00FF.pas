@@ -3,6 +3,7 @@ unit atNewConsultation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atNewConsultation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatNewConsultation" MUID: (4A54B2EB00FF)
 
 interface
 

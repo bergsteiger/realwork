@@ -3,6 +3,7 @@ unit InpharmMainMenu_ut_mmmMain_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\InpharmMainMenu_ut_mmmMain_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_mmmMain" MUID: (4BD6DC630189)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_mmmMain = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_mmmMain }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_mmmMain
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_mmmMain.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_mmmMain';
-end;//Tkw_FormUserType_ut_mmmMain.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_mmmMain.GetInteger: Integer;
 begin
  Result := ut_mmmMain;
 end;//Tkw_FormUserType_ut_mmmMain.GetInteger
+
+class function Tkw_FormUserType_ut_mmmMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_mmmMain';
+end;//Tkw_FormUserType_ut_mmmMain.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

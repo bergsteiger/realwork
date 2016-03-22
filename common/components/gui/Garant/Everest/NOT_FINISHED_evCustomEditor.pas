@@ -3,6 +3,7 @@ unit NOT_FINISHED_evCustomEditor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomEditor.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TevCustomEditor" MUID: (4829D89703D2)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
@@ -35,10 +36,10 @@ uses
  l3ImplUses
  , evdInterfaces
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , TevCustomEditorWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , TevCustomEditorWordsPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 

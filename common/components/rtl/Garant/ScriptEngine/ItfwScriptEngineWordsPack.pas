@@ -2,6 +2,7 @@ unit ItfwScriptEngineWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ItfwScriptEngineWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ItfwScriptEngineWordsPack" MUID: (559BD7E00278)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -142,11 +143,6 @@ begin
  aCtx.rEngine.PushObj(AsKeywordFinder(aCtx, l_aScriptEngine));
 end;//TkwPopScriptEngineAsKeywordFinder.DoDoIt
 
-class function TkwPopScriptEngineAsKeywordFinder.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ScriptEngine:AsKeywordFinder';
-end;//TkwPopScriptEngineAsKeywordFinder.GetWordNameForRegister
-
 function TkwPopScriptEngineAsKeywordFinder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwKeywordFinder);
@@ -161,6 +157,11 @@ function TkwPopScriptEngineAsKeywordFinder.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwScriptEngine)]);
 end;//TkwPopScriptEngineAsKeywordFinder.ParamsTypes
+
+class function TkwPopScriptEngineAsKeywordFinder.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ScriptEngine:AsKeywordFinder';
+end;//TkwPopScriptEngineAsKeywordFinder.GetWordNameForRegister
 
 procedure TkwPopScriptEngineAddInitialization.AddInitialization(const aCtx: TtfwContext;
  const aScriptEngine: ItfwScriptEngine;
@@ -199,11 +200,6 @@ begin
  AddInitialization(aCtx, l_aScriptEngine, l_aWord);
 end;//TkwPopScriptEngineAddInitialization.DoDoIt
 
-class function TkwPopScriptEngineAddInitialization.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ScriptEngine:AddInitialization';
-end;//TkwPopScriptEngineAddInitialization.GetWordNameForRegister
-
 function TkwPopScriptEngineAddInitialization.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -218,6 +214,11 @@ function TkwPopScriptEngineAddInitialization.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwScriptEngine), TypeInfo(TtfwWord)]);
 end;//TkwPopScriptEngineAddInitialization.ParamsTypes
+
+class function TkwPopScriptEngineAddInitialization.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ScriptEngine:AddInitialization';
+end;//TkwPopScriptEngineAddInitialization.GetWordNameForRegister
 
 function TkwPopScriptEngineCurrentCompilingDictionary.CurrentCompilingDictionary(const aCtx: TtfwContext;
  const aScriptEngine: ItfwScriptEngine): TtfwDictionaryEx;
@@ -245,11 +246,6 @@ begin
  aCtx.rEngine.PushObj(CurrentCompilingDictionary(aCtx, l_aScriptEngine));
 end;//TkwPopScriptEngineCurrentCompilingDictionary.DoDoIt
 
-class function TkwPopScriptEngineCurrentCompilingDictionary.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ScriptEngine:CurrentCompilingDictionary';
-end;//TkwPopScriptEngineCurrentCompilingDictionary.GetWordNameForRegister
-
 function TkwPopScriptEngineCurrentCompilingDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwDictionaryEx);
@@ -264,6 +260,11 @@ function TkwPopScriptEngineCurrentCompilingDictionary.ParamsTypes: PTypeInfoArra
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwScriptEngine)]);
 end;//TkwPopScriptEngineCurrentCompilingDictionary.ParamsTypes
+
+class function TkwPopScriptEngineCurrentCompilingDictionary.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ScriptEngine:CurrentCompilingDictionary';
+end;//TkwPopScriptEngineCurrentCompilingDictionary.GetWordNameForRegister
 
 procedure TkwPopScriptEngineDisableForHelp.DisableForHelp(const aCtx: TtfwContext;
  const aScriptEngine: ItfwScriptEngine;
@@ -302,11 +303,6 @@ begin
  DisableForHelp(aCtx, l_aScriptEngine, l_aWord);
 end;//TkwPopScriptEngineDisableForHelp.DoDoIt
 
-class function TkwPopScriptEngineDisableForHelp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ScriptEngine:DisableForHelp';
-end;//TkwPopScriptEngineDisableForHelp.GetWordNameForRegister
-
 function TkwPopScriptEngineDisableForHelp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -321,6 +317,11 @@ function TkwPopScriptEngineDisableForHelp.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwScriptEngine), TypeInfo(TtfwWord)]);
 end;//TkwPopScriptEngineDisableForHelp.ParamsTypes
+
+class function TkwPopScriptEngineDisableForHelp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ScriptEngine:DisableForHelp';
+end;//TkwPopScriptEngineDisableForHelp.GetWordNameForRegister
 
 initialization
  TkwPopScriptEngineAsKeywordFinder.RegisterInEngine;

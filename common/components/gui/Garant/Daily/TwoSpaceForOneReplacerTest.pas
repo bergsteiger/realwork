@@ -1,71 +1,50 @@
 unit TwoSpaceForOneReplacerTest;
+ {* Тест замены одного пробела на один }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/TwoSpaceForOneReplacerTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TTwoSpaceForOneReplacerTest
-//
-// Тест замены одного пробела на один
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\TwoSpaceForOneReplacerTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TTwoSpaceForOneReplacerTest" MUID: (4C3C4853033E)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  SearchAndReplacePrimTest,
-  nevTools,
-  evTypes
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , SearchAndReplacePrimTest
+ , nevTools
+ , evTypes
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TTwoSpaceForOneReplacerTest = {abstract} class(TSearchAndReplacePrimTest)
   {* Тест замены одного пробела на один }
- protected
- // realized methods
+  protected
    function Searcher: IevSearcher; override;
    function Replacer: IevReplacer; override;
    function Options: TevSearchOptionSet; override;
- protected
- // overridden protected methods
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TTwoSpaceForOneReplacerTest
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  SysUtils,
-  evSearch,
-  TestFrameWork,
-  vcmBase
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TTwoSpaceForOneReplacerTest
+ l3ImplUses
+ , SysUtils
+ , evSearch
+ , TestFrameWork
+ , vcmBase
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 function TTwoSpaceForOneReplacerTest.Searcher: IevSearcher;
 //#UC START# *4C288BAA0058_4C3C4853033E_var*
@@ -105,17 +84,16 @@ begin
 end;//TTwoSpaceForOneReplacerTest.Options
 
 function TTwoSpaceForOneReplacerTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TTwoSpaceForOneReplacerTest.GetFolder
 
 function TTwoSpaceForOneReplacerTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C3C4853033E';
 end;//TTwoSpaceForOneReplacerTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

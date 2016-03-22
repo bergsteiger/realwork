@@ -3,6 +3,8 @@ unit Diction_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Diction_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "Diction" MUID: (4A9CE5F2036F)
+// Имя типа: "TDictionModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

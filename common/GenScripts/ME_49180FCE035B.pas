@@ -3,6 +3,7 @@ unit nevSectionBreakList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevSectionBreakList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevSectionBreakList" MUID: (49180FCE035B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

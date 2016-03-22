@@ -3,6 +3,8 @@ unit evdFrame_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdFrame_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Frame" MUID: (484D2BAB02BB)
+// Имя типа: "FrameTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

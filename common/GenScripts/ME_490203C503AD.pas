@@ -3,6 +3,7 @@ unit nsAttributeTreeFilters;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeTreeFilters.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsAttributeTreeFilters" MUID: (490203C503AD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

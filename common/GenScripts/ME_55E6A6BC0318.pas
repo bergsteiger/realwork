@@ -2,6 +2,7 @@ unit vcmFormSetRefList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormSetRefList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormSetRefList" MUID: (55E6A6BC0318)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_ChromeLikeFormFramePainter;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\NOT_FINISHED_ChromeLikeFormFramePainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TChromeLikeFormFramePainter" MUID: (54211E9E038E)
 
 interface
 

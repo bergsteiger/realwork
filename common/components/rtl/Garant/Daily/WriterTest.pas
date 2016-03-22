@@ -1,85 +1,65 @@
 unit WriterTest;
+ {* Базовый тест записи }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/WriterTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::Write::WriterTest
-//
-// Базовый тест записи
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\WriterTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "WriterTest" MUID: (4BACDDB500CE)
+// Имя типа: "TWriterTest"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  l3Filer,
-  k2CustomFileReader,
-  evdNativeWriter
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  ,
-  l3Variant
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ , l3Variant
+ , k2CustomFileReader
+ , l3Filer
+ , evdNativeWriter
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TWriterTest = {abstract} class(TBaseTest)
   {* Базовый тест записи }
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    procedure DoWrite(aReader: Tk2CustomFileReader;
-     const anExt: AnsiString;
-     aHeaderBegin: AnsiChar = #0);
+    const anExt: AnsiString;
+    aHeaderBegin: AnsiChar = #0);
    function CreateEVDWriter: TevdNativeWriter;
    procedure SomeFormatToEVD(aReader: Tk2CustomFileReader);
    function AcceptBadPictureFormat: Boolean; virtual;
    function TreatExceptionAsSuccess: Boolean; virtual;
    procedure SetFilters(var theGenerator: Ik2TagGenerator); virtual;
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TWriterTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3Except,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ , SysUtils
+ , l3Except
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TWriterTest
-
+{$If NOT Defined(NotTunedDUnit)}
 procedure TWriterTest.DoWrite(aReader: Tk2CustomFileReader;
-  const anExt: AnsiString;
-  aHeaderBegin: AnsiChar = #0);
+ const anExt: AnsiString;
+ aHeaderBegin: AnsiChar = #0);
+var l_G: Ik2TagGenerator;
 //#UC START# *4BACDE3B02E9_4BACDDB500CE_var*
 var
  l_Raise : Boolean;
 //#UC END# *4BACDE3B02E9_4BACDDB500CE_var*
-var
- l_G : Ik2TagGenerator;
 begin
 //#UC START# *4BACDE3B02E9_4BACDDB500CE_impl*
  l_Raise := TreatExceptionAsSuccess;
@@ -115,10 +95,9 @@ begin
 end;//TWriterTest.DoWrite
 
 function TWriterTest.CreateEVDWriter: TevdNativeWriter;
+var l_Filer: Tl3CustomFiler;
 //#UC START# *4C07B2F8016F_4BACDDB500CE_var*
 //#UC END# *4C07B2F8016F_4BACDDB500CE_var*
-var
- l_Filer : Tl3CustomFiler;
 begin
 //#UC START# *4C07B2F8016F_4BACDDB500CE_impl*
  Result := TevdNativeWriter.Create;
@@ -138,10 +117,9 @@ begin
 end;//TWriterTest.CreateEVDWriter
 
 procedure TWriterTest.SomeFormatToEVD(aReader: Tk2CustomFileReader);
+var l_Writer: TevdNativeWriter;
 //#UC START# *4C07B63D0078_4BACDDB500CE_var*
 //#UC END# *4C07B63D0078_4BACDDB500CE_var*
-var
- l_Writer : TevdNativeWriter;
 begin
 //#UC START# *4C07B63D0078_4BACDDB500CE_impl*
  l_Writer := CreateEVDWriter;
@@ -182,17 +160,17 @@ begin
 end;//TWriterTest.SetFilters
 
 function TWriterTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Write';
 end;//TWriterTest.GetFolder
 
 function TWriterTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4BACDDB500CE';
 end;//TWriterTest.GetModelElementGUID
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

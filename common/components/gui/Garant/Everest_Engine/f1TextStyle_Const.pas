@@ -72,12 +72,14 @@ const
   { Номер редакции } 
  f1_saSnippet = evdStyles.ev_saSnippet;
   { Дочерний элемент списка } 
- f1_saVisitedDocumentInList = evdStyles.ev_saVisitedDocumentInList;
-  { Посещенный документ (в списке) } 
+ f1_saDocumentInList = evdStyles.ev_saDocumentInList;
+  { Документ в списке } 
  f1_saVisitedSnippetInList = evdStyles.ev_saVisitedSnippetInList;
   { Посещенный дочерний элемент списка } 
  f1_saTechComment = evdStyles.ev_saTechComment;
   { Технический комментарий } 
+ f1_saVisitedDocumentInList = evdStyles.ev_saVisitedDocumentInList;
+  { Посещенный документ (в списке) } 
 
 {$IfEnd} //Nemesis
 

@@ -2,6 +2,7 @@ unit alcuServer;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuServer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuServer" MUID: (52F8C9E00037)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

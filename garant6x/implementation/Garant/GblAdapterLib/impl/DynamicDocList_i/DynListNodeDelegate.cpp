@@ -47,6 +47,15 @@ ObjectId DynListNodeDelegate::get_document_id () const {
 	return master_node->get_document_id ();
 	//#UC END# *53CF894902A4_5464C77601DC*
 }
+
+// implemented method from DynListNode
+const GCI::IO::String* DynListNodeDelegate::get_snippet_text () const {
+	//#UC START# *56D44B0E0092_5464C77601DC*
+	const DynListNode* master_node = dynamic_cast<const DynListNode*> (this->cached_master_node ());
+	GDS_ASSERT (master_node);
+	return master_node->get_snippet_text ();
+	//#UC END# *56D44B0E0092_5464C77601DC*
+}
 } // namespace GblAdapterLib
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

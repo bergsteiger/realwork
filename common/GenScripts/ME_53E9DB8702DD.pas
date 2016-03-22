@@ -2,6 +2,7 @@ unit vcmMenuManagerTypes;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMenuManagerTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmMenuManagerTypes" MUID: (53E9DB8702DD)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

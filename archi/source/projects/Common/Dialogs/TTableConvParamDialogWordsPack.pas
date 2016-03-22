@@ -2,6 +2,7 @@ unit TTableConvParamDialogWordsPack;
 
 // Модуль: "w:\archi\source\projects\Common\Dialogs\TTableConvParamDialogWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "TTableConvParamDialogWordsPack" MUID: (55C8CD820269)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
@@ -73,11 +74,6 @@ begin
  Fake(aCtx, l_aTableConvParamDialog);
 end;//TkwPopTableConvParamDialogFake.DoDoIt
 
-class function TkwPopTableConvParamDialogFake.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:TableConvParamDialog:Fake';
-end;//TkwPopTableConvParamDialogFake.GetWordNameForRegister
-
 function TkwPopTableConvParamDialogFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -92,6 +88,11 @@ function TkwPopTableConvParamDialogFake.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTableConvParamDialog)]);
 end;//TkwPopTableConvParamDialogFake.ParamsTypes
+
+class function TkwPopTableConvParamDialogFake.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:TableConvParamDialog:Fake';
+end;//TkwPopTableConvParamDialogFake.GetWordNameForRegister
 
 initialization
  TkwPopTableConvParamDialogFake.RegisterInEngine;

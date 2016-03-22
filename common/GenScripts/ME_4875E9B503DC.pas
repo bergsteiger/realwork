@@ -3,6 +3,7 @@ unit atOpenDocumentsFromListOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atOpenDocumentsFromListOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatOpenDocumentsFromListOperation" MUID: (4875E9B503DC)
 
 interface
 

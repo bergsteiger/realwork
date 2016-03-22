@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddRTFWriter;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddRTFWriter.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddRTFWriter" MUID: (48F4BA89000D)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -2,6 +2,7 @@ unit bsConsultationManager;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\bsConsultationManager.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "bsConsultationManager" MUID: (55FAEA9B0079)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

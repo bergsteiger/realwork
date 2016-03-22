@@ -3,6 +3,8 @@ unit ChatHistory_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\ChatHistory_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "ChatHistory" MUID: (4A6EA397035D)
+// Имя типа: "TChatHistoryForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

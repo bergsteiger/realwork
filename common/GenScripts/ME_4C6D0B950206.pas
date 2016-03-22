@@ -3,6 +3,7 @@ unit PrimSelectedAttributes_utSelectedAttributes_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimSelectedAttributes_utSelectedAttributes_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utSelectedAttributes" MUID: (4C6D0B950206)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -31,26 +32,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utSelectedAttributes = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utSelectedAttributes }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utSelectedAttributes
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utSelectedAttributes.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utSelectedAttributes';
-end;//Tkw_FormUserType_utSelectedAttributes.GetWordNameForRegister
-
 function Tkw_FormUserType_utSelectedAttributes.GetInteger: Integer;
 begin
  Result := utSelectedAttributes;
 end;//Tkw_FormUserType_utSelectedAttributes.GetInteger
+
+class function Tkw_FormUserType_utSelectedAttributes.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utSelectedAttributes';
+end;//Tkw_FormUserType_utSelectedAttributes.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

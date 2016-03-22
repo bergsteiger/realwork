@@ -2,6 +2,8 @@ unit NOT_FINISHED_evdVer;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdVer.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Ver" MUID: (4C1B918900FD)
+// Имя типа: "TevdVer"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

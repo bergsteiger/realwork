@@ -3,6 +3,7 @@ unit tfwSysUtilsWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwSysUtilsWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwSysUtilsWord" MUID: (4DD0CE0E02AA)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

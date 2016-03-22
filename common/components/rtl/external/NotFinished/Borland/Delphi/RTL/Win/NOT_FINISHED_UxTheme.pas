@@ -2,6 +2,7 @@ unit NOT_FINISHED_UxTheme;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\NOT_FINISHED_UxTheme.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "UxTheme" MUID: (533BC8E40286)
 
 interface
 

@@ -1,88 +1,66 @@
 unit K517789752;
+ {* [RequestLink:517789752] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Low Level Tests"
-// Автор: Люлин А.В.
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tests/Tasks/Import/K517789752.pas"
-// Начат: 14.05.2014  17:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> archi$AutoPipeServer$Garant::Low Level Tests::ConcreteImportTasks::K517789752
-//
-// {RequestLink:517789752}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\Import\K517789752.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K517789752" MUID: (53736E900198)
+// Имя типа: "TK517789752"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
 uses
-  alcuImportTest
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest
+ l3IntfUses
+ , alcuImportTest
+;
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
 type
  TK517789752 = class(TalcuImportTest)
   {* [RequestLink:517789752] }
- protected
- // overridden protected methods
-   {$If defined(nsTest)}
+  protected
+   {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   {$IfEnd} //nsTest
-   {$If defined(nsTest)}
+    {* Папка в которую входит тест }
+   {$IfEnd} // Defined(nsTest)
+   {$If Defined(nsTest)}
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
-   {$IfEnd} //nsTest
+    {* Идентификатор элемента модели, который описывает тест }
+   {$IfEnd} // Defined(nsTest)
  end;//TK517789752
-{$IfEnd} //AppServerSide AND InsiderTest
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
 uses
-  Classes
-  {$If defined(nsTest)}
-  ,
-  TestFrameWork
-  {$IfEnd} //nsTest
-  ,
-  l3Filer,
-  SysUtils
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest
+ l3ImplUses
+ {$If Defined(nsTest)}
+ , TestFrameWork
+ {$IfEnd} // Defined(nsTest)
+ , l3Filer
+ , SysUtils
+;
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
-
-// start class TK517789752
-
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 function TK517789752.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'ConcreteImportTasks';
 end;//TK517789752.GetFolder
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 function TK517789752.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '53736E900198';
 end;//TK517789752.GetModelElementGUID
-{$IfEnd} //nsTest
-
-{$IfEnd} //AppServerSide AND InsiderTest
+{$IfEnd} // Defined(nsTest)
 
 initialization
  TestFramework.RegisterTest(TK517789752.Suite);
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
 end.

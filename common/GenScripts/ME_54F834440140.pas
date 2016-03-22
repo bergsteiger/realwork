@@ -2,6 +2,7 @@ unit ddFormulaParagraph;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddFormulaParagraph.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddFormulaParagraph" MUID: (54F834440140)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -41,99 +41,107 @@ DynListNode_i::DynListNode_i (TreeBase* owner_tree, const GTree::Node& snode)
 {
 	//#UC START# *4608DDF5017A_BODY*
 	if (0 != snode.pointer && snode.value.in ()) {
-		GblDocList::ListNodeValue* val = GblDocList::ListNodeValue::_downcast (snode.value.in ());
-		GblDocList::ListNodeType type = val->type ();
-		// алгоритм определения иконок для мед. препаратов описан в К13746
-		if (GblDocList::LNT_PHARM & type) {
-			if (GblDocList::LNT_SUB & type) {
-				ListTree<DynListNode_i>* list_tree = dynamic_cast<ListTree<DynListNode_i>*>(owner_tree);
-				GDS_ASSERT (list_tree);
-				list_tree->add_block_position (snode.pointer, val->data ());
+		GblDocList::SnippetListNodeValue* snippet_val = GblDocList::SnippetListNodeValue::_downcast (snode.value.in ());
+		if (snippet_val) {
+			const char* snippet_text = snippet_val->snippet ();
+			m_snippet_text = ACE_OS::strlen (snippet_text) ? GCI::IO::StringFactory::make (snippet_text) : 0;
+		}
 
-				if (GblDocList::LNT_ANNULED & type) {
-					m_list_node_type = GblAdapterLib::LNT_FORM_ANNULED;
-					return;
-				}
-				if (GblDocList::LNT_IMPORTANT & type) {
-					if (GblDocList::LNT_RUSSIAN & type) {
-						m_list_node_type = GblAdapterLib::LNT_FORM_RUSSIAN_IMPORTANT;
+		GblDocList::ListNodeValue* val = GblDocList::ListNodeValue::_downcast (snode.value.in ());
+		if (val) {
+			GblDocList::ListNodeType type = val->type ();
+			// алгоритм определения иконок для мед. препаратов описан в К13746
+			if (GblDocList::LNT_PHARM & type) {
+				if (GblDocList::LNT_SUB & type) {
+					ListTree<DynListNode_i>* list_tree = dynamic_cast<ListTree<DynListNode_i>*>(owner_tree);
+					GDS_ASSERT (list_tree);
+					list_tree->add_block_position (snode.pointer, val->data ());
+
+					if (GblDocList::LNT_ANNULED & type) {
+						m_list_node_type = GblAdapterLib::LNT_FORM_ANNULED;
+						return;
+					}
+					if (GblDocList::LNT_IMPORTANT & type) {
+						if (GblDocList::LNT_RUSSIAN & type) {
+							m_list_node_type = GblAdapterLib::LNT_FORM_RUSSIAN_IMPORTANT;
+						} else {
+							m_list_node_type = GblAdapterLib::LNT_FORM_NONRUSSIAN_IMPORTANT;
+						}
 					} else {
-						m_list_node_type = GblAdapterLib::LNT_FORM_NONRUSSIAN_IMPORTANT;
+						if (GblDocList::LNT_RUSSIAN & type) {
+							m_list_node_type = GblAdapterLib::LNT_FORM_RUSSIAN_NONIMPORTANT;
+						} else {
+							m_list_node_type = GblAdapterLib::LNT_FORM_NONRUSSIAN_NONIMPORTANT;
+						}
 					}
 				} else {
-					if (GblDocList::LNT_RUSSIAN & type) {
-						m_list_node_type = GblAdapterLib::LNT_FORM_RUSSIAN_NONIMPORTANT;
+					m_document_id  = val->data ();
+					if (GblDocList::LNT_ANNULED & type) {
+						m_list_node_type = GblAdapterLib::LNT_DRUG_ANNULED;
+						return;
+					}
+					if (GblDocList::LNT_NARCOTIC & type) {
+						m_list_node_type = GblAdapterLib::LNT_DRUG_NARCOTIC;
 					} else {
-						m_list_node_type = GblAdapterLib::LNT_FORM_NONRUSSIAN_NONIMPORTANT;
+						m_list_node_type = GblAdapterLib::LNT_DRUG_NONANNULED_NONNARCOTIC;
 					}
 				}
 			} else {
-				m_document_id  = val->data ();
-				if (GblDocList::LNT_ANNULED & type) {
-					m_list_node_type = GblAdapterLib::LNT_DRUG_ANNULED;
-					return;
+				if (this->is_document_node (type)) {
+					m_document_id = val->data ();
 				}
-				if (GblDocList::LNT_NARCOTIC & type) {
-					m_list_node_type = GblAdapterLib::LNT_DRUG_NARCOTIC;
-				} else {
-					m_list_node_type = GblAdapterLib::LNT_DRUG_NONANNULED_NONNARCOTIC;
-				}
-			}
-		} else {
-			if (this->is_document_node (type)) {
-				m_document_id = val->data ();
-			}
-			switch (type) {
-				case GblDocList::LNT_DOCUMENT_ABOLISHED: 
-					m_list_node_type = GblAdapterLib::LNT_DOCUMENT_ABOLISHED;
-					break;
-				case GblDocList::LNT_DOCUMENT_ACTIVE:
-					m_list_node_type = GblAdapterLib::LNT_DOCUMENT_ACTIVE; 
-					break;
-				case GblDocList::LNT_DOCUMENT_PREACTIVE:
-					m_list_node_type = GblAdapterLib::LNT_DOCUMENT_PREACTIVE; 
-					break;
-				case GblDocList::LNT_DOCUMENT_UNKNOWN:
-					m_list_node_type = GblAdapterLib::LNT_DOCUMENT_UNKNOWN; 
-					break;
-				case GblDocList::LNT_EDITION_ABOLISHED:
-					m_list_node_type = GblAdapterLib::LNT_EDITION_ABOLISHED; 
-					break;
-				case GblDocList::LNT_EDITION_ACTIVE:
-					m_list_node_type = GblAdapterLib::LNT_EDITION_ACTIVE; 
-					break;
-				case GblDocList::LNT_EDITION_PREACTIVE:
-					m_list_node_type = GblAdapterLib::LNT_EDITION_PREACTIVE; 
-					break;
-				case GblDocList::LNT_EDITION_UNKNOWN:
-					m_list_node_type = GblAdapterLib::LNT_EDITION_UNKNOWN; 
-					break;
-				case GblDocList::LNT_PARA:
-				{
-					m_list_node_type = GblAdapterLib::LNT_PARA;
-					ListTree<DynListNode_i>* list_tree = dynamic_cast<ListTree<DynListNode_i>*>(owner_tree);
-					GDS_ASSERT (list_tree);
-					list_tree->add_block_position (snode.pointer, val->data ());
-					break;
-				}
-				case GblDocList::LNT_SUB:
-				{
-					m_list_node_type = GblAdapterLib::LNT_SUB;
-					ListTree<DynListNode_i>* list_tree = dynamic_cast<ListTree<DynListNode_i>*>(owner_tree);
-					GDS_ASSERT (list_tree);
-					list_tree->add_block_position (snode.pointer, val->data ());
-					break;
-				}
-				case GblDocList::LNT_EDITIONS_GROUP:
-					m_list_node_type = GblAdapterLib::LNT_EDITIONS_GROUP;
-					break;
-				
-				case GblDocList::LNT_AAK:
-					m_list_node_type = GblAdapterLib::LNT_AAK;
-					break;
+				switch (type) {
+					case GblDocList::LNT_DOCUMENT_ABOLISHED: 
+						m_list_node_type = GblAdapterLib::LNT_DOCUMENT_ABOLISHED;
+						break;
+					case GblDocList::LNT_DOCUMENT_ACTIVE:
+						m_list_node_type = GblAdapterLib::LNT_DOCUMENT_ACTIVE; 
+						break;
+					case GblDocList::LNT_DOCUMENT_PREACTIVE:
+						m_list_node_type = GblAdapterLib::LNT_DOCUMENT_PREACTIVE; 
+						break;
+					case GblDocList::LNT_DOCUMENT_UNKNOWN:
+						m_list_node_type = GblAdapterLib::LNT_DOCUMENT_UNKNOWN; 
+						break;
+					case GblDocList::LNT_EDITION_ABOLISHED:
+						m_list_node_type = GblAdapterLib::LNT_EDITION_ABOLISHED; 
+						break;
+					case GblDocList::LNT_EDITION_ACTIVE:
+						m_list_node_type = GblAdapterLib::LNT_EDITION_ACTIVE; 
+						break;
+					case GblDocList::LNT_EDITION_PREACTIVE:
+						m_list_node_type = GblAdapterLib::LNT_EDITION_PREACTIVE; 
+						break;
+					case GblDocList::LNT_EDITION_UNKNOWN:
+						m_list_node_type = GblAdapterLib::LNT_EDITION_UNKNOWN; 
+						break;
+					case GblDocList::LNT_PARA:
+					{
+						m_list_node_type = GblAdapterLib::LNT_PARA;
+						ListTree<DynListNode_i>* list_tree = dynamic_cast<ListTree<DynListNode_i>*>(owner_tree);
+						GDS_ASSERT (list_tree);
+						list_tree->add_block_position (snode.pointer, val->data ());
+						break;
+					}
+					case GblDocList::LNT_SUB:
+					{
+						m_list_node_type = GblAdapterLib::LNT_SUB;
+						ListTree<DynListNode_i>* list_tree = dynamic_cast<ListTree<DynListNode_i>*>(owner_tree);
+						GDS_ASSERT (list_tree);
+						list_tree->add_block_position (snode.pointer, val->data ());
+						break;
+					}
+					case GblDocList::LNT_EDITIONS_GROUP:
+						m_list_node_type = GblAdapterLib::LNT_EDITIONS_GROUP;
+						break;
+					
+					case GblDocList::LNT_AAK:
+						m_list_node_type = GblAdapterLib::LNT_AAK;
+						break;
 
-				default:
-					GDS_ASSERT (false && "bad type of document");
+					default:
+						GDS_ASSERT (false && "bad type of document");
+				}
 			}
 		}
 	}
@@ -192,6 +200,13 @@ ObjectId DynListNode_i::get_document_id () const {
 	}
 	return m_document_id;
 	//#UC END# *53CF894902A4_460780FC02D6*
+}
+
+// implemented method from DynListNode
+const GCI::IO::String* DynListNode_i::get_snippet_text () const {
+	//#UC START# *56D44B0E0092_460780FC02D6*
+	return m_snippet_text._sretn ();
+	//#UC END# *56D44B0E0092_460780FC02D6*
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 // overloaded base methods

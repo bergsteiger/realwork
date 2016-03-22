@@ -7,6 +7,8 @@ anEditor aFileName pop:editor:PasteEVDTroughClipboard
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPasteEVDTroughClipboard.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_PasteEVDTroughClipboard" MUID: (53957B0E024C)
+// Имя типа: "TkwPopEditorPasteEVDTroughClipboard"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

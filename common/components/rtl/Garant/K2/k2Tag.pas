@@ -3,6 +3,7 @@ unit k2Tag;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Tag.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2Tag" MUID: (5319C00B0313)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

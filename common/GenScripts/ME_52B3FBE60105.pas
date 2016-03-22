@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\CheckWidthInDeletingColumn.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "CheckWidthInDeletingColumn" MUID: (52B3FBE60105)
+// Имя типа: "_CheckWidthInDeletingColumn_"
 
 {$Define CheckWidthInDeletingColumn_imp}
 

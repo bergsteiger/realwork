@@ -3,6 +3,7 @@ unit afwBaseControl;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwBaseControl.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TafwBaseControl" MUID: (48BD1975029B)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
@@ -56,21 +57,15 @@ type
    f_LastHint: AnsiString;
    f_LastHintPt: TPoint;
    f_DragImageList: TDragImageList;
-    {* Поле для свойства DragImageList }
    f_InDrop: Boolean;
-    {* Поле для свойства InDrop }
    f_IsActiveDropSource: Boolean;
-    {* Поле для свойства IsActiveDropSource }
    f_DrawSpecial: Boolean;
-    {* Поле для свойства DrawSpecial }
    f_OnDrawSpecialChange: TNotifyEvent;
-    {* Поле для свойства OnDrawSpecialChange }
    f_BorderStyle: TBorderStyle;
-    {* Поле для свойства BorderStyle }
+    {* стиль рамки }
    f_ScrollStyle: TScrollStyle;
-    {* Поле для свойства ScrollStyle }
+    {* какие ScrollBar'ы нужны }
    f_InPopup: Integer;
-    {* Поле для свойства InPopup }
   protected
    f_Canvas: Tl3WinControlCanvas;
   private
@@ -261,10 +256,10 @@ uses
  , afwHintManager
  , k2OperationContainer
  , l3CustomControlCanvas
+ , SysUtils
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , SysUtils
 ;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\Visual\afwToolOwner.imp.pas}

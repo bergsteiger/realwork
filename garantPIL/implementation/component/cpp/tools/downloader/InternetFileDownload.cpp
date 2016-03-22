@@ -159,10 +159,10 @@ DownloadManager::~DownloadManager () {
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-DownloadState DownloadManager::execute (long id, const std::string& from, const std::string& to) {
+DownloadState DownloadManager::execute (long id, const std::string& from, const std::string& to, long order_id) {
 	DownloadState ret = ds_Success;
 
-	m_obj = ScriptManagerSingleton::instance ()->create_order (id, from, to);
+	m_obj = ScriptManagerSingleton::instance ()->create_order (id, from, to, order_id);
 
 	DLOG->out_t_ext ("OBJ: %s", m_obj.c_str ());
 
@@ -208,7 +208,7 @@ DownloadState DownloadManager::execute (long id, const std::string& from, const 
 			if (m_err_value == PS_ERROR_NOT_ENOUGH_SPACE) {
 				str_err.Format (IDS_NOT_ENOUGH_SPACE);
 			} else if (m_err_value == PS_ERROR_GET_INFO) {
-				str_err.Format (IDS_ERROR_HTTP_GETINFO, str.c_str ());
+				str_err.Format (IDS_ERROR_HTTP_GETINFO, GetAppPtr ()->is_english () ? "date interval is too big" : str.c_str ());
 			} else if (m_err_value == PS_ERROR_GET_INFO_STATUS4) {
 				str_err.Format (IDS_ATTENTION_COLON, str.c_str ());
 			} else if (m_err_value == PS_ERROR_HTTP_REQUEST) {
@@ -496,6 +496,7 @@ void DownloadManager::connect () {
 				} else if (root ["success"].asBool ()) {
 					order_id = root ["order_id"].asUInt ();
 					m_event_id = root ["event_id"].asUInt ();
+					DConfigManager::instance ()->set ("OrderId", order_id);
 				} else {
 					m_err_msg = GCL::utf8_to_win1251 (root ["message"].asString ());
 				}
@@ -711,7 +712,6 @@ bool DownloadManager::set_mode () {
 	std::string full_path = this->get_full_path ();
 
 	bool is_exist = (ACE_OS::access (full_path.c_str (), R_OK) != -1);
-	bool is_rewrite = GetAppPtr ()->is_rewrite ();
 
 	if (m_indicator_count && is_exist) {
 		m_mode = dm_Add;
@@ -726,8 +726,6 @@ bool DownloadManager::set_mode () {
 			str.Format (IDS_DOWNLOAD_QUERY, m_file_name.c_str (), file_length);
 		} else if (offset == 0.) {
 			str.Format (IDS_QUEST_FILE_ALREADY_EXIST, m_file_name.c_str (), file_length);
-		} else if (is_rewrite) {
-			str.Format (IDS_QUEST_FILE_ALREADY_EXIST, m_file_name.c_str (), offset);
 		} else {
 			str.Format (IDS_QUEST_ABORTED_FILE_ALREADY_EXIST, m_file_name.c_str (), offset, file_length);
 			type = MB_YESNOCANCEL;
@@ -742,11 +740,10 @@ bool DownloadManager::set_mode () {
 			m_mode = dm_Rewrite;
 			break;
 		case IDCANCEL:
+			DConfigManager::instance ()->set ("OrderId", 0);
 			m_err_value = PS_SUCCESS;
 			throw CancelProcess ();
 		}
-	} else if (is_rewrite) {
-		m_mode = dm_Rewrite;
 	} else if (is_exist && offset != 0.) {
 		m_mode = dm_Add;
 	} else {

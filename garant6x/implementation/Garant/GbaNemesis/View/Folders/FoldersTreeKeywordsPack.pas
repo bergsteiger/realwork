@@ -3,6 +3,7 @@ unit FoldersTreeKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\FoldersTreeKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "FoldersTreeKeywordsPack" MUID: (1ED005CF8083)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::FoldersTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_FoldersTree
 
  Tkw_FoldersTree_Control_FoldersTree = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::FoldersTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersTree_Control_FoldersTree
 
  Tkw_FoldersTree_Control_FoldersTree_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnFoldersTreeFoldersTree
 
-class function Tkw_Form_FoldersTree.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::FoldersTree';
-end;//Tkw_Form_FoldersTree.GetWordNameForRegister
-
 function Tkw_Form_FoldersTree.GetString: AnsiString;
 begin
  Result := 'enFoldersTree';
 end;//Tkw_Form_FoldersTree.GetString
 
-class function Tkw_FoldersTree_Control_FoldersTree.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_FoldersTree.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::FoldersTree';
-end;//Tkw_FoldersTree_Control_FoldersTree.GetWordNameForRegister
+ Result := 'форма::FoldersTree';
+end;//Tkw_Form_FoldersTree.GetWordNameForRegister
 
 function Tkw_FoldersTree_Control_FoldersTree.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_FoldersTree_Control_FoldersTree.RegisterInEngine
+
+class function Tkw_FoldersTree_Control_FoldersTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FoldersTree';
+end;//Tkw_FoldersTree_Control_FoldersTree.GetWordNameForRegister
 
 procedure Tkw_FoldersTree_Control_FoldersTree_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(FoldersTree(aCtx, l_aenFoldersTree));
 end;//TkwEnFoldersTreeFoldersTree.DoDoIt
 
-class function TkwEnFoldersTreeFoldersTree.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenFoldersTree.FoldersTree';
-end;//TkwEnFoldersTreeFoldersTree.GetWordNameForRegister
-
 procedure TkwEnFoldersTreeFoldersTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwEnFoldersTreeFoldersTree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersTree)]);
 end;//TkwEnFoldersTreeFoldersTree.ParamsTypes
+
+class function TkwEnFoldersTreeFoldersTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenFoldersTree.FoldersTree';
+end;//TkwEnFoldersTreeFoldersTree.GetWordNameForRegister
 
 initialization
  Tkw_Form_FoldersTree.RegisterInEngine;

@@ -2,6 +2,7 @@ unit evSchemaWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\evSchemaWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "evSchemaWordsPack" MUID: (54EDDCAC016A)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

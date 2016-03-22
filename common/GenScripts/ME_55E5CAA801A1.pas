@@ -2,6 +2,7 @@ unit l3CStringDataObject;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CStringDataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CStringDataObject" MUID: (55E5CAA801A1)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

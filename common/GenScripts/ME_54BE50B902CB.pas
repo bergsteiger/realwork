@@ -2,6 +2,7 @@ unit eeDocumentCursor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocumentCursor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TeeDocumentCursor" MUID: (54BE50B902CB)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

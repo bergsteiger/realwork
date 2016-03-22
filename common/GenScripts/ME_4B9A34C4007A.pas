@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "UnderControlBehaviour" MUID: (4B9A34C4007A)
+// Имя типа: "_UnderControlBehaviour_"
 
 {$Define UnderControlBehaviour_imp}
 

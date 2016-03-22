@@ -2,6 +2,7 @@ unit CustomFolderTestSuite;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\CustomFolderTestSuite.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TCustomFolderTestSuite" MUID: (4EA515800122)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

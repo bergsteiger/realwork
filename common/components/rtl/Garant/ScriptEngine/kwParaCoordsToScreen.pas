@@ -2,6 +2,7 @@ unit kwParaCoordsToScreen;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreen.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwParaCoordsToScreen" MUID: (4F955027033B)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

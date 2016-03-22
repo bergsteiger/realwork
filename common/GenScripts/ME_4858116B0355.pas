@@ -3,6 +3,8 @@ unit BitmapPara_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\BitmapPara_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "BitmapPara" MUID: (4858116B0355)
+// Имя типа: "BitmapParaTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -1,68 +1,49 @@
 unit tfwParserTokenListTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/tfwParserTokenListTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::Containers::TtfwParserTokenListTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\tfwParserTokenListTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TtfwParserTokenListTest" MUID: (55784B4C022C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TtfwParserTokenListTest = class(TBaseTest)
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure TestAddAndDelete;
  end;//TtfwParserTokenListTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  tfwParser,
-  SysUtils,
-  l3InterfacedString,
-  l3Base,
-  l3Parser,
-  testCConstDelphiString,
-  l3Interfaces,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , tfwParser
+ , SysUtils
+ , l3InterfacedString
+ , l3Base
+ , l3Parser
+ , testCConstDelphiString
+ , l3Interfaces
+ , TestFrameWork
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TtfwParserTokenListTest
-
+{$If NOT Defined(NotTunedDUnit)}
 procedure TtfwParserTokenListTest.TestAddAndDelete;
 //#UC START# *55784B710001_55784B4C022C_var*
 
@@ -112,20 +93,20 @@ begin
 end;//TtfwParserTokenListTest.TestAddAndDelete
 
 function TtfwParserTokenListTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Containers';
 end;//TtfwParserTokenListTest.GetFolder
 
 function TtfwParserTokenListTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '55784B4C022C';
 end;//TtfwParserTokenListTest.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TtfwParserTokenListTest.Suite);
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

@@ -2,6 +2,7 @@ unit evSearchWaiter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\evSearchWaiter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevSearchWaiter" MUID: (4EA6A47C0260)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

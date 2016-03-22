@@ -2,6 +2,7 @@ unit tfwTypeInfo;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwTypeInfo.pas"
 // Стереотип: "InternalInterfaces"
+// Элемент модели: "tfwTypeInfo" MUID: (55BF153300A4)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

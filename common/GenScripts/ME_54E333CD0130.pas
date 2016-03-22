@@ -2,6 +2,7 @@ unit ncsSynchroTransporter;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsSynchroTransporter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsSynchroTransporter" MUID: (54E333CD0130)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
@@ -47,6 +48,7 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
+   procedure ClearFields; override;
   protected
    property IntSessionID: AnsiString
     read f_IntSessionID
@@ -358,6 +360,12 @@ begin
 // !!! Needs to be implemented !!!
 //#UC END# *47A042E100E2_54E333CD0130_impl*
 end;//TncsSynchroTransporter.InitFields
+
+procedure TncsSynchroTransporter.ClearFields;
+begin
+ IntSessionID := '';
+ inherited;
+end;//TncsSynchroTransporter.ClearFields
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

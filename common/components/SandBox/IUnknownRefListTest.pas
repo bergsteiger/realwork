@@ -1,49 +1,39 @@
 unit IUnknownRefListTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "IUnknownRefListTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCase::Class Shared Delphi Sand Box::SandBoxTest::FinalContainersTests::IUnknownRefListTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\IUnknownRefListTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "IUnknownRefListTest" MUID: (51E80B08039E)
+// Имя типа: "TIUnknownRefListTest"
 
-{$Include ..\SandBox\sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork,
-  IUnknownRefList
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , TestFrameWork
+ , IUnknownRefList
+;
 
-{$If defined(nsTest)}
 type
  _ListType_ = TIUnknownRefList;
- {$Include ..\SandBox\ListTest.imp.pas}
+ {$Include w:\common\components\SandBox\ListTest.imp.pas}
  TIUnknownRefListTest = class(_ListTest_)
- published
- // published methods
+  published
    procedure DoIt;
  end;//TIUnknownRefListTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //nsTest
+ l3ImplUses
+ , SysUtils
+;
 
-{$If defined(nsTest)}
-
-{$Include ..\SandBox\ListTest.imp.pas}
-
-// start class TIUnknownRefListTest
+{$Include w:\common\components\SandBox\ListTest.imp.pas}
 
 procedure TIUnknownRefListTest.DoIt;
 //#UC START# *51E80B2F02CF_51E80B08039E_var*
@@ -61,9 +51,8 @@ begin
 //#UC END# *51E80B2F02CF_51E80B08039E_impl*
 end;//TIUnknownRefListTest.DoIt
 
-{$IfEnd} //nsTest
-
 initialization
  TestFramework.RegisterTest(TIUnknownRefListTest.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

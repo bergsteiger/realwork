@@ -2,6 +2,7 @@ unit k2MemoryPoolAdapter;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2MemoryPoolAdapter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2MemoryPoolAdapter" MUID: (530B3B2303B1)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

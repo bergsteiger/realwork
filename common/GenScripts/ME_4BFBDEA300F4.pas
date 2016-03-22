@@ -3,6 +3,7 @@ unit ScrollBackTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\ScrollBackTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TScrollBackTest" MUID: (4BFBDEA300F4)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

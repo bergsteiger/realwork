@@ -2,6 +2,7 @@ unit m3LZODeflateStreamNew;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3LZODeflateStreamNew.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3LZODeflateStreamNew" MUID: (542AA47B0241)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

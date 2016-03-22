@@ -2,6 +2,7 @@ unit NOT_FINISHED_eeVirtualNode;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeVirtualNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TeeVirtualNode" MUID: (4ADDF343009C)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

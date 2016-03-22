@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3InterfacedDataObject.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3InterfacedDataObject" MUID: (4680F7A602E3)
+// Имя типа: "_l3InterfacedDataObject_"
 
 {$Define l3InterfacedDataObject_imp}
 
@@ -11,13 +13,13 @@
   {* Для хранения в буфере обмена интерфейса }
   private
    f_Data: _DataType_;
-    {* Поле для свойства Data }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
+   procedure ClearFields; override;
   public
    constructor Create(const aData: _DataType_;
     const aFormats: Tl3ClipboardFormats); reintroduce;
@@ -84,6 +86,12 @@ begin
   Result := inherited COMQueryInterface(IID, Obj);
 //#UC END# *4A60B23E00C3_4680F7A602E3_impl*
 end;//_l3InterfacedDataObject_.COMQueryInterface
+
+procedure _l3InterfacedDataObject_.ClearFields;
+begin
+ Finalize(f_Data);
+ inherited;
+end;//_l3InterfacedDataObject_.ClearFields
 
 {$EndIf l3InterfacedDataObject_imp_impl}
 

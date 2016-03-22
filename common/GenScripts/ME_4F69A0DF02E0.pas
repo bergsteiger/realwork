@@ -2,6 +2,8 @@ unit kwPopQueryCardAttributeSetFocus;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeSetFocus.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_QueryCard_Attribute_SetFocus" MUID: (4F69A0DF02E0)
+// Имя типа: "TkwPopQueryCardAttributeSetFocus"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

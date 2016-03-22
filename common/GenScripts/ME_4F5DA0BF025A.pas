@@ -2,6 +2,7 @@ unit kwEditorKeyWordsPack;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwEditorKeyWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "kwEditorKeyWordsPack" MUID: (4F5DA0BF025A)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

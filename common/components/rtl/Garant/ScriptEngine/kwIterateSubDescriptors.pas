@@ -16,6 +16,8 @@ PROCEDURE CheckDescription OBJECT IN aSubDescription
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwIterateSubDescriptors.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "IterateSubDescriptors" MUID: (52D643C100A8)
+// Имя типа: "TkwIterateSubDescriptors"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

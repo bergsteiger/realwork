@@ -3,6 +3,8 @@ unit PrimNewsLine_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimNewsLine_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimNewsLine" MUID: (497EBEC4031D)
+// Имя типа: "TPrimNewsLineForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -518,7 +520,11 @@ procedure TPrimNewsLineForm.DoLoadFromSettings;
 //#UC END# *4E7C2AA3037E_497EBEC4031D_var*
 begin
 //#UC START# *4E7C2AA3037E_497EBEC4031D_impl*
- TnsNewsLine.Make.LoadThemeFromSettings;
+ with TnsNewsLine.Make do
+ begin
+  MakeCurrentThemeTreeStruct;
+  LoadThemeFromSettings;
+ end;
  UpdateNewsLineTree;
  inherited;
 //#UC END# *4E7C2AA3037E_497EBEC4031D_impl*

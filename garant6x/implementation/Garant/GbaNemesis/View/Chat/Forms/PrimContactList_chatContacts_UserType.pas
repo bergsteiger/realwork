@@ -1,87 +1,67 @@
 unit PrimContactList_chatContacts_UserType;
+ {* Совещание онлайн }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Chat/Forms/PrimContactList_chatContacts_UserType.pas"
-// Начат: 01.10.2009 2:05
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Встроенные продукты::Chat::View::Chat::PrimContactList::chatContacts
-//
-// Совещание онлайн
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\PrimContactList_chatContacts_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "chatContacts" MUID: (4BD5B59500D6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы chatContacts }
-  chatContactsName = 'chatContacts';
-   { Строковый идентификатор пользовательского типа "Совещание онлайн" }
-  chatContacts = TvcmUserType(0);
-   { Совещание онлайн }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы chatContacts }
+ chatContactsName = 'chatContacts';
+  {* Строковый идентификатор пользовательского типа "Совещание онлайн" }
+ chatContacts = TvcmUserType(0);
+  {* Совещание онлайн }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_chatContacts = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы chatContacts }
+ Tkw_FormUserType_chatContacts = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы chatContacts }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_chatContacts
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_chatContacts
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_chatContacts
-
-class function Tkw_FormUserType_chatContacts.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::chatContacts';
-end;//Tkw_FormUserType_chatContacts.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_chatContacts.GetInteger: Integer;
- {-}
 begin
  Result := chatContacts;
 end;//Tkw_FormUserType_chatContacts.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_chatContacts.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::chatContacts';
+end;//Tkw_FormUserType_chatContacts.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_chatContacts
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_chatContacts.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_chatContacts }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

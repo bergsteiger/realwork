@@ -2,6 +2,8 @@ unit kwPopQueryCardAttributeIsLogicOperationEnabled;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeIsLogicOperationEnabled.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_QueryCard_Attribute_IsLogicOperationEnabled" MUID: (50EFDD9B0123)
+// Имя типа: "TkwPopQueryCardAttributeIsLogicOperationEnabled"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

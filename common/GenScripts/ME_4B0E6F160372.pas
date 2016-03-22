@@ -2,6 +2,7 @@ unit nsTextTabActivateEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\nsTextTabActivateEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsTextTabActivateEvent" MUID: (4B0E6F160372)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

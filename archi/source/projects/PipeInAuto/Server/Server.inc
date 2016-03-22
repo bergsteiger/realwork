@@ -48,7 +48,6 @@
 {$DEFINE CheckPriority} // Обновление таблицы приоритетов
 {.$DEFINE UseCommandFile} // Обновление базы с помощью батника
 {.$DEFINE aiSMSNotify} // уведомление об Автоэкспорте по СМС
-{$DEFINE NewAutoLinker} // Новая технология простановки ссылок
 {$DEFINE MDPSyncIntegrated} // интеграция с MDP в качестве Гардока
 {.$DEFINE MDPSyncStandAlone} // интеграция с MDP в качестве Гардока (отдельное приложение)
 {$DEFINE NewLine} // новый формат информации о задании
@@ -130,7 +129,6 @@
  {$UNDEF UserQuery}
  {$UNDEF KWSending}
  {$UNDEF EveryWeek}
- {$UNDEF NewAutoLinker}
  {$UNDEF ManualExchangeDocs}
  {$UNDEF CheckPriority}
  {$DEFINE ManualSet20005Sub}
@@ -149,7 +147,6 @@
  {$UNDEF AutoClass}
  {$UNDEF RemoteDict}
  {$UNDEF ManualExchangeDocs}
- {$UNDEF NewAutoLinker}
  {$UNDEF MDPSyncIntegrated}
  {$UNDEF MDPSyncStandAlone}
  {$UNDEF OvgaExport}
@@ -179,7 +176,6 @@
  {$UNDEF DailyImportKW}
  {$UNDEF CheckPriority}
  {$UNDEF ExchangeDocs}
- {$UNDEF NewAutoLinker}
  {$UNDEF MDPSyncIntegrated}
  {$UNDEF MDPSyncStandAlone}
  {$UNDEF OvgaExport}
@@ -210,7 +206,6 @@
  {$UNDEF DailyImportKW}
  {$UNDEF CheckPriority}
  {$UNDEF ExchangeDocs}
- {$UNDEF NewAutoLinker}
  {$UNDEF MDPSyncIntegrated}
  {$UNDEF MDPSyncStandAlone}
  {$UNDEF OvgaExport}

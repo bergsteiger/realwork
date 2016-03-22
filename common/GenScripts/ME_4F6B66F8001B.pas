@@ -2,6 +2,7 @@ unit F1Like_FormDefinitions_Controls;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\F1Like_FormDefinitions_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "FormDefinitions" MUID: (4F6B66F8001B)
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
@@ -40,8 +41,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_Form_Child_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы Child
 ----
@@ -53,9 +54,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_Child_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_Parent_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы Parent
 ----
@@ -67,7 +69,7 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_Parent_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
 class function Tkw_Form_Child_ID.GetWordNameForRegister: AnsiString;

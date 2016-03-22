@@ -1,8 +1,56 @@
 unit ddSimpleHTMLReader;
 { Базовый предок читалки HMTL }
-{ $Id: ddSimpleHTMLReader.pas,v 1.60 2015/05/22 09:03:04 dinishev Exp $ }
+{ $Id: ddSimpleHTMLReader.pas,v 1.76 2016/02/12 11:42:59 dinishev Exp $ }
 
 // $Log: ddSimpleHTMLReader.pas,v $
+// Revision 1.76  2016/02/12 11:42:59  dinishev
+// {Requestlink:617316346}
+//
+// Revision 1.75  2016/02/11 12:13:08  dinishev
+// {Requestlink:617312775}
+//
+// Revision 1.74  2016/02/10 06:48:44  dinishev
+// Reformat.
+//
+// Revision 1.73  2016/01/29 06:32:17  dinishev
+// Bug fix: подразнес чтение UTF-8 + AV при чтении HTML.
+//
+// Revision 1.72  2016/01/28 07:51:41  dinishev
+// Cleanup
+//
+// Revision 1.71  2016/01/28 07:01:04  dinishev
+// Более корректное вырезание &amp;
+//
+// Revision 1.70  2016/01/28 06:21:29  dinishev
+// Вырезаем &amp; из URL. Пока наколенное решение.
+//
+// Revision 1.69  2016/01/27 13:47:10  dinishev
+// Разборки с отъехавшими HTML-тестами после правок.
+//
+// Revision 1.68  2016/01/26 10:50:43  dinishev
+// Лишний вызов.
+//
+// Revision 1.67  2016/01/25 14:23:00  dinishev
+// {Requestlink:616227557}
+//
+// Revision 1.66  2016/01/21 05:50:44  dinishev
+// {Requestlink:615706665}. Рамки из стилей.
+//
+// Revision 1.65  2016/01/19 07:50:35  dinishev
+// Cleanup
+//
+// Revision 1.64  2016/01/15 12:02:14  dinishev
+// Не добавил ссылку на паметр.
+//
+// Revision 1.63  2016/01/15 11:51:58  dinishev
+// {Requestlink:615706665}. Не падаем из-за всякого мусора в стилях.
+//
+// Revision 1.62  2015/12/07 09:51:45  dinishev
+// {Requestlink:612969234}
+//
+// Revision 1.61  2015/12/03 08:54:23  dinishev
+// {Requestlink:609139066}
+//
 // Revision 1.60  2015/05/22 09:03:04  dinishev
 // http://mdp.garant.ru/pages/viewpage.action?pageId=484814734&focusedCommentId=600084607#comment-600084607
 //
@@ -192,6 +240,7 @@ uses
  ddTypes,
  ddHTMLTag,
  ddDocument,
+ ddHTMLParser,
  ddRTFProperties,
  ddRegSeacherOwner,
 
@@ -200,20 +249,23 @@ uses
 
 type
   TddHTMLAnalyzeEvent = procedure (var theBreakAnalyze: Boolean) of object;
-  
+
   TddSimpleHTMLReader = class(TddRegSeacherOwner)
   private
+    f_Text        : AnsiString;
+    f_InDel       : Integer;
+    f_IsData      : Boolean;
+    f_ReadURL     : Boolean;
+    f_ReadIns     : Boolean;
+    f_OnAnalyze   : TddHTMLAnalyzeEvent;
     f_BreakAnalyze: Boolean;
-    f_IsTag: Boolean;
-    f_OnAnalyze: TddHTMLAnalyzeEvent;
-    f_Text: AnsiString;
-    f_TokenReaded: Boolean;
-  private  
+    procedure pm_SetReadIns(const Value: Boolean);
+  private
+    procedure pm_SetData(const Value: Boolean);
     procedure AddText;
-    procedure ClearText(const aText: Tl3String);
-    function DoHTMLEntity2Char(const anEntity: AnsiString; var aChar: AnsiChar): Boolean;
+    function DoHTMLEntity2Char(anEntity: AnsiString; var aChar: AnsiChar): Boolean;
     procedure CheckTextWithUTF8;
-    procedure HTMLEntity2Char(const anEntity: AnsiString; const aText: Tl3String);
+    procedure HTMLEntity2Char(anEntity: AnsiString; const aText: Tl3String);
     procedure Try2OpenNewPara;
     procedure WorkupKeyword;
     procedure WorkupSymbol;
@@ -224,18 +276,22 @@ type
     function ConvertColor(const aStr : Tl3PCharLen): TColor;
     function ConvertMargin(const aStr : Tl3PCharLen): Integer;
     function ConvertJust(const aStr : Tl3PCharLen): TJust;
+    function GetHTMLParser: TddHTMLParser;
+    procedure pm_SetReadURL(const Value: Boolean);
+    procedure ClearText(const aOut: Tl3String);
   protected
     f_IsPre        : Boolean;
-    f_SpecText     : Boolean;
     f_IsBody       : Boolean;
-    f_IsPara       : Boolean;
-    f_IsHeader     : Boolean;
-    f_InScript     : Boolean;
     f_IsStyle      : Boolean;
+    f_InScript     : Boolean;
     f_CodePage     : LongInt;
     f_Document     : TddDocument;
     f_InitCodePage : Boolean;
   protected
+    procedure DelTagsFinished; virtual;
+    procedure IncInDel;
+    procedure DecInDel;
+    procedure ReasolveEntity(anIn: AnsiString; const aOut: Tl3String);
     procedure CheckCodePage;
     function IsTextNotEmpty: Boolean;
     procedure AnalyzeProc(var theBreakAnalyze: Boolean);
@@ -247,7 +303,10 @@ type
     constructor Create(aOwner: Tk2TagGeneratorOwner = nil); override;
     procedure BreakAnalyze;
     procedure Read; override;
-    property IsTag: Boolean read f_IsTag write f_IsTag;
+    property ReadURL: Boolean read f_ReadURL write pm_SetReadURL;
+    property ApplyTextCorrections: Boolean read f_ReadIns write pm_SetReadIns;
+    property IsData: Boolean read f_IsData write pm_SetData;
+     {* - Идет чтение данных, которые можно записывать в параграф. }
     property OnAnalyze: TddHTMLAnalyzeEvent read f_OnAnalyze write f_OnAnalyze;
   end;
 
@@ -271,8 +330,10 @@ uses
  l3ObjectRefList1,
  l3ParserInterfaces,
 
+ RTFtypes,
+
  ddHTMLTags,
- ddHTMLParser,
+ ddTextParagraph,
  ddDocumentAtom,
 
  latin1,
@@ -289,12 +350,14 @@ begin
  f_CodePage := cp_ANSI;
  f_InitCodePage := False;
  f_InScript := False;
+ f_ReadURL := False;
+ f_ReadIns := False;
 end;
 
 procedure TddSimpleHTMLReader.AddText;
 var
  l_Str     : Tl3String;
- l_LastPara: TddDocumentAtom;
+ l_LastPara: TddTextParagraph;
 begin
  if IsTextNotEmpty then
  begin                                    
@@ -303,7 +366,7 @@ begin
    Try2OpenNewPara;
    Assert(f_CodePage <> CP_Unicode);
    {!!! Предусмотреть перекодировку русского текста }
-   if f_IsPara and not f_SpecText then
+   if IsData then
    begin
     CheckCodePage;
     l_Str := Tl3String.Create;
@@ -317,7 +380,7 @@ begin
        l_Str._CodePage := f_CodePage;
        l_Str.CodePage := cp_ANSI;
       end; // if f_CodePage = cp_koi8 then
-      f_Document.LastPara.AddText(l_Str);
+      l_LastPara.AddText(l_Str);
      end;
     finally
      l3Free(l_Str);
@@ -355,7 +418,7 @@ begin
      Delete(l_WS, i, 1);
      Insert('&middot;', l_WS, i);
      Inc(i, Length('&middot;'));
-    end
+    end // if (l_Char = 61623) then
     // Заменяем на пробел
     else
      if (l_Char > 60000) then
@@ -377,7 +440,7 @@ begin
  end; // if TryUTF8ToUTF16(f_Text, l_WS) then  
 end;
 
-function TddSimpleHTMLReader.DoHTMLEntity2Char(const anEntity: AnsiString; var aChar: AnsiChar): Boolean;
+function TddSimpleHTMLReader.DoHTMLEntity2Char(anEntity: AnsiString; var aChar: AnsiChar): Boolean;
 begin
  Result := False;
  if anEntity = '&times;' then
@@ -387,7 +450,7 @@ begin
  end; // if anEntity = '&times;' then
 end;
 
-procedure TddSimpleHTMLReader.HTMLEntity2Char(const anEntity: AnsiString; const aText: Tl3String);
+procedure TddSimpleHTMLReader.HTMLEntity2Char(anEntity: AnsiString; const aText: Tl3String);
 var
  l_Code  : Integer;
  l_Char  : AnsiChar;
@@ -451,61 +514,11 @@ begin
   end;
 end;
 
-procedure TddSimpleHTMLReader.ClearText(const aText: Tl3String);
-var
- l_Pos     : Integer;
- l_Len     : Integer;
- l_Char    : AnsiChar;
- l_Code    : Integer;
- l_Entity  : AnsiString;
- l_EnStart : Integer;
- l_CodePage: Integer;
+procedure TddSimpleHTMLReader.ClearText(const aOut: Tl3String);
 begin
  if f_CodePage = cp_UTF8 then
   CheckTextWithUTF8;
- l_Pos := 1;
- l_CodePage := CP_ANSI;
- l_Len := Length(f_Text);
- while l_Pos <= l_Len do
- begin
-  l_Char := f_Text[l_Pos];
-  case l_Char of
-   cc_Tab: aText.Append(cc_HardSpace, 1, l_CodePage);
-   cc_HardEnter: begin
-    Inc(l_Pos);
-    if (l_Pos > l_Len) or (f_Text[l_Pos] <> cc_SoftEnter) then
-     Dec(l_Pos);
-    aText.Append(cc_HardSpace, 1, l_CodePage);
-   end;
-   cc_Ampersand: begin
-    if l_Len > 1 then // http://mdp.garant.ru/pages/viewpage.action?pageId=585940693
-    begin
-     l_EnStart := l_Pos;
-     while (f_Text[l_Pos] <> cc_SemiColon) and (f_Text[l_Pos] <> cc_HardSpace) do
-     begin
-      Inc(l_Pos);
-      if l_Pos > l_Len then
-      begin
-       Dec(l_Pos);
-       Break;
-      end; // if l_Pos > l_Len then
-     end; // while (l_Char <> cc_SemiColon) or (l_Char <> cc_HardSpace) do
-     l_Entity := Copy(f_Text, l_EnStart, l_Pos - l_EnStart + 1);
-     HTMLEntity2Char(l_Entity, aText);
-    end
-    else
-     if l_Char <> cc_Null then
-      aText.Append(l_Char, 1, l_CodePage);
-   end;
-   else
-    if l_Char <> cc_Null then
-     aText.Append(l_Char, 1, l_CodePage);
-  end; // case l_Char of
-  Inc(l_Pos);
-  if l3IsWhiteSpace(l_Char) then
-   while (l_Pos <= l_Len) and l3IsWhiteSpace(f_Text[l_Pos]) do
-    Inc(l_Pos);
- end; // while l_Pos <= l_Len do
+ ReasolveEntity(f_Text, aOut);
 end;
 
 procedure TddSimpleHTMLReader.AnalyzeProc(var theBreakAnalyze: Boolean);
@@ -522,9 +535,9 @@ procedure TddSimpleHTMLReader.CreateParser;
 var
  l_Parser: TddHTMLParser;
 begin
- l_Parser:= TddHTMLParser.Create;
+ l_Parser := TddHTMLParser.Create;
  try
-  Parser:= l_Parser;
+  Parser := l_Parser;
  finally
   FreeAndNil(l_Parser);
  end;
@@ -534,15 +547,12 @@ procedure TddSimpleHTMLReader.Read;
 begin
  f_BreakAnalyze:= False;
  f_IsPre:= False;
+ f_InDel := 0;
  with Parser do
  begin
-  f_TokenReaded:= False;
   while (not Parser.Filer.EOF) and (not f_BreakAnalyze) do
   begin
-   if not f_TokenReaded then
-    NextTokenSP
-   else
-    f_TokenReaded:= False;
+   NextTokenSP;
    if TokenType = l3_ttKeyword then
     WorkupKeyword
    else
@@ -572,8 +582,8 @@ begin
   else
    if Abs(l_TagID) = tidPre then
     f_IsPre := l_TagID > 0;
- Parser.WhiteSpace := l3_DefaultParserWhiteSpace - [#13, #10, #32];
- Parser.WordChars  := l3_DefaultParserWordChars + cc_ANSIRussian + cc_Digits + [#13,#10] + ['[',']'] + [cc_Dot, cc_PercentSign];
+ Parser.WhiteSpace := l3_DefaultParserWhiteSpace - [cc_HardEnter, cc_SoftEnter, cc_HardSpace];
+ Parser.WordChars  := l3_DefaultParserWordChars + cc_ANSIRussian + cc_Digits + [cc_HardEnter, cc_SoftEnter] + ['[',']'] + [cc_Dot, cc_PercentSign, cc_Hyphen];
  Parser.CheckKeyWords := False;
  if l_IsParcingTag then
   l_NewTag := TddHTMLTag.Create(l_TagID)
@@ -630,37 +640,29 @@ end;
 
 procedure TddSimpleHTMLReader.WorkupSymbol;
 begin
+ if (GetHTMLParser.PrevSourceLine < GetHTMLParser.SourceLine) then
+ begin
+  if (f_Text <> '') then
+   f_Text := f_Text + cc_HardSpace;
+  GetHTMLParser.PrevSourceLine := GetHTMLParser.SourceLine;
+ end; // if Parser.PrevSourceLine < Parser.SourceLine then
  f_Text := f_Text + Parser.TokenString;
 end;
 
 function TddSimpleHTMLReader.IsTextNotEmpty: Boolean;
 begin
- Result := f_Text <> '';
+ Result := (f_Text <> '') and (f_InDel = 0);
 end;
 
 procedure TddSimpleHTMLReader.Try2OpenNewPara;
-
- function lp_InTable: Boolean;
- begin
-  Result := ((f_Document.Table <> nil) and (f_Document.Table.LastRow.CellCount > 0));
- end;
-
- function lp_InText: Boolean;
- begin
-  Result := (f_Document.Table = nil) and (not f_SpecText or f_IsHeader);
- end;
 
  function lp_InHeadText: Boolean;
  var
   l_LastPara: TddDocumentAtom;
  begin
-  Result := (f_Document.Table = nil) and (not f_SpecText and f_IsHeader);
-  if Result then
-  begin
-   l_LastPara := f_Document.LastPara;
-   if (l_LastPara <> nil) and (l_LastPara.Empty or l_LastPara.HasSoftEnter) then
-    Result := False;
-  end;
+  l_LastPara := f_Document.LastPara;
+  if (l_LastPara <> nil) then
+   Result := False;
  end;
 
  function lp_NotEmpty: Boolean;
@@ -669,11 +671,8 @@ procedure TddSimpleHTMLReader.Try2OpenNewPara;
  end;
 
 begin
- if f_IsPara and lp_InHeadText and lp_NotEmpty then
-  OpenParagraph
- else
-  if not f_IsPara and lp_NotEmpty and (lp_InText or lp_InTable) then
-   OpenParagraph
+ if IsData and lp_InHeadText and lp_NotEmpty then
+  OpenParagraph;
 end;
 
 procedure TddSimpleHTMLReader.ParseStyleTable(aStyleTable: AnsiString);
@@ -683,7 +682,7 @@ begin
     формат_стиля - параметр:значение;..
    *)
   if aStyleTable <> '' then
-   l3ParseWordsEx(l3PCharLen(aStyleTable), ParseStyle, ['}']);
+   l3ParseWordsEx(l3PCharLen(aStyleTable), ParseStyle, [cc_CloseBrace]);
 end;
 
 function TddSimpleHTMLReader.ParseStyle(const aStyle: Tl3PCharLen; IsLast: Bool):
@@ -706,25 +705,28 @@ begin
  l_Style := Trim(l3PCharLen2String(aStyle));
  if (l_Style <> '') and (l_Style <> Parser.CloseComment) then
  begin
-  l_StyleName := Trim(Copy(l_Style, 1, Pred(Pos('{', l_Style))));
-  l_StyleEntry := f_Document.StyleByName(l_StyleName).Use;
-
-  if l_StyleEntry = nil then
+  l_StyleName := Trim(Copy(l_Style, 1, Pred(Pos(cc_OpenBrace, l_Style))));
+  if l_StyleName <> '' then
   begin
-   l_StyleEntry := TddStyleEntry.Create;
-   l_StyleEntry.AsString:= l_StyleName;
-   if l_StyleEntry.AsWStr.S[0] = '.' then
-    (l_StyleEntry As Tl3CustomString).Delete(0, 1);
-  end
-  else
-   l_StyleEntry.Clear;
-  try
-   Delete(l_Style, 1, Pos('{', l_Style));
-   l3ParseWordsExF(l3PCharLen(l_Style), l3L2WA(@l_TranslateParam), [';']);
-   f_Document.AddStyle(l_StyleEntry);
-  finally
-   l3Free(l_StyleEntry);
-  end;//try.finally
+   l_StyleEntry := f_Document.StyleByName(l_StyleName).Use;
+
+   if l_StyleEntry = nil then
+   begin
+    l_StyleEntry := TddStyleEntry.Create;
+    l_StyleEntry.AsString:= l_StyleName;
+    if l_StyleEntry.AsWStr.S[0] = cc_Dot then
+     (l_StyleEntry As Tl3CustomString).Delete(0, 1);
+   end // if l_StyleEntry = nil then
+   else
+    l_StyleEntry.Clear;
+   try
+    Delete(l_Style, 1, Pos(cc_OpenBrace, l_Style));
+    l3ParseWordsExF(l3PCharLen(l_Style), l3L2WA(@l_TranslateParam), [cc_SemiColon]);
+    f_Document.AddStyle(l_StyleEntry);
+   finally
+    l3Free(l_StyleEntry);
+   end;//try.finally
+  end; // if l_StyleName <> '' then
  end; 
 end;
 
@@ -744,7 +746,7 @@ var
  l_ParamValue: Tl3PCharLen;
 begin
    {параметр:значение;}
-  l_SepPos := ev_lpCharIndex(':', aStr);
+  l_SepPos := ev_lpCharIndex(cc_Colon, aStr);
   l_Start := 0;
   lp_GetFirstPos(l_Start);
   l_ParamName := l3PCharLenPart(aStr.S, l_Start, l_SepPos, aStr.SCodePage);
@@ -854,8 +856,8 @@ begin
     aStyle.PAP.xaRight := l_Margin;
     aStyle.PAP.Before := l_Margin;
     aStyle.PAP.After := l_Margin;
-   end;
-  end;
+   end; // if l3Compare(l_ParamName, carCSSParamStrArray[dd_cssMargin], l3_siCaseUnsensitive) = 0 then
+  end; // if l3Pos(l_ParamName, carCSSParamStrArray[dd_cssMargin]) <> l3NotFound then
 end;
 
 function TddSimpleHTMLReader.ConvertFontSize(const aStr : Tl3PCharLen): Integer;
@@ -925,6 +927,8 @@ procedure TddSimpleHTMLReader.CleanUp;
 begin
  f_InitCodePage := False;
  f_CodePage := cp_ANSI;
+ f_ReadURL := False;
+ f_ReadIns := False;
  inherited;
 end;
 
@@ -954,6 +958,99 @@ begin
    Result := i;
    Break;
   end;
+end;
+
+function TddSimpleHTMLReader.GetHTMLParser: TddHTMLParser;
+begin
+ Result := TddHTMLParser(Parser);
+end;
+
+procedure TddSimpleHTMLReader.pm_SetReadURL(const Value: Boolean);
+begin
+ f_ReadURL := Value;
+end;
+
+procedure TddSimpleHTMLReader.pm_SetData(const Value: Boolean);
+begin
+ f_IsData := Value;
+end;
+
+procedure TddSimpleHTMLReader.ReasolveEntity(anIn: AnsiString;
+  const aOut: Tl3String);
+var
+ l_Pos     : Integer;
+ l_Len     : Integer;
+ l_Char    : AnsiChar;
+ l_Code    : Integer;
+ l_Entity  : AnsiString;
+ l_EnStart : Integer;
+ l_CodePage: Integer;
+begin
+ l_Pos := 1;
+ l_CodePage := CP_ANSI;
+ l_Len := Length(anIn);
+ while l_Pos <= l_Len do
+ begin
+  l_Char := anIn[l_Pos];
+  case l_Char of
+   cc_Tab: aOut.Append(cc_HardSpace, 1, l_CodePage);
+   cc_HardEnter: begin
+    Inc(l_Pos);
+    if (l_Pos > l_Len) or (anIn[l_Pos] <> cc_SoftEnter) then
+     Dec(l_Pos);
+    aOut.Append(cc_HardSpace, 1, l_CodePage);
+   end;
+   cc_Ampersand: begin
+    if l_Len > 1 then // http://mdp.garant.ru/pages/viewpage.action?pageId=585940693
+    begin
+     l_EnStart := l_Pos;
+     while (anIn[l_Pos] <> cc_SemiColon) and (anIn[l_Pos] <> cc_HardSpace) do
+     begin
+      Inc(l_Pos);
+      if l_Pos > l_Len then
+      begin
+       Dec(l_Pos);
+       Break;
+      end; // if l_Pos > l_Len then
+     end; // while (l_Char <> cc_SemiColon) or (l_Char <> cc_HardSpace) do
+     l_Entity := Copy(anIn, l_EnStart, l_Pos - l_EnStart + 1);
+     HTMLEntity2Char(l_Entity, aOut);
+    end // if l_Len > 1 then
+    else
+     if l_Char <> cc_Null then
+     aOut.Append(l_Char, 1, l_CodePage);
+   end;
+   else
+    if l_Char <> cc_Null then
+     aOut.Append(l_Char, 1, l_CodePage);
+  end; // case l_Char of
+  Inc(l_Pos);
+  if l3IsWhiteSpace(l_Char) then
+   while (l_Pos <= l_Len) and l3IsWhiteSpace(anIn[l_Pos]) do
+    Inc(l_Pos);
+ end; // while l_Pos <= l_Len do
+end;
+
+procedure TddSimpleHTMLReader.pm_SetReadIns(const Value: Boolean);
+begin
+ f_ReadIns := Value;
+end;
+
+procedure TddSimpleHTMLReader.DecInDel;
+begin
+ Dec(f_InDel);
+ if f_InDel = 0 then
+  DelTagsFinished;
+end;
+
+procedure TddSimpleHTMLReader.IncInDel;
+begin
+ Inc(f_InDel);
+end;
+
+procedure TddSimpleHTMLReader.DelTagsFinished;
+begin
+
 end;
 
 end.

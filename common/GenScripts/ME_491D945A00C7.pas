@@ -3,6 +3,7 @@ unit dsAdmin;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsAdmin.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsAdmin" MUID: (491D945A00C7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

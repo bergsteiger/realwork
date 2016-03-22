@@ -75,7 +75,7 @@ type
    procedure LoadSettings;
      {* загружает настройки для дерева. }
    function MakeCurrentPrimeName: IString;
-   procedure ChangeCaption;
+   procedure CheckAndChangeCaption(aCheckOnly: Boolean);
      {* передает дереву новое значение _Caption редактируемого узла. }
  protected
  // property methods
@@ -213,7 +213,8 @@ uses
   ,
   l3Nodes,
   PrimeUnit,
-  l3Chars
+  l3Chars,
+  l3TreeInterfaces
   ;
 
 // start class TnsPostingsTree
@@ -275,7 +276,7 @@ begin
 //#UC END# *52F9FC4C00A0_4ADEF93B0159_impl*
 end;//TnsPostingsTree.MakeCurrentPrimeName
 
-procedure TnsPostingsTree.ChangeCaption;
+procedure TnsPostingsTree.CheckAndChangeCaption(aCheckOnly: Boolean);
 //#UC START# *52F9FD4D014F_4ADEF93B0159_var*
  function lp_GetNameIndex(const aName: Il3CString): Integer;
  var
@@ -322,15 +323,18 @@ begin
    l_SameNameIndex := lp_GetNameIndex(l_NewName);
    if (l_SameNameIndex >= 0) and (l_SameNameIndex <> EditNodeIndex) then
     raise EDuplicateName.Create('');
-   l_Item.SetName(nsIStr(l_NewName));
-   if Assigned(f_OnEditNode) then
-    f_OnEditNode(f_EditNodeIndex, l_NewName);
+   if not aCheckOnly then
+   begin
+    l_Item.SetName(nsIStr(l_NewName));
+    if Assigned(f_OnEditNode) then
+     f_OnEditNode(f_EditNodeIndex, l_NewName);
+   end;
   end;
  finally
   l_List := nil;
  end;//try..finally
 //#UC END# *52F9FD4D014F_4ADEF93B0159_impl*
-end;//TnsPostingsTree.ChangeCaption
+end;//TnsPostingsTree.CheckAndChangeCaption
 
 constructor TnsPostingsTree.Create;
 //#UC START# *52F9FCAF0340_4ADEF93B0159_var*
@@ -550,18 +554,21 @@ begin
   begin
    Result := False;
    try
-    ChangeCaption;
-    Result := True;
+    CheckAndChangeCaption(True);
    except
     on EDuplicateName do
     begin
      vcmSay(inf_PostingAlreadyExist);
+     Result := False;
      Exit;
     end;//EDuplicateName
    end;//try..except
 
    if vcmAsk(qr_QueryWasSaved) then
-    lp_Save
+   begin
+    CheckAndChangeCaption(False);
+    lp_Save;
+   end
    else
     Result := False;
   end

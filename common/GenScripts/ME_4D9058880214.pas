@@ -2,6 +2,7 @@ unit vtPopupFormModelPart;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtPopupFormModelPart.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtPopupFormModelPart" MUID: (4D9058880214)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -2,6 +2,7 @@ unit afwCustomCaretType_p;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\afwCustomCaretType_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TafwCustomCaretType" MUID: (4999A8660215)
 
 {$Include w:\common\components\l3Define.inc}
 

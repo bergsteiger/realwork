@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevBasePoint.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevBasePoint" MUID: (49DE374402D1)
+// Имя типа: "_nevBasePoint_"
 
 {$Define nevBasePoint_imp}
 

@@ -1267,7 +1267,7 @@ object DocEditorWindow: TDocEditorWindow
               Top = 293
               Width = 411
               Height = 17
-              Caption = #1054#1073#1088#1072#1073#1086#1090#1082#1072' '#1086#1090#1083#1086#1078#1077#1085#1072
+              Caption = #1055#1086#1076#1082#1083#1102#1095#1077#1085#1080#1077' '#1086#1090#1083#1086#1078#1077#1085#1086
               TabOrder = 10
               OnClick = cbxHangClick
             end
@@ -1328,11 +1328,11 @@ object DocEditorWindow: TDocEditorWindow
             OnGetCellAttributes = tblStageGetCellAttributes
             CellData = (
               'DocEditorWindow.chStage'
-              'DocEditorWindow.tcStageCheckTime'
-              'DocEditorWindow.tcStageCheckUser'
-              'DocEditorWindow.tcStageName'
+              'DocEditorWindow.tcStageBegin'
               'DocEditorWindow.tcStageEnd'
-              'DocEditorWindow.tcStageBegin')
+              'DocEditorWindow.tcStageName'
+              'DocEditorWindow.tcStageCheckUser'
+              'DocEditorWindow.tcStageCheckTime')
             RowData = (
               30
               2

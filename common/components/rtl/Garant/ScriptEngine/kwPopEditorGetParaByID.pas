@@ -13,6 +13,8 @@ unit kwPopEditorGetParaByID;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetParaByID.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_GetParaByID" MUID: (4EB27F0E00CF)
+// Имя типа: "TkwPopEditorGetParaByID"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

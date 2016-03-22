@@ -3,6 +3,7 @@ unit arCommonTypes;
 
 // Модуль: "w:\archi\source\projects\Common\Utils\arCommonTypes.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "arCommonTypes" MUID: (52E788B40110)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 

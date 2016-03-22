@@ -1,77 +1,55 @@
 unit TextViaEditorProcessor;
+ {* Обработчик текста через редактор }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/TextViaEditorProcessor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TTextViaEditorProcessor
-//
-// Обработчик текста через редактор
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\TextViaEditorProcessor.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TTextViaEditorProcessor" MUID: (4BE111D30229)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TextEditorVisitor,
-  PrimTextLoad_Form
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , TextEditorVisitor
+ , PrimTextLoad_Form
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TTextViaEditorProcessor = {abstract} class(TTextEditorVisitor)
   {* Обработчик текста через редактор }
- protected
- // realized methods
-   procedure DoVisit(aForm: TPrimTextLoadForm); override;
-     {* Обработать текст }
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    function EtalonFileExtension: AnsiString; virtual;
-     {* Расширение эталонного файла }
+    {* Расширение эталонного файла }
    function HeaderBegin: AnsiChar; virtual;
    procedure Process(aForm: TPrimTextLoadForm); virtual; abstract;
-     {* Собственно процесс обработки текста }
+    {* Собственно процесс обработки текста }
+   procedure DoVisit(aForm: TPrimTextLoadForm); override;
+    {* Обработать текст }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TTextViaEditorProcessor
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TTextViaEditorProcessor
+ l3ImplUses
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 function TTextViaEditorProcessor.EtalonFileExtension: AnsiString;
+ {* Расширение эталонного файла }
 //#UC START# *4D0769150130_4BE111D30229_var*
 //#UC END# *4D0769150130_4BE111D30229_var*
 begin
@@ -90,6 +68,7 @@ begin
 end;//TTextViaEditorProcessor.HeaderBegin
 
 procedure TTextViaEditorProcessor.DoVisit(aForm: TPrimTextLoadForm);
+ {* Обработать текст }
 //#UC START# *4BE419AF0217_4BE111D30229_var*
 //#UC END# *4BE419AF0217_4BE111D30229_var*
 begin
@@ -101,17 +80,16 @@ begin
 end;//TTextViaEditorProcessor.DoVisit
 
 function TTextViaEditorProcessor.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TTextViaEditorProcessor.GetFolder
 
 function TTextViaEditorProcessor.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4BE111D30229';
 end;//TTextViaEditorProcessor.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

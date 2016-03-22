@@ -1,66 +1,46 @@
 unit PreviewTestBefore278833302;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Daily/PreviewTestBefore278833302.pas"
-// Начат: 27.12.2010 16:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TPreviewTestBefore278833302
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\PreviewTestBefore278833302.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TPreviewTestBefore278833302" MUID: (4D18986B03D0)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  PreviewTestBefore235875079
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , PreviewTestBefore235875079
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TPreviewTestBefore278833302 = {abstract} class(TPreviewTestBefore235875079)
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function IsBefore235875079: Boolean; override;
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TPreviewTestBefore278833302
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TPreviewTestBefore278833302
+ l3ImplUses
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 function TPreviewTestBefore278833302.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TPreviewTestBefore278833302.GetFolder
@@ -75,11 +55,10 @@ begin
 end;//TPreviewTestBefore278833302.IsBefore235875079
 
 function TPreviewTestBefore278833302.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D18986B03D0';
 end;//TPreviewTestBefore278833302.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

@@ -2,6 +2,7 @@ unit OfficeLikeAppInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLikeAppInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "OfficeLikeAppInterfaces" MUID: (4ADDE3D70311)
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

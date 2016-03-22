@@ -3,6 +3,7 @@ unit CustomizeTasksPanelKeywordsPack;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\CustomizeTasksPanelKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "CustomizeTasksPanelKeywordsPack" MUID: (4D0A6F43B618)
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 
@@ -57,9 +58,9 @@ type
 'aControl' форма::CustomizeTasksPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_CustomizeTasksPanel
 
  Tkw_CustomizeTasksPanel_Control_spRight = {final} class(TtfwControlString)
@@ -70,9 +71,9 @@ type
 контрол::spRight TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_spRight
 
  Tkw_CustomizeTasksPanel_Control_spRight_Push = {final} class(TkwBynameControlPush)
@@ -95,9 +96,9 @@ type
 контрол::pnlBottom TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_pnlBottom
 
  Tkw_CustomizeTasksPanel_Control_pnlBottom_Push = {final} class(TkwBynameControlPush)
@@ -120,9 +121,9 @@ type
 контрол::lblConfirmSave TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_lblConfirmSave
 
  Tkw_CustomizeTasksPanel_Control_lblConfirmSave_Push = {final} class(TkwBynameControlPush)
@@ -145,9 +146,9 @@ type
 контрол::lblAvailableOpsCaption TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption
 
  Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption_Push = {final} class(TkwBynameControlPush)
@@ -170,9 +171,9 @@ type
 контрол::btOk TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btOk
 
  Tkw_CustomizeTasksPanel_Control_btOk_Push = {final} class(TkwBynameControlPush)
@@ -195,9 +196,9 @@ type
 контрол::btCancel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btCancel
 
  Tkw_CustomizeTasksPanel_Control_btCancel_Push = {final} class(TkwBynameControlPush)
@@ -220,9 +221,9 @@ type
 контрол::btApply TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btApply
 
  Tkw_CustomizeTasksPanel_Control_btApply_Push = {final} class(TkwBynameControlPush)
@@ -245,9 +246,9 @@ type
 контрол::pnlRep TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_pnlRep
 
  Tkw_CustomizeTasksPanel_Control_pnlRep_Push = {final} class(TkwBynameControlPush)
@@ -270,9 +271,9 @@ type
 контрол::splRep TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_splRep
 
  Tkw_CustomizeTasksPanel_Control_splRep_Push = {final} class(TkwBynameControlPush)
@@ -295,9 +296,9 @@ type
 контрол::gbAvailableGroups TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_gbAvailableGroups
 
  Tkw_CustomizeTasksPanel_Control_gbAvailableGroups_Push = {final} class(TkwBynameControlPush)
@@ -320,9 +321,9 @@ type
 контрол::tvRepGroups TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_tvRepGroups
 
  Tkw_CustomizeTasksPanel_Control_tvRepGroups_Push = {final} class(TkwBynameControlPush)
@@ -345,9 +346,9 @@ type
 контрол::vtPanel1 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_vtPanel1
 
  Tkw_CustomizeTasksPanel_Control_vtPanel1_Push = {final} class(TkwBynameControlPush)
@@ -370,9 +371,9 @@ type
 контрол::cbGroupName TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_cbGroupName
 
  Tkw_CustomizeTasksPanel_Control_cbGroupName_Push = {final} class(TkwBynameControlPush)
@@ -395,9 +396,9 @@ type
 контрол::btnAddGroup TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnAddGroup
 
  Tkw_CustomizeTasksPanel_Control_btnAddGroup_Push = {final} class(TkwBynameControlPush)
@@ -420,9 +421,9 @@ type
 контрол::btnChangeGroup TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnChangeGroup
 
  Tkw_CustomizeTasksPanel_Control_btnChangeGroup_Push = {final} class(TkwBynameControlPush)
@@ -445,9 +446,9 @@ type
 контрол::btnDeleteGroup TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnDeleteGroup
 
  Tkw_CustomizeTasksPanel_Control_btnDeleteGroup_Push = {final} class(TkwBynameControlPush)
@@ -470,9 +471,9 @@ type
 контрол::gbAvailableOperations TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_gbAvailableOperations
 
  Tkw_CustomizeTasksPanel_Control_gbAvailableOperations_Push = {final} class(TkwBynameControlPush)
@@ -495,9 +496,9 @@ type
 контрол::tvRepOps TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_tvRepOps
 
  Tkw_CustomizeTasksPanel_Control_tvRepOps_Push = {final} class(TkwBynameControlPush)
@@ -520,9 +521,9 @@ type
 контрол::pnlForms TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_pnlForms
 
  Tkw_CustomizeTasksPanel_Control_pnlForms_Push = {final} class(TkwBynameControlPush)
@@ -545,9 +546,9 @@ type
 контрол::lblForms TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_lblForms
 
  Tkw_CustomizeTasksPanel_Control_lblForms_Push = {final} class(TkwBynameControlPush)
@@ -570,9 +571,9 @@ type
 контрол::cbForms TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_cbForms
 
  Tkw_CustomizeTasksPanel_Control_cbForms_Push = {final} class(TkwBynameControlPush)
@@ -595,9 +596,9 @@ type
 контрол::pnlMain TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_pnlMain
 
  Tkw_CustomizeTasksPanel_Control_pnlMain_Push = {final} class(TkwBynameControlPush)
@@ -620,9 +621,9 @@ type
 контрол::pnlLeft TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_pnlLeft
 
  Tkw_CustomizeTasksPanel_Control_pnlLeft_Push = {final} class(TkwBynameControlPush)
@@ -645,9 +646,9 @@ type
 контрол::btnMoveOpToPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel
 
  Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel_Push = {final} class(TkwBynameControlPush)
@@ -670,9 +671,9 @@ type
 контрол::btnMoveOpToRep TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep
 
  Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep_Push = {final} class(TkwBynameControlPush)
@@ -695,9 +696,9 @@ type
 контрол::btnMoveGroupToPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel
 
  Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel_Push = {final} class(TkwBynameControlPush)
@@ -720,9 +721,9 @@ type
 контрол::btnMoveGroupToRep TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep
 
  Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep_Push = {final} class(TkwBynameControlPush)
@@ -745,9 +746,9 @@ type
 контрол::pnlTasksPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_pnlTasksPanel
 
  Tkw_CustomizeTasksPanel_Control_pnlTasksPanel_Push = {final} class(TkwBynameControlPush)
@@ -770,9 +771,9 @@ type
 контрол::gbTasksPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_gbTasksPanel
 
  Tkw_CustomizeTasksPanel_Control_gbTasksPanel_Push = {final} class(TkwBynameControlPush)
@@ -795,9 +796,9 @@ type
 контрол::tvTasksPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_tvTasksPanel
 
  Tkw_CustomizeTasksPanel_Control_tvTasksPanel_Push = {final} class(TkwBynameControlPush)
@@ -820,9 +821,9 @@ type
 контрол::vtGroupBox3 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_vtGroupBox3
 
  Tkw_CustomizeTasksPanel_Control_vtGroupBox3_Push = {final} class(TkwBynameControlPush)
@@ -845,9 +846,9 @@ type
 контрол::lblCaption TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_lblCaption
 
  Tkw_CustomizeTasksPanel_Control_lblCaption_Push = {final} class(TkwBynameControlPush)
@@ -870,9 +871,9 @@ type
 контрол::edChange TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_edChange
 
  Tkw_CustomizeTasksPanel_Control_edChange_Push = {final} class(TkwBynameControlPush)
@@ -895,9 +896,9 @@ type
 контрол::cbForAllUseCases TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_cbForAllUseCases
 
  Tkw_CustomizeTasksPanel_Control_cbForAllUseCases_Push = {final} class(TkwBynameControlPush)
@@ -920,9 +921,9 @@ type
 контрол::btnChangeItem TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnChangeItem
 
  Tkw_CustomizeTasksPanel_Control_btnChangeItem_Push = {final} class(TkwBynameControlPush)
@@ -945,9 +946,9 @@ type
 контрол::pnlOperationPos TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_pnlOperationPos
 
  Tkw_CustomizeTasksPanel_Control_pnlOperationPos_Push = {final} class(TkwBynameControlPush)
@@ -970,9 +971,9 @@ type
 контрол::UpBitBtn TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_UpBitBtn
 
  Tkw_CustomizeTasksPanel_Control_UpBitBtn_Push = {final} class(TkwBynameControlPush)
@@ -995,9 +996,9 @@ type
 контрол::DownBitBtn TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_DownBitBtn
 
  Tkw_CustomizeTasksPanel_Control_DownBitBtn_Push = {final} class(TkwBynameControlPush)
@@ -1924,11 +1925,6 @@ OBJECT VAR l_TBitBtn
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwCustomizeTasksPanelFormDownBitBtn
 
-class function Tkw_Form_CustomizeTasksPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::CustomizeTasksPanel';
-end;//Tkw_Form_CustomizeTasksPanel.GetWordNameForRegister
-
 function Tkw_Form_CustomizeTasksPanel.GetString: AnsiString;
 begin
  Result := 'CustomizeTasksPanelForm';
@@ -1940,10 +1936,10 @@ begin
  TtfwClassRef.Register(TCustomizeTasksPanelForm);
 end;//Tkw_Form_CustomizeTasksPanel.RegisterInEngine
 
-class function Tkw_CustomizeTasksPanel_Control_spRight.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_CustomizeTasksPanel.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::spRight';
-end;//Tkw_CustomizeTasksPanel_Control_spRight.GetWordNameForRegister
+ Result := 'форма::CustomizeTasksPanel';
+end;//Tkw_Form_CustomizeTasksPanel.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_spRight.GetString: AnsiString;
 begin
@@ -1956,6 +1952,11 @@ begin
  TtfwClassRef.Register(TvtSplitter);
 end;//Tkw_CustomizeTasksPanel_Control_spRight.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_spRight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::spRight';
+end;//Tkw_CustomizeTasksPanel_Control_spRight.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_spRight_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('spRight');
@@ -1966,11 +1967,6 @@ class function Tkw_CustomizeTasksPanel_Control_spRight_Push.GetWordNameForRegist
 begin
  Result := 'контрол::spRight:push';
 end;//Tkw_CustomizeTasksPanel_Control_spRight_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_pnlBottom.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlBottom';
-end;//Tkw_CustomizeTasksPanel_Control_pnlBottom.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_pnlBottom.GetString: AnsiString;
 begin
@@ -1983,6 +1979,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CustomizeTasksPanel_Control_pnlBottom.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_pnlBottom.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlBottom';
+end;//Tkw_CustomizeTasksPanel_Control_pnlBottom.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_pnlBottom_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlBottom');
@@ -1993,11 +1994,6 @@ class function Tkw_CustomizeTasksPanel_Control_pnlBottom_Push.GetWordNameForRegi
 begin
  Result := 'контрол::pnlBottom:push';
 end;//Tkw_CustomizeTasksPanel_Control_pnlBottom_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_lblConfirmSave.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lblConfirmSave';
-end;//Tkw_CustomizeTasksPanel_Control_lblConfirmSave.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_lblConfirmSave.GetString: AnsiString;
 begin
@@ -2010,6 +2006,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_CustomizeTasksPanel_Control_lblConfirmSave.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_lblConfirmSave.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblConfirmSave';
+end;//Tkw_CustomizeTasksPanel_Control_lblConfirmSave.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_lblConfirmSave_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lblConfirmSave');
@@ -2020,11 +2021,6 @@ class function Tkw_CustomizeTasksPanel_Control_lblConfirmSave_Push.GetWordNameFo
 begin
  Result := 'контрол::lblConfirmSave:push';
 end;//Tkw_CustomizeTasksPanel_Control_lblConfirmSave_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lblAvailableOpsCaption';
-end;//Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption.GetString: AnsiString;
 begin
@@ -2037,6 +2033,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblAvailableOpsCaption';
+end;//Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lblAvailableOpsCaption');
@@ -2047,11 +2048,6 @@ class function Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption_Push.GetWo
 begin
  Result := 'контрол::lblAvailableOpsCaption:push';
 end;//Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_btOk.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btOk';
-end;//Tkw_CustomizeTasksPanel_Control_btOk.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_btOk.GetString: AnsiString;
 begin
@@ -2064,6 +2060,11 @@ begin
  TtfwClassRef.Register(TvtButton);
 end;//Tkw_CustomizeTasksPanel_Control_btOk.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_btOk.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btOk';
+end;//Tkw_CustomizeTasksPanel_Control_btOk.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_btOk_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('btOk');
@@ -2074,11 +2075,6 @@ class function Tkw_CustomizeTasksPanel_Control_btOk_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::btOk:push';
 end;//Tkw_CustomizeTasksPanel_Control_btOk_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_btCancel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btCancel';
-end;//Tkw_CustomizeTasksPanel_Control_btCancel.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_btCancel.GetString: AnsiString;
 begin
@@ -2091,6 +2087,11 @@ begin
  TtfwClassRef.Register(TvtButton);
 end;//Tkw_CustomizeTasksPanel_Control_btCancel.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_btCancel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btCancel';
+end;//Tkw_CustomizeTasksPanel_Control_btCancel.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_btCancel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('btCancel');
@@ -2101,11 +2102,6 @@ class function Tkw_CustomizeTasksPanel_Control_btCancel_Push.GetWordNameForRegis
 begin
  Result := 'контрол::btCancel:push';
 end;//Tkw_CustomizeTasksPanel_Control_btCancel_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_btApply.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btApply';
-end;//Tkw_CustomizeTasksPanel_Control_btApply.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_btApply.GetString: AnsiString;
 begin
@@ -2118,6 +2114,11 @@ begin
  TtfwClassRef.Register(TvtButton);
 end;//Tkw_CustomizeTasksPanel_Control_btApply.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_btApply.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btApply';
+end;//Tkw_CustomizeTasksPanel_Control_btApply.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_btApply_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('btApply');
@@ -2128,11 +2129,6 @@ class function Tkw_CustomizeTasksPanel_Control_btApply_Push.GetWordNameForRegist
 begin
  Result := 'контрол::btApply:push';
 end;//Tkw_CustomizeTasksPanel_Control_btApply_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_pnlRep.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlRep';
-end;//Tkw_CustomizeTasksPanel_Control_pnlRep.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_pnlRep.GetString: AnsiString;
 begin
@@ -2145,6 +2141,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CustomizeTasksPanel_Control_pnlRep.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_pnlRep.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlRep';
+end;//Tkw_CustomizeTasksPanel_Control_pnlRep.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_pnlRep_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlRep');
@@ -2155,11 +2156,6 @@ class function Tkw_CustomizeTasksPanel_Control_pnlRep_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::pnlRep:push';
 end;//Tkw_CustomizeTasksPanel_Control_pnlRep_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_splRep.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::splRep';
-end;//Tkw_CustomizeTasksPanel_Control_splRep.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_splRep.GetString: AnsiString;
 begin
@@ -2172,6 +2168,11 @@ begin
  TtfwClassRef.Register(TvtSplitter);
 end;//Tkw_CustomizeTasksPanel_Control_splRep.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_splRep.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::splRep';
+end;//Tkw_CustomizeTasksPanel_Control_splRep.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_splRep_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('splRep');
@@ -2182,11 +2183,6 @@ class function Tkw_CustomizeTasksPanel_Control_splRep_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::splRep:push';
 end;//Tkw_CustomizeTasksPanel_Control_splRep_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_gbAvailableGroups.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::gbAvailableGroups';
-end;//Tkw_CustomizeTasksPanel_Control_gbAvailableGroups.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_gbAvailableGroups.GetString: AnsiString;
 begin
@@ -2199,6 +2195,11 @@ begin
  TtfwClassRef.Register(TvtGroupBox);
 end;//Tkw_CustomizeTasksPanel_Control_gbAvailableGroups.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_gbAvailableGroups.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::gbAvailableGroups';
+end;//Tkw_CustomizeTasksPanel_Control_gbAvailableGroups.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_gbAvailableGroups_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('gbAvailableGroups');
@@ -2209,11 +2210,6 @@ class function Tkw_CustomizeTasksPanel_Control_gbAvailableGroups_Push.GetWordNam
 begin
  Result := 'контрол::gbAvailableGroups:push';
 end;//Tkw_CustomizeTasksPanel_Control_gbAvailableGroups_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_tvRepGroups.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::tvRepGroups';
-end;//Tkw_CustomizeTasksPanel_Control_tvRepGroups.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_tvRepGroups.GetString: AnsiString;
 begin
@@ -2226,6 +2222,11 @@ begin
  TtfwClassRef.Register(TeeTreeView);
 end;//Tkw_CustomizeTasksPanel_Control_tvRepGroups.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_tvRepGroups.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvRepGroups';
+end;//Tkw_CustomizeTasksPanel_Control_tvRepGroups.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_tvRepGroups_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('tvRepGroups');
@@ -2236,11 +2237,6 @@ class function Tkw_CustomizeTasksPanel_Control_tvRepGroups_Push.GetWordNameForRe
 begin
  Result := 'контрол::tvRepGroups:push';
 end;//Tkw_CustomizeTasksPanel_Control_tvRepGroups_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_vtPanel1.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::vtPanel1';
-end;//Tkw_CustomizeTasksPanel_Control_vtPanel1.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_vtPanel1.GetString: AnsiString;
 begin
@@ -2253,6 +2249,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CustomizeTasksPanel_Control_vtPanel1.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_vtPanel1.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::vtPanel1';
+end;//Tkw_CustomizeTasksPanel_Control_vtPanel1.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_vtPanel1_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('vtPanel1');
@@ -2263,11 +2264,6 @@ class function Tkw_CustomizeTasksPanel_Control_vtPanel1_Push.GetWordNameForRegis
 begin
  Result := 'контрол::vtPanel1:push';
 end;//Tkw_CustomizeTasksPanel_Control_vtPanel1_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_cbGroupName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::cbGroupName';
-end;//Tkw_CustomizeTasksPanel_Control_cbGroupName.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_cbGroupName.GetString: AnsiString;
 begin
@@ -2280,6 +2276,11 @@ begin
  TtfwClassRef.Register(TvtComboBox);
 end;//Tkw_CustomizeTasksPanel_Control_cbGroupName.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_cbGroupName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::cbGroupName';
+end;//Tkw_CustomizeTasksPanel_Control_cbGroupName.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_cbGroupName_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('cbGroupName');
@@ -2290,11 +2291,6 @@ class function Tkw_CustomizeTasksPanel_Control_cbGroupName_Push.GetWordNameForRe
 begin
  Result := 'контрол::cbGroupName:push';
 end;//Tkw_CustomizeTasksPanel_Control_cbGroupName_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_btnAddGroup.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btnAddGroup';
-end;//Tkw_CustomizeTasksPanel_Control_btnAddGroup.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_btnAddGroup.GetString: AnsiString;
 begin
@@ -2307,6 +2303,11 @@ begin
  TtfwClassRef.Register(TeeButton);
 end;//Tkw_CustomizeTasksPanel_Control_btnAddGroup.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_btnAddGroup.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btnAddGroup';
+end;//Tkw_CustomizeTasksPanel_Control_btnAddGroup.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_btnAddGroup_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('btnAddGroup');
@@ -2317,11 +2318,6 @@ class function Tkw_CustomizeTasksPanel_Control_btnAddGroup_Push.GetWordNameForRe
 begin
  Result := 'контрол::btnAddGroup:push';
 end;//Tkw_CustomizeTasksPanel_Control_btnAddGroup_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_btnChangeGroup.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btnChangeGroup';
-end;//Tkw_CustomizeTasksPanel_Control_btnChangeGroup.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_btnChangeGroup.GetString: AnsiString;
 begin
@@ -2334,6 +2330,11 @@ begin
  TtfwClassRef.Register(TeeButton);
 end;//Tkw_CustomizeTasksPanel_Control_btnChangeGroup.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_btnChangeGroup.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btnChangeGroup';
+end;//Tkw_CustomizeTasksPanel_Control_btnChangeGroup.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_btnChangeGroup_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('btnChangeGroup');
@@ -2344,11 +2345,6 @@ class function Tkw_CustomizeTasksPanel_Control_btnChangeGroup_Push.GetWordNameFo
 begin
  Result := 'контрол::btnChangeGroup:push';
 end;//Tkw_CustomizeTasksPanel_Control_btnChangeGroup_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_btnDeleteGroup.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btnDeleteGroup';
-end;//Tkw_CustomizeTasksPanel_Control_btnDeleteGroup.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_btnDeleteGroup.GetString: AnsiString;
 begin
@@ -2361,6 +2357,11 @@ begin
  TtfwClassRef.Register(TeeButton);
 end;//Tkw_CustomizeTasksPanel_Control_btnDeleteGroup.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_btnDeleteGroup.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btnDeleteGroup';
+end;//Tkw_CustomizeTasksPanel_Control_btnDeleteGroup.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_btnDeleteGroup_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('btnDeleteGroup');
@@ -2371,11 +2372,6 @@ class function Tkw_CustomizeTasksPanel_Control_btnDeleteGroup_Push.GetWordNameFo
 begin
  Result := 'контрол::btnDeleteGroup:push';
 end;//Tkw_CustomizeTasksPanel_Control_btnDeleteGroup_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_gbAvailableOperations.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::gbAvailableOperations';
-end;//Tkw_CustomizeTasksPanel_Control_gbAvailableOperations.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_gbAvailableOperations.GetString: AnsiString;
 begin
@@ -2388,6 +2384,11 @@ begin
  TtfwClassRef.Register(TvtGroupBox);
 end;//Tkw_CustomizeTasksPanel_Control_gbAvailableOperations.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_gbAvailableOperations.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::gbAvailableOperations';
+end;//Tkw_CustomizeTasksPanel_Control_gbAvailableOperations.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_gbAvailableOperations_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('gbAvailableOperations');
@@ -2398,11 +2399,6 @@ class function Tkw_CustomizeTasksPanel_Control_gbAvailableOperations_Push.GetWor
 begin
  Result := 'контрол::gbAvailableOperations:push';
 end;//Tkw_CustomizeTasksPanel_Control_gbAvailableOperations_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_tvRepOps.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::tvRepOps';
-end;//Tkw_CustomizeTasksPanel_Control_tvRepOps.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_tvRepOps.GetString: AnsiString;
 begin
@@ -2415,6 +2411,11 @@ begin
  TtfwClassRef.Register(TeeTreeView);
 end;//Tkw_CustomizeTasksPanel_Control_tvRepOps.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_tvRepOps.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvRepOps';
+end;//Tkw_CustomizeTasksPanel_Control_tvRepOps.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_tvRepOps_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('tvRepOps');
@@ -2425,11 +2426,6 @@ class function Tkw_CustomizeTasksPanel_Control_tvRepOps_Push.GetWordNameForRegis
 begin
  Result := 'контрол::tvRepOps:push';
 end;//Tkw_CustomizeTasksPanel_Control_tvRepOps_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_pnlForms.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlForms';
-end;//Tkw_CustomizeTasksPanel_Control_pnlForms.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_pnlForms.GetString: AnsiString;
 begin
@@ -2442,6 +2438,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CustomizeTasksPanel_Control_pnlForms.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_pnlForms.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlForms';
+end;//Tkw_CustomizeTasksPanel_Control_pnlForms.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_pnlForms_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlForms');
@@ -2452,11 +2453,6 @@ class function Tkw_CustomizeTasksPanel_Control_pnlForms_Push.GetWordNameForRegis
 begin
  Result := 'контрол::pnlForms:push';
 end;//Tkw_CustomizeTasksPanel_Control_pnlForms_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_lblForms.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lblForms';
-end;//Tkw_CustomizeTasksPanel_Control_lblForms.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_lblForms.GetString: AnsiString;
 begin
@@ -2469,6 +2465,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_CustomizeTasksPanel_Control_lblForms.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_lblForms.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblForms';
+end;//Tkw_CustomizeTasksPanel_Control_lblForms.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_lblForms_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lblForms');
@@ -2479,11 +2480,6 @@ class function Tkw_CustomizeTasksPanel_Control_lblForms_Push.GetWordNameForRegis
 begin
  Result := 'контрол::lblForms:push';
 end;//Tkw_CustomizeTasksPanel_Control_lblForms_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_cbForms.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::cbForms';
-end;//Tkw_CustomizeTasksPanel_Control_cbForms.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_cbForms.GetString: AnsiString;
 begin
@@ -2496,6 +2492,11 @@ begin
  TtfwClassRef.Register(TComboBox);
 end;//Tkw_CustomizeTasksPanel_Control_cbForms.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_cbForms.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::cbForms';
+end;//Tkw_CustomizeTasksPanel_Control_cbForms.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_cbForms_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('cbForms');
@@ -2506,11 +2507,6 @@ class function Tkw_CustomizeTasksPanel_Control_cbForms_Push.GetWordNameForRegist
 begin
  Result := 'контрол::cbForms:push';
 end;//Tkw_CustomizeTasksPanel_Control_cbForms_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_pnlMain.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlMain';
-end;//Tkw_CustomizeTasksPanel_Control_pnlMain.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_pnlMain.GetString: AnsiString;
 begin
@@ -2523,6 +2519,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CustomizeTasksPanel_Control_pnlMain.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_pnlMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlMain';
+end;//Tkw_CustomizeTasksPanel_Control_pnlMain.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_pnlMain_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlMain');
@@ -2533,11 +2534,6 @@ class function Tkw_CustomizeTasksPanel_Control_pnlMain_Push.GetWordNameForRegist
 begin
  Result := 'контрол::pnlMain:push';
 end;//Tkw_CustomizeTasksPanel_Control_pnlMain_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_pnlLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlLeft';
-end;//Tkw_CustomizeTasksPanel_Control_pnlLeft.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_pnlLeft.GetString: AnsiString;
 begin
@@ -2550,6 +2546,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CustomizeTasksPanel_Control_pnlLeft.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_pnlLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlLeft';
+end;//Tkw_CustomizeTasksPanel_Control_pnlLeft.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_pnlLeft_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlLeft');
@@ -2560,11 +2561,6 @@ class function Tkw_CustomizeTasksPanel_Control_pnlLeft_Push.GetWordNameForRegist
 begin
  Result := 'контрол::pnlLeft:push';
 end;//Tkw_CustomizeTasksPanel_Control_pnlLeft_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btnMoveOpToPanel';
-end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel.GetString: AnsiString;
 begin
@@ -2577,6 +2573,11 @@ begin
  TtfwClassRef.Register(TBitBtn);
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btnMoveOpToPanel';
+end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('btnMoveOpToPanel');
@@ -2587,11 +2588,6 @@ class function Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel_Push.GetWordName
 begin
  Result := 'контрол::btnMoveOpToPanel:push';
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btnMoveOpToRep';
-end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep.GetString: AnsiString;
 begin
@@ -2604,6 +2600,11 @@ begin
  TtfwClassRef.Register(TBitBtn);
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btnMoveOpToRep';
+end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('btnMoveOpToRep');
@@ -2614,11 +2615,6 @@ class function Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep_Push.GetWordNameFo
 begin
  Result := 'контрол::btnMoveOpToRep:push';
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btnMoveGroupToPanel';
-end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel.GetString: AnsiString;
 begin
@@ -2631,6 +2627,11 @@ begin
  TtfwClassRef.Register(TBitBtn);
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btnMoveGroupToPanel';
+end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('btnMoveGroupToPanel');
@@ -2641,11 +2642,6 @@ class function Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel_Push.GetWordN
 begin
  Result := 'контрол::btnMoveGroupToPanel:push';
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btnMoveGroupToRep';
-end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep.GetString: AnsiString;
 begin
@@ -2658,6 +2654,11 @@ begin
  TtfwClassRef.Register(TBitBtn);
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btnMoveGroupToRep';
+end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('btnMoveGroupToRep');
@@ -2668,11 +2669,6 @@ class function Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep_Push.GetWordNam
 begin
  Result := 'контрол::btnMoveGroupToRep:push';
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_pnlTasksPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlTasksPanel';
-end;//Tkw_CustomizeTasksPanel_Control_pnlTasksPanel.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_pnlTasksPanel.GetString: AnsiString;
 begin
@@ -2685,6 +2681,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CustomizeTasksPanel_Control_pnlTasksPanel.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_pnlTasksPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlTasksPanel';
+end;//Tkw_CustomizeTasksPanel_Control_pnlTasksPanel.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_pnlTasksPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlTasksPanel');
@@ -2695,11 +2696,6 @@ class function Tkw_CustomizeTasksPanel_Control_pnlTasksPanel_Push.GetWordNameFor
 begin
  Result := 'контрол::pnlTasksPanel:push';
 end;//Tkw_CustomizeTasksPanel_Control_pnlTasksPanel_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_gbTasksPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::gbTasksPanel';
-end;//Tkw_CustomizeTasksPanel_Control_gbTasksPanel.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_gbTasksPanel.GetString: AnsiString;
 begin
@@ -2712,6 +2708,11 @@ begin
  TtfwClassRef.Register(TvtGroupBox);
 end;//Tkw_CustomizeTasksPanel_Control_gbTasksPanel.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_gbTasksPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::gbTasksPanel';
+end;//Tkw_CustomizeTasksPanel_Control_gbTasksPanel.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_gbTasksPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('gbTasksPanel');
@@ -2722,11 +2723,6 @@ class function Tkw_CustomizeTasksPanel_Control_gbTasksPanel_Push.GetWordNameForR
 begin
  Result := 'контрол::gbTasksPanel:push';
 end;//Tkw_CustomizeTasksPanel_Control_gbTasksPanel_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_tvTasksPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::tvTasksPanel';
-end;//Tkw_CustomizeTasksPanel_Control_tvTasksPanel.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_tvTasksPanel.GetString: AnsiString;
 begin
@@ -2739,6 +2735,11 @@ begin
  TtfwClassRef.Register(TeeTreeView);
 end;//Tkw_CustomizeTasksPanel_Control_tvTasksPanel.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_tvTasksPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvTasksPanel';
+end;//Tkw_CustomizeTasksPanel_Control_tvTasksPanel.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_tvTasksPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('tvTasksPanel');
@@ -2749,11 +2750,6 @@ class function Tkw_CustomizeTasksPanel_Control_tvTasksPanel_Push.GetWordNameForR
 begin
  Result := 'контрол::tvTasksPanel:push';
 end;//Tkw_CustomizeTasksPanel_Control_tvTasksPanel_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_vtGroupBox3.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::vtGroupBox3';
-end;//Tkw_CustomizeTasksPanel_Control_vtGroupBox3.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_vtGroupBox3.GetString: AnsiString;
 begin
@@ -2766,6 +2762,11 @@ begin
  TtfwClassRef.Register(TvtGroupBox);
 end;//Tkw_CustomizeTasksPanel_Control_vtGroupBox3.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_vtGroupBox3.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::vtGroupBox3';
+end;//Tkw_CustomizeTasksPanel_Control_vtGroupBox3.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_vtGroupBox3_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('vtGroupBox3');
@@ -2776,11 +2777,6 @@ class function Tkw_CustomizeTasksPanel_Control_vtGroupBox3_Push.GetWordNameForRe
 begin
  Result := 'контрол::vtGroupBox3:push';
 end;//Tkw_CustomizeTasksPanel_Control_vtGroupBox3_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_lblCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lblCaption';
-end;//Tkw_CustomizeTasksPanel_Control_lblCaption.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_lblCaption.GetString: AnsiString;
 begin
@@ -2793,6 +2789,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_CustomizeTasksPanel_Control_lblCaption.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_lblCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblCaption';
+end;//Tkw_CustomizeTasksPanel_Control_lblCaption.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_lblCaption_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lblCaption');
@@ -2803,11 +2804,6 @@ class function Tkw_CustomizeTasksPanel_Control_lblCaption_Push.GetWordNameForReg
 begin
  Result := 'контрол::lblCaption:push';
 end;//Tkw_CustomizeTasksPanel_Control_lblCaption_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_edChange.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edChange';
-end;//Tkw_CustomizeTasksPanel_Control_edChange.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_edChange.GetString: AnsiString;
 begin
@@ -2820,6 +2816,11 @@ begin
  TtfwClassRef.Register(TvtComboBox);
 end;//Tkw_CustomizeTasksPanel_Control_edChange.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_edChange.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edChange';
+end;//Tkw_CustomizeTasksPanel_Control_edChange.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_edChange_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edChange');
@@ -2830,11 +2831,6 @@ class function Tkw_CustomizeTasksPanel_Control_edChange_Push.GetWordNameForRegis
 begin
  Result := 'контрол::edChange:push';
 end;//Tkw_CustomizeTasksPanel_Control_edChange_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_cbForAllUseCases.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::cbForAllUseCases';
-end;//Tkw_CustomizeTasksPanel_Control_cbForAllUseCases.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_cbForAllUseCases.GetString: AnsiString;
 begin
@@ -2847,6 +2843,11 @@ begin
  TtfwClassRef.Register(TeeCheckBox);
 end;//Tkw_CustomizeTasksPanel_Control_cbForAllUseCases.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_cbForAllUseCases.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::cbForAllUseCases';
+end;//Tkw_CustomizeTasksPanel_Control_cbForAllUseCases.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_cbForAllUseCases_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('cbForAllUseCases');
@@ -2857,11 +2858,6 @@ class function Tkw_CustomizeTasksPanel_Control_cbForAllUseCases_Push.GetWordName
 begin
  Result := 'контрол::cbForAllUseCases:push';
 end;//Tkw_CustomizeTasksPanel_Control_cbForAllUseCases_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_btnChangeItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btnChangeItem';
-end;//Tkw_CustomizeTasksPanel_Control_btnChangeItem.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_btnChangeItem.GetString: AnsiString;
 begin
@@ -2874,6 +2870,11 @@ begin
  TtfwClassRef.Register(TeeButton);
 end;//Tkw_CustomizeTasksPanel_Control_btnChangeItem.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_btnChangeItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btnChangeItem';
+end;//Tkw_CustomizeTasksPanel_Control_btnChangeItem.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_btnChangeItem_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('btnChangeItem');
@@ -2884,11 +2885,6 @@ class function Tkw_CustomizeTasksPanel_Control_btnChangeItem_Push.GetWordNameFor
 begin
  Result := 'контрол::btnChangeItem:push';
 end;//Tkw_CustomizeTasksPanel_Control_btnChangeItem_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_pnlOperationPos.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlOperationPos';
-end;//Tkw_CustomizeTasksPanel_Control_pnlOperationPos.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_pnlOperationPos.GetString: AnsiString;
 begin
@@ -2901,6 +2897,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CustomizeTasksPanel_Control_pnlOperationPos.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_pnlOperationPos.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlOperationPos';
+end;//Tkw_CustomizeTasksPanel_Control_pnlOperationPos.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_pnlOperationPos_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlOperationPos');
@@ -2911,11 +2912,6 @@ class function Tkw_CustomizeTasksPanel_Control_pnlOperationPos_Push.GetWordNameF
 begin
  Result := 'контрол::pnlOperationPos:push';
 end;//Tkw_CustomizeTasksPanel_Control_pnlOperationPos_Push.GetWordNameForRegister
-
-class function Tkw_CustomizeTasksPanel_Control_UpBitBtn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::UpBitBtn';
-end;//Tkw_CustomizeTasksPanel_Control_UpBitBtn.GetWordNameForRegister
 
 function Tkw_CustomizeTasksPanel_Control_UpBitBtn.GetString: AnsiString;
 begin
@@ -2928,6 +2924,11 @@ begin
  TtfwClassRef.Register(TBitBtn);
 end;//Tkw_CustomizeTasksPanel_Control_UpBitBtn.RegisterInEngine
 
+class function Tkw_CustomizeTasksPanel_Control_UpBitBtn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::UpBitBtn';
+end;//Tkw_CustomizeTasksPanel_Control_UpBitBtn.GetWordNameForRegister
+
 procedure Tkw_CustomizeTasksPanel_Control_UpBitBtn_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('UpBitBtn');
@@ -2939,11 +2940,6 @@ begin
  Result := 'контрол::UpBitBtn:push';
 end;//Tkw_CustomizeTasksPanel_Control_UpBitBtn_Push.GetWordNameForRegister
 
-class function Tkw_CustomizeTasksPanel_Control_DownBitBtn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::DownBitBtn';
-end;//Tkw_CustomizeTasksPanel_Control_DownBitBtn.GetWordNameForRegister
-
 function Tkw_CustomizeTasksPanel_Control_DownBitBtn.GetString: AnsiString;
 begin
  Result := 'DownBitBtn';
@@ -2954,6 +2950,11 @@ begin
  inherited;
  TtfwClassRef.Register(TBitBtn);
 end;//Tkw_CustomizeTasksPanel_Control_DownBitBtn.RegisterInEngine
+
+class function Tkw_CustomizeTasksPanel_Control_DownBitBtn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::DownBitBtn';
+end;//Tkw_CustomizeTasksPanel_Control_DownBitBtn.GetWordNameForRegister
 
 procedure Tkw_CustomizeTasksPanel_Control_DownBitBtn_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -2988,11 +2989,6 @@ begin
  aCtx.rEngine.PushObj(spRight(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormSpRight.DoDoIt
 
-class function TkwCustomizeTasksPanelFormSpRight.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.spRight';
-end;//TkwCustomizeTasksPanelFormSpRight.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormSpRight.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3013,6 +3009,11 @@ function TkwCustomizeTasksPanelFormSpRight.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormSpRight.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormSpRight.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.spRight';
+end;//TkwCustomizeTasksPanelFormSpRight.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormPnlBottom.pnlBottom(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -3036,11 +3037,6 @@ begin
  aCtx.rEngine.PushObj(pnlBottom(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlBottom.DoDoIt
 
-class function TkwCustomizeTasksPanelFormPnlBottom.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.pnlBottom';
-end;//TkwCustomizeTasksPanelFormPnlBottom.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormPnlBottom.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3061,6 +3057,11 @@ function TkwCustomizeTasksPanelFormPnlBottom.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlBottom.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormPnlBottom.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.pnlBottom';
+end;//TkwCustomizeTasksPanelFormPnlBottom.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormLblConfirmSave.lblConfirmSave(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtLabel;
@@ -3084,11 +3085,6 @@ begin
  aCtx.rEngine.PushObj(lblConfirmSave(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormLblConfirmSave.DoDoIt
 
-class function TkwCustomizeTasksPanelFormLblConfirmSave.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.lblConfirmSave';
-end;//TkwCustomizeTasksPanelFormLblConfirmSave.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormLblConfirmSave.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3109,6 +3105,11 @@ function TkwCustomizeTasksPanelFormLblConfirmSave.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormLblConfirmSave.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormLblConfirmSave.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.lblConfirmSave';
+end;//TkwCustomizeTasksPanelFormLblConfirmSave.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormLblAvailableOpsCaption.lblAvailableOpsCaption(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtLabel;
@@ -3132,11 +3133,6 @@ begin
  aCtx.rEngine.PushObj(lblAvailableOpsCaption(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.DoDoIt
 
-class function TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.lblAvailableOpsCaption';
-end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormLblAvailableOpsCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3157,6 +3153,11 @@ function TkwCustomizeTasksPanelFormLblAvailableOpsCaption.ParamsTypes: PTypeInfo
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.lblAvailableOpsCaption';
+end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtOk.btOk(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtButton;
@@ -3180,11 +3181,6 @@ begin
  aCtx.rEngine.PushObj(btOk(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtOk.DoDoIt
 
-class function TkwCustomizeTasksPanelFormBtOk.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.btOk';
-end;//TkwCustomizeTasksPanelFormBtOk.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormBtOk.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3205,6 +3201,11 @@ function TkwCustomizeTasksPanelFormBtOk.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtOk.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormBtOk.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.btOk';
+end;//TkwCustomizeTasksPanelFormBtOk.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtCancel.btCancel(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtButton;
@@ -3228,11 +3229,6 @@ begin
  aCtx.rEngine.PushObj(btCancel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtCancel.DoDoIt
 
-class function TkwCustomizeTasksPanelFormBtCancel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.btCancel';
-end;//TkwCustomizeTasksPanelFormBtCancel.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormBtCancel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3253,6 +3249,11 @@ function TkwCustomizeTasksPanelFormBtCancel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtCancel.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormBtCancel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.btCancel';
+end;//TkwCustomizeTasksPanelFormBtCancel.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtApply.btApply(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtButton;
@@ -3276,11 +3277,6 @@ begin
  aCtx.rEngine.PushObj(btApply(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtApply.DoDoIt
 
-class function TkwCustomizeTasksPanelFormBtApply.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.btApply';
-end;//TkwCustomizeTasksPanelFormBtApply.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormBtApply.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3301,6 +3297,11 @@ function TkwCustomizeTasksPanelFormBtApply.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtApply.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormBtApply.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.btApply';
+end;//TkwCustomizeTasksPanelFormBtApply.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormPnlRep.pnlRep(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -3324,11 +3325,6 @@ begin
  aCtx.rEngine.PushObj(pnlRep(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlRep.DoDoIt
 
-class function TkwCustomizeTasksPanelFormPnlRep.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.pnlRep';
-end;//TkwCustomizeTasksPanelFormPnlRep.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormPnlRep.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3349,6 +3345,11 @@ function TkwCustomizeTasksPanelFormPnlRep.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlRep.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormPnlRep.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.pnlRep';
+end;//TkwCustomizeTasksPanelFormPnlRep.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormSplRep.splRep(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtSplitter;
@@ -3372,11 +3373,6 @@ begin
  aCtx.rEngine.PushObj(splRep(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormSplRep.DoDoIt
 
-class function TkwCustomizeTasksPanelFormSplRep.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.splRep';
-end;//TkwCustomizeTasksPanelFormSplRep.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormSplRep.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3397,6 +3393,11 @@ function TkwCustomizeTasksPanelFormSplRep.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormSplRep.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormSplRep.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.splRep';
+end;//TkwCustomizeTasksPanelFormSplRep.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormGbAvailableGroups.gbAvailableGroups(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtGroupBox;
@@ -3420,11 +3421,6 @@ begin
  aCtx.rEngine.PushObj(gbAvailableGroups(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormGbAvailableGroups.DoDoIt
 
-class function TkwCustomizeTasksPanelFormGbAvailableGroups.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.gbAvailableGroups';
-end;//TkwCustomizeTasksPanelFormGbAvailableGroups.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormGbAvailableGroups.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3445,6 +3441,11 @@ function TkwCustomizeTasksPanelFormGbAvailableGroups.ParamsTypes: PTypeInfoArray
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormGbAvailableGroups.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormGbAvailableGroups.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.gbAvailableGroups';
+end;//TkwCustomizeTasksPanelFormGbAvailableGroups.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormTvRepGroups.tvRepGroups(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeTreeView;
@@ -3468,11 +3469,6 @@ begin
  aCtx.rEngine.PushObj(tvRepGroups(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormTvRepGroups.DoDoIt
 
-class function TkwCustomizeTasksPanelFormTvRepGroups.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.tvRepGroups';
-end;//TkwCustomizeTasksPanelFormTvRepGroups.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormTvRepGroups.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3493,6 +3489,11 @@ function TkwCustomizeTasksPanelFormTvRepGroups.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormTvRepGroups.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormTvRepGroups.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.tvRepGroups';
+end;//TkwCustomizeTasksPanelFormTvRepGroups.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormVtPanel1.vtPanel1(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -3516,11 +3517,6 @@ begin
  aCtx.rEngine.PushObj(vtPanel1(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormVtPanel1.DoDoIt
 
-class function TkwCustomizeTasksPanelFormVtPanel1.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.vtPanel1';
-end;//TkwCustomizeTasksPanelFormVtPanel1.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormVtPanel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3541,6 +3537,11 @@ function TkwCustomizeTasksPanelFormVtPanel1.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormVtPanel1.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormVtPanel1.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.vtPanel1';
+end;//TkwCustomizeTasksPanelFormVtPanel1.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormCbGroupName.cbGroupName(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtComboBox;
@@ -3564,11 +3565,6 @@ begin
  aCtx.rEngine.PushObj(cbGroupName(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormCbGroupName.DoDoIt
 
-class function TkwCustomizeTasksPanelFormCbGroupName.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.cbGroupName';
-end;//TkwCustomizeTasksPanelFormCbGroupName.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormCbGroupName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3589,6 +3585,11 @@ function TkwCustomizeTasksPanelFormCbGroupName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormCbGroupName.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormCbGroupName.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.cbGroupName';
+end;//TkwCustomizeTasksPanelFormCbGroupName.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnAddGroup.btnAddGroup(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeButton;
@@ -3612,11 +3613,6 @@ begin
  aCtx.rEngine.PushObj(btnAddGroup(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnAddGroup.DoDoIt
 
-class function TkwCustomizeTasksPanelFormBtnAddGroup.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.btnAddGroup';
-end;//TkwCustomizeTasksPanelFormBtnAddGroup.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormBtnAddGroup.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3637,6 +3633,11 @@ function TkwCustomizeTasksPanelFormBtnAddGroup.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnAddGroup.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormBtnAddGroup.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.btnAddGroup';
+end;//TkwCustomizeTasksPanelFormBtnAddGroup.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnChangeGroup.btnChangeGroup(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeButton;
@@ -3660,11 +3661,6 @@ begin
  aCtx.rEngine.PushObj(btnChangeGroup(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnChangeGroup.DoDoIt
 
-class function TkwCustomizeTasksPanelFormBtnChangeGroup.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.btnChangeGroup';
-end;//TkwCustomizeTasksPanelFormBtnChangeGroup.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormBtnChangeGroup.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3685,6 +3681,11 @@ function TkwCustomizeTasksPanelFormBtnChangeGroup.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnChangeGroup.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormBtnChangeGroup.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.btnChangeGroup';
+end;//TkwCustomizeTasksPanelFormBtnChangeGroup.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnDeleteGroup.btnDeleteGroup(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeButton;
@@ -3708,11 +3709,6 @@ begin
  aCtx.rEngine.PushObj(btnDeleteGroup(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.DoDoIt
 
-class function TkwCustomizeTasksPanelFormBtnDeleteGroup.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.btnDeleteGroup';
-end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormBtnDeleteGroup.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3733,6 +3729,11 @@ function TkwCustomizeTasksPanelFormBtnDeleteGroup.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormBtnDeleteGroup.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.btnDeleteGroup';
+end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormGbAvailableOperations.gbAvailableOperations(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtGroupBox;
@@ -3756,11 +3757,6 @@ begin
  aCtx.rEngine.PushObj(gbAvailableOperations(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormGbAvailableOperations.DoDoIt
 
-class function TkwCustomizeTasksPanelFormGbAvailableOperations.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.gbAvailableOperations';
-end;//TkwCustomizeTasksPanelFormGbAvailableOperations.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormGbAvailableOperations.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3781,6 +3777,11 @@ function TkwCustomizeTasksPanelFormGbAvailableOperations.ParamsTypes: PTypeInfoA
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormGbAvailableOperations.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormGbAvailableOperations.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.gbAvailableOperations';
+end;//TkwCustomizeTasksPanelFormGbAvailableOperations.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormTvRepOps.tvRepOps(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeTreeView;
@@ -3804,11 +3805,6 @@ begin
  aCtx.rEngine.PushObj(tvRepOps(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormTvRepOps.DoDoIt
 
-class function TkwCustomizeTasksPanelFormTvRepOps.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.tvRepOps';
-end;//TkwCustomizeTasksPanelFormTvRepOps.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormTvRepOps.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3829,6 +3825,11 @@ function TkwCustomizeTasksPanelFormTvRepOps.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormTvRepOps.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormTvRepOps.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.tvRepOps';
+end;//TkwCustomizeTasksPanelFormTvRepOps.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormPnlForms.pnlForms(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -3852,11 +3853,6 @@ begin
  aCtx.rEngine.PushObj(pnlForms(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlForms.DoDoIt
 
-class function TkwCustomizeTasksPanelFormPnlForms.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.pnlForms';
-end;//TkwCustomizeTasksPanelFormPnlForms.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormPnlForms.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3877,6 +3873,11 @@ function TkwCustomizeTasksPanelFormPnlForms.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlForms.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormPnlForms.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.pnlForms';
+end;//TkwCustomizeTasksPanelFormPnlForms.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormLblForms.lblForms(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtLabel;
@@ -3900,11 +3901,6 @@ begin
  aCtx.rEngine.PushObj(lblForms(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormLblForms.DoDoIt
 
-class function TkwCustomizeTasksPanelFormLblForms.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.lblForms';
-end;//TkwCustomizeTasksPanelFormLblForms.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormLblForms.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3925,6 +3921,11 @@ function TkwCustomizeTasksPanelFormLblForms.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormLblForms.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormLblForms.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.lblForms';
+end;//TkwCustomizeTasksPanelFormLblForms.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormCbForms.cbForms(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TComboBox;
@@ -3948,11 +3949,6 @@ begin
  aCtx.rEngine.PushObj(cbForms(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormCbForms.DoDoIt
 
-class function TkwCustomizeTasksPanelFormCbForms.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.cbForms';
-end;//TkwCustomizeTasksPanelFormCbForms.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormCbForms.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3973,6 +3969,11 @@ function TkwCustomizeTasksPanelFormCbForms.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormCbForms.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormCbForms.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.cbForms';
+end;//TkwCustomizeTasksPanelFormCbForms.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormPnlMain.pnlMain(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -3996,11 +3997,6 @@ begin
  aCtx.rEngine.PushObj(pnlMain(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlMain.DoDoIt
 
-class function TkwCustomizeTasksPanelFormPnlMain.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.pnlMain';
-end;//TkwCustomizeTasksPanelFormPnlMain.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormPnlMain.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4021,6 +4017,11 @@ function TkwCustomizeTasksPanelFormPnlMain.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlMain.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormPnlMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.pnlMain';
+end;//TkwCustomizeTasksPanelFormPnlMain.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormPnlLeft.pnlLeft(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -4044,11 +4045,6 @@ begin
  aCtx.rEngine.PushObj(pnlLeft(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlLeft.DoDoIt
 
-class function TkwCustomizeTasksPanelFormPnlLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.pnlLeft';
-end;//TkwCustomizeTasksPanelFormPnlLeft.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormPnlLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4069,6 +4065,11 @@ function TkwCustomizeTasksPanelFormPnlLeft.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlLeft.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormPnlLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.pnlLeft';
+end;//TkwCustomizeTasksPanelFormPnlLeft.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToPanel.btnMoveOpToPanel(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -4092,11 +4093,6 @@ begin
  aCtx.rEngine.PushObj(btnMoveOpToPanel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.DoDoIt
 
-class function TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.btnMoveOpToPanel';
-end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormBtnMoveOpToPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4117,6 +4113,11 @@ function TkwCustomizeTasksPanelFormBtnMoveOpToPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.btnMoveOpToPanel';
+end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToRep.btnMoveOpToRep(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -4140,11 +4141,6 @@ begin
  aCtx.rEngine.PushObj(btnMoveOpToRep(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.DoDoIt
 
-class function TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.btnMoveOpToRep';
-end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormBtnMoveOpToRep.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4165,6 +4161,11 @@ function TkwCustomizeTasksPanelFormBtnMoveOpToRep.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.btnMoveOpToRep';
+end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.btnMoveGroupToPanel(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -4188,11 +4189,6 @@ begin
  aCtx.rEngine.PushObj(btnMoveGroupToPanel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.DoDoIt
 
-class function TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.btnMoveGroupToPanel';
-end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4213,6 +4209,11 @@ function TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.ParamsTypes: PTypeInfoArr
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.btnMoveGroupToPanel';
+end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToRep.btnMoveGroupToRep(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -4236,11 +4237,6 @@ begin
  aCtx.rEngine.PushObj(btnMoveGroupToRep(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.DoDoIt
 
-class function TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.btnMoveGroupToRep';
-end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormBtnMoveGroupToRep.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4261,6 +4257,11 @@ function TkwCustomizeTasksPanelFormBtnMoveGroupToRep.ParamsTypes: PTypeInfoArray
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.btnMoveGroupToRep';
+end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormPnlTasksPanel.pnlTasksPanel(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -4284,11 +4285,6 @@ begin
  aCtx.rEngine.PushObj(pnlTasksPanel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlTasksPanel.DoDoIt
 
-class function TkwCustomizeTasksPanelFormPnlTasksPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.pnlTasksPanel';
-end;//TkwCustomizeTasksPanelFormPnlTasksPanel.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormPnlTasksPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4309,6 +4305,11 @@ function TkwCustomizeTasksPanelFormPnlTasksPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlTasksPanel.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormPnlTasksPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.pnlTasksPanel';
+end;//TkwCustomizeTasksPanelFormPnlTasksPanel.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormGbTasksPanel.gbTasksPanel(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtGroupBox;
@@ -4332,11 +4333,6 @@ begin
  aCtx.rEngine.PushObj(gbTasksPanel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormGbTasksPanel.DoDoIt
 
-class function TkwCustomizeTasksPanelFormGbTasksPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.gbTasksPanel';
-end;//TkwCustomizeTasksPanelFormGbTasksPanel.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormGbTasksPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4357,6 +4353,11 @@ function TkwCustomizeTasksPanelFormGbTasksPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormGbTasksPanel.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormGbTasksPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.gbTasksPanel';
+end;//TkwCustomizeTasksPanelFormGbTasksPanel.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormTvTasksPanel.tvTasksPanel(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeTreeView;
@@ -4380,11 +4381,6 @@ begin
  aCtx.rEngine.PushObj(tvTasksPanel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormTvTasksPanel.DoDoIt
 
-class function TkwCustomizeTasksPanelFormTvTasksPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.tvTasksPanel';
-end;//TkwCustomizeTasksPanelFormTvTasksPanel.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormTvTasksPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4405,6 +4401,11 @@ function TkwCustomizeTasksPanelFormTvTasksPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormTvTasksPanel.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormTvTasksPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.tvTasksPanel';
+end;//TkwCustomizeTasksPanelFormTvTasksPanel.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormVtGroupBox3.vtGroupBox3(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtGroupBox;
@@ -4428,11 +4429,6 @@ begin
  aCtx.rEngine.PushObj(vtGroupBox3(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormVtGroupBox3.DoDoIt
 
-class function TkwCustomizeTasksPanelFormVtGroupBox3.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.vtGroupBox3';
-end;//TkwCustomizeTasksPanelFormVtGroupBox3.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormVtGroupBox3.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4453,6 +4449,11 @@ function TkwCustomizeTasksPanelFormVtGroupBox3.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormVtGroupBox3.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormVtGroupBox3.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.vtGroupBox3';
+end;//TkwCustomizeTasksPanelFormVtGroupBox3.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormLblCaption.lblCaption(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtLabel;
@@ -4476,11 +4477,6 @@ begin
  aCtx.rEngine.PushObj(lblCaption(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormLblCaption.DoDoIt
 
-class function TkwCustomizeTasksPanelFormLblCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.lblCaption';
-end;//TkwCustomizeTasksPanelFormLblCaption.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormLblCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4501,6 +4497,11 @@ function TkwCustomizeTasksPanelFormLblCaption.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormLblCaption.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormLblCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.lblCaption';
+end;//TkwCustomizeTasksPanelFormLblCaption.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormEdChange.edChange(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtComboBox;
@@ -4524,11 +4525,6 @@ begin
  aCtx.rEngine.PushObj(edChange(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormEdChange.DoDoIt
 
-class function TkwCustomizeTasksPanelFormEdChange.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.edChange';
-end;//TkwCustomizeTasksPanelFormEdChange.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormEdChange.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4549,6 +4545,11 @@ function TkwCustomizeTasksPanelFormEdChange.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormEdChange.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormEdChange.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.edChange';
+end;//TkwCustomizeTasksPanelFormEdChange.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormCbForAllUseCases.cbForAllUseCases(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeCheckBox;
@@ -4572,11 +4573,6 @@ begin
  aCtx.rEngine.PushObj(cbForAllUseCases(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormCbForAllUseCases.DoDoIt
 
-class function TkwCustomizeTasksPanelFormCbForAllUseCases.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.cbForAllUseCases';
-end;//TkwCustomizeTasksPanelFormCbForAllUseCases.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormCbForAllUseCases.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4597,6 +4593,11 @@ function TkwCustomizeTasksPanelFormCbForAllUseCases.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormCbForAllUseCases.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormCbForAllUseCases.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.cbForAllUseCases';
+end;//TkwCustomizeTasksPanelFormCbForAllUseCases.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnChangeItem.btnChangeItem(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeButton;
@@ -4620,11 +4621,6 @@ begin
  aCtx.rEngine.PushObj(btnChangeItem(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnChangeItem.DoDoIt
 
-class function TkwCustomizeTasksPanelFormBtnChangeItem.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.btnChangeItem';
-end;//TkwCustomizeTasksPanelFormBtnChangeItem.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormBtnChangeItem.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4645,6 +4641,11 @@ function TkwCustomizeTasksPanelFormBtnChangeItem.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnChangeItem.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormBtnChangeItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.btnChangeItem';
+end;//TkwCustomizeTasksPanelFormBtnChangeItem.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormPnlOperationPos.pnlOperationPos(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -4668,11 +4669,6 @@ begin
  aCtx.rEngine.PushObj(pnlOperationPos(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlOperationPos.DoDoIt
 
-class function TkwCustomizeTasksPanelFormPnlOperationPos.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.pnlOperationPos';
-end;//TkwCustomizeTasksPanelFormPnlOperationPos.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormPnlOperationPos.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4693,6 +4689,11 @@ function TkwCustomizeTasksPanelFormPnlOperationPos.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlOperationPos.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormPnlOperationPos.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.pnlOperationPos';
+end;//TkwCustomizeTasksPanelFormPnlOperationPos.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormUpBitBtn.UpBitBtn(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -4716,11 +4717,6 @@ begin
  aCtx.rEngine.PushObj(UpBitBtn(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormUpBitBtn.DoDoIt
 
-class function TkwCustomizeTasksPanelFormUpBitBtn.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.UpBitBtn';
-end;//TkwCustomizeTasksPanelFormUpBitBtn.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormUpBitBtn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4741,6 +4737,11 @@ function TkwCustomizeTasksPanelFormUpBitBtn.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormUpBitBtn.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormUpBitBtn.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.UpBitBtn';
+end;//TkwCustomizeTasksPanelFormUpBitBtn.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormDownBitBtn.DownBitBtn(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -4764,11 +4765,6 @@ begin
  aCtx.rEngine.PushObj(DownBitBtn(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormDownBitBtn.DoDoIt
 
-class function TkwCustomizeTasksPanelFormDownBitBtn.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TCustomizeTasksPanelForm.DownBitBtn';
-end;//TkwCustomizeTasksPanelFormDownBitBtn.GetWordNameForRegister
-
 procedure TkwCustomizeTasksPanelFormDownBitBtn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4789,6 +4785,11 @@ function TkwCustomizeTasksPanelFormDownBitBtn.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormDownBitBtn.ParamsTypes
+
+class function TkwCustomizeTasksPanelFormDownBitBtn.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TCustomizeTasksPanelForm.DownBitBtn';
+end;//TkwCustomizeTasksPanelFormDownBitBtn.GetWordNameForRegister
 
 initialization
  Tkw_Form_CustomizeTasksPanel.RegisterInEngine;

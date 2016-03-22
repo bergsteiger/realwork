@@ -3,6 +3,7 @@ unit evOEMTableFlagFilter;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evOEMTableFlagFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevOEMTableFlagFilter" MUID: (4C3FED3103B2)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

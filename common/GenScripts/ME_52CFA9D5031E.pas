@@ -2,6 +2,7 @@ unit ddTypes;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTypes.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "ddTypes" MUID: (52CFA9D5031E)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

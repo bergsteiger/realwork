@@ -2,6 +2,7 @@ unit ImageEnViewRegistrator;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ImageEnViewRegistrator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TImageEnViewRegistrator" MUID: (54F47ECF0071)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

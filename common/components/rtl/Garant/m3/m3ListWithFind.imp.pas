@@ -5,7 +5,7 @@
 // Библиотека "m3"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3ListWithFind.imp.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi For Archi::m3::m3CoreObjects::m3ListWithFind
+// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::m3::m3CoreObjects::m3ListWithFind
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

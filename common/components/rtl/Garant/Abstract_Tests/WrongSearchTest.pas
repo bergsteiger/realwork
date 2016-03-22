@@ -1,93 +1,68 @@
 unit WrongSearchTest;
+ {* Поиск строки не должен проходить. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Tests"
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Tests/WrongSearchTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::Abstract Tests::EditorTests::TWrongSearchTest
-//
-// Поиск строки не должен проходить.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\WrongSearchTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TWrongSearchTest" MUID: (4D9411E703B8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  SearchAndReplaceTest
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  ,
-  nevTools,
-  evTypes
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , SearchAndReplaceTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevTools
+ , evTypes
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TWrongSearchTest = {abstract} class(TSearchAndReplaceTest)
   {* Поиск строки не должен проходить. }
- protected
- // overridden protected methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure Process(aForm: TPrimTextLoadForm); override;
-     {* Собственно процесс обработки текста }
-   {$IfEnd} //nsTest AND not NoVCM
-   {$If defined(nsTest) AND not defined(NoVCM)}
+    {* Собственно процесс обработки текста }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function Replacer: IevReplacer; override;
-   {$IfEnd} //nsTest AND not NoVCM
-   {$If defined(nsTest) AND not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function Options: TevSearchOptionSet; override;
-   {$IfEnd} //nsTest AND not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TWrongSearchTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  evExcept,
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , evExcept
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TWrongSearchTest
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TWrongSearchTest.Process(aForm: TPrimTextLoadForm);
+ {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4D9411E703B8_var*
 //#UC END# *4BE13147032C_4D9411E703B8_var*
 begin
@@ -100,9 +75,7 @@ begin
  end;
 //#UC END# *4BE13147032C_4D9411E703B8_impl*
 end;//TWrongSearchTest.Process
-{$IfEnd} //nsTest AND not NoVCM
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 function TWrongSearchTest.Replacer: IevReplacer;
 //#UC START# *4C288BFC002C_4D9411E703B8_var*
 //#UC END# *4C288BFC002C_4D9411E703B8_var*
@@ -111,9 +84,7 @@ begin
  Result := nil;
 //#UC END# *4C288BFC002C_4D9411E703B8_impl*
 end;//TWrongSearchTest.Replacer
-{$IfEnd} //nsTest AND not NoVCM
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 function TWrongSearchTest.Options: TevSearchOptionSet;
 //#UC START# *4C288CC60231_4D9411E703B8_var*
 //#UC END# *4C288CC60231_4D9411E703B8_var*
@@ -122,20 +93,19 @@ begin
  Result := [ev_soGlobal]
 //#UC END# *4C288CC60231_4D9411E703B8_impl*
 end;//TWrongSearchTest.Options
-{$IfEnd} //nsTest AND not NoVCM
 
 function TWrongSearchTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TWrongSearchTest.GetFolder
 
 function TWrongSearchTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D9411E703B8';
 end;//TWrongSearchTest.GetModelElementGUID
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

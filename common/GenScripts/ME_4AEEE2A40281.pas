@@ -2,6 +2,7 @@ unit Common_Strange_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common_Strange_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "Strange" MUID: (4AEEE2A40281)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

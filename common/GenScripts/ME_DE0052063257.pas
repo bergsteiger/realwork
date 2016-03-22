@@ -3,6 +3,7 @@ unit Translation_WarningBaloonKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Translation_WarningBaloonKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "Translation_WarningBaloonKeywordsPack" MUID: (DE0052063257)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -46,8 +47,8 @@ type
 'aControl' форма::Translation_WarningBaloon TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Translation_WarningBaloon
 
  Tkw_Translation_WarningBaloon_Control_Viewer = {final} class(TtfwControlString)
@@ -58,9 +59,9 @@ type
 контрол::Viewer TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Translation_WarningBaloon_Control_Viewer
 
  Tkw_Translation_WarningBaloon_Control_Viewer_Push = {final} class(TkwBynameControlPush)
@@ -99,20 +100,15 @@ OBJECT VAR l_TnscEditor
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwTranslationWarningBaloonFormViewer
 
-class function Tkw_Form_Translation_WarningBaloon.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Translation_WarningBaloon';
-end;//Tkw_Form_Translation_WarningBaloon.GetWordNameForRegister
-
 function Tkw_Form_Translation_WarningBaloon.GetString: AnsiString;
 begin
  Result := 'Translation_WarningBaloonForm';
 end;//Tkw_Form_Translation_WarningBaloon.GetString
 
-class function Tkw_Translation_WarningBaloon_Control_Viewer.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_Translation_WarningBaloon.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::Viewer';
-end;//Tkw_Translation_WarningBaloon_Control_Viewer.GetWordNameForRegister
+ Result := 'форма::Translation_WarningBaloon';
+end;//Tkw_Form_Translation_WarningBaloon.GetWordNameForRegister
 
 function Tkw_Translation_WarningBaloon_Control_Viewer.GetString: AnsiString;
 begin
@@ -124,6 +120,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscEditor);
 end;//Tkw_Translation_WarningBaloon_Control_Viewer.RegisterInEngine
+
+class function Tkw_Translation_WarningBaloon_Control_Viewer.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Viewer';
+end;//Tkw_Translation_WarningBaloon_Control_Viewer.GetWordNameForRegister
 
 procedure Tkw_Translation_WarningBaloon_Control_Viewer_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -158,11 +159,6 @@ begin
  aCtx.rEngine.PushObj(Viewer(aCtx, l_aTranslation_WarningBaloonForm));
 end;//TkwTranslationWarningBaloonFormViewer.DoDoIt
 
-class function TkwTranslationWarningBaloonFormViewer.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TTranslation_WarningBaloonForm.Viewer';
-end;//TkwTranslationWarningBaloonFormViewer.GetWordNameForRegister
-
 procedure TkwTranslationWarningBaloonFormViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -183,6 +179,11 @@ function TkwTranslationWarningBaloonFormViewer.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTranslation_WarningBaloonForm)]);
 end;//TkwTranslationWarningBaloonFormViewer.ParamsTypes
+
+class function TkwTranslationWarningBaloonFormViewer.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TTranslation_WarningBaloonForm.Viewer';
+end;//TkwTranslationWarningBaloonFormViewer.GetWordNameForRegister
 
 initialization
  Tkw_Form_Translation_WarningBaloon.RegisterInEngine;

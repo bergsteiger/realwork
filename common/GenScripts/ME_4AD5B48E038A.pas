@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsFolderNodes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\NOT_FINISHED_nsFolderNodes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsFolderNodes" MUID: (4AD5B48E038A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

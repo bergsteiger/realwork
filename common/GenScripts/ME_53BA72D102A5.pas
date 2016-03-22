@@ -2,6 +2,7 @@ unit csAutoAnnoExportPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csAutoAnnoExportPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsAutoAnnoExportPrim" MUID: (53BA72D102A5)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

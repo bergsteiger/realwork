@@ -3,6 +3,8 @@ unit UserProperty_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\UserProperty_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "UserProperty" MUID: (4AA8E47C0065)
+// Имя типа: "TefUserProperty"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

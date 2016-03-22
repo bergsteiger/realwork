@@ -2,6 +2,7 @@ unit l3HugeMessageDlgWithWikiHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3HugeMessageDlgWithWikiHelper.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3HugeMessageDlgWithWikiHelper" MUID: (551542E902F5)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -44,7 +45,7 @@ type
  Tl3HugeMessageDlgWithWikiHelper = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3HugeMessageDlgWithWikiHelper;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3HugeMessageDlgWithWikiHelper }
   protected
    procedure pm_SetAlien(const aValue: Il3HugeMessageDlgWithWikiHelper);
    procedure ClearFields; override;

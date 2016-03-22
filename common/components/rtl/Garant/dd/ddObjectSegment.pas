@@ -21,7 +21,8 @@ interface
 uses
   ddTextSegment,
   k2Interfaces,
-  ddCharacterProperty
+  ddCharacterProperty,
+  ddTypes
   ;
 
 type
@@ -31,9 +32,9 @@ type
    procedure Write2Generator(const Generator: Ik2TagGenerator;
      aCHP: TddCharacterProperty;
      aParentCHP: TddCharacterProperty;
-     LiteVersion: Boolean); override;
+     aLiteVersion: TddLiteVersion); override;
    function SkipSegment(aDiffCHP: TddCharacterProperty;
-     LiteVersion: Boolean): Boolean; override;
+     aLiteVersion: TddLiteVersion): Boolean; override;
  public
  // overridden public methods
    function IsObjectSegment: Boolean; override;
@@ -42,7 +43,6 @@ type
 implementation
 
 uses
-  ddTypes,
   ddEVDTypesSupport,
   k2Tags
   ;
@@ -52,7 +52,7 @@ uses
 procedure TddObjectSegment.Write2Generator(const Generator: Ik2TagGenerator;
   aCHP: TddCharacterProperty;
   aParentCHP: TddCharacterProperty;
-  LiteVersion: Boolean);
+  aLiteVersion: TddLiteVersion);
 //#UC START# *54D888450259_54D9B0A2024C_var*
 //#UC END# *54D888450259_54D9B0A2024C_var*
 begin
@@ -60,8 +60,8 @@ begin
  if not Data.CanWrite then Exit; 
  StartObjectSegment(Generator);
  try
-  DoWriteSegmentProps(Generator, aCHP, aParentCHP, LiteVersion);
-  Data.Write2Generator(Generator, False, LiteVersion);
+  DoWriteSegmentProps(Generator, aCHP, aParentCHP, aLiteVersion);
+  Data.Write2Generator(Generator, False, aLiteVersion);
  finally
   Generator.Finish;
  end; // k2_idTextSegment
@@ -69,7 +69,7 @@ begin
 end;//TddObjectSegment.Write2Generator
 
 function TddObjectSegment.SkipSegment(aDiffCHP: TddCharacterProperty;
-  LiteVersion: Boolean): Boolean;
+  aLiteVersion: TddLiteVersion): Boolean;
 //#UC START# *54E4325C00BE_54D9B0A2024C_var*
 //#UC END# *54E4325C00BE_54D9B0A2024C_var*
 begin

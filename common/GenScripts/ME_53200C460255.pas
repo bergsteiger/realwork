@@ -3,6 +3,8 @@ unit K517772970_TddClientMessage;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddClientMessage.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TddClientMessage" MUID: (53200C460255)
+// Имя типа: "TK517772970_TddClientMessage"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

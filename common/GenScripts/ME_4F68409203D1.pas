@@ -2,6 +2,8 @@ unit RegExpTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\RegExpTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "RegExpTest" MUID: (4F68409203D1)
+// Имя типа: "TRegExpTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

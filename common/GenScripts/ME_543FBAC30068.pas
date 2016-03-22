@@ -2,6 +2,7 @@ unit m3RootStreamManagerPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3RootStreamManagerPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3RootStreamManagerPrim" MUID: (543FBAC30068)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

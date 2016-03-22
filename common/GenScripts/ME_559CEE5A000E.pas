@@ -2,6 +2,7 @@ unit vcmUserTypeDefList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmUserTypeDefList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmUserTypeDefList" MUID: (559CEE5A000E)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

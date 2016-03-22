@@ -2,6 +2,7 @@ unit vcmEntityFormImplementationModelPart;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmEntityFormImplementationModelPart.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmEntityFormImplementationModelPart" MUID: (4F22CFD70209)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

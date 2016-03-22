@@ -2,6 +2,7 @@ unit VCMApllicationSettingsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\VCMApllicationSettingsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "VCMApllicationSettingsPack" MUID: (552BAE9B027D)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\vcmDefine.inc}
 
@@ -133,11 +134,6 @@ begin
  vcm_Toolbar_SetGlyphSize(aCtx, l_aValue);
 end;//TkwVcmToolbarSetGlyphSize.DoDoIt
 
-class function TkwVcmToolbarSetGlyphSize.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:Toolbar:SetGlyphSize';
-end;//TkwVcmToolbarSetGlyphSize.GetWordNameForRegister
-
 function TkwVcmToolbarSetGlyphSize.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -152,6 +148,11 @@ function TkwVcmToolbarSetGlyphSize.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvcmGlyphSize)]);
 end;//TkwVcmToolbarSetGlyphSize.ParamsTypes
+
+class function TkwVcmToolbarSetGlyphSize.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:Toolbar:SetGlyphSize';
+end;//TkwVcmToolbarSetGlyphSize.GetWordNameForRegister
 
 function TkwVcmToolbarGetGlyphSize.vcm_Toolbar_GetGlyphSize(const aCtx: TtfwContext): TvcmGlyphSize;
  {* Реализация слова скрипта vcm:Toolbar:GetGlyphSize }
@@ -168,11 +169,6 @@ begin
  aCtx.rEngine.PushInt(Ord(vcm_Toolbar_GetGlyphSize(aCtx)));
 end;//TkwVcmToolbarGetGlyphSize.DoDoIt
 
-class function TkwVcmToolbarGetGlyphSize.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:Toolbar:GetGlyphSize';
-end;//TkwVcmToolbarGetGlyphSize.GetWordNameForRegister
-
 function TkwVcmToolbarGetGlyphSize.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TvcmGlyphSize);
@@ -187,6 +183,11 @@ function TkwVcmToolbarGetGlyphSize.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwVcmToolbarGetGlyphSize.ParamsTypes
+
+class function TkwVcmToolbarGetGlyphSize.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:Toolbar:GetGlyphSize';
+end;//TkwVcmToolbarGetGlyphSize.GetWordNameForRegister
 
 function TkwVcmToolbarGetGlyphColorDepth.vcm_Toolbar_GetGlyphColorDepth(const aCtx: TtfwContext): TvcmGlyphColordepth;
  {* Реализация слова скрипта vcm:Toolbar:GetGlyphColorDepth }
@@ -203,11 +204,6 @@ begin
  aCtx.rEngine.PushInt(Ord(vcm_Toolbar_GetGlyphColorDepth(aCtx)));
 end;//TkwVcmToolbarGetGlyphColorDepth.DoDoIt
 
-class function TkwVcmToolbarGetGlyphColorDepth.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:Toolbar:GetGlyphColorDepth';
-end;//TkwVcmToolbarGetGlyphColorDepth.GetWordNameForRegister
-
 function TkwVcmToolbarGetGlyphColorDepth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TvcmGlyphColordepth);
@@ -222,6 +218,11 @@ function TkwVcmToolbarGetGlyphColorDepth.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwVcmToolbarGetGlyphColorDepth.ParamsTypes
+
+class function TkwVcmToolbarGetGlyphColorDepth.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:Toolbar:GetGlyphColorDepth';
+end;//TkwVcmToolbarGetGlyphColorDepth.GetWordNameForRegister
 
 procedure TkwVcmToolbarSetGlyphColorDepth.vcm_Toolbar_SetGlyphColorDepth(const aCtx: TtfwContext;
  aValue: TvcmGlyphColordepth);
@@ -249,11 +250,6 @@ begin
  vcm_Toolbar_SetGlyphColorDepth(aCtx, l_aValue);
 end;//TkwVcmToolbarSetGlyphColorDepth.DoDoIt
 
-class function TkwVcmToolbarSetGlyphColorDepth.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:Toolbar:SetGlyphColorDepth';
-end;//TkwVcmToolbarSetGlyphColorDepth.GetWordNameForRegister
-
 function TkwVcmToolbarSetGlyphColorDepth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -268,6 +264,11 @@ function TkwVcmToolbarSetGlyphColorDepth.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvcmGlyphColordepth)]);
 end;//TkwVcmToolbarSetGlyphColorDepth.ParamsTypes
+
+class function TkwVcmToolbarSetGlyphColorDepth.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:Toolbar:SetGlyphColorDepth';
+end;//TkwVcmToolbarSetGlyphColorDepth.GetWordNameForRegister
 
 initialization
  TkwVcmToolbarSetGlyphSize.RegisterInEngine;

@@ -2,6 +2,7 @@ unit l3CastableStrings;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CastableStrings.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CastableStrings" MUID: (47E21D07033A)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

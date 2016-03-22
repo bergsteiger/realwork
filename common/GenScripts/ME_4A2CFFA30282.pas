@@ -3,6 +3,7 @@ unit evdBlockNameAdder;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evdBlockNameAdder.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdBlockNameAdder" MUID: (4A2CFFA30282)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

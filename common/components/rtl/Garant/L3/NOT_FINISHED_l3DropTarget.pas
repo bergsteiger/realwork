@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3DropTarget;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3DropTarget.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3DropTarget" MUID: (48C6827900D7)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

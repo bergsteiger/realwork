@@ -35,7 +35,7 @@ const
   cs_tsReadyToDelivery = cs_tsDelivery;
   cs_tsErrorStatuses = [cs_tsError, cs_tsAsyncError];
   cs_tsRunningStatuses = [cs_tsRun, cs_tsAsyncRun];
-  cs_tsKeepProcessingStatuses = [cs_tsFrozen, cs_tsFrozenRun, cs_tsDeleted, cs_tsReadyToDelivery, cs_tsAsyncRun, cs_tsQuery];
+  cs_tsKeepProcessingStatuses = [cs_tsFrozen, cs_tsFrozenRun, cs_tsDeleted, cs_tsReadyToDelivery, cs_tsDelivering, cs_tsAsyncRun, cs_tsQuery];
   cs_tsStatusesWithProgress = cs_tsRunningStatuses + [cs_tsDelivering];
   cs_tsCanDeleteStatuses = [cs_tsRun, cs_tsAsyncRun, cs_tsQuery, cs_tsFrozen, cs_tsReadyToDelivery];
 
@@ -104,6 +104,8 @@ type
                         ntAnouncedDateChanged,
                         ntAbortAsyncRun,
                         ntResultsReadyForDelivery);
+
+ TCsNotificationTypes = set of TCsNotificationType;                       
                         
 const
   usServerService = 65000;

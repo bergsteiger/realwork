@@ -4,40 +4,44 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Mask, ToolEdit, Spin, vtLabel, vtGroupBox;
+  Dialogs, StdCtrls, ComCtrls, Spin;
 
 type
   TForm1 = class(TForm)
     IsGarantInstalledButton: TButton;
-    CommandGroupBox: TvtGroupBox;
-    Label3: TvtLabel;
+    CommandGroupBox: TGroupBox;
+    Label3: TLabel;
     CommandComboBox: TComboBox;
     CommandOpenNewCheckBox: TCheckBox;
-    Label4: TvtLabel;
+    Label4: TLabel;
     CommandInfiniteCheckBox: TCheckBox;
     GarantProcessCommandButton: TButton;
-    Label5: TvtLabel;
+    Label5: TLabel;
     GarantDemoProcessCommandButton: TButton;
-    CommandDirectoryEdit: TDirectoryEdit;
     CommandTimeOutSpinEdit: TSpinEdit;
-    LinkGroupBox: TvtGroupBox;
-    Label1: TvtLabel;
+    LinkGroupBox: TGroupBox;
+    Label1: TLabel;
     LinkMemo: TMemo;
     LinkOpenNewCheckBox: TCheckBox;
-    Label2: TvtLabel;
+    Label2: TLabel;
     LinkTimeOutSpinEdit: TSpinEdit;
     LinkInfiniteCheckBox: TCheckBox;
     GarantShowLinkButton: TButton;
-    Label6: TvtLabel;
-    LinkDirectoryEdit: TDirectoryEdit;
+    Label6: TLabel;
     GarantDemoShowLinkButton: TButton;
-    Label7: TvtLabel;
+    Label7: TLabel;
     CommandKeyEdit: TEdit;
-    Label8: TvtLabel;
+    Label8: TLabel;
     LinkKeyEdit: TEdit;
     FromFileCheckBox: TCheckBox;
-    vtLabel1: TvtLabel;
-    XMLFileEdit: TFilenameEdit;
+    vtLabel1: TLabel;
+    OpenDialog1: TOpenDialog;
+    CommandDirectoryEdit: TEdit;
+    LinkDirectoryEdit: TEdit;
+    XMLFileEdit: TEdit;
+    XMLFileButton: TButton;
+    CommandDirectoryButton: TButton;
+    LinkDirectoryButton: TButton;
     procedure IsGarantInstalledButtonClick(Sender: TObject);
     procedure GarantProcessCommandButtonClick(Sender: TObject);
     procedure GarantShowLinkButtonClick(Sender: TObject);
@@ -48,6 +52,9 @@ type
     procedure FromFileCheckBoxClick(Sender: TObject);
     procedure XMLFileEditChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure XMLFileButtonClick(Sender: TObject);
+    procedure CommandDirectoryButtonClick(Sender: TObject);
+    procedure LinkDirectoryButtonClick(Sender: TObject);
   private
     { Private declarations }
     procedure UpdateMemoFromFile;
@@ -61,7 +68,8 @@ var
 implementation
 
 uses
- nsIntegrationInterface
+ nsIntegrationInterface,
+ Filectrl
  ;
 
 {$R *.dfm}
@@ -91,6 +99,7 @@ begin
   GI_TIMEOUT: ShowMessage('GI_TIMEOUT');
   GI_NOTFOUND: ShowMessage('GI_NOTFOUND');
   GI_USERDENYLOGIN: ShowMessage('GI_USERDENYLOGIN');
+  GI_TOOMANYOPENWINDOWS: ShowMessage('GI_TOOMANYOPENWINDOWS');
  else
   raise Exception.Create('Unexpected result');
  end;
@@ -109,7 +118,7 @@ begin
   l_Time := LinkTimeOutSpinEdit.Value;
  if FromFileCheckBox.Checked then
  begin
-  l_Stream := TFileStream.Create(XMLFileEdit.FileName, fmOpenRead);
+  l_Stream := TFileStream.Create(XMLFileEdit.Text, fmOpenRead);
   try
    l_Size := l_Stream.Size + 1;
    GetMem(l_Mem, l_Size);
@@ -138,6 +147,7 @@ begin
    GI_SYSTEMERROR: ShowMessage('GI_SYSTEMERROR');
    GI_QUERYPARAMSHASABSENTVALUES: ShowMessage('GI_QUERYPARAMSHASABSENTVALUES');
    GI_USERDENYLOGIN: ShowMessage('GI_USERDENYLOGIN');
+   GI_TOOMANYOPENWINDOWS: ShowMessage('GI_TOOMANYOPENWINDOWS');
   else
    raise Exception.Create('Unexpected result');
   end;
@@ -155,7 +165,7 @@ begin
   l_Time := INFINITE
  else
   l_Time := CommandTimeOutSpinEdit.Value;
- Case GarantDemoProcessCommand(PChar(CommandDirectoryEdit.Text),PChar(CommandKeyEdit.Text),
+ Case GarantDemoProcessCommand(PChar(CommandDirectoryEdit.Text), PChar(CommandKeyEdit.Text),
  CommandComboBox.ItemIndex,CommandOpenNewCheckBox.Checked, l_Time) of
   GI_OK: ShowMessage('GI_OK');
   GI_INVALIDLINKFORMAT: ShowMessage('GI_INVALIDLINKFORMAT');
@@ -164,6 +174,7 @@ begin
   GI_NOTFOUND: ShowMessage('GI_NOTFOUND');
   GI_ALREADYRUNNING: ShowMessage('GI_ALREADYRUNNING');
   GI_USERDENYLOGIN: ShowMessage('GI_USERDENYLOGIN');
+  GI_TOOMANYOPENWINDOWS: ShowMessage('GI_TOOMANYOPENWINDOWS');
  else
   raise Exception.Create('Unexpected result');
  end;
@@ -188,6 +199,7 @@ begin
   GI_SYSTEMERROR: ShowMessage('GI_SYSTEMERROR');
   GI_QUERYPARAMSHASABSENTVALUES: ShowMessage('GI_QUERYPARAMSHASABSENTVALUES');
   GI_USERDENYLOGIN: ShowMessage('GI_USERDENYLOGIN');
+  GI_TOOMANYOPENWINDOWS: ShowMessage('GI_TOOMANYOPENWINDOWS');
  else
   raise Exception.Create('Unexpected result');
  end;
@@ -203,6 +215,7 @@ end;
 procedure TForm1.FromFileCheckBoxClick(Sender: TObject);
 begin
  XMLFileEdit.Enabled := FromFileCheckBox.Checked;
+ XMLFileButton.Enabled := FromFileCheckBox.Checked;
  LinkMemo.ReadOnly := FromFileCheckBox.Checked;
  UpdateMemoFromFile;
 end;
@@ -216,8 +229,8 @@ procedure TForm1.UpdateMemoFromFile;
 begin
  if FromFileCheckBox.Checked then
  begin
-  if FileExists(XMLFileEdit.FileName) then
-   LinkMemo.Lines.LoadFromFile(XMLFileEdit.FileName)
+  if FileExists(XMLFileEdit.Text) then
+   LinkMemo.Lines.LoadFromFile(XMLFileEdit.Text)
   else
    LinkMemo.Lines.Clear;
  end;
@@ -227,6 +240,30 @@ procedure TForm1.FormShow(Sender: TObject);
 begin
  ClientHeight := LinkGroupBox.Top + LinkGroupBox.Height + LinkGroupBox.Left;
  ClientWidth := LinkGroupBox.Width + 2*LinkGroupBox.Left;
+end;
+
+procedure TForm1.XMLFileButtonClick(Sender: TObject);
+begin
+ if OpenDialog1.Execute then
+  XMLFileEdit.Text := OpenDialog1.FileName;
+end;
+
+procedure TForm1.CommandDirectoryButtonClick(Sender: TObject);
+var
+ Dir: String;
+begin
+ Dir := CommandDirectoryEdit.Text;
+ if SelectDirectory('Select folder', '', Dir) then
+  CommandDirectoryEdit.Text := Dir;
+end;
+
+procedure TForm1.LinkDirectoryButtonClick(Sender: TObject);
+var
+ Dir: String;
+begin
+ Dir := LinkDirectoryEdit.Text;
+ if SelectDirectory('Select folder', '', Dir) then
+  LinkDirectoryEdit.Text := Dir;
 end;
 
 end.

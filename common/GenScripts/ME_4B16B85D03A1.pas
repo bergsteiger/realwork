@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmData.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmData" MUID: (4B16B85D03A1)
+// Имя типа: "_vcmData_"
 
 {$Define vcmData_imp}
 

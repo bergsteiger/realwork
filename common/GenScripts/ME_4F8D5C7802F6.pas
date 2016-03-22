@@ -2,6 +2,7 @@ unit NOT_FINISHED_D_SchRes;
 
 // Модуль: "w:\archi\source\projects\Archi\Dlg\NOT_FINISHED_D_SchRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "D_SchRes" MUID: (4F8D5C7802F6)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

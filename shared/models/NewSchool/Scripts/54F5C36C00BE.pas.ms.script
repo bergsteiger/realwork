@@ -23,22 +23,6 @@ FORWARD ME_517939B9033C
 
 ref; // ME_51793A310394 ScrollInfo
 
-: ME_847F141BB38F
- CONST UID '847F141BB38F'
- CONST Name 'f_ScrollInfo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ScrollInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_517939B9033C // TkwScrollInfoWord
- ;
- : Target WL 'ME_50222C8103A5' '4AB0C3F60375.pas.ms.script' // TScrollInfo
- ;
-
-ref; // ME_847F141BB38F f_ScrollInfo
-
 FORWARD ME_51793A950073
 
 : ME_51793AD203BE
@@ -82,40 +66,13 @@ ref; // ME_51793ACC03CF DoIt
 
 ref; // ME_51793A950073 DoScrollInfo
 
-: ME_9EA4CA7BAB5E
- CONST UID '9EA4CA7BAB5E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwScrollInfoWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_517939B9033C // TkwScrollInfoWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_9EA4CA7BAB5E Ini_Reg_Class
-
 : ME_4F212C930149_ME_517939B9033C
- CONST UID '4F212C930149'
- CONST Name 'DoWinControl'
  : Original WL 'ME_4F212C930149' '54DB92D203C9.pas.ms.script' // DoWinControl
  ;
  : Implementor ME_517939B9033C // TkwScrollInfoWord
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4F212C930149_ME_517939B9033C DoWinControl
-
-: ME_5000565C019C_ME_517939B9033C
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_517939B9033C // TkwScrollInfoWord
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_517939B9033C ClearFields
 
 : ME_517939B9033C
  CONST UID '517939B9033C'
@@ -133,22 +90,16 @@ ref; // ME_5000565C019C_ME_517939B9033C ClearFields
  ; // Inherits
  : Attributes
    Seq: ( ME_51793A310394 // ScrollInfo
- ME_847F141BB38F // f_ScrollInfo
  )
  ; // Attributes
  : Operations
    Seq: ( ME_51793A950073 // DoScrollInfo
- ME_9EA4CA7BAB5E // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
    Seq: ( ME_4F212C930149_ME_517939B9033C // DoWinControl
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_517939B9033C // ClearFields
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -162,39 +113,13 @@ ref; // ME_517939B9033C TkwScrollInfoWord
 
 FORWARD ME_51793B050115
 
-: ME_E19C0D3023AC
- CONST UID 'E19C0D3023AC'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_control_ScrollInfo_Min' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51793B050115 // pop_control_ScrollInfo_Min
- ;
-
-ref; // ME_E19C0D3023AC Ini_Reg
-
 : ME_51793A950073_ME_51793B050115
- CONST UID '51793A950073'
- CONST Name 'DoScrollInfo'
  : Original ME_51793A950073 // DoScrollInfo
  ;
  : Implementor ME_51793B050115 // pop_control_ScrollInfo_Min
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_51793A950073_ME_51793B050115 DoScrollInfo
-
-: ME_4DB0614603C8_ME_51793B050115
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_51793B050115 // pop_control_ScrollInfo_Min
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_51793B050115 GetWordNameForRegister
 
 : ME_51793B050115
  CONST UID '51793B050115'
@@ -210,18 +135,10 @@ ref; // ME_4DB0614603C8_ME_51793B050115 GetWordNameForRegister
    Seq: ( ME_517939B9033C // TkwScrollInfoWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E19C0D3023AC // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_51793A950073_ME_51793B050115 // DoScrollInfo
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_51793B050115 // GetWordNameForRegister
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -236,39 +153,13 @@ ref; // ME_51793B050115 pop_control_ScrollInfo_Min
 
 FORWARD ME_51793B0D02BB
 
-: ME_E60440FB0814
- CONST UID 'E60440FB0814'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_control_ScrollInfo_Max' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51793B0D02BB // pop_control_ScrollInfo_Max
- ;
-
-ref; // ME_E60440FB0814 Ini_Reg
-
 : ME_51793A950073_ME_51793B0D02BB
- CONST UID '51793A950073'
- CONST Name 'DoScrollInfo'
  : Original ME_51793A950073 // DoScrollInfo
  ;
  : Implementor ME_51793B0D02BB // pop_control_ScrollInfo_Max
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_51793A950073_ME_51793B0D02BB DoScrollInfo
-
-: ME_4DB0614603C8_ME_51793B0D02BB
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_51793B0D02BB // pop_control_ScrollInfo_Max
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_51793B0D02BB GetWordNameForRegister
 
 : ME_51793B0D02BB
  CONST UID '51793B0D02BB'
@@ -284,18 +175,10 @@ ref; // ME_4DB0614603C8_ME_51793B0D02BB GetWordNameForRegister
    Seq: ( ME_517939B9033C // TkwScrollInfoWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E60440FB0814 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_51793A950073_ME_51793B0D02BB // DoScrollInfo
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_51793B0D02BB // GetWordNameForRegister
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -310,39 +193,13 @@ ref; // ME_51793B0D02BB pop_control_ScrollInfo_Max
 
 FORWARD ME_51793B1402E2
 
-: ME_B63D7B6E0F1C
- CONST UID 'B63D7B6E0F1C'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_control_ScrollInfo_PageSize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51793B1402E2 // pop_control_ScrollInfo_PageSize
- ;
-
-ref; // ME_B63D7B6E0F1C Ini_Reg
-
 : ME_51793A950073_ME_51793B1402E2
- CONST UID '51793A950073'
- CONST Name 'DoScrollInfo'
  : Original ME_51793A950073 // DoScrollInfo
  ;
  : Implementor ME_51793B1402E2 // pop_control_ScrollInfo_PageSize
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_51793A950073_ME_51793B1402E2 DoScrollInfo
-
-: ME_4DB0614603C8_ME_51793B1402E2
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_51793B1402E2 // pop_control_ScrollInfo_PageSize
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_51793B1402E2 GetWordNameForRegister
 
 : ME_51793B1402E2
  CONST UID '51793B1402E2'
@@ -358,18 +215,10 @@ ref; // ME_4DB0614603C8_ME_51793B1402E2 GetWordNameForRegister
    Seq: ( ME_517939B9033C // TkwScrollInfoWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B63D7B6E0F1C // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_51793A950073_ME_51793B1402E2 // DoScrollInfo
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_51793B1402E2 // GetWordNameForRegister
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -384,39 +233,13 @@ ref; // ME_51793B1402E2 pop_control_ScrollInfo_PageSize
 
 FORWARD ME_51793B1F01AA
 
-: ME_2859EB2E774B
- CONST UID '2859EB2E774B'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_control_ScrollInfo_Position' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51793B1F01AA // pop_control_ScrollInfo_Position
- ;
-
-ref; // ME_2859EB2E774B Ini_Reg
-
 : ME_51793A950073_ME_51793B1F01AA
- CONST UID '51793A950073'
- CONST Name 'DoScrollInfo'
  : Original ME_51793A950073 // DoScrollInfo
  ;
  : Implementor ME_51793B1F01AA // pop_control_ScrollInfo_Position
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_51793A950073_ME_51793B1F01AA DoScrollInfo
-
-: ME_4DB0614603C8_ME_51793B1F01AA
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_51793B1F01AA // pop_control_ScrollInfo_Position
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_51793B1F01AA GetWordNameForRegister
 
 : ME_51793B1F01AA
  CONST UID '51793B1F01AA'
@@ -432,18 +255,10 @@ ref; // ME_4DB0614603C8_ME_51793B1F01AA GetWordNameForRegister
    Seq: ( ME_517939B9033C // TkwScrollInfoWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2859EB2E774B // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_51793A950073_ME_51793B1F01AA // DoScrollInfo
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_51793B1F01AA // GetWordNameForRegister
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -458,39 +273,13 @@ ref; // ME_51793B1F01AA pop_control_ScrollInfo_Position
 
 FORWARD ME_51793AE70134
 
-: ME_620C6D7E8ACE
- CONST UID '620C6D7E8ACE'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_control_ScrollInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51793AE70134 // pop_control_ScrollInfo
- ;
-
-ref; // ME_620C6D7E8ACE Ini_Reg
-
 : ME_51793A950073_ME_51793AE70134
- CONST UID '51793A950073'
- CONST Name 'DoScrollInfo'
  : Original ME_51793A950073 // DoScrollInfo
  ;
  : Implementor ME_51793AE70134 // pop_control_ScrollInfo
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_51793A950073_ME_51793AE70134 DoScrollInfo
-
-: ME_4DB0614603C8_ME_51793AE70134
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_51793AE70134 // pop_control_ScrollInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_51793AE70134 GetWordNameForRegister
 
 : ME_51793AE70134
  CONST UID '51793AE70134'
@@ -506,18 +295,10 @@ ref; // ME_4DB0614603C8_ME_51793AE70134 GetWordNameForRegister
    Seq: ( ME_517939B9033C // TkwScrollInfoWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_620C6D7E8ACE // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_51793A950073_ME_51793AE70134 // DoScrollInfo
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_51793AE70134 // GetWordNameForRegister
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false

@@ -2,6 +2,7 @@ unit atNotification;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atNotification.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatNotification" MUID: (480781120349)
 
 interface
 

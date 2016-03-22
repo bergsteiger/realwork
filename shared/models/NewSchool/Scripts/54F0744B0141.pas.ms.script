@@ -64,21 +64,6 @@ ref; // ME_54D4C583002A tfwSysUtilsWordUses
 
 FORWARD ME_4DD0CE0E02AA
 
-: ME_5A74EFA6801B
- CONST UID '5A74EFA6801B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwSysUtilsWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DD0CE0E02AA // TtfwSysUtilsWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5A74EFA6801B Ini_Reg_Class
-
 : ME_4DD0CE71010A
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -128,10 +113,6 @@ ref; // ME_4FEB00EC028D
    Seq: ( ME_54D4C583002A // tfwSysUtilsWordUses
  )
  ; // Implements
- : Operations
-   Seq: ( ME_5A74EFA6801B // Ini_Reg_Class
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_4DD0CE71010A // 
  ME_4DD0CF050292 // 

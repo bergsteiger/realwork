@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtCustomPreviewPanel;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtCustomPreviewPanel.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtCustomPreviewPanel" MUID: (4C2238D10107)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -2,6 +2,7 @@ unit evStandardStylesList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evStandardStylesList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevStandardStylesList" MUID: (4E55134F0348)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

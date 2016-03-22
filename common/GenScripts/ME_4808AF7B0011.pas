@@ -2,6 +2,7 @@ unit atGuestLoginOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atGuestLoginOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatGuestLoginOperation" MUID: (4808AF7B0011)
 
 interface
 

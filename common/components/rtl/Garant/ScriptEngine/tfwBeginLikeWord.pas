@@ -3,6 +3,7 @@ unit tfwBeginLikeWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwBeginLikeWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwBeginLikeWord" MUID: (4DBAEF29031F)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

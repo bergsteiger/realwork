@@ -7,7 +7,7 @@ unit LogRecordPrim_Const;
 // Модуль: "w:/common/components/rtl/Garant/EVD/LogRecordPrim_Const.pas"
 // Начат: 07.06.2008 19:47
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdNative::LogRecordPrim
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdNative::LogRecordPrim
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

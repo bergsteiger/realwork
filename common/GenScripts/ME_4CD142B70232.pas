@@ -3,6 +3,7 @@ unit PrimConsultationMark_utcmMain_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms\PrimConsultationMark_utcmMain_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utcmMain" MUID: (4CD142B70232)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utcmMain = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utcmMain }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utcmMain
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utcmMain.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utcmMain';
-end;//Tkw_FormUserType_utcmMain.GetWordNameForRegister
-
 function Tkw_FormUserType_utcmMain.GetInteger: Integer;
 begin
  Result := utcmMain;
 end;//Tkw_FormUserType_utcmMain.GetInteger
+
+class function Tkw_FormUserType_utcmMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utcmMain';
+end;//Tkw_FormUserType_utcmMain.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

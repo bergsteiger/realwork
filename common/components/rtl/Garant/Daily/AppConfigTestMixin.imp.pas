@@ -1,42 +1,36 @@
 {$IfNDef AppConfigTestMixin_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/AppConfigTestMixin.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCaseMixIn::Class>> Shared Delphi Tests::DailyTest::AppConfig::AppConfigTestMixin
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\AppConfigTestMixin.imp.pas"
+// Стереотип: "TestCaseMixIn"
+// Элемент модели: "AppConfigTestMixin" MUID: (52382EB9003F)
+// Имя типа: "_AppConfigTestMixin_"
 
 {$Define AppConfigTestMixin_imp}
-{$If defined(nsTest) AND not defined(NoScripts)}
+
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
  _AppConfigTestMixin_ = {abstract} class(_AppConfigTestMixin_Parent_)
- protected
- // overridden protected methods
+  protected
+   f_Config: TddAppConfigNode;
+   f_ConfigStorage: IddConfigStorage;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected fields
-   f_Config : TddAppConfigNode;
-   f_ConfigStorage : IddConfigStorage;
+    {* Функция очистки полей объекта. }
  end;//_AppConfigTestMixin_
-{$Else}
 
- _AppConfigTestMixin_ = _AppConfigTestMixin_Parent_;
+{$Else Defined(nsTest) AND NOT Defined(NoScripts)}
 
-{$IfEnd} //nsTest AND not NoScripts
+_AppConfigTestMixin_ = _AppConfigTestMixin_Parent_;
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 {$Else AppConfigTestMixin_imp}
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$IfNDef AppConfigTestMixin_imp_impl}
 
-// start class _AppConfigTestMixin_
+{$Define AppConfigTestMixin_imp_impl}
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 procedure _AppConfigTestMixin_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52382EB9003F_var*
 //#UC END# *479731C50290_52382EB9003F_var*
 begin
@@ -46,7 +40,9 @@ begin
  inherited;
 //#UC END# *479731C50290_52382EB9003F_impl*
 end;//_AppConfigTestMixin_.Cleanup
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
-{$IfEnd} //nsTest AND not NoScripts
+{$EndIf AppConfigTestMixin_imp_impl}
 
 {$EndIf AppConfigTestMixin_imp}
+

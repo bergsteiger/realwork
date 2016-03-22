@@ -2,6 +2,7 @@ unit daFromTableList;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daFromTableList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaFromTableList" MUID: (555CA6E80352)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

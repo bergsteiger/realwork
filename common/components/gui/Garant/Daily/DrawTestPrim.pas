@@ -1,98 +1,75 @@
 unit DrawTestPrim;
+ {* Базовый тест для отрисовки и сравнения. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/DrawTestPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TDrawTestPrim
-//
-// Базовый тест для отрисовки и сравнения.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\DrawTestPrim.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TDrawTestPrim" MUID: (4CAC405703AE)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  evCustomEditorWindow,
-  TextEditorVisitor,
-  PrimTextLoad_Form,
-  nevTools,
-  nevShapesPaintedSpy
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , TextEditorVisitor
+ , evCustomEditorWindow
+ , PrimTextLoad_Form
+ , nevTools
+ , nevShapesPaintedSpy
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  _DrawOutputSupport_Parent_ = TTextEditorVisitor;
  {$Include w:\common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas}
  TDrawTestPrim = {abstract} class(_DrawOutputSupport_)
   {* Базовый тест для отрисовки и сравнения. }
- private
- // private fields
-   f_Editor : TevCustomEditorWindow;
- protected
- // realized methods
+  private
+   f_Editor: TevCustomEditorWindow;
+  protected
+   procedure DoBeforeDrawing(aForm: TPrimTextLoadForm); virtual; abstract;
+    {* Произвести какие-нибудь операции перед отрисовкой. }
    procedure DoVisit(aForm: TPrimTextLoadForm); override;
-     {* Обработать текст }
-   {$If not defined(NoScripts)}
+    {* Обработать текст }
+   {$If NOT Defined(NoScripts)}
    function DoOpenLog(const aView: InevView): AnsiString; override;
-   {$IfEnd} //not NoScripts
-   {$If not defined(NoScripts)}
+   {$IfEnd} // NOT Defined(NoScripts)
+   {$If NOT Defined(NoScripts)}
    procedure DoCloseLog(const aLogName: AnsiString); override;
-   {$IfEnd} //not NoScripts
- protected
- // overridden protected methods
-    {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+   {$IfEnd} // NOT Defined(NoScripts)
+   {$If NOT Defined(NotTunedDUnit)}
    function FileForOutput: AnsiString; override;
-     {* Стандартный файл для вывода, для текщего теста }
-    {$IfEnd} //nsTest AND not NotTunedDUnit
+    {* Стандартный файл для вывода, для текщего теста }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
    function WebStyle: Boolean; override;
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-    {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+    {* Папка в которую входит тест }
+   {$If NOT Defined(NotTunedDUnit)}
    function RaiseIfEtalonCreated: Boolean; override;
-    {$IfEnd} //nsTest AND not NotTunedDUnit
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
-   procedure DoBeforeDrawing(aForm: TPrimTextLoadForm); virtual; abstract;
-     {* Произвести какие-нибудь операции перед отрисовкой. }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TDrawTestPrim
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  SysUtils,
-  TestFrameWork,
-  vcmBase
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+ l3ImplUses
+ , SysUtils
+ , TestFrameWork
+ , vcmBase
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas}
 
-// start class TDrawTestPrim
-
 procedure TDrawTestPrim.DoVisit(aForm: TPrimTextLoadForm);
+ {* Обработать текст }
 //#UC START# *4BE419AF0217_4CAC405703AE_var*
 //#UC END# *4BE419AF0217_4CAC405703AE_var*
 begin
@@ -104,7 +81,7 @@ begin
 //#UC END# *4BE419AF0217_4CAC405703AE_impl*
 end;//TDrawTestPrim.DoVisit
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 function TDrawTestPrim.DoOpenLog(const aView: InevView): AnsiString;
 //#UC START# *4E1C0C6C026C_4CAC405703AE_var*
 //#UC END# *4E1C0C6C026C_4CAC405703AE_var*
@@ -113,9 +90,9 @@ begin
  Result := OutputPath + KPage + '.shapes';
 //#UC END# *4E1C0C6C026C_4CAC405703AE_impl*
 end;//TDrawTestPrim.DoOpenLog
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 procedure TDrawTestPrim.DoCloseLog(const aLogName: AnsiString);
 //#UC START# *4E1C0C8C0007_4CAC405703AE_var*
 //#UC END# *4E1C0C8C0007_4CAC405703AE_var*
@@ -124,10 +101,11 @@ begin
  CheckOutputWithInput(ChangeFileExt(ExtractFileName(aLogName), EtalonSuffix + '.shapes'));
 //#UC END# *4E1C0C8C0007_4CAC405703AE_impl*
 end;//TDrawTestPrim.DoCloseLog
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 function TDrawTestPrim.FileForOutput: AnsiString;
+ {* Стандартный файл для вывода, для текщего теста }
 //#UC START# *4B4F588B0241_4CAC405703AE_var*
 //#UC END# *4B4F588B0241_4CAC405703AE_var*
 begin
@@ -135,7 +113,7 @@ begin
  Result := OutputPath + KPage + '.shapes';
 //#UC END# *4B4F588B0241_4CAC405703AE_impl*
 end;//TDrawTestPrim.FileForOutput
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
 function TDrawTestPrim.WebStyle: Boolean;
 //#UC START# *4C08CF4300BE_4CAC405703AE_var*
@@ -147,12 +125,12 @@ begin
 end;//TDrawTestPrim.WebStyle
 
 function TDrawTestPrim.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TDrawTestPrim.GetFolder
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 function TDrawTestPrim.RaiseIfEtalonCreated: Boolean;
 //#UC START# *4CA5DAD4014C_4CAC405703AE_var*
 //#UC END# *4CA5DAD4014C_4CAC405703AE_var*
@@ -161,14 +139,13 @@ begin
  Result := False;
 //#UC END# *4CA5DAD4014C_4CAC405703AE_impl*
 end;//TDrawTestPrim.RaiseIfEtalonCreated
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
 function TDrawTestPrim.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4CAC405703AE';
 end;//TDrawTestPrim.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

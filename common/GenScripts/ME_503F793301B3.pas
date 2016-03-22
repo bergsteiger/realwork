@@ -2,6 +2,7 @@ unit atStringToStringConverterBase;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringToStringConverterBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatStringToStringConverterBase" MUID: (503F793301B3)
 
 interface
 

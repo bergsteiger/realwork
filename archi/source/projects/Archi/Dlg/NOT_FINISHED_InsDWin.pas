@@ -2,6 +2,7 @@ unit NOT_FINISHED_InsDWin;
 
 // Модуль: "w:\archi\source\projects\Archi\Dlg\NOT_FINISHED_InsDWin.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "InsDWin" MUID: (4E202A8502E6)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

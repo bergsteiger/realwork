@@ -2,6 +2,7 @@ unit F1ScriptEngine;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ScriptEngine\F1ScriptEngine.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TF1ScriptEngine" MUID: (4DAF061B02B8)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

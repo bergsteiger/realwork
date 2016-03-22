@@ -2,6 +2,7 @@ unit NOT_FINISHED_vgVisual;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vgVisual.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgVisual" MUID: (4D5EB9330192)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

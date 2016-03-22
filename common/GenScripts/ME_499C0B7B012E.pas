@@ -3,6 +3,7 @@ unit eeTreeViewExport;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeTreeViewExport.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TeeTreeViewExport" MUID: (499C0B7B012E)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
@@ -52,21 +53,16 @@ type
    f_PrevNode: IeeNode;
    f_CurNode: IeeNode;
    f_TreeView: IeeTreeView;
-    {* Поле для свойства TreeView }
    f_DblClickOnFolder: Boolean;
-    {* Поле для свойства DblClickOnFolder }
+    {* default True }
    f_ClearTreeStructOnSaveState: Boolean;
-    {* Поле для свойства ClearTreeStructOnSaveState }
+    {* default True }
    f_NeedStatus: Boolean;
-    {* Поле для свойства NeedStatus }
+    {* default False }
    f_OnRootChanged: TeeRootChangedEvent;
-    {* Поле для свойства OnRootChanged }
    f_OnFormatStatusInfo: TeeFormatStatusInfo;
-    {* Поле для свойства OnFormatStatusInfo }
    f_OnCurrentIndexChanged: TeeCurrentIndexChangedEvent;
-    {* Поле для свойства OnCurrentIndexChanged }
    f_LoadingCloneState: Boolean;
-    {* Поле для свойства LoadingCloneState }
   private
    procedure WMLButtonDblClk(var Msg: TWMLButtonDblClk); message WM_LBUTTONDBLCLK;
   protected
@@ -116,7 +112,6 @@ type
     {* Функция очистки полей объекта. }
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-   procedure ClearFields; override;
    function NotifyIfNewCurrentEmpty: Boolean; override;
     {* определяет нужно ли вызывать событие OnCurrentChanged в случае если пришел NewCurrent = -1. }
    function DoDoProcessCommand(Cmd: Tl3OperationCode): Boolean; override;
@@ -135,6 +130,7 @@ type
     const aNewTree: Il3SimpleTree); override;
    procedure SetTreeStructFromHistory(const aTreeStruct: Il3SimpleTree;
     const aData: TvtOutlinerHystoryData); override;
+   procedure ClearFields; override;
   public
    procedure MakeItemVisible(aIndex: Integer);
     {* делает узел видимым, влияет на прокрутку }
@@ -240,7 +236,7 @@ type
    class function Make(aTreeView: TeeTreeViewExportPrim): IeeTreeView; reintroduce;
  end;//TeeTreeViewShadow
 
- {$If NOT Defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
  IeeTreeState = interface
   ['{59A4C6CC-3B40-4206-B937-E5EB9D68D6FC}']
   function GetTree: Il3SimpleTree;
@@ -248,9 +244,7 @@ type
    const aData: TvtOutlinerHystoryData);
   function GetData: TvtOutlinerHystoryData;
  end;//IeeTreeState
- {$IfEnd} // NOT Defined(DesignTimeLibrary)
 
- {$If NOT Defined(DesignTimeLibrary)}
  TeeTreeState = class(Tl3CacheableBase, IeeTreeState)
   private
    f_Tree: Il3SimpleTree;
@@ -271,7 +265,7 @@ type
    class function Make(const aTree: Il3SimpleTree;
     const aData: TvtOutlinerHystoryData): IeeTreeState; reintroduce;
  end;//TeeTreeState
- {$IfEnd} // NOT Defined(DesignTimeLibrary)
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
  //#UC START# *499C0B7B012Eci*
  //#UC END# *499C0B7B012Eci*
@@ -697,14 +691,6 @@ begin
 //#UC END# *48C7C4990287_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.COMQueryInterface
 
-procedure TeeTreeViewExportPrim.ClearFields;
-begin
- f_PrevNode := nil;
- f_CurNode := nil;
- f_TreeView := nil;
- inherited;
-end;//TeeTreeViewExportPrim.ClearFields
-
 function TeeTreeViewExportPrim.NotifyIfNewCurrentEmpty: Boolean;
  {* определяет нужно ли вызывать событие OnCurrentChanged в случае если пришел NewCurrent = -1. }
 //#UC START# *5151AE2202F5_531DB14D03CC_var*
@@ -911,6 +897,14 @@ begin
  end;//f_TreeStruct <> aTreeStruct
 //#UC END# *51629D8E02C8_531DB14D03CC_impl*
 end;//TeeTreeViewExportPrim.SetTreeStructFromHistory
+
+procedure TeeTreeViewExportPrim.ClearFields;
+begin
+ f_PrevNode := nil;
+ f_CurNode := nil;
+ f_TreeView := nil;
+ inherited;
+end;//TeeTreeViewExportPrim.ClearFields
 
 constructor TeeTreeViewShadow.Create(aTreeView: TeeTreeViewExportPrim);
 //#UC START# *531A0A5E017A_5319FAE701F7_var*

@@ -2,6 +2,7 @@ unit NOT_FINISHED_csAutoAnnoExport;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csAutoAnnoExport.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "csAutoAnnoExport" MUID: (5317037001E5)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

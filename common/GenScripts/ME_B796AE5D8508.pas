@@ -3,6 +3,7 @@ unit ChangesBetweenEditonsKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\ChangesBetweenEditonsKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ChangesBetweenEditonsKeywordsPack" MUID: (B796AE5D8508)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -49,8 +50,8 @@ type
 'aControl' форма::ChangesBetweenEditons TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ChangesBetweenEditons
 
  Tkw_ChangesBetweenEditons_Control_Text = {final} class(TtfwControlString)
@@ -61,9 +62,9 @@ type
 контрол::Text TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ChangesBetweenEditons_Control_Text
 
  Tkw_ChangesBetweenEditons_Control_Text_Push = {final} class(TkwBynameControlPush)
@@ -86,9 +87,9 @@ type
 компонент::TextSource TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ChangesBetweenEditons_Component_TextSource
 
  TkwChangesBetweenEditonsFormText = {final} class(TtfwPropertyLike)
@@ -115,20 +116,15 @@ OBJECT VAR l_TnscEditor
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwChangesBetweenEditonsFormText
 
-class function Tkw_Form_ChangesBetweenEditons.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ChangesBetweenEditons';
-end;//Tkw_Form_ChangesBetweenEditons.GetWordNameForRegister
-
 function Tkw_Form_ChangesBetweenEditons.GetString: AnsiString;
 begin
  Result := 'ChangesBetweenEditonsForm';
 end;//Tkw_Form_ChangesBetweenEditons.GetString
 
-class function Tkw_ChangesBetweenEditons_Control_Text.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_ChangesBetweenEditons.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::Text';
-end;//Tkw_ChangesBetweenEditons_Control_Text.GetWordNameForRegister
+ Result := 'форма::ChangesBetweenEditons';
+end;//Tkw_Form_ChangesBetweenEditons.GetWordNameForRegister
 
 function Tkw_ChangesBetweenEditons_Control_Text.GetString: AnsiString;
 begin
@@ -141,6 +137,11 @@ begin
  TtfwClassRef.Register(TnscEditor);
 end;//Tkw_ChangesBetweenEditons_Control_Text.RegisterInEngine
 
+class function Tkw_ChangesBetweenEditons_Control_Text.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Text';
+end;//Tkw_ChangesBetweenEditons_Control_Text.GetWordNameForRegister
+
 procedure Tkw_ChangesBetweenEditons_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Text');
@@ -152,11 +153,6 @@ begin
  Result := 'контрол::Text:push';
 end;//Tkw_ChangesBetweenEditons_Control_Text_Push.GetWordNameForRegister
 
-class function Tkw_ChangesBetweenEditons_Component_TextSource.GetWordNameForRegister: AnsiString;
-begin
- Result := 'компонент::TextSource';
-end;//Tkw_ChangesBetweenEditons_Component_TextSource.GetWordNameForRegister
-
 function Tkw_ChangesBetweenEditons_Component_TextSource.GetString: AnsiString;
 begin
  Result := 'TextSource';
@@ -167,6 +163,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTextSource);
 end;//Tkw_ChangesBetweenEditons_Component_TextSource.RegisterInEngine
+
+class function Tkw_ChangesBetweenEditons_Component_TextSource.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'компонент::TextSource';
+end;//Tkw_ChangesBetweenEditons_Component_TextSource.GetWordNameForRegister
 
 function TkwChangesBetweenEditonsFormText.Text(const aCtx: TtfwContext;
  aChangesBetweenEditonsForm: TChangesBetweenEditonsForm): TnscEditor;
@@ -190,11 +191,6 @@ begin
  aCtx.rEngine.PushObj(Text(aCtx, l_aChangesBetweenEditonsForm));
 end;//TkwChangesBetweenEditonsFormText.DoDoIt
 
-class function TkwChangesBetweenEditonsFormText.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TChangesBetweenEditonsForm.Text';
-end;//TkwChangesBetweenEditonsFormText.GetWordNameForRegister
-
 procedure TkwChangesBetweenEditonsFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -215,6 +211,11 @@ function TkwChangesBetweenEditonsFormText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TChangesBetweenEditonsForm)]);
 end;//TkwChangesBetweenEditonsFormText.ParamsTypes
+
+class function TkwChangesBetweenEditonsFormText.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TChangesBetweenEditonsForm.Text';
+end;//TkwChangesBetweenEditonsFormText.GetWordNameForRegister
 
 initialization
  Tkw_Form_ChangesBetweenEditons.RegisterInEngine;

@@ -2,6 +2,7 @@ unit vcmFormSetHistory;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmFormSetHistory.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmFormSetHistory" MUID: (55A4AE2A01E5)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
@@ -1149,6 +1150,7 @@ begin
 
  for l_Index := 0 to Pred(f_Items.Count) do
  begin
+  l_Form := nil;
   l_FormItem := f_Items[l_Index];
   l_Container := GetFormContainer(l_FormItem);
 
@@ -1160,7 +1162,12 @@ begin
    l_FormItem.MakeForm(l_Container, nil, l_Aggregate, l_Form);
    DoLoadFormState(l_Form, l_FormItem);
    f_FormCache.Add(TvcmHistoryFormCacheItem_C(l_Form, l_FormItem.GUID));
-  end;
+  end
+  else
+  if l_Container.HasForm(l_FormItem.FormID, l_FormItem.ZoneType,
+   True, @l_Form) then
+   DoLoadFormState(l_Form, l_FormItem);
+
  end;
 
  if f_ActiveFormStored and

@@ -2,6 +2,7 @@ unit kwKeyWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\DUnit_Script_Support\kwKeyWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "kwKeyWordsPack" MUID: (51304A1F02AD)
 
 {$Include w:\common\components\rtl\Garant\DUnit_Script_Support\dsDefine.inc}
 
@@ -136,11 +137,6 @@ begin
  aCtx.rEngine.PushObj(push_DUnitForm(aCtx));
 end;//TkwGUITestRunnerPushDUnitForm.DoDoIt
 
-class function TkwGUITestRunnerPushDUnitForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'GUITestRunner:push:DUnitForm';
-end;//TkwGUITestRunnerPushDUnitForm.GetWordNameForRegister
-
 function TkwGUITestRunnerPushDUnitForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TGUITestRunner);
@@ -155,6 +151,11 @@ function TkwGUITestRunnerPushDUnitForm.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TGUITestRunner)]);
 end;//TkwGUITestRunnerPushDUnitForm.ParamsTypes
+
+class function TkwGUITestRunnerPushDUnitForm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'GUITestRunner:push:DUnitForm';
+end;//TkwGUITestRunnerPushDUnitForm.GetWordNameForRegister
 
 function TkwPopGUITestRunnerNodeToTest.NodeToTest(const aCtx: TtfwContext;
  aGUITestRunner: TGUITestRunner;
@@ -193,11 +194,6 @@ begin
  aCtx.rEngine.PushIntf(NodeToTest(aCtx, l_aGUITestRunner, l_aNode), TypeInfo(ITest));
 end;//TkwPopGUITestRunnerNodeToTest.DoDoIt
 
-class function TkwPopGUITestRunnerNodeToTest.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:GUITestRunner:NodeToTest';
-end;//TkwPopGUITestRunnerNodeToTest.GetWordNameForRegister
-
 function TkwPopGUITestRunnerNodeToTest.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ITest);
@@ -212,6 +208,11 @@ function TkwPopGUITestRunnerNodeToTest.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TGUITestRunner), TypeInfo(TTreeNode)]);
 end;//TkwPopGUITestRunnerNodeToTest.ParamsTypes
+
+class function TkwPopGUITestRunnerNodeToTest.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:GUITestRunner:NodeToTest';
+end;//TkwPopGUITestRunnerNodeToTest.GetWordNameForRegister
 
 procedure TkwDeleteEtalons.DeleteEtalons(const aCtx: TtfwContext;
  const aName: AnsiString;
@@ -261,11 +262,6 @@ begin
  DeleteEtalons(aCtx, l_aName, l_aSubFolder, l_anIsScript);
 end;//TkwDeleteEtalons.DoDoIt
 
-class function TkwDeleteEtalons.GetWordNameForRegister: AnsiString;
-begin
- Result := 'DeleteEtalons';
-end;//TkwDeleteEtalons.GetWordNameForRegister
-
 function TkwDeleteEtalons.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -280,6 +276,11 @@ function TkwDeleteEtalons.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, TypeInfo(Boolean)]);
 end;//TkwDeleteEtalons.ParamsTypes
+
+class function TkwDeleteEtalons.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'DeleteEtalons';
+end;//TkwDeleteEtalons.GetWordNameForRegister
 
 initialization
  TkwKeyWordsPackResNameGetter.Register;

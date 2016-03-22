@@ -11,6 +11,8 @@ END
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwRAISE.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "RAISE" MUID: (4DBAE64F02F7)
+// Имя типа: "TkwRAISE"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

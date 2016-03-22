@@ -2,6 +2,7 @@ unit BadEVDTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\BadEVDTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TBadEVDTest" MUID: (53BC0D3900DF)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

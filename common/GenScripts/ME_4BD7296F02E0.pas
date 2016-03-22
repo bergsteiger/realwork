@@ -3,6 +3,7 @@ unit PrimUnderControl_utUnderControl_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControl\Forms\PrimUnderControl_utUnderControl_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utUnderControl" MUID: (4BD7296F02E0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utUnderControl = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utUnderControl }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utUnderControl
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utUnderControl.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utUnderControl';
-end;//Tkw_FormUserType_utUnderControl.GetWordNameForRegister
-
 function Tkw_FormUserType_utUnderControl.GetInteger: Integer;
 begin
  Result := utUnderControl;
 end;//Tkw_FormUserType_utUnderControl.GetInteger
+
+class function Tkw_FormUserType_utUnderControl.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utUnderControl';
+end;//Tkw_FormUserType_utUnderControl.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

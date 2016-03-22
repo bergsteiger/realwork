@@ -3,6 +3,7 @@ unit PrimCreateFilter_cfCreate_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\PrimCreateFilter_cfCreate_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "cfCreate" MUID: (4CB6D9AE0083)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_cfCreate = {final} class(TtfwInteger)
   {* Слово словаря для типа формы cfCreate }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_cfCreate
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_cfCreate.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::cfCreate';
-end;//Tkw_FormUserType_cfCreate.GetWordNameForRegister
-
 function Tkw_FormUserType_cfCreate.GetInteger: Integer;
 begin
  Result := cfCreate;
 end;//Tkw_FormUserType_cfCreate.GetInteger
+
+class function Tkw_FormUserType_cfCreate.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::cfCreate';
+end;//Tkw_FormUserType_cfCreate.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

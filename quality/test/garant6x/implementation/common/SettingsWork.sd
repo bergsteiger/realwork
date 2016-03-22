@@ -860,7 +860,7 @@ try
   SetSettingsForF1ShellTabs;
   
   // проверяем, что включилась нужная конфигурация
-  Result := IsMenuItemChecked(GetFromMainWindow('ГЛАВНОЕ МЕНЮ'), 'Файл\Выбор конфигурац*\' + confName);  
+  Result := IsMenuItemChecked(nil, 'Файл\Выбор конфигурац*\' + confName);  
   except
   	Log.Error('SelectConfiguration: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
     Result := false;

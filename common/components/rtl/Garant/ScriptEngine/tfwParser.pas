@@ -2,6 +2,7 @@ unit tfwParser;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwParser.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwParser" MUID: (4F4735060149)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

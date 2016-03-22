@@ -3,6 +3,8 @@ unit evStyles_SH;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evStyles_SH.pas"
 // Стереотип: "SettingsHolder"
+// Элемент модели: "evStyles" MUID: (522ED9B4018B)
+// Имя типа: "SHevStyles"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

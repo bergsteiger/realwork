@@ -2,6 +2,8 @@ unit kwWaitOk;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwWaitOk.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "wait_Ok" MUID: (4DDE8A650180)
+// Имя типа: "TkwWaitOk"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

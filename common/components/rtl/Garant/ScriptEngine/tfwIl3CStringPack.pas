@@ -2,6 +2,7 @@ unit tfwIl3CStringPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIl3CStringPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "tfwIl3CStringPack" MUID: (55682D8F01C7)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -1020,11 +1021,6 @@ begin
  aCtx.rEngine.PushBool(StartsStr(aCtx, l_aString, l_aSubStr));
 end;//TkwStartsStr.DoDoIt
 
-class function TkwStartsStr.GetWordNameForRegister: AnsiString;
-begin
- Result := 'StartsStr';
-end;//TkwStartsStr.GetWordNameForRegister
-
 function TkwStartsStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1039,6 +1035,11 @@ function TkwStartsStr.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStartsStr.ParamsTypes
+
+class function TkwStartsStr.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StartsStr';
+end;//TkwStartsStr.GetWordNameForRegister
 
 function TkwStartsText.StartsText(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -1077,11 +1078,6 @@ begin
  aCtx.rEngine.PushBool(StartsText(aCtx, l_aString, l_aSubStr));
 end;//TkwStartsText.DoDoIt
 
-class function TkwStartsText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'StartsText';
-end;//TkwStartsText.GetWordNameForRegister
-
 function TkwStartsText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1096,6 +1092,11 @@ function TkwStartsText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStartsText.ParamsTypes
+
+class function TkwStartsText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StartsText';
+end;//TkwStartsText.GetWordNameForRegister
 
 function TkwEndsStr.EndsStr(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -1134,11 +1135,6 @@ begin
  aCtx.rEngine.PushBool(EndsStr(aCtx, l_aString, l_aSubStr));
 end;//TkwEndsStr.DoDoIt
 
-class function TkwEndsStr.GetWordNameForRegister: AnsiString;
-begin
- Result := 'EndsStr';
-end;//TkwEndsStr.GetWordNameForRegister
-
 function TkwEndsStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1153,6 +1149,11 @@ function TkwEndsStr.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwEndsStr.ParamsTypes
+
+class function TkwEndsStr.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'EndsStr';
+end;//TkwEndsStr.GetWordNameForRegister
 
 function TkwEndsText.EndsText(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -1191,11 +1192,6 @@ begin
  aCtx.rEngine.PushBool(EndsText(aCtx, l_aString, l_aSubStr));
 end;//TkwEndsText.DoDoIt
 
-class function TkwEndsText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'EndsText';
-end;//TkwEndsText.GetWordNameForRegister
-
 function TkwEndsText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1210,6 +1206,11 @@ function TkwEndsText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwEndsText.ParamsTypes
+
+class function TkwEndsText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'EndsText';
+end;//TkwEndsText.GetWordNameForRegister
 
 function TkwSameStr.SameStr(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -1248,11 +1249,6 @@ begin
  aCtx.rEngine.PushBool(SameStr(aCtx, l_aString, l_anOther));
 end;//TkwSameStr.DoDoIt
 
-class function TkwSameStr.GetWordNameForRegister: AnsiString;
-begin
- Result := 'SameStr';
-end;//TkwSameStr.GetWordNameForRegister
-
 function TkwSameStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1267,6 +1263,11 @@ function TkwSameStr.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwSameStr.ParamsTypes
+
+class function TkwSameStr.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'SameStr';
+end;//TkwSameStr.GetWordNameForRegister
 
 function TkwSameText.SameText(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -1305,11 +1306,6 @@ begin
  aCtx.rEngine.PushBool(SameText(aCtx, l_aString, l_anOther));
 end;//TkwSameText.DoDoIt
 
-class function TkwSameText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'SameText';
-end;//TkwSameText.GetWordNameForRegister
-
 function TkwSameText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1324,6 +1320,11 @@ function TkwSameText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwSameText.ParamsTypes
+
+class function TkwSameText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'SameText';
+end;//TkwSameText.GetWordNameForRegister
 
 function TkwCompareStr.CompareStr(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -1362,11 +1363,6 @@ begin
  aCtx.rEngine.PushInt(CompareStr(aCtx, l_aString, l_anOther));
 end;//TkwCompareStr.DoDoIt
 
-class function TkwCompareStr.GetWordNameForRegister: AnsiString;
-begin
- Result := 'CompareStr';
-end;//TkwCompareStr.GetWordNameForRegister
-
 function TkwCompareStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1381,6 +1377,11 @@ function TkwCompareStr.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwCompareStr.ParamsTypes
+
+class function TkwCompareStr.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'CompareStr';
+end;//TkwCompareStr.GetWordNameForRegister
 
 function TkwCompareText.CompareText(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -1419,11 +1420,6 @@ begin
  aCtx.rEngine.PushInt(CompareText(aCtx, l_aString, l_anOther));
 end;//TkwCompareText.DoDoIt
 
-class function TkwCompareText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'CompareText';
-end;//TkwCompareText.GetWordNameForRegister
-
 function TkwCompareText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1438,6 +1434,11 @@ function TkwCompareText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwCompareText.ParamsTypes
+
+class function TkwCompareText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'CompareText';
+end;//TkwCompareText.GetWordNameForRegister
 
 function TkwStrToInt.StrToInt(const aCtx: TtfwContext;
  const aString: Il3CString): Integer;
@@ -1465,11 +1466,6 @@ begin
  aCtx.rEngine.PushInt(StrToInt(aCtx, l_aString));
 end;//TkwStrToInt.DoDoIt
 
-class function TkwStrToInt.GetWordNameForRegister: AnsiString;
-begin
- Result := 'StrToInt';
-end;//TkwStrToInt.GetWordNameForRegister
-
 function TkwStrToInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1484,6 +1480,11 @@ function TkwStrToInt.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStrToInt.ParamsTypes
+
+class function TkwStrToInt.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StrToInt';
+end;//TkwStrToInt.GetWordNameForRegister
 
 function TkwCat.Cat(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -1522,11 +1523,6 @@ begin
  aCtx.rEngine.PushString(Cat(aCtx, l_aString, l_anOther));
 end;//TkwCat.DoDoIt
 
-class function TkwCat.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Cat';
-end;//TkwCat.GetWordNameForRegister
-
 function TkwCat.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1541,6 +1537,11 @@ function TkwCat.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwCat.ParamsTypes
+
+class function TkwCat.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Cat';
+end;//TkwCat.GetWordNameForRegister
 
 function TkwStringConsistsOf.string_ConsistsOf(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -1598,11 +1599,6 @@ begin
  aCtx.rEngine.PushBool(string_ConsistsOf(aCtx, l_aString, l_aDelims));
 end;//TkwStringConsistsOf.DoDoIt
 
-class function TkwStringConsistsOf.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:ConsistsOf';
-end;//TkwStringConsistsOf.GetWordNameForRegister
-
 function TkwStringConsistsOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1617,6 +1613,11 @@ function TkwStringConsistsOf.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringConsistsOf.ParamsTypes
+
+class function TkwStringConsistsOf.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:ConsistsOf';
+end;//TkwStringConsistsOf.GetWordNameForRegister
 
 function TkwStringHasAnyOf.string_HasAnyOf(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -1674,11 +1675,6 @@ begin
  aCtx.rEngine.PushBool(string_HasAnyOf(aCtx, l_aString, l_aDelims));
 end;//TkwStringHasAnyOf.DoDoIt
 
-class function TkwStringHasAnyOf.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:HasAnyOf';
-end;//TkwStringHasAnyOf.GetWordNameForRegister
-
 function TkwStringHasAnyOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1693,6 +1689,11 @@ function TkwStringHasAnyOf.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringHasAnyOf.ParamsTypes
+
+class function TkwStringHasAnyOf.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:HasAnyOf';
+end;//TkwStringHasAnyOf.GetWordNameForRegister
 
 function TkwStringPos.string_Pos(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -1731,11 +1732,6 @@ begin
  aCtx.rEngine.PushInt(string_Pos(aCtx, l_aString, l_anOther));
 end;//TkwStringPos.DoDoIt
 
-class function TkwStringPos.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Pos';
-end;//TkwStringPos.GetWordNameForRegister
-
 function TkwStringPos.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1750,6 +1746,11 @@ function TkwStringPos.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringPos.ParamsTypes
+
+class function TkwStringPos.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Pos';
+end;//TkwStringPos.GetWordNameForRegister
 
 function TkwStringPosEx.string_PosEx(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -1799,11 +1800,6 @@ begin
  aCtx.rEngine.PushInt(string_PosEx(aCtx, l_aString, l_anOther, l_aPos));
 end;//TkwStringPosEx.DoDoIt
 
-class function TkwStringPosEx.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:PosEx';
-end;//TkwStringPosEx.GetWordNameForRegister
-
 function TkwStringPosEx.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1818,6 +1814,11 @@ function TkwStringPosEx.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, TypeInfo(Integer)]);
 end;//TkwStringPosEx.ParamsTypes
+
+class function TkwStringPosEx.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:PosEx';
+end;//TkwStringPosEx.GetWordNameForRegister
 
 function TkwStringSplit.string_Split(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -1873,11 +1874,6 @@ begin
  aCtx.rEngine.PushString(l_theTail);
 end;//TkwStringSplit.DoDoIt
 
-class function TkwStringSplit.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Split';
-end;//TkwStringSplit.GetWordNameForRegister
-
 function TkwStringSplit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1892,6 +1888,11 @@ function TkwStringSplit.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringSplit.ParamsTypes
+
+class function TkwStringSplit.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Split';
+end;//TkwStringSplit.GetWordNameForRegister
 
 function TkwStringReplace.string_Replace(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -1943,11 +1944,6 @@ begin
  aCtx.rEngine.PushString(string_Replace(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwStringReplace.DoDoIt
 
-class function TkwStringReplace.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Replace';
-end;//TkwStringReplace.GetWordNameForRegister
-
 function TkwStringReplace.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1962,6 +1958,11 @@ function TkwStringReplace.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwStringReplace.ParamsTypes
+
+class function TkwStringReplace.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Replace';
+end;//TkwStringReplace.GetWordNameForRegister
 
 function TkwStringReplaceFirst.string_ReplaceFirst(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -2013,11 +2014,6 @@ begin
  aCtx.rEngine.PushString(string_ReplaceFirst(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwStringReplaceFirst.DoDoIt
 
-class function TkwStringReplaceFirst.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:ReplaceFirst';
-end;//TkwStringReplaceFirst.GetWordNameForRegister
-
 function TkwStringReplaceFirst.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2032,6 +2028,11 @@ function TkwStringReplaceFirst.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwStringReplaceFirst.ParamsTypes
+
+class function TkwStringReplaceFirst.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:ReplaceFirst';
+end;//TkwStringReplaceFirst.GetWordNameForRegister
 
 function TkwTextReplace.text_Replace(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -2083,11 +2084,6 @@ begin
  aCtx.rEngine.PushString(text_Replace(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwTextReplace.DoDoIt
 
-class function TkwTextReplace.GetWordNameForRegister: AnsiString;
-begin
- Result := 'text:Replace';
-end;//TkwTextReplace.GetWordNameForRegister
-
 function TkwTextReplace.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2102,6 +2098,11 @@ function TkwTextReplace.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwTextReplace.ParamsTypes
+
+class function TkwTextReplace.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'text:Replace';
+end;//TkwTextReplace.GetWordNameForRegister
 
 function TkwTextReplaceFirst.text_ReplaceFirst(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -2153,11 +2154,6 @@ begin
  aCtx.rEngine.PushString(text_ReplaceFirst(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwTextReplaceFirst.DoDoIt
 
-class function TkwTextReplaceFirst.GetWordNameForRegister: AnsiString;
-begin
- Result := 'text:ReplaceFirst';
-end;//TkwTextReplaceFirst.GetWordNameForRegister
-
 function TkwTextReplaceFirst.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2172,6 +2168,11 @@ function TkwTextReplaceFirst.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwTextReplaceFirst.ParamsTypes
+
+class function TkwTextReplaceFirst.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'text:ReplaceFirst';
+end;//TkwTextReplaceFirst.GetWordNameForRegister
 
 function TkwStringChar.string_Char(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -2210,11 +2211,6 @@ begin
  aCtx.rEngine.PushChar(string_Char(aCtx, l_aString, l_anIndex));
 end;//TkwStringChar.DoDoIt
 
-class function TkwStringChar.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:[i]';
-end;//TkwStringChar.GetWordNameForRegister
-
 function TkwStringChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(AnsiChar);
@@ -2229,6 +2225,11 @@ function TkwStringChar.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer)]);
 end;//TkwStringChar.ParamsTypes
+
+class function TkwStringChar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:[i]';
+end;//TkwStringChar.GetWordNameForRegister
 
 function TkwStringCodePage.string_CodePage(const aCtx: TtfwContext;
  const aString: Il3CString): Integer;
@@ -2256,11 +2257,6 @@ begin
  aCtx.rEngine.PushInt(string_CodePage(aCtx, l_aString));
 end;//TkwStringCodePage.DoDoIt
 
-class function TkwStringCodePage.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:CodePage';
-end;//TkwStringCodePage.GetWordNameForRegister
-
 function TkwStringCodePage.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -2275,6 +2271,11 @@ function TkwStringCodePage.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringCodePage.ParamsTypes
+
+class function TkwStringCodePage.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:CodePage';
+end;//TkwStringCodePage.GetWordNameForRegister
 
 function TkwStringLen.string_Len(const aCtx: TtfwContext;
  const aString: Il3CString): Integer;
@@ -2305,11 +2306,6 @@ begin
  aCtx.rEngine.PushInt(string_Len(aCtx, l_aString));
 end;//TkwStringLen.DoDoIt
 
-class function TkwStringLen.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Len';
-end;//TkwStringLen.GetWordNameForRegister
-
 function TkwStringLen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -2324,6 +2320,11 @@ function TkwStringLen.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringLen.ParamsTypes
+
+class function TkwStringLen.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Len';
+end;//TkwStringLen.GetWordNameForRegister
 
 function TkwStringToChar.string_ToChar(const aCtx: TtfwContext;
  const aString: Il3CString): AnsiChar;
@@ -2352,11 +2353,6 @@ begin
  aCtx.rEngine.PushChar(string_ToChar(aCtx, l_aString));
 end;//TkwStringToChar.DoDoIt
 
-class function TkwStringToChar.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:ToChar';
-end;//TkwStringToChar.GetWordNameForRegister
-
 function TkwStringToChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(AnsiChar);
@@ -2371,6 +2367,11 @@ function TkwStringToChar.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringToChar.ParamsTypes
+
+class function TkwStringToChar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:ToChar';
+end;//TkwStringToChar.GetWordNameForRegister
 
 function TkwCharToString.char_ToString(const aCtx: TtfwContext;
  aChar: AnsiChar): Il3CString;
@@ -2398,11 +2399,6 @@ begin
  aCtx.rEngine.PushString(char_ToString(aCtx, l_aChar));
 end;//TkwCharToString.DoDoIt
 
-class function TkwCharToString.GetWordNameForRegister: AnsiString;
-begin
- Result := 'char:ToString';
-end;//TkwCharToString.GetWordNameForRegister
-
 function TkwCharToString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2417,6 +2413,11 @@ function TkwCharToString.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(AnsiChar)]);
 end;//TkwCharToString.ParamsTypes
+
+class function TkwCharToString.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'char:ToString';
+end;//TkwCharToString.GetWordNameForRegister
 
 function TkwCharDupe.char_Dupe(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -2455,11 +2456,6 @@ begin
  aCtx.rEngine.PushString(char_Dupe(aCtx, l_aString, l_aCount));
 end;//TkwCharDupe.DoDoIt
 
-class function TkwCharDupe.GetWordNameForRegister: AnsiString;
-begin
- Result := 'char:Dupe';
-end;//TkwCharDupe.GetWordNameForRegister
-
 function TkwCharDupe.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2474,6 +2470,11 @@ function TkwCharDupe.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer)]);
 end;//TkwCharDupe.ParamsTypes
+
+class function TkwCharDupe.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'char:Dupe';
+end;//TkwCharDupe.GetWordNameForRegister
 
 function TkwStringInc.string_Inc(const aCtx: TtfwContext;
  const aString: Il3CString): Il3CString;
@@ -2505,11 +2506,6 @@ begin
  aCtx.rEngine.PushString(string_Inc(aCtx, l_aString));
 end;//TkwStringInc.DoDoIt
 
-class function TkwStringInc.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:++';
-end;//TkwStringInc.GetWordNameForRegister
-
 function TkwStringInc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2524,6 +2520,11 @@ function TkwStringInc.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringInc.ParamsTypes
+
+class function TkwStringInc.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:++';
+end;//TkwStringInc.GetWordNameForRegister
 
 function TkwStringShift.string_Shift(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -2566,11 +2567,6 @@ begin
  aCtx.rEngine.PushString(string_Shift(aCtx, l_aString, l_aDelta));
 end;//TkwStringShift.DoDoIt
 
-class function TkwStringShift.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:+';
-end;//TkwStringShift.GetWordNameForRegister
-
 function TkwStringShift.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2585,6 +2581,11 @@ function TkwStringShift.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer)]);
 end;//TkwStringShift.ParamsTypes
+
+class function TkwStringShift.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:+';
+end;//TkwStringShift.GetWordNameForRegister
 
 function TkwStringFirstChar.string_FirstChar(const aCtx: TtfwContext;
  const aString: Il3CString): AnsiChar;
@@ -2615,11 +2616,6 @@ begin
  aCtx.rEngine.PushChar(string_FirstChar(aCtx, l_aString));
 end;//TkwStringFirstChar.DoDoIt
 
-class function TkwStringFirstChar.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:[]';
-end;//TkwStringFirstChar.GetWordNameForRegister
-
 function TkwStringFirstChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(AnsiChar);
@@ -2634,6 +2630,11 @@ function TkwStringFirstChar.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringFirstChar.ParamsTypes
+
+class function TkwStringFirstChar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:[]';
+end;//TkwStringFirstChar.GetWordNameForRegister
 
 function TkwStringTrim.string_Trim(const aCtx: TtfwContext;
  const aString: Il3CString): Il3CString;
@@ -2661,11 +2662,6 @@ begin
  aCtx.rEngine.PushString(string_Trim(aCtx, l_aString));
 end;//TkwStringTrim.DoDoIt
 
-class function TkwStringTrim.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Trim';
-end;//TkwStringTrim.GetWordNameForRegister
-
 function TkwStringTrim.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2680,6 +2676,11 @@ function TkwStringTrim.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringTrim.ParamsTypes
+
+class function TkwStringTrim.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Trim';
+end;//TkwStringTrim.GetWordNameForRegister
 
 function TkwStringTrimLeft.string_TrimLeft(const aCtx: TtfwContext;
  const aString: Il3CString): Il3CString;
@@ -2707,11 +2708,6 @@ begin
  aCtx.rEngine.PushString(string_TrimLeft(aCtx, l_aString));
 end;//TkwStringTrimLeft.DoDoIt
 
-class function TkwStringTrimLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:TrimLeft';
-end;//TkwStringTrimLeft.GetWordNameForRegister
-
 function TkwStringTrimLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2726,6 +2722,11 @@ function TkwStringTrimLeft.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringTrimLeft.ParamsTypes
+
+class function TkwStringTrimLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:TrimLeft';
+end;//TkwStringTrimLeft.GetWordNameForRegister
 
 function TkwStringTrimRight.string_TrimRight(const aCtx: TtfwContext;
  const aString: Il3CString): Il3CString;
@@ -2753,11 +2754,6 @@ begin
  aCtx.rEngine.PushString(string_TrimRight(aCtx, l_aString));
 end;//TkwStringTrimRight.DoDoIt
 
-class function TkwStringTrimRight.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:TrimRight';
-end;//TkwStringTrimRight.GetWordNameForRegister
-
 function TkwStringTrimRight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2772,6 +2768,11 @@ function TkwStringTrimRight.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringTrimRight.ParamsTypes
+
+class function TkwStringTrimRight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:TrimRight';
+end;//TkwStringTrimRight.GetWordNameForRegister
 
 function TkwStringDeleteDoubleSpaces.string_DeleteDoubleSpaces(const aCtx: TtfwContext;
  const aString: Il3CString): Il3CString;
@@ -2799,11 +2800,6 @@ begin
  aCtx.rEngine.PushString(string_DeleteDoubleSpaces(aCtx, l_aString));
 end;//TkwStringDeleteDoubleSpaces.DoDoIt
 
-class function TkwStringDeleteDoubleSpaces.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:DeleteDoubleSpaces';
-end;//TkwStringDeleteDoubleSpaces.GetWordNameForRegister
-
 function TkwStringDeleteDoubleSpaces.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2818,6 +2814,11 @@ function TkwStringDeleteDoubleSpaces.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringDeleteDoubleSpaces.ParamsTypes
+
+class function TkwStringDeleteDoubleSpaces.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:DeleteDoubleSpaces';
+end;//TkwStringDeleteDoubleSpaces.GetWordNameForRegister
 
 function TkwStringDeleteDoubleChars.string_DeleteDoubleChars(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -2856,11 +2857,6 @@ begin
  aCtx.rEngine.PushString(string_DeleteDoubleChars(aCtx, l_aString, l_aChar));
 end;//TkwStringDeleteDoubleChars.DoDoIt
 
-class function TkwStringDeleteDoubleChars.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:DeleteDoubleChars';
-end;//TkwStringDeleteDoubleChars.GetWordNameForRegister
-
 function TkwStringDeleteDoubleChars.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2875,6 +2871,11 @@ function TkwStringDeleteDoubleChars.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringDeleteDoubleChars.ParamsTypes
+
+class function TkwStringDeleteDoubleChars.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:DeleteDoubleChars';
+end;//TkwStringDeleteDoubleChars.GetWordNameForRegister
 
 function TkwStringSubstring.string_Substring(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -2924,11 +2925,6 @@ begin
  aCtx.rEngine.PushString(string_Substring(aCtx, l_aString, l_aPos, l_aLength));
 end;//TkwStringSubstring.DoDoIt
 
-class function TkwStringSubstring.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Substring';
-end;//TkwStringSubstring.GetWordNameForRegister
-
 function TkwStringSubstring.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2943,6 +2939,11 @@ function TkwStringSubstring.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwStringSubstring.ParamsTypes
+
+class function TkwStringSubstring.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Substring';
+end;//TkwStringSubstring.GetWordNameForRegister
 
 function TkwStringLower.string_Lower(const aCtx: TtfwContext;
  const aString: Il3CString): Il3CString;
@@ -2970,11 +2971,6 @@ begin
  aCtx.rEngine.PushString(string_Lower(aCtx, l_aString));
 end;//TkwStringLower.DoDoIt
 
-class function TkwStringLower.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Lower';
-end;//TkwStringLower.GetWordNameForRegister
-
 function TkwStringLower.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2989,6 +2985,11 @@ function TkwStringLower.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringLower.ParamsTypes
+
+class function TkwStringLower.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Lower';
+end;//TkwStringLower.GetWordNameForRegister
 
 function TkwStringUpper.string_Upper(const aCtx: TtfwContext;
  const aString: Il3CString): Il3CString;
@@ -3016,11 +3017,6 @@ begin
  aCtx.rEngine.PushString(string_Upper(aCtx, l_aString));
 end;//TkwStringUpper.DoDoIt
 
-class function TkwStringUpper.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Upper';
-end;//TkwStringUpper.GetWordNameForRegister
-
 function TkwStringUpper.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -3035,6 +3031,11 @@ function TkwStringUpper.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringUpper.ParamsTypes
+
+class function TkwStringUpper.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Upper';
+end;//TkwStringUpper.GetWordNameForRegister
 
 procedure TkwVarDecLen.VarDecLen(const aCtx: TtfwContext;
  aVar: TtfwWord);
@@ -3051,11 +3052,6 @@ begin
  aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
 //#UC END# *9CC163BCA241_5B249AD9723E_impl*
 end;//TkwVarDecLen.VarDecLen
-
-class function TkwVarDecLen.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:--Len!';
-end;//TkwVarDecLen.GetWordNameForRegister
 
 function TkwVarDecLen.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
@@ -3092,6 +3088,11 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwVarDecLen.ParamsTypes
 
+class function TkwVarDecLen.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:--Len!';
+end;//TkwVarDecLen.GetWordNameForRegister
+
 procedure TkwVarInc.VarInc(const aCtx: TtfwContext;
  aVar: TtfwWord);
  {* Реализация слова скрипта string:++! }
@@ -3106,11 +3107,6 @@ begin
  aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
 //#UC END# *D3130F58366C_FF4D82AA3241_impl*
 end;//TkwVarInc.VarInc
-
-class function TkwVarInc.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:++!';
-end;//TkwVarInc.GetWordNameForRegister
 
 function TkwVarInc.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
@@ -3146,6 +3142,11 @@ function TkwVarInc.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwVarInc.ParamsTypes
+
+class function TkwVarInc.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:++!';
+end;//TkwVarInc.GetWordNameForRegister
 
 function TkwRSplitTo.RSplitTo(const aCtx: TtfwContext;
  aVar: TtfwWord;
@@ -3194,11 +3195,6 @@ begin
 //#UC END# *6BE7506C040A_D442EF995DFF_impl*
 end;//TkwRSplitTo.RSplitTo
 
-class function TkwRSplitTo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:RSplitTo!';
-end;//TkwRSplitTo.GetWordNameForRegister
-
 function TkwRSplitTo.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 1;
@@ -3244,6 +3240,11 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwRSplitTo.ParamsTypes
 
+class function TkwRSplitTo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:RSplitTo!';
+end;//TkwRSplitTo.GetWordNameForRegister
+
 procedure TkwVarShift.VarShift(const aCtx: TtfwContext;
  aVar: TtfwWord;
  aNum: Integer);
@@ -3259,11 +3260,6 @@ begin
  aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
 //#UC END# *9E35DCA8A090_E1736F173AD3_impl*
 end;//TkwVarShift.VarShift
-
-class function TkwVarShift.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:+!';
-end;//TkwVarShift.GetWordNameForRegister
 
 function TkwVarShift.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
@@ -3310,6 +3306,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVarShift.ParamsTypes
 
+class function TkwVarShift.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:+!';
+end;//TkwVarShift.GetWordNameForRegister
+
 function TkwSplitTo.SplitTo(const aCtx: TtfwContext;
  aVar: TtfwWord;
  const aDelim: Il3CString): Il3CString;
@@ -3349,11 +3350,6 @@ begin
  end;//l_WS.SLen = 1
 //#UC END# *94300FB9FFA5_BF0C6B892128_impl*
 end;//TkwSplitTo.SplitTo
-
-class function TkwSplitTo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:SplitTo!';
-end;//TkwSplitTo.GetWordNameForRegister
 
 function TkwSplitTo.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
@@ -3400,6 +3396,11 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSplitTo.ParamsTypes
 
+class function TkwSplitTo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:SplitTo!';
+end;//TkwSplitTo.GetWordNameForRegister
+
 function TkwVarPushCharAndInc.VarPushCharAndInc(const aCtx: TtfwContext;
  aVar: TtfwWord): AnsiChar;
  {* Реализация слова скрипта string:[]++! }
@@ -3415,11 +3416,6 @@ begin
  aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
 //#UC END# *5123A135DDBC_6014F0D564E4_impl*
 end;//TkwVarPushCharAndInc.VarPushCharAndInc
-
-class function TkwVarPushCharAndInc.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:[]++!';
-end;//TkwVarPushCharAndInc.GetWordNameForRegister
 
 function TkwVarPushCharAndInc.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
@@ -3455,6 +3451,11 @@ function TkwVarPushCharAndInc.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwVarPushCharAndInc.ParamsTypes
+
+class function TkwVarPushCharAndInc.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:[]++!';
+end;//TkwVarPushCharAndInc.GetWordNameForRegister
 
 initialization
  TtfwIl3CStringPackResNameGetter.Register;

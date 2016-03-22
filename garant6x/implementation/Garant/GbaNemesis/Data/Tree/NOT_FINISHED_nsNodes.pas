@@ -3,6 +3,7 @@ unit NOT_FINISHED_nsNodes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\NOT_FINISHED_nsNodes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsNodes" MUID: (47F60E8E019C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

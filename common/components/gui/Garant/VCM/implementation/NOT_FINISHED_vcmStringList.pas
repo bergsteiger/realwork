@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmStringList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmStringList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmStringList" MUID: (4AB8CB630173)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

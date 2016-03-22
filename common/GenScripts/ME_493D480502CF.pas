@@ -3,6 +3,7 @@ unit dsDocumentWithFlash;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentWithFlash.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsDocumentWithFlash" MUID: (493D480502CF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

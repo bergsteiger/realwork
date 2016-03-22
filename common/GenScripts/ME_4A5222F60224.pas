@@ -3,6 +3,7 @@ unit atPauseOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atPauseOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatPauseOperation" MUID: (4A5222F60224)
 
 interface
 

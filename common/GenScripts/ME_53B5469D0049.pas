@@ -2,6 +2,7 @@ unit k2SizedMemoryPool;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2SizedMemoryPool.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "k2SizedMemoryPool" MUID: (53B5469D0049)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

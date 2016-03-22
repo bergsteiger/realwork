@@ -899,7 +899,6 @@ void Document_i::get_linked_object (
 ) const /*throw (
 	InvalidTopicId
 	, FolderLinkNotFound
-	, NotAllowedInTrialMode
 )*/ {
 	//#UC START# *45EEB65201A3_45740ADE0119*
 	Link_var link = LinkFactory::make (doc_id, id, rid);

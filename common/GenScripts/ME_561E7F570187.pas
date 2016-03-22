@@ -3,6 +3,8 @@ unit K608627000_Restore;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\K608627000_Restore.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K608627000_Restore" MUID: (561E7F570187)
+// Имя типа: "TK608627000_Restore"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

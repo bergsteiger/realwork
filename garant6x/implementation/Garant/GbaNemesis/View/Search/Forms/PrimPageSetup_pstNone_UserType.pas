@@ -1,87 +1,67 @@
 unit PrimPageSetup_pstNone_UserType;
+ {* Настройка страницы }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimPageSetup_pstNone_UserType.pas"
-// Начат: 15.09.2009 16:19
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::PrimPageSetup::pstNone
-//
-// Настройка страницы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPageSetup_pstNone_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "pstNone" MUID: (4C93316D02C8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы pstNone }
-  pstNoneName = 'pstNone';
-   { Строковый идентификатор пользовательского типа "Настройка страницы" }
-  pstNone = TvcmUserType(0);
-   { Настройка страницы }
-{$IfEnd} //not Admin
+ {* Константы для типа формы pstNone }
+ pstNoneName = 'pstNone';
+  {* Строковый идентификатор пользовательского типа "Настройка страницы" }
+ pstNone = TvcmUserType(0);
+  {* Настройка страницы }
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
-{$If not defined(Admin) AND not defined(NoScripts)}
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_pstNone = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы pstNone }
+ Tkw_FormUserType_pstNone = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы pstNone }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_pstNone
-{$IfEnd} //not Admin AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_pstNone
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_pstNone
-
-class function Tkw_FormUserType_pstNone.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::pstNone';
-end;//Tkw_FormUserType_pstNone.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_pstNone.GetInteger: Integer;
- {-}
 begin
  Result := pstNone;
 end;//Tkw_FormUserType_pstNone.GetInteger
 
-{$IfEnd} //not Admin AND not NoScripts
-{$IfEnd} //not Admin
+class function Tkw_FormUserType_pstNone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::pstNone';
+end;//Tkw_FormUserType_pstNone.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_pstNone
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_pstNone.RegisterInEngine;
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация Tkw_FormUserType_pstNone }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

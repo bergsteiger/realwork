@@ -2,6 +2,7 @@ unit PrimeUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\PrimeUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Prime" MUID: (47BECCB801BE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -1,7 +1,7 @@
  program Archi;
-{ $Id: Archi.dpr,v 1.132 2015/05/06 08:31:30 dinishev Exp $ }
+{ $Id: Archi.dpr,v 1.133 2016/01/27 11:30:25 lukyanets Exp $ }
 
-//$(ex)\vcl6;$(DELPHI)\Source\ToolsAPI;$(DELPHI)\Source\Rtl\SYS;$(DELPHI)\Source\Rtl\Common\;$(DELPHI)\Lib;$(DELPHI)\Bin;$(DELPHI)\Imports;$(DELPHI)\Projects\Bpl;$(ex)\SysTools;$(in)\l3;$(in)\l3\ext;$(in)\k2;$(in)\m0\pas;$(in)\m1\src;$(in)\m2\src;$(in)\m3\src;$(in)\m4\src;$(in)\mg\pas;$(ing)\Everest;$(ing)\Everest\ext;$(ing)\Everest\Ext\Misc;$(ing)\vt;$(in)\DD;$(in)\DD\pipein;$(in)\DD\pipeout;$(in)\dt;$(in)\da;$(in)\ht;$(in)\pg;$(ex)\SRMgr;$(ex)\Orpheus;$(ex)\TB97\SOURCE;$(ex)\JEDI;$(ex)\RX6;$(ex)\Envision;$(ex)\1C\source;$(pkg);$(ex)\indy\source;$(ex)\DevExpress\ExpressBars\Sources;$(ex)\DevExpress\ExpressCommon\Sources;$(ex)\WinSock
+//$(ex)\vcl6;$(DELPHI)\Source\ToolsAPI;$(DELPHI)\Source\Rtl\SYS;$(DELPHI)\Source\Rtl\Common\;$(DELPHI)\Lib;$(DELPHI)\Bin;$(DELPHI)\Imports;$(DELPHI)\Projects\Bpl;$(ex)\SysTools;$(in)\l3;$(in)\l3\ext;$(in)\k2;$(in)\m0\pas;$(in)\m1\src;$(in)\m2\src;$(in)\m3\src;$(in)\m4\src;$(in)\mg\pas;$(ing)\Everest;$(ing)\Everest\ext;$(ing)\Everest\Ext\Misc;$(ing)\vt;$(in)\DD;$(in)\DD\pipein;$(in)\DD\pipeout;$(in)\dt;$(in)\da;$(in)\ht;$(in)\pg;$(in)\ComboAccess;$(ex)\SRMgr;$(ex)\Orpheus;$(ex)\TB97\SOURCE;$(ex)\JEDI;$(ex)\RX6;$(ex)\Envision;$(ex)\1C\source;$(pkg);$(ex)\indy\source;$(ex)\DevExpress\ExpressBars\Sources;$(ex)\DevExpress\ExpressCommon\Sources;$(ex)\WinSock
 //X:\#PKG\D6
 //$(DELPHI)\source\rtl\Corba40;$(DELPHI)\source\rtl\Sys;$(DELPHI)\source\rtl\Win;$(DELPHI)\source\rtl\common;$(DELPHI)\source\Internet;$(DELPHI)\source\clx;C:\Program Files\Developer Express Inc\ExpressPageControl\Delphi 6\Sources;X:\DevExpress\ExpressCommon\Sources;X:\DevExpress\ExpressBars\Sources;C:\Program Files\Developer Express Inc\ExpressBars\Delphi 6\Sources
 

@@ -1,8 +1,11 @@
 unit Dt_aTbl;
 
-{ $Id: DT_ATBL.pas,v 1.172 2015/05/05 12:42:07 lukyanets Exp $ }
+{ $Id: DT_ATBL.pas,v 1.173 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: DT_ATBL.pas,v $
+// Revision 1.173  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.172  2015/05/05 12:42:07  lukyanets
 // Cleanup
 //
@@ -749,6 +752,7 @@ uses
  WinProcs,
  l3Types,
  l3MinMax, //l3FileUtils,
+ daSchemeConsts,
  HT_Dll,
  Dt_Serv, Dt_Err, DT_Misc, Dt_Free,
  vtDebug;

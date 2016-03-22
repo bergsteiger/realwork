@@ -3,6 +3,8 @@ unit Version_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\Version_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Version" MUID: (4DFF5BC403E2)
+// Имя типа: "VersionTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

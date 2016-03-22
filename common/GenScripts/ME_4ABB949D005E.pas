@@ -2,6 +2,8 @@ unit MainMenuNew_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\MainMenuNew_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "MainMenuNew" MUID: (4ABB949D005E)
+// Имя типа: "Ten_MainMenuNew"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

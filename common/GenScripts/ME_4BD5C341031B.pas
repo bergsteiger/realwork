@@ -3,6 +3,7 @@ unit PrimQueryCard_utqcAttributeSearch_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimQueryCard_utqcAttributeSearch_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utqcAttributeSearch" MUID: (4BD5C341031B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utqcAttributeSearch = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utqcAttributeSearch }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utqcAttributeSearch
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utqcAttributeSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utqcAttributeSearch';
-end;//Tkw_FormUserType_utqcAttributeSearch.GetWordNameForRegister
-
 function Tkw_FormUserType_utqcAttributeSearch.GetInteger: Integer;
 begin
  Result := utqcAttributeSearch;
 end;//Tkw_FormUserType_utqcAttributeSearch.GetInteger
+
+class function Tkw_FormUserType_utqcAttributeSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utqcAttributeSearch';
+end;//Tkw_FormUserType_utqcAttributeSearch.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

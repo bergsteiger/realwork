@@ -3,6 +3,7 @@ unit nsPromptContextFilterParams;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsPromptContextFilterParams.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsPromptContextFilterParams" MUID: (4906D40F0363)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

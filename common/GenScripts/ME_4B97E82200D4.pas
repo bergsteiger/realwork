@@ -3,6 +3,7 @@ unit vtOutlinerWithDragDropRes;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtOutlinerWithDragDropRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vtOutlinerWithDragDropRes" MUID: (4B97E82200D4)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -1,7 +1,10 @@
 unit ArchiUserRequestManager;
-{ $Id: ArchiUserRequestManager.pas,v 1.100 2015/10/05 11:45:33 lukyanets Exp $ }
+{ $Id: ArchiUserRequestManager.pas,v 1.101 2015/11/24 11:46:22 lukyanets Exp $ }
 
 // $Log: ArchiUserRequestManager.pas,v $
+// Revision 1.101  2015/11/24 11:46:22  lukyanets
+// Отладочные логи
+//
 // Revision 1.100  2015/10/05 11:45:33  lukyanets
 // Причесываем название
 //
@@ -548,7 +551,7 @@ type
   public
    constructor Create; override;
    function GetLine: Boolean;
-   function GetTaskResult(const aTaskID: String): Boolean;
+//   function GetTaskResult(const aTaskID: String): Boolean;
    procedure ShowTaskList;
    function StartMonitoringLine: Boolean;
    function StopMonitoring: Boolean;
@@ -797,7 +800,7 @@ begin
   end;
  end; // CSClient <> nil
 end;
-
+(*
 function TArchiUserRequestManager.GetTaskResult(const aTaskID: String): Boolean;
 var
  l_TaskResult : TddTaskResultRequest;
@@ -849,7 +852,7 @@ begin
     end;
  end; // CSClient <> nil
 end;
-
+*)
 function TArchiUserRequestManager.AddTaskToLIst(const aTaskID: AnsiString; aList: TddTaskItemList): Boolean;
 var
  l_TaskRequest : TddGetTaskRequest;

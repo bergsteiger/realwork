@@ -3,6 +3,7 @@ unit AdminDomainInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\AdminDomainInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "AdminDomainInterfaces" MUID: (49903C95009E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

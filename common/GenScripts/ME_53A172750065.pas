@@ -2,6 +2,7 @@ unit ddServerTaskList;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ddServerTaskList.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddServerTaskList" MUID: (53A172750065)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

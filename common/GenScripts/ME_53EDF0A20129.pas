@@ -17,6 +17,8 @@ aSubPanelSub - визуальное представление метки. }
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwIterateSubDecriptorsOnSubPanelEX.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "IterateSubDecriptorsOnSubPanelEX" MUID: (53EDF0A20129)
+// Имя типа: "TkwIterateSubDecriptorsOnSubPanelEX"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -49,10 +51,10 @@ PROCEDURE CheckDescription OBJECT IN aSubDescription OBJECT IN aSubPanelSub
 Для извлечения нужной инфорации из aSubDescription есть набор функций: subdescriptor:GetDrawType и т.п.
 aSubPanelSub - визуальное представление метки. }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    procedure PushObjData(const aCtx: TtfwContext;
     aSubDescription: TevSubDescriptor;
     aSubPanelSub: TevSubPanelSub); override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwIterateSubDecriptorsOnSubPanelEX
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -65,11 +67,6 @@ uses
  , evSubPanelSubCollection
 ;
 
-class function TkwIterateSubDecriptorsOnSubPanelEX.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IterateSubDecriptorsOnSubPanelEX';
-end;//TkwIterateSubDecriptorsOnSubPanelEX.GetWordNameForRegister
-
 procedure TkwIterateSubDecriptorsOnSubPanelEX.PushObjData(const aCtx: TtfwContext;
  aSubDescription: TevSubDescriptor;
  aSubPanelSub: TevSubPanelSub);
@@ -81,6 +78,11 @@ begin
  aCtx.rEngine.PushObj(aSubPanelSub);
 //#UC END# *53EDFA0401B8_53EDF0A20129_impl*
 end;//TkwIterateSubDecriptorsOnSubPanelEX.PushObjData
+
+class function TkwIterateSubDecriptorsOnSubPanelEX.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IterateSubDecriptorsOnSubPanelEX';
+end;//TkwIterateSubDecriptorsOnSubPanelEX.GetWordNameForRegister
 
 initialization
  TkwIterateSubDecriptorsOnSubPanelEX.RegisterInEngine;

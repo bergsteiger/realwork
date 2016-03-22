@@ -1,45 +1,35 @@
 unit MemorySizeTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "MemorySizeTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCase::Class Shared Delphi Sand Box::SandBoxTest::Memory::MemorySizeTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\MemorySizeTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "MemorySizeTest" MUID: (51DAE6E20300)
+// Имя типа: "TMemorySizeTest"
 
-{$Include ..\SandBox\sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , TestFrameWork
+;
 
-{$If defined(nsTest)}
 type
  TMemorySizeTest = class(TTestCase)
- published
- // published methods
+  published
    procedure DoIt;
  end;//TMemorySizeTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  l3MemorySizeUtils,
-  SysUtils
-  ;
-{$IfEnd} //nsTest
-
-{$If defined(nsTest)}
-
-// start class TMemorySizeTest
+ l3ImplUses
+ , l3MemorySizeUtils
+ , SysUtils
+;
 
 procedure TMemorySizeTest.DoIt;
 //#UC START# *51DAE7030012_51DAE6E20300_var*
@@ -65,9 +55,8 @@ begin
 //#UC END# *51DAE7030012_51DAE6E20300_impl*
 end;//TMemorySizeTest.DoIt
 
-{$IfEnd} //nsTest
-
 initialization
  TestFramework.RegisterTest(TMemorySizeTest.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

@@ -3,6 +3,8 @@ unit SynchroView_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SynchroView_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "SynchroView" MUID: (4AB1359700D9)
+// Имя типа: "TfcSynchroView"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

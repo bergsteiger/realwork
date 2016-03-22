@@ -3,6 +3,7 @@ unit nsContentsRoot;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsContentsRoot.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsContentsRoot" MUID: (4682822A00FA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

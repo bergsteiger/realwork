@@ -1,9 +1,21 @@
 //..........................................................................................................................................................................................................................................................
 unit ddRTFKeywords;
 
-// $Id: ddRTFKeywords.pas,v 1.106 2015/10/22 14:53:44 dinishev Exp $ 
+// $Id: ddRTFKeywords.pas,v 1.110 2016/03/17 09:02:40 dinishev Exp $ 
 
 // $Log: ddRTFKeywords.pas,v $
+// Revision 1.110  2016/03/17 09:02:40  dinishev
+// Поддержка новых тегов.
+//
+// Revision 1.109  2016/02/18 09:04:06  dinishev
+// {Requestlink:617082437}. "Многострочные" колонки. Разбиение внутри колонок.
+//
+// Revision 1.108  2016/02/10 14:35:06  dinishev
+// {Requestlink:617082437}
+//
+// Revision 1.107  2016/01/29 07:40:44  dinishev
+// Не читаем праватные поля из RTF.
+//
 // Revision 1.106  2015/10/22 14:53:44  dinishev
 // Отступы табуляции теперь доступны и в полной версии.
 //
@@ -619,13 +631,7 @@ begin
   AddKeyword2('cltxlrtb', kwdFlag, flag_cltxlrtb, propNone, 0, 0);
   AddKeyword2('cltxtbrl', kwdFlag, flag_cltxtbrl, propNone, 0, 0);
 
-  AddKeyword2('colno', kwdValu, valu_colno, propNone, 0, 0);
-
-  AddKeyword2('cols', kwdValu, valu_cols, propNone, 0, 0);
-  AddKeyword2('colsr', kwdValu, valu_colsr, propNone, 0, 0);
   AddKeyword2('colsx', kwdValu, valu_colsx, propNone, 0, 0);
-  AddKeyword2('column', kwdSymb, symb_column, propNone, 0, 0);
-  AddKeyword2('colw', kwdValu, valu_colw, propNone, 0, 0);
 
   AddKeyword2('cpg', kwdValu, valu_cpg, propNone, 0, 0);
   AddKeyword2('crauth', kwdValu, valu_crauth, propNone, 0, 0);
@@ -812,7 +818,6 @@ begin
   AddKeyword2('flddirty', kwdFlag, flag_flddirty, propNone, 0, 0);
   AddKeyword2('fldedit', kwdFlag, flag_fldedit, propNone, 0, 0);
   AddKeyword2('fldlock', kwdFlag, flag_fldlock, propNone, 0, 0);
-  AddKeyword2('fldpriv', kwdFlag, flag_fldpriv, propNone, 0, 0);
   AddKeyword2('fn', kwdValu, valu_fn, propNone, 0, 0);
   AddKeyword2('fnetwork', kwdFlag, flag_fnetwork, propNone, 0, 0);
   AddKeyword2('footery', kwdValu, valu_footery, propNone, 0, 0);
@@ -1073,7 +1078,6 @@ begin
 
   AddKeyword2('sbkcol', kwdFlag, flag_sbkcol, propNone, 0, 0);
   AddKeyword2('sbkeven', kwdFlag, flag_sbkeven, propNone, 0, 0);
-  AddKeyword2('sbknone', kwdFlag, flag_sbknone, propNone, 0, 0);
   AddKeyword2('sbkodd', kwdFlag, flag_sbkodd, propNone, 0, 0);
   AddKeyword2('sbkpage', kwdFlag, flag_sbkpage, propNone, 0, 0);
   AddKeyword2('sbys', kwdFlag, flag_sbys, propNone, 0, 0);
@@ -1369,6 +1373,7 @@ begin
    AddKeyword2('marglsxn', kwdValu, valu_marglsxn, propSEP, ipropLeft, useParam);
    AddKeyword2('margrsxn', kwdValu, valu_margrsxn, propSep, ipropRight, useParam);
    AddKeyword2('margtsxn', kwdValu, valu_margtsxn, propSep, ipropTop, useParam);
+   AddKeyword2('sbknone', kwdFlag, flag_sbknone, propSep, ipropSbkNone, 0);
   end; //not Lite
  end;
 end;
@@ -1408,6 +1413,30 @@ begin
  end; // with
 end;
 
+procedure AddFieldKeys(aKeywordList: TddKeywordList; Lite: Boolean = false);
+begin
+ with aKeywordList do
+ begin
+  AddKeyword2('ffdefres', kwdValu, valu_ffdefres, propFormField, ipropFFDefRes, UseParam);
+  AddKeyword2('ffres', kwdValu, valu_ffres, propFormField, ipropFFRes, UseParam);
+  AddKeyword2('fftype', kwdValu, valu_fftype, propFormField, ipropFFType, UseParam);
+  AddKeyword2('fldpriv', kwdFlag, flag_fldpriv, propField, propfldpriv, 0);
+ end;
+end;
+
+procedure AddColumnsKeys(aKeywordList: TddKeywordList; Lite: Boolean = false);
+begin
+ with aKeywordList do
+ begin
+  AddKeyword2('colno', kwdValu, valu_colno, propColumn, ipropColNum, UseParam);
+  AddKeyword2('cols', kwdValu, valu_cols, propColumn, ipropColCount, UseParam);
+  AddKeyword2('colw', kwdValu, valu_colw, propColumn, ipropColWidth, UseParam);
+  AddKeyword2('colsr', kwdValu, valu_colsr, propColumn, ipropColumnRight, UseParam);
+  if not Lite then
+   AddKeyword2('column', kwdSymb, symb_column, propDOP, ipropColumn, ord(breakColumn));
+ end;
+end;
+
 function RTFKeyWords: Tl3KeyWords;
 var
  KW : TddKeyWordList;
@@ -1435,11 +1464,10 @@ begin
     AddFontKeys(KW);
     AddTABKeys(KW);
     AddShapeKeyword(KW);
+    AddFieldKeys(KW);
+    AddColumnsKeys(KW);
 
     AddKeyword2('edmins', kwdValu, valu_edmins, propNone, ipropedmins, useParam);
-    AddKeyword2('ffdefres', kwdValu, valu_ffdefres, propFormField, ipropFFDefRes, UseParam);
-    AddKeyword2('ffres', kwdValu, valu_ffres, propFormField, ipropFFRes, UseParam);
-    AddKeyword2('fftype', kwdValu, valu_fftype, propFormField, ipropFFType, UseParam);
     AddKeyword2('nofchars', kwdValu, valu_nofchars, propNone, 0, UseParam);
     AddKeyword2('nofcharsws', kwdValu, valu_nofcharsws, propNone, ipropnofcharsws, UseParam);
     AddKeyword2('nofpages', kwdValu, valu_nofpages, propNone, ipropnofpages, UseParam);
@@ -1493,10 +1521,8 @@ begin
     AddSEPKeys(KW, True);
     AddFrameKeys(KW, True);
     AddShapeKeyword(KW, True);
+    AddFieldKeys(KW, True);
 
-   AddKeyword2('ffdefres', kwdValu, valu_ffdefres, propFormField, ipropFFDefRes, UseParam);
-   AddKeyword2('ffres', kwdValu, valu_ffres, propFormField, ipropFFRes, UseParam);
-   AddKeyword2('fftype', kwdValu, valu_fftype, propFormField, ipropFFType, UseParam);
    AddKeyword2('landscape', kwdFlag, flag_landscape, propNone, 0, 0);
    AddKeyword2(cc_Austerisk ,   kwdSymb, symb_Star,  propNone, 0, Ord(rdsSkipGroup)); // было kwdDest
    AddKeyword2('nonesttables', kwdSymb, symb_nonenested, propNone, 0, Ord(rdsSkipGroup));

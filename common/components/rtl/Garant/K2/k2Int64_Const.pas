@@ -7,7 +7,7 @@ unit k2Int64_Const;
 // Модуль: "w:/common/components/rtl/Garant/K2/k2Int64_Const.pas"
 // Начат: 17.07.1998 16:29
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::K2::Standard::k2Native::Int64
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::K2::Standard::k2Native::Int64
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

@@ -3,6 +3,7 @@ unit l3CustomString;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CustomString.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CustomString" MUID: (4773DEF0021B)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

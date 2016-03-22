@@ -2,6 +2,7 @@ unit vcmCustOpsRepGroupList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\vcmCustOpsRepGroupList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmCustOpsRepGroupList" MUID: (559F8C7A0213)
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

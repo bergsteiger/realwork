@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3LocaleInfo;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3LocaleInfo.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3LocaleInfo" MUID: (478778030195)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

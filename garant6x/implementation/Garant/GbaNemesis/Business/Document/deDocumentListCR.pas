@@ -70,7 +70,7 @@ constructor TdeDocumentListCR.Create(const aList: IDynList;
 //#UC END# *4B1F7BB10212_493D4D1A0388_var*
 begin
 //#UC START# *4B1F7BB10212_493D4D1A0388_impl*
- inherited Create(aList, lofNone, true, wdAlwaysOpen, nil, nil, False, True);
+ inherited Create(aList, lofNone, true, wdAlwaysOpen, nil, nil, False, True, False);
  fCategory := aCategory;
  fType := aType;
 //#UC END# *4B1F7BB10212_493D4D1A0388_impl*

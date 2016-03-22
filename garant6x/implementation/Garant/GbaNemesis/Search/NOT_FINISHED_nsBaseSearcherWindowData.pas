@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsBaseSearcherWindowData;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\NOT_FINISHED_nsBaseSearcherWindowData.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsBaseSearcherWindowData" MUID: (5628BBF40355)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

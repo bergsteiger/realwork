@@ -3,6 +3,7 @@ unit nevBase;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevBase.pas"
 // Стереотип: "InternalInterfaces"
+// Элемент модели: "nevBase" MUID: (4678209200A6)
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
@@ -318,13 +319,13 @@ type
   {* Наверное прервали построение Preview }
  end;//EnevMaybePreviewCancelled
 
+ InevObjectPrim = interface;
+
  TnevRubberTablesMode = (
   nev_rtmNone
   , nev_rtmZoom
   , nev_rtmFitToWindow
  );//TnevRubberTablesMode
-
- InevObjectPrim = interface;
 
  InevViewMetrics = interface(InevMetrics)
   ['{F727E8B4-54BC-4980-BF0D-5D3635152090}']
@@ -611,6 +612,8 @@ type
   function CheckS(i: Integer): Tl3CustomString;
  end;//InevStringCache
 
+ InevObjectHolderPrim = interface;
+
  (*
  MnevObjectData = interface
   function pm_GetText: TnevStr;
@@ -621,8 +624,6 @@ type
    read pm_GetTabStops;
  end;//MnevObjectData
  *)
-
- InevObjectHolderPrim = interface;
 
  InevObjectPrim = interface(InevTagTool)
   {* Объект }

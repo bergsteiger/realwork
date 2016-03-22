@@ -2,6 +2,7 @@ unit NOT_FINISHED_csProcessTask;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csProcessTask.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "csProcessTask" MUID: (52F8C2AE0042)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -2,6 +2,7 @@ unit ListInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\ListInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "ListInterfaces" MUID: (4AA4E182008E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

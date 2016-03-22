@@ -3,6 +3,7 @@ unit evSectionBreakPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSectionBreakPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevSectionBreakPainter" MUID: (480CA641014D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

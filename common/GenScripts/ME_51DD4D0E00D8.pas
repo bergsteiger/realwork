@@ -2,6 +2,7 @@ unit destListoverride;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destListoverride.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdestListoverride" MUID: (51DD4D0E00D8)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

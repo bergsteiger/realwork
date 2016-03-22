@@ -2,6 +2,7 @@ unit nscDocumentHistory;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Components\nscDocumentHistory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnscDocumentHistory" MUID: (53D2281F0048)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

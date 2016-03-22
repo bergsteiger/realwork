@@ -1,55 +1,40 @@
 unit EVDtoEVDEmptyRowTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/EVDtoEVDEmptyRowTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EVD::EVDtoEVDEmptyRowTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoEVDEmptyRowTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "EVDtoEVDEmptyRowTest" MUID: (4C07BE700180)
+// Имя типа: "TEVDtoEVDEmptyRowTest"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  EVDtoEVDWriterTest,
-  l3Variant
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , EVDtoEVDWriterTest
+ , l3Variant
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TEVDtoEVDEmptyRowTest = {abstract} class(TEVDtoEVDWriterTest)
- protected
- // overridden protected methods
+  protected
    procedure SetFilters(var theGenerator: Ik2TagGenerator); override;
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TEVDtoEVDEmptyRowTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  evdEmptyRowFilter,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TEVDtoEVDEmptyRowTest
+ l3ImplUses
+ , evdEmptyRowFilter
+ , TestFrameWork
+;
 
 procedure TEVDtoEVDEmptyRowTest.SetFilters(var theGenerator: Ik2TagGenerator);
 //#UC START# *4C07BCBE01F2_4C07BE700180_var*
@@ -61,17 +46,16 @@ begin
 end;//TEVDtoEVDEmptyRowTest.SetFilters
 
 function TEVDtoEVDEmptyRowTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EVD';
 end;//TEVDtoEVDEmptyRowTest.GetFolder
 
 function TEVDtoEVDEmptyRowTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C07BE700180';
 end;//TEVDtoEVDEmptyRowTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

@@ -2,6 +2,7 @@ unit evdAllParaEliminator;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdAllParaEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdAllParaEliminator" MUID: (4E1C278402E2)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

@@ -3,6 +3,7 @@ unit IntegrationProjectUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\IntegrationProjectUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "IntegrationProject" MUID: (463F4DE5003E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

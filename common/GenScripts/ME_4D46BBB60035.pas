@@ -2,6 +2,8 @@ unit OutlinerWithEVDStyleNodes;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\OutlinerWithEVDStyleNodes.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "OutlinerWithEVDStyleNodes" MUID: (4D46BBB60035)
+// Имя типа: "TOutlinerWithEVDStyleNodes"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

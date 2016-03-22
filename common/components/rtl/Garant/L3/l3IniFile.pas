@@ -2,9 +2,12 @@ unit l3IniFile;
 
 {$I+}
 
-{ $Id: l3IniFile.pas,v 1.29 2014/10/29 15:37:58 voba Exp $ }
+{ $Id: l3IniFile.pas,v 1.30 2016/02/26 16:16:12 voba Exp $ }
 
 // $Log: l3IniFile.pas,v $
+// Revision 1.30  2016/02/26 16:16:12  voba
+// - лингвомодули можно подключать в инишнике
+//
 // Revision 1.29  2014/10/29 15:37:58  voba
 // no message
 //
@@ -241,22 +244,29 @@ type
 
  TCfgString = AnsiString;
 
- TOnSetListItem = procedure(const ItStr: ShortString;
-  var UserParam: Pointer) of object;
- TOnGetListItem = function(var ItStr: ShortString;
-  var UserParam: Pointer): Boolean of object;
+type
+ TOnGetListItem = function(var ItStr: ShortString): Boolean;
+ {* - Подитеративная функция для WriteParamExtList}
+function MakeWGLStub(Action: Pointer): TOnGetListItem;
+procedure FreeWGLStub(var Action: TOnGetListItem);
 
+type
+ TOnSetListItem = procedure(const ItStr: ShortString);
+ {* - Подитеративная функция для ReadParamExtList}
+function MakeRGLStub(Action: Pointer): TOnSetListItem;
+procedure FreeRGLStub(var Action: TOnSetListItem);
+
+type
  TOnWriteArrayItem = function(var aValue: Integer): Boolean;
  {* - Подитеративная функция для записи элементов массива. Если возвращает true - элемент последний. }
+function MakeWAIStub(Action: Pointer): TOnWriteArrayItem;
+procedure FreeWAIStub(var Action: TOnWriteArrayItem);
 
+type
  TOnReadArrayItem = procedure(aValue: Integer);
  {* - Подитеративная функция для записи элементов массива.}
-
-function MakeWAIStub(Action: Pointer): TOnWriteArrayItem;
-{* - делает заглушку для локальной процедуры (смотри l3Base.l3L2FA). }
-
 function MakeRAIStub(Action: Pointer): TOnReadArrayItem;
-{* - делает заглушку для локальной процедуры (смотри l3Base.l3L2FA). }
+procedure FreeRAIStub(var Action: TOnReadArrayItem);
 
 type
 
@@ -306,7 +316,7 @@ type
   procedure ReadParamList(const ID: ShortString; StrList: TStrings; aMaxItems: Integer = High(Integer));
   procedure ReadParamRec(const ID: ShortString; const FormStr: ShortString; var Rec);
   procedure ReadParamData(const ID: ShortString; Data: PAnsiChar; DataSize: Integer);
-  procedure ReadParamExtList(const ID: ShortString; SetListFunc: TOnSetListItem; var UserParam: Pointer);
+  procedure ReadParamExtList(const ID: ShortString; SetListFunc: TOnSetListItem);
   procedure ReadParamArrayF(const ID: ShortString; aSetItemFunc: TOnReadArrayItem);
   procedure ReadFormPlace(const ID: ShortString; aForm: TForm);
 
@@ -319,7 +329,7 @@ type
   function WriteParamList(const ID: ShortString; StrList: TStrings; aMaxItems: Integer = High(Integer)): Boolean;
   function WriteParamRec(const ID: ShortString; const FormStr: ShortString; var Rec): Boolean;
   function WriteParamData(const ID: ShortString; Data: PAnsiChar; DataSize: Integer): Boolean;
-  function WriteParamExtList(const ID: ShortString; GetListFunc: TOnGetListItem; var UserParam: Pointer): Boolean;
+  function WriteParamExtList(const ID: ShortString; GetListFunc: TOnGetListItem): Boolean;
   procedure WriteParamArrayF(const ID: ShortString; aGetItemFunc: TOnWriteArrayItem);
   function WriteFormPlace(const ID: ShortString; aForm: TForm): Boolean;
 
@@ -396,10 +406,41 @@ asm
  jmp  l3LocalStub
 end;{asm}
 
+procedure FreeWAIStub(var Action: TOnWriteArrayItem); register;
+asm
+ jmp  l3FreeLocalStub
+end;{asm}
+
 function MakeRAIStub(Action: Pointer): TOnReadArrayItem; register;
 asm
  jmp  l3LocalStub
 end;{asm}
+
+procedure FreeRAIStub(var Action: TOnReadArrayItem); register;
+asm
+ jmp  l3FreeLocalStub
+end;{asm}
+
+function MakeWGLStub(Action: Pointer): TOnGetListItem; register;
+asm
+ jmp  l3LocalStub
+end;{asm}
+
+procedure FreeWGLStub(var Action: TOnGetListItem);         register;
+asm
+ jmp  l3FreeLocalStub
+end;{asm}
+
+function MakeRGLStub(Action: Pointer): TOnSetListItem; register;
+asm
+ jmp  l3LocalStub
+end;{asm}
+
+procedure FreeRGLStub(var Action: TOnSetListItem);         register;
+asm
+ jmp  l3FreeLocalStub
+end;{asm}
+
 
 function DataToFormatString(Data: PAnsiChar; DataSize: Integer): AnsiString;
 var
@@ -719,24 +760,22 @@ begin
  end;
 end;
 
-procedure TCfgList.ReadParamExtList(const ID: ShortString; SetListFunc: TOnSetListItem;
- var UserParam: Pointer);
+procedure TCfgList.ReadParamExtList(const ID: ShortString; SetListFunc: TOnSetListItem);
 var
  I : Integer;
- St : AnsiString;
+ St : ShortString;
 begin
  I := 1;
  repeat
   St := ID + IntToStr(I);
-  if ReadParamString(St, St) then
-   SetListFunc(St, UserParam)
+  if ReadParamStr(St, St) then
+   SetListFunc(St)
   else Break;
   Inc(I);
  until False;
 end;
 
-function TCfgList.WriteParamExtList(const ID: ShortString; GetListFunc: TOnGetListItem;
- var UserParam: Pointer): Boolean;
+function TCfgList.WriteParamExtList(const ID: ShortString; GetListFunc: TOnGetListItem): Boolean;
 var
  I : Integer;
  StID,
@@ -745,7 +784,7 @@ begin
  WritePrivateProfileStringA(PAnsiChar(FSection), nil, nil, FCfgFileName); {Delete Current Section}
  I := 1;
  Result := False;
- while GetListFunc(St, UserParam) do
+ while GetListFunc(St) do
  begin
   StID := ID + IntToStr(I);
   Result := WriteParamStr(StID, St);
@@ -756,7 +795,6 @@ end;
 procedure TCfgList.ReadParamArrayF(const ID: ShortString; aSetItemFunc: TOnReadArrayItem);
 var
  lStr : AnsiString;
- l_A  : Pointer absolute aSetItemFunc;
 begin
  try
   try
@@ -766,7 +804,7 @@ begin
    raise EcfgReadError.Create(rsReadError + ID);
   end;
  finally
-  l3FreeLocalStub(l_A);
+  FreeRAIStub(aSetItemFunc);
  end;
 end;
 
@@ -774,7 +812,6 @@ procedure TCfgList.WriteParamArrayF(const ID: ShortString; aGetItemFunc: TOnWrit
 var
  lValue : Integer;
  lStr : AnsiString;
- l_A  : Pointer absolute aGetItemFunc;
 begin
  try
   lStr := '';
@@ -783,7 +820,7 @@ begin
 
   WriteParamStr(ID, lStr);
  finally
-  l3FreeLocalStub(l_A);
+  FreeWAIStub(aGetItemFunc);
  end;
 end;
 
@@ -1099,7 +1136,6 @@ var
  lStr : AnsiString;
  lDataOffset : Integer;
  lIterFunc : TOnReadArrayItem;
- l_A       : Pointer absolute lIterFunc;
 
  procedure IterFunc(aValue: Integer);
  begin
@@ -1115,11 +1151,11 @@ begin
    raise EcfgReadError.Create('');
   lDataOffset := 0;
   l3FillChar(Data^, DataSize, 0);
-  lIterFunc := MakeRAIStub( @IterFunc);
+  lIterFunc := MakeRAIStub(@IterFunc);
   try
    FormatStringToData(lStr, lIterFunc);
   finally
-   l3FreeLocalStub(l_A);
+   FreeRAIStub(lIterFunc);
   end;
  except
   raise EcfgReadError.Create(rsReadError + ID);

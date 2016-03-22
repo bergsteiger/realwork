@@ -3,6 +3,7 @@ unit IntegerList;
 
 // Модуль: "w:\common\components\SandBox\IntegerList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TIntegerList" MUID: (51DEB249012E)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

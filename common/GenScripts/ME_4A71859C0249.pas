@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEdition.imp.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsEdition" MUID: (4A71859C0249)
+// Имя типа: "_dsEdition_"
 
 {$Define dsEdition_imp}
 

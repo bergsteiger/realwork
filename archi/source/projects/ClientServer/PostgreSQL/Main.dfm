@@ -253,4 +253,96 @@ object Form1: TForm1
     TabOrder = 25
     OnClick = Button7Click
   end
+  object Button8: TButton
+    Left = 1152
+    Top = 199
+    Width = 75
+    Height = 25
+    Caption = 'ConnectBtn2'
+    TabOrder = 26
+    OnClick = Button8Click
+  end
+  object Button9: TButton
+    Left = 1154
+    Top = 507
+    Width = 75
+    Height = 25
+    Caption = 'DisconnectBtn2'
+    TabOrder = 27
+    OnClick = Button9Click
+  end
+  object Button10: TButton
+    Left = 1155
+    Top = 419
+    Width = 75
+    Height = 25
+    Caption = 'Lock'
+    TabOrder = 28
+    OnClick = Button10Click
+  end
+  object Button11: TButton
+    Left = 1156
+    Top = 458
+    Width = 75
+    Height = 25
+    Caption = 'UnLock'
+    TabOrder = 29
+    OnClick = Button11Click
+  end
+  object RadioGroup1: TRadioGroup
+    Left = 1127
+    Top = 246
+    Width = 128
+    Height = 67
+    Caption = ' Connection '
+    ItemIndex = 0
+    Items.Strings = (
+      '1'
+      '2')
+    TabOrder = 30
+  end
+  object RadioGroup2: TRadioGroup
+    Left = 1129
+    Top = 326
+    Width = 128
+    Height = 67
+    Caption = ' Type '
+    ItemIndex = 0
+    Items.Strings = (
+      'shared'
+      'exclusive')
+    TabOrder = 31
+  end
+  object Button12: TButton
+    Left = 726
+    Top = 593
+    Width = 207
+    Height = 25
+    Caption = 'Test proc describe'
+    TabOrder = 32
+    OnClick = Button12Click
+  end
+  object Button13: TButton
+    Left = 34
+    Top = 583
+    Width = 207
+    Height = 25
+    Caption = 'MemCheck'
+    TabOrder = 33
+    OnClick = Button13Click
+  end
+  object Button14: TButton
+    Left = 355
+    Top = 607
+    Width = 75
+    Height = 25
+    Caption = 'Deallocate'
+    TabOrder = 34
+    OnClick = Button14Click
+  end
+  object ApplicationEvents1: TApplicationEvents
+    OnIdle = ApplicationEvents1Idle
+    Left = 638
+    Top = 361
+  end
 end

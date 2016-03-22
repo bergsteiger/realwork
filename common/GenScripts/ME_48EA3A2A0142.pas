@@ -2,6 +2,7 @@ unit evEvdDataObject;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evEvdDataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevEvdDataObject" MUID: (48EA3A2A0142)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

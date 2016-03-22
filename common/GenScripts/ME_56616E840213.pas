@@ -2,6 +2,7 @@ unit pgFunction;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgFunction.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgFunction" MUID: (56616E840213)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 

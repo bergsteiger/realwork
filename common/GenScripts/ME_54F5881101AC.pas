@@ -2,6 +2,7 @@ unit ScrollingWinControlWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ScrollingWinControlWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ScrollingWinControlWordsPack" MUID: (54F5881101AC)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -177,11 +178,6 @@ begin
  aCtx.rEngine.PushBool(VScrollerVisible(aCtx, l_aControl));
 end;//TkwPopControlVScrollerVisible.DoDoIt
 
-class function TkwPopControlVScrollerVisible.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:VScrollerVisible';
-end;//TkwPopControlVScrollerVisible.GetWordNameForRegister
-
 procedure TkwPopControlVScrollerVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -202,6 +198,11 @@ function TkwPopControlVScrollerVisible.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TWinControl)]);
 end;//TkwPopControlVScrollerVisible.ParamsTypes
+
+class function TkwPopControlVScrollerVisible.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:VScrollerVisible';
+end;//TkwPopControlVScrollerVisible.GetWordNameForRegister
 
 function TkwPopControlHScrollerVisible.HScrollerVisible(const aCtx: TtfwContext;
  aControl: TWinControl): Boolean;
@@ -257,11 +258,6 @@ begin
  aCtx.rEngine.PushBool(HScrollerVisible(aCtx, l_aControl));
 end;//TkwPopControlHScrollerVisible.DoDoIt
 
-class function TkwPopControlHScrollerVisible.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:HScrollerVisible';
-end;//TkwPopControlHScrollerVisible.GetWordNameForRegister
-
 procedure TkwPopControlHScrollerVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -282,6 +278,11 @@ function TkwPopControlHScrollerVisible.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TWinControl)]);
 end;//TkwPopControlHScrollerVisible.ParamsTypes
+
+class function TkwPopControlHScrollerVisible.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:HScrollerVisible';
+end;//TkwPopControlHScrollerVisible.GetWordNameForRegister
 
 function TkwPopScrollingWinControlVScrollerVisible.VScrollerVisible(const aCtx: TtfwContext;
  aScrollingWinControl: TScrollingWinControl): Boolean;
@@ -309,11 +310,6 @@ begin
  aCtx.rEngine.PushBool(VScrollerVisible(aCtx, l_aScrollingWinControl));
 end;//TkwPopScrollingWinControlVScrollerVisible.DoDoIt
 
-class function TkwPopScrollingWinControlVScrollerVisible.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ScrollingWinControl:VScrollerVisible';
-end;//TkwPopScrollingWinControlVScrollerVisible.GetWordNameForRegister
-
 procedure TkwPopScrollingWinControlVScrollerVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -334,6 +330,11 @@ function TkwPopScrollingWinControlVScrollerVisible.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TScrollingWinControl)]);
 end;//TkwPopScrollingWinControlVScrollerVisible.ParamsTypes
+
+class function TkwPopScrollingWinControlVScrollerVisible.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ScrollingWinControl:VScrollerVisible';
+end;//TkwPopScrollingWinControlVScrollerVisible.GetWordNameForRegister
 
 function TkwPopScrollingWinControlHScrollerVisible.HScrollerVisible(const aCtx: TtfwContext;
  aScrollingWinControl: TScrollingWinControl): Boolean;
@@ -361,11 +362,6 @@ begin
  aCtx.rEngine.PushBool(HScrollerVisible(aCtx, l_aScrollingWinControl));
 end;//TkwPopScrollingWinControlHScrollerVisible.DoDoIt
 
-class function TkwPopScrollingWinControlHScrollerVisible.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ScrollingWinControl:HScrollerVisible';
-end;//TkwPopScrollingWinControlHScrollerVisible.GetWordNameForRegister
-
 procedure TkwPopScrollingWinControlHScrollerVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -386,6 +382,11 @@ function TkwPopScrollingWinControlHScrollerVisible.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TScrollingWinControl)]);
 end;//TkwPopScrollingWinControlHScrollerVisible.ParamsTypes
+
+class function TkwPopScrollingWinControlHScrollerVisible.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ScrollingWinControl:HScrollerVisible';
+end;//TkwPopScrollingWinControlHScrollerVisible.GetWordNameForRegister
 
 initialization
  TkwPopControlVScrollerVisible.RegisterInEngine;

@@ -20,7 +20,6 @@
 
 #include "DBComm.h"
 #include "Config.h"
-#include "BaseCache.h"
 #include "SearchProfiler.h"
 #include "ThreadManager.h"
 
@@ -149,13 +148,17 @@ void Profiler::execute () {
 	GDS_ASSERT (base->IsOk () && base->check_version ());
 
 	// предварительно прогружаем кэши
+
+	DBCore::IBase_var _base = DBCore::DBFactory::make (base.in ());
 	{
 		Core::GDS::StopWatch sw ("SortAttrCache");
 		SortAttrCache::instance ()->load (base.in ());
 	} {
-		Core::GDS::StopWatch sw ("LoadDict");
-		BaseCache::instance ()->get_morpho_cache_ptr ()->load (base->abstract_base (), true);
-		SearchAdapter::instance ()->load_cache (base->abstract_base ());
+		Core::GDS::StopWatch sw ("MorphoCache");
+		Morpho::load_cache (_base.in ());
+	} {
+		Core::GDS::StopWatch sw ("SearchCache");
+		SearchAdapter::instance ()->load_cache (_base.in ());
 	} {
 		Core::GDS::StopWatch sw ("LoadEdis");
 		AllDocsCache::instance ()->get_editions (base.in ());

@@ -3,6 +3,7 @@ unit PrimCreateFilter_cfRename_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\PrimCreateFilter_cfRename_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "cfRename" MUID: (4CB6D9D6011D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_cfRename = {final} class(TtfwInteger)
   {* Слово словаря для типа формы cfRename }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_cfRename
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_cfRename.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::cfRename';
-end;//Tkw_FormUserType_cfRename.GetWordNameForRegister
-
 function Tkw_FormUserType_cfRename.GetInteger: Integer;
 begin
  Result := cfRename;
 end;//Tkw_FormUserType_cfRename.GetInteger
+
+class function Tkw_FormUserType_cfRename.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::cfRename';
+end;//Tkw_FormUserType_cfRename.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

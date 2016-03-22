@@ -147,6 +147,7 @@ type
  // realized methods
    function GetTabIcon(const aTab: Il3FormTab): Integer;
    function IsInBF(aContainedForm: TForm): Boolean;
+   function GetTabCaption(const aTab: Il3FormTab): AnsiString;
    procedure CloseTab(const aTab: Il3FormTab);
    procedure Subscribe(const aListener: Il3TabbedContainersListener);
    procedure Lock;
@@ -166,6 +167,7 @@ type
    procedure ActivateForm(aForm: TForm);
    function NeedUseTabs: Boolean;
    procedure TileWindowsVertical;
+   procedure ContainedFormBecomeActive(aForm: TForm);
    function IsTabEmpty(const aTab: Il3FormTab): Boolean;
    function CloneTab(const aTab: Il3FormTab): Il3FormTab;
    function GetFormTab(aForm: TForm): Il3FormTab;
@@ -204,7 +206,6 @@ type
    procedure MoveToAnotherContainer(aForm: TForm;
      aNewContainer: TvcmTabbedContainerForm;
      const aMousePoint: TPoint);
-   procedure ContainedFormBecomeActive(aForm: TForm);
    function FindTabbedContainerUnderPoint(const aPoint: TPoint;
      aForm: TForm): TvcmTabbedContainerForm;
    function TryDockToTabset(const aPoint: TPoint;
@@ -1195,29 +1196,6 @@ begin
  f_DisableAskMayExit := False;
 //#UC END# *537C3FE702B2_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.MoveToAnotherContainer
-
-procedure TvcmTabbedContainerFormDispatcher.ContainedFormBecomeActive(aForm: TForm);
-//#UC START# *538595D802FE_537AEC5E03DD_var*
-var
- l_Container: TvcmTabbedContainerForm;
-//#UC END# *538595D802FE_537AEC5E03DD_var*
-begin
-//#UC START# *538595D802FE_537AEC5E03DD_impl*
- if NeedUseTabs then
- begin
-  Assert(aForm <> nil);
-  l_Container := GetFormContainer(aForm);
-  if (l_Container <> nil) then
-  begin
-   f_ActiveContainer := l_Container;
-   if (THackApplication(Application).FMainForm <> l_Container) then
-    THackApplication(Application).FMainForm := l_Container;
-  end
-  else
-   THackApplication(Application).FMainForm := aForm;
- end;
-//#UC END# *538595D802FE_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.ContainedFormBecomeActive
 
 function TvcmTabbedContainerFormDispatcher.FindTabbedContainerUnderPoint(const aPoint: TPoint;
   aForm: TForm): TvcmTabbedContainerForm;
@@ -2219,8 +2197,7 @@ function TvcmTabbedContainerFormDispatcher.GetTabIcon(const aTab: Il3FormTab): I
 //#UC END# *02157F96E465_537AEC5E03DD_var*
 begin
 //#UC START# *02157F96E465_537AEC5E03DD_impl*
- if not GetFormTabIcon(aTab.TabbedForm as TvcmEntityForm, Result) then
-  Result := -1;
+ Result := aTab.CurrentParams.ImageIndex;
 //#UC END# *02157F96E465_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.GetTabIcon
 
@@ -2252,6 +2229,15 @@ begin
  Result := l_InSimpleBF or l_InTabsHistoryBf;
 //#UC END# *06D14140190A_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.IsInBF
+
+function TvcmTabbedContainerFormDispatcher.GetTabCaption(const aTab: Il3FormTab): AnsiString;
+//#UC START# *086A3DF2665B_537AEC5E03DD_var*
+//#UC END# *086A3DF2665B_537AEC5E03DD_var*
+begin
+//#UC START# *086A3DF2665B_537AEC5E03DD_impl*
+ Result := aTab.CurrentParams.Text;
+//#UC END# *086A3DF2665B_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.GetTabCaption
 
 procedure TvcmTabbedContainerFormDispatcher.CloseTab(const aTab: Il3FormTab);
 //#UC START# *0E111B36F193_537AEC5E03DD_var*
@@ -2476,6 +2462,30 @@ begin
 //#UC END# *9D76EEC368A2_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.TileWindowsVertical
 
+procedure TvcmTabbedContainerFormDispatcher.ContainedFormBecomeActive(aForm: TForm);
+//#UC START# *AEF0183D2054_537AEC5E03DD_var*
+var
+ l_Container: TvcmTabbedContainerForm;
+//#UC END# *AEF0183D2054_537AEC5E03DD_var*
+begin
+//#UC START# *AEF0183D2054_537AEC5E03DD_impl*
+if NeedUseTabs then
+ begin
+  Assert(aForm <> nil);
+  l_Container := GetFormContainer(aForm);
+  if (l_Container <> nil) then
+  begin
+   f_ActiveContainer := l_Container;
+   if (THackApplication(Application).FMainForm <> l_Container) then
+    THackApplication(Application).FMainForm := l_Container;
+   f_ActiveContainer.UpdateMenu(aForm); 
+  end
+  else
+   THackApplication(Application).FMainForm := aForm;
+ end;
+//#UC END# *AEF0183D2054_537AEC5E03DD_impl*
+end;//TvcmTabbedContainerFormDispatcher.ContainedFormBecomeActive
+
 function TvcmTabbedContainerFormDispatcher.IsTabEmpty(const aTab: Il3FormTab): Boolean;
 //#UC START# *BFD6868132D2_537AEC5E03DD_var*
 var
@@ -2541,15 +2551,18 @@ var
 //#UC END# *E6CFFF63C7BA_537AEC5E03DD_var*
 begin
 //#UC START# *E6CFFF63C7BA_537AEC5E03DD_impl*
- Assert(aForm <> nil);
- l_Form := lp_GetParentForm(aForm);
- if (l_Form <> nil) then
+ if NeedUseTabs then
  begin
-  l_TabbedContainer := GetParentForm(l_Form) as TvcmTabbedContainerForm;
-  Result := l_TabbedContainer.GetFormTab(l_Form);
- end
- else
-  Result := nil;
+  Assert(aForm <> nil);
+  l_Form := lp_GetParentForm(aForm);
+  if (l_Form <> nil) then
+  begin
+   l_TabbedContainer := GetParentForm(l_Form) as TvcmTabbedContainerForm;
+   Result := l_TabbedContainer.GetFormTab(l_Form);
+  end
+  else
+   Result := nil;
+ end; 
 //#UC END# *E6CFFF63C7BA_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.GetFormTab
 

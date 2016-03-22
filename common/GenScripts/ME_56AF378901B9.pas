@@ -2,6 +2,7 @@ unit arBelaPubList;
 
 // Модуль: "w:\common\components\rtl\Garant\ar\arBelaPubList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarBelaPubList" MUID: (56AF378901B9)
 
 {$Include w:\common\components\l3Define.inc}
 

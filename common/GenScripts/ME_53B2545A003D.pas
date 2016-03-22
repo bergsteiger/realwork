@@ -2,6 +2,7 @@ unit csSpellCorrectTaskPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csSpellCorrectTaskPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsSpellCorrectTaskPrim" MUID: (53B2545A003D)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

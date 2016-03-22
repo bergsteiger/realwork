@@ -2,6 +2,8 @@ unit HTMLtoEVDWriterTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\HTMLtoEVDWriterTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "HTMLtoEVDWriterTest" MUID: (4E847D990353)
+// Имя типа: "THTMLtoEVDWriterTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
@@ -43,6 +45,7 @@ var
 begin
 //#UC START# *4E847EEE02DB_4E847D990353_impl*
  l_Reader := TddHTMLReader.Make(FileFromCurrent(aFileName));
+ TuningReader(l_Reader);
  try
   SomeFormatToEVD(l_Reader);
  finally

@@ -3,6 +3,7 @@ unit LongProcessKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\LongProcessKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "LongProcessKeywordsPack" MUID: (58B650A73C2C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -50,8 +51,8 @@ type
 'aControl' форма::LongProcess TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_LongProcess
 
  Tkw_LongProcess_Control_ClientPanel = {final} class(TtfwControlString)
@@ -62,9 +63,9 @@ type
 контрол::ClientPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_ClientPanel
 
  Tkw_LongProcess_Control_ClientPanel_Push = {final} class(TkwBynameControlPush)
@@ -87,9 +88,9 @@ type
 контрол::MessageLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_MessageLabel
 
  Tkw_LongProcess_Control_MessageLabel_Push = {final} class(TkwBynameControlPush)
@@ -112,9 +113,9 @@ type
 контрол::BottomPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_BottomPanel
 
  Tkw_LongProcess_Control_BottomPanel_Push = {final} class(TkwBynameControlPush)
@@ -137,9 +138,9 @@ type
 контрол::ProgressBar TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_ProgressBar
 
  Tkw_LongProcess_Control_ProgressBar_Push = {final} class(TkwBynameControlPush)
@@ -162,9 +163,9 @@ type
 контрол::LeftPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_LeftPanel
 
  Tkw_LongProcess_Control_LeftPanel_Push = {final} class(TkwBynameControlPush)
@@ -187,9 +188,9 @@ type
 контрол::Image TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_Image
 
  Tkw_LongProcess_Control_Image_Push = {final} class(TkwBynameControlPush)
@@ -212,9 +213,9 @@ type
 контрол::ButtonPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_ButtonPanel
 
  Tkw_LongProcess_Control_ButtonPanel_Push = {final} class(TkwBynameControlPush)
@@ -237,9 +238,9 @@ type
 контрол::btnExit TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_btnExit
 
  Tkw_LongProcess_Control_btnExit_Push = {final} class(TkwBynameControlPush)
@@ -446,20 +447,15 @@ OBJECT VAR l_TvtButton
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwLongProcessFormBtnExit
 
-class function Tkw_Form_LongProcess.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::LongProcess';
-end;//Tkw_Form_LongProcess.GetWordNameForRegister
-
 function Tkw_Form_LongProcess.GetString: AnsiString;
 begin
  Result := 'LongProcessForm';
 end;//Tkw_Form_LongProcess.GetString
 
-class function Tkw_LongProcess_Control_ClientPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_LongProcess.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::ClientPanel';
-end;//Tkw_LongProcess_Control_ClientPanel.GetWordNameForRegister
+ Result := 'форма::LongProcess';
+end;//Tkw_Form_LongProcess.GetWordNameForRegister
 
 function Tkw_LongProcess_Control_ClientPanel.GetString: AnsiString;
 begin
@@ -472,6 +468,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_LongProcess_Control_ClientPanel.RegisterInEngine
 
+class function Tkw_LongProcess_Control_ClientPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ClientPanel';
+end;//Tkw_LongProcess_Control_ClientPanel.GetWordNameForRegister
+
 procedure Tkw_LongProcess_Control_ClientPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ClientPanel');
@@ -482,11 +483,6 @@ class function Tkw_LongProcess_Control_ClientPanel_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::ClientPanel:push';
 end;//Tkw_LongProcess_Control_ClientPanel_Push.GetWordNameForRegister
-
-class function Tkw_LongProcess_Control_MessageLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::MessageLabel';
-end;//Tkw_LongProcess_Control_MessageLabel.GetWordNameForRegister
 
 function Tkw_LongProcess_Control_MessageLabel.GetString: AnsiString;
 begin
@@ -499,6 +495,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_LongProcess_Control_MessageLabel.RegisterInEngine
 
+class function Tkw_LongProcess_Control_MessageLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::MessageLabel';
+end;//Tkw_LongProcess_Control_MessageLabel.GetWordNameForRegister
+
 procedure Tkw_LongProcess_Control_MessageLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('MessageLabel');
@@ -509,11 +510,6 @@ class function Tkw_LongProcess_Control_MessageLabel_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::MessageLabel:push';
 end;//Tkw_LongProcess_Control_MessageLabel_Push.GetWordNameForRegister
-
-class function Tkw_LongProcess_Control_BottomPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::BottomPanel';
-end;//Tkw_LongProcess_Control_BottomPanel.GetWordNameForRegister
 
 function Tkw_LongProcess_Control_BottomPanel.GetString: AnsiString;
 begin
@@ -526,6 +522,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_LongProcess_Control_BottomPanel.RegisterInEngine
 
+class function Tkw_LongProcess_Control_BottomPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BottomPanel';
+end;//Tkw_LongProcess_Control_BottomPanel.GetWordNameForRegister
+
 procedure Tkw_LongProcess_Control_BottomPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BottomPanel');
@@ -536,11 +537,6 @@ class function Tkw_LongProcess_Control_BottomPanel_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::BottomPanel:push';
 end;//Tkw_LongProcess_Control_BottomPanel_Push.GetWordNameForRegister
-
-class function Tkw_LongProcess_Control_ProgressBar.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ProgressBar';
-end;//Tkw_LongProcess_Control_ProgressBar.GetWordNameForRegister
 
 function Tkw_LongProcess_Control_ProgressBar.GetString: AnsiString;
 begin
@@ -553,6 +549,11 @@ begin
  TtfwClassRef.Register(TvtGradientWaitbar);
 end;//Tkw_LongProcess_Control_ProgressBar.RegisterInEngine
 
+class function Tkw_LongProcess_Control_ProgressBar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ProgressBar';
+end;//Tkw_LongProcess_Control_ProgressBar.GetWordNameForRegister
+
 procedure Tkw_LongProcess_Control_ProgressBar_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ProgressBar');
@@ -563,11 +564,6 @@ class function Tkw_LongProcess_Control_ProgressBar_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::ProgressBar:push';
 end;//Tkw_LongProcess_Control_ProgressBar_Push.GetWordNameForRegister
-
-class function Tkw_LongProcess_Control_LeftPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::LeftPanel';
-end;//Tkw_LongProcess_Control_LeftPanel.GetWordNameForRegister
 
 function Tkw_LongProcess_Control_LeftPanel.GetString: AnsiString;
 begin
@@ -580,6 +576,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_LongProcess_Control_LeftPanel.RegisterInEngine
 
+class function Tkw_LongProcess_Control_LeftPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::LeftPanel';
+end;//Tkw_LongProcess_Control_LeftPanel.GetWordNameForRegister
+
 procedure Tkw_LongProcess_Control_LeftPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('LeftPanel');
@@ -590,11 +591,6 @@ class function Tkw_LongProcess_Control_LeftPanel_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::LeftPanel:push';
 end;//Tkw_LongProcess_Control_LeftPanel_Push.GetWordNameForRegister
-
-class function Tkw_LongProcess_Control_Image.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::Image';
-end;//Tkw_LongProcess_Control_Image.GetWordNameForRegister
 
 function Tkw_LongProcess_Control_Image.GetString: AnsiString;
 begin
@@ -607,6 +603,11 @@ begin
  TtfwClassRef.Register(TImage);
 end;//Tkw_LongProcess_Control_Image.RegisterInEngine
 
+class function Tkw_LongProcess_Control_Image.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Image';
+end;//Tkw_LongProcess_Control_Image.GetWordNameForRegister
+
 procedure Tkw_LongProcess_Control_Image_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Image');
@@ -617,11 +618,6 @@ class function Tkw_LongProcess_Control_Image_Push.GetWordNameForRegister: AnsiSt
 begin
  Result := 'контрол::Image:push';
 end;//Tkw_LongProcess_Control_Image_Push.GetWordNameForRegister
-
-class function Tkw_LongProcess_Control_ButtonPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ButtonPanel';
-end;//Tkw_LongProcess_Control_ButtonPanel.GetWordNameForRegister
 
 function Tkw_LongProcess_Control_ButtonPanel.GetString: AnsiString;
 begin
@@ -634,6 +630,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_LongProcess_Control_ButtonPanel.RegisterInEngine
 
+class function Tkw_LongProcess_Control_ButtonPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ButtonPanel';
+end;//Tkw_LongProcess_Control_ButtonPanel.GetWordNameForRegister
+
 procedure Tkw_LongProcess_Control_ButtonPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ButtonPanel');
@@ -645,11 +646,6 @@ begin
  Result := 'контрол::ButtonPanel:push';
 end;//Tkw_LongProcess_Control_ButtonPanel_Push.GetWordNameForRegister
 
-class function Tkw_LongProcess_Control_btnExit.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::btnExit';
-end;//Tkw_LongProcess_Control_btnExit.GetWordNameForRegister
-
 function Tkw_LongProcess_Control_btnExit.GetString: AnsiString;
 begin
  Result := 'btnExit';
@@ -660,6 +656,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtButton);
 end;//Tkw_LongProcess_Control_btnExit.RegisterInEngine
+
+class function Tkw_LongProcess_Control_btnExit.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::btnExit';
+end;//Tkw_LongProcess_Control_btnExit.GetWordNameForRegister
 
 procedure Tkw_LongProcess_Control_btnExit_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -694,11 +695,6 @@ begin
  aCtx.rEngine.PushObj(ClientPanel(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormClientPanel.DoDoIt
 
-class function TkwLongProcessFormClientPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TLongProcessForm.ClientPanel';
-end;//TkwLongProcessFormClientPanel.GetWordNameForRegister
-
 procedure TkwLongProcessFormClientPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -719,6 +715,11 @@ function TkwLongProcessFormClientPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormClientPanel.ParamsTypes
+
+class function TkwLongProcessFormClientPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TLongProcessForm.ClientPanel';
+end;//TkwLongProcessFormClientPanel.GetWordNameForRegister
 
 function TkwLongProcessFormMessageLabel.MessageLabel(const aCtx: TtfwContext;
  aLongProcessForm: TLongProcessForm): TvtLabel;
@@ -742,11 +743,6 @@ begin
  aCtx.rEngine.PushObj(MessageLabel(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormMessageLabel.DoDoIt
 
-class function TkwLongProcessFormMessageLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TLongProcessForm.MessageLabel';
-end;//TkwLongProcessFormMessageLabel.GetWordNameForRegister
-
 procedure TkwLongProcessFormMessageLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -767,6 +763,11 @@ function TkwLongProcessFormMessageLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormMessageLabel.ParamsTypes
+
+class function TkwLongProcessFormMessageLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TLongProcessForm.MessageLabel';
+end;//TkwLongProcessFormMessageLabel.GetWordNameForRegister
 
 function TkwLongProcessFormBottomPanel.BottomPanel(const aCtx: TtfwContext;
  aLongProcessForm: TLongProcessForm): TvtPanel;
@@ -790,11 +791,6 @@ begin
  aCtx.rEngine.PushObj(BottomPanel(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormBottomPanel.DoDoIt
 
-class function TkwLongProcessFormBottomPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TLongProcessForm.BottomPanel';
-end;//TkwLongProcessFormBottomPanel.GetWordNameForRegister
-
 procedure TkwLongProcessFormBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -815,6 +811,11 @@ function TkwLongProcessFormBottomPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormBottomPanel.ParamsTypes
+
+class function TkwLongProcessFormBottomPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TLongProcessForm.BottomPanel';
+end;//TkwLongProcessFormBottomPanel.GetWordNameForRegister
 
 function TkwLongProcessFormProgressBar.ProgressBar(const aCtx: TtfwContext;
  aLongProcessForm: TLongProcessForm): TvtGradientWaitbar;
@@ -838,11 +839,6 @@ begin
  aCtx.rEngine.PushObj(ProgressBar(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormProgressBar.DoDoIt
 
-class function TkwLongProcessFormProgressBar.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TLongProcessForm.ProgressBar';
-end;//TkwLongProcessFormProgressBar.GetWordNameForRegister
-
 procedure TkwLongProcessFormProgressBar.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -863,6 +859,11 @@ function TkwLongProcessFormProgressBar.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormProgressBar.ParamsTypes
+
+class function TkwLongProcessFormProgressBar.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TLongProcessForm.ProgressBar';
+end;//TkwLongProcessFormProgressBar.GetWordNameForRegister
 
 function TkwLongProcessFormLeftPanel.LeftPanel(const aCtx: TtfwContext;
  aLongProcessForm: TLongProcessForm): TvtPanel;
@@ -886,11 +887,6 @@ begin
  aCtx.rEngine.PushObj(LeftPanel(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormLeftPanel.DoDoIt
 
-class function TkwLongProcessFormLeftPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TLongProcessForm.LeftPanel';
-end;//TkwLongProcessFormLeftPanel.GetWordNameForRegister
-
 procedure TkwLongProcessFormLeftPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -911,6 +907,11 @@ function TkwLongProcessFormLeftPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormLeftPanel.ParamsTypes
+
+class function TkwLongProcessFormLeftPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TLongProcessForm.LeftPanel';
+end;//TkwLongProcessFormLeftPanel.GetWordNameForRegister
 
 function TkwLongProcessFormImage.Image(const aCtx: TtfwContext;
  aLongProcessForm: TLongProcessForm): TImage;
@@ -934,11 +935,6 @@ begin
  aCtx.rEngine.PushObj(Image(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormImage.DoDoIt
 
-class function TkwLongProcessFormImage.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TLongProcessForm.Image';
-end;//TkwLongProcessFormImage.GetWordNameForRegister
-
 procedure TkwLongProcessFormImage.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -959,6 +955,11 @@ function TkwLongProcessFormImage.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormImage.ParamsTypes
+
+class function TkwLongProcessFormImage.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TLongProcessForm.Image';
+end;//TkwLongProcessFormImage.GetWordNameForRegister
 
 function TkwLongProcessFormButtonPanel.ButtonPanel(const aCtx: TtfwContext;
  aLongProcessForm: TLongProcessForm): TvtPanel;
@@ -982,11 +983,6 @@ begin
  aCtx.rEngine.PushObj(ButtonPanel(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormButtonPanel.DoDoIt
 
-class function TkwLongProcessFormButtonPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TLongProcessForm.ButtonPanel';
-end;//TkwLongProcessFormButtonPanel.GetWordNameForRegister
-
 procedure TkwLongProcessFormButtonPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1007,6 +1003,11 @@ function TkwLongProcessFormButtonPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormButtonPanel.ParamsTypes
+
+class function TkwLongProcessFormButtonPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TLongProcessForm.ButtonPanel';
+end;//TkwLongProcessFormButtonPanel.GetWordNameForRegister
 
 function TkwLongProcessFormBtnExit.btnExit(const aCtx: TtfwContext;
  aLongProcessForm: TLongProcessForm): TvtButton;
@@ -1030,11 +1031,6 @@ begin
  aCtx.rEngine.PushObj(btnExit(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormBtnExit.DoDoIt
 
-class function TkwLongProcessFormBtnExit.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TLongProcessForm.btnExit';
-end;//TkwLongProcessFormBtnExit.GetWordNameForRegister
-
 procedure TkwLongProcessFormBtnExit.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1055,6 +1051,11 @@ function TkwLongProcessFormBtnExit.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormBtnExit.ParamsTypes
+
+class function TkwLongProcessFormBtnExit.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TLongProcessForm.btnExit';
+end;//TkwLongProcessFormBtnExit.GetWordNameForRegister
 
 initialization
  Tkw_Form_LongProcess.RegisterInEngine;

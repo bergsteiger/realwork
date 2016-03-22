@@ -2,6 +2,7 @@ unit ProfileUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ProfileUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Profile" MUID: (45EEA8700082)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

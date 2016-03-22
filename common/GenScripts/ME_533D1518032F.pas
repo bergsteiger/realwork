@@ -2,6 +2,7 @@ unit ChromeLikeThemedWindowCaptionButtons;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeThemedWindowCaptionButtons.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ChromeLikeThemedWindowCaptionButtons" MUID: (533D1518032F)
 
 interface
 

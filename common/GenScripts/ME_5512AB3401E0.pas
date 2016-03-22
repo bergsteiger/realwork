@@ -2,6 +2,7 @@ unit VarWorkingPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\VarWorkingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "VarWorkingPack" MUID: (5512AB3401E0)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

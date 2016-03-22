@@ -4,9 +4,12 @@ unit l3SysUtils;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3SysUtils -                }
 { Начат: 27.05.2005 14:22             }
-{ $Id: l3SysUtils.pas,v 1.10 2015/09/08 07:57:41 lulin Exp $ }
+{ $Id: l3SysUtils.pas,v 1.11 2015/12/11 21:19:47 lulin Exp $ }
 
 // $Log: l3SysUtils.pas,v $
+// Revision 1.11  2015/12/11 21:19:47  lulin
+// - отлаживаем для удалённой сессии.
+//
 // Revision 1.10  2015/09/08 07:57:41  lulin
 // - правим под XE.
 //
@@ -290,6 +293,11 @@ var
 function l3WTSGetActiveConsoleSessionId: DWORD; stdcall;
 begin
   GetProcedureAddress(_WTSGetActiveConsoleSessionId, kernel32, 'WTSGetActiveConsoleSessionId');
+  if (_WTSGetActiveConsoleSessionId = nil) then
+  begin
+   Result := 0;
+   Exit;
+  end;//_WTSGetActiveConsoleSessionId = nil
   asm
     mov esp, ebp
     pop ebp

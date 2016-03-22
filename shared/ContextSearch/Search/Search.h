@@ -228,7 +228,7 @@ public:
 	virtual AlgorithmSelector get_type () const = 0;
 
 	// создать
-	virtual bool build (const Phrase& in, const Morpho::Def::StrStrMap& pseudo, const std::string& src) = 0;
+	virtual bool build (const Phrase& in, const std::string& src) = 0;
 };
 
 /// factory interface for IRequestView

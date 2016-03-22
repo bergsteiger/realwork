@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmLayout.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmLayout" MUID: (500004240202)
+// Имя типа: "_vcmLayout_"
 
 {$Define vcmLayout_imp}
 

@@ -3,6 +3,8 @@ unit Address_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\Address_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Address" MUID: (48495E29035B)
+// Имя типа: "AddressTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

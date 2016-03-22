@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsBaseDocumentPrim" MUID: (47EA20430108)
+// Имя типа: "_dsBaseDocumentPrim_"
 
 {$Define dsBaseDocumentPrim_imp}
 

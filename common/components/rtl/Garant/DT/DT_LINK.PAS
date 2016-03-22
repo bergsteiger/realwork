@@ -1,8 +1,11 @@
 Unit Dt_Link;
 
-{ $Id: DT_LINK.PAS,v 1.192 2015/07/02 11:41:29 lukyanets Exp $ }
+{ $Id: DT_LINK.PAS,v 1.193 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: DT_LINK.PAS,v $
+// Revision 1.193  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.192  2015/07/02 11:41:29  lukyanets
 // Описываем словари
 //
@@ -658,6 +661,7 @@ end;
 implementation
 uses SysUtils, WinProcs,
      daTypes,
+     daSchemeConsts,
      HT_Dll,
      Dt_Err, Dt_Misc,
      dt_Table,

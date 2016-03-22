@@ -2,6 +2,7 @@ unit evOneCharLongIntList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evOneCharLongIntList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevOneCharLongIntList" MUID: (4F2F68D80106)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

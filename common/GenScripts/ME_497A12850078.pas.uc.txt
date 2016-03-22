@@ -18,6 +18,8 @@
   if IsModalForm and (Document <> nil) then
     TnsViewDocumentEditionListEvent.Log(Document);
  end;//dsEditions <> nil
+ if RedactionTree.HandleAllocated then
+  PostMessage(RedactionTree.Handle, msg_vtInvalidateNCArea, 0, 0);
 //#UC END# *497469C90140_497A12850078_impl*
 //#UC START# *497469C90140_497A12850078_var*
 //#UC END# *497469C90140_497A12850078_var*

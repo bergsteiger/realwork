@@ -3,6 +3,7 @@ unit StyleEditorFontKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\StyleEditorFontKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "StyleEditorFontKeywordsPack" MUID: (65D9C15E254B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -54,8 +55,8 @@ type
 'aControl' форма::StyleEditorFont TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_StyleEditorFont
 
  Tkw_StyleEditorFont_Control_FontScrollBox = {final} class(TtfwControlString)
@@ -66,9 +67,9 @@ type
 контрол::FontScrollBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontScrollBox
 
  Tkw_StyleEditorFont_Control_FontScrollBox_Push = {final} class(TkwBynameControlPush)
@@ -91,9 +92,9 @@ type
 контрол::FontUnderlineLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontUnderlineLabel
 
  Tkw_StyleEditorFont_Control_FontUnderlineLabel_Push = {final} class(TkwBynameControlPush)
@@ -116,9 +117,9 @@ type
 контрол::FontStrikeoutLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontStrikeoutLabel
 
  Tkw_StyleEditorFont_Control_FontStrikeoutLabel_Push = {final} class(TkwBynameControlPush)
@@ -141,9 +142,9 @@ type
 контрол::FontSizeLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontSizeLabel
 
  Tkw_StyleEditorFont_Control_FontSizeLabel_Push = {final} class(TkwBynameControlPush)
@@ -166,9 +167,9 @@ type
 контрол::FontNameLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontNameLabel
 
  Tkw_StyleEditorFont_Control_FontNameLabel_Push = {final} class(TkwBynameControlPush)
@@ -191,9 +192,9 @@ type
 контрол::FontItalicLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontItalicLabel
 
  Tkw_StyleEditorFont_Control_FontItalicLabel_Push = {final} class(TkwBynameControlPush)
@@ -216,9 +217,9 @@ type
 контрол::FontForeColorLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontForeColorLabel
 
  Tkw_StyleEditorFont_Control_FontForeColorLabel_Push = {final} class(TkwBynameControlPush)
@@ -241,9 +242,9 @@ type
 контрол::FontBoldLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontBoldLabel
 
  Tkw_StyleEditorFont_Control_FontBoldLabel_Push = {final} class(TkwBynameControlPush)
@@ -266,9 +267,9 @@ type
 контрол::FontBackColorLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontBackColorLabel
 
  Tkw_StyleEditorFont_Control_FontBackColorLabel_Push = {final} class(TkwBynameControlPush)
@@ -291,9 +292,9 @@ type
 контрол::FontScalableLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontScalableLabel
 
  Tkw_StyleEditorFont_Control_FontScalableLabel_Push = {final} class(TkwBynameControlPush)
@@ -316,9 +317,9 @@ type
 контрол::FontScalableBevel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontScalableBevel
 
  Tkw_StyleEditorFont_Control_FontScalableBevel_Push = {final} class(TkwBynameControlPush)
@@ -341,9 +342,9 @@ type
 контрол::FontStrikeoutInheritanceButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton
 
  Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton_Push = {final} class(TkwBynameControlPush)
@@ -366,9 +367,9 @@ type
 контрол::FontSizeInheritanceButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontSizeInheritanceButton
 
  Tkw_StyleEditorFont_Control_FontSizeInheritanceButton_Push = {final} class(TkwBynameControlPush)
@@ -391,9 +392,9 @@ type
 контрол::FontNameInheritanceButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontNameInheritanceButton
 
  Tkw_StyleEditorFont_Control_FontNameInheritanceButton_Push = {final} class(TkwBynameControlPush)
@@ -416,9 +417,9 @@ type
 контрол::FontItalicInheritanceButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontItalicInheritanceButton
 
  Tkw_StyleEditorFont_Control_FontItalicInheritanceButton_Push = {final} class(TkwBynameControlPush)
@@ -441,9 +442,9 @@ type
 контрол::FontForeColorInheritanceButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton
 
  Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton_Push = {final} class(TkwBynameControlPush)
@@ -466,9 +467,9 @@ type
 контрол::FontBoldInheritanceButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontBoldInheritanceButton
 
  Tkw_StyleEditorFont_Control_FontBoldInheritanceButton_Push = {final} class(TkwBynameControlPush)
@@ -491,9 +492,9 @@ type
 контрол::FontBackColorInheritanceButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton
 
  Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton_Push = {final} class(TkwBynameControlPush)
@@ -516,9 +517,9 @@ type
 контрол::FontUnderlineInheritanceButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton
 
  Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton_Push = {final} class(TkwBynameControlPush)
@@ -541,9 +542,9 @@ type
 контрол::FontUnderlineCheckBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontUnderlineCheckBox
 
  Tkw_StyleEditorFont_Control_FontUnderlineCheckBox_Push = {final} class(TkwBynameControlPush)
@@ -566,9 +567,9 @@ type
 контрол::FontStrikeoutCheckBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox
 
  Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox_Push = {final} class(TkwBynameControlPush)
@@ -591,9 +592,9 @@ type
 контрол::FontSizeComboBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontSizeComboBox
 
  Tkw_StyleEditorFont_Control_FontSizeComboBox_Push = {final} class(TkwBynameControlPush)
@@ -616,9 +617,9 @@ type
 контрол::FontNameComboBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontNameComboBox
 
  Tkw_StyleEditorFont_Control_FontNameComboBox_Push = {final} class(TkwBynameControlPush)
@@ -641,9 +642,9 @@ type
 контрол::FontItalicCheckBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontItalicCheckBox
 
  Tkw_StyleEditorFont_Control_FontItalicCheckBox_Push = {final} class(TkwBynameControlPush)
@@ -666,9 +667,9 @@ type
 контрол::FontForeColorBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontForeColorBox
 
  Tkw_StyleEditorFont_Control_FontForeColorBox_Push = {final} class(TkwBynameControlPush)
@@ -691,9 +692,9 @@ type
 контрол::FontBoldCheckBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontBoldCheckBox
 
  Tkw_StyleEditorFont_Control_FontBoldCheckBox_Push = {final} class(TkwBynameControlPush)
@@ -716,9 +717,9 @@ type
 контрол::FontBackColorBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontBackColorBox
 
  Tkw_StyleEditorFont_Control_FontBackColorBox_Push = {final} class(TkwBynameControlPush)
@@ -741,9 +742,9 @@ type
 контрол::FontScalableCheckBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontScalableCheckBox
 
  Tkw_StyleEditorFont_Control_FontScalableCheckBox_Push = {final} class(TkwBynameControlPush)
@@ -766,9 +767,9 @@ type
 контрол::LeftIndentLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_LeftIndentLabel
 
  Tkw_StyleEditorFont_Control_LeftIndentLabel_Push = {final} class(TkwBynameControlPush)
@@ -791,9 +792,9 @@ type
 контрол::LeftIndentComboBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_LeftIndentComboBox
 
  Tkw_StyleEditorFont_Control_LeftIndentComboBox_Push = {final} class(TkwBynameControlPush)
@@ -816,9 +817,9 @@ type
 контрол::RightIndentLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_RightIndentLabel
 
  Tkw_StyleEditorFont_Control_RightIndentLabel_Push = {final} class(TkwBynameControlPush)
@@ -841,9 +842,9 @@ type
 контрол::RightIndentComboBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_RightIndentComboBox
 
  Tkw_StyleEditorFont_Control_RightIndentComboBox_Push = {final} class(TkwBynameControlPush)
@@ -866,9 +867,9 @@ type
 контрол::FirstIndentLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FirstIndentLabel
 
  Tkw_StyleEditorFont_Control_FirstIndentLabel_Push = {final} class(TkwBynameControlPush)
@@ -891,9 +892,9 @@ type
 контрол::FirstIndentComboBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FirstIndentComboBox
 
  Tkw_StyleEditorFont_Control_FirstIndentComboBox_Push = {final} class(TkwBynameControlPush)
@@ -916,9 +917,9 @@ type
 контрол::SpaceBeforeLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_SpaceBeforeLabel
 
  Tkw_StyleEditorFont_Control_SpaceBeforeLabel_Push = {final} class(TkwBynameControlPush)
@@ -941,9 +942,9 @@ type
 контрол::SpaceBeforeComboBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_SpaceBeforeComboBox
 
  Tkw_StyleEditorFont_Control_SpaceBeforeComboBox_Push = {final} class(TkwBynameControlPush)
@@ -966,9 +967,9 @@ type
 контрол::SpaceAfterLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_SpaceAfterLabel
 
  Tkw_StyleEditorFont_Control_SpaceAfterLabel_Push = {final} class(TkwBynameControlPush)
@@ -991,9 +992,9 @@ type
 контрол::SpaceAfterComboBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_SpaceAfterComboBox
 
  Tkw_StyleEditorFont_Control_SpaceAfterComboBox_Push = {final} class(TkwBynameControlPush)
@@ -1016,9 +1017,9 @@ type
 контрол::LeftIndentInheritanceButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton
 
  Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton_Push = {final} class(TkwBynameControlPush)
@@ -1041,9 +1042,9 @@ type
 контрол::RightIndentInheritanceButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_RightIndentInheritanceButton
 
  Tkw_StyleEditorFont_Control_RightIndentInheritanceButton_Push = {final} class(TkwBynameControlPush)
@@ -1066,9 +1067,9 @@ type
 контрол::FirstIndentInheritanceButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton
 
  Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton_Push = {final} class(TkwBynameControlPush)
@@ -1091,9 +1092,9 @@ type
 контрол::SpaceBeforeInheritanceButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton
 
  Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton_Push = {final} class(TkwBynameControlPush)
@@ -1116,9 +1117,9 @@ type
 контрол::SpaceAfterInheritanceButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton
 
  Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton_Push = {final} class(TkwBynameControlPush)
@@ -1141,9 +1142,9 @@ type
 контрол::StyleCaptionLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_StyleCaptionLabel
 
  Tkw_StyleEditorFont_Control_StyleCaptionLabel_Push = {final} class(TkwBynameControlPush)
@@ -1166,9 +1167,9 @@ type
 контрол::StyleCaptionComboBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_StyleCaptionComboBox
 
  Tkw_StyleEditorFont_Control_StyleCaptionComboBox_Push = {final} class(TkwBynameControlPush)
@@ -2263,20 +2264,15 @@ OBJECT VAR l_TvtComboBoxQS
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwStyleEditorFontFormStyleCaptionComboBox
 
-class function Tkw_Form_StyleEditorFont.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::StyleEditorFont';
-end;//Tkw_Form_StyleEditorFont.GetWordNameForRegister
-
 function Tkw_Form_StyleEditorFont.GetString: AnsiString;
 begin
  Result := 'StyleEditorFontForm';
 end;//Tkw_Form_StyleEditorFont.GetString
 
-class function Tkw_StyleEditorFont_Control_FontScrollBox.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_StyleEditorFont.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::FontScrollBox';
-end;//Tkw_StyleEditorFont_Control_FontScrollBox.GetWordNameForRegister
+ Result := 'форма::StyleEditorFont';
+end;//Tkw_Form_StyleEditorFont.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontScrollBox.GetString: AnsiString;
 begin
@@ -2289,6 +2285,11 @@ begin
  TtfwClassRef.Register(TScrollBox);
 end;//Tkw_StyleEditorFont_Control_FontScrollBox.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontScrollBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontScrollBox';
+end;//Tkw_StyleEditorFont_Control_FontScrollBox.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontScrollBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontScrollBox');
@@ -2299,11 +2300,6 @@ class function Tkw_StyleEditorFont_Control_FontScrollBox_Push.GetWordNameForRegi
 begin
  Result := 'контрол::FontScrollBox:push';
 end;//Tkw_StyleEditorFont_Control_FontScrollBox_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontUnderlineLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontUnderlineLabel';
-end;//Tkw_StyleEditorFont_Control_FontUnderlineLabel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontUnderlineLabel.GetString: AnsiString;
 begin
@@ -2316,6 +2312,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StyleEditorFont_Control_FontUnderlineLabel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontUnderlineLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontUnderlineLabel';
+end;//Tkw_StyleEditorFont_Control_FontUnderlineLabel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontUnderlineLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontUnderlineLabel');
@@ -2326,11 +2327,6 @@ class function Tkw_StyleEditorFont_Control_FontUnderlineLabel_Push.GetWordNameFo
 begin
  Result := 'контрол::FontUnderlineLabel:push';
 end;//Tkw_StyleEditorFont_Control_FontUnderlineLabel_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontStrikeoutLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontStrikeoutLabel';
-end;//Tkw_StyleEditorFont_Control_FontStrikeoutLabel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontStrikeoutLabel.GetString: AnsiString;
 begin
@@ -2343,6 +2339,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StyleEditorFont_Control_FontStrikeoutLabel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontStrikeoutLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontStrikeoutLabel';
+end;//Tkw_StyleEditorFont_Control_FontStrikeoutLabel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontStrikeoutLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontStrikeoutLabel');
@@ -2353,11 +2354,6 @@ class function Tkw_StyleEditorFont_Control_FontStrikeoutLabel_Push.GetWordNameFo
 begin
  Result := 'контрол::FontStrikeoutLabel:push';
 end;//Tkw_StyleEditorFont_Control_FontStrikeoutLabel_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontSizeLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontSizeLabel';
-end;//Tkw_StyleEditorFont_Control_FontSizeLabel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontSizeLabel.GetString: AnsiString;
 begin
@@ -2370,6 +2366,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StyleEditorFont_Control_FontSizeLabel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontSizeLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontSizeLabel';
+end;//Tkw_StyleEditorFont_Control_FontSizeLabel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontSizeLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontSizeLabel');
@@ -2380,11 +2381,6 @@ class function Tkw_StyleEditorFont_Control_FontSizeLabel_Push.GetWordNameForRegi
 begin
  Result := 'контрол::FontSizeLabel:push';
 end;//Tkw_StyleEditorFont_Control_FontSizeLabel_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontNameLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontNameLabel';
-end;//Tkw_StyleEditorFont_Control_FontNameLabel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontNameLabel.GetString: AnsiString;
 begin
@@ -2397,6 +2393,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StyleEditorFont_Control_FontNameLabel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontNameLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontNameLabel';
+end;//Tkw_StyleEditorFont_Control_FontNameLabel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontNameLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontNameLabel');
@@ -2407,11 +2408,6 @@ class function Tkw_StyleEditorFont_Control_FontNameLabel_Push.GetWordNameForRegi
 begin
  Result := 'контрол::FontNameLabel:push';
 end;//Tkw_StyleEditorFont_Control_FontNameLabel_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontItalicLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontItalicLabel';
-end;//Tkw_StyleEditorFont_Control_FontItalicLabel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontItalicLabel.GetString: AnsiString;
 begin
@@ -2424,6 +2420,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StyleEditorFont_Control_FontItalicLabel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontItalicLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontItalicLabel';
+end;//Tkw_StyleEditorFont_Control_FontItalicLabel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontItalicLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontItalicLabel');
@@ -2434,11 +2435,6 @@ class function Tkw_StyleEditorFont_Control_FontItalicLabel_Push.GetWordNameForRe
 begin
  Result := 'контрол::FontItalicLabel:push';
 end;//Tkw_StyleEditorFont_Control_FontItalicLabel_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontForeColorLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontForeColorLabel';
-end;//Tkw_StyleEditorFont_Control_FontForeColorLabel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontForeColorLabel.GetString: AnsiString;
 begin
@@ -2451,6 +2447,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StyleEditorFont_Control_FontForeColorLabel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontForeColorLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontForeColorLabel';
+end;//Tkw_StyleEditorFont_Control_FontForeColorLabel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontForeColorLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontForeColorLabel');
@@ -2461,11 +2462,6 @@ class function Tkw_StyleEditorFont_Control_FontForeColorLabel_Push.GetWordNameFo
 begin
  Result := 'контрол::FontForeColorLabel:push';
 end;//Tkw_StyleEditorFont_Control_FontForeColorLabel_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontBoldLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontBoldLabel';
-end;//Tkw_StyleEditorFont_Control_FontBoldLabel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontBoldLabel.GetString: AnsiString;
 begin
@@ -2478,6 +2474,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StyleEditorFont_Control_FontBoldLabel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontBoldLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontBoldLabel';
+end;//Tkw_StyleEditorFont_Control_FontBoldLabel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontBoldLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontBoldLabel');
@@ -2488,11 +2489,6 @@ class function Tkw_StyleEditorFont_Control_FontBoldLabel_Push.GetWordNameForRegi
 begin
  Result := 'контрол::FontBoldLabel:push';
 end;//Tkw_StyleEditorFont_Control_FontBoldLabel_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontBackColorLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontBackColorLabel';
-end;//Tkw_StyleEditorFont_Control_FontBackColorLabel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontBackColorLabel.GetString: AnsiString;
 begin
@@ -2505,6 +2501,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StyleEditorFont_Control_FontBackColorLabel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontBackColorLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontBackColorLabel';
+end;//Tkw_StyleEditorFont_Control_FontBackColorLabel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontBackColorLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontBackColorLabel');
@@ -2515,11 +2516,6 @@ class function Tkw_StyleEditorFont_Control_FontBackColorLabel_Push.GetWordNameFo
 begin
  Result := 'контрол::FontBackColorLabel:push';
 end;//Tkw_StyleEditorFont_Control_FontBackColorLabel_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontScalableLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontScalableLabel';
-end;//Tkw_StyleEditorFont_Control_FontScalableLabel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontScalableLabel.GetString: AnsiString;
 begin
@@ -2532,6 +2528,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StyleEditorFont_Control_FontScalableLabel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontScalableLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontScalableLabel';
+end;//Tkw_StyleEditorFont_Control_FontScalableLabel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontScalableLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontScalableLabel');
@@ -2542,11 +2543,6 @@ class function Tkw_StyleEditorFont_Control_FontScalableLabel_Push.GetWordNameFor
 begin
  Result := 'контрол::FontScalableLabel:push';
 end;//Tkw_StyleEditorFont_Control_FontScalableLabel_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontScalableBevel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontScalableBevel';
-end;//Tkw_StyleEditorFont_Control_FontScalableBevel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontScalableBevel.GetString: AnsiString;
 begin
@@ -2559,6 +2555,11 @@ begin
  TtfwClassRef.Register(TBevel);
 end;//Tkw_StyleEditorFont_Control_FontScalableBevel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontScalableBevel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontScalableBevel';
+end;//Tkw_StyleEditorFont_Control_FontScalableBevel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontScalableBevel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontScalableBevel');
@@ -2569,11 +2570,6 @@ class function Tkw_StyleEditorFont_Control_FontScalableBevel_Push.GetWordNameFor
 begin
  Result := 'контрол::FontScalableBevel:push';
 end;//Tkw_StyleEditorFont_Control_FontScalableBevel_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontStrikeoutInheritanceButton';
-end;//Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton.GetString: AnsiString;
 begin
@@ -2586,6 +2582,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontStrikeoutInheritanceButton';
+end;//Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontStrikeoutInheritanceButton');
@@ -2596,11 +2597,6 @@ class function Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton_Push.G
 begin
  Result := 'контрол::FontStrikeoutInheritanceButton:push';
 end;//Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontSizeInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontSizeInheritanceButton';
-end;//Tkw_StyleEditorFont_Control_FontSizeInheritanceButton.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontSizeInheritanceButton.GetString: AnsiString;
 begin
@@ -2613,6 +2609,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StyleEditorFont_Control_FontSizeInheritanceButton.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontSizeInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontSizeInheritanceButton';
+end;//Tkw_StyleEditorFont_Control_FontSizeInheritanceButton.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontSizeInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontSizeInheritanceButton');
@@ -2623,11 +2624,6 @@ class function Tkw_StyleEditorFont_Control_FontSizeInheritanceButton_Push.GetWor
 begin
  Result := 'контрол::FontSizeInheritanceButton:push';
 end;//Tkw_StyleEditorFont_Control_FontSizeInheritanceButton_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontNameInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontNameInheritanceButton';
-end;//Tkw_StyleEditorFont_Control_FontNameInheritanceButton.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontNameInheritanceButton.GetString: AnsiString;
 begin
@@ -2640,6 +2636,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StyleEditorFont_Control_FontNameInheritanceButton.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontNameInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontNameInheritanceButton';
+end;//Tkw_StyleEditorFont_Control_FontNameInheritanceButton.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontNameInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontNameInheritanceButton');
@@ -2650,11 +2651,6 @@ class function Tkw_StyleEditorFont_Control_FontNameInheritanceButton_Push.GetWor
 begin
  Result := 'контрол::FontNameInheritanceButton:push';
 end;//Tkw_StyleEditorFont_Control_FontNameInheritanceButton_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontItalicInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontItalicInheritanceButton';
-end;//Tkw_StyleEditorFont_Control_FontItalicInheritanceButton.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontItalicInheritanceButton.GetString: AnsiString;
 begin
@@ -2667,6 +2663,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StyleEditorFont_Control_FontItalicInheritanceButton.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontItalicInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontItalicInheritanceButton';
+end;//Tkw_StyleEditorFont_Control_FontItalicInheritanceButton.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontItalicInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontItalicInheritanceButton');
@@ -2677,11 +2678,6 @@ class function Tkw_StyleEditorFont_Control_FontItalicInheritanceButton_Push.GetW
 begin
  Result := 'контрол::FontItalicInheritanceButton:push';
 end;//Tkw_StyleEditorFont_Control_FontItalicInheritanceButton_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontForeColorInheritanceButton';
-end;//Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton.GetString: AnsiString;
 begin
@@ -2694,6 +2690,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontForeColorInheritanceButton';
+end;//Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontForeColorInheritanceButton');
@@ -2704,11 +2705,6 @@ class function Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton_Push.G
 begin
  Result := 'контрол::FontForeColorInheritanceButton:push';
 end;//Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontBoldInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontBoldInheritanceButton';
-end;//Tkw_StyleEditorFont_Control_FontBoldInheritanceButton.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontBoldInheritanceButton.GetString: AnsiString;
 begin
@@ -2721,6 +2717,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StyleEditorFont_Control_FontBoldInheritanceButton.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontBoldInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontBoldInheritanceButton';
+end;//Tkw_StyleEditorFont_Control_FontBoldInheritanceButton.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontBoldInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontBoldInheritanceButton');
@@ -2731,11 +2732,6 @@ class function Tkw_StyleEditorFont_Control_FontBoldInheritanceButton_Push.GetWor
 begin
  Result := 'контрол::FontBoldInheritanceButton:push';
 end;//Tkw_StyleEditorFont_Control_FontBoldInheritanceButton_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontBackColorInheritanceButton';
-end;//Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton.GetString: AnsiString;
 begin
@@ -2748,6 +2744,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontBackColorInheritanceButton';
+end;//Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontBackColorInheritanceButton');
@@ -2758,11 +2759,6 @@ class function Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton_Push.G
 begin
  Result := 'контрол::FontBackColorInheritanceButton:push';
 end;//Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontUnderlineInheritanceButton';
-end;//Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton.GetString: AnsiString;
 begin
@@ -2775,6 +2771,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontUnderlineInheritanceButton';
+end;//Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontUnderlineInheritanceButton');
@@ -2785,11 +2786,6 @@ class function Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton_Push.G
 begin
  Result := 'контрол::FontUnderlineInheritanceButton:push';
 end;//Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontUnderlineCheckBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontUnderlineCheckBox';
-end;//Tkw_StyleEditorFont_Control_FontUnderlineCheckBox.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontUnderlineCheckBox.GetString: AnsiString;
 begin
@@ -2802,6 +2798,11 @@ begin
  TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_StyleEditorFont_Control_FontUnderlineCheckBox.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontUnderlineCheckBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontUnderlineCheckBox';
+end;//Tkw_StyleEditorFont_Control_FontUnderlineCheckBox.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontUnderlineCheckBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontUnderlineCheckBox');
@@ -2812,11 +2813,6 @@ class function Tkw_StyleEditorFont_Control_FontUnderlineCheckBox_Push.GetWordNam
 begin
  Result := 'контрол::FontUnderlineCheckBox:push';
 end;//Tkw_StyleEditorFont_Control_FontUnderlineCheckBox_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontStrikeoutCheckBox';
-end;//Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox.GetString: AnsiString;
 begin
@@ -2829,6 +2825,11 @@ begin
  TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontStrikeoutCheckBox';
+end;//Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontStrikeoutCheckBox');
@@ -2839,11 +2840,6 @@ class function Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox_Push.GetWordNam
 begin
  Result := 'контрол::FontStrikeoutCheckBox:push';
 end;//Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontSizeComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontSizeComboBox';
-end;//Tkw_StyleEditorFont_Control_FontSizeComboBox.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontSizeComboBox.GetString: AnsiString;
 begin
@@ -2856,6 +2852,11 @@ begin
  TtfwClassRef.Register(TvtComboBoxQS);
 end;//Tkw_StyleEditorFont_Control_FontSizeComboBox.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontSizeComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontSizeComboBox';
+end;//Tkw_StyleEditorFont_Control_FontSizeComboBox.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontSizeComboBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontSizeComboBox');
@@ -2866,11 +2867,6 @@ class function Tkw_StyleEditorFont_Control_FontSizeComboBox_Push.GetWordNameForR
 begin
  Result := 'контрол::FontSizeComboBox:push';
 end;//Tkw_StyleEditorFont_Control_FontSizeComboBox_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontNameComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontNameComboBox';
-end;//Tkw_StyleEditorFont_Control_FontNameComboBox.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontNameComboBox.GetString: AnsiString;
 begin
@@ -2883,6 +2879,11 @@ begin
  TtfwClassRef.Register(TvtComboBoxQS);
 end;//Tkw_StyleEditorFont_Control_FontNameComboBox.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontNameComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontNameComboBox';
+end;//Tkw_StyleEditorFont_Control_FontNameComboBox.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontNameComboBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontNameComboBox');
@@ -2893,11 +2894,6 @@ class function Tkw_StyleEditorFont_Control_FontNameComboBox_Push.GetWordNameForR
 begin
  Result := 'контрол::FontNameComboBox:push';
 end;//Tkw_StyleEditorFont_Control_FontNameComboBox_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontItalicCheckBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontItalicCheckBox';
-end;//Tkw_StyleEditorFont_Control_FontItalicCheckBox.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontItalicCheckBox.GetString: AnsiString;
 begin
@@ -2910,6 +2906,11 @@ begin
  TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_StyleEditorFont_Control_FontItalicCheckBox.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontItalicCheckBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontItalicCheckBox';
+end;//Tkw_StyleEditorFont_Control_FontItalicCheckBox.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontItalicCheckBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontItalicCheckBox');
@@ -2920,11 +2921,6 @@ class function Tkw_StyleEditorFont_Control_FontItalicCheckBox_Push.GetWordNameFo
 begin
  Result := 'контрол::FontItalicCheckBox:push';
 end;//Tkw_StyleEditorFont_Control_FontItalicCheckBox_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontForeColorBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontForeColorBox';
-end;//Tkw_StyleEditorFont_Control_FontForeColorBox.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontForeColorBox.GetString: AnsiString;
 begin
@@ -2937,6 +2933,11 @@ begin
  TtfwClassRef.Register(TvtColorBox);
 end;//Tkw_StyleEditorFont_Control_FontForeColorBox.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontForeColorBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontForeColorBox';
+end;//Tkw_StyleEditorFont_Control_FontForeColorBox.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontForeColorBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontForeColorBox');
@@ -2947,11 +2948,6 @@ class function Tkw_StyleEditorFont_Control_FontForeColorBox_Push.GetWordNameForR
 begin
  Result := 'контрол::FontForeColorBox:push';
 end;//Tkw_StyleEditorFont_Control_FontForeColorBox_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontBoldCheckBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontBoldCheckBox';
-end;//Tkw_StyleEditorFont_Control_FontBoldCheckBox.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontBoldCheckBox.GetString: AnsiString;
 begin
@@ -2964,6 +2960,11 @@ begin
  TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_StyleEditorFont_Control_FontBoldCheckBox.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontBoldCheckBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontBoldCheckBox';
+end;//Tkw_StyleEditorFont_Control_FontBoldCheckBox.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontBoldCheckBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontBoldCheckBox');
@@ -2974,11 +2975,6 @@ class function Tkw_StyleEditorFont_Control_FontBoldCheckBox_Push.GetWordNameForR
 begin
  Result := 'контрол::FontBoldCheckBox:push';
 end;//Tkw_StyleEditorFont_Control_FontBoldCheckBox_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontBackColorBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontBackColorBox';
-end;//Tkw_StyleEditorFont_Control_FontBackColorBox.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontBackColorBox.GetString: AnsiString;
 begin
@@ -2991,6 +2987,11 @@ begin
  TtfwClassRef.Register(TvtColorBox);
 end;//Tkw_StyleEditorFont_Control_FontBackColorBox.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontBackColorBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontBackColorBox';
+end;//Tkw_StyleEditorFont_Control_FontBackColorBox.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontBackColorBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontBackColorBox');
@@ -3001,11 +3002,6 @@ class function Tkw_StyleEditorFont_Control_FontBackColorBox_Push.GetWordNameForR
 begin
  Result := 'контрол::FontBackColorBox:push';
 end;//Tkw_StyleEditorFont_Control_FontBackColorBox_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FontScalableCheckBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FontScalableCheckBox';
-end;//Tkw_StyleEditorFont_Control_FontScalableCheckBox.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FontScalableCheckBox.GetString: AnsiString;
 begin
@@ -3018,6 +3014,11 @@ begin
  TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_StyleEditorFont_Control_FontScalableCheckBox.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FontScalableCheckBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FontScalableCheckBox';
+end;//Tkw_StyleEditorFont_Control_FontScalableCheckBox.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FontScalableCheckBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FontScalableCheckBox');
@@ -3028,11 +3029,6 @@ class function Tkw_StyleEditorFont_Control_FontScalableCheckBox_Push.GetWordName
 begin
  Result := 'контрол::FontScalableCheckBox:push';
 end;//Tkw_StyleEditorFont_Control_FontScalableCheckBox_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_LeftIndentLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::LeftIndentLabel';
-end;//Tkw_StyleEditorFont_Control_LeftIndentLabel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_LeftIndentLabel.GetString: AnsiString;
 begin
@@ -3045,6 +3041,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StyleEditorFont_Control_LeftIndentLabel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_LeftIndentLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::LeftIndentLabel';
+end;//Tkw_StyleEditorFont_Control_LeftIndentLabel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_LeftIndentLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('LeftIndentLabel');
@@ -3055,11 +3056,6 @@ class function Tkw_StyleEditorFont_Control_LeftIndentLabel_Push.GetWordNameForRe
 begin
  Result := 'контрол::LeftIndentLabel:push';
 end;//Tkw_StyleEditorFont_Control_LeftIndentLabel_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_LeftIndentComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::LeftIndentComboBox';
-end;//Tkw_StyleEditorFont_Control_LeftIndentComboBox.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_LeftIndentComboBox.GetString: AnsiString;
 begin
@@ -3072,6 +3068,11 @@ begin
  TtfwClassRef.Register(TvtComboBoxQS);
 end;//Tkw_StyleEditorFont_Control_LeftIndentComboBox.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_LeftIndentComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::LeftIndentComboBox';
+end;//Tkw_StyleEditorFont_Control_LeftIndentComboBox.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_LeftIndentComboBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('LeftIndentComboBox');
@@ -3082,11 +3083,6 @@ class function Tkw_StyleEditorFont_Control_LeftIndentComboBox_Push.GetWordNameFo
 begin
  Result := 'контрол::LeftIndentComboBox:push';
 end;//Tkw_StyleEditorFont_Control_LeftIndentComboBox_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_RightIndentLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::RightIndentLabel';
-end;//Tkw_StyleEditorFont_Control_RightIndentLabel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_RightIndentLabel.GetString: AnsiString;
 begin
@@ -3099,6 +3095,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StyleEditorFont_Control_RightIndentLabel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_RightIndentLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::RightIndentLabel';
+end;//Tkw_StyleEditorFont_Control_RightIndentLabel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_RightIndentLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('RightIndentLabel');
@@ -3109,11 +3110,6 @@ class function Tkw_StyleEditorFont_Control_RightIndentLabel_Push.GetWordNameForR
 begin
  Result := 'контрол::RightIndentLabel:push';
 end;//Tkw_StyleEditorFont_Control_RightIndentLabel_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_RightIndentComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::RightIndentComboBox';
-end;//Tkw_StyleEditorFont_Control_RightIndentComboBox.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_RightIndentComboBox.GetString: AnsiString;
 begin
@@ -3126,6 +3122,11 @@ begin
  TtfwClassRef.Register(TvtComboBoxQS);
 end;//Tkw_StyleEditorFont_Control_RightIndentComboBox.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_RightIndentComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::RightIndentComboBox';
+end;//Tkw_StyleEditorFont_Control_RightIndentComboBox.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_RightIndentComboBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('RightIndentComboBox');
@@ -3136,11 +3137,6 @@ class function Tkw_StyleEditorFont_Control_RightIndentComboBox_Push.GetWordNameF
 begin
  Result := 'контрол::RightIndentComboBox:push';
 end;//Tkw_StyleEditorFont_Control_RightIndentComboBox_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FirstIndentLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FirstIndentLabel';
-end;//Tkw_StyleEditorFont_Control_FirstIndentLabel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FirstIndentLabel.GetString: AnsiString;
 begin
@@ -3153,6 +3149,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StyleEditorFont_Control_FirstIndentLabel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FirstIndentLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FirstIndentLabel';
+end;//Tkw_StyleEditorFont_Control_FirstIndentLabel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FirstIndentLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FirstIndentLabel');
@@ -3163,11 +3164,6 @@ class function Tkw_StyleEditorFont_Control_FirstIndentLabel_Push.GetWordNameForR
 begin
  Result := 'контрол::FirstIndentLabel:push';
 end;//Tkw_StyleEditorFont_Control_FirstIndentLabel_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FirstIndentComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FirstIndentComboBox';
-end;//Tkw_StyleEditorFont_Control_FirstIndentComboBox.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FirstIndentComboBox.GetString: AnsiString;
 begin
@@ -3180,6 +3176,11 @@ begin
  TtfwClassRef.Register(TvtComboBoxQS);
 end;//Tkw_StyleEditorFont_Control_FirstIndentComboBox.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FirstIndentComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FirstIndentComboBox';
+end;//Tkw_StyleEditorFont_Control_FirstIndentComboBox.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FirstIndentComboBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FirstIndentComboBox');
@@ -3190,11 +3191,6 @@ class function Tkw_StyleEditorFont_Control_FirstIndentComboBox_Push.GetWordNameF
 begin
  Result := 'контрол::FirstIndentComboBox:push';
 end;//Tkw_StyleEditorFont_Control_FirstIndentComboBox_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_SpaceBeforeLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::SpaceBeforeLabel';
-end;//Tkw_StyleEditorFont_Control_SpaceBeforeLabel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_SpaceBeforeLabel.GetString: AnsiString;
 begin
@@ -3207,6 +3203,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StyleEditorFont_Control_SpaceBeforeLabel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_SpaceBeforeLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::SpaceBeforeLabel';
+end;//Tkw_StyleEditorFont_Control_SpaceBeforeLabel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_SpaceBeforeLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('SpaceBeforeLabel');
@@ -3217,11 +3218,6 @@ class function Tkw_StyleEditorFont_Control_SpaceBeforeLabel_Push.GetWordNameForR
 begin
  Result := 'контрол::SpaceBeforeLabel:push';
 end;//Tkw_StyleEditorFont_Control_SpaceBeforeLabel_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_SpaceBeforeComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::SpaceBeforeComboBox';
-end;//Tkw_StyleEditorFont_Control_SpaceBeforeComboBox.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_SpaceBeforeComboBox.GetString: AnsiString;
 begin
@@ -3234,6 +3230,11 @@ begin
  TtfwClassRef.Register(TvtComboBoxQS);
 end;//Tkw_StyleEditorFont_Control_SpaceBeforeComboBox.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_SpaceBeforeComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::SpaceBeforeComboBox';
+end;//Tkw_StyleEditorFont_Control_SpaceBeforeComboBox.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_SpaceBeforeComboBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('SpaceBeforeComboBox');
@@ -3244,11 +3245,6 @@ class function Tkw_StyleEditorFont_Control_SpaceBeforeComboBox_Push.GetWordNameF
 begin
  Result := 'контрол::SpaceBeforeComboBox:push';
 end;//Tkw_StyleEditorFont_Control_SpaceBeforeComboBox_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_SpaceAfterLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::SpaceAfterLabel';
-end;//Tkw_StyleEditorFont_Control_SpaceAfterLabel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_SpaceAfterLabel.GetString: AnsiString;
 begin
@@ -3261,6 +3257,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StyleEditorFont_Control_SpaceAfterLabel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_SpaceAfterLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::SpaceAfterLabel';
+end;//Tkw_StyleEditorFont_Control_SpaceAfterLabel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_SpaceAfterLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('SpaceAfterLabel');
@@ -3271,11 +3272,6 @@ class function Tkw_StyleEditorFont_Control_SpaceAfterLabel_Push.GetWordNameForRe
 begin
  Result := 'контрол::SpaceAfterLabel:push';
 end;//Tkw_StyleEditorFont_Control_SpaceAfterLabel_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_SpaceAfterComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::SpaceAfterComboBox';
-end;//Tkw_StyleEditorFont_Control_SpaceAfterComboBox.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_SpaceAfterComboBox.GetString: AnsiString;
 begin
@@ -3288,6 +3284,11 @@ begin
  TtfwClassRef.Register(TvtComboBoxQS);
 end;//Tkw_StyleEditorFont_Control_SpaceAfterComboBox.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_SpaceAfterComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::SpaceAfterComboBox';
+end;//Tkw_StyleEditorFont_Control_SpaceAfterComboBox.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_SpaceAfterComboBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('SpaceAfterComboBox');
@@ -3298,11 +3299,6 @@ class function Tkw_StyleEditorFont_Control_SpaceAfterComboBox_Push.GetWordNameFo
 begin
  Result := 'контрол::SpaceAfterComboBox:push';
 end;//Tkw_StyleEditorFont_Control_SpaceAfterComboBox_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::LeftIndentInheritanceButton';
-end;//Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton.GetString: AnsiString;
 begin
@@ -3315,6 +3311,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::LeftIndentInheritanceButton';
+end;//Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('LeftIndentInheritanceButton');
@@ -3325,11 +3326,6 @@ class function Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton_Push.GetW
 begin
  Result := 'контрол::LeftIndentInheritanceButton:push';
 end;//Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_RightIndentInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::RightIndentInheritanceButton';
-end;//Tkw_StyleEditorFont_Control_RightIndentInheritanceButton.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_RightIndentInheritanceButton.GetString: AnsiString;
 begin
@@ -3342,6 +3338,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StyleEditorFont_Control_RightIndentInheritanceButton.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_RightIndentInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::RightIndentInheritanceButton';
+end;//Tkw_StyleEditorFont_Control_RightIndentInheritanceButton.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_RightIndentInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('RightIndentInheritanceButton');
@@ -3352,11 +3353,6 @@ class function Tkw_StyleEditorFont_Control_RightIndentInheritanceButton_Push.Get
 begin
  Result := 'контрол::RightIndentInheritanceButton:push';
 end;//Tkw_StyleEditorFont_Control_RightIndentInheritanceButton_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FirstIndentInheritanceButton';
-end;//Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton.GetString: AnsiString;
 begin
@@ -3369,6 +3365,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FirstIndentInheritanceButton';
+end;//Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FirstIndentInheritanceButton');
@@ -3379,11 +3380,6 @@ class function Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton_Push.Get
 begin
  Result := 'контрол::FirstIndentInheritanceButton:push';
 end;//Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::SpaceBeforeInheritanceButton';
-end;//Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton.GetString: AnsiString;
 begin
@@ -3396,6 +3392,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::SpaceBeforeInheritanceButton';
+end;//Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('SpaceBeforeInheritanceButton');
@@ -3406,11 +3407,6 @@ class function Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton_Push.Get
 begin
  Result := 'контрол::SpaceBeforeInheritanceButton:push';
 end;//Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::SpaceAfterInheritanceButton';
-end;//Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton.GetString: AnsiString;
 begin
@@ -3423,6 +3419,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::SpaceAfterInheritanceButton';
+end;//Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('SpaceAfterInheritanceButton');
@@ -3433,11 +3434,6 @@ class function Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton_Push.GetW
 begin
  Result := 'контрол::SpaceAfterInheritanceButton:push';
 end;//Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton_Push.GetWordNameForRegister
-
-class function Tkw_StyleEditorFont_Control_StyleCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::StyleCaptionLabel';
-end;//Tkw_StyleEditorFont_Control_StyleCaptionLabel.GetWordNameForRegister
 
 function Tkw_StyleEditorFont_Control_StyleCaptionLabel.GetString: AnsiString;
 begin
@@ -3450,6 +3446,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StyleEditorFont_Control_StyleCaptionLabel.RegisterInEngine
 
+class function Tkw_StyleEditorFont_Control_StyleCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::StyleCaptionLabel';
+end;//Tkw_StyleEditorFont_Control_StyleCaptionLabel.GetWordNameForRegister
+
 procedure Tkw_StyleEditorFont_Control_StyleCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('StyleCaptionLabel');
@@ -3461,11 +3462,6 @@ begin
  Result := 'контрол::StyleCaptionLabel:push';
 end;//Tkw_StyleEditorFont_Control_StyleCaptionLabel_Push.GetWordNameForRegister
 
-class function Tkw_StyleEditorFont_Control_StyleCaptionComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::StyleCaptionComboBox';
-end;//Tkw_StyleEditorFont_Control_StyleCaptionComboBox.GetWordNameForRegister
-
 function Tkw_StyleEditorFont_Control_StyleCaptionComboBox.GetString: AnsiString;
 begin
  Result := 'StyleCaptionComboBox';
@@ -3476,6 +3472,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtComboBoxQS);
 end;//Tkw_StyleEditorFont_Control_StyleCaptionComboBox.RegisterInEngine
+
+class function Tkw_StyleEditorFont_Control_StyleCaptionComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::StyleCaptionComboBox';
+end;//Tkw_StyleEditorFont_Control_StyleCaptionComboBox.GetWordNameForRegister
 
 procedure Tkw_StyleEditorFont_Control_StyleCaptionComboBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -3510,11 +3511,6 @@ begin
  aCtx.rEngine.PushObj(FontScrollBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontScrollBox.DoDoIt
 
-class function TkwStyleEditorFontFormFontScrollBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontScrollBox';
-end;//TkwStyleEditorFontFormFontScrollBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontScrollBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3535,6 +3531,11 @@ function TkwStyleEditorFontFormFontScrollBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontScrollBox.ParamsTypes
+
+class function TkwStyleEditorFontFormFontScrollBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontScrollBox';
+end;//TkwStyleEditorFontFormFontScrollBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontUnderlineLabel.FontUnderlineLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3558,11 +3559,6 @@ begin
  aCtx.rEngine.PushObj(FontUnderlineLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontUnderlineLabel.DoDoIt
 
-class function TkwStyleEditorFontFormFontUnderlineLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontUnderlineLabel';
-end;//TkwStyleEditorFontFormFontUnderlineLabel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontUnderlineLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3583,6 +3579,11 @@ function TkwStyleEditorFontFormFontUnderlineLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontUnderlineLabel.ParamsTypes
+
+class function TkwStyleEditorFontFormFontUnderlineLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontUnderlineLabel';
+end;//TkwStyleEditorFontFormFontUnderlineLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontStrikeoutLabel.FontStrikeoutLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3606,11 +3607,6 @@ begin
  aCtx.rEngine.PushObj(FontStrikeoutLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontStrikeoutLabel.DoDoIt
 
-class function TkwStyleEditorFontFormFontStrikeoutLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontStrikeoutLabel';
-end;//TkwStyleEditorFontFormFontStrikeoutLabel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontStrikeoutLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3631,6 +3627,11 @@ function TkwStyleEditorFontFormFontStrikeoutLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontStrikeoutLabel.ParamsTypes
+
+class function TkwStyleEditorFontFormFontStrikeoutLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontStrikeoutLabel';
+end;//TkwStyleEditorFontFormFontStrikeoutLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontSizeLabel.FontSizeLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3654,11 +3655,6 @@ begin
  aCtx.rEngine.PushObj(FontSizeLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontSizeLabel.DoDoIt
 
-class function TkwStyleEditorFontFormFontSizeLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontSizeLabel';
-end;//TkwStyleEditorFontFormFontSizeLabel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontSizeLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3679,6 +3675,11 @@ function TkwStyleEditorFontFormFontSizeLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontSizeLabel.ParamsTypes
+
+class function TkwStyleEditorFontFormFontSizeLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontSizeLabel';
+end;//TkwStyleEditorFontFormFontSizeLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontNameLabel.FontNameLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3702,11 +3703,6 @@ begin
  aCtx.rEngine.PushObj(FontNameLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontNameLabel.DoDoIt
 
-class function TkwStyleEditorFontFormFontNameLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontNameLabel';
-end;//TkwStyleEditorFontFormFontNameLabel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontNameLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3727,6 +3723,11 @@ function TkwStyleEditorFontFormFontNameLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontNameLabel.ParamsTypes
+
+class function TkwStyleEditorFontFormFontNameLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontNameLabel';
+end;//TkwStyleEditorFontFormFontNameLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontItalicLabel.FontItalicLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3750,11 +3751,6 @@ begin
  aCtx.rEngine.PushObj(FontItalicLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontItalicLabel.DoDoIt
 
-class function TkwStyleEditorFontFormFontItalicLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontItalicLabel';
-end;//TkwStyleEditorFontFormFontItalicLabel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontItalicLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3775,6 +3771,11 @@ function TkwStyleEditorFontFormFontItalicLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontItalicLabel.ParamsTypes
+
+class function TkwStyleEditorFontFormFontItalicLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontItalicLabel';
+end;//TkwStyleEditorFontFormFontItalicLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontForeColorLabel.FontForeColorLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3798,11 +3799,6 @@ begin
  aCtx.rEngine.PushObj(FontForeColorLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontForeColorLabel.DoDoIt
 
-class function TkwStyleEditorFontFormFontForeColorLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontForeColorLabel';
-end;//TkwStyleEditorFontFormFontForeColorLabel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontForeColorLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3823,6 +3819,11 @@ function TkwStyleEditorFontFormFontForeColorLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontForeColorLabel.ParamsTypes
+
+class function TkwStyleEditorFontFormFontForeColorLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontForeColorLabel';
+end;//TkwStyleEditorFontFormFontForeColorLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontBoldLabel.FontBoldLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3846,11 +3847,6 @@ begin
  aCtx.rEngine.PushObj(FontBoldLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontBoldLabel.DoDoIt
 
-class function TkwStyleEditorFontFormFontBoldLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontBoldLabel';
-end;//TkwStyleEditorFontFormFontBoldLabel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontBoldLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3871,6 +3867,11 @@ function TkwStyleEditorFontFormFontBoldLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontBoldLabel.ParamsTypes
+
+class function TkwStyleEditorFontFormFontBoldLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontBoldLabel';
+end;//TkwStyleEditorFontFormFontBoldLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontBackColorLabel.FontBackColorLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3894,11 +3895,6 @@ begin
  aCtx.rEngine.PushObj(FontBackColorLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontBackColorLabel.DoDoIt
 
-class function TkwStyleEditorFontFormFontBackColorLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontBackColorLabel';
-end;//TkwStyleEditorFontFormFontBackColorLabel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontBackColorLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3919,6 +3915,11 @@ function TkwStyleEditorFontFormFontBackColorLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontBackColorLabel.ParamsTypes
+
+class function TkwStyleEditorFontFormFontBackColorLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontBackColorLabel';
+end;//TkwStyleEditorFontFormFontBackColorLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontScalableLabel.FontScalableLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3942,11 +3943,6 @@ begin
  aCtx.rEngine.PushObj(FontScalableLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontScalableLabel.DoDoIt
 
-class function TkwStyleEditorFontFormFontScalableLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontScalableLabel';
-end;//TkwStyleEditorFontFormFontScalableLabel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontScalableLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3967,6 +3963,11 @@ function TkwStyleEditorFontFormFontScalableLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontScalableLabel.ParamsTypes
+
+class function TkwStyleEditorFontFormFontScalableLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontScalableLabel';
+end;//TkwStyleEditorFontFormFontScalableLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontScalableBevel.FontScalableBevel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TBevel;
@@ -3990,11 +3991,6 @@ begin
  aCtx.rEngine.PushObj(FontScalableBevel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontScalableBevel.DoDoIt
 
-class function TkwStyleEditorFontFormFontScalableBevel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontScalableBevel';
-end;//TkwStyleEditorFontFormFontScalableBevel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontScalableBevel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4015,6 +4011,11 @@ function TkwStyleEditorFontFormFontScalableBevel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontScalableBevel.ParamsTypes
+
+class function TkwStyleEditorFontFormFontScalableBevel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontScalableBevel';
+end;//TkwStyleEditorFontFormFontScalableBevel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontStrikeoutInheritanceButton.FontStrikeoutInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4038,11 +4039,6 @@ begin
  aCtx.rEngine.PushObj(FontStrikeoutInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontStrikeoutInheritanceButton.DoDoIt
 
-class function TkwStyleEditorFontFormFontStrikeoutInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontStrikeoutInheritanceButton';
-end;//TkwStyleEditorFontFormFontStrikeoutInheritanceButton.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontStrikeoutInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4063,6 +4059,11 @@ function TkwStyleEditorFontFormFontStrikeoutInheritanceButton.ParamsTypes: PType
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontStrikeoutInheritanceButton.ParamsTypes
+
+class function TkwStyleEditorFontFormFontStrikeoutInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontStrikeoutInheritanceButton';
+end;//TkwStyleEditorFontFormFontStrikeoutInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontSizeInheritanceButton.FontSizeInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4086,11 +4087,6 @@ begin
  aCtx.rEngine.PushObj(FontSizeInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontSizeInheritanceButton.DoDoIt
 
-class function TkwStyleEditorFontFormFontSizeInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontSizeInheritanceButton';
-end;//TkwStyleEditorFontFormFontSizeInheritanceButton.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontSizeInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4111,6 +4107,11 @@ function TkwStyleEditorFontFormFontSizeInheritanceButton.ParamsTypes: PTypeInfoA
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontSizeInheritanceButton.ParamsTypes
+
+class function TkwStyleEditorFontFormFontSizeInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontSizeInheritanceButton';
+end;//TkwStyleEditorFontFormFontSizeInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontNameInheritanceButton.FontNameInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4134,11 +4135,6 @@ begin
  aCtx.rEngine.PushObj(FontNameInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontNameInheritanceButton.DoDoIt
 
-class function TkwStyleEditorFontFormFontNameInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontNameInheritanceButton';
-end;//TkwStyleEditorFontFormFontNameInheritanceButton.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontNameInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4159,6 +4155,11 @@ function TkwStyleEditorFontFormFontNameInheritanceButton.ParamsTypes: PTypeInfoA
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontNameInheritanceButton.ParamsTypes
+
+class function TkwStyleEditorFontFormFontNameInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontNameInheritanceButton';
+end;//TkwStyleEditorFontFormFontNameInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontItalicInheritanceButton.FontItalicInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4182,11 +4183,6 @@ begin
  aCtx.rEngine.PushObj(FontItalicInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontItalicInheritanceButton.DoDoIt
 
-class function TkwStyleEditorFontFormFontItalicInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontItalicInheritanceButton';
-end;//TkwStyleEditorFontFormFontItalicInheritanceButton.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontItalicInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4207,6 +4203,11 @@ function TkwStyleEditorFontFormFontItalicInheritanceButton.ParamsTypes: PTypeInf
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontItalicInheritanceButton.ParamsTypes
+
+class function TkwStyleEditorFontFormFontItalicInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontItalicInheritanceButton';
+end;//TkwStyleEditorFontFormFontItalicInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontForeColorInheritanceButton.FontForeColorInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4230,11 +4231,6 @@ begin
  aCtx.rEngine.PushObj(FontForeColorInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontForeColorInheritanceButton.DoDoIt
 
-class function TkwStyleEditorFontFormFontForeColorInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontForeColorInheritanceButton';
-end;//TkwStyleEditorFontFormFontForeColorInheritanceButton.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontForeColorInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4255,6 +4251,11 @@ function TkwStyleEditorFontFormFontForeColorInheritanceButton.ParamsTypes: PType
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontForeColorInheritanceButton.ParamsTypes
+
+class function TkwStyleEditorFontFormFontForeColorInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontForeColorInheritanceButton';
+end;//TkwStyleEditorFontFormFontForeColorInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontBoldInheritanceButton.FontBoldInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4278,11 +4279,6 @@ begin
  aCtx.rEngine.PushObj(FontBoldInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontBoldInheritanceButton.DoDoIt
 
-class function TkwStyleEditorFontFormFontBoldInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontBoldInheritanceButton';
-end;//TkwStyleEditorFontFormFontBoldInheritanceButton.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontBoldInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4303,6 +4299,11 @@ function TkwStyleEditorFontFormFontBoldInheritanceButton.ParamsTypes: PTypeInfoA
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontBoldInheritanceButton.ParamsTypes
+
+class function TkwStyleEditorFontFormFontBoldInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontBoldInheritanceButton';
+end;//TkwStyleEditorFontFormFontBoldInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontBackColorInheritanceButton.FontBackColorInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4326,11 +4327,6 @@ begin
  aCtx.rEngine.PushObj(FontBackColorInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontBackColorInheritanceButton.DoDoIt
 
-class function TkwStyleEditorFontFormFontBackColorInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontBackColorInheritanceButton';
-end;//TkwStyleEditorFontFormFontBackColorInheritanceButton.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontBackColorInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4351,6 +4347,11 @@ function TkwStyleEditorFontFormFontBackColorInheritanceButton.ParamsTypes: PType
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontBackColorInheritanceButton.ParamsTypes
+
+class function TkwStyleEditorFontFormFontBackColorInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontBackColorInheritanceButton';
+end;//TkwStyleEditorFontFormFontBackColorInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontUnderlineInheritanceButton.FontUnderlineInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4374,11 +4375,6 @@ begin
  aCtx.rEngine.PushObj(FontUnderlineInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontUnderlineInheritanceButton.DoDoIt
 
-class function TkwStyleEditorFontFormFontUnderlineInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontUnderlineInheritanceButton';
-end;//TkwStyleEditorFontFormFontUnderlineInheritanceButton.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontUnderlineInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4399,6 +4395,11 @@ function TkwStyleEditorFontFormFontUnderlineInheritanceButton.ParamsTypes: PType
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontUnderlineInheritanceButton.ParamsTypes
+
+class function TkwStyleEditorFontFormFontUnderlineInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontUnderlineInheritanceButton';
+end;//TkwStyleEditorFontFormFontUnderlineInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontUnderlineCheckBox.FontUnderlineCheckBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtCheckBox;
@@ -4422,11 +4423,6 @@ begin
  aCtx.rEngine.PushObj(FontUnderlineCheckBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontUnderlineCheckBox.DoDoIt
 
-class function TkwStyleEditorFontFormFontUnderlineCheckBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontUnderlineCheckBox';
-end;//TkwStyleEditorFontFormFontUnderlineCheckBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontUnderlineCheckBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4447,6 +4443,11 @@ function TkwStyleEditorFontFormFontUnderlineCheckBox.ParamsTypes: PTypeInfoArray
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontUnderlineCheckBox.ParamsTypes
+
+class function TkwStyleEditorFontFormFontUnderlineCheckBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontUnderlineCheckBox';
+end;//TkwStyleEditorFontFormFontUnderlineCheckBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontStrikeoutCheckBox.FontStrikeoutCheckBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtCheckBox;
@@ -4470,11 +4471,6 @@ begin
  aCtx.rEngine.PushObj(FontStrikeoutCheckBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontStrikeoutCheckBox.DoDoIt
 
-class function TkwStyleEditorFontFormFontStrikeoutCheckBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontStrikeoutCheckBox';
-end;//TkwStyleEditorFontFormFontStrikeoutCheckBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontStrikeoutCheckBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4495,6 +4491,11 @@ function TkwStyleEditorFontFormFontStrikeoutCheckBox.ParamsTypes: PTypeInfoArray
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontStrikeoutCheckBox.ParamsTypes
+
+class function TkwStyleEditorFontFormFontStrikeoutCheckBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontStrikeoutCheckBox';
+end;//TkwStyleEditorFontFormFontStrikeoutCheckBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontSizeComboBox.FontSizeComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -4518,11 +4519,6 @@ begin
  aCtx.rEngine.PushObj(FontSizeComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontSizeComboBox.DoDoIt
 
-class function TkwStyleEditorFontFormFontSizeComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontSizeComboBox';
-end;//TkwStyleEditorFontFormFontSizeComboBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontSizeComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4543,6 +4539,11 @@ function TkwStyleEditorFontFormFontSizeComboBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontSizeComboBox.ParamsTypes
+
+class function TkwStyleEditorFontFormFontSizeComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontSizeComboBox';
+end;//TkwStyleEditorFontFormFontSizeComboBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontNameComboBox.FontNameComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -4566,11 +4567,6 @@ begin
  aCtx.rEngine.PushObj(FontNameComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontNameComboBox.DoDoIt
 
-class function TkwStyleEditorFontFormFontNameComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontNameComboBox';
-end;//TkwStyleEditorFontFormFontNameComboBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontNameComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4591,6 +4587,11 @@ function TkwStyleEditorFontFormFontNameComboBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontNameComboBox.ParamsTypes
+
+class function TkwStyleEditorFontFormFontNameComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontNameComboBox';
+end;//TkwStyleEditorFontFormFontNameComboBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontItalicCheckBox.FontItalicCheckBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtCheckBox;
@@ -4614,11 +4615,6 @@ begin
  aCtx.rEngine.PushObj(FontItalicCheckBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontItalicCheckBox.DoDoIt
 
-class function TkwStyleEditorFontFormFontItalicCheckBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontItalicCheckBox';
-end;//TkwStyleEditorFontFormFontItalicCheckBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontItalicCheckBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4639,6 +4635,11 @@ function TkwStyleEditorFontFormFontItalicCheckBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontItalicCheckBox.ParamsTypes
+
+class function TkwStyleEditorFontFormFontItalicCheckBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontItalicCheckBox';
+end;//TkwStyleEditorFontFormFontItalicCheckBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontForeColorBox.FontForeColorBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtColorBox;
@@ -4662,11 +4663,6 @@ begin
  aCtx.rEngine.PushObj(FontForeColorBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontForeColorBox.DoDoIt
 
-class function TkwStyleEditorFontFormFontForeColorBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontForeColorBox';
-end;//TkwStyleEditorFontFormFontForeColorBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontForeColorBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4687,6 +4683,11 @@ function TkwStyleEditorFontFormFontForeColorBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontForeColorBox.ParamsTypes
+
+class function TkwStyleEditorFontFormFontForeColorBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontForeColorBox';
+end;//TkwStyleEditorFontFormFontForeColorBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontBoldCheckBox.FontBoldCheckBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtCheckBox;
@@ -4710,11 +4711,6 @@ begin
  aCtx.rEngine.PushObj(FontBoldCheckBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontBoldCheckBox.DoDoIt
 
-class function TkwStyleEditorFontFormFontBoldCheckBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontBoldCheckBox';
-end;//TkwStyleEditorFontFormFontBoldCheckBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontBoldCheckBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4735,6 +4731,11 @@ function TkwStyleEditorFontFormFontBoldCheckBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontBoldCheckBox.ParamsTypes
+
+class function TkwStyleEditorFontFormFontBoldCheckBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontBoldCheckBox';
+end;//TkwStyleEditorFontFormFontBoldCheckBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontBackColorBox.FontBackColorBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtColorBox;
@@ -4758,11 +4759,6 @@ begin
  aCtx.rEngine.PushObj(FontBackColorBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontBackColorBox.DoDoIt
 
-class function TkwStyleEditorFontFormFontBackColorBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontBackColorBox';
-end;//TkwStyleEditorFontFormFontBackColorBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontBackColorBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4783,6 +4779,11 @@ function TkwStyleEditorFontFormFontBackColorBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontBackColorBox.ParamsTypes
+
+class function TkwStyleEditorFontFormFontBackColorBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontBackColorBox';
+end;//TkwStyleEditorFontFormFontBackColorBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontScalableCheckBox.FontScalableCheckBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtCheckBox;
@@ -4806,11 +4807,6 @@ begin
  aCtx.rEngine.PushObj(FontScalableCheckBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontScalableCheckBox.DoDoIt
 
-class function TkwStyleEditorFontFormFontScalableCheckBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FontScalableCheckBox';
-end;//TkwStyleEditorFontFormFontScalableCheckBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFontScalableCheckBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4831,6 +4827,11 @@ function TkwStyleEditorFontFormFontScalableCheckBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontScalableCheckBox.ParamsTypes
+
+class function TkwStyleEditorFontFormFontScalableCheckBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FontScalableCheckBox';
+end;//TkwStyleEditorFontFormFontScalableCheckBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormLeftIndentLabel.LeftIndentLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -4854,11 +4855,6 @@ begin
  aCtx.rEngine.PushObj(LeftIndentLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormLeftIndentLabel.DoDoIt
 
-class function TkwStyleEditorFontFormLeftIndentLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.LeftIndentLabel';
-end;//TkwStyleEditorFontFormLeftIndentLabel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormLeftIndentLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4879,6 +4875,11 @@ function TkwStyleEditorFontFormLeftIndentLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormLeftIndentLabel.ParamsTypes
+
+class function TkwStyleEditorFontFormLeftIndentLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.LeftIndentLabel';
+end;//TkwStyleEditorFontFormLeftIndentLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormLeftIndentComboBox.LeftIndentComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -4902,11 +4903,6 @@ begin
  aCtx.rEngine.PushObj(LeftIndentComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormLeftIndentComboBox.DoDoIt
 
-class function TkwStyleEditorFontFormLeftIndentComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.LeftIndentComboBox';
-end;//TkwStyleEditorFontFormLeftIndentComboBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormLeftIndentComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4927,6 +4923,11 @@ function TkwStyleEditorFontFormLeftIndentComboBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormLeftIndentComboBox.ParamsTypes
+
+class function TkwStyleEditorFontFormLeftIndentComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.LeftIndentComboBox';
+end;//TkwStyleEditorFontFormLeftIndentComboBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormRightIndentLabel.RightIndentLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -4950,11 +4951,6 @@ begin
  aCtx.rEngine.PushObj(RightIndentLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormRightIndentLabel.DoDoIt
 
-class function TkwStyleEditorFontFormRightIndentLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.RightIndentLabel';
-end;//TkwStyleEditorFontFormRightIndentLabel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormRightIndentLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -4975,6 +4971,11 @@ function TkwStyleEditorFontFormRightIndentLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormRightIndentLabel.ParamsTypes
+
+class function TkwStyleEditorFontFormRightIndentLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.RightIndentLabel';
+end;//TkwStyleEditorFontFormRightIndentLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormRightIndentComboBox.RightIndentComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -4998,11 +4999,6 @@ begin
  aCtx.rEngine.PushObj(RightIndentComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormRightIndentComboBox.DoDoIt
 
-class function TkwStyleEditorFontFormRightIndentComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.RightIndentComboBox';
-end;//TkwStyleEditorFontFormRightIndentComboBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormRightIndentComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -5023,6 +5019,11 @@ function TkwStyleEditorFontFormRightIndentComboBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormRightIndentComboBox.ParamsTypes
+
+class function TkwStyleEditorFontFormRightIndentComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.RightIndentComboBox';
+end;//TkwStyleEditorFontFormRightIndentComboBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFirstIndentLabel.FirstIndentLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -5046,11 +5047,6 @@ begin
  aCtx.rEngine.PushObj(FirstIndentLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFirstIndentLabel.DoDoIt
 
-class function TkwStyleEditorFontFormFirstIndentLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FirstIndentLabel';
-end;//TkwStyleEditorFontFormFirstIndentLabel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFirstIndentLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -5071,6 +5067,11 @@ function TkwStyleEditorFontFormFirstIndentLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFirstIndentLabel.ParamsTypes
+
+class function TkwStyleEditorFontFormFirstIndentLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FirstIndentLabel';
+end;//TkwStyleEditorFontFormFirstIndentLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFirstIndentComboBox.FirstIndentComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -5094,11 +5095,6 @@ begin
  aCtx.rEngine.PushObj(FirstIndentComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFirstIndentComboBox.DoDoIt
 
-class function TkwStyleEditorFontFormFirstIndentComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FirstIndentComboBox';
-end;//TkwStyleEditorFontFormFirstIndentComboBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFirstIndentComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -5119,6 +5115,11 @@ function TkwStyleEditorFontFormFirstIndentComboBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFirstIndentComboBox.ParamsTypes
+
+class function TkwStyleEditorFontFormFirstIndentComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FirstIndentComboBox';
+end;//TkwStyleEditorFontFormFirstIndentComboBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormSpaceBeforeLabel.SpaceBeforeLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -5142,11 +5143,6 @@ begin
  aCtx.rEngine.PushObj(SpaceBeforeLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormSpaceBeforeLabel.DoDoIt
 
-class function TkwStyleEditorFontFormSpaceBeforeLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.SpaceBeforeLabel';
-end;//TkwStyleEditorFontFormSpaceBeforeLabel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormSpaceBeforeLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -5167,6 +5163,11 @@ function TkwStyleEditorFontFormSpaceBeforeLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormSpaceBeforeLabel.ParamsTypes
+
+class function TkwStyleEditorFontFormSpaceBeforeLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.SpaceBeforeLabel';
+end;//TkwStyleEditorFontFormSpaceBeforeLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormSpaceBeforeComboBox.SpaceBeforeComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -5190,11 +5191,6 @@ begin
  aCtx.rEngine.PushObj(SpaceBeforeComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormSpaceBeforeComboBox.DoDoIt
 
-class function TkwStyleEditorFontFormSpaceBeforeComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.SpaceBeforeComboBox';
-end;//TkwStyleEditorFontFormSpaceBeforeComboBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormSpaceBeforeComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -5215,6 +5211,11 @@ function TkwStyleEditorFontFormSpaceBeforeComboBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormSpaceBeforeComboBox.ParamsTypes
+
+class function TkwStyleEditorFontFormSpaceBeforeComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.SpaceBeforeComboBox';
+end;//TkwStyleEditorFontFormSpaceBeforeComboBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormSpaceAfterLabel.SpaceAfterLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -5238,11 +5239,6 @@ begin
  aCtx.rEngine.PushObj(SpaceAfterLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormSpaceAfterLabel.DoDoIt
 
-class function TkwStyleEditorFontFormSpaceAfterLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.SpaceAfterLabel';
-end;//TkwStyleEditorFontFormSpaceAfterLabel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormSpaceAfterLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -5263,6 +5259,11 @@ function TkwStyleEditorFontFormSpaceAfterLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormSpaceAfterLabel.ParamsTypes
+
+class function TkwStyleEditorFontFormSpaceAfterLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.SpaceAfterLabel';
+end;//TkwStyleEditorFontFormSpaceAfterLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormSpaceAfterComboBox.SpaceAfterComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -5286,11 +5287,6 @@ begin
  aCtx.rEngine.PushObj(SpaceAfterComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormSpaceAfterComboBox.DoDoIt
 
-class function TkwStyleEditorFontFormSpaceAfterComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.SpaceAfterComboBox';
-end;//TkwStyleEditorFontFormSpaceAfterComboBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormSpaceAfterComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -5311,6 +5307,11 @@ function TkwStyleEditorFontFormSpaceAfterComboBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormSpaceAfterComboBox.ParamsTypes
+
+class function TkwStyleEditorFontFormSpaceAfterComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.SpaceAfterComboBox';
+end;//TkwStyleEditorFontFormSpaceAfterComboBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormLeftIndentInheritanceButton.LeftIndentInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -5334,11 +5335,6 @@ begin
  aCtx.rEngine.PushObj(LeftIndentInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormLeftIndentInheritanceButton.DoDoIt
 
-class function TkwStyleEditorFontFormLeftIndentInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.LeftIndentInheritanceButton';
-end;//TkwStyleEditorFontFormLeftIndentInheritanceButton.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormLeftIndentInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -5359,6 +5355,11 @@ function TkwStyleEditorFontFormLeftIndentInheritanceButton.ParamsTypes: PTypeInf
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormLeftIndentInheritanceButton.ParamsTypes
+
+class function TkwStyleEditorFontFormLeftIndentInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.LeftIndentInheritanceButton';
+end;//TkwStyleEditorFontFormLeftIndentInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormRightIndentInheritanceButton.RightIndentInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -5382,11 +5383,6 @@ begin
  aCtx.rEngine.PushObj(RightIndentInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormRightIndentInheritanceButton.DoDoIt
 
-class function TkwStyleEditorFontFormRightIndentInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.RightIndentInheritanceButton';
-end;//TkwStyleEditorFontFormRightIndentInheritanceButton.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormRightIndentInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -5407,6 +5403,11 @@ function TkwStyleEditorFontFormRightIndentInheritanceButton.ParamsTypes: PTypeIn
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormRightIndentInheritanceButton.ParamsTypes
+
+class function TkwStyleEditorFontFormRightIndentInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.RightIndentInheritanceButton';
+end;//TkwStyleEditorFontFormRightIndentInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFirstIndentInheritanceButton.FirstIndentInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -5430,11 +5431,6 @@ begin
  aCtx.rEngine.PushObj(FirstIndentInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFirstIndentInheritanceButton.DoDoIt
 
-class function TkwStyleEditorFontFormFirstIndentInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.FirstIndentInheritanceButton';
-end;//TkwStyleEditorFontFormFirstIndentInheritanceButton.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormFirstIndentInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -5455,6 +5451,11 @@ function TkwStyleEditorFontFormFirstIndentInheritanceButton.ParamsTypes: PTypeIn
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFirstIndentInheritanceButton.ParamsTypes
+
+class function TkwStyleEditorFontFormFirstIndentInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.FirstIndentInheritanceButton';
+end;//TkwStyleEditorFontFormFirstIndentInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormSpaceBeforeInheritanceButton.SpaceBeforeInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -5478,11 +5479,6 @@ begin
  aCtx.rEngine.PushObj(SpaceBeforeInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormSpaceBeforeInheritanceButton.DoDoIt
 
-class function TkwStyleEditorFontFormSpaceBeforeInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.SpaceBeforeInheritanceButton';
-end;//TkwStyleEditorFontFormSpaceBeforeInheritanceButton.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormSpaceBeforeInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -5503,6 +5499,11 @@ function TkwStyleEditorFontFormSpaceBeforeInheritanceButton.ParamsTypes: PTypeIn
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormSpaceBeforeInheritanceButton.ParamsTypes
+
+class function TkwStyleEditorFontFormSpaceBeforeInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.SpaceBeforeInheritanceButton';
+end;//TkwStyleEditorFontFormSpaceBeforeInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormSpaceAfterInheritanceButton.SpaceAfterInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -5526,11 +5527,6 @@ begin
  aCtx.rEngine.PushObj(SpaceAfterInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormSpaceAfterInheritanceButton.DoDoIt
 
-class function TkwStyleEditorFontFormSpaceAfterInheritanceButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.SpaceAfterInheritanceButton';
-end;//TkwStyleEditorFontFormSpaceAfterInheritanceButton.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormSpaceAfterInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -5551,6 +5547,11 @@ function TkwStyleEditorFontFormSpaceAfterInheritanceButton.ParamsTypes: PTypeInf
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormSpaceAfterInheritanceButton.ParamsTypes
+
+class function TkwStyleEditorFontFormSpaceAfterInheritanceButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.SpaceAfterInheritanceButton';
+end;//TkwStyleEditorFontFormSpaceAfterInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormStyleCaptionLabel.StyleCaptionLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -5574,11 +5575,6 @@ begin
  aCtx.rEngine.PushObj(StyleCaptionLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormStyleCaptionLabel.DoDoIt
 
-class function TkwStyleEditorFontFormStyleCaptionLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.StyleCaptionLabel';
-end;//TkwStyleEditorFontFormStyleCaptionLabel.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormStyleCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -5599,6 +5595,11 @@ function TkwStyleEditorFontFormStyleCaptionLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormStyleCaptionLabel.ParamsTypes
+
+class function TkwStyleEditorFontFormStyleCaptionLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.StyleCaptionLabel';
+end;//TkwStyleEditorFontFormStyleCaptionLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormStyleCaptionComboBox.StyleCaptionComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -5622,11 +5623,6 @@ begin
  aCtx.rEngine.PushObj(StyleCaptionComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormStyleCaptionComboBox.DoDoIt
 
-class function TkwStyleEditorFontFormStyleCaptionComboBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TStyleEditorFontForm.StyleCaptionComboBox';
-end;//TkwStyleEditorFontFormStyleCaptionComboBox.GetWordNameForRegister
-
 procedure TkwStyleEditorFontFormStyleCaptionComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -5647,6 +5643,11 @@ function TkwStyleEditorFontFormStyleCaptionComboBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormStyleCaptionComboBox.ParamsTypes
+
+class function TkwStyleEditorFontFormStyleCaptionComboBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TStyleEditorFontForm.StyleCaptionComboBox';
+end;//TkwStyleEditorFontFormStyleCaptionComboBox.GetWordNameForRegister
 
 initialization
  Tkw_Form_StyleEditorFont.RegisterInEngine;

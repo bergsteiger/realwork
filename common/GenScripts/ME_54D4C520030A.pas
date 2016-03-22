@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSendInputSupportUses.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "kwSendInputSupportUses" MUID: (54D4C520030A)
+// Имя типа: "_kwSendInputSupportUses_"
 
 {$Define kwSendInputSupportUses_imp}
 

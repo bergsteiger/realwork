@@ -1,7 +1,10 @@
 unit Dt_DocImages;
 
-{ $Id: Dt_DocImages.pas,v 1.48 2015/07/02 11:41:29 lukyanets Exp $ }
+{ $Id: Dt_DocImages.pas,v 1.49 2015/11/25 14:01:48 lukyanets Exp $ }
 // $Log: Dt_DocImages.pas,v $
+// Revision 1.49  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.48  2015/07/02 11:41:29  lukyanets
 // Описываем словари
 //
@@ -232,6 +235,7 @@ uses
  l3String,
 
  daTypes,
+ daSchemeConsts,
 
  HT_DLL,
  Dt_Table, dt_Record,

@@ -24,20 +24,6 @@ namespace ContextSearch {
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // nested implementation
-FragmentsOperations::SortProperties::SortProperties (
-	unsigned long word_
-	, unsigned long first_word_
-)
-//#UC START# *4D935BC401F6_INIT_CTOR_BASE_INIT*
-	: word (word_)
-	, first_word (first_word_)
-//#UC END# *4D935BC401F6_INIT_CTOR_BASE_INIT*
-{
-	//#UC START# *4D935BC401F6_INIT_CTOR*
-	//#UC END# *4D935BC401F6_INIT_CTOR*
-}
-
-
 bool FragmentsOperations::PositionFinder::operator () (const Defs::Fragment& param_) const {
 	//#UC START# *4D945AB6009E_IMPL*
 	return param_.info.position > value;
@@ -62,7 +48,7 @@ bool FragmentsOperations::compare_less (const Defs::Fragment& x, const Defs::Fra
 }
 
 // удалить пересекающиеся фрагменты
-void FragmentsOperations::filtration (Relevancy::Fragments& vect) {
+void FragmentsOperations::filtration (Defs::Fragments& vect) {
 	//#UC START# *4D933A8D0186*
 	if (vect.size () < 2) {
 		return;
@@ -74,7 +60,7 @@ void FragmentsOperations::filtration (Relevancy::Fragments& vect) {
 
 	RangeValues x, y;
 
-	Relevancy::Fragments::iterator _it, it = vect.begin (), it_end = vect.end ();
+	Defs::Fragments::iterator _it, it = vect.begin (), it_end = vect.end ();
 
 	for (; it != it_end;) {
 		if (it->info.relevancy_value && it + 1 != it_end) {
@@ -135,9 +121,9 @@ void FragmentsOperations::get_range_values (const Defs::Fragment& in, RangeValue
 }
 
 // печать
-void FragmentsOperations::print (const Relevancy::Fragments& vect) {
+void FragmentsOperations::print (const Defs::Fragments& vect) {
 	//#UC START# *4D95BD9501B9*
-	for (Relevancy::Fragments::const_iterator it = vect.begin (); it != vect.end () ; ++it) {
+	for (Defs::Fragments::const_iterator it = vect.begin (); it != vect.end () ; ++it) {
 		std::cout << "r:" << it->info.relevancy_value << "  p:" << it->info.position << "  { ";
 		std::copy (it->data.begin (), it->data.end (), std::ostream_iterator <Defs::Position> (std::cout, ", "));
 		std::cout << "}\n";
@@ -146,16 +132,16 @@ void FragmentsOperations::print (const Relevancy::Fragments& vect) {
 }
 
 // сортировка фрагментов
-void FragmentsOperations::sort (Relevancy::Fragments& vect, const SortProperties& prop) {
+void FragmentsOperations::sort (Defs::Fragments& vect, const Defs::PosPair& pair) {
 	//#UC START# *4D933B7A0315*
-	Relevancy::Fragments::iterator it;
+	Defs::Fragments::iterator it;
 
 	//
 	// Среди найденных позиций может оказаться проиндексированное имя документа (!NAME), поэтому 
 	// пропускаем те фрагменты, позиции которых меньше первого реального текста документа. [$155029238]
 	//
 
-	it = std::find_if (vect.begin (), vect.end (), PositionFinder (prop.first_word));
+	it = std::find_if (vect.begin (), vect.end (), PositionFinder (pair.first));
 
 	if (it != vect.begin ()) {
 		vect.erase (vect.begin (), it);
@@ -178,8 +164,10 @@ void FragmentsOperations::sort (Relevancy::Fragments& vect, const SortProperties
 			std::sort (it, vect.end (), compare_less);
 		}
 
-		std::rotate (vect.begin (), std::find_if (vect.begin (), it, PositionFinder (prop.word)), it);
-		std::rotate (it, std::find_if (it, vect.end (), PositionFinder (prop.word)), vect.end ());
+		PositionFinder finder (pair.second);
+
+		std::rotate (vect.begin (), std::find_if (vect.begin (), it, finder), it);
+		std::rotate (it, std::find_if (it, vect.end (), finder), vect.end ());
 	}
 
 	for (it = vect.begin (); it != vect.end (); ++it) {

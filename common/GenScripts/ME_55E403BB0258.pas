@@ -2,6 +2,7 @@ unit vcmFormSetHistoryStepItemList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmFormSetHistoryStepItemList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormSetHistoryStepItemList" MUID: (55E403BB0258)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

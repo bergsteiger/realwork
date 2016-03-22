@@ -2,6 +2,7 @@ unit NOT_FINISHED_zlibh;
 
 // Модуль: "w:\common\components\rtl\external\JEDI\source\common\NOT_FINISHED_zlibh.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "zlibh" MUID: (546F146A0008)
 
 {$Include w:\common\components\l3Define.inc}
 

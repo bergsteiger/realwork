@@ -2,6 +2,7 @@ unit alcuCorrectFolderExecutor;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuCorrectFolderExecutor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuCorrectFolderExecutor" MUID: (549AC018025D)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

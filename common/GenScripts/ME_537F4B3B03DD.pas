@@ -2,6 +2,7 @@ unit CsClientInfo;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\CsClientInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TCsClientInfo" MUID: (537F4B3B03DD)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

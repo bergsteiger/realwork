@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtHeader;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtHeader.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vtHeader" MUID: (514B3C57001F)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

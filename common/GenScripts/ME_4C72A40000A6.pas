@@ -2,6 +2,7 @@ unit f1TagDataFromDTP;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataFromDTP.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "f1TagDataFromDTP" MUID: (4C72A40000A6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

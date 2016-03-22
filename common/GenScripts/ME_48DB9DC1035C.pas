@@ -2,6 +2,7 @@ unit evQueryDocumentContainer;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evQueryDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevQueryDocumentContainer" MUID: (48DB9DC1035C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

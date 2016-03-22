@@ -2,6 +2,8 @@ unit kwVcmOpDefault;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpDefault.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "vcm_op_Default" MUID: (5230156001B9)
+// Имя типа: "TkwVcmOpDefault"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

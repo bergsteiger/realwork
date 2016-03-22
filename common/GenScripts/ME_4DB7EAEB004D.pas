@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\F1WordsUser.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "F1WordsUser" MUID: (4DB7EAEB004D)
+// Имя типа: "_F1WordsUser_"
 
 {$Define F1WordsUser_imp}
 

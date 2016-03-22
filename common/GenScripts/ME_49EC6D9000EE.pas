@@ -3,6 +3,7 @@ unit InternetAgentInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\InternetAgent\InternetAgentInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "InternetAgentInterfaces" MUID: (49EC6D9000EE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

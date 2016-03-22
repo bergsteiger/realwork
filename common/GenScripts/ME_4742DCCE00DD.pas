@@ -3,6 +3,7 @@ unit m3DBDocument;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3DBDocument.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3DBDocument" MUID: (4742DCCE00DD)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

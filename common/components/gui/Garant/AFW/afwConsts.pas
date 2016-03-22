@@ -2,6 +2,7 @@ unit afwConsts;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\afwConsts.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "afwConsts" MUID: (47EA0D5F0038)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

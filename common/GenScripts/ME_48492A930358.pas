@@ -3,6 +3,8 @@ unit k2Color_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Color_Const.pas"
 // Стереотип: "Atom"
+// Элемент модели: "Color" MUID: (48492A930358)
+// Имя типа: "ColorAtom"
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

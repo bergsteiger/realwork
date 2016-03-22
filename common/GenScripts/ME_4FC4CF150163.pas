@@ -2,6 +2,8 @@ unit kwVcmHistoryGetForwardItem;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmHistoryGetForwardItem.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "vcm_History_GetForwardItem" MUID: (4FC4CF150163)
+// Имя типа: "TkwVcmHistoryGetForwardItem"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

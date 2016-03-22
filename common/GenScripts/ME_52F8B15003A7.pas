@@ -2,6 +2,7 @@ unit ddPicturePathListner;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddPicturePathListner.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddPicturePathListner" MUID: (52F8B15003A7)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -48,6 +49,7 @@ type
    procedure pm_SetTestName(const aValue: AnsiString);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
   public
    procedure AddPicturePath(const aPath: AnsiString);
    procedure Clear;
@@ -285,6 +287,12 @@ begin
  f_PDF4Etalon := False;
 //#UC END# *479731C50290_52F8B15003A7_impl*
 end;//TddPicturePathListner.Cleanup
+
+procedure TddPicturePathListner.ClearFields;
+begin
+ TestName := '';
+ inherited;
+end;//TddPicturePathListner.ClearFields
 
 initialization
  Tl3PicturePathService.Instance.Alien := TddPicturePathService.Instance;

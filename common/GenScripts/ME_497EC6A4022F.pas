@@ -3,6 +3,8 @@ unit PrimTreeAttributeFirstLevel_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimTreeAttributeFirstLevel_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimTreeAttributeFirstLevel" MUID: (497EC6A4022F)
+// Имя типа: "TPrimTreeAttributeFirstLevelForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

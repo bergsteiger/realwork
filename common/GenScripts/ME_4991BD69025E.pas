@@ -3,6 +3,7 @@ unit DocumentDomainInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\DocumentDomainInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "DocumentDomainInterfaces" MUID: (4991BD69025E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

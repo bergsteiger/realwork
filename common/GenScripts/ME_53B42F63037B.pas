@@ -2,6 +2,8 @@ unit DictEditQuery_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\DictEditQuery_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "DictEditQuery" MUID: (53B42F63037B)
+// Имя типа: "DictEditQueryTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

@@ -2,6 +2,7 @@ unit atOpenListByRubricatorOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atOpenListByRubricatorOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatOpenListByRubricatorOperation" MUID: (4B97918002C8)
 
 interface
 

@@ -2,6 +2,8 @@ unit PrimSaveLoadOptionsForBaseSearch_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadOptionsForBaseSearch_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "PrimSaveLoadOptionsForBaseSearch" MUID: (4F5DA09300C5)
+// Имя типа: "TPrimSaveLoadOptionsForBaseSearchForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

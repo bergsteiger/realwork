@@ -113,8 +113,14 @@ static void convert_doc (unsigned long doc_id, Base* base) {
 						DivisionInfoGenerator::generate (generator.in (), writer, d_it->second);
 					} else {
 						cur.generate (generator.in (), writer, is_clear_pseudo, para_heights);
+						if (cur.is_endt_comments ())
+							prev.set_legal_comment ();
+						else
+							prev.reset_legal_comment ();
 						is_clear_pseudo = cur.has_legal_bmp ();
 					}
+
+
 				} catch (EndtTools::InvalidStyleSize& ex) {
 					EndtConvertor::show_ex (base, ex.what (), doc_id, i);
 				} catch (EndtTools::InvalidTextSize& ex) {

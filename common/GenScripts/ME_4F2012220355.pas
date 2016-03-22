@@ -4,6 +4,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=326773370&focusedCommentId=330
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\nsMainMenuFormGUIDFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsMainMenuFormGUIDFactory" MUID: (4F2012220355)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

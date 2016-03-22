@@ -3,6 +3,8 @@ unit kwBEGIN;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwBEGIN.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "BEGIN" MUID: (4DB9BB8D0388)
+// Имя типа: "TkwBEGIN"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

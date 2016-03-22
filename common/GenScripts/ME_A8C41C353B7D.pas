@@ -3,6 +3,7 @@ unit stDocumentShowChangesInfoItem;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\stDocumentShowChangesInfoItem.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TstDocumentShowChangesInfoItem" MUID: (A8C41C353B7D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

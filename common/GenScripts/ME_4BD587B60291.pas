@@ -3,6 +3,7 @@ unit ListUserTypes_lftRespondent_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftRespondent_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "lftRespondent" MUID: (4BD587B60291)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftRespondent = {final} class(TtfwInteger)
   {* Слово словаря для типа формы lftRespondent }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_lftRespondent
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_lftRespondent.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::lftRespondent';
-end;//Tkw_FormUserType_lftRespondent.GetWordNameForRegister
-
 function Tkw_FormUserType_lftRespondent.GetInteger: Integer;
 begin
  Result := lftRespondent;
 end;//Tkw_FormUserType_lftRespondent.GetInteger
+
+class function Tkw_FormUserType_lftRespondent.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::lftRespondent';
+end;//Tkw_FormUserType_lftRespondent.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

@@ -2,6 +2,8 @@ unit kwPopEditorGetLMargin;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetLMargin.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_GetLMargin" MUID: (5141D01300D2)
+// Имя типа: "TkwPopEditorGetLMargin"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

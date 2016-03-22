@@ -125,21 +125,6 @@ ref; // ME_29BB6FEA10F1
 
 ref; // ME_53F7021D0257 TvtStatusPanel
 
-: ME_42682289E855
- CONST UID '42682289E855'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtStatusBar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E15A00502A3 // TvtStatusBar
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_42682289E855 Ini_Reg_Class
-
 : ME_4E257A110115
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -149,17 +134,6 @@ ref; // ME_42682289E855 Ini_Reg_Class
  ;
 
 ref; // ME_4E257A110115 
-
-: ME_1F8D442B4D8C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E15A00502A3 // TvtStatusBar
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_1F8D442B4D8C 
 
 : ME_4E15A00502A3
  CONST UID '4E15A00502A3'
@@ -175,10 +149,6 @@ ref; // ME_1F8D442B4D8C
    Seq: ( ME_4E15A01301E2 // TvtCustomStatusBar
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_42682289E855 // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_4E15A01301E2 // TvtCustomStatusBar
  ME_53F7021D0257 // TvtStatusPanel
@@ -186,7 +156,6 @@ ref; // ME_1F8D442B4D8C
  ; // Children
  : Dependencies
    Seq: ( ME_4E257A110115 // 
- ME_1F8D442B4D8C // 
  )
  ; // Dependencies
  : Injected

@@ -7,6 +7,8 @@ aDelta aTop anEditor  pop:editor:BlockResize
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorBlockResize.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_BlockResize" MUID: (4F38F6E001CB)
+// Имя типа: "TkwPopEditorBlockResize"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

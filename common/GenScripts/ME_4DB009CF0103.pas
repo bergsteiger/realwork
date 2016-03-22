@@ -3,6 +3,7 @@ unit tfwValueStack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwValueStack.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwValueStack" MUID: (4DB009CF0103)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -772,9 +773,13 @@ procedure TtfwValueStack.DupN(aN: Integer);
 //#UC START# *55E848EA003D_4DB009CF0103_var*
 var
  l_Index : Integer;
+ l_C : Integer; 
 //#UC END# *55E848EA003D_4DB009CF0103_var*
 begin
 //#UC START# *55E848EA003D_4DB009CF0103_impl*
+ l_C := Count + aN;
+ if (Capacity < l_C) then
+  Capacity := l_C;
  for l_Index := (Count - aN) to Pred(Count) do
   Add(ItemSlot(l_Index)^);
 //#UC END# *55E848EA003D_4DB009CF0103_impl*

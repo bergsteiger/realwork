@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3AutoAllocList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "m3AutoAllocList" MUID: (542179C40347)
+// Имя типа: "_m3AutoAllocList_"
 
 {$Define m3AutoAllocList_imp}
 

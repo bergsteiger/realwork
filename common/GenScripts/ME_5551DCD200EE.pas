@@ -2,6 +2,7 @@ unit daSelectField;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daSelectField.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaSelectField" MUID: (5551DCD200EE)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
@@ -50,7 +51,7 @@ begin
 //#UC START# *5551F6DC02D0_5551DCD200EE_impl*
  inherited Create;
  if anAlias = '' then
-  f_Alias := aField.Name
+  f_Alias := aField.SQLName
  else
   f_Alias := anAlias;
  f_TableAlias := f_TableALias;
@@ -106,7 +107,7 @@ function TdaSelectField.BuildSQLValue: AnsiString;
 //#UC END# *5608E5A4025F_5551DCD200EE_var*
 begin
 //#UC START# *5608E5A4025F_5551DCD200EE_impl*
- Result := f_Field.Name;
+ Result := f_Field.SQLName;
  if f_Alias <> '' then
   Result := Result + ' as ' + f_Alias;
  if f_TableAlias <> '' then

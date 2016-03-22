@@ -3,6 +3,7 @@ unit ExcludedTestsFolders;
 
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\ExcludedTestsFolders.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TExcludedTestsFolders" MUID: (4C9386230151)
 
 {$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 

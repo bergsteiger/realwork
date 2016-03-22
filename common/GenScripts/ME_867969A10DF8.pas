@@ -3,6 +3,7 @@ unit MainMenuNewKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenuNewKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "MainMenuNewKeywordsPack" MUID: (867969A10DF8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -62,8 +63,8 @@ type
 'aControl' форма::MainMenuNew TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_MainMenuNew
 
  Tkw_MainMenuNew_Control_pnlBaseSearch = {final} class(TtfwControlString)
@@ -74,9 +75,9 @@ type
 контрол::pnlBaseSearch TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_pnlBaseSearch
 
  Tkw_MainMenuNew_Control_pnlBaseSearch_Push = {final} class(TkwBynameControlPush)
@@ -99,9 +100,9 @@ type
 контрол::pnlBaseSearchZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_pnlBaseSearchZone
 
  Tkw_MainMenuNew_Control_pnlBaseSearchZone_Push = {final} class(TkwBynameControlPush)
@@ -124,9 +125,9 @@ type
 контрол::pnlLogo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_pnlLogo
 
  Tkw_MainMenuNew_Control_pnlLogo_Push = {final} class(TkwBynameControlPush)
@@ -149,9 +150,9 @@ type
 контрол::pbLogo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_pbLogo
 
  Tkw_MainMenuNew_Control_pbLogo_Push = {final} class(TkwBynameControlPush)
@@ -174,9 +175,9 @@ type
 контрол::pnlSearches TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_pnlSearches
 
  Tkw_MainMenuNew_Control_pnlSearches_Push = {final} class(TkwBynameControlPush)
@@ -199,9 +200,9 @@ type
 контрол::flAttributeSearch TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_flAttributeSearch
 
  Tkw_MainMenuNew_Control_flAttributeSearch_Push = {final} class(TkwBynameControlPush)
@@ -224,9 +225,9 @@ type
 контрол::flSituationSearch TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_flSituationSearch
 
  Tkw_MainMenuNew_Control_flSituationSearch_Push = {final} class(TkwBynameControlPush)
@@ -249,9 +250,9 @@ type
 контрол::flPublishedSourceSearch TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_flPublishedSourceSearch
 
  Tkw_MainMenuNew_Control_flPublishedSourceSearch_Push = {final} class(TkwBynameControlPush)
@@ -274,9 +275,9 @@ type
 контрол::flDictionSearch TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_flDictionSearch
 
  Tkw_MainMenuNew_Control_flDictionSearch_Push = {final} class(TkwBynameControlPush)
@@ -299,9 +300,9 @@ type
 контрол::pnlExpert TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_pnlExpert
 
  Tkw_MainMenuNew_Control_pnlExpert_Push = {final} class(TkwBynameControlPush)
@@ -324,9 +325,9 @@ type
 контрол::pbExpert TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_pbExpert
 
  Tkw_MainMenuNew_Control_pbExpert_Push = {final} class(TkwBynameControlPush)
@@ -349,9 +350,9 @@ type
 контрол::pnlOnLine TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_pnlOnLine
 
  Tkw_MainMenuNew_Control_pnlOnLine_Push = {final} class(TkwBynameControlPush)
@@ -374,9 +375,9 @@ type
 контрол::pbOnLine TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_pbOnLine
 
  Tkw_MainMenuNew_Control_pbOnLine_Push = {final} class(TkwBynameControlPush)
@@ -399,9 +400,9 @@ type
 контрол::pbIntranet TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_pbIntranet
 
  Tkw_MainMenuNew_Control_pbIntranet_Push = {final} class(TkwBynameControlPush)
@@ -424,9 +425,9 @@ type
 контрол::pbCourtsOnline TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_pbCourtsOnline
 
  Tkw_MainMenuNew_Control_pbCourtsOnline_Push = {final} class(TkwBynameControlPush)
@@ -449,9 +450,9 @@ type
 контрол::hfTaxes TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_hfTaxes
 
  Tkw_MainMenuNew_Control_hfTaxes_Push = {final} class(TkwBynameControlPush)
@@ -474,9 +475,9 @@ type
 контрол::tvTaxes TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_tvTaxes
 
  Tkw_MainMenuNew_Control_tvTaxes_Push = {final} class(TkwBynameControlPush)
@@ -499,9 +500,9 @@ type
 контрол::pnlBanner TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_pnlBanner
 
  Tkw_MainMenuNew_Control_pnlBanner_Push = {final} class(TkwBynameControlPush)
@@ -524,9 +525,9 @@ type
 контрол::ieBanner TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_ieBanner
 
  Tkw_MainMenuNew_Control_ieBanner_Push = {final} class(TkwBynameControlPush)
@@ -549,9 +550,9 @@ type
 контрол::hfLastOpenDocsRightEdge TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_hfLastOpenDocsRightEdge
 
  Tkw_MainMenuNew_Control_hfLastOpenDocsRightEdge_Push = {final} class(TkwBynameControlPush)
@@ -574,9 +575,9 @@ type
 компонент::ieIO TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Component_ieIO
 
  Tkw_MainMenuNew_Control_hfReferences = {final} class(TtfwControlString)
@@ -587,9 +588,9 @@ type
 контрол::hfReferences TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_hfReferences
 
  Tkw_MainMenuNew_Control_hfReferences_Push = {final} class(TkwBynameControlPush)
@@ -612,9 +613,9 @@ type
 контрол::tvReferences TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_tvReferences
 
  Tkw_MainMenuNew_Control_tvReferences_Push = {final} class(TkwBynameControlPush)
@@ -637,9 +638,9 @@ type
 контрол::hfLawNews TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_hfLawNews
 
  Tkw_MainMenuNew_Control_hfLawNews_Push = {final} class(TkwBynameControlPush)
@@ -662,9 +663,9 @@ type
 контрол::tvLawNews TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_tvLawNews
 
  Tkw_MainMenuNew_Control_tvLawNews_Push = {final} class(TkwBynameControlPush)
@@ -687,9 +688,9 @@ type
 контрол::pnlMain TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_pnlMain
 
  Tkw_MainMenuNew_Control_pnlMain_Push = {final} class(TkwBynameControlPush)
@@ -712,9 +713,9 @@ type
 контрол::hfLastOpenDocs TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_hfLastOpenDocs
 
  Tkw_MainMenuNew_Control_hfLastOpenDocs_Push = {final} class(TkwBynameControlPush)
@@ -737,9 +738,9 @@ type
 контрол::tvLastOpenDocs TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainMenuNew_Control_tvLastOpenDocs
 
  Tkw_MainMenuNew_Control_tvLastOpenDocs_Push = {final} class(TkwBynameControlPush)
@@ -1426,20 +1427,15 @@ OBJECT VAR l_TnscTreeViewHotTruck
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnMainMenuNewTvLastOpenDocs
 
-class function Tkw_Form_MainMenuNew.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::MainMenuNew';
-end;//Tkw_Form_MainMenuNew.GetWordNameForRegister
-
 function Tkw_Form_MainMenuNew.GetString: AnsiString;
 begin
  Result := 'en_MainMenuNew';
 end;//Tkw_Form_MainMenuNew.GetString
 
-class function Tkw_MainMenuNew_Control_pnlBaseSearch.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_MainMenuNew.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::pnlBaseSearch';
-end;//Tkw_MainMenuNew_Control_pnlBaseSearch.GetWordNameForRegister
+ Result := 'форма::MainMenuNew';
+end;//Tkw_Form_MainMenuNew.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_pnlBaseSearch.GetString: AnsiString;
 begin
@@ -1452,6 +1448,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MainMenuNew_Control_pnlBaseSearch.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_pnlBaseSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlBaseSearch';
+end;//Tkw_MainMenuNew_Control_pnlBaseSearch.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_pnlBaseSearch_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlBaseSearch');
@@ -1462,11 +1463,6 @@ class function Tkw_MainMenuNew_Control_pnlBaseSearch_Push.GetWordNameForRegister
 begin
  Result := 'контрол::pnlBaseSearch:push';
 end;//Tkw_MainMenuNew_Control_pnlBaseSearch_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_pnlBaseSearchZone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlBaseSearchZone';
-end;//Tkw_MainMenuNew_Control_pnlBaseSearchZone.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_pnlBaseSearchZone.GetString: AnsiString;
 begin
@@ -1479,6 +1475,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MainMenuNew_Control_pnlBaseSearchZone.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_pnlBaseSearchZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlBaseSearchZone';
+end;//Tkw_MainMenuNew_Control_pnlBaseSearchZone.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_pnlBaseSearchZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlBaseSearchZone');
@@ -1489,11 +1490,6 @@ class function Tkw_MainMenuNew_Control_pnlBaseSearchZone_Push.GetWordNameForRegi
 begin
  Result := 'контрол::pnlBaseSearchZone:push';
 end;//Tkw_MainMenuNew_Control_pnlBaseSearchZone_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_pnlLogo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlLogo';
-end;//Tkw_MainMenuNew_Control_pnlLogo.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_pnlLogo.GetString: AnsiString;
 begin
@@ -1506,6 +1502,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MainMenuNew_Control_pnlLogo.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_pnlLogo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlLogo';
+end;//Tkw_MainMenuNew_Control_pnlLogo.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_pnlLogo_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlLogo');
@@ -1516,11 +1517,6 @@ class function Tkw_MainMenuNew_Control_pnlLogo_Push.GetWordNameForRegister: Ansi
 begin
  Result := 'контрол::pnlLogo:push';
 end;//Tkw_MainMenuNew_Control_pnlLogo_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_pbLogo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pbLogo';
-end;//Tkw_MainMenuNew_Control_pbLogo.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_pbLogo.GetString: AnsiString;
 begin
@@ -1533,6 +1529,11 @@ begin
  TtfwClassRef.Register(TPaintBox);
 end;//Tkw_MainMenuNew_Control_pbLogo.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_pbLogo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pbLogo';
+end;//Tkw_MainMenuNew_Control_pbLogo.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_pbLogo_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pbLogo');
@@ -1543,11 +1544,6 @@ class function Tkw_MainMenuNew_Control_pbLogo_Push.GetWordNameForRegister: AnsiS
 begin
  Result := 'контрол::pbLogo:push';
 end;//Tkw_MainMenuNew_Control_pbLogo_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_pnlSearches.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlSearches';
-end;//Tkw_MainMenuNew_Control_pnlSearches.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_pnlSearches.GetString: AnsiString;
 begin
@@ -1560,6 +1556,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MainMenuNew_Control_pnlSearches.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_pnlSearches.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlSearches';
+end;//Tkw_MainMenuNew_Control_pnlSearches.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_pnlSearches_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlSearches');
@@ -1570,11 +1571,6 @@ class function Tkw_MainMenuNew_Control_pnlSearches_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::pnlSearches:push';
 end;//Tkw_MainMenuNew_Control_pnlSearches_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_flAttributeSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::flAttributeSearch';
-end;//Tkw_MainMenuNew_Control_flAttributeSearch.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_flAttributeSearch.GetString: AnsiString;
 begin
@@ -1587,6 +1583,11 @@ begin
  TtfwClassRef.Register(TnscFocusLabel);
 end;//Tkw_MainMenuNew_Control_flAttributeSearch.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_flAttributeSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::flAttributeSearch';
+end;//Tkw_MainMenuNew_Control_flAttributeSearch.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_flAttributeSearch_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('flAttributeSearch');
@@ -1597,11 +1598,6 @@ class function Tkw_MainMenuNew_Control_flAttributeSearch_Push.GetWordNameForRegi
 begin
  Result := 'контрол::flAttributeSearch:push';
 end;//Tkw_MainMenuNew_Control_flAttributeSearch_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_flSituationSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::flSituationSearch';
-end;//Tkw_MainMenuNew_Control_flSituationSearch.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_flSituationSearch.GetString: AnsiString;
 begin
@@ -1614,6 +1610,11 @@ begin
  TtfwClassRef.Register(TnscFocusLabel);
 end;//Tkw_MainMenuNew_Control_flSituationSearch.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_flSituationSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::flSituationSearch';
+end;//Tkw_MainMenuNew_Control_flSituationSearch.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_flSituationSearch_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('flSituationSearch');
@@ -1624,11 +1625,6 @@ class function Tkw_MainMenuNew_Control_flSituationSearch_Push.GetWordNameForRegi
 begin
  Result := 'контрол::flSituationSearch:push';
 end;//Tkw_MainMenuNew_Control_flSituationSearch_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_flPublishedSourceSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::flPublishedSourceSearch';
-end;//Tkw_MainMenuNew_Control_flPublishedSourceSearch.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_flPublishedSourceSearch.GetString: AnsiString;
 begin
@@ -1641,6 +1637,11 @@ begin
  TtfwClassRef.Register(TnscFocusLabel);
 end;//Tkw_MainMenuNew_Control_flPublishedSourceSearch.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_flPublishedSourceSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::flPublishedSourceSearch';
+end;//Tkw_MainMenuNew_Control_flPublishedSourceSearch.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_flPublishedSourceSearch_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('flPublishedSourceSearch');
@@ -1651,11 +1652,6 @@ class function Tkw_MainMenuNew_Control_flPublishedSourceSearch_Push.GetWordNameF
 begin
  Result := 'контрол::flPublishedSourceSearch:push';
 end;//Tkw_MainMenuNew_Control_flPublishedSourceSearch_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_flDictionSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::flDictionSearch';
-end;//Tkw_MainMenuNew_Control_flDictionSearch.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_flDictionSearch.GetString: AnsiString;
 begin
@@ -1668,6 +1664,11 @@ begin
  TtfwClassRef.Register(TnscFocusLabel);
 end;//Tkw_MainMenuNew_Control_flDictionSearch.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_flDictionSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::flDictionSearch';
+end;//Tkw_MainMenuNew_Control_flDictionSearch.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_flDictionSearch_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('flDictionSearch');
@@ -1678,11 +1679,6 @@ class function Tkw_MainMenuNew_Control_flDictionSearch_Push.GetWordNameForRegist
 begin
  Result := 'контрол::flDictionSearch:push';
 end;//Tkw_MainMenuNew_Control_flDictionSearch_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_pnlExpert.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlExpert';
-end;//Tkw_MainMenuNew_Control_pnlExpert.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_pnlExpert.GetString: AnsiString;
 begin
@@ -1695,6 +1691,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MainMenuNew_Control_pnlExpert.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_pnlExpert.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlExpert';
+end;//Tkw_MainMenuNew_Control_pnlExpert.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_pnlExpert_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlExpert');
@@ -1705,11 +1706,6 @@ class function Tkw_MainMenuNew_Control_pnlExpert_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::pnlExpert:push';
 end;//Tkw_MainMenuNew_Control_pnlExpert_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_pbExpert.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pbExpert';
-end;//Tkw_MainMenuNew_Control_pbExpert.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_pbExpert.GetString: AnsiString;
 begin
@@ -1722,6 +1718,11 @@ begin
  TtfwClassRef.Register(TPaintBox);
 end;//Tkw_MainMenuNew_Control_pbExpert.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_pbExpert.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pbExpert';
+end;//Tkw_MainMenuNew_Control_pbExpert.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_pbExpert_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pbExpert');
@@ -1732,11 +1733,6 @@ class function Tkw_MainMenuNew_Control_pbExpert_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::pbExpert:push';
 end;//Tkw_MainMenuNew_Control_pbExpert_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_pnlOnLine.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlOnLine';
-end;//Tkw_MainMenuNew_Control_pnlOnLine.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_pnlOnLine.GetString: AnsiString;
 begin
@@ -1749,6 +1745,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MainMenuNew_Control_pnlOnLine.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_pnlOnLine.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlOnLine';
+end;//Tkw_MainMenuNew_Control_pnlOnLine.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_pnlOnLine_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlOnLine');
@@ -1759,11 +1760,6 @@ class function Tkw_MainMenuNew_Control_pnlOnLine_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::pnlOnLine:push';
 end;//Tkw_MainMenuNew_Control_pnlOnLine_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_pbOnLine.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pbOnLine';
-end;//Tkw_MainMenuNew_Control_pbOnLine.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_pbOnLine.GetString: AnsiString;
 begin
@@ -1776,6 +1772,11 @@ begin
  TtfwClassRef.Register(TPaintBox);
 end;//Tkw_MainMenuNew_Control_pbOnLine.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_pbOnLine.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pbOnLine';
+end;//Tkw_MainMenuNew_Control_pbOnLine.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_pbOnLine_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pbOnLine');
@@ -1786,11 +1787,6 @@ class function Tkw_MainMenuNew_Control_pbOnLine_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::pbOnLine:push';
 end;//Tkw_MainMenuNew_Control_pbOnLine_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_pbIntranet.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pbIntranet';
-end;//Tkw_MainMenuNew_Control_pbIntranet.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_pbIntranet.GetString: AnsiString;
 begin
@@ -1803,6 +1799,11 @@ begin
  TtfwClassRef.Register(TPaintBox);
 end;//Tkw_MainMenuNew_Control_pbIntranet.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_pbIntranet.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pbIntranet';
+end;//Tkw_MainMenuNew_Control_pbIntranet.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_pbIntranet_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pbIntranet');
@@ -1813,11 +1814,6 @@ class function Tkw_MainMenuNew_Control_pbIntranet_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::pbIntranet:push';
 end;//Tkw_MainMenuNew_Control_pbIntranet_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_pbCourtsOnline.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pbCourtsOnline';
-end;//Tkw_MainMenuNew_Control_pbCourtsOnline.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_pbCourtsOnline.GetString: AnsiString;
 begin
@@ -1830,6 +1826,11 @@ begin
  TtfwClassRef.Register(TPaintBox);
 end;//Tkw_MainMenuNew_Control_pbCourtsOnline.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_pbCourtsOnline.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pbCourtsOnline';
+end;//Tkw_MainMenuNew_Control_pbCourtsOnline.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_pbCourtsOnline_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pbCourtsOnline');
@@ -1840,11 +1841,6 @@ class function Tkw_MainMenuNew_Control_pbCourtsOnline_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::pbCourtsOnline:push';
 end;//Tkw_MainMenuNew_Control_pbCourtsOnline_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_hfTaxes.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::hfTaxes';
-end;//Tkw_MainMenuNew_Control_hfTaxes.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_hfTaxes.GetString: AnsiString;
 begin
@@ -1857,6 +1853,11 @@ begin
  TtfwClassRef.Register(TnscHideField);
 end;//Tkw_MainMenuNew_Control_hfTaxes.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_hfTaxes.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::hfTaxes';
+end;//Tkw_MainMenuNew_Control_hfTaxes.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_hfTaxes_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('hfTaxes');
@@ -1867,11 +1868,6 @@ class function Tkw_MainMenuNew_Control_hfTaxes_Push.GetWordNameForRegister: Ansi
 begin
  Result := 'контрол::hfTaxes:push';
 end;//Tkw_MainMenuNew_Control_hfTaxes_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_tvTaxes.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::tvTaxes';
-end;//Tkw_MainMenuNew_Control_tvTaxes.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_tvTaxes.GetString: AnsiString;
 begin
@@ -1884,6 +1880,11 @@ begin
  TtfwClassRef.Register(TnscTreeViewHotTruck);
 end;//Tkw_MainMenuNew_Control_tvTaxes.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_tvTaxes.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvTaxes';
+end;//Tkw_MainMenuNew_Control_tvTaxes.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_tvTaxes_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('tvTaxes');
@@ -1894,11 +1895,6 @@ class function Tkw_MainMenuNew_Control_tvTaxes_Push.GetWordNameForRegister: Ansi
 begin
  Result := 'контрол::tvTaxes:push';
 end;//Tkw_MainMenuNew_Control_tvTaxes_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_pnlBanner.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlBanner';
-end;//Tkw_MainMenuNew_Control_pnlBanner.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_pnlBanner.GetString: AnsiString;
 begin
@@ -1911,6 +1907,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MainMenuNew_Control_pnlBanner.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_pnlBanner.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlBanner';
+end;//Tkw_MainMenuNew_Control_pnlBanner.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_pnlBanner_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlBanner');
@@ -1921,11 +1922,6 @@ class function Tkw_MainMenuNew_Control_pnlBanner_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::pnlBanner:push';
 end;//Tkw_MainMenuNew_Control_pnlBanner_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_ieBanner.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ieBanner';
-end;//Tkw_MainMenuNew_Control_ieBanner.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_ieBanner.GetString: AnsiString;
 begin
@@ -1938,6 +1934,11 @@ begin
  TtfwClassRef.Register(TImageEnView);
 end;//Tkw_MainMenuNew_Control_ieBanner.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_ieBanner.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ieBanner';
+end;//Tkw_MainMenuNew_Control_ieBanner.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_ieBanner_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ieBanner');
@@ -1948,11 +1949,6 @@ class function Tkw_MainMenuNew_Control_ieBanner_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::ieBanner:push';
 end;//Tkw_MainMenuNew_Control_ieBanner_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_hfLastOpenDocsRightEdge.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::hfLastOpenDocsRightEdge';
-end;//Tkw_MainMenuNew_Control_hfLastOpenDocsRightEdge.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_hfLastOpenDocsRightEdge.GetString: AnsiString;
 begin
@@ -1965,6 +1961,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MainMenuNew_Control_hfLastOpenDocsRightEdge.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_hfLastOpenDocsRightEdge.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::hfLastOpenDocsRightEdge';
+end;//Tkw_MainMenuNew_Control_hfLastOpenDocsRightEdge.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_hfLastOpenDocsRightEdge_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('hfLastOpenDocsRightEdge');
@@ -1975,11 +1976,6 @@ class function Tkw_MainMenuNew_Control_hfLastOpenDocsRightEdge_Push.GetWordNameF
 begin
  Result := 'контрол::hfLastOpenDocsRightEdge:push';
 end;//Tkw_MainMenuNew_Control_hfLastOpenDocsRightEdge_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Component_ieIO.GetWordNameForRegister: AnsiString;
-begin
- Result := 'компонент::ieIO';
-end;//Tkw_MainMenuNew_Component_ieIO.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Component_ieIO.GetString: AnsiString;
 begin
@@ -1992,10 +1988,10 @@ begin
  TtfwClassRef.Register(TImageEnIO);
 end;//Tkw_MainMenuNew_Component_ieIO.RegisterInEngine
 
-class function Tkw_MainMenuNew_Control_hfReferences.GetWordNameForRegister: AnsiString;
+class function Tkw_MainMenuNew_Component_ieIO.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::hfReferences';
-end;//Tkw_MainMenuNew_Control_hfReferences.GetWordNameForRegister
+ Result := 'компонент::ieIO';
+end;//Tkw_MainMenuNew_Component_ieIO.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_hfReferences.GetString: AnsiString;
 begin
@@ -2008,6 +2004,11 @@ begin
  TtfwClassRef.Register(TnscHideField);
 end;//Tkw_MainMenuNew_Control_hfReferences.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_hfReferences.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::hfReferences';
+end;//Tkw_MainMenuNew_Control_hfReferences.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_hfReferences_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('hfReferences');
@@ -2018,11 +2019,6 @@ class function Tkw_MainMenuNew_Control_hfReferences_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::hfReferences:push';
 end;//Tkw_MainMenuNew_Control_hfReferences_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_tvReferences.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::tvReferences';
-end;//Tkw_MainMenuNew_Control_tvReferences.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_tvReferences.GetString: AnsiString;
 begin
@@ -2035,6 +2031,11 @@ begin
  TtfwClassRef.Register(TnscTreeViewHotTruck);
 end;//Tkw_MainMenuNew_Control_tvReferences.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_tvReferences.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvReferences';
+end;//Tkw_MainMenuNew_Control_tvReferences.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_tvReferences_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('tvReferences');
@@ -2045,11 +2046,6 @@ class function Tkw_MainMenuNew_Control_tvReferences_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::tvReferences:push';
 end;//Tkw_MainMenuNew_Control_tvReferences_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_hfLawNews.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::hfLawNews';
-end;//Tkw_MainMenuNew_Control_hfLawNews.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_hfLawNews.GetString: AnsiString;
 begin
@@ -2062,6 +2058,11 @@ begin
  TtfwClassRef.Register(TnscHideField);
 end;//Tkw_MainMenuNew_Control_hfLawNews.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_hfLawNews.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::hfLawNews';
+end;//Tkw_MainMenuNew_Control_hfLawNews.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_hfLawNews_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('hfLawNews');
@@ -2072,11 +2073,6 @@ class function Tkw_MainMenuNew_Control_hfLawNews_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::hfLawNews:push';
 end;//Tkw_MainMenuNew_Control_hfLawNews_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_tvLawNews.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::tvLawNews';
-end;//Tkw_MainMenuNew_Control_tvLawNews.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_tvLawNews.GetString: AnsiString;
 begin
@@ -2089,6 +2085,11 @@ begin
  TtfwClassRef.Register(TnscTreeViewHotTruck);
 end;//Tkw_MainMenuNew_Control_tvLawNews.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_tvLawNews.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvLawNews';
+end;//Tkw_MainMenuNew_Control_tvLawNews.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_tvLawNews_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('tvLawNews');
@@ -2099,11 +2100,6 @@ class function Tkw_MainMenuNew_Control_tvLawNews_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::tvLawNews:push';
 end;//Tkw_MainMenuNew_Control_tvLawNews_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_pnlMain.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlMain';
-end;//Tkw_MainMenuNew_Control_pnlMain.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_pnlMain.GetString: AnsiString;
 begin
@@ -2116,6 +2112,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MainMenuNew_Control_pnlMain.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_pnlMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlMain';
+end;//Tkw_MainMenuNew_Control_pnlMain.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_pnlMain_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlMain');
@@ -2126,11 +2127,6 @@ class function Tkw_MainMenuNew_Control_pnlMain_Push.GetWordNameForRegister: Ansi
 begin
  Result := 'контрол::pnlMain:push';
 end;//Tkw_MainMenuNew_Control_pnlMain_Push.GetWordNameForRegister
-
-class function Tkw_MainMenuNew_Control_hfLastOpenDocs.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::hfLastOpenDocs';
-end;//Tkw_MainMenuNew_Control_hfLastOpenDocs.GetWordNameForRegister
 
 function Tkw_MainMenuNew_Control_hfLastOpenDocs.GetString: AnsiString;
 begin
@@ -2143,6 +2139,11 @@ begin
  TtfwClassRef.Register(TnscHideField);
 end;//Tkw_MainMenuNew_Control_hfLastOpenDocs.RegisterInEngine
 
+class function Tkw_MainMenuNew_Control_hfLastOpenDocs.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::hfLastOpenDocs';
+end;//Tkw_MainMenuNew_Control_hfLastOpenDocs.GetWordNameForRegister
+
 procedure Tkw_MainMenuNew_Control_hfLastOpenDocs_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('hfLastOpenDocs');
@@ -2154,11 +2155,6 @@ begin
  Result := 'контрол::hfLastOpenDocs:push';
 end;//Tkw_MainMenuNew_Control_hfLastOpenDocs_Push.GetWordNameForRegister
 
-class function Tkw_MainMenuNew_Control_tvLastOpenDocs.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::tvLastOpenDocs';
-end;//Tkw_MainMenuNew_Control_tvLastOpenDocs.GetWordNameForRegister
-
 function Tkw_MainMenuNew_Control_tvLastOpenDocs.GetString: AnsiString;
 begin
  Result := 'tvLastOpenDocs';
@@ -2169,6 +2165,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewHotTruck);
 end;//Tkw_MainMenuNew_Control_tvLastOpenDocs.RegisterInEngine
+
+class function Tkw_MainMenuNew_Control_tvLastOpenDocs.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvLastOpenDocs';
+end;//Tkw_MainMenuNew_Control_tvLastOpenDocs.GetWordNameForRegister
 
 procedure Tkw_MainMenuNew_Control_tvLastOpenDocs_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -2203,11 +2204,6 @@ begin
  aCtx.rEngine.PushObj(pnlBaseSearch(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewPnlBaseSearch.DoDoIt
 
-class function TkwEnMainMenuNewPnlBaseSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.pnlBaseSearch';
-end;//TkwEnMainMenuNewPnlBaseSearch.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewPnlBaseSearch.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2228,6 +2224,11 @@ function TkwEnMainMenuNewPnlBaseSearch.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewPnlBaseSearch.ParamsTypes
+
+class function TkwEnMainMenuNewPnlBaseSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.pnlBaseSearch';
+end;//TkwEnMainMenuNewPnlBaseSearch.GetWordNameForRegister
 
 function TkwEnMainMenuNewPnlBaseSearchZone.pnlBaseSearchZone(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TvtPanel;
@@ -2251,11 +2252,6 @@ begin
  aCtx.rEngine.PushObj(pnlBaseSearchZone(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewPnlBaseSearchZone.DoDoIt
 
-class function TkwEnMainMenuNewPnlBaseSearchZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.pnlBaseSearchZone';
-end;//TkwEnMainMenuNewPnlBaseSearchZone.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewPnlBaseSearchZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2276,6 +2272,11 @@ function TkwEnMainMenuNewPnlBaseSearchZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewPnlBaseSearchZone.ParamsTypes
+
+class function TkwEnMainMenuNewPnlBaseSearchZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.pnlBaseSearchZone';
+end;//TkwEnMainMenuNewPnlBaseSearchZone.GetWordNameForRegister
 
 function TkwEnMainMenuNewPnlLogo.pnlLogo(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TvtPanel;
@@ -2299,11 +2300,6 @@ begin
  aCtx.rEngine.PushObj(pnlLogo(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewPnlLogo.DoDoIt
 
-class function TkwEnMainMenuNewPnlLogo.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.pnlLogo';
-end;//TkwEnMainMenuNewPnlLogo.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewPnlLogo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2324,6 +2320,11 @@ function TkwEnMainMenuNewPnlLogo.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewPnlLogo.ParamsTypes
+
+class function TkwEnMainMenuNewPnlLogo.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.pnlLogo';
+end;//TkwEnMainMenuNewPnlLogo.GetWordNameForRegister
 
 function TkwEnMainMenuNewPbLogo.pbLogo(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TPaintBox;
@@ -2347,11 +2348,6 @@ begin
  aCtx.rEngine.PushObj(pbLogo(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewPbLogo.DoDoIt
 
-class function TkwEnMainMenuNewPbLogo.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.pbLogo';
-end;//TkwEnMainMenuNewPbLogo.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewPbLogo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2372,6 +2368,11 @@ function TkwEnMainMenuNewPbLogo.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewPbLogo.ParamsTypes
+
+class function TkwEnMainMenuNewPbLogo.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.pbLogo';
+end;//TkwEnMainMenuNewPbLogo.GetWordNameForRegister
 
 function TkwEnMainMenuNewPnlSearches.pnlSearches(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TvtPanel;
@@ -2395,11 +2396,6 @@ begin
  aCtx.rEngine.PushObj(pnlSearches(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewPnlSearches.DoDoIt
 
-class function TkwEnMainMenuNewPnlSearches.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.pnlSearches';
-end;//TkwEnMainMenuNewPnlSearches.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewPnlSearches.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2420,6 +2416,11 @@ function TkwEnMainMenuNewPnlSearches.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewPnlSearches.ParamsTypes
+
+class function TkwEnMainMenuNewPnlSearches.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.pnlSearches';
+end;//TkwEnMainMenuNewPnlSearches.GetWordNameForRegister
 
 function TkwEnMainMenuNewFlAttributeSearch.flAttributeSearch(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TnscFocusLabel;
@@ -2443,11 +2444,6 @@ begin
  aCtx.rEngine.PushObj(flAttributeSearch(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewFlAttributeSearch.DoDoIt
 
-class function TkwEnMainMenuNewFlAttributeSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.flAttributeSearch';
-end;//TkwEnMainMenuNewFlAttributeSearch.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewFlAttributeSearch.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2468,6 +2464,11 @@ function TkwEnMainMenuNewFlAttributeSearch.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewFlAttributeSearch.ParamsTypes
+
+class function TkwEnMainMenuNewFlAttributeSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.flAttributeSearch';
+end;//TkwEnMainMenuNewFlAttributeSearch.GetWordNameForRegister
 
 function TkwEnMainMenuNewFlSituationSearch.flSituationSearch(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TnscFocusLabel;
@@ -2491,11 +2492,6 @@ begin
  aCtx.rEngine.PushObj(flSituationSearch(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewFlSituationSearch.DoDoIt
 
-class function TkwEnMainMenuNewFlSituationSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.flSituationSearch';
-end;//TkwEnMainMenuNewFlSituationSearch.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewFlSituationSearch.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2516,6 +2512,11 @@ function TkwEnMainMenuNewFlSituationSearch.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewFlSituationSearch.ParamsTypes
+
+class function TkwEnMainMenuNewFlSituationSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.flSituationSearch';
+end;//TkwEnMainMenuNewFlSituationSearch.GetWordNameForRegister
 
 function TkwEnMainMenuNewFlPublishedSourceSearch.flPublishedSourceSearch(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TnscFocusLabel;
@@ -2539,11 +2540,6 @@ begin
  aCtx.rEngine.PushObj(flPublishedSourceSearch(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewFlPublishedSourceSearch.DoDoIt
 
-class function TkwEnMainMenuNewFlPublishedSourceSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.flPublishedSourceSearch';
-end;//TkwEnMainMenuNewFlPublishedSourceSearch.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewFlPublishedSourceSearch.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2564,6 +2560,11 @@ function TkwEnMainMenuNewFlPublishedSourceSearch.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewFlPublishedSourceSearch.ParamsTypes
+
+class function TkwEnMainMenuNewFlPublishedSourceSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.flPublishedSourceSearch';
+end;//TkwEnMainMenuNewFlPublishedSourceSearch.GetWordNameForRegister
 
 function TkwEnMainMenuNewFlDictionSearch.flDictionSearch(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TnscFocusLabel;
@@ -2587,11 +2588,6 @@ begin
  aCtx.rEngine.PushObj(flDictionSearch(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewFlDictionSearch.DoDoIt
 
-class function TkwEnMainMenuNewFlDictionSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.flDictionSearch';
-end;//TkwEnMainMenuNewFlDictionSearch.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewFlDictionSearch.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2612,6 +2608,11 @@ function TkwEnMainMenuNewFlDictionSearch.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewFlDictionSearch.ParamsTypes
+
+class function TkwEnMainMenuNewFlDictionSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.flDictionSearch';
+end;//TkwEnMainMenuNewFlDictionSearch.GetWordNameForRegister
 
 function TkwEnMainMenuNewPnlExpert.pnlExpert(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TvtPanel;
@@ -2635,11 +2636,6 @@ begin
  aCtx.rEngine.PushObj(pnlExpert(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewPnlExpert.DoDoIt
 
-class function TkwEnMainMenuNewPnlExpert.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.pnlExpert';
-end;//TkwEnMainMenuNewPnlExpert.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewPnlExpert.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2660,6 +2656,11 @@ function TkwEnMainMenuNewPnlExpert.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewPnlExpert.ParamsTypes
+
+class function TkwEnMainMenuNewPnlExpert.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.pnlExpert';
+end;//TkwEnMainMenuNewPnlExpert.GetWordNameForRegister
 
 function TkwEnMainMenuNewPbExpert.pbExpert(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TPaintBox;
@@ -2683,11 +2684,6 @@ begin
  aCtx.rEngine.PushObj(pbExpert(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewPbExpert.DoDoIt
 
-class function TkwEnMainMenuNewPbExpert.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.pbExpert';
-end;//TkwEnMainMenuNewPbExpert.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewPbExpert.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2708,6 +2704,11 @@ function TkwEnMainMenuNewPbExpert.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewPbExpert.ParamsTypes
+
+class function TkwEnMainMenuNewPbExpert.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.pbExpert';
+end;//TkwEnMainMenuNewPbExpert.GetWordNameForRegister
 
 function TkwEnMainMenuNewPnlOnLine.pnlOnLine(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TvtPanel;
@@ -2731,11 +2732,6 @@ begin
  aCtx.rEngine.PushObj(pnlOnLine(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewPnlOnLine.DoDoIt
 
-class function TkwEnMainMenuNewPnlOnLine.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.pnlOnLine';
-end;//TkwEnMainMenuNewPnlOnLine.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewPnlOnLine.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2756,6 +2752,11 @@ function TkwEnMainMenuNewPnlOnLine.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewPnlOnLine.ParamsTypes
+
+class function TkwEnMainMenuNewPnlOnLine.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.pnlOnLine';
+end;//TkwEnMainMenuNewPnlOnLine.GetWordNameForRegister
 
 function TkwEnMainMenuNewPbOnLine.pbOnLine(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TPaintBox;
@@ -2779,11 +2780,6 @@ begin
  aCtx.rEngine.PushObj(pbOnLine(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewPbOnLine.DoDoIt
 
-class function TkwEnMainMenuNewPbOnLine.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.pbOnLine';
-end;//TkwEnMainMenuNewPbOnLine.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewPbOnLine.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2804,6 +2800,11 @@ function TkwEnMainMenuNewPbOnLine.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewPbOnLine.ParamsTypes
+
+class function TkwEnMainMenuNewPbOnLine.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.pbOnLine';
+end;//TkwEnMainMenuNewPbOnLine.GetWordNameForRegister
 
 function TkwEnMainMenuNewPbIntranet.pbIntranet(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TPaintBox;
@@ -2827,11 +2828,6 @@ begin
  aCtx.rEngine.PushObj(pbIntranet(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewPbIntranet.DoDoIt
 
-class function TkwEnMainMenuNewPbIntranet.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.pbIntranet';
-end;//TkwEnMainMenuNewPbIntranet.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewPbIntranet.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2852,6 +2848,11 @@ function TkwEnMainMenuNewPbIntranet.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewPbIntranet.ParamsTypes
+
+class function TkwEnMainMenuNewPbIntranet.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.pbIntranet';
+end;//TkwEnMainMenuNewPbIntranet.GetWordNameForRegister
 
 function TkwEnMainMenuNewPbCourtsOnline.pbCourtsOnline(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TPaintBox;
@@ -2875,11 +2876,6 @@ begin
  aCtx.rEngine.PushObj(pbCourtsOnline(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewPbCourtsOnline.DoDoIt
 
-class function TkwEnMainMenuNewPbCourtsOnline.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.pbCourtsOnline';
-end;//TkwEnMainMenuNewPbCourtsOnline.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewPbCourtsOnline.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2900,6 +2896,11 @@ function TkwEnMainMenuNewPbCourtsOnline.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewPbCourtsOnline.ParamsTypes
+
+class function TkwEnMainMenuNewPbCourtsOnline.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.pbCourtsOnline';
+end;//TkwEnMainMenuNewPbCourtsOnline.GetWordNameForRegister
 
 function TkwEnMainMenuNewHfTaxes.hfTaxes(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TnscHideField;
@@ -2923,11 +2924,6 @@ begin
  aCtx.rEngine.PushObj(hfTaxes(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewHfTaxes.DoDoIt
 
-class function TkwEnMainMenuNewHfTaxes.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.hfTaxes';
-end;//TkwEnMainMenuNewHfTaxes.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewHfTaxes.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2948,6 +2944,11 @@ function TkwEnMainMenuNewHfTaxes.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewHfTaxes.ParamsTypes
+
+class function TkwEnMainMenuNewHfTaxes.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.hfTaxes';
+end;//TkwEnMainMenuNewHfTaxes.GetWordNameForRegister
 
 function TkwEnMainMenuNewTvTaxes.tvTaxes(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TnscTreeViewHotTruck;
@@ -2971,11 +2972,6 @@ begin
  aCtx.rEngine.PushObj(tvTaxes(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewTvTaxes.DoDoIt
 
-class function TkwEnMainMenuNewTvTaxes.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.tvTaxes';
-end;//TkwEnMainMenuNewTvTaxes.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewTvTaxes.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2996,6 +2992,11 @@ function TkwEnMainMenuNewTvTaxes.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewTvTaxes.ParamsTypes
+
+class function TkwEnMainMenuNewTvTaxes.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.tvTaxes';
+end;//TkwEnMainMenuNewTvTaxes.GetWordNameForRegister
 
 function TkwEnMainMenuNewPnlBanner.pnlBanner(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TvtPanel;
@@ -3019,11 +3020,6 @@ begin
  aCtx.rEngine.PushObj(pnlBanner(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewPnlBanner.DoDoIt
 
-class function TkwEnMainMenuNewPnlBanner.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.pnlBanner';
-end;//TkwEnMainMenuNewPnlBanner.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewPnlBanner.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3044,6 +3040,11 @@ function TkwEnMainMenuNewPnlBanner.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewPnlBanner.ParamsTypes
+
+class function TkwEnMainMenuNewPnlBanner.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.pnlBanner';
+end;//TkwEnMainMenuNewPnlBanner.GetWordNameForRegister
 
 function TkwEnMainMenuNewIeBanner.ieBanner(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TImageEnView;
@@ -3067,11 +3068,6 @@ begin
  aCtx.rEngine.PushObj(ieBanner(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewIeBanner.DoDoIt
 
-class function TkwEnMainMenuNewIeBanner.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.ieBanner';
-end;//TkwEnMainMenuNewIeBanner.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewIeBanner.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3092,6 +3088,11 @@ function TkwEnMainMenuNewIeBanner.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewIeBanner.ParamsTypes
+
+class function TkwEnMainMenuNewIeBanner.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.ieBanner';
+end;//TkwEnMainMenuNewIeBanner.GetWordNameForRegister
 
 function TkwEnMainMenuNewHfLastOpenDocsRightEdge.hfLastOpenDocsRightEdge(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TvtPanel;
@@ -3115,11 +3116,6 @@ begin
  aCtx.rEngine.PushObj(hfLastOpenDocsRightEdge(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewHfLastOpenDocsRightEdge.DoDoIt
 
-class function TkwEnMainMenuNewHfLastOpenDocsRightEdge.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.hfLastOpenDocsRightEdge';
-end;//TkwEnMainMenuNewHfLastOpenDocsRightEdge.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewHfLastOpenDocsRightEdge.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3140,6 +3136,11 @@ function TkwEnMainMenuNewHfLastOpenDocsRightEdge.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewHfLastOpenDocsRightEdge.ParamsTypes
+
+class function TkwEnMainMenuNewHfLastOpenDocsRightEdge.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.hfLastOpenDocsRightEdge';
+end;//TkwEnMainMenuNewHfLastOpenDocsRightEdge.GetWordNameForRegister
 
 function TkwEnMainMenuNewIeIO.ieIO(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TImageEnIO;
@@ -3163,11 +3164,6 @@ begin
  aCtx.rEngine.PushObj(ieIO(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewIeIO.DoDoIt
 
-class function TkwEnMainMenuNewIeIO.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.ieIO';
-end;//TkwEnMainMenuNewIeIO.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewIeIO.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3188,6 +3184,11 @@ function TkwEnMainMenuNewIeIO.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewIeIO.ParamsTypes
+
+class function TkwEnMainMenuNewIeIO.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.ieIO';
+end;//TkwEnMainMenuNewIeIO.GetWordNameForRegister
 
 function TkwEnMainMenuNewHfReferences.hfReferences(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TnscHideField;
@@ -3211,11 +3212,6 @@ begin
  aCtx.rEngine.PushObj(hfReferences(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewHfReferences.DoDoIt
 
-class function TkwEnMainMenuNewHfReferences.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.hfReferences';
-end;//TkwEnMainMenuNewHfReferences.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewHfReferences.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3236,6 +3232,11 @@ function TkwEnMainMenuNewHfReferences.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewHfReferences.ParamsTypes
+
+class function TkwEnMainMenuNewHfReferences.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.hfReferences';
+end;//TkwEnMainMenuNewHfReferences.GetWordNameForRegister
 
 function TkwEnMainMenuNewTvReferences.tvReferences(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TnscTreeViewHotTruck;
@@ -3259,11 +3260,6 @@ begin
  aCtx.rEngine.PushObj(tvReferences(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewTvReferences.DoDoIt
 
-class function TkwEnMainMenuNewTvReferences.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.tvReferences';
-end;//TkwEnMainMenuNewTvReferences.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewTvReferences.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3284,6 +3280,11 @@ function TkwEnMainMenuNewTvReferences.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewTvReferences.ParamsTypes
+
+class function TkwEnMainMenuNewTvReferences.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.tvReferences';
+end;//TkwEnMainMenuNewTvReferences.GetWordNameForRegister
 
 function TkwEnMainMenuNewHfLawNews.hfLawNews(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TnscHideField;
@@ -3307,11 +3308,6 @@ begin
  aCtx.rEngine.PushObj(hfLawNews(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewHfLawNews.DoDoIt
 
-class function TkwEnMainMenuNewHfLawNews.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.hfLawNews';
-end;//TkwEnMainMenuNewHfLawNews.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewHfLawNews.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3332,6 +3328,11 @@ function TkwEnMainMenuNewHfLawNews.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewHfLawNews.ParamsTypes
+
+class function TkwEnMainMenuNewHfLawNews.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.hfLawNews';
+end;//TkwEnMainMenuNewHfLawNews.GetWordNameForRegister
 
 function TkwEnMainMenuNewTvLawNews.tvLawNews(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TnscTreeViewHotTruck;
@@ -3355,11 +3356,6 @@ begin
  aCtx.rEngine.PushObj(tvLawNews(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewTvLawNews.DoDoIt
 
-class function TkwEnMainMenuNewTvLawNews.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.tvLawNews';
-end;//TkwEnMainMenuNewTvLawNews.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewTvLawNews.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3380,6 +3376,11 @@ function TkwEnMainMenuNewTvLawNews.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewTvLawNews.ParamsTypes
+
+class function TkwEnMainMenuNewTvLawNews.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.tvLawNews';
+end;//TkwEnMainMenuNewTvLawNews.GetWordNameForRegister
 
 function TkwEnMainMenuNewPnlMain.pnlMain(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TvtPanel;
@@ -3403,11 +3404,6 @@ begin
  aCtx.rEngine.PushObj(pnlMain(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewPnlMain.DoDoIt
 
-class function TkwEnMainMenuNewPnlMain.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.pnlMain';
-end;//TkwEnMainMenuNewPnlMain.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewPnlMain.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3428,6 +3424,11 @@ function TkwEnMainMenuNewPnlMain.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewPnlMain.ParamsTypes
+
+class function TkwEnMainMenuNewPnlMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.pnlMain';
+end;//TkwEnMainMenuNewPnlMain.GetWordNameForRegister
 
 function TkwEnMainMenuNewHfLastOpenDocs.hfLastOpenDocs(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TnscHideField;
@@ -3451,11 +3452,6 @@ begin
  aCtx.rEngine.PushObj(hfLastOpenDocs(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewHfLastOpenDocs.DoDoIt
 
-class function TkwEnMainMenuNewHfLastOpenDocs.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.hfLastOpenDocs';
-end;//TkwEnMainMenuNewHfLastOpenDocs.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewHfLastOpenDocs.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3476,6 +3472,11 @@ function TkwEnMainMenuNewHfLastOpenDocs.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewHfLastOpenDocs.ParamsTypes
+
+class function TkwEnMainMenuNewHfLastOpenDocs.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.hfLastOpenDocs';
+end;//TkwEnMainMenuNewHfLastOpenDocs.GetWordNameForRegister
 
 function TkwEnMainMenuNewTvLastOpenDocs.tvLastOpenDocs(const aCtx: TtfwContext;
  aen_MainMenuNew: Ten_MainMenuNew): TnscTreeViewHotTruck;
@@ -3499,11 +3500,6 @@ begin
  aCtx.rEngine.PushObj(tvLastOpenDocs(aCtx, l_aen_MainMenuNew));
 end;//TkwEnMainMenuNewTvLastOpenDocs.DoDoIt
 
-class function TkwEnMainMenuNewTvLastOpenDocs.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MainMenuNew.tvLastOpenDocs';
-end;//TkwEnMainMenuNewTvLastOpenDocs.GetWordNameForRegister
-
 procedure TkwEnMainMenuNewTvLastOpenDocs.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -3524,6 +3520,11 @@ function TkwEnMainMenuNewTvLastOpenDocs.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MainMenuNew)]);
 end;//TkwEnMainMenuNewTvLastOpenDocs.ParamsTypes
+
+class function TkwEnMainMenuNewTvLastOpenDocs.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MainMenuNew.tvLastOpenDocs';
+end;//TkwEnMainMenuNewTvLastOpenDocs.GetWordNameForRegister
 
 initialization
  Tkw_Form_MainMenuNew.RegisterInEngine;

@@ -3,6 +3,8 @@ unit MainMenuWithBaseSearchSupport_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\MainMenuWithBaseSearchSupport_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "MainMenuWithBaseSearchSupport" MUID: (4AC99EBE0106)
+// Имя типа: "TMainMenuWithBaseSearchSupportForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

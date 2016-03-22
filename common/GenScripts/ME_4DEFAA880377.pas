@@ -3,6 +3,7 @@ unit l3CustomSortIntegerList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CustomSortIntegerList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CustomSortIntegerList" MUID: (4DEFAA880377)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

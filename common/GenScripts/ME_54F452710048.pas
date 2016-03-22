@@ -2,6 +2,7 @@ unit ComponentsProcessingPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ComponentsProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ComponentsProcessingPack" MUID: (54F452710048)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -180,11 +181,6 @@ begin
  aCtx.rEngine.PushObj(GetComponent(aCtx, l_aComponent, l_anIndex));
 end;//TkwPopComponentGetComponent.DoDoIt
 
-class function TkwPopComponentGetComponent.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Component:GetComponent';
-end;//TkwPopComponentGetComponent.GetWordNameForRegister
-
 function TkwPopComponentGetComponent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TComponent);
@@ -199,6 +195,11 @@ function TkwPopComponentGetComponent.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TComponent), TypeInfo(Integer)]);
 end;//TkwPopComponentGetComponent.ParamsTypes
+
+class function TkwPopComponentGetComponent.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Component:GetComponent';
+end;//TkwPopComponentGetComponent.GetWordNameForRegister
 
 function TkwPopComponentFindComponent.FindComponent(const aCtx: TtfwContext;
  aComponent: TComponent;
@@ -233,11 +234,6 @@ begin
  aCtx.rEngine.PushObj(FindComponent(aCtx, l_aComponent, l_aName));
 end;//TkwPopComponentFindComponent.DoDoIt
 
-class function TkwPopComponentFindComponent.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Component:FindComponent';
-end;//TkwPopComponentFindComponent.GetWordNameForRegister
-
 function TkwPopComponentFindComponent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TComponent);
@@ -252,6 +248,11 @@ function TkwPopComponentFindComponent.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TComponent), @tfw_tiString]);
 end;//TkwPopComponentFindComponent.ParamsTypes
+
+class function TkwPopComponentFindComponent.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Component:FindComponent';
+end;//TkwPopComponentFindComponent.GetWordNameForRegister
 
 function TkwPopComponentComponentCount.ComponentCount(const aCtx: TtfwContext;
  aComponent: TComponent): Integer;
@@ -275,11 +276,6 @@ begin
  aCtx.rEngine.PushInt(ComponentCount(aCtx, l_aComponent));
 end;//TkwPopComponentComponentCount.DoDoIt
 
-class function TkwPopComponentComponentCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Component:ComponentCount';
-end;//TkwPopComponentComponentCount.GetWordNameForRegister
-
 procedure TkwPopComponentComponentCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -300,6 +296,11 @@ function TkwPopComponentComponentCount.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TComponent)]);
 end;//TkwPopComponentComponentCount.ParamsTypes
+
+class function TkwPopComponentComponentCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Component:ComponentCount';
+end;//TkwPopComponentComponentCount.GetWordNameForRegister
 
 function TkwPopComponentOwner.Owner(const aCtx: TtfwContext;
  aComponent: TComponent): TComponent;
@@ -323,11 +324,6 @@ begin
  aCtx.rEngine.PushObj(Owner(aCtx, l_aComponent));
 end;//TkwPopComponentOwner.DoDoIt
 
-class function TkwPopComponentOwner.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Component:Owner';
-end;//TkwPopComponentOwner.GetWordNameForRegister
-
 procedure TkwPopComponentOwner.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -348,6 +344,11 @@ function TkwPopComponentOwner.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TComponent)]);
 end;//TkwPopComponentOwner.ParamsTypes
+
+class function TkwPopComponentOwner.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Component:Owner';
+end;//TkwPopComponentOwner.GetWordNameForRegister
 
 function TkwPopComponentName.Name(const aCtx: TtfwContext;
  aComponent: TComponent): AnsiString;
@@ -371,11 +372,6 @@ begin
  aCtx.rEngine.PushString(Name(aCtx, l_aComponent));
 end;//TkwPopComponentName.DoDoIt
 
-class function TkwPopComponentName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Component:Name';
-end;//TkwPopComponentName.GetWordNameForRegister
-
 procedure TkwPopComponentName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -396,6 +392,11 @@ function TkwPopComponentName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TComponent)]);
 end;//TkwPopComponentName.ParamsTypes
+
+class function TkwPopComponentName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Component:Name';
+end;//TkwPopComponentName.GetWordNameForRegister
 
 initialization
  TkwPopComponentGetComponent.RegisterInEngine;

@@ -2,6 +2,7 @@ unit EverestLiteAdapter;
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\EverestLiteAdapter.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "EverestLiteAdapter" MUID: (512DBB5502E6)
 
 interface
 

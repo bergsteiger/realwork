@@ -1,9 +1,87 @@
 unit ddHTML_r;
 
 { Попытка создать читалку HMTL }
-{ $Id: ddHTML_r.pas,v 1.149 2015/10/14 08:44:02 dinishev Exp $ }
+{ $Id: ddHTML_r.pas,v 1.175 2016/03/21 14:04:34 dinishev Exp $ }
 
 // $Log: ddHTML_r.pas,v $
+// Revision 1.175  2016/03/21 14:04:34  dinishev
+// Не вызываем BeforeCloseParagraph, если параграф не будет сохраняться.
+//
+// Revision 1.174  2016/03/21 13:50:58  dinishev
+// Cleanup
+//
+// Revision 1.173  2016/03/15 10:27:57  dinishev
+// {Requestlink:619725311}
+//
+// Revision 1.172  2016/03/14 11:06:07  dinishev
+// {Requestlink:619724818}. Оказывается могут быть вложенные <P>.
+//
+// Revision 1.171  2016/03/11 07:57:33  dinishev
+// Лишнее выравнивание в таблицах.
+//
+// Revision 1.170  2016/03/02 12:47:10  dinishev
+// {Requestlink:618678791}
+//
+// Revision 1.169  2016/02/20 07:08:29  dinishev
+// {Requestlink:618269589}
+//
+// Revision 1.168  2016/02/16 09:24:19  dinishev
+// {Requestlink:617777252}
+//
+// Revision 1.167  2016/02/12 11:42:59  dinishev
+// {Requestlink:617316346}
+//
+// Revision 1.166  2016/02/12 08:59:55  fireton
+// - форматирование
+//
+// Revision 1.165  2016/02/12 06:36:24  dinishev
+// {Requestlink:617312775}
+//
+// Revision 1.164  2016/02/12 05:22:53  dinishev
+// {Requestlink:617312775}
+//
+// Revision 1.163  2016/02/11 14:25:55  dinishev
+// {Requestlink:617312775}
+//
+// Revision 1.162  2016/02/11 12:13:07  dinishev
+// {Requestlink:617312775}
+//
+// Revision 1.161  2016/01/29 06:32:17  dinishev
+// Bug fix: подразнес чтение UTF-8 + AV при чтении HTML.
+//
+// Revision 1.160  2016/01/28 07:01:04  dinishev
+// Более корректное вырезание &amp;
+//
+// Revision 1.159  2016/01/28 06:21:29  dinishev
+// Вырезаем &amp; из URL. Пока наколенное решение.
+//
+// Revision 1.158  2016/01/27 15:25:07  dinishev
+// {Requestlink:616562811}
+//
+// Revision 1.157  2016/01/27 13:47:10  dinishev
+// Разборки с отъехавшими HTML-тестами после правок.
+//
+// Revision 1.156  2016/01/27 08:13:42  dinishev
+// Cleanup
+//
+// Revision 1.155  2016/01/26 15:01:22  dinishev
+// Bug fix: падали с Assert'ом.
+//
+// Revision 1.154  2016/01/25 14:23:00  dinishev
+// {Requestlink:616227557}
+//
+// Revision 1.153  2016/01/21 05:50:44  dinishev
+// {Requestlink:615706665}. Рамки из стилей.
+//
+// Revision 1.152  2016/01/19 10:36:29  dinishev
+// {Requestlink:615706665}. Не поддерживалось больше одного уровня вложенности таблиц.
+//
+// Revision 1.151  2016/01/19 08:48:54  dinishev
+// Cleanup
+//
+// Revision 1.150  2015/12/03 08:54:23  dinishev
+// {Requestlink:609139066}
+//
 // Revision 1.149  2015/10/14 08:44:02  dinishev
 // Доточил для DailyTest'ов HTMLReader.
 //
@@ -463,6 +541,7 @@ Uses
  ddTableRow,
  ddParaList,
  ddDocument,
+ ddHTMLParser,
  ddDocumentAtom,
  ddRTFProperties,
  ddSimpleHTMLReader,
@@ -477,18 +556,24 @@ Uses
 type
   TddHTMLReader = class(TddSimpleHTMLReader)
   private
-    f_Align: TddJustList;
-    f_CHP: TddCharacterProperty;
-    f_DocID: Integer;
-    f_EtalonRow: TddTableRow;
-    f_HeaderStyle: Integer;
-    f_List: TddParaList;
-    f_Lite: Boolean;
-    f_NeedInc: Boolean;
-    f_RefStart: Integer;
-    f_SaveIsBody: Boolean;
+    f_CHP           : TddCharacterProperty;
+    f_URL           : Tl3String;
+    f_Lite          : Boolean;
+    f_List          : TddParaList;
+    f_Align         : TddJustList;
+    f_InPTag        : Integer;
+    f_ParaTag       : TddHTMLTag;
+    f_NeedInc       : Boolean;
+    f_IsHeader      : Boolean;
+    f_NewSubID      : Integer;
+    f_RefStart      : Integer;
+    f_EtalonRow     : TddTableRow;
+    f_HRefDocID     : Integer;
+    f_HRefSubID     : Integer;
+    f_SaveIsBody    : Boolean;
+    f_CheckEmpty    : Boolean;
+    f_HeaderStyle   : Integer;
     f_ScaleCellWidth: Boolean;
-    f_SubID: Integer;
   private
     procedure CloseCell;
     procedure CloseHyperlink;
@@ -508,8 +593,8 @@ type
     procedure WorkupB(aTag: TddHTMLTag);
     procedure WorkupBody(aTag: TddHTMLTag);
     procedure WorkupBR;
-    procedure workupDiv(aTag: TddHTMLTag);
-    procedure workupHTML(aTag: TddHTMLTag);
+    procedure WorkupDiv(aTag: TddHTMLTag);
+    procedure WorkupHTML(aTag: TddHTMLTag);
     procedure WorkupHN(aTag: TddHTMLTag);
     procedure WorkupA(aTag: TddHTMLTag);
     procedure WorkupI(aTag: TddHTMLTag);
@@ -522,19 +607,27 @@ type
     procedure WorkupStyle(aTag: TddHTMLTag);
     procedure WorkupTable(aTag: TddHTMLTag);
     procedure WorkupTD(aTag: TddHTMLTag);
-    procedure WorkupTitle(aTag: TddHTMLTag);
-    procedure workupTR(aTag: TddHTMLTag);
+    procedure WorkupTR(aTag: TddHTMLTag);
     procedure WorkupU(aTag: TddHTMLTag);
     procedure WorkupUL(aTag: TddHTMLTag);
+    procedure WorkupDel(aTag: TddHTMLTag);
+    procedure WorkupSup(aTag: TddHTMLTag);
+    procedure WorkupSub(aTag: TddHTMLTag);
     procedure WorkWithScript(aTag: TddHTMLTag);
+    function GetHTMLParser: TddHTMLParser;
+    procedure CheckPara;
+    procedure DeletePara;
+    function GetNewSubID: Integer;
+    procedure CheckTextCaps;
+    procedure DelTagsFinished; override;
   protected
     property DefAlign: TJust read pm_GetDefAlign write pm_SetDefAlign;
   protected
     procedure Cleanup; override;
     procedure Read; override;
-    procedure BeforeCloseParagraph(const anAtom: TddDocumentAtom); virtual;
+    procedure BeforeCloseParagraph(const anAtom: TddDocumentAtom; aTag: TddHTMLTag; var theDelete: Boolean); virtual;
     procedure BeforeWrite; virtual;
-    procedure CloseParagraph(const aText: Tl3String = nil); virtual;
+    procedure CloseParagraph;
     procedure OpenParagraph; override;
     procedure RestoreDefAlign;
     procedure WorkupTag(aTag: TddHTMLTag); override;
@@ -579,7 +672,6 @@ uses
   ddTableCell,
   ddHyperlink,
   ddTablePrim,
-  ddHTMLParser,
   ddTextSegment,
   ddTextParagraph,
   ddDocumentProperty;
@@ -593,52 +685,74 @@ begin
  f_Lite:= True;
  f_ScaleCellWidth := True;
  f_Align := TddJustList.Create;
+ f_URL := Tl3String.Make(CP_ANSI);
+ f_ParaTag := nil;
+ f_InPTag := 0;
+ f_RefStart := 1;
 end;
 
 procedure TddHTMLReader.Read;
+var
+ l_LiteVersion: TddLiteVersion;
 begin
-  f_IsPara:= False;
-  f_IsHeader:= False;
-  DefAlign:= JustF;
-  { TODO : Вынести отсюда создание и разрушение объектов }
-  f_CHP:= TddCharacterProperty.Create;
+ IsData := False;
+ f_IsHeader := False;
+ DefAlign := JustF;
+ f_NewSubID := 0;
+ { TODO : Вынести отсюда создание и разрушение объектов }
+ f_CHP := TddCharacterProperty.Create;
+ try
+  Generator.StartChild(k2_typDocument);
   try
-   Generator.StartChild(k2_typDocument);
-   try
-     f_Document:= TddDocument.Create(nil);
-     {$IF Defined(nsTest) and not Defined(InsiderTest)}
-     f_Document.DOP.xaRight := defHorisMargin;
-     {$IFEND}
-     f_Document.AddFont('Arial');
-     f_IsBody:= Lite;
-     inherited;
-     if f_IsPara then
-       CloseParagraph;
-     BeforeWrite;  
-     f_Document.Write2Generator(Generator, Lite);
-   finally
-     Generator.Finish;
-     FreeAndNil(f_Document);
-     FreeAndNil(f_List);
-   end;
+   f_Document:= TddDocument.Create(nil);
+   {$IF Defined(nsTest) and not Defined(InsiderTest)}
+   f_Document.DOP.xaRight := defHorisMargin;
+   {$IFEND}
+   f_Document.AddFont('Arial');
+   f_IsBody := Lite;
+   f_InPTag := 0;
+   inherited;
+   if IsData then
+    CloseParagraph;
+   BeforeWrite;
+   l_LiteVersion := dd_lvNone;
+   if Lite then
+    if ReadURL then
+     l_LiteVersion := dd_lvTextAlign
+    else
+     l_LiteVersion := dd_lvStyleOnly;
+   f_Document.Write2Generator(Generator, l_LiteVersion);
   finally
-   FreeAndNil(f_CHP);
-  end; // l_CHP
+   f_NewSubID := 0;
+   Generator.Finish;
+   FreeAndNil(f_Document);
+   FreeAndNil(f_List);
+  end;
+ finally
+  FreeAndNil(f_CHP);
+ end; // l_CHP
 end;
 
 procedure TddHTMLReader.Cleanup;
 begin
  inherited;
  f_InScript := False;
+ FreeAndNil(f_URL);
  FreeAndNil(f_Align);
+ FreeAndNil(f_ParaTag);
+ f_InPTag := 0;
+ f_RefStart := 1;
 end;
 
 procedure TddHTMLReader.CloseCell;
+var
+ l_Delete: Boolean;
 begin
  CloseParagraph;
  if (f_Document.Table <> nil) and (f_Document.Table.LastRow <> nil) then
  begin
-  BeforeCloseParagraph(f_Document.Table.LastRow.LastCell);
+  l_Delete := False;
+  BeforeCloseParagraph(f_Document.Table.LastRow.LastCell, nil, l_Delete);
   f_Document.Table.LastRow.LastCell.Closed := True;
  end; // if (f_Document.Table <> nil) and (f_Document.Table.LastRow <> nil) then
  RestoreDefAlign;
@@ -652,13 +766,13 @@ begin
    f_List.CloseLevel
   else
   begin
-   f_List.Closed:= True;
+   f_List.Closed := True;
    FreeAndNil(f_List);
   end;
  end;
 end;
 
-procedure TddHTMLReader.BeforeCloseParagraph(const anAtom: TddDocumentAtom);
+procedure TddHTMLReader.BeforeCloseParagraph(const anAtom: TddDocumentAtom; aTag: TddHTMLTag; var theDelete: Boolean);
 begin
 end;
 
@@ -669,40 +783,53 @@ end;
 
 procedure TddHTMLReader.CloseHyperlink;
 var
- l_Seg: TddTextSegment;
+ l_Seg      : TddTextSegment;
+ l_Hyperlink: Boolean;
 begin
- if ((f_DocID > 0) and (f_Document.LastPara.Text.Len > 0)) then // http://mdp.garant.ru/pages/viewpage.action?pageId=449682598
+ if ((f_HREFDocID > 0) and (f_Document.LastPara.Text.Len > 0)) then // http://mdp.garant.ru/pages/viewpage.action?pageId=449682598
  begin
   l_Seg := TddHyperlink.Create;
   try
-   l_Seg.AddTarget(f_DocID, f_SubID, CI_TOPIC);
-   l_Seg.Start:= f_RefStart;
-   l_Seg.Stop:= f_Document.LastPara.Text.Len;
+   l_Seg.AddTarget(f_HREFDocID, f_HREFSubID, CI_TOPIC);
+   l_Seg.Start := f_RefStart;
+   l_Seg.Stop := f_Document.LastPara.Text.Len;
    f_Document.LastPara.AddSegment(l_Seg);
   finally
    l3Free(l_Seg);
   end;
- end;
+ end // if ((f_HREFDocID > 0) and (f_Document.LastPara.Text.Len > 0)) then
+ else
+  if ReadURL and not f_URL.Empty and (f_Document.LastPara.Text.Len > 0) then
+  begin
+   l_Seg := TddHyperlink.Create;
+   try
+    l_Seg.AddTarget(f_HREFDocID, f_HREFSubID, CI_REF);
+    l_Seg.Start := f_RefStart;
+    l_Seg.Stop := f_Document.LastPara.Text.Len;
+    l_Seg.URL.AssignString(f_URL);
+    f_URL.Clear;
+    f_Document.LastPara.AddSegment(l_Seg);
+   finally
+    l3Free(l_Seg);
+   end;
+  end; // if ReadURL and not f_URL.Empty and (f_Document.LastPara.Text.Len > 0) then
 end;
 
-procedure TddHTMLReader.CloseParagraph(const aText: Tl3String = nil);
+procedure TddHTMLReader.CloseParagraph;
 var
  l_LastPara: TddTextParagraph;
 begin
-  if f_IsPara then
+ if IsData then
+ begin
+  l_LastPara := f_Document.LastPara;
+  if l_LastPara <> nil then
   begin
-   f_IsPara:= False;
-   f_SpecText:= False;
-   l_LastPara := f_Document.LastPara;
-   if l_LastPara <> nil then
-   begin
-    if f_IsHeader then
-     l_LastPara.PAP.Style:= f_HeaderStyle;
-    l_LastPara.AddText(aText);
-    l_LastPara.Closed := True;
-    l_LastPara.CorrectSegments(nil);
-   end; // if l_LastPara <> nil then
-  end;
+   if f_IsHeader then
+    l_LastPara.PAP.Style := f_HeaderStyle;
+   l_LastPara.Closed := True;
+   l_LastPara.CorrectSegments(nil);
+  end; // if l_LastPara <> nil then
+ end;
 end;
 
 procedure TddHTMLReader.CloseRow;
@@ -744,11 +871,16 @@ end;
 
 procedure TddHTMLReader.CloseSegment;
 var
+ l_LastPara         : TddTextParagraph;
  l_LastStyledSegment: TddTextSegment;
 begin
- l_LastStyledSegment := f_Document.LastPara.LastStyledSegment;
- if l_LastStyledSegment <> nil then
-  l_LastStyledSegment.Stop := f_Document.LastPara.Text.Len;
+ l_LastPara := f_Document.LastPara;
+ if l_LastPara <> nil then
+ begin
+  l_LastStyledSegment := l_LastPara.LastStyledSegment;
+  if l_LastStyledSegment <> nil then
+   l_LastStyledSegment.Stop := l_LastPara.Text.Len;
+ end; // if l_LastPara <> nil then
 end;
 
 procedure TddHTMLReader.CloseTable;
@@ -758,29 +890,49 @@ end;
 
 procedure TddHTMLReader.OpenHyperlink(aTag: TddHTMLTag);
 var
+ l_Text : AnsiString;
  l_Param: TddHTMLParam;
 begin
- f_DocID := -1;
- if aTag.HasKey(dd_paridHREF, l_Param) then
+ f_HREFDocID := -1;
+ f_RefStart := 1;
+ if aTag.HasKey(dd_paridName, l_Param) then
  begin
-  f_DocID := l_Param.rDocID;
-  f_SubID := l_Param.rSubID;
-  f_RefStart := Succ(f_Document.LastPara.Text.Len);
- end;
+  if ReadURL then
+  begin
+   CheckPara;
+   f_Document.LastPara.AddSub(GetNewSubID, aTag.Param2PCharLen(l_Param));
+  end; // if ReadURL then
+ end // if aTag.HasKey(dd_paridName, l_Param) then
+ else
+ if aTag.HasKey(dd_paridHREF, l_Param) then
+  if l_Param.rType = dd_parHREF then
+  begin
+   f_HREFDocID := l_Param.rDocID;
+   f_HREFSubID := l_Param.rSubID;
+   f_URL.Clear;
+   f_RefStart := Succ(f_Document.LastPara.Text.Len);
+  end // if l_Param.rType = dd_parHREF then
+  else
+   if l_Param.rType = dd_parHREFURL then
+   begin
+    l_Text := l3PCharLen2String(aTag.Param2PCharLen(l_Param));
+    ReasolveEntity(l_Text, f_URL);
+    f_HREFDocID := 0;
+    f_HREFSubID := 0;
+    f_RefStart := Succ(f_Document.LastPara.Text.Len);
+   end; // if l_Param.rType = dd_parHREFURL then
 end;
 
 procedure TddHTMLReader.OpenParagraph;
 var
-  l_Style: TddStyleEntry;
+ l_Style: TddStyleEntry;
 begin
- f_IsBody:= True;
+ f_IsBody := True;
  CloseParagraph;
- if not f_IsPara then
+ if IsData then
  begin
   f_Document.AddParagraph;
   f_Document.LastPara.Closed := False;
-  f_SpecText := False;  // ?
-  f_IsPara := True;
   l_Style := f_Document.StyleByName('P');
   if l_Style <> nil then
   begin
@@ -788,8 +940,8 @@ begin
    f_Document.LastPara.CHP := l_Style.CHP;
   end; // l_Style
   if f_Document.Table <> nil then
-   f_Document.LastPara.PAP.JUST := DefAlign;
- end;
+   f_Document.LastPara.PAP.ClearProperty(dd_Just);
+ end; // if not f_IsPara then
 end;
 
 procedure TddHTMLReader.ParseCell(aObj: TddHTMLTag);
@@ -802,7 +954,7 @@ begin
  begin
   { Проверяем предыдущий ряд на наличие объединенных по вертикали ячеек }
   l_Row := f_Document.Table.BeforeParseCell;
-  l_NeedFakeAlign:= True;
+  l_NeedFakeAlign := True;
    { Вылить параметры ячейки таблицы, если они есть }
   if aObj.HasKey(dd_paridALIGN, l_Param) then
   begin
@@ -820,8 +972,33 @@ begin
    f_Document.Table.LastRow.LastCell.Props.CellSpan := l_Param.rValue;
   if aObj.HasKey(dd_paridROWSPAN, l_Param) then
   begin
-   f_Document.Table.LastRow.LastCell.Props.RowSpan:= l_Param.rValue;
-   f_Document.Table.LastRow.LastCell.Props.VMergeFirst:= True;
+   f_Document.Table.LastRow.LastCell.Props.RowSpan := l_Param.rValue;
+   f_Document.Table.LastRow.LastCell.Props.VMergeFirst := True;
+  end; // if aObj.HasKey(dd_paridROWSPAN, l_Param) then
+  if aObj.HasKey(dd_paridBorderTop, l_Param) then
+  begin
+   if l_Param.rHasBorder then
+    l_Row.LastCell.Props.Border.Frames[bpTop].Enable := True;
+  end; // if aObj.HasKey(dd_paridROWSPAN, l_Param) then
+  (*if aObj.HasKey(dd_paridTextTransform, l_Param) then
+  begin
+   if l_Param.rHasBorder then
+    l_Row.LastCell.Props.Border.Frames[bpBottom].Enable := True;
+  end; // if aObj.HasKey(dd_paridROWSPAN, l_Param) then *)
+  if aObj.HasKey(dd_paridBorderBottom, l_Param) then
+  begin
+   if l_Param.rHasBorder then
+    l_Row.LastCell.Props.Border.Frames[bpBottom].Enable := True;
+  end; // if aObj.HasKey(dd_paridROWSPAN, l_Param) then
+  if aObj.HasKey(dd_paridBorderLeft, l_Param) then
+  begin
+   if l_Param.rHasBorder then
+    l_Row.LastCell.Props.Border.Frames[bpLeft].Enable := True;
+  end; // if aObj.HasKey(dd_paridROWSPAN, l_Param) then
+  if aObj.HasKey(dd_paridBorderRight, l_Param) then
+  begin
+   if l_Param.rHasBorder then
+    l_Row.LastCell.Props.Border.Frames[bpRight].Enable := True;
   end; // if aObj.HasKey(dd_paridROWSPAN, l_Param) then
   if l_NeedFakeAlign then
    DefAlign := justL
@@ -846,7 +1023,12 @@ var
 begin
  if f_Document.Table <> nil then
  begin
-  f_Document.Table.AddRow(False);
+  l_Row := f_Document.Table.GetLastNotClosedRow;
+  if l_Row = nil then
+  begin
+   f_Document.Table.AddRow(False);
+   l_Row := f_Document.Table.LastRow;
+  end; // if l_Row = nil then
   f_Document.Table.LastRow.TAP.Width := 10206;
   { Вылить параметры строки таблицы, если они есть }
   if aObj.HasKey(dd_paridALIGN, l_Param) then
@@ -883,8 +1065,9 @@ begin
    l_Style := f_Document.StyleByName(l_Str.AsPCharLen);
    if l_Style <> nil then
    begin
-    if not f_IsPara then
-     OpenParagraph;
+    if not IsData then
+     IsData := True;
+    CheckPara;
     l_Para := f_Document.LastPara;
     l_Para.PAP.MergeWith(l_Style.PAP);
     l_Para.AddSegment(l_Style.CHP, nil);
@@ -894,7 +1077,10 @@ begin
   finally
    l3Free(l_Str);
   end;
- end; // l_Param.Key = 'CLASS'
+ end // l_Param.Key = 'CLASS'
+ else
+  if aObj.HasKey(dd_paridTextTransform, l_Param) then
+   f_CHP.Caps := l_Param.rTransform;
 end;
 
 procedure TddHTMLReader.ParseTable(aObj: TddHTMLTag);
@@ -933,8 +1119,9 @@ end;
 
 procedure TddHTMLReader.StartSegment;
 begin
- if not f_IsPara then
-  OpenParagraph;
+ if not IsData then
+  IsData := True;
+ CheckPara;
  f_Document.LastPara.AddSegment(f_CHP, nil, True);
 end;
 
@@ -943,7 +1130,7 @@ begin
  if aTag.IsClosed then
  begin
   CloseSegment;
-  f_CHP.Bold := False;
+  f_CHP.ClearProp(ddBold);
  end
  else
  begin
@@ -952,9 +1139,11 @@ begin
  end;
 end;
 
-procedure TddHTMLReader.workupBody(aTag: TddHTMLTag);
+procedure TddHTMLReader.WorkupBody(aTag: TddHTMLTag);
 begin
- f_IsBody := not aTag.isClosed;
+ f_IsBody := not aTag.IsClosed;
+ if f_IsBody then
+  IsData := True;
 end;
 
 procedure TddHTMLReader.WorkupBR;
@@ -963,19 +1152,19 @@ begin
   f_Document.LastPara.Text.Append(cc_SoftEnter);
 end;
 
-procedure TddHTMLReader.workupDiv(aTag: TddHTMLTag);
+procedure TddHTMLReader.WorkupDiv(aTag: TddHTMLTag);
 begin
- OpenParagraph;
- CloseParagraph;
+ if aTag.IsClosed then
+  CloseParagraph;
 end;
 
-procedure TddHTMLReader.workupHTML(aTag: TddHTMLTag);
+procedure TddHTMLReader.WorkupHTML(aTag: TddHTMLTag);
 begin
  if aTag.IsClosed then
  begin
   f_IsBody := False;
   BreakAnalyze;
- end
+ end // if aTag.IsClosed then
  else
   f_InitCodePage := True; 
 end;
@@ -986,6 +1175,7 @@ var
 begin
  if aTag.IsClosed then
  begin
+  CloseParagraph;
   f_IsHeader := False;
   l_LastPara := f_Document.LastPara;
   if l_LastPara <> nil then
@@ -1010,11 +1200,11 @@ begin
  if aTag.IsClosed then
  begin
   CloseSegment;
-  f_CHP.Italic:= False;
+  f_CHP.ClearProp(ddItalic);
  end // if aTag.IsClosed then
  else
  begin
-  f_CHP.Italic:= True;
+  f_CHP.Italic := True;
   StartSegment;
  end;
 end;
@@ -1066,32 +1256,74 @@ begin
 end;
 
 procedure TddHTMLReader.WorkupP(aTag: TddHTMLTag);
+
+ procedure lp_MakeCopy;
+ begin
+  if f_ParaTag <> nil then
+   FreeAndNil(f_ParaTag);
+  f_ParaTag := TddHTMLTag.Create(aTag.TagID);
+  f_ParaTag.Assign(aTag);
+ end;
+
+ function lp_NeedDelete(aPara: TddTextParagraph): Boolean;
+ begin
+  Result := (aPara <> nil) and f_CheckEmpty and aPara.Empty;
+ end;
+
+var
+ l_Delete  : Boolean;
+ l_LastPara: TddTextParagraph;
 begin
  if aTag.IsClosed then
  begin
-  if f_IsPara then
+  Dec(f_InPTag);
+  if f_InPTag > 0 then Exit;
+  GetHTMLParser.IgnoreHTMLComment := dd_icNone;
+  if IsData then
   begin
-   BeforeCloseParagraph(f_Document.LastPara);
-   CloseParagraph;
+   l_LastPara := f_Document.LastPara;
+   l_Delete := lp_NeedDelete(l_LastPara);
+   if not l_Delete then
+    BeforeCloseParagraph(l_LastPara, f_ParaTag, l_Delete);
+   if ReadURL then
+    FreeAndNil(f_ParaTag);
+   if l_Delete then
+    DeletePara
+   else
+    CloseParagraph;
    f_IsPre := False;
-  end // if f_IsPara then
- end
+  end; // if f_IsPara then
+  f_CheckEmpty := False;
+ end // if aTag.IsClosed then
  else
  begin
+  IsData := True;
+  Inc(f_InPTag);
+  f_CheckEmpty := False;
+  GetHTMLParser.IgnoreHTMLComment := dd_icAll;
   ParseParagraph(aTag);
   ParseSpan(aTag, False);
+  if (f_InPTag = 1) and ReadURL then
+   lp_MakeCopy;
   f_IsPre := aTag.TagID = tidPRE;
  end;
 end;
 
 procedure TddHTMLReader.WorkupSpan(aTag: TddHTMLTag);
 begin
- if not aTag.IsClosed then
+ if aTag.IsClosed then
  begin
-  if not f_IsPara then
-   OpenParagraph;
+  GetHTMLParser.IgnoreHTMLComment := dd_icAll;
+  CheckTextCaps;
+  f_CHP.ClearProp(ddCaps);
+ end // if aTag.IsClosed then
+ else
+ begin
+  IsData := True;
+  GetHTMLParser.IgnoreHTMLComment := dd_icNone;
+  CheckPara;
   f_Document.LastPara.AddSegment(f_CHP, nil, True);
-  ParseSpan(aTag, True);  
+  ParseSpan(aTag, True);
  end;
 end;
 
@@ -1099,23 +1331,26 @@ procedure TddHTMLReader.WorkupStyle(aTag: TddHTMLTag);
 begin
  if aTag.IsClosed then
  begin
-  f_IsBody:= f_SaveIsBody;
-  f_IsStyle:= False;
-  (Parser as TddHTMLParser).IgnoreHTMLComment := False;
+  f_IsBody := f_SaveIsBody;
+  f_IsStyle := False;
+  GetHTMLParser.IgnoreHTMLComment := dd_icNone;
  end // if aTag.IsClosed then
  else
  begin
   f_SaveIsBody:= f_IsBody;
-  f_IsBody:= False;
-  f_IsStyle:= True;
-  (Parser as TddHTMLParser).IgnoreHTMLComment := True;
+  f_IsBody := False;
+  f_IsStyle := True;
+  GetHTMLParser.IgnoreHTMLComment := dd_icHTML;
  end;
 end;
 
 procedure TddHTMLReader.WorkupTable(aTag: TddHTMLTag);
 begin
  if aTag.IsClosed then
-  CloseTable
+ begin
+  CloseTable;
+  IsData := True;
+ end // if aTag.IsClosed then
  else
   ParseTable(aTag);
 end;
@@ -1146,44 +1381,50 @@ begin
   tidLI: WorkupLI(aTag);
   tidBODY: WorkupBody(aTag);
   tidMETA: WorkupMeta(aTag);
-  tidTITLE: WorkupTitle(aTag);
-  tidDIV: workupDiv(atag);
+  tidDIV: WorkupDiv(aTag);
   tidSTYLE: WorkupStyle(aTag);
   tidHTML: WorkupHTML(aTag);
   tidA: WorkupA(aTag);
   tidTH: WorkupTD(aTag);
   tidIMG: WorkupIMG(aTag);
   tidSCRIPT: WorkWithScript(aTag);
+  tidDel: WorkupDel(aTag);
+  tidSup: WorkupSup(aTag);
+  tidSub: WorkupSub(aTag);
  end;
 end;
 
 procedure TddHTMLReader.WorkupTD(aTag: TddHTMLTag);
 begin
  if aTag.IsClosed then
-  CloseCell
+ begin
+  CloseCell;
+  IsData := False;
+ end
  else
+ begin
+  IsData := True;
   ParseCell(aTag);
+ end;
 end;
 
-procedure TddHTMLReader.WorkupTitle(aTag: TddHTMLTag);
-begin
- f_SpecText := not aTag.IsClosed;
-end;
-
-procedure TddHTMLReader.workupTR(aTag: TddHTMLTag);
+procedure TddHTMLReader.WorkupTR(aTag: TddHTMLTag);
 begin
  if aTag.IsClosed then
   CloseRow
  else
+ begin
+  IsData := False;
   ParseRow(aTag);
+ end;
 end;
 
 procedure TddHTMLReader.WorkupU(aTag: TddHTMLTag);
 begin
  if aTag.IsClosed then
-  f_CHP.Underline:= utNone
+  f_CHP.ClearProp(ddUnderline)
  else
-  f_CHP.Underline:= utThick;
+  f_CHP.Underline := utThick;
  if aTag.IsClosed then
   CloseSegment
  else
@@ -1252,6 +1493,86 @@ begin
     l3Free(l_Picture);
    end;
   end; // if aTag.HasKey(dd_paridSRC, l_Param) then
+end;
+
+function TddHTMLReader.GetHTMLParser: TddHTMLParser;
+begin
+ Result := TddHTMLParser(Parser);
+end;
+
+procedure TddHTMLReader.CheckPara;
+begin
+ if (f_Document.LastPara = nil) then
+  OpenParagraph;
+end;
+
+function TddHTMLReader.GetNewSubID: Integer;
+begin
+ Inc(f_NewSubID);
+ Result := f_NewSubID;
+end;
+
+procedure TddHTMLReader.WorkupDel(aTag: TddHTMLTag);
+begin
+ if ApplyTextCorrections then
+  if aTag.IsClosed then
+   DecInDel
+  else
+   IncInDel;
+end;
+
+procedure TddHTMLReader.DeletePara;
+begin
+ if IsData then
+  f_Document.DeleteLastTextPara;
+end;
+
+procedure TddHTMLReader.DelTagsFinished;
+begin
+ f_CheckEmpty := True;
+end;
+
+procedure TddHTMLReader.WorkupSup(aTag: TddHTMLTag);
+begin
+ if aTag.IsClosed then
+ begin
+  CloseSegment;
+  f_CHP.Pos := cpNone;
+ end // if aTag.IsClosed then
+ else
+ begin
+  f_CHP.Pos := cpSuperScript;
+  StartSegment;
+ end;
+end;
+
+procedure TddHTMLReader.WorkupSub(aTag: TddHTMLTag);
+begin
+ if aTag.IsClosed then
+ begin
+  CloseSegment;
+  f_CHP.Pos := cpNone;
+ end // if aTag.IsClosed then
+ else
+ begin
+  f_CHP.Pos := cpSubScript;
+  StartSegment;
+ end;
+end;
+
+procedure TddHTMLReader.CheckTextCaps;
+var
+ l_LastPara: TddTextParagraph;
+begin
+ l_LastPara := f_Document.LastPara;
+ if l_LastPara <> nil then
+ begin
+  if f_CHP.Caps = ccAllCaps then
+   l_LastPara.Text.MakeUpper
+  else
+   if f_CHP.Caps = ccSmallCaps then
+    l_LastPara.Text.MakeLower;
+ end; // if l_LastPara <> nil then
 end;
 
 end.

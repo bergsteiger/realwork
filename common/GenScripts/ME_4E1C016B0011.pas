@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "DrawOutputSupport" MUID: (4E1C016B0011)
+// Имя типа: "_DrawOutputSupport_"
 
 {$Define DrawOutputSupport_imp}
 

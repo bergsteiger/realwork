@@ -19,8 +19,6 @@
 #include "shared/GCL/data/std_defs.h"
 #include "shared/ContextSearch/Search/Search.h"
 #include "shared/ContextSearch/DBComm/DBComm.h"
-#include "shared/ContextSearch/Manage/Manage.h"
-#include "shared/ContextSearch/Common/ContextUtility.h"
 #include "shared/ContextSearch/MorphoBase/Synonymizer.h"
 
 namespace ContextSearch {
@@ -55,6 +53,9 @@ private:
 	// добавить фразу
 	static void add_phrase (const GCL::StrVector& in, Search::PhraseEx& out);
 
+	// строгая фраза
+	static bool is_strong (const std::string& str);
+
 //////////////////////////////////////////////////////////////////////////////////////////
 // constructors and destructor
 private:
@@ -66,13 +67,13 @@ private:
 // self methods
 private:
 	// добавить
-	void add (const Search::StringSet& in, const ContextUtility::StrStrMap& pseudo);
+	void add (const Search::StringSet& in);
 
 	// сжатие фразы
 	bool deflate (GCL::StrVector& out);
 
 	// создать контейнер спанов
-	bool make_spans (const GCL::StrVector& in, const ContextUtility::StrStrMap& pseudo);
+	bool make_spans (const GCL::StrVector& in);
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // self data
@@ -83,8 +84,6 @@ private:
 
 	Core::Box<Synonymizer> m_synonymizer;
 
-	Manage::IRequestTransformer_var m_transformer;
-
 	bool m_was_compression;
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -93,7 +92,7 @@ protected:
 
 	// implemented method from Search::IRequestView
 	// создать
-	bool build (const Search::Phrase& in, const Morpho::Def::StrStrMap& pseudo, const std::string& src);
+	bool build (const Search::Phrase& in, const std::string& src);
 
 	// implemented method from Search::IRequestView
 	// список синонимичных

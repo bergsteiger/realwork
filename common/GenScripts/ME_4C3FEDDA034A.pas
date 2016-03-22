@@ -3,6 +3,8 @@ unit EVDtoEVDOEMTableFlagTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoEVDOEMTableFlagTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "EVDtoEVDOEMTableFlagTest" MUID: (4C3FEDDA034A)
+// Имя типа: "TEVDtoEVDOEMTableFlagTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

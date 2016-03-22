@@ -19,6 +19,9 @@
 #include "shared/ContextSearch/Defs/Defs.h"
 #include "shared/ContextSearch/RelevancyCore/RelevancyCore.h"
 
+//#UC START# *45165B0202CE_CUSTOM_INCLUDES*
+//#UC END# *45165B0202CE_CUSTOM_INCLUDES*
+
 namespace ContextSearch {
 namespace Relevancy_i {
 
@@ -76,6 +79,9 @@ public:
 //////////////////////////////////////////////////////////////////////////////////////////
 // static member methods and data
 private:
+	// длина блока
+	static size_t get_block_len (Defs::Position pos, const Defs::InvisibleData& data);
+
 	// получить позиции для заданного блока
 	static bool get_block_positions (const Relevancy::DataVector& in, const Defs::InvisibleData& inv_data, Relevancy::DataVector& out, Defs::Position mask, size_t point);
 
@@ -200,6 +206,23 @@ protected:
 	// implemented method from Relevancy::IAlgorithm
 	// установить свойство
 	virtual void set_property (unsigned long value);
+
+//#UC START# *45165B0202CE*
+private:
+	void calc (
+		Defs::RelevancyInfo& info
+		, const Relevancy::DataVector& positions
+		, const Defs::PositionsRel& rel_data
+		, size_t pos
+	);
+
+private:
+	Relevancy::Positions m_chain;
+
+	std::vector <Relevancy::Mark> m_markup;
+
+	std::vector <Defs::Positions::const_iterator> m_index;
+//#UC END# *45165B0202CE*
 }; // class Algorithm_i
 
 } // namespace Relevancy_i

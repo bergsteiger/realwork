@@ -2,13 +2,14 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3NotifierBase.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3NotifierBase" MUID: (47F07AE10156)
+// Имя типа: "_l3NotifierBase_"
 
 {$Define l3NotifierBase_imp}
 
  _l3NotifierBase_ = class(_l3NotifierBase_Parent_, Il3ChangeNotifier)
   private
    f_NotifiedObjList: Tl3NotifyPtrList;
-    {* Поле для свойства NotifiedObjList }
   protected
    function pm_GetHasNotified: Boolean;
    procedure Subscribe(const aRecipient: Il3Notify);

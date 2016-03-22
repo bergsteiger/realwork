@@ -2,6 +2,7 @@ unit csUserDefinedExportTaskPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csUserDefinedExportTaskPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsUserDefinedExportTaskPrim" MUID: (53B26E1A01A6)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

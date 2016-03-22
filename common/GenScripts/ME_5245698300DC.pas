@@ -2,6 +2,7 @@ unit ddRegSeacherOwner;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddRegSeacherOwner.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddRegSeacherOwner" MUID: (5245698300DC)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -3,6 +3,7 @@ unit evAACTextPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evAACTextPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevAACTextPainter" MUID: (55CC33ED010B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

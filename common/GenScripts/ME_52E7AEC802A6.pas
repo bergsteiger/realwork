@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3SimpleCalc;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\ext\NOT_FINISHED_l3SimpleCalc.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3SimpleCalc" MUID: (52E7AEC802A6)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -12,6 +12,8 @@ unit kwPopQueryCardSetAttribute;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopQueryCardSetAttribute.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_QueryCard_SetAttribute" MUID: (4E808E3E026E)
+// Имя типа: "TkwPopQueryCardSetAttribute"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,8 @@ unit kwIntegrationOpenLink;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwIntegrationOpenLink.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "integration_OpenLink" MUID: (5135F0090070)
+// Имя типа: "TkwIntegrationOpenLink"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

@@ -2,6 +2,8 @@ unit kwConfigurationGetID;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationGetID.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "configuration_GetID" MUID: (53B2E3EF00C4)
+// Имя типа: "TkwConfigurationGetID"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

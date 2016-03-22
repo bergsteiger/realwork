@@ -1,65 +1,47 @@
 unit kwBaseExport;
+ {* Экспорт документа из базы }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwBaseExport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::CommonArchiWords::base_export
-//
-// Экспорт документа из базы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwBaseExport.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "base_export" MUID: (50580B6C00E6)
+// Имя типа: "TkwBaseExport"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
-  SewerPipe,
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwBaseExport = {final scriptword} class(TtfwRegisterableWord)
+ TkwBaseExport = {final} class(TtfwRegisterableWord)
   {* Экспорт документа из базы }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwBaseExport
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  dt_Types,
-  dt_AttrSchema,
-  k2TagGen,
-  evdNativeWriter
-  ;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+ l3ImplUses
+ , SewerPipe
+ , SysUtils
+ , dt_Types
+ , dt_AttrSchema
+ , k2TagGen
+ , evdNativeWriter
+;
 
 type
-  TSewerPipeHack = class(TSewerPipe)
-  end;//TSewerPipeHack
-
-// start class TkwBaseExport
+ TSewerPipeHack = class(TSewerPipe)
+ end;//TSewerPipeHack
 
 procedure TkwBaseExport.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_50580B6C00E6_var*
@@ -97,17 +79,13 @@ begin
 end;//TkwBaseExport.DoDoIt
 
 class function TkwBaseExport.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'base:export';
 end;//TkwBaseExport.GetWordNameForRegister
 
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация base_export
  TkwBaseExport.RegisterInEngine;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация base_export }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
 end.

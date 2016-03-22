@@ -2,6 +2,7 @@ unit nsBaseTextOperationsConst;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsBaseTextOperationsConst.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsBaseTextOperationsConst" MUID: (4D8C88C102D9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

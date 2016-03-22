@@ -3,6 +3,7 @@ unit l3CardinalList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CardinalList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CardinalList" MUID: (4B2F4382001F)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

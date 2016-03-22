@@ -2,6 +2,8 @@ unit kwFINALLY;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwFINALLY.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "FINALLY" MUID: (52D7DDA20227)
+// Имя типа: "TkwFINALLY"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

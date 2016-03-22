@@ -1,9 +1,12 @@
 unit alcuMDP;
 { Интеграция с MDP для приема-отдачи документов }
 
-{ $Id: alcuMDP.pas,v 1.1 2015/09/09 13:26:28 lukyanets Exp $ }
+{ $Id: alcuMDP.pas,v 1.2 2015/12/11 06:23:07 lukyanets Exp $ }
 
 // $Log: alcuMDP.pas,v $
+// Revision 1.2  2015/12/11 06:23:07  lukyanets
+// Логируем код региона
+//
 // Revision 1.1  2015/09/09 13:26:28  lukyanets
 // Заготовки импорта документов
 //
@@ -136,7 +139,7 @@ type
   procedure Cleanup; override;
  public
   constructor Create;
-  procedure Execute(const aProgressor: TddProgressObject; aMaxCount: Integer; const aMail, aErrorMail: String);
+  procedure Execute(AllowZeroRegion: Boolean; const aProgressor: TddProgressObject; aMaxCount: Integer; const aMail, aErrorMail: String);
   procedure AbortImport;
  end;
 
@@ -270,14 +273,14 @@ begin
  end;
 end;
 
-procedure TalcuMDPSyncronizer.Execute(const aProgressor: TddProgressObject; aMaxCount: Integer; const aMail, aErrorMail: String);
+procedure TalcuMDPSyncronizer.Execute(AllowZeroRegion: Boolean; const aProgressor: TddProgressObject; aMaxCount: Integer; const aMail, aErrorMail: String);
 begin
  try
   try
    f_Tool := TddMDPImporter.Create;
    try
     f_Tool.OnError := ErrorReaction;
-    f_Tool.Import(ErrorReaction, DocumentReaction, BatchStart, BatchSuccess, aProgressor, aMaxCount);
+    f_Tool.Import(AllowZeroRegion, ErrorReaction, DocumentReaction, BatchStart, BatchSuccess, aProgressor, aMaxCount);
    finally
     FreeAndNil(f_Tool);
    end;

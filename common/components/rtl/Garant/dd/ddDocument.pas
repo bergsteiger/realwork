@@ -3,9 +3,30 @@ unit ddDocument;
 
 { Базовый класс для сохранения в различные форматы }
 
-// $Id: ddDocument.pas,v 1.307 2015/10/21 14:02:13 voba Exp $
+// $Id: ddDocument.pas,v 1.314 2016/02/16 09:24:19 dinishev Exp $
 
 // $Log: ddDocument.pas,v $
+// Revision 1.314  2016/02/16 09:24:19  dinishev
+// {Requestlink:617777252}
+//
+// Revision 1.313  2016/02/12 11:41:44  dinishev
+// Reformat
+//
+// Revision 1.312  2016/02/11 14:25:55  dinishev
+// {Requestlink:617312775}
+//
+// Revision 1.311  2016/01/27 13:47:10  dinishev
+// Разборки с отъехавшими HTML-тестами после правок.
+//
+// Revision 1.310  2016/01/26 10:51:36  dinishev
+// Лечим AV.
+//
+// Revision 1.309  2016/01/19 10:36:29  dinishev
+// {Requestlink:615706665}. Не поддерживалось больше одного уровня вложенности таблиц.
+//
+// Revision 1.308  2016/01/15 11:52:48  dinishev
+// {Requestlink:615706665}. Не учитывали, что ячейка может быть еще и не начата.
+//
 // Revision 1.307  2015/10/21 14:02:13  voba
 // -bf : Дими Инишев поправил выливку в HTML
 //
@@ -946,7 +967,6 @@ uses
   l3LongintList,
   l3StringList,
   l3ProtoPersistentRefList,
-  //l3CBaseRefList,
 
   k2Types,
   k2Interfaces,
@@ -996,12 +1016,11 @@ type
     f_OneStep: Boolean;
     f_Paragraphs: TddDocumentAtomList;
     f_StyleTable: Tl3StringList;
-    f_Table: TddTable;
-    f_OuterTable: TddTable;
+    f_Tables: TddTableList;
     function pm_GetLastAtom: TddDocumentAtom;
     function pm_GetPageHeight: Integer;
     function pm_GetPageWidth: Integer;
-    function pm_GetTable: TddTable  ;
+    function pm_GetTable: TddTable;
     function pm_GetTextWidth: Integer;
     procedure _AddAtom(aAtom: TddDocumentAtom; aPart: Boolean = False);
     procedure AddAtomWithoutOneStep(aAtom: TddDocumentAtom);
@@ -1028,7 +1047,9 @@ type
         Integer;
     function AddParagraph: Boolean; overload;
     procedure AddStyle(aStyle: TddStyleEntry);
-    procedure Assign(aDocument: TddDocument); 
+    procedure Assign(aDocument: TddDocument);
+    procedure DeleteLastTextPara;
+     {* - Удаляет последний текстовый параграф. }
     procedure Clear; virtual;
     procedure CorrectStyles;
     procedure CheckNormalStyle(const aStyle: TddStyleEntry);
@@ -1042,8 +1063,7 @@ type
     procedure StartTable;
     function StyleByName(const aName: AnsiString): TddStyleEntry; overload;
     function StyleByName(const aName: Tl3PCharLen): TddStyleEntry; overload;
-    procedure Write2Generator(const Generator: Ik2TagGenerator; const LiteVersion:
-            Boolean = False);
+    procedure Write2Generator(const Generator: Ik2TagGenerator; aLiteVersion: TddLiteVersion);
     property ColorCount: Integer read GetColorCount;
     property ColorTable[No: Longint]: TddColorEntry read GetColorEntry write
             SetColorEntry;
@@ -1278,25 +1298,26 @@ Uses
   , l3Defaults, TypInfo,
 
   evdAllParaEliminator{,
-  jclGraphUtils}, ddParaList;
+  jclGraphUtils}, ddParaList, ddTablePrim;
 
 {
 ********************************* TddDocument **********************************
 }
 constructor TddDocument.Create(aGenerator: TddDocumentGenerator);
 begin
-  inherited Create;
-  f_Generator:= aGenerator;
-  f_Info  := TddRTFInfo.Create;
-  f_DOP:= TddDocumentProperty.Create;
-  f_FontTable:= Tl3StringList.Make;
-  f_StyleTable:= Tl3StringList.Make;
-  f_Paragraphs:= TddDocumentAtomList.Make;
-  f_ColorTable:= Tl3ProtoObjectRefList.Make;
-  if f_Generator <> nil then
-   OneStep := f_Generator.OneStep
-  else
-   OneStep:= False;
+ inherited Create;
+ f_Generator := aGenerator;
+ f_Info := TddRTFInfo.Create;
+ f_DOP := TddDocumentProperty.Create;
+ f_FontTable := Tl3StringList.Make;
+ f_StyleTable := Tl3StringList.Make;
+ f_Paragraphs := TddDocumentAtomList.Make;
+ f_ColorTable := Tl3ProtoObjectRefList.Make;
+ f_Tables := TddTableList.Make;
+ if f_Generator <> nil then
+  OneStep := f_Generator.OneStep
+ else
+  OneStep := False;
 end;
 
 type
@@ -1458,8 +1479,7 @@ end;
 
 procedure TddDocument.Cleanup;
 begin
-  f_Table := nil;
-  f_OuterTable := nil;
+  l3Free(f_Tables);
   l3Free(f_Paragraphs);
   l3Free(f_StyleTable);
   l3Free(f_ColorTable);
@@ -1472,8 +1492,7 @@ end;
 
 procedure TddDocument.Clear;
 begin
-  f_Table := nil;
-  f_OuterTable := nil;
+  f_Tables.Clear;
   inherited;
   f_FontTable.Clear;
   f_ColorTable.Clear;
@@ -1562,7 +1581,7 @@ begin
      Result:= l_F.AsString;
      break;
    end;
- end;
+ end;                                     
 end;
 
 function TddDocument.GetColorCount: Integer;
@@ -1587,7 +1606,8 @@ end;
 
 function TddDocument.GetLastPara: TddTextParagraph;
 var
- l_A       : TddDocumentAtom;
+ l_Atom    : TddDocumentAtom;
+ l_Table   : TddTable;
  l_LastRow : TddTableRow;
  l_LastCell: TddTableCell;
  l_LastAtom: TddDocumentAtom;
@@ -1595,26 +1615,30 @@ begin
  Result := nil;
  if f_Paragraphs.Count > 0 then
  begin
-  if f_Table <> nil then
+  l_Table := Table;
+  if l_Table <> nil then
   begin
-   l_LastRow := f_Table.LastRow;
+   l_LastRow := l_Table.LastRow;
    if l_LastRow <> nil then
    begin
-    l_LastCell := l_LastRow.LastCell;
+    l_LastCell := l_LastRow.GetLastNonClosedCell;
     if l_LastCell <> nil then
      Result := l_LastCell.LastTextPara;
    end; // if l_LastRow <> nil then
   end // if f_Table <> nil then
   else
   begin
-   l_A := f_Paragraphs.Last;
-   l_LastAtom := l_A.GetLastPara;
-   if l_LastAtom <> nil then
+   l_Atom := f_Paragraphs.Last;
+   l_LastAtom := l_Atom.GetLastPara;
+   if (l_LastAtom <> nil) and not l_LastAtom.Closed then
     Result := TddTextParagraph(l_LastAtom);
   end;
  end
  else
-  Result:= f_LastPara;
+ begin
+  if (f_LastPara <> nil) and not f_LastPara.Closed then
+   Result := f_LastPara;
+ end;
 end;
 
 function TddDocument.GetStyleCount: Integer;
@@ -1684,8 +1708,8 @@ end;
 
 function TddDocument.pm_GetTable: TddTable;
 begin
- if (f_Table <> nil) and not f_Table.Closed then
-  Result := f_Table
+ if (f_Tables.Count > 0) and not f_Tables.Last.Closed then
+  Result := f_Tables.Last
  else
   Result := nil;
 end;
@@ -1752,13 +1776,12 @@ begin
  end;
 end;
 
-procedure TddDocument.Write2Generator(const Generator: Ik2TagGenerator; const
-        LiteVersion: Boolean = False);
+procedure TddDocument.Write2Generator(const Generator: Ik2TagGenerator; aLiteVersion: TddLiteVersion);
 var
  i: Integer;
 begin
  for i := 0 to f_Paragraphs.Hi do
-  f_Paragraphs[i].Write2Generator(Generator, False, LiteVersion);
+  f_Paragraphs[i].Write2Generator(Generator, False, aLiteVersion);
 end;
 
 procedure TddDocument._AddAtom(aAtom: TddDocumentAtom; aPart: Boolean);
@@ -1770,7 +1793,7 @@ begin
   else
    l3Free(f_LastPara);
   if f_Generator.Generator <> nil then
-   aAtom.Write2Generator(f_Generator.Generator, False, False)
+   aAtom.Write2Generator(f_Generator.Generator, False, dd_lvNone)
   else
    f_Generator.WriteAtom2Filer(aAtom, aPart);
  end//OneStep
@@ -3188,13 +3211,13 @@ end;
 
 procedure TddDocumentGenerator.StartPicture;
 var
- l_P  : TddDocumentAtom;
- l_Seg: TddTextSegment;
+ l_Seg  :  TddTextSegment;
+ l_Para : TddDocumentAtom;
 begin
  { Начало картинки }
  if TopType[1].IsKindOf(k2_typObjectSegment) then
  begin
-  l_P := TddPicture.Create(nil);
+  l_Para := TddPicture.Create(nil);
   try
    if not (f_Seg is TddPictureSegment) then
    begin
@@ -3203,11 +3226,11 @@ begin
     FreeAndNil(f_Seg);
     f_Seg := l_Seg;
    end; // if not (f_Seg is TddPictureSegment) then
-   f_Seg.Data:= l_P;
+   f_Seg.Data:= l_Para;
   finally
-   l3Free(l_P);
+   l3Free(l_Para);
   end;
- end
+ end // if TopType[1].IsKindOf(k2_typObjectSegment) then
  else
  begin
   f_Picture:= TddPicture.Create(nil);
@@ -3359,20 +3382,41 @@ begin
 end;
 
 procedure TddDocument.CloseTable(aScaleCellWidth: Boolean);
+var
+ l_Table: TddTable;
 begin
- if (f_Table <> nil) and not f_Table.Closed then
+ l_Table := Table;
+ if (l_Table <> nil) then
  begin
   // Вычисление ширин ячеек
-  f_Table.CloseTable(aScaleCellWidth, TextWidth);
-  f_Table := f_OuterTable;
-  f_OuterTable := nil;
- end;
+  l_Table.CloseTable(aScaleCellWidth, TextWidth);
+  f_Tables.DeleteLast;
+ end; // if (l_Table <> nil) then
 end;
 
 procedure TddDocument.AddAtomWithoutOneStep(aAtom: TddDocumentAtom);
+var
+ l_Table   : TddTable;
+ l_LastRow : TddTableRow;
+ l_LastCell: TddTableCell;
 begin
- if f_Table <> nil then
-  f_Table.LastRow.LastCell.Add(aAtom)
+ l_Table := Table;
+ if l_Table <> nil then
+ begin
+  l_LastRow := l_Table.GetLastNotClosedRow;
+  if l_LastRow = nil then
+  begin
+   l_Table.AddRow(True);
+   l_LastRow := l_Table.LastRow;
+  end; // if l_LastRow = nil then
+  l_LastCell := l_LastRow.GetLastNonClosedCell;
+  if (l_LastCell = nil) then
+  begin
+   l_Table.LastRow.AddEmptyCell;
+   l_LastCell := l_Table.LastRow.LastCell;
+  end; // if l_LastCell = nil then
+  l_LastCell.Add(aAtom);
+ end // if l_Table <> nil then
  else
   Paragraphs.Add(aAtom);
 end;
@@ -3383,20 +3427,17 @@ var
  l_Nested   : Boolean;
  l_OuterCell: TddTableCell;
 begin
- l_Nested := f_Table <> nil;
+ l_Nested := f_Tables.Count > 0;
  if l_Nested then
- begin
-  f_OuterTable := f_Table;
-  l_OuterCell := f_Table.LastRow.GetLastNonClosedCellOrAddNew;
- end; // if l_Nested then
+  l_OuterCell := f_Tables.Last.LastRow.GetLastNonClosedCellOrAddNew;
  l_Table := TddTable.Create(nil);
  try
-  f_Table := l_Table;
-  f_Table.Nested := l_Nested;
+  l_Table.Nested := l_Nested;
   if l_Nested then
-   l_OuterCell.Add(f_Table)
+   l_OuterCell.Add(l_Table)
   else
-   Paragraphs.Add(f_Table);
+   Paragraphs.Add(l_Table);
+  f_Tables.Add(l_Table);
  finally
   l3Free(l_Table);
  end;
@@ -3712,6 +3753,39 @@ end;
 procedure TddDocumentGenerator.CheckFilterPara(aFromFilter: Boolean);
 begin
 
+end;
+
+procedure TddDocument.DeleteLastTextPara;
+var
+ l_Atom    : TddDocumentAtom;
+ l_Table   : TddTable;
+ l_LastRow : TddTableRow;
+ l_LastCell: TddTableCell;
+begin
+ if f_Paragraphs.Count > 0 then
+ begin
+  l_Table := Table;
+  if l_Table <> nil then
+  begin
+   l_LastRow := l_Table.LastRow;
+   if l_LastRow <> nil then
+   begin
+    l_LastCell := l_LastRow.GetLastNonClosedCell;
+    if l_LastCell <> nil then
+     if (l_LastCell.LastTextPara <> nil) and (l_LastCell.Count > 0) then
+      l_LastCell.Delete(l_LastCell.Count - 1);
+   end; // if l_LastRow <> nil then
+  end // if f_Table <> nil then
+  else
+  begin
+   l_Atom := f_Paragraphs.Last;
+   if (l_Atom <> nil) and l_Atom.IsTextPara then
+    f_Paragraphs.DeleteLast;
+  end;
+ end // if f_Paragraphs.Count > 0 then
+ else
+  if (f_LastPara <> nil) and not f_LastPara.Closed then
+   f_LastPara := nil;
 end;
 
 end.

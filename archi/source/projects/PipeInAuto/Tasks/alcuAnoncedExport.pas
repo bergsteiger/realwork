@@ -31,12 +31,13 @@ type
 implementation
 
 uses
+ l3String,
  csTaskTypes, csExport,
- daTypes,
- dt_Const, dt_Query, l3Date, dt_AttrSchema, dt_Renum, dt_LinkServ,
- SysUtils, {$If defined(AppServerSide)} ddAppConfig, {$IfEnd defined(AppServerSide)} ddServerTask,
+ daTypes, daSchemeConsts,
+ dt_Const, dt_Query, l3Date, dt_AttrSchema, dt_Renum, dt_LinkServ, dt_SrchQueries,
+ StrUtils, SysUtils, {$If defined(AppServerSide)} ddAppConfig, {$IfEnd defined(AppServerSide)} ddServerTask,
  l3Stream, l3FileUtils, l3Types, l3Base, l3Filer, l3DateSt,
- ddUtils, alcuMailServer;
+ ddUtils, alcuMailServer, alcuExport;
 
 function TalcuAnoncedExport.GetFinalExportDirectory: AnsiString;
 begin
@@ -90,12 +91,17 @@ begin
     FreeAndNil(l_List);
   end;
   l_AndQuery.addQueryF(l_Q);
+
+  l_Q := TdtStatusMaskQuery.Create(dstatHang);
+  SQNot(l_Q);
+  l_AndQuery.AddQueryF(l_Q);
+
   {
   l_Q := TdtDocListQuery.Create;
   TdtDocListQuery(l_Q).AddID(16391988);
   TdtDocListQuery(l_Q).AddID(16391989);
   l_AndQuery.addQueryF(l_Q);
-  }
+  {}
   Result := l_AndQuery.GetDocIdList;
   l3System.Msg2Log('Найдено %d анонсированных в дельту %s', [Result.Count, l3DateSt.l3DateToStr(AnoncedDate, 'dd mmm yyyy г')]);
  finally
@@ -105,40 +111,39 @@ end;
 {$IfEnd defined(AppServerSide)}
 
 procedure TalcuAnoncedExport.MakeDocFile;
- var
-  l_Sab       : ISab;
-  lRAProcStub : TdtRecAccessProc;
-  l_Filer     : Tl3DOSFiler;
-  l_FileName  : String;
+var
+ l_Sab       : ISab;
+ lRAProcStub : TdtRecAccessProc;
+ l_HasErrors : Boolean;
+ l_Msg       : AnsiString;
 
  function lRecAccessProc(aItemPtr : Pointer) : Boolean;
  begin
   Result := True;
-  l_Filer.WriteLn(IntToStr(PLongint(aItemPtr)^));
+  l_Msg := l_Msg + IntToStr(PLongint(aItemPtr)^) + #13#10;
  end;
 
 begin
  if DocSab.Count > 0 then
  begin
+  l_HasErrors := ErrorList.Count > 0;
+  l_Msg := 'В дельту анонсированы следующие топики' + IfThen(l_HasErrors, ' (ошибки ниже):'#13#10, ':'#13#10);
   l_Sab:= MakeSabCopy(DocSab);
   l_Sab.TransferToPhoto(rnRealID_fld, LinkServer(CurrentFamily).Attribute[atRenum]);
   l_Sab.ValuesOfKey(rnImportID_fld);
-  l_FileName:= GetAppFolderFileName('anonnced.txt', False);
-  l_Filer:= Tl3DOSFiler.Make(l_FileName, l3_fmWrite);
+  lRAProcStub := L2RecAccessProc(@lRecAccessProc);
   try
-   l_Filer.Open;
-   lRAProcStub := L2RecAccessProc(@lRecAccessProc);
-   try
-    l_Sab.IterateRecords(lRAProcStub);
-   finally
-    FreeRecAccessProc(lRAProcStub);
-   end;
+   l_Sab.IterateRecords(lRAProcStub);
   finally
-   FreeAndNil(l_Filer);
+   FreeRecAccessProc(lRAProcStub);
   end;
+  if l_HasErrors then
+   l_Msg := l_Msg + #13#10'ОШИБКИ:'#13#10 + l3StringListToStr(ErrorList);
   alcuMail.SendEmail(NotifyEMailList,
-                     'Во вложении перечислены документы, анонсированные в указанную дельту',
-                     Format('Анонсированные в дельту %s', [l3DateSt.l3DateToStr(AnoncedDate, 'dd mmm yyyy г')]), l_FileName)
+                     l_Msg,
+                     Format('Анонсированные в дельту %s', [l3DateSt.l3DateToStr(AnoncedDate, 'dd mmmm yyyy г.')]) +
+                       IfThen(l_HasErrors, ' (ОШИБКИ)'),
+                     l_HasErrors);
  end;
 end;
 

@@ -2,7 +2,7 @@ unit VMailWin;
 
 {$Include l3Define.inc}
 
-{ $Id: VMAILWIN.PAS,v 1.1 2015/05/06 08:24:26 dinishev Exp $ }
+{ $Id: VMAILWIN.PAS,v 1.2 2015/11/26 08:45:28 lukyanets Exp $ }
 
 interface
 
@@ -120,6 +120,8 @@ uses
   l3Chars,
   l3InternalInterfaces, 
   l3Stream,
+
+  daSchemeConsts,
 
   ResShop,
   DT_User, 

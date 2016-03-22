@@ -2,6 +2,7 @@ unit CustomAutoTestsSuite;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptTestLibrary\CustomAutoTestsSuite.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "CustomAutoTestsSuite" MUID: (4DC24CA4037E)
 
 interface
 

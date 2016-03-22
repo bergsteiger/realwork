@@ -958,6 +958,9 @@ type
   private
     FArray: TList;
     FObjectMgr: TPdfObjectMgr;
+    {$IFDEF nsTest}
+    FNotTestedData: Boolean;
+    {$ENDIF nsTest}
     function GetItems(Index: integer): TPdfObject; {$ifdef HASINLINE}inline;{$endif}
     function GetItemCount: integer; {$ifdef HASINLINE}inline;{$endif}
   protected
@@ -996,6 +999,9 @@ type
     /// direct access to the internal TList instance
     // - not to be used normaly
     property List: TList read FArray;
+    {$IFDEF nsTest}
+    property NotTestedData: Boolean read FNotTestedData write FNotTestedData;
+    {$ENDIF nsTest}
   end;
 
   /// PDF dictionary element definition
@@ -1242,6 +1248,11 @@ type
 
   /// the main class of the PDF engine, processing the whole PDF document
   TPdfDocument = class(TObject)
+  private
+   f_ForEtalon : Boolean;
+  private
+   function pm_GetForEtalon: Boolean;
+   procedure pm_SetForEtalon(aValue: Boolean);
   protected
     FRoot: TPdfCatalog;
     FCurrentPages: TPdfDictionary;
@@ -1310,7 +1321,7 @@ type
     procedure SetDefaultPageLandscape(const Value: boolean);
     procedure SetFontFallBackName(const Value: string);
     function GetFontFallBackName: string;
-    
+    procedure DoSet4Etalon(aValue: Boolean); virtual;
   protected
     /// can be useful in descendant objects in other units
     fTPdfPageClass: TPdfPageClass;
@@ -1555,6 +1566,9 @@ type
     property PDFA1: boolean read fPDFA1 write SetPDFA1;
     /// set to TRUE to force PDF 1.5 format, which may produce smaller files 
     property GeneratePDF15File: boolean read GetGeneratePDF15File write SetGeneratePDF15File;
+   property ForEtalon: Boolean
+     read pm_GetForEtalon
+     write pm_SetForEtalon;
   end;
 
   /// a PDF page          
@@ -3404,12 +3418,15 @@ var i: integer;
 begin
   inherited;
   W.Add('[');
-  for i := 0 to FArray.Count-1 do
-  with TPdfObject(FArray.List[i]) do begin
-    if (i<>0) and not SpaceNotNeeded then
-      W.Add(' ');
-    WriteTo(W);
-  end;
+  {$IFDEF nsTest}
+  if not NotTestedData then
+  {$ENDIF nsTest}
+   for i := 0 to FArray.Count-1 do
+   with TPdfObject(FArray.List[i]) do begin
+     if (i<>0) and not SpaceNotNeeded then
+       W.Add(' ');
+     WriteTo(W);
+   end;
   W.Add(']');
 end;
 
@@ -3418,6 +3435,9 @@ begin
   inherited Create;
   FArray := TList.Create;
   FObjectMgr := AObjectMgr;
+  {$IFDEF nsTest}
+  FNotTestedData := False;
+  {$ENDIF nsTest}
 end;
 
 constructor TPdfArray.Create(AObjectMgr: TPdfObjectMgr;
@@ -6118,6 +6138,22 @@ begin
 end;
 
 
+procedure TPdfDocument.DoSet4Etalon(aValue: Boolean);
+begin
+
+end;
+
+function TPdfDocument.pm_GetForEtalon: Boolean;
+begin
+ Result := f_ForEtalon;
+end;
+
+procedure TPdfDocument.pm_SetForEtalon(aValue: Boolean);
+begin
+ f_ForEtalon := aValue;
+ DoSet4Etalon(aValue);
+end;
+
 { TPdfCanvas }
 
 constructor TPdfCanvas.Create(APdfDoc: TPdfDocument);
@@ -7471,10 +7507,12 @@ end;
 
 constructor TPdfFontTrueType.Create(ADoc: TPdfDocument; AFontIndex: integer;
   AStyle: TFontStyles; const ALogFont: TLogFontW; AWinAnsiFont: TPdfFontTrueType);
-var W: packed array of TABC;
-    c: AnsiChar;
-    aFontName: PDFString;
-    Flags: integer;    
+var
+ W: packed array of TABC;
+ c: AnsiChar;
+ aFontName: PDFString;
+ Flags: integer;
+ l_PDFArray: TPdfArray;
 begin
   if AWinAnsiFont<>nil then begin
     fWinAnsiFont := AWinAnsiFont;
@@ -7554,8 +7592,13 @@ begin
       Flags := PDF_FONT_STD_CHARSET;
     FFontDescriptor.AddItem('Flags',Flags);
     with fOTM.otmrcFontBox do
-      FFontDescriptor.AddItem('FontBBox',
-        TPdfArray.Create(fDoc.FXref,[Left,Bottom,Right,Top]));
+    begin
+      l_PDFArray := TPdfArray.Create(fDoc.FXref, [Left, Bottom, Right, Top]);
+      {$IFDEF nsTest}
+      l_PDFArray.NotTestedData := ADoc.ForEtalon;
+      {$ENDIF nsTest}
+      FFontDescriptor.AddItem('FontBBox', l_PDFArray);
+    end; // with fOTM.otmrcFontBox do
     Data.AddItem('FontDescriptor',fFontDescriptor);
   end;
   fAscent := fOTM.otmAscent;

@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsbQueryUtils;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\NOT_FINISHED_nsbQueryUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsbQueryUtils" MUID: (4C3183EA0351)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

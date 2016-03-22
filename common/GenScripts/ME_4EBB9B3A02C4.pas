@@ -3,6 +3,7 @@ unit NOT_FINISHED_dd_lcStartDocFormatter;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcStartDocFormatter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tdd_lcStartDocFormatter" MUID: (4EBB9B3A02C4)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -2,6 +2,7 @@ unit kwF1ImportConsultation;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwF1ImportConsultation.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwF1ImportConsultation" MUID: (4DECF7F4001F)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit NOT_FINISHED_ddEVDTypesSupport;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddEVDTypesSupport.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddEVDTypesSupport" MUID: (521B05D60264)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

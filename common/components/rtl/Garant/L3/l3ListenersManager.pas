@@ -2,6 +2,7 @@ unit l3ListenersManager;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ListenersManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ListenersManager" MUID: (4F636139008F)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -24,27 +25,16 @@ type
  Tl3ListenersManager = class(Tl3ProtoObject)
   private
    f_WndProcListeners: Tl3WndProcListenersList;
-    {* Поле для свойства WndProcListeners }
    f_CBTListeners: Tl3CBTListenersList;
-    {* Поле для свойства CBTListeners }
    f_GetMessageListeners: Tl3GetMessageListenersList;
-    {* Поле для свойства GetMessageListeners }
    f_WndProcHook: HHOOK;
-    {* Поле для свойства WndProcHook }
    f_CBTHook: HHOOK;
-    {* Поле для свойства CBTHook }
    f_GetMessageHook: HHOOK;
-    {* Поле для свойства GetMessageHook }
    f_WndProcRetListeners: Tl3WndProcRetListenersList;
-    {* Поле для свойства WndProcRetListeners }
    f_WndProcRetHook: HHOOK;
-    {* Поле для свойства WndProcRetHook }
    f_MouseHook: HHOOK;
-    {* Поле для свойства MouseHook }
    f_MouseListeners: Tl3MouseListenersList;
-    {* Поле для свойства MouseListeners }
    f_MouseWheelListeners: Tl3MouseWheelListenersList;
-    {* Поле для свойства MouseWheelListeners }
   protected
    procedure UpdateHooks;
    procedure Cleanup; override;

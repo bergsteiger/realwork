@@ -2,6 +2,7 @@ unit Menus;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Menus.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Menus" MUID: (47E7ABAE0110)
 
 interface
 

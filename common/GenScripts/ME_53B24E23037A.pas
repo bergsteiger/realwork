@@ -2,13 +2,14 @@
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TaggedDataHolder.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "k2TaggedDataHolder" MUID: (53B24E23037A)
+// Имя типа: "_k2TaggedDataHolder_"
 
 {$Define k2TaggedDataHolder_imp}
 
  _k2TaggedDataHolder_ = class(_k2TaggedDataHolder_Parent_)
   private
    f_TaggedData: Tl3Tag;
-    {* Поле для свойства TaggedData }
   protected
    class function GetTaggedDataType: Tk2Type; virtual; abstract;
    procedure AfterDestroyCalled; override;

@@ -5,9 +5,12 @@ unit l3Memory;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3Memory -                  }
 { Начат: 20.10.1998 17:24             }
-{ $Id: l3Memory.pas,v 1.117 2014/04/23 11:13:54 lulin Exp $ }
+{ $Id: l3Memory.pas,v 1.118 2016/01/26 14:08:40 lulin Exp $ }
 
 // $Log: l3Memory.pas,v $
+// Revision 1.118  2016/01/26 14:08:40  lulin
+// - боремся с выжиранием памяти.
+//
 // Revision 1.117  2014/04/23 11:13:54  lulin
 // - переходим от интерфейсов к объектам.
 //
@@ -345,6 +348,8 @@ type
       procedure SetSizeEx(aNewSize: Long; aGlobal: Bool);
         {-}
       procedure SetSize(aNewSize: Long);
+        {-}
+      procedure SetSizePaged(aNewSize: Long);
         {-}
       procedure WritePtr(const Source: Tl3Ptr; Count: Long);
         {-}
@@ -1005,6 +1010,38 @@ begin
  SetSizeEx(aNewSize, (aNewSize > (High(Word) - 512)));
 end;
 
+procedure Tl3Ptr.SetSizePaged(aNewSize: Long);
+  {-}
+
+ function ExpandSize(aTargetSize: Integer): Integer;
+ const
+  cIncrArray : array [0..3] of Integer = (64 * 1024, 1024, 128, 4);
+  cMaxForTwice : Integer = 1 * 1024 * 1024;
+ var
+  I : Integer;
+ begin
+  if (aTargetSize <= 0) then
+   Result := 0
+  else
+  begin
+   Result := aTargetSize;
+   if Result > cMaxForTwice then
+   // большие массивы не удваиваем а подравниваем под 64мб
+    Result := (aTargetSize div cMaxForTwice + 1) * cMaxForTwice
+   else
+   for I := 0 to High(cIncrArray) do
+    if (aTargetSize > cIncrArray[I]) then
+    begin
+     Result := (aTargetSize div cIncrArray[I]) * cIncrArray[I] * 2;
+     Break;
+    end;//aTargetSize > cIncrArray[I]
+  end;//aTargetSize <= 0
+ end;//ExpandSize
+
+begin
+ SetSize(ExpandSize(aNewSize));
+end;
+  
 procedure Tl3Ptr.WritePtr(const Source: Tl3Ptr; Count: Long);
   {-}
 begin

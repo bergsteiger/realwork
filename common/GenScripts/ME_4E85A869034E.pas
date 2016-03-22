@@ -4,6 +4,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=278837126 }
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evStyleHeaderAdder.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevStyleHeaderAdder" MUID: (4E85A869034E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

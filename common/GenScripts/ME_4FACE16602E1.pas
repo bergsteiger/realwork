@@ -2,6 +2,7 @@ unit ddTablePrim;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTablePrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddTablePrim" MUID: (4FACE16602E1)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -622,7 +623,10 @@ begin
      if l_Row.Cells[CellIndex].Props.IsPercent then
       l_Row.CellWidth[CellIndex] := l3MulDiv(Width, l_Row.CellWidth[CellIndex], 100)
      else // Пикселы
-      l_Row.CellWidth[CellIndex] := 96 * (l_Row.CellWidth[CellIndex])* 144 div 100;
+      if l_Row.CellWidth[CellIndex] = propUndefined then
+       l_Row.CellWidth[CellIndex] := ddDefaultCellWidth
+      else
+       l_Row.CellWidth[CellIndex] := 96 * (l_Row.CellWidth[CellIndex])* 144 div 100;
     end;
     Inc(l_RowWidth, l_Row.CellWidth[CellIndex]);
    end; // for CellIndex
@@ -651,15 +655,15 @@ end;//TddTablePrim.CalculateCellsWidth
 procedure TddTablePrim.CheckPercentCells(aRow: TddTableRow);
 //#UC START# *519C65E700C6_4FACE16602E1_var*
 var
- i: Integer;
- l_Percent: Integer;
+ i, j             : Integer;
+ l_Percent        : Integer;
  l_NonPercentCount: Integer;
 //#UC END# *519C65E700C6_4FACE16602E1_var*
 begin
 //#UC START# *519C65E700C6_4FACE16602E1_impl*
- l_Percent:= 0;
+ l_Percent := 0;
  l_NonPercentCount:= 0;
- for i:= 0 to Pred(aRow.CellCount) do
+ for i := 0 to Pred(aRow.CellCount) do
  begin
    if aRow.CellWidth[i] = ddGetMinimalCellWidth then
     Inc(l_NonPercentCount)
@@ -668,12 +672,18 @@ begin
     Inc(l_Percent, aRow.CellWidth[i]);
  end; // for i
  if l_Percent > 0 then
-  for i:= 0 to Pred(aRow.CellCount) do
+  if (l_NonPercentCount = 0) and (l_Percent = aRow.CellCount) then
+   for j := 0 to Pred(aRow.CellCount) do
+   begin
+    aRow.CellWidth[j] := 100 div l_Percent
+   end   
+  else
+  for j := 0 to Pred(aRow.CellCount) do
   begin
-    if aRow.CellWidth[i] = ddGetMinimalCellWidth then
+    if aRow.CellWidth[j] = ddGetMinimalCellWidth then
     begin
-     aRow.CellWidth[i]:= (100 - l_Percent) div l_NonPercentCount;
-     aRow.Cells[i].Props.IsPercent:= True;
+     aRow.CellWidth[j] := (100 - l_Percent) div l_NonPercentCount;
+     aRow.Cells[j].Props.IsPercent := True;
     end; // aRow.CellWidth[i] = 0
   end; // for i
 //#UC END# *519C65E700C6_4FACE16602E1_impl*
@@ -771,9 +781,10 @@ var
 //#UC END# *519C7E26026D_4FACE16602E1_var*
 begin
 //#UC START# *519C7E26026D_4FACE16602E1_impl*
+ l_Row := LastRow;
+ l_Row.Closed := True;
  if RowCount < 2 then Exit;
  l_PrevRow := Rows[RowCount - 2]; // Предыдущий ряд
- l_Row := LastRow;
  if l_Row.CellCountBySpan < l_PrevRow.CellCountBySpan then { TODO : Нужно учитывать объединенные по горизонтали ячейки }
  begin
   l_PrevCellIndex := l_Row.CellCountBySpan;
@@ -811,12 +822,14 @@ end;//TddTablePrim.CloseTable
 function TddTablePrim.BeforeParseCell: TddTableRow;
 //#UC START# *519C7F2303A2_4FACE16602E1_var*
 var
+ l_NeedAdd: Boolean;
  l_PrevRow: TddTableRow;
  l_PrevCellIndex: Integer;
 //#UC END# *519C7F2303A2_4FACE16602E1_var*
 begin
 //#UC START# *519C7F2303A2_4FACE16602E1_impl*
  Result := LastRow;
+ l_NeedAdd := False;
  if Result = nil then
  begin
   AddRow(False);
@@ -831,10 +844,12 @@ begin
   begin
    Result.CloneCell(l_PrevRow.CellPropBySpan[l_PrevCellIndex]);
    Inc(l_PrevCellIndex, l_PrevRow.CellPropBySpan[l_PrevCellIndex].CellSpan);
+   l_NeedAdd := True;
   end; // while
  end; // f_Table.RowList.Count > 1
- Result.AddCellAndPara(True);
- Result.LastCell.Props.Border.IsFramed := False;
+ if (Result.LastCell = nil) or Result.LastCell.Closed or l_NeedAdd then
+  Result.AddCellAndPara(True);
+ Result.LastCell.Props.Border.IsFramed := False; 
 //#UC END# *519C7F2303A2_4FACE16602E1_impl*
 end;//TddTablePrim.BeforeParseCell
 
@@ -946,20 +961,37 @@ begin
  Result := 0;
  l_Row := f_RowList.First;
  for i := 0 to l_Row.CellCount - 1 do
-  Inc(Result, l_Row.Cells[i].Props.CellOffset);
+  with l_Row.Cells[i].Props do
+   if CellOffset = -1 then
+    Inc(Result, CellWidth)
+   else
+    Inc(Result, CellOffset);
 //#UC END# *5236F13F02F8_4FACE16602E1_impl*
 end;//TddTablePrim.GetFirstRowWidth
 
 function TddTablePrim.IsTableCorrect: Boolean;
  {* Проверяет таблицу на корректность. }
 //#UC START# *5385C5770229_4FACE16602E1_var*
+const
+ cnMaxLeftIndent = 15000;
+var
+ l_RowWidth: Integer;
 //#UC END# *5385C5770229_4FACE16602E1_var*
 begin
 //#UC START# *5385C5770229_4FACE16602E1_impl*
  Result := (f_RowList.Count > 0) and (f_RowList.First.CellCount > 0);
  if Result then
-  if (f_Level > 1) and (f_RowList.Count = 1) and (GetFirstRowWidth < ddGetMinimalCellWidth * 7) then // Не пишем всякий мусор...
-   Result := False; 
+  if (f_Level >= 1) and (f_RowList.Count = 1) then // Не пишем всякий мусор...
+  begin
+   l_RowWidth := GetFirstRowWidth;
+   if (f_Level = 1) then
+    Result := l_RowWidth >= ddGetMinimalCellWidth
+   else
+    Result := l_RowWidth >= ddGetMinimalCellWidth * 7;
+  end // if (f_Level >= 1) and (f_RowList.Count = 1) and (GetFirstRowWidth < ddGetMinimalCellWidth * 7) then
+  else
+   if (f_Level = 1) and (f_RowList.Count >= 1) and (GetFirstRowWidth < ddGetMinimalCellWidth * 7) and (f_RowList.First.TAP.Left > cnMaxLeftIndent) then
+    Result := False;
 //#UC END# *5385C5770229_4FACE16602E1_impl*
 end;//TddTablePrim.IsTableCorrect
 
@@ -1060,7 +1092,7 @@ begin
  {$IFNDEF EverestLite}
  {$IFDEF nsTest}
  else
-  Assert(False, 'Попытка выливать пустую таблицу');
+  Assert(f_Level > 2, 'Попытка выливать пустую таблицу');
  {$ENDIF nsTest}
  {$ENDIF EverestLite}
 //#UC END# *518A504F00F5_4FACE16602E1_impl*
@@ -1137,10 +1169,20 @@ end;//TddTablePrim.IsTable
 
 function TddTablePrim.GetLastPara: TddDocumentAtom;
 //#UC START# *5268DBC503E2_4FACE16602E1_var*
+var
+ l_Row : TddTableRow;
+ l_Cell: TddTableCell;
 //#UC END# *5268DBC503E2_4FACE16602E1_var*
 begin
 //#UC START# *5268DBC503E2_4FACE16602E1_impl*
- Result := LastRow.LastCell.LastTextPara;
+ Result := nil;
+ l_Row := LastRow;
+ if l_Row <> nil then
+ begin
+  l_Cell := LastRow.LastCell;
+  if l_Cell <> nil then
+   Result := LastRow.LastCell.LastTextPara;
+ end; // if l_Row <> nil then
 //#UC END# *5268DBC503E2_4FACE16602E1_impl*
 end;//TddTablePrim.GetLastPara
 

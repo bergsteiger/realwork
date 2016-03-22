@@ -3,6 +3,7 @@ unit NOT_FINISHED_evNSRCGenerator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evNSRCGenerator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevNSRCGenerator" MUID: (4836C0E40166)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

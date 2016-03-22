@@ -2,6 +2,7 @@ unit f1DocumentTagDataFromDTPHandle;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1DocumentTagDataFromDTPHandle.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tf1DocumentTagDataFromDTPHandle" MUID: (4D66AE9800B7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

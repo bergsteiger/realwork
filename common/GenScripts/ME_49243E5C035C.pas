@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsLogicOperationToFlags;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Tree\NOT_FINISHED_nsLogicOperationToFlags.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsLogicOperationToFlags" MUID: (49243E5C035C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

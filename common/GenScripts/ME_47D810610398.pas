@@ -3,6 +3,7 @@ unit l3PureMixIns;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3PureMixIns.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "l3PureMixIns" MUID: (47D810610398)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

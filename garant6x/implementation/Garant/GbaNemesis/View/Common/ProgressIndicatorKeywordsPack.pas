@@ -3,6 +3,7 @@ unit ProgressIndicatorKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\ProgressIndicatorKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "ProgressIndicatorKeywordsPack" MUID: (F2E44CE2B086)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -46,8 +47,8 @@ type
 'aControl' форма::ProgressIndicator TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ProgressIndicator
 
  Tkw_ProgressIndicator_Control_ProgressBar = {final} class(TtfwControlString)
@@ -58,9 +59,9 @@ type
 контрол::ProgressBar TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ProgressIndicator_Control_ProgressBar
 
  Tkw_ProgressIndicator_Control_ProgressBar_Push = {final} class(TkwBynameControlPush)
@@ -99,20 +100,15 @@ OBJECT VAR l_TProgressBar
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEfProgressIndicatorProgressBar
 
-class function Tkw_Form_ProgressIndicator.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ProgressIndicator';
-end;//Tkw_Form_ProgressIndicator.GetWordNameForRegister
-
 function Tkw_Form_ProgressIndicator.GetString: AnsiString;
 begin
  Result := 'efProgressIndicator';
 end;//Tkw_Form_ProgressIndicator.GetString
 
-class function Tkw_ProgressIndicator_Control_ProgressBar.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_ProgressIndicator.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::ProgressBar';
-end;//Tkw_ProgressIndicator_Control_ProgressBar.GetWordNameForRegister
+ Result := 'форма::ProgressIndicator';
+end;//Tkw_Form_ProgressIndicator.GetWordNameForRegister
 
 function Tkw_ProgressIndicator_Control_ProgressBar.GetString: AnsiString;
 begin
@@ -124,6 +120,11 @@ begin
  inherited;
  TtfwClassRef.Register(TProgressBar);
 end;//Tkw_ProgressIndicator_Control_ProgressBar.RegisterInEngine
+
+class function Tkw_ProgressIndicator_Control_ProgressBar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ProgressBar';
+end;//Tkw_ProgressIndicator_Control_ProgressBar.GetWordNameForRegister
 
 procedure Tkw_ProgressIndicator_Control_ProgressBar_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -158,11 +159,6 @@ begin
  aCtx.rEngine.PushObj(ProgressBar(aCtx, l_aefProgressIndicator));
 end;//TkwEfProgressIndicatorProgressBar.DoDoIt
 
-class function TkwEfProgressIndicatorProgressBar.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefProgressIndicator.ProgressBar';
-end;//TkwEfProgressIndicatorProgressBar.GetWordNameForRegister
-
 procedure TkwEfProgressIndicatorProgressBar.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -183,6 +179,11 @@ function TkwEfProgressIndicatorProgressBar.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefProgressIndicator)]);
 end;//TkwEfProgressIndicatorProgressBar.ParamsTypes
+
+class function TkwEfProgressIndicatorProgressBar.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefProgressIndicator.ProgressBar';
+end;//TkwEfProgressIndicatorProgressBar.GetWordNameForRegister
 
 initialization
  Tkw_Form_ProgressIndicator.RegisterInEngine;

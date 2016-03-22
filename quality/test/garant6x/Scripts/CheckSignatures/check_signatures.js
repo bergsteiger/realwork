@@ -1,25 +1,23 @@
-var sBuildDir = WScript.Arguments(0);
-var sOutFile = WScript.Arguments(1);
-
 var FSO = new ActiveXObject("Scripting.FileSystemObject");
 
-if (FSO.FileExists(sOutFile)) FSO.DeleteFile(sOutFile);
-
-function BuildSignatureChecker(
-	sBuildDir
+function BuildSignatureCheckerBase(
+	sBuildDir, bIsWarnOnVersionTxtAbsent
 )
 {
 	var pm_sBuildDir = sBuildDir;
-	//	
-	var pm_arrProductDirs = ["server", "client", "netware", "desktop", "cd_or_dvd\\garant"];
-	var pm_reExcludeFiles = /(\.(txt|reg|s|k|ini|xml|bat)$)|eo\\setup.exe$|-installer\\setup\\support\\/i;
+	//			
+	// should be implemented !!!
+	this.pm_reExcludeFiles = null;
+	this.pm_arrProductDirs = null;
+	this.pm_reInstallerPath = null;
+	this.pm_reProductsPath = null; 
+	
 	var pm_iDaysToWarning = 240;
 	var pm_reDateInCopyright = new RegExp(", \\d{4}-" + new Date().getFullYear() + "\\s*$");
 		
 	var pm_iMsecInDay = 1000*60*60*24;
 	var pm_iNow = new Date().getTime();	
 	var pm_oCurrFile;
-	var pm_reVersion;
 	var pm_oFileErrors = new ActiveXObject("Scripting.Dictionary");
 	
 	var pm_arrErrors = new Array();
@@ -33,13 +31,13 @@ function BuildSignatureChecker(
 		for (var oBFE = new Enumerator(oBuildFolder.SubFolders); !oBFE.atEnd(); oBFE.moveNext()) {
 			var oFolder = oBFE.item();
 			//
-			if (/daily-GARANTF1-.*-installer$/i.test(oFolder.Name))
+			if (this.pm_reInstallerPath.test(oFolder.Name))
 				this.pm_CheckDir(oFolder);
 			else
-				if (/daily-GARANTF1.*/i.test(oFolder.Name))
-					for (var i in pm_arrProductDirs)
+				if (this.pm_reProductsPath.test(oFolder.Name))
+					for (var i in this.pm_arrProductDirs)
 					{
-						var sProductFolder = FSO.BuildPath(oFolder.Path, pm_arrProductDirs[i]);
+						var sProductFolder = FSO.BuildPath(oFolder.Path, this.pm_arrProductDirs[i]);
 						if (!FSO.FolderExists(sProductFolder))
 							this.pm_Error("Не найдена папка " + sProductFolder + "! Возможно, сборка битая!");
 						else
@@ -52,40 +50,46 @@ function BuildSignatureChecker(
 	this.pm_CheckDir = function(
 		oFolder
 	)
-	{
+	{	
 		// на базе информации из version.txt строим регулярное выражение для проверки версии файла
+		var reVersion = null;
 		var sVersionTxt = FSO.BuildPath(oFolder.Path, "version.txt");
 		if (FSO.FileExists(sVersionTxt))
 		{
 			var sVersion = FSO.OpenTextFile(sVersionTxt, 1, false).ReadLine();			
 			var arrRes = sVersion.match(/(\d+)\.0*(\d+)\.0*(\d+)/);
-			pm_reVersion = new RegExp("^" + arrRes[1] + "(\.|,)0?" + arrRes[2] + "(\.|,)" + arrRes[3]);			
+			reVersion = new RegExp("^" + arrRes[1] + "(\.|,)0?" + arrRes[2] + "(\.|,)" + arrRes[3]);			
 		}
-		else
+		else if (bIsWarnOnVersionTxtAbsent)
+		{
 			this.pm_Error("На найден файл " + sVersionTxt + "! Версия файлов в папке " + oFolder.Path + " не проверена!");
+		}
 			
 		// проверяем папку
-		this.pm_CheckFolder(oFolder);
+		this.pm_CheckFolder(oFolder, reVersion);
 	}
 	
 	// Проверяем конкретную папку
 	this.pm_CheckFolder = function(
-		oFolder
+		oFolder,
+		reVersion
 	)
 	{		
 		for (var oFE = new Enumerator(oFolder.Files); !oFE.atEnd(); oFE.moveNext())
 		{
 			pm_oCurrFile = oFE.item();
-			if (!pm_reExcludeFiles.test(pm_oCurrFile.Path))
-				this.pm_CheckFile();			
+			if (!this.pm_reExcludeFiles.test(pm_oCurrFile.Path))
+				this.pm_CheckFile(reVersion);
 		}
 		
 		for (var oSFE = new Enumerator(oFolder.SubFolders); !oSFE.atEnd(); oSFE.moveNext())
-			this.pm_CheckFolder(oSFE.item());	
+			this.pm_CheckFolder(oSFE.item(), reVersion);
 	}
 	
-	this.pm_CheckFile = function()
-	{
+	this.pm_CheckFile = function(
+		reVersion
+	)
+	{	
 		// проверяем подпись
 		var oFSC = new FileSignatureChecker(pm_oCurrFile.Path);				
 		if (oFSC.m_isSignable)
@@ -100,7 +104,7 @@ function BuildSignatureChecker(
 					this.pm_FileError("Срок действия сертификата уже истек " + oFSC.m_oExpDate.toLocaleString() + "!");
 				else if (iDateDiffInDays < pm_iDaysToWarning)
 					this.pm_FileError("Срок действия сертификата истекает через " + iDateDiffInDays + " дней!");
-			}			
+			}
 		
 		// проверяем информацию о версии. Только для exe и dll файлов		
 		if (/exe|dll/i.test(FSO.GetExtensionName(pm_oCurrFile.Path)))
@@ -110,7 +114,7 @@ function BuildSignatureChecker(
 			var sFV = oFIG.Get("FileVersion");
 			if (sFV == null)
 				this.pm_FileError("У файла нет информации о версии!");
-			else if (!pm_reVersion.test(sFV))
+			else if (reVersion && !reVersion.test(sFV))
 				this.pm_FileError("Некорректная версия файла: " + sFV);
 			//
 			var sLC = oFIG.Get("LegalCopyright");
@@ -128,7 +132,7 @@ function BuildSignatureChecker(
 				if (!oMH.m_isHaveValidManifest)
 					this.pm_FileError("У файла нет манифеста или он не валидный!");
 				else
-					if (!pm_reVersion.test(oMH.m_sAssemblyVersion))
+					if (reVersion && !reVersion.test(oMH.m_sAssemblyVersion))
 						this.pm_FileError("В манифесте содержится некорректная версия: " + oMH.m_sAssemblyVersion);
 		}
 	}
@@ -160,8 +164,8 @@ function BuildSignatureChecker(
 	this.GetErrors = function()
 	{
 		var sRes = pm_arrErrors.join("\r\n");
-                if (sRes != "")
-                	sRes += "\r\n\r\n";
+        if (sRes != "")
+           	sRes += "\r\n\r\n";
 		//
 		var arrKeys = pm_oFileErrors.Keys().toArray();
 		for (var i in arrKeys)
@@ -169,6 +173,32 @@ function BuildSignatureChecker(
 			
 		return sRes;		
 	}
+}
+
+
+function GarantF1BuildSignatureChecker(
+	sBuildDir
+)
+{
+	BuildSignatureCheckerBase.apply(this, [sBuildDir, true]);
+	
+	this.pm_reExcludeFiles = /(\.(txt|reg|s|k|ini|xml|bat)$)|eo\\setup.exe$|-installer\\setup\\support\\|F1SendMail\.dll$|Flash\.ocx$|unzdll\.dll$/i;
+	this.pm_arrProductDirs = ["server", "client", "netware", "desktop", "cd_or_dvd\\garant"];
+	this.pm_reInstallerPath = /daily-GARANTF1-.*-installer$/i;
+	this.pm_reProductsPath = /daily-GARANTF1.*/i;
+}
+
+
+function Mini4BuildSignatureChecker(
+	sBuildDir
+)
+{
+	BuildSignatureCheckerBase.apply(this, [sBuildDir, false]);
+	
+	this.pm_reExcludeFiles = /(\.(txt|reg|s|k|ini|xml|bat)$)|eo\\setup.exe$|-installer\\support\\|mini4-setup\\iv-garantSetupRus_ru-ru.exe$/i;
+	this.pm_arrProductDirs = ["mini4", "mini4-setup"];
+	this.pm_reInstallerPath = /daily-GARANT_MINI4.*-installer$/i;
+	this.pm_reProductsPath = /daily-GARANT_MINI4.*/i;
 }
 
 
@@ -326,18 +356,28 @@ function ManifestHelper(
 }
 
 
-var oBSE = new BuildSignatureChecker(sBuildDir);
-oBSE.Check();
-if (oBSE.HasErrors()) {
-	with (FSO.CreateTextFile(sOutFile, true)) {
-          try {
-            Write(oBSE.GetErrors());
-          } catch (oEx) {
-          }
-          Close();
-        }
-	FSO.CopyFile(	
-		sOutFile,
-		FSO.BuildPath(FSO.GetSpecialFolder(2).Path, FSO.GetFileName(sOutFile) + "." + new Date().getTime())
-	);
+function DoCheck(
+	oCheckerClass,
+	sBuildDir,
+	sOutFile
+)
+{
+	if (FSO.FileExists(sOutFile))
+		FSO.DeleteFile(sOutFile);
+	
+	var oBSE = new oCheckerClass(sBuildDir);
+	oBSE.Check();
+	if (oBSE.HasErrors()) {
+		with (FSO.CreateTextFile(sOutFile, true)) {
+			  try {
+				Write(oBSE.GetErrors());
+			  } catch (oEx) {
+			  }
+			  Close();
+			}
+		FSO.CopyFile(	
+			sOutFile,
+			FSO.BuildPath(FSO.GetSpecialFolder(2).Path, FSO.GetFileName(sOutFile) + "." + new Date().getTime())
+		);
+	}
 }

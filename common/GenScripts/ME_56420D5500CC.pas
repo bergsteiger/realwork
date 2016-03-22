@@ -2,6 +2,7 @@ unit kwCompiledScriptCompileStringAndProcess;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledScriptCompileStringAndProcess.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledScriptCompileStringAndProcess" MUID: (56420D5500CC)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

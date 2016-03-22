@@ -1,86 +1,60 @@
 unit ScrollAndCheckCursorTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/ScrollAndCheckCursorTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EditorTests::TScrollAndCheckCursorTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\ScrollAndCheckCursorTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TScrollAndCheckCursorTest" MUID: (4D6B85E6037B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  TextEditorVisitor
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , TextEditorVisitor
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TScrollAndCheckCursorTest = {abstract} class(TTextEditorVisitor)
- protected
- // realized methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure DoVisit(aForm: TPrimTextLoadForm); override;
-     {* Обработать текст }
-   {$IfEnd} //nsTest AND not NoVCM
- protected
- // overridden protected methods
+    {* Обработать текст }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   {$If defined(nsTest) AND not defined(NoVCM)}
+    {* Папка в которую входит тест }
+   {$If NOT Defined(NoVCM)}
    function F1Like: Boolean; override;
-   {$IfEnd} //nsTest AND not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TScrollAndCheckCursorTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TScrollAndCheckCursorTest
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TScrollAndCheckCursorTest.DoVisit(aForm: TPrimTextLoadForm);
+ {* Обработать текст }
 //#UC START# *4BE419AF0217_4D6B85E6037B_var*
 var
  i : Integer;
@@ -93,15 +67,13 @@ begin
  Check(aForm.Text.Selection.Cursor.AtStart);
 //#UC END# *4BE419AF0217_4D6B85E6037B_impl*
 end;//TScrollAndCheckCursorTest.DoVisit
-{$IfEnd} //nsTest AND not NoVCM
 
 function TScrollAndCheckCursorTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TScrollAndCheckCursorTest.GetFolder
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 function TScrollAndCheckCursorTest.F1Like: Boolean;
 //#UC START# *4C9B31F6015E_4D6B85E6037B_var*
 //#UC END# *4C9B31F6015E_4D6B85E6037B_var*
@@ -110,14 +82,13 @@ begin
  Result := True;
 //#UC END# *4C9B31F6015E_4D6B85E6037B_impl*
 end;//TScrollAndCheckCursorTest.F1Like
-{$IfEnd} //nsTest AND not NoVCM
 
 function TScrollAndCheckCursorTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D6B85E6037B';
 end;//TScrollAndCheckCursorTest.GetModelElementGUID
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

@@ -3,6 +3,8 @@ unit ReleaseToK;
 
 // Модуль: "w:\common\components\SearchTest\ReleaseToK.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "ReleaseToK" MUID: (BA6E3EC73E04)
+// Имя типа: "TReleaseToK"
 
 interface
 

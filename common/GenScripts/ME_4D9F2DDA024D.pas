@@ -2,6 +2,8 @@ unit NemesisTestRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\NemesisTestRes.pas"
 // Стереотип: "VCMTestApplication"
+// Элемент модели: "NemesisTest" MUID: (4D9F2DDA024D)
+// Имя типа: "TNemesisTestRes"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

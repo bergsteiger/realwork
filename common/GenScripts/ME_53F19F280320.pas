@@ -2,6 +2,7 @@ unit csCourtsListHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csCourtsListHelper.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "csCourtsListHelper" MUID: (53F19F280320)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

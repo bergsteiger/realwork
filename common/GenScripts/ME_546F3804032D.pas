@@ -2,6 +2,7 @@ unit ncsOneFileDeliverer;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsOneFileDeliverer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsOneFileDeliverer" MUID: (546F3804032D)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
@@ -236,7 +237,10 @@ begin
     try
      repeat
       if not f_Transporter.Processing then
+      begin
+       l3System.Msg2Log('Обшика доставки - обрыв связи');
        Exit;
+      end;
       l_Message := TncsGetFilePart.Create;
       try
        l_Message.TaskID := f_TaskID;
@@ -249,14 +253,23 @@ begin
         g_WaitFile.Start;
         try
          if not f_Transporter.WaitForReply(l_Message, l_RawReply) then
+         begin
+          l3System.Msg2Log('Обшика доставки - не дождались ответа на запрос файла');
           Exit;
+         end;
         finally
          g_WaitFile.Stop;
-        end; 
+        end;
         if not (l_RawReply is TncsGetFilePartReply) then
+        begin
+         l3System.Msg2Log('Обшика доставки - нераспознанный ответ на запрос файла');
          Exit;
+        end;
         if not TncsGetFilePartReply(l_RawReply).IsSuccess then
+        begin
+         l3System.Msg2Log('Обшика доставки - неуспешный ответ на запрос файла');
          Exit;
+        end;
        finally
         FreeAndNil(l_RawReply);
        end;

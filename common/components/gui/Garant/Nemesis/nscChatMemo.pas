@@ -3,6 +3,7 @@ unit nscChatMemo;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscChatMemo.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscChatMemo" MUID: (4A8A8739017D)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

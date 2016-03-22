@@ -2,6 +2,7 @@ unit GroupsTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\GroupsTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "GroupsTree" MUID: (49DF2E21014A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

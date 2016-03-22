@@ -2,6 +2,7 @@ unit alcuAACImportTaskResult;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAACImportTaskResult.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuAACImportTaskResult" MUID: (53EB0E6000D4)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

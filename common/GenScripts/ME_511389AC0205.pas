@@ -2,6 +2,7 @@ unit vcmFormsUtils;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmFormsUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmFormsUtils" MUID: (511389AC0205)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

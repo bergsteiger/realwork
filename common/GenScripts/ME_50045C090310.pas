@@ -2,6 +2,7 @@ unit atQueryLogicOperationConverter;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atQueryLogicOperationConverter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatQueryLogicOperationConverter" MUID: (50045C090310)
 
 interface
 

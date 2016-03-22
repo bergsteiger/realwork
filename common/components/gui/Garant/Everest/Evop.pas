@@ -5,9 +5,12 @@ unit evOp;
 { Автор: Люлин А.В.     }
 { Модуль: evOp - описание операций редактирования}
 { Начат: 20.03.97 16:51 }
-{ $Id: Evop.pas,v 1.20 2012/11/27 11:50:05 dinishev Exp $ }
+{ $Id: Evop.pas,v 1.21 2016/03/09 15:18:26 lulin Exp $ }
 
 // $Log: Evop.pas,v $
+// Revision 1.21  2016/03/09 15:18:26  lulin
+// - перегенерация.
+//
 // Revision 1.20  2012/11/27 11:50:05  dinishev
 // {Requestlink:410628348}
 //
@@ -46,7 +49,7 @@ unit evOp;
 // - new behavior: Backspace теперь нормально работает в "резиновых" таблицах.
 //
 // Revision 1.10  2002/05/17 10:41:07  law
-// - new commands: ev_ocDeleteWordLeft, ev_ocDeleteWordRight.
+// - new _commands: ev_ocDeleteWordLeft, ev_ocDeleteWordRight.
 //
 // Revision 1.9  2001/06/06 12:43:52  law
 // - new behavior: частично сделано разделение ячеек по вертикали.

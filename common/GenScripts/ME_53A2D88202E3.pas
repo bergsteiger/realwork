@@ -2,6 +2,7 @@ unit csMessageRecepientList;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csMessageRecepientList.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "csMessageRecepientList" MUID: (53A2D88202E3)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

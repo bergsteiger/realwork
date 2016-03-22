@@ -2,6 +2,7 @@ unit RoundedButton;
 
 // Модуль: "w:\common\components\SandBox\RoundedButton.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TRoundedButton" MUID: (517C0F9C03C3)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

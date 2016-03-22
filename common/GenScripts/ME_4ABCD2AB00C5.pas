@@ -2,6 +2,8 @@ unit FoldersElementInfo_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\FoldersElementInfo_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "FoldersElementInfo" MUID: (4ABCD2AB00C5)
+// Имя типа: "TenFoldersElementInfo"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,8 @@ unit fsMedicFirmDocument;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\fsMedicFirmDocument.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "MedicFirmDocument" MUID: (4AA12BC400A6)
+// Имя типа: "Tfs_MedicFirmDocument"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

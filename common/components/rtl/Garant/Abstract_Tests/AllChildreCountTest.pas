@@ -1,85 +1,60 @@
 unit AllChildreCountTest;
+ {* Тест для подсчета количества AllChildrenCount у тегов документа. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Tests"
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Tests/AllChildreCountTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::Abstract Tests::EditorTests::TAllChildreCountTest
-//
-// Тест для подсчета количества AllChildrenCount у тегов документа.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\AllChildreCountTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TAllChildreCountTest" MUID: (4EBB6A5802A5)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  l3Filer
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  TextViaEditorProcessorPrim
-  {$IfEnd} //nsTest AND not NoVCM
-  ,
-  l3Variant
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , TextViaEditorProcessorPrim
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Filer
+ , l3Variant
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TAllChildreCountTest = {abstract} class(TTextViaEditorProcessorPrim)
   {* Тест для подсчета количества AllChildrenCount у тегов документа. }
- private
- // private fields
-   f_Filer : Tl3CustomFiler;
- private
- // private methods
+  private
+   f_Filer: Tl3CustomFiler;
+  private
    procedure CheckTag(aTag: Tl3Tag);
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt;
  end;//TAllChildreCountTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  l3Types,
-  SysUtils,
-  k2Tags,
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , l3Types
+ , SysUtils
+ , k2Tags
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TAllChildreCountTest
-
+{$If NOT Defined(NoVCM)}
 procedure TAllChildreCountTest.CheckTag(aTag: Tl3Tag);
 //#UC START# *4EBB7150025C_4EBB6A5802A5_var*
 
@@ -129,17 +104,17 @@ begin
 end;//TAllChildreCountTest.DoIt
 
 function TAllChildreCountTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TAllChildreCountTest.GetFolder
 
 function TAllChildreCountTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4EBB6A5802A5';
 end;//TAllChildreCountTest.GetModelElementGUID
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

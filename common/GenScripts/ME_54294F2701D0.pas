@@ -3,6 +3,8 @@ unit kwOpenPrimeForm;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwOpenPrimeForm.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "OpenPrimeForm" MUID: (54294F2701D0)
+// Имя типа: "TkwOpenPrimeForm"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

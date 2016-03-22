@@ -3,6 +3,7 @@ unit deList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\deList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdeList" MUID: (47F33E9E03C8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -99,6 +100,7 @@ begin
  f_SearchInfo := aSearchInfo;
  f_AllDocumentsFiltered := aAllDocumentsFiltered;
  f_NeedApplyPermanentFilters := aNeedApplyPermanentFilters;
+ f_IsChanged := aIsChanged;
 //#UC END# *4B1F76940201_47F33E9E03C8_impl*
 end;//TdeList.Create
 

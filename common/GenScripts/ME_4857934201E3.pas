@@ -2,6 +2,8 @@ unit evFormula_InterfaceFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evFormula_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
+// Элемент модели: "TevFormula" MUID: (4857934201E3)
+// Имя типа: "TevFormulaInterfaceFactory"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

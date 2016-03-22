@@ -3,6 +3,8 @@ unit kwClearFindDialog;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearFindDialog.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "ClearFindDialog" MUID: (533433C700C0)
+// Имя типа: "TkwClearFindDialog"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

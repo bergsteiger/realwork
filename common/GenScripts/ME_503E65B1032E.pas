@@ -2,6 +2,7 @@ unit atWordPositionConverter;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\InteropWithL3\atWordPositionConverter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatWordPositionConverter" MUID: (503E65B1032E)
 
 interface
 

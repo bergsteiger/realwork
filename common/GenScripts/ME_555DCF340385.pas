@@ -2,6 +2,7 @@ unit evdCustomNativeWriterServices;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdCustomNativeWriterServices.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evdCustomNativeWriterServices" MUID: (555DCF340385)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

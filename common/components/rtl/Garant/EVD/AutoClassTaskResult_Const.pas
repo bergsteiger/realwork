@@ -5,7 +5,7 @@ unit AutoClassTaskResult_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/AutoClassTaskResult_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::AutoClassTaskResult
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::AutoClassTaskResult
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

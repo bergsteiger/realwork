@@ -2,6 +2,7 @@ unit evQueryGroupList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evQueryGroupList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevQueryGroupList" MUID: (47D019BE0158)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

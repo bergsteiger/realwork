@@ -2,6 +2,8 @@ unit DocumentWithFlash_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\DocumentWithFlash_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "DocumentWithFlash" MUID: (4989E67D00C0)
+// Имя типа: "TDocumentWithFlashForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

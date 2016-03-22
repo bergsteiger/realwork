@@ -1,9 +1,15 @@
 unit ddHTMLParser;
 {* Разборщик HTML на теги }
 
-{ $Id: ddHTMLParser.pas,v 1.16 2015/02/03 14:10:36 dinishev Exp $ }
+{ $Id: ddHTMLParser.pas,v 1.18 2016/01/26 15:01:22 dinishev Exp $ }
 
 // $Log: ddHTMLParser.pas,v $
+// Revision 1.18  2016/01/26 15:01:22  dinishev
+// Bug fix: падали с Assert'ом.
+//
+// Revision 1.17  2015/12/03 08:54:23  dinishev
+// {Requestlink:609139066}
+//
 // Revision 1.16  2015/02/03 14:10:36  dinishev
 // {Requestlink:522781827}. http://mdp.garant.ru/pages/viewpage.action?pageId=522781827&focusedCommentId=587164438#comment-587164438
 //
@@ -63,11 +69,18 @@ uses
   ;
 
 type
+ TddIgnoreComment = (dd_icNone, dd_icHTML, dd_icAll);
+ 
+const
+ csIgnoreHTML = [dd_icHTML, dd_icAll];
+
+type
  TddHTMLParser = class(Tl3CustomParser)
  private
   f_KeywordStartChar: AnsiChar;
-  f_IgnoreHTMLComment: Boolean;
+  f_IgnoreHTMLComment: TddIgnoreComment;
   f_UnknownKeyword: Tl3KeyWord;
+  f_PrevSourceLine: Integer;
  protected
   function IsCommentBracket(anOpen: Boolean): Boolean; override;
     {* - чтение комментария из нескольких символов. }
@@ -81,10 +94,13 @@ type
  public
     {public methods}
   constructor Create;
-  property IgnoreHTMLComment: Boolean read f_IgnoreHTMLComment write f_IgnoreHTMLComment;
+  property IgnoreHTMLComment: TddIgnoreComment read f_IgnoreHTMLComment write f_IgnoreHTMLComment;
   property KeywordStartChar: AnsiChar read f_KeywordStartChar write
       f_KeywordStartChar;
+  property PrevSourceLine: Integer read f_PrevSourceLine write f_PrevSourceLine;
  end;
+
+ RddHTMLParser = class of TddHTMLParser;
 
 const
  cUnknownKeyword = MaxInt;
@@ -117,6 +133,8 @@ begin
  KeywordStartChar:= '<';
  FillKeywords;
  f_UnknownKeyword := Tl3KeyWord.Create('unknown', cUnknownKeyword);
+ f_PrevSourceLine := SourceLine;
+ f_IgnoreHTMLComment := dd_icNone;
 end;
 
 procedure TddHTMLParser.CheckKeyWord;
@@ -144,22 +162,22 @@ var
  l_C: AnsiChar;
  l_EnableKeyword: Boolean;
 begin//CheckSingleChar
- l_EnableKeyword:= KeywordStartChar = #0;
- l_C:= aChar;
+ l_EnableKeyword := KeywordStartChar = #0;
+ l_C := aChar;
  if (l_C in WordChars) then
  begin
   if not CheckKeywords or (CheckKeywords and (l_C <> KeywordStartChar)) then
    aString.Append(l_C, 1, Filer.CodePage)
   else
   if l_C = KeywordStartChar then
-   l_EnableKeyword:= True;
+   l_EnableKeyword := True;
   while not Filer.EOF do
   begin
    l_C := Filer.GetC.rAC;
    if CheckKeywords and (l_C = KeywordStartChar) then
    begin
-     Filer.UngetC;
-     break;
+    Filer.UngetC;
+    Break;
    end
    else
     if (l_C in WordChars) then
@@ -170,7 +188,7 @@ begin//CheckSingleChar
     else
     begin
      Filer.UngetC;
-     break;
+     Break;
     end;//AddDigits2WordChars AND (l_C in cc_Digits)
   end;//while true
   Result := l3_ttSymbol;
@@ -192,6 +210,7 @@ procedure TddHTMLParser.Cleanup;
 begin
  inherited;
  FreeAndNil(f_UnknownKeyword);
+ f_IgnoreHTMLComment := dd_icNone;
 end;
 
 procedure TddHTMLParser.FillKeywords;
@@ -235,7 +254,7 @@ begin
    Result := l_Char = CloseComment[i];
   if not Result then Break;
  end; // for i := 2 to l_Count do
- if f_IgnoreHTMLComment and Result then
+ if (f_IgnoreHTMLComment in csIgnoreHTML) and Result then
  begin
   l_Char := Filer.GetC.rAC;
   Result := False;
@@ -256,6 +275,8 @@ begin
   begin
    l_Char := Filer.GetC.rAC;
    Result := l_Char = casCSSComment[anOpen][2];
+   if (f_IgnoreHTMLComment = dd_icAll) and Result then
+    Result := False;
    if not Result then
     Filer.UngetC;
   end; // if (aChar = casCSSComment[anOpen][1]) then

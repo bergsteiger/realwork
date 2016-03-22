@@ -2,6 +2,8 @@ unit UnderControl_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControl\UnderControl_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "UnderControl" MUID: (4CCAC71C0347)
+// Имя типа: "TUnderControlModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

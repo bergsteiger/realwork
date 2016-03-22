@@ -129,12 +129,7 @@ implementation
 
 {$If not defined(NoVCM)}
 uses
-  vcmCustOpsRepGroupList
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
+  vcmCustOpsRepGroupList,
   l3MessageID,
   SysUtils,
   vcmMenus
@@ -147,6 +142,11 @@ uses
   ,
   kw_TasksPanelMenu_opCustomize
   {$IfEnd} //not NoScripts AND not NoVCM
+  
+  {$If not defined(NoScripts)}
+  ,
+  TtfwClassRef_Proxy
+  {$IfEnd} //not NoScripts
   
   {$If not defined(NoScripts)}
   ,

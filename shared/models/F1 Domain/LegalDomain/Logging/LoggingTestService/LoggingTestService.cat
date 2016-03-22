@@ -31,7 +31,23 @@
 	(object Attribute
 	    tool       	"MDA Generator"
 	    name       	"SourceType (wiki)"
-	    value      	"wiki"))
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script)"
+	    value      	"w:/shared/models/NewSchool/Scripts/55B9FF5B03CB.pas.ms.script")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script.runner)"
+	    value      	"w:/shared/models/NewSchool/Scripts/55B9FF5B03CB.pas.ms.script.runner")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script.runner)"
+	    value      	"file"))
     quid       	"55B9FF5B03CB"
     stereotype 	"Unit"
     visible_categories 	(list visibility_relationship_list
@@ -46,7 +62,11 @@
 	(object Visibility_Relationship
 	    quid       	"55BA401501E3"
 	    supplier   	"Logical View::Shared Delphi Low Level::L3$Visual::l3VCLExtensions"
-	    quidu      	"47E21C730035"))
+	    quidu      	"47E21C730035")
+	(object Visibility_Relationship
+	    quid       	"566AECB20373"
+	    supplier   	"Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingWrapperInterfaces"
+	    quidu      	"55B75E6E034C"))
     exportControl 	"Public"
     logical_models 	(list unit_reference_list
 	(object Class "TnsLoggingTestService"
@@ -156,7 +176,11 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (wiki)"
-		    value      	"wiki"))
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NESTED GENERATED WikiPageID (wiki)"
+		    value      	"Nemesis,key:NMS,guid:498B35810374/Home/Ѕазовые определени€ предметной области/LegalDomain/Logging/LoggingTestService/TnsLoggingTestService/AddLogString|55BA022F011C::55BA022F011C"))
 	    quid       	"55B9FFCB020F"
 	    stereotype 	"SimpleClass"
 	    superclasses 	(list inheritance_relationship_list
@@ -186,7 +210,7 @@
 			    value      	"false"))
 		    quid       	"55BA01F10098"
 		    stereotype 	"uses"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::SysUtils"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::SysUtils"
 		    quidu      	"47877EB202FB")
 		(object Uses_Relationship
 		    attributes 	(list Attribute_Set
@@ -206,6 +230,16 @@
 		    stereotype 	"uses"
 		    supplier   	"Logical View::Shared Delphi Low Level::L3$Visual::l3VCLExtensions::l3VCLStrings::Tl3Strings"
 		    quidu      	"48721F730220"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1449847999918014"))
+		    quid       	"566AECBF0368"
+		    supplier   	"Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingWrapperInterfaces::InsLoggingTestService"
+		    quidu      	"566AEC770091"))
 	    language   	"MDA Generator"
 	    nestedClasses 	(list nestedClasses
 		(object Class "StartListening"
@@ -336,72 +370,7 @@
 			    concurrency 	"Sequential"
 			    opExportControl 	"Private"
 			    uid        	0
-			    quidu      	"431841610361")))
-		(object Class "AddLogString"
-		    attributes 	(list Attribute_Set
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"ElementCreationOrder"
-			    value      	"1438253615294524")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"AbstarctOperation"
-			    value      	"final")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"IsNative"
-			    value      	"false")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"WikiPageID (wiki)"
-			    value      	"Nemesis,key:NMS,guid:498B35810374/Home/Ѕазовые определени€ предметной области/LegalDomain/Logging/LoggingTestService/TnsLoggingTestService/AddLogString|55BA022F011C")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"SourceType (wiki)"
-			    value      	"wiki")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"intf.pas:*55BA022F011C_55B9FFCB020F_var*"
-			    value      	"//#UC START# *55BA022F011C_55B9FFCB020F_var*§//#UC END# *55BA022F011C_55B9FFCB020F_var*")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"intf.pas:*55BA022F011C_55B9FFCB020F_impl*"
-			    value      	"//#UC START# *55BA022F011C_55B9FFCB020F_impl*§ if f_Listening then§  f_LogRecords.Add(aString);§//#UC END# *55BA022F011C_55B9FFCB020F_impl*"))
-		    quid       	"55BA022F011C"
-		    stereotype 	"method"
-		    operations 	(list Operations
-			(object Operation "DoIt"
-			    attributes 	(list Attribute_Set
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ElementCreationOrder"
-				    value      	"1438253626704542")
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"AbstarctOperation"
-				    value      	"final")
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"IsNative"
-				    value      	"false"))
-			    quid       	"55BA023A02B6"
-			    parameters 	(list Parameters
-				(object Parameter "aString"
-				    attributes 	(list Attribute_Set
-					(object Attribute
-					    tool       	"MDA Generator"
-					    name       	"ElementCreationOrder"
-					    value      	"1438253633854553")
-					(object Attribute
-					    tool       	"MDA Generator"
-					    name       	"ResolvedTypeGuid"
-					    value      	"476136D3010B"))
-				    quid       	"55BA02410356"
-				    type       	"String"
-				    quidu      	"431841610361"))
-			    concurrency 	"Sequential"
-			    opExportControl 	"Private"
-			    uid        	0)))))
+			    quidu      	"431841610361")))))
 	(object Association "$UNNAMED$0"
 	    attributes 	(list Attribute_Set
 		(object Attribute
@@ -426,7 +395,7 @@
 			    value      	"1438253948165038"))
 		    quid       	"55BA00AC0098"
 		    label      	"f_Listening"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean"
 		    quidu      	"46A603BB0391"
 		    Containment 	"By Value"
 		    exportControl 	"Private"
@@ -585,6 +554,56 @@
 		    vertices   	(list Points
 			(663, 309)
 			(1001, 315))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingWrapperInterfaces::InsLoggingTestService" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1117, 644)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(877, 616)
+			nlines     	1
+			max_width  	480
+			justify    	0
+			label      	"InsLoggingTestService")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(877, 566)
+			anchor     	10
+			nlines     	1
+			max_width  	480
+			justify    	0
+			label      	"<<Facet>>")
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"566AEC770091"
+		    width      	498
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @5
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"566AECBF0368"
+		    client     	@1
+		    supplier   	@4
+		    vertices   	(list Points
+			(593, 397)
+			(926, 553))
 		    line_style 	0)))
 	(object ClassDiagram "uses"
 	    attributes 	(list Attribute_Set
@@ -600,7 +619,7 @@
 	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
-		(object CategoryView "Logical View::Shared Delphi Low Level::L3::l3CoreObjects" @4
+		(object CategoryView "Logical View::Shared Delphi Low Level::L3::l3CoreObjects" @6
 		    location   	(864, 188)
 		    font       	(object Font
 			size       	10
@@ -613,14 +632,14 @@
 			color      	5263560
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@4
+			Parent_View 	@6
 			location   	(720, 153)
 			nlines     	2
 			max_width  	288
 			justify    	0
 			label      	"l3CoreObjects")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@4
+			Parent_View 	@6
 			location   	(720, 103)
 			anchor     	10
 			nlines     	1
@@ -633,7 +652,7 @@
 		    quidu      	"47913B47006E"
 		    width      	300
 		    height     	182)
-		(object CategoryView "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingTestService" @5
+		(object CategoryView "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingTestService" @7
 		    location   	(316, 216)
 		    font       	(object Font
 			size       	10
@@ -646,14 +665,14 @@
 			color      	5263560
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@5
+			Parent_View 	@7
 			location   	(119, 175)
 			nlines     	2
 			max_width  	394
 			justify    	0
 			label      	"LoggingTestService")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@5
+			Parent_View 	@7
 			location   	(119, 125)
 			anchor     	10
 			nlines     	1
@@ -666,17 +685,17 @@
 		    quidu      	"55B9FF5B03CB"
 		    width      	406
 		    height     	194)
-		(object ImportView "" @6
+		(object ImportView "" @8
 		    stereotype 	TRUE
 		    line_color 	3342489
 		    quidu      	"55BA007F03C3"
-		    client     	@5
-		    supplier   	@4
+		    client     	@7
+		    supplier   	@6
 		    vertices   	(list Points
 			(519, 205)
 			(713, 195))
 		    line_style 	0)
-		(object CategoryView "Logical View::Shared Delphi “ребования к низкоуровневым библиотекам::L3$Domain::l3Interfaces" @7
+		(object CategoryView "Logical View::Shared Delphi “ребования к низкоуровневым библиотекам::L3$Domain::l3Interfaces" @9
 		    location   	(905, 490)
 		    font       	(object Font
 			size       	10
@@ -689,14 +708,14 @@
 			color      	16714250
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@7
+			Parent_View 	@9
 			location   	(745, 455)
 			nlines     	2
 			max_width  	320
 			justify    	0
 			label      	"Х l3Interfaces")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@7
+			Parent_View 	@9
 			location   	(745, 405)
 			anchor     	10
 			nlines     	1
@@ -709,17 +728,17 @@
 		    quidu      	"4677FBA70343"
 		    width      	332
 		    height     	182)
-		(object ImportView "" @8
+		(object ImportView "" @10
 		    stereotype 	TRUE
 		    line_color 	3342489
 		    quidu      	"55BA3FFF00B0"
-		    client     	@5
-		    supplier   	@7
+		    client     	@7
+		    supplier   	@9
 		    vertices   	(list Points
 			(519, 310)
 			(738, 412))
 		    line_style 	0)
-		(object CategoryView "Logical View::Shared Delphi Low Level::L3$Visual::l3VCLExtensions" @9
+		(object CategoryView "Logical View::Shared Delphi Low Level::L3$Visual::l3VCLExtensions" @11
 		    location   	(804, 837)
 		    font       	(object Font
 			size       	10
@@ -732,14 +751,14 @@
 			color      	5263560
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@9
+			Parent_View 	@11
 			location   	(656, 786)
 			nlines     	2
 			max_width  	296
 			justify    	0
 			label      	"l3VCLExtensions")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@9
+			Parent_View 	@11
 			location   	(656, 736)
 			anchor     	10
 			nlines     	1
@@ -752,12 +771,12 @@
 		    quidu      	"47E21C730035"
 		    width      	308
 		    height     	214)
-		(object ImportView "" @10
+		(object ImportView "" @12
 		    stereotype 	TRUE
 		    line_color 	3342489
 		    quidu      	"55BA401501E3"
-		    client     	@5
-		    supplier   	@9
+		    client     	@7
+		    supplier   	@11
 		    vertices   	(list Points
 			(392, 313)
 			(677, 675))
@@ -780,7 +799,7 @@
 	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
-		(object ClassView "Class" "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingTestService::TnsLoggingTestService::StartListening" @11
+		(object ClassView "Class" "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingTestService::TnsLoggingTestService::StartListening" @13
 		    ShowCompartmentStereotypes 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
@@ -797,7 +816,7 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@11
+			Parent_View 	@13
 			location   	(86, 909)
 			fill_color 	13434879
 			nlines     	1
@@ -805,7 +824,7 @@
 			justify    	0
 			label      	"Х StartListening")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@11
+			Parent_View 	@13
 			location   	(86, 859)
 			fill_color 	13434879
 			anchor     	10
@@ -820,7 +839,7 @@
 		    height     	230
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingTestService::TnsLoggingTestService::StopListening" @12
+		(object ClassView "Class" "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingTestService::TnsLoggingTestService::StopListening" @14
 		    ShowCompartmentStereotypes 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
@@ -837,7 +856,7 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@12
+			Parent_View 	@14
 			location   	(92, 1169)
 			fill_color 	13434879
 			nlines     	1
@@ -845,7 +864,7 @@
 			justify    	0
 			label      	"Х StopListening")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@12
+			Parent_View 	@14
 			location   	(92, 1119)
 			fill_color 	13434879
 			anchor     	10
@@ -860,7 +879,7 @@
 		    height     	230
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingTestService::TnsLoggingTestService::GetLogStrings" @13
+		(object ClassView "Class" "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingTestService::TnsLoggingTestService::GetLogStrings" @15
 		    ShowCompartmentStereotypes 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
@@ -877,7 +896,7 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@13
+			Parent_View 	@15
 			location   	(100, 1433)
 			fill_color 	13434879
 			nlines     	1
@@ -885,7 +904,7 @@
 			justify    	0
 			label      	"Х GetLogStrings")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@13
+			Parent_View 	@15
 			location   	(100, 1383)
 			fill_color 	13434879
 			anchor     	10
@@ -897,8 +916,8 @@
 		    fill_color 	15781360
 		    quidu      	"55BA01020317"
 		    compartment 	(object Compartment
-			Parent_View 	@13
-			location   	(100, 1548)
+			Parent_View 	@15
+			location   	(100, 1538)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -919,66 +938,7 @@
 		    height     	288
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingTestService::TnsLoggingTestService::AddLogString" @14
-		    ShowCompartmentStereotypes 	TRUE
-		    IncludeAttribute 	TRUE
-		    IncludeOperation 	TRUE
-		    ShowOperationSignature 	TRUE
-		    location   	(312, 1848)
-		    font       	(object Font
-			size       	10
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	FALSE
-			underline  	FALSE
-			strike     	FALSE
-			color      	0
-			default_color 	TRUE)
-		    label      	(object ItemLabel
-			Parent_View 	@14
-			location   	(92, 1766)
-			fill_color 	13434879
-			nlines     	1
-			max_width  	440
-			justify    	0
-			label      	"Х AddLogString")
-		    stereotype 	(object ItemLabel
-			Parent_View 	@14
-			location   	(92, 1716)
-			fill_color 	13434879
-			anchor     	10
-			nlines     	1
-			max_width  	440
-			justify    	0
-			label      	"<<method>>")
-		    icon_style 	"Label"
-		    fill_color 	15781360
-		    quidu      	"55BA022F011C"
-		    compartment 	(object Compartment
-			Parent_View 	@14
-			location   	(92, 1881)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	13434879
-			anchor     	2
-			nlines     	2
-			max_width  	428
-			justify    	1)
-		    width      	458
-		    height     	288
-		    annotation 	8
-		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean" @15
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean" @16
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -996,14 +956,14 @@
 			color      	2313060
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@15
+			Parent_View 	@16
 			location   	(123, 570)
 			nlines     	1
 			max_width  	240
 			justify    	0
 			label      	"Boolean")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@15
+			Parent_View 	@16
 			location   	(123, 520)
 			anchor     	10
 			nlines     	1
@@ -1018,7 +978,7 @@
 		    height     	178
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi “ребования к низкоуровневым библиотекам::L3$Domain::l3Interfaces::Il3StringsEx" @16
+		(object ClassView "Class" "Logical View::Shared Delphi “ребования к низкоуровневым библиотекам::L3$Domain::l3Interfaces::Il3StringsEx" @17
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -1036,14 +996,14 @@
 			color      	16714250
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@16
+			Parent_View 	@17
 			location   	(472, 603)
 			nlines     	1
 			max_width  	340
 			justify    	0
 			label      	"Х Il3StringsEx")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@16
+			Parent_View 	@17
 			location   	(472, 553)
 			anchor     	10
 			nlines     	1
@@ -1058,7 +1018,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingTestService::TnsLoggingTestService" @17
+		(object ClassView "Class" "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingTestService::TnsLoggingTestService" @18
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -1076,30 +1036,30 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@17
-			location   	(65, 138)
+			Parent_View 	@18
+			location   	(102, 143)
 			nlines     	1
-			max_width  	594
+			max_width  	520
 			justify    	0
 			label      	"Х TnsLoggingTestService")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@17
-			location   	(65, 88)
+			Parent_View 	@18
+			location   	(102, 93)
 			anchor     	10
 			nlines     	1
-			max_width  	594
+			max_width  	520
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"55B9FFCB020F"
-		    width      	612
-		    height     	167
+		    width      	538
+		    height     	157
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object AssociationViewNew "$UNNAMED$0" @18
-		    location   	(302, 374)
+		(object AssociationViewNew "$UNNAMED$0" @19
+		    location   	(302, 372)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1114,9 +1074,9 @@
 		    line_color 	3947680
 		    quidu      	"55BA00AB032C"
 		    roleview_list 	(list RoleViews
-			(object RoleView "f_Listening" @19
-			    Parent_View 	@18
-			    location   	(-60, 215)
+			(object RoleView "f_Listening" @20
+			    Parent_View 	@19
+			    location   	(-60, 213)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -1127,9 +1087,9 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @20
-				Parent_View 	@19
-				location   	(234, 469)
+			    label      	(object SegLabel @21
+				Parent_View 	@20
+				location   	(233, 470)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -1152,26 +1112,26 @@
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55BA00AC0098"
-			    client     	@18
-			    supplier   	@15
+			    client     	@19
+			    supplier   	@16
 			    vertices   	(list Points
-				(302, 374)
+				(302, 372)
 				(266, 507))
 			    line_style 	0)
-			(object RoleView "$UNNAMED$1" @21
-			    Parent_View 	@18
-			    location   	(-60, 215)
+			(object RoleView "$UNNAMED$1" @22
+			    Parent_View 	@19
+			    location   	(-60, 213)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55BA00AC03C2"
-			    client     	@18
-			    supplier   	@17
+			    client     	@19
+			    supplier   	@18
 			    vertices   	(list Points
-				(302, 374)
-				(338, 242))
+				(302, 372)
+				(339, 237))
 			    line_style 	0)))
-		(object AssociationViewNew "$UNNAMED$2" @22
-		    location   	(498, 391)
+		(object AssociationViewNew "$UNNAMED$2" @23
+		    location   	(497, 388)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1186,9 +1146,9 @@
 		    line_color 	3947680
 		    quidu      	"55BA014E0025"
 		    roleview_list 	(list RoleViews
-			(object RoleView "f_LogRecords" @23
-			    Parent_View 	@22
-			    location   	(136, 232)
+			(object RoleView "f_LogRecords" @24
+			    Parent_View 	@23
+			    location   	(135, 229)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -1199,9 +1159,9 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @24
-				Parent_View 	@23
-				location   	(536, 476)
+			    label      	(object SegLabel @25
+				Parent_View 	@24
+				location   	(536, 475)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -1224,23 +1184,23 @@
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55BA014E01C9"
-			    client     	@22
-			    supplier   	@16
+			    client     	@23
+			    supplier   	@17
 			    vertices   	(list Points
-				(498, 391)
+				(497, 388)
 				(587, 540))
 			    line_style 	0)
-			(object RoleView "$UNNAMED$3" @25
-			    Parent_View 	@22
-			    location   	(136, 232)
+			(object RoleView "$UNNAMED$3" @26
+			    Parent_View 	@23
+			    location   	(135, 229)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55BA014E01DD"
-			    client     	@22
-			    supplier   	@17
+			    client     	@23
+			    supplier   	@18
 			    vertices   	(list Points
-				(498, 391)
-				(410, 242))
+				(497, 388)
+				(408, 237))
 			    line_style 	0)))))
 	(object ClassDiagram "uses"
 	    attributes 	(list Attribute_Set
@@ -1260,7 +1220,7 @@
 	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::SysUtils" @26
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::SysUtils" @27
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -1278,14 +1238,14 @@
 			color      	658175
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@26
+			Parent_View 	@27
 			location   	(937, 164)
 			nlines     	1
 			max_width  	300
 			justify    	0
 			label      	"SysUtils")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@26
+			Parent_View 	@27
 			location   	(937, 114)
 			anchor     	10
 			nlines     	1
@@ -1300,7 +1260,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingTestService::TnsLoggingTestService" @27
+		(object ClassView "Class" "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingTestService::TnsLoggingTestService" @28
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -1318,29 +1278,29 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@27
-			location   	(54, 161)
+			Parent_View 	@28
+			location   	(34, 166)
 			nlines     	1
-			max_width  	522
+			max_width  	562
 			justify    	0
 			label      	"Х TnsLoggingTestService")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@27
-			location   	(54, 111)
+			Parent_View 	@28
+			location   	(34, 116)
 			anchor     	10
 			nlines     	1
-			max_width  	522
+			max_width  	562
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"55B9FFCB020F"
-		    width      	540
-		    height     	167
+		    width      	580
+		    height     	157
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object UsesView "" @28
+		(object UsesView "" @29
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1351,9 +1311,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @29
-			Parent_View 	@28
-			location   	(758, 67)
+		    stereotype 	(object SegLabel @30
+			Parent_View 	@29
+			location   	(767, 68)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -1375,13 +1335,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"55BA01F10098"
-		    client     	@27
-		    supplier   	@26
+		    client     	@28
+		    supplier   	@27
 		    vertices   	(list Points
-			(585, 184)
+			(605, 185)
 			(927, 189))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::Shared Delphi Low Level::L3$Visual::l3VCLExtensions::l3VCLStrings::Tl3Strings" @30
+		(object ClassView "Class" "Logical View::Shared Delphi Low Level::L3$Visual::l3VCLExtensions::l3VCLStrings::Tl3Strings" @31
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -1399,14 +1359,14 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@30
+			Parent_View 	@31
 			location   	(946, 409)
 			nlines     	1
 			max_width  	330
 			justify    	0
 			label      	"Tl3Strings")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@30
+			Parent_View 	@31
 			location   	(946, 359)
 			anchor     	10
 			nlines     	1
@@ -1421,7 +1381,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object UsesView "" @31
+		(object UsesView "" @32
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1432,9 +1392,9 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @32
-			Parent_View 	@31
-			location   	(793, 210)
+		    stereotype 	(object SegLabel @33
+			Parent_View 	@32
+			location   	(785, 208)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -1456,9 +1416,9 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"55BA3EBD0365"
-		    client     	@27
-		    supplier   	@30
+		    client     	@28
+		    supplier   	@31
 		    vertices   	(list Points
-			(575, 265)
+			(559, 260)
 			(936, 381))
 		    line_style 	0)))))

@@ -2,6 +2,8 @@ unit kwVcmOpChecked;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpChecked.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "vcm_op_Checked" MUID: (5230153303B8)
+// Имя типа: "TkwVcmOpChecked"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

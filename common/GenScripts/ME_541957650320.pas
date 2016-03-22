@@ -2,6 +2,7 @@ unit DataBaseTester;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Archi_Tests\DataBaseTester.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TDataBaseTester" MUID: (541957650320)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Archi_Tests\TestDefine.inc.pas}
 

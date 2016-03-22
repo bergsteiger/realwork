@@ -5,7 +5,7 @@ unit TaskResultRequest_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/TaskResultRequest_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::TaskResultRequest
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::TaskResultRequest
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

@@ -2,6 +2,8 @@ unit HyTechProviderParams_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\HyTechProviderParams_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "HyTechProviderParams" MUID: (5432829E0143)
+// Имя типа: "HyTechProviderParamsTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

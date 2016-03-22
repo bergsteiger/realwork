@@ -2,6 +2,7 @@ unit ChatInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\ChatInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "ChatInterfaces" MUID: (4A66DD3C01E8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit nevFormulaPara;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevFormulaPara.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevFormulaPara" MUID: (4D5A9CA80141)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

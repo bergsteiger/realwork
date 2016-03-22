@@ -2,6 +2,7 @@ unit evTextParaStringImpl;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\evTextParaStringImpl.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTextParaStringImpl" MUID: (52F20AED01DF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,7 @@ unit tfwInteger;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwInteger.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwInteger" MUID: (4EE1DBBB013C)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

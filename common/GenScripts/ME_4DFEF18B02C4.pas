@@ -2,6 +2,7 @@ unit evContentsSubNode;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evContentsSubNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevContentsSubNode" MUID: (4DFEF18B02C4)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

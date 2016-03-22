@@ -3,6 +3,7 @@ unit vcmFormDispatcherInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmFormDispatcherInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "vcmFormDispatcherInterfaces" MUID: (499469840038)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

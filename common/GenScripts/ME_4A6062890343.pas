@@ -3,6 +3,7 @@ unit evHugeParaListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\evHugeParaListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevHugeParaListPrim" MUID: (4A6062890343)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

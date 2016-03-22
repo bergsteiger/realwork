@@ -2,6 +2,7 @@ unit NOT_FINISHED_alcuAACImport;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAACImport.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuAACImport" MUID: (53E48B8D038E)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

@@ -2,6 +2,7 @@ unit SubTree_p;
 
 // Модуль: "w:\common\components\gui\Garant\VT\SubTree_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TSubTree" MUID: (499AE0580291)
 
 {$Include w:\common\components\l3Define.inc}
 

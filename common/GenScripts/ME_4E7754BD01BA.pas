@@ -2,6 +2,7 @@ unit evDocumentSubsChildrenCountEliminator;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evDocumentSubsChildrenCountEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentSubsChildrenCountEliminator" MUID: (4E7754BD01BA)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

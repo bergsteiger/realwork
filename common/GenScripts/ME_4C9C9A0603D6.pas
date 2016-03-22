@@ -2,6 +2,7 @@ unit l3ProtoObjectForTie;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\l3ProtoObjectForTie.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProtoObjectForTie" MUID: (4C9C9A0603D6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

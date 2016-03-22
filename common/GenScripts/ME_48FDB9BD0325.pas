@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsRootManagerPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsRootManagerPrim" MUID: (48FDB9BD0325)
+// Имя типа: "_nsRootManagerPrim_"
 
 {$Define nsRootManagerPrim_imp}
 

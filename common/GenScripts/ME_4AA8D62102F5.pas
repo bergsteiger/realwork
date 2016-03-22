@@ -2,6 +2,7 @@ unit nsHooks;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsHooks.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsHooks" MUID: (4AA8D62102F5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

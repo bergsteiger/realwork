@@ -5,9 +5,12 @@ unit l3Types;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3Types -                   }
 { Начат: 14.04.1998 11:40             }
-{ $Id: l3Types.pas,v 1.140 2015/10/29 14:32:46 lulin Exp $ }
+{ $Id: l3Types.pas,v 1.141 2016/03/14 11:35:30 lulin Exp $ }
 
 // $Log: l3Types.pas,v $
+// Revision 1.141  2016/03/14 11:35:30  lulin
+// - перегенерация.
+//
 // Revision 1.140  2015/10/29 14:32:46  lulin
 // - обновляем.
 //
@@ -747,9 +750,9 @@ type
   Tl3PathStr = AnsiString;
 
 const
-  l3MinIndex = Low(Tl3Index);
+  l3MinIndex = l3Interfaces.l3MinIndex;
    {* - минимальный индекс элемента. }
-  l3MaxIndex = High(Tl3Index);
+  l3MaxIndex = l3Interfaces.l3MaxIndex;
    {* - максимальный индекс элемента. }
 
   l3GlyphFontName = '__Glyph__';

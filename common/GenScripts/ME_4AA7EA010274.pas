@@ -3,6 +3,8 @@ unit MainWindow_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainWindow_Form.pas"
 // Стереотип: "VCMFinalMainForm"
+// Элемент модели: "MainWindow" MUID: (4AA7EA010274)
+// Имя типа: "TnsMainWindow"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

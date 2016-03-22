@@ -3,6 +3,7 @@ unit SynchroViewUserTypes_svSynchroView_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\SynchroViewUserTypes_svSynchroView_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "svSynchroView" MUID: (4BD6C0D30243)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_svSynchroView = {final} class(TtfwInteger)
   {* Слово словаря для типа формы svSynchroView }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_svSynchroView
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_svSynchroView.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::svSynchroView';
-end;//Tkw_FormUserType_svSynchroView.GetWordNameForRegister
-
 function Tkw_FormUserType_svSynchroView.GetInteger: Integer;
 begin
  Result := svSynchroView;
 end;//Tkw_FormUserType_svSynchroView.GetInteger
+
+class function Tkw_FormUserType_svSynchroView.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::svSynchroView';
+end;//Tkw_FormUserType_svSynchroView.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

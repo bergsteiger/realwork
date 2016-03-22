@@ -2,6 +2,7 @@ unit DesignIntf;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Toolsapi\DesignIntf.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DesignIntf" MUID: (52AEF7C90305)
 
 interface
 

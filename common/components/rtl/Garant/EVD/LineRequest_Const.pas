@@ -5,7 +5,7 @@ unit LineRequest_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/LineRequest_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::LineRequest
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::LineRequest
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

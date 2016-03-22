@@ -2,6 +2,7 @@ unit NOT_FINISHED_pi_int;
 
 // Модуль: "w:\common\components\rtl\external\MTDOrb\src\idl\NOT_FINISHED_pi_int.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "pi_int" MUID: (4CA0D1FB01E0)
 
 {$Include w:\common\components\l3Define.inc}
 

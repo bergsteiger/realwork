@@ -2,6 +2,7 @@ unit nsChatTreeStruct;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\nsChatTreeStruct.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsChatTreeStruct" MUID: (4A680DA6013C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

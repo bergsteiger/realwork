@@ -1,8 +1,11 @@
 unit Dt_Active;
 
-{ $Id: Dt_Active.pas,v 1.43 2014/04/17 13:04:31 voba Exp $ }
+{ $Id: Dt_Active.pas,v 1.44 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: Dt_Active.pas,v $
+// Revision 1.44  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.43  2014/04/17 13:04:31  voba
 // - перенес ISab из DT_Sab в dtIntf
 //
@@ -221,6 +224,7 @@ type
 implementation
 uses
  SysUtils,
+ daSchemeConsts,
  HT_Dll,
  dt_AttrSchema,
  Dt_List, Dt_Err;

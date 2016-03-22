@@ -1,74 +1,56 @@
 unit K403079732;
+ {* [Requestlink:403079732] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestLiteTests"
-// Модуль: "w:/archi/source/projects/Everest/Lite/7.0/Express/Tests/K403079732.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> archi$EverestLite$Test::EverestLiteTests::FileFormatTests::K403079732
-//
-// {Requestlink:403079732}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\K403079732.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K403079732" MUID: (524146DB01BA)
+// Имя типа: "TK403079732"
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest)}
 uses
-  Classes
-  {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-  ,
-  ArchiInsiderTest
-  {$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-  
-  ;
-{$IfEnd} //InsiderTest AND nsTest
+ l3IntfUses
+ {$If NOT Defined(NoScripts)}
+ , ArchiInsiderTest
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-{$If defined(InsiderTest) AND defined(nsTest)}
 type
  TK403079732 = class(TArchiInsiderTest)
   {* [Requestlink:403079732] }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK403079732
-{$IfEnd} //InsiderTest AND nsTest
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //InsiderTest AND nsTest
+ l3ImplUses
+ , TestFrameWork
+;
 
-{$If defined(InsiderTest) AND defined(nsTest)}
-
-// start class TK403079732
-
+{$If NOT Defined(NoScripts)}
 function TK403079732.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'FileFormatTests';
 end;//TK403079732.GetFolder
 
 function TK403079732.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '524146DB01BA';
 end;//TK403079732.GetModelElementGUID
 
-{$IfEnd} //InsiderTest AND nsTest
-
 initialization
  TestFramework.RegisterTest(TK403079732.Suite);
+{$IfEnd} // NOT Defined(NoScripts)
 
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 end.

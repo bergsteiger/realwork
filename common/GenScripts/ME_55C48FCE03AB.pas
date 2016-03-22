@@ -2,6 +2,7 @@ unit tfwConsoleScriptCaller;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwConsoleScriptCaller.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwConsoleScriptCaller" MUID: (55C48FCE03AB)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

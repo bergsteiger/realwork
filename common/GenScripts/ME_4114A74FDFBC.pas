@@ -3,6 +3,7 @@ program ReleaseSearchTest;
 
 // Модуль: "w:\common\components\SearchTest\ReleaseSearchTest.dpr"
 // Стереотип: "TestTarget"
+// Элемент модели: "ReleaseSearch" MUID: (4114A74FDFBC)
 
 interface
 

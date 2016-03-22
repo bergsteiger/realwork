@@ -245,34 +245,6 @@ ref; // ME_F3A56CA02D8A
 
 ref; // ME_4F69EF8C027C TCustomToolbarButton97
 
-FORWARD ME_4C43E8A60084
-
-: ME_3F3C896470EF
- CONST UID '3F3C896470EF'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TToolbarButton97' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C43E8A60084 // TToolbarButton97
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_3F3C896470EF Ini_Reg_Class
-
-: ME_FDC5335AACBC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C43E8A60084 // TToolbarButton97
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_FDC5335AACBC 
-
 : ME_4C43E8A60084
  CONST UID '4C43E8A60084'
  CONST Name 'TToolbarButton97'
@@ -287,14 +259,6 @@ ref; // ME_FDC5335AACBC
    Seq: ( ME_4F69EF8C027C // TCustomToolbarButton97
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_3F3C896470EF // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_FDC5335AACBC // 
- )
- ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'

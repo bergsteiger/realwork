@@ -2,6 +2,8 @@ unit kwDocumentLikeState;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwDocumentLikeState.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "document_LikeState" MUID: (500E876A0208)
+// Имя типа: "TkwDocumentLikeState"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

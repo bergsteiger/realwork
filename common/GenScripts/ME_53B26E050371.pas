@@ -2,6 +2,7 @@ unit NOT_FINISHED_csUserDefinedExport;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csUserDefinedExport.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsUserDefinedExport" MUID: (53B26E050371)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

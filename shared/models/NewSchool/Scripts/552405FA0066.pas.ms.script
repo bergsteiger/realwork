@@ -137,8 +137,6 @@ ref; // ME_1AB4F93DAE7F Ml3PicturePathService
 FORWARD ME_08CD0EC72A0A
 
 : ME_2DCD42915D2E_ME_08CD0EC72A0A
- CONST UID '2DCD42915D2E'
- CONST Name 'SetTestName'
  : Original ME_2DCD42915D2E // SetTestName
  ;
  : Implementor ME_08CD0EC72A0A // Il3PicturePathService
@@ -147,8 +145,6 @@ FORWARD ME_08CD0EC72A0A
 ref; // ME_2DCD42915D2E_ME_08CD0EC72A0A SetTestName
 
 : ME_3FB12D269858_ME_08CD0EC72A0A
- CONST UID '3FB12D269858'
- CONST Name 'AddPicturePath'
  : Original ME_3FB12D269858 // AddPicturePath
  ;
  : Implementor ME_08CD0EC72A0A // Il3PicturePathService
@@ -157,8 +153,6 @@ ref; // ME_2DCD42915D2E_ME_08CD0EC72A0A SetTestName
 ref; // ME_3FB12D269858_ME_08CD0EC72A0A AddPicturePath
 
 : ME_4706AFD6D823_ME_08CD0EC72A0A
- CONST UID '4706AFD6D823'
- CONST Name 'SetEnableSave'
  : Original ME_4706AFD6D823 // SetEnableSave
  ;
  : Implementor ME_08CD0EC72A0A // Il3PicturePathService
@@ -167,8 +161,6 @@ ref; // ME_3FB12D269858_ME_08CD0EC72A0A AddPicturePath
 ref; // ME_4706AFD6D823_ME_08CD0EC72A0A SetEnableSave
 
 : ME_86EACEE128F2_ME_08CD0EC72A0A
- CONST UID '86EACEE128F2'
- CONST Name 'SetPDF4Etalon'
  : Original ME_86EACEE128F2 // SetPDF4Etalon
  ;
  : Implementor ME_08CD0EC72A0A // Il3PicturePathService
@@ -223,23 +215,6 @@ ref; // ME_08CD0EC72A0A Il3PicturePathService
  CONST "pm" true
 
 ref; // ME_2983196312EE Alien
-
-: ME_DD8D7008EED5
- CONST UID 'DD8D7008EED5'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_552406830331 // Tl3PicturePathService
- ;
- : Target ME_08CD0EC72A0A // Il3PicturePathService
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_DD8D7008EED5 f_Alien
 
 : ME_552406A6022B
  CONST Name 'aValue'
@@ -342,8 +317,6 @@ ref; // ME_552407040243 aName
 ref; // ME_552406F80065 SetTestName
 
 : ME_2DCD42915D2E_ME_552406830331
- CONST UID '2DCD42915D2E'
- CONST Name 'SetTestName'
  : Original ME_2DCD42915D2E // SetTestName
  ;
  : Implementor ME_552406830331 // Tl3PicturePathService
@@ -352,8 +325,6 @@ ref; // ME_552406F80065 SetTestName
 ref; // ME_2DCD42915D2E_ME_552406830331 SetTestName
 
 : ME_3FB12D269858_ME_552406830331
- CONST UID '3FB12D269858'
- CONST Name 'AddPicturePath'
  : Original ME_3FB12D269858 // AddPicturePath
  ;
  : Implementor ME_552406830331 // Tl3PicturePathService
@@ -362,8 +333,6 @@ ref; // ME_2DCD42915D2E_ME_552406830331 SetTestName
 ref; // ME_3FB12D269858_ME_552406830331 AddPicturePath
 
 : ME_4706AFD6D823_ME_552406830331
- CONST UID '4706AFD6D823'
- CONST Name 'SetEnableSave'
  : Original ME_4706AFD6D823 // SetEnableSave
  ;
  : Implementor ME_552406830331 // Tl3PicturePathService
@@ -372,24 +341,12 @@ ref; // ME_3FB12D269858_ME_552406830331 AddPicturePath
 ref; // ME_4706AFD6D823_ME_552406830331 SetEnableSave
 
 : ME_86EACEE128F2_ME_552406830331
- CONST UID '86EACEE128F2'
- CONST Name 'SetPDF4Etalon'
  : Original ME_86EACEE128F2 // SetPDF4Etalon
  ;
  : Implementor ME_552406830331 // Tl3PicturePathService
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_86EACEE128F2_ME_552406830331 SetPDF4Etalon
-
-: ME_5000565C019C_ME_552406830331
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_552406830331 // Tl3PicturePathService
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_552406830331 ClearFields
 
 : ME_552406830331
  CONST UID '552406830331'
@@ -411,7 +368,6 @@ ref; // ME_5000565C019C_ME_552406830331 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_2983196312EE // Alien
- ME_DD8D7008EED5 // f_Alien
  )
  ; // Attributes
  : Operations
@@ -428,10 +384,6 @@ ref; // ME_5000565C019C_ME_552406830331 ClearFields
  ME_86EACEE128F2_ME_552406830331 // SetPDF4Etalon
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_552406830331 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_1AB4F93DAE7F // Ml3PicturePathService
  ME_08CD0EC72A0A // Il3PicturePathService

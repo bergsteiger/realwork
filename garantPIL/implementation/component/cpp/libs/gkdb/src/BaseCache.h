@@ -5,16 +5,14 @@
 #ifndef __BASE_CACHE_H
 #define __BASE_CACHE_H
 
-#include "shared/Core/sys/std_inc.h"
-#include "shared/Morpho/Def/Def.h"
-
-#include "DBComm.h"
+#include "shared/GCL/data/std_defs.h"
+#include "Base.h"
 
 typedef std::map <unsigned long, GCL::StrVector> MorphoHashes;
 typedef std::map <std::string, std::string> TypingErrors;
 typedef std::map <std::string, std::vector <long> > RequestCacheOffset;
 typedef std::map <long, std::set <long> > DocDataMap;
-typedef std::map <long, std::pair <std::string, std::string> > BaseInfoMap;
+typedef std::map <long, std::pair <std::string, std::string> > BaseInfo_;
 
 class BaseCache {
 	typedef ACE_Singleton <BaseCache, ACE_SYNCH_RECURSIVE_MUTEX> Singleton;
@@ -28,23 +26,18 @@ public:
 public:
 	BaseCache ();
 
-	virtual ~BaseCache ();
-
 public:
 	const GCL::StrSet& get_good_words (Base* base);
 	const MorphoHashes& get_morpho_hashes (Base* base);
 	const TypingErrors& get_typing_errors (Base* base);
 
-	const BaseInfoMap& get_map_baseinfos (Base *base);
+	const BaseInfo_& get_base_info (Base *base);
 
 	const DocDataMap& get_map_doc_edis (Base* base);
 	const RequestCacheOffset& get_request_cache_offset (Base* base);
 
 	const std::vector <short>& get_here_seg (Base* base);
 	const std::vector <short>& get_ignore_segs (Base* base);
-
-	Morpho::Def::ICache* get_morpho_cache_ptr ();
-	Morpho::Def::INormalizer* make (DBCore::IBase* base);
 
 	long get_short_list_size (Base* base);
 
@@ -67,12 +60,10 @@ private:
 	MorphoHashes m_morpho_hashes;
 	TypingErrors m_typing_errors;
 
-	Morpho::Def::ICache_var m_cache;
-
 	std::vector <short> m_here_segs;
 	std::vector <short> m_ignore_segs;
 
-	BaseInfoMap m_map_baseinfos;
+	BaseInfo_ m_base_info;
 	DocDataMap m_map_doc_edis;
 	RequestCacheOffset m_request_cache_offset;
 

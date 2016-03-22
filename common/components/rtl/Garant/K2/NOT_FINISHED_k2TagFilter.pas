@@ -2,6 +2,7 @@ unit NOT_FINISHED_k2TagFilter;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2TagFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2TagFilter" MUID: (49E487A70144)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

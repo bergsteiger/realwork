@@ -2,6 +2,7 @@ unit OleCtrls;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\OleCtrls.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "OleCtrls" MUID: (49EEFA91008E)
 
 interface
 

@@ -2,6 +2,7 @@ unit atListEntryInfo;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atListEntryInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatListEntryInfo" MUID: (5051EA2101A5)
 
 interface
 

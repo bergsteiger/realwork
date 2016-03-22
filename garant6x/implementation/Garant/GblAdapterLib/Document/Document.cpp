@@ -66,17 +66,6 @@ const char* RedactionNotFound::what () const throw () {
 }
 
 
-const char* NotAllowedInTrialMode::uid () const /*throw ()*/ {
-	return "413EB7A6-8FBA-476A-9A16-44DCBA0D386F";
-}
-
-const char* NotAllowedInTrialMode::what () const throw () {
-	//#UC START# *45EEDAD60237_WHAT_IMPL*
-	return "NotAllowedInTrialMode ()";
-	//#UC END# *45EEDAD60237_WHAT_IMPL*
-}
-
-
 const char* InvalidDate::uid () const /*throw ()*/ {
 	return "831C4B6F-1F96-4FD9-BC5B-72C094403C0C";
 }

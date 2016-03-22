@@ -2,6 +2,7 @@ unit NOT_FINISHED_arTextOfDocumentWithContentsTree;
 
 // Модуль: "w:\archi\source\projects\Archi\Editor\NOT_FINISHED_arTextOfDocumentWithContentsTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarTextOfDocumentWithContentsTree" MUID: (4E007CE303AC)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

@@ -1,105 +1,76 @@
 unit SelectRowAndDeleteTest;
+ {* Выделить строку и удалить. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/SelectRowAndDeleteTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EditorTests::TSelectRowAndDeleteTest
-//
-// Выделить строку и удалить.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\SelectRowAndDeleteTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TSelectRowAndDeleteTest" MUID: (4CE3E5F3012B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  TextViaEditorProcessor
-  {$IfEnd} //nsTest AND not NoVCM
-  ,
-  nevTools,
-  evCustomEditorWindow
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , TextViaEditorProcessor
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevTools
+ , evCustomEditorWindow
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  _SelectTablePart_Parent_ = TTextViaEditorProcessor;
  {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
  TSelectRowAndDeleteTest = {abstract} class(_SelectTablePart_)
   {* Выделить строку и удалить. }
- protected
- // realized methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure Process(aForm: TPrimTextLoadForm); override;
-     {* Собственно процесс обработки текста }
-   {$IfEnd} //nsTest AND not NoVCM
- protected
- // overridden protected methods
+    {* Собственно процесс обработки текста }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function NeedSelection: Boolean; override;
-     {* Нужно ли чего-нибудь выделять. }
+    {* Нужно ли чего-нибудь выделять. }
    procedure GetSelectParam(out aStartRow: Integer;
     out aStartCell: Integer;
     out aFinishRow: Integer;
     out aFinishCell: Integer); override;
-     {* Получить "координаты" точек выделения. }
+    {* Получить "координаты" точек выделения. }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TSelectRowAndDeleteTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork,
-  evOp
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ , evOp
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
 
-// start class TSelectRowAndDeleteTest
-
-{$If defined(nsTest) AND not defined(NoVCM)}
 procedure TSelectRowAndDeleteTest.Process(aForm: TPrimTextLoadForm);
+ {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4CE3E5F3012B_var*
 //#UC END# *4BE13147032C_4CE3E5F3012B_var*
 begin
@@ -108,15 +79,15 @@ begin
  aForm.Text.Range.Delete;
 //#UC END# *4BE13147032C_4CE3E5F3012B_impl*
 end;//TSelectRowAndDeleteTest.Process
-{$IfEnd} //nsTest AND not NoVCM
 
 function TSelectRowAndDeleteTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TSelectRowAndDeleteTest.GetFolder
 
 function TSelectRowAndDeleteTest.NeedSelection: Boolean;
+ {* Нужно ли чего-нибудь выделять. }
 //#UC START# *4CC8189D02DF_4CE3E5F3012B_var*
 //#UC END# *4CC8189D02DF_4CE3E5F3012B_var*
 begin
@@ -126,9 +97,10 @@ begin
 end;//TSelectRowAndDeleteTest.NeedSelection
 
 procedure TSelectRowAndDeleteTest.GetSelectParam(out aStartRow: Integer;
-  out aStartCell: Integer;
-  out aFinishRow: Integer;
-  out aFinishCell: Integer);
+ out aStartCell: Integer;
+ out aFinishRow: Integer;
+ out aFinishCell: Integer);
+ {* Получить "координаты" точек выделения. }
 //#UC START# *4CC81D4101AC_4CE3E5F3012B_var*
 //#UC END# *4CC81D4101AC_4CE3E5F3012B_var*
 begin
@@ -141,11 +113,11 @@ begin
 end;//TSelectRowAndDeleteTest.GetSelectParam
 
 function TSelectRowAndDeleteTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4CE3E5F3012B';
 end;//TSelectRowAndDeleteTest.GetModelElementGUID
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

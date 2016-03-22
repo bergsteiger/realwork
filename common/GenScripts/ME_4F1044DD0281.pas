@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "HyperlinkOperations" MUID: (4F1044DD0281)
+// Имя типа: "_HyperlinkOperations_"
 
 {$Define HyperlinkOperations_imp}
 

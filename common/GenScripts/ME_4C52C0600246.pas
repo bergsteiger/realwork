@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtSpinEdit;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtSpinEdit.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtSpinEdit" MUID: (4C52C0600246)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
@@ -20,10 +21,10 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , SpinEditWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , SpinEditWordsPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 

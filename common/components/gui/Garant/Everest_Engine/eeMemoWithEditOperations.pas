@@ -2,6 +2,7 @@ unit eeMemoWithEditOperations;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeMemoWithEditOperations.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TeeMemoWithEditOperations" MUID: (4AC5D3380185)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

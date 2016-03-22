@@ -2,6 +2,7 @@ unit GarClientSecurity;
 
 // Модуль: "w:\common\components\rtl\Garant\GarORB\GarClientSecurity.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TGarClientSecurity" MUID: (4CA0D4C90266)
 
 {$Include w:\common\components\rtl\Garant\GarORB\tfwDefine.inc}
 

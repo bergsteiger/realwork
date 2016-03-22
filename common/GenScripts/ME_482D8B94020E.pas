@@ -2,6 +2,7 @@ unit evEditProcessor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evEditProcessor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevEditProcessor" MUID: (482D8B94020E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

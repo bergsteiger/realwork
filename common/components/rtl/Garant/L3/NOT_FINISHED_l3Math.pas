@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3Math;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Math.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3Math" MUID: (47E0C36201C7)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

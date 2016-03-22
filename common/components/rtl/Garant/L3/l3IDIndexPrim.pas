@@ -3,6 +3,7 @@ unit l3IDIndexPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3IDIndexPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3IDIndexPrim" MUID: (47B9AB6902AF)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

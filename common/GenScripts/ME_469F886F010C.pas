@@ -3,6 +3,7 @@ unit k2Types;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Types.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "k2Types" MUID: (469F886F010C)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

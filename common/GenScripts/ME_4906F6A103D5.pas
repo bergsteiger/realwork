@@ -2,6 +2,7 @@ unit nsTipsTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DayTips\nsTipsTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsTipsTree" MUID: (4906F6A103D5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

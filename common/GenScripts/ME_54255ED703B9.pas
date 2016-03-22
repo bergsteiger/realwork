@@ -8,6 +8,8 @@ unit kwDialogsLockDocumentGetSkipMode;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwDialogsLockDocumentGetSkipMode.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "dialogs_LockDocument_GetSkipMode" MUID: (54255ED703B9)
+// Имя типа: "TkwDialogsLockDocumentGetSkipMode"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

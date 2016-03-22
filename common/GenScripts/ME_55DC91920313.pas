@@ -2,6 +2,7 @@ unit segSegList;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\segSegList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TsegSegList" MUID: (55DC91920313)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

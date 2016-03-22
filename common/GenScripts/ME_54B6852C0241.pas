@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CriticalSectionHolderPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3CriticalSectionHolderPrim" MUID: (54B6852C0241)
+// Имя типа: "_l3CriticalSectionHolderPrim_"
 
 {$Define l3CriticalSectionHolderPrim_imp}
 

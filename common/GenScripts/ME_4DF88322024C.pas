@@ -2,6 +2,7 @@ unit PreviewTestBefore235875079WithRowCmp;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\PreviewTestBefore235875079WithRowCmp.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TPreviewTestBefore235875079WithRowCmp" MUID: (4DF88322024C)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

@@ -3,6 +3,7 @@ unit OfficeLike_Tree_Controls;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Tree_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "Tree" MUID: (4BDAF7510113)
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

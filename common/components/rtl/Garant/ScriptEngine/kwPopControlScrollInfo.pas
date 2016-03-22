@@ -1,42 +1,38 @@
 unit kwPopControlScrollInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Модуль: "kwPopControlScrollInfo.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::ScrollInfoProcessing::pop_control_ScrollInfo
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopControlScrollInfo.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_control_ScrollInfo" MUID: (51793AE70134)
+// Имя типа: "TkwPopControlScrollInfo"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  kwScrollInfoWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+ , kwScrollInfoWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
 type
- TkwPopControlScrollInfo = {final scriptword} class(TkwScrollInfoWord)
- protected
- // realized methods
+ TkwPopControlScrollInfo = {final} class(TkwScrollInfoWord)
+  protected
    procedure DoScrollInfo(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopControlScrollInfo
-{$IfEnd} //not NoScripts AND not NoVCL
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-
-// start class TkwPopControlScrollInfo
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+uses
+ l3ImplUses
+ , Windows
+ , Controls
+ , Forms
+;
 
 procedure TkwPopControlScrollInfo.DoScrollInfo(const aCtx: TtfwContext);
 //#UC START# *51793A950073_51793AE70134_var*
@@ -51,17 +47,13 @@ begin
 end;//TkwPopControlScrollInfo.DoScrollInfo
 
 class function TkwPopControlScrollInfo.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:control:ScrollInfo';
 end;//TkwPopControlScrollInfo.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts AND not NoVCL
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_control_ScrollInfo
  TkwPopControlScrollInfo.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация pop_control_ScrollInfo }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

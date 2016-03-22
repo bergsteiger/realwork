@@ -1,92 +1,65 @@
 unit SelectCommentAndDelete;
+ {* Выделить комментарий и удалить. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Tests"
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Tests/SelectCommentAndDelete.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::Abstract Tests::EditorTests::TSelectCommentAndDelete
-//
-// Выделить комментарий и удалить.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\SelectCommentAndDelete.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TSelectCommentAndDelete" MUID: (4DD5FF50028A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  TextViaEditorProcessor
-  {$IfEnd} //nsTest AND not NoVCM
-  ,
-  evCustomEditorWindow
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , TextViaEditorProcessor
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+ , evCustomEditorWindow
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  _SelectOperation_Parent_ = TTextViaEditorProcessor;
  {$Include w:\common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas}
  TSelectCommentAndDelete = {abstract} class(_SelectOperation_)
   {* Выделить комментарий и удалить. }
- protected
- // realized methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure Process(aForm: TPrimTextLoadForm); override;
-     {* Собственно процесс обработки текста }
-   {$IfEnd} //nsTest AND not NoVCM
- protected
- // overridden protected methods
+    {* Собственно процесс обработки текста }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TSelectCommentAndDelete
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork,
-  evTypes
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ , evTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas}
 
-// start class TSelectCommentAndDelete
-
-{$If defined(nsTest) AND not defined(NoVCM)}
 procedure TSelectCommentAndDelete.Process(aForm: TPrimTextLoadForm);
+ {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4DD5FF50028A_var*
 //#UC END# *4BE13147032C_4DD5FF50028A_var*
 begin
@@ -95,20 +68,19 @@ begin
  aForm.Text.Range.Delete;
 //#UC END# *4BE13147032C_4DD5FF50028A_impl*
 end;//TSelectCommentAndDelete.Process
-{$IfEnd} //nsTest AND not NoVCM
 
 function TSelectCommentAndDelete.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TSelectCommentAndDelete.GetFolder
 
 function TSelectCommentAndDelete.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4DD5FF50028A';
 end;//TSelectCommentAndDelete.GetModelElementGUID
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

@@ -2,6 +2,7 @@ unit NOT_FINISHED_DocIntf;
 
 // Модуль: "w:\archi\source\projects\Archi\Editor\NOT_FINISHED_DocIntf.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DocIntf" MUID: (4E0072C40154)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

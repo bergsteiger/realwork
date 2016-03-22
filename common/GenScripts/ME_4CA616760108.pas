@@ -3,6 +3,8 @@ unit EVDwithFormulasToRTFWriterTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\EVDwithFormulasToRTFWriterTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "EVDwithFormulasToRTFWriterTest" MUID: (4CA616760108)
+// Имя типа: "TEVDwithFormulasToRTFWriterTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "atEnumToEnumConverter" MUID: (503E66FA02FE)
+// Имя типа: "_atEnumToEnumConverter_"
 
 {$Define atEnumToEnumConverter_imp}
 

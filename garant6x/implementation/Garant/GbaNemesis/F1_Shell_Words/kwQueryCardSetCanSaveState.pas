@@ -1,75 +1,51 @@
 unit kwQueryCardSetCanSaveState;
+ {* Устанавливает флаг того может ли карточка запроса писать своё состояние }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Shell Words"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Shell_Words/kwQueryCardSetCanSaveState.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Shell Words::F1 Shell Words::QueryCard_SetCanSaveState
-//
-// Устанавливает флаг того может ли карточка запроса писать своё состояние
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwQueryCardSetCanSaveState.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "QueryCard_SetCanSaveState" MUID: (4F69AF3E01C0)
+// Имя типа: "TkwQueryCardSetCanSaveState"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwQueryCardFormWord
-  {$If not defined(Admin)}
-  ,
-  PrimQueryCard_Form
-  {$IfEnd} //not Admin
-  ,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwQueryCardFormWord
+ {$If NOT Defined(Admin)}
+ , PrimQueryCard_Form
+ {$IfEnd} // NOT Defined(Admin)
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwQueryCardSetCanSaveState = {final scriptword} class(TkwQueryCardFormWord)
+ TkwQueryCardSetCanSaveState = {final} class(TkwQueryCardFormWord)
   {* Устанавливает флаг того может ли карточка запроса писать своё состояние }
- protected
- // realized methods
+  protected
    procedure DoQueryCardForm(aForm: TPrimQueryCardForm;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwQueryCardSetCanSaveState
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwQueryCardSetCanSaveState
+ l3ImplUses
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwQueryCardSetCanSaveState.DoQueryCardForm(aForm: TPrimQueryCardForm;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4F69AE600137_4F69AF3E01C0_var*
 //#UC END# *4F69AE600137_4F69AF3E01C0_var*
 begin
@@ -79,17 +55,13 @@ begin
 end;//TkwQueryCardSetCanSaveState.DoQueryCardForm
 
 class function TkwQueryCardSetCanSaveState.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'QueryCard:SetCanSaveState';
 end;//TkwQueryCardSetCanSaveState.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация QueryCard_SetCanSaveState
  TkwQueryCardSetCanSaveState.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация QueryCard_SetCanSaveState }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

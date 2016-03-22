@@ -2,6 +2,7 @@ unit DynamicDocListUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DynamicDocListUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "DynamicDocList" MUID: (45700BFD0251)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

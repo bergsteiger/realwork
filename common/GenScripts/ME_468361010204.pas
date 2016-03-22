@@ -3,6 +3,7 @@ unit nsDataResetTreeStruct;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsDataResetTreeStruct.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDataResetTreeStruct" MUID: (468361010204)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

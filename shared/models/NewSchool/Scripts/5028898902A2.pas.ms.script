@@ -554,32 +554,6 @@ ref; // ME_93A26C7D09E4
 
 ref; // ME_502CD89E0200 Ttb97GraphicTextControl
 
-: ME_269F37F2142F
- CONST UID '269F37F2142F'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Ttb97GraphicControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_502CD8FA02E1 // Ttb97GraphicControl
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_269F37F2142F Ini_Reg_Class
-
-: ME_FD6CFEE92176
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_502CD8FA02E1 // Ttb97GraphicControl
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_FD6CFEE92176 
-
 : ME_502CD8FA02E1
  CONST UID '502CD8FA02E1'
  CONST Name 'Ttb97GraphicControl'
@@ -594,19 +568,11 @@ ref; // ME_FD6CFEE92176
    Seq: ( ME_502CD936004A // Ttb97CustomGraphicControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_269F37F2142F // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_502CD936004A // Ttb97CustomGraphicControl
  ME_502CD89E0200 // Ttb97GraphicTextControl
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_FD6CFEE92176 // 
- )
- ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'

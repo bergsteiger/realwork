@@ -3,6 +3,7 @@ unit PrimOldSituationSearch_cutOldKeyWord_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimOldSituationSearch_cutOldKeyWord_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "cutOldKeyWord" MUID: (4BD7284F0127)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_cutOldKeyWord = {final} class(TtfwInteger)
   {* Слово словаря для типа формы cutOldKeyWord }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_cutOldKeyWord
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_cutOldKeyWord.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::cutOldKeyWord';
-end;//Tkw_FormUserType_cutOldKeyWord.GetWordNameForRegister
-
 function Tkw_FormUserType_cutOldKeyWord.GetInteger: Integer;
 begin
  Result := cutOldKeyWord;
 end;//Tkw_FormUserType_cutOldKeyWord.GetInteger
+
+class function Tkw_FormUserType_cutOldKeyWord.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::cutOldKeyWord';
+end;//Tkw_FormUserType_cutOldKeyWord.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

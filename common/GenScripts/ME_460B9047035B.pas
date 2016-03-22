@@ -3,6 +3,7 @@ unit DateTranslator;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DateTranslator.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DateTranslator" MUID: (460B9047035B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

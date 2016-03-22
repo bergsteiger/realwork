@@ -2,6 +2,7 @@ unit l3PicturePathService;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3PicturePathService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3PicturePathService" MUID: (552406830331)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -35,7 +36,7 @@ type
  Tl3PicturePathService = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3PicturePathService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3PicturePathService }
   protected
    procedure pm_SetAlien(const aValue: Il3PicturePathService);
    procedure ClearFields; override;

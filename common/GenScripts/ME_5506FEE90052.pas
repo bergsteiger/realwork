@@ -2,6 +2,7 @@ unit evDocumentsCachePrim;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\evDocumentsCachePrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentsCachePrim" MUID: (5506FEE90052)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

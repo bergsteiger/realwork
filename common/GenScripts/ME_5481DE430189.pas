@@ -2,6 +2,7 @@ unit eeSubDescriptorsExport;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeSubDescriptorsExport.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "eeSubDescriptorsExport" MUID: (5481DE430189)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

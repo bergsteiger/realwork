@@ -1,45 +1,34 @@
 unit IntStackTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "IntStackTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCase::Class Shared Delphi Sand Box::SandBoxTest::ContainersTests::TIntStackTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\IntStackTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TIntStackTest" MUID: (5155CA4E0028)
 
-{$Include ..\SandBox\sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , TestFrameWork
+;
 
-{$If defined(nsTest)}
 type
  TIntStackTest = {final} class(TTestCase)
- published
- // published methods
+  published
    procedure DoIt;
  end;//TIntStackTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  IntStack,
-  SysUtils
-  ;
-{$IfEnd} //nsTest
-
-{$If defined(nsTest)}
-
-// start class TIntStackTest
+ l3ImplUses
+ , IntStack
+ , SysUtils
+;
 
 procedure TIntStackTest.DoIt;
 //#UC START# *5155CA8A02A6_5155CA4E0028_var*
@@ -63,9 +52,8 @@ begin
 //#UC END# *5155CA8A02A6_5155CA4E0028_impl*
 end;//TIntStackTest.DoIt
 
-{$IfEnd} //nsTest
-
 initialization
  TestFramework.RegisterTest(TIntStackTest.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

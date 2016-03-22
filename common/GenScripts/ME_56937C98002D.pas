@@ -2,6 +2,7 @@ unit l3MemoryUtils;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3MemoryUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3MemoryUtils" MUID: (56937C98002D)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

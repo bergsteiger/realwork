@@ -3,6 +3,7 @@ unit nsRubricatorCache;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsRubricatorCache.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsRubricatorCache" MUID: (490724F202F5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

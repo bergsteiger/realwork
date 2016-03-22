@@ -2,6 +2,7 @@ unit atLogoutOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atLogoutOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatLogoutOperation" MUID: (4808AEBB01E2)
 
 interface
 

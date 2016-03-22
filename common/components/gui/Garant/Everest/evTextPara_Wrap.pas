@@ -2,6 +2,7 @@ unit evTextPara_Wrap;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTextPara_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WevTextPara" MUID: (48577704034C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

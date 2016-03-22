@@ -3,6 +3,7 @@ unit PrimMonitoringsMain_utEmptyMainWindow_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\PrimMonitoringsMain_utEmptyMainWindow_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utEmptyMainWindow" MUID: (4BD84E0603B5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utEmptyMainWindow = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utEmptyMainWindow }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utEmptyMainWindow
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utEmptyMainWindow.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utEmptyMainWindow';
-end;//Tkw_FormUserType_utEmptyMainWindow.GetWordNameForRegister
-
 function Tkw_FormUserType_utEmptyMainWindow.GetInteger: Integer;
 begin
  Result := utEmptyMainWindow;
 end;//Tkw_FormUserType_utEmptyMainWindow.GetInteger
+
+class function Tkw_FormUserType_utEmptyMainWindow.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utEmptyMainWindow';
+end;//Tkw_FormUserType_utEmptyMainWindow.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

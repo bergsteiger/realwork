@@ -2,6 +2,8 @@ unit kwCFPDF;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCFPDF.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "CF_PDF" MUID: (5548AB5A0050)
+// Имя типа: "TkwCFPDF"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

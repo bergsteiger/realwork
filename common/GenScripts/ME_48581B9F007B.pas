@@ -3,6 +3,8 @@ unit Attr_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\Attr_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Attr" MUID: (48581B9F007B)
+// Имя типа: "AttrTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

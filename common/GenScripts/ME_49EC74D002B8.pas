@@ -3,6 +3,8 @@ unit InternetAgent_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms\InternetAgent_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "InternetAgent" MUID: (49EC74D002B8)
+// Имя типа: "TInternetAgentForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

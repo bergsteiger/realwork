@@ -3,6 +3,7 @@ unit ConsultationMarkKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\ConsultationMarkKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ConsultationMarkKeywordsPack" MUID: (18755A78D1B1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -48,8 +49,8 @@ type
 'aControl' форма::ConsultationMark TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ConsultationMark
 
  Tkw_ConsultationMark_Control_gbMark = {final} class(TtfwControlString)
@@ -60,9 +61,9 @@ type
 контрол::gbMark TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_gbMark
 
  Tkw_ConsultationMark_Control_gbMark_Push = {final} class(TkwBynameControlPush)
@@ -85,9 +86,9 @@ type
 контрол::rbNotSure TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_rbNotSure
 
  Tkw_ConsultationMark_Control_rbNotSure_Push = {final} class(TkwBynameControlPush)
@@ -110,9 +111,9 @@ type
 контрол::rbTwo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_rbTwo
 
  Tkw_ConsultationMark_Control_rbTwo_Push = {final} class(TkwBynameControlPush)
@@ -135,9 +136,9 @@ type
 контрол::rbThree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_rbThree
 
  Tkw_ConsultationMark_Control_rbThree_Push = {final} class(TkwBynameControlPush)
@@ -160,9 +161,9 @@ type
 контрол::rbFour TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_rbFour
 
  Tkw_ConsultationMark_Control_rbFour_Push = {final} class(TkwBynameControlPush)
@@ -185,9 +186,9 @@ type
 контрол::rbFive TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_rbFive
 
  Tkw_ConsultationMark_Control_rbFive_Push = {final} class(TkwBynameControlPush)
@@ -210,9 +211,9 @@ type
 контрол::pnlHelp TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_pnlHelp
 
  Tkw_ConsultationMark_Control_pnlHelp_Push = {final} class(TkwBynameControlPush)
@@ -235,9 +236,9 @@ type
 контрол::lblHelp TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_lblHelp
 
  Tkw_ConsultationMark_Control_lblHelp_Push = {final} class(TkwBynameControlPush)
@@ -260,9 +261,9 @@ type
 контрол::gbComment TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_gbComment
 
  Tkw_ConsultationMark_Control_gbComment_Push = {final} class(TkwBynameControlPush)
@@ -285,9 +286,9 @@ type
 контрол::mComment TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_mComment
 
  Tkw_ConsultationMark_Control_mComment_Push = {final} class(TkwBynameControlPush)
@@ -542,20 +543,15 @@ OBJECT VAR l_TeeMemoWithEditOperations
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnConsultationMarkMComment
 
-class function Tkw_Form_ConsultationMark.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ConsultationMark';
-end;//Tkw_Form_ConsultationMark.GetWordNameForRegister
-
 function Tkw_Form_ConsultationMark.GetString: AnsiString;
 begin
  Result := 'en_ConsultationMark';
 end;//Tkw_Form_ConsultationMark.GetString
 
-class function Tkw_ConsultationMark_Control_gbMark.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_ConsultationMark.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::gbMark';
-end;//Tkw_ConsultationMark_Control_gbMark.GetWordNameForRegister
+ Result := 'форма::ConsultationMark';
+end;//Tkw_Form_ConsultationMark.GetWordNameForRegister
 
 function Tkw_ConsultationMark_Control_gbMark.GetString: AnsiString;
 begin
@@ -568,6 +564,11 @@ begin
  TtfwClassRef.Register(TvtGroupBox);
 end;//Tkw_ConsultationMark_Control_gbMark.RegisterInEngine
 
+class function Tkw_ConsultationMark_Control_gbMark.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::gbMark';
+end;//Tkw_ConsultationMark_Control_gbMark.GetWordNameForRegister
+
 procedure Tkw_ConsultationMark_Control_gbMark_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('gbMark');
@@ -578,11 +579,6 @@ class function Tkw_ConsultationMark_Control_gbMark_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::gbMark:push';
 end;//Tkw_ConsultationMark_Control_gbMark_Push.GetWordNameForRegister
-
-class function Tkw_ConsultationMark_Control_rbNotSure.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::rbNotSure';
-end;//Tkw_ConsultationMark_Control_rbNotSure.GetWordNameForRegister
 
 function Tkw_ConsultationMark_Control_rbNotSure.GetString: AnsiString;
 begin
@@ -595,6 +591,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_ConsultationMark_Control_rbNotSure.RegisterInEngine
 
+class function Tkw_ConsultationMark_Control_rbNotSure.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::rbNotSure';
+end;//Tkw_ConsultationMark_Control_rbNotSure.GetWordNameForRegister
+
 procedure Tkw_ConsultationMark_Control_rbNotSure_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('rbNotSure');
@@ -605,11 +606,6 @@ class function Tkw_ConsultationMark_Control_rbNotSure_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::rbNotSure:push';
 end;//Tkw_ConsultationMark_Control_rbNotSure_Push.GetWordNameForRegister
-
-class function Tkw_ConsultationMark_Control_rbTwo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::rbTwo';
-end;//Tkw_ConsultationMark_Control_rbTwo.GetWordNameForRegister
 
 function Tkw_ConsultationMark_Control_rbTwo.GetString: AnsiString;
 begin
@@ -622,6 +618,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_ConsultationMark_Control_rbTwo.RegisterInEngine
 
+class function Tkw_ConsultationMark_Control_rbTwo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::rbTwo';
+end;//Tkw_ConsultationMark_Control_rbTwo.GetWordNameForRegister
+
 procedure Tkw_ConsultationMark_Control_rbTwo_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('rbTwo');
@@ -632,11 +633,6 @@ class function Tkw_ConsultationMark_Control_rbTwo_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::rbTwo:push';
 end;//Tkw_ConsultationMark_Control_rbTwo_Push.GetWordNameForRegister
-
-class function Tkw_ConsultationMark_Control_rbThree.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::rbThree';
-end;//Tkw_ConsultationMark_Control_rbThree.GetWordNameForRegister
 
 function Tkw_ConsultationMark_Control_rbThree.GetString: AnsiString;
 begin
@@ -649,6 +645,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_ConsultationMark_Control_rbThree.RegisterInEngine
 
+class function Tkw_ConsultationMark_Control_rbThree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::rbThree';
+end;//Tkw_ConsultationMark_Control_rbThree.GetWordNameForRegister
+
 procedure Tkw_ConsultationMark_Control_rbThree_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('rbThree');
@@ -659,11 +660,6 @@ class function Tkw_ConsultationMark_Control_rbThree_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::rbThree:push';
 end;//Tkw_ConsultationMark_Control_rbThree_Push.GetWordNameForRegister
-
-class function Tkw_ConsultationMark_Control_rbFour.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::rbFour';
-end;//Tkw_ConsultationMark_Control_rbFour.GetWordNameForRegister
 
 function Tkw_ConsultationMark_Control_rbFour.GetString: AnsiString;
 begin
@@ -676,6 +672,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_ConsultationMark_Control_rbFour.RegisterInEngine
 
+class function Tkw_ConsultationMark_Control_rbFour.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::rbFour';
+end;//Tkw_ConsultationMark_Control_rbFour.GetWordNameForRegister
+
 procedure Tkw_ConsultationMark_Control_rbFour_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('rbFour');
@@ -686,11 +687,6 @@ class function Tkw_ConsultationMark_Control_rbFour_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::rbFour:push';
 end;//Tkw_ConsultationMark_Control_rbFour_Push.GetWordNameForRegister
-
-class function Tkw_ConsultationMark_Control_rbFive.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::rbFive';
-end;//Tkw_ConsultationMark_Control_rbFive.GetWordNameForRegister
 
 function Tkw_ConsultationMark_Control_rbFive.GetString: AnsiString;
 begin
@@ -703,6 +699,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_ConsultationMark_Control_rbFive.RegisterInEngine
 
+class function Tkw_ConsultationMark_Control_rbFive.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::rbFive';
+end;//Tkw_ConsultationMark_Control_rbFive.GetWordNameForRegister
+
 procedure Tkw_ConsultationMark_Control_rbFive_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('rbFive');
@@ -713,11 +714,6 @@ class function Tkw_ConsultationMark_Control_rbFive_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::rbFive:push';
 end;//Tkw_ConsultationMark_Control_rbFive_Push.GetWordNameForRegister
-
-class function Tkw_ConsultationMark_Control_pnlHelp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlHelp';
-end;//Tkw_ConsultationMark_Control_pnlHelp.GetWordNameForRegister
 
 function Tkw_ConsultationMark_Control_pnlHelp.GetString: AnsiString;
 begin
@@ -730,6 +726,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ConsultationMark_Control_pnlHelp.RegisterInEngine
 
+class function Tkw_ConsultationMark_Control_pnlHelp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlHelp';
+end;//Tkw_ConsultationMark_Control_pnlHelp.GetWordNameForRegister
+
 procedure Tkw_ConsultationMark_Control_pnlHelp_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlHelp');
@@ -740,11 +741,6 @@ class function Tkw_ConsultationMark_Control_pnlHelp_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::pnlHelp:push';
 end;//Tkw_ConsultationMark_Control_pnlHelp_Push.GetWordNameForRegister
-
-class function Tkw_ConsultationMark_Control_lblHelp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lblHelp';
-end;//Tkw_ConsultationMark_Control_lblHelp.GetWordNameForRegister
 
 function Tkw_ConsultationMark_Control_lblHelp.GetString: AnsiString;
 begin
@@ -757,6 +753,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_ConsultationMark_Control_lblHelp.RegisterInEngine
 
+class function Tkw_ConsultationMark_Control_lblHelp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblHelp';
+end;//Tkw_ConsultationMark_Control_lblHelp.GetWordNameForRegister
+
 procedure Tkw_ConsultationMark_Control_lblHelp_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lblHelp');
@@ -767,11 +768,6 @@ class function Tkw_ConsultationMark_Control_lblHelp_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::lblHelp:push';
 end;//Tkw_ConsultationMark_Control_lblHelp_Push.GetWordNameForRegister
-
-class function Tkw_ConsultationMark_Control_gbComment.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::gbComment';
-end;//Tkw_ConsultationMark_Control_gbComment.GetWordNameForRegister
 
 function Tkw_ConsultationMark_Control_gbComment.GetString: AnsiString;
 begin
@@ -784,6 +780,11 @@ begin
  TtfwClassRef.Register(TvtGroupBox);
 end;//Tkw_ConsultationMark_Control_gbComment.RegisterInEngine
 
+class function Tkw_ConsultationMark_Control_gbComment.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::gbComment';
+end;//Tkw_ConsultationMark_Control_gbComment.GetWordNameForRegister
+
 procedure Tkw_ConsultationMark_Control_gbComment_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('gbComment');
@@ -795,11 +796,6 @@ begin
  Result := 'контрол::gbComment:push';
 end;//Tkw_ConsultationMark_Control_gbComment_Push.GetWordNameForRegister
 
-class function Tkw_ConsultationMark_Control_mComment.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::mComment';
-end;//Tkw_ConsultationMark_Control_mComment.GetWordNameForRegister
-
 function Tkw_ConsultationMark_Control_mComment.GetString: AnsiString;
 begin
  Result := 'mComment';
@@ -810,6 +806,11 @@ begin
  inherited;
  TtfwClassRef.Register(TeeMemoWithEditOperations);
 end;//Tkw_ConsultationMark_Control_mComment.RegisterInEngine
+
+class function Tkw_ConsultationMark_Control_mComment.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::mComment';
+end;//Tkw_ConsultationMark_Control_mComment.GetWordNameForRegister
 
 procedure Tkw_ConsultationMark_Control_mComment_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -844,11 +845,6 @@ begin
  aCtx.rEngine.PushObj(gbMark(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkGbMark.DoDoIt
 
-class function TkwEnConsultationMarkGbMark.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_ConsultationMark.gbMark';
-end;//TkwEnConsultationMarkGbMark.GetWordNameForRegister
-
 procedure TkwEnConsultationMarkGbMark.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -869,6 +865,11 @@ function TkwEnConsultationMarkGbMark.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkGbMark.ParamsTypes
+
+class function TkwEnConsultationMarkGbMark.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_ConsultationMark.gbMark';
+end;//TkwEnConsultationMarkGbMark.GetWordNameForRegister
 
 function TkwEnConsultationMarkRbNotSure.rbNotSure(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
@@ -892,11 +893,6 @@ begin
  aCtx.rEngine.PushObj(rbNotSure(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkRbNotSure.DoDoIt
 
-class function TkwEnConsultationMarkRbNotSure.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_ConsultationMark.rbNotSure';
-end;//TkwEnConsultationMarkRbNotSure.GetWordNameForRegister
-
 procedure TkwEnConsultationMarkRbNotSure.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -917,6 +913,11 @@ function TkwEnConsultationMarkRbNotSure.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkRbNotSure.ParamsTypes
+
+class function TkwEnConsultationMarkRbNotSure.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_ConsultationMark.rbNotSure';
+end;//TkwEnConsultationMarkRbNotSure.GetWordNameForRegister
 
 function TkwEnConsultationMarkRbTwo.rbTwo(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
@@ -940,11 +941,6 @@ begin
  aCtx.rEngine.PushObj(rbTwo(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkRbTwo.DoDoIt
 
-class function TkwEnConsultationMarkRbTwo.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_ConsultationMark.rbTwo';
-end;//TkwEnConsultationMarkRbTwo.GetWordNameForRegister
-
 procedure TkwEnConsultationMarkRbTwo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -965,6 +961,11 @@ function TkwEnConsultationMarkRbTwo.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkRbTwo.ParamsTypes
+
+class function TkwEnConsultationMarkRbTwo.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_ConsultationMark.rbTwo';
+end;//TkwEnConsultationMarkRbTwo.GetWordNameForRegister
 
 function TkwEnConsultationMarkRbThree.rbThree(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
@@ -988,11 +989,6 @@ begin
  aCtx.rEngine.PushObj(rbThree(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkRbThree.DoDoIt
 
-class function TkwEnConsultationMarkRbThree.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_ConsultationMark.rbThree';
-end;//TkwEnConsultationMarkRbThree.GetWordNameForRegister
-
 procedure TkwEnConsultationMarkRbThree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1013,6 +1009,11 @@ function TkwEnConsultationMarkRbThree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkRbThree.ParamsTypes
+
+class function TkwEnConsultationMarkRbThree.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_ConsultationMark.rbThree';
+end;//TkwEnConsultationMarkRbThree.GetWordNameForRegister
 
 function TkwEnConsultationMarkRbFour.rbFour(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
@@ -1036,11 +1037,6 @@ begin
  aCtx.rEngine.PushObj(rbFour(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkRbFour.DoDoIt
 
-class function TkwEnConsultationMarkRbFour.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_ConsultationMark.rbFour';
-end;//TkwEnConsultationMarkRbFour.GetWordNameForRegister
-
 procedure TkwEnConsultationMarkRbFour.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1061,6 +1057,11 @@ function TkwEnConsultationMarkRbFour.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkRbFour.ParamsTypes
+
+class function TkwEnConsultationMarkRbFour.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_ConsultationMark.rbFour';
+end;//TkwEnConsultationMarkRbFour.GetWordNameForRegister
 
 function TkwEnConsultationMarkRbFive.rbFive(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
@@ -1084,11 +1085,6 @@ begin
  aCtx.rEngine.PushObj(rbFive(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkRbFive.DoDoIt
 
-class function TkwEnConsultationMarkRbFive.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_ConsultationMark.rbFive';
-end;//TkwEnConsultationMarkRbFive.GetWordNameForRegister
-
 procedure TkwEnConsultationMarkRbFive.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1109,6 +1105,11 @@ function TkwEnConsultationMarkRbFive.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkRbFive.ParamsTypes
+
+class function TkwEnConsultationMarkRbFive.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_ConsultationMark.rbFive';
+end;//TkwEnConsultationMarkRbFive.GetWordNameForRegister
 
 function TkwEnConsultationMarkPnlHelp.pnlHelp(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtPanel;
@@ -1132,11 +1133,6 @@ begin
  aCtx.rEngine.PushObj(pnlHelp(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkPnlHelp.DoDoIt
 
-class function TkwEnConsultationMarkPnlHelp.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_ConsultationMark.pnlHelp';
-end;//TkwEnConsultationMarkPnlHelp.GetWordNameForRegister
-
 procedure TkwEnConsultationMarkPnlHelp.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1157,6 +1153,11 @@ function TkwEnConsultationMarkPnlHelp.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkPnlHelp.ParamsTypes
+
+class function TkwEnConsultationMarkPnlHelp.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_ConsultationMark.pnlHelp';
+end;//TkwEnConsultationMarkPnlHelp.GetWordNameForRegister
 
 function TkwEnConsultationMarkLblHelp.lblHelp(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtLabel;
@@ -1180,11 +1181,6 @@ begin
  aCtx.rEngine.PushObj(lblHelp(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkLblHelp.DoDoIt
 
-class function TkwEnConsultationMarkLblHelp.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_ConsultationMark.lblHelp';
-end;//TkwEnConsultationMarkLblHelp.GetWordNameForRegister
-
 procedure TkwEnConsultationMarkLblHelp.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1205,6 +1201,11 @@ function TkwEnConsultationMarkLblHelp.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkLblHelp.ParamsTypes
+
+class function TkwEnConsultationMarkLblHelp.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_ConsultationMark.lblHelp';
+end;//TkwEnConsultationMarkLblHelp.GetWordNameForRegister
 
 function TkwEnConsultationMarkGbComment.gbComment(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtGroupBox;
@@ -1228,11 +1229,6 @@ begin
  aCtx.rEngine.PushObj(gbComment(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkGbComment.DoDoIt
 
-class function TkwEnConsultationMarkGbComment.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_ConsultationMark.gbComment';
-end;//TkwEnConsultationMarkGbComment.GetWordNameForRegister
-
 procedure TkwEnConsultationMarkGbComment.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1253,6 +1249,11 @@ function TkwEnConsultationMarkGbComment.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkGbComment.ParamsTypes
+
+class function TkwEnConsultationMarkGbComment.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_ConsultationMark.gbComment';
+end;//TkwEnConsultationMarkGbComment.GetWordNameForRegister
 
 function TkwEnConsultationMarkMComment.mComment(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TeeMemoWithEditOperations;
@@ -1276,11 +1277,6 @@ begin
  aCtx.rEngine.PushObj(mComment(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkMComment.DoDoIt
 
-class function TkwEnConsultationMarkMComment.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_ConsultationMark.mComment';
-end;//TkwEnConsultationMarkMComment.GetWordNameForRegister
-
 procedure TkwEnConsultationMarkMComment.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1301,6 +1297,11 @@ function TkwEnConsultationMarkMComment.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkMComment.ParamsTypes
+
+class function TkwEnConsultationMarkMComment.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_ConsultationMark.mComment';
+end;//TkwEnConsultationMarkMComment.GetWordNameForRegister
 
 initialization
  Tkw_Form_ConsultationMark.RegisterInEngine;

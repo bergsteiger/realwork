@@ -3,6 +3,7 @@ unit GarantPDFDocument;
 
 // Модуль: "w:\common\components\rtl\external\SynPDF\GarantPDFDocument.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TGarantPDFDocument" MUID: (54632B090390)
 
 {$Include w:\common\components\rtl\external\SynPDF\Synopse.inc}
 
@@ -68,14 +69,7 @@ begin
  InitPrinterPxPerInch(aPPX, aPPY);
  GeneratePDF15File := True;
  UseUniscribe := False;
- if aForEtalon then
- begin
-  EmbeddedTTF := False;
-  GeneratePDF15File := False;
-  CompressionMethod := cmNone;
- end // if aForEtalon then
- else
-  EmbeddedTTF := True;
+ ForEtalon := aForEtalon;
 //#UC END# *54632D530392_54632B090390_impl*
 end;//TGarantPDFDocument.Create
 

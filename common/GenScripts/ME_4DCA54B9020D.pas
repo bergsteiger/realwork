@@ -2,6 +2,7 @@ unit F1ShellWordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\F1ShellWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "F1ShellWordsPack" MUID: (4DCA54B9020D)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
@@ -112,11 +113,6 @@ begin
  browse(aCtx, l_aStr);
 end;//TkwBrowse.DoDoIt
 
-class function TkwBrowse.GetWordNameForRegister: AnsiString;
-begin
- Result := 'browse';
-end;//TkwBrowse.GetWordNameForRegister
-
 function TkwBrowse.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -131,6 +127,11 @@ function TkwBrowse.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwBrowse.ParamsTypes
+
+class function TkwBrowse.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'browse';
+end;//TkwBrowse.GetWordNameForRegister
 
 function TkwF1_WasBeep.f1_WasBeep(const aCtx: TtfwContext): Boolean;
  {* Реализация слова скрипта f1::WasBeep }
@@ -152,11 +153,6 @@ begin
  aCtx.rEngine.PushBool(f1_WasBeep(aCtx));
 end;//TkwF1_WasBeep.DoDoIt
 
-class function TkwF1_WasBeep.GetWordNameForRegister: AnsiString;
-begin
- Result := 'f1::WasBeep';
-end;//TkwF1_WasBeep.GetWordNameForRegister
-
 function TkwF1_WasBeep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -171,6 +167,11 @@ function TkwF1_WasBeep.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwF1_WasBeep.ParamsTypes
+
+class function TkwF1_WasBeep.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'f1::WasBeep';
+end;//TkwF1_WasBeep.GetWordNameForRegister
 
 initialization
  TkwBrowse.RegisterInEngine;

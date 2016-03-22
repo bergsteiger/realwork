@@ -2,6 +2,7 @@ unit kwLeftParam;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwLeftParam.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwLeftParam" MUID: (4F4158EB01D9)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

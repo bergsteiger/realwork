@@ -3,6 +3,7 @@ unit nsWebBrowser;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\nsWebBrowser.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnsWebBrowser" MUID: (49ECB8E002B0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

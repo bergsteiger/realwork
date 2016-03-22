@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmFormsCollection;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmFormsCollection.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormsCollection" MUID: (52A1F6C102E8)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

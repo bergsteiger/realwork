@@ -3,6 +3,7 @@ unit ForbidAutoregistrationKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\ForbidAutoregistrationKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ForbidAutoregistrationKeywordsPack" MUID: (E4B761B3FD9F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -48,8 +49,8 @@ type
 'aControl' форма::ForbidAutoregistration TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ForbidAutoregistration
 
  Tkw_ForbidAutoregistration_Control_lblReference = {final} class(TtfwControlString)
@@ -60,9 +61,9 @@ type
 контрол::lblReference TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ForbidAutoregistration_Control_lblReference
 
  Tkw_ForbidAutoregistration_Control_lblReference_Push = {final} class(TkwBynameControlPush)
@@ -85,9 +86,9 @@ type
 контрол::gbInfo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ForbidAutoregistration_Control_gbInfo
 
  Tkw_ForbidAutoregistration_Control_gbInfo_Push = {final} class(TkwBynameControlPush)
@@ -110,9 +111,9 @@ type
 контрол::lblPhone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ForbidAutoregistration_Control_lblPhone
 
  Tkw_ForbidAutoregistration_Control_lblPhone_Push = {final} class(TkwBynameControlPush)
@@ -135,9 +136,9 @@ type
 контрол::lblEmail TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ForbidAutoregistration_Control_lblEmail
 
  Tkw_ForbidAutoregistration_Control_lblEmail_Push = {final} class(TkwBynameControlPush)
@@ -160,9 +161,9 @@ type
 контрол::lblHint TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ForbidAutoregistration_Control_lblHint
 
  Tkw_ForbidAutoregistration_Control_lblHint_Push = {final} class(TkwBynameControlPush)
@@ -185,9 +186,9 @@ type
 контрол::cbPhone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ForbidAutoregistration_Control_cbPhone
 
  Tkw_ForbidAutoregistration_Control_cbPhone_Push = {final} class(TkwBynameControlPush)
@@ -210,9 +211,9 @@ type
 контрол::cbEmail TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ForbidAutoregistration_Control_cbEmail
 
  Tkw_ForbidAutoregistration_Control_cbEmail_Push = {final} class(TkwBynameControlPush)
@@ -395,20 +396,15 @@ OBJECT VAR l_TnscEdit
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEfForbidAutoregistrationCbEmail
 
-class function Tkw_Form_ForbidAutoregistration.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ForbidAutoregistration';
-end;//Tkw_Form_ForbidAutoregistration.GetWordNameForRegister
-
 function Tkw_Form_ForbidAutoregistration.GetString: AnsiString;
 begin
  Result := 'efForbidAutoregistration';
 end;//Tkw_Form_ForbidAutoregistration.GetString
 
-class function Tkw_ForbidAutoregistration_Control_lblReference.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_ForbidAutoregistration.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::lblReference';
-end;//Tkw_ForbidAutoregistration_Control_lblReference.GetWordNameForRegister
+ Result := 'форма::ForbidAutoregistration';
+end;//Tkw_Form_ForbidAutoregistration.GetWordNameForRegister
 
 function Tkw_ForbidAutoregistration_Control_lblReference.GetString: AnsiString;
 begin
@@ -421,6 +417,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_ForbidAutoregistration_Control_lblReference.RegisterInEngine
 
+class function Tkw_ForbidAutoregistration_Control_lblReference.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblReference';
+end;//Tkw_ForbidAutoregistration_Control_lblReference.GetWordNameForRegister
+
 procedure Tkw_ForbidAutoregistration_Control_lblReference_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lblReference');
@@ -431,11 +432,6 @@ class function Tkw_ForbidAutoregistration_Control_lblReference_Push.GetWordNameF
 begin
  Result := 'контрол::lblReference:push';
 end;//Tkw_ForbidAutoregistration_Control_lblReference_Push.GetWordNameForRegister
-
-class function Tkw_ForbidAutoregistration_Control_gbInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::gbInfo';
-end;//Tkw_ForbidAutoregistration_Control_gbInfo.GetWordNameForRegister
 
 function Tkw_ForbidAutoregistration_Control_gbInfo.GetString: AnsiString;
 begin
@@ -448,6 +444,11 @@ begin
  TtfwClassRef.Register(TvtGroupBox);
 end;//Tkw_ForbidAutoregistration_Control_gbInfo.RegisterInEngine
 
+class function Tkw_ForbidAutoregistration_Control_gbInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::gbInfo';
+end;//Tkw_ForbidAutoregistration_Control_gbInfo.GetWordNameForRegister
+
 procedure Tkw_ForbidAutoregistration_Control_gbInfo_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('gbInfo');
@@ -458,11 +459,6 @@ class function Tkw_ForbidAutoregistration_Control_gbInfo_Push.GetWordNameForRegi
 begin
  Result := 'контрол::gbInfo:push';
 end;//Tkw_ForbidAutoregistration_Control_gbInfo_Push.GetWordNameForRegister
-
-class function Tkw_ForbidAutoregistration_Control_lblPhone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lblPhone';
-end;//Tkw_ForbidAutoregistration_Control_lblPhone.GetWordNameForRegister
 
 function Tkw_ForbidAutoregistration_Control_lblPhone.GetString: AnsiString;
 begin
@@ -475,6 +471,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_ForbidAutoregistration_Control_lblPhone.RegisterInEngine
 
+class function Tkw_ForbidAutoregistration_Control_lblPhone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblPhone';
+end;//Tkw_ForbidAutoregistration_Control_lblPhone.GetWordNameForRegister
+
 procedure Tkw_ForbidAutoregistration_Control_lblPhone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lblPhone');
@@ -485,11 +486,6 @@ class function Tkw_ForbidAutoregistration_Control_lblPhone_Push.GetWordNameForRe
 begin
  Result := 'контрол::lblPhone:push';
 end;//Tkw_ForbidAutoregistration_Control_lblPhone_Push.GetWordNameForRegister
-
-class function Tkw_ForbidAutoregistration_Control_lblEmail.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lblEmail';
-end;//Tkw_ForbidAutoregistration_Control_lblEmail.GetWordNameForRegister
 
 function Tkw_ForbidAutoregistration_Control_lblEmail.GetString: AnsiString;
 begin
@@ -502,6 +498,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_ForbidAutoregistration_Control_lblEmail.RegisterInEngine
 
+class function Tkw_ForbidAutoregistration_Control_lblEmail.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblEmail';
+end;//Tkw_ForbidAutoregistration_Control_lblEmail.GetWordNameForRegister
+
 procedure Tkw_ForbidAutoregistration_Control_lblEmail_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lblEmail');
@@ -512,11 +513,6 @@ class function Tkw_ForbidAutoregistration_Control_lblEmail_Push.GetWordNameForRe
 begin
  Result := 'контрол::lblEmail:push';
 end;//Tkw_ForbidAutoregistration_Control_lblEmail_Push.GetWordNameForRegister
-
-class function Tkw_ForbidAutoregistration_Control_lblHint.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lblHint';
-end;//Tkw_ForbidAutoregistration_Control_lblHint.GetWordNameForRegister
 
 function Tkw_ForbidAutoregistration_Control_lblHint.GetString: AnsiString;
 begin
@@ -529,6 +525,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_ForbidAutoregistration_Control_lblHint.RegisterInEngine
 
+class function Tkw_ForbidAutoregistration_Control_lblHint.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblHint';
+end;//Tkw_ForbidAutoregistration_Control_lblHint.GetWordNameForRegister
+
 procedure Tkw_ForbidAutoregistration_Control_lblHint_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lblHint');
@@ -539,11 +540,6 @@ class function Tkw_ForbidAutoregistration_Control_lblHint_Push.GetWordNameForReg
 begin
  Result := 'контрол::lblHint:push';
 end;//Tkw_ForbidAutoregistration_Control_lblHint_Push.GetWordNameForRegister
-
-class function Tkw_ForbidAutoregistration_Control_cbPhone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::cbPhone';
-end;//Tkw_ForbidAutoregistration_Control_cbPhone.GetWordNameForRegister
 
 function Tkw_ForbidAutoregistration_Control_cbPhone.GetString: AnsiString;
 begin
@@ -556,6 +552,11 @@ begin
  TtfwClassRef.Register(TnscEdit);
 end;//Tkw_ForbidAutoregistration_Control_cbPhone.RegisterInEngine
 
+class function Tkw_ForbidAutoregistration_Control_cbPhone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::cbPhone';
+end;//Tkw_ForbidAutoregistration_Control_cbPhone.GetWordNameForRegister
+
 procedure Tkw_ForbidAutoregistration_Control_cbPhone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('cbPhone');
@@ -567,11 +568,6 @@ begin
  Result := 'контрол::cbPhone:push';
 end;//Tkw_ForbidAutoregistration_Control_cbPhone_Push.GetWordNameForRegister
 
-class function Tkw_ForbidAutoregistration_Control_cbEmail.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::cbEmail';
-end;//Tkw_ForbidAutoregistration_Control_cbEmail.GetWordNameForRegister
-
 function Tkw_ForbidAutoregistration_Control_cbEmail.GetString: AnsiString;
 begin
  Result := 'cbEmail';
@@ -582,6 +578,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscEdit);
 end;//Tkw_ForbidAutoregistration_Control_cbEmail.RegisterInEngine
+
+class function Tkw_ForbidAutoregistration_Control_cbEmail.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::cbEmail';
+end;//Tkw_ForbidAutoregistration_Control_cbEmail.GetWordNameForRegister
 
 procedure Tkw_ForbidAutoregistration_Control_cbEmail_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -616,11 +617,6 @@ begin
  aCtx.rEngine.PushObj(lblReference(aCtx, l_aefForbidAutoregistration));
 end;//TkwEfForbidAutoregistrationLblReference.DoDoIt
 
-class function TkwEfForbidAutoregistrationLblReference.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefForbidAutoregistration.lblReference';
-end;//TkwEfForbidAutoregistrationLblReference.GetWordNameForRegister
-
 procedure TkwEfForbidAutoregistrationLblReference.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -641,6 +637,11 @@ function TkwEfForbidAutoregistrationLblReference.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefForbidAutoregistration)]);
 end;//TkwEfForbidAutoregistrationLblReference.ParamsTypes
+
+class function TkwEfForbidAutoregistrationLblReference.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefForbidAutoregistration.lblReference';
+end;//TkwEfForbidAutoregistrationLblReference.GetWordNameForRegister
 
 function TkwEfForbidAutoregistrationGbInfo.gbInfo(const aCtx: TtfwContext;
  aefForbidAutoregistration: TefForbidAutoregistration): TvtGroupBox;
@@ -664,11 +665,6 @@ begin
  aCtx.rEngine.PushObj(gbInfo(aCtx, l_aefForbidAutoregistration));
 end;//TkwEfForbidAutoregistrationGbInfo.DoDoIt
 
-class function TkwEfForbidAutoregistrationGbInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefForbidAutoregistration.gbInfo';
-end;//TkwEfForbidAutoregistrationGbInfo.GetWordNameForRegister
-
 procedure TkwEfForbidAutoregistrationGbInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -689,6 +685,11 @@ function TkwEfForbidAutoregistrationGbInfo.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefForbidAutoregistration)]);
 end;//TkwEfForbidAutoregistrationGbInfo.ParamsTypes
+
+class function TkwEfForbidAutoregistrationGbInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefForbidAutoregistration.gbInfo';
+end;//TkwEfForbidAutoregistrationGbInfo.GetWordNameForRegister
 
 function TkwEfForbidAutoregistrationLblPhone.lblPhone(const aCtx: TtfwContext;
  aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
@@ -712,11 +713,6 @@ begin
  aCtx.rEngine.PushObj(lblPhone(aCtx, l_aefForbidAutoregistration));
 end;//TkwEfForbidAutoregistrationLblPhone.DoDoIt
 
-class function TkwEfForbidAutoregistrationLblPhone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefForbidAutoregistration.lblPhone';
-end;//TkwEfForbidAutoregistrationLblPhone.GetWordNameForRegister
-
 procedure TkwEfForbidAutoregistrationLblPhone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -737,6 +733,11 @@ function TkwEfForbidAutoregistrationLblPhone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefForbidAutoregistration)]);
 end;//TkwEfForbidAutoregistrationLblPhone.ParamsTypes
+
+class function TkwEfForbidAutoregistrationLblPhone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefForbidAutoregistration.lblPhone';
+end;//TkwEfForbidAutoregistrationLblPhone.GetWordNameForRegister
 
 function TkwEfForbidAutoregistrationLblEmail.lblEmail(const aCtx: TtfwContext;
  aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
@@ -760,11 +761,6 @@ begin
  aCtx.rEngine.PushObj(lblEmail(aCtx, l_aefForbidAutoregistration));
 end;//TkwEfForbidAutoregistrationLblEmail.DoDoIt
 
-class function TkwEfForbidAutoregistrationLblEmail.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefForbidAutoregistration.lblEmail';
-end;//TkwEfForbidAutoregistrationLblEmail.GetWordNameForRegister
-
 procedure TkwEfForbidAutoregistrationLblEmail.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -785,6 +781,11 @@ function TkwEfForbidAutoregistrationLblEmail.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefForbidAutoregistration)]);
 end;//TkwEfForbidAutoregistrationLblEmail.ParamsTypes
+
+class function TkwEfForbidAutoregistrationLblEmail.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefForbidAutoregistration.lblEmail';
+end;//TkwEfForbidAutoregistrationLblEmail.GetWordNameForRegister
 
 function TkwEfForbidAutoregistrationLblHint.lblHint(const aCtx: TtfwContext;
  aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
@@ -808,11 +809,6 @@ begin
  aCtx.rEngine.PushObj(lblHint(aCtx, l_aefForbidAutoregistration));
 end;//TkwEfForbidAutoregistrationLblHint.DoDoIt
 
-class function TkwEfForbidAutoregistrationLblHint.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefForbidAutoregistration.lblHint';
-end;//TkwEfForbidAutoregistrationLblHint.GetWordNameForRegister
-
 procedure TkwEfForbidAutoregistrationLblHint.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -833,6 +829,11 @@ function TkwEfForbidAutoregistrationLblHint.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefForbidAutoregistration)]);
 end;//TkwEfForbidAutoregistrationLblHint.ParamsTypes
+
+class function TkwEfForbidAutoregistrationLblHint.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefForbidAutoregistration.lblHint';
+end;//TkwEfForbidAutoregistrationLblHint.GetWordNameForRegister
 
 function TkwEfForbidAutoregistrationCbPhone.cbPhone(const aCtx: TtfwContext;
  aefForbidAutoregistration: TefForbidAutoregistration): TnscEdit;
@@ -856,11 +857,6 @@ begin
  aCtx.rEngine.PushObj(cbPhone(aCtx, l_aefForbidAutoregistration));
 end;//TkwEfForbidAutoregistrationCbPhone.DoDoIt
 
-class function TkwEfForbidAutoregistrationCbPhone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefForbidAutoregistration.cbPhone';
-end;//TkwEfForbidAutoregistrationCbPhone.GetWordNameForRegister
-
 procedure TkwEfForbidAutoregistrationCbPhone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -881,6 +877,11 @@ function TkwEfForbidAutoregistrationCbPhone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefForbidAutoregistration)]);
 end;//TkwEfForbidAutoregistrationCbPhone.ParamsTypes
+
+class function TkwEfForbidAutoregistrationCbPhone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefForbidAutoregistration.cbPhone';
+end;//TkwEfForbidAutoregistrationCbPhone.GetWordNameForRegister
 
 function TkwEfForbidAutoregistrationCbEmail.cbEmail(const aCtx: TtfwContext;
  aefForbidAutoregistration: TefForbidAutoregistration): TnscEdit;
@@ -904,11 +905,6 @@ begin
  aCtx.rEngine.PushObj(cbEmail(aCtx, l_aefForbidAutoregistration));
 end;//TkwEfForbidAutoregistrationCbEmail.DoDoIt
 
-class function TkwEfForbidAutoregistrationCbEmail.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefForbidAutoregistration.cbEmail';
-end;//TkwEfForbidAutoregistrationCbEmail.GetWordNameForRegister
-
 procedure TkwEfForbidAutoregistrationCbEmail.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -929,6 +925,11 @@ function TkwEfForbidAutoregistrationCbEmail.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefForbidAutoregistration)]);
 end;//TkwEfForbidAutoregistrationCbEmail.ParamsTypes
+
+class function TkwEfForbidAutoregistrationCbEmail.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefForbidAutoregistration.cbEmail';
+end;//TkwEfForbidAutoregistrationCbEmail.GetWordNameForRegister
 
 initialization
  Tkw_Form_ForbidAutoregistration.RegisterInEngine;

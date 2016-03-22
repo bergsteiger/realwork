@@ -3,6 +3,7 @@ unit evSubPanel;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSubPanel.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TevSubPanel" MUID: (547DB02F034B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

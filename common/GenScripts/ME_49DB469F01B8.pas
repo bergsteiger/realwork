@@ -3,6 +3,7 @@ unit evControlsBlockPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evControlsBlockPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevControlsBlockPainter" MUID: (49DB469F01B8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

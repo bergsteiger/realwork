@@ -2,6 +2,7 @@ unit NOT_FINISHED_TabBBtnDlg;
 
 // Модуль: "w:\archi\source\projects\Archi\MetaForms\NOT_FINISHED_TabBBtnDlg.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TTabBBtnDlg" MUID: (4E4B6244039A)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

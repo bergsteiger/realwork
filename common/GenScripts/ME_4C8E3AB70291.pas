@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmMenus;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmMenus.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmMenus" MUID: (4C8E3AB70291)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

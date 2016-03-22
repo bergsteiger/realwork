@@ -2,6 +2,7 @@ unit vgTypesPrim;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgTypesPrim.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vgTypesPrim" MUID: (4D552A2E00A3)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

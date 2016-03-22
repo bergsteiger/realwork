@@ -2,6 +2,7 @@ unit tb97Control;
 
 // Модуль: "w:\common\components\rtl\external\tb97\tb97Control.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Ttb97Control" MUID: (50288ABF02F4)
 
 {$Include w:\common\components\rtl\external\tb97\TB97VER.INC}
 

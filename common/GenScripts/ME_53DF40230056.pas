@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainersListener.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmTabbedContainersListener" MUID: (53DF40230056)
+// Имя типа: "_vcmTabbedContainersListener_"
 
 {$Define vcmTabbedContainersListener_imp}
 

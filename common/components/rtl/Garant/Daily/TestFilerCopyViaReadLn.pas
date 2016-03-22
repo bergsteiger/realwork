@@ -1,70 +1,52 @@
 unit TestFilerCopyViaReadLn;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/TestFilerCopyViaReadLn.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::Core::TTestFilerCopyViaReadLn
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\TestFilerCopyViaReadLn.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TTestFilerCopyViaReadLn" MUID: (4B2A52070264)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TTestFilerCopyViaReadLn = class(TBaseTest)
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt;
-     {* Тест правильности копирования файлов с помощью ReadLn }
+    {* Тест правильности копирования файлов с помощью ReadLn }
    procedure CopyUnicode;
-     {* Тест для [RequestLink:175540286]. }
+    {* Тест для [RequestLink:175540286]. }
  end;//TTestFilerCopyViaReadLn
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  l3Filer,
-  l3Stream,
-  l3Types,
-  SysUtils,
-  TestGlobals,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestGlobals
+ , TestFrameWork
+ , l3Filer
+ , l3Stream
+ , l3Types
+ , SysUtils
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TTestFilerCopyViaReadLn
-
+{$If NOT Defined(NotTunedDUnit)}
 procedure TTestFilerCopyViaReadLn.DoIt;
+ {* Тест правильности копирования файлов с помощью ReadLn }
 //#UC START# *4B2A528E03BB_4B2A52070264_var*
 var
  l_F : Tl3CustomFiler;
@@ -111,6 +93,7 @@ begin
 end;//TTestFilerCopyViaReadLn.DoIt
 
 procedure TTestFilerCopyViaReadLn.CopyUnicode;
+ {* Тест для [RequestLink:175540286]. }
 //#UC START# *4B337B58013E_4B2A52070264_var*
 var
  l_F : Tl3CustomFiler;
@@ -158,20 +141,20 @@ begin
 end;//TTestFilerCopyViaReadLn.CopyUnicode
 
 function TTestFilerCopyViaReadLn.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Core';
 end;//TTestFilerCopyViaReadLn.GetFolder
 
 function TTestFilerCopyViaReadLn.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4B2A52070264';
 end;//TTestFilerCopyViaReadLn.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TTestFilerCopyViaReadLn.Suite);
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

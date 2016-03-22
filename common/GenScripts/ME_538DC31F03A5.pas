@@ -2,6 +2,7 @@ unit CsDataPipePrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\CsDataPipePrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TCsDataPipePrim" MUID: (538DC31F03A5)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

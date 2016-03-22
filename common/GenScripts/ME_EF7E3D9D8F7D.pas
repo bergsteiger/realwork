@@ -3,6 +3,7 @@ unit PreviewFormKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PreviewFormKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "PreviewFormKeywordsPack" MUID: (EF7E3D9D8F7D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -46,8 +47,8 @@ type
 'aControl' форма::PreviewForm TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_PreviewForm
 
  Tkw_PreviewForm_Control_PreviewPanel = {final} class(TtfwControlString)
@@ -58,9 +59,9 @@ type
 контрол::PreviewPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PreviewForm_Control_PreviewPanel
 
  Tkw_PreviewForm_Control_PreviewPanel_Push = {final} class(TkwBynameControlPush)
@@ -99,20 +100,15 @@ OBJECT VAR l_TnscPreviewPanel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEfPreviewFormPreviewPanel
 
-class function Tkw_Form_PreviewForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::PreviewForm';
-end;//Tkw_Form_PreviewForm.GetWordNameForRegister
-
 function Tkw_Form_PreviewForm.GetString: AnsiString;
 begin
  Result := 'efPreviewForm';
 end;//Tkw_Form_PreviewForm.GetString
 
-class function Tkw_PreviewForm_Control_PreviewPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_PreviewForm.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::PreviewPanel';
-end;//Tkw_PreviewForm_Control_PreviewPanel.GetWordNameForRegister
+ Result := 'форма::PreviewForm';
+end;//Tkw_Form_PreviewForm.GetWordNameForRegister
 
 function Tkw_PreviewForm_Control_PreviewPanel.GetString: AnsiString;
 begin
@@ -124,6 +120,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscPreviewPanel);
 end;//Tkw_PreviewForm_Control_PreviewPanel.RegisterInEngine
+
+class function Tkw_PreviewForm_Control_PreviewPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::PreviewPanel';
+end;//Tkw_PreviewForm_Control_PreviewPanel.GetWordNameForRegister
 
 procedure Tkw_PreviewForm_Control_PreviewPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -158,11 +159,6 @@ begin
  aCtx.rEngine.PushObj(PreviewPanel(aCtx, l_aefPreviewForm));
 end;//TkwEfPreviewFormPreviewPanel.DoDoIt
 
-class function TkwEfPreviewFormPreviewPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefPreviewForm.PreviewPanel';
-end;//TkwEfPreviewFormPreviewPanel.GetWordNameForRegister
-
 procedure TkwEfPreviewFormPreviewPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -183,6 +179,11 @@ function TkwEfPreviewFormPreviewPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefPreviewForm)]);
 end;//TkwEfPreviewFormPreviewPanel.ParamsTypes
+
+class function TkwEfPreviewFormPreviewPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefPreviewForm.PreviewPanel';
+end;//TkwEfPreviewFormPreviewPanel.GetWordNameForRegister
 
 initialization
  Tkw_Form_PreviewForm.RegisterInEngine;

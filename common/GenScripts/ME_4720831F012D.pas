@@ -3,6 +3,7 @@ unit m3DBInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3DBInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "m3DBInterfaces" MUID: (4720831F012D)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

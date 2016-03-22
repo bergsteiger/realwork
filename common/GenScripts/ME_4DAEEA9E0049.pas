@@ -3,6 +3,7 @@ unit tfwScriptEngine;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwScriptEngine.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwScriptEngine" MUID: (4DAEEA9E0049)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

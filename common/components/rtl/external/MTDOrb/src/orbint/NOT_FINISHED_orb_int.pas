@@ -2,6 +2,7 @@ unit NOT_FINISHED_orb_int;
 
 // Модуль: "w:\common\components\rtl\external\MTDOrb\src\orbint\NOT_FINISHED_orb_int.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "orb_int" MUID: (4CA1C4660358)
 
 {$Include w:\common\components\l3Define.inc}
 

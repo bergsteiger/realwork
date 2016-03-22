@@ -13,6 +13,7 @@
 #define VERTYPE_NET_ONEUSER     3       // One User Net Version
 #define VERTYPE_DEMO		4       // Equal to Vines: for DemoVersion
 #define VERTYPE_DEBUG		0
+#define	VERTYPE_MASK		0x3
 
 #define VERTYPE_READONLY        0x8000  // Read-Only Version (CDROM)
 

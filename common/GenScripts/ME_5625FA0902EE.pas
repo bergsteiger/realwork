@@ -2,6 +2,7 @@ unit nsBaseSearchClassList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsBaseSearchClassList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsBaseSearchClassList" MUID: (5625FA0902EE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

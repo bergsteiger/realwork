@@ -2,6 +2,7 @@ unit BaloonWarningUserTypes_TrialModeWarning_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_TrialModeWarning_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "TrialModeWarning" MUID: (4DBFF62502F4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -11,7 +12,6 @@ interface
 uses
  l3IntfUses
  , BaloonWarningUserTypes_remOnlineDead_UserType
- , BaloonWarningUserTypes_Fake_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -34,26 +34,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_TrialModeWarning = {final} class(TtfwInteger)
   {* Слово словаря для типа формы TrialModeWarning }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_TrialModeWarning
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_TrialModeWarning.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::TrialModeWarning';
-end;//Tkw_FormUserType_TrialModeWarning.GetWordNameForRegister
-
 function Tkw_FormUserType_TrialModeWarning.GetInteger: Integer;
 begin
  Result := TrialModeWarning;
 end;//Tkw_FormUserType_TrialModeWarning.GetInteger
+
+class function Tkw_FormUserType_TrialModeWarning.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::TrialModeWarning';
+end;//Tkw_FormUserType_TrialModeWarning.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

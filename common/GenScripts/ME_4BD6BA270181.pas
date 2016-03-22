@@ -3,6 +3,7 @@ unit AttributesUserTypes_fAttributeSynchroView_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes_fAttributeSynchroView_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "fAttributeSynchroView" MUID: (4BD6BA270181)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_fAttributeSynchroView = {final} class(TtfwInteger)
   {* Слово словаря для типа формы fAttributeSynchroView }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_fAttributeSynchroView
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_fAttributeSynchroView.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::fAttributeSynchroView';
-end;//Tkw_FormUserType_fAttributeSynchroView.GetWordNameForRegister
-
 function Tkw_FormUserType_fAttributeSynchroView.GetInteger: Integer;
 begin
  Result := fAttributeSynchroView;
 end;//Tkw_FormUserType_fAttributeSynchroView.GetInteger
+
+class function Tkw_FormUserType_fAttributeSynchroView.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::fAttributeSynchroView';
+end;//Tkw_FormUserType_fAttributeSynchroView.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

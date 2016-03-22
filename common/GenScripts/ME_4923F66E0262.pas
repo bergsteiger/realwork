@@ -2,6 +2,7 @@ unit dsSaveLoad;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\dsSaveLoad.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsSaveLoad" MUID: (4923F66E0262)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

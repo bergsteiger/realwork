@@ -23,8 +23,6 @@ FORWARD ME_9F904801EF08
 ref; // ME_B39AB875FA33 RegAxiom
 
 : ME_55B7A3AF0359_ME_9F904801EF08
- CONST UID '55B7A3AF0359'
- CONST Name 'ResName'
  : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
  ;
  : Implementor ME_9F904801EF08 // TFontWordsPackResNameGetter
@@ -115,20 +113,6 @@ ref; // ME_BB8DB8F1029B aFont
 
 ref; // ME_7040B1F6FD7B Color
 
-: ME_8C02C5E79395
- CONST UID '8C02C5E79395'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Font_Color' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B42B6353E972 // Font_Color
- ;
-
-ref; // ME_8C02C5E79395 Ini_Reg
-
 : ME_10D607BCA0FF
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -152,8 +136,6 @@ ref; // ME_10D607BCA0FF
 ref; // ME_B967B61C6A15 
 
 : ME_4DAEEDE10285_ME_B42B6353E972
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_B42B6353E972 // Font_Color
@@ -161,19 +143,7 @@ ref; // ME_B967B61C6A15
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_B42B6353E972 DoDoIt
 
-: ME_4DB0614603C8_ME_B42B6353E972
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_B42B6353E972 // Font_Color
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_B42B6353E972 GetWordNameForRegister
-
 : ME_52D00B00031A_ME_B42B6353E972
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_B42B6353E972 // Font_Color
@@ -182,8 +152,6 @@ ref; // ME_4DB0614603C8_ME_B42B6353E972 GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_B42B6353E972 SetValuePrim
 
 : ME_551544E2001A_ME_B42B6353E972
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_B42B6353E972 // Font_Color
@@ -192,8 +160,6 @@ ref; // ME_52D00B00031A_ME_B42B6353E972 SetValuePrim
 ref; // ME_551544E2001A_ME_B42B6353E972 GetResultTypeInfo
 
 : ME_559687E6025A_ME_B42B6353E972
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_B42B6353E972 // Font_Color
@@ -202,8 +168,6 @@ ref; // ME_551544E2001A_ME_B42B6353E972 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_B42B6353E972 GetAllParamsCount
 
 : ME_5617F4D00243_ME_B42B6353E972
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_B42B6353E972 // Font_Color
@@ -229,7 +193,6 @@ ref; // ME_5617F4D00243_ME_B42B6353E972 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_7040B1F6FD7B // Color
- ME_8C02C5E79395 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -237,8 +200,7 @@ ref; // ME_5617F4D00243_ME_B42B6353E972 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_B42B6353E972 // GetWordNameForRegister
- ME_52D00B00031A_ME_B42B6353E972 // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_B42B6353E972 // SetValuePrim
  ME_551544E2001A_ME_B42B6353E972 // GetResultTypeInfo
  ME_559687E6025A_ME_B42B6353E972 // GetAllParamsCount
  ME_5617F4D00243_ME_B42B6353E972 // ParamsTypes
@@ -314,20 +276,6 @@ ref; // ME_A96546F8CA28 aFont
 
 ref; // ME_85B9473C71C2 BackColor
 
-: ME_D433FB1E6363
- CONST UID 'D433FB1E6363'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Font_BackColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_ADDA8C159EED // Font_BackColor
- ;
-
-ref; // ME_D433FB1E6363 Ini_Reg
-
 : ME_EA23D7A2EF10
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -351,8 +299,6 @@ ref; // ME_EA23D7A2EF10
 ref; // ME_877BCF1B8C41 
 
 : ME_4DAEEDE10285_ME_ADDA8C159EED
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_ADDA8C159EED // Font_BackColor
@@ -360,19 +306,7 @@ ref; // ME_877BCF1B8C41
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_ADDA8C159EED DoDoIt
 
-: ME_4DB0614603C8_ME_ADDA8C159EED
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_ADDA8C159EED // Font_BackColor
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_ADDA8C159EED GetWordNameForRegister
-
 : ME_52D00B00031A_ME_ADDA8C159EED
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_ADDA8C159EED // Font_BackColor
@@ -381,8 +315,6 @@ ref; // ME_4DB0614603C8_ME_ADDA8C159EED GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_ADDA8C159EED SetValuePrim
 
 : ME_551544E2001A_ME_ADDA8C159EED
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_ADDA8C159EED // Font_BackColor
@@ -391,8 +323,6 @@ ref; // ME_52D00B00031A_ME_ADDA8C159EED SetValuePrim
 ref; // ME_551544E2001A_ME_ADDA8C159EED GetResultTypeInfo
 
 : ME_559687E6025A_ME_ADDA8C159EED
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_ADDA8C159EED // Font_BackColor
@@ -401,8 +331,6 @@ ref; // ME_551544E2001A_ME_ADDA8C159EED GetResultTypeInfo
 ref; // ME_559687E6025A_ME_ADDA8C159EED GetAllParamsCount
 
 : ME_5617F4D00243_ME_ADDA8C159EED
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_ADDA8C159EED // Font_BackColor
@@ -428,7 +356,6 @@ ref; // ME_5617F4D00243_ME_ADDA8C159EED ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_85B9473C71C2 // BackColor
- ME_D433FB1E6363 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -436,8 +363,7 @@ ref; // ME_5617F4D00243_ME_ADDA8C159EED ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_ADDA8C159EED // GetWordNameForRegister
- ME_52D00B00031A_ME_ADDA8C159EED // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_ADDA8C159EED // SetValuePrim
  ME_551544E2001A_ME_ADDA8C159EED // GetResultTypeInfo
  ME_559687E6025A_ME_ADDA8C159EED // GetAllParamsCount
  ME_5617F4D00243_ME_ADDA8C159EED // ParamsTypes
@@ -513,20 +439,6 @@ ref; // ME_056882B046AE aFont
 
 ref; // ME_F4864359618B IsBold
 
-: ME_A9E9C7841CB1
- CONST UID 'A9E9C7841CB1'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Font_IsBold' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_6426AF77D4E5 // Font_IsBold
- ;
-
-ref; // ME_A9E9C7841CB1 Ini_Reg
-
 : ME_1E09FCD099AA
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -550,8 +462,6 @@ ref; // ME_1E09FCD099AA
 ref; // ME_6ED364D09083 
 
 : ME_4DAEEDE10285_ME_6426AF77D4E5
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_6426AF77D4E5 // Font_IsBold
@@ -559,19 +469,7 @@ ref; // ME_6ED364D09083
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_6426AF77D4E5 DoDoIt
 
-: ME_4DB0614603C8_ME_6426AF77D4E5
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_6426AF77D4E5 // Font_IsBold
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_6426AF77D4E5 GetWordNameForRegister
-
 : ME_52D00B00031A_ME_6426AF77D4E5
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_6426AF77D4E5 // Font_IsBold
@@ -580,8 +478,6 @@ ref; // ME_4DB0614603C8_ME_6426AF77D4E5 GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_6426AF77D4E5 SetValuePrim
 
 : ME_551544E2001A_ME_6426AF77D4E5
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_6426AF77D4E5 // Font_IsBold
@@ -590,8 +486,6 @@ ref; // ME_52D00B00031A_ME_6426AF77D4E5 SetValuePrim
 ref; // ME_551544E2001A_ME_6426AF77D4E5 GetResultTypeInfo
 
 : ME_559687E6025A_ME_6426AF77D4E5
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_6426AF77D4E5 // Font_IsBold
@@ -600,8 +494,6 @@ ref; // ME_551544E2001A_ME_6426AF77D4E5 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_6426AF77D4E5 GetAllParamsCount
 
 : ME_5617F4D00243_ME_6426AF77D4E5
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_6426AF77D4E5 // Font_IsBold
@@ -627,7 +519,6 @@ ref; // ME_5617F4D00243_ME_6426AF77D4E5 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_F4864359618B // IsBold
- ME_A9E9C7841CB1 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -635,8 +526,7 @@ ref; // ME_5617F4D00243_ME_6426AF77D4E5 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_6426AF77D4E5 // GetWordNameForRegister
- ME_52D00B00031A_ME_6426AF77D4E5 // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_6426AF77D4E5 // SetValuePrim
  ME_551544E2001A_ME_6426AF77D4E5 // GetResultTypeInfo
  ME_559687E6025A_ME_6426AF77D4E5 // GetAllParamsCount
  ME_5617F4D00243_ME_6426AF77D4E5 // ParamsTypes
@@ -712,20 +602,6 @@ ref; // ME_E03BB8AF9D84 aFont
 
 ref; // ME_3EC3A4D3FAB3 IsItalic
 
-: ME_BE6BDE4B1EC7
- CONST UID 'BE6BDE4B1EC7'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Font_IsItalic' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_FAD60EB55765 // Font_IsItalic
- ;
-
-ref; // ME_BE6BDE4B1EC7 Ini_Reg
-
 : ME_95E947FCF90C
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -749,8 +625,6 @@ ref; // ME_95E947FCF90C
 ref; // ME_10783F504837 
 
 : ME_4DAEEDE10285_ME_FAD60EB55765
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_FAD60EB55765 // Font_IsItalic
@@ -758,19 +632,7 @@ ref; // ME_10783F504837
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_FAD60EB55765 DoDoIt
 
-: ME_4DB0614603C8_ME_FAD60EB55765
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_FAD60EB55765 // Font_IsItalic
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_FAD60EB55765 GetWordNameForRegister
-
 : ME_52D00B00031A_ME_FAD60EB55765
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_FAD60EB55765 // Font_IsItalic
@@ -779,8 +641,6 @@ ref; // ME_4DB0614603C8_ME_FAD60EB55765 GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_FAD60EB55765 SetValuePrim
 
 : ME_551544E2001A_ME_FAD60EB55765
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_FAD60EB55765 // Font_IsItalic
@@ -789,8 +649,6 @@ ref; // ME_52D00B00031A_ME_FAD60EB55765 SetValuePrim
 ref; // ME_551544E2001A_ME_FAD60EB55765 GetResultTypeInfo
 
 : ME_559687E6025A_ME_FAD60EB55765
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_FAD60EB55765 // Font_IsItalic
@@ -799,8 +657,6 @@ ref; // ME_551544E2001A_ME_FAD60EB55765 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_FAD60EB55765 GetAllParamsCount
 
 : ME_5617F4D00243_ME_FAD60EB55765
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_FAD60EB55765 // Font_IsItalic
@@ -826,7 +682,6 @@ ref; // ME_5617F4D00243_ME_FAD60EB55765 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_3EC3A4D3FAB3 // IsItalic
- ME_BE6BDE4B1EC7 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -834,8 +689,7 @@ ref; // ME_5617F4D00243_ME_FAD60EB55765 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_FAD60EB55765 // GetWordNameForRegister
- ME_52D00B00031A_ME_FAD60EB55765 // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_FAD60EB55765 // SetValuePrim
  ME_551544E2001A_ME_FAD60EB55765 // GetResultTypeInfo
  ME_559687E6025A_ME_FAD60EB55765 // GetAllParamsCount
  ME_5617F4D00243_ME_FAD60EB55765 // ParamsTypes
@@ -911,20 +765,6 @@ ref; // ME_F6ABCBC7D9D5 aFont
 
 ref; // ME_F84904DE8371 IsUnderline
 
-: ME_04165BEF24F4
- CONST UID '04165BEF24F4'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Font_IsUnderline' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_0A56585439B0 // Font_IsUnderline
- ;
-
-ref; // ME_04165BEF24F4 Ini_Reg
-
 : ME_E48C49C2C8DF
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -948,8 +788,6 @@ ref; // ME_E48C49C2C8DF
 ref; // ME_821B1E9FF796 
 
 : ME_4DAEEDE10285_ME_0A56585439B0
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_0A56585439B0 // Font_IsUnderline
@@ -957,19 +795,7 @@ ref; // ME_821B1E9FF796
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0A56585439B0 DoDoIt
 
-: ME_4DB0614603C8_ME_0A56585439B0
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_0A56585439B0 // Font_IsUnderline
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_0A56585439B0 GetWordNameForRegister
-
 : ME_52D00B00031A_ME_0A56585439B0
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_0A56585439B0 // Font_IsUnderline
@@ -978,8 +804,6 @@ ref; // ME_4DB0614603C8_ME_0A56585439B0 GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_0A56585439B0 SetValuePrim
 
 : ME_551544E2001A_ME_0A56585439B0
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_0A56585439B0 // Font_IsUnderline
@@ -988,8 +812,6 @@ ref; // ME_52D00B00031A_ME_0A56585439B0 SetValuePrim
 ref; // ME_551544E2001A_ME_0A56585439B0 GetResultTypeInfo
 
 : ME_559687E6025A_ME_0A56585439B0
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_0A56585439B0 // Font_IsUnderline
@@ -998,8 +820,6 @@ ref; // ME_551544E2001A_ME_0A56585439B0 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_0A56585439B0 GetAllParamsCount
 
 : ME_5617F4D00243_ME_0A56585439B0
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_0A56585439B0 // Font_IsUnderline
@@ -1025,7 +845,6 @@ ref; // ME_5617F4D00243_ME_0A56585439B0 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_F84904DE8371 // IsUnderline
- ME_04165BEF24F4 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -1033,8 +852,7 @@ ref; // ME_5617F4D00243_ME_0A56585439B0 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_0A56585439B0 // GetWordNameForRegister
- ME_52D00B00031A_ME_0A56585439B0 // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_0A56585439B0 // SetValuePrim
  ME_551544E2001A_ME_0A56585439B0 // GetResultTypeInfo
  ME_559687E6025A_ME_0A56585439B0 // GetAllParamsCount
  ME_5617F4D00243_ME_0A56585439B0 // ParamsTypes
@@ -1110,20 +928,6 @@ ref; // ME_7D295733CEED aFont
 
 ref; // ME_56B18ED23F7B IsStrikeOut
 
-: ME_189C8D3B4BD3
- CONST UID '189C8D3B4BD3'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Font_IsStrikeOut' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_48690441DF69 // Font_IsStrikeOut
- ;
-
-ref; // ME_189C8D3B4BD3 Ini_Reg
-
 : ME_885647D387E7
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1147,8 +951,6 @@ ref; // ME_885647D387E7
 ref; // ME_894BA64073E7 
 
 : ME_4DAEEDE10285_ME_48690441DF69
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_48690441DF69 // Font_IsStrikeOut
@@ -1156,19 +958,7 @@ ref; // ME_894BA64073E7
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_48690441DF69 DoDoIt
 
-: ME_4DB0614603C8_ME_48690441DF69
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_48690441DF69 // Font_IsStrikeOut
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_48690441DF69 GetWordNameForRegister
-
 : ME_52D00B00031A_ME_48690441DF69
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_48690441DF69 // Font_IsStrikeOut
@@ -1177,8 +967,6 @@ ref; // ME_4DB0614603C8_ME_48690441DF69 GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_48690441DF69 SetValuePrim
 
 : ME_551544E2001A_ME_48690441DF69
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_48690441DF69 // Font_IsStrikeOut
@@ -1187,8 +975,6 @@ ref; // ME_52D00B00031A_ME_48690441DF69 SetValuePrim
 ref; // ME_551544E2001A_ME_48690441DF69 GetResultTypeInfo
 
 : ME_559687E6025A_ME_48690441DF69
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_48690441DF69 // Font_IsStrikeOut
@@ -1197,8 +983,6 @@ ref; // ME_551544E2001A_ME_48690441DF69 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_48690441DF69 GetAllParamsCount
 
 : ME_5617F4D00243_ME_48690441DF69
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_48690441DF69 // Font_IsStrikeOut
@@ -1224,7 +1008,6 @@ ref; // ME_5617F4D00243_ME_48690441DF69 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_56B18ED23F7B // IsStrikeOut
- ME_189C8D3B4BD3 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -1232,8 +1015,7 @@ ref; // ME_5617F4D00243_ME_48690441DF69 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_48690441DF69 // GetWordNameForRegister
- ME_52D00B00031A_ME_48690441DF69 // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_48690441DF69 // SetValuePrim
  ME_551544E2001A_ME_48690441DF69 // GetResultTypeInfo
  ME_559687E6025A_ME_48690441DF69 // GetAllParamsCount
  ME_5617F4D00243_ME_48690441DF69 // ParamsTypes
@@ -1309,20 +1091,6 @@ ref; // ME_E9C0BF37D401 aFont
 
 ref; // ME_5822CA56AAFA Name
 
-: ME_DFCC9C369F69
- CONST UID 'DFCC9C369F69'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Font_Name' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_7A73CF636A32 // Font_Name
- ;
-
-ref; // ME_DFCC9C369F69 Ini_Reg
-
 : ME_51A878C2ECF5
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1346,8 +1114,6 @@ ref; // ME_51A878C2ECF5
 ref; // ME_618427B60E48 
 
 : ME_4DAEEDE10285_ME_7A73CF636A32
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_7A73CF636A32 // Font_Name
@@ -1355,19 +1121,7 @@ ref; // ME_618427B60E48
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_7A73CF636A32 DoDoIt
 
-: ME_4DB0614603C8_ME_7A73CF636A32
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_7A73CF636A32 // Font_Name
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_7A73CF636A32 GetWordNameForRegister
-
 : ME_52D00B00031A_ME_7A73CF636A32
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_7A73CF636A32 // Font_Name
@@ -1376,8 +1130,6 @@ ref; // ME_4DB0614603C8_ME_7A73CF636A32 GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_7A73CF636A32 SetValuePrim
 
 : ME_551544E2001A_ME_7A73CF636A32
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_7A73CF636A32 // Font_Name
@@ -1386,8 +1138,6 @@ ref; // ME_52D00B00031A_ME_7A73CF636A32 SetValuePrim
 ref; // ME_551544E2001A_ME_7A73CF636A32 GetResultTypeInfo
 
 : ME_559687E6025A_ME_7A73CF636A32
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_7A73CF636A32 // Font_Name
@@ -1396,8 +1146,6 @@ ref; // ME_551544E2001A_ME_7A73CF636A32 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_7A73CF636A32 GetAllParamsCount
 
 : ME_5617F4D00243_ME_7A73CF636A32
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_7A73CF636A32 // Font_Name
@@ -1423,7 +1171,6 @@ ref; // ME_5617F4D00243_ME_7A73CF636A32 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_5822CA56AAFA // Name
- ME_DFCC9C369F69 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -1431,8 +1178,7 @@ ref; // ME_5617F4D00243_ME_7A73CF636A32 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_7A73CF636A32 // GetWordNameForRegister
- ME_52D00B00031A_ME_7A73CF636A32 // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_7A73CF636A32 // SetValuePrim
  ME_551544E2001A_ME_7A73CF636A32 // GetResultTypeInfo
  ME_559687E6025A_ME_7A73CF636A32 // GetAllParamsCount
  ME_5617F4D00243_ME_7A73CF636A32 // ParamsTypes
@@ -1508,20 +1254,6 @@ ref; // ME_D42DB2C00078 aFont
 
 ref; // ME_88C29661A1A9 Size
 
-: ME_AAC28E881B0B
- CONST UID 'AAC28E881B0B'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Font_Size' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F76B0EA46A07 // Font_Size
- ;
-
-ref; // ME_AAC28E881B0B Ini_Reg
-
 : ME_12C9A959F14F
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1545,8 +1277,6 @@ ref; // ME_12C9A959F14F
 ref; // ME_4A5DF3F6A350 
 
 : ME_4DAEEDE10285_ME_F76B0EA46A07
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_F76B0EA46A07 // Font_Size
@@ -1554,19 +1284,7 @@ ref; // ME_4A5DF3F6A350
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F76B0EA46A07 DoDoIt
 
-: ME_4DB0614603C8_ME_F76B0EA46A07
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_F76B0EA46A07 // Font_Size
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_F76B0EA46A07 GetWordNameForRegister
-
 : ME_52D00B00031A_ME_F76B0EA46A07
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_F76B0EA46A07 // Font_Size
@@ -1575,8 +1293,6 @@ ref; // ME_4DB0614603C8_ME_F76B0EA46A07 GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_F76B0EA46A07 SetValuePrim
 
 : ME_551544E2001A_ME_F76B0EA46A07
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_F76B0EA46A07 // Font_Size
@@ -1585,8 +1301,6 @@ ref; // ME_52D00B00031A_ME_F76B0EA46A07 SetValuePrim
 ref; // ME_551544E2001A_ME_F76B0EA46A07 GetResultTypeInfo
 
 : ME_559687E6025A_ME_F76B0EA46A07
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_F76B0EA46A07 // Font_Size
@@ -1595,8 +1309,6 @@ ref; // ME_551544E2001A_ME_F76B0EA46A07 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_F76B0EA46A07 GetAllParamsCount
 
 : ME_5617F4D00243_ME_F76B0EA46A07
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_F76B0EA46A07 // Font_Size
@@ -1622,7 +1334,6 @@ ref; // ME_5617F4D00243_ME_F76B0EA46A07 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_88C29661A1A9 // Size
- ME_AAC28E881B0B // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -1630,8 +1341,7 @@ ref; // ME_5617F4D00243_ME_F76B0EA46A07 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_F76B0EA46A07 // GetWordNameForRegister
- ME_52D00B00031A_ME_F76B0EA46A07 // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_F76B0EA46A07 // SetValuePrim
  ME_551544E2001A_ME_F76B0EA46A07 // GetResultTypeInfo
  ME_559687E6025A_ME_F76B0EA46A07 // GetAllParamsCount
  ME_5617F4D00243_ME_F76B0EA46A07 // ParamsTypes
@@ -2093,8 +1803,6 @@ ref; // ME_99FA010D15B4
 ref; // ME_4562BC712280 
 
 : ME_46A60D7A02E4_ME_5190B264037C
- CONST UID '46A60D7A02E4'
- CONST Name 'Size'
  : Original WL 'ME_46A60D7A02E4' '4677FBA70343.pas.ms.script' // Size
  ;
  : Implementor ME_5190B264037C // FontWordsPack
@@ -2104,8 +1812,6 @@ ref; // ME_4562BC712280
 ref; // ME_46A60D7A02E4_ME_5190B264037C Size
 
 : ME_46A60E2802E4_ME_5190B264037C
- CONST UID '46A60E2802E4'
- CONST Name 'Name'
  : Original WL 'ME_46A60E2802E4' '4677FBA70343.pas.ms.script' // Name
  ;
  : Implementor ME_5190B264037C // FontWordsPack
@@ -2115,8 +1821,6 @@ ref; // ME_46A60D7A02E4_ME_5190B264037C Size
 ref; // ME_46A60E2802E4_ME_5190B264037C Name
 
 : ME_46A60E58013F_ME_5190B264037C
- CONST UID '46A60E58013F'
- CONST Name 'Bold'
  : Original WL 'ME_46A60E58013F' '4677FBA70343.pas.ms.script' // Bold
  ;
  : Implementor ME_5190B264037C // FontWordsPack
@@ -2126,8 +1830,6 @@ ref; // ME_46A60E2802E4_ME_5190B264037C Name
 ref; // ME_46A60E58013F_ME_5190B264037C Bold
 
 : ME_46A60E740045_ME_5190B264037C
- CONST UID '46A60E740045'
- CONST Name 'Italic'
  : Original WL 'ME_46A60E740045' '4677FBA70343.pas.ms.script' // Italic
  ;
  : Implementor ME_5190B264037C // FontWordsPack
@@ -2137,8 +1839,6 @@ ref; // ME_46A60E58013F_ME_5190B264037C Bold
 ref; // ME_46A60E740045_ME_5190B264037C Italic
 
 : ME_46A60EA6032C_ME_5190B264037C
- CONST UID '46A60EA6032C'
- CONST Name 'Underline'
  : Original WL 'ME_46A60EA6032C' '4677FBA70343.pas.ms.script' // Underline
  ;
  : Implementor ME_5190B264037C // FontWordsPack
@@ -2148,8 +1848,6 @@ ref; // ME_46A60E740045_ME_5190B264037C Italic
 ref; // ME_46A60EA6032C_ME_5190B264037C Underline
 
 : ME_46A60EBF03BE_ME_5190B264037C
- CONST UID '46A60EBF03BE'
- CONST Name 'Strikeout'
  : Original WL 'ME_46A60EBF03BE' '4677FBA70343.pas.ms.script' // Strikeout
  ;
  : Implementor ME_5190B264037C // FontWordsPack
@@ -2159,8 +1857,6 @@ ref; // ME_46A60EA6032C_ME_5190B264037C Underline
 ref; // ME_46A60EBF03BE_ME_5190B264037C Strikeout
 
 : ME_46A60ED90325_ME_5190B264037C
- CONST UID '46A60ED90325'
- CONST Name 'ForeColor'
  : Original WL 'ME_46A60ED90325' '4677FBA70343.pas.ms.script' // ForeColor
  ;
  : Implementor ME_5190B264037C // FontWordsPack
@@ -2170,8 +1866,6 @@ ref; // ME_46A60EBF03BE_ME_5190B264037C Strikeout
 ref; // ME_46A60ED90325_ME_5190B264037C ForeColor
 
 : ME_46A60EF300C9_ME_5190B264037C
- CONST UID '46A60EF300C9'
- CONST Name 'BackColor'
  : Original WL 'ME_46A60EF300C9' '4677FBA70343.pas.ms.script' // BackColor
  ;
  : Implementor ME_5190B264037C // FontWordsPack
@@ -2181,8 +1875,6 @@ ref; // ME_46A60ED90325_ME_5190B264037C ForeColor
 ref; // ME_46A60EF300C9_ME_5190B264037C BackColor
 
 : ME_46A60F63035F_ME_5190B264037C
- CONST UID '46A60F63035F'
- CONST Name 'Pitch'
  : Original WL 'ME_46A60F63035F' '4677FBA70343.pas.ms.script' // Pitch
  ;
  : Implementor ME_5190B264037C // FontWordsPack
@@ -2192,8 +1884,6 @@ ref; // ME_46A60EF300C9_ME_5190B264037C BackColor
 ref; // ME_46A60F63035F_ME_5190B264037C Pitch
 
 : ME_46A60F89031E_ME_5190B264037C
- CONST UID '46A60F89031E'
- CONST Name 'Index'
  : Original WL 'ME_46A60F89031E' '4677FBA70343.pas.ms.script' // Index
  ;
  : Implementor ME_5190B264037C // FontWordsPack

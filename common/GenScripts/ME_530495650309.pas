@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscFormWithArrangeGrid.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nscFormWithArrangeGrid" MUID: (530495650309)
+// Имя типа: "_nscFormWithArrangeGrid_"
 
 {$Define nscFormWithArrangeGrid_imp}
 

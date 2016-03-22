@@ -2,6 +2,7 @@ unit evReqIterator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evReqIterator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevReqIterator" MUID: (4E81A1D3027D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

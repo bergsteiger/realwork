@@ -3,6 +3,8 @@ unit ReqCell_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\ReqCell_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "ReqCell" MUID: (4857E9EE024A)
+// Имя типа: "ReqCellTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

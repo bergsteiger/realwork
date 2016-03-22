@@ -2,6 +2,7 @@ unit NOT_FINISHED_evEditorWindowProcessor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evEditorWindowProcessor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevEditorWindowProcessor" MUID: (47F35EA70305)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

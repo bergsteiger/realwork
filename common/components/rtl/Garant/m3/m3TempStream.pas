@@ -5,7 +5,7 @@ unit m3TempStream;
 // Библиотека "m3"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3TempStream.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3::Streams::Tm3TempStream
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::Streams::Tm3TempStream
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

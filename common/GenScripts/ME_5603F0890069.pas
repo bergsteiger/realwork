@@ -2,6 +2,7 @@ unit ddExportFilerDispatcher;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\PipeOut\ddExportFilerDispatcher.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddExportFilerDispatcher" MUID: (5603F0890069)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -59,6 +60,7 @@ type
     aValue: TddExportDivideBySet); virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
   public
    constructor Create; reintroduce;
    function GetFiler(aTopic: TDocID;
@@ -370,5 +372,12 @@ begin
  inherited;
 //#UC END# *479731C50290_5603F0890069_impl*
 end;//TddExportFilerDispatcher.Cleanup
+
+procedure TddExportFilerDispatcher.ClearFields;
+begin
+ TargetFolder := '';
+ FileExt := '';
+ inherited;
+end;//TddExportFilerDispatcher.ClearFields
 
 end.

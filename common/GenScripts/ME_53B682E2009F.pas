@@ -2,6 +2,7 @@ unit csAutoSpellTaskPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csAutoSpellTaskPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsAutoSpellTaskPrim" MUID: (53B682E2009F)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -6,8 +6,7 @@
 
 #include <fstream>
 
-#include "SearchB.h"
-#include "shared/Morpho/Def/Def.h"
+#include "shared/Morpho/Facade/Factory.h"
 
 namespace MorphoAnalyze {
 
@@ -33,7 +32,7 @@ namespace MorphoAnalyze {
 	private:
 		std::ofstream m_ofs;
 
-		Core::Aptr <ToolsBase> m_base;
+		Morpho::Def::INormalizer_var m_normalizer;
 	};
 
 } // namespace MorphoAnalyze

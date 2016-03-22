@@ -2,6 +2,7 @@ unit m3TempEnumStatStg;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3TempEnumStatStg.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3TempEnumStatStg" MUID: (5485894C00CB)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

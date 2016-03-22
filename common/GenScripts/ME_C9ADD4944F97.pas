@@ -3,6 +3,7 @@ unit evStylesPrintAndExportFontSizeSettingRes;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evStylesPrintAndExportFontSizeSettingRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evStylesPrintAndExportFontSizeSettingRes" MUID: (C9ADD4944F97)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

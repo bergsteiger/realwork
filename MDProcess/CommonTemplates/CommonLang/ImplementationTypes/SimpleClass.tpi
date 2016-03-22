@@ -391,6 +391,7 @@ f _base_class_collect
 	%f_SpellFieldPrim(%o,%S)\
 	>\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	[{%S%f_NeedCleanupFields()=true}\
 
 	[{"%{l3UnknownPrim.ClearFields}N"=""}%f_find_element(5000565C019C,l3UnknownPrim.ClearFields)]\
@@ -422,6 +423,7 @@ f _base_class_collect
 	]\
 
 	]\
+	]\
 
 	%f_SpellFriends(%S)\
 
@@ -435,6 +437,7 @@ f _base_class_collect
 	]\
 	]\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	[{%{WasRegisterInEngine}N!=true}\
 	[{%SS!=ScriptKeyword|%Sa=abstract}\
 	[{%S#f_NeedRegisterInScripts()=true}\
@@ -461,6 +464,7 @@ f _base_class_collect
 	)\
 	]\
 
+	]\
 	]\
 	]\
 	]\
@@ -543,6 +547,7 @@ f _SpellFriends
 f _SpellRegisterInEngine
 	[{%S%f_InheritsFrom("TtfwRegisterableWord")=true}\
 	%f_set_var(WasRegisterInEngine,"true")\
+	[{%S#f_UseNewGenRec()!=true}\
 	%S%f_add_operation(%SU_Ini_Reg,ini,Ini_Reg (),Op_Instance)\
 	%{Op_Instance}%f_set_documentation(Регистрация %SN)\
 	%{Op_Instance}%f_set_abstraction_type(final)\
@@ -551,6 +556,7 @@ f _SpellRegisterInEngine
 	%{Op_Instance}%f_set_uc_content(intf.pas,,\
 	 %f_pas_TypeName(%S).RegisterInEngine;\
 	)\
+	]\
 	]\
 	]
 
@@ -778,10 +784,8 @@ f _ChildNeedOwnFile
 // артефактов
 + spell
 //#UC START# *4A41A13D03D5for471466900128*
-	%f_warning(%SN start spell)\
 	<%CX>\
-	%S%f_DoSpell()\
-	%f_warning(%SN finish spell)
+	%S%f_DoSpell()
 //#UC END# *4A41A13D03D5for471466900128*
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

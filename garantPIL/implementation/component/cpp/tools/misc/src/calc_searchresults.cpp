@@ -5,14 +5,11 @@
 #include "shared/Core/sys/AutoInit.h"
 
 #include "garutils.h"
-#include "SearchB.h"
 #include "ROCBase.h"
-#include "BaseCache.h"
 #include "recode.h"
 
 #include "garantCore/Search/Facade/Factory.h"
 #include "garantCore/Search/impl/Filters_i/Filters.h"
-#include "garantCore/Search_f1/Search.h"
 #include <boost/thread.hpp>
 
 int compare_using_sort_cache (const void* arg1, const void* arg2) {

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3AtomicListPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3AtomicListPrim" MUID: (4B71611400B3)
+// Имя типа: "_l3AtomicListPrim_"
 
 {$Define l3AtomicListPrim_imp}
 

@@ -126,21 +126,6 @@ ref; // ME_5481D1B900E0 DoIt
 
 ref; // ME_5481D1B20067 CheckSubOnPoint
 
-: ME_56DC4EE7D6EC
- CONST UID '56DC4EE7D6EC'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TeeSubPanelExport' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C7F94A9028D // TeeSubPanelExport
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_56DC4EE7D6EC Ini_Reg_Class
-
 : ME_5481C7FC03BB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -201,20 +186,7 @@ ref; // ME_548707B70059
 
 ref; // ME_54870CC80160 
 
-: ME_FDFD45908C09
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C7F94A9028D // TeeSubPanelExport
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_FDFD45908C09 
-
 : ME_5481A0B20112_ME_4C7F94A9028D
- CONST UID '5481A0B20112'
- CONST Name 'SubViewDescriptors'
  : Original WL 'ME_5481A0B20112' '4912DD020283.pas.ms.script' // SubViewDescriptors
  ;
  : Implementor ME_4C7F94A9028D // TeeSubPanelExport
@@ -244,7 +216,6 @@ ref; // ME_5481A0B20112_ME_4C7F94A9028D SubViewDescriptors
  : Operations
    Seq: ( ME_5481C789009F // GetHotSpot
  ME_5481D1B20067 // CheckSubOnPoint
- ME_56DC4EE7D6EC // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -258,7 +229,6 @@ ref; // ME_5481A0B20112_ME_4C7F94A9028D SubViewDescriptors
  ME_5481E47E014C // 
  ME_548707B70059 // 
  ME_54870CC80160 // 
- ME_FDFD45908C09 // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -293,32 +263,6 @@ FORWARD ME_5481CCAE029D
 
 ref; // ME_5481CD0A031C SubPanel
 
-: ME_97832EB23688
- CONST UID '97832EB23688'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TeeCustomSubPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5481CCAE029D // TeeCustomSubPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_97832EB23688 Ini_Reg_Class
-
-: ME_453767DC7293
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5481CCAE029D // TeeCustomSubPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_453767DC7293 
-
 : ME_5481CCAE029D
  CONST UID '5481CCAE029D'
  CONST Name 'TeeCustomSubPanel'
@@ -337,14 +281,6 @@ ref; // ME_453767DC7293
    Seq: ( ME_5481CD0A031C // SubPanel
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_97832EB23688 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_453767DC7293 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -354,32 +290,6 @@ ref; // ME_453767DC7293
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5481CCAE029D TeeCustomSubPanel
-
-: ME_0FF03C69F5AB
- CONST UID '0FF03C69F5AB'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TeeSubPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C7F948C03BD // TeeSubPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_0FF03C69F5AB Ini_Reg_Class
-
-: ME_351FF70040A0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C7F948C03BD // TeeSubPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_351FF70040A0 
 
 : ME_4C7F948C03BD
  CONST UID '4C7F948C03BD'
@@ -395,18 +305,10 @@ ref; // ME_351FF70040A0
    Seq: ( ME_5481CCAE029D // TeeCustomSubPanel
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0FF03C69F5AB // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_5481CCAE029D // TeeCustomSubPanel
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_351FF70040A0 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
@@ -442,7 +344,6 @@ ref; // ME_4C7F948C03BD TeeSubPanel
  WL 'ME_49523C640160' '49523C640160.pas.ms.script' // eeInterfacesEx
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_547CB376012F' '547CB376012F.pas.ms.script' // ToolPanel
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "UseNewGen" true

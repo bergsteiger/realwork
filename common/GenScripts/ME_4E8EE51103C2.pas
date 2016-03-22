@@ -15,6 +15,7 @@ unit kwArchiNewEmptyDocument;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiNewEmptyDocument.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwArchiNewEmptyDocument" MUID: (4E8EE51103C2)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

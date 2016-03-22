@@ -2,6 +2,7 @@ unit m3CustomNewStorage;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3CustomNewStorage.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3CustomNewStorage" MUID: (5451095F00E9)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

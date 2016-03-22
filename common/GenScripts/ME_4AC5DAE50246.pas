@@ -2,6 +2,7 @@ unit vtDblClickDateEdit;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtDblClickDateEdit.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtDblClickDateEdit" MUID: (4AC5DAE50246)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

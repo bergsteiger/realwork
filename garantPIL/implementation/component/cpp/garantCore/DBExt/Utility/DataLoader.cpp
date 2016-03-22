@@ -29,7 +29,7 @@ void DataLoader::load (DBCore::IIndex* index, const void* key, GCL::StrVector& o
 	if (size) {
 		std::string item;
 
-		const char* ptr = buf->get_data ();
+		const char* ptr = buf->get ();
 
 		for (size_t i = 0; i < size; i += item.size () + 1) {
 			item = ptr + i;

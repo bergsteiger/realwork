@@ -2,6 +2,7 @@ unit caJournal;
 
 // Модуль: "w:\common\components\rtl\Garant\ComboAccess\caJournal.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcaJournal" MUID: (56BD8F200154)
 
 {$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 
@@ -123,8 +124,8 @@ procedure TcaJournal.SessionChanged;
 //#UC END# *559B6A8C0034_56BD8F200154_var*
 begin
 //#UC START# *559B6A8C0034_56BD8F200154_impl*
- (f_HTJournal as IdaComboAccessJournalHelper).SetAlienSessionID(CurSessionID);
- (f_PGJournal as IdaComboAccessJournalHelper).SetAlienSessionID(CurSessionID);
+ (f_HTJournal as IdaComboAccessJournalHelper).SetAlienData(Get_UserID, CurSessionID);
+ (f_PGJournal as IdaComboAccessJournalHelper).SetAlienData(Get_UserID, CurSessionID);
 //#UC END# *559B6A8C0034_56BD8F200154_impl*
 end;//TcaJournal.SessionChanged
 

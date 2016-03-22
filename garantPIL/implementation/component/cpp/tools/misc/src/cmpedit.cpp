@@ -6,6 +6,7 @@
 #include <deque>
 #include <set>
 #include <list>
+#include <boost/thread.hpp>
 
 #include "gardefs.h"
 #include "SearchB.h"
@@ -13,8 +14,7 @@
 int main_logic ( int argc, char *argv[] );
 
 int main ( int argc, char *argv[] ) {
-	int res = mpcxc_run_main_stack_size (main_logic, argc, argv, MPCXC_STACK_SIZE);
-	return res;
+	return main_logic (argc, argv);
 }
 
 std::vector<std::string> filenames;
@@ -47,18 +47,25 @@ char*	get_filename (bool next)
 
 static const int buffer_size = 32 * 1024 * 1024;
 
-void	read_file (int* thread_id)
+void	read_file (long& thread_id)
 {
-	int this_thread_id = *thread_id;
-
-	thread_data_struct* thread_data_ptr = & (thread_data [this_thread_id]);
+	thread_data_struct* thread_data_ptr = & (thread_data [thread_id]);
 	thread_data_ptr->done = false;
 
-	char *buffer = new char [buffer_size];
 	for (;;) {
 		char* filename = get_filename (true);
 		if (!filename)
 			break;
+
+		long buf_size = buffer_size;
+		{
+		int fd = ace_os_open (filename, ACE_OS_O_RDONLY | ACE_OS_O_BINARY );
+		if (fd != -1) {
+			buf_size = ace_os_filesize (fd);
+			ace_os_close (fd);
+		}
+		}
+		char *buffer = new char [buf_size];
 
 		FILE *in = fopen (filename, "rt");
 		if (!in)
@@ -69,7 +76,7 @@ void	read_file (int* thread_id)
 		u_int64_t ref64;
 
 		while (!feof (in)) {
-			if (!fgets (buffer, buffer_size, in))
+			if (!fgets (buffer, buf_size, in))
 				break;
 			if (strstr (buffer, "!TOPIC ") == buffer) {
 				id = atol (buffer + 7);
@@ -147,8 +154,9 @@ void	read_file (int* thread_id)
 			}
 		}
 		fclose (in);
+
+		delete []buffer;
 	}
-	delete []buffer;
 	thread_data_ptr->done = true;
 }
 
@@ -157,18 +165,25 @@ std::map<long,long> map_preveditions, map_nexteditions, map_edition_doc;
 std::set<long> editions, topics;
 std::map<long,std::string> map_topic_nsr;
 
-void	convert_file (int* thread_id)
+void	convert_file (long &thread_id)
 {
-	int this_thread_id = *thread_id;
-
-	thread_data_struct* thread_data_ptr = & (thread_data [this_thread_id]);
+	thread_data_struct* thread_data_ptr = & (thread_data [thread_id]);
 	thread_data_ptr->done = false;
 
-	char *buffer = new char [buffer_size];
 	for (;;) {
 		char* filename = get_filename (true);
 		if (!filename)
 			break;
+
+		long buf_size = buffer_size;
+		{
+		int fd = ace_os_open (filename, ACE_OS_O_RDONLY | ACE_OS_O_BINARY );
+		if (fd != -1) {
+			buf_size = ace_os_filesize (fd);
+			ace_os_close (fd);
+		}
+		}
+		char *buffer = new char [buf_size];
 
 		FILE *in = fopen (filename, "rt");
 		if (!in)
@@ -203,7 +218,7 @@ void	convert_file (int* thread_id)
 		bool b_edition = false;
 
 		while (!feof (in)) {
-			if (!fgets (buffer, buffer_size, in))
+			if (!fgets (buffer, buf_size, in))
 				break;
 			if (buffer [strlen (buffer) - 1] != 10) {
 				int len = strlen (buffer);
@@ -236,9 +251,10 @@ void	convert_file (int* thread_id)
 		fflush (out);
 		fclose (out);
 		fclose (in);
+
+		delete []buffer;
 	}
 
-	delete []buffer;
 	thread_data_ptr->done = true;
 }
 
@@ -282,10 +298,11 @@ int main_logic ( int argc, char *argv[] )
 		threads_count = std::min <long> (MAX_THREADS, std::max <long> (atol (argv [2]), 1));
 
 	filename_it = filenames.begin ();
-	int thread_id, ok_threads = 0;
+	long thread_id, ok_threads = 0;
 	for (thread_id = 0; thread_id < threads_count; thread_id++) {
 		ACE_Thread_Manager* inst = ACE_Thread_Manager::instance ();
-		inst->spawn ((ACE_THR_FUNC)read_file, &thread_id, THR_DETACHED);
+		boost::thread thread (read_file, thread_id);
+		thread.detach ();
 		ok_threads++;
 		ACE_OS::sleep (1);
 	}
@@ -302,8 +319,10 @@ int main_logic ( int argc, char *argv[] )
 					dones++;
 			if (dones == ok_threads)
 				break;
-			else if (time (0) - last_time > 4)
+			/*
+			else if (time (0) - last_time > 30)
 				break;
+			*/
 		}
 		ACE_OS::sleep (5);
 	}
@@ -503,8 +522,9 @@ int main_logic ( int argc, char *argv[] )
 	if (errors.size () == 0 || (argc == 3 && !stricmp (argv [2], "s")) || (argc == 4 && !stricmp (argv [3], "s"))) {
 		filename_it = filenames.begin ();
 		for (ok_threads = thread_id = 0; thread_id < threads_count; thread_id++) {
-			ACE_Thread_Manager* inst = ACE_Thread_Manager::instance ();
-			inst->spawn ((ACE_THR_FUNC)convert_file, &thread_id, THR_DETACHED);
+			thread_data [thread_id].done = false;
+			boost::thread thread (convert_file, thread_id);
+			thread.detach ();
 			ok_threads++;
 			ACE_OS::sleep (1);
 		}
@@ -521,8 +541,10 @@ int main_logic ( int argc, char *argv[] )
 						dones++;
 				if (dones == ok_threads)
 					break;
-				else if (time (0) - last_time > 4)
+				/*
+				else if (time (0) - last_time > 60)
 					break;
+				*/
 			}
 			ACE_OS::sleep (5);
 		}

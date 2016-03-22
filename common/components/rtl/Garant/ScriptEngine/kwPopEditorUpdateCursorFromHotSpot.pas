@@ -2,6 +2,8 @@ unit kwPopEditorUpdateCursorFromHotSpot;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorUpdateCursorFromHotSpot.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_UpdateCursorFromHotSpot" MUID: (4E68D7D10110)
+// Имя типа: "TkwPopEditorUpdateCursorFromHotSpot"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

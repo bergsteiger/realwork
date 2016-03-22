@@ -3,6 +3,7 @@ unit NOT_FINISHED_ExprMake;
 
 // Модуль: "w:\common\components\rtl\external\Expr\NOT_FINISHED_ExprMake.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ExprMake" MUID: (4739A8C90148)
 
 {$Include w:\common\components\rtl\external\Expr\l3Define.inc}
 

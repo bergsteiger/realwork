@@ -348,7 +348,7 @@ procedure gApplyDictModifyFile(aDMFileName : TFileName);
       end;
      end; //case lOper of
     end; //while not lCurFile.EOF do
-    lRootNode.Save;
+    //lRootNode.Save;
    finally
     lLinkServ.Links[lDictID].table.StopCaching;
    end;

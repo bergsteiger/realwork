@@ -3,6 +3,7 @@ unit kwQueryCardFromStackWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwQueryCardFromStackWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwQueryCardFromStackWord" MUID: (4E808D48037D)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

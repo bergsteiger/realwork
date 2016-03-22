@@ -1,87 +1,67 @@
 unit PrimConsultationMark_utcmMain_UserType;
+ {* Оценка ответа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Consultation/Forms/PrimConsultationMark_utcmMain_UserType.pas"
-// Начат: 27.01.2009 13:06
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Пользовательские сервисы::Consultation::View::Consultation::PrimConsultationMark::utcmMain
-//
-// Оценка ответа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms\PrimConsultationMark_utcmMain_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "utcmMain" MUID: (4CD142B70232)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы utcmMain }
-  utcmMainName = 'utcmMain';
-   { Строковый идентификатор пользовательского типа "Оценка ответа" }
-  utcmMain = TvcmUserType(0);
-   { Оценка ответа }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы utcmMain }
+ utcmMainName = 'utcmMain';
+  {* Строковый идентификатор пользовательского типа "Оценка ответа" }
+ utcmMain = TvcmUserType(0);
+  {* Оценка ответа }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_utcmMain = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы utcmMain }
+ Tkw_FormUserType_utcmMain = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы utcmMain }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_utcmMain
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_utcmMain
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_utcmMain
-
-class function Tkw_FormUserType_utcmMain.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::utcmMain';
-end;//Tkw_FormUserType_utcmMain.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utcmMain.GetInteger: Integer;
- {-}
 begin
  Result := utcmMain;
 end;//Tkw_FormUserType_utcmMain.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_utcmMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utcmMain';
+end;//Tkw_FormUserType_utcmMain.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_utcmMain
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utcmMain.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_utcmMain }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

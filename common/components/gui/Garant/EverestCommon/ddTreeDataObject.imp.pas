@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\ddTreeDataObject.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "ddTreeDataObject" MUID: (469C68EC0226)
+// Имя типа: "_ddTreeDataObject_"
 
 {$Define ddTreeDataObject_imp}
 

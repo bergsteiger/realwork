@@ -2,6 +2,7 @@ unit vgGradientPoints;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgGradientPoints.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgGradientPoints" MUID: (4D55623200CE)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

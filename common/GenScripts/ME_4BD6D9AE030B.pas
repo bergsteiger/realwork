@@ -3,6 +3,7 @@ unit PrimTasksPanel_tpMain_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimTasksPanel_tpMain_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "tpMain" MUID: (4BD6D9AE030B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_tpMain = {final} class(TtfwInteger)
   {* Слово словаря для типа формы tpMain }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_tpMain
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_tpMain.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::tpMain';
-end;//Tkw_FormUserType_tpMain.GetWordNameForRegister
-
 function Tkw_FormUserType_tpMain.GetInteger: Integer;
 begin
  Result := tpMain;
 end;//Tkw_FormUserType_tpMain.GetInteger
+
+class function Tkw_FormUserType_tpMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::tpMain';
+end;//Tkw_FormUserType_tpMain.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

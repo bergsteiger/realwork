@@ -2,6 +2,7 @@ unit l3StringMap;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\Implementation\l3StringMap.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3StringMap" MUID: (4B8BC059018C)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

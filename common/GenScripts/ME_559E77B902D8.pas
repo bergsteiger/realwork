@@ -2,6 +2,7 @@ unit htField;
 
 // Модуль: "w:\common\components\rtl\Garant\HT\htField.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ThtField" MUID: (559E77B902D8)
 
 {$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 

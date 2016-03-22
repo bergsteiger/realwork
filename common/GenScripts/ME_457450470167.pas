@@ -2,6 +2,7 @@ unit DynamicTreeUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DynamicTreeUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "DynamicTree" MUID: (457450470167)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

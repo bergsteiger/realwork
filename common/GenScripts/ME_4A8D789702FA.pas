@@ -3,6 +3,7 @@ unit vcmOVCCommands;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmOVCCommands.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmOVCCommands" MUID: (4A8D789702FA)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

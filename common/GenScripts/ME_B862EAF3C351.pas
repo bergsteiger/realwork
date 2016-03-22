@@ -3,6 +3,7 @@ unit CommonDictionKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\CommonDictionKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "CommonDictionKeywordsPack" MUID: (B862EAF3C351)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -48,8 +49,8 @@ type
 'aControl' форма::CommonDiction TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_CommonDiction
 
  Tkw_CommonDiction_Control_BackgroundPanel = {final} class(TtfwControlString)
@@ -60,9 +61,9 @@ type
 контрол::BackgroundPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CommonDiction_Control_BackgroundPanel
 
  Tkw_CommonDiction_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
@@ -85,9 +86,9 @@ type
 контрол::WordsTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CommonDiction_Control_WordsTree
 
  Tkw_CommonDiction_Control_WordsTree_Push = {final} class(TkwBynameControlPush)
@@ -110,9 +111,9 @@ type
 контрол::ContextFilter TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CommonDiction_Control_ContextFilter
 
  Tkw_CommonDiction_Control_ContextFilter_Push = {final} class(TkwBynameControlPush)
@@ -199,20 +200,15 @@ OBJECT VAR l_TnscContextFilter
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnCommonDictionContextFilter
 
-class function Tkw_Form_CommonDiction.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::CommonDiction';
-end;//Tkw_Form_CommonDiction.GetWordNameForRegister
-
 function Tkw_Form_CommonDiction.GetString: AnsiString;
 begin
  Result := 'en_CommonDiction';
 end;//Tkw_Form_CommonDiction.GetString
 
-class function Tkw_CommonDiction_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_CommonDiction.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::BackgroundPanel';
-end;//Tkw_CommonDiction_Control_BackgroundPanel.GetWordNameForRegister
+ Result := 'форма::CommonDiction';
+end;//Tkw_Form_CommonDiction.GetWordNameForRegister
 
 function Tkw_CommonDiction_Control_BackgroundPanel.GetString: AnsiString;
 begin
@@ -225,6 +221,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CommonDiction_Control_BackgroundPanel.RegisterInEngine
 
+class function Tkw_CommonDiction_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BackgroundPanel';
+end;//Tkw_CommonDiction_Control_BackgroundPanel.GetWordNameForRegister
+
 procedure Tkw_CommonDiction_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BackgroundPanel');
@@ -235,11 +236,6 @@ class function Tkw_CommonDiction_Control_BackgroundPanel_Push.GetWordNameForRegi
 begin
  Result := 'контрол::BackgroundPanel:push';
 end;//Tkw_CommonDiction_Control_BackgroundPanel_Push.GetWordNameForRegister
-
-class function Tkw_CommonDiction_Control_WordsTree.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::WordsTree';
-end;//Tkw_CommonDiction_Control_WordsTree.GetWordNameForRegister
 
 function Tkw_CommonDiction_Control_WordsTree.GetString: AnsiString;
 begin
@@ -252,6 +248,11 @@ begin
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_CommonDiction_Control_WordsTree.RegisterInEngine
 
+class function Tkw_CommonDiction_Control_WordsTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::WordsTree';
+end;//Tkw_CommonDiction_Control_WordsTree.GetWordNameForRegister
+
 procedure Tkw_CommonDiction_Control_WordsTree_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('WordsTree');
@@ -263,11 +264,6 @@ begin
  Result := 'контрол::WordsTree:push';
 end;//Tkw_CommonDiction_Control_WordsTree_Push.GetWordNameForRegister
 
-class function Tkw_CommonDiction_Control_ContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ContextFilter';
-end;//Tkw_CommonDiction_Control_ContextFilter.GetWordNameForRegister
-
 function Tkw_CommonDiction_Control_ContextFilter.GetString: AnsiString;
 begin
  Result := 'ContextFilter';
@@ -278,6 +274,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_CommonDiction_Control_ContextFilter.RegisterInEngine
+
+class function Tkw_CommonDiction_Control_ContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ContextFilter';
+end;//Tkw_CommonDiction_Control_ContextFilter.GetWordNameForRegister
 
 procedure Tkw_CommonDiction_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -312,11 +313,6 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aen_CommonDiction));
 end;//TkwEnCommonDictionBackgroundPanel.DoDoIt
 
-class function TkwEnCommonDictionBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_CommonDiction.BackgroundPanel';
-end;//TkwEnCommonDictionBackgroundPanel.GetWordNameForRegister
-
 procedure TkwEnCommonDictionBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -337,6 +333,11 @@ function TkwEnCommonDictionBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_CommonDiction)]);
 end;//TkwEnCommonDictionBackgroundPanel.ParamsTypes
+
+class function TkwEnCommonDictionBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_CommonDiction.BackgroundPanel';
+end;//TkwEnCommonDictionBackgroundPanel.GetWordNameForRegister
 
 function TkwEnCommonDictionWordsTree.WordsTree(const aCtx: TtfwContext;
  aen_CommonDiction: Ten_CommonDiction): TnscTreeViewWithAdapterDragDrop;
@@ -360,11 +361,6 @@ begin
  aCtx.rEngine.PushObj(WordsTree(aCtx, l_aen_CommonDiction));
 end;//TkwEnCommonDictionWordsTree.DoDoIt
 
-class function TkwEnCommonDictionWordsTree.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_CommonDiction.WordsTree';
-end;//TkwEnCommonDictionWordsTree.GetWordNameForRegister
-
 procedure TkwEnCommonDictionWordsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -385,6 +381,11 @@ function TkwEnCommonDictionWordsTree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_CommonDiction)]);
 end;//TkwEnCommonDictionWordsTree.ParamsTypes
+
+class function TkwEnCommonDictionWordsTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_CommonDiction.WordsTree';
+end;//TkwEnCommonDictionWordsTree.GetWordNameForRegister
 
 function TkwEnCommonDictionContextFilter.ContextFilter(const aCtx: TtfwContext;
  aen_CommonDiction: Ten_CommonDiction): TnscContextFilter;
@@ -408,11 +409,6 @@ begin
  aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aen_CommonDiction));
 end;//TkwEnCommonDictionContextFilter.DoDoIt
 
-class function TkwEnCommonDictionContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_CommonDiction.ContextFilter';
-end;//TkwEnCommonDictionContextFilter.GetWordNameForRegister
-
 procedure TkwEnCommonDictionContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -433,6 +429,11 @@ function TkwEnCommonDictionContextFilter.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_CommonDiction)]);
 end;//TkwEnCommonDictionContextFilter.ParamsTypes
+
+class function TkwEnCommonDictionContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_CommonDiction.ContextFilter';
+end;//TkwEnCommonDictionContextFilter.GetWordNameForRegister
 
 initialization
  Tkw_Form_CommonDiction.RegisterInEngine;

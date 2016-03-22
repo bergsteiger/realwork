@@ -3,6 +3,8 @@ unit InpharmMainMenu_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\InpharmMainMenu_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "InpharmMainMenu" MUID: (4958E868009C)
+// Имя типа: "TInpharmMainMenuForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

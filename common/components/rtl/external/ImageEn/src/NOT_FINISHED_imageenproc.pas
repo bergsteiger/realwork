@@ -2,6 +2,7 @@ unit NOT_FINISHED_imageenproc;
 
 // Модуль: "w:\common\components\rtl\external\ImageEn\src\NOT_FINISHED_imageenproc.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "imageenproc" MUID: (4C8778C80111)
 
 interface
 

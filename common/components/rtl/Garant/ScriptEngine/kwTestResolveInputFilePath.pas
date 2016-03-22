@@ -9,6 +9,8 @@ aFileName test:ResolveInputFilePath
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwTestResolveInputFilePath.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "test_ResolveInputFilePath" MUID: (53FC3551023F)
+// Имя типа: "TkwTestResolveInputFilePath"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCollapsedStylePainter.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "evCollapsedStylePainter" MUID: (5514FB530333)
+// Имя типа: "_evCollapsedStylePainter_"
 
 {$Define evCollapsedStylePainter_imp}
 

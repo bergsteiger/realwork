@@ -21,6 +21,8 @@ const
   
   VIEW_PAGE_URI = MDP_URL + 'pages/viewpage.action?pageId=';
   
+  HLTC_NO_LINKS = 'Нет связей';
+  
   TP_FLD_TYPE = 'type';
   TP_FLD_ID = 'id';
   TP_FLD_PARENTID = 'parentId';
@@ -249,7 +251,7 @@ begin
       break;
     except
       updateRequest := true;
-      Delay(500);
+      Delay(100);
     end;
     // <->    
   except
@@ -286,7 +288,7 @@ begin
       break;
     except
       updateRequest := true;
-      Delay(500);
+      Delay(100);
     end;
     // <->    
   except
@@ -703,12 +705,21 @@ function GetHLTCText(
     oTracedFrom, arrIDs : OleVariant; 
 begin
   try
+    Result := HLTC_NO_LINKS;
+        
     oTracedFrom := oTS._get(TSFLD_TRACED_FROM);
-    arrIDs := JSArray2DSArray(oTracedFrom);
+    arrIDs := nil;
+     
+    if VarType(oTracedFrom) <> varEmpty then
+  	begin
+      if (VarType(oTracedFrom) = varOleStr) and (VarToString(oTracedFrom) <> '0') then
+        arrIDs := String2Array(oTracedFrom, ',')
+      else
+        arrIDs := JSArray2DSArray(oTracedFrom);
+  	end;
+    
     if IsArray(arrIDs) then
-      Result := GetHLTCTextByIDs(arrIDs)
-    else
-      Result := 'Нет связей'; 
+      Result := GetHLTCTextByIDs(arrIDs);
   except
     Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
     Raise;   

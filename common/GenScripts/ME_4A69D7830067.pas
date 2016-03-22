@@ -2,6 +2,7 @@ unit nevDocumentContainerPrim;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevDocumentContainerPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevDocumentContainerPrim" MUID: (4A69D7830067)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

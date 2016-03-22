@@ -1,78 +1,55 @@
 unit TextEditorVisitor;
+ {* Тест, работающий с текстом документа через редактор, но не изменяющий его }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Daily/TextEditorVisitor.pas"
-// Начат: 07.05.2010 18:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TTextEditorVisitor
-//
-// Тест, работающий с текстом документа через редактор, но не изменяющий его
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\TextEditorVisitor.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TTextEditorVisitor" MUID: (4BE425C70228)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TextEditorVisitorPrim
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , TextEditorVisitorPrim
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TTextEditorVisitor = {abstract} class(TTextEditorVisitorPrim)
   {* Тест, работающий с текстом документа через редактор, но не изменяющий его }
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    function GetNormalFontSize: Integer; virtual;
-     {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
+    {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
    function MaxHeight: Integer; virtual;
-     {* Если возвращается не 0, то будет организован цикл подбора высоты от FormExtent.Y до MaxHeight }
- published
- // published methods
+    {* Если возвращается не 0, то будет организован цикл подбора высоты от FormExtent.Y до MaxHeight }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt;
-     {* Собственно тело теста }
+    {* Собственно тело теста }
  end;//TTextEditorVisitor
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  SysUtils,
-  evStyleInterface,
-  TestFrameWork,
-  vcmBase
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TTextEditorVisitor
+ l3ImplUses
+ , SysUtils
+ , evStyleInterface
+ , TestFrameWork
+ , vcmBase
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 procedure TTextEditorVisitor.DoIt;
+ {* Собственно тело теста }
 //#UC START# *4BE131BC038E_4BE425C70228_var*
 var
  l_SI : TevStyleInterface;
@@ -119,6 +96,7 @@ begin
 end;//TTextEditorVisitor.DoIt
 
 function TTextEditorVisitor.GetNormalFontSize: Integer;
+ {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
 //#UC START# *4C07AC6F036D_4BE425C70228_var*
 //#UC END# *4C07AC6F036D_4BE425C70228_var*
 begin
@@ -128,6 +106,7 @@ begin
 end;//TTextEditorVisitor.GetNormalFontSize
 
 function TTextEditorVisitor.MaxHeight: Integer;
+ {* Если возвращается не 0, то будет организован цикл подбора высоты от FormExtent.Y до MaxHeight }
 //#UC START# *4C0E56F000A4_4BE425C70228_var*
 //#UC END# *4C0E56F000A4_4BE425C70228_var*
 begin
@@ -137,17 +116,16 @@ begin
 end;//TTextEditorVisitor.MaxHeight
 
 function TTextEditorVisitor.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TTextEditorVisitor.GetFolder
 
 function TTextEditorVisitor.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4BE425C70228';
 end;//TTextEditorVisitor.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

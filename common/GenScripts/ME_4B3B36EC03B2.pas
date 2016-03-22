@@ -3,6 +3,7 @@ unit l3StringIDEx;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3StringIDEx.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3StringIDEx" MUID: (4B3B36EC03B2)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

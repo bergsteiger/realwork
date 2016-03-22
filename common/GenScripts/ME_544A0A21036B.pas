@@ -2,6 +2,7 @@ unit ncsServerTransporter;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsServerTransporter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsServerTransporter" MUID: (544A0A21036B)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -3,6 +3,7 @@ unit alcuSubmitterWorkPool;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuSubmitterWorkPool.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuSubmitterWorkPool" MUID: (53CDF9FE006B)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

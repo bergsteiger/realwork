@@ -2,6 +2,7 @@ unit f1AtomChecker;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1AtomChecker.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tf1AtomChecker" MUID: (4C722ECF0107)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

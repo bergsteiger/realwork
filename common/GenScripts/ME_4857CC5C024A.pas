@@ -3,6 +3,8 @@ unit AnnoTopic_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\AnnoTopic_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "AnnoTopic" MUID: (4857CC5C024A)
+// Имя типа: "AnnoTopicTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

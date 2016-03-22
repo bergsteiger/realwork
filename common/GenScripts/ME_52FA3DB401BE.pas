@@ -2,6 +2,7 @@ unit alcuTaskList;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuTaskList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuTaskList" MUID: (52FA3DB401BE)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
@@ -34,6 +35,7 @@ type
   protected
    procedure pm_SetFileName(const aValue: AnsiString);
    function TaskFileName(const theTaskID: AnsiString): AnsiString;
+   procedure ClearFields; override;
   public
    procedure AddTask(aTask: TddProcessTask);
    procedure Load;
@@ -390,6 +392,12 @@ begin
  end;//try..finally
 //#UC END# *53A063B303E4_52FA3DB401BE_impl*
 end;//TalcuTaskList.Sort
+
+procedure TalcuTaskList.ClearFields;
+begin
+ FileName := '';
+ inherited;
+end;//TalcuTaskList.ClearFields
 {$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 end.

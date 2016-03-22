@@ -2,6 +2,7 @@ unit nsChangeFontSizeEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsChangeFontSizeEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsChangeFontSizeEvent" MUID: (4B0BAFB9012B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

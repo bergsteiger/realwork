@@ -1,146 +1,123 @@
 unit TextViaEditorProcessorPrim;
+ {* Обработчик текста через редактор }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/TextViaEditorProcessorPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TTextViaEditorProcessorPrim
-//
-// Обработчик текста через редактор
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\TextViaEditorProcessorPrim.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TTextViaEditorProcessorPrim" MUID: (4BE047320379)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  nevTools
-  {$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM) AND not defined(NotTunedDUnit)}
-  ,
-  VCMBaseTest
-  {$IfEnd} //nsTest AND not NoScripts AND not NoVCM AND not NotTunedDUnit
-  ,
-  PrimTextLoad_Form,
-  Types
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}
+ , VCMBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)
+ , PrimTextLoad_Form
+ , nevTools
+ , Types
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  _FormClass_ = TPrimTextLoadForm;
  _FormProducer_Parent_ = TVCMBaseTest;
- {$Include ..\Daily\FormProducer.imp.pas}
+ {$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
  TTextViaEditorProcessorPrim = {abstract} class(_FormProducer_)
   {* Обработчик текста через редактор }
- private
- // private fields
-   f_ScrollCount : Integer;
-    {* Поле для свойства ScrollCount}
- protected
- // overridden protected methods
-   procedure FormMade(const aForm: _FormClass_); override;
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function MakeFormClass: FormClassRef; override;
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  private
+   f_ScrollCount: Integer;
+    {* Количество прокруток до конца документа }
+  protected
    procedure Load(aForm: TPrimTextLoadForm;
-     const aFileName: AnsiString;
-     const aStr: AnsiString = 'Load');
-     {* Загружает документ в редактор указанной формы }
+    const aFileName: AnsiString;
+    const aStr: AnsiString = 'Load');
+    {* Загружает документ в редактор указанной формы }
    procedure Save(aForm: TPrimTextLoadForm); virtual;
-     {* Сохраняет текст из редактора в стандартный выходной файл }
+    {* Сохраняет текст из редактора в стандартный выходной файл }
    procedure Scroll(aForm: TPrimTextLoadForm;
-     const aSubName: AnsiString);
+    const aSubName: AnsiString);
    procedure ScrollBack(aForm: TPrimTextLoadForm;
-     const aSubName: AnsiString);
-     {* Скроллирует текст в обратном направлении }
+    const aSubName: AnsiString);
+    {* Скроллирует текст в обратном направлении }
    procedure ScrollByWeel(aForm: TPrimTextLoadForm;
-     aCount: Integer;
-     aGoTop: Boolean = True);
-     {* Прокрутить заданное число раз с помощью колеса мыши }
+    aCount: Integer;
+    aGoTop: Boolean = True);
+    {* Прокрутить заданное число раз с помощью колеса мыши }
    procedure ScrollByLine(aForm: TPrimTextLoadForm;
-     aCount: Integer;
-     aUp: Boolean;
-     aFromBottom: Boolean);
-     {* Прокручивать построчно заданное число раз вверх или вниз }
+    aCount: Integer;
+    aUp: Boolean;
+    aFromBottom: Boolean);
+    {* Прокручивать построчно заданное число раз вверх или вниз }
    procedure GotoDocumentBottom(aForm: TPrimTextLoadForm);
-     {* Перейти в конец документа }
+    {* Перейти в конец документа }
    procedure PageUp(aForm: TPrimTextLoadForm);
-     {* Перейти на страницу вверх }
+    {* Перейти на страницу вверх }
    procedure PageDown(aForm: TPrimTextLoadForm);
    function ScrollByPage: Boolean; virtual;
    function WebStyle: Boolean; virtual;
    function SendKey: Boolean; virtual;
-     {* Управлять ли окном реактора посредсвом посылки клавиш, а не вызова методов редактора }
+    {* Управлять ли окном реактора посредсвом посылки клавиш, а не вызова методов редактора }
    procedure CheckTopAnchor(const aView: InevInputView); virtual;
-     {* проверить якорь начала отрисовки после окончания прокрутки }
+    {* проверить якорь начала отрисовки после окончания прокрутки }
    function F1Like: Boolean; virtual;
    function QFLike: Boolean; virtual;
-     {* Создать форму-редактор для работы с КЗ. }
+    {* Создать форму-редактор для работы с КЗ. }
    procedure DoBeforeLoad(aForm: TPrimTextLoadForm); virtual;
-     {* Операции предшествующие загрузке документа }
+    {* Операции предшествующие загрузке документа }
    function AllowMultiSelect: Boolean; virtual;
-     {* Разершить мультивыделение. }
+    {* Разершить мультивыделение. }
    function WithBaseSearch: Boolean; virtual;
-     {* Форма со строкой базового поиска. }
- public
- // public properties
+    {* Форма со строкой базового поиска. }
+   procedure FormMade(const aForm: _FormClass_); override;
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function MakeFormClass: FormClassRef; override;
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
+  public
    property ScrollCount: Integer
-     read f_ScrollCount;
-     {* Количество прокруток до конца документа }
+    read f_ScrollCount;
+    {* Количество прокруток до конца документа }
  end;//TTextViaEditorProcessorPrim
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  Document_Const,
-  k2OperationContainer,
-  evdNativeWriter,
-  l3Filer,
-  SysUtils,
-  evOp,
-  l3InternalInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Windows,
-  evCustomEditorWindow,
-  Messages,
-  TextLoad_Form,
-  evdSchema,
-  F1LikeTextLoad_Form,
-  QFLikeTextLoad_Form,
-  F1LikeFormWithBS_Form,
-  TestFrameWork,
-  vcmBase,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3ImplUses
+ , TextLoad_Form
+ , evdSchema
+ , F1LikeTextLoad_Form
+ , QFLikeTextLoad_Form
+ , F1LikeFormWithBS_Form
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+ , Document_Const
+ , k2OperationContainer
+ , evdNativeWriter
+ , l3Filer
+ , evOp
+ , l3InternalInterfaces
+ , Windows
+ , evCustomEditorWindow
+ , Messages
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-{$Include ..\Daily\FormProducer.imp.pas}
-
-// start class TTextViaEditorProcessorPrim
+{$If NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}
+{$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
 
 procedure TTextViaEditorProcessorPrim.Load(aForm: TPrimTextLoadForm;
-  const aFileName: AnsiString;
-  const aStr: AnsiString = 'Load');
+ const aFileName: AnsiString;
+ const aStr: AnsiString = 'Load');
+ {* Загружает документ в редактор указанной формы }
 //#UC START# *4B32454100D9_4BE047320379_var*
 //#UC END# *4B32454100D9_4BE047320379_var*
 begin
@@ -161,6 +138,7 @@ begin
 end;//TTextViaEditorProcessorPrim.Load
 
 procedure TTextViaEditorProcessorPrim.Save(aForm: TPrimTextLoadForm);
+ {* Сохраняет текст из редактора в стандартный выходной файл }
 //#UC START# *4BE12AEE0190_4BE047320379_var*
 var
  l_Writer : TevdNativeWriter;
@@ -185,7 +163,7 @@ begin
 end;//TTextViaEditorProcessorPrim.Save
 
 procedure TTextViaEditorProcessorPrim.Scroll(aForm: TPrimTextLoadForm;
-  const aSubName: AnsiString);
+ const aSubName: AnsiString);
 //#UC START# *4B32450B0166_4BE047320379_var*
 var
  l_Now : Cardinal;
@@ -237,7 +215,8 @@ begin
 end;//TTextViaEditorProcessorPrim.Scroll
 
 procedure TTextViaEditorProcessorPrim.ScrollBack(aForm: TPrimTextLoadForm;
-  const aSubName: AnsiString);
+ const aSubName: AnsiString);
+ {* Скроллирует текст в обратном направлении }
 //#UC START# *4BFBDAB2035D_4BE047320379_var*
 var
  l_Now : Cardinal;
@@ -276,8 +255,9 @@ begin
 end;//TTextViaEditorProcessorPrim.ScrollBack
 
 procedure TTextViaEditorProcessorPrim.ScrollByWeel(aForm: TPrimTextLoadForm;
-  aCount: Integer;
-  aGoTop: Boolean = True);
+ aCount: Integer;
+ aGoTop: Boolean = True);
+ {* Прокрутить заданное число раз с помощью колеса мыши }
 //#UC START# *4BFE3A4003B5_4BE047320379_var*
 var
  i: Integer;
@@ -299,9 +279,10 @@ begin
 end;//TTextViaEditorProcessorPrim.ScrollByWeel
 
 procedure TTextViaEditorProcessorPrim.ScrollByLine(aForm: TPrimTextLoadForm;
-  aCount: Integer;
-  aUp: Boolean;
-  aFromBottom: Boolean);
+ aCount: Integer;
+ aUp: Boolean;
+ aFromBottom: Boolean);
+ {* Прокручивать построчно заданное число раз вверх или вниз }
 //#UC START# *4C1B176A0067_4BE047320379_var*
 var
  i: Integer;
@@ -350,6 +331,7 @@ begin
 end;//TTextViaEditorProcessorPrim.ScrollByLine
 
 procedure TTextViaEditorProcessorPrim.GotoDocumentBottom(aForm: TPrimTextLoadForm);
+ {* Перейти в конец документа }
 //#UC START# *4C46F482017F_4BE047320379_var*
 //#UC END# *4C46F482017F_4BE047320379_var*
 begin
@@ -363,6 +345,7 @@ begin
 end;//TTextViaEditorProcessorPrim.GotoDocumentBottom
 
 procedure TTextViaEditorProcessorPrim.PageUp(aForm: TPrimTextLoadForm);
+ {* Перейти на страницу вверх }
 //#UC START# *4C46F88F039A_4BE047320379_var*
 //#UC END# *4C46F88F039A_4BE047320379_var*
 begin
@@ -399,6 +382,7 @@ begin
 end;//TTextViaEditorProcessorPrim.WebStyle
 
 function TTextViaEditorProcessorPrim.SendKey: Boolean;
+ {* Управлять ли окном реактора посредсвом посылки клавиш, а не вызова методов редактора }
 //#UC START# *4C091B9A0305_4BE047320379_var*
 //#UC END# *4C091B9A0305_4BE047320379_var*
 begin
@@ -408,6 +392,7 @@ begin
 end;//TTextViaEditorProcessorPrim.SendKey
 
 procedure TTextViaEditorProcessorPrim.CheckTopAnchor(const aView: InevInputView);
+ {* проверить якорь начала отрисовки после окончания прокрутки }
 //#UC START# *4C1F0A260192_4BE047320379_var*
 //#UC END# *4C1F0A260192_4BE047320379_var*
 begin
@@ -425,6 +410,7 @@ begin
 end;//TTextViaEditorProcessorPrim.F1Like
 
 function TTextViaEditorProcessorPrim.QFLike: Boolean;
+ {* Создать форму-редактор для работы с КЗ. }
 //#UC START# *4CA0947C03CE_4BE047320379_var*
 //#UC END# *4CA0947C03CE_4BE047320379_var*
 begin
@@ -434,6 +420,7 @@ begin
 end;//TTextViaEditorProcessorPrim.QFLike
 
 procedure TTextViaEditorProcessorPrim.DoBeforeLoad(aForm: TPrimTextLoadForm);
+ {* Операции предшествующие загрузке документа }
 //#UC START# *4CA18D6B0088_4BE047320379_var*
 //#UC END# *4CA18D6B0088_4BE047320379_var*
 begin
@@ -442,6 +429,7 @@ begin
 end;//TTextViaEditorProcessorPrim.DoBeforeLoad
 
 function TTextViaEditorProcessorPrim.AllowMultiSelect: Boolean;
+ {* Разершить мультивыделение. }
 //#UC START# *4D3EE58C037C_4BE047320379_var*
 //#UC END# *4D3EE58C037C_4BE047320379_var*
 begin
@@ -451,6 +439,7 @@ begin
 end;//TTextViaEditorProcessorPrim.AllowMultiSelect
 
 function TTextViaEditorProcessorPrim.WithBaseSearch: Boolean;
+ {* Форма со строкой базового поиска. }
 //#UC START# *4D6CB8460086_4BE047320379_var*
 //#UC END# *4D6CB8460086_4BE047320379_var*
 begin
@@ -471,7 +460,7 @@ begin
 end;//TTextViaEditorProcessorPrim.FormMade
 
 function TTextViaEditorProcessorPrim.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TTextViaEditorProcessorPrim.GetFolder
@@ -495,11 +484,11 @@ begin
 end;//TTextViaEditorProcessorPrim.MakeFormClass
 
 function TTextViaEditorProcessorPrim.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4BE047320379';
 end;//TTextViaEditorProcessorPrim.GetModelElementGUID
+{$IfEnd} // NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)
 
-{$IfEnd} //nsTest AND not NoVCM
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 end.

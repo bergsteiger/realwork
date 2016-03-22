@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddAppConfigSimpleBFrame;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddAppConfigSimpleBFrame.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfigSimpleBFrame" MUID: (523085B4007E)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

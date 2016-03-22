@@ -1,86 +1,49 @@
 unit MultyOperationTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Archi Tests"
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Archi_Tests/MultyOperationTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::Abstract Archi Tests::DataBase::TMultyOperationTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Archi_Tests\MultyOperationTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TMultyOperationTest" MUID: (54193E6A0023)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Archi_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Archi_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TMultyOperationTest = {abstract} class(TBaseTest)
- private
- // private methods
+  private
    procedure ClearBase(const aBasePath: AnsiString);
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt();
  end;//TMultyOperationTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  DataBaseTester,
-  SysUtils,
-  m3SplittedFileStream,
-  m3DBInterfaces,
-  m3DB,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ , DataBaseTester
+ , SysUtils
+ , m3SplittedFileStream
+ , m3DBInterfaces
+ , m3DB
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TMultyOperationTest
-
-procedure TMultyOperationTest.ClearBase(const aBasePath: AnsiString);
-//#UC START# *54200FFA01D8_54193E6A0023_var*
-var
- l_DB: Im3DB;
-//#UC END# *54200FFA01D8_54193E6A0023_var*
-begin
-//#UC START# *54200FFA01D8_54193E6A0023_impl*
- l_DB := Tm3DB.Make(aBasePath);
- try
-  l_DB.DeleteVersion;
-  l_DB.DeleteMain;
- finally
-  l_DB := nil;
- end;//try..finally
-//#UC END# *54200FFA01D8_54193E6A0023_impl*
-end;//TMultyOperationTest.ClearBase
-
+{$If NOT Defined(NotTunedDUnit)}
 procedure TMultyOperationTest.DoIt();
 //#UC START# *54193F6B00F8_54193E6A0023_var*
 var
@@ -118,18 +81,35 @@ begin
 //#UC END# *54193F6B00F8_54193E6A0023_impl*
 end;//TMultyOperationTest.DoIt()
 
+procedure TMultyOperationTest.ClearBase(const aBasePath: AnsiString);
+//#UC START# *54200FFA01D8_54193E6A0023_var*
+var
+ l_DB: Im3DB;
+//#UC END# *54200FFA01D8_54193E6A0023_var*
+begin
+//#UC START# *54200FFA01D8_54193E6A0023_impl*
+ l_DB := Tm3DB.Make(aBasePath);
+ try
+  l_DB.DeleteVersion;
+  l_DB.DeleteMain;
+ finally
+  l_DB := nil;
+ end;//try..finally
+//#UC END# *54200FFA01D8_54193E6A0023_impl*
+end;//TMultyOperationTest.ClearBase
+
 function TMultyOperationTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'DataBase';
 end;//TMultyOperationTest.GetFolder
 
 function TMultyOperationTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '54193E6A0023';
 end;//TMultyOperationTest.GetModelElementGUID
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

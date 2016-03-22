@@ -1,83 +1,55 @@
 unit kwTextFormGetDocumentID;
+ {* Возвращает идентификатор текущего открытого документа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Shell Words"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Shell_Words/kwTextFormGetDocumentID.pas"
-// Начат: 20.01.2012 14:31
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Shell Words::F1 Shell Words::TkwTextFormGetDocumentID
-//
-// Возвращает идентификатор текущего открытого документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwTextFormGetDocumentID.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwTextFormGetDocumentID" MUID: (4F1942440116)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(Admin) AND not defined(Monitorings)}
-  ,
-  ExText_Form
-  {$IfEnd} //not Admin AND not Monitorings
-  ,
-  kwExTextFormWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwExTextFormWord
+ {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ , ExText_Form
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwTextFormGetDocumentID = {scriptword} class(TkwExTextFormWord)
+ TkwTextFormGetDocumentID = class(TkwExTextFormWord)
   {* Возвращает идентификатор текущего открытого документа }
- protected
- // realized methods
+  protected
    procedure DoTextForm(aForm: TExTextForm;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwTextFormGetDocumentID
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  nsConst,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
+ l3ImplUses
+ , nsConst
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
-  TExTextFormHack = class(TExTextForm)
-  end;//TExTextFormHack
-
-// start class TkwTextFormGetDocumentID
+ TExTextFormHack = class(TExTextForm)
+ end;//TExTextFormHack
 
 procedure TkwTextFormGetDocumentID.DoTextForm(aForm: TExTextForm;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4DCA5B340360_4F1942440116_var*
 var
  l_ID : Integer;
@@ -95,17 +67,13 @@ begin
 end;//TkwTextFormGetDocumentID.DoTextForm
 
 class function TkwTextFormGetDocumentID.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'textform:GetDocumentID';
 end;//TkwTextFormGetDocumentID.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwTextFormGetDocumentID
  TkwTextFormGetDocumentID.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwTextFormGetDocumentID }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

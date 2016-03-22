@@ -2,6 +2,7 @@ unit ddAppConfigTypes;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfigTypes" MUID: (52161F2B00C4)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -157,6 +158,7 @@ type
    procedure ReadOnlyChanged; virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
   public
    procedure Reset; virtual;
    constructor Create(const aAlias: AnsiString;
@@ -269,6 +271,7 @@ type
   protected
    procedure pm_SetValue(const aValue: TddConfigValue);
    procedure pm_SetCaption(const aValue: AnsiString);
+   procedure ClearFields; override;
   public
    procedure Assign(Source: TPersistent); override;
    constructor Create; override;
@@ -370,6 +373,7 @@ type
    function pm_GetValue: TddConfigValue; override;
    procedure pm_SetValue(const aValue: TddConfigValue); override;
    procedure ReadOnlyChanged; override;
+   procedure ClearFields; override;
   public
    function IsSame(anItem: TObject): Boolean; virtual;
    procedure ClearControl; virtual;
@@ -739,6 +743,7 @@ type
    function pm_GetValue: TddConfigValue; override;
    procedure pm_SetValue(const aValue: TddConfigValue); override;
    procedure ReadOnlyChanged; override;
+   procedure ClearFields; override;
   public
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString); reintroduce;
@@ -1945,6 +1950,14 @@ begin
 //#UC END# *5301EC7500FF_4E302F4201D5_impl*
 end;//TddBaseConfigItem.Clone
 
+procedure TddBaseConfigItem.ClearFields;
+begin
+ Alias := '';
+ Caption := '';
+ Finalize(DefaultValue);
+ inherited;
+end;//TddBaseConfigItem.ClearFields
+
 procedure TMapValue.pm_SetValue(const aValue: TddConfigValue);
 //#UC START# *521625BD02ED_521624EA0293set_var*
 //#UC END# *521625BD02ED_521624EA0293set_var*
@@ -1988,6 +2001,13 @@ begin
  f_Value.AsObject := nil;
 //#UC END# *5301EC5A006A_521624EA0293_impl*
 end;//TMapValue.Create
+
+procedure TMapValue.ClearFields;
+begin
+ Finalize(Value);
+ Caption := '';
+ inherited;
+end;//TMapValue.ClearFields
 
 function TMapValues.pm_GetCount: Integer;
 //#UC START# *52162709029F_5216255500D5get_var*
@@ -2635,6 +2655,12 @@ begin
   AdjustReadOnly(f_Control);
 //#UC END# *552BA9B9039B_4E302F24003F_impl*
 end;//TddVisualConfigItem.ReadOnlyChanged
+
+procedure TddVisualConfigItem.ClearFields;
+begin
+ Hint := '';
+ inherited;
+end;//TddVisualConfigItem.ClearFields
 
 procedure TddIntegerConfigItem.pm_SetMaxValue(aValue: Integer);
 //#UC START# *5220C01C00FF_5220BFBC0399set_var*
@@ -4673,6 +4699,14 @@ begin
  end;
 //#UC END# *552BA9B9039B_51D547DD026C_impl*
 end;//TddCustomConfigNode.ReadOnlyChanged
+
+procedure TddCustomConfigNode.ClearFields;
+begin
+ Alias := '';
+ Caption := '';
+ f_ParentAlias := '';
+ inherited;
+end;//TddCustomConfigNode.ClearFields
 
 procedure TddBooleanConfigItem.OnClick(Sender: TObject);
 //#UC START# *5225E578019A_5225E4F80224_var*

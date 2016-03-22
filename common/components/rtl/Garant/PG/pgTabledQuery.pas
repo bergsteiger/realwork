@@ -38,22 +38,19 @@ type
  private
  // private methods
    function BuildSQL: AnsiString;
-   function BuildSelectClause: AnsiString;
-   function BuildFromClause: AnsiString;
-   function BuildWhereClause: AnsiString;
  protected
  // realized methods
    function MakeFromTable(const aTable: IdaTableDescription;
      const anAlias: AnsiString = ''): IdaFromTable; override;
-   function MakeResultSet(Unidirectional: Boolean): IdaResultSet; override;
-   procedure PrepareTables; override;
-     {* Сигнатура метода PrepareTables }
-   procedure UnprepareTables; override;
-     {* Сигнатура метода UnprepareTables }
+   procedure PrepareTable; override;
+     {* Сигнатура метода PrepareTable }
+   procedure UnPrepareTable; override;
+     {* Сигнатура метода UnPrepareTable }
  protected
  // overridden protected methods
    procedure Cleanup; override;
      {* Функция очистки полей объекта. }
+   function MakeResultSet(Unidirectional: Boolean): IdaResultSet; override;
    function MakeParamList: TdaParamList; override;
  public
  // public methods
@@ -64,7 +61,7 @@ type
    class function Make(const aDataConverter: IpgDataConverter;
      const aTable: IdaTableDescription;
      aConnection: TpgConnection;
-     const anAlias: AnsiString = ''): IdaQuery; reintroduce;
+     const anAlias: AnsiString = ''): IdaTabledQuery; reintroduce;
      {* Сигнатура фабрики TpgTabledQuery.Make }
  end;//TpgTabledQuery
 {$IfEnd} //UsePostgres
@@ -73,12 +70,12 @@ implementation
 
 {$If defined(UsePostgres)}
 uses
-  pgFromTable,
   SysUtils,
   LibPQ,
   pgUtils,
   pgParamList,
-  pgResultSet
+  pgResultSet,
+  daFromTable
   ;
 {$IfEnd} //UsePostgres
 
@@ -91,64 +88,9 @@ function TpgTabledQuery.BuildSQL: AnsiString;
 //#UC END# *560506760367_55F960D502F6_var*
 begin
 //#UC START# *560506760367_55F960D502F6_impl*
- Result := Format('%s'#13#10+'  %s'#13#10+' %s', [BuildSelectClause, BuildFromClause, BuildWhereClause]);
+ Result := BuildSQLValue(Params);
 //#UC END# *560506760367_55F960D502F6_impl*
 end;//TpgTabledQuery.BuildSQL
-
-function TpgTabledQuery.BuildSelectClause: AnsiString;
-//#UC START# *56050F3E0081_55F960D502F6_var*
-var
- l_IDX: Integer;
- l_Count: Integer;
-//#UC END# *56050F3E0081_55F960D502F6_var*
-begin
-//#UC START# *56050F3E0081_55F960D502F6_impl*
- Assert(SelectFields.Count > 0);
- Result := 'select ';
- for l_IDX := 0 to SelectFields.Count - 1 do
- begin
-  if l_IDX > 0 then
-   Result := Result + ', '#13#10+'       ';
-  Result := Result + SelectFields[l_IDX].BuildSQLValue;
- end;
-//#UC END# *56050F3E0081_55F960D502F6_impl*
-end;//TpgTabledQuery.BuildSelectClause
-
-function TpgTabledQuery.BuildFromClause: AnsiString;
-//#UC START# *56050F450363_55F960D502F6_var*
-var
- l_IDX: Integer;
-//#UC END# *56050F450363_55F960D502F6_var*
-begin
-//#UC START# *56050F450363_55F960D502F6_impl*
- if Tables.Count > 0 then
- begin
-  Result := '  from ';
-  for l_IDX := 0 to Tables.Count - 1 do
-  begin
-   if l_IDX > 0 then
-    Result := Result + ', '#13#10+'       ';
-   Result := Result + Tables[l_IDX].BuildSQLValue;
-  end;
- end
- else
-  Result := '';
-//#UC END# *56050F450363_55F960D502F6_impl*
-end;//TpgTabledQuery.BuildFromClause
-
-function TpgTabledQuery.BuildWhereClause: AnsiString;
-//#UC START# *56050F510228_55F960D502F6_var*
-var
- l_IDX: Integer;
-//#UC END# *56050F510228_55F960D502F6_var*
-begin
-//#UC START# *56050F510228_55F960D502F6_impl*
- if WhereCondition <> nil then
-  Result := '  where ' + WhereCondition.BuildSQLValue(Params)
- else
-  Result := '';
-//#UC END# *56050F510228_55F960D502F6_impl*
-end;//TpgTabledQuery.BuildWhereClause
 
 constructor TpgTabledQuery.Create(const aDataConverter: IpgDataConverter;
   const aTable: IdaTableDescription;
@@ -166,7 +108,7 @@ end;//TpgTabledQuery.Create
 class function TpgTabledQuery.Make(const aDataConverter: IpgDataConverter;
   const aTable: IdaTableDescription;
   aConnection: TpgConnection;
-  const anAlias: AnsiString = ''): IdaQuery;
+  const anAlias: AnsiString = ''): IdaTabledQuery;
 var
  l_Inst : TpgTabledQuery;
 begin
@@ -184,53 +126,44 @@ function TpgTabledQuery.MakeFromTable(const aTable: IdaTableDescription;
 //#UC END# *5600FFF80332_55F960D502F6_var*
 begin
 //#UC START# *5600FFF80332_55F960D502F6_impl*
- Result := TpgFromTable.Make(aTable, anAlias);
+ Result := TdaFromTable.Make(aTable, anAlias);
 //#UC END# *5600FFF80332_55F960D502F6_impl*
 end;//TpgTabledQuery.MakeFromTable
 
-function TpgTabledQuery.MakeResultSet(Unidirectional: Boolean): IdaResultSet;
-//#UC START# *56010A7801F2_55F960D502F6_var*
-//#UC END# *56010A7801F2_55F960D502F6_var*
-begin
-//#UC START# *56010A7801F2_55F960D502F6_impl*
- Result := TpgResultSet.Make(f_Connection, DataConverter as IpgDataConverter, f_QueryName, Params, SelectFields, Unidirectional);
-//#UC END# *56010A7801F2_55F960D502F6_impl*
-end;//TpgTabledQuery.MakeResultSet
-
-procedure TpgTabledQuery.PrepareTables;
-//#UC START# *56010AB70258_55F960D502F6_var*
+procedure TpgTabledQuery.PrepareTable;
+//#UC START# *566A892A0191_55F960D502F6_var*
 var
  l_Result: PPGResult;
-//#UC END# *56010AB70258_55F960D502F6_var*
+//#UC END# *566A892A0191_55F960D502F6_var*
 begin
-//#UC START# *56010AB70258_55F960D502F6_impl*
+//#UC START# *566A892A0191_55F960D502F6_impl*
  f_QueryName := Format('Qry%p', [Pointer(Self)]);
  l_Result := PQprepare(f_Connection.Handle, PAnsiChar(f_QueryName),  PAnsiChar(BuildSQL), Params.Count, nil);
  try
   pgCheckStatus(l_Result);
+  f_Connection.CommitTransaction;
  finally
   PQclear(l_Result);
  end;
-// !!! Needs to be implemented !!!
-//#UC END# *56010AB70258_55F960D502F6_impl*
-end;//TpgTabledQuery.PrepareTables
+//#UC END# *566A892A0191_55F960D502F6_impl*
+end;//TpgTabledQuery.PrepareTable
 
-procedure TpgTabledQuery.UnprepareTables;
-//#UC START# *56010ACB00F0_55F960D502F6_var*
+procedure TpgTabledQuery.UnPrepareTable;
+//#UC START# *566A893B03C7_55F960D502F6_var*
 var
  l_Result: PPGResult;
-//#UC END# *56010ACB00F0_55F960D502F6_var*
+//#UC END# *566A893B03C7_55F960D502F6_var*
 begin
-//#UC START# *56010ACB00F0_55F960D502F6_impl*
- l_Result := PQExec(f_Connection.Handle, PAnsiChar(Format('DEALLOCATE PREPARED %s', [f_QueryName])));
+//#UC START# *566A893B03C7_55F960D502F6_impl*
+ l_Result := PQExec(f_Connection.Handle, PAnsiChar(Format('DEALLOCATE PREPARE "%s"', [f_QueryName])));
  try
-  f_QueryName := '';
   pgCheckStatus(l_Result);
+  f_QueryName := '';
  finally
   PQClear(l_Result);
  end;
-//#UC END# *56010ACB00F0_55F960D502F6_impl*
-end;//TpgTabledQuery.UnprepareTables
+//#UC END# *566A893B03C7_55F960D502F6_impl*
+end;//TpgTabledQuery.UnPrepareTable
 
 procedure TpgTabledQuery.Cleanup;
 //#UC START# *479731C50290_55F960D502F6_var*
@@ -241,6 +174,15 @@ begin
  inherited;
 //#UC END# *479731C50290_55F960D502F6_impl*
 end;//TpgTabledQuery.Cleanup
+
+function TpgTabledQuery.MakeResultSet(Unidirectional: Boolean): IdaResultSet;
+//#UC START# *56010A7801F2_55F960D502F6_var*
+//#UC END# *56010A7801F2_55F960D502F6_var*
+begin
+//#UC START# *56010A7801F2_55F960D502F6_impl*
+ Result := TpgResultSet.Make(f_Connection, DataConverter as IpgDataConverter, f_QueryName, Params, SelectFields, Unidirectional);
+//#UC END# *56010A7801F2_55F960D502F6_impl*
+end;//TpgTabledQuery.MakeResultSet
 
 function TpgTabledQuery.MakeParamList: TdaParamList;
 //#UC START# *560B861302E9_55F960D502F6_var*

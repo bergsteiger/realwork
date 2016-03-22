@@ -2,6 +2,7 @@ unit nscStatusBar;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscStatusBar.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscStatusBar" MUID: (4E15A08E030D)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -117,10 +118,10 @@ uses
  {$IfEnd} // NOT Defined(NoTB97)
  , StatusBarUtils
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , StatusBarWords
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , StatusBarWords
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
@@ -131,7 +132,6 @@ type
    f_Provider: Pointer;
     {* InscStatusBarItemsProvider }
    f_Def: InscStatusBarItemDef;
-    {* Поле для свойства Def }
   protected
    function pm_GetProvider: InscStatusBarItemsProvider;
    procedure Cleanup; override;

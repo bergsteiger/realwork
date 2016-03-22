@@ -2,6 +2,7 @@ unit evEditorControlList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evEditorControlList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevEditorControlList" MUID: (47CEBD65037B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

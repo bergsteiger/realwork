@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\AppConfigTestMixin.imp.pas"
 // Стереотип: "TestCaseMixIn"
+// Элемент модели: "AppConfigTestMixin" MUID: (52382EB9003F)
+// Имя типа: "_AppConfigTestMixin_"
 
 {$Define AppConfigTestMixin_imp}
 

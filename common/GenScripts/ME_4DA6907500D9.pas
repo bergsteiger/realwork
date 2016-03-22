@@ -3,6 +3,7 @@ unit LinesTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\LinesTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TLinesTest" MUID: (4DA6907500D9)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

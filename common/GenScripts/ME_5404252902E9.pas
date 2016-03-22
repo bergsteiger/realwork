@@ -2,6 +2,7 @@ unit SetOf_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\SetOf_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WSetOf" MUID: (5404252902E9)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

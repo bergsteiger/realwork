@@ -16,6 +16,7 @@
 
 #include "shared/Core/sys/std_inc.h"
 #include "shared/ContextSearch/Search/Search.h"
+#include "shared/Morpho/Def/Def.h"
 
 namespace ContextSearch {
 namespace Manage_i {
@@ -49,6 +50,8 @@ private:
 //////////////////////////////////////////////////////////////////////////////////////////
 // self data
 private:
+	Morpho::Def::INormalizer_var m_normalizer;
+
 	Search::SplitRequests m_sequence;
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -57,7 +60,7 @@ protected:
 
 	// implemented method from Search::IRequestView
 	// создать
-	bool build (const Search::Phrase& in, const Morpho::Def::StrStrMap& pseudo, const std::string& src);
+	bool build (const Search::Phrase& in, const std::string& src);
 
 	// implemented method from Search::IRequestView
 	// список синонимичных

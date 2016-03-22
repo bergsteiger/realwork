@@ -3,6 +3,8 @@ unit ChangesBetweenEditions_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\ChangesBetweenEditions_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "ChangesBetweenEditions" MUID: (4DDBAF2B0028)
+// Имя типа: "TChangesBetweenEditionsModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

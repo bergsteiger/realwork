@@ -2,6 +2,7 @@ unit Windows;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\Windows.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Windows" MUID: (48A41FF10094)
 
 interface
 

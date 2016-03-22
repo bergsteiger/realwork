@@ -2,6 +2,7 @@ unit evCustomTextFormatterModelPart;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCustomTextFormatterModelPart.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomTextFormatterModelPart" MUID: (4F26660203CB)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

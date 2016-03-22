@@ -2,6 +2,7 @@ unit kwStringListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwStringListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwStringListPrim" MUID: (4F3E417A013A)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

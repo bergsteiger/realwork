@@ -3,6 +3,7 @@ unit l3IntegerValueMapManager;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3IntegerValueMapManager.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3IntegerValueMapManager" MUID: (478E35650120)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

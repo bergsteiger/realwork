@@ -2,6 +2,7 @@ unit afwSettingsImplPrim;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\afwSettingsImplPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwSettingsImplPrim" MUID: (4F6C7D5F00E6)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

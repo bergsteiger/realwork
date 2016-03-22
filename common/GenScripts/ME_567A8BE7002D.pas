@@ -2,6 +2,7 @@ unit pgFunctionSelectField;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgFunctionSelectField.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgFunctionSelectField" MUID: (567A8BE7002D)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 

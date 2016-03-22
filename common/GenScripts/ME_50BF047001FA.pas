@@ -2,6 +2,7 @@ unit seThreadSupport;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\seThreadSupport.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "seThreadSupport" MUID: (50BF047001FA)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -59,24 +59,7 @@ ref; // ME_4F212BFB0113 DoIt
 
 ref; // ME_4F212BD5010E DoObject
 
-: ME_641F33294FB9
- CONST UID '641F33294FB9'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwObjectFromStackWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F212BA80137 // TkwObjectFromStackWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_641F33294FB9 Ini_Reg_Class
-
 : ME_4DAEEDE10285_ME_4F212BA80137
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4F212BA80137 // TkwObjectFromStackWord
@@ -100,7 +83,6 @@ ref; // ME_4DAEEDE10285_ME_4F212BA80137 DoDoIt
  ; // Inherits
  : Operations
    Seq: ( ME_4F212BD5010E // DoObject
- ME_641F33294FB9 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented

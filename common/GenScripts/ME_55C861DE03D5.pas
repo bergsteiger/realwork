@@ -2,6 +2,7 @@ unit tfwRTTIProperty;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwRTTIProperty.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwRTTIProperty" MUID: (55C861DE03D5)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

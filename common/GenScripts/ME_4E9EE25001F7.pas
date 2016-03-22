@@ -3,6 +3,8 @@ unit toKT;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\toKT.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "toKT" MUID: (4E9EE25001F7)
+// Имя типа: "TtoKT"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

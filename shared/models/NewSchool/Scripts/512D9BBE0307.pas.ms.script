@@ -131,20 +131,6 @@ ref; // ME_22960DB3B9A7
 
 ref; // ME_512D9BE30122 EverestLiteKeyWords
 
-: ME_DD9972B0E8E0
- CONST UID 'DD9972B0E8E0'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Create' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_512D9C2D013F // Create
- ;
-
-ref; // ME_DD9972B0E8E0 Ini_Reg
-
 : ME_512DBBDC00E4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -156,24 +142,12 @@ ref; // ME_DD9972B0E8E0 Ini_Reg
 ref; // ME_512DBBDC00E4 
 
 : ME_4DAEEDE10285_ME_512D9C2D013F
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_512D9C2D013F // Create
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_512D9C2D013F DoDoIt
-
-: ME_4DB0614603C8_ME_512D9C2D013F
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_512D9C2D013F // Create
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_512D9C2D013F GetWordNameForRegister
 
 : ME_512D9C2D013F
  CONST UID '512D9C2D013F'
@@ -190,18 +164,10 @@ ref; // ME_4DB0614603C8_ME_512D9C2D013F GetWordNameForRegister
    Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_DD9972B0E8E0 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_512D9C2D013F // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_512D9C2D013F // GetWordNameForRegister
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_512DBBDC00E4 // 
  )
@@ -217,20 +183,6 @@ ref; // ME_4DB0614603C8_ME_512D9C2D013F GetWordNameForRegister
  CONST extprop:pas:UnitName 'kwCreate'
 
 ref; // ME_512D9C2D013F Create
-
-: ME_B6B0077235DB
- CONST UID 'B6B0077235DB'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Open' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_512D9C56000B // Open
- ;
-
-ref; // ME_B6B0077235DB Ini_Reg
 
 : ME_512DBBF902B1
  CONST Class class_Dependency
@@ -253,24 +205,12 @@ ref; // ME_512DBBF902B1
 ref; // ME_512DC8E103CA 
 
 : ME_4DAEEDE10285_ME_512D9C56000B
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_512D9C56000B // Open
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_512D9C56000B DoDoIt
-
-: ME_4DB0614603C8_ME_512D9C56000B
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_512D9C56000B // Open
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_512D9C56000B GetWordNameForRegister
 
 : ME_512D9C56000B
  CONST UID '512D9C56000B'
@@ -287,18 +227,10 @@ ref; // ME_4DB0614603C8_ME_512D9C56000B GetWordNameForRegister
    Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B6B0077235DB // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_512D9C56000B // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_512D9C56000B // GetWordNameForRegister
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_512DBBF902B1 // 
  ME_512DC8E103CA // 
@@ -316,20 +248,6 @@ ref; // ME_4DB0614603C8_ME_512D9C56000B GetWordNameForRegister
 
 ref; // ME_512D9C56000B Open
 
-: ME_13EF2B323270
- CONST UID '13EF2B323270'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация CloseActiveWindow' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_512DD1330118 // CloseActiveWindow
- ;
-
-ref; // ME_13EF2B323270 Ini_Reg
-
 : ME_512DD1D00230
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -341,24 +259,12 @@ ref; // ME_13EF2B323270 Ini_Reg
 ref; // ME_512DD1D00230 
 
 : ME_4DAEEDE10285_ME_512DD1330118
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_512DD1330118 // CloseActiveWindow
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_512DD1330118 DoDoIt
-
-: ME_4DB0614603C8_ME_512DD1330118
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_512DD1330118 // CloseActiveWindow
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_512DD1330118 GetWordNameForRegister
 
 : ME_512DD1330118
  CONST UID '512DD1330118'
@@ -375,18 +281,10 @@ ref; // ME_4DB0614603C8_ME_512DD1330118 GetWordNameForRegister
    Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_13EF2B323270 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_512DD1330118 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_512DD1330118 // GetWordNameForRegister
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_512DD1D00230 // 
  )
@@ -402,20 +300,6 @@ ref; // ME_4DB0614603C8_ME_512DD1330118 GetWordNameForRegister
  CONST extprop:pas:UnitName 'kwCloseActiveWindow'
 
 ref; // ME_512DD1330118 CloseActiveWindow
-
-: ME_9E982F8FB588
- CONST UID '9E982F8FB588'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация SaveWithOtherExtention' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_512DD336009D // SaveWithOtherExtention
- ;
-
-ref; // ME_9E982F8FB588 Ini_Reg
 
 : ME_512DD3AC03C9
  CONST Class class_Dependency
@@ -438,24 +322,12 @@ ref; // ME_512DD3AC03C9
 ref; // ME_512DD95C0349 
 
 : ME_4DAEEDE10285_ME_512DD336009D
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_512DD336009D // SaveWithOtherExtention
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_512DD336009D DoDoIt
-
-: ME_4DB0614603C8_ME_512DD336009D
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_512DD336009D // SaveWithOtherExtention
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_512DD336009D GetWordNameForRegister
 
 : ME_512DD336009D
  CONST UID '512DD336009D'
@@ -472,18 +344,10 @@ ref; // ME_4DB0614603C8_ME_512DD336009D GetWordNameForRegister
    Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9E982F8FB588 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_512DD336009D // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_512DD336009D // GetWordNameForRegister
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_512DD3AC03C9 // 
  ME_512DD95C0349 // 
@@ -500,20 +364,6 @@ ref; // ME_4DB0614603C8_ME_512DD336009D GetWordNameForRegister
  CONST extprop:pas:UnitName 'kwSaveWithOtherExtention'
 
 ref; // ME_512DD336009D SaveWithOtherExtention
-
-: ME_161FEEDA0574
- CONST UID '161FEEDA0574'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация OpenWith' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5143073402A1 // OpenWith
- ;
-
-ref; // ME_161FEEDA0574 Ini_Reg
 
 : ME_514307F9004B
  CONST Class class_Dependency
@@ -536,24 +386,12 @@ ref; // ME_514307F9004B
 ref; // ME_514310840147 
 
 : ME_4DAEEDE10285_ME_5143073402A1
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_5143073402A1 // OpenWith
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_5143073402A1 DoDoIt
-
-: ME_4DB0614603C8_ME_5143073402A1
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_5143073402A1 // OpenWith
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_5143073402A1 GetWordNameForRegister
 
 : ME_5143073402A1
  CONST UID '5143073402A1'
@@ -570,18 +408,10 @@ ref; // ME_4DB0614603C8_ME_5143073402A1 GetWordNameForRegister
    Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_161FEEDA0574 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_5143073402A1 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_5143073402A1 // GetWordNameForRegister
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_514307F9004B // 
  ME_514310840147 // 
@@ -599,20 +429,6 @@ ref; // ME_4DB0614603C8_ME_5143073402A1 GetWordNameForRegister
 
 ref; // ME_5143073402A1 OpenWith
 
-: ME_5D5D8D673CAA
- CONST UID '5D5D8D673CAA'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация IsPreviewInProgress' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5321724703A5 // IsPreviewInProgress
- ;
-
-ref; // ME_5D5D8D673CAA Ini_Reg
-
 : ME_532172770248
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -624,24 +440,12 @@ ref; // ME_5D5D8D673CAA Ini_Reg
 ref; // ME_532172770248 
 
 : ME_4DAEEDE10285_ME_5321724703A5
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_5321724703A5 // IsPreviewInProgress
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_5321724703A5 DoDoIt
-
-: ME_4DB0614603C8_ME_5321724703A5
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_5321724703A5 // IsPreviewInProgress
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_5321724703A5 GetWordNameForRegister
 
 : ME_5321724703A5
  CONST UID '5321724703A5'
@@ -657,18 +461,10 @@ ref; // ME_4DB0614603C8_ME_5321724703A5 GetWordNameForRegister
    Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5D5D8D673CAA // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_5321724703A5 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_5321724703A5 // GetWordNameForRegister
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_532172770248 // 
  )
@@ -702,8 +498,6 @@ FORWARD ME_39046F3AEE5A
 ref; // ME_AF79185AE1F1 RegAxiom
 
 : ME_55B7A3AF0359_ME_39046F3AEE5A
- CONST UID '55B7A3AF0359'
- CONST Name 'ResName'
  : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
  ;
  : Implementor ME_39046F3AEE5A // TarchiEditorWindowWordsPackResNameGetter
@@ -794,20 +588,6 @@ ref; // ME_D9109B524258 aEditor
 
 ref; // ME_5BBB7C35D3A8 IsNeedSaveDocument
 
-: ME_5E11E16109D9
- CONST UID '5E11E16109D9'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация IsNeedSaveDocument' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_BB6D8477DC61 // IsNeedSaveDocument
- ;
-
-ref; // ME_5E11E16109D9 Ini_Reg
-
 : ME_A9514BB55DFA
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -831,8 +611,6 @@ ref; // ME_A9514BB55DFA
 ref; // ME_8B50B12EE7F9 
 
 : ME_4DAEEDE10285_ME_BB6D8477DC61
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_BB6D8477DC61 // IsNeedSaveDocument
@@ -840,19 +618,7 @@ ref; // ME_8B50B12EE7F9
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_BB6D8477DC61 DoDoIt
 
-: ME_4DB0614603C8_ME_BB6D8477DC61
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_BB6D8477DC61 // IsNeedSaveDocument
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_BB6D8477DC61 GetWordNameForRegister
-
 : ME_551544E2001A_ME_BB6D8477DC61
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_BB6D8477DC61 // IsNeedSaveDocument
@@ -861,8 +627,6 @@ ref; // ME_4DB0614603C8_ME_BB6D8477DC61 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_BB6D8477DC61 GetResultTypeInfo
 
 : ME_559687E6025A_ME_BB6D8477DC61
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_BB6D8477DC61 // IsNeedSaveDocument
@@ -871,8 +635,6 @@ ref; // ME_551544E2001A_ME_BB6D8477DC61 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_BB6D8477DC61 GetAllParamsCount
 
 : ME_5617F4D00243_ME_BB6D8477DC61
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_BB6D8477DC61 // IsNeedSaveDocument
@@ -898,7 +660,6 @@ ref; // ME_5617F4D00243_ME_BB6D8477DC61 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_5BBB7C35D3A8 // IsNeedSaveDocument
- ME_5E11E16109D9 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -906,8 +667,7 @@ ref; // ME_5617F4D00243_ME_BB6D8477DC61 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_BB6D8477DC61 // GetWordNameForRegister
- ME_551544E2001A_ME_BB6D8477DC61 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_BB6D8477DC61 // GetResultTypeInfo
  ME_559687E6025A_ME_BB6D8477DC61 // GetAllParamsCount
  ME_5617F4D00243_ME_BB6D8477DC61 // ParamsTypes
  )

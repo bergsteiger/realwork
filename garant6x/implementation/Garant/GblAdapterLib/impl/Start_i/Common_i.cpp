@@ -268,7 +268,6 @@ ExternalObject* Common_i::get_picture (long id) const /*throw (CanNotFindData)*/
 		return ExternalObjectFactory::make (internal_object.in ());
 
 	} catch (CORBA::BAD_OPERATION&) {
-	} catch (GblPilot::NotAllowedInTrialMode&) {
 	} catch (GCD::StorageInternalError&) {
 	} catch (GCD::DocumentNotFound&) {
 	} catch (GCD::CanNotFindData&) {

@@ -3,6 +3,7 @@ unit NOT_FINISHED_bsTypes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\NOT_FINISHED_bsTypes.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "bsTypes" MUID: (47EA07FA02CE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

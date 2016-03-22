@@ -2,6 +2,7 @@ unit MainWindowInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MainWindowControllers\MainWindowInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "MainWindowInterfaces" MUID: (4DC00FC302B7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

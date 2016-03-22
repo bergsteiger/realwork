@@ -3,6 +3,7 @@ unit k2PropSorter;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2PropSorter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2PropSorter" MUID: (47B9B7A5038E)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

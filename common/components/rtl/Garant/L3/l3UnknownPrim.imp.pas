@@ -636,9 +636,6 @@ end;
 class function _l3UnknownPrim_.Cacheable: Boolean;
   {* - функци€ класса, определ€юща€ могут ли объекты данного класса попадать в кэш повторного использовани€. }
 begin
- {$IfDef DisableObjectsCache}
- Result := false;
- {$Else  DisableObjectsCache}
  {$IfDef DesignTimeLibrary}
  Result := false;
  {$Else  DesignTimeLibrary}
@@ -649,7 +646,6 @@ begin
  Result := IsCacheable;
  {$EndIf XE}
  {$EndIf DesignTimeLibrary}
- {$EndIf DisableObjectsCache}
 end;
 
 class function _l3UnknownPrim_.IsCacheable: Boolean;

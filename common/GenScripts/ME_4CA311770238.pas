@@ -2,6 +2,7 @@ unit evBlocksEliminator;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evBlocksEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevBlocksEliminator" MUID: (4CA311770238)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

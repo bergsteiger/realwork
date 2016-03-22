@@ -2,6 +2,7 @@ unit smChangeableTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MainMenu\smChangeableTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TsmChangeableTree" MUID: (4E73239003D0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

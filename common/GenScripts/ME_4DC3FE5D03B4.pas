@@ -2,6 +2,7 @@ unit F1AutoTestSuite;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_AutoTests\F1AutoTestSuite.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TF1AutoTestSuite" MUID: (4DC3FE5D03B4)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

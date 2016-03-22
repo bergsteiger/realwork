@@ -14,6 +14,7 @@
 
 #include "shared/CoreSrv/sys/std_inc.h"
 #include "shared/Core/mng/PoolMemoryManager.h"
+#include "shared/GCI/IO/IO.h"
 #include "garant6x/implementation/Garant/GblAdapterLib/BaseTypes/BaseTypes.h"
 #include "garant6x/implementation/Garant/GblAdapterLib/DynamicDocList/DynamicDocList.h"
 #include "garantServer/src/Business/GblPilot/GblDocListC.h"
@@ -78,6 +79,8 @@ private:
 
 	char m_list_node_type;
 
+	GCI::IO::String_var m_snippet_text;
+
 //////////////////////////////////////////////////////////////////////////////////////////
 // implemented interface's methods
 protected:
@@ -85,6 +88,9 @@ protected:
 	// implemented method from DynListNode
 	// Получить идентифкатор документа из ноды списка
 	virtual ObjectId get_document_id () const;
+
+	// implemented method from DynListNode
+	virtual const GCI::IO::String* get_snippet_text () const;
 //////////////////////////////////////////////////////////////////////////////////////////
 // overloaded base methods
 

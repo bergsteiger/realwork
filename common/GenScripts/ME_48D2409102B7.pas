@@ -3,6 +3,7 @@ unit evEditControl;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evEditControl.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevEditControl" MUID: (48D2409102B7)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,7 @@ program ReleaseDailyTest;
 
 // Модуль: "w:\common\components\DailyTest\ReleaseDailyTest.dpr"
 // Стереотип: "TestTarget"
+// Элемент модели: "ReleaseDaily" MUID: (06EF1E6353C7)
 
 {$Include w:\common\components\DailyTest\DailyTest.inc}
 

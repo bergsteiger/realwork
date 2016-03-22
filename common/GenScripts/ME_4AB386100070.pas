@@ -3,6 +3,7 @@ unit m4WordIDStrList;
 
 // Модуль: "w:\common\components\rtl\Garant\m4\m4WordIDStrList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm4WordIDStrList" MUID: (4AB386100070)
 
 {$Include w:\common\components\rtl\Garant\m4\m4Define.inc}
 

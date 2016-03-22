@@ -3,6 +3,7 @@ unit TwoSpaceForOneReplacerTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\TwoSpaceForOneReplacerTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTwoSpaceForOneReplacerTest" MUID: (4C3C4853033E)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

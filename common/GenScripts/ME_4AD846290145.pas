@@ -2,6 +2,7 @@ unit nsInpharmContextHistoryPrim;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsInpharmContextHistoryPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsInpharmContextHistoryPrim" MUID: (4AD846290145)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

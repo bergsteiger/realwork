@@ -2,6 +2,7 @@ unit kwUsesLike;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwUsesLike.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwUsesLike" MUID: (4F37D458015C)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -1,60 +1,47 @@
 unit kwScrollInfoWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Модуль: "kwScrollInfoWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::ScrollInfoProcessing::TkwScrollInfoWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwScrollInfoWord.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TkwScrollInfoWord" MUID: (517939B9033C)
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  Windows,
-  tfwScriptingInterfaces,
-  kwWinControlFromStackWord,
-  Controls
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+ , kwWinControlFromStackWord
+ , Windows
+ , tfwScriptingInterfaces
+ , Controls
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
 type
  TkwScrollInfoWord = {abstract} class(TkwWinControlFromStackWord)
- private
- // private fields
-   f_ScrollInfo : TScrollInfo;
-    {* Поле для свойства ScrollInfo}
- protected
- // realized methods
-   procedure DoWinControl(aControl: TWinControl;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
+  private
+   f_ScrollInfo: TScrollInfo;
+  protected
    procedure DoScrollInfo(const aCtx: TtfwContext); virtual; abstract;
- protected
- // protected properties
+   procedure DoWinControl(aControl: TWinControl;
+    const aCtx: TtfwContext); override;
+   procedure ClearFields; override;
+  protected
    property ScrollInfo: TScrollInfo
-     read f_ScrollInfo;
+    read f_ScrollInfo;
  end;//TkwScrollInfoWord
-{$IfEnd} //not NoScripts AND not NoVCL
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-
-// start class TkwScrollInfoWord
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+uses
+ l3ImplUses
+ , Forms
+;
 
 procedure TkwScrollInfoWord.DoWinControl(aControl: TWinControl;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4F212C930149_517939B9033C_var*
 //#UC END# *4F212C930149_517939B9033C_var*
 begin
@@ -73,18 +60,14 @@ begin
 end;//TkwScrollInfoWord.DoWinControl
 
 procedure TkwScrollInfoWord.ClearFields;
- {-}
 begin
  Finalize(f_ScrollInfo);
  inherited;
 end;//TkwScrollInfoWord.ClearFields
 
-{$IfEnd} //not NoScripts AND not NoVCL
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация TkwScrollInfoWord
  TkwScrollInfoWord.RegisterClass;
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация TkwScrollInfoWord }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

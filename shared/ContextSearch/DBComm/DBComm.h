@@ -91,6 +91,81 @@ struct StrPair {
 // Вектор пар строк
 typedef std::vector < StrPair > StrPairVector;
 
+#pragma pack (push, 1)
+
+// Вхождение
+struct Entry {
+	// позиция
+	unsigned long pos;
+	// длина
+	unsigned long len;
+	// релевантность
+	unsigned long rel;
+	//#UC START# *56B1E3580204*
+	inline Entry& operator = (const Entry& copy) {
+		pos = copy.pos;
+		len = copy.len;
+		rel = copy.rel;
+		return *this;
+	}
+	//#UC END# *56B1E3580204*
+};
+
+#pragma pack (pop)
+
+class IWildCard;
+typedef ::Core::Var<IWildCard> IWildCard_var;
+typedef ::Core::Var<const IWildCard> IWildCard_cvar;
+// Интерфейс для шаблона
+class IWildCard
+	: virtual public ::Core::IObject
+{
+public:
+	// получить множество удовлетворяющее шаблону
+	virtual GCL::StrSet* get (const std::string& in) = 0;
+};
+
+#pragma pack (push, 1)
+
+// Компаратор
+struct SynCompare {
+	//#UC START# *565C816802A5*
+	bool operator () (const SynPair& x, const SynPair& y) const {
+		return x.key < y.key;
+	}
+	//#UC END# *565C816802A5*
+};
+
+#pragma pack (pop)
+
+// Вхождения
+typedef std::vector < Entry > Entries;
+
+// Список вхождений
+typedef std::vector < Entries > EntriesVector;
+
+#pragma pack (push, 1)
+
+// Невидимые
+struct InvisibleData {
+	// ключ
+	std::string key;
+	// идентификаторы документов
+	DBCore::DocVector ids;
+	// вхождения
+	EntriesVector data;
+	//#UC START# *56B0C87A029E*
+	bool operator < (const InvisibleData& val) const {
+		return key < val.key;
+	}
+	//#UC END# *56B0C87A029E*
+};
+
+#pragma pack (pop)
+
+// Индекс для невидимых
+typedef std::vector < InvisibleData > InvisibleDataIndex;
+
 class IDBCommunicator;
 typedef ::Core::Var<IDBCommunicator> IDBCommunicator_var;
 typedef ::Core::Var<const IDBCommunicator> IDBCommunicator_cvar;
@@ -105,6 +180,9 @@ public:
 	// устойчивые словосочетания
 	virtual const GCL::StrVector& get_hard_phrases () const = 0;
 
+	// индекс с невидимыми блочными
+	virtual const InvisibleDataIndex& get_invb_index () const = 0;
+
 	// длины блоков приписанных к позициям из невидимого текста
 	virtual const Defs::InvisibleBlocks& get_invisible_blocks () const = 0;
 
@@ -113,6 +191,9 @@ public:
 
 	// фразальные замены
 	virtual const StrPairVector& get_phrasal_replacement () const = 0;
+
+	// однословные синонимы
+	virtual const Synonyms& get_ssyns () const = 0;
 
 	// синонимы
 	virtual const Synonyms& get_syns () const = 0;
@@ -125,18 +206,6 @@ public:
 
 	// данные для алгоритма модификации значений релевантности
 	virtual const DBCore::RelTuneData& get_tune_data () const = 0;
-};
-
-class IWildCard;
-typedef ::Core::Var<IWildCard> IWildCard_var;
-typedef ::Core::Var<const IWildCard> IWildCard_cvar;
-// Интерфейс для шаблона
-class IWildCard
-	: virtual public ::Core::IObject
-{
-public:
-	// получить множество удовлетворяющее шаблону
-	virtual GCL::StrSet* get (const std::string& in) = 0;
 };
 
 } // namespace DBComm

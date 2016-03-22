@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsENOIntegration;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsENOIntegration.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsENOIntegration" MUID: (4AB8B48800F6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

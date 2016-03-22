@@ -3,6 +3,8 @@ unit moFilters;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moFilters.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Filters" MUID: (4CCAA9440385)
+// Имя типа: "Tmo_Filters"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

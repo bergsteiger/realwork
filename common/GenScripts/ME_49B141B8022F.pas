@@ -3,6 +3,7 @@ unit m3BackupTools;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3BackupTools.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "m3BackupTools" MUID: (49B141B8022F)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

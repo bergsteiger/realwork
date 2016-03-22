@@ -1,71 +1,50 @@
 unit K517772970_TCheckSaveToStream;
+ {* [RequestLink:517772970] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Low Level Tests"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tests/Tasks/SaveLoad/K517772970_TCheckSaveToStream.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> archi$AutoPipeServer$Garant::Low Level Tests::TaskSaveLoad::K517772970_TCheckSaveToStream
-//
-// {RequestLink:517772970}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TCheckSaveToStream.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K517772970_TCheckSaveToStream" MUID: (532008240001)
+// Имя типа: "TK517772970_TCheckSaveToStream"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  {$If not defined(Nemesis)}
-  ,
-  ddServerTask
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest
+ l3IntfUses
+ {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
+ {$If NOT Defined(Nemesis)}
+ , ddServerTask
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
 type
  _TaskSaver_Parent_ = TBaseTest;
  {$Include w:\archi\source\projects\PipeInAuto\Tests\TaskSaver.imp.pas}
  TK517772970_TCheckSaveToStream = {abstract} class(_TaskSaver_)
   {* [RequestLink:517772970] }
- private
- // private methods
+  private
    function MakeTask: TddTaskItem;
    procedure CheckSave(aPiped: Boolean;
-     aAsEVD: Boolean);
+    aAsEVD: Boolean);
    procedure DoCheckLoad(aPiped: Boolean;
-     aAsEVD: Boolean);
- protected
- // overridden protected methods
-   {$If defined(nsTest)}
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   {$IfEnd} //nsTest
-   {$If defined(nsTest)}
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
-   {$IfEnd} //nsTest
- protected
- // protected methods
+    aAsEVD: Boolean);
+  protected
    function TaskClass: TddTaskClass; virtual; abstract;
    procedure InitTask(Task: TddTaskItem); virtual; abstract;
    function CreateTask(aUserID: LongWord): TddTaskItem; virtual;
- published
- // published methods
+   {$If Defined(nsTest)}
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   {$IfEnd} // Defined(nsTest)
+   {$If Defined(nsTest)}
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
+   {$IfEnd} // Defined(nsTest)
+  published
    procedure DoIt;
    procedure CheckLoad;
    procedure DoItPiped;
@@ -74,36 +53,47 @@ type
    procedure CheckLoadEVD;
    procedure CheckSaveToEVDPiped;
  end;//TK517772970_TCheckSaveToStream
-{$IfEnd} //AppServerSide AND InsiderTest
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
 uses
-  l3Filer,
-  l3Base
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  ,
-  SysUtils,
-  ddAppConfig,
-  l3FileUtils,
-  evdTaskTypes
-  {$If defined(nsTest)}
-  ,
-  TestFrameWork
-  {$IfEnd} //nsTest
-  
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest
+ l3ImplUses
+ , l3Filer
+ , l3Base
+ {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
+ , SysUtils
+ , ddAppConfig
+ , l3FileUtils
+ , evdTaskTypes
+ {$If Defined(nsTest)}
+ , TestFrameWork
+ {$IfEnd} // Defined(nsTest)
+;
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
-
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 {$Include w:\archi\source\projects\PipeInAuto\Tests\TaskSaver.imp.pas}
 
-// start class TK517772970_TCheckSaveToStream
+procedure TK517772970_TCheckSaveToStream.DoIt;
+//#UC START# *5320084E020E_532008240001_var*
+//#UC END# *5320084E020E_532008240001_var*
+begin
+//#UC START# *5320084E020E_532008240001_impl*
+ CheckSave(false, false);
+//#UC END# *5320084E020E_532008240001_impl*
+end;//TK517772970_TCheckSaveToStream.DoIt
+
+procedure TK517772970_TCheckSaveToStream.CheckLoad;
+//#UC START# *5320086A0278_532008240001_var*
+//#UC END# *5320086A0278_532008240001_var*
+begin
+//#UC START# *5320086A0278_532008240001_impl*
+ DoCheckLoad(false, false);
+//#UC END# *5320086A0278_532008240001_impl*
+end;//TK517772970_TCheckSaveToStream.CheckLoad
 
 function TK517772970_TCheckSaveToStream.MakeTask: TddTaskItem;
 //#UC START# *537382BA038D_532008240001_var*
@@ -124,8 +114,17 @@ begin
 //#UC END# *537382BA038D_532008240001_impl*
 end;//TK517772970_TCheckSaveToStream.MakeTask
 
+procedure TK517772970_TCheckSaveToStream.DoItPiped;
+//#UC START# *537383380115_532008240001_var*
+//#UC END# *537383380115_532008240001_var*
+begin
+//#UC START# *537383380115_532008240001_impl*
+ CheckSave(true, false);
+//#UC END# *537383380115_532008240001_impl*
+end;//TK517772970_TCheckSaveToStream.DoItPiped
+
 procedure TK517772970_TCheckSaveToStream.CheckSave(aPiped: Boolean;
-  aAsEVD: Boolean);
+ aAsEVD: Boolean);
 //#UC START# *5373834C015D_532008240001_var*
 var
  l_Task: TddTaskItem;
@@ -147,7 +146,7 @@ begin
 end;//TK517772970_TCheckSaveToStream.CheckSave
 
 procedure TK517772970_TCheckSaveToStream.DoCheckLoad(aPiped: Boolean;
-  aAsEVD: Boolean);
+ aAsEVD: Boolean);
 //#UC START# *5374A4480241_532008240001_var*
 var
  l_Task: TddTaskItem;
@@ -191,33 +190,6 @@ begin
  end;//try..finally
 //#UC END# *5374A4480241_532008240001_impl*
 end;//TK517772970_TCheckSaveToStream.DoCheckLoad
-
-procedure TK517772970_TCheckSaveToStream.DoIt;
-//#UC START# *5320084E020E_532008240001_var*
-//#UC END# *5320084E020E_532008240001_var*
-begin
-//#UC START# *5320084E020E_532008240001_impl*
- CheckSave(false, false);
-//#UC END# *5320084E020E_532008240001_impl*
-end;//TK517772970_TCheckSaveToStream.DoIt
-
-procedure TK517772970_TCheckSaveToStream.CheckLoad;
-//#UC START# *5320086A0278_532008240001_var*
-//#UC END# *5320086A0278_532008240001_var*
-begin
-//#UC START# *5320086A0278_532008240001_impl*
- DoCheckLoad(false, false);
-//#UC END# *5320086A0278_532008240001_impl*
-end;//TK517772970_TCheckSaveToStream.CheckLoad
-
-procedure TK517772970_TCheckSaveToStream.DoItPiped;
-//#UC START# *537383380115_532008240001_var*
-//#UC END# *537383380115_532008240001_var*
-begin
-//#UC START# *537383380115_532008240001_impl*
- CheckSave(true, false);
-//#UC END# *537383380115_532008240001_impl*
-end;//TK517772970_TCheckSaveToStream.DoItPiped
 
 procedure TK517772970_TCheckSaveToStream.CheckLoadPiped;
 //#UC START# *5374A4750344_532008240001_var*
@@ -266,22 +238,18 @@ begin
 //#UC END# *53C0122C003B_532008240001_impl*
 end;//TK517772970_TCheckSaveToStream.CheckSaveToEVDPiped
 
-{$If defined(nsTest)}
 function TK517772970_TCheckSaveToStream.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'TaskSaveLoad';
 end;//TK517772970_TCheckSaveToStream.GetFolder
-{$IfEnd} //nsTest
 
-{$If defined(nsTest)}
 function TK517772970_TCheckSaveToStream.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '532008240001';
 end;//TK517772970_TCheckSaveToStream.GetModelElementGUID
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //AppServerSide AND InsiderTest
-
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 end.

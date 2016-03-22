@@ -3,6 +3,8 @@ unit PrimMainMenu_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\PrimMainMenu_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimMainMenu" MUID: (4958DD7002B6)
+// Имя типа: "TPrimMainMenuForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

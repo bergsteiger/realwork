@@ -6,6 +6,7 @@ unit evQueryCardDropControlsInt;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evQueryCardDropControlsInt.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "evQueryCardDropControlsInt" MUID: (47CE9D27036D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

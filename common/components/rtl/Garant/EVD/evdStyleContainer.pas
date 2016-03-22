@@ -3,6 +3,7 @@ unit evdStyleContainer;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdStyleContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdStyleContainer" MUID: (4860B1230094)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

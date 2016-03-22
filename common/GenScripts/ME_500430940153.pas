@@ -3,6 +3,8 @@ unit BaseUC;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\BaseUC.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "BaseUC" MUID: (500430940153)
+// Имя типа: "TBaseUC"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

@@ -3,6 +3,8 @@ unit ActiveInterval_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\ActiveInterval_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "ActiveInterval" MUID: (484FC6A00024)
+// Имя типа: "ActiveIntervalTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

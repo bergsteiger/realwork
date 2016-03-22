@@ -3,6 +3,8 @@ unit fsDiction;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\fsDiction.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "Diction" MUID: (4A9D19450248)
+// Имя типа: "Tfs_Diction"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

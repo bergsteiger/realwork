@@ -3,6 +3,8 @@ unit ControlsBlock_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\ControlsBlock_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "ControlsBlock" MUID: (485806FC032D)
+// Имя типа: "ControlsBlockTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

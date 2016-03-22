@@ -3,6 +3,7 @@ unit evTextParaCursor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTextParaCursor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTextParaCursor" MUID: (49DF7D98029A)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
@@ -461,6 +462,8 @@ var
 
   function AddSubLayer(aSubLayer: Tl3Variant; Index: Integer): Boolean; far;
   var
+   i        : Integer;
+   l_Count  : Integer;
    l_Handle : Integer;
   begin//AddSubLayer
    Result := True;
@@ -468,8 +471,11 @@ var
    begin
     l_Handle := IntA[k2_tiHandle];
     if l_AddSubs OR (l_Handle <> Ord(ev_sbtSub)) then
-     while (ChildrenCount > 0) do
+    begin
+     l_Count := ChildrenCount - 1;
+     for i := 0 to l_Count do
       l_SubList.SubEx[Child[0].IntA[k2_tiHandle], l_Handle].SetTo(aTo);
+    end;
    end;//with aSubLayer
   end;//AddSubLayer
 
@@ -650,7 +656,8 @@ begin
  else
  begin
   // http://mdp.garant.ru/pages/viewpage.action?pageId=492622898
-  l_Processor := anOp.Processor;
+  if anOp <> nil then
+   l_Processor := anOp.Processor;
   if (l_Processor <> nil) then
   begin
    l_TextProcessor := (l_Processor as IevTextOpProcessor);
@@ -1987,6 +1994,7 @@ begin
      {$IFDEF Nemesis} // Это правили для БП (http://mdp.garant.ru/pages/viewpage.action?pageId=235048829). Для Арчи такого не заказывали.
      if InsertMode OR not (misfForSelection in aFlags) then
      // - если перезаписываем текст поверх, то ругаться воде бы и не нужно
+     begin
      {$ENDIF Nemesis}
       if (l_Processor <> nil) then
       begin
@@ -1998,6 +2006,10 @@ begin
        if (not l_InsString.Empty) and (l_InsString.Len < 0) then
         l_InsString.Clear;
       end;//l_Processor <> nil
+     {$IFDEF Nemesis}
+     end else
+      anOp.CheckReadOnly;  // http://mdp.garant.ru/pages/viewpage.action?pageId=303170034&focusedCommentId=321989022#comment-321989022
+     {$ENDIF Nemesis}
 
      if not l_InsString.Empty then
      begin

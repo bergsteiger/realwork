@@ -9,6 +9,8 @@ unit kwEmitString;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEmitString.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "EmitString" MUID: (4DB19F7802E3)
+// Имя типа: "TkwEmitString"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

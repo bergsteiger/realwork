@@ -1,6 +1,7 @@
 unit kwInnerIncluded;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwInnerIncluded.pas"
+// Стереотип: "SimpleClass"
 
 {$Include seDefine.inc}
 
@@ -52,6 +53,10 @@ begin
  end;//anOldContext.rCompiler <> nil
 //#UC END# *4F3AA59B025A_4F3AA545006F_impl*
 end;//TkwInnerIncluded.FillContext
+
+initialization
+!!! Lost ini !!!
+ {* Регистрация TkwInnerIncluded }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

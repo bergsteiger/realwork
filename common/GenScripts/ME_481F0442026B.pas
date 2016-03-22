@@ -2,6 +2,7 @@ unit nevLeafRenderInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevLeafRenderInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevLeafRenderInfo" MUID: (481F0442026B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

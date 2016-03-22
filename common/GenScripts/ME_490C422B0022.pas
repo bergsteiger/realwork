@@ -3,6 +3,7 @@ unit mmmMainFeatures;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\mmmMainFeatures.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TmmmMainFeatures" MUID: (490C422B0022)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

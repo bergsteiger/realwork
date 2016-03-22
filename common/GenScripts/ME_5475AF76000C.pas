@@ -2,6 +2,7 @@ unit alcuDeliveryInterfaces;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuDeliveryInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "alcuDeliveryInterfaces" MUID: (5475AF76000C)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

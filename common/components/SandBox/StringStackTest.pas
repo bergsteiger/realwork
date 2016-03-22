@@ -1,45 +1,34 @@
 unit StringStackTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "StringStackTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCase::Class Shared Delphi Sand Box::SandBoxTest::ContainersTests::TStringStackTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\StringStackTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TStringStackTest" MUID: (5155CA6F0058)
 
-{$Include ..\SandBox\sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , TestFrameWork
+;
 
-{$If defined(nsTest)}
 type
  TStringStackTest = class(TTestCase)
- published
- // published methods
+  published
    procedure DoIt;
  end;//TStringStackTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  StringStack,
-  SysUtils
-  ;
-{$IfEnd} //nsTest
-
-{$If defined(nsTest)}
-
-// start class TStringStackTest
+ l3ImplUses
+ , StringStack
+ , SysUtils
+;
 
 procedure TStringStackTest.DoIt;
 //#UC START# *5155CA990036_5155CA6F0058_var*
@@ -63,9 +52,8 @@ begin
 //#UC END# *5155CA990036_5155CA6F0058_impl*
 end;//TStringStackTest.DoIt
 
-{$IfEnd} //nsTest
-
 initialization
  TestFramework.RegisterTest(TStringStackTest.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

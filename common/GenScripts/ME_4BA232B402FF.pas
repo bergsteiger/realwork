@@ -2,6 +2,7 @@ unit nsFolderFilterInfo;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsFolderFilterInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsFolderFilterInfo" MUID: (4BA232B402FF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

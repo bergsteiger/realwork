@@ -3,6 +3,8 @@ unit ReqGroup_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\ReqGroup_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "ReqGroup" MUID: (4D63B8AF035D)
+// Имя типа: "ReqGroupTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

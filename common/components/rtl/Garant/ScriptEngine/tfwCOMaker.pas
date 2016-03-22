@@ -2,6 +2,7 @@ unit tfwCOMaker;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCOMaker.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwCOMaker" MUID: (55C1F59F001C)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

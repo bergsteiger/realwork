@@ -2,6 +2,7 @@ unit kwSendInputSupport;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSendInputSupport.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwSendInputSupport" MUID: (4F71A8080094)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

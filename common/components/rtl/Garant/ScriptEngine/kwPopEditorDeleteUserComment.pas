@@ -2,6 +2,8 @@ unit kwPopEditorDeleteUserComment;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorDeleteUserComment.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_DeleteUserComment" MUID: (4DB7EA830363)
+// Имя типа: "TkwPopEditorDeleteUserComment"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

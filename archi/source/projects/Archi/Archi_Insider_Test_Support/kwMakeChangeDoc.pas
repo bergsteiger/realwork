@@ -1,56 +1,37 @@
 unit kwMakeChangeDoc;
+ {* macros:MakeChangeDoc }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwMakeChangeDoc.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::Scripting::TkwMakeChangeDoc
-//
-// macros:MakeChangeDoc
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwMakeChangeDoc.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwMakeChangeDoc" MUID: (4E4BBADC02A0)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwMakeChangeDoc = {scriptword} class(TtfwRegisterableWord)
+ TkwMakeChangeDoc = class(TtfwRegisterableWord)
   {* macros:MakeChangeDoc }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwMakeChangeDoc
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  arArchiTestAdapter2
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwMakeChangeDoc
+ l3ImplUses
+ , arArchiTestAdapter2
+;
 
 procedure TkwMakeChangeDoc.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E4BBADC02A0_var*
@@ -62,17 +43,13 @@ begin
 end;//TkwMakeChangeDoc.DoDoIt
 
 class function TkwMakeChangeDoc.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'macros:MakeChangeDoc';
 end;//TkwMakeChangeDoc.GetWordNameForRegister
 
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация TkwMakeChangeDoc
  TkwMakeChangeDoc.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация TkwMakeChangeDoc }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

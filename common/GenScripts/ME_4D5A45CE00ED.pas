@@ -3,6 +3,7 @@ unit TabInTableTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\TabInTableTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTabInTableTest" MUID: (4D5A45CE00ED)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

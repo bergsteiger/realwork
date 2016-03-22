@@ -2,6 +2,7 @@ unit OvcKeyDataListenerList;
 
 // Модуль: "w:\common\components\rtl\external\Orpheus\OvcKeyDataListenerList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TOvcKeyDataListenerList" MUID: (53B23EFD0347)
 
 {$Include w:\common\components\rtl\external\Orpheus\OVC.INC}
 

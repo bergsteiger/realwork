@@ -3,6 +3,7 @@ unit dsInternetAgent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\InternetAgent\dsInternetAgent.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsInternetAgent" MUID: (49ECA9AA0000)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

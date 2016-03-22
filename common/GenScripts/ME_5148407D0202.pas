@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\CellsCountStack.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "CellsCountStack" MUID: (5148407D0202)
+// Имя типа: "_CellsCountStack_"
 
 {$Define CellsCountStack_imp}
 

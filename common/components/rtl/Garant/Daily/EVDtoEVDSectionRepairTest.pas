@@ -1,61 +1,43 @@
 unit EVDtoEVDSectionRepairTest;
+ {* Тест для [IconForPage:175539595] [$175539595] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Daily/EVDtoEVDSectionRepairTest.pas"
-// Начат: 10.06.2010 16:12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EVD::EVDtoEVDSectionRepairTest
-//
-// Тест для {IconForPage:175539595} [$175539595]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoEVDSectionRepairTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "EVDtoEVDSectionRepairTest" MUID: (4C10D6820047)
+// Имя типа: "TEVDtoEVDSectionRepairTest"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  EVDtoEVDWriterTest,
-  l3Variant
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , EVDtoEVDWriterTest
+ , l3Variant
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TEVDtoEVDSectionRepairTest = {abstract} class(TEVDtoEVDWriterTest)
   {* Тест для [IconForPage:175539595] [$175539595] }
- protected
- // overridden protected methods
+  protected
    procedure SetFilters(var theGenerator: Ik2TagGenerator); override;
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TEVDtoEVDSectionRepairTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  ddSectionRepair,
-  ddSectionWithSub2Para,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TEVDtoEVDSectionRepairTest
+ l3ImplUses
+ , ddSectionRepair
+ , ddSectionWithSub2Para
+ , TestFrameWork
+;
 
 procedure TEVDtoEVDSectionRepairTest.SetFilters(var theGenerator: Ik2TagGenerator);
 //#UC START# *4C07BCBE01F2_4C10D6820047_var*
@@ -68,17 +50,16 @@ begin
 end;//TEVDtoEVDSectionRepairTest.SetFilters
 
 function TEVDtoEVDSectionRepairTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EVD';
 end;//TEVDtoEVDSectionRepairTest.GetFolder
 
 function TEVDtoEVDSectionRepairTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C10D6820047';
 end;//TEVDtoEVDSectionRepairTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

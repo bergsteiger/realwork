@@ -3,6 +3,7 @@ unit Main_ut_Main_UserType;
 
 // Модуль: "w:\MDProcess\NewGen\Main_ut_Main_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_Main" MUID: (A8FD32960190)
 
 {$Include w:\MDProcess\NewGen\ngDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_Main = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_Main }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_Main
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_Main.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_Main';
-end;//Tkw_FormUserType_ut_Main.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_Main.GetInteger: Integer;
 begin
  Result := ut_Main;
 end;//Tkw_FormUserType_ut_Main.GetInteger
+
+class function Tkw_FormUserType_ut_Main.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_Main';
+end;//Tkw_FormUserType_ut_Main.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

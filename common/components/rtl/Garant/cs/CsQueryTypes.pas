@@ -1,8 +1,11 @@
 unit CsQueryTypes;
 
-{ $Id: CsQueryTypes.pas,v 1.42 2015/06/05 11:50:09 lukyanets Exp $ }
+{ $Id: CsQueryTypes.pas,v 1.43 2015/11/24 11:47:30 lukyanets Exp $ }
 
 // $Log: CsQueryTypes.pas,v $
+// Revision 1.43  2015/11/24 11:47:30  lukyanets
+// Отладочные логи
+//
 // Revision 1.42  2015/06/05 11:50:09  lukyanets
 // Допускаем релогин для закрытой базы
 //
@@ -147,7 +150,7 @@ type
                qtStartMyMonitoring,
                qtEndMonitoring,
                qtServerTask,
-               qtTaskResult,
+               qtTaskResult_Deprecated,
                qtGetTask,
                qtGetActiveUsersList,
                qtSendMail,

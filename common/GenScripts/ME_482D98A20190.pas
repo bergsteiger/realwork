@@ -2,6 +2,7 @@ unit evCustomMemoTextSource;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCustomMemoTextSource.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomMemoTextSource" MUID: (482D98A20190)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

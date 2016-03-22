@@ -2,6 +2,7 @@ unit l3ProtoObjectWithCOMQI;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoObjectWithCOMQI.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProtoObjectWithCOMQI" MUID: (4DD26D570378)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

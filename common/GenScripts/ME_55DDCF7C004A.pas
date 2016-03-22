@@ -2,6 +2,7 @@ unit l3VersionInfoService;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3VersionInfoService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3VersionInfoService" MUID: (55DDCF7C004A)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

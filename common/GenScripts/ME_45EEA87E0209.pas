@@ -2,6 +2,7 @@ unit MonitoringUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\MonitoringUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Monitoring" MUID: (45EEA87E0209)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

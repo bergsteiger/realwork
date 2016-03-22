@@ -2,6 +2,7 @@ unit nsNativeCommentPara;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsNativeCommentPara.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsNativeCommentPara" MUID: (4CED3DF702F9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

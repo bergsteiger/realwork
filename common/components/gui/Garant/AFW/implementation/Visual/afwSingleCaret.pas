@@ -3,6 +3,7 @@ unit afwSingleCaret;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwSingleCaret.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwSingleCaret" MUID: (480DD00B02E8)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
@@ -32,21 +33,20 @@ type
    YOffset: Integer;
     {* Y Offset of caret in cell }
    f_CellHeight: Integer;
-    {* Поле для свойства CellHeight }
+    {* высота каретки. }
    f_CellWidth: Integer;
-    {* Поле для свойства CellWidth }
+    {* ширина каретки. }
    f_Linked: Boolean;
-    {* Поле для свойства Linked }
+    {* каретка привязана к окну? (Т.е. окно-владелец - в данный момент отображает каретку) }
    f_Position: Tl3SPoint;
-    {* Поле для свойства Position }
+    {* позиция каретки (в координатах окна-владельца). }
    f_Visible: Boolean;
-    {* Поле для свойства Visible }
+    {* показывать каретку? }
    f_Hidden: Boolean;
-    {* Поле для свойства Hidden }
+    {* флаг временной невидимости курсора (при выходе за границы окна). }
    f_CaretType: TafwCustomCaretType;
-    {* Поле для свойства CaretType }
+    {* текущий тип каретки. }
    f_Owner: TWinControl;
-    {* Поле для свойства Owner }
   protected
    procedure pm_SetCellHeight(aValue: Integer);
    procedure pm_SetCellWidth(aValue: Integer);

@@ -2,6 +2,7 @@ unit evBreakParaCursor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evBreakParaCursor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevBreakParaCursor" MUID: (4B1D20D500C2)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

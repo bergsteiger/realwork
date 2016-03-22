@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3RegEx;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3RegEx.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3RegEx" MUID: (483D7D8C001A)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -2,6 +2,7 @@ unit dsQuery;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\dsQuery.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsQuery" MUID: (491DCCE101F3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

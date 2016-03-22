@@ -1,58 +1,41 @@
 unit kwPermanentFilterExists;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwPermanentFilterExists.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Words::Words::PermanentFilterExists
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwPermanentFilterExists.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "PermanentFilterExists" MUID: (53B2B1460348)
+// Имя типа: "TkwPermanentFilterExists"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  FiltersUnit,
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , FiltersUnit
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  _kwPermanentFilterExistsUses_Parent_ = TtfwRegisterableWord;
- {$Include ..\F1_Words\kwPermanentFilterExistsUses.imp.pas}
- TkwPermanentFilterExists = {abstract scriptword} class(_kwPermanentFilterExistsUses_)
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // protected methods
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwPermanentFilterExistsUses.imp.pas}
+ TkwPermanentFilterExists = {abstract} class(_kwPermanentFilterExistsUses_)
+  protected
    function GetFilters: IFiltersFromQuery; virtual; abstract;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwPermanentFilterExists
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  DataAdapter
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , DataAdapter
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\F1_Words\kwPermanentFilterExistsUses.imp.pas}
-
-// start class TkwPermanentFilterExists
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwPermanentFilterExistsUses.imp.pas}
 
 procedure TkwPermanentFilterExists.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53B2B1460348_var*
@@ -87,6 +70,9 @@ begin
 //#UC END# *4DAEEDE10285_53B2B1460348_impl*
 end;//TkwPermanentFilterExists.DoDoIt
 
-{$IfEnd} //not NoScripts
+initialization
+ TkwPermanentFilterExists.RegisterClass;
+ {* Регистрация PermanentFilterExists }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

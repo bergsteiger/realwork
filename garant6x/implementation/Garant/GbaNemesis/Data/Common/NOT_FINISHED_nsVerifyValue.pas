@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsVerifyValue;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsVerifyValue.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsVerifyValue" MUID: (4C88F30900A7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

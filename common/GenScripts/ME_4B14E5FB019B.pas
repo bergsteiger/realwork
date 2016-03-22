@@ -2,6 +2,7 @@ unit nsForwardEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsForwardEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsForwardEvent" MUID: (4B14E5FB019B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

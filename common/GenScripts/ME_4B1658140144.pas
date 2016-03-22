@@ -2,6 +2,7 @@ unit nsDocumentFromListNavigationEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsDocumentFromListNavigationEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentFromListNavigationEvent" MUID: (4B1658140144)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

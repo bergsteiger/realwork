@@ -3,6 +3,7 @@ unit evNSRCPlusWriter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evNSRCPlusWriter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevNSRCPlusWriter" MUID: (4836CFF1028E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

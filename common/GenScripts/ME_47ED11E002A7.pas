@@ -3,6 +3,7 @@ unit DocumentFactoryKeyHelper;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DocumentFactoryKeyHelper.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DocumentFactoryKeyHelper" MUID: (47ED11E002A7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

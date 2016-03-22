@@ -8,6 +8,8 @@ unit kwPopEditorDP2LP;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorDP2LP.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_DP2LP" MUID: (503C650202E5)
+// Имя типа: "TkwPopEditorDP2LP"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

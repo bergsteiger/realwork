@@ -3,6 +3,7 @@ unit UsersTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\UsersTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "UsersTree" MUID: (49DF198B015D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

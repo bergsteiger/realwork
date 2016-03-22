@@ -4,9 +4,12 @@ unit eeProcessor;
 { Автор: Люлин А.В. ©     }
 { Модуль: eeProcessor -   }
 { Начат: 20.10.2003 19:20 }
-{ $Id: eeProcessor.pas,v 1.15 2015/10/09 14:48:33 kostitsin Exp $ }
+{ $Id: eeProcessor.pas,v 1.16 2015/12/04 11:27:31 dinishev Exp $ }
 
 // $Log: eeProcessor.pas,v $
+// Revision 1.16  2015/12/04 11:27:31  dinishev
+// {Requestlink:612960224}
+//
 // Revision 1.15  2015/10/09 14:48:33  kostitsin
 // {requestlink: 604917289 } - инициализируем неинициализированное
 //
@@ -258,6 +261,7 @@ uses
   eeExceptions,
   eePara,
 
+  TextSegment_Const,
   LeafPara_Const,
   CommentPara_Const,
   Document_Const,
@@ -282,17 +286,41 @@ var
  l_ID : Integer;
  l_Container : InevObjectHolder;
 
- procedure CorrectParaStyle(aPara: Tl3Variant);
-
+ procedure CorrectParaStyle(aPara: Tl3Variant);     
  var
   l_Op : InevOp;
 
   procedure CorrectParaStylePrim(aPara: Tl3Variant);
+
+   function lp_UpdateLayer(aLayer: Tl3Variant; Index: Long): Boolean;
+
+     function lp_UpdateSegment(aSegment: Tl3Variant; Index: Long): Boolean;
+     begin
+      if aSegment.IsKindOf(k2_typTextSegment) then
+       with aSegment.Attr[k2_tiFont] do
+       begin
+        if IsValid then
+         if Attr[k2_tiName].IsValid then
+          StrW[k2_tiName, nil] := '';
+       end; // if aSegment.IsKindOf(k2_typObjectSegment) then
+      Result := True;
+     end;
+
+    begin//lp_UpdateSegment
+     aLayer.IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@lp_UpdateSegment));
+     Result := True;
+    end;//UpdateSegment
+
   var
    l_Index : Integer;
   begin
    if aPara.IsKindOf(k2_typLeafPara) then
-    aPara.IntW[k2_tiStyle, l_Op] := ev_saUserComment
+   begin
+    aPara.IntW[k2_tiStyle, l_Op] := ev_saUserComment;
+    with aPara.AsObject.Attr[k2_tiSegments] do
+     if IsValid then
+      IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@lp_UpdateLayer));
+   end // if aPara.IsKindOf(k2_typLeafPara) then
    else
    begin
     for l_Index := 0 to Pred(aPara.ChildrenCount) do

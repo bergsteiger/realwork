@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\SandBox\AtomicListTest.imp.pas"
 // Стереотип: "TestCaseMixIn"
+// Элемент модели: "AtomicListTest" MUID: (51E03FC80111)
+// Имя типа: "_AtomicListTest_"
 
 {$Define AtomicListTest_imp}
 

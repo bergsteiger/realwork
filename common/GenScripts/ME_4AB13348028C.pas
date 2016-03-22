@@ -3,6 +3,8 @@ unit DocNumberQuery_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\DocNumberQuery_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "DocNumberQuery" MUID: (4AB13348028C)
+// Имя типа: "TDocNumberQueryForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

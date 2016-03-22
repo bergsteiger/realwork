@@ -2,6 +2,7 @@ unit tfwScriptingInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingInterfaces.pas"
 // Стереотип: "InternalInterfaces"
+// Элемент модели: "tfwScriptingInterfaces" MUID: (4DAF19F600C5)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -405,9 +406,9 @@ type
   {* Элемент словаря }
   private
    f_Redefines: TtfwWord;
-    {* Поле для свойства Redefines }
+    {* Слово, которое переопределяет данное (Self) }
    f_Key: TtfwKeyWordPrim;
-    {* Поле для свойства Key }
+    {* Слово словаря к которому привязан данный код }
   protected
    procedure pm_SetRedefines(aValue: TtfwWord);
    function pm_GetWordProducer: TtfwWord; virtual;
@@ -559,9 +560,8 @@ type
  TtfwKeyWord = class(TtfwKeyWordPrim)
   private
    f_Word: TtfwWord;
-    {* Поле для свойства Word }
+    {* Код данного ключевого слова }
    f_Dictionary: TtfwDictionaryPrim;
-    {* Поле для свойства Dictionary }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

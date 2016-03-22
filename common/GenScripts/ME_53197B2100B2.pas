@@ -3,6 +3,8 @@ unit K517772970_TalcuRegionAutoExportTaskDefault;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TalcuRegionAutoExportTaskDefault.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TalcuRegionAutoExportTaskDefault" MUID: (53197B2100B2)
+// Имя типа: "TK517772970_TalcuRegionAutoExportTaskDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

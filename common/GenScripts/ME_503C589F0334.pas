@@ -8,6 +8,8 @@ unit kwPopEditorLP2DP;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorLP2DP.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_LP2DP" MUID: (503C589F0334)
+// Имя типа: "TkwPopEditorLP2DP"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

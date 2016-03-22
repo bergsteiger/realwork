@@ -3,6 +3,8 @@ unit AACPrim_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\AACPrim_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "AACPrim" MUID: (4FF2E5C70060)
+// Имя типа: "TAACPrimModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

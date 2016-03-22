@@ -3,6 +3,7 @@ unit afwMeasureCanvas;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwMeasureCanvas.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwMeasureCanvas" MUID: (47414D0C018A)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
@@ -24,8 +25,8 @@ type
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
    function GetCaret: Il3Caret; override;
+   procedure ClearFields; override;
   public
    constructor Create(const anExtent: TafwPoint;
     const aCaret: IafwCaret); reintroduce;
@@ -76,12 +77,6 @@ begin
 //#UC END# *479731C50290_47414D0C018A_impl*
 end;//TafwMeasureCanvas.Cleanup
 
-procedure TafwMeasureCanvas.ClearFields;
-begin
- f_Caret := nil;
- inherited;
-end;//TafwMeasureCanvas.ClearFields
-
 function TafwMeasureCanvas.GetCaret: Il3Caret;
 //#UC START# *56B49F030225_47414D0C018A_var*
 //#UC END# *56B49F030225_47414D0C018A_var*
@@ -90,5 +85,11 @@ begin
  Result := f_Caret;
 //#UC END# *56B49F030225_47414D0C018A_impl*
 end;//TafwMeasureCanvas.GetCaret
+
+procedure TafwMeasureCanvas.ClearFields;
+begin
+ f_Caret := nil;
+ inherited;
+end;//TafwMeasureCanvas.ClearFields
 
 end.

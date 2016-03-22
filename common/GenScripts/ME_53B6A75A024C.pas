@@ -2,6 +2,7 @@ unit ddRunCommandTaskPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ddRunCommandTaskPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddRunCommandTaskPrim" MUID: (53B6A75A024C)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

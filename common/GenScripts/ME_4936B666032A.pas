@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\sdsCommonDiction.imp.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "sdsCommonDiction" MUID: (4936B666032A)
+// Имя типа: "_sdsCommonDiction_"
 
 {$Define sdsCommonDiction_imp}
 
@@ -44,6 +46,7 @@
    {$If NOT Defined(NoVCM)}
    function GetDataForClone: _InitDataType_; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
  end;//_sdsCommonDiction_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -242,7 +245,14 @@ begin
 end;//_sdsCommonDiction_.GetDataForClone
 {$IfEnd} // NOT Defined(NoVCM)
 
+procedure _sdsCommonDiction_.ClearFields;
+begin
+ f_dsSaveLoad := nil;
+ f_dsChild := nil;
+ inherited;
+end;//_sdsCommonDiction_.ClearFields
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 {$EndIf sdsCommonDiction_imp_impl}
 
 {$EndIf sdsCommonDiction_imp}

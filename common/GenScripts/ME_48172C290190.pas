@@ -2,6 +2,7 @@ unit atCommon;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\atCommon.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "atCommon" MUID: (48172C290190)
 
 interface
 

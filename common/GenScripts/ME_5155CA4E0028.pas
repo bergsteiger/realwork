@@ -2,6 +2,7 @@ unit IntStackTest;
 
 // Модуль: "w:\common\components\SandBox\IntStackTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TIntStackTest" MUID: (5155CA4E0028)
 
 {$Include w:\common\components\SandBox\sbtDefine.inc}
 

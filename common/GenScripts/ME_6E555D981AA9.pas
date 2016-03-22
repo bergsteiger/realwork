@@ -3,6 +3,7 @@ unit TurnOnTimeMachine_ut_TurnOnTimeMachine_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\TurnOnTimeMachine_ut_TurnOnTimeMachine_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_TurnOnTimeMachine" MUID: (6E555D981AA9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_TurnOnTimeMachine = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_TurnOnTimeMachine }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_TurnOnTimeMachine
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_TurnOnTimeMachine.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_TurnOnTimeMachine';
-end;//Tkw_FormUserType_ut_TurnOnTimeMachine.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_TurnOnTimeMachine.GetInteger: Integer;
 begin
  Result := ut_TurnOnTimeMachine;
 end;//Tkw_FormUserType_ut_TurnOnTimeMachine.GetInteger
+
+class function Tkw_FormUserType_ut_TurnOnTimeMachine.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_TurnOnTimeMachine';
+end;//Tkw_FormUserType_ut_TurnOnTimeMachine.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

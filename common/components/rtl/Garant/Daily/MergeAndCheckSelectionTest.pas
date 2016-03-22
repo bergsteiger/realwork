@@ -1,38 +1,24 @@
 unit MergeAndCheckSelectionTest;
+ {* Тест проверки выделения после объединения ячеек. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/MergeAndCheckSelectionTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EditorTests::TMergeAndCheckSelectionTest
-//
-// Тест проверки выделения после объединения ячеек.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\MergeAndCheckSelectionTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TMergeAndCheckSelectionTest" MUID: (4CE133F801BA)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  MergeCellsTest,
-  evCustomEditorWindow
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , MergeCellsTest
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+ , evCustomEditorWindow
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  _ClipboardOperations_Parent_ = TMergeCellsTest;
  {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
@@ -40,66 +26,56 @@ type
  {$Include w:\common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas}
  TMergeAndCheckSelectionTest = {abstract} class(_SelectOperation_)
   {* Тест проверки выделения после объединения ячеек. }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   {$If defined(nsTest) AND not defined(NoVCM)}
+    {* Папка в которую входит тест }
+   {$If NOT Defined(NoVCM)}
    procedure CheckOperation(aForm: TPrimTextLoadForm); override;
-     {* Проверка после применения инструмента. }
-   {$IfEnd} //nsTest AND not NoVCM
+    {* Проверка после применения инструмента. }
+   {$IfEnd} // NOT Defined(NoVCM)
    function NeedSelection: Boolean; override;
-     {* Нужно ли чего-нибудь выделять. }
+    {* Нужно ли чего-нибудь выделять. }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TMergeAndCheckSelectionTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork,
-  l3Base,
-  evOp,
-  l3InternalInterfaces,
-  evTypes,
-  evMsgCode
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
+ l3ImplUses
+ , TestFrameWork
+ , l3Base
+ , evOp
+ , l3InternalInterfaces
+ , evTypes
+ , evMsgCode
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas}
 
-// start class TMergeAndCheckSelectionTest
-
 function TMergeAndCheckSelectionTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TMergeAndCheckSelectionTest.GetFolder
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TMergeAndCheckSelectionTest.CheckOperation(aForm: TPrimTextLoadForm);
+ {* Проверка после применения инструмента. }
 //#UC START# *4C9999C50326_4CE133F801BA_var*
 //#UC END# *4C9999C50326_4CE133F801BA_var*
 begin
@@ -108,9 +84,10 @@ begin
   CopyAndPaste2DocumentBottom(aForm.Text);
 //#UC END# *4C9999C50326_4CE133F801BA_impl*
 end;//TMergeAndCheckSelectionTest.CheckOperation
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TMergeAndCheckSelectionTest.NeedSelection: Boolean;
+ {* Нужно ли чего-нибудь выделять. }
 //#UC START# *4CC8189D02DF_4CE133F801BA_var*
 //#UC END# *4CC8189D02DF_4CE133F801BA_var*
 begin
@@ -120,11 +97,10 @@ begin
 end;//TMergeAndCheckSelectionTest.NeedSelection
 
 function TMergeAndCheckSelectionTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4CE133F801BA';
 end;//TMergeAndCheckSelectionTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

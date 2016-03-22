@@ -2,6 +2,7 @@ unit k2RawData_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2RawData_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "Wk2RawData" MUID: (53C0068E01BC)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

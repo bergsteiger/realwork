@@ -100,7 +100,7 @@ public:
 
 					if (is_ext) {
 						m_cache = Morpho::Factory::make_for_txt (path);
-						m_cache->load (0, true);
+						m_cache->load (0);
 					} 
 
 					m_normalizer = Morpho::Factory::make (m_cache.in (), adapter.in ());
@@ -114,11 +114,12 @@ public:
 	}
 
 	const GCL::StrVector& get_simple_syns (const std::string& key) {
-		if (m_cache.is_nil ()) {
-			static const GCL::StrVector fake_ret;
-			return fake_ret;
+		if (m_cache.is_nil () == false) {
+			//return m_cache->get_syns (key);
 		}
-		return m_cache->get_syns (key);
+
+		static const GCL::StrVector fake_ret;
+		return fake_ret;
 	}
 
 private:

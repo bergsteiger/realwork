@@ -1,68 +1,51 @@
 unit kwComponentFromStackWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Модуль: "kwComponentFromStackWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::VCL bindings::TkwComponentFromStackWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwComponentFromStackWord.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TkwComponentFromStackWord" MUID: (4F2148300318)
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes,
-  tfwScriptingInterfaces,
-  kwObjectFromStackWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwObjectFromStackWord
+ , Classes
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  _SystemWord_Parent_ = TkwObjectFromStackWord;
- {$Include ..\ScriptEngine\SystemWord.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\SystemWord.imp.pas}
  TkwComponentFromStackWord = {abstract} class(_SystemWord_)
- protected
- // realized methods
-   procedure DoObject(anObject: TObject;
-     const aCtx: TtfwContext); override;
- protected
- // protected methods
+  protected
    procedure DoComponent(aComponent: TComponent;
-     const aCtx: TtfwContext); virtual; abstract;
+    const aCtx: TtfwContext); virtual; abstract;
+   procedure DoObject(anObject: TObject;
+    const aCtx: TtfwContext); override;
  end;//TkwComponentFromStackWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\ScriptEngine\SystemWord.imp.pas}
-
-// start class TkwComponentFromStackWord
+{$Include w:\common\components\rtl\Garant\ScriptEngine\SystemWord.imp.pas}
 
 procedure TkwComponentFromStackWord.DoObject(anObject: TObject;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4F212BD5010E_4F2148300318_var*
 //#UC END# *4F212BD5010E_4F2148300318_var*
 begin
@@ -71,12 +54,9 @@ begin
 //#UC END# *4F212BD5010E_4F2148300318_impl*
 end;//TkwComponentFromStackWord.DoObject
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwComponentFromStackWord
  TkwComponentFromStackWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwComponentFromStackWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

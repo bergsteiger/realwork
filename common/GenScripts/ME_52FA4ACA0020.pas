@@ -2,6 +2,7 @@ unit csRequestTask;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csRequestTask.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "csRequestTask" MUID: (52FA4ACA0020)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

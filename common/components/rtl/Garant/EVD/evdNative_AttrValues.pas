@@ -5,7 +5,7 @@ unit evdNative_AttrValues;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/evdNative_AttrValues.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::EVD::Standard::evdNative_AttrValues
+// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::EVD::Standard::evdNative_AttrValues
 //
 // Локализуемые значения атрибутов значений тегов таблицы тегов evdNative
 //

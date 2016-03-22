@@ -2,6 +2,7 @@ unit tfwScriptEngineExInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwScriptEngineExInterfaces.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "tfwScriptEngineExInterfaces" MUID: (55E9A8990116)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

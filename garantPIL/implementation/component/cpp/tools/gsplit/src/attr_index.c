@@ -68,7 +68,6 @@ extern int add_reference_id(long Id);
 
 extern int is_reference_id(u_int32_t Id);
 
-
 int make_attrs_index(void *pCntx, index_st *pdest, int count, index_st *psrc, set_st *doclist)
 {
 	iter_st *pit;
@@ -601,6 +600,21 @@ int make_attrs_index(void *pCntx, index_st *pdest, int count, index_st *psrc, se
   		//flog("\n end step 2 (%d)", repeat);
 		}
 		free(doc_body);
+#if defined(MULTI_INDEX_STREAM_FILE) && defined(_WIN64)
+		for (i = 1; i < MAX_COUNT_FILE_HANDLES + 1; i++){
+			if (psrc->pbase->ndt.postFileHandles[i] != -1 && c_io_close(psrc->pbase->ndt.postFileHandles[i]))
+				return 1;
+			psrc->pbase->ndt.postFileHandles[i] = -1;
+		}
+		for (i = 0; i<count; i++) {
+			int startN = 1;
+			for (; startN < MAX_COUNT_FILE_HANDLES + 1; startN++){
+				if (pdest[i].pbase->ndt.postFileHandles[startN] != -1 && c_io_close(pdest[i].pbase->ndt.postFileHandles[startN]))
+					return 1;
+				pdest[i].pbase->ndt.postFileHandles[startN] = -1;
+			}
+		}
+#endif
 		strcpy(msg1, get_message(MSG_STEP3_3));
 		ShowMessageFromContext(pCntx, msg);
 		flog("Done,\t");

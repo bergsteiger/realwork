@@ -3,6 +3,8 @@ unit k2FontName_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2FontName_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "FontName" MUID: (484CE9CE0107)
+// Имя типа: "FontNameTag"
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

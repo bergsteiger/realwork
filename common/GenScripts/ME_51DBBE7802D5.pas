@@ -2,6 +2,7 @@ unit ddSectionProperty;
 
 // ћодуль: "w:\common\components\rtl\Garant\dd\ddSectionProperty.pas"
 // —тереотип: "SimpleClass"
+// Ёлемент модели: "TddSectionProperty" MUID: (51DBBE7802D5)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -88,7 +89,7 @@ procedure TddSectionProperty.Clear;
 begin
 //#UC START# *518A13330058_51DBBE7802D5_impl*
  inherited;
- cCols:= 1;                  { number of column }
+ f_cCols := 0;                  { number of column }
  ColsSpace:= 720;    { пространство между колонками }
  LineBetween:= False;  { лини€ между колонками }
  SBK:= sbkPg;                    { section break type  }

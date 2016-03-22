@@ -1,8 +1,11 @@
 unit dd_lcSourceUtils;
 { ¬спомогательные утилиты  дл€ работы с »сход€щим органом }
 
-{ $Id: dd_lcSourceUtils.pas,v 1.17 2015/05/29 11:10:30 fireton Exp $ }
+{ $Id: dd_lcSourceUtils.pas,v 1.18 2015/11/25 13:44:01 lukyanets Exp $ }
 // $Log: dd_lcSourceUtils.pas,v $
+// Revision 1.18  2015/11/25 13:44:01  lukyanets
+//  ќнстанты переехали
+//
 // Revision 1.17  2015/05/29 11:10:30  fireton
 // - длинные строки должны сто€ть в начале списка, иначе неправильно
 //   опознаютс€ источники
@@ -59,7 +62,7 @@ unit dd_lcSourceUtils;
 
 interface
 
-uses dt_Const;
+uses daSchemeConsts, dt_Const;
 
 type
  Tdd_lcDossierType = (lc_dtAAC, lc_dtVAC, lc_dtFAC, lc_dtFirst);

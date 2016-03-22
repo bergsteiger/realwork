@@ -21,7 +21,8 @@ interface
 uses
   l3Base,
   ddBaseObject,
-  k2Interfaces
+  k2Interfaces,
+  ddTypes
   ;
 
 type
@@ -37,7 +38,7 @@ type
  protected
  // realized methods
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aLiteVersion: Boolean); override;
+     aLiteVersion: TddLiteVersion); override;
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -69,7 +70,7 @@ uses
 // start class TddSub
 
 procedure TddSub.Write2Generator(const Generator: Ik2TagGenerator;
-  aLiteVersion: Boolean);
+  aLiteVersion: TddLiteVersion);
 //#UC START# *54DC9795018B_5268E523030D_var*
 //#UC END# *54DC9795018B_5268E523030D_var*
 begin

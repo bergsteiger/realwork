@@ -3,6 +3,7 @@ unit evInternalInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evInternalInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "evInternalInterfaces" MUID: (47F088300159)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
@@ -43,7 +44,7 @@ type
    {* Номер ячейки для которой построен данный маркер (начиная с 1) }
  end;//IevColumnBorderMarker
 
- {$If Defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
  IevChangeParamTool = interface
   {* Инструмент для изменения параметров тега }
   ['{33D9C262-0D09-41ED-B63B-0DE6FCE9EE13}']
@@ -55,7 +56,7 @@ type
    aMaxIndex: Tl3Index = l3Types.l3MaxIndex): Boolean;
    {* Изменить значение параметра }
  end;//IevChangeParamTool
- {$IfEnd} // Defined(evNeedHotSpot)
+{$IfEnd} // Defined(evNeedHotSpot)
 
  IevObjectFrame = interface
   ['{841E16E1-E852-4CEF-A22B-240346E83282}']

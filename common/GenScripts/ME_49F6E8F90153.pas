@@ -3,6 +3,8 @@ unit moInternetAgent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moInternetAgent.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "InternetAgent" MUID: (49F6E8F90153)
+// Имя типа: "Tmo_InternetAgent"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

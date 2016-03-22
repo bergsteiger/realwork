@@ -2,6 +2,7 @@ unit ddAppConfigStrings;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigStrings.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfigStrings" MUID: (4B9E62980158)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -87,6 +88,7 @@ type
     var aTop: Integer;
     aParent: TWinControl): TControl; override;
    procedure AdjustReadOnly(aControl: TControl); override;
+   procedure ClearFields; override;
   public
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
@@ -133,6 +135,7 @@ type
   protected
    procedure OnBrowseClick(Sender: TObject); override;
    procedure OnTestClick(Sender: TObject); override;
+   procedure ClearFields; override;
   public
    property FilterMask: AnsiString
     read f_FilterMask
@@ -538,6 +541,12 @@ begin
 //#UC END# *552BB745031E_523038C603B2_impl*
 end;//TddBrowseConfigItem.AdjustReadOnly
 
+procedure TddBrowseConfigItem.ClearFields;
+begin
+ TestButtonCaption := '';
+ inherited;
+end;//TddBrowseConfigItem.ClearFields
+
 procedure TddFolderNameConfigItem.Validate;
 //#UC START# *5446141E00FA_523038DB01A5_var*
 //#UC END# *5446141E00FA_523038DB01A5_var*
@@ -624,6 +633,12 @@ begin
 //#UC START# *52303ECC02B3_523038EA00E7_impl*
 //#UC END# *52303ECC02B3_523038EA00E7_impl*
 end;//TddFileNameConfigItem.OnTestClick
+
+procedure TddFileNameConfigItem.ClearFields;
+begin
+ FilterMask := '';
+ inherited;
+end;//TddFileNameConfigItem.ClearFields
 
 constructor TddSoundFileNameConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;

@@ -3,6 +3,7 @@ unit nevTableRowAnchor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableRowAnchor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevTableRowAnchor" MUID: (4A5D7B82016A)
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 

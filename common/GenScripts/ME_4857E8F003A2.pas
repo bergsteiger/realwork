@@ -3,6 +3,8 @@ unit evQueryCard_InterfaceFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evQueryCard_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
+// Элемент модели: "TevQueryCard" MUID: (4857E8F003A2)
+// Имя типа: "TevQueryCardInterfaceFactory"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

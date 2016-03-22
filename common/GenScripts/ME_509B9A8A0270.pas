@@ -3,6 +3,8 @@ unit kwGetFontSize;
 
 // Модуль: "w:\common\components\rtl\Garant\Keywords4Daily\kwGetFontSize.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "GetFontSize" MUID: (509B9A8A0270)
+// Имя типа: "TkwGetFontSize"
 
 interface
 

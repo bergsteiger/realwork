@@ -2,6 +2,7 @@ unit evdAllSubsEliminator;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdAllSubsEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdAllSubsEliminator" MUID: (4EC116A50211)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

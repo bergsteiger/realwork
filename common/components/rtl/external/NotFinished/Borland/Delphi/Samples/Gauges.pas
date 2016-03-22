@@ -2,6 +2,7 @@ unit Gauges;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Samples\Gauges.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Gauges" MUID: (53E0F45F02B2)
 
 interface
 

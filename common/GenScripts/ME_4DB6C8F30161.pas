@@ -2,6 +2,7 @@ unit tfwCompilingWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCompilingWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwCompilingWord" MUID: (4DB6C8F30161)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

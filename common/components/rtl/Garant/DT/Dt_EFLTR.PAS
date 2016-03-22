@@ -1,8 +1,17 @@
 Unit Dt_EFltr;
 
-{ $Id: Dt_EFLTR.PAS,v 1.217 2015/10/02 10:31:33 voba Exp $ }
+{ $Id: Dt_EFLTR.PAS,v 1.220 2016/03/16 11:00:33 voba Exp $ }
 
 // $Log: Dt_EFLTR.PAS,v $
+// Revision 1.220  2016/03/16 11:00:33  voba
+// -k:619568279
+//
+// Revision 1.219  2015/12/07 15:20:14  voba
+// - дотачиваем обработку битых ссылок
+//
+// Revision 1.218  2015/11/23 11:37:15  lukyanets
+// Заготовки Renum
+//
 // Revision 1.217  2015/10/02 10:31:33  voba
 // - bf - большие UserID храним как отрицательные
 //
@@ -1003,6 +1012,7 @@ uses
  l3Nodes, l3Tree_TLB, l3String, l3Chars, l3Interfaces,
  m2xltlib,
  k2Tags, k2Interfaces, k2Base,
+ daInterfaces,
  HT_Dll,
  Dt_err, dt_Misc,
  DT_Table,
@@ -2598,25 +2608,24 @@ begin
     // Добавляем накопленные адреса
     for i:= 0 to HLAddresses.Hi do
      with THLA(HLAddresses.Items[i]) do
-      if rDocID <> 0 then
+     begin
+      if fReNum then rDocID := fReNumTbl.GetExtDocID(rDocID);
+      if rDocID <> cUndefDocID then
       begin
        Generator.StartChild(k2_typAddress);
        try
-        if fReNum then rDocID := fReNumTbl.GetExtDocID(rDocID);
-        if rDocID <> cUndefDocID then
-        begin
-         Generator.AddIntegerAtom(k2_tiDocID, rDocID);
-         Generator.AddIntegerAtom(k2_tiSubID, rSubID);
-        end
-        else
-         l3System.Msg2Log(rsWrongDocID, [fCurDocID, f_CurHL], l3_msgLevel2);
-
-        if fDocPart = dpAnno then
-         l3System.Msg2Log(SysUtils.Format(rsRestoredLink, [fCurDocID, f_CurHL, rDocID, rSubID]), l3_msgLevel2);
+        Generator.AddIntegerAtom(k2_tiDocID, rDocID);
+        Generator.AddIntegerAtom(k2_tiSubID, rSubID);
        finally
         Generator.Finish;
        end; // try..finally
-      end;
+      end
+      else
+       l3System.Msg2Log(rsWrongDocID, [fCurDocID, f_CurHL], l3_msgLevel2);
+
+      if fDocPart = dpAnno then
+       l3System.Msg2Log(SysUtils.Format(rsRestoredLink, [fCurDocID, f_CurHL, rDocID, rSubID]), l3_msgLevel2);
+     end; // with THLA(HLAddresses.Items[i]) do
    end;
    Generator.Finish;
    HLAddresses.Clear;
@@ -2706,7 +2715,7 @@ procedure TExportFilter.FilterDocHeader(AtomIndex : Long; const Value :
     Tk2Variant);
 var
  l_TranslateAtom: Boolean;
- lStatusMask: Cardinal;
+ lStatusMask: long;
 begin
  l_TranslateAtom:= True;
  if CurrentType.IsKindOf(k2_typDocument) then
@@ -2716,12 +2725,15 @@ begin
    k2_tiPriceLevel:
     begin
      // Битовые игры
-     lStatusMask := 0;
-     if atPriceLevel in Attributes then
-      lStatusMask := lStatusMask or dstatChargeFree;
-     if atNotTM in Attributes then
-      lStatusMask := lStatusMask or dstatNotTM;
-     l_TranslateAtom:= Value.AsInteger and lStatusMask <> 0;
+     lStatusMask := Value.AsInteger;
+     if not (atPriceLevel in Attributes) then
+      lStatusMask := lStatusMask and not dstatChargeFree;
+     if not (atNotTM in Attributes) then
+      lStatusMask := lStatusMask and not dstatNotTM;
+     l_TranslateAtom := false; //сами вызовем Generator.AddAtomEx
+
+     if lStatusMask <> 0 then
+      Generator.AddIntegerAtom(AtomIndex, lStatusMask);
     end;
    k2_tiPriority: l_TranslateAtom:= (atPriority in Attributes);
    k2_tiSortDate: l_TranslateAtom:= (atSortDate in Attributes);

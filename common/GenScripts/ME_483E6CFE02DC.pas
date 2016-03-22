@@ -3,6 +3,7 @@ unit nevPersistentDocumentContainer;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevPersistentDocumentContainer.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nevPersistentDocumentContainer" MUID: (483E6CFE02DC)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

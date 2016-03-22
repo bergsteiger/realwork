@@ -2,6 +2,7 @@ unit evReqGroupHotSpotTester;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evReqGroupHotSpotTester.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevReqGroupHotSpotTester" MUID: (4D64068D027B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

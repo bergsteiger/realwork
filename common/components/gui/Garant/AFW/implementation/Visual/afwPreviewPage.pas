@@ -3,6 +3,7 @@ unit afwPreviewPage;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPage.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwPreviewPage" MUID: (474155B703C6)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
@@ -26,31 +27,20 @@ type
   private
    f_WidthPages: TafwPreviewPageList;
    f_PageNumber: Integer;
-    {* Поле для свойства PageNumber }
+    {* номер страницы. }
    f_PageWidthNumber: Integer;
-    {* Поле для свойства PageWidthNumber }
+    {* номер страницы по ширине. }
    f_Metafile: Tl3Metafile;
-    {* Поле для свойства Metafile }
    f_HORZRES: Integer;
-    {* Поле для свойства HORZRES }
    f_VERTRES: Integer;
-    {* Поле для свойства VERTRES }
    f_LOGPIXELSX: Integer;
-    {* Поле для свойства LOGPIXELSX }
    f_LOGPIXELSY: Integer;
-    {* Поле для свойства LOGPIXELSY }
    f_PHYSICALWIDTH: Integer;
-    {* Поле для свойства PHYSICALWIDTH }
    f_PHYSICALHEIGHT: Integer;
-    {* Поле для свойства PHYSICALHEIGHT }
    f_PHYSICALOFFSETX: Integer;
-    {* Поле для свойства PHYSICALOFFSETX }
    f_PHYSICALOFFSETY: Integer;
-    {* Поле для свойства PHYSICALOFFSETY }
    f_DropStream: IafwTempStream;
-    {* Поле для свойства DropStream }
    f_OverallPageNumber: Integer;
-    {* Поле для свойства OverallPageNumber }
   protected
    procedure Start(aCanvas: Tl3Canvas);
     {* начать генерацию страницы. }

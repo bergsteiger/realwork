@@ -2,6 +2,7 @@ unit afwDocumentPreviewList;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwDocumentPreviewList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwDocumentPreviewList" MUID: (47E2661C0224)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

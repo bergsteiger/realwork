@@ -180,6 +180,9 @@ type
    procedure InitControls; override;
      {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} //not NoVCM
+   {$If not defined(NoVCL)}
+   procedure SetParent(AParent: TWinControl); override;
+   {$IfEnd} //not NoVCL
    function CaneHaveDocumentCompareEditionsOperation: Boolean; override;
  protected
  // protected fields
@@ -244,7 +247,8 @@ uses
   ,
   Common_Strange_Controls,
   afwFacade,
-  l3Variant
+  l3Variant,
+  Windows
   {$If not defined(NoScripts)}
   ,
   TtfwClassRef_Proxy
@@ -754,6 +758,8 @@ begin
   if IsModalForm and (Document <> nil) then
     TnsViewDocumentEditionListEvent.Log(Document);
  end;//dsEditions <> nil
+ if RedactionTree.HandleAllocated then
+  PostMessage(RedactionTree.Handle, msg_vtInvalidateNCArea, 0, 0);
 //#UC END# *497469C90140_497A12850078_impl*
 end;//TPrimRedactionsForm.NotifyDataSourceChanged
 {$IfEnd} //not NoVCM
@@ -811,6 +817,20 @@ begin
 //#UC END# *4A8E8F2E0195_497A12850078_impl*
 end;//TPrimRedactionsForm.InitControls
 {$IfEnd} //not NoVCM
+
+{$If not defined(NoVCL)}
+procedure TPrimRedactionsForm.SetParent(AParent: TWinControl);
+//#UC START# *4A97E78202FC_497A12850078_var*
+//#UC END# *4A97E78202FC_497A12850078_var*
+begin
+//#UC START# *4A97E78202FC_497A12850078_impl*
+ inherited;
+ if (aParent <> nil) then
+  if RedactionTree.HandleAllocated then
+   PostMessage(RedactionTree.Handle, msg_vtInvalidateNCArea, 0, 0);
+//#UC END# *4A97E78202FC_497A12850078_impl*
+end;//TPrimRedactionsForm.SetParent
+{$IfEnd} //not NoVCL
 
 function TPrimRedactionsForm.CaneHaveDocumentCompareEditionsOperation: Boolean;
 //#UC START# *4EF354C8018B_497A12850078_var*

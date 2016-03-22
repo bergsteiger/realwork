@@ -2,6 +2,7 @@ unit k2Const;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Const.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "k2Const" MUID: (47AC7B760263)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

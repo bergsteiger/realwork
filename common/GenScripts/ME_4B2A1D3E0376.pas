@@ -2,6 +2,7 @@ unit TestMMX;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\TestMMX.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTestMMX" MUID: (4B2A1D3E0376)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

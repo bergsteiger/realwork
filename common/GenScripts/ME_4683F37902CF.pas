@@ -3,6 +3,7 @@ unit vcmInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmInterfaces.pas"
 // Стереотип: "InternalInterfaces"
+// Элемент модели: "vcmInterfaces" MUID: (4683F37902CF)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
@@ -258,6 +259,8 @@ type
    read pm_GetTabHint;
  end;//IvcmFormSetDataSource
 
+ IvcmDispatcher = interface;
+
  TvcmCanClose = (
   {* Определяет возможность закрытия формы }
   vcm_ccNone
@@ -269,8 +272,6 @@ type
   , vcm_ccDisable
    {* Окно не может быть закрыто }
  );//TvcmCanClose
-
- IvcmDispatcher = interface;
 
  IvcmForm = interface(IvcmLayout)
   {* Базовый класс формы библиотеки VCM }
@@ -301,6 +302,10 @@ type
   {* Нотификация рассылаемая _IvcmFormDataSource слушателям }
   vcm_dsnDestroy
  );//TvcmFormDataSourceNotify
+
+ IvcmEntity = interface;
+
+ IvcmAggregate = interface;
 
  IvcmUserTypeDef = interface(IvcmBaseObjectDef)
   ['{1CC34971-4A78-4406-B24B-CB368802431F}']
@@ -348,6 +353,10 @@ type
    read Get_UserTypesIterator;
  end;//IvcmEntityFormDef
 
+ IvcmFormStyle = interface;
+
+ IvcmToolbarsStyle = interface;
+
  TvcmBool = (
   {* Логический тип используемый в VCM }
   vcm_bNone
@@ -362,8 +371,6 @@ type
   , isLarge
   , isMedium
  );//TvcmImageSize
-
- IvcmToolbarsStyle = interface;
 
  IvcmToolbarStyle = interface(IvcmBase)
   {* Стиль панели инструментов }
@@ -383,8 +390,6 @@ type
    read pm_GetContainer;
    {* контейнер для размещения панели иснтрументов }
  end;//IvcmToolbarStyle
-
- IvcmFormStyle = interface;
 
  IvcmToolbarsStyle = interface(IvcmBase)
   {* Иконки панелей инструментов }
@@ -419,10 +424,6 @@ type
    read pm_GetToolbars;
    {* иконки для панелей инструментов формы }
  end;//IvcmFormStyle
-
- IvcmEntity = interface;
-
- IvcmAggregate = interface;
 
  IvcmEntityForm = interface(IvcmForm)
   ['{325580D6-55ED-48B2-8335-DE9E4B50BB38}']
@@ -809,6 +810,10 @@ type
    read Get_AsForm;
  end;//IvcmEntity
 
+ IvcmModule = interface;
+
+ IvcmEntityFormsIterable = interface;
+
  IvcmHistory = interface;
 
  IvcmHistoryItem = interface(IvcmBase)
@@ -933,6 +938,8 @@ type
    {* история находится в процессе сохранения (между сколбками Start-Finish) }
  end;//IvcmHistory
 
+ IvcmMainFormProvider = interface;
+
  IvcmFormDispatcher = interface;
 
  IvcmLockListener = interface(IvcmBase)
@@ -945,8 +952,6 @@ type
   procedure Unlock;
    {* отрисовка разрешена }
  end;//IvcmLockListener
-
- IvcmMainFormProvider = interface;
 
  IvcmFormDispatcher = interface(IvcmBase)
   {* Диспетчер форм приложения }
@@ -1009,10 +1014,6 @@ type
   property CurrentVCMContainer: IvcmContainer
    read pm_GetCurrentVCMContainer;
  end;//IvcmMainFormProvider
-
- IvcmModule = interface;
-
- IvcmEntityFormsIterable = interface;
 
  IvcmDispatcher = interface(IvcmBase)
   {* Диспетчер приложения }
@@ -1116,6 +1117,8 @@ type
    read Get_Entity;
  end;//IvcmDispatcher
 
+ IvcmModuleDef = interface;
+
  TvcmEntityOperationsOption = (
   {* для настройки сущностей }
   vcm_enoGroupItemsInContextMenu
@@ -1123,8 +1126,6 @@ type
  );//TvcmEntityOperationsOption
 
  TvcmEntityOperationsOptions = set of TvcmEntityOperationsOption;
-
- IvcmModuleDef = interface;
 
  IvcmEntityDef = interface(IvcmOperationalIdentifiedUserFriendlyControl)
   {* Описание сущности }
@@ -1177,6 +1178,8 @@ type
 
  TvcmEffectiveUserType = Low(TvcmUserType) .. Pred(High(TvcmUserType));
 
+ IvcmFormSetSimpleFactory = interface;
+
  TvcmFormSetID = object
   {* идентификатор сборки. }
   public
@@ -1189,8 +1192,6 @@ type
   {* Параметры обновления сборки }
   ['{A4A09A60-7E69-46AA-8321-30102D348F15}']
  end;//IvcmFormSetRefreshParams
-
- IvcmFormSetSimpleFactory = interface;
 
  IvcmFormSetFactory = interface(IvcmBase)
   {* Фабрика сборки }

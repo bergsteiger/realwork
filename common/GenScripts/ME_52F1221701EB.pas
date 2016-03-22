@@ -2,6 +2,7 @@ unit tfwCachedTokens;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCachedTokens.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwCachedTokens" MUID: (52F1221701EB)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

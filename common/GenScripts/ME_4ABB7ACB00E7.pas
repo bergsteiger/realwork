@@ -3,6 +3,8 @@ unit Registration_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\Registration_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "RegistrationForm" MUID: (4ABB7ACB00E7)
+// Имя типа: "TnsRegistrationForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

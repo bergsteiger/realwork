@@ -2,6 +2,7 @@ unit atOpenSavedListOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atOpenSavedListOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatOpenSavedListOperation" MUID: (4FD234F20321)
 
 interface
 

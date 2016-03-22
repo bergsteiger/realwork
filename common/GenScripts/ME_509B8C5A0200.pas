@@ -3,6 +3,8 @@ unit kwSetFontSize;
 
 // Модуль: "w:\common\components\rtl\Garant\Keywords4Daily\kwSetFontSize.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "SetFontSize" MUID: (509B8C5A0200)
+// Имя типа: "TkwSetFontSize"
 
 interface
 

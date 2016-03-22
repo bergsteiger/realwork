@@ -2,6 +2,7 @@ unit vtComboTree;
 
 // Модуль: "w:\common\components\gui\Garant\VT\ComboTree\vtComboTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvtComboTree" MUID: (55B780E60398)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

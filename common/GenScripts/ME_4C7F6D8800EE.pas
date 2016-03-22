@@ -2,6 +2,8 @@ unit DiffOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\DiffOptions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "DiffOptions" MUID: (4C7F6D8800EE)
+// Имя типа: "TDiffOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

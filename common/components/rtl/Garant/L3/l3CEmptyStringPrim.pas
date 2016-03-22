@@ -2,6 +2,7 @@ unit l3CEmptyStringPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CEmptyStringPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CEmptyStringPrim" MUID: (4F5CBD4201BE)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

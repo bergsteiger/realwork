@@ -2,6 +2,7 @@ unit StatusPanelWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\StatusPanelWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "StatusPanelWordsPack" MUID: (552E403E0038)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -81,11 +82,6 @@ begin
  aCtx.rEngine.PushString(GetText(aCtx, l_aStatusPanel));
 end;//TkwPopStatusPanelGetText.DoDoIt
 
-class function TkwPopStatusPanelGetText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:vtStatusPanel:GetText';
-end;//TkwPopStatusPanelGetText.GetWordNameForRegister
-
 function TkwPopStatusPanelGetText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -100,6 +96,11 @@ function TkwPopStatusPanelGetText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtStatusPanel)]);
 end;//TkwPopStatusPanelGetText.ParamsTypes
+
+class function TkwPopStatusPanelGetText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:vtStatusPanel:GetText';
+end;//TkwPopStatusPanelGetText.GetWordNameForRegister
 
 initialization
  TkwPopStatusPanelGetText.RegisterInEngine;

@@ -3,6 +3,7 @@ unit kwIniRecGetZoom;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwIniRecGetZoom.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwIniRecGetZoom" MUID: (4E8307CE0359)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

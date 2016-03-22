@@ -2,6 +2,8 @@ unit kwOpenDocument;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwOpenDocument.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "OpenDocument" MUID: (4DB00AF302F0)
+// Имя типа: "TkwOpenDocument"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

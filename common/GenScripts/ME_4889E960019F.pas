@@ -3,6 +3,7 @@ unit StoreSettingsToServer;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\StoreSettingsToServer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "StoreSettingsToServer" MUID: (4889E960019F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit AdminMainKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\AdminMainKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "AdminMainKeywordsPack" MUID: (437C54D5FFBC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -52,8 +53,8 @@ type
 'aControl' форма::AdminMain TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_AdminMain
 
  Tkw_AdminMain_Control_StatusBar = {final} class(TtfwControlString)
@@ -64,9 +65,9 @@ type
 контрол::StatusBar TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminMain_Control_StatusBar
 
  Tkw_AdminMain_Control_StatusBar_Push = {final} class(TkwBynameControlPush)
@@ -89,9 +90,9 @@ type
 контрол::ClientZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminMain_Control_ClientZone
 
  Tkw_AdminMain_Control_ClientZone_Push = {final} class(TkwBynameControlPush)
@@ -114,9 +115,9 @@ type
 контрол::MainZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminMain_Control_MainZone
 
  Tkw_AdminMain_Control_MainZone_Push = {final} class(TkwBynameControlPush)
@@ -139,9 +140,9 @@ type
 контрол::ParentZonePanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminMain_Control_ParentZonePanel
 
  Tkw_AdminMain_Control_ParentZonePanel_Push = {final} class(TkwBynameControlPush)
@@ -164,9 +165,9 @@ type
 контрол::ChildZonePanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminMain_Control_ChildZonePanel
 
  Tkw_AdminMain_Control_ChildZonePanel_Push = {final} class(TkwBynameControlPush)
@@ -189,9 +190,9 @@ type
 контрол::BaseSearchPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminMain_Control_BaseSearchPanel
 
  Tkw_AdminMain_Control_BaseSearchPanel_Push = {final} class(TkwBynameControlPush)
@@ -214,9 +215,9 @@ type
 контрол::LeftNavigator TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminMain_Control_LeftNavigator
 
  Tkw_AdminMain_Control_LeftNavigator_Push = {final} class(TkwBynameControlPush)
@@ -231,7 +232,7 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminMain_Control_LeftNavigator_Push
 
- {$If Defined(HasRightNavigator)}
+{$If Defined(HasRightNavigator)}
  Tkw_AdminMain_Control_RightNavigator = {final} class(TtfwControlString)
   {* —лово словар€ дл€ идентификатора контрола RightNavigator
 ----
@@ -240,13 +241,13 @@ type
 контрол::RightNavigator TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminMain_Control_RightNavigator
- {$IfEnd} // Defined(HasRightNavigator)
+{$IfEnd} // Defined(HasRightNavigator)
 
- {$If Defined(HasRightNavigator)}
+{$If Defined(HasRightNavigator)}
  Tkw_AdminMain_Control_RightNavigator_Push = {final} class(TkwBynameControlPush)
   {* —лово словар€ дл€ контрола RightNavigator
 ----
@@ -258,7 +259,7 @@ type
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminMain_Control_RightNavigator_Push
- {$IfEnd} // Defined(HasRightNavigator)
+{$IfEnd} // Defined(HasRightNavigator)
 
  TkwAdminMainFormStatusBar = {final} class(TtfwPropertyLike)
   {* —лово скрипта .TAdminMainForm.StatusBar
@@ -428,7 +429,7 @@ OBJECT VAR l_TnscNavigator
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwAdminMainFormLeftNavigator
 
- {$If Defined(HasRightNavigator)}
+{$If Defined(HasRightNavigator)}
  TkwAdminMainFormRightNavigator = {final} class(TtfwPropertyLike)
   {* —лово скрипта .TAdminMainForm.RightNavigator
 [panel] онтрол RightNavigator формы TAdminMainForm[panel]
@@ -452,22 +453,17 @@ OBJECT VAR l_TnscNavigator
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwAdminMainFormRightNavigator
- {$IfEnd} // Defined(HasRightNavigator)
-
-class function Tkw_Form_AdminMain.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::AdminMain';
-end;//Tkw_Form_AdminMain.GetWordNameForRegister
+{$IfEnd} // Defined(HasRightNavigator)
 
 function Tkw_Form_AdminMain.GetString: AnsiString;
 begin
  Result := 'AdminMainForm';
 end;//Tkw_Form_AdminMain.GetString
 
-class function Tkw_AdminMain_Control_StatusBar.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_AdminMain.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::StatusBar';
-end;//Tkw_AdminMain_Control_StatusBar.GetWordNameForRegister
+ Result := 'форма::AdminMain';
+end;//Tkw_Form_AdminMain.GetWordNameForRegister
 
 function Tkw_AdminMain_Control_StatusBar.GetString: AnsiString;
 begin
@@ -480,6 +476,11 @@ begin
  TtfwClassRef.Register(TnscStatusBar);
 end;//Tkw_AdminMain_Control_StatusBar.RegisterInEngine
 
+class function Tkw_AdminMain_Control_StatusBar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::StatusBar';
+end;//Tkw_AdminMain_Control_StatusBar.GetWordNameForRegister
+
 procedure Tkw_AdminMain_Control_StatusBar_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('StatusBar');
@@ -490,11 +491,6 @@ class function Tkw_AdminMain_Control_StatusBar_Push.GetWordNameForRegister: Ansi
 begin
  Result := 'контрол::StatusBar:push';
 end;//Tkw_AdminMain_Control_StatusBar_Push.GetWordNameForRegister
-
-class function Tkw_AdminMain_Control_ClientZone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ClientZone';
-end;//Tkw_AdminMain_Control_ClientZone.GetWordNameForRegister
 
 function Tkw_AdminMain_Control_ClientZone.GetString: AnsiString;
 begin
@@ -507,6 +503,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_AdminMain_Control_ClientZone.RegisterInEngine
 
+class function Tkw_AdminMain_Control_ClientZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ClientZone';
+end;//Tkw_AdminMain_Control_ClientZone.GetWordNameForRegister
+
 procedure Tkw_AdminMain_Control_ClientZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ClientZone');
@@ -517,11 +518,6 @@ class function Tkw_AdminMain_Control_ClientZone_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::ClientZone:push';
 end;//Tkw_AdminMain_Control_ClientZone_Push.GetWordNameForRegister
-
-class function Tkw_AdminMain_Control_MainZone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::MainZone';
-end;//Tkw_AdminMain_Control_MainZone.GetWordNameForRegister
 
 function Tkw_AdminMain_Control_MainZone.GetString: AnsiString;
 begin
@@ -534,6 +530,11 @@ begin
  TtfwClassRef.Register(TvtProportionalPanel);
 end;//Tkw_AdminMain_Control_MainZone.RegisterInEngine
 
+class function Tkw_AdminMain_Control_MainZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::MainZone';
+end;//Tkw_AdminMain_Control_MainZone.GetWordNameForRegister
+
 procedure Tkw_AdminMain_Control_MainZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('MainZone');
@@ -544,11 +545,6 @@ class function Tkw_AdminMain_Control_MainZone_Push.GetWordNameForRegister: AnsiS
 begin
  Result := 'контрол::MainZone:push';
 end;//Tkw_AdminMain_Control_MainZone_Push.GetWordNameForRegister
-
-class function Tkw_AdminMain_Control_ParentZonePanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ParentZonePanel';
-end;//Tkw_AdminMain_Control_ParentZonePanel.GetWordNameForRegister
 
 function Tkw_AdminMain_Control_ParentZonePanel.GetString: AnsiString;
 begin
@@ -561,6 +557,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_AdminMain_Control_ParentZonePanel.RegisterInEngine
 
+class function Tkw_AdminMain_Control_ParentZonePanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ParentZonePanel';
+end;//Tkw_AdminMain_Control_ParentZonePanel.GetWordNameForRegister
+
 procedure Tkw_AdminMain_Control_ParentZonePanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ParentZonePanel');
@@ -571,11 +572,6 @@ class function Tkw_AdminMain_Control_ParentZonePanel_Push.GetWordNameForRegister
 begin
  Result := 'контрол::ParentZonePanel:push';
 end;//Tkw_AdminMain_Control_ParentZonePanel_Push.GetWordNameForRegister
-
-class function Tkw_AdminMain_Control_ChildZonePanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ChildZonePanel';
-end;//Tkw_AdminMain_Control_ChildZonePanel.GetWordNameForRegister
 
 function Tkw_AdminMain_Control_ChildZonePanel.GetString: AnsiString;
 begin
@@ -588,6 +584,11 @@ begin
  TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_AdminMain_Control_ChildZonePanel.RegisterInEngine
 
+class function Tkw_AdminMain_Control_ChildZonePanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ChildZonePanel';
+end;//Tkw_AdminMain_Control_ChildZonePanel.GetWordNameForRegister
+
 procedure Tkw_AdminMain_Control_ChildZonePanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ChildZonePanel');
@@ -598,11 +599,6 @@ class function Tkw_AdminMain_Control_ChildZonePanel_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::ChildZonePanel:push';
 end;//Tkw_AdminMain_Control_ChildZonePanel_Push.GetWordNameForRegister
-
-class function Tkw_AdminMain_Control_BaseSearchPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::BaseSearchPanel';
-end;//Tkw_AdminMain_Control_BaseSearchPanel.GetWordNameForRegister
 
 function Tkw_AdminMain_Control_BaseSearchPanel.GetString: AnsiString;
 begin
@@ -615,6 +611,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_AdminMain_Control_BaseSearchPanel.RegisterInEngine
 
+class function Tkw_AdminMain_Control_BaseSearchPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BaseSearchPanel';
+end;//Tkw_AdminMain_Control_BaseSearchPanel.GetWordNameForRegister
+
 procedure Tkw_AdminMain_Control_BaseSearchPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BaseSearchPanel');
@@ -626,11 +627,6 @@ begin
  Result := 'контрол::BaseSearchPanel:push';
 end;//Tkw_AdminMain_Control_BaseSearchPanel_Push.GetWordNameForRegister
 
-class function Tkw_AdminMain_Control_LeftNavigator.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::LeftNavigator';
-end;//Tkw_AdminMain_Control_LeftNavigator.GetWordNameForRegister
-
 function Tkw_AdminMain_Control_LeftNavigator.GetString: AnsiString;
 begin
  Result := 'LeftNavigator';
@@ -641,6 +637,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscNavigator);
 end;//Tkw_AdminMain_Control_LeftNavigator.RegisterInEngine
+
+class function Tkw_AdminMain_Control_LeftNavigator.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::LeftNavigator';
+end;//Tkw_AdminMain_Control_LeftNavigator.GetWordNameForRegister
 
 procedure Tkw_AdminMain_Control_LeftNavigator_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -654,11 +655,6 @@ begin
 end;//Tkw_AdminMain_Control_LeftNavigator_Push.GetWordNameForRegister
 
 {$If Defined(HasRightNavigator)}
-class function Tkw_AdminMain_Control_RightNavigator.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::RightNavigator';
-end;//Tkw_AdminMain_Control_RightNavigator.GetWordNameForRegister
-
 function Tkw_AdminMain_Control_RightNavigator.GetString: AnsiString;
 begin
  Result := 'RightNavigator';
@@ -669,6 +665,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscNavigator);
 end;//Tkw_AdminMain_Control_RightNavigator.RegisterInEngine
+
+class function Tkw_AdminMain_Control_RightNavigator.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::RightNavigator';
+end;//Tkw_AdminMain_Control_RightNavigator.GetWordNameForRegister
 {$IfEnd} // Defined(HasRightNavigator)
 
 {$If Defined(HasRightNavigator)}
@@ -706,11 +707,6 @@ begin
  aCtx.rEngine.PushObj(StatusBar(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormStatusBar.DoDoIt
 
-class function TkwAdminMainFormStatusBar.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAdminMainForm.StatusBar';
-end;//TkwAdminMainFormStatusBar.GetWordNameForRegister
-
 procedure TkwAdminMainFormStatusBar.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -731,6 +727,11 @@ function TkwAdminMainFormStatusBar.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormStatusBar.ParamsTypes
+
+class function TkwAdminMainFormStatusBar.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAdminMainForm.StatusBar';
+end;//TkwAdminMainFormStatusBar.GetWordNameForRegister
 
 function TkwAdminMainFormClientZone.ClientZone(const aCtx: TtfwContext;
  aAdminMainForm: TAdminMainForm): TvtPanel;
@@ -754,11 +755,6 @@ begin
  aCtx.rEngine.PushObj(ClientZone(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormClientZone.DoDoIt
 
-class function TkwAdminMainFormClientZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAdminMainForm.ClientZone';
-end;//TkwAdminMainFormClientZone.GetWordNameForRegister
-
 procedure TkwAdminMainFormClientZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -779,6 +775,11 @@ function TkwAdminMainFormClientZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormClientZone.ParamsTypes
+
+class function TkwAdminMainFormClientZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAdminMainForm.ClientZone';
+end;//TkwAdminMainFormClientZone.GetWordNameForRegister
 
 function TkwAdminMainFormMainZone.MainZone(const aCtx: TtfwContext;
  aAdminMainForm: TAdminMainForm): TvtProportionalPanel;
@@ -802,11 +803,6 @@ begin
  aCtx.rEngine.PushObj(MainZone(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormMainZone.DoDoIt
 
-class function TkwAdminMainFormMainZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAdminMainForm.MainZone';
-end;//TkwAdminMainFormMainZone.GetWordNameForRegister
-
 procedure TkwAdminMainFormMainZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -827,6 +823,11 @@ function TkwAdminMainFormMainZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormMainZone.ParamsTypes
+
+class function TkwAdminMainFormMainZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAdminMainForm.MainZone';
+end;//TkwAdminMainFormMainZone.GetWordNameForRegister
 
 function TkwAdminMainFormParentZonePanel.ParentZonePanel(const aCtx: TtfwContext;
  aAdminMainForm: TAdminMainForm): TvtPanel;
@@ -850,11 +851,6 @@ begin
  aCtx.rEngine.PushObj(ParentZonePanel(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormParentZonePanel.DoDoIt
 
-class function TkwAdminMainFormParentZonePanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAdminMainForm.ParentZonePanel';
-end;//TkwAdminMainFormParentZonePanel.GetWordNameForRegister
-
 procedure TkwAdminMainFormParentZonePanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -875,6 +871,11 @@ function TkwAdminMainFormParentZonePanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormParentZonePanel.ParamsTypes
+
+class function TkwAdminMainFormParentZonePanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAdminMainForm.ParentZonePanel';
+end;//TkwAdminMainFormParentZonePanel.GetWordNameForRegister
 
 function TkwAdminMainFormChildZonePanel.ChildZonePanel(const aCtx: TtfwContext;
  aAdminMainForm: TAdminMainForm): TvtSizeablePanel;
@@ -898,11 +899,6 @@ begin
  aCtx.rEngine.PushObj(ChildZonePanel(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormChildZonePanel.DoDoIt
 
-class function TkwAdminMainFormChildZonePanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAdminMainForm.ChildZonePanel';
-end;//TkwAdminMainFormChildZonePanel.GetWordNameForRegister
-
 procedure TkwAdminMainFormChildZonePanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -923,6 +919,11 @@ function TkwAdminMainFormChildZonePanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormChildZonePanel.ParamsTypes
+
+class function TkwAdminMainFormChildZonePanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAdminMainForm.ChildZonePanel';
+end;//TkwAdminMainFormChildZonePanel.GetWordNameForRegister
 
 function TkwAdminMainFormBaseSearchPanel.BaseSearchPanel(const aCtx: TtfwContext;
  aAdminMainForm: TAdminMainForm): TvtPanel;
@@ -946,11 +947,6 @@ begin
  aCtx.rEngine.PushObj(BaseSearchPanel(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormBaseSearchPanel.DoDoIt
 
-class function TkwAdminMainFormBaseSearchPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAdminMainForm.BaseSearchPanel';
-end;//TkwAdminMainFormBaseSearchPanel.GetWordNameForRegister
-
 procedure TkwAdminMainFormBaseSearchPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -971,6 +967,11 @@ function TkwAdminMainFormBaseSearchPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormBaseSearchPanel.ParamsTypes
+
+class function TkwAdminMainFormBaseSearchPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAdminMainForm.BaseSearchPanel';
+end;//TkwAdminMainFormBaseSearchPanel.GetWordNameForRegister
 
 function TkwAdminMainFormLeftNavigator.LeftNavigator(const aCtx: TtfwContext;
  aAdminMainForm: TAdminMainForm): TnscNavigator;
@@ -994,11 +995,6 @@ begin
  aCtx.rEngine.PushObj(LeftNavigator(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormLeftNavigator.DoDoIt
 
-class function TkwAdminMainFormLeftNavigator.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAdminMainForm.LeftNavigator';
-end;//TkwAdminMainFormLeftNavigator.GetWordNameForRegister
-
 procedure TkwAdminMainFormLeftNavigator.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1019,6 +1015,11 @@ function TkwAdminMainFormLeftNavigator.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormLeftNavigator.ParamsTypes
+
+class function TkwAdminMainFormLeftNavigator.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAdminMainForm.LeftNavigator';
+end;//TkwAdminMainFormLeftNavigator.GetWordNameForRegister
 
 {$If Defined(HasRightNavigator)}
 function TkwAdminMainFormRightNavigator.RightNavigator(const aCtx: TtfwContext;
@@ -1043,11 +1044,6 @@ begin
  aCtx.rEngine.PushObj(RightNavigator(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormRightNavigator.DoDoIt
 
-class function TkwAdminMainFormRightNavigator.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TAdminMainForm.RightNavigator';
-end;//TkwAdminMainFormRightNavigator.GetWordNameForRegister
-
 procedure TkwAdminMainFormRightNavigator.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1068,6 +1064,11 @@ function TkwAdminMainFormRightNavigator.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormRightNavigator.ParamsTypes
+
+class function TkwAdminMainFormRightNavigator.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TAdminMainForm.RightNavigator';
+end;//TkwAdminMainFormRightNavigator.GetWordNameForRegister
 {$IfEnd} // Defined(HasRightNavigator)
 
 initialization

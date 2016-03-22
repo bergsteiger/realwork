@@ -2,6 +2,8 @@ unit eeTextPara_InterfaceFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeTextPara_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
+// Элемент модели: "TeeTextPara" MUID: (54BE514101E5)
+// Имя типа: "TeeTextParaInterfaceFactory"
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

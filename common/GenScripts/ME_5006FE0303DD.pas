@@ -2,6 +2,8 @@
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSaveQueryToXMLAddon.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "atSaveQueryToXMLAddon" MUID: (5006FE0303DD)
+// Имя типа: "_atSaveQueryToXMLAddon_"
 
 {$Define atSaveQueryToXMLAddon_imp}
 

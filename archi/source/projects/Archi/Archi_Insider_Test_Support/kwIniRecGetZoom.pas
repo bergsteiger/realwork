@@ -1,56 +1,37 @@
 unit kwIniRecGetZoom;
+ {* IniRec:GetZoom }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwIniRecGetZoom.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::Scripting::TkwIniRecGetZoom
-//
-// IniRec:GetZoom
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwIniRecGetZoom.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwIniRecGetZoom" MUID: (4E8307CE0359)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwIniRecGetZoom = {scriptword} class(TtfwRegisterableWord)
+ TkwIniRecGetZoom = class(TtfwRegisterableWord)
   {* IniRec:GetZoom }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwIniRecGetZoom
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  arArchiTestAdapter2
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwIniRecGetZoom
+ l3ImplUses
+ , arArchiTestAdapter2
+;
 
 procedure TkwIniRecGetZoom.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E8307CE0359_var*
@@ -62,17 +43,13 @@ begin
 end;//TkwIniRecGetZoom.DoDoIt
 
 class function TkwIniRecGetZoom.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'IniRec:GetZoom';
 end;//TkwIniRecGetZoom.GetWordNameForRegister
 
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация TkwIniRecGetZoom
  TkwIniRecGetZoom.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация TkwIniRecGetZoom }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

@@ -2,6 +2,7 @@ unit ddBaseObject;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddBaseObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddBaseObject" MUID: (52BACF040379)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_evCustomTxtReader;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomTxtReader.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomTxtReader" MUID: (482D6E3B02A3)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

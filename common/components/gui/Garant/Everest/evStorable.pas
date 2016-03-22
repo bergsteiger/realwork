@@ -42,7 +42,7 @@ type
    function Store(aFormat: TevdClipboardFormat;
     const aPool: IStream;
     const aFilters: TevdTagGenerator;
-    aFlags: TevdStoreFlags = evd_DefaultStoreFlags): Boolean; overload; 
+    aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean; overload; 
      {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
    function pm_GetBorders: TevPair;
  protected
@@ -90,7 +90,7 @@ end;//TevStorable.Store
 function TevStorable.Store(aFormat: TevdClipboardFormat;
   const aPool: IStream;
   const aFilters: TevdTagGenerator;
-  aFlags: TevdStoreFlags = evd_DefaultStoreFlags): Boolean;
+  aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean;
 //#UC START# *47C68C6701AF_48F48A7E033C_var*
 //#UC END# *47C68C6701AF_48F48A7E033C_var*
 begin

@@ -3,6 +3,7 @@ unit evEmptyTableEliminator;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evEmptyTableEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevEmptyTableEliminator" MUID: (4CF7B733015E)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

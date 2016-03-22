@@ -3,6 +3,7 @@ unit NOT_FINISHED_DataAdapter;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_DataAdapter.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DataAdapter" MUID: (48FF556602BA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

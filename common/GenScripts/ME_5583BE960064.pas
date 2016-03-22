@@ -2,6 +2,7 @@ unit csTaskChangeHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csTaskChangeHelper.pas"
 // Стереотип: "Service"
+// Элемент модели: "TcsTaskChangeHelper" MUID: (5583BE960064)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

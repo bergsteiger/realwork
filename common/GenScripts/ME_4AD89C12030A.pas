@@ -2,6 +2,7 @@ unit vcmMakeParams;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmMakeParams.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmMakeParams" MUID: (4AD89C12030A)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

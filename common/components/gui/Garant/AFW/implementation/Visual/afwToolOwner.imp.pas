@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwToolOwner.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "afwToolOwner" MUID: (48BD1ABE023D)
+// Имя типа: "_afwToolOwner_"
 
 {$Define afwToolOwner_imp}
 

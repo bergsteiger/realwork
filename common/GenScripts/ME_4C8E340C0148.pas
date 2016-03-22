@@ -2,6 +2,8 @@ unit PrimToolbarMenu_Module;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ToolbarMenu\PrimToolbarMenu_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "PrimToolbarMenu" MUID: (4C8E340C0148)
+// Имя типа: "TPrimToolbarMenuModule"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

@@ -2,6 +2,7 @@ unit pgConnection;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgConnection.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgConnection" MUID: (55F6875803A8)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
@@ -89,7 +90,8 @@ function TpgConnection.BuildConnectString(const anUser: AnsiString;
 //#UC END# *55F7BAE0023F_55F6875803A8_var*
 begin
 //#UC START# *55F7BAE0023F_55F6875803A8_impl*
- Result := Format('postgresql://postgres:admin@%s:%d/archi?client_encoding=WIN1251', [aParams.DataServerHostName, aParams.DataServerPort]);
+ Result := Format('postgresql://%s:%s@%s:%d/%s?client_encoding=WIN1251',
+  [anUser, aPassword, aParams.DataServerHostName, aParams.DataServerPort, aDatabase]);
 //#UC END# *55F7BAE0023F_55F6875803A8_impl*
 end;//TpgConnection.BuildConnectString
 
@@ -255,19 +257,10 @@ end;//TpgConnection.ConnectAs
 
 procedure TpgConnection.Connect(aParams: TpgDataProviderParams);
 //#UC START# *55F68CE401CB_55F6875803A8_var*
-var
- l_Message: AnsiString;
 //#UC END# *55F68CE401CB_55F6875803A8_var*
 begin
 //#UC START# *55F68CE401CB_55F6875803A8_impl*
-  f_Handle := PQconnectdb(PAnsiChar(BuildConnectString(aParams)));
-  if PQstatus(f_Handle) <> CONNECTION_OK then
-  begin
-   l_Message := PQerrorMessage(f_Handle);
-   PQfinish(f_Handle);
-   f_Handle := nil;
-   raise EPgError.Create(l_Message);
-  end;
+ ConnectAs('postgres','admin','archi', aParams);
 //#UC END# *55F68CE401CB_55F6875803A8_impl*
 end;//TpgConnection.Connect
 

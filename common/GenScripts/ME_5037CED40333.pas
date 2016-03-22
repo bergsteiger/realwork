@@ -2,6 +2,7 @@ unit atStringProvider;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringProvider.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatStringProvider" MUID: (5037CED40333)
 
 interface
 

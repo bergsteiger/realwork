@@ -2,6 +2,7 @@ unit vcmBaseCollection;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmBaseCollection.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmBaseCollection" MUID: (4FFC4C800030)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
@@ -22,9 +23,9 @@ type
 
  {$Define _UnknownNeedsQI}
 
- {$If NOT Defined(vcmNeedL3)}
+{$If NOT Defined(vcmNeedL3)}
  {$Define _UnknownNotNeedL3}
- {$IfEnd} // NOT Defined(vcmNeedL3)
+{$IfEnd} // NOT Defined(vcmNeedL3)
 
  //#UC START# *4FFC4C800030ci*
  THackCollection = class(TPersistent)

@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 // Project:   $GARANT TCP Test Tools $
-// File:      $Id: TCPSendRecvTest.cpp,v 1.9 2015/01/15 13:10:23 migel Exp $
+// File:      $Id: TCPSendRecvTest.cpp,v 1.10 2016/01/25 11:43:33 migel Exp $
 //
 // Author:    $Mickael P. Golovin [migel@garant.ru] $
-// Copyright: $SIE "GARANT-SERVICE-UNIVERSITY" LLC, 1990-2015 $
+// Copyright: $SIE "GARANT-SERVICE-UNIVERSITY" LLC, 1990-2016 $
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -334,7 +334,7 @@ int ACE_TMAIN (int argc, ACE_TCHAR* argv []) {
 	ACE_DEBUG (
 		(
 			LM_INFO
-			, ACE_TEXT ("\nGARANT TEST TOOL \"%s\" (C) SIE \"GARANT-SERVICE-UNIVERSITY\" LLC, 1990-2015")
+			, ACE_TEXT ("\nGARANT TEST TOOL \"%s\" (C) SIE \"GARANT-SERVICE-UNIVERSITY\" LLC, 1990-2016")
 			, ACE::basename (argv [0])
 		)
 	);

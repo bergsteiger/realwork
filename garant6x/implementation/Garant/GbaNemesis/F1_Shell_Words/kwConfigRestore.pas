@@ -1,60 +1,37 @@
 unit kwConfigRestore;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Shell Words"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Shell_Words/kwConfigRestore.pas"
-// Начат: 08.09.2011 17:54
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Shell Words::F1 Shell Words::TkwConfigRestore
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwConfigRestore.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwConfigRestore" MUID: (4E68C9020275)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwConfigRestore = {scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwConfigRestore = class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwConfigRestore
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(Admin) AND not defined(Monitorings)}
-  ,
-  nsConfigurationList
-  {$IfEnd} //not Admin AND not Monitorings
-  
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwConfigRestore
+ l3ImplUses
+ {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ , nsConfigurationList
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+;
 
 procedure TkwConfigRestore.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E68C9020275_var*
@@ -66,17 +43,13 @@ begin
 end;//TkwConfigRestore.DoDoIt
 
 class function TkwConfigRestore.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Config:Restore';
 end;//TkwConfigRestore.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwConfigRestore
  TkwConfigRestore.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwConfigRestore }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

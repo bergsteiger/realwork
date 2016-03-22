@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmFormSetDataSource" MUID: (47F37723017A)
+// Имя типа: "_vcmFormSetDataSource_"
 
 {$Define vcmFormSetDataSource_imp}
 

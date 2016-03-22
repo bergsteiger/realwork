@@ -2,6 +2,7 @@ unit ControlStatusUtils;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\ControlStatusUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ControlStatusUtils" MUID: (4E7C528C00BE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

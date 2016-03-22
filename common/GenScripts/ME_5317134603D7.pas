@@ -3,6 +3,8 @@ unit K517772970_TddTaskItemDefault;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TddTaskItemDefault.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TddTaskItemDefault" MUID: (5317134603D7)
+// Имя типа: "TK517772970_TddTaskItemDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

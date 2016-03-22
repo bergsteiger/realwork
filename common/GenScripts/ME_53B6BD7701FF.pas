@@ -2,6 +2,8 @@ unit AACImport_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\AACImport_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "AACImport" MUID: (53B6BD7701FF)
+// Имя типа: "AACImportTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

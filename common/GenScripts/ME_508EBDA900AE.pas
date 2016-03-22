@@ -2,6 +2,7 @@ unit nscTasksPanelOperationNode;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTasksPanelOperationNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnscTasksPanelOperationNode" MUID: (508EBDA900AE)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -23,9 +24,7 @@ type
  TnscTasksPanelOperationNode = class(Tl3UsualNode, Il3ItemNotifyRecipient, InscOperationNode)
   private
    f_Op: IvcmCustOpsGroupOperation;
-    {* Поле для свойства Op }
    f_Link: TnscTasksPanelActionLink;
-    {* Поле для свойства Link }
   protected
    procedure Notify(const aNotifier: Il3ChangeNotifier;
     aOperation: Integer;

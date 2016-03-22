@@ -2,6 +2,7 @@ unit smNewSchoolReferencesTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MainMenu\smNewSchoolReferencesTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TsmNewSchoolReferencesTree" MUID: (4AFBF77E0200)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

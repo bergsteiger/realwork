@@ -3,6 +3,7 @@ unit vcmIEntityList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmIEntityList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmIEntityList" MUID: (4F1ECEEE028F)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

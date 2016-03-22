@@ -2,6 +2,7 @@ unit BaloonWarningUserTypes_remTimeMachineWarning_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remTimeMachineWarning_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "remTimeMachineWarning" MUID: (4DB97E9400A2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -11,7 +12,6 @@ interface
 uses
  l3IntfUses
  , BaloonWarningUserTypes_remListFiltered_UserType
- , BaloonWarningUserTypes_Fake_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -34,26 +34,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_remTimeMachineWarning = {final} class(TtfwInteger)
   {* Слово словаря для типа формы remTimeMachineWarning }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_remTimeMachineWarning
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_remTimeMachineWarning.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::remTimeMachineWarning';
-end;//Tkw_FormUserType_remTimeMachineWarning.GetWordNameForRegister
-
 function Tkw_FormUserType_remTimeMachineWarning.GetInteger: Integer;
 begin
  Result := remTimeMachineWarning;
 end;//Tkw_FormUserType_remTimeMachineWarning.GetInteger
+
+class function Tkw_FormUserType_remTimeMachineWarning.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::remTimeMachineWarning';
+end;//Tkw_FormUserType_remTimeMachineWarning.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

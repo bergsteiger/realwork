@@ -2,6 +2,7 @@ unit DoneNotifier_i;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DoneNotifier_i.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "DoneNotifier_i" MUID: (45FFCBD60196)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

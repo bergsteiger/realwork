@@ -1,6 +1,6 @@
 unit d_DictItemRequest;
 
-{ $Id: d_DictItemRequest.pas,v 1.11 2015/07/02 07:34:41 lukyanets Exp $ }
+{ $Id: d_DictItemRequest.pas,v 1.12 2015/11/25 14:01:28 lukyanets Exp $ }
 
 interface
 
@@ -56,6 +56,7 @@ implementation
 Uses
  TreeDWin, DictMetaForm,
  l3TreeInterfaces, l3Tree_TLB,
+ daSchemeConsts,
  dt_Const, dt_Dict, IniShop, dt_DictConst;
 
  function DictItemRequest(aOwner: TComponent; aDictionary: TdaDictionaryType; var aDictID: TDictID; var aDateDeleted: TstDate;

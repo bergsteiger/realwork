@@ -2,6 +2,7 @@ unit htDataProviderFactory;
 
 // Модуль: "w:\common\components\rtl\Garant\HT\htDataProviderFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ThtDataProviderFactory" MUID: (54FEAD4402AB)
 
 {$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
@@ -257,7 +258,7 @@ function ThtDataProviderFactory.DoMakeProvider(aParams: TdaDataProviderParams;
 begin
 //#UC START# *551D06D402AF_54FEAD4402AB_impl*
  Assert(aParams is ThtDataProviderParams);
- Result := ThtDataProvider.Make(ThtDataProviderParams(aParams), ForCheckLogin, AllowClearLocks);
+ Result := ThtDataProvider.Make(ThtDataProviderParams(aParams), ForCheckLogin, AllowClearLocks, SetGlobalProvider);
 //#UC END# *551D06D402AF_54FEAD4402AB_impl*
 end;//ThtDataProviderFactory.DoMakeProvider
 

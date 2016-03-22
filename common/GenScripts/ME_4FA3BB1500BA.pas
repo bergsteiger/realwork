@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\LinesDrawOutput.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "LinesDrawOutput" MUID: (4FA3BB1500BA)
+// Имя типа: "_LinesDrawOutput_"
 
 {$Define LinesDrawOutput_imp}
 

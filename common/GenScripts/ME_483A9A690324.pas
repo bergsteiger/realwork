@@ -2,6 +2,7 @@ unit atListHistory;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atListHistory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatListHistory" MUID: (483A9A690324)
 
 interface
 

@@ -3,6 +3,8 @@ unit moCommonPost;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moCommonPost.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "CommonPost" MUID: (4AA919DA010C)
+// Имя типа: "Tmo_CommonPost"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

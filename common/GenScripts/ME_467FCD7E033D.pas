@@ -3,6 +3,7 @@ unit nsSubNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsSubNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsSubNode" MUID: (467FCD7E033D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

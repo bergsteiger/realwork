@@ -67,28 +67,31 @@
 
 				call "..\..\buildmail.bat" "build started [%PROJECT_SUFFIX%: %SUBINFO%], CVS TAG [%CVS_TAG%]: don't use shared build targets while build not ended"
 
+				call "..\..\confbuild.bat" "start" "Internet" "%CVS_TAG%" "%CONF_BUILD%" "%CONF_BRANCH%"
+
 				call "..\..\confbuild.bat" "start" "NMS" "%CVS_TAG%" "%CONF_BUILD%" "%CONF_BRANCH%"
 				call "..\..\confbuild.bat" "start" "NMSCore" "%CVS_TAG%" "%CONF_BUILD%" "%CONF_BRANCH%"
 
 				call "..\..\confbuild.bat" "start" "SHD" "%CVS_TAG%" "%CONF_BUILD%" "%CONF_BRANCH%"
-::				call "..\..\confbuild.bat" "start" "SHR" "%CVS_TAG%" "%CONF_BUILD%" "%CONF_BRANCH%"
 
 				call "ant.bat" %BUILDARGS% -Dru.garant.extensions.properties.cvs_tag=%CVS_TAG% -Dru.garant.extensions.properties.version=%VERSION% -Dru.garant.extensions.properties.full.version=%PROJECT_MAJOR%.%PROJECT_MINOR%.%VERSION% %*
 
 				if errorlevel 1 (
-::					call "..\..\confbuild.bat" "failure" "SHR" "%CVS_TAG%" "%CONF_BUILD%" "%CONF_BRANCH%"
 					call "..\..\confbuild.bat" "failure" "SHD" "%CVS_TAG%" "%CONF_BUILD%" "%CONF_BRANCH%"
 
 					call "..\..\confbuild.bat" "failure" "NMSCore" "%CVS_TAG%" "%CONF_BUILD%" "%CONF_BRANCH%"
 					call "..\..\confbuild.bat" "failure" "NMS" "%CVS_TAG%" "%CONF_BUILD%" "%CONF_BRANCH%" "" "%LOGFILE%"
 
+					call "..\..\confbuild.bat" "failure" "Internet" "%CVS_TAG%" "%CONF_BUILD%" "%CONF_BRANCH%" "" "%LOGFILE%"
+
 					call "..\..\buildmail.bat" "build FAILURE [%PROJECT_SUFFIX%: %SUBINFO%], CVS TAG [%CVS_TAG%]" "%LOGFILE%"
 				) else (
-::					call "..\..\confbuild.bat" "done" "SHR" "%CVS_TAG%" "%CONF_BUILD%" "%CONF_BRANCH%"
 					call "..\..\confbuild.bat" "done" "SHD" "%CVS_TAG%" "%CONF_BUILD%" "%CONF_BRANCH%"
 
 					call "..\..\confbuild.bat" "done" "NMSCore" "%CVS_TAG%" "%CONF_BUILD%" "%CONF_BRANCH%"
 					call "..\..\confbuild.bat" "done" "NMS" "%CVS_TAG%" "%CONF_BUILD%" "%CONF_BRANCH%"
+
+					call "..\..\confbuild.bat" "done" "Internet" "%CVS_TAG%" "%CONF_BUILD%" "%CONF_BRANCH%"
 
 					call "..\..\buildmail.bat" "build success [%PROJECT_SUFFIX%: %SUBINFO%], CVS TAG [%CVS_TAG%]" "%LOGFILE%"
 				)

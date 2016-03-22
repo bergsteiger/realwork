@@ -5,7 +5,7 @@ unit AutoAnnoExportTask_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/AutoAnnoExportTask_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::AutoAnnoExportTask
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::AutoAnnoExportTask
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

@@ -493,7 +493,7 @@ protected
      {* Открывает автореферат }
    class procedure OpenAutoreferatAfterSearch(const aList: IMonitoringList;
      const aContainer: IvcmContainer);
-   class function OpenNewsLine: IvcmEntityForm;
+   class function OpenNewsLine(aDenyNewTab: Boolean): IvcmEntityForm;
    class function OpenPostingOrder(const aQuery: IQuery;
      const aContainer: IvcmContainer = nil): IvcmEntityForm;
    class procedure SavePostingList;
@@ -1037,6 +1037,10 @@ f_RequestingForm.Entity.Operation(op_Loadable_Load, l_Params).Done -> Коллеги, к
      {  ->  }
    class function mod_opcode_Diction_OpenDict : TvcmMOpID;
      { Толковый словарь -> Толковый словарь }
+   class function opcode_Common_ShowSplitter : TvcmOpID;
+     {  ->  }
+   class function opcode_Common_CheckChildZone : TvcmOpID;
+     {  ->  }
    class function opcode_Query_ClearAll : TvcmOpID;
      {  ->  }
    class function opcode_Query_SetList : TvcmOpID;
@@ -1551,6 +1555,8 @@ var
  g_opcode_ListInfo_BecomeActive : TvcmOpID;
  g_opcode_Filters_DeselectAll : TvcmOpID;
  g_module_opcode_Diction_OpenDict : TvcmMOpID;
+ g_opcode_Common_ShowSplitter : TvcmOpID;
+ g_opcode_Common_CheckChildZone : TvcmOpID;
  g_opcode_Query_ClearAll : TvcmOpID;
  g_opcode_Query_SetList : TvcmOpID;
  g_opcode_Query_GetList : TvcmOpID;
@@ -3733,6 +3739,16 @@ begin
                     op_capSpanish);
  g_module_opcode_Diction_OpenDict := 
   PublishModuleOperation(Tmo_Diction, 'OpenDict', 'Толковый словарь');
+ g_opcode_Common_ShowSplitter :=
+  PublishInternalOperation(en_Common,
+                    op_ShowSplitter,
+                    en_capCommon,
+                    op_capShowSplitter);
+ g_opcode_Common_CheckChildZone :=
+  PublishInternalOperation(en_Common,
+                    op_CheckChildZone,
+                    en_capCommon,
+                    op_capCheckChildZone);
  g_opcode_Query_ClearAll :=
   PublishInternalOperation(en_Query,
                     op_ClearAll,
@@ -4382,9 +4398,9 @@ begin
  TPrimMonitoringsModule.OpenAutoreferatAfterSearch(aList, aContainer);
 end;
 
-class function TNemesisRes.OpenNewsLine: IvcmEntityForm;
+class function TNemesisRes.OpenNewsLine(aDenyNewTab: Boolean): IvcmEntityForm;
 begin
- Result := TPrimMonitoringsModule.OpenNewsLine;
+ Result := TPrimMonitoringsModule.OpenNewsLine(aDenyNewTab);
 end;
 
 class function TNemesisRes.OpenPostingOrder(const aQuery: IQuery;
@@ -6012,6 +6028,18 @@ class function TNemesisRes.mod_opcode_Diction_OpenDict : TvcmMOpID;
 begin
  Result := g_module_opcode_Diction_OpenDict;
  Assert((Result.rMoID > 0) AND (Result.rOpID > 0));
+end;
+
+class function TNemesisRes.opcode_Common_ShowSplitter : TvcmOpID;
+begin
+ Result := g_opcode_Common_ShowSplitter;
+ Assert((Result.rEnID > 0) AND (Result.rOpID > 0));
+end;
+
+class function TNemesisRes.opcode_Common_CheckChildZone : TvcmOpID;
+begin
+ Result := g_opcode_Common_CheckChildZone;
+ Assert((Result.rEnID > 0) AND (Result.rOpID > 0));
 end;
 
 class function TNemesisRes.opcode_Query_ClearAll : TvcmOpID;

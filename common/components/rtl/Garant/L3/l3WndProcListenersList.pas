@@ -2,6 +2,7 @@ unit l3WndProcListenersList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3WndProcListenersList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3WndProcListenersList" MUID: (4F66F8AD025C)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

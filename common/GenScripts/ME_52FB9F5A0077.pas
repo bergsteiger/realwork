@@ -2,6 +2,7 @@ unit csMessageRecepientListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csMessageRecepientListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsMessageRecepientListPrim" MUID: (52FB9F5A0077)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

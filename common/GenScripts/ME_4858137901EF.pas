@@ -3,6 +3,8 @@ unit evBitmapPara_InterfaceFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evBitmapPara_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
+// Элемент модели: "TevBitmapPara" MUID: (4858137901EF)
+// Имя типа: "TevBitmapParaInterfaceFactory"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

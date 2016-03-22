@@ -710,7 +710,7 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*52F0E97902F5_BODY*"
 			    value      	(value Text 
-|//#UC START# *52F0E97902F5_BODY*¤	m_type = m_data->Tag ();¤	//#UC END# *52F0E97902F5_BODY*
+|//#UC START# *52F0E97902F5_BODY*¤	m_type = m_data->Tag ();¤	GDS_ASSERT (m_data->Inflated () == false);¤	//#UC END# *52F0E97902F5_BODY*
 			    )))
 		    quid       	"52F0E97902F5"
 		    stereotype 	"ctor"
@@ -1136,10 +1136,10 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"ResolvedTypeGuid"
-				    value      	"50A266140247"))
+				    value      	"5640C0F900D6"))
 			    quid       	"5302049003B7"
-			    type       	"SearchBase"
-			    quidu      	"50A266140247")
+			    type       	"Base"
+			    quidu      	"5640C0F900D6")
 			(object Parameter "name"
 			    attributes 	(list Attribute_Set
 				(object Attribute
@@ -1779,7 +1779,7 @@
 		    tool       	"MDA Generator"
 		    name       	"cpp:*53171A850009*"
 		    value      	(value Text 
-|//#UC START# *53171A850009*¤¤////////////////////////////////////////////////////////////////////////////////////////¤// class Filter implementation¤¤Filter::Filter (SortedCollection* in, MergeOp op) ¤	: FilterData ()¤	, m_data (FiltersFactory::make (in, op)) {¤}¤¤Filter::Filter (const SearchAdapterLib::Adapter::LongVector& in, MergeOp op) ¤	: FilterData ()¤	, m_data (FiltersFactory::make (in, op)) {¤}¤¤Filter::Filter (Index* index, const char* key, MergeOp op) ¤	: FilterData ()¤	, m_data (FiltersFactory::make (index, key, op)) {¤}¤¤Filter::Filter (SearchBase* base, const char* name, const char* key, MergeOp op) ¤	: FilterData ()¤	, m_data (FiltersFactory::make (base, name, key, op)) {¤}¤¤IFilter* Filter::in () const {¤	return m_data.in ();¤}¤¤IFilter* Filter::_retn () const {¤	return m_data._retn ();¤}¤¤////////////////////////////////////////////////////////////////////////////////////////¤// class BooleanFilter implementation¤¤BooleanFilter::BooleanFilter (MergeOp op)¤	: FilterData ()¤	, m_data (FiltersFactory::make (op)) {¤}¤¤BooleanFilter::BooleanFilter (IBooleanFilter* in) ¤	: FilterData ()¤	, m_data (IBooleanFilter::_duplicate (in)) {¤}¤¤IFilter* BooleanFilter::in () const {¤	return m_data.in ();¤}¤¤IFilter* BooleanFilter::_retn () const {¤	return m_data._retn ();¤}¤¤BooleanFilter& BooleanFilter::operator << (const FilterData& data) {¤	m_data->add (const_cast <IFilter*> (data.in ()));¤	return *this;¤}¤¤BooleanFilter& BooleanFilter::operator << (IFilter* data) {¤	m_data->add (data);¤	return *this;¤}¤¤//#UC END# *53171A850009*
+|//#UC START# *53171A850009*¤¤////////////////////////////////////////////////////////////////////////////////////////¤// class Filter implementation¤¤Filter::Filter (SortedCollection* in, MergeOp op) ¤	: FilterData ()¤	, m_data (FiltersFactory::make (in, op)) {¤}¤¤Filter::Filter (const SearchAdapterLib::Adapter::LongVector& in, MergeOp op) ¤	: FilterData ()¤	, m_data (FiltersFactory::make (in, op)) {¤}¤¤Filter::Filter (Index* index, const char* key, MergeOp op) ¤	: FilterData ()¤	, m_data (FiltersFactory::make (index, key, op)) {¤}¤¤Filter::Filter (Base* base, const char* name, const char* key, MergeOp op) ¤	: FilterData ()¤	, m_data (FiltersFactory::make (base, name, key, op)) {¤}¤¤IFilter* Filter::in () const {¤	return m_data.in ();¤}¤¤IFilter* Filter::_retn () const {¤	return m_data._retn ();¤}¤¤////////////////////////////////////////////////////////////////////////////////////////¤// class BooleanFilter implementation¤¤BooleanFilter::BooleanFilter (MergeOp op)¤	: FilterData ()¤	, m_data (FiltersFactory::make (op)) {¤}¤¤BooleanFilter::BooleanFilter (IBooleanFilter* in) ¤	: FilterData ()¤	, m_data (IBooleanFilter::_duplicate (in)) {¤}¤¤IFilter* BooleanFilter::in () const {¤	return m_data.in ();¤}¤¤IFilter* BooleanFilter::_retn () const {¤	return m_data._retn ();¤}¤¤BooleanFilter& BooleanFilter::operator << (const FilterData& data) {¤	m_data->add (const_cast <IFilter*> (data.in ()));¤	return *this;¤}¤¤BooleanFilter& BooleanFilter::operator << (IFilter* data) {¤	m_data->add (data);¤	return *this;¤}¤¤//#UC END# *53171A850009*
 		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
@@ -1791,7 +1791,7 @@
 		    tool       	"MDA Generator"
 		    name       	"h:*53171A850009_USER_DEFINITION*"
 		    value      	(value Text 
-|//#UC START# *53171A850009_USER_DEFINITION*¤typedef SearchAdapterLib::Adapter::IFilter IFilter;¤¤////////////////////////////////////////////////////////////////////////////////////////¤¤class FilterData {¤protected:¤	FilterData () { }¤¤public:¤	virtual IFilter* in () const = 0;¤	virtual IFilter* _retn () const = 0;¤};¤¤////////////////////////////////////////////////////////////////////////////////////////¤¤class Filter : virtual public FilterData {¤public:¤	Filter (SortedCollection* in, MergeOp op);¤	Filter (const SearchAdapterLib::Adapter::LongVector& in, MergeOp op);¤	Filter (Index* index, const char* key, MergeOp op);¤	Filter (SearchBase* base, const char* name, const char* key, MergeOp op);¤¤public:¤	virtual IFilter* in () const;¤	virtual IFilter* _retn () const;¤¤private:¤	mutable SearchAdapterLib::Adapter::IFilter_var m_data;¤};¤¤////////////////////////////////////////////////////////////////////////////////////////¤¤class BooleanFilter : virtual public FilterData {¤public:¤	BooleanFilter (MergeOp op = Search::so_AND);¤	BooleanFilter (IBooleanFilter* in);¤¤public:¤	BooleanFilter& operator << (IFilter* data);¤	BooleanFilter& operator << (const FilterData& data);¤¤	virtual IFilter* in () const;¤	virtual IFilter* _retn () const;¤¤private:¤	mutable IBooleanFilter_var m_data;¤};¤//#UC END# *53171A850009_USER_DEFINITION*
+|//#UC START# *53171A850009_USER_DEFINITION*¤typedef SearchAdapterLib::Adapter::IFilter IFilter;¤¤////////////////////////////////////////////////////////////////////////////////////////¤¤class FilterData {¤protected:¤	FilterData () { }¤¤public:¤	virtual IFilter* in () const = 0;¤	virtual IFilter* _retn () const = 0;¤};¤¤////////////////////////////////////////////////////////////////////////////////////////¤¤class Filter : virtual public FilterData {¤public:¤	Filter (SortedCollection* in, MergeOp op);¤	Filter (const SearchAdapterLib::Adapter::LongVector& in, MergeOp op);¤	Filter (Index* index, const char* key, MergeOp op);¤	Filter (Base* base, const char* name, const char* key, MergeOp op);¤¤public:¤	virtual IFilter* in () const;¤	virtual IFilter* _retn () const;¤¤private:¤	mutable SearchAdapterLib::Adapter::IFilter_var m_data;¤};¤¤////////////////////////////////////////////////////////////////////////////////////////¤¤class BooleanFilter : virtual public FilterData {¤public:¤	BooleanFilter (MergeOp op = Search::so_AND);¤	BooleanFilter (IBooleanFilter* in);¤¤public:¤	BooleanFilter& operator << (IFilter* data);¤	BooleanFilter& operator << (const FilterData& data);¤¤	virtual IFilter* in () const;¤	virtual IFilter* _retn () const;¤¤private:¤	mutable IBooleanFilter_var m_data;¤};¤//#UC END# *53171A850009_USER_DEFINITION*
 		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
@@ -2498,19 +2498,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@2
-			location   	(657, 2036)
+			location   	(722, 2036)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1488
+			max_width  	1358
 			justify    	0
 			label      	"• FiltersFactory")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@2
-			location   	(657, 1986)
+			location   	(722, 1986)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1488
+			max_width  	1358
 			justify    	0
 			label      	"<<UtilityClass>>")
 		    icon_style 	"Label"
@@ -2518,7 +2518,7 @@
 		    quidu      	"52FA4BF203A8"
 		    compartment 	(object Compartment
 			Parent_View 	@2
-			location   	(657, 2096)
+			location   	(722, 2096)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -2533,9 +2533,9 @@
 			fill_color 	16777215
 			anchor     	2
 			nlines     	6
-			max_width  	1531
+			max_width  	1403
 			justify    	1)
-		    width      	1506
+		    width      	1376
 		    height     	432
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -3512,7 +3512,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @37
 			Parent_View 	@36
-			location   	(509, 2160)
+			location   	(540, 2159)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -3538,7 +3538,7 @@
 		    supplier   	@2
 		    vertices   	(list Points
 			(380, 2196)
-			(647, 2195))
+			(712, 2194))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::external::boost::lambda::lambda" @38
 		    ShowCompartmentStereotypes 	TRUE
@@ -3673,7 +3673,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			icon_style 	"Icon"
-			fill_color 	13434879
+			fill_color 	16777215
 			anchor     	2
 			nlines     	4
 			max_width  	875
@@ -3961,7 +3961,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @55
 			Parent_View 	@54
-			location   	(2287, 2243)
+			location   	(2225, 2242)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -3986,12 +3986,12 @@
 		    client     	@2
 		    supplier   	@5
 		    vertices   	(list Points
-			(2154, 2277)
-			(3122, 2277)
+			(2089, 2276)
+			(3122, 2276)
 			(3122, 631)
 			(1963, 631))
 		    line_style 	3
-		    origin_attachment 	(2154, 2277)
+		    origin_attachment 	(2089, 2276)
 		    terminal_attachment 	(1963, 631))
 		(object UsesView "" @56
 		    font       	(object Font
@@ -4088,7 +4088,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @61
 			Parent_View 	@60
-			location   	(2287, 2063)
+			location   	(2229, 2063)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -4113,11 +4113,11 @@
 		    client     	@2
 		    supplier   	@40
 		    vertices   	(list Points
-			(2154, 2103)
+			(2089, 2103)
 			(2602, 2103)
 			(2602, 1193))
 		    line_style 	3
-		    origin_attachment 	(2154, 2103)
+		    origin_attachment 	(2089, 2103)
 		    terminal_attachment 	(2602, 1193))
 		(object Label @62
 		    attributes 	(list Attribute_Set

@@ -4,6 +4,7 @@
 
 #include "shared/GCL/str/str_conv.h"
 #include "shared/GCL/alg/set_operations.h"
+#include "shared/Morpho/Facade/Cache.h"
 
 #include "boost/algorithm/string/split.hpp"
 #include "boost/algorithm/string/classification.hpp"
@@ -20,15 +21,23 @@
 #include "pack.h"
 #include "recode.h"
 
+#include "DBComm.h"
 #include "SearchB.h"
 #include "BaseCache.h"
 #include "VirtualIndexesCache.h"
+#include "ContextPartsHelper.h"
 
 #ifndef	MIN_MEM_CONTEXT
 #include "ROCBase.h"
 #endif
 
 //////////////////////////////////////////////////////////////////////////////////////////
+namespace Morpho {
+	static Def::ICache* get_cache (Base* base) {
+		DBCore::IBase_var _base = DBCore::DBFactory::make (base);
+		return get_cache (_base.in ());
+	}
+}
 
 struct SearchHelper {
 	static char* make_date_key (const std::string& str) {
@@ -148,9 +157,7 @@ SearchBase::SearchBase (const char* name, int mode)
 	, m_is_morpho_exist (false)
 	, language_tag (-1)
 	, typing_errors_ptr (0)
-	, good_words_ptr (0)
-{
-	m_search_base = DBCore::DBFactory::make (this);
+	, good_words_ptr (0) {
 }
 
 SearchBase::~SearchBase () {
@@ -206,6 +213,32 @@ bool SearchBase::check_version () {
 	return is_morpho_exist ();
 }
 
+Index* SearchBase::FindIndex (const char* name) {
+	if (ContextPartsHelper::is_parts ()) {
+		ContextPartsHelper::PartInfo res = ContextPartsHelper::get_info (name);
+
+		long part = boost::get <0> (res);
+
+		if (part != -1) {
+			BasePool::iterator it = m_pool.find (part);
+
+			if (it == m_pool.end ()) {
+				GUARD (m_mutex);
+
+#ifndef	MIN_MEM_CONTEXT
+				it = m_pool.insert (part, new CachedBaseRO (boost::get <2> (res).c_str ())).first;
+#else
+				it = m_pool.insert (part, new YBase (boost::get <2> (res).c_str (), ACE_OS_O_RDONLY)).first;
+#endif
+			} 
+
+			return it->second->Base::FindIndex (boost::get <1> (res).c_str ());
+		}
+	}
+
+	return Base::FindIndex (name);
+}
+
 bool SearchBase::is_morpho_exist () {
 	if (IsOk () && m_is_morpho_exist == false) {
 		m_is_morpho_exist = (FindIndex ("NFContxt.str") != 0 && FindIndex ("NWCntxt.str") != 0);
@@ -227,59 +260,13 @@ long SearchBase::get_hot_info_topic () {
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
-char* SearchBase::get_swords_data (long id, long& sz) {
-	std::string src = ContextPartsHelper::get_swords_index_name (id);
+struct SwordsHelper {
+	typedef Core::Aptr <char, Core::ArrayDeleteDestructor <char> > Data;
 
-	Index* index = this->FindIndex (src.c_str ());
-
-	char key [64];
-	ACE_OS::memset (key, 0, sizeof (key));
-	ACE_OS::memcpy ((src != SIDE_INDEX_NAME)? key : key + 1, &id, sizeof (long));
-
-	sz = 0;
-
-	Core::Aptr <char, Core::ArrayDeleteDestructor <char> > ret;
-
-	Stream* stream = index->OpenN (key, 0);
-
-	if (stream) {
-		sz = stream->Length ();
-
-		if (sz) {
-			ret = new char [sz + 4];
-			stream->Read (ret.inout (), sz);
-		}
-
-		index->Close (stream);
+	static char* get (Base* base, long id, long& sz) {
+		return base->get_swords_data (ContextPartsHelper::get_swords_index_name (id), id, sz);
 	}
-
-	return ret._retn ();
-}
-
-void SearchBase::get_words (long para, long id, unsigned long& word, unsigned long& first_word) {
-	long paraids_size, size = 0;
-
-	void gk_huge* data = this->LoadAttrEx (id, IDD2_PARAIDS, paraids_size);
-
-	long* paraids = reinterpret_cast <long*> (data);
-
-	if (paraids) {
-		paraids_size /= sizeof (long);
-
-		long pos = 0;
-		for (long* ptr = paraids; pos < paraids_size && *ptr != para; ++pos, ++ptr);
-
-		Core::Aptr <char, Core::ArrayDeleteDestructor <char> > buffer = this->get_swords_data (id, size);
-
-		if (size) {
-			const char* buf = buffer.in ();
-			ACE_OS::memcpy (&first_word, buf, 3);
-			ACE_OS::memcpy (&word, buf + 3 * std::min (pos, size / 3), 3);
-		}
-	}
-
-	gk_free (data);
-}
+};
 
 long SearchBase::get_para_by_word (long doc_id, long word, bool need_para_id) {
 	long ret = 0;
@@ -292,7 +279,7 @@ long SearchBase::get_para_by_word (long doc_id, long word, bool need_para_id) {
 		if (word_pos >= ContextSearch::DOC_BEGIN_WORD) {
 			long size = 0;
 
-			Core::Aptr <char, Core::ArrayDeleteDestructor <char> > buf = this->get_swords_data (doc_id, size);
+			SwordsHelper::Data buf = SwordsHelper::get (this, doc_id, size);
 
 			long i = 0, count = (long) (size / 3), flag = word & ContextSearch::POS_FLAGS;
 
@@ -343,7 +330,7 @@ void SearchBase::get_para_pair (long doc_id, long word, long& para, long& pos) {
 		if (word_pos >= ContextSearch::DOC_BEGIN_WORD) {
 			long size = 0;
 
-			Core::Aptr <char, Core::ArrayDeleteDestructor <char> > buf = this->get_swords_data (doc_id, size);
+			SwordsHelper::Data buf = SwordsHelper::get (this, doc_id, size);
 
 			long i = 0, count = (long) (size / 3), flag = word & ContextSearch::POS_FLAGS;
 
@@ -377,7 +364,7 @@ WordsParas* SearchBase::get_paras_and_words (long id, const std::vector <unsigne
 
 	long size = 0;
 
-	Core::Aptr <char, Core::ArrayDeleteDestructor <char> > buf = this->get_swords_data (id, size);
+	SwordsHelper::Data buf = SwordsHelper::get (this, id, size);
 
 	if (size) {
 		const char* ptr = buf.in ();
@@ -456,10 +443,9 @@ RefwReleCollection* SearchBase::context_search (
 
 	Core::Aptr <RefwReleCollection> ret;
 
-	SearchAdapterLib::Adapter::ISearcher_var searcher = SearchAdapter::instance ()->get (
-		m_search_base.in (), BaseCache::instance ()->get_morpho_cache_ptr (), "NWCntxt.str"
-	);
+	DBCore::IBase_var _base = DBCore::DBFactory::make (this);
 
+	SearchAdapterLib::Adapter::ISearcher_var searcher = SearchAdapter::instance ()->get (_base.in (), CONTEXT_INDEX_NAME);
 	SearchAdapterLib::Adapter::IDocuments_var res = searcher->get_documents (requests, ContextSearch::Defs::SearchInfo ());
 
 	if (res.is_nil () == false) {
@@ -652,6 +638,9 @@ SearchResult* SearchBase::Search (
 						break;
 					case SDT_REFRELES:
 						pList = new RefwReleCollection;
+						break;
+					case SDT_REFWEIGHTS:
+						pList = new RefwWeightCollection;
 						break;
 					default:
 						OkBox ("Collection Work Fault", "Unknown StreamDataType for Base::FindList method");
@@ -1179,6 +1168,7 @@ int SearchBase :: AddKeyListEx ( Index * ind, IndexReq& req, IndexRecordData *pT
 	long dtype = GetDataType ( ind );
 	if (dtype == SDT_DOCS) col = new DocCollection ();
 	else if (dtype == SDT_REFS) col = new RefCollection ();
+	else if (dtype == SDT_REFWEIGHTS) col = new RefwWeightCollection ();
 	else {
 		OkBox ( "Collection Work Fault", "Unknown collection type" );
 		return 0;
@@ -1279,6 +1269,7 @@ bool SearchBase::word_check_mistake (const char* word, std::string& corrected_wo
 	const TypingErrors& typing_errors = cache->get_typing_errors (this);
 
 	StrStrMap::const_iterator map_it = typing_errors.find (word);
+
 	if (map_it != typing_errors.end ()) {
 		corrected_word = map_it->second;
 		return true;
@@ -1291,7 +1282,7 @@ bool SearchBase::word_check_mistake (const char* word, std::string& corrected_wo
 		return true;
 	}
 
-	Morpho::Def::INormalizer_var normalizer = cache->make (m_search_base.in ());
+	Morpho::Def::INormalizer_var normalizer = Morpho::Factory::make (Morpho::get_cache (this));
 
 	bool b_normal_word = true;
 
@@ -1406,8 +1397,10 @@ void SearchBase::correct_single_word (const char* in, std::string& result, bool&
 		char* at = strchr (from, *ptr);
 		if (at)
 			*ptr = to [at - from];
-		else
+		else {
+			WinStrUpr (strcpy (up_in, in));
 			only_latin = false;
+		}
 		ptr++;
 	}
 
@@ -1427,7 +1420,7 @@ void SearchBase::correct_single_word (const char* in, std::string& result, bool&
 	if (only_latin) {
 		b_onlylatin = true;
 		result = in;
-	} else if (strcspn (up_in, mmex_delimiters) == strlen (up_in)) {
+	} else if (strcspn (up_in, mmex_delimiters) == strlen (up_in) && strcspn (up_in, "()@#$%^&") == strlen (up_in)) {
 		const MorphoHashes& morpho_hashes = BaseCache::instance ()->get_morpho_hashes (this);
 
 		GCL::StrVector leve_corrects;
@@ -1448,7 +1441,7 @@ void SearchBase::correct_single_word (const char* in, std::string& result, bool&
 		} else {
 			GCL::StrSet norms;
 
-			Morpho::Def::INormalizer_var normalizer = BaseCache::instance ()->make (m_search_base.in ());
+			Morpho::Def::INormalizer_var normalizer = Morpho::Factory::make (Morpho::get_cache (this));
 
 			for (GCL::StrVector::const_iterator it = leve_corrects.begin (); it != leve_corrects.end (); it++) {
 				Core::Aptr <GCL::StrSet> res = normalizer->execute (*it, true);
@@ -1641,7 +1634,8 @@ void SearchBase::get_incorrect (const std::string& str, GCL::StrSet& words) {
 			words.insert (clear_word);
 		}
 	} else {
-		Morpho::Def::INormalizer_var normalizer = BaseCache::instance ()->make (m_search_base.in ());
+		Morpho::Def::INormalizer_var normalizer = Morpho::Factory::make (Morpho::get_cache (this));
+
 		Core::Aptr <GCL::StrSet> lemms = normalizer->execute (str, true);
 		if (this->is_present (*lemms) == false) {
 			words.insert (str);
@@ -1650,9 +1644,6 @@ void SearchBase::get_incorrect (const std::string& str, GCL::StrSet& words) {
 }
 
 GCL::StrSet* SearchBase::get_incorrect_words (const char* req) {
-	Morpho::Def::ICache* cache = BaseCache::instance ()->get_morpho_cache_ptr ();
-	cache->load (m_search_base.in (), true);
-
 	{
 		GCL::StrVector parts;
 		boost::split (parts, req, boost::is_any_of (" -"), boost::token_compress_on);
@@ -1677,7 +1668,9 @@ GCL::StrSet* SearchBase::get_incorrect_words (const char* req) {
 		}
 	}
 
-	SearchAdapterLib::Adapter::IHelper_var helper = SearchAdapter::instance ()->get (m_search_base.in (), cache);
+	DBCore::IBase_var _base = DBCore::DBFactory::make (this);
+
+	SearchAdapterLib::Adapter::IHelper_var helper = SearchAdapter::instance ()->get (_base.in ());
 	SearchAdapterLib::Adapter::ISynRequest_var res = helper->synonymy (req);
 
 	if (res.is_nil ()) {
@@ -1709,6 +1702,7 @@ void SearchBase::correct_mistakes (const char *in, std::string &out, GCL::StrVec
 {
 	char *corrected_in = strdup (in), *minus_minus_pos = (char*) strstr (in, "--");
 	if (minus_minus_pos) corrected_in [minus_minus_pos - in] = '\0';
+	convert_brackets (corrected_in);
 
 	out.clear ();
 	cant_correct.clear ();
@@ -1917,9 +1911,6 @@ void SearchBase::correct_mistakes (const char *in, std::string &out, GCL::StrVec
 	}
 
 	gk_free (corrected_in);
-	char* brackets_out = strdup (out.c_str ());
-	out = convert_brackets (brackets_out);
-	gk_free (brackets_out);
 	if (minus_minus_pos) out += minus_minus_pos;
 }
 
@@ -2732,6 +2723,8 @@ void	SearchBase::get_section_name (const char* section, std::string &name)
 				name = "Государственный сектор";
 			} else if (!strcmp (section, AUX_CLASS6_BUSINESS_REFERENCES)) {
 				name = "Бизнес-справки";
+			} else if (!strcmp (section, AUX_CLASS6_GOSZAKUPKI)) {
+				name = "Госзакупки";
 			}
 		}
 	}
@@ -3746,7 +3739,12 @@ SortedCollection* get_realindex_data (SearchBase* base, boost::string_ref index_
 	const std::string& key = key_ref.to_string ();
 	Index *index = base->FindIndex (index_name.c_str ());
 	SortedCollection *result;
-	if (GetDataType (index) == SDT_REFS) result = new RefCollection (); else result = new DocCollection ();
+	if (GetDataType (index) == SDT_REFS)
+		result = new RefCollection ();
+	else if (GetDataType (index) == SDT_REFWEIGHTS)
+		result = new RefwWeightCollection ();
+	else
+		result = new DocCollection ();
 
 	bool b_hindex = (index_name == "Kind") || (index_name == "Type") || (index_name == "Adopted") || (index_name == "KeyWord") || (index_name == "Territory") || (index_name == "Class") || (index_name == "ServiceInfo") || (index_name == "Atc") || (index_name == "RegStatus") || (index_name == "LekForm") || (index_name == "PhFirm") || (index_name == "PhCountry") || (index_name == "PhGroup") || (index_name == "PhEffect") || (index_name == "Mkb") || (index_name == "Chapter");
 	if (b_hindex) {
@@ -3765,6 +3763,13 @@ SortedCollection* get_realindex_data (SearchBase* base, boost::string_ref index_
 	} else if ((index_name == "Status") || (index_name == "Segment") || (index_name == "Status_ex")) {
 		u_int16_t short_key = (u_int16_t) (atol (key.c_str ()) & 0xFFFF);
 		Stream *str = index->Open (&short_key);
+		if (str) {
+			result->Get (str);
+			index->Close (str);
+		}
+	} else if (index_name == "Tag") {
+		char *charkey = (char*) key.c_str ();
+		Stream *str = index->Open (charkey);
 		if (str) {
 			result->Get (str);
 			index->Close (str);
@@ -4109,32 +4114,6 @@ bool SearchBase::is_valid_query (const QueryData& query_data)
 	return b_result;
 }
 
-Index* SearchBase::FindIndex (const char* name) {
-	if (ContextPartsHelper::is_parts ()) {
-		ContextPartsHelper::PartInfo res = ContextPartsHelper::get_info (name);
-
-		long part = boost::get <0> (res);
-
-		if (part != -1) {
-			BasePool::iterator it = m_pool.find (part);
-
-			if (it == m_pool.end ()) {
-				GUARD (m_mutex);
-
-#ifndef	MIN_MEM_CONTEXT
-				it = m_pool.insert (part, new CachedBaseRO (boost::get <2> (res).c_str ())).first;
-#else
-				it = m_pool.insert (part, new YBase (boost::get <2> (res).c_str (), ACE_OS_O_RDONLY)).first;
-#endif
-			} 
-
-			return it->second->Base::FindIndex (boost::get <1> (res).c_str ());
-		}
-	}
-
-	return Base::FindIndex (name);
-}
-
 std::vector<long> SearchBase::get_main_page_list ()
 {
 	std::vector<long> result;
@@ -4173,10 +4152,10 @@ bool SearchBase::FillSmallInfoDoc (long id, std::string& name, std::vector <std:
 
 	std::vector<std::string> parts;
 	boost::split (parts, ++pTmpTxt, boost::is_from_range (BIG_INFO_DELIMITER, BIG_INFO_DELIMITER));
-	const BaseInfoMap& baseinfos = BaseCache::instance ()->get_map_baseinfos (this);
+	const BaseInfo_& baseinfos = BaseCache::instance ()->get_base_info (this);
 	for (std::vector<std::string>::const_iterator it = parts.begin (); it != parts.end (); it++) {
 		if (it->size ()) {
-			std::map<long, std::pair<std::string, std::string> >::const_iterator map_it = baseinfos.find (atol (it->c_str ()));
+			BaseInfo_::const_iterator map_it = baseinfos.find (atol (it->c_str ()));
 			if (map_it != baseinfos.end ()) {
 				segment_names.push_back (is_russian ? map_it->second.first : map_it->second.second);
 			}

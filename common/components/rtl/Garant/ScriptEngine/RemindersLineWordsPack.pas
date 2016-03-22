@@ -2,6 +2,7 @@ unit RemindersLineWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\RemindersLineWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "RemindersLineWordsPack" MUID: (550057160010)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -300,11 +301,6 @@ begin
  aCtx.rEngine.PushPoint(ClientToScreen(aCtx, l_aRemindersLine, l_aPoint));
 end;//TkwPopRemindersLineClientToScreen.DoDoIt
 
-class function TkwPopRemindersLineClientToScreen.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:RemindersLine:ClientToScreen';
-end;//TkwPopRemindersLineClientToScreen.GetWordNameForRegister
-
 function TkwPopRemindersLineClientToScreen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiStruct;
@@ -319,6 +315,11 @@ function TkwPopRemindersLineClientToScreen.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgRemindersLine), @tfw_tiStruct]);
 end;//TkwPopRemindersLineClientToScreen.ParamsTypes
+
+class function TkwPopRemindersLineClientToScreen.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:RemindersLine:ClientToScreen';
+end;//TkwPopRemindersLineClientToScreen.GetWordNameForRegister
 
 function TkwPopRemindersLineGetReminder.GetReminder(const aCtx: TtfwContext;
  aRemindersLine: TvgRemindersLine;
@@ -359,11 +360,6 @@ begin
  aCtx.rEngine.PushObj(GetReminder(aCtx, l_aRemindersLine, l_anIndex));
 end;//TkwPopRemindersLineGetReminder.DoDoIt
 
-class function TkwPopRemindersLineGetReminder.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:RemindersLine:GetReminder';
-end;//TkwPopRemindersLineGetReminder.GetWordNameForRegister
-
 function TkwPopRemindersLineGetReminder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TvgReminder);
@@ -378,6 +374,11 @@ function TkwPopRemindersLineGetReminder.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgRemindersLine), TypeInfo(Integer)]);
 end;//TkwPopRemindersLineGetReminder.ParamsTypes
+
+class function TkwPopRemindersLineGetReminder.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:RemindersLine:GetReminder';
+end;//TkwPopRemindersLineGetReminder.GetWordNameForRegister
 
 function TkwPopRemindersLineAbsLeft.AbsLeft(const aCtx: TtfwContext;
  aRemindersLine: TvgRemindersLine): Integer;
@@ -401,11 +402,6 @@ begin
  aCtx.rEngine.PushInt(AbsLeft(aCtx, l_aRemindersLine));
 end;//TkwPopRemindersLineAbsLeft.DoDoIt
 
-class function TkwPopRemindersLineAbsLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:RemindersLine:AbsLeft';
-end;//TkwPopRemindersLineAbsLeft.GetWordNameForRegister
-
 procedure TkwPopRemindersLineAbsLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -426,6 +422,11 @@ function TkwPopRemindersLineAbsLeft.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgRemindersLine)]);
 end;//TkwPopRemindersLineAbsLeft.ParamsTypes
+
+class function TkwPopRemindersLineAbsLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:RemindersLine:AbsLeft';
+end;//TkwPopRemindersLineAbsLeft.GetWordNameForRegister
 
 function TkwPopRemindersLineAbsTop.AbsTop(const aCtx: TtfwContext;
  aRemindersLine: TvgRemindersLine): Integer;
@@ -449,11 +450,6 @@ begin
  aCtx.rEngine.PushInt(AbsTop(aCtx, l_aRemindersLine));
 end;//TkwPopRemindersLineAbsTop.DoDoIt
 
-class function TkwPopRemindersLineAbsTop.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:RemindersLine:AbsTop';
-end;//TkwPopRemindersLineAbsTop.GetWordNameForRegister
-
 procedure TkwPopRemindersLineAbsTop.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -474,6 +470,11 @@ function TkwPopRemindersLineAbsTop.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgRemindersLine)]);
 end;//TkwPopRemindersLineAbsTop.ParamsTypes
+
+class function TkwPopRemindersLineAbsTop.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:RemindersLine:AbsTop';
+end;//TkwPopRemindersLineAbsTop.GetWordNameForRegister
 
 function TkwPopRemindersLineCount.Count(const aCtx: TtfwContext;
  aRemindersLine: TvgRemindersLine): Integer;
@@ -497,11 +498,6 @@ begin
  aCtx.rEngine.PushInt(Count(aCtx, l_aRemindersLine));
 end;//TkwPopRemindersLineCount.DoDoIt
 
-class function TkwPopRemindersLineCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:RemindersLine:Count';
-end;//TkwPopRemindersLineCount.GetWordNameForRegister
-
 procedure TkwPopRemindersLineCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -522,6 +518,11 @@ function TkwPopRemindersLineCount.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgRemindersLine)]);
 end;//TkwPopRemindersLineCount.ParamsTypes
+
+class function TkwPopRemindersLineCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:RemindersLine:Count';
+end;//TkwPopRemindersLineCount.GetWordNameForRegister
 
 function TkwPopRemindersLineHeight.Height(const aCtx: TtfwContext;
  aRemindersLine: TvgRemindersLine): Integer;
@@ -545,11 +546,6 @@ begin
  aCtx.rEngine.PushInt(Height(aCtx, l_aRemindersLine));
 end;//TkwPopRemindersLineHeight.DoDoIt
 
-class function TkwPopRemindersLineHeight.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:RemindersLine:Height';
-end;//TkwPopRemindersLineHeight.GetWordNameForRegister
-
 procedure TkwPopRemindersLineHeight.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -570,6 +566,11 @@ function TkwPopRemindersLineHeight.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgRemindersLine)]);
 end;//TkwPopRemindersLineHeight.ParamsTypes
+
+class function TkwPopRemindersLineHeight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:RemindersLine:Height';
+end;//TkwPopRemindersLineHeight.GetWordNameForRegister
 
 function TkwPopRemindersLineLeft.Left(const aCtx: TtfwContext;
  aRemindersLine: TvgRemindersLine): Integer;
@@ -593,11 +594,6 @@ begin
  aCtx.rEngine.PushInt(Left(aCtx, l_aRemindersLine));
 end;//TkwPopRemindersLineLeft.DoDoIt
 
-class function TkwPopRemindersLineLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:RemindersLine:Left';
-end;//TkwPopRemindersLineLeft.GetWordNameForRegister
-
 procedure TkwPopRemindersLineLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -618,6 +614,11 @@ function TkwPopRemindersLineLeft.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgRemindersLine)]);
 end;//TkwPopRemindersLineLeft.ParamsTypes
+
+class function TkwPopRemindersLineLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:RemindersLine:Left';
+end;//TkwPopRemindersLineLeft.GetWordNameForRegister
 
 function TkwPopRemindersLineTop.Top(const aCtx: TtfwContext;
  aRemindersLine: TvgRemindersLine): Integer;
@@ -641,11 +642,6 @@ begin
  aCtx.rEngine.PushInt(Top(aCtx, l_aRemindersLine));
 end;//TkwPopRemindersLineTop.DoDoIt
 
-class function TkwPopRemindersLineTop.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:RemindersLine:Top';
-end;//TkwPopRemindersLineTop.GetWordNameForRegister
-
 procedure TkwPopRemindersLineTop.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -666,6 +662,11 @@ function TkwPopRemindersLineTop.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgRemindersLine)]);
 end;//TkwPopRemindersLineTop.ParamsTypes
+
+class function TkwPopRemindersLineTop.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:RemindersLine:Top';
+end;//TkwPopRemindersLineTop.GetWordNameForRegister
 
 function TkwPopRemindersLineVisible.Visible(const aCtx: TtfwContext;
  aRemindersLine: TvgRemindersLine): Boolean;
@@ -693,11 +694,6 @@ begin
  aCtx.rEngine.PushBool(Visible(aCtx, l_aRemindersLine));
 end;//TkwPopRemindersLineVisible.DoDoIt
 
-class function TkwPopRemindersLineVisible.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:RemindersLine:Visible';
-end;//TkwPopRemindersLineVisible.GetWordNameForRegister
-
 procedure TkwPopRemindersLineVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -718,6 +714,11 @@ function TkwPopRemindersLineVisible.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgRemindersLine)]);
 end;//TkwPopRemindersLineVisible.ParamsTypes
+
+class function TkwPopRemindersLineVisible.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:RemindersLine:Visible';
+end;//TkwPopRemindersLineVisible.GetWordNameForRegister
 
 function TkwPopRemindersLineWidth.Width(const aCtx: TtfwContext;
  aRemindersLine: TvgRemindersLine): Integer;
@@ -741,11 +742,6 @@ begin
  aCtx.rEngine.PushInt(Width(aCtx, l_aRemindersLine));
 end;//TkwPopRemindersLineWidth.DoDoIt
 
-class function TkwPopRemindersLineWidth.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:RemindersLine:Width';
-end;//TkwPopRemindersLineWidth.GetWordNameForRegister
-
 procedure TkwPopRemindersLineWidth.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -766,6 +762,11 @@ function TkwPopRemindersLineWidth.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgRemindersLine)]);
 end;//TkwPopRemindersLineWidth.ParamsTypes
+
+class function TkwPopRemindersLineWidth.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:RemindersLine:Width';
+end;//TkwPopRemindersLineWidth.GetWordNameForRegister
 
 initialization
  TkwPopRemindersLineClientToScreen.RegisterInEngine;

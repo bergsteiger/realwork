@@ -2,6 +2,7 @@ unit arEditorUtils;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\arEditorUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "arEditorUtils" MUID: (4DFB406602B7)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

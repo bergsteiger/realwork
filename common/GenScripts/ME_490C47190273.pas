@@ -3,6 +3,7 @@ unit mmmReferencePharmaceuticalInformation;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\mmmReferencePharmaceuticalInformation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TmmmReferencePharmaceuticalInformation" MUID: (490C47190273)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

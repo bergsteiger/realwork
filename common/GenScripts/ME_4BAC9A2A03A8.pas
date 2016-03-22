@@ -2,6 +2,7 @@ unit evNSRCWriterTypes;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evNSRCWriterTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evNSRCWriterTypes" MUID: (4BAC9A2A03A8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

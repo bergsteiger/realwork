@@ -2,6 +2,7 @@ unit MoveSubTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\MoveSubTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TMoveSubTest" MUID: (4C920D930026)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

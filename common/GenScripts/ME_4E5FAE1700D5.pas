@@ -2,6 +2,7 @@ unit nevSegmentObject;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevSegmentObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevSegmentObject" MUID: (4E5FAE1700D5)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

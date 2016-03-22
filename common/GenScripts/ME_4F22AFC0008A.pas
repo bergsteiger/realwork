@@ -2,6 +2,7 @@ unit kwSetExpiredStyle;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwSetExpiredStyle.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwSetExpiredStyle" MUID: (4F22AFC0008A)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

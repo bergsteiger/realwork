@@ -17,6 +17,8 @@ aHandle - номер саба, к которому рисуется метка. }
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwIterateSubDecriptorsOnSubPanel.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "IterateSubDecriptorsOnSubPanel" MUID: (52D78486017B)
+// Имя типа: "TkwIterateSubDecriptorsOnSubPanel"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

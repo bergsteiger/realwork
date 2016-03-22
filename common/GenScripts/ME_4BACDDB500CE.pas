@@ -3,6 +3,8 @@ unit WriterTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\WriterTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "WriterTest" MUID: (4BACDDB500CE)
+// Имя типа: "TWriterTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

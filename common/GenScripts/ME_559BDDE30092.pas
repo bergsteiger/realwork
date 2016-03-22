@@ -2,6 +2,7 @@ unit ItfwCompilerWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ItfwCompilerWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ItfwCompilerWordsPack" MUID: (559BDDE30092)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -194,11 +195,6 @@ begin
  CompileInParameterPopCode(aCtx, l_aCompiler, l_aParameterToPop);
 end;//TkwPopCompilerCompileInParameterPopCode.DoDoIt
 
-class function TkwPopCompilerCompileInParameterPopCode.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Compiler:CompileInParameterPopCode';
-end;//TkwPopCompilerCompileInParameterPopCode.GetWordNameForRegister
-
 function TkwPopCompilerCompileInParameterPopCode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -213,6 +209,11 @@ function TkwPopCompilerCompileInParameterPopCode.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwCompiler), TypeInfo(TtfwWord)]);
 end;//TkwPopCompilerCompileInParameterPopCode.ParamsTypes
+
+class function TkwPopCompilerCompileInParameterPopCode.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Compiler:CompileInParameterPopCode';
+end;//TkwPopCompilerCompileInParameterPopCode.GetWordNameForRegister
 
 function TkwPopCompilerGetWordCompilingNow.GetWordCompilingNow(const aCtx: TtfwContext;
  aCompiler: TtfwCompiler): TtfwWord;
@@ -240,11 +241,6 @@ begin
  aCtx.rEngine.PushObj(GetWordCompilingNow(aCtx, l_aCompiler));
 end;//TkwPopCompilerGetWordCompilingNow.DoDoIt
 
-class function TkwPopCompilerGetWordCompilingNow.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Compiler:GetWordCompilingNow';
-end;//TkwPopCompilerGetWordCompilingNow.GetWordNameForRegister
-
 function TkwPopCompilerGetWordCompilingNow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwWord);
@@ -259,6 +255,11 @@ function TkwPopCompilerGetWordCompilingNow.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwCompiler)]);
 end;//TkwPopCompilerGetWordCompilingNow.ParamsTypes
+
+class function TkwPopCompilerGetWordCompilingNow.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Compiler:GetWordCompilingNow';
+end;//TkwPopCompilerGetWordCompilingNow.GetWordNameForRegister
 
 procedure TkwPopCompilerAddCodePart.AddCodePart(const aCtx: TtfwContext;
  aCompiler: TtfwCompiler;
@@ -297,11 +298,6 @@ begin
  AddCodePart(aCtx, l_aCompiler, l_aWord);
 end;//TkwPopCompilerAddCodePart.DoDoIt
 
-class function TkwPopCompilerAddCodePart.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Compiler:AddCodePart';
-end;//TkwPopCompilerAddCodePart.GetWordNameForRegister
-
 function TkwPopCompilerAddCodePart.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -316,6 +312,11 @@ function TkwPopCompilerAddCodePart.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwCompiler), TypeInfo(TtfwWord)]);
 end;//TkwPopCompilerAddCodePart.ParamsTypes
+
+class function TkwPopCompilerAddCodePart.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Compiler:AddCodePart';
+end;//TkwPopCompilerAddCodePart.GetWordNameForRegister
 
 procedure TkwPopCompilerAddCodePartValue.AddCodePartValue(const aCtx: TtfwContext;
  aCompiler: TtfwCompiler;
@@ -361,11 +362,6 @@ begin
  AddCodePartValue(aCtx, l_aCompiler, l_aValue);
 end;//TkwPopCompilerAddCodePartValue.DoDoIt
 
-class function TkwPopCompilerAddCodePartValue.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Compiler:AddCodePartValue';
-end;//TkwPopCompilerAddCodePartValue.GetWordNameForRegister
-
 function TkwPopCompilerAddCodePartValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -380,6 +376,11 @@ function TkwPopCompilerAddCodePartValue.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwCompiler), @tfw_tiStruct]);
 end;//TkwPopCompilerAddCodePartValue.ParamsTypes
+
+class function TkwPopCompilerAddCodePartValue.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Compiler:AddCodePartValue';
+end;//TkwPopCompilerAddCodePartValue.GetWordNameForRegister
 
 function TkwPopCompilerKeywordFinder.KeywordFinder(const aCtx: TtfwContext;
  aCompiler: TtfwCompiler): TtfwKeywordFinder;
@@ -407,11 +408,6 @@ begin
  aCtx.rEngine.PushObj(KeywordFinder(aCtx, l_aCompiler));
 end;//TkwPopCompilerKeywordFinder.DoDoIt
 
-class function TkwPopCompilerKeywordFinder.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Compiler:KeywordFinder';
-end;//TkwPopCompilerKeywordFinder.GetWordNameForRegister
-
 procedure TkwPopCompilerKeywordFinder.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -432,6 +428,11 @@ function TkwPopCompilerKeywordFinder.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwCompiler)]);
 end;//TkwPopCompilerKeywordFinder.ParamsTypes
+
+class function TkwPopCompilerKeywordFinder.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Compiler:KeywordFinder';
+end;//TkwPopCompilerKeywordFinder.GetWordNameForRegister
 
 function TkwPopCompilerNewWordDefinitor.NewWordDefinitor(const aCtx: TtfwContext;
  aCompiler: TtfwCompiler): TtfwNewWordDefinitor;
@@ -459,11 +460,6 @@ begin
  aCtx.rEngine.PushObj(NewWordDefinitor(aCtx, l_aCompiler));
 end;//TkwPopCompilerNewWordDefinitor.DoDoIt
 
-class function TkwPopCompilerNewWordDefinitor.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Compiler:NewWordDefinitor';
-end;//TkwPopCompilerNewWordDefinitor.GetWordNameForRegister
-
 procedure TkwPopCompilerNewWordDefinitor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -484,6 +480,11 @@ function TkwPopCompilerNewWordDefinitor.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwCompiler)]);
 end;//TkwPopCompilerNewWordDefinitor.ParamsTypes
+
+class function TkwPopCompilerNewWordDefinitor.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Compiler:NewWordDefinitor';
+end;//TkwPopCompilerNewWordDefinitor.GetWordNameForRegister
 
 initialization
  TkwPopCompilerCompileInParameterPopCode.RegisterInEngine;

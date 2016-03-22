@@ -2,6 +2,7 @@ unit l3MouseWheelHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3MouseWheelHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3MouseWheelHelper" MUID: (4F7ACCBE02AF)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

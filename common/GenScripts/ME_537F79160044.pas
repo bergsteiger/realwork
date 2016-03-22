@@ -2,6 +2,7 @@ unit NOT_FINISHED_DT_DbInfo;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_DT_DbInfo.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DT_DbInfo" MUID: (537F79160044)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

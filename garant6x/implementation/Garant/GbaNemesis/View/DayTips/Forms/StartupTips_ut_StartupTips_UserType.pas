@@ -1,87 +1,67 @@
 unit StartupTips_ut_StartupTips_UserType;
+ {* Совет дня }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/DayTips/Forms/StartupTips_ut_StartupTips_UserType.pas"
-// Начат: 04.09.2009 12:52
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Интерфейсные элементы::DayTips::View::DayTips::DayTips::StartupTips::ut_StartupTips
-//
-// Совет дня
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\Forms\StartupTips_ut_StartupTips_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "ut_StartupTips" MUID: (0F70FC525F19)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-    { Константы для типа формы ut_StartupTips }
-   ut_StartupTipsName = 'ut_StartupTips';
-    { Строковый идентификатор пользовательского типа "Совет дня" }
-   ut_StartupTips = TvcmUserType(0);
-    { Совет дня }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы ut_StartupTips }
+ ut_StartupTipsName = 'ut_StartupTips';
+  {* Строковый идентификатор пользовательского типа "Совет дня" }
+ ut_StartupTips = TvcmUserType(0);
+  {* Совет дня }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-   Tkw_FormUserType_ut_StartupTips = {final scriptword} class(TtfwInteger)
-    {* Слово словаря для типа формы ut_StartupTips }
-   protected
-   // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
+ Tkw_FormUserType_ut_StartupTips = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы ut_StartupTips }
+  protected
    function GetInteger: Integer; override;
-   end;//Tkw_FormUserType_ut_StartupTips
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_ut_StartupTips
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_ut_StartupTips
-
-class function Tkw_FormUserType_ut_StartupTips.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::ut_StartupTips';
-end;//Tkw_FormUserType_ut_StartupTips.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_StartupTips.GetInteger: Integer;
- {-}
 begin
  Result := ut_StartupTips;
 end;//Tkw_FormUserType_ut_StartupTips.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_ut_StartupTips.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_StartupTips';
+end;//Tkw_FormUserType_ut_StartupTips.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_ut_StartupTips
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_StartupTips.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_ut_StartupTips }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

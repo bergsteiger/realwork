@@ -3,6 +3,7 @@ unit PageSetupKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PageSetupKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "PageSetupKeywordsPack" MUID: (0BBFEB6E713F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -47,9 +48,9 @@ type
 'aControl' форма::PageSetup TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_PageSetup
 
  Tkw_PageSetup_Control_PreviewGroupBox = {final} class(TtfwControlString)
@@ -60,9 +61,9 @@ type
 контрол::PreviewGroupBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PageSetup_Control_PreviewGroupBox
 
  Tkw_PageSetup_Control_PreviewGroupBox_Push = {final} class(TkwBynameControlPush)
@@ -85,9 +86,9 @@ type
 контрол::SettingsPageControl TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PageSetup_Control_SettingsPageControl
 
  Tkw_PageSetup_Control_SettingsPageControl_Push = {final} class(TkwBynameControlPush)
@@ -150,11 +151,6 @@ OBJECT VAR l_TnscPageControl
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnPageSetupSettingsPageControl
 
-class function Tkw_Form_PageSetup.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::PageSetup';
-end;//Tkw_Form_PageSetup.GetWordNameForRegister
-
 function Tkw_Form_PageSetup.GetString: AnsiString;
 begin
  Result := 'en_PageSetup';
@@ -166,10 +162,10 @@ begin
  TtfwClassRef.Register(Ten_PageSetup);
 end;//Tkw_Form_PageSetup.RegisterInEngine
 
-class function Tkw_PageSetup_Control_PreviewGroupBox.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_PageSetup.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::PreviewGroupBox';
-end;//Tkw_PageSetup_Control_PreviewGroupBox.GetWordNameForRegister
+ Result := 'форма::PageSetup';
+end;//Tkw_Form_PageSetup.GetWordNameForRegister
 
 function Tkw_PageSetup_Control_PreviewGroupBox.GetString: AnsiString;
 begin
@@ -182,6 +178,11 @@ begin
  TtfwClassRef.Register(TvtGroupBox);
 end;//Tkw_PageSetup_Control_PreviewGroupBox.RegisterInEngine
 
+class function Tkw_PageSetup_Control_PreviewGroupBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::PreviewGroupBox';
+end;//Tkw_PageSetup_Control_PreviewGroupBox.GetWordNameForRegister
+
 procedure Tkw_PageSetup_Control_PreviewGroupBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('PreviewGroupBox');
@@ -193,11 +194,6 @@ begin
  Result := 'контрол::PreviewGroupBox:push';
 end;//Tkw_PageSetup_Control_PreviewGroupBox_Push.GetWordNameForRegister
 
-class function Tkw_PageSetup_Control_SettingsPageControl.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::SettingsPageControl';
-end;//Tkw_PageSetup_Control_SettingsPageControl.GetWordNameForRegister
-
 function Tkw_PageSetup_Control_SettingsPageControl.GetString: AnsiString;
 begin
  Result := 'SettingsPageControl';
@@ -208,6 +204,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscPageControl);
 end;//Tkw_PageSetup_Control_SettingsPageControl.RegisterInEngine
+
+class function Tkw_PageSetup_Control_SettingsPageControl.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::SettingsPageControl';
+end;//Tkw_PageSetup_Control_SettingsPageControl.GetWordNameForRegister
 
 procedure Tkw_PageSetup_Control_SettingsPageControl_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -242,11 +243,6 @@ begin
  aCtx.rEngine.PushObj(PreviewGroupBox(aCtx, l_aen_PageSetup));
 end;//TkwEnPageSetupPreviewGroupBox.DoDoIt
 
-class function TkwEnPageSetupPreviewGroupBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_PageSetup.PreviewGroupBox';
-end;//TkwEnPageSetupPreviewGroupBox.GetWordNameForRegister
-
 procedure TkwEnPageSetupPreviewGroupBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -267,6 +263,11 @@ function TkwEnPageSetupPreviewGroupBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PageSetup)]);
 end;//TkwEnPageSetupPreviewGroupBox.ParamsTypes
+
+class function TkwEnPageSetupPreviewGroupBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_PageSetup.PreviewGroupBox';
+end;//TkwEnPageSetupPreviewGroupBox.GetWordNameForRegister
 
 function TkwEnPageSetupSettingsPageControl.SettingsPageControl(const aCtx: TtfwContext;
  aen_PageSetup: Ten_PageSetup): TnscPageControl;
@@ -290,11 +291,6 @@ begin
  aCtx.rEngine.PushObj(SettingsPageControl(aCtx, l_aen_PageSetup));
 end;//TkwEnPageSetupSettingsPageControl.DoDoIt
 
-class function TkwEnPageSetupSettingsPageControl.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_PageSetup.SettingsPageControl';
-end;//TkwEnPageSetupSettingsPageControl.GetWordNameForRegister
-
 procedure TkwEnPageSetupSettingsPageControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -315,6 +311,11 @@ function TkwEnPageSetupSettingsPageControl.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PageSetup)]);
 end;//TkwEnPageSetupSettingsPageControl.ParamsTypes
+
+class function TkwEnPageSetupSettingsPageControl.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_PageSetup.SettingsPageControl';
+end;//TkwEnPageSetupSettingsPageControl.GetWordNameForRegister
 
 initialization
  Tkw_Form_PageSetup.RegisterInEngine;

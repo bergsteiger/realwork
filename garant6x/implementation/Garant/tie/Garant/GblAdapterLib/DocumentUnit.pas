@@ -41,6 +41,7 @@ type
  , LO_ENO // Ссылка на ENO
  , LO_AUTOREFERAT // Автореферат
  , LO_SCRIPT // скрипт для К271754146
+ , LO_DELETED_FOLDERS_CONTENT
  );//TLinkedObjectType
 
  IMissingInfo = interface(IUnknown)
@@ -161,9 +162,6 @@ type
   {* Возвращается в случае попытки получения несуществующей редакции объекта. }
  end;//RedactionNotFound
 
- NotAllowedInTrialMode = class
- end;//NotAllowedInTrialMode
-
  TLinkKind = (
   {* Вид хинта }
    LK_INTERNAL_INVALID
@@ -176,6 +174,11 @@ type
  , LK_SCRIPT // ссылка на скрипт
  );//TLinkKind
 
+ TLinkInfo = record
+   kind : TLinkKind; // вид хинта
+   hint : IString;
+ end;//TLinkInfo
+
  InvalidDate = class
  end;//InvalidDate
 
@@ -183,11 +186,6 @@ type
   {* Толковый словарь не установлен в системе.
 Возвращается в случае вызова операции "поиск толкования" и отсутствии в системе толкового словаря. }
  end;//ExplanationDictionaryNotInstalled
-
- TLinkInfo = record
-   kind : TLinkKind; // вид хинта
-   hint : IString;
- end;//TLinkInfo
 
  TFactoryKey = (
    FK_DOCUMENT_MASTER
@@ -304,6 +302,8 @@ type
    procedure GetPrefixTree(aId: TExternalID; out aRet {: INodeBase}); stdcall;
    function ShowSubPanelIcon(aId: TExternalID): ByteBool; stdcall;
      {* Нужно ли показывать иконку для блока на сабпанели }
+   function HasSame(aId: TExternalID): ByteBool; stdcall;
+     {* Если есть похожие к sub вернет true, иначе false. }
  end;//IDocumentTextProvider
 
  IDocumentTextProviderList = array of IDocumentTextProvider;
@@ -362,20 +362,18 @@ type
      {* Доступность операции оценки }
  end;//ILikeable
 
- TLinkType = (
-   LT_DOCUMENT
- , LT_EXTERNAL_OBJECT
- , LT_MULTILINK
- , LT_PHARM_MULTILINK
- , LT_FOLDER
- , LT_EXTERNAL_OPERATION
- , LT_WWW_IMAGE
- , LT_ENO
- , LT_SCRIPT
- , LT_EXTERNAL
- , LT_AUTOREFERAT
- , LT_DECISIONS_ARCHIVE_DOCUMENT
- );//TLinkType
+ TRedactionInfo = record
+  {* Информация о редакции объекта. }
+   name : IString; // Имя редакции.
+   time_machine_date : TDate;
+   doc_date : TDate;
+   is_comparable : Boolean;
+   actual_type : TRedactionType;
+   not_sure_intervals : INotSureIntervalList;
+   active_intervals : IActiveIntervalList;
+   id : TRedactionID;
+   changing_documents : IRedactionSourceDocumentInfoList;
+ end;//TRedactionInfo
 
  TDiffDocPara = record
    text : IString;
@@ -394,19 +392,6 @@ type
    right_text_para_list : IDiffDocParaList; // Измененный фрагмент правой редакции
    left_text_para_list : IDiffDocParaList; // Измененный фрагмент левой редакции
  end;//TChangedBlock
-
- TRedactionInfo = record
-  {* Информация о редакции объекта. }
-   name : IString; // Имя редакции.
-   time_machine_date : TDate;
-   doc_date : TDate;
-   is_comparable : Boolean;
-   actual_type : TRedactionType;
-   not_sure_intervals : INotSureIntervalList;
-   active_intervals : IActiveIntervalList;
-   id : TRedactionID;
-   changing_documents : IRedactionSourceDocumentInfoList;
- end;//TRedactionInfo
 
  IRedactionInfoList = array of TRedactionInfo;
   {* Список редакций. }
@@ -469,7 +454,7 @@ type
     const aId: TTopic;
     aRid: TRedactionID;
     out aObjType: TLinkedObjectType;
-    out aObj: IUnknown); stdcall; // can raise InvalidTopicId, FolderLinkNotFound, NotAllowedInTrialMode
+    out aObj: IUnknown); stdcall; // can raise InvalidTopicId, FolderLinkNotFound
      {* Получить интерфейс объекта, на который указывает гипертекстовая ссылка, по внутреннему идентификатору.
 Возвращается интерфейс на объект (obj) и тип объекта (obj_type).
 Дополнительно можно получить интерфейс (missing_info) с информацией, в каких блоках (базах) содержится отсутствующий объект (метод get_missing_info)
@@ -585,6 +570,8 @@ K555095873 }
    procedure GetLink(aDocId: Cardinal;
     const aId: TTopic;
     aRid: TRedactionID; out aRet {: ILink}); stdcall;
+   procedure GetSameToPoint(aId: TExternalID;
+    out aOutList: ICatalogBase); stdcall;
    property name: IString
      read GetName;
      {* Имя документа. }
@@ -666,9 +653,6 @@ K555095873 }
      read GetDocument;
  end;//IBookmark
 
- AllChangesInTables = class
- end;//AllChangesInTables
-
  IDocumentState = interface(IUnknown)
   {* Интерфейс для работы с редакциями объекта. }
    ['{71C2A950-3D61-44A9-A0FA-845C4A9F5B97}']
@@ -714,7 +698,8 @@ K555095873 }
      {* [$178324034] }
  end;//IDocumentState
 
- TDocumentLayerID = TLayerID;
+ AllChangesInTables = class
+ end;//AllChangesInTables
 
  IJournalBookmark = interface(IEntityBase)
   {* Журнальная закладка }
@@ -737,10 +722,12 @@ K555095873 }
      read GetDocument;
  end;//IJournalBookmark
 
+ TDocumentLayerID = TLayerID;
+
  ILink = interface(IUnknown)
    ['{FBA5DE98-0FAD-4647-B2DE-AB788A6DDFE6}']
    function GetObjectType: TLinkedObjectType; stdcall;
-   procedure GetObject(out aRet {: IUnknown}); stdcall; // can raise InvalidTopicId, FolderLinkNotFound, NotAllowedInTrialMode
+   procedure GetObject(out aRet {: IUnknown}); stdcall; // can raise InvalidTopicId, FolderLinkNotFound
    function GetLinkInfo: TLinkInfo; stdcall;
    procedure GetLinkedHint(out aRet {: IString}); stdcall;
    function GetKind: TLinkKind; stdcall;
@@ -769,6 +756,12 @@ K555095873 }
    function GetChangedBlockCount: Cardinal; stdcall;
    function GetChangedBlock(aI: Cardinal): TChangedBlock; stdcall;
  end;//IDiffDocDataProvider
+
+ IObjectFromLink = interface(IUnknown)
+   ['{51778307-FE15-45BF-9A86-62A66BF81725}']
+   procedure GetObject(out aRet {: IUnknown}); stdcall;
+   function GetObjectType: TLinkedObjectType; stdcall;
+ end;//IObjectFromLink
 
 implementation
 

@@ -2,6 +2,7 @@ unit destWrite2Parent;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destWrite2Parent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdestWrite2Parent" MUID: (54E3046A00AE)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

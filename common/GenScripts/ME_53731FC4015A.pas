@@ -2,6 +2,7 @@ unit evBitmapEliminator4Tests;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evBitmapEliminator4Tests.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevBitmapEliminator4Tests" MUID: (53731FC4015A)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

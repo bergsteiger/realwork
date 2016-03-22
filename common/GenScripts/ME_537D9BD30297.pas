@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmContainedForm.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmContainedForm" MUID: (537D9BD30297)
+// Имя типа: "_vcmContainedForm_"
 
 {$Define vcmContainedForm_imp}
 
@@ -319,7 +321,7 @@ function _vcmContainedForm_.OpenNew(aOpenKind: TvcmMainFormOpenKind;
 //#UC END# *5566B69D025F_537D9BD30297_var*
 begin
 //#UC START# *5566B69D025F_537D9BD30297_impl*
- Result := DoOpenNew(aOpenKind);
+ Result := DoOpenNew(aOpenKind, aOpenLast, aOpenAfter);
 //#UC END# *5566B69D025F_537D9BD30297_impl*
 end;//_vcmContainedForm_.OpenNew
 

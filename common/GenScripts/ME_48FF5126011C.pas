@@ -3,6 +3,7 @@ unit nsAdapterFilters;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsAdapterFilters.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsAdapterFilters" MUID: (48FF5126011C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

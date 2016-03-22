@@ -1,58 +1,41 @@
 unit kwConfigurationGetType;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwConfigurationGetType.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Words::Words::configuration_GetType
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationGetType.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "configuration_GetType" MUID: (53B2DF6C00CA)
+// Имя типа: "TkwConfigurationGetType"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwConfigurationWord,
-  SettingsUnit,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwConfigurationWord
+ , SettingsUnit
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwConfigurationGetType = {final scriptword} class(TkwConfigurationWord)
- protected
- // realized methods
+ TkwConfigurationGetType = {final} class(TkwConfigurationWord)
+  protected
    procedure DoWithConfiguration(const aConfiguration: IConfiguration;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwConfigurationGetType
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  DataAdapter
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwConfigurationGetType
+ l3ImplUses
+ , DataAdapter
+;
 
 procedure TkwConfigurationGetType.DoWithConfiguration(const aConfiguration: IConfiguration;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *53B2E36A0075_53B2DF6C00CA_var*
 //#UC END# *53B2E36A0075_53B2DF6C00CA_var*
 begin
@@ -62,17 +45,13 @@ begin
 end;//TkwConfigurationGetType.DoWithConfiguration
 
 class function TkwConfigurationGetType.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'configuration:GetType';
 end;//TkwConfigurationGetType.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация configuration_GetType
  TkwConfigurationGetType.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация configuration_GetType }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

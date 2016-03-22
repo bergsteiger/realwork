@@ -2,6 +2,7 @@ unit RubricatorInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Rubricator\RubricatorInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "RubricatorInterfaces" MUID: (4E7AFECB03CB)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

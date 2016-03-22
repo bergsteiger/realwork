@@ -1,8 +1,11 @@
 Unit Dt_BBLog;
 
-{ $Id: DT_BBLOG.PAS,v 1.70 2015/08/13 11:13:54 lukyanets Exp $ }
+{ $Id: DT_BBLOG.PAS,v 1.71 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: DT_BBLOG.PAS,v $
+// Revision 1.71  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.70  2015/08/13 11:13:54  lukyanets
 // Читаем из полей
 //
@@ -300,7 +303,9 @@ uses
   l3Base,
   l3Nodes,
   l3String,
-  l3TreeInterfaces, 
+  l3TreeInterfaces,
+
+  daSchemeConsts, 
 
   HT_Dll,
   Dt_Err,

@@ -3,6 +3,7 @@ unit nsHAFPainter;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsHAFPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsHAFPainter" MUID: (47F2317F015E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

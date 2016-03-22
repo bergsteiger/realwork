@@ -2,6 +2,7 @@ unit NOT_FINISHED_CustEditWin;
 
 // Модуль: "w:\archi\source\projects\Archi\Main\NOT_FINISHED_CustEditWin.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "CustEditWin" MUID: (4E5C897703B1)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

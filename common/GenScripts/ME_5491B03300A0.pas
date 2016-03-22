@@ -3,6 +3,8 @@ unit K585129079_NSRC_EAST_EUROPE;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\K585129079_NSRC_EAST_EUROPE.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K585129079_NSRC_EAST_EUROPE" MUID: (5491B03300A0)
+// Имя типа: "TK585129079_NSRC_EAST_EUROPE"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

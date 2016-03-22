@@ -2,6 +2,7 @@ unit Component_p;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\Component_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TComponent" MUID: (53723A470044)
 
 {$Include w:\common\components\l3Define.inc}
 

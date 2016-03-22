@@ -2,6 +2,7 @@ unit FolderSupport;
 
 // Модуль: "w:\common\components\rtl\external\DUnit\src\FolderSupport.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "FolderSupport" MUID: (5136F46C0163)
 
 interface
 

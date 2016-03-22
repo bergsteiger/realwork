@@ -2,6 +2,7 @@ unit Search_Strange_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search_Strange_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "Strange" MUID: (4AE89F8A004B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -29,9 +30,9 @@ type
 
  // Loadable
 
- {$If NOT Defined(Monitorings)}
+{$If NOT Defined(Monitorings)}
  // Filters
- {$IfEnd} // NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(Monitorings)
 
  // SearchParameter
 
@@ -308,7 +309,7 @@ type
     {* Вызов операции Loadable.Load у контейнера }
  end;//Op_Loadable_Load
 
- {$If NOT Defined(Monitorings)}
+{$If NOT Defined(Monitorings)}
  IFilters_GetSelected_Params = interface
   {* Параметры для операции Filters.GetSelected }
   ['{45EE1347-680F-49EE-8526-218AE70AC824}']
@@ -318,9 +319,9 @@ type
    read Get_ResultValue
    write Set_ResultValue;
  end;//IFilters_GetSelected_Params
- {$IfEnd} // NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(Monitorings)
 
- {$If NOT Defined(Monitorings)}
+{$If NOT Defined(Monitorings)}
  Op_Filters_GetSelected = class
   {* Класс для вызова операции Filters.GetSelected }
   public
@@ -333,7 +334,7 @@ type
    class function Call(const aTarget: IvcmContainer): IFiltersFromQuery; overload;
     {* Вызов операции Filters.GetSelected у контейнера }
  end;//Op_Filters_GetSelected
- {$IfEnd} // NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(Monitorings)
 
  Op_SearchParameter_QueryNotSaved = class
   {* Класс для вызова операции SearchParameter.QueryNotSaved }
@@ -545,7 +546,7 @@ type
     {* Фабрика TLoadable_Load_Params }
  end;//TLoadable_Load_Params
 
- {$If NOT Defined(Monitorings)}
+{$If NOT Defined(Monitorings)}
  TFilters_GetSelected_Params = class(Tl3CProtoObject, IFilters_GetSelected_Params)
   {* Реализация IFilters_GetSelected_Params }
   private
@@ -560,7 +561,7 @@ type
    class function Make: IFilters_GetSelected_Params; reintroduce;
     {* Фабрика TFilters_GetSelected_Params }
  end;//TFilters_GetSelected_Params
- {$IfEnd} // NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(Monitorings)
 
 constructor TQuery_ClearAll_Params.Create(aNotClearRange: Boolean);
  {* Конструктор TQuery_ClearAll_Params }

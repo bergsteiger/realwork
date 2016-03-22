@@ -3,6 +3,8 @@ unit ComplexScrollByLines;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\ComplexScrollByLines.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "ComplexScrollByLines" MUID: (4C1B135F02B0)
+// Имя типа: "TComplexScrollByLines"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

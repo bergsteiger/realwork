@@ -2,6 +2,7 @@ unit daSchemeConsts;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daSchemeConsts.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "daSchemeConsts" MUID: (5654635F0268)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

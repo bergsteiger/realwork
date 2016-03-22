@@ -2,6 +2,7 @@ unit kwCompiledTryFinally;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledTryFinally.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledTryFinally" MUID: (4DBAC56C017C)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

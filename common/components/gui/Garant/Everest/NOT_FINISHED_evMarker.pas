@@ -2,6 +2,7 @@ unit NOT_FINISHED_evMarker;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evMarker.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevMarker" MUID: (4A38AB2A00E2)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

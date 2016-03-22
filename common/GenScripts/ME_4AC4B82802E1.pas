@@ -3,6 +3,7 @@ unit vcmIEntityFormPtrList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmIEntityFormPtrList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmIEntityFormPtrList" MUID: (4AC4B82802E1)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

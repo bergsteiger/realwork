@@ -3,6 +3,8 @@ unit kwPopEditorParaHome;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaHome.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_ParaHome" MUID: (4F73173A01D7)
+// Имя типа: "TkwPopEditorParaHome"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\SandBox\UnrefcountedListPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "UnrefcountedListPrim" MUID: (51DED02E0163)
+// Имя типа: "_UnrefcountedListPrim_"
 
 {$Define UnrefcountedListPrim_imp}
 

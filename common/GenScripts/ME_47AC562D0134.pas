@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "k2HashTag" MUID: (47AC562D0134)
+// Имя типа: "_k2HashTag_"
 
 {$Define k2HashTag_imp}
 
@@ -20,7 +22,6 @@
   {* Одна из реализаций хранилища тегов. }
   private
    f_SubAtoms: _HashType_;
-    {* Поле для свойства SubAtoms }
   protected
    procedure ClearAtoms;
    {$If NOT Defined(k2TagIsAtomic)}

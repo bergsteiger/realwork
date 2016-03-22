@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Map.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3Map" MUID: (5609096C03BE)
+// Имя типа: "_l3Map_"
 
 {$Define l3Map_imp}
 

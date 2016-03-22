@@ -3,6 +3,7 @@ unit NOT_FINISHED_dd_lcTextStyleCorrector;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcTextStyleCorrector.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tdd_lcTextStyleCorrector" MUID: (4EBB9B9402C6)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

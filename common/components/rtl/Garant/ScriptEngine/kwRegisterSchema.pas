@@ -2,6 +2,7 @@ unit kwRegisterSchema;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwRegisterSchema.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwRegisterSchema" MUID: (53C7C38A011C)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

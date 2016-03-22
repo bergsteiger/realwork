@@ -53,6 +53,7 @@ type
    f_ParamCount : Integer;
    f_Start : Integer;
    f_ParserAction : TddParseParamAction;
+   f_WasQuoter : Boolean;
    f_TagID : Integer;
     {* Поле для свойства TagID}
  private
@@ -74,6 +75,8 @@ type
    function CheckServiceDocID(aDocID: Integer): Boolean;
      {* Исключаем ссылки на служебные топики с www-ссылками }
    procedure AddWidthValue;
+   procedure AnalyseBorder;
+   procedure AnalyseTextTransform;
  protected
  // property methods
    function pm_GetTagID: Integer; virtual;
@@ -93,8 +96,10 @@ type
      {* Проверяет есть ли данные в теге. }
    function HasKey(anKeyID: TddHTMLParamID;
      var aParam: TddHTMLParam): Boolean;
-   procedure AlnalyseValue(aHRefSeacher: Tl3RegularSearch);
+   procedure AlnalyseValue(aHRefSeacher: Tl3RegularSearch;
+     aClosed: Boolean);
    function Param2PCharLen(const aParam: TddHTMLParam): Tl3PCharLen;
+   procedure Assign(aTag: TddHTMLTag);
  public
  // public properties
    property TagID: Integer
@@ -132,7 +137,7 @@ begin
   begin
    Result := i;
    Break;
-  end;
+  end; // if l3Compare(carHTMLParamStrArray[i], l_FindStr, l3_siCaseUnsensitive) = 0 then
 //#UC END# *5241837B0215_524159C700FE_impl*
 end;//TddHTMLTag.GetKeyID
 
@@ -146,6 +151,11 @@ begin
 //#UC START# *5242C2B50032_524159C700FE_impl*
  l_ParamType := aValue;
  if l_ParamType = dd_paridUnknown then Exit;
+ if GetPrevParamType = dd_paridFindNext then
+ begin
+  f_ParamsList.DeleteLast;
+  Dec(f_ParamCount);
+ end; // if GetPrevParamType = dd_paridFindNext then
  l_Param.rType := dd_parKey;
  l_Param.rKeyValue := l_ParamType;
  f_ParamsList.Add(l_Param);
@@ -211,7 +221,7 @@ begin
   begin
    Result := f_ParamsList[i].rKeyValue;
    Exit;
-  end;
+  end; // if f_ParamsList[i].rType = dd_parKey then
 //#UC END# *5242C6280096_524159C700FE_impl*
 end;//TddHTMLTag.GetPrevParamType
 
@@ -225,20 +235,30 @@ begin
 //#UC START# *5242CC830209_524159C700FE_impl*
  if f_Start = -1 then Exit;
  if aKeyValue then
-  AddKeyValue(GetKeyID)
+ begin
+  AddKeyValue(GetKeyID);
+  f_WasQuoter := False;
+ end // if aKeyValue then
  else
  begin
   l_ParamType := GetPrevParamType;
   if l_ParamType = dd_paridUnknown then Exit;
   case l_ParamType of
    dd_paridHREF: AddStringValue(aHRefSeacher);
+   dd_paridNAME: AddStringValue(aHRefSeacher);
    dd_paridALIGN: AddAlignValue;
    dd_paridVALIGN: AddVAlignValue;
    dd_paridCOLSPAN: AddIntValue(aHRefSeacher);
    dd_paridROWSPAN: AddIntValue(aHRefSeacher);
-   dd_paridSTYLE: AddStringValue(aHRefSeacher);
+   dd_paridSTYLE,
+   dd_paridBorderBottom,
+   dd_paridBorderTop,
+   dd_paridBorderLeft,
+   dd_paridBorderRight: AddStringValue(aHRefSeacher);
+   dd_paridTextTransform: AnalyseTextTransform;
    dd_paridWIDTH: AddWidthValue;
    dd_paridCLASS: AddStringValue(aHRefSeacher);
+   dd_paridID: AddStringValue(aHRefSeacher);
    dd_paridCHARSET: AddStringValue(aHRefSeacher);
    dd_paridSRC: AddStringValue(aHRefSeacher);
   end; // case l_ParamType of
@@ -275,7 +295,7 @@ begin
   begin
    l_NewParam.rCharset := ddHTMLCodePage2CodePage(i);
    Break;
-  end;
+  end; // if l3Compare(carHTMLCodePage[i], l_FindStr, l3_siCaseUnsensitive) = 0 then
  f_ParamsList.DeleteLast;
  f_ParamsList.Add(l_NewParam);
 //#UC END# *5243DC4B004C_524159C700FE_impl*
@@ -300,6 +320,9 @@ begin
    l_Param.rVAlign := i;
    Break;
   end; // if l3Compare(carHTMLVAign[i], l_FindStr, l3_siCaseUnsensitive) = 0 then
+ if l_Param.rVAlign = cellTop then
+  if l3Compare(carHTMLAign[justC], l_FindStr, l3_siCaseUnsensitive) = 0 then 
+   l_Param.rVAlign := cellCenter;
  f_ParamsList.Add(l_Param);
  f_Start := -1;
  f_ParserAction := dd_ppaAddNewValue;
@@ -358,7 +381,14 @@ begin
   // Исключаем ссылки на служебные топики с www-ссылками
   if CheckServiceDocID(l_NewParam.rDocID) then
    l_NewParam.rDocID := 0;
- end;
+ end // if aHRefSeacher.SearchInString(l_HREFStr.S, 0, l_HREFStr.SLen, l_REPosition) and
+ else
+  if (l_Param.rStart > -1) and (l_Param.rStart <> l_Param.rFinish) then
+  begin
+   l_NewParam.rType := dd_parHREFURL;
+   l_NewParam.rStartURL := l_Param.rStart;
+   l_NewParam.rFinishURL := l_Param.rFinish;
+  end; // if (l_Param.rStart > -1) and (l_Param.rStart <> l_Param.rFinish) then
  f_ParamsList.DeleteLast;
  f_ParamsList.Add(l_NewParam);
 //#UC END# *524564CF0269_524159C700FE_impl*
@@ -366,6 +396,14 @@ end;//TddHTMLTag.AnalyseHREF
 
 procedure TddHTMLTag.AnalyseStyle;
 //#UC START# *525BAB8C0005_524159C700FE_var*
+
+ procedure lp_ClearLastParam;
+ begin
+  f_ParamsList.DeleteLast; // Удаляем строковое значение...
+  f_ParamsList.DeleteLast; // Удаляем ключевое слово стиля...
+  Dec(f_ParamCount);
+ end;
+
 var
  l_Param    : TddHTMLParam;
  l_AlignStr : Tl3PCharLen;
@@ -377,19 +415,56 @@ begin
  l_AlignStr := l3PCharLenPart(f_ParamsString.St, l_Param.rStart, l_Param.rFinish, f_ParamsString.CodePage);
  if l3Compare(csHTMLTextAlign, l_AlignStr, l3_siCaseUnsensitive) = 0 then
  begin
-  f_ParamsList.DeleteLast; // Удаляем строковое значение...
-  f_ParamsList.DeleteLast; // Удаляем ключевое слово стиля...
-  Dec(f_ParamCount);
+  lp_ClearLastParam;
   AddKeyValue(dd_paridALIGN);
  end; // if l3Compare(carHTMLParamStrArray[i], l_FindStr, l3_siCaseUnsensitive) = 0 then
  l_AlignStr.SLen := l_AlignStr.SLen - 1;
  if l3Compare(carHTMLParamStrArray[dd_paridWIDTH], l_AlignStr, l3_siCaseUnsensitive) = 0 then
  begin
-  f_ParamsList.DeleteLast; // Удаляем строковое значение...
-  f_ParamsList.DeleteLast; // Удаляем ключевое слово стиля...
-  Dec(f_ParamCount);
+  lp_ClearLastParam;
   AddKeyValue(dd_paridWIDTH);
- end; // if l3Compare(carHTMLParamStrArray[i], l_FindStr, l3_siCaseUnsensitive) = 0 then
+ end // if l3Compare(carHTMLParamStrArray[i], l_FindStr, l3_siCaseUnsensitive) = 0 then
+ else
+  if l3Starts(carHTMLParamStrArray[dd_paridWIDTH], l_AlignStr, True) then
+  begin
+   lp_ClearLastParam;
+   AddKeyValue(dd_paridWIDTH);
+   f_Start := l_Param.rStart + carHTMLParamStrArray[dd_paridWIDTH].SLen + 1; // Разделитель...
+   if f_ParamsString.Last = cc_SemiColon then
+    f_ParamsString.Delete(f_ParamsString.Len - 1, 1);
+   TryAddValue(false, nil);
+   AddKeyValue(dd_paridSTYLE);
+  end // if l3Starts(carHTMLParamStrArray[dd_paridWIDTH], l_AlignStr, True) then
+  else
+  if l3Starts(carHTMLParamStrArray[dd_paridTextTransform], l_AlignStr, True) then
+  begin
+   lp_ClearLastParam;
+   AddKeyValue(dd_paridTextTransform);
+  end // if l3Pos(l_ParamName, carCSSParamStrArray[dd_csBorderBottom]) <> l3NotFound then
+  else
+  if l3Starts(carHTMLParamStrArray[dd_paridBorderBottom], l_AlignStr, True) then
+  begin
+   lp_ClearLastParam;
+   AddKeyValue(dd_paridBorderBottom);
+  end // if l3Pos(l_ParamName, carCSSParamStrArray[dd_csBorderBottom]) <> l3NotFound then
+  else
+  if l3Starts(carHTMLParamStrArray[dd_paridBorderTop], l_AlignStr, True) then
+  begin
+   lp_ClearLastParam;
+   AddKeyValue(dd_paridBorderTop);
+  end // if l3Pos(l_ParamName, carCSSParamStrArray[dd_csBorderBottom]) <> l3NotFound then
+  else
+  if l3Starts(carHTMLParamStrArray[dd_paridBorderLeft], l_AlignStr, True) then
+  begin
+   lp_ClearLastParam;
+   AddKeyValue(dd_paridBorderLeft);
+  end // if l3Pos(l_ParamName, carCSSParamStrArray[dd_paridBorderLeft]) <> l3NotFound then
+  else
+  if l3Starts(carHTMLParamStrArray[dd_paridBorderRight], l_AlignStr, True) then
+  begin
+   lp_ClearLastParam;
+   AddKeyValue(dd_paridBorderRight);
+  end; // if l3Pos(l_ParamName, carCSSParamStrArray[dd_paridBorderRight]) <> l3NotFound then
 //#UC END# *525BAB8C0005_524159C700FE_impl*
 end;//TddHTMLTag.AnalyseStyle
 
@@ -414,7 +489,7 @@ begin
   begin
    l_Param.rAlign := i;
    Break;
-  end;
+  end; // if l3Compare(carHTMLAign[i], l_FindStr, l3_siCaseUnsensitive) = 0 then
  f_ParamsList.Add(l_Param);
  f_Start := -1;
  f_ParserAction := dd_ppaAddNewValue;
@@ -486,6 +561,28 @@ var
    end;
  end;
 
+ procedure lp_CheckLen;
+ var
+  l_Enter   : Integer;
+  l_SepPos  : Integer;
+  l_SpacePos: Integer;
+ begin
+  l_SpacePos := ev_lpCharIndex(cc_HardSpace, l_TimeStr);
+  l_SepPos := ev_lpCharIndex(cc_SemiColon, l_TimeStr);
+  l_Enter := ev_lpCharIndex(cc_HardEnter, l_TimeStr);
+  if (l_SpacePos > 0) then
+   if l_SepPos > 0 then
+    l_SepPos := Min(l_SepPos, l_SpacePos)
+   else
+    l_SepPos := l_SpacePos;
+  if l_SepPos > 0 then
+   l_TimeStr.SLen := l_SepPos;
+  if l_Enter > 0 then
+   l_TimeStr.SLen := Min(l_Enter, l_TimeStr.SLen);
+ end;
+
+const
+ cnPersentDef = 1;
 var
  l_Value  : Integer;
  l_SepPos : Integer;
@@ -495,41 +592,133 @@ begin
  if not CanAddNewValue then Exit;
  l_ValType := css_vtNone;
  l_TimeStr := l3PCharLenPart(f_ParamsString.St, f_Start, f_ParamsString.Len, f_ParamsString.CodePage);
- l_SepPos := ev_lpCharIndex(cc_HardSpace, l_TimeStr);
- if l_SepPos > 0 then
-  l_TimeStr.SLen := l_SepPos;
+ lp_CheckLen;
  l_ValType := lp_CheckValueType;
  l_SepPos := ev_lpCharIndex(cc_Dot, l_TimeStr);
  if l_SepPos > 0 then
   l_TimeStr.SLen := l_SepPos;
- l_Value := l3StrToIntDef(l_TimeStr, propUndefined);
+ if l_ValType = css_vtPercent then
+  l_Value := l3StrToIntDef(l_TimeStr, cnPersentDef)
+ else
+  l_Value := l3StrToIntDef(l_TimeStr, propUndefined);
  l_Value := lp_CorrectvalueByValueType(l_Value, l_ValType);
  lp_AddValue(l_Value);
 //#UC END# *53984619001D_524159C700FE_impl*
 end;//TddHTMLTag.AddWidthValue
+
+procedure TddHTMLTag.AnalyseBorder;
+//#UC START# *56A071C8034A_524159C700FE_var*
+var
+ l_Prev   : TddHTMLParam;
+ l_Param  : TddHTMLParam;
+ l_FindStr: Tl3PCharLen;
+//#UC END# *56A071C8034A_524159C700FE_var*
+begin
+//#UC START# *56A071C8034A_524159C700FE_impl*
+ l_Param.rHasBorder := False;
+ if not IsNil then
+ begin
+  l_Prev := f_ParamsList.Last;
+  if (l_Prev.rType = dd_parString) then
+   f_ParamsList.DeleteLast
+ end; // if not IsNil then
+ if not IsNil then
+ begin
+  l_Param := f_ParamsList.Last;
+  if (l_Param.rType = dd_parBorderPart) then
+   f_ParamsList.DeleteLast;
+ end; // if not IsNil then
+ l_Param.rType := dd_parBorderPart;
+ l_FindStr := l3PCharLenPart(f_ParamsString.St, f_Start, f_ParamsString.Len, f_ParamsString.CodePage);
+ if l3Compare(carHTMLBorderStyle, l_FindStr, l3_siCaseUnsensitive) = 0 then
+  l_Param.rHasBorder := True;
+ f_ParamsList.Add(l_Param);
+ f_Start := -1;
+ f_ParserAction := dd_ppaAddNewValue;
+ if f_ParamsString.Last = cc_SemiColon then
+  AddKeyValue(dd_paridSTYLE);
+//#UC END# *56A071C8034A_524159C700FE_impl*
+end;//TddHTMLTag.AnalyseBorder
+
+procedure TddHTMLTag.AnalyseTextTransform;
+//#UC START# *56E7C2C2036E_524159C700FE_var*
+var
+ l_Prev   : TddHTMLParam;
+ l_Param  : TddHTMLParam;
+ l_FindStr: Tl3PCharLen;
+//#UC END# *56E7C2C2036E_524159C700FE_var*
+begin
+//#UC START# *56E7C2C2036E_524159C700FE_impl*
+ l_Param.rTransform := ccNone;
+ if not IsNil then
+ begin
+  l_Prev := f_ParamsList.Last;
+  if (l_Prev.rType = dd_parString) then
+   f_ParamsList.DeleteLast
+ end; // if not IsNil then
+ if not IsNil then
+ begin
+  l_Param := f_ParamsList.Last;
+  if (l_Param.rType = dd_parTextTransform) then
+   f_ParamsList.DeleteLast;
+ end; // if not IsNil then
+ l_Param.rType := dd_parTextTransform;
+ l_FindStr := l3PCharLenPart(f_ParamsString.St, f_Start, f_ParamsString.Len, f_ParamsString.CodePage);
+ if l3Compare(carHTMLTransform[ccAllCaps], l_FindStr, l3_siCaseUnsensitive) = 0 then
+  l_Param.rTransform := ccAllCaps;
+ if l3Compare(carHTMLTransform[ccSmallCaps], l_FindStr, l3_siCaseUnsensitive) = 0 then
+  l_Param.rTransform := ccSmallCaps;
+ f_ParamsList.Add(l_Param);
+ f_Start := -1;
+ f_ParserAction := dd_ppaAddNewValue;
+ if f_ParamsString.Last = cc_SemiColon then
+  AddKeyValue(dd_paridSTYLE);
+//#UC END# *56E7C2C2036E_524159C700FE_impl*
+end;//TddHTMLTag.AnalyseTextTransform
 
 procedure TddHTMLTag.AddChar(aChar: AnsiChar;
   aHRefSeacher: Tl3RegularSearch);
 //#UC START# *52415AC40279_524159C700FE_var*
 const
  csIgnoreChars = cc_WhiteSpaceExt + [cc_HardEnter, cc_SoftEnter] + cc_Quotes;
+var
+ l_Closed: Boolean;
 //#UC END# *52415AC40279_524159C700FE_var*
 begin
 //#UC START# *52415AC40279_524159C700FE_impl*
  if aChar in csIgnoreChars then
  begin
-  AlnalyseValue(aHRefSeacher);
+  l_Closed := False;
+  if (aChar in cc_Quotes) then
+    if f_WasQuoter then
+    begin
+     f_WasQuoter := False;
+     if (f_ParserAction  = dd_ppaAddNewValue) then
+      f_Start := f_ParamsString.Len;
+     TryAddValue(False, aHRefSeacher);
+     l_Closed := True;
+    end // if f_WasQuoter then
+    else
+    begin
+     f_WasQuoter := True;
+     if f_Start = -1 then
+      f_Start := f_ParamsString.Len;
+    end; // if (f_ParserAction  = dd_ppaAddNewValue) then
+  AlnalyseValue(aHRefSeacher, l_Closed);
   f_ParserAction := dd_ppaAddNewValue;
  end // if aChar in csIgnoreChars then
  else
  begin
-  if aChar in [cc_Equal, cc_SemiColon] then
-   TryAddValue(aChar = cc_Equal, aHRefSeacher)
-  else
-   if aChar = cc_PercentSign then
-    TryAddPercent
+  if GetPrevParamType = dd_paridHREF then
+   f_ParserAction := dd_ppaExtendString
+  else 
+   if aChar in [cc_Equal, cc_SemiColon] then
+    TryAddValue(aChar = cc_Equal, aHRefSeacher)
    else
-    f_ParserAction := dd_ppaExtendString;
+    if aChar = cc_PercentSign then
+     TryAddPercent
+    else
+     f_ParserAction := dd_ppaExtendString;
   f_ParamsString.Append(aChar);
  end; // if not (aChar in csIgnoreChars) then
 //#UC END# *52415AC40279_524159C700FE_impl*
@@ -546,6 +735,7 @@ begin
  f_ParamCount := 0;
  f_ParamsList := TddParamsList.Create; 
  f_ParamsString := Tl3String.Create;
+ f_WasQuoter := False;
 //#UC END# *52415BC2014B_524159C700FE_impl*
 end;//TddHTMLTag.Create
 
@@ -605,7 +795,8 @@ begin
 //#UC END# *52417862037A_524159C700FE_impl*
 end;//TddHTMLTag.HasKey
 
-procedure TddHTMLTag.AlnalyseValue(aHRefSeacher: Tl3RegularSearch);
+procedure TddHTMLTag.AlnalyseValue(aHRefSeacher: Tl3RegularSearch;
+  aClosed: Boolean);
 //#UC START# *5243D88E026F_524159C700FE_var*
 var
  l_ParamType: TddHTMLParamID;
@@ -620,7 +811,23 @@ begin
    dd_paridCHARSET: AnalyseCharSet;
    dd_paridHREF: AnalyseHREF(aHRefSeacher);
    dd_paridSTYLE: AnalyseStyle;
-   dd_paridCLASS: AddStringValue(aHRefSeacher);
+   dd_paridBorderBottom: AnalyseBorder;
+   dd_paridBorderTop: AnalyseBorder;
+   dd_paridBorderLeft: AnalyseBorder;
+   dd_paridBorderRight: AnalyseBorder;
+   dd_paridTextTransform: AnalyseTextTransform;
+   dd_paridCLASS: begin
+                   if aClosed then
+                    AddKeyValue(dd_paridFindNext)
+                   else
+                    AddStringValue(aHRefSeacher);
+                  end;
+   dd_paridID: begin
+                if aClosed then
+                 AddKeyValue(dd_paridFindNext)
+                else
+                 AddStringValue(aHRefSeacher);
+               end;
   end;
  end; // if not IsNil
  f_ParserAction := dd_ppaAddNewValue;
@@ -632,9 +839,25 @@ function TddHTMLTag.Param2PCharLen(const aParam: TddHTMLParam): Tl3PCharLen;
 //#UC END# *525CD0F20229_524159C700FE_var*
 begin
 //#UC START# *525CD0F20229_524159C700FE_impl*
- Result := l3PCharLenPart(f_ParamsString.St, aParam.rStart, aParam.rFinish, f_ParamsString.CodePage);
+ if aParam.rType = dd_parHREFURL then
+  Result := l3PCharLenPart(f_ParamsString.St, aParam.rStartURL, aParam.rFinishURL, f_ParamsString.CodePage)
+ else
+  Result := l3PCharLenPart(f_ParamsString.St, aParam.rStart, aParam.rFinish, f_ParamsString.CodePage);
 //#UC END# *525CD0F20229_524159C700FE_impl*
 end;//TddHTMLTag.Param2PCharLen
+
+procedure TddHTMLTag.Assign(aTag: TddHTMLTag);
+//#UC START# *56BC693D00CE_524159C700FE_var*
+//#UC END# *56BC693D00CE_524159C700FE_var*
+begin
+//#UC START# *56BC693D00CE_524159C700FE_impl*
+ f_TagID := aTag.f_TagID;
+ f_ParamsString.Assign(aTag.f_ParamsString);
+ f_ParamsList.Assign(aTag.f_ParamsList);
+ f_ParamCount := aTag.f_ParamCount;
+ f_Start := aTag.f_Start;
+//#UC END# *56BC693D00CE_524159C700FE_impl*
+end;//TddHTMLTag.Assign
 // start class TddParamsList
 
 {$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
@@ -713,6 +936,7 @@ begin
  f_ParamCount := 0;
  l3Free(f_ParamsList);
  l3Free(f_ParamsString);
+ f_WasQuoter := False;
  inherited;
 //#UC END# *479731C50290_524159C700FE_impl*
 end;//TddHTMLTag.Cleanup

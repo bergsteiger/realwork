@@ -2,6 +2,7 @@ unit NOT_FINISHED_nscTabTableCell;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscTabTableCell.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nscTabTableCell" MUID: (4AD59B96038C)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

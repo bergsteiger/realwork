@@ -1,12 +1,15 @@
-// $Id: ddKTExtractor.pas,v 1.39 2015/07/02 07:36:05 lukyanets Exp $
+// $Id: ddKTExtractor.pas,v 1.40 2015/11/25 14:01:46 lukyanets Exp $
 
 { Библиотека "DD"    }
 { Автор: БабанинВ.      }
 { Модуль: ddKTExtractor - вынимает "ключевые темы" (КТ) из текста документа, формат словаря описан в [K:168231952]}
 { Начат: 12.01.2004 19:54 }
-{ $Id: ddKTExtractor.pas,v 1.39 2015/07/02 07:36:05 lukyanets Exp $ }
+{ $Id: ddKTExtractor.pas,v 1.40 2015/11/25 14:01:46 lukyanets Exp $ }
 
 // $Log: ddKTExtractor.pas,v $
+// Revision 1.40  2015/11/25 14:01:46  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.39  2015/07/02 07:36:05  lukyanets
 // Описываем словари
 //
@@ -227,6 +230,7 @@ uses
 
  {m4WordIDStr}
  daTypes,
+ daSchemeConsts,
  HT_Const,
  dt_Misc,
  DT_Dict, DT_Const,

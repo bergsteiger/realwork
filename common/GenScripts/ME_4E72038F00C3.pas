@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevFontTool.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevFontTool" MUID: (4E72038F00C3)
+// Имя типа: "_nevFontTool_"
 
 {$Define nevFontTool_imp}
 

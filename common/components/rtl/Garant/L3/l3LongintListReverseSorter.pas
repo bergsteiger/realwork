@@ -3,6 +3,7 @@ unit l3LongintListReverseSorter;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3LongintListReverseSorter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3LongintListReverseSorter" MUID: (4DEFC02E01CF)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

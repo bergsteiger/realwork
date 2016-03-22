@@ -2,6 +2,7 @@ unit nsExportToWordEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsExportToWordEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsExportToWordEvent" MUID: (4B0B99CA0261)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

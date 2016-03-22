@@ -2,6 +2,7 @@ unit kwInsertFromStreamCommon;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwInsertFromStreamCommon.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwInsertFromStreamCommon" MUID: (52650217029A)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -1,70 +1,58 @@
 unit kwPopEditorAlignCellsBoundary;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwPopEditorAlignCellsBoundary.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::EditorKeyWords::pop_editor_AlignCellsBoundary
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorAlignCellsBoundary.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_AlignCellsBoundary" MUID: (4FC7144702FC)
+// Имя типа: "TkwPopEditorAlignCellsBoundary"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  kwEditorFromStackWord,
-  evCellWidthCorrecterSpy,
-  evCustomEditorWindow
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , evCellWidthCorrecterSpy
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwPopEditorAlignCellsBoundary = {final scriptword} class(TkwEditorFromStackWord, IevCellsWidthCorrecterLogger)
- private
- // private fields
-   f_OutputFileName : AnsiString;
-   f_ScriptCaller : ItfwScriptCaller;
- protected
- // realized methods
+ TkwPopEditorAlignCellsBoundary = {final} class(TkwEditorFromStackWord, IevCellsWidthCorrecterLogger)
+  private
+   f_OutputFileName: AnsiString;
+   f_ScriptCaller: ItfwScriptCaller;
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
+    anEditor: TevCustomEditorWindow); override;
    function OpenLog: AnsiString;
    procedure CloseLog(const aLogName: AnsiString);
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorAlignCellsBoundary
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  evCommonUtils,
-  SysUtils,
-  StrUtils,
-  evCustomEditor
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwPopEditorAlignCellsBoundary
+ l3ImplUses
+ , evCommonUtils
+ , SysUtils
+ , StrUtils
+ , evCustomEditor
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorAlignCellsBoundary.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4FC7144702FC_var*
 //#UC END# *4F4CB81200CA_4FC7144702FC_var*
 begin
@@ -113,27 +101,20 @@ begin
 //#UC END# *4FC707E401BA_4FC7144702FC_impl*
 end;//TkwPopEditorAlignCellsBoundary.CloseLog
 
+procedure TkwPopEditorAlignCellsBoundary.ClearFields;
+begin
+ f_ScriptCaller := nil;
+ inherited;
+end;//TkwPopEditorAlignCellsBoundary.ClearFields
+
 class function TkwPopEditorAlignCellsBoundary.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:AlignCellsBoundary';
 end;//TkwPopEditorAlignCellsBoundary.GetWordNameForRegister
 
-procedure TkwPopEditorAlignCellsBoundary.ClearFields;
- {-}
-begin
- {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
- f_ScriptCaller := nil;
- {$IfEnd} //InsiderTest AND nsTest AND not NoScripts
- inherited;
-end;//TkwPopEditorAlignCellsBoundary.ClearFields
-
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация pop_editor_AlignCellsBoundary
  TkwPopEditorAlignCellsBoundary.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация pop_editor_AlignCellsBoundary }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

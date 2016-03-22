@@ -2,6 +2,7 @@ unit nsPrimCacheableNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsPrimCacheableNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsPrimCacheableNode" MUID: (4ADDF42201A2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

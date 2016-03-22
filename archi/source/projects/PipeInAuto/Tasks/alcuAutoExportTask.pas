@@ -19,7 +19,7 @@ type
  TalcuAutoExportTask = class(TalcuAutoExportTaskPrim)
  private
   f_Exporter: TalcuAutoExporter;
-  procedure _OnCalcDone(Sender: TObject; Value: Int64; EmptyCount: Integer);
+  procedure _OnReportEmpty(aSender: TObject; aEmptyCount: Integer);
   procedure _OnTotalCount(aTotalCount: Integer);
   function pm_GetTaskResult: TalcuAutoExportTaskResult;
  protected
@@ -49,6 +49,7 @@ implementation
 uses
  SysUtils,
  DateUtils,
+ StrUtils,
 
  l3LongintList,
 
@@ -134,8 +135,8 @@ begin
  try
   if NeedSendCheckReport then
   begin
-   OnCalculationDone:= _OnCalcDone;
-   OnTotalCount:= _OnTotalCount;
+   OnReportEmpty := _OnReportEmpty;
+   OnTotalCount := _OnTotalCount;
   end;
   Execute(aContext.rProgressor);
  finally
@@ -152,7 +153,7 @@ begin
  inherited;
  if TaskResult.ReportMessage <> '' then
  begin
-   alcuMail.SendEmail(eMailNotifyList, TaskResult.ReportMessage, Description + '. Результаты');
+   alcuMail.SendEmail(eMailNotifyList, TaskResult.ReportMessage, Description + IfThen(TaskResult.IsSuccess, '. Результаты', '. ОШИБКИ'));
    alcuMail.SendEmail(SMSNotifyList, 'Автоматический экспорт завершен', 'Autoexport');
  end;
  if NeedCorrectLastDate then
@@ -204,12 +205,12 @@ begin
 
  CalcDates;
 
+ {$IF not Defined(LUK) and not Defined(SGC)}
  {$IFDEF AEbyBelongs}
  AccGroupsIDList.FromList(Tl3LongintList(ddAppConfiguration.AsObject['aiChangedBases']));
  {$ELSE}
  AccGroupsIDList.FromList(Tl3LongintList(ddAppConfiguration.AsObject['aiAccGroups']));
  {$ENDIF}
- {$IF not Defined(LUK) and not Defined(SGC)}
  AnnoTemplate := ddAppConfiguration.AsString['aiAnnoTemplate'];
  BasesIDList.FromList(Tl3LongintList(ddAppConfiguration.AsObject['aiBases']));
  {$IFEND not Defined(LUK) and not Defined(SGC)}
@@ -241,6 +242,7 @@ begin
  InfoRelTemplate := ddAppConfiguration.AsString['aiAllRelTemplate'];
  NeedTopicList := True;
  {$IF not Defined(LUK) and not Defined(SGC)}
+ InfoDocsIncludedOnly := ddAppConfiguration.AsBoolean['aiAllExportIncluded'];
  eMailNotifyList := ddAppConfiguration.AsString['aiNotifyList'];
  {$IFEND not Defined(LUK) and not Defined(SGC)}
  PartSize := ddAppConfiguration.AsInteger['AutoIncludedSize'];
@@ -249,17 +251,17 @@ begin
  {$ELSE}
  SMSNotifyList := '';
  {$ENDIF}
+ {$IF not Defined(LUK) and not Defined(SGC)}
  MaxExportCount := ddAppConfiguration.AsInteger['aiTotalCount'];
+ {$IFEND not Defined(LUK) and not Defined(SGC)}
 end;
   {$IfEnd defined(AppServerSide)}
 
-procedure TalcuAutoExportTask._OnCalcDone(Sender: TObject; Value: Int64;
-  EmptyCount: Integer);
+procedure TalcuAutoExportTask._OnReportEmpty(aSender: TObject; aEmptyCount: Integer);
 begin
- if EmptyCount > 0 then
-  alcuMail.SendEmailNotify(eventEmptyDocuments, True,
-                           Format('Обнаружены пустые документы в количестве %d штук', [EmptyCount]),
-                           dd_apsExport);
+ alcuMail.SendEmailNotify(eventEmptyDocuments, True,
+                          Format('Обнаружены пустые документы в количестве %d штук', [aEmptyCount]),
+                          dd_apsExport);
 end;
 
 procedure TalcuAutoExportTask._OnTotalCount(aTotalCount: Integer);

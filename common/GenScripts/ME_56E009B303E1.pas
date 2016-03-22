@@ -2,6 +2,7 @@ unit caField;
 
 // Модуль: "w:\common\components\rtl\Garant\ComboAccess\caField.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcaField" MUID: (56E009B303E1)
 
 {$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 

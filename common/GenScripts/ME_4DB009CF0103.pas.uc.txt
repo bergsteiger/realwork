@@ -421,12 +421,16 @@ var
 //#UC START# *551015680218_4DB009CF0103_var*
 //#UC END# *551015680218_4DB009CF0103_var*
 //#UC START# *55E848EA003D_4DB009CF0103_impl*
+ l_C := Count + aN;
+ if (Capacity < l_C) then
+  Capacity := l_C;
  for l_Index := (Count - aN) to Pred(Count) do
   Add(ItemSlot(l_Index)^);
 //#UC END# *55E848EA003D_4DB009CF0103_impl*
 //#UC START# *55E848EA003D_4DB009CF0103_var*
 var
  l_Index : Integer;
+ l_C : Integer; 
 //#UC END# *55E848EA003D_4DB009CF0103_var*
 //#UC START# *55E84904001E_4DB009CF0103_impl*
  EtfwCheck.IsTrue(Count >= aN, 'Элементов в стеке меньше, чем пытаются удалить');

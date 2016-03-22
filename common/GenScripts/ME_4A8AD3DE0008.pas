@@ -3,6 +3,7 @@ unit OfficeLike_ResultEx_Controls;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_ResultEx_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "ResultEx" MUID: (4A8AD3DE0008)
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

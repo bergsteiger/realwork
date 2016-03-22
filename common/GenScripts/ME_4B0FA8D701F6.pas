@@ -2,6 +2,7 @@ unit nsListPrintEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsListPrintEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsListPrintEvent" MUID: (4B0FA8D701F6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

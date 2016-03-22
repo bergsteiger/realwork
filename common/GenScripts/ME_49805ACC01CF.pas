@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOnTimeMachine.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "TurnOnTimeMachine" MUID: (49805ACC01CF)
+// Имя типа: "_TurnOnTimeMachine_"
 
 {$Define TurnOnTimeMachine_imp}
 

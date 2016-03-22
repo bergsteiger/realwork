@@ -2,6 +2,7 @@ unit htResultSet;
 
 // Модуль: "w:\common\components\rtl\Garant\HT\htResultSet.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ThtResultSet" MUID: (559121CE0393)
 
 {$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 

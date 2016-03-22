@@ -48,6 +48,7 @@ type
    f_AllowClearLocks : Boolean;
    f_ImpersonatedUserID : TdaUserID;
    f_UserManager : IdaUserManager;
+   f_SetGlobalDataProvider : Boolean;
  private
  // private methods
    function DoLongProcessNotify(aState: TdaProcessState): Boolean;
@@ -62,8 +63,8 @@ type
     const aPassword: AnsiString;
     IsRequireAdminRights: Boolean): TdaLoginError;
    procedure InitRegionFromIni(aDefaultRegion: TdaRegionID);
-   function IsRegionExists(aID: TdaRegionID): Boolean;
-   function GetRegionName(aID: TdaRegionID): AnsiString;
+   function IsRegionExists(anID: TdaRegionID): Boolean;
+   function GetRegionName(anID: TdaRegionID): AnsiString;
    procedure FillRegionDataList(aList: Tl3StringDataList;
      Caps: Boolean);
    function Get_BaseName: AnsiString;
@@ -96,6 +97,7 @@ type
    procedure BeginImpersonate(anUserID: TdaUserID);
    procedure EndImpersonate;
    function Get_UserManager: IdaUserManager;
+   function HasJournal: Boolean;
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -104,10 +106,12 @@ type
  // public methods
    constructor Create(aParams: ThtDataProviderParams;
      ForCheckLogin: Boolean;
-     AllowClearLocks: Boolean); reintroduce;
+     AllowClearLocks: Boolean;
+     SetGlobalDataProvider: Boolean = True); reintroduce;
    class function Make(aParams: ThtDataProviderParams;
      ForCheckLogin: Boolean;
-     AllowClearLocks: Boolean): IdaDataProvider; reintroduce;
+     AllowClearLocks: Boolean;
+     SetGlobalDataProvider: Boolean = True): IdaDataProvider; reintroduce;
      {* Сигнатура фабрики ThtDataProvider.Make }
  end;//ThtDataProvider
 
@@ -159,12 +163,14 @@ end;//ThtDataProvider.DoProgressNotify
 
 constructor ThtDataProvider.Create(aParams: ThtDataProviderParams;
   ForCheckLogin: Boolean;
-  AllowClearLocks: Boolean);
+  AllowClearLocks: Boolean;
+  SetGlobalDataProvider: Boolean = True);
 //#UC START# *551938260196_5519351D01BE_var*
 //#UC END# *551938260196_5519351D01BE_var*
 begin
 //#UC START# *551938260196_5519351D01BE_impl*
  inherited Create;
+ f_SetGlobalDataProvider := SetGlobalDataProvider;
  f_DataConverter := ThtDataConverter.Make;
  f_ForCheckLogin := ForCheckLogin;
  f_LongProcessList := TdaLongProcessSubscriberList.Make;
@@ -178,11 +184,12 @@ end;//ThtDataProvider.Create
 
 class function ThtDataProvider.Make(aParams: ThtDataProviderParams;
   ForCheckLogin: Boolean;
-  AllowClearLocks: Boolean): IdaDataProvider;
+  AllowClearLocks: Boolean;
+  SetGlobalDataProvider: Boolean = True): IdaDataProvider;
 var
  l_Inst : ThtDataProvider;
 begin
- l_Inst := Create(aParams, ForCheckLogin, AllowClearLocks);
+ l_Inst := Create(aParams, ForCheckLogin, AllowClearLocks, SetGlobalDataProvider);
  try
   Result := l_Inst;
  finally
@@ -232,21 +239,21 @@ begin
 //#UC END# *551D25D00024_5519351D01BE_impl*
 end;//ThtDataProvider.InitRegionFromIni
 
-function ThtDataProvider.IsRegionExists(aID: TdaRegionID): Boolean;
+function ThtDataProvider.IsRegionExists(anID: TdaRegionID): Boolean;
 //#UC START# *551D2C300060_5519351D01BE_var*
 //#UC END# *551D2C300060_5519351D01BE_var*
 begin
 //#UC START# *551D2C300060_5519351D01BE_impl*
- Result := GlobalHTServer.xxxIsRegionExists(aID);
+ Result := GlobalHTServer.xxxIsRegionExists(anID);
 //#UC END# *551D2C300060_5519351D01BE_impl*
 end;//ThtDataProvider.IsRegionExists
 
-function ThtDataProvider.GetRegionName(aID: TdaRegionID): AnsiString;
+function ThtDataProvider.GetRegionName(anID: TdaRegionID): AnsiString;
 //#UC START# *551D2C3603E0_5519351D01BE_var*
 //#UC END# *551D2C3603E0_5519351D01BE_var*
 begin
 //#UC START# *551D2C3603E0_5519351D01BE_impl*
- Result := GlobalHTServer.xxxGetRegionName(aID);
+ Result := GlobalHTServer.xxxGetRegionName(anID);
 //#UC END# *551D2C3603E0_5519351D01BE_impl*
 end;//ThtDataProvider.GetRegionName
 
@@ -442,11 +449,14 @@ begin
 //#UC START# *5526537A00CE_5519351D01BE_impl*
  if f_IsStarted then
   Exit;
- Assert(GlobalDataProvider = nil);
- if GlobalDataProvider = nil then
+ if f_SetGlobalDataProvider then
  begin
-  SetGlobalDataProvider(Self);
-  f_NeedClearGlobalDataProvider := True;
+  Assert(GlobalDataProvider = nil);
+  if GlobalDataProvider = nil then
+  begin
+   SetGlobalDataProvider(Self);
+   f_NeedClearGlobalDataProvider := True;
+  end;
  end;
  CreateHtEx(f_Params.StationName, f_Params.MakePathRec, f_Params.DocBaseVersion, f_Params.AdminBaseVersion, f_Params.AliasesList, f_ForCheckLogin, f_AllowClearLocks);
  GlobalHTServer.xxxUserID := f_Params.UserID;
@@ -470,6 +480,7 @@ begin
  if Assigned(f_Journal) then
   f_Journal.SessionDone;
  f_Journal := nil;
+ f_UserManager := nil;
  if GlobalHTServer <> nil then
   DestroyHt;
  f_IsStarted := False; 
@@ -552,6 +563,15 @@ begin
  Result := f_UserManager;
 //#UC END# *5628D25600E6_5519351D01BEget_impl*
 end;//ThtDataProvider.Get_UserManager
+
+function ThtDataProvider.HasJournal: Boolean;
+//#UC START# *56F0F6180156_5519351D01BE_var*
+//#UC END# *56F0F6180156_5519351D01BE_var*
+begin
+//#UC START# *56F0F6180156_5519351D01BE_impl*
+ Result := Assigned(f_Journal);
+//#UC END# *56F0F6180156_5519351D01BE_impl*
+end;//ThtDataProvider.HasJournal
 
 procedure ThtDataProvider.Cleanup;
 //#UC START# *479731C50290_5519351D01BE_var*

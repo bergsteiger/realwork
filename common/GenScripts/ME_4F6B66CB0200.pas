@@ -2,6 +2,8 @@ unit Parent_Form;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\Parent_Form.pas"
 // Стереотип: "VCMFinalContainer"
+// Элемент модели: "Parent" MUID: (4F6B66CB0200)
+// Имя типа: "TParentForm"
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 

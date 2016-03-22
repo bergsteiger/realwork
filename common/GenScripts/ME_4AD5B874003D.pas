@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsAppConfig;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Config\NOT_FINISHED_nsAppConfig.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsAppConfig" MUID: (4AD5B874003D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

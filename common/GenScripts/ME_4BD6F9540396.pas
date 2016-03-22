@@ -3,6 +3,7 @@ unit PrimTreeAttributeSelect_astOneLevel_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelect_astOneLevel_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "astOneLevel" MUID: (4BD6F9540396)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -32,26 +33,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_astOneLevel = {final} class(TtfwInteger)
   {* Слово словаря для типа формы astOneLevel }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_astOneLevel
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_astOneLevel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::astOneLevel';
-end;//Tkw_FormUserType_astOneLevel.GetWordNameForRegister
-
 function Tkw_FormUserType_astOneLevel.GetInteger: Integer;
 begin
  Result := astOneLevel;
 end;//Tkw_FormUserType_astOneLevel.GetInteger
+
+class function Tkw_FormUserType_astOneLevel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::astOneLevel';
+end;//Tkw_FormUserType_astOneLevel.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

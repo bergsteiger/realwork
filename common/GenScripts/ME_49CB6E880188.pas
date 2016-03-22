@@ -3,6 +3,7 @@ unit evCellsOffsets;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCellsOffsets.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCellsOffsets" MUID: (49CB6E880188)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

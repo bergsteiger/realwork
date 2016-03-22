@@ -162,8 +162,6 @@ ref; // ME_E654F73164D2 Ml3PopupMenuHelper
 FORWARD ME_04CE71F4AB07
 
 : ME_1FF8AE53688A_ME_04CE71F4AB07
- CONST UID '1FF8AE53688A'
- CONST Name 'GetPopupMenu'
  : Original ME_1FF8AE53688A // GetPopupMenu
  ;
  : Implementor ME_04CE71F4AB07 // Il3PopupMenuHelper
@@ -172,8 +170,6 @@ FORWARD ME_04CE71F4AB07
 ref; // ME_1FF8AE53688A_ME_04CE71F4AB07 GetPopupMenu
 
 : ME_E1C719B751DC_ME_04CE71F4AB07
- CONST UID 'E1C719B751DC'
- CONST Name 'GetPopupMenuForComponentInfo'
  : Original ME_E1C719B751DC // GetPopupMenuForComponentInfo
  ;
  : Implementor ME_04CE71F4AB07 // Il3PopupMenuHelper
@@ -251,23 +247,6 @@ ref; // ME_EFA6EAF6766C TControlFriend
  CONST "pm" true
 
 ref; // ME_A59886A74A23 Alien
-
-: ME_2D9D17149A5C
- CONST UID '2D9D17149A5C'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_550013770000 // Tl3PopupMenuHelper
- ;
- : Target ME_04CE71F4AB07 // Il3PopupMenuHelper
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_2D9D17149A5C f_Alien
 
 : ME_5506BF9E033F
  CONST Name 'aControl'
@@ -362,8 +341,6 @@ ref; // ME_5506BFB302ED GetPopupMenuForComponentInfo
 ref; // ME_5500148103D9 
 
 : ME_1FF8AE53688A_ME_550013770000
- CONST UID '1FF8AE53688A'
- CONST Name 'GetPopupMenu'
  : Original ME_1FF8AE53688A // GetPopupMenu
  ;
  : Implementor ME_550013770000 // Tl3PopupMenuHelper
@@ -372,24 +349,12 @@ ref; // ME_5500148103D9
 ref; // ME_1FF8AE53688A_ME_550013770000 GetPopupMenu
 
 : ME_E1C719B751DC_ME_550013770000
- CONST UID 'E1C719B751DC'
- CONST Name 'GetPopupMenuForComponentInfo'
  : Original ME_E1C719B751DC // GetPopupMenuForComponentInfo
  ;
  : Implementor ME_550013770000 // Tl3PopupMenuHelper
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_E1C719B751DC_ME_550013770000 GetPopupMenuForComponentInfo
-
-: ME_5000565C019C_ME_550013770000
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_550013770000 // Tl3PopupMenuHelper
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_550013770000 ClearFields
 
 : ME_550013770000
  CONST UID '550013770000'
@@ -411,7 +376,6 @@ ref; // ME_5000565C019C_ME_550013770000 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_A59886A74A23 // Alien
- ME_2D9D17149A5C // f_Alien
  )
  ; // Attributes
  : Operations
@@ -424,10 +388,6 @@ ref; // ME_5000565C019C_ME_550013770000 ClearFields
  ME_E1C719B751DC_ME_550013770000 // GetPopupMenuForComponentInfo
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_550013770000 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_5514099B0316 // Tl3PopupMenuHelperCallback
  ME_E654F73164D2 // Ml3PopupMenuHelper
@@ -505,8 +465,6 @@ ref; // ME_622F6A2DA951 Ml3CloseFormHelper
 FORWARD ME_7ED31A3A9A99
 
 : ME_A1E64DB467E3_ME_7ED31A3A9A99
- CONST UID 'A1E64DB467E3'
- CONST Name 'Close'
  : Original ME_A1E64DB467E3 // Close
  ;
  : Implementor ME_7ED31A3A9A99 // Il3CloseFormHelper
@@ -559,23 +517,6 @@ ref; // ME_7ED31A3A9A99 Il3CloseFormHelper
 
 ref; // ME_F6AF6D2F477A Alien
 
-: ME_4B1B99FAC447
- CONST UID '4B1B99FAC447'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55014D810077 // Tl3CloseFormHelper
- ;
- : Target ME_7ED31A3A9A99 // Il3CloseFormHelper
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_4B1B99FAC447 f_Alien
-
 : ME_5506BFFA037E
  CONST Name 'aControl'
  CONST Class class_Parameter
@@ -614,24 +555,12 @@ ref; // ME_5506BFF50385 Close
 ref; // ME_5501605B0022 
 
 : ME_A1E64DB467E3_ME_55014D810077
- CONST UID 'A1E64DB467E3'
- CONST Name 'Close'
  : Original ME_A1E64DB467E3 // Close
  ;
  : Implementor ME_55014D810077 // Tl3CloseFormHelper
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_A1E64DB467E3_ME_55014D810077 Close
-
-: ME_5000565C019C_ME_55014D810077
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_55014D810077 // Tl3CloseFormHelper
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_55014D810077 ClearFields
 
 : ME_55014D810077
  CONST UID '55014D810077'
@@ -653,7 +582,6 @@ ref; // ME_5000565C019C_ME_55014D810077 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_F6AF6D2F477A // Alien
- ME_4B1B99FAC447 // f_Alien
  )
  ; // Attributes
  : Operations
@@ -664,10 +592,6 @@ ref; // ME_5000565C019C_ME_55014D810077 ClearFields
    Seq: ( ME_A1E64DB467E3_ME_55014D810077 // Close
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_55014D810077 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_622F6A2DA951 // Ml3CloseFormHelper
  ME_7ED31A3A9A99 // Il3CloseFormHelper
@@ -743,8 +667,6 @@ ref; // ME_2B0D8771E8B2 Ml3FormatActionInfoHelper
 FORWARD ME_19259CFA643D
 
 : ME_781F06EEA149_ME_19259CFA643D
- CONST UID '781F06EEA149'
- CONST Name 'Format'
  : Original ME_781F06EEA149 // Format
  ;
  : Implementor ME_19259CFA643D // Il3FormatActionInfoHelper
@@ -797,23 +719,6 @@ ref; // ME_19259CFA643D Il3FormatActionInfoHelper
 
 ref; // ME_AA18E44208D9 Alien
 
-: ME_128EEA84FC35
- CONST UID '128EEA84FC35'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_551442110069 // Tl3FormatActionInfoHelper
- ;
- : Target ME_19259CFA643D // Il3FormatActionInfoHelper
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_128EEA84FC35 f_Alien
-
 : ME_5514426501EC
  CONST Name 'anAction'
  CONST Class class_Parameter
@@ -842,24 +747,12 @@ ref; // ME_5514426501EC anAction
 ref; // ME_5514424D01A2 Format
 
 : ME_781F06EEA149_ME_551442110069
- CONST UID '781F06EEA149'
- CONST Name 'Format'
  : Original ME_781F06EEA149 // Format
  ;
  : Implementor ME_551442110069 // Tl3FormatActionInfoHelper
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_781F06EEA149_ME_551442110069 Format
-
-: ME_5000565C019C_ME_551442110069
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_551442110069 // Tl3FormatActionInfoHelper
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_551442110069 ClearFields
 
 : ME_551442110069
  CONST UID '551442110069'
@@ -881,7 +774,6 @@ ref; // ME_5000565C019C_ME_551442110069 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_AA18E44208D9 // Alien
- ME_128EEA84FC35 // f_Alien
  )
  ; // Attributes
  : Operations
@@ -892,10 +784,6 @@ ref; // ME_5000565C019C_ME_551442110069 ClearFields
    Seq: ( ME_781F06EEA149_ME_551442110069 // Format
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_551442110069 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_2B0D8771E8B2 // Ml3FormatActionInfoHelper
  ME_19259CFA643D // Il3FormatActionInfoHelper
@@ -1115,8 +1003,6 @@ ref; // ME_59B170ED03AC Ml3HugeMessageDlgWithWikiHelper
 FORWARD ME_765520F9F4F4
 
 : ME_03211FE23BF3_ME_765520F9F4F4
- CONST UID '03211FE23BF3'
- CONST Name 'Say'
  : Original ME_03211FE23BF3 // Say
  ;
  : Implementor ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
@@ -1125,8 +1011,6 @@ FORWARD ME_765520F9F4F4
 ref; // ME_03211FE23BF3_ME_765520F9F4F4 Say
 
 : ME_3CDB8D32C712_ME_765520F9F4F4
- CONST UID '3CDB8D32C712'
- CONST Name 'FormatCloak'
  : Original ME_3CDB8D32C712 // FormatCloak
  ;
  : Implementor ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
@@ -1135,8 +1019,6 @@ ref; // ME_03211FE23BF3_ME_765520F9F4F4 Say
 ref; // ME_3CDB8D32C712_ME_765520F9F4F4 FormatCloak
 
 : ME_5AFFFDE1F6AB_ME_765520F9F4F4
- CONST UID '5AFFFDE1F6AB'
- CONST Name 'FormatLink'
  : Original ME_5AFFFDE1F6AB // FormatLink
  ;
  : Implementor ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
@@ -1145,8 +1027,6 @@ ref; // ME_3CDB8D32C712_ME_765520F9F4F4 FormatCloak
 ref; // ME_5AFFFDE1F6AB_ME_765520F9F4F4 FormatLink
 
 : ME_CDCC556698E5_ME_765520F9F4F4
- CONST UID 'CDCC556698E5'
- CONST Name 'CanUseWiki'
  : Original ME_CDCC556698E5 // CanUseWiki
  ;
  : Implementor ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
@@ -1201,23 +1081,6 @@ ref; // ME_765520F9F4F4 Il3HugeMessageDlgWithWikiHelper
  CONST "pm" true
 
 ref; // ME_B33E4E9D6324 Alien
-
-: ME_1753B166638D
- CONST UID '1753B166638D'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
- ;
- : Target ME_765520F9F4F4 // Il3HugeMessageDlgWithWikiHelper
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_1753B166638D f_Alien
 
 : ME_551543BA03AF
  CONST Name 'aText'
@@ -1393,8 +1256,6 @@ ref; // ME_55154F03034C
 ref; // ME_551572D4034A 
 
 : ME_03211FE23BF3_ME_551542E902F5
- CONST UID '03211FE23BF3'
- CONST Name 'Say'
  : Original ME_03211FE23BF3 // Say
  ;
  : Implementor ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
@@ -1403,8 +1264,6 @@ ref; // ME_551572D4034A
 ref; // ME_03211FE23BF3_ME_551542E902F5 Say
 
 : ME_3CDB8D32C712_ME_551542E902F5
- CONST UID '3CDB8D32C712'
- CONST Name 'FormatCloak'
  : Original ME_3CDB8D32C712 // FormatCloak
  ;
  : Implementor ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
@@ -1413,8 +1272,6 @@ ref; // ME_03211FE23BF3_ME_551542E902F5 Say
 ref; // ME_3CDB8D32C712_ME_551542E902F5 FormatCloak
 
 : ME_5AFFFDE1F6AB_ME_551542E902F5
- CONST UID '5AFFFDE1F6AB'
- CONST Name 'FormatLink'
  : Original ME_5AFFFDE1F6AB // FormatLink
  ;
  : Implementor ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
@@ -1423,24 +1280,12 @@ ref; // ME_3CDB8D32C712_ME_551542E902F5 FormatCloak
 ref; // ME_5AFFFDE1F6AB_ME_551542E902F5 FormatLink
 
 : ME_CDCC556698E5_ME_551542E902F5
- CONST UID 'CDCC556698E5'
- CONST Name 'CanUseWiki'
  : Original ME_CDCC556698E5 // CanUseWiki
  ;
  : Implementor ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_CDCC556698E5_ME_551542E902F5 CanUseWiki
-
-: ME_5000565C019C_ME_551542E902F5
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_551542E902F5 // Tl3HugeMessageDlgWithWikiHelper
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_551542E902F5 ClearFields
 
 : ME_551542E902F5
  CONST UID '551542E902F5'
@@ -1462,7 +1307,6 @@ ref; // ME_5000565C019C_ME_551542E902F5 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_B33E4E9D6324 // Alien
- ME_1753B166638D // f_Alien
  )
  ; // Attributes
  : Operations
@@ -1479,10 +1323,6 @@ ref; // ME_5000565C019C_ME_551542E902F5 ClearFields
  ME_CDCC556698E5_ME_551542E902F5 // CanUseWiki
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_551542E902F5 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_5515434903D6 // Tl3WikiLinkClicked
  ME_59B170ED03AC // Ml3HugeMessageDlgWithWikiHelper
@@ -1712,8 +1552,6 @@ ref; // ME_8F612712D29F Ml3IterateComponentParents
 FORWARD ME_7D793C9B4E2A
 
 : ME_3410F441967F_ME_7D793C9B4E2A
- CONST UID '3410F441967F'
- CONST Name 'IterateF'
  : Original ME_3410F441967F // IterateF
  ;
  : Implementor ME_7D793C9B4E2A // Il3IterateComponentParents
@@ -1767,23 +1605,6 @@ ref; // ME_7D793C9B4E2A Il3IterateComponentParents
  CONST "pm" true
 
 ref; // ME_A40B60CED801 Alien
-
-: ME_33A73AC9104F
- CONST UID '33A73AC9104F'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_551AA9BD01EE // Tl3IterateComponentParents
- ;
- : Target ME_7D793C9B4E2A // Il3IterateComponentParents
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_33A73AC9104F f_Alien
 
 FORWARD ME_551AAAFB036B
 
@@ -1853,8 +1674,6 @@ ref; // ME_551C4D0802D4
 ref; // ME_551AAAFB036B Iterate
 
 : ME_3410F441967F_ME_551AA9BD01EE
- CONST UID '3410F441967F'
- CONST Name 'IterateF'
  : Original ME_3410F441967F // IterateF
  ;
  : Implementor ME_551AA9BD01EE // Tl3IterateComponentParents
@@ -1863,16 +1682,6 @@ ref; // ME_551AAAFB036B Iterate
  CONST "needs index" 'undefined'
  CONST "needs result" 'undefined'
 ref; // ME_3410F441967F_ME_551AA9BD01EE IterateF
-
-: ME_5000565C019C_ME_551AA9BD01EE
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_551AA9BD01EE // Tl3IterateComponentParents
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_551AA9BD01EE ClearFields
 
 : ME_551AA9BD01EE
  CONST UID '551AA9BD01EE'
@@ -1894,7 +1703,6 @@ ref; // ME_5000565C019C_ME_551AA9BD01EE ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_A40B60CED801 // Alien
- ME_33A73AC9104F // f_Alien
  )
  ; // Attributes
  : Operations
@@ -1905,10 +1713,6 @@ ref; // ME_5000565C019C_ME_551AA9BD01EE ClearFields
    Seq: ( ME_3410F441967F_ME_551AA9BD01EE // IterateF
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_551AA9BD01EE // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_8F612712D29F // Ml3IterateComponentParents
  ME_7D793C9B4E2A // Il3IterateComponentParents
@@ -2001,8 +1805,6 @@ ref; // ME_A24A217A2949 Ml3GetComponentFromPointHelper
 FORWARD ME_90623703A4D4
 
 : ME_77F02E022F3C_ME_90623703A4D4
- CONST UID '77F02E022F3C'
- CONST Name 'GetComponent'
  : Original ME_77F02E022F3C // GetComponent
  ;
  : Implementor ME_90623703A4D4 // Il3GetComponentFromPointHelper
@@ -2055,23 +1857,6 @@ ref; // ME_90623703A4D4 Il3GetComponentFromPointHelper
 
 ref; // ME_6F7428A13918 Alien
 
-: ME_5FB63B69F422
- CONST UID '5FB63B69F422'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_551AB8CA014A // Tl3GetComponentFromPointHelper
- ;
- : Target ME_90623703A4D4 // Il3GetComponentFromPointHelper
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_5FB63B69F422 f_Alien
-
 : ME_551ABA3E0014
  CONST Name 'aPoint'
  CONST Class class_Parameter
@@ -2119,24 +1904,12 @@ ref; // ME_551AD6E100F1 aBindedControl
 ref; // ME_551ABA0A0154 GetComponent
 
 : ME_77F02E022F3C_ME_551AB8CA014A
- CONST UID '77F02E022F3C'
- CONST Name 'GetComponent'
  : Original ME_77F02E022F3C // GetComponent
  ;
  : Implementor ME_551AB8CA014A // Tl3GetComponentFromPointHelper
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_77F02E022F3C_ME_551AB8CA014A GetComponent
-
-: ME_5000565C019C_ME_551AB8CA014A
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_551AB8CA014A // Tl3GetComponentFromPointHelper
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_551AB8CA014A ClearFields
 
 : ME_551AB8CA014A
  CONST UID '551AB8CA014A'
@@ -2158,7 +1931,6 @@ ref; // ME_5000565C019C_ME_551AB8CA014A ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_6F7428A13918 // Alien
- ME_5FB63B69F422 // f_Alien
  )
  ; // Attributes
  : Operations
@@ -2169,10 +1941,6 @@ ref; // ME_5000565C019C_ME_551AB8CA014A ClearFields
    Seq: ( ME_77F02E022F3C_ME_551AB8CA014A // GetComponent
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_551AB8CA014A // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_A24A217A2949 // Ml3GetComponentFromPointHelper
  ME_90623703A4D4 // Il3GetComponentFromPointHelper
@@ -2266,8 +2034,6 @@ ref; // ME_6FB88E211F27 Ml3FormatObjectInfoHelper
 FORWARD ME_5DD0A3AA9AB2
 
 : ME_D4A861440DBF_ME_5DD0A3AA9AB2
- CONST UID 'D4A861440DBF'
- CONST Name 'Format'
  : Original ME_D4A861440DBF // Format
  ;
  : Implementor ME_5DD0A3AA9AB2 // Il3FormatObjectInfoHelper
@@ -2319,23 +2085,6 @@ ref; // ME_5DD0A3AA9AB2 Il3FormatObjectInfoHelper
  CONST "pm" true
 
 ref; // ME_AAFCC3202173 Alien
-
-: ME_5CDD3FE24911
- CONST UID '5CDD3FE24911'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
- ;
- : Target ME_5DD0A3AA9AB2 // Il3FormatObjectInfoHelper
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_5CDD3FE24911 f_Alien
 
 : ME_551BE08301D7
  CONST Name 'anObject'
@@ -2455,24 +2204,12 @@ ref; // ME_551BE86403E7
 ref; // ME_551BE8F600B4 
 
 : ME_D4A861440DBF_ME_551BCBFD0240
- CONST UID 'D4A861440DBF'
- CONST Name 'Format'
  : Original ME_D4A861440DBF // Format
  ;
  : Implementor ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_D4A861440DBF_ME_551BCBFD0240 Format
-
-: ME_5000565C019C_ME_551BCBFD0240
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_551BCBFD0240 // Tl3FormatObjectInfoHelper
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_551BCBFD0240 ClearFields
 
 : ME_551BCBFD0240
  CONST UID '551BCBFD0240'
@@ -2494,7 +2231,6 @@ ref; // ME_5000565C019C_ME_551BCBFD0240 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_AAFCC3202173 // Alien
- ME_5CDD3FE24911 // f_Alien
  )
  ; // Attributes
  : Operations
@@ -2505,10 +2241,6 @@ ref; // ME_5000565C019C_ME_551BCBFD0240 ClearFields
    Seq: ( ME_D4A861440DBF_ME_551BCBFD0240 // Format
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_551BCBFD0240 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_6FB88E211F27 // Ml3FormatObjectInfoHelper
  ME_5DD0A3AA9AB2 // Il3FormatObjectInfoHelper
@@ -2576,8 +2308,6 @@ ref; // ME_358069CF953D Ml3GetCaptureHelper
 FORWARD ME_23B04EF2BA04
 
 : ME_FC96CEF34C46_ME_23B04EF2BA04
- CONST UID 'FC96CEF34C46'
- CONST Name 'GetCapture'
  : Original ME_FC96CEF34C46 // GetCapture
  ;
  : Implementor ME_23B04EF2BA04 // Il3GetCaptureHelper
@@ -2630,23 +2360,6 @@ ref; // ME_23B04EF2BA04 Il3GetCaptureHelper
 
 ref; // ME_EC748CF7BFB4 Alien
 
-: ME_CBB0543C43F4
- CONST UID 'CBB0543C43F4'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_55226C5F035A // Tl3GetCaptureHelper
- ;
- : Target ME_23B04EF2BA04 // Il3GetCaptureHelper
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_CBB0543C43F4 f_Alien
-
 : ME_55226C7E01C4
  CONST UID '55226C7E01C4'
  CONST Name 'GetCapture'
@@ -2672,24 +2385,12 @@ ref; // ME_55226C7E01C4 GetCapture
 ref; // ME_5523DAD002EB 
 
 : ME_FC96CEF34C46_ME_55226C5F035A
- CONST UID 'FC96CEF34C46'
- CONST Name 'GetCapture'
  : Original ME_FC96CEF34C46 // GetCapture
  ;
  : Implementor ME_55226C5F035A // Tl3GetCaptureHelper
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_FC96CEF34C46_ME_55226C5F035A GetCapture
-
-: ME_5000565C019C_ME_55226C5F035A
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_55226C5F035A // Tl3GetCaptureHelper
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_55226C5F035A ClearFields
 
 : ME_55226C5F035A
  CONST UID '55226C5F035A'
@@ -2711,7 +2412,6 @@ ref; // ME_5000565C019C_ME_55226C5F035A ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_EC748CF7BFB4 // Alien
- ME_CBB0543C43F4 // f_Alien
  )
  ; // Attributes
  : Operations
@@ -2722,10 +2422,6 @@ ref; // ME_5000565C019C_ME_55226C5F035A ClearFields
    Seq: ( ME_FC96CEF34C46_ME_55226C5F035A // GetCapture
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_55226C5F035A // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_358069CF953D // Ml3GetCaptureHelper
  ME_23B04EF2BA04 // Il3GetCaptureHelper
@@ -2801,8 +2497,6 @@ ref; // ME_EFEB3610D6E5 Ml3GetComponentBoundsHelper
 FORWARD ME_DFD91650A75C
 
 : ME_BB0BB5CAA29B_ME_DFD91650A75C
- CONST UID 'BB0BB5CAA29B'
- CONST Name 'GetBounds'
  : Original ME_BB0BB5CAA29B // GetBounds
  ;
  : Implementor ME_DFD91650A75C // Il3GetComponentBoundsHelper
@@ -2855,23 +2549,6 @@ ref; // ME_DFD91650A75C Il3GetComponentBoundsHelper
 
 ref; // ME_412CE1E38B75 Alien
 
-: ME_413F9C6CA746
- CONST UID '413F9C6CA746'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5522D7A90252 // Tl3GetComponentBoundsHelper
- ;
- : Target ME_DFD91650A75C // Il3GetComponentBoundsHelper
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_413F9C6CA746 f_Alien
-
 : ME_5522D7EF02AB
  CONST Name 'aComponent'
  CONST Class class_Parameter
@@ -2910,24 +2587,12 @@ ref; // ME_5522D7D800FE GetBounds
 ref; // ME_5522D89E03B2 
 
 : ME_BB0BB5CAA29B_ME_5522D7A90252
- CONST UID 'BB0BB5CAA29B'
- CONST Name 'GetBounds'
  : Original ME_BB0BB5CAA29B // GetBounds
  ;
  : Implementor ME_5522D7A90252 // Tl3GetComponentBoundsHelper
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_BB0BB5CAA29B_ME_5522D7A90252 GetBounds
-
-: ME_5000565C019C_ME_5522D7A90252
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_5522D7A90252 // Tl3GetComponentBoundsHelper
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_5522D7A90252 ClearFields
 
 : ME_5522D7A90252
  CONST UID '5522D7A90252'
@@ -2949,7 +2614,6 @@ ref; // ME_5000565C019C_ME_5522D7A90252 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_412CE1E38B75 // Alien
- ME_413F9C6CA746 // f_Alien
  )
  ; // Attributes
  : Operations
@@ -2960,10 +2624,6 @@ ref; // ME_5000565C019C_ME_5522D7A90252 ClearFields
    Seq: ( ME_BB0BB5CAA29B_ME_5522D7A90252 // GetBounds
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_5522D7A90252 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_EFEB3610D6E5 // Ml3GetComponentBoundsHelper
  ME_DFD91650A75C // Il3GetComponentBoundsHelper
@@ -3152,8 +2812,6 @@ ref; // ME_556F25AF0144
 ref; // ME_556F3C8C0144 
 
 : ME_46A60D7A02E4_ME_556F25860097
- CONST UID '46A60D7A02E4'
- CONST Name 'Size'
  : Original WL 'ME_46A60D7A02E4' '4677FBA70343.pas.ms.script' // Size
  ;
  : Implementor ME_556F25860097 // Tl3ControlFontInfo
@@ -3163,8 +2821,6 @@ ref; // ME_556F3C8C0144
 ref; // ME_46A60D7A02E4_ME_556F25860097 Size
 
 : ME_46A60E2802E4_ME_556F25860097
- CONST UID '46A60E2802E4'
- CONST Name 'Name'
  : Original WL 'ME_46A60E2802E4' '4677FBA70343.pas.ms.script' // Name
  ;
  : Implementor ME_556F25860097 // Tl3ControlFontInfo
@@ -3174,8 +2830,6 @@ ref; // ME_46A60D7A02E4_ME_556F25860097 Size
 ref; // ME_46A60E2802E4_ME_556F25860097 Name
 
 : ME_46A60E58013F_ME_556F25860097
- CONST UID '46A60E58013F'
- CONST Name 'Bold'
  : Original WL 'ME_46A60E58013F' '4677FBA70343.pas.ms.script' // Bold
  ;
  : Implementor ME_556F25860097 // Tl3ControlFontInfo
@@ -3185,8 +2839,6 @@ ref; // ME_46A60E2802E4_ME_556F25860097 Name
 ref; // ME_46A60E58013F_ME_556F25860097 Bold
 
 : ME_46A60E740045_ME_556F25860097
- CONST UID '46A60E740045'
- CONST Name 'Italic'
  : Original WL 'ME_46A60E740045' '4677FBA70343.pas.ms.script' // Italic
  ;
  : Implementor ME_556F25860097 // Tl3ControlFontInfo
@@ -3196,8 +2848,6 @@ ref; // ME_46A60E58013F_ME_556F25860097 Bold
 ref; // ME_46A60E740045_ME_556F25860097 Italic
 
 : ME_46A60EA6032C_ME_556F25860097
- CONST UID '46A60EA6032C'
- CONST Name 'Underline'
  : Original WL 'ME_46A60EA6032C' '4677FBA70343.pas.ms.script' // Underline
  ;
  : Implementor ME_556F25860097 // Tl3ControlFontInfo
@@ -3207,8 +2857,6 @@ ref; // ME_46A60E740045_ME_556F25860097 Italic
 ref; // ME_46A60EA6032C_ME_556F25860097 Underline
 
 : ME_46A60EBF03BE_ME_556F25860097
- CONST UID '46A60EBF03BE'
- CONST Name 'Strikeout'
  : Original WL 'ME_46A60EBF03BE' '4677FBA70343.pas.ms.script' // Strikeout
  ;
  : Implementor ME_556F25860097 // Tl3ControlFontInfo
@@ -3218,8 +2866,6 @@ ref; // ME_46A60EA6032C_ME_556F25860097 Underline
 ref; // ME_46A60EBF03BE_ME_556F25860097 Strikeout
 
 : ME_46A60ED90325_ME_556F25860097
- CONST UID '46A60ED90325'
- CONST Name 'ForeColor'
  : Original WL 'ME_46A60ED90325' '4677FBA70343.pas.ms.script' // ForeColor
  ;
  : Implementor ME_556F25860097 // Tl3ControlFontInfo
@@ -3229,8 +2875,6 @@ ref; // ME_46A60EBF03BE_ME_556F25860097 Strikeout
 ref; // ME_46A60ED90325_ME_556F25860097 ForeColor
 
 : ME_46A60EF300C9_ME_556F25860097
- CONST UID '46A60EF300C9'
- CONST Name 'BackColor'
  : Original WL 'ME_46A60EF300C9' '4677FBA70343.pas.ms.script' // BackColor
  ;
  : Implementor ME_556F25860097 // Tl3ControlFontInfo
@@ -3240,8 +2884,6 @@ ref; // ME_46A60ED90325_ME_556F25860097 ForeColor
 ref; // ME_46A60EF300C9_ME_556F25860097 BackColor
 
 : ME_46A60F63035F_ME_556F25860097
- CONST UID '46A60F63035F'
- CONST Name 'Pitch'
  : Original WL 'ME_46A60F63035F' '4677FBA70343.pas.ms.script' // Pitch
  ;
  : Implementor ME_556F25860097 // Tl3ControlFontInfo
@@ -3251,8 +2893,6 @@ ref; // ME_46A60EF300C9_ME_556F25860097 BackColor
 ref; // ME_46A60F63035F_ME_556F25860097 Pitch
 
 : ME_46A60F89031E_ME_556F25860097
- CONST UID '46A60F89031E'
- CONST Name 'Index'
  : Original WL 'ME_46A60F89031E' '4677FBA70343.pas.ms.script' // Index
  ;
  : Implementor ME_556F25860097 // Tl3ControlFontInfo
@@ -3262,8 +2902,6 @@ ref; // ME_46A60F63035F_ME_556F25860097 Pitch
 ref; // ME_46A60F89031E_ME_556F25860097 Index
 
 : ME_479731C50290_ME_556F25860097
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_556F25860097 // Tl3ControlFontInfo
@@ -3385,8 +3023,6 @@ ref; // ME_6CEEDAAA8451 Ml3ControlFontService
 FORWARD ME_5B1EBFCEA918
 
 : ME_B31F486B3A13_ME_5B1EBFCEA918
- CONST UID 'B31F486B3A13'
- CONST Name 'GetFont'
  : Original ME_B31F486B3A13 // GetFont
  ;
  : Implementor ME_5B1EBFCEA918 // Il3ControlFontService
@@ -3439,23 +3075,6 @@ ref; // ME_5B1EBFCEA918 Il3ControlFontService
 
 ref; // ME_CE4655B375ED Alien
 
-: ME_A1050C164039
- CONST UID 'A1050C164039'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_556F24A80035 // Tl3ControlFontService
- ;
- : Target ME_5B1EBFCEA918 // Il3ControlFontService
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_A1050C164039 f_Alien
-
 : ME_556F24EF0347
  CONST Name 'aControl'
  CONST Class class_Parameter
@@ -3484,24 +3103,12 @@ ref; // ME_556F24EF0347 aControl
 ref; // ME_556F24D50369 GetFont
 
 : ME_B31F486B3A13_ME_556F24A80035
- CONST UID 'B31F486B3A13'
- CONST Name 'GetFont'
  : Original ME_B31F486B3A13 // GetFont
  ;
  : Implementor ME_556F24A80035 // Tl3ControlFontService
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_B31F486B3A13_ME_556F24A80035 GetFont
-
-: ME_5000565C019C_ME_556F24A80035
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_556F24A80035 // Tl3ControlFontService
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_556F24A80035 ClearFields
 
 : ME_556F24A80035
  CONST UID '556F24A80035'
@@ -3523,7 +3130,6 @@ ref; // ME_5000565C019C_ME_556F24A80035 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_CE4655B375ED // Alien
- ME_A1050C164039 // f_Alien
  )
  ; // Attributes
  : Operations
@@ -3534,10 +3140,6 @@ ref; // ME_5000565C019C_ME_556F24A80035 ClearFields
    Seq: ( ME_B31F486B3A13_ME_556F24A80035 // GetFont
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_556F24A80035 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_556F25860097 // Tl3ControlFontInfo
  ME_6CEEDAAA8451 // Ml3ControlFontService

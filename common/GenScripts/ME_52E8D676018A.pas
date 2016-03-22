@@ -3,6 +3,7 @@ program AutoPipeServer;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\AutoPipeServer.dpr"
 // Стереотип: "ExeTarget"
+// Элемент модели: "AutoPipeServer" MUID: (52E8D676018A)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

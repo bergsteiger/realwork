@@ -27,8 +27,7 @@ uses
   ,
   Controls
   {$IfEnd} //not NoVCL
-  ,
-  l3Units
+  
   ;
 
 type
@@ -40,10 +39,9 @@ type
  // overridden protected methods
    procedure Cleanup; override;
      {* Функция очистки полей объекта. }
-   function GetCaret: Il3Caret; override;
    procedure Invalidate; override;
- public
- // overridden public methods
+     {* Сигнатура метода Invalidate }
+   function GetCaret: Il3Caret; override;
    function DoGetClientRect: Tl3Rect; override;
  public
  // public methods
@@ -52,6 +50,10 @@ type
  end;//Tl3ControlCanvas
 
 implementation
+
+uses
+  l3Units
+  ;
 
 // start class Tl3ControlCanvas
 
@@ -76,35 +78,35 @@ begin
 //#UC END# *479731C50290_48C68AC60396_impl*
 end;//Tl3ControlCanvas.Cleanup
 
-function Tl3ControlCanvas.GetCaret: Il3Caret;
-//#UC START# *47DFB3CE02C5_48C68AC60396_var*
-//#UC END# *47DFB3CE02C5_48C68AC60396_var*
-begin
-//#UC START# *47DFB3CE02C5_48C68AC60396_impl*
- Result := f_Caret;
-//#UC END# *47DFB3CE02C5_48C68AC60396_impl*
-end;//Tl3ControlCanvas.GetCaret
-
 procedure Tl3ControlCanvas.Invalidate;
-//#UC START# *4FAE47320103_48C68AC60396_var*
-//#UC END# *4FAE47320103_48C68AC60396_var*
+//#UC START# *56B0BB0501B9_48C68AC60396_var*
+//#UC END# *56B0BB0501B9_48C68AC60396_var*
 begin
-//#UC START# *4FAE47320103_48C68AC60396_impl*
+//#UC START# *56B0BB0501B9_48C68AC60396_impl*
  inherited;
  TControl(Owner).Invalidate;
-//#UC END# *4FAE47320103_48C68AC60396_impl*
+//#UC END# *56B0BB0501B9_48C68AC60396_impl*
 end;//Tl3ControlCanvas.Invalidate
 
+function Tl3ControlCanvas.GetCaret: Il3Caret;
+//#UC START# *56B49F030225_48C68AC60396_var*
+//#UC END# *56B49F030225_48C68AC60396_var*
+begin
+//#UC START# *56B49F030225_48C68AC60396_impl*
+ Result := f_Caret;
+//#UC END# *56B49F030225_48C68AC60396_impl*
+end;//Tl3ControlCanvas.GetCaret
+
 function Tl3ControlCanvas.DoGetClientRect: Tl3Rect;
-//#UC START# *4FAE4C740135_48C68AC60396_var*
+//#UC START# *56B4D83B00EC_48C68AC60396_var*
 var
  R: Tl3SRect;
-//#UC END# *4FAE4C740135_48C68AC60396_var*
+//#UC END# *56B4D83B00EC_48C68AC60396_var*
 begin
-//#UC START# *4FAE4C740135_48C68AC60396_impl*
+//#UC START# *56B4D83B00EC_48C68AC60396_impl*
  R.R.WR := TControl(Owner).ClientRect;
  Result := DR2LR(R);
-//#UC END# *4FAE4C740135_48C68AC60396_impl*
+//#UC END# *56B4D83B00EC_48C68AC60396_impl*
 end;//Tl3ControlCanvas.DoGetClientRect
 
 end.

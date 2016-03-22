@@ -3,6 +3,7 @@ unit FoldersElementInfoKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\FoldersElementInfoKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "FoldersElementInfoKeywordsPack" MUID: (F42993E6E810)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -50,8 +51,8 @@ type
 'aControl' форма::FoldersElementInfo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_FoldersElementInfo
 
  Tkw_FoldersElementInfo_Control_CommentPanel = {final} class(TtfwControlString)
@@ -62,9 +63,9 @@ type
 контрол::CommentPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_CommentPanel
 
  Tkw_FoldersElementInfo_Control_CommentPanel_Push = {final} class(TkwBynameControlPush)
@@ -87,9 +88,9 @@ type
 контрол::ElementComment TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_ElementComment
 
  Tkw_FoldersElementInfo_Control_ElementComment_Push = {final} class(TkwBynameControlPush)
@@ -112,9 +113,9 @@ type
 контрол::CaptionPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_CaptionPanel
 
  Tkw_FoldersElementInfo_Control_CaptionPanel_Push = {final} class(TkwBynameControlPush)
@@ -137,9 +138,9 @@ type
 контрол::lblComment TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_lblComment
 
  Tkw_FoldersElementInfo_Control_lblComment_Push = {final} class(TkwBynameControlPush)
@@ -162,9 +163,9 @@ type
 контрол::TopPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_TopPanel
 
  Tkw_FoldersElementInfo_Control_TopPanel_Push = {final} class(TkwBynameControlPush)
@@ -187,9 +188,9 @@ type
 контрол::NamePanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_NamePanel
 
  Tkw_FoldersElementInfo_Control_NamePanel_Push = {final} class(TkwBynameControlPush)
@@ -212,9 +213,9 @@ type
 контрол::lblElementName TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_lblElementName
 
  Tkw_FoldersElementInfo_Control_lblElementName_Push = {final} class(TkwBynameControlPush)
@@ -237,9 +238,9 @@ type
 контрол::ElementName TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_ElementName
 
  Tkw_FoldersElementInfo_Control_ElementName_Push = {final} class(TkwBynameControlPush)
@@ -262,9 +263,9 @@ type
 контрол::cbShared TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_cbShared
 
  Tkw_FoldersElementInfo_Control_cbShared_Push = {final} class(TkwBynameControlPush)
@@ -287,9 +288,9 @@ type
 контрол::InfoName TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_InfoName
 
  Tkw_FoldersElementInfo_Control_InfoName_Push = {final} class(TkwBynameControlPush)
@@ -544,20 +545,15 @@ OBJECT VAR l_TvtLabel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnFoldersElementInfoInfoName
 
-class function Tkw_Form_FoldersElementInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::FoldersElementInfo';
-end;//Tkw_Form_FoldersElementInfo.GetWordNameForRegister
-
 function Tkw_Form_FoldersElementInfo.GetString: AnsiString;
 begin
  Result := 'enFoldersElementInfo';
 end;//Tkw_Form_FoldersElementInfo.GetString
 
-class function Tkw_FoldersElementInfo_Control_CommentPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_FoldersElementInfo.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::CommentPanel';
-end;//Tkw_FoldersElementInfo_Control_CommentPanel.GetWordNameForRegister
+ Result := 'форма::FoldersElementInfo';
+end;//Tkw_Form_FoldersElementInfo.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_CommentPanel.GetString: AnsiString;
 begin
@@ -570,6 +566,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_FoldersElementInfo_Control_CommentPanel.RegisterInEngine
 
+class function Tkw_FoldersElementInfo_Control_CommentPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::CommentPanel';
+end;//Tkw_FoldersElementInfo_Control_CommentPanel.GetWordNameForRegister
+
 procedure Tkw_FoldersElementInfo_Control_CommentPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('CommentPanel');
@@ -580,11 +581,6 @@ class function Tkw_FoldersElementInfo_Control_CommentPanel_Push.GetWordNameForRe
 begin
  Result := 'контрол::CommentPanel:push';
 end;//Tkw_FoldersElementInfo_Control_CommentPanel_Push.GetWordNameForRegister
-
-class function Tkw_FoldersElementInfo_Control_ElementComment.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ElementComment';
-end;//Tkw_FoldersElementInfo_Control_ElementComment.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_ElementComment.GetString: AnsiString;
 begin
@@ -597,6 +593,11 @@ begin
  TtfwClassRef.Register(TeeMemoWithEditOperations);
 end;//Tkw_FoldersElementInfo_Control_ElementComment.RegisterInEngine
 
+class function Tkw_FoldersElementInfo_Control_ElementComment.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ElementComment';
+end;//Tkw_FoldersElementInfo_Control_ElementComment.GetWordNameForRegister
+
 procedure Tkw_FoldersElementInfo_Control_ElementComment_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ElementComment');
@@ -607,11 +608,6 @@ class function Tkw_FoldersElementInfo_Control_ElementComment_Push.GetWordNameFor
 begin
  Result := 'контрол::ElementComment:push';
 end;//Tkw_FoldersElementInfo_Control_ElementComment_Push.GetWordNameForRegister
-
-class function Tkw_FoldersElementInfo_Control_CaptionPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::CaptionPanel';
-end;//Tkw_FoldersElementInfo_Control_CaptionPanel.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_CaptionPanel.GetString: AnsiString;
 begin
@@ -624,6 +620,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_FoldersElementInfo_Control_CaptionPanel.RegisterInEngine
 
+class function Tkw_FoldersElementInfo_Control_CaptionPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::CaptionPanel';
+end;//Tkw_FoldersElementInfo_Control_CaptionPanel.GetWordNameForRegister
+
 procedure Tkw_FoldersElementInfo_Control_CaptionPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('CaptionPanel');
@@ -634,11 +635,6 @@ class function Tkw_FoldersElementInfo_Control_CaptionPanel_Push.GetWordNameForRe
 begin
  Result := 'контрол::CaptionPanel:push';
 end;//Tkw_FoldersElementInfo_Control_CaptionPanel_Push.GetWordNameForRegister
-
-class function Tkw_FoldersElementInfo_Control_lblComment.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lblComment';
-end;//Tkw_FoldersElementInfo_Control_lblComment.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_lblComment.GetString: AnsiString;
 begin
@@ -651,6 +647,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_FoldersElementInfo_Control_lblComment.RegisterInEngine
 
+class function Tkw_FoldersElementInfo_Control_lblComment.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblComment';
+end;//Tkw_FoldersElementInfo_Control_lblComment.GetWordNameForRegister
+
 procedure Tkw_FoldersElementInfo_Control_lblComment_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lblComment');
@@ -661,11 +662,6 @@ class function Tkw_FoldersElementInfo_Control_lblComment_Push.GetWordNameForRegi
 begin
  Result := 'контрол::lblComment:push';
 end;//Tkw_FoldersElementInfo_Control_lblComment_Push.GetWordNameForRegister
-
-class function Tkw_FoldersElementInfo_Control_TopPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::TopPanel';
-end;//Tkw_FoldersElementInfo_Control_TopPanel.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_TopPanel.GetString: AnsiString;
 begin
@@ -678,6 +674,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_FoldersElementInfo_Control_TopPanel.RegisterInEngine
 
+class function Tkw_FoldersElementInfo_Control_TopPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::TopPanel';
+end;//Tkw_FoldersElementInfo_Control_TopPanel.GetWordNameForRegister
+
 procedure Tkw_FoldersElementInfo_Control_TopPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('TopPanel');
@@ -688,11 +689,6 @@ class function Tkw_FoldersElementInfo_Control_TopPanel_Push.GetWordNameForRegist
 begin
  Result := 'контрол::TopPanel:push';
 end;//Tkw_FoldersElementInfo_Control_TopPanel_Push.GetWordNameForRegister
-
-class function Tkw_FoldersElementInfo_Control_NamePanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::NamePanel';
-end;//Tkw_FoldersElementInfo_Control_NamePanel.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_NamePanel.GetString: AnsiString;
 begin
@@ -705,6 +701,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_FoldersElementInfo_Control_NamePanel.RegisterInEngine
 
+class function Tkw_FoldersElementInfo_Control_NamePanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::NamePanel';
+end;//Tkw_FoldersElementInfo_Control_NamePanel.GetWordNameForRegister
+
 procedure Tkw_FoldersElementInfo_Control_NamePanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('NamePanel');
@@ -715,11 +716,6 @@ class function Tkw_FoldersElementInfo_Control_NamePanel_Push.GetWordNameForRegis
 begin
  Result := 'контрол::NamePanel:push';
 end;//Tkw_FoldersElementInfo_Control_NamePanel_Push.GetWordNameForRegister
-
-class function Tkw_FoldersElementInfo_Control_lblElementName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lblElementName';
-end;//Tkw_FoldersElementInfo_Control_lblElementName.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_lblElementName.GetString: AnsiString;
 begin
@@ -732,6 +728,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_FoldersElementInfo_Control_lblElementName.RegisterInEngine
 
+class function Tkw_FoldersElementInfo_Control_lblElementName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblElementName';
+end;//Tkw_FoldersElementInfo_Control_lblElementName.GetWordNameForRegister
+
 procedure Tkw_FoldersElementInfo_Control_lblElementName_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lblElementName');
@@ -742,11 +743,6 @@ class function Tkw_FoldersElementInfo_Control_lblElementName_Push.GetWordNameFor
 begin
  Result := 'контрол::lblElementName:push';
 end;//Tkw_FoldersElementInfo_Control_lblElementName_Push.GetWordNameForRegister
-
-class function Tkw_FoldersElementInfo_Control_ElementName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ElementName';
-end;//Tkw_FoldersElementInfo_Control_ElementName.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_ElementName.GetString: AnsiString;
 begin
@@ -759,6 +755,11 @@ begin
  TtfwClassRef.Register(TnscComboBoxWithReadOnly);
 end;//Tkw_FoldersElementInfo_Control_ElementName.RegisterInEngine
 
+class function Tkw_FoldersElementInfo_Control_ElementName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ElementName';
+end;//Tkw_FoldersElementInfo_Control_ElementName.GetWordNameForRegister
+
 procedure Tkw_FoldersElementInfo_Control_ElementName_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ElementName');
@@ -769,11 +770,6 @@ class function Tkw_FoldersElementInfo_Control_ElementName_Push.GetWordNameForReg
 begin
  Result := 'контрол::ElementName:push';
 end;//Tkw_FoldersElementInfo_Control_ElementName_Push.GetWordNameForRegister
-
-class function Tkw_FoldersElementInfo_Control_cbShared.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::cbShared';
-end;//Tkw_FoldersElementInfo_Control_cbShared.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_cbShared.GetString: AnsiString;
 begin
@@ -786,6 +782,11 @@ begin
  TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_FoldersElementInfo_Control_cbShared.RegisterInEngine
 
+class function Tkw_FoldersElementInfo_Control_cbShared.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::cbShared';
+end;//Tkw_FoldersElementInfo_Control_cbShared.GetWordNameForRegister
+
 procedure Tkw_FoldersElementInfo_Control_cbShared_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('cbShared');
@@ -797,11 +798,6 @@ begin
  Result := 'контрол::cbShared:push';
 end;//Tkw_FoldersElementInfo_Control_cbShared_Push.GetWordNameForRegister
 
-class function Tkw_FoldersElementInfo_Control_InfoName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::InfoName';
-end;//Tkw_FoldersElementInfo_Control_InfoName.GetWordNameForRegister
-
 function Tkw_FoldersElementInfo_Control_InfoName.GetString: AnsiString;
 begin
  Result := 'InfoName';
@@ -812,6 +808,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_FoldersElementInfo_Control_InfoName.RegisterInEngine
+
+class function Tkw_FoldersElementInfo_Control_InfoName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::InfoName';
+end;//Tkw_FoldersElementInfo_Control_InfoName.GetWordNameForRegister
 
 procedure Tkw_FoldersElementInfo_Control_InfoName_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -846,11 +847,6 @@ begin
  aCtx.rEngine.PushObj(CommentPanel(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoCommentPanel.DoDoIt
 
-class function TkwEnFoldersElementInfoCommentPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenFoldersElementInfo.CommentPanel';
-end;//TkwEnFoldersElementInfoCommentPanel.GetWordNameForRegister
-
 procedure TkwEnFoldersElementInfoCommentPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -871,6 +867,11 @@ function TkwEnFoldersElementInfoCommentPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoCommentPanel.ParamsTypes
+
+class function TkwEnFoldersElementInfoCommentPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenFoldersElementInfo.CommentPanel';
+end;//TkwEnFoldersElementInfoCommentPanel.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoElementComment.ElementComment(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TeeMemoWithEditOperations;
@@ -894,11 +895,6 @@ begin
  aCtx.rEngine.PushObj(ElementComment(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoElementComment.DoDoIt
 
-class function TkwEnFoldersElementInfoElementComment.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenFoldersElementInfo.ElementComment';
-end;//TkwEnFoldersElementInfoElementComment.GetWordNameForRegister
-
 procedure TkwEnFoldersElementInfoElementComment.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -919,6 +915,11 @@ function TkwEnFoldersElementInfoElementComment.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoElementComment.ParamsTypes
+
+class function TkwEnFoldersElementInfoElementComment.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenFoldersElementInfo.ElementComment';
+end;//TkwEnFoldersElementInfoElementComment.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoCaptionPanel.CaptionPanel(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtPanel;
@@ -942,11 +943,6 @@ begin
  aCtx.rEngine.PushObj(CaptionPanel(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoCaptionPanel.DoDoIt
 
-class function TkwEnFoldersElementInfoCaptionPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenFoldersElementInfo.CaptionPanel';
-end;//TkwEnFoldersElementInfoCaptionPanel.GetWordNameForRegister
-
 procedure TkwEnFoldersElementInfoCaptionPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -967,6 +963,11 @@ function TkwEnFoldersElementInfoCaptionPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoCaptionPanel.ParamsTypes
+
+class function TkwEnFoldersElementInfoCaptionPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenFoldersElementInfo.CaptionPanel';
+end;//TkwEnFoldersElementInfoCaptionPanel.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoLblComment.lblComment(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtLabel;
@@ -990,11 +991,6 @@ begin
  aCtx.rEngine.PushObj(lblComment(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoLblComment.DoDoIt
 
-class function TkwEnFoldersElementInfoLblComment.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenFoldersElementInfo.lblComment';
-end;//TkwEnFoldersElementInfoLblComment.GetWordNameForRegister
-
 procedure TkwEnFoldersElementInfoLblComment.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1015,6 +1011,11 @@ function TkwEnFoldersElementInfoLblComment.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoLblComment.ParamsTypes
+
+class function TkwEnFoldersElementInfoLblComment.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenFoldersElementInfo.lblComment';
+end;//TkwEnFoldersElementInfoLblComment.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoTopPanel.TopPanel(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtPanel;
@@ -1038,11 +1039,6 @@ begin
  aCtx.rEngine.PushObj(TopPanel(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoTopPanel.DoDoIt
 
-class function TkwEnFoldersElementInfoTopPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenFoldersElementInfo.TopPanel';
-end;//TkwEnFoldersElementInfoTopPanel.GetWordNameForRegister
-
 procedure TkwEnFoldersElementInfoTopPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1063,6 +1059,11 @@ function TkwEnFoldersElementInfoTopPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoTopPanel.ParamsTypes
+
+class function TkwEnFoldersElementInfoTopPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenFoldersElementInfo.TopPanel';
+end;//TkwEnFoldersElementInfoTopPanel.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoNamePanel.NamePanel(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtPanel;
@@ -1086,11 +1087,6 @@ begin
  aCtx.rEngine.PushObj(NamePanel(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoNamePanel.DoDoIt
 
-class function TkwEnFoldersElementInfoNamePanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenFoldersElementInfo.NamePanel';
-end;//TkwEnFoldersElementInfoNamePanel.GetWordNameForRegister
-
 procedure TkwEnFoldersElementInfoNamePanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1111,6 +1107,11 @@ function TkwEnFoldersElementInfoNamePanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoNamePanel.ParamsTypes
+
+class function TkwEnFoldersElementInfoNamePanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenFoldersElementInfo.NamePanel';
+end;//TkwEnFoldersElementInfoNamePanel.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoLblElementName.lblElementName(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtLabel;
@@ -1134,11 +1135,6 @@ begin
  aCtx.rEngine.PushObj(lblElementName(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoLblElementName.DoDoIt
 
-class function TkwEnFoldersElementInfoLblElementName.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenFoldersElementInfo.lblElementName';
-end;//TkwEnFoldersElementInfoLblElementName.GetWordNameForRegister
-
 procedure TkwEnFoldersElementInfoLblElementName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1159,6 +1155,11 @@ function TkwEnFoldersElementInfoLblElementName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoLblElementName.ParamsTypes
+
+class function TkwEnFoldersElementInfoLblElementName.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenFoldersElementInfo.lblElementName';
+end;//TkwEnFoldersElementInfoLblElementName.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoElementName.ElementName(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TnscComboBoxWithReadOnly;
@@ -1182,11 +1183,6 @@ begin
  aCtx.rEngine.PushObj(ElementName(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoElementName.DoDoIt
 
-class function TkwEnFoldersElementInfoElementName.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenFoldersElementInfo.ElementName';
-end;//TkwEnFoldersElementInfoElementName.GetWordNameForRegister
-
 procedure TkwEnFoldersElementInfoElementName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1207,6 +1203,11 @@ function TkwEnFoldersElementInfoElementName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoElementName.ParamsTypes
+
+class function TkwEnFoldersElementInfoElementName.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenFoldersElementInfo.ElementName';
+end;//TkwEnFoldersElementInfoElementName.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoCbShared.cbShared(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtCheckBox;
@@ -1230,11 +1231,6 @@ begin
  aCtx.rEngine.PushObj(cbShared(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoCbShared.DoDoIt
 
-class function TkwEnFoldersElementInfoCbShared.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenFoldersElementInfo.cbShared';
-end;//TkwEnFoldersElementInfoCbShared.GetWordNameForRegister
-
 procedure TkwEnFoldersElementInfoCbShared.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1255,6 +1251,11 @@ function TkwEnFoldersElementInfoCbShared.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoCbShared.ParamsTypes
+
+class function TkwEnFoldersElementInfoCbShared.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenFoldersElementInfo.cbShared';
+end;//TkwEnFoldersElementInfoCbShared.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoInfoName.InfoName(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtLabel;
@@ -1278,11 +1279,6 @@ begin
  aCtx.rEngine.PushObj(InfoName(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoInfoName.DoDoIt
 
-class function TkwEnFoldersElementInfoInfoName.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenFoldersElementInfo.InfoName';
-end;//TkwEnFoldersElementInfoInfoName.GetWordNameForRegister
-
 procedure TkwEnFoldersElementInfoInfoName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1303,6 +1299,11 @@ function TkwEnFoldersElementInfoInfoName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoInfoName.ParamsTypes
+
+class function TkwEnFoldersElementInfoInfoName.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenFoldersElementInfo.InfoName';
+end;//TkwEnFoldersElementInfoInfoName.GetWordNameForRegister
 
 initialization
  Tkw_Form_FoldersElementInfo.RegisterInEngine;

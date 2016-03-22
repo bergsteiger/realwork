@@ -3,6 +3,7 @@ unit csAction;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csAction.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsAction" MUID: (5395C3760014)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

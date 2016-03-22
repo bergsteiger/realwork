@@ -2,9 +2,12 @@ unit InsDWin;
 
 {$Include l3Define.inc}
 
-{ $Id: INSDWIN.PAS,v 1.71 2015/07/02 07:34:41 lukyanets Exp $}
+{ $Id: INSDWIN.PAS,v 1.72 2015/11/25 14:01:28 lukyanets Exp $}
 
 // $Log: INSDWIN.PAS,v $
+// Revision 1.72  2015/11/25 14:01:28  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.71  2015/07/02 07:34:41  lukyanets
 // Описываем словари
 //
@@ -245,6 +248,7 @@ uses
  D_InsTextEdit,
      
  daTypes,
+ daSchemeConsts,
 
  Dt_Serv,
  DT_Const,

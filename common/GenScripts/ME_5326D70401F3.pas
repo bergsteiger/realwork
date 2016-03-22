@@ -2,6 +2,7 @@ unit l3Variants;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Variants.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "l3Variants" MUID: (5326D70401F3)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

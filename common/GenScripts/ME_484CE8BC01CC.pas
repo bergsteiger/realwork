@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3FontManager;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3FontManager.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3FontManager" MUID: (484CE8BC01CC)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

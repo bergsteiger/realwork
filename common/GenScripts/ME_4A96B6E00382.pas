@@ -3,6 +3,8 @@ unit moFolders;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moFolders.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Folders" MUID: (4A96B6E00382)
+// Имя типа: "Tmo_Folders"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

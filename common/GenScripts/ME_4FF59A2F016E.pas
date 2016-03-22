@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "ListUserTypes" MUID: (4FF59A2F016E)
+// Имя типа: "_ListUserTypes_"
 
 {$Define ListUserTypes_imp}
 

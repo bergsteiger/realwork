@@ -3,6 +3,7 @@ unit NOT_FINISHED_k2TagGen;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2TagGen.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "k2TagGen" MUID: (47ECAA270135)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
@@ -105,6 +106,9 @@ implementation
 uses
  l3ImplUses
  , k2VariantImpl
+ {$If NOT Defined(NoScripts)}
+ , kwFiltersAndGeneratorsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure Tk2TagGenerator.AddAtom(AtomIndex: Integer;

@@ -2,6 +2,7 @@ unit NOT_FINISHED_m3DBActions;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\NOT_FINISHED_m3DBActions.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "m3DBActions" MUID: (49C77D5E0246)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

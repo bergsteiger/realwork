@@ -3,6 +3,7 @@ unit ListAnalizeKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\ListAnalizeKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ListAnalizeKeywordsPack" MUID: (FF111F2E9A9B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -33,19 +34,19 @@ type
 'aControl' форма::ListAnalize TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ListAnalize
-
-class function Tkw_Form_ListAnalize.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ListAnalize';
-end;//Tkw_Form_ListAnalize.GetWordNameForRegister
 
 function Tkw_Form_ListAnalize.GetString: AnsiString;
 begin
  Result := 'ListAnalizeForm';
 end;//Tkw_Form_ListAnalize.GetString
+
+class function Tkw_Form_ListAnalize.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::ListAnalize';
+end;//Tkw_Form_ListAnalize.GetWordNameForRegister
 
 initialization
  Tkw_Form_ListAnalize.RegisterInEngine;

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "k2ParentedTagObject" MUID: (47AC58810008)
+// Имя типа: "_k2ParentedTagObject_"
 
 {$Define k2ParentedTagObject_imp}
 

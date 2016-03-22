@@ -2,6 +2,8 @@ unit PrimCommonDiction_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimCommonDiction_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimCommonDiction" MUID: (497ED770029D)
+// Имя типа: "TPrimCommonDictionForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

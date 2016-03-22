@@ -27,7 +27,7 @@
 	(object Attribute
 	    tool       	"MDA Generator"
 	    name       	"SELF GENERATED FILE (intf.pas)"
-	    value      	"w:/common/components/rtl/Garant/L3/l3EtalonsWorking.pas")
+	    value      	"")
 	(object Attribute
 	    tool       	"MDA Generator"
 	    name       	"SourceType (intf.pas)"
@@ -47,6 +47,14 @@
 	(object Attribute
 	    tool       	"MDA Generator"
 	    name       	"SourceType (pas.script)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script.runner)"
+	    value      	"w:/shared/models/NewSchool/Scripts/515AC8CC02BD.pas.ms.script.runner")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script.runner)"
 	    value      	"file"))
     quid       	"515AC8CC02BD"
     stereotype 	"Interfaces"
@@ -264,7 +272,7 @@
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*4CAEDCF9006A_4B2A11BC0255_impl*"
 			    value      	(value Text 
-|//#UC START# *4CAEDCF9006A_4B2A11BC0255_impl*¤ l_ComparedImage := True;¤ if NeedCreateEtalonsWhileCheckingOutputWithInput then¤ begin¤  l_CVSPath := g_CVSPath + '\' + TestSetFolderName + '\';¤  if not IsWritingToK OR aEtalonNeedsComputerName then¤  begin¤   if not FileExists(aIn) then¤   begin¤    CopyFile(aOut, aIn);¤    if not IsFakeCVS then¤    begin¤     if OutputFolderName <> '' then¤      l_CVSPath := l_CVSPath + OutputFolderNameWitEtalons + '\';¤     if DirectoryExists(l_CVSPath) then¤     begin¤      l_CVS := l_CVSPath + ExtractFileName(aIn);¤      if not FileExists(l_CVS) then¤      begin¤       CopyFile(aOut, l_CVS);¤       ToLog(Format('Ñäåëàí ýòàëîí äëÿ ïîìåùåíèÿ â CVS - "%s"', [l_CVS]));¤      end;//not FileExists(l_CVS)¤      CheckExternalPicture(True, l_CVSPath, l_ComparedImage);¤     end;//DirectoryExists(l_CVSPath)¤    end;//not IsFakeCVS¤    l_Msg := Format('Ýòàëîí "%s" íå ñóùåñòâîâàë. Ñäåëàí íîâûé íà îñíîâå "%s"', [aIn, aOut]);¤    if RaiseIfEtalonCreated AND not IsWritingToK then¤     Check(false, l_Msg)¤    else¤     l3System.Msg2Log(l_Msg);¤   end;//not FileExists(aIn)¤  end;//not IsWritingToK¤ end;//NeedCreateEtalonsWhileCheckingOutputWithInput ¤ l_Compared := l3CompareFiles(aIn,¤                              aOut,¤                              aHeaderBegin);¤ CheckExternalPicture(False, l_CVSPath, l_ComparedImage);¤ if not l_Compared then¤ begin¤  if (ExtractFileExt(aOut) = '.png') OR (ExtractFileExt(aOut) = '.bmp') then¤  begin¤   if (ExtractFileExt(aOut) = '.png') then¤    l3SetFuzzValueInPercent(5{17}{11})¤   else¤    l3SetFuzzValueInPercent(3);¤   try¤    l_Compared := l3IsImageEqual(aIn, aOut, ChangeFileExt(aOut, '.diff' + ExtractFileExt(aOut))) = l3_rImagesEqual;¤   finally¤    l3SetFuzzValueInPercent(-1);¤   end;//try..finally ¤  end;//ExtractFileExt(aOut) = '.png'¤ end;//not l_Compared¤ if not l_Compared or (not l_ComparedImage and IsWritingToK) then // Äëÿ Ê áóäåì äåëàòü ïî ñòàðèíêå...¤ begin¤  if not l_ComparedImage and (anExtraFileName <> '') then¤  begin¤   l_Extra := FileFromCurrent(anExtraFileName);¤   l_Ext := ExtractFileExt(l_Extra);¤   l_ExtraEtalon := ChangeFileExt(anExtraFileName, EtalonSuffix + l_Ext);¤   l_ExtraEtalon := FileFromCurrent(l_ExtraEtalon);¤   if ANSISametext(l_Ext, '.png') then¤   begin¤    l_ExtraDiff := ChangeFileExt(anExtraFileName, '.diff' + l_Ext);¤    l_ExtraDiff := OutputPath + l_ExtraDiff;¤    l3BuildComparisonImage(l_ExtraEtalon, l_Extra, l_ExtraDiff);¤   end//ANSISametext(l_Ext, '.png')¤   else¤    l_ExtraDiff := '';¤  end//anExtraFileName <> ''¤  else¤   l_Extra := '';¤  l_Diff := aOut + '.diff.log';¤  l_UDiff := l_Diff;¤  l_SDiff := aOut + '.sdiff.log';¤  MakeDiff(aIn, aOut, l_UDiff);¤  MakeSDiff(aIn, aOut, l_SDiff);¤  if IsWritingToK then¤  begin¤   {$If defined(MTDORB) AND defined(NoKPageTool)}¤   if TKBridge.Exists then¤   {$IfEnd} //MTDORB AND NoKPageTool¤   begin¤    TKTestListener.AttachFile(TKTestListener.ResultsPage, aIn);¤    TKTestListener.AttachFile(TKTestListener.ResultsPage, aOut);¤    TKTestListener.AttachFile(TKTestListener.ResultsPage, l_UDiff);¤    TKTestListener.AttachFile(TKTestListener.ResultsPage, l_SDiff);¤    if (l_Extra <> '') then¤    begin¤     TKTestListener.AttachFile(TKTestListener.ResultsPage, l_Extra);¤     TKTestListener.AttachFile(TKTestListener.ResultsPage, l_ExtraEtalon);¤    end;//l_Extra <> ''¤    if (l_ExtraDiff <> '') then¤     TKTestListener.AttachFile(TKTestListener.ResultsPage, l_ExtraDiff);¤   end;//TKBridge.Exists¤  end;//IsWritingToK¤  if aEtalonCanHaveDiff then¤  begin¤   l_Compared := true;¤   CheckOutputWithInput(FileFromCurrent(ExtractFileName(l_Diff) + '.' + ComputerName + '.etalon'),¤                        l_Diff,¤                        #0,¤                        true,¤                        false,¤                        '',¤                        true);¤  end;//aEtalonCanHaveDiff¤ end;//not l_Compared¤ if not l_Compared then¤ begin¤  l_Msg := Format('Íå ïðîøëî ñðàâíåíèå: afc "%s" "%s".'+ #13#10 +¤               'Ðåçóëüòàòû ñðàâíåíèÿ: "%s" "%s"',¤               [MangleFileName(aIn),¤                MangleFileName(aOut),¤                MangleFileName(l_UDiff),¤                MangleFileName(l_SDiff)¤               ]);¤  if (l_Extra <> '') then¤   l_Msg := l_Msg + #13#10 +¤            Format('Äîïîëíèòåëüíîå ñðàâíåíèå: afc %s %s',¤                   [MangleFileName(l_Extra),¤                    MangleFileName(l_ExtraEtalon)¤                   ]);¤  if (l_ExtraDiff <> '') then¤   l_Msg := l_Msg + #13#10 +¤            Format('Ðàçíèöà: %s',¤                   [MangleFileName(l_ExtraDiff)¤                   ]);¤  if aNeedsCheck then¤   Check(l_Compared, l_Msg)¤  else¤  begin¤(*   if IsWritingToK then¤    TKTestListener.WriteMsg(l_Msg)¤    // - ýòî ÷òîáû áûëî íîðìàëüíîå wiki-îôîðìëåíèå¤   else*)¤    l3System.Msg2Log(l_Msg);¤   Exit; ¤  end;//aNeedsCheck¤ end;//not l_Compared¤ ToLog('Compare done');¤//#UC END# *4CAEDCF9006A_4B2A11BC0255_impl*
+|//#UC START# *4CAEDCF9006A_4B2A11BC0255_impl*¤ l_ComparedImage := True;¤ if NeedCreateEtalonsWhileCheckingOutputWithInput then¤ begin¤  l_CVSPath := g_CVSPath + '\' + TestSetFolderName + '\';¤  if not IsWritingToK OR aEtalonNeedsComputerName then¤  begin¤   if not FileExists(aIn) then¤   begin¤    l3FileUtils.CopyFile(aOut, aIn);¤    if not IsFakeCVS then¤    begin¤     if OutputFolderName <> '' then¤      l_CVSPath := l_CVSPath + OutputFolderNameWitEtalons + '\';¤     if DirectoryExists(l_CVSPath) then¤     begin¤      l_CVS := l_CVSPath + ExtractFileName(aIn);¤      if not FileExists(l_CVS) then¤      begin¤       l3FileUtils.CopyFile(aOut, l_CVS);¤       ToLog(Format('Ñäåëàí ýòàëîí äëÿ ïîìåùåíèÿ â CVS - "%s"', [l_CVS]));¤      end;//not FileExists(l_CVS)¤      CheckExternalPicture(True, l_CVSPath, l_ComparedImage);¤     end;//DirectoryExists(l_CVSPath)¤    end;//not IsFakeCVS¤    l_Msg := Format('Ýòàëîí "%s" íå ñóùåñòâîâàë. Ñäåëàí íîâûé íà îñíîâå "%s"', [aIn, aOut]);¤    if RaiseIfEtalonCreated AND not IsWritingToK then¤     Check(false, l_Msg)¤    else¤     l3System.Msg2Log(l_Msg);¤   end;//not FileExists(aIn)¤  end;//not IsWritingToK¤ end;//NeedCreateEtalonsWhileCheckingOutputWithInput ¤ l_Compared := l3CompareFiles(aIn,¤                              aOut,¤                              aHeaderBegin);¤ CheckExternalPicture(False, l_CVSPath, l_ComparedImage);¤ if not l_Compared then¤ begin¤  if (ExtractFileExt(aOut) = '.png') OR (ExtractFileExt(aOut) = '.bmp') then¤  begin¤   if (ExtractFileExt(aOut) = '.png') then¤    l3SetFuzzValueInPercent(5{17}{11})¤   else¤    l3SetFuzzValueInPercent(3);¤   try¤    l_Compared := l3IsImageEqual(aIn, aOut, ChangeFileExt(aOut, '.diff' + ExtractFileExt(aOut))) = l3_rImagesEqual;¤   finally¤    l3SetFuzzValueInPercent(-1);¤   end;//try..finally ¤  end;//ExtractFileExt(aOut) = '.png'¤ end;//not l_Compared¤ if not l_Compared or (not l_ComparedImage and IsWritingToK) then // Äëÿ Ê áóäåì äåëàòü ïî ñòàðèíêå...¤ begin¤  if not l_ComparedImage and (anExtraFileName <> '') then¤  begin¤   l_Extra := FileFromCurrent(anExtraFileName);¤   l_Ext := ExtractFileExt(l_Extra);¤   l_ExtraEtalon := ChangeFileExt(anExtraFileName, EtalonSuffix + l_Ext);¤   l_ExtraEtalon := FileFromCurrent(l_ExtraEtalon);¤   if ANSISametext(l_Ext, '.png') then¤   begin¤    l_ExtraDiff := ChangeFileExt(anExtraFileName, '.diff' + l_Ext);¤    l_ExtraDiff := OutputPath + l_ExtraDiff;¤    l3BuildComparisonImage(l_ExtraEtalon, l_Extra, l_ExtraDiff);¤   end//ANSISametext(l_Ext, '.png')¤   else¤    l_ExtraDiff := '';¤  end//anExtraFileName <> ''¤  else¤   l_Extra := '';¤  l_Diff := aOut + '.diff.log';¤  l_UDiff := l_Diff;¤  l_SDiff := aOut + '.sdiff.log';¤  MakeDiff(aIn, aOut, l_UDiff);¤  MakeSDiff(aIn, aOut, l_SDiff);¤  if IsWritingToK then¤  begin¤   {$If defined(MTDORB) AND defined(NoKPageTool)}¤   if TKBridge.Exists then¤   {$IfEnd} //MTDORB AND NoKPageTool¤   begin¤    TKTestListener.AttachFile(TKTestListener.ResultsPage, aIn);¤    TKTestListener.AttachFile(TKTestListener.ResultsPage, aOut);¤    TKTestListener.AttachFile(TKTestListener.ResultsPage, l_UDiff);¤    TKTestListener.AttachFile(TKTestListener.ResultsPage, l_SDiff);¤    if (l_Extra <> '') then¤    begin¤     TKTestListener.AttachFile(TKTestListener.ResultsPage, l_Extra);¤     TKTestListener.AttachFile(TKTestListener.ResultsPage, l_ExtraEtalon);¤    end;//l_Extra <> ''¤    if (l_ExtraDiff <> '') then¤     TKTestListener.AttachFile(TKTestListener.ResultsPage, l_ExtraDiff);¤   end;//TKBridge.Exists¤  end;//IsWritingToK¤  if aEtalonCanHaveDiff then¤  begin¤   l_Compared := true;¤   CheckOutputWithInput(FileFromCurrent(ExtractFileName(l_Diff) + '.' + ComputerName + '.etalon'),¤                        l_Diff,¤                        #0,¤                        true,¤                        false,¤                        '',¤                        true);¤  end;//aEtalonCanHaveDiff¤ end;//not l_Compared¤ if not l_Compared then¤ begin¤  l_Msg := Format('Íå ïðîøëî ñðàâíåíèå: afc "%s" "%s".'+ #13#10 +¤               'Ðåçóëüòàòû ñðàâíåíèÿ: "%s" "%s"',¤               [MangleFileName(aIn),¤                MangleFileName(aOut),¤                MangleFileName(l_UDiff),¤                MangleFileName(l_SDiff)¤               ]);¤  if (l_Extra <> '') then¤   l_Msg := l_Msg + #13#10 +¤            Format('Äîïîëíèòåëüíîå ñðàâíåíèå: afc %s %s',¤                   [MangleFileName(l_Extra),¤                    MangleFileName(l_ExtraEtalon)¤                   ]);¤  if (l_ExtraDiff <> '') then¤   l_Msg := l_Msg + #13#10 +¤            Format('Ðàçíèöà: %s',¤                   [MangleFileName(l_ExtraDiff)¤                   ]);¤  if aNeedsCheck then¤   Check(l_Compared, l_Msg)¤  else¤  begin¤(*   if IsWritingToK then¤    TKTestListener.WriteMsg(l_Msg)¤    // - ýòî ÷òîáû áûëî íîðìàëüíîå wiki-îôîðìëåíèå¤   else*)¤    l3System.Msg2Log(l_Msg);¤   Exit; ¤  end;//aNeedsCheck¤ end;//not l_Compared¤ ToLog('Compare done');¤//#UC END# *4CAEDCF9006A_4B2A11BC0255_impl*
 			    ))
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -712,46 +720,27 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@1
-			location   	(146, 157)
+			location   	(132, 154)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1112
+			max_width  	1140
 			justify    	0
 			label      	"EtalonsWorking")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@1
-			location   	(146, 107)
+			location   	(132, 104)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1112
+			max_width  	1140
 			justify    	0
 			label      	"<<PureMixIn>>")
 		    icon_style 	"Label"
 		    line_color 	7885055
 		    fill_color 	16777152
 		    quidu      	"4F5F3A4001B5"
-		    compartment 	(object Compartment
-			Parent_View 	@1
-			location   	(146, 218)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	2
-			max_width  	1137
-			justify    	1)
-		    width      	1130
-		    height     	236
+		    width      	1158
+		    height     	242
 		    annotation 	8
 		    autoResize 	TRUE)))
 	(object ClassDiagram "Main"
@@ -809,25 +798,6 @@
 		    line_color 	7885055
 		    fill_color 	15781360
 		    quidu      	"4CAEDCF9006A"
-		    compartment 	(object Compartment
-			Parent_View 	@2
-			location   	(19, 252)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	TRUE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	2
-			max_width  	3273
-			justify    	1)
 		    width      	3274
 		    height     	292
 		    annotation 	8
@@ -868,25 +838,6 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"4F5F3C61023E"
-		    compartment 	(object Compartment
-			Parent_View 	@3
-			location   	(63, 666)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	TRUE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	2
-			max_width  	1992
-			justify    	1)
 		    width      	1962
 		    height     	292
 		    annotation 	8
@@ -927,25 +878,6 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"536A15F901DA"
-		    compartment 	(object Compartment
-			Parent_View 	@4
-			location   	(92, 1035)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	TRUE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	2
-			max_width  	147
-			justify    	1)
 		    width      	392
 		    height     	292
 		    annotation 	8

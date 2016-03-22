@@ -3,6 +3,8 @@ unit k2Tag_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Tag_Const.pas"
 // Стереотип: "Atom"
+// Элемент модели: "Tag" MUID: (4849298102AC)
+// Имя типа: "TagAtom"
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

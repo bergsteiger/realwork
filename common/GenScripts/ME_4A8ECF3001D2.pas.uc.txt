@@ -70,7 +70,7 @@
    end;
   end else
   begin
-   lp_CreateContainer(True);
+   lp_CreateContainer(not aDenyNewTab);
    if (l_Container <> nil) then
    begin
     Result := TenNewsLine.MakeSingleChild(l_Container,
@@ -105,6 +105,7 @@
   begin
    try
     dmStdRes.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
+    afw.ProcessMessages;
    finally
     l_ContainerForMainMenu := nil;
    end;
@@ -128,7 +129,7 @@
  end;
 //#UC END# *4AB76AD20100_4A8ECF3001D2_var*
 //#UC START# *4AB775AA0314_4A8ECF3001D2exec_impl*
- OpenNewsLine;
+ OpenNewsLine(False);
  TnsOpenNewsLineEvent.Log;
 //#UC END# *4AB775AA0314_4A8ECF3001D2exec_impl*
 //#UC START# *4AB775AA0314_4A8ECF3001D2exec_var*

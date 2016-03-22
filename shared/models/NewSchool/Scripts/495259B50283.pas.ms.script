@@ -6,34 +6,6 @@ FORWARD ME_495259B50283
 
 FORWARD ME_495259ED005C
 
-FORWARD ME_49525A0F034B
-
-: ME_31E831C09FFF
- CONST UID '31E831C09FFF'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tl3Form' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_49525A0F034B // Tl3Form
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_31E831C09FFF Ini_Reg_Class
-
-: ME_888254009419
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49525A0F034B // Tl3Form
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_888254009419 
-
 : ME_49525A0F034B
  CONST UID '49525A0F034B'
  CONST Name 'Tl3Form'
@@ -54,14 +26,6 @@ ref; // ME_888254009419
    Seq: ( WL 'ME_4A60B2220398' '47BB24D30205.pas.ms.script' // l3COMQueryInterface
  )
  ; // Implements
- : Operations
-   Seq: ( ME_31E831C09FFF // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_888254009419 // 
- )
- ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -112,7 +76,6 @@ ref; // ME_495259ED005C l3Forms
    Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

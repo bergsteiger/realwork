@@ -2,6 +2,7 @@ unit View;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\View.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "View" MUID: (45F6583E001F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

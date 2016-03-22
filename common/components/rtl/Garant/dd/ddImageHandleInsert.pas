@@ -1,8 +1,11 @@
 unit ddImageHandleInsert;
 
-{ $Id: ddImageHandleInsert.pas,v 1.8 2015/04/03 13:50:41 lukyanets Exp $ }
+{ $Id: ddImageHandleInsert.pas,v 1.9 2015/11/25 14:01:46 lukyanets Exp $ }
 
 // $Log: ddImageHandleInsert.pas,v $
+// Revision 1.9  2015/11/25 14:01:46  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.8  2015/04/03 13:50:41  lukyanets
 // Изолируем HT
 //
@@ -74,6 +77,7 @@ uses
  nevConfirm,
 
  daDataProvider,
+ daSchemeConsts,
  DT_Const;
 
 const

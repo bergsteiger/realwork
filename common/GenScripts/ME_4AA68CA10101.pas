@@ -3,6 +3,8 @@ unit PrimRubricator_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Rubricator\Forms\PrimRubricator_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimRubricator" MUID: (4AA68CA10101)
+// Имя типа: "TPrimRubricatorForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

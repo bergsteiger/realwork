@@ -3,6 +3,7 @@ unit TextMericsAfterDeleteTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\TextMericsAfterDeleteTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTextMericsAfterDeleteTest" MUID: (4D1B16D302DD)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -3,6 +3,7 @@ unit LoggingInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\LoggingInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "LoggingInterfaces" MUID: (49913F2C020C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

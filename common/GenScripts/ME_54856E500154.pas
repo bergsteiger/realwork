@@ -2,6 +2,7 @@ unit alcuExecutorWithIncomingTaskList;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuExecutorWithIncomingTaskList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuExecutorWithIncomingTaskList" MUID: (54856E500154)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

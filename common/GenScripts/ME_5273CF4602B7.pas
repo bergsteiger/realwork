@@ -2,6 +2,7 @@ unit k2TypedAtomicTag;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TypedAtomicTag.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2TypedAtomicTag" MUID: (5273CF4602B7)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

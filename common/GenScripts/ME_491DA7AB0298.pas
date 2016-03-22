@@ -2,6 +2,7 @@ unit dsUserProperty;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsUserProperty.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsUserProperty" MUID: (491DA7AB0298)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

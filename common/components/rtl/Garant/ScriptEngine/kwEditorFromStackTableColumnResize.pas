@@ -3,6 +3,7 @@ unit kwEditorFromStackTableColumnResize;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackTableColumnResize.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwEditorFromStackTableColumnResize" MUID: (4E37F5B402A5)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

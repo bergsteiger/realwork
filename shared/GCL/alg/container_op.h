@@ -24,27 +24,6 @@
 namespace GCL {
 
 //#UC START# *450130B00213_USER_DEFINITION*
-template<class Container>
-void reverse (Container& container) {
-	std::reverse (container.begin (), container.end ());
-}
-
-template<class Container>
-void sort (Container& container) {
-	std::sort (container.begin (), container.end ());
-}
-
-template<class Container, class Functor>
-void sort (Container& container, Functor functor) {
-	std::sort (container.begin (), container.end (), functor);
-}
-
-
-template<class Container, class Pred>
-bool any_of (Container& container, Pred& predicate) {
-	return std::any_of (container.begin (), container.end (), predicate);
-}
-
 // template classes for octet sequence comparision operators
 // for use in STL containers such as std::map
 // using ACE_OS_String::memcmp
@@ -80,16 +59,6 @@ struct OctetSeqGreater : public std::binary_function<T, T, bool> {
 //  normalize (base, target, false) = {}
 template <class _C>
 _C& normalize (const _C& base, _C& target, bool with_back = true);
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// merge, intersect, difference for std::set
-
-template <class _Key, class _Compare, class _Allocator>
-std::set<_Key, _Compare, _Allocator>& merge (
-	std::set<_Key, _Compare, _Allocator>& cont
-	, const std::set<_Key, _Compare, _Allocator>& operand
-);
-
 //#UC END# *450130B00213_USER_DEFINITION*
 
 } // namespace GCL

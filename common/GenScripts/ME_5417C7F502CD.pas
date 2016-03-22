@@ -2,6 +2,7 @@ unit vgRemindersLineTabbedContainerNotificationProxy;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vgRemindersLineTabbedContainerNotificationProxy.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgRemindersLineTabbedContainerNotificationProxy" MUID: (5417C7F502CD)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

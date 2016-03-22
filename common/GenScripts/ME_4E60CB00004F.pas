@@ -9,6 +9,7 @@ unit kwGetActiveEditorPageName;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwGetActiveEditorPageName.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwGetActiveEditorPageName" MUID: (4E60CB00004F)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

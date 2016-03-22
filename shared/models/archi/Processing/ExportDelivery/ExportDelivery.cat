@@ -43,7 +43,23 @@
 	    name       	"NESTED GENERATED WikiPageID (wiki)"
 	    value      	(value Text 
 |Àðõèâàðèóñ,key:archi,guid:4DE7F62B000D/Home/Ìîäåëü ïðîåêòà "archi"/Processing/ExportDelivery/TarStringQueue|546AEF7902D2::546AEF7902D2
-	    )))
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script)"
+	    value      	"w:/shared/models/NewSchool/Scripts/545C74760255.pas.ms.script")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script.runner)"
+	    value      	"w:/shared/models/NewSchool/Scripts/545C74760255.pas.ms.script.runner")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script.runner)"
+	    value      	"file"))
     quid       	"545C74760255"
     stereotype 	"Unit"
     visible_categories 	(list visibility_relationship_list
@@ -172,7 +188,7 @@
 			    value      	"false"))
 		    quid       	"545C907F018E"
 		    stereotype 	"uses"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::SysUtils::FreeAndNil"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::SysUtils::FreeAndNil"
 		    quidu      	"4ADC58F703CF")
 		(object Uses_Relationship
 		    attributes 	(list Attribute_Set
@@ -424,7 +440,7 @@
 			    value      	"false"))
 		    quid       	"549BB7F50141"
 		    stereotype 	"uses"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Win::Windows::PostMessage"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Win::Windows::PostMessage"
 		    quidu      	"4F8C0CE20242")
 		(object Uses_Relationship
 		    attributes 	(list Attribute_Set
@@ -442,7 +458,7 @@
 			    value      	"false"))
 		    quid       	"549BBB740215"
 		    stereotype 	"uses"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Messages::Msg Codes"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Messages::Msg Codes"
 		    quidu      	"47ECBD5D03BB")
 		(object Uses_Relationship
 		    attributes 	(list Attribute_Set
@@ -1097,7 +1113,7 @@
 			    value      	"false"))
 		    quid       	"546AFF94011B"
 		    stereotype 	"uses"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::SysUtils::FreeAndNil"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::SysUtils::FreeAndNil"
 		    quidu      	"4ADC58F703CF")
 		(object Uses_Relationship
 		    attributes 	(list Attribute_Set
@@ -1215,7 +1231,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*546AFE51021F_546AFE0D01CB_impl*"
-			    value      	"//#UC START# *546AFE51021F_546AFE0D01CB_impl*¤ Result := ncs_rkFail;¤ l_TaskDesc := TncsGetTaskDescription.Create;¤ try¤  l_TaskDesc.TaskID := f_TaskID;¤  f_Transporter.Send(l_TaskDesc);¤  l_Reply := nil;¤  try¤   if f_Transporter.WaitForReply(l_TaskDesc, l_Reply) then¤   begin¤    if not f_Transporter.Processing then¤     Exit;¤    l_Reply.SetRefTo(f_Reply);¤    l_Deliverer := TncsFileListDeliverer.Create(f_Transporter, f_Progressor, f_TaskID, f_Reply.LocalFolder);¤    try¤     try¤      try¤       Result := cMap[l_Deliverer.Execute(f_Reply.FileDesc)];¤      except¤       on E: Exception do¤       begin¤        l3System.Exception2Log(E);¤        raise;¤       end;¤      end;¤     except¤      on EOSError do¤       Result := ncs_rkRetry;¤      on EInOutError do¤       Result := ncs_rkRetry;¤      on EncsEmptyResults do¤       Result := ncs_rkEmpty;¤     end;¤    finally¤     FreeAndNil(l_Deliverer);¤    end;¤   end;¤  finally¤   FreeAndNil(l_Reply)¤  end;¤ finally¤  FreeAndNil(l_TaskDesc);¤ end;¤//#UC END# *546AFE51021F_546AFE0D01CB_impl*"))
+			    value      	"//#UC START# *546AFE51021F_546AFE0D01CB_impl*¤ Result := ncs_rkFail;¤ l_TaskDesc := TncsGetTaskDescription.Create;¤ try¤  l_TaskDesc.TaskID := f_TaskID;¤  f_Transporter.Send(l_TaskDesc);¤  l_Reply := nil;¤  try¤   if f_Transporter.WaitForReply(l_TaskDesc, l_Reply) then¤   begin¤    if not f_Transporter.Processing then¤    begin¤     l3System.Msg2Log('Îáøèêà äîñòàâêè - îáðûâ ñâÿçè');¤     Exit;¤    end;¤    l_Reply.SetRefTo(f_Reply);¤    l_Deliverer := TncsFileListDeliverer.Create(f_Transporter, f_Progressor, f_TaskID, f_Reply.LocalFolder);¤    try¤     try¤      try¤       Result := cMap[l_Deliverer.Execute(f_Reply.FileDesc)];¤      except¤       on E: Exception do¤       begin¤        l3System.Exception2Log(E);¤        raise;¤       end;¤      end;¤     except¤      on EOSError do¤       Result := ncs_rkRetry;¤      on EInOutError do¤       Result := ncs_rkRetry;¤      on EncsEmptyResults do¤       Result := ncs_rkEmpty;¤     end;¤    finally¤     FreeAndNil(l_Deliverer);¤    end;¤   end;¤  finally¤   FreeAndNil(l_Reply)¤  end;¤ finally¤  FreeAndNil(l_TaskDesc);¤ end;¤//#UC END# *546AFE51021F_546AFE0D01CB_impl*"))
 		    quid       	"546AFE51021F"
 		    result     	"TncsResultKind"
 		    concurrency 	"Sequential"
@@ -1479,7 +1495,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*547452F8012B_546AFE0D01CB_impl*"
-			    value      	"//#UC START# *547452F8012B_546AFE0D01CB_impl*¤ if (f_ProgressPercent <> aNewPercent) or (f_ProgressDescription <> aNewDescription) then¤ begin¤  f_ProgressPercent := aNewPercent;¤  f_ProgressDescription := aNewDescription;¤  l_Message := TncsTaskProgress.Create;¤  try¤   l_Message.TaskID := f_TaskID;¤   l_Message.Percent := f_ProgressPercent;¤   l_Message.Description := f_ProgressDescription;¤   f_Transporter.Send(l_Message);¤  finally¤   FreeAndNil(l_Message);¤  end;¤ end;¤//#UC END# *547452F8012B_546AFE0D01CB_impl*"))
+			    value      	"//#UC START# *547452F8012B_546AFE0D01CB_impl*¤ if (f_ProgressPercent <> aNewPercent) or (f_ProgressDescription <> aNewDescription) then¤ begin¤  f_ProgressPercent := aNewPercent;¤  f_ProgressDescription := aNewDescription;¤  l_Message := TncsTaskProgress.Create;¤  try¤   l_Message.TaskID := f_TaskID;¤   l_Message.Percent := f_ProgressPercent;¤   l_Message.Description := f_ProgressDescription;¤   if f_Transporter.Processing then¤    f_Transporter.Send(l_Message)¤   else¤    l3System.Msg2Log('ALERT - SetProgress on disconected result delivery');¤  finally¤   FreeAndNil(l_Message);¤  end;¤ end;¤//#UC END# *547452F8012B_546AFE0D01CB_impl*"))
 		    quid       	"547452F8012B"
 		    stereotype 	"method"
 		    used_nodes 	(list uses_relationship_list
@@ -1780,7 +1796,7 @@
 			    value      	"false"))
 		    quid       	"545C88B50351"
 		    label      	"f_RequestCounter"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Integer"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Integer"
 		    quidu      	"46A606AC03B2"
 		    Containment 	"By Value"
 		    exportControl 	"Private"
@@ -1882,7 +1898,7 @@
 			    value      	"false"))
 		    quid       	"546AFF660105"
 		    label      	"f_TaskID"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::String"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::String"
 		    quidu      	"476136D3010B"
 		    Containment 	"By Value"
 		    exportControl 	"Private"
@@ -1950,7 +1966,7 @@
 			    value      	"false"))
 		    quid       	"547452B4010B"
 		    label      	"f_ProgressDescription"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::String"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::String"
 		    quidu      	"476136D3010B"
 		    Containment 	"By Value"
 		    exportControl 	"Private"
@@ -1984,7 +2000,7 @@
 			    value      	"false"))
 		    quid       	"547452DB0250"
 		    label      	"f_ProgressPercent"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Integer"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Integer"
 		    quidu      	"46A606AC03B2"
 		    Containment 	"By Value"
 		    exportControl 	"Private"
@@ -2053,7 +2069,7 @@
 		    quid       	"549AA06700E2"
 		    documentation 	"Weak IarResultDelivererListner"
 		    label      	"f_Listener"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Pointer"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Pointer"
 		    quidu      	"46A608F00301"
 		    Containment 	"By Value"
 		    exportControl 	"Private"
@@ -2410,7 +2426,7 @@
 			fill_color 	16777215
 			anchor     	2
 			nlines     	3
-			max_width  	853
+			max_width  	856
 			justify    	1)
 		    width      	832
 		    height     	284
@@ -3014,24 +3030,24 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@29
-			location   	(1226, 1167)
+			location   	(1260, 1167)
 			nlines     	1
-			max_width  	548
+			max_width  	480
 			justify    	0
 			label      	"• TarOneTaskDeliverer")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@29
-			location   	(1226, 1117)
+			location   	(1260, 1117)
 			anchor     	10
 			nlines     	1
-			max_width  	548
+			max_width  	480
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"546AFE0D01CB"
-		    width      	566
+		    width      	498
 		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -3048,7 +3064,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @31
 			Parent_View 	@30
-			location   	(1088, 1047)
+			location   	(1105, 1048)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -3074,7 +3090,7 @@
 		    supplier   	@29
 		    vertices   	(list Points
 			(948, 1160)
-			(1216, 1173))
+			(1250, 1175))
 		    line_style 	0)
 		(object Label @32
 		    attributes 	(list Attribute_Set
@@ -3097,7 +3113,7 @@
 		    max_width  	12
 		    justify    	1
 		    label      	"private")
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Integer" @33
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Integer" @33
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -3177,7 +3193,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Pointer" @35
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Pointer" @35
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -3661,7 +3677,7 @@
 		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::SysUtils::FreeAndNil" @56
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::SysUtils::FreeAndNil" @56
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -3684,7 +3700,7 @@
 			nlines     	1
 			max_width  	300
 			justify    	0
-			label      	"• FreeAndNil")
+			label      	"FreeAndNil")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@56
 			location   	(2700, 342)
@@ -4717,7 +4733,7 @@
 			(1675, 986)
 			(1408, 1596))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Win::Windows::PostMessage" @95
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Win::Windows::PostMessage" @95
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -4740,7 +4756,7 @@
 			nlines     	1
 			max_width  	328
 			justify    	0
-			label      	"• PostMessage")
+			label      	"PostMessage")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@95
 			location   	(691, 1869)
@@ -4798,7 +4814,7 @@
 			(1643, 986)
 			(928, 1856))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Messages::Msg Codes" @98
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Messages::Msg Codes" @98
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -5356,7 +5372,7 @@
 		    height     	288
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::String" @115
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::String" @115
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -5476,7 +5492,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::String" @118
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::String" @118
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -5516,7 +5532,7 @@
 		    height     	178
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Integer" @119
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Integer" @119
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -5616,24 +5632,24 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@121
-			location   	(644, 873)
+			location   	(678, 873)
 			nlines     	1
-			max_width  	548
+			max_width  	480
 			justify    	0
 			label      	"• TarOneTaskDeliverer")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@121
-			location   	(644, 823)
+			location   	(678, 823)
 			anchor     	10
 			nlines     	1
-			max_width  	548
+			max_width  	480
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"546AFE0D01CB"
-		    width      	566
+		    width      	498
 		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -5926,7 +5942,7 @@
 				(1117, 810))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$12" @138
-		    location   	(1483, 849)
+		    location   	(1466, 851)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -5943,7 +5959,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "f_ProgressPercent" @139
 			    Parent_View 	@138
-			    location   	(565, -45)
+			    location   	(548, -43)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -5956,7 +5972,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @140
 				Parent_View 	@139
-				location   	(1707, 791)
+				location   	(1703, 792)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -5982,20 +5998,20 @@
 			    client     	@138
 			    supplier   	@119
 			    vertices   	(list Points
-				(1483, 849)
+				(1466, 851)
 				(1766, 828))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$13" @141
 			    Parent_View 	@138
-			    location   	(565, -45)
+			    location   	(548, -43)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"547452DB03B7"
 			    client     	@138
 			    supplier   	@121
 			    vertices   	(list Points
-				(1483, 849)
-				(1201, 871))
+				(1466, 851)
+				(1167, 874))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$14" @142
 		    location   	(626, 747)
@@ -6207,7 +6223,7 @@
 	    origin_x   	0
 	    origin_y   	350
 	    items      	(list diagram_item_list
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::SysUtils::FreeAndNil" @151
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::SysUtils::FreeAndNil" @151
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -6230,7 +6246,7 @@
 			nlines     	1
 			max_width  	300
 			justify    	0
-			label      	"• FreeAndNil")
+			label      	"FreeAndNil")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@151
 			location   	(1080, 126)
@@ -6266,14 +6282,14 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@152
-			location   	(1048, 803)
+			location   	(1048, 798)
 			nlines     	1
 			max_width  	568
 			justify    	0
 			label      	"• TarOneTaskDeliverer")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@152
-			location   	(1048, 753)
+			location   	(1048, 748)
 			anchor     	10
 			nlines     	1
 			max_width  	568
@@ -6284,7 +6300,7 @@
 		    fill_color 	16777215
 		    quidu      	"546AFE0D01CB"
 		    width      	586
-		    height     	157
+		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object UsesView "" @153
@@ -6300,7 +6316,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @154
 			Parent_View 	@153
-			location   	(1164, 537)
+			location   	(1164, 535)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -6325,7 +6341,7 @@
 		    client     	@152
 		    supplier   	@151
 		    vertices   	(list Points
-			(1318, 740)
+			(1317, 735)
 			(1244, 294))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::Shared Delphi For Archi::cs::ResultDelivery::TncsGetTaskDescription" @155
@@ -6381,7 +6397,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @157
 			Parent_View 	@156
-			location   	(1623, 516)
+			location   	(1626, 513)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -6406,7 +6422,7 @@
 		    client     	@152
 		    supplier   	@155
 		    vertices   	(list Points
-			(1468, 740)
+			(1474, 735)
 			(1893, 498))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::Shared Delphi For Archi::cs::Messages::ncsMessage::TncsMessage" @158
@@ -6543,7 +6559,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @163
 			Parent_View 	@162
-			location   	(926, 638)
+			location   	(923, 635)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -6568,7 +6584,7 @@
 		    client     	@152
 		    supplier   	@161
 		    vertices   	(list Points
-			(1236, 740)
+			(1231, 735)
 			(767, 351))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::Shared Delphi For Archi::cs::ResultDelivery::TncsFileListDeliverer::EncsEmptyResults" @164
@@ -6706,7 +6722,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @169
 			Parent_View 	@168
-			location   	(951, 1094)
+			location   	(943, 1097)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -6731,7 +6747,7 @@
 		    client     	@152
 		    supplier   	@167
 		    vertices   	(list Points
-			(1129, 897)
+			(1114, 902)
 			(686, 1068))
 		    line_style 	0)))
 	(object ClassDiagram "Main"

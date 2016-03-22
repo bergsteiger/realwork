@@ -2,6 +2,7 @@ library GblAdapterServer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GblAdapterServer\GblAdapterServer.dpr"
 // Стереотип: "AdapterTarget"
+// Элемент модели: "GblAdapterServer" MUID: (47397F650051)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

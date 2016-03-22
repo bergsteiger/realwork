@@ -2,6 +2,7 @@ unit DictEditQueryList;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\DictEditQueryList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TDictEditQueryList" MUID: (52FA5956031F)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

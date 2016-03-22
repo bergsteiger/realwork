@@ -81,21 +81,6 @@ ref; // ME_2242BFE67A73 TnevControlFriend
 
 ref; // ME_4F956C040018 f_Point
 
-: ME_5263CB14A317
- CONST UID '5263CB14A317'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwParaCoordsToScreen' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F955027033B // TkwParaCoordsToScreen
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5263CB14A317 Ini_Reg_Class
-
 : ME_4F9575F80222
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -117,8 +102,6 @@ ref; // ME_4F9575F80222
 ref; // ME_54F084E3031F 
 
 : ME_4F4CB81200CA_ME_4F955027033B
- CONST UID '4F4CB81200CA'
- CONST Name 'DoWithEditor'
  : Original WL 'ME_4F4CB81200CA' '4F4CB50403CC.pas.ms.script' // DoWithEditor
  ;
  : Implementor ME_4F955027033B // TkwParaCoordsToScreen
@@ -127,8 +110,6 @@ ref; // ME_54F084E3031F
 ref; // ME_4F4CB81200CA_ME_4F955027033B DoWithEditor
 
 : ME_4BF4E6A00093_ME_4F955027033B
- CONST UID '4BF4E6A00093'
- CONST Name 'GetInnerPara'
  : Original WL 'ME_4BF4E6A00093' '4C500D470030.pas.ms.script' // GetInnerPara
  ;
  : Implementor ME_4F955027033B // TkwParaCoordsToScreen
@@ -159,10 +140,6 @@ ref; // ME_4BF4E6A00093_ME_4F955027033B GetInnerPara
    Seq: ( ME_4F956C040018 // f_Point
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_5263CB14A317 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4F4CB81200CA_ME_4F955027033B // DoWithEditor
  )
@@ -193,39 +170,13 @@ ref; // ME_4F955027033B TkwParaCoordsToScreen
 
 FORWARD ME_4F95434701ED
 
-: ME_9B66F9B16876
- CONST UID '9B66F9B16876'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_editor_ParaMiddleCoordsToScreen' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F95434701ED // pop_editor_ParaMiddleCoordsToScreen
- ;
-
-ref; // ME_9B66F9B16876 Ini_Reg
-
 : ME_4C3C927B027E_ME_4F95434701ED
- CONST UID '4C3C927B027E'
- CONST Name 'GetPoint'
  : Original WL 'ME_4C3C927B027E' '4C500D470030.pas.ms.script' // GetPoint
  ;
  : Implementor ME_4F95434701ED // pop_editor_ParaMiddleCoordsToScreen
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4C3C927B027E_ME_4F95434701ED GetPoint
-
-: ME_4DB0614603C8_ME_4F95434701ED
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_4F95434701ED // pop_editor_ParaMiddleCoordsToScreen
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4F95434701ED GetWordNameForRegister
 
 : ME_4F95434701ED
  CONST UID '4F95434701ED'
@@ -241,13 +192,8 @@ ref; // ME_4DB0614603C8_ME_4F95434701ED GetWordNameForRegister
    Seq: ( ME_4F955027033B // TkwParaCoordsToScreen
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9B66F9B16876 // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4C3C927B027E_ME_4F95434701ED // GetPoint
- ME_4DB0614603C8_ME_4F95434701ED // GetWordNameForRegister
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
@@ -359,39 +305,13 @@ ref; // ME_C6EB12118142
 
 ref; // ME_4F954F670262 EditorParaCoordsToScreenPack
 
-: ME_8B747B3BE5E1
- CONST UID '8B747B3BE5E1'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_editor_ParaCoordsToScreen' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EEB66D703A9 // pop_editor_ParaCoordsToScreen
- ;
-
-ref; // ME_8B747B3BE5E1 Ini_Reg
-
 : ME_4C3C927B027E_ME_4EEB66D703A9
- CONST UID '4C3C927B027E'
- CONST Name 'GetPoint'
  : Original WL 'ME_4C3C927B027E' '4C500D470030.pas.ms.script' // GetPoint
  ;
  : Implementor ME_4EEB66D703A9 // pop_editor_ParaCoordsToScreen
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4C3C927B027E_ME_4EEB66D703A9 GetPoint
-
-: ME_4DB0614603C8_ME_4EEB66D703A9
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_4EEB66D703A9 // pop_editor_ParaCoordsToScreen
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4EEB66D703A9 GetWordNameForRegister
 
 : ME_4EEB66D703A9
  CONST UID '4EEB66D703A9'
@@ -407,13 +327,8 @@ ref; // ME_4DB0614603C8_ME_4EEB66D703A9 GetWordNameForRegister
    Seq: ( ME_4F955027033B // TkwParaCoordsToScreen
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_8B747B3BE5E1 // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4C3C927B027E_ME_4EEB66D703A9 // GetPoint
- ME_4DB0614603C8_ME_4EEB66D703A9 // GetWordNameForRegister
  )
  ; // Overridden
  CONST "author" 'Костицын М.'
@@ -469,20 +384,6 @@ ref; // ME_C20AEBF4E607 TnevControlFriend
 
 ref; // ME_4FABEA040112 f_Editor
 
-: ME_03B3235BCE84
- CONST UID '03B3235BCE84'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_editor_CursorCoordsToScreen' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
- ;
-
-ref; // ME_03B3235BCE84 Ini_Reg
-
 : ME_54F06F0E03B0
  CONST Class class_Dependency
  : Stereotype st_friend::Dependency ;
@@ -494,8 +395,6 @@ ref; // ME_03B3235BCE84 Ini_Reg
 ref; // ME_54F06F0E03B0 
 
 : ME_479731C50290_ME_4FABE1110175
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
@@ -504,8 +403,6 @@ ref; // ME_54F06F0E03B0
 ref; // ME_479731C50290_ME_4FABE1110175 Cleanup
 
 : ME_4C3C927B027E_ME_4FABE1110175
- CONST UID '4C3C927B027E'
- CONST Name 'GetPoint'
  : Original WL 'ME_4C3C927B027E' '4C500D470030.pas.ms.script' // GetPoint
  ;
  : Implementor ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
@@ -513,19 +410,7 @@ ref; // ME_479731C50290_ME_4FABE1110175 Cleanup
  CONST OpKind opkind_Overridden
 ref; // ME_4C3C927B027E_ME_4FABE1110175 GetPoint
 
-: ME_4DB0614603C8_ME_4FABE1110175
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4FABE1110175 GetWordNameForRegister
-
 : ME_4F4CB81200CA_ME_4FABE1110175
- CONST UID '4F4CB81200CA'
- CONST Name 'DoWithEditor'
  : Original WL 'ME_4F4CB81200CA' '4F4CB50403CC.pas.ms.script' // DoWithEditor
  ;
  : Implementor ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
@@ -551,14 +436,9 @@ ref; // ME_4F4CB81200CA_ME_4FABE1110175 DoWithEditor
    Seq: ( ME_4FABEA040112 // f_Editor
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_03B3235BCE84 // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_4FABE1110175 // Cleanup
  ME_4C3C927B027E_ME_4FABE1110175 // GetPoint
- ME_4DB0614603C8_ME_4FABE1110175 // GetWordNameForRegister
  ME_4F4CB81200CA_ME_4FABE1110175 // DoWithEditor
  )
  ; // Overridden
@@ -621,20 +501,6 @@ ref; // ME_ECEAEC4170FC TnevControlFriend
 
 ref; // ME_4F265AF301A4 f_Editor
 
-: ME_9EC730D2EB44
- CONST UID '9EC730D2EB44'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_editor_ParaEndCoordsToScreen' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
- ;
-
-ref; // ME_9EC730D2EB44 Ini_Reg
-
 : ME_4F268AA003AE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -666,8 +532,6 @@ ref; // ME_4F268AAC036C
 ref; // ME_54F06F250171 
 
 : ME_479731C50290_ME_4F265392010B
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
@@ -676,8 +540,6 @@ ref; // ME_54F06F250171
 ref; // ME_479731C50290_ME_4F265392010B Cleanup
 
 : ME_4C3C927B027E_ME_4F265392010B
- CONST UID '4C3C927B027E'
- CONST Name 'GetPoint'
  : Original WL 'ME_4C3C927B027E' '4C500D470030.pas.ms.script' // GetPoint
  ;
  : Implementor ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
@@ -685,19 +547,7 @@ ref; // ME_479731C50290_ME_4F265392010B Cleanup
  CONST OpKind opkind_Overridden
 ref; // ME_4C3C927B027E_ME_4F265392010B GetPoint
 
-: ME_4DB0614603C8_ME_4F265392010B
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4F265392010B GetWordNameForRegister
-
 : ME_4F4CB81200CA_ME_4F265392010B
- CONST UID '4F4CB81200CA'
- CONST Name 'DoWithEditor'
  : Original WL 'ME_4F4CB81200CA' '4F4CB50403CC.pas.ms.script' // DoWithEditor
  ;
  : Implementor ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
@@ -723,14 +573,9 @@ ref; // ME_4F4CB81200CA_ME_4F265392010B DoWithEditor
    Seq: ( ME_4F265AF301A4 // f_Editor
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_9EC730D2EB44 // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_4F265392010B // Cleanup
  ME_4C3C927B027E_ME_4F265392010B // GetPoint
- ME_4DB0614603C8_ME_4F265392010B // GetWordNameForRegister
  ME_4F4CB81200CA_ME_4F265392010B // DoWithEditor
  )
  ; // Overridden

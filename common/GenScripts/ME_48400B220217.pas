@@ -2,6 +2,7 @@ unit atBaseEvdHelper;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\EvdHelpers\atBaseEvdHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatBaseEvdHelper" MUID: (48400B220217)
 
 interface
 

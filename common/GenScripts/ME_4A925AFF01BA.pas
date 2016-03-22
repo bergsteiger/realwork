@@ -3,6 +3,8 @@ unit PrimNemesisRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimNemesisRes.pas"
 // Стереотип: "VCMApplication"
+// Элемент модели: "PrimNemesis" MUID: (4A925AFF01BA)
+// Имя типа: "TPrimNemesisRes"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

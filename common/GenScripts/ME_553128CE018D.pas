@@ -2,6 +2,7 @@ unit tfwIntegerToEnumName;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIntegerToEnumName.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwIntegerToEnumName" MUID: (553128CE018D)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -9,6 +9,8 @@ Open
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwOpen.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "Open" MUID: (512D9C56000B)
+// Имя типа: "TkwOpen"
 
 interface
 

@@ -3,6 +3,8 @@ unit TextLoad_Form;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\TextLoad_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "TextLoad" MUID: (4B30C7E800EE)
+// Имя типа: "TTextLoadForm"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

@@ -3,6 +3,8 @@ unit GroupProperty_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\GroupProperty_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "GroupProperty" MUID: (4AA8E3E20024)
+// Имя типа: "TefGroupProperty"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

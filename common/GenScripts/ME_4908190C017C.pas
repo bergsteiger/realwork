@@ -2,6 +2,7 @@ unit nsDictCachePrim;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsDictCachePrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDictCachePrim" MUID: (4908190C017C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

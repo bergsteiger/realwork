@@ -3,6 +3,7 @@ unit stMainMenuChangeableMainMenuTypeItem;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\stMainMenuChangeableMainMenuTypeItem.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TstMainMenuChangeableMainMenuTypeItem" MUID: (98CD882A435E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

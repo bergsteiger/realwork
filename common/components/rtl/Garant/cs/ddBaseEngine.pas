@@ -75,6 +75,7 @@ Uses
  l3IniFile,
 
  daDataProviderSuperFactory,
+ daSchemeConsts,
 
  dt_Const,
  dt_Serv,

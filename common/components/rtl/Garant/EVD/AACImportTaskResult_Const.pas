@@ -5,7 +5,7 @@ unit AACImportTaskResult_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/AACImportTaskResult_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::AACImportTaskResult
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::AACImportTaskResult
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

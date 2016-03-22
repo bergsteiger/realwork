@@ -3,6 +3,7 @@ unit dsGroupsList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsGroupsList.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsGroupsList" MUID: (49EC547C001B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

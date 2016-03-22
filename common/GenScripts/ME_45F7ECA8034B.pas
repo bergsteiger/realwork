@@ -2,6 +2,7 @@ unit DefaultNodeBase;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DefaultNodeBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "DefaultNodeBase" MUID: (45F7ECA8034B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -151,7 +152,7 @@ function DefaultNodeBase.pm_Getchildren_flags: TFlagMask;
 //#UC END# *45F95D2600AB_45F7ECA8034Bget_var*
 begin
 //#UC START# *45F95D2600AB_45F7ECA8034Bget_impl*
- Result := f_children_flags
+ !!! Needs to be implemented !!!
 //#UC END# *45F95D2600AB_45F7ECA8034Bget_impl*
 end;//DefaultNodeBase.pm_Getchildren_flags
 
@@ -160,7 +161,7 @@ procedure DefaultNodeBase.pm_Setowner_tree(aValue: TreeBase);
 //#UC END# *45F9675A000F_45F7ECA8034Bset_var*
 begin
 //#UC START# *45F9675A000F_45F7ECA8034Bset_impl*
- f_owner_tree := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *45F9675A000F_45F7ECA8034Bset_impl*
 end;//DefaultNodeBase.pm_Setowner_tree
 

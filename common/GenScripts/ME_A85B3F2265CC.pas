@@ -3,6 +3,7 @@ unit InternetAgentKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\InternetAgentKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "InternetAgentKeywordsPack" MUID: (A85B3F2265CC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -33,19 +34,19 @@ type
 'aControl' форма::InternetAgent TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_InternetAgent
-
-class function Tkw_Form_InternetAgent.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::InternetAgent';
-end;//Tkw_Form_InternetAgent.GetWordNameForRegister
 
 function Tkw_Form_InternetAgent.GetString: AnsiString;
 begin
  Result := 'InternetAgentForm';
 end;//Tkw_Form_InternetAgent.GetString
+
+class function Tkw_Form_InternetAgent.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::InternetAgent';
+end;//Tkw_Form_InternetAgent.GetWordNameForRegister
 
 initialization
  Tkw_Form_InternetAgent.RegisterInEngine;

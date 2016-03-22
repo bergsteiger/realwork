@@ -2,6 +2,7 @@ unit vcmMenuForChromeLikeItemWrap;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmMenuForChromeLikeItemWrap.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmMenuForChromeLikeItemWrap" MUID: (5477971800CE)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

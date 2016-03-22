@@ -55,20 +55,6 @@ ref; // ME_49D3BDD80FDE
 
 ref; // ME_4F37ACE80010 CompilationPack
 
-: ME_C92866403DB2
- CONST UID 'C92866403DB2'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация FORWARD' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4BB5B50178 // FORWARD
- ;
-
-ref; // ME_C92866403DB2 Ini_Reg
-
 : ME_4F4BBA390353
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -90,8 +76,6 @@ ref; // ME_4F4BBA390353
 ref; // ME_4F4BBA700078 
 
 : ME_4DB6C99F026E_ME_4F4BB5B50178
- CONST UID '4DB6C99F026E'
- CONST Name 'EndBracket'
  : Original WL 'ME_4DB6C99F026E' '54F079B5035C.pas.ms.script' // EndBracket
  ;
  : Implementor ME_4F4BB5B50178 // FORWARD
@@ -99,19 +83,7 @@ ref; // ME_4F4BBA700078
  CONST OpKind opkind_Implemented
 ref; // ME_4DB6C99F026E_ME_4F4BB5B50178 EndBracket
 
-: ME_4DB0614603C8_ME_4F4BB5B50178
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_4F4BB5B50178 // FORWARD
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4F4BB5B50178 GetWordNameForRegister
-
 : ME_4DB9B446039A_ME_4F4BB5B50178
- CONST UID '4DB9B446039A'
- CONST Name 'AfterWordMaxCount'
  : Original WL 'ME_4DB9B446039A' '54F079B5035C.pas.ms.script' // AfterWordMaxCount
  ;
  : Implementor ME_4F4BB5B50178 // FORWARD
@@ -120,8 +92,6 @@ ref; // ME_4DB0614603C8_ME_4F4BB5B50178 GetWordNameForRegister
 ref; // ME_4DB9B446039A_ME_4F4BB5B50178 AfterWordMaxCount
 
 : ME_4DB9B502013D_ME_4F4BB5B50178
- CONST UID '4DB9B502013D'
- CONST Name 'AcceptsKeyWordAfter'
  : Original WL 'ME_4DB9B502013D' '54F079B5035C.pas.ms.script' // AcceptsKeyWordAfter
  ;
  : Implementor ME_4F4BB5B50178 // FORWARD
@@ -130,8 +100,6 @@ ref; // ME_4DB9B446039A_ME_4F4BB5B50178 AfterWordMaxCount
 ref; // ME_4DB9B502013D_ME_4F4BB5B50178 AcceptsKeyWordAfter
 
 : ME_4F219629036A_ME_4F4BB5B50178
- CONST UID '4F219629036A'
- CONST Name 'FinishDefinitionOfNewWord'
  : Original WL 'ME_4F219629036A' '54F079B5035C.pas.ms.script' // FinishDefinitionOfNewWord
  ;
  : Implementor ME_4F4BB5B50178 // FORWARD
@@ -154,17 +122,12 @@ ref; // ME_4F219629036A_ME_4F4BB5B50178 FinishDefinitionOfNewWord
    Seq: ( WL 'ME_4DB9B6D20168' '54F079B5035C.pas.ms.script' // TtfwNewWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C92866403DB2 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DB6C99F026E_ME_4F4BB5B50178 // EndBracket
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_4F4BB5B50178 // GetWordNameForRegister
- ME_4DB9B446039A_ME_4F4BB5B50178 // AfterWordMaxCount
+   Seq: ( ME_4DB9B446039A_ME_4F4BB5B50178 // AfterWordMaxCount
  ME_4DB9B502013D_ME_4F4BB5B50178 // AcceptsKeyWordAfter
  ME_4F219629036A_ME_4F4BB5B50178 // FinishDefinitionOfNewWord
  )

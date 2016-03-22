@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\dsDocumentList.imp.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsDocumentList" MUID: (47E9EDC602B2)
+// Имя типа: "_dsDocumentList_"
 
 {$Define dsDocumentList_imp}
 
@@ -809,7 +811,8 @@ begin
                            nil,
                            nil,
                            aAllDocumentsFiltered,
-                           False);
+                           False,
+                           pm_GetIsChanged);
 //#UC END# *47F33B990105_47E9EDC602B2_impl*
 end;//_dsDocumentList_.DataForNewList
 

@@ -2,6 +2,8 @@ unit PrimDocumentWithFlashOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDocumentWithFlashOptions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimDocumentWithFlashOptions" MUID: (4C87849303A6)
+// Имя типа: "TPrimDocumentWithFlashOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

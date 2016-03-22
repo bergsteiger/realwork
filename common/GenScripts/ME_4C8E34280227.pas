@@ -3,6 +3,8 @@ unit moToolbarMenu;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ToolbarMenu\moToolbarMenu.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "ToolbarMenu" MUID: (4C8E34280227)
+// Имя типа: "Tmo_ToolbarMenu"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

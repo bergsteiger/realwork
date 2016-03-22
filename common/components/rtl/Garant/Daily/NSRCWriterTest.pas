@@ -1,98 +1,77 @@
 unit NSRCWriterTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/NSRCWriterTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::NSRCTests::TNSRCWriterTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\NSRCWriterTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TNSRCWriterTest" MUID: (4B4F68EE006B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  l3Filer,
-  k2DocumentBuffer,
-  k2TagGen,
-  k2CustomFileReader,
-  evCustomTextFormatter,
-  evdNativeReader,
-  evdNSRCReader,
-  WriterTest,
-  tstNSRCGenerator
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , WriterTest
+ , tstNSRCGenerator
+ , l3Filer
+ , evCustomTextFormatter
+ , k2TagGen
+ , k2CustomFileReader
+ , evdNativeReader
+ , evdNSRCReader
+ , k2DocumentBuffer
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TNSRCWriterTest = {abstract} class(TWriterTest, ItstNSRCListener)
- protected
- // realized methods
-   procedure ExtractFileEvent(const aFileName: AnsiString);
-     {* Событие выливки внешнего файла. }
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    procedure SomeFormatToNSRC(aReader: Tk2CustomFileReader;
-     aPlus: Boolean);
+    aPlus: Boolean);
    procedure EVDtoNSRC(const aFileName: AnsiString;
-     aPlus: Boolean);
+    aPlus: Boolean);
    procedure NSRCtoNSRC(const aFileName: AnsiString;
-     aPlus: Boolean);
+    aPlus: Boolean);
    function CreateNSRCReader(const aFileName: AnsiString): TevdNSRCReader;
-     {* Создаёт NSRCReader }
+    {* Создаёт NSRCReader }
    procedure NSRCtoMemory(const aFileName: AnsiString);
-     {* Читает NSRC в память }
+    {* Читает NSRC в память }
    procedure NSRCtoEVD(const aFileName: AnsiString);
    function PainterCodePage: Integer; virtual;
    function NSRCCodePage: Integer; virtual;
-     {* Кодировка для выливки в NSRC }
+    {* Кодировка для выливки в NSRC }
+   procedure ExtractFileEvent(const aFileName: AnsiString);
+    {* Событие выливки внешнего файла. }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TNSRCWriterTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3Chars,
-  evTextFormatter,
-  evSimpleTextPainter,
-  evNSRCPlusWriter,
-  evEmptyTableEliminator,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TNSRCWriterTest
+ l3ImplUses
+ , TestFrameWork
+ , SysUtils
+ , l3Chars
+ , evTextFormatter
+ , evSimpleTextPainter
+ , evNSRCPlusWriter
+ , evEmptyTableEliminator
+;
 
 procedure TNSRCWriterTest.SomeFormatToNSRC(aReader: Tk2CustomFileReader;
-  aPlus: Boolean);
+ aPlus: Boolean);
+var l_Filer: Tl3CustomFiler;
+var l_Painter: TevCustomTextFormatter;
+var l_G: Tk2TagGenerator;
+var l_TestGen: TtstNSRCGenerator;
 //#UC START# *4B59DC7D0325_4B4F68EE006B_var*
 const
  cExt : array [Boolean] of AnsiString = ('.nsr', '.plus.nsr');
 //#UC END# *4B59DC7D0325_4B4F68EE006B_var*
-var
- l_Filer : Tl3CustomFiler;
- l_Painter : TevCustomTextFormatter;
- l_G : Tk2TagGenerator;
- l_TestGen : TtstNSRCGenerator;
 begin
 //#UC START# *4B59DC7D0325_4B4F68EE006B_impl*
  if aPlus then
@@ -141,11 +120,10 @@ begin
 end;//TNSRCWriterTest.SomeFormatToNSRC
 
 procedure TNSRCWriterTest.EVDtoNSRC(const aFileName: AnsiString;
-  aPlus: Boolean);
+ aPlus: Boolean);
+var l_Reader: TevdNativeReader;
 //#UC START# *4B59E36902DE_4B4F68EE006B_var*
 //#UC END# *4B59E36902DE_4B4F68EE006B_var*
-var
- l_Reader : TevdNativeReader;
 begin
 //#UC START# *4B59E36902DE_4B4F68EE006B_impl*
  l_Reader := TevdNativeReader.Make(FileFromCurrent(aFileName));
@@ -158,11 +136,10 @@ begin
 end;//TNSRCWriterTest.EVDtoNSRC
 
 procedure TNSRCWriterTest.NSRCtoNSRC(const aFileName: AnsiString;
-  aPlus: Boolean);
+ aPlus: Boolean);
+var l_Reader: TevdNSRCReader;
 //#UC START# *4B59EBDB038B_4B4F68EE006B_var*
 //#UC END# *4B59EBDB038B_4B4F68EE006B_var*
-var
- l_Reader : TevdNSRCReader;
 begin
 //#UC START# *4B59EBDB038B_4B4F68EE006B_impl*
  l_Reader := CreateNSRCReader(aFileName);
@@ -175,6 +152,7 @@ begin
 end;//TNSRCWriterTest.NSRCtoNSRC
 
 function TNSRCWriterTest.CreateNSRCReader(const aFileName: AnsiString): TevdNSRCReader;
+ {* Создаёт NSRCReader }
 //#UC START# *4B7D049100D0_4B4F68EE006B_var*
 //#UC END# *4B7D049100D0_4B4F68EE006B_var*
 begin
@@ -190,11 +168,11 @@ begin
 end;//TNSRCWriterTest.CreateNSRCReader
 
 procedure TNSRCWriterTest.NSRCtoMemory(const aFileName: AnsiString);
+ {* Читает NSRC в память }
+var l_Reader: TevdNSRCReader;
+var l_Buffer: Tk2DocumentBuffer;
 //#UC START# *4B7D050E002F_4B4F68EE006B_var*
 //#UC END# *4B7D050E002F_4B4F68EE006B_var*
-var
- l_Reader : TevdNSRCReader;
- l_Buffer : Tk2DocumentBuffer;
 begin
 //#UC START# *4B7D050E002F_4B4F68EE006B_impl*
  l_Reader := CreateNSRCReader(aFileName);
@@ -218,10 +196,9 @@ begin
 end;//TNSRCWriterTest.NSRCtoMemory
 
 procedure TNSRCWriterTest.NSRCtoEVD(const aFileName: AnsiString);
+var l_Reader: TevdNSRCReader;
 //#UC START# *4BED3FAC0228_4B4F68EE006B_var*
 //#UC END# *4BED3FAC0228_4B4F68EE006B_var*
-var
- l_Reader : TevdNSRCReader;
 begin
 //#UC START# *4BED3FAC0228_4B4F68EE006B_impl*
  l_Reader := CreateNSRCReader(aFileName);
@@ -243,6 +220,7 @@ begin
 end;//TNSRCWriterTest.PainterCodePage
 
 function TNSRCWriterTest.NSRCCodePage: Integer;
+ {* Кодировка для выливки в NSRC }
 //#UC START# *4BEBCEA00177_4B4F68EE006B_var*
 //#UC END# *4BEBCEA00177_4B4F68EE006B_var*
 begin
@@ -252,6 +230,7 @@ begin
 end;//TNSRCWriterTest.NSRCCodePage
 
 procedure TNSRCWriterTest.ExtractFileEvent(const aFileName: AnsiString);
+ {* Событие выливки внешнего файла. }
 //#UC START# *4D70B2AF0288_4B4F68EE006B_var*
 //#UC END# *4D70B2AF0288_4B4F68EE006B_var*
 begin
@@ -262,17 +241,16 @@ begin
 end;//TNSRCWriterTest.ExtractFileEvent
 
 function TNSRCWriterTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'NSRCTests';
 end;//TNSRCWriterTest.GetFolder
 
 function TNSRCWriterTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4B4F68EE006B';
 end;//TNSRCWriterTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

@@ -6,3 +6,4 @@
 {$Define NoVCM}
 {$Define noGDIPlus}
 {$Define NoScripts}
+{$Define UsePostgres}

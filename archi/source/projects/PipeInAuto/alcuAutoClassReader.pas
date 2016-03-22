@@ -3,9 +3,15 @@ unit alcuAutoClassReader;
 { Специальная читалка данных рубрицирования }
 
 
-{ $Id: alcuAutoClassReader.pas,v 1.8 2015/07/02 07:34:38 lukyanets Exp $ }
+{ $Id: alcuAutoClassReader.pas,v 1.10 2015/11/26 08:45:26 lukyanets Exp $ }
 
 // $Log: alcuAutoClassReader.pas,v $
+// Revision 1.10  2015/11/26 08:45:26  lukyanets
+// КОнстанты переехали
+//
+// Revision 1.9  2015/11/23 11:36:56  lukyanets
+// Заготовки Renum
+//
 // Revision 1.8  2015/07/02 07:34:38  lukyanets
 // Описываем словари
 //
@@ -99,7 +105,7 @@ const
 implementation
 
 Uses
- daTypes,
+ daTypes, daInterfaces, daSchemeConsts,
  dt_Link, dt_Const, dt_Serv, dt_Dict,
  l3Parser, l3Bits, l3String,
  SysUtils, Dt_ReNum, dt_DictConst, dt_LinkServ, l3Interfaces;

@@ -2,6 +2,7 @@ unit evLeafParaMultiSelectionBlock;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evLeafParaMultiSelectionBlock.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevLeafParaMultiSelectionBlock" MUID: (48ECD64B005A)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

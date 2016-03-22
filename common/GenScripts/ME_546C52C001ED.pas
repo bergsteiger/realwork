@@ -2,6 +2,7 @@ unit ncsFileDesc;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsFileDesc.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsFileDesc" MUID: (546C52C001ED)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

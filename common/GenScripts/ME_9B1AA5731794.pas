@@ -3,6 +3,7 @@ unit LogoKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\LogoKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "LogoKeywordsPack" MUID: (9B1AA5731794)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,15 +35,10 @@ type
 'aControl' форма::Logo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Logo
-
-class function Tkw_Form_Logo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Logo';
-end;//Tkw_Form_Logo.GetWordNameForRegister
 
 function Tkw_Form_Logo.GetString: AnsiString;
 begin
@@ -54,6 +50,11 @@ begin
  inherited;
  TtfwClassRef.Register(TLogoForm);
 end;//Tkw_Form_Logo.RegisterInEngine
+
+class function Tkw_Form_Logo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Logo';
+end;//Tkw_Form_Logo.GetWordNameForRegister
 
 initialization
  Tkw_Form_Logo.RegisterInEngine;

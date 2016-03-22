@@ -2,6 +2,7 @@ unit evVisualInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evVisualInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "evVisualInterfaces" MUID: (547C9F6D029C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

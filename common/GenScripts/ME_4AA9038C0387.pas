@@ -3,6 +3,8 @@ unit MonitoringsRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MonitoringsRes.pas"
 // Стереотип: "VCMApplication"
+// Элемент модели: "Monitorings" MUID: (4AA9038C0387)
+// Имя типа: "TMonitoringsRes"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

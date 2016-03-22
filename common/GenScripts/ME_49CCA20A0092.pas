@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwStatusElement.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "afwStatusElement" MUID: (49CCA20A0092)
+// Имя типа: "_afwStatusElement_"
 
 {$Define afwStatusElement_imp}
 
@@ -9,7 +11,7 @@
   {* Реализация IafwStatusElement }
   private
    f_Status: IafwStatus;
-    {* Поле для свойства Status }
+    {* Строка статуса к которой мы подписаны }
   protected
    procedure DoGetStatusInfo(out theString: IafwCString;
     out theNeedProgress: Boolean); virtual; abstract;

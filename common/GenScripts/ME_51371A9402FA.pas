@@ -2,6 +2,7 @@ unit nsIntegrationModelPart;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Integration\Implementation\nsIntegrationModelPart.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsIntegrationModelPart" MUID: (51371A9402FA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

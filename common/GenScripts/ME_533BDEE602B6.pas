@@ -2,6 +2,7 @@ unit vcmGlassForm;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmGlassForm.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmGlassForm" MUID: (533BDEE602B6)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

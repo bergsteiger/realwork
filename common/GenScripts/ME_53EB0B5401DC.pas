@@ -2,6 +2,8 @@ unit AACImportTaskResult_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\AACImportTaskResult_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "AACImportTaskResult" MUID: (53EB0B5401DC)
+// Имя типа: "AACImportTaskResultTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

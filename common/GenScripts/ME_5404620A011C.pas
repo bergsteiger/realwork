@@ -2,6 +2,8 @@ unit RegionAutoExportTask_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\RegionAutoExportTask_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "RegionAutoExportTask" MUID: (5404620A011C)
+// Имя типа: "RegionAutoExportTaskTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

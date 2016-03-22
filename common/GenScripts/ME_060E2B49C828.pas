@@ -3,6 +3,7 @@ unit evNative_AttrValues;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evNative_AttrValues.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evNative_AttrValues" MUID: (060E2B49C828)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

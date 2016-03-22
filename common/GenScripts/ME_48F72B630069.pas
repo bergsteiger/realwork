@@ -2,6 +2,7 @@ unit nsSingleAttributeData;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSingleAttributeData.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsSingleAttributeData" MUID: (48F72B630069)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

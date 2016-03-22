@@ -2,6 +2,7 @@ unit l3MenuManagerHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3MenuManagerHelper.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3MenuManagerHelper" MUID: (550199070251)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -31,7 +32,7 @@ type
  Tl3MenuManagerHelper = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3MenuManagerHelper;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3MenuManagerHelper }
   protected
    procedure pm_SetAlien(const aValue: Il3MenuManagerHelper);
    procedure ClearFields; override;

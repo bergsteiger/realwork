@@ -12,10 +12,9 @@ namespace SynMake {
 	public:
 		SynMaker (const std::string& path);
 
-		virtual ~SynMaker ();
-
 	public:
 		void execute (const std::string& in, const std::string& out);
+		void execute (const std::string& in, const std::string& out, const std::string& stop_path, bool is_hard);
 
 	private:
 		Core::Aptr <ToolsBase> m_base;

@@ -84,6 +84,7 @@ type
    function Get_Data: InevObjectPrim;
    function BottomAnchor(aSimple: Boolean): InevAnchor;
    function Get_AACLike: TnevAACLikeMode;
+   function NeedTotalRecalc: Boolean;
  protected
  // overridden property methods
    function pm_GetShape: InevObject; override;
@@ -783,6 +784,15 @@ begin
   Result := InevControl(f_Control).Metrics.AACLike;
 //#UC END# *501F96A80050_4811E4BA020Aget_impl*
 end;//TnevBaseDrawView.Get_AACLike
+
+function TnevBaseDrawView.NeedTotalRecalc: Boolean;
+//#UC START# *565F03C80029_4811E4BA020A_var*
+//#UC END# *565F03C80029_4811E4BA020A_var*
+begin
+//#UC START# *565F03C80029_4811E4BA020A_impl*
+ Result := false; 
+//#UC END# *565F03C80029_4811E4BA020A_impl*
+end;//TnevBaseDrawView.NeedTotalRecalc
 
 procedure TnevBaseDrawView.Cleanup;
 //#UC START# *479731C50290_4811E4BA020A_var*

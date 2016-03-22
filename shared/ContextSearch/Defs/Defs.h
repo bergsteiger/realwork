@@ -381,13 +381,26 @@ public:
 // Релевантности позиций из обычного невидимого текста документа
 typedef std::map < unsigned long, PositionsRel > InvisibleRel;
 
-// StrStrMap
-typedef std::map < std::string, std::string > StrStrMap;
-
 // Логические операции
 static const char so_AND = '&'; // AND
 static const char so_OR = '|'; // OR
 static const char so_NOT = '~'; // NOT
+
+#pragma pack (push, 1)
+
+// Пaра позиций
+struct PosPair {
+	// первая позиция
+	unsigned long first;
+	// вторая позиция
+	unsigned long second;
+	//#UC START# *5644641E037A*
+	PosPair () : first (0), second (0) {}
+	PosPair (unsigned long _first, unsigned long _second) : first (_first), second (_second) {}
+	//#UC END# *5644641E037A*
+};
+
+#pragma pack (pop)
 
 } // namespace Defs
 } // namespace ContextSearch

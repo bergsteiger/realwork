@@ -1,8 +1,11 @@
 unit dd_lcDossierMaker;
 { Создание справки для постановлений судов }
 
-{ $Id: dd_lcDossierMaker.pas,v 1.33 2015/07/02 11:41:28 lukyanets Exp $ }
+{ $Id: dd_lcDossierMaker.pas,v 1.34 2015/11/26 09:05:21 lukyanets Exp $ }
 // $Log: dd_lcDossierMaker.pas,v $
+// Revision 1.34  2015/11/26 09:05:21  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.33  2015/07/02 11:41:28  lukyanets
 // Описываем словари
 //
@@ -137,7 +140,7 @@ type
 implementation
 
 uses
- daTypes,
+ daTypes, daSchemeConsts,
  dt_AttrSchema,
  TextPara_Const, k2Tags, Document_Const, evdStyles, HyperLink_Const,
  evTextParaTools, SegmentsLayer_Const, evdTypes, Address_Const, ddUtils,

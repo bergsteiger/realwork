@@ -2,6 +2,7 @@ unit vcmZoneTypeList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmZoneTypeList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmZoneTypeList" MUID: (55F5644A029F)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

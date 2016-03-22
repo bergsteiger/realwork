@@ -2,6 +2,7 @@ unit csAnnotationTask;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csAnnotationTask.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsAnnotationTask" MUID: (53B6A4F300DE)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

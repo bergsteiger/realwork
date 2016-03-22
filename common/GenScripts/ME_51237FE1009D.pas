@@ -2,6 +2,7 @@ program PrimeAppTest;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\PrimeAppTest.dpr"
 // Стереотип: "VCMTestTarget"
+// Элемент модели: "Prime" MUID: (51237FE1009D)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

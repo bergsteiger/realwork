@@ -2,6 +2,7 @@ unit nsEditionsUtils;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsEditionsUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsEditionsUtils" MUID: (4B2895E80398)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

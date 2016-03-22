@@ -2,6 +2,7 @@ unit nsSaveDialog;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSaveDialog.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsSaveDialog" MUID: (4AF32FBD00F5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

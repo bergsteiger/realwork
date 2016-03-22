@@ -2,6 +2,7 @@ unit eeNode;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TeeNode" MUID: (4AE8269E010D)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

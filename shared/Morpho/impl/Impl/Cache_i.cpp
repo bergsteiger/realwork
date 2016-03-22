@@ -36,7 +36,7 @@ void Cache_i::load (DBCore::IIndex* index, const void* key, GCL::StrVector& out)
 	if (size) {
 		std::string item;
 
-		const char* ptr = buf->get_data ();
+		const char* ptr = buf->get ();
 
 		for (size_t i = 0; i < size; i += item.size () + 1) {
 			item = ptr + i;
@@ -74,7 +74,7 @@ void Cache_i::load_exclude (DBCore::IIndex* index) {
 	DBCore::IBuffer_var buffer = index->read ("NExc", 0, size);
 
 	if (size) {
-		const char* buf = buffer->get_data ();
+		const char* buf = buffer->get ();
 
 		for (const char* ptr = buf; (size_t) (ptr - buf) < size; ) {
 			std::string key = ptr;
@@ -121,7 +121,7 @@ void Cache_i::load_postfixes (DBCore::IIndex* index) {
 
 		std::string item;
 
-		const char* buf = buffer->get_data ();
+		const char* buf = buffer->get ();
 
 		for (const char* ptr = buf; (size_t) (ptr - buf) < size; ) {
 			data.postfixes.push_back ("");
@@ -158,7 +158,7 @@ void Cache_i::load_pseudo (DBCore::IIndex* index) {
 
 		Def::StrStrMap::iterator it;
 
-		const char* ptr = buffer->get_data ();
+		const char* ptr = buffer->get ();
 
 		std::string str;
 
@@ -173,39 +173,6 @@ void Cache_i::load_pseudo (DBCore::IIndex* index) {
 		}
 	}
 	//#UC END# *4E034EB902DB*
-}
-
-// загрузка однословных синонимов
-void Cache_i::load_simple_syns (DBCore::IIndex* index) {
-	//#UC START# *4E035C1002E0*
-	size_t size = 0;
-
-	DBCore::IBuffer_var buffer = index->read ("SSyn", 0, size);
-
-	if (size) {
-		const char* buf = buffer->get_data ();
-
-		Def::Synonyms::iterator cur_it;
-
-		for (const char* ptr = buf; (size_t) (ptr - buf) < size; ) {
-			std::string key = ptr;
-			ptr += (key.size () + 1);
-
-			cur_it = m_data->syns.insert (Def::Synonyms::value_type (key, GCL::StrVector ((size_t) *ptr))).first;
-
-			++ptr;
-
-			for (; *ptr == 0; ++ptr);
-
-			GCL::StrVector::iterator it = cur_it->second.begin (), it_end = cur_it->second.end ();
-
-			for (; it != it_end; ++it) {
-				*it = ptr;
-				ptr += (it->size () + 1);
-			}
-		}
-	}
-	//#UC END# *4E035C1002E0*
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -262,35 +229,8 @@ const Def::FixedPairs& Cache_i::get_syn_pairs () const {
 }
 
 // implemented method from Def::ICache
-// синонимы
-const Def::Synonyms& Cache_i::get_syns () const {
-	//#UC START# *4E01AE6F0073_4E0346CB0015*
-	GDS_ASSERT (m_data.is_nil () == false);
-	return m_data->syns;
-	//#UC END# *4E01AE6F0073_4E0346CB0015*
-}
-
-// implemented method from Def::ICache
-// синонимы
-const GCL::StrVector& Cache_i::get_syns (const std::string& key) {
-	//#UC START# *52E138E500BA_4E0346CB0015*
-	if (m_data->syns.empty () == false) {
-		Def::Synonyms::const_iterator it = m_data->syns.find (key);
-
-		if (it != m_data->syns.end ()) {
-			return it->second;
-		}
-	}
-
-	GUARD (m_mutex);
-	static const GCL::StrVector fake_ret;
-	return fake_ret;
-	//#UC END# *52E138E500BA_4E0346CB0015*
-}
-
-// implemented method from Def::ICache
 // загрузка
-void Cache_i::load (DBCore::IBase* base, bool load_ssyn) {
+void Cache_i::load (DBCore::IBase* base) {
 	//#UC START# *5151CA3C01F0_4E0346CB0015*
 	GUARD (m_mutex);
 
@@ -307,11 +247,6 @@ void Cache_i::load (DBCore::IBase* base, bool load_ssyn) {
 	try {
 		if (base) {
 			DBCore::IIndex_var index = base->make ("Aux");
-
-			// «агрузка однословных синонимов
-			if (load_ssyn) {
-				this->load_simple_syns (index.in ());
-			}
 
 			// «агрузка морфо-опечаток
 			this->load_pairs (index.in (), "MMor", m_fixed_pairs);

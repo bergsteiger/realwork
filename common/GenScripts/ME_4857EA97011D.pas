@@ -3,6 +3,8 @@ unit ReqRow_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\ReqRow_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "ReqRow" MUID: (4857EA97011D)
+// Имя типа: "ReqRowTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit nevActiveHyperlinkProxy;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevActiveHyperlinkProxy.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevActiveHyperlinkProxy" MUID: (4E1D95610271)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -28,7 +28,7 @@ uses
   ;
 
 type
- TdaJournal = class(Tl3ProtoObject, IdaJournal)
+ TdaJournal = class(Tl3ProtoObject, IdaJournal, IdaComboAccessJournalHelper)
  private
  // private fields
    f_CurUser : TdaUserID;
@@ -41,6 +41,7 @@ type
  private
  // private methods
    function GetNewSessionID: TdaSessionID;
+   procedure AnalyseLog(const aLog: IdaResultSet);
  protected
  // realized methods
    function Get_CurStatisticTreeRoot: Il3RootNode;
@@ -81,6 +82,18 @@ type
    procedure StartCaching;
    procedure StopCaching;
    procedure SessionDone;
+   procedure SetAlienData(anUserID: TdaUserID;
+    aSessionID: TdaSessionID);
+   procedure LogAlienEvent(aOperation: TdaJournalOperation;
+    aFamilyID: TdaFamilyID;
+    aExtID: LongInt;
+    aData: LongInt);
+   function MakeAlienResultSet(FromDate: TStDate;
+    ToDate: TStDate;
+    aDocID: TdaDocID;
+    UserOrGroupID: TdaUserID;
+    UserGr: Boolean): IdaResultSet;
+   function Get_CurSessionID: TdaSessionID;
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -101,7 +114,6 @@ type
      {* Сигнатура метода DoStartCaching }
    procedure DoStopCaching; virtual; abstract;
      {* Сигнатура метода DoStopCaching }
-   procedure AnalyseLog(const aLog: IdaResultSet);
    function MakeResultSet(FromDate: TStDate;
      ToDate: TStDate;
      aDocID: TdaDocID;
@@ -133,16 +145,12 @@ uses
   TypInfo
   ;
 
-const
-   { SessionConst }
-  BlankSession : TdaSessionID = -1;
-
 // start class TdaJournal
 
 function TdaJournal.GetNewSessionID: TdaSessionID;
 //#UC START# *5549F9E70184_559A3BD901CC_var*
 var
- l_Query: IdaQuery;
+ l_Query: IdaTabledQuery;
  Uniq    : Boolean;
  TmpDate : TStDate;
  l_ResultSet: IdaResultSet;
@@ -154,8 +162,8 @@ begin
   Result:=BlankSession;
   TmpDate:=(CurrentDate - DMYtoStDate(1,1,1998)) mod 24855;
   Result:=TmpDate * 24 * 60 * 60 + CurrentTime;
-  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtJournal)['ID_Session']));
-  l_Query.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtJournal)['ID_Session'], da_copEqual, 'p_SessionID');
+  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtJournal)['session_id']));
+  l_Query.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtJournal)['session_id'], da_copEqual, 'p_SessionID');
   l_Query.Prepare;
   try
    Repeat
@@ -177,20 +185,6 @@ begin
  end;
 //#UC END# *5549F9E70184_559A3BD901CC_impl*
 end;//TdaJournal.GetNewSessionID
-
-constructor TdaJournal.Create(const aFactory: IdaTableQueryFactory);
-//#UC START# *559A424301EE_559A3BD901CC_var*
-//#UC END# *559A424301EE_559A3BD901CC_var*
-begin
-//#UC START# *559A424301EE_559A3BD901CC_impl*
- inherited Create;
- f_CurSessionID := BlankSession;
- f_CurUser := 0;
- f_Factory := aFactory;
- f_CurStatTree := Tl3Tree.Create;
- Randomize;
-//#UC END# *559A424301EE_559A3BD901CC_impl*
-end;//TdaJournal.Create
 
 procedure TdaJournal.AnalyseLog(const aLog: IdaResultSet);
 //#UC START# *5563292201CF_559A3BD901CC_var*
@@ -310,12 +304,12 @@ begin
  CurS_ID:=0;
  CurS_Node:=nil;
 
- l_SessionField := aLog.Field['ID_Session'];
+ l_SessionField := aLog.Field['session_id'];
  l_DateField := aLog.Field['Date'];
  l_TimeField := aLog.Field['Time'];
- l_OperationField := aLog.Field['ID_Operat'];
+ l_OperationField := aLog.Field['operation_id'];
  l_AdditionalInfoField := aLog.Field['Additional'];
- l_ExtIDField := aLog.Field['ID_Ext'];
+ l_ExtIDField := aLog.Field['ext_id'];
 
  while not aLog.EOF do
  begin
@@ -437,6 +431,20 @@ begin
   SetFooterParams;
 //#UC END# *5563292201CF_559A3BD901CC_impl*
 end;//TdaJournal.AnalyseLog
+
+constructor TdaJournal.Create(const aFactory: IdaTableQueryFactory);
+//#UC START# *559A424301EE_559A3BD901CC_var*
+//#UC END# *559A424301EE_559A3BD901CC_var*
+begin
+//#UC START# *559A424301EE_559A3BD901CC_impl*
+ inherited Create;
+ f_CurSessionID := BlankSession;
+ f_CurUser := 0;
+ f_Factory := aFactory;
+ f_CurStatTree := Tl3Tree.Create;
+ Randomize;
+//#UC END# *559A424301EE_559A3BD901CC_impl*
+end;//TdaJournal.Create
 
 procedure TdaJournal.CorrectDates(var FromDate: TStDate;
   ToDate: TStDate);
@@ -679,6 +687,65 @@ begin
  LogEvent(da_oobSessionEnd, 0, 0, 0);
 //#UC END# *554A037B0325_559A3BD901CC_impl*
 end;//TdaJournal.SessionDone
+
+procedure TdaJournal.SetAlienData(anUserID: TdaUserID;
+  aSessionID: TdaSessionID);
+//#UC START# *56E2A25501A6_559A3BD901CC_var*
+//#UC END# *56E2A25501A6_559A3BD901CC_var*
+begin
+//#UC START# *56E2A25501A6_559A3BD901CC_impl*
+ if (f_CurUser <> anUserID) or (f_CurSessionID <> aSessionID) then
+ begin
+  if f_CurSessionID <> BlankSession then
+  begin
+   LogEvent(da_oobSessionEnd, 0, 0, 0);
+   f_CurSessionID := BlankSession
+  end;
+  f_CurUser := anUserID;
+  UserChanged(f_CurUser);
+  if f_CurUser<>0 then
+  begin
+    f_CurSessionID := aSessionID;
+    SessionChanged;
+    LogEvent(da_oobSessionBegin, 0, LongInt(f_CurUser), 0);
+  end;
+ end;
+//#UC END# *56E2A25501A6_559A3BD901CC_impl*
+end;//TdaJournal.SetAlienData
+
+procedure TdaJournal.LogAlienEvent(aOperation: TdaJournalOperation;
+  aFamilyID: TdaFamilyID;
+  aExtID: LongInt;
+  aData: LongInt);
+//#UC START# *56E2A7DB03CE_559A3BD901CC_var*
+//#UC END# *56E2A7DB03CE_559A3BD901CC_var*
+begin
+//#UC START# *56E2A7DB03CE_559A3BD901CC_impl*
+ LogEvent(aOperation, aFamilyID, aExtID, aData);
+//#UC END# *56E2A7DB03CE_559A3BD901CC_impl*
+end;//TdaJournal.LogAlienEvent
+
+function TdaJournal.MakeAlienResultSet(FromDate: TStDate;
+  ToDate: TStDate;
+  aDocID: TdaDocID;
+  UserOrGroupID: TdaUserID;
+  UserGr: Boolean): IdaResultSet;
+//#UC START# *56E2B57C01FA_559A3BD901CC_var*
+//#UC END# *56E2B57C01FA_559A3BD901CC_var*
+begin
+//#UC START# *56E2B57C01FA_559A3BD901CC_impl*
+ Result := MakeResultSet(FromDate, ToDate, aDocID, UserOrGroupID, UserGr);
+//#UC END# *56E2B57C01FA_559A3BD901CC_impl*
+end;//TdaJournal.MakeAlienResultSet
+
+function TdaJournal.Get_CurSessionID: TdaSessionID;
+//#UC START# *56EBDD1F0184_559A3BD901CCget_var*
+//#UC END# *56EBDD1F0184_559A3BD901CCget_var*
+begin
+//#UC START# *56EBDD1F0184_559A3BD901CCget_impl*
+ Result := f_CurSessionID;
+//#UC END# *56EBDD1F0184_559A3BD901CCget_impl*
+end;//TdaJournal.Get_CurSessionID
 
 procedure TdaJournal.Cleanup;
 //#UC START# *479731C50290_559A3BD901CC_var*

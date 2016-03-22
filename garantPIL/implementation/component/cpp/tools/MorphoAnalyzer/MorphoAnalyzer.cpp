@@ -5,13 +5,23 @@
 #include "ace/ACE.h"
 
 #include "boost/bind.hpp"
-#include "shared/Morpho/Facade/Factory.h"
+
 #include "MorphoAnalyzer.h"
+#include "ROCBase.h"
+#include "DBComm.h"
 
 namespace MorphoAnalyze {
 
 MorphoAnalyzer::MorphoAnalyzer (const std::string& path) {
-	m_base = new ToolsBase (path);
+	Core::Aptr <CachedBaseRO> base = new CachedBaseRO (path.c_str ());
+	GDS_ASSERT (base->IsOk () && base->check_version ());
+
+	DBCore::IBase_var _base = DBCore::DBFactory::make (base.in ());
+
+	Morpho::Def::ICache_var cache = Morpho::Factory::make ();
+	cache->load (_base.in ());
+
+	m_normalizer = Morpho::Factory::make (cache.in ());
 }
 
 MorphoAnalyzer::~MorphoAnalyzer () {
@@ -26,11 +36,6 @@ void MorphoAnalyzer::execute (const Properties& properties) {
 		m_ofs.open (properties.out.c_str (), std::ios_base::trunc);
 
 		if (m_ofs) {
-			Morpho::Def::ICache_var cache = Morpho::Factory::make ();
-			cache->load (m_base->abstract_base (), true);
-
-			Morpho::Def::INormalizer_var normalizer = Morpho::Factory::make (cache.in ());
-
 			while (!ifs.eof ()) {
 				std::getline (ifs, str);
 
@@ -41,9 +46,9 @@ void MorphoAnalyzer::execute (const Properties& properties) {
 				std::cout << str << std::endl;
 
 				try {
-					Core::Aptr <GCL::StrSet> res = normalizer->execute (str, false);
+					Core::Aptr <GCL::StrSet> res = m_normalizer->execute (str, false);
 
-					const Morpho::Def::AnalysisInfo& info = normalizer->get_info ();
+					const Morpho::Def::AnalysisInfo& info = m_normalizer->get_info ();
 
 					std::for_each (res->begin (), res->end ()
 						, boost::bind (&MorphoAnalyzer::out, this, _1

@@ -2,6 +2,7 @@ unit daFieldList;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daFieldList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaFieldList" MUID: (5637497102C9)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

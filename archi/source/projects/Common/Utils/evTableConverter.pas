@@ -145,6 +145,7 @@ uses
   RTFtypes,
   ddCellProperty,
   k2Tags,
+  ddTypes,
   l3Chars
   ;
 
@@ -747,7 +748,7 @@ begin
               l_TextPara:= TddTextParagraph(l_Cell.Items[k]);
               l_Text := l_TextPara.Text;
               l_TextPara.PAP.InTable := True;
-              l_TextPara.Write2Generator(Generator, False, False);
+              l_TextPara.Write2Generator(Generator, False, dd_lvNone);
              end; // for k
             finally
              Generator.Finish;

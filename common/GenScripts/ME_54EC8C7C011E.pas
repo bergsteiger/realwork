@@ -2,6 +2,7 @@ unit vtComboBoxWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\vtComboBoxWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "vtComboBoxWordsPack" MUID: (54EC8C7C011E)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -358,11 +359,6 @@ begin
  DropDown(aCtx, l_aComboBox, l_aValue);
 end;//TkwPopComboBoxDropDown.DoDoIt
 
-class function TkwPopComboBoxDropDown.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboBox:DropDown';
-end;//TkwPopComboBoxDropDown.GetWordNameForRegister
-
 function TkwPopComboBoxDropDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -377,6 +373,11 @@ function TkwPopComboBoxDropDown.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), TypeInfo(Boolean)]);
 end;//TkwPopComboBoxDropDown.ParamsTypes
+
+class function TkwPopComboBoxDropDown.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboBox:DropDown';
+end;//TkwPopComboBoxDropDown.GetWordNameForRegister
 
 function TkwPopComboBoxGetItemIndex.GetItemIndex(const aCtx: TtfwContext;
  aComboBox: TCustomComboBox): Integer;
@@ -404,11 +405,6 @@ begin
  aCtx.rEngine.PushInt(GetItemIndex(aCtx, l_aComboBox));
 end;//TkwPopComboBoxGetItemIndex.DoDoIt
 
-class function TkwPopComboBoxGetItemIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboBox:GetItemIndex';
-end;//TkwPopComboBoxGetItemIndex.GetWordNameForRegister
-
 function TkwPopComboBoxGetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -423,6 +419,11 @@ function TkwPopComboBoxGetItemIndex.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomComboBox)]);
 end;//TkwPopComboBoxGetItemIndex.ParamsTypes
+
+class function TkwPopComboBoxGetItemIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboBox:GetItemIndex';
+end;//TkwPopComboBoxGetItemIndex.GetWordNameForRegister
 
 function TkwPopComboBoxIndexOf.IndexOf(const aCtx: TtfwContext;
  aComboBox: TCustomComboBox;
@@ -461,11 +462,6 @@ begin
  aCtx.rEngine.PushInt(IndexOf(aCtx, l_aComboBox, l_aString));
 end;//TkwPopComboBoxIndexOf.DoDoIt
 
-class function TkwPopComboBoxIndexOf.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboBox:IndexOf';
-end;//TkwPopComboBoxIndexOf.GetWordNameForRegister
-
 function TkwPopComboBoxIndexOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -480,6 +476,11 @@ function TkwPopComboBoxIndexOf.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), @tfw_tiString]);
 end;//TkwPopComboBoxIndexOf.ParamsTypes
+
+class function TkwPopComboBoxIndexOf.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboBox:IndexOf';
+end;//TkwPopComboBoxIndexOf.GetWordNameForRegister
 
 procedure TkwPopComboBoxSelectItem.SelectItem(const aCtx: TtfwContext;
  aComboBox: TCustomComboBox;
@@ -518,11 +519,6 @@ begin
  SelectItem(aCtx, l_aComboBox, l_aString);
 end;//TkwPopComboBoxSelectItem.DoDoIt
 
-class function TkwPopComboBoxSelectItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboBox:SelectItem';
-end;//TkwPopComboBoxSelectItem.GetWordNameForRegister
-
 function TkwPopComboBoxSelectItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -537,6 +533,11 @@ function TkwPopComboBoxSelectItem.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), @tfw_tiString]);
 end;//TkwPopComboBoxSelectItem.ParamsTypes
+
+class function TkwPopComboBoxSelectItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboBox:SelectItem';
+end;//TkwPopComboBoxSelectItem.GetWordNameForRegister
 
 procedure TkwPopComboBoxSetItemIndex.SetItemIndex(const aCtx: TtfwContext;
  aComboBox: TCustomComboBox;
@@ -576,11 +577,6 @@ begin
  SetItemIndex(aCtx, l_aComboBox, l_anIndex);
 end;//TkwPopComboBoxSetItemIndex.DoDoIt
 
-class function TkwPopComboBoxSetItemIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboBox:SetItemIndex';
-end;//TkwPopComboBoxSetItemIndex.GetWordNameForRegister
-
 function TkwPopComboBoxSetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -595,6 +591,11 @@ function TkwPopComboBoxSetItemIndex.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), TypeInfo(Integer)]);
 end;//TkwPopComboBoxSetItemIndex.ParamsTypes
+
+class function TkwPopComboBoxSetItemIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboBox:SetItemIndex';
+end;//TkwPopComboBoxSetItemIndex.GetWordNameForRegister
 
 procedure TkwPopComboBoxSaveItems.SaveItems(const aCtx: TtfwContext;
  aComboBox: TCustomComboBox;
@@ -652,11 +653,6 @@ begin
  SaveItems(aCtx, l_aComboBox, l_aFileName);
 end;//TkwPopComboBoxSaveItems.DoDoIt
 
-class function TkwPopComboBoxSaveItems.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboBox:SaveItems';
-end;//TkwPopComboBoxSaveItems.GetWordNameForRegister
-
 function TkwPopComboBoxSaveItems.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -671,6 +667,11 @@ function TkwPopComboBoxSaveItems.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), @tfw_tiString]);
 end;//TkwPopComboBoxSaveItems.ParamsTypes
+
+class function TkwPopComboBoxSaveItems.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboBox:SaveItems';
+end;//TkwPopComboBoxSaveItems.GetWordNameForRegister
 
 procedure TkwPopComboTreeDropDown.DropDown(const aCtx: TtfwContext;
  aComboTree: TvtComboTree;
@@ -709,11 +710,6 @@ begin
  DropDown(aCtx, l_aComboTree, l_aValue);
 end;//TkwPopComboTreeDropDown.DoDoIt
 
-class function TkwPopComboTreeDropDown.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboTree:DropDown';
-end;//TkwPopComboTreeDropDown.GetWordNameForRegister
-
 function TkwPopComboTreeDropDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -728,6 +724,11 @@ function TkwPopComboTreeDropDown.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree), TypeInfo(Boolean)]);
 end;//TkwPopComboTreeDropDown.ParamsTypes
+
+class function TkwPopComboTreeDropDown.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboTree:DropDown';
+end;//TkwPopComboTreeDropDown.GetWordNameForRegister
 
 function TkwPopComboTreeGetItemIndex.GetItemIndex(const aCtx: TtfwContext;
  aComboTree: TvtComboTree): Integer;
@@ -758,11 +759,6 @@ begin
  aCtx.rEngine.PushInt(GetItemIndex(aCtx, l_aComboTree));
 end;//TkwPopComboTreeGetItemIndex.DoDoIt
 
-class function TkwPopComboTreeGetItemIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboTree:GetItemIndex';
-end;//TkwPopComboTreeGetItemIndex.GetWordNameForRegister
-
 function TkwPopComboTreeGetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -777,6 +773,11 @@ function TkwPopComboTreeGetItemIndex.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree)]);
 end;//TkwPopComboTreeGetItemIndex.ParamsTypes
+
+class function TkwPopComboTreeGetItemIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboTree:GetItemIndex';
+end;//TkwPopComboTreeGetItemIndex.GetWordNameForRegister
 
 function TkwPopComboTreeIndexOf.IndexOf(const aCtx: TtfwContext;
  aComboTree: TvtComboTree;
@@ -815,11 +816,6 @@ begin
  aCtx.rEngine.PushInt(IndexOf(aCtx, l_aComboTree, l_aString));
 end;//TkwPopComboTreeIndexOf.DoDoIt
 
-class function TkwPopComboTreeIndexOf.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboTree:IndexOf';
-end;//TkwPopComboTreeIndexOf.GetWordNameForRegister
-
 function TkwPopComboTreeIndexOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -834,6 +830,11 @@ function TkwPopComboTreeIndexOf.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree), @tfw_tiString]);
 end;//TkwPopComboTreeIndexOf.ParamsTypes
+
+class function TkwPopComboTreeIndexOf.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboTree:IndexOf';
+end;//TkwPopComboTreeIndexOf.GetWordNameForRegister
 
 procedure TkwPopComboTreeSelectItem.SelectItem(const aCtx: TtfwContext;
  aComboTree: TvtComboTree;
@@ -872,11 +873,6 @@ begin
  SelectItem(aCtx, l_aComboTree, l_aString);
 end;//TkwPopComboTreeSelectItem.DoDoIt
 
-class function TkwPopComboTreeSelectItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboTree:SelectItem';
-end;//TkwPopComboTreeSelectItem.GetWordNameForRegister
-
 function TkwPopComboTreeSelectItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -891,6 +887,11 @@ function TkwPopComboTreeSelectItem.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree), @tfw_tiString]);
 end;//TkwPopComboTreeSelectItem.ParamsTypes
+
+class function TkwPopComboTreeSelectItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboTree:SelectItem';
+end;//TkwPopComboTreeSelectItem.GetWordNameForRegister
 
 procedure TkwPopComboTreeSetItemIndex.SetItemIndex(const aCtx: TtfwContext;
  aComboTree: TvtComboTree;
@@ -938,11 +939,6 @@ begin
  SetItemIndex(aCtx, l_aComboTree, l_anIndex);
 end;//TkwPopComboTreeSetItemIndex.DoDoIt
 
-class function TkwPopComboTreeSetItemIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboTree:SetItemIndex';
-end;//TkwPopComboTreeSetItemIndex.GetWordNameForRegister
-
 function TkwPopComboTreeSetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -957,6 +953,11 @@ function TkwPopComboTreeSetItemIndex.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree), TypeInfo(Integer)]);
 end;//TkwPopComboTreeSetItemIndex.ParamsTypes
+
+class function TkwPopComboTreeSetItemIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboTree:SetItemIndex';
+end;//TkwPopComboTreeSetItemIndex.GetWordNameForRegister
 
 procedure TkwPopComboTreeSaveItems.SaveItems(const aCtx: TtfwContext;
  aComboTree: TvtComboTree;
@@ -1010,11 +1011,6 @@ begin
  SaveItems(aCtx, l_aComboTree, l_aFileName);
 end;//TkwPopComboTreeSaveItems.DoDoIt
 
-class function TkwPopComboTreeSaveItems.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboTree:SaveItems';
-end;//TkwPopComboTreeSaveItems.GetWordNameForRegister
-
 function TkwPopComboTreeSaveItems.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1029,6 +1025,11 @@ function TkwPopComboTreeSaveItems.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree), @tfw_tiString]);
 end;//TkwPopComboTreeSaveItems.ParamsTypes
+
+class function TkwPopComboTreeSaveItems.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboTree:SaveItems';
+end;//TkwPopComboTreeSaveItems.GetWordNameForRegister
 
 initialization
  TvtComboBoxWordsPackResNameGetter.Register;

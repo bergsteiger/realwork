@@ -1,9 +1,19 @@
 unit SewerPipe;
 
 
-{ $Id: SewerPipe.pas,v 1.181 2015/10/13 12:55:56 fireton Exp $ }
+{ $Id: SewerPipe.pas,v 1.184 2015/11/25 14:01:52 lukyanets Exp $ }
 
 // $Log: SewerPipe.pas,v $
+// Revision 1.184  2015/11/25 14:01:52  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
+// Revision 1.183  2015/11/17 13:47:06  fireton
+// - выпиливаем бесполезный TddNullDocFilter
+//
+// Revision 1.182  2015/11/11 13:16:42  fireton
+// - Нормальная диагностика ошибок при экспорте
+// - Считаем пустые документы, справки и аннотации правильно
+//
 // Revision 1.181  2015/10/13 12:55:56  fireton
 // - переделка ExportPipe на новый filer dispatcher
 //
@@ -544,7 +554,8 @@ Uses
   ddFixFilter, ddProgressObj, ddDocTypeDetector, ddNameFilter, ddParaEliminator,
   m3DB,
   ddExtObjectSupport, ddPipeOutInterfaces,
-  evdHyperlinkCorrector, evEmptyTableEliminator, ddPictureFilter, ddTypes, dtIntf, dt_Sab;
+  evdHyperlinkCorrector, evEmptyTableEliminator, ddPictureFilter, ddTypes, dtIntf, dt_Sab,
+  ddEmptyTextFilter;
 
 type
    TddObjTopicTextDeleterFilter = class(TddChildBiteOffFilter)
@@ -600,8 +611,8 @@ type
    f_CurDone: Int64;
    f_CurSize: Int64;
    f_DocSab: ISab;
-   f_EmptyCount: Integer;
    f_EmptyTableElim: TevEmptytableEliminator;
+   f_EmptyTextFilter: TddEmptyTextFilter;
    f_ExportDocTypes: TddExportDocTypes;
    f_ExportEditions: Boolean;
    f_ExportReferences: Boolean;
@@ -609,14 +620,15 @@ type
    f_ObjTopicTextFilter: TddObjTopicTextDeleterFilter;
    f_Fork: Tk2ForkGenerator;
    f_FormulaAsPicture: Boolean;
+   f_FoundEmpty: Integer;
    f_Generator: Tk2TagGenerator;
    f_HyperlinkCorrector: TevdHyperlinkCorrector;
    f_TopicsNeedDo: LongInt;
    f_TotalDone: Int64;
    f_NameWriter: TddNameWriter;
-   f_NullFilter: TddNullDocFilter;
    f_OnError: TddErrorEvent;
    f_OnNewDocument: TNewDocumentEvent;
+   f_OnReportEmpty: TddReportEmptyEvent;
    f_PicFilter: TddPictureFilter;
    f_StartProgress: Boolean;
    f_UseDocSize: Boolean;
@@ -636,6 +648,7 @@ type
    procedure StartProgress;
    procedure StopProgress;
    function CalcTotalTopicCount: Int64;
+   procedure DoOnEmptyFound(aSender: TObject);
   protected
    procedure NeedDeleteFileData;
    procedure InnerTopicUpdate(aState: Byte; aValue: Long; const aMsg: AnsiString);
@@ -652,6 +665,7 @@ type
        MainGroup: ShortString);
    procedure TopicInit;
    procedure Cleanup; override;
+   procedure DoReportEmpty;
    procedure Error(const aDescription: AnsiString; aCategory: Integer = 0);
    property ExportFilter: TExportFilter read f_Filter write f_Filter;
   public
@@ -706,7 +720,6 @@ type
       read f_SeparateFiles write f_SeparateFiles;
 
    property DocSab: ISab read f_DocSab write f_DocSab;
-   property EmptyCount: Integer read f_EmptyCount;
    property ExportAnnotation: Boolean read FExportAnnotation write
        FExportAnnotation;
    property ExportEditions: Boolean read f_ExportEditions write f_ExportEditions;
@@ -726,6 +739,7 @@ type
    property FormulaAsPicture: Boolean read f_FormulaAsPicture write
        f_FormulaAsPicture;
    property OnlyStructure: Boolean read FOnlyStructure write FOnlyStructure;
+   property OnReportEmpty: TddReportEmptyEvent read f_OnReportEmpty write f_OnReportEmpty;
    property SpecialAnnotation: Boolean read FSpecialAnnotation write
        FSpecialAnnotation;
    property SpecialFiler: Tl3CustomFiler read FSpecialFiler write FSpecialFiler;
@@ -754,6 +768,7 @@ uses
   ddUtils,
 
   daDataProvider,
+  daSchemeConsts,
 
   dt_Dict,
   dt_Doc,
@@ -779,7 +794,7 @@ uses
   , Math, StrUtils, ddFormula2PictureFilter,
 
   m3DBFiler
-  ;
+  , evdDocumentBufferedFilter;
 
 const
  cEmptyDocSize = 150;
@@ -808,6 +823,7 @@ var
  l_Rel: Boolean;
  l_Msg: AnsiString;
  l_DocCount : Integer;
+ l_IsRel: Boolean;
 
 const
  c_PartNames: array[Tm3DocPartSelector] of String = (
@@ -821,35 +837,36 @@ var
  var
   l_DocPart : Tm3DocPartSelector;
   l_ExtNumber: TDocID;
+  l_NeedCheck: Boolean;
  begin
   Result := True;
   l_Doc := l_Storage.GetDocument(PDocID(aItemPtr)^);
-   try
-    for l_DocPart := Low(Tm3DocPartSelector) to High(Tm3DocPartSelector) do
-    if l_DocPart in What then
+  try
+   for l_DocPart := Low(Tm3DocPartSelector) to High(Tm3DocPartSelector) do
+   begin
+    if l_IsRel then
+     l_NeedCheck := l_DocPart = m3_dsMain
+    else
+     l_NeedCheck := l_DocPart in What;
+    if l_NeedCheck then
     begin
      if (l_DocPart = m3_dsAnno) {and not DocumentServer.FileTbl.GetHasAnno(PDocID(aItemPtr)^)} then
       continue;
      try
-        l_Stream := l_Doc.Open(m3_saRead, l_DocPart);
-        try
-         l_Size:= m2ComGetSize(l_Stream);
-         if l_Size <= cEmptyDocSize then
-         begin
-          l_ExtNumber:= LinkServer(CurrentFamily).ReNum.GetExtDocID(l_Doc.ID);
-          Error(Format('Отсутствует текст у %s # %-11d (%s)',
-                           [c_PartNames[l_DocPart], IfThen(l_ExtNumber > 0, l_ExtNumber, l_Doc.ID), IfThen(l_ExtNumber > 0, 'внешний', 'внутренний')]));
-          Inc(f_EmptyCount);
-         end;
-         Inc(f_AllTopicSize, l_Size);
-        finally
-         l_Stream := nil;
-        end;
-         Inc(f_TopicsNeedDo);
+      l_Stream := l_Doc.Open(m3_saRead, l_DocPart);
+      try
+       l_Size:= m2ComGetSize(l_Stream);
+       Inc(f_AllTopicSize, l_Size);
+      finally
+       l_Stream := nil;
+      end;
+      if not l_IsRel then
+       Inc(f_TopicsNeedDo);
      except
       Error(Format('Ошибка чтения документа # %-11d (%d)', [LinkServer(CurrentFamily).ReNum.GetExtDocID(l_Doc.ID), l_Doc.ID]));
      end;
     end; // l_DocPart in What
+   end; // for
   finally
    l_Doc := nil;
   end;
@@ -864,7 +881,6 @@ var
  l_Type: Byte;
 begin
  f_AllTopicSize := 0;
- f_EmptyCount:= 0;
  f_TopicsNeedDo:= 0;
  l_AnnoCount:= 0;
  l_DocCount:= f_DemonDocGen.DocCount;
@@ -891,10 +907,21 @@ begin
        l_Type:= Ord(dtObject);
        l_TmpSab.SubSelect(fType_Fld, l_Type, NOT_EQUAL);
        l_TmpSab.ValuesOfKey(fID_Fld);
+       l_IsRel := False;
        l_TmpSab.IterateRecords(lRAProcStub);
       finally
        l_TmpSab:= nil;
       end;
+      if ExportReferences then
+      begin
+       l_TmpSab := f_DemonDocGen.GetRelatedIDs;
+       try
+        l_IsRel := True;
+        l_TmpSab.IterateRecords(lRAProcStub);
+       finally
+        l_TmpSab := nil;
+       end;
+      end; // if ExportReferences
      finally
       FreeRecAccessProc(lRAProcStub);
      end;
@@ -939,8 +966,6 @@ begin
    l3System.Msg2Log(' %d аннотаций', [l_AnnoCount]);
    Inc(f_TopicsNeedDo, l_AnnoCount);
   end;
-  if f_EmptyCount > 0 then
-   l3System.Msg2Log('Обнаружено пустых - %d', [f_EmptyCount]);
   if f_UseDocSize then
    l3System.Msg2Log('Объем экспорта %s', [Bytes2Str(f_AllTopicSize)]);
   {$endif}
@@ -983,9 +1008,11 @@ begin
  f_DemonDocGen:= TDocExportGenerator.Create(nil, Family);
  f_DemonDocGen.LinkListner(Self);
  f_DemonDocGen.AnsiCodePage:= GlobalDataProvider.BaseLanguage[Family].AnsiCodePage;
+
  f_Filter:= TExportFilter.Create(Family);
  f_Filter.AnsiCodePage:= GlobalDataProvider.BaseLanguage[Family].AnsiCodePage;
  f_Filter.Attributes := f_Attributes;
+
  DictServer(Family).AddDictChangeNotifiedObj(f_Filter);
  f_DocTypeDetector:= TddDocTypeDetector.Create(nil);
  f_DocTypeDetector.ExportTypes:= ExportDocTypes;
@@ -996,18 +1023,19 @@ begin
  f_FixFilter.Write2Log := False;
  f_ObjTopicTextFilter := TddObjTopicTextDeleterFilter.Create;
  f_ObjTopicTextFilter.IsActive := False;
- f_NullFilter:= TddNullDocFilter.Create(k2_idDocument);
  f_Filer := Tm3DBFiler.Create(Tm3DB.Make(GlobalDataProvider.TextBase[Family]));
  f_Fork:= Tk2ForkGenerator.Create(nil);
  f_StructureGenerator := TddParaEliminator.Create(nil);
  f_ExtObjInserter := TddExtObjInserter.Create(nil);
  f_EmptyTableElim:= TevEmptytableEliminator.Create(nil);
+ f_EmptyTextFilter := TddEmptyTextFilter.Create;
+ f_EmptyTextFilter.OnError := f_OnError;
+ f_EmptyTextFilter.OnFoundEmpty := DoOnEmptyFound;
  f_PicFilter:= TddPictureFilter.Create;
  { Соединение }
- f_Reader.Filer:= f_Filer;
- f_Reader.Generator:= f_NullFilter;
- 
- l_G := f_NullFilter.Use;
+ f_Reader.Filer := f_Filer;
+
+ l_G := f_EmptyTableElim.Use;//f_NullFilter.Use;
  try
   // - это самый конец трубы
   TevNestedDocumentEliminator.SetTo(l_G);
@@ -1021,7 +1049,6 @@ begin
   FreeAndNil(l_G);
  end;//try..finally
 
- f_NullFilter.Generator:= f_EmptyTableElim;
  f_EmptyTableElim.Generator:= {x f_PicFilter;
  f_PicFilter.Generator:=} f_FixFilter;
  f_FixFilter.Generator:= f_ExpGen;
@@ -1029,7 +1056,8 @@ begin
  f_Fork.Generator := f_ExpGen;
  f_ExpGen.Generator:= f_ExtObjInserter;
  f_ExtObjInserter.Generator := f_Filter;
- f_Filter.Generator:= f_DocTypeDetector;
+ f_Filter.Generator:= f_EmptyTextFilter;
+ f_EmptyTextFilter.Generator := f_DocTypeDetector;
 
 
  // SetTo
@@ -1048,10 +1076,10 @@ begin
  DictServer(Family).DelDictChangeNotifiedObj(f_Filter);
  l3Free(f_Filer);
  l3Free(f_FixFilter);
- l3Free(f_NullFilter);
  l3Free(f_Reader);
  l3Free(f_ExpGen);
  l3Free(f_DocTypeDetector);
+ l3Free(f_EmptyTextFilter);
  l3Free(f_Filter);
  if f_DemonDocGen <> nil then
   f_DemonDocGen.UnLinkListner(Self);
@@ -1125,6 +1153,7 @@ begin
  f_Running:= True;
  try
   f_TotalDone:= 0;
+  f_FoundEmpty := 0;
   CreatePipeBends;
   try
    f_DocTypeDetector.OnStartDocument:= StartDocument;
@@ -1205,6 +1234,7 @@ begin
   finally
    DestroyPipeBends;
   end;
+  DoReportEmpty;
  finally
   f_Running:= False;
  end;
@@ -1296,16 +1326,6 @@ begin
   Если обрабатываем реальный объем (f_UseDocSize = True),
   нужно обновлять Общий прогресс при State = 1 на значение aValue,
   иначе только при State = 2 на 1 }
- if (aState = 0) and not f_UseDocSize then
- begin
-  // проверить размер документа
-  if aValue <= cEmptyDocSize then
-  begin
-   Error(Format('Отсутствует текст # %-11d', [f_TopicNo]));
-   Inc(f_EmptyCount);
-  end;
- end; // (aState = 0) and not f_UseDocSize
-
  if f_Progressor <> nil then
  begin
   f_Progressor.ProcessUpdate(aState, aValue, aMsg);
@@ -1470,6 +1490,17 @@ begin
   l_RelCount := f_DemonDocGen.RelatedCount(l_AnnoCount);
   Result := Result + l_RelCount + l_AnnoCount;
  end;
+end;
+
+procedure TSewerPipe.DoOnEmptyFound(aSender: TObject);
+begin
+ Inc(f_FoundEmpty);
+end;
+
+procedure TSewerPipe.DoReportEmpty;
+begin
+ if (f_FoundEmpty > 0) and Assigned(f_OnReportEmpty) then
+  f_OnReportEmpty(Self, f_FoundEmpty); 
 end;
 
 procedure TSewerPipe.NeedDeleteFileData;

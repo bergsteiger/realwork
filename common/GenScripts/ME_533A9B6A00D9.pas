@@ -2,6 +2,7 @@ unit vcmChromeLikeTabbedContainerForm;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabbedContainerForm.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvcmChromeLikeTabbedContainerForm" MUID: (533A9B6A00D9)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

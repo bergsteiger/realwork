@@ -2,6 +2,7 @@ unit l3CanvasPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CanvasPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CanvasPrim" MUID: (4A4CB79A02C6)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -720,7 +721,7 @@ begin
   Include(f_Flags, ev_dfPrinting);
   Exclude(f_Flags, ev_dfDrawSpecial);
   OnDrawSub := nil;
- end//aValue 
+ end//aValue
  else
   Exclude(f_Flags, ev_dfPrinting);
 //#UC END# *4A4CBF0003DF_4A4CB79A02C6set_impl*
@@ -876,19 +877,17 @@ end;//Tl3CanvasPrim.pm_GetetoFlags
 function Tl3CanvasPrim.CalcPrintableArea: Tl3_Rect;
 //#UC START# *4A4CBD130121_4A4CB79A02C6_var*
 var
- l_Ofs  : Tl3Point;
- l_OfsB : Tl3Point;
+ l_Ofs: Tl3Point;
+ l_OfsB: Tl3Point;
 //#UC END# *4A4CBD130121_4A4CB79A02C6_var*
 begin
 //#UC START# *4A4CBD130121_4A4CB79A02C6_impl*
  if Printing then
  begin
-  l_Ofs := DP2LP(l3SPoint(DeviceCaps(PHYSICALOFFSETX),
-                          DeviceCaps(PHYSICALOFFSETY)));
+  l_Ofs := DP2LP(l3SPoint(DeviceCaps(PHYSICALOFFSETX), DeviceCaps(PHYSICALOFFSETY)));
   l_Ofs.X := Max(l_Ofs.X, f_Margins.Left);
   l_Ofs.Y := Max(l_Ofs.Y, f_Margins.Top);
-  l_OfsB := DP2LP(l3SPoint(DeviceCaps(PHYSICALWIDTH) - DeviceCaps(HORZRES),
-                                  DeviceCaps(PHYSICALHEIGHT) - DeviceCaps(VERTRES))).Sub(l_Ofs);
+  l_OfsB := DP2LP(l3SPoint(DeviceCaps(PHYSICALWIDTH) - DeviceCaps(HORZRES), DeviceCaps(PHYSICALHEIGHT) - DeviceCaps(VERTRES))).Sub(l_Ofs);
   l_OfsB.X := Max(l_OfsB.X, f_Margins.Right);
   Result := l3Rect(l_Ofs, l_OfsB);
  end//Printing
@@ -913,7 +912,7 @@ function Tl3CanvasPrim.GetIsPagesCounter: Boolean;
 //#UC END# *4CB32D4C030E_4A4CB79A02C6_var*
 begin
 //#UC START# *4CB32D4C030E_4A4CB79A02C6_impl*
- Result := false;
+ Result := False;
 //#UC END# *4CB32D4C030E_4A4CB79A02C6_impl*
 end;//Tl3CanvasPrim.GetIsPagesCounter
 
@@ -923,6 +922,7 @@ function Tl3CanvasPrim.GetGlobalClipRectWithZoom: Tl3Rect;
 begin
 //#UC START# *4E98521202B5_4A4CB79A02C6_impl*
  Result := GlobalClipRect;
+ Result.MakeZoom(Zoom);
 //#UC END# *4E98521202B5_4A4CB79A02C6_impl*
 end;//Tl3CanvasPrim.GetGlobalClipRectWithZoom
 
@@ -1935,7 +1935,7 @@ function Tl3CanvasPrim.DoGetPageSetupWidth: Tl3Inch;
 //#UC END# *4A4CBCD002EA_4A4CB79A02C6_var*
 begin
 //#UC START# *4A4CBCD002EA_4A4CB79A02C6_impl*
- if Printing AND (f_Printer <> nil) AND not f_Printer.HasPrinter then
+ if Printing and (f_Printer <> nil) and not f_Printer.HasPrinter then
   Result := DP2LP(PointX(DeviceCaps(PHYSICALWIDTH))).X
  else
   Result := DP2LP(PointX(DeviceCaps(HORZRES))).X;
@@ -1947,7 +1947,7 @@ function Tl3CanvasPrim.DoGetPageSetupHeight: Tl3Inch;
 //#UC END# *4A4CBCDD0244_4A4CB79A02C6_var*
 begin
 //#UC START# *4A4CBCDD0244_4A4CB79A02C6_impl*
- if Printing AND (f_Printer <> nil) AND not f_Printer.HasPrinter then
+ if Printing and (f_Printer <> nil) and not f_Printer.HasPrinter then
   Result := DP2LP(PointY(DeviceCaps(PHYSICALHEIGHT))).Y
  else
   Result := DP2LP(PointY(DeviceCaps(VERTRES))).Y;
@@ -5396,17 +5396,15 @@ end;//Tl3CanvasPrim.pm_GetPaperHeight
 function Tl3CanvasPrim.pm_GetMargins: Tl3_Rect;
 //#UC START# *4A4CD83F0022_4A4CB79A02C6get_var*
 var
- l_Ofs : Tl3Point;
+ l_Ofs: Tl3Point;
 //#UC END# *4A4CD83F0022_4A4CB79A02C6get_var*
 begin
 //#UC START# *4A4CD83F0022_4A4CB79A02C6get_impl*
- l_Ofs := DP2LP(l3SPoint(DeviceCaps(PHYSICALOFFSETX),
-                         DeviceCaps(PHYSICALOFFSETY)));
+ l_Ofs := DP2LP(l3SPoint(DeviceCaps(PHYSICALOFFSETX), DeviceCaps(PHYSICALOFFSETY)));
  Result := f_Margins;
  Result.Left := Max(l_Ofs.X, Result.Left);
  Result.Top := Max(l_Ofs.Y, Result.Top);
- l_Ofs := DP2LP(l3SPoint(DeviceCaps(PHYSICALWIDTH) - DeviceCaps(HORZRES),
-                         DeviceCaps(PHYSICALHEIGHT) - DeviceCaps(VERTRES))).Sub(l_Ofs);
+ l_Ofs := DP2LP(l3SPoint(DeviceCaps(PHYSICALWIDTH) - DeviceCaps(HORZRES), DeviceCaps(PHYSICALHEIGHT) - DeviceCaps(VERTRES))).Sub(l_Ofs);
  Result.Right := Max(l_Ofs.X, Result.Right);
 //#UC END# *4A4CD83F0022_4A4CB79A02C6get_impl*
 end;//Tl3CanvasPrim.pm_GetMargins
@@ -5573,10 +5571,10 @@ function Tl3CanvasPrim.PushClipRect: Tl3Rect;
 //#UC END# *4E26F481005B_4A4CB79A02C6_var*
 begin
 //#UC START# *4E26F481005B_4A4CB79A02C6_impl*
- if (f_ClipRects = nil) then
-  f_ClipRects := Tl3RectList.Create;
+ if (f_ClipRectList = nil) then
+  f_ClipRectList := Tl3RectList.Create;
  Result := GetGlobalClipRectWithZoom;
- f_ClipRects.Add(Result);
+ f_ClipRectList.Add(Result);
  Result := Result.AddPt(WindowOrg);
 //#UC END# *4E26F481005B_4A4CB79A02C6_impl*
 end;//Tl3CanvasPrim.PushClipRect
@@ -5588,22 +5586,22 @@ var
 //#UC END# *4E26F4920228_4A4CB79A02C6_var*
 begin
 //#UC START# *4E26F4920228_4A4CB79A02C6_impl*
- ClipRect := f_ClipRects.Last.AddPt(WindowOrg);
- f_ClipRects.Delete(f_ClipRects.Hi);
+ ClipRect := f_ClipRectList.Last.AddPt(WindowOrg);
+ f_ClipRectList.Delete(f_ClipRectList.Hi);
 //#UC END# *4E26F4920228_4A4CB79A02C6_impl*
 end;//Tl3CanvasPrim.PopClipRect
 
 procedure Tl3CanvasPrim.Set_ClipRegion(const aValue: Il3Region);
 //#UC START# *4E27061B0140_4A4CB79A02C6set_var*
 var
- l_R : Il3Region;
+ l_R: Il3Region;
 //#UC END# *4E27061B0140_4A4CB79A02C6set_var*
 begin
 //#UC START# *4E27061B0140_4A4CB79A02C6set_impl*
  l_R := aValue.Clone;
  l_R.Offset(SWindowOrg.Neg);
  SelectClipRgn(DC, l_R.Rgn);
- f_ClipRectInited := false;
+ f_ClipRectInited := False;
 //#UC END# *4E27061B0140_4A4CB79A02C6set_impl*
 end;//Tl3CanvasPrim.Set_ClipRegion
 
@@ -5621,7 +5619,7 @@ procedure Tl3CanvasPrim.Set_LineSpacing(aValue: Integer);
 //#UC END# *4E57A9F10230_4A4CB79A02C6set_var*
 begin
 //#UC START# *4E57A9F10230_4A4CB79A02C6set_impl*
- if (aValue <= 0) OR (aValue >= Pred(High(Integer))) then
+ if (aValue <= 0) or (aValue >= Pred(High(Integer))) then
   Exit; 
  f_LineSpacing := aValue;
 //#UC END# *4E57A9F10230_4A4CB79A02C6set_impl*
@@ -5738,9 +5736,27 @@ procedure Tl3CanvasPrim.Cleanup;
 //#UC END# *479731C50290_4A4CB79A02C6_var*
 begin
 //#UC START# *479731C50290_4A4CB79A02C6_impl*
+ while Drawing do
+  EndPaint; { - Принудительно освобождаем все ресурсы. }
+ l3System.FreeLocalMem(f_ConvertBuf);
  f_Printer := nil;
- FreeAndNil(f_ClipRects);
+ f_Painter := nil;
+ f_VirtualCanvas := nil;
+ f_AbortChecker := nil;
+ f_FrameLines := nil;
+ f_Font := nil;
+ Canvas := nil;
+ FreeAndNil(f_Filled);
+ FreeAndNil(f_ClipRectList);
  FreeAndNil(f_LineSpacingStack);
+ FreeAndNil(f_BCs);
+ FreeAndNil(f_FCs);
+ FreeAndNil(f_Kerning);
+ FreeAndNil(f_Rgns);
+ FreeAndNil(f_WOs);
+ FreeAndNil(f_OutString);
+ FreeAndNil(f_ConvertTable[false]);
+ FreeAndNil(f_ConvertTable[true]);
  inherited;
 //#UC END# *479731C50290_4A4CB79A02C6_impl*
 end;//Tl3CanvasPrim.Cleanup
@@ -5751,9 +5767,21 @@ procedure Tl3CanvasPrim.InitFields;
 begin
 //#UC START# *47A042E100E2_4A4CB79A02C6_impl*
  inherited;
+ f_WindowOrgInited := false;
+ l3FillChar(f_WindowOrg, SizeOf(f_WindowOrg));
+ l3FillChar(f_RegionBottomRight, SizeOf(f_RegionBottomRight));
  f_Margins := l3Rect(0, 0, 0, def_inchPaperBottom);
- f_DeviceCaps.rIsAssigned := false;
+ f_DeviceCaps.rIsAssigned := False;
  f_LineSpacing := def_LineSpacing;
+ etoFlags := eto_Opaque;
+ BackColor := def_PaperColor;
+ TextColor := clBlack;
+ Zoom := def_Zoom;
+ SectionExtent := l3Point(def_inchPaperWidth, def_inchPaperHeight);
+ if (f_Printer <> nil) then
+  PageOrientation := f_Printer.Orientation
+ else
+  PageOrientation := l3_poPortrait;
 //#UC END# *47A042E100E2_4A4CB79A02C6_impl*
 end;//Tl3CanvasPrim.InitFields
 

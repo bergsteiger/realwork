@@ -3,6 +3,7 @@ unit PrintDialogKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PrintDialogKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "PrintDialogKeywordsPack" MUID: (1127EF0E219F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -50,9 +51,9 @@ type
 'aControl' форма::PrintDialog TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_PrintDialog
 
  Tkw_PrintDialog_Control_poDocumentNames = {final} class(TtfwControlString)
@@ -63,9 +64,9 @@ type
 контрол::poDocumentNames TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_poDocumentNames
 
  Tkw_PrintDialog_Control_poDocumentNames_Push = {final} class(TkwBynameControlPush)
@@ -88,9 +89,9 @@ type
 контрол::rbPrintSelected TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_rbPrintSelected
 
  Tkw_PrintDialog_Control_rbPrintSelected_Push = {final} class(TkwBynameControlPush)
@@ -113,9 +114,9 @@ type
 контрол::rbPrintCurrent TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_rbPrintCurrent
 
  Tkw_PrintDialog_Control_rbPrintCurrent_Push = {final} class(TkwBynameControlPush)
@@ -138,9 +139,9 @@ type
 контрол::edPrintInterval TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_edPrintInterval
 
  Tkw_PrintDialog_Control_edPrintInterval_Push = {final} class(TkwBynameControlPush)
@@ -163,9 +164,9 @@ type
 контрол::edCopyCount TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_edCopyCount
 
  Tkw_PrintDialog_Control_edCopyCount_Push = {final} class(TkwBynameControlPush)
@@ -188,9 +189,9 @@ type
 контрол::CollateCheckBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_CollateCheckBox
 
  Tkw_PrintDialog_Control_CollateCheckBox_Push = {final} class(TkwBynameControlPush)
@@ -213,9 +214,9 @@ type
 контрол::cbOddEven TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_cbOddEven
 
  Tkw_PrintDialog_Control_cbOddEven_Push = {final} class(TkwBynameControlPush)
@@ -238,9 +239,9 @@ type
 контрол::poDocumentTexts TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_poDocumentTexts
 
  Tkw_PrintDialog_Control_poDocumentTexts_Push = {final} class(TkwBynameControlPush)
@@ -263,9 +264,9 @@ type
 контрол::rbPrintAll TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_rbPrintAll
 
  Tkw_PrintDialog_Control_rbPrintAll_Push = {final} class(TkwBynameControlPush)
@@ -288,9 +289,9 @@ type
 контрол::rbPrintInterval TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_rbPrintInterval
 
  Tkw_PrintDialog_Control_rbPrintInterval_Push = {final} class(TkwBynameControlPush)
@@ -313,9 +314,9 @@ type
 контрол::cbPrinter TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_cbPrinter
 
  Tkw_PrintDialog_Control_cbPrinter_Push = {final} class(TkwBynameControlPush)
@@ -338,9 +339,9 @@ type
 контрол::cbPrintInfo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_cbPrintInfo
 
  Tkw_PrintDialog_Control_cbPrintInfo_Push = {final} class(TkwBynameControlPush)
@@ -643,11 +644,6 @@ OBJECT VAR l_TvtCheckBox
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnPrintDialogCbPrintInfo
 
-class function Tkw_Form_PrintDialog.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::PrintDialog';
-end;//Tkw_Form_PrintDialog.GetWordNameForRegister
-
 function Tkw_Form_PrintDialog.GetString: AnsiString;
 begin
  Result := 'en_PrintDialog';
@@ -659,10 +655,10 @@ begin
  TtfwClassRef.Register(Ten_PrintDialog);
 end;//Tkw_Form_PrintDialog.RegisterInEngine
 
-class function Tkw_PrintDialog_Control_poDocumentNames.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_PrintDialog.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::poDocumentNames';
-end;//Tkw_PrintDialog_Control_poDocumentNames.GetWordNameForRegister
+ Result := 'форма::PrintDialog';
+end;//Tkw_Form_PrintDialog.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_poDocumentNames.GetString: AnsiString;
 begin
@@ -675,6 +671,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_PrintDialog_Control_poDocumentNames.RegisterInEngine
 
+class function Tkw_PrintDialog_Control_poDocumentNames.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::poDocumentNames';
+end;//Tkw_PrintDialog_Control_poDocumentNames.GetWordNameForRegister
+
 procedure Tkw_PrintDialog_Control_poDocumentNames_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('poDocumentNames');
@@ -685,11 +686,6 @@ class function Tkw_PrintDialog_Control_poDocumentNames_Push.GetWordNameForRegist
 begin
  Result := 'контрол::poDocumentNames:push';
 end;//Tkw_PrintDialog_Control_poDocumentNames_Push.GetWordNameForRegister
-
-class function Tkw_PrintDialog_Control_rbPrintSelected.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::rbPrintSelected';
-end;//Tkw_PrintDialog_Control_rbPrintSelected.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_rbPrintSelected.GetString: AnsiString;
 begin
@@ -702,6 +698,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_PrintDialog_Control_rbPrintSelected.RegisterInEngine
 
+class function Tkw_PrintDialog_Control_rbPrintSelected.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::rbPrintSelected';
+end;//Tkw_PrintDialog_Control_rbPrintSelected.GetWordNameForRegister
+
 procedure Tkw_PrintDialog_Control_rbPrintSelected_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('rbPrintSelected');
@@ -712,11 +713,6 @@ class function Tkw_PrintDialog_Control_rbPrintSelected_Push.GetWordNameForRegist
 begin
  Result := 'контрол::rbPrintSelected:push';
 end;//Tkw_PrintDialog_Control_rbPrintSelected_Push.GetWordNameForRegister
-
-class function Tkw_PrintDialog_Control_rbPrintCurrent.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::rbPrintCurrent';
-end;//Tkw_PrintDialog_Control_rbPrintCurrent.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_rbPrintCurrent.GetString: AnsiString;
 begin
@@ -729,6 +725,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_PrintDialog_Control_rbPrintCurrent.RegisterInEngine
 
+class function Tkw_PrintDialog_Control_rbPrintCurrent.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::rbPrintCurrent';
+end;//Tkw_PrintDialog_Control_rbPrintCurrent.GetWordNameForRegister
+
 procedure Tkw_PrintDialog_Control_rbPrintCurrent_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('rbPrintCurrent');
@@ -739,11 +740,6 @@ class function Tkw_PrintDialog_Control_rbPrintCurrent_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::rbPrintCurrent:push';
 end;//Tkw_PrintDialog_Control_rbPrintCurrent_Push.GetWordNameForRegister
-
-class function Tkw_PrintDialog_Control_edPrintInterval.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edPrintInterval';
-end;//Tkw_PrintDialog_Control_edPrintInterval.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_edPrintInterval.GetString: AnsiString;
 begin
@@ -756,6 +752,11 @@ begin
  TtfwClassRef.Register(TnscEditWithoutPlusMinusShortcut);
 end;//Tkw_PrintDialog_Control_edPrintInterval.RegisterInEngine
 
+class function Tkw_PrintDialog_Control_edPrintInterval.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edPrintInterval';
+end;//Tkw_PrintDialog_Control_edPrintInterval.GetWordNameForRegister
+
 procedure Tkw_PrintDialog_Control_edPrintInterval_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edPrintInterval');
@@ -766,11 +767,6 @@ class function Tkw_PrintDialog_Control_edPrintInterval_Push.GetWordNameForRegist
 begin
  Result := 'контрол::edPrintInterval:push';
 end;//Tkw_PrintDialog_Control_edPrintInterval_Push.GetWordNameForRegister
-
-class function Tkw_PrintDialog_Control_edCopyCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edCopyCount';
-end;//Tkw_PrintDialog_Control_edCopyCount.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_edCopyCount.GetString: AnsiString;
 begin
@@ -783,6 +779,11 @@ begin
  TtfwClassRef.Register(TvtSpinEdit);
 end;//Tkw_PrintDialog_Control_edCopyCount.RegisterInEngine
 
+class function Tkw_PrintDialog_Control_edCopyCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edCopyCount';
+end;//Tkw_PrintDialog_Control_edCopyCount.GetWordNameForRegister
+
 procedure Tkw_PrintDialog_Control_edCopyCount_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edCopyCount');
@@ -793,11 +794,6 @@ class function Tkw_PrintDialog_Control_edCopyCount_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::edCopyCount:push';
 end;//Tkw_PrintDialog_Control_edCopyCount_Push.GetWordNameForRegister
-
-class function Tkw_PrintDialog_Control_CollateCheckBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::CollateCheckBox';
-end;//Tkw_PrintDialog_Control_CollateCheckBox.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_CollateCheckBox.GetString: AnsiString;
 begin
@@ -810,6 +806,11 @@ begin
  TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_PrintDialog_Control_CollateCheckBox.RegisterInEngine
 
+class function Tkw_PrintDialog_Control_CollateCheckBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::CollateCheckBox';
+end;//Tkw_PrintDialog_Control_CollateCheckBox.GetWordNameForRegister
+
 procedure Tkw_PrintDialog_Control_CollateCheckBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('CollateCheckBox');
@@ -820,11 +821,6 @@ class function Tkw_PrintDialog_Control_CollateCheckBox_Push.GetWordNameForRegist
 begin
  Result := 'контрол::CollateCheckBox:push';
 end;//Tkw_PrintDialog_Control_CollateCheckBox_Push.GetWordNameForRegister
-
-class function Tkw_PrintDialog_Control_cbOddEven.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::cbOddEven';
-end;//Tkw_PrintDialog_Control_cbOddEven.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_cbOddEven.GetString: AnsiString;
 begin
@@ -837,6 +833,11 @@ begin
  TtfwClassRef.Register(TvtComboBoxQS);
 end;//Tkw_PrintDialog_Control_cbOddEven.RegisterInEngine
 
+class function Tkw_PrintDialog_Control_cbOddEven.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::cbOddEven';
+end;//Tkw_PrintDialog_Control_cbOddEven.GetWordNameForRegister
+
 procedure Tkw_PrintDialog_Control_cbOddEven_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('cbOddEven');
@@ -847,11 +848,6 @@ class function Tkw_PrintDialog_Control_cbOddEven_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::cbOddEven:push';
 end;//Tkw_PrintDialog_Control_cbOddEven_Push.GetWordNameForRegister
-
-class function Tkw_PrintDialog_Control_poDocumentTexts.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::poDocumentTexts';
-end;//Tkw_PrintDialog_Control_poDocumentTexts.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_poDocumentTexts.GetString: AnsiString;
 begin
@@ -864,6 +860,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_PrintDialog_Control_poDocumentTexts.RegisterInEngine
 
+class function Tkw_PrintDialog_Control_poDocumentTexts.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::poDocumentTexts';
+end;//Tkw_PrintDialog_Control_poDocumentTexts.GetWordNameForRegister
+
 procedure Tkw_PrintDialog_Control_poDocumentTexts_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('poDocumentTexts');
@@ -874,11 +875,6 @@ class function Tkw_PrintDialog_Control_poDocumentTexts_Push.GetWordNameForRegist
 begin
  Result := 'контрол::poDocumentTexts:push';
 end;//Tkw_PrintDialog_Control_poDocumentTexts_Push.GetWordNameForRegister
-
-class function Tkw_PrintDialog_Control_rbPrintAll.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::rbPrintAll';
-end;//Tkw_PrintDialog_Control_rbPrintAll.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_rbPrintAll.GetString: AnsiString;
 begin
@@ -891,6 +887,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_PrintDialog_Control_rbPrintAll.RegisterInEngine
 
+class function Tkw_PrintDialog_Control_rbPrintAll.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::rbPrintAll';
+end;//Tkw_PrintDialog_Control_rbPrintAll.GetWordNameForRegister
+
 procedure Tkw_PrintDialog_Control_rbPrintAll_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('rbPrintAll');
@@ -901,11 +902,6 @@ class function Tkw_PrintDialog_Control_rbPrintAll_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::rbPrintAll:push';
 end;//Tkw_PrintDialog_Control_rbPrintAll_Push.GetWordNameForRegister
-
-class function Tkw_PrintDialog_Control_rbPrintInterval.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::rbPrintInterval';
-end;//Tkw_PrintDialog_Control_rbPrintInterval.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_rbPrintInterval.GetString: AnsiString;
 begin
@@ -918,6 +914,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_PrintDialog_Control_rbPrintInterval.RegisterInEngine
 
+class function Tkw_PrintDialog_Control_rbPrintInterval.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::rbPrintInterval';
+end;//Tkw_PrintDialog_Control_rbPrintInterval.GetWordNameForRegister
+
 procedure Tkw_PrintDialog_Control_rbPrintInterval_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('rbPrintInterval');
@@ -928,11 +929,6 @@ class function Tkw_PrintDialog_Control_rbPrintInterval_Push.GetWordNameForRegist
 begin
  Result := 'контрол::rbPrintInterval:push';
 end;//Tkw_PrintDialog_Control_rbPrintInterval_Push.GetWordNameForRegister
-
-class function Tkw_PrintDialog_Control_cbPrinter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::cbPrinter';
-end;//Tkw_PrintDialog_Control_cbPrinter.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_cbPrinter.GetString: AnsiString;
 begin
@@ -945,6 +941,11 @@ begin
  TtfwClassRef.Register(TvtComboBoxQS);
 end;//Tkw_PrintDialog_Control_cbPrinter.RegisterInEngine
 
+class function Tkw_PrintDialog_Control_cbPrinter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::cbPrinter';
+end;//Tkw_PrintDialog_Control_cbPrinter.GetWordNameForRegister
+
 procedure Tkw_PrintDialog_Control_cbPrinter_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('cbPrinter');
@@ -956,11 +957,6 @@ begin
  Result := 'контрол::cbPrinter:push';
 end;//Tkw_PrintDialog_Control_cbPrinter_Push.GetWordNameForRegister
 
-class function Tkw_PrintDialog_Control_cbPrintInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::cbPrintInfo';
-end;//Tkw_PrintDialog_Control_cbPrintInfo.GetWordNameForRegister
-
 function Tkw_PrintDialog_Control_cbPrintInfo.GetString: AnsiString;
 begin
  Result := 'cbPrintInfo';
@@ -971,6 +967,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_PrintDialog_Control_cbPrintInfo.RegisterInEngine
+
+class function Tkw_PrintDialog_Control_cbPrintInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::cbPrintInfo';
+end;//Tkw_PrintDialog_Control_cbPrintInfo.GetWordNameForRegister
 
 procedure Tkw_PrintDialog_Control_cbPrintInfo_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -1005,11 +1006,6 @@ begin
  aCtx.rEngine.PushObj(poDocumentNames(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogPoDocumentNames.DoDoIt
 
-class function TkwEnPrintDialogPoDocumentNames.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_PrintDialog.poDocumentNames';
-end;//TkwEnPrintDialogPoDocumentNames.GetWordNameForRegister
-
 procedure TkwEnPrintDialogPoDocumentNames.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1030,6 +1026,11 @@ function TkwEnPrintDialogPoDocumentNames.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogPoDocumentNames.ParamsTypes
+
+class function TkwEnPrintDialogPoDocumentNames.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_PrintDialog.poDocumentNames';
+end;//TkwEnPrintDialogPoDocumentNames.GetWordNameForRegister
 
 function TkwEnPrintDialogRbPrintSelected.rbPrintSelected(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtRadioButton;
@@ -1053,11 +1054,6 @@ begin
  aCtx.rEngine.PushObj(rbPrintSelected(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogRbPrintSelected.DoDoIt
 
-class function TkwEnPrintDialogRbPrintSelected.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_PrintDialog.rbPrintSelected';
-end;//TkwEnPrintDialogRbPrintSelected.GetWordNameForRegister
-
 procedure TkwEnPrintDialogRbPrintSelected.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1078,6 +1074,11 @@ function TkwEnPrintDialogRbPrintSelected.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogRbPrintSelected.ParamsTypes
+
+class function TkwEnPrintDialogRbPrintSelected.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_PrintDialog.rbPrintSelected';
+end;//TkwEnPrintDialogRbPrintSelected.GetWordNameForRegister
 
 function TkwEnPrintDialogRbPrintCurrent.rbPrintCurrent(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtRadioButton;
@@ -1101,11 +1102,6 @@ begin
  aCtx.rEngine.PushObj(rbPrintCurrent(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogRbPrintCurrent.DoDoIt
 
-class function TkwEnPrintDialogRbPrintCurrent.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_PrintDialog.rbPrintCurrent';
-end;//TkwEnPrintDialogRbPrintCurrent.GetWordNameForRegister
-
 procedure TkwEnPrintDialogRbPrintCurrent.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1126,6 +1122,11 @@ function TkwEnPrintDialogRbPrintCurrent.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogRbPrintCurrent.ParamsTypes
+
+class function TkwEnPrintDialogRbPrintCurrent.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_PrintDialog.rbPrintCurrent';
+end;//TkwEnPrintDialogRbPrintCurrent.GetWordNameForRegister
 
 function TkwEnPrintDialogEdPrintInterval.edPrintInterval(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TnscEditWithoutPlusMinusShortcut;
@@ -1149,11 +1150,6 @@ begin
  aCtx.rEngine.PushObj(edPrintInterval(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogEdPrintInterval.DoDoIt
 
-class function TkwEnPrintDialogEdPrintInterval.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_PrintDialog.edPrintInterval';
-end;//TkwEnPrintDialogEdPrintInterval.GetWordNameForRegister
-
 procedure TkwEnPrintDialogEdPrintInterval.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1174,6 +1170,11 @@ function TkwEnPrintDialogEdPrintInterval.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogEdPrintInterval.ParamsTypes
+
+class function TkwEnPrintDialogEdPrintInterval.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_PrintDialog.edPrintInterval';
+end;//TkwEnPrintDialogEdPrintInterval.GetWordNameForRegister
 
 function TkwEnPrintDialogEdCopyCount.edCopyCount(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtSpinEdit;
@@ -1197,11 +1198,6 @@ begin
  aCtx.rEngine.PushObj(edCopyCount(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogEdCopyCount.DoDoIt
 
-class function TkwEnPrintDialogEdCopyCount.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_PrintDialog.edCopyCount';
-end;//TkwEnPrintDialogEdCopyCount.GetWordNameForRegister
-
 procedure TkwEnPrintDialogEdCopyCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1222,6 +1218,11 @@ function TkwEnPrintDialogEdCopyCount.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogEdCopyCount.ParamsTypes
+
+class function TkwEnPrintDialogEdCopyCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_PrintDialog.edCopyCount';
+end;//TkwEnPrintDialogEdCopyCount.GetWordNameForRegister
 
 function TkwEnPrintDialogCollateCheckBox.CollateCheckBox(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtCheckBox;
@@ -1245,11 +1246,6 @@ begin
  aCtx.rEngine.PushObj(CollateCheckBox(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogCollateCheckBox.DoDoIt
 
-class function TkwEnPrintDialogCollateCheckBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_PrintDialog.CollateCheckBox';
-end;//TkwEnPrintDialogCollateCheckBox.GetWordNameForRegister
-
 procedure TkwEnPrintDialogCollateCheckBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1270,6 +1266,11 @@ function TkwEnPrintDialogCollateCheckBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogCollateCheckBox.ParamsTypes
+
+class function TkwEnPrintDialogCollateCheckBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_PrintDialog.CollateCheckBox';
+end;//TkwEnPrintDialogCollateCheckBox.GetWordNameForRegister
 
 function TkwEnPrintDialogCbOddEven.cbOddEven(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtComboBoxQS;
@@ -1293,11 +1294,6 @@ begin
  aCtx.rEngine.PushObj(cbOddEven(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogCbOddEven.DoDoIt
 
-class function TkwEnPrintDialogCbOddEven.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_PrintDialog.cbOddEven';
-end;//TkwEnPrintDialogCbOddEven.GetWordNameForRegister
-
 procedure TkwEnPrintDialogCbOddEven.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1318,6 +1314,11 @@ function TkwEnPrintDialogCbOddEven.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogCbOddEven.ParamsTypes
+
+class function TkwEnPrintDialogCbOddEven.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_PrintDialog.cbOddEven';
+end;//TkwEnPrintDialogCbOddEven.GetWordNameForRegister
 
 function TkwEnPrintDialogPoDocumentTexts.poDocumentTexts(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtRadioButton;
@@ -1341,11 +1342,6 @@ begin
  aCtx.rEngine.PushObj(poDocumentTexts(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogPoDocumentTexts.DoDoIt
 
-class function TkwEnPrintDialogPoDocumentTexts.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_PrintDialog.poDocumentTexts';
-end;//TkwEnPrintDialogPoDocumentTexts.GetWordNameForRegister
-
 procedure TkwEnPrintDialogPoDocumentTexts.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1366,6 +1362,11 @@ function TkwEnPrintDialogPoDocumentTexts.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogPoDocumentTexts.ParamsTypes
+
+class function TkwEnPrintDialogPoDocumentTexts.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_PrintDialog.poDocumentTexts';
+end;//TkwEnPrintDialogPoDocumentTexts.GetWordNameForRegister
 
 function TkwEnPrintDialogRbPrintAll.rbPrintAll(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtRadioButton;
@@ -1389,11 +1390,6 @@ begin
  aCtx.rEngine.PushObj(rbPrintAll(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogRbPrintAll.DoDoIt
 
-class function TkwEnPrintDialogRbPrintAll.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_PrintDialog.rbPrintAll';
-end;//TkwEnPrintDialogRbPrintAll.GetWordNameForRegister
-
 procedure TkwEnPrintDialogRbPrintAll.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1414,6 +1410,11 @@ function TkwEnPrintDialogRbPrintAll.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogRbPrintAll.ParamsTypes
+
+class function TkwEnPrintDialogRbPrintAll.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_PrintDialog.rbPrintAll';
+end;//TkwEnPrintDialogRbPrintAll.GetWordNameForRegister
 
 function TkwEnPrintDialogRbPrintInterval.rbPrintInterval(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtRadioButton;
@@ -1437,11 +1438,6 @@ begin
  aCtx.rEngine.PushObj(rbPrintInterval(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogRbPrintInterval.DoDoIt
 
-class function TkwEnPrintDialogRbPrintInterval.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_PrintDialog.rbPrintInterval';
-end;//TkwEnPrintDialogRbPrintInterval.GetWordNameForRegister
-
 procedure TkwEnPrintDialogRbPrintInterval.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1462,6 +1458,11 @@ function TkwEnPrintDialogRbPrintInterval.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogRbPrintInterval.ParamsTypes
+
+class function TkwEnPrintDialogRbPrintInterval.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_PrintDialog.rbPrintInterval';
+end;//TkwEnPrintDialogRbPrintInterval.GetWordNameForRegister
 
 function TkwEnPrintDialogCbPrinter.cbPrinter(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtComboBoxQS;
@@ -1485,11 +1486,6 @@ begin
  aCtx.rEngine.PushObj(cbPrinter(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogCbPrinter.DoDoIt
 
-class function TkwEnPrintDialogCbPrinter.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_PrintDialog.cbPrinter';
-end;//TkwEnPrintDialogCbPrinter.GetWordNameForRegister
-
 procedure TkwEnPrintDialogCbPrinter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1510,6 +1506,11 @@ function TkwEnPrintDialogCbPrinter.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogCbPrinter.ParamsTypes
+
+class function TkwEnPrintDialogCbPrinter.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_PrintDialog.cbPrinter';
+end;//TkwEnPrintDialogCbPrinter.GetWordNameForRegister
 
 function TkwEnPrintDialogCbPrintInfo.cbPrintInfo(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtCheckBox;
@@ -1533,11 +1534,6 @@ begin
  aCtx.rEngine.PushObj(cbPrintInfo(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogCbPrintInfo.DoDoIt
 
-class function TkwEnPrintDialogCbPrintInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_PrintDialog.cbPrintInfo';
-end;//TkwEnPrintDialogCbPrintInfo.GetWordNameForRegister
-
 procedure TkwEnPrintDialogCbPrintInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1558,6 +1554,11 @@ function TkwEnPrintDialogCbPrintInfo.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogCbPrintInfo.ParamsTypes
+
+class function TkwEnPrintDialogCbPrintInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_PrintDialog.cbPrintInfo';
+end;//TkwEnPrintDialogCbPrintInfo.GetWordNameForRegister
 
 initialization
  Tkw_Form_PrintDialog.RegisterInEngine;

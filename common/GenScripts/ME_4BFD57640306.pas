@@ -3,6 +3,7 @@ unit nevZoomedRubberCellsRenderInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevZoomedRubberCellsRenderInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevZoomedRubberCellsRenderInfo" MUID: (4BFD57640306)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

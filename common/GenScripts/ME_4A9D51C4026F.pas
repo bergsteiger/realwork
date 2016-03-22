@@ -3,6 +3,8 @@ unit Contents_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Contents_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "Contents" MUID: (4A9D51C4026F)
+// Имя типа: "TContentsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

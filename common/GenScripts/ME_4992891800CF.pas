@@ -3,6 +3,7 @@ unit nsStartupTips;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DayTips\nsStartupTips.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsStartupTips" MUID: (4992891800CF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

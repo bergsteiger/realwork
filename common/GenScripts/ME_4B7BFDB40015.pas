@@ -3,6 +3,8 @@ unit toK;
 
 // Модуль: "w:\common\components\DailyTest\toK.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "toK" MUID: (4B7BFDB40015)
+// Имя типа: "TtoK"
 
 {$Include w:\common\components\DailyTest\DailyTest.inc}
 

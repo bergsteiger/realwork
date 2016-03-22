@@ -2,6 +2,7 @@ unit vtOutlinerWordsPack;
 
 // ћодуль: "w:\common\components\rtl\Garant\ScriptEngine\vtOutlinerWordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "vtOutlinerWordsPack" MUID: (503F914E00EF)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -533,11 +534,6 @@ begin
  aCtx.rEngine.PushBool(tree_CheckFlag(aCtx, l_aTree, l_aFlag, l_aNodeID));
 end;//TkwTreeCheckFlag.DoDoIt
 
-class function TkwTreeCheckFlag.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:CheckFlag';
-end;//TkwTreeCheckFlag.GetWordNameForRegister
-
 function TkwTreeCheckFlag.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -552,6 +548,11 @@ function TkwTreeCheckFlag.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwTreeCheckFlag.ParamsTypes
+
+class function TkwTreeCheckFlag.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:CheckFlag';
+end;//TkwTreeCheckFlag.GetWordNameForRegister
 
 procedure TkwTreeCollapseAll.tree_CollapseAll(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner);
@@ -579,11 +580,6 @@ begin
  tree_CollapseAll(aCtx, l_aTree);
 end;//TkwTreeCollapseAll.DoDoIt
 
-class function TkwTreeCollapseAll.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:CollapseAll';
-end;//TkwTreeCollapseAll.GetWordNameForRegister
-
 function TkwTreeCollapseAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -598,6 +594,11 @@ function TkwTreeCollapseAll.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeCollapseAll.ParamsTypes
+
+class function TkwTreeCollapseAll.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:CollapseAll';
+end;//TkwTreeCollapseAll.GetWordNameForRegister
 
 function TkwTreeCurrentNodeIsExpanded.tree_CurrentNode_IsExpanded(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner): Boolean;
@@ -625,11 +626,6 @@ begin
  aCtx.rEngine.PushBool(tree_CurrentNode_IsExpanded(aCtx, l_aTree));
 end;//TkwTreeCurrentNodeIsExpanded.DoDoIt
 
-class function TkwTreeCurrentNodeIsExpanded.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:CurrentNode:IsExpanded';
-end;//TkwTreeCurrentNodeIsExpanded.GetWordNameForRegister
-
 function TkwTreeCurrentNodeIsExpanded.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -644,6 +640,11 @@ function TkwTreeCurrentNodeIsExpanded.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeCurrentNodeIsExpanded.ParamsTypes
+
+class function TkwTreeCurrentNodeIsExpanded.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:CurrentNode:IsExpanded';
+end;//TkwTreeCurrentNodeIsExpanded.GetWordNameForRegister
 
 procedure TkwTreeDeleteAllChildren.tree_DeleteAllChildren(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner);
@@ -679,11 +680,6 @@ begin
  tree_DeleteAllChildren(aCtx, l_aTree);
 end;//TkwTreeDeleteAllChildren.DoDoIt
 
-class function TkwTreeDeleteAllChildren.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:DeleteAllChildren';
-end;//TkwTreeDeleteAllChildren.GetWordNameForRegister
-
 function TkwTreeDeleteAllChildren.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -698,6 +694,11 @@ function TkwTreeDeleteAllChildren.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeDeleteAllChildren.ParamsTypes
+
+class function TkwTreeDeleteAllChildren.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:DeleteAllChildren';
+end;//TkwTreeDeleteAllChildren.GetWordNameForRegister
 
 procedure TkwTreeExpandAll.tree_ExpandAll(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner);
@@ -725,11 +726,6 @@ begin
  tree_ExpandAll(aCtx, l_aTree);
 end;//TkwTreeExpandAll.DoDoIt
 
-class function TkwTreeExpandAll.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:ExpandAll';
-end;//TkwTreeExpandAll.GetWordNameForRegister
-
 function TkwTreeExpandAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -744,6 +740,11 @@ function TkwTreeExpandAll.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeExpandAll.ParamsTypes
+
+class function TkwTreeExpandAll.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:ExpandAll';
+end;//TkwTreeExpandAll.GetWordNameForRegister
 
 function TkwTreeCurrentNode.tree_CurrentNode(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner): Il3SimpleNode;
@@ -771,11 +772,6 @@ begin
  aCtx.rEngine.PushIntf(tree_CurrentNode(aCtx, l_aTree), TypeInfo(Il3SimpleNode));
 end;//TkwTreeCurrentNode.DoDoIt
 
-class function TkwTreeCurrentNode.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:CurrentNode';
-end;//TkwTreeCurrentNode.GetWordNameForRegister
-
 function TkwTreeCurrentNode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Il3SimpleNode);
@@ -790,6 +786,11 @@ function TkwTreeCurrentNode.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeCurrentNode.ParamsTypes
+
+class function TkwTreeCurrentNode.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:CurrentNode';
+end;//TkwTreeCurrentNode.GetWordNameForRegister
 
 function TkwTreeGetItem.tree_GetItem(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
@@ -828,11 +829,6 @@ begin
  aCtx.rEngine.PushIntf(tree_GetItem(aCtx, l_aTree, l_anIndex), TypeInfo(Il3SimpleNode));
 end;//TkwTreeGetItem.DoDoIt
 
-class function TkwTreeGetItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetItem';
-end;//TkwTreeGetItem.GetWordNameForRegister
-
 function TkwTreeGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Il3SimpleNode);
@@ -847,6 +843,11 @@ function TkwTreeGetItem.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItem.ParamsTypes
+
+class function TkwTreeGetItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetItem';
+end;//TkwTreeGetItem.GetWordNameForRegister
 
 function TkwTreeGetItemsCount.tree_GetItemsCount(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner): Integer;
@@ -874,11 +875,6 @@ begin
  aCtx.rEngine.PushInt(tree_GetItemsCount(aCtx, l_aTree));
 end;//TkwTreeGetItemsCount.DoDoIt
 
-class function TkwTreeGetItemsCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetItemsCount';
-end;//TkwTreeGetItemsCount.GetWordNameForRegister
-
 function TkwTreeGetItemsCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -893,6 +889,11 @@ function TkwTreeGetItemsCount.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeGetItemsCount.ParamsTypes
+
+class function TkwTreeGetItemsCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetItemsCount';
+end;//TkwTreeGetItemsCount.GetWordNameForRegister
 
 procedure TkwTreeIterateNodes.tree_IterateNodes(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
@@ -943,11 +944,6 @@ begin
  tree_IterateNodes(aCtx, l_aTree, l_aLambda);
 end;//TkwTreeIterateNodes.DoDoIt
 
-class function TkwTreeIterateNodes.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:IterateNodes';
-end;//TkwTreeIterateNodes.GetWordNameForRegister
-
 function TkwTreeIterateNodes.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -962,6 +958,11 @@ function TkwTreeIterateNodes.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(TtfwWord)]);
 end;//TkwTreeIterateNodes.ParamsTypes
+
+class function TkwTreeIterateNodes.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:IterateNodes';
+end;//TkwTreeIterateNodes.GetWordNameForRegister
 
 procedure TkwTreeSaveState2File.tree_SaveState2File(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
@@ -1037,11 +1038,6 @@ begin
  tree_SaveState2File(aCtx, l_aTree, l_aFileName);
 end;//TkwTreeSaveState2File.DoDoIt
 
-class function TkwTreeSaveState2File.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:SaveState2File';
-end;//TkwTreeSaveState2File.GetWordNameForRegister
-
 function TkwTreeSaveState2File.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1056,6 +1052,11 @@ function TkwTreeSaveState2File.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), @tfw_tiString]);
 end;//TkwTreeSaveState2File.ParamsTypes
+
+class function TkwTreeSaveState2File.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:SaveState2File';
+end;//TkwTreeSaveState2File.GetWordNameForRegister
 
 function TkwTreeChildrenCount.tree_ChildrenCount(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
@@ -1094,11 +1095,6 @@ begin
  aCtx.rEngine.PushInt(tree_ChildrenCount(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeChildrenCount.DoDoIt
 
-class function TkwTreeChildrenCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:ChildrenCount';
-end;//TkwTreeChildrenCount.GetWordNameForRegister
-
 function TkwTreeChildrenCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1113,6 +1109,11 @@ function TkwTreeChildrenCount.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeChildrenCount.ParamsTypes
+
+class function TkwTreeChildrenCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:ChildrenCount';
+end;//TkwTreeChildrenCount.GetWordNameForRegister
 
 procedure TkwTreeExpand.tree_expand(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
@@ -1151,11 +1152,6 @@ begin
  tree_expand(aCtx, l_aTree, l_anIndex);
 end;//TkwTreeExpand.DoDoIt
 
-class function TkwTreeExpand.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:развернуть';
-end;//TkwTreeExpand.GetWordNameForRegister
-
 function TkwTreeExpand.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1170,6 +1166,11 @@ function TkwTreeExpand.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeExpand.ParamsTypes
+
+class function TkwTreeExpand.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:развернуть';
+end;//TkwTreeExpand.GetWordNameForRegister
 
 function TkwTreeGetItemHeight.tree_GetItem_Height(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
@@ -1209,11 +1210,6 @@ begin
  aCtx.rEngine.PushInt(tree_GetItem_Height(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemHeight.DoDoIt
 
-class function TkwTreeGetItemHeight.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetItem:Height';
-end;//TkwTreeGetItemHeight.GetWordNameForRegister
-
 function TkwTreeGetItemHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1228,6 +1224,11 @@ function TkwTreeGetItemHeight.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemHeight.ParamsTypes
+
+class function TkwTreeGetItemHeight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetItem:Height';
+end;//TkwTreeGetItemHeight.GetWordNameForRegister
 
 function TkwTreeGetItemImageIndex.tree_GetItemImageIndex(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
@@ -1271,11 +1272,6 @@ begin
  aCtx.rEngine.PushInt(tree_GetItemImageIndex(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemImageIndex.DoDoIt
 
-class function TkwTreeGetItemImageIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetItemImageIndex';
-end;//TkwTreeGetItemImageIndex.GetWordNameForRegister
-
 function TkwTreeGetItemImageIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1290,6 +1286,11 @@ function TkwTreeGetItemImageIndex.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemImageIndex.ParamsTypes
+
+class function TkwTreeGetItemImageIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetItemImageIndex';
+end;//TkwTreeGetItemImageIndex.GetWordNameForRegister
 
 function TkwTreeGetItemLeft.tree_GetItem_Left(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
@@ -1329,11 +1330,6 @@ begin
  aCtx.rEngine.PushInt(tree_GetItem_Left(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemLeft.DoDoIt
 
-class function TkwTreeGetItemLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetItem:Left';
-end;//TkwTreeGetItemLeft.GetWordNameForRegister
-
 function TkwTreeGetItemLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1348,6 +1344,11 @@ function TkwTreeGetItemLeft.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemLeft.ParamsTypes
+
+class function TkwTreeGetItemLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetItem:Left';
+end;//TkwTreeGetItemLeft.GetWordNameForRegister
 
 function TkwTreeGetItemTop.tree_GetItem_Top(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
@@ -1387,11 +1388,6 @@ begin
  aCtx.rEngine.PushInt(tree_GetItem_Top(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemTop.DoDoIt
 
-class function TkwTreeGetItemTop.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetItem:Top';
-end;//TkwTreeGetItemTop.GetWordNameForRegister
-
 function TkwTreeGetItemTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1406,6 +1402,11 @@ function TkwTreeGetItemTop.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemTop.ParamsTypes
+
+class function TkwTreeGetItemTop.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetItem:Top';
+end;//TkwTreeGetItemTop.GetWordNameForRegister
 
 function TkwTreeGetItemWidth.tree_GetItem_Width(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
@@ -1445,11 +1446,6 @@ begin
  aCtx.rEngine.PushInt(tree_GetItem_Width(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemWidth.DoDoIt
 
-class function TkwTreeGetItemWidth.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetItem:Width';
-end;//TkwTreeGetItemWidth.GetWordNameForRegister
-
 function TkwTreeGetItemWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1464,6 +1460,11 @@ function TkwTreeGetItemWidth.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemWidth.ParamsTypes
+
+class function TkwTreeGetItemWidth.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetItem:Width';
+end;//TkwTreeGetItemWidth.GetWordNameForRegister
 
 function TkwTreeGetSelected.tree_GetSelected(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
@@ -1502,11 +1503,6 @@ begin
  aCtx.rEngine.PushBool(tree_GetSelected(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetSelected.DoDoIt
 
-class function TkwTreeGetSelected.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetSelected';
-end;//TkwTreeGetSelected.GetWordNameForRegister
-
 function TkwTreeGetSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1521,6 +1517,11 @@ function TkwTreeGetSelected.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetSelected.ParamsTypes
+
+class function TkwTreeGetSelected.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetSelected';
+end;//TkwTreeGetSelected.GetWordNameForRegister
 
 procedure TkwTreeSetSelected.tree_SetSelected(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
@@ -1570,11 +1571,6 @@ begin
  tree_SetSelected(aCtx, l_aTree, l_anIndex, l_aValue);
 end;//TkwTreeSetSelected.DoDoIt
 
-class function TkwTreeSetSelected.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:SetSelected';
-end;//TkwTreeSetSelected.GetWordNameForRegister
-
 function TkwTreeSetSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1589,6 +1585,11 @@ function TkwTreeSetSelected.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer), TypeInfo(Boolean)]);
 end;//TkwTreeSetSelected.ParamsTypes
+
+class function TkwTreeSetSelected.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:SetSelected';
+end;//TkwTreeSetSelected.GetWordNameForRegister
 
 procedure TkwTreeCollapse.tree_collapse(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
@@ -1627,11 +1628,6 @@ begin
  tree_collapse(aCtx, l_aTree, l_anIndex);
 end;//TkwTreeCollapse.DoDoIt
 
-class function TkwTreeCollapse.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:свернуть';
-end;//TkwTreeCollapse.GetWordNameForRegister
-
 function TkwTreeCollapse.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1646,6 +1642,11 @@ function TkwTreeCollapse.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeCollapse.ParamsTypes
+
+class function TkwTreeCollapse.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:свернуть';
+end;//TkwTreeCollapse.GetWordNameForRegister
 
 initialization
  TvtOutlinerWordsPackResNameGetter.Register;

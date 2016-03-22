@@ -117,7 +117,9 @@ type
  private
  // private methods
    procedure UpdateCarrierHint;
-   function OpenNewMainForm(aOpenKind: TvcmMainFormOpenKind): TvcmMainForm;
+   function OpenNewMainForm(aOpenKind: TvcmMainFormOpenKind;
+     aOpenLast: Boolean;
+     const aOpenAfter: IvcmEntityForm = nil): TvcmMainForm;
  protected
  // realized methods
    function Loadable_Load_Execute(const aNode: IeeNode;
@@ -179,7 +181,9 @@ type
    function GetCurrentActiveWindow: IvcmEntityForm; override;
    function GetCurrentOpenedWindowsCount: Integer; override;
     {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-   function DoOpenNew(aOpenKind: TvcmMainFormOpenKind): IvcmContainedForm; override;
+   function DoOpenNew(aOpenKind: TvcmMainFormOpenKind;
+     aOpenLast: Boolean;
+     const aOpenAfter: IvcmEntityForm = nil): IvcmContainedForm; override;
     {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
  protected
  // protected fields
@@ -325,18 +329,25 @@ begin
 //#UC END# *4BCDABAC037C_4958D2EA00CC_impl*
 end;//TNemesisMainForm.UpdateCarrierHint
 
-function TNemesisMainForm.OpenNewMainForm(aOpenKind: TvcmMainFormOpenKind): TvcmMainForm;
+function TNemesisMainForm.OpenNewMainForm(aOpenKind: TvcmMainFormOpenKind;
+  aOpenLast: Boolean;
+  const aOpenAfter: IvcmEntityForm = nil): TvcmMainForm;
 //#UC START# *5566B0FA013A_4958D2EA00CC_var*
 var
  l_TabCont: TvcmTabbedContainerForm;
  l_Cont: IvcmContainer;
+ l_OpenAfter: TvcmEntityForm;
 //#UC END# *5566B0FA013A_4958D2EA00CC_var*
 begin
 //#UC START# *5566B0FA013A_4958D2EA00CC_impl*
  Result := nil;
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=600654481
+ if (aOpenAfter = nil) then
+  l_OpenAfter := nil
+ else
+  l_OpenAfter := TvcmEntityForm(aOpenAfter.VCLWinControl);
  l_Cont := TvcmTabbedContainerFormDispatcher.Instance.MakeAndPlaceVCMContainer(Self As IvcmContainerMaker,
-  Self as IvcmContainer, aOpenKind, True, (aOpenKind = vcm_okInNewTab));
+  Self as IvcmContainer, aOpenKind, True, aOpenLast, l_OpenAfter);
  if (l_Cont <> nil) then
  begin
   Result := l_Cont.AsForm.VCLWinControl as TvcmMainForm;
@@ -732,7 +743,7 @@ var
 //#UC END# *53AD17180374_4958D2EA00CC_var*
 begin
 //#UC START# *53AD17180374_4958D2EA00CC_impl*
- Result := OpenNewMainForm(vcm_okInNewWindow);
+ Result := OpenNewMainForm(vcm_okInNewWindow, True);
 //#UC END# *53AD17180374_4958D2EA00CC_impl*
 end;//TNemesisMainForm.OpenNewMainWindow
 
@@ -855,12 +866,14 @@ begin
 end;//TNemesisMainForm.GetCurrentOpenedWindowsCount
 
 {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-function TNemesisMainForm.DoOpenNew(aOpenKind: TvcmMainFormOpenKind): IvcmContainedForm;
+function TNemesisMainForm.DoOpenNew(aOpenKind: TvcmMainFormOpenKind;
+  aOpenLast: Boolean;
+  const aOpenAfter: IvcmEntityForm = nil): IvcmContainedForm;
 //#UC START# *5566C7BD037F_4958D2EA00CC_var*
 //#UC END# *5566C7BD037F_4958D2EA00CC_var*
 begin
 //#UC START# *5566C7BD037F_4958D2EA00CC_impl*
- Result := OpenNewMainForm(aOpenKind) as IvcmContainedForm;
+ Result := OpenNewMainForm(aOpenKind, aOpenLast, aOpenAfter) as IvcmContainedForm;
 //#UC END# *5566C7BD037F_4958D2EA00CC_impl*
 end;//TNemesisMainForm.DoOpenNew
 {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene

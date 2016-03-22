@@ -1,7 +1,10 @@
 unit csUserRequestManager;
-{ $Id: csUserRequestManager.pas,v 1.7 2015/08/03 12:11:45 lukyanets Exp $ }
+{ $Id: csUserRequestManager.pas,v 1.8 2015/11/25 14:01:43 lukyanets Exp $ }
 
 // $Log: csUserRequestManager.pas,v $
+// Revision 1.8  2015/11/25 14:01:43  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.7  2015/08/03 12:11:45  lukyanets
 // Если потеряно соединение - не умираем при отправке
 //
@@ -390,6 +393,7 @@ Uses
  Math, StrUtils,
  ddUtils,
  csMessageManager,
+ daSchemeConsts,
  dt_Dict, dt_Mail,
  vConst,
  l3Memory,

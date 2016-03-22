@@ -2,6 +2,7 @@ unit nsStyleParser;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsStyleParser.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsStyleParser" MUID: (4DDD3D520070)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

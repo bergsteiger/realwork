@@ -3,6 +3,8 @@ unit Date_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\Date_Const.pas"
 // Стереотип: "Atom"
+// Элемент модели: "Date" MUID: (48495D92021A)
+// Имя типа: "DateAtom"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

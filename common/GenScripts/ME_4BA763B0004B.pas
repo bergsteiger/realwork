@@ -3,6 +3,7 @@ unit bsTypesNew;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\bsTypesNew.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "bsTypesNew" MUID: (4BA763B0004B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

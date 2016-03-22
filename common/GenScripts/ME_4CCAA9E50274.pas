@@ -2,6 +2,8 @@ unit Filters_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Filters_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "Filters" MUID: (4CCAA9E50274)
+// Имя типа: "TFiltersModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

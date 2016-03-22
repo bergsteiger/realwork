@@ -2,6 +2,7 @@ unit ddBase;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddBase.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddBase" MUID: (4F6843D50173)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -67,14 +68,14 @@ var
 //#UC END# *52CFE5490025_4F6843D50173_var*
 begin
 //#UC START# *52CFE5490025_4F6843D50173_impl*
- i:= 1;
+ i := 1;
  while (i <= 16) do
  begin
   if Color = cddColorSet[i] then
    Break;
   Inc(i);
- end;
- if I > 16 then
+ end; // while (i <= 16) do
+ if i > 16 then
   Result := 1
  else
   Result := i;
@@ -107,7 +108,7 @@ begin
   -5 : Result := 3;
   -6 : Result := 4;
  else
-   Result := Abs(aNum)+16;
+   Result := Abs(aNum) + 16;
  end;
 //#UC END# *52CFE5DC02E2_4F6843D50173_impl*
 end;//ConvertStyleNumber

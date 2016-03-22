@@ -2,6 +2,7 @@ unit nsEditionDiffData;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsEditionDiffData.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsEditionDiffData" MUID: (4A7FD7E9035C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

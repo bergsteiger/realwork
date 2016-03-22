@@ -50,22 +50,6 @@ FORWARD ME_4BBF3D8B00CD
 
 ref; // ME_54BD169902EF Processor
 
-: ME_B269BE05A98F
- CONST UID 'B269BE05A98F'
- CONST Name 'f_Processor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Processor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4BBF3D8B00CD // Tk2ProcessorTagTool
- ;
- : Target WL 'ME_4A51D59703DF' '4678137501EA.pas.ms.script' // Ik2Processor
- ;
-
-ref; // ME_B269BE05A98F f_Processor
-
 FORWARD ME_4BBF40C603BD
 
 : ME_4BBF40EA0117
@@ -286,8 +270,6 @@ ref; // ME_1203D15ACEB6 DoIt
 ref; // ME_54BD284F0204 Make
 
 : ME_4BBF42BF004D_ME_4BBF3D8B00CD
- CONST UID '4BBF42BF004D'
- CONST Name 'Processor'
  : Original WL 'ME_4BBF42BF004D' '4BC83B8301E5.pas.ms.script' // Processor
  ;
  : Implementor ME_4BBF3D8B00CD // Tk2ProcessorTagTool
@@ -297,8 +279,6 @@ ref; // ME_54BD284F0204 Make
 ref; // ME_4BBF42BF004D_ME_4BBF3D8B00CD Processor
 
 : ME_479731C50290_ME_4BBF3D8B00CD
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4BBF3D8B00CD // Tk2ProcessorTagTool
@@ -307,8 +287,6 @@ ref; // ME_4BBF42BF004D_ME_4BBF3D8B00CD Processor
 ref; // ME_479731C50290_ME_4BBF3D8B00CD Cleanup
 
 : ME_48CF73CE00B5_ME_4BBF3D8B00CD
- CONST UID '48CF73CE00B5'
- CONST Name 'DoFire'
  : Original WL 'ME_48CF73CE00B5' '49A58A1A03C4.pas.ms.script' // DoFire
  ;
  : Implementor ME_4BBF3D8B00CD // Tk2ProcessorTagTool
@@ -317,24 +295,12 @@ ref; // ME_479731C50290_ME_4BBF3D8B00CD Cleanup
 ref; // ME_48CF73CE00B5_ME_4BBF3D8B00CD DoFire
 
 : ME_4A60B23E00C3_ME_4BBF3D8B00CD
- CONST UID '4A60B23E00C3'
- CONST Name 'COMQueryInterface'
  : Original WL 'ME_4A60B23E00C3' '47BB24D30205.pas.ms.script' // COMQueryInterface
  ;
  : Implementor ME_4BBF3D8B00CD // Tk2ProcessorTagTool
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4A60B23E00C3_ME_4BBF3D8B00CD COMQueryInterface
-
-: ME_5000565C019C_ME_4BBF3D8B00CD
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_4BBF3D8B00CD // Tk2ProcessorTagTool
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4BBF3D8B00CD ClearFields
 
 : ME_4BBF3D8B00CD
  CONST UID '4BBF3D8B00CD'
@@ -356,7 +322,6 @@ ref; // ME_5000565C019C_ME_4BBF3D8B00CD ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_54BD169902EF // Processor
- ME_B269BE05A98F // f_Processor
  )
  ; // Attributes
  : Operations
@@ -374,7 +339,6 @@ ref; // ME_5000565C019C_ME_4BBF3D8B00CD ClearFields
    Seq: ( ME_479731C50290_ME_4BBF3D8B00CD // Cleanup
  ME_48CF73CE00B5_ME_4BBF3D8B00CD // DoFire
  ME_4A60B23E00C3_ME_4BBF3D8B00CD // COMQueryInterface
- ME_5000565C019C_ME_4BBF3D8B00CD // ClearFields
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'

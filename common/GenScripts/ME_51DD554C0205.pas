@@ -2,6 +2,7 @@ unit l3MemUtils;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3MemUtils.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3MemUtils" MUID: (51DD554C0205)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

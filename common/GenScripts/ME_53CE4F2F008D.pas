@@ -2,6 +2,7 @@ unit alcuBaseEngineHolder;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuBaseEngineHolder.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuBaseEngineHolder" MUID: (53CE4F2F008D)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

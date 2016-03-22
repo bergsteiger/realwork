@@ -2,6 +2,7 @@ unit daTabledQuery;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daTabledQuery.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaTabledQuery" MUID: (5600FA2301B9)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
@@ -90,12 +91,11 @@ constructor TdaTabledQuery.Create(const aDataConverter: IdaDataConverter;
 //#UC END# *5600FB3903DE_5600FA2301B9_var*
 begin
 //#UC START# *5600FB3903DE_5600FA2301B9_impl*
- inherited Create;
- f_Tables := TdaFromTableList.Make;
- AddFromTable(MakeFromTable(aTable, anAlias));
+ inherited Create(aDataConverter);
+ f_Table := MakeFromTable(aTable, anAlias);
+ UnPrepare;
  f_SelectFields := TdaSelectFieldList.Make;
- f_Params := MakeParamList;
- f_DataConverter := aDataConverter;
+ f_OrderBy := TdaSortFieldList.Create;
 //#UC END# *5600FB3903DE_5600FA2301B9_impl*
 end;//TdaTabledQuery.Create
 
@@ -274,11 +274,10 @@ procedure TdaTabledQuery.Cleanup;
 //#UC END# *479731C50290_5600FA2301B9_var*
 begin
 //#UC START# *479731C50290_5600FA2301B9_impl*
- FreeAndNil(f_Tables);
+ f_Table := nil;
  f_WhereCondition := nil;
  FreeAndNil(f_SelectFields);
- FreeAndNil(f_Params);
- f_DataConverter := nil;
+ FreeAndNil(f_OrderBy);
  inherited;
 //#UC END# *479731C50290_5600FA2301B9_impl*
 end;//TdaTabledQuery.Cleanup

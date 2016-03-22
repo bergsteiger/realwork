@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SearcheableText.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "SearcheableText" MUID: (496B68FC000B)
+// Имя типа: "_SearcheableText_"
 
 {$Define SearcheableText_imp}
 

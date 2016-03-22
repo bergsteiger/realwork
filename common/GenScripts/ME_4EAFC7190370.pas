@@ -9,6 +9,7 @@ unit kwSetActivePage;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwSetActivePage.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwSetActivePage" MUID: (4EAFC7190370)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

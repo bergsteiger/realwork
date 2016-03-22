@@ -2,6 +2,7 @@ unit nsContentsListForFiltering;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsContentsListForFiltering.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsContentsListForFiltering" MUID: (4D4011460346)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

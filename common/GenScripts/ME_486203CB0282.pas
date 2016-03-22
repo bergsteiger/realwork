@@ -2,6 +2,8 @@ unit Meta_Schema;
 
 // Модуль: "w:\common\components\SandBox\Meta_Schema.pas"
 // Стереотип: "TagTable"
+// Элемент модели: "Meta" MUID: (486203CB0282)
+// Имя типа: "TMetaSchema"
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

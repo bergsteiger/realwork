@@ -3,6 +3,8 @@ unit K569230238_EVD2EVD;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\K569230238_EVD2EVD.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K569230238_EVD2EVD" MUID: (5492DC8502F9)
+// Имя типа: "TK569230238_EVD2EVD"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

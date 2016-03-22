@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmBaseOperationStates;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmBaseOperationStates.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmBaseOperationStates" MUID: (5620D2420197)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

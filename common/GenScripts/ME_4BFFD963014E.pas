@@ -2,6 +2,7 @@ unit evQueryCardCursor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evQueryCardCursor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevQueryCardCursor" MUID: (4BFFD963014E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,7 @@ unit TextLoad_ut_TextLoad_UserType;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\TextLoad_ut_TextLoad_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_TextLoad" MUID: (A419F118ED8E)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
@@ -32,26 +33,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_TextLoad = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_TextLoad }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_TextLoad
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_TextLoad.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_TextLoad';
-end;//Tkw_FormUserType_ut_TextLoad.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_TextLoad.GetInteger: Integer;
 begin
  Result := ut_TextLoad;
 end;//Tkw_FormUserType_ut_TextLoad.GetInteger
+
+class function Tkw_FormUserType_ut_TextLoad.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_TextLoad';
+end;//Tkw_FormUserType_ut_TextLoad.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

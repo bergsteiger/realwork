@@ -3,6 +3,7 @@ unit nsFindPositionListList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsFindPositionListList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsFindPositionListList" MUID: (4D18E8330139)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

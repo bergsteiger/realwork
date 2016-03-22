@@ -3,6 +3,7 @@ unit nsGroupFilter;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsGroupFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsGroupFilter" MUID: (49F017390338)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

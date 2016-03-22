@@ -3,6 +3,7 @@ unit WarningBaloonKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\WarningBaloonKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "WarningBaloonKeywordsPack" MUID: (32B9B7EBE1E4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -46,8 +47,8 @@ type
 'aControl' форма::WarningBaloon TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_WarningBaloon
 
  Tkw_WarningBaloon_Control_Viewer = {final} class(TtfwControlString)
@@ -58,9 +59,9 @@ type
 контрол::Viewer TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_WarningBaloon_Control_Viewer
 
  Tkw_WarningBaloon_Control_Viewer_Push = {final} class(TkwBynameControlPush)
@@ -99,20 +100,15 @@ OBJECT VAR l_TnscEditor
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwWarningBaloonFormViewer
 
-class function Tkw_Form_WarningBaloon.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::WarningBaloon';
-end;//Tkw_Form_WarningBaloon.GetWordNameForRegister
-
 function Tkw_Form_WarningBaloon.GetString: AnsiString;
 begin
  Result := 'WarningBaloonForm';
 end;//Tkw_Form_WarningBaloon.GetString
 
-class function Tkw_WarningBaloon_Control_Viewer.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_WarningBaloon.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::Viewer';
-end;//Tkw_WarningBaloon_Control_Viewer.GetWordNameForRegister
+ Result := 'форма::WarningBaloon';
+end;//Tkw_Form_WarningBaloon.GetWordNameForRegister
 
 function Tkw_WarningBaloon_Control_Viewer.GetString: AnsiString;
 begin
@@ -124,6 +120,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscEditor);
 end;//Tkw_WarningBaloon_Control_Viewer.RegisterInEngine
+
+class function Tkw_WarningBaloon_Control_Viewer.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Viewer';
+end;//Tkw_WarningBaloon_Control_Viewer.GetWordNameForRegister
 
 procedure Tkw_WarningBaloon_Control_Viewer_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -158,11 +159,6 @@ begin
  aCtx.rEngine.PushObj(Viewer(aCtx, l_aWarningBaloonForm));
 end;//TkwWarningBaloonFormViewer.DoDoIt
 
-class function TkwWarningBaloonFormViewer.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TWarningBaloonForm.Viewer';
-end;//TkwWarningBaloonFormViewer.GetWordNameForRegister
-
 procedure TkwWarningBaloonFormViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -183,6 +179,11 @@ function TkwWarningBaloonFormViewer.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TWarningBaloonForm)]);
 end;//TkwWarningBaloonFormViewer.ParamsTypes
+
+class function TkwWarningBaloonFormViewer.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TWarningBaloonForm.Viewer';
+end;//TkwWarningBaloonFormViewer.GetWordNameForRegister
 
 initialization
  Tkw_Form_WarningBaloon.RegisterInEngine;

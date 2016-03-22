@@ -2,6 +2,7 @@ unit evReqRow_Wrap;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evReqRow_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WevReqRow" MUID: (4857EB02013C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

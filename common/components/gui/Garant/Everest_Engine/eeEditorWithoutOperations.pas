@@ -2,6 +2,7 @@ unit eeEditorWithoutOperations;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeEditorWithoutOperations.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TeeEditorWithoutOperations" MUID: (4CFFD8F603A0)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

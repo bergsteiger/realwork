@@ -3,6 +3,8 @@ unit NewsLine_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\NewsLine_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "NewsLine" MUID: (4A8ECFCD0174)
+// Имя типа: "TenNewsLine"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

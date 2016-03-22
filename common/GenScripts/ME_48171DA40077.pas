@@ -2,6 +2,7 @@ unit atSetBookmarkOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSetBookmarkOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatSetBookmarkOperation" MUID: (48171DA40077)
 
 interface
 

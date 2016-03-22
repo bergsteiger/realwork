@@ -3,6 +3,7 @@ unit evdScriptHyperlinkEliminator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evdScriptHyperlinkEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdScriptHyperlinkEliminator" MUID: (4F352A840264)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

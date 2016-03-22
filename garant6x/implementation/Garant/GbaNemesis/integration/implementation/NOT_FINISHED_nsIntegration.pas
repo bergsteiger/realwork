@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsIntegration;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Integration\Implementation\NOT_FINISHED_nsIntegration.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsIntegration" MUID: (513607DC03D4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

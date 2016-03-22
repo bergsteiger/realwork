@@ -25,6 +25,7 @@ implementation
 {$R *.dfm}
 uses
  l3String,
+ daSchemeConsts,
  Dt_Const, DT_Serv, DT_Doc,
  dt_LinkServ,
  vtDialogs;

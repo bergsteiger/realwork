@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\SandBox\StackTest.imp.pas"
 // Стереотип: "TestCaseMixIn"
+// Элемент модели: "StackTest" MUID: (515992DE031D)
+// Имя типа: "_StackTest_"
 
 {$Define StackTest_imp}
 

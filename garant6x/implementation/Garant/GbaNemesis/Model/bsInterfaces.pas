@@ -390,6 +390,22 @@ type
  end;//IbsUserTreeData
 {$IfEnd} //Admin
 
+ InsTreeStructState = interface(IUnknown)
+   ['{B5B7BD25-911C-40C5-BEA7-197F865C795A}']
+   function GetSelectedNodeCount: Integer;
+   function GetSelectedNodeVisibleIndex(aIndex: Integer): Integer;
+ end;//InsTreeStructState
+
+ InsTreeStructStateProvider = interface(IUnknown)
+   ['{51C290F5-D7FE-4998-8E23-8D0A648163E2}']
+   function MakeState: InsTreeStructState;
+ end;//InsTreeStructStateProvider
+
+ InsTreeStructStateConsumer = interface(IUnknown)
+   ['{177B1BBA-5717-4464-BB48-5453A0B2A2DB}']
+   procedure AssignState(const aState: InsTreeStructState);
+ end;//InsTreeStructStateConsumer
+
 implementation
 
 end.

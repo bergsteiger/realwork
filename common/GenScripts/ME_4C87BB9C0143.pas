@@ -3,6 +3,8 @@ unit PrimNewsLineOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimNewsLineOptions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimNewsLineOptions" MUID: (4C87BB9C0143)
+// Имя типа: "TPrimNewsLineOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

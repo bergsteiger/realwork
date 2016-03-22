@@ -1,8 +1,11 @@
 unit ddAutoLinker;
 
-{ $Id: ddAutoLinker.pas,v 1.21 2015/04/07 07:37:06 lukyanets Exp $ }
+{ $Id: ddAutoLinker.pas,v 1.22 2015/11/25 14:01:46 lukyanets Exp $ }
 
 // $Log: ddAutoLinker.pas,v $
+// Revision 1.22  2015/11/25 14:01:46  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.21  2015/04/07 07:37:06  lukyanets
 // Изолируем HT
 //
@@ -116,6 +119,8 @@ function GetAutoLinker: TddAutoLinker;
 implementation
 uses
  daInterfaces,
+ daSchemeConsts,
+ 
  dt_AttrSchema,
  DT_Serv,
  Dt_Fam,

@@ -2,6 +2,7 @@ unit evBitmapParaCursor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evBitmapParaCursor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevBitmapParaCursor" MUID: (49DF6D240199)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

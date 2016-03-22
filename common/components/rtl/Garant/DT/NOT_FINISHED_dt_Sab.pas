@@ -2,6 +2,7 @@ unit NOT_FINISHED_dt_Sab;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_dt_Sab.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "dt_Sab" MUID: (519B719002F1)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

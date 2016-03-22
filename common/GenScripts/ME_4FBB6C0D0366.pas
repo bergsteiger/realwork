@@ -2,6 +2,7 @@ unit ArchiStorageTestWithRename;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Archi_Tests\ArchiStorageTestWithRename.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TArchiStorageTestWithRename" MUID: (4FBB6C0D0366)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Archi_Tests\TestDefine.inc.pas}
 

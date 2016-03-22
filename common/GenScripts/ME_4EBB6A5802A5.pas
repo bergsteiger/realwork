@@ -3,6 +3,7 @@ unit AllChildreCountTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\AllChildreCountTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TAllChildreCountTest" MUID: (4EBB6A5802A5)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

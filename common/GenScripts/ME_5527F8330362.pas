@@ -2,6 +2,7 @@ unit tfwTypeRegistrator;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwTypeRegistrator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwTypeRegistrator" MUID: (5527F8330362)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

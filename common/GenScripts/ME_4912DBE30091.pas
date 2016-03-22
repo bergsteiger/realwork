@@ -3,6 +3,7 @@ unit nsTreeUtils;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsTreeUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsTreeUtils" MUID: (4912DBE30091)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

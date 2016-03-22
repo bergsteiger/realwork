@@ -2,6 +2,7 @@ unit ScrollInfoProcessingPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ScrollInfoProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ScrollInfoProcessingPack" MUID: (54F5C3C70126)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

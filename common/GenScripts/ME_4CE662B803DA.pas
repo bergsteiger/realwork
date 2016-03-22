@@ -3,6 +3,7 @@ unit nsDictionDocumentContainer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DictionLikeDocumentProcessing\nsDictionDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDictionDocumentContainer" MUID: (4CE662B803DA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

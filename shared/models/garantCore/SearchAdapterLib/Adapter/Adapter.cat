@@ -366,7 +366,7 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*4ECE778602D4_4ECE68240089*"
 			    value      	(value Text 
-|//#UC START# *4ECE778602D4_4ECE68240089*¤	Adapter::IFragments_var ret;¤¤	try {¤		Core::Aptr <ContextSearch::Defs::Fragments> res = SearchCore::get_fragments (in, id);¤¤		if (res.is_nil () == false) {¤			if (res->empty () == false) {¤				ContextSearch::FragmentsOperations::SortProperties prop (word, first_word);¤				ContextSearch::FragmentsOperations::filtration (*(res.inout ())); // óäàëåíèå ïåðåñåêàþùèõñÿ¤				ContextSearch::FragmentsOperations::sort (*(res.inout ()), prop); // ñîðòèðîâêà¤			}¤			ret = new Impl <Adapter::IFragments, ContextSearch::Defs::Fragments> (res._retn ());¤		}¤	} catch (ContextSearch::Manage::InvalidQuery&) {¤		LOG_W (("%s: invalid query", GDS_CURRENT_FUNCTION));¤	} catch (...) {¤		LOG_UEX ((GDS_CURRENT_FUNCTION));¤	}¤¤	return ret._retn ();¤	//#UC END# *4ECE778602D4_4ECE68240089*
+|//#UC START# *4ECE778602D4_4ECE68240089*¤	Adapter::IFragments_var ret;¤¤	try {¤		Core::Aptr <ContextSearch::Defs::Fragments> res = SearchCore::get_fragments (in, id);¤¤		if (res.is_nil () == false) {¤			if (res->empty () == false) {¤				ContextSearch::FragmentsOperations::filtration (*(res.inout ())); // óäàëåíèå ïåðåñåêàþùèõñÿ¤				ContextSearch::FragmentsOperations::sort (*(res.inout ()), pair); // ñîðòèðîâêà¤			}¤			ret = new Impl <Adapter::IFragments, ContextSearch::Defs::Fragments> (res._retn ());¤		}¤	} catch (ContextSearch::Manage::InvalidQuery&) {¤		LOG_W (("%s: invalid query", GDS_CURRENT_FUNCTION));¤	} catch (...) {¤		LOG_UEX ((GDS_CURRENT_FUNCTION));¤	}¤¤	return ret._retn ();¤	//#UC END# *4ECE778602D4_4ECE68240089*
 			    )))
 		    quid       	"4ECE778602D4"
 		    documentation 	
@@ -400,32 +400,19 @@
 				    value      	"4DD3B9E202B1"))
 			    quid       	"4ECE77C80031"
 			    type       	"DocId")
-			(object Parameter "word"
+			(object Parameter "pair"
 			    attributes 	(list Attribute_Set
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"ElementCreationOrder"
-				    value      	"1439297240470213")
+				    value      	"1447327325412709")
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"ResolvedTypeGuid"
-				    value      	"3DBFFDE101CA"))
-			    quid       	"55C9EED801C5"
-			    type       	"unsigned long"
-			    quidu      	"3DBFFDE101CA")
-			(object Parameter "first_word"
-			    attributes 	(list Attribute_Set
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ElementCreationOrder"
-				    value      	"1439297246346550")
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ResolvedTypeGuid"
-				    value      	"3DBFFDE101CA"))
-			    quid       	"55C9EEDE0148"
-			    type       	"unsigned long"
-			    quidu      	"3DBFFDE101CA"))
+				    value      	"5644641E037A"))
+			    quid       	"5644765D0188"
+			    type       	"PosPair"
+			    quidu      	"5644641E037A"))
 		    result     	"IFragments"
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
@@ -878,7 +865,7 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*4FD0A6370192_4ED500FA02BB*"
 			    value      	(value Text 
-|//#UC START# *4FD0A6370192_4ED500FA02BB*¤	using namespace ContextSearch;¤¤	Manage::IRequestTransformer_var transformer = Manage::IRequestTransformerFactory::make (m_normalizer.in ());¤¤	std::string fixed;¤	transformer->correct (str, fixed);¤¤	if (fixed.empty ()) {¤		return 0;¤	}¤¤	DBComm::IDBCommunicator* comm = Cache::instance ()->get ();¤¤	Defs::StrStrMap pseudo;¤¤	Core::Aptr <GCL::StrVector> res;¤	res = transformer->execute (fixed, comm->get_exclude_data (), comm->get_hard_phrases (), pseudo);¤¤	return (res->empty ())? 0 : new Words_i (*res);¤	//#UC END# *4FD0A6370192_4ED500FA02BB*
+|//#UC START# *4FD0A6370192_4ED500FA02BB*¤	using namespace ContextSearch;¤¤	Manage::IRequestTransformer_var transformer = Manage::IRequestTransformerFactory::make (m_normalizer.in ());¤¤	std::string fixed;¤	transformer->correct (str, fixed);¤¤	if (fixed.empty ()) {¤		return 0;¤	}¤¤	DBComm::IDBCommunicator* comm = Cache::instance ()->get ();¤¤	Core::Aptr <GCL::StrVector> res;¤	res = transformer->execute (fixed, comm->get_exclude_data (), comm->get_hard_phrases ());¤¤	return (res->empty ())? 0 : new Words_i (*res);¤	//#UC END# *4FD0A6370192_4ED500FA02BB*
 			    ))
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -928,7 +915,7 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*55CDD31B034D_4ED500FA02BB*"
 			    value      	(value Text 
-|//#UC START# *55CDD31B034D_4ED500FA02BB*¤	using namespace ContextSearch;¤¤	std::string str = req;¤¤	if (std::count (str.begin (), str.end (), '\"') != 0) {¤		str.erase (std::remove (str.begin (), str.end (), '\"'), str.end ());¤	}¤¤	{¤		GCL::StrVector words;¤		ContextUtility::split (words, str, false);¤		str = boost::join (words, " ");¤	}¤¤	if (str.empty ()) {¤		LOG_W (("%s: invalid query", GDS_CURRENT_FUNCTION));¤		return 0;¤	}¤¤	Search::IRequestView_var view;¤	view = Search::IRequestViewFactory::make (Cache::instance ()->get (), m_normalizer.in (), Search::as_Default);¤¤	view->build (GCL::StrVector (1, str), std::map <std::string, std::string> (), str);¤¤	return new SynRequest_i (view->get_sequence ());¤	//#UC END# *55CDD31B034D_4ED500FA02BB*
+|//#UC START# *55CDD31B034D_4ED500FA02BB*¤	using namespace ContextSearch;¤¤	std::string str = req;¤¤	if (std::count (str.begin (), str.end (), '\"') != 0) {¤		str.erase (std::remove (str.begin (), str.end (), '\"'), str.end ());¤	}¤¤	{¤		GCL::StrVector words;¤		ContextUtility::split (words, str, false);¤		str = boost::join (words, " ");¤	}¤¤	if (str.empty ()) {¤		LOG_W (("%s: invalid query", GDS_CURRENT_FUNCTION));¤		return 0;¤	}¤¤	Search::IRequestView_var view;¤	view = Search::IRequestViewFactory::make (Cache::instance ()->get (), m_normalizer.in (), Search::as_Default);¤¤	view->build (GCL::StrVector (1, str), str);¤¤	return new SynRequest_i (view->get_sequence ());¤	//#UC END# *55CDD31B034D_4ED500FA02BB*
 			    )))
 		    quid       	"55CDD31B034D"
 		    documentation 	"ñèíîíèìèÿ"
@@ -1345,9 +1332,9 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"cpp:*5624DEAD0353_4ED709070278*"
-			    value      	
+			    value      	(value Text 
 |//#UC START# *5624DEAD0353_4ED709070278*¤	GDS_ASSERT (Cache::instance ()->init (base));¤	//#UC END# *5624DEAD0353_4ED709070278*
-			    ))
+			    )))
 		    quid       	"5624DEAD0353"
 		    documentation 	"èíèöèàëèçàöèÿ"
 		    stereotype 	"chg"
@@ -1452,34 +1439,6 @@
 		    quid       	"533EB3D1014E"
 		    supplier   	"Logical View::shared::ContextSearch::Defs::IResCollector"
 		    quidu      	"532293BF008B"))
-	    language   	"MDA Generator")
-	(object Class "IProgress"
-	    attributes 	(list Attribute_Set
-		(object Attribute
-		    tool       	"MDA Generator"
-		    name       	"ElementCreationOrder"
-		    value      	"1396628068868133")
-		(object Attribute
-		    tool       	"MDA Generator"
-		    name       	"AbstarctOperation"
-		    value      	"regular")
-		(object Attribute
-		    tool       	"MDA Generator"
-		    name       	"IsNative"
-		    value      	"false"))
-	    quid       	"533EDA640363"
-	    documentation 	"Ïðîãðåññ-èíäèêàòîð"
-	    stereotype 	"Typedef"
-	    superclasses 	(list inheritance_relationship_list
-		(object Inheritance_Relationship
-		    attributes 	(list Attribute_Set
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"ElementCreationOrder"
-			    value      	"1396628094247586"))
-		    quid       	"533EDA7E00F6"
-		    supplier   	"Logical View::shared::DB::DBCore::IProgress"
-		    quidu      	"4CA4B70101B9"))
 	    language   	"MDA Generator")
 	(object Class "IRelevancyInfo"
 	    attributes 	(list Attribute_Set
@@ -1707,14 +1666,14 @@
 	    max_height 	28350
 	    max_width  	21600
 	    origin_x   	0
-	    origin_y   	0
+	    origin_y   	641
 	    items      	(list diagram_item_list
 		(object ClassView "Class" "Logical View::garantCore::SearchAdapterLib::Adapter::ISearcher" @1
 		    ShowCompartmentStereotypes 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1329, 1839)
+		    location   	(1329, 1563)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1727,7 +1686,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@1
-			location   	(110, 1655)
+			location   	(110, 1379)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	2438
@@ -1735,7 +1694,7 @@
 			label      	"ISearcher")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@1
-			location   	(110, 1605)
+			location   	(110, 1329)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -1746,25 +1705,6 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4ECE64720232"
-		    compartment 	(object Compartment
-			Parent_View 	@1
-			location   	(110, 1716)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	7
-			max_width  	2436
-			justify    	1)
 		    width      	2456
 		    height     	492
 		    annotation 	8
@@ -1774,7 +1714,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(399, 1392)
+		    location   	(399, 1116)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1787,7 +1727,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@2
-			location   	(108, 1333)
+			location   	(108, 1057)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	582
@@ -1795,7 +1735,7 @@
 			label      	"• IDocuments")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@2
-			location   	(108, 1283)
+			location   	(108, 1007)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -1805,25 +1745,6 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4ECE6EDD0110"
-		    compartment 	(object Compartment
-			Parent_View 	@2
-			location   	(108, 1394)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	2
-			max_width  	590
-			justify    	1)
 		    width      	600
 		    height     	242
 		    annotation 	8
@@ -1833,7 +1754,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(966, 1392)
+		    location   	(966, 1116)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1846,7 +1767,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@3
-			location   	(774, 1333)
+			location   	(774, 1057)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	384
@@ -1854,7 +1775,7 @@
 			label      	"• IFragments")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@3
-			location   	(774, 1283)
+			location   	(774, 1007)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -1864,25 +1785,6 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4ECE70F8003F"
-		    compartment 	(object Compartment
-			Parent_View 	@3
-			location   	(774, 1394)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	2
-			max_width  	393
-			justify    	1)
 		    width      	402
 		    height     	242
 		    annotation 	8
@@ -1892,7 +1794,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1422, 1392)
+		    location   	(1422, 1116)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1905,7 +1807,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@4
-			location   	(1242, 1333)
+			location   	(1242, 1057)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	360
@@ -1913,7 +1815,7 @@
 			label      	"• IPositions")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@4
-			location   	(1242, 1283)
+			location   	(1242, 1007)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -1923,25 +1825,6 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4ECE723702BE"
-		    compartment 	(object Compartment
-			Parent_View 	@4
-			location   	(1242, 1394)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	2
-			max_width  	368
-			justify    	1)
 		    width      	378
 		    height     	242
 		    annotation 	8
@@ -1951,7 +1834,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(567, 2337)
+		    location   	(567, 2061)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1964,7 +1847,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@5
-			location   	(110, 2228)
+			location   	(110, 1952)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	914
@@ -1972,7 +1855,7 @@
 			label      	"IHelper")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@5
-			location   	(110, 2178)
+			location   	(110, 1902)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -1983,25 +1866,6 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4ED4FE2E00D5"
-		    compartment 	(object Compartment
-			Parent_View 	@5
-			location   	(110, 2289)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	4
-			max_width  	912
-			justify    	1)
 		    width      	932
 		    height     	342
 		    annotation 	8
@@ -2011,7 +1875,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1842, 1392)
+		    location   	(1842, 1116)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2024,7 +1888,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@6
-			location   	(1689, 1333)
+			location   	(1689, 1057)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	306
@@ -2032,7 +1896,7 @@
 			label      	"• IStrings")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@6
-			location   	(1689, 1283)
+			location   	(1689, 1007)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -2042,25 +1906,6 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4ED4FFB3017A"
-		    compartment 	(object Compartment
-			Parent_View 	@6
-			location   	(1689, 1394)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	2
-			max_width  	315
-			justify    	1)
 		    width      	324
 		    height     	242
 		    annotation 	8
@@ -2071,7 +1916,7 @@
 		    SuppressOperation 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
-		    location   	(1914, 1047)
+		    location   	(2352, 2028)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2084,7 +1929,7 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@7
-			location   	(1833, 1007)
+			location   	(2271, 1988)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	162
@@ -2102,7 +1947,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1458, 1050)
+		    location   	(1896, 2031)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2115,7 +1960,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@8
-			location   	(1338, 1020)
+			location   	(1776, 2001)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	240
@@ -2123,7 +1968,7 @@
 			label      	"LongVector")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@8
-			location   	(1338, 970)
+			location   	(1776, 1951)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -2138,7 +1983,7 @@
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object AssociationViewNew "$UNNAMED$0" @9
-		    location   	(1705, 1047)
+		    location   	(2143, 2028)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2155,34 +2000,34 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "$UNNAMED$1" @10
 			    Parent_View 	@9
-			    location   	(25, 753)
+			    location   	(463, 1734)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4ED61A220126"
 			    client     	@9
 			    supplier   	@7
 			    vertices   	(list Points
-				(1705, 1047)
-				(1823, 1047))
+				(2143, 2028)
+				(2261, 2028))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$2" @11
 			    Parent_View 	@9
-			    location   	(25, 753)
+			    location   	(463, 1734)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"4ED61A22012A"
 			    client     	@9
 			    supplier   	@8
 			    vertices   	(list Points
-				(1705, 1047)
-				(1587, 1048))
+				(2143, 2028)
+				(2025, 2028))
 			    line_style 	0)))
 		(object ClassView "Class" "Logical View::garantCore::SearchAdapterLib::Adapter::IAdapter" @12
 		    ShowCompartmentStereotypes 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(867, 2865)
+		    location   	(867, 2589)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2195,7 +2040,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@12
-			location   	(109, 2656)
+			location   	(109, 2380)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	1516
@@ -2203,7 +2048,7 @@
 			label      	"• IAdapter")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@12
-			location   	(109, 2606)
+			location   	(109, 2330)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -2214,25 +2059,6 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4ED6538B00F4"
-		    compartment 	(object Compartment
-			Parent_View 	@12
-			location   	(109, 2717)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	8
-			max_width  	1513
-			justify    	1)
 		    width      	1534
 		    height     	542
 		    annotation 	8
@@ -2244,7 +2070,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(960, 207)
+		    location   	(2052, 774)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2257,14 +2083,14 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@13
-			location   	(742, 179)
+			location   	(1834, 746)
 			nlines     	1
 			max_width  	436
 			justify    	0
 			label      	"• MemCacheSettings")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@13
-			location   	(742, 129)
+			location   	(1834, 696)
 			anchor     	10
 			nlines     	1
 			max_width  	436
@@ -2285,7 +2111,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(288, 213)
+		    location   	(1383, 774)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2298,7 +2124,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@14
-			location   	(92, 197)
+			location   	(1187, 758)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	392
@@ -2306,7 +2132,7 @@
 			label      	"MemCacheSettings")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@14
-			location   	(92, 147)
+			location   	(1187, 708)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -2337,8 +2163,8 @@
 		    client     	@14
 		    supplier   	@13
 		    vertices   	(list Points
-			(493, 210)
-			(732, 208))
+			(1588, 774)
+			(1824, 774))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::shared::ContextSearch::Defs::IFilter" @16
 		    ShowCompartmentStereotypes 	TRUE
@@ -2546,111 +2372,7 @@
 			(492, 768)
 			(734, 768))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::shared::DB::DBCore::IProgress" @22
-		    ShowCompartmentStereotypes 	TRUE
-		    SuppressAttribute 	TRUE
-		    SuppressOperation 	TRUE
-		    IncludeAttribute 	TRUE
-		    IncludeOperation 	TRUE
-		    ShowOperationSignature 	TRUE
-		    location   	(1962, 768)
-		    font       	(object Font
-			size       	10
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	TRUE
-			underline  	FALSE
-			strike     	FALSE
-			color      	16714250
-			default_color 	FALSE)
-		    label      	(object ItemLabel
-			Parent_View 	@22
-			location   	(1834, 740)
-			nlines     	1
-			max_width  	256
-			justify    	0
-			label      	"IProgress")
-		    stereotype 	(object ItemLabel
-			Parent_View 	@22
-			location   	(1834, 690)
-			anchor     	10
-			nlines     	1
-			max_width  	253
-			justify    	0
-			label      	"<<Interface>>")
-		    icon       	"Interface"
-		    icon_style 	"Label"
-		    line_color 	16714250
-		    fill_color 	16777215
-		    quidu      	"4CA4B70101B9"
-		    width      	274
-		    height     	180
-		    annotation 	8
-		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::garantCore::SearchAdapterLib::Adapter::IProgress" @23
-		    ShowCompartmentStereotypes 	TRUE
-		    SuppressAttribute 	TRUE
-		    SuppressOperation 	TRUE
-		    IncludeAttribute 	TRUE
-		    IncludeOperation 	TRUE
-		    ShowOperationSignature 	TRUE
-		    location   	(1458, 768)
-		    font       	(object Font
-			size       	10
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	FALSE
-			underline  	FALSE
-			strike     	FALSE
-			color      	0
-			default_color 	TRUE)
-		    label      	(object ItemLabel
-			Parent_View 	@23
-			location   	(1337, 752)
-			fill_color 	13434879
-			nlines     	1
-			max_width  	242
-			justify    	0
-			label      	"IProgress")
-		    stereotype 	(object ItemLabel
-			Parent_View 	@23
-			location   	(1337, 702)
-			fill_color 	13434879
-			anchor     	10
-			nlines     	1
-			max_width  	242
-			justify    	0
-			label      	"<<Typedef>>")
-		    icon_style 	"Label"
-		    fill_color 	13821680
-		    quidu      	"533EDA640363"
-		    width      	260
-		    height     	157
-		    annotation 	8
-		    autoResize 	TRUE)
-		(object InheritView "" @24
-		    font       	(object Font
-			size       	10
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	FALSE
-			underline  	FALSE
-			strike     	FALSE
-			color      	0
-			default_color 	TRUE)
-		    stereotype 	TRUE
-		    line_color 	3947680
-		    quidu      	"533EDA7E00F6"
-		    client     	@23
-		    supplier   	@22
-		    vertices   	(list Points
-			(1588, 768)
-			(1824, 768))
-		    line_style 	0)
-		(object ClassView "Class" "Logical View::shared::ContextSearch::Defs::IRelevancyInfo" @25
+		(object ClassView "Class" "Logical View::shared::ContextSearch::Defs::IRelevancyInfo" @22
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -2669,14 +2391,14 @@
 			color      	16714250
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@25
+			Parent_View 	@22
 			location   	(1834, 182)
 			nlines     	1
 			max_width  	382
 			justify    	0
 			label      	"• IRelevancyInfo")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@25
+			Parent_View 	@22
 			location   	(1834, 132)
 			anchor     	10
 			nlines     	1
@@ -2691,7 +2413,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::garantCore::SearchAdapterLib::Adapter::IRelevancyInfo" @26
+		(object ClassView "Class" "Logical View::garantCore::SearchAdapterLib::Adapter::IRelevancyInfo" @23
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -2710,7 +2432,7 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@26
+			Parent_View 	@23
 			location   	(1289, 194)
 			fill_color 	13434879
 			nlines     	1
@@ -2718,7 +2440,7 @@
 			justify    	0
 			label      	"IRelevancyInfo")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@26
+			Parent_View 	@23
 			location   	(1289, 144)
 			fill_color 	13434879
 			anchor     	10
@@ -2733,7 +2455,7 @@
 		    height     	157
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object InheritView "" @27
+		(object InheritView "" @24
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2747,13 +2469,13 @@
 		    stereotype 	TRUE
 		    line_color 	3947680
 		    quidu      	"53429DD8014C"
-		    client     	@26
-		    supplier   	@25
+		    client     	@23
+		    supplier   	@22
 		    vertices   	(list Points
 			(1588, 210)
 			(1824, 210))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::garantCore::SearchAdapterLib::Adapter::RelTuneData" @28
+		(object ClassView "Class" "Logical View::garantCore::SearchAdapterLib::Adapter::RelTuneData" @25
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -2772,7 +2494,7 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@28
+			Parent_View 	@25
 			location   	(211, 476)
 			fill_color 	13434879
 			nlines     	1
@@ -2780,7 +2502,7 @@
 			justify    	0
 			label      	"RelTuneData")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@28
+			Parent_View 	@25
 			location   	(211, 426)
 			fill_color 	13434879
 			anchor     	10
@@ -2795,7 +2517,7 @@
 		    height     	157
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::shared::DB::DBCore::RelTuneData" @29
+		(object ClassView "Class" "Logical View::shared::DB::DBCore::RelTuneData" @26
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -2814,14 +2536,14 @@
 			color      	6572835
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@29
+			Parent_View 	@26
 			location   	(742, 464)
 			nlines     	1
 			max_width  	274
 			justify    	0
 			label      	"RelTuneData")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@29
+			Parent_View 	@26
 			location   	(742, 414)
 			anchor     	10
 			nlines     	1
@@ -2832,6 +2554,109 @@
 		    line_color 	6572835
 		    fill_color 	16777215
 		    quidu      	"53834BEC0352"
+		    width      	292
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @27
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"53836DCA01A9"
+		    client     	@25
+		    supplier   	@26
+		    vertices   	(list Points
+			(494, 492)
+			(732, 492))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::garantCore::SearchAdapterLib::Adapter::TuneDocType" @28
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(348, 210)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@28
+			location   	(210, 194)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	276
+			justify    	0
+			label      	"TuneDocType")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@28
+			location   	(210, 144)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	276
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"54004235013B"
+		    width      	294
+		    height     	157
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::ContextSearch::Defs::TuneDocType" @29
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(876, 210)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	2313060
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@29
+			location   	(739, 182)
+			nlines     	1
+			max_width  	274
+			justify    	0
+			label      	"TuneDocType")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@29
+			location   	(739, 132)
+			anchor     	10
+			nlines     	1
+			max_width  	274
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    line_color 	2313060
+		    fill_color 	16777215
+		    quidu      	"4C1F778A01EE"
 		    width      	292
 		    height     	180
 		    annotation 	8
@@ -2849,21 +2674,19 @@
 			default_color 	TRUE)
 		    stereotype 	TRUE
 		    line_color 	3947680
-		    quidu      	"53836DCA01A9"
+		    quidu      	"5400424C015E"
 		    client     	@28
 		    supplier   	@29
 		    vertices   	(list Points
-			(494, 492)
-			(732, 492))
+			(495, 210)
+			(729, 210))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::garantCore::SearchAdapterLib::Adapter::TuneDocType" @31
+		(object ClassView "Class" "Logical View::garantCore::SearchAdapterLib::Adapter::ISynRequest" @31
 		    ShowCompartmentStereotypes 	TRUE
-		    SuppressAttribute 	TRUE
-		    SuppressOperation 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(345, 1056)
+		    location   	(1377, 2037)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2876,116 +2699,15 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@31
-			location   	(207, 1040)
-			fill_color 	13434879
-			nlines     	1
-			max_width  	276
-			justify    	0
-			label      	"TuneDocType")
-		    stereotype 	(object ItemLabel
-			Parent_View 	@31
-			location   	(207, 990)
-			fill_color 	13434879
-			anchor     	10
-			nlines     	1
-			max_width  	276
-			justify    	0
-			label      	"<<Typedef>>")
-		    icon_style 	"Label"
-		    fill_color 	13821680
-		    quidu      	"54004235013B"
-		    width      	294
-		    height     	157
-		    annotation 	8
-		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::shared::ContextSearch::Defs::TuneDocType" @32
-		    ShowCompartmentStereotypes 	TRUE
-		    SuppressAttribute 	TRUE
-		    SuppressOperation 	TRUE
-		    IncludeAttribute 	TRUE
-		    IncludeOperation 	TRUE
-		    ShowOperationSignature 	TRUE
-		    location   	(879, 1053)
-		    font       	(object Font
-			size       	10
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	FALSE
-			underline  	FALSE
-			strike     	FALSE
-			color      	2313060
-			default_color 	FALSE)
-		    label      	(object ItemLabel
-			Parent_View 	@32
-			location   	(742, 1025)
-			nlines     	1
-			max_width  	274
-			justify    	0
-			label      	"TuneDocType")
-		    stereotype 	(object ItemLabel
-			Parent_View 	@32
-			location   	(742, 975)
-			anchor     	10
-			nlines     	1
-			max_width  	274
-			justify    	0
-			label      	"<<Enum>>")
-		    icon_style 	"Label"
-		    line_color 	2313060
-		    fill_color 	16777215
-		    quidu      	"4C1F778A01EE"
-		    width      	292
-		    height     	180
-		    annotation 	8
-		    autoResize 	TRUE)
-		(object InheritView "" @33
-		    font       	(object Font
-			size       	10
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	FALSE
-			underline  	FALSE
-			strike     	FALSE
-			color      	0
-			default_color 	TRUE)
-		    stereotype 	TRUE
-		    line_color 	3947680
-		    quidu      	"5400424C015E"
-		    client     	@31
-		    supplier   	@32
-		    vertices   	(list Points
-			(492, 1054)
-			(732, 1053))
-		    line_style 	0)
-		(object ClassView "Class" "Logical View::garantCore::SearchAdapterLib::Adapter::ISynRequest" @34
-		    ShowCompartmentStereotypes 	TRUE
-		    IncludeAttribute 	TRUE
-		    IncludeOperation 	TRUE
-		    ShowOperationSignature 	TRUE
-		    location   	(1377, 2313)
-		    font       	(object Font
-			size       	10
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	FALSE
-			underline  	FALSE
-			strike     	FALSE
-			color      	0
-			default_color 	TRUE)
-		    label      	(object ItemLabel
-			Parent_View 	@34
-			location   	(1131, 2229)
+			location   	(1131, 1953)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	492
 			justify    	0
 			label      	"• ISynRequest")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@34
-			location   	(1131, 2179)
+			Parent_View 	@31
+			location   	(1131, 1903)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -2995,25 +2717,6 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"55CDD26503B4"
-		    compartment 	(object Compartment
-			Parent_View 	@34
-			location   	(1131, 2290)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	13434879
-			anchor     	2
-			nlines     	3
-			max_width  	490
-			justify    	1)
 		    width      	510
 		    height     	292
 		    annotation 	8

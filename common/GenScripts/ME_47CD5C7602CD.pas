@@ -3,6 +3,7 @@ unit evQueryCardInt;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evQueryCardInt.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "evQueryCardInt" MUID: (47CD5C7602CD)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

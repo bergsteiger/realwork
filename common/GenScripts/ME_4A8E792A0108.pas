@@ -3,6 +3,7 @@ unit F1_Without_Usecases_System_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\F1_Without_Usecases_System_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "System" MUID: (4A8E792A0108)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

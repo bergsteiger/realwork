@@ -1287,19 +1287,13 @@ PROCEDURE "Очистка после теста"
 	"Очистить каталог {('C:\Base\testbase2')}"
 ;
 
-PROCEDURE "Запуск второй копии тестового Архивариуса" STRING IN aDestDir
- 	STRING VAR l_CMDLINE
-	[ 'start ""' aDestDir 'ArchiTest.exe' '-toK -FakeK -File:OneTest.txt'] strings:Cat >>> l_CMDLINE
-	l_CMDLINE WinExec
-;
-
 // Перебор и сравнение с эталоном
 INTEGER FUNCTION "Количество открытых окон Арчи"
 	0 >>> Result
  		PROCEDURE "Перебор главных окон" INTEGER IN hWnd
   			STRING VAR l_Class
   			hWnd wnd:GetClassName >>> l_Class
-  		( l_Class РАВНО 'TMainForm' ) ?
+		( l_Class РАВНО 'TApplication' ) ?
   	( ++! Result )  
  ; 
 

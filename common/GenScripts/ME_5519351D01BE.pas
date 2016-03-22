@@ -2,6 +2,7 @@ unit htDataProvider;
 
 // Модуль: "w:\common\components\rtl\Garant\HT\htDataProvider.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ThtDataProvider" MUID: (5519351D01BE)
 
 {$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
@@ -120,6 +121,7 @@ constructor ThtDataProvider.Create(aParams: ThtDataProviderParams;
 begin
 //#UC START# *551938260196_5519351D01BE_impl*
  inherited Create;
+ f_SetGlobalDataProvider := SetGlobalDataProvider;
  f_DataConverter := ThtDataConverter.Make;
  f_ForCheckLogin := ForCheckLogin;
  f_LongProcessList := TdaLongProcessSubscriberList.Make;
@@ -219,7 +221,7 @@ function ThtDataProvider.IsRegionExists(anID: TdaRegionID): Boolean;
 //#UC END# *551D2C300060_5519351D01BE_var*
 begin
 //#UC START# *551D2C300060_5519351D01BE_impl*
- Result := GlobalHTServer.xxxIsRegionExists(aID);
+ Result := GlobalHTServer.xxxIsRegionExists(anID);
 //#UC END# *551D2C300060_5519351D01BE_impl*
 end;//ThtDataProvider.IsRegionExists
 
@@ -228,7 +230,7 @@ function ThtDataProvider.GetRegionName(anID: TdaRegionID): AnsiString;
 //#UC END# *551D2C3603E0_5519351D01BE_var*
 begin
 //#UC START# *551D2C3603E0_5519351D01BE_impl*
- Result := GlobalHTServer.xxxGetRegionName(aID);
+ Result := GlobalHTServer.xxxGetRegionName(anID);
 //#UC END# *551D2C3603E0_5519351D01BE_impl*
 end;//ThtDataProvider.GetRegionName
 
@@ -424,11 +426,14 @@ begin
 //#UC START# *5526537A00CE_5519351D01BE_impl*
  if f_IsStarted then
   Exit;
- Assert(GlobalDataProvider = nil);
- if GlobalDataProvider = nil then
+ if f_SetGlobalDataProvider then
  begin
-  SetGlobalDataProvider(Self);
-  f_NeedClearGlobalDataProvider := True;
+  Assert(GlobalDataProvider = nil);
+  if GlobalDataProvider = nil then
+  begin
+   SetGlobalDataProvider(Self);
+   f_NeedClearGlobalDataProvider := True;
+  end;
  end;
  CreateHtEx(f_Params.StationName, f_Params.MakePathRec, f_Params.DocBaseVersion, f_Params.AdminBaseVersion, f_Params.AliasesList, f_ForCheckLogin, f_AllowClearLocks);
  GlobalHTServer.xxxUserID := f_Params.UserID;

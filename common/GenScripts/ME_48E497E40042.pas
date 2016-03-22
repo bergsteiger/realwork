@@ -2,6 +2,7 @@ unit evMultiSelectEditorWindowHotSpot;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evMultiSelectEditorWindowHotSpot.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevMultiSelectEditorWindowHotSpot" MUID: (48E497E40042)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

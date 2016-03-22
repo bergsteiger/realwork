@@ -3,6 +3,7 @@ unit GroupListKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\GroupListKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "GroupListKeywordsPack" MUID: (4A5C120B9AE0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -45,8 +46,8 @@ type
 'aControl' форма::GroupList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_GroupList
 
  Tkw_GroupList_Control_BackgroundPanel = {final} class(TtfwControlString)
@@ -57,9 +58,9 @@ type
 контрол::BackgroundPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_GroupList_Control_BackgroundPanel
 
  Tkw_GroupList_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
@@ -82,9 +83,9 @@ type
 контрол::GroupsTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_GroupList_Control_GroupsTree
 
  Tkw_GroupList_Control_GroupsTree_Push = {final} class(TkwBynameControlPush)
@@ -147,20 +148,15 @@ OBJECT VAR l_TeeTreeView
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEfGroupListGroupsTree
 
-class function Tkw_Form_GroupList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::GroupList';
-end;//Tkw_Form_GroupList.GetWordNameForRegister
-
 function Tkw_Form_GroupList.GetString: AnsiString;
 begin
  Result := 'efGroupList';
 end;//Tkw_Form_GroupList.GetString
 
-class function Tkw_GroupList_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_GroupList.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::BackgroundPanel';
-end;//Tkw_GroupList_Control_BackgroundPanel.GetWordNameForRegister
+ Result := 'форма::GroupList';
+end;//Tkw_Form_GroupList.GetWordNameForRegister
 
 function Tkw_GroupList_Control_BackgroundPanel.GetString: AnsiString;
 begin
@@ -173,6 +169,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_GroupList_Control_BackgroundPanel.RegisterInEngine
 
+class function Tkw_GroupList_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BackgroundPanel';
+end;//Tkw_GroupList_Control_BackgroundPanel.GetWordNameForRegister
+
 procedure Tkw_GroupList_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BackgroundPanel');
@@ -184,11 +185,6 @@ begin
  Result := 'контрол::BackgroundPanel:push';
 end;//Tkw_GroupList_Control_BackgroundPanel_Push.GetWordNameForRegister
 
-class function Tkw_GroupList_Control_GroupsTree.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::GroupsTree';
-end;//Tkw_GroupList_Control_GroupsTree.GetWordNameForRegister
-
 function Tkw_GroupList_Control_GroupsTree.GetString: AnsiString;
 begin
  Result := 'GroupsTree';
@@ -199,6 +195,11 @@ begin
  inherited;
  TtfwClassRef.Register(TeeTreeView);
 end;//Tkw_GroupList_Control_GroupsTree.RegisterInEngine
+
+class function Tkw_GroupList_Control_GroupsTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::GroupsTree';
+end;//Tkw_GroupList_Control_GroupsTree.GetWordNameForRegister
 
 procedure Tkw_GroupList_Control_GroupsTree_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -233,11 +234,6 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aefGroupList));
 end;//TkwEfGroupListBackgroundPanel.DoDoIt
 
-class function TkwEfGroupListBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefGroupList.BackgroundPanel';
-end;//TkwEfGroupListBackgroundPanel.GetWordNameForRegister
-
 procedure TkwEfGroupListBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -258,6 +254,11 @@ function TkwEfGroupListBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefGroupList)]);
 end;//TkwEfGroupListBackgroundPanel.ParamsTypes
+
+class function TkwEfGroupListBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefGroupList.BackgroundPanel';
+end;//TkwEfGroupListBackgroundPanel.GetWordNameForRegister
 
 function TkwEfGroupListGroupsTree.GroupsTree(const aCtx: TtfwContext;
  aefGroupList: TefGroupList): TeeTreeView;
@@ -281,11 +282,6 @@ begin
  aCtx.rEngine.PushObj(GroupsTree(aCtx, l_aefGroupList));
 end;//TkwEfGroupListGroupsTree.DoDoIt
 
-class function TkwEfGroupListGroupsTree.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefGroupList.GroupsTree';
-end;//TkwEfGroupListGroupsTree.GetWordNameForRegister
-
 procedure TkwEfGroupListGroupsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -306,6 +302,11 @@ function TkwEfGroupListGroupsTree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefGroupList)]);
 end;//TkwEfGroupListGroupsTree.ParamsTypes
+
+class function TkwEfGroupListGroupsTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefGroupList.GroupsTree';
+end;//TkwEfGroupListGroupsTree.GetWordNameForRegister
 
 initialization
  Tkw_Form_GroupList.RegisterInEngine;

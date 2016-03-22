@@ -3,6 +3,7 @@ unit DictionContainerUserTypes_slqtMedicDiction_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes_slqtMedicDiction_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "slqtMedicDiction" MUID: (4D81EE030156)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtMedicDiction = {final} class(TtfwInteger)
   {* Слово словаря для типа формы slqtMedicDiction }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_slqtMedicDiction
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_slqtMedicDiction.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::slqtMedicDiction';
-end;//Tkw_FormUserType_slqtMedicDiction.GetWordNameForRegister
-
 function Tkw_FormUserType_slqtMedicDiction.GetInteger: Integer;
 begin
  Result := slqtMedicDiction;
 end;//Tkw_FormUserType_slqtMedicDiction.GetInteger
+
+class function Tkw_FormUserType_slqtMedicDiction.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::slqtMedicDiction';
+end;//Tkw_FormUserType_slqtMedicDiction.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

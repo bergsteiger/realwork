@@ -2,6 +2,7 @@ unit IedRangeWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\IedRangeWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "IedRangeWordsPack" MUID: (55E5A40600C8)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -293,11 +294,6 @@ begin
  aCtx.rEngine.PushIntf(Table(aCtx, l_aRange), TypeInfo(IedTable));
 end;//TkwPopRangeTable.DoDoIt
 
-class function TkwPopRangeTable.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Range:Table';
-end;//TkwPopRangeTable.GetWordNameForRegister
-
 function TkwPopRangeTable.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(IedTable);
@@ -312,6 +308,11 @@ function TkwPopRangeTable.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeTable.ParamsTypes
+
+class function TkwPopRangeTable.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:Table';
+end;//TkwPopRangeTable.GetWordNameForRegister
 
 function TkwPopRangeHyperlink.Hyperlink(const aCtx: TtfwContext;
  const aRange: IedRange): IevHyperlink;
@@ -339,11 +340,6 @@ begin
  aCtx.rEngine.PushIntf(Hyperlink(aCtx, l_aRange), TypeInfo(IevHyperlink));
 end;//TkwPopRangeHyperlink.DoDoIt
 
-class function TkwPopRangeHyperlink.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Range:Hyperlink';
-end;//TkwPopRangeHyperlink.GetWordNameForRegister
-
 function TkwPopRangeHyperlink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(IevHyperlink);
@@ -358,6 +354,11 @@ function TkwPopRangeHyperlink.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeHyperlink.ParamsTypes
+
+class function TkwPopRangeHyperlink.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:Hyperlink';
+end;//TkwPopRangeHyperlink.GetWordNameForRegister
 
 function TkwPopRangeCollapsed.Collapsed(const aCtx: TtfwContext;
  const aRange: IedRange): Boolean;
@@ -385,11 +386,6 @@ begin
  aCtx.rEngine.PushBool(Collapsed(aCtx, l_aRange));
 end;//TkwPopRangeCollapsed.DoDoIt
 
-class function TkwPopRangeCollapsed.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Range:Collapsed';
-end;//TkwPopRangeCollapsed.GetWordNameForRegister
-
 function TkwPopRangeCollapsed.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -404,6 +400,11 @@ function TkwPopRangeCollapsed.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeCollapsed.ParamsTypes
+
+class function TkwPopRangeCollapsed.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:Collapsed';
+end;//TkwPopRangeCollapsed.GetWordNameForRegister
 
 function TkwPopRangeTextParagraph.TextParagraph(const aCtx: TtfwContext;
  const aRange: IedRange): IedTextParagraph;
@@ -431,11 +432,6 @@ begin
  aCtx.rEngine.PushIntf(TextParagraph(aCtx, l_aRange), TypeInfo(IedTextParagraph));
 end;//TkwPopRangeTextParagraph.DoDoIt
 
-class function TkwPopRangeTextParagraph.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Range:TextParagraph';
-end;//TkwPopRangeTextParagraph.GetWordNameForRegister
-
 function TkwPopRangeTextParagraph.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(IedTextParagraph);
@@ -450,6 +446,11 @@ function TkwPopRangeTextParagraph.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeTextParagraph.ParamsTypes
+
+class function TkwPopRangeTextParagraph.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:TextParagraph';
+end;//TkwPopRangeTextParagraph.GetWordNameForRegister
 
 function TkwPopRangeDocument.Document(const aCtx: TtfwContext;
  const aRange: IedRange): IevDocument;
@@ -477,11 +478,6 @@ begin
  aCtx.rEngine.PushIntf(Document(aCtx, l_aRange), TypeInfo(IevDocument));
 end;//TkwPopRangeDocument.DoDoIt
 
-class function TkwPopRangeDocument.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Range:Document';
-end;//TkwPopRangeDocument.GetWordNameForRegister
-
 function TkwPopRangeDocument.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(IevDocument);
@@ -496,6 +492,11 @@ function TkwPopRangeDocument.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeDocument.ParamsTypes
+
+class function TkwPopRangeDocument.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:Document';
+end;//TkwPopRangeDocument.GetWordNameForRegister
 
 function TkwPopRangeDeleteChar.DeleteChar(const aCtx: TtfwContext;
  const aRange: IedRange): Boolean;
@@ -523,11 +524,6 @@ begin
  aCtx.rEngine.PushBool(DeleteChar(aCtx, l_aRange));
 end;//TkwPopRangeDeleteChar.DoDoIt
 
-class function TkwPopRangeDeleteChar.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Range:DeleteChar';
-end;//TkwPopRangeDeleteChar.GetWordNameForRegister
-
 function TkwPopRangeDeleteChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -542,6 +538,11 @@ function TkwPopRangeDeleteChar.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeDeleteChar.ParamsTypes
+
+class function TkwPopRangeDeleteChar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:DeleteChar';
+end;//TkwPopRangeDeleteChar.GetWordNameForRegister
 
 function TkwPopRangeInsertParaBreak.InsertParaBreak(const aCtx: TtfwContext;
  const aRange: IedRange): Boolean;
@@ -569,11 +570,6 @@ begin
  aCtx.rEngine.PushBool(InsertParaBreak(aCtx, l_aRange));
 end;//TkwPopRangeInsertParaBreak.DoDoIt
 
-class function TkwPopRangeInsertParaBreak.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Range:InsertParaBreak';
-end;//TkwPopRangeInsertParaBreak.GetWordNameForRegister
-
 function TkwPopRangeInsertParaBreak.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -588,6 +584,11 @@ function TkwPopRangeInsertParaBreak.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeInsertParaBreak.ParamsTypes
+
+class function TkwPopRangeInsertParaBreak.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:InsertParaBreak';
+end;//TkwPopRangeInsertParaBreak.GetWordNameForRegister
 
 function TkwPopRangeInsertString.InsertString(const aCtx: TtfwContext;
  const aRange: IedRange;
@@ -626,11 +627,6 @@ begin
  aCtx.rEngine.PushBool(InsertString(aCtx, l_aRange, l_aString));
 end;//TkwPopRangeInsertString.DoDoIt
 
-class function TkwPopRangeInsertString.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Range:InsertString';
-end;//TkwPopRangeInsertString.GetWordNameForRegister
-
 function TkwPopRangeInsertString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -645,6 +641,11 @@ function TkwPopRangeInsertString.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedRange), @tfw_tiString]);
 end;//TkwPopRangeInsertString.ParamsTypes
+
+class function TkwPopRangeInsertString.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:InsertString';
+end;//TkwPopRangeInsertString.GetWordNameForRegister
 
 function TkwPopRangeDelete.Delete(const aCtx: TtfwContext;
  const aRange: IedRange;
@@ -683,11 +684,6 @@ begin
  aCtx.rEngine.PushBool(Delete(aCtx, l_aRange, l_aMode));
 end;//TkwPopRangeDelete.DoDoIt
 
-class function TkwPopRangeDelete.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Range:Delete';
-end;//TkwPopRangeDelete.GetWordNameForRegister
-
 function TkwPopRangeDelete.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -702,6 +698,11 @@ function TkwPopRangeDelete.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedRange), TypeInfo(TevClearMode)]);
 end;//TkwPopRangeDelete.ParamsTypes
+
+class function TkwPopRangeDelete.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:Delete';
+end;//TkwPopRangeDelete.GetWordNameForRegister
 
 function TkwPopRangeContainsOneLeaf.ContainsOneLeaf(const aCtx: TtfwContext;
  const aRange: IedRange): Boolean;
@@ -729,11 +730,6 @@ begin
  aCtx.rEngine.PushBool(ContainsOneLeaf(aCtx, l_aRange));
 end;//TkwPopRangeContainsOneLeaf.DoDoIt
 
-class function TkwPopRangeContainsOneLeaf.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Range:ContainsOneLeaf';
-end;//TkwPopRangeContainsOneLeaf.GetWordNameForRegister
-
 function TkwPopRangeContainsOneLeaf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -748,6 +744,11 @@ function TkwPopRangeContainsOneLeaf.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeContainsOneLeaf.ParamsTypes
+
+class function TkwPopRangeContainsOneLeaf.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:ContainsOneLeaf';
+end;//TkwPopRangeContainsOneLeaf.GetWordNameForRegister
 
 function TkwPopRangeAsString.AsString(const aCtx: TtfwContext;
  const aRange: IedRange): AnsiString;
@@ -775,11 +776,6 @@ begin
  aCtx.rEngine.PushString(AsString(aCtx, l_aRange));
 end;//TkwPopRangeAsString.DoDoIt
 
-class function TkwPopRangeAsString.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Range:AsString';
-end;//TkwPopRangeAsString.GetWordNameForRegister
-
 function TkwPopRangeAsString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -794,6 +790,11 @@ function TkwPopRangeAsString.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeAsString.ParamsTypes
+
+class function TkwPopRangeAsString.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:AsString';
+end;//TkwPopRangeAsString.GetWordNameForRegister
 
 initialization
  TkwPopRangeTable.RegisterInEngine;

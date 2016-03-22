@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3OtherTypedListView.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3OtherTypedListView" MUID: (4DEFC3B90061)
+// Имя типа: "_l3OtherTypedListView_"
 
 {$Define l3OtherTypedListView_imp}
 

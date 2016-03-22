@@ -2,6 +2,7 @@ unit evdNcsTypes;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdNcsTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evdNcsTypes" MUID: (5461F0A303D6)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

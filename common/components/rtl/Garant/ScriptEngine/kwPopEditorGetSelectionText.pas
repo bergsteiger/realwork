@@ -2,6 +2,8 @@ unit kwPopEditorGetSelectionText;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetSelectionText.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_GetSelectionText" MUID: (4EAFDEE000EC)
+// Имя типа: "TkwPopEditorGetSelectionText"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2533,14 +2533,10 @@ begin
   begin
     FPressing := false;
     FIsPressed := false;
-    if not IsChecked then  // Иначе IsChecked сбрасывается при повторном клике
-    // на  TvgRadioButton тогда, когда он уже был Checked
-    // (FMX.StdCtrls.pas)
-    // http://mdp.garant.ru/pages/viewpage.action?pageId=610519312
-      if vgPtInRect(vgPoint(X, Y), LocalRect) then
-      begin
-        IsChecked := not IsChecked;
-      end;
+    if vgPtInRect(vgPoint(X, Y), LocalRect) then
+    begin
+      IsChecked := not IsChecked;
+    end;
   end;
 end;
 

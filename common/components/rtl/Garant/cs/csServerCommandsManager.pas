@@ -13,12 +13,17 @@ Uses
  ;
 
 type
+  TExecuteCommandEvent = procedure(aCommandID: Integer) of object;
+
   TcsServerCommandsManager = class(TcsCommandsManager)
   private
+    f_OnExecuteServerCommand: TExecuteCommandEvent;
   public
+   procedure ExecuteCommand(Sender: TObject); override;
    procedure AddCommand(aID: TcsCommands; const aCaption: String; aOnExecute: TcsCommandExecuteEvent{TNotifyEvent}); overload;
    procedure AddCommand(const aCaption: String; aNeedRespond: Boolean; aOnExecute: TcsCommandExecuteEvent{TNotifyEvent}{; aLinkTask: TddTaskClass = nil}; aRequireAdminRights: Boolean = False); overload;
    procedure cs_GetCommands(aPipe: TCSDataPipe);
+   property OnExecuteServerCommand: TExecuteCommandEvent read f_OnExecuteServerCommand write f_OnExecuteServerCommand;
   end;//TcsServerCommandsManager
 
 implementation
@@ -101,6 +106,12 @@ begin
  finally
   Leave;
  end;
+end;
+
+procedure TcsServerCommandsManager.ExecuteCommand(Sender: TObject);
+begin
+ if Assigned(f_OnExecuteServerCommand) then
+  f_OnExecuteServerCommand(TComponent(Sender).Tag);
 end;
 
 end.

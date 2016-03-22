@@ -2,6 +2,7 @@ unit QueryCardInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\QueryCardInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "QueryCardInterfaces" MUID: (4AA5503000D7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

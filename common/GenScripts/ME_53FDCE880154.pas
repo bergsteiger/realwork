@@ -2,6 +2,7 @@ unit m3CustomStream;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3CustomStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3CustomStream" MUID: (53FDCE880154)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

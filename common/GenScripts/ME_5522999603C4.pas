@@ -2,6 +2,8 @@ unit toK2;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\toK2.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "toK2" MUID: (5522999603C4)
+// Имя типа: "TtoK2"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

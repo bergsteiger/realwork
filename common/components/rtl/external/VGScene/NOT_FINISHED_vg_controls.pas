@@ -2,6 +2,7 @@ unit NOT_FINISHED_vg_controls;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vg_controls.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vg_controls" MUID: (4CFCE531013A)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
@@ -77,10 +78,10 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , VGSceneWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , VGSceneWordsPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 

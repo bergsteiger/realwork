@@ -2,6 +2,7 @@ unit Tl3CustomString_Proxy;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\Tl3CustomString_Proxy.pas"
 // Стереотип: "ClassProxy"
+// Элемент модели: "Tl3CustomString" MUID: (561D40680110)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

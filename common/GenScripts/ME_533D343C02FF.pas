@@ -2,6 +2,7 @@ unit ChromeLikeFormCaptionData;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeFormCaptionData.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TChromeLikeFormCaptionData" MUID: (533D343C02FF)
 
 interface
 

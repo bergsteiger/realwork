@@ -2,6 +2,7 @@ unit NOT_FINISHED_ConfigurationListRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Config\NOT_FINISHED_ConfigurationListRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ConfigurationListRes" MUID: (5174ED3802CD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

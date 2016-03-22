@@ -3,6 +3,7 @@ unit ddHexCharReader;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddHexCharReader.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddHexCharReader" MUID: (5604FA0C031A)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

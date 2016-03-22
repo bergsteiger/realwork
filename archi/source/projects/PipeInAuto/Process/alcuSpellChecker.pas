@@ -1,9 +1,12 @@
 unit alcuSpellChecker;
 { Автоматическая проверка орфографии }
 
-{ $Id: alcuSpellChecker.pas,v 1.5 2015/04/07 07:35:53 lukyanets Exp $ }
+{ $Id: alcuSpellChecker.pas,v 1.6 2015/11/26 08:45:26 lukyanets Exp $ }
 
 // $Log: alcuSpellChecker.pas,v $
+// Revision 1.6  2015/11/26 08:45:26  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.5  2015/04/07 07:35:53  lukyanets
 // Изолируем HT
 //
@@ -93,7 +96,7 @@ implementation
 Uses
  m3DBInterfaces,
  daDataProvider,
- m3DB, DT_Const, SysUtils, evTypes, k2Tags,
+ m3DB, daSchemeConsts, SysUtils, evTypes, k2Tags,
  evParaTools, Document_Const, Forms, l3String, l3Chars, l3Const,
  CsTaskTypes, CsProcessTask, TextPara_Const;
 

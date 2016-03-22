@@ -3,6 +3,7 @@ unit sdsDocument;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsDocument" MUID: (5010180C0356)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -84,6 +84,7 @@ const char* StandardNames [] = {"Empty",
  "NewsConfigHyperlink",
  "ExpandedText",
  "AACLeftHyperlink",
+ "DocumentInList",
  0};
 
 } // namespace EVD

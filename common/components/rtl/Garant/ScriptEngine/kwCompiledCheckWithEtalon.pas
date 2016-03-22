@@ -2,6 +2,7 @@ unit kwCompiledCheckWithEtalon;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledCheckWithEtalon.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledCheckWithEtalon" MUID: (50F3D22D007B)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

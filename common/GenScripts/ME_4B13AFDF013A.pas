@@ -2,6 +2,7 @@ unit nsUseDocumentSubPanelOperationEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\nsUseDocumentSubPanelOperationEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsUseDocumentSubPanelOperationEvent" MUID: (4B13AFDF013A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

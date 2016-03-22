@@ -2,6 +2,7 @@ unit vtNavigatorFormList;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtNavigatorFormList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvtNavigatorFormList" MUID: (4F61A51602F4)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

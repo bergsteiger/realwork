@@ -928,6 +928,527 @@ ref; // ME_551123420171 Дополнительные преобразования
 
 ref; // ME_551122A90004 Изменение текста документа
 
+FORWARD ME_551122C1020D
+
+FORWARD ME_56EB9D38014F
+
+: ME_56EB9D88023B
+ CONST UID '56EB9D88023B'
+ CONST Name 'Копирование текста'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ref; // ME_56EB9D88023B Копирование текста
+
+: ME_56EB9D940275
+ CONST UID '56EB9D940275'
+ CONST Name 'Копирование таблицы'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ref; // ME_56EB9D940275 Копирование таблицы
+
+: ME_56EB9D9C0381
+ CONST UID '56EB9D9C0381'
+ CONST Name 'Копирование картики'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ref; // ME_56EB9D9C0381 Копирование картики
+
+: ME_56EB9DA903BD
+ CONST UID '56EB9DA903BD'
+ CONST Name 'Копирование формулы'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ref; // ME_56EB9DA903BD Копирование формулы
+
+: ME_56EB9DB60167
+ CONST UID '56EB9DB60167'
+ CONST Name 'Копирование блока'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ref; // ME_56EB9DB60167 Копирование блока
+
+: ME_56EB9DC101F2
+ CONST UID '56EB9DC101F2'
+ CONST Name 'Копирование строки'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ref; // ME_56EB9DC101F2 Копирование строки
+
+: ME_56EB9DE002F8
+ CONST UID '56EB9DE002F8'
+ CONST Name 'Копирование ячейки'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ref; // ME_56EB9DE002F8 Копирование ячейки
+
+: ME_56EB9E3600E9
+ CONST UID '56EB9E3600E9'
+ CONST Name 'Копирование столбца таблицы'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ref; // ME_56EB9E3600E9 Копирование столбца таблицы
+
+: ME_56EB9EC9015A
+ CONST UID '56EB9EC9015A'
+ CONST Name 'Копирование с помощью Ctrl+C'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ref; // ME_56EB9EC9015A Копирование с помощью Ctrl+C
+
+: ME_56EB9EDB026D
+ CONST UID '56EB9EDB026D'
+ CONST Name 'Копирование с помощью Ctrl+Ins'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D38014F // Копирование в буфер
+ ;
+
+ref; // ME_56EB9EDB026D Копирование с помощью Ctrl+Ins
+
+: ME_56EB9D38014F
+ CONST UID '56EB9D38014F'
+ CONST Name 'Копирование в буфер'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551122C1020D // Работа с буфером обмена
+ ;
+ : Children
+   Seq: ( ME_56EB9D88023B // Копирование текста
+ ME_56EB9D940275 // Копирование таблицы
+ ME_56EB9D9C0381 // Копирование картики
+ ME_56EB9DA903BD // Копирование формулы
+ ME_56EB9DB60167 // Копирование блока
+ ME_56EB9DC101F2 // Копирование строки
+ ME_56EB9DE002F8 // Копирование ячейки
+ ME_56EB9E3600E9 // Копирование столбца таблицы
+ ME_56EB9EC9015A // Копирование с помощью Ctrl+C
+ ME_56EB9EDB026D // Копирование с помощью Ctrl+Ins
+ )
+ ; // Children
+
+ref; // ME_56EB9D38014F Копирование в буфер
+
+FORWARD ME_56EB9D4400A2
+
+: ME_56EB9FB4039B
+ CONST UID '56EB9FB4039B'
+ CONST Name 'Вырезание в буфер текста'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D4400A2 // Вырезание в буфер
+ ;
+
+ref; // ME_56EB9FB4039B Вырезание в буфер текста
+
+: ME_56EB9FC302A9
+ CONST UID '56EB9FC302A9'
+ CONST Name 'Вырезание в буфер картинки'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D4400A2 // Вырезание в буфер
+ ;
+
+ref; // ME_56EB9FC302A9 Вырезание в буфер картинки
+
+: ME_56EB9FCE0278
+ CONST UID '56EB9FCE0278'
+ CONST Name 'Вырезание в буфер формулы'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D4400A2 // Вырезание в буфер
+ ;
+
+ref; // ME_56EB9FCE0278 Вырезание в буфер формулы
+
+: ME_56EB9FDC0271
+ CONST UID '56EB9FDC0271'
+ CONST Name 'Вырезание в буфер таблицы'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D4400A2 // Вырезание в буфер
+ ;
+
+ref; // ME_56EB9FDC0271 Вырезание в буфер таблицы
+
+: ME_56EBA08902EB
+ CONST UID '56EBA08902EB'
+ CONST Name 'Вырезание в буфер блока'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D4400A2 // Вырезание в буфер
+ ;
+
+ref; // ME_56EBA08902EB Вырезание в буфер блока
+
+: ME_56EBA16C02D7
+ CONST UID '56EBA16C02D7'
+ CONST Name 'Вырезание в буфер с помощью Ctrl+X'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D4400A2 // Вырезание в буфер
+ ;
+
+ref; // ME_56EBA16C02D7 Вырезание в буфер с помощью Ctrl+X
+
+: ME_56EBA17D009A
+ CONST UID '56EBA17D009A'
+ CONST Name 'Вырезание в буфер с помощью Shift+Del'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D4400A2 // Вырезание в буфер
+ ;
+
+ref; // ME_56EBA17D009A Вырезание в буфер с помощью Shift+Del
+
+: ME_56EB9D4400A2
+ CONST UID '56EB9D4400A2'
+ CONST Name 'Вырезание в буфер'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551122C1020D // Работа с буфером обмена
+ ;
+ : Children
+   Seq: ( ME_56EB9FB4039B // Вырезание в буфер текста
+ ME_56EB9FC302A9 // Вырезание в буфер картинки
+ ME_56EB9FCE0278 // Вырезание в буфер формулы
+ ME_56EB9FDC0271 // Вырезание в буфер таблицы
+ ME_56EBA08902EB // Вырезание в буфер блока
+ ME_56EBA16C02D7 // Вырезание в буфер с помощью Ctrl+X
+ ME_56EBA17D009A // Вырезание в буфер с помощью Shift+Del
+ )
+ ; // Children
+
+ref; // ME_56EB9D4400A2 Вырезание в буфер
+
+FORWARD ME_56EB9D560289
+
+: ME_56EB9FF7034F
+ CONST UID '56EB9FF7034F'
+ CONST Name 'Вставки из буфера текста'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ref; // ME_56EB9FF7034F Вставки из буфера текста
+
+: ME_56EBA00D033E
+ CONST UID '56EBA00D033E'
+ CONST Name 'Вставка из буфера таблицы'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ref; // ME_56EBA00D033E Вставка из буфера таблицы
+
+: ME_56EBA01B022E
+ CONST UID '56EBA01B022E'
+ CONST Name 'Вставка из буфера картинки'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ref; // ME_56EBA01B022E Вставка из буфера картинки
+
+: ME_56EBA0290006
+ CONST UID '56EBA0290006'
+ CONST Name 'Вставка из буфера формулы'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ref; // ME_56EBA0290006 Вставка из буфера формулы
+
+: ME_56EBA038008A
+ CONST UID '56EBA038008A'
+ CONST Name 'Вставка из буфера блока'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ref; // ME_56EBA038008A Вставка из буфера блока
+
+: ME_56EBA0450027
+ CONST UID '56EBA0450027'
+ CONST Name 'Вставка из буфера текста в формате RTF'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ref; // ME_56EBA0450027 Вставка из буфера текста в формате RTF
+
+: ME_56EBA0790121
+ CONST UID '56EBA0790121'
+ CONST Name 'Вставка из буфера в формате HTML'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ref; // ME_56EBA0790121 Вставка из буфера в формате HTML
+
+: ME_56EBA12E034A
+ CONST UID '56EBA12E034A'
+ CONST Name 'Вставка из буфера с помощью Ctrl+V'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ref; // ME_56EBA12E034A Вставка из буфера с помощью Ctrl+V
+
+: ME_56EBA13E03DC
+ CONST UID '56EBA13E03DC'
+ CONST Name 'Вставка из буфера с помощью Shift+Ins'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9D560289 // Вставка из буфера
+ ;
+
+ref; // ME_56EBA13E03DC Вставка из буфера с помощью Shift+Ins
+
+: ME_56EB9D560289
+ CONST UID '56EB9D560289'
+ CONST Name 'Вставка из буфера'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551122C1020D // Работа с буфером обмена
+ ;
+ : Children
+   Seq: ( ME_56EB9FF7034F // Вставки из буфера текста
+ ME_56EBA00D033E // Вставка из буфера таблицы
+ ME_56EBA01B022E // Вставка из буфера картинки
+ ME_56EBA0290006 // Вставка из буфера формулы
+ ME_56EBA038008A // Вставка из буфера блока
+ ME_56EBA0450027 // Вставка из буфера текста в формате RTF
+ ME_56EBA0790121 // Вставка из буфера в формате HTML
+ ME_56EBA12E034A // Вставка из буфера с помощью Ctrl+V
+ ME_56EBA13E03DC // Вставка из буфера с помощью Shift+Ins
+ )
+ ; // Children
+
+ref; // ME_56EB9D560289 Вставка из буфера
+
+FORWARD ME_56EB9F1503E4
+
+: ME_56EB9F2A01C0
+ CONST UID '56EB9F2A01C0'
+ CONST Name 'Добавление в буфер выделенного текста'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9F1503E4 // Добавление в буфер
+ ;
+
+ref; // ME_56EB9F2A01C0 Добавление в буфер выделенного текста
+
+: ME_56EB9F3B0291
+ CONST UID '56EB9F3B0291'
+ CONST Name 'Добавление в буфер таблицы'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9F1503E4 // Добавление в буфер
+ ;
+
+ref; // ME_56EB9F3B0291 Добавление в буфер таблицы
+
+: ME_56EB9F4D033F
+ CONST UID '56EB9F4D033F'
+ CONST Name 'Добавление в буфер картинки'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9F1503E4 // Добавление в буфер
+ ;
+
+ref; // ME_56EB9F4D033F Добавление в буфер картинки
+
+: ME_56EBA0A002A7
+ CONST UID '56EBA0A002A7'
+ CONST Name 'Добавление в буфер формулы'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9F1503E4 // Добавление в буфер
+ ;
+
+ref; // ME_56EBA0A002A7 Добавление в буфер формулы
+
+: ME_56EBA0AB039F
+ CONST UID '56EBA0AB039F'
+ CONST Name 'Добавление в буфер блока'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EB9F1503E4 // Добавление в буфер
+ ;
+
+ref; // ME_56EBA0AB039F Добавление в буфер блока
+
+: ME_56EB9F1503E4
+ CONST UID '56EB9F1503E4'
+ CONST Name 'Добавление в буфер'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551122C1020D // Работа с буфером обмена
+ ;
+ : Children
+   Seq: ( ME_56EB9F2A01C0 // Добавление в буфер выделенного текста
+ ME_56EB9F3B0291 // Добавление в буфер таблицы
+ ME_56EB9F4D033F // Добавление в буфер картинки
+ ME_56EBA0A002A7 // Добавление в буфер формулы
+ ME_56EBA0AB039F // Добавление в буфер блока
+ )
+ ; // Children
+
+ref; // ME_56EB9F1503E4 Добавление в буфер
+
+: ME_56EBA0E3032E
+ CONST UID '56EBA0E3032E'
+ CONST Name 'Специальная вставка'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551122C1020D // Работа с буфером обмена
+ ;
+
+ref; // ME_56EBA0E3032E Специальная вставка
+
 : ME_551122C1020D
  CONST UID '551122C1020D'
  CONST Name 'Работа с буфером обмена'
@@ -938,6 +1459,14 @@ ref; // ME_551122A90004 Изменение текста документа
  CONST Abstraction at_regular
  : Parent ME_551121E4029E // Редактирование документа
  ;
+ : Children
+   Seq: ( ME_56EB9D38014F // Копирование в буфер
+ ME_56EB9D4400A2 // Вырезание в буфер
+ ME_56EB9D560289 // Вставка из буфера
+ ME_56EB9F1503E4 // Добавление в буфер
+ ME_56EBA0E3032E // Специальная вставка
+ )
+ ; // Children
 
 ref; // ME_551122C1020D Работа с буфером обмена
 
@@ -1055,6 +1584,80 @@ ref; // ME_551126BC0233 Оформление текста подчеркиванием
 
 ref; // ME_551126DB0270 Изменение видимости текста
 
+FORWARD ME_56EBA1A102FF
+
+: ME_56EBA1B401A9
+ CONST UID '56EBA1B401A9'
+ CONST Name 'Выравнивание текста по ширине'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EBA1A102FF // Изменение вырванивания текста
+ ;
+
+ref; // ME_56EBA1B401A9 Выравнивание текста по ширине
+
+: ME_56EBA1BE0199
+ CONST UID '56EBA1BE0199'
+ CONST Name 'Выравнивание текста по левому краю'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EBA1A102FF // Изменение вырванивания текста
+ ;
+
+ref; // ME_56EBA1BE0199 Выравнивание текста по левому краю
+
+: ME_56EBA1D20050
+ CONST UID '56EBA1D20050'
+ CONST Name 'Вырванивание текста по правому краю'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EBA1A102FF // Изменение вырванивания текста
+ ;
+
+ref; // ME_56EBA1D20050 Вырванивание текста по правому краю
+
+: ME_56EBA1DE030B
+ CONST UID '56EBA1DE030B'
+ CONST Name 'Выравнивание текста по центру'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56EBA1A102FF // Изменение вырванивания текста
+ ;
+
+ref; // ME_56EBA1DE030B Выравнивание текста по центру
+
+: ME_56EBA1A102FF
+ CONST UID '56EBA1A102FF'
+ CONST Name 'Изменение вырванивания текста'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551122D603B9 // Изменение оформления
+ ;
+ : Children
+   Seq: ( ME_56EBA1B401A9 // Выравнивание текста по ширине
+ ME_56EBA1BE0199 // Выравнивание текста по левому краю
+ ME_56EBA1D20050 // Вырванивание текста по правому краю
+ ME_56EBA1DE030B // Выравнивание текста по центру
+ )
+ ; // Children
+
+ref; // ME_56EBA1A102FF Изменение вырванивания текста
+
 : ME_551122D603B9
  CONST UID '551122D603B9'
  CONST Name 'Изменение оформления'
@@ -1074,6 +1677,7 @@ ref; // ME_551126DB0270 Изменение видимости текста
  ME_551126A00241 // Оформление текста курсивом
  ME_551126BC0233 // Оформление текста подчеркиванием
  ME_551126DB0270 // Изменение видимости текста
+ ME_56EBA1A102FF // Изменение вырванивания текста
  )
  ; // Children
 

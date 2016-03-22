@@ -3,6 +3,7 @@ unit kwInsertDocChanges;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwInsertDocChanges.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwInsertDocChanges" MUID: (4E4BC07D0328)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

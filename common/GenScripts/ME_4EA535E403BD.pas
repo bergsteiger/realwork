@@ -3,6 +3,7 @@ unit NOT_FINISHED_dd_lcTypeConverter;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcTypeConverter.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "dd_lcTypeConverter" MUID: (4EA535E403BD)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

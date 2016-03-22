@@ -3,6 +3,8 @@ unit WorkJournal_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\Forms\WorkJournal_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "WorkJournal" MUID: (4A811C620210)
+// Имя типа: "TWorkJournalForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

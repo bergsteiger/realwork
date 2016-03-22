@@ -2,6 +2,7 @@ unit ddDocumentProperty;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddDocumentProperty.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddDocumentProperty" MUID: (51DBBE8A026A)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

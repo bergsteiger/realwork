@@ -128,6 +128,7 @@ int main_logic ( int argc, char *argv[] )
 			for (int ds = 0; ds < structs_count; ds++, structs++)
 				if ((short) ((structs->m_para_list_type >> 24) & 0xFF) == SUBDESCEX_BLOCK)
 					blocks.insert (structs->m_para_list_id);
+			gk_free (org_structs);
 			}
 
 			char *types = (char*) base->LoadAttr (id, IDD_TYPE, types_size), *ptr = types;

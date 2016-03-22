@@ -2,6 +2,7 @@ unit NOT_FINISHED_ElPopBtn;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_ElPopBtn.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ElPopBtn" MUID: (520A3AF602AD)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

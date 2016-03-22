@@ -2,6 +2,7 @@ unit vcmMainFormModelPart;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMainFormModelPart.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmMainFormModelPart" MUID: (4F7B0CBE0283)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -2,6 +2,8 @@ unit PrimDocNumberQuery_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDocNumberQuery_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimDocNumberQuery" MUID: (4AC63602020E)
+// Имя типа: "TPrimDocNumberQueryForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

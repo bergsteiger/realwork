@@ -3,6 +3,8 @@ unit DocumentSub_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\DocumentSub_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "DocumentSub" MUID: (484FAA8501A2)
+// Имя типа: "DocumentSubTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

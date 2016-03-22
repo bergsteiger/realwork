@@ -2,6 +2,7 @@ unit kwIntegerFactory;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwIntegerFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwIntegerFactory" MUID: (4F3E401D03AF)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,7 @@ unit tfwTypeModifier;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwTypeModifier.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwTypeModifier" MUID: (5571AC8301BE)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

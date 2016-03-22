@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3EnumList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3EnumList" MUID: (49142D7000F3)
+// Имя типа: "_l3EnumList_"
 
 {$Define l3EnumList_imp}
 

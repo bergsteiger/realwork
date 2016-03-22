@@ -2,6 +2,7 @@ unit deBase;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\deBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdeBase" MUID: (4B1E709D0071)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -49,11 +49,14 @@ type
     {* Поле для свойства MinPicHeight}
    f_IdenticalRowWidths : Boolean;
     {* Поле для свойства IdenticalRowWidths}
+   f_ReadURL : Boolean;
+    {* Поле для свойства ReadURL}
  protected
  // property methods
    procedure pm_SetMinPicWidth(aValue: Integer); virtual;
    procedure pm_SetMinPicHeight(aValue: Integer);
    procedure pm_SetIdenticalRowWidths(aValue: Boolean);
+   procedure pm_SetReadURL(aValue: Boolean);
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -66,7 +69,8 @@ type
    function ColorByIndex(anIndex: Integer): TColor; virtual;
    function StyleByNumber(aNumber: Integer): TddStyleEntry; virtual;
    function GetFonts(anID: Integer): TddFontEntry; virtual;
-   procedure BeforeClosePara(const aPara: TddDocumentAtom); virtual; abstract;
+   procedure BeforeClosePara(const aPara: TddDocumentAtom;
+     var aNewStyle: Integer); virtual; abstract;
    function NeedSkip(aPicture: TddPicture): TRTFPictureSkip;
    procedure IncNextFootnoteNumber;
    procedure AddFooterHyperlink; virtual; abstract;
@@ -100,6 +104,10 @@ type
      read f_IdenticalRowWidths
      write pm_SetIdenticalRowWidths;
      {* Делать ширину ячеек одинаковой (дополняя справа ячейками без границ). Для вставки в комментарии. }
+   property ReadURL: Boolean
+     read f_ReadURL
+     write pm_SetReadURL;
+     {* Читать гиперссылки. Ссылка добавляется в поле URL. }
  end;//TddCustomRTFReader
 
 implementation
@@ -204,6 +212,15 @@ begin
  f_IdenticalRowWidths := aValue;
 //#UC END# *56162C9F01E8_51E7BF4200C0set_impl*
 end;//TddCustomRTFReader.pm_SetIdenticalRowWidths
+
+procedure TddCustomRTFReader.pm_SetReadURL(aValue: Boolean);
+//#UC START# *56A86CFB0055_51E7BF4200C0set_var*
+//#UC END# *56A86CFB0055_51E7BF4200C0set_var*
+begin
+//#UC START# *56A86CFB0055_51E7BF4200C0set_impl*
+ f_ReadURL := aValue;
+//#UC END# *56A86CFB0055_51E7BF4200C0set_impl*
+end;//TddCustomRTFReader.pm_SetReadURL
 
 procedure TddCustomRTFReader.Cleanup;
 //#UC START# *479731C50290_51E7BF4200C0_var*

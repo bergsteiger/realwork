@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddNSRCGenerator;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_ddNSRCGenerator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddNSRCGenerator" MUID: (4B59FBCA0096)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

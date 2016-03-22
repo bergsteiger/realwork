@@ -1,48 +1,40 @@
 unit IntegerListTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "IntegerListTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCase::Class Shared Delphi Sand Box::SandBoxTest::FinalContainersTests::IntegerListTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\IntegerListTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "IntegerListTest" MUID: (51DEB2FA00B0)
+// Имя типа: "TIntegerListTest"
 
-{$Include ..\SandBox\sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork,
-  IntegerList
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , TestFrameWork
+ , IntegerList
+;
 
-{$If defined(nsTest)}
 type
  _ListType_ = TIntegerList;
- {$Include ..\SandBox\AtomicListTest.imp.pas}
+ {$Include w:\common\components\SandBox\AtomicListTest.imp.pas}
  TIntegerListTest = class(_AtomicListTest_)
  end;//TIntegerListTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //nsTest
+ l3ImplUses
+ , SysUtils
+;
 
-{$If defined(nsTest)}
-
-{$Include ..\SandBox\AtomicListTest.imp.pas}
-
-
-{$IfEnd} //nsTest
+{$Include w:\common\components\SandBox\AtomicListTest.imp.pas}
 
 initialization
  TestFramework.RegisterTest(TIntegerListTest.Suite);
+{$IfEnd} // Defined(nsTest)
+
 end.

@@ -7,7 +7,7 @@ unit k2Native_Schema;
 // Модуль: "w:/common/components/rtl/Garant/K2/k2Native_Schema.pas"
 // Начат: 17.07.1998 16:29
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TagTable::Class>> Shared Delphi::K2::Standard::k2Native
+// Generated from UML model, root element: <<TagTable::Class>> Shared Delphi Low Level::K2::Standard::k2Native
 //
 // Стандартная таблица тегов.
 //

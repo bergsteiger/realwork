@@ -2,6 +2,7 @@ unit vcmEntityFormModelPart;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmEntityFormModelPart.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvcmEntityFormModelPart" MUID: (4F22CB1E0009)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

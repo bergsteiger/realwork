@@ -3,6 +3,7 @@ unit evTextParaHeaderHotSpot;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTextParaHeaderHotSpot.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTextParaHeaderHotSpot" MUID: (4D594C39031B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit TExprEditorWordsPack;
 
 // Модуль: "w:\archi\source\projects\Common\Dialogs\TExprEditorWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "TExprEditorWordsPack" MUID: (55C8CDFC039B)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
@@ -73,11 +74,6 @@ begin
  Fake(aCtx, l_aExprEditor);
 end;//TkwPopExprEditorFake.DoDoIt
 
-class function TkwPopExprEditorFake.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ExprEditor:Fake';
-end;//TkwPopExprEditorFake.GetWordNameForRegister
-
 function TkwPopExprEditorFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -92,6 +88,11 @@ function TkwPopExprEditorFake.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TExprEditor)]);
 end;//TkwPopExprEditorFake.ParamsTypes
+
+class function TkwPopExprEditorFake.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ExprEditor:Fake';
+end;//TkwPopExprEditorFake.GetWordNameForRegister
 
 initialization
  TkwPopExprEditorFake.RegisterInEngine;

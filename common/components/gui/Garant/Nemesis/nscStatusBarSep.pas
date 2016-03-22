@@ -2,6 +2,7 @@ unit nscStatusBarSep;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscStatusBarSep.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscStatusBarSep" MUID: (5058B74F01A1)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -33,10 +34,10 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3Base
 ;
 
 {$If NOT Defined(NoTB97)}

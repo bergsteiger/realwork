@@ -53,6 +53,8 @@ type
 
 //#UC START# *45F7D8410157ci*
 //#UC END# *45F7D8410157ci*
+//#UC START# *45F7D8410157cit*
+//#UC END# *45F7D8410157cit*
  RealNodeBase = {abstract} class(DefaultNodeBase)
  private
  // private fields
@@ -184,7 +186,7 @@ function RealNodeBase.pm_GetName: IString;
 //#UC END# *45FFE327036B_45F7D8410157get_var*
 begin
 //#UC START# *45FFE327036B_45F7D8410157get_impl*
- Result := f_name
+ !!! Needs to be implemented !!!
 //#UC END# *45FFE327036B_45F7D8410157get_impl*
 end;//RealNodeBase.pm_GetName
 
@@ -193,7 +195,7 @@ procedure RealNodeBase.pm_SetName(const aValue: IString);
 //#UC END# *45FFE327036B_45F7D8410157set_var*
 begin
 //#UC START# *45FFE327036B_45F7D8410157set_impl*
- f_name := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *45FFE327036B_45F7D8410157set_impl*
 end;//RealNodeBase.pm_SetName
 

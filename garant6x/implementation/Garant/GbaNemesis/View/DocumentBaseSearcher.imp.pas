@@ -250,7 +250,7 @@ procedure _DocumentBaseSearcher_.Edit_Copy_Test(const aParams: IvcmTestParamsPri
 begin
 //#UC START# *4951284902BD_4B4DB88E01B6test_impl*
  aParams.CallControl;
- CheckTrial(aParams);
+ //CheckTrial(aParams);
 //#UC END# *4951284902BD_4B4DB88E01B6test_impl*
 end;//_DocumentBaseSearcher_.Edit_Copy_Test
 {$IfEnd} //not NoVCM
@@ -273,7 +273,7 @@ procedure _DocumentBaseSearcher_.Edit_Cut_Test(const aParams: IvcmTestParamsPrim
 begin
 //#UC START# *4951285702E1_4B4DB88E01B6test_impl*
  aParams.CallControl;
- CheckTrial(aParams);
+ //CheckTrial(aParams);
 //#UC END# *4951285702E1_4B4DB88E01B6test_impl*
 end;//_DocumentBaseSearcher_.Edit_Cut_Test
 {$IfEnd} //not NoVCM

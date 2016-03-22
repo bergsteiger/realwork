@@ -233,7 +233,7 @@
 			    tool       	"MDA Generator"
 			    name       	"java:*4C52C4D00032_4C52C4D00032_4C52CD3503D2_BODY*"
 			    value      	(value Text 
-|//#UC START# *4C52C4D00032_4C52C4D00032_4C52CD3503D2_BODY*¤		long typeLong = Long.parseLong(type);¤		long mainOgvId = ogvPageIds.get(0);¤		String mainNumber = CollectionUtils.isNotEmpty(numbers) ? numbers.get(0): null;¤		String typeName = "";¤		if(typeLong > 0){¤			typeName = DocCardManager.Factory.get().getDocTypeDAONameById(typeLong);¤		}¤		String number = mainNumber;¤		if(mainOgvId == DpoUvsHelper.NTDIssuerPageId_){¤			number = DpoUvsHelper.listToString(numbers);¤		}¤		String docCardTitle = DpoUvsHelper.makePageTitle(typeName, mainOgvId, number, creationDate, title);¤		//ïðîâåðÿåì, ÷òî íàçâàíèå ñòðàíèöû íå ñëèøêîì áîëüøîå¤		if(docCardTitle.length() > 1023){¤			docCardTitle = docCardTitle.substring(0, 1023);¤		}¤		¤		String spaceKey = ContainerManager.Factory.get().getPageManager().getPage(mainOgvId).getSpaceKey();¤		Page existPage = ContainerManager.Factory.get().getPageManager().getPage(spaceKey, docCardTitle);¤		String notExistingPageTitle = docCardTitle;¤		if(existPage != null){¤/*			String errorMessage = "Còðàíèöà c íàçâàíèåì <a href='/pages/viewpage.action?pageId=" + existPage.getId() + "'>" + docCardTitle + "</a> óæå ñóùåñòâóåò!";¤			Logs.LOG_I(errorMessage);¤			CanNotStore e = new CanNotStore(errorMessage);¤			e.createUvsCode = CreateUvsQuery.EXCEPTION_PAGE_ALREADY_EXISTS;¤			throw e;¤*/¤			int i = 1;¤			do{¤				notExistingPageTitle = docCardTitle + " !N" + i;¤				existPage = ContainerManager.Factory.get().getPageManager().getPage(spaceKey, notExistingPageTitle);¤				i++;¤			}while(existPage != null);¤		}¤		Page page = GlobalHelper.createPage (¤				notExistingPageTitle¤				, mainOgvId¤				, AuthenticatedUserThreadLocal.getUsername()¤				, new Date ()¤				, spaceKey¤				, new String [] {"doccard"}¤		);¤		¤		GarDocDAO newGD = GarDocDAO.make(page, mainOgvId, typeLong, mainNumber, creationDate);¤		newGD.setRegistrationNumber(regnumb);¤		newGD.setRegistrationDate(regdate);¤		newGD.setName(title);¤		if (ogvPageIds.size() > 1){¤			List<Long> additionalDocIssuers = ogvPageIds.subList(1, ogvPageIds.size());¤			newGD.getAdditionalDocIssuers().addAll(additionalDocIssuers);¤		}¤		if (numbers.size() > 1){¤			List<String> additionalNumbers =numbers.subList(1, numbers.size());¤			newGD.getAdditionalNumbers().addAll(additionalNumbers);¤		}¤		try {¤			Session s = getSession();¤			s.save(newGD);¤			persistentProxyForJustCreatedDocCard_ = newGD;¤			//s.flush();¤		} catch (HibernateException he) {¤			Logs.LOG_E(he.getMessage());¤			throw new IllegalStateException (he.getMessage());¤		}¤		id_ = newGD.getId();¤		¤		page.setContent(changePageContent (page.getContent()));		¤		//#UC END# *4C52C4D00032_4C52C4D00032_4C52CD3503D2_BODY*
+|//#UC START# *4C52C4D00032_4C52C4D00032_4C52CD3503D2_BODY*¤		long typeLong = Long.parseLong(type);¤		long mainOgvId = ogvPageIds.get(0);¤		String mainNumber = CollectionUtils.isNotEmpty(numbers) ? numbers.get(0): null;¤		String typeName = "";¤		if(typeLong > 0){¤			typeName = DocCardManager.Factory.get().getDocTypeDAONameById(typeLong);¤		}¤		String number = mainNumber;¤		if(mainOgvId == DpoUvsHelper.NTDIssuerPageId_){¤			number = DpoUvsHelper.listToString(numbers);¤		}¤		String docCardTitle = DpoUvsHelper.makePageTitle(typeName, mainOgvId, number, creationDate, title);¤		//ïðîâåðÿåì, ÷òî íàçâàíèå ñòðàíèöû íå ñëèøêîì áîëüøîå¤		if(docCardTitle.length() > 1023){¤			docCardTitle = docCardTitle.substring(0, 1023);¤		}¤		¤		String spaceKey = ContainerManager.Factory.get().getPageManager().getPage(mainOgvId).getSpaceKey();¤		Page existPage = ContainerManager.Factory.get().getPageManager().getPage(spaceKey, docCardTitle);¤		String notExistingPageTitle = docCardTitle;¤		if(existPage != null){¤/*			String errorMessage = "Còðàíèöà c íàçâàíèåì <a href='/pages/viewpage.action?pageId=" + existPage.getId() + "'>" + docCardTitle + "</a> óæå ñóùåñòâóåò!";¤			Logs.LOG_I(errorMessage);¤			CanNotStore e = new CanNotStore(errorMessage);¤			e.createUvsCode = CreateUvsQuery.EXCEPTION_PAGE_ALREADY_EXISTS;¤			throw e;¤*/¤			int i = 1;¤			do{¤				notExistingPageTitle = docCardTitle + " !N" + i;¤				existPage = ContainerManager.Factory.get().getPageManager().getPage(spaceKey, notExistingPageTitle);¤				i++;¤			}while(existPage != null);¤		}¤		Page page = GlobalHelper.createPage (¤				notExistingPageTitle¤				, mainOgvId¤				, AuthenticatedUserThreadLocal.getUsername()¤				, new Date ()¤				, spaceKey¤				, new String [] {"doccard"}¤		);¤		¤		GarDocDAO newGD = GarDocDAO.make(page, mainOgvId, typeLong, mainNumber, creationDate);¤		newGD.setRegistrationNumber(regnumb);¤		newGD.setRegistrationDate(regdate);¤		String docName = title; ¤		if(StringUtils.isNotBlank(title) && title.length() > 1023){¤			docName = title.substring(0, 1023);¤		}¤		newGD.setName(docName);¤		if (ogvPageIds.size() > 1){¤			List<Long> additionalDocIssuers = ogvPageIds.subList(1, ogvPageIds.size());¤			newGD.getAdditionalDocIssuers().addAll(additionalDocIssuers);¤		}¤		if (numbers.size() > 1){¤			List<String> additionalNumbers =numbers.subList(1, numbers.size());¤			newGD.getAdditionalNumbers().addAll(additionalNumbers);¤		}¤		try {¤			Session s = getSession();¤			s.save(newGD);¤			persistentProxyForJustCreatedDocCard_ = newGD;¤			//s.flush();¤		} catch (HibernateException he) {¤			Logs.LOG_E(he.getMessage());¤			throw new IllegalStateException (he.getMessage());¤		}¤		id_ = newGD.getId();¤		¤		page.setContent(changePageContent (page.getContent()));		¤		//#UC END# *4C52C4D00032_4C52C4D00032_4C52CD3503D2_BODY*
 			    ))
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -559,7 +559,13 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"ResolvedTypeGuid"
-			    value      	"3DBFFD860205"))
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*5620F005039C_4C52CD3503D2*"
+			    value      	(value Text 
+|//#UC START# *5620F005039C_4C52CD3503D2*¤		if(getProxy().getType() == null){¤			return 0;¤		}else{	¤			return getProxy().getType().getId();¤		}	¤		//#UC END# *5620F005039C_4C52CD3503D2*
+			    )))
 		    quid       	"5620F005039C"
 		    result     	"long long"
 		    concurrency 	"Sequential"
@@ -4367,7 +4373,7 @@
 			    tool       	"MDA Generator"
 			    name       	"java:*4E80391400FD_4C52CC2C0221*"
 			    value      	(value Text 
-|//#UC START# *4E80391400FD_4C52CC2C0221*¤		try{¤			ExternalAuthorFromHelpDeskDAO externalAuthor = ExternalAuthorFromHelpDeskDAO.get(id);¤			getProxy().getExternalAuthors().remove(externalAuthor);¤		} catch (HibernateException e) {¤			Logs.LOG_SEX(e);¤		}	¤		//#UC END# *4E80391400FD_4C52CC2C0221*
+|//#UC START# *4E80391400FD_4C52CC2C0221*¤		try{¤			List<LinkedExternalAuthorDAO> linkedExtAuth = new ArrayList<LinkedExternalAuthorDAO>(getProxy().getExternalAuthorsLinks());¤			for(LinkedExternalAuthorDAO lea : linkedExtAuth){¤				if(lea.getId() == id){¤					getProxy().removeExternalAuthor(lea);¤					getOriginalExternalAuthors().remove(lea);¤					if(canRemoveExternalAuthor(lea.getExternalAuthor().getId())){¤						try{¤							ContainerManager.Factory.get().getSession().delete(lea.getExternalAuthor());¤						}catch(Exception ex){¤							Logs.LOG_SEX(ex);¤						}¤					}¤					setChangeType(ChangeType.VERSION_MINOR);¤				}¤			}¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤		}	¤		//#UC END# *4E80391400FD_4C52CC2C0221*
 			    )))
 		    quid       	"4E80391400FD"
 		    parameters 	(list Parameters
@@ -8047,7 +8053,7 @@
 				    label      	"ErrorInClosed( is_manager_or_leader )"
 				    pctDist    	0.077887
 				    height     	48
-				    orientation 	1)
+				    orientation 	0)
 				stereotype 	TRUE
 				line_color 	3947680
 				quidu      	"4DA2F17C0375"
@@ -10895,7 +10901,7 @@
 			    tool       	"MDA Generator"
 			    name       	"java:*4E60AAD5003C_4C52CC7F0158*"
 			    value      	(value Text 
-|//#UC START# *4E60AAD5003C_4C52CC7F0158*¤		UVSQuery uvsQuery = (UVSQuery)request;¤		String spaceKey = request.getPage().getSpaceKey();¤		DPOUVSManager dpoUvsManager = DPOUVSManager.Factory.get(spaceKey);¤		Group group = dpoUvsManager.getQueryPostersGroupInUO();¤		boolean isMemberOfGluoReqPosters = ContainerManager.Factory.get().getUserAccessor().hasMembership(group.getName(), user);¤		boolean isLeader = getIsLeader(user, spaceKey);¤		if (¤				DpoUvsHelper.isUoQueryOrRegionPartnerQuery(uvsQuery.getPage())¤				&& (isMemberOfGluoReqPosters || isLeader) ¤		){¤			return true;¤		}¤		return false;¤		//#UC END# *4E60AAD5003C_4C52CC7F0158*
+|//#UC START# *4E60AAD5003C_4C52CC7F0158*¤		UVSQuery uvsQuery = (UVSQuery)request;¤		String spaceKey = request.getPage().getSpaceKey();¤		DPOUVSManager dpoUvsManager = DPOUVSManager.Factory.get(spaceKey);¤		Group group = dpoUvsManager.getQueryPostersGroupInUO();¤		boolean isMemberOfGluoReqPosters = (group == null)?false:ContainerManager.Factory.get().getUserAccessor().hasMembership(group.getName(), user);¤		boolean isLeader = getIsLeader(user, spaceKey);¤		if (¤				DpoUvsHelper.isUoQueryOrRegionPartnerQuery(uvsQuery.getPage())¤				&& (isMemberOfGluoReqPosters || isLeader) ¤		){¤			return true;¤		}¤		return false;¤		//#UC END# *4E60AAD5003C_4C52CC7F0158*
 			    )))
 		    quid       	"4E60AAD5003C"
 		    parameters 	(list Parameters
@@ -11288,7 +11294,19 @@
 				    value      	"3DBFFE240068"))
 			    quid       	"4DF1E49B03DD"
 			    type       	"string"
-			    quidu      	"3DBFFE240068"))
+			    quidu      	"3DBFFE240068")
+			(object Parameter "space_key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1454921416895245")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"56B856C80368"
+			    type       	"string"))
 		    result     	"GarDocSourceTitles"
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
@@ -12181,7 +12199,7 @@
 			    tool       	"MDA Generator"
 			    name       	"java:*4F6B2D1303CA_4C52CCA801D3*"
 			    value      	(value Text 
-|//#UC START# *4F6B2D1303CA_4C52CCA801D3*¤		Date date = new Date();¤		/*¤		Calendar cal = Calendar.getInstance();¤		cal.setTime(date);¤		cal.set(Calendar.MINUTE, cal.get(Calendar.MINUTE)- 30);¤		date = cal.getTime();¤		final String sQuery = "SELECT r FROM UVSQuestDAO r"¤                            + " WHERE r.state in (12)"¤                            + " AND (r.copy.creationDate IS NULL OR (r.copy.creationDate < :date AND r.copy.archiExportDate IS NULL))";¤		¤		*/¤		final String sQuery = "SELECT r FROM UVSQuestDAO r"¤                + " WHERE r.state in (12) AND r.page.space.key=:spaceKey"¤                + " AND (r.copy.creationDate IS NULL OR (r.copy.creationDate < :date AND r.copy.archiExportDate IS NULL))";¤		if(time > 0){¤			date = new Date(date.getTime() - time);¤		}else{¤			Calendar cal = Calendar.getInstance();¤			cal.setTime(date);¤			cal.set(Calendar.MINUTE, cal.get(Calendar.MINUTE)- 30);¤			date = cal.getTime();¤		}¤		Query q = getSession().createQuery(sQuery);¤		q.setTimestamp("date", date);¤		q.setString("spaceKey", spaceKey);¤		return q.list();¤		//#UC END# *4F6B2D1303CA_4C52CCA801D3*
+|//#UC START# *4F6B2D1303CA_4C52CCA801D3*¤		Date date = new Date();¤		/*¤		Calendar cal = Calendar.getInstance();¤		cal.setTime(date);¤		cal.set(Calendar.MINUTE, cal.get(Calendar.MINUTE)- 30);¤		date = cal.getTime();¤		final String sQuery = "SELECT r FROM UVSQuestDAO r"¤                            + " WHERE r.state in (12)"¤                            + " AND (r.copy.creationDate IS NULL OR (r.copy.creationDate < :date AND r.copy.archiExportDate IS NULL))";¤		¤		*/¤		final String sQuery = "SELECT r FROM UVSQuestDAO r"¤                + " WHERE r.state in (12) AND r.page.space.key=:spaceKey"¤                + " AND (r.copy.creationDate IS NULL OR (r.copy.creationDate > :date2 AND r.copy.creationDate < :date AND r.copy.archiExportDate IS NULL))";¤		if(time > 0){¤			date = new Date(date.getTime() - time);¤		}else{¤			Calendar cal = Calendar.getInstance();¤			cal.setTime(date);¤			cal.set(Calendar.MINUTE, cal.get(Calendar.MINUTE)- 30);¤			date = cal.getTime();¤		}¤		Query q = getSession().createQuery(sQuery);¤		q.setTimestamp("date", date);¤		q.setString("spaceKey", spaceKey);¤¤		Calendar calPrevDate = Calendar.getInstance();¤		calPrevDate.set(Calendar.DAY_OF_MONTH, calPrevDate.get(Calendar.DAY_OF_MONTH)- 1);¤		Date prevDate = new Date(calPrevDate.getTime().getTime() - time);//÷òîáû äëÿ êîñòðîìû è äðóãèõ ñ áîëüøèì ïåðèîäîì ñ÷èòàëîñü íîðìàëüíî¤		q.setTimestamp("date2", prevDate);¤		¤		return q.list();¤		//#UC END# *4F6B2D1303CA_4C52CCA801D3*
 			    )))
 		    quid       	"4F6B2D1303CA"
 		    documentation 	"âñå çàêðûòûå, ó êîòîðûõ èëè íóëë äàòà ñîçäàíèÿ èëè óæå áîëåå 30 ìèíóò íå áûë ýêñïîðòèðîâàí â àð÷è"
@@ -12438,7 +12456,38 @@
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0
-		    quidu      	"560A44100029"))
+		    quidu      	"560A44100029")
+		(object Operation "get_region_queries_in_specific_states"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1452602503895008")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4D95AF980048")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*5694F4870350_4C52CCA801D3*"
+			    value      	
+|//#UC START# *5694F4870350_4C52CCA801D3*¤		String sQuery =¤				"select req from UVSQuestDAO as req, Labelling as l"¤				+ " where req.page.contentStatus='current'"¤				+ " and req.id = l.content.id and l.label.name IN ('rt_region_query')"¤				+ " and req.state in (" ¤				+ UVSStateMachine.ST_ON_ACCEPT_IN_RIB.getSortValue() + ", " ¤				+ UVSStateMachine.ST_MAKE_ANSWER.getSortValue()  + ", " ¤				+ UVSStateMachine.ST_ON_ACCEPT_IN_UO.getSortValue() + ")" ¤	;¤		Query q;¤		try {¤			q = ContainerManager.Factory.get().getSession().createQuery(sQuery);¤			return (List<UVSQuestDAO>) q.list(); ¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤		}¤		return new ArrayList<UVSQuestDAO>();¤		//#UC END# *5694F4870350_4C52CCA801D3*
+			    ))
+		    quid       	"5694F4870350"
+		    documentation 	"íàõîäèò ðåãèîíàëüíûå çàïðîñû â ñîñòîÿíèÿõ OnAcceptInRIB, MakeAnswer"
+		    result     	"UVSQuestDAOList2"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4D95AF980048"))
 	    language   	"MDA Generator")
 	(object Class "UVSQueryNotificationGateway"
 	    attributes 	(list Attribute_Set
@@ -12863,7 +12912,7 @@
 			    tool       	"MDA Generator"
 			    name       	"java:*4E6472A50022_4C52DE4B0294*"
 			    value      	(value Text 
-|//#UC START# *4E6472A50022_4C52DE4B0294*¤		UVSQuery uvsQuery = (UVSQuery)getRequest();¤		Email email = createNewQueryEmailForExternalAuthor((ExternalAuthorFromHelpDeskDAO)externalAuthor);¤		queueEmail(email.getTo() + " " + ((ExternalAuthorFromHelpDeskDAO)externalAuthor).getHelpDeskQuery(), new RequestPriorityEmail(email, uvsQuery.getPage().getId()));¤		//#UC END# *4E6472A50022_4C52DE4B0294*
+|//#UC START# *4E6472A50022_4C52DE4B0294*¤		UVSQuery uvsQuery = (UVSQuery)getRequest();¤		Email email = createNewQueryEmailForExternalAuthor(externalAuthor);¤		queueEmail(email.getTo() + " " + externalAuthor.getHelpDeskQuery(), new RequestPriorityEmail(email, uvsQuery.getPage().getId()));¤		//#UC END# *4E6472A50022_4C52DE4B0294*
 			    )))
 		    quid       	"4E6472A50022"
 		    documentation 	"Âíåøíèì àâòîðàì äëÿ çàïðîñîâ ÞÎ äîëæíû óõîäèòü óâåäîìëåíèÿ"
@@ -12877,10 +12926,10 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"ResolvedTypeGuid"
-				    value      	"47876B79029E"))
+				    value      	"5641AC5D0057"))
 			    quid       	"4E661F8501E8"
-			    type       	"ExternalAuthorDAO"
-			    quidu      	"47876B79029E"))
+			    type       	"LinkedExternalAuthorDAO"
+			    quidu      	"5641AC5D0057"))
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0)
@@ -13000,7 +13049,7 @@
 			    tool       	"MDA Generator"
 			    name       	"java:*4E771D1501BE_4C52DE4B0294*"
 			    value      	(value Text 
-|//#UC START# *4E771D1501BE_4C52DE4B0294*¤		String subj = getText("uvsquerynotificationgateways.document.send.in.ogv", externalAuthor.getHelpDeskQuery());¤		String body = makeBodyForNewQueryForAuthor(externalAuthor) ¤			+ endBodyTextForExternalAuthor();¤			¤	¤		return createEmail(subj, body, externalAuthor.getEmail());¤		//#UC END# *4E771D1501BE_4C52DE4B0294*
+|//#UC START# *4E771D1501BE_4C52DE4B0294*¤		String subj = getText("uvsquerynotificationgateways.document.send.in.ogv", externalAuthor.getHelpDeskQuery());¤		String body = makeBodyForNewQueryForAuthor((ExternalAuthorFromHelpDeskDAO)externalAuthor.getExternalAuthor()) ¤			+ endBodyTextForExternalAuthor();¤			¤	¤		return createEmail(subj, body, externalAuthor.getExternalAuthor().getEmail());¤		//#UC END# *4E771D1501BE_4C52DE4B0294*
 			    )))
 		    quid       	"4E771D1501BE"
 		    parameters 	(list Parameters
@@ -13013,10 +13062,10 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"ResolvedTypeGuid"
-				    value      	"4E5E23BA00E6"))
+				    value      	"5641AC5D0057"))
 			    quid       	"4E771D7501EA"
-			    type       	"ExternalAuthorFromHelpDeskDAO"
-			    quidu      	"4E5E23BA00E6"))
+			    type       	"LinkedExternalAuthorDAO"
+			    quidu      	"5641AC5D0057"))
 		    result     	"Email"
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
@@ -13355,7 +13404,7 @@
 			    tool       	"MDA Generator"
 			    name       	"java:*4CAC26EF02A0_4CAC2399037A*"
 			    value      	(value Text 
-|//#UC START# *4CAC26EF02A0_4CAC2399037A*¤		DocCardPermissions docCardPerm = new DocCardPermissions();¤		¤		boolean canEdit = canEdit(doccard.getPage().getSpaceKey(), user);¤		docCardPerm.setName(canEdit);¤		docCardPerm.setTypeDocument(canEdit);¤		docCardPerm.setNumber(canEdit);¤		docCardPerm.setCreationDate(canEdit);¤		docCardPerm.setRegistrationDate(canEdit);¤		docCardPerm.setRegistrationNumber(canEdit);¤		docCardPerm.setIsConnected(canEdit);¤		docCardPerm.setDocIssuer(canEdit);		¤		docCardPerm.setInternet(canEdit);¤		docCardPerm.setInstancy(canEdit);¤		docCardPerm.setIncludeInVersionDate(canEdit);¤		docCardPerm.setNotificationForRp(canEdit);¤		docCardPerm.setTopic(canEdit);¤		docCardPerm.setLinkedTopics(canEditLinkedTopics(doccard.getPage().getSpaceKey(), user));¤		return docCardPerm;¤		//#UC END# *4CAC26EF02A0_4CAC2399037A*
+|//#UC START# *4CAC26EF02A0_4CAC2399037A*¤		DocCardPermissions docCardPerm = new DocCardPermissions();¤		boolean hasLabel = DpoUvsHelper.hasOgvLabelOGV(doccard.getDocIssuer());¤		//åñëè íåò ìåòîê ÎÃÂ òî ó çàïðîñà íåëüçÿ íè÷åãî ìåíÿòü, íèêàêèå ïîëÿ¤		if(hasLabel == false){¤			docCardPerm.setName(false);¤			docCardPerm.setTypeDocument(false);¤			docCardPerm.setNumber(false);¤			docCardPerm.setCreationDate(false);¤			docCardPerm.setRegistrationDate(false);¤			docCardPerm.setRegistrationNumber(false);¤			docCardPerm.setIsConnected(false);¤			docCardPerm.setDocIssuer(false);		¤			docCardPerm.setInternet(false);¤			docCardPerm.setInstancy(false);¤			docCardPerm.setIncludeInVersionDate(false);¤			docCardPerm.setNotificationForRp(false);¤			docCardPerm.setTopic(false);¤			docCardPerm.setLinkedTopics(false);¤		}else{¤			boolean canEdit = canEdit(doccard.getPage().getSpaceKey(), user);¤			docCardPerm.setName(canEdit);¤			docCardPerm.setTypeDocument(canEdit);¤			docCardPerm.setNumber(canEdit);¤			docCardPerm.setCreationDate(canEdit);¤			docCardPerm.setRegistrationDate(canEdit);¤			docCardPerm.setRegistrationNumber(canEdit);¤			docCardPerm.setIsConnected(canEdit);¤			docCardPerm.setDocIssuer(canEdit);		¤			docCardPerm.setInternet(canEdit && forGarDocSpaceOnly(doccard));¤			docCardPerm.setInstancy(canEdit);¤			docCardPerm.setIncludeInVersionDate(canEdit);¤			docCardPerm.setNotificationForRp(canEdit);¤			docCardPerm.setTopic(canEdit);¤			docCardPerm.setLinkedTopics(canEditLinkedTopics(doccard.getPage().getSpaceKey(), user));¤		}¤		return docCardPerm;¤		//#UC END# *4CAC26EF02A0_4CAC2399037A*
 			    )))
 		    quid       	"4CAC26EF02A0"
 		    documentation 	"çàäàíèå ïðàâ ðåäàêòèðîâàíèÿ ïîëåé"
@@ -14235,6 +14284,40 @@
 	    quid       	"560A44100029"
 	    stereotype 	"List"
 	    language   	"MDA Generator")
+	(object Class "StringMap"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1450864096519792")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"567A6DE00207"
+	    stereotype 	"Map"
+	    language   	"MDA Generator")
+	(object Class "GroupList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1450869848441798")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"567A845801B9"
+	    stereotype 	"List"
+	    language   	"MDA Generator")
 	(object Association "$UNNAMED$0"
 	    quid       	"4C5949AF00C6"
 	    roles      	(list role_list
@@ -14495,6 +14578,97 @@
 		    quid       	"560A443F0270"
 		    supplier   	"Logical View::MDProcess::DocCardChange::Entities::GarDocSourceTitlesList"
 		    quidu      	"560A44100029"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$20"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1450864110441589"))
+	    quid       	"567A6DED03E1"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$21"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1450864113297753")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"567A6DEE0197"
+		    supplier   	"Logical View::Primitives::string"
+		    quidu      	"3DBFFE240068"
+		    keys       	(list class_attribute_list
+			(object ClassAttribute "key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1450864160419449")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F"))
+			    quid       	"567A6E200189"
+			    type       	"a-string"
+			    exportControl 	"Public"
+			    Containment 	"By Value"))
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$22"
+		    quid       	"567A6DEE01B4"
+		    supplier   	"Logical View::MDProcess::DocCardChange::Entities::StringMap"
+		    quidu      	"567A6DE00207"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$23"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1450869860637496"))
+	    quid       	"567A846400C6"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$24"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1450869864433714")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"567A84640278"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.user::Group"
+		    quidu      	"47737D9B0214"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$25"
+		    quid       	"567A8464027B"
+		    supplier   	"Logical View::MDProcess::DocCardChange::Entities::GroupList"
+		    quidu      	"567A845801B9"
 		    is_aggregate 	TRUE))))
     logical_presentations 	(list unit_reference_list
 	(object ClassDiagram "Main"
@@ -14502,14 +14676,14 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"IsChanged"
-		    value      	""))
+		    value      	"true"))
 	    quid       	"4C37137B03B9"
 	    title      	"Main"
 	    zoom       	95
 	    max_height 	28350
 	    max_width  	21600
-	    origin_x   	0
-	    origin_y   	0
+	    origin_x   	3394
+	    origin_y   	572
 	    items      	(list diagram_item_list
 		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::Entities::GLUOQuery" @205
 		    ShowCompartmentStereotypes 	TRUE
@@ -14572,7 +14746,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@206
-			location   	(3907, 1000)
+			location   	(3907, 999)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	490
@@ -14580,7 +14754,7 @@
 			label      	"GLUOStateMachineDOC")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@206
-			location   	(3907, 951)
+			location   	(3907, 950)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -14591,7 +14765,7 @@
 		    fill_color 	15262200
 		    quidu      	"4C3AE07A038D"
 		    width      	508
-		    height     	157
+		    height     	158
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object RealizeView "" @207
@@ -14612,7 +14786,7 @@
 		    supplier   	@206
 		    vertices   	(list Points
 			(3607, 1366)
-			(4028, 1095))
+			(4026, 1096))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::Entities::UVSStateMachineDOC" @208
 		    ShowCompartmentStereotypes 	TRUE
@@ -14634,7 +14808,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@208
-			location   	(2795, 832)
+			location   	(2795, 831)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	458
@@ -14642,7 +14816,7 @@
 			label      	"UVSStateMachineDOC")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@208
-			location   	(2795, 783)
+			location   	(2795, 782)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -14653,7 +14827,7 @@
 		    fill_color 	15262200
 		    quidu      	"4C3D93AB008E"
 		    width      	476
-		    height     	157
+		    height     	158
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::Entities::UVSStateMachine" @209
@@ -14676,7 +14850,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@209
-			location   	(3226, 1108)
+			location   	(3226, 1107)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	364
@@ -14684,7 +14858,7 @@
 			label      	"UVSStateMachine")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@209
-			location   	(3226, 1059)
+			location   	(3226, 1058)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -14695,7 +14869,7 @@
 		    fill_color 	15262200
 		    quidu      	"4C52A9F00330"
 		    width      	382
-		    height     	157
+		    height     	158
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object NoteView @210
@@ -14811,7 +14985,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1092, 4308)
+		    location   	(2253, 4314)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -14824,7 +14998,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@213
-			location   	(112, 4079)
+			location   	(1273, 4085)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	1960
@@ -14832,7 +15006,7 @@
 			label      	"UVSQueryPermissionManager")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@213
-			location   	(112, 4030)
+			location   	(1273, 4036)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -14843,25 +15017,6 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4C52CAC1020C"
-		    compartment 	(object Compartment
-			Parent_View 	@213
-			location   	(112, 4139)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	9
-			max_width  	1958
-			justify    	1)
 		    width      	1978
 		    height     	580
 		    annotation 	8
@@ -14873,8 +15028,8 @@
 		    client     	@213
 		    supplier   	@212
 		    vertices   	(list Points
-			(1066, 4017)
-			(1042, 3735))
+			(1726, 4023)
+			(1201, 3735))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::Requests::AbstractRequestManager" @215
 		    ShowCompartmentStereotypes 	TRUE
@@ -14935,7 +15090,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@216
-			location   	(3749, 1278)
+			location   	(3749, 1254)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	3914
@@ -14943,7 +15098,7 @@
 			label      	"UVSQueryManager")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@216
-			location   	(3749, 1229)
+			location   	(3749, 1205)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -14956,7 +15111,7 @@
 		    quidu      	"4C52CB380231"
 		    compartment 	(object Compartment
 			Parent_View 	@216
-			location   	(3749, 1338)
+			location   	(3749, 1317)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -14970,11 +15125,11 @@
 			icon_style 	"Icon"
 			fill_color 	16777215
 			anchor     	2
-			nlines     	29
-			max_width  	3912
+			nlines     	30
+			max_width  	3911
 			justify    	1)
 		    width      	3932
-		    height     	1562
+		    height     	1610
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object InheritView "" @217
@@ -15005,19 +15160,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@218
-			location   	(3990, 2890)
+			location   	(4049, 2890)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1974
+			max_width  	1856
 			justify    	0
 			label      	"UVSQueryNotificationGateway")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@218
-			location   	(3990, 2841)
+			location   	(4049, 2841)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1974
+			max_width  	1856
 			justify    	0
 			label      	"<<Interface>>")
 		    icon       	"Interface"
@@ -15026,7 +15181,7 @@
 		    quidu      	"4C52DB7D0257"
 		    compartment 	(object Compartment
 			Parent_View 	@218
-			location   	(3990, 2950)
+			location   	(4049, 2950)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -15041,9 +15196,9 @@
 			fill_color 	16777215
 			anchor     	2
 			nlines     	21
-			max_width  	1978
+			max_width  	1865
 			justify    	1)
-		    width      	1992
+		    width      	1874
 		    height     	1170
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -15107,14 +15262,14 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@220
-			location   	(2744, 1667)
+			location   	(2744, 1666)
 			nlines     	1
 			max_width  	404
 			justify    	0
 			label      	"• AbstractRequest")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@220
-			location   	(2744, 1618)
+			location   	(2744, 1617)
 			anchor     	10
 			nlines     	1
 			max_width  	404
@@ -15126,7 +15281,7 @@
 		    fill_color 	16777215
 		    quidu      	"4757F69E0296"
 		    width      	422
-		    height     	178
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object InheritView "" @221
@@ -15147,7 +15302,7 @@
 		    supplier   	@220
 		    vertices   	(list Points
 			(3287, 1538)
-			(3137, 1605))
+			(3142, 1604))
 		    line_style 	0)
 		(object InheritView "" @222
 		    stereotype 	TRUE
@@ -15156,7 +15311,7 @@
 		    client     	@218
 		    supplier   	@219
 		    vertices   	(list Points
-			(3980, 3229)
+			(4039, 3240)
 			(3885, 3212))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::Entities::DocCard" @223
@@ -15177,19 +15332,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@223
-			location   	(11, 61)
+			location   	(10, 60)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	2912
+			max_width  	2914
 			justify    	0
 			label      	"• DocCard")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@223
-			location   	(11, 12)
+			location   	(10, 11)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	2912
+			max_width  	2914
 			justify    	0
 			label      	"<<Interface>>")
 		    icon       	"Interface"
@@ -15198,7 +15353,7 @@
 		    quidu      	"4C3713F60316"
 		    compartment 	(object Compartment
 			Parent_View 	@223
-			location   	(11, 121)
+			location   	(10, 120)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -15213,10 +15368,10 @@
 			fill_color 	16777215
 			anchor     	2
 			nlines     	29
-			max_width  	2909
+			max_width  	2911
 			justify    	1)
-		    width      	2930
-		    height     	1560
+		    width      	2932
+		    height     	1562
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::Entities::UVSQuery" @224
@@ -15320,7 +15475,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @228
 				Parent_View 	@227
-				location   	(1521, 1778)
+				location   	(1521, 1777)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -15342,7 +15497,7 @@
 				orientation 	0)
 			    stereotype 	(object SegLabel @229
 				Parent_View 	@227
-				location   	(1540, 1703)
+				location   	(1610, 1699)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -15361,14 +15516,14 @@
 				label      	"<<property>>"
 				pctDist    	-0.476083
 				height     	93
-				orientation 	0)
+				orientation 	1)
 			    line_color 	3342489
 			    quidu      	"4C5949AF0311"
 			    client     	@226
 			    supplier   	@223
 			    vertices   	(list Points
 				(1583, 1683)
-				(1567, 1560))
+				(1567, 1561))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$1" @230
 			    Parent_View 	@226
@@ -15439,7 +15594,7 @@
 		    client     	@209
 		    supplier   	@211
 		    vertices   	(list Points
-			(3547, 1046)
+			(3549, 1045)
 			(4151, 712))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::MdcCommon::AbstractMDCPermissionManager" @234
@@ -15448,7 +15603,7 @@
 		    SuppressOperation 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
-		    location   	(2895, 4038)
+		    location   	(3324, 3861)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -15461,14 +15616,14 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@234
-			location   	(2574, 4009)
+			location   	(3003, 3832)
 			nlines     	1
 			max_width  	642
 			justify    	0
 			label      	"AbstractMDCPermissionManager")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@234
-			location   	(2574, 3960)
+			location   	(3003, 3783)
 			anchor     	10
 			nlines     	1
 			max_width  	642
@@ -15490,15 +15645,15 @@
 		    client     	@212
 		    supplier   	@234
 		    vertices   	(list Points
-			(1395, 3720)
-			(2564, 3966))
+			(1395, 3678)
+			(2993, 3829))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::Entities::DocCardPermissionManager" @236
 		    ShowCompartmentStereotypes 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(2907, 4551)
+		    location   	(3180, 4911)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -15511,7 +15666,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@236
-			location   	(2168, 4469)
+			location   	(2441, 4828)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	1478
@@ -15519,7 +15674,7 @@
 			label      	"DocCardPermissionManager")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@236
-			location   	(2168, 4420)
+			location   	(2441, 4779)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -15530,27 +15685,8 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4CAC22B20102"
-		    compartment 	(object Compartment
-			Parent_View 	@236
-			location   	(2168, 4529)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	3
-			max_width  	1474
-			justify    	1)
 		    width      	1496
-		    height     	286
+		    height     	288
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object InheritView "" @237
@@ -15560,8 +15696,8 @@
 		    client     	@236
 		    supplier   	@234
 		    vertices   	(list Points
-			(2903, 4407)
-			(2896, 4128))
+			(3199, 4766)
+			(3310, 3951))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::Entities::DocCardStates" @238
 		    ShowCompartmentStereotypes 	TRUE
@@ -15781,25 +15917,6 @@
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"4DE376110295"
-		    compartment 	(object Compartment
-			Parent_View 	@244
-			location   	(290, 5027)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	4
-			max_width  	300
-			justify    	1)
 		    width      	362
 		    height     	336
 		    annotation 	8
@@ -15841,25 +15958,6 @@
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"4DE3780202D6"
-		    compartment 	(object Compartment
-			Parent_View 	@245
-			location   	(1004, 5006)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	4
-			max_width  	631
-			justify    	1)
 		    width      	650
 		    height     	336
 		    annotation 	8
@@ -16153,7 +16251,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(4650, 4482)
+		    location   	(5661, 4617)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -16166,7 +16264,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@257
-			location   	(3623, 4351)
+			location   	(4634, 4485)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	2054
@@ -16174,7 +16272,7 @@
 			label      	"UVSQueryReportManager")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@257
-			location   	(3623, 4302)
+			location   	(4634, 4436)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -16185,27 +16283,8 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4F7AB5880389"
-		    compartment 	(object Compartment
-			Parent_View 	@257
-			location   	(3623, 4411)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	5
-			max_width  	2071
-			justify    	1)
 		    width      	2072
-		    height     	384
+		    height     	386
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Primitives::long long" @258
@@ -16358,25 +16437,6 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"50BC44C8014C"
-		    compartment 	(object Compartment
-			Parent_View 	@263
-			location   	(1822, 5132)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			icon_style 	"Icon"
-			fill_color 	16777215
-			anchor     	2
-			nlines     	2
-			max_width  	575
-			justify    	1)
 		    width      	586
 		    height     	238
 		    annotation 	8
@@ -16390,7 +16450,7 @@
 		    vertices   	(list Points
 			(2457, 1806)
 			(2668, 1526)
-			(3263, 1203))
+			(3260, 1204))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::DocCardChangeDAO::GarDocSourceTitles" @265
 		    ShowCompartmentStereotypes 	TRUE
@@ -16512,4 +16572,271 @@
 			    vertices   	(list Points
 				(6503, 3134)
 				(6468, 3218))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::Primitives::string" @270
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(906, 5331)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@270
+			location   	(825, 5291)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	162
+			justify    	0
+			label      	"string")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFE240068"
+		    height     	105
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::Entities::StringMap" @271
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1596, 5439)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@271
+			location   	(1485, 5411)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	222
+			justify    	0
+			label      	"StringMap")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@271
+			location   	(1485, 5361)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	222
+			justify    	0
+			label      	"<<Map>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"567A6DE00207"
+		    width      	240
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$20" @272
+		    location   	(1235, 5381)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"567A6DED03E1"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$21" @273
+			    Parent_View 	@272
+			    location   	(-73, -76)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"567A6DEE0197"
+			    client     	@272
+			    supplier   	@270
+			    vertices   	(list Points
+				(1235, 5381)
+				(996, 5343))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$22" @274
+			    Parent_View 	@272
+			    location   	(-73, -76)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"567A6DEE01B4"
+			    client     	@272
+			    supplier   	@271
+			    vertices   	(list Points
+				(1235, 5381)
+				(1475, 5418))
+			    line_style 	0
+			    label      	(object SegLabel @275
+				Parent_View 	@274
+				location   	(1341, 5418)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	5
+				anchor_loc 	1
+				nlines     	1
+				max_width  	227
+				justify    	0
+				label      	"key : a-string"
+				pctDist    	0.900000
+				height     	12
+				orientation 	0))))
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.user::Group" @276
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2238, 5634)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@276
+			location   	(2044, 5607)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	388
+			justify    	0
+			label      	"• Group")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@276
+			location   	(2044, 5557)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	388
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"47737D9B0214"
+		    width      	406
+		    height     	178
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::Entities::GroupList" @277
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2721, 5631)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@277
+			location   	(2614, 5603)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	214
+			justify    	0
+			label      	"GroupList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@277
+			location   	(2614, 5553)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	214
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"567A845801B9"
+		    width      	232
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$23" @278
+		    location   	(2522, 5631)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"567A846400C6"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$24" @279
+			    Parent_View 	@278
+			    location   	(-199, 0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"567A84640278"
+			    client     	@278
+			    supplier   	@276
+			    vertices   	(list Points
+				(2522, 5631)
+				(2441, 5631))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$25" @280
+			    Parent_View 	@278
+			    location   	(-199, 0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"567A8464027B"
+			    client     	@278
+			    supplier   	@277
+			    vertices   	(list Points
+				(2522, 5631)
+				(2604, 5631))
 			    line_style 	0)))))))

@@ -3,6 +3,7 @@ unit evdNative_AttrValues;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdNative_AttrValues.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evdNative_AttrValues" MUID: (A15623CB6EA6)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

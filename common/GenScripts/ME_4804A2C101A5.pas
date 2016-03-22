@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evParaPainter.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "evParaPainter" MUID: (4804A2C101A5)
+// Имя типа: "_evParaPainter_"
 
 {$Define evParaPainter_imp}
 

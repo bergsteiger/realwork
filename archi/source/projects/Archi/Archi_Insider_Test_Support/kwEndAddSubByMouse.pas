@@ -1,67 +1,57 @@
 unit kwEndAddSubByMouse;
+ {* Закончить простановку ссылки на саб с помощью мыши (Drag&Drop):
+окно_редактора:постановить_ссылку_мышью }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwEndAddSubByMouse.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::Scripting::TkwEndAddSubByMouse
-//
-// Закончить простановку ссылки на саб с помощью мыши (Drag&Drop):
-// окно_редактора:постановить_ссылку_мышью
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwEndAddSubByMouse.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwEndAddSubByMouse" MUID: (4F0C009200D7)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  kwControlWord,
-  Controls,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , kwControlWord
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwScriptingInterfaces
+;
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwEndAddSubByMouse = {scriptword} class(TkwControlWord)
+ TkwEndAddSubByMouse = class(TkwControlWord)
   {* Закончить простановку ссылки на саб с помощью мыши (Drag&Drop):
 окно_редактора:постановить_ссылку_мышью }
- protected
- // realized methods
+  protected
+   {$If NOT Defined(NoVCL)}
    procedure DoControl(aControl: TControl;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
+   {$IfEnd} // NOT Defined(NoVCL)
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwEndAddSubByMouse
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  Messages,
-  DragData,
-  arArchiTestAdapter2,
-  Windows,
-  Forms
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ l3ImplUses
+ , Messages
+ , DragData
+ , arArchiTestAdapter2
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwEndAddSubByMouse
-
+{$If NOT Defined(NoVCL)}
 procedure TkwEndAddSubByMouse.DoControl(aControl: TControl;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4DB98B990054_4F0C009200D7_var*
 //#UC END# *4DB98B990054_4F0C009200D7_var*
 begin
@@ -71,17 +61,14 @@ begin
 end;//TkwEndAddSubByMouse.DoControl
 
 class function TkwEndAddSubByMouse.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'окно_редактора:постановить_ссылку_мышью';
 end;//TkwEndAddSubByMouse.GetWordNameForRegister
 
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация TkwEndAddSubByMouse
  TkwEndAddSubByMouse.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация TkwEndAddSubByMouse }
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 end.

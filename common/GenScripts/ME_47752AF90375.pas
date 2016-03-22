@@ -3,6 +3,7 @@ unit afwFacade;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\afwFacade.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "afwFacade" MUID: (47752AF90375)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
@@ -32,28 +33,28 @@ type
  Rafw = class of Tafw;
   {* Ссылка на класс Tafw. }
 
- {$If NOT Defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
  TafwCustomForm = afwInterfaces.TafwCustomForm;
- {$IfEnd} // NOT Defined(NoVCL)
+{$IfEnd} // NOT Defined(NoVCL)
 
- {$If NOT Defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
  TafwControlFocusHook = procedure(aControl: TWinControl;
   aGot: Boolean);
- {$IfEnd} // NOT Defined(NoVCL)
+{$IfEnd} // NOT Defined(NoVCL)
 
- {$If NOT Defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
  TafwControlMessageHook = procedure(aControl: TWinControl;
   const aMessage: TMessage);
- {$IfEnd} // NOT Defined(NoVCL)
+{$IfEnd} // NOT Defined(NoVCL)
 
- {$If NOT Defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
  TafwIsAcceptableControlForTabNavigationHook = function(aControl: TWinControl): Boolean;
- {$IfEnd} // NOT Defined(NoVCL)
+{$IfEnd} // NOT Defined(NoVCL)
 
- {$If NOT Defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
  TafwDoTabHook = function(aControl: TControl;
   aShift: Boolean): Boolean;
- {$IfEnd} // NOT Defined(NoVCL)
+{$IfEnd} // NOT Defined(NoVCL)
 
  TafwMessagesService = {final} class(Tl3ProtoObject, Il3MessagesService)
   public
@@ -64,7 +65,7 @@ type
     {* Проверяет создан экземпляр синглетона или нет }
  end;//TafwMessagesService
 
- {$If NOT Defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
  TafwFormsService = {final} class(Tl3ProtoObject, Il3FormsService)
   public
    function GetAnotherParentForm(Component: TPersistent): TCustomForm;
@@ -76,7 +77,7 @@ type
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
  end;//TafwFormsService
- {$IfEnd} // NOT Defined(NoVCL)
+{$IfEnd} // NOT Defined(NoVCL)
 
  TafwKeyboardLayoutService = {final} class(Tl3ProtoObject, Il3KeyboardLayoutService)
   public

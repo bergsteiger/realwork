@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddHTMLWriter;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddHTMLWriter.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddHTMLWriter" MUID: (4B9E545B0118)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

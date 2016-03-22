@@ -7,6 +7,8 @@ aSubDescrObj subdescriptor:GetColumn
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetColumn.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "subdescriptor_GetColumn" MUID: (52D6622F0148)
+// Имя типа: "TkwSubdescriptorGetColumn"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

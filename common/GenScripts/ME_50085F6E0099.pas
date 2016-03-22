@@ -2,6 +2,7 @@ unit atExecuteQueryFromXMLOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atExecuteQueryFromXMLOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatExecuteQueryFromXMLOperation" MUID: (50085F6E0099)
 
 interface
 

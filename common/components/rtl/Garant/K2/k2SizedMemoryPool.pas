@@ -5,7 +5,7 @@ unit k2SizedMemoryPool;
 // Библиотека "K2"
 // Модуль: "w:/common/components/rtl/Garant/K2/k2SizedMemoryPool.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::K2::Standard::k2SizedMemoryPool
+// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::K2::Standard::k2SizedMemoryPool
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

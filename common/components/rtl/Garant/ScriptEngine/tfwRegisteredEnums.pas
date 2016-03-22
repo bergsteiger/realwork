@@ -2,6 +2,7 @@ unit tfwRegisteredEnums;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwRegisteredEnums.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwRegisteredEnums" MUID: (53C7ED5A01A0)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

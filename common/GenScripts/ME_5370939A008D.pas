@@ -3,6 +3,8 @@ unit kwMainFormClearHistory;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwMainFormClearHistory.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "MainForm_ClearHistory" MUID: (5370939A008D)
+// Имя типа: "TkwMainFormClearHistory"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

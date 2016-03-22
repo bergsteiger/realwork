@@ -2,6 +2,8 @@ unit AdminTestRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AdminTestRes.pas"
 // Стереотип: "VCMTestApplication"
+// Элемент модели: "AdminTest" MUID: (5123A74700E2)
+// Имя типа: "TAdminTestRes"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

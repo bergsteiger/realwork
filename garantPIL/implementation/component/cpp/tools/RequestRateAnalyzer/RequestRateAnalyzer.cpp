@@ -16,6 +16,7 @@
 #include "garantCore/SearchAdapterLib/Cache/Cache.h"
 
 #include "RequestRateAnalyzer.h"
+#include "DBComm.h"
 
 namespace RequestRateAnalyze {
 
@@ -107,12 +108,14 @@ RequestRateAnalyzer::RequestRateAnalyzer (const std::string& path) : m_max_value
 
 	m_base = new ToolsBase (path);
 
-	SearchAdapterLib::Cache::instance ()->init (m_base->abstract_base ());
+	DBCore::IBase_var _base = DBCore::DBFactory::make (m_base.in ());
 
-	m_searcher = SearchAdapterLib::Adapter::ISearcherFactory::make (m_base->abstract_base (), 0, "NWCntxt.str");
+	SearchAdapterLib::Cache::instance ()->init (_base.in ());
+
+	m_searcher = SearchAdapterLib::Adapter::ISearcherFactory::make (_base.in (), 0, "NWCntxt.str");
 
 	Morpho::Def::ICache_var cache = Morpho::Factory::make ();
-	cache->load (m_base->abstract_base (), true);
+	cache->load (_base.in ());
 
 	m_env.normalizer = Morpho::Factory::make (cache.in ());
 	m_query = Manage::IQueryFactory::make (m_env, SearchAdapterLib::Cache::instance ()->get ());
@@ -188,8 +191,6 @@ void RequestRateAnalyzer::execute (const Properties& properties) {
 void RequestRateAnalyzer::convert_to_string (const Search::SplitRequest& req, std::string& out) {
 	out.clear ();
 
-	std::string forma;
-
 	Search::Phrase::const_iterator it_begin = req.context.begin (), it_end = req.context.end ();
 
 	for (Search::Phrase::const_iterator it = it_begin; it != it_end; ++it) {
@@ -201,9 +202,8 @@ void RequestRateAnalyzer::convert_to_string (const Search::SplitRequest& req, st
 			out += " ";
 		}
 
-		Core::Aptr <GCL::StrSet> res = m_env.normalizer->execute (*it, forma, Morpho::Def::NSettings ());
-
-		out += res->begin ()->c_str () + 1;
+		Core::Aptr <GCL::StrSet> res = m_env.normalizer->execute (*it, false);
+		out += *(res->begin ());
 	}
 }
 

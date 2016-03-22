@@ -3,6 +3,7 @@ unit nscTreeViewRes;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTreeViewRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nscTreeViewRes" MUID: (4B97DC630378)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

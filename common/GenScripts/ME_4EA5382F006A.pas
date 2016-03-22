@@ -3,6 +3,8 @@ unit K294595323;
 
 // Модуль: "w:\common\components\rtl\Garant\Archi_Tests\K294595323.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K294595323" MUID: (4EA5382F006A)
+// Имя типа: "TK294595323"
 
 {$Include w:\common\components\rtl\Garant\Archi_Tests\TestDefine.inc.pas}
 

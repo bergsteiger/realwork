@@ -2,6 +2,7 @@ unit evControlsBlockConst;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evControlsBlockConst.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "evControlsBlockConst" MUID: (485808AB001D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

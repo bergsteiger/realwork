@@ -2,6 +2,7 @@ unit nevPointList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevPointList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevPointList" MUID: (47E2750502E9)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

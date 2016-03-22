@@ -3,6 +3,7 @@ unit RegistrationForm_ut_RegistrationForm_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\RegistrationForm_ut_RegistrationForm_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_RegistrationForm" MUID: (D488F1933FE9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_RegistrationForm = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_RegistrationForm }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_RegistrationForm
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_RegistrationForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_RegistrationForm';
-end;//Tkw_FormUserType_ut_RegistrationForm.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_RegistrationForm.GetInteger: Integer;
 begin
  Result := ut_RegistrationForm;
 end;//Tkw_FormUserType_ut_RegistrationForm.GetInteger
+
+class function Tkw_FormUserType_ut_RegistrationForm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_RegistrationForm';
+end;//Tkw_FormUserType_ut_RegistrationForm.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

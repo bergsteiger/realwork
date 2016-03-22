@@ -3,6 +3,8 @@ unit EULA_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\EULA_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "EULA" MUID: (4A93FB8C0121)
+// Имя типа: "TefEULA"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

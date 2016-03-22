@@ -2,6 +2,7 @@ unit nevParaListAnchorModifyTypes;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevParaListAnchorModifyTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nevParaListAnchorModifyTypes" MUID: (4D6E722D0214)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

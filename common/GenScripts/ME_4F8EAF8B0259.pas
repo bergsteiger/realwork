@@ -2,6 +2,7 @@ unit NOT_FINISHED_evRuler;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evRuler.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evRuler" MUID: (4F8EAF8B0259)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

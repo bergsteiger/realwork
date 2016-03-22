@@ -59,24 +59,7 @@ ref; // ME_52D6472F006E DoIt
 
 ref; // ME_52D6471802DC DoWithSubPanel
 
-: ME_C7D3EC551A0A
- CONST UID 'C7D3EC551A0A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwSubPanelFromStackWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52D646990049 // TkwSubPanelFromStackWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_C7D3EC551A0A Ini_Reg_Class
-
 : ME_4F212C3A015A_ME_52D646990049
- CONST UID '4F212C3A015A'
- CONST Name 'DoControl'
  : Original WL 'ME_4F212C3A015A' '54DB92D203C9.pas.ms.script' // DoControl
  ;
  : Implementor ME_52D646990049 // TkwSubPanelFromStackWord
@@ -100,7 +83,6 @@ ref; // ME_4F212C3A015A_ME_52D646990049 DoControl
  ; // Inherits
  : Operations
    Seq: ( ME_52D6471802DC // DoWithSubPanel
- ME_C7D3EC551A0A // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -306,39 +288,13 @@ ref; // ME_59666CAB2B06
 
 ref; // ME_52D643FE004B SubPanelWordsPack
 
-: ME_31E0B000F8C6
- CONST UID '31E0B000F8C6'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация IterateSubDescriptors' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52D643C100A8 // IterateSubDescriptors
- ;
-
-ref; // ME_31E0B000F8C6 Ini_Reg
-
 : ME_52D6471802DC_ME_52D643C100A8
- CONST UID '52D6471802DC'
- CONST Name 'DoWithSubPanel'
  : Original ME_52D6471802DC // DoWithSubPanel
  ;
  : Implementor ME_52D643C100A8 // IterateSubDescriptors
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_52D6471802DC_ME_52D643C100A8 DoWithSubPanel
-
-: ME_4DB0614603C8_ME_52D643C100A8
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_52D643C100A8 // IterateSubDescriptors
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_52D643C100A8 GetWordNameForRegister
 
 : ME_52D643C100A8
  CONST UID '52D643C100A8'
@@ -355,18 +311,10 @@ ref; // ME_4DB0614603C8_ME_52D643C100A8 GetWordNameForRegister
    Seq: ( ME_52D646990049 // TkwSubPanelFromStackWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_31E0B000F8C6 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_52D6471802DC_ME_52D643C100A8 // DoWithSubPanel
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_52D643C100A8 // GetWordNameForRegister
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -434,24 +382,7 @@ ref; // ME_52D65EB6003E DoIt
 
 ref; // ME_52D65E9502E1 DoWithSubDescriptor
 
-: ME_883CED483DBA
- CONST UID '883CED483DBA'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwSubDescriptorFromStackWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_883CED483DBA Ini_Reg_Class
-
 : ME_4F212BD5010E_ME_52D65E6902A8
- CONST UID '4F212BD5010E'
- CONST Name 'DoObject'
  : Original WL 'ME_4F212BD5010E' '54DC9ACA0156.pas.ms.script' // DoObject
  ;
  : Implementor ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
@@ -475,7 +406,6 @@ ref; // ME_4F212BD5010E_ME_52D65E6902A8 DoObject
  ; // Inherits
  : Operations
    Seq: ( ME_52D65E9502E1 // DoWithSubDescriptor
- ME_883CED483DBA // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -493,39 +423,13 @@ ref; // ME_4F212BD5010E_ME_52D65E6902A8 DoObject
 
 ref; // ME_52D65E6902A8 TkwSubDescriptorFromStackWord
 
-: ME_78DE9B0D3B7E
- CONST UID '78DE9B0D3B7E'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация subdescriptor_GetDrawType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52D65F690396 // subdescriptor_GetDrawType
- ;
-
-ref; // ME_78DE9B0D3B7E Ini_Reg
-
 : ME_52D65E9502E1_ME_52D65F690396
- CONST UID '52D65E9502E1'
- CONST Name 'DoWithSubDescriptor'
  : Original ME_52D65E9502E1 // DoWithSubDescriptor
  ;
  : Implementor ME_52D65F690396 // subdescriptor_GetDrawType
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_52D65E9502E1_ME_52D65F690396 DoWithSubDescriptor
-
-: ME_4DB0614603C8_ME_52D65F690396
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_52D65F690396 // subdescriptor_GetDrawType
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_52D65F690396 GetWordNameForRegister
 
 : ME_52D65F690396
  CONST UID '52D65F690396'
@@ -542,18 +446,10 @@ ref; // ME_4DB0614603C8_ME_52D65F690396 GetWordNameForRegister
    Seq: ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_78DE9B0D3B7E // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_52D65E9502E1_ME_52D65F690396 // DoWithSubDescriptor
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_52D65F690396 // GetWordNameForRegister
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -566,39 +462,13 @@ ref; // ME_4DB0614603C8_ME_52D65F690396 GetWordNameForRegister
 
 ref; // ME_52D65F690396 subdescriptor_GetDrawType
 
-: ME_7501A9584F58
- CONST UID '7501A9584F58'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация subdescriptor_GetBitmapIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52D6601F031E // subdescriptor_GetBitmapIndex
- ;
-
-ref; // ME_7501A9584F58 Ini_Reg
-
 : ME_52D65E9502E1_ME_52D6601F031E
- CONST UID '52D65E9502E1'
- CONST Name 'DoWithSubDescriptor'
  : Original ME_52D65E9502E1 // DoWithSubDescriptor
  ;
  : Implementor ME_52D6601F031E // subdescriptor_GetBitmapIndex
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_52D65E9502E1_ME_52D6601F031E DoWithSubDescriptor
-
-: ME_4DB0614603C8_ME_52D6601F031E
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_52D6601F031E // subdescriptor_GetBitmapIndex
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_52D6601F031E GetWordNameForRegister
 
 : ME_52D6601F031E
  CONST UID '52D6601F031E'
@@ -615,18 +485,10 @@ ref; // ME_4DB0614603C8_ME_52D6601F031E GetWordNameForRegister
    Seq: ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7501A9584F58 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_52D65E9502E1_ME_52D6601F031E // DoWithSubDescriptor
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_52D6601F031E // GetWordNameForRegister
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -639,39 +501,13 @@ ref; // ME_4DB0614603C8_ME_52D6601F031E GetWordNameForRegister
 
 ref; // ME_52D6601F031E subdescriptor_GetBitmapIndex
 
-: ME_6A45DCD701F5
- CONST UID '6A45DCD701F5'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация subdescriptor_GetBlockBitmapIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52D660670205 // subdescriptor_GetBlockBitmapIndex
- ;
-
-ref; // ME_6A45DCD701F5 Ini_Reg
-
 : ME_52D65E9502E1_ME_52D660670205
- CONST UID '52D65E9502E1'
- CONST Name 'DoWithSubDescriptor'
  : Original ME_52D65E9502E1 // DoWithSubDescriptor
  ;
  : Implementor ME_52D660670205 // subdescriptor_GetBlockBitmapIndex
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_52D65E9502E1_ME_52D660670205 DoWithSubDescriptor
-
-: ME_4DB0614603C8_ME_52D660670205
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_52D660670205 // subdescriptor_GetBlockBitmapIndex
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_52D660670205 GetWordNameForRegister
 
 : ME_52D660670205
  CONST UID '52D660670205'
@@ -688,18 +524,10 @@ ref; // ME_4DB0614603C8_ME_52D660670205 GetWordNameForRegister
    Seq: ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6A45DCD701F5 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_52D65E9502E1_ME_52D660670205 // DoWithSubDescriptor
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_52D660670205 // GetWordNameForRegister
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -712,39 +540,13 @@ ref; // ME_4DB0614603C8_ME_52D660670205 GetWordNameForRegister
 
 ref; // ME_52D660670205 subdescriptor_GetBlockBitmapIndex
 
-: ME_3F6D89275E79
- CONST UID '3F6D89275E79'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация subdescriptor_GetDocumentBitmapIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52D660C703AC // subdescriptor_GetDocumentBitmapIndex
- ;
-
-ref; // ME_3F6D89275E79 Ini_Reg
-
 : ME_52D65E9502E1_ME_52D660C703AC
- CONST UID '52D65E9502E1'
- CONST Name 'DoWithSubDescriptor'
  : Original ME_52D65E9502E1 // DoWithSubDescriptor
  ;
  : Implementor ME_52D660C703AC // subdescriptor_GetDocumentBitmapIndex
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_52D65E9502E1_ME_52D660C703AC DoWithSubDescriptor
-
-: ME_4DB0614603C8_ME_52D660C703AC
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_52D660C703AC // subdescriptor_GetDocumentBitmapIndex
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_52D660C703AC GetWordNameForRegister
 
 : ME_52D660C703AC
  CONST UID '52D660C703AC'
@@ -761,18 +563,10 @@ ref; // ME_4DB0614603C8_ME_52D660C703AC GetWordNameForRegister
    Seq: ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_3F6D89275E79 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_52D65E9502E1_ME_52D660C703AC // DoWithSubDescriptor
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_52D660C703AC // GetWordNameForRegister
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -785,39 +579,13 @@ ref; // ME_4DB0614603C8_ME_52D660C703AC GetWordNameForRegister
 
 ref; // ME_52D660C703AC subdescriptor_GetDocumentBitmapIndex
 
-: ME_092BF23EFEC6
- CONST UID '092BF23EFEC6'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация subdescriptor_GetVisible' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52D661D4008D // subdescriptor_GetVisible
- ;
-
-ref; // ME_092BF23EFEC6 Ini_Reg
-
 : ME_52D65E9502E1_ME_52D661D4008D
- CONST UID '52D65E9502E1'
- CONST Name 'DoWithSubDescriptor'
  : Original ME_52D65E9502E1 // DoWithSubDescriptor
  ;
  : Implementor ME_52D661D4008D // subdescriptor_GetVisible
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_52D65E9502E1_ME_52D661D4008D DoWithSubDescriptor
-
-: ME_4DB0614603C8_ME_52D661D4008D
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_52D661D4008D // subdescriptor_GetVisible
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_52D661D4008D GetWordNameForRegister
 
 : ME_52D661D4008D
  CONST UID '52D661D4008D'
@@ -834,18 +602,10 @@ ref; // ME_4DB0614603C8_ME_52D661D4008D GetWordNameForRegister
    Seq: ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_092BF23EFEC6 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_52D65E9502E1_ME_52D661D4008D // DoWithSubDescriptor
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_52D661D4008D // GetWordNameForRegister
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -858,39 +618,13 @@ ref; // ME_4DB0614603C8_ME_52D661D4008D GetWordNameForRegister
 
 ref; // ME_52D661D4008D subdescriptor_GetVisible
 
-: ME_4BCB8C6A7C2B
- CONST UID '4BCB8C6A7C2B'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация subdescriptor_GetColumn' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52D6622F0148 // subdescriptor_GetColumn
- ;
-
-ref; // ME_4BCB8C6A7C2B Ini_Reg
-
 : ME_52D65E9502E1_ME_52D6622F0148
- CONST UID '52D65E9502E1'
- CONST Name 'DoWithSubDescriptor'
  : Original ME_52D65E9502E1 // DoWithSubDescriptor
  ;
  : Implementor ME_52D6622F0148 // subdescriptor_GetColumn
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_52D65E9502E1_ME_52D6622F0148 DoWithSubDescriptor
-
-: ME_4DB0614603C8_ME_52D6622F0148
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_52D6622F0148 // subdescriptor_GetColumn
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_52D6622F0148 GetWordNameForRegister
 
 : ME_52D6622F0148
  CONST UID '52D6622F0148'
@@ -907,18 +641,10 @@ ref; // ME_4DB0614603C8_ME_52D6622F0148 GetWordNameForRegister
    Seq: ( ME_52D65E6902A8 // TkwSubDescriptorFromStackWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4BCB8C6A7C2B // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_52D65E9502E1_ME_52D6622F0148 // DoWithSubDescriptor
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_52D6622F0148 // GetWordNameForRegister
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -994,20 +720,6 @@ ref; // ME_53EDFA2802F5 DoIt
 
 ref; // ME_53EDFA0401B8 PushObjData
 
-: ME_AFA5B69F17DC
- CONST UID 'AFA5B69F17DC'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация IterateSubDecriptorsOnSubPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52D78486017B // IterateSubDecriptorsOnSubPanel
- ;
-
-ref; // ME_AFA5B69F17DC Ini_Reg
-
 : ME_52D78CB90285
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1029,24 +741,12 @@ ref; // ME_52D78CB90285
 ref; // ME_52D7903E034C 
 
 : ME_52D6471802DC_ME_52D78486017B
- CONST UID '52D6471802DC'
- CONST Name 'DoWithSubPanel'
  : Original ME_52D6471802DC // DoWithSubPanel
  ;
  : Implementor ME_52D78486017B // IterateSubDecriptorsOnSubPanel
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_52D6471802DC_ME_52D78486017B DoWithSubPanel
-
-: ME_4DB0614603C8_ME_52D78486017B
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_52D78486017B // IterateSubDecriptorsOnSubPanel
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_52D78486017B GetWordNameForRegister
 
 : ME_52D78486017B
  CONST UID '52D78486017B'
@@ -1065,17 +765,12 @@ ref; // ME_4DB0614603C8_ME_52D78486017B GetWordNameForRegister
  ; // Inherits
  : Operations
    Seq: ( ME_53EDFA0401B8 // PushObjData
- ME_AFA5B69F17DC // Ini_Reg
  )
  ; // Operations
  : Implemented
    Seq: ( ME_52D6471802DC_ME_52D78486017B // DoWithSubPanel
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_52D78486017B // GetWordNameForRegister
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_52D78CB90285 // 
  ME_52D7903E034C // 
@@ -1092,20 +787,6 @@ ref; // ME_4DB0614603C8_ME_52D78486017B GetWordNameForRegister
  CONST extprop:pas:UnitName 'kwIterateSubDecriptorsOnSubPanel'
 
 ref; // ME_52D78486017B IterateSubDecriptorsOnSubPanel
-
-: ME_30C0D9E97E7C
- CONST UID '30C0D9E97E7C'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация IterateSubDecriptorsOnSubPanelEX' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53EDF0A20129 // IterateSubDecriptorsOnSubPanelEX
- ;
-
-ref; // ME_30C0D9E97E7C Ini_Reg
 
 : ME_53EDF1D903D7
  CONST Class class_Dependency
@@ -1127,19 +808,7 @@ ref; // ME_53EDF1D903D7
 
 ref; // ME_53EDF1DE0101 
 
-: ME_4DB0614603C8_ME_53EDF0A20129
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_53EDF0A20129 // IterateSubDecriptorsOnSubPanelEX
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_53EDF0A20129 GetWordNameForRegister
-
 : ME_53EDFA0401B8_ME_53EDF0A20129
- CONST UID '53EDFA0401B8'
- CONST Name 'PushObjData'
  : Original ME_53EDFA0401B8 // PushObjData
  ;
  : Implementor ME_53EDF0A20129 // IterateSubDecriptorsOnSubPanelEX
@@ -1162,13 +831,8 @@ ref; // ME_53EDFA0401B8_ME_53EDF0A20129 PushObjData
    Seq: ( ME_52D78486017B // IterateSubDecriptorsOnSubPanel
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_30C0D9E97E7C // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_53EDF0A20129 // GetWordNameForRegister
- ME_53EDFA0401B8_ME_53EDF0A20129 // PushObjData
+   Seq: ( ME_53EDFA0401B8_ME_53EDF0A20129 // PushObjData
  )
  ; // Overridden
  : Dependencies
@@ -1187,20 +851,6 @@ ref; // ME_53EDFA0401B8_ME_53EDF0A20129 PushObjData
  CONST extprop:pas:UnitName 'kwIterateSubDecriptorsOnSubPanelEX'
 
 ref; // ME_53EDF0A20129 IterateSubDecriptorsOnSubPanelEX
-
-: ME_E50180327B82
- CONST UID 'E50180327B82'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация SubPanel_GetPopupMenuForSub' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53EE014B03AC // SubPanel_GetPopupMenuForSub
- ;
-
-ref; // ME_E50180327B82 Ini_Reg
 
 : ME_53F1A9530216
  CONST Class class_Dependency
@@ -1253,24 +903,12 @@ ref; // ME_54ECAF5600EE
 ref; // ME_550039F002FE 
 
 : ME_52D6471802DC_ME_53EE014B03AC
- CONST UID '52D6471802DC'
- CONST Name 'DoWithSubPanel'
  : Original ME_52D6471802DC // DoWithSubPanel
  ;
  : Implementor ME_53EE014B03AC // SubPanel_GetPopupMenuForSub
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_52D6471802DC_ME_53EE014B03AC DoWithSubPanel
-
-: ME_4DB0614603C8_ME_53EE014B03AC
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_53EE014B03AC // SubPanel_GetPopupMenuForSub
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_53EE014B03AC GetWordNameForRegister
 
 : ME_53EE014B03AC
  CONST UID '53EE014B03AC'
@@ -1287,18 +925,10 @@ ref; // ME_4DB0614603C8_ME_53EE014B03AC GetWordNameForRegister
    Seq: ( ME_52D646990049 // TkwSubPanelFromStackWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E50180327B82 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_52D6471802DC_ME_53EE014B03AC // DoWithSubPanel
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_53EE014B03AC // GetWordNameForRegister
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_53F1A9530216 // 
  ME_53F1B168028A // 

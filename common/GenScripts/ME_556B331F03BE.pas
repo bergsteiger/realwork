@@ -2,6 +2,7 @@ unit nsMedicDictCache;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsMedicDictCache.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsMedicDictCache" MUID: (556B331F03BE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

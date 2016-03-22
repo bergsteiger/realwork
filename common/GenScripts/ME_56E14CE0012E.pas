@@ -2,6 +2,7 @@ unit caParam;
 
 // Модуль: "w:\common\components\rtl\Garant\ComboAccess\caParam.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcaParam" MUID: (56E14CE0012E)
 
 {$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 

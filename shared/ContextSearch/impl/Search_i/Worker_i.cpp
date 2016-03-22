@@ -80,7 +80,6 @@ void Worker_i::execute (Task& task) {
 	m_algorithm->get_relevancy_info (
 		at.info
 		, task.data
-		, m_searcher->get_identical ()
 		, (it != blocks.end ())? it->second : def
 		, (rel_it != rel_data.end ())? rel_it->second : rel_def
 		, task.has_block

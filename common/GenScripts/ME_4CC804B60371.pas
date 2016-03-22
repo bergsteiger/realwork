@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Skins\BaseSearch2010.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "BaseSearch2010" MUID: (4CC804B60371)
+// Имя типа: "_BaseSearch2010_"
 
 {$Define BaseSearch2010_imp}
 
@@ -10,6 +12,7 @@ const
  GradientStartColor = $CF9560;
  GradientEndColor = $E1B484;
 
+type
  _RegionableForm_Parent_ = _BaseSearch2010_Parent_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Skins\RegionableForm.imp.pas}
  _SkinnedForm_Parent_ = _RegionableForm_;

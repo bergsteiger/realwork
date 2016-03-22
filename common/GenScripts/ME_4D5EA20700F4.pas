@@ -3,6 +3,7 @@ unit vgObjectList;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgObjectList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgObjectList" MUID: (4D5EA20700F4)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

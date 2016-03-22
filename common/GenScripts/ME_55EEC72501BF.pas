@@ -2,6 +2,7 @@ unit NOT_FINISHED_alcuMdpImportDocs;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpImportDocs.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuMdpImportDocs" MUID: (55EEC72501BF)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

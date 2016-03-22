@@ -2,6 +2,7 @@ unit nsAACRightDocumentContainer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\nsAACRightDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsAACRightDocumentContainer" MUID: (500E75C90024)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

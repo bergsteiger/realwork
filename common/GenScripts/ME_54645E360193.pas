@@ -2,6 +2,7 @@ unit ncsFileTransferReg;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsFileTransferReg.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ncsFileTransferReg" MUID: (54645E360193)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -2,6 +2,7 @@ unit ncsSendThread;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsSendThread.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsSendThread" MUID: (5450E9A0034A)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

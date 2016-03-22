@@ -2,6 +2,8 @@ unit kwEvdBin2EvdTxt;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEvdBin2EvdTxt.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "EvdBin2EvdTxt" MUID: (52DEAB2F00A1)
+// Имя типа: "TkwEvdBin2EvdTxt"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

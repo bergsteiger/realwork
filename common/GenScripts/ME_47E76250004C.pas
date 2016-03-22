@@ -2,6 +2,7 @@ unit ActnList;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\ActnList.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ActnList" MUID: (47E76250004C)
 
 interface
 

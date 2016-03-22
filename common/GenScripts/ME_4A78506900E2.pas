@@ -2,6 +2,7 @@ unit nsCompareEditionsInfo;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsCompareEditionsInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsCompareEditionsInfo" MUID: (4A78506900E2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

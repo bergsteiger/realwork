@@ -2,6 +2,7 @@ unit evDocumentHotSpotTester;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDocumentHotSpotTester.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentHotSpotTester" MUID: (4E6E37D90203)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

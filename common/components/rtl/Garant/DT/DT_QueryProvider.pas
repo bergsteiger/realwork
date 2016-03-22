@@ -1,8 +1,11 @@
 unit Dt_QueryProvider;
 
-{ $Id: DT_QueryProvider.pas,v 1.37 2014/12/01 15:58:57 voba Exp $ }
+{ $Id: DT_QueryProvider.pas,v 1.38 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: DT_QueryProvider.pas,v $
+// Revision 1.38  2015/11/25 14:01:48  lukyanets
+// «аготовки дл€ выдачи номеров+переезд констант
+//
 // Revision 1.37  2014/12/01 15:58:57  voba
 // - bf: неправильно формировалась цепочка verlink
 //
@@ -211,6 +214,7 @@ type
 implementation
 uses
   WinTypes,
+  daSchemeConsts,
   HT_Const, HT_Dll,
   DT_Const,
   dt_Sab,

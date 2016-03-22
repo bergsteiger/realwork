@@ -2,6 +2,7 @@ unit nscTreeViewForNewsLine;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Tree\nscTreeViewForNewsLine.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscTreeViewForNewsLine" MUID: (54522FE602ED)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

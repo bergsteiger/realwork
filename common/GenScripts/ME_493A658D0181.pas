@@ -3,6 +3,7 @@ unit sdsMedicFirmList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\sdsMedicFirmList.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsMedicFirmList" MUID: (493A658D0181)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

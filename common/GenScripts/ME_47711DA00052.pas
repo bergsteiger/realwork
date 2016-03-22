@@ -2,6 +2,7 @@ unit SessionHelper;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\SessionHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "SessionHelper" MUID: (47711DA00052)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -51,7 +52,7 @@ function SessionHelper.pm_Getis_session_active: Boolean;
 //#UC END# *47711DCF03A0_47711DA00052get_var*
 begin
 //#UC START# *47711DCF03A0_47711DA00052get_impl*
- Result := f_is_session_active
+ !!! Needs to be implemented !!!
 //#UC END# *47711DCF03A0_47711DA00052get_impl*
 end;//SessionHelper.pm_Getis_session_active
 
@@ -60,7 +61,7 @@ procedure SessionHelper.pm_Setis_session_active(aValue: Boolean);
 //#UC END# *47711DCF03A0_47711DA00052set_var*
 begin
 //#UC START# *47711DCF03A0_47711DA00052set_impl*
- f_is_session_active := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *47711DCF03A0_47711DA00052set_impl*
 end;//SessionHelper.pm_Setis_session_active
 

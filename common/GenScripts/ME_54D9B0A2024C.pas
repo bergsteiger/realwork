@@ -2,6 +2,7 @@ unit ddObjectSegment;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddObjectSegment.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddObjectSegment" MUID: (54D9B0A2024C)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -44,8 +45,8 @@ begin
  if not Data.CanWrite then Exit; 
  StartObjectSegment(Generator);
  try
-  DoWriteSegmentProps(Generator, aCHP, aParentCHP, LiteVersion);
-  Data.Write2Generator(Generator, False, LiteVersion);
+  DoWriteSegmentProps(Generator, aCHP, aParentCHP, aLiteVersion);
+  Data.Write2Generator(Generator, False, aLiteVersion);
  finally
   Generator.Finish;
  end; // k2_idTextSegment

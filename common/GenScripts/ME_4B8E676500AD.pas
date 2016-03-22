@@ -2,6 +2,7 @@ unit vcmDialogs;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmDialogs.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmDialogs" MUID: (4B8E676500AD)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -2,6 +2,7 @@ unit pgResultSet;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgResultSet.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgResultSet" MUID: (560B961401E4)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 

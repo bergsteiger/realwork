@@ -2,6 +2,7 @@ unit atUserComment;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\EvdHelpers\atUserComment.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatUserComment" MUID: (4B6AE7650002)
 
 interface
 

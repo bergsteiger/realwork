@@ -81,23 +81,8 @@ begin
 end;
 
 procedure TNewBaseSearchForm.FindBtnClick(Sender: TObject);
- procedure lpRefreshBtn;
- begin // покостыляем
-  FindBtn.StaysPressed := True;
-  try
-   FindBtn.IsPressed := False;
-  finally
-   FindBtn.StaysPressed := False;
-  end;
- end;
 begin
- FindBtn.Enabled := False;
- try
-  DoFindBtnClick;
- finally
-  lpRefreshBtn;
-  FindBtn.Enabled := True;
- end;
+ DoFindBtnClick;
 end;
 
 procedure TNewBaseSearchForm.AreaComboChange(Sender: TObject);

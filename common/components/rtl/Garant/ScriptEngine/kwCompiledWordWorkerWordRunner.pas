@@ -2,6 +2,7 @@ unit kwCompiledWordWorkerWordRunner;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordWorkerWordRunner.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledWordWorkerWordRunner" MUID: (4F2198430108)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -23,9 +24,7 @@ type
   private
    f_LeftWordRefs: TtfwWordRefList;
    f_WordToRun: TtfwWord;
-    {* Поле для свойства WordToRun }
    f_Caller: TtfwWord;
-    {* Поле для свойства Caller }
   private
    procedure DoCode(const aCtx: TtfwContext);
    function ReturnsRef(const aCtx: TtfwContext): Boolean;

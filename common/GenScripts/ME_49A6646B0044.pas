@@ -3,6 +3,7 @@ unit k2BaseTypes;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\k2BaseTypes.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "k2BaseTypes" MUID: (49A6646B0044)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

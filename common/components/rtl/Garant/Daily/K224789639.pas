@@ -1,75 +1,56 @@
 unit K224789639;
+ {* [$224789639] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/K224789639.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.6::K224789639
-//
-// [$224789639]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K224789639.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K224789639" MUID: (4CBC1CA70020)
+// Имя типа: "TK224789639"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  PreviewTestBefore235875079WithRowCmp
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , PreviewTestBefore235875079WithRowCmp
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK224789639 = class(TPreviewTestBefore235875079WithRowCmp)
   {* [$224789639] }
- protected
- // overridden protected methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    function GetNormalFontSize: Integer; override;
-     {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
-   {$IfEnd} //nsTest AND not NoVCM
+    {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK224789639
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork,
-  PrintRowHeightsSpy
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ , PrintRowHeightsSpy
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK224789639
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TK224789639.GetNormalFontSize: Integer;
+ {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
 //#UC START# *4C07AC6F036D_4CBC1CA70020_var*
 //#UC END# *4C07AC6F036D_4CBC1CA70020_var*
 begin
@@ -77,23 +58,22 @@ begin
  Result := 12;
 //#UC END# *4C07AC6F036D_4CBC1CA70020_impl*
 end;//TK224789639.GetNormalFontSize
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TK224789639.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.6';
 end;//TK224789639.GetFolder
 
 function TK224789639.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4CBC1CA70020';
 end;//TK224789639.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK224789639.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

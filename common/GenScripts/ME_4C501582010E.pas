@@ -3,6 +3,7 @@ unit InsertStreamTestWithImplementedNavigate;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\InsertStreamTestWithImplementedNavigate.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TInsertStreamTestWithImplementedNavigate" MUID: (4C501582010E)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

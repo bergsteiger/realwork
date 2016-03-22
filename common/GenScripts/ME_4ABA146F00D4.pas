@@ -3,6 +3,8 @@ unit ConfigurationList_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\ConfigurationList_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "ConfigurationList" MUID: (4ABA146F00D4)
+// Имя типа: "Ten_ConfigurationList"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

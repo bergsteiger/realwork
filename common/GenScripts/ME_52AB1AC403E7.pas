@@ -2,6 +2,7 @@ unit NOT_FINISHED_tb97vt;
 
 // Модуль: "w:\common\components\rtl\external\tb97\NOT_FINISHED_tb97vt.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "tb97vt" MUID: (52AB1AC403E7)
 
 {$Include w:\common\components\rtl\external\tb97\TB97VER.INC}
 

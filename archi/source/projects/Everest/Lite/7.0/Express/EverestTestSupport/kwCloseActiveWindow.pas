@@ -1,79 +1,47 @@
 unit kwCloseActiveWindow;
+ {* *Формат:*  CloseActiveWindow
+*Описание:* Закрывает текущее открытое окно редактора.
+ *Пример:*
+ [code]
+CloseActiveWindow
+ [code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestTestSupport"
-// Модуль: "w:/archi/source/projects/Everest/Lite/7.0/Express/EverestTestSupport/kwCloseActiveWindow.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$EverestLite$TestSupport::EverestTestSupport::EverestLiteKeyWords::CloseActiveWindow
-//
-// *Формат:*  CloseActiveWindow
-// *Описание:* Закрывает текущее открытое окно редактора.
-// *Пример:*
-// {code}
-// CloseActiveWindow
-// {code}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwCloseActiveWindow.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "CloseActiveWindow" MUID: (512DD1330118)
+// Имя типа: "TkwCloseActiveWindow"
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  tfwRegisterableWord
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //InsiderTest AND nsTest
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If defined(InsiderTest) AND defined(nsTest)}
 type
- TkwCloseActiveWindow = {final scriptword} class(TtfwRegisterableWord)
+ TkwCloseActiveWindow = {final} class(TtfwRegisterableWord)
   {* *Формат:*  CloseActiveWindow
 *Описание:* Закрывает текущее открытое окно редактора.
  *Пример:*
  [code]
 CloseActiveWindow
  [code] }
- protected
- // realized methods
-    {$If not defined(NoScripts)}
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
-    {$IfEnd} //not NoScripts
- protected
- // overridden protected methods
-   {$If not defined(NoScripts)}
    class function GetWordNameForRegister: AnsiString; override;
-   {$IfEnd} //not NoScripts
  end;//TkwCloseActiveWindow
-{$IfEnd} //InsiderTest AND nsTest
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  EverestLiteAdapter
-  ;
-{$IfEnd} //InsiderTest AND nsTest
+ l3ImplUses
+ , EverestLiteAdapter
+;
 
-{$If defined(InsiderTest) AND defined(nsTest)}
-
-// start class TkwCloseActiveWindow
-
-{$If not defined(NoScripts)}
 procedure TkwCloseActiveWindow.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_512DD1330118_var*
 //#UC END# *4DAEEDE10285_512DD1330118_var*
@@ -82,22 +50,15 @@ begin
  CloseDocument;
 //#UC END# *4DAEEDE10285_512DD1330118_impl*
 end;//TkwCloseActiveWindow.DoDoIt
-{$IfEnd} //not NoScripts
 
-{$If not defined(NoScripts)}
 class function TkwCloseActiveWindow.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'CloseActiveWindow';
 end;//TkwCloseActiveWindow.GetWordNameForRegister
-{$IfEnd} //not NoScripts
-
-{$IfEnd} //InsiderTest AND nsTest
 
 initialization
-{$If defined(InsiderTest) AND defined(nsTest)}
-// Регистрация CloseActiveWindow
  TkwCloseActiveWindow.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest
+ {* Регистрация CloseActiveWindow }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

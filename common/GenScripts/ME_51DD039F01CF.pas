@@ -2,6 +2,7 @@ unit destLevelText;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destLevelText.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdestLevelText" MUID: (51DD039F01CF)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -33,6 +34,7 @@ type
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
   public
    procedure Close(aState: TddRTFState;
     aNewDest: TddRTFDestination); override;
@@ -178,5 +180,12 @@ begin
  f_UnicodeBuffer := Tl3MemoryStream.Create;
 //#UC END# *51E7C9DB0213_51DD039F01CF_impl*
 end;//TdestLevelText.Create
+
+procedure TdestLevelText.ClearFields;
+begin
+ Numbers := '';
+ Text := '';
+ inherited;
+end;//TdestLevelText.ClearFields
 
 end.

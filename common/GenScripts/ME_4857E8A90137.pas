@@ -3,6 +3,8 @@ unit QueryCard_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\QueryCard_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "QueryCard" MUID: (4857E8A90137)
+// Имя типа: "QueryCardTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

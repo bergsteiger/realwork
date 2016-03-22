@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmKeyDataListener.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmKeyDataListener" MUID: (53B24D240088)
+// Имя типа: "_vcmKeyDataListener_"
 
 {$Define vcmKeyDataListener_imp}
 

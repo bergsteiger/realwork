@@ -3,6 +3,7 @@ unit f1LeafTagDataFromDTP;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1LeafTagDataFromDTP.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tf1LeafTagDataFromDTP" MUID: (4C727C300081)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

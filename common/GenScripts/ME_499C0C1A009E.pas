@@ -2,6 +2,7 @@ unit eeTreeViewExport_p;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\eeTreeViewExport_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TeeTreeViewExport" MUID: (499C0C1A009E)
 
 {$Include w:\common\components\gui\Garant\Nemesis\l3Define.inc}
 

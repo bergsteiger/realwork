@@ -2,6 +2,7 @@ unit EVDtoRTFRender;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\EVDtoRTFRender.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TEVDtoRTFRender" MUID: (52BAFC960080)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
@@ -50,6 +51,7 @@ uses
  , l3Memory
  , l3Stream
  , l3BaseStream
+ , Classes
  , TestFrameWork
 ;
 

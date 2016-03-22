@@ -1,80 +1,58 @@
 unit OutlinerTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/OutlinerTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::OutlinerTests::OutlinerTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\OutlinerTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "OutlinerTest" MUID: (4D46B552013B)
+// Имя типа: "TOutlinerTest"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  ,
-  Outliner_Form,
-  Types
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ , Outliner_Form
+ , Types
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  _FormClass_ = TOutlinerFormForm;
  _FormProducer_Parent_ = TBaseTest;
- {$Include ..\Daily\FormProducer.imp.pas}
+ {$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
  TOutlinerTest = {abstract} class(_FormProducer_)
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    procedure Load(aForm: TOutlinerFormForm;
     const aFileName: AnsiString); virtual;
-     {* Загрузить данные в дерево. }
- published
- // published methods
+    {* Загрузить данные в дерево. }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt();
  end;//TOutlinerTest
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3ImplUses
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-{$Include ..\Daily\FormProducer.imp.pas}
-
-// start class TOutlinerTest
+{$If NOT Defined(NotTunedDUnit)}
+{$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
 
 procedure TOutlinerTest.DoIt();
 //#UC START# *4D46C7AE01E3_4D46B552013B_var*
@@ -96,7 +74,8 @@ begin
 end;//TOutlinerTest.DoIt()
 
 procedure TOutlinerTest.Load(aForm: TOutlinerFormForm;
-  const aFileName: AnsiString);
+ const aFileName: AnsiString);
+ {* Загрузить данные в дерево. }
 //#UC START# *4D46E22801EB_4D46B552013B_var*
 //#UC END# *4D46E22801EB_4D46B552013B_var*
 begin
@@ -105,17 +84,17 @@ begin
 end;//TOutlinerTest.Load
 
 function TOutlinerTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'OutlinerTests';
 end;//TOutlinerTest.GetFolder
 
 function TOutlinerTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D46B552013B';
 end;//TOutlinerTest.GetModelElementGUID
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //nsTest AND not NoVCM
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 end.

@@ -263,7 +263,7 @@ class function TnsDocumentWarningGenerator.Generate(const aWarning: IdsWarning;
  {* Показать список изменяющих документов. }
  begin
   if not l3IsNil(aChangingDocuments) then
-   bsEditorAddWikiPara(aGen, l3PCharLen(aChangingDocuments), (aUserType > 0));
+   bsEditorAddWikiPara(aGen, l3PCharLen(aChangingDocuments), (aUserType > 0), not aDoc.HasRelatedDoc);
  end;//lp_ShowChangingDocuments
 
  procedure lp_ShowRangeOfWork(const aRangeOfWork: Il3CString);
@@ -344,7 +344,7 @@ var
     if not (aUserType in cTimeMachine) then
     begin
      // Выводим текст основного предупреждения
-     bsEditorAddWikiPara(aGen, l3PCharLen(nsGetDocumentWarning(aDocument)), (aUserType > 0));
+     bsEditorAddWikiPara(aGen, l3PCharLen(nsGetDocumentWarning(aDocument)), (aUserType > 0), not aDoc.HasRelatedDoc);
      //AddPara(aGen, nsGetDocumentWarning(aDocument), cSimpleWarningSub);
 
      Include(Result, wtUsual);
@@ -425,7 +425,7 @@ var
   if (wtNotActualEdition in Result) AND
      not aWarning.ForSynchroView then
    // Ссылка для перехода на актуальную редакцию
-   bsEditorAddWikiPara(aGen, str_wgBadRedationLink.AsWStr, (aUserType > 0));
+   bsEditorAddWikiPara(aGen, str_wgBadRedationLink.AsWStr, (aUserType > 0), not aDoc.HasRelatedDoc);
  end;//lp_Links
 
 //#UC END# *4ED7594E0218_4ED7576E02F7_var*
@@ -457,13 +457,13 @@ begin
                )
               )
               ,
-              (aUserType > 0));
+              (aUserType > 0), not aDoc.HasRelatedDoc);
 (*      AddPara(aGen,
               bsFullControlStatusHint(pm_GetDsDocument As IucpUnderControl));*)
      WarnOnControl:
       bsEditorAddWikiPara(aGen,
               l3PCharLen(bsFullControlStatusHint(anUnderControl)),
-              (aUserType > 0));
+              (aUserType > 0), not aDoc.HasRelatedDoc);
      WarnTimeMachineOn:
      begin
       AddPara(aGen, vcmFmt(str_TimeMachineTurnOnOnDate,

@@ -239,7 +239,7 @@ procedure TPrimAttributesOptionsForm.File_Print_Test(const aParams: IvcmTestPara
 //#UC END# *49521D8E0295_4C8647C8024Etest_var*
 begin
 //#UC START# *49521D8E0295_4C8647C8024Etest_impl*
- aParams.Op.Flag[vcm_ofEnabled] := not DefDataAdapter.IsTrialMode and HasTree;
+ aParams.Op.Flag[vcm_ofEnabled] := {not DefDataAdapter.IsTrialMode and }HasTree;
 //#UC END# *49521D8E0295_4C8647C8024Etest_impl*
 end;//TPrimAttributesOptionsForm.File_Print_Test
 {$IfEnd} //not NoVCM
@@ -265,7 +265,7 @@ procedure TPrimAttributesOptionsForm.File_PrintDialog_Test(const aParams: IvcmTe
 //#UC END# *495220DE0298_4C8647C8024Etest_var*
 begin
 //#UC START# *495220DE0298_4C8647C8024Etest_impl*
- aParams.Op.Flag[vcm_ofEnabled] := not DefDataAdapter.IsTrialMode and HasTree;
+ aParams.Op.Flag[vcm_ofEnabled] := {not DefDataAdapter.IsTrialMode and }HasTree;
 //#UC END# *495220DE0298_4C8647C8024Etest_impl*
 end;//TPrimAttributesOptionsForm.File_PrintDialog_Test
 {$IfEnd} //not NoVCM
@@ -288,7 +288,7 @@ procedure TPrimAttributesOptionsForm.File_PrintPreview_Test(const aParams: IvcmT
 //#UC END# *495220F2033A_4C8647C8024Etest_var*
 begin
 //#UC START# *495220F2033A_4C8647C8024Etest_impl*
- aParams.Op.Flag[vcm_ofEnabled] := not DefDataAdapter.IsTrialMode and (Printer.Printers.Count > 0) AND HasTree;
+ aParams.Op.Flag[vcm_ofEnabled] := {not DefDataAdapter.IsTrialMode and} (Printer.Printers.Count > 0) AND HasTree;
 //#UC END# *495220F2033A_4C8647C8024Etest_impl*
 end;//TPrimAttributesOptionsForm.File_PrintPreview_Test
 {$IfEnd} //not NoVCM
@@ -310,7 +310,7 @@ procedure TPrimAttributesOptionsForm.Edit_Copy_Test(const aParams: IvcmTestParam
 //#UC END# *4C7D0C7B0185_4C8647C8024Etest_var*
 begin
 //#UC START# *4C7D0C7B0185_4C8647C8024Etest_impl*
- aParams.Op.Flag[vcm_ofEnabled] := not DefDataAdapter.IsTrialMode and (tvAttributes.Current > -1);
+ aParams.Op.Flag[vcm_ofEnabled] := {not DefDataAdapter.IsTrialMode and} (tvAttributes.Current > -1);
 //#UC END# *4C7D0C7B0185_4C8647C8024Etest_impl*
 end;//TPrimAttributesOptionsForm.Edit_Copy_Test
 {$IfEnd} //not NoVCM

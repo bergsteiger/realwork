@@ -116,75 +116,6 @@ ref; // ME_555F49FD0175 EtalonNeedsXE
 
 ref; // ME_555F4A16032F EtalonNeeds64
 
-: ME_95064D96554A
- CONST UID '95064D96554A'
- CONST Name 'f_EtalonNeedsComputerName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства EtalonNeedsComputerName' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_555F49A0015B // Tl3EtalonsService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'EtalonNeedsComputerName'
-
-ref; // ME_95064D96554A f_EtalonNeedsComputerName
-
-: ME_1BDA27D16FFD
- CONST UID '1BDA27D16FFD'
- CONST Name 'f_EtalonNeedsOSName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства EtalonNeedsOSName' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_555F49A0015B // Tl3EtalonsService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'EtalonNeedsOSName'
-
-ref; // ME_1BDA27D16FFD f_EtalonNeedsOSName
-
-: ME_1EE50241244A
- CONST UID '1EE50241244A'
- CONST Name 'f_EtalonNeedsXE'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства EtalonNeedsXE' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_555F49A0015B // Tl3EtalonsService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "ifdef" 'XE'
- CONST extprop:clearViaProperty 'EtalonNeedsXE'
-
-ref; // ME_1EE50241244A f_EtalonNeedsXE
-
-: ME_E43B28356AC7
- CONST UID 'E43B28356AC7'
- CONST Name 'f_EtalonNeeds64'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства EtalonNeeds64' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_555F49A0015B // Tl3EtalonsService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'EtalonNeeds64'
-
-ref; // ME_E43B28356AC7 f_EtalonNeeds64
-
 : ME_398AECDF6266
  CONST UID '398AECDF6266'
  CONST Name 'Alien'
@@ -203,33 +134,6 @@ ref; // ME_E43B28356AC7 f_EtalonNeeds64
  CONST "pm" true
 
 ref; // ME_398AECDF6266 Alien
-
-: ME_AE5AF28778DD
- CONST UID 'AE5AF28778DD'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_555F49A0015B // Tl3EtalonsService
- ;
- : Target ME_196A761AE947 // Il3EtalonsService
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_AE5AF28778DD f_Alien
-
-: ME_5000565C019C_ME_555F49A0015B
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_555F49A0015B // Tl3EtalonsService
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_555F49A0015B ClearFields
 
 : ME_555F49A0015B
  CONST UID '555F49A0015B'
@@ -254,18 +158,9 @@ ref; // ME_5000565C019C_ME_555F49A0015B ClearFields
  ME_555F49DE0060 // EtalonNeedsOSName
  ME_555F49FD0175 // EtalonNeedsXE
  ME_555F4A16032F // EtalonNeeds64
- ME_95064D96554A // f_EtalonNeedsComputerName
- ME_1BDA27D16FFD // f_EtalonNeedsOSName
- ME_1EE50241244A // f_EtalonNeedsXE
- ME_E43B28356AC7 // f_EtalonNeeds64
  ME_398AECDF6266 // Alien
- ME_AE5AF28778DD // f_Alien
  )
  ; // Attributes
- : Overridden
-   Seq: ( ME_5000565C019C_ME_555F49A0015B // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_2B5260926DBC // Ml3EtalonsService
  ME_196A761AE947 // Il3EtalonsService

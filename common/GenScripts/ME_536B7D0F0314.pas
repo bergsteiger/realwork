@@ -2,6 +2,7 @@ unit vgVisualObject_p;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgVisualObject_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TvgVisualObject" MUID: (536B7D0F0314)
 
 {$Include w:\common\components\l3Define.inc}
 

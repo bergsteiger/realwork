@@ -3,6 +3,7 @@ unit WarningKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\WarningKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "WarningKeywordsPack" MUID: (AC8C0D7A6291)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -46,8 +47,8 @@ type
 'aControl' форма::Warning TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Warning
 
  Tkw_Warning_Control_Viewer = {final} class(TtfwControlString)
@@ -58,9 +59,9 @@ type
 контрол::Viewer TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Warning_Control_Viewer
 
  Tkw_Warning_Control_Viewer_Push = {final} class(TkwBynameControlPush)
@@ -99,20 +100,15 @@ OBJECT VAR l_TnscEditor
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwWarningFormViewer
 
-class function Tkw_Form_Warning.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Warning';
-end;//Tkw_Form_Warning.GetWordNameForRegister
-
 function Tkw_Form_Warning.GetString: AnsiString;
 begin
  Result := 'WarningForm';
 end;//Tkw_Form_Warning.GetString
 
-class function Tkw_Warning_Control_Viewer.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_Warning.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::Viewer';
-end;//Tkw_Warning_Control_Viewer.GetWordNameForRegister
+ Result := 'форма::Warning';
+end;//Tkw_Form_Warning.GetWordNameForRegister
 
 function Tkw_Warning_Control_Viewer.GetString: AnsiString;
 begin
@@ -124,6 +120,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscEditor);
 end;//Tkw_Warning_Control_Viewer.RegisterInEngine
+
+class function Tkw_Warning_Control_Viewer.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Viewer';
+end;//Tkw_Warning_Control_Viewer.GetWordNameForRegister
 
 procedure Tkw_Warning_Control_Viewer_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -158,11 +159,6 @@ begin
  aCtx.rEngine.PushObj(Viewer(aCtx, l_aWarningForm));
 end;//TkwWarningFormViewer.DoDoIt
 
-class function TkwWarningFormViewer.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TWarningForm.Viewer';
-end;//TkwWarningFormViewer.GetWordNameForRegister
-
 procedure TkwWarningFormViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -183,6 +179,11 @@ function TkwWarningFormViewer.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TWarningForm)]);
 end;//TkwWarningFormViewer.ParamsTypes
+
+class function TkwWarningFormViewer.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TWarningForm.Viewer';
+end;//TkwWarningFormViewer.GetWordNameForRegister
 
 initialization
  Tkw_Form_Warning.RegisterInEngine;

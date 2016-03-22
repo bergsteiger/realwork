@@ -2,6 +2,7 @@ unit ServerFacade;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ServerFacade.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ServerFacade" MUID: (4746FD4401F3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

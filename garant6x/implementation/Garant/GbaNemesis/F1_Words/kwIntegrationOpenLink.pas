@@ -1,63 +1,41 @@
 unit kwIntegrationOpenLink;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwIntegrationOpenLink.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Words::Integration::integration_OpenLink
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwIntegrationOpenLink.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "integration_OpenLink" MUID: (5135F0090070)
+// Имя типа: "TkwIntegrationOpenLink"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwIntegrationOpenLink = {final scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwIntegrationOpenLink = {final} class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwIntegrationOpenLink
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(Admin) AND not defined(Monitorings)}
-  ,
-  nsIntegrationSupport
-  {$IfEnd} //not Admin AND not Monitorings
-  
-  {$If not defined(Admin) AND not defined(Monitorings)}
-  ,
-  nsIntegrationModelPart
-  {$IfEnd} //not Admin AND not Monitorings
-  
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwIntegrationOpenLink
+ l3ImplUses
+ {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ , nsIntegrationSupport
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+ {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ , nsIntegrationModelPart
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+;
 
 procedure TkwIntegrationOpenLink.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_5135F0090070_var*
@@ -72,17 +50,13 @@ begin
 end;//TkwIntegrationOpenLink.DoDoIt
 
 class function TkwIntegrationOpenLink.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'integration:OpenLink';
 end;//TkwIntegrationOpenLink.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация integration_OpenLink
  TkwIntegrationOpenLink.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация integration_OpenLink }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

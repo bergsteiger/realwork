@@ -3,6 +3,7 @@ unit smLawNewsTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MainMenu\smLawNewsTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TsmLawNewsTree" MUID: (490C2AE8028E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

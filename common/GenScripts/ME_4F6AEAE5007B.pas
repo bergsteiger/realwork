@@ -3,6 +3,8 @@ unit Main_Form;
 
 // Модуль: "w:\MDProcess\NewGen\Main_Form.pas"
 // Стереотип: "VCMMainForm"
+// Элемент модели: "Main" MUID: (4F6AEAE5007B)
+// Имя типа: "TMainForm"
 
 {$Include w:\MDProcess\NewGen\ngDefine.inc}
 

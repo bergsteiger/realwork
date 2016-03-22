@@ -3,6 +3,8 @@ unit K517772970_TddServerStatusRequestDefault;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TddServerStatusRequestDefault.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TddServerStatusRequestDefault" MUID: (53197C750289)
+// Имя типа: "TK517772970_TddServerStatusRequestDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

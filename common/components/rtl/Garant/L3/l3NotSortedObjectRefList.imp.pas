@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3NotSortedObjectRefList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3NotSortedObjectRefList" MUID: (55DEEA210182)
+// Имя типа: "_l3NotSortedObjectRefList_"
 
 {$Define l3NotSortedObjectRefList_imp}
 

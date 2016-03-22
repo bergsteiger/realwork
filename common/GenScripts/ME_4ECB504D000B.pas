@@ -3,6 +3,7 @@ unit kwEditorSetTOC;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwEditorSetTOC.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwEditorSetTOC" MUID: (4ECB504D000B)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

@@ -3,6 +3,7 @@ unit ScrollBackByLineWithCheckTopAnchoTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\ScrollBackByLineWithCheckTopAnchoTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TScrollBackByLineWithCheckTopAnchoTest" MUID: (4C46BB2A02BD)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

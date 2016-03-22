@@ -3,6 +3,8 @@ unit K578892941;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\Processing\K578892941.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K578892941" MUID: (54785B8603B8)
+// Имя типа: "TK578892941"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

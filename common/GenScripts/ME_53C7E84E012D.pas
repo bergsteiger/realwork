@@ -2,6 +2,7 @@ unit tfwEnumRegistrator;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwEnumRegistrator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwEnumRegistrator" MUID: (53C7E84E012D)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

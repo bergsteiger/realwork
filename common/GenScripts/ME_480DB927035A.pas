@@ -3,6 +3,7 @@ unit evStyleInterface;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evStyleInterface.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevStyleInterface" MUID: (480DB927035A)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

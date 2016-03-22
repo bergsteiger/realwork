@@ -2,6 +2,7 @@ unit NOT_FINISHED_evBitmapDataObject;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evBitmapDataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevBitmapDataObject" MUID: (4CDACFDB00AB)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

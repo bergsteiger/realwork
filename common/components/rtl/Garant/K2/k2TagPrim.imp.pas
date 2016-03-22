@@ -2,12 +2,14 @@
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TagPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "k2TagPrim" MUID: (53280B9801E7)
+// Имя типа: "_k2TagPrim_"
 
 {$Define k2TagPrim_imp}
 
- {$If Defined(k2TagNoSort)}
+{$If Defined(k2TagNoSort)}
  {$Define l3Items_NoSort}
- {$IfEnd} // Defined(k2TagNoSort)
+{$IfEnd} // Defined(k2TagNoSort)
 
  _k2Int64Holder_Parent_ = _k2TagPrim_Parent_;
  {$Include w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas}

@@ -14,6 +14,8 @@ focused:control:push pop:editor:CheckWithEtalon "Разделить ячейки таблицы"
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCheckWithEtalon.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_CheckWithEtalon" MUID: (50D44F67024C)
+// Имя типа: "TkwPopEditorCheckWithEtalon"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

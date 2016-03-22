@@ -3,6 +3,7 @@ unit kwTextFormGetDocumentID;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwTextFormGetDocumentID.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwTextFormGetDocumentID" MUID: (4F1942440116)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

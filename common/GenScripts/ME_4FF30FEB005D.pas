@@ -2,6 +2,7 @@ unit atLoginFromListOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atLoginFromListOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatLoginFromListOperation" MUID: (4FF30FEB005D)
 
 interface
 

@@ -2,6 +2,7 @@ unit ItfwParserExWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ItfwParserExWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ItfwParserExWordsPack" MUID: (559BC67C0005)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -123,11 +124,6 @@ begin
  PushString(aCtx, l_aParserEx, l_aString);
 end;//TkwPopParserExPushString.DoDoIt
 
-class function TkwPopParserExPushString.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ParserEx:PushString';
-end;//TkwPopParserExPushString.GetWordNameForRegister
-
 function TkwPopParserExPushString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -142,6 +138,11 @@ function TkwPopParserExPushString.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwParserEx), @tfw_tiString]);
 end;//TkwPopParserExPushString.ParamsTypes
+
+class function TkwPopParserExPushString.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ParserEx:PushString';
+end;//TkwPopParserExPushString.GetWordNameForRegister
 
 procedure TkwPopParserExPushSymbol.PushSymbol(const aCtx: TtfwContext;
  const aParserEx: ItfwParserEx;
@@ -176,11 +177,6 @@ begin
  PushSymbol(aCtx, l_aParserEx, l_aString);
 end;//TkwPopParserExPushSymbol.DoDoIt
 
-class function TkwPopParserExPushSymbol.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ParserEx:PushSymbol';
-end;//TkwPopParserExPushSymbol.GetWordNameForRegister
-
 function TkwPopParserExPushSymbol.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -195,6 +191,11 @@ function TkwPopParserExPushSymbol.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwParserEx), @tfw_tiString]);
 end;//TkwPopParserExPushSymbol.ParamsTypes
+
+class function TkwPopParserExPushSymbol.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ParserEx:PushSymbol';
+end;//TkwPopParserExPushSymbol.GetWordNameForRegister
 
 procedure TkwPopParserExPushInt.PushInt(const aCtx: TtfwContext;
  const aParserEx: ItfwParserEx;
@@ -229,11 +230,6 @@ begin
  PushInt(aCtx, l_aParserEx, l_aValue);
 end;//TkwPopParserExPushInt.DoDoIt
 
-class function TkwPopParserExPushInt.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ParserEx:PushInt';
-end;//TkwPopParserExPushInt.GetWordNameForRegister
-
 function TkwPopParserExPushInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -248,6 +244,11 @@ function TkwPopParserExPushInt.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwParserEx), TypeInfo(Integer)]);
 end;//TkwPopParserExPushInt.ParamsTypes
+
+class function TkwPopParserExPushInt.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ParserEx:PushInt';
+end;//TkwPopParserExPushInt.GetWordNameForRegister
 
 initialization
  TkwPopParserExPushString.RegisterInEngine;

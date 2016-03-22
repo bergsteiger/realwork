@@ -2,6 +2,7 @@ unit JournalObjectTypeTranslator;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\JournalObjectTypeTranslator.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "JournalObjectTypeTranslator" MUID: (4A94342100B3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

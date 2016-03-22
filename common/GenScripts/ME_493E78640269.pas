@@ -3,6 +3,7 @@ unit sdsList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\List\sdsList.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsList" MUID: (493E78640269)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -190,6 +191,7 @@ type
    {$If NOT Defined(NoVCM)}
    function GetDataForClone: _InitDataType_; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
  end;//TsdsList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -1208,6 +1210,14 @@ begin
 //#UC END# *55C1DD070354_493E78640269_impl*
 end;//TsdsList.GetDataForClone
 {$IfEnd} // NOT Defined(NoVCM)
+
+procedure TsdsList.ClearFields;
+begin
+ f_dsBaloonWarning := nil;
+ f_dsListAnalize := nil;
+ f_dsTextBaloonWarning := nil;
+ inherited;
+end;//TsdsList.ClearFields
 
 initialization
  str_MissingAnalisisTree.Init;

@@ -2,6 +2,7 @@ unit nsExternalObject;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ExternalObjects\nsExternalObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsExternalObject" MUID: (52D669BA02CC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit nsWebBrowserHelper;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\nsWebBrowserHelper.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsWebBrowserHelper" MUID: (4E9574DB0120)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

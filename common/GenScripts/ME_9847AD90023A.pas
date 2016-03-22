@@ -3,6 +3,7 @@ unit DocumentShowChangesInfoSettingRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\DocumentShowChangesInfoSettingRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DocumentShowChangesInfoSettingRes" MUID: (9847AD90023A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

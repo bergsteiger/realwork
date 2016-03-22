@@ -3,6 +3,7 @@ unit NOT_FINISHED_arSpravkaTextOfDocument;
 
 // Модуль: "w:\archi\source\projects\Archi\Editor\NOT_FINISHED_arSpravkaTextOfDocument.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarSpravkaTextOfDocument" MUID: (4F9502130133)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

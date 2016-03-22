@@ -3,6 +3,7 @@ unit nevBreakParaAnchor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevBreakParaAnchor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevBreakParaAnchor" MUID: (4A3BB09A0147)
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 

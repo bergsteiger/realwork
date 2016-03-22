@@ -2,6 +2,7 @@ unit k2InterfaceCache;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2InterfaceCache.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "k2InterfaceCache" MUID: (531EF71800F9)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

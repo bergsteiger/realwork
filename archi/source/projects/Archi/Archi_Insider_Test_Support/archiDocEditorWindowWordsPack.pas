@@ -2,6 +2,7 @@ unit archiDocEditorWindowWordsPack;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\archiDocEditorWindowWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "archiDocEditorWindowWordsPack" MUID: (55B664E00149)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
@@ -97,11 +98,6 @@ begin
  aCtx.rEngine.PushBool(IsNeedSaveDocument(aCtx, l_aDocEditorWindow));
 end;//TkwDocEditorWindowIsNeedSaveDocument.DoDoIt
 
-class function TkwDocEditorWindowIsNeedSaveDocument.GetWordNameForRegister: AnsiString;
-begin
- Result := 'DocEditorWindow:IsNeedSaveDocument';
-end;//TkwDocEditorWindowIsNeedSaveDocument.GetWordNameForRegister
-
 function TkwDocEditorWindowIsNeedSaveDocument.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -116,6 +112,11 @@ function TkwDocEditorWindowIsNeedSaveDocument.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TDocEditorWindow)]);
 end;//TkwDocEditorWindowIsNeedSaveDocument.ParamsTypes
+
+class function TkwDocEditorWindowIsNeedSaveDocument.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'DocEditorWindow:IsNeedSaveDocument';
+end;//TkwDocEditorWindowIsNeedSaveDocument.GetWordNameForRegister
 
 initialization
  TarchiDocEditorWindowWordsPackResNameGetter.Register;

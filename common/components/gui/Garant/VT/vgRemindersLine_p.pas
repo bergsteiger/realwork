@@ -2,6 +2,7 @@ unit vgRemindersLine_p;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vgRemindersLine_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TvgRemindersLine" MUID: (536A57190399)
 
 {$Include w:\common\components\l3Define.inc}
 

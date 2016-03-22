@@ -2,6 +2,7 @@ unit EverestLiteTestRes;
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestLiteTestRes.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TEverestLiteTestRes" MUID: (512AF4F300FC)
 
 {$Include w:\archi\source\projects\Everest\Lite\7.0\Express\EverestLite.inc}
 

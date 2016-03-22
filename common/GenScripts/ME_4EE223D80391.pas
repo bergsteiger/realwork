@@ -3,6 +3,8 @@ unit SynchroView_WarningBaloon_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SynchroView_WarningBaloon_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "SynchroView_WarningBaloon" MUID: (4EE223D80391)
+// Имя типа: "TSynchroView_WarningBaloonForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

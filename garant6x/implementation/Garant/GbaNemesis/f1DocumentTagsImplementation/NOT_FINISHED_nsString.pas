@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsString;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_FINISHED_nsString.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsString" MUID: (4C6A67560211)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

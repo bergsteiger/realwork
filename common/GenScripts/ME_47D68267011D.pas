@@ -3,6 +3,7 @@ unit vtNavigatorFormListPrim;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtNavigatorFormListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvtNavigatorFormListPrim" MUID: (47D68267011D)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

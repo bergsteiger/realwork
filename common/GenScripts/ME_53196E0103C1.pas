@@ -3,6 +3,8 @@ unit K517772970_TcsAACImportDefault;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TcsAACImportDefault.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TcsAACImportDefault" MUID: (53196E0103C1)
+// Имя типа: "TK517772970_TcsAACImportDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

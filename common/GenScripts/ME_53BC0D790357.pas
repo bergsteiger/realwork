@@ -2,6 +2,7 @@ unit evdBadEVDToEmptyDocumentTranslator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evdBadEVDToEmptyDocumentTranslator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdBadEVDToEmptyDocumentTranslator" MUID: (53BC0D790357)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

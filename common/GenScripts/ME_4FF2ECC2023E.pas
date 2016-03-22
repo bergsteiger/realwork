@@ -3,6 +3,7 @@ unit DocumentUserTypes_dftAACRight_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftAACRight_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "dftAACRight" MUID: (4FF2ECC2023E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftAACRight = {final} class(TtfwInteger)
   {* Слово словаря для типа формы dftAACRight }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_dftAACRight
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_dftAACRight.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::dftAACRight';
-end;//Tkw_FormUserType_dftAACRight.GetWordNameForRegister
-
 function Tkw_FormUserType_dftAACRight.GetInteger: Integer;
 begin
  Result := dftAACRight;
 end;//Tkw_FormUserType_dftAACRight.GetInteger
+
+class function Tkw_FormUserType_dftAACRight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::dftAACRight';
+end;//Tkw_FormUserType_dftAACRight.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

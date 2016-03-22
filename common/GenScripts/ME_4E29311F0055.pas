@@ -7,6 +7,8 @@ aClass - класс формы.
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwObjectCreate.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "object_Create" MUID: (4E29311F0055)
+// Имя типа: "TkwObjectCreate"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

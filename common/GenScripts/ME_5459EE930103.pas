@@ -3,6 +3,7 @@ unit l3WideStringManager;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3WideStringManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3WideStringManager" MUID: (5459EE930103)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

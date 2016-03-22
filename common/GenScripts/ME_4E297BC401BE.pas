@@ -3,6 +3,7 @@ unit DailyAutoTest;
 
 // Модуль: "w:\common\components\rtl\Garant\DUnit_Script_Support\DailyAutoTest.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TDailyAutoTest" MUID: (4E297BC401BE)
 
 {$Include w:\common\components\rtl\Garant\DUnit_Script_Support\dsDefine.inc}
 

@@ -2,6 +2,7 @@ unit EverestLiteKeyWords;
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\EverestLiteKeyWords.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "EverestLiteKeyWords" MUID: (512D9BE30122)
 
 interface
 

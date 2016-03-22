@@ -2,6 +2,7 @@ unit WorkJournalInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournalInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "WorkJournalInterfaces" MUID: (4A825D5D0235)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

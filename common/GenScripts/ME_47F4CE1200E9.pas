@@ -2,6 +2,7 @@ unit nevAnchorList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevAnchorList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevAnchorList" MUID: (47F4CE1200E9)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

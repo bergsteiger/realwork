@@ -2,6 +2,7 @@ unit vtVGButton;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtVGButton.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvtVGButton" MUID: (4D494D3601A8)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

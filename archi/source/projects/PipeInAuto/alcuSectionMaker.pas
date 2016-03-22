@@ -1,8 +1,11 @@
 unit alcuSectionMaker;
 { Расставялет разрывы разделов и масштабы }
-{ $Id: alcuSectionMaker.pas,v 1.5 2014/08/18 10:56:04 lukyanets Exp $ }
+{ $Id: alcuSectionMaker.pas,v 1.6 2015/11/26 08:45:26 lukyanets Exp $ }
 
 // $Log: alcuSectionMaker.pas,v $
+// Revision 1.6  2015/11/26 08:45:26  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.5  2014/08/18 10:56:04  lukyanets
 // {Requestlink:562611471}. Вертаем взад
 //
@@ -36,7 +39,7 @@ implementation
 
 uses
  ddAppConfig, ddScheduler, ddCalendarEvents, SysUtils, dtIntf, Dt_Sab, DT_Types, Dt_Query, l3Date,
- ddSectionRepairUtils, l3LongintListPrim, L3FileUtils, Dt_Serv, DT_Const,
+ ddSectionRepairUtils, l3LongintListPrim, L3FileUtils, Dt_Serv, daSchemeConsts,
  alcuStrings, alcuMailServer, DT_Utils, StrUtils;
 
 function TalcuSectionMaker.BuildListAndMakeSections(aProgressor: TddProgressObject): Boolean;

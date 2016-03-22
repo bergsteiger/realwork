@@ -3,6 +3,7 @@ unit kwTemporaryCompiledCode;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwTemporaryCompiledCode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwTemporaryCompiledCode" MUID: (52DFE4E403E7)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

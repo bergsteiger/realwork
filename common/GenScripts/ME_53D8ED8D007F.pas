@@ -2,6 +2,7 @@ unit evInevBaseLine4PrintMapper;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evInevBaseLine4PrintMapper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevInevBaseLine4PrintMapper" MUID: (53D8ED8D007F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

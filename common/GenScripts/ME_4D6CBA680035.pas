@@ -3,6 +3,7 @@ unit ShowBaseSearchTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\ShowBaseSearchTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TShowBaseSearchTest" MUID: (4D6CBA680035)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

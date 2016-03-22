@@ -5,4 +5,5 @@
 {$Define AppClientSide}
 {$DEFINE ServerAssistantSide}
 {$DEFINE PassthroughSendMail}
+{$DEFINE NoScripts}
 

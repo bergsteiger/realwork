@@ -2,6 +2,7 @@ unit nsOpenDialog;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsOpenDialog.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsOpenDialog" MUID: (4DDD468D0131)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

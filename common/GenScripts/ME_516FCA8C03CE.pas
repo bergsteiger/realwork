@@ -2,6 +2,7 @@ unit NOT_FINISHED_ComplectInfoRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\NOT_FINISHED_ComplectInfoRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ComplectInfoRes" MUID: (516FCA8C03CE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

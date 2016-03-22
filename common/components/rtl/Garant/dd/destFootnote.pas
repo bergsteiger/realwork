@@ -43,6 +43,7 @@ type
    procedure Cleanup; override;
      {* Функция очистки полей объекта. }
    procedure InitFields; override;
+   procedure AddPageBreak(aSymbol: Integer); override;
    function FindFootnoteSymbol(aState: TddRTFState;
      aSymbol: Integer): Boolean; override;
    procedure AfterAddPara(const anAtom: TddDocumentAtom); override;
@@ -71,7 +72,8 @@ uses
   l3Chars,
   evdStyles,
   l3String,
-  ddTextParagraph
+  ddTextParagraph,
+  ddTypes
   ;
 
 // start class TdestFootnote
@@ -88,7 +90,7 @@ begin
 //#UC START# *5526883F0018_51E8E8770374_impl*
  if (f_PrevNumber = f_CustomRTFReader.NextFootnoteNumber) then Exit;
  if f_ParaID = -1 then
-  AddTextPara(False, 1);
+  AddTextPara2Document;
  l_Atom := Paragraph[f_ParaID];
  if l_Atom.IsTextPara then
   l_Para := TddTextParagraph(l_Atom)
@@ -204,10 +206,19 @@ begin
  for i := 0 to GetParagraphsCount - 1 do
  begin
   l_Para := Paragraph[i];
-  l_Para.Write2Generator(aGenerator, True, True); // Грохаем все стили у сносок: http://mdp.garant.ru/pages/viewpage.action?pageId=596626773
+  l_Para.Write2Generator(aGenerator, True, dd_lvStyleOnly); // Грохаем все стили у сносок: http://mdp.garant.ru/pages/viewpage.action?pageId=596626773
  end; { for Paragraphs.Count }
 //#UC END# *51E8D04603DF_51E8E8770374_impl*
 end;//TdestFootnote.Write
+
+procedure TdestFootnote.AddPageBreak(aSymbol: Integer);
+//#UC START# *5385C5C802D5_51E8E8770374_var*
+//#UC END# *5385C5C802D5_51E8E8770374_var*
+begin
+//#UC START# *5385C5C802D5_51E8E8770374_impl*
+
+//#UC END# *5385C5C802D5_51E8E8770374_impl*
+end;//TdestFootnote.AddPageBreak
 
 procedure TdestFootnote.Close(aState: TddRTFState;
   aNewDest: TddRTFDestination);

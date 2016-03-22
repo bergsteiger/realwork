@@ -2,6 +2,8 @@ unit kwCFHTML;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCFHTML.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "CF_HTML" MUID: (4FF436880055)
+// Имя типа: "TkwCFHTML"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

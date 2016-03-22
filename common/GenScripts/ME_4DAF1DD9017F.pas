@@ -2,6 +2,8 @@ unit kwOk;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwOk.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "Ok" MUID: (4DAF1DD9017F)
+// Имя типа: "TkwOk"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

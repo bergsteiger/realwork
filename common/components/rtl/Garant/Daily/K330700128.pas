@@ -1,89 +1,67 @@
 unit K330700128;
+ {* [Requestlink:330700128] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/K330700128.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.7::K330700128
-//
-// {Requestlink:330700128}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K330700128.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K330700128" MUID: (4F22949102E5)
+// Имя типа: "TK330700128"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PreviewTest
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , PreviewTest
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK330700128 = class(TPreviewTest)
   {* [Requestlink:330700128] }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
-    {$If defined(XE) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+    {* Идентификатор элемента модели, который описывает тест }
+   {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
    function EtalonNeedsXE: Boolean; override;
-    {$IfEnd} //XE AND nsTest AND not NotTunedDUnit
+   {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
  end;//TK330700128
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK330700128
-
+{$If NOT Defined(NoVCM)}
 function TK330700128.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.7';
 end;//TK330700128.GetFolder
 
 function TK330700128.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4F22949102E5';
 end;//TK330700128.GetModelElementGUID
 
-{$If defined(XE) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
 function TK330700128.EtalonNeedsXE: Boolean;
 //#UC START# *51AF49E5001B_4F22949102E5_var*
 //#UC END# *51AF49E5001B_4F22949102E5_var*
@@ -92,11 +70,11 @@ begin
  Result := true;
 //#UC END# *51AF49E5001B_4F22949102E5_impl*
 end;//TK330700128.EtalonNeedsXE
-{$IfEnd} //XE AND nsTest AND not NotTunedDUnit
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
 
 initialization
  TestFramework.RegisterTest(TK330700128.Suite);
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

@@ -3,6 +3,7 @@ unit l3CastablePersistent;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CastablePersistent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CastablePersistent" MUID: (47A0D67B03E2)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

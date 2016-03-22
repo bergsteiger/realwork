@@ -135,20 +135,6 @@ ref; // ME_4F61983F0193
 
 ref; // ME_4DE34290028F TArchiScriptEngine
 
-: ME_0C0F245B60D3
- CONST UID '0C0F245B60D3'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwDocumentSpravka' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E5C937F00B2 // TkwDocumentSpravka
- ;
-
-ref; // ME_0C0F245B60D3 Ini_Reg
-
 : ME_4E5C948602EE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -170,8 +156,6 @@ ref; // ME_4E5C948602EE
 ref; // ME_4E5C9A0F007F 
 
 : ME_4DAEEDE10285_ME_4E5C937F00B2
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4E5C937F00B2 // TkwDocumentSpravka
@@ -180,8 +164,6 @@ ref; // ME_4E5C9A0F007F
 ref; // ME_4DAEEDE10285_ME_4E5C937F00B2 DoDoIt
 
 : ME_4DB0614603C8_ME_4E5C937F00B2
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
  : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
  ;
  : Implementor ME_4E5C937F00B2 // TkwDocumentSpravka
@@ -203,10 +185,6 @@ ref; // ME_4DB0614603C8_ME_4E5C937F00B2 GetWordNameForRegister
    Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0C0F245B60D3 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_4E5C937F00B2 // DoDoIt
  )

@@ -3,6 +3,7 @@ unit evBitmapPara_Wrap;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evBitmapPara_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WevBitmapPara" MUID: (485792C1014E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

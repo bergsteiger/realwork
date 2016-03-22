@@ -106,6 +106,8 @@ object GUITestRunner: TGUITestRunner
           HideSelection = False
           Images = RunImages
           Indent = 19
+          MultiSelect = True
+          MultiSelectStyle = [msControlSelect, msShiftSelect, msVisibleOnly]
           PopupMenu = pmTestTree
           ReadOnly = True
           RowSelect = True

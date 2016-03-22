@@ -2,6 +2,7 @@ unit nevRangeListTools;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevRangeListTools.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nevRangeListTools" MUID: (4A23BAEF006A)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit vcmEntitiesCollectionItemList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmEntitiesCollectionItemList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmEntitiesCollectionItemList" MUID: (56040A5B022E)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -91,7 +91,6 @@ int main_logic ( int argc, char *argv[] )
 	gk_bzero (&to, sizeof (to));
 
 	DocCollection* alltopics = base->AllTopics (ID_BORDER);
-
 	if (argv [2]) {
 		FILE *in_file = fopen (argv [2], "rt");
 		if (in_file) {
@@ -153,6 +152,8 @@ int main_logic ( int argc, char *argv[] )
 
 		if (b_topics || ((is_lt (vincluded, to.RevisionDate) || is_eq (vincluded, to.RevisionDate)) && (is_lt (from.RevisionDate, vincluded) || is_eq (from.RevisionDate, vincluded)))) {
 			Document *doc = base->GetDoc (id);
+			if (!doc || !doc->IsOk ())
+				continue;
 			for (int j = 0; j < doc->Stat.ParaCount; j++) {
 				char* para = doc->GetPara (j);
 				long parasize = doc->EVDTextSize (para);

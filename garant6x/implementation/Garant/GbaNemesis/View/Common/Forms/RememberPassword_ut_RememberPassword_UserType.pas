@@ -1,87 +1,67 @@
 unit RememberPassword_ut_RememberPassword_UserType;
+ {* Забыли пароль? }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/Forms/RememberPassword_ut_RememberPassword_UserType.pas"
-// Начат: 24.08.2009 20:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Core::Common::View::Common::PrimF1Common::RememberPassword::ut_RememberPassword
-//
-// Забыли пароль?
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\RememberPassword_ut_RememberPassword_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "ut_RememberPassword" MUID: (76478A82A459)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-    { Константы для типа формы ut_RememberPassword }
-   ut_RememberPasswordName = 'ut_RememberPassword';
-    { Строковый идентификатор пользовательского типа "Забыли пароль?" }
-   ut_RememberPassword = TvcmUserType(0);
-    { Забыли пароль? }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы ut_RememberPassword }
+ ut_RememberPasswordName = 'ut_RememberPassword';
+  {* Строковый идентификатор пользовательского типа "Забыли пароль?" }
+ ut_RememberPassword = TvcmUserType(0);
+  {* Забыли пароль? }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-   Tkw_FormUserType_ut_RememberPassword = {final scriptword} class(TtfwInteger)
-    {* Слово словаря для типа формы ut_RememberPassword }
-   protected
-   // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
+ Tkw_FormUserType_ut_RememberPassword = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы ut_RememberPassword }
+  protected
    function GetInteger: Integer; override;
-   end;//Tkw_FormUserType_ut_RememberPassword
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_ut_RememberPassword
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_ut_RememberPassword
-
-class function Tkw_FormUserType_ut_RememberPassword.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::ut_RememberPassword';
-end;//Tkw_FormUserType_ut_RememberPassword.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_RememberPassword.GetInteger: Integer;
- {-}
 begin
  Result := ut_RememberPassword;
 end;//Tkw_FormUserType_ut_RememberPassword.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_ut_RememberPassword.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_RememberPassword';
+end;//Tkw_FormUserType_ut_RememberPassword.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_ut_RememberPassword
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_RememberPassword.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_ut_RememberPassword }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

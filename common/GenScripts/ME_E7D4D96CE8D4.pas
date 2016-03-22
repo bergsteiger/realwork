@@ -3,6 +3,7 @@ unit QFLikeTextLoadKeywordsPack;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\QFLikeTextLoadKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "QFLikeTextLoadKeywordsPack" MUID: (E7D4D96CE8D4)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
@@ -46,8 +47,8 @@ type
 'aControl' форма::QFLikeTextLoad TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_QFLikeTextLoad
 
  Tkw_QFLikeTextLoad_Component_TextSource = {final} class(TtfwControlString)
@@ -58,9 +59,9 @@ type
 компонент::TextSource TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_QFLikeTextLoad_Component_TextSource
 
  Tkw_QFLikeTextLoad_Control_Text = {final} class(TtfwControlString)
@@ -71,9 +72,9 @@ type
 контрол::Text TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_QFLikeTextLoad_Control_Text
 
  Tkw_QFLikeTextLoad_Control_Text_Push = {final} class(TkwBynameControlPush)
@@ -96,9 +97,9 @@ type
 компонент::LoadManager TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_QFLikeTextLoad_Component_LoadManager
 
  TkwQFLikeTextLoadFormTextSource = {final} class(TtfwPropertyLike)
@@ -173,20 +174,15 @@ OBJECT VAR l_TevLoadDocumentManager
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwQFLikeTextLoadFormLoadManager
 
-class function Tkw_Form_QFLikeTextLoad.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::QFLikeTextLoad';
-end;//Tkw_Form_QFLikeTextLoad.GetWordNameForRegister
-
 function Tkw_Form_QFLikeTextLoad.GetString: AnsiString;
 begin
  Result := 'QFLikeTextLoadForm';
 end;//Tkw_Form_QFLikeTextLoad.GetString
 
-class function Tkw_QFLikeTextLoad_Component_TextSource.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_QFLikeTextLoad.GetWordNameForRegister: AnsiString;
 begin
- Result := 'компонент::TextSource';
-end;//Tkw_QFLikeTextLoad_Component_TextSource.GetWordNameForRegister
+ Result := 'форма::QFLikeTextLoad';
+end;//Tkw_Form_QFLikeTextLoad.GetWordNameForRegister
 
 function Tkw_QFLikeTextLoad_Component_TextSource.GetString: AnsiString;
 begin
@@ -199,10 +195,10 @@ begin
  TtfwClassRef.Register(TevTextSource);
 end;//Tkw_QFLikeTextLoad_Component_TextSource.RegisterInEngine
 
-class function Tkw_QFLikeTextLoad_Control_Text.GetWordNameForRegister: AnsiString;
+class function Tkw_QFLikeTextLoad_Component_TextSource.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::Text';
-end;//Tkw_QFLikeTextLoad_Control_Text.GetWordNameForRegister
+ Result := 'компонент::TextSource';
+end;//Tkw_QFLikeTextLoad_Component_TextSource.GetWordNameForRegister
 
 function Tkw_QFLikeTextLoad_Control_Text.GetString: AnsiString;
 begin
@@ -215,6 +211,11 @@ begin
  TtfwClassRef.Register(TevQueryCardEditor);
 end;//Tkw_QFLikeTextLoad_Control_Text.RegisterInEngine
 
+class function Tkw_QFLikeTextLoad_Control_Text.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Text';
+end;//Tkw_QFLikeTextLoad_Control_Text.GetWordNameForRegister
+
 procedure Tkw_QFLikeTextLoad_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Text');
@@ -226,11 +227,6 @@ begin
  Result := 'контрол::Text:push';
 end;//Tkw_QFLikeTextLoad_Control_Text_Push.GetWordNameForRegister
 
-class function Tkw_QFLikeTextLoad_Component_LoadManager.GetWordNameForRegister: AnsiString;
-begin
- Result := 'компонент::LoadManager';
-end;//Tkw_QFLikeTextLoad_Component_LoadManager.GetWordNameForRegister
-
 function Tkw_QFLikeTextLoad_Component_LoadManager.GetString: AnsiString;
 begin
  Result := 'LoadManager';
@@ -241,6 +237,11 @@ begin
  inherited;
  TtfwClassRef.Register(TevLoadDocumentManager);
 end;//Tkw_QFLikeTextLoad_Component_LoadManager.RegisterInEngine
+
+class function Tkw_QFLikeTextLoad_Component_LoadManager.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'компонент::LoadManager';
+end;//Tkw_QFLikeTextLoad_Component_LoadManager.GetWordNameForRegister
 
 function TkwQFLikeTextLoadFormTextSource.TextSource(const aCtx: TtfwContext;
  aQFLikeTextLoadForm: TQFLikeTextLoadForm): TevTextSource;
@@ -264,11 +265,6 @@ begin
  aCtx.rEngine.PushObj(TextSource(aCtx, l_aQFLikeTextLoadForm));
 end;//TkwQFLikeTextLoadFormTextSource.DoDoIt
 
-class function TkwQFLikeTextLoadFormTextSource.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TQFLikeTextLoadForm.TextSource';
-end;//TkwQFLikeTextLoadFormTextSource.GetWordNameForRegister
-
 procedure TkwQFLikeTextLoadFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -289,6 +285,11 @@ function TkwQFLikeTextLoadFormTextSource.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TQFLikeTextLoadForm)]);
 end;//TkwQFLikeTextLoadFormTextSource.ParamsTypes
+
+class function TkwQFLikeTextLoadFormTextSource.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TQFLikeTextLoadForm.TextSource';
+end;//TkwQFLikeTextLoadFormTextSource.GetWordNameForRegister
 
 function TkwQFLikeTextLoadFormText.Text(const aCtx: TtfwContext;
  aQFLikeTextLoadForm: TQFLikeTextLoadForm): TevQueryCardEditor;
@@ -312,11 +313,6 @@ begin
  aCtx.rEngine.PushObj(Text(aCtx, l_aQFLikeTextLoadForm));
 end;//TkwQFLikeTextLoadFormText.DoDoIt
 
-class function TkwQFLikeTextLoadFormText.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TQFLikeTextLoadForm.Text';
-end;//TkwQFLikeTextLoadFormText.GetWordNameForRegister
-
 procedure TkwQFLikeTextLoadFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -337,6 +333,11 @@ function TkwQFLikeTextLoadFormText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TQFLikeTextLoadForm)]);
 end;//TkwQFLikeTextLoadFormText.ParamsTypes
+
+class function TkwQFLikeTextLoadFormText.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TQFLikeTextLoadForm.Text';
+end;//TkwQFLikeTextLoadFormText.GetWordNameForRegister
 
 function TkwQFLikeTextLoadFormLoadManager.LoadManager(const aCtx: TtfwContext;
  aQFLikeTextLoadForm: TQFLikeTextLoadForm): TevLoadDocumentManager;
@@ -360,11 +361,6 @@ begin
  aCtx.rEngine.PushObj(LoadManager(aCtx, l_aQFLikeTextLoadForm));
 end;//TkwQFLikeTextLoadFormLoadManager.DoDoIt
 
-class function TkwQFLikeTextLoadFormLoadManager.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TQFLikeTextLoadForm.LoadManager';
-end;//TkwQFLikeTextLoadFormLoadManager.GetWordNameForRegister
-
 procedure TkwQFLikeTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -385,6 +381,11 @@ function TkwQFLikeTextLoadFormLoadManager.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TQFLikeTextLoadForm)]);
 end;//TkwQFLikeTextLoadFormLoadManager.ParamsTypes
+
+class function TkwQFLikeTextLoadFormLoadManager.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TQFLikeTextLoadForm.LoadManager';
+end;//TkwQFLikeTextLoadFormLoadManager.GetWordNameForRegister
 
 initialization
  Tkw_Form_QFLikeTextLoad.RegisterInEngine;

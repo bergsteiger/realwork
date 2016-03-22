@@ -3,6 +3,7 @@ unit PrimStyleEditorNavigator_utStyleEditorNavigator_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorNavigator_utStyleEditorNavigator_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utStyleEditorNavigator" MUID: (50F562DF02DB)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utStyleEditorNavigator = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utStyleEditorNavigator }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utStyleEditorNavigator
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utStyleEditorNavigator.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utStyleEditorNavigator';
-end;//Tkw_FormUserType_utStyleEditorNavigator.GetWordNameForRegister
-
 function Tkw_FormUserType_utStyleEditorNavigator.GetInteger: Integer;
 begin
  Result := utStyleEditorNavigator;
 end;//Tkw_FormUserType_utStyleEditorNavigator.GetInteger
+
+class function Tkw_FormUserType_utStyleEditorNavigator.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utStyleEditorNavigator';
+end;//Tkw_FormUserType_utStyleEditorNavigator.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWordUses.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "kwEditorFromStackCursorWordUses" MUID: (54EF5B8401B0)
+// Имя типа: "_kwEditorFromStackCursorWordUses_"
 
 {$Define kwEditorFromStackCursorWordUses_imp}
 

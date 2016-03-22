@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\DigitalSeparatorSupport.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "DigitalSeparatorSupport" MUID: (4E5E029D03AD)
+// Имя типа: "_DigitalSeparatorSupport_"
 
 {$Define DigitalSeparatorSupport_imp}
 

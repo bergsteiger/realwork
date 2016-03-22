@@ -2,6 +2,7 @@ unit nsDocumentStreamList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ExternalObjects\nsDocumentStreamList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentStreamList" MUID: (55A387E502D7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -11,6 +11,8 @@ focused:control:push pop:editor:EditFormula
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorEditFormula.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_EditFormula" MUID: (4F5DA0D50129)
+// Имя типа: "TkwPopEditorEditFormula"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

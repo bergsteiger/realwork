@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtRadioButton;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtRadioButton.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtRadioButton" MUID: (517941E500BF)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

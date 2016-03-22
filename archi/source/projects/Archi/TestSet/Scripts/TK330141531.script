@@ -5,18 +5,26 @@ USES
 INTEGER VAR l_Index
 CONST acSkipCount 4
 
+FUNCTION "Округлить координаты" INTEGER IN aValue
+	10 aValue 10 DIV * >>> Result
+;
+
+PROCEDURE "Сохранение положения диалога"  OBJECT IN aSpellCheck
+	aSpellCheck "Округлить координаты {( pop:Control:Left )}" .
+	aSpellCheck "Округлить координаты {( pop:Control:Top )}" .
+;
+
 PROCEDURE SpellNext BOOLEAN IN aLast
  Если ( aLast ! ) то (
-	 1 +! l_Index 
+	 1 +! l_Index
 	 Если ( l_Index МЕНЬШЕ acSkipCount ) то 
-	  ( "Контрол по имени {(acSkipButtomInSpelCheckWindow)}" pop:Control:Click )
+	  	( "Контрол по имени {(acSkipButtomInSpelCheckWindow)}" pop:Control:Click )
 	 иначе
 	  ( 
-	   OBJECT VAR l_SpellCheck
-	   "Контрол по имени {(acSpellCheckDlg)}" >>> l_SpellCheck
-	   l_SpellCheck pop:Control:Left .
-	   l_SpellCheck pop:Control:Top .
-	   "Контрол по имени {(acCancelButtomInSpelCheckWindow)}" pop:Control:Click
+	   	OBJECT VAR l_SpellCheck
+	   	"Контрол по имени {(acSpellCheckDlg)}" >>> l_SpellCheck
+	   	"Сохранение положения диалога {(l_SpellCheck)}" 
+	  	"Контрол по имени {(acCancelButtomInSpelCheckWindow)}" pop:Control:Click
 	  ) 
   )
 ;  

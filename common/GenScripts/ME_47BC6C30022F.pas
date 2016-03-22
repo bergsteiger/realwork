@@ -2,6 +2,7 @@ unit l3RecListWithPartialFind;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3RecListWithPartialFind.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3RecListWithPartialFind" MUID: (47BC6C30022F)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

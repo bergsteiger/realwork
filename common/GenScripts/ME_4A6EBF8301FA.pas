@@ -3,6 +3,8 @@ unit fsCompareEditions;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\fsCompareEditions.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "CompareEditions" MUID: (4A6EBF8301FA)
+// Имя типа: "Tfs_CompareEditions"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

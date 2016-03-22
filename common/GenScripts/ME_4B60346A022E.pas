@@ -2,6 +2,7 @@ unit nscTreeViewHotTruck;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTreeViewHotTruck.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscTreeViewHotTruck" MUID: (4B60346A022E)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -29,11 +30,8 @@ type
  TnscTreeViewHotTruck = class(TnscTreeView)
   private
    f_OnAllowHotTruck: TOnAllowHotTruck;
-    {* Поле для свойства OnAllowHotTruck }
    f_AllowTrucking: Boolean;
-    {* Поле для свойства AllowTrucking }
    f_HotTruckIndex: Integer;
-    {* Поле для свойства HotTruckIndex }
   private
    procedure SetHotTruckIndex(aValue: Integer);
    procedure UpdateTruckFromCursor;

@@ -580,7 +580,6 @@ void EvdReader::convert_text_object () {
 
 bool EvdReader::read_text_type () {
 	long offset = static_cast<long> (m_offset);
-	long type_id = -1;
 	std::string token;
 	token = this->look_text_token ();
 	if (token != ":") {

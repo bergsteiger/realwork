@@ -3,6 +3,7 @@ unit nsBaseMainMenuTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsBaseMainMenuTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsBaseMainMenuTree" MUID: (4909EF3B02B1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

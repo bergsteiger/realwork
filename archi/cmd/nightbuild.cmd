@@ -63,10 +63,9 @@ call buildone.cmd alcuTaskExecutor W:\archi\source\projects\PipeInAuto\Assistant
 call buildone.cmd alcuTaskExecutor W:\archi\source\projects\PipeInAuto\Assistant alcuTaskExecutor_INDEXER NB_INDEXER
 
 :mdpsync
-
 rem mdpSyncPrj
-call versioninfo.cmd mdpSyncPrj W:\archi\source\projects\PipeInAuto\MDPSync
-call buildone.cmd mdpSyncPrj W:\archi\source\projects\PipeInAuto\MDPSync
+rem call versioninfo.cmd mdpSyncPrj W:\archi\source\projects\PipeInAuto\MDPSync
+rem call buildone.cmd mdpSyncPrj W:\archi\source\projects\PipeInAuto\MDPSync
 
 rem goto buildend
 

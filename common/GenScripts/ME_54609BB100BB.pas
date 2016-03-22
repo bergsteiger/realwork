@@ -2,6 +2,7 @@ unit ncsExecutorFactoryList;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsExecutorFactoryList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsExecutorFactoryList" MUID: (54609BB100BB)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

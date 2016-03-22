@@ -2,6 +2,7 @@ unit ddPictureSegment;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddPictureSegment.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddPictureSegment" MUID: (54D9ACA500F5)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

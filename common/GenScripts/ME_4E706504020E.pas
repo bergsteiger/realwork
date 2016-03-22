@@ -2,6 +2,7 @@ unit nevSBSCellFormatInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevSBSCellFormatInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevSBSCellFormatInfo" MUID: (4E706504020E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

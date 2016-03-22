@@ -1,7 +1,10 @@
 unit dt_AttrSchema;
-{ $Id: dt_AttrSchema.pas,v 1.30 2015/10/13 12:55:55 fireton Exp $ }
+{ $Id: dt_AttrSchema.pas,v 1.31 2015/11/30 11:31:03 lukyanets Exp $ }
 
 // $Log: dt_AttrSchema.pas,v $
+// Revision 1.31  2015/11/30 11:31:03  lukyanets
+// Реанимируем починку интервалов
+//
 // Revision 1.30  2015/10/13 12:55:55  fireton
 // - переделка ExportPipe на новый filer dispatcher
 //
@@ -522,6 +525,8 @@ const
 
   procedure AddDLClassToSet(var theSet: TDLTypeSet; aClass: TAttrClass);
 
+  function IsTableHasPassport(aTable: TFamTbls): Boolean;
+
 implementation
 
 function TagID2AttrID(aTagId: Integer) : TdtAttribute;
@@ -620,6 +625,21 @@ begin
   Result := 2
  else
   Result := 1;
+end;
+
+function IsTableHasPassport(aTable: TFamTbls): Boolean;
+var
+ l_IDX: TdaDictionaryType;
+begin
+ Result := False;
+ for l_IDX := Low(cDLPassports) to High(cDLPassports) do
+ begin
+  if cDLPassports[l_IDX].rDict = aTable then
+  begin
+   Result := True;
+   Exit;
+  end;
+ end;
 end;
 
 end.

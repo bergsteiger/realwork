@@ -3,6 +3,8 @@ unit Sub_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\Sub_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Sub" MUID: (484F95C1026A)
+// Имя типа: "SubTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

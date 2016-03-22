@@ -2,6 +2,7 @@ unit evTableCellCursor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTableCellCursor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTableCellCursor" MUID: (50DACE1F0334)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_eeTextSourceExport;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeTextSourceExport.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TeeTextSourceExport" MUID: (47542EDE038A)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

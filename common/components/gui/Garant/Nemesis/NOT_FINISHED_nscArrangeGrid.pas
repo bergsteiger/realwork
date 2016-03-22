@@ -2,6 +2,7 @@ unit NOT_FINISHED_nscArrangeGrid;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscArrangeGrid.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nscArrangeGrid" MUID: (4AC9B15903E7)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

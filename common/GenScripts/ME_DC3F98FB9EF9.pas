@@ -3,6 +3,7 @@ unit stListPrintAndExportFontSizeItem;
 
 // Модуль: "w:\common\components\SandBox\VCM\View\List\stListPrintAndExportFontSizeItem.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TstListPrintAndExportFontSizeItem" MUID: (DC3F98FB9EF9)
 
 {$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 

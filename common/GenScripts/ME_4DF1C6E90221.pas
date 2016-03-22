@@ -3,6 +3,7 @@ unit PrintRowHeightsSpy;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\PrintRowHeightsSpy.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "PrintRowHeightsSpy" MUID: (4DF1C6E90221)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

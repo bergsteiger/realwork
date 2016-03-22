@@ -2,6 +2,7 @@ unit MultyOperationTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Archi_Tests\MultyOperationTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TMultyOperationTest" MUID: (54193E6A0023)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Archi_Tests\TestDefine.inc.pas}
 

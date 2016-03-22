@@ -3,6 +3,7 @@ unit PrimFoldersTree_utSaveOpen_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersTree_utSaveOpen_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utSaveOpen" MUID: (4BD6EB3F017A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utSaveOpen = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utSaveOpen }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utSaveOpen
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utSaveOpen.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utSaveOpen';
-end;//Tkw_FormUserType_utSaveOpen.GetWordNameForRegister
-
 function Tkw_FormUserType_utSaveOpen.GetInteger: Integer;
 begin
  Result := utSaveOpen;
 end;//Tkw_FormUserType_utSaveOpen.GetInteger
+
+class function Tkw_FormUserType_utSaveOpen.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utSaveOpen';
+end;//Tkw_FormUserType_utSaveOpen.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

@@ -2,6 +2,7 @@ unit l3Variant;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Variant.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3Variant" MUID: (53317D14019D)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

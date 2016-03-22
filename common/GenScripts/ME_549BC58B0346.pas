@@ -3,6 +3,7 @@ unit l3ExecuteInMainThread;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ExecuteInMainThread.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ExecuteInMainThread" MUID: (549BC58B0346)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

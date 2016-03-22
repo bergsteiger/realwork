@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3InterfacedList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3InterfacedList" MUID: (47CED1980057)
+// Имя типа: "_l3InterfacedList_"
 
 {$Define l3InterfacedList_imp}
 

@@ -2,6 +2,7 @@ unit evTunedEditor_p;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTunedEditor_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TevTunedEditor" MUID: (4999A57C01BA)
 
 {$Include w:\common\components\l3Define.inc}
 

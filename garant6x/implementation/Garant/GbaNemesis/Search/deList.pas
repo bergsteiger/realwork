@@ -40,6 +40,7 @@ type
    f_NodeForPositioning : Il3SimpleNode;
    f_AllDocumentsFiltered : Boolean;
    f_NeedApplyPermanentFilters : Boolean;
+   f_IsChanged : Boolean;
    f_TimeMachineOff : Boolean;
     {* Поле для свойства TimeMachineOff}
    f_WhatDoingIfOneDoc : TbsWhatDoingIfOneDoc;
@@ -55,6 +56,7 @@ type
    function pm_GetSearchInfo: IdeSearchInfo;
    function pm_GetAllDocumentsFiltered: Boolean;
    function pm_GetNeedApplyPermanentFilters: Boolean;
+   function pm_GetIsChanged: Boolean;
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -69,14 +71,16 @@ type
      const aNodeForPositioning: Il3SimpleNode;
      const aSearchInfo: IdeSearchInfo;
      aAllDocumentsFiltered: Boolean;
-     aNeedApplyPermanentFilters: Boolean); reintroduce;
+     aNeedApplyPermanentFilters: Boolean;
+     aIsChanged: Boolean); reintroduce;
    class function Make(const aList: IDynList;
      aTimeMachineOff: Boolean = true;
      aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = wdAlwaysOpen;
      const aNodeForPositioning: Il3SimpleNode = nil;
      const aSearchInfo: IdeSearchInfo = nil;
      aAllDocumentsFiltered: Boolean = False;
-     aNeedApplyPermanentFilters: Boolean = True): IdeList; reintroduce;
+     aNeedApplyPermanentFilters: Boolean = True;
+     aIsChanged: Boolean = False): IdeList; reintroduce;
  protected
  // protected properties
    property TimeMachineOff: Boolean
@@ -100,7 +104,8 @@ constructor TdeList.Create(const aList: IDynList;
   const aNodeForPositioning: Il3SimpleNode;
   const aSearchInfo: IdeSearchInfo;
   aAllDocumentsFiltered: Boolean;
-  aNeedApplyPermanentFilters: Boolean);
+  aNeedApplyPermanentFilters: Boolean;
+  aIsChanged: Boolean);
 //#UC START# *4B1F76940201_47F33E9E03C8_var*
 //#UC END# *4B1F76940201_47F33E9E03C8_var*
 begin
@@ -113,6 +118,7 @@ begin
  f_SearchInfo := aSearchInfo;
  f_AllDocumentsFiltered := aAllDocumentsFiltered;
  f_NeedApplyPermanentFilters := aNeedApplyPermanentFilters;
+ f_IsChanged := aIsChanged;
 //#UC END# *4B1F76940201_47F33E9E03C8_impl*
 end;//TdeList.Create
 
@@ -122,11 +128,12 @@ class function TdeList.Make(const aList: IDynList;
   const aNodeForPositioning: Il3SimpleNode = nil;
   const aSearchInfo: IdeSearchInfo = nil;
   aAllDocumentsFiltered: Boolean = False;
-  aNeedApplyPermanentFilters: Boolean = True): IdeList;
+  aNeedApplyPermanentFilters: Boolean = True;
+  aIsChanged: Boolean = False): IdeList;
 var
  l_Inst : TdeList;
 begin
- l_Inst := Create(aList, aTimeMachineOff, aWhatDoingIfOneDoc, aNodeForPositioning, aSearchInfo, aAllDocumentsFiltered, aNeedApplyPermanentFilters);
+ l_Inst := Create(aList, aTimeMachineOff, aWhatDoingIfOneDoc, aNodeForPositioning, aSearchInfo, aAllDocumentsFiltered, aNeedApplyPermanentFilters, aIsChanged);
  try
   Result := l_Inst;
  finally
@@ -196,6 +203,15 @@ begin
  Result := f_NeedApplyPermanentFilters; 
 //#UC END# *562485D00025_47F33E9E03C8get_impl*
 end;//TdeList.pm_GetNeedApplyPermanentFilters
+
+function TdeList.pm_GetIsChanged: Boolean;
+//#UC START# *569DDAE500DD_47F33E9E03C8get_var*
+//#UC END# *569DDAE500DD_47F33E9E03C8get_var*
+begin
+//#UC START# *569DDAE500DD_47F33E9E03C8get_impl*
+ Result := f_IsChanged;
+//#UC END# *569DDAE500DD_47F33E9E03C8get_impl*
+end;//TdeList.pm_GetIsChanged
 
 procedure TdeList.Cleanup;
 //#UC START# *479731C50290_47F33E9E03C8_var*

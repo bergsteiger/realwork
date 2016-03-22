@@ -2,6 +2,7 @@ unit ConsultationDomainInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\ConsultationDomainInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "ConsultationDomainInterfaces" MUID: (4ABCF04F00DF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

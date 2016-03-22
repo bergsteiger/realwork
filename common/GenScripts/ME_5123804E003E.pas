@@ -2,6 +2,8 @@ unit toKPrime;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\toKPrime.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "toKPrime" MUID: (5123804E003E)
+// Имя типа: "TtoKPrime"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

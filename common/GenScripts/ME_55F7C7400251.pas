@@ -2,6 +2,7 @@ unit evExpandedTextActiveHyperlink;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evExpandedTextActiveHyperlink.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevExpandedTextActiveHyperlink" MUID: (55F7C7400251)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

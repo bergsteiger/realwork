@@ -3,6 +3,7 @@ unit ListUserTypes_lftSimilarDocumentsToFragment_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftSimilarDocumentsToFragment_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "lftSimilarDocumentsToFragment" MUID: (5594F3A50378)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -12,7 +13,6 @@ interface
 uses
  l3IntfUses
  , ListUserTypes_lftRToPart_UserType
- , ListUserTypes_lftSimilarDocuments_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -36,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftSimilarDocumentsToFragment = {final} class(TtfwInteger)
   {* Слово словаря для типа формы lftSimilarDocumentsToFragment }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_lftSimilarDocumentsToFragment
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_lftSimilarDocumentsToFragment.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::lftSimilarDocumentsToFragment';
-end;//Tkw_FormUserType_lftSimilarDocumentsToFragment.GetWordNameForRegister
-
 function Tkw_FormUserType_lftSimilarDocumentsToFragment.GetInteger: Integer;
 begin
  Result := lftSimilarDocumentsToFragment;
 end;//Tkw_FormUserType_lftSimilarDocumentsToFragment.GetInteger
+
+class function Tkw_FormUserType_lftSimilarDocumentsToFragment.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::lftSimilarDocumentsToFragment';
+end;//Tkw_FormUserType_lftSimilarDocumentsToFragment.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

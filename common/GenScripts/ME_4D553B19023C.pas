@@ -3,6 +3,7 @@ unit evParaSplitter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evParaSplitter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevParaSplitter" MUID: (4D553B19023C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

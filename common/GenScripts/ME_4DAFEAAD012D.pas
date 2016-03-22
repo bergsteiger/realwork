@@ -3,6 +3,7 @@ unit InsertFormulaTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\InsertFormulaTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TInsertFormulaTest" MUID: (4DAFEAAD012D)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

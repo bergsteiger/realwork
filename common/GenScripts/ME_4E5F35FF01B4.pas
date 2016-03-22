@@ -2,6 +2,7 @@ unit nevBitmapFormatInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevBitmapFormatInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevBitmapFormatInfo" MUID: (4E5F35FF01B4)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

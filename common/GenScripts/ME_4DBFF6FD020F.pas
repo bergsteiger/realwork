@@ -2,6 +2,7 @@ unit BaloonWarningUserTypes_ControlledChangingWarning_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_ControlledChangingWarning_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ControlledChangingWarning" MUID: (4DBFF6FD020F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -11,7 +12,6 @@ interface
 uses
  l3IntfUses
  , BaloonWarningUserTypes_OldBaseWarning_UserType
- , BaloonWarningUserTypes_Fake_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -34,26 +34,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ControlledChangingWarning = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ControlledChangingWarning }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ControlledChangingWarning
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ControlledChangingWarning.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ControlledChangingWarning';
-end;//Tkw_FormUserType_ControlledChangingWarning.GetWordNameForRegister
-
 function Tkw_FormUserType_ControlledChangingWarning.GetInteger: Integer;
 begin
  Result := ControlledChangingWarning;
 end;//Tkw_FormUserType_ControlledChangingWarning.GetInteger
+
+class function Tkw_FormUserType_ControlledChangingWarning.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ControlledChangingWarning';
+end;//Tkw_FormUserType_ControlledChangingWarning.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

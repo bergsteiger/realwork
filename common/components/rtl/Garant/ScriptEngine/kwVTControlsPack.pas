@@ -2,6 +2,7 @@ unit kwVTControlsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwVTControlsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "kwVTControlsPack" MUID: (4F6096D500C3)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -68,11 +69,6 @@ begin
  aCtx.rEngine.PushInt(Ord(DDSupport_GetState(aCtx)));
 end;//TkwDDSupportGetState.DoDoIt
 
-class function TkwDDSupportGetState.GetWordNameForRegister: AnsiString;
-begin
- Result := 'DDSupport:GetState';
-end;//TkwDDSupportGetState.GetWordNameForRegister
-
 function TkwDDSupportGetState.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TDragDataState);
@@ -87,6 +83,11 @@ function TkwDDSupportGetState.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwDDSupportGetState.ParamsTypes
+
+class function TkwDDSupportGetState.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'DDSupport:GetState';
+end;//TkwDDSupportGetState.GetWordNameForRegister
 
 initialization
  TkwDDSupportGetState.RegisterInEngine;

@@ -3,6 +3,7 @@ unit vcmToolbarsInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmToolbarsInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "vcmToolbarsInterfaces" MUID: (499465EE030A)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -2,6 +2,7 @@ unit l3DynamicArrayEx;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3DynamicArrayEx.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3DynamicArrayEx" MUID: (479DFD65024D)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

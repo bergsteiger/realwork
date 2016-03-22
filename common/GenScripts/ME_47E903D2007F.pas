@@ -3,6 +3,7 @@ unit nevTableCellList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableCellList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevTableCellList" MUID: (47E903D2007F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

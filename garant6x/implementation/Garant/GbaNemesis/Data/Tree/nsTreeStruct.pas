@@ -28,15 +28,41 @@ uses
   l3InternalInterfaces,
   l3TreeInterfaces,
   nsINodeWrapBase,
-  nsRootManager
+  nsRootManager,
+  l3LongintList,
+  bsInterfaces,
+  l3ProtoObject
   ;
 
 type
- TnsTreeStruct = class(TnsRootManager, Il3RootSource, Il3SimpleTree, Il3ExpandedSimpleTree)
+ TnsTreeStructState = class(Tl3ProtoObject, InsTreeStructState)
+ private
+ // private fields
+   f_SelectedIndexList : Tl3LongintList;
+ private
+ // private methods
+   procedure FillList(aSelectedIndexList: Tl3LongintList);
+ protected
+ // realized methods
+   function GetSelectedNodeCount: Integer;
+   function GetSelectedNodeVisibleIndex(aIndex: Integer): Integer;
+ protected
+ // overridden protected methods
+   procedure Cleanup; override;
+     {* Функция очистки полей объекта. }
+ public
+ // public methods
+   constructor Create(aSelectedIndexList: Tl3LongintList); reintroduce;
+   class function Make(aSelectedIndexList: Tl3LongintList): InsTreeStructState; reintroduce;
+     {* Сигнатура фабрики TnsTreeStructState.Make }
+ end;//TnsTreeStructState
+
+ TnsTreeStruct = class(TnsRootManager, Il3RootSource, Il3SimpleTree, Il3ExpandedSimpleTree, InsTreeStructStateProvider, InsTreeStructStateConsumer)
   {* Дерево. Фасад к адаптерному дереву }
  private
  // private fields
    f_ShowRoot : Boolean;
+   f_SelectedIndexList : Tl3LongintList;
  private
  // private methods
    function GetNodeClass(const aNode: INodeBase): RnsINodeWrap;
@@ -136,6 +162,8 @@ type
     const aData: Tl3TreeData): Boolean;
    function DropData(const aTargetNode: Il3SimpleNode;
     const aData: Tl3TreeData): Boolean;
+   function MakeState: InsTreeStructState;
+   procedure AssignState(const aState: InsTreeStructState);
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -195,6 +223,8 @@ type
     aMode: Tl3SetBitType;
     aForceMode: Boolean): Boolean; virtual;
    function GetSelectCount: Integer; virtual;
+   procedure DoSelectionChanged(anIndex: Integer;
+    aSelected: Boolean);
  public
  // public methods
    constructor Create(const aRoot: INodeBase;
@@ -218,8 +248,7 @@ uses
   l3Nodes,
   l3Bits,
   l3Base,
-  l3Types,
-  bsInterfaces
+  l3Types
   {$If not defined(NoVCM)}
   ,
   vcmBase
@@ -247,7 +276,10 @@ begin
    RootNode.SetAllFlag(FM_SELECTION, True)
   else
    if aMode = sbDeselect then
+   begin
+    f_SelectedIndexList.Clear;
     RootNode.SetAllFlag(FM_SELECTION, False);
+   end;
   l_NewSelectCount := RootNode.GetFlagCount(FM_SELECTION);
   SelectCountChanged(l_OldSelectCount, l_NewSelectCount);
  end;
@@ -294,6 +326,71 @@ begin
  SelectCountChanged(l_OldSelectCount, l_NewSelectCount);
 //#UC END# *51F1508A01EA_46835B4001A4_impl*
 end;//TnsTreeStruct.DoSelectInterval
+// start class TnsTreeStructState
+
+procedure TnsTreeStructState.FillList(aSelectedIndexList: Tl3LongintList);
+//#UC START# *56A892DC0298_56A8877600AB_var*
+var
+ l_Index: Integer;
+//#UC END# *56A892DC0298_56A8877600AB_var*
+begin
+//#UC START# *56A892DC0298_56A8877600AB_impl*
+ for l_Index := 0 to Pred(aSelectedIndexList.Count) do
+  f_SelectedIndexList.Add(aSelectedIndexList[l_Index]);
+//#UC END# *56A892DC0298_56A8877600AB_impl*
+end;//TnsTreeStructState.FillList
+
+constructor TnsTreeStructState.Create(aSelectedIndexList: Tl3LongintList);
+//#UC START# *56A887A200DE_56A8877600AB_var*
+//#UC END# *56A887A200DE_56A8877600AB_var*
+begin
+//#UC START# *56A887A200DE_56A8877600AB_impl*
+ inherited Create;
+ Assert(aSelectedIndexList <> nil);
+ f_SelectedIndexList := Tl3LongIntList.Create;
+ FillList(aSelectedIndexList);
+//#UC END# *56A887A200DE_56A8877600AB_impl*
+end;//TnsTreeStructState.Create
+
+class function TnsTreeStructState.Make(aSelectedIndexList: Tl3LongintList): InsTreeStructState;
+var
+ l_Inst : TnsTreeStructState;
+begin
+ l_Inst := Create(aSelectedIndexList);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;
+
+function TnsTreeStructState.GetSelectedNodeCount: Integer;
+//#UC START# *56CD757F012F_56A8877600AB_var*
+//#UC END# *56CD757F012F_56A8877600AB_var*
+begin
+//#UC START# *56CD757F012F_56A8877600AB_impl*
+ Result := f_SelectedIndexList.Count;
+//#UC END# *56CD757F012F_56A8877600AB_impl*
+end;//TnsTreeStructState.GetSelectedNodeCount
+
+function TnsTreeStructState.GetSelectedNodeVisibleIndex(aIndex: Integer): Integer;
+//#UC START# *56CD758B0198_56A8877600AB_var*
+//#UC END# *56CD758B0198_56A8877600AB_var*
+begin
+//#UC START# *56CD758B0198_56A8877600AB_impl*
+ Result := f_SelectedIndexList[aIndex];
+//#UC END# *56CD758B0198_56A8877600AB_impl*
+end;//TnsTreeStructState.GetSelectedNodeVisibleIndex
+
+procedure TnsTreeStructState.Cleanup;
+//#UC START# *479731C50290_56A8877600AB_var*
+//#UC END# *479731C50290_56A8877600AB_var*
+begin
+//#UC START# *479731C50290_56A8877600AB_impl*
+ FreeAndNil(f_SelectedIndexList);
+ inherited;
+//#UC END# *479731C50290_56A8877600AB_impl*
+end;//TnsTreeStructState.Cleanup
 
 function TnsTreeStruct.pm_GetRoot: Il3SimpleRootNode;
 //#UC START# *48FDD9D901BB_46835B4001A4get_var*
@@ -338,6 +435,7 @@ constructor TnsTreeStruct.Create(const aRoot: INodeBase;
 begin
 //#UC START# *48FDD9270194_46835B4001A4_impl*
  inherited Create;
+ f_SelectedIndexList := Tl3LongintList.Create;
  Self.OneLevel := aOneLevel;
  f_ShowRoot := aShowRoot;
  MakeRootNode(aRoot);
@@ -577,6 +675,19 @@ begin
   Result := RootNode.GetFlagCount(FM_SELECTION);
 //#UC END# *48FEFE040094_46835B4001A4_impl*
 end;//TnsTreeStruct.GetSelectCount
+
+procedure TnsTreeStruct.DoSelectionChanged(anIndex: Integer;
+  aSelected: Boolean);
+//#UC START# *56CD453700A7_46835B4001A4_var*
+//#UC END# *56CD453700A7_46835B4001A4_var*
+begin
+//#UC START# *56CD453700A7_46835B4001A4_impl*
+ if aSelected then
+  f_SelectedIndexList.Add(anIndex)
+ else
+  f_SelectedIndexList.Remove(anIndex);
+//#UC END# *56CD453700A7_46835B4001A4_impl*
+end;//TnsTreeStruct.DoSelectionChanged
 
 function TnsTreeStruct.Get_RootNode: Il3SimpleRootNode;
 //#UC START# *46825CAA0125_46835B4001A4get_var*
@@ -1054,6 +1165,7 @@ begin
   l_Node.SetFlag(FM_SELECTION, aValue);
   if (RootNode <> nil) then
   begin
+   DoSelectionChanged(anIndex, aValue);
    l_CurSelectCount := RootNode.GetFlagCount(FM_SELECTION);
    if aValue then
     SelectCountChanged(l_CurSelectCount - 1, l_CurSelectCount)
@@ -1204,11 +1316,39 @@ begin
 //#UC END# *47BAD32501E2_46835B4001A4_impl*
 end;//TnsTreeStruct.DropData
 
+function TnsTreeStruct.MakeState: InsTreeStructState;
+//#UC START# *56A873120383_46835B4001A4_var*
+//#UC END# *56A873120383_46835B4001A4_var*
+begin
+//#UC START# *56A873120383_46835B4001A4_impl*
+ Result := TnsTreeStructState.Make(f_SelectedIndexList);
+//#UC END# *56A873120383_46835B4001A4_impl*
+end;//TnsTreeStruct.MakeState
+
+procedure TnsTreeStruct.AssignState(const aState: InsTreeStructState);
+//#UC START# *56A89F6B03A5_46835B4001A4_var*
+var
+ l_Index: Integer;
+ l_SelectedNodeIndex: Integer;
+//#UC END# *56A89F6B03A5_46835B4001A4_var*
+begin
+//#UC START# *56A89F6B03A5_46835B4001A4_impl*
+ Assert(aState <> nil);
+ SelectAllNodes(sbDeselect);
+ for l_Index := 0 to Pred(aState.GetSelectedNodeCount) do
+ begin
+  l_SelectedNodeIndex := aState.GetSelectedNodeVisibleIndex(l_Index);
+  Set_Select(l_SelectedNodeIndex, True);
+ end;  
+//#UC END# *56A89F6B03A5_46835B4001A4_impl*
+end;//TnsTreeStruct.AssignState
+
 procedure TnsTreeStruct.Cleanup;
 //#UC START# *479731C50290_46835B4001A4_var*
 //#UC END# *479731C50290_46835B4001A4_var*
 begin
 //#UC START# *479731C50290_46835B4001A4_impl*
+ FreeAndNil(f_SelectedIndexList);
  Root := nil;
  inherited;
 //#UC END# *479731C50290_46835B4001A4_impl*

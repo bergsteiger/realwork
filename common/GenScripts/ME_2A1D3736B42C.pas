@@ -3,6 +3,7 @@ unit SelfInfo_ut_SelfInfo_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\SelfInfo_ut_SelfInfo_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_SelfInfo" MUID: (2A1D3736B42C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_SelfInfo = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_SelfInfo }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_SelfInfo
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_SelfInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_SelfInfo';
-end;//Tkw_FormUserType_ut_SelfInfo.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_SelfInfo.GetInteger: Integer;
 begin
  Result := ut_SelfInfo;
 end;//Tkw_FormUserType_ut_SelfInfo.GetInteger
+
+class function Tkw_FormUserType_ut_SelfInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_SelfInfo';
+end;//Tkw_FormUserType_ut_SelfInfo.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

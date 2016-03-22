@@ -2,6 +2,7 @@ unit PictureEtalonsWorkingPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\PictureEtalonsWorkingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "PictureEtalonsWorkingPack" MUID: (552BD71503BD)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -77,11 +78,6 @@ begin
 //#UC END# *4DAEEDE10285_0624C398EE8C_impl*
 end;//TkwEnabledSaveRTFPictures.DoDoIt
 
-class function TkwEnabledSaveRTFPictures.GetWordNameForRegister: AnsiString;
-begin
- Result := 'EnabledSaveRTFPictures';
-end;//TkwEnabledSaveRTFPictures.GetWordNameForRegister
-
 function TkwEnabledSaveRTFPictures.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -91,6 +87,11 @@ function TkwEnabledSaveRTFPictures.GetAllParamsCount(const aCtx: TtfwContext): I
 begin
  Result := 0;
 end;//TkwEnabledSaveRTFPictures.GetAllParamsCount
+
+class function TkwEnabledSaveRTFPictures.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'EnabledSaveRTFPictures';
+end;//TkwEnabledSaveRTFPictures.GetWordNameForRegister
 
 procedure TkwGeneratePDFForEtalon.GeneratePDFForEtalon(const aCtx: TtfwContext;
  aValue: Boolean);
@@ -118,11 +119,6 @@ begin
  GeneratePDFForEtalon(aCtx, l_aValue);
 end;//TkwGeneratePDFForEtalon.DoDoIt
 
-class function TkwGeneratePDFForEtalon.GetWordNameForRegister: AnsiString;
-begin
- Result := 'GeneratePDFForEtalon';
-end;//TkwGeneratePDFForEtalon.GetWordNameForRegister
-
 function TkwGeneratePDFForEtalon.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -137,6 +133,11 @@ function TkwGeneratePDFForEtalon.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Boolean)]);
 end;//TkwGeneratePDFForEtalon.ParamsTypes
+
+class function TkwGeneratePDFForEtalon.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'GeneratePDFForEtalon';
+end;//TkwGeneratePDFForEtalon.GetWordNameForRegister
 
 initialization
  TkwEnabledSaveRTFPictures.RegisterInEngine;

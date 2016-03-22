@@ -2,6 +2,7 @@ unit nevRootFormatInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevRootFormatInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevRootFormatInfo" MUID: (4815B8D801D8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
@@ -111,6 +112,7 @@ begin
  // УБРАНО! http://mdp.garant.ru/pages/viewpage.action?pageId=142610892
   {$ENDIF Nemesis}*)
   f_Extent := Extent;
+  f_NeedTotalRecalc := NeedTotalRecalc;
  end;//with aView.Metrics
 //#UC END# *4815CF1D0047_4815B8D801D8_impl*
 end;//TnevRootFormatInfo.Create

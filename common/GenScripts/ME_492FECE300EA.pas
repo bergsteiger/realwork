@@ -3,6 +3,7 @@ unit sdsQuery;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\sdsQuery.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsQuery" MUID: (492FECE300EA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -49,6 +50,7 @@ type
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
  end;//TsdsQuery
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -106,6 +108,13 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4938F7E702B7_492FECE300EA_impl*
 end;//TsdsQuery.ClearAreas
+
+procedure TsdsQuery.ClearFields;
+begin
+ f_dsQuery := nil;
+ f_dsSaveLoad := nil;
+ inherited;
+end;//TsdsQuery.ClearFields
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

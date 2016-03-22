@@ -99,7 +99,7 @@ int make_aux_index(index_st *pdest, int count, index_st *psrc, set_st *doclist)
 			release_stream(pistr);
 		} else if (pkey [0] == '-' || pkey [0] == '|') {
 			if (!samedocs_count) {
-				short seg = atol (pkey + 1);
+				short seg = (short)(0x7fff && atol (pkey + 1));
 				load_stream(pit, pistr);
 				pstref = get_stref(pit, 0);
 				for (i=0; i<count; i++) {

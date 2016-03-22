@@ -3,6 +3,7 @@ unit k2Dictionary;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Dictionary.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2Dictionary" MUID: (4860AF86034F)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

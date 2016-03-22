@@ -2,6 +2,7 @@ unit nscCustomChatMemoContainer;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscCustomChatMemoContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnscCustomChatMemoContainer" MUID: (4A8BB2BD015E)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

@@ -3,6 +3,7 @@ unit k2ProcTagTool;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2ProcTagTool.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2ProcTagTool" MUID: (467C18BF0367)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

@@ -2,6 +2,7 @@ unit nsUserFlagsFilter;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserFlagsFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsUserFlagsFilter" MUID: (4901E8E20154)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

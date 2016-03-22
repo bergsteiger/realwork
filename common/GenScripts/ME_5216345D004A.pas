@@ -3,6 +3,8 @@ unit Document_Module;
 
 // Модуль: "w:\common\components\SandBox\VCM\View\Document\Document_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "Document" MUID: (5216345D004A)
+// Имя типа: "TDocumentModule"
 
 {$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 

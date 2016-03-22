@@ -1,0 +1,28 @@
+USES
+	QuickTestsUtils.script
+;
+
+PROCEDURE "Документ для задачи TK599813243"
+	70889104 >>> glNumDoc
+	"Открывать документ из базы"
+;
+
+PROCEDURE "На страницу вниз" INTEGER IN aPageCount
+	cnPageDownAndMoveCursorDown >>> g_StartAction
+	0 >>> g_MoveCount	
+	aPageCount >>> g_PageCount
+;
+
+Тест TK599813243 
+	Параметры: (
+		"Документ для задачи TK599813243"
+		"Использовать широкую форму"
+		"На страницу вниз {(35)}"
+		"Тестирование изображения редактора"
+	)
+	Выполнить (
+		"только с учетом параметров"
+ 	)
+;
+
+TK599813243

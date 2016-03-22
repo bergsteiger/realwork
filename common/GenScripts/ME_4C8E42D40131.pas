@@ -2,6 +2,8 @@ unit NOT_FINISHED_CustomizeTools_Form;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\NOT_FINISHED_CustomizeTools_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "CustomizeTools" MUID: (4C8E42D40131)
+// Имя типа: "TCustomizeToolsForm"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 
@@ -27,12 +29,12 @@ uses
  {$If Defined(Nemesis)}
  , eeShortCutEdit
  {$IfEnd} // Defined(Nemesis)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , CustomizeToolsKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
@@ -42,12 +44,12 @@ const
   {* Заголовок пользовательского типа "CustomizeTools" }
 
 initialization
+ str_ut_CustomizeToolsCaption.Init;
+ {* Инициализация str_ut_CustomizeToolsCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCustomizeToolsForm);
  {* Регистрация CustomizeTools }
 {$IfEnd} // NOT Defined(NoScripts)
- str_ut_CustomizeToolsCaption.Init;
- {* Инициализация str_ut_CustomizeToolsCaption }
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -3,6 +3,8 @@ unit ReleaseToK3;
 
 // Модуль: "w:\common\components\SearchTest\ReleaseToK3.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "ReleaseToK3" MUID: (3337505C7D4E)
+// Имя типа: "TReleaseToK3"
 
 interface
 

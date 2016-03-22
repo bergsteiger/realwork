@@ -2,6 +2,8 @@ unit PrimChild_Form;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "PrimChild" MUID: (4F6B6646037F)
+// Имя типа: "TPrimChildForm"
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 

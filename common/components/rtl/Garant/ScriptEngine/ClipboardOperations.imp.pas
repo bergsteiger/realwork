@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "ClipboardOperations" MUID: (4CE1344403AC)
+// Имя типа: "_ClipboardOperations_"
 
 {$Define ClipboardOperations_imp}
 

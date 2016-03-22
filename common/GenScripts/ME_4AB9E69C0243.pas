@@ -3,6 +3,8 @@ unit MedicFirmList_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\MedicFirmList_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "MedicFirmList" MUID: (4AB9E69C0243)
+// Имя типа: "Ten_MedicFirmList"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -1,86 +1,68 @@
 unit ListUserTypes_lftSynchroView_UserType;
+ {* Синхронный просмотр (ссылки из документа, ссылки на документ) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/ListUserTypes_lftSynchroView_UserType.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Core::Base Operations::View::Base Forms::ListUserTypes::lftSynchroView
-//
-// Синхронный просмотр (ссылки из документа, ссылки на документ)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftSynchroView_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "lftSynchroView" MUID: (4BD5888802BA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  ListUserTypes_lftCorrespondent_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ , ListUserTypes_lftCorrespondent_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы lftSynchroView }
-  lftSynchroViewName = 'lftSynchroView';
-   { Строковый идентификатор пользовательского типа "Синхронный просмотр (ссылки из документа, ссылки на документ)" }
-  lftSynchroView = TvcmUserType(lftCorrespondent + 1);
-   { Синхронный просмотр (ссылки из документа, ссылки на документ) }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы lftSynchroView }
+ lftSynchroViewName = 'lftSynchroView';
+  {* Строковый идентификатор пользовательского типа "Синхронный просмотр (ссылки из документа, ссылки на документ)" }
+ lftSynchroView = TvcmUserType(lftCorrespondent + 1);
+  {* Синхронный просмотр (ссылки из документа, ссылки на документ) }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_lftSynchroView = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы lftSynchroView }
+ Tkw_FormUserType_lftSynchroView = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы lftSynchroView }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_lftSynchroView
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_lftSynchroView
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_lftSynchroView
-
-class function Tkw_FormUserType_lftSynchroView.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::lftSynchroView';
-end;//Tkw_FormUserType_lftSynchroView.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_lftSynchroView.GetInteger: Integer;
- {-}
 begin
  Result := lftSynchroView;
 end;//Tkw_FormUserType_lftSynchroView.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_lftSynchroView.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::lftSynchroView';
+end;//Tkw_FormUserType_lftSynchroView.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_lftSynchroView
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftSynchroView.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_lftSynchroView }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

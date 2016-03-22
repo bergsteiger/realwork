@@ -2,6 +2,7 @@ unit nsJournalBookmarkNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsJournalBookmarkNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsJournalBookmarkNode" MUID: (4ADDF4D901D1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit AutoBlockTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\AutoBlockTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TAutoBlockTest" MUID: (4D0256A60243)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

@@ -3,6 +3,8 @@ unit evReqGroup_InterfaceFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evReqGroup_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
+// Элемент модели: "TevReqGroup" MUID: (4D63C1860228)
+// Имя типа: "TevReqGroupInterfaceFactory"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

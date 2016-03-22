@@ -3,6 +3,7 @@ unit TextViaEditorProcessor;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\TextViaEditorProcessor.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTextViaEditorProcessor" MUID: (4BE111D30229)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

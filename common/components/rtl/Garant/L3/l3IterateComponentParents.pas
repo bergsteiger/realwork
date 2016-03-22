@@ -2,6 +2,7 @@ unit l3IterateComponentParents;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3IterateComponentParents.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3IterateComponentParents" MUID: (551AA9BD01EE)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -36,7 +37,7 @@ type
  Tl3IterateComponentParents = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3IterateComponentParents;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3IterateComponentParents }
   protected
    procedure pm_SetAlien(const aValue: Il3IterateComponentParents);
    procedure ClearFields; override;

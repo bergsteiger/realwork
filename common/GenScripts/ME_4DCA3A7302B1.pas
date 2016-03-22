@@ -2,6 +2,7 @@ unit evTableConverter;
 
 // Модуль: "w:\archi\source\projects\Common\Utils\evTableConverter.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evTableConverter" MUID: (4DCA3A7302B1)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
@@ -754,7 +755,7 @@ begin
               l_TextPara:= TddTextParagraph(l_Cell.Items[k]);
               l_Text := l_TextPara.Text;
               l_TextPara.PAP.InTable := True;
-              l_TextPara.Write2Generator(Generator, False, False);
+              l_TextPara.Write2Generator(Generator, False, dd_lvNone);
              end; // for k
             finally
              Generator.Finish;

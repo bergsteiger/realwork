@@ -3,6 +3,7 @@ unit m3SplittedFileStream;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3SplittedFileStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3SplittedFileStream" MUID: (4FA278B00247)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

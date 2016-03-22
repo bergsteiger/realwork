@@ -2,6 +2,7 @@ unit myInterfacedObjectTest;
 
 // Модуль: "w:\common\components\SandBox\myInterfacedObjectTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TmyInterfacedObjectTest" MUID: (516D4FB9038C)
 
 {$Include w:\common\components\SandBox\sbtDefine.inc}
 

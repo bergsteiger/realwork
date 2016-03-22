@@ -2,6 +2,7 @@ unit tfwValueTypesCache;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwValueTypesCache.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwValueTypesCache" MUID: (55BF37AB038D)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

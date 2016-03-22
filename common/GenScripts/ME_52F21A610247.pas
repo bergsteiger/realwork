@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "GUIAppTester" MUID: (52F21A610247)
+// Имя типа: "_GUIAppTester_"
 
 {$Define GUIAppTester_imp}
 

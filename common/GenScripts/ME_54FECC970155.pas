@@ -2,6 +2,7 @@ unit nsDataExchangeRealization;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsDataExchangeRealization.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDataExchangeRealization" MUID: (54FECC970155)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,8 @@ unit Filters_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\Filters_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "Filters" MUID: (4ABCD2BC0302)
+// Имя типа: "TenFilters"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

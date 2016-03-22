@@ -3,6 +3,7 @@ unit mmmReferencesAndDictionaries;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\mmmReferencesAndDictionaries.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TmmmReferencesAndDictionaries" MUID: (490C3EE8039D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

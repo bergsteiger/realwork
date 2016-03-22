@@ -3,6 +3,8 @@ unit moAdmin;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moAdmin.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Admin" MUID: (4AA5122E03B2)
+// Имя типа: "Tmo_Admin"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

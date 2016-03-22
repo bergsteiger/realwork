@@ -3,6 +3,8 @@ unit k2OList_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2OList_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "OList" MUID: (48492AD90142)
+// Имя типа: "OListTag"
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

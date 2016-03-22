@@ -2,6 +2,7 @@ unit nsTabbedInterfaceTypes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\TabInterface\nsTabbedInterfaceTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsTabbedInterfaceTypes" MUID: (53BA488F00D8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit GroupPropertyKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\GroupPropertyKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "GroupPropertyKeywordsPack" MUID: (36BFF123C1B4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -47,8 +48,8 @@ type
 'aControl' форма::GroupProperty TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_GroupProperty
 
  Tkw_GroupProperty_Control_edName = {final} class(TtfwControlString)
@@ -59,9 +60,9 @@ type
 контрол::edName TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_GroupProperty_Control_edName
 
  Tkw_GroupProperty_Control_edName_Push = {final} class(TkwBynameControlPush)
@@ -84,9 +85,9 @@ type
 контрол::Label1 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_GroupProperty_Control_Label1
 
  Tkw_GroupProperty_Control_Label1_Push = {final} class(TkwBynameControlPush)
@@ -149,20 +150,15 @@ OBJECT VAR l_TvtLabel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEfGroupPropertyLabel1
 
-class function Tkw_Form_GroupProperty.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::GroupProperty';
-end;//Tkw_Form_GroupProperty.GetWordNameForRegister
-
 function Tkw_Form_GroupProperty.GetString: AnsiString;
 begin
  Result := 'efGroupProperty';
 end;//Tkw_Form_GroupProperty.GetString
 
-class function Tkw_GroupProperty_Control_edName.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_GroupProperty.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::edName';
-end;//Tkw_GroupProperty_Control_edName.GetWordNameForRegister
+ Result := 'форма::GroupProperty';
+end;//Tkw_Form_GroupProperty.GetWordNameForRegister
 
 function Tkw_GroupProperty_Control_edName.GetString: AnsiString;
 begin
@@ -175,6 +171,11 @@ begin
  TtfwClassRef.Register(TnscEdit);
 end;//Tkw_GroupProperty_Control_edName.RegisterInEngine
 
+class function Tkw_GroupProperty_Control_edName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edName';
+end;//Tkw_GroupProperty_Control_edName.GetWordNameForRegister
+
 procedure Tkw_GroupProperty_Control_edName_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edName');
@@ -186,11 +187,6 @@ begin
  Result := 'контрол::edName:push';
 end;//Tkw_GroupProperty_Control_edName_Push.GetWordNameForRegister
 
-class function Tkw_GroupProperty_Control_Label1.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::Label1';
-end;//Tkw_GroupProperty_Control_Label1.GetWordNameForRegister
-
 function Tkw_GroupProperty_Control_Label1.GetString: AnsiString;
 begin
  Result := 'Label1';
@@ -201,6 +197,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_GroupProperty_Control_Label1.RegisterInEngine
+
+class function Tkw_GroupProperty_Control_Label1.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Label1';
+end;//Tkw_GroupProperty_Control_Label1.GetWordNameForRegister
 
 procedure Tkw_GroupProperty_Control_Label1_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -235,11 +236,6 @@ begin
  aCtx.rEngine.PushObj(edName(aCtx, l_aefGroupProperty));
 end;//TkwEfGroupPropertyEdName.DoDoIt
 
-class function TkwEfGroupPropertyEdName.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefGroupProperty.edName';
-end;//TkwEfGroupPropertyEdName.GetWordNameForRegister
-
 procedure TkwEfGroupPropertyEdName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -260,6 +256,11 @@ function TkwEfGroupPropertyEdName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefGroupProperty)]);
 end;//TkwEfGroupPropertyEdName.ParamsTypes
+
+class function TkwEfGroupPropertyEdName.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefGroupProperty.edName';
+end;//TkwEfGroupPropertyEdName.GetWordNameForRegister
 
 function TkwEfGroupPropertyLabel1.Label1(const aCtx: TtfwContext;
  aefGroupProperty: TefGroupProperty): TvtLabel;
@@ -283,11 +284,6 @@ begin
  aCtx.rEngine.PushObj(Label1(aCtx, l_aefGroupProperty));
 end;//TkwEfGroupPropertyLabel1.DoDoIt
 
-class function TkwEfGroupPropertyLabel1.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefGroupProperty.Label1';
-end;//TkwEfGroupPropertyLabel1.GetWordNameForRegister
-
 procedure TkwEfGroupPropertyLabel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -308,6 +304,11 @@ function TkwEfGroupPropertyLabel1.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefGroupProperty)]);
 end;//TkwEfGroupPropertyLabel1.ParamsTypes
+
+class function TkwEfGroupPropertyLabel1.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefGroupProperty.Label1';
+end;//TkwEfGroupPropertyLabel1.GetWordNameForRegister
 
 initialization
  Tkw_Form_GroupProperty.RegisterInEngine;

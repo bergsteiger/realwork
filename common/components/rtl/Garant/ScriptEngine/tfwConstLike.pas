@@ -2,6 +2,7 @@ unit tfwConstLike;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwConstLike.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwConstLike" MUID: (4F3BC124004D)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -1,8 +1,11 @@
 unit a2DocIDRangeEditor;
 
-{ $Id: a2DocIDRangeEditor.pas,v 1.11 2015/03/16 10:08:38 voba Exp $ }
+{ $Id: a2DocIDRangeEditor.pas,v 1.12 2015/11/25 07:21:31 lukyanets Exp $ }
 
 // $Log: a2DocIDRangeEditor.pas,v $
+// Revision 1.12  2015/11/25 07:21:31  lukyanets
+// «аготовки дл€ выдачи номеров
+//
 // Revision 1.11  2015/03/16 10:08:38  voba
 // - локальное автосохранение документов
 //
@@ -78,6 +81,8 @@ uses
  l3Base,
  l3RecList,
  l3String,
+
+ daSchemeConsts,
 
  dtIntf,
  dt_Const,

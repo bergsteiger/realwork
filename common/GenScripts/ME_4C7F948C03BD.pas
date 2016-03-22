@@ -2,6 +2,7 @@ unit eeSubPanel;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeSubPanel.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TeeSubPanel" MUID: (4C7F948C03BD)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

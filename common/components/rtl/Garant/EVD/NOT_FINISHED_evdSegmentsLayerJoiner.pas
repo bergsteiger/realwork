@@ -2,6 +2,7 @@ unit NOT_FINISHED_evdSegmentsLayerJoiner;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdSegmentsLayerJoiner.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdSegmentsLayerJoiner" MUID: (48ECF4FB026A)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

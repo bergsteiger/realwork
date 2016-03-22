@@ -2,6 +2,7 @@ unit evInevParaMapper;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\evInevParaMapper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevInevParaMapper" MUID: (53D8F025001E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

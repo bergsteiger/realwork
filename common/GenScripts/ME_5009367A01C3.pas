@@ -2,6 +2,8 @@ unit fsAbstractDocument;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\fsAbstractDocument.pas"
 // Стереотип: "VCMAbstractFormSetFactory"
+// Элемент модели: "AbstractDocument" MUID: (5009367A01C3)
+// Имя типа: "Tfs_AbstractDocument"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

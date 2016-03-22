@@ -2,6 +2,7 @@ unit nsUserTreeStruct;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserTreeStruct.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsUserTreeStruct" MUID: (4906E96C0364)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

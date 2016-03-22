@@ -46,7 +46,7 @@ public:
 			f->registrate_me(0);
 		}
 		try {
-			Core::ParamManagerInitData init = {"KPageTool", "Core::RegistryHelper::KEY_LOCAL_MACHINE\\Software\\Garant\\MDProcess\\KPageTool"};
+			Core::ParamManagerInitData init = {"KPageTool", "Core::RegistryHelper::KEY_CURRENT_USER\\Software\\Garant\\MDProcess\\KPageTool"};
 			Core::ParamManagerFactory::get ().init (Core::ParamConvert::make_arg_list (argc, argv), init);
 		} CATCH_AND_LOG ("while init ParamManager executed")
 		

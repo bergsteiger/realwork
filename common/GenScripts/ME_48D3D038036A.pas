@@ -2,6 +2,7 @@ unit evTableImplementation;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTableImplementation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTableImplementation" MUID: (48D3D038036A)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

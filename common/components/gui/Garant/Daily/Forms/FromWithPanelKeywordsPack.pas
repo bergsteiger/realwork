@@ -3,6 +3,7 @@ unit FromWithPanelKeywordsPack;
 
 // ћодуль: "w:\common\components\gui\Garant\Daily\Forms\FromWithPanelKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "FromWithPanelKeywordsPack" MUID: (0DCE11DEABEB)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::FromWithPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_FromWithPanel
 
  Tkw_FromWithPanel_Control_WorkSpace = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::WorkSpace TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FromWithPanel_Control_WorkSpace
 
  Tkw_FromWithPanel_Control_WorkSpace_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TvtPanel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwFromWithPanelFormWorkSpace
 
-class function Tkw_Form_FromWithPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::FromWithPanel';
-end;//Tkw_Form_FromWithPanel.GetWordNameForRegister
-
 function Tkw_Form_FromWithPanel.GetString: AnsiString;
 begin
  Result := 'FromWithPanelForm';
 end;//Tkw_Form_FromWithPanel.GetString
 
-class function Tkw_FromWithPanel_Control_WorkSpace.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_FromWithPanel.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::WorkSpace';
-end;//Tkw_FromWithPanel_Control_WorkSpace.GetWordNameForRegister
+ Result := 'форма::FromWithPanel';
+end;//Tkw_Form_FromWithPanel.GetWordNameForRegister
 
 function Tkw_FromWithPanel_Control_WorkSpace.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_FromWithPanel_Control_WorkSpace.RegisterInEngine
+
+class function Tkw_FromWithPanel_Control_WorkSpace.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::WorkSpace';
+end;//Tkw_FromWithPanel_Control_WorkSpace.GetWordNameForRegister
 
 procedure Tkw_FromWithPanel_Control_WorkSpace_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(WorkSpace(aCtx, l_aFromWithPanelForm));
 end;//TkwFromWithPanelFormWorkSpace.DoDoIt
 
-class function TkwFromWithPanelFormWorkSpace.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TFromWithPanelForm.WorkSpace';
-end;//TkwFromWithPanelFormWorkSpace.GetWordNameForRegister
-
 procedure TkwFromWithPanelFormWorkSpace.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwFromWithPanelFormWorkSpace.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TFromWithPanelForm)]);
 end;//TkwFromWithPanelFormWorkSpace.ParamsTypes
+
+class function TkwFromWithPanelFormWorkSpace.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TFromWithPanelForm.WorkSpace';
+end;//TkwFromWithPanelFormWorkSpace.GetWordNameForRegister
 
 initialization
  Tkw_Form_FromWithPanel.RegisterInEngine;

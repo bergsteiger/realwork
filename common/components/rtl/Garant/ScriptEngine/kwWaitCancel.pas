@@ -2,6 +2,8 @@ unit kwWaitCancel;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwWaitCancel.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "wait_Cancel" MUID: (4FFFE217028B)
+// Имя типа: "TkwWaitCancel"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

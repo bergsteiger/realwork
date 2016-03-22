@@ -2,6 +2,7 @@ unit SubPanelWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\SubPanelWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "SubPanelWordsPack" MUID: (52D643FE004B)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,7 @@ unit vcmHistoryService;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmHistoryService.pas"
 // Стереотип: "Service"
+// Элемент модели: "TvcmHistoryService" MUID: (559BA19C0076)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

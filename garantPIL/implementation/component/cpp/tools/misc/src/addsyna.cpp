@@ -21,10 +21,13 @@
 #include "boost/algorithm/string/split.hpp"
 #include "boost/algorithm/string/classification.hpp"
 
-Base* aBase;
+#include "SearchB.h"
+#include "ContextPartsHelper.h"
 
-char*	keys[]    = { "Adopted", "Type", "Example", "Codex", "Types", "Belongs", "Rel+", "IgnoreBelongs", "ServiceInfo", "IgnoreGLBelongs", "Prefix", "Exclude", "TypingErrors", "ExcludeRF", "Variants", "MVariants", "HASH", "Laws", "GoodWords", "AnnoIds", "Info", "SimpleSyns", "Exclude3", "Exclude8", "StopLemms", "MPrefixes", "Endings", "SupportWords", "FAdo", "FPre", "FKnd", "FCor", "FCla", "SynDates", "FPub", "FILF", "Izms", "Rel8", "Rel4", "RelY", "PSA", "Kindgctx", "Kindsub", "KindIds", "KindBits", "FPJU", "FPHR", "FPBO", "FPPH", "KindBP", "Docs", "Prak", "Comm", "Form", "Proj", "Inte", "RelChanges", "IgnoreK3Belongs", "AcTr", "KindCorr", "DecisionsArchive", "Hard", "Filters", "ListKinds", "TopLemms", "IndexesChanges", "ImportantAnnos", "NotNormalize", "NormalizerExclude", "BelongsEncyclopedia", "SegmentIndexes", "PercNames", "PhrasalNormalizer", "ImportantAnnos1", "ImportantAnnos2", "sUpd", "sDel", "Bigrams", "BasesList", "MistakesMorpho", "MorphoSyns", "NameSearch", "MainPages" };
-char*	auxkeys[] = { AUX_SYN_ADOPTED, AUX_SYN_TYPE, AUX_SYN_EXAMPLE, AUX_SYN_CODEXES, AUX_SYN_TYPES, AUX_BELONGS, AUX_RELE_PLUS, AUX_IGNORE_BELONGS, AUX_SERV, AUX_IGNORE_GL_BELONGS, AUX_PREFIXES, AUX_EXCLUDE_WORDS, AUX_TYPING_ERRORS, AUX_EXCLUDE_RF, AUX_CONTEXT_EVARIANTS, AUX_CONTEXT_MVARIANTS, AUX_MORPHO_HASHES, AUX_RELEF_LAWS, AUX_ERRORS_GOODWORDS, AUX_ANNO_UIDS, AUX_INFO, AUX_SIMPLE_SYNS, AUX_EXCLUDE_WORDS_3, AUX_EXCLUDE_WORDS_8, AUX_STOP_LEMMS, AUX_MPREFIXES, AUX_ENDINGS, AUX_SUPPORT_WORDS, AUX_fAdo, AUX_fPre, AUX_fKnd, AUX_fCor, AUX_fCla, AUX_SYN_DATES, AUX_fPub, AUX_fILF, AUX_RELE_IZM, AUX_RELE_PLUS8, AUX_RELE_PLUS4, AUX_RELE_Y, AUX_PartsSpeechAnalyzer, AUX_KIND_GCTX, AUX_KIND_BLOCK, AUX_KIND_UIDS, AUX_KIND_BITS, AUX_fPJU, AUX_fPHR, AUX_fPBO, AUX_fPPH, AUX_KIND_BASESEARCH, PR_DOCS, PR_PRACTICE, PR_COMMENTS, PR_FORMS, PR_PROJECTS, PR_INTERS, AUX_RELEVANCY_CHANGES, AUX_IGNORE_K3_BELONGS, PR_ACCOUNTING_TRANSACTION, AUX_KIND_CORRESPONDENTS, AUX_BELONGS_DECISIONSARCHIVE, AUX_HARD, AUX_FILTER_JSONS, AUX_LIST_KINDS, AUX_TOP_LEMMS, AUX_INDEXES_CHANGES, AUX_IMPORTANT_ANNOS, AUX_NOT_NORMALIZE, AUX_NORMALIZER_EXCLUDE, AUX_BELONGS_ENCYCLOPEDIA, AUX_SEGMENT_INDEXES, AUX_PERC, AUX_PHRASAL_NORMALIZER, AUX_IMPORTANT_ANNOS_1, AUX_IMPORTANT_ANNOS_2, "sUpd", "sDel", AUX_BIGRAMS, AUX_BASES_LIST, AUX_MISTAKES_MORPHO, AUX_MORPHO_SYNS, AUX_NAME_SEARCH, AUX_MAIN_PAGES };
+YBase* aBase;
+
+char*	keys[]    = { "Adopted", "Type", "Example", "Codex", "Types", "Belongs", "Rel+", "IgnoreBelongs", "ServiceInfo", "IgnoreGLBelongs", "Prefix", "Exclude", "TypingErrors", "ExcludeRF", "Variants", "MVariants", "HASH", "Laws", "GoodWords", "AnnoIds", "Info", "SimpleSyns", "Exclude3", "Exclude8", "StopLemms", "MPrefixes", "Endings", "SupportWords", "FAdo", "FPre", "FKnd", "FCor", "FCla", "SynDates", "FPub", "FILF", "Izms", "Rel8", "Rel4", "RelY", "PSA", "Kindgctx", "Kindsub", "KindIds", "KindBits", "FPJU", "FPHR", "FPBO", "FPPH", "KindBP", "Docs", "Prak", "Comm", "Form", "Proj", "Inte", "RelChanges", "IgnoreK3Belongs", "AcTr", "KindCorr", "DecisionsArchive", "Hard", "Filters", "ListKinds", "TopLemms", "IndexesChanges", "ImportantAnnos", "NotNormalize", "NormalizerExclude", "BelongsEncyclopedia", "SegmentIndexes", "PercNames", "PhrasalNormalizer", "ImportantAnnos1", "ImportantAnnos2", "sUpd", "sDel", "Bigrams", "BasesList", "MistakesMorpho", "MorphoSyns", "NameSearch", "MainPages", "ListKindsSorted" };
+char*	auxkeys[] = { AUX_SYN_ADOPTED, AUX_SYN_TYPE, AUX_SYN_EXAMPLE, AUX_SYN_CODEXES, AUX_SYN_TYPES, AUX_BELONGS, AUX_RELE_PLUS, AUX_IGNORE_BELONGS, AUX_SERV, AUX_IGNORE_GL_BELONGS, AUX_PREFIXES, AUX_EXCLUDE_WORDS, AUX_TYPING_ERRORS, AUX_EXCLUDE_RF, AUX_CONTEXT_EVARIANTS, AUX_CONTEXT_MVARIANTS, AUX_MORPHO_HASHES, AUX_RELEF_LAWS, AUX_ERRORS_GOODWORDS, AUX_ANNO_UIDS, AUX_INFO, AUX_SIMPLE_SYNS, AUX_EXCLUDE_WORDS_3, AUX_EXCLUDE_WORDS_8, AUX_STOP_LEMMS, AUX_MPREFIXES, AUX_ENDINGS, AUX_SUPPORT_WORDS, AUX_fAdo, AUX_fPre, AUX_fKnd, AUX_fCor, AUX_fCla, AUX_SYN_DATES, AUX_fPub, AUX_fILF, AUX_RELE_IZM, AUX_RELE_PLUS8, AUX_RELE_PLUS4, AUX_RELE_Y, AUX_PartsSpeechAnalyzer, AUX_KIND_GCTX, AUX_KIND_BLOCK, AUX_KIND_UIDS, AUX_KIND_BITS, AUX_fPJU, AUX_fPHR, AUX_fPBO, AUX_fPPH, AUX_KIND_BASESEARCH, PR_DOCS, PR_PRACTICE, PR_COMMENTS, PR_FORMS, PR_PROJECTS, PR_INTERS, AUX_RELEVANCY_CHANGES, AUX_IGNORE_K3_BELONGS, PR_ACCOUNTING_TRANSACTION, AUX_KIND_CORRESPONDENTS, AUX_BELONGS_DECISIONSARCHIVE, AUX_HARD, AUX_FILTER_JSONS, AUX_LIST_KINDS, AUX_TOP_LEMMS, AUX_INDEXES_CHANGES, AUX_IMPORTANT_ANNOS, AUX_NOT_NORMALIZE, AUX_NORMALIZER_EXCLUDE, AUX_BELONGS_ENCYCLOPEDIA, AUX_SEGMENT_INDEXES, AUX_PERC, AUX_PHRASAL_NORMALIZER, AUX_IMPORTANT_ANNOS_1, AUX_IMPORTANT_ANNOS_2, "sUpd", "sDel", AUX_BIGRAMS, AUX_BASES_LIST, AUX_MISTAKES_MORPHO, AUX_MORPHO_SYNS, AUX_NAME_SEARCH, AUX_MAIN_PAGES, AUX_LIST_KINDS_SORTED };
 
 std::deque<std::string> file_strings;
 void	read_packed_file (const char* filename, bool b_recode = true, bool b_skipemptylines = true)
@@ -255,26 +258,55 @@ int main (int argc, char* argv[]) {
 			exit (EXIT_SUCCESS);
 		}
 		if (!strcmp (argv [2], "HASH")) {
-			aBase = new YBase (argv [1], ACE_OS_O_RDONLY);
+			aBase = new SearchBase (argv [1]);
 			aBase->IsOk ();
-			Index* index = aBase->FindIndex ("NWCntxt");
+			aBase->check_version ();
+
 			std::map<std::string, unsigned long> map_string_hash;
-			for (BTIterator btit (index); !btit.End (); ++btit) {
-				char* key = ((char*) btit.Key ());
-				if (*key & 0x80)
-					break;
-				Stream* str = index->OpenN (key, 1);
-				if (str) {
-					long size = str->Length ();
-					char *data = (char*) malloc (size), *ptr = data+1;
-					str->Read (data, size);
-					index->Close (str);
-					size /= 32;
-					for (int i = 0; i < size; i++, ptr += 32) {
-						unsigned long hash = hash_str (ptr);
-						map_string_hash.insert (std::map<std::string,unsigned long>::value_type (ptr, hash));
+			if (ContextPartsHelper::is_parts ()) {
+				GCL::StrVector names;
+				ContextPartsHelper::get_context_parts_names (names, false);
+				for (GCL::StrVector::const_iterator _it = names.begin (); _it != names.end (); ++_it) {
+					Index* index = aBase->FindIndex (_it->c_str ());
+					for (BTIterator btit (index); !btit.End (); ++btit) {
+						char* key = ((char*) btit.Key ());
+						if (*key & 0x80)
+							break;
+						Stream* str = index->OpenN (key, 1);
+						if (str) {
+							long size = str->Length ();
+							char *data = (char*) malloc (size), *ptr = data+1;
+							str->Read (data, size);
+							index->Close (str);
+							size /= 32;
+							for (int i = 0; i < size; i++, ptr += 32) {
+								unsigned long hash = hash_str (ptr);
+								if (map_string_hash.find (ptr) == map_string_hash.end ())
+									map_string_hash.insert (std::map<std::string,unsigned long>::value_type (ptr, hash));
+							}
+							gk_free (data);
+						}
 					}
-					gk_free (data);
+				}
+			} else {
+				Index* index = aBase->FindIndex ("NWCntxt");
+				for (BTIterator btit (index); !btit.End (); ++btit) {
+					char* key = ((char*) btit.Key ());
+					if (*key & 0x80)
+						break;
+					Stream* str = index->OpenN (key, 1);
+					if (str) {
+						long size = str->Length ();
+						char *data = (char*) malloc (size), *ptr = data+1;
+						str->Read (data, size);
+						index->Close (str);
+						size /= 32;
+						for (int i = 0; i < size; i++, ptr += 32) {
+							unsigned long hash = hash_str (ptr);
+							map_string_hash.insert (std::map<std::string,unsigned long>::value_type (ptr, hash));
+						}
+						gk_free (data);
+					}
 				}
 			}
 			delete aBase;
@@ -353,7 +385,7 @@ int main (int argc, char* argv[]) {
 	}
 
 	if (!stricmp (argv [2], "Protection")) {
-		char* code = new char [48];
+		char* code = new char [std::max<long> (48, strlen (argv [3]) + 1)];
 		gk_bzero (code, 48);
 		strcpy (code, argv [3]);
 
@@ -1447,6 +1479,59 @@ int main (int argc, char* argv[]) {
 		exit (EXIT_SUCCESS);
 	}
 
+	if (!strcmp (argv [3], "invisibleblockslens")) {
+		FILE* part_file = mpcxc_fopen (argv [2], "rt");
+		StdBigBase *base = new StdBigBase (argv [1], ACE_OS_O_RDWR);
+		char *str = new char [32*1024*1024];
+		if (part_file) while (!feof (part_file)) {
+			if (!fgets (str, 32*1024*1024, part_file))
+				break;
+
+			int length = strlen (str);
+			while (length && (str [length-1] == 10 || str [length-1] == 13))
+				str [--length] = 0;
+			if (!length)
+				continue;
+
+			long doc_id = atol (str), strings_size = 0;
+			std::vector<long> longs;
+			std::vector<std::string> strings;
+			for (char* ptr = strchr (str, ':') + 2; ptr; ) {
+				longs.push_back (atol (ptr));
+				ptr = strchr (ptr, ':') + 1;
+				std::string word (ptr, strchr (ptr, ':') - ptr);
+				strings.push_back (word);
+				strings_size += word.size () + 1;
+				ptr = strchr (ptr, ':') + 1;
+				longs.push_back (atol (ptr) & ContextSearch::POS_TEXT);
+				ptr = strchr (ptr, ':') + 1;
+				longs.push_back (atol (ptr));
+				ptr = strchr (ptr, ' ');
+				if (ptr)
+					ptr++;
+			}
+			long total_size = longs.size () * sizeof (long) + strings_size, *data = new long [total_size], *dataptr = data;
+			std::vector<std::string>::const_iterator word_ptr = strings.begin ();
+			for (std::vector<long>::const_iterator it = longs.begin (); it != longs.end (); word_ptr++) {
+				*dataptr++ = *it++;
+				char* ptr = (char*) dataptr;
+				unsigned char size = (unsigned char) (word_ptr->size () & 0xFF);
+				*ptr++ = size;
+				memcpy (ptr, word_ptr->c_str (), size);
+				ptr += size;
+				dataptr = (long*) ptr;
+				*dataptr++ = *it++;
+				*dataptr++ = *it++;
+			}
+			base->ReplaceAttr (doc_id, IDD_INVISIBLEBLOCKSLENS, data, total_size);
+			delete data;
+		}
+		delete [] str;
+		delete base;
+
+		exit (EXIT_SUCCESS);
+	}
+
 	if (!strcmp (argv [3], "CorrespondentWeight")) {
 		read_packed_file (argv [2]);
 		RefCollection refs;
@@ -1763,7 +1848,7 @@ int main (int argc, char* argv[]) {
 
 	DBCore::IBase_var obj = DBCore::DBFactory::make (aBase);
 	Morpho::Def::ICache_var cache = Morpho::Factory::make ();
-	cache->load (obj.in (), true);
+	cache->load (obj.in ());
 
 	Morpho::Def::INormalizer_var normalizer = Morpho::Factory::make (cache.in ());
 
@@ -2058,7 +2143,7 @@ int main (int argc, char* argv[]) {
 			!strcmp (AuxKey (argv [3]), AUX_ANNO_UIDS) || !strcmp (AuxKey (argv [3]), AUX_KIND_BASESEARCH) || !strcmp (AuxKey (argv [3]), AUX_KIND_UIDS) || !strcmp (AuxKey (argv [3]), AUX_INFO) || !strcmp (AuxKey (argv [3]), AUX_STOP_LEMMS) || 
 			!strcmp (AuxKey (argv [3]), AUX_PartsSpeechAnalyzer) || !strcmp (AuxKey (argv [3]), AUX_KIND_GCTX) || !strcmp (AuxKey (argv [3]), AUX_KIND_BLOCK) || 
 			!strcmp (AuxKey (argv [3]), AUX_MPREFIXES) || !strcmp (AuxKey (argv [3]), AUX_fPre) || !strcmp (AuxKey (argv [3]), AUX_fKnd) || !strcmp (AuxKey (argv [3]), AUX_fCor) || !strcmp (AuxKey (argv [3]), AUX_fCla) || !strcmp (AuxKey (argv [3]), AUX_fAdo) || !strcmp (AuxKey (argv [3]), AUX_fPub) || !strcmp (AuxKey (argv [3]), AUX_fILF) || !strcmp (AuxKey (argv [3]), AUX_fPJU) || !strcmp (AuxKey (argv [3]), AUX_fPHR) || !strcmp (AuxKey (argv [3]), AUX_fPBO) ||  !strcmp (AuxKey (argv [3]), AUX_fPPH) ||
-			!strcmp (AuxKey (argv [3]), AUX_RELEVANCY_CHANGES) || !strcmp (AuxKey (argv [3]), AUX_HARD) || !strcmp (AuxKey (argv [3]), AUX_FILTER_JSONS) || !strcmp (AuxKey (argv [3]), AUX_LIST_KINDS) || !strcmp (AuxKey (argv [3]), AUX_TOP_LEMMS) || !strcmp (AuxKey (argv [3]), AUX_INDEXES_CHANGES) || !strcmp (AuxKey (argv [3]), AUX_PERC) || !strcmp (AuxKey (argv [3]), AUX_BASES_LIST) ||
+			!strcmp (AuxKey (argv [3]), AUX_RELEVANCY_CHANGES) || !strcmp (AuxKey (argv [3]), AUX_HARD) || !strcmp (AuxKey (argv [3]), AUX_FILTER_JSONS) || !strcmp (AuxKey (argv [3]), AUX_LIST_KINDS) || !strcmp (AuxKey (argv [3]), AUX_LIST_KINDS_SORTED) || !strcmp (AuxKey (argv [3]), AUX_TOP_LEMMS) || !strcmp (AuxKey (argv [3]), AUX_INDEXES_CHANGES) || !strcmp (AuxKey (argv [3]), AUX_PERC) || !strcmp (AuxKey (argv [3]), AUX_BASES_LIST) ||
 			!strcmp (AuxKey (argv [3]), AUX_NAME_SEARCH)) {
 
 			if (!strcmp (AuxKey (argv [3]), AUX_EXCLUDE_WORDS) || !strcmp (AuxKey (argv [3]), AUX_EXCLUDE_RF) || !strcmp (AuxKey (argv [3]), AUX_ERRORS_GOODWORDS) || !strcmp (AuxKey (argv [3]), AUX_NOT_NORMALIZE) || !strcmp (AuxKey (argv [3]), AUX_EXCLUDE_WORDS_3) || !strcmp (AuxKey (argv [3]), AUX_EXCLUDE_WORDS_8) || !strcmp (AuxKey (argv [3]), AUX_RELEVANCY_CHANGES) || !strcmp (AuxKey (argv [3]), AUX_TOP_LEMMS) || !strcmp (AuxKey (argv [3]), AUX_INDEXES_CHANGES)  || !strcmp (AuxKey (argv [3]), AUX_PHRASAL_NORMALIZER) )
@@ -2540,7 +2625,7 @@ int main (int argc, char* argv[]) {
 			strcpy (ptr, siter->c_str ());
 			ptr += siter->size() + 1;
 		}
-	} else if (!stricmp (AuxKey (argv [3]), AUX_SYN_EXAMPLE) || !stricmp (AuxKey (argv [3]), AUX_EXCLUDE_WORDS) || !stricmp (AuxKey (argv [3]), AUX_EXCLUDE_WORDS_3 ) || !stricmp (AuxKey (argv [3]), AUX_EXCLUDE_WORDS_8) || !stricmp (AuxKey (argv [3]), AUX_RELE_PLUS) || !stricmp (AuxKey (argv [3]), AUX_SERV) || !stricmp (AuxKey (argv [3]), AUX_EXCLUDE_RF) || !strcmp (AuxKey (argv [3]), AUX_ANNO_UIDS) || !strcmp (AuxKey (argv [3]), AUX_KIND_BASESEARCH) || !strcmp (AuxKey (argv [3]), AUX_KIND_UIDS) || !strcmp (AuxKey (argv [3]), AUX_INFO) || !strcmp (AuxKey (argv [3]), AUX_fCor) || !strcmp (AuxKey (argv [3]), AUX_fKnd) || !strcmp (AuxKey (argv [3]), AUX_fPre) || !strcmp (AuxKey (argv [3]), AUX_fCla) || !strcmp (AuxKey (argv [3]), AUX_fAdo) || !strcmp (AuxKey (argv [3]), AUX_fPub) || !strcmp (AuxKey (argv [3]), AUX_fILF)|| !strcmp (AuxKey (argv [3]), AUX_fPJU)|| !strcmp (AuxKey (argv [3]), AUX_fPHR) || !strcmp (AuxKey (argv [3]), AUX_fPBO) || !strcmp (AuxKey (argv [3]), AUX_fPPH) || !strcmp (AuxKey (argv [3]), AUX_RELEVANCY_CHANGES) || !strcmp (AuxKey (argv [3]), AUX_LIST_KINDS) || !strcmp (AuxKey (argv [3]), AUX_TOP_LEMMS) || !strcmp (AuxKey (argv [3]), AUX_INDEXES_CHANGES) || !strcmp (AuxKey (argv [3]), AUX_PERC) || !strcmp (AuxKey (argv [3]), AUX_BASES_LIST)) {
+	} else if (!stricmp (AuxKey (argv [3]), AUX_SYN_EXAMPLE) || !stricmp (AuxKey (argv [3]), AUX_EXCLUDE_WORDS) || !stricmp (AuxKey (argv [3]), AUX_EXCLUDE_WORDS_3 ) || !stricmp (AuxKey (argv [3]), AUX_EXCLUDE_WORDS_8) || !stricmp (AuxKey (argv [3]), AUX_RELE_PLUS) || !stricmp (AuxKey (argv [3]), AUX_SERV) || !stricmp (AuxKey (argv [3]), AUX_EXCLUDE_RF) || !strcmp (AuxKey (argv [3]), AUX_ANNO_UIDS) || !strcmp (AuxKey (argv [3]), AUX_KIND_BASESEARCH) || !strcmp (AuxKey (argv [3]), AUX_KIND_UIDS) || !strcmp (AuxKey (argv [3]), AUX_INFO) || !strcmp (AuxKey (argv [3]), AUX_fCor) || !strcmp (AuxKey (argv [3]), AUX_fKnd) || !strcmp (AuxKey (argv [3]), AUX_fPre) || !strcmp (AuxKey (argv [3]), AUX_fCla) || !strcmp (AuxKey (argv [3]), AUX_fAdo) || !strcmp (AuxKey (argv [3]), AUX_fPub) || !strcmp (AuxKey (argv [3]), AUX_fILF)|| !strcmp (AuxKey (argv [3]), AUX_fPJU)|| !strcmp (AuxKey (argv [3]), AUX_fPHR) || !strcmp (AuxKey (argv [3]), AUX_fPBO) || !strcmp (AuxKey (argv [3]), AUX_fPPH) || !strcmp (AuxKey (argv [3]), AUX_RELEVANCY_CHANGES) || !strcmp (AuxKey (argv [3]), AUX_LIST_KINDS) || !strcmp (AuxKey (argv [3]), AUX_LIST_KINDS_SORTED) || !strcmp (AuxKey (argv [3]), AUX_TOP_LEMMS) || !strcmp (AuxKey (argv [3]), AUX_INDEXES_CHANGES) || !strcmp (AuxKey (argv [3]), AUX_PERC) || !strcmp (AuxKey (argv [3]), AUX_BASES_LIST)) {
 		std::vector<std::string>::const_iterator siter;
 		for (siter = strings.begin(); siter != strings.end(); siter++ ) {
 			size += siter->size () + 1;

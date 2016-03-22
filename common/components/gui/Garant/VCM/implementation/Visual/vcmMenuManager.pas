@@ -874,7 +874,8 @@ uses
   vcmMenuManagerRes,
   vcmMenuItemsCollectionItem,
   vcmMainMenuAction,
-  vcmChromeLikeTypes
+  vcmChromeLikeTypes,
+  vcmMainMenuBuilder
   ;
 {$IfEnd} //not NoVCM
 
@@ -3473,29 +3474,26 @@ procedure TvcmCustomMenuManager.RegisterModuleInMenu(aForm: TvcmEntityForm;
 var
  l_Main: TMenuItem;
  l_Item: TMenuItem;
- l_NeedBuild: Boolean;
 //#UC END# *52A1FC0C0333_4B30EC81021A_var*
 begin
 //#UC START# *52A1FC0C0333_4B30EC81021A_impl*
 // if (aForm = Application.MainForm) or (Application.MainForm = nil) then begin
- l_NeedBuild := True;
  if (aForm is TvcmMainForm) then
  begin
+  TvcmMainMenuBuilder.Instance.RegisterModule(aModuleDef);
+
   THackWinControl(aForm).DestroyHandle;
   // - это здесь ќЅя«ј“≈Ћ№Ќќ нужно иначе окно открываетс€ в –ј«џ медленнее
   l_Main := vcmGetMainMenu(aForm);
-  if l_NeedBuild then
+  l_Item := vcmMakeModuleMenu(l_Main, aModuleDef, [vcm_ooShowInMainMenu], true);
+  if (vcm_moEntitiesInMainMenu in MenuOptions) then
   begin
-   l_Item := vcmMakeModuleMenu(l_Main, aModuleDef, [vcm_ooShowInMainMenu], true);
-   if (vcm_moEntitiesInMainMenu in MenuOptions) then
-   begin
-    if (vcm_moEntitiesInTopMainMenu in MenuOptions) then
-     vcmMakeEntitiesMenus(l_Main, aModuleDef.EntitiesDefIterator, [vcm_ooShowInMainMenu])
-    else
-     vcmMakeEntitiesMenus(l_Item, aModuleDef.EntitiesDefIterator, [vcm_ooShowInMainMenu]);
-   end else
-    vcmMakeEntitiesMenus(l_Item, aModuleDef.EntitiesDefIterator, [vcm_ooShowInMainMenu], False, vcm_icSameAsParent);
-  end;//if l_NeedBuild
+   if (vcm_moEntitiesInTopMainMenu in MenuOptions) then
+    vcmMakeEntitiesMenus(l_Main, aModuleDef.EntitiesDefIterator, [vcm_ooShowInMainMenu])
+   else
+    vcmMakeEntitiesMenus(l_Item, aModuleDef.EntitiesDefIterator, [vcm_ooShowInMainMenu]);
+  end else
+   vcmMakeEntitiesMenus(l_Item, aModuleDef.EntitiesDefIterator, [vcm_ooShowInMainMenu], False, vcm_icSameAsParent);
   if (f_UserTypes = nil) then
   begin
    CheckUserTypes;
@@ -3550,7 +3548,8 @@ begin
 //#UC START# *52A1FC5500AC_4B30EC81021A_impl*
  if not (csDesigning in ComponentState) then
  begin
-  l_NeedBuild := True; 
+  TvcmMainMenuBuilder.Instance.RegisterForm(aForm);
+  l_NeedBuild := True;
   LoadGlyphSize;
   LoadGlyphColordepth;
   l_Item := vcmGetMainMenu(aForm);
@@ -3598,7 +3597,7 @@ begin
  (* ”дал€ем windows окно, чтобы во врем€ долгосрочных операций построени€ меню и
     toolbar - ов окна не прорисовывались. ќкно формы восстанавливаетс€ в
     TvcmEntityForm.Make *)
- //THackWinControl(aForm).DestroyHandle;
+// THackWinControl(aForm).DestroyHandle;
  OverridePopupMenu(aForm);
  BuildMainMenu;
  if (vcm_toEntitiesInChildToolbar in ToolbarOptions) then

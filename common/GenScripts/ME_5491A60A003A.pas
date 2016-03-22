@@ -3,6 +3,8 @@ unit K585129079_NSRC;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\K585129079_NSRC.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K585129079_NSRC" MUID: (5491A60A003A)
+// Имя типа: "TK585129079_NSRC"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -3,6 +3,7 @@ unit dsMainList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\List\dsMainList.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsMainList" MUID: (4926C0970020)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

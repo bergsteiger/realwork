@@ -2,6 +2,7 @@ unit eeEVDtoRTF;
 
 // Модуль: "w:\common\components\rtl\Garant\RenderEVD\eeEVDtoRTF.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "eeEVDtoRTF" MUID: (4B72B41502F5)
 
 {$Include w:\common\components\rtl\Garant\RenderEVD\evDefine.inc}
 

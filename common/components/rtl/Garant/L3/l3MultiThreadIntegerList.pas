@@ -2,6 +2,7 @@ unit l3MultiThreadIntegerList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3MultiThreadIntegerList.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3MultiThreadIntegerList" MUID: (53A2C805017C)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -34,7 +35,6 @@ type
  Tl3MultiThreadIntegerList = class(_l3CriticalSectionHolder_)
   private
    f_Items: Tl3ProtoIntegerList;
-    {* Поле для свойства Items }
   protected
    function NeedSort: Boolean; virtual;
    procedure Cleanup; override;

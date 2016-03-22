@@ -1,9 +1,12 @@
 
 Unit Dt_ImpKW;
 
-{ $Id: DT_IMPKW.pas,v 1.54 2015/07/02 07:36:07 lukyanets Exp $ }
+{ $Id: DT_IMPKW.pas,v 1.55 2015/11/24 14:08:24 voba Exp $ }
 
 // $Log: DT_IMPKW.pas,v $
+// Revision 1.55  2015/11/24 14:08:24  voba
+// -bf убрал конкурентную запись дерева словар€. “еперь дерево переписываем только при апдейте, в спокойной обстановке
+//
 // Revision 1.54  2015/07/02 07:36:07  lukyanets
 // ќписываем словари
 //
@@ -253,7 +256,8 @@ Begin
  if fClearFlag then
  begin
   DictServer(fFamily).DictTbl[f_DictID].DropTblData;
-  DictServer(fFamily).DictRootNode[f_DictID].ClearAllData;
+  //DictServer(fFamily).DictRootNode[f_DictID].ClearAllData;
+  DictServer(fFamily).DictRootNode[f_DictID].StartReload;
   LinkServer(fFamily).Links[f_DictID].Table.DropTblData;
  end;
  fCacheTblData := TCacheTblData.Create(LinkServer(fFamily).Links[f_DictID].Table);
@@ -275,8 +279,8 @@ begin
  DictServer(fFamily).DictTbl[f_DictID].IgnoreDuplicates := False;
 
  If fFamilyIsLock then
-  DictServer(fFamily).DictTbl[f_DictID].UpdateTbl;
- DictServer(fFamily).DictRootNode[f_DictID].Save;
+  //DictServer(fFamily).Dict[f_DictID].Update;
+  DictServer(fFamily).DictRootNode[f_DictID].Save;
 
  GlobalHtServer.FreeTbl[fFamily].ExclusiveUse := False;
  LockServer.UnLockFamily(fFamily);

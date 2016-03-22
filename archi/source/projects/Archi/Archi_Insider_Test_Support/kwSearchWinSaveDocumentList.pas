@@ -1,65 +1,46 @@
 unit kwSearchWinSaveDocumentList;
+ {* Формат: 
+[code]
+aFileName SearchWin:SaveDocumentList
+[code]
+Сохраняет список документов в файл aFileName. Аналоична команде "Сохранить как..." в окне выборке. Окно выборки должно быть активно. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwSearchWinSaveDocumentList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::CommonArchiWords::SearchWin_SaveDocumentList
-//
-// Формат:
-// {code}
-// aFileName SearchWin:SaveDocumentList
-// {code}
-// Сохраняет список документов в файл aFileName. Аналоична команде "Сохранить как..." в окне
-// выборке. Окно выборки должно быть активно.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwSearchWinSaveDocumentList.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "SearchWin_SaveDocumentList" MUID: (537076040297)
+// Имя типа: "TkwSearchWinSaveDocumentList"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwSearchWinSaveDocumentList = {final scriptword} class(TtfwRegisterableWord)
+ TkwSearchWinSaveDocumentList = {final} class(TtfwRegisterableWord)
   {* Формат: 
 [code]
 aFileName SearchWin:SaveDocumentList
 [code]
 Сохраняет список документов в файл aFileName. Аналоична команде "Сохранить как..." в окне выборке. Окно выборки должно быть активно. }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwSearchWinSaveDocumentList
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
-  arArchiTestAdapter2
-  ;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwSearchWinSaveDocumentList
+ l3ImplUses
+ , arArchiTestAdapter2
+;
 
 procedure TkwSearchWinSaveDocumentList.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_537076040297_var*
@@ -76,17 +57,13 @@ begin
 end;//TkwSearchWinSaveDocumentList.DoDoIt
 
 class function TkwSearchWinSaveDocumentList.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'SearchWin:SaveDocumentList';
 end;//TkwSearchWinSaveDocumentList.GetWordNameForRegister
 
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация SearchWin_SaveDocumentList
  TkwSearchWinSaveDocumentList.RegisterInEngine;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация SearchWin_SaveDocumentList }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
 end.

@@ -2,6 +2,7 @@ unit k2InterfaceList;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2InterfaceList.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "k2InterfaceList" MUID: (531EF67F0065)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

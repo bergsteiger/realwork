@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddTextParagraph;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddTextParagraph.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddTextParagraph" MUID: (51E8DBEC0212)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -2,6 +2,7 @@ unit tfwTypeInfoListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwTypeInfoListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwTypeInfoListPrim" MUID: (55BF2A400180)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

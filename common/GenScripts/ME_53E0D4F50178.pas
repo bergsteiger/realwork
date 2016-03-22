@@ -2,6 +2,7 @@ unit csTaskResult;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\csTaskResult.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsTaskResult" MUID: (53E0D4F50178)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

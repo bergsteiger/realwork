@@ -3,6 +3,7 @@ unit FromWithPanel_ut_FromWithPanel_UserType;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\FromWithPanel_ut_FromWithPanel_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_FromWithPanel" MUID: (C8D510D2786B)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
@@ -32,26 +33,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_FromWithPanel = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_FromWithPanel }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_FromWithPanel
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_FromWithPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_FromWithPanel';
-end;//Tkw_FormUserType_ut_FromWithPanel.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_FromWithPanel.GetInteger: Integer;
 begin
  Result := ut_FromWithPanel;
 end;//Tkw_FormUserType_ut_FromWithPanel.GetInteger
+
+class function Tkw_FormUserType_ut_FromWithPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_FromWithPanel';
+end;//Tkw_FormUserType_ut_FromWithPanel.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

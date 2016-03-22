@@ -2,6 +2,7 @@ unit NOT_FINISHED_evEvdReader;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evEvdReader.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evEvdReader" MUID: (4EA536A500EB)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

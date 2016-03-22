@@ -3,6 +3,7 @@ unit afwCaret;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwCaret.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwCaret" MUID: (480DDF270394)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

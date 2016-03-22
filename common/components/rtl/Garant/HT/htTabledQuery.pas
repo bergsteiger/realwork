@@ -36,15 +36,15 @@ type
  // realized methods
    function MakeFromTable(const aTable: IdaTableDescription;
      const anAlias: AnsiString = ''): IdaFromTable; override;
-   function MakeResultSet(Unidirectional: Boolean): IdaResultSet; override;
-   procedure PrepareTables; override;
-     {* Сигнатура метода PrepareTables }
-   procedure UnprepareTables; override;
-     {* Сигнатура метода UnprepareTables }
+   procedure PrepareTable; override;
+     {* Сигнатура метода PrepareTable }
+   procedure UnPrepareTable; override;
+     {* Сигнатура метода UnPrepareTable }
  protected
  // overridden protected methods
    procedure Cleanup; override;
      {* Функция очистки полей объекта. }
+   function MakeResultSet(Unidirectional: Boolean): IdaResultSet; override;
  public
  // public methods
    constructor Create(const aDataConverter: IhtDataConverter;
@@ -54,7 +54,7 @@ type
    class function Make(const aDataConverter: IhtDataConverter;
      const aHelper: IhtDataSchemeHelper;
      const aTable: IdaTableDescription;
-     const anAlias: AnsiString = ''): IdaQuery; reintroduce;
+     const anAlias: AnsiString = ''): IdaTabledQuery; reintroduce;
      {* Сигнатура фабрики ThtTabledQuery.Make }
  end;//ThtTabledQuery
 
@@ -87,8 +87,8 @@ var
 //#UC END# *555CA4CC00D6_5551AB1602F4_var*
 begin
 //#UC START# *555CA4CC00D6_5551AB1602F4_impl*
- if Tables.FindData(anAlias, l_IDX) then
-  Result := Tables[l_IDX] as IhtFromTable
+ if AnsiSameText(anAlias, Table.TableAlias) then
+  Result := Table as IhtFromTable
  else
   Result := nil;
 //#UC END# *555CA4CC00D6_5551AB1602F4_impl*
@@ -110,7 +110,7 @@ end;//ThtTabledQuery.Create
 class function ThtTabledQuery.Make(const aDataConverter: IhtDataConverter;
   const aHelper: IhtDataSchemeHelper;
   const aTable: IdaTableDescription;
-  const anAlias: AnsiString = ''): IdaQuery;
+  const anAlias: AnsiString = ''): IdaTabledQuery;
 var
  l_Inst : ThtTabledQuery;
 begin
@@ -132,73 +132,34 @@ begin
 //#UC END# *5600FFF80332_5551AB1602F4_impl*
 end;//ThtTabledQuery.MakeFromTable
 
-function ThtTabledQuery.MakeResultSet(Unidirectional: Boolean): IdaResultSet;
-//#UC START# *56010A7801F2_5551AB1602F4_var*
+procedure ThtTabledQuery.PrepareTable;
+//#UC START# *566A892A0191_5551AB1602F4_var*
 var
- l_Field: IdaFieldFromTable;
- l_ParamDescription: IdaParamDescription;
- l_Sab: SAB;
- l_Condition: IdaAtomicCondition;
-const
- Zero : LongInt =  0;
- AbsNumFld = 0;
- cOperationMap: array [TdaCompareOperation] of ThtCondition = (
-  EQUAL // da_copEqual
- );
-//#UC END# *56010A7801F2_5551AB1602F4_var*
-begin
-//#UC START# *56010A7801F2_5551AB1602F4_impl*
-
- l3ZeroMemory(@l_SAB, SizeOf(l_SAB));
-
- if WhereCondition <> nil then
- begin
-  Assert(Supports(WhereCondition, IdaAtomicCondition));
-  if Supports(WhereCondition, IdaFieldFromTable, l_Field) and
-     Supports(WhereCondition, IdaParamDescription, l_ParamDescription) and
-     Supports(WhereCondition, IdaAtomicCondition, l_Condition) then
-   htSearch(nil, l_Sab, FindTable(l_Field.TableAlias).Handle, l_Field.Field.Index, cOperationMap[l_Condition.Operation], Get_Param(l_ParamDescription.Name).DataBuffer, nil)
-  else
-   Assert(False);
- end
- else
-  htSearch(nil, l_Sab, FindTable(l_Field.TableAlias).Handle, AbsNumFld, GREAT, @Zero, nil);
- Result := ThtResultSet.Make(DataConverter as IhtDataConverter, l_Sab, SelectFields, Unidirectional);
-//#UC END# *56010A7801F2_5551AB1602F4_impl*
-end;//ThtTabledQuery.MakeResultSet
-
-procedure ThtTabledQuery.PrepareTables;
-//#UC START# *56010AB70258_5551AB1602F4_var*
-var
- l_IDX: Integer;
  l_Table: IhtFromTable;
  l_Set: TdaTablesSet;
-//#UC END# *56010AB70258_5551AB1602F4_var*
+//#UC END# *566A892A0191_5551AB1602F4_var*
 begin
-//#UC START# *56010AB70258_5551AB1602F4_impl*
+//#UC START# *566A892A0191_5551AB1602F4_impl*
  l_Set := [];
- for l_IDX := 0 to Tables.Count - 1 do
-  if Supports(Tables[l_IDX], IhtFromTable, l_Table) then
-  begin
-   l_Table.Prepare(f_Helper, l_Table.Table.Kind in l_Set);
-   Include(l_Set, l_Table.Table.Kind);
-  end;
-//#UC END# *56010AB70258_5551AB1602F4_impl*
-end;//ThtTabledQuery.PrepareTables
+ if Supports(Table, IhtFromTable, l_Table) then
+ begin
+  l_Table.Prepare(f_Helper, l_Table.Table.Kind in l_Set);
+  Include(l_Set, l_Table.Table.Kind);
+ end;
+//#UC END# *566A892A0191_5551AB1602F4_impl*
+end;//ThtTabledQuery.PrepareTable
 
-procedure ThtTabledQuery.UnprepareTables;
-//#UC START# *56010ACB00F0_5551AB1602F4_var*
+procedure ThtTabledQuery.UnPrepareTable;
+//#UC START# *566A893B03C7_5551AB1602F4_var*
 var
- l_IDX: Integer;
  l_Table: IhtFromTable;
-//#UC END# *56010ACB00F0_5551AB1602F4_var*
+//#UC END# *566A893B03C7_5551AB1602F4_var*
 begin
-//#UC START# *56010ACB00F0_5551AB1602F4_impl*
- for l_IDX := 0 to Tables.Count - 1 do
-  if Supports(Tables[l_IDX], IhtFromTable, l_Table) then
-   l_Table.Unprepare(f_Helper);
-//#UC END# *56010ACB00F0_5551AB1602F4_impl*
-end;//ThtTabledQuery.UnprepareTables
+//#UC START# *566A893B03C7_5551AB1602F4_impl*
+ if Supports(Table, IhtFromTable, l_Table) then
+  l_Table.Unprepare(f_Helper);
+//#UC END# *566A893B03C7_5551AB1602F4_impl*
+end;//ThtTabledQuery.UnPrepareTable
 
 procedure ThtTabledQuery.Cleanup;
 //#UC START# *479731C50290_5551AB1602F4_var*
@@ -209,5 +170,70 @@ begin
  inherited;
 //#UC END# *479731C50290_5551AB1602F4_impl*
 end;//ThtTabledQuery.Cleanup
+
+function ThtTabledQuery.MakeResultSet(Unidirectional: Boolean): IdaResultSet;
+//#UC START# *56010A7801F2_5551AB1602F4_var*
+var
+ l_Field: IdaFieldFromTable;
+ l_ParamDescription: IdaParamDescription;
+ l_Sab: SAB;
+ l_Condition: IdaAtomicCondition;
+ l_Sort: array of SmallInt;
+ l_IDX: Integer;
+ l_FieldIndex: Integer;
+ l_SortedRecs: SAB;
+const
+ Zero : LongInt =  0;
+ AbsNumFld = 0;
+ cOperationMap: array [TdaCompareOperation] of ThtCondition = (
+  EQUAL, // da_copEqual
+  GREAT_EQUAL, // da_copGreaterOrEqual
+  LESS_EQUAL, // da_copLessOrEqual
+  NOT_EQUAL // da_copNotEqual
+ );
+ cOrderMap: array [TdaSortOrder] of SmallInt = (
+  1, // da_soAscending
+  -1 // da_soDescending
+ );
+//#UC END# *56010A7801F2_5551AB1602F4_var*
+begin
+//#UC START# *56010A7801F2_5551AB1602F4_impl*
+
+ l3ZeroMemory(@l_SAB, SizeOf(l_SAB));
+
+ if WhereCondition <> nil then
+ begin
+//!! !!! Needs to be implemented !!! complex conditions support
+  Assert(Supports(WhereCondition, IdaAtomicCondition));
+  if Supports(WhereCondition, IdaFieldFromTable, l_Field) and
+     Supports(WhereCondition, IdaParamDescription, l_ParamDescription) and
+     Supports(WhereCondition, IdaAtomicCondition, l_Condition) then
+   htSearch(nil, l_Sab, FindTable(l_Field.TableAlias).Handle, l_Field.Field.Index, cOperationMap[l_Condition.Operation], Get_Param(l_ParamDescription.Name).DataBuffer, nil)
+  else
+//!! !!! Needs to be implemented !!!
+   Assert(False, 'Complex condition unimplemented');
+ end
+ else
+  htSearch(nil, l_Sab, (Table as IhtFromTable).Handle, AbsNumFld, GREAT, @Zero, nil);
+ if OrderBy.Count > 0 then
+ begin
+  SetLength(l_Sort, OrderBy.Count);
+  for l_IDX := 0 to OrderBy.Count - 1 do
+  begin
+   if Supports(OrderBy[l_IDX].SelectField, IdaFieldFromTable, l_Field) then
+    l_Sort[l_IDX] := cOrderMap[OrderBy[l_IDX].SortOrder] * l_Field.Field.Index
+   else
+   begin
+    Assert(False);
+    l_Sort[l_IDX] := 0;
+   end;
+   htSortResults(l_SortedRecs, l_Sab, @l_Sort[0], OrderBy.Count);
+   htClearResults(l_Sab);
+   l_Sab := l_SortedRecs;
+  end;
+ end;
+ Result := ThtResultSet.Make(DataConverter as IhtDataConverter, l_Sab, SelectFields, Unidirectional);
+//#UC END# *56010A7801F2_5551AB1602F4_impl*
+end;//ThtTabledQuery.MakeResultSet
 
 end.

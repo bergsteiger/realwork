@@ -11,6 +11,8 @@ unit kwPopEditorSelectCells;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCells.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_SelectCells" MUID: (4F4DD643008C)
+// Имя типа: "TkwPopEditorSelectCells"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

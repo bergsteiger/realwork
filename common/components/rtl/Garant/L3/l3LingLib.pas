@@ -4,9 +4,12 @@ unit l3LingLib;
 { Автор: Бабанин В.Б.                 }
 { Модуль: l3LingLib - Интерфейс к лингвистической библиотеке Коваленко mlma32ru.dll }
 { Начат: 01.04.2009 }
-{ $Id: l3LingLib.pas,v 1.22 2013/06/19 10:04:58 fireton Exp $ }
+{ $Id: l3LingLib.pas,v 1.23 2016/02/15 16:07:49 voba Exp $ }
 
 // $Log: l3LingLib.pas,v $
+// Revision 1.23  2016/02/15 16:07:49  voba
+// no message
+//
 // Revision 1.22  2013/06/19 10:04:58  fireton
 // - char -> AnsiChar (K 460261935)
 //
@@ -81,6 +84,7 @@ unit l3LingLib;
 interface
 uses
  SysUtils,
+ l3SpellMisc,
  l3Interfaces;
 
 const
@@ -173,15 +177,15 @@ const
  cvfVerbPassiv =  $0040;  //  Страд. причастие
  cvfVerbDoing  =  $0060;  //  Деепричастие
 
-type
- TLingException = class(Exception);
+//type
+// TLingException = class(Exception);
 
-type
- TllAddStrProc = procedure(aWord : PAnsiChar; aWordLen : integer);
+//type
+// TllAddStrProc = procedure(aWord : PAnsiChar; aWordLen : integer);
 
 
- function mlmaruCheckWord(aWord    : PAnsiChar;
-                          aOptions : Word): Smallint;
+ function mlmaruCheckWord(aWord    : PAnsiChar; aOptions : Word): Smallint; overload;
+ function mlmaruCheckWord(aWord: Tl3PCharLenPrim; aOptions: Word): SmallInt; overload;
 {* -
   Функция выполняет проверку правописания слова по словарю и возвращает
     * 1, если слово опознано;
@@ -285,9 +289,6 @@ type
     * aSubstChars - адрес массива размером не менее 35 символов, в который будут помещены символы-заместители.
 }
 
-function  L2llAddStrProc(Action: Pointer): TllAddStrProc; register;
-procedure FreellAddStrProc(var Stub: TllAddStrProc); register;
-
 procedure mlmaSpellCheck(aWord : PAnsiChar; aWordLen : Word; {aCodePage: Longint;} aAddFunc : TllAddStrProc);
 
 function mlmaCheckErr(aCode : Smallint) : Smallint;
@@ -385,16 +386,6 @@ function mlmaRusIsWideAdjective(aGramInfo : TSGramInfo): Boolean; //Прилагательн
 function mlmaRusIsVerb(aGramInfo : TSGramInfo): Boolean; //Глагол
 function mlmaRusIsconjunction(aGramInfo : TSGramInfo): Boolean; //Союз
 
-type
- TCapScheme = Set Of byte;
-
-function GetCapsScheme(aWord : PAnsiChar; aWordLen : Word) : TCapScheme;
-// получить схему капитализации
-procedure ApplayCapsScheme(aWord : PAnsiChar; aWordLen : Word; aScheme : TCapScheme); overload;
-// применить схему капитализации
-procedure ApplayCapsScheme(aWord : PAnsiChar; aWordLen : Word; aSrcWord : PAnsiChar; aSrcWordLen : Word); overload;
-// скопировать схему капитализации с aSrcWord
-
 implementation
 uses
  Windows,
@@ -464,11 +455,24 @@ begin
  @gfCheckHelp   := GetProcAddress(gLingDLL, 'mlmaruCheckHelp');
 end;
 
-function mlmaruCheckWord(aWord: PAnsiChar;
-                         aOptions: Word): SmallInt;
+function mlmaruCheckWord(aWord: PAnsiChar; aOptions: Word): SmallInt;
 begin
  CheckLingDLL;
  Result := gfCheckWord(aWord, aOptions);
+end;
+
+function mlmaruCheckWord(aWord: Tl3PCharLenPrim; aOptions: Word): SmallInt;
+var
+ s : AnsiString;
+begin
+ CheckLingDLL;
+ if aWord.S[aWord.SLen] = #0 then // null terminated
+  Result := gfCheckWord(aWord.S, aOptions)
+ else // придется переложить
+ begin
+  s := l3PCharLen2String(aWord);
+  Result := gfCheckWord(PAnsiChar(S), aOptions);
+ end;
 end;
 
 function mlmaruLemmatize(aWord: PAnsiChar;
@@ -850,44 +854,6 @@ begin
  Result := mlmaRusDeclensionEx(aWord, aWordLen, aDeclension, lGrInfo);
 end;
 
-function GetCapsScheme(aWord : PAnsiChar; aWordLen : Word) : TCapScheme;
-// получить схему капитализации
-var
- lHasLow : boolean;
- I : Byte;
-begin
- Result := [];
- lHasLow := False;
- aWordLen := Min(aWordLen, High(Byte));
- for I := 0 to Pred(aWordLen) do
-  if l3IsUpper(aWord[I]) then
-   Include(Result, I)
-  else
-   lHasLow := True;
- if not lHasLow then
-  Result := [Low(Byte) .. High(Byte)];
-end;
-
-procedure ApplayCapsScheme(aWord : PAnsiChar; aWordLen : Word; aScheme : TCapScheme); overload;
-// применить схему капитализации
-var
- I : Byte;
-begin
- if aScheme = [] then exit; // приезжает все в нижнем
- if aScheme = [Low(Byte) .. High(Byte)] then
-  CharUpperBuffA(aWord, aWordLen);
- aWordLen := Min(aWordLen, High(Byte));
- for I := 0 to Pred(aWordLen) do
-  if I in aScheme then
-   CharUpperBuffA(@aWord[I], 1);
-end;
-
-procedure ApplayCapsScheme(aWord : PAnsiChar; aWordLen : Word; aSrcWord : PAnsiChar; aSrcWordLen : Word); overload;
-// скопировать схему капитализации с aSrcWord
-begin
- ApplayCapsScheme(aWord, aWordLen, GetCapsScheme(aSrcWord, aSrcWordLen));
-end;
-
 function mlmaRusDeclensionStr(const aString: AnsiString; aDeclension : TRusDeclension): AnsiString;
 var
  lWStart   : Longint;
@@ -1116,16 +1082,6 @@ begin
   -6 : raise TLingException.Create('Не удалось загрузить страницу словаря');
  end;
 end;
-
-function L2llAddStrProc(Action: Pointer): TllAddStrProc; register;
-asm
- jmp  l3LocalStub
-end;{asm}
-
-procedure FreellAddStrProc(var Stub: TllAddStrProc); register;
-asm
- jmp  l3FreeLocalStub
-end;{asm}
 
 initialization
 {!touched!}{$IfDef LogInit} WriteLn('W:\common\components\rtl\Garant\L3\l3LingLib.pas initialization enter'); {$EndIf}

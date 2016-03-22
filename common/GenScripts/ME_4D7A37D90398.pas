@@ -3,6 +3,7 @@ unit PrimBaseSearch_BaseSearch_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearch_BaseSearch_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "BaseSearch" MUID: (4D7A37D90398)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_BaseSearch = {final} class(TtfwInteger)
   {* Слово словаря для типа формы BaseSearch }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_BaseSearch
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_BaseSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::BaseSearch';
-end;//Tkw_FormUserType_BaseSearch.GetWordNameForRegister
-
 function Tkw_FormUserType_BaseSearch.GetInteger: Integer;
 begin
  Result := BaseSearch;
 end;//Tkw_FormUserType_BaseSearch.GetInteger
+
+class function Tkw_FormUserType_BaseSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::BaseSearch';
+end;//Tkw_FormUserType_BaseSearch.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

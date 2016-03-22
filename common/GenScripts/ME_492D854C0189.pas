@@ -3,6 +3,7 @@ unit dsBaseContents;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseContents.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsBaseContents" MUID: (492D854C0189)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

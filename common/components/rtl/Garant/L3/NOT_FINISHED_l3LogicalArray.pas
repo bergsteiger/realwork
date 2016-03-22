@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3LogicalArray;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3LogicalArray.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3LogicalArray" MUID: (514C641101A7)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

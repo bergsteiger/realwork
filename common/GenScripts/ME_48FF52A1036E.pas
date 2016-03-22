@@ -4,6 +4,7 @@ unit NOT_FINISHED_nsContextFilterParamsConst;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\NOT_FINISHED_nsContextFilterParamsConst.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsContextFilterParamsConst" MUID: (48FF52A1036E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

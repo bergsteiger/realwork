@@ -2,6 +2,8 @@
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atBitMaskConverter.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "atBitMaskConverter" MUID: (504F22BD0284)
+// Имя типа: "_atBitMaskConverter_"
 
 {$Define atBitMaskConverter_imp}
 

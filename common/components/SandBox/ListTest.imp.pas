@@ -1,34 +1,30 @@
 {$IfNDef ListTest_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "ListTest.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCaseMixIn::Class Shared Delphi Sand Box::SandBoxTest::FinalContainersTests::ListTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\ListTest.imp.pas"
+// Стереотип: "TestCaseMixIn"
+// Элемент модели: "ListTest" MUID: (51E80DD30125)
+// Имя типа: "_ListTest_"
 
 {$Define ListTest_imp}
-{$If defined(nsTest)}
+
+{$If Defined(nsTest)}
  _ListTest_ = class(TTestCase)
- protected
- // protected methods
+  protected
    function CreateList: _ListType_;
-     {* Создаёт список для тестирования }
  end;//_ListTest_
-{$Else}
 
- _ListTest_ = TTestCase;
+{$Else Defined(nsTest)}
 
-{$IfEnd} //nsTest
+_ListTest_ = TTestCase;
 
+{$IfEnd} // Defined(nsTest)
 {$Else ListTest_imp}
 
-{$If defined(nsTest)}
+{$IfNDef ListTest_imp_impl}
 
-// start class _ListTest_
+{$Define ListTest_imp_impl}
 
+{$If Defined(nsTest)}
 function _ListTest_.CreateList: _ListType_;
 //#UC START# *51E80E0D030D_51E80DD30125_var*
 //#UC END# *51E80E0D030D_51E80DD30125_var*
@@ -37,7 +33,9 @@ begin
  Result := _ListType_.Create;
 //#UC END# *51E80E0D030D_51E80DD30125_impl*
 end;//_ListTest_.CreateList
+{$IfEnd} // Defined(nsTest)
 
-{$IfEnd} //nsTest
+{$EndIf ListTest_imp_impl}
 
 {$EndIf ListTest_imp}
+

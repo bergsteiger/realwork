@@ -3,6 +3,7 @@ unit k2DictRec_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2DictRec_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "Wk2DictRec" MUID: (484D10530133)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

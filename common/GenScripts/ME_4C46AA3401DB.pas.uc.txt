@@ -533,22 +533,28 @@ var
 //#UC START# *4BD5913B0204_4C46AA3401DB_var*
 //#UC END# *4BD5913B0204_4C46AA3401DB_var*
 //#UC START# *4BDAF7880236_4C46AA3401DBexec_impl*
- tvList.LockChangeSelected;
- try
-  aParams.CallControl;
- finally
-  tvList.UnLockChangeSelected;
- end;//try..finally
+ with tvList.TreeView.Tree do
+ begin
+  Changing;
+  try
+   aParams.CallControl;
+  finally
+   Changed;
+  end;
+ end;
 //#UC END# *4BDAF7880236_4C46AA3401DBexec_impl*
 //#UC START# *4BDAF7880236_4C46AA3401DBexec_var*
 //#UC END# *4BDAF7880236_4C46AA3401DBexec_var*
 //#UC START# *4BDAF7A2005C_4C46AA3401DBexec_impl*
- tvList.LockChangeSelected;
- try
-  aParams.CallControl;
- finally
-  tvList.UnLockChangeSelected;
- end;//try..finally
+ with tvList.TreeView.Tree do
+ begin
+  Changing;
+  try
+   aParams.CallControl;
+  finally
+   Changed;
+  end;
+ end;
 //#UC END# *4BDAF7A2005C_4C46AA3401DBexec_impl*
 //#UC START# *4BDAF7A2005C_4C46AA3401DBexec_var*
 //#UC END# *4BDAF7A2005C_4C46AA3401DBexec_var*

@@ -1,86 +1,62 @@
 unit MergeTablesTest;
+ {* Тестирование объединения таблиц }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/MergeTablesTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EditorTests::TMergeTablesTest
-//
-// Тестирование объединения таблиц
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\MergeTablesTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TMergeTablesTest" MUID: (4C3AF74701A6)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TableToolsTest,
-  evEditorInterfaces
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , TableToolsTest
+ , evEditorInterfaces
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TMergeTablesTest = {abstract} class(TTableToolsTest)
   {* Тестирование объединения таблиц }
- protected
- // realized methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure ApplyTools(const aRange: IedRange); override;
-     {* Вызвать инструмент для таблицы }
-   {$IfEnd} //nsTest AND not NoVCM
- protected
- // overridden protected methods
+    {* Вызвать инструмент для таблицы }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function NeedSelection: Boolean; override;
-     {* Нужно ли чего-нибудь выделять. }
+    {* Нужно ли чего-нибудь выделять. }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TMergeTablesTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork,
-  evMsgCode,
-  evOp
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ , evMsgCode
+ , evOp
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TMergeTablesTest
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TMergeTablesTest.ApplyTools(const aRange: IedRange);
+ {* Вызвать инструмент для таблицы }
 //#UC START# *4C345B580083_4C3AF74701A6_var*
 //#UC END# *4C345B580083_4C3AF74701A6_var*
 begin
@@ -88,15 +64,16 @@ begin
  aRange.Table.Merge(nil);
 //#UC END# *4C345B580083_4C3AF74701A6_impl*
 end;//TMergeTablesTest.ApplyTools
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TMergeTablesTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TMergeTablesTest.GetFolder
 
 function TMergeTablesTest.NeedSelection: Boolean;
+ {* Нужно ли чего-нибудь выделять. }
 //#UC START# *4CC8189D02DF_4C3AF74701A6_var*
 //#UC END# *4CC8189D02DF_4C3AF74701A6_var*
 begin
@@ -106,11 +83,10 @@ begin
 end;//TMergeTablesTest.NeedSelection
 
 function TMergeTablesTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C3AF74701A6';
 end;//TMergeTablesTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

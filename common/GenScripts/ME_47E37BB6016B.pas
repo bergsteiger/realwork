@@ -3,6 +3,7 @@ unit k2InterfacesEx;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2InterfacesEx.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "k2InterfacesEx" MUID: (47E37BB6016B)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

@@ -3,6 +3,7 @@ unit m4WordList;
 
 // Модуль: "w:\common\components\rtl\Garant\m4\m4WordList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm4WordList" MUID: (4AB37F2003B6)
 
 {$Include w:\common\components\rtl\Garant\m4\m4Define.inc}
 

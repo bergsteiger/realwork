@@ -532,6 +532,7 @@ begin
  case anEvent.ID of
   k2_eidChildrenAdded,
   k2_eidChildrenInserted:
+  if f_Children.Count <> ParaX.AsObject.ChildrenCount then
   begin
    l_Point := ParaX.AsList[anEvent.Point].MakePoint;
    if TevMergeStatus(l_Point.AsObject.IntA[k2_tiMergeStatus]) = ev_msContinue then
@@ -623,7 +624,7 @@ var
 //#UC END# *4DD797ED02CE_4DD77A73036E_var*
 begin
 //#UC START# *4DD797ED02CE_4DD77A73036E_impl*
- Assert(not SimpleMode);
+ // Assert(not SimpleMode);
  l_MaxPointFI := nil;
  l_FI := nil;
  if evCheckSingleContinueCell(ParaX) then Exit;

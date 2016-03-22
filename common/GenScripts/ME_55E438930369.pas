@@ -2,6 +2,7 @@ unit nsListExceptions;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsListExceptions.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsListExceptions" MUID: (55E438930369)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

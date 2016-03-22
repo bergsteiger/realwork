@@ -82,9 +82,9 @@ int make_index(	void *pCntx, char *name, base_st *targets, int count,
 		}
 	}
 	if(pin->hdr.key_count) {
-		if(!strcmp(name, "Attrs.str"))
+		if (!strcmp(name, "Attrs.str"))
 			result = make_attrs_index(pCntx, ptin, count, pin, doclist);
-		else if(!strcmp(name, "Attribs")){
+		else if (!strcmp(name, "Attribs")){
 			result = make_attrs_index(pCntx, ptin, count, pin, doclist);
 			for(i=0; i<count; i++){
 				if(doclist[i].seg_32){
@@ -131,8 +131,16 @@ int make_index(	void *pCntx, char *name, base_st *targets, int count,
 	}
 	else result = 0;
 	close_index(pin);
-	for(i=0; i<count; i++)
-		close_index(ptin+i);
+#if defined(MULTI_INDEX_STREAM_FILE) && defined(_WIN64)
+	if (!strcmp(name, "Tag.str")){
+		for (i = 0; i<count; i++){
+			close_index(ptin + i);
+			flush_streams_file(targets + i, ptin[i].str);
+		}
+	}else
+#endif
+	for (i = 0; i<count; i++)
+	close_index(ptin+i);
 	hide_message();
 	free(pin);
 	return result;	

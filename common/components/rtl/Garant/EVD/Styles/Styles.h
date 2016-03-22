@@ -2,7 +2,7 @@
 //
 // Модуль: "w:/common/components/rtl/Garant/EVD/Styles/Styles.h"
 // генератор заголовочных файлов C++ (.h)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi::EVD::Styles
+// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Low Level::EVD::Styles
 //
 // Идентификаторы стилей текстовых параграфов.
 //
@@ -10,8 +10,8 @@
 // Все права принадлежат ООО НПП "Гарант-Сервис".
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#ifndef __SHARED_DELPHI_EVD_STYLES_H__
-#define __SHARED_DELPHI_EVD_STYLES_H__
+#ifndef __SHARED_DELPHI_LOW_LEVEL_EVD_STYLES_H__
+#define __SHARED_DELPHI_LOW_LEVEL_EVD_STYLES_H__
 
 #include "shared/Core/sys/std_inc.h"
 
@@ -102,6 +102,7 @@ static const long sa_VisitedSnippetInList = -80;
 static const long sa_NewsConfigHyperlink = -81; // Текст гиперссылки для настройки новостной ленты.
 static const long sa_ExpandedText = -82; // Стиль 'Разворачиваемый текст'
 static const long sa_AACLeftHyperlink = -83;
+static const long sa_DocumentInList = -84;
 
 // Имена для Standard
 extern const char* StandardNames [];
@@ -109,5 +110,5 @@ extern const char* StandardNames [];
 } // namespace EVD
 
 
-#endif //__SHARED_DELPHI_EVD_STYLES_H__
+#endif //__SHARED_DELPHI_LOW_LEVEL_EVD_STYLES_H__
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

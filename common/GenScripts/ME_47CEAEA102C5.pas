@@ -2,6 +2,7 @@ unit evQueryCardConst;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evQueryCardConst.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "evQueryCardConst" MUID: (47CEAEA102C5)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

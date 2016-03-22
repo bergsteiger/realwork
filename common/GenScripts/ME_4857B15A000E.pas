@@ -2,6 +2,7 @@ unit evDocumentPart;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPart.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evDocumentPart" MUID: (4857B15A000E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

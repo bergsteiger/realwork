@@ -7,6 +7,8 @@ aFileName SearchWin:SaveDocumentList
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwSearchWinSaveDocumentList.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "SearchWin_SaveDocumentList" MUID: (537076040297)
+// Имя типа: "TkwSearchWinSaveDocumentList"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

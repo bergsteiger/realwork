@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3COMQueryInterface" MUID: (4A60B2220398)
+// Имя типа: "_l3COMQueryInterface_"
 
 {$Define l3COMQueryInterface_imp}
 

@@ -3,6 +3,8 @@ unit K517772970_TDictEditQueryDefault;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TDictEditQueryDefault.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TDictEditQueryDefault" MUID: (53197DB70108)
+// Имя типа: "TK517772970_TDictEditQueryDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

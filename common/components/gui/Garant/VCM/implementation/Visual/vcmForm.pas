@@ -5,9 +5,12 @@ unit vcmForm;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcm -           }
 { Начат: 24.02.2003 13:45 }
-{ $Id: vcmForm.pas,v 1.284 2015/09/30 09:23:03 morozov Exp $ }
+{ $Id: vcmForm.pas,v 1.285 2015/12/22 12:13:51 morozov Exp $ }
 
 // $Log: vcmForm.pas,v $
+// Revision 1.285  2015/12/22 12:13:51  morozov
+// {RequestLink: 609899254}
+//
 // Revision 1.284  2015/09/30 09:23:03  morozov
 // {RequestLink: 607522449}
 //
@@ -1612,6 +1615,7 @@ type
         {* - итератор аггрегаций в контейнере. }
       function Get_AsForm: IvcmEntityForm;
       procedure SetTabCaption(const aTabCaption: IvcmCString);
+      function IsSame(const aAnother: IvcmContainer): Boolean;
     public
     // public methods
       class function Make: IvcmContainer;
@@ -1765,6 +1769,11 @@ begin
  Assert(False);
 end;
 
+function TvcmNULLContainer.IsSame(const aAnother: IvcmContainer): Boolean;
+begin
+ Assert(False);
+ Result := False;
+end;
 
 procedure TvcmNULLContainer.ChildDataSourceChanged(const aChild : IvcmEntityForm;
                                                    const anOld  : IvcmFormDataSource;

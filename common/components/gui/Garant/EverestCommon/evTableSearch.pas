@@ -2,6 +2,7 @@ unit evTableSearch;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evTableSearch.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evTableSearch" MUID: (50751A0A0164)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

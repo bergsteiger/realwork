@@ -3,6 +3,7 @@ unit NOT_FINISHED_evRangeTools;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evRangeTools.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evRangeTools" MUID: (48E3BA3300DE)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

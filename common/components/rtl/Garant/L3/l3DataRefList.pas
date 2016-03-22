@@ -3,6 +3,7 @@ unit l3DataRefList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3DataRefList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3DataRefList" MUID: (4773DD0B02A3)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -3,6 +3,7 @@ unit InsConfigNotifyRecipientPtrList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\InsConfigNotifyRecipientPtrList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TInsConfigNotifyRecipientPtrList" MUID: (491450C80113)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

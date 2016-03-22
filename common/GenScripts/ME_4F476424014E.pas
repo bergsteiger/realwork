@@ -2,6 +2,7 @@ unit IncludesAndUsesPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\IncludesAndUsesPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "IncludesAndUsesPack" MUID: (4F476424014E)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -72,6 +72,7 @@ implementation
 {$If defined(k2ForEditor)}
 uses
   nevFacade,
+  LeafParaDecorationsHolder_Const,
   l3MinMax
   ;
 {$IfEnd} //k2ForEditor
@@ -182,7 +183,8 @@ begin
  inherited;
  if (aPoint <> nil) then
  begin
-  f_Y := aPoint.AsLeaf.PaintOffsetY(aView, ObjMap(aView));
+  if not (aPoint.AsObject.IsKindOf(k2_typLeafParaDecorationsHolder) and (aPoint.Obj.ChildrenCount = 1)) then
+   f_Y := aPoint.AsLeaf.PaintOffsetY(aView, ObjMap(aView));
   SignalScroll;
  end;//aPoint <> nil
 //#UC END# *4B1D0220010E_4A3BAB21005A_impl*

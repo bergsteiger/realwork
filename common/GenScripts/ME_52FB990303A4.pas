@@ -2,6 +2,7 @@ unit csNotifyObj;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csNotifyObj.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsNotifyObj" MUID: (52FB990303A4)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

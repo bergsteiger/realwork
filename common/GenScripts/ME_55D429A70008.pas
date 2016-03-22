@@ -2,6 +2,7 @@ unit nsUnderControlNotificationManager;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUnderControlNotificationManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsUnderControlNotificationManager" MUID: (55D429A70008)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -1,9 +1,18 @@
 //..........................................................................................................................................................................................................................................................
 unit ddClientBaseEngine;
 
-// $Id: ddClientBaseEngine.pas,v 1.37 2015/10/27 13:33:06 lukyanets Exp $
+// $Id: ddClientBaseEngine.pas,v 1.40 2016/03/16 12:40:59 lukyanets Exp $
 
 // $Log: ddClientBaseEngine.pas,v $
+// Revision 1.40  2016/03/16 12:40:59  lukyanets
+// Отлаживаем вилку
+//
+// Revision 1.39  2016/01/11 11:29:04  lukyanets
+// Cleanup
+//
+// Revision 1.38  2015/11/25 14:01:43  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.37  2015/10/27 13:33:06  lukyanets
 // Пытаемся подкючаться к Postgres
 //
@@ -589,6 +598,7 @@ type
   function GetErrorString(aError: TbeError; const aErrorStr: AnsiString) : ANSIString;
   function CalcConnectKind: TcsUserConnectKind;
   function Get_IsDeveloper: Boolean;
+    procedure Set_IsRequireAdminRights(const Value: Boolean);
  protected
   procedure Cleanup; override;
   procedure CreateCommunications; override;
@@ -604,7 +614,7 @@ type
   property AutoSave: Boolean read f_AutoSave write f_AutoSave;
   property CSClient: TCSClient read f_CSClient;
   property IsDeveloper: Boolean read Get_IsDeveloper;
-  property IsRequireAdminRights: Boolean read f_IsRequireAdminRights write f_IsRequireAdminRights;
+  property IsRequireAdminRights: Boolean read f_IsRequireAdminRights write Set_IsRequireAdminRights;
   property LastError: TbeError read f_LastErrorID write f_LastErrorID;
   property BaseFlags: TdaBaseFlags read f_BaseFlags;
   property ServiceParams: TncsServiceProviderParams read f_ServiceParams;
@@ -634,6 +644,7 @@ Uses
  ddClosingWin,
 
  daDataProviderSuperFactory,
+ daSchemeConsts,
 
  htDataProviderParams,
 
@@ -659,9 +670,6 @@ Uses
 
  m3StgMgr
  ;
-
-type
- ERunNonServer = class(Exception);
 
 const
  c_MaxLoginAttempts = 3;
@@ -1130,6 +1138,11 @@ end;
 function TClientBaseEngine.AllowClearLocks: Boolean;
 begin
  Result := f_AllowClearLocks;
+end;
+
+procedure TClientBaseEngine.Set_IsRequireAdminRights(const Value: Boolean);
+begin
+  f_IsRequireAdminRights := Value;
 end;
 
 end.

@@ -150,8 +150,8 @@ Search::IRequestView* Query_i::get_view (const ReqInfo& info, bool is_default) {
 
 	if (ret.is_nil ()) {
 		GCL::StrVector in (1, info.context);
-		ret = Search::IRequestViewFactory::make (0, 0, Search::as_Simple);
-		ret->build (in, Morpho::Def::StrStrMap (), info.context);
+		ret = Search::IRequestViewFactory::make (0, m_env.normalizer.in (), Search::as_Simple);
+		ret->build (in, info.context);
 	}
 
 	return ret._retn ();

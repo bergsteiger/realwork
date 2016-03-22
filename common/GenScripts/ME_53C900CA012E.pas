@@ -3,6 +3,7 @@ unit alcuAsyncSubmitter;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAsyncSubmitter.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "alcuAsyncSubmitter" MUID: (53C900CA012E)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

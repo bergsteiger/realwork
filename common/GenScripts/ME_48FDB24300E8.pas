@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifier.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsNodeNotifier" MUID: (48FDB24300E8)
+// Имя типа: "_nsNodeNotifier_"
 
 {$Define nsNodeNotifier_imp}
 

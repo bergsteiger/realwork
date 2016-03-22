@@ -1,0 +1,3 @@
+﻿
+Namespace My
+End Namespace

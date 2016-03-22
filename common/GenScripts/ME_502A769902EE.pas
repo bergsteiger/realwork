@@ -2,6 +2,8 @@
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atIterateThroughFilesAddOn.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "atIterateThroughFilesAddOn" MUID: (502A769902EE)
+// Имя типа: "_atIterateThroughFilesAddOn_"
 
 {$Define atIterateThroughFilesAddOn_imp}
 

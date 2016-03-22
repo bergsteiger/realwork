@@ -2,6 +2,7 @@ unit ncsTransporter;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsTransporter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsTransporter" MUID: (544A09EE005F)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
@@ -70,6 +71,7 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
+   procedure ClearFields; override;
   protected
    property SendQueue: TncsMessageQueue
     read f_SendQueue;
@@ -318,6 +320,12 @@ begin
  f_ProcessThread := TncsProcessThread.Create(f_ReceiveQueue, Self, f_ReplyWaiter);
 //#UC END# *47A042E100E2_544A09EE005F_impl*
 end;//TncsTransporter.InitFields
+
+procedure TncsTransporter.ClearFields;
+begin
+ IntSessionID := '';
+ inherited;
+end;//TncsTransporter.ClearFields
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

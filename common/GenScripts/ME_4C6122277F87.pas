@@ -3,6 +3,7 @@ unit DocumentWithFlashKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\DocumentWithFlashKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "DocumentWithFlashKeywordsPack" MUID: (4C6122277F87)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -33,19 +34,19 @@ type
 'aControl' форма::DocumentWithFlash TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_DocumentWithFlash
-
-class function Tkw_Form_DocumentWithFlash.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::DocumentWithFlash';
-end;//Tkw_Form_DocumentWithFlash.GetWordNameForRegister
 
 function Tkw_Form_DocumentWithFlash.GetString: AnsiString;
 begin
  Result := 'DocumentWithFlashForm';
 end;//Tkw_Form_DocumentWithFlash.GetString
+
+class function Tkw_Form_DocumentWithFlash.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::DocumentWithFlash';
+end;//Tkw_Form_DocumentWithFlash.GetWordNameForRegister
 
 initialization
  Tkw_Form_DocumentWithFlash.RegisterInEngine;

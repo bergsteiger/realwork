@@ -3,6 +3,7 @@ unit afwComplexDocumentPreviewFactory;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwComplexDocumentPreviewFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwComplexDocumentPreviewFactory" MUID: (47DF8C5E01AB)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

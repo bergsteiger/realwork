@@ -3,6 +3,7 @@ unit WrongSearchTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\WrongSearchTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TWrongSearchTest" MUID: (4D9411E703B8)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

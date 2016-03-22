@@ -2,6 +2,7 @@ unit tfwScriptEngineEX;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwScriptEngineEX.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwScriptEngineEX" MUID: (4DEF306102FF)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

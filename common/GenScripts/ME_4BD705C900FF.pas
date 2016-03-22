@@ -3,6 +3,7 @@ unit PrimEditionsContainer_utEditionsContainer_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimEditionsContainer_utEditionsContainer_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utEditionsContainer" MUID: (4BD705C900FF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utEditionsContainer = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utEditionsContainer }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utEditionsContainer
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utEditionsContainer.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utEditionsContainer';
-end;//Tkw_FormUserType_utEditionsContainer.GetWordNameForRegister
-
 function Tkw_FormUserType_utEditionsContainer.GetInteger: Integer;
 begin
  Result := utEditionsContainer;
 end;//Tkw_FormUserType_utEditionsContainer.GetInteger
+
+class function Tkw_FormUserType_utEditionsContainer.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utEditionsContainer';
+end;//Tkw_FormUserType_utEditionsContainer.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

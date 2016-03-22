@@ -3,6 +3,7 @@ unit afwPreviewCanvas;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewCanvas.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwPreviewCanvas" MUID: (474145DE010F)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
@@ -81,12 +82,12 @@ type
    procedure DoFillForeRect(const R: Tl3SRect); override;
    function DoGetDrawEnabled: Boolean; override;
    function GetIsPagesCounter: Boolean; override;
-   procedure ClearFields; override;
    function IsPreview: Boolean; override;
    procedure StartPage; override;
    procedure DoStartObject(anObjectID: Integer); override;
    procedure DoSetPageTop; override;
    procedure DoEndPaint; override;
+   procedure ClearFields; override;
   public
    constructor Create(const aPrinter: IafwPrinter;
     aIsPageCounter: Boolean;
@@ -463,12 +464,6 @@ begin
 //#UC END# *4CB32D4C030E_474145DE010F_impl*
 end;//TafwPreviewCanvas.GetIsPagesCounter
 
-procedure TafwPreviewCanvas.ClearFields;
-begin
- f_PreviewPage := nil;
- inherited;
-end;//TafwPreviewCanvas.ClearFields
-
 function TafwPreviewCanvas.IsPreview: Boolean;
 //#UC START# *56B0B9790320_474145DE010F_var*
 //#UC END# *56B0B9790320_474145DE010F_var*
@@ -544,5 +539,11 @@ begin
   f_PagesInfo.rPagesCount := GetPagesCount;
 //#UC END# *56B4BDA30301_474145DE010F_impl*
 end;//TafwPreviewCanvas.DoEndPaint
+
+procedure TafwPreviewCanvas.ClearFields;
+begin
+ f_PreviewPage := nil;
+ inherited;
+end;//TafwPreviewCanvas.ClearFields
 
 end.

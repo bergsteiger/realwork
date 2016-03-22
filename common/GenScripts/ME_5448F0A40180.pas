@@ -2,6 +2,7 @@ unit m3NewStorageStreamPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3NewStorageStreamPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3NewStorageStreamPrim" MUID: (5448F0A40180)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

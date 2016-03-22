@@ -3,6 +3,7 @@ unit evdStartAndTimeEliminator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evdStartAndTimeEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdStartAndTimeEliminator" MUID: (5358C3EA01ED)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

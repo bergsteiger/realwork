@@ -3,6 +3,7 @@ unit evSelectedParts;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSelectedParts.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevSelectedParts" MUID: (48C911C702A4)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

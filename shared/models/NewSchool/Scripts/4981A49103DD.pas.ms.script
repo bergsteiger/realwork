@@ -4,34 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4981A49103DD
 
-FORWARD ME_4981A4AE0282
-
-: ME_54C48F101989
- CONST UID '54C48F101989'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtShockwaveFlashEx' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4981A4AE0282 // TvtShockwaveFlashEx
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_54C48F101989 Ini_Reg_Class
-
-: ME_23A5C2CC3055
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4981A4AE0282 // TvtShockwaveFlashEx
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_23A5C2CC3055 
-
 : ME_4981A4AE0282
  CONST UID '4981A4AE0282'
  CONST Name 'TvtShockwaveFlashEx'
@@ -42,14 +14,6 @@ ref; // ME_23A5C2CC3055
  CONST Abstraction at_regular
  : Parent ME_4981A49103DD // Flash
  ;
- : Operations
-   Seq: ( ME_54C48F101989 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_23A5C2CC3055 // 
- )
- ; // Dependencies
  : Injected
    Seq: ( WL 'ME_7440CAD05A63' '54EC8EE003AB.pas.ms.script' // 
  )
@@ -82,10 +46,6 @@ ref; // ME_4981A4AE0282 TvtShockwaveFlashEx
    Seq: ( ME_4981A4AE0282 // TvtShockwaveFlashEx
  )
  ; // Children
- : Depends
-   Seq: ( WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- )
- ; // Depends
  CONST "ifndef" 'NoFlash'
 
 ref; // ME_4981A49103DD Flash

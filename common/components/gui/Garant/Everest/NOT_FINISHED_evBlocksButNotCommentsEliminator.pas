@@ -2,6 +2,7 @@ unit NOT_FINISHED_evBlocksButNotCommentsEliminator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evBlocksButNotCommentsEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevBlocksButNotCommentsEliminator" MUID: (4D936ABE00A1)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmRepOperationsCollectionItem;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmRepOperationsCollectionItem.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmRepOperationsCollectionItem" MUID: (4E3012700155)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

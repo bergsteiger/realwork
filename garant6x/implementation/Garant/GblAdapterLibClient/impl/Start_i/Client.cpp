@@ -42,9 +42,6 @@
 #include "garantServer/src/Business/GblPrime/Home/Client.h"
 #include "garantServer/src/Business/GblUserJournal/Home/Client.h"
 
-// Поисковая машина
-#include "garantServer/src/Business/GblSearchMachine/Home/Client.h"
-
 // Поддержка ревизий документов через internet
 #include "garantServer/src/Business/GblRemoteDocumentSupport/GblRemoteDocumentSupportC.h"
 
@@ -120,8 +117,6 @@ void Client::run () {
 	gcm_manager->register_component (new GCM::GCMSimpleClient (GblXMLSave::ComponentKey_c));
 	gcm_manager->register_component (new GCM::GCMSimpleClient (GblPrime::ComponentKey_c));
 	gcm_manager->register_component (new GCM::GCMSimpleClient (GblConsultingClient::ComponentKey_c));
-	// Поисковая машина
-	gcm_manager->register_component (new GCM::GCMSimpleClient (GblSearchMachine::ComponentKey_c));
 	// Поддержка ревизий документов через internet
 	gcm_manager->register_component (new GCM::GCMSimpleClient(GblRemoteDocumentSupport::ComponentKey_c));
 	// фильтры 

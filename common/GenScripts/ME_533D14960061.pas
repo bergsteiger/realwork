@@ -2,6 +2,7 @@ unit ChromeLikeLegacyWindowCaptionButtons;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeLegacyWindowCaptionButtons.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ChromeLikeLegacyWindowCaptionButtons" MUID: (533D14960061)
 
 interface
 

@@ -2,6 +2,7 @@ unit kwCompiledProcedureWithStackChecking;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledProcedureWithStackChecking.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledProcedureWithStackChecking" MUID: (528F655002C2)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

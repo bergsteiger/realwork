@@ -2,6 +2,7 @@ unit eeEditor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeEditor.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TeeEditor" MUID: (495268900201)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

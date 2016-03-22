@@ -3,6 +3,7 @@ unit k2OpMisc;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2OpMisc.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "k2OpMisc" MUID: (48CF8F160109)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

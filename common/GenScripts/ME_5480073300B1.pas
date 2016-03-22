@@ -2,6 +2,7 @@ unit l3StopWatch;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3StopWatch.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3StopWatch" MUID: (5480073300B1)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

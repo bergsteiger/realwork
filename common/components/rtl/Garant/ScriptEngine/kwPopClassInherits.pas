@@ -1,48 +1,36 @@
 unit kwPopClassInherits;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Модуль: "kwPopClassInherits.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::Object Info::pop_class_Inherits
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopClassInherits.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_class_Inherits" MUID: (53E0FC5E0100)
+// Имя типа: "TkwPopClassInherits"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopClassInherits = {final scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwPopClassInherits = {final} class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopClassInherits
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopClassInherits
+ l3ImplUses
+ , SysUtils
+;
 
 procedure TkwPopClassInherits.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53E0FC5E0100_var*
@@ -86,17 +74,13 @@ begin
 end;//TkwPopClassInherits.DoDoIt
 
 class function TkwPopClassInherits.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:class:Inherits';
 end;//TkwPopClassInherits.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_class_Inherits
  TkwPopClassInherits.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_class_Inherits }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

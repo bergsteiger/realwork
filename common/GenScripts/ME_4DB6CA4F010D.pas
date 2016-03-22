@@ -3,6 +3,7 @@ unit kwCompiledWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledWord" MUID: (4DB6CA4F010D)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -29,7 +30,6 @@ type
    f_RightParams: TtfwWordRefList;
    f_LeftWordRefs: TtfwWordRefList;
    f_LocalDictionary: TtfwDictionary;
-    {* Поле для свойства LocalDictionary }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -353,14 +353,15 @@ begin
   for l_Index := 0 to Pred(f_LocalDictionary.Count) do
   begin
    l_W := TtfwKeyWord(f_LocalDictionary.Items[l_Index]).Word;
-   if l_W.CanClearInRecursiveCalls then
-    // http://mdp.garant.ru/pages/viewpage.action?pageId=356071766&focusedCommentId=556760508&#comment-556760508
-     begin
-      //l_TI := l_W.ResultTypeInfo[aCtx];
-      //if not (tfw_wmLeftWordRef in l_TI.Modifiers) then
-       l_W.SetValuePrim(TtfwStackValue_E, aCtx);
-       //l_W.InitValue(aCtx);
-     end;//l_W.CanClearInRecursiveCalls
+   if (l_W <> nil) then
+    if l_W.CanClearInRecursiveCalls then
+     // http://mdp.garant.ru/pages/viewpage.action?pageId=356071766&focusedCommentId=556760508&#comment-556760508
+      begin
+       //l_TI := l_W.ResultTypeInfo[aCtx];
+       //if not (tfw_wmLeftWordRef in l_TI.Modifiers) then
+        l_W.SetValuePrim(TtfwStackValue_E, aCtx);
+        //l_W.InitValue(aCtx);
+      end;//l_W.CanClearInRecursiveCalls
   end;//for l_Index
 //#UC END# *53C90EC00136_4DB6CA4F010D_impl*
 end;//TkwCompiledWord.ClearState

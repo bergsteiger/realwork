@@ -3,6 +3,7 @@ unit PrimTreeAttributeSelect_astPharmPublishSearch_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelect_astPharmPublishSearch_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "astPharmPublishSearch" MUID: (53A950A801A6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -11,7 +12,6 @@ interface
 uses
  l3IntfUses
  , PrimTreeAttributeSelect_astTaxesPublishSearch_UserType
- , PrimTreeAttributeSelect_astNone_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -33,26 +33,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_astPharmPublishSearch = {final} class(TtfwInteger)
   {* Слово словаря для типа формы astPharmPublishSearch }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_astPharmPublishSearch
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_astPharmPublishSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::astPharmPublishSearch';
-end;//Tkw_FormUserType_astPharmPublishSearch.GetWordNameForRegister
-
 function Tkw_FormUserType_astPharmPublishSearch.GetInteger: Integer;
 begin
  Result := astPharmPublishSearch;
 end;//Tkw_FormUserType_astPharmPublishSearch.GetInteger
+
+class function Tkw_FormUserType_astPharmPublishSearch.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::astPharmPublishSearch';
+end;//Tkw_FormUserType_astPharmPublishSearch.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

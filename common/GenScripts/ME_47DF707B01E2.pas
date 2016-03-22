@@ -3,6 +3,7 @@ unit vcmNodes;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmNodes.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmNodes" MUID: (47DF707B01E2)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

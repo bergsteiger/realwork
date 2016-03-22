@@ -2,6 +2,8 @@ unit PrimMainMenuNew_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\PrimMainMenuNew_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "PrimMainMenuNew" MUID: (4958E1F700C0)
+// Имя типа: "TPrimMainMenuNewForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

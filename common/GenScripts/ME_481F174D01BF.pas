@@ -2,6 +2,7 @@ unit nevTextParaRenderInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevTextParaRenderInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevTextParaRenderInfo" MUID: (481F174D01BF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

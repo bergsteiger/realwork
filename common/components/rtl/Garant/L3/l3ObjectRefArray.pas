@@ -3,6 +3,7 @@ unit l3ObjectRefArray;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ObjectRefArray.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ObjectRefArray" MUID: (4773DD5501E3)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

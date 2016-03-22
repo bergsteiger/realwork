@@ -2,6 +2,7 @@ unit atQueryExecutor;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\SearchHelpers\atQueryExecutor.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "atQueryExecutor" MUID: (483AD11C02A1)
 
 interface
 

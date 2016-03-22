@@ -3,6 +3,7 @@ unit nevLeafParaAnchor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevLeafParaAnchor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevLeafParaAnchor" MUID: (4A3B9AD60266)
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 

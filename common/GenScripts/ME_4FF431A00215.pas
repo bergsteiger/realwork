@@ -2,6 +2,7 @@ unit TestNameString;
 
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\TestNameString.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TTestNameString" MUID: (4FF431A00215)
 
 {$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 

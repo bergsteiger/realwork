@@ -2,6 +2,7 @@ unit SearchLite_Strange_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\SearchLite_Strange_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "Strange" MUID: (4AE831B30019)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit nsMedicFirmsTreeBase;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicFirmsTreeBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsMedicFirmsTreeBase" MUID: (490711B101F9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

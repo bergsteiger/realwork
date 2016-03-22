@@ -5,7 +5,7 @@ unit k2OpRefList;
 // Библиотека "K2"
 // Модуль: "w:/common/components/rtl/Garant/K2/k2OpRefList.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::Operations::Tk2OpRefList
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::K2::Operations::Tk2OpRefList
 //
 // Список операций.
 //

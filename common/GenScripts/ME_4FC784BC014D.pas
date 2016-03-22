@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmDockTree;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmDockTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmDockTree" MUID: (4FC784BC014D)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

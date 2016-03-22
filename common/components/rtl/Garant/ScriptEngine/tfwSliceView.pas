@@ -2,6 +2,7 @@ unit tfwSliceView;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwSliceView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwSliceView" MUID: (55E5904F02A5)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

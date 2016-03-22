@@ -2,6 +2,7 @@ unit kwOpenInsDWin;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwOpenInsDWin.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwOpenInsDWin" MUID: (4E2448BD014D)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

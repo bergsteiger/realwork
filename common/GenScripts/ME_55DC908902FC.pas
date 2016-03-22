@@ -2,6 +2,7 @@ unit segHyperLinkList;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\segHyperLinkList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TsegHyperLinkList" MUID: (55DC908902FC)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -2,6 +2,7 @@ unit vcmMainMenuAction;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMainMenuAction.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmMainMenuAction" MUID: (47E7652402FF)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

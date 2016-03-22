@@ -1,58 +1,41 @@
 unit EVDtoRTFWriterTest;
+ {* Тест преобразования EVD в RTF }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/EVDtoRTFWriterTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::RTF::EVDtoRTFWriterTest
-//
-// Тест преобразования EVD в RTF
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoRTFWriterTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "EVDtoRTFWriterTest" MUID: (4BACF173038C)
+// Имя типа: "TEVDtoRTFWriterTest"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  RTFWriterTest
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , RTFWriterTest
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TEVDtoRTFWriterTest = {abstract} class(TRTFWriterTest)
   {* Тест преобразования EVD в RTF }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt;
  end;//TEVDtoRTFWriterTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TEVDtoRTFWriterTest
+ l3ImplUses
+ , TestFrameWork
+;
 
 procedure TEVDtoRTFWriterTest.DoIt;
 //#UC START# *4BACF19600F5_4BACF173038C_var*
@@ -64,17 +47,16 @@ begin
 end;//TEVDtoRTFWriterTest.DoIt
 
 function TEVDtoRTFWriterTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'RTF';
 end;//TEVDtoRTFWriterTest.GetFolder
 
 function TEVDtoRTFWriterTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4BACF173038C';
 end;//TEVDtoRTFWriterTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

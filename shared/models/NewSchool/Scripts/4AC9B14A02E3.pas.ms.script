@@ -143,23 +143,6 @@ ref; // ME_51128AF10257 TnscHideField const
 
 ref; // ME_51125768008D SettingId
 
-: ME_85B894C175BA
- CONST UID '85B894C175BA'
- CONST Name 'f_SettingId'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SettingId' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4E732E0B0308 // TnscCustomHideField
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'SettingId'
-
-ref; // ME_85B894C175BA f_SettingId
-
 FORWARD ME_511258C60285
 
 : ME_511258E7004C
@@ -220,21 +203,6 @@ ref; // ME_511258C60285 MakeSettingId
 
 ref; // ME_704562C84A3F SettingIdStored
 
-: ME_5134404B436A
- CONST UID '5134404B436A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscCustomHideField' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E732E0B0308 // TnscCustomHideField
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5134404B436A Ini_Reg_Class
-
 : ME_511259BA02EB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -255,20 +223,7 @@ ref; // ME_511259BA02EB
 
 ref; // ME_511259D80003 
 
-: ME_5C8241B866EA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E732E0B0308 // TnscCustomHideField
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_5C8241B866EA 
-
 : ME_4F9A5C410274_ME_4E732E0B0308
- CONST UID '4F9A5C410274'
- CONST Name 'LoadSettings'
  : Original WL 'ME_4F9A5C410274' '53288DFA03A7.pas.ms.script' // LoadSettings
  ;
  : Implementor ME_4E732E0B0308 // TnscCustomHideField
@@ -277,8 +232,6 @@ ref; // ME_5C8241B866EA
 ref; // ME_4F9A5C410274_ME_4E732E0B0308 LoadSettings
 
 : ME_4F9A5C530398_ME_4E732E0B0308
- CONST UID '4F9A5C530398'
- CONST Name 'SaveSettings'
  : Original WL 'ME_4F9A5C530398' '53288DFA03A7.pas.ms.script' // SaveSettings
  ;
  : Implementor ME_4E732E0B0308 // TnscCustomHideField
@@ -287,8 +240,6 @@ ref; // ME_4F9A5C410274_ME_4E732E0B0308 LoadSettings
 ref; // ME_4F9A5C530398_ME_4E732E0B0308 SaveSettings
 
 : ME_4F9AB1780087_ME_4E732E0B0308
- CONST UID '4F9AB1780087'
- CONST Name 'DoLoadState'
  : Original WL 'ME_4F9AB1780087' '53288DFA03A7.pas.ms.script' // DoLoadState
  ;
  : Implementor ME_4E732E0B0308 // TnscCustomHideField
@@ -297,8 +248,6 @@ ref; // ME_4F9A5C530398_ME_4E732E0B0308 SaveSettings
 ref; // ME_4F9AB1780087_ME_4E732E0B0308 DoLoadState
 
 : ME_4F9AB19F020B_ME_4E732E0B0308
- CONST UID '4F9AB19F020B'
- CONST Name 'DoSaveState'
  : Original WL 'ME_4F9AB19F020B' '53288DFA03A7.pas.ms.script' // DoSaveState
  ;
  : Implementor ME_4E732E0B0308 // TnscCustomHideField
@@ -326,13 +275,11 @@ ref; // ME_4F9AB19F020B_ME_4E732E0B0308 DoSaveState
  ; // Implements
  : Attributes
    Seq: ( ME_51125768008D // SettingId
- ME_85B894C175BA // f_SettingId
  )
  ; // Attributes
  : Operations
    Seq: ( ME_511258C60285 // MakeSettingId
  ME_704562C84A3F // SettingIdStored
- ME_5134404B436A // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -349,7 +296,6 @@ ref; // ME_4F9AB19F020B_ME_4E732E0B0308 DoSaveState
  : Dependencies
    Seq: ( ME_511259BA02EB // 
  ME_511259D80003 // 
- ME_5C8241B866EA // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -421,23 +367,6 @@ FORWARD ME_51124F6C00F0
 
 ref; // ME_5112508D00D7 State
 
-: ME_3E0D54921B28
- CONST UID '3E0D54921B28'
- CONST Name 'f_State'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства State' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_51124F6C00F0 // TnscHideFieldState
- ;
- : Target WL 'ME_4E733DE40275' '4E732D5D02FE.pas.ms.script' // ThfState
- ;
- CONST extprop:clearViaProperty 'State'
-
-ref; // ME_3E0D54921B28 f_State
-
 FORWARD ME_5112514B013D
 
 : ME_5112763701A7
@@ -475,8 +404,6 @@ ref; // ME_5112763701A7 DoIt
 ref; // ME_5112514B013D Make
 
 : ME_51124F310001_ME_51124F6C00F0
- CONST UID '51124F310001'
- CONST Name 'State'
  : Original ME_51124F310001 // State
  ;
  : Implementor ME_51124F6C00F0 // TnscHideFieldState
@@ -486,8 +413,6 @@ ref; // ME_5112514B013D Make
 ref; // ME_51124F310001_ME_51124F6C00F0 State
 
 : ME_479731C50290_ME_51124F6C00F0
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_51124F6C00F0 // TnscHideFieldState
@@ -515,7 +440,6 @@ ref; // ME_479731C50290_ME_51124F6C00F0 Cleanup
  ; // Implements
  : Attributes
    Seq: ( ME_5112508D00D7 // State
- ME_3E0D54921B28 // f_State
  )
  ; // Attributes
  : Operations
@@ -539,32 +463,6 @@ ref; // ME_479731C50290_ME_51124F6C00F0 Cleanup
 
 ref; // ME_51124F6C00F0 TnscHideFieldState
 
-: ME_4D157A312064
- CONST UID '4D157A312064'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscHideField' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC9C67300A2 // TnscHideField
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4D157A312064 Ini_Reg_Class
-
-: ME_BBD2174C098B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9C67300A2 // TnscHideField
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_BBD2174C098B 
-
 : ME_4AC9C67300A2
  CONST UID '4AC9C67300A2'
  CONST Name 'TnscHideField'
@@ -579,20 +477,12 @@ ref; // ME_BBD2174C098B
    Seq: ( ME_4E732E0B0308 // TnscCustomHideField
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4D157A312064 // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_4E732E0B0308 // TnscCustomHideField
  ME_51124ED90007 // InscHideFieldState
  ME_51124F6C00F0 // TnscHideFieldState
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_BBD2174C098B // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
@@ -727,8 +617,6 @@ ref; // ME_4AC9DB95006B nscArrangeGridCell
 FORWARD ME_4ACA30C3014C
 
 : ME_4ACA31830369_ME_4ACA30C3014C
- CONST UID '4ACA31830369'
- CONST Name 'Create'
  : Original ME_4ACA31830369 // Create
  ;
  : Implementor ME_4ACA30C3014C // TnscFixedHeightControlCell
@@ -771,8 +659,6 @@ ref; // ME_4ACA30C3014C TnscFixedHeightControlCell
 FORWARD ME_4ACA39B902E9
 
 : ME_4ACA31830369_ME_4ACA39B902E9
- CONST UID '4ACA31830369'
- CONST Name 'Create'
  : Original ME_4ACA31830369 // Create
  ;
  : Implementor ME_4ACA39B902E9 // TnscFixedWidthControlCell
@@ -1238,8 +1124,6 @@ ref; // ME_5304A50600BB
 ref; // ME_5305A789012E 
 
 : ME_479731C50290_ME_530495650309
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_530495650309 // nscFormWithArrangeGrid
@@ -1248,8 +1132,6 @@ ref; // ME_5305A789012E
 ref; // ME_479731C50290_ME_530495650309 Cleanup
 
 : ME_4B0E845502C1_ME_530495650309
- CONST UID '4B0E845502C1'
- CONST Name 'NeedAutoScroll'
  : Original WL 'ME_4B0E845502C1' '4799D29F033F.pas.ms.script' // NeedAutoScroll
  ;
  : Implementor ME_530495650309 // nscFormWithArrangeGrid
@@ -1344,7 +1226,6 @@ ref; // ME_530495650309 nscFormWithArrangeGrid
  WL 'ME_4C52A6610123' '4C52A6610123.pas.ms.script' // Reminders
  WL 'ME_4E732D5D02FE' '4E732D5D02FE.pas.ms.script' // HideFields
  WL 'ME_53288DFA03A7' '53288DFA03A7.pas.ms.script' // NewReminders
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "UseNewGen" true

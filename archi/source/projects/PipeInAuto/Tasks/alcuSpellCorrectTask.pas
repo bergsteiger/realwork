@@ -42,6 +42,7 @@ uses
  evdWriter,
  evEvdRd,
  daUtils,
+ daSchemeConsts,
  dt_Serv,
  DT_Doc,
  SysUtils,

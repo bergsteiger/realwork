@@ -2,6 +2,7 @@ unit myInterfacedObject;
 
 // Модуль: "w:\common\components\SandBox\myInterfacedObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TmyInterfacedObject" MUID: (516D4F4E0326)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

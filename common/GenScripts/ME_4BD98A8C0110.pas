@@ -2,6 +2,7 @@ unit PostingOrder_FormDefinitions_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PostingOrder_FormDefinitions_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "FormDefinitions" MUID: (4BD98A8C0110)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,8 +36,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_Form_PostingsList_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы PostingsList
 ----
@@ -48,7 +49,7 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_PostingsList_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
 class function Tkw_Form_PostingsList_ID.GetWordNameForRegister: AnsiString;

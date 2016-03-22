@@ -2,6 +2,7 @@ unit l3SimpleNodeList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3SimpleNodeList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3SimpleNodeList" MUID: (47E7B92D013D)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

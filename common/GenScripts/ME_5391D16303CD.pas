@@ -2,6 +2,7 @@ unit F1_Without_Usecases_DocumentsCacheOperations_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\F1_Without_Usecases_DocumentsCacheOperations_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "DocumentsCacheOperations" MUID: (5391D16303CD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

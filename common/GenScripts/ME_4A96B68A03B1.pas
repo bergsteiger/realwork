@@ -2,6 +2,8 @@ unit PrimFolders_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\PrimFolders_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "PrimFolders" MUID: (4A96B68A03B1)
+// Имя типа: "TPrimFoldersModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

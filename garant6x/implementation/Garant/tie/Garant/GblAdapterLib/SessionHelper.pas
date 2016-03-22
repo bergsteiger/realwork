@@ -28,6 +28,10 @@ type
    function pm_GetIsSessionActive: Boolean; virtual;
    procedure pm_SetIsSessionActive(aValue: Boolean); virtual;
  public
+ // public methods
+   class function Exists: Boolean;
+     {* Проверяет создан экземпляр синглетона или нет }
+ public
  // public properties
    property is_session_active: Boolean
      read pm_GetIsSessionActive
@@ -70,7 +74,7 @@ function SessionHelper.pm_GetIsSessionActive: Boolean;
 //#UC END# *47711DCF03A0_47711DA00052get_var*
 begin
 //#UC START# *47711DCF03A0_47711DA00052get_impl*
- Result := f_is_session_active
+ !!! Needs to be implemented !!!
 //#UC END# *47711DCF03A0_47711DA00052get_impl*
 end;//SessionHelper.pm_GetIsSessionActive
 
@@ -79,7 +83,7 @@ procedure SessionHelper.pm_SetIsSessionActive(aValue: Boolean);
 //#UC END# *47711DCF03A0_47711DA00052set_var*
 begin
 //#UC START# *47711DCF03A0_47711DA00052set_impl*
- f_is_session_active := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *47711DCF03A0_47711DA00052set_impl*
 end;//SessionHelper.pm_SetIsSessionActive
 
@@ -91,5 +95,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *477129B00039_47711DA00052_impl*
 end;//SessionHelper.Make
+
+class function SessionHelper.Exists: Boolean;
+ {-}
+begin
+ Result := g_SessionHelper <> nil;
+end;//SessionHelper.Exists
 
 end.

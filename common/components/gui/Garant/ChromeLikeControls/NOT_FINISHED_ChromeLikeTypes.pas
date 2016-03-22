@@ -2,6 +2,7 @@ unit NOT_FINISHED_ChromeLikeTypes;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\NOT_FINISHED_ChromeLikeTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ChromeLikeTypes" MUID: (53C4BB200287)
 
 interface
 

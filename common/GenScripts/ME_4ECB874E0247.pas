@@ -2,6 +2,7 @@ unit NOT_FINISHED_d_GetContents;
 
 // Модуль: "w:\archi\source\projects\Archi\Dlg\NOT_FINISHED_d_GetContents.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "d_GetContents" MUID: (4ECB874E0247)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

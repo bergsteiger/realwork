@@ -3,6 +3,7 @@ unit nevFlatSubsList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevFlatSubsList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevFlatSubsList" MUID: (4A23947103C0)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

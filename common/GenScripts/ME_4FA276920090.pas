@@ -2,6 +2,7 @@ unit m3FileStream;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3FileStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3FileStream" MUID: (4FA276920090)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

@@ -2,6 +2,8 @@ unit InsiderOwnScripter;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\InsiderOwnScripter.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "InsiderOwnScripter" MUID: (4DB03B1B0055)
+// Имя типа: "TInsiderOwnScripter"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

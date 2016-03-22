@@ -3,6 +3,8 @@ unit PrimStyleEditorFont_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorFont_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimStyleEditorFont" MUID: (4AC642480314)
+// Имя типа: "TPrimStyleEditorFontForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -220,6 +222,7 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
   public
    class function Make(const aData: InsStyleTableSettingsInfo): StyleEditor; reintroduce;
    procedure StyleEditor_RestoreStyleTable_Execute(aRestoreDefault: Boolean);
@@ -2136,6 +2139,12 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC642480314_impl*
 end;//TPrimStyleEditorFontForm.InitControls
+
+procedure TPrimStyleEditorFontForm.ClearFields;
+begin
+ Finalize(f_LastKnownGoodComboBoxText);
+ inherited;
+end;//TPrimStyleEditorFontForm.ClearFields
 
 initialization
  str_ValueIsGreaterThan.Init;

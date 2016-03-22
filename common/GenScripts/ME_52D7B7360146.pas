@@ -2,6 +2,8 @@ unit kwBracketEnd;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwBracketEnd.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "BracketEnd" MUID: (52D7B7360146)
+// Имя типа: "TkwBracketEnd"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

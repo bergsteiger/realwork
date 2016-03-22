@@ -82,7 +82,7 @@ public:
 	virtual ~DownloadManager ();
 	
 public:
-	DownloadState execute (long id, const std::string& from, const std::string& to);
+	DownloadState execute (long id, const std::string& from, const std::string& to, long order_id);
 
 	void download ();
 	void connect ();

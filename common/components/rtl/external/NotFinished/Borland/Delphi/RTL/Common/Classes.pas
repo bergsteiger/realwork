@@ -3,6 +3,7 @@ unit Classes;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\Classes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Classes" MUID: (478CF30500C1)
 
 interface
 

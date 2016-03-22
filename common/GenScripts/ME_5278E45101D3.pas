@@ -2,6 +2,7 @@ unit Search_ScalingSupport_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search_ScalingSupport_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "ScalingSupport" MUID: (5278E45101D3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

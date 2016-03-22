@@ -31,10 +31,12 @@ type
   constructor Make(aClientID: TCsClientId);
   procedure AddMessage(aMessage: TddClientMessage);
   procedure ClearMessages;
+  procedure UniteMessages(const anAddition: TcsMessageRecepient);
   procedure LoadFromStream(aStream: TStream);
 (*  procedure Messages2Log;*)
   procedure SaveToStream(aStream: TStream);
   procedure WriteMessages(aDataPipe: TcsDataPipe);
+  procedure PackMessages;
   property ClientID: TcsClientID read f_ClientID write f_ClientID;
   //property Count: Integer read pm_GetCount;
   property HaveMessages: Boolean read pm_GetHaveMessages;
@@ -42,7 +44,7 @@ type
   //property Messages[Index: Integer]: TddClientMessage read pm_GetMessages;
   property TryCount: Integer read f_TryCount write f_TryCount;
  end;
- 
+
 implementation
 
 uses
@@ -171,11 +173,6 @@ begin
    l_Count := f_Messages.Count;
    Write(l_Count, SizeOf(l_Count));
    f_Messages.ForEachF(L2DdClientMessageIteratorForEachFAction(@DoIt));
-(*   for i:= 0 to f_Messages.Hi do
-   begin
-    Assert(i <= f_Messages.Hi);
-    f_Messages.Items[i].SaveTo(aStream, True);
-   end;//for i*)
   end; // with aStream
  finally
   Dec(f_InIO);
@@ -198,6 +195,26 @@ begin
  end;
  
  f_TryCount := 0;
+end;
+
+procedure TcsMessageRecepient.UniteMessages(
+  const anAddition: TcsMessageRecepient);
+
+ function DoIt(anItem: TddClientMessage): Boolean;
+ begin
+  Result := true;
+  f_Messages.Add(anItem);
+ end;
+
+begin
+ anAddition.Messages.ForEachF(L2DdClientMessageIteratorForEachFAction(@DoIt));
+end;
+
+procedure TcsMessageRecepient.PackMessages;
+const
+ cStorableMessagesType = [ntInformation, ntMailArrived, ntExportDone, ntImportDone, ntCalendar, ntAnouncedDateChanged];
+begin
+ f_Messages.PackMessagesExceptTheseTypes(cStorableMessagesType);
 end;
 
 end.

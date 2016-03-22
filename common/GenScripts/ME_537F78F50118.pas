@@ -2,6 +2,7 @@ unit dtFamilyInfoList;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\dtFamilyInfoList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdtFamilyInfoList" MUID: (537F78F50118)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

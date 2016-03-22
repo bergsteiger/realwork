@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsBaseSearchClasses;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\NOT_FINISHED_nsBaseSearchClasses.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsBaseSearchClasses" MUID: (5625F9E3015F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

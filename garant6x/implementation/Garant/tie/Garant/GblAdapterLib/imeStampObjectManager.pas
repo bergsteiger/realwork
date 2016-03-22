@@ -21,6 +21,8 @@ interface
 type
 //#UC START# *4614E03B02EEci*
 //#UC END# *4614E03B02EEci*
+//#UC START# *4614E03B02EEcit*
+//#UC END# *4614E03B02EEcit*
  TimeStampObjectManager = class
 //#UC START# *4614E03B02EEpubl*
 //#UC END# *4614E03B02EEpubl*

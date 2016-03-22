@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3VCLStrings;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3VCLStrings.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3VCLStrings" MUID: (48721EA10381)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -2,6 +2,7 @@ unit EditorFromStackKeyWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\EditorFromStackKeyWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "EditorFromStackKeyWordsPack" MUID: (4F4CB68801E0)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -508,11 +509,6 @@ begin
  ScrollBottom(aCtx, l_aEditor, l_aVert);
 end;//TkwPopEditorScrollBottom.DoDoIt
 
-class function TkwPopEditorScrollBottom.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:ScrollBottom';
-end;//TkwPopEditorScrollBottom.GetWordNameForRegister
-
 function TkwPopEditorScrollBottom.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -527,6 +523,11 @@ function TkwPopEditorScrollBottom.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow), TypeInfo(Boolean)]);
 end;//TkwPopEditorScrollBottom.ParamsTypes
+
+class function TkwPopEditorScrollBottom.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:ScrollBottom';
+end;//TkwPopEditorScrollBottom.GetWordNameForRegister
 
 procedure TkwPopEditorScrollLineUp.ScrollLineUp(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow);
@@ -554,11 +555,6 @@ begin
  ScrollLineUp(aCtx, l_aEditor);
 end;//TkwPopEditorScrollLineUp.DoDoIt
 
-class function TkwPopEditorScrollLineUp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:ScrollLineUp';
-end;//TkwPopEditorScrollLineUp.GetWordNameForRegister
-
 function TkwPopEditorScrollLineUp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -573,6 +569,11 @@ function TkwPopEditorScrollLineUp.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorScrollLineUp.ParamsTypes
+
+class function TkwPopEditorScrollLineUp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:ScrollLineUp';
+end;//TkwPopEditorScrollLineUp.GetWordNameForRegister
 
 procedure TkwPopEditorScrollLineDown.ScrollLineDown(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow);
@@ -600,11 +601,6 @@ begin
  ScrollLineDown(aCtx, l_aEditor);
 end;//TkwPopEditorScrollLineDown.DoDoIt
 
-class function TkwPopEditorScrollLineDown.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:ScrollLineDown';
-end;//TkwPopEditorScrollLineDown.GetWordNameForRegister
-
 function TkwPopEditorScrollLineDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -619,6 +615,11 @@ function TkwPopEditorScrollLineDown.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorScrollLineDown.ParamsTypes
+
+class function TkwPopEditorScrollLineDown.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:ScrollLineDown';
+end;//TkwPopEditorScrollLineDown.GetWordNameForRegister
 
 procedure TkwPopEditorScrollTo.ScrollTo(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow;
@@ -668,11 +669,6 @@ begin
  ScrollTo(aCtx, l_aEditor, l_aVert, l_aPosition);
 end;//TkwPopEditorScrollTo.DoDoIt
 
-class function TkwPopEditorScrollTo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:ScrollTo';
-end;//TkwPopEditorScrollTo.GetWordNameForRegister
-
 function TkwPopEditorScrollTo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -687,6 +683,11 @@ function TkwPopEditorScrollTo.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow), TypeInfo(Boolean), TypeInfo(Integer)]);
 end;//TkwPopEditorScrollTo.ParamsTypes
+
+class function TkwPopEditorScrollTo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:ScrollTo';
+end;//TkwPopEditorScrollTo.GetWordNameForRegister
 
 function TkwPopEditorPushParaFromCursor.PushParaFromCursor(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): InevPara;
@@ -714,11 +715,6 @@ begin
  aCtx.rEngine.PushIntf(PushParaFromCursor(aCtx, l_aEditor), TypeInfo(InevPara));
 end;//TkwPopEditorPushParaFromCursor.DoDoIt
 
-class function TkwPopEditorPushParaFromCursor.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:PushParaFromCursor';
-end;//TkwPopEditorPushParaFromCursor.GetWordNameForRegister
-
 function TkwPopEditorPushParaFromCursor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(InevPara);
@@ -733,6 +729,11 @@ function TkwPopEditorPushParaFromCursor.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorPushParaFromCursor.ParamsTypes
+
+class function TkwPopEditorPushParaFromCursor.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:PushParaFromCursor';
+end;//TkwPopEditorPushParaFromCursor.GetWordNameForRegister
 
 procedure TkwPopEditorSelectAll.SelectAll(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow);
@@ -760,11 +761,6 @@ begin
  SelectAll(aCtx, l_aEditor);
 end;//TkwPopEditorSelectAll.DoDoIt
 
-class function TkwPopEditorSelectAll.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:SelectAll';
-end;//TkwPopEditorSelectAll.GetWordNameForRegister
-
 function TkwPopEditorSelectAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -779,6 +775,11 @@ function TkwPopEditorSelectAll.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorSelectAll.ParamsTypes
+
+class function TkwPopEditorSelectAll.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:SelectAll';
+end;//TkwPopEditorSelectAll.GetWordNameForRegister
 
 procedure TkwPopEditorSelectPara.SelectPara(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow);
@@ -806,11 +807,6 @@ begin
  SelectPara(aCtx, l_aEditor);
 end;//TkwPopEditorSelectPara.DoDoIt
 
-class function TkwPopEditorSelectPara.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:SelectPara';
-end;//TkwPopEditorSelectPara.GetWordNameForRegister
-
 function TkwPopEditorSelectPara.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -825,6 +821,11 @@ function TkwPopEditorSelectPara.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorSelectPara.ParamsTypes
+
+class function TkwPopEditorSelectPara.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:SelectPara';
+end;//TkwPopEditorSelectPara.GetWordNameForRegister
 
 function TkwPopEditorAtTop.AtTop(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
@@ -852,11 +853,6 @@ begin
  aCtx.rEngine.PushBool(AtTop(aCtx, l_aEditor));
 end;//TkwPopEditorAtTop.DoDoIt
 
-class function TkwPopEditorAtTop.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:AtTop';
-end;//TkwPopEditorAtTop.GetWordNameForRegister
-
 function TkwPopEditorAtTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -871,6 +867,11 @@ function TkwPopEditorAtTop.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorAtTop.ParamsTypes
+
+class function TkwPopEditorAtTop.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:AtTop';
+end;//TkwPopEditorAtTop.GetWordNameForRegister
 
 procedure TkwPopEditorSelectWord.SelectWord(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow);
@@ -898,11 +899,6 @@ begin
  SelectWord(aCtx, l_aEditor);
 end;//TkwPopEditorSelectWord.DoDoIt
 
-class function TkwPopEditorSelectWord.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:SelectWord';
-end;//TkwPopEditorSelectWord.GetWordNameForRegister
-
 function TkwPopEditorSelectWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -917,6 +913,11 @@ function TkwPopEditorSelectWord.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorSelectWord.ParamsTypes
+
+class function TkwPopEditorSelectWord.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:SelectWord';
+end;//TkwPopEditorSelectWord.GetWordNameForRegister
 
 function TkwPopEditorCaretVisible.CaretVisible(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
@@ -955,11 +956,6 @@ begin
  aCtx.rEngine.PushBool(CaretVisible(aCtx, l_aEditor));
 end;//TkwPopEditorCaretVisible.DoDoIt
 
-class function TkwPopEditorCaretVisible.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:CaretVisible';
-end;//TkwPopEditorCaretVisible.GetWordNameForRegister
-
 procedure TkwPopEditorCaretVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 var l_Editor: TevCustomEditorWindow;
@@ -991,6 +987,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorCaretVisible.ParamsTypes
 
+class function TkwPopEditorCaretVisible.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:CaretVisible';
+end;//TkwPopEditorCaretVisible.GetWordNameForRegister
+
 function TkwPopEditorShowDocumentParts.ShowDocumentParts(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
  {* Реализация слова скрипта pop:Editor:ShowDocumentParts }
@@ -1012,11 +1013,6 @@ begin
  end;//try..except
  aCtx.rEngine.PushBool(ShowDocumentParts(aCtx, l_aEditor));
 end;//TkwPopEditorShowDocumentParts.DoDoIt
-
-class function TkwPopEditorShowDocumentParts.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:ShowDocumentParts';
-end;//TkwPopEditorShowDocumentParts.GetWordNameForRegister
 
 procedure TkwPopEditorShowDocumentParts.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
@@ -1049,6 +1045,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorShowDocumentParts.ParamsTypes
 
+class function TkwPopEditorShowDocumentParts.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:ShowDocumentParts';
+end;//TkwPopEditorShowDocumentParts.GetWordNameForRegister
+
 function TkwPopEditorWebStyle.WebStyle(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
  {* Реализация слова скрипта pop:Editor:WebStyle }
@@ -1070,11 +1071,6 @@ begin
  end;//try..except
  aCtx.rEngine.PushBool(WebStyle(aCtx, l_aEditor));
 end;//TkwPopEditorWebStyle.DoDoIt
-
-class function TkwPopEditorWebStyle.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:WebStyle';
-end;//TkwPopEditorWebStyle.GetWordNameForRegister
 
 procedure TkwPopEditorWebStyle.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
@@ -1107,6 +1103,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorWebStyle.ParamsTypes
 
+class function TkwPopEditorWebStyle.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:WebStyle';
+end;//TkwPopEditorWebStyle.GetWordNameForRegister
+
 function TkwPopEditorDrawSpecial.DrawSpecial(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
  {* Реализация слова скрипта pop:Editor:DrawSpecial }
@@ -1128,11 +1129,6 @@ begin
  end;//try..except
  aCtx.rEngine.PushBool(DrawSpecial(aCtx, l_aEditor));
 end;//TkwPopEditorDrawSpecial.DoDoIt
-
-class function TkwPopEditorDrawSpecial.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:DrawSpecial';
-end;//TkwPopEditorDrawSpecial.GetWordNameForRegister
 
 procedure TkwPopEditorDrawSpecial.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
@@ -1165,6 +1161,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorDrawSpecial.ParamsTypes
 
+class function TkwPopEditorDrawSpecial.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:DrawSpecial';
+end;//TkwPopEditorDrawSpecial.GetWordNameForRegister
+
 function TkwPopEditorDocumentTailVisible.DocumentTailVisible(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
  {* Реализация слова скрипта pop:Editor:DocumentTailVisible }
@@ -1191,11 +1192,6 @@ begin
  aCtx.rEngine.PushBool(DocumentTailVisible(aCtx, l_aEditor));
 end;//TkwPopEditorDocumentTailVisible.DoDoIt
 
-class function TkwPopEditorDocumentTailVisible.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:DocumentTailVisible';
-end;//TkwPopEditorDocumentTailVisible.GetWordNameForRegister
-
 procedure TkwPopEditorDocumentTailVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1216,6 +1212,11 @@ function TkwPopEditorDocumentTailVisible.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorDocumentTailVisible.ParamsTypes
+
+class function TkwPopEditorDocumentTailVisible.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:DocumentTailVisible';
+end;//TkwPopEditorDocumentTailVisible.GetWordNameForRegister
 
 function TkwPopEditorModified.Modified(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
@@ -1239,11 +1240,6 @@ begin
  aCtx.rEngine.PushBool(Modified(aCtx, l_aEditor));
 end;//TkwPopEditorModified.DoDoIt
 
-class function TkwPopEditorModified.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:Modified';
-end;//TkwPopEditorModified.GetWordNameForRegister
-
 procedure TkwPopEditorModified.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1264,6 +1260,11 @@ function TkwPopEditorModified.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorModified.ParamsTypes
+
+class function TkwPopEditorModified.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:Modified';
+end;//TkwPopEditorModified.GetWordNameForRegister
 
 function TkwPopEditorDrawLines.DrawLines(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
@@ -1302,11 +1303,6 @@ begin
  aCtx.rEngine.PushBool(DrawLines(aCtx, l_aEditor));
 end;//TkwPopEditorDrawLines.DoDoIt
 
-class function TkwPopEditorDrawLines.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:DrawLines';
-end;//TkwPopEditorDrawLines.GetWordNameForRegister
-
 procedure TkwPopEditorDrawLines.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 var l_Editor: TevCustomEditorWindow;
@@ -1338,6 +1334,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorDrawLines.ParamsTypes
 
+class function TkwPopEditorDrawLines.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:DrawLines';
+end;//TkwPopEditorDrawLines.GetWordNameForRegister
+
 function TkwPopEditorAllowRubberTables.AllowRubberTables(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): TnevRubberTablesMode;
  {* Реализация слова скрипта pop:Editor:AllowRubberTables }
@@ -1359,11 +1360,6 @@ begin
  end;//try..except
  aCtx.rEngine.PushInt(Ord(AllowRubberTables(aCtx, l_aEditor)));
 end;//TkwPopEditorAllowRubberTables.DoDoIt
-
-class function TkwPopEditorAllowRubberTables.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:AllowRubberTables';
-end;//TkwPopEditorAllowRubberTables.GetWordNameForRegister
 
 procedure TkwPopEditorAllowRubberTables.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
@@ -1395,6 +1391,11 @@ function TkwPopEditorAllowRubberTables.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorAllowRubberTables.ParamsTypes
+
+class function TkwPopEditorAllowRubberTables.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:AllowRubberTables';
+end;//TkwPopEditorAllowRubberTables.GetWordNameForRegister
 
 initialization
  TEditorFromStackKeyWordsPackResNameGetter.Register;

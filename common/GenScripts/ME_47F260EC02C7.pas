@@ -3,6 +3,7 @@ unit NOT_FINISHED_StdRes;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\NOT_FINISHED_StdRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "StdRes" MUID: (47F260EC02C7)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

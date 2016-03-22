@@ -3,6 +3,8 @@ unit SectionBreak_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\SectionBreak_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "SectionBreak" MUID: (485673BA0364)
+// Имя типа: "SectionBreakTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

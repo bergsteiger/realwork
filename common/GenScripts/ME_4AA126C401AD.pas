@@ -3,6 +3,8 @@ unit fsDocument;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\fsDocument.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "Document" MUID: (4AA126C401AD)
+// Имя типа: "Tfs_Document"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

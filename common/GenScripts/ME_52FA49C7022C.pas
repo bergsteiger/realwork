@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddServerTask;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_ddServerTask.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddServerTask" MUID: (52FA49C7022C)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

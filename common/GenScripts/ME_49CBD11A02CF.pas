@@ -3,6 +3,7 @@ unit evDocumentPreview;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPreview.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentPreview" MUID: (49CBD11A02CF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

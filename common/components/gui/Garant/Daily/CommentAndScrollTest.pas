@@ -1,92 +1,67 @@
 unit CommentAndScrollTest;
+ {* Тест для добавления и удаления комментария и последующего скроллирования. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/CommentAndScrollTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TCommentAndScrollTest
-//
-// Тест для добавления и удаления комментария и последующего скроллирования.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\CommentAndScrollTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TCommentAndScrollTest" MUID: (4C9CA365006C)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  nevTools,
-  TextEditorVisitor,
-  PrimTextLoad_Form
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , TextEditorVisitor
+ , nevTools
+ , PrimTextLoad_Form
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TCommentAndScrollTest = {abstract} class(TTextEditorVisitor)
   {* Тест для добавления и удаления комментария и последующего скроллирования. }
- protected
- // realized methods
+  protected
+   procedure MoveCursor4Insert(aForm: TPrimTextLoadForm); virtual;
+    {* Переместить курсор перед вставкой комментария. }
+   function GetUserComment(const aPoint: InevBasePoint): InevBasePoint; virtual;
+    {* Получить пользовательский комментарий }
+   procedure DoScroll(aForm: TPrimTextLoadForm); virtual;
+    {* Прокрутка текста в редакторе (если нужна). }
    procedure DoVisit(aForm: TPrimTextLoadForm); override;
-     {* Обработать текст }
- protected
- // overridden protected methods
+    {* Обработать текст }
    procedure CheckTopAnchor(const aView: InevInputView); override;
-     {* проверить якорь начала отрисовки после окончания прокрутки }
+    {* проверить якорь начала отрисовки после окончания прокрутки }
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function F1Like: Boolean; override;
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
-   procedure MoveCursor4Insert(aForm: TPrimTextLoadForm); virtual;
-     {* Переместить курсор перед вставкой комментария. }
-   function GetUserComment(const aPoint: InevBasePoint): InevBasePoint; virtual;
-     {* Получить пользовательский комментарий }
-   procedure DoScroll(aForm: TPrimTextLoadForm); virtual;
-     {* Прокрутка текста в редакторе (если нужна). }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TCommentAndScrollTest
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evOp,
-  evTypes,
-  l3Base,
-  CommentPara_Const,
-  eeEditorExport,
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TCommentAndScrollTest
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evOp
+ , evTypes
+ , l3Base
+ , CommentPara_Const
+ , eeEditorExport
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TCommentAndScrollTest.MoveCursor4Insert(aForm: TPrimTextLoadForm);
+ {* Переместить курсор перед вставкой комментария. }
 //#UC START# *4CA2F33F01E5_4C9CA365006C_var*
 var
  i : Integer;
@@ -99,6 +74,7 @@ begin
 end;//TCommentAndScrollTest.MoveCursor4Insert
 
 function TCommentAndScrollTest.GetUserComment(const aPoint: InevBasePoint): InevBasePoint;
+ {* Получить пользовательский комментарий }
 //#UC START# *4CA982110056_4C9CA365006C_var*
 //#UC END# *4CA982110056_4C9CA365006C_var*
 begin
@@ -110,6 +86,7 @@ begin
 end;//TCommentAndScrollTest.GetUserComment
 
 procedure TCommentAndScrollTest.DoScroll(aForm: TPrimTextLoadForm);
+ {* Прокрутка текста в редакторе (если нужна). }
 //#UC START# *4CA982800281_4C9CA365006C_var*
 //#UC END# *4CA982800281_4C9CA365006C_var*
 begin
@@ -119,6 +96,7 @@ begin
 end;//TCommentAndScrollTest.DoScroll
 
 procedure TCommentAndScrollTest.DoVisit(aForm: TPrimTextLoadForm);
+ {* Обработать текст }
 //#UC START# *4BE419AF0217_4C9CA365006C_var*
 var
  l_UserComment : InevBasePoint;
@@ -143,6 +121,7 @@ begin
 end;//TCommentAndScrollTest.DoVisit
 
 procedure TCommentAndScrollTest.CheckTopAnchor(const aView: InevInputView);
+ {* проверить якорь начала отрисовки после окончания прокрутки }
 //#UC START# *4C1F0A260192_4C9CA365006C_var*
 //#UC END# *4C1F0A260192_4C9CA365006C_var*
 begin
@@ -152,7 +131,7 @@ begin
 end;//TCommentAndScrollTest.CheckTopAnchor
 
 function TCommentAndScrollTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TCommentAndScrollTest.GetFolder
@@ -167,11 +146,10 @@ begin
 end;//TCommentAndScrollTest.F1Like
 
 function TCommentAndScrollTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C9CA365006C';
 end;//TCommentAndScrollTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

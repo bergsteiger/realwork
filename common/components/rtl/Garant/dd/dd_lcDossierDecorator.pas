@@ -1,8 +1,11 @@
 unit dd_lcDossierDecorator;
 { Добавляет в справку информацию о хронологии рассмотрения дела }
-{ $Id: dd_lcDossierDecorator.pas,v 1.25 2015/07/02 11:41:28 lukyanets Exp $ }
+{ $Id: dd_lcDossierDecorator.pas,v 1.26 2015/11/26 09:05:21 lukyanets Exp $ }
 
 // $Log: dd_lcDossierDecorator.pas,v $
+// Revision 1.26  2015/11/26 09:05:21  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.25  2015/07/02 11:41:28  lukyanets
 // Описываем словари
 //
@@ -115,6 +118,7 @@ uses
  k2Tags,
  evdStyles, evdTypes,
  daTypes,
+ daSchemeConsts,
  dt_Const, dt_AttrSchema, dt_DictConst,
  dt_Sab,
  dt_serv,

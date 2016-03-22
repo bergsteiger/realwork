@@ -3,6 +3,7 @@ unit EVDtoBothNSRCWriterTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoBothNSRCWriterTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TEVDtoBothNSRCWriterTest" MUID: (4B8542C302E3)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

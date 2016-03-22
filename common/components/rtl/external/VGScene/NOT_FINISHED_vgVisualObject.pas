@@ -2,6 +2,7 @@ unit NOT_FINISHED_vgVisualObject;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vgVisualObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgVisualObject" MUID: (4D49562A01B7)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
@@ -61,10 +62,10 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , VGSceneWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , VGSceneWordsPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 

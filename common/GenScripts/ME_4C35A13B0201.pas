@@ -3,6 +3,8 @@ unit Archi2;
 
 // Модуль: "w:\common\components\DailyTest\Archi2.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "Archi2" MUID: (4C35A13B0201)
+// Имя типа: "TArchi2"
 
 {$Include w:\common\components\DailyTest\DailyTest.inc}
 

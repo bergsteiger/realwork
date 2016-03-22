@@ -3,6 +3,8 @@ unit moChat;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moChat.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Chat" MUID: (4A697E4303C9)
+// Имя типа: "Tmo_Chat"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

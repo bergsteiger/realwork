@@ -9,6 +9,8 @@ USES
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwUses.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "Uses" MUID: (4DC3A27D0253)
+// Имя типа: "TkwUses"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

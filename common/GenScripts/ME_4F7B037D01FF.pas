@@ -2,6 +2,7 @@ unit nsSettingsConst;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\nsSettingsConst.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsSettingsConst" MUID: (4F7B037D01FF)
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 

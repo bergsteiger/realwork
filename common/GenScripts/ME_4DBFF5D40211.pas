@@ -2,6 +2,7 @@ unit BaloonWarningUserTypes_remOnlineDead_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remOnlineDead_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "remOnlineDead" MUID: (4DBFF5D40211)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -11,7 +12,6 @@ interface
 uses
  l3IntfUses
  , BaloonWarningUserTypes_remUnreadConsultations_UserType
- , BaloonWarningUserTypes_Fake_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -34,26 +34,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_remOnlineDead = {final} class(TtfwInteger)
   {* Слово словаря для типа формы remOnlineDead }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_remOnlineDead
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_remOnlineDead.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::remOnlineDead';
-end;//Tkw_FormUserType_remOnlineDead.GetWordNameForRegister
-
 function Tkw_FormUserType_remOnlineDead.GetInteger: Integer;
 begin
  Result := remOnlineDead;
 end;//Tkw_FormUserType_remOnlineDead.GetInteger
+
+class function Tkw_FormUserType_remOnlineDead.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::remOnlineDead';
+end;//Tkw_FormUserType_remOnlineDead.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

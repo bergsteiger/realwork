@@ -1586,7 +1586,7 @@ public:
 		, RedactionID rid
 		, LinkedObjectType& obj_type
 		, Core::IIObject_tie*& obj
-	) const /*throw (InvalidTopicId_tie, FolderLinkNotFound_tie, NotAllowedInTrialMode_tie)*/ = 0;
+	) const /*throw (InvalidTopicId_tie, FolderLinkNotFound_tie)*/ = 0;
 
 	virtual void __stdcall get_missing_info_for_object_47C6AA260009 (
 		const PId& pid
@@ -1915,7 +1915,7 @@ protected:
 		, RedactionID rid
 		, LinkedObjectType& obj_type
 		, Core::IIObject_tie*& obj
-	) const /*throw (InvalidTopicId_tie, FolderLinkNotFound_tie, NotAllowedInTrialMode_tie)*/;
+	) const /*throw (InvalidTopicId_tie, FolderLinkNotFound_tie)*/;
 
 	virtual void __stdcall get_missing_info_for_object_47C6AA260009 (
 		const PId& pid
@@ -2425,7 +2425,7 @@ public:
 
 	virtual void __stdcall get_object_51A61EF0013E (
 		Core::IIObject_tie*& ret_
-	) const /*throw (InvalidTopicId_tie, FolderLinkNotFound_tie, NotAllowedInTrialMode_tie)*/ = 0;
+	) const /*throw (InvalidTopicId_tie, FolderLinkNotFound_tie)*/ = 0;
 
 	virtual LinkedObjectType __stdcall get_object_type_51A61ED6005B () const = 0;
 };
@@ -2486,7 +2486,7 @@ protected:
 
 	virtual void __stdcall get_object_51A61EF0013E (
 		Core::IIObject_tie*& ret_
-	) const /*throw (InvalidTopicId_tie, FolderLinkNotFound_tie, NotAllowedInTrialMode_tie)*/;
+	) const /*throw (InvalidTopicId_tie, FolderLinkNotFound_tie)*/;
 
 	virtual LinkedObjectType __stdcall get_object_type_51A61ED6005B () const;
 };

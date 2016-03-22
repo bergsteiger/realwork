@@ -3,6 +3,7 @@ unit ContentsKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\ContentsKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ContentsKeywordsPack" MUID: (39D904AB57B9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -52,8 +53,8 @@ type
 'aControl' форма::Contents TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Contents
 
  Tkw_Contents_Control_BackgroundPanel = {final} class(TtfwControlString)
@@ -64,9 +65,9 @@ type
 контрол::BackgroundPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Contents_Control_BackgroundPanel
 
  Tkw_Contents_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
@@ -89,9 +90,9 @@ type
 контрол::lstBookmarks TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Contents_Control_lstBookmarks
 
  Tkw_Contents_Control_lstBookmarks_Push = {final} class(TkwBynameControlPush)
@@ -114,9 +115,9 @@ type
 контрол::lstComments TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Contents_Control_lstComments
 
  Tkw_Contents_Control_lstComments_Push = {final} class(TkwBynameControlPush)
@@ -139,9 +140,9 @@ type
 контрол::lstExternalObjects TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Contents_Control_lstExternalObjects
 
  Tkw_Contents_Control_lstExternalObjects_Push = {final} class(TkwBynameControlPush)
@@ -164,9 +165,9 @@ type
 контрол::ContentsTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Contents_Control_ContentsTree
 
  Tkw_Contents_Control_ContentsTree_Push = {final} class(TkwBynameControlPush)
@@ -189,9 +190,9 @@ type
 контрол::ContextFilter TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Contents_Control_ContextFilter
 
  Tkw_Contents_Control_ContextFilter_Push = {final} class(TkwBynameControlPush)
@@ -214,9 +215,9 @@ type
 контрол::Tasks TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Contents_Control_Tasks
 
  Tkw_Contents_Control_Tasks_Push = {final} class(TkwBynameControlPush)
@@ -399,20 +400,15 @@ OBJECT VAR l_TnscTasksPanelView
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwContentsFormTasks
 
-class function Tkw_Form_Contents.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Contents';
-end;//Tkw_Form_Contents.GetWordNameForRegister
-
 function Tkw_Form_Contents.GetString: AnsiString;
 begin
  Result := 'ContentsForm';
 end;//Tkw_Form_Contents.GetString
 
-class function Tkw_Contents_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_Contents.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::BackgroundPanel';
-end;//Tkw_Contents_Control_BackgroundPanel.GetWordNameForRegister
+ Result := 'форма::Contents';
+end;//Tkw_Form_Contents.GetWordNameForRegister
 
 function Tkw_Contents_Control_BackgroundPanel.GetString: AnsiString;
 begin
@@ -425,6 +421,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_Contents_Control_BackgroundPanel.RegisterInEngine
 
+class function Tkw_Contents_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BackgroundPanel';
+end;//Tkw_Contents_Control_BackgroundPanel.GetWordNameForRegister
+
 procedure Tkw_Contents_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BackgroundPanel');
@@ -435,11 +436,6 @@ class function Tkw_Contents_Control_BackgroundPanel_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::BackgroundPanel:push';
 end;//Tkw_Contents_Control_BackgroundPanel_Push.GetWordNameForRegister
-
-class function Tkw_Contents_Control_lstBookmarks.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lstBookmarks';
-end;//Tkw_Contents_Control_lstBookmarks.GetWordNameForRegister
 
 function Tkw_Contents_Control_lstBookmarks.GetString: AnsiString;
 begin
@@ -452,6 +448,11 @@ begin
  TtfwClassRef.Register(TvtLister);
 end;//Tkw_Contents_Control_lstBookmarks.RegisterInEngine
 
+class function Tkw_Contents_Control_lstBookmarks.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lstBookmarks';
+end;//Tkw_Contents_Control_lstBookmarks.GetWordNameForRegister
+
 procedure Tkw_Contents_Control_lstBookmarks_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lstBookmarks');
@@ -462,11 +463,6 @@ class function Tkw_Contents_Control_lstBookmarks_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::lstBookmarks:push';
 end;//Tkw_Contents_Control_lstBookmarks_Push.GetWordNameForRegister
-
-class function Tkw_Contents_Control_lstComments.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lstComments';
-end;//Tkw_Contents_Control_lstComments.GetWordNameForRegister
 
 function Tkw_Contents_Control_lstComments.GetString: AnsiString;
 begin
@@ -479,6 +475,11 @@ begin
  TtfwClassRef.Register(TvtLister);
 end;//Tkw_Contents_Control_lstComments.RegisterInEngine
 
+class function Tkw_Contents_Control_lstComments.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lstComments';
+end;//Tkw_Contents_Control_lstComments.GetWordNameForRegister
+
 procedure Tkw_Contents_Control_lstComments_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lstComments');
@@ -489,11 +490,6 @@ class function Tkw_Contents_Control_lstComments_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::lstComments:push';
 end;//Tkw_Contents_Control_lstComments_Push.GetWordNameForRegister
-
-class function Tkw_Contents_Control_lstExternalObjects.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lstExternalObjects';
-end;//Tkw_Contents_Control_lstExternalObjects.GetWordNameForRegister
 
 function Tkw_Contents_Control_lstExternalObjects.GetString: AnsiString;
 begin
@@ -506,6 +502,11 @@ begin
  TtfwClassRef.Register(TvtLister);
 end;//Tkw_Contents_Control_lstExternalObjects.RegisterInEngine
 
+class function Tkw_Contents_Control_lstExternalObjects.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lstExternalObjects';
+end;//Tkw_Contents_Control_lstExternalObjects.GetWordNameForRegister
+
 procedure Tkw_Contents_Control_lstExternalObjects_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lstExternalObjects');
@@ -516,11 +517,6 @@ class function Tkw_Contents_Control_lstExternalObjects_Push.GetWordNameForRegist
 begin
  Result := 'контрол::lstExternalObjects:push';
 end;//Tkw_Contents_Control_lstExternalObjects_Push.GetWordNameForRegister
-
-class function Tkw_Contents_Control_ContentsTree.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ContentsTree';
-end;//Tkw_Contents_Control_ContentsTree.GetWordNameForRegister
 
 function Tkw_Contents_Control_ContentsTree.GetString: AnsiString;
 begin
@@ -533,6 +529,11 @@ begin
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_Contents_Control_ContentsTree.RegisterInEngine
 
+class function Tkw_Contents_Control_ContentsTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ContentsTree';
+end;//Tkw_Contents_Control_ContentsTree.GetWordNameForRegister
+
 procedure Tkw_Contents_Control_ContentsTree_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ContentsTree');
@@ -543,11 +544,6 @@ class function Tkw_Contents_Control_ContentsTree_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::ContentsTree:push';
 end;//Tkw_Contents_Control_ContentsTree_Push.GetWordNameForRegister
-
-class function Tkw_Contents_Control_ContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ContextFilter';
-end;//Tkw_Contents_Control_ContextFilter.GetWordNameForRegister
 
 function Tkw_Contents_Control_ContextFilter.GetString: AnsiString;
 begin
@@ -560,6 +556,11 @@ begin
  TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_Contents_Control_ContextFilter.RegisterInEngine
 
+class function Tkw_Contents_Control_ContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ContextFilter';
+end;//Tkw_Contents_Control_ContextFilter.GetWordNameForRegister
+
 procedure Tkw_Contents_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ContextFilter');
@@ -571,11 +572,6 @@ begin
  Result := 'контрол::ContextFilter:push';
 end;//Tkw_Contents_Control_ContextFilter_Push.GetWordNameForRegister
 
-class function Tkw_Contents_Control_Tasks.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::Tasks';
-end;//Tkw_Contents_Control_Tasks.GetWordNameForRegister
-
 function Tkw_Contents_Control_Tasks.GetString: AnsiString;
 begin
  Result := 'Tasks';
@@ -586,6 +582,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTasksPanelView);
 end;//Tkw_Contents_Control_Tasks.RegisterInEngine
+
+class function Tkw_Contents_Control_Tasks.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Tasks';
+end;//Tkw_Contents_Control_Tasks.GetWordNameForRegister
 
 procedure Tkw_Contents_Control_Tasks_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -620,11 +621,6 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aContentsForm));
 end;//TkwContentsFormBackgroundPanel.DoDoIt
 
-class function TkwContentsFormBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TContentsForm.BackgroundPanel';
-end;//TkwContentsFormBackgroundPanel.GetWordNameForRegister
-
 procedure TkwContentsFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -645,6 +641,11 @@ function TkwContentsFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormBackgroundPanel.ParamsTypes
+
+class function TkwContentsFormBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TContentsForm.BackgroundPanel';
+end;//TkwContentsFormBackgroundPanel.GetWordNameForRegister
 
 function TkwContentsFormLstBookmarks.lstBookmarks(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TvtLister;
@@ -668,11 +669,6 @@ begin
  aCtx.rEngine.PushObj(lstBookmarks(aCtx, l_aContentsForm));
 end;//TkwContentsFormLstBookmarks.DoDoIt
 
-class function TkwContentsFormLstBookmarks.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TContentsForm.lstBookmarks';
-end;//TkwContentsFormLstBookmarks.GetWordNameForRegister
-
 procedure TkwContentsFormLstBookmarks.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -693,6 +689,11 @@ function TkwContentsFormLstBookmarks.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormLstBookmarks.ParamsTypes
+
+class function TkwContentsFormLstBookmarks.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TContentsForm.lstBookmarks';
+end;//TkwContentsFormLstBookmarks.GetWordNameForRegister
 
 function TkwContentsFormLstComments.lstComments(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TvtLister;
@@ -716,11 +717,6 @@ begin
  aCtx.rEngine.PushObj(lstComments(aCtx, l_aContentsForm));
 end;//TkwContentsFormLstComments.DoDoIt
 
-class function TkwContentsFormLstComments.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TContentsForm.lstComments';
-end;//TkwContentsFormLstComments.GetWordNameForRegister
-
 procedure TkwContentsFormLstComments.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -741,6 +737,11 @@ function TkwContentsFormLstComments.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormLstComments.ParamsTypes
+
+class function TkwContentsFormLstComments.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TContentsForm.lstComments';
+end;//TkwContentsFormLstComments.GetWordNameForRegister
 
 function TkwContentsFormLstExternalObjects.lstExternalObjects(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TvtLister;
@@ -764,11 +765,6 @@ begin
  aCtx.rEngine.PushObj(lstExternalObjects(aCtx, l_aContentsForm));
 end;//TkwContentsFormLstExternalObjects.DoDoIt
 
-class function TkwContentsFormLstExternalObjects.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TContentsForm.lstExternalObjects';
-end;//TkwContentsFormLstExternalObjects.GetWordNameForRegister
-
 procedure TkwContentsFormLstExternalObjects.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -789,6 +785,11 @@ function TkwContentsFormLstExternalObjects.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormLstExternalObjects.ParamsTypes
+
+class function TkwContentsFormLstExternalObjects.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TContentsForm.lstExternalObjects';
+end;//TkwContentsFormLstExternalObjects.GetWordNameForRegister
 
 function TkwContentsFormContentsTree.ContentsTree(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TnscTreeViewWithAdapterDragDrop;
@@ -812,11 +813,6 @@ begin
  aCtx.rEngine.PushObj(ContentsTree(aCtx, l_aContentsForm));
 end;//TkwContentsFormContentsTree.DoDoIt
 
-class function TkwContentsFormContentsTree.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TContentsForm.ContentsTree';
-end;//TkwContentsFormContentsTree.GetWordNameForRegister
-
 procedure TkwContentsFormContentsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -837,6 +833,11 @@ function TkwContentsFormContentsTree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormContentsTree.ParamsTypes
+
+class function TkwContentsFormContentsTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TContentsForm.ContentsTree';
+end;//TkwContentsFormContentsTree.GetWordNameForRegister
 
 function TkwContentsFormContextFilter.ContextFilter(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TnscContextFilter;
@@ -860,11 +861,6 @@ begin
  aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aContentsForm));
 end;//TkwContentsFormContextFilter.DoDoIt
 
-class function TkwContentsFormContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TContentsForm.ContextFilter';
-end;//TkwContentsFormContextFilter.GetWordNameForRegister
-
 procedure TkwContentsFormContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -885,6 +881,11 @@ function TkwContentsFormContextFilter.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormContextFilter.ParamsTypes
+
+class function TkwContentsFormContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TContentsForm.ContextFilter';
+end;//TkwContentsFormContextFilter.GetWordNameForRegister
 
 function TkwContentsFormTasks.Tasks(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TnscTasksPanelView;
@@ -908,11 +909,6 @@ begin
  aCtx.rEngine.PushObj(Tasks(aCtx, l_aContentsForm));
 end;//TkwContentsFormTasks.DoDoIt
 
-class function TkwContentsFormTasks.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TContentsForm.Tasks';
-end;//TkwContentsFormTasks.GetWordNameForRegister
-
 procedure TkwContentsFormTasks.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -933,6 +929,11 @@ function TkwContentsFormTasks.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormTasks.ParamsTypes
+
+class function TkwContentsFormTasks.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TContentsForm.Tasks';
+end;//TkwContentsFormTasks.GetWordNameForRegister
 
 initialization
  Tkw_Form_Contents.RegisterInEngine;

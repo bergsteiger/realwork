@@ -2,6 +2,7 @@ unit csDeleteDocsQueryPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csDeleteDocsQueryPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsDeleteDocsQueryPrim" MUID: (53B6A54A0181)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

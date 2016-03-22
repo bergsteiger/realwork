@@ -2,6 +2,7 @@ unit DocWithPid;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DocWithPid.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "DocWithPid" MUID: (4D9D92AF02B8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

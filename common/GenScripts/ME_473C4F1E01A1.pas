@@ -3,6 +3,7 @@ unit l3VirtualCanvas;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3VirtualCanvas.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3VirtualCanvas" MUID: (473C4F1E01A1)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

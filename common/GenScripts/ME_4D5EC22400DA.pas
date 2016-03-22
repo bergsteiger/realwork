@@ -2,6 +2,7 @@ unit NOT_FINISHED_vgBounds;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vgBounds.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgBounds" MUID: (4D5EC22400DA)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

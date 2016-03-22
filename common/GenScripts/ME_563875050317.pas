@@ -2,6 +2,7 @@ unit nsBaseSearchService;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsBaseSearchService.pas"
 // Стереотип: "Service"
+// Элемент модели: "TnsBaseSearchService" MUID: (563875050317)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

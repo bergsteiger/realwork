@@ -84,33 +84,33 @@ protected:
 
 
 ////////////////////////////////////////////////////////////////////////////////////
-// factories definition for IBlockAlgorithm
+// factories definition for IBlocksAlgorithm
 
-class IBlockAlgorithmAbstractFactory;
+class IBlocksAlgorithmAbstractFactory;
 
-/// factory manager for IBlockAlgorithm
-class IBlockAlgorithmFactoryManager {
+/// factory manager for IBlocksAlgorithm
+class IBlocksAlgorithmFactoryManager {
 public:
-	static void register_factory (IBlockAlgorithmAbstractFactory* factory, Core::Root::FactoryPriority priority)
+	static void register_factory (IBlocksAlgorithmAbstractFactory* factory, Core::Root::FactoryPriority priority)
 		/*throw (Core::Root::DuplicatedFactoryKey, Core::Root::FactoryManagerWasDestroyed)*/;
 
 protected:
-	IBlockAlgorithmFactoryManager ();
+	IBlocksAlgorithmFactoryManager ();
 	
-	~IBlockAlgorithmFactoryManager ();
+	~IBlocksAlgorithmFactoryManager ();
 	
-	void register_factory_i (IBlockAlgorithmAbstractFactory* factory, Core::Root::FactoryPriority priority)
+	void register_factory_i (IBlocksAlgorithmAbstractFactory* factory, Core::Root::FactoryPriority priority)
 		/*throw (Core::Root::DuplicatedFactoryKey)*/;
 
 protected:
-	IBlockAlgorithm* make (
+	IBlocksAlgorithm* make (
 		const Data& req_data
 		, const AlgorithmProperties& properties
 	) /*throw (Core::Root::NoActiveFactory)*/;
 
-	friend class IBlockAlgorithmFactory;
-	typedef ACE_Singleton <IBlockAlgorithmFactoryManager, ACE_SYNCH_RECURSIVE_MUTEX> Singleton;
-	friend class ACE_Singleton <IBlockAlgorithmFactoryManager, ACE_SYNCH_RECURSIVE_MUTEX>;
+	friend class IBlocksAlgorithmFactory;
+	typedef ACE_Singleton <IBlocksAlgorithmFactoryManager, ACE_SYNCH_RECURSIVE_MUTEX> Singleton;
+	friend class ACE_Singleton <IBlocksAlgorithmFactoryManager, ACE_SYNCH_RECURSIVE_MUTEX>;
 
 private:
 	static bool s_was_destroyed;
@@ -118,7 +118,7 @@ private:
 	bool m_has_registred_factories;
 	
 	struct FactoryData {
-		Core::Var<IBlockAlgorithmAbstractFactory> factory;
+		Core::Var<IBlocksAlgorithmAbstractFactory> factory;
 		short priority;
 	};
 	
@@ -126,18 +126,18 @@ private:
 	
 	FactoryMap m_factories_map;
 	
-	Core::Var<IBlockAlgorithmAbstractFactory> m_single_active_factory;
+	Core::Var<IBlocksAlgorithmAbstractFactory> m_single_active_factory;
 	
 	short m_single_active_factory_priority;
 };
 
-/// abstract factory for IBlockAlgorithm
-class IBlockAlgorithmAbstractFactory : virtual public Core::IObject {
-	friend class IBlockAlgorithmFactoryManager;
+/// abstract factory for IBlocksAlgorithm
+class IBlocksAlgorithmAbstractFactory : virtual public Core::IObject {
+	friend class IBlocksAlgorithmFactoryManager;
 protected:
 	virtual const char* key () const = 0;
 
-	virtual IBlockAlgorithm* make (const Data& req_data, const AlgorithmProperties& properties) = 0;
+	virtual IBlocksAlgorithm* make (const Data& req_data, const AlgorithmProperties& properties) = 0;
 };
 
 } // namespace Relevancy

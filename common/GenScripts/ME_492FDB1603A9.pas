@@ -3,6 +3,7 @@ unit sdsAutoreferat;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\sdsAutoreferat.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsAutoreferat" MUID: (492FDB1603A9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -59,6 +60,7 @@ type
    {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
  end;//TsdsAutoreferat
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -149,5 +151,11 @@ begin
 end;//TsdsAutoreferat.DoGetFormSetImageIndex
 {$IfEnd} // NOT Defined(NoVCM)
 
+procedure TsdsAutoreferat.ClearFields;
+begin
+ f_MakeNewsLineFakeDS := nil;
+ inherited;
+end;//TsdsAutoreferat.ClearFields
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 end.

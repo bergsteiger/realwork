@@ -3,6 +3,7 @@ unit PrimPicture_pfImage_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimPicture_pfImage_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "pfImage" MUID: (4BD72A4C0062)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_pfImage = {final} class(TtfwInteger)
   {* Слово словаря для типа формы pfImage }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_pfImage
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_pfImage.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::pfImage';
-end;//Tkw_FormUserType_pfImage.GetWordNameForRegister
-
 function Tkw_FormUserType_pfImage.GetInteger: Integer;
 begin
  Result := pfImage;
 end;//Tkw_FormUserType_pfImage.GetInteger
+
+class function Tkw_FormUserType_pfImage.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::pfImage';
+end;//Tkw_FormUserType_pfImage.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

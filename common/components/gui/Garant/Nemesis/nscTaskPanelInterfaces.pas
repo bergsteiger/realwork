@@ -3,6 +3,7 @@ unit nscTaskPanelInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTaskPanelInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "nscTaskPanelInterfaces" MUID: (499C1A100121)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

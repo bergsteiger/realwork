@@ -1,8 +1,23 @@
 unit csMessageManager;
 
-{ $Id: csMessageManager.pas,v 1.55 2014/08/22 12:54:45 lukyanets Exp $ }
+{ $Id: csMessageManager.pas,v 1.60 2016/03/21 09:07:03 lukyanets Exp $ }
 
 // $Log: csMessageManager.pas,v $
+// Revision 1.60  2016/03/21 09:07:03  lukyanets
+// Логи для странных ситуаций
+//
+// Revision 1.59  2016/03/15 08:12:04  lukyanets
+// Вычищаем паразитные нотификации
+//
+// Revision 1.58  2016/03/14 12:44:30  lukyanets
+// Готовимся упаковывать лишние нотификации
+//
+// Revision 1.57  2016/03/01 12:55:25  lukyanets
+// Cleanup
+//
+// Revision 1.56  2016/03/01 12:53:18  lukyanets
+// Cleanup
+//
 // Revision 1.55  2014/08/22 12:54:45  lukyanets
 // {Requestlink:563199760}. Отцепляем экспорт прайма
 //
@@ -213,6 +228,7 @@ type
   procedure LoadMessages;
   procedure ProcessList;
   procedure SaveMessages;
+  procedure PackMessages(CheckUserExistence: Boolean);
   procedure SendMessage(aClientID: TCsClientId; aMessage: TddClientMessage; ExcludeID : Integer = -1);
   procedure SendNotify(aClientId: TCsClientId; aType: TCsNotificationType; aNumber: Integer; const aText: AnsiString;
       ExcludeID: Integer = -1);
@@ -231,7 +247,8 @@ implementation
 uses
  csQueryTypes, CsNotifier,
  l3Stream, l3Memory,
-dt_UserConst,
+ daInterfaces,
+ dt_UserConst, dt_user,
  SysUtils,
  dtUserIDList
  , TypInfo;
@@ -287,19 +304,9 @@ function TcsMessageManager.FindRecipient(aClientID: TCsClientId): TcsMessageRece
   end;
  end;
 
-(*var
- i: Integer;*)
 begin
  Result := nil;
  f_NotifyList.ForEachF(L2CsMessageRecepientIteratorForEachFAction(@DoIt));
-(* for i := 0 to f_NotifyList.Hi do
- begin
-  if f_NotifyList.Items[i].ClientID = aClientID then
-  begin
-   Result := f_NotifyList.Items[i];
-   break;
-  end;
- end;*)
 end;
 
 function TcsMessageManager.GetRecepient(aClientID: TCsClientId): TcsMessageRecepient;
@@ -309,6 +316,8 @@ begin
  Result := FindRecipient(aClientID);
  if Result = nil then
  begin
+  if (aClientID > usAdminReservedHard) or (aClientID < 1) then
+   l3System.Stack2Log(Format('Strange user = %x',[aClientID]));
   l_MR:= TcsMessageRecepient.make(aClientID);
   try
    Result := f_NotifyList.Add(l_MR);
@@ -323,6 +332,7 @@ var
  l_Count, i: Integer;
  l_Stream: TStream;
  l_Mr: TcsMessageRecepient;
+ l_ExistingRecepient: TcsMessageRecepient;
 begin
  if FileExists(f_FileName) then
  begin
@@ -338,7 +348,13 @@ begin
      try
       l_MR.LoadFromStream(l_Stream);
       if l_MR.HaveMessages then
-       f_NotifyList.Add(l_MR);
+      begin
+       l_ExistingRecepient := FindRecipient(l_MR.ClientID);
+       if l_ExistingRecepient <> nil then
+        l_ExistingRecepient.UniteMessages(l_MR)
+       else
+        f_NotifyList.Add(l_MR);
+      end;
      finally
       l3Free(l_MR);
      end;
@@ -347,6 +363,7 @@ begin
   finally
    l3Free(l_Stream);
   end; // try..finally
+  PackMessages(False);
  end; // FileExists(f_FileName)
 end;
 
@@ -401,44 +418,22 @@ procedure TcsMessageManager.ProcessList;
   end;//anItem.HaveMessages
  end;
 
-(*var
- i: Integer;
- l_MR: TcsMessageRecepient;*)
 begin
  // перебрать всех клиентов, послать им нотификацию
  Assert(CSServer <> nil, 'Для работы нужно присвоить CSServer');
  f_NotifyList.ForEachF(L2CsMessageRecepientIteratorForEachFAction(@DoIt));
-(* for i:= 0 to f_NotifyList.Hi do
- begin
-  l_MR := f_NotifyList.Items[i];
-  if l_MR.HaveMessages then
-  begin
-   if CSServer.ActiveClients.IsLogged(l_MR.ClientID) then
-   begin
-    if l_MR.TryCount < MaxTryCount then
-    begin
-     CSServer.Notifier.SendNotify(l_MR.ClientID, ntHaveNewMessages, l_MR.Count, '');
-     l_MR.TryCount := l_MR.TryCount + 1;
-    end
-    else // повторяем попытки пять минут
-     {MarkRecepientAsDead(l_MR)}; // Клиент не реагирует на запросы сервера, пометить как "мертвого"
-   end
-   else
-//    MarkRecepientAsDead(l_MR); // Клиент отлогинился, пометить как "мертвого"
-    l_MR.TryCount := 0;
-  end; // l_MR.HaveMessages
- end; // for i*)
 end;
 
 procedure TcsMessageManager.SaveMessages;
 
 var
  l_Stream: TStream;
- 
+
  function DoIt(anItem: TcsMessageRecepient): Boolean;
  begin
   Result := true;
-  anItem.SaveToStream(l_Stream);
+  if anItem.HaveMessages then
+   anItem.SaveToStream(l_Stream);
  end;
 
 var
@@ -449,8 +444,6 @@ begin
    l_Count:= f_NotifyList.Count;
    l_Stream.WriteBuffer(l_Count, SizeOf(Integer));
    f_NotifyList.ForEachF(L2CsMessageRecepientIteratorForEachFAction(@DoIt));
-(*   for i:= 0 to Pred(l_Count) do
-    f_NotifyList.Items[i].SaveToStream(l_Stream);*)
   finally
    l3Free(l_Stream);
   end;
@@ -520,6 +513,32 @@ end;
 procedure TcsMessageManager.SendTextMessage(aClientID: TCsClientId; aMessage: AnsiString; aPriority: Integer = 0);
 begin
  SendNotify(aClientID, ntInformation, aPriority, aMessage);
+end;
+
+procedure TcsMessageManager.PackMessages(CheckUserExistence: Boolean);
+
+ function DoClearMessages(anItem: TcsMessageRecepient): Boolean;
+ begin
+  Result := true;
+  if anItem.ClientID = usDeadClient then
+   anItem.ClearMessages;
+  if CheckUserExistence then
+  begin
+   Assert(Assigned(UserManager));
+   if not UserManager.IsUserExists(anItem.ClientID) then
+    anItem.ClearMessages;
+  end;
+  anItem.PackMessages;
+ end;
+
+begin
+ f_CS.Acquire;
+ try
+  f_NotifyList.ForEachF(L2CsMessageRecepientIteratorForEachFAction(@DoClearMessages));
+  f_NotifyList.PackEmptyRecepients;
+ finally
+  f_CS.Leave;
+ end;
 end;
 
 {$IfEnd defined(AppServerSide) AND not defined(Nemesis)}

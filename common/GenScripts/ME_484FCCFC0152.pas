@@ -3,6 +3,8 @@ unit NumANDDate_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\NumANDDate_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "NumANDDate" MUID: (484FCCFC0152)
+// Имя типа: "NumANDDateTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

@@ -3,6 +3,7 @@ unit MedicFirmListKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\MedicFirmListKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "MedicFirmListKeywordsPack" MUID: (B4F9156C4FAE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -48,8 +49,8 @@ type
 'aControl' форма::MedicFirmList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_MedicFirmList
 
  Tkw_MedicFirmList_Control_BackgroundPanel = {final} class(TtfwControlString)
@@ -60,9 +61,9 @@ type
 контрол::BackgroundPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicFirmList_Control_BackgroundPanel
 
  Tkw_MedicFirmList_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
@@ -85,9 +86,9 @@ type
 контрол::ContextFilter TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicFirmList_Control_ContextFilter
 
  Tkw_MedicFirmList_Control_ContextFilter_Push = {final} class(TkwBynameControlPush)
@@ -110,9 +111,9 @@ type
 контрол::ListTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicFirmList_Control_ListTree
 
  Tkw_MedicFirmList_Control_ListTree_Push = {final} class(TkwBynameControlPush)
@@ -199,20 +200,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnMedicFirmListListTree
 
-class function Tkw_Form_MedicFirmList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::MedicFirmList';
-end;//Tkw_Form_MedicFirmList.GetWordNameForRegister
-
 function Tkw_Form_MedicFirmList.GetString: AnsiString;
 begin
  Result := 'en_MedicFirmList';
 end;//Tkw_Form_MedicFirmList.GetString
 
-class function Tkw_MedicFirmList_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_MedicFirmList.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::BackgroundPanel';
-end;//Tkw_MedicFirmList_Control_BackgroundPanel.GetWordNameForRegister
+ Result := 'форма::MedicFirmList';
+end;//Tkw_Form_MedicFirmList.GetWordNameForRegister
 
 function Tkw_MedicFirmList_Control_BackgroundPanel.GetString: AnsiString;
 begin
@@ -225,6 +221,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MedicFirmList_Control_BackgroundPanel.RegisterInEngine
 
+class function Tkw_MedicFirmList_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BackgroundPanel';
+end;//Tkw_MedicFirmList_Control_BackgroundPanel.GetWordNameForRegister
+
 procedure Tkw_MedicFirmList_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BackgroundPanel');
@@ -235,11 +236,6 @@ class function Tkw_MedicFirmList_Control_BackgroundPanel_Push.GetWordNameForRegi
 begin
  Result := 'контрол::BackgroundPanel:push';
 end;//Tkw_MedicFirmList_Control_BackgroundPanel_Push.GetWordNameForRegister
-
-class function Tkw_MedicFirmList_Control_ContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ContextFilter';
-end;//Tkw_MedicFirmList_Control_ContextFilter.GetWordNameForRegister
 
 function Tkw_MedicFirmList_Control_ContextFilter.GetString: AnsiString;
 begin
@@ -252,6 +248,11 @@ begin
  TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_MedicFirmList_Control_ContextFilter.RegisterInEngine
 
+class function Tkw_MedicFirmList_Control_ContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ContextFilter';
+end;//Tkw_MedicFirmList_Control_ContextFilter.GetWordNameForRegister
+
 procedure Tkw_MedicFirmList_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ContextFilter');
@@ -263,11 +264,6 @@ begin
  Result := 'контрол::ContextFilter:push';
 end;//Tkw_MedicFirmList_Control_ContextFilter_Push.GetWordNameForRegister
 
-class function Tkw_MedicFirmList_Control_ListTree.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ListTree';
-end;//Tkw_MedicFirmList_Control_ListTree.GetWordNameForRegister
-
 function Tkw_MedicFirmList_Control_ListTree.GetString: AnsiString;
 begin
  Result := 'ListTree';
@@ -278,6 +274,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_MedicFirmList_Control_ListTree.RegisterInEngine
+
+class function Tkw_MedicFirmList_Control_ListTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ListTree';
+end;//Tkw_MedicFirmList_Control_ListTree.GetWordNameForRegister
 
 procedure Tkw_MedicFirmList_Control_ListTree_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -312,11 +313,6 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aen_MedicFirmList));
 end;//TkwEnMedicFirmListBackgroundPanel.DoDoIt
 
-class function TkwEnMedicFirmListBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MedicFirmList.BackgroundPanel';
-end;//TkwEnMedicFirmListBackgroundPanel.GetWordNameForRegister
-
 procedure TkwEnMedicFirmListBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -337,6 +333,11 @@ function TkwEnMedicFirmListBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicFirmList)]);
 end;//TkwEnMedicFirmListBackgroundPanel.ParamsTypes
+
+class function TkwEnMedicFirmListBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MedicFirmList.BackgroundPanel';
+end;//TkwEnMedicFirmListBackgroundPanel.GetWordNameForRegister
 
 function TkwEnMedicFirmListContextFilter.ContextFilter(const aCtx: TtfwContext;
  aen_MedicFirmList: Ten_MedicFirmList): TnscContextFilter;
@@ -360,11 +361,6 @@ begin
  aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aen_MedicFirmList));
 end;//TkwEnMedicFirmListContextFilter.DoDoIt
 
-class function TkwEnMedicFirmListContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MedicFirmList.ContextFilter';
-end;//TkwEnMedicFirmListContextFilter.GetWordNameForRegister
-
 procedure TkwEnMedicFirmListContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -385,6 +381,11 @@ function TkwEnMedicFirmListContextFilter.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicFirmList)]);
 end;//TkwEnMedicFirmListContextFilter.ParamsTypes
+
+class function TkwEnMedicFirmListContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MedicFirmList.ContextFilter';
+end;//TkwEnMedicFirmListContextFilter.GetWordNameForRegister
 
 function TkwEnMedicFirmListListTree.ListTree(const aCtx: TtfwContext;
  aen_MedicFirmList: Ten_MedicFirmList): TnscTreeViewWithAdapterDragDrop;
@@ -408,11 +409,6 @@ begin
  aCtx.rEngine.PushObj(ListTree(aCtx, l_aen_MedicFirmList));
 end;//TkwEnMedicFirmListListTree.DoDoIt
 
-class function TkwEnMedicFirmListListTree.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MedicFirmList.ListTree';
-end;//TkwEnMedicFirmListListTree.GetWordNameForRegister
-
 procedure TkwEnMedicFirmListListTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -433,6 +429,11 @@ function TkwEnMedicFirmListListTree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicFirmList)]);
 end;//TkwEnMedicFirmListListTree.ParamsTypes
+
+class function TkwEnMedicFirmListListTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MedicFirmList.ListTree';
+end;//TkwEnMedicFirmListListTree.GetWordNameForRegister
 
 initialization
  Tkw_Form_MedicFirmList.RegisterInEngine;

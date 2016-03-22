@@ -2,6 +2,7 @@ unit kwCompiledWordWorkerWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordWorkerWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledWordWorkerWord" MUID: (4F21976E01C2)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -32,7 +33,6 @@ type
  TkwCompiledWordWorkerWord = class(TtfwWordWorker)
   private
    f_Compiled: TtfwWord;
-    {* Поле для свойства Compiled }
   protected
    function RunnerClass(const aCtx: TtfwContext): RkwCompiledWordWorkerWordRunner;
    function TreatUnknownAsStringInParam(const aContext: TtfwContext;

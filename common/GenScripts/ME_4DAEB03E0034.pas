@@ -2,6 +2,7 @@ unit nevVScrollerSpy;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevVScrollerSpy.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevVScrollerSpy" MUID: (4DAEB03E0034)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

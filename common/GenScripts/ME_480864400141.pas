@@ -2,6 +2,7 @@ unit atFoldersHelper;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atFoldersHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatFoldersHelper" MUID: (480864400141)
 
 interface
 

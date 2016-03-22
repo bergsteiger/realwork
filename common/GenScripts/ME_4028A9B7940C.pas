@@ -3,6 +3,7 @@ unit F1_AttrValues;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\F1_AttrValues.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "F1_AttrValues" MUID: (4028A9B7940C)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

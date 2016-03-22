@@ -2,6 +2,7 @@ unit npNavigatorListCBT;
 
 // Модуль: "w:\common\components\gui\Garant\VT\npNavigatorListCBT.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnpNavigatorListCBT" MUID: (4F61FEEB00A5)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -3,6 +3,7 @@ unit k2DictItem;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2DictItem.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2DictItem" MUID: (484D42AC01C3)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

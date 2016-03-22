@@ -2,6 +2,7 @@ unit l3ControlFontService;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ControlFontService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3ControlFontService" MUID: (556F24A80035)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -54,7 +55,7 @@ type
  Tl3ControlFontService = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3ControlFontService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3ControlFontService }
   protected
    procedure pm_SetAlien(const aValue: Il3ControlFontService);
    procedure ClearFields; override;

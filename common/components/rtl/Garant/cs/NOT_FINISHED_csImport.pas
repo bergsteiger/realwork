@@ -2,6 +2,7 @@ unit NOT_FINISHED_csImport;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csImport.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "csImport" MUID: (530356A1014F)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

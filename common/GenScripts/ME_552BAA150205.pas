@@ -2,6 +2,7 @@ unit NOT_FINISHED_evStandardActions;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evStandardActions.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evStandardActions" MUID: (552BAA150205)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

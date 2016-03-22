@@ -2,6 +2,7 @@ unit SettingsUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\SettingsUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Settings" MUID: (45EEAA69036E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

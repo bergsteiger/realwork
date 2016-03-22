@@ -2,6 +2,7 @@ unit alcuSendTaskExecutor;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuSendTaskExecutor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuSendTaskExecutor" MUID: (54856BFA003E)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

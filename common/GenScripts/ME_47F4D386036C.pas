@@ -3,6 +3,7 @@ unit bsListTreeStruct;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\bsListTreeStruct.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsListTreeStruct" MUID: (47F4D386036C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

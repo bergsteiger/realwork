@@ -3,6 +3,8 @@ unit LeafPara_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\LeafPara_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "LeafPara" MUID: (485669C9009D)
+// Имя типа: "LeafParaTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

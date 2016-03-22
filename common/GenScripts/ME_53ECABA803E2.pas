@@ -2,6 +2,8 @@ unit CourtDecisionSabCheckerParams_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\CourtDecisionSabCheckerParams_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "CourtDecisionSabCheckerParams" MUID: (53ECABA803E2)
+// Имя типа: "CourtDecisionSabCheckerParamsTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

@@ -1,11 +1,11 @@
 @echo off
-	:: (C) SIE "GARANT-SERVICE-UNIVERSITY" LLC, 1990-2015
+	:: (C) SIE "GARANT-SERVICE-UNIVERSITY" LLC, 1990-2016
 
 	set MAIN_ERRORLEVEL=255
 
 	if "%OS%"=="Windows_NT" (pushd "%~dp0"& set $DEBUG=0& call :main "%~0" %*& popd)
 
-	if "%$DEBUG%" neq "0" (echo Script::INFO: main ErrorLevel = %MAIN_ERRORLEVEL% [%ERRORLEVEL%])
+	if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo Script::INFO: main ErrorLevel = %MAIN_ERRORLEVEL% [%ERRORLEVEL%]))
 @exit %MAIN_ERRORLEVEL%
 
 
@@ -25,15 +25,15 @@
 
 	:main.download
 
-		if "%MAIN_ERRORLEVEL%" equ "0" (if "%DOWNLOAD_ENABLED%" neq "0" (call :download_launcher))
+		if "%MAIN_ERRORLEVEL%" equ "0" (if "%DOWNLOAD_ENABLED%" neq "" (if "%DOWNLOAD_ENABLED%" neq "0" (call :download_launcher)))
 
 	:main.update
 
-		if "%MAIN_ERRORLEVEL%" equ "0" (if "%UPDATE_ENABLED%" neq "0" (call :update_launcher))
+		if "%MAIN_ERRORLEVEL%" equ "0" (if "%UPDATE_ENABLED%" neq "" (if "%UPDATE_ENABLED%" neq "0" (call :update_launcher)))
 
 	:main.runatend
 
-		if "%MAIN_ERRORLEVEL%" equ "0" (if "%RUN_AT_END_ENABLED%" neq "0" (call :runatend_launcher))
+		if "%MAIN_ERRORLEVEL%" equ "0" (if "%RUN_AT_END_ENABLED%" neq "" (if "%RUN_AT_END_ENABLED%" neq "0" (call :runatend_launcher)))
 
 	:main.end
 exit /b
@@ -47,20 +47,20 @@ exit /b
 
 	:download_launcher.begin
 
-		if "%$DEBUG%" neq "0" (echo DownloadLauncher::INFO: download call enabled)
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo DownloadLauncher::INFO: download call enabled))
 
 		set $DOWNLOAD_NODELTA=0
 		set $DOWNLOAD_RETRY_INDEX=1
 
 	:download_launcher.loop
 
-		if "%$DEBUG%" neq "0" (echo DownloadLauncher::INFO: call download [retry index: %$DOWNLOAD_RETRY_INDEX%])
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo DownloadLauncher::INFO: call download [retry index: %$DOWNLOAD_RETRY_INDEX%]))
 
 		call :download
 
-		if "%$DOWNLOAD_NODELTA%" neq "0" (if "%DOWNLOAD_RETRY%" neq "0" (call :download_retry& if %$DOWNLOAD_RETRY_INDEX% lss %DOWNLOAD_RETRY_COUNT% (goto :download_launcher.loop)))
+		if "%$DOWNLOAD_NODELTA%" neq "" (if "%$DOWNLOAD_NODELTA%" neq "0" (if "%DOWNLOAD_RETRY%" neq "" (if "%DOWNLOAD_RETRY%" neq "0" (call :download_retry& if %$DOWNLOAD_RETRY_INDEX% lss %DOWNLOAD_RETRY_COUNT% (goto :download_launcher.loop)))))
 
-		if "%DOWNLOAD_SEND_REPORT%" neq "0" (if "%$DOWNLOAD_ERRORLEVEL%" equ "%DOWNLOAD_ERROR_SUCCESS%" (call :sendmail "GARANT F1: download SUCCESS") else (call :sendmail "GARANT F1: download FAILURE [%$DOWNLOAD_ERRORLEVEL%]"))
+		if "%DOWNLOAD_SEND_REPORT%" neq "" (if "%DOWNLOAD_SEND_REPORT%" neq "0" (if "%$DOWNLOAD_ERRORLEVEL%" equ "%DOWNLOAD_ERROR_SUCCESS%" (call :sendmail "GARANT F1: download SUCCESS") else (call :sendmail "GARANT F1: download FAILURE [%$DOWNLOAD_ERRORLEVEL%]")))
 
 	:download_launcher.end
 exit /b
@@ -74,7 +74,7 @@ exit /b
 
 	:download_retry.begin
 
-		if "%$DEBUG%" neq "0" (echo DownloadRetry::INFO: download retry of run enabled)
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo DownloadRetry::INFO: download retry of run enabled))
 
 		call :download_nodelta
 			
@@ -89,15 +89,15 @@ exit /b
 
 	:download_nodelta.begin
 
-		if "%$DEBUG%" neq "0" (echo DownloadNoDelta::WARNING: download delta not found)
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo DownloadNoDelta::WARNING: download delta not found))
 
-		if "%$DEBUG%" neq "0" (echo DownloadNoDelta::INFO: download RetryIndex = %$DOWNLOAD_RETRY_INDEX% [of %DOWNLOAD_RETRY_COUNT%])
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo DownloadNoDelta::INFO: download RetryIndex = %$DOWNLOAD_RETRY_INDEX% [of %DOWNLOAD_RETRY_COUNT%]))
 
 		set /a $DOWNLOAD_RETRY_INDEX+=1
 
 		if %$DOWNLOAD_RETRY_INDEX% gtr %DOWNLOAD_RETRY_COUNT% (call :download_too_many_retry& goto :download_nodelta.end)
 
-		if "%$DEBUG%" neq "0" (echo DownloadNoDelta::INFO: wait 20 minutes...)
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo DownloadNoDelta::INFO: wait 20 minutes...))
 
 		call :wait20minutes
 
@@ -113,11 +113,11 @@ exit /b
 
 	:download_too_many_retry.begin
 
-		if "%$DEBUG%" neq "0" (echo DownloadTooManyRerty::ERROR: download retry of run not complete, to many attempts [%DOWNLOAD_RETRY_COUNT%])
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo DownloadTooManyRerty::ERROR: download retry of run not complete, to many attempts [%DOWNLOAD_RETRY_COUNT%]))
 
 		set MAIN_ERRORLEVEL=%$DOWNLOAD_ERRORLEVEL%
 
-		if "%$DEBUG%" neq "0" (echo DownloadTooManyRerty::INFO: main ErrorLevel = %MAIN_ERRORLEVEL%)
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo DownloadTooManyRerty::INFO: main ErrorLevel = %MAIN_ERRORLEVEL%))
 
 	:download_too_many_retry.end
 exit /b
@@ -143,19 +143,22 @@ exit /b
 		if "%DOWNLOAD_PATH%" equ "" (call :download_set_path "%GARANT%\delta")
 		set $COMMANDLINE=%$COMMANDLINE% -path "%DOWNLOAD_PATH%"
 
-		if "%DOWNLOAD_RESTORE%" neq "0" (if "%DOWNLOAD_RESTORE_TIME%" equ "" (call :download_set_restore_time "5"))
-		if "%DOWNLOAD_RESTORE%" neq "0" (set $COMMANDLINE=%$COMMANDLINE% -dsc "%DOWNLOAD_RESTORE_TIME%")
+		if "%DOWNLOAD_RESTORE%" neq "" (if "%DOWNLOAD_RESTORE%" neq "0" (if "%DOWNLOAD_RESTORE_TIME%" equ "" (call :download_set_restore_time "5")))
+		if "%DOWNLOAD_RESTORE%" neq "" (if "%DOWNLOAD_RESTORE%" neq "0" (set $COMMANDLINE=%$COMMANDLINE% -dsc "%DOWNLOAD_RESTORE_TIME%"))
+
+		if "%DOWNLOAD_RESUME%" neq "" (if "%DOWNLOAD_RESUME%" neq "0" (set $COMMANDLINE=%$COMMANDLINE% -resume))
+		if "%DOWNLOAD_REVISION%" neq "" (if "%DOWNLOAD_REVISION%" neq "0" (set $COMMANDLINE=%$COMMANDLINE% -revision))
 
 
-		if "%$DEBUG%" neq "0" (echo Download::INFO: run with params: `start /wait "Download" "%$APPLICATION%" %$COMMANDLINE%`)
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo Download::INFO: run with params: `start /wait "Download" "%$APPLICATION%" %$COMMANDLINE%`))
 
 		start /wait "Download" "%$APPLICATION%" %$COMMANDLINE%
 		set $DOWNLOAD_ERRORLEVEL=%ERRORLEVEL%
 
-		if "%$DEBUG%" neq "0" (echo Download::INFO: run complete [exit code: %$DOWNLOAD_ERRORLEVEL%])
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo Download::INFO: run complete [exit code: %$DOWNLOAD_ERRORLEVEL%]))
 
 
-		if "%$DOWNLOAD_ERRORLEVEL%" equ "%DOWNLOAD_ERROR_NODELTA%" (set $DOWNLOAD_NODELTA=1& if "%$DEBUG%" neq "0" (echo Download::INFO: set delta not found)) else (set $DOWNLOAD_NODELTA=0& if "%$DEBUG%" neq "0" (echo Download::INFO: reset delta not found))
+		if "%$DOWNLOAD_ERRORLEVEL%" equ "%DOWNLOAD_ERROR_NODELTA%" (set $DOWNLOAD_NODELTA=1& if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo Download::INFO: set delta not found))) else (set $DOWNLOAD_NODELTA=0& if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo Download::INFO: reset delta not found)))
 	:download.end
 
 	set $COMMANDLINE=
@@ -203,15 +206,15 @@ exit /b
 
 	:update_launcher.begin
 
-		if "%$DEBUG%" neq "0" (echo UpdateLauncher::INFO: update call enabled)
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo UpdateLauncher::INFO: update call enabled))
 
 		call :update
 
-		if "%UPDATE_SEND_REPORT%" neq "0" (if "%$UPDATE_ERRORLEVEL%" equ "%UPDATE_ERROR_SUCCESS%" (call :sendmail "GARANT F1: update SUCCESS") else (call :sendmail "GARANT F1: update FAILURE [%$UPDATE_ERRORLEVEL%]"))
+		if "%UPDATE_SEND_REPORT%" neq "" (if "%UPDATE_SEND_REPORT%" neq "0" (if "%$UPDATE_ERRORLEVEL%" equ "%UPDATE_ERROR_SUCCESS%" (call :sendmail "GARANT F1: update SUCCESS") else (call :sendmail "GARANT F1: update FAILURE [%$UPDATE_ERRORLEVEL%]")))
 
 		set MAIN_ERRORLEVEL=%$UPDATE_ERRORLEVEL%
 
-		if "%$DEBUG%" neq "0" (echo UpdateLauncher::INFO: main ErrorLevel = %MAIN_ERRORLEVEL%)
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo UpdateLauncher::INFO: main ErrorLevel = %MAIN_ERRORLEVEL%))
 
 	:update_launcher.end
 exit /b
@@ -234,19 +237,21 @@ exit /b
 
 		if "%UPDATE_ADMIN_NAME%" neq "" (set $COMMANDLINE=%$COMMANDLINE% -login "%UPDATE_ADMIN_NAME%")
 		if "%UPDATE_ADMIN_PASSWORD%" neq "" (set $COMMANDLINE=%$COMMANDLINE% -pwd "%UPDATE_ADMIN_PASSWORD%")
-		if "%UPDATE_NO_BACKUP%" neq "0" (set $COMMANDLINE=%$COMMANDLINE% nobackup)
-		if "%UPDATE_REMOVE_ARCHIVE%" neq "0" (set $COMMANDLINE=%$COMMANDLINE% deletezips)
+		if "%UPDATE_NO_BACKUP%" neq "" (if "%UPDATE_NO_BACKUP%" neq "0" (set $COMMANDLINE=%$COMMANDLINE% nobackup))
+		if "%UPDATE_REMOVE_ARCHIVE%" neq "" (if "%UPDATE_REMOVE_ARCHIVE%" neq "0" (set $COMMANDLINE=%$COMMANDLINE% deletezips))
 
 		if "%UPDATE_PATH%" equ "" (call :update_set_path "%GARANT%\delta")
 		set $COMMANDLINE=%$COMMANDLINE% -path "%UPDATE_PATH%"
 
+		if "%UPDATE_SKIP_WARNING%" neq "" (if "%UPDATE_SKIP_WARNING%" neq "0" (set $COMMANDLINE=%$COMMANDLINE% -skipwarning))
 
-		if "%$DEBUG%" neq "0" (echo Update::INFO: run with params: `start /wait "Update" "%$APPLICATION%" %$COMMANDLINE%`)
+
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo Update::INFO: run with params: `start /wait "Update" "%$APPLICATION%" %$COMMANDLINE%`))
 
 		start /wait "Update" "%$APPLICATION%" %$COMMANDLINE%
 		set $UPDATE_ERRORLEVEL=%ERRORLEVEL%
 
-		if "%$DEBUG%" neq "0" (echo Update::INFO: run complete [exit code: %$UPDATE_ERRORLEVEL%])
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo Update::INFO: run complete [exit code: %$UPDATE_ERRORLEVEL%]))
 
 	:update.end
 
@@ -279,9 +284,9 @@ exit /b
 
 	:runatend_launcher.begin
 
-		if "%$DEBUG%" neq "0" (echo RunAtEndLauncher::INFO: run at end call enabled)
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo RunAtEndLauncher::INFO: run at end call enabled))
 
-		if exist "%RUN_AT_END_APPLICATION%" (call :runatend) else (if "%$DEBUG%" neq "0" (echo RunAtEndLauncher::WARNING: application "%RUN_AT_END_APPLICATION%" not exist))
+		if exist "%RUN_AT_END_APPLICATION%" (call :runatend) else (if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo RunAtEndLauncher::WARNING: application "%RUN_AT_END_APPLICATION%" not exist)))
 
 	:runatend_launcher.end
 exit /b
@@ -296,16 +301,16 @@ exit /b
 
 		set $RUNATEND_ERRORLEVEL=255
 
-		if "%$DEBUG%" neq "0" (echo RunAtEnd::INFO: run at end with params: `start /wait "RunAtEnd" "%RUN_AT_END_APPLICATION%" %RUN_AT_END_COMMANDLINE%`)
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo RunAtEnd::INFO: run at end with params: `start /wait "RunAtEnd" "%RUN_AT_END_APPLICATION%" %RUN_AT_END_COMMANDLINE%`))
 
 		start /wait "RunAtEnd" "%RUN_AT_END_APPLICATION%" %RUN_AT_END_COMMANDLINE%
 		set $RUNATEND_ERRORLEVEL=%ERRORLEVEL%
 
-		if "%$DEBUG%" neq "0" (echo RunAtEnd::INFO: run at end complete [exit code: %$RUNATEND_ERRORLEVEL%])
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo RunAtEnd::INFO: run at end complete [exit code: %$RUNATEND_ERRORLEVEL%]))
 
 		set MAIN_ERRORLEVEL=%$RUNATEND_ERRORLEVEL%
 
-		if "%$DEBUG%" neq "0" (echo RunAtEnd::INFO: main ErrorLevel = %MAIN_ERRORLEVEL%)
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo RunAtEnd::INFO: main ErrorLevel = %MAIN_ERRORLEVEL%))
 
 	:runatend.end
 exit /b
@@ -327,12 +332,12 @@ exit /b
 		if not exist "%$APPLICATION%" (echo Wait20Minutes::ERROR: application "%$APPLICATION%" not exist, call disabled& goto :wait20minutes.end)
 
 
-		if "%$DEBUG%" neq "0" (echo Wait20Minutes::INFO: run with params: `start /wait "Wait 20 minutes" "%$APPLICATION%" %$COMMANDLINE%`)
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo Wait20Minutes::INFO: run with params: `start /wait "Wait 20 minutes" "%$APPLICATION%" %$COMMANDLINE%`))
 
 		start /wait "Wait 20 minutes" "%$APPLICATION%" %$COMMANDLINE%
 		set $WAIT20MINUTES_ERRORLEVEL=%ERRORLEVEL%
 
-		if "%$DEBUG%" neq "0" (echo Wait20Minutes::INFO: run complete [exit code: %$WAIT20MINUTES_ERRORLEVEL%])
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo Wait20Minutes::INFO: run complete [exit code: %$WAIT20MINUTES_ERRORLEVEL%]))
 
 	:wait20minutes.end
 
@@ -383,12 +388,12 @@ exit /b
 		if "%~2" neq "" (set $COMMANDLINE=%$COMMANDLINE% -body "%~2") else (if "%~1" neq "" (set $COMMANDLINE=%$COMMANDLINE% -body "%~1"))
 		if "%~1" neq "" (set $COMMANDLINE=%$COMMANDLINE% -subject "%~1")
 
-		if "%$DEBUG%" neq "0" (echo SendMail::INFO: run with params: `start /wait "SendMail" "%$APPLICATION%" - %$COMMANDLINE%`)
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo SendMail::INFO: run with params: `start /wait "SendMail" "%$APPLICATION%" - %$COMMANDLINE%`))
 
 		start /wait "SendMail" "%$APPLICATION%" - %$COMMANDLINE%
 		set $SENDMAIL_ERRORLEVEL=%ERRORLEVEL%
 
-		if "%$DEBUG%" neq "0" (echo SendMail::INFO: run complete [exit code: %$SENDMAIL_ERRORLEVEL%])
+		if "%$DEBUG%" neq "" (if "%$DEBUG%" neq "0" (echo SendMail::INFO: run complete [exit code: %$SENDMAIL_ERRORLEVEL%]))
 		
 	:sendmail.end
 

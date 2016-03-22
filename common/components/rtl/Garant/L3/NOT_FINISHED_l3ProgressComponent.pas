@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3ProgressComponent;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3ProgressComponent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProgressComponent" MUID: (4754200F029E)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

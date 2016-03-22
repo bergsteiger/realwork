@@ -3,6 +3,8 @@ unit DictEntryBlock_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\DictEntryBlock_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "DictEntryBlock" MUID: (4857C92E022B)
+// Имя типа: "DictEntryBlockTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit m3StorageIndexStreamForIterate;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3StorageIndexStreamForIterate.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3StorageIndexStreamForIterate" MUID: (544A2D800202)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

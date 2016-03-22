@@ -2,6 +2,8 @@ unit PrimMainOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimMainOptions_Form.pas"
 // Стереотип: "VCMMainForm"
+// Элемент модели: "PrimMainOptions" MUID: (4C8A210E018C)
+// Имя типа: "TPrimMainOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

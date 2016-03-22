@@ -1,58 +1,38 @@
 unit kwF1BaseDate;
+ {* Кладёт на стек дату базы в строковом формате }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwF1BaseDate.pas"
-// Начат: 14.11.2011 19:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Words::Words::f1_BaseDate
-//
-// Кладёт на стек дату базы в строковом формате
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwF1BaseDate.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "f1_BaseDate" MUID: (4EC134690154)
+// Имя типа: "TkwF1BaseDate"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwF1BaseDate = {scriptword} class(TtfwRegisterableWord)
+ TkwF1BaseDate = class(TtfwRegisterableWord)
   {* Кладёт на стек дату базы в строковом формате }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwF1BaseDate
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  bsUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwF1BaseDate
+ l3ImplUses
+ , bsUtils
+;
 
 procedure TkwF1BaseDate.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4EC134690154_var*
@@ -64,17 +44,13 @@ begin
 end;//TkwF1BaseDate.DoDoIt
 
 class function TkwF1BaseDate.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'f1:BaseDate';
 end;//TkwF1BaseDate.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация f1_BaseDate
  TkwF1BaseDate.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация f1_BaseDate }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -140,7 +140,7 @@ int main_logic ( int argc, char **argv )
 					bool local_error = false;
 					for ( int c = 0; c < len && !local_error; c++ ) {
 						unsigned char uc = (unsigned char)para[c];
-						if (((uc > 245 && uc < 252 && uc != 248 && uc != 250 && uc != 249) || (uc > 252 && uc < 255)) || (uc < 16 && uc != 10 && uc != 9)) {
+						if (uc == 251 || uc == 253 || (uc < 16 && uc != 10 && uc != 9)) {
 							local_error = true;
 							printf( "%ld подозрительный параграф %s\n", docid, para );
 						}

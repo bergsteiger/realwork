@@ -5,7 +5,7 @@ unit evdTasks_Schema;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/evdTasks_Schema.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TagTable::Class>> Shared Delphi::EVD::Standard::evdTasks
+// Generated from UML model, root element: <<TagTable::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks
 //
 // Схема для поддержки заданий в ALCU. Потом её надо будет выпилить отдельно
 //
@@ -1667,6 +1667,22 @@ type
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
  end;//mdpImportDocsTag
 
+ ComboAccessProviderParamsTagClass = class(Tk2TypedSmallLeafTag)
+  {* Класс реализации тега "ComboAccessProviderParams" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//ComboAccessProviderParamsTagClass
+
+ ComboAccessProviderParamsTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//ComboAccessProviderParamsTag
+
  TevdTasksSchema = class(Tk2NativeSchema)
  public
  // типы, определённые в данной схеме:
@@ -1792,6 +1808,7 @@ type
    t_csGetPartialTaskDescription : csGetPartialTaskDescriptionTag;
    t_mdpSyncDicts : mdpSyncDictsTag;
    t_mdpImportDocs : mdpImportDocsTag;
+   t_ComboAccessProviderParams : ComboAccessProviderParamsTag;
  protected
  // определяем стандартные методы схемы
    procedure Cleanup; override;
@@ -1880,6 +1897,7 @@ uses
   csGetPartialTaskDescription_Const,
   mdpSyncDicts_Const,
   mdpImportDocs_Const,
+  ComboAccessProviderParams_Const,
   SysUtils {a},
   TypInfo {a},
   k2Const {a},
@@ -4269,6 +4287,27 @@ begin
  Result := mdpImportDocsTagClass.Make(Self);
 end;
 
+function ComboAccessProviderParamsTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typComboAccessProviderParams;
+end;//ComboAccessProviderParamsTagClass.TagType
+
+function ComboAccessProviderParamsTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('ComboAccessProviderParams'));
+end;
+
+function ComboAccessProviderParamsTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_HyTechProviderParams.IsKindOf(anAtomType);
+end;
+
+function ComboAccessProviderParamsTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := ComboAccessProviderParamsTagClass.Make(Self);
+end;
+
 constructor TevdTasksSchema.Create;
 begin
  inherited;
@@ -4841,6 +4880,9 @@ begin
   with t_AnnotationTask_ExcludeDocBasesIDList.ArrayProp[k2_tiChildren] do
   begin
   end;//ExcludeDocBasesIDList
+  with DefineProperty(k2_attrAnnoFilenameTemplate, t_String, '') do
+  begin
+  end;//AnnoFilenameTemplate
  end;//AnnotationTask
  // AutoExportTask
  t_AutoExportTask := DefineAutoType([t_ProcessTask], '', AutoExportTaskTag) As AutoExportTaskTag;
@@ -5005,6 +5047,9 @@ begin
   with DefineProperty(k2_attrExpandEditions, t_Bool, '') do
   begin
   end;//ExpandEditions
+  with DefineProperty(k2_attrInfoDocsIncludedOnly, t_Bool, '') do
+  begin
+  end;//InfoDocsIncludedOnly
  end;//AutoExportTask
  // RunCommandTask
  t_RunCommandTask := DefineAutoType([t_ProcessTask], '', RunCommandTaskTag) As RunCommandTaskTag;
@@ -6050,6 +6095,18 @@ begin
   begin
   end;//MaxCount
  end;//mdpImportDocs
+ // ComboAccessProviderParams
+ t_ComboAccessProviderParams := DefineAutoType([t_HyTechProviderParams], '', ComboAccessProviderParamsTag) As ComboAccessProviderParamsTag;
+ with t_ComboAccessProviderParams do
+ begin
+  AtomClass := ComboAccessProviderParamsTagClass;
+  with DefineProperty(k2_attrDataServerHostName, t_String, '') do
+  begin
+  end;//DataServerHostName
+  with DefineProperty(k2_attrDataServerPort, t_Long, '') do
+  begin
+  end;//DataServerPort
+ end;//ComboAccessProviderParams
  t_ULong.Recalc;
  t_DateTime.Recalc;
  t_DateTimeNotNull.Recalc;
@@ -6128,6 +6185,7 @@ begin
  t_csGetPartialTaskDescription.Recalc;
  t_mdpSyncDicts.Recalc;
  t_mdpImportDocs.Recalc;
+ t_ComboAccessProviderParams.Recalc;
 end;
 
 // определяем стандартные методы схемы
@@ -6257,6 +6315,7 @@ begin
  t_csGetPartialTaskDescription.InterfaceFactory := nil;
  t_mdpSyncDicts.InterfaceFactory := nil;
  t_mdpImportDocs.InterfaceFactory := nil;
+ t_ComboAccessProviderParams.InterfaceFactory := nil;
  FreeAndNil(t_ULong);
  FreeAndNil(t_DateTime);
  FreeAndNil(t_DateTimeNotNull);
@@ -6379,6 +6438,7 @@ begin
  FreeAndNil(t_csGetPartialTaskDescription);
  FreeAndNil(t_mdpSyncDicts);
  FreeAndNil(t_mdpImportDocs);
+ FreeAndNil(t_ComboAccessProviderParams);
  inherited;
 end;
 

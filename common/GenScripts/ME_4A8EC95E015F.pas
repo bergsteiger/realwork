@@ -3,6 +3,7 @@ unit F1_Application_Template_InternalOperations_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\F1_Application_Template_InternalOperations_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "InternalOperations" MUID: (4A8EC95E015F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

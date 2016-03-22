@@ -5,7 +5,7 @@ unit k2Bool_Const;
 // Библиотека "K2"
 // Модуль: "w:/common/components/rtl/Garant/K2/k2Bool_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Atom::Class>> Shared Delphi::K2::CoreTypes::k2Core::Bool
+// Generated from UML model, root element: <<Atom::Class>> Shared Delphi Low Level::K2::CoreTypes::k2Core::Bool
 //
 // Логическое значение
 //

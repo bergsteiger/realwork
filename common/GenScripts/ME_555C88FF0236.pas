@@ -2,6 +2,7 @@ unit m3DBFiler;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3DBFiler.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3DBFiler" MUID: (555C88FF0236)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

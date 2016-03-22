@@ -1461,6 +1461,10 @@ object ArchiServerForm: TArchiServerForm
       Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1087#1086' '#1076#1072#1090#1077
       OnExecute = actSortByDateExecute
     end
+    object actPack: TAction
+      Category = #1047#1072#1076#1072#1085#1080#1103
+      Caption = #1059#1076#1072#1083#1080#1090#1100' '#1089#1090#1072#1088#1099#1077
+    end
   end
   object menuTaskList: TPopupMenu
     Images = ImageList1
@@ -1574,6 +1578,10 @@ object ArchiServerForm: TArchiServerForm
         object N19: TMenuItem
           Action = actSetLowestPriority
         end
+      end
+      object menuDelOldTasks: TMenuItem
+        Action = actPack
+        OnClick = menuDelOldTasksClick
       end
       object N72: TMenuItem
         Caption = '-'
@@ -1729,6 +1737,12 @@ object ArchiServerForm: TArchiServerForm
       end
       object N59: TMenuItem
         Action = actEmailNotify
+      end
+      object N84: TMenuItem
+        Caption = '-'
+      end
+      object menuCommands: TMenuItem
+        Caption = #1050#1086#1084#1072#1085#1076#1099
       end
       object N58: TMenuItem
         Caption = '-'

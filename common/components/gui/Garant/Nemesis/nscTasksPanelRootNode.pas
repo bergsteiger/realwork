@@ -2,6 +2,7 @@ unit nscTasksPanelRootNode;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTasksPanelRootNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnscTasksPanelRootNode" MUID: (508EBDB503D2)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

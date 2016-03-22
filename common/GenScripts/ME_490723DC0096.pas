@@ -3,6 +3,7 @@ unit nsNavigatorTreeStruct;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsNavigatorTreeStruct.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsNavigatorTreeStruct" MUID: (490723DC0096)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

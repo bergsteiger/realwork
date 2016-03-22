@@ -2,6 +2,8 @@ unit kwPopEditorCopyAndPaste2DocumentBottom;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCopyAndPaste2DocumentBottom.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_CopyAndPaste2DocumentBottom" MUID: (4E2835DE00FD)
+// Имя типа: "TkwPopEditorCopyAndPaste2DocumentBottom"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

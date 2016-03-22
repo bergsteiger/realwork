@@ -3,6 +3,7 @@ unit AttributeSelectKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\AttributeSelectKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "AttributeSelectKeywordsPack" MUID: (D0D36137E819)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -46,8 +47,8 @@ type
 'aControl' форма::AttributeSelect TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_AttributeSelect
 
  Tkw_AttributeSelect_Control_BackgroundPanel = {final} class(TtfwControlString)
@@ -58,9 +59,9 @@ type
 контрол::BackgroundPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AttributeSelect_Control_BackgroundPanel
 
  Tkw_AttributeSelect_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
@@ -83,9 +84,9 @@ type
 контрол::SelectedZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AttributeSelect_Control_SelectedZone
 
  Tkw_AttributeSelect_Control_SelectedZone_Push = {final} class(TkwBynameControlPush)
@@ -108,9 +109,9 @@ type
 контрол::ValuesZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AttributeSelect_Control_ValuesZone
 
  Tkw_AttributeSelect_Control_ValuesZone_Push = {final} class(TkwBynameControlPush)
@@ -197,20 +198,15 @@ OBJECT VAR l_TvtPanel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwCfAttributeSelectValuesZone
 
-class function Tkw_Form_AttributeSelect.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::AttributeSelect';
-end;//Tkw_Form_AttributeSelect.GetWordNameForRegister
-
 function Tkw_Form_AttributeSelect.GetString: AnsiString;
 begin
  Result := 'cfAttributeSelect';
 end;//Tkw_Form_AttributeSelect.GetString
 
-class function Tkw_AttributeSelect_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_AttributeSelect.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::BackgroundPanel';
-end;//Tkw_AttributeSelect_Control_BackgroundPanel.GetWordNameForRegister
+ Result := 'форма::AttributeSelect';
+end;//Tkw_Form_AttributeSelect.GetWordNameForRegister
 
 function Tkw_AttributeSelect_Control_BackgroundPanel.GetString: AnsiString;
 begin
@@ -223,6 +219,11 @@ begin
  TtfwClassRef.Register(TvtProportionalPanel);
 end;//Tkw_AttributeSelect_Control_BackgroundPanel.RegisterInEngine
 
+class function Tkw_AttributeSelect_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BackgroundPanel';
+end;//Tkw_AttributeSelect_Control_BackgroundPanel.GetWordNameForRegister
+
 procedure Tkw_AttributeSelect_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BackgroundPanel');
@@ -233,11 +234,6 @@ class function Tkw_AttributeSelect_Control_BackgroundPanel_Push.GetWordNameForRe
 begin
  Result := 'контрол::BackgroundPanel:push';
 end;//Tkw_AttributeSelect_Control_BackgroundPanel_Push.GetWordNameForRegister
-
-class function Tkw_AttributeSelect_Control_SelectedZone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::SelectedZone';
-end;//Tkw_AttributeSelect_Control_SelectedZone.GetWordNameForRegister
 
 function Tkw_AttributeSelect_Control_SelectedZone.GetString: AnsiString;
 begin
@@ -250,6 +246,11 @@ begin
  TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_AttributeSelect_Control_SelectedZone.RegisterInEngine
 
+class function Tkw_AttributeSelect_Control_SelectedZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::SelectedZone';
+end;//Tkw_AttributeSelect_Control_SelectedZone.GetWordNameForRegister
+
 procedure Tkw_AttributeSelect_Control_SelectedZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('SelectedZone');
@@ -261,11 +262,6 @@ begin
  Result := 'контрол::SelectedZone:push';
 end;//Tkw_AttributeSelect_Control_SelectedZone_Push.GetWordNameForRegister
 
-class function Tkw_AttributeSelect_Control_ValuesZone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ValuesZone';
-end;//Tkw_AttributeSelect_Control_ValuesZone.GetWordNameForRegister
-
 function Tkw_AttributeSelect_Control_ValuesZone.GetString: AnsiString;
 begin
  Result := 'ValuesZone';
@@ -276,6 +272,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_AttributeSelect_Control_ValuesZone.RegisterInEngine
+
+class function Tkw_AttributeSelect_Control_ValuesZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ValuesZone';
+end;//Tkw_AttributeSelect_Control_ValuesZone.GetWordNameForRegister
 
 procedure Tkw_AttributeSelect_Control_ValuesZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -310,11 +311,6 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_acfAttributeSelect));
 end;//TkwCfAttributeSelectBackgroundPanel.DoDoIt
 
-class function TkwCfAttributeSelectBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfAttributeSelect.BackgroundPanel';
-end;//TkwCfAttributeSelectBackgroundPanel.GetWordNameForRegister
-
 procedure TkwCfAttributeSelectBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -335,6 +331,11 @@ function TkwCfAttributeSelectBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfAttributeSelect)]);
 end;//TkwCfAttributeSelectBackgroundPanel.ParamsTypes
+
+class function TkwCfAttributeSelectBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfAttributeSelect.BackgroundPanel';
+end;//TkwCfAttributeSelectBackgroundPanel.GetWordNameForRegister
 
 function TkwCfAttributeSelectSelectedZone.SelectedZone(const aCtx: TtfwContext;
  acfAttributeSelect: TcfAttributeSelect): TvtSizeablePanel;
@@ -358,11 +359,6 @@ begin
  aCtx.rEngine.PushObj(SelectedZone(aCtx, l_acfAttributeSelect));
 end;//TkwCfAttributeSelectSelectedZone.DoDoIt
 
-class function TkwCfAttributeSelectSelectedZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfAttributeSelect.SelectedZone';
-end;//TkwCfAttributeSelectSelectedZone.GetWordNameForRegister
-
 procedure TkwCfAttributeSelectSelectedZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -383,6 +379,11 @@ function TkwCfAttributeSelectSelectedZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfAttributeSelect)]);
 end;//TkwCfAttributeSelectSelectedZone.ParamsTypes
+
+class function TkwCfAttributeSelectSelectedZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfAttributeSelect.SelectedZone';
+end;//TkwCfAttributeSelectSelectedZone.GetWordNameForRegister
 
 function TkwCfAttributeSelectValuesZone.ValuesZone(const aCtx: TtfwContext;
  acfAttributeSelect: TcfAttributeSelect): TvtPanel;
@@ -406,11 +407,6 @@ begin
  aCtx.rEngine.PushObj(ValuesZone(aCtx, l_acfAttributeSelect));
 end;//TkwCfAttributeSelectValuesZone.DoDoIt
 
-class function TkwCfAttributeSelectValuesZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfAttributeSelect.ValuesZone';
-end;//TkwCfAttributeSelectValuesZone.GetWordNameForRegister
-
 procedure TkwCfAttributeSelectValuesZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -431,6 +427,11 @@ function TkwCfAttributeSelectValuesZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfAttributeSelect)]);
 end;//TkwCfAttributeSelectValuesZone.ParamsTypes
+
+class function TkwCfAttributeSelectValuesZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfAttributeSelect.ValuesZone';
+end;//TkwCfAttributeSelectValuesZone.GetWordNameForRegister
 
 initialization
  Tkw_Form_AttributeSelect.RegisterInEngine;

@@ -28,7 +28,9 @@ uses
 {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(XE)}
 type
 //#UC START# *547869730335ci*
-//#UC END# *547869730335ci*
+ //#UC END# *547869730335ci*
+//#UC START# *547869730335cit*
+ //#UC END# *547869730335cit*
  TRectWrap = class(TPersistent)
  private
  // private fields
@@ -46,7 +48,7 @@ type
     read f_Rect.Top;
   property Bottom : Integer
     read f_Rect.Bottom;
-//#UC END# *547869730335publ*
+ //#UC END# *547869730335publ*
  end;//TRectWrap
 {$IfEnd} //not NoTabs AND not NoVCM AND not XE
 

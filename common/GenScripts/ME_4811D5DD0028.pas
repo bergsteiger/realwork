@@ -2,6 +2,7 @@ unit atLoadDocumentsByIDFromListOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atLoadDocumentsByIDFromListOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatLoadDocumentsByIDFromListOperation" MUID: (4811D5DD0028)
 
 interface
 

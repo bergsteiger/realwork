@@ -1,6 +1,6 @@
 unit D_DateNumberEditor;
 
-{ $Id: D_DateNumberEditor.pas,v 1.29 2014/10/31 14:22:36 voba Exp $ }
+{ $Id: D_DateNumberEditor.pas,v 1.30 2015/11/26 08:45:28 lukyanets Exp $ }
 
 interface
 {$I arDefine.inc}
@@ -64,6 +64,7 @@ uses
   DocAttrUtils,
   StrShop,
   AddrSup,
+  daSchemeConsts,
   DT_Serv,
   DT_LinkServ,
   Dt_ReNum, dt_DictConst;

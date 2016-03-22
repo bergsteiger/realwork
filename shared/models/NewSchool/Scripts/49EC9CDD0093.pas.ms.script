@@ -6,34 +6,6 @@ FORWARD ME_49EC9CDD0093
 
 FORWARD ME_49EC9CF0030B
 
-FORWARD ME_49EC9D0E00F0
-
-: ME_4B91F18CB75A
- CONST UID '4B91F18CB75A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TWebBrowser' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_49EC9D0E00F0 // TWebBrowser
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4B91F18CB75A Ini_Reg_Class
-
-: ME_0A0028BD5E33
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_49EC9D0E00F0 // TWebBrowser
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_0A0028BD5E33 
-
 : ME_49EC9D0E00F0
  CONST UID '49EC9D0E00F0'
  CONST Name 'TWebBrowser'
@@ -48,14 +20,6 @@ ref; // ME_0A0028BD5E33
    Seq: ( WL 'ME_49EEFABF023A' '4799D29F033F.pas.ms.script' // TOleControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4B91F18CB75A // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_0A0028BD5E33 // 
- )
- ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -101,7 +65,6 @@ ref; // ME_49EC9CF0030B shdocvw
  ; // Children
  : Depends
    Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

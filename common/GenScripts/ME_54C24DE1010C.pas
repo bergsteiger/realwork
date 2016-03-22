@@ -2,6 +2,7 @@ unit eeCustomEditor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeCustomEditor.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "eeCustomEditor" MUID: (54C24DE1010C)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

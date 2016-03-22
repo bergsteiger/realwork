@@ -3,6 +3,7 @@ unit tfwModuleOperationWord;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\tfwModuleOperationWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwModuleOperationWord" MUID: (4DB060930263)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

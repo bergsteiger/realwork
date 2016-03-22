@@ -3,6 +3,7 @@ unit NOT_FINISHED_nsFolders;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsFolders.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsFolders" MUID: (48228EF9010F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

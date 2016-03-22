@@ -2,6 +2,7 @@ unit vcmTabbedContainerFormDispatcher;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainerFormDispatcher.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmTabbedContainerFormDispatcher" MUID: (537AEB96006C)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
@@ -365,8 +366,8 @@ var g_TvcmTabbedContainerFormDispatcher: TvcmTabbedContainerFormDispatcher = nil
 const
  cMaxTabCount = 10;
  cMaxContainerCount = 10;
- cTabNumberKeys = [Ord('0')..Ord('9')];
- cTabNumpadKeys = [VK_NUMPAD0..VK_NUMPAD9];
+ cTabNumberKeys = .Ord('9')];
+ cTabNumpadKeys = .VK_NUMPAD9];
 
 function TvcmContainedFormDescr_C(aForm: TvcmEntityForm;
  aContainer: TvcmTabbedContainerForm): TvcmContainedFormDescr;
@@ -2045,8 +2046,7 @@ function TvcmTabbedContainerFormDispatcher.GetTabIcon(const aTab: Il3FormTab): I
 //#UC END# *02157F96E465_537AEC5E03DD_var*
 begin
 //#UC START# *02157F96E465_537AEC5E03DD_impl*
- if not GetFormTabIcon(aTab.TabbedForm as TvcmEntityForm, Result) then
-  Result := -1;
+ Result := aTab.CurrentParams.ImageIndex;
 //#UC END# *02157F96E465_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.GetTabIcon
 
@@ -2400,15 +2400,18 @@ var
 //#UC END# *E6CFFF63C7BA_537AEC5E03DD_var*
 begin
 //#UC START# *E6CFFF63C7BA_537AEC5E03DD_impl*
- Assert(aForm <> nil);
- l_Form := lp_GetParentForm(aForm);
- if (l_Form <> nil) then
+ if NeedUseTabs then
  begin
-  l_TabbedContainer := GetParentForm(l_Form) as TvcmTabbedContainerForm;
-  Result := l_TabbedContainer.GetFormTab(l_Form);
- end
- else
-  Result := nil;
+  Assert(aForm <> nil);
+  l_Form := lp_GetParentForm(aForm);
+  if (l_Form <> nil) then
+  begin
+   l_TabbedContainer := GetParentForm(l_Form) as TvcmTabbedContainerForm;
+   Result := l_TabbedContainer.GetFormTab(l_Form);
+  end
+  else
+   Result := nil;
+ end; 
 //#UC END# *E6CFFF63C7BA_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.GetFormTab
 

@@ -2,6 +2,7 @@ unit nsListSortEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\nsListSortEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsListSortEvent" MUID: (4B0BDE9503E2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

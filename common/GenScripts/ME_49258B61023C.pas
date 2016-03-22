@@ -5,6 +5,7 @@ unit NOT_FINISHED_bsDataContainer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\NOT_FINISHED_bsDataContainer.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "bsDataContainer" MUID: (49258B61023C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

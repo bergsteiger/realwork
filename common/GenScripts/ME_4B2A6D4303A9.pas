@@ -2,6 +2,7 @@ unit KTestRunner;
 
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\KTestRunner.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "KTestRunner" MUID: (4B2A6D4303A9)
 
 {$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 

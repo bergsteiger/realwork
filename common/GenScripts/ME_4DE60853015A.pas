@@ -3,6 +3,7 @@ unit arArchiTestsAdapter;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\arArchiTestsAdapter.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "arArchiTestsAdapter" MUID: (4DE60853015A)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

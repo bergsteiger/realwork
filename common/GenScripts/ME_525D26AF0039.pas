@@ -2,6 +2,7 @@ unit ddHyperlinkTarget;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddHyperlinkTarget.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddHyperlinkTarget" MUID: (525D26AF0039)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -89,7 +90,7 @@ begin
  begin
   f_DocID := TddHyperlinkTarget(anObject).DocID;
   f_SubID := TddHyperlinkTarget(anObject).SubID;
- end
+ end // if anObject is TddHyperlinkTarget then
  else
   inherited;
 //#UC END# *52BACF8A01A9_525D26AF0039_impl*

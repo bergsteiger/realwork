@@ -5,7 +5,7 @@ unit ServerStatusRequest_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/ServerStatusRequest_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::ServerStatusRequest
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::ServerStatusRequest
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

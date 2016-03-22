@@ -37,7 +37,6 @@ var
  l_Folder,
  l_File: String;
 begin
-{$IFDEF NewAutoLinker}
  // Создать кеш, поместить на ftp
  l_Folder:= CacheTempFolder;
  PureDir(l_Folder);
@@ -49,7 +48,6 @@ begin
   PutFileToFTP(l_File, AsString['alcFTPHost'], AsString['alcFTPUser'], AsString['alcFTPPassword'],
                        AsString['alcFTPFolder'], AsInteger['alcFTPport'], AsBoolean['alcFTPPassive']);
  PureDir(l_Folder);
-{$ENDIF}
 end;
 
 procedure ImportAutoLinkCache(aProgressor: TddProgressObject);
@@ -57,7 +55,6 @@ var
  l_Folder,
  l_File: String;
 begin
-{$IFDEF NewAutoLinker}
  // Забрать кеш с ftp
  l_Folder:= ConcatDirName(GetWindowsTempFolder, 'AutoLinkCache');;
  PureDir(l_Folder);
@@ -73,14 +70,11 @@ begin
   CopyFilesByMask(l_Folder, GlobalHtServer.Family[1].Path, '*.*');
   PureDir(l_Folder);
  end; // FileExists(l_File)
-{$ENDIF}
 end;
 
 procedure UpdateAutoLinkCache(aProgressor: TddProgressObject);
 begin
-{$IFDEF NewAutoLinker}
  CreateOrUpdateAutolinkCache(aProgressor.ProcessUpdate{$IFDEF UseCommandFile}, False{$ENDIF});
-{$ENDIF}
 end;
 
 end.

@@ -2,6 +2,7 @@ unit Tl3LongintList_Proxy;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\Tl3LongintList_Proxy.pas"
 // Стереотип: "ClassProxy"
+// Элемент модели: "Tl3LongintList" MUID: (561D40470085)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

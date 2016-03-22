@@ -2,6 +2,8 @@ unit kwMouseSetCursorPosition;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseSetCursorPosition.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "mouse_SetCursorPosition" MUID: (4EF0939D025E)
+// Имя типа: "TkwMouseSetCursorPosition"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

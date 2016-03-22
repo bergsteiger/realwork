@@ -34,11 +34,14 @@ type
   {* Интерфейс обмена данными с бизнес объектов формы "enList" }
    ['{8A2B09DF-1DF5-40E9-981D-44110CC01ACC}']
    function pm_GetOpenFrom: TbsListOpenFrom;
+   function pm_GetIsChanged: Boolean;
    function CloneWithReplace(const aNewList: IDynList;
     const aNodeForPositioning: Il3SimpleNode): IdeDocumentList;
    property OpenFrom: TbsListOpenFrom
      read pm_GetOpenFrom;
      {* откуда был открыт список }
+   property IsChanged: Boolean
+     read pm_GetIsChanged;
  end;//IdeDocumentList
 
  IdeDocumentListCR = interface(IdeDocumentList)

@@ -2,6 +2,7 @@ unit evTableCursorPrim;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTableCursorPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTableCursorPrim" MUID: (4EF9B83D010D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

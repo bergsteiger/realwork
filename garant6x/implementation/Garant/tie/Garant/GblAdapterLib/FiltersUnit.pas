@@ -82,12 +82,12 @@ type
 Если auto_refresh = true (значение по умолчанию), то
 операция приводит к перефильтрации объекта. }
    procedure DeleteFilter(const aFilter: IFilterFromQuery;
-    aAutoRefresh: Boolean); stdcall; // can raise CanNotFindData
+    aAutoRefresh: Boolean); stdcall; // can raise CanNotFindData, AllContentIsFiltered
      {* Удаляет фильтр из списка активных фильтров объекта. Если auto_refresh = true (значение по умолчанию), то операция приводит к перефильтрации объекта. }
    procedure ClearFilters; stdcall; // can raise CanNotFindData
      {* Удаляет все фильтры. В результате операции объект переходит в состояние, соответвующее отсутствию фильтров }
    procedure RefreshFilters; stdcall; // can raise CanNotFindData, AllContentIsFiltered
-   procedure ApplyFilters(const aFilters: IFiltersFromQuery); stdcall; // can raise CanNotFindData
+   procedure ApplyFilters(const aFilters: IFiltersFromQuery); stdcall; // can raise CanNotFindData, AllContentIsFiltered
      {* Добавляет пачку фильтров с одновременным их применением. При этом эта пачка либо целиком применяется, либо (в случае, если все документы отфильтрованы) целиком отклоняется.
 
 Если выясняется, что на сервере нет данных для построения списка, т.е. списка как такового нет (см. К244711732), летит CanNotFindData. }

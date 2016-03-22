@@ -2,6 +2,8 @@ unit csPushFilePart_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\csPushFilePart_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "csPushFilePart" MUID: (54893DC0002B)
+// Имя типа: "csPushFilePartTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

@@ -12,6 +12,8 @@ aMode dialogs:LockDocument:SetSkipMode
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwDialogsLockDocumentSetSkipMode.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "dialogs_LockDocument_SetSkipMode" MUID: (54255FED0328)
+// Имя типа: "TkwDialogsLockDocumentSetSkipMode"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

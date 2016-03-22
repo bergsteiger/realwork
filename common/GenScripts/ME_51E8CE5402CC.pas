@@ -2,6 +2,7 @@ unit ddTab;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTab.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddTab" MUID: (51E8CE5402CC)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

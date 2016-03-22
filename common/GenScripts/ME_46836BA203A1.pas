@@ -3,6 +3,7 @@ unit nsDictionTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsDictionTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDictionTree" MUID: (46836BA203A1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

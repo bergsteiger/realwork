@@ -1,8 +1,11 @@
 unit dd_lcMisspellFilter;
 // Фильтр исправления опечаток
 
-{ $Id: dd_lcMisspellFilter.pas,v 1.11 2014/04/04 07:14:45 dinishev Exp $ }
+{ $Id: dd_lcMisspellFilter.pas,v 1.12 2015/11/26 08:45:43 lukyanets Exp $ }
 // $Log: dd_lcMisspellFilter.pas,v $
+// Revision 1.12  2015/11/26 08:45:43  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.11  2014/04/04 07:14:45  dinishev
 // Bug fix: не собирался Арчи.
 //
@@ -52,7 +55,7 @@ implementation
 
 uses
  l3String, l3Chars, SysUtils, l3BMSearch, TextPara_Const, l3Variant,
- Participant_Const, DT_LinkServ, DT_Const;
+ Participant_Const, DT_LinkServ, daSchemeConsts;
 
 function Tdd_lcMisspellFilter.CheckWord(const aStr : Tl3PCharLen; IsLast: Bool): Boolean;
 var

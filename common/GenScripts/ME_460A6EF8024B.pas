@@ -2,6 +2,7 @@ unit ApplicationHelper;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ApplicationHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ApplicationHelper" MUID: (460A6EF8024B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

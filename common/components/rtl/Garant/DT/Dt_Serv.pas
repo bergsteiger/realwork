@@ -1,9 +1,24 @@
 Unit Dt_Serv;
 {$DEFINE UseCommServer}
 
-{ $Id: Dt_Serv.pas,v 1.327 2015/09/01 12:31:55 lukyanets Exp $ }
+{ $Id: Dt_Serv.pas,v 1.332 2016/03/18 10:28:40 lukyanets Exp $ }
 
 // $Log: Dt_Serv.pas,v $
+// Revision 1.332  2016/03/18 10:28:40  lukyanets
+// Не создаем лишнего при проверке пароля
+//
+// Revision 1.331  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
+// Revision 1.330  2015/11/25 07:22:13  lukyanets
+// Заготовки для выдачи номеров
+//
+// Revision 1.329  2015/11/24 14:08:24  voba
+// -bf убрал конкурентную запись дерева словаря. Теперь дерево переписываем только при апдейте, в спокойной обстановке
+//
+// Revision 1.328  2015/11/16 12:59:32  lukyanets
+// Отдаем параметры
+//
 // Revision 1.327  2015/09/01 12:31:55  lukyanets
 // Заготовки к Postgress
 //
@@ -1011,7 +1026,7 @@ uses
   DT_Dict,
   Dt_Free,
 
-  CsCommon, 
+  CsCommon,
 
   m3DBInterfaces,
   m3StorageInterfaces,
@@ -1050,12 +1065,13 @@ type
    f_HasAdminRights: Boolean;
    f_ControlTblFName: ShortString;
    f_ControlTbl     : HT_Const.THANDLE;
-    f_CurHomePath: TPathStr;
-    f_CurTblPath: TPathStr;
-    f_GlobalHomePath: TPathStr;
-    f_FamilyPath: TPathStr;
-    f_CurStationName: TStationID;
-    f_HyTechTableOpenMode: Byte;
+   f_CurHomePath: TPathStr;
+   f_CurTblPath: TPathStr;
+   f_GlobalHomePath: TPathStr;
+   f_FamilyPath: TPathStr;
+   f_CurStationName: TStationID;
+   f_HyTechTableOpenMode: Byte;
+   f_ForCheckLogin: Boolean;
    function GetAliasValue(const aAlias: AnsiString): ShortString;
    function pm_GetBaseLanguage(aFamily: TFamilyID): TLanguageObj;
    function pm_GetExtDocIDsFromRange: Boolean;
@@ -1265,6 +1281,7 @@ uses
   l3FileUtils,
 
   daUtils,
+  daSchemeConsts,
 
   HT_Dll,
   WinProcs,
@@ -1275,7 +1292,8 @@ uses
   DT_AskList,
   Dt_List,
   DT_DocImages,
-
+  Dt_DictTree,
+  
   vtVerInf,
   vtDialogs,
 
@@ -1391,23 +1409,18 @@ Begin
  if aRPath.HomePath = '' then
   aRPath.HomePath:=aRPath.TblPath;
 
- { DONE 5 -oДмитрий Дудко -cнедоделка : Проверить версию и уникальность имени станции }
- //StationJornal:=TNetUsersJournal.Create(aStationName, l_CurHostName, ConcatDirName(aRPath.LockPath,'NetUsr.Log'), l_Port);
-
-
  Try
   GlobalHTServer := THTServer.Create(aStationName,aRPath.LockPath, aRPath);
   GlobalHTServer.AliasList.Assign(aAliasList);
+  GlobalHTServer.f_ForCheckLogin := ForCheckLogin;
   if not ForCheckLogin then
   begin
    LockServer:=TLockServer.Create(AllowClearLocks);
    For I:=0 to GlobalHTServer.FamilyList.Count - 1 do
     LockServer.InitFamilyLocks(PFamilyID(GlobalHTServer.FamilyList.Data[I])^);
-   //LinkServer:=TLinkServer.Create;
-   //DictServer:=TDictionaryServer.Create;
    cDocumentServer := TDocumentServer.Create;
+   AccessServer := TAccessServer.Create;
   end;
-  AccessServer := TAccessServer.Create;
   UserManager := TUserManager.Create;
   SetDocImagePath(aRPath.DocImgPath);
  except
@@ -1605,7 +1618,7 @@ begin
  if aValue <> fUserID then
  begin
   fUserID := aValue;
-  If fRequireAdminRights or ((fUserID <> usSupervisor) and (fUserID < usAdminReserved)) then
+  If not f_ForCheckLogin and (fRequireAdminRights or ((fUserID <> usSupervisor) and (fUserID < usAdminReserved))) then
   begin
    UserManager.GetUserGroup(fUserID);
    f_CurHomePath:=xxxGetHomePath(fUserID);
@@ -1733,29 +1746,30 @@ Begin
  end;
 end;
 
-Procedure THTServer.UpdateTbl(aName : TTblNameStr;aFamily : TFamilyID;
+Procedure THTServer.UpdateTbl(aName : TTblNameStr; aFamily : TFamilyID;
                               aPass : TPassStr);
 Var
  hTable : HT_Const.THANDLE;
- TmpPath: ShortString;
+ lTblName: TFileName;
  TmpPass: ShortString;
  Ok     : LongInt;
  l_FamilyPath: TPathStr;
- l_TableName: AnsiString;
 Begin
  l_FamilyPath := FamilyTbl.FamilyPath(aFamily);
  TmpPass:=aPass;
  TmpPass:=TmpPass+#0;
- TmpPath:=l_FamilyPath+aName+#0;
- Ok:=htTableHandleByName(@TmpPath[1],hTable);
+ lTblName := ConcatDirName(l_FamilyPath, aName);
+
+ UpdateTreeStuct(lTblName);
+
+ Ok:=htTableHandleByName(PChar(lTblName), hTable);
  If Ok < 0 then
  begin
   l3System.Msg2Log(aName);
-  Ht(htUpdateTable(@TmpPath[1],@TmpPass[1],@TmpPass[1],True,False));
+  Ht(htUpdateTable(PChar(lTblName),@TmpPass[1],@TmpPass[1],True,False));
 
-  l_TableName := Trim(aName);
-  SysUtils.DeleteFile(ConcatDirName(l_FamilyPath, ChangeFileExt(l_TableName, '.HLK'))); // разделяемый файл замка
-  DeleteFilesByMaskRecur(fLockPath, ChangeFileExt(l_TableName, '.!*')); // "приватные" файлы замков
+  SysUtils.DeleteFile(ChangeFileExt(lTblName, '.HLK')); // разделяемый файл замка
+  DeleteFilesByMaskRecur(fLockPath, ChangeFileExt(aName, '.!*')); // "приватные" файлы замков
  end
  else
   raise EHtErrors.CreateInt(ecTblOpen);
@@ -2632,8 +2646,6 @@ Begin
 end;
 
 function THTServer.GetFreeTbl(aFamily : TFamilyID): TFreeTbl;
-var
- l_OpenTblRec: TOpenTblRec;
 begin
  if aFamily = MainTblsFamily then
   Result := TFreeTbl(GetTblObject(aFamily, Ord(mtFree)))
@@ -2934,9 +2946,6 @@ Begin
 end;
 
 function THTServer.GetAliasValue(const aAlias: AnsiString): ShortString;
-var
- PathConst: ShortString;
- SaveSection: ShortString;
 begin
  Result := '';
  if f_AliasList.Count > 0 then
@@ -2977,8 +2986,6 @@ begin
 end;
 
 function THTServer.xxxGetFreeExtObjID(aFamily : TFamilyID): TDocID;
-var
- lRenum : TReNumTbl;
 begin
  Result := 0;
  // если есть ftnObjIDExternal возмем из него

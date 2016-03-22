@@ -3,6 +3,7 @@ unit CsReplyProceduresPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\CsReplyProceduresPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TCsReplyProceduresPrim" MUID: (537F645C01D1)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

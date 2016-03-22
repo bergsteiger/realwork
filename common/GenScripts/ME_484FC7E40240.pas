@@ -3,6 +3,8 @@ unit Alarm_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\Alarm_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Alarm" MUID: (484FC7E40240)
+// Имя типа: "AlarmTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

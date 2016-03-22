@@ -2,6 +2,8 @@ unit kwVcmHistoryDeleteForwardItem;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmHistoryDeleteForwardItem.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "vcm_History_DeleteForwardItem" MUID: (53DA56FB028B)
+// Имя типа: "TkwVcmHistoryDeleteForwardItem"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

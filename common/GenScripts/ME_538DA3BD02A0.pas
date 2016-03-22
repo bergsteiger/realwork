@@ -2,6 +2,7 @@ unit NOT_FINISHED_CsQueryRequester;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_CsQueryRequester.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "CsQueryRequester" MUID: (538DA3BD02A0)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

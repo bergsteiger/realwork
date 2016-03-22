@@ -2,6 +2,7 @@ unit vcmAggregate;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmAggregate.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmAggregate" MUID: (528609ED0325)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

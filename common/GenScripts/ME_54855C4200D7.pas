@@ -2,6 +2,7 @@ unit ncsSendTaskReply;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsSendTaskReply.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsSendTaskReply" MUID: (54855C4200D7)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

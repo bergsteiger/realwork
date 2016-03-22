@@ -5,7 +5,7 @@
 // Библиотека "m3"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3CustomHeaderStream.imp.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi For Archi::m3::HeaderStream::m3CustomHeaderStream
+// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::m3::HeaderStream::m3CustomHeaderStream
 //
 // Поток с заголовком-идентификатором
 //

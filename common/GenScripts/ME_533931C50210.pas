@@ -2,6 +2,7 @@ unit vgReminderWithAction;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vgReminderWithAction.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgReminderWithAction" MUID: (533931C50210)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
@@ -102,6 +103,7 @@ type
     {* Функция очистки полей объекта. }
    procedure DoClick(out aHandled: Boolean); override;
    procedure UpdateAction; override;
+   procedure ClearFields; override;
   public
    constructor Create(AOwner: TComponent); override;
   public
@@ -421,6 +423,13 @@ begin
   f_ActionLink.Action.Update;
 //#UC END# *533AA4E9016A_533931C50210_impl*
 end;//TvgReminderWithAction.UpdateAction
+
+procedure TvgReminderWithAction.ClearFields;
+begin
+ EntityName := '';
+ OperationName := '';
+ inherited;
+end;//TvgReminderWithAction.ClearFields
 
 //#UC START# *533931C50210impl*
 //#UC END# *533931C50210impl*

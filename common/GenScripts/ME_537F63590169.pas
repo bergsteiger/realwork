@@ -2,6 +2,7 @@ unit NOT_FINISHED_CsQueryTypes;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_CsQueryTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "CsQueryTypes" MUID: (537F63590169)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

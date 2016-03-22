@@ -2,6 +2,8 @@ unit kwConfigurationsGetCount;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsGetCount.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "configurations_GetCount" MUID: (53B2DE010174)
+// Имя типа: "TkwConfigurationsGetCount"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit ScrollTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\ScrollTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TScrollTest" MUID: (4BEBF13B0076)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

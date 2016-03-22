@@ -3,6 +3,7 @@ unit vcmBaseOperationsCollection;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmBaseOperationsCollection.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmBaseOperationsCollection" MUID: (55D30E6601A8)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

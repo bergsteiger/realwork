@@ -2,6 +2,7 @@ unit bsHyperlinkProcessorContainerMaker;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\bsHyperlinkProcessorContainerMaker.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsHyperlinkProcessorContainerMaker" MUID: (5417E71801D2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

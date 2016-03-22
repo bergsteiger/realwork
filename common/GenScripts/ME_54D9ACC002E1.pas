@@ -2,6 +2,7 @@ unit ddFormulaSegment;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddFormulaSegment.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddFormulaSegment" MUID: (54D9ACC002E1)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

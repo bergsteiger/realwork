@@ -2,6 +2,7 @@ unit NOT_FINISHED_nscPreviewPanel;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscPreviewPanel.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscPreviewPanel" MUID: (4AC6113D038A)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.imp.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "sdsDocument" MUID: (493E5C580280)
+// Имя типа: "_sdsDocument_"
 
 {$Define sdsDocument_imp}
 
@@ -108,6 +110,7 @@
    {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
   public
    function Generate(const aWarning: IdsWarning;
     const aGen: InevTagGenerator;
@@ -1012,7 +1015,16 @@ begin
 end;//_sdsDocument_.DoGetFormSetImageIndex
 {$IfEnd} // NOT Defined(NoVCM)
 
+procedure _sdsDocument_.ClearFields;
+begin
+ f_dsBaloonWarning := nil;
+ f_dsTimeMachineWarning := nil;
+ f_dsTranslationWarning := nil;
+ f_dsCRBaloonWarning := nil;
+ inherited;
+end;//_sdsDocument_.ClearFields
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
 {$EndIf sdsDocument_imp_impl}
 
 {$EndIf sdsDocument_imp}

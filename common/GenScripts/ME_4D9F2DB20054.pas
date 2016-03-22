@@ -2,6 +2,7 @@ program NemesisAppTest;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\NemesisAppTest.dpr"
 // Стереотип: "VCMTestTarget"
+// Элемент модели: "Nemesis" MUID: (4D9F2DB20054)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit arDocumentContainerWithContentsTree;
 
 // Модуль: "w:\archi\source\projects\Archi\Editor\arDocumentContainerWithContentsTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarDocumentContainerWithContentsTree" MUID: (4E004D900171)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

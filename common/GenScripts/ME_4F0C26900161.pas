@@ -3,6 +3,7 @@ unit kwShowMailMessage;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwShowMailMessage.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwShowMailMessage" MUID: (4F0C26900161)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

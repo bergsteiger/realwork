@@ -3,6 +3,7 @@ unit evEditorInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evEditorInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "evEditorInterfaces" MUID: (48E3836D00C8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

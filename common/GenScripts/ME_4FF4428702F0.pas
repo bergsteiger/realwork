@@ -3,6 +3,8 @@ unit fsAACContents;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\fsAACContents.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "AACContents" MUID: (4FF4428702F0)
+// Имя типа: "Tfs_AACContents"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

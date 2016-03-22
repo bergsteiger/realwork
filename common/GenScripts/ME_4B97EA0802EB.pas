@@ -2,6 +2,7 @@ unit vtOutlinerWithQuickSearch;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtOutlinerWithQuickSearch.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtOutlinerWithQuickSearch" MUID: (4B97EA0802EB)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

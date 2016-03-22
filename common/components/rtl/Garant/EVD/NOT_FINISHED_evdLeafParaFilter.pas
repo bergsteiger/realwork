@@ -10,6 +10,7 @@ unit NOT_FINISHED_evdLeafParaFilter;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdLeafParaFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdLeafParaFilter" MUID: (49E487650342)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

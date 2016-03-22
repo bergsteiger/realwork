@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3Forms;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Forms.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3Forms" MUID: (495259ED005C)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -31,9 +32,6 @@ implementation
 
 uses
  l3ImplUses
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , l3Base
  , l3Core
@@ -42,6 +40,9 @@ uses
  , l3MemUtils
  , l3Interlocked
  , l3InterfacesMisc
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}

@@ -2,6 +2,7 @@ unit BaseDocumentWithAttributesInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces\BaseDocumentWithAttributesInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "BaseDocumentWithAttributesInterfaces" MUID: (4D1B85BF03E4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

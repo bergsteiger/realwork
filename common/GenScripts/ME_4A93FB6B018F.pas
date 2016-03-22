@@ -2,6 +2,8 @@ unit PrimEULA_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimEULA_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimEULA" MUID: (4A93FB6B018F)
+// Имя типа: "TPrimEULAForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

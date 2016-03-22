@@ -3,6 +3,8 @@ unit fsInternetAgent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\fsInternetAgent.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "InternetAgent" MUID: (49F586610347)
+// Имя типа: "Tfs_InternetAgent"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -163,6 +163,7 @@ uses
   ,
   nsUtils,
   bsTypesNew,
+  nsConst,
   l3MessageID
   {$If not defined(NoScripts)}
   ,
@@ -225,8 +226,7 @@ procedure TAACTextContainerPrimForm.LblLinkToContentClick(Sender: TObject);
 //#UC END# *502A7459031B_500406E901E5_var*
 begin
 //#UC START# *502A7459031B_500406E901E5_impl*
- //TbsHyperLinkProcessorPrim.RunScript('57970000 Открыть');
- nsOpenLink(57970000, 0, dptNone);
+ nsOpenDocumentByNumber(57970000 + c_InternalDocShift, 0, dptSub, false)
 //#UC END# *502A7459031B_500406E901E5_impl*
 end;//TAACTextContainerPrimForm.LblLinkToContentClick
 

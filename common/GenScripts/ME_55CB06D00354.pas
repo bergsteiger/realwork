@@ -3,6 +3,7 @@ unit evAACContentUtils;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evAACContentUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evAACContentUtils" MUID: (55CB06D00354)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

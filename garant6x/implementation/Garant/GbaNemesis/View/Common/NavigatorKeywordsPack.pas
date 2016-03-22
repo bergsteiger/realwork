@@ -3,6 +3,7 @@ unit NavigatorKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\NavigatorKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "NavigatorKeywordsPack" MUID: (3ADD81F1E403)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -48,8 +49,8 @@ type
 'aControl' форма::Navigator TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Navigator
 
  Tkw_Navigator_Control_BackgroundPanel = {final} class(TtfwControlString)
@@ -60,9 +61,9 @@ type
 контрол::BackgroundPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Navigator_Control_BackgroundPanel
 
  Tkw_Navigator_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
@@ -85,9 +86,9 @@ type
 контрол::ContextFilter TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Navigator_Control_ContextFilter
 
  Tkw_Navigator_Control_ContextFilter_Push = {final} class(TkwBynameControlPush)
@@ -110,9 +111,9 @@ type
 контрол::NavigatorTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Navigator_Control_NavigatorTree
 
  Tkw_Navigator_Control_NavigatorTree_Push = {final} class(TkwBynameControlPush)
@@ -199,20 +200,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnNavigatorNavigatorTree
 
-class function Tkw_Form_Navigator.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Navigator';
-end;//Tkw_Form_Navigator.GetWordNameForRegister
-
 function Tkw_Form_Navigator.GetString: AnsiString;
 begin
  Result := 'en_Navigator';
 end;//Tkw_Form_Navigator.GetString
 
-class function Tkw_Navigator_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_Navigator.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::BackgroundPanel';
-end;//Tkw_Navigator_Control_BackgroundPanel.GetWordNameForRegister
+ Result := 'форма::Navigator';
+end;//Tkw_Form_Navigator.GetWordNameForRegister
 
 function Tkw_Navigator_Control_BackgroundPanel.GetString: AnsiString;
 begin
@@ -225,6 +221,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_Navigator_Control_BackgroundPanel.RegisterInEngine
 
+class function Tkw_Navigator_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BackgroundPanel';
+end;//Tkw_Navigator_Control_BackgroundPanel.GetWordNameForRegister
+
 procedure Tkw_Navigator_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BackgroundPanel');
@@ -235,11 +236,6 @@ class function Tkw_Navigator_Control_BackgroundPanel_Push.GetWordNameForRegister
 begin
  Result := 'контрол::BackgroundPanel:push';
 end;//Tkw_Navigator_Control_BackgroundPanel_Push.GetWordNameForRegister
-
-class function Tkw_Navigator_Control_ContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ContextFilter';
-end;//Tkw_Navigator_Control_ContextFilter.GetWordNameForRegister
 
 function Tkw_Navigator_Control_ContextFilter.GetString: AnsiString;
 begin
@@ -252,6 +248,11 @@ begin
  TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_Navigator_Control_ContextFilter.RegisterInEngine
 
+class function Tkw_Navigator_Control_ContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ContextFilter';
+end;//Tkw_Navigator_Control_ContextFilter.GetWordNameForRegister
+
 procedure Tkw_Navigator_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ContextFilter');
@@ -263,11 +264,6 @@ begin
  Result := 'контрол::ContextFilter:push';
 end;//Tkw_Navigator_Control_ContextFilter_Push.GetWordNameForRegister
 
-class function Tkw_Navigator_Control_NavigatorTree.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::NavigatorTree';
-end;//Tkw_Navigator_Control_NavigatorTree.GetWordNameForRegister
-
 function Tkw_Navigator_Control_NavigatorTree.GetString: AnsiString;
 begin
  Result := 'NavigatorTree';
@@ -278,6 +274,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_Navigator_Control_NavigatorTree.RegisterInEngine
+
+class function Tkw_Navigator_Control_NavigatorTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::NavigatorTree';
+end;//Tkw_Navigator_Control_NavigatorTree.GetWordNameForRegister
 
 procedure Tkw_Navigator_Control_NavigatorTree_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -312,11 +313,6 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aen_Navigator));
 end;//TkwEnNavigatorBackgroundPanel.DoDoIt
 
-class function TkwEnNavigatorBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_Navigator.BackgroundPanel';
-end;//TkwEnNavigatorBackgroundPanel.GetWordNameForRegister
-
 procedure TkwEnNavigatorBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -337,6 +333,11 @@ function TkwEnNavigatorBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_Navigator)]);
 end;//TkwEnNavigatorBackgroundPanel.ParamsTypes
+
+class function TkwEnNavigatorBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_Navigator.BackgroundPanel';
+end;//TkwEnNavigatorBackgroundPanel.GetWordNameForRegister
 
 function TkwEnNavigatorContextFilter.ContextFilter(const aCtx: TtfwContext;
  aen_Navigator: Ten_Navigator): TnscContextFilter;
@@ -360,11 +361,6 @@ begin
  aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aen_Navigator));
 end;//TkwEnNavigatorContextFilter.DoDoIt
 
-class function TkwEnNavigatorContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_Navigator.ContextFilter';
-end;//TkwEnNavigatorContextFilter.GetWordNameForRegister
-
 procedure TkwEnNavigatorContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -385,6 +381,11 @@ function TkwEnNavigatorContextFilter.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_Navigator)]);
 end;//TkwEnNavigatorContextFilter.ParamsTypes
+
+class function TkwEnNavigatorContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_Navigator.ContextFilter';
+end;//TkwEnNavigatorContextFilter.GetWordNameForRegister
 
 function TkwEnNavigatorNavigatorTree.NavigatorTree(const aCtx: TtfwContext;
  aen_Navigator: Ten_Navigator): TnscTreeViewWithAdapterDragDrop;
@@ -408,11 +409,6 @@ begin
  aCtx.rEngine.PushObj(NavigatorTree(aCtx, l_aen_Navigator));
 end;//TkwEnNavigatorNavigatorTree.DoDoIt
 
-class function TkwEnNavigatorNavigatorTree.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_Navigator.NavigatorTree';
-end;//TkwEnNavigatorNavigatorTree.GetWordNameForRegister
-
 procedure TkwEnNavigatorNavigatorTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -433,6 +429,11 @@ function TkwEnNavigatorNavigatorTree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_Navigator)]);
 end;//TkwEnNavigatorNavigatorTree.ParamsTypes
+
+class function TkwEnNavigatorNavigatorTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_Navigator.NavigatorTree';
+end;//TkwEnNavigatorNavigatorTree.GetWordNameForRegister
 
 initialization
  Tkw_Form_Navigator.RegisterInEngine;

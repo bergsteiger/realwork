@@ -2,6 +2,7 @@ unit tfwWordRefList;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwWordRefList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwWordRefList" MUID: (4DB6CAC402B4)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

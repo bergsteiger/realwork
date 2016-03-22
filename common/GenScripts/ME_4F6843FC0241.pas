@@ -2,6 +2,7 @@ unit ddPropertyObject;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddPropertyObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddPropertyObject" MUID: (4F6843FC0241)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

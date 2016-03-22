@@ -2,6 +2,7 @@ unit TTreeNodeForTestsWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\DUnit_Script_Support\TTreeNodeForTestsWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "TTreeNodeForTestsWordsPack" MUID: (55C9F3800372)
 
 {$Include w:\common\components\rtl\Garant\DUnit_Script_Support\dsDefine.inc}
 
@@ -96,11 +97,6 @@ begin
  aCtx.rEngine.PushBool(IsNodeFolder(aCtx, l_aTreeNode));
 end;//TkwPopTreeNodeIsNodeFolder.DoDoIt
 
-class function TkwPopTreeNodeIsNodeFolder.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:TreeNode:IsNodeFolder';
-end;//TkwPopTreeNodeIsNodeFolder.GetWordNameForRegister
-
 function TkwPopTreeNodeIsNodeFolder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -115,6 +111,11 @@ function TkwPopTreeNodeIsNodeFolder.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTreeNode)]);
 end;//TkwPopTreeNodeIsNodeFolder.ParamsTypes
+
+class function TkwPopTreeNodeIsNodeFolder.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:TreeNode:IsNodeFolder';
+end;//TkwPopTreeNodeIsNodeFolder.GetWordNameForRegister
 
 initialization
  TTTreeNodeForTestsWordsPackResNameGetter.Register;

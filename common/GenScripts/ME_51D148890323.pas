@@ -2,6 +2,7 @@ unit vcmEntityDefForContextMenu;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmEntityDefForContextMenu.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmEntityDefForContextMenu" MUID: (51D148890323)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

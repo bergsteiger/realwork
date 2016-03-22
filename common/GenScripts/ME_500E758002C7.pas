@@ -2,6 +2,7 @@ unit nsAACDocumentContainerPrim;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsAACDocumentContainerPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsAACDocumentContainerPrim" MUID: (500E758002C7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

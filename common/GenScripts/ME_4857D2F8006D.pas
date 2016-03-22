@@ -3,6 +3,8 @@ unit TableRow_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\TableRow_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "TableRow" MUID: (4857D2F8006D)
+// Имя типа: "TableRowTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

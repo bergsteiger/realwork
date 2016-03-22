@@ -2,6 +2,7 @@ unit evLinkedToolPanel;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evLinkedToolPanel.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evLinkedToolPanel" MUID: (547DA4F701F9)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

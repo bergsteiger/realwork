@@ -2,6 +2,7 @@ unit m3BranchHandle;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3BranchHandle.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3BranchHandle" MUID: (5453ACDE0177)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

@@ -2,6 +2,7 @@ unit eeRenderFormula;
 
 // Модуль: "w:\common\components\rtl\Garant\RenderEVD\eeRenderFormula.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "eeRenderFormula" MUID: (4B72DF7B0164)
 
 {$Include w:\common\components\rtl\Garant\RenderEVD\evDefine.inc}
 

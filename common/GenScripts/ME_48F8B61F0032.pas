@@ -2,6 +2,7 @@ unit nsContentsTreeStorable;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsContentsTreeStorable.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsContentsTreeStorable" MUID: (48F8B61F0032)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

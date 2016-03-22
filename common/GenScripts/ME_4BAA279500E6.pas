@@ -3,6 +3,7 @@ unit nevRangePrim;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevRangePrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevRangePrim" MUID: (4BAA279500E6)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

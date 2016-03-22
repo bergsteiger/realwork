@@ -3,6 +3,7 @@ unit PharmFirmListUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\PharmFirmListUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "PharmFirmList" MUID: (47E8DDB10253)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

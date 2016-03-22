@@ -2,6 +2,7 @@ unit atQueryTypeConverter;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atQueryTypeConverter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatQueryTypeConverter" MUID: (50045BDB00CA)
 
 interface
 

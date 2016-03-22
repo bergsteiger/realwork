@@ -3,6 +3,8 @@ unit evControlsBlock_InterfaceFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evControlsBlock_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
+// Элемент модели: "TevControlsBlock" MUID: (485807480091)
+// Имя типа: "TevControlsBlockInterfaceFactory"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

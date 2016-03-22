@@ -1,75 +1,61 @@
 unit kwPopEditorSetStyle2Block;
+ {* [code]
+aStyle anEditor pop:editor:SetStyle2Block
+[code]
+aStyle -  номер стиля из таблицы стилей.
+anEditor - редактор, в котором производятся изменения. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwPopEditorSetStyle2Block.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::EditorKeyWords::pop_editor_SetStyle2Block
-//
-// {code}
-// aStyle anEditor pop:editor:SetStyle2Block
-// {code}
-// aStyle -  номер стиля из таблицы стилей.
-// anEditor - редактор, в котором производятся изменения.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorSetStyle2Block.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_SetStyle2Block" MUID: (4FF2EF7E03C7)
+// Имя типа: "TkwPopEditorSetStyle2Block"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackWord,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwPopEditorSetStyle2Block = {final scriptword} class(TkwEditorFromStackWord)
+ TkwPopEditorSetStyle2Block = {final} class(TkwEditorFromStackWord)
   {* [code]
 aStyle anEditor pop:editor:SetStyle2Block
 [code]
 aStyle -  номер стиля из таблицы стилей.
 anEditor - редактор, в котором производятся изменения. }
- protected
- // realized methods
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorSetStyle2Block
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evOp
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwPopEditorSetStyle2Block
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evOp
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorSetStyle2Block.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4FF2EF7E03C7_var*
 var
  l_StyleID: Integer;
@@ -85,17 +71,13 @@ begin
 end;//TkwPopEditorSetStyle2Block.DoWithEditor
 
 class function TkwPopEditorSetStyle2Block.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:SetStyle2Block';
 end;//TkwPopEditorSetStyle2Block.GetWordNameForRegister
 
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация pop_editor_SetStyle2Block
  TkwPopEditorSetStyle2Block.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация pop_editor_SetStyle2Block }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

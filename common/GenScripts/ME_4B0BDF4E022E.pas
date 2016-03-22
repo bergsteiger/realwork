@@ -2,6 +2,7 @@ unit nsFindContextInListEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\nsFindContextInListEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsFindContextInListEvent" MUID: (4B0BDF4E022E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

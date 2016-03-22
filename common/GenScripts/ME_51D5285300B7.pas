@@ -2,6 +2,7 @@ unit EmptyFormTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\EmptyFormTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TEmptyFormTest" MUID: (51D5285300B7)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

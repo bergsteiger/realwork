@@ -145,6 +145,7 @@ void ComponentManagerBase::execute () {
 	GCM::register_valuetype_factory<GblPilotDef::ComplectInfoValue_init> ();
 	GCM::register_valuetype_factory<GblPilot::ContentsNodeValue_init> ();
 	GCM::register_valuetype_factory<GblDocList::ListNodeValue_init> ();
+	GCM::register_valuetype_factory<GblDocList::SnippetListNodeValue_init> ();
 	GCM::register_valuetype_factory<GblPilotQueryDef::QueryFilter_init> ();
 
 	GCM::register_valuetype_factory<GblPilotQueryDef::QueryDictData_init> ();

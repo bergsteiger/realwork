@@ -2,6 +2,7 @@ unit tfwRegisterableWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwRegisterableWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwRegisterableWord" MUID: (53EDC0E701BC)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

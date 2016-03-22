@@ -2,6 +2,7 @@ unit nsParaModifier;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParaModifier.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsParaModifier" MUID: (4CEE65B701A4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

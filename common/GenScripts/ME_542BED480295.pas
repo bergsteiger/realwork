@@ -2,6 +2,7 @@ unit nsNotificationManager;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsNotificationManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsNotificationManager" MUID: (542BED480295)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

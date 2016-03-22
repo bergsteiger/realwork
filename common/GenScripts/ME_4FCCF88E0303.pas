@@ -2,6 +2,7 @@ unit atClearUserJournalOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atClearUserJournalOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatClearUserJournalOperation" MUID: (4FCCF88E0303)
 
 interface
 

@@ -462,11 +462,8 @@ int main_logic ( int argc, char *argv[] )
 	long	phase = 0, request_iter = 0;
 	bool	b_exclusive_class = false;
 
-	Morpho::Def::ICache* cache = BaseCache::instance ()->get_morpho_cache_ptr ();
-	cache->load (aBase->abstract_base (), true);
-
 	SearchAdapterLib::Adapter::ISearcher_var searcher = SearchAdapter::instance ()->get (
-		aBase->abstract_base (), cache, "NWCntxt.str"
+		aBase->abstract_base (), BaseCache::instance ()->get_morpho_cache (aBase), "NWCntxt.str"
 	);
 
 	while (!feof (rulesFile)) {

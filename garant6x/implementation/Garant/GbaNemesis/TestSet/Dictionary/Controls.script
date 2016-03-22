@@ -68,3 +68,9 @@ PROCEDURE "—равнить с эталоном экранные координаты контрола " STRING IN aCtrl
  ' оордината X (права€ сторона): ' 0 aMass [i] ToPrintable Cat .
  ' оордината Y (нижн€€ сторона): ' 1 aMass [i] ToPrintable Cat .
 ;
+
+: "”бедитьс€, что текущий контрол" STRING IN aClass
+ OBJECT VAR l_Control
+ focused:control:push =: l_Control
+ l_Control я¬Ћя≈“—я aClass ?ASSURE [ '‘окус на контроле, который относитс€ к другому классу: ' l_Control pop:object:ClassName ', а не: ' aClass ]
+; // "”бедитьс€, что текущий контрол"

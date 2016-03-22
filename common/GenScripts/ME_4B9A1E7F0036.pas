@@ -2,6 +2,7 @@ unit UnderControlInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "UnderControlInterfaces" MUID: (4B9A1E7F0036)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

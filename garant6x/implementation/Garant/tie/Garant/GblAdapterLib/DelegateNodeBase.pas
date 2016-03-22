@@ -82,7 +82,7 @@ function DelegateNodeBase.pm_GetHasFilteredChildren: Boolean;
 //#UC END# *45FAC21A0148_45F6C139000Fget_var*
 begin
 //#UC START# *45FAC21A0148_45F6C139000Fget_impl*
- Result := f_has_filtered_children
+ !!! Needs to be implemented !!!
 //#UC END# *45FAC21A0148_45F6C139000Fget_impl*
 end;//DelegateNodeBase.pm_GetHasFilteredChildren
 
@@ -91,7 +91,7 @@ procedure DelegateNodeBase.pm_SetHasFilteredChildren(aValue: Boolean);
 //#UC END# *45FAC21A0148_45F6C139000Fset_var*
 begin
 //#UC START# *45FAC21A0148_45F6C139000Fset_impl*
- f_has_filtered_children := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *45FAC21A0148_45F6C139000Fset_impl*
 end;//DelegateNodeBase.pm_SetHasFilteredChildren
 
@@ -100,7 +100,7 @@ procedure DelegateNodeBase.pm_SetMasterNode(aValue: RealNodeBase);
 //#UC END# *47D6BA2603CF_45F6C139000Fset_var*
 begin
 //#UC START# *47D6BA2603CF_45F6C139000Fset_impl*
- f_master_node := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *47D6BA2603CF_45F6C139000Fset_impl*
 end;//DelegateNodeBase.pm_SetMasterNode
 

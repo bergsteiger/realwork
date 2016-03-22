@@ -5,7 +5,7 @@ unit AutoExportTask_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/AutoExportTask_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::AutoExportTask
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::AutoExportTask
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".
@@ -112,6 +112,8 @@ function k2_attrMaxExportCount: Integer;
 function k2_attrStages: Integer;
 
 function k2_attrExpandEditions: Integer;
+
+function k2_attrInfoDocsIncludedOnly: Integer;
 function k2_typAutoExportTask: AutoExportTaskTag;
 
 implementation
@@ -437,6 +439,16 @@ begin
  if (g_k2_attrExpandEditions = -1) then
   g_k2_attrExpandEditions :=  Tk2Attributes.Instance.CheckIDByName('ExpandEditions');
  Result := g_k2_attrExpandEditions;
+end;
+
+var
+ g_k2_attrInfoDocsIncludedOnly: Integer = -1;
+
+function k2_attrInfoDocsIncludedOnly: Integer;
+begin
+ if (g_k2_attrInfoDocsIncludedOnly = -1) then
+  g_k2_attrInfoDocsIncludedOnly :=  Tk2Attributes.Instance.CheckIDByName('InfoDocsIncludedOnly');
+ Result := g_k2_attrInfoDocsIncludedOnly;
 end;
 
 

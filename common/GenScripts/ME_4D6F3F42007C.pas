@@ -2,6 +2,7 @@ unit evDelayedPaintersSpy;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDelayedPaintersSpy.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDelayedPaintersSpy" MUID: (4D6F3F42007C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

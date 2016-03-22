@@ -2,6 +2,8 @@ unit kwMainMenu;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwMainMenu.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "MainMenu" MUID: (4DAF1471030D)
+// Имя типа: "TkwMainMenu"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

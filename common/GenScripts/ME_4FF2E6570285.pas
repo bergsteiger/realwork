@@ -3,6 +3,7 @@ unit AACInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\AACInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "AACInterfaces" MUID: (4FF2E6570285)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

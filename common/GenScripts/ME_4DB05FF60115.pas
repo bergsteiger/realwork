@@ -3,6 +3,7 @@ unit tfwAutoregisteredDiction;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwAutoregisteredDiction.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwAutoregisteredDiction" MUID: (4DB05FF60115)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -22,7 +23,6 @@ type
   {* Словарь с базовой аксиоматикой }
   private
    f_AllAxiomaticsDefined: Boolean;
-    {* Поле для свойства AllAxiomaticsDefined }
   protected
    procedure pm_SetAllAxiomaticsDefined(aValue: Boolean); virtual;
    function DoCheckWord(const aName: Il3CString): TtfwKeyWord; override;

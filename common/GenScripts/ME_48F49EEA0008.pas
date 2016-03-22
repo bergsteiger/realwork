@@ -2,6 +2,7 @@ unit evConstStringStorable;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evConstStringStorable.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevConstStringStorable" MUID: (48F49EEA0008)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

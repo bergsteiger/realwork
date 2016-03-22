@@ -3,6 +3,7 @@ unit atCreateFoldersOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atCreateFoldersOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatCreateFoldersOperation" MUID: (4846994F0144)
 
 interface
 

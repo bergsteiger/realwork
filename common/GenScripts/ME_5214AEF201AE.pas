@@ -2,6 +2,7 @@ unit ddConfigStorages;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddConfigStorages.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddConfigStorages" MUID: (5214AEF201AE)
 
 interface
 

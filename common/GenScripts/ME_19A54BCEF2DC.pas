@@ -3,6 +3,7 @@ unit FiltersKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\FiltersKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "FiltersKeywordsPack" MUID: (19A54BCEF2DC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::Filters TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Filters
 
  Tkw_Filters_Control_FiltersList = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::FiltersList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Filters_Control_FiltersList
 
  Tkw_Filters_Control_FiltersList_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnFiltersFiltersList
 
-class function Tkw_Form_Filters.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Filters';
-end;//Tkw_Form_Filters.GetWordNameForRegister
-
 function Tkw_Form_Filters.GetString: AnsiString;
 begin
  Result := 'enFilters';
 end;//Tkw_Form_Filters.GetString
 
-class function Tkw_Filters_Control_FiltersList.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_Filters.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::FiltersList';
-end;//Tkw_Filters_Control_FiltersList.GetWordNameForRegister
+ Result := 'форма::Filters';
+end;//Tkw_Form_Filters.GetWordNameForRegister
 
 function Tkw_Filters_Control_FiltersList.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_Filters_Control_FiltersList.RegisterInEngine
+
+class function Tkw_Filters_Control_FiltersList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FiltersList';
+end;//Tkw_Filters_Control_FiltersList.GetWordNameForRegister
 
 procedure Tkw_Filters_Control_FiltersList_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(FiltersList(aCtx, l_aenFilters));
 end;//TkwEnFiltersFiltersList.DoDoIt
 
-class function TkwEnFiltersFiltersList.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenFilters.FiltersList';
-end;//TkwEnFiltersFiltersList.GetWordNameForRegister
-
 procedure TkwEnFiltersFiltersList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwEnFiltersFiltersList.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenFilters)]);
 end;//TkwEnFiltersFiltersList.ParamsTypes
+
+class function TkwEnFiltersFiltersList.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenFilters.FiltersList';
+end;//TkwEnFiltersFiltersList.GetWordNameForRegister
 
 initialization
  Tkw_Form_Filters.RegisterInEngine;

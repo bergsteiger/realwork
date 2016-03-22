@@ -1,77 +1,51 @@
 unit kwMainMenu;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwMainMenu.pas"
-// Начат: 20.04.2011 21:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Words::Words::MainMenu
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwMainMenu.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "MainMenu" MUID: (4DAF1471030D)
+// Имя типа: "TkwMainMenu"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  _F1Test_Parent_ = TtfwRegisterableWord;
- {$Include ..\F1_Words\F1Test.imp.pas}
- TkwMainMenu = {scriptword} class(_F1Test_)
- protected
- // realized methods
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\F1Test.imp.pas}
+ TkwMainMenu = class(_F1Test_)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwMainMenu
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(Admin)}
-  ,
-  nsQueryInterfaces
-  {$IfEnd} //not Admin
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  nsUtils,
-  nsConst,
-  bsTypesNew
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(Admin)}
+ , nsQueryInterfaces
+ {$IfEnd} // NOT Defined(Admin)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsUtils
+ , nsConst
+ , bsTypesNew
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\F1_Words\F1Test.imp.pas}
-
-// start class TkwMainMenu
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\F1Test.imp.pas}
 
 procedure TkwMainMenu.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DAF1471030D_var*
@@ -83,17 +57,13 @@ begin
 end;//TkwMainMenu.DoDoIt
 
 class function TkwMainMenu.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'ОсновноеМеню';
 end;//TkwMainMenu.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация MainMenu
  TkwMainMenu.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация MainMenu }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

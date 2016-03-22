@@ -2,6 +2,7 @@ unit k2TypesByHandleList;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TypesByHandleList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2TypesByHandleList" MUID: (5273AB0F00C2)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

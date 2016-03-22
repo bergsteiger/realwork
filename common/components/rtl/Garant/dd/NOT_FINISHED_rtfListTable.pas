@@ -3,6 +3,7 @@ unit NOT_FINISHED_rtfListTable;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_rtfListTable.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "rtfListTable" MUID: (51DD4C5301CD)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

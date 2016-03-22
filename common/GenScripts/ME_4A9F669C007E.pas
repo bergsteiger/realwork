@@ -3,6 +3,7 @@ unit ListAnalysisTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ListAnalysisTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ListAnalysisTree" MUID: (4A9F669C007E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

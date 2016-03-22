@@ -3,6 +3,7 @@ unit StyleCtoStyleJTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\StyleCtoStyleJTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TStyleCtoStyleJTest" MUID: (4B59EDA60116)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

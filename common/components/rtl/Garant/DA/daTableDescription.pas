@@ -33,8 +33,9 @@ type
    f_IsDublicate : Boolean;
    f_IsFake : Boolean;
    f_FieldList : TdaFieldDescriptionList;
-   f_Code : AnsiString;
-   f_Name : AnsiString;
+   f_SQLName : AnsiString;
+   f_Scheme : AnsiString;
+   f_IsTree : Boolean;
    f_Kind : TdaTables;
     {* Поле для свойства Kind}
  protected
@@ -44,8 +45,12 @@ type
    function Get_IsFake: Boolean;
    function Get_Kind: TdaTables;
    function Get_Field(const FIeldName: AnsiString): IdaFieldDescription;
-   function Get_Code: AnsiString;
-   function Get_Name: AnsiString;
+   function Get_SQLName: AnsiString;
+   function Get_Scheme: AnsiString;
+   function FieldByIndex(anIndex: Integer): IdaFieldDescription;
+   function Get_FieldsCount: Integer;
+   function Get_FieldsCountWithoutTree: Integer;
+   function Get_IsTree: Boolean;
  public
  // realized methods
    {iterator} procedure IterateFieldsF(anAction: daTableDescriptionIterator_IterateFieldsF_Action);
@@ -57,11 +62,12 @@ type
  public
  // public methods
    constructor Create(aKind: TdaTables;
-     const aCode: AnsiString;
-     const aName: AnsiString;
+     const aSQLName: AnsiString;
      const aDescription: AnsiString;
+     const aScheme: AnsiString = '';
      aDublicate: Boolean = False;
-     aFake: Boolean = False); reintroduce;
+     aFake: Boolean = False;
+     aIsTree: Boolean = False); reintroduce;
    procedure AddField(const aField: IdaFieldDescription);
  public
  // public properties
@@ -92,22 +98,24 @@ end;//CompareFields
 // start class TdaTableDescription
 
 constructor TdaTableDescription.Create(aKind: TdaTables;
-  const aCode: AnsiString;
-  const aName: AnsiString;
+  const aSQLName: AnsiString;
   const aDescription: AnsiString;
+  const aScheme: AnsiString = '';
   aDublicate: Boolean = False;
-  aFake: Boolean = False);
+  aFake: Boolean = False;
+  aIsTree: Boolean = False);
 //#UC START# *55360BAB0116_55360B420250_var*
 //#UC END# *55360BAB0116_55360B420250_var*
 begin
 //#UC START# *55360BAB0116_55360B420250_impl*
  inherited Create;
  f_Kind := aKind;
- f_Code := aCode;
  f_Description := aDescription;
  f_IsDublicate := aDublicate;
  f_IsFake := aFake;
- f_Name := aName;
+ f_SQLName := aSQLName;
+ f_Scheme := aScheme;
+ f_IsTree := aIsTree;
 //#UC END# *55360BAB0116_55360B420250_impl*
 end;//TdaTableDescription.Create
 
@@ -168,18 +176,8 @@ begin
   Result := f_FieldList[l_Index]
  else
   Result := nil;
-// !!! Needs to be implemented !!!
 //#UC END# *55379DA40290_55360B420250get_impl*
 end;//TdaTableDescription.Get_Field
-
-function TdaTableDescription.Get_Code: AnsiString;
-//#UC START# *553A19BC0335_55360B420250get_var*
-//#UC END# *553A19BC0335_55360B420250get_var*
-begin
-//#UC START# *553A19BC0335_55360B420250get_impl*
- Result := f_Code;
-//#UC END# *553A19BC0335_55360B420250get_impl*
-end;//TdaTableDescription.Get_Code
 
 {iterator} procedure TdaTableDescription.IterateFieldsF(anAction: daTableDescriptionIterator_IterateFieldsF_Action);
 //#UC START# *55C860390259_55360B420250_var*
@@ -215,14 +213,73 @@ begin
 //#UC END# *55C860390259_55360B420250_impl*
 end;//TdaTableDescription.IterateFieldsF
 
-function TdaTableDescription.Get_Name: AnsiString;
+function TdaTableDescription.Get_SQLName: AnsiString;
 //#UC START# *5608EE130006_55360B420250get_var*
 //#UC END# *5608EE130006_55360B420250get_var*
 begin
 //#UC START# *5608EE130006_55360B420250get_impl*
- Result := f_Name;
+ Result := f_SQLName;
 //#UC END# *5608EE130006_55360B420250get_impl*
-end;//TdaTableDescription.Get_Name
+end;//TdaTableDescription.Get_SQLName
+
+function TdaTableDescription.Get_Scheme: AnsiString;
+//#UC START# *566572560127_55360B420250get_var*
+//#UC END# *566572560127_55360B420250get_var*
+begin
+//#UC START# *566572560127_55360B420250get_impl*
+ Result := f_Scheme;
+//#UC END# *566572560127_55360B420250get_impl*
+end;//TdaTableDescription.Get_Scheme
+
+function TdaTableDescription.FieldByIndex(anIndex: Integer): IdaFieldDescription;
+//#UC START# *569F6ADC0330_55360B420250_var*
+var
+ l_Result: IdaFieldDescription;
+
+ function lp_Find(aField: IdaFieldDescription): Boolean;
+ begin
+  Result := aField.Index <> anIndex;
+  if not Result then
+   l_Result := aField;
+ end;
+
+//#UC END# *569F6ADC0330_55360B420250_var*
+begin
+//#UC START# *569F6ADC0330_55360B420250_impl*
+ l_Result := nil;
+ IterateFieldsF(L2DaTableDescriptionIteratorIterateFieldsFAction(@lp_Find));
+ Result := l_Result;
+//#UC END# *569F6ADC0330_55360B420250_impl*
+end;//TdaTableDescription.FieldByIndex
+
+function TdaTableDescription.Get_FieldsCount: Integer;
+//#UC START# *56A0C27502A5_55360B420250get_var*
+//#UC END# *56A0C27502A5_55360B420250get_var*
+begin
+//#UC START# *56A0C27502A5_55360B420250get_impl*
+ Result := f_FieldList.Count;
+//#UC END# *56A0C27502A5_55360B420250get_impl*
+end;//TdaTableDescription.Get_FieldsCount
+
+function TdaTableDescription.Get_FieldsCountWithoutTree: Integer;
+//#UC START# *56A1E93B0132_55360B420250get_var*
+//#UC END# *56A1E93B0132_55360B420250get_var*
+begin
+//#UC START# *56A1E93B0132_55360B420250get_impl*
+ Result := Get_FieldsCount;
+ if f_IsTree then
+  Dec(Result, 2);
+//#UC END# *56A1E93B0132_55360B420250get_impl*
+end;//TdaTableDescription.Get_FieldsCountWithoutTree
+
+function TdaTableDescription.Get_IsTree: Boolean;
+//#UC START# *56A1FDB80282_55360B420250get_var*
+//#UC END# *56A1FDB80282_55360B420250get_var*
+begin
+//#UC START# *56A1FDB80282_55360B420250get_impl*
+ Result := f_IsTree;
+//#UC END# *56A1FDB80282_55360B420250get_impl*
+end;//TdaTableDescription.Get_IsTree
 
 procedure TdaTableDescription.Cleanup;
 //#UC START# *479731C50290_55360B420250_var*

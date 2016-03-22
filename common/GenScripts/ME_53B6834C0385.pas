@@ -2,6 +2,7 @@ unit ddCommonDataRequestPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ddCommonDataRequestPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddCommonDataRequestPrim" MUID: (53B6834C0385)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -2,6 +2,7 @@ unit alcuDictChangeMDPSynchronizator;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuDictChangeMDPSynchronizator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuDictChangeMDPSynchronizator" MUID: (55E6A67A02ED)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

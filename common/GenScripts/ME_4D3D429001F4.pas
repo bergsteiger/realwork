@@ -3,6 +3,7 @@ unit MouseMoveCellsSelectTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\MouseMoveCellsSelectTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TMouseMoveCellsSelectTest" MUID: (4D3D429001F4)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStackChecking.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "tfwStackChecking" MUID: (528F7DDA02BF)
+// Имя типа: "_tfwStackChecking_"
 
 {$Define tfwStackChecking_imp}
 

@@ -3,6 +3,7 @@ unit evTabStops;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\evTabStops.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTabStops" MUID: (48D1055203B8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

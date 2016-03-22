@@ -2,6 +2,7 @@ unit NOT_FINISHED_SavedQuery;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_SavedQuery.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TSavedQuery" MUID: (52FCABD0022E)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

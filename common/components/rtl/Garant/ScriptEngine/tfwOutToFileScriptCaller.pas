@@ -2,6 +2,7 @@ unit tfwOutToFileScriptCaller;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwOutToFileScriptCaller.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwOutToFileScriptCaller" MUID: (56456E3E01E4)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

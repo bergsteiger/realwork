@@ -3,6 +3,7 @@ unit NOT_FINISHED_ListRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\NOT_FINISHED_ListRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ListRes" MUID: (47F4760F0395)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

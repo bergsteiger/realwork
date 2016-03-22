@@ -2,6 +2,7 @@ unit ddFillAACStack;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddFillAACStack.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddFillAACStack" MUID: (541690C10301)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

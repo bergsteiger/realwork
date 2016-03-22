@@ -20,7 +20,7 @@
 
 #include "CSAdapter.h"
 
-static const unsigned long DLL_VERSION = 8;
+static const unsigned long DLL_VERSION = 9;
 
 namespace CSAdapter {
 

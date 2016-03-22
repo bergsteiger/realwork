@@ -20,14 +20,19 @@ DownloadFileParams::DownloadFileParams (
 	: ConfigManager ()
 	, m_length (0)
 { 
-	ConfigManager::init (ini_file, "Download_Aborted");
+	//ConfigManager::init (ini_file, "Download_Aborted");
 
 	m_info.id = (unsigned long) id;
 	m_info.begin_date = from;
 	m_info.end_date = to;
 
-	m_key = boost::lexical_cast <std::string> (id) + ":" + from + ":" + to;
-	m_file_name = ConfigManager::get (m_key);
+	if (GetAppPtr ()->is_auto ()) {
+		m_key = boost::lexical_cast <std::string> (id) + ":auto";
+	} else {
+		m_key = boost::lexical_cast <std::string> (id) + ":" + from + ":" + to;
+	}
+	//m_file_name = ConfigManager::get (m_key);
+	m_file_name = DConfigManager::instance ()->get (m_key);
 
 	if (m_file_name.empty () == false) {
 		std::string full_name = work_dir;
@@ -57,12 +62,13 @@ DownloadFileParams::~DownloadFileParams () {
 void DownloadFileParams::out_info () {
 	CDownloaderApp* ptr_app = GetAppPtr ();
 
-	int day, month, year;
+	int day = 0, month = 0, year = 0;
 
 	char beg_buf [16];
 	char end_buf [16];
 
-	sscanf (m_info.begin_date.c_str (), "%d-%d-%d", &month, &day, &year);
+	if (m_info.begin_date.empty () == false)
+		sscanf (m_info.begin_date.c_str (), "%d-%d-%d", &month, &day, &year);
 	sprintf (beg_buf, "%d-%d-%d", day, month, year);
 
 	sscanf (m_info.end_date.c_str (), "%d-%d-%d", &month, &day, &year);
@@ -96,12 +102,15 @@ void DownloadFileParams::out_info (DownloadMode mode, double file_length, const 
 
 void DownloadFileParams::set (const std::string& file_name) {
 	m_file_name = file_name;
-	ConfigManager::set (m_key, m_file_name);
+	//ConfigManager::set (m_key, m_file_name);
+	DConfigManager::instance ()->set (m_key, m_file_name);
+
 }
 
 void DownloadFileParams::clear () {
 	m_file_name.clear ();
-	ConfigManager::clear (m_key);
+	//ConfigManager::clear (m_key);
+	DConfigManager::instance ()->clear (m_key);
 }
 
 // end of...

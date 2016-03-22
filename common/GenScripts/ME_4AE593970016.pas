@@ -2,6 +2,7 @@ unit deSearch;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\deSearch.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdeSearch" MUID: (4AE593970016)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

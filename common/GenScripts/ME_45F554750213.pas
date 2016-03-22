@@ -3,6 +3,7 @@ unit reeBase;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\reeBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TreeBase" MUID: (45F554750213)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -20,6 +21,12 @@ uses
 ;
 
 type
+ ViewBase = class;
+
+ RealNodeBase = class;
+
+ DefaultNodeBase = class;
+
  InvalidOwnerTree = class
  end;//InvalidOwnerTree
 
@@ -59,12 +66,6 @@ type
  //#UC START# *46013DB90157publ*
  //#UC END# *46013DB90157publ*
  end;//FlagMaskStubPostProcess
-
- ViewBase = class;
-
- RealNodeBase = class;
-
- DefaultNodeBase = class;
 
  //#UC START# *45F554750213ci*
  //#UC END# *45F554750213ci*
@@ -286,7 +287,7 @@ function TreeBase.pm_Getactive_changeble: Boolean;
 //#UC END# *46013A67007D_45F554750213get_var*
 begin
 //#UC START# *46013A67007D_45F554750213get_impl*
- Result := f_active_changeble
+ !!! Needs to be implemented !!!
 //#UC END# *46013A67007D_45F554750213get_impl*
 end;//TreeBase.pm_Getactive_changeble
 
@@ -295,7 +296,7 @@ procedure TreeBase.pm_Setactive_changeble(aValue: Boolean);
 //#UC END# *46013A67007D_45F554750213set_var*
 begin
 //#UC START# *46013A67007D_45F554750213set_impl*
- f_active_changeble := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *46013A67007D_45F554750213set_impl*
 end;//TreeBase.pm_Setactive_changeble
 
@@ -304,7 +305,7 @@ procedure TreeBase.pm_Getserver_tree;
 //#UC END# *46013AE00271_45F554750213get_var*
 begin
 //#UC START# *46013AE00271_45F554750213get_impl*
- Result := f_server_tree
+ !!! Needs to be implemented !!!
 //#UC END# *46013AE00271_45F554750213get_impl*
 end;//TreeBase.pm_Getserver_tree
 
@@ -313,7 +314,7 @@ function TreeBase.pm_Getflags_map: NodeFlagMap;
 //#UC END# *46013B1601E4_45F554750213get_var*
 begin
 //#UC START# *46013B1601E4_45F554750213get_impl*
- Result := f_flags_map
+ !!! Needs to be implemented !!!
 //#UC END# *46013B1601E4_45F554750213get_impl*
 end;//TreeBase.pm_Getflags_map
 
@@ -322,7 +323,7 @@ function TreeBase.pm_Getis_changed: Boolean;
 //#UC END# *46013B4B0251_45F554750213get_var*
 begin
 //#UC START# *46013B4B0251_45F554750213get_impl*
- Result := f_is_changed
+ !!! Needs to be implemented !!!
 //#UC END# *46013B4B0251_45F554750213get_impl*
 end;//TreeBase.pm_Getis_changed
 

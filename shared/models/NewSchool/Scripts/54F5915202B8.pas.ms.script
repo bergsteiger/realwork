@@ -54,20 +54,6 @@ ref; // ME_ED29CC7FDCF8 aTB97Button
 
 ref; // ME_5E37302039D5 Down
 
-: ME_C1CA80A45137
- CONST UID 'C1CA80A45137'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_TB97Button_Down' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_C746DA0CF72F // pop_TB97Button_Down
- ;
-
-ref; // ME_C1CA80A45137 Ini_Reg
-
 : ME_BCBCD1EA415B
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -91,8 +77,6 @@ ref; // ME_BCBCD1EA415B
 ref; // ME_BC295C669A4B 
 
 : ME_4DAEEDE10285_ME_C746DA0CF72F
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_C746DA0CF72F // pop_TB97Button_Down
@@ -100,19 +84,7 @@ ref; // ME_BC295C669A4B
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_C746DA0CF72F DoDoIt
 
-: ME_4DB0614603C8_ME_C746DA0CF72F
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_C746DA0CF72F // pop_TB97Button_Down
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_C746DA0CF72F GetWordNameForRegister
-
 : ME_52D00B00031A_ME_C746DA0CF72F
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_C746DA0CF72F // pop_TB97Button_Down
@@ -121,8 +93,6 @@ ref; // ME_4DB0614603C8_ME_C746DA0CF72F GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_C746DA0CF72F SetValuePrim
 
 : ME_551544E2001A_ME_C746DA0CF72F
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_C746DA0CF72F // pop_TB97Button_Down
@@ -131,8 +101,6 @@ ref; // ME_52D00B00031A_ME_C746DA0CF72F SetValuePrim
 ref; // ME_551544E2001A_ME_C746DA0CF72F GetResultTypeInfo
 
 : ME_559687E6025A_ME_C746DA0CF72F
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_C746DA0CF72F // pop_TB97Button_Down
@@ -141,8 +109,6 @@ ref; // ME_551544E2001A_ME_C746DA0CF72F GetResultTypeInfo
 ref; // ME_559687E6025A_ME_C746DA0CF72F GetAllParamsCount
 
 : ME_5617F4D00243_ME_C746DA0CF72F
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_C746DA0CF72F // pop_TB97Button_Down
@@ -168,7 +134,6 @@ ref; // ME_5617F4D00243_ME_C746DA0CF72F ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_5E37302039D5 // Down
- ME_C1CA80A45137 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -176,8 +141,7 @@ ref; // ME_5617F4D00243_ME_C746DA0CF72F ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_C746DA0CF72F // GetWordNameForRegister
- ME_52D00B00031A_ME_C746DA0CF72F // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_C746DA0CF72F // SetValuePrim
  ME_551544E2001A_ME_C746DA0CF72F // GetResultTypeInfo
  ME_559687E6025A_ME_C746DA0CF72F // GetAllParamsCount
  ME_5617F4D00243_ME_C746DA0CF72F // ParamsTypes

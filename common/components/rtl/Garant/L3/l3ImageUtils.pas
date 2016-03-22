@@ -1,8 +1,11 @@
 unit l3ImageUtils;
 
-{ $Id: l3ImageUtils.pas,v 1.16 2015/08/07 12:15:55 lulin Exp $ }
+{ $Id: l3ImageUtils.pas,v 1.17 2015/12/10 10:09:22 dinishev Exp $ }
 
 // $Log: l3ImageUtils.pas,v $
+// Revision 1.17  2015/12/10 10:09:22  dinishev
+// Выделяем ситуацию, когда не удалось запустить ImageMagic.
+//
 // Revision 1.16  2015/08/07 12:15:55  lulin
 // - делаем консольную запускалку.
 //
@@ -153,7 +156,10 @@ var
 begin
  l_CommandLine := csCompareCommand + Format(csParams, [g_FuzzValueInPercent, '%', aFirst, aSecond, lp_CheckFileExt]);
  l_Code := WinExec32AndWait(l_CommandLine, {STARTF_USESHOWWINDOW}SW_HIDE);
- Assert(l_Code <= Ord(High(Tl3CompareImageResult)));
+ if l_Code = Cardinal($FFFFFFFF) then
+  raise EFilerError.Create('Не удалось запустить ImageMagic.')
+ else
+  Assert(l_Code <= Ord(High(Tl3CompareImageResult)));
  Result := Tl3CompareImageResult(l_Code);
 end;
 {$EndIf DesignTimeLibrary}

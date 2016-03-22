@@ -3,6 +3,7 @@ unit ddCustomRTFReader;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddCustomRTFReader.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddCustomRTFReader" MUID: (51E7BF4200C0)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -3,6 +3,7 @@ unit evMergedCellFilter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evMergedCellFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevMergedCellFilter" MUID: (49C21D090093)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

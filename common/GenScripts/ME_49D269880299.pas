@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevParentPointHolder.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevParentPointHolder" MUID: (49D269880299)
+// Имя типа: "_nevParentPointHolder_"
 
 {$Define nevParentPointHolder_imp}
 

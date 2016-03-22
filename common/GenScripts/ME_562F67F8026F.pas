@@ -2,6 +2,7 @@ unit nsBaseSearchWindowDataListenerList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsBaseSearchWindowDataListenerList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsBaseSearchWindowDataListenerList" MUID: (562F67F8026F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit evFacadTextSource;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evFacadTextSource.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evFacadTextSource" MUID: (48EEFBF70249)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

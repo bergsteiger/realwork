@@ -3,6 +3,7 @@ unit k2NonAtomicTag;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2NonAtomicTag.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2NonAtomicTag" MUID: (532080BB027A)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

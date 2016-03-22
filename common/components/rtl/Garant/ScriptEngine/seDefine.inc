@@ -11,7 +11,3 @@
 {$IfDef NewGen}
  {.$Undef seCacheDict}
 {$EndIf NewGen}
-
-{$IfDef seNoCacheDict}
- {$Undef seCacheDict}
-{$EndIf seNoCacheDict}

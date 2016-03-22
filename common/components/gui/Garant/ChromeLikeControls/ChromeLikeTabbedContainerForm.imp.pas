@@ -33,7 +33,9 @@
      const aPoint: TPoint;
      aNeedSelect: Boolean);
    procedure DisableOthers(aSelectedForm: TForm);
-   procedure DoOnNewTabRequested(aTabSet: TChromeLikeTabSetControlPrim);
+   procedure DoOnNewTabRequested(aTabSet: TChromeLikeTabSetControlPrim;
+     aMenuTab: TChromeLikeTab;
+     aOpenLast: Boolean);
    procedure InsertFormAfterSpecified(aForm: TForm;
      const aParams: Il3TabParams;
      aInsertAfter: TForm;
@@ -65,13 +67,17 @@
    function pm_GetActiveTab: Il3FormTab;
    procedure pm_SetActiveTab(const aValue: Il3FormTab);
    procedure CloseAllButActiveTab;
-   procedure OpenNewTab;
+   procedure OpenNewTab(aOpenLast: Boolean = True);
    function pm_GetCanOpenNewTab: Boolean;
    procedure CloseSelectedTab;
      {* Сигнатура метода CloseSelectedTab }
    procedure CloseTab(const aTab: Il3FormTab);
    procedure UpdateCaption;
      {* Сигнатура метода UpdateCaption }
+   function Get_TabByVisibleIndex(Index: Integer): Il3FormTab;
+   function CanUndockFormFromTab(aTabIndex: Integer): Boolean;
+   procedure UndockFormFromTab(aTabIndex: Integer);
+   procedure OpenTabAfter(const aTab: Il3FormTab);
  protected
  // protected methods
    procedure DoOnTabSelected(aTabSet: TChromeLikeTabSetControlPrim;
@@ -122,11 +128,11 @@
    function CheckFormTabParams(aForm: TForm;
      const aParams: Il3TabParams): Il3TabParams; virtual;
    function MakeTabSetParams: TChromeLikeTabSetParams; virtual;
-   procedure DoOpenNewTab; virtual;
-     {* Сигнатура метода DoOpenNewTab }
+   procedure DoOpenNewTab(aOpenLast: Boolean); virtual;
    function DoGetCanOpenNewTab: Boolean; virtual;
    procedure DoUpdateCaption; virtual;
      {* Сигнатура метода DoUpdateCaption }
+   procedure DoOpenTabAfter(const aTab: Il3FormTab); virtual;
  public
  // public methods
    procedure ActivateTabByIndex(aIndex: Integer);
@@ -241,12 +247,15 @@ begin
 //#UC END# *5510075F02EA_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.DisableOthers
 
-procedure _ChromeLikeTabbedContainerForm_.DoOnNewTabRequested(aTabSet: TChromeLikeTabSetControlPrim);
+procedure _ChromeLikeTabbedContainerForm_.DoOnNewTabRequested(aTabSet: TChromeLikeTabSetControlPrim;
+  aMenuTab: TChromeLikeTab;
+  aOpenLast: Boolean);
 //#UC START# *558119BD02BE_550A7D5C01BC_var*
 //#UC END# *558119BD02BE_550A7D5C01BC_var*
 begin
 //#UC START# *558119BD02BE_550A7D5C01BC_impl*
- OpenNewTab;
+ OpenTabAfter(aMenuTab);
+// OpenNewTab(aOpenLast);
 //#UC END# *558119BD02BE_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.DoOnNewTabRequested
 
@@ -627,7 +636,7 @@ begin
 //#UC END# *5518E1700367_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.MakeTabSetParams
 
-procedure _ChromeLikeTabbedContainerForm_.DoOpenNewTab;
+procedure _ChromeLikeTabbedContainerForm_.DoOpenNewTab(aOpenLast: Boolean);
 //#UC START# *5566D7A300E6_550A7D5C01BC_var*
 //#UC END# *5566D7A300E6_550A7D5C01BC_var*
 begin
@@ -653,6 +662,15 @@ begin
  // Ничего не делаем
 //#UC END# *55FFECF00390_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.DoUpdateCaption
+
+procedure _ChromeLikeTabbedContainerForm_.DoOpenTabAfter(const aTab: Il3FormTab);
+//#UC START# *56CEB59A037B_550A7D5C01BC_var*
+//#UC END# *56CEB59A037B_550A7D5C01BC_var*
+begin
+//#UC START# *56CEB59A037B_550A7D5C01BC_impl*
+ Assert(False);
+//#UC END# *56CEB59A037B_550A7D5C01BC_impl*
+end;//_ChromeLikeTabbedContainerForm_.DoOpenTabAfter
 
 function _ChromeLikeTabbedContainerForm_.pm_GetTabSetParent: TWinControl;
 //#UC START# *550A7FCB0021_550A7D5C01BCget_var*
@@ -864,12 +882,12 @@ begin
 //#UC END# *55B5D9AC03D5_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.CloseAllButActiveTab
 
-procedure _ChromeLikeTabbedContainerForm_.OpenNewTab;
+procedure _ChromeLikeTabbedContainerForm_.OpenNewTab(aOpenLast: Boolean = True);
 //#UC START# *55B5DA3B02AC_550A7D5C01BC_var*
 //#UC END# *55B5DA3B02AC_550A7D5C01BC_var*
 begin
 //#UC START# *55B5DA3B02AC_550A7D5C01BC_impl*
- DoOpenNewTab;
+ DoOpenNewTab(aOpenLast);
 //#UC END# *55B5DA3B02AC_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.OpenNewTab
 
@@ -908,6 +926,50 @@ begin
  DoUpdateCaption;
 //#UC END# *55FFE5140379_550A7D5C01BC_impl*
 end;//_ChromeLikeTabbedContainerForm_.UpdateCaption
+
+function _ChromeLikeTabbedContainerForm_.Get_TabByVisibleIndex(Index: Integer): Il3FormTab;
+//#UC START# *569611530032_550A7D5C01BCget_var*
+var
+ I: Integer;
+//#UC END# *569611530032_550A7D5C01BCget_var*
+begin
+//#UC START# *569611530032_550A7D5C01BCget_impl*
+ for I := 0 to f_TabSet.TabCount - 1 do
+ begin
+  Result := f_TabSet.Tabs[I] as Il3FormTab;
+  if Result.VisibleIndex = Index then
+   Exit;
+ end;
+ Result := nil;
+//#UC END# *569611530032_550A7D5C01BCget_impl*
+end;//_ChromeLikeTabbedContainerForm_.Get_TabByVisibleIndex
+
+function _ChromeLikeTabbedContainerForm_.CanUndockFormFromTab(aTabIndex: Integer): Boolean;
+//#UC START# *56990DDF014B_550A7D5C01BC_var*
+//#UC END# *56990DDF014B_550A7D5C01BC_var*
+begin
+//#UC START# *56990DDF014B_550A7D5C01BC_impl*
+ DoOnCanUndockFormEvent(TabSet, Il3FormTab(TabSet.Tabs[aTabIndex]).TabbedForm, Result);
+//#UC END# *56990DDF014B_550A7D5C01BC_impl*
+end;//_ChromeLikeTabbedContainerForm_.CanUndockFormFromTab
+
+procedure _ChromeLikeTabbedContainerForm_.UndockFormFromTab(aTabIndex: Integer);
+//#UC START# *56990E360344_550A7D5C01BC_var*
+//#UC END# *56990E360344_550A7D5C01BC_var*
+begin
+//#UC START# *56990E360344_550A7D5C01BC_impl*
+ TabSet.UndockTabbedForm(TabSet.Tabs[aTabIndex]);
+//#UC END# *56990E360344_550A7D5C01BC_impl*
+end;//_ChromeLikeTabbedContainerForm_.UndockFormFromTab
+
+procedure _ChromeLikeTabbedContainerForm_.OpenTabAfter(const aTab: Il3FormTab);
+//#UC START# *56CEAAE901F8_550A7D5C01BC_var*
+//#UC END# *56CEAAE901F8_550A7D5C01BC_var*
+begin
+//#UC START# *56CEAAE901F8_550A7D5C01BC_impl*
+ DoOpenTabAfter(aTab);
+//#UC END# *56CEAAE901F8_550A7D5C01BC_impl*
+end;//_ChromeLikeTabbedContainerForm_.OpenTabAfter
 
 {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
 

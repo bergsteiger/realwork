@@ -2,6 +2,8 @@ unit kwPushMainForm;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPushMainForm.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "push_MainForm" MUID: (4F8FE54E036E)
+// Имя типа: "TkwPushMainForm"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

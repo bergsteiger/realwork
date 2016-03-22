@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsStyleEditor;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_nsStyleEditor.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsStyleEditor" MUID: (4ABA13880316)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

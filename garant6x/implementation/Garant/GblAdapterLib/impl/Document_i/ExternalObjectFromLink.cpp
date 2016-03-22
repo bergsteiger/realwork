@@ -51,8 +51,6 @@ Core::IObject* ExternalObjectFromLink::get_object () const {
 		}
 		ApplicationHelper::instance ()->get_cached_life_cycle_manager ()->release_object (internal_object.in ());
 		return external_object._retn ();
-	} catch (GblPilot::NotAllowedInTrialMode&) {
-		throw NotAllowedInTrialMode ();
 	} catch (CORBA::Exception&) {
 		throw CanNotFindData ();
 	}

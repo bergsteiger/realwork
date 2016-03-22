@@ -17,6 +17,9 @@ namespace GCL {
 template<class It>
 class Iterable {
 public:
+	typedef It const_iterator;
+	typedef It iterator;
+
 	Iterable () {
 	}
 

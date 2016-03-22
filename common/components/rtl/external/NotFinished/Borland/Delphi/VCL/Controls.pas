@@ -2,6 +2,7 @@ unit Controls;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Controls.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Controls" MUID: (47E11FC3021E)
 
 interface
 
@@ -124,7 +125,6 @@ type
   {* TControl is the base class for all components that are visible at runtime. }
   private
    f_Align: TAlign;
-    {* Поле для свойства Align }
   protected
    function Get_Align: TAlign;
    procedure Set_Align(aValue: TAlign);
@@ -277,13 +277,13 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , WinControlsProcessingPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , ControlsProcessingPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , ScrollingWinControlWordsPack

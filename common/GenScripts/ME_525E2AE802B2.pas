@@ -2,6 +2,7 @@ unit ddBorderPart;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddBorderPart.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddBorderPart" MUID: (525E2AE802B2)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

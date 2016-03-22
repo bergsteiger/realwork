@@ -2,6 +2,8 @@ unit PrimPrintDialog_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPrintDialog_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimPrintDialog" MUID: (4AAF8E8701C9)
+// Имя типа: "TPrimPrintDialogForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

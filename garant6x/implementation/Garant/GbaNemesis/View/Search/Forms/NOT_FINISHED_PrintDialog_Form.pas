@@ -2,6 +2,8 @@ unit NOT_FINISHED_PrintDialog_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\NOT_FINISHED_PrintDialog_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "PrintDialog" MUID: (4AAF8EAC01FC)
+// Имя типа: "Ten_PrintDialog"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -28,12 +30,12 @@ uses
  l3ImplUses
  , l3StringIDEx
  , l3RangeManager
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , PrintDialogKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
@@ -61,12 +63,12 @@ begin
 end;//Ten_PrintDialog.UpdatePrintersList
 
 initialization
+ str_ut_PrintDialogCaption.Init;
+ {* Инициализация str_ut_PrintDialogCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ten_PrintDialog);
  {* Регистрация PrintDialog }
 {$IfEnd} // NOT Defined(NoScripts)
- str_ut_PrintDialogCaption.Init;
- {* Инициализация str_ut_PrintDialogCaption }
 {$IfEnd} // NOT Defined(Admin)
 
 end.

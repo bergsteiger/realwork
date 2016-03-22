@@ -3,6 +3,7 @@ unit evEditor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evEditor.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TevEditor" MUID: (484544370206)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

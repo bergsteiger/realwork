@@ -817,7 +817,8 @@ begin
                            nil,
                            nil,
                            aAllDocumentsFiltered,
-                           False);
+                           False,
+                           pm_GetIsChanged);
 //#UC END# *47F33B990105_47E9EDC602B2_impl*
 end;//_dsDocumentList_.DataForNewList
 

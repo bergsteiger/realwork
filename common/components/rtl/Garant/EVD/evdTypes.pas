@@ -3,6 +3,7 @@ unit evdTypes;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdTypes.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Types" MUID: (469D0AC7005E)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

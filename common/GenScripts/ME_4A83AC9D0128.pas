@@ -2,6 +2,7 @@ unit nsWorkJournalListeners;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\WorkJournal\nsWorkJournalListeners.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsWorkJournalListeners" MUID: (4A83AC9D0128)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

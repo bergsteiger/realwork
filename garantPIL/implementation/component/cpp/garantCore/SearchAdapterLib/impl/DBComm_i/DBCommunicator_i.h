@@ -99,11 +99,17 @@ private:
 	// загрузка строгих фраз
 	void load_hard_phrases (DBCore::IIndex* index);
 
+	// загрузка индекса для невидимых блочных
+	void load_invb_index (DBCore::IIndex* index);
+
 	// загрузка значений релевантности для обычного невидимого текста
 	void load_invisible_rel (DBCore::IIndex* index);
 
 	// загрузка словаря фразальных замен
 	void load_phrasal_replacement (DBCore::IIndex* index);
+
+	// загрузка однословных синонимов
+	void load_ssyns (DBCore::IIndex* index);
 
 	// загрузка синонимов
 	void load_syns (DBCore::IIndex* index);
@@ -118,11 +124,15 @@ private:
 
 	GCL::StrVector m_hard_phrases;
 
+	ContextSearch::DBComm::InvisibleDataIndex m_invb_index;
+
 	ContextSearch::Defs::InvisibleBlocks m_invisible_blocks;
 
 	ContextSearch::Defs::InvisibleRel m_invisible_rel;
 
 	ContextSearch::DBComm::StrPairVector m_phrasal_pair;
+
+	ContextSearch::DBComm::Synonyms m_ssyns;
 
 	ContextSearch::DBComm::Synonyms m_syns;
 
@@ -145,6 +155,10 @@ protected:
 	virtual const GCL::StrVector& get_hard_phrases () const;
 
 	// implemented method from ContextSearch::DBComm::IDBCommunicator
+	// индекс с невидимыми блочными
+	virtual const ContextSearch::DBComm::InvisibleDataIndex& get_invb_index () const;
+
+	// implemented method from ContextSearch::DBComm::IDBCommunicator
 	// длины блоков приписанных к позициям из невидимого текста
 	virtual const ContextSearch::Defs::InvisibleBlocks& get_invisible_blocks () const;
 
@@ -155,6 +169,10 @@ protected:
 	// implemented method from ContextSearch::DBComm::IDBCommunicator
 	// фразальные замены
 	virtual const ContextSearch::DBComm::StrPairVector& get_phrasal_replacement () const;
+
+	// implemented method from ContextSearch::DBComm::IDBCommunicator
+	// однословные синонимы
+	virtual const ContextSearch::DBComm::Synonyms& get_ssyns () const;
 
 	// implemented method from ContextSearch::DBComm::IDBCommunicator
 	// синонимы

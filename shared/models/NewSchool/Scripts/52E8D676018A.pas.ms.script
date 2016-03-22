@@ -6,34 +6,6 @@ FORWARD ME_52E8D676018A
 
 FORWARD ME_52E8DF0A03BA
 
-FORWARD ME_52E8DD1002BE
-
-: ME_6FC811CE4911
- CONST UID '6FC811CE4911'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TArchiServerForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52E8DD1002BE // TArchiServerForm
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_6FC811CE4911 Ini_Reg_Class
-
-: ME_4D0B6F809E42
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52E8DD1002BE // TArchiServerForm
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4D0B6F809E42 
-
 : ME_52E8DD1002BE
  CONST UID '52E8DD1002BE'
  CONST Name 'TArchiServerForm'
@@ -48,14 +20,6 @@ ref; // ME_4D0B6F809E42
    Seq: ( WL 'ME_4952591E0263' '4799D29F033F.pas.ms.script' // TForm
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6FC811CE4911 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_4D0B6F809E42 // 
- )
- ; // Dependencies
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -142,7 +106,6 @@ ref; // ME_52E8DF0A03BA TAutoPipeServerForm
  WL 'ME_53CCC2F702C7' '53CCC2F702C7.pas.ms.script' // Managers
  WL 'ME_53CCCA40004C' '53CCCA40004C.pas.ms.script' // BaseEngine
  WL 'ME_53D656130130' '53D656130130.pas.ms.script' // Server
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "CONFIG_UC" false

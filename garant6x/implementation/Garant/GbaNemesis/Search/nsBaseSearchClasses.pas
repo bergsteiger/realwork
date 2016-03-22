@@ -1,8 +1,11 @@
 unit nsBaseSearchClasses;
 
-// $Id: nsBaseSearchClasses.pas,v 1.3 2015/10/22 11:38:51 morozov Exp $
+// $Id: nsBaseSearchClasses.pas,v 1.4 2015/11/09 09:42:58 morozov Exp $
 
 // $Log: nsBaseSearchClasses.pas,v $
+// Revision 1.4  2015/11/09 09:42:58  morozov
+// {RequestLink: 610745801}
+//
 // Revision 1.3  2015/10/22 11:38:51  morozov
 // {RequestLink: 609899254}
 //
@@ -229,7 +232,7 @@ var
  l_Index: Integer;
  l_Listener: InsBaseSearchClassesListener;
 begin
- for l_Index := 0 to Pred(f_Listeners.Count) do
+ for l_Index := Pred(f_Listeners.Count) downto 0 do
  begin
    l_Listener := InsBaseSearchClassesListener(f_Listeners[l_Index]);
    try
@@ -280,7 +283,7 @@ end;
 procedure TnsBaseSearchClasses.Unsubscribe(const aListener: InsBaseSearchClassesListener);
 begin
  if (f_Listeners.IndexOf(aListener) <> -1) then
-  f_Listeners.Add(aListener)
+  f_Listeners.Remove(aListener)
  else
   Assert(False);
 end;
@@ -329,7 +332,8 @@ end;
 
 procedure TnsBaseSearchClasses.InitFields;
 begin
- f_Classes := TnsBaseSearchClassList.Create; 
+ inherited;
+ f_Classes := TnsBaseSearchClassList.Create;
  f_Listeners := Tl3InterfacePtrList.Create;
  Il3ChangeNotifier(DefDataAdapter).Subscribe(InsDataAdapterListener(Self));
 end;

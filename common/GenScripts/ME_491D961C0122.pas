@@ -2,6 +2,7 @@ unit AdminInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\AdminInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "AdminInterfaces" MUID: (491D961C0122)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

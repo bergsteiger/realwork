@@ -2,6 +2,7 @@ unit ToolWin;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\ToolWin.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ToolWin" MUID: (502CE49803C3)
 
 interface
 

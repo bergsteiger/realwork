@@ -2,6 +2,7 @@ unit arDBUtils;
 
 // Модуль: "w:\archi\source\projects\Common\Utils\arDBUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "arDBUtils" MUID: (4E4A364200F7)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 

@@ -2,6 +2,7 @@ unit tfwStoredValues;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValues.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwStoredValues" MUID: (4F49408A03C0)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

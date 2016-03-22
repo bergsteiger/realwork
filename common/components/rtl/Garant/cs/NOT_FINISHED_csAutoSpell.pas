@@ -2,6 +2,7 @@ unit NOT_FINISHED_csAutoSpell;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csAutoSpell.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "csAutoSpell" MUID: (5317062900DF)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

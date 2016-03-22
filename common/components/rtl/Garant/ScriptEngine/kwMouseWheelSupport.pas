@@ -2,6 +2,7 @@ unit kwMouseWheelSupport;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseWheelSupport.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwMouseWheelSupport" MUID: (50C852B30225)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

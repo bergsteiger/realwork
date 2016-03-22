@@ -91,9 +91,6 @@ group "All" {
 	}
 
 	group "Delphi интерфейсы и реализация" {
-		generator "dfm" {
-			Description: Генератор файлов форм (.dfm)
-		}
 		generator "impl.pas" {
 			Description: Реализация на Delphi(.pas)
 			lid: delphi
@@ -114,23 +111,9 @@ group "All" {
 			Description: 
 			lid: script
 		}
-		generator "rc.pas" {
-			Description: Ресурсы (.rc)
-			lid: delphi
-		}
-		generator "rc.script.pas" {
-			Description: Скрипты в ресурсах (.rc.script)
-			lid: delphi
-		}
-		generator "res.cmd.pas" {
-			Description: Компилятор ресурса (.res.cmd)
-			lid: delphi
-		}
-		group "Delphi ST" {
-			generator "pascal" {
-				Description: 
-				lid: delphi
-			}
+		generator "pas.script.runner" {
+			Description: 
+			lid: script
 		}
 	}
 
@@ -218,6 +201,10 @@ group "All" {
 		generator "mda.inc" {
 			Description: Генерация списка включения мета-шаблонов (mda.inc)
 		}
+		generator "tpi.script" {
+			Description: 
+			lid: script
+		}
 	}
 
 	group "ModelBuilding" {
@@ -229,12 +216,6 @@ group "All" {
 	group "Документация" {
 		generator "wiki" {
 			Description: Генерация модели в MDKnow
-		}
-		group "ModelSerialize" {
-			generator "forth_structure" {
-				Description: генератор структуры модели в описание на языке FORTH
-				lid: forth
-			}
 		}
 	}
 
@@ -301,10 +282,6 @@ P
 P
 	<%CX>
 
-+ dfm
-P
-	<%CX>
-
 + impl.pas
 P
 	<%CX>
@@ -325,15 +302,7 @@ P
 P
 	<%CX>
 
-+ rc.pas
-P
-	<%CX>
-
-+ rc.script.pas
-P
-	<%CX>
-
-+ res.cmd.pas
++ pas.script.runner
 P
 	<%CX>
 
@@ -433,19 +402,15 @@ P
 P
 	<%CX>
 
++ tpi.script
+P
+	<%CX>
+
 + spell
 P
 	<%CX>
 
-+ forth_structure
-P
-	<%CX>
-
 + wiki
-P
-	<%CX>
-
-+ pascal
 P
 	<%CX>
 
@@ -461,13 +426,11 @@ f _all_generators
 	%f_add_to_list(ALL_GENERATORS_ID,"com.def")
 	%f_add_to_list(ALL_GENERATORS_ID,"com.rgs")
 	%f_add_to_list(ALL_GENERATORS_ID,"cpp")
-	%f_add_to_list(ALL_GENERATORS_ID,"dfm")
 	%f_add_to_list(ALL_GENERATORS_ID,"dll.cpp")
 	%f_add_to_list(ALL_GENERATORS_ID,"dll.h")
 	%f_add_to_list(ALL_GENERATORS_ID,"fctr.cpp")
 	%f_add_to_list(ALL_GENERATORS_ID,"fctr.h")
 	%f_add_to_list(ALL_GENERATORS_ID,"fctr.java")
-	%f_add_to_list(ALL_GENERATORS_ID,"forth_structure")
 	%f_add_to_list(ALL_GENERATORS_ID,"h")
 	%f_add_to_list(ALL_GENERATORS_ID,"i.h")
 	%f_add_to_list(ALL_GENERATORS_ID,"idl")
@@ -489,14 +452,12 @@ f _all_generators
 	%f_add_to_list(ALL_GENERATORS_ID,"output.xml")
 	%f_add_to_list(ALL_GENERATORS_ID,"pas")
 	%f_add_to_list(ALL_GENERATORS_ID,"pas.script")
-	%f_add_to_list(ALL_GENERATORS_ID,"pascal")
+	%f_add_to_list(ALL_GENERATORS_ID,"pas.script.runner")
 	%f_add_to_list(ALL_GENERATORS_ID,"rc")
-	%f_add_to_list(ALL_GENERATORS_ID,"rc.pas")
-	%f_add_to_list(ALL_GENERATORS_ID,"rc.script.pas")
-	%f_add_to_list(ALL_GENERATORS_ID,"res.cmd.pas")
 	%f_add_to_list(ALL_GENERATORS_ID,"s.ini")
 	%f_add_to_list(ALL_GENERATORS_ID,"s.reg")
 	%f_add_to_list(ALL_GENERATORS_ID,"spell")
+	%f_add_to_list(ALL_GENERATORS_ID,"tpi.script")
 	%f_add_to_list(ALL_GENERATORS_ID,"vi.rc")
 	%f_add_to_list(ALL_GENERATORS_ID,"vi.rch")
 	%f_add_to_list(ALL_GENERATORS_ID,"vm")

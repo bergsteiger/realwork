@@ -3,6 +3,8 @@ unit PrimList_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimList_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "PrimList" MUID: (497DDB2B001B)
+// Имя типа: "TPrimListForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -496,6 +498,9 @@ type
    {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure PageActive; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
    function NeedMakeHyperlinkToDocument: Boolean; override;
@@ -4250,7 +4255,10 @@ begin
 //#UC START# *497469C90140_497DDB2B001B_impl*
  inherited;
  f_AllowCallCurrentChangedOnTest := True;
- f_NeedDirtyHackForScrollbar := True;
+
+ tvList.SelfDrawNodes := Assigned(dsDocumentList) and dsDocumentList.IsSnippet;
+ if tvList.HandleAllocated then
+  PostMessage(tvList.Handle, msg_vtInvalidateNCArea, 0, 0);
 //#UC END# *497469C90140_497DDB2B001B_impl*
 end;//TPrimListForm.NotifyDataSourceChanged
 
@@ -4375,7 +4383,6 @@ procedure TPrimListForm.InitControls;
 begin
 //#UC START# *4A8E8F2E0195_497DDB2B001B_impl*
  inherited;
- f_NeedDirtyHackForScrollbar := True;
  ActiveControl := tvList;
  tvList.NonTrackScroll := true;
  tvList.StyleId := ev_saTxtNormalANSI;
@@ -4391,53 +4398,63 @@ begin
  end;//with ListPanel
  with cfList do
  begin
-   Left := 0;
-   Top := 0;
-   Width := 399;
-   Height := 35;
-   ImageIndex := 77;
-   ContextFilterTarget := tvList;
-   OnChange := cfListChange;
-   OnWrongContext := cfListWrongContext;
+  Left := 0;
+  Top := 0;
+  Width := 399;
+  Height := 35;
+  ImageIndex := 77;
+  ContextFilterTarget := tvList;
+  OnChange := cfListChange;
+  OnWrongContext := cfListWrongContext;
  end;
  with tvList do
  begin
-   Left := 0;
-   Top := 35;
-   Width := 399;
-   Height := 458;
-   OnCountChanged := tvListCountChanged;
-   OnAfterFirstPaint := tvListAfterFirstPaint;
-   OnCurrentIndexChanged := tvListCurrentIndexChanged;
-   Align := alClient;
-   BorderStyle := bsNone;
-   TabOrder := 0;
-   MultiSelect := True;
-   MultiStrokeItem := True;
-   ActionElementMode := l3_amSecondSingleClick;
-   NeedStatus := True;
-   OnGetItemIconHint := tvListGetItemIconHint;
-   OnMakeTreeSource := tvListMakeTreeSource;
-   OnGetItemImage := tvListGetItemImage;
-   OnActionElement := tvListActionElement;
-   OnCurrentChanged := tvListCurrentChanged;
-   OnTreeChanged := tvListTreeChanged;
-   OnRootChanged := tvListRootChanged;
-   OnSelectCountChanged := tvListSelectCountChanged;
-   OnFormatStatusInfo := tvListFormatStatusInfo;
-   OnNewCharPressed := tvListNewCharPressed;
-   OnCheckFocusedInPaint := tvListCheckFocusedInPaint;
-   OnGetNodeType := TvListGetNodeType;
-   DragAndDropSupported := True;
-   FooterCaption := str_ListFooterCaption.AsStr;
-   OnFooterClick := tvListFooterClick;
-   SettingId := 'stidListTree';
-   InterRowMultiplier := 2;             
-   OpenChipColor := $ADADAD; //414849886 
-   OpenChipBorderColor := $ADADAD;
+  Left := 0;
+  Top := 35;
+  Width := 399;
+  Height := 458;
+  OnCountChanged := tvListCountChanged;
+  OnAfterFirstPaint := tvListAfterFirstPaint;
+  OnCurrentIndexChanged := tvListCurrentIndexChanged;
+  Align := alClient;
+  BorderStyle := bsNone;
+  TabOrder := 0;
+  MultiSelect := True;
+  MultiStrokeItem := True;
+  ActionElementMode := l3_amSecondSingleClick;
+  NeedStatus := True;
+  OnGetItemIconHint := tvListGetItemIconHint;
+  OnMakeTreeSource := tvListMakeTreeSource;
+  OnGetItemImage := tvListGetItemImage;
+  OnActionElement := tvListActionElement;
+  OnCurrentChanged := tvListCurrentChanged;
+  OnTreeChanged := tvListTreeChanged;
+  OnRootChanged := tvListRootChanged;
+  OnSelectCountChanged := tvListSelectCountChanged;
+  OnFormatStatusInfo := tvListFormatStatusInfo;
+  OnNewCharPressed := tvListNewCharPressed;
+  OnCheckFocusedInPaint := tvListCheckFocusedInPaint;
+  OnGetNodeType := TvListGetNodeType;
+  DragAndDropSupported := True;
+  FooterCaption := str_ListFooterCaption.AsStr;
+  OnFooterClick := tvListFooterClick;
+  SettingId := 'stidListTree';
+  InterRowMultiplier := 2;             
+  OpenChipColor := $ADADAD; //414849886 
+  OpenChipBorderColor := $ADADAD;
  end;
 //#UC END# *4A8E8F2E0195_497DDB2B001B_impl*
 end;//TPrimListForm.InitControls
+
+procedure TPrimListForm.PageActive;
+//#UC START# *4C52E8030278_497DDB2B001B_var*
+//#UC END# *4C52E8030278_497DDB2B001B_var*
+begin
+//#UC START# *4C52E8030278_497DDB2B001B_impl*
+ if (dsList <> nil) then
+  dsList.CurrentChanged(tvList.GetCurrentNode);
+//#UC END# *4C52E8030278_497DDB2B001B_impl*
+end;//TPrimListForm.PageActive
 
 procedure TPrimListForm.ClearFields;
 begin

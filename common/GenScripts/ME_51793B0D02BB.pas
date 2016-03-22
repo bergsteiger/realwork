@@ -2,6 +2,8 @@ unit kwPopControlScrollInfoMax;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopControlScrollInfoMax.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_control_ScrollInfo_Max" MUID: (51793B0D02BB)
+// Имя типа: "TkwPopControlScrollInfoMax"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

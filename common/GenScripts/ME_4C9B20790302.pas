@@ -2,6 +2,8 @@ unit PrimTextLoad_Form;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\PrimTextLoad_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimTextLoad" MUID: (4C9B20790302)
+// Имя типа: "TPrimTextLoadForm"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

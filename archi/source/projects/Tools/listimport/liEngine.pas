@@ -50,7 +50,9 @@ uses
  StrUtils,
  JclStrings,
 
+ daInterfaces,
  daTypes,
+ daSchemeConsts,
 
  DT_Types,
  DT_Const,

@@ -2,6 +2,7 @@ unit kwScrollInfoWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwScrollInfoWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwScrollInfoWord" MUID: (517939B9033C)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -20,7 +21,6 @@ type
  TkwScrollInfoWord = {abstract} class(TkwWinControlFromStackWord)
   private
    f_ScrollInfo: TScrollInfo;
-    {* Поле для свойства ScrollInfo }
   protected
    procedure DoScrollInfo(const aCtx: TtfwContext); virtual; abstract;
    procedure DoWinControl(aControl: TWinControl;

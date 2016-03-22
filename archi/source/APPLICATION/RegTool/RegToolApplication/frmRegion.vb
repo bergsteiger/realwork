@@ -236,10 +236,10 @@ Public Class frmRegion
         End Select
     End Sub
     Private Sub smiSaveList_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles smiSaveList.Click
-        SaveList()     'Сохранить из меню
+        SaveList()     'Сохраняем из меню
     End Sub
     Private Sub tsSaveNumer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsSaveNumer.Click
-        SaveList()     'Сохранить из контекстного меню
+        SaveList()     'Сохраняем из контекстного меню
     End Sub
     Sub SaveList()
         Try
@@ -249,15 +249,15 @@ Public Class frmRegion
                 .CreatePrompt = False
                 .OverwritePrompt = True
                 .ValidateNames = True
-                '.ShowHelp = True
+                .ShowHelp = True
                 .DefaultExt = "txt"
-                .FileName = filename & ("ID регионов")
+                .FileName = filename & ("IDRegions")
                 .Filter = _
                 "Текстовые файлы (*.txt)|*.txt|" & "All files|*.*"
                 .FilterIndex = 1
 
                 If .ShowDialog() = Windows.Forms.DialogResult.OK Then
-                    My.Computer.FileSystem.WriteAllText(.FileName, My.Resources.regions, False)
+                    My.Computer.FileSystem.WriteAllText(.FileName, My.Resources.regions, True)
                 End If
 
             End With

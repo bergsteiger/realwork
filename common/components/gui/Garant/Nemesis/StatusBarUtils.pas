@@ -2,6 +2,7 @@ unit StatusBarUtils;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\StatusBarUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "StatusBarUtils" MUID: (505DCE690055)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

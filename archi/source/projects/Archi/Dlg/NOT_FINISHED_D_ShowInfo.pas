@@ -2,6 +2,7 @@ unit NOT_FINISHED_D_ShowInfo;
 
 // Модуль: "w:\archi\source\projects\Archi\Dlg\NOT_FINISHED_D_ShowInfo.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "D_ShowInfo" MUID: (53EC88D6039A)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

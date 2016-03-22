@@ -3,6 +3,8 @@ unit OldSituationSearch_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\OldSituationSearch_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "OldSituationSearch" MUID: (4AB8D885020F)
+// Имя типа: "TcfOldSituationSearch"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

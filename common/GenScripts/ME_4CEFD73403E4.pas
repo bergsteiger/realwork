@@ -2,6 +2,7 @@ unit nsLeafParaDecorationsHolder;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsLeafParaDecorationsHolder.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsLeafParaDecorationsHolder" MUID: (4CEFD73403E4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

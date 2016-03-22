@@ -5,7 +5,7 @@ unit m3DBFiler;
 // Библиотека "m3$DB"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3DBFiler.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3$DB::m3DB::Tm3DBFiler
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3DBFiler
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

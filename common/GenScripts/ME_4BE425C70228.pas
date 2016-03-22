@@ -3,6 +3,7 @@ unit TextEditorVisitor;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\TextEditorVisitor.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTextEditorVisitor" MUID: (4BE425C70228)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

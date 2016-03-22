@@ -2,6 +2,7 @@ unit StrUtils;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\StrUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "StrUtils" MUID: (483C378301CB)
 
 interface
 

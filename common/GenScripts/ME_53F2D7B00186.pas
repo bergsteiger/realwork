@@ -2,6 +2,7 @@ unit ChromeLikeInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "ChromeLikeInterfaces" MUID: (53F2D7B00186)
 
 interface
 

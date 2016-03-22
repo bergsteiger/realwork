@@ -5,7 +5,7 @@ unit DataProviderParams_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/DataProviderParams_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::DataProviderParams
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::DataProviderParams
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

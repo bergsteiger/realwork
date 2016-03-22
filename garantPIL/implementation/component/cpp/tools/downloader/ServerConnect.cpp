@@ -22,8 +22,14 @@ bool Connection::open_request (const char* str_obj, const char* headers) {
 
 	m_err_msg.clear ();
 
+	std::string _headers = "Accept: application/json,*/*\r\nAccept-Encoding: identity\r\n";
+
+	if (headers) {
+		_headers += headers;
+	}
+
 	try {
-		ret = m_connection->open_request (str_obj, headers);
+		ret = m_connection->open_request (str_obj, _headers.c_str ());
 
 		if (ret == false) {
 			CString str;

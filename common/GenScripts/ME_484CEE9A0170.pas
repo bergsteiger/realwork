@@ -3,6 +3,8 @@ unit Font_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\Font_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Font" MUID: (484CEE9A0170)
+// Имя типа: "FontTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

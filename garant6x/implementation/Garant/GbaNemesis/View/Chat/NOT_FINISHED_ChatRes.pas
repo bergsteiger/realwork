@@ -2,6 +2,7 @@ unit NOT_FINISHED_ChatRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\NOT_FINISHED_ChatRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ChatRes" MUID: (519A11280120)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

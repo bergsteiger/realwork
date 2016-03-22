@@ -2,6 +2,7 @@ unit nevBeforeStartPoint;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevBeforeStartPoint.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevBeforeStartPoint" MUID: (4EC3AD980264)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

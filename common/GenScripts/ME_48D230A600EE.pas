@@ -3,6 +3,7 @@ unit evButtonControl;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evButtonControl.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevButtonControl" MUID: (48D230A600EE)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

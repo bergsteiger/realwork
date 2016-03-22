@@ -2,6 +2,7 @@ unit NOT_FINISHED_BottomBtnDlg;
 
 // Модуль: "w:\archi\source\projects\Archi\MetaForms\NOT_FINISHED_BottomBtnDlg.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TBottomBtnDlg" MUID: (4E4B62A40251)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

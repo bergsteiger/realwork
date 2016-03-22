@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2DoQT.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "k2DoQT" MUID: (4D0A3CA401E0)
+// Имя типа: "_k2DoQT_"
 
 {$Define k2DoQT_imp}
 

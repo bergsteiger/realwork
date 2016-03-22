@@ -3,6 +3,7 @@ unit DocumentWithFlashUserTypes_dwftMain_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentWithFlashUserTypes_dwftMain_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "dwftMain" MUID: (4BD6EE980118)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dwftMain = {final} class(TtfwInteger)
   {* Слово словаря для типа формы dwftMain }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_dwftMain
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_dwftMain.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::dwftMain';
-end;//Tkw_FormUserType_dwftMain.GetWordNameForRegister
-
 function Tkw_FormUserType_dwftMain.GetInteger: Integer;
 begin
  Result := dwftMain;
 end;//Tkw_FormUserType_dwftMain.GetInteger
+
+class function Tkw_FormUserType_dwftMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::dwftMain';
+end;//Tkw_FormUserType_dwftMain.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

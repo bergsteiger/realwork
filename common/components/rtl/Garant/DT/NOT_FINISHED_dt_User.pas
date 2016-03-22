@@ -2,6 +2,7 @@ unit NOT_FINISHED_dt_User;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_dt_User.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "dt_User" MUID: (53CD0E83039E)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

@@ -2,6 +2,7 @@ unit eeDocumentTool;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocumentTool.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TeeDocumentTool" MUID: (54817DBA01BE)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

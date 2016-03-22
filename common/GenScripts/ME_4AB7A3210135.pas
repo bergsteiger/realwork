@@ -3,6 +3,8 @@ unit PrimBaseSearchCard_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearchCard_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimBaseSearchCard" MUID: (4AB7A3210135)
+// Имя типа: "TPrimBaseSearchCardForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

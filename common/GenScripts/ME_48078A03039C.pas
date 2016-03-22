@@ -2,6 +2,7 @@ unit atDelegateListener;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atDelegateListener.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatDelegateListener" MUID: (48078A03039C)
 
 interface
 

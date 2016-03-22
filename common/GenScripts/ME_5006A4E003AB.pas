@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmUserTypesCollectionItem;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmUserTypesCollectionItem.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmUserTypesCollectionItem" MUID: (5006A4E003AB)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

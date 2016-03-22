@@ -3,6 +3,7 @@ unit l3DataContainerWithoutIUnknown;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3DataContainerWithoutIUnknown.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3DataContainerWithoutIUnknown" MUID: (4A60A00700B5)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

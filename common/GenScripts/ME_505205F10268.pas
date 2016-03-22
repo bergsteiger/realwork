@@ -2,6 +2,8 @@
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "atEntityWithName" MUID: (505205F10268)
+// Имя типа: "_atEntityWithName_"
 
 {$Define atEntityWithName_imp}
 

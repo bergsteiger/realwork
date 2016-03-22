@@ -3,6 +3,8 @@ unit QFLikeTextLoad_Form;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\QFLikeTextLoad_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "QFLikeTextLoad" MUID: (4CA090120212)
+// Имя типа: "TQFLikeTextLoadForm"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

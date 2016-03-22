@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevStringCache.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevStringCache" MUID: (4E71FB8302C6)
+// Имя типа: "_nevStringCache_"
 
 {$Define nevStringCache_imp}
 

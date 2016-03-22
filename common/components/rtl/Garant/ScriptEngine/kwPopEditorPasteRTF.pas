@@ -8,6 +8,8 @@ Test.rtf  focused:control:push pop:editor:PasteRTF
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPasteRTF.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_PasteRTF" MUID: (5260EBCB0238)
+// Имя типа: "TkwPopEditorPasteRTF"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

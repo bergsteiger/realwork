@@ -2,6 +2,8 @@ unit SaveLoad_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\SaveLoad_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "SaveLoad" MUID: (4AA931BF023D)
+// Имя типа: "TcfSaveLoad"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

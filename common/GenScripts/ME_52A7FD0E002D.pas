@@ -3,6 +3,7 @@ unit arEditorDebugInfo;
 
 // Модуль: "w:\archi\source\projects\Archi\Main\arEditorDebugInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarEditorDebugInfo" MUID: (52A7FD0E002D)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

@@ -2,6 +2,8 @@ unit kwVcmOpShortcut;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpShortcut.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "vcm_op_Shortcut" MUID: (523018BE02F9)
+// Имя типа: "TkwVcmOpShortcut"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -2,6 +2,7 @@ unit ncsPushFilePart;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsPushFilePart.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsPushFilePart" MUID: (548940970391)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

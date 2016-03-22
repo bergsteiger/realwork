@@ -1,97 +1,53 @@
 unit TestFilerReadLn;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/TestFilerReadLn.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::Core::TTestFilerReadLn
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\TestFilerReadLn.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TTestFilerReadLn" MUID: (4B2A51EA00EB)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TTestFilerReadLn = class(TBaseTest)
- private
- // private methods
+  private
    function ReadViaDelphiPrim(const aName: AnsiString): Longword;
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure ReadViaDelphi;
    procedure DoIt;
    procedure ReadLnBadText;
-     {* Тест для [RequestLink:175540286]. }
+    {* Тест для [RequestLink:175540286]. }
    procedure ReadLnBadUnicodeText;
-     {* Тест для [RequestLink:175540286]. }
+    {* Тест для [RequestLink:175540286]. }
  end;//TTestFilerReadLn
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  l3Filer,
-  SysUtils,
-  l3Types,
-  TestGlobals,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestGlobals
+ , TestFrameWork
+ , l3Filer
+ , SysUtils
+ , l3Types
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TTestFilerReadLn
-
-function TTestFilerReadLn.ReadViaDelphiPrim(const aName: AnsiString): Longword;
-//#UC START# *4B2A57F40332_4B2A51EA00EB_var*
-var
- l_TF : TextFile;
- l_S  : AnsiString;
-//#UC END# *4B2A57F40332_4B2A51EA00EB_var*
-begin
-//#UC START# *4B2A57F40332_4B2A51EA00EB_impl*
- AssignFile(l_TF, FileFromCurrent(cNSRCFileIn));
- Reset(l_TF);
- try
-  StartTimer;
-  while not EOF(l_TF) do
-   ReadLn(l_TF, l_S);
-  if (aName = '') then
-   Result := StopTimer('Read via Delphi')
-  else
-   Result := StopTimer(aName, 'Etalon');
- finally
-  CloseFile(l_TF);
- end;//try..finally
-//#UC END# *4B2A57F40332_4B2A51EA00EB_impl*
-end;//TTestFilerReadLn.ReadViaDelphiPrim
-
+{$If NOT Defined(NotTunedDUnit)}
 procedure TTestFilerReadLn.ReadViaDelphi;
 //#UC START# *4B2A52480392_4B2A51EA00EB_var*
 //#UC END# *4B2A52480392_4B2A51EA00EB_var*
@@ -136,7 +92,32 @@ begin
 //#UC END# *4B2A5250025B_4B2A51EA00EB_impl*
 end;//TTestFilerReadLn.DoIt
 
+function TTestFilerReadLn.ReadViaDelphiPrim(const aName: AnsiString): Longword;
+//#UC START# *4B2A57F40332_4B2A51EA00EB_var*
+var
+ l_TF : TextFile;
+ l_S  : AnsiString;
+//#UC END# *4B2A57F40332_4B2A51EA00EB_var*
+begin
+//#UC START# *4B2A57F40332_4B2A51EA00EB_impl*
+ AssignFile(l_TF, FileFromCurrent(cNSRCFileIn));
+ Reset(l_TF);
+ try
+  StartTimer;
+  while not EOF(l_TF) do
+   ReadLn(l_TF, l_S);
+  if (aName = '') then
+   Result := StopTimer('Read via Delphi')
+  else
+   Result := StopTimer(aName, 'Etalon');
+ finally
+  CloseFile(l_TF);
+ end;//try..finally
+//#UC END# *4B2A57F40332_4B2A51EA00EB_impl*
+end;//TTestFilerReadLn.ReadViaDelphiPrim
+
 procedure TTestFilerReadLn.ReadLnBadText;
+ {* Тест для [RequestLink:175540286]. }
 //#UC START# *4B336B0B0247_4B2A51EA00EB_var*
 var
  l_F : Tl3CustomFiler;
@@ -159,6 +140,7 @@ begin
 end;//TTestFilerReadLn.ReadLnBadText
 
 procedure TTestFilerReadLn.ReadLnBadUnicodeText;
+ {* Тест для [RequestLink:175540286]. }
 //#UC START# *4B336DFB0051_4B2A51EA00EB_var*
 var
  l_F : Tl3CustomFiler;
@@ -182,20 +164,20 @@ begin
 end;//TTestFilerReadLn.ReadLnBadUnicodeText
 
 function TTestFilerReadLn.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Core';
 end;//TTestFilerReadLn.GetFolder
 
 function TTestFilerReadLn.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4B2A51EA00EB';
 end;//TTestFilerReadLn.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TTestFilerReadLn.Suite);
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

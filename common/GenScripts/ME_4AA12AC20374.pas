@@ -3,6 +3,8 @@ unit fsTips;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\fsTips.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "Tips" MUID: (4AA12AC20374)
+// Имя типа: "Tfs_Tips"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

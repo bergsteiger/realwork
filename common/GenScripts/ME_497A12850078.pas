@@ -3,6 +3,8 @@ unit PrimRedactions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimRedactions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimRedactions" MUID: (497A12850078)
+// Имя типа: "TPrimRedactionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -693,6 +695,8 @@ begin
   if IsModalForm and (Document <> nil) then
     TnsViewDocumentEditionListEvent.Log(Document);
  end;//dsEditions <> nil
+ if RedactionTree.HandleAllocated then
+  PostMessage(RedactionTree.Handle, msg_vtInvalidateNCArea, 0, 0);
 //#UC END# *497469C90140_497A12850078_impl*
 end;//TPrimRedactionsForm.NotifyDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)

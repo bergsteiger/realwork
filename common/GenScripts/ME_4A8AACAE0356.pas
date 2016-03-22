@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "TextWithComments" MUID: (4A8AACAE0356)
+// Имя типа: "_TextWithComments_"
 
 {$Define TextWithComments_imp}
 

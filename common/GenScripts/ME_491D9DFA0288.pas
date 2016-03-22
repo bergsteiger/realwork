@@ -3,6 +3,7 @@ unit atSynchroPoint;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atSynchroPoint.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatSynchroPoint" MUID: (491D9DFA0288)
 
 interface
 

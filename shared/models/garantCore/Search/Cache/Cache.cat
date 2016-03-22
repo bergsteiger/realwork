@@ -134,13 +134,13 @@
 		    tool       	"MDA Generator"
 		    name       	"cpp:*50AE53480198_CUSTOM_INCLUDES*"
 		    value      	(value Text 
-|//#UC START# *50AE53480198_CUSTOM_INCLUDES*§#include "shared/GCL/str/str_conv.h"§§#include "garantPIL/implementation/component/cpp/tools/CSAdapter/AdapterLoader.h"§#include "garantPIL/implementation/component/cpp/libs/gkdb/src/BaseCache.h"§§#include "boost/algorithm/string/classification.hpp"§#include "boost/algorithm/string/split.hpp"§#include "boost/algorithm/string/trim.hpp"§#include "boost/algorithm/string/join.hpp"§#include "boost/bind.hpp"§//#UC END# *50AE53480198_CUSTOM_INCLUDES*
+|//#UC START# *50AE53480198_CUSTOM_INCLUDES*§#include "shared/GCL/str/str_conv.h"§§#include "garantPIL/implementation/component/cpp/tools/CSAdapter/AdapterLoader.h"§§#include "boost/algorithm/string/classification.hpp"§#include "boost/algorithm/string/split.hpp"§#include "boost/algorithm/string/trim.hpp"§#include "boost/algorithm/string/join.hpp"§#include "boost/bind.hpp"§§#include "DBComm.h"§//#UC END# *50AE53480198_CUSTOM_INCLUDES*
 		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"cpp:*50AE53480198*"
 		    value      	(value Text 
-|//#UC START# *50AE53480198*§struct CompareByWords : public std::binary_function<std::string, std::string, bool> {§	bool operator () (const std::string& x, const std::string& y) const {§		size_t x_size = (x.empty ())? 0 : std::count_if (x.begin (), x.end (), boost::is_any_of (" -~")) + 1;§		size_t y_size = (y.empty ())? 0 : std::count_if (y.begin (), y.end (), boost::is_any_of (" -~")) + 1;§§		if (x_size == y_size) {§			return (m_is_less)? (x.size () > y.size ()) : (x.size () > y.size ());§		} §§		return (m_is_less)? (x_size < y_size) : (x_size > y_size);§	}§§	CompareByWords (bool is_less) : m_is_less (is_less) { }§§private:§	bool m_is_less;§};§§//////////////////////////////////////////////////////////////////////////////////////////////////////////////§§typedef Core::Aptr <char, Core::ArrayDeleteDestructor <char> > Buffer;§§template <class Data>§static void read_doc_vector (DBCore::Store* store, Data& out) {§	size_t count = (size_t) store->Length () / sizeof (long);§§	Core::Aptr <long, Core::ArrayDeleteDestructor <long> > buf =  new long [count + 1];§	store->Read (buf.inout (), store->Length ());§§	out.insert (out.end (), buf.ptr (), buf.ptr () + count);§}§§static DBCore::DocVector* get_type_docs (Index* index, const void* key) {§	Core::Aptr <DBCore::DocVector> ret = new DBCore::DocVector ();§§	Stream* str = index->keyOpen (key, 0);§§	if (str) {§		size_t item_size = sizeof (Ref), size = (size_t) str->Length ();§§		Buffer buf = new char [size];§		str->Read (buf.inout (), size);§§		ret->resize (size / item_size);§§		DBCore::DocVector::iterator it = ret->begin (), it_end = ret->end ();§§		for (char* ptr = buf.ptr (); it != it_end; ++it, ptr += item_size) {§			*it = *(long*) ptr;§		}§§		index->Close (str);§	}§§	return ret._retn ();§}§§static void get_docs (SearchBase* base, const GCL::StrVector& types, std::vector <unsigned long>& out) {§	Index* index = base->FindIndex ("Type");§§	size_t count = 0;§§	for (BTIterator it (index); !it.End (); ++it) {§		HIndexKeyData* key = (HIndexKeyData*) it.Key ();§§		std::string key_text = key->text + 4;§§		GCL::StrVector::const_iterator _it = std::find (types.begin (), types.end (), key_text);§§		if (_it != types.end ()) {§			Core::Aptr <DBCore::DocVector> res = get_type_docs (index, key);§§			if (res->empty () == false) {§				size_t mid = out.size ();§				out.insert (out.end (), res->begin (), res->end ());§§				if (mid) {§					std::inplace_merge (out.begin (), out.begin () + mid, out.end ());§				}§			}§§			if (++count == types.size ()) {§				break;§			}§		}§	}§}§§static bool is_digit (const std::string& str) {§	return std::find_if (str.begin (), str.end (), !boost::is_digit ()) == str.end ();§}§§static size_t is_number (const char* request, std::string& num) {§	GDS_ASSERT (request);§§	bool is_N = false;§§	size_t ret = 0;§	std::string copy_req = request;§§	num.clear ();§§	GCL::to_upper (copy_req);§§	GCL::StrVector pattern;§	boost::split (pattern, copy_req, boost::is_space ());§§	if (pattern.empty ()) {§		return ret;§	}§§	std::string word = pattern [0];§§	if (word [0] == 'N' || word [0] == 'π') {§		if (word.size () == 1) {§			if (pattern.size () == 1) {§				return 0;§			}§			is_N = true;§			word = pattern [1];§			ret = copy_req.find (word);§		} else {§			word = word.substr (1, word.size ());§			ret = 1;§		}§	}§§	if (word.empty () == false && word [word.size () - 1] == '*') {§		return 0;§	}§§	bool has_digit = std::find_if (word.begin (), word.end (), boost::is_from_range ('0', '9')) != word.end ();§	bool is_number_ext = (has_digit && !strchr (word.c_str (), '%'));§§	if (is_N || is_number_ext) {§		std::string digit, part;§§		if (word [0] >= '0' && word [0] <= '9') {§			part = boost::trim_left_copy_if (word, boost::is_from_range ('0', '9'));§			digit = word.substr (0, word.size () - part.size ());§§			if (Search::is_digit (digit)) {§				if (part == "-Õ") {§					num = digit + "Õ";§				} else if (part == "-AP" || part == "AP") {§					num = digit + "-‘«";§				} else if (§					part == "-Œ≈"§					|| part == "-≈"§					|| part == "-Œ√Œ"§					|| part == "-»…"§					|| part == "-€…"§					|| part == "-¿ﬂ"§					|| part == "-√Œ"§					|| part == "-≈√Œ"§					|| part == "-»’"§					|| part == "-€’"§				) {§					num = digit;§				} else if (part == " «" || part == "‘«" || part == "Œ«") {§					num = digit + "-" + part;§				}§			}§		} else {§			digit = boost::trim_left_copy_if (word, !boost::is_from_range ('0', '9'));§§			part = word.substr (0, word.size () - digit.size ());§§			if (Search::is_digit (digit) && part.size () <= 3) {§				if (*(part.rbegin ()) == '-') {§					part.erase (part.size () - 1);§				}§				if (part == " «" || part == "Œ«" || part == "‘«") {§					num = digit + "-" + part;§				} else if (part == "AP") {§					num = digit + "-" + "‘«";§				}§			}§		}§§		ret += word.size ();§§		word.erase (std::remove (word.begin (), word.end (), '!'), word.end ());§§		if (num.empty ()) {§			num += word;§		} §§		while (*(request + ret) == ' ') {§			++ret;§		}§	} else if (pattern.size () > 1) {§		ret = 0;§§		if (Search::is_digit (word)) {§			if (pattern [1] == " «" || pattern [1] == "Œ«" || pattern [1] == "‘«") {§				num = word + "-" + pattern [1];§			} else if (pattern [1] == "Õ") {§				num = word + "Õ";§			} else if (pattern [1] == "AP") {§				num = word + "-" + "‘«";§			}§		} else if (Search::is_digit (pattern [1])) {§			if (word == " «" || word == "Œ«" || word == "‘«") {§				num = pattern [1] + "-" + word;§			} else if (word == "»Õ¬" || word == "“") {§				num = word + "-" + pattern [1];§			} else if (word == "AP") {§				num = pattern [1] + "-" + "‘«";§			}§		}§§		if (num.empty () == false) {§			if (pattern.size () > 2) {§				ret = copy_req.find (pattern [2]);§			} else {§				ret = copy_req.size ();§			}§		}§	}§§	if (num.empty () == false) {§		std::string from = "ABCEHKMPTXIOŒ«", to = "¿¬—≈Õ Ã–“’1003";§§		for (std::string::iterator it = num.begin (); it != num.end (); ++it) {§			size_t pos = from.find (*it);§			*it = (pos != std::string::npos)? to [pos] : *it;§		}§	}§§	return ret;§}§§static GCL::StrVector* get_numbers (const std::string& str) {§	std::string val;§§	GCL::StrVector parts;§	boost::split (parts, str, boost::is_space ());§§	for (GCL::StrVector::iterator it = parts.begin (); it != parts.end (); ++it) {§		boost::trim_if (*it, boost::is_punct ());§	}§§	const std::string str_copy = boost::join (parts, " ");§§	Core::Aptr <GCL::StrVector> ret = new GCL::StrVector ();§§	for (std::string::const_iterator it = str_copy.begin (); it != str_copy.end (); ) {§		size_t pos = Search::is_number (&(*it), val);§§		if (pos) {§			ret->push_back (val);§			it += pos;§		} else {§			it = std::find (it, str_copy.end (), ' ');§			if (it != str_copy.end ()) {§				++it;§			}§		}§	}§§	return ret._retn ();§}§§static bool is_informer (const std::string& str, const std::string& inf) {§	if (str [0] == inf [0]) {§		if (inf.size () == str.size ()) {§			return (inf == str);§		} else if (inf.size () < str.size () && str [inf.size ()] == ' ') {§			return (inf.compare (0, inf.size (), str, 0, inf.size ()) == 0);§		}§	}§§	return false;§}§§DBCore::RelTuneData* Cache::get_informers (SearchBase* base, const std::string& in) {§	Core::Aptr <DBCore::RelTuneData> ret = new DBCore::RelTuneData ();§§	GCL::StrVector parts;§	boost::split (parts, in, boost::is_any_of (" ./-~"));§	{§		size_t count = 0;§§		for (GCL::StrVector::const_iterator it = parts.begin (); it != parts.end (); ++it) {§			if (*(it->rbegin ()) == '*') {§				++count;§			}§		}§§		if (count == parts.size ()) {§			return ret._retn ();§		}§	}§§	this->load_informers (base);§§	if (m_informers.empty ()) {§		return ret._retn ();§	}§§	using namespace SearchAdapterLib;§§	Adapter::IStrings_var res;§	{§		const std::string fix = boost::join (parts, " ");§		Adapter::IHelper_var helper = SearchAdapter::instance ()->get (§			base->abstract_base (), BaseCache::instance ()->get_morpho_cache_ptr ()§		);§		res = helper->transform (fix);§	}§§	if (res.is_nil ()) {§		return 0;§	}§§	Informers informers;§§	std::for_each (res->data ().begin (), res->data ().end ()§		, boost::bind (&Cache::add, this, _1, boost::ref (informers))§	);§§	if (informers.empty () == false) {§		DBCore::RelTuneData tmp;§		{§			for (Informers::const_iterator it = informers.begin (); it != informers.end (); ++it) {§				tmp.insert (tmp.end (), it->data.begin (), it->data.end ());§			}§		}§§		std::sort (tmp.begin (), tmp.end ());§§		ret->reserve (tmp.size ());§§		for (DBCore::RelTuneData::const_iterator it = tmp.begin (); it != tmp.end (); ++it) {§			if (ret->empty () == false && ret->back ().id == it->id) {§				if (ret->back ().rel < it->rel) {§					ret->back ().rel = it->rel;§				}§			} else {§				ret->push_back (*it);§			}§		}§	}§§	return ret._retn ();§}§§void Cache::get_type_data (SearchBase* base, const std::string& in, std::vector <unsigned long>& out) {§	this->load_doc_types (base);§§	TypesMap::const_iterator f_it = m_types.end ();§§	if (m_types.empty () == false) {§		size_t max_length = 0;§		{§			for (TypesMap::const_iterator it = m_types.begin (); it != m_types.end (); ++it) {§				if (max_length < it->first.size ()) {§					max_length = it->first.size ();§				}§			}§		}§§		GCL::StrVector parts;§		boost::split (parts, in, boost::is_punct () || boost::is_space ());§§		std::string str;§§		for (GCL::StrVector::const_iterator it = parts.begin (); it != parts.end (); ++it) {§			str += *it;§			f_it = m_types.find (str);§§			if (f_it != m_types.end () || str.size () >= max_length) {§				break;§			}§§			str += " ";§		}§	}§§	if (f_it != m_types.end ()) {§		try {§			Search::get_docs (base, f_it->second, out);§		} catch (...) {§			LOG_UEX ((GDS_CURRENT_FUNCTION));§		}§	}§}§§void Cache::get_code_data (SearchBase* base, const std::string& in, std::vector <unsigned long>& out) {§	try {§		Core::Aptr <GCL::StrVector> numbers = Search::get_numbers (in);§§		if (numbers.is_nil () == false && numbers->empty () == false) {§			Index* index = base->FindIndex ("Number");§§			for (GCL::StrVector::const_iterator it = numbers->begin (); it != numbers->end (); ++it) {§				Stream* str = index->OpenN (it->c_str (), 0);§§				if (str) {§					size_t mid = out.size ();§§					Search::read_doc_vector <std::vector <unsigned long> > (str, out);§§					if (mid) {§						std::inplace_merge (out.begin (), out.begin () + mid, out.end ());§					} §§					index->Close (str);§				}§			}§		} §	} catch (...) {§		LOG_UEX ((GDS_CURRENT_FUNCTION));§	}§}§//#UC END# *50AE53480198*
+|//#UC START# *50AE53480198*§struct CompareByWords : public std::binary_function<std::string, std::string, bool> {§	bool operator () (const std::string& x, const std::string& y) const {§		size_t x_size = (x.empty ())? 0 : std::count_if (x.begin (), x.end (), boost::is_any_of (" -~")) + 1;§		size_t y_size = (y.empty ())? 0 : std::count_if (y.begin (), y.end (), boost::is_any_of (" -~")) + 1;§§		if (x_size == y_size) {§			return (m_is_less)? (x.size () > y.size ()) : (x.size () > y.size ());§		} §§		return (m_is_less)? (x_size < y_size) : (x_size > y_size);§	}§§	CompareByWords (bool is_less) : m_is_less (is_less) { }§§private:§	bool m_is_less;§};§§//////////////////////////////////////////////////////////////////////////////////////////////////////////////§§typedef Core::Aptr <char, Core::ArrayDeleteDestructor <char> > Buffer;§§template <class Data>§static void read_doc_vector (DBCore::Store* store, Data& out) {§	size_t count = (size_t) store->Length () / sizeof (long);§§	Core::Aptr <long, Core::ArrayDeleteDestructor <long> > buf =  new long [count + 1];§	store->Read (buf.inout (), store->Length ());§§	out.insert (out.end (), buf.ptr (), buf.ptr () + count);§}§§static DBCore::DocVector* get_type_docs (Index* index, const void* key) {§	Core::Aptr <DBCore::DocVector> ret = new DBCore::DocVector ();§§	Stream* str = index->keyOpen (key, 0);§§	if (str) {§		size_t item_size = sizeof (Ref), size = (size_t) str->Length ();§§		Buffer buf = new char [size];§		str->Read (buf.inout (), size);§§		ret->resize (size / item_size);§§		DBCore::DocVector::iterator it = ret->begin (), it_end = ret->end ();§§		for (char* ptr = buf.ptr (); it != it_end; ++it, ptr += item_size) {§			*it = *(long*) ptr;§		}§§		index->Close (str);§	}§§	return ret._retn ();§}§§static void get_docs (Base* base, const GCL::StrVector& types, std::vector <unsigned long>& out) {§	Index* index = base->FindIndex ("Type");§§	size_t count = 0;§§	for (BTIterator it (index); !it.End (); ++it) {§		HIndexKeyData* key = (HIndexKeyData*) it.Key ();§§		std::string key_text = key->text + 4;§§		GCL::StrVector::const_iterator _it = std::find (types.begin (), types.end (), key_text);§§		if (_it != types.end ()) {§			Core::Aptr <DBCore::DocVector> res = get_type_docs (index, key);§§			if (res->empty () == false) {§				size_t mid = out.size ();§				out.insert (out.end (), res->begin (), res->end ());§§				if (mid) {§					std::inplace_merge (out.begin (), out.begin () + mid, out.end ());§				}§			}§§			if (++count == types.size ()) {§				break;§			}§		}§	}§}§§static bool is_digit (const std::string& str) {§	return std::find_if (str.begin (), str.end (), !boost::is_digit ()) == str.end ();§}§§static size_t is_number (const char* request, std::string& num) {§	GDS_ASSERT (request);§§	bool is_N = false;§§	size_t ret = 0;§	std::string copy_req = request;§§	num.clear ();§§	GCL::to_upper (copy_req);§§	GCL::StrVector pattern;§	boost::split (pattern, copy_req, boost::is_space ());§§	if (pattern.empty ()) {§		return ret;§	}§§	std::string word = pattern [0];§§	if (word [0] == 'N' || word [0] == 'π') {§		if (word.size () == 1) {§			if (pattern.size () == 1) {§				return 0;§			}§			is_N = true;§			word = pattern [1];§			ret = copy_req.find (word);§		} else {§			word = word.substr (1, word.size ());§			ret = 1;§		}§	}§§	if (word.empty () == false && word [word.size () - 1] == '*') {§		return 0;§	}§§	bool has_digit = std::find_if (word.begin (), word.end (), boost::is_from_range ('0', '9')) != word.end ();§	bool is_number_ext = (has_digit && !strchr (word.c_str (), '%'));§§	if (is_N || is_number_ext) {§		std::string digit, part;§§		if (word [0] >= '0' && word [0] <= '9') {§			part = boost::trim_left_copy_if (word, boost::is_from_range ('0', '9'));§			digit = word.substr (0, word.size () - part.size ());§§			if (Search::is_digit (digit)) {§				if (part == "-Õ") {§					num = digit + "Õ";§				} else if (part == "-AP" || part == "AP") {§					num = digit + "-‘«";§				} else if (§					part == "-Œ≈"§					|| part == "-≈"§					|| part == "-Œ√Œ"§					|| part == "-»…"§					|| part == "-€…"§					|| part == "-¿ﬂ"§					|| part == "-√Œ"§					|| part == "-≈√Œ"§					|| part == "-»’"§					|| part == "-€’"§				) {§					num = digit;§				} else if (part == " «" || part == "‘«" || part == "Œ«") {§					num = digit + "-" + part;§				}§			}§		} else {§			digit = boost::trim_left_copy_if (word, !boost::is_from_range ('0', '9'));§§			part = word.substr (0, word.size () - digit.size ());§§			if (Search::is_digit (digit) && part.size () <= 3) {§				if (*(part.rbegin ()) == '-') {§					part.erase (part.size () - 1);§				}§				if (part == " «" || part == "Œ«" || part == "‘«") {§					num = digit + "-" + part;§				} else if (part == "AP") {§					num = digit + "-" + "‘«";§				}§			}§		}§§		ret += word.size ();§§		word.erase (std::remove (word.begin (), word.end (), '!'), word.end ());§§		if (num.empty ()) {§			num += word;§		} §§		while (*(request + ret) == ' ') {§			++ret;§		}§	} else if (pattern.size () > 1) {§		ret = 0;§§		if (Search::is_digit (word)) {§			if (pattern [1] == " «" || pattern [1] == "Œ«" || pattern [1] == "‘«") {§				num = word + "-" + pattern [1];§			} else if (pattern [1] == "Õ") {§				num = word + "Õ";§			} else if (pattern [1] == "AP") {§				num = word + "-" + "‘«";§			}§		} else if (Search::is_digit (pattern [1])) {§			if (word == " «" || word == "Œ«" || word == "‘«") {§				num = pattern [1] + "-" + word;§			} else if (word == "»Õ¬" || word == "“") {§				num = word + "-" + pattern [1];§			} else if (word == "AP") {§				num = pattern [1] + "-" + "‘«";§			}§		}§§		if (num.empty () == false) {§			if (pattern.size () > 2) {§				ret = copy_req.find (pattern [2]);§			} else {§				ret = copy_req.size ();§			}§		}§	}§§	if (num.empty () == false) {§		std::string from = "ABCEHKMPTXIOŒ«", to = "¿¬—≈Õ Ã–“’1003";§§		for (std::string::iterator it = num.begin (); it != num.end (); ++it) {§			size_t pos = from.find (*it);§			*it = (pos != std::string::npos)? to [pos] : *it;§		}§	}§§	return ret;§}§§static GCL::StrVector* get_numbers (const std::string& str) {§	std::string val;§§	GCL::StrVector parts;§	boost::split (parts, str, boost::is_space ());§§	for (GCL::StrVector::iterator it = parts.begin (); it != parts.end (); ++it) {§		boost::trim_if (*it, boost::is_punct ());§	}§§	const std::string str_copy = boost::join (parts, " ");§§	Core::Aptr <GCL::StrVector> ret = new GCL::StrVector ();§§	for (std::string::const_iterator it = str_copy.begin (); it != str_copy.end (); ) {§		size_t pos = Search::is_number (&(*it), val);§§		if (pos) {§			ret->push_back (val);§			it += pos;§		} else {§			it = std::find (it, str_copy.end (), ' ');§			if (it != str_copy.end ()) {§				++it;§			}§		}§	}§§	return ret._retn ();§}§§static bool is_informer (const std::string& str, const std::string& inf) {§	if (str [0] == inf [0]) {§		if (inf.size () == str.size ()) {§			return (inf == str);§		} else if (inf.size () < str.size () && str [inf.size ()] == ' ') {§			return (inf.compare (0, inf.size (), str, 0, inf.size ()) == 0);§		}§	}§§	return false;§}§§DBCore::RelTuneData* Cache::get_informers (Base* base, const std::string& in) {§	Core::Aptr <DBCore::RelTuneData> ret = new DBCore::RelTuneData ();§§	GCL::StrVector parts;§	boost::split (parts, in, boost::is_any_of (" ./-~"));§	{§		size_t count = 0;§§		for (GCL::StrVector::const_iterator it = parts.begin (); it != parts.end (); ++it) {§			if (it->empty () == false && *(it->rbegin ()) == '*') {§				++count;§			}§		}§§		if (count == parts.size ()) {§			return ret._retn ();§		}§	}§§	this->load_informers (base);§§	if (m_informers.empty ()) {§		return ret._retn ();§	}§§	using namespace SearchAdapterLib;§§	Adapter::IStrings_var res;§	{§		DBCore::IBase_var _base = DBCore::DBFactory::make (base);§		Adapter::IHelper_var helper = SearchAdapter::instance ()->get (_base.in ());§		res = helper->transform (boost::join (parts, " "));§	}§§	if (res.is_nil ()) {§		return 0;§	}§§	Informers informers;§§	std::for_each (res->data ().begin (), res->data ().end ()§		, boost::bind (&Cache::add, this, _1, boost::ref (informers))§	);§§	if (informers.empty () == false) {§		DBCore::RelTuneData tmp;§		{§			for (Informers::const_iterator it = informers.begin (); it != informers.end (); ++it) {§				tmp.insert (tmp.end (), it->data.begin (), it->data.end ());§			}§		}§§		std::sort (tmp.begin (), tmp.end ());§§		ret->reserve (tmp.size ());§§		for (DBCore::RelTuneData::const_iterator it = tmp.begin (); it != tmp.end (); ++it) {§			if (ret->empty () == false && ret->back ().id == it->id) {§				if (ret->back ().rel < it->rel) {§					ret->back ().rel = it->rel;§				}§			} else {§				ret->push_back (*it);§			}§		}§	}§§	return ret._retn ();§}§§void Cache::get_type_data (Base* base, const std::string& in, std::vector <unsigned long>& out) {§	this->load_doc_types (base);§§	TypesMap::const_iterator f_it = m_types.end ();§§	if (m_types.empty () == false) {§		size_t max_length = 0;§		{§			for (TypesMap::const_iterator it = m_types.begin (); it != m_types.end (); ++it) {§				if (max_length < it->first.size ()) {§					max_length = it->first.size ();§				}§			}§		}§§		GCL::StrVector parts;§		boost::split (parts, in, boost::is_punct () || boost::is_space ());§§		std::string str;§§		for (GCL::StrVector::const_iterator it = parts.begin (); it != parts.end (); ++it) {§			str += *it;§			f_it = m_types.find (str);§§			if (f_it != m_types.end () || str.size () >= max_length) {§				break;§			}§§			str += " ";§		}§	}§§	if (f_it != m_types.end ()) {§		try {§			Search::get_docs (base, f_it->second, out);§		} catch (...) {§			LOG_UEX ((GDS_CURRENT_FUNCTION));§		}§	}§}§§void Cache::get_code_data (Base* base, const std::string& in, std::vector <unsigned long>& out) {§	try {§		Core::Aptr <GCL::StrVector> numbers = Search::get_numbers (in);§§		if (numbers.is_nil () == false && numbers->empty () == false) {§			Index* index = base->FindIndex ("Number");§§			for (GCL::StrVector::const_iterator it = numbers->begin (); it != numbers->end (); ++it) {§				Stream* str = index->OpenN (it->c_str (), 0);§§				if (str) {§					size_t mid = out.size ();§§					Search::read_doc_vector <std::vector <unsigned long> > (str, out);§§					if (mid) {§						std::inplace_merge (out.begin (), out.begin () + mid, out.end ());§					} §§					index->Close (str);§				}§			}§		} §	} catch (...) {§		LOG_UEX ((GDS_CURRENT_FUNCTION));§	}§}§//#UC END# *50AE53480198*
 		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
@@ -152,7 +152,7 @@
 		    tool       	"MDA Generator"
 		    name       	"h:*50AE53480198*"
 		    value      	(value Text 
-|//#UC START# *50AE53480198*§public:§	DBCore::RelTuneData* get_informers (SearchBase* base, const std::string& in);§§	void get_type_data (SearchBase* base, const std::string& in, std::vector <unsigned long>& out);§	void get_code_data (SearchBase* base, const std::string& in, std::vector <unsigned long>& out);§//#UC END# *50AE53480198*
+|//#UC START# *50AE53480198*§public:§	DBCore::RelTuneData* get_informers (Base* base, const std::string& in);§§	void get_type_data (Base* base, const std::string& in, std::vector <unsigned long>& out);§	void get_code_data (Base* base, const std::string& in, std::vector <unsigned long>& out);§//#UC END# *50AE53480198*
 		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
@@ -266,10 +266,10 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"ResolvedTypeGuid"
-				    value      	"50A266140247"))
+				    value      	"5640C0F900D6"))
 			    quid       	"50D9CA3800FB"
-			    type       	"SearchBase"
-			    quidu      	"50A266140247")
+			    type       	"Base"
+			    quidu      	"5640C0F900D6")
 			(object Parameter "key"
 			    attributes 	(list Attribute_Set
 				(object Attribute
@@ -334,10 +334,10 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"ResolvedTypeGuid"
-				    value      	"50A266140247"))
+				    value      	"5640C0F900D6"))
 			    quid       	"53F0D0E60343"
-			    type       	"SearchBase"
-			    quidu      	"50A266140247"))
+			    type       	"Base"
+			    quidu      	"5640C0F900D6"))
 		    concurrency 	"Sequential"
 		    opExportControl 	"Private"
 		    uid        	0)
@@ -435,10 +435,10 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"ResolvedTypeGuid"
-				    value      	"50A266140247"))
+				    value      	"5640C0F900D6"))
 			    quid       	"55B5D0A002C0"
-			    type       	"SearchBase"
-			    quidu      	"50A266140247"))
+			    type       	"Base"
+			    quidu      	"5640C0F900D6"))
 		    result     	"StrVector"
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
@@ -477,10 +477,10 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"ResolvedTypeGuid"
-				    value      	"50A266140247"))
+				    value      	"5640C0F900D6"))
 			    quid       	"55C4D36300B3"
-			    type       	"SearchBase"
-			    quidu      	"50A266140247"))
+			    type       	"Base"
+			    quidu      	"5640C0F900D6"))
 		    concurrency 	"Sequential"
 		    opExportControl 	"Private"
 		    uid        	0)
@@ -1569,7 +1569,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1344, 327)
+		    location   	(1332, 327)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1582,7 +1582,7 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@1
-			location   	(1184, 300)
+			location   	(1172, 300)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	320
@@ -1590,7 +1590,7 @@
 			label      	"ï assign_set")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@1
-			location   	(1184, 250)
+			location   	(1172, 250)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -1736,7 +1736,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @5
 			Parent_View 	@4
-			location   	(1027, 285)
+			location   	(1021, 285)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -1762,7 +1762,7 @@
 		    supplier   	@1
 		    vertices   	(list Points
 			(886, 328)
-			(1174, 327))
+			(1162, 327))
 		    line_style 	0)
 		(object AssociationViewNew "$UNNAMED$2" @6
 		    location   	(219, 710)
@@ -1997,7 +1997,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1983, 717)
+		    location   	(1980, 717)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2010,14 +2010,14 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@18
-			location   	(1873, 689)
+			location   	(1870, 689)
 			nlines     	1
 			max_width  	220
 			justify    	0
 			label      	"Informers")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@18
-			location   	(1873, 639)
+			location   	(1870, 639)
 			anchor     	10
 			nlines     	1
 			max_width  	220
@@ -2037,7 +2037,7 @@
 		    SuppressOperation 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
-		    location   	(1833, 1893)
+		    location   	(1830, 1899)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2050,7 +2050,7 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@19
-			location   	(1752, 1847)
+			location   	(1749, 1853)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	162
@@ -2109,7 +2109,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1614, 717)
+		    location   	(1596, 717)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2122,14 +2122,14 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@21
-			location   	(1499, 689)
+			location   	(1481, 689)
 			nlines     	1
 			max_width  	230
 			justify    	0
 			label      	"TypesMap")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@21
-			location   	(1499, 639)
+			location   	(1481, 639)
 			anchor     	10
 			nlines     	1
 			max_width  	230
@@ -2202,19 +2202,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@23
-			location   	(1055, 1089)
+			location   	(1110, 1089)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1550
+			max_width  	1441
 			justify    	0
 			label      	"ï Cache")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@23
-			location   	(1055, 1039)
+			location   	(1110, 1039)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1550
+			max_width  	1441
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
@@ -2223,7 +2223,7 @@
 		    quidu      	"50AE53480198"
 		    compartment 	(object Compartment
 			Parent_View 	@23
-			location   	(1055, 1150)
+			location   	(1110, 1150)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -2238,14 +2238,14 @@
 			fill_color 	16777215
 			anchor     	2
 			nlines     	9
-			max_width  	1568
+			max_width  	1440
 			justify    	1)
-		    width      	1568
+		    width      	1459
 		    height     	592
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object AssociationViewNew "$UNNAMED$17" @24
-		    location   	(1983, 916)
+		    location   	(1981, 917)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2262,7 +2262,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "informers" @25
 			    Parent_View 	@24
-			    location   	(219, -332)
+			    location   	(217, -331)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -2275,7 +2275,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @26
 				Parent_View 	@25
-				location   	(2090, 910)
+				location   	(2088, 911)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -2301,27 +2301,27 @@
 			    client     	@24
 			    supplier   	@18
 			    vertices   	(list Points
-				(1983, 916)
-				(1983, 807))
+				(1981, 917)
+				(1981, 807))
 			    line_style 	3
-			    origin_attachment 	(1983, 916)
-			    terminal_attachment 	(1983, 807))
+			    origin_attachment 	(1981, 917)
+			    terminal_attachment 	(1981, 807))
 			(object RoleView "$UNNAMED$18" @27
 			    Parent_View 	@24
-			    location   	(219, -332)
+			    location   	(217, -331)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"53F0CAA8005A"
 			    client     	@24
 			    supplier   	@23
 			    vertices   	(list Points
-				(1983, 916)
-				(1983, 1026))
+				(1981, 917)
+				(1981, 1027))
 			    line_style 	3
-			    origin_attachment 	(1983, 916)
-			    terminal_attachment 	(1983, 1026))))
+			    origin_attachment 	(1981, 917)
+			    terminal_attachment 	(1981, 1027))))
 		(object AssociationViewNew "$UNNAMED$0" @28
-		    location   	(1831, 1726)
+		    location   	(1830, 1729)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2338,7 +2338,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "mutex" @29
 			    Parent_View 	@28
-			    location   	(997, 1300)
+			    location   	(996, 1303)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -2351,7 +2351,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @30
 				Parent_View 	@29
-				location   	(1751, 1733)
+				location   	(1750, 1735)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -2377,20 +2377,20 @@
 			    client     	@28
 			    supplier   	@19
 			    vertices   	(list Points
-				(1831, 1726)
-				(1832, 1834))
+				(1830, 1729)
+				(1830, 1840))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$1" @31
 			    Parent_View 	@28
-			    location   	(997, 1300)
+			    location   	(996, 1303)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"50AE67180358"
 			    client     	@28
 			    supplier   	@23
 			    vertices   	(list Points
-				(1831, 1726)
-				(1831, 1619))
+				(1830, 1729)
+				(1830, 1619))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$19" @32
 		    location   	(2376, 917)
@@ -2469,7 +2469,7 @@
 			    origin_attachment 	(2376, 917)
 			    terminal_attachment 	(2376, 1027))))
 		(object AssociationViewNew "$UNNAMED$21" @36
-		    location   	(1614, 916)
+		    location   	(1596, 916)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2486,7 +2486,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "types" @37
 			    Parent_View 	@36
-			    location   	(-147, -515)
+			    location   	(-165, -515)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -2499,7 +2499,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @38
 				Parent_View 	@37
-				location   	(1689, 907)
+				location   	(1671, 907)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -2525,25 +2525,25 @@
 			    client     	@36
 			    supplier   	@21
 			    vertices   	(list Points
-				(1614, 916)
-				(1614, 807))
+				(1596, 916)
+				(1596, 807))
 			    line_style 	3
-			    origin_attachment 	(1614, 916)
-			    terminal_attachment 	(1614, 807))
+			    origin_attachment 	(1596, 916)
+			    terminal_attachment 	(1596, 807))
 			(object RoleView "$UNNAMED$22" @39
 			    Parent_View 	@36
-			    location   	(-147, -515)
+			    location   	(-165, -515)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55C4D74A01B9"
 			    client     	@36
 			    supplier   	@23
 			    vertices   	(list Points
-				(1614, 916)
-				(1614, 1026))
+				(1596, 916)
+				(1596, 1026))
 			    line_style 	3
-			    origin_attachment 	(1614, 916)
-			    terminal_attachment 	(1614, 1026))))
+			    origin_attachment 	(1596, 916)
+			    terminal_attachment 	(1596, 1026))))
 		(object AssociationViewNew "$UNNAMED$23" @40
 		    location   	(1201, 916)
 		    font       	(object Font

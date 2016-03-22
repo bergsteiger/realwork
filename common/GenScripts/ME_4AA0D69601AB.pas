@@ -3,6 +3,8 @@ unit moInpharm;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moInpharm.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Inpharm" MUID: (4AA0D69601AB)
+// Имя типа: "Tmo_Inpharm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

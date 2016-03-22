@@ -2,6 +2,7 @@ unit ncsDefaultProviderHolder;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsDefaultProviderHolder.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsDefaultProviderHolder" MUID: (551BB2E70032)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3ExceptionsLog;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3ExceptionsLog.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ExceptionsLog" MUID: (540EE24702BC)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

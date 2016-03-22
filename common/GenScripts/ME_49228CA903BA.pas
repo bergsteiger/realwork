@@ -3,6 +3,7 @@ unit sdsConsultation;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\sdsConsultation.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsConsultation" MUID: (49228CA903BA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

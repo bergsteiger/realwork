@@ -3,6 +3,7 @@ unit MainMenuUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\MainMenuUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "MainMenu" MUID: (4DD24BD40021)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -25,6 +26,8 @@ type
    {* Раздел для юристов }
   , ST_BUDGET_ORGS
    {* Бюджетные организаций }
+  , ST_GOS_ZAKUPKI
+   {* Госзакупки }
   , ST_LAW_FOR_ALL
    {* Право для всех }
   , ST_BUSINESS_REFERENCES

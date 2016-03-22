@@ -2,6 +2,7 @@ unit CheckingFilesInFolderTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\CheckingFilesInFolderTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TCheckingFilesInFolderTest" MUID: (51B1ADF20017)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

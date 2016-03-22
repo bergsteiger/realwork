@@ -2,6 +2,7 @@ unit ContentsView;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ContentsView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ContentsView" MUID: (4CA06D4A0272)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

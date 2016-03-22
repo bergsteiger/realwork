@@ -3,6 +3,8 @@ unit StyleEditorFont_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorFont_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "StyleEditorFont" MUID: (4ABA143303B0)
+// Имя типа: "TStyleEditorFontForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

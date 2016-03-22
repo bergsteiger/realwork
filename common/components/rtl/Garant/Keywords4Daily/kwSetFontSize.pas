@@ -1,55 +1,37 @@
 unit kwSetFontSize;
+ {* Устанавливает размер шрифта для стиля "Нормальный". }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Keywords4Daily"
-// Модуль: "w:/common/components/rtl/Garant/Keywords4Daily/kwSetFontSize.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> Shared Delphi Tests::Keywords4Daily::SupportWords::SetFontSize
-//
-// Устанавливает размер шрифта для стиля "Нормальный".
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\Garant\Keywords4Daily\kwSetFontSize.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "SetFontSize" MUID: (509B8C5A0200)
+// Имя типа: "TkwSetFontSize"
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
 type
- TkwSetFontSize = {final scriptword} class(TtfwRegisterableWord)
+ TkwSetFontSize = {final} class(TtfwRegisterableWord)
   {* Устанавливает размер шрифта для стиля "Нормальный". }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwSetFontSize
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  evStyleInterface,
-  SysUtils
-  ;
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-
-// start class TkwSetFontSize
+ l3ImplUses
+ , evStyleInterface
+ , SysUtils
+;
 
 procedure TkwSetFontSize.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_509B8C5A0200_var*
@@ -72,17 +54,13 @@ begin
 end;//TkwSetFontSize.DoDoIt
 
 class function TkwSetFontSize.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'SetFontSize';
 end;//TkwSetFontSize.GetWordNameForRegister
 
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
-
 initialization
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация SetFontSize
  TkwSetFontSize.RegisterInEngine;
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
+ {* Регистрация SetFontSize }
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

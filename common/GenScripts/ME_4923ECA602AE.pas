@@ -2,6 +2,7 @@ unit deFilter;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\List\deFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdeFilter" MUID: (4923ECA602AE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

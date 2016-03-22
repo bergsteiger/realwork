@@ -2,6 +2,8 @@ unit kwMouseGetCursorNameByIndex;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorNameByIndex.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "mouse_GetCursorNameByIndex" MUID: (4EF09324028B)
+// Имя типа: "TkwMouseGetCursorNameByIndex"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

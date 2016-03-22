@@ -2,6 +2,8 @@ unit kwPopQueryCardGetCurrentReqName;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopQueryCardGetCurrentReqName.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_QueryCard_GetCurrentReqName" MUID: (4FDB10E9009A)
+// Имя типа: "TkwPopQueryCardGetCurrentReqName"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

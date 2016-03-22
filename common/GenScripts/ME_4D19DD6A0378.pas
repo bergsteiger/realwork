@@ -3,6 +3,7 @@ unit TextMetricsAfterCopyPasteTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\TextMetricsAfterCopyPasteTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTextMetricsAfterCopyPasteTest" MUID: (4D19DD6A0378)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -8,6 +8,7 @@
 #include "InternetFileDownload.h"
 #include "DownloaderDlg.h"
 #include "LogFile.h"
+#include "Common.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -149,12 +150,15 @@ void CDownloaderDlg::OnOK () {
 
 	DConfigManager::instance ()->set ("Path", m_path);
 	DConfigManager::instance ()->set ("IdComplect", this->get_complect_id ());
+	DConfigManager::instance ()->set ("PersComplect", CryptHelper::encode (GetAppPtr ()->get_personification_key ()));
 
 	if (this->is_valid ()) {
 	 	ShowWindow (SW_HIDE);
 		DestroyIcon (m_hIcon);
 
 		DownloadState res = this->download ();
+
+		DConfigManager::instance ()->init (GetAppPtr ()->get_ini_file (), "Downloader");
 
 		if (res == ds_Close) {
 			CDialog::OnCancel ();
@@ -183,6 +187,7 @@ void CDownloaderDlg::OnOK () {
 		} else {
 			GetAppPtr ()->set_state (res);
 			m_cbComplect.set_init_flag (false);
+			DConfigManager::instance ()->set ("OrderId", 0);
 			CDialog::OnOK (); 
 		}
 	} else {
@@ -200,6 +205,7 @@ void CDownloaderDlg::OnCancel () {
 
 	if (MessageBox (err.GetBuffer (), title.GetBuffer (), MB_YESNO | MB_ICONQUESTION | MB_APPLMODAL) == IDYES) {
 		DConfigManager::instance ()->set ("IdComplect", this->get_complect_id ());
+		DConfigManager::instance ()->set ("PersComplect", CryptHelper::encode (GetAppPtr ()->get_personification_key ()));
 		CDialog::OnCancel ();
 	}
 }
@@ -301,6 +307,7 @@ DownloadState CDownloaderDlg::download () {
 				this->get_complect_id ()
 				, m_ctBeginDate.Format (_T ("%m-%d-%Y")).GetBuffer ()
 				, m_ctEndDate.Format (_T ("%m-%d-%Y")).GetBuffer ()
+				, 0
 			);
 		} catch (...) {
 			DLOG->out_t ("%s: unknown exception", GDS_CURRENT_FUNCTION);

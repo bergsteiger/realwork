@@ -3,6 +3,7 @@ unit eeTreeView;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeTreeView.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TeeTreeView" MUID: (494B949E022B)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
@@ -50,15 +51,10 @@ type
   {* Компонент для импорта отображения дерева }
   private
    f_OnMakeTreeSource: TeeMakeTreeSource;
-    {* Поле для свойства OnMakeTreeSource }
    f_BeforeExpand: TeeBeforeExpandNode;
-    {* Поле для свойства BeforeExpand }
    f_OnExpand: TeeExpandNodeEvent;
-    {* Поле для свойства OnExpand }
    f_OnCollapse: TeeExpandNodeEvent;
-    {* Поле для свойства OnCollapse }
    f_OnNewCharPressed: TeeNewCharPressed;
-    {* Поле для свойства OnNewCharPressed }
   protected
    procedure vlbProcessingChar(const aMsg: TWMChar); override;
     {* processing new pressed char }

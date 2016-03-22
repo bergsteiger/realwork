@@ -2,6 +2,7 @@ unit myReferenceCountGuardTest;
 
 // Модуль: "w:\common\components\SandBox\myReferenceCountGuardTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TmyReferenceCountGuardTest" MUID: (516D58890258)
 
 {$Include w:\common\components\SandBox\sbtDefine.inc}
 

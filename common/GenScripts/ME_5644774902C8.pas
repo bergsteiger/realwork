@@ -2,6 +2,7 @@ unit l3Diff;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Diff.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3Diff" MUID: (5644774902C8)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

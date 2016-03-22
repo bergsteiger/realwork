@@ -2,6 +2,7 @@ unit FakeBox;
 
 // Модуль: "w:\common\components\gui\Garant\VT\ComboTree\FakeBox.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TFakeBox" MUID: (483158FD0155)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
@@ -723,7 +724,8 @@ begin
    begin
     if Assigned(f_OnSelect) then
      if not f_IsFirstLoad then
-      ActionExecuteHandler;
+      //if ((ComboStyle <> ct_cbDropDown) or Dropped) then
+       ActionExecuteHandler;
 
     if IsList then
     begin

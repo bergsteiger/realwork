@@ -3,6 +3,8 @@ unit PrimSynchroViewOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimSynchroViewOptions_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "PrimSynchroViewOptions" MUID: (4C8604040234)
+// Имя типа: "TPrimSynchroViewOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit evdHyperlinkInfo;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdHyperlinkInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdHyperlinkInfo" MUID: (4CDD3D930147)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

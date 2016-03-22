@@ -2,6 +2,7 @@ unit nevDocumentProvider4PDF;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevDocumentProvider4PDF.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevDocumentProvider4PDF" MUID: (541149B203E1)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

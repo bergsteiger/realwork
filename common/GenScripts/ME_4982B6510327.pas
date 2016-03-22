@@ -3,6 +3,7 @@ unit vcmFormDataSourceRef;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceRef.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmFormDataSourceRef" MUID: (4982B6510327)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

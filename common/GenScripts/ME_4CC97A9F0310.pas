@@ -3,6 +3,8 @@ unit moBaseSearch;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moBaseSearch.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "BaseSearch" MUID: (4CC97A9F0310)
+// Имя типа: "Tmo_BaseSearch"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -32,6 +32,7 @@
 #include "garantCore/SearchAdapterLib/Cache/Cache.h"
 
 #include "ROCBase.h"
+#include "DBComm.h"
 
 enum ExecuteStatus { es_Success, es_Error };
 
@@ -204,15 +205,16 @@ public:
 		Core::GDS::StopWatch sw ("total");
 
 		CachedBaseRO base (m_path.c_str ());
-		base.IsOk ();
-		base.check_version ();
+		GDS_ASSERT (base.check_version ());
+
+		DBCore::IBase_var _base = DBCore::DBFactory::make (&base);
 
 		if (m_top_phrases) {
-			this->execute_for_phrases (base.abstract_base ());
+			this->execute_for_phrases (_base.in ());
 		} else if (m_is_lite) {
-			this->execute_lite (base.abstract_base ());
+			this->execute_lite (_base.in ());
 		} else {
-			this->execute_std (base.abstract_base ());
+			this->execute_std (_base.in ());
 		}
 	}
 
@@ -225,7 +227,7 @@ public:
 		_cache->init (base);
 
 		Morpho::Def::ICache_var cache = Morpho::Factory::make ();
-		cache->load (base, true);
+		cache->load (base);
 
 		Manage::Env env;
 		env.normalizer = Morpho::Factory::make (cache.in ());
@@ -273,8 +275,7 @@ public:
 								}
 
 								if (std::find_if (_it->begin (), _it->end (), boost::is_any_of (" ~")) == _it->end ()) {
-									Morpho::Def::StrStrMap pseudo;
-									Core::Aptr <GCL::StrVector> norm = env.normalizer->execute_for_phrase (*_it, pseudo);
+									Core::Aptr <GCL::StrVector> norm = env.normalizer->execute_for_phrase (*_it);
 									total.insert (norm->begin (), norm->end ());
 								}
 							}
@@ -343,7 +344,7 @@ public:
 
 	void execute_lite (DBCore::IBase* base) {
 		Morpho::Def::ICache_var cache = Morpho::Factory::make ();
-		cache->load (base, true);
+		cache->load (base);
 
 		Morpho::Def::INormalizer_var normalizer = Morpho::Factory::make (cache.in ());
 
@@ -439,7 +440,7 @@ public:
 		_cache->init (base);
 
 		Morpho::Def::ICache_var cache = Morpho::Factory::make ();
-		cache->load (base, true);
+		cache->load (base);
 
 		Manage::Env env;
 		env.normalizer = Morpho::Factory::make (cache.in ());

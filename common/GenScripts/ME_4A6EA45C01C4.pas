@@ -3,6 +3,8 @@ unit BaseHistoryWindow_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseHistoryWindow_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "BaseHistoryWindow" MUID: (4A6EA45C01C4)
+// Имя типа: "TBaseHistoryWindowForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit afwTypes;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\afwTypes.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "afwTypes" MUID: (473C569D0287)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

@@ -2,6 +2,7 @@ unit arBelaDateNumList;
 
 // Модуль: "w:\common\components\rtl\Garant\ar\arBelaDateNumList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarBelaDateNumList" MUID: (56A5E3010270)
 
 {$Include w:\common\components\l3Define.inc}
 

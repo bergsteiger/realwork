@@ -3,6 +3,8 @@ unit ContactList_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\ContactList_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "ContactList" MUID: (4A6971D00157)
+// Имя типа: "TContactListForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

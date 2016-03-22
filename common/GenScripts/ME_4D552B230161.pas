@@ -2,6 +2,7 @@ unit vgSortableObjectList;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgSortableObjectList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgSortableObjectList" MUID: (4D552B230161)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

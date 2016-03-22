@@ -2,6 +2,7 @@ unit nscTasksPanelView;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTasksPanelView.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscTasksPanelView" MUID: (4D3424C203C2)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -67,23 +68,14 @@ type
   private
    f_UpdateRequests: Integer;
    f_TasksPanel: IvcmCustOps;
-    {* Поле для свойства TasksPanel }
    f_GroupImages: TCustomImageList;
-    {* Поле для свойства GroupImages }
    f_CollapseGroupImage: Integer;
-    {* Поле для свойства CollapseGroupImage }
    f_ExpandGroupImage: Integer;
-    {* Поле для свойства ExpandGroupImage }
    f_GroupColor: TColor;
-    {* Поле для свойства GroupColor }
    f_ImageList: TCustomImageList;
-    {* Поле для свойства ImageList }
    f_OnOperationExecute: TNotifyEvent;
-    {* Поле для свойства OnOperationExecute }
    f_TabTable: InscTabTable;
-    {* Поле для свойства TabTable }
    f_Grid: InscArrangeGrid;
-    {* Поле для свойства Grid }
   private
    procedure AddGroup(const aGroup: IvcmCustOpsGroup);
    procedure GrideSizeChanged(aSender: TObject);
@@ -188,11 +180,8 @@ type
    f_HeaderSpeedButton: TvtSpeedButton;
    {$IfEnd} // Defined(HideFieldVgSceneStyle)
    f_Group: IvcmCustOpsGroup;
-    {* Поле для свойства Group }
    f_View: TnscCustomTasksPanelView;
-    {* Поле для свойства View }
    f_TasksPanel: IvcmCustOps;
-    {* Поле для свойства TasksPanel }
   private
    {$If Defined(HideFieldVgSceneStyle)}
    procedure RefreshContent;
@@ -219,13 +208,13 @@ type
    {$If NOT Defined(NoVCL)}
    procedure Resize; override;
    {$IfEnd} // NOT Defined(NoVCL)
-   procedure ClearFields; override;
    {$If NOT Defined(NoVCL)}
    procedure AdjustClientRect(var Rect: TRect); override;
    {$IfEnd} // NOT Defined(NoVCL)
    procedure DoStateChanged; override;
    procedure DoStyleTableChanged; override;
    procedure HideControl; override;
+   procedure ClearFields; override;
   public
    {$If Defined(HideFieldVgSceneStyle)}
    procedure SetBitmapButton;
@@ -252,11 +241,8 @@ type
   private
    f_CursorItem: Integer;
    f_Group: IvcmCustOpsGroup;
-    {* Поле для свойства Group }
    f_PopupMenu: TvcmPopupMenuPrim;
-    {* Поле для свойства PopupMenu }
    f_View: TnscCustomTasksPanelView;
-    {* Поле для свойства View }
   private
    procedure AddOp(const aOp: IvcmCustOpsGroupOperation);
    procedure AddOps;
@@ -277,7 +263,6 @@ type
    {$If NOT Defined(NoVCL)}
    procedure SetParent(AParent: TWinControl); override;
    {$IfEnd} // NOT Defined(NoVCL)
-   procedure ClearFields; override;
    function DoIsCommandPublished(Cmd: Tl3OperationCode): Boolean; override;
    function DoOnGetItemImageIndex(aItemIndex: LongInt;
     var aImages: TCustomImageList): Integer; override;
@@ -291,6 +276,7 @@ type
     var theImageVertOffset: Integer); override;
    procedure DoOnGetItemImageState(const aItemIndex: LongInt;
     var aEnabled: Boolean); override;
+   procedure ClearFields; override;
   public
    constructor Create(AOwner: TComponent;
     const aGroup: IvcmCustOpsGroup); reintroduce;
@@ -359,12 +345,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwClassRef
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
  , TaskPanelWords
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , afwConsts
  {$If NOT Defined(NoVGScene)}
  , vgTypes
@@ -1412,13 +1398,6 @@ begin
 end;//TnscTasksPanelHideField.Resize
 {$IfEnd} // NOT Defined(NoVCL)
 
-procedure TnscTasksPanelHideField.ClearFields;
-begin
- Group := nil;
- TasksPanel := nil;
- inherited;
-end;//TnscTasksPanelHideField.ClearFields
-
 {$If NOT Defined(NoVCL)}
 procedure TnscTasksPanelHideField.AdjustClientRect(var Rect: TRect);
 //#UC START# *508F957E0283_508EBD7703BF_var*
@@ -1471,6 +1450,13 @@ begin
  //http://mdp.garant.ru/pages/viewpage.action?pageId=505436427
 //#UC END# *5295F76F02C5_508EBD7703BF_impl*
 end;//TnscTasksPanelHideField.HideControl
+
+procedure TnscTasksPanelHideField.ClearFields;
+begin
+ Group := nil;
+ TasksPanel := nil;
+ inherited;
+end;//TnscTasksPanelHideField.ClearFields
 
 function TnscTasksPanelTreeView.pm_GetPopupMenu: TvcmPopupMenuPrim;
 //#UC START# *508F7DD70004_508EBD870312get_var*
@@ -1685,12 +1671,6 @@ begin
 end;//TnscTasksPanelTreeView.InitiateAction
 {$IfEnd} // NOT Defined(NoVCL)
 
-procedure TnscTasksPanelTreeView.ClearFields;
-begin
- Group := nil;
- inherited;
-end;//TnscTasksPanelTreeView.ClearFields
-
 function TnscTasksPanelTreeView.DoIsCommandPublished(Cmd: Tl3OperationCode): Boolean;
 //#UC START# *508F7F930094_508EBD870312_var*
 //#UC END# *508F7F930094_508EBD870312_var*
@@ -1874,6 +1854,12 @@ begin
  aEnabled := ItemAction(aItemIndex).Enabled;
 //#UC END# *508F83890058_508EBD870312_impl*
 end;//TnscTasksPanelTreeView.DoOnGetItemImageState
+
+procedure TnscTasksPanelTreeView.ClearFields;
+begin
+ Group := nil;
+ inherited;
+end;//TnscTasksPanelTreeView.ClearFields
 
 //#UC START# *4D3424C203C2impl*
 //#UC END# *4D3424C203C2impl*

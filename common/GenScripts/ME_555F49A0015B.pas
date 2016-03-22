@@ -2,6 +2,7 @@ unit l3EtalonsService;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3EtalonsService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3EtalonsService" MUID: (555F49A0015B)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -27,17 +28,13 @@ type
  Tl3EtalonsService = {final} class(Tl3ProtoObject)
   private
    f_EtalonNeedsComputerName: Boolean;
-    {* Поле для свойства EtalonNeedsComputerName }
    f_EtalonNeedsOSName: Boolean;
-    {* Поле для свойства EtalonNeedsOSName }
    {$If Defined(XE)}
    f_EtalonNeedsXE: Boolean;
-    {* Поле для свойства EtalonNeedsXE }
    {$IfEnd} // Defined(XE)
    f_EtalonNeeds64: Boolean;
-    {* Поле для свойства EtalonNeeds64 }
    f_Alien: Il3EtalonsService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3EtalonsService }
   protected
    procedure pm_SetAlien(const aValue: Il3EtalonsService);
    procedure ClearFields; override;

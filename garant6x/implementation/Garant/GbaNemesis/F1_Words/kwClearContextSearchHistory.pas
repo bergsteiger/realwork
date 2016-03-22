@@ -1,68 +1,44 @@
 unit kwClearContextSearchHistory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwClearContextSearchHistory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Words::Words::ClearContextSearchHistory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwClearContextSearchHistory.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "ClearContextSearchHistory" MUID: (53B12A56032C)
+// Имя типа: "TkwClearContextSearchHistory"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord
-  {$If not defined(Admin)}
-  ,
-  ContextHistoryInterfaces
-  {$IfEnd} //not Admin
-  ,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ {$If NOT Defined(Admin)}
+ , ContextHistoryInterfaces
+ {$IfEnd} // NOT Defined(Admin)
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwClearContextSearchHistory = {abstract scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // protected methods
+ TkwClearContextSearchHistory = {abstract} class(TtfwRegisterableWord)
+  protected
    function GetContextHistoryKind: TnsContextHistoryKind; virtual; abstract;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwClearContextSearchHistory
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(Admin)}
-  ,
-  BaseSearchInterfaces
-  {$IfEnd} //not Admin
-  
-  {$If not defined(Admin)}
-  ,
-  nsContextHistory
-  {$IfEnd} //not Admin
-  
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwClearContextSearchHistory
+ l3ImplUses
+ {$If NOT Defined(Admin)}
+ , BaseSearchInterfaces
+ {$IfEnd} // NOT Defined(Admin)
+ {$If NOT Defined(Admin)}
+ , nsContextHistory
+ {$IfEnd} // NOT Defined(Admin)
+;
 
 procedure TkwClearContextSearchHistory.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53B12A56032C_var*
@@ -73,6 +49,9 @@ begin
 //#UC END# *4DAEEDE10285_53B12A56032C_impl*
 end;//TkwClearContextSearchHistory.DoDoIt
 
-{$IfEnd} //not NoScripts
+initialization
+ TkwClearContextSearchHistory.RegisterClass;
+ {* Регистрация ClearContextSearchHistory }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

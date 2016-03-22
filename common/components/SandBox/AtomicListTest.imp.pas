@@ -1,63 +1,46 @@
 {$IfNDef AtomicListTest_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "AtomicListTest.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCaseMixIn::Class Shared Delphi Sand Box::SandBoxTest::FinalContainersTests::AtomicListTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\AtomicListTest.imp.pas"
+// Стереотип: "TestCaseMixIn"
+// Элемент модели: "AtomicListTest" MUID: (51E03FC80111)
+// Имя типа: "_AtomicListTest_"
 
 {$Define AtomicListTest_imp}
-{$If defined(nsTest)}
- {$Include ..\SandBox\ListTest.imp.pas}
+
+{$If Defined(nsTest)}
+ // _ListType_
+
+ {$Include w:\common\components\SandBox\ListTest.imp.pas}
  _AtomicListTest_ = class(_ListTest_)
- private
- // private methods
+  private
    function RandomItem: _ItemType_;
- published
- // published methods
+  published
    procedure DoIt;
    procedure TestTwoLists;
    procedure TestInsert;
    procedure TestInsertAt0;
    procedure DeleteTest;
-     {* Тест удаления элемента }
+    {* Тест удаления элемента }
    procedure AddTest;
-     {* Тест добавления элемента }
+    {* Тест добавления элемента }
    procedure RemoveTest;
-     {* Тест удаления элемента по значению }
+    {* Тест удаления элемента по значению }
  end;//_AtomicListTest_
-{$Else}
 
- {$Include ..\SandBox\ListTest.imp.pas}
- _AtomicListTest_ = _ListTest_;
+{$Else Defined(nsTest)}
 
-{$IfEnd} //nsTest
+{$Include w:\common\components\SandBox\ListTest.imp.pas}
+_AtomicListTest_ = _ListTest_;
 
+{$IfEnd} // Defined(nsTest)
 {$Else AtomicListTest_imp}
 
-{$If defined(nsTest)}
+{$IfNDef AtomicListTest_imp_impl}
 
-{$Include ..\SandBox\ListTest.imp.pas}
+{$Define AtomicListTest_imp_impl}
 
-// start class _AtomicListTest_
-
-function _AtomicListTest_.RandomItem: _ItemType_;
-//#UC START# *51E6ADE0016E_51E03FC80111_var*
-var
- l_V : Cardinal;
-//#UC END# *51E6ADE0016E_51E03FC80111_var*
-begin
-//#UC START# *51E6ADE0016E_51E03FC80111_impl*
- l_V := Random(1000);
- if (l_V > High(_ItemType_)) then
-  Result := High(_ItemType_)
- else
-  Result := l_V;
-//#UC END# *51E6ADE0016E_51E03FC80111_impl*
-end;//_AtomicListTest_.RandomItem
+{$If Defined(nsTest)}
+{$Include w:\common\components\SandBox\ListTest.imp.pas}
 
 procedure _AtomicListTest_.DoIt;
 //#UC START# *51DEB319037C_51E03FC80111_var*
@@ -162,6 +145,21 @@ begin
 //#UC END# *51E6AC74038B_51E03FC80111_impl*
 end;//_AtomicListTest_.TestInsert
 
+function _AtomicListTest_.RandomItem: _ItemType_;
+//#UC START# *51E6ADE0016E_51E03FC80111_var*
+var
+ l_V : Cardinal;
+//#UC END# *51E6ADE0016E_51E03FC80111_var*
+begin
+//#UC START# *51E6ADE0016E_51E03FC80111_impl*
+ l_V := Random(1000);
+ if (l_V > High(_ItemType_)) then
+  Result := High(_ItemType_)
+ else
+  Result := l_V;
+//#UC END# *51E6ADE0016E_51E03FC80111_impl*
+end;//_AtomicListTest_.RandomItem
+
 procedure _AtomicListTest_.TestInsertAt0;
 //#UC START# *51E6B4260008_51E03FC80111_var*
 const
@@ -189,6 +187,7 @@ begin
 end;//_AtomicListTest_.TestInsertAt0
 
 procedure _AtomicListTest_.DeleteTest;
+ {* Тест удаления элемента }
 //#UC START# *51E7F6EF0285_51E03FC80111_var*
 const
  cCount = 1000;
@@ -242,6 +241,7 @@ begin
 end;//_AtomicListTest_.DeleteTest
 
 procedure _AtomicListTest_.AddTest;
+ {* Тест добавления элемента }
 //#UC START# *51E80DC50154_51E03FC80111_var*
 const
  cCount = 1000;
@@ -267,6 +267,7 @@ begin
 end;//_AtomicListTest_.AddTest
 
 procedure _AtomicListTest_.RemoveTest;
+ {* Тест удаления элемента по значению }
 //#UC START# *51E8127802AF_51E03FC80111_var*
 const
  cCount = 1000;
@@ -297,7 +298,9 @@ begin
  end;//try..finally
 //#UC END# *51E8127802AF_51E03FC80111_impl*
 end;//_AtomicListTest_.RemoveTest
+{$IfEnd} // Defined(nsTest)
 
-{$IfEnd} //nsTest
+{$EndIf AtomicListTest_imp_impl}
 
 {$EndIf AtomicListTest_imp}
+

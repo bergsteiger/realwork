@@ -64,6 +64,7 @@ function GetValueFromEdit: string;forward;
 procedure DoScreenShot ( const msg : String; const extMsg : String = ''; const localVarName : String = 'DO_FULL_SCREEN_SHOT' ) ; forward;
 function IsExists ( const obj : OleVariant )  : boolean; forward;
 function IsTrue ( const obj : OleVariant )  : boolean; forward;
+function GetWinDirectory   : String; forward;
 function GetTempDirectory   : String; forward;
 function GetWindowText( wndHandle : integer ) : String; forward;
 procedure ResetUserInactivity; forward;
@@ -876,17 +877,18 @@ begin
   Result := gbl_NonExObj73495793465823794659;  
 end;
 
-const 
+const
   PATH_TO_IMPLEMENTATION = 1; // путь к папке implementation
   PATH_TO_UTILS = 2; // путь к папке с утилитами
   PATH_TO_PSTOOLS = 3; // путь к папке с комплектом утили т pstools  
   PATH_TO_CURR_PROJECT = 4; // путь к папке с текущим проектом  
-  PATH_TO_USERCONVERTTEST = 6; //путь к папке userconverttests
-  PATH_TO_GARANTUTILS = 7; //путь к папке, содержащий утилиты для Garant'a
-  PATH_TO_LOGANALYSESCRIPTS = 8;
-  PATH_TO_KILLAFTERWAIT = 9; //путь к папке с батником, для принудительного завершения TestExecute, если он даже зависнет
-  PATH_TO_READY_FOLDER = 10; //путь к папке с файлами готовности для определения живучести машин
-  PATH_TO_READY_TOOL = 11; //путь к папке с утилитой, создающей файл готовности, если ПК после перезапуска работает меньше заданного таймаута, т.е. был перезагружен
+  PATH_TO_USERCONVERTTEST = 5; //путь к папке userconverttests
+  PATH_TO_GARANTUTILS = 6; //путь к папке, содержащий утилиты для Garant'a
+  PATH_TO_KILLAFTERWAIT = 7; //путь к папке с батником, для принудительного завершения TestExecute, если он даже зависнет
+  PATH_TO_LOGS_DELETED = 8; //путь к папке с удаленными логами пускача
+  PATH_TO_READY_FOLDER = 9; //путь к папке с файлами готовности для определения живучести машин
+  PATH_TO_READY_TOOL = 10; //путь к папке с утилитой, создающей файл готовности, если ПК после перезапуска работает меньше заданного таймаута, т.е. был перезагружен
+  
 {
   TYPE:
   DESC: Возврарает путь
@@ -898,15 +900,16 @@ function GetPathTo(
 ) : String;
 begin
   case pathType of
-    PATH_TO_CURR_PROJECT      : Result := IncludeTrailingBackslash(Project.Path);  
+    PATH_TO_CURR_PROJECT      : Result := IncludeTrailingBackslash(Project.Path);
     PATH_TO_IMPLEMENTATION    : Result := IncludeTrailingBackslash(Project.Path) + '..\..\..\';
     PATH_TO_UTILS             : Result := IncludeTrailingBackslash(Project.Path) + '..\..\..\Utils\';
     PATH_TO_PSTOOLS           : Result := IncludeTrailingBackslash(Project.Path) + '..\..\..\Utils\PSTools\';
-    PATH_TO_USERCONVERTTEST   : Result := IncludeTrailingBackslash(Project.Path) + '..\..\..\..\UserConvertTest\';
     PATH_TO_GARANTUTILS       : Result := IncludeTrailingBackslash(Project.Path) + '..\..\..\Utils\GarantUtils\';
     PATH_TO_KILLAFTERWAIT     : Result := IncludeTrailingBackslash(Project.Path) + '..\..\..\Utils\KillAfterWait\';
-    PATH_TO_READY_FOLDER      : Result := '\\strelka.garant.ru\QC\for_RunnerTC6\SharedPath\_StandsReadyFolder\';
+    PATH_TO_USERCONVERTTEST   : Result := IncludeTrailingBackslash(Project.Path) + '..\..\..\..\UserConvertTest\';
+    PATH_TO_LOGS_DELETED      : Result := IncludeTrailingBackslash(Project.Path) + '..\..\..\..\..\LogsDeletedFiles\';
     PATH_TO_READY_TOOL        : Result := IncludeTrailingBackslash(Project.Path) + '..\..\..\Utils\CreateFileIfPCRestarted\';
+    PATH_TO_READY_FOLDER      : Result := IncludeTrailingBackslash(Project.Path) + '..\..\..\..\..\SharedPath\_StandsReadyFolder\';
   end;
 end;
 
@@ -1334,6 +1337,34 @@ function IsTrue(
 begin
 	Result := false;
 	if BuiltIn.VarType(obj) = varBoolean then Result := obj;
+end;
+
+{
+  TYPE: Работа с папками 
+  DESC: возвращает путь к каталогу Windows
+}
+function GetWinDirectory : String;
+var
+  Def_DLL; Lib; LpStr;
+begin
+  try
+    Def_DLL := DLL.DefineDLL('KERNEL32');
+   
+    Def_DLL.DefineProc('GetWindowsDirectoryA',
+      vt_i4, //text buffer
+      vt_i4, //buffer length      
+      vt_i4  //result
+    );   
+
+    LpStr := DLL.New('LPSTR', 256);
+    Lib := DLL.Load('KERNEL32');
+    Lib.GetWindowsDirectoryA(LpStr, 256);
+    Result := LpStr.Text;
+  except
+    Log.Message('GetWinDirectory: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;
 end;
 
 {
@@ -2003,7 +2034,7 @@ var
   res : OleVariant;
   curr_text, end_elem, value: String;
   oldDelay, handle, prevIndex, currIndex, deadLine : integer;
-  isSpecTree, isUseIndex : boolean;
+  isSpecTree, isDocsList, isUseIndex : boolean;
 begin
   try
     oldDelay := Options.Run.Delay;
@@ -2012,11 +2043,16 @@ begin
       if NOT IsExists(focused_w) then Raise('Окно, в котором хотим позиционироваться, не найдено!');
       
       handle := focused_w.Handle;
-      value := common.GetWindowText(handle);
+      isSpecTree := IsSupported(treeWnd, 'WndClass') AND (focused_w.WndClass = 'TnscSubTree');
+      isDocsList := IsSupported(treeWnd, 'WndClass') AND (focused_w.WndClass = 'TnscDocumentListTreeView');
+      isUseIndex := (NOT isSpecTree) AND IsSupported(focused_w, 'CurrentNodeIndex') AND (focused_w.CurrentNodeIndex <> -1);
+
+      if isDocsList then
+        value := focused_w.Text
+      else
+        value := common.GetWindowText(handle);
       end_elem := value;
 
-      isSpecTree := focused_w.WndClass = 'TnscSubTree';
-      isUseIndex := (NOT isSpecTree) AND IsSupported(focused_w, 'CurrentNodeIndex') AND (focused_w.CurrentNodeIndex <> -1);
       if isUseIndex then prevIndex := focused_w.CurrentNodeIndex;
 
       if not isSpecTree then
@@ -2033,8 +2069,11 @@ begin
           Sys.Keys('[Up]')
         else
          	Sys.Keys('[Down]');
-        
-        value := common.GetWindowText(handle);
+
+        if isDocsList then
+          value := focused_w.Text
+        else
+          value := common.GetWindowText(handle);
         //Log.Message(value);
 
         if (isSpecTree AND (value = '')) then break;
@@ -2086,7 +2125,7 @@ function Position_Internal(
 ) : boolean; // спозиционировались или нет
   var
     paramList, pathArr : OleVariant;
-    res, isUseLevel, isPressHome, isInFolder, isUseIndex, isSubTree, isFocusFolderTree : boolean;
+    res, isUseLevel, isPressHome, isInFolder, isUseIndex, isSubTree, isFocusFolderTree, isDocsList : boolean;
     oldDelay, oldLevel, currLevel, targetLevel, i, highBound, lowBound, handle, deadLine, currIndex, prevIndex : integer;
     nextKey, expandKey, currText, oldText, targetText : String;
 begin
@@ -2106,8 +2145,9 @@ begin
       if NOT IsExists(treeWnd) then Raise('Окно, в котором хотим позиционироваться, не найдено!');
 
       // здесь мы определяем, а не TSubTree ли это дерево. Оно отличается тем, что там нельзя раскрыть узел с клавиатуры
-      isSubTree := IsSupported(treeWnd, 'WndClass') AND StringCompare('TSubTree', treeWnd.WndClass);
-        
+      isSubTree  := IsSupported(treeWnd, 'WndClass') AND (treeWnd.WndClass = 'TSubTree');
+      isDocsList := IsSupported(treeWnd, 'WndClass') AND (treeWnd.WndClass = 'TnscDocumentListTreeView');
+
       if isFocusFolderTree then treeWnd.SetFocus;
       handle := treeWnd.Handle;
       if isPressHome then
@@ -2131,7 +2171,11 @@ begin
       begin
         targetText := pathArr[i];
         { получаем параметры текущего элемента }
-        currText := common.GetWindowText(handle);
+        if isDocsList then
+          currText := treeWnd.Text
+        else
+          currText := common.GetWindowText(handle);
+
         if isUseLevel then currLevel := treeWnd.CurrentNodeLevel else currLevel := -1;
         { текущий элемент - тот который нам нужен? }
         if isUseStringCompare then
@@ -2148,8 +2192,12 @@ begin
         begin
           { смещаемся }
           Sys.Keys(nextKey);
+
           { получаем параметры текущего элемента }
-          currText := common.GetWindowText(handle);
+          if isDocsList then
+            currText := treeWnd.Text
+          else
+            currText := common.GetWindowText(handle);
           //Log.Message(currText);
           
           if isUseIndex then
@@ -2424,7 +2472,7 @@ function GetElementsFromTree(
   var
     paramList : OleVariant;
     i, oldDelay, prevIndex, currIndex, deadLine : integer;  
-    isSpecTree, isUseIndex, isAddNumber, isAddRelevance : boolean;
+    isSpecTree, isDocsList, isUseIndex, isAddNumber, isAddRelevance : boolean;
   	currentElementName, previousElementName, addText : String;
 begin
   try
@@ -2434,7 +2482,9 @@ begin
     paramList := ParseParamString(paramString);
     isAddNumber := VarToBool( GetParam(paramList, 'IsAddNumber', 'false') );
     isAddRelevance := VarToBool( GetParam(paramList, 'IsAddRelevance', 'false') );
-    isSpecTree := Tree.WndClass = 'TnscSubTree';
+    isSpecTree := IsSupported(Tree, 'WndClass') AND (Tree.WndClass = 'TnscSubTree');
+    isDocsList := IsSupported(Tree, 'WndClass') AND (Tree.WndClass = 'TnscDocumentListTreeView');
+        
     isUseIndex := (NOT isSpecTree) AND IsSupported(tree, 'CurrentNodeIndex') AND (tree.CurrentNodeIndex <> -1);
     
   	Result := CreateVariantArray(0,0);
@@ -2477,7 +2527,11 @@ begin
         end;
        
       	VarArrayRedim(Result, i);
-        currentElementName := common.GetWindowText(tree.Handle);
+
+        if isDocsList then
+          currentElementName := tree.Text
+        else
+          currentElementName := common.GetWindowText(tree.Handle);
         //Log.Message(currentElementName);
         
         addText := '';
@@ -2495,7 +2549,12 @@ begin
       		currIndex := tree.CurrentNodeIndex;
         end
         else
-         	currentElementName := common.GetWindowText(tree.Handle);
+        begin
+          if isDocsList then
+            currentElementName := tree.Text
+          else
+            currentElementName := common.GetWindowText(tree.Handle);
+        end;
       until (isUseIndex AND (currIndex = prevIndex)) OR 
             ((NOT isUseIndex) AND (isSpecTree AND (currentElementName = '') OR (previousElementName = currentElementName)));
     finally
@@ -2906,7 +2965,7 @@ begin
         common.ClientToScreen(FindParentVgSceneObj(targetWindow), x, y);        
       end
       else
-        common.ClientToScreen(targetWindow, x, y);      
+        common.ClientToScreen(targetWindow, x, y);
     end; 
 
     SlideMouse(x, y);
@@ -2914,7 +2973,7 @@ begin
     i := 0;
     repeat
       Inc(i);
-      Delay(250); // даем возможность хинту обновиться
+      Delay(1000); // даем возможность хинту обновиться
       hintWnd := p.WaitWindow('TvtMultilineHint', '', 1, Options.Run.TimeOut div 5);
       if IsExists(hintWnd) then
       begin
@@ -2932,8 +2991,8 @@ begin
     else
       Log.Message('GetHintTextByCoords: Не удалось получить хинт или он пуст');
   except
-    Log.Message('GetHintTextByCoords: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
     Result := '';
+    Log.Message('GetHintTextByCoords: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
     CommonExceptionHandler;
   end;
 end;
@@ -7494,8 +7553,12 @@ begin
           );
         'ГЛАВНОЕ МЕНЮ' :
           begin
-            dontCache := true;  
-            Result := parent.Menu;
+            // начиная с 7.12 ГМ parent.Menu теперь нет, http://mdp.garant.ru/pages/viewpage.action?pageId=611211969&focusedCommentId=611820353#comment-611820353
+            dontCache := true;
+            if VarToBool(gbl_F1ShellTabsEnabled) then
+              Result := nil
+            else
+              Result := parent.Menu;
           end;  
         'ПРЕВЬЮ', 'ПРЕДВАРИТЕЛЬНЫЙ ПРОСМОТР' :
           Result := FindWindowByPath(
@@ -8227,6 +8290,8 @@ begin
           Result := FindWindowByPath(parent, 'WNDCLASS:=Ten_PrintDialog;WNDCAPTION:=*Печать*;SEARCHESCOUNT:=4', true, addParams + ';TIMEOUT:=' + IntToStr( Choose(timeOut=-1, Options.Run.Timeout, timeOut) ) );
         'ОКНО ОШИБКИ IE':
           Result := FindWindowByPath(parent, 'WNDCLASS:=I*;WNDCAPTION:=Internet Explorer Script Error;SEARCHESCOUNT:=3', true, addParams + ';TIMEOUT:=' + IntToStr( Choose(timeOut=-1, Options.Run.Timeout, timeOut) ) );
+        'ОКНО SECURITY ALERT':
+          Result := FindWindowByPath(parent, 'WNDCLASS:=#32770;WNDCAPTION:=*Security Alert*;SEARCHESCOUNT:=3', true, addParams + ';TIMEOUT:=' + IntToStr( Choose(timeOut=-1, Options.Run.Timeout, timeOut) ) );
         'ОКНО АВТОРИЗАЦИИ ПРОКСИ':
           Result := FindWindowByPath(parent, 'WNDCLASS:=#32770;WNDCAPTION:=*proxy.garant.ru*;SEARCHESCOUNT:=3', true, addParams + ';TIMEOUT:=' + IntToStr( Choose(timeOut=-1, Options.Run.Timeout, timeOut) ) );
         'ФОРМА ОКНА СПРАВКИ' :
@@ -12727,7 +12792,7 @@ begin
     if (toAddr = '') then Raise('Адрес получателя пуст!');
     if pathToBlat = 'default' then
       pathToBlat := GetPathTo(PATH_TO_UTILS) + 'Blat\Blat.exe';
-    if NOT Utilities.FileExists( pathToBlat) then
+    if NOT Utilities.FileExists(pathToBlat) then
       Raise('Blat.exe не найден по пути "' + pathToBlat + '"');
     fileWithMessage := IncludeTrailingBackslash(GetTempDirectory) + GetRandomString(16);
     BuiltIn.SaveStrToFile(fileWithMessage, messageBody);

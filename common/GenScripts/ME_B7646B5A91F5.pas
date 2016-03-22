@@ -3,6 +3,7 @@ unit RedactionsKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\RedactionsKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "RedactionsKeywordsPack" MUID: (B7646B5A91F5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::Redactions TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Redactions
 
  Tkw_Redactions_Control_RedactionTree = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::RedactionTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Redactions_Control_RedactionTree
 
  Tkw_Redactions_Control_RedactionTree_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwRedactionsFormRedactionTree
 
-class function Tkw_Form_Redactions.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Redactions';
-end;//Tkw_Form_Redactions.GetWordNameForRegister
-
 function Tkw_Form_Redactions.GetString: AnsiString;
 begin
  Result := 'RedactionsForm';
 end;//Tkw_Form_Redactions.GetString
 
-class function Tkw_Redactions_Control_RedactionTree.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_Redactions.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::RedactionTree';
-end;//Tkw_Redactions_Control_RedactionTree.GetWordNameForRegister
+ Result := 'форма::Redactions';
+end;//Tkw_Form_Redactions.GetWordNameForRegister
 
 function Tkw_Redactions_Control_RedactionTree.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_Redactions_Control_RedactionTree.RegisterInEngine
+
+class function Tkw_Redactions_Control_RedactionTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::RedactionTree';
+end;//Tkw_Redactions_Control_RedactionTree.GetWordNameForRegister
 
 procedure Tkw_Redactions_Control_RedactionTree_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(RedactionTree(aCtx, l_aRedactionsForm));
 end;//TkwRedactionsFormRedactionTree.DoDoIt
 
-class function TkwRedactionsFormRedactionTree.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TRedactionsForm.RedactionTree';
-end;//TkwRedactionsFormRedactionTree.GetWordNameForRegister
-
 procedure TkwRedactionsFormRedactionTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwRedactionsFormRedactionTree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TRedactionsForm)]);
 end;//TkwRedactionsFormRedactionTree.ParamsTypes
+
+class function TkwRedactionsFormRedactionTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TRedactionsForm.RedactionTree';
+end;//TkwRedactionsFormRedactionTree.GetWordNameForRegister
 
 initialization
  Tkw_Form_Redactions.RegisterInEngine;

@@ -50,6 +50,7 @@ Stream_i::Stream_i (const char* path)
 			LOG_E (("Stream_i: can't create stream based on filename %s", path));
 			// TODO Throw exception
 		}
+#pragma warning(suppress: 6387)
 		if (std::fclose (file)) {
 			LOG_W (("Stream_i: error while closing file %s", path));
 		}
@@ -164,8 +165,10 @@ unsigned long Stream_i::seek (long offset, unsigned long whence) /*throw (IO::Op
 		case 2:
 			direction = std::ios_base::end;
 			break;
-		//default:
-		//	GDS_ASSERT (false);
+		default:
+			GDS_ASSERT (false);
+			direction = std::ios_base::beg;
+			break;
 	}
 
 	//unsigned long result = static_cast<unsigned long> (m_stream->rdbuf ()->pubseekoff (offset, direction));

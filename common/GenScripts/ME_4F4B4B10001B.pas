@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\PrintViewDecorationRules.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "PrintViewDecorationRules" MUID: (4F4B4B10001B)
+// Имя типа: "_PrintViewDecorationRules_"
 
 {$Define PrintViewDecorationRules_imp}
 

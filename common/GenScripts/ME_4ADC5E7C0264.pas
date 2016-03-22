@@ -3,6 +3,7 @@ unit nsWindowNode;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\nsWindowNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsWindowNode" MUID: (4ADC5E7C0264)
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

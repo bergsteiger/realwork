@@ -2,6 +2,7 @@ unit evdTask_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdTask_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WevdTask" MUID: (53C3E67C0258)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

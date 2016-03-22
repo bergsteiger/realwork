@@ -12,8 +12,6 @@ namespace InformersMake {
 	public:
 		InformersMaker (const std::string& path);
 
-		virtual ~InformersMaker ();
-
 	public:
 		void execute (const std::string& in, const std::string& out);
 

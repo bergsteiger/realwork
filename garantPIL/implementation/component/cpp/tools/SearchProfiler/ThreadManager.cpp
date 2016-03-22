@@ -6,6 +6,7 @@
 
 #include <fstream>
 
+#include "boost/bind.hpp"
 #include "boost/lexical_cast.hpp"
 
 #include "garantCore/Search/Facade/Factory.h"
@@ -13,6 +14,7 @@
 #include "garantCore/Search_f1/Search.h"
 
 #include "garantPIL/implementation/component/cpp/libs/gkdb/src/BaseCache.h"
+#include "garantPIL/implementation/component/cpp/libs/gkdb/src/ContextPartsHelper.h"
 
 #include "ThreadManager.h"
 #include "Watcher.h"
@@ -79,6 +81,11 @@ public:
 					for (long i = 0 ; i < list->ItemCount; ++i) {
 						const RefwRele* item = (const RefwRele*) list->GetItem (i);
 						ofs << item->DocId << '.' << item->Word << '.' << item->Rele << std::endl;
+					}
+				} else if (list->Tag () == OT_REFWEIGHTCOLLECTION) {
+					for (long i = 0 ; i < list->ItemCount; ++i) {
+						const RefwWeight* item = (const RefwWeight*) list->GetItem (i);
+						ofs << item->DocId << '.' << item->Sub << '.' << item->Weight << std::endl;
 					}
 				} else {
 					GDS_ASSERT (0);
@@ -200,10 +207,9 @@ private:
 
 class Searcher {
 public:
-	Searcher () { }
+	Searcher ();
 
 	void execute (const std::string& str, size_t pos);
-
 	void init (const Properties& prop);
 
 private:
@@ -211,19 +217,23 @@ private:
 	IWatcher_var m_watcher;
 };
 
+Searcher::Searcher () { 
+	m_watcher = WatcherFactory::make ();
+}
+
 void Searcher::execute (const std::string& str, size_t pos) {
 	if (str.empty () == false && str [0] != ';') {
-		m_watcher->start ();
-
 		Core::Aptr <Search::SearchResult> res;
 
-		Core::Box <CachedBaseRO> base = new CachedBaseRO (m_prop.base_path.c_str ());
+		CachedBaseRO base (m_prop.base_path.c_str ());
+
+		m_watcher->start ();
 
 		if (m_prop.ext == ctx_ext) {
 			Search::SearchProp search_prop;
 
 			if (m_prop.is_short_list) {
-				search_prop.max_res_size = BaseCache::instance ()->get_short_list_size (base.in ());
+				search_prop.max_res_size = BaseCache::instance ()->get_short_list_size (&base);
 			}
 
 			Search::BooleanFilter filter;
@@ -231,21 +241,20 @@ void Searcher::execute (const std::string& str, size_t pos) {
 			if (ContextPartsHelper::is_parts ()) {
 				ContextPartsHelper::get_context_parts_names (search_prop.ctx_src, false);
 			} else {
-				const DocCollection& data = AllDocsCache::instance ()->get_med_docs (base.in ());
+				const DocCollection& data = AllDocsCache::instance ()->get_med_docs (&base);
 				filter << Search::Filter (const_cast <DocCollection*> (&data), Search::so_NOT);
 
-				const DocCollection& edis = AllDocsCache::instance ()->get_editions (base.in ());
+				const DocCollection& edis = AllDocsCache::instance ()->get_editions (&base);
 				filter << Search::Filter (const_cast <DocCollection*> (&edis), Search::so_NOT);
 
 				search_prop.filter = filter.in ();
 			}
 
 			Search::IQuery_var query = Search::Factory::make_query (Search::BODY_TYPE, str);
-			Search::ISearcher_var searcher = Search::Factory::make_searcher (base.in ());
+			Search::ISearcher_var searcher = Search::Factory::make_searcher (&base);
 			res = searcher->execute (query.in (), search_prop);
 		} else {
-			Search::Segments segments;
-			res = Search::execute (base.in (), str, Search::Segments (), 0, m_prop.is_short_list, false);
+			res = Search::execute (&base, str, Search::Segments (), 0, m_prop.is_short_list, false);
 		}
 
 		m_watcher->finish ();
@@ -262,7 +271,6 @@ void Searcher::execute (const std::string& str, size_t pos) {
 
 void Searcher::init (const Properties& prop) {
 	m_prop = prop;
-	m_watcher = WatcherFactory::make ();
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -325,25 +333,21 @@ void ThreadManager::execute (
 	}
 
 	std::vector <Searcher> searchers (count);
-	{
-		for (size_t i = 0; i < count; ++i) {
-			searchers [i].init (prop);
-		}
-	}
+	std::for_each (searchers.begin (), searchers.end (), boost::bind (&Searcher::init, _1, prop));
 
 	ACE_Thread_Manager* manager = ACE_Thread_Manager::instance ();
 
-	std::vector <ACE_thread_t> thr_ids (count);
+	std::vector <ACE_thread_t> tids (count);
 
 	for (size_t i = 0; i < count; ++i) {
-		if (manager->spawn ((ACE_THR_FUNC) thr_func, &searchers [i], THR_NEW_LWP | THR_JOINABLE, &thr_ids [i]) < 0) {
+		if (manager->spawn ((ACE_THR_FUNC) thr_func, &searchers [i], THR_NEW_LWP | THR_JOINABLE, &tids [i]) < 0) {
 			throw std::exception ();
 		}
 	}
 
-	for (size_t i = 0; i < count; ++i) {
-		manager->join (thr_ids [i]);
-	}
+	std::for_each (tids.begin (), tids.end ()
+		, boost::bind (&ACE_Thread_Manager::join, manager, _1, (ACE_THR_FUNC_RETURN*) 0)
+	);
 }
 
 }

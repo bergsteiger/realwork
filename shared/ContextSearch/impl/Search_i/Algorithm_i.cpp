@@ -72,11 +72,15 @@ void Algorithm_i::execute (
 
 	Searcher* searcher = analyzer.get_searcher ();
 
+	InvbSearcher* invb_searcher = analyzer.get_invb_searcher ();
+
 	Relevancy::IAlgorithm* algorithm = analyzer.get_algorithm ();
+
+	Relevancy::IBlocksAlgorithm* invb_algorithm = analyzer.get_invb_algorithm ();
 
 	size_t progress_inc = 0;
 
-	Defs::RelevancyInfo info;
+	Defs::RelevancyInfo info, invb_info;
 
 	const Defs::PositionsRel rel_def;
 	const Defs::InvisibleRel& r_data = m_properties.comm->get_invisible_rel ();
@@ -104,13 +108,27 @@ void Algorithm_i::execute (
 			Defs::InvisibleRel::const_iterator r_it = r_data.find (id);
 			Defs::InvisibleBlocks::const_iterator b_it = b_data.find (id);
 
+			const Defs::PositionsRel& rel_data = (r_it != r_data.end ())? r_it->second : rel_def;
+
 			algorithm->get_relevancy_info (
 				info
 				, vect
 				, (b_it != b_data.end ())? b_it->second : def
-				, (r_it != r_data.end ())? r_it->second : rel_def
+				, rel_data
 				, has_block
 			);
+
+			if (has_block && invb_searcher) {
+				Core::Aptr <Relevancy::BlockEntries> entries = invb_searcher->get (id);
+
+				if (entries.is_nil () == false) {
+					invb_algorithm->get_relevancy_info (invb_info, vect, rel_data, *entries);
+
+					if (invb_info.relevancy_value > info.relevancy_value) {
+						info = invb_info;
+					}
+				}
+			}
 
 			if (info.relevancy_value > 0) {
 				if (m_properties.collector) {
@@ -185,8 +203,6 @@ Search::FragmentsPair* Algorithm_i::get_fragments (
 	Relevancy::DataVector vect;
 
 	if (searcher->search (doc_id) && searcher->get_data (vect, doc_id, has_block)) {
-		Defs::InvisibleBlocks::const_iterator it = blocks.find (doc_id);
-
 		Relevancy::IAlgorithm* algorithm = analyzer.get_algorithm ();
 
 		//DebugInfo di (algorithm.in ());
@@ -194,8 +210,22 @@ Search::FragmentsPair* Algorithm_i::get_fragments (
 		ret = new Search::FragmentsPair;
 		ret->data = algorithm->get_fragments (vect);
 
+		/*
+		Defs::InvisibleBlocks::const_iterator it = blocks.find (doc_id);
+
 		if (it != blocks.end ()) {
 			ret->block_data = algorithm->get_block_fragments (vect, it->second);
+		}
+		*/
+
+		InvbSearcher* invb_searcher = analyzer.get_invb_searcher ();
+
+		if (has_block && invb_searcher) {
+			Core::Aptr <Relevancy::BlockEntries> entries = invb_searcher->get (doc_id);
+
+			if (entries.is_nil () == false && entries->empty () == false) {
+				ret->block_data = analyzer.get_invb_algorithm ()->get_fragments (*entries, vect);
+			}
 		}
 	}
 

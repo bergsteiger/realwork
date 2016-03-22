@@ -2,6 +2,8 @@ unit kwVcmFindForm;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmFindForm.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "vcm_FindForm" MUID: (4F215ADB00AF)
+// Имя типа: "TkwVcmFindForm"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

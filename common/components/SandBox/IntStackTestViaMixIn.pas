@@ -1,49 +1,38 @@
 unit IntStackTestViaMixIn;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "IntStackTestViaMixIn.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCase::Class Shared Delphi Sand Box::SandBoxTest::ContainersTests::TIntStackTestViaMixIn
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\IntStackTestViaMixIn.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TIntStackTestViaMixIn" MUID: (515993FF0256)
 
-{$Include ..\SandBox\sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork,
-  IntStack
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , TestFrameWork
+ , IntStack
+;
 
-{$If defined(nsTest)}
 type
  _StackType_ = TIntStack;
- {$Include ..\SandBox\StackTest.imp.pas}
+ {$Include w:\common\components\SandBox\StackTest.imp.pas}
  TIntStackTestViaMixIn = class(_StackTest_)
- protected
- // realized methods
+  protected
    function GetEtalonData: TEtalonData; override;
  end;//TIntStackTestViaMixIn
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //nsTest
+ l3ImplUses
+ , SysUtils
+;
 
-{$If defined(nsTest)}
-
-{$Include ..\SandBox\StackTest.imp.pas}
-
-// start class TIntStackTestViaMixIn
+{$Include w:\common\components\SandBox\StackTest.imp.pas}
 
 function TIntStackTestViaMixIn.GetEtalonData: TEtalonData;
 //#UC START# *515993A0015B_515993FF0256_var*
@@ -54,9 +43,8 @@ begin
 //#UC END# *515993A0015B_515993FF0256_impl*
 end;//TIntStackTestViaMixIn.GetEtalonData
 
-{$IfEnd} //nsTest
-
 initialization
  TestFramework.RegisterTest(TIntStackTestViaMixIn.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

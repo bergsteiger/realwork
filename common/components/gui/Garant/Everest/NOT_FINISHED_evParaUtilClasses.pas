@@ -2,6 +2,7 @@ unit NOT_FINISHED_evParaUtilClasses;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evParaUtilClasses.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evParaUtilClasses" MUID: (48E4EB8A02B8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

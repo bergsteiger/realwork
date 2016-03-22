@@ -2,6 +2,7 @@ unit l3MetafileHeader;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3MetafileHeader.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3MetafileHeader" MUID: (552616EE02DF)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

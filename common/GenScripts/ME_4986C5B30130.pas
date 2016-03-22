@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlash.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "CommonForTextAndFlash" MUID: (4986C5B30130)
+// Имя типа: "_CommonForTextAndFlash_"
 
 {$Define CommonForTextAndFlash_imp}
 

@@ -3,6 +3,8 @@ unit ObjectWithHandle_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\ObjectWithHandle_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "ObjectWithHandle" MUID: (484AB8CD0227)
+// Имя типа: "ObjectWithHandleTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

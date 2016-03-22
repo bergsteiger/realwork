@@ -216,34 +216,6 @@ ref; // ME_4AC5E484002C TeeCheckBox
 
 ref; // ME_5179419B01DA TvtCheckBox
 
-FORWARD ME_517941E500BF
-
-: ME_4D9C16DA868C
- CONST UID '4D9C16DA868C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtRadioButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_517941E500BF // TvtRadioButton
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4D9C16DA868C Ini_Reg_Class
-
-: ME_6E42C971921F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_517941E500BF // TvtRadioButton
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_6E42C971921F 
-
 : ME_517941E500BF
  CONST UID '517941E500BF'
  CONST Name 'TvtRadioButton'
@@ -259,14 +231,6 @@ ref; // ME_6E42C971921F
  ME_5179415C0005 // vtUnicodeButtonControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4D9C16DA868C // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_6E42C971921F // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
@@ -354,8 +318,6 @@ ref; // ME_5525119B0196
 ref; // ME_9D83E1ECD101 
 
 : ME_47D1602000C6_ME_55250990030E
- CONST UID '47D1602000C6'
- CONST Name 'Create'
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
  : Implementor ME_55250990030E // TvtSpeedButtonForVGScene
@@ -364,8 +326,6 @@ ref; // ME_9D83E1ECD101
 ref; // ME_47D1602000C6_ME_55250990030E Create
 
 : ME_4F88473B03CD_ME_55250990030E
- CONST UID '4F88473B03CD'
- CONST Name 'MouseDown'
  : Original WL 'ME_4F88473B03CD' '4799D29F033F.pas.ms.script' // MouseDown
  ;
  : Implementor ME_55250990030E // TvtSpeedButtonForVGScene

@@ -3,6 +3,8 @@ unit NOT_FINISHED_CustomizeTasksPanel_Form;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\Forms\NOT_FINISHED_CustomizeTasksPanel_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "CustomizeTasksPanel" MUID: (4C8E4D4F027D)
+// Имя типа: "TCustomizeTasksPanelForm"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 
@@ -27,12 +29,12 @@ uses
  l3ImplUses
  , l3StringIDEx
  , vcmCustOpsRepGroupList
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , CustomizeTasksPanelKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
@@ -42,12 +44,12 @@ const
   {* Заголовок пользовательского типа "Редактор панели задач" }
 
 initialization
+ str_ut_CustomizeTasksPanelCaption.Init;
+ {* Инициализация str_ut_CustomizeTasksPanelCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCustomizeTasksPanelForm);
  {* Регистрация CustomizeTasksPanel }
 {$IfEnd} // NOT Defined(NoScripts)
- str_ut_CustomizeTasksPanelCaption.Init;
- {* Инициализация str_ut_CustomizeTasksPanelCaption }
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

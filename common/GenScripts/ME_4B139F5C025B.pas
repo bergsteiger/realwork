@@ -2,6 +2,7 @@ unit nsPrimCachedEventsProcessor;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsPrimCachedEventsProcessor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsPrimCachedEventsProcessor" MUID: (4B139F5C025B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -58,6 +59,7 @@ constructor TnsPrimCachedEventsProcessor.Create;
 begin
 //#UC START# *4B139FDA0182_4B139F5C025B_impl*
  inherited Create;
+ f_CacheWasWritten := Now;
  f_List := TInsDefferedEventList.MakeSorted;
 //#UC END# *4B139FDA0182_4B139F5C025B_impl*
 end;//TnsPrimCachedEventsProcessor.Create

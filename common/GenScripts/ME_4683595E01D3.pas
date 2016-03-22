@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsDocumentPartImplementation;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\NOT_FINISHED_nsDocumentPartImplementation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentPartImplementation" MUID: (4683595E01D3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

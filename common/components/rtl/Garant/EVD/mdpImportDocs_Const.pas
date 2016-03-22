@@ -5,7 +5,7 @@ unit mdpImportDocs_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/mdpImportDocs_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::mdpImportDocs
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::mdpImportDocs
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

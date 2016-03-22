@@ -2,6 +2,7 @@ unit k2EVDReaderService;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2EVDReaderService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tk2EVDReaderService" MUID: (555DB43B00BD)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
@@ -36,7 +37,7 @@ type
  Tk2EVDReaderService = {final} class(Tl3ProtoObject)
   private
    f_Alien: Ik2EVDReaderService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Ik2EVDReaderService }
   protected
    procedure pm_SetAlien(const aValue: Ik2EVDReaderService);
    procedure ClearFields; override;

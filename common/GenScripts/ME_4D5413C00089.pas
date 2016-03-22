@@ -2,6 +2,7 @@ unit vgInterfacedPersistent;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgInterfacedPersistent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgInterfacedPersistent" MUID: (4D5413C00089)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

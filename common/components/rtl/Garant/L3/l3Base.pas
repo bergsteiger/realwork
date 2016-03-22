@@ -5,9 +5,21 @@ unit l3Base;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3Base -                    }
 { Начат: 12.04.1998 16:28             }
-{ $Id: l3Base.pas,v 1.583 2015/10/01 12:55:36 lukyanets Exp $ }
+{ $Id: l3Base.pas,v 1.587 2016/03/01 12:56:59 lukyanets Exp $ }
 
 // $Log: l3Base.pas,v $
+// Revision 1.587  2016/03/01 12:56:59  lukyanets
+// Текут LocalStub - отладочная печать
+//
+// Revision 1.586  2016/02/10 08:39:11  lukyanets
+// Подкрутил уровень логов
+//
+// Revision 1.585  2015/12/22 11:38:18  lukyanets
+// Выводим в лог потребление виндовых ресурсов
+//
+// Revision 1.584  2015/12/10 13:16:42  lukyanets
+// Логируем потребление памяти
+//
 // Revision 1.583  2015/10/01 12:55:36  lukyanets
 // Разделяем логи
 //
@@ -1898,7 +1910,7 @@ type
 
   Tl3Windows = class(Tl3ProtoObject)
     public
-    {public methods}
+    {public meth ods}
       procedure ScrollWindow(Wnd: HWnd; XAmount, YAmount: Integer; Rect: PRect; ClipRect: PRect);
         {-}
       function  Focused: hWnd;
@@ -2207,7 +2219,7 @@ type
         {* - вывести сообщение в лог - с указанием дельты времени. }
       procedure Stack2Log(const S: AnsiString = '');
         {* - вывести текущий стек в лог. }
-      procedure MemUsage2Log(Strict: Boolean = False);
+      procedure MemUsage2Log(Strict: Boolean = False; ReportClasses: Boolean = True; ReportResources: Boolean = False; const aMessage: String = ''; aMsgLevel: Byte = l3_msgAll);
         {* - вывести в лог статистику использования памяти. }
       procedure ClearClipboard(aValue: Integer = IDNo);
         {-}
@@ -4614,6 +4626,7 @@ const
 {$Else  l3AutoFreeStubs}
 var
  l3StubHead   : THandle = 0;
+ g_LocalStubDepth: Integer = 0;
 {$EndIf l3AutoFreeStubs}
 
 function l3AllocStub: THandle;
@@ -4651,6 +4664,8 @@ begin
              Windows
              {$EndIf l3TraceAllocStub}.GlobalAlloc(GMem_Fixed, cSize);
    VirtualProtect(Pointer(Result), cSize, PAGE_EXECUTE_READWRITE, l_Old);
+   l3InterlockedIncrement(g_LocalStubDepth);
+   l3System.Msg2Log('Local stub allocated - depth %d', [g_LocalStubDepth], l3_msgLevel3);
   end//l3StubHead = 0
   else
   begin
@@ -5965,17 +5980,53 @@ begin
  theLast := GetTickCount;
 end;
 
-procedure Tl3System.MemUsage2Log(Strict: Boolean = False);
-{$IfDef l3TraceClasses}
+procedure GetProcedureAddress(var P: Pointer; const ModuleName, ProcName: string);
 var
+  ModuleHandle: HMODULE;
+begin
+  if not Assigned(P) then
+  begin
+    ModuleHandle := GetModuleHandle(PAnsiChar(ModuleName));
+    if ModuleHandle = 0 then
+    begin
+      ModuleHandle := LoadLibrary(PAnsiChar(ModuleName));
+      if ModuleHandle = 0 then raise Exception.Create('Library not found: ' + ModuleName);
+    end;
+    P := GetProcAddress(ModuleHandle, PAnsiChar(ProcName));
+    if not Assigned(P) then raise Exception.Create('Function not found: ' + ModuleName + '.' + ProcName);
+  end;
+end;
+
+var
+  _GetProcessHandleCount: Pointer;
+
+function GetProcessHandleCount(hProcess: THandle; var pdwHandleCount: DWORD): BOOL; stdcall;
+begin
+  GetProcedureAddress(_GetProcessHandleCount, kernel32, 'GetProcessHandleCount');
+  asm
+        MOV     ESP, EBP
+        POP     EBP
+        JMP     [_GetProcessHandleCount]
+  end;
+end;
+
+procedure Tl3System.MemUsage2Log(Strict: Boolean = False; ReportClasses: Boolean = True;
+ ReportResources: Boolean = False; const aMessage: String = ''; aMsgLevel: Byte = l3_msgAll);
+var
+{$IfDef l3TraceClasses}
  I: Integer;
 {$EndIf l3TraceClasses}
+ l_HandlesCount: DWORD;
 begin
- Msg2Log('Memory Usage:');
+ if aMessage <> '' then
+  Msg2Log('Memory Usage (%s):', [aMessage], aMsgLevel)
+ else
+  Msg2Log('Memory Usage:', aMsgLevel);
 {$IfDef l3TraceClasses}
- for I := 0 to f_ClassList.Count -1 do
-  if Strict or (Long(f_ClassList.Objects[I]) > 12) then
-  Msg2Log('  %s = %d', [f_ClassList[I], Long(f_ClassList.Objects[I])]);
+ if ReportClasses then
+  for I := 0 to f_ClassList.Count -1 do
+   if Strict or (Long(f_ClassList.Objects[I]) > 12) then
+   Msg2Log('  %s = %d', [f_ClassList[I], Long(f_ClassList.Objects[I])], aMsgLevel);
 {$EndIf l3TraceClasses}
 
  Msg2Log('local: %d (max: %d), Syslocal: %d (max: %d), global: %d (max: %d),'{$ifdef  MMTrace}+' SimplMM: %d, BoxMM: %d,'{$EndIf}+' objects: %d/%d',
@@ -5983,7 +6034,15 @@ begin
  {$ifdef  MMTrace}
   f_SimpleMM.f_GlobalAlloc, f_BoxMM.f_GlobalAlloc,
  {$EndIf}
-  ObjectCount, ObjectMemUsed]);
+  ObjectCount, ObjectMemUsed], aMsgLevel);
+ if ReportResources then
+ begin
+  GetProcessHandleCount(GetCurrentProcess, l_HandlesCount);
+  Msg2Log('Resource Usage: GDI - %d, USER - %d, Handles - %d', [
+    GetGuiResources(GetCurrentProcess, GR_GDIOBJECTS),
+    GetGuiResources(GetCurrentProcess, GR_USEROBJECTS),
+    l_HandlesCount], aMsgLevel);
+ end;
 end;
 
 function Tl3System.pm_GetKeyboard: Tl3Keyboard;

@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3Utils;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Utils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3Utils" MUID: (480F78BC0146)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

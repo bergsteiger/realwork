@@ -3,6 +3,7 @@ unit csTaskedAction;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csTaskedAction.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsTaskedAction" MUID: (5395CD170333)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

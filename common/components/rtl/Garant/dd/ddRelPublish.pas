@@ -1,8 +1,11 @@
 unit ddRelPublish;
 
-{ $Id: ddRelPublish.pas,v 1.29 2015/07/02 07:36:05 lukyanets Exp $ }
+{ $Id: ddRelPublish.pas,v 1.30 2015/11/26 08:45:43 lukyanets Exp $ }
 
 // $Log: ddRelPublish.pas,v $
+// Revision 1.30  2015/11/26 08:45:43  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.29  2015/07/02 07:36:05  lukyanets
 // Описываем словари
 //
@@ -147,6 +150,8 @@ uses
  l3Chars,
 
  daTypes,
+ daSchemeConsts,
+ 
  DT_Const,
  DT_LinkServ,
  DT_Doc,

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atNamedParametersList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "atNamedParametersList" MUID: (4807779F01CA)
+// Имя типа: "_atNamedParametersList_"
 
 {$Define atNamedParametersList_imp}
 

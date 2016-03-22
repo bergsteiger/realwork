@@ -3,6 +3,7 @@ unit DateToString;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DateToString.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DateToString" MUID: (460B93D50242)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

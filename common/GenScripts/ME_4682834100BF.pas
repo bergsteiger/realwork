@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsContentsLeafParaNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_FINISHED_nsContentsLeafParaNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsContentsLeafParaNode" MUID: (4682834100BF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

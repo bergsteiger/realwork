@@ -2,6 +2,7 @@ unit tfwInitCodeWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwInitCodeWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwInitCodeWord" MUID: (55A7DA0200C0)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -24,7 +25,6 @@ type
  TtfwInitCodeWord = class(_tfwCodeCompiler_)
   private
    f_Dictionary: TtfwDictionaryExPrim;
-    {* Поле для свойства Dictionary }
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
    function pm_GetInnerDictionary: TtfwDictionaryPrim; override;
@@ -121,10 +121,7 @@ function TtfwInitCodeWord.GetKeywordFinder(const aCtx: TtfwContext): TtfwWord;
 //#UC END# *52D5637A031E_55A7DA0200C0_var*
 begin
 //#UC START# *52D5637A031E_55A7DA0200C0_impl*
- if aCtx.rEngine.CascadeDict then
-  Result := Self
- else
-  Result := aCtx.rEngine.KeywordFinder(aCtx);
+ Result := Self;
 //#UC END# *52D5637A031E_55A7DA0200C0_impl*
 end;//TtfwInitCodeWord.GetKeywordFinder
 

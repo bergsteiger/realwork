@@ -2,6 +2,7 @@ unit pgFunctionParamDescription;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgFunctionParamDescription.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgFunctionParamDescription" MUID: (5671531301DB)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 

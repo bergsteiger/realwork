@@ -47,7 +47,23 @@
 	(object Attribute
 	    tool       	"MDA Generator"
 	    name       	"ElementCreationOrder"
-	    value      	"12957248841"))
+	    value      	"12957248841")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script.runner)"
+	    value      	"w:/shared/models/NewSchool/Scripts/47F282AE0082.pas.ms.script.runner")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script.runner)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script)"
+	    value      	"w:/shared/models/NewSchool/Scripts/47F282AE0082.pas.ms.script")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script)"
+	    value      	"file"))
     quid       	"47F282AE0082"
     documentation 	"Пакет работы с деревом."
     stereotype 	"ControllerUnit"
@@ -265,7 +281,7 @@
 			    value      	"12957378574"))
 		    quid       	"49213D2F022C"
 		    stereotype 	"uses"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::SysUtils"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::SysUtils"
 		    quidu      	"47877EB202FB")
 		(object Uses_Relationship
 		    attributes 	(list Attribute_Set
@@ -391,7 +407,7 @@
 			    value      	"12957390787"))
 		    quid       	"4921556703C9"
 		    stereotype 	"uses"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Win::Windows"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Win::Windows"
 		    quidu      	"48A41FF10094"))
 	    realized_interfaces 	(list realize_rel_list
 		(object Realize_Relationship
@@ -590,7 +606,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*47F4C2B9014A_47E9EDA800FE_impl*"
-			    value      	"//#UC START# *47F4C2B9014A_47E9EDA800FE_impl*¤ Result := nil;¤ if (ImpList <> nil) then¤ begin¤  RootManager.RootNode := nil;¤  // Обновим справку к документу¤  if not IsFirstMake then¤  begin¤   Result := TbsListTreeStruct.Make(Root, False);¤   UpdateListInfo;¤  end¤  else¤  begin¤   // Применям фильтры здесь, а не в GotData потому, что¤   // http://mdp.garant.ru/pages/viewpage.action?pageId=492601505¤   ApplyFilters;¤   Result := TbsListTreeStruct.Make(Root, False);¤   // http://mdp.garant.ru/pages/viewpage.action?pageId=506709931¤   DoSetupNewSimpleTree(Result);¤  end;¤  // Обновим предварительный просмотр¤  Preview := nil;¤ end;//if (ImpList <> nil) then¤//#UC END# *47F4C2B9014A_47E9EDA800FE_impl*")
+			    value      	"//#UC START# *47F4C2B9014A_47E9EDA800FE_impl*¤ Result := nil;¤ if (ImpList <> nil) then¤ begin¤  RootManager.RootNode := nil;¤  // Обновим справку к документу¤  if ImpList.GetIsSnippet then¤  begin¤   Result := TnsDocumentWithSnippetList.Make(Root, ImpList);¤   UpdateListInfo;¤  end¤  else¤  if not IsFirstMake then¤  begin¤   Result := TbsListTreeStruct.Make(Root, False);¤   UpdateListInfo;¤  end¤  else¤  begin¤   // Применям фильтры здесь, а не в GotData потому, что¤   // http://mdp.garant.ru/pages/viewpage.action?pageId=492601505¤   ApplyFilters;¤   Result := TbsListTreeStruct.Make(Root, False);¤   // http://mdp.garant.ru/pages/viewpage.action?pageId=506709931¤   DoSetupNewSimpleTree(Result);¤  end;¤  // Обновим предварительный просмотр¤  Preview := nil;¤ end;//if (ImpList <> nil) then¤//#UC END# *47F4C2B9014A_47E9EDA800FE_impl*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*47F4C2B9014A_47F0C1410011_var*"
@@ -1160,7 +1176,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (intf.pas)"
-		    value      	"w:/garant6x/implementation/Garant/GbaNemesis/Tree/NOT_FINISHED_nsLogicOperationToFlags.pas")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"WikiPageID (wiki)"
@@ -1294,7 +1310,7 @@
 		    quid       	"49213F3B016B"
 		    stereotype 	"readonly"
 		    label      	"IsFirstMake"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean"
 		    quidu      	"46A603BB0391"
 		    Containment 	"By Value"
 		    exportControl 	"Protected"
@@ -1501,7 +1517,7 @@
 		    documentation 	"время последнего обновления текущего"
 		    stereotype 	"property"
 		    label      	"ChangeCurrentTime"
-		    supplier   	"Logical View::Shared Delphi Core::Rtl::Sys::System::Cardinal"
+		    supplier   	"Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Cardinal"
 		    quidu      	"46A618AF0053"
 		    Containment 	"By Value"
 		    exportControl 	"Private"
@@ -3170,7 +3186,7 @@
 		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::SysUtils" @48
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::SysUtils" @48
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -3798,7 +3814,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Win::Windows" @70
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Win::Windows" @70
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -3919,7 +3935,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Boolean" @74
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Boolean" @74
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -4107,7 +4123,7 @@
 				(1670, 458)
 				(1674, 617))
 			    line_style 	0)))
-		(object ClassView "Class" "Logical View::Shared Delphi Core::Rtl::Sys::System::Cardinal" @82
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Cardinal" @82
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE

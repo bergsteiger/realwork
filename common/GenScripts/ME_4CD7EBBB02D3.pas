@@ -3,6 +3,7 @@ unit InsertBreakInTextTableTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\InsertBreakInTextTableTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TInsertBreakInTextTableTest" MUID: (4CD7EBBB02D3)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

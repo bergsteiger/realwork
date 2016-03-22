@@ -37,9 +37,11 @@ type
    function GetList(aListID: Integer;
      out aWasRestart: Boolean): TrtfList; virtual;
    function GetClearBorderType: TddClearBoder;
-   procedure BeforeCloseParagraph(const aDocAtom: TObject); virtual; abstract;
+   procedure BeforeCloseParagraph(const aDocAtom: TObject;
+     var aNewStyle: Integer); virtual; abstract;
    function GetMinPictureWidth: Integer; virtual;
    function GetMinPictureHeight: Integer; virtual;
+   function NextTextPara(const anCurrent: TObject): TObject; virtual;
  public
  // public properties
    property LiteVersion: Boolean
@@ -98,6 +100,15 @@ begin
  Result := 0;
 //#UC END# *56023E6B0397_51E9189F024D_impl*
 end;//TddCustomDestination.GetMinPictureHeight
+
+function TddCustomDestination.NextTextPara(const anCurrent: TObject): TObject;
+//#UC START# *5658453300F6_51E9189F024D_var*
+//#UC END# *5658453300F6_51E9189F024D_var*
+begin
+//#UC START# *5658453300F6_51E9189F024D_impl*
+ Result := nil;
+//#UC END# *5658453300F6_51E9189F024D_impl*
+end;//TddCustomDestination.NextTextPara
 
 function TddCustomDestination.pm_GetLiteVersion: Boolean;
 //#UC START# *51E929770128_51E9189F024Dget_var*

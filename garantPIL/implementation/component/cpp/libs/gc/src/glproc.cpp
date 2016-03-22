@@ -41,6 +41,9 @@
 
 #include "shared/GCL/data/DirectMap.h"
 
+#include "garantPIL/implementation/component/cpp/libs/gkdb/src/DBComm.h"
+#include "shared/Morpho/Facade/Factory.h"
+
 #ifdef NO_LONG_HIGHLIGHTING
 	#define MENU_PARA_STYLE PS_JUSTIFIED
 #else
@@ -1616,9 +1619,9 @@ revision	magic_date;
 int MakeTrashTopic(struct history_info *hi)
 {
 	gk_bzero (&magic_date, sizeof (magic_date));
-	magic_date.RevisionDate.da_year= 2013;
-	magic_date.RevisionDate.da_mon = 4;
-	magic_date.RevisionDate.da_day = 6;
+	magic_date.RevisionDate.da_year= 2015;
+	magic_date.RevisionDate.da_mon = 12;
+	magic_date.RevisionDate.da_day = 1;
 
 	if (hi->hitems == 0)
 		return 0;
@@ -3230,6 +3233,7 @@ int garlink (Base *b_, ProgressScreen *screen, int b_english_face, int bCheckInf
 
 	std::vector<std::string>::const_iterator bases_it;
 	DocCollection likeable_docs, medfirmtopics;
+	std::map<long,long> map_doc_force;
 	char basechar = 0;
 	for (bases_it = bases_list.begin (); bases_it != bases_list.end (); bases_it++, basechar++) {
 		if (bases_it == bases_list.begin ()) {
@@ -3380,6 +3384,9 @@ int garlink (Base *b_, ProgressScreen *screen, int b_english_face, int bCheckInf
 
 				fastInfos.push_back (ca);
 				docs_with_force.push_back (docID);
+
+				if (Info.Status & DS_DOC && (Info.prevEdition || Info.nextEdition))
+					map_doc_force.insert (std::map<long,long>::value_type (docID, Info.Force));
 			}
 
 			if (Info.Status_ex & DS_MEDTOPIC /*&& (processed_inpharms.find (docID) == processed_inpharms.end ())*/) {
@@ -3557,6 +3564,57 @@ int garlink (Base *b_, ProgressScreen *screen, int b_english_face, int bCheckInf
 			}
 			map_doc_invlens.insert (std::map <long, std::deque <long> >::value_type (id, lens));
 			gk_free (invlens);
+		}
+	}
+
+	std::map<std::string, std::deque <long> > map_word_invblocklens;
+	if (!b_only_class6) {
+		DBCore::IBase_var obj = DBCore::DBFactory::make (b);
+		Morpho::Def::ICache_var cache = Morpho::Factory::make ();
+		cache->load (obj.in ());
+		Morpho::Def::INormalizer_var normalizer = Morpho::Factory::make (cache.in ());
+
+		for (bases_ptr_it = bases_ptrs.begin (); bases_ptr_it != bases_ptrs.end (); bases_ptr_it++) {
+			AttrKey invisible_key = {ID_BORDER, IDD_INVISIBLEBLOCKSLENS};
+			for (BTIterator it ((*bases_ptr_it)->FindIndex ("Attrs"), &invisible_key); !it.End (); ++it) {
+				AttrKey *keyptr = (AttrKey*) it.Key ();
+				if (keyptr -> AttrTag != IDD_INVISIBLEBLOCKSLENS)
+					break;
+
+				long id = keyptr->DocId, size = 0;
+				char *invlens = (char*) (*bases_ptr_it)->LoadAttr (id, IDD_INVISIBLEBLOCKSLENS, size), *ptr = invlens;
+
+				while (ptr - invlens < size) {
+					std::deque<long> longs;
+					longs.push_back (id);
+					long value = *(long*) ptr; ptr += sizeof (long);
+					longs.push_back (value);
+					unsigned char size = *(unsigned char*) ptr++;
+					std::string word (ptr, size);
+					ptr += size;
+					value = *(long*) ptr; ptr += sizeof (long);
+					longs.push_back (value);
+					value = *(long*) ptr; ptr += sizeof (long);
+					longs.push_back (value);
+
+					Core::Aptr <GCL::StrSet> res;
+					if (strchr (word.c_str (), '-')) {
+						res = new GCL::StrSet ();
+						res->insert ("$" + word);
+					} else
+						res = normalizer->execute (word.c_str (), true);
+					for (GCL::StrSet::const_iterator it = res->begin (); it != res->end (); it++) {
+						std::map<std::string, std::deque <long> >::iterator map_it = map_word_invblocklens.find (it->c_str () + 1);
+						if (map_it == map_word_invblocklens.end ()) {
+							map_word_invblocklens.insert (std::map<std::string, std::deque <long> >::value_type (it->c_str () + 1, longs));
+						} else {
+							for (std::deque<long>::const_iterator long_it = longs.begin (); long_it != longs.end (); long_it++)
+								map_it->second.push_back (*long_it);
+						}
+					}
+				}
+				gk_free (invlens);
+			}
 		}
 	}
 
@@ -4091,7 +4149,7 @@ int garlink (Base *b_, ProgressScreen *screen, int b_english_face, int bCheckInf
 			str->Read (data, size);
 			auxInd->Close (str);
 		} else {
-			data = strdup ("c6ab:002=Справочная информация\\001=Бизнес-справки|c6co:002=Справочная информация\\001=Бизнес-справки\\001=Кодексы Российской Федерации|c6ca:002=Справочная информация\\001=Бизнес-справки\\002=Налоговые и производственные календари|c6ms:002=Справочная информация\\004=Налоги, бухучет\\004=Формы учета и отчетности в MS-Word и MS-Excel|c6ob:002=Справочная информация\\001=Бизнес-справки\\005=Все бизнес-справки|c6mo:002=Справочная информация\\002=Мониторинг законодательства|c6hi:002=Справочная информация\\003=Горячая информация|c6nd:002=Справочная информация\\999=Новые поступления|c6na:001=Правовой навигатор|c6si:002=Справочная информация|c6ii:003=ИнФарм|c6is:003=ИнФарм\\001=Поиск лекарственных средств|c6ic:003=ИнФарм\\002=Разделы справочника|c6il:003=ИнФарм\\003=Лекарственные средства, разрешенные к применению|c6if:003=ИнФарм\\004=Фармацевтические фирмы|c6id:003=ИнФарм\\005=Словарь медицинских терминов|c6nf:002=Справочная информация\\004=Налоги, бухучет|c6ju:002=Справочная информация\\005=Юридические вопросы|c6hr:002=Справочная информация\\006=Кадровые вопросы|c6bo:002=Справочная информация\\007=Государственный сектор|csnf:002=Справочная информация\\004=Налоги, бухучет\\005=СМИ по налогам и бухучету|csju:002=Справочная информация\\005=Юридические вопросы\\005=СМИ для юриста|cshr:002=Справочная информация\\006=Кадровые вопросы\\005=СМИ по кадровым вопросам|csbo:002=Справочная информация\\007=Государственный сектор\\005=СМИ для государственного сектора");
+			data = strdup ("c6ab:002=Справочная информация\\001=Бизнес-справки|c6co:002=Справочная информация\\001=Бизнес-справки\\001=Кодексы Российской Федерации|c6ca:002=Справочная информация\\001=Бизнес-справки\\002=Налоговые и производственные календари|c6ms:002=Справочная информация\\004=Налоги, бухучет\\004=Формы учета и отчетности в MS-Word и MS-Excel|c6ob:002=Справочная информация\\001=Бизнес-справки\\005=Все бизнес-справки|c6mo:002=Справочная информация\\002=Мониторинг законодательства|c6hi:002=Справочная информация\\003=Горячая информация|c6nd:002=Справочная информация\\999=Новые поступления|c6na:001=Правовой навигатор|c6si:002=Справочная информация|c6ii:003=ИнФарм|c6is:003=ИнФарм\\001=Поиск лекарственных средств|c6ic:003=ИнФарм\\002=Разделы справочника|c6il:003=ИнФарм\\003=Лекарственные средства, разрешенные к применению|c6if:003=ИнФарм\\004=Фармацевтические фирмы|c6id:003=ИнФарм\\005=Словарь медицинских терминов|c6nf:002=Справочная информация\\004=Налоги, бухучет|c6ju:002=Справочная информация\\005=Юридические вопросы|c6hr:002=Справочная информация\\006=Кадровые вопросы|c6bo:002=Справочная информация\\007=Государственный сектор|csnf:002=Справочная информация\\004=Налоги, бухучет\\005=СМИ по налогам и бухучету|csju:002=Справочная информация\\005=Юридические вопросы\\005=СМИ для юриста|cshr:002=Справочная информация\\006=Кадровые вопросы\\005=СМИ по кадровым вопросам|csbo:002=Справочная информация\\007=Государственный сектор\\005=СМИ для государственного сектора|c6la:002=Справочная информация\\008=Право для всех|c6gz:002=Справочная информация\\011=Госзакупки");
 			size = strlen (data) + 1;
 			for (int i = 0; i < size; i++) {
 				if (data [i] == '|')
@@ -4260,6 +4318,83 @@ int garlink (Base *b_, ProgressScreen *screen, int b_english_face, int bCheckInf
 	}
 
 	if (!b_only_class6) {
+		std::deque<editionStruct> fastEditions;
+		pscreen->SetMessage("уПЪДБОЙЕ ЙОДЕЛУБ ТЕДБЛГЙК");
+		for (std::map<long,long>::const_iterator it = map_docid_nextedition.begin (); it != map_docid_nextedition.end (); it++) {
+			long id = it->first, docPos = std::binary_search (only_docs.begin (), only_docs.end (), id) ? 1 : 0;
+			if (0 == docPos) {
+				//натолкнулись на редакцию
+				std::map<long,long>::const_iterator next_it = it;
+				while (true) {
+					long nextid = next_it->second;
+					docPos = std::binary_search (only_docs.begin (), only_docs.end (), nextid) ? 1 : 0;
+					if (0 == docPos) {
+						//следующая редакция - по прежнему редакция, продолжим перебор
+						next_it = map_docid_nextedition.find (nextid);
+						if (next_it == map_docid_nextedition.end ())
+							break;
+						if (next_it->second == nextid)
+							break;
+					} else {
+						//уперлись в документ
+						editionStruct es;
+						es.doc = nextid;
+						es.id = id;
+						fastEditions.push_back (es);
+						break;
+					}
+				}
+			} else {
+				//натолкнулись на документ. надо для его всех будущих редакций записать, что у них есть "актуальный" документ
+				std::map<long,long>::const_iterator next_it = it;
+				while (true) {
+					long nextid = next_it->second;
+					if (nextid == id)
+						break;
+					editionStruct es;
+					es.id = nextid;
+					es.doc = id;
+					fastEditions.push_back (es);
+
+					next_it = map_docid_nextedition.find (nextid);
+					if (next_it == map_docid_nextedition.end ())
+						break;
+					if (next_it->second == nextid)
+						break;
+				}
+			}
+		}
+		char* key = "Edis";
+		Stream* str = auxInd->Open (key, 1);
+		if (str) {
+			if (fastEditions.size ()) {
+				for (std::deque<editionStruct>::const_iterator it = fastEditions.begin (); it != fastEditions.end (); it++) {
+					editionStruct es = *it;
+					if (std::binary_search (editions.begin (), editions.end (), es.id)) {
+						std::map<long,long>::iterator force_it = map_doc_force.find (es.doc);
+						if (force_it != map_doc_force.end ())
+							map_doc_force.insert (std::map<long,long>::value_type (es.id, force_it->second));
+						str->Write (&es, sizeof (es));
+					}
+				}
+				str->Trunc();
+				fastEditions.clear ();
+			}
+			auxInd->Close( str );
+		}
+
+		{
+			std::deque<long> empty;
+			only_docs.swap (empty);
+		}
+		{
+			std::deque<long> empty;
+			editions.swap (empty);
+		}
+	}
+	map_docid_nextedition.clear ();
+		
+	if (!b_only_class6) {
 		pscreen->SetMessage("уПТФЙТПЧЛБ УРЙУЛБ ДПЛХНЕОФПЧ");
 		long docs_count = fastInfos.size (), *s_docs = new long [docs_count * 2], *docs_ptr = s_docs, i;
 		std::deque<u_int64_t>::const_iterator deque_doc_atolnumber_it = deque_doc_atolnumber.begin ();
@@ -4297,7 +4432,13 @@ int garlink (Base *b_, ProgressScreen *screen, int b_english_face, int bCheckInf
 		for (std::deque<ShortCommonAttribute>::const_iterator fastInfos_it = fastInfos.begin (); fastInfos_it != fastInfos.end (); fastInfos_it++, ca_ptr++) {
 			ShortCommonAttribute at_it = *fastInfos_it;
 			long id = at_it.m_id, *ptr = (long*) bsearch (&id, map_doc_mask, map_count, sizeof (long) * 3, longcmp);
-			CommonAttribute ca = {id, at_it.m_force, at_it.m_published, at_it.m_changed, at_it.m_status, ptr ? *(u_int64_t*)++ptr : 0, 0x7FFFFFFF};
+			short force = at_it.m_force;
+			if (at_it.m_status & DS_EDITION) {
+				std::map<long,long>::const_iterator force_it = map_doc_force.find (id);
+				if (force_it != map_doc_force.end ())
+					force = force_it->second;
+			}
+			CommonAttribute ca = {id, force, at_it.m_published, at_it.m_changed, at_it.m_status, ptr ? *(u_int64_t*)++ptr : 0, 0x7FFFFFFF};
 
 			long* map_it = (long*) bsearch (&id, map_doc_posauxsort, docs_count, sizeof (u_int64_t), longcmp);
 			if (map_it)
@@ -4306,6 +4447,7 @@ int garlink (Base *b_, ProgressScreen *screen, int b_english_face, int bCheckInf
 		}
 		delete [] map_doc_posauxsort;
 		delete [] map_doc_mask;
+		map_doc_force.clear ();
 
 		long buffer_size = 3096 * sizeof (CommonAttribute), length = fastInfos.size () * sizeof (CommonAttribute);
 		char *src_ptr = (char*) commonAttributes, *packed_buffer = (char*) malloc (buffer_size + 1024), *key = "Inf7";
@@ -4542,6 +4684,38 @@ int garlink (Base *b_, ProgressScreen *screen, int b_english_face, int bCheckInf
 
 	if (!b_only_class6) {
 		long size = 0;
+		std::map<std::string, std::deque <long> >::const_iterator map_it;
+		for (map_it = map_word_invblocklens.begin (); map_it != map_word_invblocklens.end (); map_it++)
+			size += map_it->first.size () + 1 + sizeof (long) * (map_it->second.size () + 1);
+		if (size) {
+			size++;
+			char* data = new char [size], *ptr = data;
+			for (map_it = map_word_invblocklens.begin (); map_it != map_word_invblocklens.end (); map_it++) {
+				unsigned char wordsize = (unsigned char) (map_it->first.size () & 0xFF);
+				*(unsigned char*)ptr++ = wordsize;
+				memcpy (ptr, map_it->first.c_str (), wordsize);
+				ptr += wordsize;
+				*(long*)ptr = map_it->second.size ();
+				ptr += sizeof (long);
+				for (std::deque<long>::const_iterator long_it = map_it->second.begin (); long_it != map_it->second.end (); long_it++, ptr += sizeof (long)) 
+					*(long*)ptr = *long_it;
+			}
+			*ptr = 0;
+			Stream* str = aBase->FindIndex ("Aux")->Open (AUX_INVISIBLE_BLOCKSLENS, 1);
+			if (str) {
+				//todo: размер буфера сделать кратным, чтобы при небольшом увеличении размера новых данных они писались поверх старых, а не в новые страницы str-файла
+				str->Write (data, size);
+				str->Trunc ();
+				aBase->FindIndex ("Aux")->Close (str);
+			}
+			delete []data;
+		} else {
+			aBase->FindIndex ("Aux")->Delete (AUX_INVISIBLE_BLOCKSLENS);
+		}
+	}
+
+	if (!b_only_class6) {
+		long size = 0;
 		std::map<long, std::deque<long> >::iterator it;
 		for (it = map_doc_invreles.begin (); it != map_doc_invreles.end (); it++)
 			size += sizeof (long) + it->second.size () * sizeof (long);
@@ -4706,80 +4880,6 @@ int garlink (Base *b_, ProgressScreen *screen, int b_english_face, int bCheckInf
 		}
 		delete firms;
 	}
-
-	if (!b_only_class6) {
-		std::deque<editionStruct> fastEditions;
-		pscreen->SetMessage("уПЪДБОЙЕ ЙОДЕЛУБ ТЕДБЛГЙК");
-		for (std::map<long,long>::const_iterator it = map_docid_nextedition.begin (); it != map_docid_nextedition.end (); it++) {
-			long id = it->first, docPos = std::binary_search (only_docs.begin (), only_docs.end (), id) ? 1 : 0;
-			if (0 == docPos) {
-				//натолкнулись на редакцию
-				std::map<long,long>::const_iterator next_it = it;
-				while (true) {
-					long nextid = next_it->second;
-					docPos = std::binary_search (only_docs.begin (), only_docs.end (), nextid) ? 1 : 0;
-					if (0 == docPos) {
-						//следующая редакция - по прежнему редакция, продолжим перебор
-						next_it = map_docid_nextedition.find (nextid);
-						if (next_it == map_docid_nextedition.end ())
-							break;
-						if (next_it->second == nextid)
-							break;
-					} else {
-						//уперлись в документ
-						editionStruct es;
-						es.doc = nextid;
-						es.id = id;
-						fastEditions.push_back (es);
-						break;
-					}
-				}
-			} else {
-				//натолкнулись на документ. надо для его всех будущих редакций записать, что у них есть "актуальный" документ
-				std::map<long,long>::const_iterator next_it = it;
-				while (true) {
-					long nextid = next_it->second;
-					if (nextid == id)
-						break;
-					editionStruct es;
-					es.id = nextid;
-					es.doc = id;
-					fastEditions.push_back (es);
-
-					next_it = map_docid_nextedition.find (nextid);
-					if (next_it == map_docid_nextedition.end ())
-						break;
-					if (next_it->second == nextid)
-						break;
-				}
-			}
-		}
-		
-		char* key = "Edis";
-		Stream* str = auxInd->Open (key, 1);
-		if (str) {
-			if (fastEditions.size ()) {
-				for (std::deque<editionStruct>::const_iterator it = fastEditions.begin (); it != fastEditions.end (); it++) {
-					editionStruct es = *it;
-					if (std::binary_search (editions.begin (), editions.end (), es.id))
-						str->Write (&es, sizeof (es));
-				}
-				str->Trunc();
-				fastEditions.clear ();
-			}
-			auxInd->Close( str );
-		}
-
-		{
-			std::deque<long> empty;
-			only_docs.swap (empty);
-		}
-		{
-			std::deque<long> empty;
-			editions.swap (empty);
-		}
-	}
-	map_docid_nextedition.clear ();
 
 	if (!b_only_class6 && b->FindIndex ("Context.str")->KeyCount == 0) {
 		if (b_is_demo) {

@@ -2,6 +2,7 @@ unit ncsTaskSendReg;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsTaskSendReg.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ncsTaskSendReg" MUID: (54855CA501E1)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

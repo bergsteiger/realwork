@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtVGSceneRes;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtVGSceneRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vtVGSceneRes" MUID: (4D494D090395)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

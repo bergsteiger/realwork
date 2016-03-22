@@ -2,6 +2,7 @@ unit CommDlg;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\CommDlg.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "CommDlg" MUID: (4DD1237B00AE)
 
 interface
 

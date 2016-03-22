@@ -2,6 +2,7 @@ unit sdsCompareEditionsState;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\sdsCompareEditionsState.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TsdsCompareEditionsState" MUID: (4B69588202EA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

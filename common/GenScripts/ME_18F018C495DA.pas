@@ -3,6 +3,8 @@ unit ReleasetoK64;
 
 // Модуль: "w:\common\components\DailyTest\ReleasetoK64.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "ReleasetoK64" MUID: (18F018C495DA)
+// Имя типа: "TReleasetoK64"
 
 {$Include w:\common\components\DailyTest\DailyTest.inc}
 

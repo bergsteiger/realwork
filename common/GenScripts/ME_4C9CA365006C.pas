@@ -3,6 +3,7 @@ unit CommentAndScrollTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\CommentAndScrollTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TCommentAndScrollTest" MUID: (4C9CA365006C)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

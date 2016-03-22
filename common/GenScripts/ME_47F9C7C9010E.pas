@@ -3,6 +3,7 @@ unit NOT_FINISHED_nsExternalObjectPrim;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ExternalObjects\NOT_FINISHED_nsExternalObjectPrim.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsExternalObjectPrim" MUID: (47F9C7C9010E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

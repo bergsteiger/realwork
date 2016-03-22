@@ -113,6 +113,7 @@ implementation
 {$R *.DFM}
 
 Uses
+   daSchemeConsts,
    dt_Serv, D_Pass,
    evTextFormatter,
    l3Base, l3Filer, l3Memory, l3IniFile, l3Stream, l3Parser, l3Types, l3FileUtils, l3Date,

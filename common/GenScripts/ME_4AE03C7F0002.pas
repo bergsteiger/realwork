@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\MnsDocument.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "MnsDocument" MUID: (4AE03C7F0002)
+// Имя типа: "_MnsDocument_"
 
 {$Define MnsDocument_imp}
 

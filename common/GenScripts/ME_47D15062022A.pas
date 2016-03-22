@@ -2,6 +2,7 @@ unit l3Bitmap;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Bitmap.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3Bitmap" MUID: (47D15062022A)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

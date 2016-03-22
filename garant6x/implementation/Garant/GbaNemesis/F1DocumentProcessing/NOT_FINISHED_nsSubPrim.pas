@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsSubPrim;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\NOT_FINISHED_nsSubPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsSubPrim" MUID: (46835879030A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -252,6 +252,7 @@ type
  , NM_HR // Зарплата и кадры
  , NM_BUDGET_ORGS // Гос. и муниципальные учреждения
  , NM_LAW_FOR_ALL // Право для всех
+ , NM_GOS_ZAKUPKI
  );//TNavigatorMenuItemType
 
  TSearchResultType = (

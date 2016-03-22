@@ -21,6 +21,8 @@ interface
 type
 //#UC START# *4614E05A0222ci*
 //#UC END# *4614E05A0222ci*
+//#UC START# *4614E05A0222cit*
+//#UC END# *4614E05A0222cit*
  ActiveChangeableProxy = class
 //#UC START# *4614E05A0222publ*
 //#UC END# *4614E05A0222publ*

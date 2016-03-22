@@ -2,6 +2,7 @@ unit dsChangesBetweenEditions;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\dsChangesBetweenEditions.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsChangesBetweenEditions" MUID: (4DDCDD68019E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

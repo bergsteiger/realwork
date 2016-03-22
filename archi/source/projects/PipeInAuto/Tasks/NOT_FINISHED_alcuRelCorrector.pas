@@ -2,6 +2,7 @@ unit NOT_FINISHED_alcuRelCorrector;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuRelCorrector.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "alcuRelCorrector" MUID: (530356D90066)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\SBSColumnMarker.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "SBSColumnMarker" MUID: (4ED5C8320252)
+// Имя типа: "_SBSColumnMarker_"
 
 {$Define SBSColumnMarker_imp}
 

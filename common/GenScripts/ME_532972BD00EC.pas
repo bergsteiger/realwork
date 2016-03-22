@@ -2,6 +2,7 @@ unit NewRemindersInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NewRemindersInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "NewRemindersInterfaces" MUID: (532972BD00EC)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

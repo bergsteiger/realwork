@@ -2,6 +2,8 @@ unit kwConfigurationsWord;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsWord.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "ConfigurationsWord" MUID: (53B2E10F03C0)
+// Имя типа: "TkwConfigurationsWord"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
@@ -21,7 +23,6 @@ type
  TkwConfigurationsWord = {abstract} class(_kwConfigurationsWordUses_)
   private
    f_ConfigurationManager: IConfigurationManager;
-    {* Поле для свойства ConfigurationManager }
   protected
    procedure DoWithConfigurations(const aCtx: TtfwContext); virtual; abstract;
    procedure DoDoIt(const aCtx: TtfwContext); override;
@@ -61,6 +62,10 @@ begin
  f_ConfigurationManager := nil;
  inherited;
 end;//TkwConfigurationsWord.ClearFields
+
+initialization
+ TkwConfigurationsWord.RegisterClass;
+ {* Регистрация ConfigurationsWord }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

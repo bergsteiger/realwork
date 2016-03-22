@@ -405,7 +405,6 @@ void ConsultingStub_i::get_linked_object (
 ) const /*throw (
 	InvalidTopicId
 	, FolderLinkNotFound
-	, NotAllowedInTrialMode
 )*/ {
 	//#UC START# *45EEB65201A3_4D95738C0216*
 	GDS_ASSERT (!doc_id);

@@ -2,6 +2,7 @@ unit nevReqRowFormatInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevReqRowFormatInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevReqRowFormatInfo" MUID: (4E7071FD01E9)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

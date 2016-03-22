@@ -2,6 +2,7 @@ unit l3BatchService;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3BatchService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3BatchService" MUID: (5507FDD203E1)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -64,7 +65,7 @@ type
  Tl3BatchService = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3BatchService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3BatchService }
   protected
    procedure pm_SetAlien(const aValue: Il3BatchService);
    procedure ClearFields; override;

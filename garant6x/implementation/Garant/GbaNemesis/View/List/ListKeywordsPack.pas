@@ -3,6 +3,7 @@ unit ListKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\ListKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ListKeywordsPack" MUID: (0F9EB2C7D445)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -59,8 +60,8 @@ type
 'aControl' форма::List TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_List
 
  Tkw_List_Control_RemindersLine = {final} class(TtfwControlString)
@@ -71,9 +72,9 @@ type
 контрол::RemindersLine TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_RemindersLine
 
  Tkw_List_Control_RemindersLine_Push = {final} class(TkwBynameControlPush)
@@ -96,9 +97,9 @@ type
 контрол::remListFiltered TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_remListFiltered
 
  Tkw_List_Control_remListFiltered_Push = {final} class(TkwBynameControlPush)
@@ -121,9 +122,9 @@ type
 контрол::remListModified TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_remListModified
 
  Tkw_List_Control_remListModified_Push = {final} class(TkwBynameControlPush)
@@ -146,9 +147,9 @@ type
 контрол::remTimeMachineWarning TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_remTimeMachineWarning
 
  Tkw_List_Control_remTimeMachineWarning_Push = {final} class(TkwBynameControlPush)
@@ -171,9 +172,9 @@ type
 контрол::EmptyListEditor TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_EmptyListEditor
 
  Tkw_List_Control_EmptyListEditor_Push = {final} class(TkwBynameControlPush)
@@ -196,9 +197,9 @@ type
 контрол::ListPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_ListPanel
 
  Tkw_List_Control_ListPanel_Push = {final} class(TkwBynameControlPush)
@@ -221,9 +222,9 @@ type
 контрол::tvList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_tvList
 
  Tkw_List_Control_tvList_Push = {final} class(TkwBynameControlPush)
@@ -246,9 +247,9 @@ type
 контрол::cfList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_cfList
 
  Tkw_List_Control_cfList_Push = {final} class(TkwBynameControlPush)
@@ -455,20 +456,15 @@ OBJECT VAR l_TnscContextFilter
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEfListCfList
 
-class function Tkw_Form_List.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::List';
-end;//Tkw_Form_List.GetWordNameForRegister
-
 function Tkw_Form_List.GetString: AnsiString;
 begin
  Result := 'efList';
 end;//Tkw_Form_List.GetString
 
-class function Tkw_List_Control_RemindersLine.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_List.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::RemindersLine';
-end;//Tkw_List_Control_RemindersLine.GetWordNameForRegister
+ Result := 'форма::List';
+end;//Tkw_Form_List.GetWordNameForRegister
 
 function Tkw_List_Control_RemindersLine.GetString: AnsiString;
 begin
@@ -481,6 +477,11 @@ begin
  TtfwClassRef.Register(TnscRemindersLine);
 end;//Tkw_List_Control_RemindersLine.RegisterInEngine
 
+class function Tkw_List_Control_RemindersLine.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::RemindersLine';
+end;//Tkw_List_Control_RemindersLine.GetWordNameForRegister
+
 procedure Tkw_List_Control_RemindersLine_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('RemindersLine');
@@ -491,11 +492,6 @@ class function Tkw_List_Control_RemindersLine_Push.GetWordNameForRegister: AnsiS
 begin
  Result := 'контрол::RemindersLine:push';
 end;//Tkw_List_Control_RemindersLine_Push.GetWordNameForRegister
-
-class function Tkw_List_Control_remListFiltered.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::remListFiltered';
-end;//Tkw_List_Control_remListFiltered.GetWordNameForRegister
 
 function Tkw_List_Control_remListFiltered.GetString: AnsiString;
 begin
@@ -508,6 +504,11 @@ begin
  TtfwClassRef.Register(TnscReminder);
 end;//Tkw_List_Control_remListFiltered.RegisterInEngine
 
+class function Tkw_List_Control_remListFiltered.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::remListFiltered';
+end;//Tkw_List_Control_remListFiltered.GetWordNameForRegister
+
 procedure Tkw_List_Control_remListFiltered_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('remListFiltered');
@@ -518,11 +519,6 @@ class function Tkw_List_Control_remListFiltered_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::remListFiltered:push';
 end;//Tkw_List_Control_remListFiltered_Push.GetWordNameForRegister
-
-class function Tkw_List_Control_remListModified.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::remListModified';
-end;//Tkw_List_Control_remListModified.GetWordNameForRegister
 
 function Tkw_List_Control_remListModified.GetString: AnsiString;
 begin
@@ -535,6 +531,11 @@ begin
  TtfwClassRef.Register(TnscReminder);
 end;//Tkw_List_Control_remListModified.RegisterInEngine
 
+class function Tkw_List_Control_remListModified.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::remListModified';
+end;//Tkw_List_Control_remListModified.GetWordNameForRegister
+
 procedure Tkw_List_Control_remListModified_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('remListModified');
@@ -545,11 +546,6 @@ class function Tkw_List_Control_remListModified_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::remListModified:push';
 end;//Tkw_List_Control_remListModified_Push.GetWordNameForRegister
-
-class function Tkw_List_Control_remTimeMachineWarning.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::remTimeMachineWarning';
-end;//Tkw_List_Control_remTimeMachineWarning.GetWordNameForRegister
 
 function Tkw_List_Control_remTimeMachineWarning.GetString: AnsiString;
 begin
@@ -562,6 +558,11 @@ begin
  TtfwClassRef.Register(TnscReminder);
 end;//Tkw_List_Control_remTimeMachineWarning.RegisterInEngine
 
+class function Tkw_List_Control_remTimeMachineWarning.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::remTimeMachineWarning';
+end;//Tkw_List_Control_remTimeMachineWarning.GetWordNameForRegister
+
 procedure Tkw_List_Control_remTimeMachineWarning_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('remTimeMachineWarning');
@@ -572,11 +573,6 @@ class function Tkw_List_Control_remTimeMachineWarning_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::remTimeMachineWarning:push';
 end;//Tkw_List_Control_remTimeMachineWarning_Push.GetWordNameForRegister
-
-class function Tkw_List_Control_EmptyListEditor.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::EmptyListEditor';
-end;//Tkw_List_Control_EmptyListEditor.GetWordNameForRegister
 
 function Tkw_List_Control_EmptyListEditor.GetString: AnsiString;
 begin
@@ -589,6 +585,11 @@ begin
  TtfwClassRef.Register(TnscEditor);
 end;//Tkw_List_Control_EmptyListEditor.RegisterInEngine
 
+class function Tkw_List_Control_EmptyListEditor.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::EmptyListEditor';
+end;//Tkw_List_Control_EmptyListEditor.GetWordNameForRegister
+
 procedure Tkw_List_Control_EmptyListEditor_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('EmptyListEditor');
@@ -599,11 +600,6 @@ class function Tkw_List_Control_EmptyListEditor_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::EmptyListEditor:push';
 end;//Tkw_List_Control_EmptyListEditor_Push.GetWordNameForRegister
-
-class function Tkw_List_Control_ListPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ListPanel';
-end;//Tkw_List_Control_ListPanel.GetWordNameForRegister
 
 function Tkw_List_Control_ListPanel.GetString: AnsiString;
 begin
@@ -616,6 +612,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_List_Control_ListPanel.RegisterInEngine
 
+class function Tkw_List_Control_ListPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ListPanel';
+end;//Tkw_List_Control_ListPanel.GetWordNameForRegister
+
 procedure Tkw_List_Control_ListPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ListPanel');
@@ -626,11 +627,6 @@ class function Tkw_List_Control_ListPanel_Push.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'контрол::ListPanel:push';
 end;//Tkw_List_Control_ListPanel_Push.GetWordNameForRegister
-
-class function Tkw_List_Control_tvList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::tvList';
-end;//Tkw_List_Control_tvList.GetWordNameForRegister
 
 function Tkw_List_Control_tvList.GetString: AnsiString;
 begin
@@ -643,6 +639,11 @@ begin
  TtfwClassRef.Register(TnscDocumentListTreeView);
 end;//Tkw_List_Control_tvList.RegisterInEngine
 
+class function Tkw_List_Control_tvList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvList';
+end;//Tkw_List_Control_tvList.GetWordNameForRegister
+
 procedure Tkw_List_Control_tvList_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('tvList');
@@ -654,11 +655,6 @@ begin
  Result := 'контрол::tvList:push';
 end;//Tkw_List_Control_tvList_Push.GetWordNameForRegister
 
-class function Tkw_List_Control_cfList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::cfList';
-end;//Tkw_List_Control_cfList.GetWordNameForRegister
-
 function Tkw_List_Control_cfList.GetString: AnsiString;
 begin
  Result := 'cfList';
@@ -669,6 +665,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_List_Control_cfList.RegisterInEngine
+
+class function Tkw_List_Control_cfList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::cfList';
+end;//Tkw_List_Control_cfList.GetWordNameForRegister
 
 procedure Tkw_List_Control_cfList_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -703,11 +704,6 @@ begin
  aCtx.rEngine.PushObj(RemindersLine(aCtx, l_aefList));
 end;//TkwEfListRemindersLine.DoDoIt
 
-class function TkwEfListRemindersLine.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefList.RemindersLine';
-end;//TkwEfListRemindersLine.GetWordNameForRegister
-
 procedure TkwEfListRemindersLine.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -728,6 +724,11 @@ function TkwEfListRemindersLine.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListRemindersLine.ParamsTypes
+
+class function TkwEfListRemindersLine.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefList.RemindersLine';
+end;//TkwEfListRemindersLine.GetWordNameForRegister
 
 function TkwEfListRemListFiltered.remListFiltered(const aCtx: TtfwContext;
  aefList: TefList): TnscReminder;
@@ -751,11 +752,6 @@ begin
  aCtx.rEngine.PushObj(remListFiltered(aCtx, l_aefList));
 end;//TkwEfListRemListFiltered.DoDoIt
 
-class function TkwEfListRemListFiltered.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefList.remListFiltered';
-end;//TkwEfListRemListFiltered.GetWordNameForRegister
-
 procedure TkwEfListRemListFiltered.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -776,6 +772,11 @@ function TkwEfListRemListFiltered.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListRemListFiltered.ParamsTypes
+
+class function TkwEfListRemListFiltered.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefList.remListFiltered';
+end;//TkwEfListRemListFiltered.GetWordNameForRegister
 
 function TkwEfListRemListModified.remListModified(const aCtx: TtfwContext;
  aefList: TefList): TnscReminder;
@@ -799,11 +800,6 @@ begin
  aCtx.rEngine.PushObj(remListModified(aCtx, l_aefList));
 end;//TkwEfListRemListModified.DoDoIt
 
-class function TkwEfListRemListModified.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefList.remListModified';
-end;//TkwEfListRemListModified.GetWordNameForRegister
-
 procedure TkwEfListRemListModified.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -824,6 +820,11 @@ function TkwEfListRemListModified.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListRemListModified.ParamsTypes
+
+class function TkwEfListRemListModified.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefList.remListModified';
+end;//TkwEfListRemListModified.GetWordNameForRegister
 
 function TkwEfListRemTimeMachineWarning.remTimeMachineWarning(const aCtx: TtfwContext;
  aefList: TefList): TnscReminder;
@@ -847,11 +848,6 @@ begin
  aCtx.rEngine.PushObj(remTimeMachineWarning(aCtx, l_aefList));
 end;//TkwEfListRemTimeMachineWarning.DoDoIt
 
-class function TkwEfListRemTimeMachineWarning.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefList.remTimeMachineWarning';
-end;//TkwEfListRemTimeMachineWarning.GetWordNameForRegister
-
 procedure TkwEfListRemTimeMachineWarning.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -872,6 +868,11 @@ function TkwEfListRemTimeMachineWarning.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListRemTimeMachineWarning.ParamsTypes
+
+class function TkwEfListRemTimeMachineWarning.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefList.remTimeMachineWarning';
+end;//TkwEfListRemTimeMachineWarning.GetWordNameForRegister
 
 function TkwEfListEmptyListEditor.EmptyListEditor(const aCtx: TtfwContext;
  aefList: TefList): TnscEditor;
@@ -895,11 +896,6 @@ begin
  aCtx.rEngine.PushObj(EmptyListEditor(aCtx, l_aefList));
 end;//TkwEfListEmptyListEditor.DoDoIt
 
-class function TkwEfListEmptyListEditor.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefList.EmptyListEditor';
-end;//TkwEfListEmptyListEditor.GetWordNameForRegister
-
 procedure TkwEfListEmptyListEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -920,6 +916,11 @@ function TkwEfListEmptyListEditor.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListEmptyListEditor.ParamsTypes
+
+class function TkwEfListEmptyListEditor.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefList.EmptyListEditor';
+end;//TkwEfListEmptyListEditor.GetWordNameForRegister
 
 function TkwEfListListPanel.ListPanel(const aCtx: TtfwContext;
  aefList: TefList): TvtPanel;
@@ -943,11 +944,6 @@ begin
  aCtx.rEngine.PushObj(ListPanel(aCtx, l_aefList));
 end;//TkwEfListListPanel.DoDoIt
 
-class function TkwEfListListPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefList.ListPanel';
-end;//TkwEfListListPanel.GetWordNameForRegister
-
 procedure TkwEfListListPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -968,6 +964,11 @@ function TkwEfListListPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListListPanel.ParamsTypes
+
+class function TkwEfListListPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefList.ListPanel';
+end;//TkwEfListListPanel.GetWordNameForRegister
 
 function TkwEfListTvList.tvList(const aCtx: TtfwContext;
  aefList: TefList): TnscDocumentListTreeView;
@@ -991,11 +992,6 @@ begin
  aCtx.rEngine.PushObj(tvList(aCtx, l_aefList));
 end;//TkwEfListTvList.DoDoIt
 
-class function TkwEfListTvList.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefList.tvList';
-end;//TkwEfListTvList.GetWordNameForRegister
-
 procedure TkwEfListTvList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1016,6 +1012,11 @@ function TkwEfListTvList.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListTvList.ParamsTypes
+
+class function TkwEfListTvList.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefList.tvList';
+end;//TkwEfListTvList.GetWordNameForRegister
 
 function TkwEfListCfList.cfList(const aCtx: TtfwContext;
  aefList: TefList): TnscContextFilter;
@@ -1039,11 +1040,6 @@ begin
  aCtx.rEngine.PushObj(cfList(aCtx, l_aefList));
 end;//TkwEfListCfList.DoDoIt
 
-class function TkwEfListCfList.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefList.cfList';
-end;//TkwEfListCfList.GetWordNameForRegister
-
 procedure TkwEfListCfList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1064,6 +1060,11 @@ function TkwEfListCfList.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListCfList.ParamsTypes
+
+class function TkwEfListCfList.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefList.cfList';
+end;//TkwEfListCfList.GetWordNameForRegister
 
 initialization
  Tkw_Form_List.RegisterInEngine;

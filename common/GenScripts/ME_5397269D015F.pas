@@ -2,6 +2,7 @@ unit atComparableList;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atComparableList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatComparableList" MUID: (5397269D015F)
 
 interface
 

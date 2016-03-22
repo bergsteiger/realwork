@@ -2,6 +2,7 @@ unit bsChatDispatcher;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\bsChatDispatcher.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsChatDispatcher" MUID: (4A683EC401BB)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

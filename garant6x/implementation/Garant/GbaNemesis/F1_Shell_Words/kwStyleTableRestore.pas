@@ -1,70 +1,43 @@
 unit kwStyleTableRestore;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Shell Words"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Shell_Words/kwStyleTableRestore.pas"
-// Начат: 08.09.2011 18:38
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Shell Words::F1 Shell Words::TkwStyleTableRestore
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwStyleTableRestore.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwStyleTableRestore" MUID: (4E68D33202D5)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwStyleTableRestore = {scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwStyleTableRestore = class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwStyleTableRestore
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(Admin) AND not defined(Monitorings)}
-  ,
-  nsConfigurationList
-  {$IfEnd} //not Admin AND not Monitorings
-  
-  {$If not defined(Admin) AND not defined(Monitorings)}
-  ,
-  nsStyleEditor
-  {$IfEnd} //not Admin AND not Monitorings
-  
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwStyleTableRestore
+ l3ImplUses
+ {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ , nsConfigurationList
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+ {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ , nsStyleEditor
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+;
 
 procedure TkwStyleTableRestore.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E68D33202D5_var*
@@ -76,17 +49,13 @@ begin
 end;//TkwStyleTableRestore.DoDoIt
 
 class function TkwStyleTableRestore.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'StyleTable:Restore';
 end;//TkwStyleTableRestore.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwStyleTableRestore
  TkwStyleTableRestore.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwStyleTableRestore }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -2,6 +2,7 @@ unit nscContextFilterState;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscContextFilterState.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnscContextFilterState" MUID: (4908462903E0)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

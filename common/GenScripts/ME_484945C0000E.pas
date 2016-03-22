@@ -3,6 +3,7 @@ unit l3String_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\l3String_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "Wl3String" MUID: (484945C0000E)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

@@ -59,24 +59,7 @@ ref; // ME_52E2102002AA DoIt
 
 ref; // ME_52E20FD6017C DoWithImageEn
 
-: ME_E128D386216B
- CONST UID 'E128D386216B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwImageEnControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52E20F060237 // TkwImageEnControl
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_E128D386216B Ini_Reg_Class
-
 : ME_4F212C3A015A_ME_52E20F060237
- CONST UID '4F212C3A015A'
- CONST Name 'DoControl'
  : Original WL 'ME_4F212C3A015A' '54DB92D203C9.pas.ms.script' // DoControl
  ;
  : Implementor ME_52E20F060237 // TkwImageEnControl
@@ -100,7 +83,6 @@ ref; // ME_4F212C3A015A_ME_52E20F060237 DoControl
  ; // Inherits
  : Operations
    Seq: ( ME_52E20FD6017C // DoWithImageEn
- ME_E128D386216B // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -191,20 +173,6 @@ ref; // ME_0FC9E2AEC13A
 
 ref; // ME_52E20EB3004D ImageEnPack
 
-: ME_D4125D4C2FFA
- CONST UID 'D4125D4C2FFA'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация ImageEnViewer_SaveBitmap' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52E20E70006F // ImageEnViewer_SaveBitmap
- ;
-
-ref; // ME_D4125D4C2FFA Ini_Reg
-
 : ME_52E5E9F30266
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -216,24 +184,12 @@ ref; // ME_D4125D4C2FFA Ini_Reg
 ref; // ME_52E5E9F30266 
 
 : ME_52E20FD6017C_ME_52E20E70006F
- CONST UID '52E20FD6017C'
- CONST Name 'DoWithImageEn'
  : Original ME_52E20FD6017C // DoWithImageEn
  ;
  : Implementor ME_52E20E70006F // ImageEnViewer_SaveBitmap
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_52E20FD6017C_ME_52E20E70006F DoWithImageEn
-
-: ME_4DB0614603C8_ME_52E20E70006F
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_52E20E70006F // ImageEnViewer_SaveBitmap
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_52E20E70006F GetWordNameForRegister
 
 : ME_52E20E70006F
  CONST UID '52E20E70006F'
@@ -250,18 +206,10 @@ ref; // ME_4DB0614603C8_ME_52E20E70006F GetWordNameForRegister
    Seq: ( ME_52E20F060237 // TkwImageEnControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D4125D4C2FFA // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_52E20FD6017C_ME_52E20E70006F // DoWithImageEn
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_52E20E70006F // GetWordNameForRegister
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_52E5E9F30266 // 
  )
@@ -278,32 +226,6 @@ ref; // ME_4DB0614603C8_ME_52E20E70006F GetWordNameForRegister
 
 ref; // ME_52E20E70006F ImageEnViewer_SaveBitmap
 
-: ME_176FB88EADAA
- CONST UID '176FB88EADAA'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TImageEnViewRegistrator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F47ECF0071 // TImageEnViewRegistrator
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_176FB88EADAA Ini_Reg_Class
-
-: ME_E173CBCBB5F7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54F47ECF0071 // TImageEnViewRegistrator
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E173CBCBB5F7 
-
 : ME_54F47ECF0071
  CONST UID '54F47ECF0071'
  CONST Name 'TImageEnViewRegistrator'
@@ -318,14 +240,6 @@ ref; // ME_E173CBCBB5F7
    Seq: ( WL 'ME_4ACDBC6101A6' '4ACDBC26003C.pas.ms.script' // TImageEnView
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_176FB88EADAA // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_E173CBCBB5F7 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -359,7 +273,6 @@ ref; // ME_54F47ECF0071 TImageEnViewRegistrator
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "ifndef" 'NoScripts'

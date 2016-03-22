@@ -2,6 +2,7 @@ unit ddAppConfigDates;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigDates.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfigDates" MUID: (5214B1B9029D)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -39,7 +40,7 @@ type
    procedure SaveValue(const aStorage: IddConfigStorage); override;
  end;//TddDateTimeConfigItem
 
- {$If NOT Defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
  TddTimeConfigItem = class(TddDateTimeConfigItem)
   protected
    procedure AfterConstruct(var aLeft: Integer;
@@ -50,7 +51,7 @@ type
   public
    function MinWidth(aParent: TWinControl): Integer; override;
  end;//TddTimeConfigItem
- {$IfEnd} // NOT Defined(Nemesis)
+{$IfEnd} // NOT Defined(Nemesis)
 
  TddDateConfigItem = class(TddDateTimeConfigItem)
   protected
@@ -63,7 +64,7 @@ type
    function MinWidth(aParent: TWinControl): Integer; override;
  end;//TddDateConfigItem
 
- {$If NOT Defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
  TddWeekDayCombo = class(TddComboBoxConfigItem)
   public
    constructor Make(const aAlias: AnsiString;
@@ -71,9 +72,9 @@ type
     const aDefaultValue: TddConfigValue;
     aCase: Integer); reintroduce;
  end;//TddWeekDayCombo
- {$IfEnd} // NOT Defined(Nemesis)
+{$IfEnd} // NOT Defined(Nemesis)
 
- {$If NOT Defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
  TddMonthDayCombo = class(TddComboBoxConfigItem)
   public
    constructor Make(const aAlias: AnsiString;
@@ -81,9 +82,9 @@ type
     const aDefaultValue: TddConfigValue;
     aCase: Integer); reintroduce;
  end;//TddMonthDayCombo
- {$IfEnd} // NOT Defined(Nemesis)
+{$IfEnd} // NOT Defined(Nemesis)
 
- {$If NOT Defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
  TddMonthsCombo = class(TddComboBoxConfigItem)
   public
    constructor Make(const aAlias: AnsiString;
@@ -91,9 +92,9 @@ type
     const aDefaultValue: TddConfigValue;
     aCase: Integer); reintroduce;
  end;//TddMonthsCombo
- {$IfEnd} // NOT Defined(Nemesis)
+{$IfEnd} // NOT Defined(Nemesis)
 
- {$If NOT Defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
  TddWeekDaysCheckListItem = class(TddCheckListConfigItem)
   public
    constructor Make(const aAlias: AnsiString;
@@ -101,7 +102,7 @@ type
     const aDefaultValue: TddConfigValue;
     aMasterItem: TddBaseConfigItem = nil); reintroduce;
  end;//TddWeekDaysCheckListItem
- {$IfEnd} // NOT Defined(Nemesis)
+{$IfEnd} // NOT Defined(Nemesis)
 
  TddMonthType = (
   m1

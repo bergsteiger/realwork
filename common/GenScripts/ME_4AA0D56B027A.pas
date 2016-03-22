@@ -3,6 +3,8 @@ unit moTips;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moTips.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Tips" MUID: (4AA0D56B027A)
+// Имя типа: "Tmo_Tips"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

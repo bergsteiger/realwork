@@ -3,6 +3,7 @@ unit nsIListDataObject;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsIListDataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsIListDataObject" MUID: (47F23C2A0219)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

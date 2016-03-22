@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataProviderFactory.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "f1TagDataProviderFactory" MUID: (4C7286940369)
+// Имя типа: "_f1TagDataProviderFactory_"
 
 {$Define f1TagDataProviderFactory_imp}
 

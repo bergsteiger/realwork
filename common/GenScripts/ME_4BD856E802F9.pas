@@ -3,6 +3,7 @@ unit Common_FormDefinitions_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common_FormDefinitions_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "FormDefinitions" MUID: (4BD856E802F9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -325,8 +326,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_Form_Text_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы Text
 ----
@@ -338,9 +339,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_Text_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_UnderControl_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы UnderControl
 ----
@@ -352,9 +354,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_UnderControl_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_Folders_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы Folders
 ----
@@ -366,9 +369,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_Folders_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_Navigator_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы Navigator
 ----
@@ -380,9 +384,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_Navigator_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_TasksPanel_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы TasksPanel
 ----
@@ -394,9 +399,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_TasksPanel_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_CompInfo_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы CompInfo
 ----
@@ -408,9 +414,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_CompInfo_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_Rubricator_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы Rubricator
 ----
@@ -422,9 +429,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_Rubricator_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_Diction_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы Diction
 ----
@@ -436,9 +444,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_Diction_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_Warning_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы Warning
 ----
@@ -450,9 +459,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_Warning_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_ListInfo_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы ListInfo
 ----
@@ -464,9 +474,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_ListInfo_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_CommonDiction_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы CommonDiction
 ----
@@ -478,9 +489,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_CommonDiction_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_MedicMainMenu_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы MedicMainMenu
 ----
@@ -492,9 +504,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_MedicMainMenu_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_MedicFirmList_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы MedicFirmList
 ----
@@ -506,9 +519,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_MedicFirmList_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_List_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы List
 ----
@@ -520,9 +534,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_List_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_ConfigurationList_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы ConfigurationList
 ----
@@ -534,9 +549,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_ConfigurationList_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_MainMenuNew_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы MainMenuNew
 ----
@@ -548,9 +564,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_MainMenuNew_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_NewBaseSearch_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы NewBaseSearch
 ----
@@ -562,9 +579,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_NewBaseSearch_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_Attributes_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы Attributes
 ----
@@ -576,9 +594,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_Attributes_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_BaseSearchContainer_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы BaseSearchContainer
 ----
@@ -590,9 +609,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_BaseSearchContainer_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_DictionContainer_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы DictionContainer
 ----
@@ -604,9 +624,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_DictionContainer_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_Filters_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы Filters
 ----
@@ -618,9 +639,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_Filters_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_TreeAttributeFirstLevel_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы TreeAttributeFirstLevel
 ----
@@ -632,9 +654,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_TreeAttributeFirstLevel_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_WarningBaloon_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы WarningBaloon
 ----
@@ -646,9 +669,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_WarningBaloon_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_NewsLine_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы NewsLine
 ----
@@ -660,9 +684,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_NewsLine_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_Redactions_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы Redactions
 ----
@@ -674,9 +699,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_Redactions_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_SynchroView_WarningBaloon_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы SynchroView_WarningBaloon
 ----
@@ -688,9 +714,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_SynchroView_WarningBaloon_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_Translation_WarningBaloon_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы Translation_WarningBaloon
 ----
@@ -702,9 +729,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_Translation_WarningBaloon_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_UserCR1_WarningBaloon_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы UserCR1_WarningBaloon
 ----
@@ -716,9 +744,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_UserCR1_WarningBaloon_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_UserCR2_WarningBaloon_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы UserCR2_WarningBaloon
 ----
@@ -730,9 +759,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_UserCR2_WarningBaloon_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_Contents_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы Contents
 ----
@@ -744,9 +774,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_Contents_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_FoldersTree_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы FoldersTree
 ----
@@ -758,9 +789,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_FoldersTree_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_FoldersElementInfo_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы FoldersElementInfo
 ----
@@ -772,9 +804,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_FoldersElementInfo_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_DocumentWithFlash_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы DocumentWithFlash
 ----
@@ -786,9 +819,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_DocumentWithFlash_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_ConsultationMark_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы ConsultationMark
 ----
@@ -800,9 +834,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_ConsultationMark_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_MedicListSynchroView_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы MedicListSynchroView
 ----
@@ -814,9 +849,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_MedicListSynchroView_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_SynchroView_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы SynchroView
 ----
@@ -828,9 +864,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_SynchroView_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_ListAnalize_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы ListAnalize
 ----
@@ -842,7 +879,7 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_ListAnalize_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
 class function Tkw_Form_Text_ID.GetWordNameForRegister: AnsiString;

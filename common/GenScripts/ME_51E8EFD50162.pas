@@ -2,6 +2,7 @@ unit ddBreak;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddBreak.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddBreak" MUID: (51E8EFD50162)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

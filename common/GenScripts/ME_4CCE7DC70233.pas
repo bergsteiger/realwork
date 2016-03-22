@@ -2,6 +2,7 @@ unit nsEditionFromDTPDocumentContainer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsEditionFromDTPDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsEditionFromDTPDocumentContainer" MUID: (4CCE7DC70233)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

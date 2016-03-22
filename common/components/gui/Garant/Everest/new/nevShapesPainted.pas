@@ -4,9 +4,30 @@ unit nevShapesPainted;
 { Начал: Морозов М.А.                                                  }
 { Модуль: nevShapesPainted - коллекция отрисованных параграфов.        }
 { Начат: 29.06.2005 16:51                                              }
-{ $Id: nevShapesPainted.pas,v 1.270 2015/10/12 13:56:51 dinishev Exp $ }
+{ $Id: nevShapesPainted.pas,v 1.277 2015/12/30 06:48:34 dinishev Exp $ }
 
 // $Log: nevShapesPainted.pas,v $
+// Revision 1.277  2015/12/30 06:48:34  dinishev
+// {Requestlink:570533216}. Откатил. Тесты отъехали, да проблему не решило.
+//
+// Revision 1.276  2015/12/29 11:31:42  dinishev
+// {Requestlink:570533216}. Продолжаю дотачивать.
+//
+// Revision 1.275  2015/12/28 09:45:58  dinishev
+// Cleanup
+//
+// Revision 1.274  2015/12/24 10:42:13  dinishev
+// Bug fix: падали с циклической печатью.
+//
+// Revision 1.273  2015/12/22 13:39:07  dinishev
+// {Requestlink:570533216}. Непроходили тесты. Продолжаю дотачивать.
+//
+// Revision 1.272  2015/12/18 12:24:13  dinishev
+// {Requestlink:570533216}. Последствия правок.
+//
+// Revision 1.271  2015/12/18 10:42:16  dinishev
+// {Requestlink:570533216}
+//
 // Revision 1.270  2015/10/12 13:56:51  dinishev
 // Чистка кода.
 //
@@ -1694,11 +1715,10 @@ type
     f_BottomShape: TnevShape;
      {* - Самый нижний Shape. Для инициализации BottomAnchor. }
     f_SubShapesCount  : Integer;
-  private
-   function CheckViewBottom(aTop: Integer): Boolean;
-     {-}
   protected
   // protected methods
+    function CheckViewBottom(aTop: Integer): Boolean; virtual;
+      {-}
     function GetChildenRight4Fill: Integer; override;
       {* - Ищет самую правую границу у дочерних. }
     function IsBottomShape(aTopShape: Integer; aShape: TnevShape): Boolean; override;
@@ -1739,12 +1759,6 @@ type
       virtual;
       {-}
   end;//TnevListShape
-
-  TnevControlsBlockShape = class(TnevListShape)
-    procedure UpdateBounds(aChild : TnevShape);
-      override;
-      {-}
-  end;//TnevControlsBlockShape
 
   TnevTableShape = class(TnevListShape)
   private
@@ -1822,6 +1836,8 @@ type
 
   TnevRowShape = class(TnevHorzListShape)
   protected
+   procedure UpdateBounds(aChild : TnevShape); override;
+      {-}
    function GetMaxTop: Integer; override;
      {-}
    procedure SetDrawnTop(aTop: Integer); override;
@@ -2008,6 +2024,9 @@ uses
   Block_Const,
   ControlsBlock_Const
   ;
+
+const
+ cnShepeYNil = 0;
 
 // start class TnevShapesPainted
 
@@ -2935,12 +2954,6 @@ begin
  begin
   if aShape.IsVertical then
   begin
-   if aShape.AsObject.IsKindOf(k2_typControlsBlock) then
-    Result := TnevControlsBlockShape.Create(f_AllShapes,
-                                              aShape.ToList,
-                                              Self,
-                                              aTopLeft)
-   else
    if aShape.AsObject.IsKindOf(k2_typTable) then
     Result := TnevTableShape.Create(f_AllShapes,
                                               aShape.ToList,
@@ -3264,7 +3277,7 @@ begin
   Right := evShapeNil;
   Bottom := 0;
  end;}
- Bounds := l3Rect(evShapeNil, 0, evShapeNil, 0);
+ Bounds := l3Rect(evShapeNil, cnShepeYNil, evShapeNil, cnShepeYNil);
 end;
 
 procedure TnevShape.RestoreFromLineList;
@@ -3667,6 +3680,29 @@ begin
                   Bounds.R.BottomRight);
 end;
 
+procedure TnevRowShape.UpdateBounds(aChild: TnevShape);
+  {-}
+var
+ l_Rect   : Tl3Rect;
+ l_Bottom : Integer;
+begin
+ l_Rect := Bounds;
+ l_Rect.Top := Min(l_Rect.Top, aChild.Bounds.Top - Self.Get_FI.Spacing.Top);
+ l_Bottom := Max(l_Rect.Bottom, aChild.Bounds.Bottom + Self.Get_FI.Spacing.Bottom);
+ if aChild.NeedIncHeight then
+ begin
+  l_Rect.Bottom := l_Bottom;
+  if not InevView(f_AllShapes.f_View).Metrics.InfoCanvas.Printing then
+  begin
+   if (f_BottomShape = nil) or (aChild.Bounds.Bottom > f_BottomShape.Bounds.Bottom) then
+    f_BottomShape := aChild;
+   if f_BottomShape <> nil then
+    l_Rect.Bottom := Max(l_Rect.Bottom, f_BottomShape.Bounds.Bottom + Self.Get_FI.Spacing.Bottom);
+  end; // if not InevView(f_AllShapes.f_View).Metrics.InfoCavas.Printing then
+ end; // if aChild.NeedIncHeight then
+ Bounds := l_Rect;
+end;
+
 { TnevCellShape }
 
 function TnevCellShape.ChangeFakeItem(out aNewItem   : TnevShape;
@@ -3865,13 +3901,6 @@ begin
   Exit;
  end;//aShape.IsDecorationElement
  Result := inherited AddShape(aShape, aTopLeft, MakeVisible, aHacker);
-end;
-
-procedure TnevControlsBlockShape.UpdateBounds(aChild : TnevShape);
-  //override;
-begin
- inherited;
- //Assert(aChild.Bounds.Top >= 0);
 end;
 
 function TnevShape.GetChildMap(anIndex: Integer): InevMap;

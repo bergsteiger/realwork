@@ -491,6 +491,10 @@ protected:
 class IDynListNode_tie: public ::Core::IIObject_tie {
 public:
 	virtual ObjectId __stdcall get_document_id_53CF894902A4 () const = 0;
+
+	virtual void __stdcall get_snippet_text_56D44B0E0092 (
+		GCI::IO::IString_tie*& ret_
+	) const = 0;
 };
 
 class __declspec (dllexport) DynListNode_tie: public IDynListNode_tie {
@@ -538,6 +542,10 @@ public:
 
 protected:
 	virtual ObjectId __stdcall get_document_id_53CF894902A4 () const;
+
+	virtual void __stdcall get_snippet_text_56D44B0E0092 (
+		GCI::IO::IString_tie*& ret_
+	) const;
 };
 
 } // namespace GblAdapterLib

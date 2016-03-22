@@ -2,6 +2,7 @@ unit FlagNodeStub;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\FlagNodeStub.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "FlagNodeStub" MUID: (45F6CDFF01C5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

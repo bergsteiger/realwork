@@ -2,6 +2,8 @@ unit kwStyleTableSaveToFile;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwStyleTableSaveToFile.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "StyleTable_SaveToFile" MUID: (4DCA8B9D033E)
+// Имя типа: "TkwStyleTableSaveToFile"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

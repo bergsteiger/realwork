@@ -3,6 +3,7 @@ unit TreeAttributeFirstLevelKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\TreeAttributeFirstLevelKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "TreeAttributeFirstLevelKeywordsPack" MUID: (22753380676D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::TreeAttributeFirstLevel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_TreeAttributeFirstLevel
 
  Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::FirstLevelContent TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent
 
  Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEfTreeAttributeFirstLevelFirstLevelContent
 
-class function Tkw_Form_TreeAttributeFirstLevel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::TreeAttributeFirstLevel';
-end;//Tkw_Form_TreeAttributeFirstLevel.GetWordNameForRegister
-
 function Tkw_Form_TreeAttributeFirstLevel.GetString: AnsiString;
 begin
  Result := 'efTreeAttributeFirstLevel';
 end;//Tkw_Form_TreeAttributeFirstLevel.GetString
 
-class function Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_TreeAttributeFirstLevel.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::FirstLevelContent';
-end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetWordNameForRegister
+ Result := 'форма::TreeAttributeFirstLevel';
+end;//Tkw_Form_TreeAttributeFirstLevel.GetWordNameForRegister
 
 function Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.RegisterInEngine
+
+class function Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FirstLevelContent';
+end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetWordNameForRegister
 
 procedure Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(FirstLevelContent(aCtx, l_aefTreeAttributeFirstLevel));
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.DoDoIt
 
-class function TkwEfTreeAttributeFirstLevelFirstLevelContent.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefTreeAttributeFirstLevel.FirstLevelContent';
-end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.GetWordNameForRegister
-
 procedure TkwEfTreeAttributeFirstLevelFirstLevelContent.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwEfTreeAttributeFirstLevelFirstLevelContent.ParamsTypes: PTypeInfoArr
 begin
  Result := OpenTypesToTypes([TypeInfo(TefTreeAttributeFirstLevel)]);
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.ParamsTypes
+
+class function TkwEfTreeAttributeFirstLevelFirstLevelContent.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefTreeAttributeFirstLevel.FirstLevelContent';
+end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.GetWordNameForRegister
 
 initialization
  Tkw_Form_TreeAttributeFirstLevel.RegisterInEngine;

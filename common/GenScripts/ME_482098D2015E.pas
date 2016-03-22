@@ -2,6 +2,7 @@ unit nevRubberCellsRenderInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevRubberCellsRenderInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevRubberCellsRenderInfo" MUID: (482098D2015E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -417,8 +417,13 @@ void printValue ( const void *key, int id, HIndex *idx, std::vector<std::string>
 			mpcxc_printfwin (strings, "%d", *((int16_t*) key ) );
 			break;
 	    case KV_REF:
-		case KV_REFKC:
 			mpcxc_printfwin (strings, "%d.%d", ((Ref*)key)->DocId, ((Ref*)key)->Sub );
+			break;
+		case KV_REFKC:
+			if (((Ref*)key)->Sub & INHERITED_BLOCK)
+				mpcxc_printfwin (strings, "%d.!%d", ((Ref*)key)->DocId, ((Ref*)key)->Sub - INHERITED_BLOCK);
+			else
+				mpcxc_printfwin (strings, "%d.%d", ((Ref*)key)->DocId, ((Ref*)key)->Sub );
 			break;
 	    case KV_INT32:
 			mpcxc_printfwin (strings, "%d", *((int32_t*) key ) );
@@ -719,12 +724,14 @@ if ( it##n.End ( ) && ( !it##m.End ( )) )				    \
 }
 
 #define KEY_DISBALANCE(nd,n,m)					\
+it_plus##n = 0; \
 while ( nd -> Compare ( key##n, key##m ) < 0 )			\
 {								\
 	mpcxc_printfwin (strings, "\nNo key " );					\
 	printValue ( key##n, keyId, (HIndex*)ind##n, strings );		\
 	mpcxc_printfwin (strings, " in base %d in index %s", m, name );		\
 	++it##n;						\
+	it_plus##n++; \
 	if ( it##n.End ( ) ) {							\
 		mpcxc_printfwin (strings, "Index %s in base %d ended occationaly finding key ", name, n );			\
 		printValue ( key##m, keyId, (HIndex*)ind##m, strings );	\
@@ -1110,6 +1117,7 @@ int check ( Base *b1, Base* b2, char* name, int keyId, int itemsize, int col, in
 
 		const void *key1 = (void*) it1.Key ( );
 		const void *key2 = (void*) it2.Key ( );
+		int it_plus1 = 0, it_plus2 = 0;
 
 		while ( ( KV_ATTR == keyId ) && ( IDD_SOURCEFILE == ( ( AttrKey*) key1 ) -> AttrTag ) )
 			{ ++it1; if ( it1.End()) break; key1 = (void*) it1.Key ( ); }
@@ -1141,6 +1149,10 @@ int check ( Base *b1, Base* b2, char* name, int keyId, int itemsize, int col, in
 
 		KEY_DISBALANCE ( ind1, 1, 2 );
 		KEY_DISBALANCE ( ind1, 2, 1 );
+
+		if (it_plus1 + it_plus2) {
+			continue;
+		}
 
 		int tag = ( (AttrKey*) key1 ) -> AttrTag;
 		if (b_check_attrs && check_only_attr && tag != check_only_attr) {
@@ -1320,6 +1332,12 @@ int check ( Base *b1, Base* b2, char* name, int keyId, int itemsize, int col, in
 							if (str2_1) ind2->Close (str2_1);
 							if (str2_2) ind2->Close (str2_2);
 
+							it1.CloseStream(str1);
+							it2.CloseStream(str2);
+
+							if (it_plus1 == 0) ++it1;
+							if (it_plus2 == 0) ++it2;
+
 							continue;
 						}
 
@@ -1413,7 +1431,10 @@ int check ( Base *b1, Base* b2, char* name, int keyId, int itemsize, int col, in
 					} else {
 						if ( checkStreams ( str1, str2 ) ) {
 							if (!strcmp (name, "KindCorr")) {
-								mpcxc_printfwin (strings, "\nmismatch in streams for %ld.%ld\n", ((Ref*)key1)->DocId, ((Ref*)key2)->Sub);
+								if (((Ref*)key1)->Sub & INHERITED_BLOCK)
+									mpcxc_printfwin (strings, "\nmismatch in streams for %ld.!%ld\n", ((Ref*)key1)->DocId, ((Ref*)key1)->Sub - INHERITED_BLOCK);
+								else
+									mpcxc_printfwin (strings, "\nmismatch in streams for %ld.%ld\n", ((Ref*)key1)->DocId, ((Ref*)key1)->Sub);
 							} else {
 								mpcxc_printfwin (strings, "\nmismatch in streams0\n" );
 							}
@@ -1736,8 +1757,8 @@ int check ( Base *b1, Base* b2, char* name, int keyId, int itemsize, int col, in
 			ind2 -> Close ( str2 );
 		}
 
-		++it1;
-		++it2;
+		if (it_plus1 == 0) ++it1;
+		if (it_plus2 == 0) ++it2;
 	}
 	return error_count;
 }

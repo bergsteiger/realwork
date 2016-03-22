@@ -1,8 +1,12 @@
 unit ddAnnotations;
 
-{ $Id: ddAnnotations.pas,v 1.20 2014/09/08 12:27:51 fireton Exp $ }
+{ $Id: ddAnnotations.pas,v 1.21 2015/11/11 13:16:41 fireton Exp $ }
 
 // $Log: ddAnnotations.pas,v $
+// Revision 1.21  2015/11/11 13:16:41  fireton
+// - Нормальная диагностика ошибок при экспорте
+// - Считаем пустые документы, справки и аннотации правильно
+//
 // Revision 1.20  2014/09/08 12:27:51  fireton
 // - не выливаем в Прайм комментарии юристов
 //
@@ -70,7 +74,7 @@ Uses
  l3Base, l3Filer, l3Types,
  evdLeafParaFilter,
  k2TagGen, k2ForkGenerator, k2Interfaces,
- SewerPipe;
+ SewerPipe, Classes;
 
 type
  TddAnnotationPipe = class(Tl3Base)
@@ -80,12 +84,15 @@ type
    FFork: Tk2ForkGenerator;
    FG: Tk2TagGenerator;
    FPipe: TSewerPipe;
+   f_ErrorList: TStringList;
+   procedure _DoOnError(const aMsg: String; aCategory: Integer = 0);
    procedure _TopicInit(Sender: TObject; TopicNo: Long);
  protected
    procedure Cleanup; override;
  public
    constructor Create;
    procedure Execute;
+   property ErrorList: TStringList read f_ErrorList;
    property FileName: AnsiString read FFileName write FFileName;
    property Pipe: TSewerPipe read FPipe;
  end;
@@ -127,6 +134,7 @@ begin
   TddAppearanceEliminator.SetTo(FG);
   TevHiddenFilter.SetTo([Abs(ev_saTechComment), Abs(ev_saTxtComment)], False, FG);
   FPipe.Writer := FG;
+  f_ErrorList := TStringList.Create;
 end;
 
 procedure TddAnnotationPipe.Cleanup;
@@ -134,18 +142,27 @@ begin
  l3Free(FG);
  l3Free(FFiler);
  l3Free(FPipe);
+ l3Free(f_ErrorList);
  inherited;
 end;
 
 procedure TddAnnotationPipe.Execute;
 begin
+ f_ErrorList.Clear;
  FPipe.SpecialFiler := FFiler;
+ FPipe.OnError := _DoOnError;
  FFiler.FileName := FileName;
  fFiler.Mode := l3_fmWrite;
  FFiler.Open;
  fFiler.CodePage := cp_Ansi;
  FPipe.Execute();
  FFiler.Close;
+end;
+
+procedure TddAnnotationPipe._DoOnError(const aMsg: String; aCategory: Integer = 0);
+begin
+ l3System.Msg2Log(aMsg);
+ f_ErrorList.Add(aMsg);
 end;
 
 procedure TddAnnotationPipe._TopicInit(Sender: TObject; TopicNo: Long);

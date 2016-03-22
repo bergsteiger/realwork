@@ -2,6 +2,7 @@ unit ScrollAndLinesTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\ScrollAndLinesTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TScrollAndLinesTest" MUID: (4E54DE280369)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

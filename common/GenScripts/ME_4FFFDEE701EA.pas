@@ -2,6 +2,7 @@ unit ModalDialogsKeywordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ModalDialogsKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ModalDialogsKeywordsPack" MUID: (4FFFDEE701EA)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

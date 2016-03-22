@@ -3,6 +3,8 @@ unit moCompareEditions;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moCompareEditions.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "CompareEditions" MUID: (4A6D5A4902D8)
+// Имя типа: "Tmo_CompareEditions"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit evAdjustNSRCToPage;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\Tools\evAdjustNSRCToPage.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevAdjustNSRCToPage" MUID: (4CE3998200D9)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

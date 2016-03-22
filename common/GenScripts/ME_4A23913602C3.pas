@@ -3,6 +3,7 @@ unit nevContainers;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevContainers.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "nevContainers" MUID: (4A23913602C3)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

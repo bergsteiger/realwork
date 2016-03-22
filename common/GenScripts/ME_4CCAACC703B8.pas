@@ -2,6 +2,7 @@ unit FiltersInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\FiltersInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "FiltersInterfaces" MUID: (4CCAACC703B8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

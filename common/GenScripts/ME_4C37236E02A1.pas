@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtSaveDialog;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtSaveDialog.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvtSaveDialog" MUID: (4C37236E02A1)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -2,6 +2,8 @@ unit F1_Schema;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\F1_Schema.pas"
 // Стереотип: "TagTable"
+// Элемент модели: "F1" MUID: (4860F3C103E4)
+// Имя типа: "TF1Schema"
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

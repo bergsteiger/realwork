@@ -2,6 +2,7 @@ unit NOT_FINISHED_alcuMdpSyncDicts;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpSyncDicts.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuMdpSyncDicts" MUID: (55E978530295)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

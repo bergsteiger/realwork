@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsSettings" MUID: (4F6C571A00B2)
+// Имя типа: "_nsSettings_"
 
 {$Define nsSettings_imp}
 

@@ -3,6 +3,8 @@ unit kwBaseExport;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwBaseExport.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "base_export" MUID: (50580B6C00E6)
+// Имя типа: "TkwBaseExport"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

@@ -3,6 +3,7 @@ unit l3CacheableBase;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CacheableBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CacheableBase" MUID: (46780E690001)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

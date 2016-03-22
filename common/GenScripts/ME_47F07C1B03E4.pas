@@ -2,6 +2,7 @@ unit l3NotifyPtrList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3NotifyPtrList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3NotifyPtrList" MUID: (47F07C1B03E4)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

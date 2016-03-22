@@ -2,6 +2,7 @@ unit PrimWorkJournalInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\PrimWorkJournalInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "PrimWorkJournalInterfaces" MUID: (4D7A05A000C1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

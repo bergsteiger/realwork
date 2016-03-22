@@ -2,6 +2,7 @@ unit NOT_FINISHED_evUndoB;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evUndoB.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evUndoB" MUID: (47F252060091)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

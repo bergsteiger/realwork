@@ -2,6 +2,7 @@ unit pgCommandExecutor;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgCommandExecutor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgCommandExecutor" MUID: (5694BA3500C4)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 

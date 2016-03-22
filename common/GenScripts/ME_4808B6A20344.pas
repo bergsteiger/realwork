@@ -2,6 +2,7 @@ unit atLogger;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atLogger.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "atLogger" MUID: (4808B6A20344)
 
 interface
 

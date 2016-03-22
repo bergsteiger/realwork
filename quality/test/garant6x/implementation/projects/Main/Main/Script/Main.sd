@@ -1000,6 +1000,7 @@ begin
             if actionsArr[j] = SA_LONG_SCRIPT then
             begin
               Writeln(fileVar, oTS._get(TSFLD_NAME));
+              Flush(fileVar);
               Inc(count);
               break;
             end; 
@@ -1009,7 +1010,53 @@ begin
       CloseFile(fileVar);
     end;
   except
-    Log.Message('Случилась ошибка!' + ExceptionMessage, '' , 4);  
+    Log.Message('Случилась ошибка! ' + ExceptionMessage, '' , 4);  
+  end;
+end;
+
+{
+  TYPE:
+  DESC: Специальная процедура для создания списка неоттрассированных в К скриптов 
+  RESULT:
+  REMARK:
+}
+procedure CreateNoTracedScriptsList;
+var
+  fileVar, oTSList, oTS, res, i, j, count;
+begin
+  try
+    oTSList := GetTestScripts('', false);
+    Log.Message('Получено скриптов: ' + IntToStr(oTSList.length));
+    
+    try
+      AssignFile(fileVar, 'C:\NoTracedScriptsList.txt');
+      Rewrite(fileVar);
+
+      count := 0;
+      for i := 0 to oTSList.length-1 do
+      begin
+        oTS := oTSList._get(i);
+        res := GetHLTCText(oTS);
+        if res = HLTC_NO_LINKS then
+        begin
+          try
+            res := oTS.Name;
+            res := res + '   Ready := ' + oTS._get(TSFLD_READY);
+          except
+            res := res + 'Error!';
+          end; 
+          Log.Message(res);
+          Writeln(fileVar, res);
+          Flush(fileVar);
+          Inc(count);
+        end;
+      end;
+      Log.Message('Список успешно создан из ' + IntToStr(count) + ' неоттрасированных скриптов.');      
+    finally
+      CloseFile(fileVar);
+    end;
+  except
+    Log.Message('Случилась ошибка! ' + ExceptionMessage, '' , 4);  
   end;
 end;
 
@@ -1880,8 +1927,9 @@ begin
         if (NOT isExOccured) then
           ScriptAction('END SCRIPT');
         ScriptAction('RESET');
-        
-        if (param_IsSendMail) AND ((NOT res) OR (UnexpWindow('get flag') = true) OR (ErrorUnexpectedWindow('get flag') = true)) then
+
+        if param_IsSendMail 
+           AND ((NOT res) OR (scriptLogErrors <> '') OR (UnexpWindow('get flag') = true) OR (ErrorUnexpectedWindow('get flag') = true)) then
           scriptMessages := ExtractOpenNodeMessages(param_WorkTag)
         else
           scriptMessages := 'res=true, извлечения из лога не было';

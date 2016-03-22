@@ -2,6 +2,7 @@ unit nevTableIevChangeParamToolMapper;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableIevChangeParamToolMapper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevTableIevChangeParamToolMapper" MUID: (53D6745E03A8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

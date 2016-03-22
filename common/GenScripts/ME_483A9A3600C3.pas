@@ -2,6 +2,7 @@ unit atDocumentHistory;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atDocumentHistory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatDocumentHistory" MUID: (483A9A3600C3)
 
 interface
 

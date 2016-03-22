@@ -2,6 +2,7 @@ unit m3SimpleDB;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3SimpleDB.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3SimpleDB" MUID: (4742CA7E00BE)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

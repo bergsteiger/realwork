@@ -2,6 +2,7 @@ unit nevHAFPainterView;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevHAFPainterView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevHAFPainterView" MUID: (481DB3AA03CD)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

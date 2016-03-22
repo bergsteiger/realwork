@@ -1,8 +1,11 @@
 unit ddDoc2Rtf;
 
-{ $Id: ddDoc2Rtf.pas,v 1.11 2015/04/28 11:08:28 lulin Exp $ }
+{ $Id: ddDoc2Rtf.pas,v 1.12 2015/11/16 10:27:46 fireton Exp $ }
 
 // $Log: ddDoc2Rtf.pas,v $
+// Revision 1.12  2015/11/16 10:27:46  fireton
+// - новая версия конвертера Doc2Rtf
+//
 // Revision 1.11  2015/04/28 11:08:28  lulin
 // - рефакторим.
 //
@@ -65,7 +68,7 @@ uses
 {$Include drs.pas}
 
 const
- cWrsDllName = 'WRS6.DLL';
+ cWrsDllName = 'WRS7.DLL';
  cDrsDllName = 'DRS32.DLL';
 
 var
@@ -118,7 +121,7 @@ begin
  @WrsConvertFileToBuffer := GetProcAddress(g_WrsHandle, 'WrsConvertFileToBuffer');
  @WrsHandleToStr         := GetProcAddress(g_WrsHandle, 'WrsHandleToStr');
  @WrsSetLicenseKey       := GetProcAddress(g_WrsHandle, 'WrsSetLicenseKey');
- WrsSetLicenseKey('Y3370-92N40-MS861-36118');
+ WrsSetLicenseKey('4UMG0-NE7H0-94LC1-36294');
 end;
 
 procedure LoadDrs;

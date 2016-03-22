@@ -2,6 +2,7 @@ unit NOT_FINISHED_vgPosition;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vgPosition.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgPosition" MUID: (4D5EC25B0067)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

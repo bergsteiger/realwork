@@ -356,6 +356,33 @@ begin
   end;
 end;
 
+function ActivateF1Shell: Boolean;
+var w;
+begin
+  try
+    Result := true;
+
+    if VarToBool(gbl_F1ShellTabsEnabled) then
+      w := GetMainContainer
+    else
+      w := GetMainwindow;    
+
+    if IsExists(w) then
+    begin
+      w.Minimize;
+      w.Restore;
+      w.SetFocus;
+
+      if VarToBool(gbl_F1ShellTabsEnabled) then
+        w.Activate;
+    end;
+  except
+    Result := false;
+    Log.Error('ActivateF1Shell: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
 ////////////////////////////////////////////////////////////////////////////////
 ////////////// ‘”Õ ÷»» Õ»∆≈  –»¬€≈, » ¬–ﬂƒ À» Õ”∆Õ€ ////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////

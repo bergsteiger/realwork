@@ -2,6 +2,7 @@ unit f1NotificationManager;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\f1NotificationManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tf1NotificationManager" MUID: (54F5D5E002E0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

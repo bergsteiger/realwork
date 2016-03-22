@@ -2,6 +2,7 @@ unit nsUserNodes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsUserNodes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsUserNodes" MUID: (49E5BB5F02B7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

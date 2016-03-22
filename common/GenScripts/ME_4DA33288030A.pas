@@ -2,6 +2,8 @@ unit ItsLAW;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ItsLAW.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "ItsLAW" MUID: (4DA33288030A)
+// Имя типа: "TItsLAW"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

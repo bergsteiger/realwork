@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "StatusBarItems" MUID: (4A8E5BBF0391)
+// Имя типа: "_StatusBarItems_"
 
 {$Define StatusBarItems_imp}
 

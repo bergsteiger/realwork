@@ -2,6 +2,7 @@ unit atCommandLineParametersList;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atCommandLineParametersList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatCommandLineParametersList" MUID: (480895780098)
 
 interface
 

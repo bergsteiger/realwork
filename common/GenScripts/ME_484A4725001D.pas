@@ -3,6 +3,8 @@ unit evdNative_Schema;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdNative_Schema.pas"
 // Стереотип: "TagTable"
+// Элемент модели: "evdNative" MUID: (484A4725001D)
+// Имя типа: "TevdNativeSchema"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsDocInfo.imp.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "sdsDocInfo" MUID: (493D2F7B031D)
+// Имя типа: "_sdsDocInfo_"
 
 {$Define sdsDocInfo_imp}
 

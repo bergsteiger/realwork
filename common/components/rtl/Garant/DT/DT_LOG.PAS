@@ -1,8 +1,11 @@
 Unit Dt_Log;
 
-{ $Id: DT_LOG.PAS,v 1.88 2015/10/09 13:02:26 lukyanets Exp $ }
+{ $Id: DT_LOG.PAS,v 1.89 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: DT_LOG.PAS,v $
+// Revision 1.89  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.88  2015/10/09 13:02:26  lukyanets
 // Пишем в лог от чьего имени выполняется задача
 //
@@ -374,6 +377,7 @@ Uses
   l3Base,
 
   daDataProvider,
+  daSchemeConsts,
 
   HT_DLL,
   dt_AttrSchema,

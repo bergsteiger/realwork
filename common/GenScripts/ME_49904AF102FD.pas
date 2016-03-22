@@ -3,6 +3,7 @@ unit MainMenuDomainInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\MainMenuDomainInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "MainMenuDomainInterfaces" MUID: (49904AF102FD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

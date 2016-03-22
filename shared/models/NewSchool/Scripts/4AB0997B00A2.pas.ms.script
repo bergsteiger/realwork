@@ -904,8 +904,6 @@ ref; // ME_480768DD00F0 TList
 FORWARD ME_4807756101FE
 
 : ME_47E21AB50104_ME_4807756101FE
- CONST UID '47E21AB50104'
- CONST Name 'Clear'
  : Original ME_47E21AB50104 // Clear
  ;
  : Implementor ME_4807756101FE // TStringList
@@ -914,8 +912,6 @@ FORWARD ME_4807756101FE
 ref; // ME_47E21AB50104_ME_4807756101FE Clear
 
 : ME_47E21AD40366_ME_4807756101FE
- CONST UID '47E21AD40366'
- CONST Name 'Insert'
  : Original ME_47E21AD40366 // Insert
  ;
  : Implementor ME_4807756101FE // TStringList
@@ -924,8 +920,6 @@ ref; // ME_47E21AB50104_ME_4807756101FE Clear
 ref; // ME_47E21AD40366_ME_4807756101FE Insert
 
 : ME_47E21AF20186_ME_4807756101FE
- CONST UID '47E21AF20186'
- CONST Name 'Get'
  : Original ME_47E21AF20186 // Get
  ;
  : Implementor ME_4807756101FE // TStringList
@@ -934,8 +928,6 @@ ref; // ME_47E21AD40366_ME_4807756101FE Insert
 ref; // ME_47E21AF20186_ME_4807756101FE Get
 
 : ME_47E21B0A0167_ME_4807756101FE
- CONST UID '47E21B0A0167'
- CONST Name 'Put'
  : Original ME_47E21B0A0167 // Put
  ;
  : Implementor ME_4807756101FE // TStringList
@@ -944,8 +936,6 @@ ref; // ME_47E21AF20186_ME_4807756101FE Get
 ref; // ME_47E21B0A0167_ME_4807756101FE Put
 
 : ME_47E21B2403D5_ME_4807756101FE
- CONST UID '47E21B2403D5'
- CONST Name 'GetCount'
  : Original ME_47E21B2403D5 // GetCount
  ;
  : Implementor ME_4807756101FE // TStringList
@@ -1315,8 +1305,6 @@ ref; // ME_47E150FF028A TStream
 FORWARD ME_483FF4CA0307
 
 : ME_49BE656C006E_ME_483FF4CA0307
- CONST UID '49BE656C006E'
- CONST Name 'Read'
  : Original ME_49BE656C006E // Read
  ;
  : Implementor ME_483FF4CA0307 // TCustomMemoryStream
@@ -1325,8 +1313,6 @@ FORWARD ME_483FF4CA0307
 ref; // ME_49BE656C006E_ME_483FF4CA0307 Read
 
 : ME_49BE658C0261_ME_483FF4CA0307
- CONST UID '49BE658C0261'
- CONST Name 'Write'
  : Original ME_49BE658C0261 // Write
  ;
  : Implementor ME_483FF4CA0307 // TCustomMemoryStream
@@ -2153,32 +2139,6 @@ ref; // ME_4D555CFF0165 aCollection
 
 ref; // ME_4D555CF50027 Create
 
-: ME_17B429CD7D91
- CONST UID '17B429CD7D91'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TCollectionItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D555B5B01E8 // TCollectionItem
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_17B429CD7D91 Ini_Reg_Class
-
-: ME_43B81ABD844E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D555B5B01E8 // TCollectionItem
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_43B81ABD844E 
-
 : ME_4D555B5B01E8
  CONST UID '4D555B5B01E8'
  CONST Name 'TCollectionItem'
@@ -2197,13 +2157,8 @@ ref; // ME_43B81ABD844E
    Seq: ( ME_4F8E7D3303B9 // SetIndex
  ME_55CCBB5A01E5 // GetDisplayName
  ME_4D555CF50027 // Create
- ME_17B429CD7D91 // Ini_Reg_Class
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_43B81ABD844E // 
- )
- ; // Dependencies
  : Forwarded
    Seq: ( ME_4D555B78015F // TCollection
  )
@@ -2416,32 +2371,6 @@ ref; // ME_560A9DF00326 DoIt
 
 ref; // ME_560A9DEB0155 GetItemAttr
 
-: ME_0723FA770C06
- CONST UID '0723FA770C06'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TCollection' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D555B78015F // TCollection
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_0723FA770C06 Ini_Reg_Class
-
-: ME_A034B221F68B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D555B78015F // TCollection
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_A034B221F68B 
-
 : ME_4D555B78015F
  CONST UID '4D555B78015F'
  CONST Name 'TCollection'
@@ -2461,17 +2390,12 @@ ref; // ME_A034B221F68B
  ME_560A9DA80335 // GetAttrCount
  ME_560A9DCD009D // GetAttr
  ME_560A9DEB0155 // GetItemAttr
- ME_0723FA770C06 // Ini_Reg_Class
  )
  ; // Operations
  : Children
    Seq: ( ME_4F8E7AB5037E // TCollectionNotification
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_A034B221F68B // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -2548,34 +2472,6 @@ ref; // ME_47E1214E00F2 TInterfacedPersistent
 
 ref; // ME_47E762B6004C TBasicAction
 
-FORWARD ME_4FFC4CA60156
-
-: ME_17018915422C
- CONST UID '17018915422C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TOwnedCollection' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FFC4CA60156 // TOwnedCollection
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_17018915422C Ini_Reg_Class
-
-: ME_DD3EBBCAE90F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4FFC4CA60156 // TOwnedCollection
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_DD3EBBCAE90F 
-
 : ME_4FFC4CA60156
  CONST UID '4FFC4CA60156'
  CONST Name 'TOwnedCollection'
@@ -2590,14 +2486,6 @@ ref; // ME_DD3EBBCAE90F
    Seq: ( ME_4D555B78015F // TCollection
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_17018915422C // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_DD3EBBCAE90F // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -3848,7 +3736,6 @@ ref; // ME_56210ACE0023 Actions
    Seq: ( WL 'ME_46A0E6C5023A' '46A0E6C5023A.pas.ms.script' // ActiveX
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "path prefix" '/Common'

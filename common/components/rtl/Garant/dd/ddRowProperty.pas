@@ -66,7 +66,8 @@ type
    procedure InheriteFrom(P: TddPropertyObject); override;
    procedure Write2Generator(const Generator: Ik2TagGenerator); override;
    procedure Reset; override;
-   function Diff(P: TddPropertyObject): TddPropertyObject; override;
+   function Diff(P: TddPropertyObject;
+     aForReader: Boolean): TddPropertyObject; override;
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -221,7 +222,8 @@ begin
 //#UC END# *525E478A0232_518A10050368_impl*
 end;//TddRowProperty.Reset
 
-function TddRowProperty.Diff(P: TddPropertyObject): TddPropertyObject;
+function TddRowProperty.Diff(P: TddPropertyObject;
+  aForReader: Boolean): TddPropertyObject;
 //#UC START# *525E47E10065_518A10050368_var*
 //#UC END# *525E47E10065_518A10050368_var*
 begin

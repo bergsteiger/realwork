@@ -3,6 +3,7 @@ unit NOT_FINISHED_evExtFormat;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\ext\NOT_FINISHED_evExtFormat.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evExtFormat" MUID: (4D514CA600C2)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

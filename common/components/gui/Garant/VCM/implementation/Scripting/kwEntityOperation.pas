@@ -2,6 +2,7 @@ unit kwEntityOperation;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwEntityOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwEntityOperation" MUID: (4DDBBDB00019)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

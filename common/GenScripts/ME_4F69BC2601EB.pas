@@ -2,6 +2,8 @@ unit kwVcmDispatcherEndOp;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmDispatcherEndOp.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "vcm_Dispatcher_EndOp" MUID: (4F69BC2601EB)
+// Имя типа: "TkwVcmDispatcherEndOp"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

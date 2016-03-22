@@ -2,6 +2,7 @@ unit vcmUserTypesIterator;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmUserTypesIterator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmUserTypesIterator" MUID: (5582C3AD0167)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

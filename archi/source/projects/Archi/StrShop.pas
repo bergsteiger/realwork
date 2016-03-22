@@ -1,6 +1,6 @@
 unit StrShop;
 
-{ $Id: StrShop.pas,v 1.63 2015/10/06 13:49:46 voba Exp $ }
+{ $Id: StrShop.pas,v 1.66 2015/12/11 10:16:16 voba Exp $ }
 
 interface
  uses
@@ -89,6 +89,7 @@ interface
    sidNoFindAnother     = 'Искомый элемент не найден.';
    //sidNoSuchDoc         = 'Документов не найдено.';
    sidNoSuchDoc         =  'Не найдено ни одного документа.';
+   sidNoSuchRef         =  'Ссылок не найдено.';
    sidNoSubSelected     = 'Сначала выберите метку.';
    sidNoDocPresent      = 'Документ с ID = %d отсутствует.';
    sidWrongDocID        = 'Ошибка определения внутреннего номера документа %d.';
@@ -152,6 +153,7 @@ interface
    sidDictItemNotLeaf    = 'Элемент словаря содержит вложенные.';
 
    sidDelWrongSprAsk     = 'Документ имеет справку, которая не полагается документу такого типа. Справка будет удалена.';
+   sidChangeDocIDAsk     = 'Вы действительно хотите изменить ID номер документа?';
 
    sidOperationConfirm   = 'Вы действительно хотите выполнить операцию'^M'"%s"?';
 
@@ -160,6 +162,8 @@ interface
    sidWrongPageDiapason  = 'Неверный диапазон страниц. Ни одна страница не попадает в диапазон.'^M'файл : "%s"';
    sidDefDiapasonErr     = 'TfrmImgViewer: ошибка в определении диапазона страниц ("%s").'^M'файл : "%s"';
    sidTIFFFormatErr      = 'Некорректный файл TIFF : "%s"';
+   sidHlinkErr           = 'Нет данных для ссылки #%d.';
+
 
    {Macro}
    sidMacroDocNotPublish = 'Текст %s официально опубликован не был';

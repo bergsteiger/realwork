@@ -2,6 +2,7 @@ unit bsUtilsConst;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Document\bsUtilsConst.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "bsUtilsConst" MUID: (4E283FC201DC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

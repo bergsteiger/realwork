@@ -1,69 +1,58 @@
 unit kwPopEditorSetStyle2Table;
+ {* [code]
+aStyle anEditor pop:editor:SetStyle2Table
+[code]
+aStyle -  номер стиля из таблицы стилей.
+anEditor - редактор, в котором производятся изменения. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwPopEditorSetStyle2Table.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::EditorKeyWords::pop_editor_SetStyle2Table
-//
-// {code}
-// aStyle anEditor pop:editor:SetStyle2Table
-// {code}
-// aStyle -  номер стиля из таблицы стилей.
-// anEditor - редактор, в котором производятся изменения.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorSetStyle2Table.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_SetStyle2Table" MUID: (52B17C50008A)
+// Имя типа: "TkwPopEditorSetStyle2Table"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackWord,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwPopEditorSetStyle2Table = {final scriptword} class(TkwEditorFromStackWord)
+ TkwPopEditorSetStyle2Table = {final} class(TkwEditorFromStackWord)
   {* [code]
 aStyle anEditor pop:editor:SetStyle2Table
 [code]
 aStyle -  номер стиля из таблицы стилей.
 anEditor - редактор, в котором производятся изменения. }
- protected
- // realized methods
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorSetStyle2Table
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  evCommonUtils
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwPopEditorSetStyle2Table
+ l3ImplUses
+ , evCommonUtils
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorSetStyle2Table.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_52B17C50008A_var*
 var
  l_StyleID: Integer;
@@ -79,17 +68,13 @@ begin
 end;//TkwPopEditorSetStyle2Table.DoWithEditor
 
 class function TkwPopEditorSetStyle2Table.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:SetStyle2Table';
 end;//TkwPopEditorSetStyle2Table.GetWordNameForRegister
 
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация pop_editor_SetStyle2Table
  TkwPopEditorSetStyle2Table.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация pop_editor_SetStyle2Table }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

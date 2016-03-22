@@ -2,6 +2,7 @@ unit NOT_FINISHED_nscEditor;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscEditor.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscEditor" MUID: (495119C4011A)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

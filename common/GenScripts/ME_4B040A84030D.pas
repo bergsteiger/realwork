@@ -3,6 +3,7 @@ unit DocumentUserTypes_dftRelatedDoc_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftRelatedDoc_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "dftRelatedDoc" MUID: (4B040A84030D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -12,7 +13,6 @@ interface
 uses
  l3IntfUses
  , DocumentUserTypes_dftDocument_UserType
- , DocumentUserTypes_dftAnnotation_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -36,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftRelatedDoc = {final} class(TtfwInteger)
   {* Слово словаря для типа формы dftRelatedDoc }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_dftRelatedDoc
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_dftRelatedDoc.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::dftRelatedDoc';
-end;//Tkw_FormUserType_dftRelatedDoc.GetWordNameForRegister
-
 function Tkw_FormUserType_dftRelatedDoc.GetInteger: Integer;
 begin
  Result := dftRelatedDoc;
 end;//Tkw_FormUserType_dftRelatedDoc.GetInteger
+
+class function Tkw_FormUserType_dftRelatedDoc.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::dftRelatedDoc';
+end;//Tkw_FormUserType_dftRelatedDoc.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

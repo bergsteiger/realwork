@@ -59,6 +59,14 @@ type
    procedure Edit_Paste_Test(const aParams: IvcmTestParamsPrim);
      {* Вставка }
    {$IfEnd} //not NoVCM
+   {$If not defined(NoVCM)}
+   procedure Edit_Undo_Test(const aParams: IvcmTestParamsPrim);
+     {* Отмена }
+   {$IfEnd} //not NoVCM
+   {$If not defined(NoVCM)}
+   procedure Edit_Redo_Test(const aParams: IvcmTestParamsPrim);
+     {* Возврат }
+   {$IfEnd} //not NoVCM
    procedure SubPanelSettings_ShowSpecial_Test(const aParams: IvcmTestParamsPrim);
      {* Показывать спецсимволы }
    procedure SubPanelSettings_ShowSpecial_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -126,18 +134,66 @@ end;//TPrimQueryCardOptionsForm.File_Print_Test
 procedure TPrimQueryCardOptionsForm.Edit_Paste_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *49EDFA3701B0_4C87C62302CFtest_var*
 var
- l_Control : IevCustomEditorControl;
+ l_CustControl: IevCustomEditorControl;
+ l_Control: IevEditorControl;
 //#UC END# *49EDFA3701B0_4C87C62302CFtest_var*
 begin
 //#UC START# *49EDFA3701B0_4C87C62302CFtest_impl*
  if aParams.CallControl and aParams.Op.Flag[vcm_ofEnabled] then
  begin
-  l_Control := evGetCustomControl(Editor.Selection.Cursor.MostInner.Obj^.AsObject);
-  aParams.Op.Flag[vcm_ofEnabled] := Assigned(l_Control) and
-   l_Control.Visible and (l_Control.ControlType in evEditControls);
+  l_CustControl := evGetCustomControl(Editor.Selection.Cursor.MostInner.Obj^.AsObject);
+  aParams.Op.Flag[vcm_ofEnabled] := Assigned(l_CustControl)
+                                and l_CustControl.Visible
+                                and (l_CustControl.ControlType in evEditControls);
+  if Supports(l_CustControl, IevEditorControl, l_Control) then
+   aParams.Op.Flag[vcm_ofEnabled] := aParams.Op.Flag[vcm_ofEnabled] and l_Control.Enabled;
  end;
 //#UC END# *49EDFA3701B0_4C87C62302CFtest_impl*
 end;//TPrimQueryCardOptionsForm.Edit_Paste_Test
+{$IfEnd} //not NoVCM
+
+{$If not defined(NoVCM)}
+procedure TPrimQueryCardOptionsForm.Edit_Undo_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *49EDFCA2006D_4C87C62302CFtest_var*
+var
+ l_CustControl: IevCustomEditorControl;
+ l_Control: IevEditorControl;
+//#UC END# *49EDFCA2006D_4C87C62302CFtest_var*
+begin
+//#UC START# *49EDFCA2006D_4C87C62302CFtest_impl*
+ if aParams.CallControl and aParams.Op.Flag[vcm_ofEnabled] then
+ begin
+  l_CustControl := evGetCustomControl(Editor.Selection.Cursor.MostInner.Obj^.AsObject);
+  aParams.Op.Flag[vcm_ofEnabled] := Assigned(l_CustControl)
+                                and l_CustControl.Visible
+                                and (l_CustControl.ControlType in evEditControls);
+  if Supports(l_CustControl, IevEditorControl, l_Control) then
+   aParams.Op.Flag[vcm_ofEnabled] := aParams.Op.Flag[vcm_ofEnabled] and l_Control.Enabled;
+ end;
+//#UC END# *49EDFCA2006D_4C87C62302CFtest_impl*
+end;//TPrimQueryCardOptionsForm.Edit_Undo_Test
+{$IfEnd} //not NoVCM
+
+{$If not defined(NoVCM)}
+procedure TPrimQueryCardOptionsForm.Edit_Redo_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *49EDFCB100BC_4C87C62302CFtest_var*
+var
+ l_CustControl: IevCustomEditorControl;
+ l_Control: IevEditorControl;
+//#UC END# *49EDFCB100BC_4C87C62302CFtest_var*
+begin
+//#UC START# *49EDFCB100BC_4C87C62302CFtest_impl*
+ if aParams.CallControl and aParams.Op.Flag[vcm_ofEnabled] then
+ begin
+  l_CustControl := evGetCustomControl(Editor.Selection.Cursor.MostInner.Obj^.AsObject);
+  aParams.Op.Flag[vcm_ofEnabled] := Assigned(l_CustControl)
+                                and l_CustControl.Visible
+                                and (l_CustControl.ControlType in evEditControls);
+  if Supports(l_CustControl, IevEditorControl, l_Control) then
+   aParams.Op.Flag[vcm_ofEnabled] := aParams.Op.Flag[vcm_ofEnabled] and l_Control.Enabled;
+ end;
+//#UC END# *49EDFCB100BC_4C87C62302CFtest_impl*
+end;//TPrimQueryCardOptionsForm.Edit_Redo_Test
 {$IfEnd} //not NoVCM
 
 procedure TPrimQueryCardOptionsForm.SubPanelSettings_ShowSpecial_Test(const aParams: IvcmTestParamsPrim);
@@ -271,6 +327,14 @@ begin
 
   {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Paste, nil, Edit_Paste_Test, nil);
+  {$IfEnd} //not NoVCM
+
+  {$If not defined(NoVCM)}
+  PublishOp(en_Edit, op_Undo, nil, Edit_Undo_Test, nil);
+  {$IfEnd} //not NoVCM
+
+  {$If not defined(NoVCM)}
+  PublishOp(en_Edit, op_Redo, nil, Edit_Redo_Test, nil);
   {$IfEnd} //not NoVCM
 
   PublishOp(en_SubPanelSettings, op_ShowSpecial, SubPanelSettings_ShowSpecial_Execute, SubPanelSettings_ShowSpecial_Test, nil);

@@ -2,6 +2,7 @@ unit nscTreeComboWithHistoryAndOperations;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTreeComboWithHistoryAndOperations.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscTreeComboWithHistoryAndOperations" MUID: (4CF4D14700AE)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

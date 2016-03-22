@@ -2,6 +2,7 @@ unit l3VCLStringsItems;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3VCLStringsItems.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3VCLStringsItems" MUID: (47E21D500381)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

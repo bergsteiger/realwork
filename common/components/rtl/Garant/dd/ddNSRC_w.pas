@@ -1,8 +1,20 @@
 unit ddNSRC_w;
 
-{ $Id: ddNSRC_w.pas,v 1.338 2015/10/22 14:47:29 lulin Exp $ }
+{ $Id: ddNSRC_w.pas,v 1.342 2016/03/16 13:56:23 voba Exp $ }
 
 // $Log: ddNSRC_w.pas,v $
+// Revision 1.342  2016/03/16 13:56:23  voba
+// -k:619568279
+//
+// Revision 1.341  2016/03/16 13:09:29  voba
+// -k:619568279
+//
+// Revision 1.340  2016/03/16 11:00:30  voba
+// -k:619568279
+//
+// Revision 1.339  2015/11/23 11:37:13  lukyanets
+// Заготовки Renum
+//
 // Revision 1.338  2015/10/22 14:47:29  lulin
 // - задаём ID документа снаружи.
 //
@@ -1031,28 +1043,21 @@ type
     f_ReadWrited: Boolean;
     f_RelNumber: Long;
     f_FirstPara: Boolean;
-//    f_NotVIncluded: Boolean;
     f_ActiveInterval: TActiveIntervalRec;
     f_Alarm: TAlarmRec;
-   FLevelCount6: Integer;
-   FLevelCount5: Integer;
-                           f_BaseLine: Integer;
-   f_CompareContents: Integer;
-   f_DocumentType: Tk2Type;
-   f_CurLang: TevdLanguage;
-   f_DPI: Integer;
-   f_NameComment: Tl3String;
-   f_PicNumber: Integer;
-   f_NotFilterGroups: Boolean;
-                           f_OnError: TddErrorEvent;
-   f_PictHandle: Integer;
-   f_PriceLevel: Integer;
-   f_Priority: Integer;
-   f_SortDate: Integer;
-   f_Stream: TStream;
-   //f_String: AnsiString;
-   f_Urgency: Integer;
-   f_Verlink: Integer;
+    FLevelCount6: Integer;
+    FLevelCount5: Integer;
+    f_BaseLine: Integer;
+    f_CompareContents: Integer;
+    f_DocumentType: Tk2Type;
+    f_CurLang: TevdLanguage;
+    f_DPI: Integer;
+    f_PicNumber: Integer;
+    f_NotFilterGroups: Boolean;
+    f_OnError: TddErrorEvent;
+    f_PictHandle: Integer;
+    f_Stream: TStream;
+    f_Verlink: Integer;
   private
     procedure AddActiveIntervalRec;
     procedure AddAlarmRec;
@@ -1067,17 +1072,17 @@ type
     procedure AddDictRec;
     procedure AddDocType;
     procedure AddLogRec;
-    procedure AddNameComment;
-    procedure AddPriceLevel;
-    procedure AddPriority;
+    procedure AddNameComment(const aNameComment : Tl3PrimString);
+    procedure AddPriceLevel(aPriceLevel: Integer);
+    procedure AddPriority(aPriority: Integer);
     procedure AddPublInString;
     procedure AddRel;
     procedure AddRelated;
-    procedure AddSortDate;
+    procedure AddSortDate(aSortDate : integer);
     procedure AddStageRec;
     procedure AddSubRec;
     procedure AddTopic;
-    procedure AddUrgency;
+    procedure AddUrgency(aUrgency: Integer);
     procedure AddUserType;
     procedure AddVerLink;
     procedure ApplyToActiveInterval(AtomIndex: Long; const Value: Tk2Variant);
@@ -1169,6 +1174,8 @@ Uses
   l3Except,
   {$EndIf nsTest}
 
+  daInterfaces,
+
   {$IF Defined(InsiderTest) and Defined(EverestLite)}
   KTestRunner,
   {$IFEND}
@@ -1233,7 +1240,7 @@ begin
   f_WorkVAnonced:= False;
   f_ShortName:= Tl3String.Create;
   f_Name:= Tl3String.Create;
-  f_NameComment:= Tl3String.Create;
+  //f_NameComment:= Tl3String.Create;
   f_Belongs:= Tl3String.Create;
   f_AccGroups:= Tl3String.Create;
   f_FirstPara:= True;
@@ -1299,7 +1306,7 @@ begin
  {$IFNDEF OnlyInherited}
   f_PathListner := nil;
   FreeAndNil(f_Stream);
-  FreeAndNil(f_NameComment);
+  //FreeAndNil(f_NameComment);
   l3Free(f_ShortName);
   l3Free(f_Name);
   l3Free(f_Belongs);
@@ -1545,7 +1552,7 @@ begin
  begin
   f_DocIsStarted:= True;
   SetOutCodePage(f_ShortName, CodePage);
-  SetOutCodePage(f_NameComment, CodePage);
+  //SetOutCodePage(f_NameComment, CodePage);
   l3Replace(f_ShortName.AsPCharLen, [cc_Tab, cc_SoftEnter, cc_HardEnter], cc_HardSpace);
 
   AddDocType;
@@ -1556,20 +1563,9 @@ begin
   AddRel;
 
   // дополнительные поля
-  AddSortDate;
-  AddVerLink;
-  AddPriority;
+  //AddVerLink;
   AddRelated;
-  AddPriceLevel;
-  AddUrgency;
-  AddNameComment;
-  {
-   if (f_Language > 0) then
-    LS(Format('!%s %d', [kwdLanguage, f_Language]));
-  }
 
-  //if not IsRelated and ((f_UserType = utEdition) or not (f_UserType in NoDocs)) then
-  // WriteName(f_Name);
   if not IsRelated and Assigned(f_OnTopicInit) then
    f_OnTopicInit(Self, f_Handle);
  end;
@@ -2648,46 +2644,47 @@ begin
  end; // case;
 end;
 
-procedure TddNSRCGenerator.AddNameComment;
+procedure TddNSRCGenerator.AddNameComment(const aNameComment : Tl3PrimString);
 begin
- if f_DocIsStarted and not f_NameComment.Empty then
+ if {f_DocIsStarted and } not aNameComment.Empty then
  begin
-  //LS(Format('!*%s %s', [kwdNameComment, f_NameComment.AsString]));
   OutCommand('*'+kwdNameComment);
-  OutString(f_NameComment);
+  SetOutCodePage(Tl3CustomString(aNameComment), CodePage);
+  OutString(aNameComment);
  end; // f_DocIsStarted and not f_NameComment.Empty
 end;
 
-procedure TddNSRCGenerator.AddPriceLevel;
+procedure TddNSRCGenerator.AddPriceLevel(aPriceLevel: Integer);
 begin
- if f_DocIsStarted and (f_PriceLevel <> -1) and NotAnObject and not (f_UserType in NoDocs) then
+ if aPriceLevel = 0 then Exit;
+ if {f_DocIsStarted and} NotAnObject and not (f_UserType in NoDocs) then
  begin
-  if l3TestMask(f_PriceLevel, dstatChargeFree) then
+  if l3TestMask(aPriceLevel, dstatChargeFree) then
   begin
    //LS(Format('!%s %s', [kwdPriceLevel, prclvl_nFree]));
    OutCommand(kwdPriceLevel);
    OutString(prclvl_nFree);
   end;
-  if l3TestMask(f_PriceLevel, dstatNotTM) then
+  if l3TestMask(aPriceLevel, dstatNotTM) then
    //LS(Format('!%s', [kwdNotTM]));
    OutCommand(kwdNotTM, False);
-  if l3TestMask(f_PriceLevel, dstatNoCompare) then
+  if l3TestMask(aPriceLevel, dstatNoCompare) then
    //LS(Format('!*%s', [kwdNoCompare]));
    OutCommand('*'+kwdNoCompare, False);
-  if l3TestMask(f_PriceLevel, dstatInternet) then
+  if l3TestMask(aPriceLevel, dstatInternet) then
    OutCommand('*'+kwdInternet, False);
-  if l3TestMask(f_PriceLevel, dstatHang) then
+  if l3TestMask(aPriceLevel, dstatHang) then
    OutCommand('*'+kwdHang, False);
  end;
 end;
 
-procedure TddNSRCGenerator.AddPriority;
+procedure TddNSRCGenerator.AddPriority(aPriority : integer);
 begin
- If f_DocIsStarted and (f_Priority > 0) and NotAnObject and (f_UserType in Docs) then
+ if (aPriority > 0) and NotAnObject and (f_UserType in Docs) then
  begin
   //LS(Format('!%s %d', [kwdPriority, f_Priority]));
   OutCommand(kwdPriority);
-  OutInteger(f_Priority);
+  OutInteger(aPriority);
  end; // f_DocIsStarted and (f_Priority <> -1) and NotAnObject and (f_UserType in Docs)
 end;
 
@@ -2726,22 +2723,21 @@ begin
  end;
 end;
 
-procedure TddNSRCGenerator.AddSortDate;
+procedure TddNSRCGenerator.AddSortDate(aSortDate : integer);
 begin
- If f_DocIsStarted and (f_SortDate <> 0) and NotAnObject and not (f_UserType in NoDocs) then
+ If {f_DocIsStarted and} (aSortDate <> 0) and NotAnObject and not (f_UserType in NoDocs) then
  begin
   OutCommand(kwdSortDate);
-  OutDate(f_SortDate);
+  OutDate(aSortDate);
  end;
 end;
 
-procedure TddNSRCGenerator.AddUrgency;
+procedure TddNSRCGenerator.AddUrgency(aUrgency: Integer);
 begin
- if f_DocIsStarted and (f_Urgency > 0) then
+ if {f_DocIsStarted and} (aUrgency > 0) then
  begin
- // LS(Format('!*%s %d', [kwdUrgency, f_Urgency]));
   OutCommand('*'+kwdUrgency);
-  OutInteger(f_Urgency);
+  OutInteger(aUrgency);
  end;
 end;
 
@@ -2848,7 +2844,7 @@ end;
 
 procedure TddNSRCGenerator.AddVerLink;
 begin
- if f_DocIsStarted and (f_Verlink <> -1) then
+ if {f_DocIsStarted and} (f_Verlink <> -1) then
  begin
   //LS(Format('!%s %d', [kwdVerLink, f_Verlink]));
   OutCommand(kwdVerLink);
@@ -3220,8 +3216,7 @@ begin
     begin
      If (Value.Kind=k2_vkInteger) then
      begin
-      f_SortDate:= Value.AsInteger;
-      AddSortDate;
+      AddSortDate(Value.AsInteger);
      end
      else
       ConvertErrorEx(Value.Kind)
@@ -3236,8 +3231,7 @@ begin
     begin
      if Value.Kind = k2_vkInteger then
      begin
-      f_Priority:= Value.AsInteger;
-      AddPriority;
+      AddPriority(Value.AsInteger);
      end
      else
       ConvertErrorEx(Value.Kind)
@@ -3257,24 +3251,22 @@ begin
     begin
      if (Value.Kind = k2_vkInteger) then
      begin
-      f_PriceLevel:= Value.AsInteger;
-      AddPriceLevel;
+      AddPriceLevel(Value.AsInteger);
      end
     end;
    k2_tiUrgency:
     begin
      if (Value.Kind = k2_vkInteger) then
      begin
-      f_Urgency:= Value.AsInteger;
-      AddUrgency;
+      AddUrgency(Value.AsInteger);
      end
     end;
    k2_tiNameComment:
     begin
      if (Value.Kind = k2_vkString) then
      begin
-      f_NameComment.Assign(Value.AsString);
-      AddNameComment;
+      //f_NameComment.Assign(Value.AsString);
+      AddNameComment(Value.AsString);
      end;
     end;
   end;
@@ -3507,13 +3499,10 @@ begin
  f_DocumentType := aTypeID;
  fLevelCount5:= -1;
  FLevelCount6:= -1;
- f_SortDate:= 0;
+ //f_SortDate:= 0;
  f_Verlink:= -1;
- f_Priority:= -1;
  f_RelNumber:= 0;
- f_PriceLevel:= -1;
- f_Urgency:= 0;
- f_NameComment.Clear;
+ //f_NameComment.Clear;
  f_CompareContents:= -1;
  //f_Language:= 0;
 end;
@@ -3623,7 +3612,7 @@ end;
 procedure TddNSRCGenerator.OutCommand(const aCommand: AnsiString; aWithSpace: Boolean = True);
 begin
  if not f_DocIsStarted then
-  AddTopic;
+  AddTopic;   //это писец
 
  OutStartCommand;
  OutString(aCommand);

@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3LogFont;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3LogFont.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3LogFont" MUID: (484CE8FF0292)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

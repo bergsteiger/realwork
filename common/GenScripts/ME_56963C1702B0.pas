@@ -2,6 +2,7 @@ unit l3StringToStringMap;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3StringToStringMap.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3StringToStringMap" MUID: (56963C1702B0)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -42,7 +43,7 @@ function CompareKeys(const aA: _KeyType_;
 //#UC END# *5609091B00C0_56963C1702B0_var*
 begin
 //#UC START# *5609091B00C0_56963C1702B0_impl*
- Result := l3Compare(aA.AsWStr, aB.AsWStr);
+ Result := l3Compare(aA.AsWStr, aB.AsWStr, l3_siCaseUnsensitive);
 // Result := l3Compare(aA, aB);
 //#UC END# *5609091B00C0_56963C1702B0_impl*
 end;//CompareKeys

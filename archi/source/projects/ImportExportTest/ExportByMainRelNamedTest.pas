@@ -1,64 +1,46 @@
 unit ExportByMainRelNamedTest;
+ {* Экспорт документов в один NSRC со справками, разделённые по мейнам с помощью шаблона имени. (DivideBy = divNone) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SimpleTests"
-// Модуль: "W:/archi/source/projects/ImportExportTest/ExportByMainRelNamedTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> archi$ImportExprortTest::SimpleTests::ExportPipeTests::ExportByMainRelNamedTest
-//
-// Экспорт документов в один NSRC со справками, разделённые по мейнам с помощью шаблона имени.
-// (DivideBy = divNone)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\archi\source\projects\ImportExportTest\ExportByMainRelNamedTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "ExportByMainRelNamedTest" MUID: (55FFA1DB00DB)
+// Имя типа: "TExportByMainRelNamedTest"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include W:\archi\source\projects\ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  ExportPipeTestPrim
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , ExportPipeTestPrim
+;
 
-{$If defined(nsTest)}
 type
  TExportByMainRelNamedTest = class(TExportPipeTestPrim)
   {* Экспорт документов в один NSRC со справками, разделённые по мейнам с помощью шаблона имени. (DivideBy = divNone) }
- protected
- // realized methods
+  protected
    procedure TuneExportPipe; override;
-     {* Процедура настройки трубы. Метод для перекрытия в потомках. }
- protected
- // overridden protected methods
+    {* Процедура настройки трубы. Метод для перекрытия в потомках. }
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TExportByMainRelNamedTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork,
-  ddPipeOutInterfaces,
-  l3Base
-  ;
-{$IfEnd} //nsTest
-
-{$If defined(nsTest)}
-
-// start class TExportByMainRelNamedTest
+ l3ImplUses
+ , TestFrameWork
+ , ddPipeOutInterfaces
+ , l3Base
+;
 
 procedure TExportByMainRelNamedTest.TuneExportPipe;
+ {* Процедура настройки трубы. Метод для перекрытия в потомках. }
 //#UC START# *55EEA16603AE_55FFA1DB00DB_var*
 //#UC END# *55EEA16603AE_55FFA1DB00DB_var*
 begin
@@ -69,20 +51,19 @@ begin
 end;//TExportByMainRelNamedTest.TuneExportPipe
 
 function TExportByMainRelNamedTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'ExportPipeTests';
 end;//TExportByMainRelNamedTest.GetFolder
 
 function TExportByMainRelNamedTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '55FFA1DB00DB';
 end;//TExportByMainRelNamedTest.GetModelElementGUID
 
-{$IfEnd} //nsTest
-
 initialization
  TestFramework.RegisterTest(TExportByMainRelNamedTest.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

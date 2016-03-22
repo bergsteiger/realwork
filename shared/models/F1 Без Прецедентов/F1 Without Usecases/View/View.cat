@@ -27,7 +27,7 @@
 	(object Attribute
 	    tool       	"MDA Generator"
 	    name       	"SELF GENERATED FILE (intf.pas)"
-	    value      	"w:/garant6x/implementation/Garant/GbaNemesis/View/F1 Without Usecases_View_vcmlib.info")
+	    value      	"")
 	(object Attribute
 	    tool       	"MDA Generator"
 	    name       	"SourceType (intf.pas)"
@@ -47,6 +47,22 @@
 	(object Attribute
 	    tool       	"MDA Generator"
 	    name       	"SourceType (forth_structure)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script)"
+	    value      	"w:/shared/models/NewSchool/Scripts/4F7D7B980383.pas.ms.script")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script.runner)"
+	    value      	"w:/shared/models/NewSchool/Scripts/4F7D7B980383.pas.ms.script.runner")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script.runner)"
 	    value      	"file"))
     quid       	"4F7D7B980383"
     stereotype 	"VCMViews"
@@ -293,11 +309,11 @@
 	    quidu      	"4986ECDF01F4")
 	(object Visibility_Relationship
 	    quid       	"4F86D0120377"
-	    supplier   	"Logical View::Shared Delphi::AFW"
+	    supplier   	"Logical View::Shared Delphi Low Level::AFW"
 	    quidu      	"4790B4F00236")
 	(object Visibility_Relationship
 	    quid       	"4F86D0150259"
-	    supplier   	"Logical View::Shared Delphi::AFW::afwFacade"
+	    supplier   	"Logical View::Shared Delphi Low Level::AFW::afwFacade"
 	    quidu      	"47750CE700D0")
 	(object Visibility_Relationship
 	    quid       	"4F86D1DB00D5"
@@ -3605,7 +3621,7 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"SELF GENERATED FILE (intf.pas)"
-				    value      	"w:/garant6x/implementation/Garant/GbaNemesis/View/NemesisMain_utMainWindow_UserType.pas")
+				    value      	"")
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"SourceType (intf.pas)"
@@ -3686,11 +3702,11 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"intf.pas:*5566B0FA013A_4958D2EA00CC_var*"
-				    value      	"//#UC START# *5566B0FA013A_4958D2EA00CC_var*§var§ l_TabCont: TvcmTabbedContainerForm;§ l_Cont: IvcmContainer;§//#UC END# *5566B0FA013A_4958D2EA00CC_var*")
+				    value      	"//#UC START# *5566B0FA013A_4958D2EA00CC_var*§var§ l_TabCont: TvcmTabbedContainerForm;§ l_Cont: IvcmContainer;§ l_OpenAfter: TvcmEntityForm;§//#UC END# *5566B0FA013A_4958D2EA00CC_var*")
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"intf.pas:*5566B0FA013A_4958D2EA00CC_impl*"
-				    value      	"//#UC START# *5566B0FA013A_4958D2EA00CC_impl*§ Result := nil;§ // - http://mdp.garant.ru/pages/viewpage.action?pageId=600654481§ l_Cont := TvcmTabbedContainerFormDispatcher.Instance.MakeAndPlaceVCMContainer(Self As IvcmContainerMaker,§  Self as IvcmContainer, aOpenKind, True, (aOpenKind = vcm_okInNewTab));§ if (l_Cont <> nil) then§ begin§  Result := l_Cont.AsForm.VCLWinControl as TvcmMainForm;§  InitClone(Result);§  if (aOpenKind = vcm_okInNewWindow) then§  begin§   l_TabCont := TvcmTabbedContainerFormDispatcher.Instance.GetFormContainer(Result);§   if (l_TabCont <> nil) then§   begin§    if (GetForegroundWindow <> l_TabCont.Handle) then§     SetForegroundWindow(l_TabCont.Handle)§   end§   else§    if (GetForegroundWindow <> Result.Handle) then§     SetForegroundWindow(Result.Handle);§  end;§ end;§//#UC END# *5566B0FA013A_4958D2EA00CC_impl*"))
+				    value      	"//#UC START# *5566B0FA013A_4958D2EA00CC_impl*§ Result := nil;§ // - http://mdp.garant.ru/pages/viewpage.action?pageId=600654481§ if (aOpenAfter = nil) then§  l_OpenAfter := nil§ else§  l_OpenAfter := TvcmEntityForm(aOpenAfter.VCLWinControl);§ l_Cont := TvcmTabbedContainerFormDispatcher.Instance.MakeAndPlaceVCMContainer(Self As IvcmContainerMaker,§  Self as IvcmContainer, aOpenKind, True, aOpenLast, l_OpenAfter);§ if (l_Cont <> nil) then§ begin§  Result := l_Cont.AsForm.VCLWinControl as TvcmMainForm;§  InitClone(Result);§  if (aOpenKind = vcm_okInNewWindow) then§  begin§   l_TabCont := TvcmTabbedContainerFormDispatcher.Instance.GetFormContainer(Result);§   if (l_TabCont <> nil) then§   begin§    if (GetForegroundWindow <> l_TabCont.Handle) then§     SetForegroundWindow(l_TabCont.Handle)§   end§   else§    if (GetForegroundWindow <> Result.Handle) then§     SetForegroundWindow(Result.Handle);§  end;§ end;§//#UC END# *5566B0FA013A_4958D2EA00CC_impl*"))
 			    quid       	"5566B0FA013A"
 			    stereotype 	"method"
 			    exportControl 	"Private"
@@ -3720,14 +3736,41 @@
 						(object Attribute
 						    tool       	"MDA Generator"
 						    name       	"ElementCreationOrder"
-						    value      	"1432793388411708")
+						    value      	"1456393660440080")
 						(object Attribute
 						    tool       	"MDA Generator"
 						    name       	"ResolvedTypeGuid"
 						    value      	"53A410AA031B"))
-					    quid       	"5566B12C019B"
+					    quid       	"56CECDBC01B8"
 					    type       	"TvcmMainFormOpenKind"
-					    quidu      	"53A410AA031B"))
+					    quidu      	"53A410AA031B")
+					(object Parameter "aOpenLast"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"MDA Generator"
+						    name       	"ElementCreationOrder"
+						    value      	"1456393660471281")
+						(object Attribute
+						    tool       	"MDA Generator"
+						    name       	"ResolvedTypeGuid"
+						    value      	"46A603BB0391"))
+					    quid       	"56CECDBC01D7"
+					    type       	"Boolean"
+					    quidu      	"46A603BB0391")
+					(object Parameter "aOpenAfter"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"MDA Generator"
+						    name       	"ElementCreationOrder"
+						    value      	"1456393660502482")
+						(object Attribute
+						    tool       	"MDA Generator"
+						    name       	"ResolvedTypeGuid"
+						    value      	"4914746C019E"))
+					    quid       	"56CECDBC01F6"
+					    type       	"IvcmEntityForm"
+					    quidu      	"4914746C019E"
+					    initv      	"nil"))
 				    result     	"TvcmMainForm"
 				    concurrency 	"Sequential"
 				    opExportControl 	"Private"
@@ -4083,7 +4126,7 @@
 				    value      	"false"))
 			    quid       	"4F86CC0901DD"
 			    stereotype 	"uses"
-			    supplier   	"Logical View::Shared Delphi::AFW::afwFacade::afwFacade"
+			    supplier   	"Logical View::Shared Delphi Low Level::AFW::afwFacade::afwFacade"
 			    quidu      	"47752AF90375")
 			(object Uses_Relationship
 			    attributes 	(list Attribute_Set
@@ -5078,7 +5121,7 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"intf.pas:*4F882BA300FD_4A952BA3006D_impl*"
-				    value      	"//#UC START# *4F882BA300FD_4A952BA3006D_impl*§ if aMessage.CopyDataStruct^.dwData = g_IntegrationMessage then§ begin§  l_RealMainForm := GetParentForm(Self);§  if (l_RealMainForm = nil) then§   l_RealMainForm := Self;§  // - http://mdp.garant.ru/pages/viewpage.action?pageId=566812855§  if not IsWindowEnabled(l_RealMainForm.Handle) then§   aMessage.Result := GI_BUSY§  else§   if aMessage.CopyDataStruct^.cbData<SizeOf(TIntegrationData) then§    aMessage.Result := GI_INVALIDLINKFORMAT§   else§    with PIntegrationData(aMessage.CopyDataStruct^.lpData)^ do§    begin§     if OpenInNewWindow then§      OpenNewMainWindow;§      // - http://mdp.garant.ru/pages/viewpage.action?pageId=566789558§     if Supports(Self.Dispatcher.FormDispatcher.MainForm[Self.Dispatcher.FormDispatcher.MainFormsCount-1],§      InsIntegrationProcessor, l_Processor) then§      begin§       l_Processor.CheckInconic;§       aMessage.Result := aMessage.CopyDataStruct^.dwData;§       case Kind of§        idkCommand:§         if aMessage.CopyDataStruct^.cbData<>SizeOf(TIntegrationData) then§          aMessage.Result := GI_INVALIDLINKFORMAT§         else§          if not l_Processor.ProcessCommand(Command, OpenInNewWindow, nil) then§           aMessage.Result := GI_INVALIDLINKFORMAT;§        idkLink:§         if (aMessage.CopyDataStruct^.cbData < SizeOf(TIntegrationData)) or§          (Integer(StrLen(PAnsiChar(@Link)))<>LinkLength) then§          aMessage.Result := GI_INVALIDLINKFORMAT§         else§         begin§          try§           if not l_Processor.ProcessLink(@Link) then§            aMessage.Result := GI_INVALIDLINKFORMAT;§          except§           on ECanNotFindData do aMessage.Result := GI_SYSTEMERROR;§           on EInvalidXMLType do aMessage.Result := GI_INVALIDLINKFORMAT;§           on ECantCreateObject do aMessage.Result := GI_QUERYPARAMSHASABSENTVALUES;§           //http://mdp.garant.ru/pages/viewpage.action?pageId=462553651§           on ETryToFindEmptyContext do aMessage.Result := GI_TRYTOFINDEMPTYCONTEXT;§          end;§         end;§        idkCheckIntegrationKey:§         if (aMessage.CopyDataStruct^.cbData < SizeOf(TIntegrationData)) or§          (Integer(StrLen(PAnsiChar(@Key)))<>KeyLength) then§          aMessage.Result := GI_SYSTEMERROR§         else§          if not l_Processor.CheckKey(@Key) then§           aMessage.Result := GI_ALREADYRUNNING;§       end;§       if (aMessage.Result <> LongInt(aMessage.CopyDataStruct^.dwData)) and§        (OpenInNewWindow or not f_WindowInitialized) then§        l_Processor.ProcessCommand(GC_ACTIVATE, True, nil);§      end§     else§      aMessage.Result := GI_NOTFOUND;§   end;//aMessage.CopyDataStruct^.cbData<SizeOf(TIntegrationData)§ end//aMessage.CopyDataStruct^.dwData = g_IntegrationMessage§ else§  if aMessage.CopyDataStruct^.dwData = g_LastMainWindowMessage then§   aMessage.Result := Self.Dispatcher.FormDispatcher.MainForm[Self.Dispatcher.FormDispatcher.MainFormsCount-1].VCLWinControl.Handle;§//#UC END# *4F882BA300FD_4A952BA3006D_impl*"))
+				    value      	"//#UC START# *4F882BA300FD_4A952BA3006D_impl*§ if aMessage.CopyDataStruct^.dwData = g_IntegrationMessage then§ begin§  l_RealMainForm := GetParentForm(Self);§  if (l_RealMainForm = nil) then§   l_RealMainForm := Self;§  // - http://mdp.garant.ru/pages/viewpage.action?pageId=566812855§  if not IsWindowEnabled(l_RealMainForm.Handle) then§   aMessage.Result := GI_BUSY§  else§   if aMessage.CopyDataStruct^.cbData<SizeOf(TIntegrationData) then§    aMessage.Result := GI_INVALIDLINKFORMAT§   else§    with PIntegrationData(aMessage.CopyDataStruct^.lpData)^ do§    begin§     if OpenInNewWindow then§      if OpenNewMainWindow = nil then§      begin§       aMessage.Result := GI_TOOMANYOPENWINDOWS;§       Exit;§      end;§      // - http://mdp.garant.ru/pages/viewpage.action?pageId=566789558§     if Supports(Self.Dispatcher.FormDispatcher.MainForm[Self.Dispatcher.FormDispatcher.MainFormsCount-1],§      InsIntegrationProcessor, l_Processor) then§      begin§       l_Processor.CheckInconic;§       aMessage.Result := aMessage.CopyDataStruct^.dwData;§       case Kind of§        idkCommand:§         if aMessage.CopyDataStruct^.cbData<>SizeOf(TIntegrationData) then§          aMessage.Result := GI_INVALIDLINKFORMAT§         else§          if not l_Processor.ProcessCommand(Command, OpenInNewWindow, nil) then§           aMessage.Result := GI_INVALIDLINKFORMAT;§        idkLink:§         if (aMessage.CopyDataStruct^.cbData < SizeOf(TIntegrationData)) or§          (Integer(StrLen(PAnsiChar(@Link)))<>LinkLength) then§          aMessage.Result := GI_INVALIDLINKFORMAT§         else§         begin§          try§           if not l_Processor.ProcessLink(@Link) then§            aMessage.Result := GI_INVALIDLINKFORMAT;§          except§           on ECanNotFindData do aMessage.Result := GI_SYSTEMERROR;§           on EInvalidXMLType do aMessage.Result := GI_INVALIDLINKFORMAT;§           on ECantCreateObject do aMessage.Result := GI_QUERYPARAMSHASABSENTVALUES;§           //http://mdp.garant.ru/pages/viewpage.action?pageId=462553651§           on ETryToFindEmptyContext do aMessage.Result := GI_TRYTOFINDEMPTYCONTEXT;§          end;§         end;§        idkCheckIntegrationKey:§         if (aMessage.CopyDataStruct^.cbData < SizeOf(TIntegrationData)) or§          (Integer(StrLen(PAnsiChar(@Key)))<>KeyLength) then§          aMessage.Result := GI_SYSTEMERROR§         else§          if not l_Processor.CheckKey(@Key) then§           aMessage.Result := GI_ALREADYRUNNING;§       end;§       if (aMessage.Result <> LongInt(aMessage.CopyDataStruct^.dwData)) and§        (OpenInNewWindow or not f_WindowInitialized) then§        l_Processor.ProcessCommand(GC_ACTIVATE, True, nil);§      end§     else§      aMessage.Result := GI_NOTFOUND;§   end;//aMessage.CopyDataStruct^.cbData<SizeOf(TIntegrationData)§ end//aMessage.CopyDataStruct^.dwData = g_IntegrationMessage§ else§  if aMessage.CopyDataStruct^.dwData = g_LastMainWindowMessage then§   aMessage.Result := Self.Dispatcher.FormDispatcher.MainForm[Self.Dispatcher.FormDispatcher.MainFormsCount-1].VCLWinControl.Handle;§//#UC END# *4F882BA300FD_4A952BA3006D_impl*"))
 			    quid       	"4F882BA300FD"
 			    stereotype 	"message"
 			    parameters 	(list Parameters
@@ -6855,7 +6898,7 @@
 				    value      	"false"))
 			    quid       	"4F86DFBF0252"
 			    stereotype 	"uses"
-			    supplier   	"Logical View::Shared Delphi::AFW::afwFacade::afwFacade"
+			    supplier   	"Logical View::Shared Delphi Low Level::AFW::afwFacade::afwFacade"
 			    quidu      	"47752AF90375")
 			(object Uses_Relationship
 			    attributes 	(list Attribute_Set
@@ -7275,7 +7318,7 @@
 					(object Attribute
 					    tool       	"MDA Generator"
 					    name       	"intf.pas:*4F86BF5F0198_4A952BA3006D_impl*"
-					    value      	"//#UC START# *4F86BF5F0198_4A952BA3006D_impl*§ f_WindowInitialized := True;§ Result := (aCommand >= GC_FIRST) and (aCommand <= GC_LAST);§ if Result then§ begin§  l_FormToActivate := GetParentForm(Self);§  if (l_FormToActivate = nil) then§   l_FormToActivate := Self;§  if (l_FormToActivate.WindowState = wsMinimized) then§   SendMessage(l_FormToActivate.Handle, WM_SYSCOMMAND, SC_RESTORE, 0);§  SetActiveWindow(l_FormToActivate.Handle);§  SetForegroundWindow(l_FormToActivate.Handle);   §  afw.ProcessMessages;§  // - http://mdp.garant.ru/pages/viewpage.action?pageId=566789558§  case aCommand of§   GC_ACTIVATE:§    if InNewWindow then§     ProcessCommand(ConvertOpenOnStartSetting, false, aContainer);§   GC_MAIN_MENU:§    TdmStdRes.OpenMainMenuIfNeeded(aContainer);§   GC_NAVIGATOR:§    TdmStdRes.OpenRubricatorOnStart(aContainer);§   GC_SITUATION_SEARCH:§    TdmStdRes.OpenQuery(lg_qtKeyWord, nil, aContainer);§   GC_ATTRIBUTES_SEARCH:§    TdmStdRes.OpenQuery(lg_qtAttribute, nil, aContainer);§   GC_PUBLISH_SOURCE_SEARCH:§    //http://mdp.garant.ru/pages/viewpage.action?pageId=497226332§    if defDataAdapter.IsExists_PublishSourceTag then§     TdmStdRes.OpenQuery(lg_qtPublishedSource, nil, aContainer)§    else§     TdmStdRes.OpenMainMenuIfNeeded(aContainer);§   GC_REVIEW:§    TdmStdRes.OpenQuery(lg_qtLegislationReview, nil, aContainer);§   GC_DICTION:§    Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Diction_OpenDict);§   GC_NEW_DOCS:§    TdmStdRes.OpenNewDocs(aContainer);§   GC_INPHARM_SEARCH:§    if defDataAdapter.IsInpharmExists then§     TdmStdRes.OpenQuery(lg_qtInpharmSearch, nil, aContainer)§    else§     TdmStdRes.OpenMainMenuIfNeeded(aContainer);§   GC_DRUG_LIST:§    if defDataAdapter.IsInpharmExists then§     //Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_DrugList)§     TdmStdRes.OpenDrugListIfNeeded(aContainer)§    else§     TdmStdRes.OpenMainMenuIfNeeded(aContainer);§   GC_INPHARM_MAIN_MENU:§    if defDataAdapter.IsInpharmExists then§     TdmStdRes.OpenInpharmMainMenu(aContainer)§     //Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicMainMenu)§    else§     TdmStdRes.OpenMainMenuIfNeeded(aContainer);§   GC_IMPHARM_DICTION:§    if defDataAdapter.IsInpharmExists then§     Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicDiction)§    else§     TdmStdRes.OpenMainMenuIfNeeded(aContainer);§   GC_INTERNET_AGENT:§    if defDataAdapter.IsInternetAgentEnabled then§     Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_InternetAgent_InternetAgent)§    else§     TdmStdRes.OpenMainMenuIfNeeded(aContainer);§   GC_OPEN_CONSULT:§    Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Search_OpenConsult);§   GC_PRIME:§    Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Monitorings_OpenNewsLine);§   else§    TdmStdRes.OpenMainMenuIfNeeded(aContainer);§  end;//case aCommand§ end;//Result§//#UC END# *4F86BF5F0198_4A952BA3006D_impl*"))
+					    value      	"//#UC START# *4F86BF5F0198_4A952BA3006D_impl*§ f_WindowInitialized := True;§ Result := (aCommand >= GC_FIRST) and (aCommand <= GC_LAST);§ if Result then§ begin§  l_FormToActivate := GetParentForm(Self);§  if (l_FormToActivate = nil) then§   l_FormToActivate := Self;§  if (l_FormToActivate.WindowState = wsMinimized) then§   SendMessage(l_FormToActivate.Handle, WM_SYSCOMMAND, SC_RESTORE, 0);§  SetActiveWindow(l_FormToActivate.Handle);§  SetForegroundWindow(l_FormToActivate.Handle);   §  afw.ProcessMessages;§  // - http://mdp.garant.ru/pages/viewpage.action?pageId=566789558§  case aCommand of§   GC_ACTIVATE:§    if InNewWindow then§     ProcessCommand(ConvertOpenOnStartSetting, false, aContainer);§   GC_MAIN_MENU:§    TdmStdRes.OpenMainMenuIfNeeded(aContainer);§   GC_NAVIGATOR:§    TdmStdRes.OpenRubricatorOnStart(aContainer);§   GC_SITUATION_SEARCH:§    TdmStdRes.OpenQuery(lg_qtKeyWord, nil, aContainer);§   GC_ATTRIBUTES_SEARCH:§    TdmStdRes.OpenQuery(lg_qtAttribute, nil, aContainer);§   GC_PUBLISH_SOURCE_SEARCH:§    //http://mdp.garant.ru/pages/viewpage.action?pageId=497226332§    if defDataAdapter.IsExists_PublishSourceTag then§     TdmStdRes.OpenQuery(lg_qtPublishedSource, nil, aContainer)§    else§     TdmStdRes.OpenMainMenuIfNeeded(aContainer);§   GC_REVIEW:§    TdmStdRes.OpenQuery(lg_qtLegislationReview, nil, aContainer);§   GC_DICTION:§    Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Diction_OpenDict);§   GC_NEW_DOCS:§    TdmStdRes.OpenNewDocs(aContainer);§   GC_INPHARM_SEARCH:§    if defDataAdapter.IsInpharmExists then§     TdmStdRes.OpenQuery(lg_qtInpharmSearch, nil, aContainer)§    else§     TdmStdRes.OpenMainMenuIfNeeded(aContainer);§   GC_DRUG_LIST:§    if defDataAdapter.IsInpharmExists then§     //Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_DrugList)§     TdmStdRes.OpenDrugListIfNeeded(aContainer)§    else§     TdmStdRes.OpenMainMenuIfNeeded(aContainer);§   GC_INPHARM_MAIN_MENU:§    if defDataAdapter.IsInpharmExists then§     TdmStdRes.OpenInpharmMainMenu(aContainer)§     //Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicMainMenu)§    else§     TdmStdRes.OpenMainMenuIfNeeded(aContainer);§   GC_IMPHARM_DICTION:§    if defDataAdapter.IsInpharmExists then§     Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Inpharm_MedicDiction)§    else§     TdmStdRes.OpenMainMenuIfNeeded(aContainer);§   GC_INTERNET_AGENT:§    if defDataAdapter.IsInternetAgentEnabled then§     Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_InternetAgent_InternetAgent)§    else§     TdmStdRes.OpenMainMenuIfNeeded(aContainer);§   GC_OPEN_CONSULT:§    Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Search_OpenConsult);§   GC_PRIME:§    TdmStdRes.OpenNewsLine(True)§   else§    TdmStdRes.OpenMainMenuIfNeeded(aContainer);§  end;//case aCommand§ end;//Result§//#UC END# *4F86BF5F0198_4A952BA3006D_impl*"))
 				    quid       	"4F86BF5F0198"
 				    stereotype 	"facetmethod"
 				    operations 	(list Operations
@@ -8646,7 +8689,23 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"ElementCreationOrder0A63FFF0220B"
-			    value      	"1445875191102491"))
+			    value      	"1445875191102491")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"DerivedImplement"
+			    value      	"{}")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"DerivedOverload"
+			    value      	"{}")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ImplementSelectType"
+			    value      	"all")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"OverloadSelectType"
+			    value      	"include"))
 		    quid       	"4AA7EA010274"
 		    documentation 	"√‡‡ÌÚ"
 		    stereotype 	"VCMFinalMainForm"
@@ -11283,7 +11342,7 @@
 	    max_height 	28350
 	    max_width  	21600
 	    origin_x   	0
-	    origin_y   	0
+	    origin_y   	1494
 	    items      	(list diagram_item_list
 		(object CategoryView "Logical View::F1 Œ·ÓÎÓ˜Í‡ ¡ÂÁ œÂˆÂ‰ÂÌÚÓ‚::F1 Without Usecases::View::Hooks" @1
 		    location   	(502, 273)
@@ -12270,28 +12329,7 @@
 			(1896, 290)
 			(2174, 288))
 		    line_style 	0)
-		(object Label @27
-		    attributes 	(list Attribute_Set
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"LinkedItemGuid"
-			    value      	"4AA7EA010274"))
-		    location   	(1197, 2414)
-		    font       	(object Font
-			size       	8
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	FALSE
-			underline  	FALSE
-			strike     	FALSE
-			color      	255
-			default_color 	FALSE)
-		    nlines     	1
-		    max_width  	12
-		    justify    	1
-		    label      	"private")
-		(object ClassView "Class" "Logical View::F1 Œ·ÓÎÓ˜Í‡ ¡ÂÁ œÂˆÂ‰ÂÌÚÓ‚::F1 Without Usecases::View::PrimNemesis" @28
+		(object ClassView "Class" "Logical View::F1 Œ·ÓÎÓ˜Í‡ ¡ÂÁ œÂˆÂ‰ÂÌÚÓ‚::F1 Without Usecases::View::PrimNemesis" @27
 		    ShowCompartmentStereotypes 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
@@ -12308,7 +12346,7 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@28
+			Parent_View 	@27
 			location   	(122, 875)
 			fill_color 	13434879
 			nlines     	1
@@ -12316,7 +12354,7 @@
 			justify    	0
 			label      	"ï PrimNemesis")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@28
+			Parent_View 	@27
 			location   	(122, 825)
 			fill_color 	13434879
 			anchor     	10
@@ -12332,27 +12370,27 @@
 		    height     	184
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object InheritView "" @29
+		(object InheritView "" @28
 		    stereotype 	TRUE
 		    line_color 	3342489
 		    quidu      	"4A9528060000"
 		    client     	@7
-		    supplier   	@28
+		    supplier   	@27
 		    vertices   	(list Points
 			(487, 1199)
 			(369, 997))
 		    line_style 	0)
-		(object InheritView "" @30
+		(object InheritView "" @29
 		    stereotype 	TRUE
 		    line_color 	3342489
 		    quidu      	"4A92BCC00225"
-		    client     	@28
+		    client     	@27
 		    supplier   	@4
 		    vertices   	(list Points
 			(383, 812)
 			(486, 668))
 		    line_style 	0)
-		(object UsesView "" @31
+		(object UsesView "" @30
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12363,8 +12401,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @32
-			Parent_View 	@31
+		    stereotype 	(object SegLabel @31
+			Parent_View 	@30
 			location   	(761, 1040)
 			font       	(object Font
 			    size       	10
@@ -12387,13 +12425,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4AA7C2FD0185"
-		    client     	@28
+		    client     	@27
 		    supplier   	@8
 		    vertices   	(list Points
 			(466, 997)
 			(929, 1285))
 		    line_style 	0)
-		(object UsesView "" @33
+		(object UsesView "" @32
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12404,8 +12442,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @34
-			Parent_View 	@33
+		    stereotype 	(object SegLabel @33
+			Parent_View 	@32
 			location   	(543, 1245)
 			font       	(object Font
 			    size       	10
@@ -12428,13 +12466,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4AA7D8900188"
-		    client     	@28
+		    client     	@27
 		    supplier   	@9
 		    vertices   	(list Points
 			(343, 997)
 			(512, 1559))
 		    line_style 	0)
-		(object UsesView "" @35
+		(object UsesView "" @34
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12445,8 +12483,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @36
-			Parent_View 	@35
+		    stereotype 	(object SegLabel @35
+			Parent_View 	@34
 			location   	(412, 1286)
 			font       	(object Font
 			    size       	10
@@ -12469,13 +12507,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4AA7D8BE03E5"
-		    client     	@28
+		    client     	@27
 		    supplier   	@10
 		    vertices   	(list Points
 			(311, 997)
 			(274, 1559))
 		    line_style 	0)
-		(object UsesView "" @37
+		(object UsesView "" @36
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12486,8 +12524,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @38
-			Parent_View 	@37
+		    stereotype 	(object SegLabel @37
+			Parent_View 	@36
 			location   	(746, 1249)
 			font       	(object Font
 			    size       	10
@@ -12510,13 +12548,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4AA7DACD0397"
-		    client     	@28
+		    client     	@27
 		    supplier   	@11
 		    vertices   	(list Points
 			(391, 997)
 			(916, 1649))
 		    line_style 	0)
-		(object UsesView "" @39
+		(object UsesView "" @38
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12527,8 +12565,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @40
-			Parent_View 	@39
+		    stereotype 	(object SegLabel @39
+			Parent_View 	@38
 			location   	(546, 1436)
 			font       	(object Font
 			    size       	10
@@ -12551,13 +12589,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4AA7DE8000F7"
-		    client     	@28
+		    client     	@27
 		    supplier   	@12
 		    vertices   	(list Points
 			(334, 997)
 			(521, 1919))
 		    line_style 	0)
-		(object UsesView "" @41
+		(object UsesView "" @40
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12568,8 +12606,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @42
-			Parent_View 	@41
+		    stereotype 	(object SegLabel @41
+			Parent_View 	@40
 			location   	(412, 1463)
 			font       	(object Font
 			    size       	10
@@ -12592,13 +12630,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4AA7E23B027D"
-		    client     	@28
+		    client     	@27
 		    supplier   	@13
 		    vertices   	(list Points
 			(312, 997)
 			(272, 1919))
 		    line_style 	0)
-		(object UsesView "" @43
+		(object UsesView "" @42
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12609,8 +12647,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @44
-			Parent_View 	@43
+		    stereotype 	(object SegLabel @43
+			Parent_View 	@42
 			location   	(1237, 1542)
 			font       	(object Font
 			    size       	10
@@ -12633,13 +12671,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4AA7E24501CF"
-		    client     	@28
+		    client     	@27
 		    supplier   	@14
 		    vertices   	(list Points
 			(425, 997)
 			(1892, 2267))
 		    line_style 	0)
-		(object UsesView "" @45
+		(object UsesView "" @44
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12650,8 +12688,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @46
-			Parent_View 	@45
+		    stereotype 	(object SegLabel @45
+			Parent_View 	@44
 			location   	(1228, 1400)
 			font       	(object Font
 			    size       	10
@@ -12674,13 +12712,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4AA7EA360300"
-		    client     	@28
+		    client     	@27
 		    supplier   	@15
 		    vertices   	(list Points
 			(449, 997)
 			(1868, 1997))
 		    line_style 	0)
-		(object UsesView "" @47
+		(object UsesView "" @46
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12691,8 +12729,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @48
-			Parent_View 	@47
+		    stereotype 	(object SegLabel @47
+			Parent_View 	@46
 			location   	(1000, 1026)
 			font       	(object Font
 			    size       	10
@@ -12715,13 +12753,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4AA7EA3D0203"
-		    client     	@28
+		    client     	@27
 		    supplier   	@16
 		    vertices   	(list Points
 			(521, 978)
 			(1397, 1298))
 		    line_style 	0)
-		(object UsesView "" @49
+		(object UsesView "" @48
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12732,8 +12770,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @50
-			Parent_View 	@49
+		    stereotype 	(object SegLabel @49
+			Parent_View 	@48
 			location   	(758, 1445)
 			font       	(object Font
 			    size       	10
@@ -12756,13 +12794,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4AA8D64702A7"
-		    client     	@28
+		    client     	@27
 		    supplier   	@17
 		    vertices   	(list Points
 			(369, 997)
 			(937, 2009))
 		    line_style 	0)
-		(object UsesView "" @51
+		(object UsesView "" @50
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12773,8 +12811,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @52
-			Parent_View 	@51
+		    stereotype 	(object SegLabel @51
+			Parent_View 	@50
 			location   	(561, 1621)
 			font       	(object Font
 			    size       	10
@@ -12797,13 +12835,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4AB36E4B0367"
-		    client     	@28
+		    client     	@27
 		    supplier   	@18
 		    vertices   	(list Points
 			(332, 997)
 			(553, 2282))
 		    line_style 	0)
-		(object UsesView "" @53
+		(object UsesView "" @52
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12814,8 +12852,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @54
-			Parent_View 	@53
+		    stereotype 	(object SegLabel @53
+			Parent_View 	@52
 			location   	(453, 1739)
 			font       	(object Font
 			    size       	10
@@ -12838,13 +12876,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4AB36E9202EE"
-		    client     	@28
+		    client     	@27
 		    supplier   	@19
 		    vertices   	(list Points
 			(318, 997)
 			(348, 2483))
 		    line_style 	0)
-		(object UsesView "" @55
+		(object UsesView "" @54
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12855,8 +12893,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @56
-			Parent_View 	@55
+		    stereotype 	(object SegLabel @55
+			Parent_View 	@54
 			location   	(966, 1422)
 			font       	(object Font
 			    size       	10
@@ -12879,13 +12917,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4AB36EA700F1"
-		    client     	@28
+		    client     	@27
 		    supplier   	@20
 		    vertices   	(list Points
 			(404, 997)
 			(1354, 2009))
 		    line_style 	0)
-		(object UsesView "" @57
+		(object UsesView "" @56
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12896,8 +12934,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @58
-			Parent_View 	@57
+		    stereotype 	(object SegLabel @57
+			Parent_View 	@56
 			location   	(762, 1636)
 			font       	(object Font
 			    size       	10
@@ -12920,13 +12958,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4AB36EBD02A4"
-		    client     	@28
+		    client     	@27
 		    supplier   	@21
 		    vertices   	(list Points
 			(356, 997)
 			(949, 2369))
 		    line_style 	0)
-		(object UsesView "" @59
+		(object UsesView "" @58
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12937,8 +12975,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @60
-			Parent_View 	@59
+		    stereotype 	(object SegLabel @59
+			Parent_View 	@58
 			location   	(1162, 1218)
 			font       	(object Font
 			    size       	10
@@ -12961,13 +12999,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4AB36ECB0344"
-		    client     	@28
+		    client     	@27
 		    supplier   	@22
 		    vertices   	(list Points
 			(491, 997)
 			(1720, 1649))
 		    line_style 	0)
-		(object UsesView "" @61
+		(object UsesView "" @60
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -12978,8 +13016,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @62
-			Parent_View 	@61
+		    stereotype 	(object SegLabel @61
+			Parent_View 	@60
 			location   	(974, 1705)
 			font       	(object Font
 			    size       	10
@@ -13002,13 +13040,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4E034945002E"
-		    client     	@28
+		    client     	@27
 		    supplier   	@23
 		    vertices   	(list Points
 			(376, 997)
 			(1371, 2541))
 		    line_style 	0)
-		(object UsesView "" @63
+		(object UsesView "" @62
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -13019,8 +13057,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @64
-			Parent_View 	@63
+		    stereotype 	(object SegLabel @63
+			Parent_View 	@62
 			location   	(1228, 1400)
 			font       	(object Font
 			    size       	10
@@ -13043,13 +13081,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4F7DA6EF00E5"
-		    client     	@28
+		    client     	@27
 		    supplier   	@15
 		    vertices   	(list Points
 			(449, 997)
 			(1868, 1997))
 		    line_style 	0)
-		(object UsesView "" @65
+		(object UsesView "" @64
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -13060,8 +13098,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @66
-			Parent_View 	@65
+		    stereotype 	(object SegLabel @65
+			Parent_View 	@64
 			location   	(969, 1562)
 			font       	(object Font
 			    size       	10
@@ -13084,13 +13122,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"4F7DAD9801FB"
-		    client     	@28
+		    client     	@27
 		    supplier   	@24
 		    vertices   	(list Points
 			(387, 997)
 			(1362, 2271))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::F1 ¡‡ÁÓ‚˚Â ÓÔÂ‰ÂÎÂÌËﬂ ÔÂ‰ÏÂÚÌÓÈ Ó·Î‡ÒÚË::LegalDomain::Data::Common::TnsNotificationManager" @67
+		(object ClassView "Class" "Logical View::F1 ¡‡ÁÓ‚˚Â ÓÔÂ‰ÂÎÂÌËﬂ ÔÂ‰ÏÂÚÌÓÈ Ó·Î‡ÒÚË::LegalDomain::Data::Common::TnsNotificationManager" @66
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -13108,14 +13146,14 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@67
+			Parent_View 	@66
 			location   	(1981, 1387)
 			nlines     	1
 			max_width  	458
 			justify    	0
 			label      	"TnsNotificationManager")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@67
+			Parent_View 	@66
 			location   	(1981, 1337)
 			anchor     	10
 			nlines     	1
@@ -13130,7 +13168,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object UsesView "" @68
+		(object UsesView "" @67
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -13141,8 +13179,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @69
-			Parent_View 	@68
+		    stereotype 	(object SegLabel @68
+			Parent_View 	@67
 			location   	(1277, 1040)
 			font       	(object Font
 			    size       	10
@@ -13165,13 +13203,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"544631C20259"
-		    client     	@28
-		    supplier   	@67
+		    client     	@27
+		    supplier   	@66
 		    vertices   	(list Points
 			(521, 959)
 			(1971, 1350))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::Shared Delphi::VT$Rem::NewReminders::TvgRemindersLineTabbedContainerNotificationProxy" @70
+		(object ClassView "Class" "Logical View::Shared Delphi::VT$Rem::NewReminders::TvgRemindersLineTabbedContainerNotificationProxy" @69
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -13189,14 +13227,14 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@70
+			Parent_View 	@69
 			location   	(2230, 1705)
 			nlines     	1
 			max_width  	1028
 			justify    	0
 			label      	"ï TvgRemindersLineTabbedContainerNotificationProxy")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@70
+			Parent_View 	@69
 			location   	(2230, 1655)
 			anchor     	10
 			nlines     	1
@@ -13211,7 +13249,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object UsesView "" @71
+		(object UsesView "" @70
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -13222,8 +13260,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @72
-			Parent_View 	@71
+		    stereotype 	(object SegLabel @71
+			Parent_View 	@70
 			location   	(1540, 1195)
 			font       	(object Font
 			    size       	10
@@ -13246,13 +13284,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"54915CC6021C"
-		    client     	@28
-		    supplier   	@70
+		    client     	@27
+		    supplier   	@69
 		    vertices   	(list Points
 			(521, 973)
 			(2481, 1642))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::Shared Delphi::ChromeLikeControls::ChromeLikeInterfaces::TChromeLikeTabSetParams" @73
+		(object ClassView "Class" "Logical View::Shared Delphi::ChromeLikeControls::ChromeLikeInterfaces::TChromeLikeTabSetParams" @72
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -13270,14 +13308,14 @@
 			color      	2313060
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@73
+			Parent_View 	@72
 			location   	(108, 2781)
 			nlines     	1
 			max_width  	546
 			justify    	0
 			label      	"TChromeLikeTabSetParams")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@73
+			Parent_View 	@72
 			location   	(108, 2731)
 			anchor     	10
 			nlines     	1
@@ -13292,7 +13330,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object UsesView "" @74
+		(object UsesView "" @73
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -13303,8 +13341,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @75
-			Parent_View 	@74
+		    stereotype 	(object SegLabel @74
+			Parent_View 	@73
 			location   	(469, 1855)
 			font       	(object Font
 			    size       	10
@@ -13327,13 +13365,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"5518EE0101BF"
-		    client     	@28
-		    supplier   	@73
+		    client     	@27
+		    supplier   	@72
 		    vertices   	(list Points
 			(320, 997)
 			(377, 2718))
 		    line_style 	0)
-		(object ClassView "Class" "Logical View::Shared Delphi::VT::DateEdit::vtDateEditRes" @76
+		(object ClassView "Class" "Logical View::Shared Delphi::VT::DateEdit::vtDateEditRes" @75
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -13351,14 +13389,14 @@
 			color      	658175
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@76
+			Parent_View 	@75
 			location   	(1268, 1716)
 			nlines     	1
 			max_width  	372
 			justify    	0
 			label      	"ï vtDateEditRes")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@76
+			Parent_View 	@75
 			location   	(1268, 1666)
 			anchor     	10
 			nlines     	1
@@ -13373,7 +13411,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object UsesView "" @77
+		(object UsesView "" @76
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -13384,8 +13422,8 @@
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
-		    stereotype 	(object SegLabel @78
-			Parent_View 	@77
+		    stereotype 	(object SegLabel @77
+			Parent_View 	@76
 			location   	(957, 1230)
 			font       	(object Font
 			    size       	10
@@ -13408,13 +13446,13 @@
 			orientation 	0)
 		    line_color 	3342489
 		    quidu      	"556489D2014B"
-		    client     	@28
-		    supplier   	@76
+		    client     	@27
+		    supplier   	@75
 		    vertices   	(list Points
 			(443, 997)
 			(1330, 1653))
 		    line_style 	0)
-		(object CategoryView "Logical View::F1 Œ·ÓÎÓ˜Í‡ ¡ÂÁ œÂˆÂ‰ÂÌÚÓ‚::F1 Without Usecases::View::Events" @79
+		(object CategoryView "Logical View::F1 Œ·ÓÎÓ˜Í‡ ¡ÂÁ œÂˆÂ‰ÂÌÚÓ‚::F1 Without Usecases::View::Events" @78
 		    location   	(2106, 681)
 		    font       	(object Font
 			size       	10
@@ -13427,7 +13465,7 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@79
+			Parent_View 	@78
 			location   	(1962, 646)
 			fill_color 	13434879
 			nlines     	2
@@ -13435,7 +13473,7 @@
 			justify    	0
 			label      	"Events")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@79
+			Parent_View 	@78
 			location   	(1962, 596)
 			fill_color 	13434879
 			anchor     	10
@@ -13447,13 +13485,34 @@
 		    fill_color 	14145535
 		    quidu      	"55B793700105"
 		    width      	300
-		    height     	182)))
+		    height     	182)
+		(object Label @79
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"4AA7EA010274"))
+		    location   	(1197, 2414)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"private")))
 	(object ClassDiagram "Uses"
 	    attributes 	(list Attribute_Set
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"IsChanged"
-		    value      	"true"))
+		    value      	""))
 	    quid       	"4F7D7BFB010E"
 	    title      	"Uses"
 	    zoom       	100
@@ -15509,7 +15568,7 @@
 		    quidu      	"4986ECDF01F4"
 		    width      	564
 		    height     	182)
-		(object CategoryView "Logical View::Shared Delphi::AFW::afwFacade" @142
+		(object CategoryView "Logical View::Shared Delphi Low Level::AFW::afwFacade" @142
 		    location   	(5013, 508)
 		    font       	(object Font
 			size       	10
@@ -15542,7 +15601,7 @@
 		    quidu      	"47750CE700D0"
 		    width      	300
 		    height     	182)
-		(object CategoryView "Logical View::Shared Delphi::AFW" @143
+		(object CategoryView "Logical View::Shared Delphi Low Level::AFW" @143
 		    location   	(5006, 824)
 		    font       	(object Font
 			size       	10
@@ -15560,7 +15619,7 @@
 			nlines     	2
 			max_width  	374
 			justify    	0
-			label      	"ï AFW")
+			label      	"AFW")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@143
 			location   	(4819, 739)
@@ -18680,7 +18739,7 @@
 	    max_height 	28350
 	    max_width  	21600
 	    origin_x   	0
-	    origin_y   	0
+	    origin_y   	103
 	    items      	(list diagram_item_list
 		(object ClassView "Class" "Logical View::F1 ¡‡ÁÓ‚˚Â ÓÔÂ‰ÂÎÂÌËﬂ ÔÂ‰ÏÂÚÌÓÈ Ó·Î‡ÒÚË::LegalDomain::Data::Common::nsUserSettingsListener" @278
 		    ShowCompartmentStereotypes 	TRUE
@@ -19042,25 +19101,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@289
-			location   	(913, 2746)
+			location   	(897, 2741)
 			nlines     	1
-			max_width  	394
+			max_width  	426
 			justify    	0
 			label      	"ï PrimNemesis")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@289
-			location   	(913, 2696)
+			location   	(897, 2691)
 			anchor     	10
 			nlines     	1
-			max_width  	391
+			max_width  	424
 			justify    	0
 			label      	"<<VCMApplication>>")
 		    icon_style 	"Label"
 		    line_color 	21760
 		    fill_color 	16777215
 		    quidu      	"4A925AFF01BA"
-		    width      	412
-		    height     	157
+		    width      	444
+		    height     	167
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::F1 ¡‡ÁÓ‚˚Â ÓÔÂ‰ÂÎÂÌËﬂ ÔÂ‰ÏÂÚÌÓÈ Ó·Î‡ÒÚË::LegalDomain::Data::Common::nsStartupSupport::TnsStartupSupport" @290
@@ -19116,7 +19175,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @292
 			Parent_View 	@291
-			location   	(1303, 2427)
+			location   	(1305, 2425)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -19141,7 +19200,7 @@
 		    client     	@289
 		    supplier   	@290
 		    vertices   	(list Points
-			(1195, 2683)
+			(1201, 2678)
 			(1567, 2348))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Win::Windows" @293
@@ -19197,7 +19256,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @295
 			Parent_View 	@294
-			location   	(1570, 2402)
+			location   	(1575, 2400)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -19222,7 +19281,7 @@
 		    client     	@289
 		    supplier   	@293
 		    vertices   	(list Points
-			(1269, 2683)
+			(1279, 2678)
 			(1976, 2335))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::F1 ¡‡ÁÓ‚˚Â ÓÔÂ‰ÂÎÂÌËﬂ ÔÂ‰ÏÂÚÌÓÈ Ó·Î‡ÒÚË::LegalDomain::Data::Common::GblAdapter" @296
@@ -19278,7 +19337,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @298
 			Parent_View 	@297
-			location   	(1648, 2828)
+			location   	(1656, 2831)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -19303,7 +19362,7 @@
 		    client     	@289
 		    supplier   	@296
 		    vertices   	(list Points
-			(1316, 2835)
+			(1332, 2841)
 			(1897, 3045))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::Shared Delphi Low Level::L3::l3CoreObjects::l3Base" @299
@@ -19359,7 +19418,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @301
 			Parent_View 	@300
-			location   	(789, 2591)
+			location   	(787, 2588)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -19384,7 +19443,7 @@
 		    client     	@289
 		    supplier   	@299
 		    vertices   	(list Points
-			(1036, 2683)
+			(1032, 2678)
 			(716, 2336))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::garant6x::GblAdapterLib::Start::InvalidBase" @302
@@ -19440,7 +19499,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @304
 			Parent_View 	@303
-			location   	(627, 2610)
+			location   	(623, 2607)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -19465,7 +19524,7 @@
 		    client     	@289
 		    supplier   	@302
 		    vertices   	(list Points
-			(981, 2683)
+			(974, 2678)
 			(395, 2330))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::SysUtils::EAbort" @305
@@ -19521,7 +19580,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @307
 			Parent_View 	@306
-			location   	(670, 2900)
+			location   	(662, 2901)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -19546,7 +19605,7 @@
 		    client     	@289
 		    supplier   	@305
 		    vertices   	(list Points
-			(903, 2770)
+			(887, 2771)
 			(427, 2791))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::F1 ¡‡ÁÓ‚˚Â ÓÔÂ‰ÂÎÂÌËﬂ ÔÂ‰ÏÂÚÌÓÈ Ó·Î‡ÒÚË::LegalDomain::Data::Common::GblAdapter::ECorbaException" @308
@@ -19602,7 +19661,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @310
 			Parent_View 	@309
-			location   	(650, 2761)
+			location   	(642, 2758)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -19627,7 +19686,7 @@
 		    client     	@289
 		    supplier   	@308
 		    vertices   	(list Points
-			(903, 2705)
+			(887, 2700)
 			(457, 2585))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::F1 Œ·ÓÎÓ˜Í‡ ¡ÂÁ œÂˆÂ‰ÂÌÚÓ‚::F1 Without Usecases::View::Main::MedicMainMenuRes" @311
@@ -19725,7 +19784,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @314
 			Parent_View 	@313
-			location   	(970, 3108)
+			location   	(967, 3110)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -19750,7 +19809,7 @@
 		    client     	@289
 		    supplier   	@311
 		    vertices   	(list Points
-			(1041, 2840)
+			(1036, 2845)
 			(716, 3220))
 		    line_style 	0)
 		(object UsesView "" @315
@@ -19766,7 +19825,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @316
 			Parent_View 	@315
-			location   	(1497, 2945)
+			location   	(1499, 2947)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -19791,7 +19850,7 @@
 		    client     	@289
 		    supplier   	@312
 		    vertices   	(list Points
-			(1198, 2840)
+			(1204, 2845)
 			(1637, 3227))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::Shared Delphi::VT::DateEdit::TvtDateEdit" @317
@@ -19871,6 +19930,25 @@
 		    line_color 	7885055
 		    fill_color 	15781360
 		    quidu      	"4AA8AC090381"
+		    compartment 	(object Compartment
+			Parent_View 	@318
+			location   	(107, 3653)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	406
+			justify    	1)
 		    width      	446
 		    height     	288
 		    annotation 	8
@@ -20070,7 +20148,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @326
 			Parent_View 	@325
-			location   	(1652, 2685)
+			location   	(1662, 2686)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -20095,7 +20173,7 @@
 		    client     	@289
 		    supplier   	@324
 		    vertices   	(list Points
-			(1316, 2778)
+			(1332, 2779)
 			(1971, 2830))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::F1 Common For Shell And Monitoring::Search::Search::BaseSearchInterfaces::TnsBaseSearchOpenKind" @327
@@ -20151,7 +20229,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @329
 			Parent_View 	@328
-			location   	(982, 2507)
+			location   	(983, 2505)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -20176,7 +20254,7 @@
 		    client     	@289
 		    supplier   	@327
 		    vertices   	(list Points
-			(1107, 2683)
+			(1107, 2678)
 			(1096, 2324))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::Shared Delphi::VCM::Implementation::vcmBase::vcmParams" @330
@@ -20232,7 +20310,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @332
 			Parent_View 	@331
-			location   	(689, 3031)
+			location   	(683, 3033)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -20257,7 +20335,7 @@
 		    client     	@289
 		    supplier   	@330
 		    vertices   	(list Points
-			(903, 2832)
+			(887, 2837)
 			(400, 3002))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::Shared Delphi::VCM$Visual::Application Resources::StdRes" @333
@@ -20353,7 +20431,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @336
 			Parent_View 	@335
-			location   	(1713, 2935)
+			location   	(1718, 2937)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -20378,7 +20456,7 @@
 		    client     	@289
 		    supplier   	@334
 		    vertices   	(list Points
-			(1264, 2840)
+			(1274, 2845)
 			(2053, 3241))
 		    line_style 	0)
 		(object UsesView "" @337
@@ -20394,7 +20472,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @338
 			Parent_View 	@337
-			location   	(1583, 2538)
+			location   	(1592, 2536)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -20419,7 +20497,7 @@
 		    client     	@289
 		    supplier   	@333
 		    vertices   	(list Points
-			(1316, 2716)
+			(1332, 2713)
 			(1899, 2592))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::F1 Common For Shell And Monitoring::Search::View$Strange::Strange::Loadable" @339
@@ -20535,7 +20613,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @343
 			Parent_View 	@342
-			location   	(1267, 3013)
+			location   	(1267, 3016)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -20560,7 +20638,7 @@
 		    client     	@289
 		    supplier   	@341
 		    vertices   	(list Points
-			(1121, 2840)
+			(1121, 2845)
 			(1176, 3219))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::F1 Œ·ÓÎÓ˜Í‡ ¡ÂÁ œÂˆÂ‰ÂÌÚÓ‚::F1 Without Usecases::View::PrimNemesis::Main" @344
@@ -20600,6 +20678,25 @@
 		    line_color 	7885055
 		    fill_color 	15448575
 		    quidu      	"4A952BA3006D"
+		    compartment 	(object Compartment
+			Parent_View 	@344
+			location   	(1211, 1380)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	7
+			max_width  	1628
+			justify    	1)
 		    width      	1646
 		    height     	538
 		    annotation 	8
@@ -20641,6 +20738,25 @@
 		    line_color 	7885055
 		    fill_color 	15448575
 		    quidu      	"4C8A29700261"
+		    compartment 	(object Compartment
+			Parent_View 	@345
+			location   	(90, 1511)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	993
+			justify    	1)
 		    width      	1012
 		    height     	388
 		    annotation 	8
@@ -20781,7 +20897,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @351
 			Parent_View 	@350
-			location   	(1818, 2398)
+			location   	(1826, 2396)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -20806,7 +20922,7 @@
 		    client     	@289
 		    supplier   	@349
 		    vertices   	(list Points
-			(1316, 2692)
+			(1332, 2687)
 			(2395, 2330))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::F1 Œ·ÓÎÓ˜Í‡ ¡ÂÁ œÂˆÂ‰ÂÌÚÓ‚::F1 Without Usecases::View::PrimNemesis::MainWithReminders" @352
@@ -20883,7 +20999,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @355
 			Parent_View 	@354
-			location   	(2212, 2054)
+			location   	(2216, 2052)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -20908,7 +21024,7 @@
 		    client     	@289
 		    supplier   	@348
 		    vertices   	(list Points
-			(1260, 2683)
+			(1269, 2678)
 			(3273, 1635))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::F1 Œ·ÓÎÓ˜Í‡ ¡ÂÁ œÂˆÂ‰ÂÌÚÓ‚::F1 Without Usecases::View::System::Reminder$ForMainWindow" @356
@@ -21090,14 +21206,14 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@362
-			location   	(50, 953)
+			location   	(50, 949)
 			nlines     	1
 			max_width  	450
 			justify    	0
 			label      	"ï vcmContainedForm")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@362
-			location   	(50, 903)
+			location   	(50, 899)
 			anchor     	10
 			nlines     	1
 			max_width  	450
@@ -21108,7 +21224,7 @@
 		    fill_color 	16777215
 		    quidu      	"537D9BD30297"
 		    width      	468
-		    height     	180
+		    height     	188
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object RealizeView "" @363
@@ -21184,7 +21300,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @366
 			Parent_View 	@365
-			location   	(1850, 2532)
+			location   	(1860, 2530)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -21209,7 +21325,7 @@
 		    client     	@289
 		    supplier   	@364
 		    vertices   	(list Points
-			(1316, 2731)
+			(1332, 2728)
 			(2419, 2568))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::F1 ¡‡ÁÓ‚˚Â ÓÔÂ‰ÂÎÂÌËﬂ ÔÂ‰ÏÂÚÌÓÈ Ó·Î‡ÒÚË::LegalDomain::Data::Common::TnsNotificationManager::InsNotificationListener" @367
@@ -21541,7 +21657,7 @@
 	    max_height 	28350
 	    max_width  	21600
 	    origin_x   	0
-	    origin_y   	850
+	    origin_y   	1203
 	    items      	(list diagram_item_list
 		(object ClassView "Class" "Logical View::F1 Œ·ÓÎÓ˜Í‡ ¡ÂÁ œÂˆÂ‰ÂÌÚÓ‚::F1 Without Usecases::View::PrimNemesis::NemesisMain::CheckConsultationConnection" @379
 		    ShowCompartmentStereotypes 	TRUE
@@ -21580,6 +21696,25 @@
 		    line_color 	7885055
 		    fill_color 	15781360
 		    quidu      	"4A8E7A6E0379"
+		    compartment 	(object Compartment
+			Parent_View 	@379
+			location   	(67, 2203)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	156
+			justify    	1)
 		    width      	694
 		    height     	282
 		    annotation 	8
@@ -21782,6 +21917,25 @@
 		    line_color 	7885055
 		    fill_color 	15781360
 		    quidu      	"4B0BAF65023E"
+		    compartment 	(object Compartment
+			Parent_View 	@384
+			location   	(124, 1373)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	543
+			justify    	1)
 		    width      	536
 		    height     	282
 		    annotation 	8
@@ -21823,6 +21977,25 @@
 		    line_color 	7885055
 		    fill_color 	15781360
 		    quidu      	"4B0BAF8E03D0"
+		    compartment 	(object Compartment
+			Parent_View 	@385
+			location   	(135, 2593)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	165
+			justify    	1)
 		    width      	394
 		    height     	282
 		    annotation 	8
@@ -21904,6 +22077,25 @@
 		    line_color 	7885055
 		    fill_color 	15781360
 		    quidu      	"4BB3637402F5"
+		    compartment 	(object Compartment
+			Parent_View 	@387
+			location   	(75, 1740)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	718
+			justify    	1)
 		    width      	708
 		    height     	282
 		    annotation 	8
@@ -21944,6 +22136,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"4BCDAB6F00D2"
+		    compartment 	(object Compartment
+			Parent_View 	@388
+			location   	(863, 2189)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	156
+			justify    	1)
 		    width      	540
 		    height     	282
 		    annotation 	8
@@ -21984,6 +22195,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"4BCDABAC037C"
+		    compartment 	(object Compartment
+			Parent_View 	@389
+			location   	(1574, 2199)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	156
+			justify    	1)
 		    width      	410
 		    height     	282
 		    annotation 	8
@@ -22440,7 +22670,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1169, 2558)
+		    location   	(1679, 2562)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -22453,25 +22683,44 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@404
-			location   	(591, 2476)
+			location   	(589, 2480)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1156
+			max_width  	2180
 			justify    	0
-			label      	"ï OpenNewMainForm")
+			label      	"OpenNewMainForm")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@404
-			location   	(591, 2426)
+			location   	(589, 2430)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1156
+			max_width  	2180
 			justify    	0
 			label      	"<<method>>")
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"5566B0FA013A"
-		    width      	1174
+		    compartment 	(object Compartment
+			Parent_View 	@404
+			location   	(589, 2595)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	2203
+			justify    	1)
+		    width      	2198
 		    height     	288
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -23958,6 +24207,25 @@
 		    line_color 	7885055
 		    fill_color 	15781360
 		    quidu      	"4B0BAF65023E"
+		    compartment 	(object Compartment
+			Parent_View 	@468
+			location   	(152, 1538)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	543
+			justify    	1)
 		    width      	558
 		    height     	288
 		    annotation 	8
@@ -24040,6 +24308,25 @@
 		    line_color 	7885055
 		    fill_color 	15781360
 		    quidu      	"4B0BAF8E03D0"
+		    compartment 	(object Compartment
+			Parent_View 	@471
+			location   	(458, 2540)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	165
+			justify    	1)
 		    width      	394
 		    height     	288
 		    annotation 	8
@@ -24587,6 +24874,25 @@
 		    icon_style 	"Label"
 		    fill_color 	16777152
 		    quidu      	"4BCDAD600332"
+		    compartment 	(object Compartment
+			Parent_View 	@490
+			location   	(40, 220)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	10684
+			justify    	1)
 		    width      	10708
 		    height     	388
 		    annotation 	8
@@ -26137,6 +26443,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"4C8A33C301CA"
+		    compartment 	(object Compartment
+			Parent_View 	@542
+			location   	(91, 1495)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	678
+			justify    	1)
 		    width      	688
 		    height     	288
 		    annotation 	8
@@ -26697,6 +27022,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"4C8A4B95003E"
+		    compartment 	(object Compartment
+			Parent_View 	@556
+			location   	(111, 2557)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	156
+			justify    	1)
 		    width      	436
 		    height     	288
 		    annotation 	8
@@ -26817,6 +27161,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"4C8A4C9B00F9"
+		    compartment 	(object Compartment
+			Parent_View 	@559
+			location   	(122, 2886)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	156
+			justify    	1)
 		    width      	570
 		    height     	288
 		    annotation 	8
@@ -27380,11 +27743,30 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"4F86CBED00E7"
+		    compartment 	(object Compartment
+			Parent_View 	@573
+			location   	(134, 3237)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	315
+			justify    	1)
 		    width      	578
 		    height     	288
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi::AFW::afwFacade::afwFacade" @574
+		(object ClassView "Class" "Logical View::Shared Delphi Low Level::AFW::afwFacade::afwFacade" @574
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -27403,25 +27785,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@574
-			location   	(226, 148)
+			location   	(213, 144)
 			nlines     	1
-			max_width  	302
+			max_width  	328
 			justify    	0
-			label      	"ï afwFacade")
+			label      	"afwFacade")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@574
-			location   	(226, 98)
+			location   	(213, 94)
 			anchor     	10
 			nlines     	1
-			max_width  	302
+			max_width  	325
 			justify    	0
 			label      	"<<UtilityPack>>")
 		    icon_style 	"Label"
 		    line_color 	658175
 		    fill_color 	16777215
 		    quidu      	"47752AF90375"
-		    width      	320
-		    height     	180
+		    width      	346
+		    height     	188
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi For F1::Nemesis::Reminders::nscReminder::TnscReminder" @575
@@ -29285,7 +29667,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @657
 			Parent_View 	@656
-			location   	(237, 372)
+			location   	(236, 375)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -29311,7 +29693,7 @@
 		    supplier   	@574
 		    vertices   	(list Points
 			(342, 502)
-			(367, 266))
+			(366, 270))
 		    line_style 	0)
 		(object UsesView "" @658
 		    font       	(object Font
@@ -30393,6 +30775,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"4F7DCAFE028B"
+		    compartment 	(object Compartment
+			Parent_View 	@694
+			location   	(197, 2686)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	462
+			justify    	1)
 		    width      	850
 		    height     	288
 		    annotation 	8
@@ -30433,6 +30834,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"4F7DCB4E032C"
+		    compartment 	(object Compartment
+			Parent_View 	@695
+			location   	(207, 3028)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	462
+			justify    	1)
 		    width      	928
 		    height     	288
 		    annotation 	8
@@ -30473,6 +30893,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"4F7DCB68009E"
+		    compartment 	(object Compartment
+			Parent_View 	@696
+			location   	(220, 3397)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	462
+			justify    	1)
 		    width      	924
 		    height     	288
 		    annotation 	8
@@ -30513,6 +30952,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"4F7DCB83012B"
+		    compartment 	(object Compartment
+			Parent_View 	@697
+			location   	(230, 3769)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	462
+			justify    	1)
 		    width      	700
 		    height     	288
 		    annotation 	8
@@ -32270,6 +32728,25 @@
 		    icon_style 	"Label"
 		    fill_color 	16777152
 		    quidu      	"5368FF710274"
+		    compartment 	(object Compartment
+			Parent_View 	@764
+			location   	(1530, 2621)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	5
+			max_width  	631
+			justify    	1)
 		    width      	646
 		    height     	438
 		    annotation 	8
@@ -32405,6 +32882,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"4F86BF5F0198"
+		    compartment 	(object Compartment
+			Parent_View 	@768
+			location   	(97, 264)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	1696
+			justify    	1)
 		    width      	1702
 		    height     	282
 		    annotation 	8
@@ -32445,6 +32941,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"4F86BF850173"
+		    compartment 	(object Compartment
+			Parent_View 	@769
+			location   	(119, 655)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	809
+			justify    	1)
 		    width      	784
 		    height     	282
 		    annotation 	8
@@ -32485,6 +33000,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"4F86BFA3034E"
+		    compartment 	(object Compartment
+			Parent_View 	@770
+			location   	(135, 1023)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	800
+			justify    	1)
 		    width      	778
 		    height     	282
 		    annotation 	8
@@ -32525,6 +33059,25 @@
 		    icon_style 	"Label"
 		    fill_color 	15781360
 		    quidu      	"4F86BFBF01AE"
+		    compartment 	(object Compartment
+			Parent_View 	@771
+			location   	(74, 1408)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	159
+			justify    	1)
 		    width      	566
 		    height     	282
 		    annotation 	8
@@ -32628,7 +33181,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::Shared Delphi::AFW::afwFacade::afwFacade" @774
+		(object ClassView "Class" "Logical View::Shared Delphi Low Level::AFW::afwFacade::afwFacade" @774
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -32647,25 +33200,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@774
-			location   	(789, 841)
+			location   	(776, 837)
 			nlines     	1
-			max_width  	302
+			max_width  	328
 			justify    	0
-			label      	"ï afwFacade")
+			label      	"afwFacade")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@774
-			location   	(789, 791)
+			location   	(776, 787)
 			anchor     	10
 			nlines     	1
-			max_width  	302
+			max_width  	325
 			justify    	0
 			label      	"<<UtilityPack>>")
 		    icon_style 	"Label"
 		    line_color 	658175
 		    fill_color 	16777215
 		    quidu      	"47752AF90375"
-		    width      	320
-		    height     	180
+		    width      	346
+		    height     	188
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::F1 ¡‡ÁÓ‚˚Â ÓÔÂ‰ÂÎÂÌËﬂ ÔÂ‰ÏÂÚÌÓÈ Ó·Î‡ÒÚË::LegalDomain::Data::Common::nsConst" @775
@@ -33187,7 +33740,7 @@
 		    quidu      	"4F88013F007B"
 		    compartment 	(object Compartment
 			Parent_View 	@787
-			location   	(179, 1888)
+			location   	(179, 1898)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -33446,7 +33999,7 @@
 		    quidu      	"4F8813D6026A"
 		    compartment 	(object Compartment
 			Parent_View 	@793
-			location   	(184, 2278)
+			location   	(184, 2288)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -33505,7 +34058,7 @@
 		    quidu      	"4F881735018D"
 		    compartment 	(object Compartment
 			Parent_View 	@794
-			location   	(183, 2663)
+			location   	(183, 2673)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -33724,7 +34277,7 @@
 		    quidu      	"4F881C2E0175"
 		    compartment 	(object Compartment
 			Parent_View 	@799
-			location   	(555, 2287)
+			location   	(555, 2297)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -34263,7 +34816,7 @@
 		    quidu      	"4F8BED97037A"
 		    compartment 	(object Compartment
 			Parent_View 	@812
-			location   	(212, 3019)
+			location   	(212, 3029)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -34362,7 +34915,7 @@
 		    quidu      	"4F8BF3940103"
 		    compartment 	(object Compartment
 			Parent_View 	@814
-			location   	(264, 3355)
+			location   	(264, 3365)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -34421,7 +34974,7 @@
 		    quidu      	"4F8BF3B5012A"
 		    compartment 	(object Compartment
 			Parent_View 	@815
-			location   	(684, 2999)
+			location   	(684, 3009)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -34480,7 +35033,7 @@
 		    quidu      	"4F8BF3CC02A6"
 		    compartment 	(object Compartment
 			Parent_View 	@816
-			location   	(903, 3362)
+			location   	(903, 3372)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -34539,7 +35092,7 @@
 		    quidu      	"4F8BF3ED02D0"
 		    compartment 	(object Compartment
 			Parent_View 	@817
-			location   	(1004, 2647)
+			location   	(1004, 2657)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -34598,7 +35151,7 @@
 		    quidu      	"4F8BF4060008"
 		    compartment 	(object Compartment
 			Parent_View 	@818
-			location   	(1625, 2634)
+			location   	(1625, 2644)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -34657,7 +35210,7 @@
 		    quidu      	"4F8BF41E00D8"
 		    compartment 	(object Compartment
 			Parent_View 	@819
-			location   	(1664, 2978)
+			location   	(1664, 2988)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -34716,7 +35269,7 @@
 		    quidu      	"4F8BF5C602C3"
 		    compartment 	(object Compartment
 			Parent_View 	@820
-			location   	(2283, 2632)
+			location   	(2283, 2642)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -35511,7 +36064,7 @@
 			default_color 	TRUE)
 		    stereotype 	(object SegLabel @842
 			Parent_View 	@841
-			location   	(684, 632)
+			location   	(677, 628)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -35537,7 +36090,7 @@
 		    supplier   	@774
 		    vertices   	(list Points
 			(494, 680)
-			(779, 801))
+			(766, 795))
 		    line_style 	0)
 		(object UsesView "" @843
 		    font       	(object Font
@@ -37880,7 +38433,7 @@
 		    quidu      	"550144FA0072"
 		    compartment 	(object Compartment
 			Parent_View 	@957
-			location   	(1488, 3357)
+			location   	(1488, 3367)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"

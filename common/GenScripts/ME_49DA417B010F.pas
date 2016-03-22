@@ -3,6 +3,7 @@ unit evDocumentPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentPainter" MUID: (49DA417B010F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

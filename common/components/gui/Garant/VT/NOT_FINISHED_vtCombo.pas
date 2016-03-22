@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtCombo;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtCombo.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vtCombo" MUID: (51B5C8CB00A0)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

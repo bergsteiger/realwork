@@ -2,6 +2,7 @@ unit evMultiSelectionDataFormatting;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evMultiSelectionDataFormatting.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevMultiSelectionDataFormatting" MUID: (48ECDC5E005D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

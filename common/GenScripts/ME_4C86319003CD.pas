@@ -3,6 +3,8 @@ unit PrimPictureInfoOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimPictureInfoOptions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimPictureInfoOptions" MUID: (4C86319003CD)
+// Имя типа: "TPrimPictureInfoOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

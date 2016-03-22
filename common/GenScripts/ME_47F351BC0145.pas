@@ -3,6 +3,7 @@ unit NOT_FINISHED_evOpProc;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evOpProc.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evOpProc" MUID: (47F351BC0145)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

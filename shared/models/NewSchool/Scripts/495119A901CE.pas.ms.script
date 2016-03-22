@@ -4,34 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_495119A901CE
 
-FORWARD ME_495119C4011A
-
-: ME_1869926D7798
- CONST UID '1869926D7798'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscEditor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_495119C4011A // TnscEditor
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_1869926D7798 Ini_Reg_Class
-
-: ME_DA169B8FBEF1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_495119C4011A // TnscEditor
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_DA169B8FBEF1 
-
 : ME_495119C4011A
  CONST UID '495119C4011A'
  CONST Name 'TnscEditor'
@@ -46,14 +18,6 @@ ref; // ME_DA169B8FBEF1
    Seq: ( WL 'ME_495268900201' '4952683C007B.pas.ms.script' // TeeEditor
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_1869926D7798 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_DA169B8FBEF1 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
@@ -96,34 +60,6 @@ ref; // ME_49512B040003 TnscTextSource
 
 FORWARD ME_4AC6113D038A
 
-FORWARD ME_4CFFD93B0065
-
-: ME_9D9350CA80C1
- CONST UID '9D9350CA80C1'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscCustomPreviewPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CFFD93B0065 // TnscCustomPreviewPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_9D9350CA80C1 Ini_Reg_Class
-
-: ME_50D23BC84A6D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CFFD93B0065 // TnscCustomPreviewPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_50D23BC84A6D 
-
 : ME_4CFFD93B0065
  CONST UID '4CFFD93B0065'
  CONST Name 'TnscCustomPreviewPanel'
@@ -138,14 +74,6 @@ ref; // ME_50D23BC84A6D
    Seq: ( WL 'ME_4CFFD98700DD' '4952683C007B.pas.ms.script' // TeeCustomPreviewPanel
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9D9350CA80C1 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_50D23BC84A6D // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -281,57 +209,6 @@ ref; // ME_53FDACD502B1 f_CloseRect
  ;
 
 ref; // ME_53FDAD030078 f_MouseTrackItemIndex
-
-: ME_4C8043F6AFDB
- CONST UID '4C8043F6AFDB'
- CONST Name 'f_UseCloseHyperlink'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства UseCloseHyperlink' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53FDAB5501EB // TnscSubTree
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'UseCloseHyperlink'
-
-ref; // ME_4C8043F6AFDB f_UseCloseHyperlink
-
-: ME_2F1BAFE67950
- CONST UID '2F1BAFE67950'
- CONST Name 'f_HotTrackColor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HotTrackColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53FDAB5501EB // TnscSubTree
- ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
- CONST extprop:clearViaProperty 'HotTrackColor'
-
-ref; // ME_2F1BAFE67950 f_HotTrackColor
-
-: ME_C19CAC33A4DA
- CONST UID 'C19CAC33A4DA'
- CONST Name 'f_YandexLikeBehaviour'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства YandexLikeBehaviour' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53FDAB5501EB // TnscSubTree
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'YandexLikeBehaviour'
-
-ref; // ME_C19CAC33A4DA f_YandexLikeBehaviour
 
 FORWARD ME_53FDAD2F00B9
 
@@ -611,35 +488,7 @@ ref; // ME_53FDD0DC02A8 Message
 
 ref; // ME_53FDD0D7005E CMMouseLeave
 
-: ME_5E2A6CD85565
- CONST UID '5E2A6CD85565'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscSubTree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53FDAB5501EB // TnscSubTree
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5E2A6CD85565 Ini_Reg_Class
-
-: ME_62DD8930324C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53FDAB5501EB // TnscSubTree
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_62DD8930324C 
-
 : ME_47A042E100E2_ME_53FDAB5501EB
- CONST UID '47A042E100E2'
- CONST Name 'InitFields'
  : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
  ;
  : Implementor ME_53FDAB5501EB // TnscSubTree
@@ -648,8 +497,6 @@ ref; // ME_62DD8930324C
 ref; // ME_47A042E100E2_ME_53FDAB5501EB InitFields
 
 : ME_48C6C044025E_ME_53FDAB5501EB
- CONST UID '48C6C044025E'
- CONST Name 'Paint'
  : Original WL 'ME_48C6C044025E' '467BA8C8017E.pas.ms.script' // Paint
  ;
  : Implementor ME_53FDAB5501EB // TnscSubTree
@@ -658,8 +505,6 @@ ref; // ME_47A042E100E2_ME_53FDAB5501EB InitFields
 ref; // ME_48C6C044025E_ME_53FDAB5501EB Paint
 
 : ME_48C7925A02E5_ME_53FDAB5501EB
- CONST UID '48C7925A02E5'
- CONST Name 'CreateParams'
  : Original WL 'ME_48C7925A02E5' '4799D29F033F.pas.ms.script' // CreateParams
  ;
  : Implementor ME_53FDAB5501EB // TnscSubTree
@@ -668,8 +513,6 @@ ref; // ME_48C6C044025E_ME_53FDAB5501EB Paint
 ref; // ME_48C7925A02E5_ME_53FDAB5501EB CreateParams
 
 : ME_4CC847800383_ME_53FDAB5501EB
- CONST UID '4CC847800383'
- CONST Name 'TuneRegion'
  : Original WL 'ME_4CC847800383' '4CC81FAC02D6.pas.ms.script' // TuneRegion
  ;
  : Implementor ME_53FDAB5501EB // TnscSubTree
@@ -678,8 +521,6 @@ ref; // ME_48C7925A02E5_ME_53FDAB5501EB CreateParams
 ref; // ME_4CC847800383_ME_53FDAB5501EB TuneRegion
 
 : ME_508F825303E4_ME_53FDAB5501EB
- CONST UID '508F825303E4'
- CONST Name 'DoOnGetItemStyle'
  : Original WL 'ME_508F825303E4' '4B97E7FD006C.pas.ms.script' // DoOnGetItemStyle
  ;
  : Implementor ME_53FDAB5501EB // TnscSubTree
@@ -688,8 +529,6 @@ ref; // ME_4CC847800383_ME_53FDAB5501EB TuneRegion
 ref; // ME_508F825303E4_ME_53FDAB5501EB DoOnGetItemStyle
 
 : ME_5152BAA303BA_ME_53FDAB5501EB
- CONST UID '5152BAA303BA'
- CONST Name 'CanScrollWindow'
  : Original WL 'ME_5152BAA303BA' '4B97E7FD006C.pas.ms.script' // CanScrollWindow
  ;
  : Implementor ME_53FDAB5501EB // TnscSubTree
@@ -698,8 +537,6 @@ ref; // ME_508F825303E4_ME_53FDAB5501EB DoOnGetItemStyle
 ref; // ME_5152BAA303BA_ME_53FDAB5501EB CanScrollWindow
 
 : ME_515317860183_ME_53FDAB5501EB
- CONST UID '515317860183'
- CONST Name 'MouseWheelHandler'
  : Original WL 'ME_515317860183' '4799D29F033F.pas.ms.script' // MouseWheelHandler
  ;
  : Implementor ME_53FDAB5501EB // TnscSubTree
@@ -708,8 +545,6 @@ ref; // ME_5152BAA303BA_ME_53FDAB5501EB CanScrollWindow
 ref; // ME_515317860183_ME_53FDAB5501EB MouseWheelHandler
 
 : ME_515586DF00E9_ME_53FDAB5501EB
- CONST UID '515586DF00E9'
- CONST Name 'ExcludeRect'
  : Original WL 'ME_515586DF00E9' '4B97E7FD006C.pas.ms.script' // ExcludeRect
  ;
  : Implementor ME_53FDAB5501EB // TnscSubTree
@@ -718,8 +553,6 @@ ref; // ME_515317860183_ME_53FDAB5501EB MouseWheelHandler
 ref; // ME_515586DF00E9_ME_53FDAB5501EB ExcludeRect
 
 : ME_5266249D00E3_ME_53FDAB5501EB
- CONST UID '5266249D00E3'
- CONST Name 'NeedChangeCurrentOnMouseTrack'
  : Original WL 'ME_5266249D00E3' '4B97E7FD006C.pas.ms.script' // NeedChangeCurrentOnMouseTrack
  ;
  : Implementor ME_53FDAB5501EB // TnscSubTree
@@ -728,8 +561,6 @@ ref; // ME_515586DF00E9_ME_53FDAB5501EB ExcludeRect
 ref; // ME_5266249D00E3_ME_53FDAB5501EB NeedChangeCurrentOnMouseTrack
 
 : ME_5266253D035D_ME_53FDAB5501EB
- CONST UID '5266253D035D'
- CONST Name 'NeedDrawArrowSelection'
  : Original WL 'ME_5266253D035D' '4B97E7FD006C.pas.ms.script' // NeedDrawArrowSelection
  ;
  : Implementor ME_53FDAB5501EB // TnscSubTree
@@ -738,8 +569,6 @@ ref; // ME_5266249D00E3_ME_53FDAB5501EB NeedChangeCurrentOnMouseTrack
 ref; // ME_5266253D035D_ME_53FDAB5501EB NeedDrawArrowSelection
 
 : ME_5298BF130022_ME_53FDAB5501EB
- CONST UID '5298BF130022'
- CONST Name 'IsShowGripper'
  : Original WL 'ME_5298BF130022' '48297E42011A.pas.ms.script' // IsShowGripper
  ;
  : Implementor ME_53FDAB5501EB // TnscSubTree
@@ -748,8 +577,6 @@ ref; // ME_5266253D035D_ME_53FDAB5501EB NeedDrawArrowSelection
 ref; // ME_5298BF130022_ME_53FDAB5501EB IsShowGripper
 
 : ME_5298C02D03B3_ME_53FDAB5501EB
- CONST UID '5298C02D03B3'
- CONST Name 'NCDraw'
  : Original WL 'ME_5298C02D03B3' '48297E42011A.pas.ms.script' // NCDraw
  ;
  : Implementor ME_53FDAB5501EB // TnscSubTree
@@ -782,9 +609,6 @@ ref; // ME_5298C02D03B3_ME_53FDAB5501EB NCDraw
  ME_53FDACC60040 // f_CloseSize
  ME_53FDACD502B1 // f_CloseRect
  ME_53FDAD030078 // f_MouseTrackItemIndex
- ME_4C8043F6AFDB // f_UseCloseHyperlink
- ME_2F1BAFE67950 // f_HotTrackColor
- ME_C19CAC33A4DA // f_YandexLikeBehaviour
  )
  ; // Attributes
  : Operations
@@ -797,7 +621,6 @@ ref; // ME_5298C02D03B3_ME_53FDAB5501EB NCDraw
  ME_53FDD0B201C8 // WMNCCalcSize
  ME_53FDD0C30163 // WMMouseMove
  ME_53FDD0D7005E // CMMouseLeave
- ME_5E2A6CD85565 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -815,10 +638,6 @@ ref; // ME_5298C02D03B3_ME_53FDAB5501EB NCDraw
  ME_5298C02D03B3_ME_53FDAB5501EB // NCDraw
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_62DD8930324C // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -1375,210 +1194,6 @@ ref; // ME_53FDCB8100CC f_ChangeTimer
  ;
 
 ref; // ME_53FDCB9D01D7 f_ChangeTime
-
-: ME_FBA53E22B6AA
- CONST UID 'FBA53E22B6AA'
- CONST Name 'f_OnPastingString'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnPastingString' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
- ;
- : Target ME_53FDBD0C012E // TnscOnPastingString
- ;
- CONST extprop:clearViaProperty 'OnPastingString'
-
-ref; // ME_FBA53E22B6AA f_OnPastingString
-
-: ME_48422775120B
- CONST UID '48422775120B'
- CONST Name 'f_HistoryItems'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HistoryItems' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
- ;
- : Target WL 'ME_48721F730220' '47E21C730035.pas.ms.script' // Tl3Strings
- ;
- CONST extprop:clearViaProperty 'HistoryItems'
-
-ref; // ME_48422775120B f_HistoryItems
-
-: ME_0C19BACBD6D3
- CONST UID '0C19BACBD6D3'
- CONST Name 'f_PromptTree'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PromptTree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
- ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
- ;
- CONST extprop:clearViaProperty 'PromptTree'
-
-ref; // ME_0C19BACBD6D3 f_PromptTree
-
-: ME_4DE24F6B6D80
- CONST UID '4DE24F6B6D80'
- CONST Name 'f_RootNode'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RootNode' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
- ;
- : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
- ;
- CONST "ifndef" 'DesignTimeLibrary'
- CONST extprop:clearViaProperty 'RootNode'
-
-ref; // ME_4DE24F6B6D80 f_RootNode
-
-: ME_A6C4B923D689
- CONST UID 'A6C4B923D689'
- CONST Name 'f_DropDownCount'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DropDownCount' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'DropDownCount'
-
-ref; // ME_A6C4B923D689 f_DropDownCount
-
-: ME_14F94044B9EF
- CONST UID '14F94044B9EF'
- CONST Name 'f_PromptColor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PromptColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
- ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
- CONST extprop:clearViaProperty 'PromptColor'
-
-ref; // ME_14F94044B9EF f_PromptColor
-
-: ME_2F80093441CF
- CONST UID '2F80093441CF'
- CONST Name 'f_PromptStyle'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PromptStyle' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
- ;
- : Target WL 'ME_46A61216025F' '55C4AEC801CA.pas.ms.script' // TFontStyles
- ;
- CONST extprop:clearViaProperty 'PromptStyle'
-
-ref; // ME_2F80093441CF f_PromptStyle
-
-: ME_2F42DD6DB405
- CONST UID '2F42DD6DB405'
- CONST Name 'f_PromptBackColor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PromptBackColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
- ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
- CONST extprop:clearViaProperty 'PromptBackColor'
-
-ref; // ME_2F42DD6DB405 f_PromptBackColor
-
-: ME_4213C10BE18A
- CONST UID '4213C10BE18A'
- CONST Name 'f_PromptViewOptions'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PromptViewOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
- ;
- : Target WL 'ME_47D0368C0272' '47D036150077.pas.ms.script' // TvtViewOptions
- ;
- CONST extprop:clearViaProperty 'PromptViewOptions'
-
-ref; // ME_4213C10BE18A f_PromptViewOptions
-
-: ME_1D1EFB771F71
- CONST UID '1D1EFB771F71'
- CONST Name 'f_OnSelect'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnSelect' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnSelect'
-
-ref; // ME_1D1EFB771F71 f_OnSelect
-
-: ME_4DEC0CDDA6B4
- CONST UID '4DEC0CDDA6B4'
- CONST Name 'f_PropmtTreeUsed'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PropmtTreeUsed' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_4DEC0CDDA6B4 f_PropmtTreeUsed
-
-: ME_A586949688A1
- CONST UID 'A586949688A1'
- CONST Name 'f_CloseHyperLinkColor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CloseHyperLinkColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
- ;
- : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
- ;
- CONST extprop:clearViaProperty 'CloseHyperLinkColor'
-
-ref; // ME_A586949688A1 f_CloseHyperLinkColor
 
 FORWARD ME_53FDCC2C033C
 
@@ -2250,21 +1865,6 @@ ref; // ME_53FDD32F0213 Message
 
 ref; // ME_53FDD328037C WMSysKeyDown
 
-: ME_4F8D13446F3C
- CONST UID '4F8D13446F3C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscCustomTreeComboWithHistory' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4F8D13446F3C Ini_Reg_Class
-
 FORWARD ME_4B97EE59039E
 
 : ME_4B97EE7800FC
@@ -2477,20 +2077,7 @@ ref; // ME_53FF088E01CC
 
 ref; // ME_5522D8F801E9 
 
-: ME_E119F38B72A6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E119F38B72A6 
-
 : ME_479731C50290_ME_4B97EDFB0057
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2499,8 +2086,6 @@ ref; // ME_E119F38B72A6
 ref; // ME_479731C50290_ME_4B97EDFB0057 Cleanup
 
 : ME_47D1602000C6_ME_4B97EDFB0057
- CONST UID '47D1602000C6'
- CONST Name 'Create'
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2509,8 +2094,6 @@ ref; // ME_479731C50290_ME_4B97EDFB0057 Cleanup
 ref; // ME_47D1602000C6_ME_4B97EDFB0057 Create
 
 : ME_482AE42802AE_ME_4B97EDFB0057
- CONST UID '482AE42802AE'
- CONST Name 'Change'
  : Original WL 'ME_482AE42802AE' '48342A280198.pas.ms.script' // Change
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2519,8 +2102,6 @@ ref; // ME_47D1602000C6_ME_4B97EDFB0057 Create
 ref; // ME_482AE42802AE_ME_4B97EDFB0057 Change
 
 : ME_4860F5DF026F_ME_4B97EDFB0057
- CONST UID '4860F5DF026F'
- CONST Name 'Validate'
  : Original WL 'ME_4860F5DF026F' '4829D7D50156.pas.ms.script' // Validate
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2529,8 +2110,6 @@ ref; // ME_482AE42802AE_ME_4B97EDFB0057 Change
 ref; // ME_4860F5DF026F_ME_4B97EDFB0057 Validate
 
 : ME_48735C4A03C3_ME_4B97EDFB0057
- CONST UID '48735C4A03C3'
- CONST Name 'DefineProvideOperations'
  : Original WL 'ME_48735C4A03C3' '4829D7D50156.pas.ms.script' // DefineProvideOperations
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2539,8 +2118,6 @@ ref; // ME_4860F5DF026F_ME_4B97EDFB0057 Validate
 ref; // ME_48735C4A03C3_ME_4B97EDFB0057 DefineProvideOperations
 
 : ME_48BD22E601F2_ME_4B97EDFB0057
- CONST UID '48BD22E601F2'
- CONST Name 'DoProcessCommand'
  : Original WL 'ME_48BD22E601F2' '467BA8C8017E.pas.ms.script' // DoProcessCommand
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2549,8 +2126,6 @@ ref; // ME_48735C4A03C3_ME_4B97EDFB0057 DefineProvideOperations
 ref; // ME_48BD22E601F2_ME_4B97EDFB0057 DoProcessCommand
 
 : ME_48BFB6D800B3_ME_4B97EDFB0057
- CONST UID '48BFB6D800B3'
- CONST Name 'DoDoDrop'
  : Original WL 'ME_48BFB6D800B3' '467BA8C8017E.pas.ms.script' // DoDoDrop
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2559,8 +2134,6 @@ ref; // ME_48BD22E601F2_ME_4B97EDFB0057 DoProcessCommand
 ref; // ME_48BFB6D800B3_ME_4B97EDFB0057 DoDoDrop
 
 : ME_4D6D427D023A_ME_4B97EDFB0057
- CONST UID '4D6D427D023A'
- CONST Name 'NeedAlignMarksOnSingleClick'
  : Original WL 'ME_4D6D427D023A' '4829D7D50156.pas.ms.script' // NeedAlignMarksOnSingleClick
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2568,19 +2141,7 @@ ref; // ME_48BFB6D800B3_ME_4B97EDFB0057 DoDoDrop
  CONST OpKind opkind_Overridden
 ref; // ME_4D6D427D023A_ME_4B97EDFB0057 NeedAlignMarksOnSingleClick
 
-: ME_5000565C019C_ME_4B97EDFB0057
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4B97EDFB0057 ClearFields
-
 : ME_53ECD12B0045_ME_4B97EDFB0057
- CONST UID '53ECD12B0045'
- CONST Name 'Dropped'
  : Original WL 'ME_53ECD12B0045' '48297E42011A.pas.ms.script' // Dropped
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2591,8 +2152,6 @@ ref; // ME_5000565C019C_ME_4B97EDFB0057 ClearFields
 ref; // ME_53ECD12B0045_ME_4B97EDFB0057 Dropped
 
 : ME_53ECD28200BF_ME_4B97EDFB0057
- CONST UID '53ECD28200BF'
- CONST Name 'ButtonClick'
  : Original WL 'ME_53ECD28200BF' '48297E42011A.pas.ms.script' // ButtonClick
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2601,8 +2160,6 @@ ref; // ME_53ECD12B0045_ME_4B97EDFB0057 Dropped
 ref; // ME_53ECD28200BF_ME_4B97EDFB0057 ButtonClick
 
 : ME_53ECD4060099_ME_4B97EDFB0057
- CONST UID '53ECD4060099'
- CONST Name 'TranslateHomeEndToDropDown'
  : Original WL 'ME_53ECD4060099' '48297E42011A.pas.ms.script' // TranslateHomeEndToDropDown
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2611,8 +2168,6 @@ ref; // ME_53ECD28200BF_ME_4B97EDFB0057 ButtonClick
 ref; // ME_53ECD4060099_ME_4B97EDFB0057 TranslateHomeEndToDropDown
 
 : ME_53EE012C0211_ME_4B97EDFB0057
- CONST UID '53EE012C0211'
- CONST Name 'RecreateTreeIfNeeded'
  : Original WL 'ME_53EE012C0211' '48297E42011A.pas.ms.script' // RecreateTreeIfNeeded
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2621,8 +2176,6 @@ ref; // ME_53ECD4060099_ME_4B97EDFB0057 TranslateHomeEndToDropDown
 ref; // ME_53EE012C0211_ME_4B97EDFB0057 RecreateTreeIfNeeded
 
 : ME_53EE01540251_ME_4B97EDFB0057
- CONST UID '53EE01540251'
- CONST Name 'CreateSubTree'
  : Original WL 'ME_53EE01540251' '48297E42011A.pas.ms.script' // CreateSubTree
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2631,8 +2184,6 @@ ref; // ME_53EE012C0211_ME_4B97EDFB0057 RecreateTreeIfNeeded
 ref; // ME_53EE01540251_ME_4B97EDFB0057 CreateSubTree
 
 : ME_53EE09AA0268_ME_4B97EDFB0057
- CONST UID '53EE09AA0268'
- CONST Name 'EstimateTreeHeight'
  : Original WL 'ME_53EE09AA0268' '48297E42011A.pas.ms.script' // EstimateTreeHeight
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2641,8 +2192,6 @@ ref; // ME_53EE01540251_ME_4B97EDFB0057 CreateSubTree
 ref; // ME_53EE09AA0268_ME_4B97EDFB0057 EstimateTreeHeight
 
 : ME_53EE09D70249_ME_4B97EDFB0057
- CONST UID '53EE09D70249'
- CONST Name 'EstimateTreeWidth'
  : Original WL 'ME_53EE09D70249' '48297E42011A.pas.ms.script' // EstimateTreeWidth
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2651,8 +2200,6 @@ ref; // ME_53EE09AA0268_ME_4B97EDFB0057 EstimateTreeHeight
 ref; // ME_53EE09D70249_ME_4B97EDFB0057 EstimateTreeWidth
 
 : ME_53EE0A730393_ME_4B97EDFB0057
- CONST UID '53EE0A730393'
- CONST Name 'ProcessTreeSelect'
  : Original WL 'ME_53EE0A730393' '48297E42011A.pas.ms.script' // ProcessTreeSelect
  ;
  : Implementor ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
@@ -2698,18 +2245,6 @@ ref; // ME_53EE0A730393_ME_4B97EDFB0057 ProcessTreeSelect
  ME_53FDCB0D03A4 // CloseHyperLinkColor
  ME_53FDCB8100CC // f_ChangeTimer
  ME_53FDCB9D01D7 // f_ChangeTime
- ME_FBA53E22B6AA // f_OnPastingString
- ME_48422775120B // f_HistoryItems
- ME_0C19BACBD6D3 // f_PromptTree
- ME_4DE24F6B6D80 // f_RootNode
- ME_A6C4B923D689 // f_DropDownCount
- ME_14F94044B9EF // f_PromptColor
- ME_2F80093441CF // f_PromptStyle
- ME_2F42DD6DB405 // f_PromptBackColor
- ME_4213C10BE18A // f_PromptViewOptions
- ME_1D1EFB771F71 // f_OnSelect
- ME_4DEC0CDDA6B4 // f_PropmtTreeUsed
- ME_A586949688A1 // f_CloseHyperLinkColor
  )
  ; // Attributes
  : Operations
@@ -2730,7 +2265,6 @@ ref; // ME_53EE0A730393_ME_4B97EDFB0057 ProcessTreeSelect
  ME_53FDD305025F // CNKeyDown
  ME_53FDD31A0098 // CMFontChanged
  ME_53FDD328037C // WMSysKeyDown
- ME_4F8D13446F3C // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -2742,7 +2276,6 @@ ref; // ME_53EE0A730393_ME_4B97EDFB0057 ProcessTreeSelect
  ME_48BD22E601F2_ME_4B97EDFB0057 // DoProcessCommand
  ME_48BFB6D800B3_ME_4B97EDFB0057 // DoDoDrop
  ME_4D6D427D023A_ME_4B97EDFB0057 // NeedAlignMarksOnSingleClick
- ME_5000565C019C_ME_4B97EDFB0057 // ClearFields
  ME_53ECD12B0045_ME_4B97EDFB0057 // Dropped
  ME_53ECD28200BF_ME_4B97EDFB0057 // ButtonClick
  ME_53ECD4060099_ME_4B97EDFB0057 // TranslateHomeEndToDropDown
@@ -2784,7 +2317,6 @@ ref; // ME_53EE0A730393_ME_4B97EDFB0057 ProcessTreeSelect
  ME_53FF086B01F7 // 
  ME_53FF088E01CC // 
  ME_5522D8F801E9 // 
- ME_E119F38B72A6 // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -2801,34 +2333,6 @@ ref; // ME_4B97EDFB0057 TnscCustomTreeComboWithHistory
 
 FORWARD ME_4AC63691012B
 
-FORWARD ME_4AC5F4B9037A
-
-: ME_F3249EC8D773
- CONST UID 'F3249EC8D773'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscEdit' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC5F4B9037A // TnscEdit
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F3249EC8D773 Ini_Reg_Class
-
-: ME_09F8C806DE35
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC5F4B9037A // TnscEdit
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_09F8C806DE35 
-
 : ME_4AC5F4B9037A
  CONST UID '4AC5F4B9037A'
  CONST Name 'TnscEdit'
@@ -2843,14 +2347,6 @@ ref; // ME_09F8C806DE35
    Seq: ( ME_4AC63691012B // TnscComboBox
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F3249EC8D773 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_09F8C806DE35 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
@@ -2861,34 +2357,6 @@ ref; // ME_09F8C806DE35
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4AC5F4B9037A TnscEdit
-
-FORWARD ME_4C52BF200205
-
-: ME_9546AB68961C
- CONST UID '9546AB68961C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscEditWithoutPlusMinusShortcut' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C52BF200205 // TnscEditWithoutPlusMinusShortcut
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_9546AB68961C Ini_Reg_Class
-
-: ME_EA982381C054
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C52BF200205 // TnscEditWithoutPlusMinusShortcut
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_EA982381C054 
 
 : ME_4C52BF200205
  CONST UID '4C52BF200205'
@@ -2904,14 +2372,6 @@ ref; // ME_EA982381C054
    Seq: ( ME_4AC5F4B9037A // TnscEdit
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9546AB68961C // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_EA982381C054 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
@@ -2922,34 +2382,6 @@ ref; // ME_EA982381C054
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4C52BF200205 TnscEditWithoutPlusMinusShortcut
-
-FORWARD ME_520A36BD00B7
-
-: ME_A315F40666AD
- CONST UID 'A315F40666AD'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscComboBoxWithPwdChar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_520A36BD00B7 // TnscComboBoxWithPwdChar
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A315F40666AD Ini_Reg_Class
-
-: ME_8E5913FFCC58
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_520A36BD00B7 // TnscComboBoxWithPwdChar
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_8E5913FFCC58 
 
 : ME_520A36BD00B7
  CONST UID '520A36BD00B7'
@@ -2965,14 +2397,6 @@ ref; // ME_8E5913FFCC58
    Seq: ( ME_4AC5F4B9037A // TnscEdit
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A315F40666AD // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_8E5913FFCC58 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
@@ -2983,32 +2407,6 @@ ref; // ME_8E5913FFCC58
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_520A36BD00B7 TnscComboBoxWithPwdChar
-
-: ME_D2B414A71D4E
- CONST UID 'D2B414A71D4E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscComboBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC63691012B // TnscComboBox
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_D2B414A71D4E Ini_Reg_Class
-
-: ME_090148CAC020
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC63691012B // TnscComboBox
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_090148CAC020 
 
 : ME_4AC63691012B
  CONST UID '4AC63691012B'
@@ -3024,20 +2422,12 @@ ref; // ME_090148CAC020
    Seq: ( WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D2B414A71D4E // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_4AC5F4B9037A // TnscEdit
  ME_4C52BF200205 // TnscEditWithoutPlusMinusShortcut
  ME_520A36BD00B7 // TnscComboBoxWithPwdChar
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_090148CAC020 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
@@ -3132,32 +2522,6 @@ ref; // ME_53FF1F690298 clBlue
 
 ref; // ME_53FF1F0503B4 TnscTreeComboWithHistory Default Values
 
-: ME_EC179FCC17B3
- CONST UID 'EC179FCC17B3'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscTreeComboWithHistory' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B97EE390310 // TnscTreeComboWithHistory
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_EC179FCC17B3 Ini_Reg_Class
-
-: ME_FEEF82C3E2B4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B97EE390310 // TnscTreeComboWithHistory
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_FEEF82C3E2B4 
-
 : ME_4B97EE390310
  CONST UID '4B97EE390310'
  CONST Name 'TnscTreeComboWithHistory'
@@ -3172,18 +2536,10 @@ ref; // ME_FEEF82C3E2B4
    Seq: ( ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_EC179FCC17B3 // Ini_Reg_Class
- )
- ; // Operations
  : Constants
    Seq: ( ME_53FF1F0503B4 // TnscTreeComboWithHistory Default Values
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_FEEF82C3E2B4 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
@@ -3196,34 +2552,6 @@ ref; // ME_FEEF82C3E2B4
  CONST extprop:pas:UnitName 'nscTreeComboWithHistory'
 
 ref; // ME_4B97EE390310 TnscTreeComboWithHistory
-
-FORWARD ME_4CF4D14700AE
-
-: ME_BA844BFF7DC0
- CONST UID 'BA844BFF7DC0'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscTreeComboWithHistoryAndOperations' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CF4D14700AE // TnscTreeComboWithHistoryAndOperations
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_BA844BFF7DC0 Ini_Reg_Class
-
-: ME_A2B1367E117E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CF4D14700AE // TnscTreeComboWithHistoryAndOperations
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_A2B1367E117E 
 
 : ME_4CF4D14700AE
  CONST UID '4CF4D14700AE'
@@ -3239,14 +2567,6 @@ ref; // ME_A2B1367E117E
    Seq: ( ME_4B97EE390310 // TnscTreeComboWithHistory
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BA844BFF7DC0 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_A2B1367E117E // 
- )
- ; // Dependencies
  CONST "author" 'Лукьянец Р.В.'
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
@@ -3424,34 +2744,6 @@ ref; // ME_110DC76AEC0F
 
 ref; // ME_4B97EE59039E nscCustomTreeComboWithHistoryRes
 
-FORWARD ME_4AF46F430293
-
-: ME_C5950F054974
- CONST UID 'C5950F054974'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TnscComboBoxWithReadOnly' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AF46F430293 // TnscComboBoxWithReadOnly
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_C5950F054974 Ini_Reg_Class
-
-: ME_E38A12B636AE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AF46F430293 // TnscComboBoxWithReadOnly
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E38A12B636AE 
-
 : ME_4AF46F430293
  CONST UID '4AF46F430293'
  CONST Name 'TnscComboBoxWithReadOnly'
@@ -3466,14 +2758,6 @@ ref; // ME_E38A12B636AE
    Seq: ( ME_4AC5F4B9037A // TnscEdit
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C5950F054974 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_E38A12B636AE // 
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -3549,7 +2833,6 @@ ref; // ME_4AF46F430293 TnscComboBoxWithReadOnly
  WL 'ME_55001317029B' '55001317029B.pas.ms.script' // VCLHelpers
  WL 'ME_557FE2750253' '557FE2750253.pas.ms.script' // Filters
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "UseNewGen" true

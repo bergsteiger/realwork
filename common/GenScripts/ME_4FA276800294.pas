@@ -2,6 +2,7 @@ unit m3BaseStream;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3BaseStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3BaseStream" MUID: (4FA276800294)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

@@ -3,6 +3,8 @@ unit PrimContents_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimContents_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimContents" MUID: (4979DFB700F8)
+// Имя типа: "TPrimContentsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -205,6 +207,7 @@ type
    {$If NOT Defined(NoVCM)}
    procedure CheckFloatingVisibility; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
   public
    procedure Contents_SetCurrent_Execute(aSub: Integer);
    procedure Contents_SetCurrent(const aParams: IvcmExecuteParamsPrim);
@@ -2413,6 +2416,13 @@ begin
  Result := false;
 //#UC END# *4F6A0EE50047_4979DFB700F8_impl*
 end;//TPrimContentsForm.CanHaveOwnCloseButtonInNavigator
+
+procedure TPrimContentsForm.ClearFields;
+begin
+ Finalize(f_Filtered);
+ Finalize(f_ListForFiltering);
+ inherited;
+end;//TPrimContentsForm.ClearFields
 
 initialization
  str_ContentsPrintTitle.Init;

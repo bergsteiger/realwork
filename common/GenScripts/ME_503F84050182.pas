@@ -2,6 +2,7 @@ unit atFilterHelper;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atFilterHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatFilterHelper" MUID: (503F84050182)
 
 interface
 

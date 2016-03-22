@@ -2,6 +2,8 @@
 
 // Модуль: "w:\archi\source\projects\ImportExportTest\DTTypesUser.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "DTTypesUser" MUID: (55FFC24301D0)
+// Имя типа: "_DTTypesUser_"
 
 {$Define DTTypesUser_imp}
 

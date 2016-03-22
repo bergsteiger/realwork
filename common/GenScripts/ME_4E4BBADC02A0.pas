@@ -3,6 +3,7 @@ unit kwMakeChangeDoc;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwMakeChangeDoc.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwMakeChangeDoc" MUID: (4E4BBADC02A0)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

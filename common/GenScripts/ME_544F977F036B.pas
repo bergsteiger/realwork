@@ -3,6 +3,7 @@ unit ncsPriorityMessageList;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsPriorityMessageList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsPriorityMessageList" MUID: (544F977F036B)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

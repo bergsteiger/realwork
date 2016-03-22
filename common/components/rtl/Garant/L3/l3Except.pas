@@ -3,6 +3,7 @@ unit l3Except;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Except.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "l3Except" MUID: (4787B0A8007B)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

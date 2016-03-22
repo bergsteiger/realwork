@@ -2,6 +2,7 @@ unit eeEditorExport;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeEditorExport.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TeeEditorExport" MUID: (4952693000EA)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
@@ -48,15 +49,10 @@ type
    f_PrevScrollPart: IevSub;
    f_PrevPart: IevSub;
    f_VScrollBar: TvtScrollBar;
-    {* Поле для свойства VScrollBar }
    f_NeedDrawDocumentEdge: Boolean;
-    {* Поле для свойства NeedDrawDocumentEdge }
    f_OnMouseAction: TeeMouseActionEvent;
-    {* Поле для свойства OnMouseAction }
    f_OnVScroll: TNotifyEvent;
-    {* Поле для свойства OnVScroll }
    f_OnUserCommentsHidden: TNotifyEvent;
-    {* Поле для свойства OnUserCommentsHidden }
   private
    class procedure RaiseUserCommentsHidden;
    class function MB2eeMB(aButton: TMouseButton): TeeMouseButton;

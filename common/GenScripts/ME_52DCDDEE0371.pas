@@ -2,6 +2,7 @@ unit ddTextSegmentQueue;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTextSegmentQueue.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddTextSegmentQueue" MUID: (52DCDDEE0371)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

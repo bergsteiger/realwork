@@ -2,6 +2,7 @@ unit ArchiScriptEngine;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Script_Engine\ArchiScriptEngine.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TArchiScriptEngine" MUID: (4DE34290028F)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

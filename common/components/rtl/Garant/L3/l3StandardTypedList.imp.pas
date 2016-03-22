@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3StandardTypedList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3StandardTypedList" MUID: (47B594B50330)
+// Имя типа: "_l3StandardTypedList_"
 
 {$Define l3StandardTypedList_imp}
 

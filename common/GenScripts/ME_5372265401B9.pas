@@ -2,6 +2,7 @@ unit alcuImportTest;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\Import\Abstract\alcuImportTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TalcuImportTest" MUID: (5372265401B9)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

@@ -127,7 +127,7 @@ void ThreadManager::execute (ACE_THR_FUNC thr_func, void* arg, DBCore::IBasePool
 	m_type = type;
 	m_pool = DBCore::IBasePool::_duplicate (pool);
 
-	size_t thr_count = pool->get_size ();
+	size_t thr_count = pool->size ();
 
 	ACE_Thread_Manager* manager = ACE_Thread_Manager::instance ();
 
@@ -172,7 +172,7 @@ int thr_func (void* arg) {
 
 	GDS_ASSERT (manager && data);
 
-	DBCore::IBase* base = manager->get ();
+	DBCore::IBase_var base = manager->get ();
 	DBCore::IIndex_var index = base->make (CONTEXT_INDEX_NAME);
 
 	DBCore::LoadType type = manager->get_type ();
@@ -313,7 +313,7 @@ GCL::StrVector* MemoryIndex::get_lexemes (DBCore::IBase* base) {
 	DBCore::IBuffer_var buffer = index->read (AUX_TOP_LEMMS, 0, size);
 
 	if (buffer.is_nil () == false) {
-		const char* ptr = buffer->get_data ();
+		const char* ptr = buffer->get ();
 
 		std::string str;
 
@@ -514,13 +514,14 @@ void MemoryIndex::load (const DBCore::MemCacheSettings& settings) {
 
 	DBCore::IBasePool* pool = const_cast <DBCore::IBasePool*> (settings.pool.in ());
 
-	GDS_ASSERT (pool && pool->get_size ());
+	GDS_ASSERT (pool && pool->size ());
 
 	if (settings.for_list) {
 		MemoryIndex::prev_load (settings);
 		ThreadManager::Singleton::instance ()->execute ((ACE_THR_FUNC) thr_func, &m_data, pool, settings.type);
 	} else {
-		this->load (pool->get (0));
+		DBCore::IBase_var base = pool->get (0);
+		this->load (base.in ());
 	}
 	//#UC END# *52BAF3270162*
 }
@@ -532,11 +533,11 @@ void MemoryIndex::prev_load (const DBCore::MemCacheSettings& settings) {
 
 	DBCore::IBasePool* pool = const_cast <DBCore::IBasePool*> (settings.pool.in ());
 
-	GDS_ASSERT (pool && pool->get_size ());
+	GDS_ASSERT (pool && pool->size ());
 
-	DBCore::IBase* base = pool->get (0);
+	DBCore::IBase_var base = pool->get (0);
 
-	Core::Aptr <GCL::StrVector> lexemes = MemoryIndex::get_lexemes (base);
+	Core::Aptr <GCL::StrVector> lexemes = MemoryIndex::get_lexemes (base.in ());
 
 	GDS_ASSERT (lexemes->empty () == false);
 

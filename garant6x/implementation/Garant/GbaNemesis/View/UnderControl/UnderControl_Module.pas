@@ -99,11 +99,6 @@ uses
   nscTreeViewWithAdapterDragDrop
   {$If not defined(NoScripts)}
   ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
   tfwScriptingTypes
   {$IfEnd} //not NoScripts
   ,

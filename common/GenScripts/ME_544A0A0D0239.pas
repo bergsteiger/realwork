@@ -2,6 +2,7 @@ unit ncsClientTransporter;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsClientTransporter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsClientTransporter" MUID: (544A0A0D0239)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
@@ -44,6 +45,7 @@ Immidiate = False - дождаться завершения обмена послав ncsDisconnect и дождавшис
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
+   procedure ClearFields; override;
   public
    constructor Create; reintroduce;
    class function Make: IncsClientTransporter; reintroduce;
@@ -306,6 +308,12 @@ begin
 
 //#UC END# *47A042E100E2_544A0A0D0239_impl*
 end;//TncsClientTransporter.InitFields
+
+procedure TncsClientTransporter.ClearFields;
+begin
+ Finalize(f_TCPClients);
+ inherited;
+end;//TncsClientTransporter.ClearFields
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

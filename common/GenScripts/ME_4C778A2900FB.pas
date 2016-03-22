@@ -2,6 +2,7 @@ unit ContentsTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ContentsTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ContentsTree" MUID: (4C778A2900FB)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -5,9 +5,12 @@ unit vcmContainerForm;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmContainerForm - }
 { Начат: 21.04.2003 19:05 }
-{ $Id: vcmContainerForm.pas,v 1.118 2015/11/02 16:25:03 kostitsin Exp $ }
+{ $Id: vcmContainerForm.pas,v 1.119 2015/12/22 12:13:51 morozov Exp $ }
 
 // $Log: vcmContainerForm.pas,v $
+// Revision 1.119  2015/12/22 12:13:51  morozov
+// {RequestLink: 609899254}
+//
 // Revision 1.118  2015/11/02 16:25:03  kostitsin
 // {requestlink: 569239206 }
 //
@@ -476,6 +479,8 @@ type
         {* - итератор аггрегаций в контейнере. }
       procedure InitFromPrevContainer(const aPrevContainer: IvcmContainer;
         aForClone: Boolean);
+        {-}
+      function IsSame(const aAnother: IvcmContainer): Boolean;
         {-}
     private
     // internal methods
@@ -1108,6 +1113,11 @@ begin
  if (not aPrevContainer.IsNull) and
     (aPrevContainer.AsForm.VCLWinControl <> Self) then
   DoInitFromPrevContainer(aPrevContainer, aForClone);
+end;
+
+function TvcmContainerForm.IsSame(const aAnother: IvcmContainer): Boolean;
+begin
+ Result := (aAnother.AsForm.VCLWinControl = Get_AsForm.VCLWinControl);
 end;
 
 procedure TvcmContainerForm.DoInitFromPrevContainer(const aPrevContainer: IvcmContainer; aForClone: Boolean);

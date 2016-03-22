@@ -2,6 +2,7 @@ unit daInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "daInterfaces" MUID: (5432518A0316)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
@@ -40,6 +41,7 @@ const
  usAdmin = 2;
  usDeleted = 4;
  cUndefDocID: TdaDocID = -1;
+ BlankSession: TdaSessionID = -1;
 
 type
  PIdaLongProcessSubscriber = ^IdaLongProcessSubscriber;
@@ -150,6 +152,7 @@ type
   function Get_CurStatisticTreeRoot: Il3RootNode;
   function Get_UserID: TdaUserID;
   procedure Set_UserID(aValue: TdaUserID);
+  function Get_CurSessionID: TdaSessionID;
   procedure CalcStatistics(const FromDate: TStDate;
    const ToDate: TStDate;
    aDocID: TdaDocID;
@@ -190,6 +193,8 @@ type
   property UserID: TdaUserID
    read Get_UserID
    write Set_UserID;
+  property CurSessionID: TdaSessionID
+   read Get_CurSessionID;
  end;//IdaJournal
 
  IdaSelectField = interface
@@ -407,6 +412,7 @@ type
    const aPassword: AnsiString;
    RequireAdminRights: Boolean;
    out theUserID: TdaUserID): TdaLoginError;
+  function IsUserAdmin(anUserID: TdaUserID): Boolean;
  end;//IdaUserManager
 
  IdaSortField = interface
@@ -548,11 +554,13 @@ type
   function RegisterFreeExtDocID(aFamilyID: TdaFamilyID;
    const aKey: AnsiString;
    anID: TdaDocID): Boolean;
+  procedure SetAlienJournalData(aSessionID: TdaSessionID);
  end;//IdaComboAccessDataProviderHelper
 
  IdaComboAccessJournalHelper = interface
   ['{9C5AF6B0-E3D5-419F-9136-E0280619B32D}']
-  procedure SetAlienSessionID(aSessionID: TdaSessionID);
+  procedure SetAlienData(anUserID: TdaUserID;
+   aSessionID: TdaSessionID);
   procedure LogAlienEvent(aOperation: TdaJournalOperation;
    aFamilyID: TdaFamilyID;
    aExtID: LongInt;

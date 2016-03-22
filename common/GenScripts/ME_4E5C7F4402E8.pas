@@ -3,6 +3,7 @@ unit arHyperLinkProcessor;
 
 // Модуль: "w:\archi\source\projects\Archi\Editor\arHyperLinkProcessor.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "arHyperLinkProcessor" MUID: (4E5C7F4402E8)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

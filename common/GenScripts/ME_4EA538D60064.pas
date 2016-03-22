@@ -2,6 +2,7 @@ unit K294595323Suite;
 
 // Модуль: "w:\common\components\rtl\Garant\Archi_Tests\K294595323Suite.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TK294595323Suite" MUID: (4EA538D60064)
 
 {$Include w:\common\components\rtl\Garant\Archi_Tests\TestDefine.inc.pas}
 

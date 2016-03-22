@@ -2,6 +2,7 @@ unit tfwScriptEnginePrim;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwScriptEnginePrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwScriptEnginePrim" MUID: (4F733A0701F0)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -42,9 +43,7 @@ type
    f_InitedDictionaries: TtfwInitedDictionariesList;
    f_DisabledForHelp: TtfwWordRefList;
    f_ValueStack: TtfwValueStack;
-    {* Поле для свойства ValueStack }
    f_MainDictionary: TtfwMainDictionary;
-    {* Поле для свойства MainDictionary }
   protected
    procedure RunInitCode(const aCtx: TtfwContext);
    function CacheDict: Boolean; virtual;
@@ -218,20 +217,21 @@ var
 begin
 //#UC START# *4F733B9C0064_4F733A0701F0_impl*
  Assert(f_UserDictionary = nil);
+ {$IfNDef seDisableValidateCode}
  {$IfDef seCacheDict}
  if Self.CacheDict then
   ValidateCode;
  {$EndIf seCacheDict}
+ {$EndIf  seDisableValidateCode}
  f_UserDictionary := nil;
  try
   f_Dictionaries := TtfwDictionaryList.Create;
   try
-   f_CascadeDict := true;
    f_ScriptFileName := aStream.FileName;
    l_N := TtfwCStringFactory.C(f_ScriptFileName);
    l_NeedCompile := true;
    {$IfDef seCacheDict}
-   if Self.CacheDict then
+   if Self.CacheDict AND not l3IsNil(l_N) then
    begin
     l_D := TtfwMainDictionaryCache.Instance.FindDictionary(l_N);
     if (l_D <> nil) then
@@ -1094,19 +1094,8 @@ function TtfwScriptEnginePrim.OpenDictionary(var aCtx: TtfwContext): Boolean;
 //#UC START# *559E7749009C_4F733A0701F0_var*
 
  procedure AddToDictionaries(aD: TtfwDictionaryEx);
- var
-  l_Index : Integer;
-  l_D : TtfwDictionaryEx;
  begin//AddToDictionaries
   f_Dictionaries.Add(aD);
-  if not f_CascadeDict then
-   if (aD.UsedDictionaries <> nil) then
-    for l_Index := 0 to Pred(aD.UsedDictionaries.Count) do
-    begin
-     l_D := aD.UsedDictionaries.Items[l_Index] As TtfwDictionaryEx;
-     if (f_Dictionaries.IndexOf(l_D) < 0) then
-      AddToDictionaries(l_D);
-    end;//for l_Index
  end;//AddToDictionaries
 
 var
@@ -1130,6 +1119,7 @@ begin
    begin
     Result := false;
     CompilerAssert(f_Dictionaries <> nil, 'Список словарей пуст', aCtx);
+    //WriteLn(aCtx.rStreamfactory.FileName);
     l_N := TtfwCStringFactory.C(aCtx.rStreamfactory.FileName);
     l_D := nil;
     if l3Starts(l3PCharLen('res:'), l3PCharLen(l_N), true) then
@@ -1162,7 +1152,7 @@ begin
       try
        AddToDictionaries(l_D);
        {$IfDef seCacheDict}
-       if Self.CacheDict then
+       if Self.CacheDict AND not l3IsNil(l_N) then
         TtfwDictionaryCache.Instance.Add(l_D);
        {$EndIf seCacheDict} 
        Result := true;
@@ -1329,10 +1319,7 @@ procedure TtfwScriptEnginePrim.DoAddCodePart(aWord: TtfwWord;
 //#UC END# *4DB6CB1703AD_4F733A0701F0_var*
 begin
 //#UC START# *4DB6CB1703AD_4F733A0701F0_impl*
- if not f_CascadeDict then
-  AddInitialization(aCtx, aWord)
- else
-  inherited;
+ inherited;
 //#UC END# *4DB6CB1703AD_4F733A0701F0_impl*
 end;//TtfwScriptEnginePrim.DoAddCodePart
 
@@ -1386,30 +1373,13 @@ end;//TtfwScriptEnginePrim.DoCheckWord
 
 function TtfwScriptEnginePrim.GetKeywordByName(const aName: Il3CString): Tl3PrimString;
 //#UC START# *55ACE5210310_4F733A0701F0_var*
-var
- l_Index : Integer;
 //#UC END# *55ACE5210310_4F733A0701F0_var*
 begin
 //#UC START# *55ACE5210310_4F733A0701F0_impl*
- Result := nil;
- if f_CascadeDict then
- begin
-  if (f_UserDictionary <> nil) then
-   Result := f_UserDictionary.DRbyCName[aName];
- end//f_CascadeDict
+ if (f_UserDictionary <> nil) then
+  Result := f_UserDictionary.DRbyCName[aName]
  else
- begin
-  if (f_Dictionaries <> nil) then
-  begin
-   //for l_Index := Pred(f_Dictionaries.Count) downto 0 do
-   for l_Index := 0 to Pred(f_Dictionaries.Count) do
-   begin
-    Result := f_Dictionaries.Items[l_Index].DRbyCName[aName];
-    if (Result <> nil) then
-     Exit;
-   end;//for l_Index
-  end;//f_Dictionaries <> nil
- end;//f_CascadeDict
+  Result := nil;
 //#UC END# *55ACE5210310_4F733A0701F0_impl*
 end;//TtfwScriptEnginePrim.GetKeywordByName
 

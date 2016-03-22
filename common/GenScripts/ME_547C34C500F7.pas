@@ -2,6 +2,7 @@ unit nscMessagesReg;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\nscMessagesReg.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nscMessagesReg" MUID: (547C34C500F7)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -2,6 +2,7 @@ unit nevFormatPoolBase;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevFormatPoolBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevFormatPoolBase" MUID: (48173AD801FF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

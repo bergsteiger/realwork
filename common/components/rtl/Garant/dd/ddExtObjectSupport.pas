@@ -1,9 +1,12 @@
 unit ddExtObjectSupport;
 {* Читает/пишет содержимое объектов из/в хранилища }
 
-{ $Id: ddExtObjectSupport.pas,v 1.23 2015/03/13 11:55:47 voba Exp $ }
+{ $Id: ddExtObjectSupport.pas,v 1.24 2015/11/25 14:01:46 lukyanets Exp $ }
 
 // $Log: ddExtObjectSupport.pas,v $
+// Revision 1.24  2015/11/25 14:01:46  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.23  2015/03/13 11:55:47  voba
 // - локальное автосохранение документов
 //
@@ -155,6 +158,8 @@ Uses
  k2Base,
 
  m3StorageInterfaces,
+
+ daSchemeConsts,
 
  dt_Const,
  dt_Serv,

@@ -2,6 +2,7 @@ unit l3ControlsTypes;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ControlsTypes.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "l3ControlsTypes" MUID: (47D036150077)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

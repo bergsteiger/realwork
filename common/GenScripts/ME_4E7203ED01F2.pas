@@ -2,6 +2,7 @@ unit nevFontTool;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevFontTool.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevFontTool" MUID: (4E7203ED01F2)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

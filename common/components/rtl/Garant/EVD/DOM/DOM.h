@@ -2,7 +2,7 @@
 //
 // Модуль: "w:/common/components/rtl/Garant/EVD/DOM/DOM.h"
 // генератор заголовочных файлов C++ (.h)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi::EVD::DOM
+// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Low Level::EVD::DOM
 //
 // Объектная модель документа EVD
 //
@@ -10,8 +10,8 @@
 // Все права принадлежат ООО НПП "Гарант-Сервис".
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#ifndef __SHARED_DELPHI_EVD_DOM_H__
-#define __SHARED_DELPHI_EVD_DOM_H__
+#ifndef __SHARED_DELPHI_LOW_LEVEL_EVD_DOM_H__
+#define __SHARED_DELPHI_LOW_LEVEL_EVD_DOM_H__
 
 #include "shared/Core/sys/std_inc.h"
 #include "common/components/rtl/Garant/EVD/Types/Types.h"
@@ -77,5 +77,5 @@ public:
 } // namespace EVD
 
 
-#endif //__SHARED_DELPHI_EVD_DOM_H__
+#endif //__SHARED_DELPHI_LOW_LEVEL_EVD_DOM_H__
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

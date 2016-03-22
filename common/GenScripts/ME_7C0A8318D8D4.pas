@@ -3,6 +3,8 @@ unit ReleasetoKT;
 
 // Модуль: "w:\common\components\DailyTest\ReleasetoKT.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "ReleasetoKT" MUID: (7C0A8318D8D4)
+// Имя типа: "TReleasetoKT"
 
 {$Include w:\common\components\DailyTest\DailyTest.inc}
 

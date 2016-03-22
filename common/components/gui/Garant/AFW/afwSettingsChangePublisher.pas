@@ -2,6 +2,7 @@ unit afwSettingsChangePublisher;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\afwSettingsChangePublisher.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwSettingsChangePublisher" MUID: (5242FE0C02ED)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

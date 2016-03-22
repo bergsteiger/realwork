@@ -3,6 +3,7 @@ unit evExpandedTextFilter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evExpandedTextFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevExpandedTextFilter" MUID: (55B9C9EA0370)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

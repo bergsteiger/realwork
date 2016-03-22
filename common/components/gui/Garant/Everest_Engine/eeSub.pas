@@ -2,6 +2,7 @@ unit eeSub;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeSub.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TeeSub" MUID: (54817DA2016E)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

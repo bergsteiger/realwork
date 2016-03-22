@@ -2,6 +2,7 @@ unit l3ClassCacheEntry;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ClassCacheEntry.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ClassCacheEntry" MUID: (47A9A53001F6)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

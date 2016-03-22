@@ -3,6 +3,7 @@ unit afwPreviewPageSpy;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPageSpy.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwPreviewPageSpy" MUID: (4CB6DFDE0374)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

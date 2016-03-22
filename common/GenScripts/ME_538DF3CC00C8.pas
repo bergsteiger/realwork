@@ -2,6 +2,7 @@ unit csLoopBack;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csLoopBack.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsLoopBack" MUID: (538DF3CC00C8)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

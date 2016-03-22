@@ -165,39 +165,13 @@ ref; // ME_5093DC25011A
 
 ref; // ME_5093D47602BF afwImpurity
 
-: ME_5EC98EA11FE0
- CONST UID '5EC98EA11FE0'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация wait_Choice' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FFFF8520204 // wait_Choice
- ;
-
-ref; // ME_5EC98EA11FE0 Ini_Reg
-
 : ME_4DAEEDE10285_ME_4FFFF8520204
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4FFFF8520204 // wait_Choice
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4FFFF8520204 DoDoIt
-
-: ME_4DB0614603C8_ME_4FFFF8520204
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_4FFFF8520204 // wait_Choice
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4FFFF8520204 GetWordNameForRegister
 
 : ME_4FFFF8520204
  CONST UID '4FFFF8520204'
@@ -217,18 +191,10 @@ ref; // ME_4DB0614603C8_ME_4FFFF8520204 GetWordNameForRegister
    Seq: ( ME_5093D47602BF // afwImpurity
  )
  ; // Implements
- : Operations
-   Seq: ( ME_5EC98EA11FE0 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_4FFFF8520204 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_4FFFF8520204 // GetWordNameForRegister
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -241,23 +207,7 @@ ref; // ME_4DB0614603C8_ME_4FFFF8520204 GetWordNameForRegister
 
 ref; // ME_4FFFF8520204 wait_Choice
 
-: ME_38BB7E627EFD
- CONST UID '38BB7E627EFD'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Was_Wait' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DB94B3103DB // Was_Wait
- ;
-
-ref; // ME_38BB7E627EFD Ini_Reg
-
 : ME_4DAEEDE10285_ME_4DB94B3103DB
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4DB94B3103DB // Was_Wait
@@ -266,8 +216,6 @@ ref; // ME_38BB7E627EFD Ini_Reg
 ref; // ME_4DAEEDE10285_ME_4DB94B3103DB DoDoIt
 
 : ME_4DB0614603C8_ME_4DB94B3103DB
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
  : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
  ;
  : Implementor ME_4DB94B3103DB // Was_Wait
@@ -293,10 +241,6 @@ ref; // ME_4DB0614603C8_ME_4DB94B3103DB GetWordNameForRegister
    Seq: ( ME_5093D47602BF // afwImpurity
  )
  ; // Implements
- : Operations
-   Seq: ( ME_38BB7E627EFD // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_4DB94B3103DB // DoDoIt
  )
@@ -320,23 +264,7 @@ ref; // ME_4DB0614603C8_ME_4DB94B3103DB GetWordNameForRegister
 
 ref; // ME_4DB94B3103DB Was_Wait
 
-: ME_750CEA32FAD1
- CONST UID '750CEA32FAD1'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация wait_No' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DB94AE60059 // wait_No
- ;
-
-ref; // ME_750CEA32FAD1 Ini_Reg
-
 : ME_4DAEEDE10285_ME_4DB94AE60059
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4DB94AE60059 // wait_No
@@ -345,8 +273,6 @@ ref; // ME_750CEA32FAD1 Ini_Reg
 ref; // ME_4DAEEDE10285_ME_4DB94AE60059 DoDoIt
 
 : ME_4DB0614603C8_ME_4DB94AE60059
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
  : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
  ;
  : Implementor ME_4DB94AE60059 // wait_No
@@ -372,10 +298,6 @@ ref; // ME_4DB0614603C8_ME_4DB94AE60059 GetWordNameForRegister
    Seq: ( ME_5093D47602BF // afwImpurity
  )
  ; // Implements
- : Operations
-   Seq: ( ME_750CEA32FAD1 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_4DB94AE60059 // DoDoIt
  )
@@ -398,23 +320,7 @@ ref; // ME_4DB0614603C8_ME_4DB94AE60059 GetWordNameForRegister
 
 ref; // ME_4DB94AE60059 wait_No
 
-: ME_204CFD8DE590
- CONST UID '204CFD8DE590'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация wait_Ok' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDE8A650180 // wait_Ok
- ;
-
-ref; // ME_204CFD8DE590 Ini_Reg
-
 : ME_4DAEEDE10285_ME_4DDE8A650180
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4DDE8A650180 // wait_Ok
@@ -423,8 +329,6 @@ ref; // ME_204CFD8DE590 Ini_Reg
 ref; // ME_4DAEEDE10285_ME_4DDE8A650180 DoDoIt
 
 : ME_4DB0614603C8_ME_4DDE8A650180
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
  : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
  ;
  : Implementor ME_4DDE8A650180 // wait_Ok
@@ -450,10 +354,6 @@ ref; // ME_4DB0614603C8_ME_4DDE8A650180 GetWordNameForRegister
    Seq: ( ME_5093D47602BF // afwImpurity
  )
  ; // Implements
- : Operations
-   Seq: ( ME_204CFD8DE590 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_4DDE8A650180 // DoDoIt
  )
@@ -476,23 +376,7 @@ ref; // ME_4DB0614603C8_ME_4DDE8A650180 GetWordNameForRegister
 
 ref; // ME_4DDE8A650180 wait_Ok
 
-: ME_C9E4C5A39179
- CONST UID 'C9E4C5A39179'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация wait_Yes' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DB94A330111 // wait_Yes
- ;
-
-ref; // ME_C9E4C5A39179 Ini_Reg
-
 : ME_4DAEEDE10285_ME_4DB94A330111
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4DB94A330111 // wait_Yes
@@ -501,8 +385,6 @@ ref; // ME_C9E4C5A39179 Ini_Reg
 ref; // ME_4DAEEDE10285_ME_4DB94A330111 DoDoIt
 
 : ME_4DB0614603C8_ME_4DB94A330111
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
  : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
  ;
  : Implementor ME_4DB94A330111 // wait_Yes
@@ -528,10 +410,6 @@ ref; // ME_4DB0614603C8_ME_4DB94A330111 GetWordNameForRegister
    Seq: ( ME_5093D47602BF // afwImpurity
  )
  ; // Implements
- : Operations
-   Seq: ( ME_C9E4C5A39179 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_4DB94A330111 // DoDoIt
  )
@@ -554,39 +432,13 @@ ref; // ME_4DB0614603C8_ME_4DB94A330111 GetWordNameForRegister
 
 ref; // ME_4DB94A330111 wait_Yes
 
-: ME_85A3C1E8F76E
- CONST UID '85A3C1E8F76E'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация wait_Cancel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FFFE217028B // wait_Cancel
- ;
-
-ref; // ME_85A3C1E8F76E Ini_Reg
-
 : ME_4DAEEDE10285_ME_4FFFE217028B
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4FFFE217028B // wait_Cancel
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4FFFE217028B DoDoIt
-
-: ME_4DB0614603C8_ME_4FFFE217028B
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_4FFFE217028B // wait_Cancel
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4FFFE217028B GetWordNameForRegister
 
 : ME_4FFFE217028B
  CONST UID '4FFFE217028B'
@@ -606,18 +458,10 @@ ref; // ME_4DB0614603C8_ME_4FFFE217028B GetWordNameForRegister
    Seq: ( ME_5093D47602BF // afwImpurity
  )
  ; // Implements
- : Operations
-   Seq: ( ME_85A3C1E8F76E // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_4FFFE217028B // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_4FFFE217028B // GetWordNameForRegister
- )
- ; // Overridden
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false

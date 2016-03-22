@@ -2,6 +2,8 @@ unit kwVcmHistoryClear;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmHistoryClear.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "vcm_History_Clear" MUID: (52F4D3CF01ED)
+// Имя типа: "TkwVcmHistoryClear"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

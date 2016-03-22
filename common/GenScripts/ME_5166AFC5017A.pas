@@ -2,6 +2,7 @@ unit kwArchiEverestWordsPack;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiEverestWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "kwArchiEverestWordsPack" MUID: (5166AFC5017A)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

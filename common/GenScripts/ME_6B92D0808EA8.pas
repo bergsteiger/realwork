@@ -3,6 +3,8 @@ unit ReleaseArchi2;
 
 // Модуль: "w:\common\components\DailyTest\ReleaseArchi2.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "ReleaseArchi2" MUID: (6B92D0808EA8)
+// Имя типа: "TReleaseArchi2"
 
 {$Include w:\common\components\DailyTest\DailyTest.inc}
 

@@ -1,8 +1,14 @@
 unit dt_Query;
 
-{ $Id: dt_Query.pas,v 1.29 2015/10/15 10:36:32 lukyanets Exp $ }
+{ $Id: dt_Query.pas,v 1.31 2016/03/15 10:02:13 lukyanets Exp $ }
 
 // $Log: dt_Query.pas,v $
+// Revision 1.31  2016/03/15 10:02:13  lukyanets
+// Не учитывали все пути итерации
+//
+// Revision 1.30  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.29  2015/10/15 10:36:32  lukyanets
 // Обработка параметров
 //
@@ -689,6 +695,7 @@ type
 
    procedure SetMainTblPhoto(const aPhoto : ISab); override;
    procedure MakeUQueryAsIDList;
+   function DoIterate(Action: TdtQueryAction): Boolean; override;
   public
    procedure Load(aDataStream : TStream); override;
    procedure Save(aDataStream : TStream); override;
@@ -937,6 +944,7 @@ implementation
 
 uses
   WinTypes,
+  daSchemeConsts,
   HT_Dll,
   Dt_Serv, Dt_Err, Dt_Link, Dt_Dict, Dt_Misc,
   Dt_Hyper, Dt_User,
@@ -2063,6 +2071,15 @@ begin
  end;
  Changing;
  Changed;
+end;
+
+function TdtDocListQuery.DoIterate(Action: TdtQueryAction): Boolean;
+begin
+ Result := inherited DoIterate(Action);
+ if Result and Assigned(UQuery) then
+  Result := UQuery.DoIterate(Action);
+ if Result and Assigned(Filter) then
+  Result := Filter.DoIterate(Action);
 end;
 
 {TdtTextQuery}

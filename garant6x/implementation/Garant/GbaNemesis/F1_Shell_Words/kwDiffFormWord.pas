@@ -1,84 +1,55 @@
 unit kwDiffFormWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Shell Words"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Shell_Words/kwDiffFormWord.pas"
-// Начат: 03.11.2011 13:26
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Поддержка тестов::F1 Shell Words::F1 Shell Words::TkwDiffFormWord
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwDiffFormWord.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TkwDiffFormWord" MUID: (4EB25E1501E1)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(Admin) AND not defined(Monitorings)}
-  ,
-  Diff_Form
-  {$IfEnd} //not Admin AND not Monitorings
-  ,
-  tfwScriptingInterfaces
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwFormFromControlWord
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , kwFormFromControlWord
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ , Diff_Form
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+ , tfwScriptingInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoScripts)}
 type
  TkwDiffFormWord = {abstract} class(TkwFormFromControlWord)
- protected
- // realized methods
-    {$If not defined(NoScripts) AND not defined(NoVCL)}
-   procedure DoForm(aForm: TForm;
-     const aCtx: TtfwContext); override;
-    {$IfEnd} //not NoScripts AND not NoVCL
- protected
- // protected methods
+  protected
    procedure DoDiffForm(aForm: TDiffForm;
-     const aCtx: TtfwContext); virtual; abstract;
+    const aCtx: TtfwContext); virtual; abstract;
+   {$If NOT Defined(NoVCL)}
+   procedure DoForm(aForm: TForm;
+    const aCtx: TtfwContext); override;
+   {$IfEnd} // NOT Defined(NoVCL)
  end;//TkwDiffFormWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , SysUtils
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoScripts)}
-
-// start class TkwDiffFormWord
-
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TkwDiffFormWord.DoForm(aForm: TForm;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4EB25DE00396_4EB25E1501E1_var*
 //#UC END# *4EB25DE00396_4EB25E1501E1_var*
 begin
@@ -88,14 +59,11 @@ begin
  DoDiffForm(aForm As TDiffForm, aCtx);
 //#UC END# *4EB25DE00396_4EB25E1501E1_impl*
 end;//TkwDiffFormWord.DoForm
-{$IfEnd} //not NoScripts AND not NoVCL
-
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwDiffFormWord
  TkwDiffFormWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwDiffFormWord }
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$IfEnd} // NOT Defined(NoScripts)
 end.

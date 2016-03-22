@@ -2,6 +2,7 @@ unit l3SimpleDataContainer;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3SimpleDataContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3SimpleDataContainer" MUID: (47BC3A07027F)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

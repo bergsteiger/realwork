@@ -2,6 +2,7 @@ unit l3BaseBoxMemoryManager;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3BaseBoxMemoryManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3BaseBoxMemoryManager" MUID: (54B69F9700DE)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

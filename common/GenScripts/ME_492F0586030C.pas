@@ -3,6 +3,7 @@ unit AutoreferatInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\AutoreferatInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "AutoreferatInterfaces" MUID: (492F0586030C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

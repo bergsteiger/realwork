@@ -44,18 +44,18 @@ object en_PrintDialog: Ten_PrintDialog
         Height = 25
         Anchors = [akTop, akRight]
         Caption = #1057#1074#1086#1081#1089#1090#1074#1072
-        TabOrder = 0
+        TabOrder = 1
         OnClick = SettingsButtonClick
       end
       object cbPrinter: TvtComboBoxQS
         Left = 80
-        Top = 16
+        Top = 18
         Width = 315
         Height = 21
         Anchors = [akLeft, akTop, akRight]
         ParentShowHint = False
         ShowHint = True
-        TabOrder = 1
+        TabOrder = 0
         ComboStyle = ct_cbDropDownList
       end
     end

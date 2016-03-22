@@ -2,6 +2,7 @@ unit bsWorkJournalPrim;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\WorkJournal\bsWorkJournalPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsWorkJournalPrim" MUID: (4A825E02010E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

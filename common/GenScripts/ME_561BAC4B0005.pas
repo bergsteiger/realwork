@@ -2,6 +2,7 @@ unit tfwGlobalKeyWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwGlobalKeyWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwGlobalKeyWord" MUID: (561BAC4B0005)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

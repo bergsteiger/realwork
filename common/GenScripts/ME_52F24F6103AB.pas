@@ -3,6 +3,7 @@ program AutoPipeServerTest;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\AutoPipeServerTest.dpr"
 // Стереотип: "TestTarget"
+// Элемент модели: "AutoPipeServer" MUID: (52F24F6103AB)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

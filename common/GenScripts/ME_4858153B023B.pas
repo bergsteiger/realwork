@@ -2,6 +2,7 @@ unit evBitmapParaBitmapContainer;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evBitmapParaBitmapContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevBitmapParaBitmapContainer" MUID: (4858153B023B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,7 @@ unit NOT_FINISHED_evOp;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evOp.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "evOp" MUID: (48453A40017C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

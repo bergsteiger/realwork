@@ -1,87 +1,61 @@
 unit RegisteredRepliesTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Low Level Tests"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tests/RegisteredRepliesTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> archi$AutoPipeServer$Garant::Low Level Tests::TasksRegistering::TRegisteredRepliesTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tests\RegisteredRepliesTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TRegisteredRepliesTest" MUID: (53BAA54900F6)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest
+ l3IntfUses
+ {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
 type
  TRegisteredRepliesTest = class(TBaseTest)
- protected
- // overridden protected methods
-   {$If defined(nsTest)}
+  protected
+   {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   {$IfEnd} //nsTest
-   {$If defined(nsTest)}
+    {* Папка в которую входит тест }
+   {$IfEnd} // Defined(nsTest)
+   {$If Defined(nsTest)}
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
-   {$IfEnd} //nsTest
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+   {$IfEnd} // Defined(nsTest)
+  published
    procedure DoIt;
  end;//TRegisteredRepliesTest
-{$IfEnd} //AppServerSide AND InsiderTest
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
 uses
-  SysUtils
-  {$If defined(AppServerSide) AND not defined(Nemesis)}
-  ,
-  CsReplyProcedures
-  {$IfEnd} //AppServerSide AND not Nemesis
-  
-  {$If defined(AppServerSide) AND not defined(Nemesis)}
-  ,
-  CsProcWithId
-  {$IfEnd} //AppServerSide AND not Nemesis
-  
-  {$If not defined(Nemesis)}
-  ,
-  CsQueryTypes
-  {$IfEnd} //not Nemesis
-  ,
-  l3Filer,
-  TypInfo
-  {$If defined(nsTest)}
-  ,
-  TestFrameWork
-  {$IfEnd} //nsTest
-  
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest
+ l3ImplUses
+ {$If Defined(nsTest)}
+ , TestFrameWork
+ {$IfEnd} // Defined(nsTest)
+ {$If NOT Defined(Nemesis)}
+ , CsReplyProcedures
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , CsProcWithId
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , CsQueryTypes
+ {$IfEnd} // NOT Defined(Nemesis)
+ , Classes
+ , l3Filer
+ , SysUtils
+ , TypInfo
+;
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
-
-// start class TRegisteredRepliesTest
-
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 procedure TRegisteredRepliesTest.DoIt;
 //#UC START# *53BAA563023C_53BAA54900F6_var*
 var
@@ -122,25 +96,21 @@ begin
 //#UC END# *53BAA563023C_53BAA54900F6_impl*
 end;//TRegisteredRepliesTest.DoIt
 
-{$If defined(nsTest)}
 function TRegisteredRepliesTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'TasksRegistering';
 end;//TRegisteredRepliesTest.GetFolder
-{$IfEnd} //nsTest
 
-{$If defined(nsTest)}
 function TRegisteredRepliesTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '53BAA54900F6';
 end;//TRegisteredRepliesTest.GetModelElementGUID
-{$IfEnd} //nsTest
-
-{$IfEnd} //AppServerSide AND InsiderTest
 
 initialization
  TestFramework.RegisterTest(TRegisteredRepliesTest.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 end.

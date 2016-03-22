@@ -2,6 +2,7 @@ unit NOT_FINISHED_MainEditor;
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\Main\NOT_FINISHED_MainEditor.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "MainEditor" MUID: (512DBDD903A5)
 
 interface
 

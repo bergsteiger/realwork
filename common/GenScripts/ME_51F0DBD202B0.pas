@@ -2,6 +2,7 @@ unit ddJustList;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddJustList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddJustList" MUID: (51F0DBD202B0)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

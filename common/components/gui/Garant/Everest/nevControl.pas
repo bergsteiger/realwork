@@ -109,6 +109,7 @@ type
    function InClose: Boolean;
      {* Редактор в процессе закрытия. }
    function Get_AACLike: TnevAACLikeMode;
+   function NeedTotalRecalc: Boolean;
  public
  // realized methods
    function AllowsThisDecor(aFI: TnevFormatInfoPrim;
@@ -900,6 +901,15 @@ begin
  Result := f_AACLike{nev_aacLeft};
 //#UC END# *501F96A80050_48E0E5C1032Aget_impl*
 end;//TnevControl.Get_AACLike
+
+function TnevControl.NeedTotalRecalc: Boolean;
+//#UC START# *565F03C80029_48E0E5C1032A_var*
+//#UC END# *565F03C80029_48E0E5C1032A_var*
+begin
+//#UC START# *565F03C80029_48E0E5C1032A_impl*
+ Result := false;
+//#UC END# *565F03C80029_48E0E5C1032A_impl*
+end;//TnevControl.NeedTotalRecalc
 
 initialization
 {$If not defined(NoScripts)}

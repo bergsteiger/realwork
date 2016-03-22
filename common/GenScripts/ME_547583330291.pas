@@ -2,6 +2,7 @@ unit ncsGetFilePart;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsGetFilePart.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsGetFilePart" MUID: (547583330291)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

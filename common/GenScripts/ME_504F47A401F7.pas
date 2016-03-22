@@ -2,6 +2,7 @@ unit atControlStatusConverter;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atControlStatusConverter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatControlStatusConverter" MUID: (504F47A401F7)
 
 interface
 

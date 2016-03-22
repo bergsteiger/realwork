@@ -2,6 +2,7 @@ unit ncsGetReadyToDeliveryTasksReply;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsGetReadyToDeliveryTasksReply.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsGetReadyToDeliveryTasksReply" MUID: (54645E0D0246)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -2,6 +2,7 @@ unit m3StorageService;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3StorageService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tm3StorageService" MUID: (5551C8670144)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

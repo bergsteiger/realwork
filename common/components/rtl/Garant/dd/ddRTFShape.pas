@@ -28,7 +28,8 @@ uses
   ddTextParagraph,
   ddPicture,
   ddCustomDestination,
-  k2Interfaces
+  k2Interfaces,
+  ddTypes
   ;
 
 type
@@ -55,7 +56,7 @@ type
  // realized methods
    procedure Write2Generator(const Generator: Ik2TagGenerator;
      aNeedProcessRow: Boolean;
-     LiteVersion: Boolean); override;
+     LiteVersion: TddLiteVersion); override;
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -271,7 +272,7 @@ end;//TddRTFShape.pm_SetRight
 
 procedure TddRTFShape.Write2Generator(const Generator: Ik2TagGenerator;
   aNeedProcessRow: Boolean;
-  LiteVersion: Boolean);
+  LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_5596481703C3_var*
 var
  i: Integer;

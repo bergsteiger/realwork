@@ -2,6 +2,7 @@ unit BaloonWarningUserTypes_WarnIsAbolished_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnIsAbolished_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "WarnIsAbolished" MUID: (4DA8296501F2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -11,7 +12,6 @@ interface
 uses
  l3IntfUses
  , BaloonWarningUserTypes_WarnPreActive_UserType
- , BaloonWarningUserTypes_Fake_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -34,26 +34,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_WarnIsAbolished = {final} class(TtfwInteger)
   {* Слово словаря для типа формы WarnIsAbolished }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_WarnIsAbolished
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_WarnIsAbolished.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::WarnIsAbolished';
-end;//Tkw_FormUserType_WarnIsAbolished.GetWordNameForRegister
-
 function Tkw_FormUserType_WarnIsAbolished.GetInteger: Integer;
 begin
  Result := WarnIsAbolished;
 end;//Tkw_FormUserType_WarnIsAbolished.GetInteger
+
+class function Tkw_FormUserType_WarnIsAbolished.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::WarnIsAbolished';
+end;//Tkw_FormUserType_WarnIsAbolished.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

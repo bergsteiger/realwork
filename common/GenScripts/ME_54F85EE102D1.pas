@@ -2,6 +2,7 @@ unit daDataProviderFactory;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daDataProviderFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaDataProviderFactory" MUID: (54F85EE102D1)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

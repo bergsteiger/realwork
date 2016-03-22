@@ -2,6 +2,7 @@ unit kwMouseUpDownSupport;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseUpDownSupport.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwMouseUpDownSupport" MUID: (4F967BAD0127)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

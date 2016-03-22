@@ -2,6 +2,7 @@ unit nevObjectHolderPrim;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevObjectHolderPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevObjectHolderPrim" MUID: (48185C4002DC)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -20,15 +20,19 @@ interface
 
 uses
   l3Interfaces,
-  l3SimpleObject
+  l3SimpleObject,
+  LoggingWrapperInterfaces
   ;
 
 type
- TnsLoggingTestService = class(Tl3SimpleObject)
+ TnsLoggingTestService = class(Tl3SimpleObject, InsLoggingTestService)
  private
  // private fields
    f_Listening : Boolean;
    f_LogRecords : Il3StringsEx;
+ protected
+ // realized methods
+   procedure AddLogString(const aString: AnsiString);
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -41,7 +45,6 @@ type
    procedure StopListening;
      {* Сигнатура метода StopListening }
    function GetLogStrings: AnsiString;
-   procedure AddLogString(const aString: AnsiString);
    class function Exists: Boolean;
      {* Проверяет создан экземпляр синглетона или нет }
  public
@@ -120,21 +123,21 @@ begin
 //#UC END# *55BA01020317_55B9FFCB020F_impl*
 end;//TnsLoggingTestService.GetLogStrings
 
-procedure TnsLoggingTestService.AddLogString(const aString: AnsiString);
-//#UC START# *55BA022F011C_55B9FFCB020F_var*
-//#UC END# *55BA022F011C_55B9FFCB020F_var*
-begin
-//#UC START# *55BA022F011C_55B9FFCB020F_impl*
- if f_Listening then
-  f_LogRecords.Add(aString);
-//#UC END# *55BA022F011C_55B9FFCB020F_impl*
-end;//TnsLoggingTestService.AddLogString
-
 class function TnsLoggingTestService.Exists: Boolean;
  {-}
 begin
  Result := g_TnsLoggingTestService <> nil;
 end;//TnsLoggingTestService.Exists
+
+procedure TnsLoggingTestService.AddLogString(const aString: AnsiString);
+//#UC START# *566AEC8A0092_55B9FFCB020F_var*
+//#UC END# *566AEC8A0092_55B9FFCB020F_var*
+begin
+//#UC START# *566AEC8A0092_55B9FFCB020F_impl*
+ if f_Listening then
+  f_LogRecords.Add(aString);
+//#UC END# *566AEC8A0092_55B9FFCB020F_impl*
+end;//TnsLoggingTestService.AddLogString
 
 procedure TnsLoggingTestService.Cleanup;
 //#UC START# *479731C50290_55B9FFCB020F_var*
@@ -151,6 +154,7 @@ procedure TnsLoggingTestService.InitFields;
 //#UC END# *47A042E100E2_55B9FFCB020F_var*
 begin
 //#UC START# *47A042E100E2_55B9FFCB020F_impl*
+ inherited;
  f_LogRecords := Tl3Strings.Make;
 //#UC END# *47A042E100E2_55B9FFCB020F_impl*
 end;//TnsLoggingTestService.InitFields

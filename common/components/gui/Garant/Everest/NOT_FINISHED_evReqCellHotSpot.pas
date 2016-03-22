@@ -2,6 +2,7 @@ unit NOT_FINISHED_evReqCellHotSpot;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evReqCellHotSpot.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evReqCellHotSpot" MUID: (53D0C11D034F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
@@ -13,11 +14,11 @@ uses
  , evTableCellHotSpot
 ;
 
+{$If NOT Defined(evCanEditControlsAsText)}
 type
- {$If NOT Defined(evCanEditControlsAsText)}
  TevReqCellHotSpotTester = class(TevTableCellHotSpotTester)
  end;//TevReqCellHotSpotTester
- {$IfEnd} // NOT Defined(evCanEditControlsAsText)
+{$IfEnd} // NOT Defined(evCanEditControlsAsText)
 
 {$IfEnd} // Defined(evNeedHotSpot)
 implementation

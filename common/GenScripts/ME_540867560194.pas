@@ -2,6 +2,7 @@ unit NOT_FINISHED_alcuRegionImportTask;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuRegionImportTask.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuRegionImportTask" MUID: (540867560194)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

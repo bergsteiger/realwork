@@ -2,6 +2,7 @@ unit alcuAutoClassTaskResult;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAutoClassTaskResult.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuAutoClassTaskResult" MUID: (53F472280036)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

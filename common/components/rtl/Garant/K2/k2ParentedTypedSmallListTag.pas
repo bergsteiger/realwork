@@ -3,6 +3,7 @@ unit k2ParentedTypedSmallListTag;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2ParentedTypedSmallListTag.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2ParentedTypedSmallListTag" MUID: (527D053500AA)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

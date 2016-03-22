@@ -2,6 +2,8 @@ unit ItsLAW;
 
 // Модуль: "w:\common\components\TFWTest\ItsLAW.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "ItsLAW" MUID: (4CA0B4860072)
+// Имя типа: "TItsLAW"
 
 interface
 

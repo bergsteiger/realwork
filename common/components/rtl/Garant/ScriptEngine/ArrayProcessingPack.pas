@@ -2,6 +2,7 @@ unit ArrayProcessingPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ArrayProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ArrayProcessingPack" MUID: (4F50313101D1)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -61,8 +62,8 @@ type
   protected
    function EndBracket(const aContext: TtfwContext;
     aSilent: Boolean): RtfwWord; override;
-   class function GetWordNameForRegister: AnsiString; override;
    function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwOpenArray
 
  //#UC START# *DB8D8DCA5554ci*
@@ -115,8 +116,8 @@ VAR l_TtfwStackValue
     const aValue: TtfwStackValue);
     {* Метод установки значения свойства Item }
    procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
    function BindParams: Boolean; override;
+   class function GetWordNameForRegister: AnsiString; override;
   public
    procedure SetValuePrim(const aValue: TtfwStackValue;
     const aCtx: TtfwContext); override;
@@ -424,11 +425,6 @@ begin
 //#UC END# *4DB6C99F026E_4F5037E30231_impl*
 end;//TkwOpenArray.EndBracket
 
-class function TkwOpenArray.GetWordNameForRegister: AnsiString;
-begin
- Result := '[';
-end;//TkwOpenArray.GetWordNameForRegister
-
 function TkwOpenArray.CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim;
 //#UC START# *4DBAEE0D028D_4F5037E30231_var*
 //#UC END# *4DBAEE0D028D_4F5037E30231_var*
@@ -437,6 +433,11 @@ begin
  Result := TkwCompiledArray;
 //#UC END# *4DBAEE0D028D_4F5037E30231_impl*
 end;//TkwOpenArray.CompiledWordClass
+
+class function TkwOpenArray.GetWordNameForRegister: AnsiString;
+begin
+ Result := '[';
+end;//TkwOpenArray.GetWordNameForRegister
 
 class function TArrayProcessingPackResNameGetter.ResName: AnsiString;
 begin
@@ -467,11 +468,6 @@ begin
  Clear(aCtx, l_aArray);
 end;//TkwArrayClear.DoDoIt
 
-class function TkwArrayClear.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Clear';
-end;//TkwArrayClear.GetWordNameForRegister
-
 function TkwArrayClear.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -486,6 +482,11 @@ function TkwArrayClear.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList)]);
 end;//TkwArrayClear.ParamsTypes
+
+class function TkwArrayClear.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Clear';
+end;//TkwArrayClear.GetWordNameForRegister
 
 function TkwArrayItem.Item(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
@@ -540,11 +541,6 @@ begin
  aCtx.rEngine.Push(Item(aCtx, l_aArray, l_anIndex));
 end;//TkwArrayItem.DoDoIt
 
-class function TkwArrayItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Item';
-end;//TkwArrayItem.GetWordNameForRegister
-
 procedure TkwArrayItem.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 var l_Array: ItfwValueList;
@@ -595,6 +591,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(Integer)]);
 end;//TkwArrayItem.ParamsTypes
 
+class function TkwArrayItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Item';
+end;//TkwArrayItem.GetWordNameForRegister
+
 function TkwArrayReverted.Reverted(const aCtx: TtfwContext;
  const aArray: ItfwValueList): ItfwValueList;
  {* Реализация слова скрипта Array:Reverted }
@@ -621,11 +622,6 @@ begin
  aCtx.rEngine.PushList(Reverted(aCtx, l_aArray));
 end;//TkwArrayReverted.DoDoIt
 
-class function TkwArrayReverted.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Reverted';
-end;//TkwArrayReverted.GetWordNameForRegister
-
 function TkwArrayReverted.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -640,6 +636,11 @@ function TkwArrayReverted.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList)]);
 end;//TkwArrayReverted.ParamsTypes
+
+class function TkwArrayReverted.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Reverted';
+end;//TkwArrayReverted.GetWordNameForRegister
 
 function TkwArrayFilter.Filter(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
@@ -678,11 +679,6 @@ begin
  aCtx.rEngine.PushList(Filter(aCtx, l_aArray, l_aLambda));
 end;//TkwArrayFilter.DoDoIt
 
-class function TkwArrayFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Filter';
-end;//TkwArrayFilter.GetWordNameForRegister
-
 function TkwArrayFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -697,6 +693,11 @@ function TkwArrayFilter.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(TtfwWord)]);
 end;//TkwArrayFilter.ParamsTypes
+
+class function TkwArrayFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Filter';
+end;//TkwArrayFilter.GetWordNameForRegister
 
 function TkwArrayMap.Map(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
@@ -735,11 +736,6 @@ begin
  aCtx.rEngine.PushList(Map(aCtx, l_aArray, l_aLambda));
 end;//TkwArrayMap.DoDoIt
 
-class function TkwArrayMap.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Map';
-end;//TkwArrayMap.GetWordNameForRegister
-
 function TkwArrayMap.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -754,6 +750,11 @@ function TkwArrayMap.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(TtfwWord)]);
 end;//TkwArrayMap.ParamsTypes
+
+class function TkwArrayMap.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Map';
+end;//TkwArrayMap.GetWordNameForRegister
 
 procedure TkwArrayIterate.Iterate(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
@@ -792,11 +793,6 @@ begin
  Iterate(aCtx, l_aArray, l_aLambda);
 end;//TkwArrayIterate.DoDoIt
 
-class function TkwArrayIterate.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Iterate';
-end;//TkwArrayIterate.GetWordNameForRegister
-
 function TkwArrayIterate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -811,6 +807,11 @@ function TkwArrayIterate.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(TtfwWord)]);
 end;//TkwArrayIterate.ParamsTypes
+
+class function TkwArrayIterate.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Iterate';
+end;//TkwArrayIterate.GetWordNameForRegister
 
 procedure TkwArrayAdd.Add(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
@@ -845,11 +846,6 @@ begin
  Add(aCtx, l_aArray, l_aValue);
 end;//TkwArrayAdd.DoDoIt
 
-class function TkwArrayAdd.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Add';
-end;//TkwArrayAdd.GetWordNameForRegister
-
 function TkwArrayAdd.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -864,6 +860,11 @@ function TkwArrayAdd.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), @tfw_tiStruct]);
 end;//TkwArrayAdd.ParamsTypes
+
+class function TkwArrayAdd.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Add';
+end;//TkwArrayAdd.GetWordNameForRegister
 
 function TkwArrayFunctorToIterator.FunctorToIterator(const aCtx: TtfwContext;
  aLambda: TtfwWord): ItfwValueList;
@@ -891,11 +892,6 @@ begin
  aCtx.rEngine.PushList(FunctorToIterator(aCtx, l_aLambda));
 end;//TkwArrayFunctorToIterator.DoDoIt
 
-class function TkwArrayFunctorToIterator.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:FunctorToIterator';
-end;//TkwArrayFunctorToIterator.GetWordNameForRegister
-
 function TkwArrayFunctorToIterator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -910,6 +906,11 @@ function TkwArrayFunctorToIterator.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(TtfwWord)]);
 end;//TkwArrayFunctorToIterator.ParamsTypes
+
+class function TkwArrayFunctorToIterator.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:FunctorToIterator';
+end;//TkwArrayFunctorToIterator.GetWordNameForRegister
 
 function TkwArrayJoin.Join(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
@@ -948,11 +949,6 @@ begin
  aCtx.rEngine.PushList(Join(aCtx, l_aArray, l_anOther));
 end;//TkwArrayJoin.DoDoIt
 
-class function TkwArrayJoin.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Join';
-end;//TkwArrayJoin.GetWordNameForRegister
-
 function TkwArrayJoin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -967,6 +963,11 @@ function TkwArrayJoin.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(ItfwValueList)]);
 end;//TkwArrayJoin.ParamsTypes
+
+class function TkwArrayJoin.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Join';
+end;//TkwArrayJoin.GetWordNameForRegister
 
 function TkwArrayTrunc.Trunc(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
@@ -1005,11 +1006,6 @@ begin
  aCtx.rEngine.PushList(Trunc(aCtx, l_aArray, l_aLambda));
 end;//TkwArrayTrunc.DoDoIt
 
-class function TkwArrayTrunc.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Trunc';
-end;//TkwArrayTrunc.GetWordNameForRegister
-
 function TkwArrayTrunc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -1024,6 +1020,11 @@ function TkwArrayTrunc.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(TtfwWord)]);
 end;//TkwArrayTrunc.ParamsTypes
+
+class function TkwArrayTrunc.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Trunc';
+end;//TkwArrayTrunc.GetWordNameForRegister
 
 function TkwArraySlice.Slice(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
@@ -1062,11 +1063,6 @@ begin
  aCtx.rEngine.PushList(Slice(aCtx, l_aArray, l_aCount));
 end;//TkwArraySlice.DoDoIt
 
-class function TkwArraySlice.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Slice';
-end;//TkwArraySlice.GetWordNameForRegister
-
 function TkwArraySlice.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -1081,6 +1077,11 @@ function TkwArraySlice.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(Integer)]);
 end;//TkwArraySlice.ParamsTypes
+
+class function TkwArraySlice.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Slice';
+end;//TkwArraySlice.GetWordNameForRegister
 
 function TkwArrayCount.Count(const aCtx: TtfwContext;
  const aArray: ItfwValueList): Integer;
@@ -1104,11 +1105,6 @@ begin
  aCtx.rEngine.PushInt(Count(aCtx, l_aArray));
 end;//TkwArrayCount.DoDoIt
 
-class function TkwArrayCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Count';
-end;//TkwArrayCount.GetWordNameForRegister
-
 procedure TkwArrayCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1129,6 +1125,11 @@ function TkwArrayCount.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList)]);
 end;//TkwArrayCount.ParamsTypes
+
+class function TkwArrayCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Count';
+end;//TkwArrayCount.GetWordNameForRegister
 
 initialization
  TkwCompiledArray.RegisterClass;

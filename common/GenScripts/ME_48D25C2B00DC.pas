@@ -3,6 +3,7 @@ unit evEmailEdit;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evEmailEdit.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevEmailEdit" MUID: (48D25C2B00DC)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,7 @@ unit F1LikeTextLoadKeywordsPack;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\F1LikeTextLoadKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "F1LikeTextLoadKeywordsPack" MUID: (FD7B4F4B69EA)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
@@ -48,8 +49,8 @@ type
 'aControl' форма::F1LikeTextLoad TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_F1LikeTextLoad
 
  Tkw_F1LikeTextLoad_Control_Text = {final} class(TtfwControlString)
@@ -60,9 +61,9 @@ type
 контрол::Text TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_F1LikeTextLoad_Control_Text
 
  Tkw_F1LikeTextLoad_Control_Text_Push = {final} class(TkwBynameControlPush)
@@ -85,9 +86,9 @@ type
 компонент::TextSource TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_F1LikeTextLoad_Component_TextSource
 
  Tkw_F1LikeTextLoad_Component_LoadManager = {final} class(TtfwControlString)
@@ -98,9 +99,9 @@ type
 компонент::LoadManager TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_F1LikeTextLoad_Component_LoadManager
 
  TkwF1LikeTextLoadFormText = {final} class(TtfwPropertyLike)
@@ -175,20 +176,15 @@ OBJECT VAR l_TevLoadDocumentManager
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwF1LikeTextLoadFormLoadManager
 
-class function Tkw_Form_F1LikeTextLoad.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::F1LikeTextLoad';
-end;//Tkw_Form_F1LikeTextLoad.GetWordNameForRegister
-
 function Tkw_Form_F1LikeTextLoad.GetString: AnsiString;
 begin
  Result := 'F1LikeTextLoadForm';
 end;//Tkw_Form_F1LikeTextLoad.GetString
 
-class function Tkw_F1LikeTextLoad_Control_Text.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_F1LikeTextLoad.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::Text';
-end;//Tkw_F1LikeTextLoad_Control_Text.GetWordNameForRegister
+ Result := 'форма::F1LikeTextLoad';
+end;//Tkw_Form_F1LikeTextLoad.GetWordNameForRegister
 
 function Tkw_F1LikeTextLoad_Control_Text.GetString: AnsiString;
 begin
@@ -201,6 +197,11 @@ begin
  TtfwClassRef.Register(TeeEditorExport);
 end;//Tkw_F1LikeTextLoad_Control_Text.RegisterInEngine
 
+class function Tkw_F1LikeTextLoad_Control_Text.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Text';
+end;//Tkw_F1LikeTextLoad_Control_Text.GetWordNameForRegister
+
 procedure Tkw_F1LikeTextLoad_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Text');
@@ -211,11 +212,6 @@ class function Tkw_F1LikeTextLoad_Control_Text_Push.GetWordNameForRegister: Ansi
 begin
  Result := 'контрол::Text:push';
 end;//Tkw_F1LikeTextLoad_Control_Text_Push.GetWordNameForRegister
-
-class function Tkw_F1LikeTextLoad_Component_TextSource.GetWordNameForRegister: AnsiString;
-begin
- Result := 'компонент::TextSource';
-end;//Tkw_F1LikeTextLoad_Component_TextSource.GetWordNameForRegister
 
 function Tkw_F1LikeTextLoad_Component_TextSource.GetString: AnsiString;
 begin
@@ -228,10 +224,10 @@ begin
  TtfwClassRef.Register(TeeTextSourceExport);
 end;//Tkw_F1LikeTextLoad_Component_TextSource.RegisterInEngine
 
-class function Tkw_F1LikeTextLoad_Component_LoadManager.GetWordNameForRegister: AnsiString;
+class function Tkw_F1LikeTextLoad_Component_TextSource.GetWordNameForRegister: AnsiString;
 begin
- Result := 'компонент::LoadManager';
-end;//Tkw_F1LikeTextLoad_Component_LoadManager.GetWordNameForRegister
+ Result := 'компонент::TextSource';
+end;//Tkw_F1LikeTextLoad_Component_TextSource.GetWordNameForRegister
 
 function Tkw_F1LikeTextLoad_Component_LoadManager.GetString: AnsiString;
 begin
@@ -243,6 +239,11 @@ begin
  inherited;
  TtfwClassRef.Register(TevLoadDocumentManager);
 end;//Tkw_F1LikeTextLoad_Component_LoadManager.RegisterInEngine
+
+class function Tkw_F1LikeTextLoad_Component_LoadManager.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'компонент::LoadManager';
+end;//Tkw_F1LikeTextLoad_Component_LoadManager.GetWordNameForRegister
 
 function TkwF1LikeTextLoadFormText.Text(const aCtx: TtfwContext;
  aF1LikeTextLoadForm: TF1LikeTextLoadForm): TeeEditorExport;
@@ -266,11 +267,6 @@ begin
  aCtx.rEngine.PushObj(Text(aCtx, l_aF1LikeTextLoadForm));
 end;//TkwF1LikeTextLoadFormText.DoDoIt
 
-class function TkwF1LikeTextLoadFormText.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TF1LikeTextLoadForm.Text';
-end;//TkwF1LikeTextLoadFormText.GetWordNameForRegister
-
 procedure TkwF1LikeTextLoadFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -291,6 +287,11 @@ function TkwF1LikeTextLoadFormText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TF1LikeTextLoadForm)]);
 end;//TkwF1LikeTextLoadFormText.ParamsTypes
+
+class function TkwF1LikeTextLoadFormText.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TF1LikeTextLoadForm.Text';
+end;//TkwF1LikeTextLoadFormText.GetWordNameForRegister
 
 function TkwF1LikeTextLoadFormTextSource.TextSource(const aCtx: TtfwContext;
  aF1LikeTextLoadForm: TF1LikeTextLoadForm): TeeTextSourceExport;
@@ -314,11 +315,6 @@ begin
  aCtx.rEngine.PushObj(TextSource(aCtx, l_aF1LikeTextLoadForm));
 end;//TkwF1LikeTextLoadFormTextSource.DoDoIt
 
-class function TkwF1LikeTextLoadFormTextSource.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TF1LikeTextLoadForm.TextSource';
-end;//TkwF1LikeTextLoadFormTextSource.GetWordNameForRegister
-
 procedure TkwF1LikeTextLoadFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -339,6 +335,11 @@ function TkwF1LikeTextLoadFormTextSource.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TF1LikeTextLoadForm)]);
 end;//TkwF1LikeTextLoadFormTextSource.ParamsTypes
+
+class function TkwF1LikeTextLoadFormTextSource.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TF1LikeTextLoadForm.TextSource';
+end;//TkwF1LikeTextLoadFormTextSource.GetWordNameForRegister
 
 function TkwF1LikeTextLoadFormLoadManager.LoadManager(const aCtx: TtfwContext;
  aF1LikeTextLoadForm: TF1LikeTextLoadForm): TevLoadDocumentManager;
@@ -362,11 +363,6 @@ begin
  aCtx.rEngine.PushObj(LoadManager(aCtx, l_aF1LikeTextLoadForm));
 end;//TkwF1LikeTextLoadFormLoadManager.DoDoIt
 
-class function TkwF1LikeTextLoadFormLoadManager.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TF1LikeTextLoadForm.LoadManager';
-end;//TkwF1LikeTextLoadFormLoadManager.GetWordNameForRegister
-
 procedure TkwF1LikeTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -387,6 +383,11 @@ function TkwF1LikeTextLoadFormLoadManager.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TF1LikeTextLoadForm)]);
 end;//TkwF1LikeTextLoadFormLoadManager.ParamsTypes
+
+class function TkwF1LikeTextLoadFormLoadManager.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TF1LikeTextLoadForm.LoadManager';
+end;//TkwF1LikeTextLoadFormLoadManager.GetWordNameForRegister
 
 initialization
  Tkw_Form_F1LikeTextLoad.RegisterInEngine;

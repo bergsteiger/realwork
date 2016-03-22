@@ -2,6 +2,7 @@ unit caInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\ComboAccess\caInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "caInterfaces" MUID: (56C2DE8D033F)
 
 {$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 

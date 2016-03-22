@@ -1,64 +1,42 @@
 unit SuccessTest;
+ {* Успешный тест }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestForTFW"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/TestForTFW/SuccessTest.pas"
-// Начат: 27.09.2010 19:04
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::TestForTFW::TFWTests::TSuccessTest
-//
-// Успешный тест
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\Garant\TestForTFW\SuccessTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TSuccessTest" MUID: (4CA0B27401E4)
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TSuccessTest = class(TBaseTest)
   {* Успешный тест }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt;
  end;//TSuccessTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TSuccessTest
-
+{$If NOT Defined(NotTunedDUnit)}
 procedure TSuccessTest.DoIt;
 //#UC START# *4CA0B2AC0096_4CA0B27401E4_var*
 //#UC END# *4CA0B2AC0096_4CA0B27401E4_var*
@@ -69,20 +47,20 @@ begin
 end;//TSuccessTest.DoIt
 
 function TSuccessTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'TFWTests';
 end;//TSuccessTest.GetFolder
 
 function TSuccessTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4CA0B27401E4';
 end;//TSuccessTest.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TSuccessTest.Suite);
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

@@ -28,7 +28,12 @@ type
  TnsLogManager = class(Tl3SimpleObject, InsLogManager)
  private
  // private fields
+   f_LoggingTestService : InsLoggingTestService;
    f_LogManager : ILogManager;
+    {* Поле для свойства LogManager}
+ protected
+ // property methods
+   function pm_GetLogManager: ILogManager;
  protected
  // realized methods
    procedure AddEvent(aLogEvent: TLogEvent;
@@ -38,10 +43,16 @@ type
    procedure Cleanup; override;
      {* Функция очистки полей объекта. }
    procedure InitFields; override;
+   procedure ClearFields; override;
+     {* Сигнатура метода ClearFields }
  public
  // public methods
    class function Exists: Boolean;
      {* Проверяет создан экземпляр синглетона или нет }
+ protected
+ // protected properties
+   property LogManager: ILogManager
+     read pm_GetLogManager;
  public
  // singleton factory method
    class function Instance: TnsLogManager;
@@ -78,6 +89,17 @@ begin
 end;
 
 
+function TnsLogManager.pm_GetLogManager: ILogManager;
+//#UC START# *55B761D70223_55B761180244get_var*
+//#UC END# *55B761D70223_55B761180244get_var*
+begin
+//#UC START# *55B761D70223_55B761180244get_impl*
+ if not Assigned(f_LogManager) and Assigned(DefDataAdapter) then
+  f_LogManager := DefDataAdapter.LogManager;
+ Result := f_LogManager;
+//#UC END# *55B761D70223_55B761180244get_impl*
+end;//TnsLogManager.pm_GetLogManager
+
 class function TnsLogManager.Exists: Boolean;
  {-}
 begin
@@ -93,8 +115,8 @@ var
 begin
 //#UC START# *55B760550256_55B761180244_impl*
  l_LogString := GetEnumName(TypeInfo(TLogEvent), Ord(aLogEvent)) + aData.AsString;
- TnsLoggingTestService.Instance.AddLogString(l_LogString);
- f_LogManager.AddEvent(aLogEvent, aData.AsLogEventData);
+ f_LoggingTestService.AddLogString(l_LogString);
+ LogManager.AddEvent(aLogEvent, aData.AsLogEventData);
 //#UC END# *55B760550256_55B761180244_impl*
 end;//TnsLogManager.AddEvent
 
@@ -104,6 +126,7 @@ procedure TnsLogManager.Cleanup;
 begin
 //#UC START# *479731C50290_55B761180244_impl*
  f_LogManager := nil;
+ f_LoggingTestService := nil;
  inherited;
 //#UC END# *479731C50290_55B761180244_impl*
 end;//TnsLogManager.Cleanup
@@ -114,8 +137,16 @@ procedure TnsLogManager.InitFields;
 begin
 //#UC START# *47A042E100E2_55B761180244_impl*
  inherited;
- f_LogManager := DefDataAdapter.LogManager;
+ f_LogManager := nil;
+ f_LoggingTestService := TnsLoggingTestService.Instance;
 //#UC END# *47A042E100E2_55B761180244_impl*
 end;//TnsLogManager.InitFields
+
+procedure TnsLogManager.ClearFields;
+ {-}
+begin
+ f_LogManager := nil;
+ inherited;
+end;//TnsLogManager.ClearFields
 
 end.

@@ -3,6 +3,7 @@ unit dsNewsLine;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\dsNewsLine.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsNewsLine" MUID: (492FDE91018F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

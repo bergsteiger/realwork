@@ -41,6 +41,11 @@ type
     const aData: InsLogEventData);
  end;//InsLogManager
 
+ InsLoggingTestService = interface(IUnknown)
+   ['{BEAE7BA4-756B-405A-8CA5-39CEEEE025E2}']
+   procedure AddLogString(const aString: AnsiString);
+ end;//InsLoggingTestService
+
 implementation
 
 end.

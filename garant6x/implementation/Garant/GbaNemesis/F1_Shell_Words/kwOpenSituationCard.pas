@@ -1,63 +1,39 @@
 unit kwOpenSituationCard;
+ {* открыть ППС 6.х (Стандартная) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Shell Words"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Shell_Words/kwOpenSituationCard.pas"
-// Начат: 31.01.2012 17:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Shell Words::F1 Shell Words::TkwOpenSituationCard
-//
-// открыть ППС 6.х (Стандартная)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwOpenSituationCard.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwOpenSituationCard" MUID: (4F27EAF200E5)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwOpenSituationCard = {scriptword} class(TtfwRegisterableWord)
+ TkwOpenSituationCard = class(TtfwRegisterableWord)
   {* открыть ППС 6.х (Стандартная) }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwOpenSituationCard
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwOpenSituationCard
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 procedure TkwOpenSituationCard.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F27EAF200E5_var*
@@ -69,17 +45,13 @@ begin
 end;//TkwOpenSituationCard.DoDoIt
 
 class function TkwOpenSituationCard.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'ППС_Стандартная_Prim';
 end;//TkwOpenSituationCard.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwOpenSituationCard
  TkwOpenSituationCard.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwOpenSituationCard }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

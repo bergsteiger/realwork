@@ -63,20 +63,6 @@ ref; // ME_D8A71E6A3BD2 aBeforeModal
 
 ref; // ME_D14B34278240 MODAL
 
-: ME_180B238826B1
- CONST UID '180B238826B1'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MODAL' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_05ABA7975E25 // MODAL
- ;
-
-ref; // ME_180B238826B1 Ini_Reg
-
 : ME_A28D3283F152
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -99,19 +85,7 @@ ref; // ME_A28D3283F152
 
 ref; // ME_CEF9AD4431F7 
 
-: ME_4DB0614603C8_ME_05ABA7975E25
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_05ABA7975E25 // MODAL
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_05ABA7975E25 GetWordNameForRegister
-
 : ME_52E9282B0271_ME_05ABA7975E25
- CONST UID '52E9282B0271'
- CONST Name 'RightParamsCount'
  : Original WL 'ME_52E9282B0271' '4DAF19F600C5.pas.ms.script' // RightParamsCount
  ;
  : Implementor ME_05ABA7975E25 // MODAL
@@ -120,8 +94,6 @@ ref; // ME_4DB0614603C8_ME_05ABA7975E25 GetWordNameForRegister
 ref; // ME_52E9282B0271_ME_05ABA7975E25 RightParamsCount
 
 : ME_5512949D0048_ME_05ABA7975E25
- CONST UID '5512949D0048'
- CONST Name 'DoRun'
  : Original WL 'ME_5512949D0048' '54F079B5035C.pas.ms.script' // DoRun
  ;
  : Implementor ME_05ABA7975E25 // MODAL
@@ -130,8 +102,6 @@ ref; // ME_52E9282B0271_ME_05ABA7975E25 RightParamsCount
 ref; // ME_5512949D0048_ME_05ABA7975E25 DoRun
 
 : ME_551544E2001A_ME_05ABA7975E25
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_05ABA7975E25 // MODAL
@@ -140,8 +110,6 @@ ref; // ME_5512949D0048_ME_05ABA7975E25 DoRun
 ref; // ME_551544E2001A_ME_05ABA7975E25 GetResultTypeInfo
 
 : ME_559687E6025A_ME_05ABA7975E25
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_05ABA7975E25 // MODAL
@@ -150,8 +118,6 @@ ref; // ME_551544E2001A_ME_05ABA7975E25 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_05ABA7975E25 GetAllParamsCount
 
 : ME_5617F4D00243_ME_05ABA7975E25
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_05ABA7975E25 // MODAL
@@ -177,12 +143,10 @@ ref; // ME_5617F4D00243_ME_05ABA7975E25 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_D14B34278240 // MODAL
- ME_180B238826B1 // Ini_Reg
  )
  ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_05ABA7975E25 // GetWordNameForRegister
- ME_52E9282B0271_ME_05ABA7975E25 // RightParamsCount
+   Seq: ( ME_52E9282B0271_ME_05ABA7975E25 // RightParamsCount
  ME_5512949D0048_ME_05ABA7975E25 // DoRun
  ME_551544E2001A_ME_05ABA7975E25 // GetResultTypeInfo
  ME_559687E6025A_ME_05ABA7975E25 // GetAllParamsCount
@@ -255,20 +219,6 @@ ref; // ME_CC1E892D36BC aWord
 
 ref; // ME_A56425D1C72F THREAD
 
-: ME_0B212FF0A16D
- CONST UID '0B212FF0A16D'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация THREAD' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_44C318D8896A // THREAD
- ;
-
-ref; // ME_0B212FF0A16D Ini_Reg
-
 : ME_75E2BC923346
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -291,19 +241,7 @@ ref; // ME_75E2BC923346
 
 ref; // ME_828E9A248D8E 
 
-: ME_4DB0614603C8_ME_44C318D8896A
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_44C318D8896A // THREAD
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_44C318D8896A GetWordNameForRegister
-
 : ME_52E9282B0271_ME_44C318D8896A
- CONST UID '52E9282B0271'
- CONST Name 'RightParamsCount'
  : Original WL 'ME_52E9282B0271' '4DAF19F600C5.pas.ms.script' // RightParamsCount
  ;
  : Implementor ME_44C318D8896A // THREAD
@@ -312,8 +250,6 @@ ref; // ME_4DB0614603C8_ME_44C318D8896A GetWordNameForRegister
 ref; // ME_52E9282B0271_ME_44C318D8896A RightParamsCount
 
 : ME_5512949D0048_ME_44C318D8896A
- CONST UID '5512949D0048'
- CONST Name 'DoRun'
  : Original WL 'ME_5512949D0048' '54F079B5035C.pas.ms.script' // DoRun
  ;
  : Implementor ME_44C318D8896A // THREAD
@@ -322,8 +258,6 @@ ref; // ME_52E9282B0271_ME_44C318D8896A RightParamsCount
 ref; // ME_5512949D0048_ME_44C318D8896A DoRun
 
 : ME_551544E2001A_ME_44C318D8896A
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_44C318D8896A // THREAD
@@ -332,8 +266,6 @@ ref; // ME_5512949D0048_ME_44C318D8896A DoRun
 ref; // ME_551544E2001A_ME_44C318D8896A GetResultTypeInfo
 
 : ME_559687E6025A_ME_44C318D8896A
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_44C318D8896A // THREAD
@@ -342,8 +274,6 @@ ref; // ME_551544E2001A_ME_44C318D8896A GetResultTypeInfo
 ref; // ME_559687E6025A_ME_44C318D8896A GetAllParamsCount
 
 : ME_5617F4D00243_ME_44C318D8896A
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_44C318D8896A // THREAD
@@ -369,12 +299,10 @@ ref; // ME_5617F4D00243_ME_44C318D8896A ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_A56425D1C72F // THREAD
- ME_0B212FF0A16D // Ini_Reg
  )
  ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_44C318D8896A // GetWordNameForRegister
- ME_52E9282B0271_ME_44C318D8896A // RightParamsCount
+   Seq: ( ME_52E9282B0271_ME_44C318D8896A // RightParamsCount
  ME_5512949D0048_ME_44C318D8896A // DoRun
  ME_551544E2001A_ME_44C318D8896A // GetResultTypeInfo
  ME_559687E6025A_ME_44C318D8896A // GetAllParamsCount
@@ -582,8 +510,6 @@ FORWARD ME_553F737A02D6
 ref; // ME_553F7384030B 
 
 : ME_553F7345032E_ME_553F737A02D6
- CONST UID '553F7345032E'
- CONST Name 'HasModalWorker'
  : Original WL 'ME_553F7345032E' '4E030FC801EB.pas.ms.script' // HasModalWorker
  ;
  : Implementor ME_553F737A02D6 // TseModalService
@@ -592,8 +518,6 @@ ref; // ME_553F7384030B
 ref; // ME_553F7345032E_ME_553F737A02D6 HasModalWorker
 
 : ME_553F8EA30300_ME_553F737A02D6
- CONST UID '553F8EA30300'
- CONST Name 'ExecuteCurrentModalWorker'
  : Original WL 'ME_553F8EA30300' '4E030FC801EB.pas.ms.script' // ExecuteCurrentModalWorker
  ;
  : Implementor ME_553F737A02D6 // TseModalService
@@ -924,8 +848,6 @@ FORWARD ME_4FC7562801FE
 ref; // ME_4FC756510366 ItemType
 
 : ME_47B07CF403D0_ME_4FC7562801FE
- CONST UID '47B07CF403D0'
- CONST Name 'IsSameItems'
  : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
  ;
  : Implementor ME_4FC7562801FE // TseModalWorkerListPrim
@@ -935,8 +857,6 @@ ref; // ME_4FC756510366 ItemType
 ref; // ME_47B07CF403D0_ME_4FC7562801FE IsSameItems
 
 : ME_47B2C42A0163_ME_4FC7562801FE
- CONST UID '47B2C42A0163'
- CONST Name 'AssignItem'
  : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
  ;
  : Implementor ME_4FC7562801FE // TseModalWorkerListPrim
@@ -947,8 +867,6 @@ ref; // ME_47B07CF403D0_ME_4FC7562801FE IsSameItems
 ref; // ME_47B2C42A0163_ME_4FC7562801FE AssignItem
 
 : ME_47B99D4503A2_ME_4FC7562801FE
- CONST UID '47B99D4503A2'
- CONST Name 'CompareExistingItems'
  : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
  ;
  : Implementor ME_4FC7562801FE // TseModalWorkerListPrim

@@ -3,6 +3,8 @@ unit k2SetOf_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2SetOf_Const.pas"
 // Стереотип: "Atom"
+// Элемент модели: "SetOf" MUID: (540424E100E8)
+// Имя типа: "SetOfAtom"
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

@@ -2,6 +2,8 @@ unit kwOperationParamWordPrim;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwOperationParamWordPrim.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "OperationParamWordPrim" MUID: (5230182A02A3)
+// Имя типа: "TkwOperationParamWordPrim"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

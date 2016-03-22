@@ -2,6 +2,7 @@ unit sdsChangesBetweenEditionsData;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\sdsChangesBetweenEditionsData.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TsdsChangesBetweenEditionsData" MUID: (4DDCF660018A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

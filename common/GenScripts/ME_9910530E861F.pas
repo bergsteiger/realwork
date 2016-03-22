@@ -3,6 +3,7 @@ unit FoldersInfoKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\FoldersInfoKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "FoldersInfoKeywordsPack" MUID: (9910530E861F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::FoldersInfo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_FoldersInfo
 
  Tkw_FoldersInfo_Control_ChildZone = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::ChildZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersInfo_Control_ChildZone
 
  Tkw_FoldersInfo_Control_ChildZone_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TvtPanel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwCfFoldersInfoChildZone
 
-class function Tkw_Form_FoldersInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::FoldersInfo';
-end;//Tkw_Form_FoldersInfo.GetWordNameForRegister
-
 function Tkw_Form_FoldersInfo.GetString: AnsiString;
 begin
  Result := 'cfFoldersInfo';
 end;//Tkw_Form_FoldersInfo.GetString
 
-class function Tkw_FoldersInfo_Control_ChildZone.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_FoldersInfo.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::ChildZone';
-end;//Tkw_FoldersInfo_Control_ChildZone.GetWordNameForRegister
+ Result := 'форма::FoldersInfo';
+end;//Tkw_Form_FoldersInfo.GetWordNameForRegister
 
 function Tkw_FoldersInfo_Control_ChildZone.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_FoldersInfo_Control_ChildZone.RegisterInEngine
+
+class function Tkw_FoldersInfo_Control_ChildZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ChildZone';
+end;//Tkw_FoldersInfo_Control_ChildZone.GetWordNameForRegister
 
 procedure Tkw_FoldersInfo_Control_ChildZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(ChildZone(aCtx, l_acfFoldersInfo));
 end;//TkwCfFoldersInfoChildZone.DoDoIt
 
-class function TkwCfFoldersInfoChildZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfFoldersInfo.ChildZone';
-end;//TkwCfFoldersInfoChildZone.GetWordNameForRegister
-
 procedure TkwCfFoldersInfoChildZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwCfFoldersInfoChildZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfFoldersInfo)]);
 end;//TkwCfFoldersInfoChildZone.ParamsTypes
+
+class function TkwCfFoldersInfoChildZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfFoldersInfo.ChildZone';
+end;//TkwCfFoldersInfoChildZone.GetWordNameForRegister
 
 initialization
  Tkw_Form_FoldersInfo.RegisterInEngine;

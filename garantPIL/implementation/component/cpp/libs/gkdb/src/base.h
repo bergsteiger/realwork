@@ -394,6 +394,8 @@ public:
 
 	virtual void createIndices ();
 
+	char* get_swords_data (const std::string& src, long id, long& sz);
+
 protected:
 	AttrIndex* docInd;
 	AttrIndex* docInd2;

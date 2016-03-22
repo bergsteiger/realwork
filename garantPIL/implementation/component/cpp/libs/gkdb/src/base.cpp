@@ -236,7 +236,7 @@ static const statusDesck baseError [] =
 	{ BS_STREAMERROR,       BSMES_STREAMERROR }
 };
 
-short	docTags [93] =
+short	docTags [94] =
 {
 	IDD_INFO,       IDD_RUNS,  IDD_BLOCKS,    IDD_SUBS
 	, IDD_DATE,       IDD_ID,    IDD_SOURCE,    IDD_DIV
@@ -258,7 +258,7 @@ short	docTags [93] =
 	, IDD_SUBS_EX, IDD_EVD
 	, IDD_FASTCORRS, IDD_FASTTCORRS, IDD_ACTIVEEX, IDD_PARAHEIGHTS, IDD_PARAGCTXLENS
 	, IDD_CALIN, IDD_CALAB, IDD_CALCH, IDD_DOCSTRUCT, IDD_INVISIBLELENS, IDD_INVISIBLERELES
-	, IDD_KIND, IDD_CHDATE_EX, IDD_ADDCODE, IDD_CHDATE_EXEX, IDD_MARKEDTEXT, IDD_SAMES, IDD_TAG
+	, IDD_KIND, IDD_CHDATE_EX, IDD_ADDCODE, IDD_CHDATE_EXEX, IDD_MARKEDTEXT, IDD_SAMES, IDD_TAG, IDD_INVISIBLEBLOCKSLENS
 };
 
 void Base::createIndices () {
@@ -1530,6 +1530,33 @@ DocCollection*	Base::docs_wo_class ()
 	return result;
 }
 
+char* Base::get_swords_data (const std::string& src, long id, long& sz) {
+	char key [64];
+	::memset (key, 0, sizeof (key));
+	::memcpy ((src != SIDE_INDEX_NAME)? key : key + 1, &id, sizeof (long));
+
+	sz = 0;
+
+	Core::Aptr <char, Core::ArrayDeleteDestructor <char> > ret;
+
+	Index* index = FindIndex (src.c_str ());
+
+	Stream* stream = index->OpenN (key, 0);
+
+	if (stream) {
+		sz = stream->Length ();
+
+		if (sz) {
+			ret = new char [sz + 4];
+			stream->Read (ret.inout (), sz);
+		}
+
+		index->Close (stream);
+	}
+
+	return ret._retn ();
+}
+
 DocCollection*	Base::docs_wo_key ()
 {
 	DocCollection *result = AllDocs ();
@@ -1983,7 +2010,7 @@ IndexReq* build_req (Base *base, const char* index_name, std::vector<std::string
 
 	bool is_hindex = !strcmp (index_name, "LekForm") || !strcmp (index_name, "PhGroup") || !strcmp (index_name, "PhEffect") || !strcmp (index_name, "Mkb") || !strcmp (index_name, "Chapter") || !strcmp (index_name, "Atc") || !strcmp (index_name, "PhFirm") || !strcmp (index_name, "PhCountry");
 	is_hindex |= !strcmp (index_name, "Type") || !strcmp (index_name, "Kind") || !strcmp (index_name, "Territory")  || !strcmp (index_name, "Adopted") || !strcmp (index_name, "Class");
-	bool is_strindex = !strcmp (index_name, "TradeName") || !strcmp (index_name, "IntName") || !strcmp (index_name, "Category");
+	bool is_strindex = !strcmp (index_name, "TradeName") || !strcmp (index_name, "IntName") || !strcmp (index_name, "Category") || !strcmp (index_name, "Tag");
 	bool is_shortindex = !strcmp (index_name, "Status") || !strcmp (index_name, "Status_ex") || !strcmp (index_name, "Segment");
 	bool is_dateindex = !strcmp (index_name, "Date") || !strcmp (index_name, "RDate") || !strcmp (index_name, "AnnulDate") || !strcmp (index_name, "RegDate") || !strcmp (index_name, "VAnonced") || !strcmp (index_name, "VIncluded") || !strcmp (index_name, "VChanged") || !strcmp (index_name, "VAbolished");
 	if (is_hindex) {

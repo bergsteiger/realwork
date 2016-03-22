@@ -3,6 +3,7 @@ unit PictureInfoKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\PictureInfoKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "PictureInfoKeywordsPack" MUID: (44AABA98B261)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::PictureInfo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_PictureInfo
 
  Tkw_PictureInfo_Control_Info = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::Info TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PictureInfo_Control_Info
 
  Tkw_PictureInfo_Control_Info_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TeeMemoWithEditOperations
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnPictureInfoInfo
 
-class function Tkw_Form_PictureInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::PictureInfo';
-end;//Tkw_Form_PictureInfo.GetWordNameForRegister
-
 function Tkw_Form_PictureInfo.GetString: AnsiString;
 begin
  Result := 'en_PictureInfo';
 end;//Tkw_Form_PictureInfo.GetString
 
-class function Tkw_PictureInfo_Control_Info.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_PictureInfo.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::Info';
-end;//Tkw_PictureInfo_Control_Info.GetWordNameForRegister
+ Result := 'форма::PictureInfo';
+end;//Tkw_Form_PictureInfo.GetWordNameForRegister
 
 function Tkw_PictureInfo_Control_Info.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TeeMemoWithEditOperations);
 end;//Tkw_PictureInfo_Control_Info.RegisterInEngine
+
+class function Tkw_PictureInfo_Control_Info.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Info';
+end;//Tkw_PictureInfo_Control_Info.GetWordNameForRegister
 
 procedure Tkw_PictureInfo_Control_Info_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(Info(aCtx, l_aen_PictureInfo));
 end;//TkwEnPictureInfoInfo.DoDoIt
 
-class function TkwEnPictureInfoInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_PictureInfo.Info';
-end;//TkwEnPictureInfoInfo.GetWordNameForRegister
-
 procedure TkwEnPictureInfoInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwEnPictureInfoInfo.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PictureInfo)]);
 end;//TkwEnPictureInfoInfo.ParamsTypes
+
+class function TkwEnPictureInfoInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_PictureInfo.Info';
+end;//TkwEnPictureInfoInfo.GetWordNameForRegister
 
 initialization
  Tkw_Form_PictureInfo.RegisterInEngine;

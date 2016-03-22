@@ -1,78 +1,61 @@
 unit PrimChild_cutUsual_UserType;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/common/components/gui/Garant/VCM/View/ParentAndChild/Forms/PrimChild_cutUsual_UserType.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> Shared Delphi F1 Like Application::F1Like::View::ParentAndChild::PrimChild::cutUsual
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_cutUsual_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "cutUsual" MUID: (4D9AE77A0246)
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы cutUsual }
-  cutUsualName = 'cutUsual';
-   { Строковый идентификатор пользовательского типа "" }
-  cutUsual = TvcmUserType(0);
+ {* Константы для типа формы cutUsual }
+ cutUsualName = 'cutUsual';
+  {* Строковый идентификатор пользовательского типа "" }
+ cutUsual = TvcmUserType(0);
 
 implementation
 
-{$If not defined(NoScripts)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_cutUsual = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы cutUsual }
+ Tkw_FormUserType_cutUsual = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы cutUsual }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_cutUsual
-{$IfEnd} //not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_cutUsual
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(NoScripts)}
-
-// start class Tkw_FormUserType_cutUsual
-
-class function Tkw_FormUserType_cutUsual.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::cutUsual';
-end;//Tkw_FormUserType_cutUsual.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_cutUsual.GetInteger: Integer;
- {-}
 begin
  Result := cutUsual;
 end;//Tkw_FormUserType_cutUsual.GetInteger
 
-{$IfEnd} //not NoScripts
+class function Tkw_FormUserType_cutUsual.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::cutUsual';
+end;//Tkw_FormUserType_cutUsual.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_cutUsual
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_cutUsual.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация Tkw_FormUserType_cutUsual }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -3,6 +3,7 @@ unit NOT_FINISHED_dd_lcVASSourceCorrector;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcVASSourceCorrector.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tdd_lcVASSourceCorrector" MUID: (4EA658AD03DF)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

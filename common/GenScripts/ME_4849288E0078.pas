@@ -3,6 +3,8 @@ unit k2Native_Schema;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Native_Schema.pas"
 // Стереотип: "TagTable"
+// Элемент модели: "k2Native" MUID: (4849288E0078)
+// Имя типа: "Tk2NativeSchema"
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

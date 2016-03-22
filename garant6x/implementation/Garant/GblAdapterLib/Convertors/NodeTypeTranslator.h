@@ -62,6 +62,7 @@ class NodeTypeTranslator :
 			this->add (GblPilotDef::mi_hr, NM_HR);
 			this->add (GblPilotDef::mi_budget_orgs, NM_BUDGET_ORGS);
 			this->add (GblPilotDef::mi_law_for_all, NM_LAW_FOR_ALL);
+			this->add (GblPilotDef::mi_gos_zakupki, NM_GOS_ZAKUPKI);
 			//#UC END# *460BBE6D036B_FILL_ARRAY_IMPLEMENTATION*
 		}
 }; // class NodeTypeTranslator

@@ -3,6 +3,8 @@ unit DocumentQuery_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\DocumentQuery_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "DocumentQuery" MUID: (52331F510099)
+// Имя типа: "DocumentQueryTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

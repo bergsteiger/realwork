@@ -3,6 +3,7 @@ unit SplitCellTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\SplitCellTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TSplitCellTest" MUID: (4D5A63ED011A)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -3,6 +3,7 @@ unit ListPrintAndExportSettingRes;
 
 // Модуль: "w:\common\components\SandBox\VCM\View\List\ListPrintAndExportSettingRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ListPrintAndExportSettingRes" MUID: (1D9630212631)
 
 {$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 

@@ -2,6 +2,8 @@ unit RegionImportTaskResult_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\RegionImportTaskResult_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "RegionImportTaskResult" MUID: (5408637A0060)
+// Имя типа: "RegionImportTaskResultTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

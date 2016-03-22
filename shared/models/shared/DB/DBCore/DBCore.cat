@@ -739,7 +739,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"AbstarctOperation"
-		    value      	"abstract")
+		    value      	"regular")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"IsNative"
@@ -756,7 +756,7 @@
 		    value      	"wiki"))
 	    quid       	"4CA4B70101B9"
 	    documentation 	"ѕрогресс-индикатор"
-	    stereotype 	"Interface"
+	    stereotype 	"Facet"
 	    operations 	(list Operations
 		(object Operation "init"
 		    attributes 	(list Attribute_Set
@@ -771,7 +771,13 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"IsNative"
-			    value      	"false"))
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4CA4B721027B_5640BC81017E*"
+			    value      	(value Text 
+|//#UC START# *4CA4B721027B_5640BC81017E*§	m_div = div;§	m_plus = (size_t) (double (m_max_val * pos) / double (m_div));§	//#UC END# *4CA4B721027B_5640BC81017E*
+			    )))
 		    quid       	"4CA4B721027B"
 		    documentation 	"инициализаци€"
 		    stereotype 	"chg"
@@ -822,7 +828,13 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"ResolvedTypeGuid"
-			    value      	"3DBFFE100240"))
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4CA4B7600042_5640BC81017E*"
+			    value      	(value Text 
+|//#UC START# *4CA4B7600042_5640BC81017E*§	return m_canceled != 0;§	//#UC END# *4CA4B7600042_5640BC81017E*
+			    )))
 		    quid       	"4CA4B7600042"
 		    documentation 	"проверка, остановлен ли процесс пользователем"
 		    stereotype 	"chg"
@@ -844,7 +856,13 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"IsNative"
-			    value      	"false"))
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4CA4B7B5014B_5640BC81017E*"
+			    value      	(value Text 
+|//#UC START# *4CA4B7B5014B_5640BC81017E*§	if (pause) {§		m_saved_div = m_div;§		m_div = 0;§	} else {§		m_div = m_saved_div;§	}§	//#UC END# *4CA4B7B5014B_5640BC81017E*
+			    )))
 		    quid       	"4CA4B7B5014B"
 		    documentation 	"пауза"
 		    stereotype 	"chg"
@@ -878,7 +896,13 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"IsNative"
-			    value      	"false"))
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*4CA4B7D70118_5640BC81017E*"
+			    value      	(value Text 
+|//#UC START# *4CA4B7D70118_5640BC81017E*§	if (m_div) {§		long cur = (long) (m_offset + m_plus + (long)((value * m_max_val) / (100. * m_div)));§§		try {§			if (cur != m_prev_value) {§				m_base->ShowCheckedProgress (cur);§			}§		} catch (...) {§			LOG_E ((GDS_CURRENT_FUNCTION));§		}§§		m_prev_value = cur;§	}§	//#UC END# *4CA4B7D70118_5640BC81017E*
+			    )))
 		    quid       	"4CA4B7D70118"
 		    documentation 	"позиционирование"
 		    stereotype 	"chg"
@@ -912,7 +936,13 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"IsNative"
-			    value      	"false"))
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*527D09030329_5640BC81017E*"
+			    value      	(value Text 
+|//#UC START# *527D09030329_5640BC81017E*§	m_max_val = value;§	//#UC END# *527D09030329_5640BC81017E*
+			    )))
 		    quid       	"527D09030329"
 		    documentation 	"установить максимальное значение"
 		    stereotype 	"chg"
@@ -946,15 +976,20 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"IsNative"
-			    value      	"false"))
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*527D092B0153_5640BC81017E*"
+			    value      	(value Text 
+|//#UC START# *527D092B0153_5640BC81017E*§	m_offset += m_max_val;§	m_prev_value = 0;§	//#UC END# *527D092B0153_5640BC81017E*
+			    )))
 		    quid       	"527D092B0153"
 		    documentation 	"set"
 		    stereotype 	"chg"
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0))
-	    language   	"MDA Generator"
-	    abstract   	TRUE)
+	    language   	"MDA Generator")
 	(object Class "IBase"
 	    attributes 	(list Attribute_Set
 		(object Attribute
@@ -964,7 +999,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"AbstarctOperation"
-		    value      	"abstract")
+		    value      	"regular")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"IsNative"
@@ -981,7 +1016,7 @@
 		    value      	"wiki"))
 	    quid       	"4CA4C8EA0164"
 	    documentation 	"јбстрактна€ база"
-	    stereotype 	"Interface"
+	    stereotype 	"Facet"
 	    operations 	(list Operations
 		(object Operation "make"
 		    attributes 	(list Attribute_Set
@@ -1022,34 +1057,8 @@
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0
-		    quidu      	"45166DA1007D")
-		(object Operation "make_progress"
-		    attributes 	(list Attribute_Set
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"ElementCreationOrder"
-			    value      	"1245011601882")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"AbstarctOperation"
-			    value      	"abstract")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"IsNative"
-			    value      	"false")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"ResolvedTypeGuid"
-			    value      	"4CA4B70101B9"))
-		    quid       	"4CA4C9510330"
-		    documentation 	"фабрика"
-		    stereotype 	"chg"
-		    result     	"IProgress"
-		    concurrency 	"Sequential"
-		    opExportControl 	"Public"
-		    uid        	0))
-	    language   	"MDA Generator"
-	    abstract   	TRUE)
+		    quidu      	"45166DA1007D"))
+	    language   	"MDA Generator")
 	(object Class "IIndex"
 	    attributes 	(list Attribute_Set
 		(object Attribute
@@ -1411,7 +1420,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"AbstarctOperation"
-		    value      	"abstract")
+		    value      	"regular")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"IsNative"
@@ -1432,9 +1441,9 @@
 		    value      	"16658184324"))
 	    quid       	"4C921D1201A3"
 	    documentation 	"Ѕуффер"
-	    stereotype 	"Interface"
+	    stereotype 	"Facet"
 	    operations 	(list Operations
-		(object Operation "get_data"
+		(object Operation "get"
 		    attributes 	(list Attribute_Set
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -1457,48 +1466,13 @@
 			    name       	"ElementCreationOrder"
 			    value      	"16658184682"))
 		    quid       	"4C921D2D003F"
-		    documentation 	"получить данные"
+		    documentation 	"данные"
 		    result     	"string"
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0
-		    quidu      	"3DBFFE240068")
-		(object Operation "set_data"
-		    attributes 	(list Attribute_Set
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"AbstarctOperation"
-			    value      	"abstract")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"IsNative"
-			    value      	"false")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"ElementCreationOrder"
-			    value      	"16658185062"))
-		    quid       	"4C921DFA0126"
-		    documentation 	"инициализаци€"
-		    stereotype 	"chg"
-		    parameters 	(list Parameters
-			(object Parameter "inout data"
-			    attributes 	(list Attribute_Set
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ResolvedTypeGuid"
-				    value      	"3DBFFE240068")
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ElementCreationOrder"
-				    value      	"16658185371"))
-			    quid       	"4C9222B101B3"
-			    type       	"string"
-			    quidu      	"3DBFFE240068"))
-		    concurrency 	"Sequential"
-		    opExportControl 	"Public"
-		    uid        	0))
-	    language   	"MDA Generator"
-	    abstract   	TRUE)
+		    quidu      	"3DBFFE240068"))
+	    language   	"MDA Generator")
 	(object Class "DocId"
 	    attributes 	(list Attribute_Set
 		(object Attribute
@@ -2348,7 +2322,7 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*5124FFCF0337_4EBA9AF30074*"
 			    value      	(value Text 
-|//#UC START# *5124FFCF0337_4EBA9AF30074*§	using namespace ContextSearch;§§	if (flags & Search::SP_IGNORE_CACHE) {§		m_use_cache = false;§		this->close ();§		m_streams.clear ();§	}§§	DBExt::MemoryIndex* memcache = DBExt::MemoryIndex::instance ();§	DBExt::Def::Type type = (flags & Search::SP_TITLES)? DBExt::Def::dt_Title : DBExt::Def::dt_Text;§§	Core::Aptr <DBCore::StreamsPair> ret;§§	if (forma.empty () && memcache->is_load ()) {§		ret = memcache->get (norma, type);§§		if (ret.is_nil () == false) {§			if (ret->ref_stream.is_nil () == false && ret->data_stream.is_nil () == false) {§				return ret._retn ();§			}§		}§	}§§	DBCore::Streams pair;§	unsigned char form = (forma.empty ())? this->open (norma, false, pair) : this->open (forma, true, pair);§§	if (pair.first && pair.second) {§		if (ret.is_nil ()) {§			ret = new DBCore::StreamsPair;§		} §§		DBCore::IIndex* index = (m_use_cache)? 0 : m_index.in ();§		§		if (ret->ref_stream.is_nil ()) {§			ret->ref_stream = new DBExt::StreamReader (pair.first, index);§		} else if (index) {§			index->close_stream (pair.first);§		}§§		if (ret->data_stream.is_nil ()) {§			ret->data_stream = new DBExt::PositionsReader (pair.second, form, type, pair.has_form, index);§		} else if (index) {§			index->close_stream (pair.second);§		}§§		return ret._retn ();§	}§§	return 0;§	//#UC END# *5124FFCF0337_4EBA9AF30074*
+|//#UC START# *5124FFCF0337_4EBA9AF30074*§	if (*(key.rbegin ()) == '!' || *(key.rbegin ()) == '*') {§		return this->make_ (key, flags);§	} §§	std::string s_key (1, (char) (key.size () + 1));§	s_key += key;§§	if (std::find_if (key.begin (), key.end (), boost::is_any_of (" -~")) != key.end ()) {§		if (key.size () > Morpho::Def::MAX_WORD_LEN) {§			s_key.clear ();§			s_key.resize (1, (char) (32));§			s_key += key.substr (0, Morpho::Def::MAX_WORD_LEN);§		} §		return this->make_ (s_key, flags);§	} else if (std::find_if (key.begin (), key.end (), boost::is_digit ()) == key.end ()) {§		Core::Aptr <DBCore::StreamsPair> ret = this->make_ (s_key, flags);§		if (ret.is_nil () == false) {§			return ret._retn ();§		}§	} §§	s_key [0] |= 0x80; // псевдо§	return this->make_ (s_key, flags);§	//#UC END# *5124FFCF0337_4EBA9AF30074*
 			    ))
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -2360,30 +2334,17 @@
 		    documentation 	"фабрика"
 		    stereotype 	"chg"
 		    parameters 	(list Parameters
-			(object Parameter "norma"
+			(object Parameter "key"
 			    attributes 	(list Attribute_Set
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"ElementCreationOrder"
-				    value      	"1361385359768670")
+				    value      	"1450446080530766")
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"ResolvedTypeGuid"
 				    value      	"452257A0036F"))
-			    quid       	"5125178F0300"
-			    type       	"a-string"
-			    quidu      	"452257A0036F")
-			(object Parameter "forma"
-			    attributes 	(list Attribute_Set
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ElementCreationOrder"
-				    value      	"1362061501300605")
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ResolvedTypeGuid"
-				    value      	"452257A0036F"))
-			    quid       	"512F68BD0125"
+			    quid       	"56740D0001F6"
 			    type       	"a-string"
 			    quidu      	"452257A0036F")
 			(object Parameter "flags"
@@ -2425,9 +2386,9 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"cpp:*55CE1A52012D_4EBA9AF30074*"
-			    value      	
+			    value      	(value Text 
 |//#UC START# *55CE1A52012D_4EBA9AF30074*§	return (m_index.is_nil () == false && m_index->is_valid ());§	//#UC END# *55CE1A52012D_4EBA9AF30074*
-			    ))
+			    )))
 		    quid       	"55CE1A52012D"
 		    documentation 	"проверка на валидность"
 		    result     	"boolean"
@@ -2830,7 +2791,7 @@
 		    opExportControl 	"Public"
 		    uid        	0
 		    quidu      	"4CA4C8EA0164")
-		(object Operation "get_size"
+		(object Operation "size"
 		    attributes 	(list Attribute_Set
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -3387,6 +3348,54 @@
 	    documentation 	"RelTuneData"
 	    stereotype 	"Vector"
 	    language   	"MDA Generator")
+	(object Class "Constants"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1447421392185021")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"5645E5D000B8"
+	    documentation 	" онстанты"
+	    stereotype 	"Constants"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "MAX_WORDS_OF_REQUEST"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1447421560790665")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4538E9230233"))
+		    quid       	"5645E67802FE"
+		    documentation 	"максимальное количество слов в контекстном запросе"
+		    type       	"size"
+		    quidu      	"4538E9230233"
+		    initv      	"15"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
 	(object Association "$UNNAMED$0"
 	    attributes 	(list Attribute_Set
 		(object Attribute
@@ -3863,7 +3872,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(486, 3399)
+		    location   	(489, 3399)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -3876,25 +3885,25 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@1
-			location   	(108, 3290)
+			location   	(119, 3290)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	756
+			max_width  	740
 			justify    	0
 			label      	"Х Storable")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@1
-			location   	(108, 3240)
+			location   	(119, 3240)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	756
+			max_width  	740
 			justify    	0
 			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4CA3728A03A0"
-		    width      	774
+		    width      	758
 		    height     	342
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -3916,26 +3925,26 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@2
-			location   	(1753, 2610)
+			location   	(1761, 2610)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	712
+			max_width  	696
 			justify    	0
 			label      	"Х IBTreeIterator")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@2
-			location   	(1753, 2560)
+			location   	(1761, 2560)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	712
+			max_width  	696
 			justify    	0
 			label      	"<<Interface>>")
 		    icon       	"Interface"
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4CA45E7902FD"
-		    width      	730
+		    width      	714
 		    height     	442
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -3944,40 +3953,39 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1338, 3372)
+		    location   	(1137, 3348)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
 			charSet    	204
 			bold       	FALSE
-			italics    	TRUE
+			italics    	FALSE
 			underline  	FALSE
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@3
-			location   	(970, 3288)
+			location   	(1003, 3289)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	736
+			max_width  	268
 			justify    	0
 			label      	"Х IBuffer")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@3
-			location   	(970, 3238)
+			location   	(1003, 3239)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	736
+			max_width  	268
 			justify    	0
-			label      	"<<Interface>>")
-		    icon       	"Interface"
+			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4C921D1201A3"
-		    width      	754
-		    height     	292
+		    width      	286
+		    height     	242
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::shared::DB::DBCore::IIndex" @4
@@ -4002,7 +4010,7 @@
 			    tool       	"MDA Generator"
 			    name       	"ItemViewHeight"
 			    value      	"236"))
-		    location   	(876, 2844)
+		    location   	(870, 2844)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -4015,26 +4023,26 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@4
-			location   	(110, 2610)
+			location   	(119, 2610)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1532
+			max_width  	1502
 			justify    	0
 			label      	"IIndex")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@4
-			location   	(110, 2560)
+			location   	(119, 2560)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1532
+			max_width  	1502
 			justify    	0
 			label      	"<<Interface>>")
 		    icon       	"Interface"
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"45166DA1007D"
-		    width      	1550
+		    width      	1520
 		    height     	592
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -4043,39 +4051,38 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1863, 4773)
+		    location   	(1887, 4770)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
 			charSet    	204
 			bold       	FALSE
-			italics    	TRUE
+			italics    	FALSE
 			underline  	FALSE
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@5
-			location   	(1479, 4589)
+			location   	(1506, 4586)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	768
+			max_width  	762
 			justify    	0
 			label      	"IProgress")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@5
-			location   	(1479, 4539)
+			location   	(1506, 4536)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	768
+			max_width  	762
 			justify    	0
-			label      	"<<Interface>>")
-		    icon       	"Interface"
+			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4CA4B70101B9"
-		    width      	786
+		    width      	780
 		    height     	492
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -4084,40 +4091,39 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(2184, 3372)
+		    location   	(1779, 3348)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
 			charSet    	204
 			bold       	FALSE
-			italics    	TRUE
+			italics    	FALSE
 			underline  	FALSE
 			strike     	FALSE
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@6
-			location   	(1814, 3288)
+			location   	(1414, 3289)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	740
+			max_width  	730
 			justify    	0
 			label      	"IBase")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@6
-			location   	(1814, 3238)
+			location   	(1414, 3239)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	740
+			max_width  	730
 			justify    	0
-			label      	"<<Interface>>")
-		    icon       	"Interface"
+			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4CA4C8EA0164"
-		    width      	758
-		    height     	292
+		    width      	748
+		    height     	242
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::shared::DB::DBCore::Ref_" @7
@@ -4155,25 +4161,25 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@7
-			location   	(156, 527)
+			location   	(157, 527)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	462
+			max_width  	460
 			justify    	0
 			label      	"Ref_")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@7
-			location   	(156, 477)
+			location   	(157, 477)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	462
+			max_width  	460
 			justify    	0
 			label      	"<<Struct>>")
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"452252C70000"
-		    width      	480
+		    width      	478
 		    height     	342
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -4195,25 +4201,25 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@8
-			location   	(840, 1584)
+			location   	(843, 1584)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	318
+			max_width  	312
 			justify    	0
 			label      	"Х ExtrPair")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@8
-			location   	(840, 1534)
+			location   	(843, 1534)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	318
+			max_width  	312
 			justify    	0
 			label      	"<<Struct>>")
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"505744D1004E"
-		    width      	336
+		    width      	330
 		    height     	292
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -4290,7 +4296,7 @@
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	238
+			max_width  	237
 			justify    	0
 			label      	"<<Typedef>>")
 		    icon_style 	"Label"
@@ -4619,7 +4625,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(915, 4287)
+		    location   	(741, 4287)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -4632,25 +4638,25 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@27
-			location   	(109, 4203)
+			location   	(119, 4203)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1612
+			max_width  	1244
 			justify    	0
 			label      	"IStreamsFactory")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@27
-			location   	(109, 4153)
+			location   	(119, 4153)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1612
+			max_width  	1244
 			justify    	0
 			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"5124FAF5031F"
-		    width      	1630
+		    width      	1262
 		    height     	292
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -4672,25 +4678,25 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@28
-			location   	(108, 3721)
+			location   	(119, 3721)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1116
+			max_width  	1094
 			justify    	0
 			label      	"IRefStream")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@28
-			location   	(108, 3671)
+			location   	(119, 3671)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1116
+			max_width  	1094
 			justify    	0
 			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"512505650297"
-		    width      	1134
+		    width      	1112
 		    height     	392
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -4712,25 +4718,25 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@29
-			location   	(2096, 3768)
+			location   	(2110, 3768)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1238
+			max_width  	1210
 			justify    	0
 			label      	"IDataStream")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@29
-			location   	(2096, 3718)
+			location   	(2110, 3718)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1238
+			max_width  	1210
 			justify    	0
 			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"512503740287"
-		    width      	1256
+		    width      	1228
 		    height     	292
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -4775,7 +4781,7 @@
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object AssociationViewNew "$UNNAMED$14" @31
-		    location   	(1376, 3852)
+		    location   	(1371, 3852)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -4792,7 +4798,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "ref_stream" @32
 			    Parent_View 	@31
-			    location   	(56, 516)
+			    location   	(51, 516)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -4805,7 +4811,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @33
 				Parent_View 	@32
-				location   	(1376, 3815)
+				location   	(1370, 3815)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -4831,23 +4837,23 @@
 			    client     	@31
 			    supplier   	@28
 			    vertices   	(list Points
-				(1376, 3852)
-				(1233, 3852))
+				(1371, 3852)
+				(1222, 3852))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$15" @34
 			    Parent_View 	@31
-			    location   	(56, 516)
+			    location   	(51, 516)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"515AE87202BC"
 			    client     	@31
 			    supplier   	@30
 			    vertices   	(list Points
-				(1376, 3852)
+				(1371, 3852)
 				(1520, 3852))
 			    line_style 	0)))
 		(object AssociationViewNew "$UNNAMED$16" @35
-		    location   	(1944, 3852)
+		    location   	(1951, 3852)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -4864,7 +4870,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "data_stream" @36
 			    Parent_View 	@35
-			    location   	(624, 516)
+			    location   	(631, 516)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -4877,7 +4883,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @37
 				Parent_View 	@36
-				location   	(1944, 3814)
+				location   	(1951, 3814)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -4903,19 +4909,19 @@
 			    client     	@35
 			    supplier   	@29
 			    vertices   	(list Points
-				(1944, 3852)
-				(2086, 3852))
+				(1951, 3852)
+				(2100, 3852))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$17" @38
 			    Parent_View 	@35
-			    location   	(624, 516)
+			    location   	(631, 516)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"515AE89100D4"
 			    client     	@35
 			    supplier   	@30
 			    vertices   	(list Points
-				(1944, 3852)
+				(1951, 3852)
 				(1803, 3852))
 			    line_style 	0)))
 		(object ClassView "Class" "Logical View::shared::DB::DBCore::Store" @39
@@ -4936,25 +4942,25 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@39
-			location   	(108, 2030)
+			location   	(119, 2030)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1116
+			max_width  	1094
 			justify    	0
 			label      	"Х Store")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@39
-			location   	(108, 1980)
+			location   	(119, 1980)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1116
+			max_width  	1094
 			justify    	0
 			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"4CA367E001CF"
-		    width      	1134
+		    width      	1112
 		    height     	492
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -4976,30 +4982,30 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@40
-			location   	(1513, 2155)
+			location   	(1516, 2155)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	400
+			max_width  	394
 			justify    	0
 			label      	"Х Streams")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@40
-			location   	(1513, 2105)
+			location   	(1516, 2105)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	400
+			max_width  	394
 			justify    	0
 			label      	"<<Struct>>")
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"4EBA9B800366"
-		    width      	418
+		    width      	412
 		    height     	242
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object AssociationViewNew "$UNNAMED$18" @41
-		    location   	(1368, 2152)
+		    location   	(1364, 2153)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -5016,7 +5022,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "first" @42
 			    Parent_View 	@41
-			    location   	(-360, 610)
+			    location   	(-364, 611)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -5029,7 +5035,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @43
 				Parent_View 	@42
-				location   	(1368, 2118)
+				location   	(1364, 2119)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -5055,27 +5061,27 @@
 			    client     	@41
 			    supplier   	@39
 			    vertices   	(list Points
-				(1368, 2152)
-				(1233, 2152))
+				(1364, 2153)
+				(1222, 2153))
 			    line_style 	3
-			    origin_attachment 	(1368, 2152)
-			    terminal_attachment 	(1233, 2152))
+			    origin_attachment 	(1364, 2153)
+			    terminal_attachment 	(1222, 2153))
 			(object RoleView "$UNNAMED$19" @44
 			    Parent_View 	@41
-			    location   	(-360, 610)
+			    location   	(-364, 611)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"52CFEAA903B6"
 			    client     	@41
 			    supplier   	@40
 			    vertices   	(list Points
-				(1368, 2152)
-				(1504, 2152))
+				(1364, 2153)
+				(1507, 2153))
 			    line_style 	3
-			    origin_attachment 	(1368, 2152)
-			    terminal_attachment 	(1504, 2152))))
+			    origin_attachment 	(1364, 2153)
+			    terminal_attachment 	(1507, 2153))))
 		(object AssociationViewNew "$UNNAMED$20" @45
-		    location   	(1368, 2270)
+		    location   	(1364, 2269)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -5092,7 +5098,7 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "second" @46
 			    Parent_View 	@45
-			    location   	(-360, 728)
+			    location   	(-364, 727)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -5105,7 +5111,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @47
 				Parent_View 	@46
-				location   	(1374, 2236)
+				location   	(1371, 2235)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -5131,25 +5137,25 @@
 			    client     	@45
 			    supplier   	@39
 			    vertices   	(list Points
-				(1368, 2270)
-				(1233, 2270))
+				(1364, 2269)
+				(1222, 2269))
 			    line_style 	3
-			    origin_attachment 	(1368, 2270)
-			    terminal_attachment 	(1233, 2270))
+			    origin_attachment 	(1364, 2269)
+			    terminal_attachment 	(1222, 2269))
 			(object RoleView "$UNNAMED$21" @48
 			    Parent_View 	@45
-			    location   	(-360, 728)
+			    location   	(-364, 727)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"52CFEAB90383"
 			    client     	@45
 			    supplier   	@40
 			    vertices   	(list Points
-				(1368, 2270)
-				(1504, 2270))
+				(1364, 2269)
+				(1507, 2269))
 			    line_style 	3
-			    origin_attachment 	(1368, 2270)
-			    terminal_attachment 	(1504, 2270))))
+			    origin_attachment 	(1364, 2269)
+			    terminal_attachment 	(1507, 2269))))
 		(object ClassView "Class" "Logical View::shared::DB::DBCore::LoadType" @49
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressOperation 	TRUE
@@ -5209,25 +5215,25 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@50
-			location   	(109, 1584)
+			location   	(113, 1584)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	580
+			max_width  	572
 			justify    	0
 			label      	"IBasePool")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@50
-			location   	(109, 1534)
+			location   	(113, 1534)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	580
+			max_width  	572
 			justify    	0
 			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"52D955B0038C"
-		    width      	598
+		    width      	590
 		    height     	292
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -5249,25 +5255,25 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@51
-			location   	(158, 1001)
+			location   	(161, 1001)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	488
+			max_width  	482
 			justify    	0
 			label      	"Х MemCacheSettings")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@51
-			location   	(158, 951)
+			location   	(161, 951)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	488
+			max_width  	482
 			justify    	0
 			label      	"<<Struct>>")
 		    icon_style 	"Label"
 		    fill_color 	13821680
 		    quidu      	"52D526D70243"
-		    width      	506
+		    width      	500
 		    height     	342
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -5348,7 +5354,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(738, 4821)
+		    location   	(741, 4821)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -5361,25 +5367,25 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@56
-			location   	(108, 4587)
+			location   	(119, 4587)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1260
+			max_width  	1244
 			justify    	0
 			label      	"Х IPosContainer")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@56
-			location   	(108, 4537)
+			location   	(119, 4537)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1260
+			max_width  	1244
 			justify    	0
 			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"52E6491C006F"
-		    width      	1278
+		    width      	1262
 		    height     	592
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -5419,7 +5425,7 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@57
-			location   	(1256, 206)
+			location   	(1256, 207)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	338
@@ -5430,7 +5436,7 @@
 		    fill_color 	14803425
 		    quidu      	"3DBFFDE101CA"
 		    width      	356
-		    height     	105
+		    height     	103
 		    autoResize 	TRUE)
 		(object InheritView "" @58
 		    font       	(object Font
@@ -5633,7 +5639,7 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@67
-			location   	(1817, 1295)
+			location   	(1817, 1296)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	338
@@ -5644,7 +5650,7 @@
 		    fill_color 	14803425
 		    quidu      	"43786B35001F"
 		    width      	356
-		    height     	105
+		    height     	103
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::shared::DB::DBCore::Bytes" @68
 		    ShowCompartmentStereotypes 	TRUE
@@ -5688,7 +5694,7 @@
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object AssociationViewNew "$UNNAMED$27" @69
-		    location   	(1986, 1175)
+		    location   	(1986, 1176)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -5705,26 +5711,26 @@
 		    roleview_list 	(list RoleViews
 			(object RoleView "$UNNAMED$28" @70
 			    Parent_View 	@69
-			    location   	(-66, -307)
+			    location   	(-66, -306)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"5355228601FA"
 			    client     	@69
 			    supplier   	@67
 			    vertices   	(list Points
-				(1986, 1175)
-				(1986, 1282))
+				(1986, 1176)
+				(1986, 1283))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$29" @71
 			    Parent_View 	@69
-			    location   	(-66, -307)
+			    location   	(-66, -306)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"5355228601FF"
 			    client     	@69
 			    supplier   	@68
 			    vertices   	(list Points
-				(1986, 1175)
+				(1986, 1176)
 				(1986, 1069))
 			    line_style 	0)))
 		(object ClassView "Class" "Logical View::shared::DB::DBCore::PSDTemplates" @72
@@ -5928,4 +5934,45 @@
 			    vertices   	(list Points
 				(1679, 1668)
 				(1800, 1668))
-			    line_style 	0)))))))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::shared::DB::DBCore::Constants" @81
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1905, 4236)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@81
+			location   	(1499, 4202)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	812
+			justify    	0
+			label      	"Constants")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@81
+			location   	(1499, 4152)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	812
+			justify    	0
+			label      	"<<Constants>>")
+		    icon_style 	"Label"
+		    fill_color 	16119285
+		    quidu      	"5645E5D000B8"
+		    width      	830
+		    height     	192
+		    annotation 	8
+		    autoResize 	TRUE)))))

@@ -2,6 +2,7 @@ unit TSpellCheckDlgWordsPack;
 
 // Модуль: "w:\archi\source\projects\Common\Dialogs\TSpellCheckDlgWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "TSpellCheckDlgWordsPack" MUID: (55C8CDB30208)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
@@ -73,11 +74,6 @@ begin
  Fake(aCtx, l_aSpellCheckDlg);
 end;//TkwPopSpellCheckDlgFake.DoDoIt
 
-class function TkwPopSpellCheckDlgFake.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:SpellCheckDlg:Fake';
-end;//TkwPopSpellCheckDlgFake.GetWordNameForRegister
-
 function TkwPopSpellCheckDlgFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -92,6 +88,11 @@ function TkwPopSpellCheckDlgFake.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TSpellCheckDlg)]);
 end;//TkwPopSpellCheckDlgFake.ParamsTypes
+
+class function TkwPopSpellCheckDlgFake.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:SpellCheckDlg:Fake';
+end;//TkwPopSpellCheckDlgFake.GetWordNameForRegister
 
 initialization
  TkwPopSpellCheckDlgFake.RegisterInEngine;

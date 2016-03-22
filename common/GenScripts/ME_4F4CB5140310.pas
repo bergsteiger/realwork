@@ -2,6 +2,7 @@ unit m3EndingReplaceListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3EndingReplaceListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3EndingReplaceListPrim" MUID: (4F4CB5140310)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

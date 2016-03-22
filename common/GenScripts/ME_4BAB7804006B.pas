@@ -2,6 +2,7 @@ unit atCompareRedactionsOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atCompareRedactionsOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatCompareRedactionsOperation" MUID: (4BAB7804006B)
 
 interface
 

@@ -113,6 +113,7 @@ BOOL	DeleteZips = FALSE;
 BOOL	NoDeleteBackup = FALSE;
 BOOL	NoFinalMessage = FALSE;
 BOOL	RestoreMode = FALSE;
+BOOL	SkipWarning = FALSE;
 
 bool	SyncBackup = false;
 bool	RemoteUpdate = false;
@@ -420,8 +421,8 @@ DWORD	bu_remote_update( void* params )
 	return 0;
 }
 
-volatile	int		bu_update_start_result;
-volatile	int		bu_update_complete_result;
+volatile	int		bu_update_start_result = 0;
+volatile	int		bu_update_complete_result = 0;
 
 DWORD	bu_update_complete( void* params )
 {
@@ -710,6 +711,9 @@ void CUpdateApp::CheckArgs()
 		}
 		if ( SilentMode && ( !stricmp( argv[ I ], "NOFINALMESSAGE" ) || !stricmp (argv[I], "-nofinalmessage" )))
 			NoFinalMessage = TRUE;
+		else
+		if ( SilentMode && ( !stricmp( argv[ I ], "SKIPWARNING" ) || !stricmp (argv[I], "-skipwarning" )))
+			SkipWarning = TRUE;
 		else
 		if ( !stricmp( argv[ I ], "AUTO" ) || !stricmp( argv[I], "-auto" )) {
 			SilentMode = TRUE;
@@ -1734,11 +1738,11 @@ void UpdateRunner :: execute() {
 								if ( write_files_to_disk_result == 2 ) {
 									global_return_code = 4;
 									theApp.send_internet_result ();
-									FatalError( "Недостаточно места на диске для копирования информационного банка" );
+									FatalError( theApp.b_english_face ? "Cannot copy datastore. Not enough free space" : "Недостаточно места на диске для копирования информационного банка" );
 								} else if ( write_files_to_disk_result == 1 ) {
 									global_return_code = 4;
 									theApp.send_internet_result ();
-									FatalError( "Ошибка при копировании информационного банка" );
+									FatalError( theApp.b_english_face ? "There was an error while copying datastore" : "Ошибка при копировании информационного банка" );
 								} else {
 									stillOk = true;
 								}
@@ -1765,6 +1769,14 @@ void UpdateRunner :: execute() {
 									Log( aLogString );
 									if ( bu->get_free_space_for_sync() < space_for_update() ) {
 										Log( "Возможно, места недостаточно!\n");
+										if (!SkipWarning) {
+											Log ("Обновление не начато\n");
+											if (SilentMode) {
+												goto finish;
+											} else {
+												FatalError (IDS_BASELOCKED);
+											}
+										}
 									}
 								} else if ( !bExtended ) {
 									DeltaManager->serverType = 0;
@@ -1805,6 +1817,7 @@ void UpdateRunner :: execute() {
 				} else {
 					if ( SilentMode || !bExtended || selectBaseFolder.DoModal() == IDOK ) {
 						bool stillOk = true;
+						update_copy = true;
 						if ( SilentMode || !bExtended ) {
 							if ( SyncBackup ) {
 								TimeLog (IDS_BACKUPREFUSAL);
@@ -1834,12 +1847,13 @@ void UpdateRunner :: execute() {
 								Log( aLogString );
 								sprintf( aLogString, "  надо: %I64d МБайт + %I64d МБайт, итого: %I64d МБайт\n", (__int64)space_for_update()/1024, (__int64)base_size()/1024, ((__int64)space_for_update() + (__int64)base_size())/1024 );
 								Log( aLogString );
-								if ( UpdateRunner::bu->get_free_space_for_async() < space_for_update() + base_size() ) {
+								if (UpdateRunner::bu->get_free_space_for_async() < space_for_update() + base_size()) {
 									Log( "Возможно, места недостаточно!\n");
-									if ( !SilentMode ) {
-										if ( !YesNoBox( IDS_SMALLFREESPACE )) {
+									if (!SkipWarning && SilentMode) {
+										stillOk = false;
+									} else if (!SilentMode) {
+										if ( !YesNoBox (IDS_SMALLFREESPACE))
 											stillOk = false;
-										}
 									}
 								}
 
@@ -1848,37 +1862,46 @@ void UpdateRunner :: execute() {
 									startWorking = false;
 									ACE_Thread_Manager* inst = ACE_Thread_Manager::instance ();
 									TimeLog (IDS_STARTBACKUPLOG);
-									if (inst->spawn ((ACE_THR_FUNC)bu_update_start, NULL, THR_DETACHED) == -1)
-										FatalError( "Ошибка при создании потока копирования информационного банка" );
-									else {
+									if (inst->spawn ((ACE_THR_FUNC)bu_update_start, NULL, THR_DETACHED) == -1) {
+										if (SilentMode || NoFinalMessage)
+											Log ("Ошибка при создании потока копирования информационного банка\n");
+										else
+											FatalError ("Ошибка при создании потока копирования информационного банка");
+									} else {
 										while ( !startWorking ) ACE_OS::sleep(1);
 										if ( !endWorking ) waitDialog->DoModal();
 									}
 									delete waitDialog;
-									TimeLog (IDS_ENDBACKUPLOG);
+									TimeLog (bu_update_start_result ? IDS_ENDBACKUPLOG_ERROR : IDS_ENDBACKUPLOG);
 
 									if ( bu_update_start_result == 1 ) {
 										global_return_code = 4;
 										theApp.send_internet_result ();
 										this->cancel_update (GblPilot::UCC_UPDATE_RUN);
-										if ( NoFinalMessage )
-											TimeLog( IDS_UPDATERUN );
+										if (SilentMode || NoFinalMessage)
+											TimeLog (IDS_UPDATERUN);
 										else
-											FatalMessage( IDS_UPDATERUN );
+											FatalMessage (IDS_UPDATERUN);
 										stillOk = false;
 									} else
 									if ( bu_update_start_result == 2 ) {
 										global_return_code = 4;
 										theApp.send_internet_result ();
 										this->cancel_update (GblPilot::UCC_NOT_ENOUGH_SPACE);
-										FatalMessage( "Недостаточно места на диске для копирования информационного банка" );
+										if (SilentMode || NoFinalMessage)
+											Log ("Недостаточно места на диске для копирования информационного банка\n" );
+										else
+											FatalMessage( theApp.b_english_face ? "Cannot copy datastore. Not enough free space" : "Недостаточно места на диске для копирования информационного банка" );
 										stillOk = false;
 									} else
 									if ( bu_update_start_result == 4 ) {
 										global_return_code = 4;
 										theApp.send_internet_result ();
 										this->cancel_update (GblPilot::UCC_UNKNOWN_COPY_ERROR);
-										FatalMessage( "Ошибка при копировании информационного банка" );
+										if (SilentMode || NoFinalMessage)
+											Log ("Ошибка при копировании информационного банка\n");
+										else
+											FatalMessage( theApp.b_english_face ? "There was an error while copying datastore" : "Ошибка при копировании информационного банка" );
 										stillOk = false;
 									}
 								}
@@ -1951,7 +1974,7 @@ void UpdateRunner :: execute() {
 								file_set = new GslDataPipe::FileReadingSet (real_file_set.in ());
 								ACE_Thread_Manager* inst = ACE_Thread_Manager::instance ();
 								if (inst->spawn ((ACE_THR_FUNC)bu_remote_update, &remoteUpdateType.updateType, THR_DETACHED) == -1)
-									FatalError( "Ошибка при создании потока копирования информационного банка" );
+									FatalError( "Ошибка при создании потока копирования информационного банка\n" );
 								else {
 									while ( !startWorking ) ACE_OS::sleep(1);
 									if ( !endWorking ) wait1Dialog->DoModal();
@@ -2025,26 +2048,30 @@ void UpdateRunner :: execute() {
 							OkBox( aFinalMessage );
 					} else {
 						if ( NoFinalMessage )
-							if (update_copy) {
-								OkBox (IDS_NOTUPDATED);
-							}
+							if (update_copy)
+								Log (IDS_NOTUPDATED);
 							else
-								TimeLog( IDS_BASEDEAD );
+								Log (IDS_BASEDEAD);
 						else {
-							if (!aSuccess && !update_copy && !BaseUpdated)
-								FatalMessage( IDS_BASEDEAD );
-							else 
-							if (update_copy || !BaseUpdated )
-								OkBox( IDS_NOTUPDATED );
-							else
-								FatalMessage( IDS_BASEDEAD );
+							if (!aSuccess && !update_copy && !BaseUpdated) {
+								Log (IDS_BASEDEAD);
+								FatalMessage (IDS_BASEDEAD);
+							} else if (update_copy || !BaseUpdated) {
+								TimeLog (IDS_NOTUPDATED);
+								OkBox (IDS_NOTUPDATED);
+							} else {
+								Log (IDS_BASEDEAD);
+								FatalMessage (IDS_BASEDEAD);
+							}
 						}
 					}
 				} else {
-					if ( NoFinalMessage )
-						Log( IDS_BASEDEAD );
-					else
-						FatalError( IDS_BASEDEAD );
+					if (NoFinalMessage)
+						Log (IDS_BASEDEAD);
+					else {
+						Log (IDS_BASEDEAD);
+						FatalError (IDS_BASEDEAD);
+					}
 				}
 			}
 		} catch(CORBA::Exception&) {
@@ -2206,7 +2233,7 @@ void	CUpdateApp::send_internet_result ()
 		sprintf (request, "/datasetup/update?key=%s&from=%s&to=%s&status=%ld&time=%ld", pers_key.c_str (), theApp.from_str.c_str (), theApp.to_str.c_str (), update_status, update_seconds);
 
 		try {
-			if (m_connection->open_request (request, 0)) {
+			if (m_connection->open_request (request, "Accept: application/json,*/*\r\nAccept-Encoding: identity\r\n")) {
 				try {
 					m_connection->send_request ();
 				} catch (...) {}
@@ -3329,8 +3356,16 @@ BOOL TDeltaManager::ApplyDeltas()
 			total_selected++;
 	}
 
-	for (I = 0; I < Deltas -> getCount() + (enable_gu_merge_optimization && !remoteType ? 1 : 0); I++) {
+	short LastI = Deltas -> getCount() + (enable_gu_merge_optimization && !remoteType ? 1 : 0);
+	for (I = 0; I < LastI; I++) {
 		TDelta* aDelta = Deltas -> at (I < Deltas -> getCount() ? I : I - 1);
+		if (I == LastI - 1 && aDelta->State != DELTA_SELECTED) {
+			for (int J = I - 1; J >= 0; J--) {
+				aDelta = Deltas -> at (J);
+				if (aDelta->State == DELTA_SELECTED)
+					break;
+			}
+		}
 		if (aDelta -> State == DELTA_SELECTED) {
 			counter_selected++;
 			sprintf (GUDllFileName, "GU%d.DLL", aDelta -> Version);

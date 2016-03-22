@@ -3,6 +3,8 @@ unit NOT_FINISHED_evList_InterfaceFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evList_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
+// Элемент модели: "TevList" MUID: (4858EE3A00A3)
+// Имя типа: "TevListInterfaceFactory"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

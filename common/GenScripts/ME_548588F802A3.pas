@@ -3,6 +3,7 @@ unit m3BaseEnumStatStg;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3BaseEnumStatStg.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3BaseEnumStatStg" MUID: (548588F802A3)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

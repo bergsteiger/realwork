@@ -3,6 +3,7 @@ unit k2TypedSmallLeafTag;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TypedSmallLeafTag.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2TypedSmallLeafTag" MUID: (527A6D5A0248)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

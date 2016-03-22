@@ -2,6 +2,7 @@ unit nscStatusBarItemDef;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscStatusBarItemDef.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnscStatusBarItemDef" MUID: (4FEC3C34003F)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

@@ -2,6 +2,7 @@ unit daTypes;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daTypes.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "daTypes" MUID: (5432448401BC)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

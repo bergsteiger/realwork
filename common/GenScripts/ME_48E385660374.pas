@@ -3,6 +3,7 @@ unit evRange;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evRange.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evRange" MUID: (48E385660374)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,7 @@ unit dsDrugListSynchroView;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Drug\dsDrugListSynchroView.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsDrugListSynchroView" MUID: (47ECD5A6015A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

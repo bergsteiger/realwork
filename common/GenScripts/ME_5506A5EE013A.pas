@@ -2,6 +2,7 @@ unit ChromeLikeTabSetTypes;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ChromeLikeTabSetTypes" MUID: (5506A5EE013A)
 
 interface
 

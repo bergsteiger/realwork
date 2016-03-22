@@ -3,6 +3,8 @@ unit K235868845;
 
 // Модуль: "w:\common\components\rtl\Garant\TestForTFW\K235868845.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K235868845" MUID: (4CAC95AC011D)
+// Имя типа: "TK235868845"
 
 interface
 

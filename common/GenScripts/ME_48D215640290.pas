@@ -3,6 +3,7 @@ unit evLabel;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evLabel.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevLabel" MUID: (48D215640290)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

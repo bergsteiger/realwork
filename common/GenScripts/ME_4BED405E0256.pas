@@ -3,6 +3,8 @@ unit NSRCtoEVDTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\NSRCtoEVDTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "NSRCtoEVDTest" MUID: (4BED405E0256)
+// Имя типа: "TNSRCtoEVDTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

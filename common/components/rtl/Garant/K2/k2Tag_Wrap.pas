@@ -3,6 +3,7 @@ unit k2Tag_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Tag_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "Wk2Tag" MUID: (484941DA0047)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

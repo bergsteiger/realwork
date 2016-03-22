@@ -75,33 +75,7 @@ ref; // ME_3092DFBFE887 slqtDictionConstants
 
 FORWARD ME_43AB039DAFE1
 
-: ME_6E01E3C555A5
- CONST UID '6E01E3C555A5'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_FormUserType_slqtDiction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_43AB039DAFE1 // Tkw_FormUserType_slqtDiction
- ;
-
-ref; // ME_6E01E3C555A5 Ini_Reg
-
-: ME_4DB0614603C8_ME_43AB039DAFE1
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_43AB039DAFE1 // Tkw_FormUserType_slqtDiction
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_43AB039DAFE1 GetWordNameForRegister
-
 : ME_4EE1DC8903BB_ME_43AB039DAFE1
- CONST UID '4EE1DC8903BB'
- CONST Name 'GetInteger'
  : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
  ;
  : Implementor ME_43AB039DAFE1 // Tkw_FormUserType_slqtDiction
@@ -125,13 +99,8 @@ ref; // ME_4EE1DC8903BB_ME_43AB039DAFE1 GetInteger
    Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6E01E3C555A5 // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_43AB039DAFE1 // GetWordNameForRegister
- ME_4EE1DC8903BB_ME_43AB039DAFE1 // GetInteger
+   Seq: ( ME_4EE1DC8903BB_ME_43AB039DAFE1 // GetInteger
  )
  ; // Overridden
  CONST "NameForScript" 'тип_формы::slqtDiction'
@@ -247,33 +216,7 @@ ref; // ME_E80662B2CFE5 slqtMedicDictionConstants
 
 FORWARD ME_6959F067223A
 
-: ME_FDA96EEFD152
- CONST UID 'FDA96EEFD152'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_FormUserType_slqtMedicDiction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_6959F067223A // Tkw_FormUserType_slqtMedicDiction
- ;
-
-ref; // ME_FDA96EEFD152 Ini_Reg
-
-: ME_4DB0614603C8_ME_6959F067223A
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_6959F067223A // Tkw_FormUserType_slqtMedicDiction
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_6959F067223A GetWordNameForRegister
-
 : ME_4EE1DC8903BB_ME_6959F067223A
- CONST UID '4EE1DC8903BB'
- CONST Name 'GetInteger'
  : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
  ;
  : Implementor ME_6959F067223A // Tkw_FormUserType_slqtMedicDiction
@@ -297,13 +240,8 @@ ref; // ME_4EE1DC8903BB_ME_6959F067223A GetInteger
    Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_FDA96EEFD152 // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_6959F067223A // GetWordNameForRegister
- ME_4EE1DC8903BB_ME_6959F067223A // GetInteger
+   Seq: ( ME_4EE1DC8903BB_ME_6959F067223A // GetInteger
  )
  ; // Overridden
  CONST "NameForScript" 'тип_формы::slqtMedicDiction'
@@ -572,7 +510,6 @@ ref; // ME_D3B0E2BCEC75 Init_Str_slqtDictionCaption
 ref; // ME_5BCA4A697567 Init_Str_slqtMedicDictionCaption
 
 : ME_2D8F8C2EEAF0
- CONST UID '2D8F8C2EEAF0'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -584,7 +521,6 @@ ref; // ME_5BCA4A697567 Init_Str_slqtMedicDictionCaption
 ref; // ME_2D8F8C2EEAF0 
 
 : ME_28EFE377027A
- CONST UID '28EFE377027A'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;

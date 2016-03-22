@@ -2,6 +2,7 @@ unit kwImageEnControl;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwImageEnControl.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwImageEnControl" MUID: (52E20F060237)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

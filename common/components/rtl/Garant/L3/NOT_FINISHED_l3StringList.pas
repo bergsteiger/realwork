@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3StringList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3StringList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3StringList" MUID: (4773DCE302FF)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

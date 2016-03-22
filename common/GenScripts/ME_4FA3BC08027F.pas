@@ -2,6 +2,8 @@ unit kwPopEditorRepaintTableLinesAndCheckWithEtalon;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorRepaintTableLinesAndCheckWithEtalon.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_RepaintTableLinesAndCheckWithEtalon" MUID: (4FA3BC08027F)
+// Имя типа: "TkwPopEditorRepaintTableLinesAndCheckWithEtalon"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

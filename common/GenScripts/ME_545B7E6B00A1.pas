@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3ListWithFind.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "m3ListWithFind" MUID: (545B7E6B00A1)
+// Имя типа: "_m3ListWithFind_"
 
 {$Define m3ListWithFind_imp}
 

@@ -2,6 +2,7 @@ unit kwSourcePointWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSourcePointWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwSourcePointWord" MUID: (556427250160)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -54,12 +55,6 @@ begin
 //#UC END# *556427DD0163_556427250160_impl*
 end;//TkwSourcePointWord.Create
 
-procedure TkwSourcePointWord.ClearFields;
-begin
- f_SourceFileName := nil;
- inherited;
-end;//TkwSourcePointWord.ClearFields
-
 function TkwSourcePointWord.SourcePoint: TtfwSourcePoint;
 //#UC START# *556317DE02B5_556427250160_var*
 //#UC END# *556317DE02B5_556427250160_var*
@@ -70,6 +65,12 @@ begin
  Result.rLine := f_SourceLine;
 //#UC END# *556317DE02B5_556427250160_impl*
 end;//TkwSourcePointWord.SourcePoint
+
+procedure TkwSourcePointWord.ClearFields;
+begin
+ f_SourceFileName := nil;
+ inherited;
+end;//TkwSourcePointWord.ClearFields
 
 initialization
  TkwSourcePointWord.RegisterClass;

@@ -3,6 +3,7 @@ unit PrimConfigurationList_utConfigurationList_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimConfigurationList_utConfigurationList_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utConfigurationList" MUID: (4BD727D901FA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utConfigurationList = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utConfigurationList }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utConfigurationList
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utConfigurationList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utConfigurationList';
-end;//Tkw_FormUserType_utConfigurationList.GetWordNameForRegister
-
 function Tkw_FormUserType_utConfigurationList.GetInteger: Integer;
 begin
  Result := utConfigurationList;
 end;//Tkw_FormUserType_utConfigurationList.GetInteger
+
+class function Tkw_FormUserType_utConfigurationList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utConfigurationList';
+end;//Tkw_FormUserType_utConfigurationList.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

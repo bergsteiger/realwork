@@ -2,6 +2,7 @@ unit nsLayeredTreeFilters;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsLayeredTreeFilters.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsLayeredTreeFilters" MUID: (49020B54001A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

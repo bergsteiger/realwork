@@ -3,6 +3,8 @@ unit kwModifier;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwModifier.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "Modifier" MUID: (4DCACE1201A3)
+// Имя типа: "TkwModifier"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

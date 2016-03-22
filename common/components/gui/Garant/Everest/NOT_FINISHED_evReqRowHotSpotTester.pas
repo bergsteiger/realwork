@@ -2,6 +2,7 @@ unit NOT_FINISHED_evReqRowHotSpotTester;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evReqRowHotSpotTester.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevReqRowHotSpotTester" MUID: (53D668610126)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

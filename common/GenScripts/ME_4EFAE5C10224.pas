@@ -3,6 +3,7 @@ unit m2InternalInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\m2\m2InternalInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "m2InternalInterfaces" MUID: (4EFAE5C10224)
 
 {$Include w:\common\components\rtl\Garant\L3\m2\m2Define.inc}
 

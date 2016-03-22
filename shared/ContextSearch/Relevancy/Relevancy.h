@@ -176,33 +176,21 @@ static const unsigned short EXT_LEN = 20; // расширение для размера очка
 // IndexChain
 typedef std::vector < Defs::Positions::const_iterator > IndexChain;
 
-class IBlockAlgorithm;
-typedef ::Core::Var<IBlockAlgorithm> IBlockAlgorithm_var;
-typedef ::Core::Var<const IBlockAlgorithm> IBlockAlgorithm_cvar;
-// Интерфейс алгоритма расчета релевантности документа (для блочных невидимых)
-class IBlockAlgorithm
-	: virtual public ::Core::IObject
-{
-public:
-	// расчет релевантности
-	virtual void get_relevancy_info (
-		Defs::RelevancyInfo& info
-		, const DataVector& positions
-		, const Defs::InvisibleData& inv_data
-		, const Defs::PositionsRel& rel_data
-	) = 0;
+#pragma pack (push, 1)
 
-	// список релевантных фрагментов
-	virtual Defs::Fragments* get_fragments (const DataVector& positions, const Defs::InvisibleData& inv_data) = 0;
+// Блочное вхождение
+struct BlockEntry {
+	// позиция
+	Defs::Position pos;
+	// релевантность
+	unsigned long rel;
+	// длина
+	unsigned long len;
+	// остаток в тексте
+	Defs::Positions rest;
 };
 
-/// factory interface for IBlockAlgorithm
-class IBlockAlgorithmFactory {
-public:
-	// фабрика
-	static IBlockAlgorithm* make (const Data& req_data, const AlgorithmProperties& properties)
-		/*throw (Core::Root::NoActiveFactory, Core::Root::FactoryManagerWasDestroyed)*/;
-};
+#pragma pack (pop)
 
 #pragma pack (push, 1)
 
@@ -227,6 +215,44 @@ struct IntersectProp {
 // Документ  и его релевантность
 typedef Defs::RelevancyDocInfo RelevancyDocInfo;
 
+// Блочные вхождения
+typedef std::vector < BlockEntry > BlockEntries;
+
+class IBlocksAlgorithm;
+typedef ::Core::Var<IBlocksAlgorithm> IBlocksAlgorithm_var;
+typedef ::Core::Var<const IBlocksAlgorithm> IBlocksAlgorithm_cvar;
+// Интерфейс алгоритма расчета релевантности документа (для блочных невидимых)
+class IBlocksAlgorithm
+	: virtual public ::Core::IObject
+{
+public:
+	// расчет релевантности
+	virtual void get_relevancy_info (
+		Defs::RelevancyInfo& info
+		, const DataVector& positions
+		, const Defs::PositionsRel& rel_data
+		, const BlockEntries& data
+	) = 0;
+
+	// список релевантных фрагментов
+	virtual Defs::Fragments* get_fragments (const BlockEntries& data, const DataVector& positions) = 0;
+};
+
+/// factory interface for IBlocksAlgorithm
+class IBlocksAlgorithmFactory {
+public:
+	// фабрика
+	static IBlocksAlgorithm* make (const Data& req_data, const AlgorithmProperties& properties)
+		/*throw (Core::Root::NoActiveFactory, Core::Root::FactoryManagerWasDestroyed)*/;
+};
+
+// Тип разметки
+enum Mark {
+	mt_None // пробел
+	, mt_Strong // строгость
+	, mt_Frame // рамочность
+};
+
 } // namespace Relevancy
 } // namespace ContextSearch
 
@@ -237,8 +263,8 @@ struct TypeTraits <ContextSearch::Relevancy::IAlgorithm> {
 	typedef ContextSearch::Relevancy::IAlgorithmFactory Factory;
 };
 template <>
-struct TypeTraits <ContextSearch::Relevancy::IBlockAlgorithm> {
-	typedef ContextSearch::Relevancy::IBlockAlgorithmFactory Factory;
+struct TypeTraits <ContextSearch::Relevancy::IBlocksAlgorithm> {
+	typedef ContextSearch::Relevancy::IBlocksAlgorithmFactory Factory;
 };
 } // namespace Core
 

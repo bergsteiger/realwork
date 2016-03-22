@@ -2,6 +2,7 @@ unit Int64List;
 
 // Модуль: "w:\common\components\SandBox\Int64List.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TInt64List" MUID: (51DEE8B7025B)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

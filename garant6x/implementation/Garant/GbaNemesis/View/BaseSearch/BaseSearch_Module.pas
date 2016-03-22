@@ -259,12 +259,16 @@ class function TBaseSearchModule.MakeBaseSearchWindow(const aContainer: IvcmCont
 var
  __WasEnter : Boolean;
 //#UC START# *4AB793B903E6_4CC97D020011_var*
+ l_Params: IvcmMakeParams;
 //#UC END# *4AB793B903E6_4CC97D020011_var*
 begin
  __WasEnter := vcmEnterFactory;
  try
 //#UC START# *4AB793B903E6_4CC97D020011_impl*
-  Result := TNewBaseSearchForm.MakeSingleChild(aData, CheckContainer(aContainer), aZoneType);
+  l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(aContainer)));
+  Result := TNewBaseSearchForm.MakeSingleChild(aData, l_Params.Container,
+    l_Params.Aggregate,
+    aZoneType);
 //  Result := Ten_BaseSearch.MakeSingleChild(aData, CheckContainer(aContainer));
 //#UC END# *4AB793B903E6_4CC97D020011_impl*
  finally

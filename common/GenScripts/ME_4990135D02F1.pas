@@ -3,6 +3,7 @@ unit FoldersDomainInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\FoldersDomainInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "FoldersDomainInterfaces" MUID: (4990135D02F1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_ElXPThemedControl;
 
 // Модуль: "w:\common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElXPThemedControl.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TElXPThemedControl" MUID: (52B993FB000A)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -2,6 +2,7 @@ unit l3CBTListenersList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CBTListenersList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CBTListenersList" MUID: (4F66F88103D4)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

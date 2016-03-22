@@ -2,6 +2,7 @@ unit evdTaskFolderEliminator;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdTaskFolderEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdTaskFolderEliminator" MUID: (53C3AC15027D)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

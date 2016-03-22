@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\PrimListControllers\nsListWarningGenerator.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsListWarningGenerator" MUID: (4DC1671402AB)
+// Имя типа: "_nsListWarningGenerator_"
 
 {$Define nsListWarningGenerator_imp}
 

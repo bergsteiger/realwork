@@ -3,6 +3,7 @@ unit NOT_FINISHED_dd_lcJudgeFormatter;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcJudgeFormatter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tdd_lcJudgeFormatter" MUID: (4EBB9A2300A9)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

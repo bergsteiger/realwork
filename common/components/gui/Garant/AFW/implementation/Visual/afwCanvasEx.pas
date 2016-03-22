@@ -3,6 +3,7 @@ unit afwCanvasEx;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwCanvasEx.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwCanvasEx" MUID: (47414C8700D5)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
@@ -29,11 +30,11 @@ type
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
    function IsPreview: Boolean; override;
    function NeedOpenRealPage(aDoc: Boolean;
     ByWidth: Boolean = False): Tl3OpenPageResult; override;
    procedure DoEndPaint; override;
+   procedure ClearFields; override;
   public
    constructor Create(const aPrinter: IafwPrinter;
     const aPagesArray: TafwPrintPagesArray = nil); reintroduce;
@@ -88,13 +89,6 @@ begin
  f_PreviewPage := nil;
 //#UC END# *479731C50290_47414C8700D5_impl*
 end;//TafwCanvasEx.Cleanup
-
-procedure TafwCanvasEx.ClearFields;
-begin
- f_PreviewPage := nil;
- Finalize(f_PagesArray);
- inherited;
-end;//TafwCanvasEx.ClearFields
 
 procedure TafwCanvasEx.SetCanvas(aValue: TCanvas;
  anAlien: Boolean);
@@ -182,5 +176,12 @@ begin
  f_IsPreview := false;
 //#UC END# *56B4BDA30301_47414C8700D5_impl*
 end;//TafwCanvasEx.DoEndPaint
+
+procedure TafwCanvasEx.ClearFields;
+begin
+ f_PreviewPage := nil;
+ Finalize(f_PagesArray);
+ inherited;
+end;//TafwCanvasEx.ClearFields
 
 end.

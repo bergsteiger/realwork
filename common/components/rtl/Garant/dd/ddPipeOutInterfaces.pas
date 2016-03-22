@@ -74,6 +74,27 @@ const
   { Сообщения }
  cFilerOpenErrorMsg = 'CRITICAL ERROR: Ошибка (%s) открытия файла %s';
 
+type
+ TddReportEmptyEvent = procedure (aSender: TObject;
+  aEmptyCount: Integer) of object;
+
+ IddAnnoKindSortItem = interface(IUnknown)
+   ['{D93F4C6D-BBE9-4571-9EB2-E0100534B695}']
+   procedure Add(aTopic: Integer);
+   function Get_Name: Il3CString;
+   function Get_Count: Integer;
+   function Get_ID: Integer;
+   function Get_Topics(aIdx: Integer): Integer;
+   property Name: Il3CString
+     read Get_Name;
+   property Count: Integer
+     read Get_Count;
+   property ID: Integer
+     read Get_ID;
+   property Topics[aIdx: Integer]: Integer
+     read Get_Topics;
+ end;//IddAnnoKindSortItem
+
 implementation
 
 end.

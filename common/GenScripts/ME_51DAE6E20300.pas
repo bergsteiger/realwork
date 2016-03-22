@@ -2,6 +2,8 @@ unit MemorySizeTest;
 
 // Модуль: "w:\common\components\SandBox\MemorySizeTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "MemorySizeTest" MUID: (51DAE6E20300)
+// Имя типа: "TMemorySizeTest"
 
 {$Include w:\common\components\SandBox\sbtDefine.inc}
 

@@ -2,6 +2,7 @@ unit tfwDictionaryWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "tfwDictionaryWordsPack" MUID: (55E727F40334)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -144,11 +145,6 @@ begin
  aCtx.rEngine.PushList(WordsIterator(aCtx, l_aDictionary));
 end;//TkwPopDictionaryWordsIterator.DoDoIt
 
-class function TkwPopDictionaryWordsIterator.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Dictionary:WordsIterator';
-end;//TkwPopDictionaryWordsIterator.GetWordNameForRegister
-
 function TkwPopDictionaryWordsIterator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -163,6 +159,11 @@ function TkwPopDictionaryWordsIterator.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionary)]);
 end;//TkwPopDictionaryWordsIterator.ParamsTypes
+
+class function TkwPopDictionaryWordsIterator.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Dictionary:WordsIterator';
+end;//TkwPopDictionaryWordsIterator.GetWordNameForRegister
 
 function TkwPopDictionaryKeywordByName.KeywordByName(const aCtx: TtfwContext;
  aDictionary: TtfwDictionary;
@@ -201,11 +202,6 @@ begin
  aCtx.rEngine.PushObj(KeywordByName(aCtx, l_aDictionary, l_aName));
 end;//TkwPopDictionaryKeywordByName.DoDoIt
 
-class function TkwPopDictionaryKeywordByName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Dictionary:KeywordByName';
-end;//TkwPopDictionaryKeywordByName.GetWordNameForRegister
-
 function TkwPopDictionaryKeywordByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwKeyWord);
@@ -220,6 +216,11 @@ function TkwPopDictionaryKeywordByName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionary), @tfw_tiString]);
 end;//TkwPopDictionaryKeywordByName.ParamsTypes
+
+class function TkwPopDictionaryKeywordByName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Dictionary:KeywordByName';
+end;//TkwPopDictionaryKeywordByName.GetWordNameForRegister
 
 function TkwPopDictionaryKeyWordsIterator.KeyWordsIterator(const aCtx: TtfwContext;
  aDictionary: TtfwDictionary): ItfwValueList;
@@ -247,11 +248,6 @@ begin
  aCtx.rEngine.PushList(KeyWordsIterator(aCtx, l_aDictionary));
 end;//TkwPopDictionaryKeyWordsIterator.DoDoIt
 
-class function TkwPopDictionaryKeyWordsIterator.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Dictionary:KeyWordsIterator';
-end;//TkwPopDictionaryKeyWordsIterator.GetWordNameForRegister
-
 function TkwPopDictionaryKeyWordsIterator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -266,6 +262,11 @@ function TkwPopDictionaryKeyWordsIterator.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionary)]);
 end;//TkwPopDictionaryKeyWordsIterator.ParamsTypes
+
+class function TkwPopDictionaryKeyWordsIterator.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Dictionary:KeyWordsIterator';
+end;//TkwPopDictionaryKeyWordsIterator.GetWordNameForRegister
 
 function TkwPopDictionaryOwnKeywordByName.OwnKeywordByName(const aCtx: TtfwContext;
  aDictionary: TtfwDictionary;
@@ -304,11 +305,6 @@ begin
  aCtx.rEngine.PushObj(OwnKeywordByName(aCtx, l_aDictionary, l_aName));
 end;//TkwPopDictionaryOwnKeywordByName.DoDoIt
 
-class function TkwPopDictionaryOwnKeywordByName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Dictionary:OwnKeywordByName';
-end;//TkwPopDictionaryOwnKeywordByName.GetWordNameForRegister
-
 function TkwPopDictionaryOwnKeywordByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwKeyWord);
@@ -323,6 +319,11 @@ function TkwPopDictionaryOwnKeywordByName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionary), @tfw_tiString]);
 end;//TkwPopDictionaryOwnKeywordByName.ParamsTypes
+
+class function TkwPopDictionaryOwnKeywordByName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Dictionary:OwnKeywordByName';
+end;//TkwPopDictionaryOwnKeywordByName.GetWordNameForRegister
 
 initialization
  TkwPopDictionaryWordsIterator.RegisterInEngine;

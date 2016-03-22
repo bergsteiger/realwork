@@ -2,6 +2,7 @@ unit kwControlWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwControlWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwControlWord" MUID: (4DB98B4B0382)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

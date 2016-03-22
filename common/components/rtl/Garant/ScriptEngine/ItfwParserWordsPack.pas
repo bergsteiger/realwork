@@ -2,6 +2,7 @@ unit ItfwParserWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ItfwParserWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ItfwParserWordsPack" MUID: (559BC65F0292)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -177,11 +178,6 @@ begin
  NextToken(aCtx, l_aParser);
 end;//TkwPopParserNextToken.DoDoIt
 
-class function TkwPopParserNextToken.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Parser:NextToken';
-end;//TkwPopParserNextToken.GetWordNameForRegister
-
 function TkwPopParserNextToken.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -196,6 +192,11 @@ function TkwPopParserNextToken.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwParser)]);
 end;//TkwPopParserNextToken.ParamsTypes
+
+class function TkwPopParserNextToken.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Parser:NextToken';
+end;//TkwPopParserNextToken.GetWordNameForRegister
 
 function TkwPopParserTokenLongString.TokenLongString(const aCtx: TtfwContext;
  const aParser: ItfwParser): Il3CString;
@@ -219,11 +220,6 @@ begin
  aCtx.rEngine.PushString(TokenLongString(aCtx, l_aParser));
 end;//TkwPopParserTokenLongString.DoDoIt
 
-class function TkwPopParserTokenLongString.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Parser:TokenLongString';
-end;//TkwPopParserTokenLongString.GetWordNameForRegister
-
 function TkwPopParserTokenLongString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -238,6 +234,11 @@ function TkwPopParserTokenLongString.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwParser)]);
 end;//TkwPopParserTokenLongString.ParamsTypes
+
+class function TkwPopParserTokenLongString.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Parser:TokenLongString';
+end;//TkwPopParserTokenLongString.GetWordNameForRegister
 
 function TkwPopParserTokenInt.TokenInt(const aCtx: TtfwContext;
  const aParser: ItfwParser): Integer;
@@ -261,11 +262,6 @@ begin
  aCtx.rEngine.PushInt(TokenInt(aCtx, l_aParser));
 end;//TkwPopParserTokenInt.DoDoIt
 
-class function TkwPopParserTokenInt.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Parser:TokenInt';
-end;//TkwPopParserTokenInt.GetWordNameForRegister
-
 function TkwPopParserTokenInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -280,6 +276,11 @@ function TkwPopParserTokenInt.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwParser)]);
 end;//TkwPopParserTokenInt.ParamsTypes
+
+class function TkwPopParserTokenInt.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Parser:TokenInt';
+end;//TkwPopParserTokenInt.GetWordNameForRegister
 
 function TkwPopParserFileName.FileName(const aCtx: TtfwContext;
  const aParser: ItfwParser): AnsiString;
@@ -303,11 +304,6 @@ begin
  aCtx.rEngine.PushString(FileName(aCtx, l_aParser));
 end;//TkwPopParserFileName.DoDoIt
 
-class function TkwPopParserFileName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Parser:FileName';
-end;//TkwPopParserFileName.GetWordNameForRegister
-
 function TkwPopParserFileName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -322,6 +318,11 @@ function TkwPopParserFileName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwParser)]);
 end;//TkwPopParserFileName.ParamsTypes
+
+class function TkwPopParserFileName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Parser:FileName';
+end;//TkwPopParserFileName.GetWordNameForRegister
 
 function TkwPopParserTokenType.TokenType(const aCtx: TtfwContext;
  const aParser: ItfwParser): Tl3TokenType;
@@ -345,11 +346,6 @@ begin
  aCtx.rEngine.PushInt(Ord(TokenType(aCtx, l_aParser)));
 end;//TkwPopParserTokenType.DoDoIt
 
-class function TkwPopParserTokenType.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Parser:TokenType';
-end;//TkwPopParserTokenType.GetWordNameForRegister
-
 function TkwPopParserTokenType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Tl3TokenType);
@@ -364,6 +360,11 @@ function TkwPopParserTokenType.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwParser)]);
 end;//TkwPopParserTokenType.ParamsTypes
+
+class function TkwPopParserTokenType.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Parser:TokenType';
+end;//TkwPopParserTokenType.GetWordNameForRegister
 
 function TkwPopParserSourceLine.SourceLine(const aCtx: TtfwContext;
  const aParser: ItfwParser): Integer;
@@ -387,11 +388,6 @@ begin
  aCtx.rEngine.PushInt(SourceLine(aCtx, l_aParser));
 end;//TkwPopParserSourceLine.DoDoIt
 
-class function TkwPopParserSourceLine.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Parser:SourceLine';
-end;//TkwPopParserSourceLine.GetWordNameForRegister
-
 function TkwPopParserSourceLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -406,6 +402,11 @@ function TkwPopParserSourceLine.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwParser)]);
 end;//TkwPopParserSourceLine.ParamsTypes
+
+class function TkwPopParserSourceLine.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Parser:SourceLine';
+end;//TkwPopParserSourceLine.GetWordNameForRegister
 
 initialization
  TkwPopParserNextToken.RegisterInEngine;

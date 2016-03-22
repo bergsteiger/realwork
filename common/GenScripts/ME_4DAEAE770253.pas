@@ -2,6 +2,7 @@ unit NOT_FINISHED_nevViewControl;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_nevViewControl.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevViewControl" MUID: (4DAEAE770253)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

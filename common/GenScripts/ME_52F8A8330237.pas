@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithFlexFormSetType.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmFormSetDataSourceWithFlexFormSetType" MUID: (52F8A8330237)
+// Имя типа: "_vcmFormSetDataSourceWithFlexFormSetType_"
 
 {$Define vcmFormSetDataSourceWithFlexFormSetType_imp}
 

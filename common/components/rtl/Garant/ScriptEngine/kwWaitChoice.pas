@@ -2,6 +2,8 @@ unit kwWaitChoice;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwWaitChoice.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "wait_Choice" MUID: (4FFFF8520204)
+// Имя типа: "TkwWaitChoice"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

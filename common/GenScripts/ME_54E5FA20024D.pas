@@ -2,6 +2,7 @@ unit vtHideFieldWords;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\vtHideFieldWords.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "vtHideFieldWords" MUID: (54E5FA20024D)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -116,11 +117,6 @@ begin
  aCtx.rEngine.PushBool(IsExpanded(aCtx, l_aHideField));
 end;//TkwPopHideFieldIsExpanded.DoDoIt
 
-class function TkwPopHideFieldIsExpanded.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:HideField:IsExpanded';
-end;//TkwPopHideFieldIsExpanded.GetWordNameForRegister
-
 function TkwPopHideFieldIsExpanded.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -135,6 +131,11 @@ function TkwPopHideFieldIsExpanded.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomHideField)]);
 end;//TkwPopHideFieldIsExpanded.ParamsTypes
+
+class function TkwPopHideFieldIsExpanded.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:HideField:IsExpanded';
+end;//TkwPopHideFieldIsExpanded.GetWordNameForRegister
 
 procedure TkwPopHideFieldSetExpanded.SetExpanded(const aCtx: TtfwContext;
  aHideField: TvtCustomHideField;
@@ -176,11 +177,6 @@ begin
  SetExpanded(aCtx, l_aHideField, l_aValue);
 end;//TkwPopHideFieldSetExpanded.DoDoIt
 
-class function TkwPopHideFieldSetExpanded.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:HideField:SetExpanded';
-end;//TkwPopHideFieldSetExpanded.GetWordNameForRegister
-
 function TkwPopHideFieldSetExpanded.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -195,6 +191,11 @@ function TkwPopHideFieldSetExpanded.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomHideField), TypeInfo(Boolean)]);
 end;//TkwPopHideFieldSetExpanded.ParamsTypes
+
+class function TkwPopHideFieldSetExpanded.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:HideField:SetExpanded';
+end;//TkwPopHideFieldSetExpanded.GetWordNameForRegister
 
 function TkwPopHideFieldGetCaption.GetCaption(const aCtx: TtfwContext;
  aHideField: TvtCustomHideField): AnsiString;
@@ -222,11 +223,6 @@ begin
  aCtx.rEngine.PushString(GetCaption(aCtx, l_aHideField));
 end;//TkwPopHideFieldGetCaption.DoDoIt
 
-class function TkwPopHideFieldGetCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:HideField:GetCaption';
-end;//TkwPopHideFieldGetCaption.GetWordNameForRegister
-
 function TkwPopHideFieldGetCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -241,6 +237,11 @@ function TkwPopHideFieldGetCaption.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomHideField)]);
 end;//TkwPopHideFieldGetCaption.ParamsTypes
+
+class function TkwPopHideFieldGetCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:HideField:GetCaption';
+end;//TkwPopHideFieldGetCaption.GetWordNameForRegister
 
 initialization
  TkwPopHideFieldIsExpanded.RegisterInEngine;

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3OpenArray" MUID: (4B86890E0307)
+// Имя типа: "_l3OpenArray_"
 
 {$Define l3OpenArray_imp}
 

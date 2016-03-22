@@ -2,6 +2,7 @@ unit atUserListHelper;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atUserListHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatUserListHelper" MUID: (4B6C27F50058)
 
 interface
 

@@ -19,62 +19,60 @@ unit daTabledQuery;
 interface
 
 uses
-  l3ProtoObject,
   daInterfaces,
-  daParamList,
-  daFromTableList,
-  daSelectFieldList
+  daSelectFieldList,
+  daQuery,
+  daSortFieldList
   ;
 
 type
- TdaTabledQuery = class(Tl3ProtoObject, IdaQuery)
+ TdaTabledQuery = class(TdaQuery, IdaTabledQuery)
  private
  // private fields
-   f_DataConverter : IdaDataConverter;
-    {* Поле для свойства DataConverter}
-   f_Prepared : Boolean;
-    {* Поле для свойства Prepared}
    f_SelectFields : TdaSelectFieldList;
     {* Поле для свойства SelectFields}
    f_WhereCondition : IdaCondition;
     {* Поле для свойства WhereCondition}
-   f_Tables : TdaFromTableList;
-    {* Поле для свойства Tables}
-   f_Params : TdaParamList;
-    {* Поле для свойства Params}
+   f_Table : IdaFromTable;
+    {* Поле для свойства Table}
+   f_OrderBy : TdaSortFieldList;
+    {* Поле для свойства OrderBy}
  private
  // private methods
-   procedure AddParam(const aParamDesc: IdaParamDescription);
+   function BuildFromClause: AnsiString;
+   function BuildSelectClause: AnsiString;
+   function BuildWhereClause(const aHelper: IdaParamListHelper): AnsiString;
+   function BuildOrderByClause: AnsiString;
  protected
  // property methods
    procedure pm_SetWhereCondition(const aValue: IdaCondition); virtual;
  protected
  // realized methods
-   function OpenResultSet(Unidirectional: Boolean = True): IdaResultSet;
-   procedure Prepare;
-   function Get_Param(const aName: AnsiString): IdaParam;
    procedure AddSelectField(const aField: IdaSelectField);
-   procedure AddFromTable(const aTable: IdaFromTable);
-   procedure UnPrepare;
+   function MakeResultSet(Unidirectional: Boolean): IdaResultSet; override;
+   procedure PrepareQuery; override;
+     {* Сигнатура метода PrepareQuery }
+   procedure UnprepareQuery; override;
+     {* Сигнатура метода UnprepareQuery }
    function Get_WhereCondition: IdaCondition;
    procedure Set_WhereCondition(const aValue: IdaCondition);
+   function Get_Table: IdaFromTable;
+   function DoBuildSQLValue(const aHelper: IdaParamListHelper): AnsiString; override;
+   procedure AddOrderBy(const aSortField: IdaSortField);
  protected
  // overridden protected methods
    procedure Cleanup; override;
      {* Функция очистки полей объекта. }
-   procedure BeforeRelease; override;
    procedure ClearFields; override;
      {* Сигнатура метода ClearFields }
  protected
  // protected methods
    function MakeFromTable(const aTable: IdaTableDescription;
      const anAlias: AnsiString = ''): IdaFromTable; virtual; abstract;
-   function MakeResultSet(Unidirectional: Boolean): IdaResultSet; virtual; abstract;
-   procedure PrepareTables; virtual; abstract;
-     {* Сигнатура метода PrepareTables }
-   procedure UnprepareTables; virtual; abstract;
-     {* Сигнатура метода UnprepareTables }
-   function MakeParamList: TdaParamList; virtual;
+   procedure PrepareTable; virtual; abstract;
+     {* Сигнатура метода PrepareTable }
+   procedure UnPrepareTable; virtual; abstract;
+     {* Сигнатура метода UnPrepareTable }
  public
  // public methods
    constructor Create(const aDataConverter: IdaDataConverter;
@@ -82,49 +80,87 @@ type
      const anAlias: AnsiString = ''); reintroduce;
  protected
  // protected properties
-   property DataConverter: IdaDataConverter
-     read f_DataConverter;
-   property Prepared: Boolean
-     read f_Prepared
-     write f_Prepared;
    property SelectFields: TdaSelectFieldList
      read f_SelectFields;
    property WhereCondition: IdaCondition
      read f_WhereCondition
      write pm_SetWhereCondition;
-   property Tables: TdaFromTableList
-     read f_Tables;
-   property Params: TdaParamList
-     read f_Params;
+   property Table: IdaFromTable
+     read f_Table;
+   property OrderBy: TdaSortFieldList
+     read f_OrderBy;
  end;//TdaTabledQuery
 
 implementation
 
 uses
-  daTypes,
   SysUtils,
-  daParam
+  daTypes
   ;
 
 // start class TdaTabledQuery
 
-procedure TdaTabledQuery.AddParam(const aParamDesc: IdaParamDescription);
-//#UC START# *55FFDEC4037F_5600FA2301B9_var*
-var
- l_Param: IdaParam;
-//#UC END# *55FFDEC4037F_5600FA2301B9_var*
+function TdaTabledQuery.BuildFromClause: AnsiString;
+//#UC START# *56050F450363_5600FA2301B9_var*
+//#UC END# *56050F450363_5600FA2301B9_var*
 begin
-//#UC START# *55FFDEC4037F_5600FA2301B9_impl*
- l_Param := Get_Param(aParamDesc.Name);
- if Assigned(l_Param) then
+//#UC START# *56050F450363_5600FA2301B9_impl*
+ Result := '  from '#13#10'       ' + Table.BuildSQLValue;
+//#UC END# *56050F450363_5600FA2301B9_impl*
+end;//TdaTabledQuery.BuildFromClause
+
+function TdaTabledQuery.BuildSelectClause: AnsiString;
+//#UC START# *56050F3E0081_5600FA2301B9_var*
+var
+ l_IDX: Integer;
+ l_Count: Integer;
+//#UC END# *56050F3E0081_5600FA2301B9_var*
+begin
+//#UC START# *56050F3E0081_5600FA2301B9_impl*
+ Assert(SelectFields.Count > 0);
+ Result := 'select ';
+ for l_IDX := 0 to SelectFields.Count - 1 do
  begin
-  if not l_Param.IsSameType(aParamDesc) then
-   raise EdaError.CreateFmt('Не совпадают типы данных для параметра %s', [aParamDesc.Name]);
+  if l_IDX > 0 then
+   Result := Result + ', '#13#10+'       ';
+  Result := Result + SelectFields[l_IDX].BuildSQLValue;
+ end;
+//#UC END# *56050F3E0081_5600FA2301B9_impl*
+end;//TdaTabledQuery.BuildSelectClause
+
+function TdaTabledQuery.BuildWhereClause(const aHelper: IdaParamListHelper): AnsiString;
+//#UC START# *56050F510228_5600FA2301B9_var*
+//#UC END# *56050F510228_5600FA2301B9_var*
+begin
+//#UC START# *56050F510228_5600FA2301B9_impl*
+ if WhereCondition <> nil then
+  Result := #13#10'   where ' + WhereCondition.BuildSQLValue(aHelper)
+ else
+  Result := '';
+//#UC END# *56050F510228_5600FA2301B9_impl*
+end;//TdaTabledQuery.BuildWhereClause
+
+function TdaTabledQuery.BuildOrderByClause: AnsiString;
+//#UC START# *5680E19E003D_5600FA2301B9_var*
+var
+ l_IDX: Integer;
+const
+ cMap: array [TdaSortOrder] of AnsiString = ('ASC', 'DESC');
+//#UC END# *5680E19E003D_5600FA2301B9_var*
+begin
+//#UC START# *5680E19E003D_5600FA2301B9_impl*
+ if OrderBy.Count > 0 then
+ begin
+  Result := #13#10' order by ';
+  for l_IDX := 0 to OrderBy.Count - 1 do
+   if l_IDX <> 0 then
+    Result := Result + ', ';
+   Result := Format('%s %d %s', [Result, IntToStr(SelectFields.IndexOf(OrderBy[l_IDX].SelectField) + 1), cMap[OrderBy[l_IDX].SortOrder]]);
  end
  else
-  f_Params.Add(TdaParam.Make(f_DataConverter, aParamDesc));
-//#UC END# *55FFDEC4037F_5600FA2301B9_impl*
-end;//TdaTabledQuery.AddParam
+  Result := '';
+//#UC END# *5680E19E003D_5600FA2301B9_impl*
+end;//TdaTabledQuery.BuildOrderByClause
 
 constructor TdaTabledQuery.Create(const aDataConverter: IdaDataConverter;
   const aTable: IdaTableDescription;
@@ -133,23 +169,13 @@ constructor TdaTabledQuery.Create(const aDataConverter: IdaDataConverter;
 //#UC END# *5600FB3903DE_5600FA2301B9_var*
 begin
 //#UC START# *5600FB3903DE_5600FA2301B9_impl*
- inherited Create;
- f_Tables := TdaFromTableList.Make;
- AddFromTable(MakeFromTable(aTable, anAlias));
+ inherited Create(aDataConverter);
+ f_Table := MakeFromTable(aTable, anAlias);
+ UnPrepare;
  f_SelectFields := TdaSelectFieldList.Make;
- f_Params := MakeParamList;
- f_DataConverter := aDataConverter;
+ f_OrderBy := TdaSortFieldList.Create;
 //#UC END# *5600FB3903DE_5600FA2301B9_impl*
 end;//TdaTabledQuery.Create
-
-function TdaTabledQuery.MakeParamList: TdaParamList;
-//#UC START# *560B861302E9_5600FA2301B9_var*
-//#UC END# *560B861302E9_5600FA2301B9_var*
-begin
-//#UC START# *560B861302E9_5600FA2301B9_impl*
- Result := TdaParamList.Make;
-//#UC END# *560B861302E9_5600FA2301B9_impl*
-end;//TdaTabledQuery.MakeParamList
 
 procedure TdaTabledQuery.pm_SetWhereCondition(const aValue: IdaCondition);
 //#UC START# *5600FAC103DE_5600FA2301B9set_var*
@@ -161,55 +187,6 @@ begin
 //#UC END# *5600FAC103DE_5600FA2301B9set_impl*
 end;//TdaTabledQuery.pm_SetWhereCondition
 
-function TdaTabledQuery.OpenResultSet(Unidirectional: Boolean = True): IdaResultSet;
-//#UC START# *5549C42400DA_5600FA2301B9_var*
-//#UC END# *5549C42400DA_5600FA2301B9_var*
-begin
-//#UC START# *5549C42400DA_5600FA2301B9_impl*
- Result := MakeResultSet(Unidirectional);
-//#UC END# *5549C42400DA_5600FA2301B9_impl*
-end;//TdaTabledQuery.OpenResultSet
-
-procedure TdaTabledQuery.Prepare;
-//#UC START# *5551BB340256_5600FA2301B9_var*
-var
- l_Field: IdaFieldFromTable;
- l_ParamDescription: IdaParamDescription;
- l_IDX: Integer;
-//#UC END# *5551BB340256_5600FA2301B9_var*
-begin
-//#UC START# *5551BB340256_5600FA2301B9_impl*
- if not f_Prepared then
- begin
-  Assert(f_Tables.Count = 1);
-  Assert(f_SelectFields.Count > 0);
-  for l_IDX := 0 to f_SelectFields.Count - 1 do
-   if Supports(f_SelectFields[l_IDX], IdaFieldFromTable, l_Field) then
-    Assert(l_Field.Field.Table = f_Tables[0].Table);
-  if Supports(f_WhereCondition, IdaFieldFromTable, l_Field) then
-   Assert(l_Field.Field.Table = f_Tables[0].Table);
-  if Supports(f_WhereCondition, IdaParamDescription, l_ParamDescription) then
-   AddParam(l_ParamDescription);
-  PrepareTables;
-  f_Prepared := True;
- end;
-//#UC END# *5551BB340256_5600FA2301B9_impl*
-end;//TdaTabledQuery.Prepare
-
-function TdaTabledQuery.Get_Param(const aName: AnsiString): IdaParam;
-//#UC START# *5551BEA500AE_5600FA2301B9get_var*
-var
- l_IDX: Integer;
-//#UC END# *5551BEA500AE_5600FA2301B9get_var*
-begin
-//#UC START# *5551BEA500AE_5600FA2301B9get_impl*
- if f_Params.FindData(aName, l_IDX) then
-  Result := f_Params[l_IDX]
- else
-  Result := nil;
-//#UC END# *5551BEA500AE_5600FA2301B9get_impl*
-end;//TdaTabledQuery.Get_Param
-
 procedure TdaTabledQuery.AddSelectField(const aField: IdaSelectField);
 //#UC START# *5551DC42038C_5600FA2301B9_var*
 //#UC END# *5551DC42038C_5600FA2301B9_var*
@@ -220,30 +197,57 @@ begin
 //#UC END# *5551DC42038C_5600FA2301B9_impl*
 end;//TdaTabledQuery.AddSelectField
 
-procedure TdaTabledQuery.AddFromTable(const aTable: IdaFromTable);
-//#UC START# *5553039D016A_5600FA2301B9_var*
-//#UC END# *5553039D016A_5600FA2301B9_var*
+function TdaTabledQuery.MakeResultSet(Unidirectional: Boolean): IdaResultSet;
+//#UC START# *56010A7801F2_5600FA2301B9_var*
+//#UC END# *56010A7801F2_5600FA2301B9_var*
 begin
-//#UC START# *5553039D016A_5600FA2301B9_impl*
- f_Tables.Add(aTable);
- UnPrepare;
-//#UC END# *5553039D016A_5600FA2301B9_impl*
-end;//TdaTabledQuery.AddFromTable
+//#UC START# *56010A7801F2_5600FA2301B9_impl*
+ Result := nil;
+//#UC END# *56010A7801F2_5600FA2301B9_impl*
+end;//TdaTabledQuery.MakeResultSet
 
-procedure TdaTabledQuery.UnPrepare;
-//#UC START# *555334DD023B_5600FA2301B9_var*
-//#UC END# *555334DD023B_5600FA2301B9_var*
-begin
-//#UC START# *555334DD023B_5600FA2301B9_impl*
- if f_Prepared then
+procedure TdaTabledQuery.PrepareQuery;
+//#UC START# *56010AB70258_5600FA2301B9_var*
+var
+ l_Field: IdaFieldFromTable;
+ l_ParamDescription: IdaParamDescription;
+ l_IDX: Integer;
+ l_Dummy: Integer;
+
+ function lp_ProcessCondition(const anItem: IdaCondition): Boolean;
+ var
+  l_Field: IdaFieldFromTable;
+  l_ParamDescription: IdaParamDescription;
  begin
-  UnPrepareTables;
-  f_Params.Clear;
-// !!! Needs to be implemented !!!
-  f_Prepared := False;
+  Result := True;
+  if Supports(anItem, IdaFieldFromTable, l_Field) then
+   Assert(l_Field.Field.Table = f_Table.Table);
+  if Supports(anItem, IdaParamDescription, l_ParamDescription) then
+   AddParam(l_ParamDescription);
  end;
-//#UC END# *555334DD023B_5600FA2301B9_impl*
-end;//TdaTabledQuery.UnPrepare
+//#UC END# *56010AB70258_5600FA2301B9_var*
+begin
+//#UC START# *56010AB70258_5600FA2301B9_impl*
+ Assert(f_SelectFields.Count > 0);
+ for l_IDX := 0 to f_SelectFields.Count - 1 do
+  if Supports(f_SelectFields[l_IDX], IdaFieldFromTable, l_Field) then
+   Assert(l_Field.Field.Table = f_Table.Table);
+ if Assigned(f_WhereCondition) then
+  f_WhereCondition.IterateF(L2DaConditionIteratorIterateAction(@lp_ProcessCondition));
+ for l_IDX := 0 to f_OrderBy.Count - 1 do
+  Assert(f_SelectFields.IndexOf(f_OrderBy[l_IDX].SelectField) <> -1);
+ PrepareTable;
+//#UC END# *56010AB70258_5600FA2301B9_impl*
+end;//TdaTabledQuery.PrepareQuery
+
+procedure TdaTabledQuery.UnprepareQuery;
+//#UC START# *56010ACB00F0_5600FA2301B9_var*
+//#UC END# *56010ACB00F0_5600FA2301B9_var*
+begin
+//#UC START# *56010ACB00F0_5600FA2301B9_impl*
+ UnprepareTable;
+//#UC END# *56010ACB00F0_5600FA2301B9_impl*
+end;//TdaTabledQuery.UnprepareQuery
 
 function TdaTabledQuery.Get_WhereCondition: IdaCondition;
 //#UC START# *563B18FB0212_5600FA2301B9get_var*
@@ -263,35 +267,51 @@ begin
 //#UC END# *563B18FB0212_5600FA2301B9set_impl*
 end;//TdaTabledQuery.Set_WhereCondition
 
+function TdaTabledQuery.Get_Table: IdaFromTable;
+//#UC START# *5666B5E20108_5600FA2301B9get_var*
+//#UC END# *5666B5E20108_5600FA2301B9get_var*
+begin
+//#UC START# *5666B5E20108_5600FA2301B9get_impl*
+ Result := f_Table;
+//#UC END# *5666B5E20108_5600FA2301B9get_impl*
+end;//TdaTabledQuery.Get_Table
+
+function TdaTabledQuery.DoBuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
+//#UC START# *566A850001E5_5600FA2301B9_var*
+//#UC END# *566A850001E5_5600FA2301B9_var*
+begin
+//#UC START# *566A850001E5_5600FA2301B9_impl*
+ Result := Format('%s'#13#10+'  %s%s%s', [BuildSelectClause, BuildFromClause, BuildWhereClause(aHelper), BuildOrderByClause]);
+//#UC END# *566A850001E5_5600FA2301B9_impl*
+end;//TdaTabledQuery.DoBuildSQLValue
+
+procedure TdaTabledQuery.AddOrderBy(const aSortField: IdaSortField);
+//#UC START# *567D12D00384_5600FA2301B9_var*
+//#UC END# *567D12D00384_5600FA2301B9_var*
+begin
+//#UC START# *567D12D00384_5600FA2301B9_impl*
+ f_OrderBy.Add(aSortField);
+//#UC END# *567D12D00384_5600FA2301B9_impl*
+end;//TdaTabledQuery.AddOrderBy
+
 procedure TdaTabledQuery.Cleanup;
 //#UC START# *479731C50290_5600FA2301B9_var*
 //#UC END# *479731C50290_5600FA2301B9_var*
 begin
 //#UC START# *479731C50290_5600FA2301B9_impl*
- FreeAndNil(f_Tables);
+ f_Table := nil;
  f_WhereCondition := nil;
  FreeAndNil(f_SelectFields);
- FreeAndNil(f_Params);
- f_DataConverter := nil;
+ FreeAndNil(f_OrderBy);
  inherited;
 //#UC END# *479731C50290_5600FA2301B9_impl*
 end;//TdaTabledQuery.Cleanup
 
-procedure TdaTabledQuery.BeforeRelease;
-//#UC START# *49BFC98902FF_5600FA2301B9_var*
-//#UC END# *49BFC98902FF_5600FA2301B9_var*
-begin
-//#UC START# *49BFC98902FF_5600FA2301B9_impl*
- UnPrepareTables;
- inherited;
-//#UC END# *49BFC98902FF_5600FA2301B9_impl*
-end;//TdaTabledQuery.BeforeRelease
-
 procedure TdaTabledQuery.ClearFields;
  {-}
 begin
- f_DataConverter := nil;
  WhereCondition := nil;
+ f_Table := nil;
  inherited;
 end;//TdaTabledQuery.ClearFields
 

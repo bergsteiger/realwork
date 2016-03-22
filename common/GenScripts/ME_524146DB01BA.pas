@@ -3,6 +3,8 @@ unit K403079732;
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\K403079732.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K403079732" MUID: (524146DB01BA)
+// Имя типа: "TK403079732"
 
 interface
 

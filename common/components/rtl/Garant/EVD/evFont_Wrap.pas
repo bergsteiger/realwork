@@ -3,6 +3,7 @@ unit evFont_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evFont_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WevFont" MUID: (484CEEC803AD)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

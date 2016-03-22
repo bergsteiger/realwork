@@ -1,7 +1,9 @@
 #include "shared/Core/fix/mpcxc.h"
 
+#include <boost/ptr_container/ptr_vector.hpp>
+
 #include "ROCBase.h"
-#include "BaseCache.h"
+#include "DBComm.h"
 
 static StreamFileFats *pAllFats= 0;
 static Core::Mutex g_mutex_cacheFats;
@@ -44,7 +46,7 @@ public:
 		}else if(otherLine){ // Теперь FAT грузим только из файла data.0ey //
 			if(file->IsPacked()){
 				Fat = (int gk_huge *)realloc(Fat,((size_t)((*(unsigned short*)&fatPages) & 0xffff)) * file->PageSize + (file->m_PackArraySize + sizeof(ACE_UINT64)));
-				pAllFats->get(gcl_FullFileName(file->FileName)).pPackOffs= (Fat+(((long)fatPages*file->PageSize)/sizeof(int)));
+				pAllFats->get(gcl_FullFileName(file->FileName)).pPackOffs= (Fat+(((long)(*(unsigned short*)&fatPages)*file->PageSize)/sizeof(int)));
 				memcpy(Fat+((((size_t)((*(unsigned short*)&fatPages) & 0xffff)) * file->PageSize)/sizeof(int)), file->pageOffs, file->m_PackArraySize);
 				free(file->pageOffs);
 				file->pageOffs= (unsigned int*)(pAllFats->get(gcl_FullFileName(file->FileName)).pPackOffs);
@@ -311,6 +313,7 @@ BaseRO_Ex::BaseRO_Ex (const char* name, int m, const std::vector<std::string> &i
 							docInd->file->free_postFileNames();
 							m_not_dynamic_load_index= true;
 							hack_add_ref();
+							textFile->m_pCryptoTag= docInd->file->m_pCryptoTag;
 							return;
 						}
 						make_mask |= 0x02;
@@ -647,32 +650,28 @@ class BasePool_i
 	, virtual public Core::RefCountObjectBase {
 public:
 	BasePool_i (size_t size, const std::string& path) {
-		m_pool.resize (size);
+		GDS_ASSERT (size);
 
-		BaseCache::instance ();
-
-		for (std::vector <CachedBaseRO*>::iterator it = m_pool.begin (); it != m_pool.end (); ++it) {
-			*it = new CachedBaseRO (path.c_str ());
-			(*it)->IsOk ();
-			(*it)->check_version ();
+		if (size) {
+			for (size_t i = 0; i < size; ++i) {
+				m_pool.push_back (new CachedBaseRO (path.c_str ()));
+			}
+			m_pool [0].IsOk (); 
+			m_pool [0].check_version ();
 		}
 	}
 
-	virtual ~BasePool_i () {
-		for (std::vector <CachedBaseRO*>::iterator it = m_pool.begin (); it != m_pool.end (); ++it) {
-			delete (*it);
-		}
-	}
 protected:
-	virtual size_t get_size () const {
+	virtual size_t size () const {
 		return m_pool.size ();
 	}
 
 	virtual DBCore::IBase* get (size_t i) {
-		return m_pool [i]->abstract_base ();
+		GDS_ASSERT (i < m_pool.size ());
+		return DBCore::DBFactory::make (&m_pool [i]);
 	}
 private:
-	std::vector <CachedBaseRO*> m_pool;
+	boost::ptr_vector <CachedBaseRO> m_pool;
 };
 
 DBCore::IBasePool* make_base_pool (size_t size, const std::string& path) {

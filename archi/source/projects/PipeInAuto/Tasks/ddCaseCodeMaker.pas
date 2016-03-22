@@ -44,6 +44,7 @@ implementation
 
 Uses
  ddImportPipeKernel,
+ daSchemeConsts,
  dd_lcCaseCodeGenerator, Document_Const, ddAppConfig, dtIntf, DT_Sab, dt_Doc, DT_Const,
  DT_Serv, evdWriter, evEvdRd, Classes, DT_User, DT_UserConst, DT_IFltr,
  SysUtils, csTaskTypes, ddServerTask;

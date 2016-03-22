@@ -2,6 +2,7 @@ unit k2TagByHandleView;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TagByHandleView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2TagByHandleView" MUID: (4DF0C6BE0166)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

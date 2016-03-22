@@ -3,6 +3,7 @@ unit nsLeafParaNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsLeafParaNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsLeafParaNode" MUID: (467FCDA10044)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

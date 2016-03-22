@@ -2,6 +2,7 @@ unit ncsTCPClient;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsTCPClient.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ncsTCPClient" MUID: (545229E7037D)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

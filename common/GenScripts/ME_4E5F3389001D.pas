@@ -2,6 +2,7 @@ unit nevCommentFormatInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevCommentFormatInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevCommentFormatInfo" MUID: (4E5F3389001D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,8 @@ unit K517772970_TalcuHavanskyExportTask;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuHavanskyExportTask.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TalcuHavanskyExportTask" MUID: (5321847300AB)
+// Имя типа: "TK517772970_TalcuHavanskyExportTask"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

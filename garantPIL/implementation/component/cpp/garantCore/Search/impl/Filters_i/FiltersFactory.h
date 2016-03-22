@@ -15,10 +15,10 @@
 
 #include "shared/Core/sys/std_inc.h"
 #include "garantCore/SearchAdapterLib/Adapter/Adapter.h"
-#include "garantPIL/implementation/component/cpp/libs/gkdb/src/SearchB.h"
 #include "garantCore/Search/Def/Def.h"
 #include "garantPIL/implementation/component/cpp/libs/gkdb/src/collect.h"
 #include "garantPIL/implementation/component/cpp/libs/gkdb/src/index.h"
+#include "garantPIL/implementation/component/cpp/libs/gkdb/src/Base.h"
 
 namespace Search {
 
@@ -35,7 +35,7 @@ public:
 	static SearchAdapterLib::Adapter::IFilter* make (Index* index, const char* key, MergeOp op);
 
 	// фабрика
-	static SearchAdapterLib::Adapter::IFilter* make (SearchBase* base, const char* name, const char* key, MergeOp op);
+	static SearchAdapterLib::Adapter::IFilter* make (Base* base, const char* name, const char* key, MergeOp op);
 
 	// фабрика
 	static IBooleanFilter* make (MergeOp op);

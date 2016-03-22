@@ -20,20 +20,10 @@ uses
   dt_Table,
   dt_dictTree,
   vtDebug,
+  pgConnection,
+  pgCommandExecutor,
   ZConnection,
-  ZDataset,
-  ZDbcCache,
-  ZAbstractRODataset,
-  ZDbcMySQL,
-  ZDbcPostgreSQL,
-  DB,
-  ZSqlUpdate,
-  ZDbcInterbase6,
-  ZSqlMonitor,
-  ZAbstractDataset,
-  ZSequence,
-  ZPlainPostgreSqlDriver,                      
-  DBAccess;
+  ZDataset;
 
 const
  cPhaseSample = 'Split : %s';
@@ -564,113 +554,9 @@ begin
 end;
 
 
-
-procedure DoLowAcceess;
-
-var
-  lTotalTimeCounter : Cardinal;
-  lSQLResult : PZPostgreSQLResult;
-  lPQDriver : TZPostgreSQL8PlainDriver;
-  lPQConnect : PZPostgreSQLConnect;
-  lCnt : integer;
-  lRes : integer;
-  lVal : PChar;
-  lStatus : TZPostgreSQLExecStatusType;
-
-  lConnect : IdbaConnect;
-  lQryResult : IdbaQueryResult;
-  lRowCount : Cardinal;
-  lCurID : Cardinal;
-  lPrevID : Cardinal;
-  I : Cardinal;
-
-  lParentID_fld : Cardinal;
-  lOrderNum_fld : Cardinal;
-
-
- procedure AddChildren(aParentNode : Il3Node);
- begin
- 
- end;
-
-begin
-  lCnt := 0;
-  lConnect := TdbaConnect.Make('host=localhost port=5432 dbname=archi user=postgres password=admin');
-  with lConnect.GetQueryResult(Format('SELECT * FROM %s ORDER BY ParentID, OrderNum;',['dt5'{aTableName}])) do
-  begin
-   lParentID_fld := FieldNumByName('ParentID');
-   //lOrderNum_fld := FieldNumberByName('OrderNum');
-
-   lStatus := Status;
-   //lVal := GetValue(0, 0);
-   lRowCount := RowCount;
-
-   lPrevID := High(lPrevID);
-   for I := 0 to pred(lRowCount) do
-   begin
-    lCurID := GetValueAsInt(lParentID_fld, I);
-    if lPrevID <> lCurID then
-    begin
-     lPrevID := lCurID;
-     //lParentIDIndex.Add(lCurID, I);
-    end;
-   end;
-
-   for I := 0 to pred(lRowCount) do
-   begin
-    lCurID := GetValueAsInt(lParentID_fld, I);
-    if lPrevID <> lCurID then
-    begin
-     lPrevID := lCurID;
-     //Add(lCurID, I);
-    end;
-   end;
-
-  end;
-
-  {
-  with lPQDriver do
-  begin
-   Initialize;  //TZPostgreSQL8PlainDriver
-   lPQConnect := ConnectDatabase('host=localhost port=5432 dbname=archivarius user=postgres password=sysadm');
-
-   //lSQLResult := ExecuteQuery(lPQConnect, 'SELECT * FROM file ORDER BY absnum;');
-   lSQLResult := ExecuteQuery(lPQConnect, 'begin');
-   lTotalTimeCounter := dbgStartTimeCounter;
-   //lSQLResult := ExecuteQuery(lPQConnect, 'begin; DECLARE curs CURSOR FOR select * from file; MOVE FORWARD ALL IN curs; commit;');
-   lSQLResult := ExecuteQuery(lPQConnect, 'SELECT Count(*) FROM file');
-   lStatus := GetResultStatus(lSQLResult);
-   lVal := GetValue(lSQLResult, 0, 0);
-   Write2Log(dbgFinishTimeCounter(lTotalTimeCounter, format('Count = %s; Query time : %%d ms', [lVal])));
-   Clear(lSQLResult);
-
-   lTotalTimeCounter := dbgStartTimeCounter;
-   if SendQuery(lPQConnect, 'SELECT * FROM file' (* ORDER BY absnum;'*)) <> 0 then
-   begin
-    Write2Log(dbgFinishTimeCounter(lTotalTimeCounter, 'Query time : %d ms'));
-    lTotalTimeCounter := dbgStartTimeCounter;
-    lRes := SetSingleRowMode(lPQConnect);
-    repeat
-     lSQLResult := GetResult(lPQConnect);
-     if lSQLResult = nil then
-      break;
-
-     inc(lCnt); //, GetRowCount(lSQLResult));
-     //Clear(lSQLResult);
-    until false;
-    Write2Log(dbgFinishTimeCounter(lTotalTimeCounter, 'Fetch time : %d ms'));
-   end;
-   lSQLResult := ExecuteQuery(lPQConnect, 'commit');
-  end;
-}
-end;
-
 var
   lTotalTimeCounter : Cardinal;
 begin
-// DoLowAcceess;
-// exit;
-
  try
  lTotalTimeCounter := dbgStartTimeCounter;
 
@@ -744,24 +630,3 @@ begin
  end;
 end.
 
- {lQuery := TZQuery.Create(nil);
-    try
-     lQuery.Connection := gDBConnection;
-
-     lQuery.SQL.Add('CREATE TABLE PROBE');
-     lQuery.SQL.Add('(');
-     lQuery.SQL.Add('ID INT4 NOT NULL,');
-     lQuery.SQL.Add('NAME TEXT');
-
-     lQuery.SQL.Add(')');
-
-     lQuery.ExecSQL;
-
-    finally
-     l3Free(lQuery);
-    end;}
-
-
-    //ALTER TABLE products ADD COLUMN ParentID int8 SET NOT NULL;
-
-    //UPDATE products SET ParentID = 10, Order = 1 WHERE ID = 5;

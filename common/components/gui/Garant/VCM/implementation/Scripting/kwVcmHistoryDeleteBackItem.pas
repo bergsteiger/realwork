@@ -13,6 +13,8 @@ unit kwVcmHistoryDeleteBackItem;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmHistoryDeleteBackItem.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "vcm_History_DeleteBackItem" MUID: (4E82CEBA0299)
+// Имя типа: "TkwVcmHistoryDeleteBackItem"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

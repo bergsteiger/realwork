@@ -3,6 +3,7 @@ unit PrimQueryCard_utqcPostingOrder_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimQueryCard_utqcPostingOrder_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utqcPostingOrder" MUID: (4BD5C3510339)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utqcPostingOrder = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utqcPostingOrder }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utqcPostingOrder
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utqcPostingOrder.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utqcPostingOrder';
-end;//Tkw_FormUserType_utqcPostingOrder.GetWordNameForRegister
-
 function Tkw_FormUserType_utqcPostingOrder.GetInteger: Integer;
 begin
  Result := utqcPostingOrder;
 end;//Tkw_FormUserType_utqcPostingOrder.GetInteger
+
+class function Tkw_FormUserType_utqcPostingOrder.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utqcPostingOrder';
+end;//Tkw_FormUserType_utqcPostingOrder.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

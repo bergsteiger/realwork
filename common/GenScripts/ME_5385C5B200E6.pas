@@ -2,6 +2,7 @@ unit ddServerTaskManagerPrim;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\ddServerTaskManagerPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddServerTaskManagerPrim" MUID: (5385C5B200E6)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

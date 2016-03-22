@@ -1,78 +1,58 @@
 unit QueryCardAddAttributeTest;
+ {* Тест добавления атрибута в КЗ. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/QueryCardAddAttributeTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TQueryCardAddAttributeTest
-//
-// Тест добавления атрибута в КЗ.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\QueryCardAddAttributeTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TQueryCardAddAttributeTest" MUID: (4CA099DB01B7)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  TextViaEditorProcessor,
-  PrimTextLoad_Form
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , TextViaEditorProcessor
+ , PrimTextLoad_Form
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TQueryCardAddAttributeTest = {abstract} class(TTextViaEditorProcessor)
   {* Тест добавления атрибута в КЗ. }
- protected
- // realized methods
+  protected
    procedure Process(aForm: TPrimTextLoadForm); override;
-     {* Собственно процесс обработки текста }
- protected
- // overridden protected methods
+    {* Собственно процесс обработки текста }
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function QFLike: Boolean; override;
-     {* Создать форму-редактор для работы с КЗ. }
+    {* Создать форму-редактор для работы с КЗ. }
    procedure DoBeforeLoad(aForm: TPrimTextLoadForm); override;
-     {* Операции предшествующие загрузке документа }
+    {* Операции предшествующие загрузке документа }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TQueryCardAddAttributeTest
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  evQueryCardInt,
-  evControlContainerEX,
-  evQueryDocumentContainer,
-  l3Base,
-  nevTools,
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TQueryCardAddAttributeTest
+ l3ImplUses
+ , evQueryCardInt
+ , evControlContainerEX
+ , evQueryDocumentContainer
+ , l3Base
+ , nevTools
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TQueryCardAddAttributeTest.Process(aForm: TPrimTextLoadForm);
+ {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4CA099DB01B7_var*
 var
  l_QueryCard : IevQueryCard;
@@ -89,12 +69,13 @@ begin
 end;//TQueryCardAddAttributeTest.Process
 
 function TQueryCardAddAttributeTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TQueryCardAddAttributeTest.GetFolder
 
 function TQueryCardAddAttributeTest.QFLike: Boolean;
+ {* Создать форму-редактор для работы с КЗ. }
 //#UC START# *4CA0947C03CE_4CA099DB01B7_var*
 //#UC END# *4CA0947C03CE_4CA099DB01B7_var*
 begin
@@ -104,6 +85,7 @@ begin
 end;//TQueryCardAddAttributeTest.QFLike
 
 procedure TQueryCardAddAttributeTest.DoBeforeLoad(aForm: TPrimTextLoadForm);
+ {* Операции предшествующие загрузке документа }
 //#UC START# *4CA18D6B0088_4CA099DB01B7_var*
 //#UC END# *4CA18D6B0088_4CA099DB01B7_var*
 begin
@@ -114,11 +96,10 @@ begin
 end;//TQueryCardAddAttributeTest.DoBeforeLoad
 
 function TQueryCardAddAttributeTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4CA099DB01B7';
 end;//TQueryCardAddAttributeTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

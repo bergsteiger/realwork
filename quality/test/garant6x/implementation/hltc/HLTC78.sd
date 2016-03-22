@@ -264,24 +264,27 @@ var
 begin
 try
   Result := false;
-  list := GetList;
-  list.SetFocus;
   i:= 0;
-  Position_Internal(GetList, KONST + D, '\' ,true, 'IsPressHome:=true');
-  elListText := 'null';  
+  elListText := 'null';
+
+  list := GetList;
+  Position_Internal(list, KONST + D, '\' ,true, 'IsPressHome:=true');
+
   while (not StringCompare(elListText, common.GetWindowText(list.Handle))) and (i < 128) do
   begin  
     elListText := common.GetWindowText(list.Handle);
     subText := GetSubStr(elListText, '', '/');
     if subText <> '' then elListText := subText + '*';
-      
+
 //   Log.Message(elListText);    
-      
+
     if FindElement(entArrray, elListText, true) or 
-       StringCompare(KONSTNAME, elListText) then
+       StringCompare(KONSTNAME, elListText) 
+    then
       Sys.Keys('[Down]' + keyPause)
     else
       DelWithConfirm;
+      
     inc(i);
   end;
   Result := true;
@@ -289,9 +292,7 @@ except
   Result := false;  
   Log.Error('DeleteEnteringFromList: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
 end;
-
 end;
-
  
 function  PrepareBaseList: boolean;
 var
@@ -320,7 +321,6 @@ except
   Result := false;  
   Log.Error('PrepareBaseList: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
 end;
-
 end;
 
 function OpenBaseList: boolean;
@@ -333,8 +333,7 @@ try
 except
   Result := false;  
   Log.Error('OpenBaseList: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
-end;
-    
+end;  
 end;
 
 
@@ -351,10 +350,7 @@ except
   Result := false;  
   Log.Error('SaveQList: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
 end;
-
-
 end;
-
                     
 function FindEnteringInList(entArrray, isDeleteDocEntry: boolean = true): boolean;
 const
@@ -399,7 +395,6 @@ except
 end;
 end;
 
-
 function DoLogicalOperationWithCheck(logOper, s1, s2, docsname): boolean;
 const
   FUNCTION_NAME = 'DoLogicalOperationWithCheck: ';
@@ -410,13 +405,14 @@ begin
   try
     Log.Message(FUNCTION_NAME + 'Начинаем ' + s1 + ' ' + logOper + ' ' + s2, '', pmNormal, GetLogAttr('BLUE'));
 
+    // нужно для списка q1
     if s1 = q1 then
       st := q4 
     else
       st := s1;
     if not OpenObjectFromFolder(MY_DOCS_PATH + st) then
       Raise('Не получилось открыть список "' + st + '"');
-    if s1 = q1 then 
+    if s1 = q1 then
       DeleteEnteringExceptFromList([D]);
 
     res := ListLogicalOperation(logOper, MY_DOCS_PATH + s2, nil, 'IsExtendedResult:=true');
@@ -483,8 +479,8 @@ try
   if not SaveQList(q5, [D, V3, V4]) then
     Raise('Не получилось сохранить список ' + q5);
   // and
-  //HLTC78.10.1: q1(D)&q2(D,v1,v2) = q(D),  т.е. <Имя документа>
-  //HLTC78.10.2: q1(D)&q4(D,v1,v3) =q(D), т.е. <Имя документа>
+  //HLTC78.10.1: q1(D)&q2(D,v1,v2)=q(D), т.е. <Имя документа>
+  //HLTC78.10.2: q1(D)&q4(D,v1,v3)=q(D), т.е. <Имя документа>
   //HLTC78.10.3: q2(D,v1,v2)&q3(D,v2,v3)=q(D), т.е. <Имя документа>
   //HLTC78.10.4: q2(D,v1,v2)&q5(D,v3,v4)=q(D), т.е. <Имя документа>
   //HLTC78.10.5: q4(D,v1,v3)&q5(D,v3,v4)=q(D), т.е. <Имя документа>
@@ -493,20 +489,21 @@ try
   Result := DoLogicalOperationWithCheck(OPAND, q2, q3, [D]) and Result;
   Result := DoLogicalOperationWithCheck(OPAND, q2, q5, [D]) and Result;
   Result := DoLogicalOperationWithCheck(OPAND, q4, q5, [D]) and Result;
-  
+
   Result := DoLogicalOperationWithCheck(OP_OR, q2, q4, [D]) and Result;
-{
-HLTC72.11: Логические операции
-	HLTC72.11.2: Объединение
-		HLTC72.11.2.2: Объединить список, состоящий из 1 элемента со списком, состоящим из того же документа, 
-    но с другим вхождением. Проверить, что в результате получится список из одного документа, без вхождений
-}
+  
+  //HLTC72.11: Логические операции
+	//  HLTC72.11.2: Объединение
+	//  	HLTC72.11.2.2: Объединить список, состоящий из 1 элемента со списком, состоящим из того же документа, 
+  //      но с другим вхождением. Проверить, что в результате получится список из одного документа, без вхождений
+
   Result := DoLogicalOperationWithCheck(OP_OR, q1, q3, [D]) and Result;
   //
   if not SaveQList(q3n, [D, V2, V3]) then
     Raise('Не получилось сохранить список ' + q3n);
   if not SaveQList(q4n, [D, V1, V2]) then
     Raise('Не получилось сохранить список ' + q4n);  
+
   //sub
   //HLTC78.11.1: q1(D) – q2(v1,v2) = (), т.е. документ не попадает в новый список
   //HLTC78.11.2: q4(D,v1,v2) – q2(v1,v2) = (), т.е. документ не попадает в новый список
@@ -522,9 +519,10 @@ HLTC72.11: Логические операции
   Result := DoLogicalOperationWithCheck(OPNOT, q3n, q1, nil) and Result;
   Result := DoLogicalOperationWithCheck(OPNOT, q2, q3n, nil) and Result;
   Result := DoLogicalOperationWithCheck(OPNOT, q3n, q2, nil) and Result;
+
   //HLTC78.9: В список, где найден документ целиком добавляем закладку на фрагмент документа. В списке будет <Имя документа>: Начало документа, Указатель на закладку
-  Result := AddEntringToListByBookmark(q1, [KONSTNAME + D, DD]) and Result;
-  Result := AddEntringToListByBookmark(q1, [KONSTNAME + D, DD]) and Result;
+  Result := AddEntringToListByBookmark(q1, [KONSTNAME, D, DD]) and Result;
+  Result := AddEntringToListByBookmark(q1, [KONSTNAME, D, DD]) and Result;
   //
   DeleteAllInMyDoc;
   //
@@ -550,7 +548,7 @@ begin
 //  HLTC78_4_Execute(p);
 //////////////////////////
 
-
+  
 
 
 

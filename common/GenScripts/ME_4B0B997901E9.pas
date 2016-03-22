@@ -2,6 +2,7 @@ unit nsExportToFileEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsExportToFileEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsExportToFileEvent" MUID: (4B0B997901E9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

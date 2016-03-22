@@ -2,6 +2,7 @@ unit afwCaret_p;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\afwCaret_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TafwCaret" MUID: (4999A54402D3)
 
 {$Include w:\common\components\l3Define.inc}
 

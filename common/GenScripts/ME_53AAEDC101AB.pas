@@ -2,6 +2,7 @@ unit evdDTTypes;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdDTTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evdDTTypes" MUID: (53AAEDC101AB)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

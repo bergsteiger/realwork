@@ -2,6 +2,7 @@ unit m3StorageTableOfContentsStream;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3StorageTableOfContentsStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3StorageTableOfContentsStream" MUID: (544924BF0331)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

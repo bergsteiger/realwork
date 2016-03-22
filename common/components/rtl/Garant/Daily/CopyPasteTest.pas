@@ -1,46 +1,28 @@
 unit CopyPasteTest;
+ {* Тест копирования/вставки через буфер обмена }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Daily/CopyPasteTest.pas"
-// Начат: 17.09.2010 15:36
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EditorTests::TCopyPasteTest
-//
-// Тест копирования/вставки через буфер обмена
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\CopyPasteTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TCopyPasteTest" MUID: (4C93529B018C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  nevTools,
-  evCustomEditorWindow
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  TextViaEditorProcessor
-  {$IfEnd} //nsTest AND not NoVCM
-  ,
-  l3Variant
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , TextViaEditorProcessor
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevTools
+ , evCustomEditorWindow
+ , l3Variant
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  _CursorMover_Parent_ = TTextViaEditorProcessor;
  {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
@@ -48,61 +30,49 @@ type
  {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
  TCopyPasteTest = {abstract} class(_ClipboardOperations_)
   {* Тест копирования/вставки через буфер обмена }
- protected
- // realized methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
-   procedure Process(aForm: TPrimTextLoadForm); override;
-     {* Собственно процесс обработки текста }
-   {$IfEnd} //nsTest AND not NoVCM
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    function DoSelect(aText: TevCustomEditorWindow;
-     const anOp: Il3OpPack): InevRange; virtual; abstract;
-     {* Выделяет текст в редакторе }
+    const anOp: Il3OpPack): InevRange; virtual; abstract;
+    {* Выделяет текст в редакторе }
+   {$If NOT Defined(NoVCM)}
+   procedure Process(aForm: TPrimTextLoadForm); override;
+    {* Собственно процесс обработки текста }
+   {$IfEnd} // NOT Defined(NoVCM)
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TCopyPasteTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  k2Prim,
-  evTypes,
-  TestFrameWork,
-  evMsgCode,
-  evOp,
-  l3Base,
-  l3InternalInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , k2Prim
+ , evTypes
+ , TestFrameWork
+ , evMsgCode
+ , evOp
+ , l3Base
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
 
-// start class TCopyPasteTest
-
-{$If defined(nsTest) AND not defined(NoVCM)}
 procedure TCopyPasteTest.Process(aForm: TPrimTextLoadForm);
+ {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4C93529B018C_var*
 var
  l_Op : Il3OpPack;
@@ -132,20 +102,19 @@ begin
  end;//aForm.Text
 //#UC END# *4BE13147032C_4C93529B018C_impl*
 end;//TCopyPasteTest.Process
-{$IfEnd} //nsTest AND not NoVCM
 
 function TCopyPasteTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TCopyPasteTest.GetFolder
 
 function TCopyPasteTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C93529B018C';
 end;//TCopyPasteTest.GetModelElementGUID
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

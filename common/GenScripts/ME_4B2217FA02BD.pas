@@ -2,6 +2,7 @@ unit dMedicFirmDocument;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dMedicFirmDocument.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdMedicFirmDocument" MUID: (4B2217FA02BD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

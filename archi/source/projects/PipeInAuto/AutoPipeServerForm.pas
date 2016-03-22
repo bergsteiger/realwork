@@ -204,6 +204,10 @@ type
     actSortByDate: TAction;
     N83: TMenuItem;
     lblSMTPStatus: TvtLabel;
+    N84: TMenuItem;
+    menuCommands: TMenuItem;
+    actPack: TAction;
+    menuDelOldTasks: TMenuItem;
     procedure actImportAACExecute(Sender: TObject);
     procedure actAbortExecute(Sender: TObject);
     procedure actAutoLogoffExecute(Sender: TObject);
@@ -290,6 +294,7 @@ type
     procedure actSortByUserExecute(Sender: TObject);
     procedure actSortByDateExecute(Sender: TObject);
     procedure lblSMTPStatusClick(Sender: TObject);
+    procedure menuDelOldTasksClick(Sender: TObject);
  private
     CancelAutoImport: Boolean;
     f_AutoServer: TalcuServer;
@@ -354,7 +359,7 @@ Uses
   DateUtils, Types,
   stDate, stDateSt, l3FileUtils,
   alcuMailserver, IdSSLOpenSSL, alcuUtils, alcuMessageDlg,
-  alcuConfig, ddAppConfig, Dt_IndexSupport, ddAppConfigTypes,
+  alcuConfig, ddAppConfig, Dt_IndexSupport, ddAppConfigTypes, ddScheduler,
   alcuSMSDialog, Math,
   FileCtrl,
   alcuStrings,
@@ -465,7 +470,8 @@ end;
 
 procedure TArchiServerForm.actDailyUpdateExecute(Sender: TObject);
 begin
- f_AutoServer.DoEveryDayUpdate(true);
+ if f_AutoServer.DoEveryDayUpdate(true) = strRequestDelay then
+  alcuShowMsg('≈жедневное обновление не может быть запущено - выполн€етс€ друга€ задача');
 end;
 
 procedure TArchiServerForm.actDeleteTaskExecute(Sender: TObject);
@@ -1267,6 +1273,7 @@ begin
   // «агружаем сохраненные задани€
   f_AutoServer.ChecksSetup;
   UpdateTaskList;
+  f_AutoServer.Actions.UpdateServerMenu(menuCommands);
 end;
 
 procedure TArchiServerForm.StopAutoImport;
@@ -1586,7 +1593,8 @@ end;
 
 procedure TArchiServerForm.actWeeklyUpdateExecute(Sender: TObject);
 begin
- f_AutoServer.DoEveryWeekUpdate(True);
+ if f_AutoServer.DoEveryWeekUpdate(true) = drDelayed then
+  alcuShowMsg('»мпорт дельты не может быть запущен - выполн€етс€ друга€ задача');
 end;
 
 procedure TArchiServerForm.WMQueryEndSession(var Msg: TWMQueryEndSession);
@@ -1884,13 +1892,15 @@ end;
 procedure TArchiServerForm.actCopyVariablePartToBackupExecute(
   Sender: TObject);
 begin
- f_AutoServer.CopyVersionToBackup;
+ if f_AutoServer.CopyVersionToBackup = strRequestDelay then
+  alcuShowMsg(' опирование версии не может быть запущено - выполн€етс€ друга€ задача');
 end;
 
 procedure TArchiServerForm.actCopyVariablePartFromBackupExecute(
   Sender: TObject);
 begin
- f_AutoServer.CopyBackupToVersion;
+ if f_AutoServer.CopyBackupToVersion = strRequestDelay then
+  alcuShowMsg(' опирование версии не может быть запущено - выполн€етс€ друга€ задача');
 end;
 
 procedure TArchiServerForm.pm_SetCompareKind(
@@ -1969,6 +1979,18 @@ begin
    UpdateSMTPStatus
   else
    inherited;
+end;
+
+procedure TArchiServerForm.menuDelOldTasksClick(Sender: TObject);
+begin
+ f_AutoServer.ReportMemoryUsage;
+ l3System.Msg2Log('Packing tasklist');
+ f_AutoServer.TaskProcessor.TaskList.PackUnimportant(0);
+ UpdateTaskList;
+ f_AutoServer.ReportMemoryUsage;
+ l3System.Msg2Log('Compacting Heap');
+ HeapCompact(GetProcessHeap, 0);
+ f_AutoServer.ReportMemoryUsage;
 end;
 
 initialization

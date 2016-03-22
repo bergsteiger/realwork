@@ -4,9 +4,15 @@ unit ddNativeSpell;
 { Автор: Люлин А.В. ©     }
 { Модуль: ddNativeSpell - }
 { Начат: 29.10.2002 13:11 }
-{ $Id: ddNativeSpell.pas,v 1.33 2015/01/27 07:14:03 dinishev Exp $ }
+{ $Id: ddNativeSpell.pas,v 1.35 2016/02/16 10:17:41 voba Exp $ }
 
 // $Log: ddNativeSpell.pas,v $
+// Revision 1.35  2016/02/16 10:17:41  voba
+// no message
+//
+// Revision 1.34  2016/02/16 07:28:47  lukyanets
+// Не собиралось
+//
 // Revision 1.33  2015/01/27 07:14:03  dinishev
 // Bug fix: AV при проверки правописания.
 //
@@ -148,9 +154,9 @@ type
   fMinWordLength  : Integer;
   f_DotIsWordSeparator: Boolean;
 
-  procedure CheckNormForm(AStatus : LongInt;
-                          aBuff   : PAnsiChar;
-                          aSize   : Cardinal);
+  //procedure CheckNormForm(AStatus : LongInt;
+  //                        aBuff   : PAnsiChar;
+  //                        aSize   : Cardinal);
 
  protected
   procedure pm_SetFilter(aValue: TddFilterWordEvent);
@@ -196,10 +202,12 @@ uses
   l3String,
   l3MinMax,
 
-  l3LingLib,
+  l3SpellMisc,
+  l3Speller,
+  l3LingLib
 
-  m0LngLib,
-  mgLngObj
+  //m0LngLib,
+  //mgLngObj
   ;
 
 // start class TmgSpellFormChecker
@@ -268,13 +276,13 @@ begin
  Result := (fRegExMashine <> nil) and fRegExMashine.SearchInString(aStr, lPosition);
 end;
 
-procedure TmgSpellFormChecker.CheckNormForm(AStatus : LongInt;
-                                            ABuff   : PAnsiChar;
-                                            ASize   : Cardinal);
-begin
- if AStatus = Cm0LNGLibStatusNORM_FORM then // ставим флажок, что слово удалось нормализовать
-  f_NormFormFound := True;
-end;
+//procedure TmgSpellFormChecker.CheckNormForm(AStatus : LongInt;
+//                                            ABuff   : PAnsiChar;
+//                                            ASize   : Cardinal);
+//begin
+// if AStatus = Cm0LNGLibStatusNORM_FORM then // ставим флажок, что слово удалось нормализовать
+//  f_NormFormFound := True;
+//end;
 
 function TmgSpellFormChecker.SearchEvent(Sender : Tl3Variant;
                                                AString: Tl3CustomString;
@@ -284,8 +292,8 @@ function TmgSpellFormChecker.SearchEvent(Sender : Tl3Variant;
                                          var   AEndRes: Long): Bool;
 var
  l_PCharLen: Tl3PCharLen;
-const
- CFlags = Cm0LNGLibFlagORIG_FORM or Cm0LNGLibFlagNORM_FORM;
+//const
+// CFlags = Cm0LNGLibFlagORIG_FORM or Cm0LNGLibFlagNORM_FORM;
 var
  LBuff:   PAnsiChar;
  LIndex1: LongInt;
@@ -317,8 +325,8 @@ var
    l_DotAddition := 0;
 
   // собственно, проверка правописания
-  m0LNGNormalBuff(Cm0LNGLibFlagORIG_FORM, CFlags, aStr.S, aStr.SLen-l_DotAddition, aStr.SCodePage = CP_OEM,
-       CheckNormForm, l_DotAddition > 0);
+  f_NormFormFound := gSpeller.CheckSpell(l3PCharLen(aStr.S, aStr.SLen-l_DotAddition, aStr.SCodePage));
+  //m0LNGNormalBuff(Cm0LNGLibFlagORIG_FORM, CFlags, aStr.S, aStr.SLen-l_DotAddition, aStr.SCodePage = CP_OEM, CheckNormForm, l_DotAddition > 0);
   if (not f_NormFormFound) and
      not ((IsIgnoreForm(aStr) or (Assigned(FFilter) and FFilter(aStr)))) then
   begin
@@ -376,7 +384,8 @@ begin
 
  lAddFunc := L2llAddStrProc(@lAddStrFunc);
  try
-  mlmaSpellCheck(aBuff, aSize, lAddFunc);
+  gSpeller.GetSuggestions(l3PCharLen(ABuff, aSize), lAddFunc);
+  //mlmaSpellCheck(aBuff, aSize, lAddFunc);
  finally
   FreellAddStrProc(lAddFunc);
  end;

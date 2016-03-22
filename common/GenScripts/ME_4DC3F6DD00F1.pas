@@ -3,6 +3,7 @@ unit F1AutoScripter;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1AutoScripter.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TF1AutoScripter" MUID: (4DC3F6DD00F1)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

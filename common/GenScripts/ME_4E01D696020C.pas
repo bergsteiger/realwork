@@ -2,6 +2,7 @@ unit vcmMessagesSupport;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMessagesSupport.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmMessagesSupport" MUID: (4E01D696020C)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

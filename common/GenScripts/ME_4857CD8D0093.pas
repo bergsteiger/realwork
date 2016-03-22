@@ -3,6 +3,8 @@ unit TableCell_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\TableCell_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "TableCell" MUID: (4857CD8D0093)
+// Имя типа: "TableCellTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

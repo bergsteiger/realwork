@@ -2,6 +2,7 @@ unit evDocumentPartGeneratorPrim;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPartGeneratorPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentPartGeneratorPrim" MUID: (4A8BBCB90035)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,8 @@ unit dsgnTextStyle_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\dsgnTextStyle_Const.pas"
 // Стереотип: "TagOverride"
+// Элемент модели: "TextStyle" MUID: (4868D10D0286)
+// Имя типа: "TextStyleTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

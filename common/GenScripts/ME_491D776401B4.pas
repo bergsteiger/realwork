@@ -3,6 +3,7 @@ unit atSharedBuffer;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atSharedBuffer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatSharedBuffer" MUID: (491D776401B4)
 
 interface
 

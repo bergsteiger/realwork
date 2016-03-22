@@ -3,6 +3,7 @@ unit evSavedCursor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSavedCursor.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evSavedCursor" MUID: (47E3E20C02D1)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

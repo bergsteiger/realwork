@@ -2,6 +2,7 @@ unit nevNodeView;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevNodeView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevNodeView" MUID: (4E24140802B9)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

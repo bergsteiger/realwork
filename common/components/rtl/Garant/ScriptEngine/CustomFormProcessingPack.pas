@@ -2,6 +2,7 @@ unit CustomFormProcessingPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\CustomFormProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "CustomFormProcessingPack" MUID: (553252BF022D)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -95,11 +96,6 @@ begin
  aCtx.rEngine.PushInt(Ord(pop_form_FormStyle(aCtx, l_aForm)));
 end;//TkwPopFormFormStyle.DoDoIt
 
-class function TkwPopFormFormStyle.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:form:FormStyle';
-end;//TkwPopFormFormStyle.GetWordNameForRegister
-
 function TkwPopFormFormStyle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TFormStyle);
@@ -114,6 +110,11 @@ function TkwPopFormFormStyle.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomForm)]);
 end;//TkwPopFormFormStyle.ParamsTypes
+
+class function TkwPopFormFormStyle.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:form:FormStyle';
+end;//TkwPopFormFormStyle.GetWordNameForRegister
 
 initialization
  TCustomFormProcessingPackResNameGetter.Register;

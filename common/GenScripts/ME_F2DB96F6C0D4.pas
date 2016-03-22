@@ -3,6 +3,7 @@ unit DocumentPrintAndExportFontSizeSettingRes;
 
 // Модуль: "w:\common\components\SandBox\VCM\View\Document\DocumentPrintAndExportFontSizeSettingRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DocumentPrintAndExportFontSizeSettingRes" MUID: (F2DB96F6C0D4)
 
 {$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 

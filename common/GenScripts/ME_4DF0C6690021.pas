@@ -2,6 +2,7 @@ unit k2CustomTagView;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2CustomTagView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2CustomTagView" MUID: (4DF0C6690021)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

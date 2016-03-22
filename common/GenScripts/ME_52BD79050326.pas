@@ -2,6 +2,7 @@ unit kwCreateNewFile;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwCreateNewFile.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCreateNewFile" MUID: (52BD79050326)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

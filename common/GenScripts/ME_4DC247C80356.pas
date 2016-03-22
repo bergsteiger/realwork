@@ -2,6 +2,7 @@ unit AutoTest;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptTestLibrary\AutoTest.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TAutoTest" MUID: (4DC247C80356)
 
 interface
 

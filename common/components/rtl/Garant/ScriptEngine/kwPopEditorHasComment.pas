@@ -3,6 +3,8 @@ unit kwPopEditorHasComment;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorHasComment.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_HasComment" MUID: (4DD0F87600ED)
+// Имя типа: "TkwPopEditorHasComment"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

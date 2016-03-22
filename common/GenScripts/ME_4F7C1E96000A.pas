@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\AdminAndMonitoringsMainForm.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "AdminAndMonitoringsMainForm" MUID: (4F7C1E96000A)
+// Имя типа: "_AdminAndMonitoringsMainForm_"
 
 {$Define AdminAndMonitoringsMainForm_imp}
 

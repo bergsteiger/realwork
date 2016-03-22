@@ -761,7 +761,8 @@ begin
    begin
     if Assigned(f_OnSelect) then
      if not f_IsFirstLoad then
-      ActionExecuteHandler;
+      //if ((ComboStyle <> ct_cbDropDown) or Dropped) then
+       ActionExecuteHandler;
 
     if IsList then
     begin

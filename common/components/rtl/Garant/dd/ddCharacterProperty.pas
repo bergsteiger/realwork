@@ -29,13 +29,13 @@ type
    procedure SetParam(Index: TddCharProperties; Value: LongInt);
   protected
    function GetBoolProperty(Index: TddCharProperties): Boolean;
-   function GetCaps: TCharCapsType;
+   function GetCaps: TddCharCapsType;
    function GetFontName: AnsiString;
    function GetLongProperty(Index: TddCharProperties): LongInt;
    function GetPos: TCharPosition;
    function GetUnderline: TUnderline;
    procedure SetBoolProperty(Index: TddCharProperties; Value: Boolean);
-   procedure SetCaps(Value: TCharCapsType);
+   procedure SetCaps(Value: TddCharCapsType);
    procedure SetFontName(Value: AnsiString);
    procedure SetLongProperty(Index: TddCharProperties; Value: Longint);
    procedure SetPos(Value: TCharPosition);
@@ -46,12 +46,15 @@ type
    constructor Create; override;
    procedure AssignFrom(ACHP: TddPropertyObject); override;
    procedure Clear; override;
+   function SymbolFont: Boolean;
+   function MonoTypeFont: Boolean;
    function OCompare(anObject: Tl3Base): Long; override;
-   function Diff(P: TddPropertyObject): TddPropertyObject; override;
+   function Diff(P: TddPropertyObject; aForReader: Boolean): TddPropertyObject; override;
    function JoinWith(P: TObject): Long; override;
    procedure MergeWith(P: TddPropertyObject); override;
    procedure InheriteFrom(P: TddPropertyObject); override;
    procedure Reset; override;
+   function HasDefaultValue(aProperty: TddCharProperties): Boolean;
    procedure Write2Generator(const Generator: Ik2TagGenerator); override;
    procedure ClearProp(aPropID: TddCharProperties);
    property BColor: LongInt index ddBColor read GetLongProperty write
@@ -60,7 +63,7 @@ type
            SetLongProperty;
    property Bold: Boolean index ddBold read GetBoolProperty write
            SetBoolProperty;
-   property Caps: TCharCapsType read GetCaps write SetCaps;
+   property Caps: TddCharCapsType read GetCaps write SetCaps;
    property CharScale: LongInt index ddCharScale read GetLongProperty write
            SetLongProperty;
    property Deleted: Boolean index ddDeleted read GetBoolProperty write
@@ -128,19 +131,20 @@ begin
   Clear;
 end;
 
-procedure TddCharacterProperty.AssignFrom(ACHP: TddPropertyObject);
+procedure TddCharacterProperty.AssignFrom(aCHP: TddPropertyObject);
 var
-  _CHP: TddCharacterProperty absolute aCHP;
-  Index: TddCharProperties;
+ l_CHP  : TddCharacterProperty absolute aCHP;
+ l_Index: TddCharProperties;
 begin
   if (aCHP Is TddCharacterProperty) then
   begin
-   for index:= Low(TddCharProperties) to High(TddCharProperties) do
-     f_LongProperties[index]:= _CHP.Param[index];
-  
-   f_FontName:= _CHP.FontName;
-   IsDefault:= _CHP.IsDefault;
-  end else
+   for l_Index := Low(TddCharProperties) to High(TddCharProperties) do
+     f_LongProperties[l_Index]:= l_CHP.Param[l_Index];
+
+   f_FontName := l_CHP.FontName;
+   IsDefault := l_CHP.IsDefault;
+  end // if (aCHP Is TddCharacterProperty) then
+  else
    inherited AssignFrom(aCHP);
 end;
 
@@ -173,58 +177,65 @@ begin
   Result := inherited OCompare(anObject);
 end;
 
-function TddCharacterProperty.Diff(P: TddPropertyObject): TddPropertyObject;
+function TddCharacterProperty.Diff(P: TddPropertyObject; aForReader: Boolean): TddPropertyObject;
 var
  aCHP: TddCharacterProperty absolute P;
  index: TddCharProperties;
  l_IsDefault: Boolean;
 begin
-  if P = nil then
-   Result:= nil
-  else
-  if OCompare(p) = 0 then
-    Result:= nil
-  else
-  begin
-   l_isDefault:= True;
-    Result:= TddCharacterProperty.Create;
-    try
-     if (P Is TddCharacterProperty) then
-     begin
-       for index:= Low(TddCharProperties) to High(TddCharProperties) do
-       begin
-        if aCHP.Param[index] = Param[Index] then
-         TddCharacterProperty(Result).Param[index]:= propUndefined
-        else
-        if Param[index] = propUndefined then
-         TddCharacterProperty(Result).Param[index]:= aCHP.Param[index]
-        else
-        if aCHP.Param[index] <> propUndefined then
-         TddCharacterProperty(Result).Param[index]:= aCHP.Param[index]
-        else
-         if (index = ddBold) and (aCHP.Param[index] = propUndefined) and (Param[index] <> propUndefined) then // http://mdp.garant.ru/pages/viewpage.action?pageId=512253629
-          TddCharacterProperty(Result).Param[index]:= Param[index]; 
-        if TddCharacterProperty(Result).Param[index] <> propUndefined then
-         l_IsDefault:= False;
-       end; // for index
-       // Имя шрифта
-       if aCHP.Param[ddFontNumber] = Param[ddFontNumber] then
-        TddCharacterProperty(Result).FontName:= ''
-       else
-       if Param[ddFontNumber] = propUndefined then
-        TddCharacterProperty(Result).FontName:= aCHP.FontName
-       else
-       if aCHP.Param[ddFontNumber] <> propUndefined then
-        TddCharacterProperty(Result).FontName:= aCHP.FontName;
-     end; // P Is TddCharacterProperty
-     if l_IsDefault then
-      FreeAndNil(Result)
+ if P = nil then
+  Result := nil
+ else
+ if OCompare(p) = 0 then
+  Result := nil
+ else
+ begin
+  l_IsDefault := True;
+  Result := TddCharacterProperty.Create;
+  try
+   if (P Is TddCharacterProperty) then
+   begin
+    for index := Low(TddCharProperties) to High(TddCharProperties) do
+    begin
+     if aCHP.Param[index] = Param[Index] then
+      TddCharacterProperty(Result).Param[index] := propUndefined
      else
-      Result.IsDefault:= False;
-    except
-     FreeAndNil(Result);
-    end;
+     if Param[index] = propUndefined then
+      TddCharacterProperty(Result).Param[index] := aCHP.Param[index]
+     else
+     if aCHP.Param[index] <> propUndefined then
+      TddCharacterProperty(Result).Param[index] := aCHP.Param[index]
+     else
+      if (index = ddBold) and (aCHP.Param[index] = propUndefined) and (Param[index] <> propUndefined) then // http://mdp.garant.ru/pages/viewpage.action?pageId=512253629
+       TddCharacterProperty(Result).Param[index] := Param[index];
+     if not TddCharacterProperty(Result).HasDefaultValue(index) then
+      l_IsDefault := False;
+    end; // for index
+    // Имя шрифта
+    if aCHP.Param[ddFontNumber] = Param[ddFontNumber] then
+     TddCharacterProperty(Result).FontName := ''
+    else
+    if Param[ddFontNumber] = propUndefined then
+     TddCharacterProperty(Result).FontName := aCHP.FontName
+    else
+     if aForReader and (aCHP.Param[ddFontNumber] = propUndefined) and (Param[ddFontNumber] <> propUndefined) then
+     begin
+      TddCharacterProperty(Result).FontNumber := FontNumber;
+      TddCharacterProperty(Result).FontName := FontName;
+      l_IsDefault := False;
+     end // if (aCHP.Param[ddFontNumber] = propUndefined) and (Param[ddFontNumber] <> propUndefined) then
+     else
+      if aCHP.Param[ddFontNumber] <> propUndefined then
+       TddCharacterProperty(Result).FontName := aCHP.FontName;
+   end; // P Is TddCharacterProperty
+   if l_IsDefault then
+    FreeAndNil(Result)
+   else
+    Result.IsDefault := False;
+  except
+   FreeAndNil(Result);
   end;
+ end;
 end;
 
 function TddCharacterProperty.GetBoolProperty(Index: TddCharProperties):
@@ -236,10 +247,10 @@ begin
    Result:= False;
 end;
 
-function TddCharacterProperty.GetCaps: TCharCapsType;
+function TddCharacterProperty.GetCaps: TddCharCapsType;
 begin
   if f_LongProperties[ddCaps] <> propUndefined then
-   Result:= TCharCapsType(f_LongProperties[ddCaps])
+   Result:= TddCharCapsType(f_LongProperties[ddCaps])
   else
    Result:= ccNone;
 end;
@@ -342,7 +353,7 @@ begin
   end;
 end;
 
-procedure TddCharacterProperty.SetCaps(Value: TCharCapsType);
+procedure TddCharacterProperty.SetCaps(Value: TddCharCapsType);
 begin
   if Value <> Caps then
   begin
@@ -374,16 +385,21 @@ end;
 procedure TddCharacterProperty.SetParam(Index: TddCharProperties; Value:
         LongInt);
 begin
-  f_LongProperties[Index]:= Value;
+ f_LongProperties[Index] := Value;
 end;
 
 procedure TddCharacterProperty.SetPos(Value: TCharPosition);
 begin
-  if Value <> Pos then
+ if Value <> Pos then
+ begin
+  if IsDefaultValue(ddCharPosition, Ord(Value)) then
+   f_LongProperties[ddCharPosition] := propUndefined
+  else
   begin
-    f_LongProperties[ddCharPosition]:= Ord(Value);
-    IsDefault:= False;
-  end;
+   f_LongProperties[ddCharPosition] := Ord(Value);
+   IsDefault := False;
+  end; 
+ end;
 end;
 
 procedure TddCharacterProperty.SetUnderline(Value: TUnderline);
@@ -397,8 +413,9 @@ end;
 
 procedure TddCharacterProperty.Write2Generator(const Generator: Ik2TagGenerator);
 var
-  l_CharSet: Long;
-  l_LogFont: Tl3LogFont;
+  l_CharSet  : Long;
+  l_LogFont  : Tl3LogFont;
+  l_Underline: Boolean;
 begin
   // пока не учитывается переданное оформление
  if Hidden then
@@ -440,7 +457,11 @@ begin
    cpSubScript: Generator.AddIntegerAtom(k2_tiIndex, ord(l3_fiSub));
   end; // pos
   if (Underline <> utNotDefined) then
-   Generator.AddBoolAtom(k2_tiUnderline, (Underline <> utNone) and (Underline <> utNotDefined));
+  begin
+   l_Underline := (Underline <> utNone) and (Underline <> utNotDefined);
+   if l_Underline then
+    Generator.AddBoolAtom(k2_tiUnderline, l_Underline);
+  end;
  finally
    Generator.Finish;
  end;
@@ -454,7 +475,49 @@ end;
 function TddCharacterProperty.IsDefaultValue(anIndex: TddCharProperties;
   aValue: Integer): Boolean;
 begin
- Result := (anIndex = ddFColor) and (aValue = clBlack);
+ Result := aValue = propUndefined;
+ if not Result then
+  case anIndex of
+   ddFColor: Result := (aValue = clBlack);
+   ddCharPosition: Result := (aValue = Ord(cpNone)) or (aValue = Ord(cpNotDefined));
+  end;
+end;
+
+function TddCharacterProperty.SymbolFont: Boolean;
+var
+ l_CharSet: Long;
+ l_LogFont: Tl3LogFont;
+begin
+ Result := False;
+ if (FontName <> '') then
+ begin
+  l_LogFont := l3FontManager.Fonts.DRByName[FontName];
+  if (l_LogFont <> nil) then
+  begin
+   l_CharSet := l_LogFont.LogFont.elfLogFont.lfCharSet;
+   Result := l_CharSet = SYMBOL_CHARSET;
+  end; // if (l_LogFont <> nil) then
+ end; // if (FontName <> '') then
+end;
+
+function TddCharacterProperty.MonoTypeFont: Boolean;
+var
+ l_CharSet: Long;
+ l_LogFont: Tl3LogFont;
+begin
+ Result := False;
+ if (FontName <> '') then
+ begin
+  l_LogFont := l3FontManager.Fonts.DRByName[FontName];
+  if (l_LogFont <> nil) then
+   Result := l_LogFont.IsFixed;
+ end; // if (FontName <> '') then
+end;
+
+function TddCharacterProperty.HasDefaultValue(
+  aProperty: TddCharProperties): Boolean;
+begin
+ Result := IsDefaultValue(aProperty, f_LongProperties[aProperty]);
 end;
 
 end.

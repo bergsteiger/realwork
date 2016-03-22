@@ -2,6 +2,8 @@ unit kwAttributeSearch;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwAttributeSearch.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "AttributeSearch" MUID: (4DAF069D0072)
+// Имя типа: "TkwAttributeSearch"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

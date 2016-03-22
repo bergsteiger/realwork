@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddClientBaseEngine;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_ddClientBaseEngine.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddClientBaseEngine" MUID: (54352FAB00E6)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -115,6 +115,8 @@ int ToUpperWin (int ch) {
 		return ch + 'À' - 'à';
 	if ( ch == '¸' || ch == '¨' )
 		return 'Å';
+	if ( ch == '¢' )
+		return '¡';
 	else
 		return ch;
 }

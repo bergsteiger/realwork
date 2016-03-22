@@ -2,6 +2,7 @@ unit tfwDictionaryDataIteratorPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryDataIteratorPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwDictionaryDataIteratorPrim" MUID: (55AE5B950148)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -18,7 +19,6 @@ type
  TtfwDictionaryDataIteratorPrim = {abstract} class(TtfwIteratableParent)
   private
    f_Dictionary: TtfwDictionaryEx;
-    {* Поле для свойства Dictionary }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

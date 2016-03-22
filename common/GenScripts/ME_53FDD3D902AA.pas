@@ -2,6 +2,7 @@ unit m3BuffStream;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3BuffStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3BuffStream" MUID: (53FDD3D902AA)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

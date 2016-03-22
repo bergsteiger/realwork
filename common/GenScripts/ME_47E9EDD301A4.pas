@@ -3,6 +3,7 @@ unit dsDrugList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsDrugList.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsDrugList" MUID: (47E9EDD301A4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

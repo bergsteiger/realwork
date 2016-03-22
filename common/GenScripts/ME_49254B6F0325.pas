@@ -2,6 +2,7 @@ unit deTips;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DayTips\deTips.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdeTips" MUID: (49254B6F0325)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

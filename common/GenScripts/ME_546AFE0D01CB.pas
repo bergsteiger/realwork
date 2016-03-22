@@ -2,6 +2,7 @@ unit arOneTaskDeliverer;
 
 // Модуль: "w:\archi\source\projects\Archi\Processing\arOneTaskDeliverer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarOneTaskDeliverer" MUID: (546AFE0D01CB)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
@@ -156,7 +157,10 @@ begin
    if f_Transporter.WaitForReply(l_TaskDesc, l_Reply) then
    begin
     if not f_Transporter.Processing then
+    begin
+     l3System.Msg2Log('Обшика доставки - обрыв связи');
      Exit;
+    end;
     l_Reply.SetRefTo(f_Reply);
     l_Deliverer := TncsFileListDeliverer.Create(f_Transporter, f_Progressor, f_TaskID, f_Reply.LocalFolder);
     try

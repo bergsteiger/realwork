@@ -2,6 +2,7 @@ unit l3ExceptionsLogEx;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ExceptionsLogEx.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ExceptionsLogEx" MUID: (540EE27400BE)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

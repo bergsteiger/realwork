@@ -2,6 +2,7 @@ unit nsFiltersContainerPrim;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersContainerPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsFiltersContainerPrim" MUID: (4CAC5B4900ED)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

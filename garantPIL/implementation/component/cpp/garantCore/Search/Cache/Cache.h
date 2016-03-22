@@ -18,7 +18,7 @@
 #include <vector>
 #include "ace/Singleton.h"
 #include "shared/GCL/data/std_defs.h"
-#include "garantPIL/implementation/component/cpp/libs/gkdb/src/SearchB.h"
+#include "garantPIL/implementation/component/cpp/libs/gkdb/src/Base.h"
 
 //#UC START# *50AE53480198_CUSTOM_INCLUDES*
 #include "shared/DB/DBCore/DBCore.h"
@@ -102,7 +102,7 @@ public:
 	const LongVector& get_bad_docs ();
 
 	// расширения запроса для поиска в заголовках
-	const GCL::StrVector& get_ext_request (SearchBase* base);
+	const GCL::StrVector& get_ext_request (Base* base);
 
 	// очистить
 	void reset ();
@@ -112,13 +112,13 @@ private:
 	void add (const std::string& in, Informers& data);
 
 	// чтение из Aux
-	char* load_aux (SearchBase* base, const void* key, long& size);
+	char* load_aux (Base* base, const void* key, long& size);
 
 	// загрузка типов документа
-	void load_doc_types (SearchBase* base);
+	void load_doc_types (Base* base);
 
 	// загрузка информеров
-	void load_informers (SearchBase* base);
+	void load_informers (Base* base);
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // self data
@@ -135,10 +135,10 @@ private:
 
 //#UC START# *50AE53480198*
 public:
-	DBCore::RelTuneData* get_informers (SearchBase* base, const std::string& in);
+	DBCore::RelTuneData* get_informers (Base* base, const std::string& in);
 
-	void get_type_data (SearchBase* base, const std::string& in, std::vector <unsigned long>& out);
-	void get_code_data (SearchBase* base, const std::string& in, std::vector <unsigned long>& out);
+	void get_type_data (Base* base, const std::string& in, std::vector <unsigned long>& out);
+	void get_code_data (Base* base, const std::string& in, std::vector <unsigned long>& out);
 //#UC END# *50AE53480198*
 }; // class Cache
 

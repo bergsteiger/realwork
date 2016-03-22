@@ -2,6 +2,8 @@ unit ProgressIndicator_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\ProgressIndicator_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "ProgressIndicator" MUID: (4A93F1CC01A8)
+// Имя типа: "TefProgressIndicator"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

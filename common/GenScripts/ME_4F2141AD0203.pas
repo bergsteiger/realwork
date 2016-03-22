@@ -2,6 +2,8 @@ unit kwBynameControlPush;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwBynameControlPush.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "byname_control_push" MUID: (4F2141AD0203)
+// Имя типа: "TkwBynameControlPush"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "DictionContainerUserTypes" MUID: (4F5DB67E02FA)
+// Имя типа: "_DictionContainerUserTypes_"
 
 {$Define DictionContainerUserTypes_imp}
 

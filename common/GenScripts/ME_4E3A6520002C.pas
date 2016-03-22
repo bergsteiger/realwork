@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\RoundMarkerValue.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "RoundMarkerValue" MUID: (4E3A6520002C)
+// Имя типа: "_RoundMarkerValue_"
 
 {$Define RoundMarkerValue_imp}
 

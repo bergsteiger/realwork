@@ -2,6 +2,7 @@ unit evStyle_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evStyle_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WevStyle" MUID: (484D30E40278)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

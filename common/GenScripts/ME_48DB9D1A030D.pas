@@ -2,6 +2,7 @@ unit nevTableCellFormatInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableCellFormatInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevTableCellFormatInfo" MUID: (48DB9D1A030D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

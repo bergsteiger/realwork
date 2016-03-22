@@ -3,6 +3,7 @@ unit afwControl;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwControl.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TafwControl" MUID: (467BA96E003C)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

@@ -2,6 +2,7 @@ unit nsEditionNodes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsEditionNodes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsEditionNodes" MUID: (4909F71E02EA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

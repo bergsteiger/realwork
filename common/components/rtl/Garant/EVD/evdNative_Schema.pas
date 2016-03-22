@@ -7,7 +7,7 @@ unit evdNative_Schema;
 // Модуль: "w:/common/components/rtl/Garant/EVD/evdNative_Schema.pas"
 // Начат: 07.06.2008 19:47
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TagTable::Class>> Shared Delphi::EVD::Standard::evdNative
+// Generated from UML model, root element: <<TagTable::Class>> Shared Delphi Low Level::EVD::Standard::evdNative
 //
 // Собственно схема документа EVD
 //
@@ -974,22 +974,22 @@ uses
   evPara_Wrap
   {$If defined(k2ForEditor)}
   ,
-  evPara_InterfaceFactory
+  TevParaInterfaceFactory_Proxy
   {$IfEnd} //k2ForEditor
   
   {$If defined(k2ForEditor)}
   ,
-  evLeafPara_InterfaceFactory
+  TevLeafParaInterfaceFactory_Proxy
   {$IfEnd} //k2ForEditor
   
   {$If defined(k2ForEditor)}
   ,
-  evPageBreak_InterfaceFactory
+  TevPageBreakInterfaceFactory_Proxy
   {$IfEnd} //k2ForEditor
   
   {$If defined(k2ForEditor)}
   ,
-  evSectionBreak_InterfaceFactory
+  TevSectionBreakInterfaceFactory_Proxy
   {$IfEnd} //k2ForEditor
   ,
   k2DictRec,
@@ -2618,7 +2618,6 @@ begin
  t_DictRec := DefineAutoType([t_Tag, t_ObjectWithHandle], 'Словарная запись', DictRecTag) As DictRecTag;
  with t_DictRec do
  begin
-  AtomClass := nil;
   WrapperType := WevdDictRec;
   with DefineProperty(k2_attrName, t_String, 'Имя') do
   begin

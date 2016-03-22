@@ -2,6 +2,7 @@ unit ComplexScrollParams;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\ComplexScrollParams.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TComplexScrollParams" MUID: (4D7777390386)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -1,6 +1,6 @@
 unit IniShop;
 
-{ $Id: IniShop.pas,v 1.53 2015/07/13 11:05:34 lukyanets Exp $ }
+{ $Id: IniShop.pas,v 1.55 2015/12/25 12:48:49 voba Exp $ }
 
 interface
 
@@ -25,6 +25,8 @@ interface
      fExplorerWidth        : Integer;
     {Search preference}
      fNewSrchOnly          : Boolean;
+     fGarantStyleQuery     : Boolean;
+     fPrefDNType           : Integer;
     {Text Editor}
      fZoom                 : Longint;
      fShowSpecSymbol       : Boolean;
@@ -67,7 +69,6 @@ interface
      {UserSupport}
      fDocOnDiskDir         : String;
      {INTERFACE}
-     fGarantStyleQuery     : Boolean;
      fShowIDinCaption      : Boolean;
      fCreateDocKind        : Integer;
      fShowHRuller          : Boolean;
@@ -126,6 +127,10 @@ interface
     property NewSrchOnly        : Boolean
      read fNewSrchOnly
      write fNewSrchOnly;
+
+    property PrefDNType         : Integer
+     read  fPrefDNType
+     write fPrefDNType;
 
    {Text Editor}
     property Zoom               : Longint
@@ -371,6 +376,7 @@ uses
  l3MinMax, l3DateSt, l3FileUtils,
  //DictsSup,
  DocAttrUtils,
+ daSchemeConsts,
  DT_Const, DT_Serv;
 
 var
@@ -454,6 +460,7 @@ procedure TIniRecord.SetIniRecord;
 
   Zoom              := Max(UserConfig.ReadParamIntDef ('EdZoom', 100), 30);
   NewSrchOnly       := UserConfig.ReadParamBoolDef('NewSrchOnly', False);
+  PrefDNType        := UserConfig.ReadParamIntDef ('PrefDNType', 0);
   SubShowMask       := UserConfig.ReadParamIntDef ('SubShowMask', 0);
   RelSubShowMask    := UserConfig.ReadParamIntDef ('RelSubShowMask', 0);
 
@@ -544,6 +551,7 @@ procedure TIniRecord.SaveIniRecord;
   UserConfig.Section := PrefSectName;
   UserConfig.WriteParamBool('MaxOnStart' ,      MaxOnStart);
   UserConfig.WriteParamBool('NewSrchOnly',      NewSrchOnly);
+  UserConfig.WriteParamInt ('PrefDNType',       PrefDNType);
   UserConfig.WriteParamInt ('EdZoom',           Zoom);
   UserConfig.WriteParamBool('EdShowSpecSymbol', ShowSpecSymbol);
   //UserConfig.WriteParamBool('ShowPreview',      ShowPreview);

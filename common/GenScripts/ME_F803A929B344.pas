@@ -3,6 +3,7 @@ unit ListPrintAndExportFontSizeSettingRes;
 
 // Модуль: "w:\common\components\SandBox\VCM\View\List\ListPrintAndExportFontSizeSettingRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ListPrintAndExportFontSizeSettingRes" MUID: (F803A929B344)
 
 {$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 

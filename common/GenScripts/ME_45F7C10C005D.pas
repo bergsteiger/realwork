@@ -3,6 +3,7 @@ unit NodeServerTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\NodeServerTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "NodeServerTree" MUID: (45F7C10C005D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

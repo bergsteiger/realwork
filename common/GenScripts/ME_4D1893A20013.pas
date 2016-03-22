@@ -2,6 +2,7 @@ unit evPreviewForTestsTuning;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evPreviewForTestsTuning.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evPreviewForTestsTuning" MUID: (4D1893A20013)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

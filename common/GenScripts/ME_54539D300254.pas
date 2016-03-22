@@ -2,6 +2,7 @@ unit m3ArcHandle;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3ArcHandle.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3ArcHandle" MUID: (54539D300254)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

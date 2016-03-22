@@ -3,6 +3,8 @@ unit ChangesBetweenEditons_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\ChangesBetweenEditons_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "ChangesBetweenEditons" MUID: (4DDCD6800267)
+// Имя типа: "TChangesBetweenEditonsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

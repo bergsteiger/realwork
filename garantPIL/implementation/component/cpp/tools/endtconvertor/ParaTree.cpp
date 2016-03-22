@@ -475,6 +475,7 @@ void Para::reset () {
 	m_has_pseudo_graph = false;
 	m_has_legal_content = false;
 	m_has_comment_handle = false;
+	m_is_endt_comments = false;
 
 	marked_positions.clear ();
 }
@@ -573,9 +574,9 @@ void Para::build_tree (
 				long depth = 0, from = 0;
 				for (;;) {
 					if (buffer [i] == '{') {
-						depth++;
-						if (!strncmp (buffer + i + 1, "Style =", 7) || !strncmp (buffer + i + 1, "Font =", 6))
+						if (0 == depth)
 							from = i - 1;
+						depth++;
 					} else if (buffer [i] == '}') {
 						depth--;
 						if (0 == depth)
@@ -999,9 +1000,11 @@ void Para::generate_style_1 (evd::IeeGenerator* generator, EndtTools::EndtWriter
 	case st_PseudoVersionComment:
 		if (m_style == PS_VERSION || m_para_style == st_PseudoVersionComment) {
 			writer.set_flag (ENDT_VERSION_COMMENTS);
+			m_is_endt_comments = true;
 			generator->AddIntegerAtom (evd::ti_Style, EVD::sa_VersionInfo);
 		} else {
 			writer.set_flag (ENDT_COMMENTS);
+			m_is_endt_comments = true;
 			generator->AddIntegerAtom (evd::ti_Style, EVD::sa_TxtComment);
 		}
 		if (m_para_style == st_Comment) {

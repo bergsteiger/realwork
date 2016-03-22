@@ -3,6 +3,8 @@ unit PrimFoldersTree_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersTree_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimFoldersTree" MUID: (497DD4870291)
+// Имя типа: "TPrimFoldersTreeForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

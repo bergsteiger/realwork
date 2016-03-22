@@ -2,9 +2,12 @@ unit dt_SrchQueries;
 
 // Фабрики спецпоисков
 
-{ $Id: dt_SrchQueries.pas,v 1.17 2015/07/02 11:41:29 lukyanets Exp $ }
+{ $Id: dt_SrchQueries.pas,v 1.18 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: dt_SrchQueries.pas,v $
+// Revision 1.18  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.17  2015/07/02 11:41:29  lukyanets
 // Описываем словари
 //
@@ -142,6 +145,7 @@ uses
  m4PhraseParser,
 
  daTypes,
+ daSchemeConsts,
 
  DT_Sab,
  DT_Const, dt_AttrSchema,

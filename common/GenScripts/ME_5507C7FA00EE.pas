@@ -2,6 +2,7 @@ unit ChromeLikeDrawingContext;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeDrawingContext.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TChromeLikeDrawingContext" MUID: (5507C7FA00EE)
 
 interface
 

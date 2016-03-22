@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "tfwDictionaryListIteratorPrim" MUID: (55E9A6C303B7)
+// Имя типа: "_tfwDictionaryListIteratorPrim_"
 
 {$Define tfwDictionaryListIteratorPrim_imp}
 

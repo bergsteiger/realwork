@@ -3,6 +3,7 @@ unit dtNumRange;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\dtNumRange.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdtNumRange" MUID: (537F6DA00036)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

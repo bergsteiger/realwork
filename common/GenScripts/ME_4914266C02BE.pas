@@ -2,6 +2,7 @@ unit nsLangList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsLangList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsLangList" MUID: (4914266C02BE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

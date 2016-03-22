@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddRTFProperties;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddRTFProperties.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddRTFProperties" MUID: (51E7D2010032)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

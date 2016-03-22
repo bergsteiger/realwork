@@ -3,6 +3,7 @@ program ReleaseImportExportTest;
 
 // Модуль: "w:\archi\source\projects\ImportExportTest\ReleaseImportExportTest.dpr"
 // Стереотип: "TestTarget"
+// Элемент модели: "ReleaseImportExport" MUID: (36C7C32193CF)
 
 {$Include w:\archi\source\projects\ImportExportTest.inc}
 

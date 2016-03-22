@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3Base;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Base.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3Base" MUID: (4773D64E036C)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

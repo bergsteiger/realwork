@@ -67,7 +67,23 @@
 	(object Attribute
 	    tool       	"MDA Generator"
 	    name       	"SourceType (wiki)"
-	    value      	"wiki"))
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script.runner)"
+	    value      	"w:/shared/models/NewSchool/Scripts/55B75E6E034C.pas.ms.script.runner")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script.runner)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script)"
+	    value      	"w:/shared/models/NewSchool/Scripts/55B75E6E034C.pas.ms.script")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script)"
+	    value      	"file"))
     quid       	"55B75E6E034C"
     stereotype 	"Interfaces"
     visible_categories 	(list visibility_relationship_list
@@ -375,7 +391,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*55B760550256_55B761180244_impl*"
-			    value      	"//#UC START# *55B760550256_55B761180244_impl*§ l_LogString := GetEnumName(TypeInfo(TLogEvent), Ord(aLogEvent)) + aData.AsString;§ TnsLoggingTestService.Instance.AddLogString(l_LogString);§ f_LogManager.AddEvent(aLogEvent, aData.AsLogEventData);§//#UC END# *55B760550256_55B761180244_impl*"))
+			    value      	"//#UC START# *55B760550256_55B761180244_impl*§ l_LogString := GetEnumName(TypeInfo(TLogEvent), Ord(aLogEvent)) + aData.AsString;§ f_LoggingTestService.AddLogString(l_LogString);§ LogManager.AddEvent(aLogEvent, aData.AsLogEventData);§//#UC END# *55B760550256_55B761180244_impl*"))
 		    quid       	"55B760550256"
 		    parameters 	(list Parameters
 			(object Parameter "aLogEvent"
@@ -403,6 +419,76 @@
 			    quid       	"55B7607F0130"
 			    type       	"InsLogEventData"
 			    quidu      	"55B75F160131"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "InsLoggingTestService"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1449847927145862")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"BEAE7BA4-756B-405A-8CA5-39CEEEE025E2")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	"Nemesis,key:NMS,guid:498B35810374/Home/Ѕазовые определени€ предметной области/LegalDomain/Logging/LoggingWrapperInterfaces/InsLoggingTestService|566AEC770091")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"566AEC770091"
+	    stereotype 	"Facet"
+	    operations 	(list Operations
+		(object Operation "AddLogString"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1449847946156890")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*566AEC8A0092_55B9FFCB020F_var*"
+			    value      	"//#UC START# *566AEC8A0092_55B9FFCB020F_var*§//#UC END# *566AEC8A0092_55B9FFCB020F_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*566AEC8A0092_55B9FFCB020F_impl*"
+			    value      	"//#UC START# *566AEC8A0092_55B9FFCB020F_impl*§ if f_Listening then§  f_LogRecords.Add(aString);§//#UC END# *566AEC8A0092_55B9FFCB020F_impl*"))
+		    quid       	"566AEC8A0092"
+		    parameters 	(list Parameters
+			(object Parameter "aString"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1449847951324899")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"476136D3010B"))
+			    quid       	"566AEC8F0144"
+			    type       	"String"
+			    quidu      	"431841610361"))
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0))
@@ -470,7 +556,7 @@
 			fill_color 	13434879
 			anchor     	2
 			nlines     	7
-			max_width  	671
+			max_width  	669
 			justify    	1)
 		    width      	690
 		    height     	492
@@ -529,9 +615,68 @@
 			fill_color 	13434879
 			anchor     	2
 			nlines     	2
-			max_width  	1118
+			max_width  	1122
 			justify    	1)
 		    width      	1142
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingWrapperInterfaces::InsLoggingTestService" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(323, 916)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(23, 857)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	600
+			justify    	0
+			label      	"InsLoggingTestService")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(23, 807)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	600
+			justify    	0
+			label      	"<<Facet>>")
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"566AEC770091"
+		    compartment 	(object Compartment
+			Parent_View 	@3
+			location   	(23, 918)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	2
+			max_width  	597
+			justify    	1)
+		    width      	618
 		    height     	242
 		    annotation 	8
 		    autoResize 	TRUE)))
@@ -544,7 +689,7 @@
 	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
-		(object CategoryView "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingWrapperInterfaces" @3
+		(object CategoryView "Logical View::F1 Ѕазовые определения предметной области::LegalDomain::Logging::LoggingWrapperInterfaces" @4
 		    location   	(324, 304)
 		    font       	(object Font
 			size       	10
@@ -557,14 +702,14 @@
 			color      	16714250
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@3
+			Parent_View 	@4
 			location   	(180, 253)
 			nlines     	2
 			max_width  	288
 			justify    	0
 			label      	"Х LoggingWrapperInterfaces")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@3
+			Parent_View 	@4
 			location   	(180, 203)
 			anchor     	10
 			nlines     	1
@@ -577,7 +722,7 @@
 		    quidu      	"55B75E6E034C"
 		    width      	300
 		    height     	214)
-		(object CategoryView "Logical View::garant6x::GblAdapterLib::Logging" @4
+		(object CategoryView "Logical View::garant6x::GblAdapterLib::Logging" @5
 		    location   	(870, 324)
 		    font       	(object Font
 			size       	10
@@ -590,14 +735,14 @@
 			color      	16714250
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@4
+			Parent_View 	@5
 			location   	(726, 289)
 			nlines     	2
 			max_width  	288
 			justify    	0
 			label      	"Х Logging")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@4
+			Parent_View 	@5
 			location   	(726, 239)
 			anchor     	10
 			nlines     	1
@@ -610,7 +755,7 @@
 		    quidu      	"45ED58CF03E6"
 		    width      	300
 		    height     	182)
-		(object ImportView "" @5
+		(object ImportView "" @6
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -624,13 +769,13 @@
 		    stereotype 	TRUE
 		    line_color 	3947680
 		    quidu      	"55B75F060311"
-		    client     	@3
-		    supplier   	@4
+		    client     	@4
+		    supplier   	@5
 		    vertices   	(list Points
 			(474, 309)
 			(719, 318))
 		    line_style 	0)
-		(object CategoryView "Logical View::garant6x::GblAdapterLib::BaseTypes" @6
+		(object CategoryView "Logical View::garant6x::GblAdapterLib::BaseTypes" @7
 		    location   	(600, 774)
 		    font       	(object Font
 			size       	10
@@ -643,14 +788,14 @@
 			color      	16714250
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@6
+			Parent_View 	@7
 			location   	(452, 739)
 			nlines     	2
 			max_width  	296
 			justify    	0
 			label      	"Х BaseTypes")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@6
+			Parent_View 	@7
 			location   	(452, 689)
 			anchor     	10
 			nlines     	1
@@ -663,7 +808,7 @@
 		    quidu      	"456EA56002BF"
 		    width      	308
 		    height     	182)
-		(object ImportView "" @7
+		(object ImportView "" @8
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -677,8 +822,8 @@
 		    stereotype 	TRUE
 		    line_color 	3947680
 		    quidu      	"55B76AC8028C"
-		    client     	@3
-		    supplier   	@6
+		    client     	@4
+		    supplier   	@7
 		    vertices   	(list Points
 			(387, 411)
 			(514, 628))

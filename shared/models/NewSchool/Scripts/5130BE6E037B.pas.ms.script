@@ -9,7 +9,6 @@ FORWARD ME_512FA1800269
 FORWARD ME_512FA22703B6
 
 : ME_512FA29F00AF
- CONST UID '512FA29F00AF'
  CONST Name 'aTreeView'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -19,7 +18,6 @@ FORWARD ME_512FA22703B6
 ref; // ME_512FA29F00AF aTreeView
 
 : ME_512FA29F00CE
- CONST UID '512FA29F00CE'
  CONST Name 'aCtx'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -61,24 +59,7 @@ ref; // ME_512FA295029D DoIt
 
 ref; // ME_512FA22703B6 DoWithNscTreeView
 
-: ME_45D5132F85EF
- CONST UID '45D5132F85EF'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwNscTreeViewWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_512FA1800269 // TkwNscTreeViewWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_45D5132F85EF Ini_Reg_Class
-
 : ME_4F212C3A015A_ME_512FA1800269
- CONST UID '4F212C3A015A'
- CONST Name 'DoControl'
  : Original WL 'ME_4F212C3A015A' '54DB92D203C9.pas.ms.script' // DoControl
  ;
  : Implementor ME_512FA1800269 // TkwNscTreeViewWord
@@ -102,7 +83,6 @@ ref; // ME_4F212C3A015A_ME_512FA1800269 DoControl
  ; // Inherits
  : Operations
    Seq: ( ME_512FA22703B6 // DoWithNscTreeView
- ME_45D5132F85EF // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -145,22 +125,7 @@ FORWARD ME_512FA2CC033C
 
 ref; // ME_5130B70A030A TPrimListOptionsFormHack
 
-: ME_44FA6CA0368B
- CONST UID '44FA6CA0368B'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_TreeView_ExportSelectionWithFormat' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_512FA2CC033C // pop_TreeView_ExportSelectionWithFormat
- ;
-
-ref; // ME_44FA6CA0368B Ini_Reg
-
 : ME_5130B17702B8
- CONST UID '5130B17702B8'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_512FA2CC033C // pop_TreeView_ExportSelectionWithFormat
@@ -171,7 +136,6 @@ ref; // ME_44FA6CA0368B Ini_Reg
 ref; // ME_5130B17702B8 
 
 : ME_5130B17A0373
- CONST UID '5130B17A0373'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_512FA2CC033C // pop_TreeView_ExportSelectionWithFormat
@@ -182,7 +146,6 @@ ref; // ME_5130B17702B8
 ref; // ME_5130B17A0373 
 
 : ME_54DA395A01A5
- CONST UID '54DA395A01A5'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_512FA2CC033C // pop_TreeView_ExportSelectionWithFormat
@@ -193,7 +156,6 @@ ref; // ME_5130B17A0373
 ref; // ME_54DA395A01A5 
 
 : ME_550ADBAD030C
- CONST UID '550ADBAD030C'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_512FA2CC033C // pop_TreeView_ExportSelectionWithFormat
@@ -204,24 +166,12 @@ ref; // ME_54DA395A01A5
 ref; // ME_550ADBAD030C 
 
 : ME_512FA22703B6_ME_512FA2CC033C
- CONST UID '512FA22703B6'
- CONST Name 'DoWithNscTreeView'
  : Original ME_512FA22703B6 // DoWithNscTreeView
  ;
  : Implementor ME_512FA2CC033C // pop_TreeView_ExportSelectionWithFormat
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_512FA22703B6_ME_512FA2CC033C DoWithNscTreeView
-
-: ME_4DB0614603C8_ME_512FA2CC033C
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_512FA2CC033C // pop_TreeView_ExportSelectionWithFormat
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_512FA2CC033C GetWordNameForRegister
 
 : ME_512FA2CC033C
  CONST UID '512FA2CC033C'
@@ -237,18 +187,10 @@ ref; // ME_4DB0614603C8_ME_512FA2CC033C GetWordNameForRegister
    Seq: ( ME_512FA1800269 // TkwNscTreeViewWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_44FA6CA0368B // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_512FA22703B6_ME_512FA2CC033C // DoWithNscTreeView
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_512FA2CC033C // GetWordNameForRegister
- )
- ; // Overridden
  : Children
    Seq: ( ME_5130B70A030A // TPrimListOptionsFormHack
  )
@@ -275,7 +217,6 @@ ref; // ME_512FA2CC033C pop_TreeView_ExportSelectionWithFormat
 FORWARD ME_5130D80002C1
 
 : ME_5130D844016A
- CONST UID '5130D844016A'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_5130D80002C1 // TreeViewWordsPack
@@ -286,7 +227,6 @@ FORWARD ME_5130D80002C1
 ref; // ME_5130D844016A 
 
 : ME_B3A73FFFB0FF
- CONST UID 'B3A73FFFB0FF'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;

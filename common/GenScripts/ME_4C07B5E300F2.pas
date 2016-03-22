@@ -2,6 +2,8 @@ unit EVDtoEVDWriterTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoEVDWriterTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "EVDtoEVDWriterTest" MUID: (4C07B5E300F2)
+// Имя типа: "TEVDtoEVDWriterTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

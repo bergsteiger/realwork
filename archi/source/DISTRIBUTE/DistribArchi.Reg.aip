@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="8.0.2" version="11.6.2" Modules="architect" RootPath="." Language="ru" Id="{A9F517C1-B7D8-4919-9349-BAD1076F1DBC}">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiValidationComponent">
+    <ROW Table="File" Column="Sequence" MinValue="1" MaxValue="2147483647" Description="Sequence with respect to the media images; order must track cabinet order." Options="0" ColumnType="3" ColumnIndex="7" ColumnSize="4" MsiKey="File#Sequence"/>
+    <ROW Table="Media" Column="LastSequence" MinValue="0" MaxValue="2147483647" Description="File sequence number for the last file for this media." Options="0" ColumnType="3" ColumnIndex="1" ColumnSize="4" MsiKey="Media#LastSequence"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_EXTREG" Value="Yes"/>
+    <ROW Property="AI_FINDEXE_TITLE" Value="Выберите установочный пакет для [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="AI_FrameBtns" Value="default" MultiBuildValue="DefaultBuild:orange" MsiKey="AI_FrameBtns"/>
+    <ROW Property="AI_FrameColor" Value="lightslategray" MultiBuildValue="DefaultBuild:darkblue" MsiKey="AI_FrameColor"/>
+    <ROW Property="AI_MINCOLORDEPTH" MultiBuildValue="DefaultBuild:32" ValueLocId="-"/>
+    <ROW Property="AI_MINRAM" MultiBuildValue="DefaultBuild:512" ValueLocId="-"/>
+    <ROW Property="AI_MINXRESOLUTION" MultiBuildValue="DefaultBuild:1024" ValueLocId="-"/>
+    <ROW Property="AI_MINYRESOLUTION" MultiBuildValue="DefaultBuild:768" ValueLocId="-"/>
+    <ROW Property="AI_ThemeSteps" Value="radio" MsiKey="AI_ThemeSteps"/>
+    <ROW Property="ALLUSERS" Value="2" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPCOMMENTS" Value="Продукт НПП &quot;Гарант-Сервис&quot;, предназначенный для создания, ведения (пополнения) и управления текстовыми базами данных." ValueLocId="*"/>
+    <ROW Property="ARPHELPLINK" Value="archi@garant.ru"/>
+    <ROW Property="ARPHELPTELEPHONE" Value="+7.495.647.62.38"/>
+    <ROW Property="ARPURLINFOABOUT" Value="http://www.garant.ru"/>
+    <ROW Property="MSIFASTINSTALL" MultiBuildValue="DefaultBuild:4"/>
+    <ROW Property="Manufacturer" Value="НПП Гарант-Сервис Университет" ValueLocId="*"/>
+    <ROW Property="ProducVersion" Value="ProducVersion"/>
+    <ROW Property="ProductCode" Value="1049:{736BC356-D585-4011-8F35-F641920134B4} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1049"/>
+    <ROW Property="ProductName" Value="Archivarius" ValueLocId="*"/>
+    <ROW Property="ProductVersion" Value="10854" Type="32"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+    <ROW Property="UpgradeCode" Value="{94DCFE19-1B77-4141-9E63-CAF9B754ECF7}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1" DirectoryOptions="15"/>
+    <ROW Directory="Admin_Dir" Directory_Parent="Server_Dir" DefaultDir="Admin" DirectoryOptions="15"/>
+    <ROW Directory="Administrator.Adds_Dir" Directory_Parent="Administrator.AdminGuide_Dir" DefaultDir="ADMINI~1.ADD|Administrator.Adds" DirectoryOptions="15"/>
+    <ROW Directory="Administrator.AdminGuide_Dir" Directory_Parent="Manual_Dir" DefaultDir="ADMINI~1|Administrator" DirectoryOptions="15"/>
+    <ROW Directory="Alcu_Dir" Directory_Parent="Server_Dir" DefaultDir="Alcu" DirectoryOptions="15"/>
+    <ROW Directory="Archi_Dir" Directory_Parent="Server_Dir" DefaultDir="Archi" DirectoryOptions="15"/>
+    <ROW Directory="Archivarius.Adds_Dir" Directory_Parent="Archivarius.UserGuide_Dir" DefaultDir="ARCHIV~1.ADD|Archivarius.Adds" DirectoryOptions="15"/>
+    <ROW Directory="Archivarius.UserGuide_Dir" Directory_Parent="Manual_Dir" DefaultDir="ARCHIV~1|Archivarius" DirectoryOptions="15"/>
+    <ROW Directory="Archivarius.Utils_Dir" Directory_Parent="Manual_Dir" DefaultDir="Utils" DirectoryOptions="15"/>
+    <ROW Directory="AutoPipeServer.Adds_Dir" Directory_Parent="AutoPipeServer.AdminGuide_Dir" DefaultDir="AUTOPI~1.ADD|AutoPipeServer.Adds" DirectoryOptions="15"/>
+    <ROW Directory="AutoPipeServer.AdminGuide_Dir" Directory_Parent="Manual_Dir" DefaultDir="AUTOPI~1|AutoPipeServer" DirectoryOptions="15"/>
+    <ROW Directory="Everest_Dir" Directory_Parent="Server_Dir" DefaultDir="Everest" DirectoryOptions="15"/>
+    <ROW Directory="FAQ_Dir" Directory_Parent="Manual_Dir" DefaultDir="FAQ" DirectoryOptions="15"/>
+    <ROW Directory="KILLTR_Dir" Directory_Parent="perlutils_Dir" DefaultDir="KILLTR" DirectoryOptions="15"/>
+    <ROW Directory="KW_KW_Dir" Directory_Parent="perlutils_Dir" DefaultDir="KW_KW" DirectoryOptions="15"/>
+    <ROW Directory="Manual_Dir" Directory_Parent="APPDIR" DefaultDir="manual" DirectoryOptions="15"/>
+    <ROW Directory="ReleaseNotes_Dir" Directory_Parent="Manual_Dir" DefaultDir="RELEAS~1|ReleaseNotes" DirectoryOptions="15"/>
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="Server_Dir" Directory_Parent="APPDIR" DefaultDir="programm" DirectoryOptions="15"/>
+    <ROW Directory="Syntax_Dir" Directory_Parent="Manual_Dir" DefaultDir="Syntax" DirectoryOptions="15"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="Utils_Dir" Directory_Parent="Server_Dir" DefaultDir="Utils" DirectoryOptions="15"/>
+    <ROW Directory="__Dir" Directory_Parent="Utils_Dir" DefaultDir="scripts" DirectoryOptions="15"/>
+    <ROW Directory="arun_Dir" Directory_Parent="Archi_Dir" DefaultDir="arun" DirectoryOptions="15"/>
+    <ROW Directory="cutnglue_Dir" Directory_Parent="Utils_Dir" DefaultDir="CUT&apos;N&apos;~1|cut&apos;n&apos;glue" DirectoryOptions="15"/>
+    <ROW Directory="dll_Dir" Directory_Parent="APPDIR" DefaultDir="dll:DLL~1|dll" DirectoryOptions="15"/>
+    <ROW Directory="htutil_Dir" Directory_Parent="Utils_Dir" DefaultDir="htutil" DirectoryOptions="15"/>
+    <ROW Directory="noSSE_Dir" Directory_Parent="Everest_Dir" DefaultDir="!noSSE" DirectoryOptions="15"/>
+    <ROW Directory="nsrcspy_Dir" Directory_Parent="Utils_Dir" DefaultDir="nsrcspy" DirectoryOptions="15"/>
+    <ROW Directory="perlutils_Dir" Directory_Parent="Utils_Dir" DefaultDir="PERL-U~1|perl-utils" DirectoryOptions="15"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AIExtRegAnswer" ComponentId="{0CE07D03-3D5C-4EC3-95C0-50999D6B6077}" Directory_="APPDIR" Attributes="4" Condition="AI_EXTREG=&quot;No&quot;" KeyPath="AIExtRegAnswer"/>
+    <ROW Component="AI_ExePath" ComponentId="{AD9AF407-45D4-4787-A483-3662C109B7C6}" Directory_="APPDIR" Attributes="260" KeyPath="AI_ExePath"/>
+    <ROW Component="APPDIR" ComponentId="{1AACF0DC-B8EF-49C4-8476-20112003185B}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="AddImg.AdminGuide.pdf" ComponentId="{09FAD7FD-5378-4637-97DC-642189F0742E}" Directory_="Archivarius.Utils_Dir" Attributes="0" KeyPath="AddImg.AdminGuide.pdf" Type="0"/>
+    <ROW Component="AddImg.exe" ComponentId="{D8A490DC-02BB-458C-8012-A470B94C3F76}" Directory_="Utils_Dir" Attributes="0" KeyPath="AddImg.exe"/>
+    <ROW Component="AddImg.map" ComponentId="{F175CCB7-EF1B-4DAD-84AC-70F8FADE2DF0}" Directory_="Utils_Dir" Attributes="0" KeyPath="ReleaseNotes.AddImg.pdf" Type="0"/>
+    <ROW Component="AdjustToPage.exe" ComponentId="{E712AA79-B224-48E9-B7EF-ECD70D9F9447}" Directory_="Utils_Dir" Attributes="0" KeyPath="AdjustToPage.exe"/>
+    <ROW Component="Admin" ComponentId="{D118F3B8-9A6C-4BEA-B9AA-5672E2D7C17E}" Directory_="Admin_Dir" Attributes="0"/>
+    <ROW Component="Administrator.Adds" ComponentId="{D2886A27-2D74-4BB5-8091-2F23D51F6C64}" Directory_="Administrator.Adds_Dir" Attributes="0"/>
+    <ROW Component="Administrator.AdminGuide" ComponentId="{224E4AC4-9D3A-4786-9609-DE4D0F28AB78}" Directory_="Administrator.AdminGuide_Dir" Attributes="0"/>
+    <ROW Component="Administrator.AdminGuide.pdf" ComponentId="{AD72C9AE-170C-40B6-8420-27D402D4377D}" Directory_="Administrator.AdminGuide_Dir" Attributes="0" KeyPath="Administrator.AdminGuide.pdf" Type="0"/>
+    <ROW Component="Alcu" ComponentId="{17645A0A-B149-41E4-A152-14740AD73F53}" Directory_="Alcu_Dir" Attributes="0"/>
+    <ROW Component="Archi" ComponentId="{4A3E80C2-FE6F-4367-8B1D-90B366BF6208}" Directory_="Archi_Dir" Attributes="0"/>
+    <ROW Component="Archi.exe" ComponentId="{D73375A9-594D-48AB-BE6F-BF97BA0C7FEE}" Directory_="Archi_Dir" Attributes="0" KeyPath="Archi.exe"/>
+    <ROW Component="Archi.map" ComponentId="{1EC074CF-0399-4DBD-A4CC-2816FE34B621}" Directory_="Archi_Dir" Attributes="0" KeyPath="Archi.map" Type="0"/>
+    <ROW Component="ArchiAdapter.dll" ComponentId="{86ABB746-0956-49E8-B511-71013DC96752}" Directory_="dll_Dir" Attributes="0" KeyPath="ArchiAdapter.dll"/>
+    <ROW Component="Archivarius.Adds" ComponentId="{F0B00649-06EA-49D9-991D-4F945B84C7CC}" Directory_="Archivarius.Adds_Dir" Attributes="0"/>
+    <ROW Component="Archivarius.AppositionBD.pdf" ComponentId="{171047E0-7BFE-40B0-AFB7-F99316B35D37}" Directory_="Administrator.Adds_Dir" Attributes="0" KeyPath="Archivarius.AppositionBD.pdf" Type="0"/>
+    <ROW Component="Archivarius.ReleaseNotes.pdf" ComponentId="{B3F58885-8668-4786-AAE2-1AC30EB2BFBD}" Directory_="ReleaseNotes_Dir" Attributes="0" KeyPath="Archivarius.ReleaseNotes.pdf" Type="0"/>
+    <ROW Component="Archivarius.UserGuide" ComponentId="{68227A5D-AE32-4DD1-B157-59987EFB5827}" Directory_="Archivarius.UserGuide_Dir" Attributes="0"/>
+    <ROW Component="Archivarius.UserGuider.pdf" ComponentId="{DA0FB7BC-94EA-4A9D-BE95-D9F62DA0F9BB}" Directory_="Archivarius.UserGuide_Dir" Attributes="0" KeyPath="Archivarius.UserGuider.pdf" Type="0"/>
+    <ROW Component="Archivarius.Utils" ComponentId="{5FF24FDB-0D0E-43C2-A264-A512EB891DDA}" Directory_="Archivarius.Utils_Dir" Attributes="0"/>
+    <ROW Component="AutoPipeServer.Adds" ComponentId="{F4E5A56B-191D-4E4F-BFA1-0CC4B33005A2}" Directory_="AutoPipeServer.Adds_Dir" Attributes="0"/>
+    <ROW Component="AutoPipeServer.AdminGuide" ComponentId="{B96EED53-8551-47FB-97B1-AB0ABB705087}" Directory_="AutoPipeServer.AdminGuide_Dir" Attributes="0"/>
+    <ROW Component="AutoPipeServer.AdminGuider.pdf" ComponentId="{677DF19D-F142-4316-AA40-E4EBF9F65B05}" Directory_="AutoPipeServer.AdminGuide_Dir" Attributes="0" KeyPath="AutoPipeServer.AdminGuider.pdf" Type="0"/>
+    <ROW Component="AutoPipeServer.exe" ComponentId="{A72510EB-7AA2-4447-95CF-30229721F239}" Directory_="Alcu_Dir" Attributes="0" KeyPath="AutoPipeServer.exe"/>
+    <ROW Component="ClearClass.exe" ComponentId="{7726AAF0-088E-4147-AFCA-CCAEDB79182C}" Directory_="Utils_Dir" Attributes="0" KeyPath="ClearClass.exe"/>
+    <ROW Component="DRS32.DLL" ComponentId="{2026AC6C-1209-437B-81FA-A22F5BB0BB0D}" Directory_="dll_Dir" Attributes="0" KeyPath="DRS32.DLL"/>
+    <ROW Component="DbUpdate64.exe" ComponentId="{B82053E6-9FBA-430A-A6AC-BD9223098DCB}" Directory_="Utils_Dir" Attributes="0" KeyPath="DbUpdate64.exe"/>
+    <ROW Component="DbUtil.exe" ComponentId="{69AB7F1E-4572-4170-B3B9-8068C0756281}" Directory_="Utils_Dir" Attributes="0" KeyPath="DbUtil.exe"/>
+    <ROW Component="Descript.chm" ComponentId="{B6FDDD6D-FB59-45F1-A381-207050F7184D}" Directory_="APPDIR" Attributes="0" KeyPath="Descript.chm" Type="1"/>
+    <ROW Component="Descriptionoftheprocessofthetechnicalpro" ComponentId="{95F60AB4-256D-446D-AE9A-783D91CF17D7}" Directory_="Archivarius.Adds_Dir" Attributes="0" KeyPath="Descriptionoftheprocessofthetechnicalprocessingthedocument.pdf" Type="0"/>
+    <ROW Component="DictSync.exe" ComponentId="{CB4C5C0E-138B-4232-AC31-4CBDE4371B76}" Directory_="Utils_Dir" Attributes="0" KeyPath="DictSync.exe"/>
+    <ROW Component="Everest" ComponentId="{845C7FEB-7257-4A38-B1CF-B486610411BA}" Directory_="Everest_Dir" Attributes="0"/>
+    <ROW Component="Everest.exe" ComponentId="{CDC017A9-084C-455E-94F7-C153D8F0B372}" Directory_="Everest_Dir" Attributes="0" KeyPath="Everest.exe"/>
+    <ROW Component="Everest.map" ComponentId="{8BBD9092-B331-4289-8DF1-EC093314BF6E}" Directory_="Everest_Dir" Attributes="0" KeyPath="ReleaseNotes.Everest.pdf" Type="0"/>
+    <ROW Component="EverestLite.exe" ComponentId="{B96DF2D1-7EF1-4899-8EA7-42240829FB2E}" Directory_="noSSE_Dir" Attributes="0" KeyPath="EverestLite.exe"/>
+    <ROW Component="EverestLite.map" ComponentId="{2504E59B-4FF2-4EBD-B67A-326A9FF13B96}" Directory_="noSSE_Dir" Attributes="0" KeyPath="EverestLite.map" Type="0"/>
+    <ROW Component="ExprGuide.exe" ComponentId="{E29E6A2B-F2D1-452B-8D12-456EF1D075F0}" Directory_="Syntax_Dir" Attributes="0" KeyPath="ExprGuide.exe"/>
+    <ROW Component="FAQ" ComponentId="{30324F09-85C4-434A-BE00-DB034AB24055}" Directory_="FAQ_Dir" Attributes="0"/>
+    <ROW Component="FAQ.UserGuide.pdf" ComponentId="{E8DDF497-8EDD-440C-A73A-36FFF8B49987}" Directory_="FAQ_Dir" Attributes="0" KeyPath="FAQ.UserGuide.pdf" Type="0"/>
+    <ROW Component="GarDoc.Setting.Synchronization.AdminGuid" ComponentId="{E9EC5E46-5B94-4D3D-9785-3FF7075503C5}" Directory_="AutoPipeServer.Adds_Dir" Attributes="0" KeyPath="GarDoc.Setting.Synchronization.AdminGuide.pdf" Type="0"/>
+    <ROW Component="HSLOGF.dll" ComponentId="{7933B9B7-2CDE-4FF9-8FD3-F1B4FE1A41A7}" Directory_="dll_Dir" Attributes="0" KeyPath="HSLOGF.dll"/>
+    <ROW Component="KILLTR" ComponentId="{BB20192F-A90A-42B0-A319-C454DBF2C025}" Directory_="KILLTR_Dir" Attributes="0"/>
+    <ROW Component="KILLTR.BAT" ComponentId="{16C7BC0C-4999-4F5E-9B40-55FD4074203B}" Directory_="KILLTR_Dir" Attributes="0" KeyPath="KILLTR.BAT" Type="0"/>
+    <ROW Component="KW_KW" ComponentId="{9FE4A5E4-1022-4BC4-887D-9C898A59B5A1}" Directory_="KW_KW_Dir" Attributes="0"/>
+    <ROW Component="KW_KW.BAT" ComponentId="{81B58E2A-D12C-42AB-BFA5-35608FF5C3C5}" Directory_="KW_KW_Dir" Attributes="0" KeyPath="KW_KW.BAT" Type="0"/>
+    <ROW Component="Manual" ComponentId="{67AB375D-83D5-459B-B14E-961A041129AD}" Directory_="Manual_Dir" Attributes="0"/>
+    <ROW Component="NSRCSPY.exe" ComponentId="{1270D118-1E6B-429C-BEE8-20D049E961A0}" Directory_="nsrcspy_Dir" Attributes="0" KeyPath="NSRCSPY.exe"/>
+    <ROW Component="PipeOut2.exe" ComponentId="{F9249614-A999-4691-BD9A-DDC5A252CB2C}" Directory_="Utils_Dir" Attributes="0" KeyPath="PipeOut2.exe"/>
+    <ROW Component="ReleaseNotes" ComponentId="{E62708F2-D655-4CF3-B2CE-705114B71CAF}" Directory_="ReleaseNotes_Dir" Attributes="0"/>
+    <ROW Component="SHORTCUTDIR" ComponentId="{B6C4FC9D-FB89-432F-B7C7-86F2E397801E}" Directory_="SHORTCUTDIR" Attributes="0"/>
+    <ROW Component="Server" ComponentId="{240DD260-1A80-4274-965A-181AF9ECCD50}" Directory_="Server_Dir" Attributes="0"/>
+    <ROW Component="Syntax" ComponentId="{C655C93E-0278-4897-B674-A1E133A34241}" Directory_="Syntax_Dir" Attributes="0"/>
+    <ROW Component="TER22.DLL" ComponentId="{9148DA0D-AAE6-4423-87FC-3CB198377A83}" Directory_="dll_Dir" Attributes="0" KeyPath="TER22.DLL"/>
+    <ROW Component="Utils" ComponentId="{1C0A1305-26E9-4C51-84AD-328A8EA2ED86}" Directory_="Utils_Dir" Attributes="0"/>
+    <ROW Component="WRS7.DLL" ComponentId="{583D3B51-65E6-4E93-AAFE-EC4472D07D75}" Directory_="dll_Dir" Attributes="0" KeyPath="WRS7.DLL"/>
+    <ROW Component="_" ComponentId="{2F2CD7A1-DD0C-417B-B322-ECD6E6F9A996}" Directory_="__Dir" Attributes="0"/>
+    <ROW Component="admin2.exe" ComponentId="{2C1E26C3-B76A-4761-A342-F6782B5ED1B5}" Directory_="Admin_Dir" Attributes="0" KeyPath="admin2.exe"/>
+    <ROW Component="admin2.map" ComponentId="{8D274808-5348-4E31-A4B4-4B037BBB3853}" Directory_="Admin_Dir" Attributes="0" KeyPath="admin2.map" Type="0"/>
+    <ROW Component="alcuTaskExecutor.exe" ComponentId="{50666967-A301-4E32-A6F0-16E51081F658}" Directory_="Alcu_Dir" Attributes="0" KeyPath="alcuTaskExecutor.exe"/>
+    <ROW Component="alcuTaskExecutor.map" ComponentId="{F491E104-B637-453D-AD9D-C78C9ABDAAFA}" Directory_="Alcu_Dir" Attributes="0" KeyPath="ReleaseNotes.Autopipeserver.pdf" Type="0"/>
+    <ROW Component="archi.ini.default" ComponentId="{9562582E-1A88-4EC2-90AF-833BED781E3A}" Directory_="arun_Dir" Attributes="0" KeyPath="archi.ini.default" Type="0"/>
+    <ROW Component="arun" ComponentId="{78D1A25F-E23A-424C-A2F6-150B9620547D}" Directory_="arun_Dir" Attributes="0"/>
+    <ROW Component="arun.exe" ComponentId="{CF6E0487-B18F-492F-BFF7-C0A925014A1D}" Directory_="arun_Dir" Attributes="0" KeyPath="arun.exe"/>
+    <ROW Component="azbuka32.dll" ComponentId="{B4DE5912-D72F-4AAC-A7E1-1D84B9707D65}" Directory_="dll_Dir" Attributes="0" KeyPath="azbuka32.dll"/>
+    <ROW Component="class.bat" ComponentId="{48C99242-64C4-4DFF-BAB1-E6889112A440}" Directory_="__Dir" Attributes="0" KeyPath="class.bat" Type="0"/>
+    <ROW Component="cng.exe" ComponentId="{80AAD5E8-5AB5-46BE-920C-D250ABCCD590}" Directory_="cutnglue_Dir" Attributes="0" KeyPath="cng.exe"/>
+    <ROW Component="cutnglue" ComponentId="{4660B515-DB51-4D62-8BE6-ADF7F62BFEE4}" Directory_="cutnglue_Dir" Attributes="0"/>
+    <ROW Component="cutnglue_readme.txt" ComponentId="{AB710229-A065-4C1D-8EC7-226BEB5B8DBF}" Directory_="cutnglue_Dir" Attributes="0" KeyPath="cutnglue_readme.txt" Type="0"/>
+    <ROW Component="dll" ComponentId="{299CC2EC-3216-4F7F-A896-EA3C75B3C360}" Directory_="dll_Dir" Attributes="0"/>
+    <ROW Component="everest2everest.exe" ComponentId="{DC0AE4A7-4754-4DF4-B1B4-AF72C3A5137E}" Directory_="Utils_Dir" Attributes="0" KeyPath="everest2everest.exe"/>
+    <ROW Component="gzPrj.exe" ComponentId="{B6CB1FA7-0DE7-45B8-9360-B8025D68756F}" Directory_="Utils_Dir" Attributes="0" KeyPath="gzPrj.exe"/>
+    <ROW Component="hsfmng64.dll" ComponentId="{0A04F2BC-EC51-4C71-9EC4-35474C65EAC7}" Directory_="dll_Dir" Attributes="0" KeyPath="hsfmng64.dll"/>
+    <ROW Component="hsht64.dll" ComponentId="{2603DA87-373B-4D32-8B8D-911233A2DAD8}" Directory_="dll_Dir" Attributes="0" KeyPath="hsht64.dll"/>
+    <ROW Component="ht25to27.exe" ComponentId="{B665A876-5100-4BAF-8FC9-59D4C91E9B31}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht25to27.exe"/>
+    <ROW Component="ht32cli.dll" ComponentId="{FF4A4D16-E2E0-45B6-964E-67B0EF7E0C15}" Directory_="dll_Dir" Attributes="0" KeyPath="ht32cli.dll"/>
+    <ROW Component="ht32cli.dll_1" ComponentId="{54EB580B-B478-4913-83A6-86AC697496EA}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32cli.dll_1"/>
+    <ROW Component="ht32cli.exe" ComponentId="{27AFAE14-A853-46CA-B98E-C8D2BC1EEDE2}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32cli.exe"/>
+    <ROW Component="ht32db.dll" ComponentId="{D8F153CD-61BB-4F78-AD6F-E918CBDD460F}" Directory_="dll_Dir" Attributes="0" KeyPath="ht32db.dll"/>
+    <ROW Component="ht32db.dll_1" ComponentId="{818262C8-2E60-4473-B248-684CB43AE028}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32db.dll_1"/>
+    <ROW Component="ht32hdrn.exe" ComponentId="{69DD8986-6A2C-4444-8C56-4AB6C2F0D1F9}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32hdrn.exe"/>
+    <ROW Component="ht32indx.exe" ComponentId="{C9A6601D-070C-41CF-AAA9-D2F5C48B420C}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32indx.exe"/>
+    <ROW Component="ht32inetd.exe" ComponentId="{F91C8566-DCB9-4DE9-8257-2D2877EE1F68}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32inetd.exe"/>
+    <ROW Component="ht32info.exe" ComponentId="{F46EE743-A11D-4C74-85DD-8E1882A05A17}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32info.exe"/>
+    <ROW Component="ht32lfix.exe" ComponentId="{C632DDC0-BC70-4841-A3D6-BA7238A222F8}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32lfix.exe"/>
+    <ROW Component="ht32logf.dll" ComponentId="{CE6BFDC2-E28A-4DBB-886A-3DDD0B21C6FA}" Directory_="dll_Dir" Attributes="0" KeyPath="ht32logf.dll"/>
+    <ROW Component="ht32logx.exe" ComponentId="{FECAB548-44B5-42DF-8C39-1891A5111F1B}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32logx.exe"/>
+    <ROW Component="ht32msg.exe" ComponentId="{E079D69E-F936-4485-94B0-93C47F2AAAA2}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32msg.exe"/>
+    <ROW Component="ht32nls.dll" ComponentId="{3BA09326-91AF-4986-A202-7AF0489416DA}" Directory_="dll_Dir" Attributes="0" KeyPath="ht32nls.dll"/>
+    <ROW Component="ht32pack.exe" ComponentId="{E779FEDA-5D31-455B-99C5-B87D5B4A0630}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32pack.exe"/>
+    <ROW Component="ht32ping.exe" ComponentId="{59F0EE91-6B49-4034-9B01-E5625D11E660}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32ping.exe"/>
+    <ROW Component="ht32repr.exe" ComponentId="{82FF7C0E-B11F-4E45-BA62-7C3E240A5D02}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32repr.exe"/>
+    <ROW Component="ht32umon.exe" ComponentId="{A63811AE-BED2-40EB-8382-5535852EB5A5}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32umon.exe"/>
+    <ROW Component="ht32unlk.exe" ComponentId="{B3FE538B-3913-4015-92BD-3FB6D760AE3A}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32unlk.exe"/>
+    <ROW Component="ht32updt.exe" ComponentId="{CC615EDA-6A93-45CF-AA56-FD40C2899431}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32updt.exe"/>
+    <ROW Component="ht32vrfy.exe" ComponentId="{C05FC7DA-D837-4660-AAD6-ECE69E0C304A}" Directory_="htutil_Dir" Attributes="0" KeyPath="ht32vrfy.exe"/>
+    <ROW Component="ht64db.dll" ComponentId="{A82B3D88-BB82-478A-A0ED-A2D991466B2A}" Directory_="dll_Dir" Attributes="256" KeyPath="ht64db.dll"/>
+    <ROW Component="htimpo.exe" ComponentId="{53B56A0D-A60C-418B-A54A-A31F2E2A23AB}" Directory_="htutil_Dir" Attributes="0" KeyPath="htimpo.exe"/>
+    <ROW Component="htpp.exe" ComponentId="{4F6B47D6-0381-4F84-B6CB-9CF9E9AC5574}" Directory_="htutil_Dir" Attributes="0" KeyPath="htpp.exe"/>
+    <ROW Component="htsc.exe" ComponentId="{C7361ED1-7875-4182-82AC-ED7ECCC63CBA}" Directory_="htutil_Dir" Attributes="0" KeyPath="htsc.exe"/>
+    <ROW Component="htutil" ComponentId="{29BFD983-6E27-45CC-9330-48C585193C11}" Directory_="htutil_Dir" Attributes="0"/>
+    <ROW Component="htvers.exe" ComponentId="{63615C74-93F0-4B46-A547-D3A97E115562}" Directory_="htutil_Dir" Attributes="0" KeyPath="htvers.exe"/>
+    <ROW Component="impchdate.exe" ComponentId="{4DB4D5AB-776D-4C18-B674-BBE97A71C904}" Directory_="Utils_Dir" Attributes="0" KeyPath="impchdate.exe"/>
+    <ROW Component="libeay32.dll" ComponentId="{DFAA688E-783D-4724-BF15-302C6B49549D}" Directory_="dll_Dir" Attributes="0" KeyPath="libeay32.dll"/>
+    <ROW Component="ling32bi.dll" ComponentId="{F5EB04D3-7F9A-4187-82B7-E6F68C32DF1E}" Directory_="dll_Dir" Attributes="0" KeyPath="ling32bi.dll"/>
+    <ROW Component="listimport.exe" ComponentId="{BE1F986C-FF28-40CC-91D9-D471BE306A1D}" Directory_="Utils_Dir" Attributes="0" KeyPath="listimport.exe"/>
+    <ROW Component="mlma32ru.dll" ComponentId="{EFB27E5C-291A-474F-8CEE-171A88ABA039}" Directory_="dll_Dir" Attributes="0" KeyPath="mlma32ru.dll"/>
+    <ROW Component="msvcr120.dll" ComponentId="{758408D5-C847-48F3-99C1-AE4891B84E9D}" Directory_="dll_Dir" Attributes="0" KeyPath="msvcr120.dll"/>
+    <ROW Component="noSSE" ComponentId="{21BEDD3C-A737-4089-B9AB-21B1CB131797}" Directory_="noSSE_Dir" Attributes="0"/>
+    <ROW Component="nsrcspy" ComponentId="{3A866CC9-4953-4E11-95A1-464E97B611F0}" Directory_="nsrcspy_Dir" Attributes="0"/>
+    <ROW Component="nsrcspy.ini.default" ComponentId="{AC4C1E20-1D66-4545-AC93-67E86EF5E85E}" Directory_="nsrcspy_Dir" Attributes="0" KeyPath="nsrcspy.ini.default" Type="0"/>
+    <ROW Component="nsrplus2nsr.exe" ComponentId="{3DB5EF0B-A396-4694-A1BE-4F9285F88A7C}" Directory_="Utils_Dir" Attributes="0" KeyPath="nsrplus2nsr.exe"/>
+    <ROW Component="perlutils" ComponentId="{E1BB639D-F539-46EB-AD06-0B603F56CFA6}" Directory_="perlutils_Dir" Attributes="0"/>
+    <ROW Component="pictgate.dll" ComponentId="{17B07CEE-4E6A-4A34-AA84-3BAEF2776E95}" Directory_="dll_Dir" Attributes="0" KeyPath="pictgate.dll"/>
+    <ROW Component="regiontool.exe" ComponentId="{4995038C-A832-4BE1-9A5F-3E91E0EC0BE1}" Directory_="Utils_Dir" Attributes="0" KeyPath="regiontool.exe"/>
+    <ROW Component="ssleay32.dll" ComponentId="{05D1CC53-D881-4F8B-A59A-8AFB3DE9F111}" Directory_="dll_Dir" Attributes="0" KeyPath="ssleay32.dll"/>
+    <ROW Component="txml2.dll" ComponentId="{53EC3F71-5279-4B58-8157-B6B7B1B7F7F9}" Directory_="dll_Dir" Attributes="0" KeyPath="txml2.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="Metenance" Title="ArchiInstal" Description="Инсталлятор Архивариуса" Display="0" Level="1" Directory_="APPDIR" Attributes="0" Components="AIExtRegAnswer AI_ExePath APPDIR AddImg.AdminGuide.pdf AddImg.exe AddImg.map AdjustToPage.exe Admin Administrator.Adds Administrator.AdminGuide Administrator.AdminGuide.pdf Alcu Archi Archi.exe Archi.map ArchiAdapter.dll Archivarius.Adds Archivarius.AppositionBD.pdf Archivarius.ReleaseNotes.pdf Archivarius.UserGuide Archivarius.UserGuider.pdf Archivarius.Utils AutoPipeServer.Adds AutoPipeServer.AdminGuide AutoPipeServer.AdminGuider.pdf AutoPipeServer.exe ClearClass.exe DRS32.DLL DbUpdate64.exe DbUtil.exe Descript.chm Descriptionoftheprocessofthetechnicalpro DictSync.exe Everest Everest.exe Everest.map EverestLite.exe EverestLite.map ExprGuide.exe FAQ FAQ.UserGuide.pdf GarDoc.Setting.Synchronization.AdminGuid HSLOGF.dll KILLTR KILLTR.BAT KW_KW KW_KW.BAT Manual NSRCSPY.exe PipeOut2.exe ReleaseNotes SHORTCUTDIR Server Syntax TER22.DLL Utils WRS7.DLL _ admin2.exe admin2.map alcuTaskExecutor.exe alcuTaskExecutor.map archi.ini.default arun arun.exe azbuka32.dll class.bat cng.exe cutnglue cutnglue_readme.txt dll everest2everest.exe gzPrj.exe hsfmng64.dll hsht64.dll ht25to27.exe ht32cli.dll ht32cli.dll_1 ht32cli.exe ht32db.dll ht32db.dll_1 ht32hdrn.exe ht32indx.exe ht32inetd.exe ht32info.exe ht32lfix.exe ht32logf.dll ht32logx.exe ht32msg.exe ht32nls.dll ht32pack.exe ht32ping.exe ht32repr.exe ht32umon.exe ht32unlk.exe ht32updt.exe ht32vrfy.exe ht64db.dll htimpo.exe htpp.exe htsc.exe htutil htvers.exe impchdate.exe libeay32.dll ling32bi.dll listimport.exe mlma32ru.dll msvcr120.dll noSSE nsrcspy nsrcspy.ini.default nsrplus2nsr.exe perlutils pictgate.dll regiontool.exe ssleay32.dll txml2.dll"/>
+    <ATTRIBUTE name="CurrentFeature" value="Metenance"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="ARunCommon.ini.default" Component_="Archi.map" FileName="ARUNCO~1.DEF|ARunCommon.ini.default" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\ARunCommon.ini.default" SelfReg="false" NextFile="ServerConfig.ini.default"/>
+    <ROW File="AddImg.AdminGuide.pdf" Component_="AddImg.AdminGuide.pdf" FileName="ADDIMG~1.PDF|AddImg.AdminGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\AddImg.AdminGuide.pdf" SelfReg="false" NextFile="AdjustToPage.AdminGuide.pdf"/>
+    <ROW File="AddImg.exe" Component_="AddImg.exe" FileName="AddImg.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\AddImg\AddImg.exe" SelfReg="false" NextFile="AdjustToPage.map" DigSign="true"/>
+    <ROW File="AddImg.map" Component_="AddImg.map" FileName="AddImg.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\AddImg\AddImg.map" SelfReg="false" NextFile="AddImg.exe"/>
+    <ROW File="AdjustToPage.AdminGuide.pdf" Component_="AddImg.AdminGuide.pdf" FileName="ADJUST~1.PDF|AdjustToPage.AdminGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\AdjustToPage.AdminGuide.pdf" SelfReg="false" NextFile="Clearclass.AdminGuide.pdf"/>
+    <ROW File="AdjustToPage.exe" Component_="AdjustToPage.exe" FileName="ADJUST~1.EXE|AdjustToPage.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\AdjustToPage\AdjustToPage.exe" SelfReg="false" NextFile="ClearClass.map" DigSign="true"/>
+    <ROW File="AdjustToPage.map" Component_="AddImg.map" FileName="ADJUST~1.MAP|AdjustToPage.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\AdjustToPage\AdjustToPage.map" SelfReg="false" NextFile="AdjustToPage.exe"/>
+    <ROW File="Administrator.AdminGuide.pdf" Component_="Administrator.AdminGuide.pdf" FileName="ADMINI~1.PDF|Administrator.AdminGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\Administrator.AdminGuide.pdf" SelfReg="false" NextFile="Archivarius.Setting.AdminGuide.pdf"/>
+    <ROW File="Archi.exe" Component_="Archi.exe" FileName="Archi.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\Archi\Archi.exe" SelfReg="false" NextFile="ReleaseNotes.Admin2.pdf" DigSign="true"/>
+    <ROW File="Archi.map" Component_="Archi.map" FileName="Archi.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\Archi\Archi.map" SelfReg="false" NextFile="Archi.exe"/>
+    <ROW File="ArchiAdapter.dll" Component_="ArchiAdapter.dll" FileName="ARCHIA~1.DLL|ArchiAdapter.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\internal\ArchiAdapter\ArchiAdapter.dll" SelfReg="false" NextFile="pictgate.dll"/>
+    <ROW File="Archivarius.AppositionBD.pdf" Component_="Archivarius.AppositionBD.pdf" FileName="ARCHIV~1.PDF|Archivarius.AppositionBD.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\Archivarius.AppositionBD.pdf" SelfReg="false" NextFile="Archivarius.Inroduction.pdf"/>
+    <ROW File="Archivarius.Inroduction.pdf" Component_="Archivarius.AppositionBD.pdf" FileName="ARCHIV~2.PDF|Archivarius.Inroduction.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\Archivarius.Inroduction.pdf" SelfReg="false" NextFile="Administrator.AdminGuide.pdf"/>
+    <ROW File="Archivarius.ReleaseNotes.pdf" Component_="Archivarius.ReleaseNotes.pdf" FileName="ARCHIV~1.PDF|Archivarius.ReleaseNotes.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\Archivarius.ReleaseNotes.pdf" SelfReg="false" NextFile="admin2.map"/>
+    <ROW File="Archivarius.Setting.AdminGuide.pdf" Component_="Archivarius.AppositionBD.pdf" FileName="ARCHIV~3.PDF|Archivarius.Setting.AdminGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\Archivarius.Setting.AdminGuide.pdf" SelfReg="false" NextFile="Descriptionoftheprocessofthetechnicalprocessingthedocument.pdf"/>
+    <ROW File="Archivarius.UserGuider.pdf" Component_="Archivarius.UserGuider.pdf" FileName="ARCHIV~1.PDF|Archivarius.UserGuide(r).pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\Archivarius.UserGuide(r).pdf" SelfReg="false" NextFile="AddImg.AdminGuide.pdf"/>
+    <ROW File="AutoPipeServer.AdminGuider.pdf" Component_="AutoPipeServer.AdminGuider.pdf" FileName="AUTOPI~1.PDF|AutoPipeServer.AdminGuide(r).pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\AutoPipeServer.AdminGuide(r).pdf" SelfReg="false" NextFile="EverestLite.map"/>
+    <ROW File="AutoPipeServer.exe" Component_="AutoPipeServer.exe" FileName="AUTOPI~1.EXE|AutoPipeServer.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\PipeInAuto_REGION\AutoPipeServer.exe" SelfReg="false" NextFile="ExprGuide.exe" DigSign="true"/>
+    <ROW File="AutoPipeServer.ini.default" Component_="alcuTaskExecutor.map" FileName="AUTOPI~1.DEF|AutoPipeServer.ini.default" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\AutoPipeServer.ini.default" SelfReg="false" NextFile="ARunCommon.ini.default"/>
+    <ROW File="AutoPipeServer.map" Component_="alcuTaskExecutor.map" FileName="AUTOPI~1.MAP|AutoPipeServer.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\PipeInAuto_REGION\AutoPipeServer.map" SelfReg="false" NextFile="AutoPipeServer.exe"/>
+    <ROW File="Autopipeserver.AdminGuideal.pdf" Component_="AutoPipeServer.AdminGuider.pdf" FileName="AUTOPI~2.PDF|Autopipeserver.AdminGuide(al).pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\Autopipeserver.AdminGuide(al).pdf" SelfReg="false"/>
+    <ROW File="ClearClass.exe" Component_="ClearClass.exe" FileName="CLEARC~1.EXE|ClearClass.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\ClearClass\ClearClass.exe" SelfReg="false" NextFile="DbUpdate64.map" DigSign="true"/>
+    <ROW File="ClearClass.map" Component_="AddImg.map" FileName="CLEARC~1.MAP|ClearClass.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\ClearClass\ClearClass.map" SelfReg="false" NextFile="ClearClass.exe"/>
+    <ROW File="Clearclass.AdminGuide.pdf" Component_="AddImg.AdminGuide.pdf" FileName="CLEARC~1.PDF|Clearclass.AdminGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\Clearclass.AdminGuide.pdf" SelfReg="false" NextFile="DbUtil.AdminGuide.pdf"/>
+    <ROW File="DRS32.DLL" Component_="DRS32.DLL" FileName="DRS32.DLL" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\Doc2Rtf\DRS32.DLL" SelfReg="false" NextFile="TER22.DLL"/>
+    <ROW File="DbUpdate64.exe" Component_="DbUpdate64.exe" FileName="DBUPDA~1.EXE|DbUpdate64.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\DbUpdate64\DbUpdate64.exe" SelfReg="false" NextFile="DbUtil.map" DigSign="true"/>
+    <ROW File="DbUpdate64.map" Component_="AddImg.map" FileName="DBUPDA~1.MAP|DbUpdate64.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\DbUpdate64\DbUpdate64.map" SelfReg="false" NextFile="DbUpdate64.exe"/>
+    <ROW File="DbUtil.AdminGuide.pdf" Component_="AddImg.AdminGuide.pdf" FileName="DBUTIL~1.PDF|DbUtil.AdminGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\DbUtil.AdminGuide.pdf" SelfReg="false" NextFile="Delprefix.AdminGuide.pdf"/>
+    <ROW File="DbUtil.exe" Component_="DbUtil.exe" FileName="DbUtil.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\DbUtil\DbUtil.exe" SelfReg="false" NextFile="DictSync.map" DigSign="true"/>
+    <ROW File="DbUtil.map" Component_="AddImg.map" FileName="DbUtil.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\DbUtil\DbUtil.map" SelfReg="false" NextFile="DbUtil.exe"/>
+    <ROW File="Delprefix.AdminGuide.pdf" Component_="AddImg.AdminGuide.pdf" FileName="DELPRE~1.PDF|Delprefix.AdminGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\Delprefix.AdminGuide.pdf" SelfReg="false" NextFile="DictSync.AdminGuide.pdf"/>
+    <ROW File="Descript.chm" Component_="Descript.chm" FileName="Descript.chm" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\Descript.chm" SelfReg="false" NextFile="Autopipeserver.AdminGuideal.pdf"/>
+    <ROW File="Descriptionoftheprocessofthetechnicalprocessingthedocument.pdf" Component_="Descriptionoftheprocessofthetechnicalpro" FileName="DESCRI~1.PDF|Description of the process of the technical processing the document.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\Description of the process of the technical processing the document.pdf" SelfReg="false" NextFile="Procedureformakingproofreading.pdf"/>
+    <ROW File="DictSync.AdminGuide.pdf" Component_="AddImg.AdminGuide.pdf" FileName="DICTSY~1.PDF|DictSync.AdminGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\DictSync.AdminGuide.pdf" SelfReg="false" NextFile="gzPrj.AdminGuide.pdf"/>
+    <ROW File="DictSync.exe" Component_="DictSync.exe" FileName="DictSync.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\DictSync\DictSync.exe" SelfReg="false" NextFile="everest2everest.map" DigSign="true"/>
+    <ROW File="DictSync.map" Component_="AddImg.map" FileName="DictSync.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\DictSync\DictSync.map" SelfReg="false" NextFile="DictSync.exe"/>
+    <ROW File="Everest.exe" Component_="Everest.exe" FileName="Everest.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\Everest\Everest.exe" SelfReg="false" NextFile="alcuTaskExecutor.map" DigSign="true"/>
+    <ROW File="Everest.map" Component_="Everest.map" FileName="Everest.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\Everest\Everest.map" SelfReg="false" NextFile="Everest.exe"/>
+    <ROW File="EverestLite.exe" Component_="EverestLite.exe" FileName="EVERES~1.EXE|EverestLite.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\EverestLite_AMD\EverestLite.exe" SelfReg="false" NextFile="admin2.ini.default" DigSign="true"/>
+    <ROW File="EverestLite.map" Component_="EverestLite.map" FileName="EVERES~1.MAP|EverestLite.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\EverestLite_AMD\EverestLite.map" SelfReg="false" NextFile="EverestLite.exe"/>
+    <ROW File="ExprGuide.exe" Component_="ExprGuide.exe" FileName="EXPRGU~1.EXE|ExprGuide.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\Syntax\ExprGuide.exe" SelfReg="false" NextFile="AddImg.map" DigSign="true"/>
+    <ROW File="FAQ.UserGuide.pdf" Component_="FAQ.UserGuide.pdf" FileName="FAQUSE~1.PDF|FAQ.UserGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\FAQ.UserGuide.pdf" SelfReg="false" NextFile="Archivarius.ReleaseNotes.pdf"/>
+    <ROW File="GarDoc.Setting.Synchronization.AdminGuide.pdf" Component_="GarDoc.Setting.Synchronization.AdminGuid" FileName="GARDOC~1.PDF|GarDoc.Setting.Synchronization.AdminGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\GarDoc.Setting.Synchronization.AdminGuide.pdf" SelfReg="false" NextFile="Descript.chm"/>
+    <ROW File="HSLOGF.dll" Component_="HSLOGF.dll" FileName="HSLOGF.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\hytech\HSLOGF.dll" SelfReg="false" NextFile="ht32cli.dll"/>
+    <ROW File="HyTech.CorrectionTable.AdminGuide.pdf" Component_="AddImg.AdminGuide.pdf" FileName="HYTECH~1.PDF|HyTech.CorrectionTable.AdminGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\HyTech.CorrectionTable.AdminGuide.pdf" SelfReg="false" NextFile="KILLTR.UserGuide.pdf"/>
+    <ROW File="KILLTR.BAT" Component_="KILLTR.BAT" FileName="KILLTR.BAT" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\perl-utils\KILLTR\KILLTR.BAT" SelfReg="false" NextFile="KILLTR.PL"/>
+    <ROW File="KILLTR.PL" Component_="KILLTR.BAT" FileName="KILLTR.PL" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\perl-utils\KILLTR\KILLTR.PL" SelfReg="false" NextFile="KW_KW.BAT"/>
+    <ROW File="KILLTR.UserGuide.pdf" Component_="AddImg.AdminGuide.pdf" FileName="KILLTR~1.PDF|KILLTR.UserGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\KILLTR.UserGuide.pdf" SelfReg="false" NextFile="ListImport.AdminGuide.pdf"/>
+    <ROW File="KW_KW.BAT" Component_="KW_KW.BAT" FileName="KW_KW.BAT" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\perl-utils\KW_KW\KW_KW.BAT" SelfReg="false" NextFile="KW_KW.PL"/>
+    <ROW File="KW_KW.PL" Component_="KW_KW.BAT" FileName="KW_KW.PL" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\perl-utils\KW_KW\KW_KW.PL" SelfReg="false" NextFile="READ.ME.txt"/>
+    <ROW File="ListImport.AdminGuide.pdf" Component_="AddImg.AdminGuide.pdf" FileName="LISTIM~1.PDF|ListImport.AdminGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\ListImport.AdminGuide.pdf" SelfReg="false" NextFile="NSRCSpy.AdminGuider.pdf"/>
+    <ROW File="NSRCSPY.exe" Component_="NSRCSPY.exe" FileName="NSRCSPY.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\NSRCSPY\NSRCSPY.exe" SelfReg="false" NextFile="nsrplus2nsr.map" DigSign="true"/>
+    <ROW File="NSRCSPY.map" Component_="nsrcspy.ini.default" FileName="NSRCSPY.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\NSRCSPY\NSRCSPY.map" SelfReg="false" NextFile="NSRCSPY.exe"/>
+    <ROW File="NSRCSpy.AdminGuider.pdf" Component_="AddImg.AdminGuide.pdf" FileName="NSRCSP~1.PDF|NSRCSpy.AdminGuide(r).pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\NSRCSpy.AdminGuide(r).pdf" SelfReg="false" NextFile="NSRplus2nsr.AdminGuide.pdf"/>
+    <ROW File="NSRplus2nsr.AdminGuide.pdf" Component_="AddImg.AdminGuide.pdf" FileName="NSRPLU~1.PDF|NSRplus2nsr.AdminGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\NSRplus2nsr.AdminGuide.pdf" SelfReg="false" NextFile="PipeOut2.AdminGuide.pdf"/>
+    <ROW File="PipeOut2.AdminGuide.pdf" Component_="AddImg.AdminGuide.pdf" FileName="PIPEOU~1.PDF|PipeOut2.AdminGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\PipeOut2.AdminGuide.pdf" SelfReg="false" NextFile="RegionTool.AdminGuide.pdf"/>
+    <ROW File="PipeOut2.exe" Component_="PipeOut2.exe" FileName="PipeOut2.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\PipeOut2\PipeOut2.exe" SelfReg="false" NextFile="regiontool.map" DigSign="true"/>
+    <ROW File="PipeOut2.map" Component_="AddImg.map" FileName="PipeOut2.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\PipeOut2\PipeOut2.map" SelfReg="false" NextFile="PipeOut2.exe"/>
+    <ROW File="Procedureformakingproofreading.pdf" Component_="Descriptionoftheprocessofthetechnicalpro" FileName="PROCED~1.PDF|Procedure for making proofreading.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\Procedure for making proofreading.pdf" SelfReg="false" NextFile="Thesequenceofactionswhenenteringnewdocuments.pdf"/>
+    <ROW File="READ.ME.txt" Component_="KW_KW.BAT" FileName="README~1.TXT|READ.ME.txt" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\perl-utils\KW_KW\READ.ME.txt" SelfReg="false" NextFile="class.bat"/>
+    <ROW File="RegionTool.AdminGuide.pdf" Component_="AddImg.AdminGuide.pdf" FileName="REGION~1.PDF|RegionTool.AdminGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\RegionTool.AdminGuide.pdf" SelfReg="false" NextFile="FAQ.UserGuide.pdf"/>
+    <ROW File="ReleaseNotes.AddImg.pdf" Component_="AddImg.map" FileName="RELEAS~1.PDF|ReleaseNotes.AddImg.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\ReleaseNotes.AddImg.pdf" SelfReg="false" NextFile="ReleaseNotes.Adjust2page.pdf"/>
+    <ROW File="ReleaseNotes.Adjust2page.pdf" Component_="AddImg.map" FileName="RELEAS~2.PDF|ReleaseNotes.Adjust2page.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\ReleaseNotes.Adjust2page.pdf" SelfReg="false" NextFile="ReleaseNotes.BaseVersion.pdf"/>
+    <ROW File="ReleaseNotes.Admin2.pdf" Component_="admin2.map" FileName="RELEAS~1.PDF|ReleaseNotes.Admin2.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\ReleaseNotes.Admin2.pdf" SelfReg="false" NextFile="ReleaseNotes.Autopipeserver.pdf"/>
+    <ROW File="ReleaseNotes.Archivarius.pdf" Component_="Archi.map" FileName="RELEAS~1.PDF|ReleaseNotes.Archivarius.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\ReleaseNotes.Archivarius.pdf" SelfReg="false" NextFile="ReleaseNotes.Everest.pdf"/>
+    <ROW File="ReleaseNotes.Autopipeserver.pdf" Component_="alcuTaskExecutor.map" FileName="RELEAS~1.PDF|ReleaseNotes.Autopipeserver.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\ReleaseNotes.Autopipeserver.pdf" SelfReg="false" NextFile="ReleaseNotes.Archivarius.pdf"/>
+    <ROW File="ReleaseNotes.BaseVersion.pdf" Component_="AddImg.map" FileName="RELEAS~3.PDF|ReleaseNotes.BaseVersion.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\ReleaseNotes.BaseVersion.pdf" SelfReg="false" NextFile="ReleaseNotes.Dbupdate.pdf"/>
+    <ROW File="ReleaseNotes.DBUtil.pdf" Component_="AddImg.map" FileName="RELEAS~5.PDF|ReleaseNotes.DBUtil.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\ReleaseNotes.DBUtil.pdf" SelfReg="false" NextFile="ReleaseNotes.Dictsync.pdf"/>
+    <ROW File="ReleaseNotes.Dbupdate.pdf" Component_="AddImg.map" FileName="RELEAS~4.PDF|ReleaseNotes.Dbupdate.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\ReleaseNotes.Dbupdate.pdf" SelfReg="false" NextFile="ReleaseNotes.DBUtil.pdf"/>
+    <ROW File="ReleaseNotes.Dictsync.pdf" Component_="AddImg.map" FileName="RELEAS~6.PDF|ReleaseNotes.Dictsync.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\ReleaseNotes.Dictsync.pdf" SelfReg="false" NextFile="ReleaseNotes.Listimport.pdf"/>
+    <ROW File="ReleaseNotes.Everest.pdf" Component_="Everest.map" FileName="RELEAS~1.PDF|ReleaseNotes.Everest.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\ReleaseNotes.Everest.pdf" SelfReg="false" NextFile="ReleaseNotes.AddImg.pdf"/>
+    <ROW File="ReleaseNotes.Listimport.pdf" Component_="AddImg.map" FileName="RELEAS~7.PDF|ReleaseNotes.Listimport.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\ReleaseNotes.Listimport.pdf" SelfReg="false" NextFile="ReleaseNotes.Nsrcspy.pdf"/>
+    <ROW File="ReleaseNotes.Nsrcspy.pdf" Component_="nsrcspy.ini.default" FileName="RELEAS~1.PDF|ReleaseNotes.Nsrcspy.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\ReleaseNotes.Nsrcspy.pdf" SelfReg="false" NextFile="ReleaseNotes.Nsrplus2nsr.pdf"/>
+    <ROW File="ReleaseNotes.Nsrplus2nsr.pdf" Component_="AddImg.map" FileName="RELEAS~9.PDF|ReleaseNotes.Nsrplus2nsr.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\ReleaseNotes.Nsrplus2nsr.pdf" SelfReg="false" NextFile="ReleaseNotes.Pipeout2.pdf"/>
+    <ROW File="ReleaseNotes.Pipeout2.pdf" Component_="AddImg.map" FileName="RELEA~10.PDF|ReleaseNotes.Pipeout2.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\ReleaseNotes.Pipeout2.pdf" SelfReg="false" NextFile="ReleaseNotes.Regiontool.pdf"/>
+    <ROW File="ReleaseNotes.Regiontool.pdf" Component_="AddImg.map" FileName="RELEA~11.PDF|ReleaseNotes.Regiontool.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi2-2008\Archi\DAILY_MANUALS\ReleaseNotes.Regiontool.pdf" SelfReg="false" NextFile="Everest.map"/>
+    <ROW File="ServerConfig.ini.default" Component_="Archi.map" FileName="SERVER~1.DEF|ServerConfig.ini.default" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\ServerConfig.ini.default" SelfReg="false" NextFile="archi.ini.default"/>
+    <ROW File="TER22.DLL" Component_="TER22.DLL" FileName="TER22.DLL" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\Doc2Rtf\TER22.DLL" SelfReg="false" NextFile="txml2.dll"/>
+    <ROW File="Thesequenceofactionswhenenteringnewdocuments.pdf" Component_="Descriptionoftheprocessofthetechnicalpro" FileName="THESEQ~1.PDF|The sequence of actions when entering new documents.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\The sequence of actions when entering new documents.pdf" SelfReg="false" NextFile="Archivarius.UserGuider.pdf"/>
+    <ROW File="WRS7.DLL" Component_="WRS7.DLL" FileName="WRS7.DLL" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\Doc2Rtf\WRS7.DLL" SelfReg="false" NextFile="hsfmng64.dll"/>
+    <ROW File="admin2.exe" Component_="admin2.exe" FileName="admin2.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\admin2\admin2.exe" SelfReg="false" NextFile="Archi.map" DigSign="true"/>
+    <ROW File="admin2.ini.default" Component_="admin2.map" FileName="ADMIN2~1.DEF|admin2.ini.default" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\admin2.ini.default" SelfReg="false" NextFile="AutoPipeServer.ini.default"/>
+    <ROW File="admin2.map" Component_="admin2.map" FileName="admin2.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\admin2\admin2.map" SelfReg="false" NextFile="admin2.exe"/>
+    <ROW File="alcuTaskExecutor.exe" Component_="alcuTaskExecutor.exe" FileName="ALCUTA~1.EXE|alcuTaskExecutor.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\alcuTaskExecutor_REGION\alcuTaskExecutor.exe" SelfReg="false" NextFile="AutoPipeServer.map" DigSign="true"/>
+    <ROW File="alcuTaskExecutor.map" Component_="alcuTaskExecutor.map" FileName="ALCUTA~1.MAP|alcuTaskExecutor.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\alcuTaskExecutor_REGION\alcuTaskExecutor.map" SelfReg="false" NextFile="alcuTaskExecutor.exe"/>
+    <ROW File="archi.ini.default" Component_="archi.ini.default" FileName="ARCHII~1.DEF|archi.ini.default" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\archi.ini.default" SelfReg="false" NextFile="arun.ini.default"/>
+    <ROW File="arun.exe" Component_="arun.exe" FileName="arun.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\archi\archi\exe\archi\distrib\arun\arun.exe" SelfReg="false" NextFile="AutoPipeServer.AdminGuider.pdf" DigSign="true"/>
+    <ROW File="arun.ini.default" Component_="archi.ini.default" FileName="ARUNIN~1.DEF|arun.ini.default" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\arun.ini.default" SelfReg="false" NextFile="ht32cli.dll_1"/>
+    <ROW File="azbuka32.dll" Component_="azbuka32.dll" FileName="azbuka32.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\agama\azbuka32.dll" SelfReg="false" NextFile="ling32bi.dll"/>
+    <ROW File="class.bat" Component_="class.bat" FileName="class.bat" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\scripts\class.bat" SelfReg="false" NextFile="source.bat"/>
+    <ROW File="class.pl" Component_="class.bat" FileName="class.pl" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\scripts\class.pl" SelfReg="false" NextFile="source.pl"/>
+    <ROW File="cng.exe" Component_="cng.exe" FileName="cng.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\cut&apos;n&apos;glue\cng.exe" SelfReg="false" NextFile="cutnglue_readme.txt" DigSign="true"/>
+    <ROW File="cutnglue_readme.txt" Component_="cutnglue_readme.txt" FileName="CUT&apos;N&apos;~1.TXT|cut&apos;n&apos;glue_readme.txt" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\cut&apos;n&apos;glue\cut&apos;n&apos;glue_readme.txt" SelfReg="false" NextFile="impchdate.map"/>
+    <ROW File="everest2everest.exe" Component_="everest2everest.exe" FileName="EVERES~1.EXE|everest2everest.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\everest2everest\everest2everest.exe" SelfReg="false" NextFile="gzPrj.map" DigSign="true"/>
+    <ROW File="everest2everest.map" Component_="AddImg.map" FileName="EVERES~1.MAP|everest2everest.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\everest2everest\everest2everest.map" SelfReg="false" NextFile="everest2everest.exe"/>
+    <ROW File="gzPrj.AdminGuide.pdf" Component_="AddImg.AdminGuide.pdf" FileName="GZPRJA~1.PDF|gzPrj.AdminGuide.pdf" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\ARCHI2-2008\Archi\DAILY_MANUALS\gzPrj.AdminGuide.pdf" SelfReg="false" NextFile="HyTech.CorrectionTable.AdminGuide.pdf"/>
+    <ROW File="gzPrj.exe" Component_="gzPrj.exe" FileName="gzPrj.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\gzPrj\gzPrj.exe" SelfReg="false" NextFile="listimport.map" DigSign="true"/>
+    <ROW File="gzPrj.map" Component_="AddImg.map" FileName="gzPrj.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\gzPrj\gzPrj.map" SelfReg="false" NextFile="gzPrj.exe"/>
+    <ROW File="hsfmng64.dll" Component_="hsfmng64.dll" FileName="hsfmng64.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\hytech\hsfmng64.dll" SelfReg="false" NextFile="hsht64.dll"/>
+    <ROW File="hsht64.dll" Component_="hsht64.dll" FileName="hsht64.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\hytech\hsht64.dll" SelfReg="false" NextFile="HSLOGF.dll"/>
+    <ROW File="ht25to27.exe" Component_="ht25to27.exe" FileName="ht25to27.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht25to27.exe" SelfReg="false" NextFile="ht32cli.exe" DigSign="true"/>
+    <ROW File="ht32cli.dll" Component_="ht32cli.dll" FileName="ht32cli.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\hytech\ht32cli.dll" SelfReg="false" NextFile="ht32db.dll"/>
+    <ROW File="ht32cli.dll_1" Component_="ht32cli.dll_1" FileName="ht32cli.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32cli.dll" SelfReg="false" NextFile="ht32db.dll_1"/>
+    <ROW File="ht32cli.exe" Component_="ht32cli.exe" FileName="ht32cli.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32cli.exe" SelfReg="false" NextFile="ht32hdrn.exe" DigSign="true"/>
+    <ROW File="ht32db.dll" Component_="ht32db.dll" FileName="ht32db.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\hytech\ht32db.dll" SelfReg="false" NextFile="ht32logf.dll"/>
+    <ROW File="ht32db.dll_1" Component_="ht32db.dll_1" FileName="ht32db.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32db.dll" SelfReg="false" NextFile="ht25to27.exe"/>
+    <ROW File="ht32hdrn.exe" Component_="ht32hdrn.exe" FileName="ht32hdrn.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32hdrn.exe" SelfReg="false" NextFile="ht32indx.exe" DigSign="true"/>
+    <ROW File="ht32indx.exe" Component_="ht32indx.exe" FileName="ht32indx.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32indx.exe" SelfReg="false" NextFile="ht32inetd.exe" DigSign="true"/>
+    <ROW File="ht32inetd.exe" Component_="ht32inetd.exe" FileName="HT32IN~1.EXE|ht32inetd.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32inetd.exe" SelfReg="false" NextFile="ht32info.exe" DigSign="true"/>
+    <ROW File="ht32info.exe" Component_="ht32info.exe" FileName="ht32info.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32info.exe" SelfReg="false" NextFile="ht32lfix.exe" DigSign="true"/>
+    <ROW File="ht32lfix.exe" Component_="ht32lfix.exe" FileName="ht32lfix.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32lfix.exe" SelfReg="false" NextFile="ht32logx.exe" DigSign="true"/>
+    <ROW File="ht32logf.dll" Component_="ht32logf.dll" FileName="ht32logf.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\hytech\ht32logf.dll" SelfReg="false" NextFile="ht32nls.dll"/>
+    <ROW File="ht32logx.exe" Component_="ht32logx.exe" FileName="ht32logx.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32logx.exe" SelfReg="false" NextFile="ht32msg.exe" DigSign="true"/>
+    <ROW File="ht32msg.exe" Component_="ht32msg.exe" FileName="ht32msg.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32msg.exe" SelfReg="false" NextFile="ht32pack.exe" DigSign="true"/>
+    <ROW File="ht32nls.dll" Component_="ht32nls.dll" FileName="ht32nls.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\hytech\ht32nls.dll" SelfReg="false" NextFile="ht64db.dll"/>
+    <ROW File="ht32pack.exe" Component_="ht32pack.exe" FileName="ht32pack.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32pack.exe" SelfReg="false" NextFile="ht32ping.exe" DigSign="true"/>
+    <ROW File="ht32ping.exe" Component_="ht32ping.exe" FileName="ht32ping.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32ping.exe" SelfReg="false" NextFile="ht32repr.exe" DigSign="true"/>
+    <ROW File="ht32repr.exe" Component_="ht32repr.exe" FileName="ht32repr.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32repr.exe" SelfReg="false" NextFile="ht32umon.exe" DigSign="true"/>
+    <ROW File="ht32umon.exe" Component_="ht32umon.exe" FileName="ht32umon.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32umon.exe" SelfReg="false" NextFile="ht32unlk.exe" DigSign="true"/>
+    <ROW File="ht32unlk.exe" Component_="ht32unlk.exe" FileName="ht32unlk.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32unlk.exe" SelfReg="false" NextFile="ht32updt.exe" DigSign="true"/>
+    <ROW File="ht32updt.exe" Component_="ht32updt.exe" FileName="ht32updt.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32updt.exe" SelfReg="false" NextFile="ht32vrfy.exe" DigSign="true"/>
+    <ROW File="ht32vrfy.exe" Component_="ht32vrfy.exe" FileName="ht32vrfy.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\ht32vrfy.exe" SelfReg="false" NextFile="htimpo.exe" DigSign="true"/>
+    <ROW File="ht64db.dll" Component_="ht64db.dll" FileName="ht64db.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\hytech\ht64db.dll" SelfReg="false" NextFile="mlma32ru.dll"/>
+    <ROW File="htimpo.exe" Component_="htimpo.exe" FileName="htimpo.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\htimpo.exe" SelfReg="false" NextFile="htpp.exe" DigSign="true"/>
+    <ROW File="htpp.exe" Component_="htpp.exe" FileName="htpp.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\htpp.exe" SelfReg="false" NextFile="htsc.exe" DigSign="true"/>
+    <ROW File="htsc.exe" Component_="htsc.exe" FileName="htsc.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\htsc.exe" SelfReg="false" NextFile="htvers.exe" DigSign="true"/>
+    <ROW File="htvers.exe" Component_="htvers.exe" FileName="htvers.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\htutil\htvers.exe" SelfReg="false" NextFile="nsrcspy.ini.default" DigSign="true"/>
+    <ROW File="impchdate.exe" Component_="impchdate.exe" FileName="IMPCHD~1.EXE|impchdate.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\impchdate\impchdate.exe" SelfReg="false" NextFile="KILLTR.BAT" DigSign="true"/>
+    <ROW File="impchdate.map" Component_="AddImg.map" FileName="IMPCHD~1.MAP|impchdate.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\impchdate\impchdate.map" SelfReg="false" NextFile="impchdate.exe"/>
+    <ROW File="libeay32.dll" Component_="libeay32.dll" FileName="libeay32.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\OpenSSL\libeay32.dll" SelfReg="false" NextFile="msvcr120.dll"/>
+    <ROW File="ling32bi.dll" Component_="ling32bi.dll" FileName="ling32bi.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\agama\ling32bi.dll" SelfReg="false" NextFile="DRS32.DLL"/>
+    <ROW File="listimport.exe" Component_="listimport.exe" FileName="LISTIM~1.EXE|listimport.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\listimport\listimport.exe" SelfReg="false" NextFile="NSRCSPY.map" DigSign="true"/>
+    <ROW File="listimport.map" Component_="AddImg.map" FileName="LISTIM~1.MAP|listimport.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\listimport\listimport.map" SelfReg="false" NextFile="listimport.exe"/>
+    <ROW File="mlma32ru.dll" Component_="mlma32ru.dll" FileName="mlma32ru.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\medialingua\mlma32ru.dll" SelfReg="false" NextFile="libeay32.dll"/>
+    <ROW File="msvcr120.dll" Component_="msvcr120.dll" FileName="msvcr120.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\OpenSSL\msvcr120.dll" SelfReg="false" NextFile="ssleay32.dll"/>
+    <ROW File="nsrcspy.ini.default" Component_="nsrcspy.ini.default" FileName="NSRCSP~1.DEF|nsrcspy.ini.default" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\nsrcspy.ini.default" SelfReg="false" NextFile="cng.exe"/>
+    <ROW File="nsrplus2nsr.exe" Component_="nsrplus2nsr.exe" FileName="NSRPLU~1.EXE|nsrplus2nsr.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\nsrplus2nsr\nsrplus2nsr.exe" SelfReg="false" NextFile="PipeOut2.map" DigSign="true"/>
+    <ROW File="nsrplus2nsr.map" Component_="AddImg.map" FileName="NSRPLU~1.MAP|nsrplus2nsr.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\nsrplus2nsr\nsrplus2nsr.map" SelfReg="false" NextFile="nsrplus2nsr.exe"/>
+    <ROW File="pictgate.dll" Component_="pictgate.dll" FileName="pictgate.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\internal\pictgate\pictgate.dll" SelfReg="false" NextFile="GarDoc.Setting.Synchronization.AdminGuide.pdf"/>
+    <ROW File="regiontool.exe" Component_="regiontool.exe" FileName="REGION~1.EXE|regiontool.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\regiontool\regiontool.exe" SelfReg="false" NextFile="arun.exe" DigSign="true"/>
+    <ROW File="regiontool.map" Component_="AddImg.map" FileName="REGION~1.MAP|regiontool.map" Version="65535.65535.65535.65535" Attributes="0" SourcePath="\\cooker\nightbuild\env\out\exe\OldHT\regiontool\regiontool.map" SelfReg="false" NextFile="regiontool.exe"/>
+    <ROW File="source.bat" Component_="class.bat" FileName="source.bat" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\scripts\source.bat" SelfReg="false" NextFile="territory.bat"/>
+    <ROW File="source.pl" Component_="class.bat" FileName="source.pl" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\scripts\source.pl" SelfReg="false" NextFile="territory.pl"/>
+    <ROW File="ssleay32.dll" Component_="ssleay32.dll" FileName="ssleay32.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\OpenSSL\ssleay32.dll" SelfReg="false" NextFile="ArchiAdapter.dll"/>
+    <ROW File="territory.bat" Component_="class.bat" FileName="TERRIT~1.BAT|territory.bat" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\scripts\territory.bat" SelfReg="false" NextFile="types.bat"/>
+    <ROW File="territory.pl" Component_="class.bat" FileName="TERRIT~1.PL|territory.pl" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\scripts\territory.pl" SelfReg="false" NextFile="types.pl"/>
+    <ROW File="txml2.dll" Component_="txml2.dll" FileName="txml2.dll" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\sharedll\external\Doc2Rtf\txml2.dll" SelfReg="false" NextFile="WRS7.DLL"/>
+    <ROW File="types.bat" Component_="class.bat" FileName="types.bat" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\scripts\types.bat" SelfReg="false" NextFile="class.pl"/>
+    <ROW File="types.pl" Component_="class.bat" FileName="types.pl" Version="65535.65535.65535.65535" Attributes="0" SourcePath="..\..\..\..\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Distrib\scripts\types.pl" SelfReg="false" NextFile="azbuka32.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.AiRemoveFileComponent">
+    <ROW RemoveFile="_" Options="3"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="ArchiRegion" BuildOrder="1" BuildType="1" PackageFolder="DistribRegBuild" PackageFileName="134_build_[|ProductVersion]_reg" Languages="ru" InstallationType="2" CabsLocation="1" CompressCabs="false" UseLzma="true" LzmaMethod="2" LzmaCompressionLevel="2" PackageType="1" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" Options="6" MsiPackageType="AI_ALL" UACExecutionLevel="3"/>
+    <ATTRIBUTE name="CurrentBuild" value="DefaultBuild"/>
+    <ATTRIBUTE name="ShareDatabase" value="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildEventsComponent">
+    <ROW EventId="0" EventRun="cmd.exe" EventCmdLine="/c copy &quot;[|AI_AIP_FOLDER]\DistribRegBuild\134_build_[|ProductVersion]_reg-FILES.7z&quot;" EventWkDir="D:\ARCHIVARIUS_WORK\GARANT\НОВЫЕ РЕЛИЗЫ\Region" EventOrder="1" EventType="2" EventInterupt="false" EventEnabled="true" EventPrecompression="false" EventBuild="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_ru.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DigCertStoreComponent">
+    <ROW TimeStampUrl="http://timestamp.verisign.com/scripts/timstamp.dll" SignerDescription="[|ProductName]" SignOptions="0" SignTool="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="ExtRegDlg.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\ExtRegDlg.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;graphite\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_AiRemoveFilesCommit" Description="Начало удаления файлов." Template="Удаление файла: [1]" DescriptionLocId="ActionText.Description.AI_AiRemoveFilesCommit" TemplateLocId="ActionText.Template.AI_AiRemoveFilesCommit"/>
+    <ROW Action="AI_AiRemoveFilesDeferred_Permanent" Description="Preparing files for removal" Template="Preparing file: [1]" DescriptionLocId="ActionText.Description.AI_AiRemoveFilesDeferred_Permanent" TemplateLocId="ActionText.Template.AI_AiRemoveFilesDeferred_Permanent"/>
+    <ROW Action="AI_AiRemoveFilesDeferred_Undoable" Description="Preparing files for removal" Template="Preparing file: [1]" DescriptionLocId="ActionText.Description.AI_AiRemoveFilesDeferred_Undoable" TemplateLocId="ActionText.Template.AI_AiRemoveFilesDeferred_Undoable"/>
+    <ROW Action="AI_AiRemoveFilesImmediate" Description="Подготовка к удалению файлов." Template="Preparing file: [1]" DescriptionLocId="ActionText.Description.AI_AiRemoveFilesImmediate" TemplateLocId="ActionText.Template.AI_AiRemoveFilesImmediate"/>
+    <ROW Action="AI_AiRemoveFilesRollback" Description="Restoring removed files" Template="Restoring file: [1]" DescriptionLocId="ActionText.Description.AI_AiRemoveFilesRollback" TemplateLocId="ActionText.Template.AI_AiRemoveFilesRollback"/>
+    <ROW Action="AI_DeleteLzma" Description="Удаление извлеченных файлов из архива" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DeleteRLzma" Description="Удаление извлеченных файлов из архива" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractFiles" Description="Извлечение файлов из архива" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractLzma" Description="Извлечение файлов из архива" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ProcessFolders" Description="Открытие папок для общего доступа:" Template="Папка: [1], Имя ресурса: [2]" DescriptionLocId="ActionText.Description.AI_ProcessFolders" TemplateLocId="ActionText.Template.AI_ProcessFolders"/>
+    <ROW Action="AI_RemoveSHFolders" Description="Удаление общего ресурса с локального компьютера" Template="Имя ресурса: [1]" DescriptionLocId="ActionText.Description.AI_RemoveSHFolders" TemplateLocId="ActionText.Template.AI_RemoveSHFolders"/>
+    <ROW Action="AI_RollbackSHFolders" Description="Восстановление состояния общего ресурса" Template="Имя ресурса: [1]" DescriptionLocId="ActionText.Description.AI_RollbackSHFolders" TemplateLocId="ActionText.Template.AI_RollbackSHFolders"/>
+    <ROW Action="AI_ShareFolders" Description="Открытие общего ресурса на локальном компьютере" Template="Папка: [1]" DescriptionLocId="ActionText.Description.AI_ShareFolders" TemplateLocId="ActionText.Template.AI_ShareFolders"/>
+    <ROW Action="AI_UninstallSHFolders" Description="Подготовка к удалению общего ресурса:" Template="Имя ресурса: [1]" DescriptionLocId="ActionText.Description.AI_UninstallSHFolders" TemplateLocId="ActionText.Template.AI_UninstallSHFolders"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild"/>
+    <ROW Property="AI_EXTREG" Signature_="AI_ExtRegOptionMachine"/>
+    <ROW Property="AI_EXTREG" Signature_="AI_ExtRegOptionUser"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="ResourceCleaner.dll" SourcePath="&lt;AI_CUSTACTS&gt;ResourceCleaner.dll"/>
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+    <ROW Name="sharefolders.dll" SourcePath="&lt;AI_CUSTACTS&gt;sharefolders.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="ExtRegDlg" Control_="Next" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="ExtRegDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="ExtRegDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Next" Event="NewDialog" Argument="ExtRegDlg" Condition="AI_MAINT" Ordering="1401"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Next" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND MaintenanceTypeOption=&quot;Remove&quot;" Ordering="1403"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND MaintenanceTypeOption=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Next" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND MaintenanceTypeOption=&quot;Repair&quot;" Ordering="1402"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND MaintenanceTypeOption=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND MaintenanceTypeOption=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND MaintenanceTypeOption=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="false"/>
+    <ROW Directory_="Manual_Dir" Component_="Manual" ManualDelete="false"/>
+    <ROW Directory_="Server_Dir" Component_="Server" ManualDelete="false"/>
+    <ROW Directory_="Administrator.Adds_Dir" Component_="Administrator.Adds" ManualDelete="false"/>
+    <ROW Directory_="Administrator.AdminGuide_Dir" Component_="Administrator.AdminGuide" ManualDelete="false"/>
+    <ROW Directory_="Archivarius.Adds_Dir" Component_="Archivarius.Adds" ManualDelete="false"/>
+    <ROW Directory_="Archivarius.UserGuide_Dir" Component_="Archivarius.UserGuide" ManualDelete="false"/>
+    <ROW Directory_="Archivarius.Utils_Dir" Component_="Archivarius.Utils" ManualDelete="false"/>
+    <ROW Directory_="AutoPipeServer.AdminGuide_Dir" Component_="AutoPipeServer.AdminGuide" ManualDelete="false"/>
+    <ROW Directory_="FAQ_Dir" Component_="FAQ" ManualDelete="false"/>
+    <ROW Directory_="ReleaseNotes_Dir" Component_="ReleaseNotes" ManualDelete="false"/>
+    <ROW Directory_="Syntax_Dir" Component_="Syntax" ManualDelete="false"/>
+    <ROW Directory_="Admin_Dir" Component_="Admin" ManualDelete="false"/>
+    <ROW Directory_="Alcu_Dir" Component_="Alcu" ManualDelete="false"/>
+    <ROW Directory_="Archi_Dir" Component_="Archi" ManualDelete="false"/>
+    <ROW Directory_="Everest_Dir" Component_="Everest" ManualDelete="false"/>
+    <ROW Directory_="Utils_Dir" Component_="Utils" ManualDelete="false"/>
+    <ROW Directory_="arun_Dir" Component_="arun" ManualDelete="false"/>
+    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
+    <ROW Directory_="dll_Dir" Component_="dll" ManualDelete="false"/>
+    <ROW Directory_="noSSE_Dir" Component_="noSSE" ManualDelete="false"/>
+    <ROW Directory_="htutil_Dir" Component_="htutil" ManualDelete="false"/>
+    <ROW Directory_="perlutils_Dir" Component_="perlutils" ManualDelete="false"/>
+    <ROW Directory_="KILLTR_Dir" Component_="KILLTR" ManualDelete="false"/>
+    <ROW Directory_="KW_KW_Dir" Component_="KW_KW" ManualDelete="false"/>
+    <ROW Directory_="__Dir" Component_="_" ManualDelete="false"/>
+    <ROW Directory_="AutoPipeServer.Adds_Dir" Component_="AutoPipeServer.Adds" ManualDelete="false"/>
+    <ROW Directory_="nsrcspy_Dir" Component_="nsrcspy" ManualDelete="false"/>
+    <ROW Directory_="cutnglue_Dir" Component_="cutnglue" ManualDelete="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_AiRemoveFilesCommit" Type="11777" Source="ResourceCleaner.dll" Target="OnAiRemoveFilesCommit" WithoutSeq="true"/>
+    <ROW Action="AI_AiRemoveFilesDeferred_Permanent" Type="11265" Source="ResourceCleaner.dll" Target="OnAiRemoveFilesPermanent" WithoutSeq="true"/>
+    <ROW Action="AI_AiRemoveFilesDeferred_Undoable" Type="11265" Source="ResourceCleaner.dll" Target="OnAiRemoveFilesUndoable" WithoutSeq="true"/>
+    <ROW Action="AI_AiRemoveFilesImmediate" Type="1" Source="ResourceCleaner.dll" Target="OnAiRemoveFilesImmediate"/>
+    <ROW Action="AI_AiRemoveFilesRollback" Type="11521" Source="ResourceCleaner.dll" Target="OnAiUndoRemoveFiles"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DATA_SETTER" Type="51" Source="AI_RemoveAllTempFiles" Target="[AI_TEMP_FILE_ROLLBACK_INFO]"/>
+    <ROW Action="AI_DATA_SETTER_1" Type="51" Source="AI_ExtractFiles" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EstimateExtractFiles" Type="1" Source="Prereq.dll" Target="EstimateExtractFiles"/>
+    <ROW Action="AI_ExtractCadLzma" Type="51" Source="AI_ExtractLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ExtractFiles" Type="1025" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER_1"/>
+    <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
+    <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_ProcessFolders" Type="1" Source="sharefolders.dll" Target="ProcessFolders"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_RemoveSHFolders" Type="11265" Source="sharefolders.dll" Target="RemoveShareFolders" WithoutSeq="true"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_RollbackSHFolders" Type="11521" Source="sharefolders.dll" Target="RemoveShareFolders" WithoutSeq="true"/>
+    <ROW Action="AI_SETPROGRAMFILES" Type="51" Source="AI_ProgramFiles" Target="[ProgramFilesFolder]"/>
+    <ROW Action="AI_SETPROGRAMFILES64" Type="51" Source="AI_ProgramFiles" Target="[ProgramFiles64Folder]"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="AI_ShareFolders" Type="11265" Source="sharefolders.dll" Target="AddShareFolders" WithoutSeq="true"/>
+    <ROW Action="AI_UninstallSHFolders" Type="1" Source="sharefolders.dll" Target="UninstallShareFolders"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[WindowsVolume]\Archivarius"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiExtComponent">
+    <ATTRIBUTE name="SaveRegID" value="AIExtRegAnswer"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="745"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="Not Installed" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="51"/>
+    <ROW Action="AI_SETPROGRAMFILES64" Condition="VersionNT64" Sequence="746"/>
+    <ROW Action="AI_SETPROGRAMFILES" Condition="NOT VersionNT64" Sequence="747"/>
+    <ROW Action="AI_AiRemoveFilesRollback" Sequence="3099"/>
+    <ROW Action="AI_ProcessFolders" Condition="(VersionNT &gt;= 500) AND (REMOVE&lt;&gt;&quot;ALL&quot;)" Sequence="4089"/>
+    <ROW Action="AI_UninstallSHFolders" Condition="(VersionNT &gt;= 500) AND (REMOVE=&quot;ALL&quot;)" Sequence="1649"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
+    <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6599" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractFiles" Sequence="3998" Builds="DefaultBuild"/>
+    <ROW Action="AI_DATA_SETTER_1" Sequence="3997"/>
+    <ROW Action="AI_EstimateExtractFiles" Sequence="3999" Builds="DefaultBuild"/>
+    <ROW Action="AI_AiRemoveFilesImmediate" Sequence="3499"/>
+    <ATTRIBUTE name="RegisterProduct" value="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="745"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_SETPROGRAMFILES64" Condition="VersionNT64" Sequence="746"/>
+    <ROW Action="AI_SETPROGRAMFILES" Condition="NOT VersionNT64" Sequence="747"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101"/>
+    <ROW Action="AI_DpiContentScale" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="(Not Installed)" Description="Описание условия запуска"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] не может быть установлен в следующих версиях Windows: [WindowsTypeNT40Display]" DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="ColorBits &gt;= AI_MINCOLORDEPTH" Description="Приложение [ProductName] не может быть установлено на компьютере, имеющем глубину цвета экрана менее [AI_MINCOLORDEPTH] бит." DescriptionLocId="AI.LaunchCondition.ColorDepth" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="PhysicalMemory &gt;= AI_MINRAM" Description="Приложение [ProductName] не может быть установлено на компьютере, имеющем объем физической памяти менее [AI_MINRAM] МБ." DescriptionLocId="AI.LaunchCondition.RAM" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="ScreenX &gt;= AI_MINXRESOLUTION AND ScreenY &gt;= AI_MINYRESOLUTION" Description="Приложение [ProductName] не может быть установлено на компьютере, имеющем разрешение экрана менее [AI_MINXRESOLUTION] x [AI_MINYRESOLUTION]." DescriptionLocId="AI.LaunchCondition.Resolution" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="Нельзя установить [ProductName] на [WindowsType9XDisplay]" DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLockPermComponent">
+    <ROW LockObject="APPDIR" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="Manual_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="Server_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="Administrator.Adds_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="Administrator.AdminGuide_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="Archivarius.Adds_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="Archivarius.UserGuide_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="Archivarius.Utils_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="AutoPipeServer.AdminGuide_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="FAQ_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="ReleaseNotes_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="Syntax_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="Admin_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="Alcu_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="Archi_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="Everest_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="Utils_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="arun_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="dll_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="noSSE_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="htutil_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="perlutils_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="KILLTR_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="KW_KW_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="__Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="AutoPipeServer.Adds_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="nsrcspy_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+    <ROW LockObject="cutnglue_Dir" Table="CreateFolder" User="Все" Permission="1880096767"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_ExtRegOptionMachine" Root="2" Key="Software\Caphyon\Advanced Installer\Installs\[ProductCode]" Name="AIExtRegAnswer" Type="2"/>
+    <ROW Signature_="AI_ExtRegOptionUser" Root="1" Key="Software\Caphyon\Advanced Installer\Installs\[ProductCode]" Name="AIExtRegAnswer" Type="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="AIExtRegAnswer" Root="-1" Key="Software\Caphyon\Advanced Installer\Installs\[ProductCode]" Name="AIExtRegAnswer" Value="[AI_EXTREG]" Component_="AIExtRegAnswer"/>
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRemoveFileComponent">
+    <ROW FileKey="_" Component_="AIExtRegAnswer" DirProperty="APPDIR" InstallMode="3"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="LUKbuild" Directory_="SHORTCUTDIR" Name="LUKbuild" Component_="AIExtRegAnswer" Target="[NetHoodFolder]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="graphite"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMax="[|ProductVersion]" Attributes="1025" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.ShareFoldersComponent">
+    <ROW ShareId="ProductName" Directory="APPDIR" ShareName="[ProductName]" UserLimit="-1" Permissions="Everyone/1179817" Options="0"/>
+  </COMPONENT>
+</DOCUMENT>

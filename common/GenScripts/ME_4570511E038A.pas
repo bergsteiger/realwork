@@ -2,6 +2,7 @@ unit DocumentUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DocumentUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Document" MUID: (4570511E038A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -177,9 +178,6 @@ type
   {* Возвращается в случае попытки получения несуществующей редакции объекта. }
  end;//RedactionNotFound
 
- NotAllowedInTrialMode = class
- end;//NotAllowedInTrialMode
-
  TLinkKind = (
   {* Вид хинта }
   LK_INTERNAL_INVALID
@@ -197,6 +195,12 @@ type
    {* ссылка на скрипт }
  );//TLinkKind
 
+ TLinkInfo = record
+  kind: TLinkKind;
+   {* вид хинта }
+  hint: IString;
+ end;//TLinkInfo
+
  InvalidDate = class
  end;//InvalidDate
 
@@ -204,12 +208,6 @@ type
   {* Толковый словарь не установлен в системе.
 Возвращается в случае вызова операции "поиск толкования" и отсутствии в системе толкового словаря. }
  end;//ExplanationDictionaryNotInstalled
-
- TLinkInfo = record
-  kind: TLinkKind;
-   {* вид хинта }
-  hint: IString;
- end;//TLinkInfo
 
  TFactoryKey = (
   FK_DOCUMENT_MASTER
@@ -473,7 +471,7 @@ type
    const id: TTopic;
    rid: TRedactionID;
    out obj_type: TLinkedObjectType;
-   out obj: IUnknown); { can raise InvalidTopicId, FolderLinkNotFound, NotAllowedInTrialMode }
+   out obj: IUnknown); { can raise InvalidTopicId, FolderLinkNotFound }
    {* Получить интерфейс объекта, на который указывает гипертекстовая ссылка, по внутреннему идентификатору.
 Возвращается интерфейс на объект (obj) и тип объекта (obj_type).
 Дополнительно можно получить интерфейс (missing_info) с информацией, в каких блоках (базах) содержится отсутствующий объект (метод get_missing_info)
@@ -750,7 +748,7 @@ K555095873 }
  ILink = interface
   ['{FBA5DE98-0FAD-4647-B2DE-AB788A6DDFE6}']
   function get_object_type: TLinkedObjectType;
-  function get_object: IUnknown; { can raise InvalidTopicId, FolderLinkNotFound, NotAllowedInTrialMode }
+  function get_object: IUnknown; { can raise InvalidTopicId, FolderLinkNotFound }
   function get_link_info: TLinkInfo;
   function get_linked_hint: IString;
   function get_kind: TLinkKind;

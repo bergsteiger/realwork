@@ -2,6 +2,7 @@ unit vcmPrimCollectionItem;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmPrimCollectionItem.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmPrimCollectionItem" MUID: (4FFC335A011F)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
@@ -17,9 +18,9 @@ uses
 
  {$Define _UnknownNeedsQI}
 
- {$If NOT Defined(vcmNeedL3)}
+{$If NOT Defined(vcmNeedL3)}
  {$Define _UnknownNotNeedL3}
- {$IfEnd} // NOT Defined(vcmNeedL3)
+{$IfEnd} // NOT Defined(vcmNeedL3)
 
 type
  _l3Unknown_Parent_ = TCollectionItem;

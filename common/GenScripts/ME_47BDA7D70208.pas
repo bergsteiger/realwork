@@ -2,6 +2,7 @@ unit l3BaseWithLargeIDListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3BaseWithLargeIDListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3BaseWithLargeIDListPrim" MUID: (47BDA7D70208)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

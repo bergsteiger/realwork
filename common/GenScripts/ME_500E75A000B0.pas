@@ -2,6 +2,7 @@ unit nsAACLeftDocumentContainer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\nsAACLeftDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsAACLeftDocumentContainer" MUID: (500E75A000B0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

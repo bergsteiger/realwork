@@ -45,7 +45,23 @@
 	(object Attribute
 	    tool       	"MDA Generator User Properties"
 	    name       	"is namespace"
-	    value      	"false"))
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script.runner)"
+	    value      	"w:/shared/models/NewSchool/Scripts/53C900150015.pas.ms.script.runner")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script.runner)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script)"
+	    value      	"w:/shared/models/NewSchool/Scripts/53C900150015.pas.ms.script")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script)"
+	    value      	"file"))
     quid       	"53C900150015"
     stereotype 	"Unit"
     visible_categories 	(list visibility_relationship_list
@@ -874,7 +890,7 @@
 				(object Attribute
 				    tool       	"MDA Generator"
 				    name       	"intf.pas:*53CDF9B0012E_53C92B390005_impl*"
-				    value      	"//#UC START# *53CDF9B0012E_53C92B390005_impl*¤  if (f_SubmitGuard = 0) and Assigned(f_ActiveTask) and (f_ActiveTask.Status in [cs_tsAsyncRun, cs_tsFrozen, cs_tsFrozenRun, cs_tsDeleted]) then¤  begin¤    if f_Thread.Suspended then¤    begin¤      case f_Thread.ExitCode of¤        cs_arsSuccess: f_ActiveTask.RunSuccessfullyFinished(aServices);¤        cs_arsAborted: f_ActiveTask.AsyncErrorIfRunning('Операция прервана');¤        cs_arsUtilityNotFound: f_ActiveTask.AsyncErrorIfRunning('Не удалось запустить утилиту');¤        cs_arsTaskUnregistered: f_ActiveTask.AsyncErrorIfRunning('Задача не заргестрирована для асинхронного выполнения');¤      else¤      begin¤        if f_ActiveTask.IgnoreStrangeExitCode and ((f_Thread.ExitCode < 0) or (f_Thread.ExitCode > 100)) then¤        begin¤         f_ActiveTask.RunSuccessfullyFinished(aServices);¤         l3System.Msg2Log('Ошибка. Exit code = %d. См. лог alcuAsyncExecutor.', [f_Thread.ExitCode]);¤        end¤        else¤         f_ActiveTask.AsyncErrorIfRunning(Format('Ошибка. Exit code = %d. %s. См. лог alcuAsyncExecutor.', [f_Thread.ExitCode, f_ActiveTask.TaskID]));¤      end;¤      end;¤      {$If not defined(Nemesis)}¤      f_ActiveTask.UnRegisterAbortProcessor(Self);¤      {$IfEnd not defined(Nemesis)}¤      Manager.LeaveTaskExecution(ActiveTask);¤      NotifySubscribers;¤      f_ActiveTask.RunEnded(aServices);¤      FreeAndNil(f_ActiveTask);¤      DeleteFile(f_TaskFileName);¤    end;¤  end;¤//#UC END# *53CDF9B0012E_53C92B390005_impl*"))
+				    value      	"//#UC START# *53CDF9B0012E_53C92B390005_impl*¤  if (f_CheckExecutionGuard = 0) and (f_SubmitGuard = 0) and Assigned(f_ActiveTask) and (f_ActiveTask.Status in [cs_tsAsyncRun, cs_tsFrozen, cs_tsFrozenRun, cs_tsDeleted]) then¤  begin¤   l3InterlockedIncrement(f_CheckExecutionGuard);¤   try¤    if f_Thread.Suspended and (f_CheckExecutionGuard = 1) then¤    begin¤      case f_Thread.ExitCode of¤        cs_arsSuccess: f_ActiveTask.RunSuccessfullyFinished(aServices);¤        cs_arsAborted: f_ActiveTask.AsyncErrorIfRunning('Операция прервана');¤        cs_arsUtilityNotFound: f_ActiveTask.AsyncErrorIfRunning('Не удалось запустить утилиту');¤        cs_arsTaskUnregistered: f_ActiveTask.AsyncErrorIfRunning('Задача не заргестрирована для асинхронного выполнения');¤      else¤      begin¤        if f_ActiveTask.IgnoreStrangeExitCode and ((f_Thread.ExitCode < 0) or (f_Thread.ExitCode > 100)) then¤        begin¤         f_ActiveTask.RunSuccessfullyFinished(aServices);¤         l3System.Msg2Log('Ошибка. Exit code = %d. См. лог alcuAsyncExecutor.', [f_Thread.ExitCode]);¤        end¤        else¤         f_ActiveTask.AsyncErrorIfRunning(Format('Ошибка. Exit code = %d. %s. См. лог alcuAsyncExecutor.', [f_Thread.ExitCode, f_ActiveTask.TaskID]));¤      end;¤      end;¤      {$If not defined(Nemesis)}¤      f_ActiveTask.UnRegisterAbortProcessor(Self);¤      {$IfEnd not defined(Nemesis)}¤      Manager.LeaveTaskExecution(ActiveTask);¤      NotifySubscribers;¤      f_ActiveTask.RunEnded(aServices);¤      FreeAndNil(f_ActiveTask);¤      DeleteFile(f_TaskFileName);¤    end;¤   finally¤    l3InterlockedDecrement(f_CheckExecutionGuard);¤   end;¤  end;¤//#UC END# *53CDF9B0012E_53C92B390005_impl*"))
 			    quid       	"53CDF9B0012E"
 			    documentation 	"Проверить что процесс завершился и освободиться по необходимости"
 			    parameters 	(list Parameters
@@ -2326,7 +2342,7 @@
 			    tool       	"MDA Generator"
 			    name       	"WikiPageID (wiki)"
 			    value      	(value Text 
-|Архивариус,key:archi,guid:4E7727A101CF/Home/Модель проекта "archi AutoPipeServer Garant"/Tasks/ServerAsyncExecution/alcuAsyncSubmitter/TalcuSubmitterWorkPool/Create|53CDFAF10205
+|Архивариус,key:archi,guid:4E7727A101CF/Home/Модель проекта "archi AutoPipeServer Garant"/Tasks/ServerAsyncExecution/TalcuSubmitterWorkPool/Create|53CDFAF10205
 			    ))
 			(object Attribute
 			    tool       	"MDA Generator"
@@ -5954,7 +5970,7 @@
 		    quidu      	"53CCF6F70264"
 		    compartment 	(object Compartment
 			Parent_View 	@102
-			location   	(235, 1556)
+			location   	(235, 1566)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -6836,7 +6852,7 @@
 		    quidu      	"53CCF726039A"
 		    compartment 	(object Compartment
 			Parent_View 	@138
-			location   	(389, 1164)
+			location   	(389, 1174)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -6937,7 +6953,47 @@
 		    height     	178
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::archi$AutoPipeServer$Garant::Tasks::ServerAsyncExecution::alcuAsyncSubmitter::TalcuSubmitterWorkThread" @141
+		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Integer" @141
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1575, 222)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	2313060
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@141
+			location   	(1455, 195)
+			nlines     	1
+			max_width  	240
+			justify    	0
+			label      	"Integer")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@141
+			location   	(1455, 145)
+			anchor     	10
+			nlines     	1
+			max_width  	238
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    line_color 	2313060
+		    fill_color 	16777215
+		    quidu      	"46A606AC03B2"
+		    width      	258
+		    height     	178
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::archi$AutoPipeServer$Garant::Tasks::ServerAsyncExecution::alcuAsyncSubmitter::TalcuSubmitterWorkThread" @142
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -6955,14 +7011,14 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@141
+			Parent_View 	@142
 			location   	(598, 806)
 			nlines     	1
 			max_width  	574
 			justify    	0
 			label      	"• TalcuSubmitterWorkThread")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@141
+			Parent_View 	@142
 			location   	(598, 756)
 			anchor     	10
 			nlines     	1
@@ -6977,7 +7033,7 @@
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
-		(object AssociationViewNew "$UNNAMED$24" @142
+		(object AssociationViewNew "$UNNAMED$24" @143
 		    location   	(1016, 454)
 		    font       	(object Font
 			size       	10
@@ -6993,8 +7049,8 @@
 		    line_color 	3947680
 		    quidu      	"53D5FD1403D4"
 		    roleview_list 	(list RoleViews
-			(object RoleView "f_TaskFileName" @143
-			    Parent_View 	@142
+			(object RoleView "f_TaskFileName" @144
+			    Parent_View 	@143
 			    location   	(131, -380)
 			    font       	(object Font
 				size       	10
@@ -7006,8 +7062,8 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @144
-				Parent_View 	@143
+			    label      	(object SegLabel @145
+				Parent_View 	@144
 				location   	(885, 312)
 				font       	(object Font
 				    size       	10
@@ -7031,26 +7087,26 @@
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"53D5FD150327"
-			    client     	@142
+			    client     	@143
 			    supplier   	@139
 			    vertices   	(list Points
 				(1016, 454)
 				(895, 251))
 			    line_style 	0)
-			(object RoleView "$UNNAMED$25" @145
-			    Parent_View 	@142
+			(object RoleView "$UNNAMED$25" @146
+			    Parent_View 	@143
 			    location   	(131, -380)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"53D5FD150365"
-			    client     	@142
-			    supplier   	@141
+			    client     	@143
+			    supplier   	@142
 			    vertices   	(list Points
 				(1016, 454)
 				(1047, 506)
 				(928, 743))
 			    line_style 	0)))
-		(object AssociationViewNew "$UNNAMED$26" @146
+		(object AssociationViewNew "$UNNAMED$26" @147
 		    location   	(587, 548)
 		    font       	(object Font
 			size       	10
@@ -7066,8 +7122,8 @@
 		    line_color 	3342489
 		    quidu      	"55BF2BFE03BC"
 		    roleview_list 	(list RoleViews
-			(object RoleView "f_SubmitGuard" @147
-			    Parent_View 	@146
+			(object RoleView "f_SubmitGuard" @148
+			    Parent_View 	@147
 			    location   	(-298, -286)
 			    font       	(object Font
 				size       	10
@@ -7079,8 +7135,8 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @148
-				Parent_View 	@147
+			    label      	(object SegLabel @149
+				Parent_View 	@148
 				location   	(397, 422)
 				font       	(object Font
 				    size       	10
@@ -7104,64 +7160,24 @@
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55BF2BFF0282"
-			    client     	@146
+			    client     	@147
 			    supplier   	@140
 			    vertices   	(list Points
 				(587, 548)
 				(384, 353))
 			    line_style 	0)
-			(object RoleView "$UNNAMED$27" @149
-			    Parent_View 	@146
+			(object RoleView "$UNNAMED$27" @150
+			    Parent_View 	@147
 			    location   	(-298, -286)
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"55BF2C00004F"
-			    client     	@146
-			    supplier   	@141
+			    client     	@147
+			    supplier   	@142
 			    vertices   	(list Points
 				(587, 548)
 				(790, 743))
 			    line_style 	0)))
-		(object ClassView "Class" "Logical View::Templates::Shared Delphi Rtl::Rtl::Sys::System::Integer" @150
-		    ShowCompartmentStereotypes 	TRUE
-		    SuppressAttribute 	TRUE
-		    SuppressOperation 	TRUE
-		    IncludeAttribute 	TRUE
-		    IncludeOperation 	TRUE
-		    location   	(1575, 222)
-		    font       	(object Font
-			size       	10
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	FALSE
-			underline  	FALSE
-			strike     	FALSE
-			color      	2313060
-			default_color 	FALSE)
-		    label      	(object ItemLabel
-			Parent_View 	@150
-			location   	(1455, 195)
-			nlines     	1
-			max_width  	240
-			justify    	0
-			label      	"Integer")
-		    stereotype 	(object ItemLabel
-			Parent_View 	@150
-			location   	(1455, 145)
-			anchor     	10
-			nlines     	1
-			max_width  	238
-			justify    	0
-			label      	"<<Typedef>>")
-		    icon_style 	"Label"
-		    line_color 	2313060
-		    fill_color 	16777215
-		    quidu      	"46A606AC03B2"
-		    width      	258
-		    height     	178
-		    annotation 	8
-		    autoResize 	TRUE)
 		(object AssociationViewNew "$UNNAMED$30" @151
 		    location   	(1227, 527)
 		    font       	(object Font
@@ -7217,7 +7233,7 @@
 			    line_color 	3342489
 			    quidu      	"563C560B0083"
 			    client     	@151
-			    supplier   	@150
+			    supplier   	@141
 			    vertices   	(list Points
 				(1227, 527)
 				(1471, 311))
@@ -7229,10 +7245,10 @@
 			    line_color 	3342489
 			    quidu      	"563C560B0219"
 			    client     	@151
-			    supplier   	@141
+			    supplier   	@142
 			    vertices   	(list Points
 				(1227, 527)
-				(984, 743))
+				(983, 743))
 			    line_style 	0)))))
 	(object ClassDiagram "Main"
 	    attributes 	(list Attribute_Set

@@ -207,21 +207,6 @@ ref; // ME_4F0C2275025F DoIt
 
 ref; // ME_4F0C225A02DD SetMessage
 
-: ME_98537904D40B
- CONST UID '98537904D40B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TViewMailWin' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F0C222F0080 // TViewMailWin
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_98537904D40B Ini_Reg_Class
-
 : ME_5549C2DD0193
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -231,17 +216,6 @@ ref; // ME_98537904D40B Ini_Reg_Class
  ;
 
 ref; // ME_5549C2DD0193 
-
-: ME_C227688A09EA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F0C222F0080 // TViewMailWin
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_C227688A09EA 
 
 : ME_4F0C222F0080
  CONST UID '4F0C222F0080'
@@ -260,12 +234,10 @@ ref; // ME_C227688A09EA
  ; // Inherits
  : Operations
    Seq: ( ME_4F0C225A02DD // SetMessage
- ME_98537904D40B // Ini_Reg_Class
  )
  ; // Operations
  : Dependencies
    Seq: ( ME_5549C2DD0193 // 
- ME_C227688A09EA // 
  )
  ; // Dependencies
  CONST "finished" false
@@ -422,7 +394,6 @@ ref; // ME_4F8FEB5201C5 MailWin
  WL 'ME_4E1C0134031B' '4E1C0134031B.pas.ms.script' // MixIns
  WL 'ME_4E202BD501B7' '4E202BD501B7.pas.ms.script' // BaseForms
  WL 'ME_4F8D7381019D' '4F8D7381019D.pas.ms.script' // Frames
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "finished" false

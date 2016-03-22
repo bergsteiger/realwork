@@ -1401,16 +1401,21 @@ try
    if IsExists(wnd) then
     wnd.Keys('[Esc]'); 
 
+   // закрываем окно безопасности IE
+   wnd := GetFromShell('ОКНО SECURITY ALERT');
+   if IsExists(wnd) then
+     wnd.Keys('[Enter]');
+
    wnd := GetFromInternetAgent('ОСНОВНАЯ ОБЛАСТЬ');
    Result := IsExists(wnd);
    if Result then
-    begin
-      wnd.SetFocus;
-      if isReturnWindow then
-        Result := wnd;
-    end
-    else
-      Raise('Не получилось открыть Новости онлайн!');
+   begin
+     wnd.SetFocus;
+     if isReturnWindow then
+       Result := wnd;
+   end
+   else
+     Raise('Не получилось открыть Новости онлайн!');
 except
   Log.Message('GoToInternetAgent: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
   if isReturnWindow then Result := NonExObj else Result := false;

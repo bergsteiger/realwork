@@ -1,8 +1,41 @@
 unit ddRTFReader;
 
-// $Id: ddRTFReader.pas,v 1.240 2015/11/05 08:18:15 dinishev Exp $ 
+// $Id: ddRTFReader.pas,v 1.251 2016/02/12 08:54:42 dinishev Exp $ 
 
 // $Log: ddRTFReader.pas,v $
+// Revision 1.251  2016/02/12 08:54:42  dinishev
+// {Requestlink:617082437}
+//
+// Revision 1.250  2016/01/28 12:47:53  dinishev
+// Bug fix: поотъезжали тесты.
+//
+// Revision 1.249  2016/01/28 12:09:00  dinishev
+// {Requestlink:616562811}. Bookmark из RTF
+//
+// Revision 1.248  2016/01/28 10:51:25  dinishev
+// {Requestlink:616562811}. Bookmark из RTF
+//
+// Revision 1.247  2015/12/09 07:29:14  dinishev
+// Поправил по результатам тестов.
+//
+// Revision 1.246  2015/12/08 09:08:53  dinishev
+// http://mdp.garant.ru/pages/viewpage.action?pageId=610504218&focusedCommentId=613289410#comment-613289410
+//
+// Revision 1.245  2015/12/04 05:36:57  dinishev
+// Bug fix: вычистил экспериментальный мусор.
+//
+// Revision 1.244  2015/12/02 14:31:59  dinishev
+// Правки для Можаева.
+//
+// Revision 1.243  2015/12/01 08:53:27  dinishev
+// Установленный в ходе обработки параметр.
+//
+// Revision 1.242  2015/11/26 05:53:26  dinishev
+// Reformat
+//
+// Revision 1.241  2015/11/24 07:16:24  dinishev
+// Reformat
+//
 // Revision 1.240  2015/11/05 08:18:15  dinishev
 // {Requestlink:610504218}
 //
@@ -690,6 +723,7 @@ Uses
   
   ddBase,
   ddBorder,
+  destNorm,
   ddPicture,
   ddRTFState,
   ddLowLevelRTF,                                                
@@ -725,6 +759,7 @@ type
   function CheckRTF: Boolean;
   procedure CheckPitureGroup(aNewRDS: TRDS);
  protected
+  function GetdestNormClass: RdestNorm; virtual;
   procedure DoReadData; override;
   procedure PushState; override;
   procedure AddKeyword(aKeyword: TSYM; aHasParam: Boolean; aParam: Long; aText: Tl3String = nil);
@@ -764,7 +799,7 @@ type
  public
   procedure AddFooterHyperlink; override;
   procedure FootNoteSymbol; override;
-  procedure BeforeClosePara(const aPara: TddDocumentAtom); override;
+  procedure BeforeClosePara(const aPara: TddDocumentAtom; var aNewStyle: Integer); override;
   constructor Create(aOwner: Tk2TagGeneratorOwner); override;
   function ColorByIndex(anIndex: Longint): TColor; override;
   function GetFonts(anID: Integer): TddFontEntry; override;
@@ -782,21 +817,28 @@ implementation
 Uses
   SysUtils, Forms, 
 
-  l3Chars, l3String,
+  l3Math,
+  l3Chars,
+  l3String,
+  l3StringEx,
 
   afwFacade,
 
   k2Tags,
-  evSegLst, l3Math, evConst, evdStyles, l3StringEx,
+
+  evConst,
+  evSegLst,
+
+  evdStyles,
 
   ddConst,
 
   destShp,
   destSkip,
   destList,
-  destNorm,
   destPicture,
   destlfolevel,
+  destBookmark,
   destShapeTxt,
   destFootnote,
   destShapeRslt,
@@ -1072,15 +1114,19 @@ begin
                 if l_Shp <> nil then
                  l_Shp.ShapeRslt := TdestShapeRslt(l_Dest);
                end;
-   rdsNorm: l_Dest := TdestNorm.Create(Self);
+   rdsBookmarkStart: if ReadURL then // Закладки читаем только при чтении URL'ов.
+                      l_Dest := TdestBookmark.Create(Self)
+                     else
+                      l_Dest := TdestSkip.Create(Self); 
+   rdsNorm: l_Dest := GetdestNormClass.Create(Self);
    rdsColorTable: l_Dest := TdestColorTable.Create(Self);
    rdsPicture: l_Dest := TdestPicture.Create(Self);
    rdsListTable: l_Dest := TdestListTable.Create(Self);
    rdsList: l_Dest := TdestList.Create(Self);
    rdsListLevel: l_Dest := TdestListLevel.Create(Self);
    rdsLevelText: l_Dest := TdestLevelText.Create(Self);
-   rdslistoverride: l_Dest := TdestListoverride.Create(Self);
-   rdsLFOlevel: l_Dest := Tdestlfolevel.Create(Self, TdestListoverride(GetDestination(rdslistoverride)));
+   rdsListOverride: l_Dest := TdestListoverride.Create(Self);
+   rdsLFOlevel: l_Dest := Tdestlfolevel.Create(Self, TdestListoverride(GetDestination(rdsListOverride)));
    rdslistoverridetable: l_Dest := TdestListOverrideTable.Create(Self, TdestListTable(GetDestination(rdsListTable)));
    rdsField: l_Dest := TdestField.Create(Self);
    rdsFieldInstruction: begin
@@ -1089,7 +1135,7 @@ begin
                          l_DestField.FielsInsruction := l_Dest as TdestFieldInstruction;
                         end;
    rdsFieldResult: begin
-                    l_Dest:= TdestFieldResult.Create(Self);
+                    l_Dest := TdestFieldResult.Create(Self);
                     l_DestField := GetDestination(rdsField) as TdestField;
                     l_DestField.FieldResult := l_Dest as TdestFieldResult;
                    end;
@@ -1098,13 +1144,13 @@ begin
                   l_DestField := GetDestination(rdsField) as TdestField;
                   l_DestField.FormField := l_Dest as TdestFormField;
                  end;
-   rdsFormFieldItem: l_Dest:= TdestFormFieldItem.Create(Self);
-   rdsOldParaNumbering: l_Dest:= TdestWord6Number.Create(Self);
+   rdsFormFieldItem: l_Dest := TdestFormFieldItem.Create(Self);
+   rdsOldParaNumbering: l_Dest := TdestWord6Number.Create(Self);
   else
-   l_Dest:= TdestSkip.Create(Self);
+   l_Dest := TdestSkip.Create(Self);
   end; //case RDS
   l_Dest.RDS:= aRDS;
-  f_Destinations[aRDS]:= l_Dest;
+  f_Destinations[aRDS] := l_Dest;
   Result:= l_Dest;
  end; // Result = nil
 end;
@@ -1247,9 +1293,10 @@ end;
 
 procedure TddRTFReader.TranslateKeyword(aKeyword: TSYM; aHasParam: Boolean; aParam: Long);
 var
- l_RDS   : TRDS;
- l_Enable: Boolean;
- l_Dest: TddRTFDestination;
+ l_RDS        : TRDS;
+ l_Dest       : TddRTFDestination;
+ l_Enable     : Boolean;
+ l_UnicodeSymb: Word;
 begin
  if not f_DocIsDone then
  begin
@@ -1281,8 +1328,9 @@ begin
          else
          if aKeyword.StringID = valu_u then
          begin
-          if not CheckUnicodeChar(aParam) then
-           AddText(Word(SmallInt(aParam)));
+          l_UnicodeSymb := Word(SmallInt(aParam)); // Отрицательные значения преобразуем в положительные...
+          if not CheckUnicodeChar(l_UnicodeSymb) then
+           AddText(l_UnicodeSymb);
           SkipChars(State.UC);
          end // if aKeyword.StringID = valu_u then
          else
@@ -1324,11 +1372,11 @@ begin
    l_Dest.Write(Generator);
   end; // if l_Dest <> nil then
 
-  l_Dest:= TdestNorm(Destination[rdsFootnote]);
+  l_Dest := TdestNorm(Destination[rdsFootnote]);
   if (l_Dest <> nil) and (l_Dest.GetParagraphsCount > 0) then
    l_Dest.Write(Generator);
  finally
-   Generator.Finish;
+  Generator.Finish;
  end;
 end;
 
@@ -1344,9 +1392,9 @@ begin
   case aParam of
    61485,
    61623,
-   61692,
    61656,
-   61607: AddText(cc_Minus);
+   61607,
+   61692: AddText(cc_Minus);
   else
    AddText(cc_HardSpace)
   end;
@@ -1364,7 +1412,7 @@ begin
   end;
 end;
 
-procedure TddRTFReader.BeforeClosePara(const aPara: TddDocumentAtom);
+procedure TddRTFReader.BeforeClosePara(const aPara: TddDocumentAtom; var aNewStyle: Integer);
 begin
  // Здесь можно добавить предобработку параграфа...
 end;
@@ -1402,6 +1450,11 @@ end;
 procedure TddRTFReader.FootNoteSymbol;
 begin
  TdestFootnote(Destination[rdsFootnote]).FootNoteSymbol;
+end;
+
+function TddRTFReader.GetdestNormClass: RdestNorm;
+begin
+ Result := TdestNorm;
 end;
 
 end.

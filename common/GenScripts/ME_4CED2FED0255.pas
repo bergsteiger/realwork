@@ -3,6 +3,7 @@ unit evCommentPara_Wrap;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCommentPara_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WevCommentPara" MUID: (4CED2FED0255)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

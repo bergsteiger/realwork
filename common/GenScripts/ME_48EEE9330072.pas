@@ -2,6 +2,7 @@ unit evCommonTypes;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evCommonTypes.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "evCommonTypes" MUID: (48EEE9330072)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

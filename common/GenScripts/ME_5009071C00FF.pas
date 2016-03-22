@@ -9,6 +9,8 @@ true focused:control:push pop:editor:PrintAcnhor
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPrintAcnhor.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_PrintAcnhor" MUID: (5009071C00FF)
+// Имя типа: "TkwPopEditorPrintAcnhor"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

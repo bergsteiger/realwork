@@ -2,6 +2,7 @@ unit NOT_FINISHED_GDIPAPI;
 
 // Модуль: "w:\common\components\rtl\external\JEDI\GDIPLUS\NOT_FINISHED_GDIPAPI.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "GDIPAPI" MUID: (5507E0D200B0)
 
 {$Include w:\common\components\l3Define.inc}
 

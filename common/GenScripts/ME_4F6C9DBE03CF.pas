@@ -2,6 +2,7 @@ unit afwSettingsImplPersistent;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\afwSettingsImplPersistent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwSettingsImplPersistent" MUID: (4F6C9DBE03CF)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

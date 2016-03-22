@@ -3,6 +3,7 @@ unit l3MessageID;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3MessageID.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3MessageID" MUID: (4E01D1980071)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

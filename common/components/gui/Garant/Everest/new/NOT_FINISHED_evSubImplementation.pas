@@ -3,6 +3,7 @@ unit NOT_FINISHED_evSubImplementation;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_evSubImplementation.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evSubImplementation" MUID: (47F24F150318)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

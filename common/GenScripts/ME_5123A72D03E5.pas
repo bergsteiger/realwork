@@ -2,6 +2,7 @@ program AdminAppTest;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AdminAppTest.dpr"
 // Стереотип: "VCMTestTarget"
+// Элемент модели: "Admin" MUID: (5123A72D03E5)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

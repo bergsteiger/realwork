@@ -2,6 +2,7 @@ unit elCustomButtonEdit;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\elCustomButtonEdit.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TelCustomButtonEdit" MUID: (482ACFA703C2)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

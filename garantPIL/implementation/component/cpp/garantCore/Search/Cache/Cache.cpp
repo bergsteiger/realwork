@@ -18,13 +18,14 @@
 #include "shared/GCL/str/str_conv.h"
 
 #include "garantPIL/implementation/component/cpp/tools/CSAdapter/AdapterLoader.h"
-#include "garantPIL/implementation/component/cpp/libs/gkdb/src/BaseCache.h"
 
 #include "boost/algorithm/string/classification.hpp"
 #include "boost/algorithm/string/split.hpp"
 #include "boost/algorithm/string/trim.hpp"
 #include "boost/algorithm/string/join.hpp"
 #include "boost/bind.hpp"
+
+#include "DBComm.h"
 //#UC END# *50AE53480198_CUSTOM_INCLUDES*
 
 namespace Search {
@@ -87,7 +88,7 @@ static DBCore::DocVector* get_type_docs (Index* index, const void* key) {
 	return ret._retn ();
 }
 
-static void get_docs (SearchBase* base, const GCL::StrVector& types, std::vector <unsigned long>& out) {
+static void get_docs (Base* base, const GCL::StrVector& types, std::vector <unsigned long>& out) {
 	Index* index = base->FindIndex ("Type");
 
 	size_t count = 0;
@@ -306,7 +307,7 @@ static bool is_informer (const std::string& str, const std::string& inf) {
 	return false;
 }
 
-DBCore::RelTuneData* Cache::get_informers (SearchBase* base, const std::string& in) {
+DBCore::RelTuneData* Cache::get_informers (Base* base, const std::string& in) {
 	Core::Aptr <DBCore::RelTuneData> ret = new DBCore::RelTuneData ();
 
 	GCL::StrVector parts;
@@ -315,7 +316,7 @@ DBCore::RelTuneData* Cache::get_informers (SearchBase* base, const std::string& 
 		size_t count = 0;
 
 		for (GCL::StrVector::const_iterator it = parts.begin (); it != parts.end (); ++it) {
-			if (*(it->rbegin ()) == '*') {
+			if (it->empty () == false && *(it->rbegin ()) == '*') {
 				++count;
 			}
 		}
@@ -335,11 +336,9 @@ DBCore::RelTuneData* Cache::get_informers (SearchBase* base, const std::string& 
 
 	Adapter::IStrings_var res;
 	{
-		const std::string fix = boost::join (parts, " ");
-		Adapter::IHelper_var helper = SearchAdapter::instance ()->get (
-			base->abstract_base (), BaseCache::instance ()->get_morpho_cache_ptr ()
-		);
-		res = helper->transform (fix);
+		DBCore::IBase_var _base = DBCore::DBFactory::make (base);
+		Adapter::IHelper_var helper = SearchAdapter::instance ()->get (_base.in ());
+		res = helper->transform (boost::join (parts, " "));
 	}
 
 	if (res.is_nil ()) {
@@ -378,7 +377,7 @@ DBCore::RelTuneData* Cache::get_informers (SearchBase* base, const std::string& 
 	return ret._retn ();
 }
 
-void Cache::get_type_data (SearchBase* base, const std::string& in, std::vector <unsigned long>& out) {
+void Cache::get_type_data (Base* base, const std::string& in, std::vector <unsigned long>& out) {
 	this->load_doc_types (base);
 
 	TypesMap::const_iterator f_it = m_types.end ();
@@ -419,7 +418,7 @@ void Cache::get_type_data (SearchBase* base, const std::string& in, std::vector 
 	}
 }
 
-void Cache::get_code_data (SearchBase* base, const std::string& in, std::vector <unsigned long>& out) {
+void Cache::get_code_data (Base* base, const std::string& in, std::vector <unsigned long>& out) {
 	try {
 		Core::Aptr <GCL::StrVector> numbers = Search::get_numbers (in);
 
@@ -535,7 +534,7 @@ const Cache::LongVector& Cache::get_bad_docs () {
 }
 
 // расширения запроса для поиска в заголовках
-const GCL::StrVector& Cache::get_ext_request (SearchBase* base) {
+const GCL::StrVector& Cache::get_ext_request (Base* base) {
 	//#UC START# *55B5D03B000F*
 	GUARD (m_mutex);
 
@@ -571,7 +570,7 @@ const GCL::StrVector& Cache::get_ext_request (SearchBase* base) {
 }
 
 // чтение из Aux
-char* Cache::load_aux (SearchBase* base, const void* key, long& size) {
+char* Cache::load_aux (Base* base, const void* key, long& size) {
 	//#UC START# *50D9C9F8002C*
 	Buffer ret;
 
@@ -595,7 +594,7 @@ char* Cache::load_aux (SearchBase* base, const void* key, long& size) {
 }
 
 // загрузка типов документа
-void Cache::load_doc_types (SearchBase* base) {
+void Cache::load_doc_types (Base* base) {
 	//#UC START# *55C4D30A0161*
 	GUARD (m_mutex);
 
@@ -633,7 +632,7 @@ void Cache::load_doc_types (SearchBase* base) {
 }
 
 // загрузка информеров
-void Cache::load_informers (SearchBase* base) {
+void Cache::load_informers (Base* base) {
 	//#UC START# *53F0CFE20033*
 	GUARD (m_mutex);
 

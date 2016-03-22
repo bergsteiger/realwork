@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreenUses.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "kwParaCoordsToScreenUses" MUID: (54F06F760196)
+// Имя типа: "_kwParaCoordsToScreenUses_"
 
 {$Define kwParaCoordsToScreenUses_imp}
 

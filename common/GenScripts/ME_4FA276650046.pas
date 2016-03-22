@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3BaseStore.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "m3BaseStore" MUID: (4FA276650046)
+// Имя типа: "_m3BaseStore_"
 
 {$Define m3BaseStore_imp}
 

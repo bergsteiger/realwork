@@ -2,6 +2,7 @@ unit NOT_FINISHED_evDocumentAnchorIndex;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_evDocumentAnchorIndex.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentAnchorIndex" MUID: (53D26E830045)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

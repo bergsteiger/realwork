@@ -2,6 +2,7 @@ unit afwVCL;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwVCL.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "afwVCL" MUID: (47E1227902E1)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

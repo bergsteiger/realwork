@@ -3,6 +3,8 @@ unit moUnderControl;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moUnderControl.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "UnderControl" MUID: (4CCAC6B7019D)
+// Имя типа: "Tmo_UnderControl"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

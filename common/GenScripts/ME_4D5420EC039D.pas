@@ -2,6 +2,7 @@ unit vgTypes;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgTypes.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "vgTypes" MUID: (4D5420EC039D)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
@@ -235,14 +236,14 @@ type
  TvgColorRecStructB = record
  end;//TvgColorRecStructB
 
- {$If Defined(FPC_BIG_ENDIAN)}
+{$If Defined(FPC_BIG_ENDIAN)}
  TvgColorRec = packed record
   Case Integer of
    0: (Color: TvgColor);
    1: (HiWord: Word; LoWord: Word);
    2: ();
  end;//TvgColorRec
- {$IfEnd} // Defined(FPC_BIG_ENDIAN)
+{$IfEnd} // Defined(FPC_BIG_ENDIAN)
 
  TvgWrapMode = (
   vgWrapTile

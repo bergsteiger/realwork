@@ -2,6 +2,7 @@ unit kwCompiledVar;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledVar" MUID: (4DBB04B6014C)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

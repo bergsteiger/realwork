@@ -39,7 +39,7 @@ type
  protected
  // realized methods
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aLiteVersion: Boolean); override;
+     aLiteVersion: TddLiteVersion); override;
  public
  // overridden public methods
    procedure Assign(anObject: TddBaseObject); override;
@@ -73,7 +73,7 @@ uses
 // start class TddTab
 
 procedure TddTab.Write2Generator(const Generator: Ik2TagGenerator;
-  aLiteVersion: Boolean);
+  aLiteVersion: TddLiteVersion);
 //#UC START# *54DC9795018B_51E8CE5402CC_var*
 //#UC END# *54DC9795018B_51E8CE5402CC_var*
 begin

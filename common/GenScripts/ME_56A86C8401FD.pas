@@ -2,6 +2,8 @@ unit ComboAccessProviderParams_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\ComboAccessProviderParams_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "ComboAccessProviderParams" MUID: (56A86C8401FD)
+// Имя типа: "ComboAccessProviderParamsTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

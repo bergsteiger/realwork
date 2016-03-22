@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\afwImpurity.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "afwImpurity" MUID: (5093D47602BF)
+// Имя типа: "_afwImpurity_"
 
 {$Define afwImpurity_imp}
 

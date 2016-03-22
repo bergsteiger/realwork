@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TagByIntegerSearcher.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "k2TagByIntegerSearcher" MUID: (4B89152D0120)
+// Имя типа: "_k2TagByIntegerSearcher_"
 
 {$Define k2TagByIntegerSearcher_imp}
 

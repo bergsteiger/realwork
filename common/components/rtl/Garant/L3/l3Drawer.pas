@@ -2,9 +2,12 @@ unit l3Drawer;
 
 { "”ниверсальный отрисовщик", использующий по возможности функции GDI+ }
 
-{ $Id: l3Drawer.pas,v 1.19 2015/06/02 17:05:54 lulin Exp $ }
+{ $Id: l3Drawer.pas,v 1.20 2016/01/29 19:30:47 kostitsin Exp $ }
 
 // $Log: l3Drawer.pas,v $
+// Revision 1.20  2016/01/29 19:30:47  kostitsin
+// {requestlink: 153682070 }
+//
 // Revision 1.19  2015/06/02 17:05:54  lulin
 // - рисуем на модели.
 //
@@ -149,7 +152,7 @@ uses
   GDIPAPI,
   {$EndIf  noGDIPlus}
 
-  l3Canvas
+  l3CanvasUtils
   ;
 
 {$IfNDef noGDIPlus}

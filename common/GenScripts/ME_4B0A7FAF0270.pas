@@ -2,6 +2,7 @@ unit nsAddToListEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\nsAddToListEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsAddToListEvent" MUID: (4B0A7FAF0270)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

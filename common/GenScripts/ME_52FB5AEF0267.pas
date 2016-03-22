@@ -2,6 +2,7 @@ unit ddTaskItemList;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ddTaskItemList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddTaskItemList" MUID: (52FB5AEF0267)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

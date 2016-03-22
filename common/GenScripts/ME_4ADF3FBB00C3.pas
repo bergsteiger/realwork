@@ -2,6 +2,7 @@ unit PrimeDomainInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimeDomainInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "PrimeDomainInterfaces" MUID: (4ADF3FBB00C3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

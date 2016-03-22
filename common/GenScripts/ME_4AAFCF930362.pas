@@ -3,6 +3,8 @@ unit Picture_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Picture_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "Picture" MUID: (4AAFCF930362)
+// Имя типа: "TPictureForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

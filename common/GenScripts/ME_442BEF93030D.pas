@@ -3,6 +3,7 @@ unit HCInterfacesUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\HCAdapterLib\HCInterfacesUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "HCInterfaces" MUID: (442BEF93030D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

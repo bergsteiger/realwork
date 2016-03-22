@@ -3,6 +3,7 @@ unit arContentsTreeWaiter;
 
 // Модуль: "w:\archi\source\projects\Archi\Main\arContentsTreeWaiter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarContentsTreeWaiter" MUID: (4E00671D02B5)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

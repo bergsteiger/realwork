@@ -2,6 +2,7 @@ unit l3ScriptService;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\l3ScriptService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3ScriptService" MUID: (5509AA5400EA)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -32,7 +33,7 @@ type
  Tl3ScriptService = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3ScriptService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3ScriptService }
   protected
    procedure pm_SetAlien(const aValue: Il3ScriptService);
    procedure ClearFields; override;

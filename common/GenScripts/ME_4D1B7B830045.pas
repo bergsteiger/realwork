@@ -2,6 +2,7 @@ unit DocInfoInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces\DocInfoInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "DocInfoInterfaces" MUID: (4D1B7B830045)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

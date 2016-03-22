@@ -2,6 +2,7 @@ unit TextViaEditorProcessorWithNavigate;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\TextViaEditorProcessorWithNavigate.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTextViaEditorProcessorWithNavigate" MUID: (4C9214C80098)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

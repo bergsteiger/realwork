@@ -2,6 +2,7 @@ unit nsCounterEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsCounterEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsCounterEvent" MUID: (4B13A1A2000F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

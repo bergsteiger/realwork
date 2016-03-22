@@ -3,6 +3,8 @@ unit Outliner_Form;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\Outliner_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "OutlinerForm" MUID: (4D4697F30281)
+// Имя типа: "TOutlinerFormForm"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

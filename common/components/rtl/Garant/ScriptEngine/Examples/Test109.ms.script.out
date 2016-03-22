@@ -1,9 +1,11 @@
+..\..\ComboAccess\caDefine.inc
+{$Include htDefine.inc}
 ..\..\cs\CsDefine.inc
-{ $Id: Test109.ms.script.out,v 1.44 2015/10/29 14:39:30 lulin Exp $ }
+{ $Id: Test109.ms.script.out,v 1.57 2016/03/04 10:38:28 lulin Exp $ }
 
 // $Log: Test109.ms.script.out,v $
-// Revision 1.44  2015/10/29 14:39:30  lulin
-// - новые тесты.
+// Revision 1.57  2016/03/04 10:38:28  lulin
+// - перегенерация.
 //
 // Revision 1.12  2015/02/24 11:59:38  lukyanets
 // Передаем по новому
@@ -92,11 +94,11 @@ end.
 { Автор:  ©            }
 { Модуль: ddDefine.inc - файл переменных условной компиляции библиотеки }
 { Начат: 19.04.2003    }
-{ $Id: Test109.ms.script.out,v 1.44 2015/10/29 14:39:30 lulin Exp $ }
+{ $Id: Test109.ms.script.out,v 1.57 2016/03/04 10:38:28 lulin Exp $ }
 
 // $Log: Test109.ms.script.out,v $
-// Revision 1.44  2015/10/29 14:39:30  lulin
-// - новые тесты.
+// Revision 1.57  2016/03/04 10:38:28  lulin
+// - перегенерация.
 //
 // Revision 1.10  2015/04/13 10:25:18  lulin
 // - пытаемся собрать библиотеку.
@@ -148,11 +150,11 @@ end.
  {$Define ddUseVTSpin}
 {$EndIf RxLibrary}
 ..\..\dd\DtDefine.inc
-{ $Id: Test109.ms.script.out,v 1.44 2015/10/29 14:39:30 lulin Exp $ }
+{ $Id: Test109.ms.script.out,v 1.57 2016/03/04 10:38:28 lulin Exp $ }
 
 // $Log: Test109.ms.script.out,v $
-// Revision 1.44  2015/10/29 14:39:30  lulin
-// - новые тесты.
+// Revision 1.57  2016/03/04 10:38:28  lulin
+// - перегенерация.
 //
 // Revision 1.5  2010/03/10 13:57:24  narry
 // - не собиралось
@@ -823,11 +825,11 @@ end.
 { Автор: Люлин А.В. ©   }
 { Модуль: evdDefine - }
 { Начат: 23.06.2005 14:18 }
-{ $Id: Test109.ms.script.out,v 1.44 2015/10/29 14:39:30 lulin Exp $ }
+{ $Id: Test109.ms.script.out,v 1.57 2016/03/04 10:38:28 lulin Exp $ }
 
 // $Log: Test109.ms.script.out,v $
-// Revision 1.44  2015/10/29 14:39:30  lulin
-// - новые тесты.
+// Revision 1.57  2016/03/04 10:38:28  lulin
+// - перегенерация.
 //
 // Revision 1.12  2015/08/17 11:40:57  lulin
 // {RequestLink:604929313}.
@@ -1804,11 +1806,11 @@ end.
 { Автор: Люлин А.В. ©   }
 { Модуль: k2Define - }
 { Начат: 12.04.98 11:28 }
-{ $Id: Test109.ms.script.out,v 1.44 2015/10/29 14:39:30 lulin Exp $ }
+{ $Id: Test109.ms.script.out,v 1.57 2016/03/04 10:38:28 lulin Exp $ }
 
 // $Log: Test109.ms.script.out,v $
-// Revision 1.44  2015/10/29 14:39:30  lulin
-// - новые тесты.
+// Revision 1.57  2016/03/04 10:38:28  lulin
+// - перегенерация.
 //
 // Revision 1.67  2012/10/26 19:41:55  lulin
 // - вычищаем поддержку ветки редактора.
@@ -2053,11 +2055,14 @@ end.
 { Автор: Люлин А.В. ©     }
 { Модуль: l3Define -      }
 { Начат: 12.04.1998 11:28 }
-{ $Id: Test109.ms.script.out,v 1.44 2015/10/29 14:39:30 lulin Exp $ }
+{ $Id: Test109.ms.script.out,v 1.57 2016/03/04 10:38:28 lulin Exp $ }
 
 // $Log: Test109.ms.script.out,v $
-// Revision 1.44  2015/10/29 14:39:30  lulin
-// - новые тесты.
+// Revision 1.57  2016/03/04 10:38:28  lulin
+// - перегенерация.
+//
+// Revision 1.156  2016/03/03 15:14:18  lulin
+// - боремся с утечками.
 //
 // Revision 1.155  2015/09/23 15:46:19  lulin
 // - оптимизируем.
@@ -2745,7 +2750,9 @@ end.
  {$EndIf  XE}
 {$EndIf DesignTimeLibrary}
 
-{$Define l3AssertSimpleMMCanFreeBlocks}
+{$IfNDef l3NotAssertSimpleMMCanFreeBlocks}
+ {$Define l3AssertSimpleMMCanFreeBlocks}
+{$EndIf  l3NotAssertSimpleMMCanFreeBlocks}
 
 {$IfDef ALCU}
  {.$Undef l3AssertSimpleMMCanFreeBlocks}
@@ -2918,11 +2925,11 @@ procedure Cleanup;
   {-}
 {$EndIf _Unknown_NoImpl}
 ..\..\L3\l3Delphi.inc
-{ $Id: Test109.ms.script.out,v 1.44 2015/10/29 14:39:30 lulin Exp $ }
+{ $Id: Test109.ms.script.out,v 1.57 2016/03/04 10:38:28 lulin Exp $ }
 
 // $Log: Test109.ms.script.out,v $
-// Revision 1.44  2015/10/29 14:39:30  lulin
-// - новые тесты.
+// Revision 1.57  2016/03/04 10:38:28  lulin
+// - перегенерация.
 //
 // Revision 1.9  2013/05/24 15:59:50  lulin
 // - пытаемся портироваться под XE4.
@@ -3110,11 +3117,11 @@ procedure _Unknown_Child_.Cleanup;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3IterMode.inc -            }
 { Начат: 20.06.2003 17:19 }
-{ $Id: Test109.ms.script.out,v 1.44 2015/10/29 14:39:30 lulin Exp $ }
+{ $Id: Test109.ms.script.out,v 1.57 2016/03/04 10:38:28 lulin Exp $ }
 
 // $Log: Test109.ms.script.out,v $
-// Revision 1.44  2015/10/29 14:39:30  lulin
-// - новые тесты.
+// Revision 1.57  2016/03/04 10:38:28  lulin
+// - перегенерация.
 //
 // Revision 1.5  2007/12/26 11:14:21  lulin
 // - cleanup.
@@ -3172,6 +3179,15 @@ const
   {$define XE3}
   {$define XE4}
 {$endif}
+{$IfDef VER300}
+  {$define XE}
+  {$define XE1}
+  {$define XE2}
+  {$define XE3}
+  {$define XE4}
+
+  {$define DelphiX}
+{$endif}
 ..\..\L3\m0define.inc
 {$IFNDEF _m0DEFINE_INC}
  {$DEFINE _m0DEFINE_INC}
@@ -3182,7 +3198,7 @@ const
 //
 // Copyright (c) 1997-2000 by Archivarius Team, free for non commercial use.
 //
-// $Id: Test109.ms.script.out,v 1.44 2015/10/29 14:39:30 lulin Exp $
+// $Id: Test109.ms.script.out,v 1.57 2016/03/04 10:38:28 lulin Exp $
 //
 *)
 
@@ -3886,7 +3902,7 @@ Different internal directives. Do not modify them.
 //
 // Copyright (c) 1997-2000 by Archivarius Team, free for non commercial use.
 //
-// $Id: Test109.ms.script.out,v 1.44 2015/10/29 14:39:30 lulin Exp $
+// $Id: Test109.ms.script.out,v 1.57 2016/03/04 10:38:28 lulin Exp $
 //
 *)
 program MakeData; {$R *.res}
@@ -5046,11 +5062,11 @@ program l3CheckDepClear;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3CheckDepWithout_m0 - проект для проверки зависимостей библиотеки L3, с библиотекой m0. }
 { Начат: 09.12.2003 20:54             }
-{ $Id: Test109.ms.script.out,v 1.44 2015/10/29 14:39:30 lulin Exp $ }
+{ $Id: Test109.ms.script.out,v 1.57 2016/03/04 10:38:28 lulin Exp $ }
 
 // $Log: Test109.ms.script.out,v $
-// Revision 1.44  2015/10/29 14:39:30  lulin
-// - новые тесты.
+// Revision 1.57  2016/03/04 10:38:28  lulin
+// - перегенерация.
 //
 // Revision 1.1  2005/05/20 13:16:38  lulin
 // - добавлен еще тестовый проект.
@@ -5073,11 +5089,11 @@ program l3CheckDepWithout_m0;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3CheckDepWithout_m0 - проект для проверки зависимостей библиотеки L3, без библиотеки m0. }
 { Начат: 09.12.2003 20:44             }
-{ $Id: Test109.ms.script.out,v 1.44 2015/10/29 14:39:30 lulin Exp $ }
+{ $Id: Test109.ms.script.out,v 1.57 2016/03/04 10:38:28 lulin Exp $ }
 
 // $Log: Test109.ms.script.out,v $
-// Revision 1.44  2015/10/29 14:39:30  lulin
-// - новые тесты.
+// Revision 1.57  2016/03/04 10:38:28  lulin
+// - перегенерация.
 //
 // Revision 1.1  2003/12/09 17:52:13  law
 // - new project: l3CheckDepWithout_m0.dpr.
@@ -5097,11 +5113,11 @@ program l3CheckDepWith_m0;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3CheckDepWithout_m0 - проект для проверки зависимостей библиотеки L3, с библиотекой m0. }
 { Начат: 09.12.2003 20:54             }
-{ $Id: Test109.ms.script.out,v 1.44 2015/10/29 14:39:30 lulin Exp $ }
+{ $Id: Test109.ms.script.out,v 1.57 2016/03/04 10:38:28 lulin Exp $ }
 
 // $Log: Test109.ms.script.out,v $
-// Revision 1.44  2015/10/29 14:39:30  lulin
-// - новые тесты.
+// Revision 1.57  2016/03/04 10:38:28  lulin
+// - перегенерация.
 //
 // Revision 1.1  2003/12/09 17:58:32  law
 // - new project: l3CheckDepWith_m0.dpr.
@@ -5127,11 +5143,11 @@ end.
 //
 //
 *)
-// $Id: Test109.ms.script.out,v 1.44 2015/10/29 14:39:30 lulin Exp $
+// $Id: Test109.ms.script.out,v 1.57 2016/03/04 10:38:28 lulin Exp $
 
 // $Log: Test109.ms.script.out,v $
-// Revision 1.44  2015/10/29 14:39:30  lulin
-// - новые тесты.
+// Revision 1.57  2016/03/04 10:38:28  lulin
+// - перегенерация.
 //
 // Revision 1.34  2014/11/05 12:28:56  lulin
 // - перетряхиваем код.
@@ -7202,7 +7218,8 @@ USES
 for ( @ ( IN anItem anItem IsOdd ) ( 1 to 20 ) FILTER ) .
 // - печатаем нечётные числа
 ..\..\ScriptEngine\Examples\Test2.ms.script
-1 2 + Msg
+1 2 + .
+//1 2 + Msg
 ..\..\ScriptEngine\Examples\Test20.ms.script
 USES
  to.ms.dict
@@ -30975,6 +30992,257 @@ ms.script : OPERATOR StereotypeStereotypeProducer <<@meta>> <<UMLCategory>> <<Pr
 ms.script : OPERATOR StereotypeStereotypeProducer <<@meta>> <<UMLCategory>> <<Project>> Project3
 Родители элемента 
 ; // Project3
+..\..\ScriptEngine\Examples\CodeGeneration1\CacheFunction.ms.script
+PROGRAM CacheFunction.ms.script
+
+USES
+ axiom_push.ms.dict
+;
+
+USES
+ WordsRTTI.ms.dict
+;
+
+USES
+ Testing.ms.dict
+;
+
+Test&Dump CacheFunction.ms.script.test
+
+ : Cache.do
+   TtfwWord IN aCacheWhere
+    %REMARK 'Где кешировать результат'
+   TtfwWord IN aCacheWhat
+    %REMARK 'Что кешировать'
+   ^ IN aLambda
+    %REMARK 'Лямбда, которая вычисляет результат'
+
+  STRING VAR l_CacheWhat
+  [ 'cached' 
+     aCacheWhat .Parent.Words 
+      .filter> ( class::TkwCompiledMain SWAP pop:Object:Inherits ! ) 
+      .filter> ( pop:Word:Parent class::TkwCompiledMain SWAP pop:Object:Inherits ! )
+       .for> pop:Word:Name 
+     aCacheWhat pop:Word:Name 
+  ] ':' strings:CatSep >>> l_CacheWhat
+
+  VAR l_FieldVar
+  aCacheWhere %% l_CacheWhat >>> l_FieldVar
+
+  if ( l_FieldVar NotValid ) then
+  begin
+   VAR l_NewVar
+   l_CacheWhat false aCacheWhere pop:NewWordDefinitor:CheckVar >>> l_NewVar
+   @SELF l_NewVar pop:Word:SetProducer
+   aLambda DO 
+   l_NewVar pop:Word:SetValue
+   l_NewVar DO
+  end // l_FieldVar NotValid
+  else
+  begin
+   l_FieldVar DO
+  end
+
+ ; // Cache.do
+
+ MACRO Cache
+  axiom:PushSymbol @SELF
+  axiom:PushSymbol Cache.do
+ ; // Cache
+
+ : A
+
+  STRING FUNCTION X
+   'A.X' >>> Result
+  ; // X
+
+  STRING FUNCTION Y
+   'A.Y' >>> Result
+  ; // Y
+
+  STRING FUNCTION Z
+   'A.Z' >>> Result
+  ; // Z
+
+ ; // A
+ 
+ : B
+
+  STRING FUNCTION X
+   'B.X' >>> Result
+  ; // X
+
+  STRING FUNCTION Y
+   'B.Y' >>> Result
+  ; // Y
+
+  STRING FUNCTION Z
+   'B.Z' >>> Result
+  ; // Z
+
+ ; // B
+ 
+ STRING FUNCTION X
+   STRING IN aPrefix
+   TtfwWord IN aWord
+  aPrefix aWord Cache ( aWord %% ( @SELF pop:Word:Name ) DO ) Cat >>> Result
+ ; // X
+
+ STRING FUNCTION Y
+   STRING IN aPrefix
+   TtfwWord IN aWord
+  aPrefix aWord Cache ( aWord %% ( @SELF pop:Word:Name ) DO ) Cat >>> Result
+ ; // Y
+
+ STRING FUNCTION Z
+   STRING IN aPrefix
+   TtfwWord IN aWord
+  aPrefix aWord Cache ( aWord %% ( @SELF pop:Word:Name ) DO ) Cat >>> Result
+ ; // Z
+
+ '1' @ A X .
+ '2' @ B X .
+
+ '3' @ A X .
+ '4' @ B X .
+
+ '1' @ A Y .
+ '2' @ B Y .
+
+ '3' @ A Y .
+ '4' @ B Y .
+
+ '1' @ A Z .
+ '2' @ B Z .
+
+ '3' @ A Z .
+ '4' @ B Z .
+
+ @ A DumpElement
+ @ B DumpElement
+
+; // CacheFunction.ms.script.test
+
+CacheFunction.ms.script.test
+..\..\ScriptEngine\Examples\CodeGeneration1\CallAncestor.ms.script
+PROGRAM CallAncestor.ms.script
+
+USES
+ classRelations.ms.dict
+;
+
+USES
+ CallAncestor.ms.dict
+;
+
+USES
+ Testing.ms.dict
+;
+
+Test&Dump CallAncestorTest
+
+ : A
+  : X
+    INTEGER IN aValue
+   aValue 1 +
+  ; // X
+ ; // A
+
+ : B Inherits A
+  : X
+    INTEGER IN aValue
+   aValue 2 + .call.ancestor
+  ; // X
+ ; // B
+
+ : C Inherits B
+ ; // C
+
+ : D Inherits C
+  : X
+    INTEGER IN aValue
+   aValue 4 + .call.ancestor
+  ; // X
+ ; // D
+
+ : E Inherits C
+  : X
+    INTEGER IN aValue
+   aValue 5 + .call.ancestor
+  ; // X
+ ; // E
+
+ 1 A ?-> X .
+ 2 B ?-> X .
+ 3 C ?-> X .
+ 4 D ?-> X .
+ 5 E ?-> X .
+
+; // CallAncestorTest
+
+CallAncestorTest
+..\..\ScriptEngine\Examples\CodeGeneration1\CallInherited.ms.script
+PROGRAM CallInherited.ms.script
+
+USES
+ classRelations.ms.dict
+ CallInherited.ms.dict
+ Testing.ms.dict
+;
+
+Test&Dump CallInheritedTest
+
+ : A
+  INTEGER IN Self
+  Self 1 +
+ ; // A
+
+ : B
+  INTEGER IN Self
+
+  Inherits A
+
+  Self 2 +
+  call.inherited +
+ ; // B
+
+ : C
+  INTEGER IN Self
+
+  Inherits B
+
+  Self 3 +
+  call.inherited +
+ ; // C
+
+ : D
+  INTEGER IN Self
+
+  Inherits C
+
+  Self 4 +
+  call.inherited +
+ ; // D
+
+ : E
+  INTEGER IN Self
+
+  Inherits D
+
+  Self 5 +
+  Self .inherited +
+  //call.inherited +
+ ; // E
+
+ 1 A .
+ 2 B .
+ 3 C .
+ 4 D .
+ 5 E .
+
+; // CallInheritedTest
+
+CallInheritedTest
 ..\..\ScriptEngine\Examples\CodeGeneration1\CodeGen69.ms.script
 USES
  Documentation.ms.dict
@@ -31017,6 +31285,36 @@ help
 ; // CodeGen
 
 CodeGen
+..\..\ScriptEngine\Examples\CodeGeneration1\CompileAndProcess.ms.script
+INCLUDE 'CompileAndProcess.ms.dict'
+INCLUDE 'core.ms.dict'
+INCLUDE 'Debug.ms.dict'
+
+: LW
+  STRING IN aWordName
+  STRING IN aDictName
+ STRING VAR l_FileName
+ sysutils:GetCurrentDir >>> l_FileName 
+ [ l_FileName '\' aWordName '.' aDictName ] strings:Cat >>> l_FileName
+
+ FILE VAR l_File
+
+ l_FileName File:OpenWrite >>> l_File
+ TRY
+  [ 'INCLUDE ' '''' aDictName '''' ' @ ' aWordName ] strings:Cat l_File File:WriteLn
+ FINALLY
+  nil >>> l_File
+ END
+ l_FileName script:CompileAndProcess DO
+
+ l_FileName DeleteFile DROP
+ [ l_FileName '.co' ] strings:Cat DeleteFile DROP
+; // LW
+
+'X' 'CompileAndProcess.ms.dict' LW pop:Word:Name .
+'Y' 'CompileAndProcess.ms.dict' LW pop:Word:Name .
+'NameOf' 'core.ms.dict' LW pop:Word:Name .
+'Trace' 'Debug.ms.dict' LW pop:Word:Name .
 ..\..\ScriptEngine\Examples\CodeGeneration1\CompileTimeVar.ms.script
 USES
  CompileTimeVar.ms.dict
@@ -31036,6 +31334,152 @@ Test&Dump CompileTimeVarTest
 ; // CompileTimeVarTest
 
 CompileTimeVarTest
+..\..\ScriptEngine\Examples\CodeGeneration1\DelegateToGen.ms.script
+PROGRAM DelegateToGen.ms.script
+
+USES
+ core.ms.dict
+;
+
+USES
+ Testing.ms.dict
+;
+
+USES
+ classRelations.ms.dict
+;
+
+USES
+ WordsRTTI.ms.dict
+;
+
+Test&Dump DelegateToGen
+
+ TtfwWord FUNCTION .FindMemberRecur
+   STRING IN aName
+   TtfwWord IN aGen
+
+  TtfwKeyWord VAR l_Member
+  aName aGen pop:Word:FindMember >>> l_Member
+
+  if ( l_Member IsNil ) then
+   ( nil >>> Result )
+  else
+   ( l_Member pop:KeyWord:Word >>> Result )
+
+  if ( Result IsNil ) then
+   ( 
+    aGen .Inherited.Words .for> ( 
+     IN anItem 
+     TtfwWord VAR l_Found 
+     aName anItem call.me >>> l_Found
+     ( Result IsNil ) 
+     OR ( l_Found IsNil ) 
+     OR ( Result = l_Found ) 
+      ?ASSURE [ 'Множественное наследование не поддерживается. Слово: ' aName ' генератор ' aGen pop:Word:Name ' родительский генератор ' anItem pop:Word:Name ]
+     l_Found >>> Result
+    ) 
+   )
+
+ ; // .FindMemberRecur
+
+ TtfwWord VAR g_Gen
+
+ : .?
+   ^ IN aWord
+
+  TtfwWord VAR l_Word
+ 
+  aWord |N g_Gen .FindMemberRecur >>> l_Word
+ 
+  if ( l_Word IsNil ) then
+   ( aWord DO )
+  else
+   ( l_Word DO )
+ ; // .?
+
+ : A
+  1 +
+ ; // A
+
+ : B
+  2 +
+ ; // B
+
+ : C
+  3 +
+ ; // C
+
+ : D
+  4 +
+ ; // D
+
+ : Gen1
+  : A
+   10 +
+  ; // A
+ ; // Gen1
+
+ @ Gen1 >>> g_Gen
+
+ 1 .? A . 
+ 1 .? B . 
+ 1 .? C . 
+ 1 .? D . 
+
+ '----' .
+
+ : Gen2
+  Inherits Gen1
+  : B
+   20 +
+  ; // B
+ ; // Gen2
+
+ @ Gen2 >>> g_Gen
+
+ 2 .? A . 
+ 2 .? B . 
+ 2 .? C . 
+ 2 .? D . 
+
+ '----' .
+
+ : Gen3
+  Inherits ( Gen1 Gen2 )
+  : C
+   30 +
+  ; // C
+ ; // Gen3
+
+ @ Gen3 >>> g_Gen
+
+ 3 .? A . 
+ 3 .? B . 
+ 3 .? C . 
+ 3 .? D . 
+
+ '----' .
+
+ : Gen4
+  Inherits Gen3
+  : D
+   40 +
+  ; // D
+ ; // Gen4
+
+ @ Gen4 >>> g_Gen
+
+ 4 .? A . 
+ 4 .? B . 
+ 4 .? C . 
+ 4 .? D . 
+
+ '----' .
+
+; // DelegateToGen
+
+DelegateToGen
 ..\..\ScriptEngine\Examples\CodeGeneration1\DogAndBracket.ms.script
 // DogAndBracket.ms.script
 
@@ -31161,6 +31605,10 @@ STRING INTEGER ARRAY TYPE OUTABLE
 
 CONST cIndentChar ' '
 
+STRING FUNCTION IndentStr
+ g_Indent cIndentChar char:Dupe >>> Result
+; // IndentStr
+
 FORWARD ValueToString
 
 STRING FUNCTION ValueToString
@@ -31182,7 +31630,7 @@ PROCEDURE OutToFile
  '
  ; // %SUMMARY 
 
- [ g_Indent cIndentChar char:Dupe aValue ValueToString ] strings:Cat g_OutFile File:WriteStr
+ [ IndentStr aValue ValueToString ] strings:Cat g_OutFile File:WriteStr
  %REMARK '- выводим элементы модели в файл, а не в стандартный вывод.'
 ; // OutToFile
 
@@ -31294,8 +31742,11 @@ PROCEDURE GenerateUnit
   ''
  end
 
- aClassName
- [ 'end; // ' aClassName ]
+ TF g_Indent (
+ INC g_Indent
+ [ IndentStr aClassName ' = class' ]
+ [ IndentStr 'end; // ' aClassName ]
+ )
 ; // GenerateClass
 
 USES
@@ -32293,6 +32744,91 @@ Test&Dump TruncTest
 ; // TruncTest
 
 TruncTest
+..\..\ScriptEngine\Examples\CodeGeneration1\WasGenerated.ms.script
+PROGRAM WasGenerated.ms.script
+
+USES
+ axiom_push.ms.dict
+ // - в этом словаре описано слово []
+;
+
+USES
+ io.ms.dict
+ // - в этом словаре определено слово Print
+;
+
+USES
+ DogAndBracket.ms.dict
+ // - в этом словаре описано слово @[
+;
+
+USES
+ CompileTimeVar.ms.dict
+ // - в этом словаре описано слово CompileTime-VAR
+;
+
+USES
+ Testing.ms.dict
+ // - в этом словаре описано слово Test&Dump
+;
+
+Test&Dump WasGenerated.ms.script.test
+
+ %SUMMARY 'Метод WasGenerated.ms.script.test' ;
+
+ BOOLEAN FUNCTION .WasGenerated
+   TtfwWord IN aWord
+  %SUMMARY 'Определяет тот факт, что слово aWord уже использовалось для генерации' ;
+
+  ARRAY CompileTime-VAR g_WasGenerated []
+
+  if ( aWord g_WasGenerated array:Has ! )
+  begin
+   aWord array:AddTo g_WasGenerated
+   false >>> Result
+  end // aValue l_Array array:Has !
+  else
+  begin
+   true >>> Result
+  end // aValue l_Array array:Has !
+ ; // .WasGenerated
+
+ : A
+  %SUMMARY 'Метод A' ;
+ ; // A
+
+ : B
+  %SUMMARY 'Метод B' ;
+ ; // B
+
+ : C
+  %SUMMARY 'Метод C' ;
+ ; // C
+
+ @[ 
+ // - слово @[ открывает массив ССЫЛОК, а не ЗНАЧЕНИЙ
+  A A A B B B C C C A A A B B B C C C 
+ ] 
+ %REMARK ' - это массив ССЫЛОК на функции (слова)'
+ .filter> ( @ B != )
+ %REMARK ' - отфильтровываем значения равные ссылке на B
+  ВАЖНО: тут сравниваем УКАЗАТЕЛИ на функции'
+ .filter> ( |N 'C' != )
+ %REMARK ' - отфильтровываем значения равные ''C''
+  ВАЖНО: тут сравниваем ИМЕНА функций'
+ .filter> ( .WasGenerated ! )
+ %REMARK ' - отфильтровываем те слова, которые уже были использованы для генерации
+  теперь СПЕЦИАЛЬНО вызываем функцию .WasGenerated ПОСЛЕ всех ОСТАЛЬНЫХ фильтров'
+ .map> pop:Word:Name 
+ %REMARK ' - мапируем значение на вызов функции pop:Word:Name'
+ .for> 
+ %REMARK ' - итерируем смапированные значения'
+ Print
+ %REMARK ' - печатаем каждое итерируемое значение'
+
+; // WasGenerated.ms.script.test
+
+WasGenerated.ms.script.test
 ..\..\ScriptEngine\Examples\CodeGeneration1\CodeGen69\Class1.ms.script
 <<UMLClass>> <<Class>> Class1
 Родители Project1 Program1
@@ -32783,7 +33319,8 @@ ClassProducerTest
 Тест ClassRef
 
  TClass VAR l_Ref
- class::TvtCustomOutliner =: l_Ref
+ //class::TvtCustomOutliner =: l_Ref
+ class::Tl3ProtoObject =: l_Ref
  l_Ref .
 ;
 

@@ -1,8 +1,14 @@
 unit ddSpecialFormChecker;
 
-{ $Id: ddSpecialFormChecker.pas,v 1.7 2013/04/15 05:59:22 narry Exp $ }
+{ $Id: ddSpecialFormChecker.pas,v 1.9 2016/02/16 06:47:57 lukyanets Exp $ }
 
 // $Log: ddSpecialFormChecker.pas,v $
+// Revision 1.9  2016/02/16 06:47:57  lukyanets
+// Не собиралось
+//
+// Revision 1.8  2015/11/26 08:45:43  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.7  2013/04/15 05:59:22  narry
 // Не собиралось
 //
@@ -73,8 +79,9 @@ uses
 
  l3StringListPrim,
  l3LingLib,
+ l3SpellMisc,
  l3Memory,
- l3FileUtils, dt_Serv, dt_Const;
+ l3FileUtils, dt_Serv, daSchemeConsts;
 
 const
  cZipName = 'scdata.zip';

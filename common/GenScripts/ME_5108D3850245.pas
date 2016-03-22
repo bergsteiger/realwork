@@ -3,6 +3,7 @@ unit evTableCursorPair;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTableCursorPair.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTableCursorPair" MUID: (5108D3850245)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
@@ -202,7 +203,7 @@ begin
  with (l_Row As InevTableRow) do
  begin
   theStartCell := FindCell(aStartOffset, 0);
-  theFinishCell := FindCell(aFinishOffset, 0);
+  theFinishCell := FindCell(aFinishOffset, 0, True);
  end;//with (l_Row As InevTableRow)
 //#UC END# *47C7DBA00306_5108D3850245_impl*
 end;//TevTableCursorPair.Offset2Cells

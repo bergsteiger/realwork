@@ -2,6 +2,7 @@ unit vcmFormSet;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormSet.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormSet" MUID: (5087BD37023E)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

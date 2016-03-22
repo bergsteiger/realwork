@@ -2,6 +2,7 @@ unit FailedTest;
 
 // Модуль: "w:\common\components\rtl\Garant\TestForTFW\FailedTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TFailedTest" MUID: (4CA0B2BA01AC)
 
 interface
 

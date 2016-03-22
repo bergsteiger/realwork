@@ -4,6 +4,10 @@
 #include "stdbase.h"
 #include "SearchB.h"
 #include "StorableSplaySet.h"
+#include "shared\GCL\alg\set_operations.h"
+
+#include "boost/algorithm/string/split.hpp"
+#include "boost/algorithm/string/classification.hpp"
 
 int main_logic ( int argc, char *argv[] );
 
@@ -33,9 +37,21 @@ int main_logic ( int argc, char *argv[] )
 	if (argc != 4)
 		return 0;
 
+	std::set<short> heres;
 	std::map<long,DocCollection*> map_segment_docs;
 	if (!stricmp (argv [2], "kindcorr_chg")) {
-		ToolsBase *tbase = new ToolsBase (argv [1]);
+		SearchBase *tbase = new SearchBase (argv [1]);
+		tbase->YBase::IsOk ();
+		tbase->check_version ();
+
+		Stream *here_str = tbase->FindIndex ("Aux")->Open ("Here");
+		short hcount = (short) here_str->Length () / sizeof (short), *heres_ptr = (short*) malloc (here_str->Length ());
+		here_str->Read (heres_ptr, here_str->Length ());
+		tbase->FindIndex ("Aux")->Close (here_str);
+		for (int i = 0; i < hcount; i++)
+			heres.insert (heres_ptr [i]);
+		gk_free (heres_ptr);
+
 		Index *segment_index = tbase->FindIndex ("Segment");
 		for (int i = 1; i < 401; i++) {
 			Stream *str = segment_index->Open (&i);
@@ -199,6 +215,8 @@ int main_logic ( int argc, char *argv[] )
 		}
 	} else if (!stricmp (argv [2], "kindcorr_chg")) {
 		std::vector<long> kindcorr_docs;
+		std::map<long,std::vector<long> > map_doc_blocks;
+
 		while (!feof (in_file)) {
 			if (!fgets (in_str, sizeof (in_str), in_file))
 				break;
@@ -213,6 +231,19 @@ int main_logic ( int argc, char *argv[] )
 			long id = atol (in_str);
 			if (id)
 				kindcorr_docs.push_back (id);
+			
+			char *ptr = strchr (in_str, ':');
+			if (ptr) {
+				std::vector<long> blocks;
+				std::vector<std::string> parts;
+				boost::split (parts, ++ptr, boost::is_any_of (" "));
+				for (int i = 0; i < parts.size (); i++) {
+					if (parts.at (i).size ())
+						blocks.push_back (atol (parts.at (i).c_str ()));
+				}
+				std::sort (blocks.begin (), blocks.end ());
+				map_doc_blocks.insert (std::map<long,std::vector<long> >::value_type (id, blocks));
+			}
 		}
 
 		Index *newcorrs_index = base->FindIndex ("NewCorr"), *kindcorr_index = base->FindIndex ("KindCorr");
@@ -222,6 +253,12 @@ int main_logic ( int argc, char *argv[] )
 		for (std::vector<long>::const_iterator it = kindcorr_docs.begin (); it != kindcorr_docs.end (); it++) {
 			long id = *it;
 
+			std::vector<long> blocks;
+			std::map<long,std::vector<long> >::const_iterator map_it = map_doc_blocks.find (id);
+			if (map_it != map_doc_blocks.end ())
+				blocks = map_it->second;
+
+			std::vector<long> new_subs;
 			Stream* str = newcorrs_index->Open (&id);
 			if (str) {
 				printf ("%ld\r", id);
@@ -235,6 +272,9 @@ int main_logic ( int argc, char *argv[] )
 					CorrRef *ptr = buffer;
 					for (int i = 0; i < count; i++, ptr++) {
 						Ref at_i = {ptr->DocId, ptr->Block};
+						if (blocks.size () && !std::binary_search (blocks.begin (), blocks.end (), ptr->Sub))
+							continue;
+
 						std::map<long,RefCollection*>::iterator map_it = map_sub_refs.find (ptr->Sub);
 						if (map_it == map_sub_refs.end ()) {
 							RefCollection *refs = new RefCollection;
@@ -254,7 +294,7 @@ int main_logic ( int argc, char *argv[] )
 						refs->Intersect (CorrKinds [corrs].refs);
 						if (refs->ItemCount) {
 							for (std::map<long,DocCollection*>::const_iterator seg_it = map_segment_docs.begin (); seg_it != map_segment_docs.end (); seg_it++) {
-								if (refs->IsSect (*seg_it->second)) {
+								if (heres.find (seg_it->first) != heres.end () && refs->IsSect (*seg_it->second)) {
 									std::map<long,u_int64_t>::iterator res_it = map_segment_mask.find (seg_it->first);
 									if (res_it == map_segment_mask.end ()) {
 										map_segment_mask.insert (std::map<long,u_int64_t>::value_type (seg_it->first, CorrKinds [corrs].mask));
@@ -277,15 +317,27 @@ int main_logic ( int argc, char *argv[] )
 
 					if (size) {
 						Ref ref = {id, subs_it->first};
+						new_subs.push_back (ref.Sub);
 
 						str = kindcorr_index->Open (&ref, 1);
 						if (str) {
 							str->Write (towrite, size);
+							str->Trunc ();
 							kindcorr_index->Close (str);
 						}
 					}
 				}
+
 				map_sub_refs.clear ();
+			}
+
+			if (blocks.size ()) {
+				std::sort (new_subs.begin (), new_subs.end ());
+				GCL::set_difference (blocks, new_subs);
+				for (std::vector<long>::const_iterator del_it = blocks.begin (); del_it != blocks.end (); del_it++) {
+					Ref ref = {id, *del_it};
+					kindcorr_index->Delete (&ref);
+				}
 			}
 		}
 	}

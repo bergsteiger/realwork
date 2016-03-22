@@ -3,6 +3,7 @@ unit CustomizeToolsKeywordsPack;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ToolbarMenu\CustomizeToolsKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "CustomizeToolsKeywordsPack" MUID: (E027F36407CE)
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 
@@ -34,15 +35,10 @@ type
 'aControl' форма::CustomizeTools TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_CustomizeTools
-
-class function Tkw_Form_CustomizeTools.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::CustomizeTools';
-end;//Tkw_Form_CustomizeTools.GetWordNameForRegister
 
 function Tkw_Form_CustomizeTools.GetString: AnsiString;
 begin
@@ -54,6 +50,11 @@ begin
  inherited;
  TtfwClassRef.Register(TCustomizeToolsForm);
 end;//Tkw_Form_CustomizeTools.RegisterInEngine
+
+class function Tkw_Form_CustomizeTools.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::CustomizeTools';
+end;//Tkw_Form_CustomizeTools.GetWordNameForRegister
 
 initialization
  Tkw_Form_CustomizeTools.RegisterInEngine;

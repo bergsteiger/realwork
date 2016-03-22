@@ -1,8 +1,14 @@
 unit DataAdapter;
 
-// $Id: DataAdapter.pas,v 1.83 2015/07/13 13:54:31 kostitsin Exp $
+// $Id: DataAdapter.pas,v 1.85 2016/01/13 06:43:03 morozov Exp $
 
 // $Log: DataAdapter.pas,v $
+// Revision 1.85  2016/01/13 06:43:03  morozov
+// не собралось
+//
+// Revision 1.84  2016/01/12 16:49:59  kostitsin
+// {requestlink: 614228264 }
+//
 // Revision 1.83  2015/07/13 13:54:31  kostitsin
 // {requestlink: 127042272 }
 //
@@ -2414,7 +2420,8 @@ uses
 
   PrimF1Res,
   nsQuestionsWithChoices,
-  nsRegistryTools
+  nsRegistryTools,
+  Search_FormDefinitions_Controls
   ;
 
 {$Include l3Notifier.imp.pas}
@@ -2983,7 +2990,10 @@ begin
   if Assigned(g_Dispatcher) then
   begin
    g_Dispatcher.UpdateStatus;
-   g_Dispatcher.History.Back;
+   {$If not (defined(Monitorings) or defined(Admin))}
+   if g_Dispatcher.FormDispatcher.CurrentMainForm.AsContainer.HasForm(fm_efPreviewForm.rFormID) then
+    g_Dispatcher.History.Back;
+   {$IfEnd not (defined(Monitorings) or defined(Admin))}
   end;//g_Dispatcher
   // http://mdp.garant.ru/pages/viewpage.action?pageId=508825964
   vcmShowMessageDlg(Tl3Message_C(str_warInvalidMargins,

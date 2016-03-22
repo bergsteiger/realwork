@@ -2,6 +2,7 @@ unit atParameter;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atParameter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatParameter" MUID: (48086D7103BE)
 
 interface
 

@@ -2,6 +2,8 @@ unit kwCFRTF;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCFRTF.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "CF_RTF" MUID: (5291E204016B)
+// Имя типа: "TkwCFRTF"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

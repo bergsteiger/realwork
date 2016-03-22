@@ -1,48 +1,28 @@
 unit kwCreate;
+ {* *Формат:*  Create
+*Описание:* Создает новый документ в редакторе.
+ *Пример:*
+ [code]
+Create
+ [code]
+ *Результат:* Будет создан новый документ. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestTestSupport"
-// Модуль: "w:/archi/source/projects/Everest/Lite/7.0/Express/EverestTestSupport/kwCreate.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$EverestLite$TestSupport::EverestTestSupport::EverestLiteKeyWords::Create
-//
-// *Формат:*  Create
-// *Описание:* Создает новый документ в редакторе.
-// *Пример:*
-// {code}
-// Create
-// {code}
-// *Результат:* Будет создан новый документ.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwCreate.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "Create" MUID: (512D9C2D013F)
+// Имя типа: "TkwCreate"
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  tfwRegisterableWord
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //InsiderTest AND nsTest
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If defined(InsiderTest) AND defined(nsTest)}
 type
- TkwCreate = {final scriptword} class(TtfwRegisterableWord)
+ TkwCreate = {final} class(TtfwRegisterableWord)
   {* *Формат:*  Create
 *Описание:* Создает новый документ в редакторе.
  *Пример:*
@@ -50,32 +30,20 @@ type
 Create
  [code]
  *Результат:* Будет создан новый документ. }
- protected
- // realized methods
-    {$If not defined(NoScripts)}
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
-    {$IfEnd} //not NoScripts
- protected
- // overridden protected methods
-   {$If not defined(NoScripts)}
    class function GetWordNameForRegister: AnsiString; override;
-   {$IfEnd} //not NoScripts
  end;//TkwCreate
-{$IfEnd} //InsiderTest AND nsTest
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  EverestLiteAdapter
-  ;
-{$IfEnd} //InsiderTest AND nsTest
+ l3ImplUses
+ , EverestLiteAdapter
+;
 
-{$If defined(InsiderTest) AND defined(nsTest)}
-
-// start class TkwCreate
-
-{$If not defined(NoScripts)}
 procedure TkwCreate.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_512D9C2D013F_var*
 //#UC END# *4DAEEDE10285_512D9C2D013F_var*
@@ -84,22 +52,15 @@ begin
  CreateNewDocument;
 //#UC END# *4DAEEDE10285_512D9C2D013F_impl*
 end;//TkwCreate.DoDoIt
-{$IfEnd} //not NoScripts
 
-{$If not defined(NoScripts)}
 class function TkwCreate.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Create';
 end;//TkwCreate.GetWordNameForRegister
-{$IfEnd} //not NoScripts
-
-{$IfEnd} //InsiderTest AND nsTest
 
 initialization
-{$If defined(InsiderTest) AND defined(nsTest)}
-// Регистрация Create
  TkwCreate.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest
+ {* Регистрация Create }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

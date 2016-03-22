@@ -2,6 +2,7 @@ unit l3PopupControlService;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3PopupControlService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3PopupControlService" MUID: (55879E12008D)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -30,7 +31,7 @@ type
  Tl3PopupControlService = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3PopupControlService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3PopupControlService }
   protected
    procedure pm_SetAlien(const aValue: Il3PopupControlService);
    procedure ClearFields; override;

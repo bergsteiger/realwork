@@ -1,61 +1,46 @@
 unit kwWinControlFromStackWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Автор: Люлин А.В.
-// Модуль: "kwWinControlFromStackWord.pas"
-// Начат: 26.01.2012 14:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::VCL bindings::TkwWinControlFromStackWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwWinControlFromStackWord.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TkwWinControlFromStackWord" MUID: (4F212C680161)
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  Controls,
-  tfwScriptingInterfaces,
-  kwComponentFromStackWord,
-  Classes
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+ , Controls
+ , tfwScriptingInterfaces
+ , kwComponentFromStackWord
+ , Classes
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
 type
- {$Include ..\ScriptEngine\kwControlFromStackWord.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
  TkwWinControlFromStackWord = {abstract} class(_kwControlFromStackWord_)
- protected
- // realized methods
-   procedure DoControl(aControl: TControl;
-     const aCtx: TtfwContext); override;
- protected
- // protected methods
+  protected
    procedure DoWinControl(aControl: TWinControl;
-     const aCtx: TtfwContext); virtual; abstract;
+    const aCtx: TtfwContext); virtual; abstract;
+   procedure DoControl(aControl: TControl;
+    const aCtx: TtfwContext); override;
  end;//TkwWinControlFromStackWord
-{$IfEnd} //not NoScripts AND not NoVCL
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  Windows,
-  Forms
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3ImplUses
+ , Windows
+ , Forms
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-
-{$Include ..\ScriptEngine\kwControlFromStackWord.imp.pas}
-
-// start class TkwWinControlFromStackWord
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
 
 procedure TkwWinControlFromStackWord.DoControl(aControl: TControl;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4F212C3A015A_4F212C680161_var*
 //#UC END# *4F212C3A015A_4F212C680161_var*
 begin
@@ -64,12 +49,9 @@ begin
 //#UC END# *4F212C3A015A_4F212C680161_impl*
 end;//TkwWinControlFromStackWord.DoControl
 
-{$IfEnd} //not NoScripts AND not NoVCL
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация TkwWinControlFromStackWord
  TkwWinControlFromStackWord.RegisterClass;
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация TkwWinControlFromStackWord }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

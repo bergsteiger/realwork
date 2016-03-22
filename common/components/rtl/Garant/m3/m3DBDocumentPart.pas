@@ -5,7 +5,7 @@ unit m3DBDocumentPart;
 // Библиотека "m3$DB"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3DBDocumentPart.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3$DB::m3DB::Tm3DBDocumentPart
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3DBDocumentPart
 //
 // Реализация части документа.
 //

@@ -5,6 +5,8 @@ unit kwPopEditorTextToFile;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorTextToFile.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_TextToFile" MUID: (4DDE23E403D6)
+// Имя типа: "TkwPopEditorTextToFile"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

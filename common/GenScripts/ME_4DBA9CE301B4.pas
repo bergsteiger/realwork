@@ -2,6 +2,7 @@ unit kwFiltersList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwFiltersList.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwFiltersList" MUID: (4DBA9CE301B4)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

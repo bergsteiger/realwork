@@ -2,6 +2,7 @@ unit dsSynchroViewDocument;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\List\dsSynchroViewDocument.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsSynchroViewDocument" MUID: (5024E60F00A6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

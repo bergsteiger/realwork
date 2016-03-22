@@ -3,6 +3,7 @@ unit nsFoundBlocksList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsFoundBlocksList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsFoundBlocksList" MUID: (4B61AB64033F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

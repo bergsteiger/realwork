@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\sdsMedicFirmDocument.imp.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "sdsMedicFirmDocument" MUID: (4939633A025D)
+// Имя типа: "_sdsMedicFirmDocument_"
 
 {$Define sdsMedicFirmDocument_imp}
 

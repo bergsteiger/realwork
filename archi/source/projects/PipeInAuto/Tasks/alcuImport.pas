@@ -53,7 +53,7 @@ implementation
 
 uses
  csTaskTypes, DT_Const, DT_IFltr, {$IfDef AppServerSide} ddAppConfig, alcuMailServer, {$EndIf AppServerSide} SysUtils,
- l3FileUtils, ddUtils, daUtils, daTypes, StrUtils, DT_Mail, dt_Utils, DT_Doc, l3Types,
+ l3FileUtils, ddUtils, daUtils, daTypes, daSchemeConsts, StrUtils, DT_Mail, dt_Utils, DT_Doc, l3Types,
  l3Stream, ddServerTask, ddFileIterator, dtIntf, DT_Sab, DT_Query,
  dt_AttrSchema, l3Chars, dt_LinkServ, alcuStrings;
 

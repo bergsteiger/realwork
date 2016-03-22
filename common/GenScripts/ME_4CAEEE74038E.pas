@@ -2,6 +2,7 @@ unit nsFiltersNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsFiltersNode" MUID: (4CAEEE74038E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

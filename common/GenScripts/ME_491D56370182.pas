@@ -2,6 +2,7 @@ unit dsTipsDocument;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DayTips\dsTipsDocument.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsTipsDocument" MUID: (491D56370182)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

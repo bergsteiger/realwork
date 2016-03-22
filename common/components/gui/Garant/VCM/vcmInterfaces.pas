@@ -766,6 +766,7 @@ type
     const anOld: IvcmFormDataSource;
     const aNew: IvcmFormDataSource);
      {* вызывается при изменении источника данных вложенной формы }
+   function IsSame(const aAnother: IvcmContainer): Boolean;
    property EntityFormIterator: IvcmEntityFormIterator
      read pm_GetEntityFormIterator;
      {* итератор форм контейнера }
@@ -1372,7 +1373,9 @@ type
    procedure InitContainedForm;
    procedure SaveFocusedControl;
    procedure RestoreFocusedControl;
-   function OpenNew(aOpenKind: TvcmMainFormOpenKind): IvcmContainedForm;
+   function OpenNew(aOpenKind: TvcmMainFormOpenKind;
+    aOpenLast: Boolean;
+    const aOpenAfter: IvcmEntityForm = nil): IvcmContainedForm;
    procedure CloseContainedForm;
    procedure StartTabHistoryOperation;
    procedure FinishTabHistoryOperation;

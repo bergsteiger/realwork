@@ -3,6 +3,8 @@ unit Document_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Document_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "Document" MUID: (498B135601B6)
+// Имя типа: "TDocumentModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

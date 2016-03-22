@@ -2,6 +2,7 @@ unit TevPageBreakInterfaceFactory_Proxy;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\TevPageBreakInterfaceFactory_Proxy.pas"
 // Стереотип: "InterfaceFactoryProxy"
+// Элемент модели: "TevPageBreakInterfaceFactory" MUID: (56D0746502DC)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

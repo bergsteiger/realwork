@@ -3,6 +3,7 @@ unit SynchroViewKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\SynchroViewKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "SynchroViewKeywordsPack" MUID: (0D4815BAE705)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::SynchroView TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_SynchroView
 
  Tkw_SynchroView_Control_DocView = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::DocView TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SynchroView_Control_DocView
 
  Tkw_SynchroView_Control_DocView_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TvtPanel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwFcSynchroViewDocView
 
-class function Tkw_Form_SynchroView.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::SynchroView';
-end;//Tkw_Form_SynchroView.GetWordNameForRegister
-
 function Tkw_Form_SynchroView.GetString: AnsiString;
 begin
  Result := 'fcSynchroView';
 end;//Tkw_Form_SynchroView.GetString
 
-class function Tkw_SynchroView_Control_DocView.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_SynchroView.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::DocView';
-end;//Tkw_SynchroView_Control_DocView.GetWordNameForRegister
+ Result := 'форма::SynchroView';
+end;//Tkw_Form_SynchroView.GetWordNameForRegister
 
 function Tkw_SynchroView_Control_DocView.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_SynchroView_Control_DocView.RegisterInEngine
+
+class function Tkw_SynchroView_Control_DocView.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::DocView';
+end;//Tkw_SynchroView_Control_DocView.GetWordNameForRegister
 
 procedure Tkw_SynchroView_Control_DocView_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(DocView(aCtx, l_afcSynchroView));
 end;//TkwFcSynchroViewDocView.DoDoIt
 
-class function TkwFcSynchroViewDocView.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TfcSynchroView.DocView';
-end;//TkwFcSynchroViewDocView.GetWordNameForRegister
-
 procedure TkwFcSynchroViewDocView.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwFcSynchroViewDocView.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TfcSynchroView)]);
 end;//TkwFcSynchroViewDocView.ParamsTypes
+
+class function TkwFcSynchroViewDocView.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TfcSynchroView.DocView';
+end;//TkwFcSynchroViewDocView.GetWordNameForRegister
 
 initialization
  Tkw_Form_SynchroView.RegisterInEngine;

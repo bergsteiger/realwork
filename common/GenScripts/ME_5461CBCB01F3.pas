@@ -2,6 +2,7 @@ unit destShp;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destShp.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdestShp" MUID: (5461CBCB01F3)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

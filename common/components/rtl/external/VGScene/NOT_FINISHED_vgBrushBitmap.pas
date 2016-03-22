@@ -2,6 +2,7 @@ unit NOT_FINISHED_vgBrushBitmap;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vgBrushBitmap.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgBrushBitmap" MUID: (4D5EC60E0068)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

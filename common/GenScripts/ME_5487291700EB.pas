@@ -2,6 +2,7 @@ unit eeTagEditorTool;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeTagEditorTool.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TeeTagEditorTool" MUID: (5487291700EB)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

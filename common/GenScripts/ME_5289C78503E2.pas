@@ -2,6 +2,7 @@ unit vcmFormSetFormItemList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmFormSetFormItemList.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmFormSetFormItemList" MUID: (5289C78503E2)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

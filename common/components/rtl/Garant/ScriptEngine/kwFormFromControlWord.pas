@@ -1,59 +1,44 @@
 unit kwFormFromControlWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Автор: Люлин А.В.
-// Модуль: "kwFormFromControlWord.pas"
-// Начат: 03.11.2011 13:22
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::VCL bindings::TkwFormFromControlWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwFormFromControlWord.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TkwFormFromControlWord" MUID: (4EB25D530395)
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  Forms,
-  tfwScriptingInterfaces,
-  kwControlWord,
-  Controls
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+ , kwControlWord
+ , Forms
+ , tfwScriptingInterfaces
+ , Controls
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
 type
  TkwFormFromControlWord = {abstract} class(TkwControlWord)
- protected
- // realized methods
-   procedure DoControl(aControl: TControl;
-     const aCtx: TtfwContext); override;
- protected
- // protected methods
+  protected
    procedure DoForm(aForm: TForm;
-     const aCtx: TtfwContext); virtual; abstract;
+    const aCtx: TtfwContext); virtual; abstract;
+   procedure DoControl(aControl: TControl;
+    const aCtx: TtfwContext); override;
  end;//TkwFormFromControlWord
-{$IfEnd} //not NoScripts AND not NoVCL
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  SysUtils,
-  l3FormsService,
-  Windows
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
-
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-
-// start class TkwFormFromControlWord
+ l3ImplUses
+ , SysUtils
+ , l3FormsService
+ , Windows
+;
 
 procedure TkwFormFromControlWord.DoControl(aControl: TControl;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4DB98B990054_4EB25D530395_var*
 var
  l_F : TCustomForm;
@@ -66,12 +51,9 @@ begin
 //#UC END# *4DB98B990054_4EB25D530395_impl*
 end;//TkwFormFromControlWord.DoControl
 
-{$IfEnd} //not NoScripts AND not NoVCL
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация TkwFormFromControlWord
  TkwFormFromControlWord.RegisterClass;
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация TkwFormFromControlWord }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

@@ -3,6 +3,8 @@ unit k2String_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2String_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "String" MUID: (48492AC1023B)
+// Имя типа: "StringTag"
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

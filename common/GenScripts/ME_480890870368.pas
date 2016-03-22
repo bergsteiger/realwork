@@ -2,6 +2,7 @@ unit atNamedParameter;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atNamedParameter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatNamedParameter" MUID: (480890870368)
 
 interface
 
@@ -17,6 +18,8 @@ type
     {* Поле для свойства Name }
    f_Description: AnsiString;
     {* Поле для свойства Description }
+  protected
+   procedure ClearFields; override;
   public
    constructor Create(const name: AnsiString;
     const description: AnsiString;
@@ -71,5 +74,12 @@ begin
     f_Description := '';
 //#UC END# *480890EF00D2_480890870368_impl*
 end;//TatNamedParameter.Create
+
+procedure TatNamedParameter.ClearFields;
+begin
+ f_Name := '';
+ f_Description := '';
+ inherited;
+end;//TatNamedParameter.ClearFields
 
 end.

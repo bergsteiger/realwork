@@ -2,6 +2,7 @@ unit alcuTaskFileTransferServices;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuTaskFileTransferServices.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuTaskFileTransferServices" MUID: (54B638150163)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

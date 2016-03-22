@@ -2,6 +2,7 @@ unit MouseInputPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\MouseInputPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "MouseInputPack" MUID: (4F8EC88A01F2)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

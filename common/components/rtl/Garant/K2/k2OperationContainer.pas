@@ -7,7 +7,7 @@ unit k2OperationContainer;
 // Модуль: "w:/common/components/rtl/Garant/K2/k2OperationContainer.pas"
 // Начат: 07.12.1999 19:05
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::Operations::Tk2OperationContainer
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::K2::Operations::Tk2OperationContainer
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

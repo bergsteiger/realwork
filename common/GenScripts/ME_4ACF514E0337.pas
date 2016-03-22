@@ -2,6 +2,7 @@ unit NavigationInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NavigationInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "NavigationInterfaces" MUID: (4ACF514E0337)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

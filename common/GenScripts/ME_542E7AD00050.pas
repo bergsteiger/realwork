@@ -2,6 +2,7 @@ unit m3StorageHolderList;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3StorageHolderList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3StorageHolderList" MUID: (542E7AD00050)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

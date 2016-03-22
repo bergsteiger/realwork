@@ -2,6 +2,7 @@ unit evMarkersList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\evMarkersList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevMarkersList" MUID: (47CC15130269)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

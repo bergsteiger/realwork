@@ -5,7 +5,7 @@ unit RegionImportTaskResult_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/RegionImportTaskResult_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::RegionImportTaskResult
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::RegionImportTaskResult
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

@@ -2,6 +2,7 @@ unit FoldersUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\FoldersUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Folders" MUID: (4570501E037A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

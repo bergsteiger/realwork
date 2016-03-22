@@ -3,6 +3,7 @@ unit kwAddBlock;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwAddBlock.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwAddBlock" MUID: (4EA94ED30365)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

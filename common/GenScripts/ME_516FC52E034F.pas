@@ -3,6 +3,8 @@ unit PrimCompInfo_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimCompInfo_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimCompInfo" MUID: (516FC52E034F)
+// Имя типа: "TPrimCompInfoForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_alcuImport;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuImport.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "alcuImport" MUID: (5305AFD5014D)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3MinMax;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3MinMax.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3MinMax" MUID: (47A066980016)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

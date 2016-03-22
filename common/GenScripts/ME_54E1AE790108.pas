@@ -2,6 +2,7 @@ unit destStyleSheet;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destStyleSheet.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "destStyleSheet" MUID: (54E1AE790108)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

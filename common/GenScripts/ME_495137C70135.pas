@@ -3,6 +3,7 @@ unit bsDocumentContextSearcher;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\bsDocumentContextSearcher.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsDocumentContextSearcher" MUID: (495137C70135)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

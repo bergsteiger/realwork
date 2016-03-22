@@ -2,6 +2,7 @@ unit seModalWorkerList;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\seModalWorkerList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TseModalWorkerList" MUID: (4FC756830111)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -3,6 +3,8 @@ unit Participant_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\Participant_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Participant" MUID: (49EF2461008E)
+// Имя типа: "ParticipantTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

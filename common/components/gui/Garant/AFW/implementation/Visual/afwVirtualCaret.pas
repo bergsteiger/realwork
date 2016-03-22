@@ -3,6 +3,7 @@ unit afwVirtualCaret;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwVirtualCaret.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwVirtualCaret" MUID: (474154CE0081)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

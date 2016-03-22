@@ -17,6 +17,7 @@
 #include "shared/ContextSearch/Common/ContextUtility.h"
 #include "boost/algorithm/string/join.hpp"
 #include "boost/algorithm/string/classification.hpp"
+#include "shared/ContextSearch/MorphoBase/Analyzer.h"
 
 namespace ContextSearch {
 
@@ -145,6 +146,37 @@ Search::RequestsEx* RequestBuilder::make_deflate (const Search::SplitRequests& i
 		Core::Aptr <Search::RequestsEx> ret = new Search::RequestsEx (1);
 		RequestBuilder::convert (in [0], ret->at (0));
 		return ret._retn ();
+	}
+
+	{
+		bool is_found = true;
+
+		Search::SplitRequests::const_iterator it = in.begin ();
+
+		size_t sz = it->context.size ();
+
+		for (; it != in.end () && is_found; ++it) {
+			is_found = (it->context.size () == sz && it->data.strongs.empty () && it->data.frames.empty ());
+		}
+
+		if (is_found) {
+			Search::RequestEx req;
+			req.context.resize (sz);
+
+			for (it = in.begin (); it != in.end (); ++it) {
+				const Search::Phrase& cur = it->context;
+
+				for (size_t j = 0; j < cur.size (); ++j) {
+					req.context.at (j).insert (cur [j]);
+				}
+			}
+
+			if (Analyzer::is_identical (req.context)) {
+				return new Search::RequestsEx (1, req);
+			} else if (Analyzer::is_digits (req.context)) {
+				return new Search::RequestsEx (1, req);
+			}
+		}
 	}
 
 	Core::Aptr <Search::RequestsEx> ret = new Search::RequestsEx ();

@@ -3,6 +3,7 @@ unit nsParentedTagNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParentedTagNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsParentedTagNode" MUID: (467FCD4401BD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

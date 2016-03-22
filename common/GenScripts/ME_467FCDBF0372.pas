@@ -3,6 +3,7 @@ unit nsTextParaNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsTextParaNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsTextParaNode" MUID: (467FCDBF0372)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

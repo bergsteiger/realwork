@@ -2,6 +2,7 @@ unit evHugeParaListPrimWithFind;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\evHugeParaListPrimWithFind.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevHugeParaListPrimWithFind" MUID: (4A6062FE02AD)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

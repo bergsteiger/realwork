@@ -2,6 +2,7 @@ unit eeSubPanelExport;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeSubPanelExport.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TeeSubPanelExport" MUID: (4C7F94A9028D)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

@@ -2,6 +2,7 @@ unit vgCustomBitmap;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgCustomBitmap.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgCustomBitmap" MUID: (4D542A150195)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

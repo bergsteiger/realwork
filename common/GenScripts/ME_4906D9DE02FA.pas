@@ -3,6 +3,7 @@ unit nsBaseSearchPromptTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsBaseSearchPromptTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsBaseSearchPromptTree" MUID: (4906D9DE02FA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

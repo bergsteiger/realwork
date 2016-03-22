@@ -64,6 +64,7 @@ function TalcuMdpDocImporter.HasToImport: Boolean;
 begin
 //#UC START# *55EEDEC7035D_55EED3CD0299_impl*
  Result := True;
+// По хорошему нужен ответ от Гардока о наличии документов для импорта. 
 // !!! Needs to be implemented !!!
 //#UC END# *55EEDEC7035D_55EED3CD0299_impl*
 end;//TalcuMdpDocImporter.HasToImport

@@ -2,6 +2,7 @@ unit nsDictListChild;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsDictListChild.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDictListChild" MUID: (46836BEC0307)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

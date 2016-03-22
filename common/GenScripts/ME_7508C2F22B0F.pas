@@ -3,6 +3,7 @@ unit TasksPanelKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\TasksPanelKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "TasksPanelKeywordsPack" MUID: (7508C2F22B0F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -46,8 +47,8 @@ type
 'aControl' форма::TasksPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_TasksPanel
 
  Tkw_TasksPanel_Control_tpvMain = {final} class(TtfwControlString)
@@ -58,9 +59,9 @@ type
 контрол::tpvMain TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TasksPanel_Control_tpvMain
 
  Tkw_TasksPanel_Control_tpvMain_Push = {final} class(TkwBynameControlPush)
@@ -99,20 +100,15 @@ OBJECT VAR l_TnscTasksPanelView
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnTasksPanelTpvMain
 
-class function Tkw_Form_TasksPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::TasksPanel';
-end;//Tkw_Form_TasksPanel.GetWordNameForRegister
-
 function Tkw_Form_TasksPanel.GetString: AnsiString;
 begin
  Result := 'en_TasksPanel';
 end;//Tkw_Form_TasksPanel.GetString
 
-class function Tkw_TasksPanel_Control_tpvMain.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_TasksPanel.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::tpvMain';
-end;//Tkw_TasksPanel_Control_tpvMain.GetWordNameForRegister
+ Result := 'форма::TasksPanel';
+end;//Tkw_Form_TasksPanel.GetWordNameForRegister
 
 function Tkw_TasksPanel_Control_tpvMain.GetString: AnsiString;
 begin
@@ -124,6 +120,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTasksPanelView);
 end;//Tkw_TasksPanel_Control_tpvMain.RegisterInEngine
+
+class function Tkw_TasksPanel_Control_tpvMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tpvMain';
+end;//Tkw_TasksPanel_Control_tpvMain.GetWordNameForRegister
 
 procedure Tkw_TasksPanel_Control_tpvMain_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -158,11 +159,6 @@ begin
  aCtx.rEngine.PushObj(tpvMain(aCtx, l_aen_TasksPanel));
 end;//TkwEnTasksPanelTpvMain.DoDoIt
 
-class function TkwEnTasksPanelTpvMain.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_TasksPanel.tpvMain';
-end;//TkwEnTasksPanelTpvMain.GetWordNameForRegister
-
 procedure TkwEnTasksPanelTpvMain.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -183,6 +179,11 @@ function TkwEnTasksPanelTpvMain.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_TasksPanel)]);
 end;//TkwEnTasksPanelTpvMain.ParamsTypes
+
+class function TkwEnTasksPanelTpvMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_TasksPanel.tpvMain';
+end;//TkwEnTasksPanelTpvMain.GetWordNameForRegister
 
 initialization
  Tkw_Form_TasksPanel.RegisterInEngine;

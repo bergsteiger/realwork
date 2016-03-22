@@ -2,6 +2,7 @@ unit nscTextSource;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTextSource.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnscTextSource" MUID: (49512B040003)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

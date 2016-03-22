@@ -3,6 +3,8 @@ unit evdTextStyle_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdTextStyle_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "TextStyle" MUID: (484D2CBA0213)
+// Имя типа: "TextStyleTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

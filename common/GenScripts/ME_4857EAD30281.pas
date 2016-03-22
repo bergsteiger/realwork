@@ -2,6 +2,8 @@ unit evReqRow_InterfaceFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evReqRow_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
+// Элемент модели: "TevReqRow" MUID: (4857EAD30281)
+// Имя типа: "TevReqRowInterfaceFactory"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

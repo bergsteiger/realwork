@@ -2,6 +2,7 @@ unit afwTextControlPrim;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwTextControlPrim.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TafwTextControlPrim" MUID: (48BBD30803C5)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
@@ -19,7 +20,6 @@ type
  TafwTextControlPrim = class(TafwControl)
   private
    f_CCaption: IafwCString;
-    {* Поле для свойства CCaption }
   private
    procedure WMGetText(var Msg: TMessage); message WM_GetText;
    procedure WMGetTextLength(var Msg: TMessage); message WM_GetTextLength;

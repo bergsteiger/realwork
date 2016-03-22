@@ -2,6 +2,7 @@ unit InterfacedNodeWordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\InterfacedNodeWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "InterfacedNodeWordsPack" MUID: (53B533CE01B6)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
@@ -166,11 +167,6 @@ begin
  aCtx.rEngine.PushBool(AutoApplied(aCtx, l_aFilterNode));
 end;//TkwFilterNodeAutoApplied.DoDoIt
 
-class function TkwFilterNodeAutoApplied.GetWordNameForRegister: AnsiString;
-begin
- Result := 'FilterNode:AutoApplied';
-end;//TkwFilterNodeAutoApplied.GetWordNameForRegister
-
 procedure TkwFilterNodeAutoApplied.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 var l_FilterNode: InsFilterNode;
@@ -202,6 +198,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(InsFilterNode)]);
 end;//TkwFilterNodeAutoApplied.ParamsTypes
 
+class function TkwFilterNodeAutoApplied.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'FilterNode:AutoApplied';
+end;//TkwFilterNodeAutoApplied.GetWordNameForRegister
+
 function TkwFilterNodeIsUsed.IsUsed(const aCtx: TtfwContext;
  const aFilterNode: InsFilterNode): Boolean;
  {* Реализация слова скрипта FilterNode:IsUsed }
@@ -228,11 +229,6 @@ begin
  aCtx.rEngine.PushBool(IsUsed(aCtx, l_aFilterNode));
 end;//TkwFilterNodeIsUsed.DoDoIt
 
-class function TkwFilterNodeIsUsed.GetWordNameForRegister: AnsiString;
-begin
- Result := 'FilterNode:IsUsed';
-end;//TkwFilterNodeIsUsed.GetWordNameForRegister
-
 procedure TkwFilterNodeIsUsed.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -253,6 +249,11 @@ function TkwFilterNodeIsUsed.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(InsFilterNode)]);
 end;//TkwFilterNodeIsUsed.ParamsTypes
+
+class function TkwFilterNodeIsUsed.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'FilterNode:IsUsed';
+end;//TkwFilterNodeIsUsed.GetWordNameForRegister
 
 function TkwFilterNodeIsDeleted.IsDeleted(const aCtx: TtfwContext;
  const aFilterNode: InsFilterNode): Boolean;
@@ -280,11 +281,6 @@ begin
  aCtx.rEngine.PushBool(IsDeleted(aCtx, l_aFilterNode));
 end;//TkwFilterNodeIsDeleted.DoDoIt
 
-class function TkwFilterNodeIsDeleted.GetWordNameForRegister: AnsiString;
-begin
- Result := 'FilterNode:IsDeleted';
-end;//TkwFilterNodeIsDeleted.GetWordNameForRegister
-
 procedure TkwFilterNodeIsDeleted.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -305,6 +301,11 @@ function TkwFilterNodeIsDeleted.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(InsFilterNode)]);
 end;//TkwFilterNodeIsDeleted.ParamsTypes
+
+class function TkwFilterNodeIsDeleted.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'FilterNode:IsDeleted';
+end;//TkwFilterNodeIsDeleted.GetWordNameForRegister
 
 function TkwFilterNodeIsChangeable.IsChangeable(const aCtx: TtfwContext;
  const aFilterNode: InsFilterNode): Boolean;
@@ -340,11 +341,6 @@ begin
  aCtx.rEngine.PushBool(IsChangeable(aCtx, l_aFilterNode));
 end;//TkwFilterNodeIsChangeable.DoDoIt
 
-class function TkwFilterNodeIsChangeable.GetWordNameForRegister: AnsiString;
-begin
- Result := 'FilterNode:IsChangeable';
-end;//TkwFilterNodeIsChangeable.GetWordNameForRegister
-
 procedure TkwFilterNodeIsChangeable.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -365,6 +361,11 @@ function TkwFilterNodeIsChangeable.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(InsFilterNode)]);
 end;//TkwFilterNodeIsChangeable.ParamsTypes
+
+class function TkwFilterNodeIsChangeable.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'FilterNode:IsChangeable';
+end;//TkwFilterNodeIsChangeable.GetWordNameForRegister
 
 initialization
  TInterfacedNodeWordsPackResNameGetter.Register;

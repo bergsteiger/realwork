@@ -2,6 +2,7 @@ unit alcuSubmitterWorkThreadList;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuSubmitterWorkThreadList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuSubmitterWorkThreadList" MUID: (53CE0BD20380)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

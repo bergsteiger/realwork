@@ -2,6 +2,7 @@ unit tfwAnonimousWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwAnonimousWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwAnonimousWord" MUID: (4DB9BB43017B)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

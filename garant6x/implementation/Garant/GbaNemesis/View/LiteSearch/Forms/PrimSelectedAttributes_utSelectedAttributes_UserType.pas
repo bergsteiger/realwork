@@ -1,83 +1,63 @@
 unit PrimSelectedAttributes_utSelectedAttributes_UserType;
+ {* Поиск: Выбранные значения реквизита }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/LiteSearch/Forms/PrimSelectedAttributes_utSelectedAttributes_UserType.pas"
-// Начат: 27.01.2009 11:20
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Базовые определения предметной области::SearchLite::View::LiteSearch::PrimSelectedAttributes::utSelectedAttributes
-//
-// Поиск: Выбранные значения реквизита
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimSelectedAttributes_utSelectedAttributes_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "utSelectedAttributes" MUID: (4C6D0B950206)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы utSelectedAttributes }
-  utSelectedAttributesName = 'utSelectedAttributes';
-   { Строковый идентификатор пользовательского типа "Поиск: Выбранные значения реквизита" }
-  utSelectedAttributes = TvcmUserType(0);
-   { Поиск: Выбранные значения реквизита }
+ {* Константы для типа формы utSelectedAttributes }
+ utSelectedAttributesName = 'utSelectedAttributes';
+  {* Строковый идентификатор пользовательского типа "Поиск: Выбранные значения реквизита" }
+ utSelectedAttributes = TvcmUserType(0);
+  {* Поиск: Выбранные значения реквизита }
 
 implementation
 
-{$If not defined(NoScripts)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_utSelectedAttributes = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы utSelectedAttributes }
+ Tkw_FormUserType_utSelectedAttributes = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы utSelectedAttributes }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_utSelectedAttributes
-{$IfEnd} //not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_utSelectedAttributes
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(NoScripts)}
-
-// start class Tkw_FormUserType_utSelectedAttributes
-
-class function Tkw_FormUserType_utSelectedAttributes.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::utSelectedAttributes';
-end;//Tkw_FormUserType_utSelectedAttributes.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utSelectedAttributes.GetInteger: Integer;
- {-}
 begin
  Result := utSelectedAttributes;
 end;//Tkw_FormUserType_utSelectedAttributes.GetInteger
 
-{$IfEnd} //not NoScripts
+class function Tkw_FormUserType_utSelectedAttributes.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utSelectedAttributes';
+end;//Tkw_FormUserType_utSelectedAttributes.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_utSelectedAttributes
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utSelectedAttributes.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация Tkw_FormUserType_utSelectedAttributes }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

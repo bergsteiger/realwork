@@ -2,6 +2,7 @@ unit ChangesBetweenEditionsInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\ChangesBetweenEditionsInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "ChangesBetweenEditionsInterfaces" MUID: (4DDCD71E027C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

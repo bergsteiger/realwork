@@ -2,6 +2,7 @@ unit daFieldDescriptionList;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daFieldDescriptionList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaFieldDescriptionList" MUID: (5538E9E500EE)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
@@ -39,7 +40,7 @@ function CompareItemWithData(const anItem: _ItemType_;
 //#UC END# *47B9BAFD01F4_5538E9E500EE_var*
 begin
 //#UC START# *47B9BAFD01F4_5538E9E500EE_impl*
- Result := AnsiCompareText(anItem.Name, aData);
+ Result := AnsiCompareText(anItem.SQLName, aData);
 //#UC END# *47B9BAFD01F4_5538E9E500EE_impl*
 end;//CompareItemWithData
 

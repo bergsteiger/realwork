@@ -127,7 +127,7 @@ public:
 
 private:
 	// добавить стрим
-	bool add_stream (const std::string& norma, const std::string& forma, StreamPointers& streams);
+	bool add_stream (const std::string& key, StreamPointers& streams);
 
 	// получить позиции для лексемы
 	bool get_data (

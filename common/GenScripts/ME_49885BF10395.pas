@@ -3,6 +3,7 @@ unit Document_F1Lite_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document_F1Lite_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "F1Lite" MUID: (49885BF10395)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

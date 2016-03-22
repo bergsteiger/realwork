@@ -2,6 +2,7 @@ unit evStyleInterfaceEx;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evStyleInterfaceEx.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evStyleInterfaceEx" MUID: (4857EFDA01E5)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

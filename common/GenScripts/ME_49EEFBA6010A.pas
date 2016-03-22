@@ -2,6 +2,7 @@ unit bsEditGroupName;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\bsEditGroupName.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsEditGroupName" MUID: (49EEFBA6010A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

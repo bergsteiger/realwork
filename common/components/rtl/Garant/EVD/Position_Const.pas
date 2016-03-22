@@ -7,7 +7,7 @@ unit Position_Const;
 // Модуль: "w:/common/components/rtl/Garant/EVD/Position_Const.pas"
 // Начат: 07.06.2008 19:47
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Atom::Class>> Shared Delphi::EVD::Standard::evdNative::Position
+// Generated from UML model, root element: <<Atom::Class>> Shared Delphi Low Level::EVD::Standard::evdNative::Position
 //
 // Позиция в тексте
 //

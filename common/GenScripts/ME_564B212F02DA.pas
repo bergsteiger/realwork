@@ -2,6 +2,7 @@ unit pgTableModifier;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgTableModifier.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgTableModifier" MUID: (564B212F02DA)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtStdRes;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtStdRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vtStdRes" MUID: (49213DFA02CB)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

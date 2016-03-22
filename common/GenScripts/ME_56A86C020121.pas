@@ -2,6 +2,7 @@ unit caDataProviderFactory;
 
 // Модуль: "w:\common\components\rtl\Garant\ComboAccess\caDataProviderFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcaDataProviderFactory" MUID: (56A86C020121)
 
 {$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 
@@ -270,7 +271,7 @@ begin
  l_Params := aParams as TcaDataProviderParams;
  l_HTProvider := f_HTFactory.DoMakeProvider(l_Params.HTParams, ForCheckLogin,  AllowClearLocks, False);
  try
-  l_PGProvider := f_PGFactory.DoMakeProvider(l_Params.HTParams, ForCheckLogin,  AllowClearLocks, False);
+  l_PGProvider := f_PGFactory.DoMakeProvider(l_Params.PGParams, ForCheckLogin,  AllowClearLocks, False);
   try
    Result := TcaDataProvider.Make(l_Params, ForCheckLogin, AllowClearLocks, l_HTProvider, l_PGProvider);
   finally

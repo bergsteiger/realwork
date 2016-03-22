@@ -8,20 +8,6 @@ FORWARD ME_4F43ABD0026F
 
 FORWARD ME_4F3BEDEB009F
 
-: ME_CCEDEBEFB062
- CONST UID 'CCEDEBEFB062'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация FUNCTION' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F3BEDEB009F // FUNCTION
- ;
-
-ref; // ME_CCEDEBEFB062 Ini_Reg
-
 : ME_4F3BEE13024D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -32,19 +18,7 @@ ref; // ME_CCEDEBEFB062 Ini_Reg
 
 ref; // ME_4F3BEE13024D 
 
-: ME_4DB0614603C8_ME_4F3BEDEB009F
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_4F3BEDEB009F // FUNCTION
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4F3BEDEB009F GetWordNameForRegister
-
 : ME_4DBAEE0D028D_ME_4F3BEDEB009F
- CONST UID '4DBAEE0D028D'
- CONST Name 'CompiledWordClass'
  : Original WL 'ME_4DBAEE0D028D' '54F079B5035C.pas.ms.script' // CompiledWordClass
  ;
  : Implementor ME_4F3BEDEB009F // FUNCTION
@@ -66,13 +40,8 @@ ref; // ME_4DBAEE0D028D_ME_4F3BEDEB009F CompiledWordClass
    Seq: ( WL 'ME_4F37B27502EE' '4DAEEA14018A.pas.ms.script' // TtfwProcedure
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_CCEDEBEFB062 // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_4F3BEDEB009F // GetWordNameForRegister
- ME_4DBAEE0D028D_ME_4F3BEDEB009F // CompiledWordClass
+   Seq: ( ME_4DBAEE0D028D_ME_4F3BEDEB009F // CompiledWordClass
  )
  ; // Overridden
  : Dependencies
@@ -91,20 +60,6 @@ ref; // ME_4F3BEDEB009F FUNCTION
 
 FORWARD ME_4DB6C9200056
 
-: ME_B3A95C08500E
- CONST UID 'B3A95C08500E'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация NewWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DB6C9200056 // NewWord
- ;
-
-ref; // ME_B3A95C08500E Ini_Reg
-
 : ME_4DB6CE970327
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -116,8 +71,6 @@ ref; // ME_B3A95C08500E Ini_Reg
 ref; // ME_4DB6CE970327 
 
 : ME_4DB0614603C8_ME_4DB6C9200056
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
  : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
  ;
  : Implementor ME_4DB6C9200056 // NewWord
@@ -140,10 +93,6 @@ ref; // ME_4DB0614603C8_ME_4DB6C9200056 GetWordNameForRegister
    Seq: ( WL 'ME_4F37B27502EE' '4DAEEA14018A.pas.ms.script' // TtfwProcedure
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B3A95C08500E // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DB0614603C8_ME_4DB6C9200056 // GetWordNameForRegister
  )
@@ -167,33 +116,7 @@ ref; // ME_4DB6C9200056 NewWord
 
 FORWARD ME_53E466AC0341
 
-: ME_F2B879CA7D19
- CONST UID 'F2B879CA7D19'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация OPERATOR' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53E466AC0341 // OPERATOR
- ;
-
-ref; // ME_F2B879CA7D19 Ini_Reg
-
-: ME_4DB0614603C8_ME_53E466AC0341
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_53E466AC0341 // OPERATOR
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_53E466AC0341 GetWordNameForRegister
-
 : ME_4F3FF55403AB_ME_53E466AC0341
- CONST UID '4F3FF55403AB'
- CONST Name 'AddedParameters'
  : Original WL 'ME_4F3FF55403AB' '4DAEEA14018A.pas.ms.script' // AddedParameters
  ;
  : Implementor ME_53E466AC0341 // OPERATOR
@@ -216,13 +139,8 @@ ref; // ME_4F3FF55403AB_ME_53E466AC0341 AddedParameters
    Seq: ( WL 'ME_4F37B27502EE' '4DAEEA14018A.pas.ms.script' // TtfwProcedure
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F2B879CA7D19 // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_53E466AC0341 // GetWordNameForRegister
- ME_4F3FF55403AB_ME_53E466AC0341 // AddedParameters
+   Seq: ( ME_4F3FF55403AB_ME_53E466AC0341 // AddedParameters
  )
  ; // Overridden
  CONST "needs InstanceR" 'undefined'
@@ -237,20 +155,6 @@ ref; // ME_53E466AC0341 OPERATOR
 
 FORWARD ME_4F2196CA01FE
 
-: ME_719B86E17D21
- CONST UID '719B86E17D21'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация WordWorker' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F2196CA01FE // WordWorker
- ;
-
-ref; // ME_719B86E17D21 Ini_Reg
-
 : ME_559534AD03E7
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -262,8 +166,6 @@ ref; // ME_719B86E17D21 Ini_Reg
 ref; // ME_559534AD03E7 
 
 : ME_4DB0614603C8_ME_4F2196CA01FE
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
  : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
  ;
  : Implementor ME_4F2196CA01FE // WordWorker
@@ -272,8 +174,6 @@ ref; // ME_559534AD03E7
 ref; // ME_4DB0614603C8_ME_4F2196CA01FE GetWordNameForRegister
 
 : ME_4F3FF55403AB_ME_4F2196CA01FE
- CONST UID '4F3FF55403AB'
- CONST Name 'AddedParameters'
  : Original WL 'ME_4F3FF55403AB' '4DAEEA14018A.pas.ms.script' // AddedParameters
  ;
  : Implementor ME_4F2196CA01FE // WordWorker
@@ -296,10 +196,6 @@ ref; // ME_4F3FF55403AB_ME_4F2196CA01FE AddedParameters
    Seq: ( WL 'ME_4F37B27502EE' '4DAEEA14018A.pas.ms.script' // TtfwProcedure
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_719B86E17D21 // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DB0614603C8_ME_4F2196CA01FE // GetWordNameForRegister
  ME_4F3FF55403AB_ME_4F2196CA01FE // AddedParameters

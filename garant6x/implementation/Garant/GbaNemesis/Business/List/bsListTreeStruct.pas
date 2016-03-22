@@ -99,11 +99,6 @@ ApplyEmptyFilter: Boolean
      {* Реализация запроса интерфейса }
    function ReAqurieUnfilteredRootForMakeResettedSimpleRoot: INodeBase; override;
      {* ^^^ http://mdp.garant.ru/pages/viewpage.action?pageId=324570732&focusedCommentId=327818238#comment-327818238 }
-   procedure DoSelectAllNodes(aMode: Tl3SetBitType); override;
-   procedure DoSelectInterval(aFirstIndex: Integer;
-     aLastIndex: Integer;
-     aMode: Tl3SetBitType;
-     aCleanOther: Boolean); override;
  end;//TbsListTreeStruct
 {$IfEnd} //not Admin AND not Monitorings
 
@@ -309,69 +304,6 @@ begin
  Result := nil;
 //#UC END# *4F1D334C0371_47F4D386036C_impl*
 end;//TbsListTreeStruct.ReAqurieUnfilteredRootForMakeResettedSimpleRoot
-
-procedure TbsListTreeStruct.DoSelectAllNodes(aMode: Tl3SetBitType);
-//#UC START# *51F1503E01A9_47F4D386036C_var*
-var
- l_OldSelectCount,
- l_NewSelectCount: Integer;
-//#UC END# *51F1503E01A9_47F4D386036C_var*
-begin
-//#UC START# *51F1503E01A9_47F4D386036C_impl*
- if RootNode <> nil then
- begin
-  l_OldSelectCount := RootNode.GetFlagCount(FM_SELECTION);
-  if aMode = sbSelect then
-   RootNode.SetAllFlagExceptFirstChildrenOfRootChildren(FM_SELECTION, True)
-  else
-   if aMode = sbDeselect then
-    RootNode.SetAllFlag(FM_SELECTION, False);
-  l_NewSelectCount := RootNode.GetFlagCount(FM_SELECTION);
-  SelectCountChanged(l_OldSelectCount, l_NewSelectCount);
- end;
-//#UC END# *51F1503E01A9_47F4D386036C_impl*
-end;//TbsListTreeStruct.DoSelectAllNodes
-
-procedure TbsListTreeStruct.DoSelectInterval(aFirstIndex: Integer;
-  aLastIndex: Integer;
-  aMode: Tl3SetBitType;
-  aCleanOther: Boolean);
-//#UC START# *51F1508A01EA_47F4D386036C_var*
-var
- l_Node: INodeBase;
- l_First,
- l_Last: LongInt;
- l_OldSelectCount,
- l_NewSelectCount: Integer;
-//#UC END# *51F1508A01EA_47F4D386036C_var*
-begin
-//#UC START# *51F1508A01EA_47F4D386036C_impl*
- if CurrentNode <> nil then
- begin
-  l_Node := CurrentNode;
-  l_First := aFirstIndex - CurrentNodeIndex;
-  l_Last := aLastIndex - CurrentNodeIndex;
- end
- else
-  if RootNode <> nil then
-  begin
-   l_Node := RootNode;
-   l_First := aFirstIndex;
-   l_Last := aLastIndex;
-  end
-  else
-   exit;
-
- l_OldSelectCount := RootNode.GetFlagCount(FM_SELECTION);
- if aMode = sbSelect then
-  l_Node.SetRangeFlagExceptFirstChildrenOfRootChildren(l_First, l_Last, FM_SELECTION, True, aCleanOther)
- else
-  if aMode = sbDeselect then
-   l_Node.SetRangeFlag(l_First, l_Last, FM_SELECTION, False, aCleanOther);
- l_NewSelectCount := RootNode.GetFlagCount(FM_SELECTION);
- SelectCountChanged(l_OldSelectCount, l_NewSelectCount);
-//#UC END# *51F1508A01EA_47F4D386036C_impl*
-end;//TbsListTreeStruct.DoSelectInterval
 
 {$IfEnd} //not Admin AND not Monitorings
 

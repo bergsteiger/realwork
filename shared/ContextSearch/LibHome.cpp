@@ -25,6 +25,7 @@
 #include "shared/ContextSearch/impl/Relevancy_i/AlgorithmSingle_i_factory.h"
 #include "shared/ContextSearch/impl/Relevancy_i/StrongAlgorithm_i_factory.h"
 #include "shared/ContextSearch/impl/Relevancy_i/SimpleAlgorithm_i_factory.h"
+#include "shared/ContextSearch/impl/Relevancy_i/InvbAlgorithm_i_factory.h"
 
 namespace ContextSearch {
 
@@ -106,6 +107,11 @@ void LibHomeImpl::registrate_all_factories () const {
 	
 	{
 		Relevancy_i::SimpleAlgorithm_i_factory_var fctr = new Relevancy_i::SimpleAlgorithm_i_factory ();
+		fctr->registrate_me(0);
+	}
+	
+	{
+		Relevancy_i::InvbAlgorithm_i_factory_var fctr = new Relevancy_i::InvbAlgorithm_i_factory ();
 		fctr->registrate_me(0);
 	}
 	

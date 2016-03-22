@@ -2,6 +2,7 @@ unit evCustomParaListUtils;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCustomParaListUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evCustomParaListUtils" MUID: (4F6C2D7901D1)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

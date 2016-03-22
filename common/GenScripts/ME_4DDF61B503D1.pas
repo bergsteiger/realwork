@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "MouseClickOnPoint" MUID: (4DDF61B503D1)
+// Имя типа: "_MouseClickOnPoint_"
 
 {$Define MouseClickOnPoint_imp}
 

@@ -158,7 +158,8 @@ procedure TPrimPictureOptionsForm.File_Save_Test(const aParams: IvcmTestParamsPr
 //#UC END# *495235F401C0_4C8768010125test_var*
 begin
 //#UC START# *495235F401C0_4C8768010125test_impl*
- nsDisableOperationInTrialMode(aParams);
+ //nsDisableOperationInTrialMode(aParams);
+ aParams.Op.Flag[vcm_ofEnabled] := True;
 //#UC END# *495235F401C0_4C8768010125test_impl*
 end;//TPrimPictureOptionsForm.File_Save_Test
 {$IfEnd} //not NoVCM
@@ -261,7 +262,8 @@ procedure TPrimPictureOptionsForm.Edit_Copy_Test(const aParams: IvcmTestParamsPr
 //#UC END# *4C7D0C7B0185_4C8768010125test_var*
 begin
 //#UC START# *4C7D0C7B0185_4C8768010125test_impl*
- nsDisableOperationInTrialMode(aParams);
+ //nsDisableOperationInTrialMode(aParams);
+ aParams.Op.Flag[vcm_ofEnabled] := True; 
 //#UC END# *4C7D0C7B0185_4C8768010125test_impl*
 end;//TPrimPictureOptionsForm.Edit_Copy_Test
 {$IfEnd} //not NoVCM

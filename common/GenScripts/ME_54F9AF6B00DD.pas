@@ -2,6 +2,7 @@ unit htDataProviderParams;
 
 // Модуль: "w:\common\components\rtl\Garant\HT\htDataProviderParams.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ThtDataProviderParams" MUID: (54F9AF6B00DD)
 
 {$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
@@ -171,7 +172,6 @@ begin
  inherited;
  if aParams is ThtDataProviderParams then
  begin
-  AliasesList.Assign(ThtDataProviderParams(aParams).AliasesList);
   StationName := ThtDataProviderParams(aParams).StationName;
   TablePath := ThtDataProviderParams(aParams).TablePath;
   TmpDirPath := ThtDataProviderParams(aParams).TmpDirPath;

@@ -299,14 +299,17 @@ public:
 	{
 		LPPL_ZZZ pp_indxs= indxs+FlashCount;
 		LPPL_YYY p_IndO= pp_indxs->pInd;
-		do{
-			::ACE_OS::write(pp_indxs->file, p_IndO->k, (p_IndO->k[0] & 0x3f));
-			::ACE_OS::write(pp_indxs->file, &(p_IndO->len), 4);
-			p_IndO++;
-		}while(--countNewKeys);
+		if(!skipLastTmp){
+			do{
+				::ACE_OS::write(pp_indxs->file, p_IndO->k, (p_IndO->k[0] & 0x3f));
+				::ACE_OS::write(pp_indxs->file, &(p_IndO->len), 4);
+				p_IndO++;
+			}while(--countNewKeys);
+		}
 		free(indxs[FlashCount].pInd);indxs[FlashCount].pInd= 0;
 	}
 #endif
+	int skipLastTmp;
 protected:
 	unsigned wordLen;
 	int wordPos;
@@ -357,6 +360,7 @@ public:
 		m_fID= 0;
 		max_flush_normaled_nodes= 0;
 		pAAN= 0;
+		skipLastTmp= 0;
 		if(n[1] == 'W'){
 			m_realloc= new LPpCtxLongSets[4*1024*1024];
 			m_realloc_flush= new PL_PRESORT[400*1024];
@@ -460,17 +464,26 @@ public:
 	virtual CtxLongSet *FromCache(void *pkey, LPPL_RET_NORMLS spRet)
 	{
 #ifdef WIN64
-		static __int64 gi_Bcount= 0;
+		static __int64 gi_Bcount = 0, gi_Icount = 0;
 		if (b_index_B) {
 			if(((char*)pkey)[1] == -62 && ((char*)pkey)[0] == 2){
 				// одинокое "В" раскидываем по восьми различным псевдо-лексемам //
-				int switchB= gi_Bcount%8;
+				int switchB = gi_Bcount%8;
 				gi_Bcount++;
 				if (switchB) {
 					*(char*)pkey += 4;
 					sprintf((char*)pkey+1,"ВЯZ%dZ",switchB);
 				}
+			} else if(((char*)pkey)[1] == -56 && ((char*)pkey)[0] == 2){
+				// одинокое "И" раскидываем по восьми различным псевдо-лексемам //
+				int switchI = gi_Icount%8;
+				gi_Icount++;
+				if (switchI) {
+					*(char*)pkey += 4;
+					sprintf((char*)pkey+1,"ИЯZ%dZ",switchI);
+				}
 			}
+
 		}
 		return N_WCO::FromCache(pkey, spRet);
 #else
@@ -833,7 +846,9 @@ int local_flush(void *pBase)
 			pCreated->pFlush->in_pipeID(&(IdPt), 0, &(pCreated->local_docInfo));
 		}
 		pCreated->pFlush->pAAN= pCreated->pAAN;
-		do{
+		if(!IdPt){
+			pCreated->skipLastTmp= 1;
+		}else do{
 			pCreated->pFlush->getParaWordFromDoc( 0, IdPt, 0, 0, pCreated->gctx_kinds, 0, false);
 			if(pCreated->pFlush->maxItems == IdPt){
 				IdPt= 0;
@@ -891,6 +906,7 @@ int N_WCI::in_pipe_flush(char *pData, int szData)
 }
 
 std::map<long, std::vector<long> > map_doc_gctx_para_lens;
+std::map<long, std::deque<std::pair <long, std::string> > > map_doc_invisiblepos_string;
 std::map<long, std::vector<u_int64_t> > map_doc_invisiblepos_fragmentlen;
 std::map<long, std::vector<u_int64_t> > map_doc_invisibleblockpos_releplus;
 std::map<long, std::vector<u_int64_t> > map_doc_invisiblepos_releplus;
@@ -1219,6 +1235,7 @@ void N_WCI::getParaWordFromDoc (u_int64_tCtxLongSetSplayMap	*p_ctxTextArray, lon
 	std::set<long> paras_withaddedtext; //параграфы, к концам которых доклеен невидимый текст (который на самом деле относится к следующему параграфу)
 	bool b_docname = true;
 	std::set<long> wordposcontrol;
+	std::deque<std::pair <long, std::string> > pos_strings;
 	for (j = 0, style, flags = 0; j < LastPara; ) {
 		std::vector<long> marked_positions;
 		long saved_len = 0, block = -1, rele = -1;
@@ -1338,9 +1355,13 @@ void N_WCI::getParaWordFromDoc (u_int64_tCtxLongSetSplayMap	*p_ctxTextArray, lon
 			if (b_is_comment && !b_indexcomments)
 				continue;
 
+			buf [wordLen] = 0;
 			int corr_wordPos = wordPos << 2, pos_flag = 0;
 			if (wordPos > ContextSearch::DOC_BEGIN_WORD) {
 				if (b_invisible_block) {
+					std::pair<long,std::string> apair (wordPos, buf);
+					pos_strings.push_back (apair);
+
 					map_invisibleblockpos_block.insert (std::map<long,long>::value_type (wordPos, block));
 					if (rele != -1) map_blockpos_releplus.insert (std::map<long,long>::value_type (wordPos, rele));
 					corr_wordPos |= (pos_flag = GKDB_POS_INVISIBLE_BLOCK);
@@ -1359,7 +1380,6 @@ void N_WCI::getParaWordFromDoc (u_int64_tCtxLongSetSplayMap	*p_ctxTextArray, lon
 				in_pipe ((char*)&Id, 4);
 				RetVal = 0;
 			}
-			buf [wordLen] = 0;
 			in_pipe ((char*)&wordLen, 4);
 			in_pipe (buf, wordLen);
 			in_pipe ((char*)&corr_wordPos, 4);
@@ -1370,13 +1390,16 @@ void N_WCI::getParaWordFromDoc (u_int64_tCtxLongSetSplayMap	*p_ctxTextArray, lon
 					prev_word_2.clear ();
 					prev_word_3.clear ();
 				} else {
+					char *lemma = 0;
+					int lemma_length = 0;
 					if (prev_word_3.size ()) {
 						prev_word_3 += "|";
 						prev_word_3 += buf;
 
 						std::map<std::string,std::vector<std::string> >::const_iterator bigr_it = bigrams.find (prev_word_3);
 						if (bigr_it != bigrams.end ()) for (std::vector<std::string>::const_iterator lemma_it = bigr_it->second.begin (); lemma_it != bigr_it->second.end (); lemma_it++) {
-							char *lemma = (char*) lemma_it->c_str ();
+							lemma_length = 3;
+							lemma = (char*) lemma_it->c_str ();
 							unsigned lemma_len = lemma_it->size ();
 							in_pipe ((char*)&lemma_len, 4);
 							in_pipe (lemma, lemma_len);
@@ -1390,7 +1413,8 @@ void N_WCI::getParaWordFromDoc (u_int64_tCtxLongSetSplayMap	*p_ctxTextArray, lon
 
 						std::map<std::string,std::vector<std::string> >::const_iterator bigr_it = bigrams.find (prev_word_2);
 						if (bigr_it != bigrams.end ()) for (std::vector<std::string>::const_iterator lemma_it = bigr_it->second.begin (); lemma_it != bigr_it->second.end (); lemma_it++) {
-							char *lemma = (char*) lemma_it->c_str ();
+							lemma_length = 2;
+							lemma = (char*) lemma_it->c_str ();
 							unsigned lemma_len = lemma_it->size ();
 							in_pipe ((char*)&lemma_len, 4);
 							in_pipe (lemma, lemma_len);
@@ -1406,7 +1430,8 @@ void N_WCI::getParaWordFromDoc (u_int64_tCtxLongSetSplayMap	*p_ctxTextArray, lon
 
 						std::map<std::string,std::vector<std::string> >::const_iterator bigr_it = bigrams.find (prev_word_1);
 						if (bigr_it != bigrams.end ()) for (std::vector<std::string>::const_iterator lemma_it = bigr_it->second.begin (); lemma_it != bigr_it->second.end (); lemma_it++) {
-							char *lemma = (char*) lemma_it->c_str ();
+							lemma_length = 1;
+							lemma = (char*) lemma_it->c_str ();
 							unsigned lemma_len = lemma_it->size ();
 							in_pipe ((char*)&lemma_len, 4);
 							in_pipe (lemma, lemma_len);
@@ -1416,6 +1441,17 @@ void N_WCI::getParaWordFromDoc (u_int64_tCtxLongSetSplayMap	*p_ctxTextArray, lon
 
 						prev_word_2.swap (prev_word_1);
 					}
+					/*
+					if (lemma && b_invisible_block) {
+						std::pair<long,std::string> apair (ContextSearch::POS_INVISIBLE_BLOCK + wordPos - lemma_length, lemma);
+						std::replace (apair.second.begin (), apair.second.end (), '|', '-');
+						pos_strings.push_back (apair);
+
+						map_invisibleblockpos_block.insert (std::map<long,long>::value_type (ContextSearch::POS_INVISIBLE_BLOCK + wordPos - lemma_length, block));
+						if (rele != -1) map_blockpos_releplus.insert (std::map<long,long>::value_type (ContextSearch::POS_INVISIBLE_BLOCK + wordPos - lemma_length, rele * (lemma_length + 1)));
+					}
+					*/
+
 					prev_word_1 = buf;
 				}
 			}
@@ -1426,6 +1462,10 @@ void N_WCI::getParaWordFromDoc (u_int64_tCtxLongSetSplayMap	*p_ctxTextArray, lon
 			gk_free (new_src);
 			new_src = 0;
 		}
+	}
+	if (pos_strings.size ()) {
+		//std::map<long, std::deque<std::pair <long, std::string> > > map_doc_invisiblepos_string;
+		map_doc_invisiblepos_string.insert (std::map<long, std::deque<std::pair <long, std::string> > >::value_type (Id, pos_strings));
 	}
 	para_firstword.insert (std::map<long,long>::value_type (j, wordPos));
 
@@ -1445,7 +1485,7 @@ void N_WCI::getParaWordFromDoc (u_int64_tCtxLongSetSplayMap	*p_ctxTextArray, lon
 		}
 		long nextpara = block ? map_block_endpara.find (block)->second : j /*doc->GetParaCount ()*/; //последние пустые параграфы скипуются, поэтому так
 		long firstpos_innextpara = para_firstword.find (nextpara)->second;
-		u_int64_t superpos = (((u_int64_t)it->first) << 32) + firstpos_innextpara - it->first;
+		u_int64_t superpos = (((u_int64_t)it->first) << 32) + firstpos_innextpara - (it->first & ContextSearch::POS_TEXT);
 		std::map<long,std::vector<u_int64_t> >::iterator map_it = map_doc_invisiblepos_fragmentlen.find (Id);
 		if (map_it == map_doc_invisiblepos_fragmentlen.end ()) {
 			std::vector<u_int64_t> superpositions;
@@ -1786,7 +1826,7 @@ int main_logic ( int argcZ, char *argv[] )
 	}
 	//printf("\rPlease, wait ...");
 
-	if (argv[optind+1] && argc > 1) {
+	if (argc > 1 && argv[optind+1]) {
 		FILE* out_file = fopen (argv[optind+1], "wt");
 		for (std::map<long,std::vector<long> >::const_iterator it = map_doc_gctx_para_lens.begin (); it != map_doc_gctx_para_lens.end (); it++) {
 			fprintf (out_file, "%ld:", it->first);
@@ -1797,7 +1837,7 @@ int main_logic ( int argcZ, char *argv[] )
 		fclose (out_file);
 	}
 
-	if (argv[optind+2] && argc > 2) {
+	if (argc > 2 && argv[optind+2]) {
 		FILE* out_file = fopen (argv[optind+2], "wt");
 		std::map<long, std::vector<u_int64_t> >::const_iterator map_len_it = map_doc_invisiblepos_fragmentlen.begin ();
 		std::map<long, std::vector<u_int64_t> >::const_iterator map_rele_it = map_doc_invisibleblockpos_releplus.begin ();
@@ -1812,12 +1852,33 @@ int main_logic ( int argcZ, char *argv[] )
 		fclose (out_file);
 	}
 
-	if (argv[optind+3] && argc > 3) {
+	if (argc > 3 && argv[optind+3]) {
 		FILE* out_file = fopen (argv[optind+3], "wt");
 		for (std::map<long, std::vector<u_int64_t> >::const_iterator map_rele_it = map_doc_invisiblepos_releplus.begin (); map_rele_it != map_doc_invisiblepos_releplus.end (); map_rele_it++) {
 			fprintf (out_file, "%ld:", map_rele_it->first);
 			for (std::vector<u_int64_t>::const_iterator rele_it = map_rele_it->second.begin (); rele_it != map_rele_it->second.end (); rele_it++)
 				fprintf (out_file, " %ld:%ld", (long)(*rele_it >> 32), (long)(*rele_it & 0xFFFFFFFF));
+			fprintf (out_file, "\n");
+		}
+		fclose (out_file);
+	}
+
+	if (argc > 4 && argv[optind+4]) {
+		FILE* out_file = fopen (argv[optind+4], "wt");
+		std::map<long, std::vector<u_int64_t> >::const_iterator map_len_it = map_doc_invisiblepos_fragmentlen.begin ();
+		std::map<long, std::vector<u_int64_t> >::const_iterator map_rele_it = map_doc_invisibleblockpos_releplus.begin ();
+		for (; map_len_it != map_doc_invisiblepos_fragmentlen.end (); map_len_it++, map_rele_it++) {
+			fprintf (out_file, "%ld:", map_len_it->first);
+			
+			std::deque<std::pair <long, std::string> >::const_iterator pos_strings_it = map_doc_invisiblepos_string.find (map_len_it->first)->second.begin ();
+
+			std::vector<u_int64_t>::const_iterator len_it = map_len_it->second.begin ();
+			std::vector<u_int64_t>::const_iterator rele_it = map_rele_it->second.begin ();
+
+			for (; len_it != map_len_it->second.end (); len_it++, rele_it++, pos_strings_it++) {
+				u_int64_t at_len = *len_it;
+				fprintf (out_file, " %ld:%s:%ld:%ld", ((long)(at_len >> 32)) & ContextSearch::POS_TEXT, pos_strings_it->second.c_str (), (long)(at_len & ContextSearch::POS_TEXT), (long)(*rele_it & 0xFFFFFFFF));
+			}
 			fprintf (out_file, "\n");
 		}
 		fclose (out_file);
@@ -1973,7 +2034,7 @@ void N_WCO::CopyAsFlushN(	void *vspit, void *vpdstr, void *vpsstr, void *vpin, l
 	index_st *pin= (index_st *)vpin;
 	///////////////////////////////////////////////////////////////////
 		pdstr[1].flags= (pdstr[0].flags |= SF_NOALLOC);
-		u_int64_t AllSizeTemp= 0, ReadFromTemp= 0;
+		u_int64_t AllSizeTemp= 0, ReadFromTemp= 0; FlashCount -= skipLastTmp; skipLastTmp= 0;
 		int ii, jj= FlashCount;
 		set_st m_stNIdDelList;
 		m_stNIdDelList.pSkipDoc= m_pNIdDelList;

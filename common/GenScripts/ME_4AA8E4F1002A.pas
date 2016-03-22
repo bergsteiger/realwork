@@ -3,6 +3,8 @@ unit Admin_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\Admin_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "AdminForm" MUID: (4AA8E4F1002A)
+// Имя типа: "TcfAdminForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit NOT_FINISHED_k2Facade;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2Facade.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "k2Facade" MUID: (480DBA760390)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

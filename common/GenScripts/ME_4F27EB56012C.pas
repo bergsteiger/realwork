@@ -3,6 +3,7 @@ unit kwOpenOldSituationCard;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwOpenOldSituationCard.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwOpenOldSituationCard" MUID: (4F27EB56012C)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

@@ -8,6 +8,7 @@ uses
   l3Base,
   l3FileUtils,
   m2COMLib,
+  m3ArcCla,
   m3StorageInterfaces,
   m3DBInterfaces,
   m3DBActions,
@@ -19,7 +20,7 @@ uses
   l3CRT,
   vtDebug,
   k2Interfaces,
-  k2tagGen,
+  k2TagGen,
   ddNSRCGenerator,
   l3Chars,
   evSimpleTextPainter,
@@ -33,7 +34,9 @@ uses
   evdNativeReaderServices,
   evdNativeWriter,
   l3Filer,
-  l3Types
+  l3Types,
+  m3StorageHolderList,
+  m3StorageBlock
   ;
     
 const
@@ -49,14 +52,10 @@ const
  cPhasePercentage = '%d/%d';
 
 var
- //lPhaseCnt : byte = 1;
  lPhaseStr : string;
-
- //lPhaseStr := Format(cPhaseSample, [lPhaseCnt, cPhasePercentage]);
 
 procedure Log(const S : String);
 begin
- //Writeln(
  dbgAppendToLogLN(lLogName, S);
 end;
 
@@ -92,7 +91,7 @@ end;
 const
  cPartName : array [Tm3DocPartSelector] of string = ('Main', 'Anno', 'Info', 'Object');
 
-procedure DoCheck{(aCheckForEmpty : boolean; aCheckForBroken : boolean)};
+procedure DoCheck;
 
 var
  lDB : Im3DB;
@@ -337,7 +336,7 @@ var
 begin
  lProgressor := TProgressor.Create;
  try
-  lDB := Tm3DB.Make(ConcatDirName(lDirName, lBaseName),
+  lDB := Tm3DB.MakeExclusive(ConcatDirName(lDirName, lBaseName),
                       //cbMakeCopy.Checked AND cbFromOld.Checked,
                       nil,//Yield,
                       nil,//FileMeter.ProgressProc_ev,
@@ -347,9 +346,8 @@ begin
                       //lProgressor.FilesProcessedExProc//FilesProcessedEx
                       );
   try
-   //lDB.Start(m3_saReadWrite);
+   lDB.Start(m3_saReadWrite);
 //   lDB.Start(m3_saRead);
-
    try
     lPhaseStr := Format(cPhaseSample, [cPhasePercentage]);
     try
@@ -359,8 +357,10 @@ begin
      writeln('Exceptions : '+ E.Message);
     end;
    finally
-//    lDB.Finish;
+    lDB.Finish;
    end;//try..finally
+   Tm3StorageHolderList.DropAll;
+   lDB.Update;
   finally
    lDB := nil;
   end;//try..finally   
@@ -404,7 +404,7 @@ begin
 
  lLogName := ChangeFileExt(ConcatDirName(lDirName, lBaseName),'.result');
 
- DoCheck{(lCheckForEmpty, lCheckForBroken)};
+ DoCheck;
 
  Writeln('All done. Press <Enter>');
  ReadLN;

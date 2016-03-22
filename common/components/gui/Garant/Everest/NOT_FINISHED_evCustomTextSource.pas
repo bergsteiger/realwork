@@ -3,6 +3,7 @@ unit NOT_FINISHED_evCustomTextSource;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomTextSource.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomTextSource" MUID: (482BFB7C00B6)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -11,7 +11,7 @@ implementation
 
 uses
   l3Base,
-  daTypes,
+  daTypes, daSchemeConsts,
   DT_Query, dt_SrchQueries, DT_Types, l3Date, SysUtils, DT_Link, DT_LinkServ, DT_Const,
   DT_attrSchema, DT_DictConst, dt_Dict, DT_Doc, HT_Const;
 

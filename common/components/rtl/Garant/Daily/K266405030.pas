@@ -1,98 +1,77 @@
 unit K266405030;
+ {* [$266405030] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/K266405030.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.7::K266405030
-//
-// [$266405030]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K266405030.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K266405030" MUID: (4DD2A5C40137)
+// Имя типа: "TK266405030"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  ScrollAndSelectPtTest
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  ,
-  nevTools,
-  Types,
-  l3Units
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , ScrollAndSelectPtTest
+ , nevTools
+ , Types
+ , l3Units
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK266405030 = class(TScrollAndSelectPtTest)
   {* [$266405030] }
- protected
- // overridden protected methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure DoVisit(aForm: TPrimTextLoadForm); override;
-     {* Обработать текст }
-   {$IfEnd} //nsTest AND not NoVCM
+    {* Обработать текст }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetInnerPara(const aView: InevInputView;
     const aDocument: InevPara): InevPara; override;
-     {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
+    {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
    function GetScrollCount: Integer; override;
-   {$If defined(nsTest) AND not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    function GetNormalFontSize: Integer; override;
-     {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
-   {$IfEnd} //nsTest AND not NoVCM
-   {$If defined(nsTest) AND not defined(NoVCM)}
+    {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function FormExtent: TPoint; override;
-     {* Размеры формы }
-   {$IfEnd} //nsTest AND not NoVCM
+    {* Размеры формы }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetPoint(const aMap: InevMap): Tl3Point; override;
-     {* Возвращает точку, на которую нужно спозиционироваться. }
+    {* Возвращает точку, на которую нужно спозиционироваться. }
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
    function NeedScrollByLine: Boolean; override;
  end;//TK266405030
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TextPara_Const,
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TextPara_Const
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK266405030
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TK266405030.DoVisit(aForm: TPrimTextLoadForm);
+ {* Обработать текст }
 //#UC START# *4BE419AF0217_4DD2A5C40137_var*
 //#UC END# *4BE419AF0217_4DD2A5C40137_var*
 begin
@@ -101,10 +80,11 @@ begin
  Check(aForm.Text.Selection.Cursor.MostInner.AsObject.IsKindOf(k2_typTextPara));
 //#UC END# *4BE419AF0217_4DD2A5C40137_impl*
 end;//TK266405030.DoVisit
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TK266405030.GetInnerPara(const aView: InevInputView;
-  const aDocument: InevPara): InevPara;
+ const aDocument: InevPara): InevPara;
+ {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
 //#UC START# *4BF4E6A00093_4DD2A5C40137_var*
 //#UC END# *4BF4E6A00093_4DD2A5C40137_var*
 begin
@@ -122,8 +102,9 @@ begin
 //#UC END# *4BFE40CD0337_4DD2A5C40137_impl*
 end;//TK266405030.GetScrollCount
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TK266405030.GetNormalFontSize: Integer;
+ {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
 //#UC START# *4C07AC6F036D_4DD2A5C40137_var*
 //#UC END# *4C07AC6F036D_4DD2A5C40137_var*
 begin
@@ -131,10 +112,11 @@ begin
  Result := 12;
 //#UC END# *4C07AC6F036D_4DD2A5C40137_impl*
 end;//TK266405030.GetNormalFontSize
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TK266405030.FormExtent: TPoint;
+ {* Размеры формы }
 //#UC START# *4C08CF700318_4DD2A5C40137_var*
 //#UC END# *4C08CF700318_4DD2A5C40137_var*
 begin
@@ -143,9 +125,10 @@ begin
  Result.Y := 700;
 //#UC END# *4C08CF700318_4DD2A5C40137_impl*
 end;//TK266405030.FormExtent
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TK266405030.GetPoint(const aMap: InevMap): Tl3Point;
+ {* Возвращает точку, на которую нужно спозиционироваться. }
 //#UC START# *4C3C927B027E_4DD2A5C40137_var*
 //#UC END# *4C3C927B027E_4DD2A5C40137_var*
 begin
@@ -156,13 +139,13 @@ begin
 end;//TK266405030.GetPoint
 
 function TK266405030.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.7';
 end;//TK266405030.GetFolder
 
 function TK266405030.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4DD2A5C40137';
 end;//TK266405030.GetModelElementGUID
@@ -176,9 +159,8 @@ begin
 //#UC END# *4E44C9B00324_4DD2A5C40137_impl*
 end;//TK266405030.NeedScrollByLine
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK266405030.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

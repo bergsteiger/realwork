@@ -2,6 +2,8 @@ unit TextPara;
 
 // Модуль: ""
 // Стереотип: "TagOverride"
+// Элемент модели: "TextPara" MUID: (4E96B57D02DC)
+// Имя типа: "TextParaTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3Drawer;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Drawer.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3Drawer" MUID: (4739AF6301B6)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

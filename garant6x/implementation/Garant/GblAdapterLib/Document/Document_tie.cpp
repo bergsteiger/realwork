@@ -3805,7 +3805,7 @@ void __stdcall Document_tie::get_linked_object_45EEB65201A3 (
 	, RedactionID rid
 	, LinkedObjectType& obj_type
 	, Core::IIObject_tie*& obj
-) const /*throw (InvalidTopicId_tie, FolderLinkNotFound_tie, NotAllowedInTrialMode_tie)*/ {
+) const /*throw (InvalidTopicId_tie, FolderLinkNotFound_tie)*/ {
 _DLL_TRY
 	Core::IObject* obj_ = 0;
 
@@ -4942,7 +4942,7 @@ _DLL_CATCH
 
 void __stdcall Link_tie::get_object_51A61EF0013E (
 	Core::IIObject_tie*& ret_
-) const /*throw (InvalidTopicId_tie, FolderLinkNotFound_tie, NotAllowedInTrialMode_tie)*/ {
+) const /*throw (InvalidTopicId_tie, FolderLinkNotFound_tie)*/ {
 _DLL_TRY
 
 	Core::IObject* ret = m_impl->get_object();

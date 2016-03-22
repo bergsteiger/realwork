@@ -3,6 +3,7 @@ unit l3RectList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3RectList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3RectList" MUID: (4E26F5230116)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

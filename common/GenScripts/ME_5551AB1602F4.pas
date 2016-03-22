@@ -2,6 +2,7 @@ unit htTabledQuery;
 
 // Модуль: "w:\common\components\rtl\Garant\HT\htTabledQuery.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ThtTabledQuery" MUID: (5551AB1602F4)
 
 {$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
@@ -91,8 +92,8 @@ var
 //#UC END# *555CA4CC00D6_5551AB1602F4_var*
 begin
 //#UC START# *555CA4CC00D6_5551AB1602F4_impl*
- if Tables.FindData(anAlias, l_IDX) then
-  Result := Tables[l_IDX] as IhtFromTable
+ if AnsiSameText(anAlias, Table.TableAlias) then
+  Result := Table as IhtFromTable
  else
   Result := nil;
 //#UC END# *555CA4CC00D6_5551AB1602F4_impl*
@@ -155,11 +156,22 @@ var
  l_ParamDescription: IdaParamDescription;
  l_Sab: SAB;
  l_Condition: IdaAtomicCondition;
+ l_Sort: array of SmallInt;
+ l_IDX: Integer;
+ l_FieldIndex: Integer;
+ l_SortedRecs: SAB;
 const
  Zero : LongInt =  0;
  AbsNumFld = 0;
  cOperationMap: array [TdaCompareOperation] of ThtCondition = (
-  EQUAL // da_copEqual
+  EQUAL, // da_copEqual
+  GREAT_EQUAL, // da_copGreaterOrEqual
+  LESS_EQUAL, // da_copLessOrEqual
+  NOT_EQUAL // da_copNotEqual
+ );
+ cOrderMap: array [TdaSortOrder] of SmallInt = (
+  1, // da_soAscending
+  -1 // da_soDescending
  );
 //#UC END# *56010A7801F2_5551AB1602F4_var*
 begin
@@ -169,16 +181,35 @@ begin
 
  if WhereCondition <> nil then
  begin
+//!! !!! Needs to be implemented !!! complex conditions support
   Assert(Supports(WhereCondition, IdaAtomicCondition));
   if Supports(WhereCondition, IdaFieldFromTable, l_Field) and
      Supports(WhereCondition, IdaParamDescription, l_ParamDescription) and
      Supports(WhereCondition, IdaAtomicCondition, l_Condition) then
    htSearch(nil, l_Sab, FindTable(l_Field.TableAlias).Handle, l_Field.Field.Index, cOperationMap[l_Condition.Operation], Get_Param(l_ParamDescription.Name).DataBuffer, nil)
   else
-   Assert(False);
+//!! !!! Needs to be implemented !!!
+   Assert(False, 'Complex condition unimplemented');
  end
  else
-  htSearch(nil, l_Sab, FindTable(l_Field.TableAlias).Handle, AbsNumFld, GREAT, @Zero, nil);
+  htSearch(nil, l_Sab, (Table as IhtFromTable).Handle, AbsNumFld, GREAT, @Zero, nil);
+ if OrderBy.Count > 0 then
+ begin
+  SetLength(l_Sort, OrderBy.Count);
+  for l_IDX := 0 to OrderBy.Count - 1 do
+  begin
+   if Supports(OrderBy[l_IDX].SelectField, IdaFieldFromTable, l_Field) then
+    l_Sort[l_IDX] := cOrderMap[OrderBy[l_IDX].SortOrder] * l_Field.Field.Index
+   else
+   begin
+    Assert(False);
+    l_Sort[l_IDX] := 0;
+   end;
+   htSortResults(l_SortedRecs, l_Sab, @l_Sort[0], OrderBy.Count);
+   htClearResults(l_Sab);
+   l_Sab := l_SortedRecs;
+  end;
+ end;
  Result := ThtResultSet.Make(DataConverter as IhtDataConverter, l_Sab, SelectFields, Unidirectional);
 //#UC END# *56010A7801F2_5551AB1602F4_impl*
 end;//ThtTabledQuery.MakeResultSet

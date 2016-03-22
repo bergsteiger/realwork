@@ -3,6 +3,7 @@ unit NOT_FINISHED_nsContentsNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_FINISHED_nsContentsNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsContentsNode" MUID: (46827E69026A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

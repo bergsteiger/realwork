@@ -2,6 +2,8 @@ unit kwPopEditorJumpToHyperlink;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorJumpToHyperlink.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_JumpToHyperlink" MUID: (4F75BC5F03A0)
+// Имя типа: "TkwPopEditorJumpToHyperlink"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,7 @@ unit deCommonDiction;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\deCommonDiction.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdeCommonDiction" MUID: (4B1E70D20312)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit k2AtomicTagRefListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2AtomicTagRefListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2AtomicTagRefListPrim" MUID: (526918890147)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

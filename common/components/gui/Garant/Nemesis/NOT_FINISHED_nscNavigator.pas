@@ -2,6 +2,7 @@ unit NOT_FINISHED_nscNavigator;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscNavigator.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscNavigator" MUID: (499ABF3D031B)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

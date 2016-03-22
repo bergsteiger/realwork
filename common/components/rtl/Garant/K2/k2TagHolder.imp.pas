@@ -2,13 +2,14 @@
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TagHolder.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "k2TagHolder" MUID: (4A573C5F01FF)
+// Имя типа: "_k2TagHolder_"
 
 {$Define k2TagHolder_imp}
 
  _k2TagHolder_ = class(_k2TagHolder_Parent_)
   private
    f_Redirect: Tl3Variant;
-    {* Поле для свойства Redirect }
   protected
    procedure pm_SetRedirect(aValue: Tl3Variant); virtual;
    procedure Cleanup; override;

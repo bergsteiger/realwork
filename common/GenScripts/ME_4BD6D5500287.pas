@@ -3,6 +3,7 @@ unit BaseChatWindow_cwChat_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseChatWindow_cwChat_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "cwChat" MUID: (4BD6D5500287)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_cwChat = {final} class(TtfwInteger)
   {* Слово словаря для типа формы cwChat }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_cwChat
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_cwChat.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::cwChat';
-end;//Tkw_FormUserType_cwChat.GetWordNameForRegister
-
 function Tkw_FormUserType_cwChat.GetInteger: Integer;
 begin
  Result := cwChat;
 end;//Tkw_FormUserType_cwChat.GetInteger
+
+class function Tkw_FormUserType_cwChat.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::cwChat';
+end;//Tkw_FormUserType_cwChat.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

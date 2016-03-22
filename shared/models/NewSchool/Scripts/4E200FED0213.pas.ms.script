@@ -140,21 +140,6 @@ ref; // ME_523008C901CD DoIt
 
 ref; // ME_523008BC0096 DoOp
 
-: ME_15F9C022EB99
- CONST UID '15F9C022EB99'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwEntityOperationPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_523006F7004A // TkwEntityOperationPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_15F9C022EB99 Ini_Reg_Class
-
 : ME_5230086A0164
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -166,8 +151,6 @@ ref; // ME_15F9C022EB99 Ini_Reg_Class
 ref; // ME_5230086A0164 
 
 : ME_4DAEEDE10285_ME_523006F7004A
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_523006F7004A // TkwEntityOperationPrim
@@ -197,7 +180,6 @@ ref; // ME_4DAEEDE10285_ME_523006F7004A DoDoIt
  : Operations
    Seq: ( ME_4DDBBDEB00DE // Create
  ME_523008BC0096 // DoOp
- ME_15F9C022EB99 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -311,21 +293,6 @@ ref; // ME_4DDBC8E20193
 
 ref; // ME_4DDBBF790154 Register
 
-: ME_F6699E5A5B9B
- CONST UID 'F6699E5A5B9B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwEntityOperation' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDBBDB00019 // TkwEntityOperation
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F6699E5A5B9B Ini_Reg_Class
-
 : ME_4DDBBF15020E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -412,8 +379,6 @@ FORWARD ME_52A73D1701B9
 ref; // ME_52A74A7D0134 
 
 : ME_523008BC0096_ME_4DDBBDB00019
- CONST UID '523008BC0096'
- CONST Name 'DoOp'
  : Original ME_523008BC0096 // DoOp
  ;
  : Implementor ME_4DDBBDB00019 // TkwEntityOperation
@@ -437,7 +402,6 @@ ref; // ME_523008BC0096_ME_4DDBBDB00019 DoOp
  ; // Inherits
  : Operations
    Seq: ( ME_4DDBBF790154 // Register
- ME_F6699E5A5B9B // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -467,21 +431,6 @@ ref; // ME_523008BC0096_ME_4DDBBDB00019 DoOp
  CONST extprop:pas:UnitName 'kwEntityOperation'
 
 ref; // ME_4DDBBDB00019 TkwEntityOperation
-
-: ME_B2FB3C3B22D7
- CONST UID 'B2FB3C3B22D7'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwEntityOperationTest' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5230072D031A // TkwEntityOperationTest
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B2FB3C3B22D7 Ini_Reg_Class
 
 : ME_5230073B0196
  CONST Class class_Dependency
@@ -534,8 +483,6 @@ ref; // ME_52300D420103
 ref; // ME_52300DD502EA 
 
 : ME_523008BC0096_ME_5230072D031A
- CONST UID '523008BC0096'
- CONST Name 'DoOp'
  : Original ME_523008BC0096 // DoOp
  ;
  : Implementor ME_5230072D031A // TkwEntityOperationTest
@@ -557,10 +504,6 @@ ref; // ME_523008BC0096_ME_5230072D031A DoOp
    Seq: ( ME_523006F7004A // TkwEntityOperationPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B2FB3C3B22D7 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_523008BC0096_ME_5230072D031A // DoOp
  )
@@ -618,8 +561,6 @@ ref; // ME_52A73D3501DE
 ref; // ME_54E7496D03D7 
 
 : ME_52A73C7103C7_ME_52A73D1701B9
- CONST UID '52A73C7103C7'
- CONST Name 'Register'
  : Original WL 'ME_52A73C7103C7' '52A73A4401B9.pas.ms.script' // Register
  ;
  : Implementor ME_52A73D1701B9 // TkwOperationsRegistrar
@@ -685,21 +626,6 @@ FORWARD ME_4DB060930263
  ;
 
 ref; // ME_4DB079E00084 GetModuleOperationCode
-
-: ME_8C1833A152E6
- CONST UID '8C1833A152E6'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwModuleOperationWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DB060930263 // TtfwModuleOperationWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_8C1833A152E6 Ini_Reg_Class
 
 : ME_4DB060EE029C
  CONST Class class_Dependency
@@ -772,8 +698,6 @@ ref; // ME_52A0A2780007
 ref; // ME_535E8B0702EB 
 
 : ME_4DAEEDE10285_ME_4DB060930263
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4DB060930263 // TtfwModuleOperationWord
@@ -782,8 +706,6 @@ ref; // ME_535E8B0702EB
 ref; // ME_4DAEEDE10285_ME_4DB060930263 DoDoIt
 
 : ME_52A086150180_ME_4DB060930263
- CONST UID '52A086150180'
- CONST Name 'RegisterInEngine'
  : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
  ;
  : Implementor ME_4DB060930263 // TtfwModuleOperationWord
@@ -809,7 +731,6 @@ ref; // ME_52A086150180_ME_4DB060930263 RegisterInEngine
  ; // Inherits
  : Operations
    Seq: ( ME_4DB079E00084 // GetModuleOperationCode
- ME_8C1833A152E6 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented

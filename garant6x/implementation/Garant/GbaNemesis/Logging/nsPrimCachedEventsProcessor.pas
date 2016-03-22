@@ -37,6 +37,7 @@ type
  // realized methods
    procedure RegisterEvent(const aEvent: InsDefferedEvent);
    procedure RequestWriteCache;
+   procedure ForceWriteCache;
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -76,6 +77,7 @@ constructor TnsPrimCachedEventsProcessor.Create;
 begin
 //#UC START# *4B139FDA0182_4B139F5C025B_impl*
  inherited Create;
+ f_CacheWasWritten := Now;
  f_List := TInsDefferedEventList.MakeSorted;
 //#UC END# *4B139FDA0182_4B139F5C025B_impl*
 end;//TnsPrimCachedEventsProcessor.Create
@@ -115,6 +117,15 @@ begin
  end;
 //#UC END# *4B139E860009_4B139F5C025B_impl*
 end;//TnsPrimCachedEventsProcessor.RequestWriteCache
+
+procedure TnsPrimCachedEventsProcessor.ForceWriteCache;
+//#UC START# *56D435B2018B_4B139F5C025B_var*
+//#UC END# *56D435B2018B_4B139F5C025B_var*
+begin
+//#UC START# *56D435B2018B_4B139F5C025B_impl*
+ Notify;
+//#UC END# *56D435B2018B_4B139F5C025B_impl*
+end;//TnsPrimCachedEventsProcessor.ForceWriteCache
 
 procedure TnsPrimCachedEventsProcessor.Cleanup;
 //#UC START# *479731C50290_4B139F5C025B_var*

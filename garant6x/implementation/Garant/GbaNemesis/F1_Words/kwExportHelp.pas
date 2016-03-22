@@ -1,65 +1,40 @@
 unit kwExportHelp;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwExportHelp.pas"
-// Начат: 19.05.2011 19:02
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Words::Words::TkwExportHelp
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwExportHelp.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwExportHelp" MUID: (4DD530DD03D8)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwExportHelp = {scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwExportHelp = class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwExportHelp
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmMainForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwExportHelp
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmMainForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 procedure TkwExportHelp.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DD530DD03D8_var*
@@ -75,17 +50,13 @@ begin
 end;//TkwExportHelp.DoDoIt
 
 class function TkwExportHelp.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'vcm:ExportHelp';
 end;//TkwExportHelp.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwExportHelp
  TkwExportHelp.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwExportHelp }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

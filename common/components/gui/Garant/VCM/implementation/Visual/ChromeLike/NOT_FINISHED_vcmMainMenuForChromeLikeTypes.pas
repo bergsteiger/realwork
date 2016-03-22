@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmMainMenuForChromeLikeTypes;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_FINISHED_vcmMainMenuForChromeLikeTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmMainMenuForChromeLikeTypes" MUID: (545C53AA026E)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

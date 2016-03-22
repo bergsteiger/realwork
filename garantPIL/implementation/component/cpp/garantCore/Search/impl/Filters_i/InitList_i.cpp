@@ -67,6 +67,7 @@ InitList_i::InitList_i (SortedCollection* in, MergeOp op)
 {
 	//#UC START# *52F0E97902F5_BODY*
 	m_type = m_data->Tag ();
+	GDS_ASSERT (m_data->Inflated () == false);
 	//#UC END# *52F0E97902F5_BODY*
 }
 

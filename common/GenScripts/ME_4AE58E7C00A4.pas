@@ -2,6 +2,7 @@ unit nsSelectedAttributesIterators;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsSelectedAttributesIterators.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsSelectedAttributesIterators" MUID: (4AE58E7C00A4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

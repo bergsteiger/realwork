@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmPopupMenuPrim;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\NOT_FINISHED_vcmPopupMenuPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmPopupMenuPrim" MUID: (4C8E3AC40306)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

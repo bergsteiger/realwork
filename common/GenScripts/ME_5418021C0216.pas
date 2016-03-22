@@ -2,6 +2,7 @@ unit nsHyperlinkProcessorTypes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsHyperlinkProcessorTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsHyperlinkProcessorTypes" MUID: (5418021C0216)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

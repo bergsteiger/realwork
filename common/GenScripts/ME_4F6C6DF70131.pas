@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\AFW\afwSettingsPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "afwSettingsPrim" MUID: (4F6C6DF70131)
+// Имя типа: "_afwSettingsPrim_"
 
 {$Define afwSettingsPrim_imp}
 

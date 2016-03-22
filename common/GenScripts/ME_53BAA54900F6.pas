@@ -2,6 +2,7 @@ unit RegisteredRepliesTest;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\RegisteredRepliesTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TRegisteredRepliesTest" MUID: (53BAA54900F6)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

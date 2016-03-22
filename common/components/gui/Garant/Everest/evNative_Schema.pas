@@ -4998,6 +4998,7 @@ begin
   end;//HasAnno
   with DefineProperty(k2_attrMaxSubID, t_Long, '') do
   begin
+   Stored := false;
   end;//MaxSubID
   with DefineProperty(k2_attrData, t_RawData, 'http://mdp.garant.ru/pages/viewpage.action?pageId=356073879') do
   begin

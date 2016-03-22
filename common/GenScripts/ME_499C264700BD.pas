@@ -3,6 +3,7 @@ unit nsDocumentsList_p;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\nsDocumentsList_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TnsDocumentsList" MUID: (499C264700BD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

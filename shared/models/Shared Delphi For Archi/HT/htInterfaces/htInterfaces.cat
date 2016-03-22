@@ -51,6 +51,14 @@
 	(object Attribute
 	    tool       	"MDA Generator"
 	    name       	"SourceType (pas.script)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script.runner)"
+	    value      	"w:/shared/models/NewSchool/Scripts/550981B402B9.pas.ms.script.runner")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script.runner)"
 	    value      	"file"))
     quid       	"550981B402B9"
     stereotype 	"Interfaces"
@@ -609,7 +617,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*555C8490016F_55530BB9007Aget_impl*"
-			    value      	"//#UC START# *555C8490016F_55530BB9007Aget_impl*§ Result := f_Handle;§// !!! Needs to be implemented !!!§//#UC END# *555C8490016F_55530BB9007Aget_impl*"))
+			    value      	"//#UC START# *555C8490016F_55530BB9007Aget_impl*§ Result := f_Handle;§//#UC END# *555C8490016F_55530BB9007Aget_impl*"))
 		    quid       	"555C8490016F"
 		    stereotype 	"readonly"
 		    type       	"ThtTblHandle"
@@ -666,11 +674,11 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*555EF7F5009F_555F0C89007D_var*"
-			    value      	"//#UC START# *555EF7F5009F_555F0C89007D_var*§const§ cMap: array [TdaTables] of AnsiString = (§  'ACCESS','PASS','USERS','GUDT','GULNK',§  'FAMILY','FREE','BB_LOG', 'CTRL', 'REGIONS',§§  '---', // ÙËÍÚË‚Ì‡ˇ Ú‡·ÎËˆ‡§  'FILE','HLINK','SUB','FREE',§  'DT#1','DT#2','DT#3','DT#5',§  'DT#6','DT#7','DT#8','DT#9','DT#A',§  'DT#B','DT#C','DT#D','DT#E','DT#3E',§  'DT#F','DT#I','DT#J',§§  'LNK#1','LNK#2','LNK#3','LNK#5',§  'LNK#6','LNK#7','LNK#8','LNK#9',§  'LNK#B','LNK#C','LNK#D','LNK#E',§  'LNK#F','LNK#I','LNK#J',§  'LNK#K',§  'PRIOR','RENUM','STAGE','LOG',§  'ACTIV', 'ALARM', 'CTRL',§  'FILE'{Dup1}, 'FILE'{Dup2}§ );§//#UC END# *555EF7F5009F_555F0C89007D_var*")
+			    value      	"//#UC START# *555EF7F5009F_555F0C89007D_var*§const§ cMap: array [TdaTables] of AnsiString = (§  'ACCESS','PASS','USERS','GUDT','GULNK',§  'FAMILY','FREE','BB_LOG', 'CTRL', 'REGIONS',§§  '---', // ÙËÍÚË‚Ì‡ˇ Ú‡·ÎËˆ‡§  'FILE','HLINK','SUB','FREE',§  'DT#1','DT#2','DT#3','DT#5',§  'DT#6','DT#7','DT#8','DT#9','DT#A',§  'DT#B','DT#C','DT#D','DT#E','DT#3E',§  'DT#F','DT#I','DT#J',§§  'LNK#1','LNK#2','LNK#3','LNK#5',§  'LNK#6','LNK#7','LNK#8','LNK#9',§  'LNK#B','LNK#C','LNK#D','LNK#E',§  'LNK#F','LNK#I','LNK#J',§  'LNK#K',§  'PRIOR','RENUM','STAGE','LOG',§  'ACTIV', 'ALARM', 'CTRL',§  'FILE'{Dup1}, 'FILE'{Dup2},§  'ALINKML', 'ALINKVL',§  'ALINKMR', 'ALINKVR'§ );§//#UC END# *555EF7F5009F_555F0C89007D_var*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*555EF7F5009F_555F0C89007D_impl*"
-			    value      	"//#UC START# *555EF7F5009F_555F0C89007D_impl*§ if TableFamily(aTable) = 0 then§  Result := ConcatDirName(f_Params.TablePath, cMap[aTable])§ else§  Result := ConcatDirName(f_Params.DocStoragePath, cMap[aTable] + IntToHex(TableFamily(aTable), 3));§//#UC END# *555EF7F5009F_555F0C89007D_impl*"))
+			    value      	"//#UC START# *555EF7F5009F_555F0C89007D_impl*§ if TableFamily(aTable) = 0 then§  Result := ConcatDirName(f_Params.TablePath, cMap[aTable])§ else§  if aTable in [da_ftAutolinkDocumentsLocal, da_ftAutolinkEditionsLocal, da_ftAutolinkDocumentsRemote, da_ftAutolinkEditionsRemote] then§   Result := ConcatDirName(f_Params.DocStoragePath, 'garant\\' + cMap[aTable])§  else§   Result := ConcatDirName(f_Params.DocStoragePath, 'garant\\' + cMap[aTable] + IntToHex(TableFamily(aTable), 3));§//#UC END# *555EF7F5009F_555F0C89007D_impl*"))
 		    quid       	"555EF7F5009F"
 		    parameters 	(list Parameters
 			(object Parameter "aTable"
@@ -711,7 +719,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*555EF81A03BF_555F0C89007D_var*"
-			    value      	"//#UC START# *555EF81A03BF_555F0C89007D_var*§const§ cIndexMap: array [TdaTables] of Integer = (§  1,1,0,0,0,0,0,1,0,0,§  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,§  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0§ );§§ cPasswordMap : Array [0..1] of AnsiString = ('','corvax');§§//#UC END# *555EF81A03BF_555F0C89007D_var*")
+			    value      	"//#UC START# *555EF81A03BF_555F0C89007D_var*§const§ cIndexMap: array [TdaTables] of Integer = (§  1,1,0,0,0,0,0,1,0,0,§  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,§  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,§  0,0,0,0§ );§§ cPasswordMap : Array [0..1] of AnsiString = ('','corvax');§§//#UC END# *555EF81A03BF_555F0C89007D_var*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*555EF81A03BF_555F0C89007D_impl*"
@@ -756,7 +764,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*555EF83803BE_555F0C89007D_var*"
-			    value      	"//#UC START# *555EF83803BE_555F0C89007D_var*§const§ cMap: array [TdaTables] of TdaFamilyID = (§  0,0,0,0,0,0,0,0,0,0,§  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,§  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1§ );§//#UC END# *555EF83803BE_555F0C89007D_var*")
+			    value      	"//#UC START# *555EF83803BE_555F0C89007D_var*§const§ cMap: array [TdaTables] of TdaFamilyID = (§  0,0,0,0,0,0,0,0,0,0,§  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,§  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,§  1,1,1,1§ );§//#UC END# *555EF83803BE_555F0C89007D_var*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*555EF83803BE_555F0C89007D_impl*"
@@ -1310,6 +1318,25 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"550981CC01F6"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(316, 599)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	8
+			max_width  	703
+			justify    	1)
 		    width      	718
 		    height     	542
 		    annotation 	8
@@ -1370,6 +1397,25 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"555C848200DA"
+		    compartment 	(object Compartment
+			Parent_View 	@4
+			location   	(1611, 787)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	1340
+			justify    	1)
 		    width      	294
 		    height     	322
 		    annotation 	8
@@ -1453,26 +1499,45 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@7
-			location   	(2476, 1320)
+			location   	(2247, 1310)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	436
+			max_width  	894
 			justify    	0
 			label      	"IhtDataSchemeHelper")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@7
-			location   	(2476, 1270)
+			location   	(2247, 1260)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	436
+			max_width  	894
 			justify    	0
 			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"555EF7B1002F"
-		    width      	454
-		    height     	322
+		    compartment 	(object Compartment
+			Parent_View 	@7
+			location   	(2247, 1371)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	896
+			justify    	1)
+		    width      	912
+		    height     	342
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::Shared Delphi Libraries::Shared Delphi For Archi::DA::daInterfaces::IdaDataConverter" @8
@@ -1551,6 +1616,25 @@
 		    icon_style 	"Label"
 		    fill_color 	16766935
 		    quidu      	"55C0B2A30315"
+		    compartment 	(object Compartment
+			Parent_View 	@9
+			location   	(139, 1668)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	7
+			max_width  	1118
+			justify    	1)
 		    width      	1144
 		    height     	492
 		    annotation 	8

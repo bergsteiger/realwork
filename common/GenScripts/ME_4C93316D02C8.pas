@@ -3,6 +3,7 @@ unit PrimPageSetup_pstNone_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPageSetup_pstNone_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "pstNone" MUID: (4C93316D02C8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_pstNone = {final} class(TtfwInteger)
   {* Слово словаря для типа формы pstNone }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_pstNone
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_pstNone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::pstNone';
-end;//Tkw_FormUserType_pstNone.GetWordNameForRegister
-
 function Tkw_FormUserType_pstNone.GetInteger: Integer;
 begin
  Result := pstNone;
 end;//Tkw_FormUserType_pstNone.GetInteger
+
+class function Tkw_FormUserType_pstNone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::pstNone';
+end;//Tkw_FormUserType_pstNone.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

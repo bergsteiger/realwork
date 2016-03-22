@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsCommonDiction" MUID: (4925449A0296)
+// Имя типа: "_dsCommonDiction_"
 
 {$Define dsCommonDiction_imp}
 

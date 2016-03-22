@@ -3,6 +3,7 @@ unit ConsultingUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ConsultingUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Consulting" MUID: (457007DB002E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

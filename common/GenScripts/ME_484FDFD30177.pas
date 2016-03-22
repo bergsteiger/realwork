@@ -2,6 +2,7 @@ unit atDeleteAllOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atDeleteAllOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatDeleteAllOperation" MUID: (484FDFD30177)
 
 interface
 

@@ -2,6 +2,7 @@ unit Pl3MessageIDListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\Pl3MessageIDListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TPl3MessageIDListPrim" MUID: (4F9BCAD90297)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

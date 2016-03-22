@@ -2,6 +2,7 @@ unit ContextHistoryInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\ContextHistoryInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "ContextHistoryInterfaces" MUID: (54F9F6FB0143)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

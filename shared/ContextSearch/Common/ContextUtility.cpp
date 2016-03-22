@@ -70,6 +70,21 @@ size_t ContextUtility::get_first_word (std::string& out, const char* src) {
 	//#UC END# *4C5FC6AC01E3*
 }
 
+// счетчики разметки
+void ContextUtility::get_markup_counters (const std::string& in, MarkupCounters& out) {
+	//#UC START# *56D819AC035A*
+	for (std::string::const_iterator it = in.begin (); it != in.end (); ++it) {
+		if (*it == ' ') {
+			++out.space;
+		} else if (*it == '~') {
+			++out.frame;
+		} else if (*it == '-') {
+			++out.strong;
+		} 
+	}
+	//#UC END# *56D819AC035A*
+}
+
 // мес€ц как строка
 const char* ContextUtility::get_month (size_t num) {
 	//#UC START# *53A80748039E*

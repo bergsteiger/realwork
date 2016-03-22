@@ -7,6 +7,8 @@ aSubDescrObj subdescriptor:GetVisible
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetVisible.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "subdescriptor_GetVisible" MUID: (52D661D4008D)
+// Имя типа: "TkwSubdescriptorGetVisible"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

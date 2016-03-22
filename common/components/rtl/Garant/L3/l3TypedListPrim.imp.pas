@@ -2,14 +2,16 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3TypedListPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3TypedListPrim" MUID: (47A74A5F0123)
+// Имя типа: "_l3TypedListPrim_"
 
 {$Define l3TypedListPrim_imp}
 
 const
  cItemSize = SizeOf(_ItemType_);
 
+type
  //#UC START# *47A74A5F0123ci*
-type 
  //#UC END# *47A74A5F0123ci*
  _l3Items_Parent_ = _l3TypedListPrim_Parent_;
  {$Include w:\common\components\rtl\Garant\L3\l3Items.imp.pas}

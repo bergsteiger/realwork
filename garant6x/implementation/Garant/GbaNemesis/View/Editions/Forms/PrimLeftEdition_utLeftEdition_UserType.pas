@@ -1,87 +1,67 @@
 unit PrimLeftEdition_utLeftEdition_UserType;
+ {* Предыдущая редакция }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Editions/Forms/PrimLeftEdition_utLeftEdition_UserType.pas"
-// Начат: 27.07.2009 11:43
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Пользовательские сервисы::CompareEditions::View::Editions::PrimLeftEdition::utLeftEdition
-//
-// Предыдущая редакция
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimLeftEdition_utLeftEdition_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "utLeftEdition" MUID: (4BD7056800D3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы utLeftEdition }
-  utLeftEditionName = 'utLeftEdition';
-   { Строковый идентификатор пользовательского типа "Предыдущая редакция" }
-  utLeftEdition = TvcmUserType(0);
-   { Предыдущая редакция }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы utLeftEdition }
+ utLeftEditionName = 'utLeftEdition';
+  {* Строковый идентификатор пользовательского типа "Предыдущая редакция" }
+ utLeftEdition = TvcmUserType(0);
+  {* Предыдущая редакция }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_utLeftEdition = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы utLeftEdition }
+ Tkw_FormUserType_utLeftEdition = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы utLeftEdition }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_utLeftEdition
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_utLeftEdition
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_utLeftEdition
-
-class function Tkw_FormUserType_utLeftEdition.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::utLeftEdition';
-end;//Tkw_FormUserType_utLeftEdition.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utLeftEdition.GetInteger: Integer;
- {-}
 begin
  Result := utLeftEdition;
 end;//Tkw_FormUserType_utLeftEdition.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_utLeftEdition.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utLeftEdition';
+end;//Tkw_FormUserType_utLeftEdition.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_utLeftEdition
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utLeftEdition.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_utLeftEdition }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

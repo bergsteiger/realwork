@@ -1,8 +1,14 @@
 unit rtGrinder;
 
-{ $Id: rtGrinder.pas,v 1.23 2015/09/01 13:39:06 lukyanets Exp $}
+{ $Id: rtGrinder.pas,v 1.25 2015/12/22 12:22:04 lukyanets Exp $}
 
 // $Log: rtGrinder.pas,v $
+// Revision 1.25  2015/12/22 12:22:04  lukyanets
+// Убираем служебных пользователей
+//
+// Revision 1.24  2015/11/26 09:31:19  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.23  2015/09/01 13:39:06  lukyanets
 // Не собиралось
 //
@@ -134,6 +140,7 @@ uses
  HT_Const,
 
  daDataProvider,
+ daSchemeConsts,
 
  dtIntf,
  DT_Serv,
@@ -255,6 +262,7 @@ var
  l_Family : TFamilyID;
  l_BBOper : Word;
  l_TmpID  : TdaUserID;
+ l_ZeroUserID  : TdaUserID;
 
  function ModifyUserIDInTable(gRecNo : LongInt; fpRecord : Pointer) : MFUNC_RET;
  var
@@ -289,6 +297,9 @@ begin
    l_Sab.SubSelect(aFieldNo, l_TmpID, NOT_EQUAL);
    l_TmpID := usServerService;
    l_Sab.SubSelect(aFieldNo, l_TmpID, NOT_EQUAL);
+   l_ZeroUserID := 0;
+   l_TmpID := usAdminReserved - 1;
+   l_Sab.SubSelect(aFieldNo, l_ZeroUserID, l_TmpID);
    // модифицируем ID...
    l_HStub := HTStub3(@ModifyUserIDInTable);
    try

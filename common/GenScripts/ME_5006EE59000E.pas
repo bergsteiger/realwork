@@ -2,6 +2,7 @@ unit atIterateUserJournalOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atIterateUserJournalOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatIterateUserJournalOperation" MUID: (5006EE59000E)
 
 interface
 

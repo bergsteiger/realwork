@@ -3,6 +3,7 @@ unit atSemaphoreOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSemaphoreOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatSemaphoreOperation" MUID: (4A4DF86D0208)
 
 interface
 

@@ -3,6 +3,8 @@ unit fsDocumentWithFlash;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\fsDocumentWithFlash.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "DocumentWithFlash" MUID: (4AA126F9032A)
+// Имя типа: "Tfs_DocumentWithFlash"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

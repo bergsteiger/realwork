@@ -2,6 +2,7 @@ unit NOT_FINISHED_nscContextFilter;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscContextFilter.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscContextFilter" MUID: (49F0314802E7)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -17,9 +18,7 @@ type
  TnscContextFilter = class
   private
    f_OnChange: TNotifyEvent;
-    {* Поле для свойства OnChange }
    f_OnWrongContext: TNotifyEvent;
-    {* Поле для свойства OnWrongContext }
   public
    property OnChange: TNotifyEvent
     read f_OnChange

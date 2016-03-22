@@ -2,6 +2,7 @@ unit NOT_FINISHED_dt_Dict;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_dt_Dict.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "dt_Dict" MUID: (55E6DBED01B3)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

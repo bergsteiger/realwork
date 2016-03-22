@@ -2,6 +2,7 @@ unit evIevAnchorIndexMapper;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\evIevAnchorIndexMapper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevIevAnchorIndexMapper" MUID: (53D8EE9F00BC)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

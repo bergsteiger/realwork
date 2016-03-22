@@ -2,6 +2,7 @@ unit nsDocumentMainMenuNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsDocumentMainMenuNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentMainMenuNode" MUID: (4ADDF4FA01C8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

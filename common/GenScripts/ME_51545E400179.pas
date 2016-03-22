@@ -2,6 +2,7 @@ unit StringStack;
 
 // Модуль: "w:\common\components\SandBox\StringStack.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TStringStack" MUID: (51545E400179)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

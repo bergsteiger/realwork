@@ -2,6 +2,7 @@ unit NOT_FINISHED_evdBufferedFilter;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdBufferedFilter.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evdBufferedFilter" MUID: (49E496880120)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

@@ -2,6 +2,7 @@ unit l3IntegerToIntegerMapTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\l3IntegerToIntegerMapTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "Tl3IntegerToIntegerMapTest" MUID: (56090AF902FF)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

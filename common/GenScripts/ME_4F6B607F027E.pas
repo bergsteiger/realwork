@@ -2,6 +2,8 @@ unit F1LikeRes;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\F1LikeRes.pas"
 // Стереотип: "VCMApplication"
+// Элемент модели: "F1Like" MUID: (4F6B607F027E)
+// Имя типа: "TF1LikeRes"
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 

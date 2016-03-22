@@ -2,6 +2,7 @@ unit csIdIOHandlerAdapter;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csIdIOHandlerAdapter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsIdIOHandlerAdapter" MUID: (538DB527006C)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

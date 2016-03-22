@@ -2,6 +2,7 @@ unit l3MultiThreadSortedIntegerList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3MultiThreadSortedIntegerList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3MultiThreadSortedIntegerList" MUID: (53A2C9290311)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -1,56 +1,38 @@
 unit kwClearFindDialog;
+ {* Очищает диалог поиска (удаляет его объект). }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwClearFindDialog.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::EverestArchiWords::ClearFindDialog
-//
-// Очищает диалог поиска (удаляет его объект).
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearFindDialog.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "ClearFindDialog" MUID: (533433C700C0)
+// Имя типа: "TkwClearFindDialog"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwClearFindDialog = {final scriptword} class(TtfwRegisterableWord)
+ TkwClearFindDialog = {final} class(TtfwRegisterableWord)
   {* Очищает диалог поиска (удаляет его объект). }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwClearFindDialog
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  D_TxSrch
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwClearFindDialog
+ l3ImplUses
+ , D_TxSrch
+;
 
 procedure TkwClearFindDialog.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_533433C700C0_var*
@@ -62,17 +44,13 @@ begin
 end;//TkwClearFindDialog.DoDoIt
 
 class function TkwClearFindDialog.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'ClearFindDialog';
 end;//TkwClearFindDialog.GetWordNameForRegister
 
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация ClearFindDialog
  TkwClearFindDialog.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация ClearFindDialog }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

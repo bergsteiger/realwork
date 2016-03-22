@@ -2,6 +2,8 @@ unit kwTryFocusOnForm;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwTryFocusOnForm.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TryFocusOnForm" MUID: (507BDC31028B)
+// Имя типа: "TkwTryFocusOnForm"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -2,6 +2,7 @@ unit atOpenRedactionsOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atOpenRedactionsOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatOpenRedactionsOperation" MUID: (48B560B601B8)
 
 interface
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Text.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "Text" MUID: (4A853E260311)
+// Имя типа: "_Text_"
 
 {$Define Text_imp}
 

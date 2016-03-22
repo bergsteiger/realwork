@@ -2,6 +2,8 @@ unit kwPopEditorParaEndCoordsToScreen;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaEndCoordsToScreen.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_ParaEndCoordsToScreen" MUID: (4F265392010B)
+// Имя типа: "TkwPopEditorParaEndCoordsToScreen"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -26,9 +28,9 @@ type
     {* Функция очистки полей объекта. }
    function GetPoint(const aMap: InevMap): Tl3Point; override;
     {* Возвращает точку, на которую нужно спозиционироваться. }
-   class function GetWordNameForRegister: AnsiString; override;
    procedure DoWithEditor(const aCtx: TtfwContext;
     anEditor: TevCustomEditorWindow); override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorParaEndCoordsToScreen
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -79,11 +81,6 @@ begin
 //#UC END# *4C3C927B027E_4F265392010B_impl*
 end;//TkwPopEditorParaEndCoordsToScreen.GetPoint
 
-class function TkwPopEditorParaEndCoordsToScreen.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:editor:ParaEndCoordsToScreen';
-end;//TkwPopEditorParaEndCoordsToScreen.GetWordNameForRegister
-
 procedure TkwPopEditorParaEndCoordsToScreen.DoWithEditor(const aCtx: TtfwContext;
  anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4F265392010B_var*
@@ -123,6 +120,11 @@ begin
  end;
 //#UC END# *4F4CB81200CA_4F265392010B_impl*
 end;//TkwPopEditorParaEndCoordsToScreen.DoWithEditor
+
+class function TkwPopEditorParaEndCoordsToScreen.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:editor:ParaEndCoordsToScreen';
+end;//TkwPopEditorParaEndCoordsToScreen.GetWordNameForRegister
 
 initialization
  TkwPopEditorParaEndCoordsToScreen.RegisterInEngine;

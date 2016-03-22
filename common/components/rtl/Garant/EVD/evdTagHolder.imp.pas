@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "evdTagHolder" MUID: (53AC01CD0335)
+// Имя типа: "_evdTagHolder_"
 
 {$Define evdTagHolder_imp}
 

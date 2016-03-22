@@ -3,6 +3,7 @@ unit FlagNodeBase;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\FlagNodeBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "FlagNodeBase" MUID: (45F52C0602BF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -89,7 +90,7 @@ procedure FlagNodeBase.pm_Setflags(aValue: TFlagMask);
 //#UC END# *45F80BA20280_45F52C0602BFset_var*
 begin
 //#UC START# *45F80BA20280_45F52C0602BFset_impl*
- f_flags := aValue
+ !!! Needs to be implemented !!!
 //#UC END# *45F80BA20280_45F52C0602BFset_impl*
 end;//FlagNodeBase.pm_Setflags
 

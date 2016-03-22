@@ -1,8 +1,11 @@
 unit ddRelPublishFilter;
 
-{ $Id: ddRelPublishFilter.pas,v 1.17 2014/04/11 15:30:50 lulin Exp $ }
+{ $Id: ddRelPublishFilter.pas,v 1.18 2015/11/26 08:45:43 lukyanets Exp $ }
 
 // $Log: ddRelPublishFilter.pas,v $
+// Revision 1.18  2015/11/26 08:45:43  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.17  2014/04/11 15:30:50  lulin
 // - переходим от интерфейсов к объектам.
 //
@@ -110,6 +113,7 @@ uses
 
  k2Tags, l3PrimString, Segment_Const, evHyperlink, nevNavigation, evSegLst, evdTypes, evdStyles,
  k2Types, k2Base, Hyperlink_Const, evTextParaTools, nevTools, afwNavigation, Address_Const,
+ daSchemeConsts,
  Dt_LinkServ, DT_Const, Dt_ReNum;
 
 constructor TddRelPublishFilter.Create(anOwner: Tk2TagGeneratorOwner = nil);

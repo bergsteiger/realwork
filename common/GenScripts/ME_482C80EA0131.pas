@@ -2,6 +2,7 @@ unit AbstractDropDown;
 
 // Модуль: "w:\common\components\gui\Garant\VT\ComboTree\AbstractDropDown.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TAbstractDropDown" MUID: (482C80EA0131)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -2,6 +2,7 @@ unit kwWinControlFromStackWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwWinControlFromStackWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwWinControlFromStackWord" MUID: (4F212C680161)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

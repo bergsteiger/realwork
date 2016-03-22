@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3GraphicContainer;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3GraphicContainer.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3GraphicContainer" MUID: (48DD20E400C2)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

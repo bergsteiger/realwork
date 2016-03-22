@@ -1,82 +1,65 @@
 unit TextLoad_ut_TextLoad_UserType;
+ {* Форма для загрузки документа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Forms"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Daily/Forms/TextLoad_ut_TextLoad_UserType.pas"
-// Начат: 22.12.2009 16:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> Shared Delphi Operations For Tests::TestForms::Forms::Everest::TextLoad::ut_TextLoad
-//
-// Форма для загрузки документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\Forms\TextLoad_ut_TextLoad_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "ut_TextLoad" MUID: (A419F118ED8E)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  vcmUserControls
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ , vcmUserControls
+;
 
 const
-   { Константы для типа формы ut_TextLoad }
-  ut_TextLoadName = 'ut_TextLoad';
-   { Строковый идентификатор пользовательского типа "Форма для загрузки документа" }
-  ut_TextLoad = TvcmUserType(0);
-   { Форма для загрузки документа }
-{$IfEnd} //nsTest AND not NoVCM
+ {* Константы для типа формы ut_TextLoad }
+ ut_TextLoadName = 'ut_TextLoad';
+  {* Строковый идентификатор пользовательского типа "Форма для загрузки документа" }
+ ut_TextLoad = TvcmUserType(0);
+  {* Форма для загрузки документа }
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_ut_TextLoad = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы ut_TextLoad }
+ Tkw_FormUserType_ut_TextLoad = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы ut_TextLoad }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_ut_TextLoad
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_ut_TextLoad
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-
-// start class Tkw_FormUserType_ut_TextLoad
-
-class function Tkw_FormUserType_ut_TextLoad.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::ut_TextLoad';
-end;//Tkw_FormUserType_ut_TextLoad.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_TextLoad.GetInteger: Integer;
- {-}
 begin
  Result := ut_TextLoad;
 end;//Tkw_FormUserType_ut_TextLoad.GetInteger
 
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
-{$IfEnd} //nsTest AND not NoVCM
+class function Tkw_FormUserType_ut_TextLoad.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_TextLoad';
+end;//Tkw_FormUserType_ut_TextLoad.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация Tkw_FormUserType_ut_TextLoad
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_TextLoad.RegisterInEngine;
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
+ {* Регистрация Tkw_FormUserType_ut_TextLoad }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

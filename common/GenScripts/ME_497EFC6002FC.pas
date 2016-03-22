@@ -2,6 +2,8 @@ unit PrimAttributeSelect_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimAttributeSelect_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "PrimAttributeSelect" MUID: (497EFC6002FC)
+// Имя типа: "TPrimAttributeSelectForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

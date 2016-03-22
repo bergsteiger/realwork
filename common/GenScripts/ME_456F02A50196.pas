@@ -3,6 +3,7 @@ unit BaseTreeSupportUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\BaseTreeSupportUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "BaseTreeSupport" MUID: (456F02A50196)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

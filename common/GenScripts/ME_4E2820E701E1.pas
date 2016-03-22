@@ -2,6 +2,8 @@ unit kwPopEditorSelectTable;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectTable.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_SelectTable" MUID: (4E2820E701E1)
+// Имя типа: "TkwPopEditorSelectTable"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

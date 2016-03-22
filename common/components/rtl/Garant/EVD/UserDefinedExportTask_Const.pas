@@ -5,7 +5,7 @@ unit UserDefinedExportTask_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/UserDefinedExportTask_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::UserDefinedExportTask
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::UserDefinedExportTask
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

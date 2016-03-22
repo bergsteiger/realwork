@@ -2,6 +2,7 @@ unit ComCtrls;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\ComCtrls.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ComCtrls" MUID: (4AC62798032A)
 
 interface
 

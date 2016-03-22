@@ -3,6 +3,8 @@ unit PrimListAnalizer_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListAnalizer_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimListAnalizer" MUID: (4AA0CE2B0073)
+// Имя типа: "TPrimListAnalizerForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

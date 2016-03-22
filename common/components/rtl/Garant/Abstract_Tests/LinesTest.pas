@@ -1,99 +1,71 @@
 unit LinesTest;
+ {* Тестирование отрисовки линий. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Tests"
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Tests/LinesTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::Abstract Tests::EditorTests::TLinesTest
-//
-// Тестирование отрисовки линий.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\LinesTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TLinesTest" MUID: (4DA6907500D9)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  TextEditorVisitor
-  {$IfEnd} //nsTest AND not NoVCM
-  ,
-  l3FrameLinesSpy
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  ,
-  l3InternalInterfaces
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , TextEditorVisitor
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3FrameLinesSpy
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3InternalInterfaces
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TLinesTest = {abstract} class(TTextEditorVisitor, Il3FrameLinesLogger)
   {* Тестирование отрисовки линий. }
- private
- // private fields
-   f_ObjID : Integer;
- protected
- // realized methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  private
+   f_ObjID: Integer;
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure DoVisit(aForm: TPrimTextLoadForm); override;
-     {* Обработать текст }
-   {$IfEnd} //nsTest AND not NoVCM
+    {* Обработать текст }
+   {$IfEnd} // NOT Defined(NoVCM)
    function OpenLinesLog(const aCanvas: Il3InfoCanvas;
-     aObjID: Integer): AnsiString;
+    aObjID: Integer): AnsiString;
    procedure CloseLinesLog(const aLogName: AnsiString);
    function GetPrecision: Integer;
- protected
- // overridden protected methods
-    {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+   {$If NOT Defined(NotTunedDUnit)}
    function FileForOutput: AnsiString; override;
-     {* Стандартный файл для вывода, для текщего теста }
-    {$IfEnd} //nsTest AND not NotTunedDUnit
+    {* Стандартный файл для вывода, для текщего теста }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TLinesTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , SysUtils
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TLinesTest
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TLinesTest.DoVisit(aForm: TPrimTextLoadForm);
+ {* Обработать текст }
 //#UC START# *4BE419AF0217_4DA6907500D9_var*
 //#UC END# *4BE419AF0217_4DA6907500D9_var*
 begin
@@ -106,10 +78,9 @@ begin
  end;
 //#UC END# *4BE419AF0217_4DA6907500D9_impl*
 end;//TLinesTest.DoVisit
-{$IfEnd} //nsTest AND not NoVCM
 
 function TLinesTest.OpenLinesLog(const aCanvas: Il3InfoCanvas;
-  aObjID: Integer): AnsiString;
+ aObjID: Integer): AnsiString;
 //#UC START# *4D00C91B03B2_4DA6907500D9_var*
 //#UC END# *4D00C91B03B2_4DA6907500D9_var*
 begin
@@ -137,8 +108,9 @@ begin
 //#UC END# *4FA3D5A500A9_4DA6907500D9_impl*
 end;//TLinesTest.GetPrecision
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 function TLinesTest.FileForOutput: AnsiString;
+ {* Стандартный файл для вывода, для текщего теста }
 //#UC START# *4B4F588B0241_4DA6907500D9_var*
 //#UC END# *4B4F588B0241_4DA6907500D9_var*
 begin
@@ -146,20 +118,20 @@ begin
  Result := OutputPath + KPage + '_' + IntToStr(f_ObjID) + '.lines';
 //#UC END# *4B4F588B0241_4DA6907500D9_impl*
 end;//TLinesTest.FileForOutput
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
 function TLinesTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TLinesTest.GetFolder
 
 function TLinesTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4DA6907500D9';
 end;//TLinesTest.GetModelElementGUID
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

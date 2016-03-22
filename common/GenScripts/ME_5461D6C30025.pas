@@ -2,6 +2,7 @@ unit ncsReplyDescription;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsReplyDescription.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsReplyDescription" MUID: (5461D6C30025)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

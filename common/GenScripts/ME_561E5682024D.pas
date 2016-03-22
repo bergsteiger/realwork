@@ -2,6 +2,7 @@ unit Il3CString_Proxy;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\Il3CString_Proxy.pas"
 // Стереотип: "InterfaceProxy"
+// Элемент модели: "Il3CString" MUID: (561E5682024D)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

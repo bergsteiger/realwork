@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3BaseStream;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3BaseStream.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3BaseStream" MUID: (48F4745E0023)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

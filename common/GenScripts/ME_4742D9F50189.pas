@@ -3,6 +3,7 @@ unit NOT_FINISHED_m3DB;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\NOT_FINISHED_m3DB.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "m3DB" MUID: (4742D9F50189)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

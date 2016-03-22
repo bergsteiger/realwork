@@ -3,6 +3,8 @@ unit ReleaseItsLAW;
 
 // Модуль: "w:\MDProcess\NewGenTest\ReleaseItsLAW.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "ReleaseItsLAW" MUID: (46C66075B1E8)
+// Имя типа: "TReleaseItsLAW"
 
 {$Include w:\MDProcess\NewGenTest\NewGenTest.inc}
 

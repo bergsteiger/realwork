@@ -3,6 +3,7 @@ unit DocumentPrintAndExportSettingRes;
 
 // Модуль: "w:\common\components\SandBox\VCM\View\Document\DocumentPrintAndExportSettingRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DocumentPrintAndExportSettingRes" MUID: (BF4B3EC98238)
 
 {$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 

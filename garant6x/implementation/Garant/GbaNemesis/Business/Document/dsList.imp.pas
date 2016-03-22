@@ -25,8 +25,9 @@
  private
  // private fields
    f_AllDocumentFiltered : Boolean;
-   f_InitialNeedApplyPermanentFilters: Boolean;
+   f_IsChanged : Boolean;
    ucc_NodeForPositioningHolder : IucpNodeForPositioningHolder;
+   f_InitialNeedApplyPermanentFilters : Boolean;
    f_Current : Il3SimpleNode;
     {* Поле для свойства Current}
    f_Document : IdeDocInfo;
@@ -598,7 +599,7 @@ function _dsList_.DataForNewList(const aNewList: IDynList;
 begin
 //#UC START# *47F33B990105_47E9EDA800FE_impl*
  Result := TdeList.Make(aNewList, true, wdAlwaysOpen, nil, nil,
-  aAllDocumentsFiltered, False);
+  aAllDocumentsFiltered, False, f_IsChanged);
 //#UC END# *47F33B990105_47E9EDA800FE_impl*
 end;//_dsList_.DataForNewList
 
@@ -917,17 +918,19 @@ procedure _dsList_.LoadActiveFilters(const aFilters: IFiltersFromQuery);
 //#UC START# *525BC48802E6_47E9EDA800FE_var*
 var
  l_Index  : Integer;
+ l_Enum: InsFiltersEnumerator;
  l_Filter : IFilterFromQuery;
 //#UC END# *525BC48802E6_47E9EDA800FE_var*
 begin
 //#UC START# *525BC48802E6_47E9EDA800FE_impl*
  f_ActiveFilters := DefDataAdapter.NativeAdapter.MakeFiltersFromQuery;
- if (aFilters <> nil) and (aFilters.Count > 0) then
-  for l_Index := 0 to Pred(aFilters.Count) do
-  begin
-   aFilters.pm_GetItem(l_Index, l_Filter);
+ l_Enum := TnsFiltersEnumerator.Make(aFilters);
+ while l_Enum.MoveNext do
+ begin
+  l_Filter := l_Enum.Current;
+  if IsActiveFilter(l_Filter) then
    f_ActiveFilters.Add(l_Filter);
-  end;//for l_Index := 0 to Pred(l_Count) do
+ end;
 //#UC END# *525BC48802E6_47E9EDA800FE_impl*
 end;//_dsList_.LoadActiveFilters
 
@@ -935,8 +938,7 @@ function _dsList_.GetPermanentFilters: IFiltersFromQuery;
 //#UC START# *52AEBAB800BF_47E9EDA800FE_var*
 var
  l_Filters: IFiltersFromQuery;
- l_Index: Integer;
- l_Filter: IFilterFromQuery;
+ l_Enum: InsFiltersEnumerator;
 //#UC END# *52AEBAB800BF_47E9EDA800FE_var*
 begin
 //#UC START# *52AEBAB800BF_47E9EDA800FE_impl*
@@ -945,12 +947,10 @@ begin
   bs_ltDocument: DefDataAdapter.NativeAdapter.MakeFiltersManager.GetLegalFilters(l_Filters);
   bs_ltDrug: DefDataAdapter.NativeAdapter.MakeFiltersManager.GetPharmFilters(l_Filters);
  end;
- for l_Index := 0 to l_Filters.Count - 1 do
- begin
-  l_Filters.pm_GetItem(l_Index, l_Filter);
-  if l_Filter.GetPermanent then
-   Result.Add(l_Filter);
- end;
+ l_Enum := TnsFiltersEnumerator.Make(l_Filters);
+ while l_Enum.MoveNext do
+  if l_Enum.Current.GetPermanent then
+   Result.Add(l_Enum.Current);
 //#UC END# *52AEBAB800BF_47E9EDA800FE_impl*
 end;//_dsList_.GetPermanentFilters
 
@@ -1008,7 +1008,8 @@ function _dsList_.pm_GetIsChanged: Boolean;
 //#UC END# *47F1E7000276_47E9EDA800FEget_var*
 begin
 //#UC START# *47F1E7000276_47E9EDA800FEget_impl*
- Result := bsIsListChanged(ImpList);
+ Result := f_IsChanged;
+// Result := bsIsListChanged(ImpList);
 //#UC END# *47F1E7000276_47E9EDA800FEget_impl*
 end;//_dsList_.pm_GetIsChanged
 
@@ -1193,6 +1194,12 @@ begin
  begin
   RootManager.RootNode := nil;
   // Обновим справку к документу
+  if ImpList.GetIsSnippet then
+  begin
+   Result := TnsDocumentWithSnippetList.Make(Root, ImpList);
+   UpdateListInfo;
+  end
+  else
   if not IsFirstMake then
   begin
    Result := TbsListTreeStruct.Make(Root, False);
@@ -1255,25 +1262,9 @@ function _dsList_.ApplyFilter(const aFilter: IFilterFromQuery;
 var
  l_Filterable: IFilterable;
 
-  procedure lp_DeleteFromActiveFilters;
-  var
-   l_Index: Integer;
-   l_Filter: IFilterFromQuery;
-  begin
-   l_Index := 0;
-   while l_Index < f_ActiveFilters.Count do
-   begin
-    f_ActiveFilters.pm_GetItem(l_Index, l_Filter);
-    if l_Filter.IsSame(aFilter) then
-     f_ActiveFilters.Delete(l_Index)
-    else
-     Inc(l_Index);
-   end;//while l_Index < f_ActiveFilters.Count
-  end;//lp_DeleteFromActiveFilters
-
   procedure lp_DeleteFilter;
   begin
-   lp_DeleteFromActiveFilters;
+   RemoveFilter(f_ActiveFilters, aFilter);
    try
     l_Filterable.DeleteFilter(aFilter, True);
     l_Filterable.ApplyFilters(f_ActiveFilters);
@@ -1285,26 +1276,8 @@ var
   end;//lp_DeleteFilter
 
   function lp_AddFilter: Boolean;
-
-   function lp_HasFilter: Boolean;
-   var
-    l_Index : Integer;
-    l_Filter: IFilterFromQuery;
-   begin
-    for l_Index := 0 to Pred(f_ActiveFilters.Count) do
-    begin
-     f_ActiveFilters.pm_GetItem(l_Index, l_Filter);
-     if l_Filter.IsSame(aFilter) then
-     begin
-      Result := True;
-      Exit;
-     end;//l_Filter.IsSame(aFilter)
-    end;//for l_Index
-    Result := False;
-   end;
-
   begin
-   if lp_HasFilter then
+   if HasFilter(f_ActiveFilters, aFilter) then
     Result := False
    else
    begin
@@ -1318,11 +1291,11 @@ var
       f_AllDocumentFiltered := True;
      on ENotAllAttributesRestored do
      begin
-      lp_DeleteFromActiveFilters;
+      RemoveFilter(f_ActiveFilters, aFilter);
       raise;
      end;
     end;//try..except
-   end;//if lp_HasFilter then
+   end;//if HasFilter then
   end;//lp_AddFilter
 
 var
@@ -1408,6 +1381,7 @@ procedure _dsList_.DeleteNodes;
 begin
 //#UC START# *47F6180E0359_47E9EDA800FE_impl*
  DoDeleteNodes;
+ f_IsChanged := True;
 //#UC END# *47F6180E0359_47E9EDA800FE_impl*
 end;//_dsList_.DeleteNodes
 
@@ -1608,7 +1582,6 @@ var
  l_ActiveFilters: IFiltersFromQuery;
  i,
  l_Count: LongInt;
- l_Filter: IFilterFromQuery;
 //#UC END# *47F9FABC001D_47E9EDA800FE_var*
 begin
 //#UC START# *47F9FABC001D_47E9EDA800FE_impl*
@@ -1618,15 +1591,9 @@ begin
   l_Filterable.GetActiveFilters(l_ActiveFilters);
   if Assigned(l_ActiveFilters) then
   try
-   l_Count := l_ActiveFilters.Count;
-   if l_Count > 0 then
-    for i := 0 to Pred(l_Count) do
-    begin
-     l_ActiveFilters.pm_GetItem(I, l_Filter);
-     Result := aFilter.IsSame(l_Filter);
-     if Result then
-      break;
-    end;//for i := 0 to Pred(l_Count) do
+   Result := HasFilter(l_ActiveFilters, aFilter);
+   if Result then
+    exit;
   finally
    l_ActiveFilters := nil;
   end;{try..finally}
@@ -1988,29 +1955,31 @@ var
  l_Filterable    : IFilterable;
  l_ActiveFilters : IFiltersFromQuery;
  l_PermanentFilters: IFiltersFromQuery;
+ l_Filters: IFiltersFromQuery;
 //#UC END# *492ACF630072_47E9EDA800FE_var*
 begin
 //#UC START# *492ACF630072_47E9EDA800FE_impl*
  inherited;
  ImpList := PartData.List;
  f_SearchInfo := PartData.SearchInfo;
-
  if Supports(ImpList, IFilterable, l_Filterable) then
  try
   l_Filterable.GetActiveFilters(l_ActiveFilters);
-  LoadActiveFilters(l_ActiveFilters);
-  //http://mdp.garant.ru/pages/viewpage.action?pageId=506709931
   if NeedApplyPermanentFilters then
+   l_PermanentFilters := GetPermanentFilters
+  else
+   l_PermanentFilters := nil;
   try
-   l_PermanentFilters := GetPermanentFilters;
-   LoadActiveFilters(l_PermanentFilters);
+   LoadActiveFilters(CatFilters(l_ActiveFilters, l_PermanentFilters));
   finally
+   l_ActiveFilters := nil;
    l_PermanentFilters := nil;
   end;
  finally
-  l_ActiveFilters := nil;
   l_Filterable := nil;
  end;
+ f_IsChanged := PartData.IsChanged or bsIsListChanged(ImpList);
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=607258441
 //#UC END# *492ACF630072_47E9EDA800FE_impl*
 end;//_dsList_.GotData
 {$IfEnd} //not NoVCM

@@ -3,6 +3,7 @@ unit nsOneLevelTreeStruct;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsOneLevelTreeStruct.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsOneLevelTreeStruct" MUID: (4683692B0105)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

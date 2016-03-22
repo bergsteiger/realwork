@@ -3,6 +3,7 @@ unit TreeInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Tree\TreeInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "TreeInterfaces" MUID: (491DD2830110)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit l3DispatcherHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3DispatcherHelper.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3DispatcherHelper" MUID: (5501A3AE02AA)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -29,7 +30,7 @@ type
  Tl3DispatcherHelper = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3DispatcherHelper;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3DispatcherHelper }
   protected
    procedure pm_SetAlien(const aValue: Il3DispatcherHelper);
    procedure ClearFields; override;

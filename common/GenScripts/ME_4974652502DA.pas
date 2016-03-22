@@ -3,6 +3,8 @@ unit TreeAttribute_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\TreeAttribute_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "TreeAttribute" MUID: (4974652502DA)
+// Имя типа: "TTreeAttributeForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_SPHTMLHelp;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\NOT_FINISHED_SPHTMLHelp.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "SPHTMLHelp" MUID: (4AA7E1390061)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

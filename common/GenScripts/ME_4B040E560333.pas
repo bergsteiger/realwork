@@ -3,6 +3,7 @@ unit DocumentUserTypes_dftRelatedSynchroView_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftRelatedSynchroView_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "dftRelatedSynchroView" MUID: (4B040E560333)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -12,7 +13,6 @@ interface
 uses
  l3IntfUses
  , DocumentUserTypes_dftDocSynchroView_UserType
- , DocumentUserTypes_dftAnnotationSynchroView_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -36,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftRelatedSynchroView = {final} class(TtfwInteger)
   {* Слово словаря для типа формы dftRelatedSynchroView }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_dftRelatedSynchroView
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_dftRelatedSynchroView.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::dftRelatedSynchroView';
-end;//Tkw_FormUserType_dftRelatedSynchroView.GetWordNameForRegister
-
 function Tkw_FormUserType_dftRelatedSynchroView.GetInteger: Integer;
 begin
  Result := dftRelatedSynchroView;
 end;//Tkw_FormUserType_dftRelatedSynchroView.GetInteger
+
+class function Tkw_FormUserType_dftRelatedSynchroView.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::dftRelatedSynchroView';
+end;//Tkw_FormUserType_dftRelatedSynchroView.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

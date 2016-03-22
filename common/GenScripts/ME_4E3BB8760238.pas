@@ -3,6 +3,7 @@ unit evAlignBySeparatorUtils;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evAlignBySeparatorUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evAlignBySeparatorUtils" MUID: (4E3BB8760238)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

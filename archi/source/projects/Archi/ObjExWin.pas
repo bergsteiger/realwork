@@ -1,6 +1,6 @@
 unit ObjExWin;
 
-{ $Id: ObjExWin.pas,v 1.75 2015/07/13 11:05:34 lukyanets Exp $ }
+{ $Id: ObjExWin.pas,v 1.77 2016/02/26 16:16:33 voba Exp $ }
 
 interface
 
@@ -51,8 +51,8 @@ type
     DDHLink   : TGlobalCoordinateRec;
     fInMailArrivedShowing : Boolean;
 
-    procedure SetMRUItem(Const ItStr : ShortString; Var aList : Pointer);
-    function  GetMRUItem(Var ItStr : ShortString; Var CN : Pointer) : Boolean;
+    procedure SaveMRU;
+    procedure LoadMRU(aList : Tl3StringDataList);
     procedure ShowMailArrived(Sender: TObject; aMailID : LongInt);
     procedure UserStatusChange(UserId : TUserID; Active : Boolean);
     function  GetNodeType(aNode : Il3Node): Byte;
@@ -79,6 +79,7 @@ Uses
      l3IniFile, ResShop, IniShop,
      l3LongintList,
      l3Except,
+     daSchemeConsts,
      dtIntf, DT_Sab,
      DT_Doc, DT_AskList, DT_User, DT_Mail,
      VConst, ObjList, l3String, l3Date, l3Languages,
@@ -89,13 +90,13 @@ Uses
 
 Type
  PSaveItemData = ^TSaveItemData;
- TSaveItemData = record
+ TSaveItemData = packed record
                   rID     : TDocID;
                   rFamID  : TFamilyID;
                   rIconID : integer;
                  end;
 
- TSaveItemRec = record
+ TSaveItemRec = packed record
                  rName : ShortString;
                  rData : TSaveItemData;
                 end;
@@ -114,7 +115,7 @@ constructor TObjectExplorerWin.Create(AOwner: TComponent);
 
 procedure TObjectExplorerWin.LoadStruct;
  var
-  PN      : Pointer;
+  //PN      : Pointer;
   DT      : TStDateTimeRec;
   lAction : Tl3IteratorAction;
   lGrAction : Tl3IteratorAction;
@@ -207,8 +208,7 @@ procedure TObjectExplorerWin.LoadStruct;
       begin
        Items := Tl3StringDataList.CreateSize(SizeOf(TSaveItemData));
        try
-        PN := Items;
-        UserConfig.ReadParamExtList('MRUItem', SetMRUItem, PN);
+        LoadMRU(Items);
         lCheckExists(Items);
        finally
         Items.Free;
@@ -247,64 +247,88 @@ procedure TObjectExplorerWin.LoadStruct;
  end;
 
 destructor TObjectExplorerWin.Destroy;
- var
-  PN  : Pointer;
- begin
-  UserConfig.Section:='MRUList';
-  PN := 0;
-  UserConfig.WriteParamExtList('MRUItem', GetMRUItem, PN);
-  //MailServer.OnChange := nil;
-
-  inherited Destroy;
- end;
-
-procedure TObjectExplorerWin.SetMRUItem(Const ItStr : ShortString; Var aList : Pointer);
-var
- Rec : TSaveItemRec;
 begin
- try
-  l3FormatStringToRec(ItStr, Rec, cSaveItemRecFormat);
- except
-  on E : El3ConvertError do //Старая запись
-  begin
-   l3FormatStringToRec(ItStr, Rec, cSaveItemRecFormatOLD);
-   Rec.rData.rIconID := picText;
-  end;
- end;
- Tl3StringDataList(aList).AddStr(Rec.rName, @Rec.rData);
+ SaveMRU;
+ inherited Destroy;
 end;
 
-function  TObjectExplorerWin.GetMRUItem(Var ItStr : ShortString; Var CN : Pointer) : Boolean;
+procedure TObjectExplorerWin.SaveMRU;
+ var
+  lIndex : Integer;
+  lMRUList : Tl3StringDataList;
+
+ function  GetMRUItem(var ItStr : ShortString) : Boolean;
  var
   lRec : TSaveItemRec;
-  lP   : PAnsiChar;
+  //lP   : PAnsiChar;
  begin
-  with TMRUDocListNode((BaseExplorerNode[eotMRUDocument] as Il3NodeWrap).GetSelf) do
-   begin
-    Result := Integer(CN) < Items.Count;
-    If Not Result then Exit;
-    lRec.rName  := Items.PasStr[Integer(CN)];
+  Result := lIndex < lMRUList.Count;
+  if Not Result then Exit;
+  lRec.rName  := lMRUList.PasStr[lIndex];
 
-    lP            := Items.Data[Integer(CN)];
-    lRec.rData    := PSaveItemData(Items.Data[Integer(CN)])^;
+  //lP            := Items.Data[lIndex];
+  lRec.rData    := PSaveItemData(lMRUList.Data[lIndex])^;
 
-    ItStr      := l3RecToFormatString(lRec, cSaveItemRecFormat);
-    Inc(Integer(CN));
-   end;
+  ItStr      := l3RecToFormatString(lRec, cSaveItemRecFormat);
+  Inc(lIndex);
  end;
+
+var
+ lIterFunc : TOnGetListItem;
+begin
+ lMRUList := TMRUDocListNode((BaseExplorerNode[eotMRUDocument] as Il3NodeWrap).GetSelf).Items;
+ lIndex := 0;
+ UserConfig.Section := 'MRUList';
+ lIterFunc := MakeWGLStub(@GetMRUItem);
+ try
+  UserConfig.WriteParamExtList('MRUItem', lIterFunc);
+ finally
+  FreeWGLStub(lIterFunc);
+ end;
+end;
+
+
+procedure  TObjectExplorerWin.LoadMRU(aList : Tl3StringDataList);
+
+ procedure SetMRUItem(Const ItStr : ShortString);
+ var
+  Rec : TSaveItemRec;
+ begin
+  try
+   l3FormatStringToRec(ItStr, Rec, cSaveItemRecFormat);
+  except
+   on E : El3ConvertError do //Старая запись
+   begin
+    l3FormatStringToRec(ItStr, Rec, cSaveItemRecFormatOLD);
+    Rec.rData.rIconID := picText;
+   end;
+  end;
+  aList.AddStr(Rec.rName, @Rec.rData);
+ end;
+
+var
+ lIterFunc : TOnSetListItem;
+begin
+ UserConfig.Section:='MRUList';
+ lIterFunc := MakeRGLStub(@SetMRUItem);
+ try
+  UserConfig.ReadParamExtList('MRUItem', lIterFunc);
+ finally
+  FreeRGLStub(lIterFunc);
+ end;
+end;
 
 function TObjectExplorerWin.ChildNodeClass(aObjectType : TExplorerObjType) : Tl3NodeClass;
- begin
-  Case aObjectType of
-   eotDocSet      : Result := TDocSetNode;
-   eotSaveDocSet  : Result := TDocSetNode;
-   eotMRUDocument : Result := TDocumentNode;
-   eotDocument    : Result := TDocumentNode;
-   eotUser        : Result := nil;
-   eotMail        : Result := nil;
-  end;
+begin
+ Case aObjectType of
+  eotDocSet      : Result := TDocSetNode;
+  eotSaveDocSet  : Result := TDocSetNode;
+  eotMRUDocument : Result := TDocumentNode;
+  eotDocument    : Result := TDocumentNode;
+  eotUser        : Result := nil;
+  eotMail        : Result := nil;
  end;
-
+end;
 
 procedure TObjectExplorerWin.AddToExplorer(aObjectType : TExplorerObjType; aText : AnsiString; aID : Longint; aIconID : integer = -1);
 begin

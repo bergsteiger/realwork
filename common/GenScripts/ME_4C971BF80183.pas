@@ -2,6 +2,8 @@ unit RTFReaderTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\RTFReaderTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "RTFReaderTest" MUID: (4C971BF80183)
+// Имя типа: "TRTFReaderTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
@@ -45,7 +47,8 @@ begin
 //#UC START# *4C971C6C0182_4C971BF80183_impl*
  l_Reader := TddRTFReader.Make(FileFromCurrent(aFileName));
  try
-  l_Reader.EnablePictures := Self.GetEnablePictures; 
+  l_Reader.EnablePictures := Self.GetEnablePictures;
+  l_Reader.ReadURL := GetEnableReadURL;
   SomeFormatToEVD(l_Reader);
  finally
   FreeAndNil(l_Reader);

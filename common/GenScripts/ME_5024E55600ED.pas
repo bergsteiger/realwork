@@ -2,6 +2,7 @@ unit nsAACDocumentSynchroViewContainer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsAACDocumentSynchroViewContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsAACDocumentSynchroViewContainer" MUID: (5024E55600ED)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit l3FrameLine;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3FrameLine.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3FrameLine" MUID: (48CA546C01B0)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

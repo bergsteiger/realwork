@@ -3,6 +3,7 @@ unit tfwValueList;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwValueList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwValueList" MUID: (4DCC11A10187)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

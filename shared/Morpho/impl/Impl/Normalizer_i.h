@@ -38,12 +38,6 @@ private:
 	// добавить строку
 	static void add (GCL::StrVector& out, const std::string& str, char delim = ' ');
 
-	// добавить значения
-	static void add_ (const GCL::StrSet& in, GCL::StrVector& out, const std::string& word, const std::string& prev, Def::StrStrMap& pseudo);
-
-	// добавить варианты лемм
-	static GCL::StrVector* correct (const std::string& in);
-
 	// сделать ключ
 	static const std::string& make_key (const std::string& in, std::string& out, bool is_pseudo);
 
@@ -59,13 +53,7 @@ public:
 // self methods
 private:
 	// генерация норм для заданной словоформы
-	void add (const std::string& word, std::string& forma, GCL::StrSet& out, const Def::NSettings& info);
-
-	// нормализация устойчивой фразы
-	void add_strong (const std::string& str, GCL::StrVector& out);
-
-	// добавить морфо-синонимы
-	void add_syns (GCL::StrSet& normas, bool as_key);
+	void add (const std::string& word, GCL::StrSet& out, const Def::NSettings& info);
 
 	// добавить леммы
 	void add_word (GCL::StrSet& normas, const std::string& word, bool is_pseudo, bool as_key);
@@ -74,7 +62,7 @@ private:
 	bool get (GCL::StrSet& normas, const std::string& word, bool use_filter, bool as_key);
 
 	// нормализация
-	void normalize (const std::string& word, char delim, GCL::StrVector& reqs, Def::StrStrMap& pseudo);
+	void normalize (const std::string& word, char delim, GCL::StrVector& reqs);
 
 	// нормализация слова
 	bool normalize (GCL::StrSet& normas, const std::string& word, bool use_filter, bool as_key);
@@ -95,8 +83,8 @@ private:
 protected:
 
 	// implemented method from Def::INormalizer
-	// нормализация слова (если слово оканчивается символом '!', то forma будет не пуст)
-	virtual GCL::StrSet* execute (const std::string& word, std::string& forma, const Def::NSettings& info);
+	// нормализация слова
+	virtual GCL::StrSet* execute (const std::string& word, const Def::NSettings& info);
 
 	// implemented method from Def::INormalizer
 	// нормализация строки
@@ -107,16 +95,8 @@ protected:
 	virtual GCL::StrSet* execute (const std::string& word, bool as_key);
 
 	// implemented method from Def::INormalizer
-	// нормализация слова (если слово оканчивается символом '!', то forma будет не пуст)
-	virtual GCL::StrSet* execute (const GCL::StrSet& in, std::string& forma, const Def::NSettings& info);
-
-	// implemented method from Def::INormalizer
 	// нормализация фразы
-	virtual void execute_for_phrase (const std::string& str, GCL::StrVector& out);
-
-	// implemented method from Def::INormalizer
-	// нормализация фразы
-	virtual GCL::StrVector* execute_for_phrase (const std::string& in, Def::StrStrMap& pseudo);
+	virtual GCL::StrVector* execute_for_phrase (const std::string& in);
 
 	// implemented method from Def::INormalizer
 	// инфа о морфоразборе
@@ -131,8 +111,8 @@ protected:
 	virtual bool has_norma (const std::string& word, const std::string& norma);
 
 	// implemented method from Def::INormalizer
-	// инициализация вектора с позициями идентичных
-	virtual void init_identical (const Def::PhraseEx& phrase, Def::Positions& out);
+	// проверка на псевдо
+	virtual bool is_pseudo (const std::string& in);
 
 	// implemented method from Def::INormalizer
 	// лемматизация

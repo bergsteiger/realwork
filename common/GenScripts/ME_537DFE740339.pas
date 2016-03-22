@@ -3,6 +3,8 @@ unit evdTasks_Schema;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdTasks_Schema.pas"
 // Стереотип: "TagTable"
+// Элемент модели: "evdTasks" MUID: (537DFE740339)
+// Имя типа: "TevdTasksSchema"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

@@ -3,6 +3,7 @@ unit vcmCommandIDsListPrim;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmCommandIDsListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmCommandIDsListPrim" MUID: (4A8D6F31034F)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

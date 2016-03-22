@@ -1,50 +1,38 @@
 unit RoundedControlsTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "RoundedControlsTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCase::Class Shared Delphi Sand Box::SandBoxTest::Rounded::RoundedControlsTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\RoundedControlsTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "RoundedControlsTest" MUID: (517C11C6019A)
+// Имя типа: "TRoundedControlsTest"
 
-{$Include ..\SandBox\sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , TestFrameWork
+;
 
-{$If defined(nsTest)}
 type
  TRoundedControlsTest = class(TTestCase)
- published
- // published methods
+  published
    procedure DoIt;
  end;//TRoundedControlsTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  RoundedButton,
-  RoundedEdit
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //nsTest
-
-{$If defined(nsTest)}
-
-// start class TRoundedControlsTest
+ l3ImplUses
+ , RoundedButton
+ , RoundedEdit
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TRoundedControlsTest.DoIt;
 //#UC START# *517C40E900DA_517C11C6019A_var*
@@ -77,9 +65,8 @@ begin
 //#UC END# *517C40E900DA_517C11C6019A_impl*
 end;//TRoundedControlsTest.DoIt
 
-{$IfEnd} //nsTest
-
 initialization
  TestFramework.RegisterTest(TRoundedControlsTest.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

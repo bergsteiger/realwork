@@ -3,6 +3,7 @@ unit MergeTablesTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\MergeTablesTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TMergeTablesTest" MUID: (4C3AF74701A6)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

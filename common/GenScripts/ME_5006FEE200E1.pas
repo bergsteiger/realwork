@@ -2,6 +2,7 @@ unit atSaveJournalQueryToXMLOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atSaveJournalQueryToXMLOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatSaveJournalQueryToXMLOperation" MUID: (5006FEE200E1)
 
 interface
 

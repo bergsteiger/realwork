@@ -3,6 +3,7 @@ unit ClickOnCommentTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\ClickOnCommentTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TClickOnCommentTest" MUID: (4DDF6677000D)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

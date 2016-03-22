@@ -53,7 +53,8 @@ type
      const aNodeForPositioning: Il3SimpleNode;
      const aSearchInfo: IdeSearchInfo;
      aAllDocumentsFiltered: Boolean;
-     aNeedApplyPermanentFilters: Boolean); reintroduce;
+     aNeedApplyPermanentFilters: Boolean;
+     aIsChanged: Boolean); reintroduce;
    class function Make(const aList: IDynList;
      aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = wdAlwaysOpen;
      aOpenFrom: TbsListOpenFrom = lofNone;
@@ -61,7 +62,8 @@ type
      const aNodeForPositioning: Il3SimpleNode = nil;
      const aSearchInfo: IdeSearchInfo = nil;
      aAllDocumentsFiltered: Boolean = False;
-     aNeedApplyPermanentFilters: Boolean = True): IdeDocumentListSet; reintroduce;
+     aNeedApplyPermanentFilters: Boolean = True;
+     aIsChanged: Boolean = False): IdeDocumentListSet; reintroduce;
  end;//TdeListSet
 {$IfEnd} //not Admin AND not Monitorings
 
@@ -78,7 +80,8 @@ constructor TdeListSet.Create(const aList: IDynList;
   const aNodeForPositioning: Il3SimpleNode;
   const aSearchInfo: IdeSearchInfo;
   aAllDocumentsFiltered: Boolean;
-  aNeedApplyPermanentFilters: Boolean);
+  aNeedApplyPermanentFilters: Boolean;
+  aIsChanged: Boolean);
 //#UC START# *4B1F7C63023F_4926AE3900B9_var*
 //#UC END# *4B1F7C63023F_4926AE3900B9_var*
 begin
@@ -90,7 +93,8 @@ begin
                   aNodeForPositioning,
                   aSearchInfo,
                   aAllDocumentsFiltered,
-                  aNeedApplyPermanentFilters);
+                  aNeedApplyPermanentFilters,
+                  aIsChanged);
  f_List_SynchroView_Form := sva_List_SynchroView_Document;
 //#UC END# *4B1F7C63023F_4926AE3900B9_impl*
 end;//TdeListSet.Create
@@ -102,11 +106,12 @@ class function TdeListSet.Make(const aList: IDynList;
   const aNodeForPositioning: Il3SimpleNode = nil;
   const aSearchInfo: IdeSearchInfo = nil;
   aAllDocumentsFiltered: Boolean = False;
-  aNeedApplyPermanentFilters: Boolean = True): IdeDocumentListSet;
+  aNeedApplyPermanentFilters: Boolean = True;
+  aIsChanged: Boolean = False): IdeDocumentListSet;
 var
  l_Inst : TdeListSet;
 begin
- l_Inst := Create(aList, aWhatDoingIfOneDoc, aOpenFrom, aTimeMachineOff, aNodeForPositioning, aSearchInfo, aAllDocumentsFiltered, aNeedApplyPermanentFilters);
+ l_Inst := Create(aList, aWhatDoingIfOneDoc, aOpenFrom, aTimeMachineOff, aNodeForPositioning, aSearchInfo, aAllDocumentsFiltered, aNeedApplyPermanentFilters, aIsChanged);
  try
   Result := l_Inst;
  finally

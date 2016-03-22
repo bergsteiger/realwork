@@ -2,6 +2,7 @@ unit alcuSortedTaskList;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuSortedTaskList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuSortedTaskList" MUID: (53A196B800AD)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

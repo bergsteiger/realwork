@@ -2,6 +2,7 @@ unit alcuTaskListBase;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuTaskListBase.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "alcuTaskListBase" MUID: (53A051A703D1)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
@@ -228,11 +229,13 @@ begin
  Result := false;
  l_Found := nil;
  try
- // Result := nil;
   try
    ForEachF(L2AlcuTasksIteratorForEachFAction(@DoIt));
    if (l_Found <> nil) then
+   begin
     anAction(l_Found);
+    Result := True;
+   end;
   finally
    l3FreeLocalStub(Hack);
   end;//try..finally

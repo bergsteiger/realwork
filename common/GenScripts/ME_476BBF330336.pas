@@ -3,6 +3,7 @@ unit m4DBInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\m4\m4DBInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "m4DBInterfaces" MUID: (476BBF330336)
 
 {$Include w:\common\components\rtl\Garant\m4\m4Define.inc}
 

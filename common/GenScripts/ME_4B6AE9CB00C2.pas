@@ -2,6 +2,7 @@ unit atChatMessage;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\EvdHelpers\atChatMessage.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatChatMessage" MUID: (4B6AE9CB00C2)
 
 interface
 

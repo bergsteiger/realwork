@@ -7,6 +7,8 @@ unit kwBracketBegin;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwBracketBegin.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "BracketBegin" MUID: (4DBFBBE603E5)
+// Имя типа: "TkwBracketBegin"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

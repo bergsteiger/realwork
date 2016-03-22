@@ -656,6 +656,39 @@ static int dump_AuxIndex ( const Base *b, const char *name,
 		}
 		return 0;
 	}
+	if ((s1 != NULL) && (!stricmp(s1,AUX_INVISIBLE_BLOCKSLENS))){
+		Stream *str = idx -> Open (AUX_INVISIBLE_BLOCKSLENS);
+		if (str) {
+			long size = str->Length ();
+			char *data = new char [size], *ptr = data;
+			str->Read (data, size);
+			idx->Close (str);
+			while (ptr - data < size) {
+				unsigned char wordsize = *(unsigned char*) ptr;
+				if (0 == wordsize)
+					break;
+				ptr++;
+				std::string word (ptr, wordsize);
+				printf ("%s: ", word.c_str ());
+				ptr += wordsize;
+				long count = *(long*)ptr;
+				ptr += sizeof (long);
+				for (long i = 0, lcount = 0; i < count; i++, ptr += sizeof (long)) {
+					printf ("%ld", *(long*)ptr);
+					if (lcount == 3) {
+						lcount = 0;
+						printf (" ");
+					} else {
+						lcount++;
+						printf (":");
+					}
+				}
+				printf ("\n");
+			}
+			delete []data;
+		}
+		return 0;
+	}
 	if ((s1 != NULL) && (!stricmp(s1,AUX_MORPHO_HASHES))){
 		Stream *str = idx -> Open (AUX_MORPHO_HASHES);
 		if (str) {
@@ -1525,7 +1558,7 @@ static int dump_AuxIndex ( const Base *b, const char *name,
 		}
 	}
 
-	static const char *Rootc [] = {PR_ALL, AUX_SERV, AUX_SYN_EXAMPLE, AUX_RELE_PLUS, AUX_IGNORE_BELONGS, AUX_IGNORE_K3_BELONGS, AUX_IGNORE_GL_BELONGS, AUX_EXCLUDE_WORDS, AUX_EXCLUDE_WORDS_3, AUX_EXCLUDE_WORDS_8, AUX_CLASS6_KEYS, AUX_EXCLUDE_RF, AUX_CONTEXT_VARIANTS, AUX_ERRORS_GOODWORDS, AUX_NOT_NORMALIZE, AUX_ANNO_UIDS, AUX_KIND_UIDS, AUX_STOP_LEMMS, AUX_MPREFIXES, AUX_fPre, AUX_fKnd, AUX_fCla, AUX_fAdo, AUX_fCor, AUX_fPub, AUX_fPJU, AUX_fPHR, AUX_fPBO, AUX_fPPH, AUX_fILF, AUX_BASENAMES, AUX_PartsSpeechAnalyzer, AUX_KIND_GCTX, AUX_KIND_BLOCK, AUX_KIND_BASESEARCH, AUX_RELEVANCY_CHANGES, AUX_HARD, AUX_FILTER_JSONS, AUX_LIST_KINDS, AUX_TOP_LEMMS, AUX_INDEXES_CHANGES, AUX_PERC, AUX_PHRASAL_NORMALIZER, AUX_BASES_LIST, AUX_NAME_SEARCH};
+	static const char *Rootc [] = {PR_ALL, AUX_SERV, AUX_SYN_EXAMPLE, AUX_RELE_PLUS, AUX_IGNORE_BELONGS, AUX_IGNORE_K3_BELONGS, AUX_IGNORE_GL_BELONGS, AUX_EXCLUDE_WORDS, AUX_EXCLUDE_WORDS_3, AUX_EXCLUDE_WORDS_8, AUX_CLASS6_KEYS, AUX_EXCLUDE_RF, AUX_CONTEXT_VARIANTS, AUX_ERRORS_GOODWORDS, AUX_NOT_NORMALIZE, AUX_ANNO_UIDS, AUX_KIND_UIDS, AUX_STOP_LEMMS, AUX_MPREFIXES, AUX_fPre, AUX_fKnd, AUX_fCla, AUX_fAdo, AUX_fCor, AUX_fPub, AUX_fPJU, AUX_fPHR, AUX_fPBO, AUX_fPPH, AUX_fILF, AUX_BASENAMES, AUX_PartsSpeechAnalyzer, AUX_KIND_GCTX, AUX_KIND_BLOCK, AUX_KIND_BASESEARCH, AUX_RELEVANCY_CHANGES, AUX_HARD, AUX_FILTER_JSONS, AUX_LIST_KINDS, AUX_LIST_KINDS_SORTED, AUX_TOP_LEMMS, AUX_INDEXES_CHANGES, AUX_PERC, AUX_PHRASAL_NORMALIZER, AUX_BASES_LIST, AUX_NAME_SEARCH};
 
 	for (i = 0; i < sizeof ( Rootc ) / sizeof ( Rootc [0] ); i++ ) {
 		str = idx -> Open ( Rootc [i] );
@@ -1552,7 +1585,7 @@ static int dump_AuxIndex ( const Base *b, const char *name,
 			fprintf ( f, "No '%s' key found.\n", Rootc [i] );
 	}
 
-	static const char *Rooti [] = { "User", "Cale", "Clas", AUX_CLASS6_CODEX, AUX_CLASS6_CALENDAR, AUX_CLASS6_MSFORMS, AUX_CLASS6_OTHER_BUS, AUX_CLASS6_MONITORING, AUX_CLASS6_HOTINFO, AUX_CLASS6_NEWDOCS, AUX_CLASS6_NAVIGATOR, AUX_CLASS6_SERVICEINFO, AUX_CLASS6_INPHARM_INPHARM, AUX_CLASS6_INPHARM_SEARCH, AUX_CLASS6_INPHARM_CHAPTERS, AUX_CLASS6_INPHARM_LEKS, AUX_CLASS6_INPHARM_FIRMS, AUX_CLASS6_INPHARM_DIC, AUX_TIPS, AUX_MDICS, AUX_CODEPAGE, AUX_VERSION, AUX_DEMO, AUX_CLASS6_TAXFINANCE, AUX_CLASS6_JURISPRUDENCE, AUX_CLASS6_HR, AUX_CLASS6_LAWFORALL, AUX_CLASS6_BUDGETORGS, AUX_INTERNET_BASE, AUX_PACKED_NEWCORR, AUX_PARTS};
+	static const char *Rooti [] = { "User", "Cale", "Clas", AUX_CLASS6_CODEX, AUX_CLASS6_CALENDAR, AUX_CLASS6_MSFORMS, AUX_CLASS6_OTHER_BUS, AUX_CLASS6_MONITORING, AUX_CLASS6_HOTINFO, AUX_CLASS6_NEWDOCS, AUX_CLASS6_NAVIGATOR, AUX_CLASS6_SERVICEINFO, AUX_CLASS6_INPHARM_INPHARM, AUX_CLASS6_INPHARM_SEARCH, AUX_CLASS6_INPHARM_CHAPTERS, AUX_CLASS6_INPHARM_LEKS, AUX_CLASS6_INPHARM_FIRMS, AUX_CLASS6_INPHARM_DIC, AUX_TIPS, AUX_MDICS, AUX_CODEPAGE, AUX_VERSION, AUX_DEMO, AUX_CLASS6_TAXFINANCE, AUX_CLASS6_JURISPRUDENCE, AUX_CLASS6_HR, AUX_CLASS6_LAWFORALL, AUX_CLASS6_BUDGETORGS, AUX_CLASS6_GOSZAKUPKI, AUX_INTERNET_BASE, AUX_PACKED_NEWCORR, AUX_PARTS};
 	for ( unsigned j = 0; j < sizeof ( Rooti ) / sizeof ( Rooti [0] ); j++ ) {
 		str = idx -> Open ( Rooti [j] );
 		if ( str )
@@ -1576,7 +1609,7 @@ static int dump_AuxIndex ( const Base *b, const char *name,
 ///------ misc user keys in Aux
 
 ///------ misc2 integer keys in Aux
-	static const char *Rooti2 [] = {"Prt0", "Prt1", "Prt2", "Prt3", "Prt4", "Prt5", "PrtE", "PrtI", "PrtM", AUX_SPLASH, AUX_BANNERS, AUX_MAIN_PAGES, AUX_RELEF_LAWS, AUX_RELE_IZM, AUX_RELE_PLUS8, "sDel", "sUpd", "InfL", AUX_DSS_FLAGS_LENGTH, AUX_FASTSNIPPETS_DOCS, AUX_SHORTLISTSIZE, AUX_RELE_PLUS4, AUX_RELE_Y, AUX_KIND_BITS, AUX_TIME_ONLINECHECKING, AUX_ANNO_LEAFS, AUX_BELONGS_DECISIONSARCHIVE, AUX_IMPORTANT_ANNOS, AUX_HOTINFOTOPIC, AUX_VIP, AUX_IMPORTANT_ANNOS_1, AUX_IMPORTANT_ANNOS_2, AUX_LARGE_DOCS, "csbo", "cshr", "csju", "csnf"};
+	static const char *Rooti2 [] = {"Prt0", "Prt1", "Prt2", "Prt3", "Prt4", "Prt5", "Prt6", "Prt7", "Prt8", "Prt9", "PrtA", "PrtB", "PrtE", "PrtI", "PrtM", AUX_SPLASH, AUX_BANNERS, AUX_MAIN_PAGES, AUX_RELEF_LAWS, AUX_RELE_IZM, AUX_RELE_PLUS8, "sDel", "sUpd", "InfL", AUX_DSS_FLAGS_LENGTH, AUX_FASTSNIPPETS_DOCS, AUX_SHORTLISTSIZE, AUX_RELE_PLUS4, AUX_RELE_Y, AUX_KIND_BITS, AUX_TIME_ONLINECHECKING, AUX_ANNO_LEAFS, AUX_BELONGS_DECISIONSARCHIVE, AUX_IMPORTANT_ANNOS, AUX_HOTINFOTOPIC, AUX_VIP, AUX_IMPORTANT_ANNOS_1, AUX_IMPORTANT_ANNOS_2, AUX_LARGE_DOCS, "csbo", "cshr", "csju", "csnf"};
 
 	for ( unsigned j2 = 0; j2 < sizeof ( Rooti2 ) / sizeof ( Rooti2 [0] ); j2++ ) {
 		str = idx -> Open ( Rooti2 [j2] );
@@ -1942,6 +1975,7 @@ static int dump_AtrIndex ( const Base *b, const char *name,
 	if ( !strcmpi (	s2, "IDD_PARAGCTXLENS") ) k.AttrTag = IDD_PARAGCTXLENS; else
 	if ( !strcmpi (	s2, "IDD_INVISIBLELENS") ) k.AttrTag = IDD_INVISIBLELENS; else
 	if ( !strcmpi (	s2, "IDD_INVISIBLERELES") ) k.AttrTag = IDD_INVISIBLERELES; else
+	if ( !strcmpi (	s2, "IDD_INVISIBLEBLOCKSLENS") ) k.AttrTag = IDD_INVISIBLEBLOCKSLENS; else
 #endif
 	if ( !strcmpi (	s2, "IDD_VANONCED"    ) ) k.AttrTag = IDD_VANONCED; else
 	if ( !strcmpi (	s2, "IDD_PREANNODATE" ) ) k.AttrTag = IDD_PREANNODATE; else
@@ -2077,6 +2111,7 @@ static int dump_AtrIndex ( const Base *b, const char *name,
 			if (docinfo -> Status_ex & DS_ALLOWED) fprintf (f, " DS_ALLOWED" );
 			if (docinfo -> Status_ex & DS_MDICTTOPIC) fprintf (f, " DS_MDICTTOPIC" );
 			if (docinfo -> Status_ex & DS_IZM) fprintf (f, " DS_IZM" );
+			if (docinfo -> Status_ex & DS_SIGNIFICANT) fprintf (f, " DS_SIGNIFICANT" );
 			if (docinfo -> Status_ex & DS_RECIPE) fprintf (f, " DS_RECIPE" );
 			if (docinfo -> Status_ex & DS_NOTNARCOTIC) fprintf (f, " DS_NOTNARCOTIC" );
 			if (docinfo -> Status_ex & DS_NOTLIFE) fprintf (f, " DS_NOTLIFE" );
@@ -2186,6 +2221,22 @@ static int dump_AtrIndex ( const Base *b, const char *name,
 				long count = n / (sizeof (long) * 3), *ati = (long*) buf;
 				for ( int i = 0; i < count; i++, ati+=3)
 					printf( "%ld.%ld.%ld\n", *ati, *(ati+1), *(ati+2));
+			}
+			break;
+			case IDD_INVISIBLEBLOCKSLENS:
+			{
+				char* ptr = buf;
+				while (ptr - buf < n) {
+					printf ("%ld.", *(long*)ptr);
+					ptr += sizeof (long);
+					unsigned char size = *(unsigned char*)ptr;
+					ptr++;
+					std::string word (ptr, size);
+					ptr += size;
+					printf ("%s.", word.c_str ());
+					printf ("%ld.", *(long*)ptr); ptr += sizeof (long);
+					printf ("%ld\n", *(long*)ptr); ptr += sizeof (long);
+				}
 			}
 			break;
 
@@ -2663,7 +2714,7 @@ static int dump_RawIndex ( const Base *b, const char *name,
 			} else {
 				DBCore::IBase_var obj = DBCore::DBFactory::make ((Base*) b);
 				Morpho::Def::ICache_var cache = Morpho::Factory::make ();
-				cache->load (obj.in (), true);
+				cache->load (obj.in ());
 				Morpho::Def::INormalizer_var normalizer = Morpho::Factory::make (cache.in ());
 				Core::Aptr <GCL::StrSet> res = normalizer->execute (std::string (s1), true);
 				k = strdup (res->begin ()->c_str ());
@@ -3206,6 +3257,9 @@ void key_printStatus_ex ( const void *key, FILE *f )
 			break;
 		case DS_DATE:
 			fprintf ( f, "DS_DATE" );
+			break;
+		case DS_SIGNIFICANT:
+			fprintf ( f, "DS_SIGNIFICANT" );
 			break;
 		default:
 			fprintf ( f, "0x%04X", (int) ( *(short*) key ) );
@@ -4055,13 +4109,6 @@ int main_logic ( int argc, char *argv[] )
 	}
 	
 	printf ( "Garant base index dumper.\n" );
-
-	char sss1 [20];
-	if ( !strcmpi ( argv [2], "Segment" ) )
-		if ( s1 ) {
-			*(int*) sss1 = atoi ( s1 );
-			s1 = sss1;
-		}
 
 	for ( unsigned i = 0; i < sizeof ( indexTable ) / sizeof ( IndexDumpInfo ); i++ )
 		if ( !strcmpi ( argv [2 + s], indexTable [i].name ) ) {

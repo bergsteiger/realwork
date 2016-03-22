@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3Notifier" MUID: (47F07B3E02E4)
+// Имя типа: "_l3Notifier_"
 
 {$Define l3Notifier_imp}
 

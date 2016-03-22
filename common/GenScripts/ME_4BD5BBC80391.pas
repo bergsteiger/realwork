@@ -3,6 +3,7 @@ unit PrimSaveLoadUserTypes_slqtFilters_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtFilters_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "slqtFilters" MUID: (4BD5BBC80391)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtFilters = {final} class(TtfwInteger)
   {* Слово словаря для типа формы slqtFilters }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_slqtFilters
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_slqtFilters.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::slqtFilters';
-end;//Tkw_FormUserType_slqtFilters.GetWordNameForRegister
-
 function Tkw_FormUserType_slqtFilters.GetInteger: Integer;
 begin
  Result := slqtFilters;
 end;//Tkw_FormUserType_slqtFilters.GetInteger
+
+class function Tkw_FormUserType_slqtFilters.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::slqtFilters';
+end;//Tkw_FormUserType_slqtFilters.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

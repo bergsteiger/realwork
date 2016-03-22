@@ -3,6 +3,7 @@ unit ListUserTypes_lftUserCRList2_SynchorForm_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftUserCRList2_SynchorForm_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "lftUserCRList2_SynchorForm" MUID: (4BD58B080255)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftUserCRList2_SynchorForm = {final} class(TtfwInteger)
   {* Слово словаря для типа формы lftUserCRList2_SynchorForm }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_lftUserCRList2_SynchorForm
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_lftUserCRList2_SynchorForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::lftUserCRList2_SynchorForm';
-end;//Tkw_FormUserType_lftUserCRList2_SynchorForm.GetWordNameForRegister
-
 function Tkw_FormUserType_lftUserCRList2_SynchorForm.GetInteger: Integer;
 begin
  Result := lftUserCRList2_SynchorForm;
 end;//Tkw_FormUserType_lftUserCRList2_SynchorForm.GetInteger
+
+class function Tkw_FormUserType_lftUserCRList2_SynchorForm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::lftUserCRList2_SynchorForm';
+end;//Tkw_FormUserType_lftUserCRList2_SynchorForm.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

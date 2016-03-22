@@ -2,6 +2,7 @@ unit ddServerTaskListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ddServerTaskListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddServerTaskListPrim" MUID: (52FA5D920225)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

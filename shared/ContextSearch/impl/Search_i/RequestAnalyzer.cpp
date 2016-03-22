@@ -17,6 +17,7 @@
 #include "shared/ContextSearch/MorphoBase/Analyzer.h"
 #include "boost/algorithm/string/split.hpp"
 #include "boost/algorithm/string/classification.hpp"
+#include "shared/ContextSearch/MorphoBase/KeysFactory.h"
 
 namespace ContextSearch {
 namespace Search_i {
@@ -87,6 +88,11 @@ void RequestAnalyzer::build (const Search::RequestEx& request, const Search::Alg
 			}
 
 			if (str.empty () == false && m_searcher->add (str, 0)) {
+				r_prop.count = 1;
+
+				m_invb_searcher = new InvbSearcher (GCL::StrVector (1, str), prop.comm);
+				m_invb_algorithm = Relevancy::IBlocksAlgorithmFactory::make (Relevancy::Data (), r_prop);
+
 				m_algorithm = Relevancy::IAlgorithmFactory::make (Relevancy::Data (), r_prop, Relevancy::as_Single);
 				return;
 			}
@@ -119,6 +125,9 @@ void RequestAnalyzer::build (const Search::RequestEx& request, const Search::Alg
 					r_prop.rcount = context.size ();
 					r_prop.max_fragment = r_prop.count * Relevancy::BASE_FACTOR;
 
+					m_invb_searcher = new InvbSearcher (parts, prop.comm);
+					m_invb_algorithm = Relevancy::IBlocksAlgorithmFactory::make (Relevancy::Data (), r_prop);
+
 					m_algorithm = Relevancy::IAlgorithmFactory::make (Relevancy::Data (), r_prop, Relevancy::as_Simple);
 					return;
 				}
@@ -131,7 +140,7 @@ void RequestAnalyzer::build (const Search::RequestEx& request, const Search::Alg
 	r_prop.count = context.size ();
 	r_prop.rcount = r_prop.count;
 
-	prop.normalizer->init_identical (context, r_prop.identical);
+	KeysFactory (prop.comm).get_identical (context, r_prop.identical);
 
 	Relevancy::AlgorithmSelector selector = Relevancy::as_Default;
 
@@ -143,6 +152,9 @@ void RequestAnalyzer::build (const Search::RequestEx& request, const Search::Alg
 		selector = Relevancy::as_Simple; // простой запрос без разметки
 	} 
 
+	m_invb_searcher = new InvbSearcher (request, prop.comm);
+	m_invb_algorithm = Relevancy::IBlocksAlgorithmFactory::make (data, r_prop);
+
 	m_algorithm = Relevancy::IAlgorithmFactory::make (data, r_prop, selector);
 	//#UC END# *54BE3EF003B7*
 }
@@ -153,6 +165,20 @@ Relevancy::IAlgorithm* RequestAnalyzer::get_algorithm () {
 	GDS_ASSERT (m_algorithm.is_nil () == false);
 	return m_algorithm.in ();
 	//#UC END# *54BE3AFB0356*
+}
+
+// algorithm
+Relevancy::IBlocksAlgorithm* RequestAnalyzer::get_invb_algorithm () {
+	//#UC START# *56CEF3BB007F*
+	return m_invb_algorithm.in ();
+	//#UC END# *56CEF3BB007F*
+}
+
+// searcher
+InvbSearcher* RequestAnalyzer::get_invb_searcher () {
+	//#UC START# *56CDC52E03A4*
+	return m_invb_searcher.in ();
+	//#UC END# *56CDC52E03A4*
 }
 
 // searcher

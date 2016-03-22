@@ -2,6 +2,7 @@ unit DocTreeUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DocTreeUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "DocTree" MUID: (45EEB07902AE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

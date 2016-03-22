@@ -3,6 +3,7 @@ unit DocNumberQueryKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\DocNumberQueryKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "DocNumberQueryKeywordsPack" MUID: (A40358DFC617)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -48,8 +49,8 @@ type
 'aControl' форма::DocNumberQuery TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_DocNumberQuery
 
  Tkw_DocNumberQuery_Control_Label1 = {final} class(TtfwControlString)
@@ -60,9 +61,9 @@ type
 контрол::Label1 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DocNumberQuery_Control_Label1
 
  Tkw_DocNumberQuery_Control_Label1_Push = {final} class(TkwBynameControlPush)
@@ -85,9 +86,9 @@ type
 контрол::edNumber TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DocNumberQuery_Control_edNumber
 
  Tkw_DocNumberQuery_Control_edNumber_Push = {final} class(TkwBynameControlPush)
@@ -110,9 +111,9 @@ type
 контрол::cbInternal TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DocNumberQuery_Control_cbInternal
 
  Tkw_DocNumberQuery_Control_cbInternal_Push = {final} class(TkwBynameControlPush)
@@ -199,20 +200,15 @@ OBJECT VAR l_TvtCheckBox
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwDocNumberQueryFormCbInternal
 
-class function Tkw_Form_DocNumberQuery.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::DocNumberQuery';
-end;//Tkw_Form_DocNumberQuery.GetWordNameForRegister
-
 function Tkw_Form_DocNumberQuery.GetString: AnsiString;
 begin
  Result := 'DocNumberQueryForm';
 end;//Tkw_Form_DocNumberQuery.GetString
 
-class function Tkw_DocNumberQuery_Control_Label1.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_DocNumberQuery.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::Label1';
-end;//Tkw_DocNumberQuery_Control_Label1.GetWordNameForRegister
+ Result := 'форма::DocNumberQuery';
+end;//Tkw_Form_DocNumberQuery.GetWordNameForRegister
 
 function Tkw_DocNumberQuery_Control_Label1.GetString: AnsiString;
 begin
@@ -225,6 +221,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_DocNumberQuery_Control_Label1.RegisterInEngine
 
+class function Tkw_DocNumberQuery_Control_Label1.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Label1';
+end;//Tkw_DocNumberQuery_Control_Label1.GetWordNameForRegister
+
 procedure Tkw_DocNumberQuery_Control_Label1_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Label1');
@@ -235,11 +236,6 @@ class function Tkw_DocNumberQuery_Control_Label1_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::Label1:push';
 end;//Tkw_DocNumberQuery_Control_Label1_Push.GetWordNameForRegister
-
-class function Tkw_DocNumberQuery_Control_edNumber.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edNumber';
-end;//Tkw_DocNumberQuery_Control_edNumber.GetWordNameForRegister
 
 function Tkw_DocNumberQuery_Control_edNumber.GetString: AnsiString;
 begin
@@ -252,6 +248,11 @@ begin
  TtfwClassRef.Register(TnscComboBox);
 end;//Tkw_DocNumberQuery_Control_edNumber.RegisterInEngine
 
+class function Tkw_DocNumberQuery_Control_edNumber.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edNumber';
+end;//Tkw_DocNumberQuery_Control_edNumber.GetWordNameForRegister
+
 procedure Tkw_DocNumberQuery_Control_edNumber_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edNumber');
@@ -263,11 +264,6 @@ begin
  Result := 'контрол::edNumber:push';
 end;//Tkw_DocNumberQuery_Control_edNumber_Push.GetWordNameForRegister
 
-class function Tkw_DocNumberQuery_Control_cbInternal.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::cbInternal';
-end;//Tkw_DocNumberQuery_Control_cbInternal.GetWordNameForRegister
-
 function Tkw_DocNumberQuery_Control_cbInternal.GetString: AnsiString;
 begin
  Result := 'cbInternal';
@@ -278,6 +274,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_DocNumberQuery_Control_cbInternal.RegisterInEngine
+
+class function Tkw_DocNumberQuery_Control_cbInternal.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::cbInternal';
+end;//Tkw_DocNumberQuery_Control_cbInternal.GetWordNameForRegister
 
 procedure Tkw_DocNumberQuery_Control_cbInternal_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -312,11 +313,6 @@ begin
  aCtx.rEngine.PushObj(Label1(aCtx, l_aDocNumberQueryForm));
 end;//TkwDocNumberQueryFormLabel1.DoDoIt
 
-class function TkwDocNumberQueryFormLabel1.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TDocNumberQueryForm.Label1';
-end;//TkwDocNumberQueryFormLabel1.GetWordNameForRegister
-
 procedure TkwDocNumberQueryFormLabel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -337,6 +333,11 @@ function TkwDocNumberQueryFormLabel1.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TDocNumberQueryForm)]);
 end;//TkwDocNumberQueryFormLabel1.ParamsTypes
+
+class function TkwDocNumberQueryFormLabel1.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TDocNumberQueryForm.Label1';
+end;//TkwDocNumberQueryFormLabel1.GetWordNameForRegister
 
 function TkwDocNumberQueryFormEdNumber.edNumber(const aCtx: TtfwContext;
  aDocNumberQueryForm: TDocNumberQueryForm): TnscComboBox;
@@ -360,11 +361,6 @@ begin
  aCtx.rEngine.PushObj(edNumber(aCtx, l_aDocNumberQueryForm));
 end;//TkwDocNumberQueryFormEdNumber.DoDoIt
 
-class function TkwDocNumberQueryFormEdNumber.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TDocNumberQueryForm.edNumber';
-end;//TkwDocNumberQueryFormEdNumber.GetWordNameForRegister
-
 procedure TkwDocNumberQueryFormEdNumber.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -385,6 +381,11 @@ function TkwDocNumberQueryFormEdNumber.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TDocNumberQueryForm)]);
 end;//TkwDocNumberQueryFormEdNumber.ParamsTypes
+
+class function TkwDocNumberQueryFormEdNumber.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TDocNumberQueryForm.edNumber';
+end;//TkwDocNumberQueryFormEdNumber.GetWordNameForRegister
 
 function TkwDocNumberQueryFormCbInternal.cbInternal(const aCtx: TtfwContext;
  aDocNumberQueryForm: TDocNumberQueryForm): TvtCheckBox;
@@ -408,11 +409,6 @@ begin
  aCtx.rEngine.PushObj(cbInternal(aCtx, l_aDocNumberQueryForm));
 end;//TkwDocNumberQueryFormCbInternal.DoDoIt
 
-class function TkwDocNumberQueryFormCbInternal.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TDocNumberQueryForm.cbInternal';
-end;//TkwDocNumberQueryFormCbInternal.GetWordNameForRegister
-
 procedure TkwDocNumberQueryFormCbInternal.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -433,6 +429,11 @@ function TkwDocNumberQueryFormCbInternal.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TDocNumberQueryForm)]);
 end;//TkwDocNumberQueryFormCbInternal.ParamsTypes
+
+class function TkwDocNumberQueryFormCbInternal.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TDocNumberQueryForm.cbInternal';
+end;//TkwDocNumberQueryFormCbInternal.GetWordNameForRegister
 
 initialization
  Tkw_Form_DocNumberQuery.RegisterInEngine;

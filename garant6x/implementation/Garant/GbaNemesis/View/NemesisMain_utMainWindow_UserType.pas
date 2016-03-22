@@ -1,87 +1,67 @@
 unit NemesisMain_utMainWindow_UserType;
+ {* Главное окно }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/NemesisMain_utMainWindow_UserType.pas"
-// Начат: 29.12.2008 16:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Оболочка Без Прецедентов::F1 Without Usecases::View::PrimNemesis::NemesisMain::utMainWindow
-//
-// Главное окно
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NemesisMain_utMainWindow_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "utMainWindow" MUID: (4BD84644014A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы utMainWindow }
-  utMainWindowName = 'utMainWindow';
-   { Строковый идентификатор пользовательского типа "Главное окно" }
-  utMainWindow = TvcmUserType(0);
-   { Главное окно }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы utMainWindow }
+ utMainWindowName = 'utMainWindow';
+  {* Строковый идентификатор пользовательского типа "Главное окно" }
+ utMainWindow = TvcmUserType(0);
+  {* Главное окно }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_utMainWindow = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы utMainWindow }
+ Tkw_FormUserType_utMainWindow = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы utMainWindow }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_utMainWindow
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_utMainWindow
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_utMainWindow
-
-class function Tkw_FormUserType_utMainWindow.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::utMainWindow';
-end;//Tkw_FormUserType_utMainWindow.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utMainWindow.GetInteger: Integer;
- {-}
 begin
  Result := utMainWindow;
 end;//Tkw_FormUserType_utMainWindow.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_utMainWindow.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utMainWindow';
+end;//Tkw_FormUserType_utMainWindow.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_utMainWindow
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utMainWindow.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_utMainWindow }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

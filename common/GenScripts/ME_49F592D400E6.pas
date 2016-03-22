@@ -2,6 +2,7 @@ unit bsUserTreeData;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\bsUserTreeData.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsUserTreeData" MUID: (49F592D400E6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

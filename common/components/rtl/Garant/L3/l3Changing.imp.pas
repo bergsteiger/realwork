@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Changing.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3Changing" MUID: (4A5CBFAB03AF)
+// Имя типа: "_l3Changing_"
 
 {$Define l3Changing_imp}
 

@@ -2,6 +2,7 @@ unit nsDocumentContextHistoryPrim;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsDocumentContextHistoryPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentContextHistoryPrim" MUID: (4AD8457200F3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

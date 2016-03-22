@@ -22,6 +22,7 @@ uses
   k2Interfaces,
   l3ProtoDataContainer,
   ddCustomDestination,
+  ddTypes,
   l3ProtoObject
   ;
 
@@ -56,7 +57,7 @@ type
    procedure Clear; virtual;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
      aNeedProcessRow: Boolean;
-     LiteVersion: Boolean); virtual; abstract;
+     LiteVersion: TddLiteVersion); virtual; abstract;
    function JoinWith(P: TObject;
      aCorrectSegment: Boolean = False): Integer; virtual;
    function HasSoftEnter: Boolean; virtual;
@@ -82,10 +83,6 @@ type
  end;//TddDocumentAtom
 
 implementation
-
-uses
-  ddTypes
-  ;
 
 {$Include ..\dd\ddDocAtomWithAssign.imp.pas}
 

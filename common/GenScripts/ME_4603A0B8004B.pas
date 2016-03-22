@@ -2,6 +2,7 @@ unit ListTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ListTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ListTree" MUID: (4603A0B8004B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

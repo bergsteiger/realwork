@@ -2,6 +2,7 @@ unit evCustomEditorWindowPrim;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCustomEditorWindowPrim.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TevCustomEditorWindowPrim" MUID: (4B28D63A00EC)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

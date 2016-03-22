@@ -2,6 +2,8 @@ unit kwStandardProcedureCloseBracket;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwStandardProcedureCloseBracket.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "StandardProcedureCloseBracket" MUID: (52D6AC5402E7)
+// Имя типа: "TkwStandardProcedureCloseBracket"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

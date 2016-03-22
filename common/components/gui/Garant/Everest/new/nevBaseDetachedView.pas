@@ -52,6 +52,7 @@ type
    function IsTagCollapsed(aTag: Tl3Variant): Boolean;
    function Get_Data: InevObjectPrim;
    function Get_AACLike: TnevAACLikeMode;
+   function NeedTotalRecalc: Boolean;
  protected
  // overridden property methods
    function pm_GetShape: InevObject; override;
@@ -70,6 +71,7 @@ type
  protected
  // protected methods
    function DoGetExcludeSuper: TevNormalSegLayerHandleSet; virtual;
+   function GetNeedTotalRecalc: Boolean; virtual;
    function GetIsWebStyle: Boolean; virtual;
    function GetShowDocumentParts: Boolean; virtual;
    function GetShowSpecial: Boolean; virtual;
@@ -135,6 +137,15 @@ begin
  Result := [];
 //#UC END# *4F66FDB60040_48120C1C0060_impl*
 end;//TnevBaseDetachedView.DoGetExcludeSuper
+
+function TnevBaseDetachedView.GetNeedTotalRecalc: Boolean;
+//#UC START# *565F0492012D_48120C1C0060_var*
+//#UC END# *565F0492012D_48120C1C0060_var*
+begin
+//#UC START# *565F0492012D_48120C1C0060_impl*
+ Result := false;
+//#UC END# *565F0492012D_48120C1C0060_impl*
+end;//TnevBaseDetachedView.GetNeedTotalRecalc
 
 function TnevBaseDetachedView.GetIsWebStyle: Boolean;
 //#UC START# *48120CED0107_48120C1C0060_var*
@@ -317,6 +328,15 @@ begin
  Result := nev_aacNone;
 //#UC END# *501F96A80050_48120C1C0060get_impl*
 end;//TnevBaseDetachedView.Get_AACLike
+
+function TnevBaseDetachedView.NeedTotalRecalc: Boolean;
+//#UC START# *565F03C80029_48120C1C0060_var*
+//#UC END# *565F03C80029_48120C1C0060_var*
+begin
+//#UC START# *565F03C80029_48120C1C0060_impl*
+ Result := GetNeedTotalRecalc;
+//#UC END# *565F03C80029_48120C1C0060_impl*
+end;//TnevBaseDetachedView.NeedTotalRecalc
 
 procedure TnevBaseDetachedView.Cleanup;
 //#UC START# *479731C50290_48120C1C0060_var*

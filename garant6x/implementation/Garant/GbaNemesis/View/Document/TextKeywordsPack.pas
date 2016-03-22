@@ -3,6 +3,7 @@ unit TextKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TextKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "TextKeywordsPack" MUID: (A1D2CA8370DB)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -57,8 +58,8 @@ type
 'aControl' форма::Text TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Text
 
  Tkw_Text_Control_RemindersLine = {final} class(TtfwControlString)
@@ -69,9 +70,9 @@ type
 контрол::RemindersLine TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_RemindersLine
 
  Tkw_Text_Control_RemindersLine_Push = {final} class(TkwBynameControlPush)
@@ -94,9 +95,9 @@ type
 контрол::WarnTimeMachineException TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnTimeMachineException
 
  Tkw_Text_Control_WarnTimeMachineException_Push = {final} class(TkwBynameControlPush)
@@ -119,9 +120,9 @@ type
 контрол::WarnIsAbolished TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnIsAbolished
 
  Tkw_Text_Control_WarnIsAbolished_Push = {final} class(TkwBynameControlPush)
@@ -144,9 +145,9 @@ type
 контрол::WarnPreActive TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnPreActive
 
  Tkw_Text_Control_WarnPreActive_Push = {final} class(TkwBynameControlPush)
@@ -169,9 +170,9 @@ type
 контрол::WarnTimeMachineWarning TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnTimeMachineWarning
 
  Tkw_Text_Control_WarnTimeMachineWarning_Push = {final} class(TkwBynameControlPush)
@@ -194,9 +195,9 @@ type
 контрол::WarnOnControl TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnOnControl
 
  Tkw_Text_Control_WarnOnControl_Push = {final} class(TkwBynameControlPush)
@@ -219,9 +220,9 @@ type
 контрол::WarnJuror TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnJuror
 
  Tkw_Text_Control_WarnJuror_Push = {final} class(TkwBynameControlPush)
@@ -244,9 +245,9 @@ type
 контрол::WarnRedaction TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnRedaction
 
  Tkw_Text_Control_WarnRedaction_Push = {final} class(TkwBynameControlPush)
@@ -269,9 +270,9 @@ type
 контрол::WarnInactualDocument TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnInactualDocument
 
  Tkw_Text_Control_WarnInactualDocument_Push = {final} class(TkwBynameControlPush)
@@ -294,9 +295,9 @@ type
 контрол::WarnTimeMachineOn TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnTimeMachineOn
 
  Tkw_Text_Control_WarnTimeMachineOn_Push = {final} class(TkwBynameControlPush)
@@ -319,9 +320,9 @@ type
 контрол::SubPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_SubPanel
 
  Tkw_Text_Control_SubPanel_Push = {final} class(TkwBynameControlPush)
@@ -344,9 +345,9 @@ type
 контрол::HScroll TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_HScroll
 
  Tkw_Text_Control_HScroll_Push = {final} class(TkwBynameControlPush)
@@ -369,9 +370,9 @@ type
 контрол::Text TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_Text
 
  Tkw_Text_Control_Text_Push = {final} class(TkwBynameControlPush)
@@ -394,9 +395,9 @@ type
 компонент::TextSource TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Component_TextSource
 
  TkwTextFormRemindersLine = {final} class(TtfwPropertyLike)
@@ -711,20 +712,15 @@ OBJECT VAR l_TnscEditor
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwTextFormText
 
-class function Tkw_Form_Text.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Text';
-end;//Tkw_Form_Text.GetWordNameForRegister
-
 function Tkw_Form_Text.GetString: AnsiString;
 begin
  Result := 'TextForm';
 end;//Tkw_Form_Text.GetString
 
-class function Tkw_Text_Control_RemindersLine.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_Text.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::RemindersLine';
-end;//Tkw_Text_Control_RemindersLine.GetWordNameForRegister
+ Result := 'форма::Text';
+end;//Tkw_Form_Text.GetWordNameForRegister
 
 function Tkw_Text_Control_RemindersLine.GetString: AnsiString;
 begin
@@ -737,6 +733,11 @@ begin
  TtfwClassRef.Register(TnscRemindersLine);
 end;//Tkw_Text_Control_RemindersLine.RegisterInEngine
 
+class function Tkw_Text_Control_RemindersLine.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::RemindersLine';
+end;//Tkw_Text_Control_RemindersLine.GetWordNameForRegister
+
 procedure Tkw_Text_Control_RemindersLine_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('RemindersLine');
@@ -747,11 +748,6 @@ class function Tkw_Text_Control_RemindersLine_Push.GetWordNameForRegister: AnsiS
 begin
  Result := 'контрол::RemindersLine:push';
 end;//Tkw_Text_Control_RemindersLine_Push.GetWordNameForRegister
-
-class function Tkw_Text_Control_WarnTimeMachineException.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::WarnTimeMachineException';
-end;//Tkw_Text_Control_WarnTimeMachineException.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnTimeMachineException.GetString: AnsiString;
 begin
@@ -764,6 +760,11 @@ begin
  TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnTimeMachineException.RegisterInEngine
 
+class function Tkw_Text_Control_WarnTimeMachineException.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::WarnTimeMachineException';
+end;//Tkw_Text_Control_WarnTimeMachineException.GetWordNameForRegister
+
 procedure Tkw_Text_Control_WarnTimeMachineException_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('WarnTimeMachineException');
@@ -774,11 +775,6 @@ class function Tkw_Text_Control_WarnTimeMachineException_Push.GetWordNameForRegi
 begin
  Result := 'контрол::WarnTimeMachineException:push';
 end;//Tkw_Text_Control_WarnTimeMachineException_Push.GetWordNameForRegister
-
-class function Tkw_Text_Control_WarnIsAbolished.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::WarnIsAbolished';
-end;//Tkw_Text_Control_WarnIsAbolished.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnIsAbolished.GetString: AnsiString;
 begin
@@ -791,6 +787,11 @@ begin
  TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnIsAbolished.RegisterInEngine
 
+class function Tkw_Text_Control_WarnIsAbolished.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::WarnIsAbolished';
+end;//Tkw_Text_Control_WarnIsAbolished.GetWordNameForRegister
+
 procedure Tkw_Text_Control_WarnIsAbolished_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('WarnIsAbolished');
@@ -801,11 +802,6 @@ class function Tkw_Text_Control_WarnIsAbolished_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::WarnIsAbolished:push';
 end;//Tkw_Text_Control_WarnIsAbolished_Push.GetWordNameForRegister
-
-class function Tkw_Text_Control_WarnPreActive.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::WarnPreActive';
-end;//Tkw_Text_Control_WarnPreActive.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnPreActive.GetString: AnsiString;
 begin
@@ -818,6 +814,11 @@ begin
  TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnPreActive.RegisterInEngine
 
+class function Tkw_Text_Control_WarnPreActive.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::WarnPreActive';
+end;//Tkw_Text_Control_WarnPreActive.GetWordNameForRegister
+
 procedure Tkw_Text_Control_WarnPreActive_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('WarnPreActive');
@@ -828,11 +829,6 @@ class function Tkw_Text_Control_WarnPreActive_Push.GetWordNameForRegister: AnsiS
 begin
  Result := 'контрол::WarnPreActive:push';
 end;//Tkw_Text_Control_WarnPreActive_Push.GetWordNameForRegister
-
-class function Tkw_Text_Control_WarnTimeMachineWarning.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::WarnTimeMachineWarning';
-end;//Tkw_Text_Control_WarnTimeMachineWarning.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnTimeMachineWarning.GetString: AnsiString;
 begin
@@ -845,6 +841,11 @@ begin
  TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnTimeMachineWarning.RegisterInEngine
 
+class function Tkw_Text_Control_WarnTimeMachineWarning.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::WarnTimeMachineWarning';
+end;//Tkw_Text_Control_WarnTimeMachineWarning.GetWordNameForRegister
+
 procedure Tkw_Text_Control_WarnTimeMachineWarning_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('WarnTimeMachineWarning');
@@ -855,11 +856,6 @@ class function Tkw_Text_Control_WarnTimeMachineWarning_Push.GetWordNameForRegist
 begin
  Result := 'контрол::WarnTimeMachineWarning:push';
 end;//Tkw_Text_Control_WarnTimeMachineWarning_Push.GetWordNameForRegister
-
-class function Tkw_Text_Control_WarnOnControl.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::WarnOnControl';
-end;//Tkw_Text_Control_WarnOnControl.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnOnControl.GetString: AnsiString;
 begin
@@ -872,6 +868,11 @@ begin
  TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnOnControl.RegisterInEngine
 
+class function Tkw_Text_Control_WarnOnControl.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::WarnOnControl';
+end;//Tkw_Text_Control_WarnOnControl.GetWordNameForRegister
+
 procedure Tkw_Text_Control_WarnOnControl_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('WarnOnControl');
@@ -882,11 +883,6 @@ class function Tkw_Text_Control_WarnOnControl_Push.GetWordNameForRegister: AnsiS
 begin
  Result := 'контрол::WarnOnControl:push';
 end;//Tkw_Text_Control_WarnOnControl_Push.GetWordNameForRegister
-
-class function Tkw_Text_Control_WarnJuror.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::WarnJuror';
-end;//Tkw_Text_Control_WarnJuror.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnJuror.GetString: AnsiString;
 begin
@@ -899,6 +895,11 @@ begin
  TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnJuror.RegisterInEngine
 
+class function Tkw_Text_Control_WarnJuror.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::WarnJuror';
+end;//Tkw_Text_Control_WarnJuror.GetWordNameForRegister
+
 procedure Tkw_Text_Control_WarnJuror_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('WarnJuror');
@@ -909,11 +910,6 @@ class function Tkw_Text_Control_WarnJuror_Push.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'контрол::WarnJuror:push';
 end;//Tkw_Text_Control_WarnJuror_Push.GetWordNameForRegister
-
-class function Tkw_Text_Control_WarnRedaction.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::WarnRedaction';
-end;//Tkw_Text_Control_WarnRedaction.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnRedaction.GetString: AnsiString;
 begin
@@ -926,6 +922,11 @@ begin
  TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnRedaction.RegisterInEngine
 
+class function Tkw_Text_Control_WarnRedaction.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::WarnRedaction';
+end;//Tkw_Text_Control_WarnRedaction.GetWordNameForRegister
+
 procedure Tkw_Text_Control_WarnRedaction_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('WarnRedaction');
@@ -936,11 +937,6 @@ class function Tkw_Text_Control_WarnRedaction_Push.GetWordNameForRegister: AnsiS
 begin
  Result := 'контрол::WarnRedaction:push';
 end;//Tkw_Text_Control_WarnRedaction_Push.GetWordNameForRegister
-
-class function Tkw_Text_Control_WarnInactualDocument.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::WarnInactualDocument';
-end;//Tkw_Text_Control_WarnInactualDocument.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnInactualDocument.GetString: AnsiString;
 begin
@@ -953,6 +949,11 @@ begin
  TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnInactualDocument.RegisterInEngine
 
+class function Tkw_Text_Control_WarnInactualDocument.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::WarnInactualDocument';
+end;//Tkw_Text_Control_WarnInactualDocument.GetWordNameForRegister
+
 procedure Tkw_Text_Control_WarnInactualDocument_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('WarnInactualDocument');
@@ -963,11 +964,6 @@ class function Tkw_Text_Control_WarnInactualDocument_Push.GetWordNameForRegister
 begin
  Result := 'контрол::WarnInactualDocument:push';
 end;//Tkw_Text_Control_WarnInactualDocument_Push.GetWordNameForRegister
-
-class function Tkw_Text_Control_WarnTimeMachineOn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::WarnTimeMachineOn';
-end;//Tkw_Text_Control_WarnTimeMachineOn.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnTimeMachineOn.GetString: AnsiString;
 begin
@@ -980,6 +976,11 @@ begin
  TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnTimeMachineOn.RegisterInEngine
 
+class function Tkw_Text_Control_WarnTimeMachineOn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::WarnTimeMachineOn';
+end;//Tkw_Text_Control_WarnTimeMachineOn.GetWordNameForRegister
+
 procedure Tkw_Text_Control_WarnTimeMachineOn_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('WarnTimeMachineOn');
@@ -990,11 +991,6 @@ class function Tkw_Text_Control_WarnTimeMachineOn_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::WarnTimeMachineOn:push';
 end;//Tkw_Text_Control_WarnTimeMachineOn_Push.GetWordNameForRegister
-
-class function Tkw_Text_Control_SubPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::SubPanel';
-end;//Tkw_Text_Control_SubPanel.GetWordNameForRegister
 
 function Tkw_Text_Control_SubPanel.GetString: AnsiString;
 begin
@@ -1007,6 +1003,11 @@ begin
  TtfwClassRef.Register(TeeSubPanel);
 end;//Tkw_Text_Control_SubPanel.RegisterInEngine
 
+class function Tkw_Text_Control_SubPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::SubPanel';
+end;//Tkw_Text_Control_SubPanel.GetWordNameForRegister
+
 procedure Tkw_Text_Control_SubPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('SubPanel');
@@ -1017,11 +1018,6 @@ class function Tkw_Text_Control_SubPanel_Push.GetWordNameForRegister: AnsiString
 begin
  Result := 'контрол::SubPanel:push';
 end;//Tkw_Text_Control_SubPanel_Push.GetWordNameForRegister
-
-class function Tkw_Text_Control_HScroll.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::HScroll';
-end;//Tkw_Text_Control_HScroll.GetWordNameForRegister
 
 function Tkw_Text_Control_HScroll.GetString: AnsiString;
 begin
@@ -1034,6 +1030,11 @@ begin
  TtfwClassRef.Register(TvtScrollBar);
 end;//Tkw_Text_Control_HScroll.RegisterInEngine
 
+class function Tkw_Text_Control_HScroll.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::HScroll';
+end;//Tkw_Text_Control_HScroll.GetWordNameForRegister
+
 procedure Tkw_Text_Control_HScroll_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('HScroll');
@@ -1044,11 +1045,6 @@ class function Tkw_Text_Control_HScroll_Push.GetWordNameForRegister: AnsiString;
 begin
  Result := 'контрол::HScroll:push';
 end;//Tkw_Text_Control_HScroll_Push.GetWordNameForRegister
-
-class function Tkw_Text_Control_Text.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::Text';
-end;//Tkw_Text_Control_Text.GetWordNameForRegister
 
 function Tkw_Text_Control_Text.GetString: AnsiString;
 begin
@@ -1061,6 +1057,11 @@ begin
  TtfwClassRef.Register(TnscEditor);
 end;//Tkw_Text_Control_Text.RegisterInEngine
 
+class function Tkw_Text_Control_Text.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Text';
+end;//Tkw_Text_Control_Text.GetWordNameForRegister
+
 procedure Tkw_Text_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Text');
@@ -1072,11 +1073,6 @@ begin
  Result := 'контрол::Text:push';
 end;//Tkw_Text_Control_Text_Push.GetWordNameForRegister
 
-class function Tkw_Text_Component_TextSource.GetWordNameForRegister: AnsiString;
-begin
- Result := 'компонент::TextSource';
-end;//Tkw_Text_Component_TextSource.GetWordNameForRegister
-
 function Tkw_Text_Component_TextSource.GetString: AnsiString;
 begin
  Result := 'TextSource';
@@ -1087,6 +1083,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTextSource);
 end;//Tkw_Text_Component_TextSource.RegisterInEngine
+
+class function Tkw_Text_Component_TextSource.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'компонент::TextSource';
+end;//Tkw_Text_Component_TextSource.GetWordNameForRegister
 
 function TkwTextFormRemindersLine.RemindersLine(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscRemindersLine;
@@ -1110,11 +1111,6 @@ begin
  aCtx.rEngine.PushObj(RemindersLine(aCtx, l_aTextForm));
 end;//TkwTextFormRemindersLine.DoDoIt
 
-class function TkwTextFormRemindersLine.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TTextForm.RemindersLine';
-end;//TkwTextFormRemindersLine.GetWordNameForRegister
-
 procedure TkwTextFormRemindersLine.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1135,6 +1131,11 @@ function TkwTextFormRemindersLine.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormRemindersLine.ParamsTypes
+
+class function TkwTextFormRemindersLine.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TTextForm.RemindersLine';
+end;//TkwTextFormRemindersLine.GetWordNameForRegister
 
 function TkwTextFormWarnTimeMachineException.WarnTimeMachineException(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1158,11 +1159,6 @@ begin
  aCtx.rEngine.PushObj(WarnTimeMachineException(aCtx, l_aTextForm));
 end;//TkwTextFormWarnTimeMachineException.DoDoIt
 
-class function TkwTextFormWarnTimeMachineException.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TTextForm.WarnTimeMachineException';
-end;//TkwTextFormWarnTimeMachineException.GetWordNameForRegister
-
 procedure TkwTextFormWarnTimeMachineException.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1183,6 +1179,11 @@ function TkwTextFormWarnTimeMachineException.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnTimeMachineException.ParamsTypes
+
+class function TkwTextFormWarnTimeMachineException.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TTextForm.WarnTimeMachineException';
+end;//TkwTextFormWarnTimeMachineException.GetWordNameForRegister
 
 function TkwTextFormWarnIsAbolished.WarnIsAbolished(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1206,11 +1207,6 @@ begin
  aCtx.rEngine.PushObj(WarnIsAbolished(aCtx, l_aTextForm));
 end;//TkwTextFormWarnIsAbolished.DoDoIt
 
-class function TkwTextFormWarnIsAbolished.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TTextForm.WarnIsAbolished';
-end;//TkwTextFormWarnIsAbolished.GetWordNameForRegister
-
 procedure TkwTextFormWarnIsAbolished.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1231,6 +1227,11 @@ function TkwTextFormWarnIsAbolished.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnIsAbolished.ParamsTypes
+
+class function TkwTextFormWarnIsAbolished.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TTextForm.WarnIsAbolished';
+end;//TkwTextFormWarnIsAbolished.GetWordNameForRegister
 
 function TkwTextFormWarnPreActive.WarnPreActive(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1254,11 +1255,6 @@ begin
  aCtx.rEngine.PushObj(WarnPreActive(aCtx, l_aTextForm));
 end;//TkwTextFormWarnPreActive.DoDoIt
 
-class function TkwTextFormWarnPreActive.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TTextForm.WarnPreActive';
-end;//TkwTextFormWarnPreActive.GetWordNameForRegister
-
 procedure TkwTextFormWarnPreActive.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1279,6 +1275,11 @@ function TkwTextFormWarnPreActive.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnPreActive.ParamsTypes
+
+class function TkwTextFormWarnPreActive.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TTextForm.WarnPreActive';
+end;//TkwTextFormWarnPreActive.GetWordNameForRegister
 
 function TkwTextFormWarnTimeMachineWarning.WarnTimeMachineWarning(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1302,11 +1303,6 @@ begin
  aCtx.rEngine.PushObj(WarnTimeMachineWarning(aCtx, l_aTextForm));
 end;//TkwTextFormWarnTimeMachineWarning.DoDoIt
 
-class function TkwTextFormWarnTimeMachineWarning.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TTextForm.WarnTimeMachineWarning';
-end;//TkwTextFormWarnTimeMachineWarning.GetWordNameForRegister
-
 procedure TkwTextFormWarnTimeMachineWarning.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1327,6 +1323,11 @@ function TkwTextFormWarnTimeMachineWarning.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnTimeMachineWarning.ParamsTypes
+
+class function TkwTextFormWarnTimeMachineWarning.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TTextForm.WarnTimeMachineWarning';
+end;//TkwTextFormWarnTimeMachineWarning.GetWordNameForRegister
 
 function TkwTextFormWarnOnControl.WarnOnControl(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1350,11 +1351,6 @@ begin
  aCtx.rEngine.PushObj(WarnOnControl(aCtx, l_aTextForm));
 end;//TkwTextFormWarnOnControl.DoDoIt
 
-class function TkwTextFormWarnOnControl.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TTextForm.WarnOnControl';
-end;//TkwTextFormWarnOnControl.GetWordNameForRegister
-
 procedure TkwTextFormWarnOnControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1375,6 +1371,11 @@ function TkwTextFormWarnOnControl.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnOnControl.ParamsTypes
+
+class function TkwTextFormWarnOnControl.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TTextForm.WarnOnControl';
+end;//TkwTextFormWarnOnControl.GetWordNameForRegister
 
 function TkwTextFormWarnJuror.WarnJuror(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1398,11 +1399,6 @@ begin
  aCtx.rEngine.PushObj(WarnJuror(aCtx, l_aTextForm));
 end;//TkwTextFormWarnJuror.DoDoIt
 
-class function TkwTextFormWarnJuror.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TTextForm.WarnJuror';
-end;//TkwTextFormWarnJuror.GetWordNameForRegister
-
 procedure TkwTextFormWarnJuror.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1423,6 +1419,11 @@ function TkwTextFormWarnJuror.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnJuror.ParamsTypes
+
+class function TkwTextFormWarnJuror.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TTextForm.WarnJuror';
+end;//TkwTextFormWarnJuror.GetWordNameForRegister
 
 function TkwTextFormWarnRedaction.WarnRedaction(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1446,11 +1447,6 @@ begin
  aCtx.rEngine.PushObj(WarnRedaction(aCtx, l_aTextForm));
 end;//TkwTextFormWarnRedaction.DoDoIt
 
-class function TkwTextFormWarnRedaction.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TTextForm.WarnRedaction';
-end;//TkwTextFormWarnRedaction.GetWordNameForRegister
-
 procedure TkwTextFormWarnRedaction.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1471,6 +1467,11 @@ function TkwTextFormWarnRedaction.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnRedaction.ParamsTypes
+
+class function TkwTextFormWarnRedaction.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TTextForm.WarnRedaction';
+end;//TkwTextFormWarnRedaction.GetWordNameForRegister
 
 function TkwTextFormWarnInactualDocument.WarnInactualDocument(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1494,11 +1495,6 @@ begin
  aCtx.rEngine.PushObj(WarnInactualDocument(aCtx, l_aTextForm));
 end;//TkwTextFormWarnInactualDocument.DoDoIt
 
-class function TkwTextFormWarnInactualDocument.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TTextForm.WarnInactualDocument';
-end;//TkwTextFormWarnInactualDocument.GetWordNameForRegister
-
 procedure TkwTextFormWarnInactualDocument.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1519,6 +1515,11 @@ function TkwTextFormWarnInactualDocument.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnInactualDocument.ParamsTypes
+
+class function TkwTextFormWarnInactualDocument.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TTextForm.WarnInactualDocument';
+end;//TkwTextFormWarnInactualDocument.GetWordNameForRegister
 
 function TkwTextFormWarnTimeMachineOn.WarnTimeMachineOn(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1542,11 +1543,6 @@ begin
  aCtx.rEngine.PushObj(WarnTimeMachineOn(aCtx, l_aTextForm));
 end;//TkwTextFormWarnTimeMachineOn.DoDoIt
 
-class function TkwTextFormWarnTimeMachineOn.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TTextForm.WarnTimeMachineOn';
-end;//TkwTextFormWarnTimeMachineOn.GetWordNameForRegister
-
 procedure TkwTextFormWarnTimeMachineOn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1567,6 +1563,11 @@ function TkwTextFormWarnTimeMachineOn.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnTimeMachineOn.ParamsTypes
+
+class function TkwTextFormWarnTimeMachineOn.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TTextForm.WarnTimeMachineOn';
+end;//TkwTextFormWarnTimeMachineOn.GetWordNameForRegister
 
 function TkwTextFormSubPanel.SubPanel(const aCtx: TtfwContext;
  aTextForm: TTextForm): TeeSubPanel;
@@ -1590,11 +1591,6 @@ begin
  aCtx.rEngine.PushObj(SubPanel(aCtx, l_aTextForm));
 end;//TkwTextFormSubPanel.DoDoIt
 
-class function TkwTextFormSubPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TTextForm.SubPanel';
-end;//TkwTextFormSubPanel.GetWordNameForRegister
-
 procedure TkwTextFormSubPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1615,6 +1611,11 @@ function TkwTextFormSubPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormSubPanel.ParamsTypes
+
+class function TkwTextFormSubPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TTextForm.SubPanel';
+end;//TkwTextFormSubPanel.GetWordNameForRegister
 
 function TkwTextFormHScroll.HScroll(const aCtx: TtfwContext;
  aTextForm: TTextForm): TvtScrollBar;
@@ -1638,11 +1639,6 @@ begin
  aCtx.rEngine.PushObj(HScroll(aCtx, l_aTextForm));
 end;//TkwTextFormHScroll.DoDoIt
 
-class function TkwTextFormHScroll.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TTextForm.HScroll';
-end;//TkwTextFormHScroll.GetWordNameForRegister
-
 procedure TkwTextFormHScroll.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1663,6 +1659,11 @@ function TkwTextFormHScroll.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormHScroll.ParamsTypes
+
+class function TkwTextFormHScroll.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TTextForm.HScroll';
+end;//TkwTextFormHScroll.GetWordNameForRegister
 
 function TkwTextFormText.Text(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscEditor;
@@ -1686,11 +1687,6 @@ begin
  aCtx.rEngine.PushObj(Text(aCtx, l_aTextForm));
 end;//TkwTextFormText.DoDoIt
 
-class function TkwTextFormText.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TTextForm.Text';
-end;//TkwTextFormText.GetWordNameForRegister
-
 procedure TkwTextFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1711,6 +1707,11 @@ function TkwTextFormText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormText.ParamsTypes
+
+class function TkwTextFormText.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TTextForm.Text';
+end;//TkwTextFormText.GetWordNameForRegister
 
 initialization
  Tkw_Form_Text.RegisterInEngine;

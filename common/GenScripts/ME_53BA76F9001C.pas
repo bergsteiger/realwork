@@ -2,6 +2,7 @@ unit csRelPublishTask;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csRelPublishTask.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsRelPublishTask" MUID: (53BA76F9001C)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -2,6 +2,7 @@ unit nsChatWindowList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\nsChatWindowList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsChatWindowList" MUID: (4A6D7E35012C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

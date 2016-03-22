@@ -2,6 +2,8 @@ unit PrimLegalMainMenu_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\PrimLegalMainMenu_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimLegalMainMenu" MUID: (4AC9E7B40342)
+// Имя типа: "TPrimLegalMainMenuForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

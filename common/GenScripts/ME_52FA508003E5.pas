@@ -2,6 +2,7 @@ unit ddClientMessageSortableListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ddClientMessageSortableListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddClientMessageSortableListPrim" MUID: (52FA508003E5)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

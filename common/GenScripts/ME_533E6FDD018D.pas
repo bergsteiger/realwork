@@ -2,6 +2,7 @@ unit vgRectList;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgRectList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgRectList" MUID: (533E6FDD018D)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

@@ -3,6 +3,7 @@ unit WholeSelectionWithMouseTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\WholeSelectionWithMouseTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TWholeSelectionWithMouseTest" MUID: (4DA7CCC00062)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

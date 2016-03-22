@@ -59,6 +59,7 @@ uses
  evdStyles,
 
  daDataProvider,
+ daSchemeConsts,
  //HT_Const,
  ht_Const,
  dt_Const,

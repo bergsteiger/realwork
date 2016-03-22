@@ -2,6 +2,7 @@ unit evFacadeSub;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evFacadeSub.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evFacadeSub" MUID: (48EEF8D0004A)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

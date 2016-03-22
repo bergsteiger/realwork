@@ -2,6 +2,8 @@ unit kwPopEditorGetWrapLimit;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetWrapLimit.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_GetWrapLimit" MUID: (51499706003B)
+// Имя типа: "TkwPopEditorGetWrapLimit"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

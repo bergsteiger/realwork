@@ -2,6 +2,7 @@ unit ncsProcessThread;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsProcessThread.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsProcessThread" MUID: (546061CE03DA)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

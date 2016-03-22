@@ -2,6 +2,7 @@ unit nsPrimAdapterNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsPrimAdapterNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsPrimAdapterNode" MUID: (4ADDF4110392)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

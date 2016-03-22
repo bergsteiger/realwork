@@ -15,11 +15,12 @@
 
 #include "shared/Core/sys/std_inc.h"
 #include "shared/GCL/data/std_defs.h"
+#include "shared/DB/DBCore/DBCore.h"
 #include "garantCore/SearchAdapterLib/Adapter/Adapter.h"
-#include "garantPIL/implementation/component/cpp/libs/gkdb/src/SearchB.h"
 #include "garantCore/Search/Def/Def.h"
 #include "garantPIL/implementation/component/cpp/libs/gkdb/src/collect.h"
 #include "garantCore/Search/ContextSearch/Collector_i.h"
+#include "garantPIL/implementation/component/cpp/libs/gkdb/src/Base.h"
 
 //#UC START# *50ACE4D50116_CUSTOM_INCLUDES*
 //#UC END# *50ACE4D50116_CUSTOM_INCLUDES*
@@ -31,7 +32,7 @@ class ContextSearcher {
 //////////////////////////////////////////////////////////////////////////////////////////
 // constructors and destructor
 public:
-	ContextSearcher (SearchBase* base, SearchAdapterLib::Adapter::IRelevancyInfo* info, const GCL::StrVector& src);
+	ContextSearcher (Base* base, SearchAdapterLib::Adapter::IRelevancyInfo* info, const GCL::StrVector& src);
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // self methods
@@ -45,11 +46,11 @@ public:
 //////////////////////////////////////////////////////////////////////////////////////////
 // self data
 private:
-	SearchBase* m_base;
+	Base* m_base;
 
 	SearchAdapterLib::Adapter::IRelevancyInfo* m_info_collector;
 
-	SearchAdapterLib::Adapter::IProgress_var m_progress;
+	DBCore::IProgress_var m_progress;
 
 	Collector_i::RequestData m_request_data;
 

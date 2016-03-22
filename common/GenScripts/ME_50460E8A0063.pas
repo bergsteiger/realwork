@@ -2,6 +2,7 @@ unit atContextSearchInDocumentOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atContextSearchInDocumentOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatContextSearchInDocumentOperation" MUID: (50460E8A0063)
 
 interface
 

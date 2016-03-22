@@ -2,6 +2,7 @@ unit NOT_FINISHED_dt_Jour;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_dt_Jour.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "dt_Jour" MUID: (51B6C800005F)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

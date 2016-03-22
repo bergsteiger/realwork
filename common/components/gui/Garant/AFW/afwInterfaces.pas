@@ -3,6 +3,7 @@ unit afwInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\afwInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "afwInterfaces" MUID: (467823B7002C)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
@@ -54,14 +55,14 @@ type
   ['{AA1123D5-C393-467C-9630-EEF98BCFF422}']
  end;//IafwFontCache
 
- {$If NOT Defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
  IafwStyleTableSpy = interface(IafwBase)
   {* Объект, принимающий уведомления об таблицы стилей. }
   ['{30EEA38C-9A5B-4DEF-A4E8-011D85916E59}']
   procedure StyleTableChanged;
    {* таблица стилей изменилась. }
  end;//IafwStyleTableSpy
- {$IfEnd} // NOT Defined(DesignTimeLibrary)
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
  IafwScrollListener = interface(IafwBase)
   {* Объект принимающий нотификации от скроллера. }
@@ -607,10 +608,10 @@ type
    read Get_InUpdate;
  end;//IafwApplicationData
 
- {$If NOT Defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
  TafwCustomImageList = TCustomImageList;
   {* Базовый список картинок. }
- {$IfEnd} // NOT Defined(NoVCL)
+{$IfEnd} // NOT Defined(NoVCL)
 
  IafwComplexDocumentPreview = interface(IafwDocumentPreview)
   {* Предварительный просмотр печати составного документа. }
@@ -832,11 +833,11 @@ type
  end;//MafwSettingsNotify
  *)
 
- {$If NOT Defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
  TafwCustomForm = TCustomForm;
- {$IfEnd} // NOT Defined(NoVCL)
+{$IfEnd} // NOT Defined(NoVCL)
 
- {$If NOT Defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
  IafwMainFormContainer = interface(IafwBase)
   ['{1A7F2DE9-5ED8-46F5-88C9-B5FD9AF1DEF4}']
   function Get_CurrentMainForm: TafwCustomForm;
@@ -844,15 +845,13 @@ type
   property CurrentMainForm: TafwCustomForm
    read Get_CurrentMainForm;
  end;//IafwMainFormContainer
- {$IfEnd} // NOT Defined(NoVCL)
+{$IfEnd} // NOT Defined(NoVCL)
 
  IafwMainFormProvider = interface(IafwBase)
   ['{86D8BAFB-92AB-45E0-8A82-5405716DF65A}']
  end;//IafwMainFormProvider
 
- IafwApplication = interface;
-
- {$If NOT Defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
  (*
  MafwVisualizater = interface
   function MakeLongProcessVisualizer(const aCaption: IafwCString;
@@ -862,7 +861,7 @@ type
    anImageIndex: Integer = -1): IafwLongProcessVisualizer;
  end;//MafwVisualizater
  *)
- {$IfEnd} // NOT Defined(NoVCL)
+{$IfEnd} // NOT Defined(NoVCL)
 
  IafwApplication = interface(IafwBase)
   {* Скелет приложения, знающий об основных объектах. }

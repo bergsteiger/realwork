@@ -3,6 +3,7 @@ unit evdStyles;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdStyles.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Styles" MUID: (476BE0350329)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "PageControlNotification" MUID: (497F0F17036D)
+// Имя типа: "_PageControlNotification_"
 
 {$Define PageControlNotification_imp}
 

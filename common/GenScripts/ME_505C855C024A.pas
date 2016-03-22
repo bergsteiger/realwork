@@ -2,6 +2,7 @@ unit StatusBarWords;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\StatusBarWords.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "StatusBarWords" MUID: (505C855C024A)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -153,11 +154,6 @@ begin
  aCtx.rEngine.PushObj(OrderedControl(aCtx, l_aStatusBar, l_anIndex));
 end;//TkwStatusBarOrderedControl.DoDoIt
 
-class function TkwStatusBarOrderedControl.GetWordNameForRegister: AnsiString;
-begin
- Result := 'StatusBar:OrderedControl';
-end;//TkwStatusBarOrderedControl.GetWordNameForRegister
-
 function TkwStatusBarOrderedControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TControl);
@@ -172,6 +168,11 @@ function TkwStatusBarOrderedControl.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnscStatusBar), TypeInfo(Integer)]);
 end;//TkwStatusBarOrderedControl.ParamsTypes
+
+class function TkwStatusBarOrderedControl.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StatusBar:OrderedControl';
+end;//TkwStatusBarOrderedControl.GetWordNameForRegister
 
 function TkwStatusBarOrderedControlsCount.OrderedControlsCount(const aCtx: TtfwContext;
  aStatusBar: TnscStatusBar): Integer;
@@ -199,11 +200,6 @@ begin
  aCtx.rEngine.PushInt(OrderedControlsCount(aCtx, l_aStatusBar));
 end;//TkwStatusBarOrderedControlsCount.DoDoIt
 
-class function TkwStatusBarOrderedControlsCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'StatusBar:OrderedControlsCount';
-end;//TkwStatusBarOrderedControlsCount.GetWordNameForRegister
-
 function TkwStatusBarOrderedControlsCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -218,6 +214,11 @@ function TkwStatusBarOrderedControlsCount.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnscStatusBar)]);
 end;//TkwStatusBarOrderedControlsCount.ParamsTypes
+
+class function TkwStatusBarOrderedControlsCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StatusBar:OrderedControlsCount';
+end;//TkwStatusBarOrderedControlsCount.GetWordNameForRegister
 
 function TkwStatusBarOrderIndex.OrderIndex(const aCtx: TtfwContext;
  aStatusBar: TnscStatusBar;
@@ -256,11 +257,6 @@ begin
  aCtx.rEngine.PushInt(OrderIndex(aCtx, l_aStatusBar, l_aControl));
 end;//TkwStatusBarOrderIndex.DoDoIt
 
-class function TkwStatusBarOrderIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'StatusBar:OrderIndex';
-end;//TkwStatusBarOrderIndex.GetWordNameForRegister
-
 function TkwStatusBarOrderIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -275,6 +271,11 @@ function TkwStatusBarOrderIndex.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnscStatusBar), TypeInfo(TControl)]);
 end;//TkwStatusBarOrderIndex.ParamsTypes
+
+class function TkwStatusBarOrderIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StatusBar:OrderIndex';
+end;//TkwStatusBarOrderIndex.GetWordNameForRegister
 
 initialization
  TStatusBarWordsResNameGetter.Register;

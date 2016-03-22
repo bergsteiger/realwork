@@ -1,55 +1,40 @@
 unit ServiceTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "ServiceTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCase::Class Shared Delphi Sand Box::SandBoxTest::Core::ServiceTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\ServiceTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "ServiceTest" MUID: (551962080380)
+// Имя типа: "TServiceTest"
 
-{$Include ..\SandBox\sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  Classes,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , TestFrameWork
+ , Classes
+;
 
-{$If defined(nsTest)}
 type
  TServiceTest = class(TTestCase)
- public
- // public methods
+  public
    procedure DoIter;
-     {* Сигнатура метода DoIter }
- published
- // published methods
    procedure DoIt;
  end;//TServiceTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  IterateableService,
-  IterateableServiceProvider
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //nsTest
-
-{$If defined(nsTest)}
-
-// start class TServiceTest
+ l3ImplUses
+ , IterateableService
+ , IterateableServiceProvider
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TServiceTest.DoIt;
 //#UC START# *55196221027E_551962080380_var*
@@ -63,6 +48,7 @@ end;//TServiceTest.DoIt
 procedure TServiceTest.DoIter;
 
  function DoIt(anItem: TComponent): Boolean;
+  {* Подитеративная функция для вызова L2MIterateableServiceIterateFAction из DoIter }
  //#UC START# *6211A607D3EF__var*
  //#UC END# *6211A607D3EF__var*
  begin
@@ -76,16 +62,15 @@ procedure TServiceTest.DoIter;
 begin
  //#UC START# *551BC0D201CFiter*
  //#UC END# *551BC0D201CFiter*
-  TIterateableService.Instance.IterateF(L2MIterateableServiceIterateFAction(@DoIt)
-   //#UC START# *551BC0D201CFiterparam*
+ TIterateableService.Instance.IterateF(L2MIterateableServiceIterateFAction(@DoIt)
+ //#UC START# *551BC0D201CFiterparam*
    , Application
-   //#UC END# *551BC0D201CFiterparam*
-  );
+ //#UC END# *551BC0D201CFiterparam*
+ );
 end;//TServiceTest.DoIter
-
-{$IfEnd} //nsTest
 
 initialization
  TestFramework.RegisterTest(TServiceTest.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

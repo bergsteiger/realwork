@@ -330,6 +330,7 @@ begin
     IntW[k2_attrHandle, Tk2NonOptimizeContext.Instance] := Ord(ev_saSnippet);
     StrW[k2_attrName, Tk2NonOptimizeContext.Instance] := str_TextStyle_Snippet_Name_Value.AsStr;
     IntW[k2_attrFirstIndent, Tk2NonOptimizeContext.Instance] := 0;
+    IntW[k2_attrRightIndent, Tk2NonOptimizeContext.Instance] := 300;
     with cAtom(k2_attrFont) do
     begin
      IntW[k2_attrSize, Tk2NonOptimizeContext.Instance] := 11;
@@ -337,17 +338,14 @@ begin
     end;//with cAtom(k2_attrFont)
     AddValue(Box);
    end;//with MakeTag.AsObject
-  // Посещенный документ (в списке)
+  // Документ в списке
    with MakeTag.AsObject do
    begin
-    IntW[k2_attrHandle, Tk2NonOptimizeContext.Instance] := Ord(ev_saVisitedDocumentInList);
-    StrW[k2_attrName, Tk2NonOptimizeContext.Instance] := str_TextStyle_VisitedDocumentInList_Name_Value.AsStr;
+    IntW[k2_attrHandle, Tk2NonOptimizeContext.Instance] := Ord(ev_saDocumentInList);
+    StrW[k2_attrName, Tk2NonOptimizeContext.Instance] := str_TextStyle_DocumentInList_Name_Value.AsStr;
     BoolW[k2_attrVisibleToUser, Tk2NonOptimizeContext.Instance] := false;
-    with cAtom(k2_attrFont) do
-    begin
-     IntW[k2_attrForeColor, Tk2NonOptimizeContext.Instance] := $8b1a55;
-     IntW[k2_attrSize, Tk2NonOptimizeContext.Instance] := k2_TransparentValue;
-    end;//with cAtom(k2_attrFont)
+    IntW[k2_attrFirstIndent, Tk2NonOptimizeContext.Instance] := 0;
+    IntW[k2_attrRightIndent, Tk2NonOptimizeContext.Instance] := 300;
     AddValue(Box);
    end;//with MakeTag.AsObject
   // Посещенный дочерний элемент списка
@@ -374,6 +372,19 @@ begin
     with cAtom(k2_attrFont) do
     begin
      IntW[k2_attrBackColor, Tk2NonOptimizeContext.Instance] := Ord(clYellow);
+    end;//with cAtom(k2_attrFont)
+    AddValue(Box);
+   end;//with MakeTag.AsObject
+  // Посещенный документ (в списке)
+   with MakeTag.AsObject do
+   begin
+    IntW[k2_attrStyle, Tk2NonOptimizeContext.Instance] := f1_saDocumentInList;
+    IntW[k2_attrHandle, Tk2NonOptimizeContext.Instance] := Ord(ev_saVisitedDocumentInList);
+    StrW[k2_attrName, Tk2NonOptimizeContext.Instance] := str_TextStyle_VisitedDocumentInList_Name_Value.AsStr;
+    with cAtom(k2_attrFont) do
+    begin
+     IntW[k2_attrForeColor, Tk2NonOptimizeContext.Instance] := $8b1a55;
+     IntW[k2_attrSize, Tk2NonOptimizeContext.Instance] := k2_TransparentValue;
     end;//with cAtom(k2_attrFont)
     AddValue(Box);
    end;//with MakeTag.AsObject

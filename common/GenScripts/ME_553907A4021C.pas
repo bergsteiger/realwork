@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtColorBoxStrings;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtColorBoxStrings.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvtColorBoxStrings" MUID: (553907A4021C)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

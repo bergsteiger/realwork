@@ -115,6 +115,7 @@ implementation
 
 uses
  l3TempMemoryStream,
+ daSchemeConsts,
  SysUtils, ddUtils, L3FileUtils, DT_DictConst, dt_Doc, DT_Const, daInterfaces,
 
  k2Tags,

@@ -3,6 +3,7 @@ unit evControlParaTools;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evControlParaTools.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evControlParaTools" MUID: (47CFFEDE0215)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

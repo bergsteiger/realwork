@@ -318,7 +318,14 @@ end;
 HLTC147: История навигации
   HLTC147.1: Проверить, что в историю навигации попадают следующие, загружавшиеся в одно и тоже окно объекты:
     HLTC147.1.4: Документ
-      HLTC147.1.4.1: В том числе при переходе по гипертекстовой ссылке в другой документ
+      В том числе, при переходе по ссылке в другое место
+     1. Открываем документ 12024178
+     2. Скроллируем до середины, до ссылки: МУЛЬТИССЫЛКА НА VANONCED
+     3. Переходим по ней
+     Попадаем в список
+
+    4. Возвращаемся назад по истории
+     Должны попасть обратно в документ, спозиционироваться там же
 }
 function HLTC147_1_4_1_Execute (var  CurrentState: OleVariant): OleVariant;
 const
@@ -326,15 +333,24 @@ const
   DOC_NUM = 12024178;
 var
   obj;
+  str;
 begin                                  
 try
   if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
   obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
   if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
   if NOT ClickByHyperLink(obj, CONTEXT) then Raise('Не удалось кликнуть по искомой гиперссылке');
-  result := IsEtalonObjByHistory ('НАЗАД', 'ДОКУМЕНТ');
-  if NOT result then 
-    Log.Error('После возврата по истории активным является не ДОКУМЕНТ');
+  if NOT IsEtalonObjByHistory ('НАЗАД', 'ДОКУМЕНТ') then   
+    Raise('После возврата по истории активным является не ДОКУМЕНТ');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  str := CopyToClipboard(obj, 'STRING', 'Trim := true');
+  if NOT StringCompare(CONTEXT, str) then
+  begin
+    Log.Error('После возврата по истории вернулись не в эталонное место в документе', str);
+    Raise('После возврата по истории вернулись не в эталонное место в документе');  
+  end;
+  result := true;  
   GoToMainMenu;
 except  
   Log.Message('HLTC147_1_4_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
@@ -348,22 +364,39 @@ HLTC147: История навигации
   HLTC147.1: Проверить, что в историю навигации попадают следующие, загружавшиеся в одно и тоже окно объекты:
     HLTC147.1.4: Документ
       HLTC147.1.4.3: В том числе при переходе по гиперссылке внутри одного документа
+      
+      В том числе при переходе по ссылке внутри одного документа
+     1. Открываем документ 1055132
+     2. Переходим по первой ссылке: Преамбула
+     3. Возвращаемся назад по истории
+     Должны вернуться в начало документа
 }
 function HLTC147_1_4_3_Execute (var  CurrentState: OleVariant): OleVariant;
 const
   CONTEXT = 'Преамбула';
   DOC_NUM = 1055132;
 var
-  obj;
+  obj, str;
 begin                                  
 try
   if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
   obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
   if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
-  if NOT ClickByHyperLink(obj, CONTEXT) then Raise('Не удалось кликнуть по искомой гиперссылке');
-  result := IsEtalonObjByHistory ('НАЗАД', 'ДОКУМЕНТ');
-  if NOT result then 
+  if NOT ClickByHyperLink(obj, CONTEXT) then Raise('Не удалось кликнуть по искомой гиперссылке');  
+  if NOT IsEtalonObjByHistory ('НАЗАД', 'ДОКУМЕНТ') then
+  begin 
     Log.Error('После возврата по истории активным является не ДОКУМЕНТ');
+    Raise('После возврата по истории активным является не ДОКУМЕНТ');
+  end;    
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  str := CopyToClipboard(obj, 'STRING', 'Trim := true');
+  if NOT StringCompare(CONTEXT, str) then
+  begin
+    Log.Error('После возврата по истории вернулись не в эталонное место в документе', str);
+    Raise('После возврата по истории вернулись не в эталонное место в документе');  
+  end;
+  result := true;
   GoToMainMenu;
 except  
   Log.Message('HLTC147_1_4_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
@@ -3381,9 +3414,9 @@ begin
   Log.Message( HLTC147_1_2_Execute(cur)); 
   Log.Message( HLTC147_1_2_Execute(cur)); 
   Log.Message( HLTC147_1_3_1_Execute(cur));
-  Log.Message( HLTC147_1_4_1_Execute(cur));
+  Log.Message( HLTC147_1_4_1_Execute(cur));}
   Log.Message( HLTC147_1_4_3_Execute(cur));
-  Log.Message( HLTC147_1_5_Execute(cur));
+  {Log.Message( HLTC147_1_5_Execute(cur));
   Log.Message( HLTC147_1_6_Execute(cur));
   Log.Message( HLTC147_1_7_Execute(cur)); 
   Log.Message( HLTC147_1_8_Execute(cur));
@@ -3404,10 +3437,10 @@ begin
   Log.Message(HLTC147_9_1_Execute(cur));  //На чистой 
   Log.Message(HLTC147_9_2_Execute(cur));
   Log.Message(HLTC147_9_3_Execute(cur));
-  Log.Message(HLTC147_10_Execute(cur));         
-  Log.Message(HLTC147_11_Execute(cur)); }
+  Log.Message(HLTC147_10_Execute(cur));
+  Log.Message(HLTC147_11_Execute(cur));
   Log.Message(HLTC147_12_Execute(cur));
-{//--11.07.06-----------------------------     
+//--11.07.06-----------------------------     
   Log.Message(HLTC147_14_1_Execute(cur));
   Log.Message(HLTC147_14_2_Execute(cur));
   Log.Message(HLTC147_14_3_Execute(cur));
@@ -3435,9 +3468,9 @@ begin
 //--19.10.06-----------------------------       
   Log.Message(HLTC147_3_Execute(cur));  
   Log.Message(HLTC147_4_1_Execute(cur));
-  Log.Message(HLTC147_4_2_Execute(cur));
-  Log.Message(HLTC147_5_Execute(cur));           
-//--20.10.06-----------------------------       
+  Log.Message(HLTC147_4_2_Execute(cur));}
+  //Log.Message(HLTC147_5_Execute(cur));           
+{//--20.10.06-----------------------------       
   Log.Message(HLTC147_15_5_2_1_3_Execute(cur));
   Log.Message(HLTC147_15_5_2_1_4_Execute(cur));
   Log.Message(HLTC147_15_9_1_Execute(cur)); 

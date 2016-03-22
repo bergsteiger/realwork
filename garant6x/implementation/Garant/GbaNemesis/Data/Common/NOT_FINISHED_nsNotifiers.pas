@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsNotifiers;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsNotifiers.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsNotifiers" MUID: (4A6860C40384)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

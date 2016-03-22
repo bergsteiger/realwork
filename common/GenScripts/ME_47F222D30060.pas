@@ -2,6 +2,7 @@ unit NOT_FINISHED_evHighLevelDocumentGenerator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evHighLevelDocumentGenerator.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evHighLevelDocumentGenerator" MUID: (47F222D30060)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

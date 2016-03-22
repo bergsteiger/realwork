@@ -3,6 +3,7 @@ unit ListAnalizeUserTypes_Analize_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListAnalizeUserTypes_Analize_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "Analize" MUID: (4E3695CA0106)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_Analize = {final} class(TtfwInteger)
   {* Слово словаря для типа формы Analize }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_Analize
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_Analize.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::Analize';
-end;//Tkw_FormUserType_Analize.GetWordNameForRegister
-
 function Tkw_FormUserType_Analize.GetInteger: Integer;
 begin
  Result := Analize;
 end;//Tkw_FormUserType_Analize.GetInteger
+
+class function Tkw_FormUserType_Analize.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::Analize';
+end;//Tkw_FormUserType_Analize.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

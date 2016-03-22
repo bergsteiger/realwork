@@ -1,6 +1,6 @@
 unit ddBaseAutolinkDataSource;
 
-{ $Id: ddBaseAutolinkDataSource.pas,v 1.1 2014/06/20 12:50:34 fireton Exp $ }
+{ $Id: ddBaseAutolinkDataSource.pas,v 1.2 2015/11/25 14:01:46 lukyanets Exp $ }
 
 interface
 
@@ -53,7 +53,8 @@ implementation
 uses
  l3Base
  {$IFNDEF NotArchi}
- ,DT_Const,
+ ,daSchemeConsts,
+ DT_Const,
  DT_LinkServ
  {$ENDIF}
  ;

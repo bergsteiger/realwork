@@ -2,6 +2,7 @@ unit vtComboTreeWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\vtComboTreeWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "vtComboTreeWordsPack" MUID: (55B782940096)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -76,11 +77,6 @@ begin
  aCtx.rEngine.PushIntf(CurrentNode(aCtx, l_aComboTree), TypeInfo(Il3SimpleNode));
 end;//TkwPopComboTreeCurrentNode.DoDoIt
 
-class function TkwPopComboTreeCurrentNode.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboTree:CurrentNode';
-end;//TkwPopComboTreeCurrentNode.GetWordNameForRegister
-
 function TkwPopComboTreeCurrentNode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Il3SimpleNode);
@@ -95,6 +91,11 @@ function TkwPopComboTreeCurrentNode.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree)]);
 end;//TkwPopComboTreeCurrentNode.ParamsTypes
+
+class function TkwPopComboTreeCurrentNode.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboTree:CurrentNode';
+end;//TkwPopComboTreeCurrentNode.GetWordNameForRegister
 
 initialization
  TkwPopComboTreeCurrentNode.RegisterInEngine;

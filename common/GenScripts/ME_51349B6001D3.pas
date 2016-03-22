@@ -2,6 +2,7 @@ unit TestForm4Scripts;
 
 // Модуль: "w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\TestForm4Scripts.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "TestForm4Scripts" MUID: (51349B6001D3)
 
 interface
 

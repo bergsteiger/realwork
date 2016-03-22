@@ -1,7 +1,10 @@
 unit ddRTFWriter;
 
-{ $Id: ddRTFWriter.pas,v 1.224 2015/08/28 08:14:48 dinishev Exp $ }
+{ $Id: ddRTFWriter.pas,v 1.225 2015/12/02 11:34:20 dinishev Exp $ }
 // $Log: ddRTFWriter.pas,v $
+// Revision 1.225  2015/12/02 11:34:20  dinishev
+// Bug fix: задел RTFWriter
+//
 // Revision 1.224  2015/08/28 08:14:48  dinishev
 // {Requestlink:606129464}
 //
@@ -1897,7 +1900,7 @@ begin
     l_StyleCHP := TddCharacterProperty.Create;
     try
      Document.MakeStyleParent(aPara.PAP.Style, l_StylePAP, l_StyleCHP);
-     l_PAP := TddParagraphProperty(aPara.PAP.Diff(l_StylePAP));
+     l_PAP := TddParagraphProperty(aPara.PAP.Diff(l_StylePAP, False));
      if l_PAP <> nil then
       l_ParaFormat := l_ParaFormat + PAP2RTF(l_PAP, aPara.BlockIndent, aPara.IgnoreLeftIndent, False);
     finally
@@ -1948,7 +1951,7 @@ begin
  begin
   if aStyle <> nil then
   begin
-   l_CHP := TddCharacterProperty(aStyle.CHP.Diff(aPara.CHP));
+   l_CHP := TddCharacterProperty(aStyle.CHP.Diff(aPara.CHP, False));
    try
     if l_CHP <> nil then
      OutString(CHP2RTF(l_CHP, nil, False));

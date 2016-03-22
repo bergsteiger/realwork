@@ -3,6 +3,8 @@ unit MedicListSynchroView_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\MedicListSynchroView_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "MedicListSynchroView" MUID: (4AB9E6D40211)
+// Имя типа: "Ten_MedicListSynchroView"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

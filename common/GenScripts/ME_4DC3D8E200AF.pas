@@ -2,6 +2,7 @@ unit kwTimeMachineSetDate;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwTimeMachineSetDate.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwTimeMachineSetDate" MUID: (4DC3D8E200AF)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

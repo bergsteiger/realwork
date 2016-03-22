@@ -29,6 +29,7 @@ ViewAsSimple_i::ViewAsSimple_i (DBComm::IDBCommunicator* comm, Morpho::Def::INor
 //#UC END# *5273986F01D9_52739AA90277_5391DAF7015C_BASE_INIT*
 {
 	//#UC START# *5273986F01D9_52739AA90277_5391DAF7015C_BODY*
+	m_normalizer = Morpho::Def::INormalizer::_duplicate (normalizer);
 	//#UC END# *5273986F01D9_52739AA90277_5391DAF7015C_BODY*
 }
 
@@ -43,11 +44,15 @@ ViewAsSimple_i::~ViewAsSimple_i () {
 // добавить запрос
 void ViewAsSimple_i::add_request (const std::string& req) {
 	//#UC START# *5391DCED0283*
-	Search::SplitRequest request;
-	RequestBuilder::make (req, request);
+	Core::Aptr <GCL::StrVector> res = m_normalizer->execute_for_phrase (req);
 
-	if (request.context.empty () == false) {
-		m_sequence.push_back (request);
+	for (GCL::StrVector::const_iterator it = res->begin (); it != res->end (); ++it) {
+		Search::SplitRequest request;
+		RequestBuilder::make (*it, request);
+
+		if (request.context.empty () == false) {
+			m_sequence.push_back (request);
+		}
 	}
 	//#UC END# *5391DCED0283*
 }
@@ -57,7 +62,7 @@ void ViewAsSimple_i::add_request (const std::string& req) {
 
 // implemented method from Search::IRequestView
 // создать
-bool ViewAsSimple_i::build (const Search::Phrase& in, const Morpho::Def::StrStrMap& pseudo, const std::string& src) {
+bool ViewAsSimple_i::build (const Search::Phrase& in, const std::string& src) {
 	//#UC START# *528CD00602B1_5391DAF7015C*
 	std::for_each (in.begin (), in.end (), boost::bind (&ViewAsSimple_i::add_request, this, _1));
 	return (m_sequence.empty () == false);

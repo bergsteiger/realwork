@@ -2,6 +2,7 @@ unit dsCRWarning;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Document\dsCRWarning.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsCRWarning" MUID: (4EF485030376)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

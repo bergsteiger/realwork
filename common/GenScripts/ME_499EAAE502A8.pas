@@ -3,6 +3,7 @@ unit vcmUserControls;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmUserControls.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "vcmUserControls" MUID: (499EAAE502A8)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

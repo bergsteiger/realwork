@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmFormSetRefreshParams;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmFormSetRefreshParams.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmFormSetRefreshParams" MUID: (49312C5F0078)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

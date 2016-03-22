@@ -2,6 +2,7 @@ unit destListTable;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destListTable.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdestListTable" MUID: (51DD4CDC0343)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

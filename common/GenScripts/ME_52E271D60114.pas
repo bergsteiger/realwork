@@ -2,6 +2,7 @@ unit tfwRevertedArrayView;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwRevertedArrayView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwRevertedArrayView" MUID: (52E271D60114)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

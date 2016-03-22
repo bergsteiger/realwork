@@ -2,6 +2,7 @@ unit atNodeHelper;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atNodeHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatNodeHelper" MUID: (48078D230277)
 
 interface
 

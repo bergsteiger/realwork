@@ -2705,8 +2705,6 @@ resourcestring
 
 	_SNotAllAttributesRestored = 'Не все атрибуты поискового запроса восстановлны из базы';
 
-	_SNotAllowedInTrialMode = 'NotAllowedInTrialMode';
-
 	_SNotDeleted = 'Нельзя удалить консультацию';
 
 	_SNotEntityElement = 'Возвращается при попытке вызвать операцию open у элемента каталога, не являющегося сущностью (в частности у папки).';
@@ -2764,7 +2762,7 @@ resourcestring
 const
 	// Карта [map] перекодировки: текстовой строке ставиться в соответствие нужный мета-класс исключения и сообщение.
 	//
-	cIdToExceptionMapMaxItems = 93; // максимальное количество элементов в таблице
+	cIdToExceptionMapMaxItems = 92; // максимальное количество элементов в таблице
 
 type
 	TIdToExceptionMapArray = array [0..cIdToExceptionMapMaxItems - 1] of TExceptionIdMapItem;
@@ -2858,57 +2856,56 @@ begin
 	lp_Init (39, 'FE878400-C219-4FEC-BB94-F2810419776F', '_SInvalidTopicId', EInvalidTopicId);
 	lp_Init (40, 'C8772FCD-1532-45DA-B06F-B8CFEEC690F5', '_SFolderLinkNotFound', EFolderLinkNotFound);
 	lp_Init (41, 'C67DEF89-E674-4575-BCDD-F5B4232F6C43', '_SRedactionNotFound', ERedactionNotFound);
-	lp_Init (42, '413EB7A6-8FBA-476A-9A16-44DCBA0D386F', '_SNotAllowedInTrialMode', ENotAllowedInTrialMode);
-	lp_Init (43, '831C4B6F-1F96-4FD9-BC5B-72C094403C0C', '_SInvalidDate', EInvalidDate);
-	lp_Init (44, '26E18290-AD8C-4074-8A60-93B5C3A1A1EE', '_SExplanationDictionaryNotInstalled', EExplanationDictionaryNotInstalled);
-	lp_Init (45, 'BBCC4DD8-8638-4E20-A012-B93EA66BDFF5', '_SInvalidObjectClass', EInvalidObjectClass);
-	lp_Init (46, 'A5E6BDD6-1CF7-42F1-A269-BC9C04E9708A', '_SNoPrevRedaction', ENoPrevRedaction);
-	lp_Init (47, 'C9FCD56A-2C69-47CC-8B48-32E8C4296A40', '_SInvalidEntryPoint', EInvalidEntryPoint);
-	lp_Init (48, 'E6D5FB9E-A514-44F7-B841-38A27EC6E33B', '_SInvalidLayerID', EInvalidLayerID);
-	lp_Init (49, 'E9F52E90-CE36-4583-8178-1872A710E38A', '_SAllChangesInTables', EAllChangesInTables);
-	lp_Init (50, '80BFA2E6-4042-47C3-AA1D-88FCEFBBA68A', '_SWrongAuthentication', EWrongAuthentication);
-	lp_Init (51, 'B32A68D2-68F0-4DBE-AB9E-08E914C25499', '_SNoMoreProfiles', ENoMoreProfiles);
-	lp_Init (52, '3638F5BA-04D9-471F-95F1-189DC103C6AA', '_SUserActive', EUserActive);
-	lp_Init (53, 'DE3C78AF-C27D-4243-8916-D969C6B1C70C', '_SLicenceViolation', ELicenceViolation);
-	lp_Init (54, '5A13C909-06FA-4682-8E2D-1C2AD5C2DAED', '_SXMLImportRunning', EXMLImportRunning);
-	lp_Init (55, '449F06CD-5A0E-477F-8B6D-ADFB8844E8CC', '_SLoginDuplicate', ELoginDuplicate);
-	lp_Init (56, 'DC16A621-69A1-4C58-AA89-B0231118E870', '_SShutdownInited', EShutdownInited);
-	lp_Init (57, '7AB288B1-A8C3-40AF-855F-687762019272', '_STrialPeriodExpired', ETrialPeriodExpired);
-	lp_Init (58, '02B61457-0724-454A-A52C-DB5B78CCA7B1', '_SAutoregistrationDisabled', EAutoregistrationDisabled);
-	lp_Init (59, '7CA79B54-8C37-4D00-84C0-52F2F780D68F', '_SNoMorePrivilegedProfiles', ENoMorePrivilegedProfiles);
-	lp_Init (60, '69B6D1D4-7DBB-40EE-8FDE-9675D33D230B', '_SNoDefaultValue', ENoDefaultValue);
-	lp_Init (61, '7EA1017A-32F2-4EAC-AF81-62300653DE90', '_SQueryNotExecuted', EQueryNotExecuted);
-	lp_Init (62, 'F2BB45BE-4533-476D-95CF-D7E121A195D5', '_SIPAddressNotFound', EIPAddressNotFound);
-	lp_Init (63, '96670BC0-148F-4D2D-BDDC-15AE7D32FFAC', '_SInvalidBase', EInvalidBase);
-	lp_Init (64, '303D9557-8EC2-400C-BF9C-BADEE422A49C', '_SNoServer', ENoServer);
-	lp_Init (65, '1D13BCD4-1DFF-4300-B58D-F7890BAAA58F', '_SBadNetworkConfig', EBadNetworkConfig);
-	lp_Init (66, 'C5A7C6C4-5834-4B8E-A5A2-4ECC471713C1', '_SSMTPServerAddressNotDefined', ESMTPServerAddressNotDefined);
-	lp_Init (67, '1DA675AE-50AF-474F-8022-1BDEEE14E50B', '_SSMTPServerNotFound', ESMTPServerNotFound);
-	lp_Init (68, '61872E6E-6284-40DF-B866-6BCAEC608893', '_SUserNotFound', EUserNotFound);
-	lp_Init (69, '8FB9BB5A-04F2-4EC2-B183-9AC1347EE390', '_SServerVersionNotValid', EServerVersionNotValid);
-	lp_Init (70, '6A6215CF-78F3-49EC-BF9F-50BB4CB9293D', '_SInternalServerError', EInternalServerError);
-	lp_Init (71, '085E10E6-7A2A-4F1A-ABF6-AC9A6B700D74', '_SWorkingParamsNotFound', EWorkingParamsNotFound);
-	lp_Init (72, 'BC028BE4-26A7-4936-B0E9-56AD866D0C05', '_SBadSMTPReply', EBadSMTPReply);
-	lp_Init (73, '6ABA3BD8-676F-471F-85F7-604C3270212D', '_SSettingsRestoreFails', ESettingsRestoreFails);
-	lp_Init (74, '9D512BC1-E36B-425C-94E9-EC550ED838F7', '_SExternalApplicationError', EExternalApplicationError);
-	lp_Init (75, '8A31DA0B-1697-4FA3-949D-01DC71BE4E18', '_SAlreadyLogged', EAlreadyLogged);
-	lp_Init (76, '9E554518-D746-4CDE-8C5D-847E73A44C74', '_SAccountDisabled', EAccountDisabled);
-	lp_Init (77, '1EBCB8C2-D652-4497-88B7-B6F6DEFC8C86', '_SNoMoreConnections', ENoMoreConnections);
-	lp_Init (78, '78893262-7052-47BD-A3ED-646A5A7B4B1E', '_SSMTPAuthorizationFailed', ESMTPAuthorizationFailed);
-	lp_Init (79, '2FC04D3B-B292-420C-B225-71B7ACE65770', '_SMorphoNotExists', EMorphoNotExists);
-	lp_Init (80, '82E6F745-353D-4022-BE27-AE22DCD2FB3E', '_SInternalApplicationError', EInternalApplicationError);
-	lp_Init (81, '55650D62-B1A8-4834-B197-FC50EF727F69', '_SInvalidUserDatastore', EInvalidUserDatastore);
-	lp_Init (82, 'FC547407-1744-4A16-B4B3-6CF86EB0E8C7', '_SServerIsStarting', EServerIsStarting);
-	lp_Init (83, 'CDAAA10F-25B1-40AB-AF38-E442812FC0C4', '_SNoDocumentList', ENoDocumentList);
-	lp_Init (84, '53B82DF7-4FB0-4277-8051-7B45D1BE2CFA', '_SNoConnection', ENoConnection);
-	lp_Init (85, 'FE9BA082-AF49-4436-9F44-BB9F311123F4', '_SNoSubscription', ENoSubscription);
-	lp_Init (86, 'EEF53043-B518-4C31-A0BB-D5FFA24C8148', '_SPaymentForbidden', EPaymentForbidden);
-	lp_Init (87, '052FCB78-0AF7-43D4-90C2-7B0483DF9778', '_SNotDeleted', ENotDeleted);
-	lp_Init (88, '0786C2ED-20EF-42D8-884B-777DD8CC206A', '_SDeleted', EDeleted);
-	lp_Init (89, '5B2DADE4-4723-4C2B-857C-C4AF9455B1F2', '_SOldFormatConsultation', EOldFormatConsultation);
-	lp_Init (90, '3E91B55D-A586-4966-8C1C-4AC142314949', '_SUnknownUser', EUnknownUser);
-	lp_Init (91, 'B783DEE5-82F3-4AA5-8236-E64E479438A2', '_SCantCreateObject', ECantCreateObject);
-	lp_Init (92, 'FF78F730-8F08-45DA-9CE1-3124651BDB7A', '_SUnknownExportError', EUnknownExportError);
+	lp_Init (42, '831C4B6F-1F96-4FD9-BC5B-72C094403C0C', '_SInvalidDate', EInvalidDate);
+	lp_Init (43, '26E18290-AD8C-4074-8A60-93B5C3A1A1EE', '_SExplanationDictionaryNotInstalled', EExplanationDictionaryNotInstalled);
+	lp_Init (44, 'BBCC4DD8-8638-4E20-A012-B93EA66BDFF5', '_SInvalidObjectClass', EInvalidObjectClass);
+	lp_Init (45, 'A5E6BDD6-1CF7-42F1-A269-BC9C04E9708A', '_SNoPrevRedaction', ENoPrevRedaction);
+	lp_Init (46, 'C9FCD56A-2C69-47CC-8B48-32E8C4296A40', '_SInvalidEntryPoint', EInvalidEntryPoint);
+	lp_Init (47, 'E6D5FB9E-A514-44F7-B841-38A27EC6E33B', '_SInvalidLayerID', EInvalidLayerID);
+	lp_Init (48, 'E9F52E90-CE36-4583-8178-1872A710E38A', '_SAllChangesInTables', EAllChangesInTables);
+	lp_Init (49, '80BFA2E6-4042-47C3-AA1D-88FCEFBBA68A', '_SWrongAuthentication', EWrongAuthentication);
+	lp_Init (50, 'B32A68D2-68F0-4DBE-AB9E-08E914C25499', '_SNoMoreProfiles', ENoMoreProfiles);
+	lp_Init (51, '3638F5BA-04D9-471F-95F1-189DC103C6AA', '_SUserActive', EUserActive);
+	lp_Init (52, 'DE3C78AF-C27D-4243-8916-D969C6B1C70C', '_SLicenceViolation', ELicenceViolation);
+	lp_Init (53, '5A13C909-06FA-4682-8E2D-1C2AD5C2DAED', '_SXMLImportRunning', EXMLImportRunning);
+	lp_Init (54, '449F06CD-5A0E-477F-8B6D-ADFB8844E8CC', '_SLoginDuplicate', ELoginDuplicate);
+	lp_Init (55, 'DC16A621-69A1-4C58-AA89-B0231118E870', '_SShutdownInited', EShutdownInited);
+	lp_Init (56, '7AB288B1-A8C3-40AF-855F-687762019272', '_STrialPeriodExpired', ETrialPeriodExpired);
+	lp_Init (57, '02B61457-0724-454A-A52C-DB5B78CCA7B1', '_SAutoregistrationDisabled', EAutoregistrationDisabled);
+	lp_Init (58, '7CA79B54-8C37-4D00-84C0-52F2F780D68F', '_SNoMorePrivilegedProfiles', ENoMorePrivilegedProfiles);
+	lp_Init (59, '69B6D1D4-7DBB-40EE-8FDE-9675D33D230B', '_SNoDefaultValue', ENoDefaultValue);
+	lp_Init (60, '7EA1017A-32F2-4EAC-AF81-62300653DE90', '_SQueryNotExecuted', EQueryNotExecuted);
+	lp_Init (61, 'F2BB45BE-4533-476D-95CF-D7E121A195D5', '_SIPAddressNotFound', EIPAddressNotFound);
+	lp_Init (62, '96670BC0-148F-4D2D-BDDC-15AE7D32FFAC', '_SInvalidBase', EInvalidBase);
+	lp_Init (63, '303D9557-8EC2-400C-BF9C-BADEE422A49C', '_SNoServer', ENoServer);
+	lp_Init (64, '1D13BCD4-1DFF-4300-B58D-F7890BAAA58F', '_SBadNetworkConfig', EBadNetworkConfig);
+	lp_Init (65, 'C5A7C6C4-5834-4B8E-A5A2-4ECC471713C1', '_SSMTPServerAddressNotDefined', ESMTPServerAddressNotDefined);
+	lp_Init (66, '1DA675AE-50AF-474F-8022-1BDEEE14E50B', '_SSMTPServerNotFound', ESMTPServerNotFound);
+	lp_Init (67, '61872E6E-6284-40DF-B866-6BCAEC608893', '_SUserNotFound', EUserNotFound);
+	lp_Init (68, '8FB9BB5A-04F2-4EC2-B183-9AC1347EE390', '_SServerVersionNotValid', EServerVersionNotValid);
+	lp_Init (69, '6A6215CF-78F3-49EC-BF9F-50BB4CB9293D', '_SInternalServerError', EInternalServerError);
+	lp_Init (70, '085E10E6-7A2A-4F1A-ABF6-AC9A6B700D74', '_SWorkingParamsNotFound', EWorkingParamsNotFound);
+	lp_Init (71, 'BC028BE4-26A7-4936-B0E9-56AD866D0C05', '_SBadSMTPReply', EBadSMTPReply);
+	lp_Init (72, '6ABA3BD8-676F-471F-85F7-604C3270212D', '_SSettingsRestoreFails', ESettingsRestoreFails);
+	lp_Init (73, '9D512BC1-E36B-425C-94E9-EC550ED838F7', '_SExternalApplicationError', EExternalApplicationError);
+	lp_Init (74, '8A31DA0B-1697-4FA3-949D-01DC71BE4E18', '_SAlreadyLogged', EAlreadyLogged);
+	lp_Init (75, '9E554518-D746-4CDE-8C5D-847E73A44C74', '_SAccountDisabled', EAccountDisabled);
+	lp_Init (76, '1EBCB8C2-D652-4497-88B7-B6F6DEFC8C86', '_SNoMoreConnections', ENoMoreConnections);
+	lp_Init (77, '78893262-7052-47BD-A3ED-646A5A7B4B1E', '_SSMTPAuthorizationFailed', ESMTPAuthorizationFailed);
+	lp_Init (78, '2FC04D3B-B292-420C-B225-71B7ACE65770', '_SMorphoNotExists', EMorphoNotExists);
+	lp_Init (79, '82E6F745-353D-4022-BE27-AE22DCD2FB3E', '_SInternalApplicationError', EInternalApplicationError);
+	lp_Init (80, '55650D62-B1A8-4834-B197-FC50EF727F69', '_SInvalidUserDatastore', EInvalidUserDatastore);
+	lp_Init (81, 'FC547407-1744-4A16-B4B3-6CF86EB0E8C7', '_SServerIsStarting', EServerIsStarting);
+	lp_Init (82, 'CDAAA10F-25B1-40AB-AF38-E442812FC0C4', '_SNoDocumentList', ENoDocumentList);
+	lp_Init (83, '53B82DF7-4FB0-4277-8051-7B45D1BE2CFA', '_SNoConnection', ENoConnection);
+	lp_Init (84, 'FE9BA082-AF49-4436-9F44-BB9F311123F4', '_SNoSubscription', ENoSubscription);
+	lp_Init (85, 'EEF53043-B518-4C31-A0BB-D5FFA24C8148', '_SPaymentForbidden', EPaymentForbidden);
+	lp_Init (86, '052FCB78-0AF7-43D4-90C2-7B0483DF9778', '_SNotDeleted', ENotDeleted);
+	lp_Init (87, '0786C2ED-20EF-42D8-884B-777DD8CC206A', '_SDeleted', EDeleted);
+	lp_Init (88, '5B2DADE4-4723-4C2B-857C-C4AF9455B1F2', '_SOldFormatConsultation', EOldFormatConsultation);
+	lp_Init (89, '3E91B55D-A586-4966-8C1C-4AC142314949', '_SUnknownUser', EUnknownUser);
+	lp_Init (90, 'B783DEE5-82F3-4AA5-8236-E64E479438A2', '_SCantCreateObject', ECantCreateObject);
+	lp_Init (91, 'FF78F730-8F08-45DA-9CE1-3124651BDB7A', '_SUnknownExportError', EUnknownExportError);
 end;
 
 function TIdToExceptionMap.CreateException(anIndex: Longword): Exception;

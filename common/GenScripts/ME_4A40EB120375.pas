@@ -2,6 +2,7 @@ unit evCommentParaCursor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCommentParaCursor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCommentParaCursor" MUID: (4A40EB120375)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

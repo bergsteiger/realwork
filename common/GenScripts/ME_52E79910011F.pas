@@ -3,6 +3,7 @@ unit evCommonRes;
 
 // Модуль: "w:\archi\source\projects\Common\Utils\evCommonRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evCommonRes" MUID: (52E79910011F)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 

@@ -42,8 +42,12 @@ implementation
 {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 uses
   ArchiAutoTest,
-  TestFrameWork,
-  kwKeyWordsPack,
+  TestFrameWork
+  {$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCL)}
+  ,
+  kwKeyWordsPack
+  {$IfEnd} //nsTest AND not NoScripts AND not NoVCL
+  ,
   kwArchiEverestWordsPack,
   l3ComponentInfoHelper
   ;

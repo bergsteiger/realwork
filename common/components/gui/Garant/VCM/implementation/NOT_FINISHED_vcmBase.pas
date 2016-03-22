@@ -3,6 +3,7 @@ unit NOT_FINISHED_vcmBase;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmBase.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmBase" MUID: (47F25BC801DB)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

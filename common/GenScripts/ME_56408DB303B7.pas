@@ -2,6 +2,7 @@ unit daCondition;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daCondition.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaCondition" MUID: (56408DB303B7)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

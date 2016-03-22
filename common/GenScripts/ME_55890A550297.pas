@@ -2,6 +2,7 @@ unit l3Timer;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Timer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3Timer" MUID: (55890A550297)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

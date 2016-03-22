@@ -2,6 +2,7 @@ unit ddAppConfigListsRes;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigListsRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfigListsRes" MUID: (4B9E5E09030C)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

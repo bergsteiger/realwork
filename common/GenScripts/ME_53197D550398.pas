@@ -3,6 +3,8 @@ unit K517772970_TDeleteDocsQueryDefault;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TDeleteDocsQueryDefault.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TDeleteDocsQueryDefault" MUID: (53197D550398)
+// Имя типа: "TK517772970_TDeleteDocsQueryDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

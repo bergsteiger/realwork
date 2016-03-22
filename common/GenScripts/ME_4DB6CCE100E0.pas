@@ -3,6 +3,7 @@ unit kwInteger;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwInteger.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwInteger" MUID: (4DB6CCE100E0)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -21,7 +22,6 @@ type
   {* Зарезервированное слово Interger }
   private
    f_Value: Integer;
-    {* Поле для свойства Value }
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
   public

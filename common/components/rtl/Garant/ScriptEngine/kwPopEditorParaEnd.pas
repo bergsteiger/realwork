@@ -2,6 +2,8 @@ unit kwPopEditorParaEnd;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaEnd.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_ParaEnd" MUID: (4F732C5C00BD)
+// Имя типа: "TkwPopEditorParaEnd"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

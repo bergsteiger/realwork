@@ -23,8 +23,6 @@ interface
 type
  StoreSettingsToServer = class
   {* класс периодически сбрасывающий изменённые настройки на сервер }
- protected
- // realized methods
  end;//StoreSettingsToServer
 
 implementation

@@ -1,8 +1,20 @@
 unit nsExternalObjectPrim;
 
-{ $Id: nsExternalObjectPrim.pas,v 1.24 2015/09/07 12:16:12 morozov Exp $ }
+{ $Id: nsExternalObjectPrim.pas,v 1.28 2016/03/11 12:04:15 morozov Exp $ }
 
 // $Log: nsExternalObjectPrim.pas,v $
+// Revision 1.28  2016/03/11 12:04:15  morozov
+// {RequestLink: 619559253}
+//
+// Revision 1.27  2016/03/01 12:42:28  morozov
+// {RequestLink: 617782502}
+//
+// Revision 1.26  2016/01/19 13:27:56  morozov
+// {RequestLink: 615921376}
+//
+// Revision 1.25  2016/01/15 13:25:36  morozov
+// {RequestLink: 615706131}
+//
 // Revision 1.24  2015/09/07 12:16:12  morozov
 // {RequestLink: 606129455}
 //
@@ -718,7 +730,9 @@ uses
   evStyleHeaderAdder,
   evPDFWriter,
 
-  nsBrowserInfo
+  nsBrowserInfo,
+
+  vcmTabbedContainerFormDispatcher
   ;
 
 const
@@ -1111,39 +1125,9 @@ begin
  end;
 end;
 
-function IsValidDefaultBrowser: Boolean;
-begin
- Result := nsIsValidBrowser(nsGetBrowserType(nsGetDefaultBrowserString), True);
- // - http://mdp.garant.ru/pages/viewpage.action?pageId=563197648,
- // - http://mdp.garant.ru/pages/viewpage.action?pageId=565248245
-end;
-
 function RunValidBrowser(const anURL: Il3CString): Boolean;
-var
- l_StartupInfo: TStartupInfo;
- l_ProcessInformation: TProcessInformation;
- l_ShellExecuteInfo: {$IfDef XE}TShellExecuteInfoA{$Else}TShellExecuteInfo{$EndIf};
- l_ValidBrowserExeName: String;
 begin
- l_ValidBrowserExeName := nsGetFirstValidBrowserExeName;
- if (l_ValidBrowserExeName = '') then
- begin
-  Assert(False); // Не должны были сюда попасть в таком случае
-  Result := False;
-  Exit;
- end;
- // - http://mdp.garant.ru/pages/viewpage.action?pageId=563197648
- l3FillChar(l_ShellExecuteInfo, SizeOf(l_ShellExecuteInfo), 0);
- with l_ShellExecuteInfo do
- begin
-  cbSize := SizeOf(l_ShellExecuteInfo);
-  lpVerb := 'open';
-  lpFile := PChar(l_ValidBrowserExeName);
-  // - http://mdp.garant.ru/pages/viewpage.action?pageId=563197648
-  lpParameters := nsAStr(anURL).S;
-  nShow := SW_SHOWNORMAL;
- end;//with l_ShellExecuteInfo
- Result := ShellExecuteExA(@l_ShellExecuteInfo);
+ Result := nsLaunchBrowser(nsGetFirstValidBrowserInfo, l3Str(anURL));
 end;
 
 function nsDoShellExecuteEx(const aFile: Il3CString; SetReadOnlyToFile: Boolean;
@@ -1203,8 +1187,12 @@ var
  l_URL: WideString;
  l_I: Integer;
  l_QuotedFileName: String;
+ l_NeedOpenInternal: Boolean;
 begin
  {$If not defined(Admin) AND not defined(Monitorings)}
+ Result := False;
+ l_URL := l3WideString(aFile);
+ l_NeedOpenInternal :=nsNeedOpenLinkInInternalBrowser(l_URL); 
  //http://mdp.garant.ru/pages/viewpage.action?pageId=431371899
  if (not lp_IsLocalFile(aFile)) then
  begin
@@ -1216,21 +1204,20 @@ begin
    // http://mdp.garant.ru/pages/viewpage.action?pageId=482258671
    if (not IgnoreGarantURL) then
    begin
-    l_URL := l3WideString(aFile);
     // Ссылки на i.garant.ru открываем во внешнем окне браузера
     // http://mdp.garant.ru/pages/viewpage.action?pageId=484018812
     IgnoreGarantURL := lp_IsJudgeArchiveURL(aFile) OR
      nsNeedOpenLinkInExternalBrowser(l_URL);
    end;
-   if not SetReadOnlyToFile AND defDataAdapter.IsInternetAgentEnabled AND nsNeedOpenLinkInInternalBrowser(l3WideString(aFile)) then
+   if not SetReadOnlyToFile AND defDataAdapter.IsInternetAgentEnabled AND l_NeedOpenInternal then
    begin
     TdmStdRes.MakeInternetAgent(aFile, aContainerMaker.MakeContainer);
     Result := true;
     Exit;
    end;//not SetReadOnlyToFile AND nsIsGarantURL(l3WideString(aFile))
-   if (not nsNeedOpenLinkInInternalBrowser(l3WideString(aFile))) and
-      not IsValidDefaultBrowser and
-      (nsGetFirstValidBrowserExeName <> '') then
+   if (not l_NeedOpenInternal) then
+    if not nsIsValidDefaultBrowser and
+       (nsGetFirstValidBrowserExeName <> '') then
    // - http://mdp.garant.ru/pages/viewpage.action?pageId=563197648
    begin
     Result := RunValidBrowser(aFile);
@@ -1279,8 +1266,34 @@ type
  end;
 
 function TnsContainerMaker.MakeContainer: IvcmContainer;
+var
+ l_CurrentContainer: IvcmContainer;
+ l_ContainerMaker: IvcmContainerMaker;
 begin
- Result := IvcmContainer(f_Container);
+ // Ссылки открываются в новой вкладке
+ if (f_Container <> nil) then
+ begin
+  l_CurrentContainer := IvcmContainer(f_Container);
+  try
+   if Supports(l_CurrentContainer.NativeMainForm, IvcmContainerMaker, l_ContainerMaker) then
+   try
+   with TvcmTabbedContainerFormDispatcher.Instance do
+    Result := MakeAndPlaceVCMContainer(l_ContainerMaker,
+                                       l_CurrentContainer,
+                                       vcm_okInNewTab,
+                                       True,
+                                       False);
+   finally
+    l_ContainerMaker := nil;
+   end
+   else
+    Assert(False);
+  finally
+   l_CurrentContainer := nil;
+  end;
+ end
+ else
+  Result := nil;
 end;
 
 procedure TnsContainerMaker.CleanUp;

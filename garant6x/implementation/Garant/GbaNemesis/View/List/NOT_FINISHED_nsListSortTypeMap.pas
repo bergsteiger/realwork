@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsListSortTypeMap;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\NOT_FINISHED_nsListSortTypeMap.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsListSortTypeMap" MUID: (4F82BA9D0310)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

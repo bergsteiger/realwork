@@ -1,8 +1,11 @@
 unit nsOpenUtils;
 
-// $Id: nsOpenUtils.pas,v 1.66 2015/10/01 12:32:31 kostitsin Exp $
+// $Id: nsOpenUtils.pas,v 1.67 2016/03/17 09:09:58 kostitsin Exp $
 
 // $Log: nsOpenUtils.pas,v $
+// Revision 1.67  2016/03/17 09:09:58  kostitsin
+// {requestlink: 619725742 }
+//
 // Revision 1.66  2015/10/01 12:32:31  kostitsin
 // {requestlink: 608609025 }
 //
@@ -986,7 +989,7 @@ begin
   begin
    l_S1 := nsCStr(l_S);
    if l3Same('AT_NEWS_LINE', l_S1, true) then
-    TdmStdRes.OpenNewsLine
+    TdmStdRes.OpenNewsLine(False)
    else
    if l3Starts('AT_PUBLISH_SOURCE', l3PCharLen(l_S1), true) then
     TdmStdRes.OpenTaxesPublishSearch(l_S1)
@@ -1138,7 +1141,7 @@ begin
     TdmStdRes.OpenQuery(lg_qtLegislationReview, nil, nil);
    // Моя новостная лента
    NM_NEWS_LINE:
-    TdmStdRes.OpenNewsLine;
+    TdmStdRes.OpenNewsLine(False);
    NM_PHARM_SEARCH:
     TdmStdRes.OpenQuery(lg_qtInpharmSearch, nil, nil);
    NM_PHARM_LEK:

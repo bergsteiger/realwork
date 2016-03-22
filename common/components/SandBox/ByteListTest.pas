@@ -1,48 +1,40 @@
 unit ByteListTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "ByteListTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCase::Class Shared Delphi Sand Box::SandBoxTest::FinalContainersTests::ByteListTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\ByteListTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "ByteListTest" MUID: (51DEE67C003A)
+// Имя типа: "TByteListTest"
 
-{$Include ..\SandBox\sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork,
-  ByteList
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , TestFrameWork
+ , ByteList
+;
 
-{$If defined(nsTest)}
 type
  _ListType_ = TByteList;
- {$Include ..\SandBox\AtomicListTest.imp.pas}
+ {$Include w:\common\components\SandBox\AtomicListTest.imp.pas}
  TByteListTest = class(_AtomicListTest_)
  end;//TByteListTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //nsTest
+ l3ImplUses
+ , SysUtils
+;
 
-{$If defined(nsTest)}
-
-{$Include ..\SandBox\AtomicListTest.imp.pas}
-
-
-{$IfEnd} //nsTest
+{$Include w:\common\components\SandBox\AtomicListTest.imp.pas}
 
 initialization
  TestFramework.RegisterTest(TByteListTest.Suite);
+{$IfEnd} // Defined(nsTest)
+
 end.

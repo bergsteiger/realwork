@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "BaloonWarningUserTypes" MUID: (4F5E12C20114)
+// Имя типа: "_BaloonWarningUserTypes_"
 
 {$Define BaloonWarningUserTypes_imp}
 

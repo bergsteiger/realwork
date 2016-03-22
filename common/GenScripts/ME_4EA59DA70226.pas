@@ -2,6 +2,8 @@ unit PrimDockedWarning_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDockedWarning_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimDockedWarning" MUID: (4EA59DA70226)
+// Имя типа: "TPrimDockedWarningForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

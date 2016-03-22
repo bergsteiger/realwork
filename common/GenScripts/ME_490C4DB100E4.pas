@@ -3,6 +3,7 @@ unit mmmRegulatoryInformation;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\mmmRegulatoryInformation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TmmmRegulatoryInformation" MUID: (490C4DB100E4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

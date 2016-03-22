@@ -4,9 +4,18 @@ unit evListBlock;
 { Автор: Люлин А.В. ©     }
 { Модуль: evListBlock -   }
 { Начат: 25.09.2001 17:21 }
-{ $Id: evListBlock.pas,v 1.93 2014/07/30 14:26:52 lulin Exp $ }
+{ $Id: evListBlock.pas,v 1.96 2016/02/26 23:40:51 lulin Exp $ }
 
 // $Log: evListBlock.pas,v $
+// Revision 1.96  2016/02/26 23:40:51  lulin
+// -- вычищаем.
+//
+// Revision 1.95  2016/02/09 14:18:40  lulin
+// - перегенерация.
+//
+// Revision 1.94  2016/02/07 16:27:27  kostitsin
+// - чиню сборку
+//
 // Revision 1.93  2014/07/30 14:26:52  lulin
 // - рисуем фабрики интерфейсов.
 //
@@ -331,7 +340,7 @@ uses
   evInternalInterfaces,
   evParaListCursor,
   evParaListCursorPair,
-  evStdInt,
+  //evStdInt,
 
   nevBase,
   nevTools,

@@ -3,6 +3,7 @@ unit DrawLineTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\DrawLineTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TDrawLineTest" MUID: (4C46F52A0317)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

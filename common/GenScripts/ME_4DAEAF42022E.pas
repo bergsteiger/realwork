@@ -2,6 +2,7 @@ unit NOT_FINISHED_nevScroller;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_nevScroller.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevScroller" MUID: (4DAEAF42022E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

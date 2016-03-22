@@ -3,6 +3,8 @@ unit Settings_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\Settings_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "Settings" MUID: (4ABA14800365)
+// Имя типа: "Tcf_Settings"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

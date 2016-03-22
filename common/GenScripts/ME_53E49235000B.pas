@@ -2,6 +2,7 @@ unit vtGauge;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtGauge.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtGauge" MUID: (53E49235000B)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

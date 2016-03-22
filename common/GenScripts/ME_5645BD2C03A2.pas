@@ -2,6 +2,7 @@ unit pgFamilyHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgFamilyHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgFamilyHelper" MUID: (5645BD2C03A2)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 

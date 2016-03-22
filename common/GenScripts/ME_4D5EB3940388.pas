@@ -2,6 +2,7 @@ unit NOT_FINISHED_vg_extctrls;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vg_extctrls.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vg_extctrls" MUID: (4D5EB3940388)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

@@ -2,6 +2,7 @@ unit archiExportActionTest;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\NewActions\Export\archiExportActionTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TarchiExportActionTest" MUID: (5395D124034E)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

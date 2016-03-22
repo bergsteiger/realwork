@@ -23,22 +23,6 @@ FORWARD ME_53B24E23037A
 
 ref; // ME_53B24E3D00DF TaggedData
 
-: ME_F6B483878824
- CONST UID 'F6B483878824'
- CONST Name 'f_TaggedData'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TaggedData' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_lnk
- : Parent ME_53B24E23037A // k2TaggedDataHolder
- ;
- : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
- ;
-
-ref; // ME_F6B483878824 f_TaggedData
-
 FORWARD ME_53AC03EE01FD
 
 : ME_53AC03FE0362
@@ -126,8 +110,6 @@ ref; // ME_53BFF56D0348 SetTaggedData
 ref; // ME_53B24E5000AC 
 
 : ME_52BC2B9401F3_ME_53B24E23037A
- CONST UID '52BC2B9401F3'
- CONST Name 'AfterDestroyCalled'
  : Original WL 'ME_52BC2B9401F3' '47913B47006E.pas.ms.script' // AfterDestroyCalled
  ;
  : Implementor ME_53B24E23037A // k2TaggedDataHolder
@@ -136,8 +118,6 @@ ref; // ME_53B24E5000AC
 ref; // ME_52BC2B9401F3_ME_53B24E23037A AfterDestroyCalled
 
 : ME_53AC02B602E3_ME_53B24E23037A
- CONST UID '53AC02B602E3'
- CONST Name 'InitAfterAlloc'
  : Original WL 'ME_53AC02B602E3' '47913B47006E.pas.ms.script' // InitAfterAlloc
  ;
  : Implementor ME_53B24E23037A // k2TaggedDataHolder
@@ -161,7 +141,6 @@ ref; // ME_53AC02B602E3_ME_53B24E23037A InitAfterAlloc
  ; // Implements
  : Attributes
    Seq: ( ME_53B24E3D00DF // TaggedData
- ME_F6B483878824 // f_TaggedData
  )
  ; // Attributes
  : Operations

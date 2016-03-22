@@ -2,6 +2,7 @@ unit arEditorControl;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\arEditorControl.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarEditorControl" MUID: (4DE643F100CB)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

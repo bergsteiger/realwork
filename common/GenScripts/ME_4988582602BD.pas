@@ -2,6 +2,7 @@ unit NOT_FINISHED_ShellAPI;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\NOT_FINISHED_ShellAPI.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ShellAPI" MUID: (4988582602BD)
 
 interface
 

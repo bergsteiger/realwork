@@ -2,6 +2,7 @@ unit atJurQueryTestOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atJurQueryTestOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatJurQueryTestOperation" MUID: (5051E5CB00F4)
 
 interface
 

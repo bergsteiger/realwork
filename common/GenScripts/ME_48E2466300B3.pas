@@ -2,6 +2,7 @@ unit evQueryCardSelection;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evQueryCardSelection.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevQueryCardSelection" MUID: (48E2466300B3)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

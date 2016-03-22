@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlash.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrintableFlash" MUID: (4CDABB1C0025)
+// Имя типа: "_PrintableFlash_"
 
 {$Define PrintableFlash_imp}
 

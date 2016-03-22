@@ -2,6 +2,7 @@ unit l3ProtoObjectComparable;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoObjectComparable.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProtoObjectComparable" MUID: (4D5BF8930032)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsStringValueMapFactory;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsStringValueMapFactory.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsStringValueMapFactory" MUID: (4AD5BA56015E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit evTextParaMarkers;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTextParaMarkers.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evTextParaMarkers" MUID: (4A3911C50154)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

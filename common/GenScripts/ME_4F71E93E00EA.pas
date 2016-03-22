@@ -2,6 +2,7 @@ unit nsFormUtils;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\nsFormUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsFormUtils" MUID: (4F71E93E00EA)
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 

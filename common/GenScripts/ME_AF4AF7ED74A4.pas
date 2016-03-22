@@ -3,6 +3,7 @@ unit OutlinerFormKeywordsPack;
 
 // ћодуль: "w:\common\components\gui\Garant\Daily\Forms\OutlinerFormKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "OutlinerFormKeywordsPack" MUID: (AF4AF7ED74A4)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::OutlinerForm TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_OutlinerForm
 
  Tkw_OutlinerForm_Control_TreeControl = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::TreeControl TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OutlinerForm_Control_TreeControl
 
  Tkw_OutlinerForm_Control_TreeControl_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TvtOutlinerControl
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwOutlinerFormFormTreeControl
 
-class function Tkw_Form_OutlinerForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::OutlinerForm';
-end;//Tkw_Form_OutlinerForm.GetWordNameForRegister
-
 function Tkw_Form_OutlinerForm.GetString: AnsiString;
 begin
  Result := 'OutlinerFormForm';
 end;//Tkw_Form_OutlinerForm.GetString
 
-class function Tkw_OutlinerForm_Control_TreeControl.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_OutlinerForm.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::TreeControl';
-end;//Tkw_OutlinerForm_Control_TreeControl.GetWordNameForRegister
+ Result := 'форма::OutlinerForm';
+end;//Tkw_Form_OutlinerForm.GetWordNameForRegister
 
 function Tkw_OutlinerForm_Control_TreeControl.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtOutlinerControl);
 end;//Tkw_OutlinerForm_Control_TreeControl.RegisterInEngine
+
+class function Tkw_OutlinerForm_Control_TreeControl.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::TreeControl';
+end;//Tkw_OutlinerForm_Control_TreeControl.GetWordNameForRegister
 
 procedure Tkw_OutlinerForm_Control_TreeControl_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(TreeControl(aCtx, l_aOutlinerFormForm));
 end;//TkwOutlinerFormFormTreeControl.DoDoIt
 
-class function TkwOutlinerFormFormTreeControl.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TOutlinerFormForm.TreeControl';
-end;//TkwOutlinerFormFormTreeControl.GetWordNameForRegister
-
 procedure TkwOutlinerFormFormTreeControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwOutlinerFormFormTreeControl.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TOutlinerFormForm)]);
 end;//TkwOutlinerFormFormTreeControl.ParamsTypes
+
+class function TkwOutlinerFormFormTreeControl.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TOutlinerFormForm.TreeControl';
+end;//TkwOutlinerFormFormTreeControl.GetWordNameForRegister
 
 initialization
  Tkw_Form_OutlinerForm.RegisterInEngine;

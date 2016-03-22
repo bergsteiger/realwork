@@ -2,6 +2,7 @@ unit WorkWithList_ListOperations_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithList_ListOperations_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "ListOperations" MUID: (4C371629008F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

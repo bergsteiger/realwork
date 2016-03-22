@@ -2,6 +2,7 @@ unit NOT_FINISHED_SynZip;
 
 // Модуль: "w:\common\components\rtl\external\SynPDF\NOT_FINISHED_SynZip.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "SynZip" MUID: (5549B90B0223)
 
 {$Include w:\common\components\rtl\external\SynPDF\Synopse.inc}
 

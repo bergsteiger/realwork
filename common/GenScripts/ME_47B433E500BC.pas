@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3UntypedList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3UntypedList" MUID: (47B433E500BC)
+// Имя типа: "_l3UntypedList_"
 
 {$Define l3UntypedList_imp}
 

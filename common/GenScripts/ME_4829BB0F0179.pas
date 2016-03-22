@@ -2,6 +2,7 @@ unit ctAbstractEdit;
 
 // Модуль: "w:\common\components\gui\Garant\VT\ComboTree\ctAbstractEdit.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TctAbstractEdit" MUID: (4829BB0F0179)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_archiHTInit;
 
 // Модуль: "w:\archi\source\projects\Archi\Main\NOT_FINISHED_archiHTInit.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "archiHTInit" MUID: (5272012D0254)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

@@ -3,6 +3,7 @@ unit TableSelectTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\TableSelectTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTableSelectTest" MUID: (4C382CB00345)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

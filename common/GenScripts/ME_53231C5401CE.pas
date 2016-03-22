@@ -2,6 +2,7 @@ unit k2ToolPrimList;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2ToolPrimList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2ToolPrimList" MUID: (53231C5401CE)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

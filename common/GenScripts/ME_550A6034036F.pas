@@ -2,6 +2,7 @@ unit ChromeLikeTabSetAnimationManager;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetAnimationManager.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ChromeLikeTabSetAnimationManager" MUID: (550A6034036F)
 
 interface
 

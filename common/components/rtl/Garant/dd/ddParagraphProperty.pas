@@ -41,7 +41,8 @@ type
     procedure AssignFrom(aSource: TddPropertyObject); override;
     function OCompare(anObject: Tl3Base): Long; override;
     procedure Clear; override;
-    function Diff(P: TddPropertyObject): TddPropertyObject; override;
+    procedure ClearProperty(aProperty: TddParagraphProperties);
+    function Diff(P: TddPropertyObject; aForReader: Boolean): TddPropertyObject; override;
     function JoinWith(P: TObject): Long; override;
     procedure MergeWith(P: TddPropertyObject); override;
     procedure InheriteFrom(P: TddPropertyObject); override;
@@ -60,7 +61,7 @@ type
             SetBooleanProperty;
     property InTable: Boolean index dd_InTable read GetBooleanProperty write
             SetBooleanProperty;
-    property JUST: Tjust read GetJUST write SetJUST;
+    property JUST: TJust read GetJUST write SetJUST;
     property Keep: Boolean index dd_Keep read GetBooleanProperty write
             SetBooleanProperty;
     property KeepWNext: Boolean index dd_KeepWNext read GetBooleanProperty
@@ -257,7 +258,7 @@ begin
   Result := inherited OCompare(anObject);
 end;
 
-function TddParagraphProperty.Diff(P: TddPropertyObject): TddPropertyObject;
+function TddParagraphProperty.Diff(P: TddPropertyObject; aForReader: Boolean): TddPropertyObject;
 var
   aPAP: TddParagraphProperty absolute P;
   index: TddParagraphProperties;
@@ -363,6 +364,11 @@ begin
    Result := GetParam(anIndex) = cnIlvlDefValue
   else
    Result := GetParam(anIndex) = propUndefined;
+end;
+
+procedure TddParagraphProperty.ClearProperty(aProperty: TddParagraphProperties);
+begin
+ f_LongProperties[aProperty] := propUndefined;
 end;
 
 end.

@@ -3,6 +3,7 @@ unit nscFixedWidthControlCell;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscFixedWidthControlCell.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnscFixedWidthControlCell" MUID: (4ACA39B902E9)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_CustomizeTasksPanelRes;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\NOT_FINISHED_CustomizeTasksPanelRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "CustomizeTasksPanelRes" MUID: (5396F51300D8)
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

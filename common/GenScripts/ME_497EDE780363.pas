@@ -3,6 +3,8 @@ unit PrimDocumentWithFlash_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDocumentWithFlash_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimDocumentWithFlash" MUID: (497EDE780363)
+// Имя типа: "TPrimDocumentWithFlashForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -1317,6 +1319,8 @@ begin
 //#UC START# *49807428008C_497EDE780363_impl*
  if (aStateType = vcm_stContent) then
  begin
+  FromHistory := True;
+  f_FlashLoaded := False;
   Result := Supports(aState, InsDocumentWithFlashState, f_State);
  end//aStateType = vcm_stContent
  else

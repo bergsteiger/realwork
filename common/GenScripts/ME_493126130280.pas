@@ -3,6 +3,7 @@ unit sdsAdmin;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\sdsAdmin.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsAdmin" MUID: (493126130280)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -116,6 +117,7 @@ type
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
   private
    property BaseAccessRootTag: Il3CString
     read pm_GetBaseAccessRootTag;
@@ -838,6 +840,15 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4938F7E702B7_493126130280_impl*
 end;//TsdsAdmin.ClearAreas
+
+procedure TsdsAdmin.ClearFields;
+begin
+ f_dsUserList := nil;
+ f_dsAdmin := nil;
+ f_dsUserProperty := nil;
+ f_dsGroupsList := nil;
+ inherited;
+end;//TsdsAdmin.ClearFields
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // Defined(Admin)

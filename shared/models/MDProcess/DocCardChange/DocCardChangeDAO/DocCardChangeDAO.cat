@@ -1336,7 +1336,13 @@
 			    name       	"java:*55ED85200176_55EEE8A603AC*"
 			    value      	(value Text 
 |//#UC START# *55ED85200176_55EEE8A603AC*¤		return "áóìàæíûé (ñêàí)";¤		//#UC END# *55ED85200176_55EEE8A603AC*
-			    )))
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*55ED85200176_568BB2080007*"
+			    value      	
+|//#UC START# *55ED85200176_568BB2080007*¤		return "èíôîðìàöèÿ î ïóáëèêàöèè";¤		//#UC END# *55ED85200176_568BB2080007*
+			    ))
 		    quid       	"55ED85200176"
 		    result     	"string"
 		    concurrency 	"Sequential"
@@ -1913,7 +1919,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"java:*4C49AA1B03C3_CUSTOM_IMPORT*"
-		    value      	"//#UC START# *4C49AA1B03C3_CUSTOM_IMPORT*¤import ru.garant.MDProcess.ConfluenceMDChange.MDChangeDAO.AbstractRequestDAOProxy;¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.RequestPriorityManager;¤¤import net.sf.hibernate.HibernateException;¤//#UC END# *4C49AA1B03C3_CUSTOM_IMPORT*")
+		    value      	"//#UC START# *4C49AA1B03C3_CUSTOM_IMPORT*¤import ru.garant.MDProcess.ConfluenceMDChange.MDChangeDAO.AbstractRequestDAOProxy;¤import ru.garant.MDProcess.ConfluenceMDChange.MDChangeDAO.ExternalAuthorDAO;¤import ru.garant.MDProcess.ConfluenceMDChange.MDChangeDAO.LinkedExternalAuthorDAO;¤import ru.garant.MDProcess.ConfluenceMDChange.Requests.RequestPriorityManager;¤¤import net.sf.hibernate.HibernateException;¤//#UC END# *4C49AA1B03C3_CUSTOM_IMPORT*")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"java:*4C49AA1B03C3_CUSTOM_CLASS_DEFINITION*"
@@ -1922,7 +1928,7 @@
 		    tool       	"MDA Generator"
 		    name       	"java:*4C49AA1B03C3_CUSTOM_METHODS_AND_DATA*"
 		    value      	(value Text 
-|//#UC START# *4C49AA1B03C3_CUSTOM_METHODS_AND_DATA*¤¤	@Override¤	protected void clearAssociations(AbstractRequestDAOProxy previous) {¤		super.clearAssociations(previous);¤		¤		((UVSQuestDAO)previous).setCopy(null);¤	}¤¤	@Override¤	public AbstractRequestDAOProxy makeVersion(AbstractRequestDAOProxy updated)¤			throws CloneNotSupportedException, HibernateException {¤		// TODO Auto-generated method stub¤		UVSQuestDAO res = (UVSQuestDAO) super.makeVersion(updated);¤		res.setGardoc(getGardoc());¤		return res;¤	}¤¤	@Override¤	public long getPriority() {¤		return RequestPriorityManager.Factory.get().getFinalStatePriority();¤	}¤¤	@Override¤	public void setPriority(long priority) {¤		super.setPriority(RequestPriorityManager.Factory.get().getFinalStatePriority());¤	}¤	//#UC END# *4C49AA1B03C3_CUSTOM_METHODS_AND_DATA*
+|//#UC START# *4C49AA1B03C3_CUSTOM_METHODS_AND_DATA*¤¤	@Override¤	protected void clearAssociations(AbstractRequestDAOProxy previous) {¤		super.clearAssociations(previous);¤		¤		((UVSQuestDAO)previous).setCopy(null);¤	}¤¤	@Override¤	public AbstractRequestDAOProxy makeVersion(AbstractRequestDAOProxy updated)¤			throws CloneNotSupportedException, HibernateException {¤		// TODO Auto-generated method stub¤		UVSQuestDAO res = (UVSQuestDAO) super.makeVersion(updated);¤		res.setGardoc(getGardoc());¤		return res;¤	}¤¤	@Override¤	public long getPriority() {¤		return RequestPriorityManager.Factory.get().getFinalStatePriority();¤	}¤¤	@Override¤	public void setPriority(long priority) {¤		super.setPriority(RequestPriorityManager.Factory.get().getFinalStatePriority());¤	}¤¤	@Override¤	public LinkedExternalAuthorDAO addExternalAuthor(ExternalAuthorDAO author, String comment, String helpDeskQuery) {¤		return super.addExternalAuthor(author, comment, helpDeskQuery);¤	}¤	¤	¤	//#UC END# *4C49AA1B03C3_CUSTOM_METHODS_AND_DATA*
 		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
@@ -2290,7 +2296,7 @@
 		    tool       	"MDA Generator"
 		    name       	"java:*4C596AF6008C_CUSTOM_METHODS_AND_DATA*"
 		    value      	(value Text 
-|//#UC START# *4C596AF6008C_CUSTOM_METHODS_AND_DATA*¤	public void setGardocById (final long gardocId) {¤		try{¤			gardoc_ = GarDocDAO.get(gardocId);¤		}catch(HibernateException e){¤			Logs.LOG_I("ERROR! " + e);¤		}¤	}	¤	//#UC END# *4C596AF6008C_CUSTOM_METHODS_AND_DATA*
+|//#UC START# *4C596AF6008C_CUSTOM_METHODS_AND_DATA*¤	public void setGardocById (final long gardocId) {¤		try{¤			gardoc_ = GarDocDAO.get(gardocId);¤		}catch(HibernateException e){¤			Logs.LOG_I("ERROR! " + e);¤		}¤	}¤	¤	@Override¤	public String getLabel() {¤		return "uvs_query";¤	}¤	//#UC END# *4C596AF6008C_CUSTOM_METHODS_AND_DATA*
 		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
@@ -4386,7 +4392,7 @@
 		    tool       	"MDA Generator"
 		    name       	"java:*4E5E23BA00E6_CUSTOM_METHODS_AND_DATA*"
 		    value      	(value Text 
-|//#UC START# *4E5E23BA00E6_CUSTOM_METHODS_AND_DATA*¤	@Override¤	public int hashCode () {¤		final int prime = 31;¤		int result = 1;¤		result = prime * result + ((getComment() == null) ? 0 : getComment().hashCode());¤		result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());¤		result = prime * result + ((getName() == null) ? 0 : getName().hashCode());¤		result = prime * result + ((getHelpDeskQuery() == null) ? 0 : getHelpDeskQuery().hashCode());¤		return result;¤	}¤¤	@Override¤	public boolean equals (Object obj) {¤		if (this == obj) {¤			return true;¤		}¤		if (!(obj instanceof ExternalAuthorFromHelpDeskDAO)) {¤			return false;¤		}¤		ExternalAuthorFromHelpDeskDAO other = (ExternalAuthorFromHelpDeskDAO) obj;¤		if(isTheSameObject(getComment(), other.getComment()) == false){¤			return false;¤		}¤¤		if(isTheSameObject(getEmail(), other.getEmail()) == false){¤			return false;¤		}¤		¤		if(isTheSameObject(getName(), other.getName()) == false){¤			return false;¤		}¤¤		if(isTheSameObject(getHelpDeskQuery(), other.getHelpDeskQuery()) == false){¤			return false;¤		}¤¤		return true;¤	}¤¤	public ExternalAuthorFromHelpDeskDAO () {¤	}¤	//#UC END# *4E5E23BA00E6_CUSTOM_METHODS_AND_DATA*
+|//#UC START# *4E5E23BA00E6_CUSTOM_METHODS_AND_DATA*¤	@Override¤	public int hashCode () {¤		final int prime = 31;¤		int result = 1;¤		result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());¤		result = prime * result + ((getName() == null) ? 0 : getName().hashCode());¤		return result;¤	}¤¤	@Override¤	public boolean equals (Object obj) {¤		if (this == obj) {¤			return true;¤		}¤		if (!(obj instanceof ExternalAuthorFromHelpDeskDAO)) {¤			return false;¤		}¤		ExternalAuthorFromHelpDeskDAO other = (ExternalAuthorFromHelpDeskDAO) obj;¤¤		if(isTheSameObject(getEmail(), other.getEmail()) == false){¤			return false;¤		}¤		¤		if(isTheSameObject(getName(), other.getName()) == false){¤			return false;¤		}¤¤		return true;¤	}¤¤	public ExternalAuthorFromHelpDeskDAO () {¤	}¤	¤	//#UC END# *4E5E23BA00E6_CUSTOM_METHODS_AND_DATA*
 		    )))
 	    quid       	"4E5E23BA00E6"
 	    documentation 	"àâòîð çàïðîñà â ÃË ÞÎ íà ðîçûñê äîêóìåíòà"
@@ -4420,7 +4426,7 @@
 			    tool       	"MDA Generator"
 			    name       	"java:*4E5E2CBE01B2_BODY*"
 			    value      	(value Text 
-|//#UC START# *4E5E2CBE01B2_BODY*¤        setId(id);¤		setName(name);¤		setEmail(email);¤		setComment(comment);		¤		setHelpDeskQuery(helpDeskQuery);¤		//#UC END# *4E5E2CBE01B2_BODY*
+|//#UC START# *4E5E2CBE01B2_BODY*¤        setId(id);¤		setName(name);¤		setEmail(email);¤		//#UC END# *4E5E2CBE01B2_BODY*
 			    )))
 		    quid       	"4E5E2CBE01B2"
 		    stereotype 	"ctor"
@@ -4462,32 +4468,6 @@
 				    name       	"ResolvedTypeGuid"
 				    value      	"3DBFFE240068"))
 			    quid       	"4E5E2CD601D0"
-			    type       	"string"
-			    quidu      	"3DBFFE240068")
-			(object Parameter "comment"
-			    attributes 	(list Attribute_Set
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ElementCreationOrder"
-				    value      	"26382473448")
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ResolvedTypeGuid"
-				    value      	"3DBFFE240068"))
-			    quid       	"4E5E2CD60209"
-			    type       	"string"
-			    quidu      	"3DBFFE240068")
-			(object Parameter "help_desk_query"
-			    attributes 	(list Attribute_Set
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ElementCreationOrder"
-				    value      	"12614827960")
-				(object Attribute
-				    tool       	"MDA Generator"
-				    name       	"ResolvedTypeGuid"
-				    value      	"3DBFFE240068"))
-			    quid       	"4E5F301B000F"
 			    type       	"string"
 			    quidu      	"3DBFFE240068"))
 		    concurrency 	"Sequential"
@@ -4542,48 +4522,6 @@
 		    opExportControl 	"Public"
 		    uid        	0
 		    quidu      	"4E5E23BA00E6"))
-	    class_attributes 	(list class_attribute_list
-		(object ClassAttribute "help_desk_query"
-		    attributes 	(list Attribute_Set
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"ElementCreationOrder"
-			    value      	"24101564633")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"AbstarctOperation"
-			    value      	"final")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"ValueInitialized"
-			    value      	"true")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"IsNative"
-			    value      	"false")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"ResolvedTypeGuid"
-			    value      	"3DBFFE240068")
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"java:*4E5E23EE0073_GET_ACCESSOR*"
-			    value      	(value Text 
-|//#UC START# *4E5E23EE0073_GET_ACCESSOR*¤		return helpDeskQuery_;¤		//#UC END# *4E5E23EE0073_GET_ACCESSOR*
-			    ))
-			(object Attribute
-			    tool       	"MDA Generator"
-			    name       	"java:*4E5E23EE0073_SET_ACCESSOR*"
-			    value      	(value Text 
-|//#UC START# *4E5E23EE0073_SET_ACCESSOR*¤		helpDeskQuery_ = helpDeskQuery;¤		//#UC END# *4E5E23EE0073_SET_ACCESSOR*
-			    )))
-		    quid       	"4E5E23EE0073"
-		    documentation 	"Íîìåð çàïðîñà â HD"
-		    stereotype 	"property"
-		    type       	"string"
-		    quidu      	"3DBFFE240068"
-		    exportControl 	"Public"
-		    Containment 	"By Value"))
 	    language   	"MDA Generator")
 	(object Class "WordSynonymDAO"
 	    attributes 	(list Attribute_Set
@@ -6250,6 +6188,55 @@
 		    supplier   	"Logical View::MDProcess::DocCardChange::DocCardChangeDAO::ECopyDAO"
 		    quidu      	"4C5AA0440384"))
 	    language   	"MDA Generator")
+	(object Class "PublicationInfoCopyDAO"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1451995656008292")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/DocCardChange/DocCardChangeDAO/PublicationInfoCopyDAO.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*568BB2080007_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *568BB2080007_CUSTOM_IMPORT*¤//#UC END# *568BB2080007_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*568BB2080007_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *568BB2080007_CUSTOM_CLASS_DEFINITION*¤//#UC END# *568BB2080007_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*568BB2080007_CUSTOM_METHODS_AND_DATA*"
+		    value      	
+|//#UC START# *568BB2080007_CUSTOM_METHODS_AND_DATA*¤	@Override¤	public String getType() {¤		return "uvsquery.copies.pub.info";¤	}¤	//#UC END# *568BB2080007_CUSTOM_METHODS_AND_DATA*
+		    ))
+	    quid       	"568BB2080007"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1451995686078013"))
+		    quid       	"568BB226004C"
+		    supplier   	"Logical View::MDProcess::DocCardChange::DocCardChangeDAO::AbstractECopyDAO"
+		    quidu      	"4CAC270203BE"))
+	    language   	"MDA Generator")
 	(object Association "$UNNAMED$0"
 	    quid       	"4C49A9B2028B"
 	    roles      	(list role_list
@@ -6528,8 +6515,8 @@
 	    zoom       	100
 	    max_height 	28350
 	    max_width  	21600
-	    origin_x   	288
-	    origin_y   	0
+	    origin_x   	0
+	    origin_y   	2166
 	    items      	(list diagram_item_list
 		(object ClassView "Class" "Logical View::external::JavaTypes::Lang::Cloneable" @1
 		    ShowCompartmentStereotypes 	TRUE
@@ -6767,7 +6754,7 @@
 			fill_color 	16777215
 			anchor     	2
 			nlines     	4
-			max_width  	553
+			max_width  	556
 			justify    	1)
 		    width      	574
 		    height     	342
@@ -6838,7 +6825,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1146, 3468)
+		    location   	(2106, 3441)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -6851,7 +6838,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@9
-			location   	(980, 3438)
+			location   	(1940, 3411)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	332
@@ -6859,7 +6846,7 @@
 			label      	"ECopyDAO")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@9
-			location   	(980, 3388)
+			location   	(1940, 3361)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -6982,7 +6969,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(2292, 3480)
+		    location   	(2712, 3234)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -6995,7 +6982,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@14
-			location   	(1912, 3421)
+			location   	(2332, 3175)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	760
@@ -7003,7 +6990,7 @@
 			label      	"SiteCopyDAO")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@14
-			location   	(1912, 3371)
+			location   	(2332, 3125)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -7013,6 +7000,25 @@
 		    icon_style 	"Label"
 		    fill_color 	12842465
 		    quidu      	"4CAAE18401E2"
+		    compartment 	(object Compartment
+			Parent_View 	@14
+			location   	(2332, 3236)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	759
+			justify    	1)
 		    width      	778
 		    height     	242
 		    annotation 	8
@@ -7064,8 +7070,8 @@
 		    client     	@14
 		    supplier   	@15
 		    vertices   	(list Points
-			(2126, 3358)
-			(1971, 3245))
+			(2322, 3196)
+			(2051, 3171))
 		    line_style 	0)
 		(object InheritView "" @17
 		    stereotype 	TRUE
@@ -7074,8 +7080,8 @@
 		    client     	@9
 		    supplier   	@15
 		    vertices   	(list Points
-			(1321, 3388)
-			(1638, 3244))
+			(2021, 3348)
+			(1928, 3245))
 		    line_style 	0)
 		(object InheritView "" @18
 		    stereotype 	TRUE
@@ -7158,27 +7164,27 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@21
-			location   	(3465, 448)
+			location   	(3456, 452)
 			nlines     	1
-			max_width  	672
+			max_width  	690
 			justify    	0
 			label      	
 | AbstractRequestDAOProxy
 			)
 		    stereotype 	(object ItemLabel
 			Parent_View 	@21
-			location   	(3465, 398)
+			location   	(3456, 402)
 			anchor     	10
 			nlines     	1
-			max_width  	672
+			max_width  	690
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"4757CC3C013D"
-		    width      	690
-		    height     	188
+		    width      	708
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages::Page" @22
@@ -7226,14 +7232,14 @@
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object AssociationViewNew "" @23
-		    location   	(3069, 413)
+		    location   	(3064, 413)
 		    stereotype 	TRUE
 		    line_color 	3342489
 		    quidu      	"4757D0050321"
 		    roleview_list 	(list RoleViews
 			(object RoleView "" @24
 			    Parent_View 	@23
-			    location   	(1386, -133)
+			    location   	(1381, -133)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -7246,7 +7252,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @25
 				Parent_View 	@24
-				location   	(3375, 483)
+				location   	(3367, 482)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -7273,12 +7279,12 @@
 			    client     	@23
 			    supplier   	@21
 			    vertices   	(list Points
-				(3069, 413)
-				(3455, 447))
+				(3064, 413)
+				(3446, 447))
 			    line_style 	0)
 			(object RoleView "page" @26
 			    Parent_View 	@23
-			    location   	(1386, -133)
+			    location   	(1381, -133)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -7291,7 +7297,7 @@
 				default_color 	TRUE)
 			    label      	(object SegLabel @27
 				Parent_View 	@26
-				location   	(3188, 531)
+				location   	(3181, 531)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -7313,7 +7319,7 @@
 				orientation 	0)
 			    stereotype 	(object SegLabel @28
 				Parent_View 	@26
-				location   	(3277, 453)
+				location   	(3239, 453)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -7338,7 +7344,7 @@
 			    client     	@23
 			    supplier   	@22
 			    vertices   	(list Points
-				(3069, 413)
+				(3064, 413)
 				(2683, 378))
 			    line_style 	0)))
 		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::DocCardChangeDAO::GarDocDAO" @29
@@ -7394,7 +7400,7 @@
 			fill_color 	16777215
 			anchor     	2
 			nlines     	23
-			max_width  	2375
+			max_width  	2362
 			justify    	1)
 		    width      	2396
 		    height     	1292
@@ -7479,7 +7485,7 @@
 			    supplier   	@22
 			    vertices   	(list Points
 				(2399, 572)
-				(2393, 444))
+				(2394, 444))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$1" @34
 			    Parent_View 	@30
@@ -7491,7 +7497,7 @@
 			    supplier   	@29
 			    vertices   	(list Points
 				(2399, 572)
-				(2405, 700))
+				(2404, 700))
 			    line_style 	0)))
 		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::DocCardChangeDAO::GarDocQueryDAO" @35
 		    ShowCompartmentStereotypes 	TRUE
@@ -7572,7 +7578,7 @@
 		    supplier   	@21
 		    vertices   	(list Points
 			(4178, 1116)
-			(3856, 574))
+			(3854, 570))
 		    line_style 	0)
 		(object AssociationViewNew "$UNNAMED$5" @38
 		    location   	(3673, 1274)
@@ -7653,7 +7659,7 @@
 			    supplier   	@29
 			    vertices   	(list Points
 				(3673, 1274)
-				(3634, 1276))
+				(2436, 1347))
 			    line_style 	0)
 			(object RoleView "$UNNAMED$6" @42
 			    Parent_View 	@38
@@ -7665,7 +7671,7 @@
 			    supplier   	@35
 			    vertices   	(list Points
 				(3673, 1274)
-				(3713, 1272))
+				(4254, 1242))
 			    line_style 	0)))
 		(object RealizeView "" @43
 		    stereotype 	TRUE
@@ -7682,7 +7688,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(519, 3786)
+		    location   	(426, 4101)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -7695,7 +7701,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@44
-			location   	(208, 3627)
+			location   	(115, 3942)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	622
@@ -7703,7 +7709,7 @@
 			label      	"GarDocSourceTitles")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@44
-			location   	(208, 3577)
+			location   	(115, 3892)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -7713,6 +7719,25 @@
 		    icon_style 	"Label"
 		    fill_color 	12842465
 		    quidu      	"4DEF67A10395"
+		    compartment 	(object Compartment
+			Parent_View 	@44
+			location   	(115, 4003)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	6
+			max_width  	621
+			justify    	1)
 		    width      	640
 		    height     	442
 		    annotation 	8
@@ -7781,7 +7806,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1620, 4197)
+		    location   	(1725, 4203)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -7794,28 +7819,47 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@46
-			location   	(374, 4083)
+			location   	(900, 4119)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	2492
+			max_width  	1650
 			justify    	0
 			label      	
 | ExternalAuthorFromHelpDeskDAO
 			)
 		    stereotype 	(object ItemLabel
 			Parent_View 	@46
-			location   	(374, 4033)
+			location   	(900, 4069)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	2492
+			max_width  	1650
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    fill_color 	12842465
 		    quidu      	"4E5E23BA00E6"
-		    width      	2510
-		    height     	352
+		    compartment 	(object Compartment
+			Parent_View 	@46
+			location   	(900, 4180)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	1643
+			justify    	1)
+		    width      	1668
+		    height     	292
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::MDChangeDAO::ExternalAuthorDAO" @47
@@ -7837,25 +7881,25 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@47
-			location   	(1399, 3724)
+			location   	(1459, 3728)
 			nlines     	1
-			max_width  	508
+			max_width  	388
 			justify    	0
 			label      	"ExternalAuthorDAO")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@47
-			location   	(1399, 3674)
+			location   	(1459, 3678)
 			anchor     	10
 			nlines     	1
-			max_width  	508
+			max_width  	388
 			justify    	0
 			label      	"<<SimpleClass>>")
 		    icon_style 	"Label"
 		    line_color 	705320
 		    fill_color 	16777215
 		    quidu      	"47876B79029E"
-		    width      	526
-		    height     	188
+		    width      	406
+		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object InheritView "" @48
@@ -7865,8 +7909,8 @@
 		    client     	@46
 		    supplier   	@47
 		    vertices   	(list Points
-			(1632, 4020)
-			(1645, 3850))
+			(1701, 4056)
+			(1667, 3846))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::DocCardChangeDAO::BlockDAO::BlockList" @49
 		    ShowCompartmentStereotypes 	TRUE
@@ -8182,6 +8226,25 @@
 		    icon_style 	"Label"
 		    fill_color 	12842465
 		    quidu      	"4FB621E200F4"
+		    compartment 	(object Compartment
+			Parent_View 	@59
+			location   	(3587, 4678)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	737
+			justify    	1)
 		    width      	770
 		    height     	352
 		    annotation 	8
@@ -8191,7 +8254,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(2298, 4728)
+		    location   	(2571, 5034)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8204,7 +8267,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@60
-			location   	(1260, 4536)
+			location   	(1533, 4842)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	2076
@@ -8212,7 +8275,7 @@
 			label      	"InfoForMovingGardocsDAO")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@60
-			location   	(1260, 4486)
+			location   	(1533, 4792)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -8222,6 +8285,25 @@
 		    icon_style 	"Label"
 		    fill_color 	12842465
 		    quidu      	"5327F11500C0"
+		    compartment 	(object Compartment
+			Parent_View 	@60
+			location   	(1533, 4903)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	7
+			max_width  	2021
+			justify    	1)
 		    width      	2094
 		    height     	508
 		    annotation 	8
@@ -8231,7 +8313,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(582, 4755)
+		    location   	(513, 5043)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8244,7 +8326,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@61
-			location   	(113, 4396)
+			location   	(44, 4684)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	938
@@ -8252,7 +8334,7 @@
 			label      	"Partner")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@61
-			location   	(113, 4346)
+			location   	(44, 4634)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -8262,6 +8344,25 @@
 		    icon_style 	"Label"
 		    fill_color 	12842465
 		    quidu      	"50094C9F00DC"
+		    compartment 	(object Compartment
+			Parent_View 	@61
+			location   	(44, 4745)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	14
+			max_width  	937
+			justify    	1)
 		    width      	956
 		    height     	842
 		    annotation 	8
@@ -8302,6 +8403,25 @@
 		    icon_style 	"Label"
 		    fill_color 	12842465
 		    quidu      	"536B4CCE0054"
+		    compartment 	(object Compartment
+			Parent_View 	@62
+			location   	(1531, 5473)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	5
+			max_width  	1181
+			justify    	1)
 		    width      	1240
 		    height     	406
 		    annotation 	8
@@ -8451,7 +8571,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1182, 3807)
+		    location   	(2856, 3522)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -8464,7 +8584,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@70
-			location   	(1016, 3778)
+			location   	(2690, 3493)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	332
@@ -8472,7 +8592,7 @@
 			label      	"PaperScanCopy")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@70
-			location   	(1016, 3728)
+			location   	(2690, 3443)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -8493,8 +8613,58 @@
 		    client     	@70
 		    supplier   	@9
 		    vertices   	(list Points
-			(1171, 3715)
-			(1155, 3560))
+			(2680, 3502)
+			(2281, 3459))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::DocCardChangeDAO::PublicationInfoCopyDAO" @72
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1383, 3423)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@72
+			location   	(1139, 3394)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	488
+			justify    	0
+			label      	"PublicationInfoCopyDAO")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@72
+			location   	(1139, 3344)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	488
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"568BB2080007"
+		    width      	506
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @73
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"568BB226004C"
+		    client     	@72
+		    supplier   	@15
+		    vertices   	(list Points
+			(1536, 3331)
+			(1685, 3245))
 		    line_style 	0)))
 	(object ClassDiagram "DocCardChangeDAO"
 	    attributes 	(list Attribute_Set
@@ -8510,7 +8680,7 @@
 	    origin_x   	0
 	    origin_y   	2
 	    items      	(list diagram_item_list
-		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::DocCardChangeDAO::ExternalAuthorFromHelpDeskDAO" @72
+		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::DocCardChangeDAO::ExternalAuthorFromHelpDeskDAO" @74
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressAttribute 	TRUE
 		    SuppressOperation 	TRUE
@@ -8528,7 +8698,7 @@
 			color      	705320
 			default_color 	FALSE)
 		    label      	(object ItemLabel
-			Parent_View 	@72
+			Parent_View 	@74
 			location   	(417, 279)
 			nlines     	1
 			max_width  	696
@@ -8537,7 +8707,7 @@
 | ExternalAuthorFromHelpDeskDAO
 			)
 		    stereotype 	(object ItemLabel
-			Parent_View 	@72
+			Parent_View 	@74
 			location   	(417, 229)
 			anchor     	10
 			nlines     	1

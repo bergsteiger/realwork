@@ -3,6 +3,7 @@ unit NOT_FINISHED_k2BaseStackGenerator;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2BaseStackGenerator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2BaseStackGenerator" MUID: (4836B2EC01DE)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

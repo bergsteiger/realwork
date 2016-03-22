@@ -2,6 +2,7 @@ unit alcuFTPBrowserParams;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Process\alcuFTPBrowserParams.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuFTPBrowserParams" MUID: (54041EBF03C6)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

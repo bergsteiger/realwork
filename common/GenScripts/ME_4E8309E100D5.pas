@@ -2,6 +2,7 @@ unit NOT_FINISHED_IniShop;
 
 // Модуль: "w:\archi\source\projects\Archi\Main\NOT_FINISHED_IniShop.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "IniShop" MUID: (4E8309E100D5)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

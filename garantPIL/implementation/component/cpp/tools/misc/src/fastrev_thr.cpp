@@ -251,6 +251,7 @@ void	compare_attrs (long &thread_id)
 	gctx_attrs.insert (IDD_HANDHANDMASK);
 	gctx_attrs.insert (IDD_INVISIBLELENS);
 	gctx_attrs.insert (IDD_INVISIBLERELES);
+	gctx_attrs.insert (IDD_INVISIBLEBLOCKSLENS);
 	gctx_attrs.insert (IDD_TYPE);
 	gctx_attrs.insert (IDD_SOURCE);
 	gctx_attrs.insert (IDD_KIND);

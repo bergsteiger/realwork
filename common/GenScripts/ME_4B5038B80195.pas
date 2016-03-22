@@ -2,6 +2,7 @@ unit nsUserProperty;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserProperty.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsUserProperty" MUID: (4B5038B80195)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

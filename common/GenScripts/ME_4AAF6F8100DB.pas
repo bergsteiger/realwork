@@ -3,6 +3,8 @@ unit Preview_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\Preview_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "PreviewForm" MUID: (4AAF6F8100DB)
+// Имя типа: "TefPreviewForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

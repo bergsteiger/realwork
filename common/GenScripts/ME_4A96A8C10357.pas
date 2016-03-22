@@ -3,6 +3,7 @@ unit Folders_Strange_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders_Strange_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "Strange" MUID: (4A96A8C10357)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -4,9 +4,18 @@ unit evTextCursorPair;
 { Автор: Люлин А.В. ©     }
 { Модуль: evTextParaCursorPair - }
 { Начат: 16.12.2002 15:23 }
-{ $Id: evTextCursorPair.pas,v 1.3 2015/04/16 13:26:47 dinishev Exp $ }
+{ $Id: evTextCursorPair.pas,v 1.6 2015/12/09 09:12:14 lulin Exp $ }
 
 // $Log: evTextCursorPair.pas,v $
+// Revision 1.6  2015/12/09 09:12:14  lulin
+// - костыляем обратно.
+//
+// Revision 1.5  2015/12/08 12:58:12  lulin
+// - очередной костыль для "красного болда".
+//
+// Revision 1.4  2015/12/08 12:53:50  lulin
+// - очередной костыль для "красного болда".
+//
 // Revision 1.3  2015/04/16 13:26:47  dinishev
 // {Requestlink:596845383}
 //
@@ -885,6 +894,11 @@ begin
     else
     begin
      // - обрабатываем другие параметры
+     {$IfNDef Nemesis}
+     (* [15:37]  БВ> Мы когда к целому параграфу применяем стиль выделения, как-то понимаем, что его надо не к параграфу применить. Может тут так же поступить? *)
+     evSegments_PaintSegment(ParaX, ParaX.AsObject.cAtom(k2_tiSegments, anOpPack),
+                             f_B, anIndex, pSource, anOpPack, l_PaintHyper);
+     {$Else   Nemesis}
      evTextParaSetFontParam(ParaX, anIndex, pSource, anOpPack);
      l_Segs := ParaX.AsObject.Attr[k2_tiSegments];
      if l_Segs.IsValid then
@@ -893,6 +907,7 @@ begin
       except
        on Ek2ReadOnlyProperty do ;
       end;//try..except
+     {$EndIf  Nemesis}
     end;//T = k2_tiStyle
    end//Solid
    else

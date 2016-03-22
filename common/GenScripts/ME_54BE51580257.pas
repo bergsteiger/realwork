@@ -2,6 +2,8 @@ unit eeDocument_InterfaceFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocument_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
+// Элемент модели: "TeeDocument" MUID: (54BE51580257)
+// Имя типа: "TeeDocumentInterfaceFactory"
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

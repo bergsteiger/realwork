@@ -2,6 +2,7 @@ unit NOT_FINISHED_resWarnImages;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_resWarnImages.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "resWarnImages" MUID: (4AAA21970352)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

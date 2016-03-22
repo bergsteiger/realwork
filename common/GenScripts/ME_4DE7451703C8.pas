@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\ClickOnCommentHeader.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "ClickOnCommentHeader" MUID: (4DE7451703C8)
+// Имя типа: "_ClickOnCommentHeader_"
 
 {$Define ClickOnCommentHeader_imp}
 

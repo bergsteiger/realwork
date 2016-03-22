@@ -3,6 +3,7 @@ unit WorkJournalKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\WorkJournalKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "WorkJournalKeywordsPack" MUID: (B772BF700C99)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::WorkJournal TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_WorkJournal
 
  Tkw_WorkJournal_Control_JournalTree = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::JournalTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_WorkJournal_Control_JournalTree
 
  Tkw_WorkJournal_Control_JournalTree_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwWorkJournalFormJournalTree
 
-class function Tkw_Form_WorkJournal.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::WorkJournal';
-end;//Tkw_Form_WorkJournal.GetWordNameForRegister
-
 function Tkw_Form_WorkJournal.GetString: AnsiString;
 begin
  Result := 'WorkJournalForm';
 end;//Tkw_Form_WorkJournal.GetString
 
-class function Tkw_WorkJournal_Control_JournalTree.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_WorkJournal.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::JournalTree';
-end;//Tkw_WorkJournal_Control_JournalTree.GetWordNameForRegister
+ Result := 'форма::WorkJournal';
+end;//Tkw_Form_WorkJournal.GetWordNameForRegister
 
 function Tkw_WorkJournal_Control_JournalTree.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_WorkJournal_Control_JournalTree.RegisterInEngine
+
+class function Tkw_WorkJournal_Control_JournalTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::JournalTree';
+end;//Tkw_WorkJournal_Control_JournalTree.GetWordNameForRegister
 
 procedure Tkw_WorkJournal_Control_JournalTree_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(JournalTree(aCtx, l_aWorkJournalForm));
 end;//TkwWorkJournalFormJournalTree.DoDoIt
 
-class function TkwWorkJournalFormJournalTree.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TWorkJournalForm.JournalTree';
-end;//TkwWorkJournalFormJournalTree.GetWordNameForRegister
-
 procedure TkwWorkJournalFormJournalTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwWorkJournalFormJournalTree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TWorkJournalForm)]);
 end;//TkwWorkJournalFormJournalTree.ParamsTypes
+
+class function TkwWorkJournalFormJournalTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TWorkJournalForm.JournalTree';
+end;//TkwWorkJournalFormJournalTree.GetWordNameForRegister
 
 initialization
  Tkw_Form_WorkJournal.RegisterInEngine;

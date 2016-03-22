@@ -3,6 +3,7 @@ unit nsAttrBranchStruct;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttrBranchStruct.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsAttrBranchStruct" MUID: (4909E1DD038F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

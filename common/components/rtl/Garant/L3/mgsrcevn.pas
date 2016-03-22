@@ -7,11 +7,14 @@ unit mgSrcEvn;
 //
 // Copyright (c) 1997-2000 by Archivarius Team, free for non commercial use.
 //
-// $Id: mgsrcevn.pas,v 1.1 2014/08/20 16:07:28 lulin Exp $
+// $Id: mgsrcevn.pas,v 1.2 2016/02/15 16:07:49 voba Exp $
 //
 *)
 
  // $Log: mgsrcevn.pas,v $
+ // Revision 1.2  2016/02/15 16:07:49  voba
+ // no message
+ //
  // Revision 1.1  2014/08/20 16:07:28  lulin
  // - вычищаем мусор.
  //
@@ -67,6 +70,7 @@ uses
   l3Types,
   l3Interfaces,
   l3Base,
+  l3SpellMisc,
   l3LingLib,
   l3StringList,
   l3ProtoObject

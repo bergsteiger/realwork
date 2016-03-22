@@ -3,6 +3,7 @@ unit PreviewInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\PreviewInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "PreviewInterfaces" MUID: (4991B06602DA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

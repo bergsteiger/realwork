@@ -2,6 +2,7 @@ unit kwCompiledIncluded;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledIncluded.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledIncluded" MUID: (4DC98AAC0395)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

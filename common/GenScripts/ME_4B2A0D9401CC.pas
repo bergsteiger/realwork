@@ -2,6 +2,7 @@ unit NOT_FINISHED_GUITestRunner;
 
 // Модуль: "w:\common\components\rtl\external\DUnit\src\NOT_FINISHED_GUITestRunner.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "GUITestRunner" MUID: (4B2A0D9401CC)
 
 interface
 

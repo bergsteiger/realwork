@@ -41,6 +41,7 @@ implementation
 
 Uses
  daDataProvider,
+ daSchemeConsts,
  dt_DictExport, dt_DictImport, dt_Dict, dt_Const, dt_Link, dt_LinkServ,
  l3FileUtils, l3ShellUtils,
  SysUtils, Controls, Dialogs,

@@ -2,6 +2,7 @@ unit evSavedCursorListPrim;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSavedCursorListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevSavedCursorListPrim" MUID: (47E3E5A102C9)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

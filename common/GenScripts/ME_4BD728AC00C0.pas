@@ -3,6 +3,7 @@ unit PrimRubricator_utRubricatorList_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Rubricator\Forms\PrimRubricator_utRubricatorList_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utRubricatorList" MUID: (4BD728AC00C0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utRubricatorList = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utRubricatorList }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utRubricatorList
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utRubricatorList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utRubricatorList';
-end;//Tkw_FormUserType_utRubricatorList.GetWordNameForRegister
-
 function Tkw_FormUserType_utRubricatorList.GetInteger: Integer;
 begin
  Result := utRubricatorList;
 end;//Tkw_FormUserType_utRubricatorList.GetInteger
+
+class function Tkw_FormUserType_utRubricatorList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utRubricatorList';
+end;//Tkw_FormUserType_utRubricatorList.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

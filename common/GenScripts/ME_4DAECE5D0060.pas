@@ -3,6 +3,7 @@ unit vcmInsiderTest;
 
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\vcmInsiderTest.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmInsiderTest" MUID: (4DAECE5D0060)
 
 {$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 

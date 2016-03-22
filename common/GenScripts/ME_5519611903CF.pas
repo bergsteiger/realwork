@@ -2,6 +2,7 @@ unit IterateableService;
 
 // Модуль: "w:\common\components\SandBox\IterateableService.pas"
 // Стереотип: "Service"
+// Элемент модели: "TIterateableService" MUID: (5519611903CF)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsOpenContents.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsOpenContents" MUID: (4DF9B9980075)
+// Имя типа: "_nsOpenContents_"
 
 {$Define nsOpenContents_imp}
 

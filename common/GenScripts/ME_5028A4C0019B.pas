@@ -2,6 +2,7 @@ unit vcmToolbar;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmToolbar.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvcmToolbar" MUID: (5028A4C0019B)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

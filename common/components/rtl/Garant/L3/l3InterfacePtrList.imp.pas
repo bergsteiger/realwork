@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3InterfacePtrList" MUID: (47B57D630029)
+// Имя типа: "_l3InterfacePtrList_"
 
 {$Define l3InterfacePtrList_imp}
 

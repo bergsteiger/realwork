@@ -630,6 +630,8 @@ type
    procedure pm_SetLabelTop(aValue: Boolean); override;
  protected
  // overridden protected methods
+   procedure Cleanup; override;
+     {* Функция очистки полей объекта. }
    function ConstructControl(var aLeft: Integer;
      var aMaxLeft: Integer;
      var aTop: Integer;
@@ -3497,6 +3499,16 @@ begin
   f_Items.Assign(TddRadioGroupConfigItem(Source).f_Items);
 //#UC END# *478CF34E02CE_52260D9A0238_impl*
 end;//TddRadioGroupConfigItem.Assign
+
+procedure TddRadioGroupConfigItem.Cleanup;
+//#UC START# *479731C50290_52260D9A0238_var*
+//#UC END# *479731C50290_52260D9A0238_var*
+begin
+//#UC START# *479731C50290_52260D9A0238_impl*
+ FreeAndNil(f_Items);
+ inherited;
+//#UC END# *479731C50290_52260D9A0238_impl*
+end;//TddRadioGroupConfigItem.Cleanup
 
 constructor TddRadioGroupConfigItem.Create(const aAlias: AnsiString;
   const aCaption: AnsiString;

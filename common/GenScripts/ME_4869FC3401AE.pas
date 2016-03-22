@@ -3,6 +3,7 @@ unit Converters;
 
 // Модуль: "w:\shared\tie\Garant\GCI\Converters.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Converters" MUID: (4869FC3401AE)
 
 interface
 

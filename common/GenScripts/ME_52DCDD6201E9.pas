@@ -3,6 +3,7 @@ unit ddRTFSegmentWriter;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddRTFSegmentWriter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddRTFSegmentWriter" MUID: (52DCDD6201E9)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -63,6 +64,7 @@ type
    procedure DecBracesCount(aValue: Integer);
    procedure WriteOpenBarket;
    procedure WriteCloseBarket;
+   procedure ClearFields; override;
   public
    property Host: AnsiString
     read f_Host
@@ -217,7 +219,7 @@ begin
    l_SegStyle := Document.StyleTable[aSeg.CHP.Style];
    if l_SegStyle <> nil then
    begin
-    l_TmpCHP := TddCharacterProperty(aSeg.CHP.Diff(l_SegStyle.CHP));
+    l_TmpCHP := TddCharacterProperty(aSeg.CHP.Diff(l_SegStyle.CHP, False));
     try
      if l_SegStyle.StyleDef = sdCharacter then
       l_Format := Style2RTF(l_SegStyle, propUndefined, False) + CHP2RTF(l_TmpCHP, nil, False)
@@ -230,7 +232,7 @@ begin
   end // if aSeg.CHP.Style <> propUndefined then
   else //aSeg.Style <> propUndefined
   begin
-   l_SegCHP:= TddCharacterProperty(aSeg.CHP.Diff(aPara.CHP));
+   l_SegCHP:= TddCharacterProperty(aSeg.CHP.Diff(aPara.CHP, False));
    try
     l_Format := DiffCHP2RTF(l_SegCHP, aPara.CHP);
    finally
@@ -467,5 +469,11 @@ begin
  OutString('}');
 //#UC END# *542BBB020308_52DCDD6201E9_impl*
 end;//TddRTFSegmentWriter.WriteCloseBarket
+
+procedure TddRTFSegmentWriter.ClearFields;
+begin
+ Host := '';
+ inherited;
+end;//TddRTFSegmentWriter.ClearFields
 
 end.

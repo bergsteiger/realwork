@@ -7,4 +7,4 @@
 {$DEFINE NoVgScene}
 {$DEFINE noGDIPlus}
 {$DEFINE m3DBDontNeedFork}
-
+{$DEFINE NoScripts}

@@ -217,6 +217,7 @@
 #include "garant6x/implementation/Garant/GblAdapterLib/impl/MainMenu_i/BusinessReferencesSection_factory.h"
 #include "garant6x/implementation/Garant/GblAdapterLib/impl/MainMenu_i/ChangesInLegislationSection_factory.h"
 #include "garant6x/implementation/Garant/GblAdapterLib/impl/MainMenu_i/LawForAllSection_factory.h"
+#include "garant6x/implementation/Garant/GblAdapterLib/impl/MainMenu_i/GosZakupkiSection_factory.h"
 
 namespace GblAdapterLib {
 
@@ -1266,6 +1267,11 @@ void LibHomeImpl::registrate_all_factories () const {
 	
 	{
 		LawForAllSection_factory_var fctr = new LawForAllSection_factory ();
+		fctr->registrate_me(0);
+	}
+	
+	{
+		GosZakupkiSection_factory_var fctr = new GosZakupkiSection_factory ();
 		fctr->registrate_me(0);
 	}
 	

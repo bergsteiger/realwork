@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\FiltersUserTypes.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "FiltersUserTypes" MUID: (4D80D26F0341)
+// Имя типа: "_FiltersUserTypes_"
 
 {$Define FiltersUserTypes_imp}
 

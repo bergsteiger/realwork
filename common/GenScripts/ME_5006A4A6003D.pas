@@ -2,6 +2,7 @@ unit vcmUserTypesCollectionItemPrim;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmUserTypesCollectionItemPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmUserTypesCollectionItemPrim" MUID: (5006A4A6003D)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

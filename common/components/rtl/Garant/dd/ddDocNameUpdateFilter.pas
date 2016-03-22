@@ -1,8 +1,11 @@
 unit ddDocNameUpdateFilter;
 
-{ $Id: ddDocNameUpdateFilter.pas,v 1.8 2015/03/13 11:55:47 voba Exp $ }
+{ $Id: ddDocNameUpdateFilter.pas,v 1.9 2015/11/25 14:01:46 lukyanets Exp $ }
 
 // $Log: ddDocNameUpdateFilter.pas,v $
+// Revision 1.9  2015/11/25 14:01:46  lukyanets
+// «аготовки дл€ выдачи номеров+переезд констант
+//
 // Revision 1.8  2015/03/13 11:55:47  voba
 // - локальное автосохранение документов
 //
@@ -63,6 +66,8 @@ uses
  k2Tags,
 
  Document_Const,
+
+ daSchemeConsts,
 
  DT_Const,
  dt_Record,

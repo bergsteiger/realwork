@@ -3,6 +3,8 @@ unit AbstractHistory_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\AbstractHistory_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "AbstractHistory" MUID: (4A6EA4310035)
+// Имя типа: "TAbstractHistoryForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

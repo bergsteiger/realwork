@@ -2,6 +2,8 @@ unit evTextPara_InterfaceFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTextPara_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
+// Элемент модели: "TevTextPara" MUID: (48577C150116)
+// Имя типа: "TevTextParaInterfaceFactory"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

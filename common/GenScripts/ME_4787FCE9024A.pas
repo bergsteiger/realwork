@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3AsincMessageWindow;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3AsincMessageWindow.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3AsincMessageWindow" MUID: (4787FCE9024A)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

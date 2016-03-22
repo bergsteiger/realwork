@@ -2,6 +2,7 @@ unit seModalWorker;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\seModalWorker.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "seModalWorker" MUID: (4FC75F0F0061)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

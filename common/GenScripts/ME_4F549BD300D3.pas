@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "kwEditorGetTableFromCursor" MUID: (4F549BD300D3)
+// Имя типа: "_kwEditorGetTableFromCursor_"
 
 {$Define kwEditorGetTableFromCursor_imp}
 

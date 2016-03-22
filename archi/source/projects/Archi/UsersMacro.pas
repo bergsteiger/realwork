@@ -55,6 +55,7 @@ uses
  evCustomEditor,
 
  StrSpecUtil, StrShop,
+ daSchemeConsts,
  dtIntf, DT_Sab,
  DT_Serv,
  DT_LinkServ,

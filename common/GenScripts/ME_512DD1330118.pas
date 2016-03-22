@@ -8,6 +8,8 @@ CloseActiveWindow
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwCloseActiveWindow.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "CloseActiveWindow" MUID: (512DD1330118)
+// Имя типа: "TkwCloseActiveWindow"
 
 interface
 

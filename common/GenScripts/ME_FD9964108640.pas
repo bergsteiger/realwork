@@ -3,6 +3,7 @@ unit CompInfoKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\CompInfoKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "CompInfoKeywordsPack" MUID: (FD9964108640)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -46,8 +47,8 @@ type
 'aControl' форма::CompInfo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_CompInfo
 
  Tkw_CompInfo_Control_tvComplectInfo = {final} class(TtfwControlString)
@@ -58,9 +59,9 @@ type
 контрол::tvComplectInfo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CompInfo_Control_tvComplectInfo
 
  Tkw_CompInfo_Control_tvComplectInfo_Push = {final} class(TkwBynameControlPush)
@@ -83,9 +84,9 @@ type
 контрол::pnBottom TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CompInfo_Control_pnBottom
 
  Tkw_CompInfo_Control_pnBottom_Push = {final} class(TkwBynameControlPush)
@@ -108,9 +109,9 @@ type
 контрол::pnVisualRepresentationData TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CompInfo_Control_pnVisualRepresentationData
 
  Tkw_CompInfo_Control_pnVisualRepresentationData_Push = {final} class(TkwBynameControlPush)
@@ -133,9 +134,9 @@ type
 контрол::pnVisualRepresentationDataCaption TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CompInfo_Control_pnVisualRepresentationDataCaption
 
  Tkw_CompInfo_Control_pnVisualRepresentationDataCaption_Push = {final} class(TkwBynameControlPush)
@@ -158,9 +159,9 @@ type
 контрол::lblVisualRepresentationData TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CompInfo_Control_lblVisualRepresentationData
 
  Tkw_CompInfo_Control_lblVisualRepresentationData_Push = {final} class(TkwBynameControlPush)
@@ -295,20 +296,15 @@ OBJECT VAR l_TvtLabel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnCompInfoLblVisualRepresentationData
 
-class function Tkw_Form_CompInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::CompInfo';
-end;//Tkw_Form_CompInfo.GetWordNameForRegister
-
 function Tkw_Form_CompInfo.GetString: AnsiString;
 begin
  Result := 'enCompInfo';
 end;//Tkw_Form_CompInfo.GetString
 
-class function Tkw_CompInfo_Control_tvComplectInfo.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_CompInfo.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::tvComplectInfo';
-end;//Tkw_CompInfo_Control_tvComplectInfo.GetWordNameForRegister
+ Result := 'форма::CompInfo';
+end;//Tkw_Form_CompInfo.GetWordNameForRegister
 
 function Tkw_CompInfo_Control_tvComplectInfo.GetString: AnsiString;
 begin
@@ -321,6 +317,11 @@ begin
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_CompInfo_Control_tvComplectInfo.RegisterInEngine
 
+class function Tkw_CompInfo_Control_tvComplectInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvComplectInfo';
+end;//Tkw_CompInfo_Control_tvComplectInfo.GetWordNameForRegister
+
 procedure Tkw_CompInfo_Control_tvComplectInfo_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('tvComplectInfo');
@@ -331,11 +332,6 @@ class function Tkw_CompInfo_Control_tvComplectInfo_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::tvComplectInfo:push';
 end;//Tkw_CompInfo_Control_tvComplectInfo_Push.GetWordNameForRegister
-
-class function Tkw_CompInfo_Control_pnBottom.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnBottom';
-end;//Tkw_CompInfo_Control_pnBottom.GetWordNameForRegister
 
 function Tkw_CompInfo_Control_pnBottom.GetString: AnsiString;
 begin
@@ -348,6 +344,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CompInfo_Control_pnBottom.RegisterInEngine
 
+class function Tkw_CompInfo_Control_pnBottom.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnBottom';
+end;//Tkw_CompInfo_Control_pnBottom.GetWordNameForRegister
+
 procedure Tkw_CompInfo_Control_pnBottom_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnBottom');
@@ -358,11 +359,6 @@ class function Tkw_CompInfo_Control_pnBottom_Push.GetWordNameForRegister: AnsiSt
 begin
  Result := 'контрол::pnBottom:push';
 end;//Tkw_CompInfo_Control_pnBottom_Push.GetWordNameForRegister
-
-class function Tkw_CompInfo_Control_pnVisualRepresentationData.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnVisualRepresentationData';
-end;//Tkw_CompInfo_Control_pnVisualRepresentationData.GetWordNameForRegister
 
 function Tkw_CompInfo_Control_pnVisualRepresentationData.GetString: AnsiString;
 begin
@@ -375,6 +371,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CompInfo_Control_pnVisualRepresentationData.RegisterInEngine
 
+class function Tkw_CompInfo_Control_pnVisualRepresentationData.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnVisualRepresentationData';
+end;//Tkw_CompInfo_Control_pnVisualRepresentationData.GetWordNameForRegister
+
 procedure Tkw_CompInfo_Control_pnVisualRepresentationData_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnVisualRepresentationData');
@@ -385,11 +386,6 @@ class function Tkw_CompInfo_Control_pnVisualRepresentationData_Push.GetWordNameF
 begin
  Result := 'контрол::pnVisualRepresentationData:push';
 end;//Tkw_CompInfo_Control_pnVisualRepresentationData_Push.GetWordNameForRegister
-
-class function Tkw_CompInfo_Control_pnVisualRepresentationDataCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnVisualRepresentationDataCaption';
-end;//Tkw_CompInfo_Control_pnVisualRepresentationDataCaption.GetWordNameForRegister
 
 function Tkw_CompInfo_Control_pnVisualRepresentationDataCaption.GetString: AnsiString;
 begin
@@ -402,6 +398,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CompInfo_Control_pnVisualRepresentationDataCaption.RegisterInEngine
 
+class function Tkw_CompInfo_Control_pnVisualRepresentationDataCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnVisualRepresentationDataCaption';
+end;//Tkw_CompInfo_Control_pnVisualRepresentationDataCaption.GetWordNameForRegister
+
 procedure Tkw_CompInfo_Control_pnVisualRepresentationDataCaption_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnVisualRepresentationDataCaption');
@@ -413,11 +414,6 @@ begin
  Result := 'контрол::pnVisualRepresentationDataCaption:push';
 end;//Tkw_CompInfo_Control_pnVisualRepresentationDataCaption_Push.GetWordNameForRegister
 
-class function Tkw_CompInfo_Control_lblVisualRepresentationData.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lblVisualRepresentationData';
-end;//Tkw_CompInfo_Control_lblVisualRepresentationData.GetWordNameForRegister
-
 function Tkw_CompInfo_Control_lblVisualRepresentationData.GetString: AnsiString;
 begin
  Result := 'lblVisualRepresentationData';
@@ -428,6 +424,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_CompInfo_Control_lblVisualRepresentationData.RegisterInEngine
+
+class function Tkw_CompInfo_Control_lblVisualRepresentationData.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lblVisualRepresentationData';
+end;//Tkw_CompInfo_Control_lblVisualRepresentationData.GetWordNameForRegister
 
 procedure Tkw_CompInfo_Control_lblVisualRepresentationData_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -462,11 +463,6 @@ begin
  aCtx.rEngine.PushObj(tvComplectInfo(aCtx, l_aenCompInfo));
 end;//TkwEnCompInfoTvComplectInfo.DoDoIt
 
-class function TkwEnCompInfoTvComplectInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenCompInfo.tvComplectInfo';
-end;//TkwEnCompInfoTvComplectInfo.GetWordNameForRegister
-
 procedure TkwEnCompInfoTvComplectInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -487,6 +483,11 @@ function TkwEnCompInfoTvComplectInfo.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenCompInfo)]);
 end;//TkwEnCompInfoTvComplectInfo.ParamsTypes
+
+class function TkwEnCompInfoTvComplectInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenCompInfo.tvComplectInfo';
+end;//TkwEnCompInfoTvComplectInfo.GetWordNameForRegister
 
 function TkwEnCompInfoPnBottom.pnBottom(const aCtx: TtfwContext;
  aenCompInfo: TenCompInfo): TvtPanel;
@@ -510,11 +511,6 @@ begin
  aCtx.rEngine.PushObj(pnBottom(aCtx, l_aenCompInfo));
 end;//TkwEnCompInfoPnBottom.DoDoIt
 
-class function TkwEnCompInfoPnBottom.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenCompInfo.pnBottom';
-end;//TkwEnCompInfoPnBottom.GetWordNameForRegister
-
 procedure TkwEnCompInfoPnBottom.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -535,6 +531,11 @@ function TkwEnCompInfoPnBottom.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenCompInfo)]);
 end;//TkwEnCompInfoPnBottom.ParamsTypes
+
+class function TkwEnCompInfoPnBottom.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenCompInfo.pnBottom';
+end;//TkwEnCompInfoPnBottom.GetWordNameForRegister
 
 function TkwEnCompInfoPnVisualRepresentationData.pnVisualRepresentationData(const aCtx: TtfwContext;
  aenCompInfo: TenCompInfo): TvtPanel;
@@ -558,11 +559,6 @@ begin
  aCtx.rEngine.PushObj(pnVisualRepresentationData(aCtx, l_aenCompInfo));
 end;//TkwEnCompInfoPnVisualRepresentationData.DoDoIt
 
-class function TkwEnCompInfoPnVisualRepresentationData.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenCompInfo.pnVisualRepresentationData';
-end;//TkwEnCompInfoPnVisualRepresentationData.GetWordNameForRegister
-
 procedure TkwEnCompInfoPnVisualRepresentationData.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -583,6 +579,11 @@ function TkwEnCompInfoPnVisualRepresentationData.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenCompInfo)]);
 end;//TkwEnCompInfoPnVisualRepresentationData.ParamsTypes
+
+class function TkwEnCompInfoPnVisualRepresentationData.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenCompInfo.pnVisualRepresentationData';
+end;//TkwEnCompInfoPnVisualRepresentationData.GetWordNameForRegister
 
 function TkwEnCompInfoPnVisualRepresentationDataCaption.pnVisualRepresentationDataCaption(const aCtx: TtfwContext;
  aenCompInfo: TenCompInfo): TvtPanel;
@@ -606,11 +607,6 @@ begin
  aCtx.rEngine.PushObj(pnVisualRepresentationDataCaption(aCtx, l_aenCompInfo));
 end;//TkwEnCompInfoPnVisualRepresentationDataCaption.DoDoIt
 
-class function TkwEnCompInfoPnVisualRepresentationDataCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenCompInfo.pnVisualRepresentationDataCaption';
-end;//TkwEnCompInfoPnVisualRepresentationDataCaption.GetWordNameForRegister
-
 procedure TkwEnCompInfoPnVisualRepresentationDataCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -631,6 +627,11 @@ function TkwEnCompInfoPnVisualRepresentationDataCaption.ParamsTypes: PTypeInfoAr
 begin
  Result := OpenTypesToTypes([TypeInfo(TenCompInfo)]);
 end;//TkwEnCompInfoPnVisualRepresentationDataCaption.ParamsTypes
+
+class function TkwEnCompInfoPnVisualRepresentationDataCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenCompInfo.pnVisualRepresentationDataCaption';
+end;//TkwEnCompInfoPnVisualRepresentationDataCaption.GetWordNameForRegister
 
 function TkwEnCompInfoLblVisualRepresentationData.lblVisualRepresentationData(const aCtx: TtfwContext;
  aenCompInfo: TenCompInfo): TvtLabel;
@@ -654,11 +655,6 @@ begin
  aCtx.rEngine.PushObj(lblVisualRepresentationData(aCtx, l_aenCompInfo));
 end;//TkwEnCompInfoLblVisualRepresentationData.DoDoIt
 
-class function TkwEnCompInfoLblVisualRepresentationData.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenCompInfo.lblVisualRepresentationData';
-end;//TkwEnCompInfoLblVisualRepresentationData.GetWordNameForRegister
-
 procedure TkwEnCompInfoLblVisualRepresentationData.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -679,6 +675,11 @@ function TkwEnCompInfoLblVisualRepresentationData.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenCompInfo)]);
 end;//TkwEnCompInfoLblVisualRepresentationData.ParamsTypes
+
+class function TkwEnCompInfoLblVisualRepresentationData.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenCompInfo.lblVisualRepresentationData';
+end;//TkwEnCompInfoLblVisualRepresentationData.GetWordNameForRegister
 
 initialization
  Tkw_Form_CompInfo.RegisterInEngine;

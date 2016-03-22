@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessor.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "HyperlinkProcessor" MUID: (4A815C200111)
+// Имя типа: "_HyperlinkProcessor_"
 
 {$Define HyperlinkProcessor_imp}
 

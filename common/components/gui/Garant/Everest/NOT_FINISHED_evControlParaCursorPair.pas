@@ -2,6 +2,7 @@ unit NOT_FINISHED_evControlParaCursorPair;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evControlParaCursorPair.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevControlParaCursorPair" MUID: (53D64B7400B9)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

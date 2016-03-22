@@ -2,6 +2,7 @@ unit NOT_FINISHED_dt_Lock;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_dt_Lock.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "dt_Lock" MUID: (51B1B8BD018E)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

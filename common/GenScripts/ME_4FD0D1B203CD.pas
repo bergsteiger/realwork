@@ -2,6 +2,7 @@ unit atOpenSavedBookmarkOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atOpenSavedBookmarkOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatOpenSavedBookmarkOperation" MUID: (4FD0D1B203CD)
 
 interface
 

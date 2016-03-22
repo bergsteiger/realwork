@@ -2,6 +2,7 @@ unit daFieldParamDescription;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daFieldParamDescription.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaFieldParamDescription" MUID: (566E71FA000F)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

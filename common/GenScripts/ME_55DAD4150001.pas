@@ -2,6 +2,7 @@ unit pgInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "pgInterfaces" MUID: (55DAD4150001)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 

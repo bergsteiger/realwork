@@ -2,6 +2,7 @@ unit nsF1DocumentContainer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsF1DocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsF1DocumentContainer" MUID: (4C6A9AD101B4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

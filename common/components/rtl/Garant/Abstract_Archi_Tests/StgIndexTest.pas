@@ -1,86 +1,65 @@
 unit StgIndexTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Archi Tests"
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Archi_Tests/StgIndexTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::Abstract Archi Tests::DataBase::TStgIndexTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Archi_Tests\StgIndexTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TStgIndexTest" MUID: (4F193294011F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Archi_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Archi_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 const
-  { DBNames }
  cFileName = 'bserv001';
  cIndexFileName = 'bserv001.idx';
 
 type
  TStgIndexTest = {abstract} class(TBaseTest)
- private
- // private fields
-   f_IndexFile : AnsiString;
- protected
- // overridden protected methods
-    {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+  private
+   f_IndexFile: AnsiString;
+  protected
+   {$If NOT Defined(NotTunedDUnit)}
    function FileForOutput: AnsiString; override;
-     {* Стандартный файл для вывода, для текщего теста }
-    {$IfEnd} //nsTest AND not NotTunedDUnit
+    {* Стандартный файл для вывода, для текщего теста }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
-    {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+    {* Идентификатор элемента модели, который описывает тест }
+   {$If NOT Defined(NotTunedDUnit)}
    function FileNameForOutput: AnsiString; override;
-    {$IfEnd} //nsTest AND not NotTunedDUnit
- published
- // published methods
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+  published
    procedure DoIt;
  end;//TStgIndexTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  m3StorageIndexAdapter,
-  SysUtils,
-  l3FileUtils,
-  m3DB,
-  m3DBInterfaces,
-  m4DBInterfaces,
-  m4DB,
-  l3Base,
-  m3StgMgr,
-  m3SplittedFileStream,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , m3SplittedFileStream
+ , TestFrameWork
+ , m3StorageIndexAdapter
+ , SysUtils
+ , l3FileUtils
+ , m3DB
+ , m3DBInterfaces
+ , m4DBInterfaces
+ , m4DB
+ , l3Base
+ , m3StgMgr
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TStgIndexTest
-
+{$If NOT Defined(NotTunedDUnit)}
 procedure TStgIndexTest.DoIt;
 //#UC START# *4F19335D01E9_4F193294011F_var*
 var
@@ -160,8 +139,8 @@ begin
 //#UC END# *4F19335D01E9_4F193294011F_impl*
 end;//TStgIndexTest.DoIt
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 function TStgIndexTest.FileForOutput: AnsiString;
+ {* Стандартный файл для вывода, для текщего теста }
 //#UC START# *4B4F588B0241_4F193294011F_var*
 //#UC END# *4B4F588B0241_4F193294011F_var*
 begin
@@ -170,21 +149,19 @@ begin
  // Result := Copy(Result, 1, Length(Result) - 4);
 //#UC END# *4B4F588B0241_4F193294011F_impl*
 end;//TStgIndexTest.FileForOutput
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
 function TStgIndexTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'DataBase';
 end;//TStgIndexTest.GetFolder
 
 function TStgIndexTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4F193294011F';
 end;//TStgIndexTest.GetModelElementGUID
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 function TStgIndexTest.FileNameForOutput: AnsiString;
 //#UC START# *4DCA41A20364_4F193294011F_var*
 //#UC END# *4DCA41A20364_4F193294011F_var*
@@ -193,8 +170,7 @@ begin
  Result := cIndexFileName;
 //#UC END# *4DCA41A20364_4F193294011F_impl*
 end;//TStgIndexTest.FileNameForOutput
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

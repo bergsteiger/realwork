@@ -2,6 +2,7 @@ unit ComplectUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ComplectUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Complect" MUID: (45744F4302BF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

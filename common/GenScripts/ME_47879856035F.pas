@@ -3,6 +3,7 @@ unit l3_Base;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3_Base.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3_Base" MUID: (47879856035F)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

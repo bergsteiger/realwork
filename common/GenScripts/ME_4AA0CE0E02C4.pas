@@ -3,6 +3,8 @@ unit ListAnalizer_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListAnalizer_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "ListAnalizer" MUID: (4AA0CE0E02C4)
+// Имя типа: "TListAnalizerForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

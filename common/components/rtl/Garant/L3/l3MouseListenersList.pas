@@ -2,6 +2,7 @@ unit l3MouseListenersList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3MouseListenersList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3MouseListenersList" MUID: (4F7420740306)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

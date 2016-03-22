@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3DateSt;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3DateSt.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3DateSt" MUID: (4B5700C301E3)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

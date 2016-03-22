@@ -2,6 +2,8 @@ unit moRealCommon;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\moRealCommon.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "RealCommon" MUID: (4A92C0AB0155)
+// Имя типа: "Tmo_RealCommon"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

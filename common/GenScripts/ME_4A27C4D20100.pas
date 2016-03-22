@@ -3,6 +3,7 @@ unit nevActiveHyperlink;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevActiveHyperlink.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevActiveHyperlink" MUID: (4A27C4D20100)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit evdDocumentSubsEliminator;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdDocumentSubsEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdDocumentSubsEliminator" MUID: (4E6756B3015E)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

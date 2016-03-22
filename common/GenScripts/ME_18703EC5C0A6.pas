@@ -3,6 +3,7 @@ program ReleaseNewGenTest;
 
 // Модуль: "w:\MDProcess\NewGenTest\ReleaseNewGenTest.dpr"
 // Стереотип: "TestTarget"
+// Элемент модели: "ReleaseNewGen" MUID: (18703EC5C0A6)
 
 {$Include w:\MDProcess\NewGenTest\NewGenTest.inc}
 

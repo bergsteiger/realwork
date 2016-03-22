@@ -7,7 +7,7 @@ unit m3BackupTools;
 // Модуль: "w:/common/components/rtl/Garant/m3/m3BackupTools.pas"
 // Начат: 01.12.2002 15:07
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::m3$DB::m3DB::m3BackupTools
+// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::m3$DB::m3DB::m3BackupTools
 //
 // Утилиты для работы с хранилищем документов Архивариуса
 //

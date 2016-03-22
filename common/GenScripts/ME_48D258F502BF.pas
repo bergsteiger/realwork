@@ -3,6 +3,7 @@ unit evMemoEdit;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evMemoEdit.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevMemoEdit" MUID: (48D258F502BF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

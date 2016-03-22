@@ -2,6 +2,7 @@ unit ddNSRCSegments;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddNSRCSegments.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddNSRCSegments" MUID: (55DC6B2E0347)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -40,6 +41,8 @@ type
   private
    f_Decor: AnsiString;
     {* Поле для свойства Decor }
+  protected
+   procedure ClearFields; override;
   public
    property Decor: AnsiString
     read f_Decor
@@ -66,6 +69,8 @@ type
     {* Поле для свойства Start }
    f_Decor: AnsiString;
     {* Поле для свойства Decor }
+  protected
+   procedure ClearFields; override;
   public
    constructor Create(aDecor: TsegDecorSegment); reintroduce;
    function IsOn(Ch: AnsiChar): Boolean;
@@ -175,6 +180,8 @@ type
     {* Поле для свойства Width }
    f_FileName: AnsiString;
     {* Поле для свойства FileName }
+  protected
+   procedure ClearFields; override;
   public
    property BaseLineOffset: Integer
     read f_BaseLineOffset
@@ -200,6 +207,8 @@ type
   private
    f_Text: AnsiString;
     {* Поле для свойства Text }
+  protected
+   procedure ClearFields; override;
   public
    property Text: AnsiString
     read f_Text
@@ -219,6 +228,12 @@ uses
  , SysUtils
  , segTarget
 ;
+
+procedure TsegDecorSegment.ClearFields;
+begin
+ Decor := '';
+ inherited;
+end;//TsegDecorSegment.ClearFields
 
 constructor TddNSRCStackItem.Create(aDecor: TsegDecorSegment);
 //#UC START# *55DC6DFD00C0_55DC6B9F01BA_var*
@@ -256,6 +271,12 @@ begin
  end;//case Ch
 //#UC END# *55DC6E1E0111_55DC6B9F01BA_impl*
 end;//TddNSRCStackItem.IsOn
+
+procedure TddNSRCStackItem.ClearFields;
+begin
+ Decor := '';
+ inherited;
+end;//TddNSRCStackItem.ClearFields
 
 constructor TsegSeg.Create(aDecor: TsegDecorSegment;
  anItem: TddNSRCStackItem;
@@ -374,5 +395,17 @@ begin
  inherited;
 //#UC END# *479731C50290_55DC6C030388_impl*
 end;//TsegHyperLink.Cleanup
+
+procedure TsegPicture.ClearFields;
+begin
+ FileName := '';
+ inherited;
+end;//TsegPicture.ClearFields
+
+procedure TsegFormula.ClearFields;
+begin
+ Text := '';
+ inherited;
+end;//TsegFormula.ClearFields
 
 end.

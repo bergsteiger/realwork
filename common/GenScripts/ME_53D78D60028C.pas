@@ -2,6 +2,7 @@ unit NOT_FINISHED_evDeadCursor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evDeadCursor.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evDeadCursor" MUID: (53D78D60028C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

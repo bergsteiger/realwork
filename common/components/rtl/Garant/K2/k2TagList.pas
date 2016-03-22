@@ -2,6 +2,7 @@ unit k2TagList;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TagList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2TagList" MUID: (47B9D76B0301)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

@@ -2,6 +2,7 @@ unit vgCustomResources;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgCustomResources.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgCustomResources" MUID: (4D54299F035D)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

@@ -3,6 +3,7 @@ unit evStylesPrintAndExportSettingRes;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evStylesPrintAndExportSettingRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evStylesPrintAndExportSettingRes" MUID: (870F97A58415)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

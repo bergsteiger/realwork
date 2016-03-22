@@ -2,6 +2,7 @@ unit csCourtDescription;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csCourtDescription.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsCourtDescription" MUID: (53EDB1000048)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

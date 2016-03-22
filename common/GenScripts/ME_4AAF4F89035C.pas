@@ -2,6 +2,8 @@ unit AttributeSelect_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\AttributeSelect_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "AttributeSelect" MUID: (4AAF4F89035C)
+// Имя типа: "TcfAttributeSelect"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

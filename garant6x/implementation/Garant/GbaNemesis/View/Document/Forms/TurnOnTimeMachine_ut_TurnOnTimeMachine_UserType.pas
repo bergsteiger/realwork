@@ -1,87 +1,67 @@
 unit TurnOnTimeMachine_ut_TurnOnTimeMachine_UserType;
+ {* Включить Машину времени }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Document/Forms/TurnOnTimeMachine_ut_TurnOnTimeMachine_UserType.pas"
-// Начат: 05.02.2009 19:28
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Работа с документом и списком документов::Document::View::Document::Document::TurnOnTimeMachine::ut_TurnOnTimeMachine
-//
-// Включить Машину времени
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\TurnOnTimeMachine_ut_TurnOnTimeMachine_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "ut_TurnOnTimeMachine" MUID: (6E555D981AA9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-    { Константы для типа формы ut_TurnOnTimeMachine }
-   ut_TurnOnTimeMachineName = 'ut_TurnOnTimeMachine';
-    { Строковый идентификатор пользовательского типа "Включить Машину времени" }
-   ut_TurnOnTimeMachine = TvcmUserType(0);
-    { Включить Машину времени }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы ut_TurnOnTimeMachine }
+ ut_TurnOnTimeMachineName = 'ut_TurnOnTimeMachine';
+  {* Строковый идентификатор пользовательского типа "Включить Машину времени" }
+ ut_TurnOnTimeMachine = TvcmUserType(0);
+  {* Включить Машину времени }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-   Tkw_FormUserType_ut_TurnOnTimeMachine = {final scriptword} class(TtfwInteger)
-    {* Слово словаря для типа формы ut_TurnOnTimeMachine }
-   protected
-   // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
+ Tkw_FormUserType_ut_TurnOnTimeMachine = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы ut_TurnOnTimeMachine }
+  protected
    function GetInteger: Integer; override;
-   end;//Tkw_FormUserType_ut_TurnOnTimeMachine
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_ut_TurnOnTimeMachine
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_ut_TurnOnTimeMachine
-
-class function Tkw_FormUserType_ut_TurnOnTimeMachine.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::ut_TurnOnTimeMachine';
-end;//Tkw_FormUserType_ut_TurnOnTimeMachine.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_TurnOnTimeMachine.GetInteger: Integer;
- {-}
 begin
  Result := ut_TurnOnTimeMachine;
 end;//Tkw_FormUserType_ut_TurnOnTimeMachine.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_ut_TurnOnTimeMachine.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_TurnOnTimeMachine';
+end;//Tkw_FormUserType_ut_TurnOnTimeMachine.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_ut_TurnOnTimeMachine
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_TurnOnTimeMachine.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_ut_TurnOnTimeMachine }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -2,6 +2,7 @@ unit ObjectFromstackWords;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ObjectFromstackWords.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ObjectFromstackWords" MUID: (507698410297)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -373,11 +374,6 @@ begin
  aCtx.rEngine.PushBool(Inherits(aCtx, l_aObject, l_aClass));
 end;//TkwPopObjectInherits.DoDoIt
 
-class function TkwPopObjectInherits.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Object:Inherits';
-end;//TkwPopObjectInherits.GetWordNameForRegister
-
 function TkwPopObjectInherits.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -392,6 +388,11 @@ function TkwPopObjectInherits.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiStruct]);
 end;//TkwPopObjectInherits.ParamsTypes
+
+class function TkwPopObjectInherits.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:Inherits';
+end;//TkwPopObjectInherits.GetWordNameForRegister
 
 function TkwPopObjectClassName.ClassName(const aCtx: TtfwContext;
  aObject: TObject): AnsiString;
@@ -422,11 +423,6 @@ begin
  aCtx.rEngine.PushString(ClassName(aCtx, l_aObject));
 end;//TkwPopObjectClassName.DoDoIt
 
-class function TkwPopObjectClassName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Object:ClassName';
-end;//TkwPopObjectClassName.GetWordNameForRegister
-
 function TkwPopObjectClassName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -441,6 +437,11 @@ function TkwPopObjectClassName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TObject)]);
 end;//TkwPopObjectClassName.ParamsTypes
+
+class function TkwPopObjectClassName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:ClassName';
+end;//TkwPopObjectClassName.GetWordNameForRegister
 
 function TkwPopObjectGetFloatProp.GetFloatProp(const aCtx: TtfwContext;
  aObject: TObject;
@@ -479,11 +480,6 @@ begin
  aCtx.rEngine.PushInt(GetFloatProp(aCtx, l_aObject, l_aName));
 end;//TkwPopObjectGetFloatProp.DoDoIt
 
-class function TkwPopObjectGetFloatProp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Object:GetFloatProp';
-end;//TkwPopObjectGetFloatProp.GetWordNameForRegister
-
 function TkwPopObjectGetFloatProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -498,6 +494,11 @@ function TkwPopObjectGetFloatProp.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString]);
 end;//TkwPopObjectGetFloatProp.ParamsTypes
+
+class function TkwPopObjectGetFloatProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:GetFloatProp';
+end;//TkwPopObjectGetFloatProp.GetWordNameForRegister
 
 function TkwPopObjectGetInterfaceProp.GetInterfaceProp(const aCtx: TtfwContext;
  aObject: TObject;
@@ -536,11 +537,6 @@ begin
  aCtx.rEngine.PushIntf(GetInterfaceProp(aCtx, l_aObject, l_aName), TypeInfo(IUnknown));
 end;//TkwPopObjectGetInterfaceProp.DoDoIt
 
-class function TkwPopObjectGetInterfaceProp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Object:GetInterfaceProp';
-end;//TkwPopObjectGetInterfaceProp.GetWordNameForRegister
-
 function TkwPopObjectGetInterfaceProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(IUnknown);
@@ -555,6 +551,11 @@ function TkwPopObjectGetInterfaceProp.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString]);
 end;//TkwPopObjectGetInterfaceProp.ParamsTypes
+
+class function TkwPopObjectGetInterfaceProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:GetInterfaceProp';
+end;//TkwPopObjectGetInterfaceProp.GetWordNameForRegister
 
 function TkwPopObjectGetObjProp.GetObjProp(const aCtx: TtfwContext;
  aObject: TObject;
@@ -593,11 +594,6 @@ begin
  aCtx.rEngine.PushObj(GetObjProp(aCtx, l_aObject, l_aName));
 end;//TkwPopObjectGetObjProp.DoDoIt
 
-class function TkwPopObjectGetObjProp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Object:GetObjProp';
-end;//TkwPopObjectGetObjProp.GetWordNameForRegister
-
 function TkwPopObjectGetObjProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TObject);
@@ -612,6 +608,11 @@ function TkwPopObjectGetObjProp.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString]);
 end;//TkwPopObjectGetObjProp.ParamsTypes
+
+class function TkwPopObjectGetObjProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:GetObjProp';
+end;//TkwPopObjectGetObjProp.GetWordNameForRegister
 
 function TkwPopObjectGetOrdProp.GetOrdProp(const aCtx: TtfwContext;
  aObject: TObject;
@@ -650,11 +651,6 @@ begin
  aCtx.rEngine.PushInt(GetOrdProp(aCtx, l_aObject, l_aName));
 end;//TkwPopObjectGetOrdProp.DoDoIt
 
-class function TkwPopObjectGetOrdProp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Object:GetOrdProp';
-end;//TkwPopObjectGetOrdProp.GetWordNameForRegister
-
 function TkwPopObjectGetOrdProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -669,6 +665,11 @@ function TkwPopObjectGetOrdProp.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString]);
 end;//TkwPopObjectGetOrdProp.ParamsTypes
+
+class function TkwPopObjectGetOrdProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:GetOrdProp';
+end;//TkwPopObjectGetOrdProp.GetWordNameForRegister
 
 function TkwPopObjectGetStrProp.GetStrProp(const aCtx: TtfwContext;
  aObject: TObject;
@@ -707,11 +708,6 @@ begin
  aCtx.rEngine.PushString(GetStrProp(aCtx, l_aObject, l_aName));
 end;//TkwPopObjectGetStrProp.DoDoIt
 
-class function TkwPopObjectGetStrProp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Object:GetStrProp';
-end;//TkwPopObjectGetStrProp.GetWordNameForRegister
-
 function TkwPopObjectGetStrProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -726,6 +722,11 @@ function TkwPopObjectGetStrProp.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString]);
 end;//TkwPopObjectGetStrProp.ParamsTypes
+
+class function TkwPopObjectGetStrProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:GetStrProp';
+end;//TkwPopObjectGetStrProp.GetWordNameForRegister
 
 function TkwPopObjectHasProp.HasProp(const aCtx: TtfwContext;
  aObject: TObject;
@@ -764,11 +765,6 @@ begin
  aCtx.rEngine.PushBool(HasProp(aCtx, l_aObject, l_aName));
 end;//TkwPopObjectHasProp.DoDoIt
 
-class function TkwPopObjectHasProp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Object:HasProp';
-end;//TkwPopObjectHasProp.GetWordNameForRegister
-
 function TkwPopObjectHasProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -783,6 +779,11 @@ function TkwPopObjectHasProp.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString]);
 end;//TkwPopObjectHasProp.ParamsTypes
+
+class function TkwPopObjectHasProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:HasProp';
+end;//TkwPopObjectHasProp.GetWordNameForRegister
 
 function TkwPopObjectRTTIInfo.RTTIInfo(const aCtx: TtfwContext;
  aObject: TObject): AnsiString;
@@ -810,11 +811,6 @@ begin
  aCtx.rEngine.PushString(RTTIInfo(aCtx, l_aObject));
 end;//TkwPopObjectRTTIInfo.DoDoIt
 
-class function TkwPopObjectRTTIInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Object:RTTIInfo';
-end;//TkwPopObjectRTTIInfo.GetWordNameForRegister
-
 function TkwPopObjectRTTIInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -829,6 +825,11 @@ function TkwPopObjectRTTIInfo.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TObject)]);
 end;//TkwPopObjectRTTIInfo.ParamsTypes
+
+class function TkwPopObjectRTTIInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:RTTIInfo';
+end;//TkwPopObjectRTTIInfo.GetWordNameForRegister
 
 procedure TkwPopObjectSetFloatProp.SetFloatProp(const aCtx: TtfwContext;
  aObject: TObject;
@@ -878,11 +879,6 @@ begin
  SetFloatProp(aCtx, l_aObject, l_aName, l_aValue);
 end;//TkwPopObjectSetFloatProp.DoDoIt
 
-class function TkwPopObjectSetFloatProp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Object:SetFloatProp';
-end;//TkwPopObjectSetFloatProp.GetWordNameForRegister
-
 function TkwPopObjectSetFloatProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -897,6 +893,11 @@ function TkwPopObjectSetFloatProp.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString, TypeInfo(Integer)]);
 end;//TkwPopObjectSetFloatProp.ParamsTypes
+
+class function TkwPopObjectSetFloatProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:SetFloatProp';
+end;//TkwPopObjectSetFloatProp.GetWordNameForRegister
 
 procedure TkwPopObjectSetOrdProp.SetOrdProp(const aCtx: TtfwContext;
  aObject: TObject;
@@ -946,11 +947,6 @@ begin
  SetOrdProp(aCtx, l_aObject, l_aName, l_aValue);
 end;//TkwPopObjectSetOrdProp.DoDoIt
 
-class function TkwPopObjectSetOrdProp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Object:SetOrdProp';
-end;//TkwPopObjectSetOrdProp.GetWordNameForRegister
-
 function TkwPopObjectSetOrdProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -965,6 +961,11 @@ function TkwPopObjectSetOrdProp.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString, TypeInfo(Integer)]);
 end;//TkwPopObjectSetOrdProp.ParamsTypes
+
+class function TkwPopObjectSetOrdProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:SetOrdProp';
+end;//TkwPopObjectSetOrdProp.GetWordNameForRegister
 
 procedure TkwPopObjectSetStrProp.SetStrProp(const aCtx: TtfwContext;
  aObject: TObject;
@@ -1014,11 +1015,6 @@ begin
  SetStrProp(aCtx, l_aObject, l_aName, l_aValue);
 end;//TkwPopObjectSetStrProp.DoDoIt
 
-class function TkwPopObjectSetStrProp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Object:SetStrProp';
-end;//TkwPopObjectSetStrProp.GetWordNameForRegister
-
 function TkwPopObjectSetStrProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1033,6 +1029,11 @@ function TkwPopObjectSetStrProp.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString, @tfw_tiString]);
 end;//TkwPopObjectSetStrProp.ParamsTypes
+
+class function TkwPopObjectSetStrProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:SetStrProp';
+end;//TkwPopObjectSetStrProp.GetWordNameForRegister
 
 initialization
  TObjectFromstackWordsResNameGetter.Register;

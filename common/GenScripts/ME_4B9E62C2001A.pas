@@ -2,6 +2,7 @@ unit ddAppConfigStringsRes;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigStringsRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfigStringsRes" MUID: (4B9E62C2001A)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

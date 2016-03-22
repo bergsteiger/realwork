@@ -1,7 +1,13 @@
 unit alcuMailServer;
-{ $Id: alcuMailServer.pas,v 1.29 2015/10/05 11:45:32 lukyanets Exp $ }
+{ $Id: alcuMailServer.pas,v 1.31 2016/02/17 12:58:24 lukyanets Exp $ }
 
 // $Log: alcuMailServer.pas,v $
+// Revision 1.31  2016/02/17 12:58:24  lukyanets
+// Cleanup
+//
+// Revision 1.30  2015/12/09 08:32:08  lukyanets
+// Мелкие утечки
+//
 // Revision 1.29  2015/10/05 11:45:32  lukyanets
 // Причесываем название
 //
@@ -391,18 +397,8 @@ const
  eventSystemShutdown   = 14;
  eventEmptyDocuments   = 15;
  eventDeleteDocuments  = 16;
- {$IFDEF MDPSync}
-(*
- eventMDPSync          = 17;
- eventResetSelfLog     = 18;
- eventTaskError        = 19;
-*)
  eventResetSelfLog     = 17;
  eventTaskError        = 18;
- {$ELSE}
- eventResetSelfLog     = 17;
- eventTaskError        = 18;
- {$ENDIF}
 
  minEvent = eventEveryDay;
  maxEvent = eventTaskError;
@@ -425,9 +421,6 @@ const
                     'Завершение работы системы',
                     'Найдены пустые документы',
                     'Удаление документов',
-//                    {$IFDEF MDPSync}
-//                    'Импорт документов из Гардока',
-//                    {$ENDIF}
                     'Сброс собственного лога',
                     'Выполнение задачи завершилась ошибкой');
 
@@ -774,6 +767,8 @@ begin
   l3Free(f_Guard);
   l3Free(f_SMTPSSLHandler);
   l3Free(f_POPSSLHandler);
+  l3Free(f_Timer);
+  l3Free(f_SendTimer);
  {$ENDIF PassthroughSendMail}
   inherited;
 end;

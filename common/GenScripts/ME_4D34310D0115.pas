@@ -2,6 +2,7 @@ unit nscTasksPanelGroup;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTasksPanelGroup.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnscTasksPanelGroup" MUID: (4D34310D0115)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

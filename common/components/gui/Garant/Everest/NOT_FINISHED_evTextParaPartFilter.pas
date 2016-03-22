@@ -2,6 +2,7 @@ unit NOT_FINISHED_evTextParaPartFilter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTextParaPartFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTextParaPartFilter" MUID: (48ECF5B700DE)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

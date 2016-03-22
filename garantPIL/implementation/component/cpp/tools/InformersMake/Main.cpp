@@ -9,7 +9,13 @@
 #include "shared/Core/sys/AutoInit.h"
 #include "shared/Core/sys/start_stop.h"
 #include "shared/Core/ParamsHelper/ParamConvert.h"
+
 #include "shared/ContextSearch/impl/Manage_i/RequestTransformer_i_factory.h"
+#include "shared/ContextSearch/impl/Manage_i/Query_i_factory.h"
+#include "shared/ContextSearch/impl/Manage_i/SynManager_i_factory.h"
+#include "shared/ContextSearch/impl/Manage_i/ViewAsParts_i_factory.h"
+#include "shared/ContextSearch/impl/Manage_i/ViewAsSequence_i_factory.h"
+#include "shared/ContextSearch/impl/Manage_i/ViewAsSimple_i_factory.h"
 
 #include "garantServer/src/Global/Core/Common/ParamManagerReg.h"
 #include "garantServer/src/Global/Defines/Common/ProjectConsts.h"
@@ -25,6 +31,11 @@ class FactoryRegistrator {
 public:
 	static void execute () {
 		FactoryRegistrator::registrate <ContextSearch::Manage_i::RequestTransformer_i_factory> ();
+		FactoryRegistrator::registrate <ContextSearch::Manage_i::Query_i_factory> ();
+		FactoryRegistrator::registrate <ContextSearch::Manage_i::SynManager_i_factory> ();
+		FactoryRegistrator::registrate <ContextSearch::Manage_i::ViewAsParts_i_factory> ();
+		FactoryRegistrator::registrate <ContextSearch::Manage_i::ViewAsSimple_i_factory> ();
+		FactoryRegistrator::registrate <ContextSearch::Manage_i::ViewAsSequence_i_factory> ();
 	}
 
 private:
@@ -128,5 +139,5 @@ int main (int argc, char* argv []) {
 	return (int) ret;
 }
 
-//-in "C:\syns.csv" -out "C:\syns.txt" -path "C:\Program Files\Garant\data2\data"
+//-in "C:\4informer.txt" -out "C:\inf_out.txt" -path "D:\Super\data"
 

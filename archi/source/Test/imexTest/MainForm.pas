@@ -121,6 +121,7 @@ Uses
   l3Types, l3Const,
   l3Stream,
   stDate, l3ExceptionsLog, afwVCL,
+  ddPipeOutInterfaces,
   ddFileIterator,
   vtDebug,
   vtVerInf,
@@ -319,13 +320,15 @@ begin
    try
     OutFileType := {outEVDtext; //}outNSRC;
     Family:= fFamily;
-    DivideBy := divTopic;
+    DivideBy[edpDocument]   := [edbTopic];
+    DivideBy[edpReference]  := [edbTopic];
+    DivideBy[edpAnnotation] := [edbTopic];
 
     ExportDocument := True;
     ExportAnnotation := True;
     ExportDocImage := False;
     UpdateFiles := False;
-    ExternalExport := False;
+    //ExternalExport := False;
 
     ExportEmpty := True;
 

@@ -106,6 +106,8 @@ type
    procedure pm_SetStages(aValue: TaeStagesSet);
    function pm_GetExpandEditions: Boolean;
    procedure pm_SetExpandEditions(aValue: Boolean);
+   function pm_GetInfoDocsIncludedOnly: Boolean;
+   procedure pm_SetInfoDocsIncludedOnly(aValue: Boolean);
  protected
  // overridden protected methods
    class function GetTaggedDataType: Tk2Type; override;
@@ -212,6 +214,9 @@ type
    property ExpandEditions: Boolean
      read pm_GetExpandEditions
      write pm_SetExpandEditions;
+   property InfoDocsIncludedOnly: Boolean
+     read pm_GetInfoDocsIncludedOnly
+     write pm_SetInfoDocsIncludedOnly;
  end;//TalcuAutoExportTaskPrim
 {$IfEnd} //ServerTasks
 
@@ -640,6 +645,20 @@ procedure TalcuAutoExportTaskPrim.pm_SetExpandEditions(aValue: Boolean);
 begin
  TaggedData.BoolW[k2_attrExpandEditions, nil] := (aValue);
 end;//TalcuAutoExportTaskPrim.pm_SetExpandEditions
+
+function TalcuAutoExportTaskPrim.pm_GetInfoDocsIncludedOnly: Boolean;
+ {-}
+begin
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrInfoDocsIncludedOnly]);
+end;//TalcuAutoExportTaskPrim.pm_GetInfoDocsIncludedOnly
+
+procedure TalcuAutoExportTaskPrim.pm_SetInfoDocsIncludedOnly(aValue: Boolean);
+ {-}
+begin
+ TaggedData.BoolW[k2_attrInfoDocsIncludedOnly, nil] := (aValue);
+end;//TalcuAutoExportTaskPrim.pm_SetInfoDocsIncludedOnly
 
 class function TalcuAutoExportTaskPrim.GetTaggedDataType: Tk2Type;
  {-}

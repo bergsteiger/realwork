@@ -2,6 +2,7 @@ unit csTaskListening;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\csTaskListening.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "csTaskListening" MUID: (5385C1C902F5)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

@@ -2,6 +2,8 @@ unit kwMouseGetCursorIndex;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorIndex.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "mouse_GetCursorIndex" MUID: (4EEB67C500AE)
+// Имя типа: "TkwMouseGetCursorIndex"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,7 @@ unit ddProcessTaskPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ddProcessTaskPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddProcessTaskPrim" MUID: (53AC09FE03C7)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -2,9 +2,27 @@ unit alcuConfig;
 
 { Модуль для хранения настроек программы }
 
-{ $Id: alcuConfig.pas,v 1.35 2015/10/12 11:01:58 lukyanets Exp $ }
+{ $Id: alcuConfig.pas,v 1.41 2016/03/16 09:15:34 lukyanets Exp $ }
 
 // $Log: alcuConfig.pas,v $
+// Revision 1.41  2016/03/16 09:15:34  lukyanets
+// Заменяем условную компиляцию на настройку
+//
+// Revision 1.40  2016/03/16 08:59:08  lukyanets
+// Заменяем условную компиляцию на настройку
+//
+// Revision 1.39  2016/02/17 12:57:53  lukyanets
+// Cleanup
+//
+// Revision 1.38  2016/02/10 10:58:37  fireton
+// - галка "Выливать только подключённые" в автоэкспорте полных групп доступа
+//
+// Revision 1.37  2016/02/10 08:38:55  lukyanets
+// Подкрутил уровень логов
+//
+// Revision 1.36  2016/01/21 10:47:18  lukyanets
+// Не учитывали условную компиляцию.
+//
 // Revision 1.35  2015/10/12 11:01:58  lukyanets
 // Задаем пользователя для импорта из Гардок
 //
@@ -522,10 +540,10 @@ interface
 Uses
  ddAppConfig, ddConfigStorages, ddAppConfigDataAdapters;
 
-function CreateConfigEx(const aStorage: IddConfigStorage = nil): TddAppConfiguration;
+function CreateConfigEx(AutolinkEnabled: Boolean; const aStorage: IddConfigStorage = nil): TddAppConfiguration;
 procedure DestroyConfig;
 
-procedure CreateConfig(const aStorage: IddConfigStorage = nil);
+procedure CreateConfig(AutolinkEnabled: Boolean; const aStorage: IddConfigStorage = nil);
 
 implementation
 
@@ -535,6 +553,7 @@ Uses
  ddUtils,
  alcuHelpConst,
  alcuConfigTypes,
+ alcuTypes,
  daTypes,
  daDataProviderSuperFactory,
  dt_Const, dt_Types, dt_AttrSchema,
@@ -933,7 +952,10 @@ begin
       Hint:= 'В качестве подстановочных символов можно использовать %main% - короткое название группы доступа,'+
              '%number% - номер файла, %date% - текущая дата в формате YYYYMMDD';
       LabelTop:= False;
-    //AddBooleanItem(l3CStr('aiNotIncluded'), l3CStr('Экспортировать неподключенные документы'));
+    {$IF not Defined(LUK) and not Defined(SGC)}
+    AddDivider('Другие настройки');
+     AddBooleanItem(l3CStr('aiAllExportIncluded'), l3CStr('Экспортировать только подключенные документы'));
+    {$IFEND}
    CloseChild;
    //AddIntegerItem(l3CStr('DeltaStartNumber'), l3CStr('Номер первого файла'), 1);
    // Hint:= 'Номер, с которого начинается нумерация файлов';
@@ -1165,21 +1187,7 @@ begin
    AddStringItem('BaseID', 'Описание базы данных', 'Сервер Автоматизации Архивариуса');
     Hint:= 'Текстовое описание базы данных используется в качестве автора письма в рассылках';
    AddDivider('База данных');
-
-    TdaDataProviderSuperFactory.Instance.BuildConfig(aConfig);
-
-(*    AddStringsItem('Provider', 'Поставщик данных');
-    AddFolderNameItem('UNCBasePath', 'UNC-путь к базе данных', '', nil, False);
-     Hint:= 'Используя этот путь, программа выполняет подключение к базе данных в штатном (многопользовательском) режиме';
-     Required:= True;
-    AddFolderNameItem('LocalBasePath', 'Локальный путь к базе данных', '', nil, False);
-     Hint:= 'Используя этот путь, программа выполняет подключение к базе данных для выполнения регламентных работ';
-    AddFolderNameItem('ImageStoragePath', 'Образы документов', '', nil, False);
-     Required:= True;
-     Hint:= 'Папка для хранения сканированных образов документов';
-    AddBooleanItem(l3CStr('IsLocalBase'), l3Cstr('Работа по локальным путям'));
-     Hint:= 'ВНИМАНИЕ! Работа по локальным путям происходит быстрее, но не допускает совместного использования базы данных';*)
-
+   TdaDataProviderSuperFactory.Instance.BuildConfig(aConfig);
    AddDivider('Коммуникации');
    TIdStack.IncUsage;
    l_S:= GStack.LocalAddress;
@@ -1204,6 +1212,11 @@ begin
     AddFileNameItem('exUpdater', 'Внешний обновлятор базы');
      Hint:= 'Командный файл для обновления базы данных';
     {$ENDIF}
+    AddIntegerItem(l3CStr('l3LogLevel'), l3CStr('Уровень логирования'), alcuMessageLevel);
+     Hint:= 'Минимальный - 0, самый подробный - 10';
+     MinValue := 0;
+     MaxValue := 10;
+
    AddUserTasksChild(aConfig);
 
    AddArchiChild(aConfig);
@@ -1289,7 +1302,7 @@ begin
  with aConfig do
  begin
   AddChild('alcAutoLink', 'Простановщик ссылок');
-    AddRadioGroupItem('alcMode', 'Режим работы', -1);
+    AddRadioGroupItem('alcMode', 'Режим работы', 1);
      Add('Сервер');
      Add('Клиент');
 
@@ -1312,7 +1325,7 @@ begin
 end;
 
 
-procedure AddDailyConfig(aConfig: TddAppConfiguration);
+procedure AddDailyConfig(aConfig: TddAppConfiguration; AutolinkEnabled: Boolean);
 var
  l_Item: TddBaseConfigItem;
  l_Main: TddBaseConfigItem;
@@ -1455,9 +1468,8 @@ begin
       Hint:= 'На этот адрес будут рассылаться списки удаленных меток с атрибутами';
     CloseChild;
     {$ENDIF}
-    {$IFDEF NewAutoLinker}
-    AddAutoLinkNode(aConfig);
-    {$ENDIF}
+    if AutolinkEnabled then
+     AddAutoLinkNode(aConfig);
  end;
 end;
 
@@ -1534,11 +1546,6 @@ end;
 procedure AddNotifyConfig(aConfig: TddAppConfiguration);
 var
  l_Item: TddBaseConfigItem;
- {$IFDEF Ver3_Alcu}
- l_List: TddSimpleListConfigItem;
- l_Events: TddCheckListConfigItem;
- i: Integer;
- {$ENDIF}
 begin
  with aConfig do
  begin
@@ -1560,24 +1567,12 @@ begin
    LabelTop:= False;
   AddBooleanItem(l3CStr('SMTPRequireSSL'), l3CStr('Использовать шифрование SSL'));
   AddFolderNameItem('SmtpSendQueueFolder', 'Папка для хранения неотправленной почты', IncludeTrailingPathDelimiter(ChangeFileExt(ParamStr(0),'.mail')), nil, False);
-  {$IFDEF Ver3_Alcu}
-  l_List:= TddSimpleListConfigItem.Make('NotifyList', 'Список уведомлений');
-   l_List.Config.AddItem(TddStringConfigItem.Make('Notify_Address', 'Адрес электронной почты', ''));
-   l_Events:= TddCheckListConfigItem.Create('Notify_Events', 'Список событий для уведомления', ddEmptyIntValue);
-   l_Events.Columns:= 2;
-   for i:= minEvent to maxEvent do
-    l_Events.Add(EventName[i]);
-   l_List.Config.AddItem(l_Events);
-   l_List.Config.AddItem(TddBooleanConfigItem.Create('Notify_OnlyErrors', 'Только ошибки', ddEmptyValue));
-  AddItem(l_List);
-  {$ELSE}
   mailAdapter:= TalcuEmailAdapter.Create;
   try
    AddListItem('NotifyList', 'Список уведомлений', mailAdapter);
   finally
    l3Free(mailAdapter);
   end;
-  {$ENDIF}
   l_Item:= AddBooleanItem(l3CStr('EnableSMS'), l3CStr('Отправлять смс'), False);
    Hint := 'В случае ошибок на перечисленные номера будет отправлено SMS с описанием ошибки';
    AddStringItem('SMSList', 'Адреса рассылки', ''{'6246622@sms.beemail.ru;1118255@sms.beemail.ru'}, l_Item);
@@ -1605,6 +1600,7 @@ begin
  end;
 end;
 
+{$IFDEF ExchangeDocs}
 procedure AddExternalDeltas(aConfig: TddAppConfiguration);
 var
  l_G: TddGroupConfigItem;
@@ -1664,7 +1660,7 @@ begin
   CloseChild;
  end; // with ddAppConfiguration
 end;
-
+{$ENDIF ExchangeDocs}
 
 procedure AddQueryExportNode(aConfig: TddAppConfiguration);
 var
@@ -1789,7 +1785,7 @@ begin
 end;
 
 
-function CreateConfigEx(const aStorage: IddConfigStorage = nil): TddAppConfiguration;
+function CreateConfigEx(AutolinkEnabled: Boolean; const aStorage: IddConfigStorage = nil): TddAppConfiguration;
 var
  l_Node: TddCustomConfigNode;
  l_Item, l_Main: TddBaseConfigItem;
@@ -1838,7 +1834,7 @@ begin
   AddCourtDesNode(Result);
   {$ENDIF Courts}
   { Ежедневное обновление }
-  AddDailyConfig(Result);
+  AddDailyConfig(Result, AutolinkEnabled);
   {$IFDEF EveryWeek}
   { Еженедельное обновление }
   AddDeltaConfig(Result);
@@ -1876,11 +1872,11 @@ begin
  l3Free(mailAdapter);
 end;
 
-procedure CreateConfig(const aStorage: IddConfigStorage = nil);
+procedure CreateConfig(AutolinkEnabled: Boolean; const aStorage: IddConfigStorage = nil);
 var
  l_Storage: TddIniStorage;
 begin
- ddAppConfiguration:= CreateConfigEx(aStorage);
+ ddAppConfiguration := CreateConfigEx(AutolinkEnabled, aStorage);
 end;
 
 

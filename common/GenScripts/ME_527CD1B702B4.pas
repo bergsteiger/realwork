@@ -2,6 +2,7 @@ unit nsTryingToOpenMissingDocumentFromLinkEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsTryingToOpenMissingDocumentFromLinkEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsTryingToOpenMissingDocumentFromLinkEvent" MUID: (527CD1B702B4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

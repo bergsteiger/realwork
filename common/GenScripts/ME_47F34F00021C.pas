@@ -2,6 +2,7 @@ unit nevPrintableDocumentContainer;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevPrintableDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevPrintableDocumentContainer" MUID: (47F34F00021C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

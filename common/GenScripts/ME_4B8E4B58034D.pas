@@ -2,6 +2,7 @@ unit vtDateEditRes;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtDateEditRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vtDateEditRes" MUID: (4B8E4B58034D)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

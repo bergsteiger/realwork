@@ -3,6 +3,7 @@ unit NOT_FINISHED_k2DocumentGenerator;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2DocumentGenerator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2DocumentGenerator" MUID: (47F226C7001F)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

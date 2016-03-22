@@ -3,6 +3,7 @@ unit evConst;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evConst.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "evConst" MUID: (476BEA0B0103)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

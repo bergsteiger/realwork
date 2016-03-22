@@ -2,6 +2,7 @@ unit nsWrapperNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsWrapperNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsWrapperNode" MUID: (4AC230590004)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

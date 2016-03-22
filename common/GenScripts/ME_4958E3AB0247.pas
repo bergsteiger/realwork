@@ -2,6 +2,8 @@ unit PrimSaveLoad_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoad_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "PrimSaveLoad" MUID: (4958E3AB0247)
+// Имя типа: "TPrimSaveLoadForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -301,28 +303,31 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
+{$If NOT Defined(Monitorings)}
 type
- {$If NOT Defined(Monitorings)}
  TnsLoadQueryEvent = {final} class(TnsLogEvent)
   private
    class procedure Log(const aQuery: IQuery); virtual;
  end;//TnsLoadQueryEvent
- {$IfEnd} // NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(Monitorings)
 
- {$If NOT Defined(Monitorings)}
+{$If NOT Defined(Monitorings)}
+type
  TnsSendRequestToLegalAdviceEvent = class(TnsLogEvent)
   private
    class procedure Log;
  end;//TnsSendRequestToLegalAdviceEvent
- {$IfEnd} // NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(Monitorings)
 
- {$If NOT Defined(Monitorings)}
+{$If NOT Defined(Monitorings)}
+type
  TnsLoadQueryFromHistoryEvent = {final} class(TnsLogEvent)
   public
    class procedure Log;
  end;//TnsLoadQueryFromHistoryEvent
- {$IfEnd} // NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(Monitorings)
 
+type
  TvtLabelHack = class(TvtLabel)
  end;//TvtLabelHack
 
@@ -2028,9 +2033,9 @@ begin
  case UserType of
   slqtPostingOrder:
    if aDataUpdate then
-    Result := defDataAdapter.IsInpharmExists
+    Result := defDataAdapter.Monitoring.IsExist
    else
-    Result := defDataAdapter.IsInpharmExists and not Assigned(TnsPostingsTreeSingle.Instance.MgrSearch);
+    Result := defDataAdapter.Monitoring.IsExist and not Assigned(TnsPostingsTreeSingle.Instance.MgrSearch);
   slqtPublishSource: Result := defDataAdapter.IsExists_PublishSourceTag;
   slqtInpharmSearch: Result := defDataAdapter.IsInpharmExists;
  else

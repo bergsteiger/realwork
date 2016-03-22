@@ -2,6 +2,7 @@ unit nsRedactionCurrentPara;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsRedactionCurrentPara.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsRedactionCurrentPara" MUID: (4A7FF2C901C8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

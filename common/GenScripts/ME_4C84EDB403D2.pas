@@ -2,6 +2,7 @@ unit PostingOrder_Strange_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PostingOrder_Strange_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "Strange" MUID: (4C84EDB403D2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

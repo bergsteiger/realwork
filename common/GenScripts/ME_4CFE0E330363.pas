@@ -2,6 +2,7 @@ unit NOT_FINISHED_vg_listbox;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vg_listbox.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vg_listbox" MUID: (4CFE0E330363)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

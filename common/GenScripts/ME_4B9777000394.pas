@@ -2,6 +2,7 @@ unit vcmToolbarMenuRes;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmToolbarMenuRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmToolbarMenuRes" MUID: (4B9777000394)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

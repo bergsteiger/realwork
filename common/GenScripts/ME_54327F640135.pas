@@ -2,6 +2,8 @@ unit DataProviderParams_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\DataProviderParams_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "DataProviderParams" MUID: (54327F640135)
+// Имя типа: "DataProviderParamsTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

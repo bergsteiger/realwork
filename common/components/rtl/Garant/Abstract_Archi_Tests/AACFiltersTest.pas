@@ -1,87 +1,68 @@
 unit AACFiltersTest;
+ {* [Requestlink:294595323] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Archi Tests"
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Archi_Tests/AACFiltersTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::Abstract Archi Tests::Filters::AACFiltersTest
-//
-// {Requestlink:294595323}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Archi_Tests\AACFiltersTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "AACFiltersTest" MUID: (4EA5222A020E)
+// Имя типа: "TAACFiltersTest"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Archi_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Archi_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TAACFiltersTest = {abstract} class(TBaseTest)
   {* [Requestlink:294595323] }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt;
  end;//TAACFiltersTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  evEvdWriter,
-  k2TagGen,
-  dd_lcTextFormatter,
-  dd_lcSectionEliminator,
-  ddSpaceTrimmer,
-  dd_lcTableEliminator,
-  evEvdReader,
-  dd_lcPageNumberEliminator,
-  dd_lcVASCodeCorrector,
-  dd_lcYearCodeCorrector,
-  dd_lcTypeConverter,
-  dd_lcSourceConverter,
-  TextPara_Const,
-  SysUtils,
-  dd_lcVASSourceCorrector,
-  dd_lcResolutionFormatter,
-  dd_lcJudgeFormatter,
-  dd_lcDateNumberFormatter,
-  dd_lcCityNameFormatter,
-  dd_lcTitleFormatter,
-  dd_lcStartDocFormatter,
-  dd_lcTextStyleCorrector,
-  dd_lcTextSplitter,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , evEvdWriter
+ , k2TagGen
+ , dd_lcTextFormatter
+ , dd_lcSectionEliminator
+ , ddSpaceTrimmer
+ , dd_lcTableEliminator
+ , evEvdReader
+ , dd_lcPageNumberEliminator
+ , dd_lcVASCodeCorrector
+ , dd_lcYearCodeCorrector
+ , dd_lcTypeConverter
+ , dd_lcSourceConverter
+ , TextPara_Const
+ , SysUtils
+ , dd_lcVASSourceCorrector
+ , dd_lcResolutionFormatter
+ , dd_lcJudgeFormatter
+ , dd_lcDateNumberFormatter
+ , dd_lcCityNameFormatter
+ , dd_lcTitleFormatter
+ , dd_lcStartDocFormatter
+ , dd_lcTextStyleCorrector
+ , dd_lcTextSplitter
+ , TestFrameWork
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TAACFiltersTest
-
+{$If NOT Defined(NotTunedDUnit)}
 procedure TAACFiltersTest.DoIt;
 //#UC START# *4EA570A1013B_4EA5222A020E_var*
 var
@@ -138,17 +119,17 @@ begin
 end;//TAACFiltersTest.DoIt
 
 function TAACFiltersTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Filters';
 end;//TAACFiltersTest.GetFolder
 
 function TAACFiltersTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4EA5222A020E';
 end;//TAACFiltersTest.GetModelElementGUID
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

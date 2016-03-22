@@ -2,6 +2,7 @@ unit TtfwClassRef_Proxy;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\TtfwClassRef_Proxy.pas"
 // Стереотип: "ClassProxy"
+// Элемент модели: "TtfwClassRef" MUID: (561F9F9400BC)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

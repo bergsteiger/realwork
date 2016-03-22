@@ -1,78 +1,59 @@
 unit K249333540;
+ {* [$249333540] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/K249333540.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.7::K249333540
-//
-// [$249333540]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K249333540.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K249333540" MUID: (4D1C43DD0156)
+// Имя типа: "TK249333540"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  PreviewWithRowCompare
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , PreviewWithRowCompare
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK249333540 = class(TPreviewWithRowCompare)
   {* [$249333540] }
- protected
- // overridden protected methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    function GetNormalFontSize: Integer; override;
-     {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
-   {$IfEnd} //nsTest AND not NoVCM
+    {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
-    {$If defined(XE) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+    {* Идентификатор элемента модели, который описывает тест }
+   {$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
    function EtalonNeedsXE: Boolean; override;
-    {$IfEnd} //XE AND nsTest AND not NotTunedDUnit
+   {$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
  end;//TK249333540
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork,
-  PrintRowHeightsSpy
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ , PrintRowHeightsSpy
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK249333540
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TK249333540.GetNormalFontSize: Integer;
+ {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
 //#UC START# *4C07AC6F036D_4D1C43DD0156_var*
 //#UC END# *4C07AC6F036D_4D1C43DD0156_var*
 begin
@@ -80,21 +61,21 @@ begin
  Result := 12;
 //#UC END# *4C07AC6F036D_4D1C43DD0156_impl*
 end;//TK249333540.GetNormalFontSize
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TK249333540.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.7';
 end;//TK249333540.GetFolder
 
 function TK249333540.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D1C43DD0156';
 end;//TK249333540.GetModelElementGUID
 
-{$If defined(XE) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(XE) AND NOT Defined(NotTunedDUnit)}
 function TK249333540.EtalonNeedsXE: Boolean;
 //#UC START# *51AF49E5001B_4D1C43DD0156_var*
 //#UC END# *51AF49E5001B_4D1C43DD0156_var*
@@ -103,11 +84,10 @@ begin
  Result := true;
 //#UC END# *51AF49E5001B_4D1C43DD0156_impl*
 end;//TK249333540.EtalonNeedsXE
-{$IfEnd} //XE AND nsTest AND not NotTunedDUnit
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(XE) AND NOT Defined(NotTunedDUnit)
 
 initialization
  TestFramework.RegisterTest(TK249333540.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

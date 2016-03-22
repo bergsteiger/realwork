@@ -2,6 +2,7 @@ unit daSortField;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daSortField.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaSortField" MUID: (5680EF290107)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

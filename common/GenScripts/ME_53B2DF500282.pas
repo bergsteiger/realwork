@@ -2,6 +2,8 @@ unit kwConfigurationGetName;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationGetName.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "configuration_GetName" MUID: (53B2DF500282)
+// Имя типа: "TkwConfigurationGetName"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

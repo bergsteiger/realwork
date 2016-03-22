@@ -2,6 +2,7 @@ unit spHelpNotifyManager;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\spHelpNotifyManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TspHelpNotifyManager" MUID: (53760B2701DD)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

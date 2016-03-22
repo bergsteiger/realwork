@@ -2,6 +2,8 @@ unit TextStyle;
 
 // Модуль: ""
 // Стереотип: "TagOverride"
+// Элемент модели: "TextStyle" MUID: (4868C27D02F6)
+// Имя типа: "TextStyleTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

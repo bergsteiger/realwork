@@ -2,6 +2,7 @@ unit evDocumentMarkers;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDocumentMarkers.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evDocumentMarkers" MUID: (4A4C8FC00259)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

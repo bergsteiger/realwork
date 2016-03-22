@@ -2,6 +2,7 @@ unit vtHintManager;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtHintManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvtHintManager" MUID: (50C6241B0355)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

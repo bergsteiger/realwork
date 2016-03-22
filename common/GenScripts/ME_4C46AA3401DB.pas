@@ -2,6 +2,8 @@ unit PrimListOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListOptions_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "PrimListOptions" MUID: (4C46AA3401DB)
+// Имя типа: "TPrimListOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -1252,12 +1254,15 @@ procedure TPrimListOptionsForm.Tree_ExpandAll_Execute(const aParams: IvcmExecute
 //#UC END# *4BDAF7880236_4C46AA3401DBexec_var*
 begin
 //#UC START# *4BDAF7880236_4C46AA3401DBexec_impl*
- tvList.LockChangeSelected;
- try
-  aParams.CallControl;
- finally
-  tvList.UnLockChangeSelected;
- end;//try..finally
+ with tvList.TreeView.Tree do
+ begin
+  Changing;
+  try
+   aParams.CallControl;
+  finally
+   Changed;
+  end;
+ end;
 //#UC END# *4BDAF7880236_4C46AA3401DBexec_impl*
 end;//TPrimListOptionsForm.Tree_ExpandAll_Execute
 {$IfEnd} // NOT Defined(NoVCM)
@@ -1269,12 +1274,15 @@ procedure TPrimListOptionsForm.Tree_CollapseAll_Execute(const aParams: IvcmExecu
 //#UC END# *4BDAF7A2005C_4C46AA3401DBexec_var*
 begin
 //#UC START# *4BDAF7A2005C_4C46AA3401DBexec_impl*
- tvList.LockChangeSelected;
- try
-  aParams.CallControl;
- finally
-  tvList.UnLockChangeSelected;
- end;//try..finally
+ with tvList.TreeView.Tree do
+ begin
+  Changing;
+  try
+   aParams.CallControl;
+  finally
+   Changed;
+  end;
+ end;
 //#UC END# *4BDAF7A2005C_4C46AA3401DBexec_impl*
 end;//TPrimListOptionsForm.Tree_CollapseAll_Execute
 {$IfEnd} // NOT Defined(NoVCM)

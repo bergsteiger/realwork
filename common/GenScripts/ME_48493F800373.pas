@@ -3,6 +3,7 @@ unit Persistent_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\Persistent_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WPersistent" MUID: (48493F800373)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

@@ -172,7 +172,8 @@ uses
   {$IfEnd} //not Nemesis
   ,
   SysUtils,
-  ddAppConfig
+  ddAppConfig,
+  daSchemeConsts
   ;
 {$IfEnd} //AppServerSide AND MDPSyncIntegrated
 

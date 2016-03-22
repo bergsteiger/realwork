@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3RecordWithEQList" MUID: (4B223DB5024B)
+// Имя типа: "_l3RecordWithEQList_"
 
 {$Define l3RecordWithEQList_imp}
 

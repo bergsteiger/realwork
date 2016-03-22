@@ -2,6 +2,7 @@ unit NOT_FINISHED_evTableRowCursorPair;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTableRowCursorPair.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTableRowCursorPair" MUID: (53D6758E0352)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

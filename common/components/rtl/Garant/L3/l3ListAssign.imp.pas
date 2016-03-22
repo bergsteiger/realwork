@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ListAssign.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3ListAssign" MUID: (47CEC8860198)
+// Имя типа: "_l3ListAssign_"
 
 {$Define l3ListAssign_imp}
 

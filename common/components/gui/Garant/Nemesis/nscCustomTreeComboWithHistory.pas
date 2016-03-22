@@ -2,6 +2,7 @@ unit nscCustomTreeComboWithHistory;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscCustomTreeComboWithHistory.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscCustomTreeComboWithHistory" MUID: (4B97EDFB0057)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -43,11 +44,8 @@ type
    f_CloseRect: TRect;
    f_MouseTrackItemIndex: Integer;
    f_UseCloseHyperlink: Boolean;
-    {* Поле для свойства UseCloseHyperlink }
    f_HotTrackColor: TColor;
-    {* Поле для свойства HotTrackColor }
    f_YandexLikeBehaviour: Boolean;
-    {* Поле для свойства YandexLikeBehaviour }
   private
    procedure SetMouseTrackItemIndex(aIndex: Integer);
    procedure WMNCLButtonDown(var Message: TWMNCLButtonDown); message WM_NCLBUTTONDOWN;
@@ -113,31 +111,19 @@ type
    f_ChangeTimer: TTimer;
    f_ChangeTime: Cardinal;
    f_OnPastingString: TnscOnPastingString;
-    {* Поле для свойства OnPastingString }
    f_HistoryItems: Tl3Strings;
-    {* Поле для свойства HistoryItems }
    f_PromptTree: Il3SimpleTree;
-    {* Поле для свойства PromptTree }
    {$If NOT Defined(DesignTimeLibrary)}
    f_RootNode: Il3SimpleNode;
-    {* Поле для свойства RootNode }
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
    f_DropDownCount: Integer;
-    {* Поле для свойства DropDownCount }
    f_PromptColor: TColor;
-    {* Поле для свойства PromptColor }
    f_PromptStyle: TFontStyles;
-    {* Поле для свойства PromptStyle }
    f_PromptBackColor: TColor;
-    {* Поле для свойства PromptBackColor }
    f_PromptViewOptions: TvtViewOptions;
-    {* Поле для свойства PromptViewOptions }
    f_OnSelect: TNotifyEvent;
-    {* Поле для свойства OnSelect }
    f_PropmtTreeUsed: Boolean;
-    {* Поле для свойства PropmtTreeUsed }
    f_CloseHyperLinkColor: TColor;
-    {* Поле для свойства CloseHyperLinkColor }
   private
    procedure MakeNodesFromItems;
    procedure FilterNewTree;
@@ -186,7 +172,6 @@ type
    function DoDoDrop(aFormat: Tl3ClipboardFormat;
     const aMedium: Tl3StoragePlace;
     var dwEffect: Integer): Boolean; override;
-   procedure ClearFields; override;
    procedure pm_SetDropped(aValue: Boolean); override;
    procedure ButtonClick(Sender: TObject); override;
    function TranslateHomeEndToDropDown: Boolean; override;
@@ -198,6 +183,7 @@ type
     aSizeY: Integer): Integer; override;
    procedure ProcessTreeSelect(ChooseFromTree: Boolean;
     aTriggerSelect: Boolean); override;
+   procedure ClearFields; override;
   public
    procedure ResetPropmtTreeUsage;
    constructor Create(AOwner: TComponent); override;
@@ -1266,15 +1252,6 @@ begin
 //#UC END# *4D6D427D023A_4B97EDFB0057_impl*
 end;//TnscCustomTreeComboWithHistory.NeedAlignMarksOnSingleClick
 
-procedure TnscCustomTreeComboWithHistory.ClearFields;
-begin
- PromptTree := nil;
- {$If NOT Defined(DesignTimeLibrary)}
- RootNode := nil;
- {$IfEnd} // NOT Defined(DesignTimeLibrary)
- inherited;
-end;//TnscCustomTreeComboWithHistory.ClearFields
-
 procedure TnscCustomTreeComboWithHistory.pm_SetDropped(aValue: Boolean);
 //#UC START# *53ECD12B0045_4B97EDFB0057set_var*
  function FindCurrent(const aTree: Il3SimpleTree;
@@ -1465,6 +1442,15 @@ begin
 {$EndIf DesignTimeLibrary} //morozov
 //#UC END# *53EE0A730393_4B97EDFB0057_impl*
 end;//TnscCustomTreeComboWithHistory.ProcessTreeSelect
+
+procedure TnscCustomTreeComboWithHistory.ClearFields;
+begin
+ PromptTree := nil;
+ {$If NOT Defined(DesignTimeLibrary)}
+ RootNode := nil;
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ inherited;
+end;//TnscCustomTreeComboWithHistory.ClearFields
 
 initialization
 {$If NOT Defined(NoScripts)}

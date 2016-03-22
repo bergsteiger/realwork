@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtOutlinerWithDragDrop;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtOutlinerWithDragDrop.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtOutlinerWithDragDrop" MUID: (4B97E8130272)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
@@ -24,9 +25,9 @@ type
   aWantMenu: Boolean;
   var dwEffect: LongInt): Boolean of object;
 
- {$If NOT Defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
  RvtNodeDataObject = ;
- {$IfEnd} // NOT Defined(DesignTimeLibrary)
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
  TvtOutlinerWithDragDrop = class(TvtOutlinerWithQuickSearch)
   protected

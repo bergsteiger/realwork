@@ -3,6 +3,7 @@ unit PrimFolders_utFolders_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFolders_utFolders_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utFolders" MUID: (4BD6C62402E7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utFolders = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utFolders }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utFolders
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utFolders.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utFolders';
-end;//Tkw_FormUserType_utFolders.GetWordNameForRegister
-
 function Tkw_FormUserType_utFolders.GetInteger: Integer;
 begin
  Result := utFolders;
 end;//Tkw_FormUserType_utFolders.GetInteger
+
+class function Tkw_FormUserType_utFolders.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utFolders';
+end;//Tkw_FormUserType_utFolders.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

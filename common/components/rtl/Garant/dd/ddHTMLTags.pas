@@ -3,7 +3,7 @@ unit ddHTMLTags;
 interface
 
 uses
-  //RTFTypes,
+  // RTFTypes,
   ddTypes,
   
   l3Chars,
@@ -13,6 +13,7 @@ uses
 type
  TddHTMLParamID = (dd_paridUnknown,
                    dd_paridHREF,
+                   dd_paridNAME,
                    dd_paridALIGN,
                    dd_paridVALIGN,
                    dd_paridWIDTH,
@@ -21,7 +22,14 @@ type
                    dd_paridSTYLE,
                    dd_paridCLASS,
                    dd_paridCHARSET,
-                   dd_paridSRC
+                   dd_paridSRC,
+                   dd_paridBorderBottom,
+                   dd_paridBorderTop,
+                   dd_paridBorderLeft,
+                   dd_paridBorderRight,
+                   dd_paridID,
+                   dd_paridTextTransform,
+                   dd_paridFindNext
                    );
 
  TddHTMLParamType = (dd_parKey,
@@ -30,24 +38,32 @@ type
                      dd_parAlign,
                      dd_parVAlign,
                      dd_parCharet,
-                     dd_parHREF);
+                     dd_parHREF,
+                     dd_parHREFURL,
+                     dd_parBorderPart,
+                     dd_parTextTransform);
 
  TddHTMLParam = record
   case rType: TddHTMLParamType of
-   dd_parKey: (rKeyValue: TddHTMLParamID);
-   dd_parInteger: (rValue: Integer;
-                   rIsPercent: Boolean);
-   dd_parString: (rStart: Integer;
-                  rFinish: Integer);
-   dd_parAlign: (rAlign: TJUST);
-   dd_parVAlign: (rVAlign: TddCellJust);
-   dd_parCharet: (rCharset: Integer);
+   dd_parKey: ( rKeyValue: TddHTMLParamID );
+   dd_parInteger: ( rValue: Integer;
+                    rIsPercent: Boolean );
+   dd_parString: ( rStart: Integer;
+                   rFinish: Integer );
+   dd_parAlign: ( rAlign: TJUST );
+   dd_parVAlign: ( rVAlign: TddCellJust );
+   dd_parCharet: ( rCharset: Integer );
    dd_parHREF: (rDocID: Integer;
-                rSubID: Integer)             
+                rSubID: Integer;
+                );
+   dd_parHREFURL: ( rStartURL: Integer;
+                   rFinishURL: Integer );
+   dd_parBorderPart: ( rHasBorder: Boolean );
+   dd_parTextTransform: ( rTransform: TddCharCapsType );
  end;
 
- ThtmlTagRec = record
-  TagName: ShortString;
+ THTMLTagRec = record
+  TagName: AnsiString;
   TagID  : Integer;
  end;
 
@@ -115,12 +131,32 @@ const
 
  cnHTMLParamLast = High(TddHTMLParamID);
 
+ carHTMLBorderStyle: Tl3PCharLenPrim = (S         : 'solid';
+                                        SLen      : 5;
+                                        SCodePage : CP_ANSI);
+
+ carHTMLTransform: array [TddCharCapsType] of Tl3PCharLenPrim = (
+                                          (S         : nil;
+                                          SLen      : 0;
+                                          SCodePage : CP_ANSI),
+                                          (S         : 'UPPERCASE';
+                                          SLen      : 9;
+                                          SCodePage : CP_ANSI),
+                                          (S         : 'LOWERCASE';
+                                          SLen      : 9;
+                                          SCodePage : CP_ANSI)
+                                          );
+
  carHTMLParamStrArray: array [TddHTMLParamID] of Tl3PCharLenPrim = (
                                           (S        : nil;
-                                          SLen      : 1;
+                                          SLen      : 0;
                                           SCodePage : CP_ANSI
                                           ),
                                           (S        : 'HREF';
+                                          SLen      : 4;
+                                          SCodePage : CP_ANSI
+                                          ),
+                                          (S        : 'NAME';
                                           SLen      : 4;
                                           SCodePage : CP_ANSI
                                           ),
@@ -159,11 +195,39 @@ const
                                           (S        : 'SRC';
                                           SLen      : 3;
                                           SCodePage : CP_ANSI
+                                          ),
+                                          (S        : 'BORDER-BOTTOM';
+                                          SLen      : 13;
+                                          SCodePage : CP_ANSI
+                                          ),
+                                          (S        : 'BORDER-TOP';
+                                          SLen      : 10;
+                                          SCodePage : CP_ANSI
+                                          ),
+                                          (S        : 'BORDER-LEFT';
+                                          SLen      : 11;
+                                          SCodePage : CP_ANSI
+                                          ),
+                                          (S        : 'BORDER-RIGHT';
+                                          SLen      : 12;
+                                          SCodePage : CP_ANSI
+                                          ),
+                                          (S        : 'ID';
+                                          SLen      : 2;
+                                          SCodePage : CP_ANSI
+                                          ),
+                                          (S        : 'TEXT-TRANSFORM';
+                                          SLen      : 14;
+                                          SCodePage : CP_ANSI
+                                          ),
+                                          (S        : nil;
+                                          SLen      : 0;
+                                          SCodePage : CP_ANSI
                                           )
                                           );
 
- htmlWordChars = l3_DefaultParserWordChars + ['<', '/','_']{ + cc_ANSIRussian +cc_Digits} ;
- htmlWhiteSpace = l3_DefaultParserWhiteSpace - [' ', '_'];// - htmlWordChars;
+ htmlWordChars = l3_DefaultParserWordChars + ['<', '/','_', cc_Tab]{ + cc_ANSIRussian +cc_Digits} ;
+ htmlWhiteSpace = l3_DefaultParserWhiteSpace - [' ', '_', cc_Tab];// - htmlWordChars;
 
 
  tnHTML     = 'HTML';   tidHtml     = 1;
@@ -201,10 +265,14 @@ const
  thTBODY    = 'TBODY';  tidTBODY    = 33;
  thTFOOT    = 'TFOOT';  tidTFOOT    = 34;
  thTHEAD    = 'THEAD';  tidTHEAD    = 35;
+ thINS      = 'INS';    tidINS      = 36;
+ thDEL      = 'DEL';    tidDEL      = 37;
+ thSUP      = 'SUP';    tidSUP      = 38;
+ thSUB      = 'SUB';    tidSUB      = 39;
 
 const
- cMaxHTMLTag = 34;
- cHTMLTags : array[0..cmaxHTMLTag] of ThtmlTagRec =
+ cMaxHTMLTag = 38;
+ cHTMLTags : array[0..cMaxHTMLTag] of THTMLTagRec =
   (
    (TagName: tnHtml;   TagID: tidHTML),
    (TagName: tnP;      TagID: tidP),
@@ -238,9 +306,13 @@ const
    (TagName: tnH;      TagID: tidH),
    (TagName: thTH;     TagID: tidTH),
    (TagName: thSCRIPT; TagID: tidSCRIPT),
-   (TagName: thTBODY; TagID: tidTBODY),
-   (TagName: thTFOOT; TagID: tidTFOOT),
-   (TagName: thTHEAD; TagID: tidTHEAD)
+   (TagName: thTBODY;  TagID: tidTBODY),
+   (TagName: thTFOOT;  TagID: tidTFOOT),
+   (TagName: thTHEAD; TagID: tidTHEAD),
+   (TagName: thINS;    TagID: tidINS),
+   (TagName: thDEL;    TagID: tidDEL),
+   (TagName: thSUP;    TagID: tidSUP),
+   (TagName: thSUB;    TagID: tidSUB)
   );
 
 type
@@ -259,7 +331,7 @@ type
 
  TddCSSValueType = (css_vtNone, css_vtPixel, css_vtPoint, css_vtCM, css_vtInch, css_vtPercent);
 
-const                  
+const
  carCSSParamStrArray: array [TddCSSTagType] of Tl3PCharLenPrim = (
                                           (S         : 'font-size';
                                           SLen       : 9;
@@ -269,35 +341,35 @@ const
                                           SLen       : 11;
                                           SCodePage  : CP_ANSI
                                           ),
-                                          (S         : 'font-weight';
+                                          (S        : 'font-weight';
                                           SLen      : 11;
                                           SCodePage : CP_ANSI
                                           ),
-                                          (S         : 'font-style';
+                                          (S        : 'font-style';
                                           SLen      : 10;
                                           SCodePage : CP_ANSI
                                           ),
-                                          (S         : 'color';
+                                          (S        : 'color';
                                           SLen      : 5;
                                           SCodePage : CP_ANSI
                                           ),
-                                          (S         : 'background-color';
+                                          (S        : 'background-color';
                                           SLen      : 16;
                                           SCodePage : CP_ANSI
                                           ),
-                                          (S         : 'margin-left';
+                                          (S        : 'margin-left';
                                           SLen      : 11;
                                           SCodePage : CP_ANSI
                                           ),
-                                          (S         : 'margin-right';
+                                          (S        : 'margin-right';
                                           SLen      : 12;
                                           SCodePage : CP_ANSI
                                           ),
-                                          (S         : 'margin-top';
+                                          (S        : 'margin-top';
                                           SLen      : 10;
                                           SCodePage : CP_ANSI
                                           ),
-                                          (S         : 'margin-bottom';
+                                          (S        : 'margin-bottom';
                                           SLen      : 13;
                                           SCodePage : CP_ANSI
                                           ),
@@ -305,7 +377,7 @@ const
                                           SLen      : 6;
                                           SCodePage : CP_ANSI
                                           ),
-                                          (S         : 'text-align';
+                                          (S        : 'text-align';
                                           SLen      : 10;
                                           SCodePage : CP_ANSI
                                           )

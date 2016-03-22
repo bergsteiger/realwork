@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3BitmapContainer;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3BitmapContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3BitmapContainer" MUID: (4CBD730A0323)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_vgEffect;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vgEffect.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgEffect" MUID: (4D5E914F002C)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

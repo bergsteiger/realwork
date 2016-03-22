@@ -3,6 +3,7 @@ unit LoggingUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\LoggingUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Logging" MUID: (45ED58CF03E6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

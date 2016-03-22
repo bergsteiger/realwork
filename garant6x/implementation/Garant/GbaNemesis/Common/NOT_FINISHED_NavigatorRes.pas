@@ -2,6 +2,7 @@ unit NOT_FINISHED_NavigatorRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\NOT_FINISHED_NavigatorRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "NavigatorRes" MUID: (52402E6C002E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

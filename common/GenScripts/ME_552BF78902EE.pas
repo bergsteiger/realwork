@@ -2,6 +2,7 @@ unit ddAutoLinkServices;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\ddAutoLinkServices.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddAutoLinkServices" MUID: (552BF78902EE)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

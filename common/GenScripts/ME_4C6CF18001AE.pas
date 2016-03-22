@@ -3,6 +3,7 @@ unit SplitTableTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\SplitTableTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TSplitTableTest" MUID: (4C6CF18001AE)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

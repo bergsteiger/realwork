@@ -3,6 +3,7 @@ unit evCommentParaPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCommentParaPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCommentParaPainter" MUID: (49DB2E390053)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

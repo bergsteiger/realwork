@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtStatusBar;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtStatusBar.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtStatusBar" MUID: (4E15A00502A3)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
@@ -30,10 +31,10 @@ uses
  l3ImplUses
  , afwDrawing
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , StatusBarWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , StatusBarWordsPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , StatusPanelWordsPack

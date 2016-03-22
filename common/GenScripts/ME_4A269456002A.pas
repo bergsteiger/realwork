@@ -3,6 +3,7 @@ unit evHotSpotMisc;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evHotSpotMisc.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evHotSpotMisc" MUID: (4A269456002A)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,7 @@ unit stevStylesPrintAndExportFontSizeItem;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\stevStylesPrintAndExportFontSizeItem.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TstevStylesPrintAndExportFontSizeItem" MUID: (DF1A3014EEBC)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

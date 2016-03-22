@@ -35,9 +35,6 @@
 		&ru.garant.extensions.properties.signTargetMaxCyclesCount;
 		&ru.garant.extensions.properties.signTimestampServer;
 
-		&ru.garant.extensions.properties.svnRoot;
-		&ru.garant.extensions.properties.svnUpdateMaxCyclesCount;
-
 		&ru.garant.extensions.properties.wixLibRoot;
 
 		&ru.garant.extensions.properties.workRootDir;
@@ -55,8 +52,6 @@
 		&ru.garant.extensions.scriptdefs.cleanupPasBuilds;
 
 		&ru.garant.extensions.scriptdefs.cleanupCvsByOutput;
-
-		&ru.garant.extensions.scriptdefs.cleanupSvnByPath;
 
 		&ru.garant.extensions.scriptdefs.copyDirToDir;
 
@@ -77,9 +72,6 @@
 
 		&ru.garant.extensions.scriptdefs.setCvsTagByList;
 		&ru.garant.extensions.scriptdefs.updateCvsByList;
-
-		&ru.garant.extensions.scriptdefs.setSvnTagByList;
-		&ru.garant.extensions.scriptdefs.updateSvnByList;
 
 		&ru.garant.extensions.scriptdefs.signTarget;
 	<!-- } scriptdefs -->
@@ -183,7 +175,7 @@
 
 	<property
 		name = "properties.externalMountPathRevision"
-		value = "msvc090only-current"
+		value = "msvc090only-current_7.11"
 	/>
 
 	<property
@@ -6380,6 +6372,7 @@
 		depends = "updateCvs"
 		unless = "disable-updatePasTargetsBuildVersion"
 	>
+
 <!-- -->
 		<ru.garant.extensions.scriptdefs.replaceStringInFile
 			input.file = "${properties.pasTargetRootDir}/garant6x/implementation/Garant/GbaNemesis/nsBuildVersion.inc"

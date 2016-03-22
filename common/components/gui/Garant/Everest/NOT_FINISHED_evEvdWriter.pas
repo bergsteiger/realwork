@@ -3,6 +3,7 @@ unit NOT_FINISHED_evEvdWriter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evEvdWriter.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evEvdWriter" MUID: (4EA52FD6034D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

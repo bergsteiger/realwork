@@ -2,6 +2,7 @@ unit atStringFileReader;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringFileReader.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatStringFileReader" MUID: (502A45570012)
 
 interface
 

@@ -5,7 +5,7 @@ unit evStyle;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/evStyle.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Standard::TevStyle
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::EVD::Standard::TevStyle
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

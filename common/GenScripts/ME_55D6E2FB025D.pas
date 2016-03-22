@@ -2,6 +2,7 @@ unit pgDataProviderFactory;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgDataProviderFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgDataProviderFactory" MUID: (55D6E2FB025D)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
@@ -134,6 +135,8 @@ begin
   aParams.AssignParams(aEtalon);
   with aConfig do
   begin
+   aParams.Login := AsString['Login'];
+   aParams.Password := AsString['Password'];
    TpgDataProviderParams(aParams).DataServerHostName := AsString['DataServerHostName'];
    TpgDataProviderParams(aParams).DataServerPort := AsInteger['DataServerPort'];
   end;
@@ -226,7 +229,7 @@ function TpgDataProviderFactory.DoMakeProvider(aParams: TdaDataProviderParams;
 begin
 //#UC START# *551D06D402AF_55D6E2FB025D_impl*
  Assert(aParams is TpgDataProviderParams);
- Result := TpgDataProvider.Make(TpgDataProviderParams(aParams), ForCheckLogin, AllowClearLocks);
+ Result := TpgDataProvider.Make(TpgDataProviderParams(aParams), ForCheckLogin, AllowClearLocks, SetGlobalProvider);
 //#UC END# *551D06D402AF_55D6E2FB025D_impl*
 end;//TpgDataProviderFactory.DoMakeProvider
 

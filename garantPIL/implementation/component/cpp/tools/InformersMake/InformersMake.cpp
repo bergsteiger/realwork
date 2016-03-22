@@ -6,11 +6,14 @@
 
 #include <fstream>
 
+#include "shared/GCL/str/str_conv.h"
 #include "shared/Morpho/Facade/Factory.h"
 #include "shared/ContextSearch/Manage/Manage.h"
 
 #include "garantCore/SearchAdapterLib/impl/DBComm_i/DBCommunicator_i.h"
 
+#include "boost/lexical_cast.hpp"
+#include "boost/algorithm/string/join.hpp"
 #include "boost/algorithm/string/trim.hpp"
 #include "boost/algorithm/string/split.hpp"
 
@@ -23,9 +26,6 @@ InformersMaker::InformersMaker (const std::string& path) {
 	m_base = new SearchBase (path.c_str (), ACE_OS_O_RDONLY);
 }
 
-InformersMaker::~InformersMaker () {
-}
-
 void InformersMaker::execute (const std::string& in, const std::string& out) {
 	Core::GDS::StopWatch sw (GDS_CURRENT_FUNCTION);
 
@@ -34,26 +34,24 @@ void InformersMaker::execute (const std::string& in, const std::string& out) {
 	using namespace ContextSearch;
 
 	Morpho::Def::ICache_var cache = Morpho::Factory::make ();
-	cache->load (base.in (), true);
-
-	Morpho::Def::INormalizer_var normalizer = Morpho::Factory::make (cache.in ());
+	cache->load (base.in ());
 
 	DBComm::IDBCommunicator_var communicator = new SearchAdapterLib::DBComm_i::DBCommunicator_i (base.in ());
 
-	Manage::IRequestTransformer_var transformer = Manage::IRequestTransformerFactory::make (normalizer.in ());
+	Manage::Env env;
+	env.normalizer = Morpho::Factory::make (cache.in ());
 
-	const DBComm::PSDTemplates templates;
-	const GCL::StrVector& exl_data = communicator->get_exclude_data ();
+	Manage::IQuery_var query = Manage::IQueryFactory::make (env, communicator.in ());
 
-	/*
-	std::string root_path = out;
-	root_path.erase (root_path.find_last_of ('\\'));
-	*/
+	size_t counter = 1;
 
 	std::ifstream ifs (in.c_str ());
 
 	if (ifs) {
-		GCL::StrSet informers;
+		GCL::StrVector informers;
+		informers.reserve (200000);
+
+		GCL::StrSet unique_data;
 
 		std::string str;
 
@@ -69,29 +67,39 @@ void InformersMaker::execute (const std::string& in, const std::string& out) {
 					boost::split (parts, str_copy, boost::is_any_of (";"));
 				}
 
-				GDS_ASSERT (parts.size () == 4);
+				GDS_ASSERT (parts.size () == 3);
+
+				query->clear ();
+				query->add (Defs::Request (parts [0]), false);
+
+				Core::Aptr <Search::SplitRequests> res = query->get_data ();
 
 				GCL::StrSet keys;
 
-				GCL::StrVector norms;
-				normalizer->execute_for_phrase (parts [0], norms);
-
-				for (GCL::StrVector::iterator it = norms.begin (); it != norms.end (); ++it) {
-					transformer->exclude (*it, exl_data, templates, false);
-					keys.insert (*it);
-				}
-
-				std::string data;
-				{
-					for (GCL::StrVector::const_iterator it = parts.begin () + 1; it != parts.end (); ++it) {
-						data += ';';
-						data += *it;
-					}
+				for (Search::SplitRequests::const_iterator it = res->begin (); it != res->end (); ++it) {
+					keys.insert (boost::join (it->context, " ")); // ключи сначала в set (возможны дубликаты)
 				}
 
 				for (GCL::StrSet::const_iterator it = keys.begin (); it != keys.end (); ++it) {
-					std::string val = *it + data;
-					informers.insert (val);
+					Core::Aptr <GCL::StrVector> norms = env.normalizer->execute_for_phrase (*it);
+
+					for (GCL::StrVector::iterator _it = norms->begin (); _it != norms->end (); ++_it) {
+						std::string _str = *_it + parts [1];
+
+						if (unique_data.find (_str) == unique_data.end ()) {
+							std::string data = ";middle\\"+ boost::lexical_cast <std::string> (counter); 
+							data += ";" + parts [1];
+							data += ";" + parts [2];
+
+							informers.push_back (*_it);
+							informers.back () += data;
+
+							GCL::string_recoding (GCL::cd_win, GCL::cd_dos, &(*informers.back ().begin ()), 0);
+
+							unique_data.insert (_str);
+							++counter;
+						}
+					}
 				}
 			}
 		}

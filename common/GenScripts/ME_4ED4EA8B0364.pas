@@ -2,6 +2,7 @@ unit nevNodeGroupFormatInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevNodeGroupFormatInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevNodeGroupFormatInfo" MUID: (4ED4EA8B0364)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

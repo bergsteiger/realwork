@@ -2,6 +2,7 @@ unit kwEntityOperationPrim;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwEntityOperationPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwEntityOperationPrim" MUID: (523006F7004A)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

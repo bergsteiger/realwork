@@ -3,6 +3,7 @@ unit IUnknownPtrList;
 
 // Модуль: "w:\common\components\SandBox\IUnknownPtrList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TIUnknownPtrList" MUID: (51E80A6D00AA)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

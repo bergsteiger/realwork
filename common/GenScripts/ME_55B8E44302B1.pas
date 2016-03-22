@@ -2,6 +2,7 @@ unit ActionListWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ActionListWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ActionListWordsPack" MUID: (55B8E44302B1)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -98,11 +99,6 @@ begin
  aCtx.rEngine.PushObj(FindAction(aCtx, l_aActionList, l_anActionName));
 end;//TkwPopActionListFindAction.DoDoIt
 
-class function TkwPopActionListFindAction.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ActionList:FindAction';
-end;//TkwPopActionListFindAction.GetWordNameForRegister
-
 function TkwPopActionListFindAction.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TContainedAction);
@@ -117,6 +113,11 @@ function TkwPopActionListFindAction.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TActionList), @tfw_tiString]);
 end;//TkwPopActionListFindAction.ParamsTypes
+
+class function TkwPopActionListFindAction.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ActionList:FindAction';
+end;//TkwPopActionListFindAction.GetWordNameForRegister
 
 initialization
  TkwPopActionListFindAction.RegisterInEngine;

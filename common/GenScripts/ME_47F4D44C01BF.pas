@@ -3,6 +3,7 @@ unit evLocationBase;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evLocationBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevLocationBase" MUID: (47F4D44C01BF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

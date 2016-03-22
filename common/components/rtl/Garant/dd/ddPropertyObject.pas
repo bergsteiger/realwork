@@ -41,7 +41,8 @@ type
    procedure Write2Generator(const Generator: Ik2TagGenerator); virtual; abstract;
    procedure Reset; virtual; abstract;
    function JoinWith(P: TObject): LongInt; virtual;
-   function Diff(P: TddPropertyObject): TddPropertyObject; virtual; abstract;
+   function Diff(P: TddPropertyObject;
+     aForReader: Boolean): TddPropertyObject; virtual; abstract;
    procedure AssignFrom(anOther: TddPropertyObject); virtual;
    function Clone: Pointer;
  public

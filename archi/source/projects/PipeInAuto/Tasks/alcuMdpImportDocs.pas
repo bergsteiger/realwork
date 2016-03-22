@@ -92,7 +92,7 @@ begin
 {$Else defined(AppServerSide)}
  f_Syncronizer := TalcuMDPSyncronizer.Create;
  try
-  f_Syncronizer.Execute(aContext.rProgressor, MaxCount, Mail, ErrorMail);
+  f_Syncronizer.Execute({$IFDEF Region} False {$ELSE Region} True {$ENDIF Region}, aContext.rProgressor, MaxCount, Mail, ErrorMail);
  finally
   FreeAndNil(f_Syncronizer);
  end;

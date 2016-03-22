@@ -2,6 +2,7 @@ unit NOT_FINISHED_k2Op;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2Op.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2Op" MUID: (47E3C7030369)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

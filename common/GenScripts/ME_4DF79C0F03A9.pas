@@ -3,6 +3,7 @@ unit tfwKConst;
 
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\tfwKConst.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "tfwKConst" MUID: (4DF79C0F03A9)
 
 {$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 

@@ -3,6 +3,8 @@ unit Attributes_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Attributes_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "Attributes" MUID: (4AB1357D0253)
+// Имя типа: "TAttributesForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

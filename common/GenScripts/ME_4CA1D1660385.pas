@@ -2,6 +2,7 @@ unit NOT_FINISHED_Contents;
 
 // Модуль: "w:\common\components\rtl\Garant\ServerGate\NOT_FINISHED_Contents.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Contents" MUID: (4CA1D1660385)
 
 interface
 

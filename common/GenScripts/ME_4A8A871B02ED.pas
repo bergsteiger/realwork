@@ -3,6 +3,7 @@ unit nscCustomChatMemo;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscCustomChatMemo.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscCustomChatMemo" MUID: (4A8A871B02ED)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -55,9 +56,6 @@ uses
  l3ImplUses
  , nscCustomChatMemoTextSource
  , evMsgCode
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , evOp
  , TextPara_Const
  , k2Tags
@@ -66,6 +64,9 @@ uses
  {$If Defined(k2ForEditor)}
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TnscCustomChatMemo.ValidateInsertionPoint: Boolean;

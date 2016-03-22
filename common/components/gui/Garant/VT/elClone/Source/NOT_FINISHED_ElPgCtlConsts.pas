@@ -2,6 +2,7 @@ unit NOT_FINISHED_ElPgCtlConsts;
 
 // Модуль: "w:\common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElPgCtlConsts.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ElPgCtlConsts" MUID: (52BD7A930246)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

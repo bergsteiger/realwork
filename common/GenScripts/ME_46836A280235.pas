@@ -3,6 +3,7 @@ unit nsRubricatorList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Rubricator\nsRubricatorList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsRubricatorList" MUID: (46836A280235)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit SimpleListInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\List\SimpleListInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "SimpleListInterfaces" MUID: (4922BFA000DD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

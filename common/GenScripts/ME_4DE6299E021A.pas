@@ -18,6 +18,7 @@ unit kwArchiOpenDocument;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiOpenDocument.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwArchiOpenDocument" MUID: (4DE6299E021A)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

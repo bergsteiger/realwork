@@ -2,6 +2,7 @@ unit NOT_FINISHED_evAutoBlock;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\ext\NOT_FINISHED_evAutoBlock.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evAutoBlock" MUID: (4D02519C01C2)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

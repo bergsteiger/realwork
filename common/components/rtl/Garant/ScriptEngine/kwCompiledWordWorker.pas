@@ -3,6 +3,7 @@ unit kwCompiledWordWorker;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordWorker.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledWordWorker" MUID: (4DCBD50101CB)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -22,7 +23,6 @@ type
   {* Базовый класс для исполняемых скомпилированных слов. }
   private
    f_WordToWork: TtfwWord;
-    {* Поле для свойства WordToWork }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

@@ -2,6 +2,7 @@ unit l3CustomRecListView;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CustomRecListView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CustomRecListView" MUID: (4DEFC4AE0296)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

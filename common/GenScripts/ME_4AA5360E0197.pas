@@ -3,6 +3,8 @@ unit fsConsultation;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\fsConsultation.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "Consultation" MUID: (4AA5360E0197)
+// Имя типа: "Tfs_Consultation"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit SelectedAttributesKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\SelectedAttributesKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "SelectedAttributesKeywordsPack" MUID: (2F60CBABB288)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::SelectedAttributes TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_SelectedAttributes
 
  Tkw_SelectedAttributes_Control_SelectedTree = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::SelectedTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelectedAttributes_Control_SelectedTree
 
  Tkw_SelectedAttributes_Control_SelectedTree_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnSelectedAttributesSelectedTree
 
-class function Tkw_Form_SelectedAttributes.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::SelectedAttributes';
-end;//Tkw_Form_SelectedAttributes.GetWordNameForRegister
-
 function Tkw_Form_SelectedAttributes.GetString: AnsiString;
 begin
  Result := 'enSelectedAttributes';
 end;//Tkw_Form_SelectedAttributes.GetString
 
-class function Tkw_SelectedAttributes_Control_SelectedTree.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_SelectedAttributes.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::SelectedTree';
-end;//Tkw_SelectedAttributes_Control_SelectedTree.GetWordNameForRegister
+ Result := 'форма::SelectedAttributes';
+end;//Tkw_Form_SelectedAttributes.GetWordNameForRegister
 
 function Tkw_SelectedAttributes_Control_SelectedTree.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_SelectedAttributes_Control_SelectedTree.RegisterInEngine
+
+class function Tkw_SelectedAttributes_Control_SelectedTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::SelectedTree';
+end;//Tkw_SelectedAttributes_Control_SelectedTree.GetWordNameForRegister
 
 procedure Tkw_SelectedAttributes_Control_SelectedTree_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(SelectedTree(aCtx, l_aenSelectedAttributes));
 end;//TkwEnSelectedAttributesSelectedTree.DoDoIt
 
-class function TkwEnSelectedAttributesSelectedTree.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenSelectedAttributes.SelectedTree';
-end;//TkwEnSelectedAttributesSelectedTree.GetWordNameForRegister
-
 procedure TkwEnSelectedAttributesSelectedTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwEnSelectedAttributesSelectedTree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenSelectedAttributes)]);
 end;//TkwEnSelectedAttributesSelectedTree.ParamsTypes
+
+class function TkwEnSelectedAttributesSelectedTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenSelectedAttributes.SelectedTree';
+end;//TkwEnSelectedAttributesSelectedTree.GetWordNameForRegister
 
 initialization
  Tkw_Form_SelectedAttributes.RegisterInEngine;

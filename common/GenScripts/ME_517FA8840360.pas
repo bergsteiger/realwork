@@ -2,6 +2,8 @@ unit kwDisableMergedCellFilter;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwDisableMergedCellFilter.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "DisableMergedCellFilter" MUID: (517FA8840360)
+// Имя типа: "TkwDisableMergedCellFilter"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

@@ -2,6 +2,7 @@ unit Pure;
 
 // Модуль: "w:\common\components\SandBox\Pure.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Pure" MUID: (4861FFE8022A)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

@@ -3,6 +3,7 @@ unit nscNewInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscNewInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "nscNewInterfaces" MUID: (490838E10313)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -118,14 +119,14 @@ type
   procedure UnregisterProvider(const aProvider: InscStatusBarItemsProvider);
  end;//InscStatusBarItemsVisualizer
 
- {$If NOT Defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
  InscStatusBarOperationDef = interface(InscStatusBarItemDef)
   ['{30B59FB0-01BE-4CA3-930C-70209C211197}']
   function Get_Operation: TvcmOpSelector;
   property Operation: TvcmOpSelector
    read Get_Operation;
  end;//InscStatusBarOperationDef
- {$IfEnd} // NOT Defined(NoVCM)
+{$IfEnd} // NOT Defined(NoVCM)
 
  TsbdSeparatorPos = (
   spLeft

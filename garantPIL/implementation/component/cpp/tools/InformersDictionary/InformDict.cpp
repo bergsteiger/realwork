@@ -20,6 +20,7 @@
 #include <fstream>
 
 #include "InformDict.h"
+#include "DBComm.h"
 
 namespace InformersDictionary {
 
@@ -89,10 +90,12 @@ public:
 InformDictBuilder::InformDictBuilder (const std::string& path) : m_count (0) {
 	m_base = new ToolsBase (path);
 
-	SearchAdapterLib::Cache::instance ()->init (m_base->abstract_base ());
+	DBCore::IBase_var _base = DBCore::DBFactory::make (m_base.in ());
+
+	SearchAdapterLib::Cache::instance ()->init (_base.in ());
 
 	Morpho::Def::ICache_var cache = Morpho::Factory::make ();
-	cache->load (m_base->abstract_base (), true);
+	cache->load (_base.in ());
 
 	m_env.normalizer = Morpho::Factory::make (cache.in ());
 	m_query = Manage::IQueryFactory::make (m_env, SearchAdapterLib::Cache::instance ()->get ());
@@ -506,11 +509,11 @@ void InformDictBuilder::find_other (const std::string& req, GCL::StrSet& keys) {
 }
 
 void InformDictBuilder::get_syns (const std::string& req, GCL::StrVector& out) {
-	m_env.normalizer->execute_for_phrase (req, out);
+	Core::Aptr <GCL::StrVector> res = m_env.normalizer->execute_for_phrase (req);
 
 	m_query->clear ();
 
-	for (GCL::StrVector::const_iterator it = out.begin (); it != out.end (); ++it) {
+	for (GCL::StrVector::const_iterator it = res->begin (); it != res->end (); ++it) {
 		m_query->add (Defs::Request (*it), false);
 	}
 

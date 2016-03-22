@@ -2,6 +2,7 @@ unit NOT_FINISHED_JclGraphics;
 
 // Модуль: "w:\common\components\rtl\external\JEDI\source\vcl\NOT_FINISHED_JclGraphics.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "JclGraphics" MUID: (5369F9C90151)
 
 {$Include w:\common\components\l3Define.inc}
 

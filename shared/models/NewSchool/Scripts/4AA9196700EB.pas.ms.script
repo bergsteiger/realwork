@@ -75,33 +75,7 @@ ref; // ME_B9787F2065DD MyPostingListConstants
 
 FORWARD ME_89846AB44F41
 
-: ME_E6E3A02250C3
- CONST UID 'E6E3A02250C3'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_FormUserType_MyPostingList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_89846AB44F41 // Tkw_FormUserType_MyPostingList
- ;
-
-ref; // ME_E6E3A02250C3 Ini_Reg
-
-: ME_4DB0614603C8_ME_89846AB44F41
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_89846AB44F41 // Tkw_FormUserType_MyPostingList
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_89846AB44F41 GetWordNameForRegister
-
 : ME_4EE1DC8903BB_ME_89846AB44F41
- CONST UID '4EE1DC8903BB'
- CONST Name 'GetInteger'
  : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
  ;
  : Implementor ME_89846AB44F41 // Tkw_FormUserType_MyPostingList
@@ -125,13 +99,8 @@ ref; // ME_4EE1DC8903BB_ME_89846AB44F41 GetInteger
    Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E6E3A02250C3 // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_89846AB44F41 // GetWordNameForRegister
- ME_4EE1DC8903BB_ME_89846AB44F41 // GetInteger
+   Seq: ( ME_4EE1DC8903BB_ME_89846AB44F41 // GetInteger
  )
  ; // Overridden
  CONST "NameForScript" 'тип_формы::MyPostingList'
@@ -400,8 +369,6 @@ ref; // ME_3170445F0B8D LCImplLocal
 FORWARD ME_4C84F2B3000F
 
 : ME_46A5AA4B003C_ME_4C84F2B3000F
- CONST UID '46A5AA4B003C'
- CONST Name 'Invalidate'
  : Original WL 'ME_46A5AA4B003C' '4677FBA70343.pas.ms.script' // Invalidate
  ;
  : Implementor ME_4C84F2B3000F // tvPostings
@@ -410,8 +377,6 @@ FORWARD ME_4C84F2B3000F
 ref; // ME_46A5AA4B003C_ME_4C84F2B3000F Invalidate
 
 : ME_477243870072_ME_4C84F2B3000F
- CONST UID '477243870072'
- CONST Name 'RootChanged'
  : Original WL 'ME_477243870072' '4682595B0268.pas.ms.script' // RootChanged
  ;
  : Implementor ME_4C84F2B3000F // tvPostings
@@ -508,7 +473,6 @@ FORWARD ME_4C84F272012A
 ref; // ME_4C84F278028C DoIt
 
 : ME_4EAEAE2602FD
- CONST UID '4EAEAE2602FD'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4C84F272012A // Save
@@ -543,7 +507,6 @@ ref; // ME_4C84F272012A Save
 FORWARD ME_528262650131
 
 : ME_BEFAD4A08CBB
- CONST UID 'BEFAD4A08CBB'
  CONST Name 'Sender'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -554,7 +517,6 @@ FORWARD ME_528262650131
 ref; // ME_BEFAD4A08CBB Sender
 
 : ME_C063BF69833B
- CONST UID 'C063BF69833B'
  CONST Name 'Index'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -565,7 +527,6 @@ ref; // ME_BEFAD4A08CBB Sender
 ref; // ME_C063BF69833B Index
 
 : ME_EED0559CC305
- CONST UID 'EED0559CC305'
  CONST Name 'aImages'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -620,7 +581,6 @@ ref; // ME_528262650131 tvPostingsGetItemImage
 FORWARD ME_5282636A000F
 
 : ME_271A63081835
- CONST UID '271A63081835'
  CONST Name 'Sender'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -631,7 +591,6 @@ FORWARD ME_5282636A000F
 ref; // ME_271A63081835 Sender
 
 : ME_B7445742DBB3
- CONST UID 'B7445742DBB3'
  CONST Name 'aNewCurrent'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -642,7 +601,6 @@ ref; // ME_271A63081835 Sender
 ref; // ME_B7445742DBB3 aNewCurrent
 
 : ME_5CA6E8ADD2E0
- CONST UID '5CA6E8ADD2E0'
  CONST Name 'aOldCurrent'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -694,7 +652,6 @@ ref; // ME_5282636A000F tvPostingsCurrentChanged
 FORWARD ME_5282655D0103
 
 : ME_0B159F0625F6
- CONST UID '0B159F0625F6'
  CONST Name 'aIndex'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -744,7 +701,6 @@ ref; // ME_5282655D0103 OnAddNode
 FORWARD ME_528265720097
 
 : ME_DD8C499D0416
- CONST UID 'DD8C499D0416'
  CONST Name 'aIndex'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -794,7 +750,6 @@ ref; // ME_528265720097 OnDeleteNode
 FORWARD ME_52826586022D
 
 : ME_74A660B1FD45
- CONST UID '74A660B1FD45'
  CONST Name 'aIndex'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -805,7 +760,6 @@ FORWARD ME_52826586022D
 ref; // ME_74A660B1FD45 aIndex
 
 : ME_F529ED09606C
- CONST UID 'F529ED09606C'
  CONST Name 'aNewCaption'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -923,7 +877,6 @@ ref; // ME_16D561E14F15 Init_Str_ExportPrimeTitle
 ref; // ME_428D8E4B225B Ini_Reg_Class
 
 : ME_4C84F1D1034A
- CONST UID '4C84F1D1034A'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -934,7 +887,6 @@ ref; // ME_428D8E4B225B Ini_Reg_Class
 ref; // ME_4C84F1D1034A 
 
 : ME_4C84F21300CF
- CONST UID '4C84F21300CF'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -945,7 +897,6 @@ ref; // ME_4C84F1D1034A
 ref; // ME_4C84F21300CF 
 
 : ME_4C84F30B03D1
- CONST UID '4C84F30B03D1'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -956,7 +907,6 @@ ref; // ME_4C84F21300CF
 ref; // ME_4C84F30B03D1 
 
 : ME_4C84F32C0038
- CONST UID '4C84F32C0038'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -967,7 +917,6 @@ ref; // ME_4C84F30B03D1
 ref; // ME_4C84F32C0038 
 
 : ME_4C84F379011B
- CONST UID '4C84F379011B'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -978,7 +927,6 @@ ref; // ME_4C84F32C0038
 ref; // ME_4C84F379011B 
 
 : ME_4C84F3920139
- CONST UID '4C84F3920139'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -989,7 +937,6 @@ ref; // ME_4C84F379011B
 ref; // ME_4C84F3920139 
 
 : ME_4C84F511003A
- CONST UID '4C84F511003A'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -1000,7 +947,6 @@ ref; // ME_4C84F3920139
 ref; // ME_4C84F511003A 
 
 : ME_4C84F52A0267
- CONST UID '4C84F52A0267'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -1011,7 +957,6 @@ ref; // ME_4C84F511003A
 ref; // ME_4C84F52A0267 
 
 : ME_4C84F54502F8
- CONST UID '4C84F54502F8'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -1022,7 +967,6 @@ ref; // ME_4C84F52A0267
 ref; // ME_4C84F54502F8 
 
 : ME_528263B203A9
- CONST UID '528263B203A9'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -1033,7 +977,6 @@ ref; // ME_4C84F54502F8
 ref; // ME_528263B203A9 
 
 : ME_528264BD0127
- CONST UID '528264BD0127'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -1044,7 +987,6 @@ ref; // ME_528263B203A9
 ref; // ME_528264BD0127 
 
 : ME_5282660B027F
- CONST UID '5282660B027F'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -1055,7 +997,6 @@ ref; // ME_528264BD0127
 ref; // ME_5282660B027F 
 
 : ME_52826660038E
- CONST UID '52826660038E'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -1066,7 +1007,6 @@ ref; // ME_5282660B027F
 ref; // ME_52826660038E 
 
 : ME_5282666A028D
- CONST UID '5282666A028D'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -1077,7 +1017,6 @@ ref; // ME_52826660038E
 ref; // ME_5282666A028D 
 
 : ME_5282666D014E
- CONST UID '5282666D014E'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -1088,7 +1027,6 @@ ref; // ME_5282666A028D
 ref; // ME_5282666D014E 
 
 : ME_52826B95031E
- CONST UID '52826B95031E'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -1099,7 +1037,6 @@ ref; // ME_5282666D014E
 ref; // ME_52826B95031E 
 
 : ME_5282722402AE
- CONST UID '5282722402AE'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -1110,7 +1047,6 @@ ref; // ME_52826B95031E
 ref; // ME_5282722402AE 
 
 : ME_5282724902E1
- CONST UID '5282724902E1'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -1121,7 +1057,6 @@ ref; // ME_5282722402AE
 ref; // ME_5282724902E1 
 
 : ME_528272870139
- CONST UID '528272870139'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -1132,7 +1067,6 @@ ref; // ME_5282724902E1
 ref; // ME_528272870139 
 
 : ME_52987FDC0376
- CONST UID '52987FDC0376'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -1143,7 +1077,6 @@ ref; // ME_528272870139
 ref; // ME_52987FDC0376 
 
 : ME_542437420196
- CONST UID '542437420196'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
@@ -1154,7 +1087,6 @@ ref; // ME_52987FDC0376
 ref; // ME_542437420196 
 
 : ME_6357DE9B9E91
- CONST UID '6357DE9B9E91'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1166,7 +1098,6 @@ ref; // ME_542437420196
 ref; // ME_6357DE9B9E91 
 
 : ME_2CF145957921
- CONST UID '2CF145957921'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1178,7 +1109,6 @@ ref; // ME_6357DE9B9E91
 ref; // ME_2CF145957921 
 
 : ME_298584DCDB27
- CONST UID '298584DCDB27'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1190,8 +1120,6 @@ ref; // ME_2CF145957921
 ref; // ME_298584DCDB27 
 
 : ME_4C84EE020054_ME_4AAFA13C01B0
- CONST UID '4C84EE020054'
- CONST Name 'ptNewTheme'
  : Original WL 'ME_4C84EE020054' '4C84EDB403D2.pas.ms.script' // ptNewTheme
  ;
  : Implementor ME_4AAFA13C01B0 // PrimPostingsList
@@ -1209,8 +1137,6 @@ ref; // ME_298584DCDB27
 ref; // ME_4C84EE020054_ME_4AAFA13C01B0 ptNewTheme
 
 : ME_4C84EE1D0024_ME_4AAFA13C01B0
- CONST UID '4C84EE1D0024'
- CONST Name 'ptEditPosting'
  : Original WL 'ME_4C84EE1D0024' '4C84EDB403D2.pas.ms.script' // ptEditPosting
  ;
  : Implementor ME_4AAFA13C01B0 // PrimPostingsList
@@ -1228,8 +1154,6 @@ ref; // ME_4C84EE020054_ME_4AAFA13C01B0 ptNewTheme
 ref; // ME_4C84EE1D0024_ME_4AAFA13C01B0 ptEditPosting
 
 : ME_4C84EE3801EB_ME_4AAFA13C01B0
- CONST UID '4C84EE3801EB'
- CONST Name 'ptDeletePosting'
  : Original WL 'ME_4C84EE3801EB' '4C84EDB403D2.pas.ms.script' // ptDeletePosting
  ;
  : Implementor ME_4AAFA13C01B0 // PrimPostingsList
@@ -1247,8 +1171,6 @@ ref; // ME_4C84EE1D0024_ME_4AAFA13C01B0 ptEditPosting
 ref; // ME_4C84EE3801EB_ME_4AAFA13C01B0 ptDeletePosting
 
 : ME_4C84EE590206_ME_4AAFA13C01B0
- CONST UID '4C84EE590206'
- CONST Name 'SavePostList'
  : Original WL 'ME_4C84EE590206' '4C84EDB403D2.pas.ms.script' // SavePostList
  ;
  : Implementor ME_4AAFA13C01B0 // PrimPostingsList
@@ -1266,8 +1188,6 @@ ref; // ME_4C84EE3801EB_ME_4AAFA13C01B0 ptDeletePosting
 ref; // ME_4C84EE590206_ME_4AAFA13C01B0 SavePostList
 
 : ME_4C84EE750308_ME_4AAFA13C01B0
- CONST UID '4C84EE750308'
- CONST Name 'ExportSelected'
  : Original WL 'ME_4C84EE750308' '4C84EDB403D2.pas.ms.script' // ExportSelected
  ;
  : Implementor ME_4AAFA13C01B0 // PrimPostingsList
@@ -1285,8 +1205,6 @@ ref; // ME_4C84EE590206_ME_4AAFA13C01B0 SavePostList
 ref; // ME_4C84EE750308_ME_4AAFA13C01B0 ExportSelected
 
 : ME_479731C50290_ME_4AAFA13C01B0
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4AAFA13C01B0 // PrimPostingsList
@@ -1295,8 +1213,6 @@ ref; // ME_4C84EE750308_ME_4AAFA13C01B0 ExportSelected
 ref; // ME_479731C50290_ME_4AAFA13C01B0 Cleanup
 
 : ME_47A042E100E2_ME_4AAFA13C01B0
- CONST UID '47A042E100E2'
- CONST Name 'InitFields'
  : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
  ;
  : Implementor ME_4AAFA13C01B0 // PrimPostingsList
@@ -1305,8 +1221,6 @@ ref; // ME_479731C50290_ME_4AAFA13C01B0 Cleanup
 ref; // ME_47A042E100E2_ME_4AAFA13C01B0 InitFields
 
 : ME_47EA4E9002C6_ME_4AAFA13C01B0
- CONST UID '47EA4E9002C6'
- CONST Name 'FinishDataUpdate'
  : Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.pas.ms.script' // FinishDataUpdate
  ;
  : Implementor ME_4AAFA13C01B0 // PrimPostingsList
@@ -1315,8 +1229,6 @@ ref; // ME_47A042E100E2_ME_4AAFA13C01B0 InitFields
 ref; // ME_47EA4E9002C6_ME_4AAFA13C01B0 FinishDataUpdate
 
 : ME_49803F5503AA_ME_4AAFA13C01B0
- CONST UID '49803F5503AA'
- CONST Name 'DoInit'
  : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
  ;
  : Implementor ME_4AAFA13C01B0 // PrimPostingsList
@@ -1325,8 +1237,6 @@ ref; // ME_47EA4E9002C6_ME_4AAFA13C01B0 FinishDataUpdate
 ref; // ME_49803F5503AA_ME_4AAFA13C01B0 DoInit
 
 : ME_4980407F0076_ME_4AAFA13C01B0
- CONST UID '4980407F0076'
- CONST Name 'CallCloseQuery'
  : Original WL 'ME_4980407F0076' '4AADF9450143.pas.ms.script' // CallCloseQuery
  ;
  : Implementor ME_4AAFA13C01B0 // PrimPostingsList
@@ -1335,8 +1245,6 @@ ref; // ME_49803F5503AA_ME_4AAFA13C01B0 DoInit
 ref; // ME_4980407F0076_ME_4AAFA13C01B0 CallCloseQuery
 
 : ME_4A8E8F2E0195_ME_4AAFA13C01B0
- CONST UID '4A8E8F2E0195'
- CONST Name 'InitControls'
  : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
  ;
  : Implementor ME_4AAFA13C01B0 // PrimPostingsList
@@ -1461,7 +1369,6 @@ ref; // ME_4AAFA13C01B0 PrimPostingsList
 FORWARD ME_4AAF996900DC
 
 : ME_4AAF99E00261
- CONST UID '4AAF99E00261'
  CONST Name 'aWnd'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -1471,7 +1378,6 @@ FORWARD ME_4AAF996900DC
 ref; // ME_4AAF99E00261 aWnd
 
 : ME_4AAF99E00285
- CONST UID '4AAF99E00285'
  CONST Name 'aParam'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -1500,7 +1406,6 @@ ref; // ME_4AAF99E00285 aParam
 ref; // ME_4AAF99C703C7 FindSelectDialog
 
 : ME_4AAF9A190399
- CONST UID '4AAF9A190399'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF996900DC // nsFindSelectDialog
@@ -1511,7 +1416,6 @@ ref; // ME_4AAF99C703C7 FindSelectDialog
 ref; // ME_4AAF9A190399 
 
 : ME_4AAF9B5A028C
- CONST UID '4AAF9B5A028C'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF996900DC // nsFindSelectDialog
@@ -1522,7 +1426,6 @@ ref; // ME_4AAF9A190399
 ref; // ME_4AAF9B5A028C 
 
 : ME_4AAF9C2E03AB
- CONST UID '4AAF9C2E03AB'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF996900DC // nsFindSelectDialog
@@ -1533,7 +1436,6 @@ ref; // ME_4AAF9B5A028C
 ref; // ME_4AAF9C2E03AB 
 
 : ME_4AAF9D0D0330
- CONST UID '4AAF9D0D0330'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF996900DC // nsFindSelectDialog
@@ -1577,8 +1479,6 @@ FORWARD ME_4DF789BF02EF
 FORWARD ME_4DF78A71015D
 
 : ME_4BDAF7880236_ME_4DF78A71015D
- CONST UID '4BDAF7880236'
- CONST Name 'ExpandAll'
  : Original WL 'ME_4BDAF7880236' '4BDAF7510113.pas.ms.script' // ExpandAll
  ;
  : Implementor ME_4DF78A71015D // ExcludeTree
@@ -1596,8 +1496,6 @@ FORWARD ME_4DF78A71015D
 ref; // ME_4BDAF7880236_ME_4DF78A71015D ExpandAll
 
 : ME_4BDAF7A2005C_ME_4DF78A71015D
- CONST UID '4BDAF7A2005C'
- CONST Name 'CollapseAll'
  : Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.pas.ms.script' // CollapseAll
  ;
  : Implementor ME_4DF78A71015D // ExcludeTree
@@ -1656,7 +1554,6 @@ ref; // ME_4DF78A71015D ExcludeTree
 ref; // ME_0C5DEB52771E Ini_Reg_Class
 
 : ME_55547ABA01B0
- CONST UID '55547ABA01B0'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4DF789BF02EF // PrimPostingsListOptions
@@ -1667,7 +1564,6 @@ ref; // ME_0C5DEB52771E Ini_Reg_Class
 ref; // ME_55547ABA01B0 
 
 : ME_55547ABD020B
- CONST UID '55547ABD020B'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4DF789BF02EF // PrimPostingsListOptions
@@ -1678,7 +1574,6 @@ ref; // ME_55547ABA01B0
 ref; // ME_55547ABD020B 
 
 : ME_55547AE30213
- CONST UID '55547AE30213'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4DF789BF02EF // PrimPostingsListOptions
@@ -1689,7 +1584,6 @@ ref; // ME_55547ABD020B
 ref; // ME_55547AE30213 
 
 : ME_4219363C57E5
- CONST UID '4219363C57E5'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1701,8 +1595,6 @@ ref; // ME_55547AE30213
 ref; // ME_4219363C57E5 
 
 : ME_4BDAF7880236_ME_4DF789BF02EF
- CONST UID '4BDAF7880236'
- CONST Name 'ExpandAll'
  : Original WL 'ME_4BDAF7880236' '4BDAF7510113.pas.ms.script' // ExpandAll
  ;
  : Implementor ME_4DF789BF02EF // PrimPostingsListOptions
@@ -1720,8 +1612,6 @@ ref; // ME_4219363C57E5
 ref; // ME_4BDAF7880236_ME_4DF789BF02EF ExpandAll
 
 : ME_4BDAF7A2005C_ME_4DF789BF02EF
- CONST UID '4BDAF7A2005C'
- CONST Name 'CollapseAll'
  : Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.pas.ms.script' // CollapseAll
  ;
  : Implementor ME_4DF789BF02EF // PrimPostingsListOptions
@@ -1739,8 +1629,6 @@ ref; // ME_4BDAF7880236_ME_4DF789BF02EF ExpandAll
 ref; // ME_4BDAF7A2005C_ME_4DF789BF02EF CollapseAll
 
 : ME_553FAEED007A_ME_4DF789BF02EF
- CONST UID '553FAEED007A'
- CONST Name 'ActivatePostingsListForm'
  : Original WL 'ME_553FAEED007A' '4C84EDB403D2.pas.ms.script' // ActivatePostingsListForm
  ;
  : Implementor ME_4DF789BF02EF // PrimPostingsListOptions
@@ -1757,8 +1645,6 @@ ref; // ME_4BDAF7A2005C_ME_4DF789BF02EF CollapseAll
 ref; // ME_553FAEED007A_ME_4DF789BF02EF ActivatePostingsListForm
 
 : ME_4C84EE1D0024_ME_4DF789BF02EF
- CONST UID '4C84EE1D0024'
- CONST Name 'ptEditPosting'
  : Original WL 'ME_4C84EE1D0024' '4C84EDB403D2.pas.ms.script' // ptEditPosting
  ;
  : Implementor ME_4DF789BF02EF // PrimPostingsListOptions
@@ -1877,7 +1763,6 @@ ref; // ME_5AA26A2C79C6 Ini_Reg_Class
 ref; // ME_AE6B9019FBDE Ini_FormFactory_PostingsList
 
 : ME_AAA814ABFA33
- CONST UID 'AAA814ABFA33'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1948,33 +1833,7 @@ FORWARD ME_1C12379D921C
 
 FORWARD ME_B32E48C9C5F6
 
-: ME_2FFB2B99CB45
- CONST UID '2FFB2B99CB45'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_Form_PostingsList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B32E48C9C5F6 // Tkw_Form_PostingsList
- ;
-
-ref; // ME_2FFB2B99CB45 Ini_Reg
-
-: ME_4DB0614603C8_ME_B32E48C9C5F6
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_B32E48C9C5F6 // Tkw_Form_PostingsList
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_B32E48C9C5F6 GetWordNameForRegister
-
 : ME_4DDFD2EA0116_ME_B32E48C9C5F6
- CONST UID '4DDFD2EA0116'
- CONST Name 'GetString'
  : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
  ;
  : Implementor ME_B32E48C9C5F6 // Tkw_Form_PostingsList
@@ -1998,13 +1857,8 @@ ref; // ME_4DDFD2EA0116_ME_B32E48C9C5F6 GetString
    Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2FFB2B99CB45 // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_B32E48C9C5F6 // GetWordNameForRegister
- ME_4DDFD2EA0116_ME_B32E48C9C5F6 // GetString
+   Seq: ( ME_4DDFD2EA0116_ME_B32E48C9C5F6 // GetString
  )
  ; // Overridden
  CONST "NameForScript" 'форма::PostingsList'
@@ -2022,22 +1876,7 @@ ref; // ME_B32E48C9C5F6 Tkw_Form_PostingsList
 
 FORWARD ME_9246E180CAF0
 
-: ME_7C715A7AA6AA
- CONST UID '7C715A7AA6AA'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_PostingsList_Control_tvPostings' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_9246E180CAF0 // Tkw_PostingsList_Control_tvPostings
- ;
-
-ref; // ME_7C715A7AA6AA Ini_Reg
-
 : ME_858F56FD255C
- CONST UID '858F56FD255C'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2049,7 +1888,6 @@ ref; // ME_7C715A7AA6AA Ini_Reg
 ref; // ME_858F56FD255C 
 
 : ME_D28A241F9006
- CONST UID 'D28A241F9006'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2060,19 +1898,7 @@ ref; // ME_858F56FD255C
 
 ref; // ME_D28A241F9006 
 
-: ME_4DB0614603C8_ME_9246E180CAF0
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_9246E180CAF0 // Tkw_PostingsList_Control_tvPostings
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_9246E180CAF0 GetWordNameForRegister
-
 : ME_4DDFD2EA0116_ME_9246E180CAF0
- CONST UID '4DDFD2EA0116'
- CONST Name 'GetString'
  : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
  ;
  : Implementor ME_9246E180CAF0 // Tkw_PostingsList_Control_tvPostings
@@ -2081,8 +1907,6 @@ ref; // ME_4DB0614603C8_ME_9246E180CAF0 GetWordNameForRegister
 ref; // ME_4DDFD2EA0116_ME_9246E180CAF0 GetString
 
 : ME_52A086150180_ME_9246E180CAF0
- CONST UID '52A086150180'
- CONST Name 'RegisterInEngine'
  : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
  ;
  : Implementor ME_9246E180CAF0 // Tkw_PostingsList_Control_tvPostings
@@ -2107,13 +1931,8 @@ ref; // ME_52A086150180_ME_9246E180CAF0 RegisterInEngine
    Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7C715A7AA6AA // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_9246E180CAF0 // GetWordNameForRegister
- ME_4DDFD2EA0116_ME_9246E180CAF0 // GetString
+   Seq: ( ME_4DDFD2EA0116_ME_9246E180CAF0 // GetString
  ME_52A086150180_ME_9246E180CAF0 // RegisterInEngine
  )
  ; // Overridden
@@ -2136,39 +1955,13 @@ ref; // ME_9246E180CAF0 Tkw_PostingsList_Control_tvPostings
 
 FORWARD ME_7241BE7680A1
 
-: ME_50D414B27E7C
- CONST UID '50D414B27E7C'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_PostingsList_Control_tvPostings_Push' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_7241BE7680A1 // Tkw_PostingsList_Control_tvPostings_Push
- ;
-
-ref; // ME_50D414B27E7C Ini_Reg
-
 : ME_4DAEEDE10285_ME_7241BE7680A1
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_7241BE7680A1 // Tkw_PostingsList_Control_tvPostings_Push
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4DAEEDE10285_ME_7241BE7680A1 DoDoIt
-
-: ME_4DB0614603C8_ME_7241BE7680A1
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_7241BE7680A1 // Tkw_PostingsList_Control_tvPostings_Push
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_7241BE7680A1 GetWordNameForRegister
 
 : ME_7241BE7680A1
  CONST UID '7241BE7680A1'
@@ -2186,13 +1979,8 @@ ref; // ME_4DB0614603C8_ME_7241BE7680A1 GetWordNameForRegister
    Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_50D414B27E7C // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DAEEDE10285_ME_7241BE7680A1 // DoDoIt
- ME_4DB0614603C8_ME_7241BE7680A1 // GetWordNameForRegister
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::tvPostings:push'
@@ -2214,7 +2002,6 @@ FORWARD ME_002683D39CEF
 FORWARD ME_901756EC93AA
 
 : ME_5E0E70EA535F
- CONST UID '5E0E70EA535F'
  CONST Name 'aCtx'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -2225,7 +2012,6 @@ FORWARD ME_901756EC93AA
 ref; // ME_5E0E70EA535F aCtx
 
 : ME_5E0E70EA5360
- CONST UID '5E0E70EA5360'
  CONST Name 'aenPostingsList'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -2257,22 +2043,7 @@ ref; // ME_5E0E70EA5360 aenPostingsList
 
 ref; // ME_002683D39CEF tvPostings
 
-: ME_D1A9A8471073
- CONST UID 'D1A9A8471073'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация enPostingsList_tvPostings' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_901756EC93AA // enPostingsList_tvPostings
- ;
-
-ref; // ME_D1A9A8471073 Ini_Reg
-
 : ME_65C18DF9BBDE
- CONST UID '65C18DF9BBDE'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2284,7 +2055,6 @@ ref; // ME_D1A9A8471073 Ini_Reg
 ref; // ME_65C18DF9BBDE 
 
 : ME_07CDABF06FED
- CONST UID '07CDABF06FED'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2296,8 +2066,6 @@ ref; // ME_65C18DF9BBDE
 ref; // ME_07CDABF06FED 
 
 : ME_4DAEEDE10285_ME_901756EC93AA
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_901756EC93AA // enPostingsList_tvPostings
@@ -2305,19 +2073,7 @@ ref; // ME_07CDABF06FED
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_901756EC93AA DoDoIt
 
-: ME_4DB0614603C8_ME_901756EC93AA
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_901756EC93AA // enPostingsList_tvPostings
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_901756EC93AA GetWordNameForRegister
-
 : ME_52D00B00031A_ME_901756EC93AA
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_901756EC93AA // enPostingsList_tvPostings
@@ -2326,8 +2082,6 @@ ref; // ME_4DB0614603C8_ME_901756EC93AA GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_901756EC93AA SetValuePrim
 
 : ME_551544E2001A_ME_901756EC93AA
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_901756EC93AA // enPostingsList_tvPostings
@@ -2336,8 +2090,6 @@ ref; // ME_52D00B00031A_ME_901756EC93AA SetValuePrim
 ref; // ME_551544E2001A_ME_901756EC93AA GetResultTypeInfo
 
 : ME_559687E6025A_ME_901756EC93AA
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_901756EC93AA // enPostingsList_tvPostings
@@ -2346,8 +2098,6 @@ ref; // ME_551544E2001A_ME_901756EC93AA GetResultTypeInfo
 ref; // ME_559687E6025A_ME_901756EC93AA GetAllParamsCount
 
 : ME_5617F4D00243_ME_901756EC93AA
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_901756EC93AA // enPostingsList_tvPostings
@@ -2373,7 +2123,6 @@ ref; // ME_5617F4D00243_ME_901756EC93AA ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_002683D39CEF // tvPostings
- ME_D1A9A8471073 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -2381,8 +2130,7 @@ ref; // ME_5617F4D00243_ME_901756EC93AA ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_901756EC93AA // GetWordNameForRegister
- ME_52D00B00031A_ME_901756EC93AA // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_901756EC93AA // SetValuePrim
  ME_551544E2001A_ME_901756EC93AA // GetResultTypeInfo
  ME_559687E6025A_ME_901756EC93AA // GetAllParamsCount
  ME_5617F4D00243_ME_901756EC93AA // ParamsTypes
@@ -2502,7 +2250,6 @@ ref; // ME_528C126903F0 Reg_Type_PostingsList
 ref; // ME_354D110F9A1A Reg_Type_TeeTreeView
 
 : ME_E8AE3FDA8E6A
- CONST UID 'E8AE3FDA8E6A'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2514,7 +2261,6 @@ ref; // ME_354D110F9A1A Reg_Type_TeeTreeView
 ref; // ME_E8AE3FDA8E6A 
 
 : ME_1F56928356FC
- CONST UID '1F56928356FC'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
@@ -2526,7 +2272,6 @@ ref; // ME_E8AE3FDA8E6A
 ref; // ME_1F56928356FC 
 
 : ME_9D3405BDD726
- CONST UID '9D3405BDD726'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2538,8 +2283,6 @@ ref; // ME_1F56928356FC
 ref; // ME_9D3405BDD726 
 
 : ME_4BDAF7B803CF_ME_1C12379D921C
- CONST UID '4BDAF7B803CF'
- CONST Name 'Wrap'
  : Original WL 'ME_4BDAF7B803CF' '4BDAF7510113.pas.ms.script' // Wrap
  ;
  : Implementor ME_1C12379D921C // PostingsListKeywordsPack
@@ -2629,7 +2372,6 @@ FORWARD ME_4AA9304801B8
 ref; // ME_4AA9361500A9 Container
 
 : ME_4AAFAA330338
- CONST UID '4AAFAA330338'
  CONST Name 'anAggregate'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -2639,7 +2381,6 @@ ref; // ME_4AA9361500A9 Container
 ref; // ME_4AAFAA330338 anAggregate
 
 : ME_4AAFAA33035E
- CONST UID '4AAFAA33035E'
  CONST Name 'aContainer'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -2649,7 +2390,6 @@ ref; // ME_4AAFAA330338 anAggregate
 ref; // ME_4AAFAA33035E aContainer
 
 : ME_4AAFAA330385
- CONST UID '4AAFAA330385'
  CONST Name 'aQuery'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -2678,7 +2418,6 @@ ref; // ME_4AAFAA330385 aQuery
 ref; // ME_4AA9305C0201 DoIt
 
 : ME_4AA936F603D0
- CONST UID '4AA936F603D0'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AA9304801B8 // OpenPostingOrderForm
@@ -2689,7 +2428,6 @@ ref; // ME_4AA9305C0201 DoIt
 ref; // ME_4AA936F603D0 
 
 : ME_4AA937A601E1
- CONST UID '4AA937A601E1'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AA9304801B8 // OpenPostingOrderForm
@@ -2700,7 +2438,6 @@ ref; // ME_4AA936F603D0
 ref; // ME_4AA937A601E1 
 
 : ME_4AA9381A0287
- CONST UID '4AA9381A0287'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AA9304801B8 // OpenPostingOrderForm
@@ -2711,7 +2448,6 @@ ref; // ME_4AA937A601E1
 ref; // ME_4AA9381A0287 
 
 : ME_4AE99BD2000E
- CONST UID '4AE99BD2000E'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AA9304801B8 // OpenPostingOrderForm
@@ -2784,7 +2520,6 @@ ref; // ME_4AA93D6F005B Form
 ref; // ME_4AA93DDB03B1 Cont
 
 : ME_54E71A5103B3
- CONST UID '54E71A5103B3'
  CONST Name 'aQuery'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -2794,7 +2529,6 @@ ref; // ME_4AA93DDB03B1 Cont
 ref; // ME_54E71A5103B3 aQuery
 
 : ME_54E71A5103CE
- CONST UID '54E71A5103CE'
  CONST Name 'aContainer'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -2907,7 +2641,6 @@ ref; // ME_4AAF945D0362 Result
 ref; // ME_4AAF93640257 DoIt
 
 : ME_4AAF94230352
- CONST UID '4AAF94230352'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF935E01A7 // SavePostingList
@@ -2918,7 +2651,6 @@ ref; // ME_4AAF93640257 DoIt
 ref; // ME_4AAF94230352 
 
 : ME_4AAF947600E9
- CONST UID '4AAF947600E9'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF935E01A7 // SavePostingList
@@ -2929,7 +2661,6 @@ ref; // ME_4AAF94230352
 ref; // ME_4AAF947600E9 
 
 : ME_4AAF94DB018B
- CONST UID '4AAF94DB018B'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF935E01A7 // SavePostingList
@@ -2940,7 +2671,6 @@ ref; // ME_4AAF947600E9
 ref; // ME_4AAF94DB018B 
 
 : ME_4AAF955A03B5
- CONST UID '4AAF955A03B5'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF935E01A7 // SavePostingList
@@ -2951,7 +2681,6 @@ ref; // ME_4AAF94DB018B
 ref; // ME_4AAF955A03B5 
 
 : ME_4AAF96700032
- CONST UID '4AAF96700032'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF935E01A7 // SavePostingList
@@ -2962,7 +2691,6 @@ ref; // ME_4AAF955A03B5
 ref; // ME_4AAF96700032 
 
 : ME_4AAF96900062
- CONST UID '4AAF96900062'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF935E01A7 // SavePostingList
@@ -2973,7 +2701,6 @@ ref; // ME_4AAF96700032
 ref; // ME_4AAF96900062 
 
 : ME_4AAF96B30380
- CONST UID '4AAF96B30380'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF935E01A7 // SavePostingList
@@ -2984,7 +2711,6 @@ ref; // ME_4AAF96900062
 ref; // ME_4AAF96B30380 
 
 : ME_4AAF96D4032D
- CONST UID '4AAF96D4032D'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF935E01A7 // SavePostingList
@@ -2995,7 +2721,6 @@ ref; // ME_4AAF96B30380
 ref; // ME_4AAF96D4032D 
 
 : ME_4AAF96EF01B3
- CONST UID '4AAF96EF01B3'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF935E01A7 // SavePostingList
@@ -3006,7 +2731,6 @@ ref; // ME_4AAF96D4032D
 ref; // ME_4AAF96EF01B3 
 
 : ME_4AAF9737008F
- CONST UID '4AAF9737008F'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF935E01A7 // SavePostingList
@@ -3055,7 +2779,6 @@ ref; // ME_4AAF935E01A7 SavePostingList
 FORWARD ME_4AAF94F8009A
 
 : ME_4AAF950A03BE
- CONST UID '4AAF950A03BE'
  CONST Name 'Msg'
  CONST Class class_Parameter
  : Stereotype st_inout ;
@@ -3082,7 +2805,6 @@ ref; // ME_4AAF950A03BE Msg
 ref; // ME_4AAF9507032D DoIt
 
 : ME_4AAF952603B8
- CONST UID '4AAF952603B8'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF94F8009A // MessageHook
@@ -3093,7 +2815,6 @@ ref; // ME_4AAF9507032D DoIt
 ref; // ME_4AAF952603B8 
 
 : ME_4AAF95300396
- CONST UID '4AAF95300396'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF94F8009A // MessageHook
@@ -3104,7 +2825,6 @@ ref; // ME_4AAF952603B8
 ref; // ME_4AAF95300396 
 
 : ME_4AAF99F3037E
- CONST UID '4AAF99F3037E'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAF94F8009A // MessageHook
@@ -3171,7 +2891,6 @@ ref; // ME_4AAF9E650070 CheckHistory
 FORWARD ME_4AAFA0B10356
 
 : ME_4AAFA1C0023D
- CONST UID '4AAFA1C0023D'
  CONST Name 'anAggregate'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -3181,7 +2900,6 @@ FORWARD ME_4AAFA0B10356
 ref; // ME_4AAFA1C0023D anAggregate
 
 : ME_4AAFA1C00274
- CONST UID '4AAFA1C00274'
  CONST Name 'aContainer'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -3191,7 +2909,6 @@ ref; // ME_4AAFA1C0023D anAggregate
 ref; // ME_4AAFA1C00274 aContainer
 
 : ME_4AAFA1C002A9
- CONST UID '4AAFA1C002A9'
  CONST Name 'anActive'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -3201,7 +2918,6 @@ ref; // ME_4AAFA1C00274 aContainer
 ref; // ME_4AAFA1C002A9 anActive
 
 : ME_54241247000B
- CONST UID '54241247000B'
  CONST Name 'aOwner'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -3231,7 +2947,6 @@ ref; // ME_54241247000B aOwner
 ref; // ME_4AAFA0BD0104 DoIt
 
 : ME_4AAFA0F801DD
- CONST UID '4AAFA0F801DD'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA0B10356 // OpenPostingOrderList
@@ -3281,7 +2996,6 @@ FORWARD ME_4AAFA52603B7
 ref; // ME_4AAFA639037B Aggregate
 
 : ME_4AAFA6130233
- CONST UID '4AAFA6130233'
  CONST Name 'aContainer'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -3291,7 +3005,6 @@ ref; // ME_4AAFA639037B Aggregate
 ref; // ME_4AAFA6130233 aContainer
 
 : ME_555B11100299
- CONST UID '555B11100299'
  CONST Name 'aNewTab'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -3317,7 +3030,6 @@ ref; // ME_555B11100299 aNewTab
 ref; // ME_4AAFA60F01D6 DoIt
 
 : ME_555B116C00AD
- CONST UID '555B116C00AD'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA52603B7 // StartOpen
@@ -3328,7 +3040,6 @@ ref; // ME_4AAFA60F01D6 DoIt
 ref; // ME_555B116C00AD 
 
 : ME_555B118C0040
- CONST UID '555B118C0040'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA52603B7 // StartOpen
@@ -3339,7 +3050,6 @@ ref; // ME_555B116C00AD
 ref; // ME_555B118C0040 
 
 : ME_555B11B50379
- CONST UID '555B11B50379'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AAFA52603B7 // StartOpen
@@ -3476,7 +3186,6 @@ ref; // ME_4B7187860056 DoIt
 ref; // ME_4B71847503BF SavePostList$Op
 
 : ME_4AF3172001AE
- CONST UID '4AF3172001AE'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AA919B200AB // CommonPost
@@ -3487,7 +3196,6 @@ ref; // ME_4B71847503BF SavePostList$Op
 ref; // ME_4AF3172001AE 
 
 : ME_4BD5C95702D1
- CONST UID '4BD5C95702D1'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AA919B200AB // CommonPost
@@ -3498,7 +3206,6 @@ ref; // ME_4AF3172001AE
 ref; // ME_4BD5C95702D1 
 
 : ME_4BD5C972003F
- CONST UID '4BD5C972003F'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AA919B200AB // CommonPost
@@ -3509,7 +3216,6 @@ ref; // ME_4BD5C95702D1
 ref; // ME_4BD5C972003F 
 
 : ME_4BD98A6D0052
- CONST UID '4BD98A6D0052'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AA919B200AB // CommonPost
@@ -3520,7 +3226,6 @@ ref; // ME_4BD5C972003F
 ref; // ME_4BD98A6D0052 
 
 : ME_4BD98A7D0041
- CONST UID '4BD98A7D0041'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AA919B200AB // CommonPost
@@ -3531,7 +3236,6 @@ ref; // ME_4BD98A6D0052
 ref; // ME_4BD98A7D0041 
 
 : ME_4BD98AC2036C
- CONST UID '4BD98AC2036C'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AA919B200AB // CommonPost
@@ -3542,7 +3246,6 @@ ref; // ME_4BD98A7D0041
 ref; // ME_4BD98AC2036C 
 
 : ME_4E0354A90049
- CONST UID '4E0354A90049'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AA919B200AB // CommonPost
@@ -3553,7 +3256,6 @@ ref; // ME_4BD98AC2036C
 ref; // ME_4E0354A90049 
 
 : ME_A3FEFAB2391E
- CONST UID 'A3FEFAB2391E'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3567,7 +3269,6 @@ ref; // ME_A3FEFAB2391E
 FORWARD ME_08BD36053A81
 
 : ME_E2BFE5F0DA18
- CONST UID 'E2BFE5F0DA18'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3633,22 +3334,7 @@ ref; // ME_E2BFE5F0DA18
 
 ref; // ME_4AA919B200AB CommonPost
 
-: ME_2FCBC9064B5B
- CONST UID '2FCBC9064B5B'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_CommonPost_opSavePostList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_08BD36053A81 // Tkw_CommonPost_opSavePostList
- ;
-
-ref; // ME_2FCBC9064B5B Ini_Reg
-
 : ME_2F39DDCDC7C9
- CONST UID '2F39DDCDC7C9'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3660,8 +3346,6 @@ ref; // ME_2FCBC9064B5B Ini_Reg
 ref; // ME_2F39DDCDC7C9 
 
 : ME_4DB0614603C8_ME_08BD36053A81
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
  : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
  ;
  : Implementor ME_08BD36053A81 // Tkw_CommonPost_opSavePostList
@@ -3670,8 +3354,6 @@ ref; // ME_2F39DDCDC7C9
 ref; // ME_4DB0614603C8_ME_08BD36053A81 GetWordNameForRegister
 
 : ME_4DB079E00084_ME_08BD36053A81
- CONST UID '4DB079E00084'
- CONST Name 'GetModuleOperationCode'
  : Original WL 'ME_4DB079E00084' '4E200FED0213.pas.ms.script' // GetModuleOperationCode
  ;
  : Implementor ME_08BD36053A81 // Tkw_CommonPost_opSavePostList
@@ -3695,10 +3377,6 @@ ref; // ME_4DB079E00084_ME_08BD36053A81 GetModuleOperationCode
    Seq: ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2FCBC9064B5B // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DB0614603C8_ME_08BD36053A81 // GetWordNameForRegister
  ME_4DB079E00084_ME_08BD36053A81 // GetModuleOperationCode

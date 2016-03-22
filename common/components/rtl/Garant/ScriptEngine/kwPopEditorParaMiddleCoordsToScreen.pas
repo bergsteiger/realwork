@@ -2,6 +2,8 @@ unit kwPopEditorParaMiddleCoordsToScreen;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaMiddleCoordsToScreen.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_ParaMiddleCoordsToScreen" MUID: (4F95434701ED)
+// Имя типа: "TkwPopEditorParaMiddleCoordsToScreen"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

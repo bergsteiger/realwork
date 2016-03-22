@@ -26,6 +26,7 @@ uses
   ddCharacterProperty,
   ddHyperlinkTarget,
   ddHyperlinkTargetList,
+  ddTypes,
   l3ProtoObject
   ;
 
@@ -73,7 +74,7 @@ type
    procedure DoWriteSegmentProps(const Generator: Ik2TagGenerator;
      aCHP: TddCharacterProperty;
      aParentCHP: TddCharacterProperty;
-     LiteVersion: Boolean); virtual;
+     aLiteVersion: TddLiteVersion); virtual;
  public
  // public methods
    procedure AddTarget(aDocID: LongInt;
@@ -84,10 +85,10 @@ type
    procedure Write2Generator(const Generator: Ik2TagGenerator;
      aCHP: TddCharacterProperty;
      aParentCHP: TddCharacterProperty;
-     LiteVersion: Boolean); virtual; abstract;
+     aLiteVersion: TddLiteVersion); virtual; abstract;
    function Clone: TddTextSegment; virtual; abstract;
    function SkipSegment(aDiffCHP: TddCharacterProperty;
-     LiteVersion: Boolean): Boolean; virtual; abstract;
+     aLiteVersion: TddLiteVersion): Boolean; virtual; abstract;
    function IsHyperlink: Boolean; virtual;
    function IsObjectSegment: Boolean; virtual;
  public
@@ -129,8 +130,7 @@ implementation
 
 uses
   ddEVDTypesSupport,
-  k2Tags,
-  ddTypes
+  k2Tags
   ;
 
 {$Include ..\dd\ddDocAtomWithAssign.imp.pas}
@@ -178,7 +178,7 @@ end;//TddTextSegment.Create
 procedure TddTextSegment.DoWriteSegmentProps(const Generator: Ik2TagGenerator;
   aCHP: TddCharacterProperty;
   aParentCHP: TddCharacterProperty;
-  LiteVersion: Boolean);
+  aLiteVersion: TddLiteVersion);
 //#UC START# *54D9B0300325_5111FC5402AA_var*
 //#UC END# *54D9B0300325_5111FC5402AA_var*
 begin

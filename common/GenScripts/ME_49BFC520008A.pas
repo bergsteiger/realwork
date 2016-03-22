@@ -3,6 +3,7 @@ unit m3DBProxyWriteStream;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3DBProxyWriteStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3DBProxyWriteStream" MUID: (49BFC520008A)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

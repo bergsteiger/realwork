@@ -2,6 +2,7 @@ unit eeCustomTreeView;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeCustomTreeView.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "eeCustomTreeView" MUID: (531F2A0900B9)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

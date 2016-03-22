@@ -2,6 +2,7 @@ unit NOT_FINISHED_evSelectingHotSpot;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evSelectingHotSpot.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevSelectingHotSpot" MUID: (4D6406160297)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

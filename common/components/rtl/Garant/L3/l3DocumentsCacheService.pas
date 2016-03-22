@@ -2,6 +2,7 @@ unit l3DocumentsCacheService;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3DocumentsCacheService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3DocumentsCacheService" MUID: (5506FEA6012A)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -29,7 +30,7 @@ type
  Tl3DocumentsCacheService = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3DocumentsCacheService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3DocumentsCacheService }
   protected
    procedure pm_SetAlien(const aValue: Il3DocumentsCacheService);
    procedure ClearFields; override;

@@ -3,6 +3,7 @@ unit DefineSearchDateKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\DefineSearchDateKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "DefineSearchDateKeywordsPack" MUID: (9C20258F4DBF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -47,8 +48,8 @@ type
 'aControl' форма::DefineSearchDate TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_DefineSearchDate
 
  Tkw_DefineSearchDate_Control_Panel1 = {final} class(TtfwControlString)
@@ -59,9 +60,9 @@ type
 контрол::Panel1 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_Panel1
 
  Tkw_DefineSearchDate_Control_Panel1_Push = {final} class(TkwBynameControlPush)
@@ -84,9 +85,9 @@ type
 контрол::ElLabel1 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_ElLabel1
 
  Tkw_DefineSearchDate_Control_ElLabel1_Push = {final} class(TkwBynameControlPush)
@@ -109,9 +110,9 @@ type
 контрол::ElLabel2 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_ElLabel2
 
  Tkw_DefineSearchDate_Control_ElLabel2_Push = {final} class(TkwBynameControlPush)
@@ -134,9 +135,9 @@ type
 контрол::ElLabel3 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_ElLabel3
 
  Tkw_DefineSearchDate_Control_ElLabel3_Push = {final} class(TkwBynameControlPush)
@@ -159,9 +160,9 @@ type
 контрол::dD1EqD2 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_dD1EqD2
 
  Tkw_DefineSearchDate_Control_dD1EqD2_Push = {final} class(TkwBynameControlPush)
@@ -184,9 +185,9 @@ type
 контрол::rbEq TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_rbEq
 
  Tkw_DefineSearchDate_Control_rbEq_Push = {final} class(TkwBynameControlPush)
@@ -209,9 +210,9 @@ type
 контрол::rbInt TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_rbInt
 
  Tkw_DefineSearchDate_Control_rbInt_Push = {final} class(TkwBynameControlPush)
@@ -234,9 +235,9 @@ type
 контрол::rbD2Only TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_rbD2Only
 
  Tkw_DefineSearchDate_Control_rbD2Only_Push = {final} class(TkwBynameControlPush)
@@ -259,9 +260,9 @@ type
 контрол::dD1Only TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_dD1Only
 
  Tkw_DefineSearchDate_Control_dD1Only_Push = {final} class(TkwBynameControlPush)
@@ -284,9 +285,9 @@ type
 контрол::dD2Only TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_dD2Only
 
  Tkw_DefineSearchDate_Control_dD2Only_Push = {final} class(TkwBynameControlPush)
@@ -309,9 +310,9 @@ type
 контрол::dD1 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_dD1
 
  Tkw_DefineSearchDate_Control_dD1_Push = {final} class(TkwBynameControlPush)
@@ -334,9 +335,9 @@ type
 контрол::rbD1Only TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_rbD1Only
 
  Tkw_DefineSearchDate_Control_rbD1Only_Push = {final} class(TkwBynameControlPush)
@@ -359,9 +360,9 @@ type
 контрол::dD2 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_dD2
 
  Tkw_DefineSearchDate_Control_dD2_Push = {final} class(TkwBynameControlPush)
@@ -688,20 +689,15 @@ OBJECT VAR l_TvtDblClickDateEdit
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnDefineSearchDateDD2
 
-class function Tkw_Form_DefineSearchDate.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::DefineSearchDate';
-end;//Tkw_Form_DefineSearchDate.GetWordNameForRegister
-
 function Tkw_Form_DefineSearchDate.GetString: AnsiString;
 begin
  Result := 'en_DefineSearchDate';
 end;//Tkw_Form_DefineSearchDate.GetString
 
-class function Tkw_DefineSearchDate_Control_Panel1.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_DefineSearchDate.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::Panel1';
-end;//Tkw_DefineSearchDate_Control_Panel1.GetWordNameForRegister
+ Result := 'форма::DefineSearchDate';
+end;//Tkw_Form_DefineSearchDate.GetWordNameForRegister
 
 function Tkw_DefineSearchDate_Control_Panel1.GetString: AnsiString;
 begin
@@ -714,6 +710,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_DefineSearchDate_Control_Panel1.RegisterInEngine
 
+class function Tkw_DefineSearchDate_Control_Panel1.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Panel1';
+end;//Tkw_DefineSearchDate_Control_Panel1.GetWordNameForRegister
+
 procedure Tkw_DefineSearchDate_Control_Panel1_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Panel1');
@@ -724,11 +725,6 @@ class function Tkw_DefineSearchDate_Control_Panel1_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::Panel1:push';
 end;//Tkw_DefineSearchDate_Control_Panel1_Push.GetWordNameForRegister
-
-class function Tkw_DefineSearchDate_Control_ElLabel1.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ElLabel1';
-end;//Tkw_DefineSearchDate_Control_ElLabel1.GetWordNameForRegister
 
 function Tkw_DefineSearchDate_Control_ElLabel1.GetString: AnsiString;
 begin
@@ -741,6 +737,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_DefineSearchDate_Control_ElLabel1.RegisterInEngine
 
+class function Tkw_DefineSearchDate_Control_ElLabel1.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ElLabel1';
+end;//Tkw_DefineSearchDate_Control_ElLabel1.GetWordNameForRegister
+
 procedure Tkw_DefineSearchDate_Control_ElLabel1_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ElLabel1');
@@ -751,11 +752,6 @@ class function Tkw_DefineSearchDate_Control_ElLabel1_Push.GetWordNameForRegister
 begin
  Result := 'контрол::ElLabel1:push';
 end;//Tkw_DefineSearchDate_Control_ElLabel1_Push.GetWordNameForRegister
-
-class function Tkw_DefineSearchDate_Control_ElLabel2.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ElLabel2';
-end;//Tkw_DefineSearchDate_Control_ElLabel2.GetWordNameForRegister
 
 function Tkw_DefineSearchDate_Control_ElLabel2.GetString: AnsiString;
 begin
@@ -768,6 +764,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_DefineSearchDate_Control_ElLabel2.RegisterInEngine
 
+class function Tkw_DefineSearchDate_Control_ElLabel2.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ElLabel2';
+end;//Tkw_DefineSearchDate_Control_ElLabel2.GetWordNameForRegister
+
 procedure Tkw_DefineSearchDate_Control_ElLabel2_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ElLabel2');
@@ -778,11 +779,6 @@ class function Tkw_DefineSearchDate_Control_ElLabel2_Push.GetWordNameForRegister
 begin
  Result := 'контрол::ElLabel2:push';
 end;//Tkw_DefineSearchDate_Control_ElLabel2_Push.GetWordNameForRegister
-
-class function Tkw_DefineSearchDate_Control_ElLabel3.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ElLabel3';
-end;//Tkw_DefineSearchDate_Control_ElLabel3.GetWordNameForRegister
 
 function Tkw_DefineSearchDate_Control_ElLabel3.GetString: AnsiString;
 begin
@@ -795,6 +791,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_DefineSearchDate_Control_ElLabel3.RegisterInEngine
 
+class function Tkw_DefineSearchDate_Control_ElLabel3.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ElLabel3';
+end;//Tkw_DefineSearchDate_Control_ElLabel3.GetWordNameForRegister
+
 procedure Tkw_DefineSearchDate_Control_ElLabel3_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ElLabel3');
@@ -805,11 +806,6 @@ class function Tkw_DefineSearchDate_Control_ElLabel3_Push.GetWordNameForRegister
 begin
  Result := 'контрол::ElLabel3:push';
 end;//Tkw_DefineSearchDate_Control_ElLabel3_Push.GetWordNameForRegister
-
-class function Tkw_DefineSearchDate_Control_dD1EqD2.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::dD1EqD2';
-end;//Tkw_DefineSearchDate_Control_dD1EqD2.GetWordNameForRegister
 
 function Tkw_DefineSearchDate_Control_dD1EqD2.GetString: AnsiString;
 begin
@@ -822,6 +818,11 @@ begin
  TtfwClassRef.Register(TvtDblClickDateEdit);
 end;//Tkw_DefineSearchDate_Control_dD1EqD2.RegisterInEngine
 
+class function Tkw_DefineSearchDate_Control_dD1EqD2.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::dD1EqD2';
+end;//Tkw_DefineSearchDate_Control_dD1EqD2.GetWordNameForRegister
+
 procedure Tkw_DefineSearchDate_Control_dD1EqD2_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('dD1EqD2');
@@ -832,11 +833,6 @@ class function Tkw_DefineSearchDate_Control_dD1EqD2_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::dD1EqD2:push';
 end;//Tkw_DefineSearchDate_Control_dD1EqD2_Push.GetWordNameForRegister
-
-class function Tkw_DefineSearchDate_Control_rbEq.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::rbEq';
-end;//Tkw_DefineSearchDate_Control_rbEq.GetWordNameForRegister
 
 function Tkw_DefineSearchDate_Control_rbEq.GetString: AnsiString;
 begin
@@ -849,6 +845,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_DefineSearchDate_Control_rbEq.RegisterInEngine
 
+class function Tkw_DefineSearchDate_Control_rbEq.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::rbEq';
+end;//Tkw_DefineSearchDate_Control_rbEq.GetWordNameForRegister
+
 procedure Tkw_DefineSearchDate_Control_rbEq_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('rbEq');
@@ -859,11 +860,6 @@ class function Tkw_DefineSearchDate_Control_rbEq_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::rbEq:push';
 end;//Tkw_DefineSearchDate_Control_rbEq_Push.GetWordNameForRegister
-
-class function Tkw_DefineSearchDate_Control_rbInt.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::rbInt';
-end;//Tkw_DefineSearchDate_Control_rbInt.GetWordNameForRegister
 
 function Tkw_DefineSearchDate_Control_rbInt.GetString: AnsiString;
 begin
@@ -876,6 +872,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_DefineSearchDate_Control_rbInt.RegisterInEngine
 
+class function Tkw_DefineSearchDate_Control_rbInt.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::rbInt';
+end;//Tkw_DefineSearchDate_Control_rbInt.GetWordNameForRegister
+
 procedure Tkw_DefineSearchDate_Control_rbInt_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('rbInt');
@@ -886,11 +887,6 @@ class function Tkw_DefineSearchDate_Control_rbInt_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::rbInt:push';
 end;//Tkw_DefineSearchDate_Control_rbInt_Push.GetWordNameForRegister
-
-class function Tkw_DefineSearchDate_Control_rbD2Only.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::rbD2Only';
-end;//Tkw_DefineSearchDate_Control_rbD2Only.GetWordNameForRegister
 
 function Tkw_DefineSearchDate_Control_rbD2Only.GetString: AnsiString;
 begin
@@ -903,6 +899,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_DefineSearchDate_Control_rbD2Only.RegisterInEngine
 
+class function Tkw_DefineSearchDate_Control_rbD2Only.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::rbD2Only';
+end;//Tkw_DefineSearchDate_Control_rbD2Only.GetWordNameForRegister
+
 procedure Tkw_DefineSearchDate_Control_rbD2Only_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('rbD2Only');
@@ -913,11 +914,6 @@ class function Tkw_DefineSearchDate_Control_rbD2Only_Push.GetWordNameForRegister
 begin
  Result := 'контрол::rbD2Only:push';
 end;//Tkw_DefineSearchDate_Control_rbD2Only_Push.GetWordNameForRegister
-
-class function Tkw_DefineSearchDate_Control_dD1Only.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::dD1Only';
-end;//Tkw_DefineSearchDate_Control_dD1Only.GetWordNameForRegister
 
 function Tkw_DefineSearchDate_Control_dD1Only.GetString: AnsiString;
 begin
@@ -930,6 +926,11 @@ begin
  TtfwClassRef.Register(TvtDblClickDateEdit);
 end;//Tkw_DefineSearchDate_Control_dD1Only.RegisterInEngine
 
+class function Tkw_DefineSearchDate_Control_dD1Only.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::dD1Only';
+end;//Tkw_DefineSearchDate_Control_dD1Only.GetWordNameForRegister
+
 procedure Tkw_DefineSearchDate_Control_dD1Only_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('dD1Only');
@@ -940,11 +941,6 @@ class function Tkw_DefineSearchDate_Control_dD1Only_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::dD1Only:push';
 end;//Tkw_DefineSearchDate_Control_dD1Only_Push.GetWordNameForRegister
-
-class function Tkw_DefineSearchDate_Control_dD2Only.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::dD2Only';
-end;//Tkw_DefineSearchDate_Control_dD2Only.GetWordNameForRegister
 
 function Tkw_DefineSearchDate_Control_dD2Only.GetString: AnsiString;
 begin
@@ -957,6 +953,11 @@ begin
  TtfwClassRef.Register(TvtDblClickDateEdit);
 end;//Tkw_DefineSearchDate_Control_dD2Only.RegisterInEngine
 
+class function Tkw_DefineSearchDate_Control_dD2Only.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::dD2Only';
+end;//Tkw_DefineSearchDate_Control_dD2Only.GetWordNameForRegister
+
 procedure Tkw_DefineSearchDate_Control_dD2Only_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('dD2Only');
@@ -967,11 +968,6 @@ class function Tkw_DefineSearchDate_Control_dD2Only_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::dD2Only:push';
 end;//Tkw_DefineSearchDate_Control_dD2Only_Push.GetWordNameForRegister
-
-class function Tkw_DefineSearchDate_Control_dD1.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::dD1';
-end;//Tkw_DefineSearchDate_Control_dD1.GetWordNameForRegister
 
 function Tkw_DefineSearchDate_Control_dD1.GetString: AnsiString;
 begin
@@ -984,6 +980,11 @@ begin
  TtfwClassRef.Register(TvtDblClickDateEdit);
 end;//Tkw_DefineSearchDate_Control_dD1.RegisterInEngine
 
+class function Tkw_DefineSearchDate_Control_dD1.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::dD1';
+end;//Tkw_DefineSearchDate_Control_dD1.GetWordNameForRegister
+
 procedure Tkw_DefineSearchDate_Control_dD1_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('dD1');
@@ -994,11 +995,6 @@ class function Tkw_DefineSearchDate_Control_dD1_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::dD1:push';
 end;//Tkw_DefineSearchDate_Control_dD1_Push.GetWordNameForRegister
-
-class function Tkw_DefineSearchDate_Control_rbD1Only.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::rbD1Only';
-end;//Tkw_DefineSearchDate_Control_rbD1Only.GetWordNameForRegister
 
 function Tkw_DefineSearchDate_Control_rbD1Only.GetString: AnsiString;
 begin
@@ -1011,6 +1007,11 @@ begin
  TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_DefineSearchDate_Control_rbD1Only.RegisterInEngine
 
+class function Tkw_DefineSearchDate_Control_rbD1Only.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::rbD1Only';
+end;//Tkw_DefineSearchDate_Control_rbD1Only.GetWordNameForRegister
+
 procedure Tkw_DefineSearchDate_Control_rbD1Only_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('rbD1Only');
@@ -1022,11 +1023,6 @@ begin
  Result := 'контрол::rbD1Only:push';
 end;//Tkw_DefineSearchDate_Control_rbD1Only_Push.GetWordNameForRegister
 
-class function Tkw_DefineSearchDate_Control_dD2.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::dD2';
-end;//Tkw_DefineSearchDate_Control_dD2.GetWordNameForRegister
-
 function Tkw_DefineSearchDate_Control_dD2.GetString: AnsiString;
 begin
  Result := 'dD2';
@@ -1037,6 +1033,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtDblClickDateEdit);
 end;//Tkw_DefineSearchDate_Control_dD2.RegisterInEngine
+
+class function Tkw_DefineSearchDate_Control_dD2.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::dD2';
+end;//Tkw_DefineSearchDate_Control_dD2.GetWordNameForRegister
 
 procedure Tkw_DefineSearchDate_Control_dD2_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -1071,11 +1072,6 @@ begin
  aCtx.rEngine.PushObj(Panel1(aCtx, l_aen_DefineSearchDate));
 end;//TkwEnDefineSearchDatePanel1.DoDoIt
 
-class function TkwEnDefineSearchDatePanel1.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_DefineSearchDate.Panel1';
-end;//TkwEnDefineSearchDatePanel1.GetWordNameForRegister
-
 procedure TkwEnDefineSearchDatePanel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1096,6 +1092,11 @@ function TkwEnDefineSearchDatePanel1.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_DefineSearchDate)]);
 end;//TkwEnDefineSearchDatePanel1.ParamsTypes
+
+class function TkwEnDefineSearchDatePanel1.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_DefineSearchDate.Panel1';
+end;//TkwEnDefineSearchDatePanel1.GetWordNameForRegister
 
 function TkwEnDefineSearchDateElLabel1.ElLabel1(const aCtx: TtfwContext;
  aen_DefineSearchDate: Ten_DefineSearchDate): TvtLabel;
@@ -1119,11 +1120,6 @@ begin
  aCtx.rEngine.PushObj(ElLabel1(aCtx, l_aen_DefineSearchDate));
 end;//TkwEnDefineSearchDateElLabel1.DoDoIt
 
-class function TkwEnDefineSearchDateElLabel1.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_DefineSearchDate.ElLabel1';
-end;//TkwEnDefineSearchDateElLabel1.GetWordNameForRegister
-
 procedure TkwEnDefineSearchDateElLabel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1144,6 +1140,11 @@ function TkwEnDefineSearchDateElLabel1.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_DefineSearchDate)]);
 end;//TkwEnDefineSearchDateElLabel1.ParamsTypes
+
+class function TkwEnDefineSearchDateElLabel1.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_DefineSearchDate.ElLabel1';
+end;//TkwEnDefineSearchDateElLabel1.GetWordNameForRegister
 
 function TkwEnDefineSearchDateElLabel2.ElLabel2(const aCtx: TtfwContext;
  aen_DefineSearchDate: Ten_DefineSearchDate): TvtLabel;
@@ -1167,11 +1168,6 @@ begin
  aCtx.rEngine.PushObj(ElLabel2(aCtx, l_aen_DefineSearchDate));
 end;//TkwEnDefineSearchDateElLabel2.DoDoIt
 
-class function TkwEnDefineSearchDateElLabel2.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_DefineSearchDate.ElLabel2';
-end;//TkwEnDefineSearchDateElLabel2.GetWordNameForRegister
-
 procedure TkwEnDefineSearchDateElLabel2.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1192,6 +1188,11 @@ function TkwEnDefineSearchDateElLabel2.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_DefineSearchDate)]);
 end;//TkwEnDefineSearchDateElLabel2.ParamsTypes
+
+class function TkwEnDefineSearchDateElLabel2.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_DefineSearchDate.ElLabel2';
+end;//TkwEnDefineSearchDateElLabel2.GetWordNameForRegister
 
 function TkwEnDefineSearchDateElLabel3.ElLabel3(const aCtx: TtfwContext;
  aen_DefineSearchDate: Ten_DefineSearchDate): TvtLabel;
@@ -1215,11 +1216,6 @@ begin
  aCtx.rEngine.PushObj(ElLabel3(aCtx, l_aen_DefineSearchDate));
 end;//TkwEnDefineSearchDateElLabel3.DoDoIt
 
-class function TkwEnDefineSearchDateElLabel3.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_DefineSearchDate.ElLabel3';
-end;//TkwEnDefineSearchDateElLabel3.GetWordNameForRegister
-
 procedure TkwEnDefineSearchDateElLabel3.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1240,6 +1236,11 @@ function TkwEnDefineSearchDateElLabel3.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_DefineSearchDate)]);
 end;//TkwEnDefineSearchDateElLabel3.ParamsTypes
+
+class function TkwEnDefineSearchDateElLabel3.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_DefineSearchDate.ElLabel3';
+end;//TkwEnDefineSearchDateElLabel3.GetWordNameForRegister
 
 function TkwEnDefineSearchDateDD1EqD2.dD1EqD2(const aCtx: TtfwContext;
  aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
@@ -1263,11 +1264,6 @@ begin
  aCtx.rEngine.PushObj(dD1EqD2(aCtx, l_aen_DefineSearchDate));
 end;//TkwEnDefineSearchDateDD1EqD2.DoDoIt
 
-class function TkwEnDefineSearchDateDD1EqD2.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_DefineSearchDate.dD1EqD2';
-end;//TkwEnDefineSearchDateDD1EqD2.GetWordNameForRegister
-
 procedure TkwEnDefineSearchDateDD1EqD2.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1288,6 +1284,11 @@ function TkwEnDefineSearchDateDD1EqD2.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_DefineSearchDate)]);
 end;//TkwEnDefineSearchDateDD1EqD2.ParamsTypes
+
+class function TkwEnDefineSearchDateDD1EqD2.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_DefineSearchDate.dD1EqD2';
+end;//TkwEnDefineSearchDateDD1EqD2.GetWordNameForRegister
 
 function TkwEnDefineSearchDateRbEq.rbEq(const aCtx: TtfwContext;
  aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
@@ -1311,11 +1312,6 @@ begin
  aCtx.rEngine.PushObj(rbEq(aCtx, l_aen_DefineSearchDate));
 end;//TkwEnDefineSearchDateRbEq.DoDoIt
 
-class function TkwEnDefineSearchDateRbEq.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_DefineSearchDate.rbEq';
-end;//TkwEnDefineSearchDateRbEq.GetWordNameForRegister
-
 procedure TkwEnDefineSearchDateRbEq.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1336,6 +1332,11 @@ function TkwEnDefineSearchDateRbEq.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_DefineSearchDate)]);
 end;//TkwEnDefineSearchDateRbEq.ParamsTypes
+
+class function TkwEnDefineSearchDateRbEq.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_DefineSearchDate.rbEq';
+end;//TkwEnDefineSearchDateRbEq.GetWordNameForRegister
 
 function TkwEnDefineSearchDateRbInt.rbInt(const aCtx: TtfwContext;
  aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
@@ -1359,11 +1360,6 @@ begin
  aCtx.rEngine.PushObj(rbInt(aCtx, l_aen_DefineSearchDate));
 end;//TkwEnDefineSearchDateRbInt.DoDoIt
 
-class function TkwEnDefineSearchDateRbInt.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_DefineSearchDate.rbInt';
-end;//TkwEnDefineSearchDateRbInt.GetWordNameForRegister
-
 procedure TkwEnDefineSearchDateRbInt.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1384,6 +1380,11 @@ function TkwEnDefineSearchDateRbInt.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_DefineSearchDate)]);
 end;//TkwEnDefineSearchDateRbInt.ParamsTypes
+
+class function TkwEnDefineSearchDateRbInt.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_DefineSearchDate.rbInt';
+end;//TkwEnDefineSearchDateRbInt.GetWordNameForRegister
 
 function TkwEnDefineSearchDateRbD2Only.rbD2Only(const aCtx: TtfwContext;
  aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
@@ -1407,11 +1408,6 @@ begin
  aCtx.rEngine.PushObj(rbD2Only(aCtx, l_aen_DefineSearchDate));
 end;//TkwEnDefineSearchDateRbD2Only.DoDoIt
 
-class function TkwEnDefineSearchDateRbD2Only.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_DefineSearchDate.rbD2Only';
-end;//TkwEnDefineSearchDateRbD2Only.GetWordNameForRegister
-
 procedure TkwEnDefineSearchDateRbD2Only.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1432,6 +1428,11 @@ function TkwEnDefineSearchDateRbD2Only.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_DefineSearchDate)]);
 end;//TkwEnDefineSearchDateRbD2Only.ParamsTypes
+
+class function TkwEnDefineSearchDateRbD2Only.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_DefineSearchDate.rbD2Only';
+end;//TkwEnDefineSearchDateRbD2Only.GetWordNameForRegister
 
 function TkwEnDefineSearchDateDD1Only.dD1Only(const aCtx: TtfwContext;
  aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
@@ -1455,11 +1456,6 @@ begin
  aCtx.rEngine.PushObj(dD1Only(aCtx, l_aen_DefineSearchDate));
 end;//TkwEnDefineSearchDateDD1Only.DoDoIt
 
-class function TkwEnDefineSearchDateDD1Only.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_DefineSearchDate.dD1Only';
-end;//TkwEnDefineSearchDateDD1Only.GetWordNameForRegister
-
 procedure TkwEnDefineSearchDateDD1Only.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1480,6 +1476,11 @@ function TkwEnDefineSearchDateDD1Only.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_DefineSearchDate)]);
 end;//TkwEnDefineSearchDateDD1Only.ParamsTypes
+
+class function TkwEnDefineSearchDateDD1Only.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_DefineSearchDate.dD1Only';
+end;//TkwEnDefineSearchDateDD1Only.GetWordNameForRegister
 
 function TkwEnDefineSearchDateDD2Only.dD2Only(const aCtx: TtfwContext;
  aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
@@ -1503,11 +1504,6 @@ begin
  aCtx.rEngine.PushObj(dD2Only(aCtx, l_aen_DefineSearchDate));
 end;//TkwEnDefineSearchDateDD2Only.DoDoIt
 
-class function TkwEnDefineSearchDateDD2Only.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_DefineSearchDate.dD2Only';
-end;//TkwEnDefineSearchDateDD2Only.GetWordNameForRegister
-
 procedure TkwEnDefineSearchDateDD2Only.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1528,6 +1524,11 @@ function TkwEnDefineSearchDateDD2Only.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_DefineSearchDate)]);
 end;//TkwEnDefineSearchDateDD2Only.ParamsTypes
+
+class function TkwEnDefineSearchDateDD2Only.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_DefineSearchDate.dD2Only';
+end;//TkwEnDefineSearchDateDD2Only.GetWordNameForRegister
 
 function TkwEnDefineSearchDateDD1.dD1(const aCtx: TtfwContext;
  aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
@@ -1551,11 +1552,6 @@ begin
  aCtx.rEngine.PushObj(dD1(aCtx, l_aen_DefineSearchDate));
 end;//TkwEnDefineSearchDateDD1.DoDoIt
 
-class function TkwEnDefineSearchDateDD1.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_DefineSearchDate.dD1';
-end;//TkwEnDefineSearchDateDD1.GetWordNameForRegister
-
 procedure TkwEnDefineSearchDateDD1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1576,6 +1572,11 @@ function TkwEnDefineSearchDateDD1.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_DefineSearchDate)]);
 end;//TkwEnDefineSearchDateDD1.ParamsTypes
+
+class function TkwEnDefineSearchDateDD1.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_DefineSearchDate.dD1';
+end;//TkwEnDefineSearchDateDD1.GetWordNameForRegister
 
 function TkwEnDefineSearchDateRbD1Only.rbD1Only(const aCtx: TtfwContext;
  aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
@@ -1599,11 +1600,6 @@ begin
  aCtx.rEngine.PushObj(rbD1Only(aCtx, l_aen_DefineSearchDate));
 end;//TkwEnDefineSearchDateRbD1Only.DoDoIt
 
-class function TkwEnDefineSearchDateRbD1Only.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_DefineSearchDate.rbD1Only';
-end;//TkwEnDefineSearchDateRbD1Only.GetWordNameForRegister
-
 procedure TkwEnDefineSearchDateRbD1Only.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1624,6 +1620,11 @@ function TkwEnDefineSearchDateRbD1Only.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_DefineSearchDate)]);
 end;//TkwEnDefineSearchDateRbD1Only.ParamsTypes
+
+class function TkwEnDefineSearchDateRbD1Only.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_DefineSearchDate.rbD1Only';
+end;//TkwEnDefineSearchDateRbD1Only.GetWordNameForRegister
 
 function TkwEnDefineSearchDateDD2.dD2(const aCtx: TtfwContext;
  aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
@@ -1647,11 +1648,6 @@ begin
  aCtx.rEngine.PushObj(dD2(aCtx, l_aen_DefineSearchDate));
 end;//TkwEnDefineSearchDateDD2.DoDoIt
 
-class function TkwEnDefineSearchDateDD2.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_DefineSearchDate.dD2';
-end;//TkwEnDefineSearchDateDD2.GetWordNameForRegister
-
 procedure TkwEnDefineSearchDateDD2.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1672,6 +1668,11 @@ function TkwEnDefineSearchDateDD2.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_DefineSearchDate)]);
 end;//TkwEnDefineSearchDateDD2.ParamsTypes
+
+class function TkwEnDefineSearchDateDD2.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_DefineSearchDate.dD2';
+end;//TkwEnDefineSearchDateDD2.GetWordNameForRegister
 
 initialization
  Tkw_Form_DefineSearchDate.RegisterInEngine;

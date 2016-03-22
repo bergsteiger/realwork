@@ -3,6 +3,7 @@ unit tstNSRCGenerator;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\tstNSRCGenerator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtstNSRCGenerator" MUID: (4D70B17C001C)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

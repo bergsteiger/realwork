@@ -3,6 +3,7 @@ unit nsBaseSearchPromptFilters;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsBaseSearchPromptFilters.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsBaseSearchPromptFilters" MUID: (4901FC9F0096)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

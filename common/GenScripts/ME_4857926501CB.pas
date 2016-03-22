@@ -3,6 +3,8 @@ unit Formula_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\Formula_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Formula" MUID: (4857926501CB)
+// Имя типа: "FormulaTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

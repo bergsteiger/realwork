@@ -2,6 +2,7 @@ unit ddAppConfigDataAdapters;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigDataAdapters.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfigDataAdapters" MUID: (5214CC01030F)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -31,6 +32,7 @@ type
    function pm_GetObjects(anIndex: Integer): TObject; virtual;
    function pm_GetStrings(anIndex: Integer): AnsiString; virtual;
    procedure SetIsChangedToItems(aValue: Boolean); virtual;
+   procedure ClearFields; override;
   public
    function AddItem: Integer; virtual;
    function AsObject: TObject; virtual;
@@ -269,6 +271,12 @@ begin
  Result := False;
 //#UC END# *522EE1F7018F_5214CC1D02F4_impl*
 end;//TddBaseConfigDataAdapter.UpItem
+
+procedure TddBaseConfigDataAdapter.ClearFields;
+begin
+ Alias := '';
+ inherited;
+end;//TddBaseConfigDataAdapter.ClearFields
 
 procedure TddSimpleListDataAdapter.pm_SetDataConfig(aValue: TddAppConfigNode);
 //#UC START# *522EE27A017F_522EDF570036set_var*

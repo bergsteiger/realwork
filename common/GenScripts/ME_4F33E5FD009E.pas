@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevDocumentContainerDecorationRules" MUID: (4F33E5FD009E)
+// Имя типа: "_nevDocumentContainerDecorationRules_"
 
 {$Define nevDocumentContainerDecorationRules_imp}
 

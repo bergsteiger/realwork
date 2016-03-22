@@ -1,96 +1,68 @@
 unit ComplexScrollParams;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/ComplexScrollParams.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EditorTests::TComplexScrollParams
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\ComplexScrollParams.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TComplexScrollParams" MUID: (4D7777390386)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  TextEditorVisitor
-  {$IfEnd} //nsTest AND not NoVCM
-  ,
-  nevVScrollerSpy,
-  Types
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , TextEditorVisitor
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevVScrollerSpy
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Types
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TComplexScrollParams = {abstract} class(TTextEditorVisitor, InevVScrollerPosLogger)
- protected
- // realized methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   function GetSubNumber(aFirst: Boolean): Integer; virtual;
+   {$If NOT Defined(NoVCM)}
    procedure DoVisit(aForm: TPrimTextLoadForm); override;
-     {* Обработать текст }
-   {$IfEnd} //nsTest AND not NoVCM
+    {* Обработать текст }
+   {$IfEnd} // NOT Defined(NoVCM)
    function OpenLog: AnsiString;
    procedure CloseLog(const aLogName: AnsiString);
- protected
- // overridden protected methods
-    {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+   {$If NOT Defined(NotTunedDUnit)}
    function FileForOutput: AnsiString; override;
-     {* Стандартный файл для вывода, для текщего теста }
-    {$IfEnd} //nsTest AND not NotTunedDUnit
-   {$If defined(nsTest) AND not defined(NoVCM)}
+    {* Стандартный файл для вывода, для текщего теста }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+   {$If NOT Defined(NoVCM)}
    function FormExtent: TPoint; override;
-     {* Размеры формы }
-   {$IfEnd} //nsTest AND not NoVCM
+    {* Размеры формы }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
-   function GetSubNumber(aFirst: Boolean): Integer; virtual;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TComplexScrollParams
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , SysUtils
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TComplexScrollParams
-
+{$If NOT Defined(NoVCM)}
 function TComplexScrollParams.GetSubNumber(aFirst: Boolean): Integer;
 //#UC START# *4D7779F503A4_4D7777390386_var*
 //#UC END# *4D7779F503A4_4D7777390386_var*
@@ -100,8 +72,8 @@ begin
 //#UC END# *4D7779F503A4_4D7777390386_impl*
 end;//TComplexScrollParams.GetSubNumber
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 procedure TComplexScrollParams.DoVisit(aForm: TPrimTextLoadForm);
+ {* Обработать текст }
 //#UC START# *4BE419AF0217_4D7777390386_var*
 //#UC END# *4BE419AF0217_4D7777390386_var*
 begin
@@ -127,7 +99,6 @@ begin
  end;
 //#UC END# *4BE419AF0217_4D7777390386_impl*
 end;//TComplexScrollParams.DoVisit
-{$IfEnd} //nsTest AND not NoVCM
 
 function TComplexScrollParams.OpenLog: AnsiString;
 //#UC START# *4DAEB0DE00D1_4D7777390386_var*
@@ -147,8 +118,9 @@ begin
 //#UC END# *4DAEB0F30186_4D7777390386_impl*
 end;//TComplexScrollParams.CloseLog
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 function TComplexScrollParams.FileForOutput: AnsiString;
+ {* Стандартный файл для вывода, для текщего теста }
 //#UC START# *4B4F588B0241_4D7777390386_var*
 //#UC END# *4B4F588B0241_4D7777390386_var*
 begin
@@ -156,10 +128,10 @@ begin
  Result := OutputPath + KPage + '.poss';
 //#UC END# *4B4F588B0241_4D7777390386_impl*
 end;//TComplexScrollParams.FileForOutput
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 function TComplexScrollParams.FormExtent: TPoint;
+ {* Размеры формы }
 //#UC START# *4C08CF700318_4D7777390386_var*
 //#UC END# *4C08CF700318_4D7777390386_var*
 begin
@@ -168,20 +140,19 @@ begin
  Result.Y := 700;
 //#UC END# *4C08CF700318_4D7777390386_impl*
 end;//TComplexScrollParams.FormExtent
-{$IfEnd} //nsTest AND not NoVCM
 
 function TComplexScrollParams.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TComplexScrollParams.GetFolder
 
 function TComplexScrollParams.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D7777390386';
 end;//TComplexScrollParams.GetModelElementGUID
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

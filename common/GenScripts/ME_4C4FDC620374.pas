@@ -3,6 +3,7 @@ unit InsertStreamTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\InsertStreamTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TInsertStreamTest" MUID: (4C4FDC620374)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

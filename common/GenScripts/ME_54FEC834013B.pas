@@ -2,6 +2,7 @@ unit nsDataExchangeProxy;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsDataExchangeProxy.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDataExchangeProxy" MUID: (54FEC834013B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit ncsFileDescHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsFileDescHelper.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ncsFileDescHelper" MUID: (546EF5650026)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

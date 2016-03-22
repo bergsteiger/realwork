@@ -3,6 +3,8 @@ unit StyledLeafPara_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\StyledLeafPara_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "StyledLeafPara" MUID: (48567D1900F6)
+// Имя типа: "StyledLeafParaTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

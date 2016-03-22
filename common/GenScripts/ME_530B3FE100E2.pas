@@ -2,6 +2,7 @@ unit k2MemoryStream;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2MemoryStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2MemoryStream" MUID: (530B3FE100E2)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

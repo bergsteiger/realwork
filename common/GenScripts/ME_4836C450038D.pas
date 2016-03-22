@@ -3,6 +3,7 @@ unit evSimpleTextPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSimpleTextPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevSimpleTextPainter" MUID: (4836C450038D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

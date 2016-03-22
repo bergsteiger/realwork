@@ -2,9 +2,12 @@ unit dt_ListUtils;
 { Разнообразные функции по работе со списками документов }
 
 
-{ $Id: dt_ListUtils.pas,v 1.4 2014/04/17 13:04:31 voba Exp $ }
+{ $Id: dt_ListUtils.pas,v 1.5 2015/11/26 08:45:44 lukyanets Exp $ }
 
 // $Log: dt_ListUtils.pas,v $
+// Revision 1.5  2015/11/26 08:45:44  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.4  2014/04/17 13:04:31  voba
 // - перенес ISab из DT_Sab в dtIntf
 //
@@ -29,7 +32,7 @@ function LoadDocNumbers(const aFileName: String): ISab;
 implementation
 
 Uses
- l3Stream, l3Parser, l3Types, DT_LinkServ, DT_Doc, DT_Const, DT_Renum,
+ l3Stream, l3Parser, l3Types, daSchemeConsts, DT_LinkServ, DT_Doc, DT_Const, DT_Renum,
  SysUtils, l3Memory, l3FileUtils, dt_AttrSchema;
 
 function LoadDocNumbers(const aFileName: String): ISab;

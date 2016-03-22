@@ -2,6 +2,7 @@ unit ScrollByLineBackAndSelectPt;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\ScrollByLineBackAndSelectPt.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TScrollByLineBackAndSelectPt" MUID: (4E44C60E0060)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

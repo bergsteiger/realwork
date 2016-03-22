@@ -7,7 +7,7 @@ unit m3DBProxyWriteStream;
 // Модуль: "w:/common/components/rtl/Garant/m3/m3DBProxyWriteStream.pas"
 // Начат: 17.03.2009 18:44
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3$DB::m3DB::Tm3DBProxyWriteStream
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3DBProxyWriteStream
 //
 // Поток, пишущий в базу
 //

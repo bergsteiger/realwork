@@ -3,6 +3,7 @@ unit PrefixTreeUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\PrefixTreeUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "PrefixTree" MUID: (45F1207C0197)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

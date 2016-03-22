@@ -3,6 +3,7 @@ unit evStyleTableSpy;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evStyleTableSpy.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evStyleTableSpy" MUID: (47ECB297037D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

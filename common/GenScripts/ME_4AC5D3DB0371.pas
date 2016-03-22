@@ -2,6 +2,7 @@ unit eeMemo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeMemo.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TeeMemo" MUID: (4AC5D3DB0371)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

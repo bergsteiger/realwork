@@ -2,6 +2,7 @@ unit CompareEditions_FormDefinitions_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\CompareEditions_FormDefinitions_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "FormDefinitions" MUID: (4FFC670F012B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -51,8 +52,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_Form_LeftEdition_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы LeftEdition
 ----
@@ -64,9 +65,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_LeftEdition_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_RightEdition_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы RightEdition
 ----
@@ -78,9 +80,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_RightEdition_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_EditionsContainer_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы EditionsContainer
 ----
@@ -92,7 +95,7 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_EditionsContainer_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
 class function Tkw_Form_LeftEdition_ID.GetWordNameForRegister: AnsiString;

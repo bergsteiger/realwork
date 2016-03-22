@@ -3,6 +3,7 @@ unit nsAttributeTreeCacheNew;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeTreeCacheNew.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsAttributeTreeCacheNew" MUID: (4912AB3A01ED)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

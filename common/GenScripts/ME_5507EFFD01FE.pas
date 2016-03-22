@@ -2,6 +2,7 @@ unit ChromeLikeTabSetControl;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControl.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TChromeLikeTabSetControl" MUID: (5507EFFD01FE)
 
 interface
 
@@ -132,6 +133,7 @@ type
    procedure pm_SetText(const aValue: WideString);
    procedure DoPaint(const aContext: IChromeLkeTabSetDrawingContext); override;
    function MakeBehaviourParams: TChromeLikeVisualObjectBehaviours; override;
+   procedure ClearFields; override;
   public
    property Text: WideString
     read f_Text
@@ -212,6 +214,7 @@ type
    procedure MakeChildControls; override;
    function DoGetCanMove(const aPoint: TPoint): Boolean; override;
    procedure DoMiddleButtonClick(const aPoint: TPoint); override;
+   procedure ClearFields; override;
   public
    function GetTabSide(const aPoint: TPoint): TChromeLikeTabSide;
    function NeedSelectByClickAtPoint(const aPoint: TPoint): Boolean;
@@ -948,6 +951,12 @@ begin
 //#UC END# *5506B0630312_5507F2580281_impl*
 end;//TChromeLikeTabText.MakeBehaviourParams
 
+procedure TChromeLikeTabText.ClearFields;
+begin
+ Text := '';
+ inherited;
+end;//TChromeLikeTabText.ClearFields
+
 function TChromeLikeTab.pm_GetText: WideString;
 //#UC START# *550913480304_5507F22E0057get_var*
 //#UC END# *550913480304_5507F22E0057get_var*
@@ -1512,6 +1521,12 @@ begin
  CloseTab;
 //#UC END# *5541B8C900EE_5507F22E0057_impl*
 end;//TChromeLikeTab.DoMiddleButtonClick
+
+procedure TChromeLikeTab.ClearFields;
+begin
+ Text := '';
+ inherited;
+end;//TChromeLikeTab.ClearFields
 
 type _Instance_R_ = TChromeLikeTabList;
 
@@ -2655,6 +2670,7 @@ var
  l_Container: Il3TabbedContainer;
  l_ContainerLeftTopPt: TPoint;
  l_TabParams: Il3TabParams;
+ l_FocusedControl: TWinControl;
 //#UC END# *5507F5620368_5507EFFD01FE_var*
 begin
 //#UC START# *5507F5620368_5507EFFD01FE_impl*
@@ -2667,6 +2683,8 @@ begin
   UpdateWindow(Handle);
 
   l_Form := aTab.Form;
+
+  l_FocusedControl := FindControl(Windows.GetFocus);
 
   l_ContainerLeftTopPt := ClientToScreen(Point(aTab.PositionRect.Left, ClientHeight));
 
@@ -2690,7 +2708,8 @@ begin
   end;
   l_Container.MakeVisible(l_ContainerLeftTopPt);
   l_Form.Visible := True;
-
+  if ((l_FocusedControl <> nil) and l_FocusedControl.CanFocus) then
+   l_FocusedControl.SetFocus;
  finally
   l_TabParams := nil;
  end;
@@ -2926,7 +2945,7 @@ procedure TChromeLikeTabSetControl.actNewTabExecute(Sender: TObject);
 begin
 //#UC START# *553F1FF80348_5507EFFD01FE_impl*
  if Assigned(f_OnNewTabRequested) then
-  f_OnNewTabRequested(Self);
+  f_OnNewTabRequested(Self, (Sender as TChromeLikeTabAction).Tab, False);
 //#UC END# *553F1FF80348_5507EFFD01FE_impl*
 end;//TChromeLikeTabSetControl.actNewTabExecute
 
@@ -3092,11 +3111,19 @@ end;//TChromeLikeTabSetControl.IsLastTab
 
 procedure TChromeLikeTabSetControl.DoOnNewTabButtonClick(Sender: TObject);
 //#UC START# *55669D6C03B4_5507EFFD01FE_var*
+var
+ l_Tab: TChromeLikeTab;
 //#UC END# *55669D6C03B4_5507EFFD01FE_var*
 begin
 //#UC START# *55669D6C03B4_5507EFFD01FE_impl*
  if Assigned(f_OnNewTabRequested) then
-  f_OnNewTabRequested(Self);
+ begin
+  if (Sender is TChromeLikeTabAction) then
+   l_Tab := TChromeLikeTabAction(Sender).Tab
+  else
+   l_Tab := nil;
+  f_OnNewTabRequested(Self, l_Tab, True);
+ end;
 //#UC END# *55669D6C03B4_5507EFFD01FE_impl*
 end;//TChromeLikeTabSetControl.DoOnNewTabButtonClick
 

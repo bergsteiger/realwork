@@ -3,6 +3,7 @@ unit NOT_FINISHED_dd_lcPageNumberEliminator;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcPageNumberEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tdd_lcPageNumberEliminator" MUID: (4EA5353F022A)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

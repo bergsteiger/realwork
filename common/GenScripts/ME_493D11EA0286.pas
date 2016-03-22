@@ -3,6 +3,7 @@ unit sdsMedicDiction;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\sdsMedicDiction.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsMedicDiction" MUID: (493D11EA0286)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

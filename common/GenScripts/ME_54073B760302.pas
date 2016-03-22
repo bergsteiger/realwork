@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3RootStream.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "m3RootStream" MUID: (54073B760302)
+// Имя типа: "_m3RootStream_"
 
 {$Define m3RootStream_imp}
 

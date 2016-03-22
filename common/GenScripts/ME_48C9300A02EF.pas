@@ -3,6 +3,7 @@ unit evFramedParaListPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evFramedParaListPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevFramedParaListPainter" MUID: (48C9300A02EF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

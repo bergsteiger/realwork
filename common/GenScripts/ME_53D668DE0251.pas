@@ -2,6 +2,7 @@ unit evReqRowModelControlMapper;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\evReqRowModelControlMapper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevReqRowModelControlMapper" MUID: (53D668DE0251)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

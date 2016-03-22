@@ -3,6 +3,8 @@ unit PrimContactListOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\PrimContactListOptions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimContactListOptions" MUID: (4C84D11E01E2)
+// Имя типа: "TPrimContactListOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

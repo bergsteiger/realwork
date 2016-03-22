@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3KeyWrd;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3KeyWrd.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3KeyWrd" MUID: (4B8BC148037A)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -3,6 +3,7 @@ unit nsTagNodePrim;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsTagNodePrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsTagNodePrim" MUID: (467FCCB101CF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

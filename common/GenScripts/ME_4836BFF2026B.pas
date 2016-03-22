@@ -3,6 +3,7 @@ unit NOT_FINISHED_k2CustomStackGeneratorEx;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2CustomStackGeneratorEx.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2CustomStackGeneratorEx" MUID: (4836BFF2026B)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

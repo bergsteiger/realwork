@@ -2,6 +2,7 @@ unit bsHyperLinkProcessorPrim;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\bsHyperLinkProcessorPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsHyperLinkProcessorPrim" MUID: (4E2067E2007C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

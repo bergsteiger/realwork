@@ -3,6 +3,8 @@ unit PrimMedicFirmList_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicFirmList_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimMedicFirmList" MUID: (497EE4EB00CB)
+// Имя типа: "TPrimMedicFirmListForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

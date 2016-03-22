@@ -2,6 +2,7 @@ unit nevSBSRowFormatInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevSBSRowFormatInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevSBSRowFormatInfo" MUID: (4E70655403BD)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

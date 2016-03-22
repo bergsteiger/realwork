@@ -3,6 +3,7 @@ unit SplashTypes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Splash\SplashTypes.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "SplashTypes" MUID: (499C07150302)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

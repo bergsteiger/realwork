@@ -20,7 +20,8 @@ interface
 
 uses
   k2Interfaces,
-  l3ProtoObject
+  l3ProtoObject,
+  ddTypes
   ;
 
 type
@@ -31,7 +32,7 @@ type
    constructor Create; reintroduce; virtual;
      {* Сигнатура метода Create }
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aLiteVersion: Boolean); virtual; abstract;
+     aLiteVersion: TddLiteVersion); virtual; abstract;
  end;//TddBaseObject
 
 implementation

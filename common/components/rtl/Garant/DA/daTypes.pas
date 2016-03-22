@@ -32,6 +32,7 @@ type
 
  TdaBaseFlag = (
    bfAAC
+ , bfAutoLink
  );//TdaBaseFlag
 
  TdaBaseFlags = set of TdaBaseFlag;
@@ -131,6 +132,10 @@ type
  , da_ftControl // Флажок эксклюзивного доступа (ftCtrl)
  , da_ftDocumentsDub1 // Дубликат таблицы документов - для связывания в запросах (ftFileDup1)
  , da_ftDocumentsDub2 // Дубликат таблицы документов - для связывания в запросах (ftFileDup2)
+ , da_ftAutolinkDocumentsLocal
+ , da_ftAutolinkEditionsLocal
+ , da_ftAutolinkDocumentsRemote
+ , da_ftAutolinkEditionsRemote
  );//TdaTables
 
  TdaJournalOperation = (
@@ -201,6 +206,9 @@ type
 
  TdaCompareOperation = (
    da_copEqual
+ , da_copGreaterOrEqual
+ , da_copLessOrEqual
+ , da_copNotEqual
  );//TdaCompareOperation
 
  EdaError = class(Exception)
@@ -233,6 +241,24 @@ type
  PdaDictEditRec = ^TdaDictEditRec;
 
  PLargeInt = ^LargeInt;
+
+ TdaLogicOperation = (
+   da_loAnd
+ , da_loOr
+ );//TdaLogicOperation
+
+ TdaDictID = dt_Types.TDictID;
+
+ TdaParamType = (
+   da_ptInput
+ , da_ptOutput
+ , da_ptInOut
+ );//TdaParamType
+
+ TdaSortOrder = (
+   da_soAscending
+ , da_soDescending
+ );//TdaSortOrder
 
 implementation
 

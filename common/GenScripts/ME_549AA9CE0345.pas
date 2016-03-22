@@ -2,6 +2,7 @@ unit ncsCorrectFolder;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsCorrectFolder.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsCorrectFolder" MUID: (549AA9CE0345)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

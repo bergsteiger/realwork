@@ -2,6 +2,7 @@ unit ExternalObjectUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ExternalObjectUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "ExternalObject" MUID: (45ED922F00A4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

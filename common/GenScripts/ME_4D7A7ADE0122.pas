@@ -2,6 +2,7 @@ unit dsChild;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsChild.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsChild" MUID: (4D7A7ADE0122)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

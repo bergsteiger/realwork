@@ -3,6 +3,8 @@ unit K517772970_TUserEditQueryDefault;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TUserEditQueryDefault.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TUserEditQueryDefault" MUID: (53197E970012)
+// Имя типа: "TK517772970_TUserEditQueryDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

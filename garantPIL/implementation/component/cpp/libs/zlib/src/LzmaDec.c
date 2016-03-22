@@ -190,7 +190,7 @@ static int MY_FAST_CALL LzmaDec_DecodeReal(CLzmaDec *p, SizeT limit, const Byte 
         }
         while (symbol < 0x100);
       }
-      dic[dicPos++] = (Byte)symbol;
+      dic[dicPos++] = (Byte)(symbol & 0xFF);
       processedPos++;
       continue;
     }

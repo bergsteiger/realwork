@@ -2,6 +2,8 @@ unit kwHardKey;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwHardKey.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "HardKey" MUID: (501956850225)
+// Имя типа: "TkwHardKey"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

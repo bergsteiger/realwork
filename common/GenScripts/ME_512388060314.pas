@@ -2,6 +2,8 @@ unit toKTPrime;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\toKTPrime.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "toKTPrime" MUID: (512388060314)
+// Имя типа: "TtoKTPrime"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

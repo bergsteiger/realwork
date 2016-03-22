@@ -2,6 +2,7 @@ unit vcmMainFormRes;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMainFormRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmMainFormRes" MUID: (51E7E79A0341)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

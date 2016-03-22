@@ -2,6 +2,7 @@ unit nscSimpleEditor_p;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscSimpleEditor_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TnscSimpleEditor" MUID: (4D6BB45600F0)
 
 {$Include w:\common\components\gui\Garant\Nemesis\l3Define.inc}
 

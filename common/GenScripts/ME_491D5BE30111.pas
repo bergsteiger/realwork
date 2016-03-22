@@ -3,6 +3,7 @@ unit dsDictionDocument;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\dsDictionDocument.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsDictionDocument" MUID: (491D5BE30111)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

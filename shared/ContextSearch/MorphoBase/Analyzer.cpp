@@ -14,49 +14,33 @@
 #include "shared/Core/sys/std_inc.h"
 #include "shared/ContextSearch/MorphoBase/Analyzer.h"
 // by <<uses>> dependencies
-#include "boost/bind.hpp"
+#include "boost/lambda/lambda.hpp"
+#include "boost/algorithm/string/classification.hpp"
 
 namespace ContextSearch {
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // self implementation
 
-// получить слово
-void Analyzer::get_value (const std::string& in, std::string& out) {
-	//#UC START# *497EE96F0318*
-	char last_ch = in.at (in.size () - 1);
-
-	if (last_ch == '!') {
-		out = in.substr (0, in.size () - 1);
-	} else {
-		out = in;
+// проверка на цифры
+bool Analyzer::is_digits (const Search::PhraseEx& in) {
+	//#UC START# *56950BCC01F6*
+	for (Search::PhraseEx::const_iterator it = in.begin (); it != in.end (); ++it) {
+		for (Search::StringSet::const_iterator _it = it->begin (); _it != it->end (); ++_it) {
+			if (std::find_if (_it->begin (), _it->end (), boost::is_digit ()) == _it->end ()) {
+				return false;
+			}
+		}
 	}
-	//#UC END# *497EE96F0318*
+
+	return true;
+	//#UC END# *56950BCC01F6*
 }
 
 // проверка на идентичность слов в запросе
-bool Analyzer::is_identical (const Search::PhraseEx& request) {
+bool Analyzer::is_identical (const Search::PhraseEx& in) {
 	//#UC START# *497EE9450143*
-	bool ret = request.size () > 1;
-
-	if (ret) {
-		Search::PhraseEx::const_iterator first_it = request.begin (), it_end = request.end ();
-
-		if (std::find_if (first_it, it_end, boost::bind (&GCL::StrSet::size, _1) > (size_t) 1) != it_end) {
-			return false;
-		}
-
-		std::string first, cur;
-
-		Analyzer::get_value (*(first_it->begin ()), first);
-
-		for (Search::PhraseEx::const_iterator it = first_it + 1; it != it_end && ret; ++it) {
-			Analyzer::get_value (*(it->begin ()), cur);
-			ret = (first == cur);
-		}
-	}
-
-	return ret;
+	return (in.size () > 1)? (std::find_if (in.begin () + 1, in.end (), boost::lambda::_1 != in.front ()) == in.end ()) : false;
 	//#UC END# *497EE9450143*
 }
 

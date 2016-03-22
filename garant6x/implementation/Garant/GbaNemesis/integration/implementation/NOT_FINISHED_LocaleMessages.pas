@@ -2,6 +2,7 @@ unit NOT_FINISHED_LocaleMessages;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Integration\Implementation\NOT_FINISHED_LocaleMessages.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "LocaleMessages" MUID: (51374B740366)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

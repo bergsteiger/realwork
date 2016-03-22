@@ -3,6 +3,8 @@ unit ExText_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\ExText_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "ExText" MUID: (49539DBA029D)
+// Имя типа: "TExTextForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -1755,7 +1757,7 @@ var
 //#UC END# *4DF1F81F02DE_49539DBA029D_var*
 begin
 //#UC START# *4DF1F81F02DE_49539DBA029D_impl*
- if (UserType in [dftDocument, dftDrug, dftAACLeft]) then
+ if (UserType in [dftDocument, dftDrug, dftAACLeft, dftAACContentsRight]) then
   l_SubDescriptors := nsDocumentRes.SubDescriptors
  else
   l_SubDescriptors := nsDocumentRes.LiteSubDescriptors;
@@ -1802,8 +1804,8 @@ begin
  if (SubPanel.SubDescriptors <> l_SubDescriptors) then
   SubPanel.SubDescriptors := l_SubDescriptors;
  SubPanel.Visible := not (UserType in [dftAACRight,
-                                       dftAACContentsLeft,
-                                       dftAACContentsRight]);
+                                       dftAACContentsLeft{,
+                                       dftAACContentsRight}]);
 //#UC END# *4DF1F81F02DE_49539DBA029D_impl*
 end;//TExTextForm.UpdateSubPanelDescription
 
@@ -4171,12 +4173,21 @@ end;//TExTextForm.DocumentBlock_GetRespondentList_Execute
 
 procedure TExTextForm.DocumentBlock_GetTypedCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C2AEDDA0335_49539DBA029Dtest_var*
+var
+ l_eeSub: IeeSub;
 //#UC END# *4C2AEDDA0335_49539DBA029Dtest_var*
 begin
 //#UC START# *4C2AEDDA0335_49539DBA029Dtest_impl*
  ExcludeRootSub(aParams);
  if aParams.Op.Flag[vcm_ofEnabled] then
   CorrespondentsToSubTest(aParams);
+
+ if aParams.Op.Flag[vcm_ofChecked] then
+ begin
+  l_eeSub := ExtractSubFromSubPanel(aParams.Target);
+  if l_eeSub.ID <> f_eeSubIdForTypedCorrespondentList then
+   aParams.Op.Flag[vcm_ofChecked] := False;
+ end;
 //#UC END# *4C2AEDDA0335_49539DBA029Dtest_impl*
 end;//TExTextForm.DocumentBlock_GetTypedCorrespondentList_Test
 
@@ -4190,9 +4201,12 @@ begin
  TnsUseDocumentSubPanelOperationEvent.Instance.Log;
  l_eeSub := ExtractSubFromSubPanel(aParams.Target);
  if Assigned(l_eeSub) then
+ begin
+  f_eeSubIdForTypedCorrespondentList := l_eeSub.ID;
   OpenCRListToPart(crtCorrespondents,
                    bsConvertFilteredCRNode(aParams.CurrentNode),
                    MakePositionListBySub(l_eeSub.ID));
+ end;
 //#UC END# *4C2AEDDA0335_49539DBA029Dexec_impl*
 end;//TExTextForm.DocumentBlock_GetTypedCorrespondentList_Execute
 
@@ -6517,6 +6531,18 @@ procedure TExTextForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaControlle
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_49539DBA029D_var*
+
+ procedure lp_CheckBaseSearchArea;
+ var
+  l_BaseSearcher: InsBaseSearcher;
+  l_BSPresentation: InsBaseSearchPresentation;
+ begin
+  l_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
+  if l3IEQ(Self as InsBaseSearchPresentation, l_BaseSearcher.Presentation) then
+   TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm).WindowData.Area := ns_saText;
+   // - http://mdp.garant.ru/pages/viewpage.action?pageId=611210158
+ end;
+
 var
  l_Doc: IDocument;
  l_Caption: Il3CString;
@@ -6527,6 +6553,9 @@ begin
  if (aNew <> nil) then
  begin
   CheckLinkedWindows;
+  if (anOld = nil) then
+   lp_CheckBaseSearchArea;
+   
   if (dsBaseDocument <> nil) AND (dsBaseDocument.DocInfo <> nil) then
    l_Doc := dsBaseDocument.DocInfo.Doc;
   // - http://mdp.garant.ru/pages/viewpage.action?pageId=590755363
@@ -6893,6 +6922,7 @@ begin
     if l_LeftIndent < cnAACRightLeftIndentMin then
      l_LeftIndent := cnAACRightLeftIndentMin;
     Text.LeftIndentDelta := l_LeftIndent - Text.LMargin; // http://mdp.garant.ru/pages/viewpage.action?pageId=388860126
+    Text.LeftIndentDelta := Text.LeftIndentDelta - 23; // http://mdp.garant.ru/pages/viewpage.action?pageId=617799931
    end;
   dftAACLeft:
    begin

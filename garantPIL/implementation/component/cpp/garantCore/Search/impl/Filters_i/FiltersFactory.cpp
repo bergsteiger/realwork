@@ -57,7 +57,7 @@ SearchAdapterLib::Adapter::IFilter* FiltersFactory::make (Index* index, const ch
 }
 
 // фабрика
-SearchAdapterLib::Adapter::IFilter* FiltersFactory::make (SearchBase* base, const char* name, const char* key, MergeOp op) {
+SearchAdapterLib::Adapter::IFilter* FiltersFactory::make (Base* base, const char* name, const char* key, MergeOp op) {
 	//#UC START# *5302044D03D4*
 	return new LoadList_i (base->FindIndex (name), key, op);
 	//#UC END# *5302044D03D4*

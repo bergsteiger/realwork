@@ -2,6 +2,8 @@ unit TreeAttributeFirstLevel_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\TreeAttributeFirstLevel_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "TreeAttributeFirstLevel" MUID: (4AB8D5F8025F)
+// Имя типа: "TefTreeAttributeFirstLevel"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

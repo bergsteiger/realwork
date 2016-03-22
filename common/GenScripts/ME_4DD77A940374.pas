@@ -3,6 +3,7 @@ unit nevTableRowBaseLine4Print;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevTableRowBaseLine4Print.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevTableRowBaseLine4Print" MUID: (4DD77A940374)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

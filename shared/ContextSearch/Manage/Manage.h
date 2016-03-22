@@ -33,26 +33,13 @@ class IRequestTransformer
 {
 public:
 	// исключение стоп-слов
-	virtual size_t exclude (
-		std::string& req
-		, const GCL::StrVector& data
-		, const DBComm::PSDTemplates& templates
-		, bool is_fake
-	) = 0;
+	virtual size_t exclude (std::string& req, const GCL::StrVector& data) = 0;
 
 	// корректировка
 	virtual void correct (const std::string& in, std::string& out) = 0;
 
-	// исключение стоп-слов
-	virtual void unchecked_exclude (std::string& req, const GCL::StrVector& data) = 0;
-
 	// выполнить
-	virtual GCL::StrVector* execute (
-		const std::string& in
-		, const GCL::StrVector& data
-		, const GCL::StrVector& hard
-		, Defs::StrStrMap& pseudo
-	) = 0;
+	virtual GCL::StrVector* execute (const std::string& in, const GCL::StrVector& data, const GCL::StrVector& hard) = 0;
 };
 
 /// factory interface for IRequestTransformer

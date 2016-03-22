@@ -42,7 +42,7 @@ type
  // realized methods
    procedure Write2Generator(const Generator: Ik2TagGenerator;
      aNeedProcessRow: Boolean;
-     LiteVersion: Boolean); override;
+     LiteVersion: TddLiteVersion); override;
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -126,7 +126,7 @@ end;//TddParaList.CloseLevel
 
 procedure TddParaList.Write2Generator(const Generator: Ik2TagGenerator;
   aNeedProcessRow: Boolean;
-  LiteVersion: Boolean);
+  LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_5268FE7A0253_var*
 var
   l_A: TddDocumentAtom;

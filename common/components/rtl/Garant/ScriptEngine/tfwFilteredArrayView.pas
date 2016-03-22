@@ -2,6 +2,7 @@ unit tfwFilteredArrayView;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwFilteredArrayView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwFilteredArrayView" MUID: (52E6752A0047)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -40,6 +41,7 @@ procedure TtfwFilterLambda.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_52EA87C200D8_var*
 begin
 //#UC START# *4DAEEDE10285_52EA87C200D8_impl*
+ Assert(ItemsCountInSlice > 0);
  aCtx.rEngine.DupN(ItemsCountInSlice);
  f_Lambda.DoIt(aCtx);
  if aCtx.rEngine.PopBool then

@@ -2,6 +2,7 @@ unit SysUtilsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "SysUtilsPack" MUID: (4F5EFA23015A)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -965,11 +966,6 @@ begin
  aCtx.rEngine.PushBool(HasTabs(aCtx));
 end;//TkwHasTabs.DoDoIt
 
-class function TkwHasTabs.GetWordNameForRegister: AnsiString;
-begin
- Result := 'HasTabs';
-end;//TkwHasTabs.GetWordNameForRegister
-
 function TkwHasTabs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -984,6 +980,11 @@ function TkwHasTabs.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwHasTabs.ParamsTypes
+
+class function TkwHasTabs.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'HasTabs';
+end;//TkwHasTabs.GetWordNameForRegister
 
 function TkwIsUnder64.IsUnder64(const aCtx: TtfwContext): Boolean;
  {* Реализация слова скрипта IsUnder64 }
@@ -1000,11 +1001,6 @@ begin
  aCtx.rEngine.PushBool(IsUnder64(aCtx));
 end;//TkwIsUnder64.DoDoIt
 
-class function TkwIsUnder64.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsUnder64';
-end;//TkwIsUnder64.GetWordNameForRegister
-
 function TkwIsUnder64.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1019,6 +1015,11 @@ function TkwIsUnder64.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwIsUnder64.ParamsTypes
+
+class function TkwIsUnder64.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsUnder64';
+end;//TkwIsUnder64.GetWordNameForRegister
 
 function TkwComputerName.ComputerName(const aCtx: TtfwContext): AnsiString;
  {* Реализация слова скрипта ComputerName }
@@ -1043,11 +1044,6 @@ begin
  aCtx.rEngine.PushString(ComputerName(aCtx));
 end;//TkwComputerName.DoDoIt
 
-class function TkwComputerName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ComputerName';
-end;//TkwComputerName.GetWordNameForRegister
-
 function TkwComputerName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1062,6 +1058,11 @@ function TkwComputerName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwComputerName.ParamsTypes
+
+class function TkwComputerName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ComputerName';
+end;//TkwComputerName.GetWordNameForRegister
 
 function TkwOSName.OSName(const aCtx: TtfwContext): AnsiString;
  {* Реализация слова скрипта OSName }
@@ -1078,11 +1079,6 @@ begin
  aCtx.rEngine.PushString(OSName(aCtx));
 end;//TkwOSName.DoDoIt
 
-class function TkwOSName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'OSName';
-end;//TkwOSName.GetWordNameForRegister
-
 function TkwOSName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1097,6 +1093,11 @@ function TkwOSName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwOSName.ParamsTypes
+
+class function TkwOSName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'OSName';
+end;//TkwOSName.GetWordNameForRegister
 
 function TkwRandom.Random(const aCtx: TtfwContext;
  aMax: Integer): Integer;
@@ -1124,11 +1125,6 @@ begin
  aCtx.rEngine.PushInt(Random(aCtx, l_aMax));
 end;//TkwRandom.DoDoIt
 
-class function TkwRandom.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Random';
-end;//TkwRandom.GetWordNameForRegister
-
 function TkwRandom.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1144,6 +1140,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwRandom.ParamsTypes
 
+class function TkwRandom.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Random';
+end;//TkwRandom.GetWordNameForRegister
+
 procedure TkwRandomize.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_EA3D9826565B_var*
 //#UC END# *4DAEEDE10285_EA3D9826565B_var*
@@ -1152,11 +1153,6 @@ begin
  System.Randomize;
 //#UC END# *4DAEEDE10285_EA3D9826565B_impl*
 end;//TkwRandomize.DoDoIt
-
-class function TkwRandomize.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Randomize';
-end;//TkwRandomize.GetWordNameForRegister
 
 function TkwRandomize.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1167,6 +1163,11 @@ function TkwRandomize.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 0;
 end;//TkwRandomize.GetAllParamsCount
+
+class function TkwRandomize.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Randomize';
+end;//TkwRandomize.GetWordNameForRegister
 
 procedure TkwSetRandSeed.SetRandSeed(const aCtx: TtfwContext;
  aValue: Integer);
@@ -1194,11 +1195,6 @@ begin
  SetRandSeed(aCtx, l_aValue);
 end;//TkwSetRandSeed.DoDoIt
 
-class function TkwSetRandSeed.GetWordNameForRegister: AnsiString;
-begin
- Result := 'SetRandSeed';
-end;//TkwSetRandSeed.GetWordNameForRegister
-
 function TkwSetRandSeed.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1213,6 +1209,11 @@ function TkwSetRandSeed.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwSetRandSeed.ParamsTypes
+
+class function TkwSetRandSeed.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'SetRandSeed';
+end;//TkwSetRandSeed.GetWordNameForRegister
 
 function TkwRGB2String.RGB2String(const aCtx: TtfwContext;
  aB: Integer;
@@ -1265,11 +1266,6 @@ begin
  aCtx.rEngine.PushString(RGB2String(aCtx, l_aB, l_aG, l_aR));
 end;//TkwRGB2String.DoDoIt
 
-class function TkwRGB2String.GetWordNameForRegister: AnsiString;
-begin
- Result := 'RGB2String';
-end;//TkwRGB2String.GetWordNameForRegister
-
 function TkwRGB2String.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1284,6 +1280,11 @@ function TkwRGB2String.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwRGB2String.ParamsTypes
+
+class function TkwRGB2String.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'RGB2String';
+end;//TkwRGB2String.GetWordNameForRegister
 
 function TkwIntToStr.IntToStr(const aCtx: TtfwContext;
  aValue: Integer): AnsiString;
@@ -1311,11 +1312,6 @@ begin
  aCtx.rEngine.PushString(IntToStr(aCtx, l_aValue));
 end;//TkwIntToStr.DoDoIt
 
-class function TkwIntToStr.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IntToStr';
-end;//TkwIntToStr.GetWordNameForRegister
-
 function TkwIntToStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1330,6 +1326,11 @@ function TkwIntToStr.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwIntToStr.ParamsTypes
+
+class function TkwIntToStr.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IntToStr';
+end;//TkwIntToStr.GetWordNameForRegister
 
 function TkwIsXE.IsXE(const aCtx: TtfwContext): Boolean;
  {* Реализация слова скрипта IsXE }
@@ -1350,11 +1351,6 @@ begin
  aCtx.rEngine.PushBool(IsXE(aCtx));
 end;//TkwIsXE.DoDoIt
 
-class function TkwIsXE.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsXE';
-end;//TkwIsXE.GetWordNameForRegister
-
 function TkwIsXE.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1369,6 +1365,11 @@ function TkwIsXE.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwIsXE.ParamsTypes
+
+class function TkwIsXE.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsXE';
+end;//TkwIsXE.GetWordNameForRegister
 
 procedure TkwWinExec.WinExec(const aCtx: TtfwContext;
  const aPath: AnsiString);
@@ -1401,11 +1402,6 @@ begin
  WinExec(aCtx, l_aPath);
 end;//TkwWinExec.DoDoIt
 
-class function TkwWinExec.GetWordNameForRegister: AnsiString;
-begin
- Result := 'WinExec';
-end;//TkwWinExec.GetWordNameForRegister
-
 function TkwWinExec.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1420,6 +1416,11 @@ function TkwWinExec.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwWinExec.ParamsTypes
+
+class function TkwWinExec.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'WinExec';
+end;//TkwWinExec.GetWordNameForRegister
 
 function TkwScriptFileName.script_FileName(const aCtx: TtfwContext): AnsiString;
  {* Реализация слова скрипта script:FileName }
@@ -1436,11 +1437,6 @@ begin
  aCtx.rEngine.PushString(script_FileName(aCtx));
 end;//TkwScriptFileName.DoDoIt
 
-class function TkwScriptFileName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'script:FileName';
-end;//TkwScriptFileName.GetWordNameForRegister
-
 function TkwScriptFileName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1455,6 +1451,11 @@ function TkwScriptFileName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwScriptFileName.ParamsTypes
+
+class function TkwScriptFileName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'script:FileName';
+end;//TkwScriptFileName.GetWordNameForRegister
 
 function TkwSysutilsChangeFileExt.sysutils_ChangeFileExt(const aCtx: TtfwContext;
  const anExt: AnsiString;
@@ -1493,11 +1494,6 @@ begin
  aCtx.rEngine.PushString(sysutils_ChangeFileExt(aCtx, l_anExt, l_aName));
 end;//TkwSysutilsChangeFileExt.DoDoIt
 
-class function TkwSysutilsChangeFileExt.GetWordNameForRegister: AnsiString;
-begin
- Result := 'sysutils:ChangeFileExt';
-end;//TkwSysutilsChangeFileExt.GetWordNameForRegister
-
 function TkwSysutilsChangeFileExt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1512,6 +1508,11 @@ function TkwSysutilsChangeFileExt.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwSysutilsChangeFileExt.ParamsTypes
+
+class function TkwSysutilsChangeFileExt.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:ChangeFileExt';
+end;//TkwSysutilsChangeFileExt.GetWordNameForRegister
 
 function TkwSysutilsExtractFileName.sysutils_ExtractFileName(const aCtx: TtfwContext;
  const aName: AnsiString): AnsiString;
@@ -1539,11 +1540,6 @@ begin
  aCtx.rEngine.PushString(sysutils_ExtractFileName(aCtx, l_aName));
 end;//TkwSysutilsExtractFileName.DoDoIt
 
-class function TkwSysutilsExtractFileName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'sysutils:ExtractFileName';
-end;//TkwSysutilsExtractFileName.GetWordNameForRegister
-
 function TkwSysutilsExtractFileName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1558,6 +1554,11 @@ function TkwSysutilsExtractFileName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsExtractFileName.ParamsTypes
+
+class function TkwSysutilsExtractFileName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:ExtractFileName';
+end;//TkwSysutilsExtractFileName.GetWordNameForRegister
 
 function TkwSysutilsExtractFilePath.sysutils_ExtractFilePath(const aCtx: TtfwContext;
  const aName: AnsiString): AnsiString;
@@ -1585,11 +1586,6 @@ begin
  aCtx.rEngine.PushString(sysutils_ExtractFilePath(aCtx, l_aName));
 end;//TkwSysutilsExtractFilePath.DoDoIt
 
-class function TkwSysutilsExtractFilePath.GetWordNameForRegister: AnsiString;
-begin
- Result := 'sysutils:ExtractFilePath';
-end;//TkwSysutilsExtractFilePath.GetWordNameForRegister
-
 function TkwSysutilsExtractFilePath.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1604,6 +1600,11 @@ function TkwSysutilsExtractFilePath.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsExtractFilePath.ParamsTypes
+
+class function TkwSysutilsExtractFilePath.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:ExtractFilePath';
+end;//TkwSysutilsExtractFilePath.GetWordNameForRegister
 
 function TkwSysutilsExtractFileDrive.sysutils_ExtractFileDrive(const aCtx: TtfwContext;
  const aName: AnsiString): AnsiString;
@@ -1631,11 +1632,6 @@ begin
  aCtx.rEngine.PushString(sysutils_ExtractFileDrive(aCtx, l_aName));
 end;//TkwSysutilsExtractFileDrive.DoDoIt
 
-class function TkwSysutilsExtractFileDrive.GetWordNameForRegister: AnsiString;
-begin
- Result := 'sysutils:ExtractFileDrive';
-end;//TkwSysutilsExtractFileDrive.GetWordNameForRegister
-
 function TkwSysutilsExtractFileDrive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1650,6 +1646,11 @@ function TkwSysutilsExtractFileDrive.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsExtractFileDrive.ParamsTypes
+
+class function TkwSysutilsExtractFileDrive.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:ExtractFileDrive';
+end;//TkwSysutilsExtractFileDrive.GetWordNameForRegister
 
 function TkwSysutilsDirectoryExists.sysutils_DirectoryExists(const aCtx: TtfwContext;
  const aPath: AnsiString): Boolean;
@@ -1677,11 +1678,6 @@ begin
  aCtx.rEngine.PushBool(sysutils_DirectoryExists(aCtx, l_aPath));
 end;//TkwSysutilsDirectoryExists.DoDoIt
 
-class function TkwSysutilsDirectoryExists.GetWordNameForRegister: AnsiString;
-begin
- Result := 'sysutils:DirectoryExists';
-end;//TkwSysutilsDirectoryExists.GetWordNameForRegister
-
 function TkwSysutilsDirectoryExists.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1696,6 +1692,11 @@ function TkwSysutilsDirectoryExists.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsDirectoryExists.ParamsTypes
+
+class function TkwSysutilsDirectoryExists.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:DirectoryExists';
+end;//TkwSysutilsDirectoryExists.GetWordNameForRegister
 
 function TkwSysutilsFileExists.sysutils_FileExists(const aCtx: TtfwContext;
  const aPath: AnsiString): Boolean;
@@ -1723,11 +1724,6 @@ begin
  aCtx.rEngine.PushBool(sysutils_FileExists(aCtx, l_aPath));
 end;//TkwSysutilsFileExists.DoDoIt
 
-class function TkwSysutilsFileExists.GetWordNameForRegister: AnsiString;
-begin
- Result := 'sysutils:FileExists';
-end;//TkwSysutilsFileExists.GetWordNameForRegister
-
 function TkwSysutilsFileExists.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1742,6 +1738,11 @@ function TkwSysutilsFileExists.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsFileExists.ParamsTypes
+
+class function TkwSysutilsFileExists.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:FileExists';
+end;//TkwSysutilsFileExists.GetWordNameForRegister
 
 function TkwSysutilsForceDirectories.sysutils_ForceDirectories(const aCtx: TtfwContext;
  const aPath: AnsiString): Boolean;
@@ -1769,11 +1770,6 @@ begin
  aCtx.rEngine.PushBool(sysutils_ForceDirectories(aCtx, l_aPath));
 end;//TkwSysutilsForceDirectories.DoDoIt
 
-class function TkwSysutilsForceDirectories.GetWordNameForRegister: AnsiString;
-begin
- Result := 'sysutils:ForceDirectories';
-end;//TkwSysutilsForceDirectories.GetWordNameForRegister
-
 function TkwSysutilsForceDirectories.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1789,6 +1785,11 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsForceDirectories.ParamsTypes
 
+class function TkwSysutilsForceDirectories.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:ForceDirectories';
+end;//TkwSysutilsForceDirectories.GetWordNameForRegister
+
 procedure TkwSetAppPath2CurrentDir.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_21D0FBE864A6_var*
 //#UC END# *4DAEEDE10285_21D0FBE864A6_var*
@@ -1797,11 +1798,6 @@ begin
  SetCurrentDir(ExtractFilePath(ParamStr(0)));
 //#UC END# *4DAEEDE10285_21D0FBE864A6_impl*
 end;//TkwSetAppPath2CurrentDir.DoDoIt
-
-class function TkwSetAppPath2CurrentDir.GetWordNameForRegister: AnsiString;
-begin
- Result := 'SetAppPath2CurrentDir';
-end;//TkwSetAppPath2CurrentDir.GetWordNameForRegister
 
 function TkwSetAppPath2CurrentDir.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1812,6 +1808,11 @@ function TkwSetAppPath2CurrentDir.GetAllParamsCount(const aCtx: TtfwContext): In
 begin
  Result := 0;
 end;//TkwSetAppPath2CurrentDir.GetAllParamsCount
+
+class function TkwSetAppPath2CurrentDir.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'SetAppPath2CurrentDir';
+end;//TkwSetAppPath2CurrentDir.GetWordNameForRegister
 
 function TkwApplicationExeName.application_ExeName(const aCtx: TtfwContext): AnsiString;
  {* Реализация слова скрипта application:ExeName }
@@ -1828,11 +1829,6 @@ begin
  aCtx.rEngine.PushString(application_ExeName(aCtx));
 end;//TkwApplicationExeName.DoDoIt
 
-class function TkwApplicationExeName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'application:ExeName';
-end;//TkwApplicationExeName.GetWordNameForRegister
-
 function TkwApplicationExeName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1847,6 +1843,11 @@ function TkwApplicationExeName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwApplicationExeName.ParamsTypes
+
+class function TkwApplicationExeName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'application:ExeName';
+end;//TkwApplicationExeName.GetWordNameForRegister
 
 function TkwGetTickCount.GetTickCount(const aCtx: TtfwContext): Integer;
  {* Реализация слова скрипта GetTickCount }
@@ -1863,11 +1864,6 @@ begin
  aCtx.rEngine.PushInt(GetTickCount(aCtx));
 end;//TkwGetTickCount.DoDoIt
 
-class function TkwGetTickCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'GetTickCount';
-end;//TkwGetTickCount.GetWordNameForRegister
-
 function TkwGetTickCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1882,6 +1878,11 @@ function TkwGetTickCount.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwGetTickCount.ParamsTypes
+
+class function TkwGetTickCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'GetTickCount';
+end;//TkwGetTickCount.GetWordNameForRegister
 
 procedure TkwApplicationActionIdle.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4321FF105F4A_var*
@@ -1902,11 +1903,6 @@ begin
 //#UC END# *4DAEEDE10285_4321FF105F4A_impl*
 end;//TkwApplicationActionIdle.DoDoIt
 
-class function TkwApplicationActionIdle.GetWordNameForRegister: AnsiString;
-begin
- Result := 'application:ActionIdle';
-end;//TkwApplicationActionIdle.GetWordNameForRegister
-
 function TkwApplicationActionIdle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1917,6 +1913,11 @@ begin
  Result := 0;
 end;//TkwApplicationActionIdle.GetAllParamsCount
 
+class function TkwApplicationActionIdle.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'application:ActionIdle';
+end;//TkwApplicationActionIdle.GetWordNameForRegister
+
 procedure TkwClipboardClear.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_2761B617CA85_var*
 //#UC END# *4DAEEDE10285_2761B617CA85_var*
@@ -1925,11 +1926,6 @@ begin
  l3System.ClearClipboard;
 //#UC END# *4DAEEDE10285_2761B617CA85_impl*
 end;//TkwClipboardClear.DoDoIt
-
-class function TkwClipboardClear.GetWordNameForRegister: AnsiString;
-begin
- Result := 'clipboard:clear';
-end;//TkwClipboardClear.GetWordNameForRegister
 
 function TkwClipboardClear.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1940,6 +1936,11 @@ function TkwClipboardClear.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 0;
 end;//TkwClipboardClear.GetAllParamsCount
+
+class function TkwClipboardClear.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'clipboard:clear';
+end;//TkwClipboardClear.GetWordNameForRegister
 
 procedure TkwSetLocalDate.SetLocalDate(const aCtx: TtfwContext;
  aDay: Integer;
@@ -1997,11 +1998,6 @@ begin
  SetLocalDate(aCtx, l_aDay, l_aMonth, l_anYear);
 end;//TkwSetLocalDate.DoDoIt
 
-class function TkwSetLocalDate.GetWordNameForRegister: AnsiString;
-begin
- Result := 'SetLocalDate';
-end;//TkwSetLocalDate.GetWordNameForRegister
-
 function TkwSetLocalDate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -2016,6 +2012,11 @@ function TkwSetLocalDate.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwSetLocalDate.ParamsTypes
+
+class function TkwSetLocalDate.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'SetLocalDate';
+end;//TkwSetLocalDate.GetWordNameForRegister
 
 procedure TkwSetLocalTime.SetLocalTime(const aCtx: TtfwContext;
  aMilli: Integer;
@@ -2085,11 +2086,6 @@ begin
  SetLocalTime(aCtx, l_aMilli, l_aSecond, l_aMinute, l_anHour);
 end;//TkwSetLocalTime.DoDoIt
 
-class function TkwSetLocalTime.GetWordNameForRegister: AnsiString;
-begin
- Result := 'SetLocalTime';
-end;//TkwSetLocalTime.GetWordNameForRegister
-
 function TkwSetLocalTime.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -2104,6 +2100,11 @@ function TkwSetLocalTime.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwSetLocalTime.ParamsTypes
+
+class function TkwSetLocalTime.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'SetLocalTime';
+end;//TkwSetLocalTime.GetWordNameForRegister
 
 procedure TkwSetLocalDateTime.SetLocalDateTime(const aCtx: TtfwContext;
  aMilli: Integer;
@@ -2209,11 +2210,6 @@ begin
  SetLocalDateTime(aCtx, l_aMilli, l_aSecond, l_aMinute, l_anHour, l_aDay, l_aMonth, l_anYear);
 end;//TkwSetLocalDateTime.DoDoIt
 
-class function TkwSetLocalDateTime.GetWordNameForRegister: AnsiString;
-begin
- Result := 'SetLocalDateTime';
-end;//TkwSetLocalDateTime.GetWordNameForRegister
-
 function TkwSetLocalDateTime.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -2229,6 +2225,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwSetLocalDateTime.ParamsTypes
 
+class function TkwSetLocalDateTime.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'SetLocalDateTime';
+end;//TkwSetLocalDateTime.GetWordNameForRegister
+
 procedure TkwGetLocalDate.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_F6C5E61F680C_var*
 var
@@ -2243,11 +2244,6 @@ begin
 //#UC END# *4DAEEDE10285_F6C5E61F680C_impl*
 end;//TkwGetLocalDate.DoDoIt
 
-class function TkwGetLocalDate.GetWordNameForRegister: AnsiString;
-begin
- Result := 'GetLocalDate';
-end;//TkwGetLocalDate.GetWordNameForRegister
-
 function TkwGetLocalDate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -2257,6 +2253,11 @@ function TkwGetLocalDate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 0;
 end;//TkwGetLocalDate.GetAllParamsCount
+
+class function TkwGetLocalDate.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'GetLocalDate';
+end;//TkwGetLocalDate.GetWordNameForRegister
 
 procedure TkwGetLocalDateTime.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_1FE2F18F76F6_var*
@@ -2276,11 +2277,6 @@ begin
 //#UC END# *4DAEEDE10285_1FE2F18F76F6_impl*
 end;//TkwGetLocalDateTime.DoDoIt
 
-class function TkwGetLocalDateTime.GetWordNameForRegister: AnsiString;
-begin
- Result := 'GetLocalDateTime';
-end;//TkwGetLocalDateTime.GetWordNameForRegister
-
 function TkwGetLocalDateTime.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -2290,6 +2286,11 @@ function TkwGetLocalDateTime.GetAllParamsCount(const aCtx: TtfwContext): Integer
 begin
  Result := 0;
 end;//TkwGetLocalDateTime.GetAllParamsCount
+
+class function TkwGetLocalDateTime.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'GetLocalDateTime';
+end;//TkwGetLocalDateTime.GetWordNameForRegister
 
 procedure TkwGetLocalTime.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_47E01D1A49DA_var*
@@ -2306,11 +2307,6 @@ begin
 //#UC END# *4DAEEDE10285_47E01D1A49DA_impl*
 end;//TkwGetLocalTime.DoDoIt
 
-class function TkwGetLocalTime.GetWordNameForRegister: AnsiString;
-begin
- Result := 'GetLocalTime';
-end;//TkwGetLocalTime.GetWordNameForRegister
-
 function TkwGetLocalTime.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -2321,6 +2317,11 @@ begin
  Result := 0;
 end;//TkwGetLocalTime.GetAllParamsCount
 
+class function TkwGetLocalTime.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'GetLocalTime';
+end;//TkwGetLocalTime.GetWordNameForRegister
+
 procedure TkwStartTimer.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_084854089DF8_var*
 //#UC END# *4DAEEDE10285_084854089DF8_var*
@@ -2329,11 +2330,6 @@ begin
  aCtx.rCaller.StartTimer;
 //#UC END# *4DAEEDE10285_084854089DF8_impl*
 end;//TkwStartTimer.DoDoIt
-
-class function TkwStartTimer.GetWordNameForRegister: AnsiString;
-begin
- Result := 'StartTimer';
-end;//TkwStartTimer.GetWordNameForRegister
 
 function TkwStartTimer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2344,6 +2340,11 @@ function TkwStartTimer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 0;
 end;//TkwStartTimer.GetAllParamsCount
+
+class function TkwStartTimer.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StartTimer';
+end;//TkwStartTimer.GetWordNameForRegister
 
 function TkwStopTimer.StopTimer(const aCtx: TtfwContext;
  const aName: AnsiString): Integer;
@@ -2371,11 +2372,6 @@ begin
  aCtx.rEngine.PushInt(StopTimer(aCtx, l_aName));
 end;//TkwStopTimer.DoDoIt
 
-class function TkwStopTimer.GetWordNameForRegister: AnsiString;
-begin
- Result := 'StopTimer';
-end;//TkwStopTimer.GetWordNameForRegister
-
 function TkwStopTimer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -2390,6 +2386,11 @@ function TkwStopTimer.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStopTimer.ParamsTypes
+
+class function TkwStopTimer.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StopTimer';
+end;//TkwStopTimer.GetWordNameForRegister
 
 function TkwStopTimerEx.StopTimerEx(const aCtx: TtfwContext;
  const aSubName: AnsiString;
@@ -2428,11 +2429,6 @@ begin
  aCtx.rEngine.PushInt(StopTimerEx(aCtx, l_aSubName, l_aName));
 end;//TkwStopTimerEx.DoDoIt
 
-class function TkwStopTimerEx.GetWordNameForRegister: AnsiString;
-begin
- Result := 'StopTimerEx';
-end;//TkwStopTimerEx.GetWordNameForRegister
-
 function TkwStopTimerEx.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -2447,6 +2443,11 @@ function TkwStopTimerEx.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStopTimerEx.ParamsTypes
+
+class function TkwStopTimerEx.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StopTimerEx';
+end;//TkwStopTimerEx.GetWordNameForRegister
 
 procedure TkwTimeToLog.TimeToLog(const aCtx: TtfwContext;
  aValue: Integer;
@@ -2517,11 +2518,6 @@ begin
  TimeToLog(aCtx, l_aValue, l_aSubName, l_aName);
 end;//TkwTimeToLog.DoDoIt
 
-class function TkwTimeToLog.GetWordNameForRegister: AnsiString;
-begin
- Result := 'TimeToLog';
-end;//TkwTimeToLog.GetWordNameForRegister
-
 function TkwTimeToLog.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -2536,6 +2532,11 @@ function TkwTimeToLog.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer), @tfw_tiString, @tfw_tiString]);
 end;//TkwTimeToLog.ParamsTypes
+
+class function TkwTimeToLog.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'TimeToLog';
+end;//TkwTimeToLog.GetWordNameForRegister
 
 procedure TkwShiftDate.ShiftDate(const aCtx: TtfwContext;
  aDeltaD: Integer;
@@ -2596,11 +2597,6 @@ begin
  ShiftDate(aCtx, l_aDeltaD, l_aDeltaM, l_aDeltaY);
 end;//TkwShiftDate.DoDoIt
 
-class function TkwShiftDate.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ShiftDate';
-end;//TkwShiftDate.GetWordNameForRegister
-
 function TkwShiftDate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -2615,6 +2611,11 @@ function TkwShiftDate.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwShiftDate.ParamsTypes
+
+class function TkwShiftDate.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ShiftDate';
+end;//TkwShiftDate.GetWordNameForRegister
 
 procedure TkwShiftTime.ShiftTime(const aCtx: TtfwContext;
  aDeltaMilli: Integer);
@@ -2651,11 +2652,6 @@ begin
  ShiftTime(aCtx, l_aDeltaMilli);
 end;//TkwShiftTime.DoDoIt
 
-class function TkwShiftTime.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ShiftTime';
-end;//TkwShiftTime.GetWordNameForRegister
-
 function TkwShiftTime.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -2670,6 +2666,11 @@ function TkwShiftTime.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwShiftTime.ParamsTypes
+
+class function TkwShiftTime.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ShiftTime';
+end;//TkwShiftTime.GetWordNameForRegister
 
 function TkwClipboardGetFormattedText.clipboard_GetFormattedText(const aCtx: TtfwContext;
  const aFormat: TtfwStackValue): Il3CString;
@@ -2733,11 +2734,6 @@ begin
  aCtx.rEngine.PushString(clipboard_GetFormattedText(aCtx, l_aFormat));
 end;//TkwClipboardGetFormattedText.DoDoIt
 
-class function TkwClipboardGetFormattedText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'clipboard:GetFormattedText';
-end;//TkwClipboardGetFormattedText.GetWordNameForRegister
-
 function TkwClipboardGetFormattedText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2752,6 +2748,11 @@ function TkwClipboardGetFormattedText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiStruct]);
 end;//TkwClipboardGetFormattedText.ParamsTypes
+
+class function TkwClipboardGetFormattedText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'clipboard:GetFormattedText';
+end;//TkwClipboardGetFormattedText.GetWordNameForRegister
 
 procedure TkwClipboardSetText.clipboard_SetText(const aCtx: TtfwContext;
  const aValue: Il3CString);
@@ -2784,11 +2785,6 @@ begin
  clipboard_SetText(aCtx, l_aValue);
 end;//TkwClipboardSetText.DoDoIt
 
-class function TkwClipboardSetText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'clipboard:SetText';
-end;//TkwClipboardSetText.GetWordNameForRegister
-
 function TkwClipboardSetText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -2803,6 +2799,11 @@ function TkwClipboardSetText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwClipboardSetText.ParamsTypes
+
+class function TkwClipboardSetText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'clipboard:SetText';
+end;//TkwClipboardSetText.GetWordNameForRegister
 
 function TkwScriptExceptionStack.script_ExceptionStack(const aCtx: TtfwContext): ItfwValueList;
  {* Реализация слова скрипта script:ExceptionStack }
@@ -2819,11 +2820,6 @@ begin
  aCtx.rEngine.PushList(script_ExceptionStack(aCtx));
 end;//TkwScriptExceptionStack.DoDoIt
 
-class function TkwScriptExceptionStack.GetWordNameForRegister: AnsiString;
-begin
- Result := 'script:ExceptionStack';
-end;//TkwScriptExceptionStack.GetWordNameForRegister
-
 function TkwScriptExceptionStack.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -2838,6 +2834,11 @@ function TkwScriptExceptionStack.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwScriptExceptionStack.ParamsTypes
+
+class function TkwScriptExceptionStack.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'script:ExceptionStack';
+end;//TkwScriptExceptionStack.GetWordNameForRegister
 
 function TkwSysutilsParamCount.sysutils_ParamCount(const aCtx: TtfwContext): Integer;
  {* Реализация слова скрипта sysutils:ParamCount }
@@ -2854,11 +2855,6 @@ begin
  aCtx.rEngine.PushInt(sysutils_ParamCount(aCtx));
 end;//TkwSysutilsParamCount.DoDoIt
 
-class function TkwSysutilsParamCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'sysutils:ParamCount';
-end;//TkwSysutilsParamCount.GetWordNameForRegister
-
 function TkwSysutilsParamCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -2873,6 +2869,11 @@ function TkwSysutilsParamCount.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwSysutilsParamCount.ParamsTypes
+
+class function TkwSysutilsParamCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:ParamCount';
+end;//TkwSysutilsParamCount.GetWordNameForRegister
 
 function TkwSysutilsParamStr.sysutils_ParamStr(const aCtx: TtfwContext;
  anIndex: Integer): AnsiString;
@@ -2900,11 +2901,6 @@ begin
  aCtx.rEngine.PushString(sysutils_ParamStr(aCtx, l_anIndex));
 end;//TkwSysutilsParamStr.DoDoIt
 
-class function TkwSysutilsParamStr.GetWordNameForRegister: AnsiString;
-begin
- Result := 'sysutils:ParamStr';
-end;//TkwSysutilsParamStr.GetWordNameForRegister
-
 function TkwSysutilsParamStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2919,6 +2915,11 @@ function TkwSysutilsParamStr.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwSysutilsParamStr.ParamsTypes
+
+class function TkwSysutilsParamStr.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:ParamStr';
+end;//TkwSysutilsParamStr.GetWordNameForRegister
 
 function TkwSysutilsGetCurrentDir.sysutils_GetCurrentDir(const aCtx: TtfwContext): AnsiString;
  {* Реализация слова скрипта sysutils:GetCurrentDir }
@@ -2935,11 +2936,6 @@ begin
  aCtx.rEngine.PushString(sysutils_GetCurrentDir(aCtx));
 end;//TkwSysutilsGetCurrentDir.DoDoIt
 
-class function TkwSysutilsGetCurrentDir.GetWordNameForRegister: AnsiString;
-begin
- Result := 'sysutils:GetCurrentDir';
-end;//TkwSysutilsGetCurrentDir.GetWordNameForRegister
-
 function TkwSysutilsGetCurrentDir.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2954,6 +2950,11 @@ function TkwSysutilsGetCurrentDir.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwSysutilsGetCurrentDir.ParamsTypes
+
+class function TkwSysutilsGetCurrentDir.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:GetCurrentDir';
+end;//TkwSysutilsGetCurrentDir.GetWordNameForRegister
 
 function TkwSysutilsSetCurrentDir.sysutils_SetCurrentDir(const aCtx: TtfwContext;
  const aDir: AnsiString): Boolean;
@@ -2981,11 +2982,6 @@ begin
  aCtx.rEngine.PushBool(sysutils_SetCurrentDir(aCtx, l_aDir));
 end;//TkwSysutilsSetCurrentDir.DoDoIt
 
-class function TkwSysutilsSetCurrentDir.GetWordNameForRegister: AnsiString;
-begin
- Result := 'sysutils:SetCurrentDir';
-end;//TkwSysutilsSetCurrentDir.GetWordNameForRegister
-
 function TkwSysutilsSetCurrentDir.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -3000,6 +2996,11 @@ function TkwSysutilsSetCurrentDir.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsSetCurrentDir.ParamsTypes
+
+class function TkwSysutilsSetCurrentDir.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:SetCurrentDir';
+end;//TkwSysutilsSetCurrentDir.GetWordNameForRegister
 
 function TkwSysutilsCreateDir.sysutils_CreateDir(const aCtx: TtfwContext;
  const aDir: AnsiString): Boolean;
@@ -3027,11 +3028,6 @@ begin
  aCtx.rEngine.PushBool(sysutils_CreateDir(aCtx, l_aDir));
 end;//TkwSysutilsCreateDir.DoDoIt
 
-class function TkwSysutilsCreateDir.GetWordNameForRegister: AnsiString;
-begin
- Result := 'sysutils:CreateDir';
-end;//TkwSysutilsCreateDir.GetWordNameForRegister
-
 function TkwSysutilsCreateDir.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -3046,6 +3042,11 @@ function TkwSysutilsCreateDir.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsCreateDir.ParamsTypes
+
+class function TkwSysutilsCreateDir.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:CreateDir';
+end;//TkwSysutilsCreateDir.GetWordNameForRegister
 
 function TkwSysutilsRemoveDir.sysutils_RemoveDir(const aCtx: TtfwContext;
  const aDir: AnsiString): Boolean;
@@ -3073,11 +3074,6 @@ begin
  aCtx.rEngine.PushBool(sysutils_RemoveDir(aCtx, l_aDir));
 end;//TkwSysutilsRemoveDir.DoDoIt
 
-class function TkwSysutilsRemoveDir.GetWordNameForRegister: AnsiString;
-begin
- Result := 'sysutils:RemoveDir';
-end;//TkwSysutilsRemoveDir.GetWordNameForRegister
-
 function TkwSysutilsRemoveDir.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -3092,6 +3088,11 @@ function TkwSysutilsRemoveDir.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsRemoveDir.ParamsTypes
+
+class function TkwSysutilsRemoveDir.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:RemoveDir';
+end;//TkwSysutilsRemoveDir.GetWordNameForRegister
 
 initialization
  TSysUtilsPackResNameGetter.Register;

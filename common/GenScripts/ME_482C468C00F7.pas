@@ -2,6 +2,7 @@ unit NOT_FINISHED_CustomElGraphicButton;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_CustomElGraphicButton.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TCustomElGraphicButton" MUID: (482C468C00F7)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

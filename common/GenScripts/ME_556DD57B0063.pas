@@ -3,6 +3,7 @@ library stg32;
 
 // Модуль: "w:\common\components\stg32\stg32.dpr"
 // Стереотип: "AdapterTarget"
+// Элемент модели: "stg32" MUID: (556DD57B0063)
 
 {$Include w:\common\components\l3Define.inc}
 

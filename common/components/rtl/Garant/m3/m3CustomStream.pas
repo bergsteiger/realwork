@@ -5,7 +5,7 @@ unit m3CustomStream;
 // Библиотека "m3"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3CustomStream.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3::Streams::Tm3CustomStream
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::Streams::Tm3CustomStream
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

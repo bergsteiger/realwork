@@ -2,6 +2,8 @@ unit AACContentsContainer_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContentsContainer_Form.pas"
 // Стереотип: "VCMFinalContainer"
+// Элемент модели: "AACContentsContainer" MUID: (4FF4543F014A)
+// Имя типа: "TAACContentsContainerForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

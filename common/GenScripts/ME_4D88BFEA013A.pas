@@ -3,6 +3,7 @@ unit evCommentDecorator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCommentDecorator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCommentDecorator" MUID: (4D88BFEA013A)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
@@ -35,6 +36,7 @@ type
    f_AACSample: Integer;
    f_InAACBlock: Integer;
    f_WhatClosed: TevPrevClosed;
+   f_CellCount: Integer;
   private
    procedure StartAACTable;
     {* Начало таблицы-обертки. }
@@ -101,6 +103,7 @@ begin
  Generator.StartChild(k2_typTable);
  Generator.AddIntegerAtom(k2_tiStyle, f_AACSample);
  f_WhatOpen := ev_wnoTable;
+ f_CellCount := 0;
 //#UC END# *53B27F3E0397_4D88BFEA013A_impl*
 end;//TevCommentDecorator.StartAACTable
 
@@ -183,6 +186,7 @@ begin
  Generator.StartDefaultChild; // Открываем ячейку с текстом ААС
  Generator.AddIntegerAtom(k2_tiFrame, evd_fvEmpty);
  Generator.AddIntegerAtom(k2_tiWidth, l_Width);
+ Inc(f_CellCount);
  f_WhatOpen := ev_wnoRow;
 //#UC END# *53B280110031_4D88BFEA013A_impl*
 end;//TevCommentDecorator.StartAACRow
@@ -201,11 +205,13 @@ begin
  Generator.StartDefaultChild; // Открывам ячейку с шириной левого отступа
  Generator.AddIntegerAtom(k2_tiFrame, evd_fvEmpty);
  Generator.AddIntegerAtom(k2_tiWidth, cnDefIndentValue);
+ Inc(f_CellCount);
  Generator.Finish;
  Dec(l_Width, cnDefIndentValue);
  Generator.StartDefaultChild; // Открываем ячейку с текстом ААС
  Generator.AddIntegerAtom(k2_tiFrame, evd_fvEmpty);
  Generator.AddIntegerAtom(k2_tiWidth, l_Width);
+ Inc(f_CellCount); 
  f_WhatOpen := ev_wnoRow;
 //#UC END# *53B280490098_4D88BFEA013A_impl*
 end;//TevCommentDecorator.StartAACRow4Table
@@ -243,6 +249,7 @@ begin
   Generator.Finish;
  end; // if f_InTable = 0 then
  Generator.Finish; // Закрывем строку таблицы
+ f_CellCount := 0;
  f_WhatOpen := ev_wnoTable;
 //#UC END# *53B282200211_4D88BFEA013A_impl*
 end;//TevCommentDecorator.EndRow
@@ -328,6 +335,7 @@ begin
  f_WhatClosed := ev_pcNone;
  f_WhatOpen := ev_wnoNone;
  def_inchSBSWidth := def_inchSBSWidth;
+ f_CellCount := 0;
 //#UC END# *4836D49800CA_4D88BFEA013A_impl*
 end;//TevCommentDecorator.OpenStream
 
@@ -386,7 +394,8 @@ begin
    Inc(f_InAACBlock);
   end // if (AtomIndex = k2_tiStyle) and CurrentType.IsKindOf(k2_typBlock) and EvAACStyle(Value.AsInteger) then
   else
-   Inc(f_InAACBlock);
+   if f_AACSample < 0 then
+    Inc(f_InAACBlock);      
 //#UC END# *4836D52400D9_4D88BFEA013A_impl*
 end;//TevCommentDecorator.AddAtomEx
 

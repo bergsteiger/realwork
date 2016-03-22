@@ -3,9 +3,19 @@ unit ddImportPipeKernel;
 { Внутренняя часть трубы, которая ничего не знает о внешних данных. }
 { Начата 12.05.2003 }
 
-{ $Id: ddImportPipeKernel.pas,v 1.100 2015/07/02 07:36:08 lukyanets Exp $ }
+{ $Id: ddImportPipeKernel.pas,v 1.103 2015/11/25 14:01:49 lukyanets Exp $ }
 
 // $Log: ddImportPipeKernel.pas,v $
+// Revision 1.103  2015/11/25 14:01:49  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
+// Revision 1.102  2015/11/17 13:47:04  fireton
+// - выпиливаем бесполезный TddNullDocFilter
+//
+// Revision 1.101  2015/11/11 13:16:46  fireton
+// - Нормальная диагностика ошибок при экспорте
+// - Считаем пустые документы, справки и аннотации правильно
+//
 // Revision 1.100  2015/07/02 07:36:08  lukyanets
 // Описываем словари
 //
@@ -516,6 +526,7 @@ Uses
  k2Tags,
  evdBufferedFilter,
  daDataProvider,
+ daSchemeConsts,
  dt_Dict, dt_LinkServ,
  Base_CFG,
  SysUtils
@@ -598,7 +609,7 @@ begin
  TevTopicSwitcher(f_Gen).OnInitTopic := StartTopic;
  TevTopicSwitcher(f_Gen).OnDoneTopic := FinishTopic;
  TevTopicSwitcher(f_Gen).OnGenerateTopicID := GenerateID;
- TddNullDocFilter.SetTo(f_Gen); //<- иногда обушивает импорт
+ // TddNullDocFilter.SetTo(f_Gen); //<- иногда обушивает импорт
  //{!!}f_Gen := TdbgTagFilter.SetTo(f_Gen);
  TImportFilter.SetTo(f_Gen);
  f_ImportFilter := TImportFilter(f_Gen);

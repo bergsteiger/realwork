@@ -2,6 +2,7 @@ unit BaloonWarningUserTypes_WarnInactualDocument_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnInactualDocument_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "WarnInactualDocument" MUID: (4DA8298B020E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -11,7 +12,6 @@ interface
 uses
  l3IntfUses
  , BaloonWarningUserTypes_WarnOnControl_UserType
- , BaloonWarningUserTypes_Fake_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -34,26 +34,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_WarnInactualDocument = {final} class(TtfwInteger)
   {* Слово словаря для типа формы WarnInactualDocument }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_WarnInactualDocument
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_WarnInactualDocument.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::WarnInactualDocument';
-end;//Tkw_FormUserType_WarnInactualDocument.GetWordNameForRegister
-
 function Tkw_FormUserType_WarnInactualDocument.GetInteger: Integer;
 begin
  Result := WarnInactualDocument;
 end;//Tkw_FormUserType_WarnInactualDocument.GetInteger
+
+class function Tkw_FormUserType_WarnInactualDocument.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::WarnInactualDocument';
+end;//Tkw_FormUserType_WarnInactualDocument.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

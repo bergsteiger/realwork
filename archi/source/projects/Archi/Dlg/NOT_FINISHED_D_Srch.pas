@@ -2,6 +2,7 @@ unit NOT_FINISHED_D_Srch;
 
 // Модуль: "w:\archi\source\projects\Archi\Dlg\NOT_FINISHED_D_Srch.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "D_Srch" MUID: (4F8D26D303CB)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

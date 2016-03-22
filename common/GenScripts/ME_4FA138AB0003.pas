@@ -3,6 +3,8 @@ unit K361038156;
 
 // Модуль: "w:\common\components\rtl\Garant\Archi_Tests\K361038156.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K361038156" MUID: (4FA138AB0003)
+// Имя типа: "TK361038156"
 
 {$Include w:\common\components\rtl\Garant\Archi_Tests\TestDefine.inc.pas}
 

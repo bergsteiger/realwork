@@ -2,6 +2,7 @@ unit nsDeferredTreeList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsDeferredTreeList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDeferredTreeList" MUID: (55A3BBAE01E2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

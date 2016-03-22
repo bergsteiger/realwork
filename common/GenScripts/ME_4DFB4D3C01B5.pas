@@ -2,6 +2,7 @@ unit NOT_FINISHED_Main;
 
 // Модуль: "w:\archi\source\projects\Archi\Main\NOT_FINISHED_Main.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Main" MUID: (4DFB4D3C01B5)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

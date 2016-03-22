@@ -2,6 +2,7 @@ unit NOT_FINISHED_SynPDF;
 
 // Модуль: "w:\common\components\rtl\external\SynPDF\NOT_FINISHED_SynPDF.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "SynPDF" MUID: (545CBD310006)
 
 {$Include w:\common\components\rtl\external\SynPDF\Synopse.inc}
 

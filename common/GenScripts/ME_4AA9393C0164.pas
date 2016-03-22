@@ -3,6 +3,8 @@ unit QueryCard_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\QueryCard_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "QueryCard" MUID: (4AA9393C0164)
+// Имя типа: "TenQueryCard"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

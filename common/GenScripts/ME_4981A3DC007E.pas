@@ -3,6 +3,7 @@ unit FlashUtils;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\FlashUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "FlashUtils" MUID: (4981A3DC007E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

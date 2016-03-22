@@ -2,6 +2,7 @@ unit atUserWorkContext;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atUserWorkContext.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatUserWorkContext" MUID: (4808672500A0)
 
 interface
 

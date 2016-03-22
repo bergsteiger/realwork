@@ -2,6 +2,7 @@ unit eeDocumentPartGenerator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocumentPartGenerator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TeeDocumentPartGenerator" MUID: (4D93589403E2)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

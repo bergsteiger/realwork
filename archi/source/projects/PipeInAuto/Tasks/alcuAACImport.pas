@@ -137,6 +137,8 @@ uses
  Task_Const,
  LeafPara_Const,
 
+ daSchemeConsts,
+ 
  ddServerTask,
  {$If defined(AppServerSide)}
  ddAppConfig,

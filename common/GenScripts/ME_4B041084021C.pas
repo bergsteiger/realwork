@@ -3,6 +3,7 @@ unit DocumentUserTypes_dftMedicFirmSynchroView_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftMedicFirmSynchroView_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "dftMedicFirmSynchroView" MUID: (4B041084021C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftMedicFirmSynchroView = {final} class(TtfwInteger)
   {* Слово словаря для типа формы dftMedicFirmSynchroView }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_dftMedicFirmSynchroView
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_dftMedicFirmSynchroView.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::dftMedicFirmSynchroView';
-end;//Tkw_FormUserType_dftMedicFirmSynchroView.GetWordNameForRegister
-
 function Tkw_FormUserType_dftMedicFirmSynchroView.GetInteger: Integer;
 begin
  Result := dftMedicFirmSynchroView;
 end;//Tkw_FormUserType_dftMedicFirmSynchroView.GetInteger
+
+class function Tkw_FormUserType_dftMedicFirmSynchroView.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::dftMedicFirmSynchroView';
+end;//Tkw_FormUserType_dftMedicFirmSynchroView.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

@@ -2,6 +2,7 @@ unit ddHyperlinkTargetList;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddHyperlinkTargetList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddHyperlinkTargetList" MUID: (525D27430046)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_k2DocumentBuffer;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2DocumentBuffer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2DocumentBuffer" MUID: (47ECA82403AC)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

@@ -3,6 +3,7 @@ unit RubricatorKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Rubricator\RubricatorKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "RubricatorKeywordsPack" MUID: (CD4750B31BB5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -52,8 +53,8 @@ type
 'aControl' форма::Rubricator TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Rubricator
 
  Tkw_Rubricator_Control_RubricatorList = {final} class(TtfwControlString)
@@ -64,9 +65,9 @@ type
 контрол::RubricatorList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Rubricator_Control_RubricatorList
 
  Tkw_Rubricator_Control_RubricatorList_Push = {final} class(TkwBynameControlPush)
@@ -89,9 +90,9 @@ type
 контрол::TopPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Rubricator_Control_TopPanel
 
  Tkw_Rubricator_Control_TopPanel_Push = {final} class(TkwBynameControlPush)
@@ -114,9 +115,9 @@ type
 контрол::PaintBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Rubricator_Control_PaintBox
 
  Tkw_Rubricator_Control_PaintBox_Push = {final} class(TkwBynameControlPush)
@@ -139,9 +140,9 @@ type
 контрол::NewDocLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Rubricator_Control_NewDocLabel
 
  Tkw_Rubricator_Control_NewDocLabel_Push = {final} class(TkwBynameControlPush)
@@ -164,9 +165,9 @@ type
 контрол::DelimiterPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Rubricator_Control_DelimiterPanel
 
  Tkw_Rubricator_Control_DelimiterPanel_Push = {final} class(TkwBynameControlPush)
@@ -189,9 +190,9 @@ type
 компонент::ExampleTextSource TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Rubricator_Component_ExampleTextSource
 
  TkwEfRubricatorRubricatorList = {final} class(TtfwPropertyLike)
@@ -338,20 +339,15 @@ OBJECT VAR l_TnscTextSource
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEfRubricatorExampleTextSource
 
-class function Tkw_Form_Rubricator.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Rubricator';
-end;//Tkw_Form_Rubricator.GetWordNameForRegister
-
 function Tkw_Form_Rubricator.GetString: AnsiString;
 begin
  Result := 'efRubricator';
 end;//Tkw_Form_Rubricator.GetString
 
-class function Tkw_Rubricator_Control_RubricatorList.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_Rubricator.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::RubricatorList';
-end;//Tkw_Rubricator_Control_RubricatorList.GetWordNameForRegister
+ Result := 'форма::Rubricator';
+end;//Tkw_Form_Rubricator.GetWordNameForRegister
 
 function Tkw_Rubricator_Control_RubricatorList.GetString: AnsiString;
 begin
@@ -364,6 +360,11 @@ begin
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_Rubricator_Control_RubricatorList.RegisterInEngine
 
+class function Tkw_Rubricator_Control_RubricatorList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::RubricatorList';
+end;//Tkw_Rubricator_Control_RubricatorList.GetWordNameForRegister
+
 procedure Tkw_Rubricator_Control_RubricatorList_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('RubricatorList');
@@ -374,11 +375,6 @@ class function Tkw_Rubricator_Control_RubricatorList_Push.GetWordNameForRegister
 begin
  Result := 'контрол::RubricatorList:push';
 end;//Tkw_Rubricator_Control_RubricatorList_Push.GetWordNameForRegister
-
-class function Tkw_Rubricator_Control_TopPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::TopPanel';
-end;//Tkw_Rubricator_Control_TopPanel.GetWordNameForRegister
 
 function Tkw_Rubricator_Control_TopPanel.GetString: AnsiString;
 begin
@@ -391,6 +387,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_Rubricator_Control_TopPanel.RegisterInEngine
 
+class function Tkw_Rubricator_Control_TopPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::TopPanel';
+end;//Tkw_Rubricator_Control_TopPanel.GetWordNameForRegister
+
 procedure Tkw_Rubricator_Control_TopPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('TopPanel');
@@ -401,11 +402,6 @@ class function Tkw_Rubricator_Control_TopPanel_Push.GetWordNameForRegister: Ansi
 begin
  Result := 'контрол::TopPanel:push';
 end;//Tkw_Rubricator_Control_TopPanel_Push.GetWordNameForRegister
-
-class function Tkw_Rubricator_Control_PaintBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::PaintBox';
-end;//Tkw_Rubricator_Control_PaintBox.GetWordNameForRegister
 
 function Tkw_Rubricator_Control_PaintBox.GetString: AnsiString;
 begin
@@ -418,6 +414,11 @@ begin
  TtfwClassRef.Register(TPaintBox);
 end;//Tkw_Rubricator_Control_PaintBox.RegisterInEngine
 
+class function Tkw_Rubricator_Control_PaintBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::PaintBox';
+end;//Tkw_Rubricator_Control_PaintBox.GetWordNameForRegister
+
 procedure Tkw_Rubricator_Control_PaintBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('PaintBox');
@@ -428,11 +429,6 @@ class function Tkw_Rubricator_Control_PaintBox_Push.GetWordNameForRegister: Ansi
 begin
  Result := 'контрол::PaintBox:push';
 end;//Tkw_Rubricator_Control_PaintBox_Push.GetWordNameForRegister
-
-class function Tkw_Rubricator_Control_NewDocLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::NewDocLabel';
-end;//Tkw_Rubricator_Control_NewDocLabel.GetWordNameForRegister
 
 function Tkw_Rubricator_Control_NewDocLabel.GetString: AnsiString;
 begin
@@ -445,6 +441,11 @@ begin
  TtfwClassRef.Register(TnscSimpleEditor);
 end;//Tkw_Rubricator_Control_NewDocLabel.RegisterInEngine
 
+class function Tkw_Rubricator_Control_NewDocLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::NewDocLabel';
+end;//Tkw_Rubricator_Control_NewDocLabel.GetWordNameForRegister
+
 procedure Tkw_Rubricator_Control_NewDocLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('NewDocLabel');
@@ -455,11 +456,6 @@ class function Tkw_Rubricator_Control_NewDocLabel_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::NewDocLabel:push';
 end;//Tkw_Rubricator_Control_NewDocLabel_Push.GetWordNameForRegister
-
-class function Tkw_Rubricator_Control_DelimiterPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::DelimiterPanel';
-end;//Tkw_Rubricator_Control_DelimiterPanel.GetWordNameForRegister
 
 function Tkw_Rubricator_Control_DelimiterPanel.GetString: AnsiString;
 begin
@@ -472,6 +468,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_Rubricator_Control_DelimiterPanel.RegisterInEngine
 
+class function Tkw_Rubricator_Control_DelimiterPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::DelimiterPanel';
+end;//Tkw_Rubricator_Control_DelimiterPanel.GetWordNameForRegister
+
 procedure Tkw_Rubricator_Control_DelimiterPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('DelimiterPanel');
@@ -483,11 +484,6 @@ begin
  Result := 'контрол::DelimiterPanel:push';
 end;//Tkw_Rubricator_Control_DelimiterPanel_Push.GetWordNameForRegister
 
-class function Tkw_Rubricator_Component_ExampleTextSource.GetWordNameForRegister: AnsiString;
-begin
- Result := 'компонент::ExampleTextSource';
-end;//Tkw_Rubricator_Component_ExampleTextSource.GetWordNameForRegister
-
 function Tkw_Rubricator_Component_ExampleTextSource.GetString: AnsiString;
 begin
  Result := 'ExampleTextSource';
@@ -498,6 +494,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTextSource);
 end;//Tkw_Rubricator_Component_ExampleTextSource.RegisterInEngine
+
+class function Tkw_Rubricator_Component_ExampleTextSource.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'компонент::ExampleTextSource';
+end;//Tkw_Rubricator_Component_ExampleTextSource.GetWordNameForRegister
 
 function TkwEfRubricatorRubricatorList.RubricatorList(const aCtx: TtfwContext;
  aefRubricator: TefRubricator): TnscTreeViewWithAdapterDragDrop;
@@ -521,11 +522,6 @@ begin
  aCtx.rEngine.PushObj(RubricatorList(aCtx, l_aefRubricator));
 end;//TkwEfRubricatorRubricatorList.DoDoIt
 
-class function TkwEfRubricatorRubricatorList.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefRubricator.RubricatorList';
-end;//TkwEfRubricatorRubricatorList.GetWordNameForRegister
-
 procedure TkwEfRubricatorRubricatorList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -546,6 +542,11 @@ function TkwEfRubricatorRubricatorList.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefRubricator)]);
 end;//TkwEfRubricatorRubricatorList.ParamsTypes
+
+class function TkwEfRubricatorRubricatorList.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefRubricator.RubricatorList';
+end;//TkwEfRubricatorRubricatorList.GetWordNameForRegister
 
 function TkwEfRubricatorTopPanel.TopPanel(const aCtx: TtfwContext;
  aefRubricator: TefRubricator): TvtPanel;
@@ -569,11 +570,6 @@ begin
  aCtx.rEngine.PushObj(TopPanel(aCtx, l_aefRubricator));
 end;//TkwEfRubricatorTopPanel.DoDoIt
 
-class function TkwEfRubricatorTopPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefRubricator.TopPanel';
-end;//TkwEfRubricatorTopPanel.GetWordNameForRegister
-
 procedure TkwEfRubricatorTopPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -594,6 +590,11 @@ function TkwEfRubricatorTopPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefRubricator)]);
 end;//TkwEfRubricatorTopPanel.ParamsTypes
+
+class function TkwEfRubricatorTopPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefRubricator.TopPanel';
+end;//TkwEfRubricatorTopPanel.GetWordNameForRegister
 
 function TkwEfRubricatorPaintBox.PaintBox(const aCtx: TtfwContext;
  aefRubricator: TefRubricator): TPaintBox;
@@ -617,11 +618,6 @@ begin
  aCtx.rEngine.PushObj(PaintBox(aCtx, l_aefRubricator));
 end;//TkwEfRubricatorPaintBox.DoDoIt
 
-class function TkwEfRubricatorPaintBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefRubricator.PaintBox';
-end;//TkwEfRubricatorPaintBox.GetWordNameForRegister
-
 procedure TkwEfRubricatorPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -642,6 +638,11 @@ function TkwEfRubricatorPaintBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefRubricator)]);
 end;//TkwEfRubricatorPaintBox.ParamsTypes
+
+class function TkwEfRubricatorPaintBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefRubricator.PaintBox';
+end;//TkwEfRubricatorPaintBox.GetWordNameForRegister
 
 function TkwEfRubricatorNewDocLabel.NewDocLabel(const aCtx: TtfwContext;
  aefRubricator: TefRubricator): TnscSimpleEditor;
@@ -665,11 +666,6 @@ begin
  aCtx.rEngine.PushObj(NewDocLabel(aCtx, l_aefRubricator));
 end;//TkwEfRubricatorNewDocLabel.DoDoIt
 
-class function TkwEfRubricatorNewDocLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefRubricator.NewDocLabel';
-end;//TkwEfRubricatorNewDocLabel.GetWordNameForRegister
-
 procedure TkwEfRubricatorNewDocLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -690,6 +686,11 @@ function TkwEfRubricatorNewDocLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefRubricator)]);
 end;//TkwEfRubricatorNewDocLabel.ParamsTypes
+
+class function TkwEfRubricatorNewDocLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefRubricator.NewDocLabel';
+end;//TkwEfRubricatorNewDocLabel.GetWordNameForRegister
 
 function TkwEfRubricatorDelimiterPanel.DelimiterPanel(const aCtx: TtfwContext;
  aefRubricator: TefRubricator): TvtPanel;
@@ -713,11 +714,6 @@ begin
  aCtx.rEngine.PushObj(DelimiterPanel(aCtx, l_aefRubricator));
 end;//TkwEfRubricatorDelimiterPanel.DoDoIt
 
-class function TkwEfRubricatorDelimiterPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefRubricator.DelimiterPanel';
-end;//TkwEfRubricatorDelimiterPanel.GetWordNameForRegister
-
 procedure TkwEfRubricatorDelimiterPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -738,6 +734,11 @@ function TkwEfRubricatorDelimiterPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefRubricator)]);
 end;//TkwEfRubricatorDelimiterPanel.ParamsTypes
+
+class function TkwEfRubricatorDelimiterPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefRubricator.DelimiterPanel';
+end;//TkwEfRubricatorDelimiterPanel.GetWordNameForRegister
 
 function TkwEfRubricatorExampleTextSource.ExampleTextSource(const aCtx: TtfwContext;
  aefRubricator: TefRubricator): TnscTextSource;
@@ -761,11 +762,6 @@ begin
  aCtx.rEngine.PushObj(ExampleTextSource(aCtx, l_aefRubricator));
 end;//TkwEfRubricatorExampleTextSource.DoDoIt
 
-class function TkwEfRubricatorExampleTextSource.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefRubricator.ExampleTextSource';
-end;//TkwEfRubricatorExampleTextSource.GetWordNameForRegister
-
 procedure TkwEfRubricatorExampleTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -786,6 +782,11 @@ function TkwEfRubricatorExampleTextSource.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefRubricator)]);
 end;//TkwEfRubricatorExampleTextSource.ParamsTypes
+
+class function TkwEfRubricatorExampleTextSource.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefRubricator.ExampleTextSource';
+end;//TkwEfRubricatorExampleTextSource.GetWordNameForRegister
 
 initialization
  Tkw_Form_Rubricator.RegisterInEngine;

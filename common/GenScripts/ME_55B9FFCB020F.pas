@@ -2,6 +2,7 @@ unit nsLoggingTestService;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLoggingTestService.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsLoggingTestService" MUID: (55B9FFCB020F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -134,6 +135,7 @@ procedure TnsLoggingTestService.InitFields;
 //#UC END# *47A042E100E2_55B9FFCB020F_var*
 begin
 //#UC START# *47A042E100E2_55B9FFCB020F_impl*
+ inherited;
  f_LogRecords := Tl3Strings.Make;
 //#UC END# *47A042E100E2_55B9FFCB020F_impl*
 end;//TnsLoggingTestService.InitFields

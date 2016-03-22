@@ -2,6 +2,7 @@ unit vgCustomCanvas;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgCustomCanvas.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgCustomCanvas" MUID: (4D5435820356)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

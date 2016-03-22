@@ -2,6 +2,7 @@ unit kwClickOnCommentHeader;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClickOnCommentHeader.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwClickOnCommentHeader" MUID: (4DE740FA0192)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

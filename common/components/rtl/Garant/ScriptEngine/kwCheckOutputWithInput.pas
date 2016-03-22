@@ -2,6 +2,8 @@ unit kwCheckOutputWithInput;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCheckOutputWithInput.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "CheckOutputWithInput" MUID: (4F5F490D030B)
+// Имя типа: "TkwCheckOutputWithInput"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsContextSearchParams;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsContextSearchParams.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsContextSearchParams" MUID: (4926B67202CC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

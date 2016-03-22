@@ -1,77 +1,52 @@
 unit kwOpenDocument;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwOpenDocument.pas"
-// Начат: 21.04.2011 14:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Words::Words::OpenDocument
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwOpenDocument.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "OpenDocument" MUID: (4DB00AF302F0)
+// Имя типа: "TkwOpenDocument"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  _F1Test_Parent_ = TtfwRegisterableWord;
- {$Include ..\F1_Words\F1Test.imp.pas}
- TkwOpenDocument = {scriptword} class(_F1Test_)
- protected
- // realized methods
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\F1Test.imp.pas}
+ TkwOpenDocument = class(_F1Test_)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwOpenDocument
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(Admin)}
-  ,
-  nsQueryInterfaces
-  {$IfEnd} //not Admin
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  nsUtils,
-  nsConst,
-  bsTypesNew
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(Admin)}
+ , nsQueryInterfaces
+ {$IfEnd} // NOT Defined(Admin)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsUtils
+ , nsConst
+ , bsTypesNew
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\F1_Words\F1Test.imp.pas}
-
-// start class TkwOpenDocument
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\F1Test.imp.pas}
 
 procedure TkwOpenDocument.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DB00AF302F0_var*
@@ -113,17 +88,13 @@ begin
 end;//TkwOpenDocument.DoDoIt
 
 class function TkwOpenDocument.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Открыть';
 end;//TkwOpenDocument.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация OpenDocument
  TkwOpenDocument.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация OpenDocument }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

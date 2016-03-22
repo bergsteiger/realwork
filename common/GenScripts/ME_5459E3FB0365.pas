@@ -2,6 +2,7 @@ unit m3WideStringManager;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3WideStringManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3WideStringManager" MUID: (5459E3FB0365)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

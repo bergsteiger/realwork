@@ -2,6 +2,7 @@ unit NOT_FINISHED_dt_Serv;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_dt_Serv.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "dt_Serv" MUID: (5406A83E013E)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

@@ -2,6 +2,8 @@ unit kwF1ComplectOwner;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwF1ComplectOwner.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "f1_ComplectOwner" MUID: (50237E3A03A5)
+// Имя типа: "TkwF1ComplectOwner"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

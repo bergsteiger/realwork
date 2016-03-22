@@ -3,6 +3,7 @@ unit TreeAttributeSelectKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\TreeAttributeSelectKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "TreeAttributeSelectKeywordsPack" MUID: (6CF70A33ED1E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -51,8 +52,8 @@ type
 'aControl' форма::TreeAttributeSelect TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_TreeAttributeSelect
 
  Tkw_TreeAttributeSelect_Control_BackgroundPanel = {final} class(TtfwControlString)
@@ -63,9 +64,9 @@ type
 контрол::BackgroundPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TreeAttributeSelect_Control_BackgroundPanel
 
  Tkw_TreeAttributeSelect_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
@@ -88,9 +89,9 @@ type
 контрол::ContextFilter TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TreeAttributeSelect_Control_ContextFilter
 
  Tkw_TreeAttributeSelect_Control_ContextFilter_Push = {final} class(TkwBynameControlPush)
@@ -113,9 +114,9 @@ type
 контрол::AttributeTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TreeAttributeSelect_Control_AttributeTree
 
  Tkw_TreeAttributeSelect_Control_AttributeTree_Push = {final} class(TkwBynameControlPush)
@@ -202,20 +203,15 @@ OBJECT VAR l_TnscTreeViewHotTruck
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEfTreeAttributeSelectAttributeTree
 
-class function Tkw_Form_TreeAttributeSelect.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::TreeAttributeSelect';
-end;//Tkw_Form_TreeAttributeSelect.GetWordNameForRegister
-
 function Tkw_Form_TreeAttributeSelect.GetString: AnsiString;
 begin
  Result := 'efTreeAttributeSelect';
 end;//Tkw_Form_TreeAttributeSelect.GetString
 
-class function Tkw_TreeAttributeSelect_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_TreeAttributeSelect.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::BackgroundPanel';
-end;//Tkw_TreeAttributeSelect_Control_BackgroundPanel.GetWordNameForRegister
+ Result := 'форма::TreeAttributeSelect';
+end;//Tkw_Form_TreeAttributeSelect.GetWordNameForRegister
 
 function Tkw_TreeAttributeSelect_Control_BackgroundPanel.GetString: AnsiString;
 begin
@@ -228,6 +224,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_TreeAttributeSelect_Control_BackgroundPanel.RegisterInEngine
 
+class function Tkw_TreeAttributeSelect_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BackgroundPanel';
+end;//Tkw_TreeAttributeSelect_Control_BackgroundPanel.GetWordNameForRegister
+
 procedure Tkw_TreeAttributeSelect_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BackgroundPanel');
@@ -238,11 +239,6 @@ class function Tkw_TreeAttributeSelect_Control_BackgroundPanel_Push.GetWordNameF
 begin
  Result := 'контрол::BackgroundPanel:push';
 end;//Tkw_TreeAttributeSelect_Control_BackgroundPanel_Push.GetWordNameForRegister
-
-class function Tkw_TreeAttributeSelect_Control_ContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ContextFilter';
-end;//Tkw_TreeAttributeSelect_Control_ContextFilter.GetWordNameForRegister
 
 function Tkw_TreeAttributeSelect_Control_ContextFilter.GetString: AnsiString;
 begin
@@ -255,6 +251,11 @@ begin
  TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_TreeAttributeSelect_Control_ContextFilter.RegisterInEngine
 
+class function Tkw_TreeAttributeSelect_Control_ContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ContextFilter';
+end;//Tkw_TreeAttributeSelect_Control_ContextFilter.GetWordNameForRegister
+
 procedure Tkw_TreeAttributeSelect_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ContextFilter');
@@ -266,11 +267,6 @@ begin
  Result := 'контрол::ContextFilter:push';
 end;//Tkw_TreeAttributeSelect_Control_ContextFilter_Push.GetWordNameForRegister
 
-class function Tkw_TreeAttributeSelect_Control_AttributeTree.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::AttributeTree';
-end;//Tkw_TreeAttributeSelect_Control_AttributeTree.GetWordNameForRegister
-
 function Tkw_TreeAttributeSelect_Control_AttributeTree.GetString: AnsiString;
 begin
  Result := 'AttributeTree';
@@ -281,6 +277,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewHotTruck);
 end;//Tkw_TreeAttributeSelect_Control_AttributeTree.RegisterInEngine
+
+class function Tkw_TreeAttributeSelect_Control_AttributeTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::AttributeTree';
+end;//Tkw_TreeAttributeSelect_Control_AttributeTree.GetWordNameForRegister
 
 procedure Tkw_TreeAttributeSelect_Control_AttributeTree_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -315,11 +316,6 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aefTreeAttributeSelect));
 end;//TkwEfTreeAttributeSelectBackgroundPanel.DoDoIt
 
-class function TkwEfTreeAttributeSelectBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefTreeAttributeSelect.BackgroundPanel';
-end;//TkwEfTreeAttributeSelectBackgroundPanel.GetWordNameForRegister
-
 procedure TkwEfTreeAttributeSelectBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -340,6 +336,11 @@ function TkwEfTreeAttributeSelectBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefTreeAttributeSelect)]);
 end;//TkwEfTreeAttributeSelectBackgroundPanel.ParamsTypes
+
+class function TkwEfTreeAttributeSelectBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefTreeAttributeSelect.BackgroundPanel';
+end;//TkwEfTreeAttributeSelectBackgroundPanel.GetWordNameForRegister
 
 function TkwEfTreeAttributeSelectContextFilter.ContextFilter(const aCtx: TtfwContext;
  aefTreeAttributeSelect: TefTreeAttributeSelect): TnscContextFilter;
@@ -363,11 +364,6 @@ begin
  aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aefTreeAttributeSelect));
 end;//TkwEfTreeAttributeSelectContextFilter.DoDoIt
 
-class function TkwEfTreeAttributeSelectContextFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefTreeAttributeSelect.ContextFilter';
-end;//TkwEfTreeAttributeSelectContextFilter.GetWordNameForRegister
-
 procedure TkwEfTreeAttributeSelectContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -388,6 +384,11 @@ function TkwEfTreeAttributeSelectContextFilter.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefTreeAttributeSelect)]);
 end;//TkwEfTreeAttributeSelectContextFilter.ParamsTypes
+
+class function TkwEfTreeAttributeSelectContextFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefTreeAttributeSelect.ContextFilter';
+end;//TkwEfTreeAttributeSelectContextFilter.GetWordNameForRegister
 
 function TkwEfTreeAttributeSelectAttributeTree.AttributeTree(const aCtx: TtfwContext;
  aefTreeAttributeSelect: TefTreeAttributeSelect): TnscTreeViewHotTruck;
@@ -411,11 +412,6 @@ begin
  aCtx.rEngine.PushObj(AttributeTree(aCtx, l_aefTreeAttributeSelect));
 end;//TkwEfTreeAttributeSelectAttributeTree.DoDoIt
 
-class function TkwEfTreeAttributeSelectAttributeTree.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefTreeAttributeSelect.AttributeTree';
-end;//TkwEfTreeAttributeSelectAttributeTree.GetWordNameForRegister
-
 procedure TkwEfTreeAttributeSelectAttributeTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -436,6 +432,11 @@ function TkwEfTreeAttributeSelectAttributeTree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefTreeAttributeSelect)]);
 end;//TkwEfTreeAttributeSelectAttributeTree.ParamsTypes
+
+class function TkwEfTreeAttributeSelectAttributeTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefTreeAttributeSelect.AttributeTree';
+end;//TkwEfTreeAttributeSelectAttributeTree.GetWordNameForRegister
 
 initialization
  Tkw_Form_TreeAttributeSelect.RegisterInEngine;

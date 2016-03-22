@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickSupport.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "MouseClickSupport" MUID: (4D6E5ECF0236)
+// Имя типа: "_MouseClickSupport_"
 
 {$Define MouseClickSupport_imp}
 

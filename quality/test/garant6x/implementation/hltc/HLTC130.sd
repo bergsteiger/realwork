@@ -1050,9 +1050,17 @@ try
   Result := true; 
   if not SetDocToControlFromToolbar(DOCNUM) then
     Raise;
+    
+  // почему-то оболока порой неактивна, исправл€ем
+  ActivateF1Shell;
+    
   onControlTab := OpenDocUnderControlTab;
   if not GetTextSelectionCoords(onControlTab, x, y) then
     Raise('Ќе найден выделенный документ на контроле');
+
+  //и принудительно переводим фокус
+  onControlTab.ClickM;
+
   hintcaption := GetHintTextByCoords(x + 20, y + 4, onControlTab);
   if not StringCompare(DOCNAME, hintcaption) then
     Raise('’инт, содержащий название документа "' + hintcaption + '" отличаетс€ от эталонного "' + DOCNAME + '"');

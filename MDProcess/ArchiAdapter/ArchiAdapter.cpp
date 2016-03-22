@@ -55,7 +55,7 @@ namespace ArchiAdapter {
 			#endif
 		}
 		try {
-			Core::ParamManagerInitData init = {"ArchiAdapter", "Core::RegistryHelper::KEY_LOCAL_MACHINE\\Software\\Garant\\MDProcess\\ArchiAdapter"};
+			Core::ParamManagerInitData init = {"ArchiAdapter", "Core::RegistryHelper::KEY_CURRENT_USER\\Software\\Garant\\MDProcess\\ArchiAdapter"};
 			Core::ParamManagerFactory::get ().init (Core::ParamConvert::make_arg_list (0, 0), init);
 		} CATCH_AND_LOG ("while init ParamManager executed")
 		Core::Root::LibHomeManager& lhm = Core::Root::LibHomeManagerFactory::get();
@@ -81,13 +81,27 @@ namespace ArchiAdapter {
 	
 	void DllInintializator::done () {
 		GUARD (s_init_mutex);
+
+		LOG_I (("DllInintializator::done 1"));
+
 		if (--s_count != 0) {
 			return;
 		}
+
+		LOG_I (("DllInintializator::done 2"));
+
 		Core::Root::LibHomeManager& lhm = Core::Root::LibHomeManagerFactory::get();
+
+		LOG_I (("DllInintializator::done 3"));
+
 		lhm.finalize ();
 
+		LOG_D (("DllInintializator::done 4"));
+
 		Core::fini ();
+
+		LOG_I (("DllInintializator::done 5"));
+
 	}
 
 } //namespace ArchiAdapter

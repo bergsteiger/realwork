@@ -205,8 +205,6 @@ ref; // ME_30860C64BDA8 Mk2EVDReaderService
 FORWARD ME_4EE7B78D5AA0
 
 : ME_6A9002DE6C1A_ME_4EE7B78D5AA0
- CONST UID '6A9002DE6C1A'
- CONST Name 'MakeReader'
  : Original ME_6A9002DE6C1A // MakeReader
  ;
  : Implementor ME_4EE7B78D5AA0 // Ik2EVDReaderService
@@ -215,8 +213,6 @@ FORWARD ME_4EE7B78D5AA0
 ref; // ME_6A9002DE6C1A_ME_4EE7B78D5AA0 MakeReader
 
 : ME_9F46A5A9DAF5_ME_4EE7B78D5AA0
- CONST UID '9F46A5A9DAF5'
- CONST Name 'GetReader'
  : Original ME_9F46A5A9DAF5 // GetReader
  ;
  : Implementor ME_4EE7B78D5AA0 // Ik2EVDReaderService
@@ -270,23 +266,6 @@ ref; // ME_4EE7B78D5AA0 Ik2EVDReaderService
 
 ref; // ME_59EA6D934673 Alien
 
-: ME_F79659A87BE8
- CONST UID 'F79659A87BE8'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_555DB43B00BD // Tk2EVDReaderService
- ;
- : Target ME_4EE7B78D5AA0 // Ik2EVDReaderService
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_F79659A87BE8 f_Alien
-
 : ME_555DB53301DC
  CONST UID '555DB53301DC'
  CONST Name 'GetReader'
@@ -339,8 +318,6 @@ ref; // ME_55701AA6037A aFilter
 ref; // ME_55701A7A01B4 MakeReader
 
 : ME_6A9002DE6C1A_ME_555DB43B00BD
- CONST UID '6A9002DE6C1A'
- CONST Name 'MakeReader'
  : Original ME_6A9002DE6C1A // MakeReader
  ;
  : Implementor ME_555DB43B00BD // Tk2EVDReaderService
@@ -349,24 +326,12 @@ ref; // ME_55701A7A01B4 MakeReader
 ref; // ME_6A9002DE6C1A_ME_555DB43B00BD MakeReader
 
 : ME_9F46A5A9DAF5_ME_555DB43B00BD
- CONST UID '9F46A5A9DAF5'
- CONST Name 'GetReader'
  : Original ME_9F46A5A9DAF5 // GetReader
  ;
  : Implementor ME_555DB43B00BD // Tk2EVDReaderService
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_9F46A5A9DAF5_ME_555DB43B00BD GetReader
-
-: ME_5000565C019C_ME_555DB43B00BD
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_555DB43B00BD // Tk2EVDReaderService
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_555DB43B00BD ClearFields
 
 : ME_555DB43B00BD
  CONST UID '555DB43B00BD'
@@ -388,7 +353,6 @@ ref; // ME_5000565C019C_ME_555DB43B00BD ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_59EA6D934673 // Alien
- ME_F79659A87BE8 // f_Alien
  )
  ; // Attributes
  : Operations
@@ -401,10 +365,6 @@ ref; // ME_5000565C019C_ME_555DB43B00BD ClearFields
  ME_9F46A5A9DAF5_ME_555DB43B00BD // GetReader
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_555DB43B00BD // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_30860C64BDA8 // Mk2EVDReaderService
  ME_4EE7B78D5AA0 // Ik2EVDReaderService
@@ -491,8 +451,6 @@ ref; // ME_57767888A990 Mk2EVDWriterService
 FORWARD ME_45A65DABCE57
 
 : ME_26782C1B9519_ME_45A65DABCE57
- CONST UID '26782C1B9519'
- CONST Name 'GetWriter'
  : Original ME_26782C1B9519 // GetWriter
  ;
  : Implementor ME_45A65DABCE57 // Ik2EVDWriterService
@@ -501,8 +459,6 @@ FORWARD ME_45A65DABCE57
 ref; // ME_26782C1B9519_ME_45A65DABCE57 GetWriter
 
 : ME_F7BF6A35E2B1_ME_45A65DABCE57
- CONST UID 'F7BF6A35E2B1'
- CONST Name 'MakeWriter'
  : Original ME_F7BF6A35E2B1 // MakeWriter
  ;
  : Implementor ME_45A65DABCE57 // Ik2EVDWriterService
@@ -556,23 +512,6 @@ ref; // ME_45A65DABCE57 Ik2EVDWriterService
 
 ref; // ME_2233968BE6D1 Alien
 
-: ME_F474669A14A2
- CONST UID 'F474669A14A2'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_555DCEA8017E // Tk2EVDWriterService
- ;
- : Target ME_45A65DABCE57 // Ik2EVDWriterService
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_F474669A14A2 f_Alien
-
 : ME_555DCEC1021B
  CONST UID '555DCEC1021B'
  CONST Name 'GetWriter'
@@ -615,8 +554,6 @@ ref; // ME_55701AF401C9 aFileName
 ref; // ME_55701AE20388 MakeWriter
 
 : ME_26782C1B9519_ME_555DCEA8017E
- CONST UID '26782C1B9519'
- CONST Name 'GetWriter'
  : Original ME_26782C1B9519 // GetWriter
  ;
  : Implementor ME_555DCEA8017E // Tk2EVDWriterService
@@ -625,24 +562,12 @@ ref; // ME_55701AE20388 MakeWriter
 ref; // ME_26782C1B9519_ME_555DCEA8017E GetWriter
 
 : ME_F7BF6A35E2B1_ME_555DCEA8017E
- CONST UID 'F7BF6A35E2B1'
- CONST Name 'MakeWriter'
  : Original ME_F7BF6A35E2B1 // MakeWriter
  ;
  : Implementor ME_555DCEA8017E // Tk2EVDWriterService
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_F7BF6A35E2B1_ME_555DCEA8017E MakeWriter
-
-: ME_5000565C019C_ME_555DCEA8017E
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_555DCEA8017E // Tk2EVDWriterService
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_555DCEA8017E ClearFields
 
 : ME_555DCEA8017E
  CONST UID '555DCEA8017E'
@@ -664,7 +589,6 @@ ref; // ME_5000565C019C_ME_555DCEA8017E ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_2233968BE6D1 // Alien
- ME_F474669A14A2 // f_Alien
  )
  ; // Attributes
  : Operations
@@ -677,10 +601,6 @@ ref; // ME_5000565C019C_ME_555DCEA8017E ClearFields
  ME_F7BF6A35E2B1_ME_555DCEA8017E // MakeWriter
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_555DCEA8017E // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_57767888A990 // Mk2EVDWriterService
  ME_45A65DABCE57 // Ik2EVDWriterService

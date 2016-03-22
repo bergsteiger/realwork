@@ -2,14 +2,14 @@
 //
 // Модуль: "w:/common/components/rtl/Garant/EVD/Version Info/Ver.h"
 // генератор заголовочных файлов C++ (.h)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::EVD::Version Info::Ver
+// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::EVD::Version Info::Ver
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#ifndef __SHARED_DELPHI_EVD_VERSION_INFO_VER_H__
-#define __SHARED_DELPHI_EVD_VERSION_INFO_VER_H__
+#ifndef __SHARED_DELPHI_LOW_LEVEL_EVD_VERSION_INFO_VER_H__
+#define __SHARED_DELPHI_LOW_LEVEL_EVD_VERSION_INFO_VER_H__
 
 #include "shared/Core/sys/std_inc.h"
 
@@ -19,5 +19,5 @@ namespace EVD {
 } // namespace EVD
 
 
-#endif //__SHARED_DELPHI_EVD_VERSION_INFO_VER_H__
+#endif //__SHARED_DELPHI_LOW_LEVEL_EVD_VERSION_INFO_VER_H__
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

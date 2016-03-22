@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Drug\dBaseDrugDocument.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "dBaseDrugDocument" MUID: (47F07A9F0098)
+// Имя типа: "_dBaseDrugDocument_"
 
 {$Define dBaseDrugDocument_imp}
 

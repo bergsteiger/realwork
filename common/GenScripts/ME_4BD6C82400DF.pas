@@ -3,6 +3,7 @@ unit PrimMedicListSynchroView_mlsfDrugList_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicListSynchroView_mlsfDrugList_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "mlsfDrugList" MUID: (4BD6C82400DF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_mlsfDrugList = {final} class(TtfwInteger)
   {* Слово словаря для типа формы mlsfDrugList }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_mlsfDrugList
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_mlsfDrugList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::mlsfDrugList';
-end;//Tkw_FormUserType_mlsfDrugList.GetWordNameForRegister
-
 function Tkw_FormUserType_mlsfDrugList.GetInteger: Integer;
 begin
  Result := mlsfDrugList;
 end;//Tkw_FormUserType_mlsfDrugList.GetInteger
+
+class function Tkw_FormUserType_mlsfDrugList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::mlsfDrugList';
+end;//Tkw_FormUserType_mlsfDrugList.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

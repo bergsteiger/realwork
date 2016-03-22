@@ -32,7 +32,7 @@ namespace ConnectedContexts {
 	private:
 		void build_dict (const std::string& path);
 		void find_contexts (const SynPair& val, ConContexts& out);
-		void get_syns (const std::string& req, GCL::StrVector& out, Manage::IQuery* query);
+		GCL::StrVector* get_syns (const std::string& req, Manage::IQuery* query);
 
 	private:
 		Dict m_dict;

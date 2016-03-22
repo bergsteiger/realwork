@@ -2,6 +2,7 @@ unit VCMWordsPack;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "VCMWordsPack" MUID: (4F69B966010B)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

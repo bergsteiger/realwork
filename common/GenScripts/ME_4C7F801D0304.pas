@@ -2,6 +2,8 @@ unit ExTextOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\ExTextOptions_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "ExTextOptions" MUID: (4C7F801D0304)
+// Имя типа: "TExTextOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -418,6 +420,8 @@ procedure TExTextOptionsForm.SetReminderOpParams(const aParams: IvcmTestParamsPr
  end;//RefineBaloonHint
 
 //#UC START# *4C7FAE9B01E1_4C7F801D0304_var*
+var
+ l_Hint: Il3CString;
 //#UC END# *4C7FAE9B01E1_4C7F801D0304_var*
 begin
 //#UC START# *4C7FAE9B01E1_4C7F801D0304_impl*
@@ -426,8 +430,12 @@ begin
   Flag[vcm_ofVisible] := (aInfo <> nil);
   if Flag[vcm_ofVisible] then
   begin
-   Hint := RefineBaloonHint(aInfo);
-   LongHint := Hint;
+   l_Hint := RefineBaloonHint(aInfo);
+   if not Document.HasRelatedDoc then
+    if l3Ends(str_wgReferenceHyperlinkSearchText.AsCStr, l_Hint) then
+     l3SetLen(l_Hint, l3Len(l_Hint) - l3Len(str_wgReferenceHyperlinkSearchText.AsCStr));
+   Hint := l_Hint;
+   LongHint := l_Hint;
    Caption := aCaption;
   end;//Flag[vcm_ofVisible]
  end;//with aParams.Op do

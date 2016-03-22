@@ -3,6 +3,7 @@ unit SettingsKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\SettingsKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "SettingsKeywordsPack" MUID: (62CEA735C6AD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -33,19 +34,19 @@ type
 'aControl' форма::Settings TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Settings
-
-class function Tkw_Form_Settings.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Settings';
-end;//Tkw_Form_Settings.GetWordNameForRegister
 
 function Tkw_Form_Settings.GetString: AnsiString;
 begin
  Result := 'cf_Settings';
 end;//Tkw_Form_Settings.GetString
+
+class function Tkw_Form_Settings.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Settings';
+end;//Tkw_Form_Settings.GetWordNameForRegister
 
 initialization
  Tkw_Form_Settings.RegisterInEngine;

@@ -2,6 +2,7 @@ unit evOperationDispatcherEx;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evOperationDispatcherEx.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevOperationDispatcherEx" MUID: (4DD4F7060070)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

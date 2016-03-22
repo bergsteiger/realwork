@@ -2,6 +2,7 @@ unit evDocumentNode;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDocumentNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentNode" MUID: (4DFEF94101DF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

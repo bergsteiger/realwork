@@ -2,6 +2,7 @@ unit vcmFormSetFormsCollectionItem;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFormsCollectionItem.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormSetFormsCollectionItem" MUID: (4FFC32AE0164)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

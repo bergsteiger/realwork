@@ -18,6 +18,7 @@
 #include "shared/ContextSearch/Common/Constants.h"
 #include "boost/lambda/lambda.hpp"
 #include "boost/algorithm/string/classification.hpp"
+#include "shared/ContextSearch/MorphoBase/KeysFactory.h"
 
 //#UC START# *4F313B660191_CUSTOM_INCLUDES*
 //#UC END# *4F313B660191_CUSTOM_INCLUDES*
@@ -133,76 +134,46 @@ Searcher::~Searcher () {
 // добавить
 bool Searcher::add (const std::string& str, size_t i) {
 	//#UC START# *5405B9CF01ED*
-	std::string forma;
-
 	if (m_streams.empty ()) {
 		m_streams.resize (1);
 	} 
 
 	GDS_ASSERT (i < m_streams.size ());
 
-	if (std::count_if (str.begin (), str.end (), boost::is_any_of (" -~")) == 0) {
-		Core::Aptr <GCL::StrSet> res;
-
-		if (*(str.rbegin ()) == '*' && m_properties.wild_mng) {
-			res = m_properties.wild_mng->get (str);
-		} else {
-			Morpho::Def::NSettings info;
-			info.is_extended = true;
-			res = m_properties.normalizer->execute (str, forma, info);
-		}
-
-		if (forma.empty ()) {
-			m_streams [i].reserve (res->size ());
-
-			std::for_each (res->begin (), res->end ()
-				, boost::bind (&Searcher::add_stream, this, _1, forma, boost::ref (m_streams [i]))
-			);
-		} else {
-			this->add_stream (std::string (), forma, m_streams [i]);
-		}
-	} else {
-		Morpho::Def::StrStrMap pseudo;
-
-		Core::Aptr <GCL::StrVector> res = m_properties.normalizer->execute_for_phrase (str, pseudo);
-
-		for (GCL::StrVector::const_iterator it = res->begin (); it != res->end (); ++it) {
-			std::string key;
-
-			if (it->size () > Morpho::Def::MAX_WORD_LEN) {
-				key.resize (1, (char) (32));
-				key += it->substr (0, Morpho::Def::MAX_WORD_LEN);
-			} else {
-				key.resize (1, (char) (it->size () + 1));
-				key += *it;
-			}
-
-			if (this->add_stream (key, forma, m_streams [i]) == false) {
-				return false;
-			}
-		}
+	if (std::find_if (str.begin (), str.end (), boost::is_any_of (" -~")) != str.end ()) {
+		return this->add_stream (str, m_streams [i]);
 	}
+
+	Core::Aptr <GCL::StrSet> res;
+
+	if (*(str.rbegin ()) == '*' && m_properties.wild_mng) {
+		res = m_properties.wild_mng->get (str);
+	} else {
+		res = KeysFactory (m_properties.comm).make_for_word (str);
+	}
+
+	m_streams [i].reserve (res->size ());
+
+	std::for_each (res->begin (), res->end ()
+		, boost::bind (&Searcher::add_stream, this, _1, boost::ref (m_streams [i]))
+	);
 
 	return true;
 	//#UC END# *5405B9CF01ED*
 }
 
 // добавить стрим
-bool Searcher::add_stream (const std::string& norma, const std::string& forma, StreamPointers& streams) {
+bool Searcher::add_stream (const std::string& key, StreamPointers& streams) {
 	//#UC START# *4F3531760019*
-	std::string key = (norma.empty ())? forma : norma;
-
-	StreamsCache::const_iterator it = std::find_if (m_cache.begin (), m_cache.end ()
-		, boost::bind (&StreamsCache::value_type::key, _1) == key
+	StreamsCache::const_iterator it = std::find_if (
+		m_cache.begin (), m_cache.end (), boost::bind (&StreamsCache::value_type::key, _1) == key
 	);
 
 	if (it != m_cache.end ()) {
 		it->stream->add_ref ();
 		streams.push_back (it->stream);
 	} else {
-		Core::Aptr <SearchStream> stream = new SearchStream (
-			norma, forma, m_properties.factory, m_properties.flags
-		);
+		Core::Aptr <SearchStream> stream = new SearchStream (key, m_properties.factory, m_properties.flags);
 
 		if (stream->is_valid ()) {
 			m_cache.push_back (CacheNode ());
@@ -472,31 +443,22 @@ void Searcher::set (const Search::PhraseEx& in) {
 
 	m_streams.resize (in.size ());
 
-	Morpho::Def::NSettings info;
-	info.is_extended = true;
-
 	for (size_t i = 0; i < in.size (); ++i) {
 		const std::string& val = *(in [i].begin ());
-
-		std::string forma;
 
 		Core::Aptr <GCL::StrSet> res;
 
 		if (in [i].size () == 1 && *(val.rbegin ()) == '*' && m_properties.wild_mng) {
 			res = m_properties.wild_mng->get (val);
 		} else {
-			res = m_properties.normalizer->execute (in [i], forma, info);
+			res = KeysFactory (m_properties.comm).make (in [i]);
 		}
 
-		if (forma.empty ()) {
-			m_streams [i].reserve (res->size ());
+		m_streams [i].reserve (res->size ());
 
-			std::for_each (res->begin (), res->end ()
-				, boost::bind (&Searcher::add_stream, this, _1, forma, boost::ref (m_streams [i]))
-			);
-		} else {
-			this->add_stream (std::string (), forma, m_streams [i]);
-		}
+		std::for_each (res->begin (), res->end ()
+			, boost::bind (&Searcher::add_stream, this, _1, boost::ref (m_streams [i]))
+		);
 	}
 	//#UC END# *539065F20114*
 }

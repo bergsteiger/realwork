@@ -2,6 +2,7 @@ unit NOT_FINISHED_JwaWinBase;
 
 // Модуль: "w:\common\components\rtl\external\JEDI\Win32API\NOT_FINISHED_JwaWinBase.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "JwaWinBase" MUID: (4C98A79C011D)
 
 {$Include w:\common\components\l3Define.inc}
 

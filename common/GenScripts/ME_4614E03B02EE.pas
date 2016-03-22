@@ -2,6 +2,7 @@ unit imeStampObjectManager;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\imeStampObjectManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TimeStampObjectManager" MUID: (4614E03B02EE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

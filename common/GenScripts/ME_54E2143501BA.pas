@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwPermanentFilterExistsUses.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "kwPermanentFilterExistsUses" MUID: (54E2143501BA)
+// Имя типа: "_kwPermanentFilterExistsUses_"
 
 {$Define kwPermanentFilterExistsUses_imp}
 

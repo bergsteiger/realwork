@@ -17,6 +17,8 @@
 #include "garantPIL/implementation/component/cpp/libs/endt/BlockDecompile.h"
 #include "common/components/rtl/Garant/EVD/eeReader.h"
 
+#include "shared\GCL\alg\set_operations.h"
+
 struct	CorrStruct {
 	long	uid;
 	u_int64_t	mask;
@@ -295,7 +297,9 @@ int main ( int argc, char *argv[] ) {
 
 	std::map<long,DocCollection*> map_segment_docs;
 	{
-	ToolsBase *tbase = new ToolsBase (argv [2]);
+	SearchBase *tbase = new SearchBase (argv [2]);
+	tbase->YBase::IsOk ();
+	tbase->check_version ();
 
 	get_aaks (tbase);
 	Index *segment_index = tbase->FindIndex ("Segment");
@@ -454,7 +458,7 @@ int main ( int argc, char *argv[] ) {
 	docs_and_editions.erase (std::unique (docs_and_editions.begin (), docs_and_editions.end ()), docs_and_editions.end ());
 	docs.clear ();
 
-	std::deque<long> real_new_docs, newcorr_docs;
+	std::vector<long> real_new_docs, newcorr_docs;
 	for (std::deque<long>::const_iterator it = docs_and_editions.begin (); it != docs_and_editions.end (); it++) {
 		long id = *it;
 		DocInfo docinfo;
@@ -474,10 +478,14 @@ int main ( int argc, char *argv[] ) {
 	//из них надо набрать ссылки, и заменить ими существующие в NewCorr
 	AttrIndex *docInd = (AttrIndex*) base->FindIndex ("Attrs");
 	u_int32_tcaddr_tSplayMap *newCorrs = new u_int32_tcaddr_tSplayMap( (caddr_t) 0 );
-	Index *respondents = base->FindIndex ("Respondent");
+	Index *respondents = base->FindIndex ("Respondent"), *old_respondents = oldbase->FindIndex ("Respondent");
 
 	std::map<long,std::set<long> > map_doc_deletedcorrs;
 	std::map<long,u_int64_t> map_doc_respmask;
+
+	std::map<long,std::set<long> > kindcorr_doc_blocks;
+
+	Index* kindcorr_index = oldbase->FindIndex ("KindCorr");
 
 	for (std::deque<long>::const_iterator it = new_docs.begin (); it != new_docs.end (); it++) {
 		long id = *it;
@@ -486,15 +494,16 @@ int main ( int argc, char *argv[] ) {
 		if (std::binary_search (skip_docs.begin (), skip_docs.end (), id))
 			continue;
 
+		RefCollection refs;
+		Stream* str = respondents->Open (&id);
+		if (str) {
+			refs.Get (str);
+			respondents->Close (str);
+		}
+
 		DocInfo docinfo;
 		base->FindDocInfo (id, docinfo);
 		if (GetDocRespondents64 (&docinfo) == 0) {
-			Stream* str = respondents->Open (&id);
-			RefCollection refs;
-			if (str) {
-				refs.Get (str);
-				respondents->Close (str);
-			}
 			if (refs.ItemCount) {
 				u_int64_t mask = 0;
 				for (int j = 0; j < CorrKinds_size; j++) {
@@ -604,6 +613,45 @@ int main ( int argc, char *argv[] ) {
 			}
 		}
 
+		{
+			//посчитать, какие ссылки удалилсь, какие добавились
+			RefCollection old_refs;
+			Stream* str = old_respondents->Open (&id);
+			if (str) {
+				old_refs.Get (str);
+				old_respondents->Close (str);
+			}
+
+			RefCollection copy (refs);
+			refs.m_bCompType = COMP_STRONG; refs.Minus (old_refs);
+			//это новые ссылки, которых не было раньше
+			for (int i = 0; i < refs.ItemCount; i++) {
+				Ref ati = refs [i];
+				if (kindcorr_index->IsExist (&ati))
+					continue;
+
+				std::map<long,std::set<long> >::iterator map_it = kindcorr_doc_blocks.find (ati.DocId);
+				if (map_it == kindcorr_doc_blocks.end ()) {
+					std::set<long> toinsert; toinsert.insert (ati.Sub);
+					kindcorr_doc_blocks.insert (std::map<long,std::set<long> >::value_type (ati.DocId, toinsert));
+				} else {
+					map_it->second.insert (ati.Sub);
+				}
+			}
+
+			//это удаленные ссылки
+			old_refs.m_bCompType = COMP_STRONG; old_refs.Minus (copy);
+			for (int i = 0; i < old_refs.ItemCount; i++) {
+				Ref ati = old_refs [i];
+				std::map<long,std::set<long> >::iterator map_it = kindcorr_doc_blocks.find (ati.DocId);
+				if (map_it == kindcorr_doc_blocks.end ()) {
+					std::set<long> toinsert; toinsert.insert (ati.Sub);
+					kindcorr_doc_blocks.insert (std::map<long,std::set<long> >::value_type (ati.DocId, toinsert));
+				} else {
+					map_it->second.insert (ati.Sub);
+				}
+			}
+		}
 	}
 	printf ("\n");
 
@@ -628,6 +676,7 @@ int main ( int argc, char *argv[] ) {
 	//получили NewCorr, состоящий только из ссылок, которые есть в "новых" документах
 	//теперь надо пройтись по этим ключам, прочитать оттуда старые данные, и те, которые "новые документы", заменить на эти...
 	Index* newcorrs_index = base->FindIndex ("NewCorr");
+	std::vector<long> newcorr_chg;
 	{
 	FILE *newcorr_file = fopen (argc > 4 ? argv [4] : "newcorr_chg.txt", "wt");
 	printf ("write new changes\n");
@@ -676,6 +725,8 @@ int main ( int argc, char *argv[] ) {
 
 		if (oldnewcorr.find (id) == oldnewcorr.end ())
 			newcorr_docs.push_back (id);
+		else
+			newcorr_chg.push_back (id);
 
 		sprintf (str_to_write, "%ld:\n", id);
 		fputs (str_to_write, newcorr_file);
@@ -699,6 +750,7 @@ int main ( int argc, char *argv[] ) {
 	fclose (newcorr_file);
 	}
 
+	std::vector<long> newcorr_del;
 	{
 	FILE *newcorrdel_file = fopen (argc > 5 ? argv [5] : "newcorr_del.txt", "wt");
 	printf ("\ntune deleted corrs\n");
@@ -733,6 +785,7 @@ int main ( int argc, char *argv[] ) {
 			newcorrs_index->Close (str);
 
 			if (deleted.size ()) {
+				newcorr_del.push_back (id);
 				sprintf (str_to_write, "%ld:\n", id);
 				fputs (str_to_write, newcorrdel_file);
 				for (std::set<long>::const_iterator del_it = deleted.begin (); del_it != deleted.end (); del_it++) {
@@ -777,10 +830,29 @@ int main ( int argc, char *argv[] ) {
 	gk_bzero (towrite, sizeof (towrite));
 	Index* kindcorr_index = base->FindIndex ("KindCorr");
 
-	std::vector<long> kindcorr_docs (real_new_docs.size () + newcorr_docs.size ());
-	std::set_union (real_new_docs.begin (), real_new_docs.end (), newcorr_docs.begin (), newcorr_docs.end (), kindcorr_docs.begin ());
+	std::vector<long> kindcorr_docs;
+	GCL::set_union (kindcorr_docs, real_new_docs);
+	GCL::set_union (kindcorr_docs, newcorr_docs);
+	/*
+	//эти два - пытались исправить http://mdp.garant.ru/pages/viewpage.action?pageId=613742900
+	GCL::set_union (kindcorr_docs, newcorr_del);
+	GCL::set_union (kindcorr_docs, newcorr_chg);
+	*/
 	std::sort (kindcorr_docs.begin (), kindcorr_docs.end ());
 	kindcorr_docs.erase (std::unique (kindcorr_docs.begin (), kindcorr_docs.end ()), kindcorr_docs.end ());
+
+	for (std::map<long,std::set<long> >::const_iterator map_it = kindcorr_doc_blocks.begin (); map_it != kindcorr_doc_blocks.end (); map_it++) {
+		long id = map_it->first;
+		if (std::binary_search (kindcorr_docs.begin (), kindcorr_docs.end (), id))
+			continue;
+		sprintf (str_to_write, "%ld:", id);
+		fputs (str_to_write, kindcorr_file);
+		for (std::set<long>::const_iterator set_it = map_it->second.begin (); set_it != map_it->second.end (); set_it++) {
+			sprintf (str_to_write, "%ld ", *set_it);
+			fputs (str_to_write, kindcorr_file);
+		}
+		fputs ("\n", kindcorr_file);
+	}
 
 	for (std::vector<long>::const_iterator it = kindcorr_docs.begin (); it != kindcorr_docs.end (); it++) {
 		long id = *it;

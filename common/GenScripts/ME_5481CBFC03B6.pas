@@ -2,6 +2,7 @@ unit m3BaseStore;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3BaseStore.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3BaseStore" MUID: (5481CBFC03B6)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

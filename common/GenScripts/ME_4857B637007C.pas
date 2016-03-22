@@ -3,6 +3,8 @@ unit evDocument_InterfaceFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDocument_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
+// Элемент модели: "TevDocument" MUID: (4857B637007C)
+// Имя типа: "TevDocumentInterfaceFactory"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

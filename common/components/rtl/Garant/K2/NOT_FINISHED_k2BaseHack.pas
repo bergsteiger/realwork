@@ -3,6 +3,7 @@ unit NOT_FINISHED_k2BaseHack;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2BaseHack.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "k2BaseHack" MUID: (4A5341AA0315)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

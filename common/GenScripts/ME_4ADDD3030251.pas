@@ -2,6 +2,8 @@ unit OfficeLikeMain_Form;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLikeMain_Form.pas"
 // Стереотип: "VCMMainForm"
+// Элемент модели: "OfficeLikeMain" MUID: (4ADDD3030251)
+// Имя типа: "TOfficeLikeMainForm"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

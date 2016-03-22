@@ -3,6 +3,7 @@ unit Printers;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Printers.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Printers" MUID: (4799D2E6027B)
 
 interface
 

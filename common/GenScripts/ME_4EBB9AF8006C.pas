@@ -3,6 +3,7 @@ unit NOT_FINISHED_dd_lcTitleFormatter;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcTitleFormatter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tdd_lcTitleFormatter" MUID: (4EBB9AF8006C)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

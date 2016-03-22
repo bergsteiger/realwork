@@ -1,8 +1,14 @@
 unit ddAutolinkCache;
 
-{ $Id: ddAutolinkCache.pas,v 1.42 2015/10/28 13:18:12 fireton Exp $ }
+{ $Id: ddAutolinkCache.pas,v 1.44 2016/01/19 08:46:35 fireton Exp $ }
 
 // $Log: ddAutolinkCache.pas,v $
+// Revision 1.44  2016/01/19 08:46:35  fireton
+// - боремся с зацикленными редакциями
+//
+// Revision 1.43  2015/11/25 14:01:46  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.42  2015/10/28 13:18:12  fireton
 // - приводим номера документа в кэше к верхнему регистру
 //
@@ -256,6 +262,7 @@ uses
 
  daDataProvider,
  daTypes,
+ daSchemeConsts,
 
  HT_Dll,
 
@@ -905,9 +912,14 @@ begin
         while (l_EIdx < l_EditionsList.Count) and (l_CurM.rIntDocID = l_CurE.rMasterIntDoc) do
         begin
          l_CalcRec := l_CurE^;
-         l_CalcRec.rMasterIntDoc := l_CurM.rMasterIntDoc;
-         l_CalcRec.rMasterExtDoc := l_CurM.rMasterExtDoc;
-         l_AccumulateList.Add(l_CalcRec);
+         if l_CalcRec.rMasterExtDoc <> l_CalcRec.rExtDocID then
+         begin
+          l_CalcRec.rMasterIntDoc := l_CurM.rMasterIntDoc;
+          l_CalcRec.rMasterExtDoc := l_CurM.rMasterExtDoc;
+          l_AccumulateList.Add(l_CalcRec);
+         end
+         else
+          l3System.Msg2Log('ОШИБКА: Обнаружен цикл редакций в документе %d', [l_CalcRec.rExtDocID]);
          Inc(l_EIdx);
         end;
        end;

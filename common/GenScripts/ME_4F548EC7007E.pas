@@ -9,6 +9,8 @@ unit kwPopEditorSelectColumn;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectColumn.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_SelectColumn" MUID: (4F548EC7007E)
+// Имя типа: "TkwPopEditorSelectColumn"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

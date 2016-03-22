@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3Searcher" MUID: (47B47E230134)
+// Имя типа: "_l3Searcher_"
 
 {$Define l3Searcher_imp}
 
@@ -54,7 +56,7 @@ begin
      theIndex := i;
      H := Pred(i);
 
-    end//C = 0
+    end//C = 0  
     else
      H := Pred(i);
 

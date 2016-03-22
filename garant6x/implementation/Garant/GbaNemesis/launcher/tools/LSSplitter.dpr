@@ -99,7 +99,7 @@ var
  l_LSFile: string;
 begin
  WriteLN;
- WriteLN(Format('TOOL "%s" (C) SIE "GARANT-SERVICE-UNIVERSITY" LLC, 1990-2015', [ExtractFileName(ParamStr(0))]));
+ WriteLN(Format('TOOL "%s" (C) SIE "GARANT-SERVICE-UNIVERSITY" LLC, 1990-2016', [ExtractFileName(ParamStr(0))]));
  //
  try
   if (ParamCount >= 1) then

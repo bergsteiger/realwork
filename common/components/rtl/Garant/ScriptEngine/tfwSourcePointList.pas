@@ -2,6 +2,7 @@ unit tfwSourcePointList;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwSourcePointList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwSourcePointList" MUID: (55648E420189)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

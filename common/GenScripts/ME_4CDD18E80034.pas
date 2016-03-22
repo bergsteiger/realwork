@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\LinksToGarant\HyperlinkToDocumentProducer.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "HyperlinkToDocumentProducer" MUID: (4CDD18E80034)
+// Имя типа: "_HyperlinkToDocumentProducer_"
 
 {$Define HyperlinkToDocumentProducer_imp}
 

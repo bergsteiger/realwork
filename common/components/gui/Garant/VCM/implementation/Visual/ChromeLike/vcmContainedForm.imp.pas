@@ -37,7 +37,9 @@
    procedure InitContainedForm;
    procedure SaveFocusedControl;
    procedure RestoreFocusedControl;
-   function OpenNew(aOpenKind: TvcmMainFormOpenKind): IvcmContainedForm;
+   function OpenNew(aOpenKind: TvcmMainFormOpenKind;
+    aOpenLast: Boolean;
+    const aOpenAfter: IvcmEntityForm = nil): IvcmContainedForm;
    function Get_AsForm: IvcmEntityForm;
    procedure CloseContainedForm;
    function pm_GetContainedFormHistory: IvcmHistory;
@@ -48,6 +50,7 @@
  // overridden protected methods
    procedure Cleanup; override;
      {* Функция очистки полей объекта. }
+   procedure BecomeActive; override;
    function InsertForm(const aForm: IvcmEntityForm): Boolean; override;
    function DoMakeClone(aNeedShow: Boolean): TvcmMainForm; override;
    procedure BecomeMainForm; override;
@@ -66,7 +69,9 @@
    function MakeVCMContainer(aOpenKind: TvcmMainFormOpenKind): IvcmContainer;
    procedure DoOnContainerIsClosing; virtual;
    procedure DoInitContainedForm(aForm: TvcmMainForm); virtual;
-   function DoOpenNew(aOpenKind: TvcmMainFormOpenKind): IvcmContainedForm; virtual;
+   function DoOpenNew(aOpenKind: TvcmMainFormOpenKind;
+     aOpenLast: Boolean;
+     const aOpenAfter: IvcmEntityForm = nil): IvcmContainedForm; virtual;
  protected
  // protected properties
    property MainFormContainer: TvcmTabbedContainerForm
@@ -160,7 +165,9 @@ begin
 //#UC END# *546464260137_537D9BD30297_impl*
 end;//_vcmContainedForm_.DoInitContainedForm
 
-function _vcmContainedForm_.DoOpenNew(aOpenKind: TvcmMainFormOpenKind): IvcmContainedForm;
+function _vcmContainedForm_.DoOpenNew(aOpenKind: TvcmMainFormOpenKind;
+  aOpenLast: Boolean;
+  const aOpenAfter: IvcmEntityForm = nil): IvcmContainedForm;
 //#UC START# *5566C7BD037F_537D9BD30297_var*
 //#UC END# *5566C7BD037F_537D9BD30297_var*
 begin
@@ -326,12 +333,14 @@ begin
 //#UC END# *54B90DDB026E_537D9BD30297_impl*
 end;//_vcmContainedForm_.RestoreFocusedControl
 
-function _vcmContainedForm_.OpenNew(aOpenKind: TvcmMainFormOpenKind): IvcmContainedForm;
+function _vcmContainedForm_.OpenNew(aOpenKind: TvcmMainFormOpenKind;
+  aOpenLast: Boolean;
+  const aOpenAfter: IvcmEntityForm = nil): IvcmContainedForm;
 //#UC START# *5566B69D025F_537D9BD30297_var*
 //#UC END# *5566B69D025F_537D9BD30297_var*
 begin
 //#UC START# *5566B69D025F_537D9BD30297_impl*
- Result := DoOpenNew(aOpenKind);
+ Result := DoOpenNew(aOpenKind, aOpenLast, aOpenAfter);
 //#UC END# *5566B69D025F_537D9BD30297_impl*
 end;//_vcmContainedForm_.OpenNew
 
@@ -397,6 +406,15 @@ begin
  inherited;
 //#UC END# *479731C50290_537D9BD30297_impl*
 end;//_vcmContainedForm_.Cleanup
+
+procedure _vcmContainedForm_.BecomeActive;
+//#UC START# *4A8AE0FA03B2_537D9BD30297_var*
+//#UC END# *4A8AE0FA03B2_537D9BD30297_var*
+begin
+//#UC START# *4A8AE0FA03B2_537D9BD30297_impl*
+ TvcmTabbedContainerFormDispatcher.Instance.ContainedFormBecomeActive(Self);
+//#UC END# *4A8AE0FA03B2_537D9BD30297_impl*
+end;//_vcmContainedForm_.BecomeActive
 
 function _vcmContainedForm_.InsertForm(const aForm: IvcmEntityForm): Boolean;
 //#UC START# *4AD44CA20001_537D9BD30297_var*

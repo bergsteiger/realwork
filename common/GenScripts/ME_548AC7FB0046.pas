@@ -2,6 +2,7 @@ unit ncsProfile;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsProfile.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ncsProfile" MUID: (548AC7FB0046)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

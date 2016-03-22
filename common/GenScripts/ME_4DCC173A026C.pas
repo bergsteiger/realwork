@@ -2,6 +2,7 @@ unit tfwArray;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwArray.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwArray" MUID: (4DCC173A026C)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

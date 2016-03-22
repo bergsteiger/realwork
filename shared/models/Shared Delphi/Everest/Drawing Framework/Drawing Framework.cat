@@ -43,7 +43,23 @@
 	(object Attribute
 	    tool       	"MDA Generator User Properties"
 	    name       	"ifdef"
-	    value      	"evNeedPainters"))
+	    value      	"evNeedPainters")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script.runner)"
+	    value      	"w:/shared/models/NewSchool/Scripts/49DCBC09029B.pas.ms.script.runner")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script.runner)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script)"
+	    value      	"w:/shared/models/NewSchool/Scripts/49DCBC09029B.pas.ms.script")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script)"
+	    value      	"file"))
     quid       	"49DCBC09029B"
     documentation 	"Èíôðàñòðóêòóðà äëÿ ðèñîâàíèÿ ïàðàãðàôîâ"
     stereotype 	"Unit"
@@ -357,7 +373,23 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"ElementCreationOrder952379C291DE"
-		    value      	"1342103234161831"))
+		    value      	"1342103234161831")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script.runner)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script.runner)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script)"
+		    value      	"file"))
 	    quid       	"4804A2C101A5"
 	    documentation 	"Áàçîâàÿ ðåàëèçàöèÿ èíñòðóìåíòà äëÿ ðèñîâàíèÿ ïàðàãðàôà."
 	    stereotype 	"Impurity"
@@ -1416,11 +1448,11 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*4804B8890228_48C7E98600AB_var*"
-			    value      	"//#UC START# *4804B8890228_48C7E98600AB_var*¤var¤ l_ObjID  : Integer;¤ l_Bounds : TnevRect;¤ l_DeltaH : Integer;¤¤ procedure lp_CorrectBottom(aCheck: Boolean);¤ begin¤  if (ParaX.AsObject.ChildrenCount > 1) and¤     (aCheck or (l_DeltaH - (l_Bounds.Bottom - l_Bounds.Top) >= l3Epsilon)) then¤  begin¤   l_Bounds.Bottom := l_Bounds.Top + l_DeltaH + Area.rCanvas.FrameLines.GetLineWidth(l_ObjID);¤   if Area.rCanvas.Printing then¤    l_Bounds.Bottom := Min(l_Bounds.Bottom, Area.rCanvas.GlobalClipRect.Bottom);¤   Map.SetDrawnBottom(l_Bounds.BottomRight);¤   aFrame.rRect := l_Bounds;//Map.Bounds;¤  end; // if (ParaX.ChildrenCount > 1) and (l_DeltaH - (l_Bounds.Bottom - l_Bounds.Top) >= l3Epsilon) then¤ end;¤¤{$IFDEF nsTest}¤var¤ l_UseCheck4Printing : Boolean;¤ l_Data              : TRowHeight;¤{$ENDIF nsTest}¤//#UC END# *4804B8890228_48C7E98600AB_var*")
+			    value      	"//#UC START# *4804B8890228_48C7E98600AB_var*¤var¤ l_ObjID  : Integer;¤ l_Bounds : TnevRect;¤ l_DeltaH : Integer;¤¤ procedure lp_CorrectBottom(aCheck: Boolean);¤ begin¤  if (ParaX.AsObject.ChildrenCount > 1) and¤     (aCheck or (l_DeltaH - (l_Bounds.Bottom - l_Bounds.Top) >= l3Epsilon)) then¤  begin¤   l_Bounds.Bottom := l_Bounds.Top + l_DeltaH + Area.rCanvas.FrameLines.GetLineWidth(l_ObjID);¤   if Area.rCanvas.Printing then¤    l_Bounds.Bottom := Min(l_Bounds.Bottom, Area.rCanvas.GlobalClipRect.Bottom);¤   Map.SetDrawnBottom(l_Bounds.BottomRight);¤   aFrame.rRect := l_Bounds;¤  end; // if (ParaX.ChildrenCount > 1) and (l_DeltaH - (l_Bounds.Bottom - l_Bounds.Top) >= l3Epsilon) then¤ end;¤¤{$IFDEF nsTest}¤var¤ l_UseCheck4Printing : Boolean;¤ l_Data              : TRowHeight;¤{$ENDIF nsTest}¤//#UC END# *4804B8890228_48C7E98600AB_var*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*4804B8890228_48C7E98600AB_impl*"
-			    value      	"//#UC START# *4804B8890228_48C7E98600AB_impl*¤ l_ObjID := Integer(ParaX.OwnerPara.AsObject.Box);¤ {$IFDEF nsTest}¤ l_UseCheck4Printing := False;¤ {$ENDIF nsTest}¤ if (FormatInfo.DeltaHeight > 0) then¤ begin¤  l_Bounds := Map.Bounds;¤  l_DeltaH := FormatInfo.DeltaHeight;¤  if Area.rCanvas.Printing then¤  begin¤   if Check4Printing(l_DeltaH) then¤   begin¤    aFrame.rRect := Map.Bounds;¤    {$IFDEF nsTest}¤    l_UseCheck4Printing := True;¤    {$ENDIF nsTest}¤   end¤   else¤    if (BottomAnchor <> nil) and¤       BottomAnchor.HasBaseLine and (BottomAnchor.InnerForChildThatNotAfterEnd(FormatInfo, nev_itNone) = nil) then¤     lp_CorrectBottom(True)¤    else¤     lp_CorrectBottom(False);¤  end // if Area.rCanvas.Printing then¤  else¤  begin¤   CheckHeight(l_DeltaH);¤   lp_CorrectBottom(False);¤  end;¤ end;//FormatInfo.DeltaHeight > 0¤ {$IFDEF nsTest}¤ if TPrintRowHeightsSpy.Exists and Area.rCanvas.Printing and¤    not Area.rCanvas.IsPagesCounter and (ParaX.OwnerPara.AsObject.ChildrenCount > 1) then¤ begin¤  l_Data.rTableID := ParaX.OwnerPara.PID;¤  l_Data.rRowID := ParaX.PID;¤  if l_UseCheck4Printing then¤   l_Data.rHeight := Map.Bounds.Bottom¤  else¤   l_Data.rHeight := l_Bounds.Bottom;//Map.Bounds.Bottom;¤  l_Data.rPage := Area.rCanvas.PageNumber;¤  l_Data.rTopAnchorID := TopAnchor.Obj.PID;¤  TPrintRowHeightsSpy.Instance.AddRowData(l_Data);¤ end; // if TPrintRowHeightsSpy.Exists then¤ {$ENDIF nsTest}¤ Area.rCanvas.FrameLines.AlignBoundary(l_ObjID, aFrame, ParaX.AsObject.ChildrenCount = 1);¤//#UC END# *4804B8890228_48C7E98600AB_impl*")
+			    value      	"//#UC START# *4804B8890228_48C7E98600AB_impl*¤ l_ObjID := Integer(ParaX.OwnerPara.AsObject.Box);¤ {$IFDEF nsTest}¤ l_UseCheck4Printing := False;¤ {$ENDIF nsTest}¤ if (FormatInfo.DeltaHeight > 0) then¤ begin¤  l_Bounds := Map.Bounds;¤  l_DeltaH := FormatInfo.DeltaHeight;¤  if Area.rCanvas.Printing then¤  begin¤   if Check4Printing(l_DeltaH) then¤   begin¤    aFrame.rRect := Map.Bounds;¤    {$IFDEF nsTest}¤    l_UseCheck4Printing := True;¤    {$ENDIF nsTest}¤   end // if Check4Printing(l_DeltaH) then¤   else¤    if (BottomAnchor <> nil) and¤       BottomAnchor.HasBaseLine and (BottomAnchor.InnerForChildThatNotAfterEnd(FormatInfo, nev_itNone) = nil) then¤     lp_CorrectBottom(True)¤    else¤     lp_CorrectBottom(False);¤  end // if Area.rCanvas.Printing then¤  else¤  begin¤   CheckHeight(l_DeltaH);¤   lp_CorrectBottom(False);¤  end;¤ end;//FormatInfo.DeltaHeight > 0¤ {$IFDEF nsTest}¤ if TPrintRowHeightsSpy.Exists and Area.rCanvas.Printing and¤    not Area.rCanvas.IsPagesCounter and (ParaX.OwnerPara.AsObject.ChildrenCount > 1) then¤ begin¤  l_Data.rTableID := ParaX.OwnerPara.PID;¤  l_Data.rRowID := ParaX.PID;¤  if l_UseCheck4Printing then¤   l_Data.rHeight := Map.Bounds.Bottom¤  else¤   l_Data.rHeight := l_Bounds.Bottom;¤  l_Data.rPage := Area.rCanvas.PageNumber;¤  l_Data.rTopAnchorID := TopAnchor.Obj.PID;¤  TPrintRowHeightsSpy.Instance.AddRowData(l_Data);¤ end; // if TPrintRowHeightsSpy.Exists then¤ {$ENDIF nsTest}¤ Area.rCanvas.FrameLines.AlignBoundary(l_ObjID, aFrame, ParaX.AsObject.ChildrenCount = 1);¤//#UC END# *4804B8890228_48C7E98600AB_impl*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"ElementCreationOrder"
@@ -3184,9 +3216,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"WikiPageID (wiki)"
-			    value      	(value Text 
-|Shared (delphi),key:SHD,guid:4677DDBD0193/Home/Ìîäåëü ïðîåêòà "Shared Delphi"/Everest/Drawing Framework/evParaPainter/ControlInfo|4E26AF7C0183
-			    ))
+			    value      	(value Text "Shared (delphi),key:SHD,guid:4677DDBD0193/Home/Shared Delphi/Everest/Drawing Framework/evParaPainter/ControlInfo|4E26AF7C0183"))
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"SourceType (wiki)"
@@ -3351,9 +3381,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"WikiPageID (wiki)"
-			    value      	(value Text 
-|Shared (delphi),key:SHD,guid:4677DDBD0193/Home/Ìîäåëü ïðîåêòà "Shared Delphi"/Everest/Drawing Framework/evParaPainter/DrawBlockSub|4E4E5405011F
-			    ))
+			    value      	(value Text "Shared (delphi),key:SHD,guid:4677DDBD0193/Home/Shared Delphi/Everest/Drawing Framework/evParaPainter/DrawBlockSub|4E4E5405011F"))
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"SourceType (wiki)"
@@ -3505,9 +3533,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"WikiPageID (wiki)"
-			    value      	(value Text 
-|Shared (delphi),key:SHD,guid:4677DDBD0193/Home/Ìîäåëü ïðîåêòà "Shared Delphi"/Everest/Drawing Framework/evParaPainter/DrawDecorObject$2|4E6F27EE0065
-			    ))
+			    value      	(value Text "Shared (delphi),key:SHD,guid:4677DDBD0193/Home/Shared Delphi/Everest/Drawing Framework/evParaPainter/DrawDecorObject$2|4E6F27EE0065"))
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"SourceType (wiki)"
@@ -3877,7 +3903,23 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"ElementCreationOrder"
-		    value      	"13004506389"))
+		    value      	"13004506389")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script.runner)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script.runner)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script)"
+		    value      	"file"))
 	    quid       	"481D6C300084"
 	    documentation 	"Ðèñîâàòåëü ñïèñêà ïàðàãðàôîâ"
 	    stereotype 	"Impurity"
@@ -4551,9 +4593,7 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"WikiPageID (wiki)"
-			    value      	(value Text 
-|Shared (delphi),key:SHD,guid:4677DDBD0193/Home/Ìîäåëü ïðîåêòà "Shared Delphi"/Everest/Drawing Framework/evParaListPainter/AfterDrawChild|4D63E3490015
-			    ))
+			    value      	(value Text "Shared (delphi),key:SHD,guid:4677DDBD0193/Home/Shared Delphi/Everest/Drawing Framework/evParaListPainter/AfterDrawChild|4D63E3490015"))
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"SourceType (wiki)"
@@ -4903,7 +4943,23 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"ElementCreationOrder"
-		    value      	"13004535976"))
+		    value      	"13004535976")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script.runner)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script.runner)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script)"
+		    value      	"file"))
 	    quid       	"4804C7B60375"
 	    documentation 	"Áàçîâûé ðèñîâàòåëü ëèñòüåâûõ ïàðàãðàôîâ."
 	    stereotype 	"Impurity"
@@ -5296,7 +5352,23 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"OverloadSelectType"
-		    value      	"include"))
+		    value      	"include")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script.runner)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script.runner)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script)"
+		    value      	"file"))
 	    quid       	"4804CB1B0328"
 	    documentation 	"Ðèñîâàòåëü ëèñòüåâûõ ïàðàãðàôîâ."
 	    stereotype 	"Impurity"
@@ -5368,7 +5440,23 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (wiki)"
-		    value      	"wiki"))
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script.runner)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script.runner)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script)"
+		    value      	"file"))
 	    quid       	"5062BFDB025E"
 	    documentation 	"Äëÿ îòðèñîâêè õèòðûõ îòñòóïîâ äëÿ AAK"
 	    stereotype 	"Impurity"
@@ -6199,6 +6287,22 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (intf.pas)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script.runner)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script.runner)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script)"
 		    value      	"file"))
 	    quid       	"53D8EF87005F"
 	    stereotype 	"SimpleClass"
@@ -6305,7 +6409,23 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (wiki)"
-		    value      	"wiki"))
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script.runner)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script.runner)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script)"
+		    value      	"file"))
 	    quid       	"5514FB530333"
 	    stereotype 	"Impurity"
 	    language   	"MDA Generator"

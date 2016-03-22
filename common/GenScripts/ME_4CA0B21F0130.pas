@@ -3,6 +3,7 @@ program TFWTest;
 
 // Модуль: "w:\common\components\TFWTest\TFWTest.dpr"
 // Стереотип: "TestTarget"
+// Элемент модели: "TFW" MUID: (4CA0B21F0130)
 
 interface
 

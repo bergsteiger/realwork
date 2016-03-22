@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Daily\FormProducer.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "FormProducer" MUID: (4BCE9EF8033F)
+// Имя типа: "_FormProducer_"
 
 {$Define FormProducer_imp}
 

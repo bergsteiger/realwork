@@ -323,7 +323,7 @@ begin
  // на всякий случай, т.к. ограничение только для оболочки
  {$If not defined(Admin) AND not defined(Monitorings)}
   if (DefDataAdapter <> nil) then
-   ListInfoViewer.DisableDragAndDropSupport := DefDataAdapter.IsTrialMode;
+   //ListInfoViewer.DisableDragAndDropSupport := DefDataAdapter.IsTrialMode;
  {$ifend}
 //#UC END# *47D1602000C6_497DEC900012_impl*
 end;//TPrimListInfoForm.Create

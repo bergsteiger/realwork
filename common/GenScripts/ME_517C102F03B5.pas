@@ -2,6 +2,7 @@ unit RoundedEdit;
 
 // Модуль: "w:\common\components\SandBox\RoundedEdit.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TRoundedEdit" MUID: (517C102F03B5)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

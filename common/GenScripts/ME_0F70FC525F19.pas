@@ -3,6 +3,7 @@ unit StartupTips_ut_StartupTips_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\Forms\StartupTips_ut_StartupTips_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_StartupTips" MUID: (0F70FC525F19)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_StartupTips = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_StartupTips }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_StartupTips
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_StartupTips.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_StartupTips';
-end;//Tkw_FormUserType_ut_StartupTips.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_StartupTips.GetInteger: Integer;
 begin
  Result := ut_StartupTips;
 end;//Tkw_FormUserType_ut_StartupTips.GetInteger
+
+class function Tkw_FormUserType_ut_StartupTips.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_StartupTips';
+end;//Tkw_FormUserType_ut_StartupTips.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

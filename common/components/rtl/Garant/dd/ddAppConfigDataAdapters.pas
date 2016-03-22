@@ -57,6 +57,8 @@ type
    procedure Save(const aStorage: IddConfigStorage;
      const anAlias: AnsiString); virtual;
    function UpItem(anIndex: Integer): Boolean; virtual;
+   procedure ClearItems; virtual; abstract;
+     {* Сигнатура метода ClearItems }
  public
  // public properties
    property Alias: AnsiString
@@ -84,6 +86,10 @@ type
    procedure pm_SetDataConfig(aValue: TddAppConfigNode);
    function pm_GetValues(anIndex: Integer; const anAlias: AnsiString): TddConfigValue; virtual;
    procedure pm_SetValues(anIndex: Integer; const anAlias: AnsiString; const aValue: TddConfigValue); virtual;
+ protected
+ // realized methods
+   procedure ClearItems; override;
+     {* Сигнатура метода ClearItems }
  protected
  // overridden property methods
    procedure pm_SetAlias(const aValue: AnsiString); override;
@@ -127,6 +133,10 @@ type
  private
  // private fields
    f_Strings : TStrings;
+ protected
+ // realized methods
+   procedure ClearItems; override;
+     {* Сигнатура метода ClearItems }
  protected
  // overridden property methods
    function pm_GetCount: Integer; override;
@@ -354,6 +364,15 @@ begin
 //#UC START# *522EE2F603A2_522EDF570036set_impl*
 //#UC END# *522EE2F603A2_522EDF570036set_impl*
 end;//TddSimpleListDataAdapter.pm_SetValues
+
+procedure TddSimpleListDataAdapter.ClearItems;
+//#UC START# *56D93DBD039D_522EDF570036_var*
+//#UC END# *56D93DBD039D_522EDF570036_var*
+begin
+//#UC START# *56D93DBD039D_522EDF570036_impl*
+ f_Items.Clear;
+//#UC END# *56D93DBD039D_522EDF570036_impl*
+end;//TddSimpleListDataAdapter.ClearItems
 
 procedure TddSimpleListDataAdapter.Assign(Source: TPersistent);
 //#UC START# *478CF34E02CE_522EDF570036_var*
@@ -586,6 +605,15 @@ begin
  Result := f_Strings;
 //#UC END# *522EE4E000E1_522EDF6702AF_impl*
 end;//TddStringDataAdapter.GetStrings
+
+procedure TddStringDataAdapter.ClearItems;
+//#UC START# *56D93DBD039D_522EDF6702AF_var*
+//#UC END# *56D93DBD039D_522EDF6702AF_var*
+begin
+//#UC START# *56D93DBD039D_522EDF6702AF_impl*
+ f_Strings.Clear;
+//#UC END# *56D93DBD039D_522EDF6702AF_impl*
+end;//TddStringDataAdapter.ClearItems
 
 procedure TddStringDataAdapter.Assign(Source: TPersistent);
 //#UC START# *478CF34E02CE_522EDF6702AF_var*

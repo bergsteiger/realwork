@@ -2,6 +2,7 @@ unit Common_Rubricator_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common_Rubricator_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "Rubricator" MUID: (4AA7800100B4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

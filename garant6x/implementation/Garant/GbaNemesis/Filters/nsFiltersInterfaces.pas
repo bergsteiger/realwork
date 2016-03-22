@@ -83,6 +83,15 @@ type
    property FiltersType: TnsFiltersType
      read Get_FiltersType;
  end;//InsFilterRootNode
+
+ InsFiltersEnumerator = interface(IUnknown)
+   ['{0919FA07-042E-4CB2-9BD1-A4C47103F038}']
+   function Get_Current: IFilterFromQuery;
+   procedure Reset;
+   function MoveNext: Boolean;
+   property Current: IFilterFromQuery
+     read Get_Current;
+ end;//InsFiltersEnumerator
 {$IfEnd} //not Admin AND not Monitorings
 
 implementation

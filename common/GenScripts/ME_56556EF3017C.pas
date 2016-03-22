@@ -2,6 +2,7 @@ unit pgFreeIDHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgFreeIDHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgFreeIDHelper" MUID: (56556EF3017C)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
@@ -43,6 +44,7 @@ type
    function RegisterFreeExtDocID(aFamilyID: TdaFamilyID;
     const aKey: AnsiString;
     anID: TdaDocID): Boolean;
+   procedure SetAlienJournalData(aSessionID: TdaSessionID);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -303,6 +305,16 @@ begin
 //!! !!! Needs to be implemented !!!
 //#UC END# *56BC6437030F_56556EF3017C_impl*
 end;//TpgFreeIDHelper.RegisterFreeExtDocID
+
+procedure TpgFreeIDHelper.SetAlienJournalData(aSessionID: TdaSessionID);
+//#UC START# *56EBDD7002F8_56556EF3017C_var*
+//#UC END# *56EBDD7002F8_56556EF3017C_var*
+begin
+//#UC START# *56EBDD7002F8_56556EF3017C_impl*
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *56EBDD7002F8_56556EF3017C_impl*
+end;//TpgFreeIDHelper.SetAlienJournalData
 
 procedure TpgFreeIDHelper.Cleanup;
  {* Функция очистки полей объекта. }

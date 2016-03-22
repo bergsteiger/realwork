@@ -2,13 +2,14 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\RefCountedPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "RefCountedPrim" MUID: (51612ED700B4)
+// Имя типа: "_RefCountedPrim_"
 
 {$Define RefCountedPrim_imp}
 
  _RefCountedPrim_ = class(_RefCountedPrim_Parent_)
   private
    f_RefCount: Integer;
-    {* Поле для свойства RefCount }
   protected
    procedure Cleanup; virtual;
     {* Функция очистки полей объекта. }

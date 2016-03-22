@@ -2,6 +2,7 @@ unit dsAACContainer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\dsAACContainer.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsAACContainer" MUID: (4FF2EEF80072)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

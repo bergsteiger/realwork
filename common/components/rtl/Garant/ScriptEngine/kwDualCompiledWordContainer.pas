@@ -3,6 +3,7 @@ unit kwDualCompiledWordContainer;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwDualCompiledWordContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwDualCompiledWordContainer" MUID: (4DBAC27801EF)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

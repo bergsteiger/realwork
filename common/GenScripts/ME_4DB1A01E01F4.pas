@@ -9,6 +9,8 @@ unit kwKey;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwKey.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "Key" MUID: (4DB1A01E01F4)
+// Имя типа: "TkwKey"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

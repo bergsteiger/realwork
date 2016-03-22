@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VT\nsUnknownComponentWithIvcmState.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsUnknownComponentWithIvcmState" MUID: (4F9A6F66035C)
+// Имя типа: "_nsUnknownComponentWithIvcmState_"
 
 {$Define nsUnknownComponentWithIvcmState_imp}
 

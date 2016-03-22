@@ -2,6 +2,7 @@ unit destColorTable;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destColorTable.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "destColorTable" MUID: (54DDD58A004A)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

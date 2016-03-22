@@ -7,7 +7,7 @@ unit m3PrimDB;
 // Модуль: "w:/common/components/rtl/Garant/m3/m3PrimDB.pas"
 // Начат: 17.03.2009 18:06
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3$DB::m3DB::Tm3PrimDB
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3PrimDB
 //
 // Заготовка для абстрактной базы
 //

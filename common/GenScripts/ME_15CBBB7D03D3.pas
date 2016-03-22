@@ -3,6 +3,7 @@ unit QFLikeTextLoad_ut_QFLikeTextLoad_UserType;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\QFLikeTextLoad_ut_QFLikeTextLoad_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_QFLikeTextLoad" MUID: (15CBBB7D03D3)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
@@ -32,26 +33,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_QFLikeTextLoad = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_QFLikeTextLoad }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_QFLikeTextLoad
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_QFLikeTextLoad.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_QFLikeTextLoad';
-end;//Tkw_FormUserType_ut_QFLikeTextLoad.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_QFLikeTextLoad.GetInteger: Integer;
 begin
  Result := ut_QFLikeTextLoad;
 end;//Tkw_FormUserType_ut_QFLikeTextLoad.GetInteger
+
+class function Tkw_FormUserType_ut_QFLikeTextLoad.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_QFLikeTextLoad';
+end;//Tkw_FormUserType_ut_QFLikeTextLoad.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

@@ -71,7 +71,7 @@ function IsSameItems(const A: _ItemType_;
 //#UC END# *47B07CF403D0_5538E9AE0163_var*
 begin
 //#UC START# *47B07CF403D0_5538E9AE0163_impl*
- Result := AnsiSameText(A.Name, B.Name);
+ Result := AnsiSameText(A.SQLName, B.SQLName);
 //#UC END# *47B07CF403D0_5538E9AE0163_impl*
 end;//IsSameItems
 {$IfEnd} //not l3Items_IsAtomic
@@ -93,7 +93,7 @@ function CompareExistingItems(const CI: CompareItemsRec): Integer;
 //#UC END# *47B99D4503A2_5538E9AE0163_var*
 begin
 //#UC START# *47B99D4503A2_5538E9AE0163_impl*
- Result := AnsiCompareText(CI.rA.Name, CI.rB.Name);
+ Result := AnsiCompareText(CI.rA.SQLName, CI.rB.SQLName);
 //#UC END# *47B99D4503A2_5538E9AE0163_impl*
 end;//CompareExistingItems
 

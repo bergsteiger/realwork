@@ -1,6 +1,6 @@
 unit DocAttrImpl2;
 
-{ $Id: DocAttrImpl2.pas,v 1.47 2015/10/02 09:23:33 lukyanets Exp $ }
+{ $Id: DocAttrImpl2.pas,v 1.49 2015/11/11 14:29:04 voba Exp $ }
 
 {$I l3Define.inc}
 {$R-}
@@ -1887,16 +1887,8 @@ begin
 end;
 
 function  TDictDocAttribute.CheckUniq(aTag : Tl3Tag) : boolean;
-var
- I : Integer;
 begin
- for I := 0 to pred(Count) do
-  if Child[I].IntA[k2_tiHandle] = aTag.IntA[k2_tiHandle] then
-  begin
-   Result := False;
-   Exit;
-  end;
- Result := True;
+ Result := GetIndexByHandle(aTag.IntA[k2_tiHandle]) < 0;
 end;
 
 function  TDictDocAttribute.AddPrim(aTag : Tl3Tag) : Integer;

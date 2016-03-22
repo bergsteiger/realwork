@@ -2,6 +2,7 @@ unit tfwCompiledAxiomaticsRes;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCompiledAxiomaticsRes.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwCompiledAxiomaticsRes" MUID: (55BA0CA0035A)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

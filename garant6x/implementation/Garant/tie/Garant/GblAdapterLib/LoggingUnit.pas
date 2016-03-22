@@ -95,6 +95,7 @@ type
  , LE_NEXT_SEARCH_IN_DOCUMENT // поиск следующего вхождения в документе
  , LE_PREVIOUS_SEARCH_IN_DOCUMENT // поиск предыдущего вхождения в документе
  , LE_DOCUMENT_NOT_EXIST // Документа нет в базе или запрещен к просмотру
+ , LE_OPEN_DOCUMENT_FROM_SEARCH_HINT // Открытие документа из словаря подсказок
  );//TLogEvent
 
  ILogEventData = interface(IUnknown)

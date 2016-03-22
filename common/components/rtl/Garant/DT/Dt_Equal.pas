@@ -1,8 +1,11 @@
 Unit Dt_Equal;
 
-{ $Id: Dt_Equal.pas,v 1.35 2015/07/02 07:36:07 lukyanets Exp $ }
+{ $Id: Dt_Equal.pas,v 1.36 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: Dt_Equal.pas,v $
+// Revision 1.36  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.35  2015/07/02 07:36:07  lukyanets
 // Описываем словари
 //
@@ -155,8 +158,10 @@ Type
 
 Implementation
 
-Uses HT_Dll,
-     Dt_Const, SysUtils, Dt_Err, l3DynamicArrayEx, l3Memory, l3Types;
+Uses
+ daSchemeConsts,
+ HT_Dll,
+ Dt_Const, SysUtils, Dt_Err, l3DynamicArrayEx, l3Memory, l3Types;
 
 (********************* TEqualItemsTbl **************************)
 

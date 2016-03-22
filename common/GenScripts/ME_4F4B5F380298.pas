@@ -2,6 +2,7 @@ unit nevPrintingRootFormatInfo;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevPrintingRootFormatInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevPrintingRootFormatInfo" MUID: (4F4B5F380298)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

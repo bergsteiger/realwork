@@ -3,6 +3,7 @@ unit myReferenceCountGuard;
 
 // Модуль: "w:\common\components\SandBox\myReferenceCountGuard.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TmyReferenceCountGuard" MUID: (516D572B0131)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

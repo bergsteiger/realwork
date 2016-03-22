@@ -2,6 +2,7 @@ unit vcmTabbedMenuWordsPack;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmTabbedMenuWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "vcmTabbedMenuWordsPack" MUID: (55C874550184)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
@@ -146,11 +147,6 @@ begin
  aCtx.rEngine.PushObj(Active(aCtx, l_aMenuForChromeLike));
 end;//TkwPopMenuForChromeLikeActive.DoDoIt
 
-class function TkwPopMenuForChromeLikeActive.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:MenuForChromeLike:Active';
-end;//TkwPopMenuForChromeLikeActive.GetWordNameForRegister
-
 function TkwPopMenuForChromeLikeActive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TvcmBaseMenuForChromeLike);
@@ -165,6 +161,11 @@ function TkwPopMenuForChromeLikeActive.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvcmBaseMenuForChromeLike)]);
 end;//TkwPopMenuForChromeLikeActive.ParamsTypes
+
+class function TkwPopMenuForChromeLikeActive.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:MenuForChromeLike:Active';
+end;//TkwPopMenuForChromeLikeActive.GetWordNameForRegister
 
 function TkwPopMenuForChromeLikeHovered.Hovered(const aCtx: TtfwContext;
  aMenuForChromeLike: TvcmBaseMenuForChromeLike): TMenuItem;
@@ -192,11 +193,6 @@ begin
  aCtx.rEngine.PushObj(Hovered(aCtx, l_aMenuForChromeLike));
 end;//TkwPopMenuForChromeLikeHovered.DoDoIt
 
-class function TkwPopMenuForChromeLikeHovered.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:MenuForChromeLike:Hovered';
-end;//TkwPopMenuForChromeLikeHovered.GetWordNameForRegister
-
 function TkwPopMenuForChromeLikeHovered.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TMenuItem);
@@ -211,6 +207,11 @@ function TkwPopMenuForChromeLikeHovered.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvcmBaseMenuForChromeLike)]);
 end;//TkwPopMenuForChromeLikeHovered.ParamsTypes
+
+class function TkwPopMenuForChromeLikeHovered.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:MenuForChromeLike:Hovered';
+end;//TkwPopMenuForChromeLikeHovered.GetWordNameForRegister
 
 function TkwPopMenuForChromeLikeMenuItem.MenuItem(const aCtx: TtfwContext;
  aMenuForChromeLike: TvcmBaseMenuForChromeLike): TMenuItem;
@@ -238,11 +239,6 @@ begin
  aCtx.rEngine.PushObj(MenuItem(aCtx, l_aMenuForChromeLike));
 end;//TkwPopMenuForChromeLikeMenuItem.DoDoIt
 
-class function TkwPopMenuForChromeLikeMenuItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:MenuForChromeLike:MenuItem';
-end;//TkwPopMenuForChromeLikeMenuItem.GetWordNameForRegister
-
 function TkwPopMenuForChromeLikeMenuItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TMenuItem);
@@ -257,6 +253,11 @@ function TkwPopMenuForChromeLikeMenuItem.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvcmBaseMenuForChromeLike)]);
 end;//TkwPopMenuForChromeLikeMenuItem.ParamsTypes
+
+class function TkwPopMenuForChromeLikeMenuItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:MenuForChromeLike:MenuItem';
+end;//TkwPopMenuForChromeLikeMenuItem.GetWordNameForRegister
 
 initialization
  TvcmTabbedMenuWordsPackResNameGetter.Register;

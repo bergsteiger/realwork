@@ -3,6 +3,7 @@ unit evTableColumnHotSpot;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTableColumnHotSpot.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTableColumnHotSpot" MUID: (4ED31E9500E7)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

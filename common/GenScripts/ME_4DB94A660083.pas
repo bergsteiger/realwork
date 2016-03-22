@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "VCMWord" MUID: (4DB94A660083)
+// Имя типа: "_VCMWord_"
 
 {$Define VCMWord_imp}
 

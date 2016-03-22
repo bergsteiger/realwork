@@ -6,7 +6,9 @@ uses
   Classes,
 
   ddBase,
+  ddTypes,
   ddSubsList,
+  ddHyperlink,
   ddTextSegment,
   ddDocumentAtom,
   ddTextSegmentsList,
@@ -27,6 +29,7 @@ uses
 type
   TddTextParagraph = class(TddDocumentAtom)
   private
+    f_SkipAlign : Boolean;
     f_CharacterStyle: LongInt;
     f_CHP: TddCharacterProperty;
     f_ID: Integer;
@@ -42,20 +45,22 @@ type
     f_BlockIndent: Integer;
     f_IgnoreLeftIndent: Boolean;
    private
-    procedure CheckSpaceInText;
+    function CheckSpaceInText: Boolean;
     procedure CheckPAP;
-    procedure Process; // Всякие предварительные обработки параграфа.
+    procedure CheckSymbolFont;
+    procedure Process(aNewStyle: Integer); // Всякие предварительные обработки параграфа.
     procedure CheckTablList;
     procedure CheckListItem;
     function GetLastPara: TddDocumentAtom; override;
-    function CheckInTable(const Generator: Ik2TagGenerator; const LiteVersion: Boolean = False): Boolean;
+    function CheckInTable(const Generator: Ik2TagGenerator; aLiteVersion: TddLiteVersion): Boolean;
     function GetSegmentCount: Integer;
     procedure SetCHP(Value: TddCharacterProperty);
     procedure SetPAP(Value: TddParagraphProperty);
-    procedure WriteHyperlinks(const Generator: Ik2TagGenerator; aLiteVersion: Boolean);
-    function WritePAP(const Generator: Ik2TagGenerator; LiteVersion, aStyled: Boolean): Boolean;
-    procedure WriteSegments(const Generator: Ik2TagGenerator; aLiteVersion: Boolean);
-    procedure WriteTabStops(const Generator: Ik2TagGenerator; aLiteVersion: Boolean);
+    function WritePAP(const Generator: Ik2TagGenerator; aLiteVersion: TddLiteVersion; aStyled: Boolean): Boolean;
+    procedure WriteSegments(const Generator: Ik2TagGenerator; aLiteVersion: TddLiteVersion);
+    procedure WriteTabStops(const Generator: Ik2TagGenerator; aLiteVersion: TddLiteVersion);
+    procedure AddStyleSegment(aCHP: TddCharacterProperty);
+    procedure CheckPrevSegment(aHyperlink: TddHyperlink);    
   protected
     function CheckSegments: Boolean;
     function GetEmpty: Boolean; override;
@@ -63,7 +68,7 @@ type
     function GetText: Tl3String;
     procedure Cleanup; override;
     procedure SetText(aTExt: Tl3String);
-    procedure WriteSubs(const aGenerator: Ik2TagGenerator; aLiteVersion: Boolean);
+    procedure WriteSubs(const aGenerator: Ik2TagGenerator; aLiteVersion: TddLiteVersion);
     procedure AddOldListItem;
     procedure ClearOldListItem;
   public
@@ -71,18 +76,18 @@ type
     procedure AddItemText(const aItemText: AnsiString);
      {* - Добавить текст пункта, как в Word 6/95. }
     procedure AddHyperlink(aText: AnsiString; aDocID, aSubID: Integer);
+    procedure AddHyperlinkWithURL(aStart: Integer; const aURL: AnsiString);
     procedure AddListIndex(const aList: TrtfList; aLite: Boolean; aWasRestarted: Boolean);
     procedure AddPicture(aPicture: TddDocumentAtom; aMove: Boolean);
     procedure AddFormula(aFormula: TddDocumentAtom);
     procedure AddSegment(aCHP: TddCharacterProperty; aStateCHP: TddCharacterProperty; const RelativeToText:
             Boolean = False); overload;
     procedure AddSegment(aSegment: TddTextSegment); overload;
-    procedure AddSub(aSubID: Integer; aName: AnsiString; aIsRealName: Boolean = True);
+    procedure AddSub(aSubID: Integer; aName: AnsiString; aIsRealName: Boolean = True); overload;
+    procedure AddSub(aSubID: Integer; const aName: Tl3PCharLen); overload;
     procedure AddText(aText: AnsiChar; const aCodePage: Long = CP_ANSI); overload;
     procedure AddText(aText: AnsiString; const aCodePage: Long = CP_ANSI); overload;
     procedure AddText(aText: Tl3String); overload;
-    function AnySegmentByCharIndex(Index: Longint; const EndSegment: Boolean =
-            False): TddTextSegment;
     function IsTextPara: Boolean; override;        
     procedure ApplyCHP(aCHP: TddCharacterProperty);
     procedure ApplyPAP(aPAP: TddParagraphProperty);
@@ -104,7 +109,7 @@ type
     function PrevCHP(aCurSegment: TddTextSegment): TddCharacterProperty;
     function SegmentByCharIndex(Index: Longint; const EndSegment: Boolean = False; const StartIndex:
         Integer = -1): TddTextSegment;
-    procedure Write2Generator(const Generator: Ik2TagGenerator; aNeedProcessRow: Boolean; LiteVersion: Boolean); override;
+    procedure Write2Generator(const Generator: Ik2TagGenerator; aNeedProcessRow: Boolean; aLiteVersion: TddLiteVersion); override;
     property CharacterStyle: LongInt read f_CharacterStyle write
             f_CharacterStyle;
     property CHP: TddCharacterProperty read f_CHP write SetCHP;
@@ -118,6 +123,7 @@ type
     property Width: LongInt read f_Width write f_Width;
     property BlockIndent: Integer read f_BlockIndent write f_BlockIndent;
     property IgnoreLeftIndent: Boolean read f_IgnoreLeftIndent write f_IgnoreLeftIndent;
+    property SkipAlign: Boolean read f_SkipAlign write f_SkipAlign;
   end;
 
 implementation
@@ -139,6 +145,7 @@ uses
   l3Interfaces,
   l3FontManager,
 
+
   k2Tags,
   evdStyles,
 
@@ -147,10 +154,8 @@ uses
 
   ddSub,
   ddTab,
-  ddTypes,
   ddRTFConst,
   ddRTFUnits,
-  ddHyperlink,
   ddStyleSegment,
   ddObjectSegment,
   ddRTFProperties,
@@ -190,6 +195,7 @@ begin
  f_Offset := 0;
  f_BlockIndent := propUndefined;
  f_IgnoreLeftIndent := False;
+ f_SkipAlign := False;
 end;
 
 procedure TddTextParagraph.AddHyperlink(aText: AnsiString; aDocID, aSubID: Integer);
@@ -199,9 +205,9 @@ begin
  l_Seg := TddHyperlink.Create;
  try
   l_Seg.AddTarget(aDocID, aSubID, CI_TOPIC);
-  l_Seg.Start:= Succ(Text.Len);
+  l_Seg.Start := Succ(Text.Len);
   AddText(aText);
-  l_Seg.Stop := Succ(Text.Len);//l_Seg.Start + Pred(Length(aText));
+  l_Seg.Stop := Succ(Text.Len);
   AddSegment(l_Seg);
  finally
   FreeAndNil(l_Seg);
@@ -506,6 +512,12 @@ var
   CHP.AssignFrom(aStateCHP);
  end;
 
+ procedure lp_AddAndClear;
+ begin
+  AddStyleSegment(aCHP);
+  CHP.AssignFrom(aStateCHP);
+ end;
+
 var
  l_S         : TddTextSegment;
  l_Diff      : TddCharacterProperty;
@@ -513,25 +525,14 @@ var
 begin
  if aCHP <> nil then
  begin
-  l_Diff := TddCharacterProperty(CHP.Diff(aCHP));
+  l_Diff := TddCharacterProperty(CHP.Diff(aCHP, True));
   try
    l_S2 := LastStyledSegment;
    l_HasSegment := l_S2 <> nil;
    if (l_Diff = nil) then
    begin
     if (aStateCHP <> nil) and not l_HasSegment then
-    begin
-     l_S := TddStyleSegment.Create;
-     try
-      l_S.Start := 1;
-      l_S.Stop := Text.Len;
-      l_S.CHP := aCHP;
-      CHP.AssignFrom(aStateCHP);
-      AddSegment(l_S);
-     finally
-      FreeAndNil(l_S);
-     end;
-    end // if (l_Diff = nil) and not HaveSegments then
+     lp_AddAndClear
     else
      if (aStateCHP <> nil) and l_HasSegment and not aStateCHP.Bold and CHP.Bold then
      begin
@@ -546,31 +547,34 @@ begin
      end; // if (aStateCHP <> nil) and l_HasSegment and not aStateCHP.Bold and CHP.Bold then
    end // if (l_Diff = nil) then
    else
-   begin
-    l_S := TddStyleSegment.Create;
-    try
-     l_S.CHP := aCHP;
-     l_S.Start := Text.Len + 1;
-     if l_HasSegment then
-     begin
-      if (l_S2.CHP.OCompare(aCHP) <> 0) and (l_S2.Stop = 0) then
+    if (aStateCHP <> nil) and (aStateCHP.OCompare(aCHP) <> 0) and (aStateCHP.FontNumber <> CHP.FontNumber) and not l_HasSegment then
+     lp_AddAndClear
+    else
+    begin
+     l_S := TddStyleSegment.Create;
+     try
+      l_S.CHP := aCHP;
+      l_S.Start := Text.Len + 1;
+      if l_HasSegment then
       begin
-       l_S2.Stop := Text.Len;
-       AddSegment(l_S);
-      end // l_S2.CHP.OCompare(aCHP) <> 0
+       if (l_S2.CHP.OCompare(aCHP) <> 0) and (l_S2.Stop = 0) then
+       begin
+        l_S2.Stop := Text.Len;
+        AddSegment(l_S);
+       end // l_S2.CHP.OCompare(aCHP) <> 0
+       else
+        AddSegment(l_S);
+      end // if HaveSegments then
       else
        AddSegment(l_S);
-     end // if HaveSegments then
-     else
-      AddSegment(l_S);
-    finally
-     FreeAndNil(l_S);
-    end; // l_S
+     finally
+      FreeAndNil(l_S);
+     end; // l_S
+    end;
+   finally
+    FreeAndNil(l_Diff);
    end;
-  finally
-   FreeAndNil(l_Diff);
-  end;
- end;  // aCHP <> nil
+  end;  // aCHP <> nil
 end;
 
 procedure TddTextParagraph.AddSegment(aSegment: TddTextSegment);
@@ -582,11 +586,11 @@ procedure TddTextParagraph.AddSub(aSubID: Integer; aName: AnsiString; aIsRealNam
 var
  l_Sub: TddSub;
 begin
- l_Sub:= TddSub.Create;
+ l_Sub := TddSub.Create;
  try
-  l_Sub.ID:= aSubID;
-  l_Sub.Name.AsString:= aName;
-  l_Sub.IsRealName:= aIsRealName;
+  l_Sub.ID := aSubID;
+  l_Sub.Name.AsString := aName;
+  l_Sub.IsRealName := aIsRealName;
   f_SubList.Add(l_Sub);
  finally
   FreeAndNil(l_SuB);
@@ -624,35 +628,6 @@ begin
  end;
 end;
 
-function TddTextParagraph.AnySegmentByCharIndex(Index: Longint; const
-        EndSegment: Boolean = False): TddTextSegment;
-var
- i    : Integer;
- l_Seg: TddTextSegment;
-begin
- Result := nil;
- for i := 0 to Pred(f_Segments.Count) do
- begin
-  l_Seg:= Segments[i];
-  if EndSegment then
-  begin
-   if l_Seg.Stop = Index then
-   begin
-    Result := l_Seg;
-    Break;
-   end // if l_Seg.Stop = Index then
-  end // if EndSegment then
-  else
-  begin
-   if (l_Seg.Start = Index) and (l_Seg.Stop >= l_Seg.Start) then
-   begin
-    Result := l_Seg;
-    Break;
-   end; // if (Seg.Start = Index) and (Seg.Stop >= Seg.Start) then
-  end
- end; // for i
-end;
-
 procedure TddTextParagraph.ApplyCHP(aCHP: TddCharacterProperty);
 var
  l_Seg: TddTextSegment;
@@ -677,40 +652,40 @@ procedure TddTextParagraph.ApplyPAP(aPAP: TddParagraphProperty);
 begin
  if aPAP <> nil then
   if PAP.IsDefault and not aPAP.IsDefault then
-   PAP:= aPAP;
+   PAP := aPAP;
 end;
 
 procedure TddTextParagraph.Assign(const aDocAtomObj: Tl3ProtoObject);
 var
-  l_Par: TddTextParagraph;
+ l_Par: TddTextParagraph;
 begin
-  if aDocAtomObj is TddTextParagraph then
-  begin
-   l_Par := aDocAtomObj as TddTextParagraph;
-   f_CHP.AssignFrom(l_Par.CHP);
-   f_PAP.AssignFrom(l_Par.PAP);
-   f_ID:= l_Par.ID;
-   f_Segments.Assign(l_Par.f_Segments);
-   f_SubList.Assign(l_Par.SubList);
-   f_Text.Assign(l_Par.f_Text);
-  end
-  else
-   inherited;
+ if aDocAtomObj is TddTextParagraph then
+ begin
+  l_Par := aDocAtomObj as TddTextParagraph;
+  f_CHP.AssignFrom(l_Par.CHP);
+  f_PAP.AssignFrom(l_Par.PAP);
+  f_ID := l_Par.ID;
+  f_Segments.Assign(l_Par.f_Segments);
+  f_SubList.Assign(l_Par.SubList);
+  f_Text.Assign(l_Par.f_Text);
+ end
+ else
+  inherited;
 end;
 
-function TddTextParagraph.CheckInTable(const Generator: Ik2TagGenerator; const LiteVersion: Boolean = False): Boolean;
+function TddTextParagraph.CheckInTable(const Generator: Ik2TagGenerator; aLiteVersion: TddLiteVersion): Boolean;
 begin
- Result:= False;
+ Result := False;
  if PAP.InTable then
  begin
-  if LiteVersion then
+  if aLiteVersion > dd_lvNone then
    Generator.AddIntegerAtom(k2_tiStyle, ev_saNormalTable)
   else
    if PAP.Style < 0 then
     Generator.AddIntegerAtom(k2_tiStyle, PAP.Style)
    else
     Generator.AddIntegerAtom(k2_tiStyle, ev_saNormalTable);
-  if LiteVersion then
+  if aLiteVersion > dd_lvNone then
    case PAP.Just of
     justR: Generator.AddIntegerAtom(k2_tiJustification, Ord(ev_itRight));
     justC: Generator.AddIntegerAtom(k2_tiJustification, Ord(ev_itCenter));
@@ -749,7 +724,7 @@ begin
    end // l_Seg.IsHyperLink
    else
    begin
-    l_CHP := TddCharacterProperty(CHP.Diff(l_Seg.CHP));
+    l_CHP := TddCharacterProperty(CHP.Diff(l_Seg.CHP, True));
     try
      if ((l_CHP <> nil) or (l_Seg.CHP.Style < 0)) then
      begin
@@ -778,7 +753,7 @@ begin
   i := 0;
   while i < SegmentCount do
   begin
-   l_Seg:= Segments[i];
+   l_Seg := Segments[i];
    if (l_Seg.Start > l_Seg.Stop) then
     f_Segments.Delete(i)
    else
@@ -991,17 +966,18 @@ end;
 
 procedure TddTextParagraph.Cleanup;
 begin
-  FreeAndNil(f_Text);
-  FreeAndNil(f_CHP);
-  FreeAndNil(f_PAP);
-  FreeAndNil(f_Segments);
-  FreeAndNil(f_SubList);
-  FreeAndNil(f_ItemText);
-  f_Inc := 0;
-  f_Offset := 0;
-  f_BlockIndent := propUndefined;
-  f_IgnoreLeftIndent := False;
-  inherited;
+ FreeAndNil(f_Text);
+ FreeAndNil(f_CHP);
+ FreeAndNil(f_PAP);
+ FreeAndNil(f_Segments);
+ FreeAndNil(f_SubList);
+ FreeAndNil(f_ItemText);
+ f_Inc := 0;
+ f_Offset := 0;
+ f_BlockIndent := propUndefined;
+ f_IgnoreLeftIndent := False;
+ f_SkipAlign := False;
+ inherited;
 end;
 
 procedure TddTextParagraph.Clear;
@@ -1015,6 +991,7 @@ begin
  f_Offset := 0;
  f_BlockIndent := propUndefined;
  f_IgnoreLeftIndent := False;
+ f_SkipAlign := False;
 end;
 
 function TddTextParagraph.ObjectByCharIndex(Index: Longint; const EndSegment: Boolean = False): TddTextSegment;
@@ -1110,40 +1087,43 @@ begin
   f_Text.Assign(aText);
 end;
 
-procedure TddTextParagraph.Write2Generator(const Generator: Ik2TagGenerator; aNeedProcessRow: Boolean; LiteVersion: Boolean);
+procedure TddTextParagraph.Write2Generator(const Generator: Ik2TagGenerator; aNeedProcessRow: Boolean; aLiteVersion: TddLiteVersion);
 var
  l_Styled     : Boolean;
+ l_NewStyle   : Integer;
  l_IgnoreStyle: Boolean;
 begin
+ l_NewStyle := 0;
  if f_Destination <> nil then
-  f_Destination.BeforeCloseParagraph(Self);
+  f_Destination.BeforeCloseParagraph(Self, l_NewStyle);
  l_Styled := False;
- Process;
+ Process(l_NewStyle);
  Generator.StartChild(k2_typTextPara);
  try
-  WriteTabStops(Generator, LiteVersion); // {Requestlink:571646843} - всякую "фигню" должен фильтр резаать.
-  l_IgnoreStyle := not LiteVersion and (PAP.Style = ev_saTxtHeader1) and (PAP.JUST = justF); // http://mdp.garant.ru/pages/viewpage.action?pageId=608627112
+  WriteTabStops(Generator, aLiteVersion); // {Requestlink:571646843} - всякую "фигню" должен фильтр резаать.
+  l_IgnoreStyle := (aLiteVersion = dd_lvNone) and (PAP.Style = ev_saTxtHeader1) and (PAP.JUST = justF); // http://mdp.garant.ru/pages/viewpage.action?pageId=608627112
   with PAP do
   begin
    if not l_IgnoreStyle then
    begin
-    l_Styled := CheckInTable(Generator, LiteVersion);
-    l_Styled := WritePAP(Generator, LiteVersion, l_Styled);
+    l_Styled := CheckInTable(Generator, aLiteVersion);
+    if l_Styled and (aLiteVersion = dd_lvTextAlign) then
+     aLiteVersion := dd_lvStyleOnly;
+    l_Styled := WritePAP(Generator, aLiteVersion, l_Styled);
    end; // if not LiteVersion and (PAP.Style < 0) and (PAP.JUST <> justF) then
-   if not LiteVersion then
+   if aLiteVersion = dd_lvNone then 
     Border.Write2Generator(Generator);
   end; //  with PAP
 
   { Выливка оформления }
-  if not l_Styled and not LiteVersion and not CHP.IsDefault then
+  if not l_Styled and (aLiteVersion = dd_lvNone) and not CHP.IsDefault then
    CHP.Write2Generator(Generator);
                                                                           
-  WriteSubs(Generator, LiteVersion);
+  WriteSubs(Generator, aLiteVersion);
 
   if CheckSegments then
   begin
-   WriteHyperlinks(Generator, LiteVersion);
-   WriteSegments(Generator, LiteVersion);
+   WriteSegments(Generator, aLiteVersion);
   end; // CheckSegments
   Generator.AddStringAtom(k2_tiText, Text.AsWStr);
  finally
@@ -1151,45 +1131,7 @@ begin
  end;
 end;
 
-procedure TddTextParagraph.WriteHyperlinks(const Generator: Ik2TagGenerator; aLiteVersion: Boolean);
-var
- l_LayerStarted: Boolean;
-
- procedure lp_StartLayer;
- begin
-  Generator.StartTag(k2_tiSegments);
-  Generator.StartChild(k2_typSegmentsLayer);
-  Generator.AddIntegerAtom(k2_tiHandle, Ord(ev_slHyperlinks));
-  l_LayerStarted := True;
- end;
-
-var
- i     : Integer;
- l_Seg : TddTextSegment;
-begin
- l_LayerStarted := False;
- try
-  for i := 0 to f_Segments.Hi do
-  begin
-   l_Seg := Segments[i];
-   if l_Seg.IsHyperlink then
-   begin
-    l_Seg.Stop := Min(l_Seg.Stop, Text.Len);
-    if not l_LayerStarted then
-     lp_StartLayer;
-    l_Seg.Write2Generator(Generator, nil, nil, aLiteVersion); 
-   end; // l_Seg.IsHyperlink
-  end; // for i
- finally
-  if l_LayerStarted then
-  begin
-   Generator.Finish;
-   Generator.Finish;
-  end; // if l_LayerStarted then
- end; //k2_tiSegments
-end;
-
-function TddTextParagraph.WritePAP(const Generator: Ik2TagGenerator; LiteVersion, aStyled: Boolean): Boolean;
+function TddTextParagraph.WritePAP(const Generator: Ik2TagGenerator; aLiteVersion: TddLiteVersion; aStyled: Boolean): Boolean;
 begin
  Result := False;
  with PAP do
@@ -1201,90 +1143,162 @@ begin
    Result:= True;
   end // if not aStyled and (Style < 0) then
   else
-  if (ListItem <> propUndefined) or (not LiteVersion and not PAP.IsDefault) then
+  if not PAP.IsDefault then
   begin
-   if xaLeft <> propUndefined then
-    Generator.AddIntegerAtom(k2_tiLeftIndent, xaLeft);
-   if (xaFirst <> propUndefined) and (xaLeft <> propUndefined) then
-    Generator.AddIntegerAtom(k2_tiFirstIndent, xaFirst + xaLeft);
-   if xaFirst <> propUndefined then
-    Generator.AddIntegerAtom(k2_tiFirstLineIndent, xaFirst);
-   if xaRight <> propUndefined then
-    Generator.AddIntegerAtom(k2_tiRightIndent, xaRight);
-   if Before <> propUndefined then
-    Generator.AddIntegerAtom(k2_tiSpaceBefore, Before);
-   if After <> propUndefined then
-    Generator.AddIntegerAtom(k2_tiSpaceAfter, After);
-   case Just of
-    justR: Generator.AddIntegerAtom(k2_tiJustification, Ord(ev_itRight));
-    justC: Generator.AddIntegerAtom(k2_tiJustification, Ord(ev_itCenter));
-    justF: Generator.AddIntegerAtom(k2_tiJustification, Ord(ev_itWidth));
-   else
-    Generator.AddIntegerAtom(k2_tiJustification, Ord(ev_itLeft));
-   end; { case Just}
+   if f_Text.Len > 0 then
+   begin
+    if (aLiteVersion = dd_lvNone) then
+    begin
+     if xaLeft <> propUndefined then
+      Generator.AddIntegerAtom(k2_tiLeftIndent, xaLeft);
+     if (xaFirst <> propUndefined) and (xaLeft <> propUndefined) then
+      Generator.AddIntegerAtom(k2_tiFirstIndent, xaFirst + xaLeft);
+     if xaFirst <> propUndefined then
+      Generator.AddIntegerAtom(k2_tiFirstLineIndent, xaFirst);
+     if xaRight <> propUndefined then
+      Generator.AddIntegerAtom(k2_tiRightIndent, xaRight);
+     if Before <> propUndefined then
+      Generator.AddIntegerAtom(k2_tiSpaceBefore, Before);
+     if After <> propUndefined then
+      Generator.AddIntegerAtom(k2_tiSpaceAfter, After);
+    end; // if (aLiteVersion = dd_lvNone) then
+    if (aLiteVersion = dd_lvNone) or (aLiteVersion = dd_lvTextAlign) then
+     case Just of
+      justR: Generator.AddIntegerAtom(k2_tiJustification, Ord(ev_itRight));
+      justC: Generator.AddIntegerAtom(k2_tiJustification, Ord(ev_itCenter));
+      justF: Generator.AddIntegerAtom(k2_tiJustification, Ord(ev_itWidth));
+     else
+      Generator.AddIntegerAtom(k2_tiJustification, Ord(ev_itLeft));
+    end; { case Just}
+   end; // if f_Text.Len > 0 then
   end; // not LiteVersion and not IsDefault;
  end;
 end;
 
-procedure TddTextParagraph.WriteSegments(const Generator: Ik2TagGenerator; aLiteVersion: Boolean);
+procedure TddTextParagraph.WriteSegments(const Generator: Ik2TagGenerator; aLiteVersion: TddLiteVersion);
+type
+ TddLayerStatus = (dd_lsNone, dd_lsStartedSegment, dd_lsStartLayer);
 var
- l_LayserStatred: Boolean;
+ l_LayserStatus: TddLayerStatus;
 
- procedure lp_StartLayer;
+ procedure lp_StartSegments;
  begin
   Generator.StartTag(k2_tiSegments);
-  Generator.StartChild(k2_typSegmentsLayer);
-  Generator.AddIntegerAtom(k2_tiHandle, Ord(ev_slView));
-  l_LayserStatred := True;
+  l_LayserStatus := dd_lsStartedSegment;
+ end;
+
+ procedure lp_StartLayer(aLayer: TevSegmentHandle);
+ begin
+  if l_LayserStatus = dd_lsNone then
+   lp_StartSegments;
+  if l_LayserStatus = dd_lsStartedSegment then
+  begin
+   Generator.StartChild(k2_typSegmentsLayer);
+   Generator.AddIntegerAtom(k2_tiHandle, Ord(aLayer));
+   l_LayserStatus := dd_lsStartLayer;
+  end; // if l_LayserStatus = dd_lsStartLayer then
+ end;
+
+ procedure lp_FinishLayer;
+ begin
+  if l_LayserStatus = dd_lsStartLayer then
+  begin
+   Generator.Finish;
+   l_LayserStatus := dd_lsStartedSegment;
+  end; // if l_LayserStatus = dd_lsStartLayer then
+ end;
+
+ procedure lp_FinishSegmentsList;
+ begin
+  if l_LayserStatus = dd_lsStartedSegment then
+  begin
+   Generator.Finish;
+   l_LayserStatus := dd_lsStartedSegment;
+  end; // if l_LayserStatus = dd_lsStartLayer then
+ end;
+
+ function lp_EqualLayer(aLayer : TevSegmentHandle; const aSeg: TddTextSegment): Boolean;
+ begin
+  if (aLayer = ev_slHyperlinks) and aSeg.IsHyperlink then
+   Result := True
+  else
+   if (aLayer = ev_slObjects) and aSeg.IsObjectSegment then
+    Result := True
+   else
+    if (aLayer = ev_slView) and not aSeg.IsObjectSegment and not aSeg.IsHyperlink then
+     Result := True
+    else
+     Result := False;
+ end;
+
+ procedure lp_WriteStyleSegment(aLayer : TevSegmentHandle; const aSeg: TddTextSegment);
+ var
+  l_CHP: TddCharacterProperty;
+ begin
+  l_CHP := nil;
+  if lp_EqualLayer(aLayer, aSeg) then
+   if aSeg.Start <= Text.Len then // http://mdp.garant.ru/pages/viewpage.action?pageId=610745778
+   begin
+    aSeg.Stop := Min(aSeg.Stop, Text.Len);
+    if aLayer = ev_slView then
+     if aLiteVersion > dd_lvNone then
+     begin
+      l_CHP := nil;
+      if CHP.Hidden then Exit;
+     end // if aLiteVersion then
+     else
+      l_CHP := TddCharacterProperty(CHP.Diff(aSeg.CHP, True));
+    if not aSeg.SkipSegment(l_CHP, aLiteVersion) then
+    begin
+     lp_StartLayer(aLayer);
+     try
+      aSeg.Write2Generator(Generator, l_CHP, CHP, aLiteVersion)
+     finally
+      FreeAndNil(l_CHP);
+     end; // try
+    end; // if ((aSeg.CHP.Style <> 0) and (aSeg.CHP.Style <> propUndefined)) or (l_CHP <> nil) then
+   end; // if aSeg.Start < Text.Len then
+ end;
+
+ function lp_GetNextWritableLayer(var aLayer : TevSegmentHandle): Boolean;
+ begin
+  Result := True;
+  case aLayer of
+   Superposition: aLayer := Hyperlinks; // Чтобы эталоны не отъехали...
+   Hyperlinks: aLayer := View;
+   View: aLayer := Objects;
+   else
+   begin
+    Result := False;
+    aLayer := Mistakes;
+   end;
+  end; // case aLayer of
  end;
 
 var
- j        : Integer;
- l_CHP    : TddCharacterProperty;
- l_Seg    : TddTextSegment;
- l_CharSet: LongInt;
- l_LogFont: Tl3LogFont;
+ j       : Integer;
+ l_Seg   : TddTextSegment;
+ l_Layer : TevSegmentHandle;
 begin
- l_LayserStatred := False;
+ l_Layer := Superposition;
+ l_LayserStatus := dd_lsNone;
  try
-  for j := 0 to f_Segments.Hi do
-  begin { Выливка оформления сегментов }
-   l_Seg := Segments[j];
-   if not l_Seg.IsHyperlink then
-   begin
-    if l_Seg.Start <= Text.Len then // http://mdp.garant.ru/pages/viewpage.action?pageId=610745778
+  while lp_GetNextWritableLayer(l_Layer) do
+   try
+    for j := 0 to f_Segments.Hi do
     begin
-     l_Seg.Stop := Min(l_Seg.Stop, Text.Len);
-     if aLiteVersion then
-     begin
-      l_CHP := nil;
-      if CHP.Hidden then Continue;
-     end // if aLiteVersion then
-     else
-      l_CHP := TddCharacterProperty(CHP.Diff(l_Seg.CHP));
-     if not l_Seg.SkipSegment(l_CHP, aLiteVersion) then
-     begin
-      if not l_LayserStatred then
-       lp_StartLayer;
-      try
-       l_Seg.Write2Generator(Generator, l_CHP, CHP, aLiteVersion)
-      finally
-       FreeAndNil(l_CHP);
-      end; // try
-     end; // if ((l_Seg.CHP.Style <> 0) and (l_Seg.CHP.Style <> propUndefined)) or (l_CHP <> nil) then
-    end; // if l_Seg.Start < Text.Len then
-   end; // if not l_Seg.IsHyperlink then
-  end; // for j
+     l_Seg := Segments[j];
+     lp_WriteStyleSegment(l_Layer, l_Seg);
+    end; // for j := 0 to f_Segments.Hi do
+   finally
+    lp_FinishLayer;
+   end;
  finally
-  if l_LayserStatred then
-  begin
-   Generator.Finish;
-   Generator.Finish;
-  end;
+  lp_FinishSegmentsList;
  end; // k2_tiSegments
 end;
 
-procedure TddTextParagraph.WriteSubs(const aGenerator: Ik2TagGenerator; aLiteVersion: Boolean);
+procedure TddTextParagraph.WriteSubs(const aGenerator: Ik2TagGenerator; aLiteVersion: TddLiteVersion);
 var
  i    : Integer;
  l_Sub: TddSub;
@@ -1310,7 +1324,7 @@ begin
  end; // SubList.Count > 0
 end;
 
-procedure TddTextParagraph.WriteTabStops(const Generator: Ik2TagGenerator; aLiteVersion: Boolean);
+procedure TddTextParagraph.WriteTabStops(const Generator: Ik2TagGenerator; aLiteVersion: TddLiteVersion);
 var
  i    : Integer;
  l_Tab: TddTab;
@@ -1354,6 +1368,7 @@ begin
 end;
 
 const
+ cnCenterAlign = 2000;
  cnRightAlign = 4000;
 
 procedure TddTextParagraph.CheckPAP;
@@ -1363,16 +1378,36 @@ begin
  l_LeftIndent := PAP.xaLeft;
  if (PAP.xaFirst <> propUndefined) and (l_LeftIndent <> propUndefined) then
   Inc(l_LeftIndent, PAP.xaFirst);
- if (l_LeftIndent <> propUndefined) and (l_LeftIndent > cnRightAlign) then
+ if (l_LeftIndent <> propUndefined) and (l_LeftIndent > cnCenterAlign) then
  begin
-  if PAP.Just <> JustR then
-   PAP.Just := JustR;
+  if l_LeftIndent < cnRightAlign then
+  begin
+   if (PAP.Just <> JustC) then
+   // Можно проверять: (PAP.ListItem = propUndefined), но отъедет в задаче (нижняя картинка): http://mdp.garant.ru/pages/viewpage.action?pageId=611189558
+    PAP.Just := JustC;
+  end // // if l_LeftIndent < cnRightAlign then
+  else
+   if PAP.Just <> JustR then
+    PAP.Just := JustR;
   PAP.xaLeft := propUndefined;
   PAP.xaFirst := propUndefined;
  end; // if (l_LeftIndent <> propUndefined) and (l_LeftIndent > cnRightAlign) then
 end;
 
-procedure TddTextParagraph.Process;
+procedure TddTextParagraph.Process(aNewStyle: Integer);
+
+ procedure lp_CheckNewStyle;
+ begin
+  if aNewStyle <> 0 then
+   if aNewStyle = ev_saToLeft then
+   begin
+    if PAP.Just = JustL then
+     PAP.Style := ev_saToLeft;
+   end // if aNewStyle = ev_saToLeft then
+   else
+    PAP.Style := aNewStyle;
+ end;
+
 var
  j: LongInt;
  l_P: TddDocumentAtom;
@@ -1390,7 +1425,7 @@ begin
   begin
    if l_Style.EvdStyle <> -1 then
     PAP.Style := l_Style.EvdStyle
-  end
+  end // if (l_Style <> nil) and l_Style.IsEvdStyle then
   else
   if PAP.Style in [1..4] then
   begin
@@ -1398,7 +1433,7 @@ begin
    if (l_Style <> nil) and (Uppercase(l_Style.AsString) <> Format('HEADING %d', [l_Style.Number]))
       and (Uppercase(l_Style.AsString) <> Format('ЗАГОЛОВОК %d', [l_Style.Number])) then
     PAP.Style := PAP.Style + 16;
-  end;
+  end; // if PAP.Style in [1..4] then
   if CHP.Style <> 0 then
   begin
    l_Style := f_Destination.GetStyle(CHP.Style);
@@ -1406,7 +1441,7 @@ begin
     CHP.Style := l_Style.EvdStyle
    else
     CHP.Style := 0;
-  end;
+  end; // if CHP.Style <> 0 then
   for j := 0 to f_Segments.Hi do
   begin
    l_Seg := Segments[j];
@@ -1420,15 +1455,19 @@ begin
       l_Seg.CHP.Style := l_Seg.CHP.EvdStyle
      else
       l_Seg.CHP.Style := 0;
-   end;
+   end; // if l_Seg.CHP.Style <> 0 then
    if f_Destination.LiteVersion then
     if l_Seg.CHP.Pos = cpSuperScript then
      Text.Append('.');
-  end;
+  end; // for j := 0 to f_Segments.Hi do
  end; // if (f_Destination <> nil) and (f_Destination is TdestNorm) then
- CheckSpaceInText;
- CheckTablList;
- CheckPAP;
+ if CheckSpaceInText and not SkipAlign then
+ begin
+  CheckTablList;
+  CheckPAP;
+ end; // if CheckSpaceInText then
+ CheckSymbolFont;
+ lp_CheckNewStyle;
 end;
 
 procedure TddTextParagraph.CheckListItem;
@@ -1471,7 +1510,7 @@ begin
  end;
 end;
 
-procedure TddTextParagraph.CheckSpaceInText;
+function TddTextParagraph.CheckSpaceInText: Boolean;
 
  function lp_IsNumberWithSpace: Boolean;
  var
@@ -1528,24 +1567,100 @@ procedure TddTextParagraph.CheckSpaceInText;
   end; // if Result then
  end;
 
+var
+ l_LeftSpace: Integer;
+ l_NoSegment: Boolean;
+
 const
- cnCenterAlign = 40;
- cnRightAlingn = 70;
+ cnCenterAlign = 20;
+ cnRightAlingn = 60;
+
+ procedure lp_CheckAlign;
+
+  function lp_CanAlign(aLen: Integer): Boolean;
+  const
+   cnMinAligndAlign = 1;
+   cnMaxOneLineWith = 120;
+  begin
+   Result := (aLen > cnMinAligndAlign) and (aLen <= cnMaxOneLineWith) and not CHP.MonoTypeFont;
+  end;
+
+  procedure lp_CorrectPAP(aPara: TddTextParagraph);
+  const
+   cnLeftAlignIndent = 4000;
+  begin
+   aPara.PAP.JUST := JustL;
+   aPara.PAP.xaFirst := cnLeftAlignIndent;
+   aPara.SkipAlign := True;
+  end;
+
+ const
+  cnAlignDelta = 3;
+ var
+  l_Text     : Tl3String;
+  l_Align    : Boolean;
+  l_NextPara : TObject;
+  l_NextSpace: Integer;
+ begin
+  if f_Destination = nil then Exit; // HTML Reader & etc.
+  l_Align := lp_CanAlign(f_Text.Len);
+  if not l_Align then
+  begin
+   CheckSpaceInText := False;
+   Exit;
+  end; // if not l_Align then
+  if l_NoSegment then
+  begin
+   l_NextPara := f_Destination.NextTextPara(Self);
+   while l_NextPara <> nil do
+   begin
+    l_Text := TddTextParagraph(l_NextPara).Text;
+    if (l_LeftSpace > cnRightAlingn) and lp_CanAlign(l_Text.Len) then
+    begin
+     l_NextSpace := ev_lpIndentPrim(l_Text.St, l_Text.Len);
+     if Abs(l_NextSpace - l_LeftSpace) < cnAlignDelta then
+     begin
+      if l_Align then
+      begin
+       lp_CorrectPAP(Self);
+       l_Align := False;
+      end; // if l_Align then
+      lp_CorrectPAP(TddTextParagraph(l_NextPara));
+      CheckSpaceInText := False;
+     end // if l_NextSpace = l_LeftSpace then
+     else
+      Break;
+    end // if (l_LeftSpace > cnCenterAlign) and lp_CanAlign(f_Text.Len) and lp_CanAlign(l_Text.Len) then
+    else
+     Break;
+    l_NextPara := f_Destination.NextTextPara(l_NextPara); 
+   end; // while l_NextPara <> nil do
+  end; // if l_NoSegment then
+  if l_Align and not SkipAlign then
+   if (l_LeftSpace >= cnRightAlingn) and (PAP.JUST <> JustR) then
+    PAP.JUST := JustR
+   else
+    if (l_LeftSpace >= cnCenterAlign) and (PAP.JUST <> JustF) and (PAP.JUST <> JustC) then
+     PAP.JUST := JustC;
+ end;
+
 var
  l_Seg      : TddTextSegment;
  l_NeedTrim : Boolean;
- l_LeftSpace: Integer;
  l_NeedAlign: Boolean;
 begin
+ Result := True;
  // Здесь будут накапливатсья правила удаления пробелов, которые со временем преобразуются в фильтр.
  // А пока просто исправляться конкретные ошибки:
  // http://mdp.garant.ru/pages/viewpage.action?pageId=596385821
  // http://mdp.garant.ru/pages/viewpage.action?pageId=609131924
  // http://mdp.garant.ru/pages/viewpage.action?pageId=609132323
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=611189558
  l_LeftSpace := 0;
  if (f_Text.CodePage = CP_ANSI) and (CHP.Pos <> cpSuperScript) then // Моноширинный и верхний индекс - не трогаем...
  begin
   l_NeedTrim := f_Segments.Count = 0;
+  l_NoSegment := l_NeedTrim;
   if not l_NeedTrim then
   begin
    l_NeedTrim := (f_Segments.Count = 1);
@@ -1555,7 +1670,9 @@ begin
     l_NeedTrim := not l_Seg.IsHyperlink and (f_Text[l_Seg.Start] = cc_HardSpace);
     l_NeedAlign := l_Seg.IsObjectSegment; // http://mdp.garant.ru/pages/viewpage.action?pageId=609132323
    end; // if l_NeedTrim then
-  end; // if not l_NeedTrim then
+  end // if not l_NeedTrim then
+  else
+   l_NeedAlign := l_NoSegment; // http://mdp.garant.ru/pages/viewpage.action?pageId=611189558
   if not l_NeedTrim or l_NeedAlign then
   begin
    l_LeftSpace := ev_lpIndentPrim(f_Text.St, f_Text.Len);
@@ -1567,12 +1684,8 @@ begin
   end; // if not l_NeedTrim or l_NeedAlign then
   if l_NeedTrim then
   begin
-   if l_NeedAlign then
-    if (l_LeftSpace >= cnRightAlingn) and (PAP.JUST <> JustR) then
-     PAP.JUST := JustR
-    else
-     if (l_LeftSpace >= cnCenterAlign) and (PAP.JUST <> JustC) then
-      PAP.JUST := JustC;
+   if l_NeedAlign and not SkipAlign then
+    lp_CheckAlign;
    f_Text.Trim;
    if f_Text.Empty then
     f_Segments.Clear;
@@ -1610,13 +1723,84 @@ begin
   begin
    l_TabPos := ev_lpCharIndex(cc_Tab, f_Text.AsWStr);
    l_Indent := TddTab(TabList[0]).TabPos;
-   if (l_TabPos > l3NotFound) and (l_TabPos <= cnLeftTabPos) and (l_Indent > cnRightAlign) then
+   if (l_TabPos > l3NotFound) and (l_TabPos <= cnLeftTabPos) and (l_Indent > cnCenterAlign) then
    begin
     xaLeft := l_Indent;
     TabList.DeleteLast;
    end; // if l_Indent > cnRightAlign then
   end; // if (TabList.Count = 1) and (TddTab(TabList[0]).Kind = 0) then
  end; // with PAP do
+end;
+
+procedure TddTextParagraph.CheckSymbolFont;
+begin
+ if CHP.SymbolFont and (f_Segments.Count = 0) then
+ begin
+  AddStyleSegment(CHP);
+  CHP.Clear;
+ end; // if CHP.SymbolFont and (f_Segments.Count = 0) then
+end;
+
+procedure TddTextParagraph.AddStyleSegment(aCHP: TddCharacterProperty);
+var
+ l_Style: TddStyleSegment;
+begin
+ l_Style := TddStyleSegment.Create;
+ try
+  l_Style.Start := 1;
+  l_Style.Stop := Text.Len;
+  l_Style.CHP := aCHP;
+  AddSegment(l_Style);
+ finally
+  FreeAndNil(l_Style);
+ end;
+end;
+
+procedure TddTextParagraph.AddHyperlinkWithURL(aStart: Integer;
+  const aURL: AnsiString);
+var
+ l_Seg: TddHyperlink;
+begin
+ l_Seg := TddHyperlink.Create;
+ try
+  l_Seg.Start := aStart;
+  l_Seg.Stop := Text.Len;
+  l_Seg.URL.AsString := aURL;
+  CheckPrevSegment(l_Seg);
+  AddSegment(l_Seg);
+ finally
+  FreeAndNil(l_Seg);
+ end;
+end;
+
+procedure TddTextParagraph.AddSub(aSubID: Integer;
+  const aName: Tl3PCharLen);
+var
+ l_Sub: TddSub;
+begin
+ l_Sub := TddSub.Create;
+ try
+  l_Sub.ID := aSubID;
+  l_Sub.Name.AsPCharLen := aName;
+  l_Sub.IsRealName := True;
+  f_SubList.Add(l_Sub);
+ finally
+  FreeAndNil(l_SuB);
+ end;
+end;
+
+procedure TddTextParagraph.CheckPrevSegment(aHyperlink: TddHyperlink);
+var
+ i    : Integer;
+ l_Seg: TddTextSegment;
+begin
+ for i := f_Segments.Hi downto 0 do
+ begin
+  l_Seg := f_Segments[i];
+  if l_Seg.IsHyperlink or l_Seg.IsObjectSegment then Continue;
+  if (l_Seg.Start = aHyperlink.Start) and (l_Seg.Stop = aHyperlink.Stop) then
+   f_Segments.Delete(i);
+ end; // for i := f_Segments.Hi downto 0 do
 end;
 
 end.

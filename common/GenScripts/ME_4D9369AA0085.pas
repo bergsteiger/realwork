@@ -2,6 +2,7 @@ unit NOT_FINISHED_evCommentParaAdder;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCommentParaAdder.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCommentParaAdder" MUID: (4D9369AA0085)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit ncsTransporterIOThread;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsTransporterIOThread.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsTransporterIOThread" MUID: (5460B6230039)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

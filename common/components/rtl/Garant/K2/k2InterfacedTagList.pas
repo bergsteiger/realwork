@@ -2,6 +2,7 @@ unit k2InterfacedTagList;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2InterfacedTagList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2InterfacedTagList" MUID: (47E37EF20114)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
@@ -67,7 +68,7 @@ function Tk2InterfacedTagList.ForEach(anAction: Ik2TagList_ForEach_Action): Inte
  begin
   Result := anAction(anItem^, anIndex);
  end;
-
+ 
 //#UC END# *4BB0841A0071_47E37EF20114_var*
 begin
 //#UC START# *4BB0841A0071_47E37EF20114_impl*

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas"
 // Стереотип: "GUIControlMixIn"
+// Элемент модели: "nscStatusBarItemNotification" MUID: (505DA5E7038D)
+// Имя типа: "_nscStatusBarItemNotification_"
 
 {$Define nscStatusBarItemNotification_imp}
 
@@ -9,16 +11,15 @@
 const
  cStatusbarItemSize = 20;
 
+type
  //#UC START# *505DA5E7038Dci*
  //#UC END# *505DA5E7038Dci*
  //#UC START# *505DA5E7038Dcit*
-type 
  //#UC END# *505DA5E7038Dcit*
  _nscStatusBarItemNotification_ = class(_nscStatusBarItemNotification_Parent_, InscStatusBarItem)
   private
    f_NotificationClients: TnscStatusBarItemsList;
    f_ItemDef: InscStatusBarItemDef;
-    {* Поле для свойства ItemDef }
   private
    procedure CMVisibleChanged(var aMessage: TMessage); message CM_VISIBLECHANGED;
   protected

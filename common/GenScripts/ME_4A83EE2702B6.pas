@@ -2,6 +2,7 @@ unit vtComboBoxQS;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtComboBoxQS.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtComboBoxQS" MUID: (4A83EE2702B6)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

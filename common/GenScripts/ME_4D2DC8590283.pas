@@ -2,6 +2,7 @@ unit deSimpleTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\deSimpleTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdeSimpleTree" MUID: (4D2DC8590283)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

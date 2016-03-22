@@ -2,6 +2,7 @@ unit seModalSupport;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\seModalSupport.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "seModalSupport" MUID: (4FC7541C02BA)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

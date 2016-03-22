@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmUserInteractiveForm.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmUserInteractiveForm" MUID: (4E01D5E50001)
+// Имя типа: "_vcmUserInteractiveForm_"
 
 {$Define vcmUserInteractiveForm_imp}
 
@@ -11,7 +13,7 @@
    function MessageDlg(const aMsg: IvcmCString;
     const aKey: AnsiString;
     aDlgType: TMsgDlgType = Dialogs.mtCustom;
-    aButtons: TMsgDlgButtons = Dialogs.[mbOK]): Integer; overload;
+    aButtons: TMsgDlgButtons = [mbOK]): Integer; overload;
    function MessageDlg(const aMsg: TvcmMessageID): Integer; overload;
    procedure Say(const aMsg: TvcmMessageID); overload;
    procedure Say(const aMsg: TvcmMessageID;
@@ -41,7 +43,7 @@ _vcmUserInteractiveForm_ = _vcmUserInteractiveForm_Parent_;
 function _vcmUserInteractiveForm_.MessageDlg(const aMsg: IvcmCString;
  const aKey: AnsiString;
  aDlgType: TMsgDlgType = Dialogs.mtCustom;
- aButtons: TMsgDlgButtons = Dialogs.[mbOK]): Integer;
+ aButtons: TMsgDlgButtons = [mbOK]): Integer;
 //#UC START# *4993085402D8_4E01D5E50001_var*
 //#UC END# *4993085402D8_4E01D5E50001_var*
 begin

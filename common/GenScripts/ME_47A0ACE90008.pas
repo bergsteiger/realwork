@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Castable.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3Castable" MUID: (47A0ACE90008)
+// Имя типа: "_l3Castable_"
 
 {$Define l3Castable_imp}
 

@@ -2,6 +2,7 @@ unit k2TypedHugeListTag;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TypedHugeListTag.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2TypedHugeListTag" MUID: (527BA4EE03B4)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

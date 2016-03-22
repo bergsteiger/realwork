@@ -2,6 +2,7 @@ unit f1QueryDocumentContainer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\QueryCardProcessing\f1QueryDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tf1QueryDocumentContainer" MUID: (4CCEACEC0101)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

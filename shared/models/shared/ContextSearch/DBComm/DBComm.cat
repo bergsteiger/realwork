@@ -553,7 +553,77 @@
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0
-		    quidu      	"53EB78600376"))
+		    quidu      	"53EB78600376")
+		(object Operation "get_ssyns"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1448898171322454")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"const,cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"535692280040")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*565C6E7B00E5_4EBBDD2C01CE*"
+			    value      	(value Text 
+|//#UC START# *565C6E7B00E5_4EBBDD2C01CE*§	return m_ssyns;§	//#UC END# *565C6E7B00E5_4EBBDD2C01CE*
+			    )))
+		    quid       	"565C6E7B00E5"
+		    documentation 	"Ó‰ÌÓÒÎÓ‚Ì˚Â ÒËÌÓÌËÏ˚"
+		    result     	"Synonyms"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"535692280040")
+		(object Operation "get_invb_index"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1454426755181512")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"const,cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"56B0C9C40227")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*56B0CA83008E_4EBBDD2C01CE*"
+			    value      	(value Text 
+|//#UC START# *56B0CA83008E_4EBBDD2C01CE*§	return m_invb_index;§	//#UC END# *56B0CA83008E_4EBBDD2C01CE*
+			    )))
+		    quid       	"56B0CA83008E"
+		    documentation 	"ËÌ‰ÂÍÒ Ò ÌÂ‚Ë‰ËÏ˚ÏË ·ÎÓ˜Ì˚ÏË"
+		    result     	"InvisibleDataIndex"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"56B0C9C40227"))
 	    language   	"MDA Generator")
 	(object Class "DocId"
 	    attributes 	(list Attribute_Set
@@ -1027,7 +1097,7 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*5540CDDD01F2_5540CF29039B*"
 			    value      	(value Text 
-|//#UC START# *5540CDDD01F2_5540CF29039B*§	Core::Aptr <GCL::StrSet> ret = new GCL::StrSet ();§§	DBCore::IIndex_var index = m_base->make (m_src.c_str ());§§	if (index->is_valid ()) {§		std::string word = in.substr (0, in.size () - 1);§§		char buf [64];§§		DBCore::IBTreeIterator_var it = index->make_iterator ();§§		bool is_context_str = (m_src == "Context.str");§§		if (is_context_str) {§			std::string key = std::string (1, 0xc0 + word.size ()) + word;§			it->Set (key.c_str ());§		} else {§			it->Set (word.c_str ());§		}§§		for (; !it->End (); it->next ()) {§			const char* k = (const char*) it->Key ();§§			if (ACE_OS::memcmp ((is_context_str)? k + 1 : k, word.c_str (), word.size ()) != 0) {§				break;§			}§§			DBCore::Store* str = index->open_stream (k, 0);§§			if (str) {§				long len = str->Length ();§§				str->Read (buf, len);§				buf [len] = 0;§§				index->close_stream (str);§§				const char* norm_buf = buf + sizeof (long);§§				Core::Aptr <GCL::StrSet> res;§§				if (norm_buf [0] & 0x80) {§					ret->insert (norm_buf);§				} else {§					Core::Aptr <GCL::StrSet> res = m_normalizer->execute ((is_context_str)? k + 1: k, true);§					ret->insert (res->begin (), res->end ());§				}§			}§		}§	}§§	GCL::StrSet::iterator it = ret->begin ();§	std::advance (it, std::min <size_t> (ret->size (), m_max_size));§	ret->erase (it, ret->end ());§§	return ret._retn ();§	//#UC END# *5540CDDD01F2_5540CF29039B*
+|//#UC START# *5540CDDD01F2_5540CF29039B*§	Core::Aptr <GCL::StrSet> ret = new GCL::StrSet ();§§	DBCore::IIndex_var index = m_base->make (m_src.c_str ());§§	if (index->is_valid ()) {§		std::string word = in.substr (0, in.size () - 1);§§		char buf [64];§§		DBCore::IBTreeIterator_var it = index->make_iterator ();§§		bool is_context_str = (m_src == "Context.str");§§		if (is_context_str) {§			std::string key = std::string (1, 0xc0 + word.size ()) + word;§			it->Set (key.c_str ());§		} else {§			it->Set (word.c_str ());§		}§§		for (; !it->End (); it->next ()) {§			const char* k = (const char*) it->Key ();§§			if (ACE_OS::memcmp ((is_context_str)? k + 1 : k, word.c_str (), word.size ()) != 0) {§				break;§			}§§			DBCore::Store* str = index->open_stream (k, 0);§§			if (str) {§				long len = str->Length ();§§				str->Read (buf, len);§				buf [len] = 0;§§				index->close_stream (str);§§				const char* norm_buf = buf + sizeof (long);§§				Core::Aptr <GCL::StrSet> res;§§				if (norm_buf [0] & 0x80) {§					ret->insert (norm_buf + 1); // ÌÛÎÂ‚ÓÈ ·‡ÈÚ Ë„ÌÓËÛÂÏ§				} else {§					Core::Aptr <GCL::StrSet> res = m_normalizer->execute ((is_context_str)? k + 1: k, false);§					ret->insert (res->begin (), res->end ());§				}§			}§		}§	}§§	GCL::StrSet::iterator it = ret->begin ();§	std::advance (it, std::min <size_t> (ret->size (), m_max_size));§	ret->erase (it, ret->end ());§§	return ret._retn ();§	//#UC END# *5540CDDD01F2_5540CF29039B*
 			    )))
 		    quid       	"5540CDDD01F2"
 		    documentation 	"ÔÓÎÛ˜ËÚ¸ ÏÌÓÊÂÒÚ‚Ó Û‰Ó‚ÎÂÚ‚Óˇ˛˘ÂÂ ¯‡·ÎÓÌÛ"
@@ -1051,6 +1121,357 @@
 		    opExportControl 	"Public"
 		    uid        	0
 		    quidu      	"44FEBE140197"))
+	    language   	"MDA Generator")
+	(object Class "SynCompare"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1448903016678565")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need copy ctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need init ctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"force usage"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need dctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"packed"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*565C816802A5*"
+		    value      	(value Text 
+|//#UC START# *565C816802A5*§	bool operator () (const SynPair& x, const SynPair& y) const {§		return x.key < y.key;§	}§	//#UC END# *565C816802A5*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "shared"/ContextSearch/DBComm/SynCompare|565C816802A5
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"565C816802A5"
+	    documentation 	" ÓÏÔ‡‡ÚÓ"
+	    stereotype 	"Struct"
+	    language   	"MDA Generator")
+	(object Class "InvisibleData"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1454426234670737")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "shared"/ContextSearch/DBComm/InvisibleData|56B0C87A029E
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need copy ctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need init ctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"force usage"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need dctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"packed"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*56B0C87A029E*"
+		    value      	(value Text 
+|//#UC START# *56B0C87A029E*§	bool operator < (const InvisibleData& val) const {§		return key < val.key;§	}§	//#UC END# *56B0C87A029E*
+		    )))
+	    quid       	"56B0C87A029E"
+	    documentation 	"ÕÂ‚Ë‰ËÏ˚Â"
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "key"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1454426650559526")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"452257A0036F"))
+		    quid       	"56B0CA1A021E"
+		    documentation 	"ÍÎ˛˜"
+		    type       	"a-string"
+		    quidu      	"452257A0036F"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "InvisibleDataIndex"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1454426564552606")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"56B0C9C40227"
+	    documentation 	"»Ì‰ÂÍÒ ‰Îˇ ÌÂ‚Ë‰ËÏ˚ı"
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Class "Entry"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1454498648516041")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/ÃÓ‰ÂÎ¸ ÔÓÂÍÚ‡ "shared"/ContextSearch/DBComm/Entry|56B1E3580204
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need copy ctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need init ctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"force usage"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need dctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"packed"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*56B1E3580204*"
+		    value      	
+|//#UC START# *56B1E3580204*§	inline Entry& operator = (const Entry& copy) {§		pos = copy.pos;§		len = copy.len;§		rel = copy.rel;§		return *this;§	}§	//#UC END# *56B1E3580204*
+		    ))
+	    quid       	"56B1E3580204"
+	    documentation 	"¬ıÓÊ‰ÂÌËÂ"
+	    stereotype 	"Struct"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "pos"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1454499160064301")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFDE101CA"))
+		    quid       	"56B1E5580031"
+		    documentation 	"ÔÓÁËˆËˇ"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    Containment 	"By Value")
+		(object ClassAttribute "len"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1454499202268716")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFDE101CA"))
+		    quid       	"56B1E58200FB"
+		    documentation 	"‰ÎËÌ‡"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    Containment 	"By Value")
+		(object ClassAttribute "rel"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1454499229380268")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFDE101CA"))
+		    quid       	"56B1E59D016A"
+		    documentation 	"ÂÎÂ‚‡ÌÚÌÓÒÚ¸"
+		    type       	"unsigned long"
+		    quidu      	"3DBFFDE101CA"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "Entries"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1454499342156720")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"56B1E60E009B"
+	    documentation 	"¬ıÓÊ‰ÂÌËˇ"
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Class "EntriesVector"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1454505184524455")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"56B1FCE0020C"
+	    documentation 	"—ÔËÒÓÍ ‚ıÓÊ‰ÂÌËÈ"
+	    stereotype 	"Vector"
 	    language   	"MDA Generator")
 	(object Association "$UNNAMED$0"
 	    attributes 	(list Attribute_Set
@@ -1183,6 +1604,171 @@
 		    quid       	"53EB7B2202B9"
 		    supplier   	"Logical View::shared::ContextSearch::DBComm::StrPairVector"
 		    quidu      	"53EB78600376"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$10"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1454426689109732"))
+	    quid       	"56B0CA4002E6"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$11"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1454426859370269"))
+		    quid       	"56B0CA41006A"
+		    supplier   	"Logical View::shared::ContextSearch::DBComm::InvisibleData"
+		    quidu      	"56B0C87A029E"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$12"
+		    quid       	"56B0CA41006C"
+		    supplier   	"Logical View::shared::ContextSearch::DBComm::InvisibleDataIndex"
+		    quidu      	"56B0C9C40227"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$13"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1454499424234415"))
+	    quid       	"56B1E65F030A"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$14"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1454499922235502"))
+		    quid       	"56B1E66000E6"
+		    supplier   	"Logical View::shared::ContextSearch::DBComm::Entry"
+		    quidu      	"56B1E3580204"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$15"
+		    quid       	"56B1E66000E8"
+		    supplier   	"Logical View::shared::ContextSearch::DBComm::Entries"
+		    quidu      	"56B1E60E009B"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$16"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1454499762541365"))
+	    quid       	"56B1E7B200AA"
+	    roles      	(list role_list
+		(object Role "ids"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1454499922234501"))
+		    quid       	"56B1E7B20216"
+		    documentation 	"Ë‰ÂÌÚËÙËÍ‡ÚÓ˚ ‰ÓÍÛÏÂÌÚÓ‚"
+		    label      	"ids"
+		    supplier   	"Logical View::shared::DB::DBCore::DocVector"
+		    quidu      	"4DD3BA3203CA"
+		    Containment 	"By Value"
+		    exportControl 	"Private"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$17"
+		    quid       	"56B1E7B2021B"
+		    supplier   	"Logical View::shared::ContextSearch::DBComm::InvisibleData"
+		    quidu      	"56B0C87A029E"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$18"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1454505237594491"))
+	    quid       	"56B1FD14036B"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$19"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1454505240448655")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"56B1FD15024F"
+		    supplier   	"Logical View::shared::ContextSearch::DBComm::Entries"
+		    quidu      	"56B1E60E009B"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$20"
+		    quid       	"56B1FD150251"
+		    supplier   	"Logical View::shared::ContextSearch::DBComm::EntriesVector"
+		    quidu      	"56B1FCE0020C"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$21"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1454505251939315"))
+	    quid       	"56B1FD2300CA"
+	    roles      	(list role_list
+		(object Role "data"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1454505267204189")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"56B1FD2303A7"
+		    documentation 	"‚ıÓÊ‰ÂÌËˇ"
+		    label      	"data"
+		    supplier   	"Logical View::shared::ContextSearch::DBComm::EntriesVector"
+		    quidu      	"56B1FCE0020C"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$22"
+		    quid       	"56B1FD2303A9"
+		    supplier   	"Logical View::shared::ContextSearch::DBComm::InvisibleData"
+		    quidu      	"56B0C87A029E"
 		    is_aggregate 	TRUE))))
     logical_presentations 	(list unit_reference_list
 	(object ClassDiagram "Main"
@@ -1200,8 +1786,8 @@
 	    zoom       	100
 	    max_height 	28350
 	    max_width  	21600
-	    origin_x   	16
-	    origin_y   	2462
+	    origin_x   	0
+	    origin_y   	737
 	    items      	(list diagram_item_list
 		(object ClassView "Class" "Logical View::shared::ContextSearch::DBComm::IProgress" @1
 		    ShowCompartmentStereotypes 	TRUE
@@ -1252,7 +1838,7 @@
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	237
+			max_width  	238
 			justify    	0
 			label      	"<<Typedef>>")
 		    icon_style 	"Label"
@@ -1267,7 +1853,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(537, 2124)
+		    location   	(540, 2151)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1280,19 +1866,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@2
-			location   	(135, 1865)
+			location   	(132, 1842)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	804
+			max_width  	816
 			justify    	0
 			label      	"ï IDBCommunicator")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@2
-			location   	(135, 1815)
+			location   	(132, 1792)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	804
+			max_width  	816
 			justify    	0
 			label      	"<<Facet>>")
 		    icon_style 	"Label"
@@ -1300,7 +1886,7 @@
 		    quidu      	"49A511DF0080"
 		    compartment 	(object Compartment
 			Parent_View 	@2
-			location   	(135, 1926)
+			location   	(132, 1903)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -1314,11 +1900,11 @@
 			icon_style 	"Icon"
 			fill_color 	16777215
 			anchor     	2
-			nlines     	10
-			max_width  	813
+			nlines     	12
+			max_width  	815
 			justify    	1)
-		    width      	822
-		    height     	642
+		    width      	834
+		    height     	742
 		    annotation 	8
 		    autoResize 	TRUE)
 		(object ClassView "Class" "Logical View::shared::DB::DBCore::IProgress" @3
@@ -1327,14 +1913,13 @@
 		    SuppressOperation 	TRUE
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
-		    ShowOperationSignature 	TRUE
-		    location   	(753, 1158)
+		    location   	(729, 1158)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
 			charSet    	204
 			bold       	FALSE
-			italics    	TRUE
+			italics    	FALSE
 			underline  	FALSE
 			strike     	FALSE
 			color      	16714250
@@ -1343,7 +1928,7 @@
 			Parent_View 	@3
 			location   	(625, 1130)
 			nlines     	1
-			max_width  	256
+			max_width  	208
 			justify    	0
 			label      	"IProgress")
 		    stereotype 	(object ItemLabel
@@ -1351,15 +1936,14 @@
 			location   	(625, 1080)
 			anchor     	10
 			nlines     	1
-			max_width  	253
+			max_width  	208
 			justify    	0
-			label      	"<<Interface>>")
-		    icon       	"Interface"
+			label      	"<<Facet>>")
 		    icon_style 	"Label"
 		    line_color 	16714250
 		    fill_color 	16777215
 		    quidu      	"4CA4B70101B9"
-		    width      	274
+		    width      	226
 		    height     	180
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -1432,7 +2016,7 @@
 			fill_color 	16777215
 			anchor     	10
 			nlines     	1
-			max_width  	237
+			max_width  	238
 			justify    	0
 			label      	"<<Typedef>>")
 		    icon_style 	"Label"
@@ -1449,7 +2033,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(744, 636)
+		    location   	(747, 636)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1462,14 +2046,14 @@
 			default_color 	FALSE)
 		    label      	(object ItemLabel
 			Parent_View 	@6
-			location   	(624, 609)
+			location   	(627, 609)
 			nlines     	1
 			max_width  	240
 			justify    	0
 			label      	"DocId")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@6
-			location   	(624, 559)
+			location   	(627, 559)
 			anchor     	10
 			nlines     	1
 			max_width  	238
@@ -1501,7 +2085,7 @@
 		    supplier   	@6
 		    vertices   	(list Points
 			(384, 636)
-			(614, 636))
+			(617, 636))
 		    line_style 	0)
 		(object ClassView "Class" "Logical View::shared::ContextSearch::DBComm::Constants" @8
 		    ShowCompartmentStereotypes 	TRUE
@@ -1509,7 +2093,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(561, 1572)
+		    location   	(558, 1545)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -1522,7 +2106,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@8
-			location   	(133, 1513)
+			location   	(130, 1486)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	856
@@ -1530,7 +2114,7 @@
 			label      	"Constants")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@8
-			location   	(133, 1463)
+			location   	(130, 1436)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -1542,7 +2126,7 @@
 		    quidu      	"4ECA37970236"
 		    compartment 	(object Compartment
 			Parent_View 	@8
-			location   	(133, 1574)
+			location   	(130, 1547)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -1739,7 +2323,7 @@
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	237
+			max_width  	238
 			justify    	0
 			label      	"<<Typedef>>")
 		    icon_style 	"Label"
@@ -2282,7 +2866,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(315, 273)
+		    location   	(315, 270)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2295,7 +2879,7 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@34
-			location   	(135, 189)
+			location   	(135, 186)
 			fill_color 	13434879
 			nlines     	1
 			max_width  	360
@@ -2303,7 +2887,7 @@
 			label      	"ï StrPair")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@34
-			location   	(135, 139)
+			location   	(135, 136)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
@@ -2315,7 +2899,7 @@
 		    quidu      	"53EB77B3015E"
 		    compartment 	(object Compartment
 			Parent_View 	@34
-			location   	(135, 250)
+			location   	(135, 247)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -2422,7 +3006,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(1392, 1926)
+		    location   	(468, 2730)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -2435,19 +3019,19 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@39
-			location   	(1055, 1867)
+			location   	(129, 2671)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	674
+			max_width  	678
 			justify    	0
 			label      	"IWildCard")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@39
-			location   	(1055, 1817)
+			location   	(129, 2621)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	674
+			max_width  	678
 			justify    	0
 			label      	"<<Facet>>")
 		    icon_style 	"Label"
@@ -2455,7 +3039,7 @@
 		    quidu      	"5540CD630002"
 		    compartment 	(object Compartment
 			Parent_View 	@39
-			location   	(1055, 1928)
+			location   	(129, 2732)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -2472,7 +3056,593 @@
 			nlines     	2
 			max_width  	675
 			justify    	1)
-		    width      	692
+		    width      	696
 		    height     	242
 		    annotation 	8
-		    autoResize 	TRUE)))))
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::ContextSearch::DBComm::SynCompare" @40
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1980, 270)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@40
+			location   	(1821, 240)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	318
+			justify    	0
+			label      	"ï SynCompare")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@40
+			location   	(1821, 190)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	318
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"565C816802A5"
+		    width      	336
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::ContextSearch::DBComm::Entry" @41
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2358, 2376)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@41
+			location   	(2153, 2267)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	410
+			justify    	0
+			label      	"ï Entry")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@41
+			location   	(2153, 2217)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	410
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"56B1E3580204"
+		    compartment 	(object Compartment
+			Parent_View 	@41
+			location   	(2153, 2328)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	4
+			max_width  	407
+			justify    	1)
+		    width      	428
+		    height     	342
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::ContextSearch::DBComm::Entries" @42
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2355, 1905)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@42
+			location   	(2246, 1875)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	218
+			justify    	0
+			label      	"Entries")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@42
+			location   	(2246, 1825)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	216
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"56B1E60E009B"
+		    width      	236
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$13" @43
+		    location   	(2355, 2100)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"56B1E65F030A"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$14" @44
+			    Parent_View 	@43
+			    location   	(273, 153)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"56B1E66000E6"
+			    client     	@43
+			    supplier   	@41
+			    vertices   	(list Points
+				(2355, 2100)
+				(2356, 2204))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$15" @45
+			    Parent_View 	@43
+			    location   	(273, 153)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"56B1E66000E8"
+			    client     	@43
+			    supplier   	@42
+			    vertices   	(list Points
+				(2355, 2100)
+				(2355, 1997))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::shared::ContextSearch::DBComm::InvisibleDataIndex" @46
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1830, 2748)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@46
+			location   	(1655, 2718)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	350
+			justify    	0
+			label      	"InvisibleDataIndex")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@46
+			location   	(1655, 2668)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	350
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"56B0C9C40227"
+		    width      	368
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::DB::DBCore::DocVector" @47
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1242, 2328)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	6572835
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@47
+			location   	(1102, 2300)
+			nlines     	1
+			max_width  	280
+			justify    	0
+			label      	"ï DocVector")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@47
+			location   	(1102, 2250)
+			anchor     	10
+			nlines     	1
+			max_width  	280
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    line_color 	6572835
+		    fill_color 	16777215
+		    quidu      	"4DD3BA3203CA"
+		    width      	298
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::ContextSearch::DBComm::EntriesVector" @48
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1830, 1905)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@48
+			location   	(1691, 1875)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	278
+			justify    	0
+			label      	"EntriesVector")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@48
+			location   	(1691, 1825)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	278
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"56B1FCE0020C"
+		    width      	296
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$18" @49
+		    location   	(2107, 1905)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"56B1FD14036B"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$19" @50
+			    Parent_View 	@49
+			    location   	(-389, -36)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"56B1FD15024F"
+			    client     	@49
+			    supplier   	@42
+			    vertices   	(list Points
+				(2107, 1905)
+				(2236, 1905))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$20" @51
+			    Parent_View 	@49
+			    location   	(-389, -36)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"56B1FD150251"
+			    client     	@49
+			    supplier   	@48
+			    vertices   	(list Points
+				(2107, 1905)
+				(1978, 1905))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::shared::ContextSearch::DBComm::InvisibleData" @52
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1830, 2328)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@52
+			location   	(1650, 2269)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	360
+			justify    	0
+			label      	"ï InvisibleData")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@52
+			location   	(1650, 2219)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	360
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"56B0C87A029E"
+		    compartment 	(object Compartment
+			Parent_View 	@52
+			location   	(1650, 2330)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	2
+			max_width  	296
+			justify    	1)
+		    width      	378
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$10" @53
+		    location   	(1830, 2552)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"56B0CA4002E6"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$11" @54
+			    Parent_View 	@53
+			    location   	(-423, 215)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"56B0CA41006A"
+			    client     	@53
+			    supplier   	@52
+			    vertices   	(list Points
+				(1830, 2552)
+				(1830, 2449))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$12" @55
+			    Parent_View 	@53
+			    location   	(-423, 215)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"56B0CA41006C"
+			    client     	@53
+			    supplier   	@46
+			    vertices   	(list Points
+				(1830, 2552)
+				(1830, 2655))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$16" @56
+		    location   	(1515, 2328)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"56B1E7B200AA"
+		    roleview_list 	(list RoleViews
+			(object RoleView "ids" @57
+			    Parent_View 	@56
+			    location   	(-450, -30)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @58
+				Parent_View 	@57
+				location   	(1515, 2297)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	80
+				justify    	0
+				label      	"-ids"
+				pctDist    	-0.008130
+				height     	32
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"56B1E7B20216"
+			    client     	@56
+			    supplier   	@47
+			    vertices   	(list Points
+				(1515, 2328)
+				(1391, 2328))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$17" @59
+			    Parent_View 	@56
+			    location   	(-450, -30)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"56B1E7B2021B"
+			    client     	@56
+			    supplier   	@52
+			    vertices   	(list Points
+				(1515, 2328)
+				(1640, 2328))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$21" @60
+		    location   	(1830, 2101)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"56B1FD2300CA"
+		    roleview_list 	(list RoleViews
+			(object RoleView "data" @61
+			    Parent_View 	@60
+			    location   	(-135, -272)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @62
+				Parent_View 	@61
+				location   	(1768, 2095)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	112
+				justify    	0
+				label      	"+data"
+				pctDist    	0.058252
+				height     	63
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"56B1FD2303A7"
+			    client     	@60
+			    supplier   	@48
+			    vertices   	(list Points
+				(1830, 2101)
+				(1830, 1997))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$22" @63
+			    Parent_View 	@60
+			    location   	(-135, -272)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"56B1FD2303A9"
+			    client     	@60
+			    supplier   	@52
+			    vertices   	(list Points
+				(1830, 2101)
+				(1830, 2206))
+			    line_style 	0)))))))

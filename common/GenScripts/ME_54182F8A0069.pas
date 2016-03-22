@@ -2,6 +2,7 @@ unit m3StorageIndexStream;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3StorageIndexStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3StorageIndexStream" MUID: (54182F8A0069)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

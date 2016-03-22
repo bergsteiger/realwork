@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCheckWithEtalonCommon.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "kwCheckWithEtalonCommon" MUID: (50D456F10356)
+// Имя типа: "_kwCheckWithEtalonCommon_"
 
 {$Define kwCheckWithEtalonCommon_imp}
 

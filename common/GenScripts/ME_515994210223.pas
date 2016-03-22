@@ -2,6 +2,7 @@ unit StringStackTestViaMixIn;
 
 // Модуль: "w:\common\components\SandBox\StringStackTestViaMixIn.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TStringStackTestViaMixIn" MUID: (515994210223)
 
 {$Include w:\common\components\SandBox\sbtDefine.inc}
 

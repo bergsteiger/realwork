@@ -3,6 +3,7 @@ unit ListInfoKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\ListInfoKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ListInfoKeywordsPack" MUID: (67BD224FB2E7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -49,8 +50,8 @@ type
 'aControl' форма::ListInfo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ListInfo
 
  Tkw_ListInfo_Control_ListInfoViewer = {final} class(TtfwControlString)
@@ -61,9 +62,9 @@ type
 контрол::ListInfoViewer TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ListInfo_Control_ListInfoViewer
 
  Tkw_ListInfo_Control_ListInfoViewer_Push = {final} class(TkwBynameControlPush)
@@ -86,9 +87,9 @@ type
 компонент::TextSource TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ListInfo_Component_TextSource
 
  TkwEfListInfoListInfoViewer = {final} class(TtfwPropertyLike)
@@ -139,20 +140,15 @@ OBJECT VAR l_TnscTextSource
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEfListInfoTextSource
 
-class function Tkw_Form_ListInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ListInfo';
-end;//Tkw_Form_ListInfo.GetWordNameForRegister
-
 function Tkw_Form_ListInfo.GetString: AnsiString;
 begin
  Result := 'efListInfo';
 end;//Tkw_Form_ListInfo.GetString
 
-class function Tkw_ListInfo_Control_ListInfoViewer.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_ListInfo.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::ListInfoViewer';
-end;//Tkw_ListInfo_Control_ListInfoViewer.GetWordNameForRegister
+ Result := 'форма::ListInfo';
+end;//Tkw_Form_ListInfo.GetWordNameForRegister
 
 function Tkw_ListInfo_Control_ListInfoViewer.GetString: AnsiString;
 begin
@@ -165,6 +161,11 @@ begin
  TtfwClassRef.Register(TnscEditor);
 end;//Tkw_ListInfo_Control_ListInfoViewer.RegisterInEngine
 
+class function Tkw_ListInfo_Control_ListInfoViewer.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ListInfoViewer';
+end;//Tkw_ListInfo_Control_ListInfoViewer.GetWordNameForRegister
+
 procedure Tkw_ListInfo_Control_ListInfoViewer_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ListInfoViewer');
@@ -176,11 +177,6 @@ begin
  Result := 'контрол::ListInfoViewer:push';
 end;//Tkw_ListInfo_Control_ListInfoViewer_Push.GetWordNameForRegister
 
-class function Tkw_ListInfo_Component_TextSource.GetWordNameForRegister: AnsiString;
-begin
- Result := 'компонент::TextSource';
-end;//Tkw_ListInfo_Component_TextSource.GetWordNameForRegister
-
 function Tkw_ListInfo_Component_TextSource.GetString: AnsiString;
 begin
  Result := 'TextSource';
@@ -191,6 +187,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTextSource);
 end;//Tkw_ListInfo_Component_TextSource.RegisterInEngine
+
+class function Tkw_ListInfo_Component_TextSource.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'компонент::TextSource';
+end;//Tkw_ListInfo_Component_TextSource.GetWordNameForRegister
 
 function TkwEfListInfoListInfoViewer.ListInfoViewer(const aCtx: TtfwContext;
  aefListInfo: TefListInfo): TnscEditor;
@@ -214,11 +215,6 @@ begin
  aCtx.rEngine.PushObj(ListInfoViewer(aCtx, l_aefListInfo));
 end;//TkwEfListInfoListInfoViewer.DoDoIt
 
-class function TkwEfListInfoListInfoViewer.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefListInfo.ListInfoViewer';
-end;//TkwEfListInfoListInfoViewer.GetWordNameForRegister
-
 procedure TkwEfListInfoListInfoViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -239,6 +235,11 @@ function TkwEfListInfoListInfoViewer.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefListInfo)]);
 end;//TkwEfListInfoListInfoViewer.ParamsTypes
+
+class function TkwEfListInfoListInfoViewer.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefListInfo.ListInfoViewer';
+end;//TkwEfListInfoListInfoViewer.GetWordNameForRegister
 
 function TkwEfListInfoTextSource.TextSource(const aCtx: TtfwContext;
  aefListInfo: TefListInfo): TnscTextSource;
@@ -262,11 +263,6 @@ begin
  aCtx.rEngine.PushObj(TextSource(aCtx, l_aefListInfo));
 end;//TkwEfListInfoTextSource.DoDoIt
 
-class function TkwEfListInfoTextSource.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefListInfo.TextSource';
-end;//TkwEfListInfoTextSource.GetWordNameForRegister
-
 procedure TkwEfListInfoTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -287,6 +283,11 @@ function TkwEfListInfoTextSource.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefListInfo)]);
 end;//TkwEfListInfoTextSource.ParamsTypes
+
+class function TkwEfListInfoTextSource.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefListInfo.TextSource';
+end;//TkwEfListInfoTextSource.GetWordNameForRegister
 
 initialization
  Tkw_Form_ListInfo.RegisterInEngine;

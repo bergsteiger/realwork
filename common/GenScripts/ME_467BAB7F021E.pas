@@ -3,6 +3,7 @@ unit vcmExternalInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmExternalInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "vcmExternalInterfaces" MUID: (467BAB7F021E)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
@@ -572,13 +573,13 @@ type
    read Get_OwnedComponent;
  end;//IvcmComponentContainer
 
- {$If Defined(Nemesis)}
+{$If Defined(Nemesis)}
  IvcmFlashingWindow = interface(IvcmBase)
   ['{18DC2344-959D-4854-A58E-84080F09D788}']
   procedure StartFlashing;
   procedure StopFlashing;
  end;//IvcmFlashingWindow
- {$IfEnd} // Defined(Nemesis)
+{$IfEnd} // Defined(Nemesis)
 
  IvcmMainFormDependent = interface(IvcmBase)
   ['{3395E902-086E-47B0-874E-BC39562D6D14}']

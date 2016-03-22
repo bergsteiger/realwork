@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\Navigator.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "Navigator" MUID: (4C9210B70244)
+// Имя типа: "_Navigator_"
 
 {$Define Navigator_imp}
 

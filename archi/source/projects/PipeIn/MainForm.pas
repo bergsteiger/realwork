@@ -201,6 +201,7 @@ Uses
   vtVerInf,
   daDataProvider,
   daProgressProcHolder,
+  daSchemeConsts,
   dt_Const, dt_AttrSchema,
   DT_Serv, dt_IFltr, {dt_Conn,} dt_User, dt_Prior, dt_Doc,
   l3FileUtils, m4DB, m4DBInterfaces, m3StorageInterfaces,

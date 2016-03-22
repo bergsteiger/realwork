@@ -2,6 +2,8 @@ unit moLiteSearch;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\moLiteSearch.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "LiteSearch" MUID: (4AA0EAA5019F)
+// Имя типа: "Tmo_LiteSearch"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

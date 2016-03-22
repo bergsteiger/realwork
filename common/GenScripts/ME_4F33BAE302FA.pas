@@ -3,6 +3,7 @@ unit evdHypelinkDocIDEliminator;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdHypelinkDocIDEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdHypelinkDocIDEliminator" MUID: (4F33BAE302FA)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

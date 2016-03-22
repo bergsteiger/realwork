@@ -2,6 +2,7 @@ unit NOT_FINISHED_csExportResultRequest;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csExportResultRequest.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "csExportResultRequest" MUID: (53170931038A)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -3,6 +3,7 @@ unit dtDictItems;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\dtDictItems.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdtDictItems" MUID: (47BC55C00240)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

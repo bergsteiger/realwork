@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsExternalObjectData;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\NOT_FINISHED_nsExternalObjectData.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsExternalObjectData" MUID: (51B060B60170)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

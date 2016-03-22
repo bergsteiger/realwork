@@ -3,6 +3,8 @@ unit SegmentsLayer_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\SegmentsLayer_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "SegmentsLayer" MUID: (484FD1360343)
+// Имя типа: "SegmentsLayerTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

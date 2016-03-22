@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtButton;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtButton.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtButton" MUID: (517941310082)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

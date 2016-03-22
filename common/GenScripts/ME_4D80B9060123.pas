@@ -3,6 +3,7 @@ unit ScrollByArrowAndCheckShapesTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\ScrollByArrowAndCheckShapesTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TScrollByArrowAndCheckShapesTest" MUID: (4D80B9060123)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

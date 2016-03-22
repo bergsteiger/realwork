@@ -1,84 +1,66 @@
 unit BaloonWarningUserTypes_WarnTimeMachineWarning_UserType;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/BaloonWarningUserTypes_WarnTimeMachineWarning_UserType.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Core::Base Operations::View::Base Forms::BaloonWarningUserTypes::WarnTimeMachineWarning
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnTimeMachineWarning_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "WarnTimeMachineWarning" MUID: (4DA82A170063)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  BaloonWarningUserTypes_WarnRedaction_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  BaloonWarningUserTypes_Fake_UserType
-  ;
+ l3IntfUses
+ , BaloonWarningUserTypes_WarnRedaction_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы WarnTimeMachineWarning }
-  WarnTimeMachineWarningName = 'WarnTimeMachineWarning';
-   { Строковый идентификатор пользовательского типа "" }
-  WarnTimeMachineWarning = TvcmUserType(WarnRedaction + 1);
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы WarnTimeMachineWarning }
+ WarnTimeMachineWarningName = 'WarnTimeMachineWarning';
+  {* Строковый идентификатор пользовательского типа "" }
+ WarnTimeMachineWarning = TvcmUserType(WarnRedaction + 1);
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_WarnTimeMachineWarning = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы WarnTimeMachineWarning }
+ Tkw_FormUserType_WarnTimeMachineWarning = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы WarnTimeMachineWarning }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_WarnTimeMachineWarning
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_WarnTimeMachineWarning
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_WarnTimeMachineWarning
-
-class function Tkw_FormUserType_WarnTimeMachineWarning.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::WarnTimeMachineWarning';
-end;//Tkw_FormUserType_WarnTimeMachineWarning.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_WarnTimeMachineWarning.GetInteger: Integer;
- {-}
 begin
  Result := WarnTimeMachineWarning;
 end;//Tkw_FormUserType_WarnTimeMachineWarning.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_WarnTimeMachineWarning.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::WarnTimeMachineWarning';
+end;//Tkw_FormUserType_WarnTimeMachineWarning.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_WarnTimeMachineWarning
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_WarnTimeMachineWarning.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_WarnTimeMachineWarning }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

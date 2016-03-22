@@ -2,6 +2,7 @@ unit evArchiCollapser;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evArchiCollapser.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevArchiCollapser" MUID: (5530B9E90041)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit l3GraphicControlCanvas;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3GraphicControlCanvas.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3GraphicControlCanvas" MUID: (4F29376B00C7)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

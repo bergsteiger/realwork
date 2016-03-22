@@ -2,6 +2,7 @@ unit TNewSubDlgWordsPack;
 
 // Модуль: "w:\archi\source\projects\Common\Dialogs\TNewSubDlgWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "TNewSubDlgWordsPack" MUID: (55C8CD9D0010)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
@@ -73,11 +74,6 @@ begin
  Fake(aCtx, l_aNewSubDlg);
 end;//TkwPopNewSubDlgFake.DoDoIt
 
-class function TkwPopNewSubDlgFake.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:NewSubDlg:Fake';
-end;//TkwPopNewSubDlgFake.GetWordNameForRegister
-
 function TkwPopNewSubDlgFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -92,6 +88,11 @@ function TkwPopNewSubDlgFake.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewSubDlg)]);
 end;//TkwPopNewSubDlgFake.ParamsTypes
+
+class function TkwPopNewSubDlgFake.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:NewSubDlg:Fake';
+end;//TkwPopNewSubDlgFake.GetWordNameForRegister
 
 initialization
  TkwPopNewSubDlgFake.RegisterInEngine;

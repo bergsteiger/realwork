@@ -3,6 +3,7 @@ unit InsertSectionBreak;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\InsertSectionBreak.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TInsertSectionBreak" MUID: (4E158BBC032C)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

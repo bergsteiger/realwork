@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddHTinit;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddHTinit.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddHTinit" MUID: (4E4B5C770387)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

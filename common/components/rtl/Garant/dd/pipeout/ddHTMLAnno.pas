@@ -1,7 +1,10 @@
 Unit ddHTMLAnno;
-{ $Id: ddHTMLAnno.pas,v 1.34 2015/10/13 12:55:56 fireton Exp $ }
+{ $Id: ddHTMLAnno.pas,v 1.35 2015/11/19 14:57:55 fireton Exp $ }
 
 // $Log: ddHTMLAnno.pas,v $
+// Revision 1.35  2015/11/19 14:57:55  fireton
+// - выкинул ненужные модули из implementation
+//
 // Revision 1.34  2015/10/13 12:55:56  fireton
 // - переделка ExportPipe на новый filer dispatcher
 //
@@ -212,7 +215,7 @@ type
 implementation
 
 Uses
- XMLDoc, XMLIntf, StrUtils,
+ StrUtils,
  k2Tags, k2Interfaces, k2Base,
  l3FileUtils, l3String, l3Stream, l3Date, l3Chars,
  dt_Const, dt_Types, dt_Serv, ht_Dll, dt_Hyper,

@@ -3,6 +3,8 @@ unit List_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\List_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "List" MUID: (4A9BF42601A9)
+// Имя типа: "TListModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

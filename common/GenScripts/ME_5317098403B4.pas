@@ -2,6 +2,7 @@ unit NOT_FINISHED_csLineRequest;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csLineRequest.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "csLineRequest" MUID: (5317098403B4)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

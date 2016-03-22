@@ -2,6 +2,7 @@ unit evParaInterfaceFactoryPrim;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evParaInterfaceFactoryPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevParaInterfaceFactoryPrim" MUID: (53D8DFA400E2)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

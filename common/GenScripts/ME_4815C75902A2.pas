@@ -2,6 +2,7 @@ unit atDocumentHelper;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atDocumentHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatDocumentHelper" MUID: (4815C75902A2)
 
 interface
 

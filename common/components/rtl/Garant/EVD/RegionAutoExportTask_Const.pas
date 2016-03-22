@@ -5,7 +5,7 @@ unit RegionAutoExportTask_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/RegionAutoExportTask_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::RegionAutoExportTask
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::RegionAutoExportTask
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

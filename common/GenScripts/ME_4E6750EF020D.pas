@@ -2,6 +2,7 @@ unit evdDocumentBookmarksEliminator;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdDocumentBookmarksEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdDocumentBookmarksEliminator" MUID: (4E6750EF020D)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

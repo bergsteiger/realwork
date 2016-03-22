@@ -2,6 +2,7 @@ unit k2ProcessorTagTool;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2ProcessorTagTool.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2ProcessorTagTool" MUID: (4BBF3D8B00CD)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
@@ -20,7 +21,6 @@ type
  Tk2ProcessorTagTool = class(Tk2TagTool)
   private
    f_Processor: Ik2Processor;
-    {* Поле для свойства Processor }
   protected
    function pm_GetProcessor: Ik2Processor;
    function GetProcessor: Ik2Processor; virtual;

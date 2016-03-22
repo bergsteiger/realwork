@@ -1,103 +1,74 @@
 unit MergeAndCheck;
+ {* Тест объединения ячеек и сравнения отрисованного }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/MergeAndCheck.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EditorTests::TMergeAndCheck
-//
-// Тест объединения ячеек и сравнения отрисованного
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\MergeAndCheck.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TMergeAndCheck" MUID: (4CC8196F0219)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  DrawTestPrim
-  {$IfEnd} //nsTest AND not NoVCM
-  ,
-  nevTools,
-  evCustomEditorWindow
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , DrawTestPrim
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevTools
+ , evCustomEditorWindow
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  _SelectTablePart_Parent_ = TDrawTestPrim;
  {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
  TMergeAndCheck = {abstract} class(_SelectTablePart_)
   {* Тест объединения ячеек и сравнения отрисованного }
- protected
- // realized methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure DoBeforeDrawing(aForm: TPrimTextLoadForm); override;
-     {* Произвести какие-нибудь операции перед отрисовкой. }
-   {$IfEnd} //nsTest AND not NoVCM
- protected
- // overridden protected methods
+    {* Произвести какие-нибудь операции перед отрисовкой. }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    procedure GetSelectParam(out aStartRow: Integer;
     out aStartCell: Integer;
     out aFinishRow: Integer;
     out aFinishCell: Integer); override;
-     {* Получить "координаты" точек выделения. }
+    {* Получить "координаты" точек выделения. }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TMergeAndCheck
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork,
-  evOp
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , TestFrameWork
+ , evOp
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
 
-// start class TMergeAndCheck
-
-{$If defined(nsTest) AND not defined(NoVCM)}
 procedure TMergeAndCheck.DoBeforeDrawing(aForm: TPrimTextLoadForm);
+ {* Произвести какие-нибудь операции перед отрисовкой. }
 //#UC START# *4CAC45AE011E_4CC8196F0219_var*
 //#UC END# *4CAC45AE011E_4CC8196F0219_var*
 begin
@@ -107,18 +78,18 @@ begin
  aForm.Text.Processor.Undo;
 //#UC END# *4CAC45AE011E_4CC8196F0219_impl*
 end;//TMergeAndCheck.DoBeforeDrawing
-{$IfEnd} //nsTest AND not NoVCM
 
 function TMergeAndCheck.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TMergeAndCheck.GetFolder
 
 procedure TMergeAndCheck.GetSelectParam(out aStartRow: Integer;
-  out aStartCell: Integer;
-  out aFinishRow: Integer;
-  out aFinishCell: Integer);
+ out aStartCell: Integer;
+ out aFinishRow: Integer;
+ out aFinishCell: Integer);
+ {* Получить "координаты" точек выделения. }
 //#UC START# *4CC81D4101AC_4CC8196F0219_var*
 //#UC END# *4CC81D4101AC_4CC8196F0219_var*
 begin
@@ -131,11 +102,11 @@ begin
 end;//TMergeAndCheck.GetSelectParam
 
 function TMergeAndCheck.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4CC8196F0219';
 end;//TMergeAndCheck.GetModelElementGUID
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

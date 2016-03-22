@@ -2,6 +2,7 @@ unit ArchiTestRes;
 
 // Модуль: "w:\archi\source\projects\Archi\ArchiTestRes.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TArchiTestRes" MUID: (4DE3420B030C)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

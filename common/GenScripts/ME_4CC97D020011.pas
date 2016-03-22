@@ -3,6 +3,8 @@ unit BaseSearch_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\BaseSearch_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "BaseSearch" MUID: (4CC97D020011)
+// Имя типа: "TBaseSearchModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -96,10 +98,14 @@ procedure TBaseSearchModule.MakeBaseSearchWindow(const aContainer: IvcmContainer
  const aData: InsBaseSearcherWindowData;
  aZoneType: TvcmZoneType);
 //#UC START# *4AB793B903E6_4CC97D020011_var*
+ l_Params: IvcmMakeParams;
 //#UC END# *4AB793B903E6_4CC97D020011_var*
 begin
 //#UC START# *4AB793B903E6_4CC97D020011_impl*
-  Result := TNewBaseSearchForm.MakeSingleChild(aData, CheckContainer(aContainer), aZoneType);
+  l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(aContainer)));
+  Result := TNewBaseSearchForm.MakeSingleChild(aData, l_Params.Container,
+    l_Params.Aggregate,
+    aZoneType);
 //  Result := Ten_BaseSearch.MakeSingleChild(aData, CheckContainer(aContainer));
 //#UC END# *4AB793B903E6_4CC97D020011_impl*
 end;//TBaseSearchModule.MakeBaseSearchWindow

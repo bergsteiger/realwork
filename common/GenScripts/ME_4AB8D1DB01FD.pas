@@ -3,6 +3,8 @@ unit ConsultationMark_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms\ConsultationMark_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "ConsultationMark" MUID: (4AB8D1DB01FD)
+// Имя типа: "Ten_ConsultationMark"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit nscSimpleEditorForDialogsTextSource;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscSimpleEditorForDialogsTextSource.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnscSimpleEditorForDialogsTextSource" MUID: (4D6BAF110364)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

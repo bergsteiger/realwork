@@ -2,6 +2,7 @@ unit Dialogs;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Dialogs.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Dialogs" MUID: (4AB0EE02004E)
 
 interface
 

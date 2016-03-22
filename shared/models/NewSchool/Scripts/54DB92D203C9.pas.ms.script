@@ -117,24 +117,7 @@ ref; // ME_4F21486A00E3 DoIt
 
 ref; // ME_4F21485E0184 DoComponent
 
-: ME_8AA6471D8C63
- CONST UID '8AA6471D8C63'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwComponentFromStackWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F2148300318 // TkwComponentFromStackWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_8AA6471D8C63 Ini_Reg_Class
-
 : ME_4F212BD5010E_ME_4F2148300318
- CONST UID '4F212BD5010E'
- CONST Name 'DoObject'
  : Original WL 'ME_4F212BD5010E' '54DC9ACA0156.pas.ms.script' // DoObject
  ;
  : Implementor ME_4F2148300318 // TkwComponentFromStackWord
@@ -162,7 +145,6 @@ ref; // ME_4F212BD5010E_ME_4F2148300318 DoObject
  ; // Implements
  : Operations
    Seq: ( ME_4F21485E0184 // DoComponent
- ME_8AA6471D8C63 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -236,8 +218,6 @@ ref; // ME_4F212C5B0201 DoControl
 ref; // ME_4F212C3A015A DoControl
 
 : ME_4F21485E0184_ME_4F212C120371
- CONST UID '4F21485E0184'
- CONST Name 'DoComponent'
  : Original ME_4F21485E0184 // DoComponent
  ;
  : Implementor ME_4F212C120371 // kwControlFromStackWord
@@ -336,21 +316,6 @@ ref; // ME_50852857013B DoIt
 
 ref; // ME_508528490090 Register
 
-: ME_B4BBFF030F74
- CONST UID 'B4BBFF030F74'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwControlString' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_508527F30183 // TtfwControlString
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B4BBFF030F74 Ini_Reg_Class
-
 : ME_50852885016F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -428,7 +393,6 @@ ref; // ME_54DB70CB02F2
  ; // Inherits
  : Operations
    Seq: ( ME_508528490090 // Register
- ME_B4BBFF030F74 // Ini_Reg_Class
  )
  ; // Operations
  : Dependencies
@@ -506,24 +470,7 @@ ref; // ME_4F212CA2009A DoControl
 
 ref; // ME_4F212C930149 DoWinControl
 
-: ME_7929D7B67B97
- CONST UID '7929D7B67B97'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwWinControlFromStackWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F212C680161 // TkwWinControlFromStackWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_7929D7B67B97 Ini_Reg_Class
-
 : ME_4F212C3A015A_ME_4F212C680161
- CONST UID '4F212C3A015A'
- CONST Name 'DoControl'
  : Original ME_4F212C3A015A // DoControl
  ;
  : Implementor ME_4F212C680161 // TkwWinControlFromStackWord
@@ -547,7 +494,6 @@ ref; // ME_4F212C3A015A_ME_4F212C680161 DoControl
  ; // Inherits
  : Operations
    Seq: ( ME_4F212C930149 // DoWinControl
- ME_7929D7B67B97 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -676,21 +622,6 @@ ref; // ME_5357B70F010B DoIt
 
 ref; // ME_5357B6FB0024 DoComponent
 
-: ME_50BA5D0149C5
- CONST UID '50BA5D0149C5'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwControlWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DB98B4B0382 // TkwControlWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_50BA5D0149C5 Ini_Reg_Class
-
 : ME_4DE8978703B3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -742,8 +673,6 @@ ref; // ME_5506D4130133
 ref; // ME_5506D642024E 
 
 : ME_4DAEEDE10285_ME_4DB98B4B0382
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4DB98B4B0382 // TkwControlWord
@@ -772,7 +701,6 @@ ref; // ME_4DAEEDE10285_ME_4DB98B4B0382 DoDoIt
  : Operations
    Seq: ( ME_4DB98B990054 // DoControl
  ME_5357B6FB0024 // DoComponent
- ME_50BA5D0149C5 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -856,21 +784,6 @@ ref; // ME_4EB25DFC036C DoIt
 
 ref; // ME_4EB25DE00396 DoForm
 
-: ME_9AD5CF0EFDEA
- CONST UID '9AD5CF0EFDEA'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwFormFromControlWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EB25D530395 // TkwFormFromControlWord
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_9AD5CF0EFDEA Ini_Reg_Class
-
 : ME_4EB265890130
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -892,8 +805,6 @@ ref; // ME_4EB265890130
 ref; // ME_5506D69E01ED 
 
 : ME_4DB98B990054_ME_4EB25D530395
- CONST UID '4DB98B990054'
- CONST Name 'DoControl'
  : Original ME_4DB98B990054 // DoControl
  ;
  : Implementor ME_4EB25D530395 // TkwFormFromControlWord
@@ -917,7 +828,6 @@ ref; // ME_4DB98B990054_ME_4EB25D530395 DoControl
  ; // Inherits
  : Operations
    Seq: ( ME_4EB25DE00396 // DoForm
- ME_9AD5CF0EFDEA // Ini_Reg_Class
  )
  ; // Operations
  : Implemented

@@ -2,7 +2,7 @@
 //
 // Модуль: "w:/common/components/rtl/Garant/EVD/LibHome.h"
 // генератор заголовочных файлов C++ (.h)
-// Generated from UML model, root element: <<Library::Category>> Shared Delphi::EVD
+// Generated from UML model, root element: <<Library::Category>> Shared Delphi Low Level::EVD
 //
 // Содержит классы и методы для обработки документов в формате EVD.
 //
@@ -10,8 +10,8 @@
 // Все права принадлежат ООО НПП "Гарант-Сервис".
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#ifndef __SHARED_DELPHI_EVD_H__
-#define __SHARED_DELPHI_EVD_H__
+#ifndef __SHARED_DELPHI_LOW_LEVEL_EVD_H__
+#define __SHARED_DELPHI_LOW_LEVEL_EVD_H__
 
 #include "shared/Core/sys/std_inc.h"
 #include "shared/Core/impl/Root_i/StdLibHomeBase.h"
@@ -41,5 +41,5 @@ private:
 } // namespace EVD
 
 
-#endif //__SHARED_DELPHI_EVD_H__
+#endif //__SHARED_DELPHI_LOW_LEVEL_EVD_H__
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -2,6 +2,8 @@ unit EVDtoHTMLWriterTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoHTMLWriterTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "EVDtoHTMLWriterTest" MUID: (516E72CA0386)
+// Имя типа: "TEVDtoHTMLWriterTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
@@ -64,6 +66,7 @@ begin
 //#UC START# *516E775B03C9_516E72CA0386_impl*
  l_Writer := TddHTMLGenerator.Create;
  try
+  TuningHTMLGenerator(l_Writer);
   l_Filter := FilerForOutput;
   try
    l_Writer.Filer := l_Filter;

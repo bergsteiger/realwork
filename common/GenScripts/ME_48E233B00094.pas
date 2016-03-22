@@ -2,6 +2,7 @@ unit l3Tool;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Tool.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3Tool" MUID: (48E233B00094)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -5,7 +5,7 @@ unit csMessageWithReply_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/csMessageWithReply_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::csMessageWithReply
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::csMessageWithReply
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

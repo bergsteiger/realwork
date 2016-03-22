@@ -2,6 +2,7 @@ unit nsSendDocumentByEMailEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsSendDocumentByEMailEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsSendDocumentByEMailEvent" MUID: (4B0B9A490271)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -45,6 +45,7 @@ TSectionType = (
 	, ST_HR // Раздел для кадровиков
 	, ST_LEGAL // Раздел для юристов
 	, ST_BUDGET_ORGS // Бюджетные организаций
+	, ST_GOS_ZAKUPKI // Госзакупки
 	, ST_LAW_FOR_ALL // Право для всех
 	, ST_BUSINESS_REFERENCES // Бизнес-справки
 	, ST_CHANGES_IN_LEGISLATION // Изменения в законодательстве

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsBaseDrugDocument.imp.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsBaseDrugDocument" MUID: (491D846C0297)
+// Имя типа: "_dsBaseDrugDocument_"
 
 {$Define dsBaseDrugDocument_imp}
 

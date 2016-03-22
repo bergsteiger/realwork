@@ -1,6 +1,6 @@
 unit F_DocList;
 
-{ $Id: F_DocList.pas,v 1.72 2015/08/17 15:38:50 voba Exp $ }
+{ $Id: F_DocList.pas,v 1.75 2015/12/02 17:27:37 lulin Exp $ }
 
 interface
 {$I ProjectDefine.inc}
@@ -159,6 +159,7 @@ implementation
       HT_Const,
 
       daDataProvider,
+      daSchemeConsts,
 
       evdTypes,
       k2Interfaces,

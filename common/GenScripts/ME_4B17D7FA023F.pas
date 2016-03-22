@@ -3,6 +3,7 @@ unit bsBase;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\bsBase.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsBase" MUID: (4B17D7FA023F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,8 @@ unit IUnknownRefListTest;
 
 // Модуль: "w:\common\components\SandBox\IUnknownRefListTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "IUnknownRefListTest" MUID: (51E80B08039E)
+// Имя типа: "TIUnknownRefListTest"
 
 {$Include w:\common\components\SandBox\sbtDefine.inc}
 

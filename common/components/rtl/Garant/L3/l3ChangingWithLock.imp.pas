@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ChangingWithLock.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3ChangingWithLock" MUID: (54CB3F0F01C0)
+// Имя типа: "_l3ChangingWithLock_"
 
 {$Define l3ChangingWithLock_imp}
 

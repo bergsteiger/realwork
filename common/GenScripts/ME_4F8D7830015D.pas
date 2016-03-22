@@ -2,6 +2,7 @@ unit NOT_FINISHED_F_TextEditor;
 
 // Модуль: "w:\archi\source\projects\Archi\Frames\NOT_FINISHED_F_TextEditor.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "F_TextEditor" MUID: (4F8D7830015D)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

@@ -1,42 +1,38 @@
 unit kwPopControlScrollInfoPosition;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$RTLandVCL"
-// Модуль: "kwPopControlScrollInfoPosition.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine$RTLandVCL::ScrollInfoProcessing::pop_control_ScrollInfo_Position
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopControlScrollInfoPosition.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_control_ScrollInfo_Position" MUID: (51793B1F01AA)
+// Имя типа: "TkwPopControlScrollInfoPosition"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  kwScrollInfoWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+ , kwScrollInfoWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
 type
- TkwPopControlScrollInfoPosition = {final scriptword} class(TkwScrollInfoWord)
- protected
- // realized methods
+ TkwPopControlScrollInfoPosition = {final} class(TkwScrollInfoWord)
+  protected
    procedure DoScrollInfo(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopControlScrollInfoPosition
-{$IfEnd} //not NoScripts AND not NoVCL
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-
-// start class TkwPopControlScrollInfoPosition
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+uses
+ l3ImplUses
+ , Windows
+ , Controls
+ , Forms
+;
 
 procedure TkwPopControlScrollInfoPosition.DoScrollInfo(const aCtx: TtfwContext);
 //#UC START# *51793A950073_51793B1F01AA_var*
@@ -48,17 +44,13 @@ begin
 end;//TkwPopControlScrollInfoPosition.DoScrollInfo
 
 class function TkwPopControlScrollInfoPosition.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:control:ScrollInfo:Position';
 end;//TkwPopControlScrollInfoPosition.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts AND not NoVCL
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация pop_control_ScrollInfo_Position
  TkwPopControlScrollInfoPosition.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация pop_control_ScrollInfo_Position }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

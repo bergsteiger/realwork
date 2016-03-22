@@ -2,6 +2,7 @@ unit atListNodeTypeConverter;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atListNodeTypeConverter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatListNodeTypeConverter" MUID: (539700E901EB)
 
 interface
 

@@ -2,6 +2,7 @@ unit ddDoc2DocLinkRecList;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddDoc2DocLinkRecList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddDoc2DocLinkRecList" MUID: (55DF01D8011D)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

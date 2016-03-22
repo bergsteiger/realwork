@@ -2,6 +2,7 @@ unit tfwMainDictionary;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwMainDictionary.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwMainDictionary" MUID: (55A0005D02CC)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -20,7 +21,6 @@ type
  TtfwMainDictionary = class(TtfwDictionaryEx)
   private
    f_CompiledCode: TtfwWord;
-    {* Поле для свойства CompiledCode }
   protected
    procedure pm_SetCompiledCode(aValue: TtfwWord);
    procedure Cleanup; override;

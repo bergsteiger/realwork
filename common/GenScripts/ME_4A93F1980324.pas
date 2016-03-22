@@ -3,6 +3,8 @@ unit PrimProgressIndicator_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimProgressIndicator_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimProgressIndicator" MUID: (4A93F1980324)
+// Имя типа: "TPrimProgressIndicatorForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

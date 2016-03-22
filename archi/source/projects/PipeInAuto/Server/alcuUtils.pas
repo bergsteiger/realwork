@@ -21,7 +21,7 @@ function UserHostByID(aID: TcsClientID): String;
 procedure Exception2Log(E: EXception; aStatus: TalcuStatus = dd_apsRevert);
 
 // Возвращает информацию о пользователе по идентификатору
-function UserNameByID(aID: TcsClientID; const InkognitoSuffix: AnsiString = ''): String;
+function UserNameByID(aID: TcsClientID; const InkognitoSuffix: AnsiString = ''; const LoginName: AnsiString = ''): String;
 
 procedure ResetLogFile(const aFileName: String; aMaxSize: Integer; aCompress: Boolean = False);
 
@@ -137,7 +137,7 @@ begin
  end;
 end;
 
-function UserNameByID(aID: TcsClientID; const InkognitoSuffix: AnsiString = ''): String;
+function UserNameByID(aID: TcsClientID; const InkognitoSuffix: AnsiString = ''; const LoginName: AnsiString = ''): String;
 var
  l_User: TArchiUser;
 begin
@@ -149,9 +149,9 @@ begin
   if l_User = nil then
   begin
    if InkognitoSuffix <> '' then
-    Result := Format('%s (%d) - %s', [rsInkognito, aID, InkognitoSuffix])
+    Result := Format('%s (%d) - %s', [LoginName, aID, InkognitoSuffix])
    else
-    Result := Format('%s (%d)', [rsInkognito, aID]);
+    Result := Format('%s (%d)', [LoginName, aID]);
   end
   else
    Result := l_User.UserName;

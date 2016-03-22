@@ -2,6 +2,7 @@ unit l3FilerRes;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3FilerRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3FilerRes" MUID: (4BA206A400AC)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

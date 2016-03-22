@@ -3,6 +3,8 @@ unit kwClearTemplateStorage;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearTemplateStorage.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "ClearTemplateStorage" MUID: (53B647A9029B)
+// Имя типа: "TkwClearTemplateStorage"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

@@ -3,6 +3,7 @@ unit ScrollerParamsTestPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\ScrollerParamsTestPrim.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TScrollerParamsTestPrim" MUID: (4D720B6900FC)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

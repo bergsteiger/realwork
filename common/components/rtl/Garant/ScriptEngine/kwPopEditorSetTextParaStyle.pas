@@ -3,6 +3,8 @@ unit kwPopEditorSetTextParaStyle;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSetTextParaStyle.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_SetTextParaStyle" MUID: (4E60749A01C2)
+// Имя типа: "TkwPopEditorSetTextParaStyle"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

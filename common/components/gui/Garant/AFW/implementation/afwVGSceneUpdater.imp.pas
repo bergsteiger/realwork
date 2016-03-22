@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwVGSceneUpdater.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "afwVGSceneUpdater" MUID: (4DA7235700F3)
+// Имя типа: "_afwVGSceneUpdater_"
 
 {$Define afwVGSceneUpdater_imp}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3StandardMemTypedList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3StandardMemTypedList" MUID: (4914299C020A)
+// Имя типа: "_l3StandardMemTypedList_"
 
 {$Define l3StandardMemTypedList_imp}
 

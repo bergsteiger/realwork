@@ -2,6 +2,7 @@ unit kwEditorFromStackCursorWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwEditorFromStackCursorWord" MUID: (50B88DF40154)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

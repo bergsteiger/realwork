@@ -2,6 +2,7 @@ unit LongintListTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Containers\LongintListTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TLongintListTest" MUID: (515D7BB10393)
 
 interface
 

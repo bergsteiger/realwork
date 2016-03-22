@@ -3,6 +3,7 @@ program EverestLiteTest;
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestLiteTest.dpr"
 // Стереотип: "TestTarget"
+// Элемент модели: "EverestLite" MUID: (512AF4A800AA)
 
 {$Include w:\archi\source\projects\Everest\Lite\7.0\Express\EverestLite.inc}
 

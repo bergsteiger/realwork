@@ -77,6 +77,30 @@ void Dumper::out (const DBComm::Synonyms& data) {
 	}
 }
 
+void Dumper::out (const DBComm::InvisibleDataIndex& data) {
+	for (DBComm::InvisibleDataIndex::const_iterator it = data.begin (); it != data.end (); ++it) {
+		ofs << it->key << std::endl;
+
+		GDS_ASSERT (it->ids.size () == it->data.size ());
+
+		size_t sz = it->ids.size ();
+
+		for (size_t i = 0; i < sz; ++i) {
+			ofs << "  " << it->ids.at (i) << ": ";
+
+			const DBComm::Entries& entries = it->data.at (i);
+
+			for (DBComm::Entries::const_iterator _it = entries.begin (); _it != entries.end (); ++_it) {
+				ofs << _it->pos << '.' << _it->len << '.' << _it->rel << "  ";
+			}
+
+			ofs << std::endl;
+		}
+
+		ofs << std::endl;
+	}
+}
+
 void Dumper::out (const Defs::InvisibleBlocks& map) {
 	Defs::InvisibleData::const_iterator _it;
 

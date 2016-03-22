@@ -2,6 +2,7 @@ unit pgUtils;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "pgUtils" MUID: (5604F2910025)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 

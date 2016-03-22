@@ -2,6 +2,7 @@ unit vcmOperationsDefIterator;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmOperationsDefIterator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmOperationsDefIterator" MUID: (5582C4210160)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

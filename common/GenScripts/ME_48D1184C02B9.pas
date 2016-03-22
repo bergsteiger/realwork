@@ -2,6 +2,7 @@ unit nevStringItemPara;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevStringItemPara.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevStringItemPara" MUID: (48D1184C02B9)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

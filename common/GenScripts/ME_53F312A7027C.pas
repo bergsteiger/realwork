@@ -2,6 +2,8 @@ unit toKT;
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\toKT.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "toKT" MUID: (53F312A7027C)
+// Имя типа: "TtoKT"
 
 {$Include w:\archi\source\projects\Everest\Lite\7.0\Express\EverestLite.inc}
 

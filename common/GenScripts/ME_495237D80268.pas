@@ -3,6 +3,7 @@ unit Base_Operations_F1Specific_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_F1Specific_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "F1Specific" MUID: (495237D80268)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

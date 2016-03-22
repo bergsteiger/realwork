@@ -2,6 +2,8 @@ unit PrimStyleEditorExample_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorExample_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimStyleEditorExample" MUID: (4AF8665A0079)
+// Имя типа: "TPrimStyleEditorExampleForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

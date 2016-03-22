@@ -2,6 +2,7 @@ unit atOperationFactory;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atOperationFactory.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "atOperationFactory" MUID: (4808A9F301D4)
 
 interface
 

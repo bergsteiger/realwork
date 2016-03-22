@@ -2,6 +2,7 @@ unit ServerAdapterConverters;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ServerAdapterConverters.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ServerAdapterConverters" MUID: (460B956502AF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

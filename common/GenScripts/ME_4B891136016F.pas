@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3DelphiStringSearcherPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3DelphiStringSearcherPrim" MUID: (4B891136016F)
+// Имя типа: "_l3DelphiStringSearcherPrim_"
 
 {$Define l3DelphiStringSearcherPrim_imp}
 

@@ -15,6 +15,7 @@ unit kwArchiNewDocumentPrim;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiNewDocumentPrim.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwArchiNewDocumentPrim" MUID: (4E1D42EC0296)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
@@ -53,6 +54,7 @@ implementation
 {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , SysUtils
 ;
 
 function TkwArchiNewDocumentPrim.DoWithFileName(const aCtx: TtfwContext): AnsiString;

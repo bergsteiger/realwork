@@ -2,6 +2,8 @@ unit PrimFoldersTreeOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersTreeOptions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimFoldersTreeOptions" MUID: (4C7E651B0179)
+// Имя типа: "TPrimFoldersTreeOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

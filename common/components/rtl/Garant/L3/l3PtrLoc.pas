@@ -2,6 +2,7 @@ unit l3PtrLoc;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3PtrLoc.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3PtrLoc" MUID: (51DD56680275)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

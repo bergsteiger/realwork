@@ -2,6 +2,7 @@ unit ImgList;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\ImgList.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ImgList" MUID: (4AB0F6DB029C)
 
 interface
 

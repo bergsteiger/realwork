@@ -2,6 +2,7 @@ unit InsDefferedEventList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\InsDefferedEventList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TInsDefferedEventList" MUID: (4B139EC502DF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

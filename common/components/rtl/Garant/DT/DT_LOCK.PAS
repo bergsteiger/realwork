@@ -1,8 +1,11 @@
 Unit Dt_Lock;
 
-{ $Id: DT_LOCK.PAS,v 1.51 2015/08/31 08:45:24 lukyanets Exp $ }
+{ $Id: DT_LOCK.PAS,v 1.52 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: DT_LOCK.PAS,v $
+// Revision 1.52  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.51  2015/08/31 08:45:24  lukyanets
 // Убираем Range Check Error
 //
@@ -225,6 +228,7 @@ Implementation
 
 uses
   daDataProvider,
+  daSchemeConsts,
   HT_Dll,
   HT_Const,
   l3Bits,

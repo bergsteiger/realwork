@@ -3,6 +3,7 @@ unit nevRealTools;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevRealTools.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "nevRealTools" MUID: (49D2080D020C)
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 

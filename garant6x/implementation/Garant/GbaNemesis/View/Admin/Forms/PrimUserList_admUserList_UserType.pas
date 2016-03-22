@@ -1,87 +1,67 @@
 unit PrimUserList_admUserList_UserType;
+ {* Список пользователей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Тучнин Д.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Admin/Forms/PrimUserList_admUserList_UserType.pas"
-// Начат: 15.08.2005 19.00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Администратор::Admin::View::Admin::PrimUserList::admUserList
-//
-// Список пользователей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserList_admUserList_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "admUserList" MUID: (4C7CE4BB0161)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы admUserList }
-  admUserListName = 'admUserList';
-   { Строковый идентификатор пользовательского типа "Список пользователей" }
-  admUserList = TvcmUserType(0);
-   { Список пользователей }
-{$IfEnd} //Admin
+ {* Константы для типа формы admUserList }
+ admUserListName = 'admUserList';
+  {* Строковый идентификатор пользовательского типа "Список пользователей" }
+ admUserList = TvcmUserType(0);
+  {* Список пользователей }
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
-{$If defined(Admin) AND not defined(NoScripts)}
+{$If Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_admUserList = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы admUserList }
+ Tkw_FormUserType_admUserList = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы admUserList }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_admUserList
-{$IfEnd} //Admin AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_admUserList
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If defined(Admin) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_admUserList
-
-class function Tkw_FormUserType_admUserList.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::admUserList';
-end;//Tkw_FormUserType_admUserList.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_admUserList.GetInteger: Integer;
- {-}
 begin
  Result := admUserList;
 end;//Tkw_FormUserType_admUserList.GetInteger
 
-{$IfEnd} //Admin AND not NoScripts
-{$IfEnd} //Admin
+class function Tkw_FormUserType_admUserList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::admUserList';
+end;//Tkw_FormUserType_admUserList.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_admUserList
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_admUserList.RegisterInEngine;
-{$IfEnd} //Admin AND not NoScripts
+ {* Регистрация Tkw_FormUserType_admUserList }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Admin)
 
 end.

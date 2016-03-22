@@ -2,6 +2,7 @@ unit CsReplyProceduresWithRegistering;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\CsReplyProceduresWithRegistering.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TCsReplyProceduresWithRegistering" MUID: (5395C8DC03A7)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

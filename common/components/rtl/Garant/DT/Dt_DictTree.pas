@@ -1,8 +1,11 @@
 unit Dt_DictTree;
 
-{ $Id: Dt_DictTree.pas,v 1.30 2014/02/14 15:33:45 lulin Exp $ }
+{ $Id: Dt_DictTree.pas,v 1.31 2015/11/24 14:08:24 voba Exp $ }
 
 // $Log: Dt_DictTree.pas,v $
+// Revision 1.31  2015/11/24 14:08:24  voba
+// -bf убрал конкурентную запись дерева словаря. Теперь дерево переписываем только при апдейте, в спокойной обстановке
+//
 // Revision 1.30  2014/02/14 15:33:45  lulin
 // - избавляемся от ошибок молодости.
 //
@@ -129,6 +132,7 @@ type
 
    function  IsTreeEmpty : Boolean;
 
+   function  GetTmpJurName : TFileName;
    procedure InitStorage(aOpenFlag : TTreeOpenFlag);
    procedure DoneStorage;
 
@@ -139,14 +143,17 @@ type
 
    procedure ClearJour;
    procedure ClearData;
+
   public
-   constructor Create(aName : string); reintroduce;
+   constructor Create(const aName : string); reintroduce;
 
    procedure Load(aParent : Il3Node);
-   procedure Save(aParent : Il3Node;MaySaved : Tl3NodeAction = nil);
    procedure Clear; virtual;
    procedure AddChangeRec(aOperation : TOperActionType;aID,aParentID,aNextID : LongInt);
    procedure CopyTo(aNewName : string);
+
+   procedure Save(aParent : Il3Node; MaySaved : Tl3NodeAction = nil);
+   // сохраяем из дерева в памяти в tre, убиваем trc
 
    property  IsEmpty : Boolean read IsTreeEmpty;
    property  ChildNodeClass : Tl3NodeClass read fChildNodeClass write fChildNodeClass;
@@ -154,6 +161,8 @@ type
 
 // procedure ConvertFromOldTreeToNew(OldTreeFl,NewTreeFl : string);
 
+ procedure UpdateTreeStuct(const aName : string);
+  // Save перекладывает измененные из trc (журнал) в tre (постоянная), вызывается ТОЛЬКО во время ежедневного обновления
 implementation
 
 uses
@@ -208,7 +217,7 @@ end;
 *)
 (*************************** TTreeStrorage *******************************)
 
-constructor TTreeStrorage.Create(aName : string);
+constructor TTreeStrorage.Create(const aName : string);
 begin
  if aName = '' then Abort;
 
@@ -242,10 +251,20 @@ begin
  Result := SizeOfFile(fConstName) = 0;
 end;
 
+function  TTreeStrorage.GetTmpJurName : TFileName;
+begin
+ Result :=fJourName+'$'
+end;
+
 procedure TTreeStrorage.InitStorage(aOpenFlag : TTreeOpenFlag);
 begin
  fCurOpenFlag := aOpenFlag;
- fJourFl := Tl3FileStream.Create(fJourName, l3_fmReadWrite);
+
+ //if fCurOpenFlag = tofSave then
+ // fJourFl := Tl3FileStream.Create(GetTmpJurName, l3_fmExclusiveReadWrite)
+ //else
+  fJourFl := Tl3FileStream.Create(fJourName, l3_fmReadWrite);
+
  if not fJourFl.Lock(0, fLockSize) then
   raise Exception.Create(Format('Не удается захватить %s', [fJourName]));
 
@@ -268,6 +287,8 @@ end;
 
 procedure TTreeStrorage.DoneStorage;
 begin
+ //if fCurOpenFlag = tofSave then
+ // RenameFileSafe(GetTmpJurName, fJourName);
  fJourFl.Unlock(0, fLockSize);
  l3Free(fDtFl);
  l3Free(fJourFl);
@@ -361,10 +382,17 @@ begin
        CurParent:=tmpTree.FindNodeByParam(aParent,fCurJourRec.ParentID,imParentNeed);
        if CurParent <> nil then
        begin
-        CurChild:=ChildNodeClass.Create;
+        CurChild := ChildNodeClass.Create;
         try
-         CurChild.StringID:=fCurJourRec.ID;
-         LastNode:=CurParent.InsertChild(CurChild);
+         CurChild.StringID := fCurJourRec.ID;
+         if fCurJourRec.NextID <> 0 then
+         begin
+          NextNode := tmpTree.FindNodeByParam(aParent,fCurJourRec.NextID,0);
+          if NextNode <> nil then
+           CurParent.InsertChildBefore(NextNode, CurChild);
+         end
+         else
+          LastNode := CurParent.InsertChild(CurChild);
         finally
          l3Free(CurChild);
         end;
@@ -409,22 +437,22 @@ end;
 procedure TTreeStrorage.Save(aParent : Il3Node; MaySaved : Tl3NodeAction);
 Var
  lCurItem        : TTreeConstRec;
- PersistentNode : IPersistentNode;
+ lPersistentNode : IPersistentNode;
 
  function IterHandler(CurNode : Il3Node) : Boolean; far;
  begin
-  if l3IOk(CurNode.QueryInterface(IPersistentNode, PersistentNode)) and
-     PersistentNode.MaySaved and
+  if l3IOk(CurNode.QueryInterface(IPersistentNode, lPersistentNode)) and
+     lPersistentNode.MaySaved and
      (not Assigned(MaySaved) or MaySaved(CurNode)) then
   begin
    with lCurItem do
    begin
     Level := CurNode.GetLevelFor(aParent);
-    ID := (CurNode as IDictItem).Handle;
+    ID := (CurNode as Il3HandleNode).Handle;
    end;
 
    PutConstRec(lCurItem);
-   PersistentNode := nil;
+   lPersistentNode := nil;
   end;
 
   Result := False;
@@ -477,4 +505,50 @@ begin
 end;
 
 (*************************************************************************)
+
+Type
+ TUpdPersistentNode = Class(Tl3UsualNode, IPersistentNode)
+  // локально используется в UpdateTreeStuct
+  function pn_CheckSaveStatus : boolean;
+  procedure DeleteEx(aHeirID : TDictID = cUndefDictID; aDateDeleted: TDateTime = 0);
+ end;
+
+function TUpdPersistentNode.pn_CheckSaveStatus : boolean;
+begin
+ Result := True;
+end;
+
+procedure TUpdPersistentNode.DeleteEx(aHeirID : TDictID = cUndefDictID; aDateDeleted: TDateTime = 0);
+begin
+ // do nothing
+end;
+
+procedure UpdateTreeStuct(const aName : string);
+var
+ lTreeStg : TTreeStrorage;
+ lRootNode : Tl3UsualNode;
+ lJourName : TFileName;
+begin
+ lJourName := aName + '.Trc';
+ if FileExists(lJourName) and (SizeOfFile(lJourName) > (cHeaderSize+1)) then
+ begin
+  lRootNode := TUpdPersistentNode.Create;
+  try
+   lTreeStg := TTreeStrorage.Create(aName);
+   try
+    lTreeStg.ChildNodeClass := TUpdPersistentNode;
+    lTreeStg.Load(lRootNode);
+    lTreeStg.Save(lRootNode);
+   finally
+    l3Free(lTreeStg);
+   end;
+  finally
+   l3Free(lRootNode);
+  end;
+ end;
+
+ // злобный хак
+ SysUtils.DeleteFile(aName + '.del');
+end;
+
 end.

@@ -2,6 +2,7 @@ unit dList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\List\dList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdList" MUID: (493E7BCC01DF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

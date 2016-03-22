@@ -2,6 +2,8 @@ unit kwPopQueryCardAttributeGetLogicOperation;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeGetLogicOperation.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_QueryCard_Attribute_GetLogicOperation" MUID: (50EFDD1802BC)
+// Имя типа: "TkwPopQueryCardAttributeGetLogicOperation"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,7 @@ unit evInevBaseLine4AnchorMapper;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evInevBaseLine4AnchorMapper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevInevBaseLine4AnchorMapper" MUID: (53D8ED6D0117)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

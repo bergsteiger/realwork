@@ -5,7 +5,7 @@ unit ddTaskItemPrim;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/ddTaskItemPrim.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::TasksTuning::TddTaskItemPrim
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::EVD::TasksTuning::TddTaskItemPrim
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

@@ -2,6 +2,8 @@ unit kwBeginWaitPrint;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwBeginWaitPrint.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "BeginWait_Print" MUID: (4F72B9B00169)
+// Имя типа: "TkwBeginWaitPrint"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

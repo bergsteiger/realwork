@@ -2,6 +2,7 @@ unit ddSub;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddSub.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddSub" MUID: (5268E523030D)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

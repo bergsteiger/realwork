@@ -3,6 +3,7 @@ unit npControlsListPrim;
 
 // Модуль: "w:\common\components\gui\Garant\VT\npControlsListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnpControlsListPrim" MUID: (4F61DE50034C)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

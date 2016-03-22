@@ -16,7 +16,10 @@
 #include "shared/Core/sys/std_inc.h"
 #include "shared/GCL/data/std_defs.h"
 #include "garantCore/SearchAdapterLib/Adapter/Adapter.h"
-#include "garantPIL/implementation/component/cpp/libs/gkdb/src/SearchB.h"
+#include "garantPIL/implementation/component/cpp/libs/gkdb/src/Base.h"
+
+//#UC START# *5103B47A00C4_CUSTOM_INCLUDES*
+//#UC END# *5103B47A00C4_CUSTOM_INCLUDES*
 
 namespace Search {
 
@@ -27,21 +30,20 @@ class Helper {
 // self methods
 public:
 	// релевантные фрагменты
-	static SearchAdapterLib::Adapter::IFragments* get_fragments (SearchBase* base, const char* in, long doc_id, long para);
+	static SearchAdapterLib::Adapter::IFragments* get_fragments (Base* base, const char* in, long doc_id, long para);
 
 	// позиции релевантных фрагментов
-	static SearchAdapterLib::Adapter::IPositions* get_positions (SearchBase* base, const GCL::StrVector& reqs, long doc_id);
+	static SearchAdapterLib::Adapter::IPositions* get_positions (Base* base, const GCL::StrVector& reqs, long doc_id);
 
-	// загрузка memcache
+	// memcache
 	static void load_memcache (const SearchAdapterLib::Adapter::MemCacheSettings& settings);
 
 	// очистка кэшей
 	static void reset ();
 
-private:
-	// searcher
-	static SearchAdapterLib::Adapter::ISearcher* get_searcher (SearchBase* base, long id);
 
+//#UC START# *5103B47A00C4*
+//#UC END# *5103B47A00C4*
 }; // class Helper
 
 } // namespace Search

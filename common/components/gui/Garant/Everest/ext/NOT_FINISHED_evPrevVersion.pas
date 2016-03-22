@@ -3,6 +3,7 @@ unit NOT_FINISHED_evPrevVersion;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\ext\NOT_FINISHED_evPrevVersion.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evPrevVersion" MUID: (4F13F6EE0046)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit vgRemindersLineManager;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vgRemindersLineManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgRemindersLineManager" MUID: (533EABAE0351)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

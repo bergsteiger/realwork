@@ -2,6 +2,8 @@ unit ExportPipeTestPrim;
 
 // Модуль: "w:\archi\source\projects\ImportExportTest\ExportPipeTestPrim.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "ExportPipeTestPrim" MUID: (55ED52510115)
+// Имя типа: "TExportPipeTestPrim"
 
 {$Include w:\archi\source\projects\ImportExportTest.inc}
 
@@ -21,7 +23,6 @@ type
   private
    f_IsNSRC: Boolean;
    f_Pipe: TExportPipe;
-    {* Поле для свойства Pipe }
   private
    procedure FillDocSub;
     {* Формирование выборки для экспорта (она одна для всех потомков) }

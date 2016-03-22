@@ -3,6 +3,7 @@ unit k2HugeTagObject;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2HugeTagObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2HugeTagObject" MUID: (467FC49800E8)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

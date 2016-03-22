@@ -2,6 +2,7 @@ unit vcmMenuManagerUtils;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMenuManagerUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmMenuManagerUtils" MUID: (52AB0A3703E2)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

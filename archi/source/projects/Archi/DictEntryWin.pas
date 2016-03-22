@@ -1,8 +1,11 @@
 unit DictEntryWin;
 
-{ $Id: DictEntryWin.pas,v 1.64 2015/04/03 07:50:48 voba Exp $ }
+{ $Id: DictEntryWin.pas,v 1.65 2015/11/27 12:37:57 lukyanets Exp $ }
 
 // $Log: DictEntryWin.pas,v $
+// Revision 1.65  2015/11/27 12:37:57  lukyanets
+// Cleanup
+//
 // Revision 1.64  2015/04/03 07:50:48  voba
 // - снес TDocumentData
 //
@@ -381,6 +384,7 @@ implementation
 {$R *.dfm}
 
 uses
+ daSchemeConsts,
  m3DBInterfaces,
  l3Types,
  l3Base, l3Chars, l3String,

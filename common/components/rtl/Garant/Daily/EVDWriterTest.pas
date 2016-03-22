@@ -1,71 +1,53 @@
 unit EVDWriterTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/EVDWriterTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EVD::EVDWriterTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\EVDWriterTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "EVDWriterTest" MUID: (4C07B5C100E8)
+// Имя типа: "TEVDWriterTest"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  evdNativeReader,
-  WriterTest
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , WriterTest
+ , evdNativeReader
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TEVDWriterTest = {abstract} class(TWriterTest)
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    procedure EVDtoEVD(const aFileName: AnsiString);
    function UseFullEVDReader: Boolean; virtual;
-     {* Использовать ли ПОЛНЫЙ evdReader (с чтением текста тоже) }
+    {* Использовать ли ПОЛНЫЙ evdReader (с чтением текста тоже) }
    function DisableParserLog: Boolean; virtual;
-     {* Запретить парсеру выводить в лог }
+    {* Запретить парсеру выводить в лог }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TEVDWriterTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  evEvdRd,
-  l3Parser,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TEVDWriterTest
+ l3ImplUses
+ , TestFrameWork
+ , SysUtils
+ , evEvdRd
+ , l3Parser
+;
 
 procedure TEVDWriterTest.EVDtoEVD(const aFileName: AnsiString);
+var l_Reader: TevdNativeReader;
 //#UC START# *4C07B67A02C1_4C07B5C100E8_var*
 var
  l_DisableParserLog : Boolean;
 //#UC END# *4C07B67A02C1_4C07B5C100E8_var*
-var
- l_Reader : TevdNativeReader;
 begin
 //#UC START# *4C07B67A02C1_4C07B5C100E8_impl*
  if UseFullEVDReader then
@@ -89,6 +71,7 @@ begin
 end;//TEVDWriterTest.EVDtoEVD
 
 function TEVDWriterTest.UseFullEVDReader: Boolean;
+ {* Использовать ли ПОЛНЫЙ evdReader (с чтением текста тоже) }
 //#UC START# *4C1B2B0203A2_4C07B5C100E8_var*
 //#UC END# *4C1B2B0203A2_4C07B5C100E8_var*
 begin
@@ -98,6 +81,7 @@ begin
 end;//TEVDWriterTest.UseFullEVDReader
 
 function TEVDWriterTest.DisableParserLog: Boolean;
+ {* Запретить парсеру выводить в лог }
 //#UC START# *4C1B47BA03AC_4C07B5C100E8_var*
 //#UC END# *4C1B47BA03AC_4C07B5C100E8_var*
 begin
@@ -107,17 +91,16 @@ begin
 end;//TEVDWriterTest.DisableParserLog
 
 function TEVDWriterTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EVD';
 end;//TEVDWriterTest.GetFolder
 
 function TEVDWriterTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C07B5C100E8';
 end;//TEVDWriterTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

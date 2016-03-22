@@ -2,6 +2,7 @@ unit nsFragmentListForSearchViaEverestOwnSearcher;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsFragmentListForSearchViaEverestOwnSearcher.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsFragmentListForSearchViaEverestOwnSearcher" MUID: (4D8A35D7008B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

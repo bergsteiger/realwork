@@ -2,6 +2,7 @@ unit dsBaseContentsRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseContentsRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "dsBaseContentsRes" MUID: (4D416F1300DB)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,8 @@ unit Position_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\Position_Const.pas"
 // Стереотип: "Atom"
+// Элемент модели: "Position" MUID: (48495D810324)
+// Имя типа: "PositionAtom"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

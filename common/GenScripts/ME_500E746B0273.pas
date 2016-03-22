@@ -2,6 +2,7 @@ unit dsAACDocumentLeft;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\dsAACDocumentLeft.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsAACDocumentLeft" MUID: (500E746B0273)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

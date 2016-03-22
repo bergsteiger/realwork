@@ -3,6 +3,8 @@ unit PostingsList_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PostingsList_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "PostingsList" MUID: (4AAFA16202D3)
+// Имя типа: "TenPostingsList"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

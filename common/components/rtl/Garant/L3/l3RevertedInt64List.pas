@@ -2,6 +2,7 @@ unit l3RevertedInt64List;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3RevertedInt64List.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3RevertedInt64List" MUID: (5423BEC80395)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

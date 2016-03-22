@@ -3,6 +3,7 @@ unit nsFindIteratorNewForAutoreferat;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsFindIteratorNewForAutoreferat.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsFindIteratorNewForAutoreferat" MUID: (4CE6B3E90338)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

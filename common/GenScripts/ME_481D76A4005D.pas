@@ -3,6 +3,7 @@ unit evParaDrawTools;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evParaDrawTools.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evParaDrawTools" MUID: (481D76A4005D)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

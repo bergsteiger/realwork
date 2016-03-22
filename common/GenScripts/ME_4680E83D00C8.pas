@@ -3,6 +3,7 @@ unit eeDocumentContainer;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TeeDocumentContainer" MUID: (4680E83D00C8)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

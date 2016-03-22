@@ -3,6 +3,7 @@ unit NOT_FINISHED_dd_lcTextFormatter2;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcTextFormatter2.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "dd_lcTextFormatter2" MUID: (4EBB9983014C)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

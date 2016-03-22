@@ -3,6 +3,7 @@ unit SearchProgressIndicatorUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\SearchProgressIndicatorUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "SearchProgressIndicator" MUID: (4A38B397024A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

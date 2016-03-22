@@ -2,6 +2,7 @@ unit nsTagNodeToolsNew;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsTagNodeToolsNew.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsTagNodeToolsNew" MUID: (4C99DF8C0241)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

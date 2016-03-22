@@ -32,6 +32,7 @@ type
     const aPassword: AnsiString;
     RequireAdminRights: Boolean;
     out theUserID: TdaUserID): TdaLoginError;
+   function IsUserAdmin(anUserID: TdaUserID): Boolean;
  public
  // public methods
    constructor Create; reintroduce;
@@ -49,6 +50,11 @@ uses
   dt_Serv
   {$IfEnd} //not Nemesis
   
+  {$If not defined(Nemesis)}
+  ,
+  dt_User
+  {$IfEnd} //not Nemesis
+  
   ;
 
 // start class ThtUserManager
@@ -59,7 +65,6 @@ constructor ThtUserManager.Create;
 begin
 //#UC START# *5629F0F901C8_5629E343023B_impl*
  inherited Create;
-// !!! Needs to be implemented !!!
 //#UC END# *5629F0F901C8_5629E343023B_impl*
 end;//ThtUserManager.Create
 
@@ -98,5 +103,14 @@ begin
  theUserID := GlobalHTServer.xxxUserID;
 //#UC END# *5628D14D0151_5629E343023B_impl*
 end;//ThtUserManager.CheckPassword
+
+function ThtUserManager.IsUserAdmin(anUserID: TdaUserID): Boolean;
+//#UC START# *56EA993D0218_5629E343023B_var*
+//#UC END# *56EA993D0218_5629E343023B_var*
+begin
+//#UC START# *56EA993D0218_5629E343023B_impl*
+ Result :=  UserManager.IsUserAdmin(anUserID);
+//#UC END# *56EA993D0218_5629E343023B_impl*
+end;//ThtUserManager.IsUserAdmin
 
 end.

@@ -2,6 +2,7 @@ unit ByteList;
 
 // Модуль: "w:\common\components\SandBox\ByteList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TByteList" MUID: (51DEE6440352)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

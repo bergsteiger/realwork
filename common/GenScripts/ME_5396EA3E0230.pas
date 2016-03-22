@@ -2,6 +2,7 @@ unit atOperationEnv;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atOperationEnv.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatOperationEnv" MUID: (5396EA3E0230)
 
 interface
 

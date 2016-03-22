@@ -175,46 +175,44 @@ end;
 
 {
 HLTC77.1.6: Поиск по классификатору
-HLTC77.1.6.3: Поиск 3
-  Банковская деятельность – Расчеты – Безналичные расчеты
+  HLTC77.1.6.3: Поиск 3
+    Банковская деятельность – Расчеты – Безналичные расчеты
+    Результат: 
 }                     
 function  HLTC77_1_6_3_Execute(var  current_state: OleVariant): OleVariant; 
 var
-  rubricatorTree, listTree;
-	listArray;  
-  LISTPATH1;
+  LISTPATH1, docsName;
 begin
-	LISTPATH1 := PNAV + '\Банковская деятельность\Расчеты\Безналичные расчеты';
 	Result := false;
-  listArray := [
-                'Федеральный закон от 8 января 1998 г. N 2-ФЗ "Транспортный устав железных дорог Российской Федерации"',
-                'Циркулярное письмо Госстроя РФ от 15 ноября 1999 г. N ЛЧ-12-12/762 "О безакцептном списании средств со счетов потребителей за потребленные энергетические ресурсы"',
-                'Постановление Президиума Высшего Арбитражного Суда РФ от 9 января 1997 г. N 4991/96 Взыскание с должника процентов за пользование чужими денежными средствами в связи с невыделением бюджетных средств, поступающих на счет ответчика целевым назначением для расчетов c истцом-подрядчиком, признано неправильным',
-                'Новые таблицы и формулы. Указание ЦБР от 16 января 2004 г. N 1376-У "О перечне, формах и порядке составления и представления форм отчетности кредитных организаций в Центральный банк Российской Федерации" (с изменениями и дополнениями) (утратило силу)',
-                'Указание ЦБР от 16 января 2004 г. N 1376-У "О перечне, формах и порядке составления и представления форм отчетности кредитных организаций в Центральный банк Российской Федерации" (с изменениями и дополнениями)',
-                'Решение Совета Евразийской экономической комиссии от 16 июля 2012 г. N 54*',
-                'Домашняя правовая энциклопедия. Дом (жилище) (подготовлено экспертами компании "Гарант")',
-                'Положение об организации расчетов между банками разных республик (приложение 2 к Положению о безналичных расчетах в Российской Федерации от 9 июля 1992 г.) (утратило силу)',
-                'Телеграмма ЦБР от 6 августа 1992 г. N 172-92 О расчетах по взаимным поставкам товаров между государствами-бывшими республиками СССР (утратила силу)'
-                ];
- 
-  rubricatorTree:= OpenMenuTab;
-	if common.Position_Internal(rubricatorTree, LISTPATH1) then
-	begin
-    Sys.Keys('[Enter]');
-    listTree := GetList;
-    listTree.SetFocus;             
-    Result := CompareArray(listArray, GetElementsFromTree(listTree), true, true);
+  
+	LISTPATH1 := PNAV + '\Банковская деятельность\Расчеты\Безналичные расчеты';
+  docsName := 
+    [    
+      ([FL_EXISTS, 'Федеральный закон от 8 января 1998 г. N 2-ФЗ*']),
+      ([FL_EXISTS, 'Циркулярное письмо Госстроя РФ от 15 ноября 1999 г. N ЛЧ-12-12/762*']),      
+      ([FL_EXISTS, 'Постановление Президиума Высшего Арбитражного Суда РФ от 9 января 1997 г. N 4991/96*']),      
+      ([FL_EXISTS, 'Новые таблицы и формулы. Указание ЦБР от 16 января 2004 г. N 1376-У*']),      
+      ([FL_EXISTS, 'Указание ЦБР от 16 января 2004 г. N 1376-У*']),      
+      ([FL_EXISTS, 'Решение Совета Евразийской экономической комиссии от 16 июля 2012 г. N 54*']),
+      ([FL_EXISTS, 'Постановление Пленума Верховного Суда РФ от 28 июня 2012 г. N 17*']),      
+      ([FL_EXISTS, 'Домашняя правовая энциклопедия. Дом*']),      
+      ([FL_EXISTS, 'Положение об организации расчетов между банками разных республик*']),      
+      ([FL_EXISTS, 'Телеграмма ЦБР от 6 августа 1992 г. N 172-92*'])
+    ];
+
+  if OpenObjectFromFolder(LISTPATH1, OpenMenuTab) then
+  begin
+    Result := FindInList(docsName);
     if not Result then
-    	Log.Error('Открывается несоответствующий список при переходе по классификатору!');
+    	Log.Error('Список не соответствует эталону');
   end
   else
-  	Log.Error('Невозможно открыть рубрикатор "' + LISTPATH1 + '"');
+    Log.Error('Невозможно открыть список "' + LISTPATH1 + '"');
 
   CollapseTreeInNavigator(LISTPATH1);
   GoToMainMenu;
 end;
- 
+
 {
   HLTC77.1.10.1: Контексты со «*»:
     HLTC77.1.10.1.1 : "констит*", результат – не меньше 530 документов.
@@ -270,7 +268,7 @@ begin
 end;
 
 {
-  HLTC77.1.10.1.3: «ах*», результат – 11 документ
+  HLTC77.1.10.1.3: «ах*», результат – 12 документ
 }
 function  HLTC77_1_10_1_3_Execute(var  current_state: OleVariant): OleVariant;
 var
@@ -281,7 +279,7 @@ begin
 
   docsName := 
     [
-      ([FL_NUMBER_BIG, '11'])  // gen: http://mdp.garant.ru/pages/viewpage.action?pageId=557862275&focusedCommentId=562606109#comment-562606109
+      ([FL_NUMBER_BIG, '12'])  // gen: http://mdp.garant.ru/pages/viewpage.action?pageId=557862275&focusedCommentId=562606109#comment-562606109
     ];
   if SearchInPPR( [CARD_PPR, ([ ([FD_WORDS_IN_TEXT, (['ах*']) ]) ]) ]) then
   begin
@@ -937,16 +935,11 @@ end;
 
 {
 HLTC77.1.1.24: Поиск по контексту (со словоформами)
-HLTC77.1.1.24.1: Ввести в ППР контекст = "АБАЯ" (без кавычек). Провести поиск  и построить список. Проверить правильность списка (см. ниже) и проверить, что в каждом документе списка подсвечен соответствующий контекст. 
-Результат:
-HLTC77.1.1.24.1.1: В тестовой базе:
-Письмо ГТК РФ от 13 февраля 1996 г. N 01-15/2480 "О временном положении о доставке и транзите товаров"
-Письмо ГТК РФ от 14 октября 1998 г. N 22-05/7678 Список адресов таможенных органов и служебных телефонов должностных лиц таможенных органов Республики Казахстан
-Строительные нормы и правила СНиП II-7-81* "Строительство в сейсмических районах" (утв. постановлением Госстроя СССР от 15 июня 1981 г. N 94) (с изм. и доп. от 3 июня 1987 г., 16 августа 1989 г., 26 июля 1995 г., 28 июля 1997 г., 27 декабря 1999 г., 3 июня 1987 г.)
-Письмо Высшего Арбитражного Суда РФ от 28 октября 1994 г. N ОМ-328 "О реквизитах судебно-арбитражных органов Армении, Казахстана, Узбекистана и Киргизии и новых ставках государственной пошлины в Киргизии"
-Письмо ГТК РФ от 1 июня 1999 г. N 03-10/15634 "О классификаторе таможенных органов и их структурных подразделений" (с изм. и доп. от 10 ноября 1999 г.) (утратило силу)
-Письмо ГТК РФ от 22 января 1999 г. N 03-10/1596 "О классификаторе таможенных органов и их структурных подразделений" (утратило силу)
-Письмо ГТК РФ от 16 апреля 1998 г. N 07-10/7793 Образцы оттисков печатей и подписей должностных лиц ТПП Республики Казахстан (утратило силу)
+  HLTC77.1.1.24.1: Ввести в ППР контекст = "АБАЯ" (без кавычек). Провести поиск  и построить список. Проверить правильность списка (см. ниже) и проверить, что в каждом документе списка подсвечен соответствующий контекст. 
+    HLTC77.1.1.24.1.1: В тестовой базе:
+      Письмо ГТК РФ от 14 октября 1998 г. N 22-05/7678 Список адресов таможенных органов и служебных телефонов должностных лиц таможенных органов Республики Казахстан
+      Письмо Высшего Арбитражного Суда РФ от 28 октября 1994 г. N ОМ-328 "О реквизитах судебно-арбитражных органов Армении, Казахстана, Узбекистана и Киргизии и новых ставках государственной пошлины в Киргизии"
+      Письмо ГТК РФ от 16 апреля 1998 г. N 07-10/7793 Образцы оттисков печатей и подписей должностных лиц ТПП Республики Казахстан (утратило силу)
 }
 function  HLTC77_1_1_24_1_1_Execute(var  current_state: OleVariant): OleVariant;
 var
@@ -955,14 +948,9 @@ begin
   Result := False;
   docsName := 
     [
-    ([FL_NUMBER, '8']),
-    ([FL_EXISTS, 'Письмо ГТК РФ от 13 февраля 1996 г. N 01-15/2480 "О временном положении о доставке и транзите товаров"']),
+    ([FL_NUMBER, '3']),
     ([FL_EXISTS, 'Письмо ГТК РФ от 14 октября 1998 г. N 22-05/7678 Список адресов таможенных органов и служебных телефонов должностных лиц таможенных органов Республики Казахстан']),
-    ([FL_EXISTS, 'Строительные нормы и правила СНиП II-7-81* "Строительство в сейсмических районах" (утв. постановлением Госстроя СССР от 15 июня 1981 г. N 94) (с изм. и доп. от 3 июня 1987 г., 16 августа 1989 г., 26 июля 1995 г., 28 июля 1997 г., 27 декабря 1999 г., 3 июня 1987 г.)']),
     ([FL_EXISTS, 'Письмо Высшего Арбитражного Суда РФ от 28 октября 1994 г. N ОМ-328 "О реквизитах судебно-арбитражных органов Армении, Казахстана, Узбекистана и Киргизии и новых ставках государственной пошлины в Киргизии"']),
-    ([FL_EXISTS, 'Решение Совета Евразийской экономической комиссии от 16 июля 2012 г. N 54*']),
-    ([FL_EXISTS, 'Письмо ГТК РФ от 1 июня 1999 г. N 03-10/15634 "О классификаторе таможенных органов и их структурных подразделений" (с изм. и доп. от 10 ноября 1999 г.) (утратило силу)']),
-    ([FL_EXISTS, 'Письмо ГТК РФ от 22 января 1999 г. N 03-10/1596 "О классификаторе таможенных органов и их структурных подразделений" (утратило силу)']),
     ([FL_EXISTS, 'Письмо ГТК РФ от 16 апреля 1998 г. N 07-10/7793 Образцы оттисков печатей и подписей должностных лиц ТПП Республики Казахстан (утратило силу)'])
     ];
   cardData := 
@@ -1214,7 +1202,7 @@ end;
 {
 HLTC77.1.1.24.7: Ввести в ППР контекст = "цепочками" (без кавычек), поиск в недействующих редакциях = «Да». 
   Провести поиск  и построить список. Проверить правильность списка (см. ниже) и проверить, что в указанных ниже документах списка ищется соответствующий контекст (“цепочкой”). 
-  HLTC77.1.1.24.7.1: В тестовой базе 36 документов, среди которых должны быть:
+  HLTC77.1.1.24.7.1: В тестовой базе 37окументов, среди которых должны быть:
     Документ с нормальной цепочкой редакций. ACTIVE 21/04/2003 и 4 его редакции
 }
 function  HLTC77_1_1_24_7_1_Execute(var  current_state: OleVariant): OleVariant;
@@ -1224,7 +1212,7 @@ begin
   Result := false;
   docsName := 
     [    
-    ([FL_NUMBER, '36']),
+    ([FL_NUMBER, '37']),
     ([FL_EXISTS_EDITION, 'Документ с нормальной цепочкой редакций. ACTIVE 21/04/2003*',
       ([
         '*будет*от 21.04.2003*',
@@ -1259,7 +1247,7 @@ HLTC77.1.1.24.8: (Провести поиск по контексту, область поиска «Слова в названии»
   HLTC77.1.1.24.8.1: Контекст = «йод». Результат:
     HLTC77.1.1.24.8.1.1: В тестовой базе:  
       Соглашение о профилактике йод-дефицитных состояний среди населения государств-участников Содружества Независимых Государств (Минск, 31 мая 2001 г.)
-      Если искать по всему тексту, то должно найтись 29 документов
+      Если искать по всему тексту, то должно найтись 30 документов
 }
 function  HLTC77_1_1_24_8_1_1_Execute(var  current_state: OleVariant): OleVariant;
 var
@@ -1291,7 +1279,7 @@ begin
 
   docsName := 
     [
-    ([FL_NUMBER, '29'])
+    ([FL_NUMBER, '30'])
     ];
   cardData := 
     [                
@@ -1440,6 +1428,49 @@ begin
   end
   else
     Log.Error('Не получилось произвести поиск ППР');
+  GoToMainMenu;
+end;
+
+{
+  HLTC77.1.1.24.8.7: По обоим контекстам должны находиться 2 документа: 57974708 и 57974709
+    энциклопедия решений Прекращение доверенности по обстоятельствам, зависящим от представляемого и представителя    
+    Прекращение доверенности по обстоятельствам, зависящим от представляемого и представителя
+}
+function  HLTC77_1_1_24_8_7_Execute(var  current_state: OleVariant): OleVariant;
+var
+  docsName, cardData, context, i;
+begin
+try      
+  Result := true;
+  for i := 1 to 2 do
+  begin   
+    case i of
+      1: begin context := 'энциклопедия решений Прекращение доверенности по обстоятельствам, зависящим от представляемого и представителя'; end;
+      2: begin context := 'Прекращение доверенности по обстоятельствам, зависящим от представляемого и представителя'; end;
+    end;
+    docsName := 
+    [
+      ([FL_EXISTS, 'Энциклопедия решений. Прекращение доверенности по обстоятельствам, зависящим от представляемого и представителя']),
+      ([FL_EXISTS, 'Энциклопедия решений. Прекращение доверенности по обстоятельствам, не зависящим от представителя и представляемого'])
+    ];
+    cardData :=
+    [                
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_CAPTION, ([
+    		context]) ])
+      ])
+    ];
+
+    if not SearchInPPR(cardData) then
+    	Raise('Не получилось выполнить поиск ППР');
+    Result := FindInList(docsName) and Result;
+    if not Result then
+    	Raise('Результат поиска ППР не соответствует эталону');
+  end;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
   GoToMainMenu;
 end;
 
@@ -1679,11 +1710,9 @@ end;
       Письмо ГТК РФ от 13 февраля 1996 г. N 01-15/2480 "О временном положении о доставке и транзите товаров"
       Письмо ГТК РФ от 14 октября 1998 г. N 22-05/7678 Список адресов таможенных органов и служебных телефонов должностных лиц таможенных органов Республики Казахстан
       Строительные нормы и правила СНиП II-7-81* "Строительство в сейсмических районах" (утв. постановлением Госстроя СССР от 15 июня 1981 г. N 94) (с изм. и доп. от 3 июня 1987 г., 16 августа 1989 г., 26 июля 1995 г., 28 июля 1997 г., 27 декабря 1999 г., 3 июня 1987 г.)
-      Письмо Высшего Арбитражного Суда РФ от 28 октября 1994 г. N ОМ-328 "О реквизитах судебно-арбитражных органов Армении, Казахстана, Узбекистана и Киргизии и новых ставках государственной пошлины в Киргизии"
       Решение Совета Евразийской экономической комиссии от 16 июля 2012 г. N 54*
       Письмо ГТК РФ от 1 июня 1999 г. N 03-10/15634 "О классификаторе таможенных органов и их структурных подразделений" (с изм. и доп. от 10 ноября 1999 г.) (утратило силу)
       Письмо ГТК РФ от 22 января 1999 г. N 03-10/1596 "О классификаторе таможенных органов и их структурных подразделений" (утратило силу)
-      Письмо ГТК РФ от 16 апреля 1998 г. N 07-10/7793 Образцы оттисков печатей и подписей должностных лиц ТПП Республики Казахстан (утратило силу) </u>
 }
 function  HLTC77_1_1_24_16_1_Execute(var  current_state: OleVariant): OleVariant;
 var
@@ -1692,15 +1721,13 @@ begin
   Result := False;
   docsName := 
     [
-    ([FL_NUMBER, '8']),
+    ([FL_NUMBER, '6']),
     ([FL_EXISTS, 'Письмо ГТК РФ от 13 февраля 1996 г. N 01-15/2480 "О временном положении о доставке и транзите товаров"']),
     ([FL_EXISTS, 'Письмо ГТК РФ от 14 октября 1998 г. N 22-05/7678 Список адресов таможенных органов и служебных телефонов должностных лиц таможенных органов Республики Казахстан']),
     ([FL_EXISTS, 'Строительные нормы и правила СНиП II-7-81* "Строительство в сейсмических районах" (утв. постановлением Госстроя СССР от 15 июня 1981 г. N 94) (с изм. и доп. от 3 июня 1987 г., 16 августа 1989 г., 26 июля 1995 г., 28 июля 1997 г., 27 декабря 1999 г., 3 июня 1987 г.)']),
-    ([FL_EXISTS, 'Письмо Высшего Арбитражного Суда РФ от 28 октября 1994 г. N ОМ-328 "О реквизитах судебно-арбитражных органов Армении, Казахстана, Узбекистана и Киргизии и новых ставках государственной пошлины в Киргизии"']),
     ([FL_EXISTS, 'Решение Совета Евразийской экономической комиссии от 16 июля 2012 г. N 54*']),    
     ([FL_EXISTS, 'Письмо ГТК РФ от 1 июня 1999 г. N 03-10/15634 "О классификаторе таможенных органов и их структурных подразделений" (с изм. и доп. от 10 ноября 1999 г.) (утратило силу)']),
-    ([FL_EXISTS, 'Письмо ГТК РФ от 22 января 1999 г. N 03-10/1596 "О классификаторе таможенных органов и их структурных подразделений" (утратило силу)']),
-    ([FL_EXISTS, 'Письмо ГТК РФ от 16 апреля 1998 г. N 07-10/7793 Образцы оттисков печатей и подписей должностных лиц ТПП Республики Казахстан (утратило силу)'])
+    ([FL_EXISTS, 'Письмо ГТК РФ от 22 января 1999 г. N 03-10/1596 "О классификаторе таможенных органов и их структурных подразделений" (утратило силу)'])
     ];
   cardData := 
     [
@@ -1981,7 +2008,7 @@ end;
 end;
 
 {
-HLTC77.1.1.24.22.4: Слова в тексте "1234567890*", результат – 2 документа.
+  HLTC77.1.1.24.22.4: Слова в тексте "1234567890*", результат – 3 документа.
 }
 function  HLTC77_1_1_24_22_4_Execute(var  current_state: OleVariant): OleVariant;
 var
@@ -1990,7 +2017,7 @@ begin
 try      
   docsName := 
   [
-    ([FL_NUMBER, '2']),
+    ([FL_NUMBER, '3']),
     ([FL_EXISTS, 'ДОКУМЕНТ 2002 с 10 командами NAME по 73 символа каждая*']),
     ([FL_EXISTS, 'Инструкция о порядке похорон и содержании кладбищ в Российской Федерации. МДС 13-2.2000*'])
   ];
@@ -2105,6 +2132,266 @@ end;
 end;
 
 {
+  HLTC77.1.1.24.22.8: По запросам: "ял*" и "ял" (без кавычек)
+    Помимо прочих, должны находиться документы 2266 и 2267.
+    И НЕ должен находиться документ 2268
+
+    Почему:
+    в 2266 есть контекст "ял"
+    в 2267 есть синоним "поиск со звёздочкой"
+    в 2268 контекст "Ялта"
+}
+function  HLTC77_1_1_24_22_8_Execute(var  current_state: OleVariant): OleVariant;
+var
+  docsName, cardData, context, i;
+begin
+try      
+  Result := true;
+  for i := 1 to 2 do
+  begin   
+    case i of
+      1: begin context := 'ял*'; end;
+      2: begin context := 'ял'; end;
+    end;
+    docsName := 
+    [
+      ([FL_EXISTS, '*2266*']),
+      ([FL_EXISTS, '*2267*']),
+      ([FL_NOT_EXISTS, '*2268*'])
+    ];
+    cardData :=
+    [                
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_TEXT, ([
+    		context]) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ])
+      ])
+    ];
+    if not SearchInPPR(cardData) then
+    	Raise('Не получилось выполнить поиск ППР');
+    Result := FindInList(docsName) and Result;
+    if not Result then
+    	Raise('Результат поиска ППР не соответствует эталону');
+  end;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC77.1.1.24.22.9: Слова в тексте: 777777*
+    Найдутся топики 2266, 2268 - 3273. Всего 1000. НЕ должны найтись:
+      Топик 2267 в котором есть синоним "поиск-со-звездочкой", т.к. это лишь синоним
+      Топик 3274 тоже находиться не должен, т.к. он 1001-й.
+}
+function  HLTC77_1_1_24_22_9_Execute(var  current_state: OleVariant): OleVariant;
+var
+  docsName, cardData;
+begin
+try      
+  docsName := 
+  [
+    ([FL_NUMBER_BIG, '1000']),
+    ([FL_EXISTS, '*2266*']),
+    ([FL_EXISTS, '*2268*']),
+    ([FL_EXISTS, '*3273*']),
+    ([FL_NOT_EXISTS, '*2267*']),
+    ([FL_NOT_EXISTS, '*3274*'])
+  ];
+  cardData := 
+  [                
+  	CARD_PPR, ([([
+  	FD_WORDS_IN_TEXT, ([
+  		'777777*']) ])
+    ]) 
+  ];         
+  if not SearchInPPR(cardData) then
+  	Raise('Не получилось выполнить поиск ППР');
+  Result := FindInList(docsName);
+  if not Result then
+  	Raise('Результат поиска ППР не соответствует эталону');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC77.1.1.24.22.10: Слова в тексте: 555555* 666666*
+    Найдутся топики 2266-3272. Всего 1000. Топик 3273 найтись не должен, т.к он 1001-й.
+}
+function  HLTC77_1_1_24_22_10_Execute(var  current_state: OleVariant): OleVariant;
+var
+  docsName, cardData;
+begin
+try      
+  docsName := 
+  [
+    ([FL_NUMBER_BIG, '1000']),
+    ([FL_EXISTS, '*2266*']),
+    ([FL_EXISTS, '*3272*']),
+    ([FL_NOT_EXISTS, '*3273*'])
+  ];
+  cardData := 
+  [                
+  	CARD_PPR, ([([
+  	FD_WORDS_IN_TEXT, ([
+  		'555555* 666666*']) ])
+    ]) 
+  ];         
+  if not SearchInPPR(cardData) then
+  	Raise('Не получилось выполнить поиск ППР');
+  Result := FindInList(docsName);
+  if not Result then
+  	Raise('Результат поиска ППР не соответствует эталону');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC77.1.1.24.22.11: Слова в названии: 444444* 
+    Найдутся топики 2266-3272. Всего 1000. Топик 3273 найтись не должен, т.к он 1001-й.
+}
+function  HLTC77_1_1_24_22_11_Execute(var  current_state: OleVariant): OleVariant;
+var
+  docsName, cardData;
+begin
+try      
+  docsName := 
+  [
+    ([FL_NUMBER_BIG, '1000']),
+    ([FL_EXISTS, '*2266*']),
+    ([FL_EXISTS, '*3272*']),
+    ([FL_NOT_EXISTS, '*3273*'])
+  ];
+  cardData := 
+  [                
+  	CARD_PPR, ([([
+  	FD_WORDS_IN_CAPTION, ([
+  		'444444*']) ])
+    ]) 
+  ];         
+  if not SearchInPPR(cardData) then
+  	Raise('Не получилось выполнить поиск ППР');
+  Result := FindInList(docsName);
+  if not Result then
+  	Raise('Результат поиска ППР не соответствует эталону');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC77.1.1.24.22.12: Слова в названии: 444444*   И     Слова в тексте: 555555* 666666* 777777*
+    Найдутся топики 2266, 2268-3272. Всего 999. Топик 2267 не должен находиться, т.к. синоним. Топик 3273 найтись не должен, т.к он 1001-й, при поиске по названию.
+}
+function  HLTC77_1_1_24_22_12_Execute(var  current_state: OleVariant): OleVariant;
+var
+  docsName, cardData;
+begin
+try      
+  docsName := 
+  [
+    ([FL_NUMBER_BIG, '999']),
+    ([FL_EXISTS, '*2266*']),    
+    ([FL_EXISTS, '*2268*']),
+    ([FL_EXISTS, '*3272*']),
+    ([FL_NOT_EXISTS, '*2267*'])
+  ];
+  cardData := 
+    [
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_CAPTION, ([
+    		'444444*']) ]),([
+    	FD_WORDS_IN_TEXT, ([
+    		'555555* 666666* 777777*']) ]) ]) 
+    ];
+  if not SearchInPPR(cardData) then
+  	Raise('Не получилось выполнить поиск ППР');
+  Result := FindInList(docsName);
+  if not Result then
+  	Raise('Результат поиска ППР не соответствует эталону');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC77.1.1.24.22.13: Слова в тексте: 9999999*
+    Найдётся один топик: 3275.
+}
+function  HLTC77_1_1_24_22_13_Execute(var  current_state: OleVariant): OleVariant;
+var
+  docsName, cardData;
+begin
+try      
+  docsName := 
+  [
+    ([FL_NUMBER_BIG, '1']),
+    ([FL_EXISTS, '*3275*'])    
+  ];
+  cardData := 
+    [
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_TEXT, ([
+    		'9999999*']) ]) ]) 
+    ];
+  if not SearchInPPR(cardData) then
+  	Raise('Не получилось выполнить поиск ППР');
+  Result := FindInList(docsName);
+  if not Result then
+  	Raise('Результат поиска ППР не соответствует эталону');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC77.1.1.24.22.14: В документе 2002 ищем контекст: преформат* 
+    Найдётся 8 совпадений.
+}
+function  HLTC77_1_1_24_22_14_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOC_NUM = 2002;
+  SEARCH_NUM = 8;
+  CONTEXT = 'преформат*';
+var
+  res, i;
+begin
+try
+  Result := true;
+  if not OpenDocByNumber(DOC_NUM) then
+    Raise('Не получилось открыть документ № ' + IntToStr(DOC_NUM));
+
+  for i := 1 to SEARCH_NUM + 1 do
+  begin
+    res := BaseSearchInDocument(GetEditor, CONTEXT, 'IsCloseWindow:=false;IsContinueSearch:=' + VarToString(i > 1));
+    if (not res) and (i <= SEARCH_NUM) then    
+      Raise('Не прошел ' + IntToStr(i) + '-ый поиск контекста "' + CONTEXT + '" в документе № ' + IntToStr(DOC_NUM));
+    if (res) and (i > SEARCH_NUM) then
+      Raise('Прошел ' + IntToStr(i) + '-ый поиск контекста "' + CONTEXT + '" в документе № ' + IntToStr(DOC_NUM));
+  end;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
 HLTC77.1.1.24.23: Обрезание длинных запросов:
   HLTC77.1.1.24.23.1: Проверить, что если в поле «Слова в названии» ввести контекст 
     «ДОКУМЕНТ 2002 с 10 командами NAME по 73 символа каждая. Это команда 1. ыыыыыыы1 Это команда 2. ыыыыыыыыыыыы ыыыыыыыыыыыы ыыыыыыыыыыыыыыы кодекс», будет найден один документ.
@@ -2159,7 +2446,7 @@ var
 begin
 try      
   Result := true;
-  cardData := 
+  cardData :=
   [                
   	CARD_PPR, ([([
   	FD_WORDS_IN_TEXT, ([
@@ -2209,14 +2496,12 @@ try
   		'Нет']) ])
     ]) 
   ];         
-  if SearchInPPR(cardData) then
-  begin
-    Result := FindInList(docsName);
-    if not Result then
-    	Raise('Результат поиска ППР не соответствует эталону');
-  end
-  else
-  	Raise('Не получилось выполнить поиск ППР');
+  if not SearchInPPR(cardData) then
+    Raise('Не получилось выполнить поиск ППР');
+
+  Result := FindInList(docsName);
+  if not Result then
+  	Raise('Результат поиска ППР не соответствует эталону');
 except
   Result := False;
   Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
@@ -3976,7 +4261,7 @@ begin
   GoToMainMenu;
   docsName := 
     [
-      ([FL_NUMBER, '1']),
+      ([FL_NUMBER_BIG, '1']),
       ([FL_EXISTS_INT, 'Документ 57001*'])
     ];
   if BaseSearch(nil, 'бело-синий цвет') then
@@ -5219,6 +5504,46 @@ end;
 end;
 
 {
+  HLTC77.1.1.24.30.25.1: ТБ24, По всем контекстам должны найтись документы: 3434, 3435, 3436
+  и НЕ должен найтись 3437, т.к. там нет нужных контекстов.
+    HLTC77.1.1.24.30.25.1.1: ягуар
+    HLTC77.1.1.24.30.25.1.2: пантера
+    HLTC77.1.1.24.30.25.1.3: единорог
+    HLTC77.1.1.24.30.25.1.4: львица
+}
+function HLTC77_1_1_24_30_25_1_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  docsName, contexts, i;
+begin
+try      
+  Result := true;
+  
+  contexts := ['ягуар', 'пантера', 'единорог', 'львица'];
+  docsName := 
+  [
+    ([FL_EXISTS, '*3434*']),
+    ([FL_EXISTS, '*3435*']),
+    ([FL_EXISTS, '*3436*']),
+    ([FL_NOT_EXISTS, '*3437*'])
+  ];
+
+  for i := VarArrayLowBound(contexts, 1) to VarArrayHighBound(contexts, 1) do
+  begin   
+    GoToMainMenu;
+    
+    if not BaseSearch(nil, contexts[i]) then
+      Raise('Поиск БП по запросу "' + contexts[i] + '" не прошел!');
+    if not FindInList(docsName) then
+      Result := ErrorResult('Результат поиска БП по запросу "' + contexts[i] + '" не соответствует эталону');
+  end;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
   HLTC77.1.1.24.31.2: В БП ввести «кайзер». Проверить, что найдутся 2 документа, в которых будет найден контекст "кайзеру"
 }
 function  HLTC77_1_1_24_31_2_Execute(var  current_state: OleVariant): OleVariant;
@@ -5231,8 +5556,8 @@ try
   docsName := 
     [
       ([FL_NUMBER_BIG, '2']),
-      ([FL_EXISTS_CONTEXT_IN_STRING, 'Документ N56021*\*кайзеру', (['кайзеру'])]),
-      ([FL_EXISTS_CONTEXT_IN_STRING, 'Документ N5601*\*кайзеру', (['кайзеру'])])
+      ([FL_EXISTS_CONTEXT_IN_STRING, 'Документ N56021*кайзеру', (['кайзеру'])]),
+      ([FL_EXISTS_CONTEXT_IN_STRING, 'Документ N5601*кайзеру', (['кайзеру'])])
     ];
   if BaseSearch(nil, 'кайзер') then
   begin
@@ -5918,8 +6243,7 @@ end;
 {
  HLTC77.1.1.24.37.3: 
   По запросу: как Иван рубил дрова топором
-    Должен найтись документ Picture 2207 с подсвеченными словами «Иван таскал» и «руками».
-    Слово «хворост» не должно подсвечиваться.
+    Должен найтись документ Picture 2207 с подсвеченными словами «Иван таскал хворост руками».
 }
 function HLTC77_1_1_24_37_3_Execute(var  current_state: OleVariant): OleVariant;
 const
@@ -5933,7 +6257,38 @@ try
 
   docsName := 
   [
-    ([FL_EXISTS_CONTEXT_SEARCH_AND_HIGHLIGHT, 'Picture 2207*', ([CONTEXT]), 'Иван таскал руками'])
+    ([FL_EXISTS_CONTEXT_SEARCH_AND_HIGHLIGHT, 'Picture 2207*', ([CONTEXT]), 'Иван таскал хворост руками'])
+  ];
+  if not BaseSearch(nil, CONTEXT) then
+  	Raise('Не получилось выполнить поиск БП');
+  if not FindInList(docsName) then
+    Raise('Результат поиска БП не соответствует эталону');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC77.1.1.24.37.4: Ввести в БП слово: псевдографика, должны получить список из документов 2006, 20061, 2002.
+    Убедиться, что тот же контекст находится при поиске внутри каждого документа.
+}
+function HLTC77_1_1_24_37_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+  CONTEXT = 'псевдографика';
+var
+  docsName;
+begin
+try      
+  Result := true;
+  GoToMainMenu;
+
+  docsName := 
+  [
+    ([FL_EXISTS_CONTEXT_SEARCH_AND_HIGHLIGHT, 'Документ 2006*',  ([CONTEXT]), 'псевдографикой']),
+    ([FL_EXISTS_CONTEXT_SEARCH_AND_HIGHLIGHT, 'Документ 20061*', ([CONTEXT]), 'псевдографикой']),
+    ([FL_EXISTS_CONTEXT_SEARCH_AND_HIGHLIGHT, 'ДОКУМЕНТ 2002*',  ([CONTEXT]), 'псевдографика'])
   ];
   if not BaseSearch(nil, CONTEXT) then
   	Raise('Не получилось выполнить поиск БП');
@@ -5960,7 +6315,7 @@ try
   contexts := ['пензаавтокомплекта', 'алмазоабразивный', 'алмазобрабатывающие', 'холецистограммой', 'ввинчиваемости'];
   docsName := 
   [
-    ([FL_NUMBER, '1']),
+    ([FL_NUMBER_BIG, '1']),
     ([FL_EXISTS, '*2008*'])
   ];
 
@@ -6130,7 +6485,8 @@ try
               ];
   docsName := 
   [  
-    ([FL_EXISTS_CONTEXT_IN_STRING, 'Picture 2205*3. Плательщики*', (['*3. Плательщики страховых взносов*'])])
+    ([FL_EXISTS_CONTEXT_IN_STRING, 'Picture 2205*', (['*3. Плательщики страховых взносов*'])]),
+    ([FL_EXISTS, 'Picture 2205*\3. Плательщики*'])
   ];
 
   for i := VarArrayLowBound(contexts, 1) to VarArrayHighBound(contexts, 1) do
@@ -6529,6 +6885,119 @@ begin
 end;
 
 {
+  HLTC77.1.1.24.59: Сжатие при совпадении даты
+    По контексту: постановление 374 от 13.06.2006
+    Должен находиться документ 3390 (Постановление правительства РФ от 13 июня 2006 г. N 374)
+}
+function HLTC77_1_1_24_59_Execute(var  current_state: OleVariant): OleVariant;
+var
+  docsName, cardData;
+begin
+try
+  Result := false;
+
+  docsName := 
+  [
+    ([FL_EXISTS, 'Постановление Правительства РФ от 13 июня 2006 г. N 374'])
+  ];
+  cardData :=
+  [
+   CARD_PPR, ([
+   ([ FD_WORDS_IN_TEXT, (['постановление 374 от 13.06.2006']) ])
+   ]) 
+  ];
+     
+  if not SearchInPPR(cardData) then
+  	Raise('Не получилось выполнить поиск ППР');
+  Result := FindInList(docsName);
+  if not Result then
+  	Raise('Результат поиска ППР не соответствует эталону');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC77.1.1.24.60: По запросу: сказка про царя!
+    Должен найтись документ 57010, с подсвеченным контекстом "Сказка" и "царя".
+    И НЕ должен документ 2003, с контекстом "царем" и "сказку".
+}
+function HLTC77_1_1_24_60_Execute(var  current_state: OleVariant): OleVariant;
+const
+  SEARCH_CONTEXT = 'сказка про царя!';
+  RES_CONTEXT = 'Сказка царя';
+var
+  docsName, cardData;
+begin
+try
+  Result := false;
+  docsName := 
+  [
+   ([FL_EXISTS_CONTEXT_SEARCH_AND_HIGHLIGHT, 'Документ N57010*', ([SEARCH_CONTEXT]), RES_CONTEXT]),
+   ([FL_NOT_EXISTS, 'Документ 2003*'])
+  ];
+  cardData :=
+  [
+   CARD_PPR, ([
+   ([FD_WORDS_IN_TEXT, ([SEARCH_CONTEXT]) ])
+   ]) 
+  ];
+     
+  if not SearchInPPR(cardData) then
+  	Raise('Не получилось выполнить поиск ППР');
+  Result := FindInList(docsName);
+  if not Result then
+  	Raise('Результат поиска ППР не соответствует эталону');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC77.1.1.24.61: По запросу: совмещение должностей главным бухгалтером
+    Должны находиться документы:
+    3393 - именно с этим контекстом
+    3392 - с подсвеченными "совмещения", "должностей", "главный", "бухгалтер"
+}
+function HLTC77_1_1_24_61_Execute(var  current_state: OleVariant): OleVariant;
+const
+  SEARCH_CONTEXT = 'совмещение должностей главным бухгалтером';
+  RES_CONTEXT1 = SEARCH_CONTEXT;
+  RES_CONTEXT2 = 'совмещения должностей главный бухгалтер';  
+var
+  docsName, cardData;
+begin
+try
+  Result := false;
+  docsName := 
+  [
+   ([FL_EXISTS_CONTEXT_SEARCH_AND_HIGHLIGHT, '*3393*', ([SEARCH_CONTEXT]), RES_CONTEXT1]),
+   ([FL_EXISTS_CONTEXT_SEARCH_AND_HIGHLIGHT, '*3392*', ([SEARCH_CONTEXT]), RES_CONTEXT2])
+  ];
+  cardData :=
+  [
+   CARD_PPR, ([
+   ([FD_WORDS_IN_TEXT, ([SEARCH_CONTEXT]) ])
+   ]) 
+  ];
+     
+  if not SearchInPPR(cardData) then
+  	Raise('Не получилось выполнить поиск ППР');
+  Result := FindInList(docsName);
+  if not Result then
+  	Raise('Результат поиска ППР не соответствует эталону');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
   HLTC77.1.1.26: В ТБ27 строим список всех документов по пустой КЗ. Должны получить не меньше 13 000 документов
 }
 function HLTC77_1_1_26_Execute(var  current_state: OleVariant): OleVariant;
@@ -6826,7 +7295,7 @@ end;
 end;
 
 {
-  HLTC77.1.1.27.3.4: Слова в тексте: «юридическое лицо»
+  HLTC77.1.1.27.3.4: Слова в тексте: «юридическое лицо» (в кавычках)
     Вид правовой информации: Формы документов.
 
     В числе прочего, должен найтись документ 2005 (блок 100)
@@ -7167,6 +7636,7 @@ HLTC77.1.5.1: Реквизиты: Тип = «Комментарии», Дата с = 06.03.1997.
     Сделать фильтр применённым и провести поиск в ППР.
 		Результат:
 HLTC77.1.5.1.1: В тестовой базе:
+  Энциклопедии, путеводители, схемы
   Методика учета экземпляров текущих версий электронного периодического справочника "Система Гарант" у пользователя (Саблина С.М.)
   Единый поисковый регистр электронных версий бераторов
   Документ N5605
@@ -7180,7 +7650,8 @@ begin
   Result := False;
   docsName := 
     [
-      ([FL_NUMBER, '3']),
+      ([FL_NUMBER, '4']),
+      ([FL_EXISTS, 'Энциклопедии, путеводители, схемы']),
       ([FL_EXISTS, 'Методика учета экземпляров текущих версий электронного периодического справочника "Система Гарант" у пользователя (Саблина С.М.)']),
       ([FL_EXISTS, 'Единый поисковый регистр электронных версий бераторов']),
       ([FL_EXISTS, 'Документ N5605*'])
@@ -8877,7 +9348,7 @@ begin
          (CONT_NOTEXISTS[i] = '`')or
          (CONT_NOTEXISTS[i] = ':')or
          (CONT_NOTEXISTS[i] = '№')or
-         (CONT_NOTEXISTS[i] = '(')or(CONT_NOTEXISTS[i] = ')')or
+//         (CONT_NOTEXISTS[i] = '(')or(CONT_NOTEXISTS[i] = ')')or // http://mdp.garant.ru/pages/viewpage.action?pageId=611199367
          (CONT_NOTEXISTS[i] = '\')or(CONT_NOTEXISTS[i] = '/')or
          (CONT_NOTEXISTS[i] = '{')or(CONT_NOTEXISTS[i] = '}')or
          (CONT_NOTEXISTS[i] = '<')or(CONT_NOTEXISTS[i] = '>')or
@@ -8963,7 +9434,7 @@ try
     formInfo := SearchInPPR(cardData, 'IsReturnMessageForm:=true');
     Result := (GetParam(formInfo, WFMF_RES_MSGTYPE, MFT_UNKNOWN) = MFT_WARNING) and Result;
     if not Result then
-    	Raise('Не найдено окно с предупреждением о неуспешном поиске ПРР ("600 букв a")');    
+    	Raise('Не найдено окно с предупреждением о неуспешном поиске ППР ("600 букв a")');    
   end;
 except
   Result := False;
@@ -9413,7 +9884,7 @@ end;
 }
 function HLTC77_2_1_29_Execute(var  current_state: OleVariant): OleVariant;
 const
-  QUERY = '1* 2* 3*';
+  QUERY = 'а* б* в* 1* 2* 3* 4* 5* 6* 7* 8* 9* 0*';
   WARN_MSG = 'Поиск был прерван пользователем*Для получения дополнительных консультаций вы можете обратиться к специалистам линии Правовой поддержки онлайн*';
 var
   s;
@@ -9421,7 +9892,7 @@ begin
 try      
   if not GoToBaseSearch then
     Raise('Не получилось открыть панель БП');
-  if not EnterContextInBaseSearch(query, 'IsDoSearch:=true') then
+  if not EnterContextInBaseSearch(query, 'IsDoSearch:=false') then
     Raise('Не получилось выполнить поиск');
 
   // поиск со * стал быстрее в 7.8.1, отключаем 
@@ -9434,7 +9905,7 @@ try
   //if not ClickOnVgSceneObject(w) then
   //  Raise('Не получилось кликнуть КНОПКА "ОТМЕНА" ОКНА ПРОГРЕССА ИНДИКАТОРА ПОИСКА');
 
-  Sys.Keys(KeyPause + KeyPause + KeyPause + '[Esc]');
+  Sys.Keys('[Enter]'{ + KeyPause} + '[Esc]');
   s := WaitForWarningWindow;
   
   Result := StringCompare(WARN_MSG, s);
@@ -11687,8 +12158,9 @@ try
   comboboxElement := GetFromBaseSearch('ЭЛЕМЕНТ КОМБОБОКСА ОБЛАСТЬ ПОИСКА "ВЕЗДЕ"');
   if not IsExists(comboboxElement) then 
     Raise('Не найден ЭЛЕМЕНТ КОМБОБОКСА ОБЛАСТЬ ПОИСКА "ВЕЗДЕ"');
+  comboboxElement.Refresh;
   if not comboboxElement.IsSelected then
-    Result := ErrorResult('ЭЛЕМЕНТ КОМБОБОКСА ОБЛАСТЬ ПОИСКА "ВЕЗДЕ" не выбран после перевода фокуса документа в список');
+    Result := ErrorResult('ЭЛЕМЕНТ КОМБОБОКСА ОБЛАСТЬ ПОИСКА "ВЕЗДЕ" не выбран после перевода фокуса из документа в список');
 except
   Result := false;
   Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
@@ -12586,17 +13058,15 @@ try
   
   docsName := 
     [
-      ([FL_EXISTS, 'Picture 3291. Слово "сниппет"*' + EndOfLine + 'Начало*окончание.']), // HLTC77.2.15.24.6
-
       ([FL_EXISTS, 'Picture 3287*']),
       ([FL_EXISTS, 'Picture 3288*']),
       ([FL_EXISTS, 'Picture 3289*']),
       ([FL_EXISTS, 'Picture 3290*']),
-      ([FL_EXISTS, 'Picture 3291*Начало*окончание.']),
-      ([FL_EXISTS, 'Picture 3292*Сниппет*окончание.']),
-      ([FL_EXISTS, 'Picture 3293*Начало*сниппет']),
-      ([FL_EXISTS, 'Picture 3294*08*Конец']),
-      ([FL_EXISTS, 'Picture 3295*Начало*395']),
+      ([FL_EXISTS, 'Picture 3291*\Начало*окончание.']),  // HLTC77.2.15.24.6
+      ([FL_EXISTS, 'Picture 3292*\Сниппет*окончание.']),
+      ([FL_EXISTS, 'Picture 3293*\Начало*сниппет']),
+      ([FL_EXISTS, 'Picture 3294*\08*Конец']),
+      ([FL_EXISTS, 'Picture 3295*\Начало*395']),
       ([FL_EXISTS, 'Picture 3313*']),      
       ([FL_EXISTS, 'Picture 3314*']),      
       ([FL_EXISTS, 'Picture 3315*']),      
@@ -13125,6 +13595,7 @@ begin
 //  HLTC77_1_1_24_8_3_Execute(p);
 //  HLTC77_1_1_24_8_4_Execute(p);
 //  HLTC77_1_1_24_8_5_Execute(p);
+//  HLTC77_1_1_24_8_7_Execute(p);
 //  HLTC77_1_1_24_9_1_Execute(p);
 //  HLTC77_1_1_24_10_1_Execute(p);  
 //  HLTC77_1_1_24_12_Execute(p);
@@ -13140,6 +13611,13 @@ begin
 //  HLTC77_1_1_24_22_4_Execute(p);
 //  HLTC77_1_1_24_22_5_Execute(p);
 //  HLTC77_1_1_24_22_6_Execute(p);
+//  HLTC77_1_1_24_22_8_Execute(p);
+//  HLTC77_1_1_24_22_9_Execute(p);
+//  HLTC77_1_1_24_22_10_Execute(p);
+//  HLTC77_1_1_24_22_11_Execute(p);
+//  HLTC77_1_1_24_22_12_Execute(p);
+//  HLTC77_1_1_24_22_13_Execute(p);
+//  HLTC77_1_1_24_22_14_Execute(p);
 //  HLTC77_1_1_24_23_1_Execute(p);
 //  HLTC77_1_1_24_24_1_Execute(p);
 //  HLTC77_1_1_24_24_2_Execute(p);
@@ -13214,7 +13692,9 @@ begin
 //  HLTC77_1_1_24_30_16_Execute(p);
 //  HLTC77_1_1_24_30_17_Execute(p);
 //  HLTC77_1_1_24_30_18_Execute(p);
-//  HLTC77_1_1_24_30_19_Execute(p);    
+//  HLTC77_1_1_24_30_19_Execute(p);
+//  HLTC77_1_1_24_30_25_1_1_Execute(p);
+//  HLTC77_1_1_24_30_25_2_1_Execute(p);
 //  HLTC77_1_1_24_31_2_Execute(p);
 //  HLTC77_1_1_24_31_3_Execute(p);
 //  HLTC77_1_1_24_32_1_Execute(p);
@@ -13236,6 +13716,7 @@ begin
 //  HLTC77_1_1_24_37_1_Execute(p);
 //  HLTC77_1_1_24_37_2_Execute(p);
 //  HLTC77_1_1_24_37_3_Execute(p);
+//  HLTC77_1_1_24_37_4_Execute(p);
 //  HLTC77_1_1_24_39_1_Execute(p);
 //  HLTC77_1_1_24_40_Execute(p);
 //  HLTC77_1_1_24_41_Execute(p);
@@ -13250,6 +13731,9 @@ begin
 //  HLTC77_1_1_24_47_2_Execute(p);
 //  HLTC77_1_1_24_49_Execute(p);
 //  HLTC77_1_1_24_52_3_Execute(p);
+//  HLTC77_1_1_24_59_Execute(p);
+//  HLTC77_1_1_24_60_Execute(p);
+//  HLTC77_1_1_24_61_Execute(p);
 //  HLTC77_1_1_26_Execute(p);
 //  HLTC77_1_1_27_1_Execute(p);
 //  HLTC77_1_1_27_2_Execute(p);
@@ -13420,8 +13904,13 @@ begin
 
 
 
+
+
+
+
+
+
   
-   
   
   
   

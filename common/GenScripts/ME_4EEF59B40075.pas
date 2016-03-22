@@ -2,6 +2,7 @@ unit FormulaRender;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\FormulaRender.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TFormulaRender" MUID: (4EEF59B40075)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

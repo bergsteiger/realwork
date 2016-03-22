@@ -2,6 +2,7 @@ unit vcmTabbedContainerFormDispatcherUtils;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainerFormDispatcherUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmTabbedContainerFormDispatcherUtils" MUID: (558163840015)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

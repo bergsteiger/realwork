@@ -2,6 +2,7 @@ unit nsTreeMultiDocumentPreviewContainer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsTreeMultiDocumentPreviewContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsTreeMultiDocumentPreviewContainer" MUID: (4892DA33009F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

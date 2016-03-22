@@ -169,7 +169,7 @@ type
      read f_LoginLabel;
    property CopyrightCaptionLabel: TvtLabel
      read f_CopyrightCaptionLabel;
-     {* (C) ннн моо "цюпюмр-яепбхя-смхбепяхрер", 1990-2015 }
+     {* (C) ннн моо "цюпюмр-яепбхя-смхбепяхрер", 1990-2016 }
    property OkButton: TvtButton
      read f_OkButton;
    property UserCountCaptionLabel: TvtLabel
@@ -705,7 +705,7 @@ begin
  f_CopyrightCaptionLabel := TvtLabel.Create(Self);
  f_CopyrightCaptionLabel.Name := 'CopyrightCaptionLabel';
  f_CopyrightCaptionLabel.Parent := Self;
- f_CopyrightCaptionLabel.Caption := '(C) ннн моо "цюпюмр-яепбхя-смхбепяхрер", 1990-2015';
+ f_CopyrightCaptionLabel.Caption := '(C) ннн моо "цюпюмр-яепбхя-смхбепяхрер", 1990-2016';
  f_OkButton := TvtButton.Create(Self);
  f_OkButton.Name := 'OkButton';
  f_OkButton.Parent := Self;

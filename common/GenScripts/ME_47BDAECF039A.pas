@@ -2,6 +2,7 @@ unit l3ObjectWithHandleRefList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ObjectWithHandleRefList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ObjectWithHandleRefList" MUID: (47BDAECF039A)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

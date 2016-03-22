@@ -2,6 +2,7 @@ unit vcmFormDispatcherListenerList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormDispatcherListenerList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormDispatcherListenerList" MUID: (55FA71C6007E)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

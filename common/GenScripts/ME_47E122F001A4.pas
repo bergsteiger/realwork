@@ -2,6 +2,7 @@ unit afwFont;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwFont.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "afwFont" MUID: (47E122F001A4)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

@@ -2,6 +2,8 @@ unit PrimMonitorings_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PrimMonitorings_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "PrimMonitorings" MUID: (4A8ECF3001D2)
+// Имя типа: "TPrimMonitoringsModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -46,7 +48,7 @@ type
     const aContainer: IvcmContainer);
    procedure OpenAutoreferatAfterSearch(const aList: IMonitoringList;
     const aContainer: IvcmContainer);
-   procedure OpenNewsLine; overload;
+   procedure OpenNewsLine(aDenyNewTab: Boolean); overload;
    procedure OpenNewsLinePrim;
  end;//TPrimMonitoringsModule
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -193,7 +195,7 @@ begin
 //#UC END# *4AA4C0C500AA_4A8ECF3001D2_impl*
 end;//TPrimMonitoringsModule.OpenAutoreferatAfterSearch
 
-procedure TPrimMonitoringsModule.OpenNewsLine;
+procedure TPrimMonitoringsModule.OpenNewsLine(aDenyNewTab: Boolean);
 //#UC START# *4AB76AD20100_4A8ECF3001D2_var*
  l_Container: IvcmContainer;
 
@@ -218,6 +220,7 @@ procedure TPrimMonitoringsModule.OpenNewsLine;
   begin
    try
     dmStdRes.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
+    afw.ProcessMessages;
    finally
     l_ContainerForMainMenu := nil;
    end;
@@ -280,7 +283,7 @@ begin
    end;
   end else
   begin
-   lp_CreateContainer(True);
+   lp_CreateContainer(not aDenyNewTab);
    if (l_Container <> nil) then
    begin
     Result := TenNewsLine.MakeSingleChild(l_Container,

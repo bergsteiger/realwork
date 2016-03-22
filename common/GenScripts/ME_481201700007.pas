@@ -3,6 +3,7 @@ unit nevMeasureView;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevMeasureView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevMeasureView" MUID: (481201700007)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

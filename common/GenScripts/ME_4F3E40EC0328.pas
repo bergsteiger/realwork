@@ -2,6 +2,7 @@ unit kwIntegerArray;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwIntegerArray.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwIntegerArray" MUID: (4F3E40EC0328)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,9 +2,15 @@ unit ddCalendarEvents;
 
 // Константы для нотификаций по календарным событиям
 
-{ $Id: ddCalendarEvents.pas,v 1.25 2015/10/14 07:08:12 lukyanets Exp $ }
+{ $Id: ddCalendarEvents.pas,v 1.27 2016/03/04 09:35:41 lukyanets Exp $ }
 
 // $Log: ddCalendarEvents.pas,v $
+// Revision 1.27  2016/03/04 09:35:41  lukyanets
+// Отвалились вложенные задания
+//
+// Revision 1.26  2016/02/25 08:17:31  lukyanets
+// Cleanup
+//
 // Revision 1.25  2015/10/14 07:08:12  lukyanets
 // Cleanup
 //
@@ -89,7 +95,7 @@ uses
  Graphics;
 
 type
- TddCalendarTaskType = (ctDeltaTask = 0, ctUpdateTask, ctBirthdayTask, ctHolidayTask,
+ TddCalendarTaskType = (ctDeltaTask, ctUpdateTask, ctBirthdayTask, ctHolidayTask,
     ctPreventiveTask, ctAutoExportTask, ctFNSExport_DEPRECATED, ctLoadRegions, ctAutoSubs,
     ctAutoclassify, ctVersion, ctCompilation, ctUploadRegions, ctMakeDivisions,
     ctRelPublish, ctHavansky, ctCloneBase, ctExportAnonced, ctExportAnoncedEx,
@@ -99,7 +105,6 @@ type
   Color : TColor;
   Caption: AnsiString;
   Unique : Boolean;
-  Slaves : set of TddCalendarTaskType;
   ExecuteByTimer: Boolean;
   Required: Boolean;
   DefaultRep: Byte;
@@ -118,7 +123,6 @@ const
   (Color: clOlive;
    Caption: 'Импорт дельты документов';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryWeek), // ctDeltaTask
@@ -126,7 +130,6 @@ const
   (Color: clTeal;
    Caption: 'Ежедневное обновление';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: True;
    DefaultRep: repeatEveryday), // ctUpdateTask
@@ -134,7 +137,6 @@ const
   (Color: clFuchsia;
    Caption: 'День рождения пользователя';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryYear), // ctBirthdayTask
@@ -142,7 +144,6 @@ const
   (Color: clRed;
    Caption: 'Праздник';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryYear), // ctHolidayTask
@@ -150,7 +151,6 @@ const
   (Color: clGreen;
    Caption: 'Профилактика';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday), // ctPreventiveTask
@@ -158,7 +158,6 @@ const
   (Color: clNavy;
    Caption: 'Автоматический экспорт';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday), // ctAutoExportTask
@@ -166,7 +165,6 @@ const
   (Color: clYellow;
    Caption: 'УСТАРЕЛО! Экспорт документов для ФНС РФ';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryWeek), // ctFNSExport_DEPRECATED
@@ -174,7 +172,6 @@ const
   (Color: clAqua;
    Caption: 'Импорт внешних документов';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryWeek), //  ctLoadRegions
@@ -182,7 +179,6 @@ const
   (Color: clSilver;
    Caption: 'Расстановка меток в ФАСах';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryWeek), // ctAutoSubs
@@ -190,7 +186,6 @@ const
   (Color: clMaroon;
    Caption: 'Автоклассификация документов';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday), // ctAutoClassify
@@ -198,7 +193,6 @@ const
   (Color: clMoneyGreen;
    Caption: 'Версия';
    Unique: True;
-   Slaves: [];
    ExecuteByTimer: False;
    Required: True;
    DefaultRep: repeatEveryWeek), // ctVersion
@@ -206,7 +200,6 @@ const
   (Color: clGray;
    Caption: 'Компиляция';
    Unique: True;
-   Slaves: [ctVersion];
    ExecuteByTimer: True;
    Required: True;
    DefaultRep: repeatEveryWeek),  // ctCompilation
@@ -214,7 +207,6 @@ const
   (Color: clLime;
    Caption: 'Экспорт внешних документов';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryWeek), //  ctUploadRegions
@@ -222,7 +214,6 @@ const
   (Color: clYellow;
    Caption: 'Расстановка разделов в документах';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryDay), //  ctDivisions
@@ -230,7 +221,6 @@ const
   (Color: clCream;
    Caption: 'Добавление информации о публикации в справки';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryWeek), //  ctRelPublish
@@ -238,7 +228,6 @@ const
   (Color: clCream;
    Caption: 'Экспорт документов для Пик Пресс';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryMonth), //  ctHavansky
@@ -246,7 +235,6 @@ const
   (Color: clCream;
    Caption: 'Клонирование базы';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday), //  ctCloneBase
@@ -254,7 +242,6 @@ const
   (Color: clCream;
    Caption: 'Экспорт анонсированных';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday),//  ctExportAnonced
@@ -262,7 +249,6 @@ const
   (Color: clCream;
    Caption: 'Экспорт анонсированных в день компиляции';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryWeek), //  ctExportAnoncedEx
@@ -270,7 +256,6 @@ const
   (Color: clBlue;
    Caption: 'Экспорт аннотаций для дельты';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday), //  ctAnnoExport
@@ -278,7 +263,6 @@ const
   (Color: clCream;
    Caption: 'Синхронизация словарей в Гардок';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday), // ctMdpSyncDicts
@@ -286,7 +270,6 @@ const
   (Color: clCream;
    Caption: 'Импорт документов из Гардока';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday), // ctMdpSyncDocs
@@ -294,7 +277,6 @@ const
   (Color: clBlack;
    Caption: 'Пустая контейнерная задача';
    Unique: False;
-   Slaves: [];
    ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday) // ctContainer

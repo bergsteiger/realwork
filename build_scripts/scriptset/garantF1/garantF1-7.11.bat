@@ -26,7 +26,8 @@
 			set BUILDFILE=%~0.xml
 			set BUILDFILE=%BUILDFILE:\\=\%
 
-			set BUILDARGS=-buildfile "%BUILDFILE%" -logfile "%LOGFILE%" -logger "%LOGGER%" -nouserlib -Dproperties.delphi.suffix=%PROJECT_SUFFIX% -Denable-cppFinalBuild=1 -Ddisable-copyPasTargetsToCurrentCatalog=1 -Ddisable-copyPasTargetsToSupportCatalog=1
+			set BUILDARGS=-buildfile "%BUILDFILE%" -logfile "%LOGFILE%" -logger "%LOGGER%" -nouserlib -Dproperties.delphi.suffix=%PROJECT_SUFFIX% -Ddisable-copyPasTargetsToCurrentCatalog=1 -Ddisable-copyPasTargetsToSupportCatalog=1 -Denable-cppFinalBuild=1
+::			set BUILDARGS=-buildfile "%BUILDFILE%" -logfile "%LOGFILE%" -logger "%LOGGER%" -nouserlib -Dproperties.delphi.suffix=%PROJECT_SUFFIX% -Ddisable-copyPasTargetsToCurrentCatalog=1 -Ddisable-copyPasTargetsToSupportCatalog=1
 
 			pushd "W:\"
 				ren "common"       "common-UNKNOWN-X.XXX"       1>nul 2>&1& ren "common-%PROJECT_SUFFIX%"       "common"       1>nul 2>&1

@@ -3,6 +3,7 @@ unit evUnicodeConvertFilter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evUnicodeConvertFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevUnicodeConvertFilter" MUID: (52EB5D3401B7)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

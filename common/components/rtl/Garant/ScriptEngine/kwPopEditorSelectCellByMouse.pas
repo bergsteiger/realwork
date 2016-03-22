@@ -3,6 +3,8 @@ unit kwPopEditorSelectCellByMouse;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCellByMouse.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_SelectCellByMouse" MUID: (4E980426001F)
+// Имя типа: "TkwPopEditorSelectCellByMouse"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

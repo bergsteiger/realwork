@@ -2,6 +2,7 @@ unit atTreeLevelConverter;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\InteropWithL3\atTreeLevelConverter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatTreeLevelConverter" MUID: (503E65E30321)
 
 interface
 

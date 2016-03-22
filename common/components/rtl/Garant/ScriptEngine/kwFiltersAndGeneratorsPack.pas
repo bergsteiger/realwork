@@ -2,6 +2,7 @@ unit kwFiltersAndGeneratorsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwFiltersAndGeneratorsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "kwFiltersAndGeneratorsPack" MUID: (505AFAF6026B)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -157,11 +158,6 @@ begin
  generators_Execute(aCtx, l_aTagGenerator, l_aFileName);
 end;//TkwGeneratorsExecute.DoDoIt
 
-class function TkwGeneratorsExecute.GetWordNameForRegister: AnsiString;
-begin
- Result := 'generators:Execute';
-end;//TkwGeneratorsExecute.GetWordNameForRegister
-
 function TkwGeneratorsExecute.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -176,6 +172,11 @@ function TkwGeneratorsExecute.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ik2TagGenerator), @tfw_tiString]);
 end;//TkwGeneratorsExecute.ParamsTypes
+
+class function TkwGeneratorsExecute.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'generators:Execute';
+end;//TkwGeneratorsExecute.GetWordNameForRegister
 
 function TkwGeneratorsLink.generators_Link(const aCtx: TtfwContext;
  const aTagGenerator: Ik2TagGenerator;
@@ -220,11 +221,6 @@ begin
  aCtx.rEngine.PushIntf(generators_Link(aCtx, l_aTagGenerator, l_aGenHead), TypeInfo(Ik2TagGenerator));
 end;//TkwGeneratorsLink.DoDoIt
 
-class function TkwGeneratorsLink.GetWordNameForRegister: AnsiString;
-begin
- Result := 'generators:Link';
-end;//TkwGeneratorsLink.GetWordNameForRegister
-
 function TkwGeneratorsLink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Ik2TagGenerator);
@@ -239,6 +235,11 @@ function TkwGeneratorsLink.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ik2TagGenerator), TypeInfo(Ik2TagGenerator)]);
 end;//TkwGeneratorsLink.ParamsTypes
+
+class function TkwGeneratorsLink.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'generators:Link';
+end;//TkwGeneratorsLink.GetWordNameForRegister
 
 initialization
  TkwFiltersAndGeneratorsPackResNameGetter.Register;

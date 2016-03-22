@@ -1,8 +1,14 @@
 unit Dt_IFltr;
 
-{ $Id: dt_IFltr.pas,v 1.330 2015/10/27 07:32:06 lukyanets Exp $ }
+{ $Id: dt_IFltr.pas,v 1.332 2015/11/24 14:08:24 voba Exp $ }
 
 // $Log: dt_IFltr.pas,v $
+// Revision 1.332  2015/11/24 14:08:24  voba
+// -bf убрал конкурентную запись дерева словар€. “еперь дерево переписываем только при апдейте, в спокойной обстановке
+//
+// Revision 1.331  2015/11/23 11:37:15  lukyanets
+// «аготовки Renum
+//
 // Revision 1.330  2015/10/27 07:32:06  lukyanets
 // ѕодставл€ем пользовател€ от задачи
 //
@@ -1315,6 +1321,7 @@ uses
   l3Tree_TLB, l3MinMax, l3Filer, l3Nodes, l3Chars,
   afwFacade,
 
+  daInterfaces,
   daDataProvider,
   
   HT_Dll,Dt_err,
@@ -2928,9 +2935,9 @@ procedure TCustomDBFilter.DoneCachingData;
   for l_Dict := Low(TdaDictionaryType) to High(TdaDictionaryType) do
    if (l_Dict in sUsualDictsForImpEx) then
    begin
-    DictServer(fFamily).SaveDict(l_Dict);
+    //DictServer(fFamily).SaveDict(l_Dict);
     if FinalTblUpdate then
-     DictServer(fFamily).DictTbl[l_Dict].UpdateTbl;
+     DictServer(fFamily).Dict[l_Dict].Update;
    end;
  end;
 

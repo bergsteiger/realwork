@@ -17,6 +17,7 @@
 #include "rev.h"
 #include "date.defs.h"
 #include "recode.h"
+#include "SearchB.h"
 
 #include "garantPIL/implementation/component/cpp/libs/endt/BlockDecompile.h"
 #include "common/components/rtl/Garant/EVD/eeReader.h"
@@ -195,6 +196,8 @@ long    Context::parse_command_line(long argc, char **argv)
 				b_norecalc = true;
 			} else if (!strcmp(argv[i], "-readonly")) {
 				b_readonly = true;
+				b_norecalc = true;
+				m_needGl = false;
 			} else if (!strcmp(argv[i], "-g")) {
 				m_needGl = false;
 			} else if( strstr(argv[i], "-r:")) {
@@ -340,7 +343,8 @@ void    Context::do_changes(void)
 
 	if(m_pBase == 0) {
 		if (b_readonly) {
-			m_pBase = new YBase (m_baseFileName.c_str(), ACE_OS_O_RDONLY);
+			m_pBase = new SearchBase (m_baseFileName.c_str());
+			m_pBase->YBase::IsOk ();
 			m_pBase->open_saw_bases (ACE_OS_O_RDONLY);
 		} else {
 			m_pBase = new StdBigBase(m_baseFileName.c_str(), ACE_OS_O_RDWR);
@@ -349,6 +353,7 @@ void    Context::do_changes(void)
 	}
 
 	if (m_pBase->IsOk() && (b_readonly || !(m_pBase->keyFile->IsPacked() || m_pBase->strFile->IsPacked()))) {
+		m_pBase->check_version ();
 
         //if ( !allTopic ) allTopic = m_pBase->AllTopics(ID_BORDER);
 
@@ -3203,7 +3208,7 @@ void    Context::do_action(ChangeAction &action, long docId, std::string indent)
 			m_pBase->ReplaceAttr (id, IDD_PROFDATE, &rrevision.RevisionDate, sizeof (date));
 			change_doc_revision (id);
 
-            std::list<long> blobs = get_docs  (id, REFTYPE_BLOB, true);
+			std::list<long> blobs = get_docs  (id, REFTYPE_BLOB, true);
 			for (std::list<long>::iterator blobs_it = blobs.begin (); blobs_it != blobs.end (); blobs_it++) {
 				long blob_id = *blobs_it;
 				new_blobs.insert (blob_id);
@@ -3226,6 +3231,12 @@ void    Context::do_action(ChangeAction &action, long docId, std::string indent)
 					m_pBase->DelAttr (id, IDD_PROFDATE);
 					change_doc_revision (id);
 				} else {
+					add_belongs (id, belongs);
+					std::map<long,DocInfo>::const_iterator map_it = get_doc_info (id);
+					if (map_it != map_doc_docinfo.end () && (map_it->second.Status & DS_DOC))
+						add_str_index (IDD_BASES, (const char*)&belongs, id);
+					change_doc_revision (id);
+
 					std::list<long> blobs = get_docs  (id, REFTYPE_BLOB, true);
 					for (std::list<long>::iterator blobs_it = blobs.begin (); blobs_it != blobs.end (); blobs_it++) {
 						long blob_id = *blobs_it;
@@ -3241,6 +3252,8 @@ void    Context::do_action(ChangeAction &action, long docId, std::string indent)
 			long id = *blob_it;
 			blob_add_belongs (id, (short) (belongs & 0x7FFF));
 		}
+
+		return ;
 	}
 	
 	if( *action.name().begin() == s_AnnoTax2AnnoInterest ) {
@@ -4517,7 +4530,7 @@ void    Context::recalc_bases (void)
 		for ( i = m_calcBases.begin(); i != m_calcBases.end(); i++ ) {
 			seg = *i;
 		    fprintf(m_pLogFile, "BaseInfo[%d]: CommonDocCount: %ld, RecCount: %ld\n", seg, baseInfos[seg].CommonDocCount, baseInfos[seg].RecCount );
-	        m_pBase->ReplaceBaseInfo(seg, &baseInfos[seg]);
+			m_pBase->ReplaceBaseInfo(seg, &baseInfos[seg]);
 		}
 
 		delete baseInfos;

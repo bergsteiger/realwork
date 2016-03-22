@@ -1201,6 +1201,8 @@ var
 
   l_Form := aTab.Form;
 
+  l_FocusedControl := FindControl(Windows.GetFocus);
+
   l_ContainerLeftTopPt := ClientToScreen(Point(aTab.PositionRect.Left, ClientHeight));
 
   Container.LockPosition;
@@ -1223,7 +1225,8 @@ var
   end;
   l_Container.MakeVisible(l_ContainerLeftTopPt);
   l_Form.Visible := True;
-
+  if ((l_FocusedControl <> nil) and l_FocusedControl.CanFocus) then
+   l_FocusedControl.SetFocus;
  finally
   l_TabParams := nil;
  end;
@@ -1234,6 +1237,7 @@ var
  l_Container: Il3TabbedContainer;
  l_ContainerLeftTopPt: TPoint;
  l_TabParams: Il3TabParams;
+ l_FocusedControl: TWinControl;
 //#UC END# *5507F5620368_5507EFFD01FE_var*
 //#UC START# *5507F67A0238_5507EFFD01FE_impl*
  Result := False;
@@ -1916,7 +1920,7 @@ var
 //#UC END# *553F0DAB01F7_5507EFFD01FE_var*
 //#UC START# *553F1FF80348_5507EFFD01FE_impl*
  if Assigned(f_OnNewTabRequested) then
-  f_OnNewTabRequested(Self);
+  f_OnNewTabRequested(Self, (Sender as TChromeLikeTabAction).Tab, False);
 //#UC END# *553F1FF80348_5507EFFD01FE_impl*
 //#UC START# *553F1FF80348_5507EFFD01FE_var*
 //#UC END# *553F1FF80348_5507EFFD01FE_var*
@@ -2153,9 +2157,17 @@ var
 //#UC END# *55656DF602DE_5507EFFD01FE_var*
 //#UC START# *55669D6C03B4_5507EFFD01FE_impl*
  if Assigned(f_OnNewTabRequested) then
-  f_OnNewTabRequested(Self);
+ begin
+  if (Sender is TChromeLikeTabAction) then
+   l_Tab := TChromeLikeTabAction(Sender).Tab
+  else
+   l_Tab := nil;
+  f_OnNewTabRequested(Self, l_Tab, True);
+ end;
 //#UC END# *55669D6C03B4_5507EFFD01FE_impl*
 //#UC START# *55669D6C03B4_5507EFFD01FE_var*
+var
+ l_Tab: TChromeLikeTab;
 //#UC END# *55669D6C03B4_5507EFFD01FE_var*
 //#UC START# *556835BC03E1_5507F22E0057get_impl*
  l_Form := GetParentForm(TabSet);

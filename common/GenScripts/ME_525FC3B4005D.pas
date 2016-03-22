@@ -2,6 +2,8 @@ unit toKT;
 
 // Модуль: "w:\archi\source\projects\Archi\toKT.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "toKT" MUID: (525FC3B4005D)
+// Имя типа: "TtoKT"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

@@ -3,6 +3,8 @@ unit Rubricator_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Rubricator\Forms\Rubricator_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "Rubricator" MUID: (4AA68CCA0001)
+// Имя типа: "TefRubricator"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

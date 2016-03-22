@@ -2,6 +2,7 @@ unit daSubQueryCondition;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daSubQueryCondition.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaSubQueryCondition" MUID: (5641ED5A01D1)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 

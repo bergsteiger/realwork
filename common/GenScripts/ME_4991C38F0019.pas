@@ -3,6 +3,7 @@ unit DataAdapterInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\DataAdapterInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "DataAdapterInterfaces" MUID: (4991C38F0019)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3Tree;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Tree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3Tree" MUID: (4804BDA10127)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -26,11 +27,8 @@ type
   {* Структура данных "дерево". Используется как курсор для видимых элементов. }
   private
    f_fCountView: Integer;
-    {* Поле для свойства fCountView }
    f_CurrentNode: Il3Node;
-    {* Поле для свойства CurrentNode }
    f_CurrentItem: Integer;
-    {* Поле для свойства CurrentItem }
   protected
    fRootNode: Il3RootNode;
    fCurrentAbsItem: Integer;

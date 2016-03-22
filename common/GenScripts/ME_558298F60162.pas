@@ -2,6 +2,7 @@ unit destlfolevel;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destlfolevel.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tdestlfolevel" MUID: (558298F60162)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

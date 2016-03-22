@@ -3,6 +3,8 @@ unit moMonitorings;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moMonitorings.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Monitorings" MUID: (4A8ECF950254)
+// Имя типа: "Tmo_Monitorings"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

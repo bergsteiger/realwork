@@ -2,6 +2,7 @@ unit dsEditions;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsEditions.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsEditions" MUID: (4921809902CF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

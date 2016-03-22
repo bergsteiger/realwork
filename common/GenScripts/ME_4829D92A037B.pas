@@ -3,6 +3,7 @@ unit NOT_FINISHED_evCustomEditorWindow;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomEditorWindow.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TevCustomEditorWindow" MUID: (4829D92A037B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
@@ -160,10 +161,10 @@ uses
  , nevView
  , l3ProcessMessagesManager
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , EditorFromStackKeyWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , EditorFromStackKeyWordsPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 

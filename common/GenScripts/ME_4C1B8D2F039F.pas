@@ -3,6 +3,7 @@ unit evdCustomHyperlinkCorrector;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evdCustomHyperlinkCorrector.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdCustomHyperlinkCorrector" MUID: (4C1B8D2F039F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

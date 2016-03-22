@@ -3,6 +3,7 @@ unit evGeneratorsInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evGeneratorsInterfaces.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evGeneratorsInterfaces" MUID: (4A253C760202)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

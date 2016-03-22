@@ -2,6 +2,7 @@ unit nsRootManager;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsRootManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsRootManager" MUID: (46835AE40039)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

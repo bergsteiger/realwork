@@ -2,6 +2,7 @@ unit Menu_p;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\Menu_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TMenu" MUID: (49A3ECCB0366)
 
 {$Include w:\common\components\l3Define.inc}
 

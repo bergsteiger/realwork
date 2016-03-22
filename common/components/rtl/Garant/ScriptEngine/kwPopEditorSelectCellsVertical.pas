@@ -11,6 +11,8 @@ unit kwPopEditorSelectCellsVertical;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCellsVertical.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_SelectCellsVertical" MUID: (4F6044140356)
+// Имя типа: "TkwPopEditorSelectCellsVertical"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

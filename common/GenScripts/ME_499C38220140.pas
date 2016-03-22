@@ -3,6 +3,7 @@ unit MessageOnDesktop;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MessageOnDesktop.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TMessageOnDesktop" MUID: (499C38220140)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

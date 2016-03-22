@@ -2,6 +2,7 @@ unit NSRCWriterTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\NSRCWriterTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TNSRCWriterTest" MUID: (4B4F68EE006B)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

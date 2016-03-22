@@ -2,6 +2,7 @@ unit nsDayTipsDictCache;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsDayTipsDictCache.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDayTipsDictCache" MUID: (5571B3100338)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

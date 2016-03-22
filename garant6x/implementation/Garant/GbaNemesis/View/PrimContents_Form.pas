@@ -1927,7 +1927,7 @@ procedure TPrimContentsForm.DocumentBlock_ToMSWord_Test(const aParams: IvcmTestP
 begin
 //#UC START# *4C3B1AFB0270_4979DFB700F8test_impl*
  enDocumentBlockTest(aParams, True);
- nsDisableOperationInTrialMode(aParams);
+ //nsDisableOperationInTrialMode(aParams);
  TnsToMSWordOp.Test(aParams);
 //#UC END# *4C3B1AFB0270_4979DFB700F8test_impl*
 end;//TPrimContentsForm.DocumentBlock_ToMSWord_Test
@@ -2001,7 +2001,7 @@ procedure TPrimContentsForm.DocumentBlock_Copy_Test(const aParams: IvcmTestParam
 begin
 //#UC START# *4C3B1B1D003C_4979DFB700F8test_impl*
  enDocumentBlockTest(aParams, True);
- nsDisableOperationInTrialMode(aParams);
+ //nsDisableOperationInTrialMode(aParams);
 //#UC END# *4C3B1B1D003C_4979DFB700F8test_impl*
 end;//TPrimContentsForm.DocumentBlock_Copy_Test
 

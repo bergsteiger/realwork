@@ -3,6 +3,8 @@ unit K517772970_TalcuAutoSpellTask;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuAutoSpellTask.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TalcuAutoSpellTask" MUID: (53214DE40178)
+// Имя типа: "TK517772970_TalcuAutoSpellTask"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

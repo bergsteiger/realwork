@@ -2,6 +2,7 @@ unit alcuRegionImportTaskPrim;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuRegionImportTaskPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuRegionImportTaskPrim" MUID: (5408670901C0)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

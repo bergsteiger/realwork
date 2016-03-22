@@ -3,6 +3,7 @@ unit evTableCellUtils;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTableCellUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evTableCellUtils" MUID: (4C3849220132)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

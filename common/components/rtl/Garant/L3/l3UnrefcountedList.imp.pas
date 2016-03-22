@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3UnrefcountedList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3UnrefcountedList" MUID: (47B992F60244)
+// Имя типа: "_l3UnrefcountedList_"
 
 {$Define l3UnrefcountedList_imp}
 

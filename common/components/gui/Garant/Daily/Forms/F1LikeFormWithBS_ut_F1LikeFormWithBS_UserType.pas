@@ -1,80 +1,65 @@
 unit F1LikeFormWithBS_ut_F1LikeFormWithBS_UserType;
+ {* Форма с текстовым редактором с базовым поиском. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Forms"
-// Модуль: "w:/common/components/gui/Garant/Daily/Forms/F1LikeFormWithBS_ut_F1LikeFormWithBS_UserType.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> Shared Delphi Operations For Tests::TestForms::Forms::Everest::F1LikeFormWithBS::ut_F1LikeFormWithBS
-//
-// Форма с текстовым редактором с базовым поиском.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\Forms\F1LikeFormWithBS_ut_F1LikeFormWithBS_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "ut_F1LikeFormWithBS" MUID: (7865160AD7D7)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  vcmUserControls
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ , vcmUserControls
+;
 
 const
-   { Константы для типа формы ut_F1LikeFormWithBS }
-  ut_F1LikeFormWithBSName = 'ut_F1LikeFormWithBS';
-   { Строковый идентификатор пользовательского типа "Форма с текстовым редактором с базовым поиском." }
-  ut_F1LikeFormWithBS = TvcmUserType(0);
-   { Форма с текстовым редактором с базовым поиском. }
-{$IfEnd} //nsTest AND not NoVCM
+ {* Константы для типа формы ut_F1LikeFormWithBS }
+ ut_F1LikeFormWithBSName = 'ut_F1LikeFormWithBS';
+  {* Строковый идентификатор пользовательского типа "Форма с текстовым редактором с базовым поиском." }
+ ut_F1LikeFormWithBS = TvcmUserType(0);
+  {* Форма с текстовым редактором с базовым поиском. }
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_ut_F1LikeFormWithBS = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы ut_F1LikeFormWithBS }
+ Tkw_FormUserType_ut_F1LikeFormWithBS = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы ut_F1LikeFormWithBS }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_ut_F1LikeFormWithBS
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_ut_F1LikeFormWithBS
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-
-// start class Tkw_FormUserType_ut_F1LikeFormWithBS
-
-class function Tkw_FormUserType_ut_F1LikeFormWithBS.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::ut_F1LikeFormWithBS';
-end;//Tkw_FormUserType_ut_F1LikeFormWithBS.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_F1LikeFormWithBS.GetInteger: Integer;
- {-}
 begin
  Result := ut_F1LikeFormWithBS;
 end;//Tkw_FormUserType_ut_F1LikeFormWithBS.GetInteger
 
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
-{$IfEnd} //nsTest AND not NoVCM
+class function Tkw_FormUserType_ut_F1LikeFormWithBS.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_F1LikeFormWithBS';
+end;//Tkw_FormUserType_ut_F1LikeFormWithBS.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация Tkw_FormUserType_ut_F1LikeFormWithBS
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_F1LikeFormWithBS.RegisterInEngine;
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
+ {* Регистрация Tkw_FormUserType_ut_F1LikeFormWithBS }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

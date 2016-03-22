@@ -2,6 +2,8 @@ unit PrimCustomizeTools_Form;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\PrimCustomizeTools_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimCustomizeTools" MUID: (4C8E42AC03B8)
+// Имя типа: "TPrimCustomizeToolsForm"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 

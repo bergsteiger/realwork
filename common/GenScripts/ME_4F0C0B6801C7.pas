@@ -2,6 +2,7 @@ unit DragData;
 
 // Модуль: "w:\common\components\gui\Garant\VT\DragData.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DragData" MUID: (4F0C0B6801C7)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

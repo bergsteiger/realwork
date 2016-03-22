@@ -2,6 +2,7 @@ unit IntStackFromPersistent;
 
 // Модуль: "w:\common\components\SandBox\IntStackFromPersistent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TIntStackFromPersistent" MUID: (515584EB0339)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

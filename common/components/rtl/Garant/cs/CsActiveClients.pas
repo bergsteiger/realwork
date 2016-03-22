@@ -1,8 +1,11 @@
 unit CsActiveClients;
 
-{ $Id: CsActiveClients.pas,v 1.32 2014/09/19 11:22:24 lukyanets Exp $ }
+{ $Id: CsActiveClients.pas,v 1.33 2016/03/14 11:01:21 lukyanets Exp $ }
 
 // $Log: CsActiveClients.pas,v $
+// Revision 1.33  2016/03/14 11:01:21  lukyanets
+// Не показываем DeadUser как активного.
+//
 // Revision 1.32  2014/09/19 11:22:24  lukyanets
 // {RequestLink:565273246} - Прицепили логику
 //
@@ -155,6 +158,7 @@ implementation
 uses
  SysUtils,
  l3FileUtils,
+ daInterfaces,
  CsConst, CsServer,
  l3Types,
  l3Stream
@@ -173,7 +177,8 @@ begin
  try
   aList.Count := f_List.Count;
   for I := 0 to f_List.Count - 1 do
-   aList.Items[I] := f_List[I].ClientId;
+   if f_List[I].ClientId <> usDeadClient then
+    aList.Items[I] := f_List[I].ClientId;
  finally
   f_CriticalSection.Leave;
  end;

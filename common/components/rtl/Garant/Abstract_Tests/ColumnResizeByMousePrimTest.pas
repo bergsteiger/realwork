@@ -1,95 +1,69 @@
 unit ColumnResizeByMousePrimTest;
+ {* Тест изменения колонок с помощью мыши }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Tests"
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Tests/ColumnResizeByMousePrimTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::Abstract Tests::EditorTests::TColumnResizeByMousePrimTest
-//
-// Тест изменения колонок с помощью мыши
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\ColumnResizeByMousePrimTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TColumnResizeByMousePrimTest" MUID: (4D53D6170280)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  TextViaEditorProcessor
-  {$IfEnd} //nsTest AND not NoVCM
-  ,
-  evCustomEditorWindow,
-  l3Units,
-  nevTools,
-  nevGUIInterfaces
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , TextViaEditorProcessor
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+ , evCustomEditorWindow
+ , Classes
+ , nevTools
+ , l3Units
+ , nevGUIInterfaces
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  _ColumnResizeByMouse_Parent_ = TTextViaEditorProcessor;
  {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ColumnResizeByMouse.imp.pas}
  TColumnResizeByMousePrimTest = {abstract} class(_ColumnResizeByMouse_)
   {* Тест изменения колонок с помощью мыши }
- protected
- // realized methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure Process(aForm: TPrimTextLoadForm); override;
-     {* Собственно процесс обработки текста }
-   {$IfEnd} //nsTest AND not NoVCM
- protected
- // overridden protected methods
+    {* Собственно процесс обработки текста }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TColumnResizeByMousePrimTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  evConst,
-  TestFrameWork,
-  l3Base
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , evConst
+ , TestFrameWork
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
+{$If NOT Defined(NoVCM)}
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ColumnResizeByMouse.imp.pas}
 
-// start class TColumnResizeByMousePrimTest
-
-{$If defined(nsTest) AND not defined(NoVCM)}
 procedure TColumnResizeByMousePrimTest.Process(aForm: TPrimTextLoadForm);
+ {* Собственно процесс обработки текста }
 //#UC START# *4BE13147032C_4D53D6170280_var*
 //#UC END# *4BE13147032C_4D53D6170280_var*
 begin
@@ -98,20 +72,19 @@ begin
  SelectColumn(aForm.Text);
 //#UC END# *4BE13147032C_4D53D6170280_impl*
 end;//TColumnResizeByMousePrimTest.Process
-{$IfEnd} //nsTest AND not NoVCM
 
 function TColumnResizeByMousePrimTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TColumnResizeByMousePrimTest.GetFolder
 
 function TColumnResizeByMousePrimTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D53D6170280';
 end;//TColumnResizeByMousePrimTest.GetModelElementGUID
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

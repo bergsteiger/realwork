@@ -2,6 +2,7 @@ unit WorkWithListInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces\WorkWithListInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "WorkWithListInterfaces" MUID: (4D1B444C015E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

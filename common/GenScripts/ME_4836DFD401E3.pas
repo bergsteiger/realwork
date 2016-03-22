@@ -2,6 +2,8 @@
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\MixIns\atTypedInterfaceList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "atTypedInterfaceList" MUID: (4836DFD401E3)
+// Имя типа: "_atTypedInterfaceList_"
 
 {$Define atTypedInterfaceList_imp}
 

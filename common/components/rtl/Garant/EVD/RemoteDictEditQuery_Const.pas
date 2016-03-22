@@ -5,7 +5,7 @@ unit RemoteDictEditQuery_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/RemoteDictEditQuery_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::RemoteDictEditQuery
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::RemoteDictEditQuery
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

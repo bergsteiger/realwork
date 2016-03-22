@@ -2,6 +2,8 @@ unit NOT_FINISHED_NewBaseSearch_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\NOT_FINISHED_NewBaseSearch_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "NewBaseSearch" MUID: (4CF4BE9C035F)
+// Имя типа: "TNewBaseSearchForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -25,10 +27,10 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , NewBaseSearchKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , NewBaseSearchKeywordsPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 

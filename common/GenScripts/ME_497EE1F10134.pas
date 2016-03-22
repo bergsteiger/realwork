@@ -3,6 +3,8 @@ unit PrimMedicListSynchroView_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicListSynchroView_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "PrimMedicListSynchroView" MUID: (497EE1F10134)
+// Имя типа: "TPrimMedicListSynchroViewForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

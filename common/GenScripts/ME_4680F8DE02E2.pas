@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3TreeDataObject.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3TreeDataObject" MUID: (4680F8DE02E2)
+// Имя типа: "_l3TreeDataObject_"
 
 {$Define l3TreeDataObject_imp}
 

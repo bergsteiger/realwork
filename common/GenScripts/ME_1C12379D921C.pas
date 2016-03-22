@@ -3,6 +3,7 @@ unit PostingsListKeywordsPack;
 
 // ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\PostingsListKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "PostingsListKeywordsPack" MUID: (1C12379D921C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::PostingsList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_PostingsList
 
  Tkw_PostingsList_Control_tvPostings = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::tvPostings TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PostingsList_Control_tvPostings
 
  Tkw_PostingsList_Control_tvPostings_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TeeTreeView
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnPostingsListTvPostings
 
-class function Tkw_Form_PostingsList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::PostingsList';
-end;//Tkw_Form_PostingsList.GetWordNameForRegister
-
 function Tkw_Form_PostingsList.GetString: AnsiString;
 begin
  Result := 'enPostingsList';
 end;//Tkw_Form_PostingsList.GetString
 
-class function Tkw_PostingsList_Control_tvPostings.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_PostingsList.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::tvPostings';
-end;//Tkw_PostingsList_Control_tvPostings.GetWordNameForRegister
+ Result := 'форма::PostingsList';
+end;//Tkw_Form_PostingsList.GetWordNameForRegister
 
 function Tkw_PostingsList_Control_tvPostings.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TeeTreeView);
 end;//Tkw_PostingsList_Control_tvPostings.RegisterInEngine
+
+class function Tkw_PostingsList_Control_tvPostings.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvPostings';
+end;//Tkw_PostingsList_Control_tvPostings.GetWordNameForRegister
 
 procedure Tkw_PostingsList_Control_tvPostings_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(tvPostings(aCtx, l_aenPostingsList));
 end;//TkwEnPostingsListTvPostings.DoDoIt
 
-class function TkwEnPostingsListTvPostings.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TenPostingsList.tvPostings';
-end;//TkwEnPostingsListTvPostings.GetWordNameForRegister
-
 procedure TkwEnPostingsListTvPostings.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwEnPostingsListTvPostings.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TenPostingsList)]);
 end;//TkwEnPostingsListTvPostings.ParamsTypes
+
+class function TkwEnPostingsListTvPostings.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TenPostingsList.tvPostings';
+end;//TkwEnPostingsListTvPostings.GetWordNameForRegister
 
 initialization
  Tkw_Form_PostingsList.RegisterInEngine;

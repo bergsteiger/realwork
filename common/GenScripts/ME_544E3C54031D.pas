@@ -2,6 +2,7 @@ unit ncsMessageQueue;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsMessageQueue.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsMessageQueue" MUID: (544E3C54031D)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

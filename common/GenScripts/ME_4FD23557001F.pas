@@ -2,6 +2,7 @@ unit atExecuteSavedQueryOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atExecuteSavedQueryOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatExecuteSavedQueryOperation" MUID: (4FD23557001F)
 
 interface
 

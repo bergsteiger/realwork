@@ -3,6 +3,7 @@ unit PreviewTestBefore235875079;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\PreviewTestBefore235875079.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TPreviewTestBefore235875079" MUID: (4BE429BA0233)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

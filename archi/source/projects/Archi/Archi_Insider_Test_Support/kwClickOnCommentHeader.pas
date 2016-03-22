@@ -1,72 +1,53 @@
 unit kwClickOnCommentHeader;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwClickOnCommentHeader.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::Scripting::TkwClickOnCommentHeader
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClickOnCommentHeader.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwClickOnCommentHeader" MUID: (4DE740FA0192)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  arEditorControl,
-  evCustomEditorWindow,
-  l3Units,
-  nevTools,
-  nevGUIInterfaces
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , arEditorControl
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , nevTools
+ , l3Units
+ , nevGUIInterfaces
+;
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
  _ClickOnCommentHeader_Parent_ = TarEditorControl;
  {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ClickOnCommentHeader.imp.pas}
- TkwClickOnCommentHeader = {scriptword} class(_ClickOnCommentHeader_)
- private
- // private fields
-   f_Engine : ItfwScriptEngine;
- protected
- // realized methods
+ TkwClickOnCommentHeader = class(_ClickOnCommentHeader_)
+  private
+   f_Engine: ItfwScriptEngine;
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
     const anEditor: TevCustomEditorWindow); override;
    function CheckCollapsed(aText: TevCustomEditorWindow): Boolean; override;
- protected
- // overridden protected methods
    function GetInnerPara(const aView: InevInputView;
     const aDocument: InevPara): InevPara; override;
-     {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
+    {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwClickOnCommentHeader
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  l3Base
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+ l3ImplUses
+ , l3Base
+;
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ClickOnCommentHeader.imp.pas}
 
-// start class TkwClickOnCommentHeader
-
 procedure TkwClickOnCommentHeader.DoWithEditor(const aCtx: TtfwContext;
-  const anEditor: TevCustomEditorWindow);
+ const anEditor: TevCustomEditorWindow);
 //#UC START# *4DE7421F03DF_4DE740FA0192_var*
 //#UC END# *4DE7421F03DF_4DE740FA0192_var*
 begin
@@ -96,7 +77,8 @@ begin
 end;//TkwClickOnCommentHeader.CheckCollapsed
 
 function TkwClickOnCommentHeader.GetInnerPara(const aView: InevInputView;
-  const aDocument: InevPara): InevPara;
+ const aDocument: InevPara): InevPara;
+ {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
 //#UC START# *4BF4E6A00093_4DE740FA0192_var*
 //#UC END# *4BF4E6A00093_4DE740FA0192_var*
 begin
@@ -109,17 +91,13 @@ begin
 end;//TkwClickOnCommentHeader.GetInnerPara
 
 class function TkwClickOnCommentHeader.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'редактор:параграф:щелкнуть_на_заголовке';
 end;//TkwClickOnCommentHeader.GetWordNameForRegister
 
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация TkwClickOnCommentHeader
  TkwClickOnCommentHeader.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация TkwClickOnCommentHeader }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

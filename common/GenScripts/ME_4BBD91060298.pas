@@ -2,6 +2,7 @@ unit NOT_FINISHED_evEditorInterfacesMisc;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evEditorInterfacesMisc.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evEditorInterfacesMisc" MUID: (4BBD91060298)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

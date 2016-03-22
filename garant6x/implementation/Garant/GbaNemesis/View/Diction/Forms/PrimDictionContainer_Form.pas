@@ -39,7 +39,8 @@ uses
   Search_Strange_Controls,
   PrimSaveLoadOptions_Form,
   DictionContainerUserTypes_slqtDiction_UserType,
-  DictionContainerUserTypes_slqtMedicDiction_UserType
+  DictionContainerUserTypes_slqtMedicDiction_UserType,
+  F1Like_InternalOperations_Controls
   {$If not defined(NoVCM)}
   ,
   vcmUserControls
@@ -83,6 +84,10 @@ type
      AWidth: Integer;
      AHeight: Integer;
      var aCanResize: Boolean);
+ protected
+ // realized methods
+   procedure Common_ShowSplitter_Execute(aVisible: Boolean);
+   procedure Common_ShowSplitter(const aParams: IvcmExecuteParams);
  protected
  // overridden protected methods
    {$If not defined(NoVCM)}
@@ -168,6 +173,24 @@ begin
  end;//aCanResize
 //#UC END# *4D7F8B4A0214_4D7A69F9028C_impl*
 end;//TPrimDictionContainerForm.ChildZoneQueryResize
+
+procedure TPrimDictionContainerForm.Common_ShowSplitter_Execute(aVisible: Boolean);
+//#UC START# *4AE8744002F3_4D7A69F9028Cexec_var*
+//#UC END# *4AE8744002F3_4D7A69F9028Cexec_var*
+begin
+//#UC START# *4AE8744002F3_4D7A69F9028Cexec_impl*
+ if aVisible then
+  ChildZone.SizeableSides := [szTop]
+ else
+  ChildZone.SizeableSides := [];
+//#UC END# *4AE8744002F3_4D7A69F9028Cexec_impl*
+end;//TPrimDictionContainerForm.Common_ShowSplitter_Execute
+
+procedure TPrimDictionContainerForm.Common_ShowSplitter(const aParams: IvcmExecuteParams);
+begin
+ with (aParams.Data As ICommon_ShowSplitter_Params) do
+  Common_ShowSplitter_Execute(Visible);
+end;
 
 {$If not defined(NoVCM)}
 procedure TPrimDictionContainerForm.InitControls;
@@ -260,6 +283,11 @@ end;//TPrimDictionContainerForm.DoGetTabCaption
 procedure TPrimDictionContainerForm.InitEntities;
 begin
  inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Common, nil);
+  PublishOpWithResult(en_Common, op_ShowSplitter, Common_ShowSplitter, nil, nil);
+ end;//with Entities.Entities
  AddUserTypeExclude(slqtDictionName, en_File, op_SaveToFolder, false);
  AddUserTypeExclude(slqtDictionName, en_File, op_LoadFromFolder, false);
  AddUserTypeExclude(slqtDictionName, en_Loadable, op_Load, false);

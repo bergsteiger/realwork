@@ -2,6 +2,7 @@ unit StringStackTest;
 
 // Модуль: "w:\common\components\SandBox\StringStackTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TStringStackTest" MUID: (5155CA6F0058)
 
 {$Include w:\common\components\SandBox\sbtDefine.inc}
 

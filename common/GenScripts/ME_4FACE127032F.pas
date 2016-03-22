@@ -2,6 +2,7 @@ unit ddTableCell;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTableCell.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddTableCell" MUID: (4FACE127032F)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -232,10 +233,14 @@ procedure TddTableCell.Write2Generator(const Generator: Ik2TagGenerator;
  aNeedProcessRow: Boolean;
  LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_4FACE127032F_var*
+const
+ cnMaxDiff = 40;
 var
- j          : Integer;
- l_Item     : TddDocumentAtom;
- l_NewWidth : Integer;
+ j           : Integer;
+ l_Item      : TddDocumentAtom;
+ l_Table     : TddTable;
+ l_NewWidth  : Integer;
+ l_FirstWidth: Integer;
 //#UC END# *518A504F00F5_4FACE127032F_var*
 begin
 //#UC START# *518A504F00F5_4FACE127032F_impl*
@@ -246,11 +251,11 @@ begin
   else
    if Props.VMerged then
     Generator.AddIntegerAtom(k2_tiMergeStatus, Ord(ev_msContinue));
-  if not LiteVersion then
+  if LiteVersion = dd_lvNone then
    if Props.PatternBackColor <> propUndefined then
     Generator.AddIntegerAtom(k2_tiBackColor, Props.PatternBackColor);
   Generator.AddIntegerAtom(k2_tiWidth, Props.CellOffset);
-  if not LiteVersion then
+  if LiteVersion = dd_lvNone then
   begin
    Generator.AddIntegerAtom(k2_tiLeftIndent, Props.LeftPad);
    Generator.AddIntegerAtom(k2_tiRightIndent, Props.RightPad);
@@ -269,7 +274,11 @@ begin
     if l_Item.IsTable then
     begin
      l_NewWidth := Props.CellOffset - Props.LeftPad - Props.RightPad;
-     TddTable(l_Item).AdjustWidth(l_NewWidth)
+     if l_NewWidth < (ddGetMinimalCellWidth div 2) then Continue;
+     l_Table := TddTable(l_Item);
+     l_FirstWidth := l_Table.GetFirstRowWidth;
+     if (l_FirstWidth div l_NewWidth) > cnMaxDiff then Continue;
+     l_Table.AdjustWidth(l_NewWidth);
     end; // if (l_Item.AtomType = dd_docTable) then
     l_Item.Write2Generator(Generator, aNeedProcessRow, LiteVersion);
    end; // for j := 0 to Hi do

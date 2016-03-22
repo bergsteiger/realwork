@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsEditionsDecorationRules" MUID: (4F33E7CF0393)
+// Имя типа: "_nsEditionsDecorationRules_"
 
 {$Define nsEditionsDecorationRules_imp}
 

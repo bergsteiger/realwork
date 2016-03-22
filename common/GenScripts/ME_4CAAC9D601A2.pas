@@ -3,6 +3,7 @@ unit InsertRowTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\InsertRowTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TInsertRowTest" MUID: (4CAAC9D601A2)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

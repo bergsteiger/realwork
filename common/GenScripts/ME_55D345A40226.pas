@@ -2,6 +2,7 @@ unit tfwHyperlinkScriptCaller;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwHyperlinkScriptCaller.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwHyperlinkScriptCaller" MUID: (55D345A40226)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

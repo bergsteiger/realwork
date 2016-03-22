@@ -2,6 +2,8 @@ unit ImportTask_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\ImportTask_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "ImportTask" MUID: (53AC19E00242)
+// Имя типа: "ImportTaskTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

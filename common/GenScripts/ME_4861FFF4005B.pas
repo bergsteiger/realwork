@@ -2,6 +2,7 @@ unit Concret;
 
 // Модуль: "w:\common\components\SandBox\Concret.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Concret" MUID: (4861FFF4005B)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

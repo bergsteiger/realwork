@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddUtils;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddUtils" MUID: (5214B1470139)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

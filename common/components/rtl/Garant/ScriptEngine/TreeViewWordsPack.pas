@@ -2,6 +2,7 @@ unit TreeViewWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\TreeViewWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "TreeViewWordsPack" MUID: (512F47C80388)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -88,11 +89,6 @@ begin
  aCtx.rEngine.PushObj(GetItem(aCtx, l_aTreeView, l_anIndex));
 end;//TkwPopTreeViewGetItem.DoDoIt
 
-class function TkwPopTreeViewGetItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:TreeView:GetItem';
-end;//TkwPopTreeViewGetItem.GetWordNameForRegister
-
 function TkwPopTreeViewGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TTreeNode);
@@ -107,6 +103,11 @@ function TkwPopTreeViewGetItem.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTreeView), TypeInfo(Integer)]);
 end;//TkwPopTreeViewGetItem.ParamsTypes
+
+class function TkwPopTreeViewGetItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:TreeView:GetItem';
+end;//TkwPopTreeViewGetItem.GetWordNameForRegister
 
 initialization
  TkwPopTreeViewGetItem.RegisterInEngine;

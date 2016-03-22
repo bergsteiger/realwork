@@ -3,6 +3,7 @@ unit evCustomControlTool;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evCustomControlTool.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomControlTool" MUID: (47CFDFAB0197)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

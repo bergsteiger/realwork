@@ -2,6 +2,7 @@ unit kwStyleTableRestore;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwStyleTableRestore.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwStyleTableRestore" MUID: (4E68D33202D5)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit vgComponent;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgComponent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgComponent" MUID: (4D52A881018B)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

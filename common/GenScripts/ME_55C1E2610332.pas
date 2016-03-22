@@ -2,6 +2,7 @@ unit vcmFormSetRefreshDataParamsList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormSetRefreshDataParamsList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormSetRefreshDataParamsList" MUID: (55C1E2610332)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

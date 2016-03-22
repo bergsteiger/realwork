@@ -3,6 +3,8 @@ unit Design_Schema;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\Design_Schema.pas"
 // Стереотип: "TagTable"
+// Элемент модели: "Design" MUID: (4868D02D0352)
+// Имя типа: "TDesignSchema"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

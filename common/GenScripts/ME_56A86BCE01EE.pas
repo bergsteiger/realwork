@@ -2,6 +2,7 @@ unit caDataProvider;
 
 // Модуль: "w:\common\components\rtl\Garant\ComboAccess\caDataProvider.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcaDataProvider" MUID: (56A86BCE01EE)
 
 {$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 
@@ -31,6 +32,7 @@ type
    f_DataConverter: IcaDataConverter;
    f_UserManager: IdaUserManager;
    f_Factory: IdaTableQueryFactory;
+   f_ForCHeckLogin: Boolean;
   protected
    function Get_UserID: TdaUserID;
    function Get_RegionID: TdaRegionID;
@@ -115,6 +117,7 @@ begin
  aParams.SetRefTo(f_Params);
  f_HTProvider := aHTProvider;
  f_PGProvider := aPGProvider;
+ f_ForCheckLogin := ForCheckLogin;
  f_DataConverter := TcaDataConverter.Make(f_HTProvider.DataConverter as IhtDataConverter, f_PGProvider.DataConverter as IpgDataConverter);
 //#UC END# *56BB1FC50359_56A86BCE01EE_impl*
 end;//TcaDataProvider.Create
@@ -476,6 +479,9 @@ begin
   f_NeedClearGlobalDataProvider := True;
  end;
  f_HTProvider.Start;
+ if not f_ForCheckLogin then // или DataProvider.HasJournal или DataProvider.SessionID
+  (f_PGProvider as IdaComboAccessDataProviderHelper).SetAlienJournalData(f_HTProvider.Journal.CurSessionID);
+//!! !!! need to be implemented // Поставить сразу и себе (caJournal) SessionID нужный.  
  f_PGProvider.Start;
  f_IsStarted := True;
 //#UC END# *5526537A00CE_56A86BCE01EE_impl*

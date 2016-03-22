@@ -6,9 +6,15 @@ unit nsAppConfig;
  Назначение: Отображение и редактирование настроек проекта.
  История:
 
- $Id: nsAppConfig.pas,v 1.327 2015/04/23 10:21:49 lulin Exp $
+ $Id: nsAppConfig.pas,v 1.329 2016/01/19 11:22:33 kostitsin Exp $
 
  $Log: nsAppConfig.pas,v $
+ Revision 1.329  2016/01/19 11:22:33  kostitsin
+ {requestlink: 615698409 }
+
+ Revision 1.328  2016/01/11 13:15:59  kostitsin
+ {requestlink: 615114318 }
+
  Revision 1.327  2015/04/23 10:21:49  lulin
  http://mdp.garant.ru/pages/viewpage.action?pageId=596627087&focusedCommentId=597929314#comment-597929314
 
@@ -3255,8 +3261,8 @@ var
    // Открывать в новом окне
   (* AddBooleanItem(nsCStr(pi_List_OpenInNewWindow),
                   l_Map.ValueToDisplayName(nsCStr(pi_List_OpenInNewWindow)),
-                  dv_List_OpenInNewWindow); *)
-   Hint := vcmConstString(str_pi_List_OpenInNewWindow_Hint);
+                  dv_List_OpenInNewWindow);
+   Hint := vcmConstString(str_pi_List_OpenInNewWindow_Hint);*)
    // Автоматический переход
    AddBooleanItem(nsCStr(pi_List_AutoTransfer),
                   l_Map.ValueToDisplayName(nsCStr(pi_List_AutoTransfer)),
@@ -3330,7 +3336,7 @@ var
    AddItem(l_Node, l_Item);
    // По ссылке в информации об изменениях в тексте документа открывать
 
-   if (afw.Application.LocaleInfo.Language <> afw_lngEnglish) then
+   //if (afw.Application.LocaleInfo.Language <> afw_lngEnglish) then
    begin
     l_Item := TstgVersionCommentLinkBehaviour.Create;
     AddItem(l_Node, l_Item);

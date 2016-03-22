@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3CustomHeaderStream.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "m3CustomHeaderStream" MUID: (53FDCEC40006)
+// Имя типа: "_m3CustomHeaderStream_"
 
 {$Define m3CustomHeaderStream_imp}
 

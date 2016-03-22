@@ -2,6 +2,7 @@ unit ddAutolinkDocHistory;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAutolinkDocHistory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddAutolinkDocHistory" MUID: (4E955BA0010F)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

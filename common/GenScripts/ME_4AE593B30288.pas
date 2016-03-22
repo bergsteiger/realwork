@@ -2,6 +2,7 @@ unit deSelectedAttributes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\deSelectedAttributes.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdeSelectedAttributes" MUID: (4AE593B30288)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

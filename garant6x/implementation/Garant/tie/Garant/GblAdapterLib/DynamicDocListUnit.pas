@@ -148,6 +148,7 @@ InvalidType - в файле некорректные данные }
    ['{FAE957F6-A5EA-4AB6-9EC2-8514B696A1C1}']
    function GetDocumentId: TObjectId; stdcall;
      {* Получить идентифкатор документа из ноды списка }
+   procedure GetSnippetText(out aRet {: IString}); stdcall;
  end;//IDynListNode
 
 implementation

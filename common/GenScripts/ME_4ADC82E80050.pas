@@ -3,6 +3,7 @@ unit evStyleTreeSearcher;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evStyleTreeSearcher.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevStyleTreeSearcher" MUID: (4ADC82E80050)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

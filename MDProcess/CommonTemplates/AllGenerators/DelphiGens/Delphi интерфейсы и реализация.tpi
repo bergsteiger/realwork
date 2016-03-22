@@ -1375,6 +1375,8 @@ f _clear_TotalUses
 
 %f _DoSpell
 //#UC START# *4B2A19E3038Bfor470F151302FD*
+	[{%SC=Class}\
+	[{%S#f_IsMethod()!=true}\
 	[{%S#f_IsInterface()!=true&%S#f_IsVCMFormSetFactory()!=true&%S#f_IsVCMZone()!=true}\
 	%f_set_var(PARENT_CLASS,S)\
 //	<{}{%P#f_IsControl()!=true}\
@@ -1397,6 +1399,8 @@ f _clear_TotalUses
 	%{Attr_Inst}%f_set_applied_gen(h,false)\
 	%{Attr_Inst}%f_set_documentation(Поле для области вывода %oN)\
 	>\
+	]\
+	]\
 	]
 //#UC END# *4B2A19E3038Bfor470F151302FD*
 
@@ -2907,10 +2911,10 @@ f _OverrideLink
 f _OutOverride
 	\n\
 	: %f_OverrideName(%S,%1)
-	 CONST UID '%SU'
-	[{"%SN"!=""}\
-	 CONST Name '%f_str_replace(%f_N(%S),','')'
-	]\
+//	 CONST UID '%SU'
+//	[{"%SN"!=""}\
+//	 CONST Name '%f_str_replace(%f_N(%S),','')'
+//	]\
 	 : Original %S#f_pas_script_Reference() ;
 	[\
 	 : Implementor %1#f_pas_script_Reference() ;

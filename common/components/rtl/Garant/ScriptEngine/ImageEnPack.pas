@@ -2,6 +2,7 @@ unit ImageEnPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ImageEnPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ImageEnPack" MUID: (52E20EB3004D)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

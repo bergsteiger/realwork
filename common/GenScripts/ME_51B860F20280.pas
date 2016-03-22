@@ -2,6 +2,8 @@ unit PrimDictionOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimDictionOptions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimDictionOptions" MUID: (51B860F20280)
+// Имя типа: "TPrimDictionOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

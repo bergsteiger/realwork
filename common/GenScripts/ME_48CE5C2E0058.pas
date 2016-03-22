@@ -2,6 +2,7 @@ unit nevNullParaList;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevNullParaList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevNullParaList" MUID: (48CE5C2E0058)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

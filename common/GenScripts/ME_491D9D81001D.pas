@@ -3,6 +3,7 @@ unit dsForbidAutoregistration;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsForbidAutoregistration.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsForbidAutoregistration" MUID: (491D9D81001D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit kwCompiledRules;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledRules.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledRules" MUID: (4F51EC380222)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

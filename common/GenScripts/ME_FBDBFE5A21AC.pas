@@ -3,6 +3,7 @@ unit NewBaseSearchKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\NewBaseSearchKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "NewBaseSearchKeywordsPack" MUID: (FBDBFE5A21AC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -64,9 +65,9 @@ type
 'aControl' форма::NewBaseSearch TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_NewBaseSearch
 
  Tkw_NewBaseSearch_Control_FindBtn = {final} class(TtfwControlString)
@@ -77,9 +78,9 @@ type
 контрол::FindBtn TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_FindBtn
 
  Tkw_NewBaseSearch_Control_FindBtn_Push = {final} class(TkwBynameControlPush)
@@ -102,9 +103,9 @@ type
 контрол::FindBackBtn TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_FindBackBtn
 
  Tkw_NewBaseSearch_Control_FindBackBtn_Push = {final} class(TkwBynameControlPush)
@@ -127,9 +128,9 @@ type
 контрол::CloseBtn TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_CloseBtn
 
  Tkw_NewBaseSearch_Control_CloseBtn_Push = {final} class(TkwBynameControlPush)
@@ -152,9 +153,9 @@ type
 контрол::AreaCombo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_AreaCombo
 
  Tkw_NewBaseSearch_Control_AreaCombo_Push = {final} class(TkwBynameControlPush)
@@ -177,9 +178,9 @@ type
 контрол::QueryExampleLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_QueryExampleLabel
 
  Tkw_NewBaseSearch_Control_QueryExampleLabel_Push = {final} class(TkwBynameControlPush)
@@ -202,9 +203,9 @@ type
 контрол::DropButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_DropButton
 
  Tkw_NewBaseSearch_Control_DropButton_Push = {final} class(TkwBynameControlPush)
@@ -227,9 +228,9 @@ type
 контрол::FoundCountLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_FoundCountLabel
 
  Tkw_NewBaseSearch_Control_FoundCountLabel_Push = {final} class(TkwBynameControlPush)
@@ -252,9 +253,9 @@ type
 контрол::ExampleLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_ExampleLabel
 
  Tkw_NewBaseSearch_Control_ExampleLabel_Push = {final} class(TkwBynameControlPush)
@@ -277,9 +278,9 @@ type
 контрол::ContextEditPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_ContextEditPanel
 
  Tkw_NewBaseSearch_Control_ContextEditPanel_Push = {final} class(TkwBynameControlPush)
@@ -302,9 +303,9 @@ type
 контрол::Layout1 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_Layout1
 
  Tkw_NewBaseSearch_Control_Layout1_Push = {final} class(TkwBynameControlPush)
@@ -327,9 +328,9 @@ type
 контрол::Layout2 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_Layout2
 
  Tkw_NewBaseSearch_Control_Layout2_Push = {final} class(TkwBynameControlPush)
@@ -352,9 +353,9 @@ type
 контрол::Layout3 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_Layout3
 
  Tkw_NewBaseSearch_Control_Layout3_Push = {final} class(TkwBynameControlPush)
@@ -377,9 +378,9 @@ type
 контрол::vgScene1 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_vgScene1
 
  Tkw_NewBaseSearch_Control_vgScene1_Push = {final} class(TkwBynameControlPush)
@@ -402,9 +403,9 @@ type
 контрол::MoreTab TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_MoreTab
 
  Tkw_NewBaseSearch_Control_MoreTab_Push = {final} class(TkwBynameControlPush)
@@ -427,9 +428,9 @@ type
 контрол::Border TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_Border
 
  Tkw_NewBaseSearch_Control_Border_Push = {final} class(TkwBynameControlPush)
@@ -452,9 +453,9 @@ type
 контрол::InnerBorder TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_InnerBorder
 
  Tkw_NewBaseSearch_Control_InnerBorder_Push = {final} class(TkwBynameControlPush)
@@ -477,9 +478,9 @@ type
 контрол::MostOuterRectangle TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_MostOuterRectangle
 
  Tkw_NewBaseSearch_Control_MostOuterRectangle_Push = {final} class(TkwBynameControlPush)
@@ -502,9 +503,9 @@ type
 контрол::Rectangle1 TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_Rectangle1
 
  Tkw_NewBaseSearch_Control_Rectangle1_Push = {final} class(TkwBynameControlPush)
@@ -527,9 +528,9 @@ type
 контрол::ContextEdit TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_ContextEdit
 
  Tkw_NewBaseSearch_Control_ContextEdit_Push = {final} class(TkwBynameControlPush)
@@ -552,9 +553,9 @@ type
 компонент::FlashTimer TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Component_FlashTimer
 
  TkwNewBaseSearchFormFindBtn = {final} class(TtfwPropertyLike)
@@ -1037,11 +1038,6 @@ OBJECT VAR l_TTimer
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwNewBaseSearchFormFlashTimer
 
-class function Tkw_Form_NewBaseSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::NewBaseSearch';
-end;//Tkw_Form_NewBaseSearch.GetWordNameForRegister
-
 function Tkw_Form_NewBaseSearch.GetString: AnsiString;
 begin
  Result := 'NewBaseSearchForm';
@@ -1053,10 +1049,10 @@ begin
  TtfwClassRef.Register(TNewBaseSearchForm);
 end;//Tkw_Form_NewBaseSearch.RegisterInEngine
 
-class function Tkw_NewBaseSearch_Control_FindBtn.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_NewBaseSearch.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::FindBtn';
-end;//Tkw_NewBaseSearch_Control_FindBtn.GetWordNameForRegister
+ Result := 'форма::NewBaseSearch';
+end;//Tkw_Form_NewBaseSearch.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_FindBtn.GetString: AnsiString;
 begin
@@ -1069,6 +1065,11 @@ begin
  TtfwClassRef.Register(TvgPathButton);
 end;//Tkw_NewBaseSearch_Control_FindBtn.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_FindBtn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FindBtn';
+end;//Tkw_NewBaseSearch_Control_FindBtn.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_FindBtn_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FindBtn');
@@ -1079,11 +1080,6 @@ class function Tkw_NewBaseSearch_Control_FindBtn_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::FindBtn:push';
 end;//Tkw_NewBaseSearch_Control_FindBtn_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_FindBackBtn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FindBackBtn';
-end;//Tkw_NewBaseSearch_Control_FindBackBtn.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_FindBackBtn.GetString: AnsiString;
 begin
@@ -1096,6 +1092,11 @@ begin
  TtfwClassRef.Register(TvgPathButton);
 end;//Tkw_NewBaseSearch_Control_FindBackBtn.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_FindBackBtn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FindBackBtn';
+end;//Tkw_NewBaseSearch_Control_FindBackBtn.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_FindBackBtn_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FindBackBtn');
@@ -1106,11 +1107,6 @@ class function Tkw_NewBaseSearch_Control_FindBackBtn_Push.GetWordNameForRegister
 begin
  Result := 'контрол::FindBackBtn:push';
 end;//Tkw_NewBaseSearch_Control_FindBackBtn_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_CloseBtn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::CloseBtn';
-end;//Tkw_NewBaseSearch_Control_CloseBtn.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_CloseBtn.GetString: AnsiString;
 begin
@@ -1123,6 +1119,11 @@ begin
  TtfwClassRef.Register(TvgCloseButton);
 end;//Tkw_NewBaseSearch_Control_CloseBtn.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_CloseBtn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::CloseBtn';
+end;//Tkw_NewBaseSearch_Control_CloseBtn.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_CloseBtn_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('CloseBtn');
@@ -1133,11 +1134,6 @@ class function Tkw_NewBaseSearch_Control_CloseBtn_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::CloseBtn:push';
 end;//Tkw_NewBaseSearch_Control_CloseBtn_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_AreaCombo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::AreaCombo';
-end;//Tkw_NewBaseSearch_Control_AreaCombo.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_AreaCombo.GetString: AnsiString;
 begin
@@ -1150,6 +1146,11 @@ begin
  TtfwClassRef.Register(TvgComboBox);
 end;//Tkw_NewBaseSearch_Control_AreaCombo.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_AreaCombo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::AreaCombo';
+end;//Tkw_NewBaseSearch_Control_AreaCombo.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_AreaCombo_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('AreaCombo');
@@ -1160,11 +1161,6 @@ class function Tkw_NewBaseSearch_Control_AreaCombo_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::AreaCombo:push';
 end;//Tkw_NewBaseSearch_Control_AreaCombo_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_QueryExampleLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::QueryExampleLabel';
-end;//Tkw_NewBaseSearch_Control_QueryExampleLabel.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_QueryExampleLabel.GetString: AnsiString;
 begin
@@ -1177,6 +1173,11 @@ begin
  TtfwClassRef.Register(TvgText);
 end;//Tkw_NewBaseSearch_Control_QueryExampleLabel.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_QueryExampleLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::QueryExampleLabel';
+end;//Tkw_NewBaseSearch_Control_QueryExampleLabel.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_QueryExampleLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('QueryExampleLabel');
@@ -1187,11 +1188,6 @@ class function Tkw_NewBaseSearch_Control_QueryExampleLabel_Push.GetWordNameForRe
 begin
  Result := 'контрол::QueryExampleLabel:push';
 end;//Tkw_NewBaseSearch_Control_QueryExampleLabel_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_DropButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::DropButton';
-end;//Tkw_NewBaseSearch_Control_DropButton.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_DropButton.GetString: AnsiString;
 begin
@@ -1204,6 +1200,11 @@ begin
  TtfwClassRef.Register(TvgButton);
 end;//Tkw_NewBaseSearch_Control_DropButton.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_DropButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::DropButton';
+end;//Tkw_NewBaseSearch_Control_DropButton.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_DropButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('DropButton');
@@ -1214,11 +1215,6 @@ class function Tkw_NewBaseSearch_Control_DropButton_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::DropButton:push';
 end;//Tkw_NewBaseSearch_Control_DropButton_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_FoundCountLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::FoundCountLabel';
-end;//Tkw_NewBaseSearch_Control_FoundCountLabel.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_FoundCountLabel.GetString: AnsiString;
 begin
@@ -1231,6 +1227,11 @@ begin
  TtfwClassRef.Register(TvgText);
 end;//Tkw_NewBaseSearch_Control_FoundCountLabel.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_FoundCountLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FoundCountLabel';
+end;//Tkw_NewBaseSearch_Control_FoundCountLabel.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_FoundCountLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('FoundCountLabel');
@@ -1241,11 +1242,6 @@ class function Tkw_NewBaseSearch_Control_FoundCountLabel_Push.GetWordNameForRegi
 begin
  Result := 'контрол::FoundCountLabel:push';
 end;//Tkw_NewBaseSearch_Control_FoundCountLabel_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_ExampleLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ExampleLabel';
-end;//Tkw_NewBaseSearch_Control_ExampleLabel.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_ExampleLabel.GetString: AnsiString;
 begin
@@ -1258,6 +1254,11 @@ begin
  TtfwClassRef.Register(TvgText);
 end;//Tkw_NewBaseSearch_Control_ExampleLabel.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_ExampleLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ExampleLabel';
+end;//Tkw_NewBaseSearch_Control_ExampleLabel.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_ExampleLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ExampleLabel');
@@ -1268,11 +1269,6 @@ class function Tkw_NewBaseSearch_Control_ExampleLabel_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::ExampleLabel:push';
 end;//Tkw_NewBaseSearch_Control_ExampleLabel_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_ContextEditPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ContextEditPanel';
-end;//Tkw_NewBaseSearch_Control_ContextEditPanel.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_ContextEditPanel.GetString: AnsiString;
 begin
@@ -1285,6 +1281,11 @@ begin
  TtfwClassRef.Register(TvgNonVGLayout);
 end;//Tkw_NewBaseSearch_Control_ContextEditPanel.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_ContextEditPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ContextEditPanel';
+end;//Tkw_NewBaseSearch_Control_ContextEditPanel.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_ContextEditPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ContextEditPanel');
@@ -1295,11 +1296,6 @@ class function Tkw_NewBaseSearch_Control_ContextEditPanel_Push.GetWordNameForReg
 begin
  Result := 'контрол::ContextEditPanel:push';
 end;//Tkw_NewBaseSearch_Control_ContextEditPanel_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_Layout1.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::Layout1';
-end;//Tkw_NewBaseSearch_Control_Layout1.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_Layout1.GetString: AnsiString;
 begin
@@ -1312,6 +1308,11 @@ begin
  TtfwClassRef.Register(TvgLayout);
 end;//Tkw_NewBaseSearch_Control_Layout1.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_Layout1.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Layout1';
+end;//Tkw_NewBaseSearch_Control_Layout1.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_Layout1_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Layout1');
@@ -1322,11 +1323,6 @@ class function Tkw_NewBaseSearch_Control_Layout1_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::Layout1:push';
 end;//Tkw_NewBaseSearch_Control_Layout1_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_Layout2.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::Layout2';
-end;//Tkw_NewBaseSearch_Control_Layout2.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_Layout2.GetString: AnsiString;
 begin
@@ -1339,6 +1335,11 @@ begin
  TtfwClassRef.Register(TvgLayout);
 end;//Tkw_NewBaseSearch_Control_Layout2.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_Layout2.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Layout2';
+end;//Tkw_NewBaseSearch_Control_Layout2.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_Layout2_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Layout2');
@@ -1349,11 +1350,6 @@ class function Tkw_NewBaseSearch_Control_Layout2_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::Layout2:push';
 end;//Tkw_NewBaseSearch_Control_Layout2_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_Layout3.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::Layout3';
-end;//Tkw_NewBaseSearch_Control_Layout3.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_Layout3.GetString: AnsiString;
 begin
@@ -1366,6 +1362,11 @@ begin
  TtfwClassRef.Register(TvgLayout);
 end;//Tkw_NewBaseSearch_Control_Layout3.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_Layout3.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Layout3';
+end;//Tkw_NewBaseSearch_Control_Layout3.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_Layout3_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Layout3');
@@ -1376,11 +1377,6 @@ class function Tkw_NewBaseSearch_Control_Layout3_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::Layout3:push';
 end;//Tkw_NewBaseSearch_Control_Layout3_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_vgScene1.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::vgScene1';
-end;//Tkw_NewBaseSearch_Control_vgScene1.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_vgScene1.GetString: AnsiString;
 begin
@@ -1393,6 +1389,11 @@ begin
  TtfwClassRef.Register(TvgScene);
 end;//Tkw_NewBaseSearch_Control_vgScene1.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_vgScene1.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::vgScene1';
+end;//Tkw_NewBaseSearch_Control_vgScene1.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_vgScene1_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('vgScene1');
@@ -1403,11 +1404,6 @@ class function Tkw_NewBaseSearch_Control_vgScene1_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::vgScene1:push';
 end;//Tkw_NewBaseSearch_Control_vgScene1_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_MoreTab.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::MoreTab';
-end;//Tkw_NewBaseSearch_Control_MoreTab.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_MoreTab.GetString: AnsiString;
 begin
@@ -1420,6 +1416,11 @@ begin
  TtfwClassRef.Register(TvgComboBox);
 end;//Tkw_NewBaseSearch_Control_MoreTab.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_MoreTab.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::MoreTab';
+end;//Tkw_NewBaseSearch_Control_MoreTab.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_MoreTab_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('MoreTab');
@@ -1430,11 +1431,6 @@ class function Tkw_NewBaseSearch_Control_MoreTab_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::MoreTab:push';
 end;//Tkw_NewBaseSearch_Control_MoreTab_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_Border.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::Border';
-end;//Tkw_NewBaseSearch_Control_Border.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_Border.GetString: AnsiString;
 begin
@@ -1447,6 +1443,11 @@ begin
  TtfwClassRef.Register(TvgRectangle);
 end;//Tkw_NewBaseSearch_Control_Border.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_Border.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Border';
+end;//Tkw_NewBaseSearch_Control_Border.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_Border_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Border');
@@ -1457,11 +1458,6 @@ class function Tkw_NewBaseSearch_Control_Border_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::Border:push';
 end;//Tkw_NewBaseSearch_Control_Border_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_InnerBorder.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::InnerBorder';
-end;//Tkw_NewBaseSearch_Control_InnerBorder.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_InnerBorder.GetString: AnsiString;
 begin
@@ -1474,6 +1470,11 @@ begin
  TtfwClassRef.Register(TvgRectangle);
 end;//Tkw_NewBaseSearch_Control_InnerBorder.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_InnerBorder.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::InnerBorder';
+end;//Tkw_NewBaseSearch_Control_InnerBorder.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_InnerBorder_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('InnerBorder');
@@ -1484,11 +1485,6 @@ class function Tkw_NewBaseSearch_Control_InnerBorder_Push.GetWordNameForRegister
 begin
  Result := 'контрол::InnerBorder:push';
 end;//Tkw_NewBaseSearch_Control_InnerBorder_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_MostOuterRectangle.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::MostOuterRectangle';
-end;//Tkw_NewBaseSearch_Control_MostOuterRectangle.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_MostOuterRectangle.GetString: AnsiString;
 begin
@@ -1501,6 +1497,11 @@ begin
  TtfwClassRef.Register(TvgRectangle);
 end;//Tkw_NewBaseSearch_Control_MostOuterRectangle.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_MostOuterRectangle.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::MostOuterRectangle';
+end;//Tkw_NewBaseSearch_Control_MostOuterRectangle.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_MostOuterRectangle_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('MostOuterRectangle');
@@ -1511,11 +1512,6 @@ class function Tkw_NewBaseSearch_Control_MostOuterRectangle_Push.GetWordNameForR
 begin
  Result := 'контрол::MostOuterRectangle:push';
 end;//Tkw_NewBaseSearch_Control_MostOuterRectangle_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_Rectangle1.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::Rectangle1';
-end;//Tkw_NewBaseSearch_Control_Rectangle1.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_Rectangle1.GetString: AnsiString;
 begin
@@ -1528,6 +1524,11 @@ begin
  TtfwClassRef.Register(TvgRectangle);
 end;//Tkw_NewBaseSearch_Control_Rectangle1.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_Rectangle1.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Rectangle1';
+end;//Tkw_NewBaseSearch_Control_Rectangle1.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_Rectangle1_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Rectangle1');
@@ -1538,11 +1539,6 @@ class function Tkw_NewBaseSearch_Control_Rectangle1_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::Rectangle1:push';
 end;//Tkw_NewBaseSearch_Control_Rectangle1_Push.GetWordNameForRegister
-
-class function Tkw_NewBaseSearch_Control_ContextEdit.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ContextEdit';
-end;//Tkw_NewBaseSearch_Control_ContextEdit.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_ContextEdit.GetString: AnsiString;
 begin
@@ -1555,6 +1551,11 @@ begin
  TtfwClassRef.Register(TnscTreeComboWithHistoryAndOperations);
 end;//Tkw_NewBaseSearch_Control_ContextEdit.RegisterInEngine
 
+class function Tkw_NewBaseSearch_Control_ContextEdit.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ContextEdit';
+end;//Tkw_NewBaseSearch_Control_ContextEdit.GetWordNameForRegister
+
 procedure Tkw_NewBaseSearch_Control_ContextEdit_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ContextEdit');
@@ -1566,11 +1567,6 @@ begin
  Result := 'контрол::ContextEdit:push';
 end;//Tkw_NewBaseSearch_Control_ContextEdit_Push.GetWordNameForRegister
 
-class function Tkw_NewBaseSearch_Component_FlashTimer.GetWordNameForRegister: AnsiString;
-begin
- Result := 'компонент::FlashTimer';
-end;//Tkw_NewBaseSearch_Component_FlashTimer.GetWordNameForRegister
-
 function Tkw_NewBaseSearch_Component_FlashTimer.GetString: AnsiString;
 begin
  Result := 'FlashTimer';
@@ -1581,6 +1577,11 @@ begin
  inherited;
  TtfwClassRef.Register(TTimer);
 end;//Tkw_NewBaseSearch_Component_FlashTimer.RegisterInEngine
+
+class function Tkw_NewBaseSearch_Component_FlashTimer.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'компонент::FlashTimer';
+end;//Tkw_NewBaseSearch_Component_FlashTimer.GetWordNameForRegister
 
 function TkwNewBaseSearchFormFindBtn.FindBtn(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgPathButton;
@@ -1604,11 +1605,6 @@ begin
  aCtx.rEngine.PushObj(FindBtn(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormFindBtn.DoDoIt
 
-class function TkwNewBaseSearchFormFindBtn.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.FindBtn';
-end;//TkwNewBaseSearchFormFindBtn.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormFindBtn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1629,6 +1625,11 @@ function TkwNewBaseSearchFormFindBtn.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormFindBtn.ParamsTypes
+
+class function TkwNewBaseSearchFormFindBtn.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.FindBtn';
+end;//TkwNewBaseSearchFormFindBtn.GetWordNameForRegister
 
 function TkwNewBaseSearchFormFindBackBtn.FindBackBtn(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgPathButton;
@@ -1652,11 +1653,6 @@ begin
  aCtx.rEngine.PushObj(FindBackBtn(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormFindBackBtn.DoDoIt
 
-class function TkwNewBaseSearchFormFindBackBtn.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.FindBackBtn';
-end;//TkwNewBaseSearchFormFindBackBtn.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormFindBackBtn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1677,6 +1673,11 @@ function TkwNewBaseSearchFormFindBackBtn.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormFindBackBtn.ParamsTypes
+
+class function TkwNewBaseSearchFormFindBackBtn.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.FindBackBtn';
+end;//TkwNewBaseSearchFormFindBackBtn.GetWordNameForRegister
 
 function TkwNewBaseSearchFormCloseBtn.CloseBtn(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgCloseButton;
@@ -1700,11 +1701,6 @@ begin
  aCtx.rEngine.PushObj(CloseBtn(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormCloseBtn.DoDoIt
 
-class function TkwNewBaseSearchFormCloseBtn.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.CloseBtn';
-end;//TkwNewBaseSearchFormCloseBtn.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormCloseBtn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1725,6 +1721,11 @@ function TkwNewBaseSearchFormCloseBtn.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormCloseBtn.ParamsTypes
+
+class function TkwNewBaseSearchFormCloseBtn.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.CloseBtn';
+end;//TkwNewBaseSearchFormCloseBtn.GetWordNameForRegister
 
 function TkwNewBaseSearchFormAreaCombo.AreaCombo(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgComboBox;
@@ -1748,11 +1749,6 @@ begin
  aCtx.rEngine.PushObj(AreaCombo(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormAreaCombo.DoDoIt
 
-class function TkwNewBaseSearchFormAreaCombo.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.AreaCombo';
-end;//TkwNewBaseSearchFormAreaCombo.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormAreaCombo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1773,6 +1769,11 @@ function TkwNewBaseSearchFormAreaCombo.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormAreaCombo.ParamsTypes
+
+class function TkwNewBaseSearchFormAreaCombo.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.AreaCombo';
+end;//TkwNewBaseSearchFormAreaCombo.GetWordNameForRegister
 
 function TkwNewBaseSearchFormQueryExampleLabel.QueryExampleLabel(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgText;
@@ -1796,11 +1797,6 @@ begin
  aCtx.rEngine.PushObj(QueryExampleLabel(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormQueryExampleLabel.DoDoIt
 
-class function TkwNewBaseSearchFormQueryExampleLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.QueryExampleLabel';
-end;//TkwNewBaseSearchFormQueryExampleLabel.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormQueryExampleLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1821,6 +1817,11 @@ function TkwNewBaseSearchFormQueryExampleLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormQueryExampleLabel.ParamsTypes
+
+class function TkwNewBaseSearchFormQueryExampleLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.QueryExampleLabel';
+end;//TkwNewBaseSearchFormQueryExampleLabel.GetWordNameForRegister
 
 function TkwNewBaseSearchFormDropButton.DropButton(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgButton;
@@ -1844,11 +1845,6 @@ begin
  aCtx.rEngine.PushObj(DropButton(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormDropButton.DoDoIt
 
-class function TkwNewBaseSearchFormDropButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.DropButton';
-end;//TkwNewBaseSearchFormDropButton.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormDropButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1869,6 +1865,11 @@ function TkwNewBaseSearchFormDropButton.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormDropButton.ParamsTypes
+
+class function TkwNewBaseSearchFormDropButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.DropButton';
+end;//TkwNewBaseSearchFormDropButton.GetWordNameForRegister
 
 function TkwNewBaseSearchFormFoundCountLabel.FoundCountLabel(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgText;
@@ -1892,11 +1893,6 @@ begin
  aCtx.rEngine.PushObj(FoundCountLabel(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormFoundCountLabel.DoDoIt
 
-class function TkwNewBaseSearchFormFoundCountLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.FoundCountLabel';
-end;//TkwNewBaseSearchFormFoundCountLabel.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormFoundCountLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1917,6 +1913,11 @@ function TkwNewBaseSearchFormFoundCountLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormFoundCountLabel.ParamsTypes
+
+class function TkwNewBaseSearchFormFoundCountLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.FoundCountLabel';
+end;//TkwNewBaseSearchFormFoundCountLabel.GetWordNameForRegister
 
 function TkwNewBaseSearchFormExampleLabel.ExampleLabel(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgText;
@@ -1940,11 +1941,6 @@ begin
  aCtx.rEngine.PushObj(ExampleLabel(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormExampleLabel.DoDoIt
 
-class function TkwNewBaseSearchFormExampleLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.ExampleLabel';
-end;//TkwNewBaseSearchFormExampleLabel.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormExampleLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1965,6 +1961,11 @@ function TkwNewBaseSearchFormExampleLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormExampleLabel.ParamsTypes
+
+class function TkwNewBaseSearchFormExampleLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.ExampleLabel';
+end;//TkwNewBaseSearchFormExampleLabel.GetWordNameForRegister
 
 function TkwNewBaseSearchFormContextEditPanel.ContextEditPanel(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgNonVGLayout;
@@ -1988,11 +1989,6 @@ begin
  aCtx.rEngine.PushObj(ContextEditPanel(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormContextEditPanel.DoDoIt
 
-class function TkwNewBaseSearchFormContextEditPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.ContextEditPanel';
-end;//TkwNewBaseSearchFormContextEditPanel.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormContextEditPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2013,6 +2009,11 @@ function TkwNewBaseSearchFormContextEditPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormContextEditPanel.ParamsTypes
+
+class function TkwNewBaseSearchFormContextEditPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.ContextEditPanel';
+end;//TkwNewBaseSearchFormContextEditPanel.GetWordNameForRegister
 
 function TkwNewBaseSearchFormLayout1.Layout1(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgLayout;
@@ -2036,11 +2037,6 @@ begin
  aCtx.rEngine.PushObj(Layout1(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormLayout1.DoDoIt
 
-class function TkwNewBaseSearchFormLayout1.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.Layout1';
-end;//TkwNewBaseSearchFormLayout1.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormLayout1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2061,6 +2057,11 @@ function TkwNewBaseSearchFormLayout1.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormLayout1.ParamsTypes
+
+class function TkwNewBaseSearchFormLayout1.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.Layout1';
+end;//TkwNewBaseSearchFormLayout1.GetWordNameForRegister
 
 function TkwNewBaseSearchFormLayout2.Layout2(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgLayout;
@@ -2084,11 +2085,6 @@ begin
  aCtx.rEngine.PushObj(Layout2(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormLayout2.DoDoIt
 
-class function TkwNewBaseSearchFormLayout2.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.Layout2';
-end;//TkwNewBaseSearchFormLayout2.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormLayout2.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2109,6 +2105,11 @@ function TkwNewBaseSearchFormLayout2.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormLayout2.ParamsTypes
+
+class function TkwNewBaseSearchFormLayout2.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.Layout2';
+end;//TkwNewBaseSearchFormLayout2.GetWordNameForRegister
 
 function TkwNewBaseSearchFormLayout3.Layout3(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgLayout;
@@ -2132,11 +2133,6 @@ begin
  aCtx.rEngine.PushObj(Layout3(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormLayout3.DoDoIt
 
-class function TkwNewBaseSearchFormLayout3.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.Layout3';
-end;//TkwNewBaseSearchFormLayout3.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormLayout3.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2157,6 +2153,11 @@ function TkwNewBaseSearchFormLayout3.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormLayout3.ParamsTypes
+
+class function TkwNewBaseSearchFormLayout3.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.Layout3';
+end;//TkwNewBaseSearchFormLayout3.GetWordNameForRegister
 
 function TkwNewBaseSearchFormVgScene1.vgScene1(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgScene;
@@ -2180,11 +2181,6 @@ begin
  aCtx.rEngine.PushObj(vgScene1(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormVgScene1.DoDoIt
 
-class function TkwNewBaseSearchFormVgScene1.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.vgScene1';
-end;//TkwNewBaseSearchFormVgScene1.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormVgScene1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2205,6 +2201,11 @@ function TkwNewBaseSearchFormVgScene1.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormVgScene1.ParamsTypes
+
+class function TkwNewBaseSearchFormVgScene1.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.vgScene1';
+end;//TkwNewBaseSearchFormVgScene1.GetWordNameForRegister
 
 function TkwNewBaseSearchFormMoreTab.MoreTab(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgComboBox;
@@ -2228,11 +2229,6 @@ begin
  aCtx.rEngine.PushObj(MoreTab(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormMoreTab.DoDoIt
 
-class function TkwNewBaseSearchFormMoreTab.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.MoreTab';
-end;//TkwNewBaseSearchFormMoreTab.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormMoreTab.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2253,6 +2249,11 @@ function TkwNewBaseSearchFormMoreTab.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormMoreTab.ParamsTypes
+
+class function TkwNewBaseSearchFormMoreTab.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.MoreTab';
+end;//TkwNewBaseSearchFormMoreTab.GetWordNameForRegister
 
 function TkwNewBaseSearchFormBorder.Border(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
@@ -2276,11 +2277,6 @@ begin
  aCtx.rEngine.PushObj(Border(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormBorder.DoDoIt
 
-class function TkwNewBaseSearchFormBorder.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.Border';
-end;//TkwNewBaseSearchFormBorder.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormBorder.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2301,6 +2297,11 @@ function TkwNewBaseSearchFormBorder.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormBorder.ParamsTypes
+
+class function TkwNewBaseSearchFormBorder.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.Border';
+end;//TkwNewBaseSearchFormBorder.GetWordNameForRegister
 
 function TkwNewBaseSearchFormInnerBorder.InnerBorder(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
@@ -2324,11 +2325,6 @@ begin
  aCtx.rEngine.PushObj(InnerBorder(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormInnerBorder.DoDoIt
 
-class function TkwNewBaseSearchFormInnerBorder.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.InnerBorder';
-end;//TkwNewBaseSearchFormInnerBorder.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormInnerBorder.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2349,6 +2345,11 @@ function TkwNewBaseSearchFormInnerBorder.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormInnerBorder.ParamsTypes
+
+class function TkwNewBaseSearchFormInnerBorder.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.InnerBorder';
+end;//TkwNewBaseSearchFormInnerBorder.GetWordNameForRegister
 
 function TkwNewBaseSearchFormMostOuterRectangle.MostOuterRectangle(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
@@ -2372,11 +2373,6 @@ begin
  aCtx.rEngine.PushObj(MostOuterRectangle(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormMostOuterRectangle.DoDoIt
 
-class function TkwNewBaseSearchFormMostOuterRectangle.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.MostOuterRectangle';
-end;//TkwNewBaseSearchFormMostOuterRectangle.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormMostOuterRectangle.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2397,6 +2393,11 @@ function TkwNewBaseSearchFormMostOuterRectangle.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormMostOuterRectangle.ParamsTypes
+
+class function TkwNewBaseSearchFormMostOuterRectangle.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.MostOuterRectangle';
+end;//TkwNewBaseSearchFormMostOuterRectangle.GetWordNameForRegister
 
 function TkwNewBaseSearchFormRectangle1.Rectangle1(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
@@ -2420,11 +2421,6 @@ begin
  aCtx.rEngine.PushObj(Rectangle1(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormRectangle1.DoDoIt
 
-class function TkwNewBaseSearchFormRectangle1.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.Rectangle1';
-end;//TkwNewBaseSearchFormRectangle1.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormRectangle1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2445,6 +2441,11 @@ function TkwNewBaseSearchFormRectangle1.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormRectangle1.ParamsTypes
+
+class function TkwNewBaseSearchFormRectangle1.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.Rectangle1';
+end;//TkwNewBaseSearchFormRectangle1.GetWordNameForRegister
 
 function TkwNewBaseSearchFormContextEdit.ContextEdit(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TnscTreeComboWithHistoryAndOperations;
@@ -2468,11 +2469,6 @@ begin
  aCtx.rEngine.PushObj(ContextEdit(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormContextEdit.DoDoIt
 
-class function TkwNewBaseSearchFormContextEdit.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.ContextEdit';
-end;//TkwNewBaseSearchFormContextEdit.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormContextEdit.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2493,6 +2489,11 @@ function TkwNewBaseSearchFormContextEdit.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormContextEdit.ParamsTypes
+
+class function TkwNewBaseSearchFormContextEdit.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.ContextEdit';
+end;//TkwNewBaseSearchFormContextEdit.GetWordNameForRegister
 
 function TkwNewBaseSearchFormFlashTimer.FlashTimer(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TTimer;
@@ -2516,11 +2517,6 @@ begin
  aCtx.rEngine.PushObj(FlashTimer(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormFlashTimer.DoDoIt
 
-class function TkwNewBaseSearchFormFlashTimer.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TNewBaseSearchForm.FlashTimer';
-end;//TkwNewBaseSearchFormFlashTimer.GetWordNameForRegister
-
 procedure TkwNewBaseSearchFormFlashTimer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2541,6 +2537,11 @@ function TkwNewBaseSearchFormFlashTimer.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormFlashTimer.ParamsTypes
+
+class function TkwNewBaseSearchFormFlashTimer.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TNewBaseSearchForm.FlashTimer';
+end;//TkwNewBaseSearchFormFlashTimer.GetWordNameForRegister
 
 initialization
  Tkw_Form_NewBaseSearch.RegisterInEngine;

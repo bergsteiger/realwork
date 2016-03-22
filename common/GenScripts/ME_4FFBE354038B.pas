@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentWithFlashUserTypes.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "DocumentWithFlashUserTypes" MUID: (4FFBE354038B)
+// Имя типа: "_DocumentWithFlashUserTypes_"
 
 {$Define DocumentWithFlashUserTypes_imp}
 

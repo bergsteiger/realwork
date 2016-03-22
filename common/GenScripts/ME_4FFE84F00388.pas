@@ -2,6 +2,7 @@ unit vcmFormSetFactoryPrim;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFactoryPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormSetFactoryPrim" MUID: (4FFE84F00388)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

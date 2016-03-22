@@ -2,6 +2,7 @@ unit destListOverrideTable;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destListOverrideTable.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdestListOverrideTable" MUID: (51DD4D00025B)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

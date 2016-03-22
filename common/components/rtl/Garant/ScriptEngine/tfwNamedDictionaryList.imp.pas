@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwNamedDictionaryList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "tfwNamedDictionaryList" MUID: (55A63C1701BE)
+// Имя типа: "_tfwNamedDictionaryList_"
 
 {$Define tfwNamedDictionaryList_imp}
 
@@ -47,6 +49,7 @@ procedure _tfwNamedDictionaryList_.Add(const anItem: _ItemType_);
 //#UC END# *55A3DF510076_55A63C1701BE_var*
 begin
 //#UC START# *55A3DF510076_55A63C1701BE_impl*
+ //Assert(not l3IsNil(anItem.FileName));
  Assert(FindDictionary(anItem.FileName) = nil);
  inherited Add(anItem);
 //#UC END# *55A3DF510076_55A63C1701BE_impl*

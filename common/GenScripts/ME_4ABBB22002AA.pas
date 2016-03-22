@@ -3,6 +3,8 @@ unit CommonDiction_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\CommonDiction_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "CommonDiction" MUID: (4ABBB22002AA)
+// Имя типа: "Ten_CommonDiction"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

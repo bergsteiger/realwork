@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsSearchClasses;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\QueryCardProcessing\NOT_FINISHED_nsSearchClasses.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsSearchClasses" MUID: (4CCEC05902CF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_evTableCellHotSpot;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTableCellHotSpot.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evTableCellHotSpot" MUID: (53D0C0DD0037)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

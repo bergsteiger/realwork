@@ -3,6 +3,8 @@ unit PrimStartupTips_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\Forms\PrimStartupTips_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimStartupTips" MUID: (4AC4F49F010B)
+// Имя типа: "TPrimStartupTipsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

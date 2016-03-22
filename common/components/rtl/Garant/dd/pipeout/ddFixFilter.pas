@@ -1,8 +1,12 @@
 unit ddFixFilter;
 
-{ $Id: ddFixFilter.pas,v 1.69 2015/07/03 15:21:06 voba Exp $ }
+{ $Id: ddFixFilter.pas,v 1.70 2015/11/11 13:16:42 fireton Exp $ }
 
 // $Log: ddFixFilter.pas,v $
+// Revision 1.70  2015/11/11 13:16:42  fireton
+// - Нормальная диагностика ошибок при экспорте
+// - Считаем пустые документы, справки и аннотации правильно
+//
 // Revision 1.69  2015/07/03 15:21:06  voba
 // - обжтопики старые не грузились
 //
@@ -256,21 +260,6 @@ type
  public
  {-}
   class function SetTo(var theGenerator: Tk2TagGenerator; aInternalHandle : Integer): Pointer; overload;
- end;
-
- TddNullDocFilter = class(TevdChildBufferedFilter)
- private
-  f_IntHandle: Integer;
- protected
-  function CheckNeedFlushBuffer: Boolean;
-
- public
-        {-}
-  procedure AddAtomEx(AtomIndex: Integer; const Value: Tk2Variant); override;
-  procedure StartChild(TypeID: Tl3VariantDef); override;
-
- {-}
-  class function SetTo(var theGenerator: Tk2TagGenerator): Pointer; overload;
  end;
 
  TddChildBiteOffFilter = class(TevdChildBufferedFilter)
@@ -580,48 +569,6 @@ begin
  begin
   fIntHandle := aInternalHandle;
  end;
-end;
-
-{TddNullDocFilter}
-procedure TddNullDocFilter.AddAtomEx(AtomIndex: Integer; const Value:
-    Tk2Variant);
-begin
- if CurrentType.IsKindOf(k2_typDocument) and (AtomIndex = k2_tiInternalHandle) then
-  f_IntHandle:= Value.AsInteger;
- inherited;
-end;
-
-function TddNullDocFilter.CheckNeedFlushBuffer: Boolean;
-begin
-// нельзя передать документ дальше, если у него ЕСТЬ нулевой InternalHandle
- Result:= f_IntHandle > 0;
- {$IFDEF Debug}
- if not Result then
-  l3System.Msg2Log('%s skipped', [ClassName]);
- {$ENDIF}
-end;
-
-procedure TddNullDocFilter.StartChild(TypeID: Tl3VariantDef);
-begin
- if TypeID.IsKindOf(k2_typLeafPara) and (SkipLevel = 2) and CheckNeedFlushBuffer then
-  StopBufferingAndFlush(False, TopObject[0], false);
- inherited;
- if CurrentType.IsKindOf(k2_typDocument) then
-  f_IntHandle:= 0;
-end;
-
-class function TddNullDocFilter.SetTo(var theGenerator: Tk2TagGenerator): Pointer;
-var
- l_Filter : TddNullDocFilter;
-begin
- l_Filter := Create(k2_idDocument);
- try
-  l_Filter.Generator := theGenerator;
-  l3Set(theGenerator, l_Filter);
- finally
-  l3Free(l_Filter);
- end;//try..finally
- Result := theGenerator;
 end;
 
 {TddChildBiteOffFilter}

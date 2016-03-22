@@ -2,6 +2,7 @@ unit UnderControlUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\UnderControlUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "UnderControl" MUID: (45EEAA800226)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

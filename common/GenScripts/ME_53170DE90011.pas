@@ -3,6 +3,8 @@ unit K517772970_TCheckSaveToStreamDefault;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\Abstract\K517772970_TCheckSaveToStreamDefault.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TCheckSaveToStreamDefault" MUID: (53170DE90011)
+// Имя типа: "TK517772970_TCheckSaveToStreamDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

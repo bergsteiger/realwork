@@ -2,6 +2,7 @@ unit atOperationBase;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atOperationBase.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "atOperationBase" MUID: (48089D120398)
 
 interface
 
@@ -19,10 +20,10 @@ uses
 type
  CTatOperationBase = class of TatOperationBase;
 
+ TatOperationsList = class;
+
  EInvalidOpParams = class(Exception)
  end;//EInvalidOpParams
-
- TatOperationsList = class;
 
  TatOperationBase = class(Tl3_Base)
   private

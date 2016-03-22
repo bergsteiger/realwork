@@ -5,7 +5,7 @@ unit UserEditQuery_Const;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/UserEditQuery_Const.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdTasks::UserEditQuery
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdTasks::UserEditQuery
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

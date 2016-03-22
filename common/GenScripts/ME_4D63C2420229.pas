@@ -3,6 +3,7 @@ unit k2InterfaceFactory;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2InterfaceFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2InterfaceFactory" MUID: (4D63C2420229)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
@@ -27,7 +28,6 @@ type
   {* Фабрика "старых" интерфейсов. Для поддержки старого кода, без настоящих интерфейсов. }
   private
    f_Interfaces: Tk2InterfaceCache;
-    {* Поле для свойства Interfaces }
   protected
    function COMQueryTool(aTag: Tl3Tag;
     const aIID: Tl3GUID;

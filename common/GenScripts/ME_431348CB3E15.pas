@@ -3,6 +3,8 @@ unit ReleasetoK;
 
 // Модуль: "w:\common\components\DailyTest\ReleasetoK.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "ReleasetoK" MUID: (431348CB3E15)
+// Имя типа: "TReleasetoK"
 
 {$Include w:\common\components\DailyTest\DailyTest.inc}
 

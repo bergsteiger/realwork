@@ -2,6 +2,8 @@ unit PrimPostingsList_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsList_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimPostingsList" MUID: (4AAFA13C01B0)
+// Имя типа: "TPrimPostingsListForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -498,7 +500,7 @@ begin
   ActionElementMode := l3_amSecondSingleClick;
   AllowWithoutCurrent := False;
   OnGetItemImage := tvPostingsGetItemImage;
-  OnActionElement := tvPostingsActionElement;
+  OnCurrentChanged := tvPostingsCurrentChanged;
   FooterVisible := False;
   BorderStyle := bsNone;
 

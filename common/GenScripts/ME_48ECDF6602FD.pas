@@ -2,6 +2,7 @@ unit evMultiSelectionText;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evMultiSelectionText.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevMultiSelectionText" MUID: (48ECDF6602FD)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

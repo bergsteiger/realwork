@@ -2,6 +2,7 @@ unit tfwCStringList;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCStringList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwCStringList" MUID: (4F473F370158)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,7 @@ unit VGSceneWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\VGSceneWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "VGSceneWordsPack" MUID: (506AC306014F)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -399,11 +400,6 @@ begin
  aCtx.rEngine.PushBool(vg_control_Visible(aCtx, l_aVisualObject));
 end;//TkwVgControlVisible.DoDoIt
 
-class function TkwVgControlVisible.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Visible';
-end;//TkwVgControlVisible.GetWordNameForRegister
-
 function TkwVgControlVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -418,6 +414,11 @@ function TkwVgControlVisible.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlVisible.ParamsTypes
+
+class function TkwVgControlVisible.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Visible';
+end;//TkwVgControlVisible.GetWordNameForRegister
 
 function TkwVgControlHeight.vg_control_Height(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Integer;
@@ -445,11 +446,6 @@ begin
  aCtx.rEngine.PushInt(vg_control_Height(aCtx, l_aVisualObject));
 end;//TkwVgControlHeight.DoDoIt
 
-class function TkwVgControlHeight.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Height';
-end;//TkwVgControlHeight.GetWordNameForRegister
-
 function TkwVgControlHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -464,6 +460,11 @@ function TkwVgControlHeight.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlHeight.ParamsTypes
+
+class function TkwVgControlHeight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Height';
+end;//TkwVgControlHeight.GetWordNameForRegister
 
 function TkwVgControlWidth.vg_control_Width(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Integer;
@@ -491,11 +492,6 @@ begin
  aCtx.rEngine.PushInt(vg_control_Width(aCtx, l_aVisualObject));
 end;//TkwVgControlWidth.DoDoIt
 
-class function TkwVgControlWidth.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Width';
-end;//TkwVgControlWidth.GetWordNameForRegister
-
 function TkwVgControlWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -510,6 +506,11 @@ function TkwVgControlWidth.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlWidth.ParamsTypes
+
+class function TkwVgControlWidth.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Width';
+end;//TkwVgControlWidth.GetWordNameForRegister
 
 function TkwVgControlLeft.vg_control_Left(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Integer;
@@ -537,11 +538,6 @@ begin
  aCtx.rEngine.PushInt(vg_control_Left(aCtx, l_aVisualObject));
 end;//TkwVgControlLeft.DoDoIt
 
-class function TkwVgControlLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Left';
-end;//TkwVgControlLeft.GetWordNameForRegister
-
 function TkwVgControlLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -556,6 +552,11 @@ function TkwVgControlLeft.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlLeft.ParamsTypes
+
+class function TkwVgControlLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Left';
+end;//TkwVgControlLeft.GetWordNameForRegister
 
 function TkwVgControlTop.vg_control_Top(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Integer;
@@ -583,11 +584,6 @@ begin
  aCtx.rEngine.PushInt(vg_control_Top(aCtx, l_aVisualObject));
 end;//TkwVgControlTop.DoDoIt
 
-class function TkwVgControlTop.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Top';
-end;//TkwVgControlTop.GetWordNameForRegister
-
 function TkwVgControlTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -602,6 +598,11 @@ function TkwVgControlTop.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlTop.ParamsTypes
+
+class function TkwVgControlTop.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Top';
+end;//TkwVgControlTop.GetWordNameForRegister
 
 function TkwVgControlEnabled.vg_control_Enabled(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Boolean;
@@ -629,11 +630,6 @@ begin
  aCtx.rEngine.PushBool(vg_control_Enabled(aCtx, l_aVisualObject));
 end;//TkwVgControlEnabled.DoDoIt
 
-class function TkwVgControlEnabled.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Enabled';
-end;//TkwVgControlEnabled.GetWordNameForRegister
-
 function TkwVgControlEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -648,6 +644,11 @@ function TkwVgControlEnabled.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlEnabled.ParamsTypes
+
+class function TkwVgControlEnabled.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Enabled';
+end;//TkwVgControlEnabled.GetWordNameForRegister
 
 function TkwVgControlName.vg_control_Name(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): AnsiString;
@@ -675,11 +676,6 @@ begin
  aCtx.rEngine.PushString(vg_control_Name(aCtx, l_aVisualObject));
 end;//TkwVgControlName.DoDoIt
 
-class function TkwVgControlName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Name';
-end;//TkwVgControlName.GetWordNameForRegister
-
 function TkwVgControlName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -694,6 +690,11 @@ function TkwVgControlName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlName.ParamsTypes
+
+class function TkwVgControlName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Name';
+end;//TkwVgControlName.GetWordNameForRegister
 
 procedure TkwVgControlClick.vg_control_Click(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject);
@@ -725,11 +726,6 @@ begin
  vg_control_Click(aCtx, l_aVisualObject);
 end;//TkwVgControlClick.DoDoIt
 
-class function TkwVgControlClick.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Click';
-end;//TkwVgControlClick.GetWordNameForRegister
-
 function TkwVgControlClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -744,6 +740,11 @@ function TkwVgControlClick.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlClick.ParamsTypes
+
+class function TkwVgControlClick.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Click';
+end;//TkwVgControlClick.GetWordNameForRegister
 
 function TkwVgControlCountSiblingLikeMe.vg_control_CountSiblingLikeMe(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Integer;
@@ -784,11 +785,6 @@ begin
  aCtx.rEngine.PushInt(vg_control_CountSiblingLikeMe(aCtx, l_aVisualObject));
 end;//TkwVgControlCountSiblingLikeMe.DoDoIt
 
-class function TkwVgControlCountSiblingLikeMe.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:CountSiblingLikeMe';
-end;//TkwVgControlCountSiblingLikeMe.GetWordNameForRegister
-
 function TkwVgControlCountSiblingLikeMe.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -803,6 +799,11 @@ function TkwVgControlCountSiblingLikeMe.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlCountSiblingLikeMe.ParamsTypes
+
+class function TkwVgControlCountSiblingLikeMe.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:CountSiblingLikeMe';
+end;//TkwVgControlCountSiblingLikeMe.GetWordNameForRegister
 
 function TkwVgControlGetIsChecked.vg_control_GetIsChecked(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Boolean;
@@ -830,11 +831,6 @@ begin
  aCtx.rEngine.PushBool(vg_control_GetIsChecked(aCtx, l_aVisualObject));
 end;//TkwVgControlGetIsChecked.DoDoIt
 
-class function TkwVgControlGetIsChecked.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:GetIsChecked';
-end;//TkwVgControlGetIsChecked.GetWordNameForRegister
-
 function TkwVgControlGetIsChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -849,6 +845,11 @@ function TkwVgControlGetIsChecked.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlGetIsChecked.ParamsTypes
+
+class function TkwVgControlGetIsChecked.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:GetIsChecked';
+end;//TkwVgControlGetIsChecked.GetWordNameForRegister
 
 procedure TkwVgControlSetIsChecked.vg_control_SetIsChecked(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject;
@@ -887,11 +888,6 @@ begin
  vg_control_SetIsChecked(aCtx, l_aVisualObject, l_aValue);
 end;//TkwVgControlSetIsChecked.DoDoIt
 
-class function TkwVgControlSetIsChecked.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:SetIsChecked';
-end;//TkwVgControlSetIsChecked.GetWordNameForRegister
-
 function TkwVgControlSetIsChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -906,6 +902,11 @@ function TkwVgControlSetIsChecked.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject), TypeInfo(Boolean)]);
 end;//TkwVgControlSetIsChecked.ParamsTypes
+
+class function TkwVgControlSetIsChecked.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:SetIsChecked';
+end;//TkwVgControlSetIsChecked.GetWordNameForRegister
 
 function TkwVgControlLeftInScene.vg_control_LeftInScene(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Integer;
@@ -944,11 +945,6 @@ begin
  aCtx.rEngine.PushInt(vg_control_LeftInScene(aCtx, l_aVisualObject));
 end;//TkwVgControlLeftInScene.DoDoIt
 
-class function TkwVgControlLeftInScene.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:LeftInScene';
-end;//TkwVgControlLeftInScene.GetWordNameForRegister
-
 function TkwVgControlLeftInScene.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -963,6 +959,11 @@ function TkwVgControlLeftInScene.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlLeftInScene.ParamsTypes
+
+class function TkwVgControlLeftInScene.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:LeftInScene';
+end;//TkwVgControlLeftInScene.GetWordNameForRegister
 
 function TkwVgControlTopInScene.vg_control_TopInScene(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Integer;
@@ -1001,11 +1002,6 @@ begin
  aCtx.rEngine.PushInt(vg_control_TopInScene(aCtx, l_aVisualObject));
 end;//TkwVgControlTopInScene.DoDoIt
 
-class function TkwVgControlTopInScene.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:TopInScene';
-end;//TkwVgControlTopInScene.GetWordNameForRegister
-
 function TkwVgControlTopInScene.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1020,6 +1016,11 @@ function TkwVgControlTopInScene.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlTopInScene.ParamsTypes
+
+class function TkwVgControlTopInScene.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:TopInScene';
+end;//TkwVgControlTopInScene.GetWordNameForRegister
 
 function TkwVgControlScene.vg_control_Scene(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): TControl;
@@ -1047,11 +1048,6 @@ begin
  aCtx.rEngine.PushObj(vg_control_Scene(aCtx, l_aVisualObject));
 end;//TkwVgControlScene.DoDoIt
 
-class function TkwVgControlScene.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Scene';
-end;//TkwVgControlScene.GetWordNameForRegister
-
 function TkwVgControlScene.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TControl);
@@ -1066,6 +1062,11 @@ function TkwVgControlScene.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlScene.ParamsTypes
+
+class function TkwVgControlScene.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Scene';
+end;//TkwVgControlScene.GetWordNameForRegister
 
 function TkwVgControlText.vg_control_Text(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): AnsiString;
@@ -1099,11 +1100,6 @@ begin
  aCtx.rEngine.PushString(vg_control_Text(aCtx, l_aVisualObject));
 end;//TkwVgControlText.DoDoIt
 
-class function TkwVgControlText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Text';
-end;//TkwVgControlText.GetWordNameForRegister
-
 function TkwVgControlText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1118,6 +1114,11 @@ function TkwVgControlText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlText.ParamsTypes
+
+class function TkwVgControlText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Text';
+end;//TkwVgControlText.GetWordNameForRegister
 
 initialization
  TVGSceneWordsPackResNameGetter.Register;

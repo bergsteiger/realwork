@@ -2,6 +2,7 @@ unit m3Persistent;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3Persistent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3Persistent" MUID: (5421799C0066)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

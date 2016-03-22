@@ -3,6 +3,8 @@ unit kwQueryCardSetCanSaveState;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwQueryCardSetCanSaveState.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "QueryCard_SetCanSaveState" MUID: (4F69AF3E01C0)
+// Имя типа: "TkwQueryCardSetCanSaveState"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

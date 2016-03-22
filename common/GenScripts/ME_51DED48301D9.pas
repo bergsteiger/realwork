@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\SandBox\AtomicList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "AtomicList" MUID: (51DED48301D9)
+// Имя типа: "_AtomicList_"
 
 {$Define AtomicList_imp}
 

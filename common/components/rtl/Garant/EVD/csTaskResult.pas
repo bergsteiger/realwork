@@ -5,7 +5,7 @@ unit csTaskResult;
 // Библиотека "EVD"
 // Модуль: "w:/common/components/rtl/Garant/EVD/csTaskResult.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::TasksTuning::TcsTaskResult
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::EVD::TasksTuning::TcsTaskResult
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

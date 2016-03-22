@@ -2,6 +2,8 @@ unit AnnotationTaskResult_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\AnnotationTaskResult_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "AnnotationTaskResult" MUID: (53F6EAC1000E)
+// Имя типа: "AnnotationTaskResultTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

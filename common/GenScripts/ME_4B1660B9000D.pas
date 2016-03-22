@@ -2,6 +2,7 @@ unit nsContextFilterEventListener;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsContextFilterEventListener.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsContextFilterEventListener" MUID: (4B1660B9000D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

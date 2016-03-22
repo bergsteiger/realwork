@@ -2,6 +2,7 @@ unit ChromeLikeBaseWindowCaptionButton;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseWindowCaptionButton.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TChromeLikeBaseWindowCaptionButton" MUID: (533D01CB01B1)
 
 interface
 

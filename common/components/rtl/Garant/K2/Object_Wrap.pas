@@ -2,6 +2,7 @@ unit Object_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\Object_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WObject" MUID: (484CCE17015D)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

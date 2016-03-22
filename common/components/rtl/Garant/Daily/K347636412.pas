@@ -1,90 +1,69 @@
 unit K347636412;
+ {* [Requestlink:347636412] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/K347636412.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.7::K347636412
-//
-// {Requestlink:347636412}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K347636412.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K347636412" MUID: (4F6C568000A6)
+// Имя типа: "TK347636412"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  MergeCellsTest,
-  nevTools
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , MergeCellsTest
+ , nevTools
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK347636412 = class(TMergeCellsTest)
   {* [Requestlink:347636412] }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetTablePara(const aDocument: InevParaList): InevParaList; override;
-     {* Возвращает параграф с таблицей }
+    {* Возвращает параграф с таблицей }
    procedure GetSelectParam(out aStartRow: Integer;
     out aStartCell: Integer;
     out aFinishRow: Integer;
     out aFinishCell: Integer); override;
-     {* Получить "координаты" точек выделения. }
+    {* Получить "координаты" точек выделения. }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK347636412
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork,
-  evMsgCode,
-  evOp
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK347636412
+ l3ImplUses
+ , TestFrameWork
+ , evMsgCode
+ , evOp
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 function TK347636412.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.7';
 end;//TK347636412.GetFolder
 
 function TK347636412.GetTablePara(const aDocument: InevParaList): InevParaList;
+ {* Возвращает параграф с таблицей }
 //#UC START# *4CC818F4022D_4F6C568000A6_var*
 //#UC END# *4CC818F4022D_4F6C568000A6_var*
 begin
@@ -94,9 +73,10 @@ begin
 end;//TK347636412.GetTablePara
 
 procedure TK347636412.GetSelectParam(out aStartRow: Integer;
-  out aStartCell: Integer;
-  out aFinishRow: Integer;
-  out aFinishCell: Integer);
+ out aStartCell: Integer;
+ out aFinishRow: Integer;
+ out aFinishCell: Integer);
+ {* Получить "координаты" точек выделения. }
 //#UC START# *4CC81D4101AC_4F6C568000A6_var*
 //#UC END# *4CC81D4101AC_4F6C568000A6_var*
 begin
@@ -109,14 +89,13 @@ begin
 end;//TK347636412.GetSelectParam
 
 function TK347636412.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4F6C568000A6';
 end;//TK347636412.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK347636412.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

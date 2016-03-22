@@ -2,6 +2,7 @@ unit atPositionTypeConverter;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atPositionTypeConverter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatPositionTypeConverter" MUID: (53971CFA00EF)
 
 interface
 

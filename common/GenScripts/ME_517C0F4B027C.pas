@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\SandBox\RoundedControl.imp.pas"
 // Стереотип: "GUIControlMixIn"
+// Элемент модели: "RoundedControl" MUID: (517C0F4B027C)
+// Имя типа: "_RoundedControl_"
 
 {$Define RoundedControl_imp}
 

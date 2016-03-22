@@ -2,6 +2,7 @@ unit nsOpenDocOnNumberData;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsOpenDocOnNumberData.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsOpenDocOnNumberData" MUID: (4AE760FD0182)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

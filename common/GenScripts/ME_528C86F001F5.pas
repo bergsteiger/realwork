@@ -2,6 +2,7 @@ unit ddTableList;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTableList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddTableList" MUID: (528C86F001F5)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

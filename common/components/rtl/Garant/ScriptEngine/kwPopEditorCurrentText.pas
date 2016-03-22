@@ -2,6 +2,8 @@ unit kwPopEditorCurrentText;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCurrentText.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_CurrentText" MUID: (4DD649D40028)
+// Имя типа: "TkwPopEditorCurrentText"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

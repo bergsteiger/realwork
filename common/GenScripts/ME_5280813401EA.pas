@@ -2,6 +2,7 @@ unit nsSearchInDocumentDoneEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsSearchInDocumentDoneEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsSearchInDocumentDoneEvent" MUID: (5280813401EA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

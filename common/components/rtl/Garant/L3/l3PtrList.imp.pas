@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3PtrList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3PtrList" MUID: (47B5782902DA)
+// Имя типа: "_l3PtrList_"
 
 {$Define l3PtrList_imp}
 

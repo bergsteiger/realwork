@@ -12,8 +12,8 @@
 ; Компилировался с Inno Setup 5.5.4 
 
 #define EverestAppName "Everest (Lite)"
-#define EverestAppVerName "Everest (Lite) 1.2 (Build 10649)"
-#define EverestAppVersion "Everest (Lite) 1.2 (Build 10649)"
+#define EverestAppVerName "Everest (Lite) 1.2 (Build 10707)"
+#define EverestAppVersion "Everest (Lite) 1.2 (Build 10707)"
 #define EverestAppID "Everest (Lite) 1.2"
 #define EverestAppExeName "Everest.exe"
 #define EverestIniName "Everest.ini"
@@ -75,7 +75,7 @@ Source: "o:\exe\1.2\mlma32ru.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "W:\common\components\rtl\external\Docx2Rtf\DRS32.DLL"; DestDir: "{app}"; Flags: ignoreversion
 Source: "W:\common\components\rtl\external\Docx2Rtf\txml2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "W:\common\components\rtl\external\Docx2Rtf\ter22.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "W:\common\components\rtl\external\Doc2Rtf\wrs6.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "W:\common\components\rtl\external\Doc2Rtf\wrs7.dll"; DestDir: "{app}"; Flags: ignoreversion
 #ifdef CheckInSetup
 Source: "o:\exe\1.2\CheckSSE.dll"; DestDir: "{app}"; Flags: ignoreversion
 #endif

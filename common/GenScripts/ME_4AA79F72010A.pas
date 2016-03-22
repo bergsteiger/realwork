@@ -2,6 +2,8 @@ unit Settings_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Settings_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "Settings" MUID: (4AA79F72010A)
+// Имя типа: "TSettingsModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

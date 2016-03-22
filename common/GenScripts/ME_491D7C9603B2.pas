@@ -3,6 +3,7 @@ unit MedicInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\MedicInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "MedicInterfaces" MUID: (491D7C9603B2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

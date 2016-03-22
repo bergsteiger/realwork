@@ -3,6 +3,8 @@ unit AACFiltersTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Archi_Tests\AACFiltersTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "AACFiltersTest" MUID: (4EA5222A020E)
+// Имя типа: "TAACFiltersTest"
 
 {$Include w:\common\components\rtl\Garant\Abstract_Archi_Tests\TestDefine.inc.pas}
 

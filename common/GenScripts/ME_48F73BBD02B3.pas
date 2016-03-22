@@ -2,6 +2,7 @@ unit nsEntitiesTreeDataObject;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Components\nsEntitiesTreeDataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsEntitiesTreeDataObject" MUID: (48F73BBD02B3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

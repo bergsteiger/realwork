@@ -2,6 +2,8 @@ unit DayTips_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\DayTips_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "DayTips" MUID: (4AA0D5380056)
+// Имя типа: "TDayTipsModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

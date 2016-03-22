@@ -2,6 +2,7 @@ unit exprTokensList;
 
 // Модуль: "w:\common\components\rtl\external\Expr\exprTokensList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TexprTokensList" MUID: (4BB3497F03CC)
 
 {$Include w:\common\components\rtl\external\Expr\l3Define.inc}
 

@@ -2,6 +2,7 @@ unit DesignMenus;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Toolsapi\DesignMenus.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DesignMenus" MUID: (52AF123101AD)
 
 interface
 

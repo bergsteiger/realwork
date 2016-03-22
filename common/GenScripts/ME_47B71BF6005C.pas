@@ -2,6 +2,7 @@ unit ipsTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ipsTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TipsTree" MUID: (47B71BF6005C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

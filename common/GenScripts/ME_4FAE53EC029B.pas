@@ -3,6 +3,8 @@ unit K363570808;
 
 // Модуль: "w:\archi\source\projects\Archi\Tests\K363570808.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K363570808" MUID: (4FAE53EC029B)
+// Имя типа: "TK363570808"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

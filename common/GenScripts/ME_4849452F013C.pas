@@ -3,6 +3,7 @@ unit Bool_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\Bool_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WBool" MUID: (4849452F013C)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

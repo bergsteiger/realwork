@@ -2,6 +2,7 @@ unit nscComboBoxWithReadOnly;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscComboBoxWithReadOnly.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TnscComboBoxWithReadOnly" MUID: (4AF46F430293)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

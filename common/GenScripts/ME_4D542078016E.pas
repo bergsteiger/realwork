@@ -2,6 +2,7 @@ unit vgCustomObject;
 
 // Модуль: "w:\common\components\rtl\external\VGScene\vgCustomObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvgCustomObject" MUID: (4D542078016E)
 
 {$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 

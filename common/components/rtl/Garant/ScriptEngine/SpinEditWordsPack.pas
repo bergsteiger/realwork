@@ -2,6 +2,7 @@ unit SpinEditWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\SpinEditWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "SpinEditWordsPack" MUID: (552E413F010E)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -92,11 +93,6 @@ begin
  aCtx.rEngine.PushInt(Value(aCtx, l_aSpinEdit));
 end;//TkwPopSpinEditValue.DoDoIt
 
-class function TkwPopSpinEditValue.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:SpinEdit:Value';
-end;//TkwPopSpinEditValue.GetWordNameForRegister
-
 procedure TkwPopSpinEditValue.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 var l_SpinEdit: TvtSpinEdit;
@@ -127,6 +123,11 @@ function TkwPopSpinEditValue.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtSpinEdit)]);
 end;//TkwPopSpinEditValue.ParamsTypes
+
+class function TkwPopSpinEditValue.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:SpinEdit:Value';
+end;//TkwPopSpinEditValue.GetWordNameForRegister
 
 initialization
  TkwPopSpinEditValue.RegisterInEngine;

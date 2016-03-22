@@ -2,6 +2,7 @@ unit AbsSubTree;
 
 // Модуль: "w:\common\components\gui\Garant\VT\ComboTree\AbsSubTree.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TAbsSubTree" MUID: (4F8D5535021C)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

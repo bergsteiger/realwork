@@ -2,6 +2,7 @@ unit tfwMappedArrayView;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwMappedArrayView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwMappedArrayView" MUID: (52E6733C0163)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

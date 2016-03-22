@@ -790,7 +790,9 @@ uses
 
 type
  T01Range = 0..1;
+
  T01String = array [T01Range] of AnsiString;
+
 const
   { nsQA const }
  cSrc : T01String = (AT_ANNO_KIND, AT_ANNO_USER);
@@ -3852,7 +3854,8 @@ begin
  begin
   (f_QueryCard As InevControlListener).HideDroppedControl(True);
   ClearAttrs;
-  Self.QueryCard.CardClear
+  Self.QueryCard.CardClear;
+  f_Modified := 0;
  end;//f_QueryCard <> nil
  {$IFDEF Monitorings}
  f_Query := nil;

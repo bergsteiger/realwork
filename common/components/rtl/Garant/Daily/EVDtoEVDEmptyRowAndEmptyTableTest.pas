@@ -1,55 +1,40 @@
 unit EVDtoEVDEmptyRowAndEmptyTableTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/EVDtoEVDEmptyRowAndEmptyTableTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EVD::EVDtoEVDEmptyRowAndEmptyTableTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoEVDEmptyRowAndEmptyTableTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "EVDtoEVDEmptyRowAndEmptyTableTest" MUID: (51C8347903A2)
+// Имя типа: "TEVDtoEVDEmptyRowAndEmptyTableTest"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  EVDtoEVDEmptyRowTest,
-  l3Variant
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , EVDtoEVDEmptyRowTest
+ , l3Variant
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TEVDtoEVDEmptyRowAndEmptyTableTest = {abstract} class(TEVDtoEVDEmptyRowTest)
- protected
- // overridden protected methods
+  protected
    procedure SetFilters(var theGenerator: Ik2TagGenerator); override;
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TEVDtoEVDEmptyRowAndEmptyTableTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  evEmptyTableEliminator,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TEVDtoEVDEmptyRowAndEmptyTableTest
+ l3ImplUses
+ , evEmptyTableEliminator
+ , TestFrameWork
+;
 
 procedure TEVDtoEVDEmptyRowAndEmptyTableTest.SetFilters(var theGenerator: Ik2TagGenerator);
 //#UC START# *4C07BCBE01F2_51C8347903A2_var*
@@ -62,17 +47,16 @@ begin
 end;//TEVDtoEVDEmptyRowAndEmptyTableTest.SetFilters
 
 function TEVDtoEVDEmptyRowAndEmptyTableTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EVD';
 end;//TEVDtoEVDEmptyRowAndEmptyTableTest.GetFolder
 
 function TEVDtoEVDEmptyRowAndEmptyTableTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '51C8347903A2';
 end;//TEVDtoEVDEmptyRowAndEmptyTableTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

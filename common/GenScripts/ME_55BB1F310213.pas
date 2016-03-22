@@ -2,6 +2,7 @@ unit ddRTFExpandedTextWriter;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddRTFExpandedTextWriter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddRTFExpandedTextWriter" MUID: (55BB1F310213)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

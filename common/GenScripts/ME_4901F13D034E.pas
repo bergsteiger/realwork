@@ -2,6 +2,7 @@ unit nsCountryFilter;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\nsCountryFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsCountryFilter" MUID: (4901F13D034E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

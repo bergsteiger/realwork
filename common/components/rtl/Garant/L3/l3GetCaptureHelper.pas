@@ -2,6 +2,7 @@ unit l3GetCaptureHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3GetCaptureHelper.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3GetCaptureHelper" MUID: (55226C5F035A)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -31,7 +32,7 @@ type
  Tl3GetCaptureHelper = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3GetCaptureHelper;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3GetCaptureHelper }
   protected
    procedure pm_SetAlien(const aValue: Il3GetCaptureHelper);
    procedure ClearFields; override;

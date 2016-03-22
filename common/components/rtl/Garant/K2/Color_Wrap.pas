@@ -3,6 +3,7 @@ unit Color_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\Color_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WColor" MUID: (4849457201A4)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

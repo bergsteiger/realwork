@@ -35,7 +35,8 @@ type
     {* Поле для свойства RDS}
  protected
  // realized methods
-   procedure BeforeCloseParagraph(const aDocAtom: TObject); override;
+   procedure BeforeCloseParagraph(const aDocAtom: TObject;
+     var aNewStyle: Integer); override;
  protected
  // overridden property methods
    function pm_GetLiteVersion: Boolean; override;
@@ -190,7 +191,8 @@ begin
 //#UC END# *51E7C9DB0213_51D276C40106_impl*
 end;//TddRTFDestination.Create
 
-procedure TddRTFDestination.BeforeCloseParagraph(const aDocAtom: TObject);
+procedure TddRTFDestination.BeforeCloseParagraph(const aDocAtom: TObject;
+  var aNewStyle: Integer);
 //#UC START# *534F9B57003E_51D276C40106_var*
 //#UC END# *534F9B57003E_51D276C40106_var*
 begin

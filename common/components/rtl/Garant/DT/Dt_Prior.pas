@@ -1,8 +1,11 @@
 Unit Dt_Prior;
 
-{ $Id: Dt_Prior.pas,v 1.50 2015/07/02 07:36:07 lukyanets Exp $ }
+{ $Id: Dt_Prior.pas,v 1.51 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: Dt_Prior.pas,v $
+// Revision 1.51  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
 // Revision 1.50  2015/07/02 07:36:07  lukyanets
 // Описываем словари
 //
@@ -217,6 +220,7 @@ uses
      WinTypes, Classes,
      l3Tree_Tlb,
      l3Nodes, l3MinMax,
+     daSchemeConsts,
      HT_Dll,
      dt_Err, dt_Dict,
      dt_Doc, Dt_Link, Dt_LinkServ,

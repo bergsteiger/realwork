@@ -3,6 +3,7 @@ unit evCellWidthCorrecterSpy;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCellWidthCorrecterSpy.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCellWidthCorrecterSpy" MUID: (4FC701EC00C0)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit k2DictRecTag;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2DictRecTag.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2DictRecTag" MUID: (53208F54004F)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

@@ -7,6 +7,8 @@ aFileName ImageEnViewer:SaveBitmap
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwImageEnViewerSaveBitmap.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "ImageEnViewer_SaveBitmap" MUID: (52E20E70006F)
+// Имя типа: "TkwImageEnViewerSaveBitmap"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

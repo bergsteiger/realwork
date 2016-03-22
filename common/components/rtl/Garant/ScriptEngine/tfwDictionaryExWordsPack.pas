@@ -2,6 +2,7 @@ unit tfwDictionaryExWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryExWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "tfwDictionaryExWordsPack" MUID: (55AE5A8C035D)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -233,11 +234,6 @@ begin
  aCtx.rEngine.PushString(FileName(aCtx, l_aDictionaryEx));
 end;//TkwPopDictionaryExFileName.DoDoIt
 
-class function TkwPopDictionaryExFileName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:DictionaryEx:FileName';
-end;//TkwPopDictionaryExFileName.GetWordNameForRegister
-
 function TkwPopDictionaryExFileName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -252,6 +248,11 @@ function TkwPopDictionaryExFileName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx)]);
 end;//TkwPopDictionaryExFileName.ParamsTypes
+
+class function TkwPopDictionaryExFileName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:DictionaryEx:FileName';
+end;//TkwPopDictionaryExFileName.GetWordNameForRegister
 
 function TkwPopDictionaryExUsedDictionaries.UsedDictionaries(const aCtx: TtfwContext;
  aDictionaryEx: TtfwDictionaryEx): ItfwValueList;
@@ -279,11 +280,6 @@ begin
  aCtx.rEngine.PushList(UsedDictionaries(aCtx, l_aDictionaryEx));
 end;//TkwPopDictionaryExUsedDictionaries.DoDoIt
 
-class function TkwPopDictionaryExUsedDictionaries.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:DictionaryEx:UsedDictionaries';
-end;//TkwPopDictionaryExUsedDictionaries.GetWordNameForRegister
-
 function TkwPopDictionaryExUsedDictionaries.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -298,6 +294,11 @@ function TkwPopDictionaryExUsedDictionaries.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx)]);
 end;//TkwPopDictionaryExUsedDictionaries.ParamsTypes
+
+class function TkwPopDictionaryExUsedDictionaries.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:DictionaryEx:UsedDictionaries';
+end;//TkwPopDictionaryExUsedDictionaries.GetWordNameForRegister
 
 function TkwPopDictionaryExExportedDictionaries.ExportedDictionaries(const aCtx: TtfwContext;
  aDictionaryEx: TtfwDictionaryEx): ItfwValueList;
@@ -325,11 +326,6 @@ begin
  aCtx.rEngine.PushList(ExportedDictionaries(aCtx, l_aDictionaryEx));
 end;//TkwPopDictionaryExExportedDictionaries.DoDoIt
 
-class function TkwPopDictionaryExExportedDictionaries.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:DictionaryEx:ExportedDictionaries';
-end;//TkwPopDictionaryExExportedDictionaries.GetWordNameForRegister
-
 function TkwPopDictionaryExExportedDictionaries.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -344,6 +340,11 @@ function TkwPopDictionaryExExportedDictionaries.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx)]);
 end;//TkwPopDictionaryExExportedDictionaries.ParamsTypes
+
+class function TkwPopDictionaryExExportedDictionaries.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:DictionaryEx:ExportedDictionaries';
+end;//TkwPopDictionaryExExportedDictionaries.GetWordNameForRegister
 
 procedure TkwPopDictionaryExExportDictionary.ExportDictionary(const aCtx: TtfwContext;
  aDictionaryEx: TtfwDictionaryEx;
@@ -382,11 +383,6 @@ begin
  ExportDictionary(aCtx, l_aDictionaryEx, l_aDictionary);
 end;//TkwPopDictionaryExExportDictionary.DoDoIt
 
-class function TkwPopDictionaryExExportDictionary.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:DictionaryEx:ExportDictionary';
-end;//TkwPopDictionaryExExportDictionary.GetWordNameForRegister
-
 function TkwPopDictionaryExExportDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -401,6 +397,11 @@ function TkwPopDictionaryExExportDictionary.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx), TypeInfo(TtfwDictionaryEx)]);
 end;//TkwPopDictionaryExExportDictionary.ParamsTypes
+
+class function TkwPopDictionaryExExportDictionary.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:DictionaryEx:ExportDictionary';
+end;//TkwPopDictionaryExExportDictionary.GetWordNameForRegister
 
 procedure TkwPopDictionaryExUseDictionary.UseDictionary(const aCtx: TtfwContext;
  aDictionaryEx: TtfwDictionaryEx;
@@ -439,11 +440,6 @@ begin
  UseDictionary(aCtx, l_aDictionaryEx, l_aDictionary);
 end;//TkwPopDictionaryExUseDictionary.DoDoIt
 
-class function TkwPopDictionaryExUseDictionary.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:DictionaryEx:UseDictionary';
-end;//TkwPopDictionaryExUseDictionary.GetWordNameForRegister
-
 function TkwPopDictionaryExUseDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -458,6 +454,11 @@ function TkwPopDictionaryExUseDictionary.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx), TypeInfo(TtfwDictionaryEx)]);
 end;//TkwPopDictionaryExUseDictionary.ParamsTypes
+
+class function TkwPopDictionaryExUseDictionary.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:DictionaryEx:UseDictionary';
+end;//TkwPopDictionaryExUseDictionary.GetWordNameForRegister
 
 function TkwPopDictionaryExFileDateTime.FileDateTime(const aCtx: TtfwContext;
  aDictionaryEx: TtfwDictionaryEx): AnsiString;
@@ -485,11 +486,6 @@ begin
  aCtx.rEngine.PushString(FileDateTime(aCtx, l_aDictionaryEx));
 end;//TkwPopDictionaryExFileDateTime.DoDoIt
 
-class function TkwPopDictionaryExFileDateTime.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:DictionaryEx:FileDateTime';
-end;//TkwPopDictionaryExFileDateTime.GetWordNameForRegister
-
 function TkwPopDictionaryExFileDateTime.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -504,6 +500,11 @@ function TkwPopDictionaryExFileDateTime.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx)]);
 end;//TkwPopDictionaryExFileDateTime.ParamsTypes
+
+class function TkwPopDictionaryExFileDateTime.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:DictionaryEx:FileDateTime';
+end;//TkwPopDictionaryExFileDateTime.GetWordNameForRegister
 
 procedure TkwPopDictionaryExRemoveFromCache.RemoveFromCache(const aCtx: TtfwContext;
  aDictionaryEx: TtfwDictionaryEx);
@@ -544,11 +545,6 @@ begin
  RemoveFromCache(aCtx, l_aDictionaryEx);
 end;//TkwPopDictionaryExRemoveFromCache.DoDoIt
 
-class function TkwPopDictionaryExRemoveFromCache.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:DictionaryEx:RemoveFromCache';
-end;//TkwPopDictionaryExRemoveFromCache.GetWordNameForRegister
-
 function TkwPopDictionaryExRemoveFromCache.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -563,6 +559,11 @@ function TkwPopDictionaryExRemoveFromCache.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx)]);
 end;//TkwPopDictionaryExRemoveFromCache.ParamsTypes
+
+class function TkwPopDictionaryExRemoveFromCache.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:DictionaryEx:RemoveFromCache';
+end;//TkwPopDictionaryExRemoveFromCache.GetWordNameForRegister
 
 initialization
  TtfwDictionaryExWordsPackResNameGetter.Register;

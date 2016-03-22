@@ -3,6 +3,7 @@ unit ddPDFExporter;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddPDFExporter.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddPDFExporter" MUID: (53FF071F01E3)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

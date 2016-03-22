@@ -2,6 +2,8 @@ unit kwMouseMiddleDown;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseMiddleDown.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "Mouse_MiddleDown" MUID: (4F967CF70162)
+// Имя типа: "TkwMouseMiddleDown"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

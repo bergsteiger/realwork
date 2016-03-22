@@ -2,6 +2,7 @@ unit DocumentUtil;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentUtil.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DocumentUtil" MUID: (4FF34A48018C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

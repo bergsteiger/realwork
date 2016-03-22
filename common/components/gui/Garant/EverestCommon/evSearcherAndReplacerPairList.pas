@@ -3,6 +3,7 @@ unit evSearcherAndReplacerPairList;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evSearcherAndReplacerPairList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevSearcherAndReplacerPairList" MUID: (4E56306403C2)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

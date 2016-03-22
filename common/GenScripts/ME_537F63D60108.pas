@@ -2,6 +2,7 @@ unit CsProcWithIdList;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\CsProcWithIdList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TCsProcWithIdList" MUID: (537F63D60108)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

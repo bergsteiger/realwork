@@ -3,6 +3,7 @@ unit PictureInfo_ut_PictureInfo_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\PictureInfo_ut_PictureInfo_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_PictureInfo" MUID: (42F354FB23DA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_PictureInfo = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_PictureInfo }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_PictureInfo
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_PictureInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_PictureInfo';
-end;//Tkw_FormUserType_ut_PictureInfo.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_PictureInfo.GetInteger: Integer;
 begin
  Result := ut_PictureInfo;
 end;//Tkw_FormUserType_ut_PictureInfo.GetInteger
+
+class function Tkw_FormUserType_ut_PictureInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_PictureInfo';
+end;//Tkw_FormUserType_ut_PictureInfo.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

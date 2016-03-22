@@ -2,6 +2,7 @@ unit l3KeyboardLayoutService;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3KeyboardLayoutService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3KeyboardLayoutService" MUID: (55099A8303E1)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -29,7 +30,7 @@ type
  Tl3KeyboardLayoutService = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3KeyboardLayoutService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3KeyboardLayoutService }
   protected
    procedure pm_SetAlien(const aValue: Il3KeyboardLayoutService);
    procedure ClearFields; override;

@@ -2,6 +2,7 @@ unit evHotSpot;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evHotSpot.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevHotSpot" MUID: (4A267FA903BA)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

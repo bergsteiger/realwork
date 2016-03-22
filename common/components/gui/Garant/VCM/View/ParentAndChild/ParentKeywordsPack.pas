@@ -3,6 +3,7 @@ unit ParentKeywordsPack;
 
 // ћодуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\ParentKeywordsPack.pas"
 // —тереотип: "ScriptKeywordsPack"
+// Ёлемент модели: "ParentKeywordsPack" MUID: (A7368FD6A294)
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
@@ -44,8 +45,8 @@ type
 'aControl' форма::Parent TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Parent
 
  Tkw_Parent_Control_ParentZone = {final} class(TtfwControlString)
@@ -56,9 +57,9 @@ type
 контрол::ParentZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Parent_Control_ParentZone
 
  Tkw_Parent_Control_ParentZone_Push = {final} class(TkwBynameControlPush)
@@ -97,20 +98,15 @@ OBJECT VAR l_TvtPanel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwParentFormParentZone
 
-class function Tkw_Form_Parent.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Parent';
-end;//Tkw_Form_Parent.GetWordNameForRegister
-
 function Tkw_Form_Parent.GetString: AnsiString;
 begin
  Result := 'ParentForm';
 end;//Tkw_Form_Parent.GetString
 
-class function Tkw_Parent_Control_ParentZone.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_Parent.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::ParentZone';
-end;//Tkw_Parent_Control_ParentZone.GetWordNameForRegister
+ Result := 'форма::Parent';
+end;//Tkw_Form_Parent.GetWordNameForRegister
 
 function Tkw_Parent_Control_ParentZone.GetString: AnsiString;
 begin
@@ -122,6 +118,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_Parent_Control_ParentZone.RegisterInEngine
+
+class function Tkw_Parent_Control_ParentZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ParentZone';
+end;//Tkw_Parent_Control_ParentZone.GetWordNameForRegister
 
 procedure Tkw_Parent_Control_ParentZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -156,11 +157,6 @@ begin
  aCtx.rEngine.PushObj(ParentZone(aCtx, l_aParentForm));
 end;//TkwParentFormParentZone.DoDoIt
 
-class function TkwParentFormParentZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TParentForm.ParentZone';
-end;//TkwParentFormParentZone.GetWordNameForRegister
-
 procedure TkwParentFormParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -181,6 +177,11 @@ function TkwParentFormParentZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TParentForm)]);
 end;//TkwParentFormParentZone.ParamsTypes
+
+class function TkwParentFormParentZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TParentForm.ParentZone';
+end;//TkwParentFormParentZone.GetWordNameForRegister
 
 initialization
  Tkw_Form_Parent.RegisterInEngine;

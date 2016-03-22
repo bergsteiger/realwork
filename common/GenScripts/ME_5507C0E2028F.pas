@@ -2,6 +2,7 @@ unit ChromeLikeTabSetControlPrim;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControlPrim.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TChromeLikeTabSetControlPrim" MUID: (5507C0E2028F)
 
 interface
 

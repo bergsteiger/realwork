@@ -2,6 +2,7 @@ unit k2FontNameListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2FontNameListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2FontNameListPrim" MUID: (531895BF02B6)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

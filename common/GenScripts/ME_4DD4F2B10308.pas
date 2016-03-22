@@ -2,6 +2,7 @@ unit k2NilOp;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2NilOp.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2NilOp" MUID: (4DD4F2B10308)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

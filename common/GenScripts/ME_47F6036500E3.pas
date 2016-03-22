@@ -3,6 +3,7 @@ unit nevAfterEndPoint;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevAfterEndPoint.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevAfterEndPoint" MUID: (47F6036500E3)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

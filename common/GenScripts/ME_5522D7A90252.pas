@@ -2,6 +2,7 @@ unit l3GetComponentBoundsHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3GetComponentBoundsHelper.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3GetComponentBoundsHelper" MUID: (5522D7A90252)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -32,7 +33,7 @@ type
  Tl3GetComponentBoundsHelper = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3GetComponentBoundsHelper;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3GetComponentBoundsHelper }
   protected
    procedure pm_SetAlien(const aValue: Il3GetComponentBoundsHelper);
    procedure ClearFields; override;
@@ -77,22 +78,24 @@ end;//Tl3GetComponentBoundsHelper.pm_SetAlien
 function Tl3GetComponentBoundsHelper.GetBounds(aComponent: TComponent): TRect;
 //#UC START# *BB0BB5CAA29B_5522D7A90252_var*
 var
- C, P : TControl;
+ C, P: TControl;
+const
+ c_EmptyRect: TRect = (Left: 0; Top: 0; Right: 0; Bottom: 0);
 //#UC END# *BB0BB5CAA29B_5522D7A90252_var*
 begin
 //#UC START# *BB0BB5CAA29B_5522D7A90252_impl*
- if Assigned(f_Alien) then
-  Result := f_Alien.GetBounds(aComponent);
+ if Assigned(f_Alien)
+  then Result := f_Alien.GetBounds(aComponent)
+  else Result := c_EmptyRect;
 
- if EqualRect(Result, EmptyRect) then
+ if EqualRect(Result, c_EmptyRect) then
   if (aComponent is TControl) then
   begin
    C := TControl(aComponent);
    P := C.Parent;
-   if not Assigned(P) then
-    Result := C.BoundsRect
-   else
-    Result := Rect(P.ClientToScreen(C.BoundsRect.TopLeft), P.ClientToScreen(C.BoundsRect.BottomRight));                
+   if not Assigned(P)
+    then Result := C.BoundsRect
+    else Result := Rect(P.ClientToScreen(C.BoundsRect.TopLeft), P.ClientToScreen(C.BoundsRect.BottomRight));                
   end;
 //#UC END# *BB0BB5CAA29B_5522D7A90252_impl*
 end;//Tl3GetComponentBoundsHelper.GetBounds

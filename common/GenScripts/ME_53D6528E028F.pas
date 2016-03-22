@@ -2,6 +2,7 @@ unit nevControlParaModelControlMapper;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevControlParaModelControlMapper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevControlParaModelControlMapper" MUID: (53D6528E028F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

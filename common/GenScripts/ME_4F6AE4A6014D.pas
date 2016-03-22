@@ -2,6 +2,8 @@ unit NewGenRes;
 
 // Модуль: "w:\MDProcess\NewGen\NewGenRes.pas"
 // Стереотип: "VCMApplication"
+// Элемент модели: "NewGen" MUID: (4F6AE4A6014D)
+// Имя типа: "TNewGenRes"
 
 {$Include w:\MDProcess\NewGen\ngDefine.inc}
 

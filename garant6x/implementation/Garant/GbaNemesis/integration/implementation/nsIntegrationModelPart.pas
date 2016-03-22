@@ -306,6 +306,7 @@ begin
  end;
 //#UC END# *5137406E02B6_51371A9402FA_impl*
 end;//AquireLauncher
+// unit methods
 
 function RunProcess(const aApplication: AnsiString;
   const aCommandLine: AnsiString;

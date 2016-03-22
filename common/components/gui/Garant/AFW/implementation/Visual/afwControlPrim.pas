@@ -2,6 +2,7 @@ unit afwControlPrim;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwControlPrim.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TafwControlPrim" MUID: (48BC1AC0027C)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
@@ -33,15 +34,15 @@ implementation
 uses
  l3ImplUses
  , Classes
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , l3Base
  , l3Core
  , Windows
  , l3MemUtils
  , l3Interlocked
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}

@@ -10,20 +10,6 @@ FORWARD ME_552FAFAA0226
 
 FORWARD ME_602888D14BF8
 
-: ME_2F622E0FB520
- CONST UID '2F622E0FB520'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация application_CancelHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_602888D14BF8 // application_CancelHint
- ;
-
-ref; // ME_2F622E0FB520 Ini_Reg
-
 : ME_0AC7AE3C98C7
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -47,8 +33,6 @@ ref; // ME_0AC7AE3C98C7
 ref; // ME_1E5BA1C5B146 
 
 : ME_4DAEEDE10285_ME_602888D14BF8
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_602888D14BF8 // application_CancelHint
@@ -56,19 +40,7 @@ ref; // ME_1E5BA1C5B146
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_602888D14BF8 DoDoIt
 
-: ME_4DB0614603C8_ME_602888D14BF8
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_602888D14BF8 // application_CancelHint
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_602888D14BF8 GetWordNameForRegister
-
 : ME_551544E2001A_ME_602888D14BF8
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_602888D14BF8 // application_CancelHint
@@ -77,8 +49,6 @@ ref; // ME_4DB0614603C8_ME_602888D14BF8 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_602888D14BF8 GetResultTypeInfo
 
 : ME_559687E6025A_ME_602888D14BF8
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_602888D14BF8 // application_CancelHint
@@ -102,17 +72,12 @@ ref; // ME_559687E6025A_ME_602888D14BF8 GetAllParamsCount
    Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2F622E0FB520 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_602888D14BF8 // DoDoIt
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_602888D14BF8 // GetWordNameForRegister
- ME_551544E2001A_ME_602888D14BF8 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_602888D14BF8 // GetResultTypeInfo
  ME_559687E6025A_ME_602888D14BF8 // GetAllParamsCount
  )
  ; // Overridden
@@ -171,20 +136,6 @@ ref; // ME_EAFEB85473AC aCtx
 
 ref; // ME_84B99BA2B7CE application_IsHintVisible
 
-: ME_5326EB36E715
- CONST UID '5326EB36E715'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация application_IsHintVisible' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_0EF7A152CBB4 // application_IsHintVisible
- ;
-
-ref; // ME_5326EB36E715 Ini_Reg
-
 : ME_AC271B40BFA4
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -208,8 +159,6 @@ ref; // ME_AC271B40BFA4
 ref; // ME_222BE720B2F5 
 
 : ME_4DAEEDE10285_ME_0EF7A152CBB4
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_0EF7A152CBB4 // application_IsHintVisible
@@ -217,19 +166,7 @@ ref; // ME_222BE720B2F5
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0EF7A152CBB4 DoDoIt
 
-: ME_4DB0614603C8_ME_0EF7A152CBB4
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_0EF7A152CBB4 // application_IsHintVisible
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_0EF7A152CBB4 GetWordNameForRegister
-
 : ME_551544E2001A_ME_0EF7A152CBB4
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_0EF7A152CBB4 // application_IsHintVisible
@@ -238,8 +175,6 @@ ref; // ME_4DB0614603C8_ME_0EF7A152CBB4 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_0EF7A152CBB4 GetResultTypeInfo
 
 : ME_559687E6025A_ME_0EF7A152CBB4
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_0EF7A152CBB4 // application_IsHintVisible
@@ -248,8 +183,6 @@ ref; // ME_551544E2001A_ME_0EF7A152CBB4 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_0EF7A152CBB4 GetAllParamsCount
 
 : ME_5617F4D00243_ME_0EF7A152CBB4
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_0EF7A152CBB4 // application_IsHintVisible
@@ -275,7 +208,6 @@ ref; // ME_5617F4D00243_ME_0EF7A152CBB4 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_84B99BA2B7CE // application_IsHintVisible
- ME_5326EB36E715 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -283,8 +215,7 @@ ref; // ME_5617F4D00243_ME_0EF7A152CBB4 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_0EF7A152CBB4 // GetWordNameForRegister
- ME_551544E2001A_ME_0EF7A152CBB4 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_0EF7A152CBB4 // GetResultTypeInfo
  ME_559687E6025A_ME_0EF7A152CBB4 // GetAllParamsCount
  ME_5617F4D00243_ME_0EF7A152CBB4 // ParamsTypes
  )
@@ -346,20 +277,6 @@ ref; // ME_7159DB1D2885 aCtx
 
 ref; // ME_BEF87F4CB387 application_GetLastHint
 
-: ME_359FB5410623
- CONST UID '359FB5410623'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация application_GetLastHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_64C2DF1C9241 // application_GetLastHint
- ;
-
-ref; // ME_359FB5410623 Ini_Reg
-
 : ME_F96023ACA81F
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -383,8 +300,6 @@ ref; // ME_F96023ACA81F
 ref; // ME_72D9645CF81E 
 
 : ME_4DAEEDE10285_ME_64C2DF1C9241
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_64C2DF1C9241 // application_GetLastHint
@@ -392,19 +307,7 @@ ref; // ME_72D9645CF81E
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_64C2DF1C9241 DoDoIt
 
-: ME_4DB0614603C8_ME_64C2DF1C9241
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_64C2DF1C9241 // application_GetLastHint
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_64C2DF1C9241 GetWordNameForRegister
-
 : ME_551544E2001A_ME_64C2DF1C9241
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_64C2DF1C9241 // application_GetLastHint
@@ -413,8 +316,6 @@ ref; // ME_4DB0614603C8_ME_64C2DF1C9241 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_64C2DF1C9241 GetResultTypeInfo
 
 : ME_559687E6025A_ME_64C2DF1C9241
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_64C2DF1C9241 // application_GetLastHint
@@ -423,8 +324,6 @@ ref; // ME_551544E2001A_ME_64C2DF1C9241 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_64C2DF1C9241 GetAllParamsCount
 
 : ME_5617F4D00243_ME_64C2DF1C9241
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_64C2DF1C9241 // application_GetLastHint
@@ -450,7 +349,6 @@ ref; // ME_5617F4D00243_ME_64C2DF1C9241 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_BEF87F4CB387 // application_GetLastHint
- ME_359FB5410623 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -458,8 +356,7 @@ ref; // ME_5617F4D00243_ME_64C2DF1C9241 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_64C2DF1C9241 // GetWordNameForRegister
- ME_551544E2001A_ME_64C2DF1C9241 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_64C2DF1C9241 // GetResultTypeInfo
  ME_559687E6025A_ME_64C2DF1C9241 // GetAllParamsCount
  ME_5617F4D00243_ME_64C2DF1C9241 // ParamsTypes
  )

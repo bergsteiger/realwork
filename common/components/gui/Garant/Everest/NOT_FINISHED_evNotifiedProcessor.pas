@@ -2,6 +2,7 @@ unit NOT_FINISHED_evNotifiedProcessor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evNotifiedProcessor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevNotifiedProcessor" MUID: (482D8ABE024B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

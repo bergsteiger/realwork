@@ -2,6 +2,7 @@ unit vcmHistoryRes;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmHistoryRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmHistoryRes" MUID: (4B8F9D770358)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

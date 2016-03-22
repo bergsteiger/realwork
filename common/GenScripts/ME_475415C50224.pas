@@ -3,6 +3,7 @@ unit NOT_FINISHED_OvcController;
 
 // Модуль: "w:\common\components\rtl\external\Orpheus\NOT_FINISHED_OvcController.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TOvcController" MUID: (475415C50224)
 
 {$Include w:\common\components\rtl\external\Orpheus\OVC.INC}
 

@@ -3,6 +3,7 @@ unit MedicMainMenuKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\MedicMainMenuKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "MedicMainMenuKeywordsPack" MUID: (38469909CBE6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -51,8 +52,8 @@ type
 'aControl' форма::MedicMainMenu TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_MedicMainMenu
 
  Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries = {final} class(TtfwControlString)
@@ -63,9 +64,9 @@ type
 контрол::hfReferencesAndDictionaries TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries
 
  Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries_Push = {final} class(TkwBynameControlPush)
@@ -88,9 +89,9 @@ type
 контрол::tvReferencesAndDictionaries TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries
 
  Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries_Push = {final} class(TkwBynameControlPush)
@@ -113,9 +114,9 @@ type
 контрол::hfReferencePharmaceuticalInformation TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation
 
  Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation_Push = {final} class(TkwBynameControlPush)
@@ -138,9 +139,9 @@ type
 контрол::tvReferencePharmaceuticalInformation TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation
 
  Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation_Push = {final} class(TkwBynameControlPush)
@@ -163,9 +164,9 @@ type
 контрол::hfMainFeatures TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_hfMainFeatures
 
  Tkw_MedicMainMenu_Control_hfMainFeatures_Push = {final} class(TkwBynameControlPush)
@@ -188,9 +189,9 @@ type
 контрол::tvMainFeatures TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_tvMainFeatures
 
  Tkw_MedicMainMenu_Control_tvMainFeatures_Push = {final} class(TkwBynameControlPush)
@@ -213,9 +214,9 @@ type
 контрол::hfRegulatoryInformation TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_hfRegulatoryInformation
 
  Tkw_MedicMainMenu_Control_hfRegulatoryInformation_Push = {final} class(TkwBynameControlPush)
@@ -238,9 +239,9 @@ type
 контрол::tvRegulatoryInformation TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_tvRegulatoryInformation
 
  Tkw_MedicMainMenu_Control_tvRegulatoryInformation_Push = {final} class(TkwBynameControlPush)
@@ -263,9 +264,9 @@ type
 контрол::pnlMain TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_pnlMain
 
  Tkw_MedicMainMenu_Control_pnlMain_Push = {final} class(TkwBynameControlPush)
@@ -288,9 +289,9 @@ type
 контрол::hfLastOpenDocs TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_hfLastOpenDocs
 
  Tkw_MedicMainMenu_Control_hfLastOpenDocs_Push = {final} class(TkwBynameControlPush)
@@ -313,9 +314,9 @@ type
 контрол::tvLastOpenDocs TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_tvLastOpenDocs
 
  Tkw_MedicMainMenu_Control_tvLastOpenDocs_Push = {final} class(TkwBynameControlPush)
@@ -594,20 +595,15 @@ OBJECT VAR l_TnscTreeViewHotTruck
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEnMedicMainMenuTvLastOpenDocs
 
-class function Tkw_Form_MedicMainMenu.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::MedicMainMenu';
-end;//Tkw_Form_MedicMainMenu.GetWordNameForRegister
-
 function Tkw_Form_MedicMainMenu.GetString: AnsiString;
 begin
  Result := 'en_MedicMainMenu';
 end;//Tkw_Form_MedicMainMenu.GetString
 
-class function Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_MedicMainMenu.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::hfReferencesAndDictionaries';
-end;//Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries.GetWordNameForRegister
+ Result := 'форма::MedicMainMenu';
+end;//Tkw_Form_MedicMainMenu.GetWordNameForRegister
 
 function Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries.GetString: AnsiString;
 begin
@@ -620,6 +616,11 @@ begin
  TtfwClassRef.Register(TnscHideField);
 end;//Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries.RegisterInEngine
 
+class function Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::hfReferencesAndDictionaries';
+end;//Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries.GetWordNameForRegister
+
 procedure Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('hfReferencesAndDictionaries');
@@ -630,11 +631,6 @@ class function Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries_Push.GetWor
 begin
  Result := 'контрол::hfReferencesAndDictionaries:push';
 end;//Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries_Push.GetWordNameForRegister
-
-class function Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::tvReferencesAndDictionaries';
-end;//Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries.GetWordNameForRegister
 
 function Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries.GetString: AnsiString;
 begin
@@ -647,6 +643,11 @@ begin
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries.RegisterInEngine
 
+class function Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvReferencesAndDictionaries';
+end;//Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries.GetWordNameForRegister
+
 procedure Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('tvReferencesAndDictionaries');
@@ -657,11 +658,6 @@ class function Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries_Push.GetWor
 begin
  Result := 'контрол::tvReferencesAndDictionaries:push';
 end;//Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries_Push.GetWordNameForRegister
-
-class function Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::hfReferencePharmaceuticalInformation';
-end;//Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation.GetWordNameForRegister
 
 function Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation.GetString: AnsiString;
 begin
@@ -674,6 +670,11 @@ begin
  TtfwClassRef.Register(TnscHideField);
 end;//Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation.RegisterInEngine
 
+class function Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::hfReferencePharmaceuticalInformation';
+end;//Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation.GetWordNameForRegister
+
 procedure Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('hfReferencePharmaceuticalInformation');
@@ -684,11 +685,6 @@ class function Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation_Pu
 begin
  Result := 'контрол::hfReferencePharmaceuticalInformation:push';
 end;//Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation_Push.GetWordNameForRegister
-
-class function Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::tvReferencePharmaceuticalInformation';
-end;//Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation.GetWordNameForRegister
 
 function Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation.GetString: AnsiString;
 begin
@@ -701,6 +697,11 @@ begin
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation.RegisterInEngine
 
+class function Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvReferencePharmaceuticalInformation';
+end;//Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation.GetWordNameForRegister
+
 procedure Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('tvReferencePharmaceuticalInformation');
@@ -711,11 +712,6 @@ class function Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation_Pu
 begin
  Result := 'контрол::tvReferencePharmaceuticalInformation:push';
 end;//Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation_Push.GetWordNameForRegister
-
-class function Tkw_MedicMainMenu_Control_hfMainFeatures.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::hfMainFeatures';
-end;//Tkw_MedicMainMenu_Control_hfMainFeatures.GetWordNameForRegister
 
 function Tkw_MedicMainMenu_Control_hfMainFeatures.GetString: AnsiString;
 begin
@@ -728,6 +724,11 @@ begin
  TtfwClassRef.Register(TnscHideField);
 end;//Tkw_MedicMainMenu_Control_hfMainFeatures.RegisterInEngine
 
+class function Tkw_MedicMainMenu_Control_hfMainFeatures.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::hfMainFeatures';
+end;//Tkw_MedicMainMenu_Control_hfMainFeatures.GetWordNameForRegister
+
 procedure Tkw_MedicMainMenu_Control_hfMainFeatures_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('hfMainFeatures');
@@ -738,11 +739,6 @@ class function Tkw_MedicMainMenu_Control_hfMainFeatures_Push.GetWordNameForRegis
 begin
  Result := 'контрол::hfMainFeatures:push';
 end;//Tkw_MedicMainMenu_Control_hfMainFeatures_Push.GetWordNameForRegister
-
-class function Tkw_MedicMainMenu_Control_tvMainFeatures.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::tvMainFeatures';
-end;//Tkw_MedicMainMenu_Control_tvMainFeatures.GetWordNameForRegister
 
 function Tkw_MedicMainMenu_Control_tvMainFeatures.GetString: AnsiString;
 begin
@@ -755,6 +751,11 @@ begin
  TtfwClassRef.Register(TnscTreeViewHotTruck);
 end;//Tkw_MedicMainMenu_Control_tvMainFeatures.RegisterInEngine
 
+class function Tkw_MedicMainMenu_Control_tvMainFeatures.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvMainFeatures';
+end;//Tkw_MedicMainMenu_Control_tvMainFeatures.GetWordNameForRegister
+
 procedure Tkw_MedicMainMenu_Control_tvMainFeatures_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('tvMainFeatures');
@@ -765,11 +766,6 @@ class function Tkw_MedicMainMenu_Control_tvMainFeatures_Push.GetWordNameForRegis
 begin
  Result := 'контрол::tvMainFeatures:push';
 end;//Tkw_MedicMainMenu_Control_tvMainFeatures_Push.GetWordNameForRegister
-
-class function Tkw_MedicMainMenu_Control_hfRegulatoryInformation.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::hfRegulatoryInformation';
-end;//Tkw_MedicMainMenu_Control_hfRegulatoryInformation.GetWordNameForRegister
 
 function Tkw_MedicMainMenu_Control_hfRegulatoryInformation.GetString: AnsiString;
 begin
@@ -782,6 +778,11 @@ begin
  TtfwClassRef.Register(TnscHideField);
 end;//Tkw_MedicMainMenu_Control_hfRegulatoryInformation.RegisterInEngine
 
+class function Tkw_MedicMainMenu_Control_hfRegulatoryInformation.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::hfRegulatoryInformation';
+end;//Tkw_MedicMainMenu_Control_hfRegulatoryInformation.GetWordNameForRegister
+
 procedure Tkw_MedicMainMenu_Control_hfRegulatoryInformation_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('hfRegulatoryInformation');
@@ -792,11 +793,6 @@ class function Tkw_MedicMainMenu_Control_hfRegulatoryInformation_Push.GetWordNam
 begin
  Result := 'контрол::hfRegulatoryInformation:push';
 end;//Tkw_MedicMainMenu_Control_hfRegulatoryInformation_Push.GetWordNameForRegister
-
-class function Tkw_MedicMainMenu_Control_tvRegulatoryInformation.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::tvRegulatoryInformation';
-end;//Tkw_MedicMainMenu_Control_tvRegulatoryInformation.GetWordNameForRegister
 
 function Tkw_MedicMainMenu_Control_tvRegulatoryInformation.GetString: AnsiString;
 begin
@@ -809,6 +805,11 @@ begin
  TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_MedicMainMenu_Control_tvRegulatoryInformation.RegisterInEngine
 
+class function Tkw_MedicMainMenu_Control_tvRegulatoryInformation.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvRegulatoryInformation';
+end;//Tkw_MedicMainMenu_Control_tvRegulatoryInformation.GetWordNameForRegister
+
 procedure Tkw_MedicMainMenu_Control_tvRegulatoryInformation_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('tvRegulatoryInformation');
@@ -819,11 +820,6 @@ class function Tkw_MedicMainMenu_Control_tvRegulatoryInformation_Push.GetWordNam
 begin
  Result := 'контрол::tvRegulatoryInformation:push';
 end;//Tkw_MedicMainMenu_Control_tvRegulatoryInformation_Push.GetWordNameForRegister
-
-class function Tkw_MedicMainMenu_Control_pnlMain.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnlMain';
-end;//Tkw_MedicMainMenu_Control_pnlMain.GetWordNameForRegister
 
 function Tkw_MedicMainMenu_Control_pnlMain.GetString: AnsiString;
 begin
@@ -836,6 +832,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MedicMainMenu_Control_pnlMain.RegisterInEngine
 
+class function Tkw_MedicMainMenu_Control_pnlMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnlMain';
+end;//Tkw_MedicMainMenu_Control_pnlMain.GetWordNameForRegister
+
 procedure Tkw_MedicMainMenu_Control_pnlMain_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnlMain');
@@ -846,11 +847,6 @@ class function Tkw_MedicMainMenu_Control_pnlMain_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::pnlMain:push';
 end;//Tkw_MedicMainMenu_Control_pnlMain_Push.GetWordNameForRegister
-
-class function Tkw_MedicMainMenu_Control_hfLastOpenDocs.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::hfLastOpenDocs';
-end;//Tkw_MedicMainMenu_Control_hfLastOpenDocs.GetWordNameForRegister
 
 function Tkw_MedicMainMenu_Control_hfLastOpenDocs.GetString: AnsiString;
 begin
@@ -863,6 +859,11 @@ begin
  TtfwClassRef.Register(TnscHideField);
 end;//Tkw_MedicMainMenu_Control_hfLastOpenDocs.RegisterInEngine
 
+class function Tkw_MedicMainMenu_Control_hfLastOpenDocs.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::hfLastOpenDocs';
+end;//Tkw_MedicMainMenu_Control_hfLastOpenDocs.GetWordNameForRegister
+
 procedure Tkw_MedicMainMenu_Control_hfLastOpenDocs_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('hfLastOpenDocs');
@@ -874,11 +875,6 @@ begin
  Result := 'контрол::hfLastOpenDocs:push';
 end;//Tkw_MedicMainMenu_Control_hfLastOpenDocs_Push.GetWordNameForRegister
 
-class function Tkw_MedicMainMenu_Control_tvLastOpenDocs.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::tvLastOpenDocs';
-end;//Tkw_MedicMainMenu_Control_tvLastOpenDocs.GetWordNameForRegister
-
 function Tkw_MedicMainMenu_Control_tvLastOpenDocs.GetString: AnsiString;
 begin
  Result := 'tvLastOpenDocs';
@@ -889,6 +885,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTreeViewHotTruck);
 end;//Tkw_MedicMainMenu_Control_tvLastOpenDocs.RegisterInEngine
+
+class function Tkw_MedicMainMenu_Control_tvLastOpenDocs.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::tvLastOpenDocs';
+end;//Tkw_MedicMainMenu_Control_tvLastOpenDocs.GetWordNameForRegister
 
 procedure Tkw_MedicMainMenu_Control_tvLastOpenDocs_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -923,11 +924,6 @@ begin
  aCtx.rEngine.PushObj(hfReferencesAndDictionaries(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.DoDoIt
 
-class function TkwEnMedicMainMenuHfReferencesAndDictionaries.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MedicMainMenu.hfReferencesAndDictionaries';
-end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.GetWordNameForRegister
-
 procedure TkwEnMedicMainMenuHfReferencesAndDictionaries.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -948,6 +944,11 @@ function TkwEnMedicMainMenuHfReferencesAndDictionaries.ParamsTypes: PTypeInfoArr
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.ParamsTypes
+
+class function TkwEnMedicMainMenuHfReferencesAndDictionaries.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MedicMainMenu.hfReferencesAndDictionaries';
+end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.GetWordNameForRegister
 
 function TkwEnMedicMainMenuTvReferencesAndDictionaries.tvReferencesAndDictionaries(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscTreeViewWithAdapterDragDrop;
@@ -971,11 +972,6 @@ begin
  aCtx.rEngine.PushObj(tvReferencesAndDictionaries(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.DoDoIt
 
-class function TkwEnMedicMainMenuTvReferencesAndDictionaries.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MedicMainMenu.tvReferencesAndDictionaries';
-end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.GetWordNameForRegister
-
 procedure TkwEnMedicMainMenuTvReferencesAndDictionaries.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -996,6 +992,11 @@ function TkwEnMedicMainMenuTvReferencesAndDictionaries.ParamsTypes: PTypeInfoArr
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.ParamsTypes
+
+class function TkwEnMedicMainMenuTvReferencesAndDictionaries.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MedicMainMenu.tvReferencesAndDictionaries';
+end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.GetWordNameForRegister
 
 function TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.hfReferencePharmaceuticalInformation(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscHideField;
@@ -1019,11 +1020,6 @@ begin
  aCtx.rEngine.PushObj(hfReferencePharmaceuticalInformation(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.DoDoIt
 
-class function TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MedicMainMenu.hfReferencePharmaceuticalInformation';
-end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetWordNameForRegister
-
 procedure TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1044,6 +1040,11 @@ function TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.ParamsTypes: PTy
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.ParamsTypes
+
+class function TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MedicMainMenu.hfReferencePharmaceuticalInformation';
+end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetWordNameForRegister
 
 function TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.tvReferencePharmaceuticalInformation(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscTreeViewWithAdapterDragDrop;
@@ -1067,11 +1068,6 @@ begin
  aCtx.rEngine.PushObj(tvReferencePharmaceuticalInformation(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.DoDoIt
 
-class function TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MedicMainMenu.tvReferencePharmaceuticalInformation';
-end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetWordNameForRegister
-
 procedure TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1092,6 +1088,11 @@ function TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.ParamsTypes: PTy
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.ParamsTypes
+
+class function TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MedicMainMenu.tvReferencePharmaceuticalInformation';
+end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetWordNameForRegister
 
 function TkwEnMedicMainMenuHfMainFeatures.hfMainFeatures(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscHideField;
@@ -1115,11 +1116,6 @@ begin
  aCtx.rEngine.PushObj(hfMainFeatures(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuHfMainFeatures.DoDoIt
 
-class function TkwEnMedicMainMenuHfMainFeatures.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MedicMainMenu.hfMainFeatures';
-end;//TkwEnMedicMainMenuHfMainFeatures.GetWordNameForRegister
-
 procedure TkwEnMedicMainMenuHfMainFeatures.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1140,6 +1136,11 @@ function TkwEnMedicMainMenuHfMainFeatures.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuHfMainFeatures.ParamsTypes
+
+class function TkwEnMedicMainMenuHfMainFeatures.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MedicMainMenu.hfMainFeatures';
+end;//TkwEnMedicMainMenuHfMainFeatures.GetWordNameForRegister
 
 function TkwEnMedicMainMenuTvMainFeatures.tvMainFeatures(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscTreeViewHotTruck;
@@ -1163,11 +1164,6 @@ begin
  aCtx.rEngine.PushObj(tvMainFeatures(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuTvMainFeatures.DoDoIt
 
-class function TkwEnMedicMainMenuTvMainFeatures.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MedicMainMenu.tvMainFeatures';
-end;//TkwEnMedicMainMenuTvMainFeatures.GetWordNameForRegister
-
 procedure TkwEnMedicMainMenuTvMainFeatures.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1188,6 +1184,11 @@ function TkwEnMedicMainMenuTvMainFeatures.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuTvMainFeatures.ParamsTypes
+
+class function TkwEnMedicMainMenuTvMainFeatures.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MedicMainMenu.tvMainFeatures';
+end;//TkwEnMedicMainMenuTvMainFeatures.GetWordNameForRegister
 
 function TkwEnMedicMainMenuHfRegulatoryInformation.hfRegulatoryInformation(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscHideField;
@@ -1211,11 +1212,6 @@ begin
  aCtx.rEngine.PushObj(hfRegulatoryInformation(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuHfRegulatoryInformation.DoDoIt
 
-class function TkwEnMedicMainMenuHfRegulatoryInformation.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MedicMainMenu.hfRegulatoryInformation';
-end;//TkwEnMedicMainMenuHfRegulatoryInformation.GetWordNameForRegister
-
 procedure TkwEnMedicMainMenuHfRegulatoryInformation.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1236,6 +1232,11 @@ function TkwEnMedicMainMenuHfRegulatoryInformation.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuHfRegulatoryInformation.ParamsTypes
+
+class function TkwEnMedicMainMenuHfRegulatoryInformation.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MedicMainMenu.hfRegulatoryInformation';
+end;//TkwEnMedicMainMenuHfRegulatoryInformation.GetWordNameForRegister
 
 function TkwEnMedicMainMenuTvRegulatoryInformation.tvRegulatoryInformation(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscTreeViewWithAdapterDragDrop;
@@ -1259,11 +1260,6 @@ begin
  aCtx.rEngine.PushObj(tvRegulatoryInformation(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuTvRegulatoryInformation.DoDoIt
 
-class function TkwEnMedicMainMenuTvRegulatoryInformation.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MedicMainMenu.tvRegulatoryInformation';
-end;//TkwEnMedicMainMenuTvRegulatoryInformation.GetWordNameForRegister
-
 procedure TkwEnMedicMainMenuTvRegulatoryInformation.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1284,6 +1280,11 @@ function TkwEnMedicMainMenuTvRegulatoryInformation.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuTvRegulatoryInformation.ParamsTypes
+
+class function TkwEnMedicMainMenuTvRegulatoryInformation.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MedicMainMenu.tvRegulatoryInformation';
+end;//TkwEnMedicMainMenuTvRegulatoryInformation.GetWordNameForRegister
 
 function TkwEnMedicMainMenuPnlMain.pnlMain(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TvtPanel;
@@ -1307,11 +1308,6 @@ begin
  aCtx.rEngine.PushObj(pnlMain(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuPnlMain.DoDoIt
 
-class function TkwEnMedicMainMenuPnlMain.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MedicMainMenu.pnlMain';
-end;//TkwEnMedicMainMenuPnlMain.GetWordNameForRegister
-
 procedure TkwEnMedicMainMenuPnlMain.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1332,6 +1328,11 @@ function TkwEnMedicMainMenuPnlMain.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuPnlMain.ParamsTypes
+
+class function TkwEnMedicMainMenuPnlMain.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MedicMainMenu.pnlMain';
+end;//TkwEnMedicMainMenuPnlMain.GetWordNameForRegister
 
 function TkwEnMedicMainMenuHfLastOpenDocs.hfLastOpenDocs(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscHideField;
@@ -1355,11 +1356,6 @@ begin
  aCtx.rEngine.PushObj(hfLastOpenDocs(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuHfLastOpenDocs.DoDoIt
 
-class function TkwEnMedicMainMenuHfLastOpenDocs.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MedicMainMenu.hfLastOpenDocs';
-end;//TkwEnMedicMainMenuHfLastOpenDocs.GetWordNameForRegister
-
 procedure TkwEnMedicMainMenuHfLastOpenDocs.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1380,6 +1376,11 @@ function TkwEnMedicMainMenuHfLastOpenDocs.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuHfLastOpenDocs.ParamsTypes
+
+class function TkwEnMedicMainMenuHfLastOpenDocs.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MedicMainMenu.hfLastOpenDocs';
+end;//TkwEnMedicMainMenuHfLastOpenDocs.GetWordNameForRegister
 
 function TkwEnMedicMainMenuTvLastOpenDocs.tvLastOpenDocs(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscTreeViewHotTruck;
@@ -1403,11 +1404,6 @@ begin
  aCtx.rEngine.PushObj(tvLastOpenDocs(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuTvLastOpenDocs.DoDoIt
 
-class function TkwEnMedicMainMenuTvLastOpenDocs.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Ten_MedicMainMenu.tvLastOpenDocs';
-end;//TkwEnMedicMainMenuTvLastOpenDocs.GetWordNameForRegister
-
 procedure TkwEnMedicMainMenuTvLastOpenDocs.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1428,6 +1424,11 @@ function TkwEnMedicMainMenuTvLastOpenDocs.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuTvLastOpenDocs.ParamsTypes
+
+class function TkwEnMedicMainMenuTvLastOpenDocs.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Ten_MedicMainMenu.tvLastOpenDocs';
+end;//TkwEnMedicMainMenuTvLastOpenDocs.GetWordNameForRegister
 
 initialization
  Tkw_Form_MedicMainMenu.RegisterInEngine;

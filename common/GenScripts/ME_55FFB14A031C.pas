@@ -2,6 +2,7 @@ unit daFromTable;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daFromTable.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaFromTable" MUID: (55FFB14A031C)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
@@ -109,7 +110,7 @@ function TdaFromTable.BuildSQLValue: AnsiString;
 //#UC END# *5608E5F20118_55FFB14A031C_var*
 begin
 //#UC START# *5608E5F20118_55FFB14A031C_impl*
- Result := 'archi.' + f_Table.Name;
+ Result := Format('%s.%s', [TdaScheme.Instance.CheckScheme(f_Table.Scheme), f_Table.SQLName]);
  if f_TableAlias <> '' then
   Result := Result + ' ' + f_TableAlias;
 //#UC END# *5608E5F20118_55FFB14A031C_impl*

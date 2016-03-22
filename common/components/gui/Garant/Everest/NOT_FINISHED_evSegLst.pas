@@ -3,6 +3,7 @@ unit NOT_FINISHED_evSegLst;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evSegLst.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evSegLst" MUID: (47F2499F0049)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,7 @@ unit Long_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\Long_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WLong" MUID: (4849423C0299)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

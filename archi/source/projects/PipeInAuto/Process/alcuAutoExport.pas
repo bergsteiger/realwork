@@ -25,6 +25,7 @@ Uses
  l3Base, l3LongintList,
  ExportPipe, ddProgressObj, evdDTTypes,
  dt_Query, dt_Types, dtIntf, DT_Sab,
+ ddPipeOutInterfaces,
  alcuAutoExportTaskPrim, alcuAutoExportTaskResult;
 
 type
@@ -32,7 +33,7 @@ type
 
  TalcuAutoExporter = class(Tl3Base)
  private
-  f_AccGr: TdtQuery;
+  f_InfoDocs: TdtQuery;
   f_Anno: Integer;
   f_AnnoQuery: TdtQuery;
   f_ChangedDocs: Integer;
@@ -47,6 +48,7 @@ type
   f_Pipe: TExportPipe;
   f_ResQuery: TdtQuery;
   f_Aborted: Boolean;
+  f_ErrorList: TStringList;
   f_TaskParams: TalcuAutoExportTaskPrim;
   f_TaskResult: TalcuAutoExportTaskResult;
   procedure AddAccGroups(aReport: TStrings);
@@ -71,6 +73,9 @@ type
   procedure WriteDoneFile;
   function GetCommandFileName(var aFileName, aWorkFolder, aParams: String): Boolean;
   function GetDocQuery: TdtQuery;
+  function pm_GetOnReportEmpty: TddReportEmptyEvent;
+  procedure pm_SetOnReportEmpty(const Value: TddReportEmptyEvent);
+  procedure _DoOnError(const aDescription: AnsiString; aCategory: Integer = 0);
  protected
   procedure CalculateTotalCount;
  public
@@ -78,6 +83,7 @@ type
   procedure Cleanup; override;
   procedure AbortProcess;
   procedure Execute(aProgressor: TddProgressObject);
+  property OnReportEmpty: TddReportEmptyEvent read pm_GetOnReportEmpty write pm_SetOnReportEmpty;
   property OnCalculationDone: TepCalculationDone read f_OnCalculationDone write f_OnCalculationDone;
   property OnTotalCount: TaeTotalCountEvent read f_OnTotalCount write f_OnTotalCount;
  end;
@@ -85,11 +91,11 @@ type
 implementation
 Uses
  ht_dll, SavedQuery,
- daTypes,
+ daTypes, daSchemeConsts,
  dt_SrchQueries, dt_const, dt_AttrSchema, Dt_Doc,
  l3Date, l3FileUtils, l3Stream, l3Types,
  ddUtils, alcuMailServer,
- dt_Dict, StrUtils, DT_Serv, DT_Link, DT_LinkServ, DT_Renum, HT_const, l3ShellUtils, ddPipeOutInterfaces;
+ dt_Dict, StrUtils, DT_Serv, DT_Link, DT_LinkServ, DT_Renum, HT_const, l3ShellUtils;
 
 constructor TalcuAutoExporter.Create(const aParams: TalcuAutoExportTaskPrim;
   const aResult: TalcuAutoExportTaskResult);
@@ -102,6 +108,8 @@ begin
  f_Pipe.LowcaseNames:= True;
  f_Pipe.OutFileType:= f_TaskParams.OutFormat;
  f_Pipe.OnlyStructure:= False;
+ f_Pipe.OnError := _DoOnError;
+ f_ErrorList := TStringList.Create;
 end;
 
 procedure TalcuAutoExporter.AddAccGroups(aReport: TStrings);
@@ -111,6 +119,7 @@ var
 begin
  aReport.Add('Документы Групп доступа');
  aReport.Add('');
+ {$IF not Defined(LUK) and not Defined(SGC)}
  if f_TaskParams.AccGroupsIDList.Count > 0 then
  begin
   l_List := Tl3LongintList.Create;
@@ -122,6 +131,9 @@ begin
    FreeAndNil(l_List);
   end;
  end;
+ {$ELSE not Defined(LUK) and not Defined(SGC)}
+ aReport.Add('Все группы');
+ {$IFEND not Defined(LUK) and not Defined(SGC)}
  aReport.Add('');
 end;
 
@@ -215,7 +227,7 @@ begin
  if aeChanged in f_TaskParams.Stages then
   l_Sab.OrSab(f_ResQuery.FoundList);
  if aeInfo in f_TaskParams.Stages then
-  l_Sab.OrSab(f_AccGr.FoundList);
+  l_Sab.OrSab(f_InfoDocs.FoundList);
 
  l_Rels:= makeSabCopy(l_Sab);
  l_Value:= 0;
@@ -268,8 +280,8 @@ end;
 
 procedure TalcuAutoExporter.CalculateAnnotations;
 var
+ l_Q: TdtQuery;
  l_Bases: TdtQuery;
- l_Pipe: TExportPipe;
  l_Diapason: TDiapasonRec;
  l_List: Tl3LongintList;
  l_Dict: TdaDictionaryType;
@@ -278,50 +290,54 @@ begin
  FreeAndNil(f_AnnoQuery);
  f_Anno:= 0;
 
-  // Нужно оставить только нужные аннотации - от выбранных Групп доументов
-  l_Bases:= nil;
-  try
-   if f_TaskParams.DocumentsSource = ae_dsAccGroups then
-   begin
-    l_List := Tl3LongintList.Create;
-    try
-     if f_TaskParams.AnnoUseAccGroups then
-     begin
-      { TODO : тут, тоже нужно использовать поиск }
-      f_TaskParams.AccGroupsIDList.ToList(l_List);
-      l_Dict := da_dlAccGroups;
-     end
-     else
-     begin
-  {$If not defined(LUK) AND not defined(SGC)}
-      f_TaskParams.BasesIDList.ToList(l_List);
-  {$IfEnd not defined(LUK) AND not defined(SGC)}
-      l_Dict := da_dlBases;
-     end;
-     l_Bases := TdtDictQuery.Create(l_Dict, l_List, False, True {WithSubTree});
-    finally
-     FreeAndNil(l_List);
+ // Нужно оставить только нужные аннотации - от выбранных Групп доументов
+ l_Bases:= nil;
+ try
+  {$IF not Defined(LUK) and not Defined(SGC)}
+  if f_TaskParams.DocumentsSource = ae_dsAccGroups then
+  begin
+   l_List := Tl3LongintList.Create;
+   try
+    if f_TaskParams.AnnoUseAccGroups then
+    begin
+     { TODO : тут, тоже нужно использовать поиск }
+     f_TaskParams.AccGroupsIDList.ToList(l_List);
+     l_Dict := da_dlAccGroups;
+    end
+    else
+    begin
+     f_TaskParams.BasesIDList.ToList(l_List);
+     l_Dict := da_dlBases;
     end;
-   end
-   else
-    l_Bases:= GetDocQuery;
-
-   if l_Bases <> nil then
-   begin
-    f_AnnoQuery:= SQLogByActionsQuery(
-      StDateToDemon(DateTimeToStDate(f_TaskParams.CompileDate)),
-      StDateToDemon(DateTimeToStDate(f_TaskParams.Today)),
-      [acAnnoDate, acAnnoWork, acAnnoWasImported],
-      0,   {Любая группа пользователей}
-      True {Ищем по группам}
-      );
-    SQAnd(f_AnnoQuery, l_Bases);
-
-    f_Anno:= f_AnnoQuery.FoundList.Count;
+    l_Bases := TdtDictQuery.Create(l_Dict, l_List, False, True {WithSubTree});
+   finally
+    FreeAndNil(l_List);
    end;
-  finally
-   l3Free(l_Bases);
+  end
+  else
+   l_Bases:= GetDocQuery;
+  {$IFEND not Defined(LUK) and not Defined(SGC)}
+
+  if l_Bases <> nil then
+  begin
+   f_AnnoQuery:= SQLogByActionsQuery(
+     StDateToDemon(DateTimeToStDate(f_TaskParams.CompileDate)),
+     StDateToDemon(DateTimeToStDate(f_TaskParams.Today)),
+     [acAnnoDate, acAnnoWork, acAnnoWasImported],
+     0,   {Любая группа пользователей}
+     True {Ищем по группам}
+     );
+   SQAnd(f_AnnoQuery, l_Bases);
+
+   // Выкидываем доки с меткой "зависших"
+   l_Q := TdtStatusMaskQuery.Create(dstatHang);
+   SQAndNotF(f_AnnoQuery, l_Q);
+
+   f_Anno:= f_AnnoQuery.FoundList.Count;
   end;
+ finally
+  l3Free(l_Bases);
+ end;
 end;
 
 procedure TalcuAutoExporter.CalculateChangedDocuments;
@@ -346,7 +362,14 @@ begin
 
  l_Q:= SQDocOnDoneState(cDone);
  TdtAndQuery(f_ResQuery).AddQueryF(l_Q); // Только подключенные
+
+ // Выкидываем доки с меткой "зависших"
+ l_Q := TdtStatusMaskQuery.Create(dstatHang);
+ SQNot(l_Q);
+ TdtAndQuery(f_ResQuery).AddQueryF(l_Q);
+
  // фильтруем по группам доступа
+ {$IF not Defined(LUK) and not Defined(SGC)}
  if f_TaskParams.DocumentsSource = ae_dsAccGroups then
  begin
   l_List := Tl3LongIntList.Create;
@@ -360,6 +383,7 @@ begin
  else
   l_Q:= GetDocQuery;
  TdtANDQuery(f_ResQuery).addQueryF(l_Q);
+ {$IFEND not Defined(LUK) and not Defined(SGC)}
  // вычитаем подключенные на этой неделе
  l_Q := TdtLogByActionQuery.Create(acIncluded,
           StDateToDemon(DateTimeToStDate(f_TaskParams.VersionDate)),  // FromDate
@@ -386,6 +410,11 @@ begin
         StDateToDemon(DateTimeToStDate(f_TaskParams.VersionDate)) // ToDate
         );
  TdtAndQuery(f_NewDocsQuery).AddQueryF(l_Q);
+ // Выкидываем доки с меткой "зависших"
+ l_Q := TdtStatusMaskQuery.Create(dstatHang);
+ SQNot(l_Q);
+ TdtAndQuery(f_NewDocsQuery).AddQueryF(l_Q);
+ {$IF not Defined(LUK) and not Defined(SGC)}
  if f_TaskParams.DocumentsSource = ae_dsAccGroups then
  begin
   l_List := Tl3LongintList.Create;
@@ -399,6 +428,7 @@ begin
  else
   l_Q:= GetDocQuery;
  TdtAndQuery(f_NewDocsQuery).AddQueryF(l_Q);
+ {$IFEND not Defined(LUK) and not Defined(SGC)}
 
  ExpandEditionsIfNeeded(f_NewDocsQuery);
 
@@ -407,9 +437,7 @@ end;
 
 procedure TalcuAutoExporter.CalculateInfoDocuments;
 var
-{$IF Defined(LUK) or Defined(SGC)}
  l_Q: TdtQuery;
-{$IFEND}
  l_InfoList: Tl3LongintList;
 begin
  l3System.Msg2Log('Поиск документов полных групп доступа...');
@@ -417,21 +445,29 @@ begin
  try
   f_TaskParams.InfoIDList.ToList(l_InfoList);
   //Ищем все документы из групп (AccGroups) заказанных пользователем
-  l3Free(f_AccGr);
+  l3Free(f_InfoDocs);
   {$IF not Defined(LUK) and not Defined(SGC)}
-  f_AccGr := TdtDictQuery.Create({$IFDEF AEByBelongs}da_dlBases{$ELSE}da_dlAccGroups{$ENDIF}, l_InfoList);
+  f_InfoDocs := TdtDictQuery.Create({$IFDEF AEByBelongs}da_dlBases{$ELSE}da_dlAccGroups{$ENDIF}, l_InfoList);
+  if f_TaskParams.InfoDocsIncludedOnly then // если только подключенные
+  begin
+   l_Q := TdtLogByActionQuery.Create(acIncluded, 0, 0);
+   SQAndF(f_InfoDocs, l_Q);
+  end;
   {$ELSE}
-  f_AccGr := TdtAndQuery.Create;
+  f_InfoDocs := TdtAndQuery.Create;
   l_Q := TdtLogByActionQuery.Create(
          acIncluded,
          StDateToDemon(MinDate), // FromDate
          StDateToDemon(MaxDate)  // ToDate
          );
-  TdtAndQuery(f_AccGr).AddQueryF(l_Q);
+  TdtAndQuery(f_InfoDocs).AddQueryF(l_Q);
   l_Q:= TdtDictQuery.Create({$IFDEF AEByBelongs}da_dlBases{$ELSE}da_dlAccGroups{$ENDIF}, l_InfoList);
-  TdtAndQuery(f_AccGr).AddQueryF(l_Q);
+  TdtAndQuery(f_InfoDocs).AddQueryF(l_Q);
   {$IFEND}
-  f_Info:= f_AccGr.FoundList.Count;
+  // Выкидываем доки с меткой "зависших"
+  l_Q := TdtStatusMaskQuery.Create(dstatHang);
+  SQAndNotF(f_InfoDocs, l_Q);
+  f_Info:= f_InfoDocs.FoundList.Count;
  finally
   FreeAndNil(l_InfoList);
  end;
@@ -453,9 +489,15 @@ begin
  l_Q:= TdtSimpleLogQuery.Create(l_Start, l_Finish, 0, False, acfOrdinal);
  TdtAndQuery(f_NotIncDocsQuery).AddQueryF(l_Q); // Все изменившиеся
 
+ // Выкидываем доки с меткой "зависших"
+ l_Q := TdtStatusMaskQuery.Create(dstatHang);
+ SQNot(l_Q);
+ TdtAndQuery(f_NotIncDocsQuery).AddQueryF(l_Q);
+
  l_Q:= SQDocOnDoneState(cDone);
  SQAndNotF(f_NotIncDocsQuery, l_Q);
 
+ {$IF not Defined(LUK) and not Defined(SGC)}
  if f_TaskParams.DocumentsSource = ae_dsAccGroups then
  begin
   l_List := Tl3LongintList.Create;
@@ -469,6 +511,7 @@ begin
  else
   l_Q:= GetDocQuery;
  TdtAndQuery(f_NotIncDocsQuery).AddQueryF(l_Q);
+ {$IFEND not Defined(LUK) and not Defined(SGC)}
 
  f_NotIncDocs:= f_NotIncDocsQuery.FoundList.Count;
 end;
@@ -503,9 +546,10 @@ begin
  FreeAndNil(f_Pipe);
  FreeAndNil(f_AnnoQuery);
  FreeAndNil(f_ResQuery);
- FreeAndNil(f_AccGr);
+ FreeAndNil(f_InfoDocs);
  FreeAndNil(f_NewDocsQuery);
  FreeAndNil(f_NotIncDocsQuery);
+ FreeAndNil(f_ErrorList);
  inherited;
 end;
 
@@ -514,6 +558,7 @@ var
  l_Report, l_Folder: String;
  l_Start: TDateTime;
 begin
+ f_ErrorList.Clear;
  f_Pipe.OnCalculationDone:= f_OnCalculationDone;
  l3System.Msg2Log('--= %s =--', [f_TaskParams.Description]);
  l_Start:= Now;
@@ -578,9 +623,6 @@ var
 begin
  if not f_Aborted and GetCommandFileName(l_FileName, l_WorkFolder, l_Params) then
   FileExecuteWait(l_FileName, l_params, l_WorkFolder, esNormal)
-//  f_CommandFileResult:= FileExecuteWait(l_FileName, l_params, l_WorkFolder, esNormal)
-// else
-//  f_CommandFileResult:= 0;
 end;
 
 procedure TalcuAutoExporter.ExportAnnotations;
@@ -703,7 +745,7 @@ begin
  l3System.Msg2Log('-= Экспорт полных групп доступа =-');
  if f_Info > 0 then
  begin
-  l_Sab := f_AccGr.GetDocIdList;
+  l_Sab := f_InfoDocs.GetDocIdList;
   try
    with f_Pipe do
    begin
@@ -860,7 +902,16 @@ begin
    if aeInfo in f_TaskParams.Stages then
     Add('  - документов полных групп доступа   : '+IntToStr(f_Info));
    Add('');
-  end;
+
+   if f_ErrorList.Count > 0 then
+   begin
+    f_TaskResult.IsSuccess := False;
+    Add('ОШИБКИ:');
+    AddStrings(f_ErrorList);
+    Add('');
+   end;
+  end;  //  with l_Report do
+  
   if (aeIncluded in f_TaskParams.Stages) or (aeChanged in f_TaskParams.Stages) then
   begin
    if f_TaskParams.DocumentsSource = ae_dsAccGroups then
@@ -928,6 +979,21 @@ begin
   if l_DocCount <> l_DocsWithRelCount then
    l3System.Msg2Log('Документов: %d    Редакций: %d', [l_DocCount, l_DocsWithRelCount - l_DocCount]);
  end;
+end;
+
+function TalcuAutoExporter.pm_GetOnReportEmpty: TddReportEmptyEvent;
+begin
+ Result := f_Pipe.OnReportEmpty;
+end;
+
+procedure TalcuAutoExporter.pm_SetOnReportEmpty(const Value: TddReportEmptyEvent);
+begin
+ f_Pipe.OnReportEmpty := Value;
+end;
+
+procedure TalcuAutoExporter._DoOnError(const aDescription: AnsiString;  aCategory: Integer = 0);
+begin
+ f_ErrorList.Add(aDescription);
 end;
 
 end.

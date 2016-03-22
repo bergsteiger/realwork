@@ -2,6 +2,7 @@ unit StartUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\StartUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Start" MUID: (456FF1DD031C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

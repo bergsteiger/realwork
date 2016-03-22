@@ -1,41 +1,40 @@
 {$IfNDef StackTest_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SandBoxTest"
-// Модуль: "StackTest.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: TestCaseMixIn::Class Shared Delphi Sand Box::SandBoxTest::ContainersTestsPrim::StackTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\StackTest.imp.pas"
+// Стереотип: "TestCaseMixIn"
+// Элемент модели: "StackTest" MUID: (515992DE031D)
+// Имя типа: "_StackTest_"
 
 {$Define StackTest_imp}
-{$If defined(nsTest)}
+
+{$If Defined(nsTest)}
+type
  TEtalonData = ItemsHolder;
 
+ // _StackType_
+
  _StackTest_ = class(TTestCase)
- protected
- // protected methods
+  protected
    procedure DoDoIt;
    function GetEtalonData: TEtalonData; virtual; abstract;
    function ArrayToEtalon(const aData: array of _ItemType_): TEtalonData;
-     {* Вспомогательная функция появившаяся оттого, что динамические массивы умеют к открытым приводиться автоматом, а обратно - нет }
- published
- // published methods
+    {* Вспомогательная функция появившаяся оттого, что динамические массивы умеют к открытым приводиться автоматом, а обратно - нет }
+  published
    procedure DoIt;
  end;//_StackTest_
-{$Else}
 
- _StackTest_ = TTestCase;
+{$Else Defined(nsTest)}
 
-{$IfEnd} //nsTest
+_StackTest_ = TTestCase;
 
+{$IfEnd} // Defined(nsTest)
 {$Else StackTest_imp}
 
-{$If defined(nsTest)}
+{$IfNDef StackTest_imp_impl}
 
-// start class _StackTest_
+{$Define StackTest_imp_impl}
 
+{$If Defined(nsTest)}
 procedure _StackTest_.DoDoIt;
 //#UC START# *5159938101A2_515992DE031D_var*
 var
@@ -59,6 +58,7 @@ begin
 end;//_StackTest_.DoDoIt
 
 function _StackTest_.ArrayToEtalon(const aData: array of _ItemType_): TEtalonData;
+ {* Вспомогательная функция появившаяся оттого, что динамические массивы умеют к открытым приводиться автоматом, а обратно - нет }
 //#UC START# *51599BD5015F_515992DE031D_var*
 var
  l_I : Integer;
@@ -79,7 +79,9 @@ begin
  DoDoIt;
 //#UC END# *515996DE014C_515992DE031D_impl*
 end;//_StackTest_.DoIt
+{$IfEnd} // Defined(nsTest)
 
-{$IfEnd} //nsTest
+{$EndIf StackTest_imp_impl}
 
 {$EndIf StackTest_imp}
+

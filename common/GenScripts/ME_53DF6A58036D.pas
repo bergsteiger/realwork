@@ -2,6 +2,7 @@ unit alcuHavanskyExportTaskPrim;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuHavanskyExportTaskPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuHavanskyExportTaskPrim" MUID: (53DF6A58036D)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

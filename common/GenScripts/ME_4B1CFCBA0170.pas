@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevParaListAnchorModify.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevParaListAnchorModify" MUID: (4B1CFCBA0170)
+// Имя типа: "_nevParaListAnchorModify_"
 
 {$Define nevParaListAnchorModify_imp}
 

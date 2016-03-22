@@ -2,6 +2,7 @@ unit htTableQueryFactory;
 
 // Модуль: "w:\common\components\rtl\Garant\HT\htTableQueryFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ThtTableQueryFactory" MUID: (554C7FE80228)
 
 {$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 

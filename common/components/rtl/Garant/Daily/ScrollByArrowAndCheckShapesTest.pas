@@ -1,37 +1,23 @@
 unit ScrollByArrowAndCheckShapesTest;
+ {* Прокрутить стрелкой до определенной позиции и сравнить "картинку". }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/ScrollByArrowAndCheckShapesTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EditorTests::TScrollByArrowAndCheckShapesTest
-//
-// Прокрутить стрелкой до определенной позиции и сравнить "картинку".
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\ScrollByArrowAndCheckShapesTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TScrollByArrowAndCheckShapesTest" MUID: (4D80B9060123)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  DrawTest
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , DrawTest
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  _CursorMover_Parent_ = TDrawTest;
  {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
@@ -39,62 +25,52 @@ type
  {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ScrollSupport.imp.pas}
  TScrollByArrowAndCheckShapesTest = {abstract} class(_ScrollSupport_)
   {* Прокрутить стрелкой до определенной позиции и сравнить "картинку". }
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   {$If defined(nsTest) AND not defined(NoVCM)}
-   procedure DoBeforeDrawing(aForm: TPrimTextLoadForm); override;
-     {* Произвести какие-нибудь операции перед отрисовкой. }
-   {$IfEnd} //nsTest AND not NoVCM
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
+  protected
    function GetScrollCount: Integer; virtual; abstract;
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   {$If NOT Defined(NoVCM)}
+   procedure DoBeforeDrawing(aForm: TPrimTextLoadForm); override;
+    {* Произвести какие-нибудь операции перед отрисовкой. }
+   {$IfEnd} // NOT Defined(NoVCM)
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TScrollByArrowAndCheckShapesTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork,
-  evMsgCode,
-  evOp,
-  l3InternalInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  nevTools
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
+ l3ImplUses
+ , TestFrameWork
+ , evMsgCode
+ , evOp
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nevTools
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ , l3Base
+;
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ScrollSupport.imp.pas}
 
-// start class TScrollByArrowAndCheckShapesTest
-
 function TScrollByArrowAndCheckShapesTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TScrollByArrowAndCheckShapesTest.GetFolder
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TScrollByArrowAndCheckShapesTest.DoBeforeDrawing(aForm: TPrimTextLoadForm);
+ {* Произвести какие-нибудь операции перед отрисовкой. }
 //#UC START# *4CAC45AE011E_4D80B9060123_var*
 var
  i : Integer;
@@ -120,14 +96,13 @@ begin
  end;//while not Text.View.IsDocumentTailVisible
 //#UC END# *4CAC45AE011E_4D80B9060123_impl*
 end;//TScrollByArrowAndCheckShapesTest.DoBeforeDrawing
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TScrollByArrowAndCheckShapesTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D80B9060123';
 end;//TScrollByArrowAndCheckShapesTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

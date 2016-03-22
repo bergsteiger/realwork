@@ -3,6 +3,7 @@ unit atInterfaces;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\atInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "atInterfaces" MUID: (48077E620315)
 
 interface
 

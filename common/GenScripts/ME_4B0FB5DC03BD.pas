@@ -2,6 +2,7 @@ unit nsDocumentPrintEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentPrintEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentPrintEvent" MUID: (4B0FB5DC03BD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

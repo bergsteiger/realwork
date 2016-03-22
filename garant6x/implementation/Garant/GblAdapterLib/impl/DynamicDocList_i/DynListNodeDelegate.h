@@ -61,6 +61,9 @@ protected:
 	// implemented method from DynListNode
 	// Получить идентифкатор документа из ноды списка
 	virtual ObjectId get_document_id () const;
+
+	// implemented method from DynListNode
+	virtual const GCI::IO::String* get_snippet_text () const;
 }; // class DynListNodeDelegate
 
 } // namespace GblAdapterLib

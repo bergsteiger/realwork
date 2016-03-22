@@ -3,9 +3,18 @@ unit ddHTMLWriter;
 {* Конвертация формата Эверест в HTML }
 
 
-//$Id: ddHTMLWriter.pas,v 1.151 2015/08/28 08:14:48 dinishev Exp $
+//$Id: ddHTMLWriter.pas,v 1.154 2016/03/09 13:32:37 dinishev Exp $
 
 // $Log: ddHTMLWriter.pas,v $
+// Revision 1.154  2016/03/09 13:32:37  dinishev
+// Незакоммител.
+//
+// Revision 1.153  2016/03/03 12:21:54  dinishev
+// {Requestlink:619321401}. Выкинул фактически неработающий код.
+//
+// Revision 1.152  2016/03/03 12:08:37  dinishev
+// Выкинул никому не нужный функционал. Явно брошенный на пол-дороги.
+//
 // Revision 1.151  2015/08/28 08:14:48  dinishev
 // {Requestlink:606129464}
 //
@@ -477,11 +486,9 @@ type
     f_LinkStart: Boolean;
     f_LinkStop: Boolean;
     f_ListLevel: Integer;
-    f_MLFileName: AnsiString;
-    f_MLNumber: Integer;
-    f_MultiLinks: Tl3Strings;
     f_PictureNumber: Integer;
     f_ListIndents: Tl3LongintList;
+    f_WriteFirstHyperlink: Boolean;
   private
     procedure CheckBullet(const aPara: TddTextParagraph);
     procedure CheckDiv(const aPara: TddTextParagraph);
@@ -503,11 +510,10 @@ type
             aFlag: AnsiString);
     function CHP2HTML(aCHP: TddCHaracterProperty; StopTag: Boolean; const
             aList: Tl3ObjectRefList = nil): AnsiString;
+    procedure pm_SetWriteFirstHyperlink(const Value: Boolean);
     procedure CloseDivPre;
     procedure CloseList(AllLevels: Boolean);
     function InchStr(aInch: Integer): AnsiString;
-    procedure IncMLNumber(const aText: Tl3String);
-    procedure MakeMLFileName;
     function MakePictureName: AnsiString;
     procedure OpenDivPre;
     procedure OpenList(aLeftIndent: Integer);
@@ -517,7 +523,6 @@ type
     procedure pm_SetListLeftIndent(const Value: Integer);
     function Style2HTML(aStyle: TddStyleEntry; const aList: Tl3ObjectRefList = nil):
             AnsiString;
-    procedure WriteMultiLinks;
     function AddAACStyleBackColor(aStyleID: Integer): AnsiString;
   protected
     procedure AddTag(TagList: Tl3ObjectRefList; const aTag, aParam: AnsiString);
@@ -526,7 +531,6 @@ type
     function PAP2HTML(aPAP: TddPAragraphProperty; StopTag: Boolean; const aList:
         Tl3ObjectRefList = nil): AnsiString; virtual;
     function StyleName(StyleID: Integer; var IsSpecial: Boolean): AnsiString; virtual;
-    procedure Write2Filer;
     procedure WriteBreak(const aBreak: TddBreak); override;
     procedure WriteColorTable(aDefault: Boolean = False); override;
     procedure WriteDocumentBody; override;
@@ -548,6 +552,7 @@ type
         pm_SetListLeftIndent;
     property NeedStyleSheet: Boolean read FNeedStyleSheet write FNeedStyleSheet;
     property ListOpened: Boolean read pm_GetListOpened;
+    property WriteFirstHyperlink: Boolean read f_WriteFirstHyperlink write pm_SetWriteFirstHyperlink;
   end;
 
 implementation
@@ -630,9 +635,9 @@ constructor TddHTMLGenerator.Create(anOwner: Tk2TagGeneratorOwner = nil);
 begin
   inherited;
   f_ListIndents := Tl3LongintList.Make;
-  f_MultiLinks:= Tl3Strings.Create;
   FNeedStyleSheet := True;
   UseExternalLinks := false;
+  f_WriteFirstHyperlink := False;
 end;
 
 procedure TddHTMLGenerator.AddStyleProperty(PropertyList: Tl3ObjectRefList; const
@@ -792,19 +797,6 @@ begin
  end; // for i
 end;
 
-procedure TddHTMLGenerator.IncMLNumber(const aText: Tl3String);
-begin
- Inc(f_MLNumber);
- f_MultiLinks.Add(Format('<a name=%d>%s</a>', [f_MLNumber, aText.AsString]));
-end;
-
-procedure TddHTMLGenerator.MakeMLFileName;
-begin
-  f_MLFileName:= ChangeFileExt(Format('%s\%d-multilinks', [ExtractFileDir(FilerFilename),
-                                                          ExtNumber]), '.html');
-  f_MLNumber:= 0;
-end;
-
 function TddHTMLGenerator.MakePictureName: AnsiString;
 var
  l_OutDir: AnsiString;
@@ -912,7 +904,6 @@ end;
 procedure TddHTMLGenerator.Cleanup;
 begin
  FreeAndNil(f_ListIndents);
- FreeAndNil(f_MultiLinks);
  inherited;
 end;
 
@@ -1246,33 +1237,6 @@ begin
   end; // case StyleID
 end;
 
-procedure TddHTMLGenerator.Write2Filer;
-begin
-  MakeMLFileName;
-  f_PictureNumber:= 0;
-  try
-    { Выливаем шапку документа и всякие таблицы (шрифтов, цветов и стилей) }
-   WriteHeader;
-   f_MultiLinks.Add('<body>');
-   OutStringLn('<body>');
-   WriteStyleTable;
-  //  WriteFontTable;
-  //  WriteColorTable;
-   WriteDocumentBody;
-  finally
-   OutStringLn('</body>');
-   OutStringLn('</HTML>');
-   with f_MultiLinks do
-   begin
-    Add('</body>');
-    Add('</html>');
-   end;
-   if f_MLNumber > 0 then
-    WriteMultiLinks;
-  end; { закрытие документа }
-  Document.Clear;
-end;
-
 procedure TddHTMLGenerator.WriteBreak(const aBreak: TddBreak);
 begin
 end;
@@ -1285,11 +1249,9 @@ procedure TddHTMLGenerator.WriteDocumentBody;
 begin
  if not f_IsAnno then
  begin
-  f_MultiLinks.Add('<body>');
   OutStringLn('<body>');
   inherited WriteDocumentBody;
   OutStringLn('</body>');
-  f_MultiLinks.Add('</body>');
  end;
 end;
 
@@ -1301,10 +1263,8 @@ begin
    OutStringLn('</div>')
   else
   begin
-   f_MultiLinks.Add('</body>');
    OutStringLn('</body>');
    OutStringLn('</html>');
-   f_MultiLinks.Add('</html>');
   end;
  end;
 end;
@@ -1315,10 +1275,7 @@ begin
  if not f_IsAnno then
  begin
   if not IsPrime then
-  begin
-   f_MultiLinks.Add('<body>');
    OutStringLn('<body>');
-  end;
   OutStringLn('<a name="0"></a>');
  end;
 end;
@@ -1330,10 +1287,7 @@ begin
   if IsPrime then
    OutStringLn('<div id="primeDocs">')
   else
-  begin
    OutStringLn('<html>');
-   f_MultiLinks.Add('<html>');
-  end;
  end;
 end;
 
@@ -1355,32 +1309,7 @@ begin
   OutString(Document.Info.Title);
   OutStringLn('</TITLE>');
   OutStringLn('</HEAD>');
-  with f_MultiLinks do
-  begin
-    Add('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">');
-    Add('<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-'+IntToStr(CP_RussianWin)+'">');
-  {$IFNDEF InsiderTest}
-    Add('<META NAME="Generator" CONTENT="'+l3System.AppTitle+'">');
-  {$ENDIF InsiderTest}
-    Add('<HEAD>');
-    Add('<TITLE>');
-    Add(Format(str_ddmmMultiLinkTitle.AsStr, [Document.Info.Title.AsString]));
-    Add('</TITLE>');
-    Add('</HEAD>');
-  end; // with f_MultiLinks
  end; // not IsPrime
-end;
-
-procedure TddHTMLGenerator.WriteMultiLinks;
-var
-  l_MLFile: Tl3TextStream;
-begin
-  l_MLFile:= Tl3TextStream.Create(f_MLFileName, l3_fmWrite);
-  try
-   f_MultiLinks.SaveToStream(l_MLFile);
-  finally
-   l3Free(l_MLFile);
-  end;
 end;
 
 procedure TddHTMLGenerator.WritePicture(const Picture: TddPicture; aWholePar:
@@ -1871,7 +1800,13 @@ end;
 
 procedure TddHTMLGenerator.CheckStartHyperlink(
   const aPara: TddTextParagraph; anIndex: Integer; const aText: Tl3String; aStartIndex: Integer);
+const
+ csURLRef = '<a href="%s">';
+ csInterlanRef = '<a href="#%d">';
+ csExternalRef = '<a href=garantf1://%d.%d/>';
 var
+ l_DocID        : Integer;
+ l_SubID        : Integer;
  l_TypeID       : Integer;
  l_Target       : TddHyperlinkTarget;
  l_LinkIndex    : Integer;
@@ -1883,34 +1818,20 @@ begin
  begin
   l_HyperlinkText := '';
   if not l_LinkSegment.URL.Empty then
-   l_HyperlinkText := Format('<a href="%s">', [l_LinkSegment.URL.AsString])
+   l_HyperlinkText := Format(csURLRef, [l_LinkSegment.URL.AsString])
   else
-  if l_LinkSegment.TargetList.Count > 1 then
   begin
-   IncMLNumber(aText);
-   for l_LinkIndex := 0 to l_LinkSegment.TargetList.Hi do
-   begin
-    l_Target := l_LinkSegment.TargetList[l_LinkIndex];
-    l_HyperlinkText := Format('<p><a href="%d.html"', [l_Target.DocID]);
-    if l_Target.SubID <> 0 then
-     l_HyperlinkText := l_HyperlinkText + Format('#%d', [l_Target.SubID]);
-    l_HyperlinkText := Format('%s>%d.%d</a></p>', [l_HyperlinkText, l_Target.DocID, l_Target.SubID]);
-    f_MultiLinks.Add(l_HyperlinkText);
-   end; // for l_LinkIndex
-   l_HyperlinkText := Format('<a href = "%s#%d">', [f_MLFileName, f_MLNumber]);
-  end // if l_LinkSegment.TargetList.Count > 1 then
-  else // одиночная ссылка
-  begin
+   if not f_WriteFirstHyperlink and (l_LinkSegment.TargetList.Count > 1) then Exit;
    l_TypeID := l_LinkSegment.TargetList.First.TypeID;
    if (l_TypeID <> CI_REF) then
    begin
-    if (l_LinkSegment.TargetList.First.DocID = ExtNumber) or (l_LinkSegment.TargetList.First.DocID = 0) then
-     l_HyperlinkText := '<a href='
+    l_DocID := l_LinkSegment.TargetList.First.DocID;
+    l_SubID := l_LinkSegment.TargetList.First.SubID;
+    if (l_DocID = ExtNumber) or (l_DocID = 0) then
+     l_HyperlinkText := Format(csInterlanRef, [l_SubID])
     else
      if UseExternalLinks then
-      l_HyperlinkText := Format('<a href="%d.html"', [l_LinkSegment.TargetList[0].DocID]);
-    if l_HyperlinkText <> '' then
-     l_HyperlinkText := l_HyperlinkText + Format('"#%d">', [l_LinkSegment.TargetList[0].SubID]);
+      l_HyperlinkText := Format(csExternalRef, [l_DocID, l_SubID]);
    end; // if l_LinkSegment.TargetList.First.TypeID <> CI_REF then
    OutString(l_HyperlinkText);
    if InRange(anIndex, 0, aStartIndex) then
@@ -2020,7 +1941,7 @@ begin
      OutString(CHP2HTML(l_StyleSegment.CHP, False));
     if (l_StyleSegment.CHP.Style = ev_saHyperLinkCont) and (f_Link <> '') then
      OutString(f_Link);
-   end;
+   end; // if (l_StyleSegment <> nil) and (l_StyleSegment.Start <> l_StyleSegment.Stop) then
   end; // l_StyleSegment <> nil) and (l_StyleSegment.Stop = anIndex
   if (l_StyleSegment <> nil) then
    l_StyleSegment := aPara.SegmentByCharIndex(anIndex, True, l_StyleSegment.Index);
@@ -2074,6 +1995,11 @@ procedure TddHTMLGenerator.CheckFirstHeader(const aPara: TddTextParagraph);
 begin
  if IsPrime and (aPara.PAP.Style = ev_saTxtHeader1) then
   f_IsFirstHeader := False;
+end;
+
+procedure TddHTMLGenerator.pm_SetWriteFirstHyperlink(const Value: Boolean);
+begin
+ f_WriteFirstHyperlink := Value;
 end;
 
 end.

@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3Memory;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Memory.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3Memory" MUID: (47AB1FDE03E4)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

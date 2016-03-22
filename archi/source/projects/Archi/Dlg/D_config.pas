@@ -1,6 +1,6 @@
 unit D_config;
 
-{ $Id: D_config.pas,v 1.34 2015/08/06 12:55:17 lukyanets Exp $ }
+{ $Id: D_config.pas,v 1.35 2016/01/11 11:28:33 lukyanets Exp $ }
 
 interface
 
@@ -83,7 +83,7 @@ var
   cbxCheckScanImage.Checked     := IniRec.CheckScanImage;
   chbSychroNameWSpr.Checked     := IniRec.SychroNameWSpr;
 
-  if RunNonServer then
+  if g_BaseEngine.ServiceParams.StandAlone then
   begin
    cbVDFromServer.Enabled := False;
    cbVDFromServer.Checked := False;
@@ -131,7 +131,7 @@ var
   IniRec.MailNotifyByModalDialog := chbMailNotifyByModalDialog.Checked;
 
 
-  if not RunNonServer then
+  if not g_BaseEngine.ServiceParams.StandAlone then
    IniRec.NVDFromServer    := cbVDFromServer.Checked;
 
   IniRec.NextVersionDate  := edtNextVersion.Date;

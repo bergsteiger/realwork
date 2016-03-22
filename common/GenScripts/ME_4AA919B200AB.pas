@@ -3,6 +3,8 @@ unit CommonPost_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\CommonPost_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "CommonPost" MUID: (4AA919B200AB)
+// Имя типа: "TCommonPostModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_k2Strings;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2Strings.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "k2Strings" MUID: (47AC830103E6)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

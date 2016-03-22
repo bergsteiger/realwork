@@ -2,6 +2,7 @@ unit ddExportFilerDispatcherElem;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\PipeOut\ddExportFilerDispatcherElem.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddExportFilerDispatcherElem" MUID: (560A5BC502D5)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

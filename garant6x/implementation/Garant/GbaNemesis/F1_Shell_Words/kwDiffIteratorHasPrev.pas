@@ -1,70 +1,46 @@
 unit kwDiffIteratorHasPrev;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Shell Words"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Shell_Words/kwDiffIteratorHasPrev.pas"
-// Начат: 03.11.2011 13:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Shell Words::F1 Shell Words::TkwDiffIteratorHasPrev
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwDiffIteratorHasPrev.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwDiffIteratorHasPrev" MUID: (4EB263890066)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwDiffIteratorWord,
-  DocumentUnit,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwDiffIteratorWord
+ , DocumentUnit
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwDiffIteratorHasPrev = {scriptword} class(TkwDiffIteratorWord)
- protected
- // realized methods
+ TkwDiffIteratorHasPrev = class(TkwDiffIteratorWord)
+  protected
    procedure DoIterator(const anIterator: IDiffIterator;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwDiffIteratorHasPrev
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwDiffIteratorHasPrev
+ l3ImplUses
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwDiffIteratorHasPrev.DoIterator(const anIterator: IDiffIterator;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4EB2634D0118_4EB263890066_var*
 //#UC END# *4EB2634D0118_4EB263890066_var*
 begin
@@ -74,17 +50,13 @@ begin
 end;//TkwDiffIteratorHasPrev.DoIterator
 
 class function TkwDiffIteratorHasPrev.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'DiffIterator:HasPrev';
 end;//TkwDiffIteratorHasPrev.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwDiffIteratorHasPrev
  TkwDiffIteratorHasPrev.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwDiffIteratorHasPrev }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

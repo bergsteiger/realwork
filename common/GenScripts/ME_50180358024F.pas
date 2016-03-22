@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithFlexUseCaseControllerType.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmFormDataSourceWithFlexUseCaseControllerType" MUID: (50180358024F)
+// Имя типа: "_vcmFormDataSourceWithFlexUseCaseControllerType_"
 
 {$Define vcmFormDataSourceWithFlexUseCaseControllerType_imp}
 

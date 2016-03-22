@@ -2,6 +2,7 @@ unit scriptsListWatcherRunner;
 
 // Модуль: "w:\common\components\scriptsListWatcher\scriptsListWatcherRunner.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TscriptsListWatcherRunner" MUID: (568140E2020B)
 
 {$Include w:\common\components\scriptsListWatcher\scriptsListWatcher.inc}
 

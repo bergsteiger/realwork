@@ -123,6 +123,7 @@ static const unsigned long GKDB_POS_FLAGS = 3;
 #define	AUX_CLASS6_HR		 "c6hr"
 #define	AUX_CLASS6_BUDGETORGS	 "c6bo"
 #define	AUX_CLASS6_LAWFORALL     "c6la"
+#define	AUX_CLASS6_GOSZAKUPKI    "c6gz"
 
 #define	AUX_CLASS6_INPHARM_INPHARM	"c6ii"
 #define	AUX_CLASS6_INPHARM_SEARCH	"c6is"
@@ -149,6 +150,7 @@ static const unsigned long GKDB_POS_FLAGS = 3;
 #define AUX_INFORMERS			"Infm"
 #define AUX_INFORMERS_EX		"InfM"	//»нформеры дл€ 7.9 с переменной релевантностью
 #define	AUX_HOTINFOTOPIC		"HInT"
+#define	AUX_INVISIBLE_BLOCKSLENS	"InvB"
 
 #define	AUX_MISTAKES_MORPHO		"MMor"
 #define	AUX_MORPHO_SYNS			"MSyn"
@@ -436,6 +438,7 @@ static const unsigned long GKDB_POS_FLAGS = 3;
 #define	IDD_SAMES		0x65	//http://mdp.garant.ru/pages/viewpage.action?pageId=565000133
 #define	IDD_TAG			0x66
 #define	IDD_PROFDATE		0x67	//http://mdp.garant.ru/pages/viewpage.action?pageId=609603293
+#define	IDD_INVISIBLEBLOCKSLENS	0x68	//http://mdp.garant.ru/pages/viewpage.action?pageId=616564547
 
 /* Basic sizes: */
 #define	BLOCK_SIZE	16U*1024U	/* sizeof single block of document */
@@ -555,6 +558,7 @@ static const unsigned long GKDB_POS_FLAGS = 3;
 #define	DS_FLASH	0x1000
 #define	DS_NOCOMPARE	0x2000		//у документа нельз€ сравнивать редакции
 #define	DS_DATE		0x4000
+#define	DS_SIGNIFICANT	0x8000
 
 #define DS_AAKCONTENT	0x0001
 #define	DS_AAKTEXT	0x0002
@@ -638,6 +642,7 @@ enum BLOB_types {
 
 #define	AUX_FILTER_JSONS	"FJsn"
 #define	AUX_LIST_KINDS		"LKnd"
+#define	AUX_LIST_KINDS_SORTED	"SKnd"
 #define	ID_DEFAULT_FILTER	57870400 + ID_BORDER
 //и свободно до 57870499
 
@@ -689,13 +694,13 @@ enum BLOB_types {
 
 #define R_TOUPPER(ch) if(rv_uc(ch)==rv_uc('с')) lv_uc(ch)=rv_uc('Е'); else if(rv_uc(ch)==rv_uc('р')) lv_uc(ch)=rv_uc('Е'); else if(rv_uc(ch)>=rv_uc('a')&&rv_uc(ch)<=rv_uc('z'))lv_uc(ch)+=rv_uc('A')-rv_uc('a'); else if(rv_uc(ch)>=rv_uc('†')&&rv_uc(ch)<=rv_uc('ѓ'))lv_uc(ch)+=rv_uc('А')-rv_uc('†'); else if(rv_uc(ch)>=rv_uc('а')&&rv_uc(ch)<=rv_uc('п'))lv_uc(ch)+=rv_uc('Р')-rv_uc('а')
 
-#define QUICK_R_TOUPPER(ch) if(rv_uc(ch)==rv_uc('с')) lv_uc(ch)=rv_uc('Е'); else if(rv_uc(ch)==rv_uc('р')) lv_uc(ch)=rv_uc('Е'); else if(rv_uc(ch)>=rv_uc('†')&&rv_uc(ch)<=rv_uc('ѓ'))lv_uc(ch)+=rv_uc('А')-rv_uc('†'); else if(rv_uc(ch)>=rv_uc('а')&&rv_uc(ch)<=rv_uc('п'))lv_uc(ch)+=rv_uc('Р')-rv_uc('а'); else if(rv_uc(ch)>=rv_uc('a')&&rv_uc(ch)<=rv_uc('z'))lv_uc(ch)+=rv_uc('A')-rv_uc('a')
+#define QUICK_R_TOUPPER(ch) if(rv_uc(ch)==rv_uc('с')) lv_uc(ch)=rv_uc('Е'); else if(rv_uc(ch)==rv_uc('ч')) lv_uc(ch)=rv_uc('ц'); else if(rv_uc(ch)==rv_uc('р')) lv_uc(ch)=rv_uc('Е'); else if(rv_uc(ch)>=rv_uc('†')&&rv_uc(ch)<=rv_uc('ѓ'))lv_uc(ch)+=rv_uc('А')-rv_uc('†'); else if(rv_uc(ch)>=rv_uc('а')&&rv_uc(ch)<=rv_uc('п'))lv_uc(ch)+=rv_uc('Р')-rv_uc('а'); else if(rv_uc(ch)>=rv_uc('a')&&rv_uc(ch)<=rv_uc('z'))lv_uc(ch)+=rv_uc('A')-rv_uc('a')
 
 //#define QUICK_R_WIN_TOUPPER_DOS(ch) {if(rv_uc(ch)==rv_uc('Є')) lv_uc(ch)=rv_uc('Е'); else if(rv_uc(ch)==rv_uc('®')) lv_uc(ch)=rv_uc('Е'); else if(rv_uc(ch)>=rv_uc('а')&&rv_uc(ch)<=rv_uc('п'))lv_uc(ch)+=rv_uc('А')-rv_uc('а'); else if(rv_uc(ch)>=rv_uc('р')&&rv_uc(ch)<=rv_uc('€'))lv_uc(ch)+=rv_uc('Р')-rv_uc('р'); else if(rv_uc(ch)>=rv_uc('ј')&&rv_uc(ch)<=rv_uc('я'))lv_uc(ch)+=rv_uc('А')-rv_uc('ј'); else if(rv_uc(ch)>=rv_uc('a')&&rv_uc(ch)<=rv_uc('z'))lv_uc(ch)+=rv_uc('A')-rv_uc('a');}
 
-#define	QUICK_R_WIN_TOUPPER_WIN(ch) { if(rv_uc(ch)>=rv_uc('а')&&rv_uc(ch)<=rv_uc('€'))lv_uc(ch)+=rv_uc('ј')-rv_uc('а'); else if(rv_uc(ch)==rv_uc('®')) lv_uc(ch)=rv_uc('≈'); else if(rv_uc(ch)==rv_uc('Є'))lv_uc(ch)=rv_uc('≈'); else if(rv_uc(ch)>=rv_uc('a')&&rv_uc(ch)<=rv_uc('z'))lv_uc(ch)+=rv_uc('A')-rv_uc('a');}
+#define	QUICK_R_WIN_TOUPPER_WIN(ch) { if(rv_uc(ch)>=rv_uc('а')&&rv_uc(ch)<=rv_uc('€'))lv_uc(ch)+=rv_uc('ј')-rv_uc('а'); else if(rv_uc(ch)==rv_uc('®')) lv_uc(ch)=rv_uc('≈'); else if(rv_uc(ch)==rv_uc('Є'))lv_uc(ch)=rv_uc('≈'); else if(rv_uc(ch)==rv_uc('Ґ'))lv_uc(ch)=rv_uc('°'); if(rv_uc(ch)>=rv_uc('a')&&rv_uc(ch)<=rv_uc('z'))lv_uc(ch)+=rv_uc('A')-rv_uc('a');}
 
-#define QUICK_R_DOS_TOUPPER_WIN(ch) {if(rv_uc(ch)==rv_uc('с')) lv_uc(ch)=rv_uc('≈'); else if(rv_uc(ch)==rv_uc('р')) lv_uc(ch)=rv_uc('≈');\
+#define QUICK_R_DOS_TOUPPER_WIN(ch) {if(rv_uc(ch)==rv_uc('с')) lv_uc(ch)=rv_uc('≈'); else if(rv_uc(ch)==rv_uc('р')) lv_uc(ch)=rv_uc('≈'); else if(rv_uc(ch)==rv_uc('ч')) lv_uc(ch)=rv_uc('°'); \
 else if(rv_uc(ch)>=rv_uc('†')&&rv_uc(ch)<=rv_uc('ѓ'))lv_uc(ch)+=rv_uc('ј')-rv_uc('†'); else if(rv_uc(ch)>=rv_uc('а')&&rv_uc(ch)<=rv_uc('п'))lv_uc(ch)+=rv_uc('–')-rv_uc('а'); else if(rv_uc(ch)>=rv_uc('a')&&rv_uc(ch)<=rv_uc('z'))lv_uc(ch)+=rv_uc('A')-rv_uc('a');\
 else if(rv_uc(ch)>=rv_uc('А')&&rv_uc(ch)<=rv_uc('Я'))lv_uc(ch)+=rv_uc('ј')-rv_uc('А');}
 

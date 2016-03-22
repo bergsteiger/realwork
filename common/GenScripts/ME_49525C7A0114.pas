@@ -3,6 +3,7 @@ unit NOT_FINISHED_vcmMainForm;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmMainForm.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmMainForm" MUID: (49525C7A0114)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
@@ -46,9 +47,6 @@ uses
  , vcmDockManagerList
  , vcmLockListenerList
  , vcmFormDispatcherListenerList
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , vcmMenuManager
  , vcmFormsUtils
  {$If NOT Defined(NoVCL)}
@@ -58,6 +56,9 @@ uses
  , vcmEntityForm
  , vcmForm
  , vcmMessages
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type _Instance_R_ = TvcmMainForm;

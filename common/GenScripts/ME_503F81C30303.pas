@@ -2,6 +2,7 @@ unit atSettingsHelper;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atSettingsHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatSettingsHelper" MUID: (503F81C30303)
 
 interface
 

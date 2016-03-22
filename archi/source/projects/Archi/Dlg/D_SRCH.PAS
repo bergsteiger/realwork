@@ -1,6 +1,6 @@
 unit D_Srch;
 
-{ $Id: D_SRCH.PAS,v 1.97 2015/07/08 11:35:55 voba Exp $ }
+{ $Id: D_SRCH.PAS,v 1.99 2015/12/25 12:44:37 voba Exp $ }
 
 {$I l3Define.inc}
 
@@ -278,7 +278,7 @@ Begin
   GetDNTypeList(cbDocType.Items);
   //LoadStringList(cbDocType.Items, NumOfDNStr, sidFirstDataNumRec);
   cbDocType.Items[0]:='Все типы';
-  cbDocType.ItemIndex:=1;
+  cbDocType.ItemIndex := IniRec.PrefDNType;
   cbxNewOnly.Checked := IniRec.NewSrchOnly;
 
   if Not IniRec.GarantStyleQuery then
@@ -698,6 +698,7 @@ procedure TDocSearchDlg.cbDocTypeChange(Sender: TObject);
 begin
  TComponent(Sender).Tag:=1;
  If Sender = cbDocType then cbNumber.Items.Clear;
+ IniRec.PrefDNType := cbDocType.ItemIndex;
 end;
 
 procedure TDocSearchDlg.cbxSrchInNameOnlyClick(Sender: TObject);

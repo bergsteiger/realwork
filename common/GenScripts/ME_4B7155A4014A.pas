@@ -2,6 +2,7 @@ unit atTestChatOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atTestChatOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatTestChatOperation" MUID: (4B7155A4014A)
 
 interface
 

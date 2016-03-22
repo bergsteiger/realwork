@@ -2,6 +2,7 @@ unit evPDFWriter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evPDFWriter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevPDFWriter" MUID: (53FEE940022B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

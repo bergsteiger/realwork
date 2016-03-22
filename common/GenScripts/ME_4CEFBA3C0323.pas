@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\StyleParser.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "StyleParser" MUID: (4CEFBA3C0323)
+// Имя типа: "_StyleParser_"
 
 {$Define StyleParser_imp}
 

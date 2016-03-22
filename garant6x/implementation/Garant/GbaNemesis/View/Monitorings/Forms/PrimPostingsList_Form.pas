@@ -88,8 +88,9 @@ type
      Index: Integer;
      var aImages: TCustomImageList): Integer;
      {* Event to get Index of Bitmap in ImageIndex. }
-   procedure TvPostingsActionElement(Sender: TObject;
-     Index: LongInt);
+   procedure TvPostingsCurrentChanged(Sender: TObject;
+     aNewCurrent: LongInt;
+     aOldCurrent: LongInt);
    procedure OnAddNode(aIndex: Integer);
    procedure OnDeleteNode(aIndex: Integer);
    procedure OnCaptionChange(aIndex: Integer;
@@ -217,15 +218,16 @@ begin
 //#UC END# *528262650131_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.TvPostingsGetItemImage
 
-procedure TPrimPostingsListForm.TvPostingsActionElement(Sender: TObject;
-  Index: LongInt);
+procedure TPrimPostingsListForm.TvPostingsCurrentChanged(Sender: TObject;
+  aNewCurrent: LongInt;
+  aOldCurrent: LongInt);
 //#UC START# *5282636A000F_4AAFA13C01B0_var*
 //#UC END# *5282636A000F_4AAFA13C01B0_var*
 begin
 //#UC START# *5282636A000F_4AAFA13C01B0_impl*
  PostingToolBar_ptEditPosting_Execute(vcmParams);
 //#UC END# *5282636A000F_4AAFA13C01B0_impl*
-end;//TPrimPostingsListForm.TvPostingsActionElement
+end;//TPrimPostingsListForm.TvPostingsCurrentChanged
 
 procedure TPrimPostingsListForm.OnAddNode(aIndex: Integer);
 //#UC START# *5282655D0103_4AAFA13C01B0_var*
@@ -556,7 +558,7 @@ begin
   ActionElementMode := l3_amSecondSingleClick;
   AllowWithoutCurrent := False;
   OnGetItemImage := tvPostingsGetItemImage;
-  OnActionElement := tvPostingsActionElement;
+  OnCurrentChanged := tvPostingsCurrentChanged;
   FooterVisible := False;
   BorderStyle := bsNone;
 

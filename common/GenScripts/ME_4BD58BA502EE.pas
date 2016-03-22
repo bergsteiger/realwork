@@ -3,6 +3,7 @@ unit ListUserTypes_lftProducedDrugsSynchroForm_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftProducedDrugsSynchroForm_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "lftProducedDrugsSynchroForm" MUID: (4BD58BA502EE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftProducedDrugsSynchroForm = {final} class(TtfwInteger)
   {* Слово словаря для типа формы lftProducedDrugsSynchroForm }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_lftProducedDrugsSynchroForm
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_lftProducedDrugsSynchroForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::lftProducedDrugsSynchroForm';
-end;//Tkw_FormUserType_lftProducedDrugsSynchroForm.GetWordNameForRegister
-
 function Tkw_FormUserType_lftProducedDrugsSynchroForm.GetInteger: Integer;
 begin
  Result := lftProducedDrugsSynchroForm;
 end;//Tkw_FormUserType_lftProducedDrugsSynchroForm.GetInteger
+
+class function Tkw_FormUserType_lftProducedDrugsSynchroForm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::lftProducedDrugsSynchroForm';
+end;//Tkw_FormUserType_lftProducedDrugsSynchroForm.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

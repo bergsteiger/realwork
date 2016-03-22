@@ -2,6 +2,7 @@ unit evCustomEditTextSource;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCustomEditTextSource.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomEditTextSource" MUID: (482D988102EC)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

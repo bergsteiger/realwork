@@ -3,6 +3,8 @@ unit NSRCtoMemoryTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\NSRCtoMemoryTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "NSRCtoMemoryTest" MUID: (4B8549760232)
+// Имя типа: "TNSRCtoMemoryTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

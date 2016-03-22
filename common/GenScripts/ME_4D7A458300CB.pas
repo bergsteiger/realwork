@@ -2,6 +2,8 @@ unit BaseSearchContainer_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\BaseSearchContainer_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "BaseSearchContainer" MUID: (4D7A458300CB)
+// Имя типа: "TBaseSearchContainerForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

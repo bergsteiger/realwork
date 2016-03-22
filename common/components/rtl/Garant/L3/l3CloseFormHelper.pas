@@ -2,6 +2,7 @@ unit l3CloseFormHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CloseFormHelper.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3CloseFormHelper" MUID: (55014D810077)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -31,7 +32,7 @@ type
  Tl3CloseFormHelper = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3CloseFormHelper;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3CloseFormHelper }
   protected
    procedure pm_SetAlien(const aValue: Il3CloseFormHelper);
    procedure ClearFields; override;

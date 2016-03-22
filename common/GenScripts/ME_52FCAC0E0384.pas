@@ -2,6 +2,7 @@ unit QueryListPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\DT\QueryListPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TQueryListPrim" MUID: (52FCAC0E0384)
 
 {$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 

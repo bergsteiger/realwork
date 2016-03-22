@@ -3,6 +3,7 @@ unit StartupTipsKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\StartupTipsKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "StartupTipsKeywordsPack" MUID: (C5E828E25C39)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -51,8 +52,8 @@ type
 'aControl' форма::StartupTips TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_StartupTips
 
  Tkw_StartupTips_Control_TopPanel = {final} class(TtfwControlString)
@@ -63,9 +64,9 @@ type
 контрол::TopPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_TopPanel
 
  Tkw_StartupTips_Control_TopPanel_Push = {final} class(TkwBynameControlPush)
@@ -88,9 +89,9 @@ type
 контрол::TitlePaintBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_TitlePaintBox
 
  Tkw_StartupTips_Control_TitlePaintBox_Push = {final} class(TkwBynameControlPush)
@@ -113,9 +114,9 @@ type
 контрол::TitleLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_TitleLabel
 
  Tkw_StartupTips_Control_TitleLabel_Push = {final} class(TkwBynameControlPush)
@@ -138,9 +139,9 @@ type
 контрол::BottomPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_BottomPanel
 
  Tkw_StartupTips_Control_BottomPanel_Push = {final} class(TkwBynameControlPush)
@@ -163,9 +164,9 @@ type
 контрол::HintPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_HintPanel
 
  Tkw_StartupTips_Control_HintPanel_Push = {final} class(TkwBynameControlPush)
@@ -188,9 +189,9 @@ type
 контрол::TipLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_TipLabel
 
  Tkw_StartupTips_Control_TipLabel_Push = {final} class(TkwBynameControlPush)
@@ -213,9 +214,9 @@ type
 контрол::DetailLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_DetailLabel
 
  Tkw_StartupTips_Control_DetailLabel_Push = {final} class(TkwBynameControlPush)
@@ -238,9 +239,9 @@ type
 контрол::ShowCheckBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_ShowCheckBox
 
  Tkw_StartupTips_Control_ShowCheckBox_Push = {final} class(TkwBynameControlPush)
@@ -263,9 +264,9 @@ type
 контрол::wwwPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_wwwPanel
 
  Tkw_StartupTips_Control_wwwPanel_Push = {final} class(TkwBynameControlPush)
@@ -288,9 +289,9 @@ type
 контрол::wwwPaintBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_wwwPaintBox
 
  Tkw_StartupTips_Control_wwwPaintBox_Push = {final} class(TkwBynameControlPush)
@@ -313,9 +314,9 @@ type
 контрол::wwwLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_wwwLabel
 
  Tkw_StartupTips_Control_wwwLabel_Push = {final} class(TkwBynameControlPush)
@@ -338,9 +339,9 @@ type
 контрол::NextButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_NextButton
 
  Tkw_StartupTips_Control_NextButton_Push = {final} class(TkwBynameControlPush)
@@ -363,9 +364,9 @@ type
 контрол::PrevButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_PrevButton
 
  Tkw_StartupTips_Control_PrevButton_Push = {final} class(TkwBynameControlPush)
@@ -388,9 +389,9 @@ type
 контрол::CloseButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_CloseButton
 
  Tkw_StartupTips_Control_CloseButton_Push = {final} class(TkwBynameControlPush)
@@ -741,20 +742,15 @@ OBJECT VAR l_TElPopupButton
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEfStartupTipsCloseButton
 
-class function Tkw_Form_StartupTips.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::StartupTips';
-end;//Tkw_Form_StartupTips.GetWordNameForRegister
-
 function Tkw_Form_StartupTips.GetString: AnsiString;
 begin
  Result := 'efStartupTips';
 end;//Tkw_Form_StartupTips.GetString
 
-class function Tkw_StartupTips_Control_TopPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_StartupTips.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::TopPanel';
-end;//Tkw_StartupTips_Control_TopPanel.GetWordNameForRegister
+ Result := 'форма::StartupTips';
+end;//Tkw_Form_StartupTips.GetWordNameForRegister
 
 function Tkw_StartupTips_Control_TopPanel.GetString: AnsiString;
 begin
@@ -767,6 +763,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_StartupTips_Control_TopPanel.RegisterInEngine
 
+class function Tkw_StartupTips_Control_TopPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::TopPanel';
+end;//Tkw_StartupTips_Control_TopPanel.GetWordNameForRegister
+
 procedure Tkw_StartupTips_Control_TopPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('TopPanel');
@@ -777,11 +778,6 @@ class function Tkw_StartupTips_Control_TopPanel_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::TopPanel:push';
 end;//Tkw_StartupTips_Control_TopPanel_Push.GetWordNameForRegister
-
-class function Tkw_StartupTips_Control_TitlePaintBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::TitlePaintBox';
-end;//Tkw_StartupTips_Control_TitlePaintBox.GetWordNameForRegister
 
 function Tkw_StartupTips_Control_TitlePaintBox.GetString: AnsiString;
 begin
@@ -794,6 +790,11 @@ begin
  TtfwClassRef.Register(TPaintBox);
 end;//Tkw_StartupTips_Control_TitlePaintBox.RegisterInEngine
 
+class function Tkw_StartupTips_Control_TitlePaintBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::TitlePaintBox';
+end;//Tkw_StartupTips_Control_TitlePaintBox.GetWordNameForRegister
+
 procedure Tkw_StartupTips_Control_TitlePaintBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('TitlePaintBox');
@@ -804,11 +805,6 @@ class function Tkw_StartupTips_Control_TitlePaintBox_Push.GetWordNameForRegister
 begin
  Result := 'контрол::TitlePaintBox:push';
 end;//Tkw_StartupTips_Control_TitlePaintBox_Push.GetWordNameForRegister
-
-class function Tkw_StartupTips_Control_TitleLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::TitleLabel';
-end;//Tkw_StartupTips_Control_TitleLabel.GetWordNameForRegister
 
 function Tkw_StartupTips_Control_TitleLabel.GetString: AnsiString;
 begin
@@ -821,6 +817,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StartupTips_Control_TitleLabel.RegisterInEngine
 
+class function Tkw_StartupTips_Control_TitleLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::TitleLabel';
+end;//Tkw_StartupTips_Control_TitleLabel.GetWordNameForRegister
+
 procedure Tkw_StartupTips_Control_TitleLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('TitleLabel');
@@ -831,11 +832,6 @@ class function Tkw_StartupTips_Control_TitleLabel_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::TitleLabel:push';
 end;//Tkw_StartupTips_Control_TitleLabel_Push.GetWordNameForRegister
-
-class function Tkw_StartupTips_Control_BottomPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::BottomPanel';
-end;//Tkw_StartupTips_Control_BottomPanel.GetWordNameForRegister
 
 function Tkw_StartupTips_Control_BottomPanel.GetString: AnsiString;
 begin
@@ -848,6 +844,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_StartupTips_Control_BottomPanel.RegisterInEngine
 
+class function Tkw_StartupTips_Control_BottomPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BottomPanel';
+end;//Tkw_StartupTips_Control_BottomPanel.GetWordNameForRegister
+
 procedure Tkw_StartupTips_Control_BottomPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BottomPanel');
@@ -858,11 +859,6 @@ class function Tkw_StartupTips_Control_BottomPanel_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::BottomPanel:push';
 end;//Tkw_StartupTips_Control_BottomPanel_Push.GetWordNameForRegister
-
-class function Tkw_StartupTips_Control_HintPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::HintPanel';
-end;//Tkw_StartupTips_Control_HintPanel.GetWordNameForRegister
 
 function Tkw_StartupTips_Control_HintPanel.GetString: AnsiString;
 begin
@@ -875,6 +871,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_StartupTips_Control_HintPanel.RegisterInEngine
 
+class function Tkw_StartupTips_Control_HintPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::HintPanel';
+end;//Tkw_StartupTips_Control_HintPanel.GetWordNameForRegister
+
 procedure Tkw_StartupTips_Control_HintPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('HintPanel');
@@ -885,11 +886,6 @@ class function Tkw_StartupTips_Control_HintPanel_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::HintPanel:push';
 end;//Tkw_StartupTips_Control_HintPanel_Push.GetWordNameForRegister
-
-class function Tkw_StartupTips_Control_TipLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::TipLabel';
-end;//Tkw_StartupTips_Control_TipLabel.GetWordNameForRegister
 
 function Tkw_StartupTips_Control_TipLabel.GetString: AnsiString;
 begin
@@ -902,6 +898,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_StartupTips_Control_TipLabel.RegisterInEngine
 
+class function Tkw_StartupTips_Control_TipLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::TipLabel';
+end;//Tkw_StartupTips_Control_TipLabel.GetWordNameForRegister
+
 procedure Tkw_StartupTips_Control_TipLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('TipLabel');
@@ -912,11 +913,6 @@ class function Tkw_StartupTips_Control_TipLabel_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::TipLabel:push';
 end;//Tkw_StartupTips_Control_TipLabel_Push.GetWordNameForRegister
-
-class function Tkw_StartupTips_Control_DetailLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::DetailLabel';
-end;//Tkw_StartupTips_Control_DetailLabel.GetWordNameForRegister
 
 function Tkw_StartupTips_Control_DetailLabel.GetString: AnsiString;
 begin
@@ -929,6 +925,11 @@ begin
  TtfwClassRef.Register(TvtFocusLabel);
 end;//Tkw_StartupTips_Control_DetailLabel.RegisterInEngine
 
+class function Tkw_StartupTips_Control_DetailLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::DetailLabel';
+end;//Tkw_StartupTips_Control_DetailLabel.GetWordNameForRegister
+
 procedure Tkw_StartupTips_Control_DetailLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('DetailLabel');
@@ -939,11 +940,6 @@ class function Tkw_StartupTips_Control_DetailLabel_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::DetailLabel:push';
 end;//Tkw_StartupTips_Control_DetailLabel_Push.GetWordNameForRegister
-
-class function Tkw_StartupTips_Control_ShowCheckBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ShowCheckBox';
-end;//Tkw_StartupTips_Control_ShowCheckBox.GetWordNameForRegister
 
 function Tkw_StartupTips_Control_ShowCheckBox.GetString: AnsiString;
 begin
@@ -956,6 +952,11 @@ begin
  TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_StartupTips_Control_ShowCheckBox.RegisterInEngine
 
+class function Tkw_StartupTips_Control_ShowCheckBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ShowCheckBox';
+end;//Tkw_StartupTips_Control_ShowCheckBox.GetWordNameForRegister
+
 procedure Tkw_StartupTips_Control_ShowCheckBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ShowCheckBox');
@@ -966,11 +967,6 @@ class function Tkw_StartupTips_Control_ShowCheckBox_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::ShowCheckBox:push';
 end;//Tkw_StartupTips_Control_ShowCheckBox_Push.GetWordNameForRegister
-
-class function Tkw_StartupTips_Control_wwwPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::wwwPanel';
-end;//Tkw_StartupTips_Control_wwwPanel.GetWordNameForRegister
 
 function Tkw_StartupTips_Control_wwwPanel.GetString: AnsiString;
 begin
@@ -983,6 +979,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_StartupTips_Control_wwwPanel.RegisterInEngine
 
+class function Tkw_StartupTips_Control_wwwPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::wwwPanel';
+end;//Tkw_StartupTips_Control_wwwPanel.GetWordNameForRegister
+
 procedure Tkw_StartupTips_Control_wwwPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('wwwPanel');
@@ -993,11 +994,6 @@ class function Tkw_StartupTips_Control_wwwPanel_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::wwwPanel:push';
 end;//Tkw_StartupTips_Control_wwwPanel_Push.GetWordNameForRegister
-
-class function Tkw_StartupTips_Control_wwwPaintBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::wwwPaintBox';
-end;//Tkw_StartupTips_Control_wwwPaintBox.GetWordNameForRegister
 
 function Tkw_StartupTips_Control_wwwPaintBox.GetString: AnsiString;
 begin
@@ -1010,6 +1006,11 @@ begin
  TtfwClassRef.Register(TPaintBox);
 end;//Tkw_StartupTips_Control_wwwPaintBox.RegisterInEngine
 
+class function Tkw_StartupTips_Control_wwwPaintBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::wwwPaintBox';
+end;//Tkw_StartupTips_Control_wwwPaintBox.GetWordNameForRegister
+
 procedure Tkw_StartupTips_Control_wwwPaintBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('wwwPaintBox');
@@ -1020,11 +1021,6 @@ class function Tkw_StartupTips_Control_wwwPaintBox_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::wwwPaintBox:push';
 end;//Tkw_StartupTips_Control_wwwPaintBox_Push.GetWordNameForRegister
-
-class function Tkw_StartupTips_Control_wwwLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::wwwLabel';
-end;//Tkw_StartupTips_Control_wwwLabel.GetWordNameForRegister
 
 function Tkw_StartupTips_Control_wwwLabel.GetString: AnsiString;
 begin
@@ -1037,6 +1033,11 @@ begin
  TtfwClassRef.Register(TvtFocusLabel);
 end;//Tkw_StartupTips_Control_wwwLabel.RegisterInEngine
 
+class function Tkw_StartupTips_Control_wwwLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::wwwLabel';
+end;//Tkw_StartupTips_Control_wwwLabel.GetWordNameForRegister
+
 procedure Tkw_StartupTips_Control_wwwLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('wwwLabel');
@@ -1047,11 +1048,6 @@ class function Tkw_StartupTips_Control_wwwLabel_Push.GetWordNameForRegister: Ans
 begin
  Result := 'контрол::wwwLabel:push';
 end;//Tkw_StartupTips_Control_wwwLabel_Push.GetWordNameForRegister
-
-class function Tkw_StartupTips_Control_NextButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::NextButton';
-end;//Tkw_StartupTips_Control_NextButton.GetWordNameForRegister
 
 function Tkw_StartupTips_Control_NextButton.GetString: AnsiString;
 begin
@@ -1064,6 +1060,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StartupTips_Control_NextButton.RegisterInEngine
 
+class function Tkw_StartupTips_Control_NextButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::NextButton';
+end;//Tkw_StartupTips_Control_NextButton.GetWordNameForRegister
+
 procedure Tkw_StartupTips_Control_NextButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('NextButton');
@@ -1074,11 +1075,6 @@ class function Tkw_StartupTips_Control_NextButton_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::NextButton:push';
 end;//Tkw_StartupTips_Control_NextButton_Push.GetWordNameForRegister
-
-class function Tkw_StartupTips_Control_PrevButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::PrevButton';
-end;//Tkw_StartupTips_Control_PrevButton.GetWordNameForRegister
 
 function Tkw_StartupTips_Control_PrevButton.GetString: AnsiString;
 begin
@@ -1091,6 +1087,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StartupTips_Control_PrevButton.RegisterInEngine
 
+class function Tkw_StartupTips_Control_PrevButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::PrevButton';
+end;//Tkw_StartupTips_Control_PrevButton.GetWordNameForRegister
+
 procedure Tkw_StartupTips_Control_PrevButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('PrevButton');
@@ -1102,11 +1103,6 @@ begin
  Result := 'контрол::PrevButton:push';
 end;//Tkw_StartupTips_Control_PrevButton_Push.GetWordNameForRegister
 
-class function Tkw_StartupTips_Control_CloseButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::CloseButton';
-end;//Tkw_StartupTips_Control_CloseButton.GetWordNameForRegister
-
 function Tkw_StartupTips_Control_CloseButton.GetString: AnsiString;
 begin
  Result := 'CloseButton';
@@ -1117,6 +1113,11 @@ begin
  inherited;
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_StartupTips_Control_CloseButton.RegisterInEngine
+
+class function Tkw_StartupTips_Control_CloseButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::CloseButton';
+end;//Tkw_StartupTips_Control_CloseButton.GetWordNameForRegister
 
 procedure Tkw_StartupTips_Control_CloseButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -1151,11 +1152,6 @@ begin
  aCtx.rEngine.PushObj(TopPanel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsTopPanel.DoDoIt
 
-class function TkwEfStartupTipsTopPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefStartupTips.TopPanel';
-end;//TkwEfStartupTipsTopPanel.GetWordNameForRegister
-
 procedure TkwEfStartupTipsTopPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1176,6 +1172,11 @@ function TkwEfStartupTipsTopPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsTopPanel.ParamsTypes
+
+class function TkwEfStartupTipsTopPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefStartupTips.TopPanel';
+end;//TkwEfStartupTipsTopPanel.GetWordNameForRegister
 
 function TkwEfStartupTipsTitlePaintBox.TitlePaintBox(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TPaintBox;
@@ -1199,11 +1200,6 @@ begin
  aCtx.rEngine.PushObj(TitlePaintBox(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsTitlePaintBox.DoDoIt
 
-class function TkwEfStartupTipsTitlePaintBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefStartupTips.TitlePaintBox';
-end;//TkwEfStartupTipsTitlePaintBox.GetWordNameForRegister
-
 procedure TkwEfStartupTipsTitlePaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1224,6 +1220,11 @@ function TkwEfStartupTipsTitlePaintBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsTitlePaintBox.ParamsTypes
+
+class function TkwEfStartupTipsTitlePaintBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefStartupTips.TitlePaintBox';
+end;//TkwEfStartupTipsTitlePaintBox.GetWordNameForRegister
 
 function TkwEfStartupTipsTitleLabel.TitleLabel(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtLabel;
@@ -1247,11 +1248,6 @@ begin
  aCtx.rEngine.PushObj(TitleLabel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsTitleLabel.DoDoIt
 
-class function TkwEfStartupTipsTitleLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefStartupTips.TitleLabel';
-end;//TkwEfStartupTipsTitleLabel.GetWordNameForRegister
-
 procedure TkwEfStartupTipsTitleLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1272,6 +1268,11 @@ function TkwEfStartupTipsTitleLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsTitleLabel.ParamsTypes
+
+class function TkwEfStartupTipsTitleLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefStartupTips.TitleLabel';
+end;//TkwEfStartupTipsTitleLabel.GetWordNameForRegister
 
 function TkwEfStartupTipsBottomPanel.BottomPanel(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtPanel;
@@ -1295,11 +1296,6 @@ begin
  aCtx.rEngine.PushObj(BottomPanel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsBottomPanel.DoDoIt
 
-class function TkwEfStartupTipsBottomPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefStartupTips.BottomPanel';
-end;//TkwEfStartupTipsBottomPanel.GetWordNameForRegister
-
 procedure TkwEfStartupTipsBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1320,6 +1316,11 @@ function TkwEfStartupTipsBottomPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsBottomPanel.ParamsTypes
+
+class function TkwEfStartupTipsBottomPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefStartupTips.BottomPanel';
+end;//TkwEfStartupTipsBottomPanel.GetWordNameForRegister
 
 function TkwEfStartupTipsHintPanel.HintPanel(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtPanel;
@@ -1343,11 +1344,6 @@ begin
  aCtx.rEngine.PushObj(HintPanel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsHintPanel.DoDoIt
 
-class function TkwEfStartupTipsHintPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefStartupTips.HintPanel';
-end;//TkwEfStartupTipsHintPanel.GetWordNameForRegister
-
 procedure TkwEfStartupTipsHintPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1368,6 +1364,11 @@ function TkwEfStartupTipsHintPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsHintPanel.ParamsTypes
+
+class function TkwEfStartupTipsHintPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefStartupTips.HintPanel';
+end;//TkwEfStartupTipsHintPanel.GetWordNameForRegister
 
 function TkwEfStartupTipsTipLabel.TipLabel(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtLabel;
@@ -1391,11 +1392,6 @@ begin
  aCtx.rEngine.PushObj(TipLabel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsTipLabel.DoDoIt
 
-class function TkwEfStartupTipsTipLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefStartupTips.TipLabel';
-end;//TkwEfStartupTipsTipLabel.GetWordNameForRegister
-
 procedure TkwEfStartupTipsTipLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1416,6 +1412,11 @@ function TkwEfStartupTipsTipLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsTipLabel.ParamsTypes
+
+class function TkwEfStartupTipsTipLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefStartupTips.TipLabel';
+end;//TkwEfStartupTipsTipLabel.GetWordNameForRegister
 
 function TkwEfStartupTipsDetailLabel.DetailLabel(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtFocusLabel;
@@ -1439,11 +1440,6 @@ begin
  aCtx.rEngine.PushObj(DetailLabel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsDetailLabel.DoDoIt
 
-class function TkwEfStartupTipsDetailLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefStartupTips.DetailLabel';
-end;//TkwEfStartupTipsDetailLabel.GetWordNameForRegister
-
 procedure TkwEfStartupTipsDetailLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1464,6 +1460,11 @@ function TkwEfStartupTipsDetailLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsDetailLabel.ParamsTypes
+
+class function TkwEfStartupTipsDetailLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefStartupTips.DetailLabel';
+end;//TkwEfStartupTipsDetailLabel.GetWordNameForRegister
 
 function TkwEfStartupTipsShowCheckBox.ShowCheckBox(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtCheckBox;
@@ -1487,11 +1488,6 @@ begin
  aCtx.rEngine.PushObj(ShowCheckBox(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsShowCheckBox.DoDoIt
 
-class function TkwEfStartupTipsShowCheckBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefStartupTips.ShowCheckBox';
-end;//TkwEfStartupTipsShowCheckBox.GetWordNameForRegister
-
 procedure TkwEfStartupTipsShowCheckBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1512,6 +1508,11 @@ function TkwEfStartupTipsShowCheckBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsShowCheckBox.ParamsTypes
+
+class function TkwEfStartupTipsShowCheckBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefStartupTips.ShowCheckBox';
+end;//TkwEfStartupTipsShowCheckBox.GetWordNameForRegister
 
 function TkwEfStartupTipsWwwPanel.wwwPanel(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtPanel;
@@ -1535,11 +1536,6 @@ begin
  aCtx.rEngine.PushObj(wwwPanel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsWwwPanel.DoDoIt
 
-class function TkwEfStartupTipsWwwPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefStartupTips.wwwPanel';
-end;//TkwEfStartupTipsWwwPanel.GetWordNameForRegister
-
 procedure TkwEfStartupTipsWwwPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1560,6 +1556,11 @@ function TkwEfStartupTipsWwwPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsWwwPanel.ParamsTypes
+
+class function TkwEfStartupTipsWwwPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefStartupTips.wwwPanel';
+end;//TkwEfStartupTipsWwwPanel.GetWordNameForRegister
 
 function TkwEfStartupTipsWwwPaintBox.wwwPaintBox(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TPaintBox;
@@ -1583,11 +1584,6 @@ begin
  aCtx.rEngine.PushObj(wwwPaintBox(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsWwwPaintBox.DoDoIt
 
-class function TkwEfStartupTipsWwwPaintBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefStartupTips.wwwPaintBox';
-end;//TkwEfStartupTipsWwwPaintBox.GetWordNameForRegister
-
 procedure TkwEfStartupTipsWwwPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1608,6 +1604,11 @@ function TkwEfStartupTipsWwwPaintBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsWwwPaintBox.ParamsTypes
+
+class function TkwEfStartupTipsWwwPaintBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefStartupTips.wwwPaintBox';
+end;//TkwEfStartupTipsWwwPaintBox.GetWordNameForRegister
 
 function TkwEfStartupTipsWwwLabel.wwwLabel(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtFocusLabel;
@@ -1631,11 +1632,6 @@ begin
  aCtx.rEngine.PushObj(wwwLabel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsWwwLabel.DoDoIt
 
-class function TkwEfStartupTipsWwwLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefStartupTips.wwwLabel';
-end;//TkwEfStartupTipsWwwLabel.GetWordNameForRegister
-
 procedure TkwEfStartupTipsWwwLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1656,6 +1652,11 @@ function TkwEfStartupTipsWwwLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsWwwLabel.ParamsTypes
+
+class function TkwEfStartupTipsWwwLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefStartupTips.wwwLabel';
+end;//TkwEfStartupTipsWwwLabel.GetWordNameForRegister
 
 function TkwEfStartupTipsNextButton.NextButton(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TElPopupButton;
@@ -1679,11 +1680,6 @@ begin
  aCtx.rEngine.PushObj(NextButton(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsNextButton.DoDoIt
 
-class function TkwEfStartupTipsNextButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefStartupTips.NextButton';
-end;//TkwEfStartupTipsNextButton.GetWordNameForRegister
-
 procedure TkwEfStartupTipsNextButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1704,6 +1700,11 @@ function TkwEfStartupTipsNextButton.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsNextButton.ParamsTypes
+
+class function TkwEfStartupTipsNextButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefStartupTips.NextButton';
+end;//TkwEfStartupTipsNextButton.GetWordNameForRegister
 
 function TkwEfStartupTipsPrevButton.PrevButton(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TElPopupButton;
@@ -1727,11 +1728,6 @@ begin
  aCtx.rEngine.PushObj(PrevButton(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsPrevButton.DoDoIt
 
-class function TkwEfStartupTipsPrevButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefStartupTips.PrevButton';
-end;//TkwEfStartupTipsPrevButton.GetWordNameForRegister
-
 procedure TkwEfStartupTipsPrevButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1752,6 +1748,11 @@ function TkwEfStartupTipsPrevButton.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsPrevButton.ParamsTypes
+
+class function TkwEfStartupTipsPrevButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefStartupTips.PrevButton';
+end;//TkwEfStartupTipsPrevButton.GetWordNameForRegister
 
 function TkwEfStartupTipsCloseButton.CloseButton(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TElPopupButton;
@@ -1775,11 +1776,6 @@ begin
  aCtx.rEngine.PushObj(CloseButton(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsCloseButton.DoDoIt
 
-class function TkwEfStartupTipsCloseButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TefStartupTips.CloseButton';
-end;//TkwEfStartupTipsCloseButton.GetWordNameForRegister
-
 procedure TkwEfStartupTipsCloseButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1800,6 +1796,11 @@ function TkwEfStartupTipsCloseButton.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsCloseButton.ParamsTypes
+
+class function TkwEfStartupTipsCloseButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefStartupTips.CloseButton';
+end;//TkwEfStartupTipsCloseButton.GetWordNameForRegister
 
 initialization
  Tkw_Form_StartupTips.RegisterInEngine;

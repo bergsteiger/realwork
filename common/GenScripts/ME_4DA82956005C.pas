@@ -2,6 +2,7 @@ unit BaloonWarningUserTypes_WarnPreActive_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnPreActive_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "WarnPreActive" MUID: (4DA82956005C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -11,7 +12,6 @@ interface
 uses
  l3IntfUses
  , BaloonWarningUserTypes_WarnJuror_UserType
- , BaloonWarningUserTypes_Fake_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -34,26 +34,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_WarnPreActive = {final} class(TtfwInteger)
   {* Слово словаря для типа формы WarnPreActive }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_WarnPreActive
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_WarnPreActive.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::WarnPreActive';
-end;//Tkw_FormUserType_WarnPreActive.GetWordNameForRegister
-
 function Tkw_FormUserType_WarnPreActive.GetInteger: Integer;
 begin
  Result := WarnPreActive;
 end;//Tkw_FormUserType_WarnPreActive.GetInteger
+
+class function Tkw_FormUserType_WarnPreActive.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::WarnPreActive';
+end;//Tkw_FormUserType_WarnPreActive.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

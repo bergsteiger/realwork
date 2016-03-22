@@ -5,7 +5,7 @@ unit m3StorageTableOfContentsStream;
 // Библиотека "m3"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3StorageTableOfContentsStream.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3::m3CoreObjects::Tm3StorageTableOfContentsStream
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3StorageTableOfContentsStream
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

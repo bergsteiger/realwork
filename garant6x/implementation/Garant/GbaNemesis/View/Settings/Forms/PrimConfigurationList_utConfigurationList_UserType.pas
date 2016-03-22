@@ -1,87 +1,67 @@
 unit PrimConfigurationList_utConfigurationList_UserType;
+ {* Конфигурации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Settings/Forms/PrimConfigurationList_utConfigurationList_UserType.pas"
-// Начат: 27.04.2010 22:06
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Основные прецеденты::Settings::View::Settings::PrimConfigurationList::utConfigurationList
-//
-// Конфигурации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimConfigurationList_utConfigurationList_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "utConfigurationList" MUID: (4BD727D901FA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы utConfigurationList }
-  utConfigurationListName = 'utConfigurationList';
-   { Строковый идентификатор пользовательского типа "Конфигурации" }
-  utConfigurationList = TvcmUserType(0);
-   { Конфигурации }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы utConfigurationList }
+ utConfigurationListName = 'utConfigurationList';
+  {* Строковый идентификатор пользовательского типа "Конфигурации" }
+ utConfigurationList = TvcmUserType(0);
+  {* Конфигурации }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_utConfigurationList = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы utConfigurationList }
+ Tkw_FormUserType_utConfigurationList = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы utConfigurationList }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_utConfigurationList
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_utConfigurationList
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_utConfigurationList
-
-class function Tkw_FormUserType_utConfigurationList.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::utConfigurationList';
-end;//Tkw_FormUserType_utConfigurationList.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utConfigurationList.GetInteger: Integer;
- {-}
 begin
  Result := utConfigurationList;
 end;//Tkw_FormUserType_utConfigurationList.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_utConfigurationList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utConfigurationList';
+end;//Tkw_FormUserType_utConfigurationList.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_utConfigurationList
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utConfigurationList.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_utConfigurationList }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

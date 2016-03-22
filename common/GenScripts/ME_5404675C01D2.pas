@@ -2,6 +2,7 @@ unit NOT_FINISHED_alcuRegionAutoExportTask;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuRegionAutoExportTask.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuRegionAutoExportTask" MUID: (5404675C01D2)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

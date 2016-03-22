@@ -3,6 +3,7 @@ unit NOT_FINISHED_evStubs;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\NOT_FINISHED_evStubs.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evStubs" MUID: (4A2621920255)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

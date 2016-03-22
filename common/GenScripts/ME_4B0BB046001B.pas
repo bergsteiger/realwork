@@ -2,6 +2,7 @@ unit nsPrimaryMonitorResolutionEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsPrimaryMonitorResolutionEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsPrimaryMonitorResolutionEvent" MUID: (4B0BB046001B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

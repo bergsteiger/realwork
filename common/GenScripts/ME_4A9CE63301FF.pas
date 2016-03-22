@@ -3,6 +3,8 @@ unit moDiction;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moDiction.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "Diction" MUID: (4A9CE63301FF)
+// Имя типа: "Tmo_Diction"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

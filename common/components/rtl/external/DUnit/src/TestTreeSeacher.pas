@@ -109,7 +109,10 @@ var
   l_Str := l_Node.Text;
   l_PStr := l3PCharLen(PChar(@l_Str[1]), Length(l_Str));
   l3MakeUpperCase(l_PStr.S, l_PStr.SLen, l_PStr.SCodePage);
-  Result := l3SearchStr(l_PStr, f_Table, f_FindStr, l_Pos);
+  if l3HasChar('*', f_FindStr) or l3HasChar('?', f_FindStr) then
+   Result := l3MaskCompare(l_Str, l3Str(f_FindStr))
+  else
+   Result := l3SearchStr(l_PStr, f_Table, f_FindStr, l_Pos);
   if Result then
   begin
    Find := True;

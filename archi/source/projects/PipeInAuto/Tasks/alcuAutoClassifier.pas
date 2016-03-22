@@ -1,8 +1,14 @@
 unit alcuAutoClassifier;
 { Выполняет автоклассификацию документов на основе механизма от Бежана }
-{ $Id: alcuAutoClassifier.pas,v 1.25 2015/10/14 10:21:19 fireton Exp $ }
+{ $Id: alcuAutoClassifier.pas,v 1.27 2015/12/21 07:46:06 lukyanets Exp $ }
 
 // $Log: alcuAutoClassifier.pas,v $
+// Revision 1.27  2015/12/21 07:46:06  lukyanets
+// Несовпадение параметров
+//
+// Revision 1.26  2015/11/26 08:45:25  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.25  2015/10/14 10:21:19  fireton
 // - cleanup
 //
@@ -317,6 +323,7 @@ uses
  daUtils,
  daInterfaces,
  daDataProvider,
+ daSchemeConsts,
  dt_Const, dt_AttrSchema,
  dt_Doc, dt_Stage, dt_User, dt_log, dt_Mail, dt_Link, dt_Query,
  l3Filer, l3Date, l3FileUtils,
@@ -414,7 +421,7 @@ end;
 
 function TalcuAutoClassifier.AutoClassify: Boolean;
 var
- l_Result: Integer;
+ l_Result: Cardinal;
  l_Msg: String;
 begin
  l3System.Msg2Log('Классификация исходных документов:');

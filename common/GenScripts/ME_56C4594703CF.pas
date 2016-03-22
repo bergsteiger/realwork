@@ -2,6 +2,7 @@ unit caTableQueryFactory;
 
 // Модуль: "w:\common\components\rtl\Garant\ComboAccess\caTableQueryFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcaTableQueryFactory" MUID: (56C4594703CF)
 
 {$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 

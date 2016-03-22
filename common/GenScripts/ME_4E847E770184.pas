@@ -2,6 +2,8 @@ unit HTMLtoEVDTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\HTMLtoEVDTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "HTMLtoEVDTest" MUID: (4E847E770184)
+// Имя типа: "THTMLtoEVDTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

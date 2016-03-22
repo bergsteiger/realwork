@@ -2,6 +2,7 @@ unit kwInlinedWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwInlinedWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwInlinedWord" MUID: (53ED9C3B01F3)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

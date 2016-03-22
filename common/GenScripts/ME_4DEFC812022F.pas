@@ -2,6 +2,7 @@ unit l3EventedRecListView;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3EventedRecListView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3EventedRecListView" MUID: (4DEFC812022F)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

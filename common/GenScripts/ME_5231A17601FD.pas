@@ -2,6 +2,7 @@ unit nsConfigurationProperties;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Config\nsConfigurationProperties.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsConfigurationProperties" MUID: (5231A17601FD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit nscFixedHeightControlCell;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscFixedHeightControlCell.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnscFixedHeightControlCell" MUID: (4ACA30C3014C)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

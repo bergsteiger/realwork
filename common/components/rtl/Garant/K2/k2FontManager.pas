@@ -2,6 +2,7 @@ unit k2FontManager;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2FontManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2FontManager" MUID: (5318974F0065)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

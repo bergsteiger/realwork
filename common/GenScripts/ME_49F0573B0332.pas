@@ -2,6 +2,7 @@ unit nsWebBrowserPrim;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\nsWebBrowserPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsWebBrowserPrim" MUID: (49F0573B0332)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

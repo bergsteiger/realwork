@@ -3,6 +3,7 @@ unit NOT_FINISHED_evTypes;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTypes.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "evTypes" MUID: (47C695A10172)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

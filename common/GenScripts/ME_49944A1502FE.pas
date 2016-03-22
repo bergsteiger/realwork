@@ -3,6 +3,7 @@ unit vcmInternalConst;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmInternalConst.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "vcmInternalConst" MUID: (49944A1502FE)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

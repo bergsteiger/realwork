@@ -2,6 +2,7 @@ unit m3BaseArcStream;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\m3BaseArcStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tm3BaseArcStream" MUID: (53FF2D7500EB)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

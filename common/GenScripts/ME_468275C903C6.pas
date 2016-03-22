@@ -3,6 +3,7 @@ unit nsINodeOneLevelRootWrap;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsINodeOneLevelRootWrap.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsINodeOneLevelRootWrap" MUID: (468275C903C6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

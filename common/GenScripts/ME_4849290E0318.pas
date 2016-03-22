@@ -3,6 +3,8 @@ unit k2Object_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Object_Const.pas"
 // Стереотип: "Atom"
+// Элемент модели: "Object" MUID: (4849290E0318)
+// Имя типа: "ObjectAtom"
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

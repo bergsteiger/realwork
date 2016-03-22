@@ -2,6 +2,7 @@ unit ddCaseCodeTaskPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ddCaseCodeTaskPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddCaseCodeTaskPrim" MUID: (53BA6C3000F7)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evTreeData.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "evTreeData" MUID: (48F895480266)
+// Имя типа: "_evTreeData_"
 
 {$Define evTreeData_imp}
 
@@ -15,7 +17,6 @@ type
   private
    f_ExtData: IDataObject;
    f_Ext: Boolean;
-    {* Поле для свойства Ext }
   protected
    function ExtData: IDataObject;
    function MakeExtData: IDataObject; virtual;

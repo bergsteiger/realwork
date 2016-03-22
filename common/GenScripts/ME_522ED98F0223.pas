@@ -3,6 +3,7 @@ unit NOT_FINISHED_evInterface;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evInterface.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevInterface" MUID: (522ED98F0223)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

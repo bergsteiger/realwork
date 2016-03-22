@@ -2,6 +2,7 @@ unit csImportTaskPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csImportTaskPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsImportTaskPrim" MUID: (53ABFE3202CF)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

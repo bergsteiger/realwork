@@ -3,6 +3,7 @@ unit eeEditorExportModelPart;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeEditorExportModelPart.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TeeEditorExportModelPart" MUID: (4B877FE00340)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
@@ -29,8 +30,8 @@ uses
  , Classes
 ;
 
+{$If Defined(Nemesis)}
 type
- {$If Defined(Nemesis)}
  TeeBlock = class(TeeDocumentTool, IeeBlock)
   private
    f_ID: Integer;
@@ -64,8 +65,9 @@ type
     anID: Integer;
     aLayerID: Integer): IeeBlock; reintroduce;
  end;//TeeBlock
- {$IfEnd} // Defined(Nemesis)
+{$IfEnd} // Defined(Nemesis)
 
+type
  TeeCanSplitParaEvent = procedure(aSender: TObject;
   const aPara: IeePara;
   var Allow: Boolean) of object;
@@ -79,11 +81,8 @@ type
   {* Часть TeeEditorExport перенесённная на модель }
   private
    f_OnCanSplitPara: TeeCanSplitParaEvent;
-    {* Поле для свойства OnCanSplitPara }
    f_OnBlockChange: TeeBlockChangeEvent;
-    {* Поле для свойства OnBlockChange }
    f_OnBlockScroll: TeeBlockScrollEvent;
-    {* Поле для свойства OnBlockScroll }
   protected
    function AsIeeDocumentEx: IeeDocumentEx; virtual; abstract;
    function CanInsertParaOnMove: Boolean;

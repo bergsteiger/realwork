@@ -3,6 +3,7 @@ unit BaseSearchCard_ut_BaseSearchCard_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\BaseSearchCard_ut_BaseSearchCard_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_BaseSearchCard" MUID: (9CF9D22D891B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_BaseSearchCard = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_BaseSearchCard }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_BaseSearchCard
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_BaseSearchCard.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_BaseSearchCard';
-end;//Tkw_FormUserType_ut_BaseSearchCard.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_BaseSearchCard.GetInteger: Integer;
 begin
  Result := ut_BaseSearchCard;
 end;//Tkw_FormUserType_ut_BaseSearchCard.GetInteger
+
+class function Tkw_FormUserType_ut_BaseSearchCard.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_BaseSearchCard';
+end;//Tkw_FormUserType_ut_BaseSearchCard.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

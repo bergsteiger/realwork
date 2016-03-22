@@ -3,6 +3,7 @@ unit vcmFormSetDataSource;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmFormSetDataSource" MUID: (494141D20217)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

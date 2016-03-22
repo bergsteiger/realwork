@@ -3,6 +3,7 @@ unit l3ProtoObjectPtrList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoObjectPtrList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProtoObjectPtrList" MUID: (4CE5224102C0)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

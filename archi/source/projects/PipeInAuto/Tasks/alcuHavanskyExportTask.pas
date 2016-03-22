@@ -60,6 +60,7 @@ implementation
 uses
   daInterfaces,
   daTypes,
+  daSchemeConsts,
   dt_Query, dt_SrchQueries,
   dt_AttrSchema,
   {$If defined(AppServerSide)}

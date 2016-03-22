@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwSysUtilsWordUses.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "tfwSysUtilsWordUses" MUID: (54D4C583002A)
+// Имя типа: "_tfwSysUtilsWordUses_"
 
 {$Define tfwSysUtilsWordUses_imp}
 

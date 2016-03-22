@@ -2,6 +2,8 @@ unit kwCheckEtalon;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCheckEtalon.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "CheckEtalon" MUID: (4DD547B70001)
+// Имя типа: "TkwCheckEtalon"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -1,77 +1,54 @@
 unit DeleteSectionBreakTest;
+ {* Тест на удаление раздела. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/DeleteSectionBreakTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TDeleteSectionBreakTest
-//
-// Тест на удаление раздела.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\DeleteSectionBreakTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TDeleteSectionBreakTest" MUID: (4CAC461C016C)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  DrawTestPrim,
-  PrimTextLoad_Form
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , DrawTestPrim
+ , PrimTextLoad_Form
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TDeleteSectionBreakTest = {abstract} class(TDrawTestPrim)
   {* Тест на удаление раздела. }
- protected
- // realized methods
+  protected
    procedure DoBeforeDrawing(aForm: TPrimTextLoadForm); override;
-     {* Произвести какие-нибудь операции перед отрисовкой. }
- protected
- // overridden protected methods
+    {* Произвести какие-нибудь операции перед отрисовкой. }
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TDeleteSectionBreakTest
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  ,
-  TestFrameWork,
-  nevTools,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TDeleteSectionBreakTest
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , TestFrameWork
+ , nevTools
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 procedure TDeleteSectionBreakTest.DoBeforeDrawing(aForm: TPrimTextLoadForm);
+ {* Произвести какие-нибудь операции перед отрисовкой. }
 //#UC START# *4CAC45AE011E_4CAC461C016C_var*
 //#UC END# *4CAC45AE011E_4CAC461C016C_var*
 begin
@@ -81,17 +58,16 @@ begin
 end;//TDeleteSectionBreakTest.DoBeforeDrawing
 
 function TDeleteSectionBreakTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TDeleteSectionBreakTest.GetFolder
 
 function TDeleteSectionBreakTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4CAC461C016C';
 end;//TDeleteSectionBreakTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

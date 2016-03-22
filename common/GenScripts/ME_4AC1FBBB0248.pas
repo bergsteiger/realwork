@@ -3,6 +3,7 @@ unit atOperationImpl;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atOperationImpl.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "atOperationImpl" MUID: (4AC1FBBB0248)
 
 interface
 

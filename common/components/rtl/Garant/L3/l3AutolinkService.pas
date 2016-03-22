@@ -2,6 +2,7 @@ unit l3AutolinkService;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3AutolinkService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3AutolinkService" MUID: (552BF69B039B)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -32,7 +33,7 @@ type
  Tl3AutolinkService = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3AutolinkService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3AutolinkService }
   protected
    procedure pm_SetAlien(const aValue: Il3AutolinkService);
    procedure ClearFields; override;

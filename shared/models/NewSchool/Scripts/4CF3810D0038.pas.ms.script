@@ -32,33 +32,6 @@ FORWARD ME_4CF37C170269
 
 ref; // ME_4CF37B3401D9 TnsConsultationHAFPainter
 
-: ME_A9BB14C0B36A
- CONST UID 'A9BB14C0B36A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация nsConsultationHAFPainterImages' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CF37C170269 // nsConsultationHAFPainterImages
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A9BB14C0B36A Ini_Reg_Class
-
-: ME_0DB87C32D2CD
- CONST UID '0DB87C32D2CD'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CF37C170269 // nsConsultationHAFPainterImages
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_0DB87C32D2CD 
-
 : ME_4CF37C170269
  CONST UID '4CF37C170269'
  CONST Name 'nsConsultationHAFPainterImages'
@@ -73,18 +46,10 @@ ref; // ME_0DB87C32D2CD
    Seq: ( WL 'ME_4AAA214A0250' '4AB0997B00A2.pas.ms.script' // TDataModule
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A9BB14C0B36A // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_4CF37B3401D9 // TnsConsultationHAFPainter
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_0DB87C32D2CD // 
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "author" 'Люлин А.В.'
  CONST "base wnd class" 'CWnd'
@@ -119,7 +84,6 @@ ref; // ME_4CF37C170269 nsConsultationHAFPainterImages
  : Depends
    Seq: ( WL 'ME_491DCA2C00A9' '491DCA2C00A9.pas.ms.script' // Search
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

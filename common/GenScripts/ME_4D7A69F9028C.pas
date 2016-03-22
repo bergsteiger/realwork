@@ -2,6 +2,8 @@ unit PrimDictionContainer_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimDictionContainer_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "PrimDictionContainer" MUID: (4D7A69F9028C)
+// Имя типа: "TPrimDictionContainerForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

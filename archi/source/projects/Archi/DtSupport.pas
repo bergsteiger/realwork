@@ -37,6 +37,7 @@ implementation
 Uses
  l3Bits,
  daDataProvider,
+ daSchemeConsts,
  dt_Acces;
 
 function dsIsAllowEditDict(aDictID : TdaDictionaryType) : Boolean;

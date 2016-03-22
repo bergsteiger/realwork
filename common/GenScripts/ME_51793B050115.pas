@@ -2,6 +2,8 @@ unit kwPopControlScrollInfoMin;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopControlScrollInfoMin.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_control_ScrollInfo_Min" MUID: (51793B050115)
+// Имя типа: "TkwPopControlScrollInfoMin"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

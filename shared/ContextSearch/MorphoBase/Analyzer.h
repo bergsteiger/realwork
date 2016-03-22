@@ -24,12 +24,11 @@ class Analyzer {
 //////////////////////////////////////////////////////////////////////////////////////////
 // self methods
 public:
-	// проверка на идентичность слов в запросе
-	static bool is_identical (const Search::PhraseEx& request);
+	// проверка на цифры
+	static bool is_digits (const Search::PhraseEx& in);
 
-private:
-	// получить слово
-	static void get_value (const std::string& in, std::string& out);
+	// проверка на идентичность слов в запросе
+	static bool is_identical (const Search::PhraseEx& in);
 
 }; // class Analyzer
 

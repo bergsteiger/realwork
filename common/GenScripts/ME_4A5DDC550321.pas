@@ -3,6 +3,8 @@ unit TableTextPara_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\TableTextPara_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "TableTextPara" MUID: (4A5DDC550321)
+// Имя типа: "TableTextParaTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

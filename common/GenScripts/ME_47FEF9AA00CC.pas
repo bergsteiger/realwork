@@ -3,6 +3,7 @@ unit dsListInfo;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\dsListInfo.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsListInfo" MUID: (47FEF9AA00CC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

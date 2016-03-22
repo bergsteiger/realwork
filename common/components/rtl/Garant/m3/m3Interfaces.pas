@@ -7,7 +7,7 @@ unit m3Interfaces;
 // Модуль: "w:/common/components/rtl/Garant/m3/m3Interfaces.pas"
 // Начат: 18.08.2004 19:38
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi For Archi::m3::m3Interfaces
+// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Low Level::m3::m3Interfaces
 //
 // Базовые интерфейсы библиотеки.
 //

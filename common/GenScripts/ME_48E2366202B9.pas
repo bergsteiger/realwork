@@ -2,6 +2,7 @@ unit evQueryCardEditorHotSpot;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evQueryCardEditorHotSpot.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevQueryCardEditorHotSpot" MUID: (48E2366202B9)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit IntStack;
 
 // Модуль: "w:\common\components\SandBox\IntStack.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TIntStack" MUID: (51545E1E004A)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

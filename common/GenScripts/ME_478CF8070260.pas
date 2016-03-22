@@ -3,6 +3,7 @@ unit l3IID;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3IID.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "l3IID" MUID: (478CF8070260)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -1,9 +1,15 @@
 unit alcuCourtDecision;
 { Простановка меток FirstSubNumber и SecondSubNumber в Судебных решениях }
 
-{ $Id: alcuCourtDecision.pas,v 1.6 2015/07/02 07:34:38 lukyanets Exp $ }
+{ $Id: alcuCourtDecision.pas,v 1.8 2016/02/29 07:07:18 lukyanets Exp $ }
 
 // $Log: alcuCourtDecision.pas,v $
+// Revision 1.8  2016/02/29 07:07:18  lukyanets
+// Не собиралось
+//
+// Revision 1.7  2015/11/26 08:45:26  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.6  2015/07/02 07:34:38  lukyanets
 // Описываем словари
 //
@@ -271,11 +277,12 @@ Uses
  SysUtils, StrUtils,
  daInterfaces,
  daTypes,
+ daSchemeConsts,
  dt_Types, dt_Const, dt_AttrSchema, dt_Hyper,
  dt_Serv, dt_Query, dt_SrchQueries,
  l3Date,
  k2Tags,
- evParaTools, evIntf, evSearch, evTypes, evStdInt, evdStyles, evdTypes,
+ evParaTools, evIntf, evSearch, evTypes, evdStyles, evdTypes,
  nevTools, evTextSource, evOpProc, evFacadeSub, evFacadTextSource,
   l3LongintListPrim, dtIntf, dt_Sab,
   evStubs
@@ -380,8 +387,6 @@ begin
  NotValidDocList.Clear;
  f_WorkedDocs:= 0;
 end;
-
-
 
 procedure TalcuCourtDecisionSubMaker.Execute(aDocSource: Integer; aTextList,
     aReport: TStrings);

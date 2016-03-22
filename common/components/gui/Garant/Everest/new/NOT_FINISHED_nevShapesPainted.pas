@@ -3,6 +3,7 @@ unit NOT_FINISHED_nevShapesPainted;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_nevShapesPainted.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevShapesPainted" MUID: (4811DA3100E6)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

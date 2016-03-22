@@ -2,6 +2,7 @@ unit tfwCStringArraySing;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCStringArraySing.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwCStringArraySing" MUID: (4F4D38740342)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

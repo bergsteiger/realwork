@@ -30,6 +30,7 @@ class SectionTypeConverter :
 				this->add (GblPilot::ST_BUSINESS_REFERENCES, ST_BUSINESS_REFERENCES);
 				this->add (GblPilot::ST_CHANGES_IN_LEGISLATION, ST_CHANGES_IN_LEGISLATION);				
 				this->add (GblPilot::ST_LAW_FOR_ALL, ST_LAW_FOR_ALL);				
+				this->add (GblPilot::ST_GOS_ZAKUPKI, ST_GOS_ZAKUPKI);				
 				//#UC END# *4E313DB8007F_FILL_ARRAY_IMPLEMENTATION*
 		}
 }; // class SectionTypeConverter

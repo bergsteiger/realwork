@@ -2,6 +2,7 @@ unit nsMainMenuNew;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\nsMainMenuNew.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsMainMenuNew" MUID: (4AC9A3F801F3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

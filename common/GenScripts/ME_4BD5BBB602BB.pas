@@ -3,6 +3,7 @@ unit PrimSaveLoadUserTypes_slqtPublishSource_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtPublishSource_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "slqtPublishSource" MUID: (4BD5BBB602BB)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtPublishSource = {final} class(TtfwInteger)
   {* Слово словаря для типа формы slqtPublishSource }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_slqtPublishSource
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_slqtPublishSource.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::slqtPublishSource';
-end;//Tkw_FormUserType_slqtPublishSource.GetWordNameForRegister
-
 function Tkw_FormUserType_slqtPublishSource.GetInteger: Integer;
 begin
  Result := slqtPublishSource;
 end;//Tkw_FormUserType_slqtPublishSource.GetInteger
+
+class function Tkw_FormUserType_slqtPublishSource.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::slqtPublishSource';
+end;//Tkw_FormUserType_slqtPublishSource.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

@@ -2,6 +2,7 @@ unit NOT_FINISHED_k2CustomReader;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2CustomReader.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2CustomReader" MUID: (482D6ED9000A)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

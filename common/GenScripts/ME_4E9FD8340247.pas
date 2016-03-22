@@ -3,6 +3,7 @@ unit evdHyperlinkEliminator;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdHyperlinkEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdHyperlinkEliminator" MUID: (4E9FD8340247)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

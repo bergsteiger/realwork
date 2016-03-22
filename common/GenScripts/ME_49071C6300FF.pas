@@ -2,6 +2,7 @@ unit nsMedicFirmsSubscribersList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\nsMedicFirmsSubscribersList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsMedicFirmsSubscribersList" MUID: (49071C6300FF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

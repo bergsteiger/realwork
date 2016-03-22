@@ -3,6 +3,8 @@ unit RememberPassword_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\RememberPassword_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "RememberPassword" MUID: (4A93EC78039E)
+// Имя типа: "TRememberPasswordForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

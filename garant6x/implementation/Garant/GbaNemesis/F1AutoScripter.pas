@@ -1,88 +1,65 @@
 unit F1AutoScripter;
+ {* Скрипт с поддержкой авторегистрации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Shell Tests Core"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1AutoScripter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> F1 Поддержка тестов::F1 Shell Tests Core::Core::TF1AutoScripter
-//
-// Скрипт с поддержкой авторегистрации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1AutoScripter.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TF1AutoScripter" MUID: (4DC3F6DD00F1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\GbaNemesis\nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  InsiderOwnScripter
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , InsiderOwnScripter
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TF1AutoScripter = {abstract} class(TInsiderOwnScripter)
   {* Скрипт с поддержкой авторегистрации }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
    function ResolveScriptFilePath(const aFileName: AnsiString): AnsiString; override;
    class function IsScript: Boolean; override;
-     {* Хак для конструктора - из-за хитрой иерархии и кучи конструкторов в TTestSuite. }
+    {* Хак для конструктора - из-за хитрой иерархии и кучи конструкторов в TTestSuite. }
  end;//TF1AutoScripter
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  StrUtils,
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(Admin)}
-  ,
-  nsQueryInterfaces
-  {$IfEnd} //not Admin
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  nsUtils,
-  nsConst,
-  bsTypesNew,
-  tfwScriptEngine
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TF1AutoScripter
+ l3ImplUses
+ , SysUtils
+ , StrUtils
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(Admin)}
+ , nsQueryInterfaces
+ {$IfEnd} // NOT Defined(Admin)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsUtils
+ , nsConst
+ , bsTypesNew
+ , tfwScriptEngine
+;
 
 function TF1AutoScripter.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Core';
 end;//TF1AutoScripter.GetFolder
 
 function TF1AutoScripter.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4DC3F6DD00F1';
 end;//TF1AutoScripter.GetModelElementGUID
@@ -103,6 +80,7 @@ begin
 end;//TF1AutoScripter.ResolveScriptFilePath
 
 class function TF1AutoScripter.IsScript: Boolean;
+ {* Хак для конструктора - из-за хитрой иерархии и кучи конструкторов в TTestSuite. }
 //#UC START# *4DC395670274_4DC3F6DD00F1_var*
 //#UC END# *4DC395670274_4DC3F6DD00F1_var*
 begin
@@ -110,7 +88,6 @@ begin
  Result := True;
 //#UC END# *4DC395670274_4DC3F6DD00F1_impl*
 end;//TF1AutoScripter.IsScript
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

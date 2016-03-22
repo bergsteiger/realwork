@@ -1,62 +1,43 @@
 unit LongintListTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Containers"
-// Модуль: "w:/common/components/rtl/Garant/Containers/LongintListTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Core Tests::Containers::Lists::TLongintListTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\Garant\Containers\LongintListTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TLongintListTest" MUID: (515D7BB10393)
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(nsTest)}
 type
  TLongintListTest = class(TBaseTest)
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+  published
    procedure DoIt;
  end;//TLongintListTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  l3LongintList,
-  SysUtils,
-  l3Base,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest
+ l3ImplUses
+ , l3LongintList
+ , SysUtils
+ , l3Base
+ , TestFrameWork
+;
 
-{$If defined(nsTest)}
-
-// start class TLongintListTest
-
+{$If NOT Defined(NotTunedDUnit)}
 procedure TLongintListTest.DoIt;
 //#UC START# *515D7BE60141_515D7BB10393_var*
 const
@@ -89,20 +70,20 @@ begin
 end;//TLongintListTest.DoIt
 
 function TLongintListTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Lists';
 end;//TLongintListTest.GetFolder
 
 function TLongintListTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '515D7BB10393';
 end;//TLongintListTest.GetModelElementGUID
 
-{$IfEnd} //nsTest
-
 initialization
  TestFramework.RegisterTest(TLongintListTest.Suite);
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
+{$IfEnd} // Defined(nsTest)
 end.

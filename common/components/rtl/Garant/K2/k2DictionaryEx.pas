@@ -2,6 +2,7 @@ unit k2DictionaryEx;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2DictionaryEx.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2DictionaryEx" MUID: (535664EC03B3)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
@@ -26,7 +27,6 @@ type
  Tk2DictionaryEx = class(Tk2Dictionary)
   private
    f_AtomType: Tk2Type;
-    {* Поле для свойства AtomType }
   protected
    f_LastRec: TLastRec;
   protected

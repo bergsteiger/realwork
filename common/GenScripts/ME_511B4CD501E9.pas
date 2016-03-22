@@ -2,6 +2,8 @@ unit ToK;
 
 // Модуль: "w:\common\components\SearchTest\ToK.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "ToK" MUID: (511B4CD501E9)
+// Имя типа: "TToK"
 
 interface
 

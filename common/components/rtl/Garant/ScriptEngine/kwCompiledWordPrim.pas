@@ -2,6 +2,7 @@ unit kwCompiledWordPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledWordPrim" MUID: (52D3C5F90029)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

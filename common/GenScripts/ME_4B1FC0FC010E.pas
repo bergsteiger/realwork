@@ -2,6 +2,7 @@ unit nsIDocumentDataObject;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsIDocumentDataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsIDocumentDataObject" MUID: (4B1FC0FC010E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

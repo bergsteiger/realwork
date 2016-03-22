@@ -3,6 +3,7 @@ unit NOT_FINISHED_dd_lcVASCodeCorrector;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcVASCodeCorrector.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tdd_lcVASCodeCorrector" MUID: (4EA5357000CB)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

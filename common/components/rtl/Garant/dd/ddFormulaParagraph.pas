@@ -21,7 +21,8 @@ interface
 uses
   l3Base,
   ddTextParagraph,
-  k2Interfaces
+  k2Interfaces,
+  ddTypes
   ;
 
 type
@@ -33,7 +34,7 @@ type
  // overridden public methods
    procedure Write2Generator(const Generator: Ik2TagGenerator;
      aNeedProcessRow: Boolean;
-     LiteVersion: Boolean); override;
+     LiteVersion: TddLiteVersion); override;
  public
  // public properties
    property FormulaText: Tl3String
@@ -60,7 +61,7 @@ end;//TddFormulaParagraph.pm_GetFormulaText
 
 procedure TddFormulaParagraph.Write2Generator(const Generator: Ik2TagGenerator;
   aNeedProcessRow: Boolean;
-  LiteVersion: Boolean);
+  LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_54F834440140_var*
 //#UC END# *518A504F00F5_54F834440140_var*
 begin

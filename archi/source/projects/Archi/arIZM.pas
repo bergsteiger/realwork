@@ -1,8 +1,14 @@
 unit arIZM;
 
-{ $Id: arIZM.pas,v 1.26 2015/07/07 14:59:57 voba Exp $ }
+{ $Id: arIZM.pas,v 1.28 2015/11/25 14:01:28 lukyanets Exp $ }
 
 // $Log: arIZM.pas,v $
+// Revision 1.28  2015/11/25 14:01:28  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
+// Revision 1.27  2015/11/10 15:07:22  voba
+// - Неправильно вычисляли ИЗМ
+//
 // Revision 1.26  2015/07/07 14:59:57  voba
 // -bf
 //
@@ -88,7 +94,9 @@ uses
  l3Base,
  dt_Types,
  dt_AttrSchema,
- dtIntf, dt_Sab;
+ dtIntf,
+ dt_Sab,
+ DocIntf;
 
 type
  TarIZMChecker = class(Tl3Base)
@@ -99,12 +107,15 @@ type
   f_IzmDopType: TDictID;
   f_NamePattern: string;
   procedure CalcNamePattern;
-  function CheckoutForIZMPrim(aDocID: TDocID): Boolean;
+  function CheckoutForIZMPrim(aDocID: TDocID): Boolean;    overload;
+  function CheckoutForIZMPrim(aDoc: TarDocument): Boolean; overload;
   procedure SetIZM(aDocID: TDocID);
  protected
   procedure Cleanup; override;
  public
   constructor Create;
+  //function  CheckoutForIZM(aDoc: TarDocument): Boolean; overload;
+  function  CheckoutForIZM(const aDoc: TarDocument): Boolean; overload;
   function  CheckoutForIZM(aDocID: TDocID): Boolean; overload;
   procedure CheckoutForIZM(const aDocSab : ISab); overload;
   function  CheckoutForIZM(const aDocSab : ISab; out theDocIdsForIZM : ISab): Integer; overload;
@@ -121,16 +132,20 @@ uses
  l3String,
  l3RegEx,
 
+ k2Tags,
  Base_CFG,
 
  daTypes,
+ daSchemeConsts,
 
  DT_Const,
  DT_Doc,
  DT_Dict,
  DT_Link, DT_LinkServ, Dt_aTbl,
  dt_Record,
- dt_DictConst;
+ dt_DictConst,
+ DocAttrIntf,
+ DocAttrToolsIntf;
 
 var
  g_IZMChecker : TarIZMChecker = nil;
@@ -180,7 +195,101 @@ begin
   finally
    lDocRec.Unlock;
   end;
- end; 
+ end;
+end;
+
+
+function TarIZMChecker.CheckoutForIZMPrim(aDoc: TarDocument): Boolean;
+var
+ l_RExp    : Tl3RegularSearch;
+ l_NumStr  : string;
+ l_TmpPos  : Tl3MatchPosition;
+ lFullName : AnsiString;
+ I         : Integer;
+ l_Str     : string;
+
+begin
+ Result := False;
+
+ // если IZM уже стоит или редакция не действует, то и делать ничего не надо
+ if not (aDoc.UserType in [utNone,utDoc]) then
+  Exit;
+
+ lFullName := l3Str(aDoc.Name);
+
+ with (aDoc.Attribute[atTypes] as IDictAttributeTool) do
+ begin
+  // Проверяем тип "Изменения и дополнения"
+  if f_IzmDopType > 0 then
+  begin
+   if (GetIndexByHandle(f_IzmDopType) >= 0) then
+   begin
+    Result := True;
+    Exit;
+   end;
+  end;
+
+  // Проверяем тип "Бераторы"
+  if f_BeratorType > 0 then
+  begin
+    if (GetIndexByHandle(f_BeratorType) >= 0) then
+   begin
+    if AnsiContainsText(lFullName, 'обновление тома') or
+       AnsiContainsText(lFullName, 'обновление электронной версии') then
+    begin
+     Result := True;
+     Exit;
+    end;
+   end;
+  end;
+
+ // Проверяем тип "Досье на проект закона"
+  if f_DossierType > 0 then
+  begin
+   if (GetIndexByHandle(f_DossierType) >= 0) then
+   begin
+    Result := True;
+    Exit;
+   end;
+  end;
+ end;//with (aDoc.Attribute[atTypes] as IDictAttributeTool) do
+
+
+ l_NumStr := '';
+ with aDoc.Attribute[atDateNums] as IListDocAttribute do
+ for I := 0 to pred(Count) do
+ begin
+  l_Str := l3Str(Child[I].PCharLenA[k2_tiNumber]);
+  if l_Str <> '' then
+  begin
+   if l_NumStr <> '' then
+    l_NumStr := l_NumStr + '|';
+   l_NumStr := l_NumStr + '(' + ConvertStrToRegular(l_Str) + ')';
+  end;
+ end;
+ if l_NumStr <> '' then
+ begin
+  l_RExp := Tl3RegularSearch.Create;
+  try
+   l_RExp.IgnoreCase := True;
+   try
+    l_RExp.SearchPattern := Format('(%s)%s', [l_NumStr, f_NamePattern]);
+    //l3System.Str2Log(Format('dbg GetNamePattern = (%s)%s', [l_NumStr, f_NamePattern]));
+    //l3System.Str2Log(Format('dbg lFullName = (%s)', [lFullName]));
+    if l_RExp.SearchInString(PAnsiChar(lFullName), 0, Length(lFullName), l_TmpPos) then
+    begin
+     //l3System.Str2Log(Format('dbg l_RExp.SearchInString found at %d-%d', [l_TmpPos.StartPos, l_TmpPos.EndPos]));
+     Result := True;
+     Exit;
+    end;
+   except
+    l3System.Str2Log(Format('GetNamePattern = (%s)%s', [l_NumStr, f_NamePattern]));
+    raise;
+   end;
+  finally
+   l3Free(l_RExp);
+  end; // try..finally
+ end; // if l_NumStr <> ''
 end;
 
 function TarIZMChecker.CheckoutForIZMPrim(aDocID: TDocID): Boolean;
@@ -303,8 +412,11 @@ begin
       l_RExp.IgnoreCase := True;
       try
        l_RExp.SearchPattern := Format('(%s)%s', [l_NumStr, f_NamePattern]);
+       //l3System.Str2Log(Format('dbg GetNamePattern = (%s)%s', [l_NumStr, f_NamePattern]));
+       //l3System.Str2Log(Format('dbg lFullName = (%s)', [lFullName]));
        if l_RExp.SearchInString(PAnsiChar(lFullName), 0, Length(lFullName), l_TmpPos) then
        begin
+        //l3System.Str2Log(Format('dbg l_RExp.SearchInString found at %d-%d', [l_TmpPos.StartPos, l_TmpPos.EndPos]));
         Result := True;
         Exit;
        end;
@@ -321,11 +433,19 @@ begin
  //end; // if l_Temp > 0
 end;
 
+
 function TarIZMChecker.CheckoutForIZM(aDocID: TDocID): Boolean;
 begin
  Result := CheckoutForIZMPrim(aDocID);
  if Result then
   SetIZM(aDocID);
+end;
+
+function  TarIZMChecker.CheckoutForIZM(const aDoc: TarDocument): Boolean;
+begin
+ Result := CheckoutForIZMPrim(aDoc);
+ if Result then
+  aDoc.UserType := utIzm;
 end;
 
 procedure TarIZMChecker.CheckoutForIZM(const aDocSab : ISab);

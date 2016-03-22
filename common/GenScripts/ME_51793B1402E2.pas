@@ -2,6 +2,8 @@ unit kwPopControlScrollInfoPageSize;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopControlScrollInfoPageSize.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_control_ScrollInfo_PageSize" MUID: (51793B1402E2)
+// Имя типа: "TkwPopControlScrollInfoPageSize"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

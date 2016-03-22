@@ -2,6 +2,7 @@ unit Runner;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Runner.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TRunner" MUID: (4DE8C9DB02AD)
 
 interface
 

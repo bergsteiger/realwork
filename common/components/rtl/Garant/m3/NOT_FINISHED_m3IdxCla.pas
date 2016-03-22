@@ -2,6 +2,7 @@ unit NOT_FINISHED_m3IdxCla;
 
 // Модуль: "w:\common\components\rtl\Garant\m3\NOT_FINISHED_m3IdxCla.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "m3IdxCla" MUID: (53FF3607026E)
 
 {$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 

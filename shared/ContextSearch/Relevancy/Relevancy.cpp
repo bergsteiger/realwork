@@ -31,12 +31,12 @@ IAlgorithmFactory::KeySet* IAlgorithmFactory::keys () {
 	return IAlgorithmFactoryManager::keys ();
 }
 
-// factory interface wrapper for IBlockAlgorithm
-IBlockAlgorithm* IBlockAlgorithmFactory::make (
+// factory interface wrapper for IBlocksAlgorithm
+IBlocksAlgorithm* IBlocksAlgorithmFactory::make (
 	const Data& req_data
 	, const AlgorithmProperties& properties
 ) /*throw (Core::Root::NoActiveFactory, Core::Root::FactoryManagerWasDestroyed)*/ {
-	return IBlockAlgorithmFactoryManager::Singleton::instance ()->make (req_data, properties);
+	return IBlocksAlgorithmFactoryManager::Singleton::instance ()->make (req_data, properties);
 }
 
 } // namespace Relevancy

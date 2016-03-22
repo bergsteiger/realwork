@@ -2,6 +2,7 @@ unit vtDateEdit;
 
 // Модуль: "w:\common\components\gui\Garant\VT\vtDateEdit.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvtDateEdit" MUID: (4AA8AB7B038F)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
@@ -279,6 +280,7 @@ type
 
 The AfterConstruction method implemented in TObject does nothing. Override this method when creating a class that takes some action after the object is created. For example, TCustomForm overrides AfterConstruction to generate an OnCreate event. }
    {$IfEnd} // Defined(DesignTimeLibrary)
+   procedure ClearFields; override;
   public
    property DateText: AnsiString
     read f_DateText
@@ -1628,6 +1630,12 @@ begin
 //#UC END# *49F057120234_554CBF5C01D8_impl*
 end;//TvtCalendarForm.AfterConstruction
 {$IfEnd} // Defined(DesignTimeLibrary)
+
+procedure TvtCalendarForm.ClearFields;
+begin
+ DateText := '';
+ inherited;
+end;//TvtCalendarForm.ClearFields
 
 procedure TDblClickPopupCalendar.OkClick(Sender: TObject);
 //#UC START# *5562DEB2009F_5562DE9702A4_var*

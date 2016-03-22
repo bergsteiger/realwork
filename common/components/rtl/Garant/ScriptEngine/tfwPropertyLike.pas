@@ -2,6 +2,7 @@ unit tfwPropertyLike;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwPropertyLike.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwPropertyLike" MUID: (5619169603BE)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

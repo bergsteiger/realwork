@@ -2,6 +2,7 @@ unit atBaseSearchOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atBaseSearchOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatBaseSearchOperation" MUID: (483D28C30393)
 
 interface
 

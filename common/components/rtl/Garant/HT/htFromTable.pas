@@ -70,7 +70,6 @@ function ThtFromTable.Get_Handle: ThtTblHandle;
 begin
 //#UC START# *555C8490016F_55530BB9007Aget_impl*
  Result := f_Handle;
-// !!! Needs to be implemented !!!
 //#UC END# *555C8490016F_55530BB9007Aget_impl*
 end;//ThtFromTable.Get_Handle
 

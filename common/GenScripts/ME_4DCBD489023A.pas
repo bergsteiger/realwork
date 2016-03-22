@@ -3,6 +3,7 @@ unit tfwWordWorker;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorker.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwWordWorker" MUID: (4DCBD489023A)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

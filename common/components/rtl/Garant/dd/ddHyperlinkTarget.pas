@@ -20,7 +20,8 @@ interface
 
 uses
   ddBaseObject,
-  k2Interfaces
+  k2Interfaces,
+  ddTypes
   ;
 
 type
@@ -36,7 +37,7 @@ type
  protected
  // realized methods
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aLiteVersion: Boolean); override;
+     aLiteVersion: TddLiteVersion); override;
  public
  // overridden public methods
    procedure Assign(anObject: TddBaseObject); override;
@@ -80,7 +81,7 @@ begin
 end;//TddHyperlinkTarget.Create
 
 procedure TddHyperlinkTarget.Write2Generator(const Generator: Ik2TagGenerator;
-  aLiteVersion: Boolean);
+  aLiteVersion: TddLiteVersion);
 //#UC START# *54DC9795018B_525D26AF0039_var*
 //#UC END# *54DC9795018B_525D26AF0039_var*
 begin
@@ -108,7 +109,7 @@ begin
  begin
   f_DocID := TddHyperlinkTarget(anObject).DocID;
   f_SubID := TddHyperlinkTarget(anObject).SubID;
- end
+ end // if anObject is TddHyperlinkTarget then
  else
   inherited;
 //#UC END# *52BACF8A01A9_525D26AF0039_impl*

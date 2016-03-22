@@ -3,6 +3,8 @@ unit CompInfo_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CompInfo_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "CompInfo" MUID: (4ABB769903BF)
+// Имя типа: "TenCompInfo"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

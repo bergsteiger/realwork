@@ -3,6 +3,7 @@ unit evPageBreakPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evPageBreakPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevPageBreakPainter" MUID: (480C9D5E01EE)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

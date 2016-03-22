@@ -3,6 +3,7 @@ unit RegistrationFormKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\RegistrationFormKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "RegistrationFormKeywordsPack" MUID: (10DC24E559DA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -55,8 +56,8 @@ type
 'aControl' форма::RegistrationForm TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_RegistrationForm
 
  Tkw_RegistrationForm_Control_pnMainData = {final} class(TtfwControlString)
@@ -67,9 +68,9 @@ type
 контрол::pnMainData TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_pnMainData
 
  Tkw_RegistrationForm_Control_pnMainData_Push = {final} class(TkwBynameControlPush)
@@ -92,9 +93,9 @@ type
 контрол::UserNameLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_UserNameLabel
 
  Tkw_RegistrationForm_Control_UserNameLabel_Push = {final} class(TkwBynameControlPush)
@@ -117,9 +118,9 @@ type
 контрол::PasswordLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_PasswordLabel
 
  Tkw_RegistrationForm_Control_PasswordLabel_Push = {final} class(TkwBynameControlPush)
@@ -142,9 +143,9 @@ type
 контрол::LoginLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_LoginLabel
 
  Tkw_RegistrationForm_Control_LoginLabel_Push = {final} class(TkwBynameControlPush)
@@ -167,9 +168,9 @@ type
 контрол::InfoLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_InfoLabel
 
  Tkw_RegistrationForm_Control_InfoLabel_Push = {final} class(TkwBynameControlPush)
@@ -192,9 +193,9 @@ type
 контрол::EMailLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_EMailLabel
 
  Tkw_RegistrationForm_Control_EMailLabel_Push = {final} class(TkwBynameControlPush)
@@ -217,9 +218,9 @@ type
 контрол::ConfirmPasswordLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_ConfirmPasswordLabel
 
  Tkw_RegistrationForm_Control_ConfirmPasswordLabel_Push = {final} class(TkwBynameControlPush)
@@ -242,9 +243,9 @@ type
 контрол::vtAsteriskLabelLogin TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_vtAsteriskLabelLogin
 
  Tkw_RegistrationForm_Control_vtAsteriskLabelLogin_Push = {final} class(TkwBynameControlPush)
@@ -267,9 +268,9 @@ type
 контрол::vtAsteriskLabelFIO TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_vtAsteriskLabelFIO
 
  Tkw_RegistrationForm_Control_vtAsteriskLabelFIO_Push = {final} class(TkwBynameControlPush)
@@ -292,9 +293,9 @@ type
 контрол::edPassword TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_edPassword
 
  Tkw_RegistrationForm_Control_edPassword_Push = {final} class(TkwBynameControlPush)
@@ -317,9 +318,9 @@ type
 контрол::edUserName TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_edUserName
 
  Tkw_RegistrationForm_Control_edUserName_Push = {final} class(TkwBynameControlPush)
@@ -342,9 +343,9 @@ type
 контрол::edLogin TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_edLogin
 
  Tkw_RegistrationForm_Control_edLogin_Push = {final} class(TkwBynameControlPush)
@@ -367,9 +368,9 @@ type
 контрол::edEmail TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_edEmail
 
  Tkw_RegistrationForm_Control_edEmail_Push = {final} class(TkwBynameControlPush)
@@ -392,9 +393,9 @@ type
 контрол::edConfirm TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_edConfirm
 
  Tkw_RegistrationForm_Control_edConfirm_Push = {final} class(TkwBynameControlPush)
@@ -417,9 +418,9 @@ type
 контрол::cbAutoLogin TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_cbAutoLogin
 
  Tkw_RegistrationForm_Control_cbAutoLogin_Push = {final} class(TkwBynameControlPush)
@@ -442,9 +443,9 @@ type
 контрол::NewUserGroupBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_NewUserGroupBox
 
  Tkw_RegistrationForm_Control_NewUserGroupBox_Push = {final} class(TkwBynameControlPush)
@@ -467,9 +468,9 @@ type
 контрол::NewUserLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_NewUserLabel
 
  Tkw_RegistrationForm_Control_NewUserLabel_Push = {final} class(TkwBynameControlPush)
@@ -492,9 +493,9 @@ type
 контрол::NewUserPaintBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_NewUserPaintBox
 
  Tkw_RegistrationForm_Control_NewUserPaintBox_Push = {final} class(TkwBynameControlPush)
@@ -517,9 +518,9 @@ type
 контрол::BottomPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_BottomPanel
 
  Tkw_RegistrationForm_Control_BottomPanel_Push = {final} class(TkwBynameControlPush)
@@ -542,9 +543,9 @@ type
 контрол::RegisterButton TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_RegisterButton
 
  Tkw_RegistrationForm_Control_RegisterButton_Push = {final} class(TkwBynameControlPush)
@@ -567,9 +568,9 @@ type
 контрол::HelpPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_HelpPanel
 
  Tkw_RegistrationForm_Control_HelpPanel_Push = {final} class(TkwBynameControlPush)
@@ -592,9 +593,9 @@ type
 контрол::HelpPaintBox TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_HelpPaintBox
 
  Tkw_RegistrationForm_Control_HelpPaintBox_Push = {final} class(TkwBynameControlPush)
@@ -617,9 +618,9 @@ type
 контрол::HelpLabel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RegistrationForm_Control_HelpLabel
 
  Tkw_RegistrationForm_Control_HelpLabel_Push = {final} class(TkwBynameControlPush)
@@ -1186,20 +1187,15 @@ OBJECT VAR l_TvtFocusLabel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwRegistrationFormHelpLabel
 
-class function Tkw_Form_RegistrationForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::RegistrationForm';
-end;//Tkw_Form_RegistrationForm.GetWordNameForRegister
-
 function Tkw_Form_RegistrationForm.GetString: AnsiString;
 begin
  Result := 'nsRegistrationForm';
 end;//Tkw_Form_RegistrationForm.GetString
 
-class function Tkw_RegistrationForm_Control_pnMainData.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_RegistrationForm.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::pnMainData';
-end;//Tkw_RegistrationForm_Control_pnMainData.GetWordNameForRegister
+ Result := 'форма::RegistrationForm';
+end;//Tkw_Form_RegistrationForm.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_pnMainData.GetString: AnsiString;
 begin
@@ -1212,6 +1208,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_RegistrationForm_Control_pnMainData.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_pnMainData.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnMainData';
+end;//Tkw_RegistrationForm_Control_pnMainData.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_pnMainData_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnMainData');
@@ -1222,11 +1223,6 @@ class function Tkw_RegistrationForm_Control_pnMainData_Push.GetWordNameForRegist
 begin
  Result := 'контрол::pnMainData:push';
 end;//Tkw_RegistrationForm_Control_pnMainData_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_UserNameLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::UserNameLabel';
-end;//Tkw_RegistrationForm_Control_UserNameLabel.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_UserNameLabel.GetString: AnsiString;
 begin
@@ -1239,6 +1235,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_RegistrationForm_Control_UserNameLabel.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_UserNameLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::UserNameLabel';
+end;//Tkw_RegistrationForm_Control_UserNameLabel.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_UserNameLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('UserNameLabel');
@@ -1249,11 +1250,6 @@ class function Tkw_RegistrationForm_Control_UserNameLabel_Push.GetWordNameForReg
 begin
  Result := 'контрол::UserNameLabel:push';
 end;//Tkw_RegistrationForm_Control_UserNameLabel_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_PasswordLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::PasswordLabel';
-end;//Tkw_RegistrationForm_Control_PasswordLabel.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_PasswordLabel.GetString: AnsiString;
 begin
@@ -1266,6 +1262,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_RegistrationForm_Control_PasswordLabel.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_PasswordLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::PasswordLabel';
+end;//Tkw_RegistrationForm_Control_PasswordLabel.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_PasswordLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('PasswordLabel');
@@ -1276,11 +1277,6 @@ class function Tkw_RegistrationForm_Control_PasswordLabel_Push.GetWordNameForReg
 begin
  Result := 'контрол::PasswordLabel:push';
 end;//Tkw_RegistrationForm_Control_PasswordLabel_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_LoginLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::LoginLabel';
-end;//Tkw_RegistrationForm_Control_LoginLabel.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_LoginLabel.GetString: AnsiString;
 begin
@@ -1293,6 +1289,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_RegistrationForm_Control_LoginLabel.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_LoginLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::LoginLabel';
+end;//Tkw_RegistrationForm_Control_LoginLabel.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_LoginLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('LoginLabel');
@@ -1303,11 +1304,6 @@ class function Tkw_RegistrationForm_Control_LoginLabel_Push.GetWordNameForRegist
 begin
  Result := 'контрол::LoginLabel:push';
 end;//Tkw_RegistrationForm_Control_LoginLabel_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_InfoLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::InfoLabel';
-end;//Tkw_RegistrationForm_Control_InfoLabel.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_InfoLabel.GetString: AnsiString;
 begin
@@ -1320,6 +1316,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_RegistrationForm_Control_InfoLabel.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_InfoLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::InfoLabel';
+end;//Tkw_RegistrationForm_Control_InfoLabel.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_InfoLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('InfoLabel');
@@ -1330,11 +1331,6 @@ class function Tkw_RegistrationForm_Control_InfoLabel_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::InfoLabel:push';
 end;//Tkw_RegistrationForm_Control_InfoLabel_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_EMailLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::EMailLabel';
-end;//Tkw_RegistrationForm_Control_EMailLabel.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_EMailLabel.GetString: AnsiString;
 begin
@@ -1347,6 +1343,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_RegistrationForm_Control_EMailLabel.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_EMailLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::EMailLabel';
+end;//Tkw_RegistrationForm_Control_EMailLabel.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_EMailLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('EMailLabel');
@@ -1357,11 +1358,6 @@ class function Tkw_RegistrationForm_Control_EMailLabel_Push.GetWordNameForRegist
 begin
  Result := 'контрол::EMailLabel:push';
 end;//Tkw_RegistrationForm_Control_EMailLabel_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_ConfirmPasswordLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::ConfirmPasswordLabel';
-end;//Tkw_RegistrationForm_Control_ConfirmPasswordLabel.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_ConfirmPasswordLabel.GetString: AnsiString;
 begin
@@ -1374,6 +1370,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_RegistrationForm_Control_ConfirmPasswordLabel.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_ConfirmPasswordLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ConfirmPasswordLabel';
+end;//Tkw_RegistrationForm_Control_ConfirmPasswordLabel.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_ConfirmPasswordLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('ConfirmPasswordLabel');
@@ -1384,11 +1385,6 @@ class function Tkw_RegistrationForm_Control_ConfirmPasswordLabel_Push.GetWordNam
 begin
  Result := 'контрол::ConfirmPasswordLabel:push';
 end;//Tkw_RegistrationForm_Control_ConfirmPasswordLabel_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_vtAsteriskLabelLogin.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::vtAsteriskLabelLogin';
-end;//Tkw_RegistrationForm_Control_vtAsteriskLabelLogin.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_vtAsteriskLabelLogin.GetString: AnsiString;
 begin
@@ -1401,6 +1397,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_RegistrationForm_Control_vtAsteriskLabelLogin.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_vtAsteriskLabelLogin.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::vtAsteriskLabelLogin';
+end;//Tkw_RegistrationForm_Control_vtAsteriskLabelLogin.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_vtAsteriskLabelLogin_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('vtAsteriskLabelLogin');
@@ -1411,11 +1412,6 @@ class function Tkw_RegistrationForm_Control_vtAsteriskLabelLogin_Push.GetWordNam
 begin
  Result := 'контрол::vtAsteriskLabelLogin:push';
 end;//Tkw_RegistrationForm_Control_vtAsteriskLabelLogin_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_vtAsteriskLabelFIO.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::vtAsteriskLabelFIO';
-end;//Tkw_RegistrationForm_Control_vtAsteriskLabelFIO.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_vtAsteriskLabelFIO.GetString: AnsiString;
 begin
@@ -1428,6 +1424,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_RegistrationForm_Control_vtAsteriskLabelFIO.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_vtAsteriskLabelFIO.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::vtAsteriskLabelFIO';
+end;//Tkw_RegistrationForm_Control_vtAsteriskLabelFIO.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_vtAsteriskLabelFIO_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('vtAsteriskLabelFIO');
@@ -1438,11 +1439,6 @@ class function Tkw_RegistrationForm_Control_vtAsteriskLabelFIO_Push.GetWordNameF
 begin
  Result := 'контрол::vtAsteriskLabelFIO:push';
 end;//Tkw_RegistrationForm_Control_vtAsteriskLabelFIO_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_edPassword.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edPassword';
-end;//Tkw_RegistrationForm_Control_edPassword.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_edPassword.GetString: AnsiString;
 begin
@@ -1455,6 +1451,11 @@ begin
  TtfwClassRef.Register(TnscComboBoxWithPwdChar);
 end;//Tkw_RegistrationForm_Control_edPassword.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_edPassword.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edPassword';
+end;//Tkw_RegistrationForm_Control_edPassword.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_edPassword_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edPassword');
@@ -1465,11 +1466,6 @@ class function Tkw_RegistrationForm_Control_edPassword_Push.GetWordNameForRegist
 begin
  Result := 'контрол::edPassword:push';
 end;//Tkw_RegistrationForm_Control_edPassword_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_edUserName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edUserName';
-end;//Tkw_RegistrationForm_Control_edUserName.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_edUserName.GetString: AnsiString;
 begin
@@ -1482,6 +1478,11 @@ begin
  TtfwClassRef.Register(TnscEdit);
 end;//Tkw_RegistrationForm_Control_edUserName.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_edUserName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edUserName';
+end;//Tkw_RegistrationForm_Control_edUserName.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_edUserName_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edUserName');
@@ -1492,11 +1493,6 @@ class function Tkw_RegistrationForm_Control_edUserName_Push.GetWordNameForRegist
 begin
  Result := 'контрол::edUserName:push';
 end;//Tkw_RegistrationForm_Control_edUserName_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_edLogin.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edLogin';
-end;//Tkw_RegistrationForm_Control_edLogin.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_edLogin.GetString: AnsiString;
 begin
@@ -1509,6 +1505,11 @@ begin
  TtfwClassRef.Register(TnscEdit);
 end;//Tkw_RegistrationForm_Control_edLogin.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_edLogin.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edLogin';
+end;//Tkw_RegistrationForm_Control_edLogin.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_edLogin_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edLogin');
@@ -1519,11 +1520,6 @@ class function Tkw_RegistrationForm_Control_edLogin_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::edLogin:push';
 end;//Tkw_RegistrationForm_Control_edLogin_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_edEmail.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edEmail';
-end;//Tkw_RegistrationForm_Control_edEmail.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_edEmail.GetString: AnsiString;
 begin
@@ -1536,6 +1532,11 @@ begin
  TtfwClassRef.Register(TnscEdit);
 end;//Tkw_RegistrationForm_Control_edEmail.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_edEmail.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edEmail';
+end;//Tkw_RegistrationForm_Control_edEmail.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_edEmail_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edEmail');
@@ -1546,11 +1547,6 @@ class function Tkw_RegistrationForm_Control_edEmail_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::edEmail:push';
 end;//Tkw_RegistrationForm_Control_edEmail_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_edConfirm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::edConfirm';
-end;//Tkw_RegistrationForm_Control_edConfirm.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_edConfirm.GetString: AnsiString;
 begin
@@ -1563,6 +1559,11 @@ begin
  TtfwClassRef.Register(TnscComboBoxWithPwdChar);
 end;//Tkw_RegistrationForm_Control_edConfirm.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_edConfirm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::edConfirm';
+end;//Tkw_RegistrationForm_Control_edConfirm.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_edConfirm_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('edConfirm');
@@ -1573,11 +1574,6 @@ class function Tkw_RegistrationForm_Control_edConfirm_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::edConfirm:push';
 end;//Tkw_RegistrationForm_Control_edConfirm_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_cbAutoLogin.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::cbAutoLogin';
-end;//Tkw_RegistrationForm_Control_cbAutoLogin.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_cbAutoLogin.GetString: AnsiString;
 begin
@@ -1590,6 +1586,11 @@ begin
  TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_RegistrationForm_Control_cbAutoLogin.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_cbAutoLogin.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::cbAutoLogin';
+end;//Tkw_RegistrationForm_Control_cbAutoLogin.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_cbAutoLogin_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('cbAutoLogin');
@@ -1600,11 +1601,6 @@ class function Tkw_RegistrationForm_Control_cbAutoLogin_Push.GetWordNameForRegis
 begin
  Result := 'контрол::cbAutoLogin:push';
 end;//Tkw_RegistrationForm_Control_cbAutoLogin_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_NewUserGroupBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::NewUserGroupBox';
-end;//Tkw_RegistrationForm_Control_NewUserGroupBox.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_NewUserGroupBox.GetString: AnsiString;
 begin
@@ -1617,6 +1613,11 @@ begin
  TtfwClassRef.Register(TvtGroupBox);
 end;//Tkw_RegistrationForm_Control_NewUserGroupBox.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_NewUserGroupBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::NewUserGroupBox';
+end;//Tkw_RegistrationForm_Control_NewUserGroupBox.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_NewUserGroupBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('NewUserGroupBox');
@@ -1627,11 +1628,6 @@ class function Tkw_RegistrationForm_Control_NewUserGroupBox_Push.GetWordNameForR
 begin
  Result := 'контрол::NewUserGroupBox:push';
 end;//Tkw_RegistrationForm_Control_NewUserGroupBox_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_NewUserLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::NewUserLabel';
-end;//Tkw_RegistrationForm_Control_NewUserLabel.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_NewUserLabel.GetString: AnsiString;
 begin
@@ -1644,6 +1640,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_RegistrationForm_Control_NewUserLabel.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_NewUserLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::NewUserLabel';
+end;//Tkw_RegistrationForm_Control_NewUserLabel.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_NewUserLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('NewUserLabel');
@@ -1654,11 +1655,6 @@ class function Tkw_RegistrationForm_Control_NewUserLabel_Push.GetWordNameForRegi
 begin
  Result := 'контрол::NewUserLabel:push';
 end;//Tkw_RegistrationForm_Control_NewUserLabel_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_NewUserPaintBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::NewUserPaintBox';
-end;//Tkw_RegistrationForm_Control_NewUserPaintBox.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_NewUserPaintBox.GetString: AnsiString;
 begin
@@ -1671,6 +1667,11 @@ begin
  TtfwClassRef.Register(TPaintBox);
 end;//Tkw_RegistrationForm_Control_NewUserPaintBox.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_NewUserPaintBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::NewUserPaintBox';
+end;//Tkw_RegistrationForm_Control_NewUserPaintBox.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_NewUserPaintBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('NewUserPaintBox');
@@ -1681,11 +1682,6 @@ class function Tkw_RegistrationForm_Control_NewUserPaintBox_Push.GetWordNameForR
 begin
  Result := 'контрол::NewUserPaintBox:push';
 end;//Tkw_RegistrationForm_Control_NewUserPaintBox_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_BottomPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::BottomPanel';
-end;//Tkw_RegistrationForm_Control_BottomPanel.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_BottomPanel.GetString: AnsiString;
 begin
@@ -1698,6 +1694,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_RegistrationForm_Control_BottomPanel.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_BottomPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BottomPanel';
+end;//Tkw_RegistrationForm_Control_BottomPanel.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_BottomPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BottomPanel');
@@ -1708,11 +1709,6 @@ class function Tkw_RegistrationForm_Control_BottomPanel_Push.GetWordNameForRegis
 begin
  Result := 'контрол::BottomPanel:push';
 end;//Tkw_RegistrationForm_Control_BottomPanel_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_RegisterButton.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::RegisterButton';
-end;//Tkw_RegistrationForm_Control_RegisterButton.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_RegisterButton.GetString: AnsiString;
 begin
@@ -1725,6 +1721,11 @@ begin
  TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_RegistrationForm_Control_RegisterButton.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_RegisterButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::RegisterButton';
+end;//Tkw_RegistrationForm_Control_RegisterButton.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_RegisterButton_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('RegisterButton');
@@ -1735,11 +1736,6 @@ class function Tkw_RegistrationForm_Control_RegisterButton_Push.GetWordNameForRe
 begin
  Result := 'контрол::RegisterButton:push';
 end;//Tkw_RegistrationForm_Control_RegisterButton_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_HelpPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::HelpPanel';
-end;//Tkw_RegistrationForm_Control_HelpPanel.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_HelpPanel.GetString: AnsiString;
 begin
@@ -1752,6 +1748,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_RegistrationForm_Control_HelpPanel.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_HelpPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::HelpPanel';
+end;//Tkw_RegistrationForm_Control_HelpPanel.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_HelpPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('HelpPanel');
@@ -1762,11 +1763,6 @@ class function Tkw_RegistrationForm_Control_HelpPanel_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::HelpPanel:push';
 end;//Tkw_RegistrationForm_Control_HelpPanel_Push.GetWordNameForRegister
-
-class function Tkw_RegistrationForm_Control_HelpPaintBox.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::HelpPaintBox';
-end;//Tkw_RegistrationForm_Control_HelpPaintBox.GetWordNameForRegister
 
 function Tkw_RegistrationForm_Control_HelpPaintBox.GetString: AnsiString;
 begin
@@ -1779,6 +1775,11 @@ begin
  TtfwClassRef.Register(TPaintBox);
 end;//Tkw_RegistrationForm_Control_HelpPaintBox.RegisterInEngine
 
+class function Tkw_RegistrationForm_Control_HelpPaintBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::HelpPaintBox';
+end;//Tkw_RegistrationForm_Control_HelpPaintBox.GetWordNameForRegister
+
 procedure Tkw_RegistrationForm_Control_HelpPaintBox_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('HelpPaintBox');
@@ -1790,11 +1791,6 @@ begin
  Result := 'контрол::HelpPaintBox:push';
 end;//Tkw_RegistrationForm_Control_HelpPaintBox_Push.GetWordNameForRegister
 
-class function Tkw_RegistrationForm_Control_HelpLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::HelpLabel';
-end;//Tkw_RegistrationForm_Control_HelpLabel.GetWordNameForRegister
-
 function Tkw_RegistrationForm_Control_HelpLabel.GetString: AnsiString;
 begin
  Result := 'HelpLabel';
@@ -1805,6 +1801,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtFocusLabel);
 end;//Tkw_RegistrationForm_Control_HelpLabel.RegisterInEngine
+
+class function Tkw_RegistrationForm_Control_HelpLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::HelpLabel';
+end;//Tkw_RegistrationForm_Control_HelpLabel.GetWordNameForRegister
 
 procedure Tkw_RegistrationForm_Control_HelpLabel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -1839,11 +1840,6 @@ begin
  aCtx.rEngine.PushObj(pnMainData(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormPnMainData.DoDoIt
 
-class function TkwRegistrationFormPnMainData.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.pnMainData';
-end;//TkwRegistrationFormPnMainData.GetWordNameForRegister
-
 procedure TkwRegistrationFormPnMainData.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1864,6 +1860,11 @@ function TkwRegistrationFormPnMainData.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormPnMainData.ParamsTypes
+
+class function TkwRegistrationFormPnMainData.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.pnMainData';
+end;//TkwRegistrationFormPnMainData.GetWordNameForRegister
 
 function TkwRegistrationFormUserNameLabel.UserNameLabel(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TvtLabel;
@@ -1887,11 +1888,6 @@ begin
  aCtx.rEngine.PushObj(UserNameLabel(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormUserNameLabel.DoDoIt
 
-class function TkwRegistrationFormUserNameLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.UserNameLabel';
-end;//TkwRegistrationFormUserNameLabel.GetWordNameForRegister
-
 procedure TkwRegistrationFormUserNameLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1912,6 +1908,11 @@ function TkwRegistrationFormUserNameLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormUserNameLabel.ParamsTypes
+
+class function TkwRegistrationFormUserNameLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.UserNameLabel';
+end;//TkwRegistrationFormUserNameLabel.GetWordNameForRegister
 
 function TkwRegistrationFormPasswordLabel.PasswordLabel(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TvtLabel;
@@ -1935,11 +1936,6 @@ begin
  aCtx.rEngine.PushObj(PasswordLabel(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormPasswordLabel.DoDoIt
 
-class function TkwRegistrationFormPasswordLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.PasswordLabel';
-end;//TkwRegistrationFormPasswordLabel.GetWordNameForRegister
-
 procedure TkwRegistrationFormPasswordLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1960,6 +1956,11 @@ function TkwRegistrationFormPasswordLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormPasswordLabel.ParamsTypes
+
+class function TkwRegistrationFormPasswordLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.PasswordLabel';
+end;//TkwRegistrationFormPasswordLabel.GetWordNameForRegister
 
 function TkwRegistrationFormLoginLabel.LoginLabel(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TvtLabel;
@@ -1983,11 +1984,6 @@ begin
  aCtx.rEngine.PushObj(LoginLabel(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormLoginLabel.DoDoIt
 
-class function TkwRegistrationFormLoginLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.LoginLabel';
-end;//TkwRegistrationFormLoginLabel.GetWordNameForRegister
-
 procedure TkwRegistrationFormLoginLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2008,6 +2004,11 @@ function TkwRegistrationFormLoginLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormLoginLabel.ParamsTypes
+
+class function TkwRegistrationFormLoginLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.LoginLabel';
+end;//TkwRegistrationFormLoginLabel.GetWordNameForRegister
 
 function TkwRegistrationFormInfoLabel.InfoLabel(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TvtLabel;
@@ -2031,11 +2032,6 @@ begin
  aCtx.rEngine.PushObj(InfoLabel(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormInfoLabel.DoDoIt
 
-class function TkwRegistrationFormInfoLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.InfoLabel';
-end;//TkwRegistrationFormInfoLabel.GetWordNameForRegister
-
 procedure TkwRegistrationFormInfoLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2056,6 +2052,11 @@ function TkwRegistrationFormInfoLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormInfoLabel.ParamsTypes
+
+class function TkwRegistrationFormInfoLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.InfoLabel';
+end;//TkwRegistrationFormInfoLabel.GetWordNameForRegister
 
 function TkwRegistrationFormEMailLabel.EMailLabel(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TvtLabel;
@@ -2079,11 +2080,6 @@ begin
  aCtx.rEngine.PushObj(EMailLabel(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormEMailLabel.DoDoIt
 
-class function TkwRegistrationFormEMailLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.EMailLabel';
-end;//TkwRegistrationFormEMailLabel.GetWordNameForRegister
-
 procedure TkwRegistrationFormEMailLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2104,6 +2100,11 @@ function TkwRegistrationFormEMailLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormEMailLabel.ParamsTypes
+
+class function TkwRegistrationFormEMailLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.EMailLabel';
+end;//TkwRegistrationFormEMailLabel.GetWordNameForRegister
 
 function TkwRegistrationFormConfirmPasswordLabel.ConfirmPasswordLabel(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TvtLabel;
@@ -2127,11 +2128,6 @@ begin
  aCtx.rEngine.PushObj(ConfirmPasswordLabel(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormConfirmPasswordLabel.DoDoIt
 
-class function TkwRegistrationFormConfirmPasswordLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.ConfirmPasswordLabel';
-end;//TkwRegistrationFormConfirmPasswordLabel.GetWordNameForRegister
-
 procedure TkwRegistrationFormConfirmPasswordLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2152,6 +2148,11 @@ function TkwRegistrationFormConfirmPasswordLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormConfirmPasswordLabel.ParamsTypes
+
+class function TkwRegistrationFormConfirmPasswordLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.ConfirmPasswordLabel';
+end;//TkwRegistrationFormConfirmPasswordLabel.GetWordNameForRegister
 
 function TkwRegistrationFormVtAsteriskLabelLogin.vtAsteriskLabelLogin(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TvtLabel;
@@ -2175,11 +2176,6 @@ begin
  aCtx.rEngine.PushObj(vtAsteriskLabelLogin(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormVtAsteriskLabelLogin.DoDoIt
 
-class function TkwRegistrationFormVtAsteriskLabelLogin.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.vtAsteriskLabelLogin';
-end;//TkwRegistrationFormVtAsteriskLabelLogin.GetWordNameForRegister
-
 procedure TkwRegistrationFormVtAsteriskLabelLogin.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2200,6 +2196,11 @@ function TkwRegistrationFormVtAsteriskLabelLogin.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormVtAsteriskLabelLogin.ParamsTypes
+
+class function TkwRegistrationFormVtAsteriskLabelLogin.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.vtAsteriskLabelLogin';
+end;//TkwRegistrationFormVtAsteriskLabelLogin.GetWordNameForRegister
 
 function TkwRegistrationFormVtAsteriskLabelFIO.vtAsteriskLabelFIO(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TvtLabel;
@@ -2223,11 +2224,6 @@ begin
  aCtx.rEngine.PushObj(vtAsteriskLabelFIO(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormVtAsteriskLabelFIO.DoDoIt
 
-class function TkwRegistrationFormVtAsteriskLabelFIO.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.vtAsteriskLabelFIO';
-end;//TkwRegistrationFormVtAsteriskLabelFIO.GetWordNameForRegister
-
 procedure TkwRegistrationFormVtAsteriskLabelFIO.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2248,6 +2244,11 @@ function TkwRegistrationFormVtAsteriskLabelFIO.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormVtAsteriskLabelFIO.ParamsTypes
+
+class function TkwRegistrationFormVtAsteriskLabelFIO.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.vtAsteriskLabelFIO';
+end;//TkwRegistrationFormVtAsteriskLabelFIO.GetWordNameForRegister
 
 function TkwRegistrationFormEdPassword.edPassword(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TnscComboBoxWithPwdChar;
@@ -2271,11 +2272,6 @@ begin
  aCtx.rEngine.PushObj(edPassword(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormEdPassword.DoDoIt
 
-class function TkwRegistrationFormEdPassword.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.edPassword';
-end;//TkwRegistrationFormEdPassword.GetWordNameForRegister
-
 procedure TkwRegistrationFormEdPassword.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2296,6 +2292,11 @@ function TkwRegistrationFormEdPassword.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormEdPassword.ParamsTypes
+
+class function TkwRegistrationFormEdPassword.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.edPassword';
+end;//TkwRegistrationFormEdPassword.GetWordNameForRegister
 
 function TkwRegistrationFormEdUserName.edUserName(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TnscEdit;
@@ -2319,11 +2320,6 @@ begin
  aCtx.rEngine.PushObj(edUserName(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormEdUserName.DoDoIt
 
-class function TkwRegistrationFormEdUserName.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.edUserName';
-end;//TkwRegistrationFormEdUserName.GetWordNameForRegister
-
 procedure TkwRegistrationFormEdUserName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2344,6 +2340,11 @@ function TkwRegistrationFormEdUserName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormEdUserName.ParamsTypes
+
+class function TkwRegistrationFormEdUserName.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.edUserName';
+end;//TkwRegistrationFormEdUserName.GetWordNameForRegister
 
 function TkwRegistrationFormEdLogin.edLogin(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TnscEdit;
@@ -2367,11 +2368,6 @@ begin
  aCtx.rEngine.PushObj(edLogin(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormEdLogin.DoDoIt
 
-class function TkwRegistrationFormEdLogin.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.edLogin';
-end;//TkwRegistrationFormEdLogin.GetWordNameForRegister
-
 procedure TkwRegistrationFormEdLogin.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2392,6 +2388,11 @@ function TkwRegistrationFormEdLogin.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormEdLogin.ParamsTypes
+
+class function TkwRegistrationFormEdLogin.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.edLogin';
+end;//TkwRegistrationFormEdLogin.GetWordNameForRegister
 
 function TkwRegistrationFormEdEmail.edEmail(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TnscEdit;
@@ -2415,11 +2416,6 @@ begin
  aCtx.rEngine.PushObj(edEmail(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormEdEmail.DoDoIt
 
-class function TkwRegistrationFormEdEmail.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.edEmail';
-end;//TkwRegistrationFormEdEmail.GetWordNameForRegister
-
 procedure TkwRegistrationFormEdEmail.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2440,6 +2436,11 @@ function TkwRegistrationFormEdEmail.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormEdEmail.ParamsTypes
+
+class function TkwRegistrationFormEdEmail.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.edEmail';
+end;//TkwRegistrationFormEdEmail.GetWordNameForRegister
 
 function TkwRegistrationFormEdConfirm.edConfirm(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TnscComboBoxWithPwdChar;
@@ -2463,11 +2464,6 @@ begin
  aCtx.rEngine.PushObj(edConfirm(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormEdConfirm.DoDoIt
 
-class function TkwRegistrationFormEdConfirm.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.edConfirm';
-end;//TkwRegistrationFormEdConfirm.GetWordNameForRegister
-
 procedure TkwRegistrationFormEdConfirm.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2488,6 +2484,11 @@ function TkwRegistrationFormEdConfirm.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormEdConfirm.ParamsTypes
+
+class function TkwRegistrationFormEdConfirm.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.edConfirm';
+end;//TkwRegistrationFormEdConfirm.GetWordNameForRegister
 
 function TkwRegistrationFormCbAutoLogin.cbAutoLogin(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TvtCheckBox;
@@ -2511,11 +2512,6 @@ begin
  aCtx.rEngine.PushObj(cbAutoLogin(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormCbAutoLogin.DoDoIt
 
-class function TkwRegistrationFormCbAutoLogin.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.cbAutoLogin';
-end;//TkwRegistrationFormCbAutoLogin.GetWordNameForRegister
-
 procedure TkwRegistrationFormCbAutoLogin.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2536,6 +2532,11 @@ function TkwRegistrationFormCbAutoLogin.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormCbAutoLogin.ParamsTypes
+
+class function TkwRegistrationFormCbAutoLogin.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.cbAutoLogin';
+end;//TkwRegistrationFormCbAutoLogin.GetWordNameForRegister
 
 function TkwRegistrationFormNewUserGroupBox.NewUserGroupBox(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TvtGroupBox;
@@ -2559,11 +2560,6 @@ begin
  aCtx.rEngine.PushObj(NewUserGroupBox(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormNewUserGroupBox.DoDoIt
 
-class function TkwRegistrationFormNewUserGroupBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.NewUserGroupBox';
-end;//TkwRegistrationFormNewUserGroupBox.GetWordNameForRegister
-
 procedure TkwRegistrationFormNewUserGroupBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2584,6 +2580,11 @@ function TkwRegistrationFormNewUserGroupBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormNewUserGroupBox.ParamsTypes
+
+class function TkwRegistrationFormNewUserGroupBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.NewUserGroupBox';
+end;//TkwRegistrationFormNewUserGroupBox.GetWordNameForRegister
 
 function TkwRegistrationFormNewUserLabel.NewUserLabel(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TvtLabel;
@@ -2607,11 +2608,6 @@ begin
  aCtx.rEngine.PushObj(NewUserLabel(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormNewUserLabel.DoDoIt
 
-class function TkwRegistrationFormNewUserLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.NewUserLabel';
-end;//TkwRegistrationFormNewUserLabel.GetWordNameForRegister
-
 procedure TkwRegistrationFormNewUserLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2632,6 +2628,11 @@ function TkwRegistrationFormNewUserLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormNewUserLabel.ParamsTypes
+
+class function TkwRegistrationFormNewUserLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.NewUserLabel';
+end;//TkwRegistrationFormNewUserLabel.GetWordNameForRegister
 
 function TkwRegistrationFormNewUserPaintBox.NewUserPaintBox(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TPaintBox;
@@ -2655,11 +2656,6 @@ begin
  aCtx.rEngine.PushObj(NewUserPaintBox(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormNewUserPaintBox.DoDoIt
 
-class function TkwRegistrationFormNewUserPaintBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.NewUserPaintBox';
-end;//TkwRegistrationFormNewUserPaintBox.GetWordNameForRegister
-
 procedure TkwRegistrationFormNewUserPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2680,6 +2676,11 @@ function TkwRegistrationFormNewUserPaintBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormNewUserPaintBox.ParamsTypes
+
+class function TkwRegistrationFormNewUserPaintBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.NewUserPaintBox';
+end;//TkwRegistrationFormNewUserPaintBox.GetWordNameForRegister
 
 function TkwRegistrationFormBottomPanel.BottomPanel(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TvtPanel;
@@ -2703,11 +2704,6 @@ begin
  aCtx.rEngine.PushObj(BottomPanel(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormBottomPanel.DoDoIt
 
-class function TkwRegistrationFormBottomPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.BottomPanel';
-end;//TkwRegistrationFormBottomPanel.GetWordNameForRegister
-
 procedure TkwRegistrationFormBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2728,6 +2724,11 @@ function TkwRegistrationFormBottomPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormBottomPanel.ParamsTypes
+
+class function TkwRegistrationFormBottomPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.BottomPanel';
+end;//TkwRegistrationFormBottomPanel.GetWordNameForRegister
 
 function TkwRegistrationFormRegisterButton.RegisterButton(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TElPopupButton;
@@ -2751,11 +2752,6 @@ begin
  aCtx.rEngine.PushObj(RegisterButton(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormRegisterButton.DoDoIt
 
-class function TkwRegistrationFormRegisterButton.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.RegisterButton';
-end;//TkwRegistrationFormRegisterButton.GetWordNameForRegister
-
 procedure TkwRegistrationFormRegisterButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2776,6 +2772,11 @@ function TkwRegistrationFormRegisterButton.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormRegisterButton.ParamsTypes
+
+class function TkwRegistrationFormRegisterButton.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.RegisterButton';
+end;//TkwRegistrationFormRegisterButton.GetWordNameForRegister
 
 function TkwRegistrationFormHelpPanel.HelpPanel(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TvtPanel;
@@ -2799,11 +2800,6 @@ begin
  aCtx.rEngine.PushObj(HelpPanel(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormHelpPanel.DoDoIt
 
-class function TkwRegistrationFormHelpPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.HelpPanel';
-end;//TkwRegistrationFormHelpPanel.GetWordNameForRegister
-
 procedure TkwRegistrationFormHelpPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2824,6 +2820,11 @@ function TkwRegistrationFormHelpPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormHelpPanel.ParamsTypes
+
+class function TkwRegistrationFormHelpPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.HelpPanel';
+end;//TkwRegistrationFormHelpPanel.GetWordNameForRegister
 
 function TkwRegistrationFormHelpPaintBox.HelpPaintBox(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TPaintBox;
@@ -2847,11 +2848,6 @@ begin
  aCtx.rEngine.PushObj(HelpPaintBox(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormHelpPaintBox.DoDoIt
 
-class function TkwRegistrationFormHelpPaintBox.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.HelpPaintBox';
-end;//TkwRegistrationFormHelpPaintBox.GetWordNameForRegister
-
 procedure TkwRegistrationFormHelpPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2872,6 +2868,11 @@ function TkwRegistrationFormHelpPaintBox.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormHelpPaintBox.ParamsTypes
+
+class function TkwRegistrationFormHelpPaintBox.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.HelpPaintBox';
+end;//TkwRegistrationFormHelpPaintBox.GetWordNameForRegister
 
 function TkwRegistrationFormHelpLabel.HelpLabel(const aCtx: TtfwContext;
  aRegistrationForm: TnsRegistrationForm): TvtFocusLabel;
@@ -2895,11 +2896,6 @@ begin
  aCtx.rEngine.PushObj(HelpLabel(aCtx, l_aRegistrationForm));
 end;//TkwRegistrationFormHelpLabel.DoDoIt
 
-class function TkwRegistrationFormHelpLabel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TnsRegistrationForm.HelpLabel';
-end;//TkwRegistrationFormHelpLabel.GetWordNameForRegister
-
 procedure TkwRegistrationFormHelpLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -2920,6 +2916,11 @@ function TkwRegistrationFormHelpLabel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsRegistrationForm)]);
 end;//TkwRegistrationFormHelpLabel.ParamsTypes
+
+class function TkwRegistrationFormHelpLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsRegistrationForm.HelpLabel';
+end;//TkwRegistrationFormHelpLabel.GetWordNameForRegister
 
 initialization
  Tkw_Form_RegistrationForm.RegisterInEngine;

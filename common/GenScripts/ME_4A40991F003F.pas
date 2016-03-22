@@ -3,6 +3,7 @@ unit ChatInterfacesUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ChatInterfacesUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "ChatInterfaces" MUID: (4A40991F003F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

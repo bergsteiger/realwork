@@ -52,6 +52,7 @@ implementation
 uses
  l3String,
  l3Base, l3DatLst,
+ daSchemeConsts,
  dt_AttrSchema,
  DT_Serv, DT_Doc,
  DT_LinkServ,

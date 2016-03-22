@@ -2,6 +2,7 @@ unit arSubImplementation;
 
 // Модуль: "w:\archi\source\projects\Archi\Editor\arSubImplementation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarSubImplementation" MUID: (535F5A0E0098)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

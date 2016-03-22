@@ -2,6 +2,8 @@ unit WikiReaderTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\WikiReaderTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "WikiReaderTest" MUID: (4D6BE6320214)
+// Имя типа: "TWikiReaderTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

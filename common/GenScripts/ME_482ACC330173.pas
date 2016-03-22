@@ -2,6 +2,7 @@ unit elCustomEdit;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\elCustomEdit.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TelCustomEdit" MUID: (482ACC330173)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

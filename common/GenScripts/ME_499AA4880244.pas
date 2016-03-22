@@ -2,6 +2,7 @@ unit vcmProfilersCollection_p;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmProfilersCollection_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TvcmProfilersCollection" MUID: (499AA4880244)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

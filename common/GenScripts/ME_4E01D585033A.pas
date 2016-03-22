@@ -2,6 +2,7 @@ unit vcmUserInteractiveForm;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmUserInteractiveForm.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmUserInteractiveForm" MUID: (4E01D585033A)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -31,7 +31,7 @@ int main_logic ( int argc, char *argv[] )
 		DBCore::IBase_var obj = DBCore::DBFactory::make (base.in ());
 
 		Morpho::Def::ICache_var cache = Morpho::Factory::make ();
-		cache->load (obj.in (), true);
+		cache->load (obj.in ());
 
 		Morpho::Def::INormalizer_var normalizer = Morpho::Factory::make (cache.in ());
 

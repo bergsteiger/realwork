@@ -3,6 +3,7 @@ unit evDocumentPartCursorPair;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPartCursorPair.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDocumentPartCursorPair" MUID: (4A2D2D8002FF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

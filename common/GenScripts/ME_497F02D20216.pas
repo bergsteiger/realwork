@@ -2,6 +2,8 @@ unit PrimUserProperty_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserProperty_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimUserProperty" MUID: (497F02D20216)
+// Имя типа: "TPrimUserPropertyForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

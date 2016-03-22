@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmOperationableIdentifiedUserFriendly;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmOperationableIdentifiedUserFriendly.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmOperationableIdentifiedUserFriendly" MUID: (56113B640340)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

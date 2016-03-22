@@ -2,6 +2,7 @@ unit nevBaseDetachedView;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevBaseDetachedView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevBaseDetachedView" MUID: (48120C1C0060)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

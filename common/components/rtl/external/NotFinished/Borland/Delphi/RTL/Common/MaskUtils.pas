@@ -2,6 +2,7 @@ unit MaskUtils;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\MaskUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "MaskUtils" MUID: (5564AC560225)
 
 interface
 

@@ -40,8 +40,24 @@ begin
      for i:= 0 to Pred(l_Count) do
       with PSessionInfo1(PChar(l_Buf)+i*SizeOf(TSessionInfo1))^ do
       begin
-       l_ClientIP := GStack.ResolveHost(sesi1_cname);
-       l_ClientName := GStack.HostByAddress(l_ClientIP);
+       try
+        l_ClientIP := GStack.ResolveHost(sesi1_cname);
+       except
+        on E: Exception do
+        begin
+         l3System.Msg2Log('* Resolve host failed %s - %s (%s)' ,[sesi1_cname, E.Message, E.ClassName]);
+         raise;
+        end;
+       end;
+       try
+        l_ClientName := GStack.HostByAddress(l_ClientIP);
+       except
+        on E: Exception do
+        begin
+         l3System.Msg2Log('* Resolve IP failed %s - %s (%s)' ,[l_ClientIP, E.Message, E.ClassName]);
+         raise;
+        end; 
+       end;
        if (l_ClientIP <> l_ServerIP) and UserInFolder(sesi1_cname, theBaseFolder) then
        begin
         // По-хорошему, нужно проверить открыты ли файлы в папке с базой
@@ -77,7 +93,11 @@ begin
     NERR_UserNotFound: l3System.Msg2Log('* The user name could not be found.');
    end;
   except
-   l3System.Msg2Log('* Ошибка вызова NetSessionEnum');
+   on E: Exception do
+   begin
+    l3System.Msg2Log('* Ошибка вызова NetSessionEnum');
+    l3System.Exception2Log(E);
+   end;
   end;
  finally
   TIdStack.DecUsage;

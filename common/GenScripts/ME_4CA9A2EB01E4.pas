@@ -2,6 +2,7 @@ unit l3ProtoIntegerList;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoIntegerList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProtoIntegerList" MUID: (4CA9A2EB01E4)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

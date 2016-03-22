@@ -3,6 +3,8 @@ unit moList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moList.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "List" MUID: (4A9BF3F302BF)
+// Имя типа: "Tmo_List"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

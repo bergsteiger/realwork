@@ -45,9 +45,6 @@ type
   TEditionsContainerForm = {final form} class(TPrimEditionsContainerForm, EditionsContainerFormDef)
    {* Сравнение редакций документа }
   Entities : TvcmEntities;
-  BackgroundPanel: TvtProportionalPanel;
-  pnLeft: TvtSizeablePanel;
-  pnRight: TvtPanel;
   end;//TEditionsContainerForm
 {$IfEnd} //not Admin AND not Monitorings
 

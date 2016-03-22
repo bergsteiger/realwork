@@ -1,91 +1,63 @@
 unit TextMetricsPrimTest;
+ {* Тест проверяющий метрики текста. Такие как AllChildrenCount, NettoCharCount, BruttoCharCount, TextParaCount, BitmapParaCount }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Tests"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Tests/TextMetricsPrimTest.pas"
-// Начат: 14.12.2010 15:52
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::Abstract Tests::EditorTests::TTextMetricsPrimTest
-//
-// Тест проверяющий метрики текста. Такие как AllChildrenCount, NettoCharCount, BruttoCharCount,
-// TextParaCount, BitmapParaCount
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\TextMetricsPrimTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TTextMetricsPrimTest" MUID: (4D07699A02E4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TextViaEditorProcessorWithExternalSave,
-  l3Filer
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , TextViaEditorProcessorWithExternalSave
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Filer
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TTextMetricsPrimTest = {abstract} class(TTextViaEditorProcessorWithExternalSave)
   {* Тест проверяющий метрики текста. Такие как AllChildrenCount, NettoCharCount, BruttoCharCount, TextParaCount, BitmapParaCount }
- protected
- // realized methods
+  protected
    procedure DoSave(aForm: TPrimTextLoadForm;
-     aFiler: Tl3CustomFiler); override;
- protected
- // overridden protected methods
+    aFiler: Tl3CustomFiler); override;
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-    {$If defined(nsTest) AND not defined(NoVCM)}
+    {* Папка в которую входит тест }
+   {$If NOT Defined(NoVCM)}
    function EtalonFileExtension: AnsiString; override;
-     {* Расширение эталонного файла }
-    {$IfEnd} //nsTest AND not NoVCM
-    {$If defined(nsTest) AND not defined(NoVCM)}
+    {* Расширение эталонного файла }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function HeaderBegin: AnsiChar; override;
-    {$IfEnd} //nsTest AND not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TTextMetricsPrimTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  k2Tags,
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TTextMetricsPrimTest
+ l3ImplUses
+ , SysUtils
+ , k2Tags
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 procedure TTextMetricsPrimTest.DoSave(aForm: TPrimTextLoadForm;
-  aFiler: Tl3CustomFiler);
+ aFiler: Tl3CustomFiler);
 //#UC START# *4D0771F102B6_4D07699A02E4_var*
 //#UC END# *4D0771F102B6_4D07699A02E4_var*
 begin
@@ -108,13 +80,14 @@ begin
 end;//TTextMetricsPrimTest.DoSave
 
 function TTextMetricsPrimTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TTextMetricsPrimTest.GetFolder
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TTextMetricsPrimTest.EtalonFileExtension: AnsiString;
+ {* Расширение эталонного файла }
 //#UC START# *4D0769150130_4D07699A02E4_var*
 //#UC END# *4D0769150130_4D07699A02E4_var*
 begin
@@ -122,9 +95,9 @@ begin
  Result := 'metrics';
 //#UC END# *4D0769150130_4D07699A02E4_impl*
 end;//TTextMetricsPrimTest.EtalonFileExtension
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TTextMetricsPrimTest.HeaderBegin: AnsiChar;
 //#UC START# *4D07693F0262_4D07699A02E4_var*
 //#UC END# *4D07693F0262_4D07699A02E4_var*
@@ -133,14 +106,13 @@ begin
  Result := #0;
 //#UC END# *4D07693F0262_4D07699A02E4_impl*
 end;//TTextMetricsPrimTest.HeaderBegin
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TTextMetricsPrimTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D07699A02E4';
 end;//TTextMetricsPrimTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

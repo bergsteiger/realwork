@@ -2,6 +2,8 @@ unit PrimTurnOffTimeMachine_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimTurnOffTimeMachine_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimTurnOffTimeMachine" MUID: (4AC4F82F0234)
+// Имя типа: "TPrimTurnOffTimeMachineForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

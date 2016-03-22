@@ -2,6 +2,7 @@ unit l3ListenersHooks;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ListenersHooks.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "l3ListenersHooks" MUID: (4F67149B024A)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

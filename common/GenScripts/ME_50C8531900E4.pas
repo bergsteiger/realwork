@@ -2,6 +2,8 @@ unit kwMouseWheelUp;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseWheelUp.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "Mouse_WheelUp" MUID: (50C8531900E4)
+// Имя типа: "TkwMouseWheelUp"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_OvcExcpt;
 
 // Модуль: "w:\common\components\rtl\external\Orpheus\NOT_FINISHED_OvcExcpt.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "OvcExcpt" MUID: (515956AC0167)
 
 {$Include w:\common\components\rtl\external\Orpheus\OVC.INC}
 

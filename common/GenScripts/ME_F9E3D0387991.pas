@@ -3,6 +3,7 @@ unit LeftEditionKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\LeftEditionKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "LeftEditionKeywordsPack" MUID: (F9E3D0387991)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -55,8 +56,8 @@ type
 'aControl' форма::LeftEdition TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_LeftEdition
 
  Tkw_LeftEdition_Control_Header = {final} class(TtfwControlString)
@@ -67,9 +68,9 @@ type
 контрол::Header TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LeftEdition_Control_Header
 
  Tkw_LeftEdition_Control_Header_Push = {final} class(TkwBynameControlPush)
@@ -92,9 +93,9 @@ type
 контрол::pnLeft TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LeftEdition_Control_pnLeft
 
  Tkw_LeftEdition_Control_pnLeft_Push = {final} class(TkwBynameControlPush)
@@ -117,9 +118,9 @@ type
 контрол::EditionLink TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LeftEdition_Control_EditionLink
 
  Tkw_LeftEdition_Control_EditionLink_Push = {final} class(TkwBynameControlPush)
@@ -142,9 +143,9 @@ type
 контрол::pbIcon TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LeftEdition_Control_pbIcon
 
  Tkw_LeftEdition_Control_pbIcon_Push = {final} class(TkwBynameControlPush)
@@ -167,9 +168,9 @@ type
 контрол::pnCaption TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LeftEdition_Control_pnCaption
 
  Tkw_LeftEdition_Control_pnCaption_Push = {final} class(TkwBynameControlPush)
@@ -192,9 +193,9 @@ type
 контрол::EditionChoose TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LeftEdition_Control_EditionChoose
 
  Tkw_LeftEdition_Control_EditionChoose_Push = {final} class(TkwBynameControlPush)
@@ -217,9 +218,9 @@ type
 контрол::Text TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LeftEdition_Control_Text
 
  Tkw_LeftEdition_Control_Text_Push = {final} class(TkwBynameControlPush)
@@ -242,9 +243,9 @@ type
 компонент::TextSource TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LeftEdition_Component_TextSource
 
  TkwLeftEditionFormHeader = {final} class(TtfwPropertyLike)
@@ -391,20 +392,15 @@ OBJECT VAR l_TnscEditor
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwLeftEditionFormText
 
-class function Tkw_Form_LeftEdition.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::LeftEdition';
-end;//Tkw_Form_LeftEdition.GetWordNameForRegister
-
 function Tkw_Form_LeftEdition.GetString: AnsiString;
 begin
  Result := 'LeftEditionForm';
 end;//Tkw_Form_LeftEdition.GetString
 
-class function Tkw_LeftEdition_Control_Header.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_LeftEdition.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::Header';
-end;//Tkw_LeftEdition_Control_Header.GetWordNameForRegister
+ Result := 'форма::LeftEdition';
+end;//Tkw_Form_LeftEdition.GetWordNameForRegister
 
 function Tkw_LeftEdition_Control_Header.GetString: AnsiString;
 begin
@@ -417,6 +413,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_LeftEdition_Control_Header.RegisterInEngine
 
+class function Tkw_LeftEdition_Control_Header.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Header';
+end;//Tkw_LeftEdition_Control_Header.GetWordNameForRegister
+
 procedure Tkw_LeftEdition_Control_Header_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Header');
@@ -427,11 +428,6 @@ class function Tkw_LeftEdition_Control_Header_Push.GetWordNameForRegister: AnsiS
 begin
  Result := 'контрол::Header:push';
 end;//Tkw_LeftEdition_Control_Header_Push.GetWordNameForRegister
-
-class function Tkw_LeftEdition_Control_pnLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnLeft';
-end;//Tkw_LeftEdition_Control_pnLeft.GetWordNameForRegister
 
 function Tkw_LeftEdition_Control_pnLeft.GetString: AnsiString;
 begin
@@ -444,6 +440,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_LeftEdition_Control_pnLeft.RegisterInEngine
 
+class function Tkw_LeftEdition_Control_pnLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnLeft';
+end;//Tkw_LeftEdition_Control_pnLeft.GetWordNameForRegister
+
 procedure Tkw_LeftEdition_Control_pnLeft_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnLeft');
@@ -454,11 +455,6 @@ class function Tkw_LeftEdition_Control_pnLeft_Push.GetWordNameForRegister: AnsiS
 begin
  Result := 'контрол::pnLeft:push';
 end;//Tkw_LeftEdition_Control_pnLeft_Push.GetWordNameForRegister
-
-class function Tkw_LeftEdition_Control_EditionLink.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::EditionLink';
-end;//Tkw_LeftEdition_Control_EditionLink.GetWordNameForRegister
 
 function Tkw_LeftEdition_Control_EditionLink.GetString: AnsiString;
 begin
@@ -471,6 +467,11 @@ begin
  TtfwClassRef.Register(TvtFocusLabel);
 end;//Tkw_LeftEdition_Control_EditionLink.RegisterInEngine
 
+class function Tkw_LeftEdition_Control_EditionLink.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::EditionLink';
+end;//Tkw_LeftEdition_Control_EditionLink.GetWordNameForRegister
+
 procedure Tkw_LeftEdition_Control_EditionLink_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('EditionLink');
@@ -481,11 +482,6 @@ class function Tkw_LeftEdition_Control_EditionLink_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::EditionLink:push';
 end;//Tkw_LeftEdition_Control_EditionLink_Push.GetWordNameForRegister
-
-class function Tkw_LeftEdition_Control_pbIcon.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pbIcon';
-end;//Tkw_LeftEdition_Control_pbIcon.GetWordNameForRegister
 
 function Tkw_LeftEdition_Control_pbIcon.GetString: AnsiString;
 begin
@@ -498,6 +494,11 @@ begin
  TtfwClassRef.Register(TPaintBox);
 end;//Tkw_LeftEdition_Control_pbIcon.RegisterInEngine
 
+class function Tkw_LeftEdition_Control_pbIcon.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pbIcon';
+end;//Tkw_LeftEdition_Control_pbIcon.GetWordNameForRegister
+
 procedure Tkw_LeftEdition_Control_pbIcon_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pbIcon');
@@ -508,11 +509,6 @@ class function Tkw_LeftEdition_Control_pbIcon_Push.GetWordNameForRegister: AnsiS
 begin
  Result := 'контрол::pbIcon:push';
 end;//Tkw_LeftEdition_Control_pbIcon_Push.GetWordNameForRegister
-
-class function Tkw_LeftEdition_Control_pnCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnCaption';
-end;//Tkw_LeftEdition_Control_pnCaption.GetWordNameForRegister
 
 function Tkw_LeftEdition_Control_pnCaption.GetString: AnsiString;
 begin
@@ -525,6 +521,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_LeftEdition_Control_pnCaption.RegisterInEngine
 
+class function Tkw_LeftEdition_Control_pnCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnCaption';
+end;//Tkw_LeftEdition_Control_pnCaption.GetWordNameForRegister
+
 procedure Tkw_LeftEdition_Control_pnCaption_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnCaption');
@@ -535,11 +536,6 @@ class function Tkw_LeftEdition_Control_pnCaption_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::pnCaption:push';
 end;//Tkw_LeftEdition_Control_pnCaption_Push.GetWordNameForRegister
-
-class function Tkw_LeftEdition_Control_EditionChoose.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::EditionChoose';
-end;//Tkw_LeftEdition_Control_EditionChoose.GetWordNameForRegister
 
 function Tkw_LeftEdition_Control_EditionChoose.GetString: AnsiString;
 begin
@@ -552,6 +548,11 @@ begin
  TtfwClassRef.Register(TvtComboBoxQS);
 end;//Tkw_LeftEdition_Control_EditionChoose.RegisterInEngine
 
+class function Tkw_LeftEdition_Control_EditionChoose.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::EditionChoose';
+end;//Tkw_LeftEdition_Control_EditionChoose.GetWordNameForRegister
+
 procedure Tkw_LeftEdition_Control_EditionChoose_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('EditionChoose');
@@ -562,11 +563,6 @@ class function Tkw_LeftEdition_Control_EditionChoose_Push.GetWordNameForRegister
 begin
  Result := 'контрол::EditionChoose:push';
 end;//Tkw_LeftEdition_Control_EditionChoose_Push.GetWordNameForRegister
-
-class function Tkw_LeftEdition_Control_Text.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::Text';
-end;//Tkw_LeftEdition_Control_Text.GetWordNameForRegister
 
 function Tkw_LeftEdition_Control_Text.GetString: AnsiString;
 begin
@@ -579,6 +575,11 @@ begin
  TtfwClassRef.Register(TnscEditor);
 end;//Tkw_LeftEdition_Control_Text.RegisterInEngine
 
+class function Tkw_LeftEdition_Control_Text.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Text';
+end;//Tkw_LeftEdition_Control_Text.GetWordNameForRegister
+
 procedure Tkw_LeftEdition_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Text');
@@ -590,11 +591,6 @@ begin
  Result := 'контрол::Text:push';
 end;//Tkw_LeftEdition_Control_Text_Push.GetWordNameForRegister
 
-class function Tkw_LeftEdition_Component_TextSource.GetWordNameForRegister: AnsiString;
-begin
- Result := 'компонент::TextSource';
-end;//Tkw_LeftEdition_Component_TextSource.GetWordNameForRegister
-
 function Tkw_LeftEdition_Component_TextSource.GetString: AnsiString;
 begin
  Result := 'TextSource';
@@ -605,6 +601,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscTextSource);
 end;//Tkw_LeftEdition_Component_TextSource.RegisterInEngine
+
+class function Tkw_LeftEdition_Component_TextSource.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'компонент::TextSource';
+end;//Tkw_LeftEdition_Component_TextSource.GetWordNameForRegister
 
 function TkwLeftEditionFormHeader.Header(const aCtx: TtfwContext;
  aLeftEditionForm: TLeftEditionForm): TvtPanel;
@@ -628,11 +629,6 @@ begin
  aCtx.rEngine.PushObj(Header(aCtx, l_aLeftEditionForm));
 end;//TkwLeftEditionFormHeader.DoDoIt
 
-class function TkwLeftEditionFormHeader.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TLeftEditionForm.Header';
-end;//TkwLeftEditionFormHeader.GetWordNameForRegister
-
 procedure TkwLeftEditionFormHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -653,6 +649,11 @@ function TkwLeftEditionFormHeader.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TLeftEditionForm)]);
 end;//TkwLeftEditionFormHeader.ParamsTypes
+
+class function TkwLeftEditionFormHeader.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TLeftEditionForm.Header';
+end;//TkwLeftEditionFormHeader.GetWordNameForRegister
 
 function TkwLeftEditionFormPnLeft.pnLeft(const aCtx: TtfwContext;
  aLeftEditionForm: TLeftEditionForm): TvtPanel;
@@ -676,11 +677,6 @@ begin
  aCtx.rEngine.PushObj(pnLeft(aCtx, l_aLeftEditionForm));
 end;//TkwLeftEditionFormPnLeft.DoDoIt
 
-class function TkwLeftEditionFormPnLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TLeftEditionForm.pnLeft';
-end;//TkwLeftEditionFormPnLeft.GetWordNameForRegister
-
 procedure TkwLeftEditionFormPnLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -701,6 +697,11 @@ function TkwLeftEditionFormPnLeft.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TLeftEditionForm)]);
 end;//TkwLeftEditionFormPnLeft.ParamsTypes
+
+class function TkwLeftEditionFormPnLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TLeftEditionForm.pnLeft';
+end;//TkwLeftEditionFormPnLeft.GetWordNameForRegister
 
 function TkwLeftEditionFormEditionLink.EditionLink(const aCtx: TtfwContext;
  aLeftEditionForm: TLeftEditionForm): TvtFocusLabel;
@@ -724,11 +725,6 @@ begin
  aCtx.rEngine.PushObj(EditionLink(aCtx, l_aLeftEditionForm));
 end;//TkwLeftEditionFormEditionLink.DoDoIt
 
-class function TkwLeftEditionFormEditionLink.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TLeftEditionForm.EditionLink';
-end;//TkwLeftEditionFormEditionLink.GetWordNameForRegister
-
 procedure TkwLeftEditionFormEditionLink.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -749,6 +745,11 @@ function TkwLeftEditionFormEditionLink.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TLeftEditionForm)]);
 end;//TkwLeftEditionFormEditionLink.ParamsTypes
+
+class function TkwLeftEditionFormEditionLink.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TLeftEditionForm.EditionLink';
+end;//TkwLeftEditionFormEditionLink.GetWordNameForRegister
 
 function TkwLeftEditionFormPbIcon.pbIcon(const aCtx: TtfwContext;
  aLeftEditionForm: TLeftEditionForm): TPaintBox;
@@ -772,11 +773,6 @@ begin
  aCtx.rEngine.PushObj(pbIcon(aCtx, l_aLeftEditionForm));
 end;//TkwLeftEditionFormPbIcon.DoDoIt
 
-class function TkwLeftEditionFormPbIcon.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TLeftEditionForm.pbIcon';
-end;//TkwLeftEditionFormPbIcon.GetWordNameForRegister
-
 procedure TkwLeftEditionFormPbIcon.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -797,6 +793,11 @@ function TkwLeftEditionFormPbIcon.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TLeftEditionForm)]);
 end;//TkwLeftEditionFormPbIcon.ParamsTypes
+
+class function TkwLeftEditionFormPbIcon.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TLeftEditionForm.pbIcon';
+end;//TkwLeftEditionFormPbIcon.GetWordNameForRegister
 
 function TkwLeftEditionFormPnCaption.pnCaption(const aCtx: TtfwContext;
  aLeftEditionForm: TLeftEditionForm): TvtPanel;
@@ -820,11 +821,6 @@ begin
  aCtx.rEngine.PushObj(pnCaption(aCtx, l_aLeftEditionForm));
 end;//TkwLeftEditionFormPnCaption.DoDoIt
 
-class function TkwLeftEditionFormPnCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TLeftEditionForm.pnCaption';
-end;//TkwLeftEditionFormPnCaption.GetWordNameForRegister
-
 procedure TkwLeftEditionFormPnCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -845,6 +841,11 @@ function TkwLeftEditionFormPnCaption.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TLeftEditionForm)]);
 end;//TkwLeftEditionFormPnCaption.ParamsTypes
+
+class function TkwLeftEditionFormPnCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TLeftEditionForm.pnCaption';
+end;//TkwLeftEditionFormPnCaption.GetWordNameForRegister
 
 function TkwLeftEditionFormText.Text(const aCtx: TtfwContext;
  aLeftEditionForm: TLeftEditionForm): TnscEditor;
@@ -868,11 +869,6 @@ begin
  aCtx.rEngine.PushObj(Text(aCtx, l_aLeftEditionForm));
 end;//TkwLeftEditionFormText.DoDoIt
 
-class function TkwLeftEditionFormText.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TLeftEditionForm.Text';
-end;//TkwLeftEditionFormText.GetWordNameForRegister
-
 procedure TkwLeftEditionFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -893,6 +889,11 @@ function TkwLeftEditionFormText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TLeftEditionForm)]);
 end;//TkwLeftEditionFormText.ParamsTypes
+
+class function TkwLeftEditionFormText.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TLeftEditionForm.Text';
+end;//TkwLeftEditionFormText.GetWordNameForRegister
 
 initialization
  Tkw_Form_LeftEdition.RegisterInEngine;

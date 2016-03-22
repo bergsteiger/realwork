@@ -2,6 +2,7 @@ unit NOT_FINISHED_evTreeGenerator;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTreeGenerator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTreeGenerator" MUID: (4D46EFA70089)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

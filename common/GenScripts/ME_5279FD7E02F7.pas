@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddZipUtils;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddZipUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddZipUtils" MUID: (5279FD7E02F7)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

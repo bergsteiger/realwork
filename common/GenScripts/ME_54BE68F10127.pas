@@ -2,6 +2,8 @@ unit DecorTextPara;
 
 // Модуль: ""
 // Стереотип: "TagOverride"
+// Элемент модели: "DecorTextPara" MUID: (54BE68F10127)
+// Имя типа: "DecorTextParaTag"
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

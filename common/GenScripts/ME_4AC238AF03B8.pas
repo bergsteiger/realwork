@@ -3,6 +3,7 @@ unit DictionInterfacesPrim;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\DictionInterfacesPrim.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "DictionInterfacesPrim" MUID: (4AC238AF03B8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

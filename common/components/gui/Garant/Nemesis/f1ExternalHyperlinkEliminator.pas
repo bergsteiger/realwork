@@ -2,6 +2,7 @@ unit f1ExternalHyperlinkEliminator;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\f1ExternalHyperlinkEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tf1ExternalHyperlinkEliminator" MUID: (556ECBCF0396)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

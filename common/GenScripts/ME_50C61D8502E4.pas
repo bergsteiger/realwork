@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3FormattedLines;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3FormattedLines.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3FormattedLines" MUID: (50C61D8502E4)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

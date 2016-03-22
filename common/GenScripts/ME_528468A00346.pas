@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmScrollableFormWithWheelSupport" MUID: (528468A00346)
+// Имя типа: "_vcmScrollableFormWithWheelSupport_"
 
 {$Define vcmScrollableFormWithWheelSupport_imp}
 

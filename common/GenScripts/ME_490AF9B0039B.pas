@@ -2,6 +2,7 @@ unit nsNewCachableNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNewCachableNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsNewCachableNode" MUID: (490AF9B0039B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit DocumentAndListInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces\Common\DocumentAndListInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "DocumentAndListInterfaces" MUID: (491B305A0096)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

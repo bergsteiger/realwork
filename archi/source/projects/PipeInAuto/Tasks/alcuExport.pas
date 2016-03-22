@@ -13,11 +13,12 @@ uses
  csMessageManager,
  k2Base,
  ddProcesstaskPrim
- ;
+ , l3StringList;
 
 type
   TalcuExport = class(TcsExport)
   private
+    f_ErrorList: Tl3StringList;
     f_OutPipe: TExportPipe;
     procedure CorrectSab(aRegionList, aBusyList, aLockedList: Tl3LongintList);
     procedure CreateExportPipe(aProgressor: TddProgressObject);
@@ -33,12 +34,14 @@ type
     procedure DoAbort; override;
     procedure ReportEmptyDocs(EmptyCount: Integer); virtual;
     procedure SendErrors;
+    procedure Cleanup; override;
   public
     class function CanAsyncRun: Boolean; override;
   {$If defined(AppServerSide)}
     procedure SetupServerSideConfigParams; override;
   {$IfEnd defined(AppServerSide)}
-    procedure _OnCalcDone(Sender: TObject; Value: Int64; EmptyCount: Integer); virtual;
+    procedure _OnReportEmpty(aSender: TObject; aEmptyCount: Integer);
+    property ErrorList: Tl3StringList read f_ErrorList;
   end;//TalcuExport
 
 implementation
@@ -46,10 +49,12 @@ implementation
 uses
  DT_Const, dt_AttrSchema, dt_ImpExpTypes, L3Base, DateUtils, HT_Const, L3Stream,
  L3FileUtils, SysUtils, alcuStrings, alcuUtils, DT_Doc, StrUtils, ddProgressTypes, l3ShellUtils,
+ l3String,
  HT_Dll, ddUtils, {$If defined(AppServerSide)} ddAppConfig, {$IfEnd defined(AppServerSide)}
  daUtils,
  daInterfaces,
  daTypes,
+ daSchemeConsts,
  {$If defined(AppServerSide)} daDataProvider, {$IfEnd defined(AppServerSide)}
  DT_LinkServ, DT_Link, DT_Lock, Dt_Query, dt_Mail, DT_Utils,
  alcuMailServer, alcuTypes, ddServerTask, CsTaskTypes, DT_DictConst, dt_UserConst,
@@ -158,7 +163,7 @@ begin
    f_OutPipe.UpdateFiles:= False;
    f_OutPipe.ExportDocument:= True;
    f_OutPipe.Progressor:= aProgressor;
-   f_OutPipe.OnCalculationDone := _OnCalcDone;
+   f_OutPipe.OnReportEmpty := _OnReportEmpty;
 end;
 
 procedure TalcuExport.DestroyPipes;
@@ -177,7 +182,7 @@ var
   l_ExportRec: TExpResultRec;
   l_Busy: Tl3LongintList;
   l_Locked : Tl3LongintList;
- l_ExecResult: Integer;
+ l_ExecResult: Cardinal;
 begin
 // Нужно отделить обычный экспорт от серверного и т.п.
  CreateExportPipe(aContext.rProgressor);
@@ -238,7 +243,9 @@ begin
      f_OutPipe.ClearAttributes       := GetClearAttributes;
      f_OutPipe.FormulaAsPicture      := FormulaAsPicture;
      try
+       FreeAndNil(f_ErrorList);
        f_OutPipe.Execute;
+       f_ErrorList := f_OutPipe.ErrorList.Use;
        SendErrors;
        if FileExists(AdditionalProcess) then
         l_ExecResult:= FileExecuteWait(AdditionalProcess,
@@ -288,8 +295,12 @@ end;
 
 procedure TalcuExport.SendErrors;
 begin
- if (f_OutPipe.ErrorList.Count > 0) and (UserID <> usServerService) then
-   dt_mail.MailServer.SendMail(mlNone, UserID, DateTimeToStr(Now) + ' - Ошибки экспорта', PAnsiChar(f_OutPipe.ErrorList.getText), nil);
+ if (ErrorList.Count > 0) and (UserID <> usServerService) then
+ begin
+  dt_mail.MailServer.SendMail(mlNone, UserID, DateTimeToStr(Now) + ' - Ошибки экспорта',
+  PAnsiChar(l3StringListToStr(ErrorList)),
+  nil);
+ end;
 end;
 
 procedure TalcuExport.SendRegionMail(aUserID: TUserID; aAlready, aBusy: Tl3LongintList);
@@ -387,10 +398,9 @@ begin
  end;
 end;
 
-procedure TalcuExport._OnCalcDone(Sender: TObject; Value: Int64; EmptyCount: Integer);
+procedure TalcuExport._OnReportEmpty(aSender: TObject; aEmptyCount: Integer);
 begin
- if EmptyCount > 0 then
-  ReportEmptyDocs(EmptyCount);
+ ReportEmptyDocs(aEmptyCount);
 end;
 
 function TalcuExport.GetClearAttributes: TexpClearAttributes;
@@ -400,9 +410,9 @@ end;
 
 procedure TalcuExport.ReportEmptyDocs(EmptyCount: Integer);
 begin
-  alcuMail.SendEmailNotify(eventEmptyDocuments, True,
-                           Format('Обнаружены пустые документы в количестве %d штук', [EmptyCount]),
-                           dd_apsExport);
+ alcuMail.SendEmailNotify(eventEmptyDocuments, True,
+                          Format('Обнаружены пустые документы в количестве %d штук', [EmptyCount]),
+                          dd_apsExport);
 end;
 
   {$If defined(AppServerSide)}
@@ -417,6 +427,12 @@ end;
 class function TalcuExport.CanAsyncRun: Boolean;
 begin
   Result := True;
+end;
+
+procedure TalcuExport.Cleanup;
+begin
+ FreeAndNil(f_ErrorList);
+ inherited;
 end;
 
 initialization

@@ -2,6 +2,7 @@ unit archiEditorWindowWordsPack;
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\archiEditorWindowWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "archiEditorWindowWordsPack" MUID: (55B665AE01A8)
 
 interface
 
@@ -93,11 +94,6 @@ begin
  aCtx.rEngine.PushBool(IsNeedSaveDocument(aCtx, l_aEditor));
 end;//TkwIsNeedSaveDocument.DoDoIt
 
-class function TkwIsNeedSaveDocument.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsNeedSaveDocument';
-end;//TkwIsNeedSaveDocument.GetWordNameForRegister
-
 function TkwIsNeedSaveDocument.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -112,6 +108,11 @@ function TkwIsNeedSaveDocument.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TEditorWindow)]);
 end;//TkwIsNeedSaveDocument.ParamsTypes
+
+class function TkwIsNeedSaveDocument.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsNeedSaveDocument';
+end;//TkwIsNeedSaveDocument.GetWordNameForRegister
 
 initialization
  TarchiEditorWindowWordsPackResNameGetter.Register;

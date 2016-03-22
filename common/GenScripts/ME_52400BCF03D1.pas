@@ -2,6 +2,7 @@ unit NavigatorUtils;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\NavigatorUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "NavigatorUtils" MUID: (52400BCF03D1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

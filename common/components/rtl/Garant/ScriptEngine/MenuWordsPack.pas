@@ -2,6 +2,7 @@ unit MenuWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\MenuWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "MenuWordsPack" MUID: (4FC7292F02EA)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -233,11 +234,6 @@ begin
  Click(aCtx, l_aMenuItem);
 end;//TkwMenuItemClick.DoDoIt
 
-class function TkwMenuItemClick.GetWordNameForRegister: AnsiString;
-begin
- Result := 'menuitem:Click';
-end;//TkwMenuItemClick.GetWordNameForRegister
-
 function TkwMenuItemClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -252,6 +248,11 @@ function TkwMenuItemClick.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemClick.ParamsTypes
+
+class function TkwMenuItemClick.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'menuitem:Click';
+end;//TkwMenuItemClick.GetWordNameForRegister
 
 function TkwMenuItemGetItem.GetItem(const aCtx: TtfwContext;
  aMenuItem: TMenuItem;
@@ -291,11 +292,6 @@ begin
  aCtx.rEngine.PushObj(GetItem(aCtx, l_aMenuItem, l_anIndex));
 end;//TkwMenuItemGetItem.DoDoIt
 
-class function TkwMenuItemGetItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'menuitem:GetItem';
-end;//TkwMenuItemGetItem.GetWordNameForRegister
-
 function TkwMenuItemGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TMenuItem);
@@ -310,6 +306,11 @@ function TkwMenuItemGetItem.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMenuItem), TypeInfo(Integer)]);
 end;//TkwMenuItemGetItem.ParamsTypes
+
+class function TkwMenuItemGetItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'menuitem:GetItem';
+end;//TkwMenuItemGetItem.GetWordNameForRegister
 
 function TkwMenuItemGetMenuHeight.GetMenuHeight(const aCtx: TtfwContext;
  aMenuItem: TMenuItem): Integer;
@@ -355,11 +356,6 @@ begin
  aCtx.rEngine.PushInt(GetMenuHeight(aCtx, l_aMenuItem));
 end;//TkwMenuItemGetMenuHeight.DoDoIt
 
-class function TkwMenuItemGetMenuHeight.GetWordNameForRegister: AnsiString;
-begin
- Result := 'menuitem:GetMenuHeight';
-end;//TkwMenuItemGetMenuHeight.GetWordNameForRegister
-
 function TkwMenuItemGetMenuHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -374,6 +370,11 @@ function TkwMenuItemGetMenuHeight.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemGetMenuHeight.ParamsTypes
+
+class function TkwMenuItemGetMenuHeight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'menuitem:GetMenuHeight';
+end;//TkwMenuItemGetMenuHeight.GetWordNameForRegister
 
 function TkwMenuItemCaption.Caption(const aCtx: TtfwContext;
  aMenuItem: TMenuItem): AnsiString;
@@ -397,11 +398,6 @@ begin
  aCtx.rEngine.PushString(Caption(aCtx, l_aMenuItem));
 end;//TkwMenuItemCaption.DoDoIt
 
-class function TkwMenuItemCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := 'menuitem:GetCaption';
-end;//TkwMenuItemCaption.GetWordNameForRegister
-
 procedure TkwMenuItemCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -422,6 +418,11 @@ function TkwMenuItemCaption.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemCaption.ParamsTypes
+
+class function TkwMenuItemCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'menuitem:GetCaption';
+end;//TkwMenuItemCaption.GetWordNameForRegister
 
 function TkwMenuItemCount.Count(const aCtx: TtfwContext;
  aMenuItem: TMenuItem): Integer;
@@ -445,11 +446,6 @@ begin
  aCtx.rEngine.PushInt(Count(aCtx, l_aMenuItem));
 end;//TkwMenuItemCount.DoDoIt
 
-class function TkwMenuItemCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'menuitem:GetCount';
-end;//TkwMenuItemCount.GetWordNameForRegister
-
 procedure TkwMenuItemCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -470,6 +466,11 @@ function TkwMenuItemCount.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemCount.ParamsTypes
+
+class function TkwMenuItemCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'menuitem:GetCount';
+end;//TkwMenuItemCount.GetWordNameForRegister
 
 function TkwMenuItemEnabled.Enabled(const aCtx: TtfwContext;
  aMenuItem: TMenuItem): Boolean;
@@ -493,11 +494,6 @@ begin
  aCtx.rEngine.PushBool(Enabled(aCtx, l_aMenuItem));
 end;//TkwMenuItemEnabled.DoDoIt
 
-class function TkwMenuItemEnabled.GetWordNameForRegister: AnsiString;
-begin
- Result := 'menuitem:IsEnabled';
-end;//TkwMenuItemEnabled.GetWordNameForRegister
-
 procedure TkwMenuItemEnabled.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -518,6 +514,11 @@ function TkwMenuItemEnabled.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemEnabled.ParamsTypes
+
+class function TkwMenuItemEnabled.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'menuitem:IsEnabled';
+end;//TkwMenuItemEnabled.GetWordNameForRegister
 
 function TkwMenuItemVisible.Visible(const aCtx: TtfwContext;
  aMenuItem: TMenuItem): Boolean;
@@ -541,11 +542,6 @@ begin
  aCtx.rEngine.PushBool(Visible(aCtx, l_aMenuItem));
 end;//TkwMenuItemVisible.DoDoIt
 
-class function TkwMenuItemVisible.GetWordNameForRegister: AnsiString;
-begin
- Result := 'menuitem:IsVisible';
-end;//TkwMenuItemVisible.GetWordNameForRegister
-
 procedure TkwMenuItemVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -566,6 +562,11 @@ function TkwMenuItemVisible.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemVisible.ParamsTypes
+
+class function TkwMenuItemVisible.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'menuitem:IsVisible';
+end;//TkwMenuItemVisible.GetWordNameForRegister
 
 initialization
  TMenuWordsPackResNameGetter.Register;

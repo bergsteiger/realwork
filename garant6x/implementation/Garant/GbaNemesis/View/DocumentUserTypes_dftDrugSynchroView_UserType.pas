@@ -1,86 +1,68 @@
 unit DocumentUserTypes_dftDrugSynchroView_UserType;
+ {* Описание препарата (синхронный просмотр) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/DocumentUserTypes_dftDrugSynchroView_UserType.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Core::Base Operations::View::Base Forms::DocumentUserTypes::dftDrugSynchroView
-//
-// Описание препарата (синхронный просмотр)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftDrugSynchroView_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "dftDrugSynchroView" MUID: (4B0410A102E1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentUserTypes_dftMedicFirmSynchroView_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ , DocumentUserTypes_dftMedicFirmSynchroView_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы dftDrugSynchroView }
-  dftDrugSynchroViewName = 'dftDrugSynchroView';
-   { Строковый идентификатор пользовательского типа "Описание препарата (синхронный просмотр)" }
-  dftDrugSynchroView = TvcmUserType(dftMedicFirmSynchroView + 1);
-   { Описание препарата (синхронный просмотр) }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы dftDrugSynchroView }
+ dftDrugSynchroViewName = 'dftDrugSynchroView';
+  {* Строковый идентификатор пользовательского типа "Описание препарата (синхронный просмотр)" }
+ dftDrugSynchroView = TvcmUserType(dftMedicFirmSynchroView + 1);
+  {* Описание препарата (синхронный просмотр) }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_dftDrugSynchroView = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы dftDrugSynchroView }
+ Tkw_FormUserType_dftDrugSynchroView = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы dftDrugSynchroView }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_dftDrugSynchroView
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_dftDrugSynchroView
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_dftDrugSynchroView
-
-class function Tkw_FormUserType_dftDrugSynchroView.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::dftDrugSynchroView';
-end;//Tkw_FormUserType_dftDrugSynchroView.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dftDrugSynchroView.GetInteger: Integer;
- {-}
 begin
  Result := dftDrugSynchroView;
 end;//Tkw_FormUserType_dftDrugSynchroView.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_dftDrugSynchroView.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::dftDrugSynchroView';
+end;//Tkw_FormUserType_dftDrugSynchroView.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_dftDrugSynchroView
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftDrugSynchroView.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_dftDrugSynchroView }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

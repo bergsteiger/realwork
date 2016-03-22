@@ -2,6 +2,7 @@ unit ChromeLikeFormTabParamsList;
 
 // Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeFormTabParamsList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TChromeLikeFormTabParamsList" MUID: (552609F40060)
 
 interface
 

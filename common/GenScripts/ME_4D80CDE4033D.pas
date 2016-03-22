@@ -2,6 +2,7 @@ unit SearchLite_FormDefinitions_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\SearchLite_FormDefinitions_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "FormDefinitions" MUID: (4D80CDE4033D)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -48,8 +49,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_Form_TreeAttributeSelect_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы TreeAttributeSelect
 ----
@@ -61,9 +62,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_TreeAttributeSelect_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_SelectedAttributes_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы SelectedAttributes
 ----
@@ -75,9 +77,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_SelectedAttributes_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
- {$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+type
  Tkw_Form_AttributeSelect_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы AttributeSelect
 ----
@@ -89,7 +92,7 @@ type
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
  end;//Tkw_Form_AttributeSelect_ID
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
 class function Tkw_Form_TreeAttributeSelect_ID.GetWordNameForRegister: AnsiString;

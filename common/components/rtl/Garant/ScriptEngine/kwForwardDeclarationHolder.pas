@@ -2,6 +2,7 @@ unit kwForwardDeclarationHolder;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwForwardDeclarationHolder.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwForwardDeclarationHolder" MUID: (4F4BC6DB02F4)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -18,7 +19,6 @@ type
  TkwForwardDeclarationHolder = class(TtfwWord)
   private
    f_Holded: TtfwWord;
-    {* Поле для свойства Holded }
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
    procedure Cleanup; override;
@@ -87,7 +87,10 @@ function TkwForwardDeclarationHolder.WordName: Il3CString;
 //#UC END# *55AFD7DA0258_4F4BC6DB02F4_var*
 begin
 //#UC START# *55AFD7DA0258_4F4BC6DB02F4_impl*
- Result := f_Holded.WordName;
+ if (f_Holded = nil) then
+  Result := TtfwCStringFactory.C('Destroyed forward declaration holder')
+ else
+  Result := f_Holded.WordName;
 //#UC END# *55AFD7DA0258_4F4BC6DB02F4_impl*
 end;//TkwForwardDeclarationHolder.WordName
 

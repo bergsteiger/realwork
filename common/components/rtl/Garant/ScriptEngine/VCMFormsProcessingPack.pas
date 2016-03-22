@@ -2,6 +2,7 @@ unit VCMFormsProcessingPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\VCMFormsProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "VCMFormsProcessingPack" MUID: (54DCB28C0273)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\vcmDefine.inc}
 
@@ -143,11 +144,6 @@ begin
  aCtx.rEngine.PushBool(IsFloatingStateAndParentNotVisible(aCtx, l_aForm));
 end;//TkwPopFormIsFloatingStateAndParentNotVisible.DoDoIt
 
-class function TkwPopFormIsFloatingStateAndParentNotVisible.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Form:IsFloatingStateAndParentNotVisible';
-end;//TkwPopFormIsFloatingStateAndParentNotVisible.GetWordNameForRegister
-
 procedure TkwPopFormIsFloatingStateAndParentNotVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -168,6 +164,11 @@ function TkwPopFormIsFloatingStateAndParentNotVisible.ParamsTypes: PTypeInfoArra
 begin
  Result := OpenTypesToTypes([TypeInfo(TvcmEntityForm)]);
 end;//TkwPopFormIsFloatingStateAndParentNotVisible.ParamsTypes
+
+class function TkwPopFormIsFloatingStateAndParentNotVisible.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Form:IsFloatingStateAndParentNotVisible';
+end;//TkwPopFormIsFloatingStateAndParentNotVisible.GetWordNameForRegister
 
 function TkwPopFormIsFloatingState.IsFloatingState(const aCtx: TtfwContext;
  aForm: TvcmEntityForm): Boolean;
@@ -191,11 +192,6 @@ begin
  aCtx.rEngine.PushBool(IsFloatingState(aCtx, l_aForm));
 end;//TkwPopFormIsFloatingState.DoDoIt
 
-class function TkwPopFormIsFloatingState.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Form:IsFloatingState';
-end;//TkwPopFormIsFloatingState.GetWordNameForRegister
-
 procedure TkwPopFormIsFloatingState.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -216,6 +212,11 @@ function TkwPopFormIsFloatingState.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvcmEntityForm)]);
 end;//TkwPopFormIsFloatingState.ParamsTypes
+
+class function TkwPopFormIsFloatingState.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Form:IsFloatingState';
+end;//TkwPopFormIsFloatingState.GetWordNameForRegister
 
 function TkwPopFormUserType.UserType(const aCtx: TtfwContext;
  aForm: TvcmEntityForm): Integer;
@@ -239,11 +240,6 @@ begin
  aCtx.rEngine.PushInt(UserType(aCtx, l_aForm));
 end;//TkwPopFormUserType.DoDoIt
 
-class function TkwPopFormUserType.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Form:UserType';
-end;//TkwPopFormUserType.GetWordNameForRegister
-
 procedure TkwPopFormUserType.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -264,6 +260,11 @@ function TkwPopFormUserType.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvcmEntityForm)]);
 end;//TkwPopFormUserType.ParamsTypes
+
+class function TkwPopFormUserType.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Form:UserType';
+end;//TkwPopFormUserType.GetWordNameForRegister
 
 function TkwPopFormFormID.FormID(const aCtx: TtfwContext;
  aForm: TvcmEntityForm): AnsiString;
@@ -291,11 +292,6 @@ begin
  aCtx.rEngine.PushString(FormID(aCtx, l_aForm));
 end;//TkwPopFormFormID.DoDoIt
 
-class function TkwPopFormFormID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Form:FormID';
-end;//TkwPopFormFormID.GetWordNameForRegister
-
 procedure TkwPopFormFormID.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -316,6 +312,11 @@ function TkwPopFormFormID.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvcmEntityForm)]);
 end;//TkwPopFormFormID.ParamsTypes
+
+class function TkwPopFormFormID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Form:FormID';
+end;//TkwPopFormFormID.GetWordNameForRegister
 
 initialization
  TkwPopFormIsFloatingStateAndParentNotVisible.RegisterInEngine;

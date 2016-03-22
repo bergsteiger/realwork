@@ -2,6 +2,7 @@ unit nsDocumentWithSnippetList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsDocumentWithSnippetList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentWithSnippetList" MUID: (5645E9550108)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

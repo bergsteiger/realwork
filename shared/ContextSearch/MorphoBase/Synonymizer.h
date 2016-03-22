@@ -34,14 +34,6 @@ private:
 	// Кэш частей речи
 	typedef std::map < std::string, Morpho::Def::UCharSet > PartsSpeechCache;
 
-	// Тип шаблона
-	enum TemplateType {
-		tt_None // None
-		, tt_Simple // Simple
-		, tt_Complex // Complex
-		, tt_Split // Split
-	};
-
 	// EnvMap
 	typedef std::map < std::string, std::string > EnvMap;
 
@@ -66,9 +58,6 @@ private:
 
 	// синонимизация даты
 	static Search::Phrase* get_dates (const std::string& str, size_t& offset);
-
-	// возвратить список синонимичных замен для шаблона
-	static Search::Phrase* get_for_template (const Search::Phrase& values, const Search::Phrase& data);
 
 	// проверка на синоним
 	static bool is_syn (const std::string& str, const std::string& syn);
@@ -97,6 +86,9 @@ private:
 	// проверка на принадлежность к части речи
 	bool check (const std::string& str, unsigned char x, unsigned char y);
 
+	// проверка на соответствие стереотипу
+	bool check (const std::string& str, char attr);
+
 	// поиск синонимичного вхождения удовлетворяющего шаблону
 	bool find_template (
 		const std::string& str
@@ -107,6 +99,9 @@ private:
 
 	// генерация
 	void generate (const std::string& str, Search::PhraseEx& out);
+
+	// возвратить список синонимичных замен для шаблона
+	Search::Phrase* get_for_template (const Search::Phrase& values, const Search::Phrase& data);
 
 	// проверка на шаблон
 	bool is_template (const std::string& str, const std::string& syn, Pattern& out);
@@ -122,6 +117,20 @@ private:
 
 //#UC START# *53567E4D0007*
 private:
+	enum ExprType {
+		et_None
+		, et_Simple
+		, et_Digit
+		, et_Set
+		, et_Colon
+		, et_Bool
+	};
+
+	static ExprType get_expr_type (std::string::const_iterator beg, std::string::const_iterator end);
+
+private:
+	bool check_simple (std::string& str, std::string& span, char attr, bool strong);
+
 	static bool check (
 		std::string& out
 		, std::string::const_iterator i_beg
@@ -130,25 +139,36 @@ private:
 		, std::string::const_iterator s_end
 	);
 
+	static bool check_set (
+		std::string& str
+		, std::string& span
+		, std::string::const_iterator s_beg
+		, std::string::const_iterator s_end
+		, bool strong
+	);
+
 	static bool is_exist (
 		std::string& str
 		, std::string& span
 		, std::string::const_iterator s_beg
 		, std::string::const_iterator s_end
+		, bool strong
 	);
 
-	static bool is_exist (
-		const std::string& str
-		, std::string::const_iterator s_beg
-		, std::string::const_iterator s_end
-	);
-
-	bool check (const std::string& str, char attr);
-
-	bool check (
-		const std::string& str
+	bool check_len (
+		std::string& str
+		, std::string& span
 		, std::string::const_iterator beg
 		, std::string::const_iterator end
+		, bool strong
+	);
+
+	bool check_bool (
+		std::string& str
+		, std::string& span
+		, std::string::const_iterator beg
+		, std::string::const_iterator end
+		, bool strong
 	);
 
 	bool check (
@@ -156,6 +176,7 @@ private:
 		, std::string& span
 		, std::string::const_iterator beg
 		, std::string::const_iterator end
+		, bool strong
 	);
 //#UC END# *53567E4D0007*
 }; // class Synonymizer

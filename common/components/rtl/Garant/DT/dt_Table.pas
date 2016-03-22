@@ -1,8 +1,11 @@
 Unit dt_Table;
 
-{ $Id: dt_Table.pas,v 1.60 2015/09/10 15:04:26 voba Exp $ }
+{ $Id: dt_Table.pas,v 1.61 2016/01/22 12:18:59 lukyanets Exp $ }
 
 // $Log: dt_Table.pas,v $
+// Revision 1.61  2016/01/22 12:18:59  lukyanets
+// Переосмысливаем мигратор
+//
 // Revision 1.60  2015/09/10 15:04:26  voba
 // no message
 //
@@ -302,7 +305,7 @@ type
 
    function  RecordAsString(aRecord: PAnsiChar): AnsiString;
 
-   procedure ExportToFile(const aFileName : AnsiString; aQuote : Char = '"'; aDelimiter : Char = #9);
+   procedure ExportToFile(const aFileName : AnsiString; aQuote : Char = '"'; aDelimiter : Char = #9; AddEmtryTailColumnCount: Integer = 0);
    function  PhotoOfTable : Sab;
 
    property  IsTableOpened : Boolean read fIsTableOpened write fIsTableOpened;
@@ -1148,12 +1151,12 @@ begin
   htReleaseResults(aSab);
 end;
 
-procedure TdtTable.ExportToFile(const aFileName : AnsiString; aQuote : Char = '"'; aDelimiter : Char = #9);
+procedure TdtTable.ExportToFile(const aFileName : AnsiString; aQuote : Char = '"'; aDelimiter : Char = #9; AddEmtryTailColumnCount: Integer = 0);
 var
  lRecs : ISab;
 begin
  lRecs := MakeAllRecords(Self);
- OutRecSabToFile(lRecs, aFileName, aQuote, aDelimiter);
+ OutRecSabToFile(lRecs, aFileName, aQuote, aDelimiter, AddEmtryTailColumnCount);
 end;
 
 function MakeITbl(aPath : TPathStr; aPass : TPassStr; aName : TTblNameStr; aShare : SmallInt) : ITblInfo;

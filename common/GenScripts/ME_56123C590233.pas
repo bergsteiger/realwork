@@ -3,6 +3,7 @@ unit evReqRowImplementation;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evReqRowImplementation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevReqRowImplementation" MUID: (56123C590233)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

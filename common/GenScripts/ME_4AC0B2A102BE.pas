@@ -2,6 +2,7 @@ unit NOT_FINISHED_vtCtrls;
 
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtCtrls.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vtCtrls" MUID: (4AC0B2A102BE)
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 

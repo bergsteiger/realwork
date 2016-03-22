@@ -8,7 +8,6 @@ uses
  l3ObjectRefList,
  l3String,
  l3Interfaces,
- l3LingLib,
 
  m4DictTypes,
  m4Word,
@@ -97,6 +96,10 @@ uses
  SysUtils,
  l3Types,
  l3FieldSortRecList,
+
+ l3SpellMisc,
+ l3LingLib,
+ 
  //l3RecList,
  m2MemLib
  , vtDebug;

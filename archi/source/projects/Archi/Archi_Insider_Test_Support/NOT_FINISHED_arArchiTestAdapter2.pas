@@ -3,6 +3,7 @@ unit NOT_FINISHED_arArchiTestAdapter2;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\NOT_FINISHED_arArchiTestAdapter2.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "arArchiTestAdapter2" MUID: (4E4B5F29031C)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

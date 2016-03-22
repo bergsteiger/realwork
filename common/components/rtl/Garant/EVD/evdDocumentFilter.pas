@@ -4,6 +4,7 @@ unit evdDocumentFilter;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdDocumentFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdDocumentFilter" MUID: (4836BA4C03B3)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

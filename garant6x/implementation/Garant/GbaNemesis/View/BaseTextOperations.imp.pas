@@ -554,7 +554,8 @@ procedure _BaseTextOperations_.File_Save_Test(const aParams: IvcmTestParamsPrim)
 //#UC END# *495235F401C0_4AE1A69E0156test_var*
 begin
 //#UC START# *495235F401C0_4AE1A69E0156test_impl*
- NotEmptyDocumentWithTrialModeTest(aParams);
+ //NotEmptyDocumentWithTrialModeTest(aParams);
+ NotEmptyDocumentTest(aParams);
 //#UC END# *495235F401C0_4AE1A69E0156test_impl*
 end;//_BaseTextOperations_.File_Save_Test
 {$IfEnd} //not NoVCM
@@ -610,7 +611,8 @@ procedure _BaseTextOperations_.File_SendMailAsAttachment_Test(const aParams: Ivc
 //#UC END# *495253870002_4AE1A69E0156test_var*
 begin
 //#UC START# *495253870002_4AE1A69E0156test_impl*
- NotEmptyDocumentWithTrialModeTest(aParams);
+ //NotEmptyDocumentWithTrialModeTest(aParams);
+ NotEmptyDocumentTest(aParams);
 //#UC END# *495253870002_4AE1A69E0156test_impl*
 end;//_BaseTextOperations_.File_SendMailAsAttachment_Test
 

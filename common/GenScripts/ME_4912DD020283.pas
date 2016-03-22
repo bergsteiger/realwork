@@ -2,6 +2,7 @@ unit eeInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "eeInterfaces" MUID: (4912DD020283)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

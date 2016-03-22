@@ -2,6 +2,7 @@ unit FoldersChangeUserInteraction;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\FoldersChangeUserInteraction.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TFoldersChangeUserInteraction" MUID: (51F65A1A03D3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

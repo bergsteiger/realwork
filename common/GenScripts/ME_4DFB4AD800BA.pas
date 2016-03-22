@@ -2,6 +2,7 @@ unit NOT_FINISHED_Editwin;
 
 // Модуль: "w:\archi\source\projects\Archi\Main\NOT_FINISHED_Editwin.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Editwin" MUID: (4DFB4AD800BA)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

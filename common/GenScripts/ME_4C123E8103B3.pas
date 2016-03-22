@@ -3,6 +3,7 @@ unit MergeCellsTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\MergeCellsTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TMergeCellsTest" MUID: (4C123E8103B3)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

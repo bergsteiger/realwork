@@ -2,6 +2,7 @@ unit l3FormatObjectInfoHelper;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3FormatObjectInfoHelper.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3FormatObjectInfoHelper" MUID: (551BCBFD0240)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -35,7 +36,7 @@ type
  Tl3FormatObjectInfoHelper = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3FormatObjectInfoHelper;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3FormatObjectInfoHelper }
   protected
    procedure pm_SetAlien(const aValue: Il3FormatObjectInfoHelper);
    procedure ClearFields; override;

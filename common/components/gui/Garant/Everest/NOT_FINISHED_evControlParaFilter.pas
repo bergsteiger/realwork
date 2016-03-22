@@ -2,6 +2,7 @@ unit NOT_FINISHED_evControlParaFilter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evControlParaFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevControlParaFilter" MUID: (4D936A0F03D0)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

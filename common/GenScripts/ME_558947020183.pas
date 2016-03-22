@@ -2,6 +2,7 @@ unit vcmHistoryItemList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmHistoryItemList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmHistoryItemList" MUID: (558947020183)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

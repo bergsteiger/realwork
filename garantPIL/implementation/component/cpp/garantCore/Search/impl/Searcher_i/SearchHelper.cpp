@@ -28,7 +28,7 @@ namespace Searcher_i {
 // self implementation
 
 // проверка на валидность
-bool SearchHelper::check_query (SearchBase* base, const std::string& in) {
+bool SearchHelper::check_query (Base* base, const std::string& in) {
 	//#UC START# *556DA61901B7*
 	if (in.empty ()) {
 		return false;
@@ -197,7 +197,7 @@ char* SearchHelper::make_date_key (const std::string& str) {
 }
 
 // фабрика ключей для хранилища
-char* SearchHelper::make_key (SearchBase* base, const QueryTag& tag) {
+char* SearchHelper::make_key (Base* base, const QueryTag& tag) {
 	//#UC START# *516C10A100A1*
 	Core::Aptr <char, Core::ArrayDeleteDestructor <char> > ret;
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_D_spell;
 
 // Модуль: "w:\archi\source\projects\Common\Dialogs\NOT_FINISHED_D_spell.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "D_spell" MUID: (55C8D80A0304)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 

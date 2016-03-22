@@ -253,11 +253,13 @@ begin
  Result := false;
  l_Found := nil;
  try
- // Result := nil;
   try
    ForEachF(L2AlcuTasksIteratorForEachFAction(@DoIt));
    if (l_Found <> nil) then
+   begin
     anAction(l_Found);
+    Result := True;
+   end;
   finally
    l3FreeLocalStub(Hack);
   end;//try..finally

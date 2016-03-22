@@ -1,63 +1,47 @@
 unit K465700807;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ImportExportTestLibrary"
-// Модуль: "W:/archi/source/projects/ImportExportTest/K465700807.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> archi$ImportExprortTest::ImportExportTestLibrary::ImportExport::TK465700807
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\archi\source\projects\ImportExportTest\K465700807.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TK465700807" MUID: (51CC0A110114)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include W:\archi\source\projects\ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  ietBaseTest,
-  evdDTTypes
-  ;
-{$IfEnd} //nsTest
+ l3IntfUses
+ , ietBaseTest
+ , evdDTTypes
+;
 
-{$If defined(nsTest)}
 type
  TK465700807 = class(TietBaseTest)
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
    function GetOutputFormat: TepSupportFileType; override;
  end;//TK465700807
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest
-
-{$If defined(nsTest)}
-
-// start class TK465700807
+ l3ImplUses
+ , TestFrameWork
+;
 
 function TK465700807.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'ImportExport';
 end;//TK465700807.GetFolder
 
 function TK465700807.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '51CC0A110114';
 end;//TK465700807.GetModelElementGUID
@@ -71,9 +55,8 @@ begin
 //#UC END# *51CBE62E006B_51CC0A110114_impl*
 end;//TK465700807.GetOutputFormat
 
-{$IfEnd} //nsTest
-
 initialization
  TestFramework.RegisterTest(TK465700807.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

@@ -61,6 +61,8 @@ type
    function pm_GetCommentsIDList: CommentsIDListHelper;
    function pm_GetExcludeDocTypesIDList: ExcludeDocTypesIDListHelper;
    function pm_GetExcludeDocBasesIDList: ExcludeDocBasesIDListHelper;
+   function pm_GetAnnoFilenameTemplate: AnsiString;
+   procedure pm_SetAnnoFilenameTemplate(const aValue: AnsiString);
  protected
  // overridden protected methods
    class function GetTaggedDataType: Tk2Type; override;
@@ -114,6 +116,9 @@ type
      read pm_GetExcludeDocTypesIDList;
    property ExcludeDocBasesIDList: ExcludeDocBasesIDListHelper
      read pm_GetExcludeDocBasesIDList;
+   property AnnoFilenameTemplate: AnsiString
+     read pm_GetAnnoFilenameTemplate
+     write pm_SetAnnoFilenameTemplate;
  end;//TcsAnnotationTask
 {$IfEnd} //not Nemesis
 
@@ -332,6 +337,20 @@ begin
  Assert(TaggedData <> nil);
  Result := TExcludeDocBasesIDListHelper.Make(TaggedData.cAtom(k2_attrExcludeDocBasesIDList));
 end;//TcsAnnotationTask.pm_GetExcludeDocBasesIDList
+
+function TcsAnnotationTask.pm_GetAnnoFilenameTemplate: AnsiString;
+ {-}
+begin
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrAnnoFilenameTemplate]);
+end;//TcsAnnotationTask.pm_GetAnnoFilenameTemplate
+
+procedure TcsAnnotationTask.pm_SetAnnoFilenameTemplate(const aValue: AnsiString);
+ {-}
+begin
+ TaggedData.StrW[k2_attrAnnoFilenameTemplate, nil] := (aValue);
+end;//TcsAnnotationTask.pm_SetAnnoFilenameTemplate
 
 class function TcsAnnotationTask.GetTaggedDataType: Tk2Type;
  {-}

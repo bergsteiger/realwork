@@ -2,6 +2,7 @@ unit afwAString;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\afwAString.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwAString" MUID: (4F6C79B10165)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

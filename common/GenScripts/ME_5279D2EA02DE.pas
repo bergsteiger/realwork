@@ -2,6 +2,7 @@ unit TestDocumentList;
 
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\TestDocumentList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TTestDocumentList" MUID: (5279D2EA02DE)
 
 {$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 

@@ -2,6 +2,7 @@ unit System;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Sys\System.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "System" MUID: (4807744200AA)
 
 interface
 

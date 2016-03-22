@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddLowLevelRTF;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddLowLevelRTF.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddLowLevelRTF" MUID: (51E7BEA10022)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: deltadef.h,v 2.72 2015/10/16 07:49:37 young Exp $
+ * $Id: deltadef.h,v 2.73 2016/01/28 07:16:39 young Exp $
  */
 
 #ifndef _FD_DEF_
@@ -161,6 +161,7 @@
 #define M_ATR_SAMES		8
 #define M_ATR_TAG		16
 #define M_ATR_PROFDATE		32
+#define M_ATR_INVISIBLEBLOCKSLENS	64
 
 
 /* INFO mask

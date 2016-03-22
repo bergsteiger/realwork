@@ -2,6 +2,7 @@ unit evQueryCardProcessor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evQueryCardProcessor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevQueryCardProcessor" MUID: (48DBA722010B)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

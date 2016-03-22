@@ -3,6 +3,8 @@ unit Style_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\Style_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Style" MUID: (484D11240282)
+// Имя типа: "StyleTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

@@ -2,6 +2,8 @@ unit Rubricator_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Rubricator\Rubricator_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "Rubricator" MUID: (4AA67768038F)
+// Имя типа: "TRubricatorModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

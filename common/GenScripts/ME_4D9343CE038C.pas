@@ -2,6 +2,7 @@ unit evLeafParaDecorationsHolderEliminator;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evLeafParaDecorationsHolderEliminator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevLeafParaDecorationsHolderEliminator" MUID: (4D9343CE038C)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit deMedicDiction;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\deMedicDiction.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdeMedicDiction" MUID: (492559970076)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

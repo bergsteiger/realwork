@@ -57,6 +57,10 @@ type
 const
   { Defaults }
  c_DefaultPostgresPort = 5432;
+
+type
+ EpgLockError = class(EPgError)
+ end;//EpgLockError
 {$IfEnd} //UsePostgres
 
 implementation

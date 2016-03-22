@@ -3,6 +3,7 @@ unit atCRC32;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\atCRC32.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "atCRC32" MUID: (4A4B91810237)
 
 interface
 
@@ -10,7 +11,6 @@ uses
  l3IntfUses
 ;
 
-type
 function ComputeCRC32(const Buf: Pointer;
  const BufLength: Longword): Longword;
 procedure UpdateCRC32(Buf: PAnsiChar;

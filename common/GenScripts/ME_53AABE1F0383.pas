@@ -2,6 +2,7 @@ unit evCustomStyleManager;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCustomStyleManager.pas"
 // Стереотип: "Service"
+// Элемент модели: "TevCustomStyleManager" MUID: (53AABE1F0383)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -2,6 +2,7 @@ unit InpharmInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\InpharmInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
+// Элемент модели: "InpharmInterfaces" MUID: (4AC241AC01FC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

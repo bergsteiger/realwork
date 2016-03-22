@@ -2,6 +2,7 @@ unit pgTabledQuery;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgTabledQuery.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgTabledQuery" MUID: (55F960D502F6)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
@@ -91,7 +92,7 @@ function TpgTabledQuery.BuildSQL: AnsiString;
 //#UC END# *560506760367_55F960D502F6_var*
 begin
 //#UC START# *560506760367_55F960D502F6_impl*
- Result := Format('%s'#13#10+'  %s'#13#10+' %s', [BuildSelectClause, BuildFromClause, BuildWhereClause]);
+ Result := BuildSQLValue(Params);
 //#UC END# *560506760367_55F960D502F6_impl*
 end;//TpgTabledQuery.BuildSQL
 
@@ -101,7 +102,7 @@ function TpgTabledQuery.MakeFromTable(const aTable: IdaTableDescription;
 //#UC END# *5600FFF80332_55F960D502F6_var*
 begin
 //#UC START# *5600FFF80332_55F960D502F6_impl*
- Result := TpgFromTable.Make(aTable, anAlias);
+ Result := TdaFromTable.Make(aTable, anAlias);
 //#UC END# *5600FFF80332_55F960D502F6_impl*
 end;//TpgTabledQuery.MakeFromTable
 

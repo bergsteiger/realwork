@@ -2,7 +2,7 @@
 //
 // Модуль: "w:/common/components/rtl/Garant/EVD/Types/Types.h"
 // генератор заголовочных файлов C++ (.h)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi::EVD::Types
+// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Low Level::EVD::Types
 //
 // Базовые типы, используемые форматом EVD.
 //
@@ -10,8 +10,8 @@
 // Все права принадлежат ООО НПП "Гарант-Сервис".
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#ifndef __SHARED_DELPHI_EVD_TYPES_H__
-#define __SHARED_DELPHI_EVD_TYPES_H__
+#ifndef __SHARED_DELPHI_LOW_LEVEL_EVD_TYPES_H__
+#define __SHARED_DELPHI_LOW_LEVEL_EVD_TYPES_H__
 
 #include "shared/Core/sys/std_inc.h"
 
@@ -158,6 +158,14 @@ enum SegmentHandle {
 	, Diff
 };
 
+static const unsigned long POSITION_TYPE_PARA_ID = 2147483648;
+
+enum BlockViewKind {
+	bvk_None
+	, bvk_Left
+	, bvk_Right
+};
+
 // Слои сегментов оформления
 static const unsigned long sl_Superposition = Superposition; // слой суперпозиции сегментов.
 static const unsigned long sl_View = View; // слой оформления.
@@ -168,16 +176,8 @@ static const unsigned long sl_Objects = Objects; // слой объектов, вставленных в
 static const unsigned long sl_Mistakes = Mistakes; // слой сегментов для покраски опечаток.
 static const unsigned long sl_Diff = Diff; // Разница двух сравниваемых документов
 
-static const unsigned long POSITION_TYPE_PARA_ID = 2147483648;
-
-enum BlockViewKind {
-	bvk_None
-	, bvk_Left
-	, bvk_Right
-};
-
 } // namespace EVD
 
 
-#endif //__SHARED_DELPHI_EVD_TYPES_H__
+#endif //__SHARED_DELPHI_LOW_LEVEL_EVD_TYPES_H__
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

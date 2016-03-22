@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentPresentation.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "DocumentPresentation" MUID: (4A7C0BF5008B)
+// Имя типа: "_DocumentPresentation_"
 
 {$Define DocumentPresentation_imp}
 

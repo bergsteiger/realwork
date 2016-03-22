@@ -2,6 +2,7 @@ unit NOT_FINISHED_csMessageRecepient;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csMessageRecepient.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcsMessageRecepient" MUID: (52FB9F4F029B)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

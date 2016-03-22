@@ -3,6 +3,7 @@ unit ListUserTypes_lftDrugInternationalNameSynonyms_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftDrugInternationalNameSynonyms_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "lftDrugInternationalNameSynonyms" MUID: (4BD58B5D0377)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftDrugInternationalNameSynonyms = {final} class(TtfwInteger)
   {* Слово словаря для типа формы lftDrugInternationalNameSynonyms }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_lftDrugInternationalNameSynonyms
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_lftDrugInternationalNameSynonyms.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::lftDrugInternationalNameSynonyms';
-end;//Tkw_FormUserType_lftDrugInternationalNameSynonyms.GetWordNameForRegister
-
 function Tkw_FormUserType_lftDrugInternationalNameSynonyms.GetInteger: Integer;
 begin
  Result := lftDrugInternationalNameSynonyms;
 end;//Tkw_FormUserType_lftDrugInternationalNameSynonyms.GetInteger
+
+class function Tkw_FormUserType_lftDrugInternationalNameSynonyms.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::lftDrugInternationalNameSynonyms';
+end;//Tkw_FormUserType_lftDrugInternationalNameSynonyms.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

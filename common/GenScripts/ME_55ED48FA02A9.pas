@@ -2,6 +2,7 @@ unit tfwMainDictionaryWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwMainDictionaryWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "tfwMainDictionaryWordsPack" MUID: (55ED48FA02A9)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -75,11 +76,6 @@ begin
  aCtx.rEngine.PushObj(CompiledCode(aCtx, l_aMainDictionary));
 end;//TkwPopMainDictionaryCompiledCode.DoDoIt
 
-class function TkwPopMainDictionaryCompiledCode.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:MainDictionary:CompiledCode';
-end;//TkwPopMainDictionaryCompiledCode.GetWordNameForRegister
-
 function TkwPopMainDictionaryCompiledCode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwWord);
@@ -94,6 +90,11 @@ function TkwPopMainDictionaryCompiledCode.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwMainDictionary)]);
 end;//TkwPopMainDictionaryCompiledCode.ParamsTypes
+
+class function TkwPopMainDictionaryCompiledCode.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:MainDictionary:CompiledCode';
+end;//TkwPopMainDictionaryCompiledCode.GetWordNameForRegister
 
 initialization
  TkwPopMainDictionaryCompiledCode.RegisterInEngine;

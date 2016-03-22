@@ -3,6 +3,8 @@ unit K517772970_TddBaseStatusRequest;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddBaseStatusRequest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TddBaseStatusRequest" MUID: (53202365007E)
+// Имя типа: "TK517772970_TddBaseStatusRequest"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

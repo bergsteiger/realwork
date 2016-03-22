@@ -2,6 +2,7 @@ unit ddExportFilerMap;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\PipeOut\ddExportFilerMap.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddExportFilerMap" MUID: (560A38A50349)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

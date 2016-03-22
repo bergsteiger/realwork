@@ -7,6 +7,8 @@ aSubDescrObj subdescriptor:GetBitmapIndex
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetBitmapIndex.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "subdescriptor_GetBitmapIndex" MUID: (52D6601F031E)
+// Имя типа: "TkwSubdescriptorGetBitmapIndex"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -1,87 +1,67 @@
 unit PictureInfo_ut_PictureInfo_UserType;
+ {* Информация о картинке }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Document/Forms/PictureInfo_ut_PictureInfo_UserType.pas"
-// Начат: 11 июля 2007
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Работа с документом и списком документов::Document::View::Document::Document::PictureInfo::ut_PictureInfo
-//
-// Информация о картинке
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\PictureInfo_ut_PictureInfo_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "ut_PictureInfo" MUID: (42F354FB23DA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-    { Константы для типа формы ut_PictureInfo }
-   ut_PictureInfoName = 'ut_PictureInfo';
-    { Строковый идентификатор пользовательского типа "Информация о картинке" }
-   ut_PictureInfo = TvcmUserType(0);
-    { Информация о картинке }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы ut_PictureInfo }
+ ut_PictureInfoName = 'ut_PictureInfo';
+  {* Строковый идентификатор пользовательского типа "Информация о картинке" }
+ ut_PictureInfo = TvcmUserType(0);
+  {* Информация о картинке }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-   Tkw_FormUserType_ut_PictureInfo = {final scriptword} class(TtfwInteger)
-    {* Слово словаря для типа формы ut_PictureInfo }
-   protected
-   // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
+ Tkw_FormUserType_ut_PictureInfo = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы ut_PictureInfo }
+  protected
    function GetInteger: Integer; override;
-   end;//Tkw_FormUserType_ut_PictureInfo
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_ut_PictureInfo
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_ut_PictureInfo
-
-class function Tkw_FormUserType_ut_PictureInfo.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::ut_PictureInfo';
-end;//Tkw_FormUserType_ut_PictureInfo.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_PictureInfo.GetInteger: Integer;
- {-}
 begin
  Result := ut_PictureInfo;
 end;//Tkw_FormUserType_ut_PictureInfo.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_ut_PictureInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_PictureInfo';
+end;//Tkw_FormUserType_ut_PictureInfo.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_ut_PictureInfo
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_PictureInfo.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_ut_PictureInfo }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

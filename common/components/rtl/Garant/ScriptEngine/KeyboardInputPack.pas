@@ -2,6 +2,7 @@ unit KeyboardInputPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\KeyboardInputPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "KeyboardInputPack" MUID: (50195665016F)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

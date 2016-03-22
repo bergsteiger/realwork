@@ -2,6 +2,7 @@ unit arSpravkaDocumentContainer;
 
 // Модуль: "w:\archi\source\projects\Archi\Editor\arSpravkaDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarSpravkaDocumentContainer" MUID: (4F9501970235)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

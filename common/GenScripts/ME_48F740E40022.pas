@@ -2,6 +2,7 @@ unit bsListDataObject;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\bsListDataObject.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsListDataObject" MUID: (48F740E40022)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

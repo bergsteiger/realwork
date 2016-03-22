@@ -2,6 +2,7 @@ unit RadioButtonWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\RadioButtonWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "RadioButtonWordsPack" MUID: (552E3DE40071)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -76,11 +77,6 @@ begin
  aCtx.rEngine.PushBool(Checked(aCtx, l_aRadioButton));
 end;//TkwPopRadioButtonChecked.DoDoIt
 
-class function TkwPopRadioButtonChecked.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:RadioButton:Checked';
-end;//TkwPopRadioButtonChecked.GetWordNameForRegister
-
 procedure TkwPopRadioButtonChecked.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 var l_RadioButton: TRadioButton;
@@ -111,6 +107,11 @@ function TkwPopRadioButtonChecked.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TRadioButton)]);
 end;//TkwPopRadioButtonChecked.ParamsTypes
+
+class function TkwPopRadioButtonChecked.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:RadioButton:Checked';
+end;//TkwPopRadioButtonChecked.GetWordNameForRegister
 
 initialization
  TkwPopRadioButtonChecked.RegisterInEngine;

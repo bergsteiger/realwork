@@ -2,6 +2,8 @@ unit DeleteDocsQuery_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\DeleteDocsQuery_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "DeleteDocsQuery" MUID: (53B6810F00CA)
+// Имя типа: "DeleteDocsQueryTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

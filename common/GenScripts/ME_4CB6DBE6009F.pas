@@ -2,6 +2,8 @@ unit CreateFilter_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\CreateFilter_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "CreateFilter" MUID: (4CB6DBE6009F)
+// Имя типа: "TCreateFilterForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

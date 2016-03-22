@@ -2,6 +2,7 @@ unit tfwRegisterableWordPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwRegisterableWordPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwRegisterableWordPrim" MUID: (54D229E702B6)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

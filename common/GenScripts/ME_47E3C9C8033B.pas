@@ -3,6 +3,7 @@ unit k2OpRefList;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2OpRefList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2OpRefList" MUID: (47E3C9C8033B)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

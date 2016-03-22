@@ -1,6 +1,6 @@
 unit DictsSup;
 
-{ $Id: DictsSup.pas,v 1.22 2015/07/02 11:41:29 lukyanets Exp $ }
+{ $Id: DictsSup.pas,v 1.23 2016/01/14 11:44:40 lukyanets Exp $ }
 
 interface
  Uses
@@ -74,7 +74,7 @@ uses
 
   k2Tags,
   Com_Cnst,
-  ResShop, //StrShop, IniShop,
+  ResShop,
   dt_DictConst,
   dt_LinkServ;
 

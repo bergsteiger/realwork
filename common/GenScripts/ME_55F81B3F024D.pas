@@ -2,6 +2,7 @@ unit pgTableQueryFactory;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgTableQueryFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgTableQueryFactory" MUID: (55F81B3F024D)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
@@ -128,7 +129,7 @@ end;//TpgTableQueryFactory.MakeParamsCondition
 function TpgTableQueryFactory.GetUserNameStr(anUserID: LargeInt): AnsiString;
 //#UC START# *559BAF4401C8_55F81B3F024D_var*
 var
- l_Query: IdaQuery;
+ l_Query: IdaTabledQuery;
  l_ResultSet: IdaResultSet;
 //#UC END# *559BAF4401C8_55F81B3F024D_var*
 begin

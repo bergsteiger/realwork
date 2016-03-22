@@ -3,6 +3,7 @@ unit kwCompiledMain;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledMain.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledMain" MUID: (4F37CBBE015A)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

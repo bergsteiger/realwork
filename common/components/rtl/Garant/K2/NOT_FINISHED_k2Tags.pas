@@ -3,6 +3,7 @@ unit NOT_FINISHED_k2Tags;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2Tags.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "k2Tags" MUID: (47AC75550330)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

@@ -27,19 +27,27 @@ namespace Def {
 
 // Настройки для алгоритма нормализации
 struct NSettings {
-	// добавлять однословные синонимы
-	bool is_extended;
 	// использовать фильтр
 	bool use_filter;
 	// результат нормализации в виде ключей
 	bool as_key;
-	NSettings () : is_extended(false), use_filter(true), as_key(true) {
+	NSettings () : use_filter(true), as_key(true) {
 		//#UC START# *4E009F7E02D3_DEF_INIT_CTOR*
 		//#UC END# *4E009F7E02D3_DEF_INIT_CTOR**cpp*
 	}
 };
 
 #pragma pack (pop)
+
+// Вид морфологического разбора
+enum AnalysisKind {
+	ak_Morpho // слово из морфологии Коваленко
+	, ak_Prefix // разбор при помощи блока префиксов
+	, ak_Postfix // разбор при помощи блока опорных слов
+	, ak_NPseudo // разбор при помощи новой псевдоморфологии
+	, ak_Pseudo // разбор при помощи старой псевдоморфологии (усечение концов)
+	, ak_Unknown // разбор не произошел (например, латиница, цифры)
+};
 
 // Окончания для псевдоморфологии
 typedef std::map < std::string, std::string > StrStrMap;
@@ -63,16 +71,6 @@ struct MorphoData {
 // Исключаемые лексемы
 typedef std::map < std::string, GCL::StrVector > Exclude;
 
-// Вид морфологического разбора
-enum AnalysisKind {
-	ak_Morpho // слово из морфологии Коваленко
-	, ak_Prefix // разбор при помощи блока префиксов
-	, ak_Postfix // разбор при помощи блока опорных слов
-	, ak_NPseudo // разбор при помощи новой псевдоморфологии
-	, ak_Pseudo // разбор при помощи старой псевдоморфологии (усечение концов)
-	, ak_Unknown // разбор не произошел (например, латиница, цифры)
-};
-
 #pragma pack (push, 1)
 
 // Инфо о морфологическом разборе
@@ -89,12 +87,6 @@ struct AnalysisInfo {
 };
 
 #pragma pack (pop)
-
-// Фраза с расширенным списком слов
-typedef std::vector < GCL::StrSet > PhraseEx;
-
-// Позиции
-typedef std::vector < unsigned long > Positions;
 
 // Множество символов
 typedef std::set < unsigned char > UCharSet;
@@ -114,8 +106,19 @@ public:
 	virtual short lemmatize (const char* in, char* buf, size_t buf_len) = 0;
 };
 
-// Синонимы
-typedef Exclude Synonyms;
+#pragma pack (push, 1)
+
+// Данные кэша
+struct CacheData {
+	// данные для морфоанализа
+	MorphoData data;
+	// ненормализуемые лексемы
+	GCL::StrVector stops;
+	// исключаемые из результата нормализации лексемы
+	Exclude exclude;
+};
+
+#pragma pack (pop)
 
 #pragma pack (push, 1)
 
@@ -163,14 +166,8 @@ public:
 	// вектор синонимичных пар
 	virtual const FixedPairs& get_syn_pairs () const = 0;
 
-	// синонимы
-	virtual const Synonyms& get_syns () const = 0;
-
-	// синонимы
-	virtual const GCL::StrVector& get_syns (const std::string& key) = 0;
-
 	// загрузка
-	virtual void load (DBCore::IBase* base, bool load_ssyn) = 0;
+	virtual void load (DBCore::IBase* base) = 0;
 };
 
 // Константы алгоритма нормализации
@@ -184,8 +181,8 @@ class INormalizer
 	: virtual public ::Core::IObject
 {
 public:
-	// нормализация слова (если слово оканчивается символом '!', то forma будет не пуст)
-	virtual GCL::StrSet* execute (const std::string& word, std::string& forma, const NSettings& info) = 0;
+	// нормализация слова
+	virtual GCL::StrSet* execute (const std::string& word, const NSettings& info) = 0;
 
 	// нормализация строки
 	virtual GCL::StrSet* execute (const std::string& str) = 0;
@@ -193,14 +190,8 @@ public:
 	// нормализация слова
 	virtual GCL::StrSet* execute (const std::string& word, bool as_key) = 0;
 
-	// нормализация слова (если слово оканчивается символом '!', то forma будет не пуст)
-	virtual GCL::StrSet* execute (const GCL::StrSet& in, std::string& forma, const NSettings& info) = 0;
-
 	// нормализация фразы
-	virtual void execute_for_phrase (const std::string& str, GCL::StrVector& out) = 0;
-
-	// нормализация фразы
-	virtual GCL::StrVector* execute_for_phrase (const std::string& in, StrStrMap& pseudo) = 0;
+	virtual GCL::StrVector* execute_for_phrase (const std::string& in) = 0;
 
 	// инфа о морфоразборе
 	virtual const AnalysisInfo& get_info () const = 0;
@@ -211,28 +202,12 @@ public:
 	// проверка лексемы на то, что она  имеет заданную нормальную форму
 	virtual bool has_norma (const std::string& word, const std::string& norma) = 0;
 
-	// инициализация вектора с позициями идентичных
-	virtual void init_identical (const PhraseEx& phrase, Positions& out) = 0;
+	// проверка на псевдо
+	virtual bool is_pseudo (const std::string& in) = 0;
 
 	// лемматизация
 	virtual size_t lemmatize (const char* in, char* out) = 0;
 };
-
-#pragma pack (push, 1)
-
-// Данные кэша
-struct CacheData {
-	// данные для морфоанализа
-	MorphoData data;
-	// ненормализуемые лексемы
-	GCL::StrVector stops;
-	// исключаемые из результата нормализации лексемы
-	Exclude exclude;
-	// морфо-синонимы
-	Synonyms syns;
-};
-
-#pragma pack (pop)
 
 } // namespace Def
 } // namespace Morpho

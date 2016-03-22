@@ -2,6 +2,7 @@ unit ddRTFdestination;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddRTFdestination.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddRTFdestination" MUID: (5190A37F0134)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

@@ -2,6 +2,7 @@ unit alcuTaskListBasePrim;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuTaskListBasePrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuTaskListBasePrim" MUID: (54CB5BB40321)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

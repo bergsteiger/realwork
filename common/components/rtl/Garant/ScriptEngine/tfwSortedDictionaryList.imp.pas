@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwSortedDictionaryList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "tfwSortedDictionaryList" MUID: (55B0E773009A)
+// Имя типа: "_tfwSortedDictionaryList_"
 
 {$Define tfwSortedDictionaryList_imp}
 

@@ -1,6 +1,6 @@
 unit D_Export;
 
-{ $Id: D_Export.pas,v 1.97 2015/10/14 10:19:21 fireton Exp $ }
+{ $Id: D_Export.pas,v 1.100 2016/01/14 08:10:38 lukyanets Exp $ }
 
 {$I ProjectDefine.inc}
 
@@ -56,6 +56,7 @@ type
     procedure gbExpTypeClick(Sender: TObject);
     procedure btnSelectDirClick(Sender: TObject);
     procedure checkExportPartsClickCheck(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private
     procedure AddPathToHistory;
     procedure CheckPathWritable(const aPath: AnsiString);
@@ -79,6 +80,7 @@ Uses
  l3Base, l3FileUtils, l3IniFile,
  daDataProvider,
  daTypes,
+ daSchemeConsts,
  HT_Const, HT_Dll,
  DT_Const, dt_AttrSchema,
  dtIntf, DT_Sab,
@@ -518,6 +520,22 @@ procedure TExportDlg.CheckPathWritable(const aPath: AnsiString);
 begin
  if not l3CheckPathWritable(aPath) then
   raise Exception.Create('Невозможно запсать в указанную папку');
+end;
+
+procedure TExportDlg.FormCloseQuery(Sender: TObject;
+  var CanClose: Boolean);
+begin
+  inherited;
+  if ModalResult = mrOk then
+  begin
+    if rbOneFile.Checked and cbxPieceSize.Checked and (edPieceSize.AsInteger <= 0) then
+    begin
+      edPieceSize.SetFocus;
+      ModalResult := mrNone;
+      CanClose := False;
+      MessageDlg('Не задан размер части для нарезки', mtError, [mbOk], 0);
+    end;
+  end;
 end;
 
 end.

@@ -133,7 +133,7 @@ type
      {* Открывает автореферат }
    class procedure OpenAutoreferatAfterSearch(const aList: IMonitoringList;
      const aContainer: IvcmContainer);
-   class function OpenNewsLine: IvcmEntityForm;
+   class function OpenNewsLine(aDenyNewTab: Boolean): IvcmEntityForm;
    class procedure OpenNewsLinePrim;
      {* Сигнатура метода OpenNewsLinePrim }
  end;//TPrimMonitoringsModule
@@ -286,7 +286,7 @@ begin
  end;//try..finally
 end;//TPrimMonitoringsModule.OpenAutoreferatAfterSearch
 
-class function TPrimMonitoringsModule.OpenNewsLine: IvcmEntityForm;
+class function TPrimMonitoringsModule.OpenNewsLine(aDenyNewTab: Boolean): IvcmEntityForm;
 var
  __WasEnter : Boolean;
 //#UC START# *4AB76AD20100_4A8ECF3001D2_var*
@@ -313,6 +313,7 @@ var
   begin
    try
     dmStdRes.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
+    afw.ProcessMessages;
    finally
     l_ContainerForMainMenu := nil;
    end;
@@ -377,7 +378,7 @@ begin
    end;
   end else
   begin
-   lp_CreateContainer(True);
+   lp_CreateContainer(not aDenyNewTab);
    if (l_Container <> nil) then
    begin
     Result := TenNewsLine.MakeSingleChild(l_Container,
@@ -410,7 +411,7 @@ procedure TPrimMonitoringsModule.opOpenNewsLine(const aParams: IvcmExecuteParams
 //#UC END# *4AB775AA0314_4A8ECF3001D2exec_var*
 begin
 //#UC START# *4AB775AA0314_4A8ECF3001D2exec_impl*
- OpenNewsLine;
+ OpenNewsLine(False);
  TnsOpenNewsLineEvent.Log;
 //#UC END# *4AB775AA0314_4A8ECF3001D2exec_impl*
 end;//TPrimMonitoringsModule.opOpenNewsLine

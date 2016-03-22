@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "HyperlinkProcessorWithOwnLocalLink" MUID: (4A8AC2DB0210)
+// Имя типа: "_HyperlinkProcessorWithOwnLocalLink_"
 
 {$Define HyperlinkProcessorWithOwnLocalLink_imp}
 

@@ -4,6 +4,7 @@ unit l3ProcessMessagesManager;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProcessMessagesManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ProcessMessagesManager" MUID: (5475D1E30232)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

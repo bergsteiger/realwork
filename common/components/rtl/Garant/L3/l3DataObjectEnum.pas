@@ -3,6 +3,7 @@ unit l3DataObjectEnum;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3DataObjectEnum.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3DataObjectEnum" MUID: (4680F5FF01EA)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

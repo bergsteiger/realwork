@@ -3,6 +3,7 @@ unit nsBitmapParaNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsBitmapParaNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsBitmapParaNode" MUID: (467FCDDA0064)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -7,7 +7,13 @@ int main_logic ( int argc, char *argv[] );
 
 int main ( int argc, char *argv[] ) {
 
-	int res = mpcxc_run_main_stack_size (main_logic, argc, argv, MPCXC_STACK_SIZE / 2);
+	int res = 
+#if (_MSC_VER < 1800)
+				mpcxc_run_main_stack_size (main_logic, argc, argv, MPCXC_STACK_SIZE / 2)
+#else
+				main_logic( argc, argv )
+#endif
+																							;
 
 	return res;
 }

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "VCMAppTester" MUID: (4F79CD9F015F)
+// Имя типа: "_VCMAppTester_"
 
 {$Define VCMAppTester_imp}
 

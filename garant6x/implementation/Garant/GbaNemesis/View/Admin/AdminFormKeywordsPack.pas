@@ -3,6 +3,7 @@ unit AdminFormKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\AdminFormKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "AdminFormKeywordsPack" MUID: (460F76F86341)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -46,8 +47,8 @@ type
 'aControl' форма::AdminForm TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_AdminForm
 
  Tkw_AdminForm_Control_BackgroundPanel = {final} class(TtfwControlString)
@@ -58,9 +59,9 @@ type
 контрол::BackgroundPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminForm_Control_BackgroundPanel
 
  Tkw_AdminForm_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
@@ -83,9 +84,9 @@ type
 контрол::PropertyZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminForm_Control_PropertyZone
 
  Tkw_AdminForm_Control_PropertyZone_Push = {final} class(TkwBynameControlPush)
@@ -108,9 +109,9 @@ type
 контрол::TreeZone TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminForm_Control_TreeZone
 
  Tkw_AdminForm_Control_TreeZone_Push = {final} class(TkwBynameControlPush)
@@ -197,20 +198,15 @@ OBJECT VAR l_TvtPanel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwCfAdminFormTreeZone
 
-class function Tkw_Form_AdminForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::AdminForm';
-end;//Tkw_Form_AdminForm.GetWordNameForRegister
-
 function Tkw_Form_AdminForm.GetString: AnsiString;
 begin
  Result := 'cfAdminForm';
 end;//Tkw_Form_AdminForm.GetString
 
-class function Tkw_AdminForm_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_AdminForm.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::BackgroundPanel';
-end;//Tkw_AdminForm_Control_BackgroundPanel.GetWordNameForRegister
+ Result := 'форма::AdminForm';
+end;//Tkw_Form_AdminForm.GetWordNameForRegister
 
 function Tkw_AdminForm_Control_BackgroundPanel.GetString: AnsiString;
 begin
@@ -223,6 +219,11 @@ begin
  TtfwClassRef.Register(TvtProportionalPanel);
 end;//Tkw_AdminForm_Control_BackgroundPanel.RegisterInEngine
 
+class function Tkw_AdminForm_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BackgroundPanel';
+end;//Tkw_AdminForm_Control_BackgroundPanel.GetWordNameForRegister
+
 procedure Tkw_AdminForm_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BackgroundPanel');
@@ -233,11 +234,6 @@ class function Tkw_AdminForm_Control_BackgroundPanel_Push.GetWordNameForRegister
 begin
  Result := 'контрол::BackgroundPanel:push';
 end;//Tkw_AdminForm_Control_BackgroundPanel_Push.GetWordNameForRegister
-
-class function Tkw_AdminForm_Control_PropertyZone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::PropertyZone';
-end;//Tkw_AdminForm_Control_PropertyZone.GetWordNameForRegister
 
 function Tkw_AdminForm_Control_PropertyZone.GetString: AnsiString;
 begin
@@ -250,6 +246,11 @@ begin
  TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_AdminForm_Control_PropertyZone.RegisterInEngine
 
+class function Tkw_AdminForm_Control_PropertyZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::PropertyZone';
+end;//Tkw_AdminForm_Control_PropertyZone.GetWordNameForRegister
+
 procedure Tkw_AdminForm_Control_PropertyZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('PropertyZone');
@@ -261,11 +262,6 @@ begin
  Result := 'контрол::PropertyZone:push';
 end;//Tkw_AdminForm_Control_PropertyZone_Push.GetWordNameForRegister
 
-class function Tkw_AdminForm_Control_TreeZone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::TreeZone';
-end;//Tkw_AdminForm_Control_TreeZone.GetWordNameForRegister
-
 function Tkw_AdminForm_Control_TreeZone.GetString: AnsiString;
 begin
  Result := 'TreeZone';
@@ -276,6 +272,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_AdminForm_Control_TreeZone.RegisterInEngine
+
+class function Tkw_AdminForm_Control_TreeZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::TreeZone';
+end;//Tkw_AdminForm_Control_TreeZone.GetWordNameForRegister
 
 procedure Tkw_AdminForm_Control_TreeZone_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -310,11 +311,6 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_acfAdminForm));
 end;//TkwCfAdminFormBackgroundPanel.DoDoIt
 
-class function TkwCfAdminFormBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfAdminForm.BackgroundPanel';
-end;//TkwCfAdminFormBackgroundPanel.GetWordNameForRegister
-
 procedure TkwCfAdminFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -335,6 +331,11 @@ function TkwCfAdminFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfAdminForm)]);
 end;//TkwCfAdminFormBackgroundPanel.ParamsTypes
+
+class function TkwCfAdminFormBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfAdminForm.BackgroundPanel';
+end;//TkwCfAdminFormBackgroundPanel.GetWordNameForRegister
 
 function TkwCfAdminFormPropertyZone.PropertyZone(const aCtx: TtfwContext;
  acfAdminForm: TcfAdminForm): TvtSizeablePanel;
@@ -358,11 +359,6 @@ begin
  aCtx.rEngine.PushObj(PropertyZone(aCtx, l_acfAdminForm));
 end;//TkwCfAdminFormPropertyZone.DoDoIt
 
-class function TkwCfAdminFormPropertyZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfAdminForm.PropertyZone';
-end;//TkwCfAdminFormPropertyZone.GetWordNameForRegister
-
 procedure TkwCfAdminFormPropertyZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -383,6 +379,11 @@ function TkwCfAdminFormPropertyZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfAdminForm)]);
 end;//TkwCfAdminFormPropertyZone.ParamsTypes
+
+class function TkwCfAdminFormPropertyZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfAdminForm.PropertyZone';
+end;//TkwCfAdminFormPropertyZone.GetWordNameForRegister
 
 function TkwCfAdminFormTreeZone.TreeZone(const aCtx: TtfwContext;
  acfAdminForm: TcfAdminForm): TvtPanel;
@@ -406,11 +407,6 @@ begin
  aCtx.rEngine.PushObj(TreeZone(aCtx, l_acfAdminForm));
 end;//TkwCfAdminFormTreeZone.DoDoIt
 
-class function TkwCfAdminFormTreeZone.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TcfAdminForm.TreeZone';
-end;//TkwCfAdminFormTreeZone.GetWordNameForRegister
-
 procedure TkwCfAdminFormTreeZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -431,6 +427,11 @@ function TkwCfAdminFormTreeZone.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TcfAdminForm)]);
 end;//TkwCfAdminFormTreeZone.ParamsTypes
+
+class function TkwCfAdminFormTreeZone.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TcfAdminForm.TreeZone';
+end;//TkwCfAdminFormTreeZone.GetWordNameForRegister
 
 initialization
  Tkw_Form_AdminForm.RegisterInEngine;

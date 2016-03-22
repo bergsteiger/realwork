@@ -22,6 +22,7 @@
 #include "shared/ContextSearch/Relevancy/Relevancy.h"
 #include "shared/ContextSearch/impl/Search_i/SpanQuery.h"
 #include "shared/ContextSearch/impl/Search_i/SpansQuery.h"
+#include "shared/ContextSearch/MorphoBase/InvbSearcher.h"
 
 namespace ContextSearch {
 namespace Search_i {
@@ -110,6 +111,10 @@ public:
 		std::string m_context;
 
 		Relevancy::DataVector m_data;
+
+		Relevancy::IBlocksAlgorithm_var m_invb_algorithm;
+
+		Core::Box<InvbSearcher> m_invb_searcher;
 
 		long m_offset;
 

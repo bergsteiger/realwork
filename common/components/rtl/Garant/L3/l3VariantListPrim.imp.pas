@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3VariantListPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3VariantListPrim" MUID: (534515CD039A)
+// Имя типа: "_l3VariantListPrim_"
 
 {$Define l3VariantListPrim_imp}
 

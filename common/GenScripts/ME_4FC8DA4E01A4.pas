@@ -2,6 +2,7 @@ unit atSearchHelper;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\SearchHelpers\atSearchHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatSearchHelper" MUID: (4FC8DA4E01A4)
 
 interface
 

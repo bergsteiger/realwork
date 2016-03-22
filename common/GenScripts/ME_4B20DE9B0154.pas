@@ -2,6 +2,7 @@ unit WorkWithList_StatusBar_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithList_StatusBar_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "StatusBar" MUID: (4B20DE9B0154)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

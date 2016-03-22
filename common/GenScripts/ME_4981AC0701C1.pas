@@ -2,6 +2,7 @@ unit ComObj;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\ComObj.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ComObj" MUID: (4981AC0701C1)
 
 interface
 

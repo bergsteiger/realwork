@@ -2,6 +2,7 @@ unit nscTasksPanelActionLink;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTasksPanelActionLink.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnscTasksPanelActionLink" MUID: (508EBD970342)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
@@ -28,7 +29,6 @@ type
   private
    f_Op: Integer;
    f_Tree: TControl;
-    {* Поле для свойства Tree }
   private
    procedure ValidateCaption(const aValue: AnsiString);
   protected

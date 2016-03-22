@@ -2,6 +2,7 @@ unit ncsLoginMessage;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsLoginMessage.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsLoginMessage" MUID: (544E07C6034D)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

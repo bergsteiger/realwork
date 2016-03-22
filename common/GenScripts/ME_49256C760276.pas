@@ -2,6 +2,7 @@ unit NOT_FINISHED_DocumentRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\NOT_FINISHED_DocumentRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "DocumentRes" MUID: (49256C760276)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

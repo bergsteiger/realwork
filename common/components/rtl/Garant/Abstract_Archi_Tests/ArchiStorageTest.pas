@@ -1,77 +1,57 @@
 unit ArchiStorageTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Archi Tests"
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Archi_Tests/ArchiStorageTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::Abstract Archi Tests::Storage::TArchiStorageTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Archi_Tests\ArchiStorageTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TArchiStorageTest" MUID: (4FA137DD03E4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Archi_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Archi_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  m3DBInterfaces
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ , m3DBInterfaces
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TArchiStorageTest = {abstract} class(TBaseTest)
- protected
- // overridden protected methods
-   function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
-    {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-   function NeedCreateEtalonsWhileCheckingOutputWithInput: Boolean; override;
-    {$IfEnd} //nsTest AND not NotTunedDUnit
- protected
- // protected methods
+  protected
    procedure DoBase(const aDB: Im3DB); virtual;
    function NeedTestRenaming: Boolean; virtual;
- published
- // published methods
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
+   {$If NOT Defined(NotTunedDUnit)}
+   function NeedCreateEtalonsWhileCheckingOutputWithInput: Boolean; override;
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+  published
    procedure DoIt;
  end;//TArchiStorageTest
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  m3DB,
-  m3StorageInterfaces,
-  SysUtils,
-  l3FileUtils,
-  l3Base,
-  l3Interfaces,
-  l3Stream,
-  l3Types,
-  m3SplittedFileStream,
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3ImplUses
+ , m3DB
+ , m3StorageInterfaces
+ , SysUtils
+ , l3FileUtils
+ , l3Base
+ , l3Interfaces
+ , l3Stream
+ , l3Types
+ , m3SplittedFileStream
+ , TestFrameWork
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TArchiStorageTest
-
+{$If NOT Defined(NotTunedDUnit)}
 procedure TArchiStorageTest.DoIt;
 //#UC START# *4FA137EE02D3_4FA137DD03E4_var*
 var
@@ -256,18 +236,17 @@ begin
 end;//TArchiStorageTest.NeedTestRenaming
 
 function TArchiStorageTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Storage';
 end;//TArchiStorageTest.GetFolder
 
 function TArchiStorageTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4FA137DD03E4';
 end;//TArchiStorageTest.GetModelElementGUID
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 function TArchiStorageTest.NeedCreateEtalonsWhileCheckingOutputWithInput: Boolean;
 //#UC START# *4FA164500031_4FA137DD03E4_var*
 //#UC END# *4FA164500031_4FA137DD03E4_var*
@@ -276,8 +255,7 @@ begin
  Result := false;
 //#UC END# *4FA164500031_4FA137DD03E4_impl*
 end;//TArchiStorageTest.NeedCreateEtalonsWhileCheckingOutputWithInput
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //nsTest AND not NoScripts
-
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 end.

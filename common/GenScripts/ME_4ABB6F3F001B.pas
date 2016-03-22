@@ -3,6 +3,8 @@ unit About_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\About_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "About" MUID: (4ABB6F3F001B)
+// Имя типа: "TefAbout"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

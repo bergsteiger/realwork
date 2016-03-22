@@ -2,6 +2,7 @@ unit seWordsInfo;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\seWordsInfo.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "seWordsInfo" MUID: (53E107920007)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -1,7 +1,7 @@
 
 (object Petal
     version    	50
-    _written   	"Rose 2006.0.0.060314"
+    _written   	"Rose 2006.0.0.061205"
     charSet    	204)
 
 (object Class_Category "Utility"
@@ -156,7 +156,7 @@
 			    tool       	"MDA Generator"
 			    name       	"cpp:*4EB2706801ED*"
 			    value      	(value Text 
-|//#UC START# *4EB2706801ED*¤	size_t size = 0;¤¤	DBCore::IBuffer_var buf = index->read (key, 0, size);¤¤	if (size) {¤		std::string item;¤¤		const char* ptr = buf->get_data ();¤¤		for (size_t i = 0; i < size; i += item.size () + 1) {¤			item = ptr + i;¤			out.push_back (item);¤		}¤	}¤	//#UC END# *4EB2706801ED*
+|//#UC START# *4EB2706801ED*¤	size_t size = 0;¤¤	DBCore::IBuffer_var buf = index->read (key, 0, size);¤¤	if (size) {¤		std::string item;¤¤		const char* ptr = buf->get ();¤¤		for (size_t i = 0; i < size; i += item.size () + 1) {¤			item = ptr + i;¤			out.push_back (item);¤		}¤	}¤	//#UC END# *4EB2706801ED*
 			    )))
 		    quid       	"4EB2706801ED"
 		    documentation 	"çàãðóçêà ñïèñêà ñòðîê "
@@ -250,7 +250,8 @@
 				    name       	"ResolvedTypeGuid"
 				    value      	"4DD3BA3203CA"))
 			    quid       	"4EB2710C00FF"
-			    type       	"DocVector"))
+			    type       	"DocVector"
+			    quidu      	"4DD3BA3203CA"))
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0)
@@ -314,7 +315,8 @@
 				    name       	"ResolvedTypeGuid"
 				    value      	"4DD3BA3203CA"))
 			    quid       	"4EB7C959022A"
-			    type       	"DocVector"))
+			    type       	"DocVector"
+			    quidu      	"4DD3BA3203CA"))
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0)
@@ -378,7 +380,8 @@
 				    name       	"ResolvedTypeGuid"
 				    value      	"4DD3BA3203CA"))
 			    quid       	"4EB7C98400D4"
-			    type       	"DocVector"))
+			    type       	"DocVector"
+			    quidu      	"4DD3BA3203CA"))
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0)
@@ -455,7 +458,8 @@
 				    name       	"ResolvedTypeGuid"
 				    value      	"4DD3BA3203CA"))
 			    quid       	"4EB7C9C60352"
-			    type       	"DocVector"))
+			    type       	"DocVector"
+			    quidu      	"4DD3BA3203CA"))
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0)
@@ -519,7 +523,8 @@
 				    name       	"ResolvedTypeGuid"
 				    value      	"4DD3BA3203CA"))
 			    quid       	"4EB7CA340103"
-			    type       	"DocVector"))
+			    type       	"DocVector"
+			    quidu      	"4DD3BA3203CA"))
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0)
@@ -570,7 +575,8 @@
 				    name       	"ResolvedTypeGuid"
 				    value      	"4DD3BA3203CA"))
 			    quid       	"4EB7CA7E00F5"
-			    type       	"DocVector"))
+			    type       	"DocVector"
+			    quidu      	"4DD3BA3203CA"))
 		    concurrency 	"Sequential"
 		    opExportControl 	"Private"
 		    uid        	0))
@@ -618,6 +624,43 @@
 	    quid       	"4EB7D7B4038D"
 	    documentation 	"Îïåðàöèè"
 	    stereotype 	"UtilityClass"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1450452137512206")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"567424A901FD"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::external::std::stl::algorithm"
+		    quidu      	"567423DD014F")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1454670694226948")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"56B4836600E1"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::external::std::stl::iterator"
+		    quidu      	"56B482440313"))
 	    operations 	(list Operations
 		(object Operation "intersect"
 		    attributes 	(list Attribute_Set
@@ -657,7 +700,8 @@
 				    name       	"ResolvedTypeGuid"
 				    value      	"4DD3BA3203CA"))
 			    quid       	"4EB7D8590345"
-			    type       	"DocVector")
+			    type       	"DocVector"
+			    quidu      	"4DD3BA3203CA")
 			(object Parameter "y"
 			    attributes 	(list Attribute_Set
 				(object Attribute
@@ -669,11 +713,13 @@
 				    name       	"ResolvedTypeGuid"
 				    value      	"4DD3BA3203CA"))
 			    quid       	"4EB7D859036A"
-			    type       	"DocVector"))
+			    type       	"DocVector"
+			    quidu      	"4DD3BA3203CA"))
 		    result     	"DocVector"
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
-		    uid        	0)
+		    uid        	0
+		    quidu      	"4DD3BA3203CA")
 		(object Operation "merge"
 		    attributes 	(list Attribute_Set
 			(object Attribute
@@ -712,7 +758,8 @@
 				    name       	"ResolvedTypeGuid"
 				    value      	"4DD3BA3203CA"))
 			    quid       	"4EB7D9A80333"
-			    type       	"DocVector")
+			    type       	"DocVector"
+			    quidu      	"4DD3BA3203CA")
 			(object Parameter "y"
 			    attributes 	(list Attribute_Set
 				(object Attribute
@@ -724,11 +771,13 @@
 				    name       	"ResolvedTypeGuid"
 				    value      	"4DD3BA3203CA"))
 			    quid       	"4EB7D9A80360"
-			    type       	"DocVector"))
+			    type       	"DocVector"
+			    quidu      	"4DD3BA3203CA"))
 		    result     	"DocVector"
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
-		    uid        	0)
+		    uid        	0
+		    quidu      	"4DD3BA3203CA")
 		(object Operation "merge_unique"
 		    attributes 	(list Attribute_Set
 			(object Attribute
@@ -767,7 +816,8 @@
 				    name       	"ResolvedTypeGuid"
 				    value      	"4DD3BA3203CA"))
 			    quid       	"4EB7D9AD001C"
-			    type       	"DocVector")
+			    type       	"DocVector"
+			    quidu      	"4DD3BA3203CA")
 			(object Parameter "y"
 			    attributes 	(list Attribute_Set
 				(object Attribute
@@ -779,11 +829,13 @@
 				    name       	"ResolvedTypeGuid"
 				    value      	"4DD3BA3203CA"))
 			    quid       	"4EB7D9AD004B"
-			    type       	"DocVector"))
+			    type       	"DocVector"
+			    quidu      	"4DD3BA3203CA"))
 		    result     	"DocVector"
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
-		    uid        	0)
+		    uid        	0
+		    quidu      	"4DD3BA3203CA")
 		(object Operation "set_difference"
 		    attributes 	(list Attribute_Set
 			(object Attribute
@@ -818,7 +870,8 @@
 				    name       	"ResolvedTypeGuid"
 				    value      	"4DD3BA3203CA"))
 			    quid       	"4EB7D970027A"
-			    type       	"DocVector")
+			    type       	"DocVector"
+			    quidu      	"4DD3BA3203CA")
 			(object Parameter "y"
 			    attributes 	(list Attribute_Set
 				(object Attribute
@@ -830,7 +883,8 @@
 				    name       	"ResolvedTypeGuid"
 				    value      	"4DD3BA3203CA"))
 			    quid       	"4EB7D97002AA"
-			    type       	"DocVector"))
+			    type       	"DocVector"
+			    quidu      	"4DD3BA3203CA"))
 		    concurrency 	"Sequential"
 		    opExportControl 	"Public"
 		    uid        	0))
@@ -848,7 +902,7 @@
 	    max_height 	28350
 	    max_width  	21600
 	    origin_x   	0
-	    origin_y   	0
+	    origin_y   	252
 	    items      	(list diagram_item_list
 		(object ClassView "Class" "Logical View::garantCore::DBExt::Utility::DataLoader" @1
 		    ShowCompartmentStereotypes 	TRUE
@@ -868,26 +922,45 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@1
-			location   	(125, 193)
+			location   	(129, 193)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1418
+			max_width  	1410
 			justify    	0
 			label      	"• DataLoader")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@1
-			location   	(125, 143)
+			location   	(129, 143)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1418
+			max_width  	1410
 			justify    	0
 			label      	"<<UtilityClass>>")
 		    icon_style 	"Label"
 		    line_color 	7885055
 		    fill_color 	14145535
 		    quidu      	"4EB2702B03A2"
-		    width      	1436
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(129, 254)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	8
+			max_width  	1400
+			justify    	1)
+		    width      	1428
 		    height     	542
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -896,7 +969,7 @@
 		    IncludeAttribute 	TRUE
 		    IncludeOperation 	TRUE
 		    ShowOperationSignature 	TRUE
-		    location   	(672, 945)
+		    location   	(672, 975)
 		    font       	(object Font
 			size       	10
 			face       	"Arial"
@@ -909,28 +982,213 @@
 			default_color 	TRUE)
 		    label      	(object ItemLabel
 			Parent_View 	@2
-			location   	(124, 811)
+			location   	(130, 841)
 			fill_color 	13434879
 			nlines     	1
-			max_width  	1096
+			max_width  	1084
 			justify    	0
 			label      	"• Operations")
 		    stereotype 	(object ItemLabel
 			Parent_View 	@2
-			location   	(124, 761)
+			location   	(130, 791)
 			fill_color 	13434879
 			anchor     	10
 			nlines     	1
-			max_width  	1096
+			max_width  	1084
 			justify    	0
 			label      	"<<UtilityClass>>")
 		    icon_style 	"Label"
 		    fill_color 	14145535
 		    quidu      	"4EB7D7B4038D"
-		    width      	1114
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(130, 902)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	5
+			max_width  	1081
+			justify    	1)
+		    width      	1102
 		    height     	392
 		    annotation 	8
-		    autoResize 	TRUE)))
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::std::stl::algorithm" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(663, 1482)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(513, 1454)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"• algorithm")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(513, 1404)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"567423DD014F"
+		    width      	318
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @4
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @5
+			Parent_View 	@4
+			location   	(778, 1276)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.474850
+			height     	112
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"567424A901FD"
+		    client     	@2
+		    supplier   	@3
+		    vertices   	(list Points
+			(667, 1171)
+			(664, 1391))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::external::std::stl::iterator" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1272, 1389)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(1122, 1361)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"• iterator")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(1122, 1311)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	297
+			justify    	0
+			label      	"<<UtilityPack>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"56B482440313"
+		    width      	318
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @7
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @8
+			Parent_View 	@7
+			location   	(1116, 1136)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"56B4836600E1"
+		    client     	@2
+		    supplier   	@6
+		    vertices   	(list Points
+			(956, 1171)
+			(1141, 1298))
+		    line_style 	0)))
 	(object ClassDiagram "Main"
 	    attributes 	(list Attribute_Set
 		(object Attribute

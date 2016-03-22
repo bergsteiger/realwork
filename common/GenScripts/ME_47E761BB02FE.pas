@@ -3,6 +3,7 @@ unit NOT_FINISHED_vcmAction;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmAction.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmAction" MUID: (47E761BB02FE)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

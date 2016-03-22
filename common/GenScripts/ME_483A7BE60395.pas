@@ -2,6 +2,8 @@
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atObjectHistory.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "atObjectHistory" MUID: (483A7BE60395)
+// Имя типа: "_atObjectHistory_"
 
 {$Define atObjectHistory_imp}
 

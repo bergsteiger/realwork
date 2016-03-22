@@ -3,6 +3,8 @@ unit UnderControl_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControl\Forms\UnderControl_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "UnderControl" MUID: (4ABCD2D80364)
+// Имя типа: "TenUnderControl"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

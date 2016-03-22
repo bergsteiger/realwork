@@ -7,7 +7,7 @@ unit DictItemEx_Const;
 // Модуль: "w:/common/components/rtl/Garant/EVD/DictItemEx_Const.pas"
 // Начат: 07.06.2008 19:47
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Tag::Class>> Shared Delphi::EVD::Standard::evdNative::DictItemEx
+// Generated from UML model, root element: <<Tag::Class>> Shared Delphi Low Level::EVD::Standard::evdNative::DictItemEx
 //
 // Продвинутый элемент словаря
 //

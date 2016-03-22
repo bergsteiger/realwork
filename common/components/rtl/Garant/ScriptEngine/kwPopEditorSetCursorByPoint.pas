@@ -3,6 +3,8 @@ unit kwPopEditorSetCursorByPoint;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSetCursorByPoint.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_SetCursorByPoint" MUID: (4EA922390373)
+// Имя типа: "TkwPopEditorSetCursorByPoint"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

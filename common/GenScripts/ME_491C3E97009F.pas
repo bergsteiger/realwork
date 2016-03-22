@@ -3,6 +3,7 @@ unit dsConsultation;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\dsConsultation.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsConsultation" MUID: (491C3E97009F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

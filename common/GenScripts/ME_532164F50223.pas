@@ -3,6 +3,8 @@ unit K517783699;
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\K517783699.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517783699" MUID: (532164F50223)
+// Имя типа: "TK517783699"
 
 interface
 

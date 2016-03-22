@@ -3,6 +3,7 @@ unit afwApplication;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwApplication.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "afwApplication" MUID: (47764DEC01A7)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

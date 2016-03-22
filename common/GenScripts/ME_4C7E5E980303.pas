@@ -3,6 +3,8 @@ unit PrimFoldersOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersOptions_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "PrimFoldersOptions" MUID: (4C7E5E980303)
+// Имя типа: "TPrimFoldersOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

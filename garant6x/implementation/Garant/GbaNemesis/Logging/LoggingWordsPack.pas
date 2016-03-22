@@ -2,6 +2,7 @@ unit LoggingWordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\LoggingWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "LoggingWordsPack" MUID: (55B75D980276)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -100,11 +101,6 @@ begin
 //#UC END# *4DAEEDE10285_66D69322DA0D_impl*
 end;//TkwLoggingStartListening.DoDoIt
 
-class function TkwLoggingStartListening.GetWordNameForRegister: AnsiString;
-begin
- Result := 'logging:StartListening';
-end;//TkwLoggingStartListening.GetWordNameForRegister
-
 function TkwLoggingStartListening.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -115,6 +111,11 @@ begin
  Result := 0;
 end;//TkwLoggingStartListening.GetAllParamsCount
 
+class function TkwLoggingStartListening.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'logging:StartListening';
+end;//TkwLoggingStartListening.GetWordNameForRegister
+
 procedure TkwLoggingFinishListening.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_961A18770456_var*
 //#UC END# *4DAEEDE10285_961A18770456_var*
@@ -123,11 +124,6 @@ begin
  TnsLoggingTestService.Instance.StopListening;
 //#UC END# *4DAEEDE10285_961A18770456_impl*
 end;//TkwLoggingFinishListening.DoDoIt
-
-class function TkwLoggingFinishListening.GetWordNameForRegister: AnsiString;
-begin
- Result := 'logging:FinishListening';
-end;//TkwLoggingFinishListening.GetWordNameForRegister
 
 function TkwLoggingFinishListening.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -138,6 +134,11 @@ function TkwLoggingFinishListening.GetAllParamsCount(const aCtx: TtfwContext): I
 begin
  Result := 0;
 end;//TkwLoggingFinishListening.GetAllParamsCount
+
+class function TkwLoggingFinishListening.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'logging:FinishListening';
+end;//TkwLoggingFinishListening.GetWordNameForRegister
 
 function TkwLoggingGetLogRecords.logging_GetLogRecords(const aCtx: TtfwContext): AnsiString;
  {* Реализация слова скрипта logging:GetLogRecords }
@@ -154,11 +155,6 @@ begin
  aCtx.rEngine.PushString(logging_GetLogRecords(aCtx));
 end;//TkwLoggingGetLogRecords.DoDoIt
 
-class function TkwLoggingGetLogRecords.GetWordNameForRegister: AnsiString;
-begin
- Result := 'logging:GetLogRecords';
-end;//TkwLoggingGetLogRecords.GetWordNameForRegister
-
 function TkwLoggingGetLogRecords.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -174,6 +170,11 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwLoggingGetLogRecords.ParamsTypes
 
+class function TkwLoggingGetLogRecords.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'logging:GetLogRecords';
+end;//TkwLoggingGetLogRecords.GetWordNameForRegister
+
 procedure TkwLoggingWriteCachedEvents.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_03C2482A3269_var*
 //#UC END# *4DAEEDE10285_03C2482A3269_var*
@@ -184,11 +185,6 @@ begin
 //#UC END# *4DAEEDE10285_03C2482A3269_impl*
 end;//TkwLoggingWriteCachedEvents.DoDoIt
 
-class function TkwLoggingWriteCachedEvents.GetWordNameForRegister: AnsiString;
-begin
- Result := 'logging:WriteCachedEvents';
-end;//TkwLoggingWriteCachedEvents.GetWordNameForRegister
-
 function TkwLoggingWriteCachedEvents.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -198,6 +194,11 @@ function TkwLoggingWriteCachedEvents.GetAllParamsCount(const aCtx: TtfwContext):
 begin
  Result := 0;
 end;//TkwLoggingWriteCachedEvents.GetAllParamsCount
+
+class function TkwLoggingWriteCachedEvents.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'logging:WriteCachedEvents';
+end;//TkwLoggingWriteCachedEvents.GetWordNameForRegister
 
 initialization
  TkwLoggingStartListening.RegisterInEngine;

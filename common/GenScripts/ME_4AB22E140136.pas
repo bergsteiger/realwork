@@ -2,6 +2,7 @@ unit vcmApplication;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmApplication.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmApplication" MUID: (4AB22E140136)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

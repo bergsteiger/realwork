@@ -8,6 +8,8 @@ false true focused:control:push anEditorControl pop:editor:WheelScroll
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorWheelScroll.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_WheelScroll" MUID: (4F4F5A730085)
+// Имя типа: "TkwPopEditorWheelScroll"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

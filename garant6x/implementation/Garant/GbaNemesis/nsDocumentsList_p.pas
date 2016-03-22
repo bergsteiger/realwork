@@ -3,6 +3,7 @@ unit nsDocumentsList_p;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\nsDocumentsList_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TnsDocumentsList" MUID: (499C264700BD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -31,6 +32,8 @@ uses
  , SysUtils
  , Classes
  , Windows
+ , l3String
+ , IOUnit
  , Variants
  , ActiveX
  , tc5OpenAppClasses
@@ -256,6 +259,30 @@ begin
  end;//with Self
 end;//TnsDocumentsList_Get_DocNumber
 
+function TnsDocumentsList_Get_Text(Self: TnscTreeView): AnsiString;
+//#UC START# *56E71A2400F9_499C264700BDget_var*
+  var
+    l_DynListNode : IDynListNode;
+    l_SnippetText : String;
+    l_RawStr : IString;
+//#UC END# *56E71A2400F9_499C264700BDget_var*
+begin
+ with Self do
+ begin
+//#UC START# *56E71A2400F9_499C264700BDget_impl*
+  if Supports(GetCurrentNode, IDynListNode, l_DynListNode) then
+  begin
+    l_DynListNode.GetSnippetText(l_RawStr);
+    if l_RawStr <> nil then
+      l_SnippetText := l_RawStr.GetData;
+  end;
+  Result := l3Str(GetCurrentNode.Text);
+  if l_SnippetText <> '' then
+    Result := Result + '\' + l_SnippetText;
+//#UC END# *56E71A2400F9_499C264700BDget_impl*
+ end;//with Self
+end;//TnsDocumentsList_Get_Text
+
 procedure TnsDocumentsList_GetSubID_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
 begin
  Assert(Instance is TnscTreeView);
@@ -332,6 +359,17 @@ begin
  end;//try..except
 end;
 
+procedure TnsDocumentsList_Get_Text_Pub5(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
+begin
+ Assert(Instance is TnscTreeView);
+ try
+  Value := (TnsDocumentsList_Get_Text(TnscTreeView(Instance)));
+ except
+  // - гасим исключения
+  Value := Unassigned;
+ end;//try..except
+end;
+
 procedure _RegisterPublicInformation5;
 begin
  tc5PublicInfo._RegisterMethod(TnscTreeView, tc5OpenAppClasses.mtInvoke, 'GetSubID', TypeInfo(Integer), [], [], TnsDocumentsList_GetSubID_Pub5);
@@ -341,6 +379,7 @@ begin
  tc5PublicInfo._RegisterMethod(TnscTreeView, tc5OpenAppClasses.mtGet, 'PositionType', TypeInfo(AnsiString), [], [], TnsDocumentsList_Get_PositionType_Pub5);
  tc5PublicInfo._RegisterMethod(TnscTreeView, tc5OpenAppClasses.mtGet, 'Relevance', TypeInfo(SmallInt), [], [], TnsDocumentsList_Get_Relevance_Pub5);
  tc5PublicInfo._RegisterMethod(TnscTreeView, tc5OpenAppClasses.mtGet, 'DocNumber', TypeInfo(Cardinal), [], [], TnsDocumentsList_Get_DocNumber_Pub5);
+ tc5PublicInfo._RegisterMethod(TnscTreeView, tc5OpenAppClasses.mtGet, 'Text', TypeInfo(AnsiString), [], [], TnsDocumentsList_Get_Text_Pub5);
 end;
 
 procedure TnsDocumentsList_GetSubID_Pub6(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
@@ -419,6 +458,17 @@ begin
  end;//try..except
 end;
 
+procedure TnsDocumentsList_Get_Text_Pub6(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
+begin
+ Assert(Instance is TnscTreeView);
+ try
+  Value := (TnsDocumentsList_Get_Text(TnscTreeView(Instance)));
+ except
+  // - гасим исключения
+  Value := Unassigned;
+ end;//try..except
+end;
+
 procedure _RegisterPublicInformation6;
 begin
  tc6PublicInfo._RegisterMethod(TnscTreeView, tc6OpenAppClasses.mtInvoke, 'GetSubID', TypeInfo(Integer), [], [], TnsDocumentsList_GetSubID_Pub6);
@@ -428,6 +478,7 @@ begin
  tc6PublicInfo._RegisterMethod(TnscTreeView, tc6OpenAppClasses.mtGet, 'PositionType', TypeInfo(AnsiString), [], [], TnsDocumentsList_Get_PositionType_Pub6);
  tc6PublicInfo._RegisterMethod(TnscTreeView, tc6OpenAppClasses.mtGet, 'Relevance', TypeInfo(SmallInt), [], [], TnsDocumentsList_Get_Relevance_Pub6);
  tc6PublicInfo._RegisterMethod(TnscTreeView, tc6OpenAppClasses.mtGet, 'DocNumber', TypeInfo(Cardinal), [], [], TnsDocumentsList_Get_DocNumber_Pub6);
+ tc6PublicInfo._RegisterMethod(TnscTreeView, tc6OpenAppClasses.mtGet, 'Text', TypeInfo(AnsiString), [], [], TnsDocumentsList_Get_Text_Pub6);
 end;
 
 initialization

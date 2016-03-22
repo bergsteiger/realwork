@@ -2,6 +2,7 @@ unit NOT_FINISHED_CosNaming;
 
 // Модуль: "w:\common\components\rtl\external\MTDOrb\src\idl\NOT_FINISHED_CosNaming.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "CosNaming" MUID: (4CA1C51D0182)
 
 {$Include w:\common\components\l3Define.inc}
 

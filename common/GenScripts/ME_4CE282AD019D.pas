@@ -3,6 +3,7 @@ unit ScrollByArrow;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\ScrollByArrow.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TScrollByArrow" MUID: (4CE282AD019D)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

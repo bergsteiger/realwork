@@ -4,6 +4,7 @@ unit vcmBaseEntitiesCollectionItem;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmBaseEntitiesCollectionItem.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmBaseEntitiesCollectionItem" MUID: (4DDBBD1103C3)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

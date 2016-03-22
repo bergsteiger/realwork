@@ -1,67 +1,50 @@
 unit K245206060;
+ {* [RequestLink:245206060] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Daily/K245206060.pas"
-// Начат: 06.12.2010 12:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::NSRC 7.6::K245206060
-//
-// {RequestLink:245206060}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K245206060.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K245206060" MUID: (4CFCACFE0085)
+// Имя типа: "TK245206060"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  NSRCtoNSRCTest
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , NSRCtoNSRCTest
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK245206060 = class(TNSRCtoNSRCTest)
   {* [RequestLink:245206060] }
- protected
- // overridden protected methods
+  protected
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function IsPlus: Boolean; override;
-     {* NSRC+? }
+    {* NSRC+? }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK245206060
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK245206060
+ l3ImplUses
+ , TestFrameWork
+;
 
 function TK245206060.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'NSRC 7.6';
 end;//TK245206060.GetFolder
 
 function TK245206060.IsPlus: Boolean;
+ {* NSRC+? }
 //#UC START# *4CE67DED0192_4CFCACFE0085_var*
 //#UC END# *4CE67DED0192_4CFCACFE0085_var*
 begin
@@ -71,14 +54,13 @@ begin
 end;//TK245206060.IsPlus
 
 function TK245206060.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4CFCACFE0085';
 end;//TK245206060.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK245206060.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

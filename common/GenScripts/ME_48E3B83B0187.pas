@@ -2,6 +2,7 @@ unit evMultiSelectionBlock;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evMultiSelectionBlock.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevMultiSelectionBlock" MUID: (48E3B83B0187)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

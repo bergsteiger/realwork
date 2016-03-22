@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddDocAtomWithAssign.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "ddDocAtomWithAssign" MUID: (528C931C0068)
+// Имя типа: "_ddDocAtomWithAssign_"
 
 {$Define ddDocAtomWithAssign_imp}
 

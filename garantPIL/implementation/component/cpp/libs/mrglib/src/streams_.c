@@ -81,7 +81,7 @@ stream_st *load_stream_ex(streamfile_st *psf, stref_st *pref, stream_st *pstr, s
 	pstr->info.immds = strinfo->immds;
 	pstr->info.rndv = strinfo->rndv;
 	if(!pstr->local && (pstr->flags & SF_USELOCAL))
-		pstr->local = (char *)ml_malloc(1 << psf->pgfile.pgpow);
+		pstr->local = (char *)ml_malloc((size_t)1 << (size_t)(0x7fff & psf->pgfile.pgpow));
 	if(!(pref->size)) {
 		pstr->data = pstr->buf;
 		bzero(pstr->buf, 16);
@@ -761,7 +761,7 @@ int CalcNodeSizeWC(char *pNext, int added, long *pDoc, int *fOffs, long *pcount,
 				d += 2;
 		}
 	}
-	return d-pNext;
+	return (int)(0x7fffffff & (d - pNext));
 }
 
 int CalcNodeSizeBC(char *pNext, int added, long *pDoc, int *fOffs, long *pcount, int *prepeat)
@@ -842,8 +842,10 @@ int __cdecl truncation_NBCntxt_stream(struct SET_ST_TAG *p_stDelDocs, struct tag
 extern int CompStringsZZZX(const void *l1, const void *l2);
 
 #ifndef MIN_MEM_CONTEXT
+  #ifndef _WIN64
 	extern char pTmpBuff0[4096];
 	extern stream_st psstr2;
+  #endif
 #endif
 
 int truncation_Contxt_stream(	int added, set_st* p_stDelDocs, index_st *pin, 
@@ -852,7 +854,8 @@ int truncation_Contxt_stream(	int added, set_st* p_stDelDocs, index_st *pin,
 								long (__cdecl *lGetFIndx)(long **))
 {
 	char pINX[1024*1024];
-	int writed= 0, nodes_size, IsFlushKey= 0
+	u_int32_t writed = 0, nodes_size;
+	int IsFlushKey = 0
 				, writeStrIndex=
 		#if defined(MIN_MEM_CONTEXT) || defined(MRG_MERGE_CNTX)
 								6
@@ -871,6 +874,10 @@ int truncation_Contxt_stream(	int added, set_st* p_stDelDocs, index_st *pin,
 	SVector0_st *pPreWrite= 0;
 	int pPreWriteCountSize= 0, CheckIndexs= 0;
 	stref_st *pspit_ref= get_stref(spit,0);
+#ifdef _WIN64
+	char *pre_data;
+	u_int32_t pre_size;
+#endif
 	if(!psstr->pCurrKey)
 		psstr->pCurrKey= (char*)malloc(pin->hdr.keylen+((pgfile_st*)psstr->str)->pfhdr->page_size);
 	if(psstr->pNorml_Node != (Norml_Node*)-1){
@@ -888,10 +895,10 @@ int truncation_Contxt_stream(	int added, set_st* p_stDelDocs, index_st *pin,
 	pStart =  pNext;
 	do{
 		while((!(pRt= bsearch_nxt((Doc= 0x7fffffff & *(long*)pNext), &p_DelDocs, &newSZ)) && Doc < *p_DelDocs)
-				&& (long)pNext - (long)pStart <= (long)psstr->ref.size){
+				&& (u_int32_t)(0xffffffff &(pNext - pStart)) <= psstr->ref.size){
 			int Stop= 0;
 		do{
-			nodes_size= pPContxtNode(pNext, added, &Doc, &fOffs, &count, (int*)pINX);
+			nodes_size = (u_int32_t)(0x7fffffff & pPContxtNode(pNext, added, &Doc, &fOffs, &count, (int*)pINX));
 			if(CheckIndexs){
 				char *pINXn= pINX;
 				while(count--){
@@ -927,7 +934,7 @@ int truncation_Contxt_stream(	int added, set_st* p_stDelDocs, index_st *pin,
 					}
 				}
 			}
-			if(nodes_size + (long)pNext - (long)pStart >= (long)psstr->ref.size){
+			if (nodes_size + (u_int32_t)(0xffffffff & (pNext - pStart)) >= psstr->ref.size){
 				if(!pRt && Doc < *p_DelDocs){
 					Stop++;
 					break;
@@ -936,7 +943,7 @@ int truncation_Contxt_stream(	int added, set_st* p_stDelDocs, index_st *pin,
 					break;
 				}
 			}
-		}while(repeat-- && (nodes_size -= sizeof(long)) && (pNext += nodes_size));repeat= 0;
+		}while(repeat-- && (nodes_size -= 4) && (pNext += nodes_size));repeat= 0;
 			pNext += nodes_size;
 			if(Stop)
 				break;
@@ -951,7 +958,7 @@ int truncation_Contxt_stream(	int added, set_st* p_stDelDocs, index_st *pin,
 				IsFlushKey++;
 			}
 		}
-		if((nodes_size= ((long)pNext - (long)pStart - writed))){
+		if((nodes_size= ((u_int32_t)(0xffffffff &(pNext - pStart)) - writed))){
 			if(CheckIndexs){
 				if(!(pPreWriteCountSize % 16)){
 					if((pPreWrite= (SVector0_st*)realloc(pPreWrite,
@@ -978,14 +985,19 @@ int truncation_Contxt_stream(	int added, set_st* p_stDelDocs, index_st *pin,
 			}
 			writed += nodes_size;
 		}
-		if(writed < (long)psstr->ref.size && pRt){
+		if(writed < psstr->ref.size && pRt){
 			do{
-				nodes_size= pPContxtNode(pNext, added, &Doc, &fOffs, &count, (int*)pINX);
-			}while(repeat-- && (nodes_size -= sizeof(long)) && (pNext += nodes_size));repeat= 0;
+				nodes_size = (u_int32_t)(0x7fffffff & pPContxtNode(pNext, added, &Doc, &fOffs, &count, (int*)pINX));
+			}while(repeat-- && (nodes_size -= 4) && (pNext += nodes_size));repeat= 0;
 			pNext += nodes_size;
-			writed += (long)pNext - (long)pStart - writed;
+			writed += (u_int32_t)(0xffffffff & (pNext - pStart)) - writed;
 		}
-	}while(writed < (long)psstr->ref.size);
+	}while(writed < psstr->ref.size);
+#ifdef _WIN64
+	pre_data= psstr->data;
+	pre_size= psstr->ref.size;
+	psstr->flags &= ~SF_FREEBUF;
+#endif
 	if(IsFlushKey){
 	if(CheckIndexs){
 		// ReFormat for One Index //
@@ -1028,22 +1040,22 @@ int truncation_Contxt_stream(	int added, set_st* p_stDelDocs, index_st *pin,
 				do{
 					*pWrite= pRead[0] & 0x7fffffff; pWrite++;
 					do{
-						nodes_size= sizeof(long) + sizeof(long);
+						nodes_size= 8;
 						count= 0;
 						if(0x80000000 & pRead[1]){
 							if(0x40000000 & pRead[1]){
 								*pWrite=pRead[1]; pWrite++;
-								nodes_size += sizeof(char);
+								nodes_size ++;
 							}else{
 								*pWrite= pRead[1] | 0x40000000; pWrite++;
 								count++;
 							}
 						}else{
 							repeat= pRead[2] - 1;
-							nodes_size += sizeof(long);
+							nodes_size += 4;
 							if(0x40000000 & pRead[1]){
 								*pWrite=pRead[1]; pWrite++;
-								nodes_size += sizeof(char);
+								nodes_size ++;
 							}else{
 								*pWrite= pRead[1] | 0x40000000; pWrite++;
 								count++;
@@ -1051,17 +1063,17 @@ int truncation_Contxt_stream(	int added, set_st* p_stDelDocs, index_st *pin,
 							*pWrite= pRead[2]; pWrite++;
 						}
 						if(count)
-							nodes_size += sizeof(char) + sizeof(char) * ((int)*(pNext+nodes_size));
-					}while(repeat-- && (nodes_size -= sizeof(long))
+							nodes_size += 1 + (u_int32_t)*(pNext+nodes_size);
+					}while(repeat-- && (nodes_size -= 4)
 							&& (pNext += nodes_size) && (pRead= (long*)pNext));repeat= 0;
 					pNext += nodes_size;
 					pRead= (long*)pNext;
 				}while(pRead < pEnd);
 			}
-			count= (char*)pWrite - pPreWrite[ii].pStart;
+			count = (long)(0x7fffffff & ((char*)pWrite - pPreWrite[ii].pStart));
 			if(write_stream(pdstr, pPreWrite[ii].pStart, 4) != 4)
 				return -1;
-			if(write_stream(pdstr+writeStrIndex, pPreWrite[ii].pStart+4, count-4) != (count-4))
+			if (write_stream(pdstr + writeStrIndex, pPreWrite[ii].pStart + 4, (u_int32_t)(0x7fffffff & ((char*)pWrite - pPreWrite[ii].pStart)) - 4) != (count - 4))
 				return -1;
 			if(write_stream(pdstr, &(pdstr[writeStrIndex].ref.size), 4) != 4)
 				return -1;
@@ -1151,14 +1163,19 @@ int truncation_Contxt_stream(	int added, set_st* p_stDelDocs, index_st *pin,
 #if defined(MIN_MEM_CONTEXT) || defined(MRG_MERGE_CNTX)
 #elif !defined(MIN_MEM_CONTEXT)
 			if(psstr->curr_B){
-				stref_st *pref= 0;
-				memcpy(spit->pkey, psstr->pCurrKey, pin->hdr.keylen);
+		#ifndef _WIN64
+				stref_st *pref = 0;
 				pref= get_stref(spit,0);
+				release_stream(psstr);
 				load_stream_ex(spit->str, pref, psstr, &(spit->strinfo));
+		#else
+				release_stream(psstr);
+		#endif
 				if(spit->nstreams == 3){
-					char *new_data= 0, *new_write, *pTmpBuff= pTmpBuff0, *pR;
+					char *new_data = 0, *new_write;
+#ifndef _WIN64
+					char *pTmpBuff = pTmpBuff0, *pR;
 					u_int32_t nxt_sz= 0;
-
 					if(spit->pkey[0] == 2 && (spit->pkey[1] == -62 || spit->pkey[1] == -56)){
 						pdstr[0].flags &= ~SF_NOALLOC;
 						close_stream(pdstr);
@@ -1169,75 +1186,86 @@ int truncation_Contxt_stream(	int added, set_st* p_stDelDocs, index_st *pin,
 						pdstr[0].flags |= SF_NOALLOC;
 						pdstr[writeStrIndex].flags |= SF_NOALLOC;
 					}
-					if(psstr->flags & SF_FREEBUF)
-						pTmpBuff= psstr->rec;
+					if (psstr->flags & SF_FREEBUF)
+						pTmpBuff = psstr->rec;
 					else{
 						memcpy(pTmpBuff, psstr->rec, pref->size);
 					}
-					if(		!load_stream_ex(spit->str, get_stref(spit,2), &psstr2, &(spit->strinfo))
-						||	!(pR= psstr2.data)){
-						printf("\nError ! (%s)(%d)",spit->pkey+1, psstr2.ref.size);
+					if (!load_stream_ex(spit->str, get_stref(spit, 2), &psstr2, &(spit->strinfo))
+						|| !(pR = psstr2.data)){
+						printf("\nError ! (%s)(%d)", spit->pkey + 1, psstr2.ref.size);
 						exit(-656);
 					}
 					if(spit->pkey[0] == 2 && (spit->pkey[1] == -62 || spit->pkey[1] == -56)){
-						char tmpBaseName[1024], *fnd= strrchr(pdstr->str->pgfile.name, '.');
+						char tmpBaseName[1024], *fnd = strrchr(pdstr->str->pgfile.name, '.');
 						int hFlush;
-						*fnd= 0;
+						*fnd = 0;
 						sprintf(tmpBaseName, "%s.gsplit.tmp", pdstr->str->pgfile.name);
-						*fnd= '.';
-						if((hFlush= c_io_open(tmpBaseName, ACE_OS_O_CREAT|ACE_OS_O_RDWR|ACE_OS_O_BINARY)) == -1
+						*fnd = '.';
+						if ((hFlush = c_io_open(tmpBaseName, ACE_OS_O_CREAT | ACE_OS_O_RDWR | ACE_OS_O_BINARY)) == -1
 							|| c_io_write(hFlush, pR, psstr2.ref.size) != psstr2.ref.size
 							|| c_io_lseek(hFlush, 0, ACE_OS_SEEK_SET) != 0){
 						}
 						close_stream(&psstr2);
-						if(!(new_write=(new_data= (char*)malloc(psstr->ref.size/2+psstr2.ref.size+psstr->str->pgfile.pfhdr->page_size)))){
-							printf("\nError ! (%s)(%d)",spit->pkey+1, psstr->ref.size/2+psstr2.ref.size+psstr->str->pgfile.pfhdr->page_size);
+						if (!(new_write = (new_data = (char*)malloc(psstr->ref.size / 2 + psstr2.ref.size + psstr->str->pgfile.pfhdr->page_size)))){
+							printf("\nError ! (%s)(%d)", spit->pkey + 1, psstr->ref.size / 2 + psstr2.ref.size + psstr->str->pgfile.pfhdr->page_size);
 							exit(-656);
 						}
 						do{
-							*(u_int32_t*)new_write= *(u_int32_t*)pTmpBuff;
-							nxt_sz= ((ref_st*)pTmpBuff)->sub - nxt_sz;
+							*(u_int32_t*)new_write = *(u_int32_t*)pTmpBuff;
+							nxt_sz = ((ref_st*)pTmpBuff)->sub - nxt_sz;
 							new_write += sizeof(u_int32_t);
-							pR= (char*)malloc(nxt_sz+16);
+							pR = (char*)malloc(nxt_sz + 16);
 							c_io_read(hFlush, pR, nxt_sz);
 							memcpy(new_write, pR, nxt_sz);
 							free(pR);
 							new_write += nxt_sz;
-							nxt_sz= ((ref_st*)pTmpBuff)->sub;
+							nxt_sz = ((ref_st*)pTmpBuff)->sub;
 							pTmpBuff += sizeof(ref_st);
 							psstr->ref.size -= sizeof(ref_st);
-						}while(psstr->ref.size);
+						} while (psstr->ref.size);
 						c_io_close(hFlush);
 						ace_os_unlink(tmpBaseName);
-					}else{
-						if(!(new_write=(new_data= (char*)malloc(psstr->ref.size/2+psstr2.ref.size+psstr->str->pgfile.pfhdr->page_size)))){
-							printf("\nError ! (%s)(%d)",spit->pkey+1, psstr->ref.size/2+psstr2.ref.size+psstr->str->pgfile.pfhdr->page_size);
+					}else
+					{
+						if (!(new_write = (new_data = (char*)malloc(psstr->ref.size / 2 + psstr2.ref.size + psstr->str->pgfile.pfhdr->page_size)))){
+							printf("\nError ! (%s)(%d)", spit->pkey + 1, psstr->ref.size / 2 + psstr2.ref.size + psstr->str->pgfile.pfhdr->page_size);
 							exit(-656);
 						}
 						do{
-							*(u_int32_t*)new_write= *(u_int32_t*)pTmpBuff;
-							nxt_sz= ((ref_st*)pTmpBuff)->sub - nxt_sz;
+							*(u_int32_t*)new_write = *(u_int32_t*)pTmpBuff;
+							nxt_sz = ((ref_st*)pTmpBuff)->sub - nxt_sz;
 							new_write += sizeof(u_int32_t);
 							memcpy(new_write, pR, nxt_sz);
 							pR += nxt_sz;
 							new_write += nxt_sz;
-							nxt_sz= ((ref_st*)pTmpBuff)->sub;
+							nxt_sz = ((ref_st*)pTmpBuff)->sub;
 							pTmpBuff += sizeof(ref_st);
 							psstr->ref.size -= sizeof(ref_st);
-						}while(psstr->ref.size);
+						} while (psstr->ref.size);
 						close_stream(&psstr2);
 					}
-					if(psstr->flags & SF_FREEBUF){
+					if (psstr->flags & SF_FREEBUF){
 						free(psstr->data);
-					}else
+					}else{
 						psstr->flags |= SF_FREEBUF;
+					}
+#else
+					new_write= (new_data= pre_data) + pre_size;
+					psstr->flags |= SF_FREEBUF;
+#endif
 					psstr->rec= psstr->data= new_data;
-					psstr->ref.size= new_write-new_data;
+					psstr->ref.size = (size_t)(0xffffffff & (new_write - new_data));
 				}
 				if(pTmpCache){
 					memcpy(psstr->data, pTmpCache, psstr->ref.size);
 				}
 			}
+  #ifdef _WIN64
+			else
+				psstr->data= pre_data;
+  #endif
+
 #endif
 		}
   }else{
@@ -1264,15 +1292,20 @@ int truncation_Contxt_stream(	int added, set_st* p_stDelDocs, index_st *pin,
 #if defined(MIN_MEM_CONTEXT) || defined(MRG_MERGE_CNTX)
 #elif !defined(MIN_MEM_CONTEXT)
 	  if(psstr->curr_B){
-		stref_st *pref= 0;
-		memcpy(spit->pkey, psstr->pCurrKey, pin->hdr.keylen);
+#ifndef _WIN64
+		stref_st *pref = 0;
 		pref= get_stref(spit,0);
 		release_stream(psstr);
 		load_stream_ex(spit->str, pref, psstr, &(spit->strinfo));
-		if(spit->nstreams == 3){
-			char *new_data= 0, *new_write, *pTmpBuff= pTmpBuff0, *pR;
+#else
+		release_stream(psstr);
+#endif
+		memcpy(spit->pkey, psstr->pCurrKey, pin->hdr.keylen);
+		if (spit->nstreams == 3){
+			char *new_data = 0, *new_write;
+#ifndef _WIN64
+			char *pTmpBuff = pTmpBuff0, *pR;
 			u_int32_t nxt_sz= 0;
-
 			if(spit->pkey[0] == 2 && (spit->pkey[1] == -62 || spit->pkey[1] == -56)){
 				pdstr[0].flags &= ~SF_NOALLOC;
 				close_stream(pdstr);
@@ -1283,75 +1316,83 @@ int truncation_Contxt_stream(	int added, set_st* p_stDelDocs, index_st *pin,
 				pdstr[0].flags |= SF_NOALLOC;
 				pdstr[writeStrIndex].flags |= SF_NOALLOC;
 			}
-			if(psstr->flags & SF_FREEBUF)
-				pTmpBuff= psstr->rec;
+			if (psstr->flags & SF_FREEBUF)
+				pTmpBuff = psstr->rec;
 			else{
 				memcpy(pTmpBuff, psstr->rec, pref->size);
 			}
-			if(		!load_stream_ex(spit->str, get_stref(spit,2), &psstr2, &(spit->strinfo))
-				||	!(pR= psstr2.data)){
-				printf("\nError ! (%s)(%d)",spit->pkey+1, psstr2.ref.size);
+			if (!load_stream_ex(spit->str, get_stref(spit, 2), &psstr2, &(spit->strinfo))
+				|| !(pR = psstr2.data)){
+				printf("\nError ! (%s)(%d)", spit->pkey + 1, psstr2.ref.size);
 				exit(-656);
 			}
 			if(spit->pkey[0] == 2 && (spit->pkey[1] == -62 || spit->pkey[1] == -56)){
-				char tmpBaseName[1024], *fnd= strrchr(pdstr->str->pgfile.name, '.');
+				char tmpBaseName[1024], *fnd = strrchr(pdstr->str->pgfile.name, '.');
 				int hFlush;
-				*fnd= 0;
+				*fnd = 0;
 				sprintf(tmpBaseName, "%s.gsplit.tmp", pdstr->str->pgfile.name);
-				*fnd= '.';
-				if((hFlush= c_io_open(tmpBaseName, ACE_OS_O_CREAT|ACE_OS_O_RDWR|ACE_OS_O_BINARY)) == -1
+				*fnd = '.';
+				if ((hFlush = c_io_open(tmpBaseName, ACE_OS_O_CREAT | ACE_OS_O_RDWR | ACE_OS_O_BINARY)) == -1
 					|| c_io_write(hFlush, pR, psstr2.ref.size) != psstr2.ref.size
 					|| c_io_lseek(hFlush, 0, ACE_OS_SEEK_SET) != 0){
 				}
 				close_stream(&psstr2);
-				if(!(new_write=(new_data= (char*)malloc(psstr->ref.size/2+psstr2.ref.size+psstr->str->pgfile.pfhdr->page_size)))){
-					printf("\nError ! (%s)(%d)",spit->pkey+1, psstr->ref.size/2+psstr2.ref.size+psstr->str->pgfile.pfhdr->page_size);
+				if (!(new_write = (new_data = (char*)malloc(psstr->ref.size / 2 + psstr2.ref.size + psstr->str->pgfile.pfhdr->page_size)))){
+					printf("\nError ! (%s)(%d)", spit->pkey + 1, psstr->ref.size / 2 + psstr2.ref.size + psstr->str->pgfile.pfhdr->page_size);
 					exit(-656);
 				}
 				do{
-					*(u_int32_t*)new_write= *(u_int32_t*)pTmpBuff;
-					nxt_sz= ((ref_st*)pTmpBuff)->sub - nxt_sz;
+					*(u_int32_t*)new_write = *(u_int32_t*)pTmpBuff;
+					nxt_sz = ((ref_st*)pTmpBuff)->sub - nxt_sz;
 					new_write += sizeof(u_int32_t);
-					pR= (char*)malloc(nxt_sz+16);
+					pR = (char*)malloc(nxt_sz + 16);
 					c_io_read(hFlush, pR, nxt_sz);
 					memcpy(new_write, pR, nxt_sz);
 					free(pR);
 					new_write += nxt_sz;
-					nxt_sz= ((ref_st*)pTmpBuff)->sub;
+					nxt_sz = ((ref_st*)pTmpBuff)->sub;
 					pTmpBuff += sizeof(ref_st);
 					psstr->ref.size -= sizeof(ref_st);
-				}while(psstr->ref.size);
+				} while (psstr->ref.size);
 				c_io_close(hFlush);
 				ace_os_unlink(tmpBaseName);
 			}else{
-				if(!(new_write=(new_data= (char*)malloc(psstr->ref.size/2+psstr2.ref.size+psstr->str->pgfile.pfhdr->page_size)))){
-					printf("\nError ! (%s)(%d)",spit->pkey+1, psstr->ref.size/2+psstr2.ref.size+psstr->str->pgfile.pfhdr->page_size);
+				if (!(new_write = (new_data = (char*)malloc(psstr->ref.size / 2 + psstr2.ref.size + psstr->str->pgfile.pfhdr->page_size)))){
+					printf("\nError ! (%s)(%d)", spit->pkey + 1, psstr->ref.size / 2 + psstr2.ref.size + psstr->str->pgfile.pfhdr->page_size);
 					exit(-656);
 				}
 				do{
-					*(u_int32_t*)new_write= *(u_int32_t*)pTmpBuff;
-					nxt_sz= ((ref_st*)pTmpBuff)->sub - nxt_sz;
+					*(u_int32_t*)new_write = *(u_int32_t*)pTmpBuff;
+					nxt_sz = ((ref_st*)pTmpBuff)->sub - nxt_sz;
 					new_write += sizeof(u_int32_t);
 					memcpy(new_write, pR, nxt_sz);
 					pR += nxt_sz;
 					new_write += nxt_sz;
-					nxt_sz= ((ref_st*)pTmpBuff)->sub;
+					nxt_sz = ((ref_st*)pTmpBuff)->sub;
 					pTmpBuff += sizeof(ref_st);
 					psstr->ref.size -= sizeof(ref_st);
-				}while(psstr->ref.size);
+				} while (psstr->ref.size);
 				close_stream(&psstr2);
 			}
-			if(psstr->flags & SF_FREEBUF){
+			if (psstr->flags & SF_FREEBUF){
 				free(psstr->data);
 			}else
 				psstr->flags |= SF_FREEBUF;
+#else
+			new_write= (new_data= pre_data) + pre_size;
+			psstr->flags |= SF_FREEBUF;
+#endif
 			psstr->rec= psstr->data= new_data;
-			psstr->ref.size= new_write-new_data;
+			psstr->ref.size = (size_t)(0xffffffff & (new_write - new_data));
 		}
 		if(pTmpCache){
 			memcpy(psstr->data, pTmpCache, psstr->ref.size);
 		}
 	  }
+  #ifdef _WIN64
+	  else
+		  psstr->data= pre_data;
+  #endif
 #endif
   }
 	return 0;
@@ -1563,7 +1604,7 @@ int write_stream_FromReaded(int (__cdecl *pPNode)(char*,int,long*,int*,long*,int
 	  }while(repeat-- && (nodes_size -= sizeof(long)) && (pNxt += nodes_size) && (pWrite= pNxt) && (skipWrite= sizeof(long)));repeat= 0;skipWrite= 0;
 	  pNxt += nodes_size;
 	  if(!pstr)
-		  return pNxt-(char*)buf; 
+		  return (int)(0x7fffffff & (pNxt - (char*)buf));
 	}
 	return sizeAll;
 #else

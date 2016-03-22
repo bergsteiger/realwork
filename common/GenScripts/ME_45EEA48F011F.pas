@@ -2,6 +2,7 @@ unit FiltersUnit;
 
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\FiltersUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Filters" MUID: (45EEA48F011F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

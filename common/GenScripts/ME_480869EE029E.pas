@@ -2,6 +2,7 @@ unit atExecutionContext;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atExecutionContext.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatExecutionContext" MUID: (480869EE029E)
 
 interface
 

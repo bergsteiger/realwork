@@ -3,6 +3,8 @@ unit PageBreak_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\PageBreak_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "PageBreak" MUID: (48566A8103C1)
+// Имя типа: "PageBreakTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

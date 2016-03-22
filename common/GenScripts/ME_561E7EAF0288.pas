@@ -2,6 +2,8 @@ unit UnicodeFormulasToUnicodeConverterTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\UnicodeFormulasToUnicodeConverterTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "UnicodeFormulasToUnicodeConverterTest" MUID: (561E7EAF0288)
+// Имя типа: "TUnicodeFormulasToUnicodeConverterTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

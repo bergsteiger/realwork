@@ -3,6 +3,7 @@ unit dsMedicFirmSynchroView;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicFirmSynchroView.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsMedicFirmSynchroView" MUID: (4922C66D0013)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

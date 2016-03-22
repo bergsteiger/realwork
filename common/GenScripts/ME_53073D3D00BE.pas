@@ -2,6 +2,7 @@ unit k2String;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2String.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2String" MUID: (53073D3D00BE)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

@@ -3,6 +3,7 @@ unit DeleteSectionBreakTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\DeleteSectionBreakTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TDeleteSectionBreakTest" MUID: (4CAC461C016C)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

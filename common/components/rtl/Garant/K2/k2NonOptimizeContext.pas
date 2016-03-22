@@ -5,7 +5,7 @@ unit k2NonOptimizeContext;
 // Библиотека "K2"
 // Модуль: "w:/common/components/rtl/Garant/K2/k2NonOptimizeContext.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::Operations::Tk2NonOptimizeContext
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::K2::Operations::Tk2NonOptimizeContext
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

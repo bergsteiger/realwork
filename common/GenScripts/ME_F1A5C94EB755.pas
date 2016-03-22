@@ -3,6 +3,7 @@ unit LongProcess_ut_LongProcess_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LongProcess_ut_LongProcess_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_LongProcess" MUID: (F1A5C94EB755)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -31,26 +32,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_LongProcess = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_LongProcess }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_LongProcess
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_LongProcess.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_LongProcess';
-end;//Tkw_FormUserType_ut_LongProcess.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_LongProcess.GetInteger: Integer;
 begin
  Result := ut_LongProcess;
 end;//Tkw_FormUserType_ut_LongProcess.GetInteger
+
+class function Tkw_FormUserType_ut_LongProcess.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_LongProcess';
+end;//Tkw_FormUserType_ut_LongProcess.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

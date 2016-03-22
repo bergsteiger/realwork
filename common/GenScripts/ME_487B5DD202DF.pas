@@ -3,6 +3,7 @@ unit nevSelection;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevSelection.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevSelection" MUID: (487B5DD202DF)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

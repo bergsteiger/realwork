@@ -2,6 +2,7 @@ unit vcmUserFriendlyControlList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmUserFriendlyControlList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmUserFriendlyControlList" MUID: (559E5F080019)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

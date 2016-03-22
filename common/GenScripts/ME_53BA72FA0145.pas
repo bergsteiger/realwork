@@ -2,6 +2,8 @@ unit AutoAnnoExportTask_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\AutoAnnoExportTask_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "AutoAnnoExportTask" MUID: (53BA72FA0145)
+// Имя типа: "AutoAnnoExportTaskTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

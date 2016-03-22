@@ -2,6 +2,7 @@ unit alcuGetTaskDescriptionExecutor;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuGetTaskDescriptionExecutor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuGetTaskDescriptionExecutor" MUID: (546B540E02D6)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

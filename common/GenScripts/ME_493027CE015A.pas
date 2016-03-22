@@ -3,6 +3,7 @@ unit sdsSituation;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\sdsSituation.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsSituation" MUID: (493027CE015A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -70,6 +71,7 @@ type
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
   public
    procedure UpdateSelectedAttributes;
     {* обновить данные в форме выбранных атрибутов }
@@ -221,6 +223,17 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4938F7E702B7_493027CE015A_impl*
 end;//TsdsSituation.ClearAreas
+
+procedure TsdsSituation.ClearFields;
+begin
+ f_dsFilters := nil;
+ f_dsTreeAttributeFirstLevel := nil;
+ f_dsSaveLoad := nil;
+ f_dsSelectedAttributes := nil;
+ f_dsTreeAttributeSelect := nil;
+ f_dsAttributeSelect := nil;
+ inherited;
+end;//TsdsSituation.ClearFields
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin)

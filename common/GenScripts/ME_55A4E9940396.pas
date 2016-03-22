@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCodeCompiler.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "tfwCodeCompiler" MUID: (55A4E9940396)
+// Имя типа: "_tfwCodeCompiler_"
 
 {$Define tfwCodeCompiler_imp}
 
@@ -9,7 +11,6 @@
  _tfwCodeCompiler_ = {abstract} class(_tfwCodeCompiler_Parent_)
   private
    f_Code: TtfwWordRefList;
-    {* Поле для свойства Code }
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

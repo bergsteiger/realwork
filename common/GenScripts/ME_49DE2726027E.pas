@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCursor.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "evCursor" MUID: (49DE2726027E)
+// Имя типа: "_evCursor_"
 
 {$Define evCursor_imp}
 

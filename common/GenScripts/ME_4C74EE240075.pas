@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3GZipStream;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3GZipStream.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3GZipStream" MUID: (4C74EE240075)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

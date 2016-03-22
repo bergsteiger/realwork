@@ -3,6 +3,8 @@ unit Diction_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\Diction_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "Diction" MUID: (4A9CEA5001CF)
+// Имя типа: "TenDiction"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

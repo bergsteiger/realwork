@@ -2,6 +2,7 @@ unit evFormula_Wrap;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evFormula_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WevFormula" MUID: (485792EE01CB)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

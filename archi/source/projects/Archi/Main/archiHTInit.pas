@@ -1,7 +1,10 @@
 unit archiHTInit;
-// $Id: archiHTInit.pas,v 1.18 2015/05/26 15:17:44 lukyanets Exp $
+// $Id: archiHTInit.pas,v 1.19 2015/11/26 08:45:27 lukyanets Exp $
 
 // $Log: archiHTInit.pas,v $
+// Revision 1.19  2015/11/26 08:45:27  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.18  2015/05/26 15:17:44  lukyanets
 // Чистим залочки более гуманно
 //
@@ -92,7 +95,7 @@ Uses
  SysUtils,
  l3IniFile,
 
- DT_Const,
+ daSchemeConsts,
 
  ddHTInit,
  ddClientBaseEngine,

@@ -88,6 +88,8 @@ DBCommunicator_i::DBCommunicator_i (DBCore::IBase* base)
 		if (index->is_valid ()) {
 			// Загрузка синонимов
 			this->load_syns (index.in ());
+			// Загрузка однословных синонимов
+			this->load_ssyns (index.in ());
 			// Загрузка стоп-слов и стоп-фраз
 			this->load_exclude_data (index.in ());
 			// Загрузка устойчивых словосочетаний
@@ -102,6 +104,8 @@ DBCommunicator_i::DBCommunicator_i (DBCore::IBase* base)
 			this->load_tune_data (index.in ());
 			// Загрузка словаря фразальных замен
 			this->load_phrasal_replacement (index.in ());
+			// Загрузка индекса для невидимых блочных
+			this->load_invb_index (index.in ());
 
 			this->dump ();
 		}
@@ -129,9 +133,11 @@ void DBCommunicator_i::dump () {
 	//Dumper ("C:\\Logs\\tune_data").out (m_tune_data);
 	//Dumper ("C:\\Logs\\hard").out (m_hard_phrases);
 	//Dumper ("C:\\Logs\\syns").out (m_syns);
+	//Dumper ("C:\\Logs\\ssyns").out (m_ssyns);
 	//Dumper ("C:\\Logs\\pattern").out (m_templates_syns);
 	//Dumper ("C:\\Logs\\phrasal_replacement").out (m_phrasal_pair);
 	//Dumper ("C:\\Logs\\exclude.txt").out (m_excluded);
+	//Dumper ("C:\\Logs\\invb_index.txt").out (m_invb_index);
 #endif
 	//#UC END# *4EBC01F20048*
 }
@@ -183,7 +189,7 @@ void DBCommunicator_i::load_PSD_templates (DBCore::IIndex* index) {
 	GCL::StrVector tmp, data;
 
 	if (buffer.is_nil () == false) {
-		const char* ptr = buffer->get_data ();
+		const char* ptr = buffer->get ();
 
 		std::string str;
 
@@ -233,7 +239,7 @@ void DBCommunicator_i::load_blocks_lengths (DBCore::IIndex* index) {
 	DBCore::IBuffer_var buffer = index->read (AUX_INVISIBLE_LENS, 0, size);
 
 	if (buffer.is_nil () == false) {
-		const char* buf = buffer->get_data ();
+		const char* buf = buffer->get ();
 
 		size_t item_size = sizeof (long);
 
@@ -273,7 +279,7 @@ void DBCommunicator_i::load_exclude_data (DBCore::IIndex* index) {
 	DBCore::IBuffer_var buffer = index->read (AUX_EXCLUDE_WORDS, 0, size);
 
 	if (buffer.is_nil () == false) {
-		DBCommunicator_i::init_str_vector (buffer->get_data (), size, m_excluded);
+		DBCommunicator_i::init_str_vector (buffer->get (), size, m_excluded);
 
 		std::sort (m_excluded.begin (), m_excluded.end () 
 			, boost::bind (std::greater <size_t> ()
@@ -294,9 +300,77 @@ void DBCommunicator_i::load_hard_phrases (DBCore::IIndex* index) {
 	if (buffer.is_nil () == false) {
 		m_hard_phrases.reserve (4096);
 
-		DBCommunicator_i::init_str_vector (buffer->get_data (), size, m_hard_phrases);
+		DBCommunicator_i::init_str_vector (buffer->get (), size, m_hard_phrases);
 	}
 	//#UC END# *4FFFFDF10063*
+}
+
+// загрузка индекса для невидимых блочных
+void DBCommunicator_i::load_invb_index (DBCore::IIndex* index) {
+	//#UC START# *56B0CF210297*
+	size_t size = 0;
+
+	DBCore::IBuffer_var buffer = index->read (AUX_INVISIBLE_BLOCKSLENS, 0, size);
+
+	if (buffer.is_nil () == false) {
+		using namespace ContextSearch;
+
+		DBComm::Entry entry;
+		DBComm::Entries def;
+		DBComm::InvisibleData empty;
+
+		typedef std::map <long, DBComm::Entries> BlocksEntries;
+		BlocksEntries entries;
+
+		size_t item_size = sizeof (long);
+
+		const char* buf = buffer->get ();
+
+		for (const char* ptr = buf; (size_t) (ptr - buf) < size; ) {
+			unsigned char word_size = *(unsigned char*) ptr;
+
+			if (word_size == 0) {
+				break;
+			}
+
+			++ptr;
+
+			m_invb_index.push_back (empty);
+
+			DBComm::InvisibleData& data = m_invb_index.back ();
+			data.key.assign (ptr, ptr + word_size);
+
+			ptr += word_size;
+
+			long i, count = *(long*) ptr;
+
+			ptr += item_size;
+
+			BlocksEntries entries;
+			BlocksEntries::iterator it;
+
+			for (i = 0; i < count; i += 4) {
+				it = entries.insert (BlocksEntries::value_type (*(long*) ptr, def)).first;
+				ptr += item_size;
+				entry.pos = *(long*) ptr;
+				ptr += item_size;
+				entry.len = *(long*) ptr;
+				ptr += item_size;
+				entry.rel = *(long*) ptr;
+				ptr += item_size;
+				it->second.push_back (entry);
+			}
+
+			data.ids.resize (entries.size ());
+			data.data.resize (entries.size ());
+
+			for (i = 0, it = entries.begin (); it != entries.end (); ++i, ++it) {
+				data.ids.at (i) = it->first;
+				data.data.at (i).swap (it->second);
+			}
+		}
+	}
+	//#UC END# *56B0CF210297*
 }
 
 // загрузка значений релевантности для обычного невидимого текста
@@ -311,7 +385,7 @@ void DBCommunicator_i::load_invisible_rel (DBCore::IIndex* index) {
 	DBCore::IBuffer_var buffer = index->read (AUX_INVISIBLE_RELES, 0, size);
 
 	if (buffer.is_nil () == false) {
-		const char* buf = buffer->get_data ();
+		const char* buf = buffer->get ();
 
 		size_t item_size = sizeof (long);
 
@@ -350,7 +424,7 @@ void DBCommunicator_i::load_phrasal_replacement (DBCore::IIndex* index) {
 	DBCore::IBuffer_var buffer = index->read (AUX_PHRASAL_NORMALIZER, 0, size);
 
 	if (buffer.is_nil () == false) {
-		const char* buf = buffer->get_data ();
+		const char* buf = buffer->get ();
 
 		ContextSearch::DBComm::StrPair pair;
 
@@ -372,6 +446,43 @@ void DBCommunicator_i::load_phrasal_replacement (DBCore::IIndex* index) {
 	//#UC END# *4EBD0A690337*
 }
 
+// загрузка однословных синонимов
+void DBCommunicator_i::load_ssyns (DBCore::IIndex* index) {
+	//#UC START# *565C6FAE014D*
+	size_t size = 0;
+
+	DBCore::IBuffer_var buffer = index->read (AUX_SIMPLE_SYNS, 0, size);
+
+	if (size) {
+		const char* buf = buffer->get ();
+
+		for (const char* ptr = buf; (size_t) (ptr - buf) < size; ) {
+			ContextSearch::DBComm::SynPair pair;
+			pair.key = ptr + 1; // нулевой байт не нужен
+			ptr += (pair.key.size () + 2); // +2, потому что игнорируем нулевой байт
+
+			m_ssyns.push_back (pair);
+
+			GCL::StrVector& data = m_ssyns.back ().data;
+			data.resize ((size_t) *ptr);
+
+			++ptr;
+
+			for (; *ptr == 0; ++ptr);
+
+			GCL::StrVector::iterator it = data.begin (), it_end = data.end ();
+
+			for (; it != it_end; ++it) {
+				*it = ptr + 1; // нулевой байт не нужен
+				ptr += (it->size () + 2); // +2, потому что игнорируем нулевой байт
+			}
+		}
+
+		std::sort (m_ssyns.begin (), m_ssyns.end (), ContextSearch::DBComm::SynCompare ());
+	}
+	//#UC END# *565C6FAE014D*
+}
+
 // загрузка синонимов
 void DBCommunicator_i::load_syns (DBCore::IIndex* index) {
 	//#UC START# *4EBC013F014A*
@@ -387,7 +498,7 @@ void DBCommunicator_i::load_syns (DBCore::IIndex* index) {
 		if (buffer.is_nil () == false && size) {
 			SynKeys keys;
 			std::vector <GCL::StrVector> values;
-			this->init_syns (buffer->get_data (), size, keys, values);
+			this->init_syns (buffer->get (), size, keys, values);
 
 			std::sort (keys.begin (), keys.end ());
 
@@ -410,7 +521,7 @@ void DBCommunicator_i::load_syns (DBCore::IIndex* index) {
 		if (buffer.is_nil () == false && size) {
 			SynKeys keys;
 			std::vector <GCL::StrVector> values;
-			this->init_syns (buffer->get_data (), size, keys, values);
+			this->init_syns (buffer->get (), size, keys, values);
 
 			std::sort (keys.begin (), keys.end (), PatternCompare ());
 
@@ -542,6 +653,14 @@ const GCL::StrVector& DBCommunicator_i::get_hard_phrases () const {
 }
 
 // implemented method from ContextSearch::DBComm::IDBCommunicator
+// индекс с невидимыми блочными
+const ContextSearch::DBComm::InvisibleDataIndex& DBCommunicator_i::get_invb_index () const {
+	//#UC START# *56B0CA83008E_4EBBDD2C01CE*
+	return m_invb_index;
+	//#UC END# *56B0CA83008E_4EBBDD2C01CE*
+}
+
+// implemented method from ContextSearch::DBComm::IDBCommunicator
 // длины блоков приписанных к позициям из невидимого текста
 const ContextSearch::Defs::InvisibleBlocks& DBCommunicator_i::get_invisible_blocks () const {
 	//#UC START# *4CCAB28003E5_4EBBDD2C01CE*
@@ -563,6 +682,14 @@ const ContextSearch::DBComm::StrPairVector& DBCommunicator_i::get_phrasal_replac
 	//#UC START# *53EB7B910025_4EBBDD2C01CE*
 	return m_phrasal_pair;
 	//#UC END# *53EB7B910025_4EBBDD2C01CE*
+}
+
+// implemented method from ContextSearch::DBComm::IDBCommunicator
+// однословные синонимы
+const ContextSearch::DBComm::Synonyms& DBCommunicator_i::get_ssyns () const {
+	//#UC START# *565C6E7B00E5_4EBBDD2C01CE*
+	return m_ssyns;
+	//#UC END# *565C6E7B00E5_4EBBDD2C01CE*
 }
 
 // implemented method from ContextSearch::DBComm::IDBCommunicator

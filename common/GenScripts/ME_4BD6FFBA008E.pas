@@ -3,6 +3,7 @@ unit PrimGroupProperty_admRenameGroup_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupProperty_admRenameGroup_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "admRenameGroup" MUID: (4BD6FFBA008E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_admRenameGroup = {final} class(TtfwInteger)
   {* Слово словаря для типа формы admRenameGroup }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_admRenameGroup
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_admRenameGroup.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::admRenameGroup';
-end;//Tkw_FormUserType_admRenameGroup.GetWordNameForRegister
-
 function Tkw_FormUserType_admRenameGroup.GetInteger: Integer;
 begin
  Result := admRenameGroup;
 end;//Tkw_FormUserType_admRenameGroup.GetInteger
+
+class function Tkw_FormUserType_admRenameGroup.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::admRenameGroup';
+end;//Tkw_FormUserType_admRenameGroup.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

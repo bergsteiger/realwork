@@ -2,6 +2,7 @@ unit atDeleteFoldersOperation;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atDeleteFoldersOperation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatDeleteFoldersOperation" MUID: (484D0B4A018A)
 
 interface
 

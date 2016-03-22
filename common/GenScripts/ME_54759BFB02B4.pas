@@ -2,6 +2,7 @@ unit alcuGetFilePartExecutor;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuGetFilePartExecutor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuGetFilePartExecutor" MUID: (54759BFB02B4)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
@@ -104,15 +105,24 @@ var
     l_Stream := Tl3FileStream.Create(l_FileName, l3_fmRead);
     try
      if l_Stream.Size < (l_Message.Offset + l_Message.PartSize) then
+     begin
+      l3System.Msg2Log('Обшика доставки - запросили файл за его границами');
       Exit;
+     end;
      if l_Message.PartSize < 0 then
+     begin
+      l3System.Msg2Log('Обшика доставки - запросили нулевой пакет данных');
       Exit;
+     end;
      l_Stream.Seek(l_Message.Offset, soBeginning);
      l_ToCopyCount := l_Stream.Size - l_Message.Offset;
      while l_ToCopyCount > 0 do
      begin
       if not aContext.rTransporter.Processing then
+      begin
+       l3System.Msg2Log('Обшика доставки - обрыв связи');
        Exit;
+      end;
       l_PushMessage := TncsPushFilePart.Create;
       try
        l_PushMessage.TaskID := l_Message.TaskID;
@@ -148,7 +158,8 @@ begin
  l_Reply := TncsGetFilePartReply.Create(l_Message);
  try
   l_Reply.IsSuccess := False;
-  TaskList.ForOneByIDF(L2AlcuTasksIteratorForOneByIDFAction(@DoProcess), l_Message.TaskID);
+  if not TaskList.ForOneByIDF(L2AlcuTasksIteratorForOneByIDFAction(@DoProcess), l_Message.TaskID) then
+   l3System.Msg2Log('Задача с идентификатором %s не найдена (запрос файла)', [l_Message.TaskID]);
   aContext.rTransporter.Send(l_Reply);
  finally
   FreeAndNil(l_Reply);

@@ -3,6 +3,8 @@ unit DecorTextPara_Const;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\DecorTextPara_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "DecorTextPara" MUID: (4857920901AF)
+// Имя типа: "DecorTextParaTag"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

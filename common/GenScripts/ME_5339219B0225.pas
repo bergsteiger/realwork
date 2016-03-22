@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmGlassForm.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmGlassForm" MUID: (5339219B0225)
+// Имя типа: "_vcmGlassForm_"
 
 {$Define vcmGlassForm_imp}
 

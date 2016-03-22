@@ -3,6 +3,7 @@ unit ChatWindowKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\ChatWindowKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ChatWindowKeywordsPack" MUID: (7B1A97167D7A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -49,8 +50,8 @@ type
 'aControl' форма::ChatWindow TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ChatWindow
 
  Tkw_ChatWindow_Control_BackgroundPanel = {final} class(TtfwControlString)
@@ -61,9 +62,9 @@ type
 контрол::BackgroundPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ChatWindow_Control_BackgroundPanel
 
  Tkw_ChatWindow_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
@@ -86,9 +87,9 @@ type
 контрол::BottomPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ChatWindow_Control_BottomPanel
 
  Tkw_ChatWindow_Control_BottomPanel_Push = {final} class(TkwBynameControlPush)
@@ -111,9 +112,9 @@ type
 контрол::BottomEditor TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ChatWindow_Control_BottomEditor
 
  Tkw_ChatWindow_Control_BottomEditor_Push = {final} class(TkwBynameControlPush)
@@ -136,9 +137,9 @@ type
 контрол::TopPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ChatWindow_Control_TopPanel
 
  Tkw_ChatWindow_Control_TopPanel_Push = {final} class(TkwBynameControlPush)
@@ -161,9 +162,9 @@ type
 контрол::HistoryEditor TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ChatWindow_Control_HistoryEditor
 
  Tkw_ChatWindow_Control_HistoryEditor_Push = {final} class(TkwBynameControlPush)
@@ -298,20 +299,15 @@ OBJECT VAR l_TnscChatMemo
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwChatWindowFormHistoryEditor
 
-class function Tkw_Form_ChatWindow.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ChatWindow';
-end;//Tkw_Form_ChatWindow.GetWordNameForRegister
-
 function Tkw_Form_ChatWindow.GetString: AnsiString;
 begin
  Result := 'ChatWindowForm';
 end;//Tkw_Form_ChatWindow.GetString
 
-class function Tkw_ChatWindow_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_ChatWindow.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::BackgroundPanel';
-end;//Tkw_ChatWindow_Control_BackgroundPanel.GetWordNameForRegister
+ Result := 'форма::ChatWindow';
+end;//Tkw_Form_ChatWindow.GetWordNameForRegister
 
 function Tkw_ChatWindow_Control_BackgroundPanel.GetString: AnsiString;
 begin
@@ -324,6 +320,11 @@ begin
  TtfwClassRef.Register(TvtProportionalPanel);
 end;//Tkw_ChatWindow_Control_BackgroundPanel.RegisterInEngine
 
+class function Tkw_ChatWindow_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BackgroundPanel';
+end;//Tkw_ChatWindow_Control_BackgroundPanel.GetWordNameForRegister
+
 procedure Tkw_ChatWindow_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BackgroundPanel');
@@ -334,11 +335,6 @@ class function Tkw_ChatWindow_Control_BackgroundPanel_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::BackgroundPanel:push';
 end;//Tkw_ChatWindow_Control_BackgroundPanel_Push.GetWordNameForRegister
-
-class function Tkw_ChatWindow_Control_BottomPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::BottomPanel';
-end;//Tkw_ChatWindow_Control_BottomPanel.GetWordNameForRegister
 
 function Tkw_ChatWindow_Control_BottomPanel.GetString: AnsiString;
 begin
@@ -351,6 +347,11 @@ begin
  TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_ChatWindow_Control_BottomPanel.RegisterInEngine
 
+class function Tkw_ChatWindow_Control_BottomPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BottomPanel';
+end;//Tkw_ChatWindow_Control_BottomPanel.GetWordNameForRegister
+
 procedure Tkw_ChatWindow_Control_BottomPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BottomPanel');
@@ -361,11 +362,6 @@ class function Tkw_ChatWindow_Control_BottomPanel_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::BottomPanel:push';
 end;//Tkw_ChatWindow_Control_BottomPanel_Push.GetWordNameForRegister
-
-class function Tkw_ChatWindow_Control_BottomEditor.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::BottomEditor';
-end;//Tkw_ChatWindow_Control_BottomEditor.GetWordNameForRegister
 
 function Tkw_ChatWindow_Control_BottomEditor.GetString: AnsiString;
 begin
@@ -378,6 +374,11 @@ begin
  TtfwClassRef.Register(TnscChatMemo);
 end;//Tkw_ChatWindow_Control_BottomEditor.RegisterInEngine
 
+class function Tkw_ChatWindow_Control_BottomEditor.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BottomEditor';
+end;//Tkw_ChatWindow_Control_BottomEditor.GetWordNameForRegister
+
 procedure Tkw_ChatWindow_Control_BottomEditor_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BottomEditor');
@@ -388,11 +389,6 @@ class function Tkw_ChatWindow_Control_BottomEditor_Push.GetWordNameForRegister: 
 begin
  Result := 'контрол::BottomEditor:push';
 end;//Tkw_ChatWindow_Control_BottomEditor_Push.GetWordNameForRegister
-
-class function Tkw_ChatWindow_Control_TopPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::TopPanel';
-end;//Tkw_ChatWindow_Control_TopPanel.GetWordNameForRegister
 
 function Tkw_ChatWindow_Control_TopPanel.GetString: AnsiString;
 begin
@@ -405,6 +401,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ChatWindow_Control_TopPanel.RegisterInEngine
 
+class function Tkw_ChatWindow_Control_TopPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::TopPanel';
+end;//Tkw_ChatWindow_Control_TopPanel.GetWordNameForRegister
+
 procedure Tkw_ChatWindow_Control_TopPanel_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('TopPanel');
@@ -416,11 +417,6 @@ begin
  Result := 'контрол::TopPanel:push';
 end;//Tkw_ChatWindow_Control_TopPanel_Push.GetWordNameForRegister
 
-class function Tkw_ChatWindow_Control_HistoryEditor.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::HistoryEditor';
-end;//Tkw_ChatWindow_Control_HistoryEditor.GetWordNameForRegister
-
 function Tkw_ChatWindow_Control_HistoryEditor.GetString: AnsiString;
 begin
  Result := 'HistoryEditor';
@@ -431,6 +427,11 @@ begin
  inherited;
  TtfwClassRef.Register(TnscChatMemo);
 end;//Tkw_ChatWindow_Control_HistoryEditor.RegisterInEngine
+
+class function Tkw_ChatWindow_Control_HistoryEditor.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::HistoryEditor';
+end;//Tkw_ChatWindow_Control_HistoryEditor.GetWordNameForRegister
 
 procedure Tkw_ChatWindow_Control_HistoryEditor_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -465,11 +466,6 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aChatWindowForm));
 end;//TkwChatWindowFormBackgroundPanel.DoDoIt
 
-class function TkwChatWindowFormBackgroundPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TChatWindowForm.BackgroundPanel';
-end;//TkwChatWindowFormBackgroundPanel.GetWordNameForRegister
-
 procedure TkwChatWindowFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -490,6 +486,11 @@ function TkwChatWindowFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TChatWindowForm)]);
 end;//TkwChatWindowFormBackgroundPanel.ParamsTypes
+
+class function TkwChatWindowFormBackgroundPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TChatWindowForm.BackgroundPanel';
+end;//TkwChatWindowFormBackgroundPanel.GetWordNameForRegister
 
 function TkwChatWindowFormBottomPanel.BottomPanel(const aCtx: TtfwContext;
  aChatWindowForm: TChatWindowForm): TvtSizeablePanel;
@@ -513,11 +514,6 @@ begin
  aCtx.rEngine.PushObj(BottomPanel(aCtx, l_aChatWindowForm));
 end;//TkwChatWindowFormBottomPanel.DoDoIt
 
-class function TkwChatWindowFormBottomPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TChatWindowForm.BottomPanel';
-end;//TkwChatWindowFormBottomPanel.GetWordNameForRegister
-
 procedure TkwChatWindowFormBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -538,6 +534,11 @@ function TkwChatWindowFormBottomPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TChatWindowForm)]);
 end;//TkwChatWindowFormBottomPanel.ParamsTypes
+
+class function TkwChatWindowFormBottomPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TChatWindowForm.BottomPanel';
+end;//TkwChatWindowFormBottomPanel.GetWordNameForRegister
 
 function TkwChatWindowFormBottomEditor.BottomEditor(const aCtx: TtfwContext;
  aChatWindowForm: TChatWindowForm): TnscChatMemo;
@@ -561,11 +562,6 @@ begin
  aCtx.rEngine.PushObj(BottomEditor(aCtx, l_aChatWindowForm));
 end;//TkwChatWindowFormBottomEditor.DoDoIt
 
-class function TkwChatWindowFormBottomEditor.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TChatWindowForm.BottomEditor';
-end;//TkwChatWindowFormBottomEditor.GetWordNameForRegister
-
 procedure TkwChatWindowFormBottomEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -586,6 +582,11 @@ function TkwChatWindowFormBottomEditor.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TChatWindowForm)]);
 end;//TkwChatWindowFormBottomEditor.ParamsTypes
+
+class function TkwChatWindowFormBottomEditor.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TChatWindowForm.BottomEditor';
+end;//TkwChatWindowFormBottomEditor.GetWordNameForRegister
 
 function TkwChatWindowFormTopPanel.TopPanel(const aCtx: TtfwContext;
  aChatWindowForm: TChatWindowForm): TvtPanel;
@@ -609,11 +610,6 @@ begin
  aCtx.rEngine.PushObj(TopPanel(aCtx, l_aChatWindowForm));
 end;//TkwChatWindowFormTopPanel.DoDoIt
 
-class function TkwChatWindowFormTopPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TChatWindowForm.TopPanel';
-end;//TkwChatWindowFormTopPanel.GetWordNameForRegister
-
 procedure TkwChatWindowFormTopPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -634,6 +630,11 @@ function TkwChatWindowFormTopPanel.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TChatWindowForm)]);
 end;//TkwChatWindowFormTopPanel.ParamsTypes
+
+class function TkwChatWindowFormTopPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TChatWindowForm.TopPanel';
+end;//TkwChatWindowFormTopPanel.GetWordNameForRegister
 
 function TkwChatWindowFormHistoryEditor.HistoryEditor(const aCtx: TtfwContext;
  aChatWindowForm: TChatWindowForm): TnscChatMemo;
@@ -657,11 +658,6 @@ begin
  aCtx.rEngine.PushObj(HistoryEditor(aCtx, l_aChatWindowForm));
 end;//TkwChatWindowFormHistoryEditor.DoDoIt
 
-class function TkwChatWindowFormHistoryEditor.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TChatWindowForm.HistoryEditor';
-end;//TkwChatWindowFormHistoryEditor.GetWordNameForRegister
-
 procedure TkwChatWindowFormHistoryEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -682,6 +678,11 @@ function TkwChatWindowFormHistoryEditor.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TChatWindowForm)]);
 end;//TkwChatWindowFormHistoryEditor.ParamsTypes
+
+class function TkwChatWindowFormHistoryEditor.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TChatWindowForm.HistoryEditor';
+end;//TkwChatWindowFormHistoryEditor.GetWordNameForRegister
 
 initialization
  Tkw_Form_ChatWindow.RegisterInEngine;

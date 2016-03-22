@@ -2,6 +2,7 @@ unit NOT_FINISHED_evFormulaCursor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evFormulaCursor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevFormulaCursor" MUID: (53D0F71C02D0)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

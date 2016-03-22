@@ -2,6 +2,7 @@ unit CommonArchiWords;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\CommonArchiWords.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "CommonArchiWords" MUID: (4E4A1982012A)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

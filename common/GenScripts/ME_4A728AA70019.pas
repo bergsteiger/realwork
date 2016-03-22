@@ -2,6 +2,7 @@ unit nsContactListNotifiers;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\nsContactListNotifiers.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsContactListNotifiers" MUID: (4A728AA70019)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

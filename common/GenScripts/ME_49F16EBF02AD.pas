@@ -2,6 +2,7 @@ unit nsUserTreeStructWithDrag;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsUserTreeStructWithDrag.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsUserTreeStructWithDrag" MUID: (49F16EBF02AD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

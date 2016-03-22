@@ -1,6 +1,6 @@
 unit SrchWin;
 
-{ $Id: SRCHWIN.PAS,v 1.291 2015/10/06 13:51:28 voba Exp $ }
+{ $Id: SRCHWIN.PAS,v 1.294 2016/03/18 05:39:46 dinishev Exp $ }
 
 {$I ProjectDefine.inc}
 interface
@@ -139,6 +139,7 @@ type
     N19: TMenuItem;
     acGetRespondents: TAction;
     N21: TMenuItem;
+    acDeleteDocument: TAction;
 
     procedure FormCreate(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -261,6 +262,7 @@ uses
  D_Srch,
 
  daDataProvider,
+ daSchemeConsts,
 
  HT_Dll,
  DT_Err,
@@ -1882,7 +1884,7 @@ end;
 procedure TSearchWin.FormShow(Sender: TObject);
 begin
  UserConfig.Section := 'PREFERENCES';
- actGroupAutolink.Visible := UserConfig.ReadParamBoolDef(sEnableAutolinkParam, False);
+ actGroupAutolink.Visible := UserConfig.ReadParamBoolDef(sEnableAutolinkParam, False) and (bfAutoLink in g_BaseEngine.BaseFlags);
  MainForm.CheckServer(True);
  Perform(WM_SERVERSTATUSCHANGED, 0, 0);
 end;

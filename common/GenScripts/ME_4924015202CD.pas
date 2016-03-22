@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\dsTagSimpleTree.imp.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsTagSimpleTree" MUID: (4924015202CD)
+// Имя типа: "_dsTagSimpleTree_"
 
 {$Define dsTagSimpleTree_imp}
 

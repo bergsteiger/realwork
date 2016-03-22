@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BlockSelector.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "BlockSelector" MUID: (4C0686B8005B)
+// Имя типа: "_BlockSelector_"
 
 {$Define BlockSelector_imp}
 

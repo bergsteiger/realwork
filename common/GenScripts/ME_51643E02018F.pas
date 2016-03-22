@@ -2,6 +2,7 @@ unit ReallocMemTest;
 
 // Модуль: "w:\common\components\SandBox\ReallocMemTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TReallocMemTest" MUID: (51643E02018F)
 
 {$Include w:\common\components\SandBox\sbtDefine.inc}
 

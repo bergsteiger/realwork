@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\EditionsListCaller.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "EditionsListCaller" MUID: (4ED8D48C0329)
+// Имя типа: "_EditionsListCaller_"
 
 {$Define EditionsListCaller_imp}
 

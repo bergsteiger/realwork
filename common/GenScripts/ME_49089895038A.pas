@@ -3,6 +3,7 @@ unit Il3ContextFilterParamsNotifierPtrList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\Il3ContextFilterParamsNotifierPtrList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TIl3ContextFilterParamsNotifierPtrList" MUID: (49089895038A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

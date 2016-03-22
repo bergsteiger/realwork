@@ -2,6 +2,7 @@ unit tfwWordBoxPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwWordBoxPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "tfwWordBoxPack" MUID: (567A8EB00176)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -75,11 +76,6 @@ begin
  aCtx.rEngine.PushObj(Boxed(aCtx, l_aWordBox));
 end;//TkwPopWordBoxBoxed.DoDoIt
 
-class function TkwPopWordBoxBoxed.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:WordBox:Boxed';
-end;//TkwPopWordBoxBoxed.GetWordNameForRegister
-
 function TkwPopWordBoxBoxed.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwWord);
@@ -94,6 +90,11 @@ function TkwPopWordBoxBoxed.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwWordBox)]);
 end;//TkwPopWordBoxBoxed.ParamsTypes
+
+class function TkwPopWordBoxBoxed.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:WordBox:Boxed';
+end;//TkwPopWordBoxBoxed.GetWordNameForRegister
 
 initialization
  TkwPopWordBoxBoxed.RegisterInEngine;

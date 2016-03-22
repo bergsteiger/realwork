@@ -2,6 +2,7 @@ unit nsAnnotationHeaderTagNode;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\nsAnnotationHeaderTagNode.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsAnnotationHeaderTagNode" MUID: (4D6E0C4A001F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

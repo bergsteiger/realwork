@@ -2,6 +2,7 @@ unit htUserManager;
 
 // Модуль: "w:\common\components\rtl\Garant\HT\htUserManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "ThtUserManager" MUID: (5629E343023B)
 
 {$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
@@ -21,6 +22,7 @@ type
     const aPassword: AnsiString;
     RequireAdminRights: Boolean;
     out theUserID: TdaUserID): TdaLoginError;
+   function IsUserAdmin(anUserID: TdaUserID): Boolean;
   public
    constructor Create; reintroduce;
    class function Make: IdaUserManager; reintroduce;
@@ -33,6 +35,9 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_Serv
  {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , dt_User
+ {$IfEnd} // NOT Defined(Nemesis)
 ;
 
 constructor ThtUserManager.Create;
@@ -41,7 +46,6 @@ constructor ThtUserManager.Create;
 begin
 //#UC START# *5629F0F901C8_5629E343023B_impl*
  inherited Create;
-// !!! Needs to be implemented !!!
 //#UC END# *5629F0F901C8_5629E343023B_impl*
 end;//ThtUserManager.Create
 
@@ -80,5 +84,14 @@ begin
  theUserID := GlobalHTServer.xxxUserID;
 //#UC END# *5628D14D0151_5629E343023B_impl*
 end;//ThtUserManager.CheckPassword
+
+function ThtUserManager.IsUserAdmin(anUserID: TdaUserID): Boolean;
+//#UC START# *56EA993D0218_5629E343023B_var*
+//#UC END# *56EA993D0218_5629E343023B_var*
+begin
+//#UC START# *56EA993D0218_5629E343023B_impl*
+ Result :=  UserManager.IsUserAdmin(anUserID);
+//#UC END# *56EA993D0218_5629E343023B_impl*
+end;//ThtUserManager.IsUserAdmin
 
 end.

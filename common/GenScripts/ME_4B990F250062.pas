@@ -3,6 +3,7 @@ unit ddAppConfigRes;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfigRes" MUID: (4B990F250062)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

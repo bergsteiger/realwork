@@ -3,6 +3,7 @@ unit kwEditorDblClickOnSub;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwEditorDblClickOnSub.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwEditorDblClickOnSub" MUID: (4DFB3B88027A)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

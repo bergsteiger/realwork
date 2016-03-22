@@ -2,6 +2,7 @@ unit kwMainCodeController;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMainCodeController.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwMainCodeController" MUID: (53DA257D011C)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

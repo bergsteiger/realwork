@@ -3,6 +3,7 @@ unit nevGUIInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevGUIInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "nevGUIInterfaces" MUID: (4A1FCBA0014C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

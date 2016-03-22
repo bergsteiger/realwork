@@ -2,6 +2,7 @@ unit l3ObjectsMemoryManager;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ObjectsMemoryManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ObjectsMemoryManager" MUID: (545CDF7D0249)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorForDocumentCompare.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "HyperlinkProcessorForDocumentCompare" MUID: (4E9C33A802C8)
+// Имя типа: "_HyperlinkProcessorForDocumentCompare_"
 
 {$Define HyperlinkProcessorForDocumentCompare_imp}
 

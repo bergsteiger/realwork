@@ -2,6 +2,7 @@ unit kwExportHelp;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwExportHelp.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwExportHelp" MUID: (4DD530DD03D8)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

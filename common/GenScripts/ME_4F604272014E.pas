@@ -3,6 +3,7 @@ unit kwSelectCellsWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSelectCellsWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwSelectCellsWord" MUID: (4F604272014E)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

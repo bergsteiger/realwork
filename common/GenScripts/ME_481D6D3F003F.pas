@@ -3,6 +3,7 @@ unit evTableCellPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTableCellPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTableCellPainter" MUID: (481D6D3F003F)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

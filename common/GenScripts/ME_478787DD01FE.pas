@@ -3,6 +3,7 @@ unit afwStatus;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwStatus.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TafwStatus" MUID: (478787DD01FE)
 
 {$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 

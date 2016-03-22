@@ -2,6 +2,8 @@ unit kwCFEVERESTBIN;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCFEVERESTBIN.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "CF_EVERESTBIN" MUID: (52E11B1F02E7)
+// Имя типа: "TkwCFEVERESTBIN"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

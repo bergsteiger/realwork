@@ -2,6 +2,8 @@ unit PrimForbidAutoregistrationOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimForbidAutoregistrationOptions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimForbidAutoregistrationOptions" MUID: (4C88F1C30376)
+// Имя типа: "TPrimForbidAutoregistrationOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

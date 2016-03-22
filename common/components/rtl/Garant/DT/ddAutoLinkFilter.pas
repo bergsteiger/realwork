@@ -1,8 +1,14 @@
 unit ddAutoLinkFilter;
 
-{ $Id: ddAutoLinkFilter.pas,v 1.34 2015/07/02 07:36:07 lukyanets Exp $ }
+{ $Id: ddAutoLinkFilter.pas,v 1.36 2015/11/25 14:01:48 lukyanets Exp $ }
 
 // $Log: ddAutoLinkFilter.pas,v $
+// Revision 1.36  2015/11/25 14:01:48  lukyanets
+// Заготовки для выдачи номеров+переезд констант
+//
+// Revision 1.35  2015/11/23 11:37:15  lukyanets
+// Заготовки Renum
+//
 // Revision 1.34  2015/07/02 07:36:07  lukyanets
 // Описываем словари
 //
@@ -719,6 +725,8 @@ uses
  m4PhraseParser,
 
  daTypes,
+ daInterfaces,
+ daSchemeConsts,
 
  dtIntf,
  DT_Const,

@@ -2,6 +2,7 @@ unit destBookmark;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\destBookmark.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdestBookmark" MUID: (56A9F17B003C)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

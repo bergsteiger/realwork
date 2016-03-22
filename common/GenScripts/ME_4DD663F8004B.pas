@@ -3,6 +3,8 @@ unit kwPopEditorParaDown;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaDown.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_ParaDown" MUID: (4DD663F8004B)
+// Имя типа: "TkwPopEditorParaDown"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

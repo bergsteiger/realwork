@@ -2,6 +2,8 @@ unit kwIsPreviewInProgress;
 
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwIsPreviewInProgress.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "IsPreviewInProgress" MUID: (5321724703A5)
+// Имя типа: "TkwIsPreviewInProgress"
 
 interface
 

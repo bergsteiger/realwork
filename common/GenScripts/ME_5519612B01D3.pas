@@ -2,6 +2,7 @@ unit IterateableServiceProvider;
 
 // Модуль: "w:\common\components\SandBox\IterateableServiceProvider.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TIterateableServiceProvider" MUID: (5519612B01D3)
 
 {$Include w:\common\components\SandBox\sbDefine.inc}
 

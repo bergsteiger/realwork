@@ -1,56 +1,39 @@
 unit kwConfigurationWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwConfigurationWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Words::Words::ConfigurationWord
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationWord.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "ConfigurationWord" MUID: (53B2E13A03D6)
+// Имя типа: "TkwConfigurationWord"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SettingsUnit,
-  tfwScriptingInterfaces,
-  kwConfigurationsWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwConfigurationsWord
+ , SettingsUnit
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwConfigurationWord = {abstract scriptword} class(TkwConfigurationsWord)
- protected
- // realized methods
-   procedure DoWithConfigurations(const aCtx: TtfwContext); override;
- protected
- // protected methods
+ TkwConfigurationWord = {abstract} class(TkwConfigurationsWord)
+  protected
    procedure DoWithConfiguration(const aConfiguration: IConfiguration;
-     const aCtx: TtfwContext); virtual; abstract;
+    const aCtx: TtfwContext); virtual; abstract;
+   procedure DoWithConfigurations(const aCtx: TtfwContext); override;
  end;//TkwConfigurationWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  DataAdapter
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwConfigurationWord
+ l3ImplUses
+ , SysUtils
+ , DataAdapter
+;
 
 procedure TkwConfigurationWord.DoWithConfigurations(const aCtx: TtfwContext);
 //#UC START# *53B2E1D201CE_53B2E13A03D6_var*
@@ -69,6 +52,9 @@ begin
 //#UC END# *53B2E1D201CE_53B2E13A03D6_impl*
 end;//TkwConfigurationWord.DoWithConfigurations
 
-{$IfEnd} //not NoScripts
+initialization
+ TkwConfigurationWord.RegisterClass;
+ {* Регистрация ConfigurationWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

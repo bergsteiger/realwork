@@ -184,59 +184,6 @@ void CacheTxt_i::load_pseudo (const char* name) {
 	//#UC END# *52DFC5DC012D*
 }
 
-// загрузка однословных синонимов
-void CacheTxt_i::load_simple_syns (const char* name) {
-	//#UC START# *52DFC64702BD*
-	std::string full_path = m_path + name;
-
-	std::ifstream ifs (full_path.c_str ());
-
-	if (ifs) {
-		std::string str;
-
-		char buffer [128];
-
-		GCL::StrVector parts;
-
-		while (!ifs.eof ()) {
-			std::getline (ifs, str);
-
-			if (str.empty () == false) {
-				strcpy (buffer, str.c_str ());
-				GCL::string_recoding (GCL::cd_dos, GCL::cd_win, buffer, 0);
-
-				str = buffer;
-
-				str.erase (std::remove_if (str.begin (), str.end (), boost::is_any_of (".")), str.end ());
-				
-				boost::split (parts, str, boost::is_punct ());
-
-				GDS_ASSERT (parts.size () == 2);
-
-				boost::trim (parts [0]);
-				boost::trim (parts [1]);
-
-				GCL::to_upper (parts [0]);
-				GCL::to_upper (parts [1]);
-
-				m_data->syns [parts [0]].push_back (parts [1]);
-			}
-		}
-
-		Def::Synonyms::iterator it = m_data->syns.begin (), it_end = m_data->syns.end ();
-
-		for (; it != it_end; ++it) {
-			std::sort (it->second.begin (), it->second.end ());
-			it->second.erase (std::unique (it->second.begin (), it->second.end ()), it->second.end ());
-		}
-
-		ifs.close ();
-	} else {
-		LOG_E (("%s: can't open %s", GDS_CURRENT_FUNCTION, full_path.c_str ()));
-	}
-	//#UC END# *52DFC64702BD*
-}
-
 //////////////////////////////////////////////////////////////////////////////////////////
 // implemented interface's methods
 
@@ -291,35 +238,8 @@ const Def::FixedPairs& CacheTxt_i::get_syn_pairs () const {
 }
 
 // implemented method from Def::ICache
-// синонимы
-const Def::Synonyms& CacheTxt_i::get_syns () const {
-	//#UC START# *4E01AE6F0073_52DFC25F02DE*
-	GDS_ASSERT (m_data.is_nil () == false);
-	return m_data->syns;
-	//#UC END# *4E01AE6F0073_52DFC25F02DE*
-}
-
-// implemented method from Def::ICache
-// синонимы
-const GCL::StrVector& CacheTxt_i::get_syns (const std::string& key) {
-	//#UC START# *52E138E500BA_52DFC25F02DE*
-	if (m_data->syns.empty () == false) {
-		Def::Synonyms::const_iterator it = m_data->syns.find (key);
-
-		if (it != m_data->syns.end ()) {
-			return it->second;
-		}
-	}
-
-	GUARD (m_mutex);
-	static const GCL::StrVector fake_ret;
-	return fake_ret;
-	//#UC END# *52E138E500BA_52DFC25F02DE*
-}
-
-// implemented method from Def::ICache
 // загрузка
-void CacheTxt_i::load (DBCore::IBase* base, bool load_ssyn) {
+void CacheTxt_i::load (DBCore::IBase* base) {
 	//#UC START# *5151CA3C01F0_52DFC25F02DE*
 	GUARD (m_mutex);
 
@@ -342,10 +262,6 @@ void CacheTxt_i::load (DBCore::IBase* base, bool load_ssyn) {
 		this->load ("prefixes.txt", m_data->data.prefixes);
 		// «агрузка словар€ стоп-лемм
 		this->load ("stop_lemms.txt", m_data->data.stop_lemmas);
-		// «агрузка однословных синонимов
-		if (load_ssyn) {
-			this->load_simple_syns ("ssyns.txt");
-		}
 	} catch (...) {
 		LOG_UEX ((GDS_CURRENT_FUNCTION));
 	}

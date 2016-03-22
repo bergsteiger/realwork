@@ -2,6 +2,7 @@ unit l3Logger;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Logger.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3Logger" MUID: (540EE3000176)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

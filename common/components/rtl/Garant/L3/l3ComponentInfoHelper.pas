@@ -7,6 +7,7 @@ Alt+Ctrl+Shift+A - контрол в фокусе. }
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ComponentInfoHelper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ComponentInfoHelper" MUID: (4F72CAA90045)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -280,6 +281,7 @@ procedure Tl3ComponentInfoHelper.FormatObjectInfo(anObject: TObject;
  //#UC END# *C7EBA2EF89A6__var*
  begin
  //#UC START# *C7EBA2EF89A6__impl*
+  Result := true;
   aResult := aResult + Tl3FormatObjectInfoHelper.Instance.Format(anItem, True, ObjectPropFound) + #13#10;
  //#UC END# *C7EBA2EF89A6__impl*
  end;//DoIt

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "k2Int64Holder" MUID: (4E2EA99702A7)
+// Имя типа: "_k2Int64Holder_"
 
 {$Define k2Int64Holder_imp}
 

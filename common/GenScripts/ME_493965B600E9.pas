@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dMedicFirmDocument.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "dMedicFirmDocument" MUID: (493965B600E9)
+// Имя типа: "_dMedicFirmDocument_"
 
 {$Define dMedicFirmDocument_imp}
 

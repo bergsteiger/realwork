@@ -2,6 +2,7 @@ unit NOT_FINISHED_alcuAnnotationTask;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAnnotationTask.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuAnnotationTask" MUID: (531705AC001C)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

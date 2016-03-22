@@ -2,6 +2,7 @@ unit kwTextFormSetNeedShowIntranetWarning;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwTextFormSetNeedShowIntranetWarning.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwTextFormSetNeedShowIntranetWarning" MUID: (4F183D860083)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

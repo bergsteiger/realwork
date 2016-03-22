@@ -5,9 +5,12 @@ unit vcmMenus;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmMenus -      }
 { Начат: 25.02.2003 20:06 }
-{ $Id: vcmMenus.pas,v 1.167 2015/04/20 09:57:17 kostitsin Exp $ }
+{ $Id: vcmMenus.pas,v 1.168 2015/11/17 11:57:31 morozov Exp $ }
 
 // $Log: vcmMenus.pas,v $
+// Revision 1.168  2015/11/17 11:57:31  morozov
+// {RequestLink: 611211969}
+//
 // Revision 1.167  2015/04/20 09:57:17  kostitsin
 // {requestlink: 397280205 }
 //
@@ -1003,7 +1006,9 @@ begin
    Result.Name := aModuleOrEntity.Name;
  except
   on EComponentError do
+  begin
    FreeAndNil(Result);
+  end; 
  end;//try..finally
 end;
 
@@ -1330,6 +1335,7 @@ function vcmAddUFItem(aParent   : TMenuItem;
                       const aUF : IvcmUserFriendlyControl): TMenuItem;
 begin
  Result := TvcmMenuItem.Make(aParent, aUF, nil);
+ Assert(Result <> nil);
  with aUF do
  begin
   Result.Caption := vcmStr(Caption);

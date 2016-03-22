@@ -2,6 +2,7 @@ unit ncsOneFileDelivererList;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsOneFileDelivererList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsOneFileDelivererList" MUID: (546F3918029F)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

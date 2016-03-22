@@ -51,6 +51,7 @@ uses
   Document_Strange_Controls,
   Base_Operations_Editions_Controls,
   L10nInterfaces,
+  l3ProtoObject,
   nevContainers,
   nevNavigation,
   nsTypes,
@@ -163,6 +164,64 @@ uses
 {$IfEnd} //not Admin AND not Monitorings
 
 {$If not defined(Admin) AND not defined(Monitorings)}
+type
+ IExTextFormState = interface(IvcmBase)
+   ['{BE5E5BDA-BD9E-4C35-86E5-EA717CAA2E11}']
+   function pm_GetInnerState: IvcmBase;
+   function pm_GetNeedShowUserComments: Boolean;
+   function Get_EeSubIdForTypedCorrespondentList: Integer;
+   function pm_GetNeedShowComments: Boolean;
+   function pm_GetNeedShowVersionComments: Boolean;
+   property InnerState: IvcmBase
+     read pm_GetInnerState;
+   property NeedShowUserComments: Boolean
+     read pm_GetNeedShowUserComments;
+   property eeSubIdForTypedCorrespondentList: Integer
+     read Get_EeSubIdForTypedCorrespondentList;
+   property NeedShowComments: Boolean
+     read pm_GetNeedShowComments;
+   property NeedShowVersionComments: Boolean
+     read pm_GetNeedShowVersionComments;
+ end;//IExTextFormState
+
+ TExTextFormState = class(Tl3ProtoObject, IExTextFormState)
+ private
+ // private fields
+   f_InnerState : IvcmBase;
+   f_NeedShowUserComments : Boolean;
+   f_eeSubIdForTypedCorrespondentList : Integer;
+   f_NeedShowComments : Boolean;
+   f_NeedShowVersionComments : Boolean;
+ protected
+ // realized methods
+   function pm_GetInnerState: IvcmBase;
+   function pm_GetNeedShowUserComments: Boolean;
+   function Get_EeSubIdForTypedCorrespondentList: Integer;
+   function pm_GetNeedShowComments: Boolean;
+   function pm_GetNeedShowVersionComments: Boolean;
+ protected
+ // overridden protected methods
+   procedure Cleanup; override;
+     {* Функция очистки полей объекта. }
+ public
+ // overridden public methods
+   function QueryInterface(const IID: TGUID;
+    out Obj): HResult; override;
+ public
+ // public methods
+   constructor Create(const aInnerState: IvcmBase;
+     aNeedShowUserComments: Boolean;
+     aNeedShowComments: Boolean;
+     aNeedShowVersionComments: Boolean;
+     aEeSubIdForTypedCorrespondentList: Integer); reintroduce;
+   class function Make(const aInnerState: IvcmBase;
+     aNeedShowUserComments: Boolean;
+     aNeedShowComments: Boolean;
+     aNeedShowVersionComments: Boolean;
+     aEeSubIdForTypedCorrespondentList: Integer): IExTextFormState; reintroduce;
+     {* Сигнатура фабрики TExTextFormState.Make }
+ end;//TExTextFormState
+
 var
   { Локализуемые строки LocalForChangedFragments }
  str_ViewChangesOpName : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ViewChangesOpName'; rValue : 'Обзор изменений документа');
@@ -205,6 +264,7 @@ type
    f_InGoToInternet : Boolean;
    f_TabCaption : IvcmCString;
    f_DocumentLoaded : Boolean;
+   f_eeSubIdForTypedCorrespondentList : Integer;
   {$If defined(nsTest) AND not defined(Admin) AND not defined(Monitorings)}
    f_NeedShowIntranetWarningHack : Boolean;
     {* Поле для свойства NeedShowIntranetWarningHack}
@@ -638,6 +698,17 @@ type
    procedure DoInit(aFromHistory: Boolean); override;
      {* Инициализация формы. Для перекрытия в потомках }
    {$IfEnd} //not NoVCM
+   {$If not defined(NoVCM)}
+   function DoSaveState(out theState: IvcmBase;
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; override;
+     {* Сохраняет состояние формы. Для перекрытия в потомках }
+   {$IfEnd} //not NoVCM
+   {$If not defined(NoVCM)}
+   function DoLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType): Boolean; override;
+     {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} //not NoVCM
    function CanAddToControl: Boolean; override;
      {* Можно ли поставить на контроль }
    function DoMakeLinkDocInfo(const aDocument: IDocument;
@@ -837,21 +908,21 @@ uses
   l3Base {a},
   vcmBase {a},
   StdRes {a},
-  Block_Const
+  nsFolders,
+  nsTagNodeTools,
+  Block_Const,
+  LeafParaDecorationsHolder_Const,
+  CommentPara_Const,
+  ParaList_Const,
+  LeafPara_Const,
+  k2Tags
   {$If defined(k2ForEditor)}
   ,
   evParaTools
   {$IfEnd} //k2ForEditor
   ,
-  k2Tags,
   evSubImplementation,
   Document_Const,
-  nsFolders,
-  nsTagNodeTools,
-  LeafParaDecorationsHolder_Const,
-  CommentPara_Const,
-  ParaList_Const,
-  LeafPara_Const,
   ConsultingUnit,
   DataAdapter
   {$If not defined(NoVCM)}
@@ -2050,7 +2121,7 @@ var
 //#UC END# *4DF1F81F02DE_49539DBA029D_var*
 begin
 //#UC START# *4DF1F81F02DE_49539DBA029D_impl*
- if (UserType in [dftDocument, dftDrug, dftAACLeft]) then
+ if (UserType in [dftDocument, dftDrug, dftAACLeft, dftAACContentsRight]) then
   l_SubDescriptors := nsDocumentRes.SubDescriptors
  else
   l_SubDescriptors := nsDocumentRes.LiteSubDescriptors;
@@ -2097,8 +2168,8 @@ begin
  if (SubPanel.SubDescriptors <> l_SubDescriptors) then
   SubPanel.SubDescriptors := l_SubDescriptors;
  SubPanel.Visible := not (UserType in [dftAACRight,
-                                       dftAACContentsLeft,
-                                       dftAACContentsRight]);
+                                       dftAACContentsLeft{,
+                                       dftAACContentsRight}]);
 //#UC END# *4DF1F81F02DE_49539DBA029D_impl*
 end;//TExTextForm.UpdateSubPanelDescription
 
@@ -2582,6 +2653,111 @@ begin
    Result := false;
 //#UC END# *53DF35EA01CE_49539DBA029D_impl*
 end;//TExTextForm.IsPictureUnderCursor
+// start class TExTextFormState
+
+constructor TExTextFormState.Create(const aInnerState: IvcmBase;
+  aNeedShowUserComments: Boolean;
+  aNeedShowComments: Boolean;
+  aNeedShowVersionComments: Boolean;
+  aEeSubIdForTypedCorrespondentList: Integer);
+//#UC START# *56558B510110_56558AAF003B_var*
+//#UC END# *56558B510110_56558AAF003B_var*
+begin
+//#UC START# *56558B510110_56558AAF003B_impl*
+ inherited Create;
+ f_InnerState := aInnerState;
+ f_NeedShowUserComments := aNeedShowUserComments;
+ f_NeedShowComments := aNeedShowComments;
+ f_NeedShowVersionComments := aNeedShowVersionComments;
+ f_eeSubIdForTypedCorrespondentList := aEeSubIdForTypedCorrespondentList;
+//#UC END# *56558B510110_56558AAF003B_impl*
+end;//TExTextFormState.Create
+
+class function TExTextFormState.Make(const aInnerState: IvcmBase;
+  aNeedShowUserComments: Boolean;
+  aNeedShowComments: Boolean;
+  aNeedShowVersionComments: Boolean;
+  aEeSubIdForTypedCorrespondentList: Integer): IExTextFormState;
+var
+ l_Inst : TExTextFormState;
+begin
+ l_Inst := Create(aInnerState, aNeedShowUserComments, aNeedShowComments, aNeedShowVersionComments, aEeSubIdForTypedCorrespondentList);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;
+
+function TExTextFormState.pm_GetInnerState: IvcmBase;
+//#UC START# *56558A84014E_56558AAF003Bget_var*
+//#UC END# *56558A84014E_56558AAF003Bget_var*
+begin
+//#UC START# *56558A84014E_56558AAF003Bget_impl*
+ Result := f_InnerState;
+//#UC END# *56558A84014E_56558AAF003Bget_impl*
+end;//TExTextFormState.pm_GetInnerState
+
+function TExTextFormState.pm_GetNeedShowUserComments: Boolean;
+//#UC START# *56558A99000A_56558AAF003Bget_var*
+//#UC END# *56558A99000A_56558AAF003Bget_var*
+begin
+//#UC START# *56558A99000A_56558AAF003Bget_impl*
+ Result := f_NeedShowUserComments;
+//#UC END# *56558A99000A_56558AAF003Bget_impl*
+end;//TExTextFormState.pm_GetNeedShowUserComments
+
+function TExTextFormState.Get_EeSubIdForTypedCorrespondentList: Integer;
+//#UC START# *5656B27E015A_56558AAF003Bget_var*
+//#UC END# *5656B27E015A_56558AAF003Bget_var*
+begin
+//#UC START# *5656B27E015A_56558AAF003Bget_impl*
+ Result := f_eeSubIdForTypedCorrespondentList;
+//#UC END# *5656B27E015A_56558AAF003Bget_impl*
+end;//TExTextFormState.Get_EeSubIdForTypedCorrespondentList
+
+function TExTextFormState.pm_GetNeedShowComments: Boolean;
+//#UC START# *565C49D7029F_56558AAF003Bget_var*
+//#UC END# *565C49D7029F_56558AAF003Bget_var*
+begin
+//#UC START# *565C49D7029F_56558AAF003Bget_impl*
+ Result := f_NeedShowComments;
+//#UC END# *565C49D7029F_56558AAF003Bget_impl*
+end;//TExTextFormState.pm_GetNeedShowComments
+
+function TExTextFormState.pm_GetNeedShowVersionComments: Boolean;
+//#UC START# *565C49E9039D_56558AAF003Bget_var*
+//#UC END# *565C49E9039D_56558AAF003Bget_var*
+begin
+//#UC START# *565C49E9039D_56558AAF003Bget_impl*
+ Result := f_NeedShowVersionComments;
+//#UC END# *565C49E9039D_56558AAF003Bget_impl*
+end;//TExTextFormState.pm_GetNeedShowVersionComments
+
+procedure TExTextFormState.Cleanup;
+//#UC START# *479731C50290_56558AAF003B_var*
+//#UC END# *479731C50290_56558AAF003B_var*
+begin
+//#UC START# *479731C50290_56558AAF003B_impl*
+ f_InnerState := nil;
+ inherited;
+//#UC END# *479731C50290_56558AAF003B_impl*
+end;//TExTextFormState.Cleanup
+
+function TExTextFormState.QueryInterface(const IID: TGUID;
+  out Obj): HResult;
+//#UC START# *561145D802BB_56558AAF003B_var*
+//#UC END# *561145D802BB_56558AAF003B_var*
+begin
+//#UC START# *561145D802BB_56558AAF003B_impl*
+ // Всё это криво и костыльно. И ужасно. И очень не хотелось так делать.
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=612730339
+ if (not IsEqualGUID(IID, IExTextFormState)) and (f_InnerState <> nil) then
+  Result := f_InnerState.QueryInterface(IID, Obj)
+ else
+  Result := inherited QueryInterface(IID, Obj);
+//#UC END# *561145D802BB_56558AAF003B_impl*
+end;//TExTextFormState.QueryInterface
 
 procedure TExTextForm.ChangePositionByDataSource;
 //#UC START# *49883D6D03A2_49539DBA029D_var*
@@ -3987,12 +4163,21 @@ end;//TExTextForm.DocumentBlock_GetRespondentList_Execute
 
 procedure TExTextForm.DocumentBlock_GetTypedCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C2AEDDA0335_49539DBA029Dtest_var*
+var
+ l_eeSub: IeeSub;
 //#UC END# *4C2AEDDA0335_49539DBA029Dtest_var*
 begin
 //#UC START# *4C2AEDDA0335_49539DBA029Dtest_impl*
  ExcludeRootSub(aParams);
  if aParams.Op.Flag[vcm_ofEnabled] then
   CorrespondentsToSubTest(aParams);
+
+ if aParams.Op.Flag[vcm_ofChecked] then
+ begin
+  l_eeSub := ExtractSubFromSubPanel(aParams.Target);
+  if l_eeSub.ID <> f_eeSubIdForTypedCorrespondentList then
+   aParams.Op.Flag[vcm_ofChecked] := False;
+ end;
 //#UC END# *4C2AEDDA0335_49539DBA029Dtest_impl*
 end;//TExTextForm.DocumentBlock_GetTypedCorrespondentList_Test
 
@@ -4015,9 +4200,12 @@ begin
  TnsUseDocumentSubPanelOperationEvent.Instance.Log;
  l_eeSub := ExtractSubFromSubPanel(aParams.Target);
  if Assigned(l_eeSub) then
+ begin
+  f_eeSubIdForTypedCorrespondentList := l_eeSub.ID;
   OpenCRListToPart(crtCorrespondents,
                    bsConvertFilteredCRNode(aParams.CurrentNode),
                    MakePositionListBySub(l_eeSub.ID));
+ end;
 //#UC END# *4C2AEDDA0335_49539DBA029Dexec_impl*
 end;//TExTextForm.DocumentBlock_GetTypedCorrespondentList_Execute
 
@@ -4429,7 +4617,8 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
  CheckIsDocumentSub(aParams);
  if aParams.Op.Flag[vcm_ofEnabled] then
-  NotEmptyDocumentWithTrialModeTest(aParams);
+  //NotEmptyDocumentWithTrialModeTest(aParams);
+  NotEmptyDocumentTest(aParams);
  TnsToMSWordOp.Test(aParams);
 //#UC END# *4C3B17ED0192_49539DBA029Dtest_impl*
 end;//TExTextForm.DocumentBlockHeader_ToMSWord_Test
@@ -4454,7 +4643,7 @@ begin
 // DisableOperation(aParams);
  // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
  File_Print_Test(aParams);
- nsDisableOperationInTrialMode(aParams);
+ //nsDisableOperationInTrialMode(aParams);
  CheckIsDocumentSub(aParams);
 //#UC END# *4C3B17FF03D2_49539DBA029Dtest_impl*
 end;//TExTextForm.DocumentBlockHeader_Print_Test
@@ -4477,7 +4666,7 @@ begin
 // DisableOperation(aParams);
  // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
  File_Print_Test(aParams);
- nsDisableOperationInTrialMode(aParams);
+ //nsDisableOperationInTrialMode(aParams);
  CheckIsDocumentSub(aParams);
 //#UC END# *4C3B180E038F_49539DBA029Dtest_impl*
 end;//TExTextForm.DocumentBlockHeader_PrintDialog_Test
@@ -6297,6 +6486,18 @@ end;//TExTextForm.UserSettingsChanged
 procedure TExTextForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
   const aNew: IvcmViewAreaController);
 //#UC START# *497469C90140_49539DBA029D_var*
+
+ procedure lp_CheckBaseSearchArea;
+ var
+  l_BaseSearcher: InsBaseSearcher;
+  l_BSPresentation: InsBaseSearchPresentation;
+ begin
+  l_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
+  if l3IEQ(Self as InsBaseSearchPresentation, l_BaseSearcher.Presentation) then
+   TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm).WindowData.Area := ns_saText;
+   // - http://mdp.garant.ru/pages/viewpage.action?pageId=611210158
+ end;
+
 var
  l_Doc: IDocument;
  l_Caption: Il3CString;
@@ -6307,6 +6508,9 @@ begin
  if (aNew <> nil) then
  begin
   CheckLinkedWindows;
+  if (anOld = nil) then
+   lp_CheckBaseSearchArea;
+   
   if (dsBaseDocument <> nil) AND (dsBaseDocument.DocInfo <> nil) then
    l_Doc := dsBaseDocument.DocInfo.Doc;
   // - http://mdp.garant.ru/pages/viewpage.action?pageId=590755363
@@ -6353,6 +6557,62 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=290953654
 //#UC END# *49803F5503AA_49539DBA029D_impl*
 end;//TExTextForm.DoInit
+{$IfEnd} //not NoVCM
+
+{$If not defined(NoVCM)}
+function TExTextForm.DoSaveState(out theState: IvcmBase;
+  aStateType: TvcmStateType;
+  aForClone: Boolean): Boolean;
+//#UC START# *49806ED503D5_49539DBA029D_var*
+var
+ l_InnerState: IvcmBase;
+ l_State: IExTextFormState;
+//#UC END# *49806ED503D5_49539DBA029D_var*
+begin
+//#UC START# *49806ED503D5_49539DBA029D_impl*
+ Result := inherited DoSaveState(l_InnerState, aStateType, aForClone);
+ l_State := TExTextFormState.Make(l_InnerState,
+   Text.ShowUserComments,
+   Text.ShowComments,
+   Text.ShowVersionComments,
+   f_eeSubIdForTypedCorrespondentList);
+ theState := l_State;
+//#UC END# *49806ED503D5_49539DBA029D_impl*
+end;//TExTextForm.DoSaveState
+{$IfEnd} //not NoVCM
+
+{$If not defined(NoVCM)}
+function TExTextForm.DoLoadState(const aState: IvcmBase;
+  aStateType: TvcmStateType): Boolean;
+//#UC START# *49807428008C_49539DBA029D_var*
+var
+ l_State: IExTextFormState;
+//#UC END# *49807428008C_49539DBA029D_var*
+begin
+//#UC START# *49807428008C_49539DBA029D_impl*
+ if Supports(aState, IExTextFormState, l_State) then
+ begin
+  Text.ShowUserComments := l_State.NeedShowUserComments;
+  Text.ShowComments := l_State.NeedShowComments;
+  Text.ShowVersionComments := l_State.NeedShowVersionComments;
+  f_eeSubIdForTypedCorrespondentList := l_State.eeSubIdForTypedCorrespondentList;
+  Result := inherited DoLoadState(aState, aStateType);
+
+  // Ниже следует кошмар, который нужен для того, чтобы Text.ShowUserComments
+  // не проставился принудительно в True в InvalidateDataSources,
+  // где проверяют флажки "FromHistory" и "NeedProcess"
+  // на вот этом самом FormDataChangedInfo.
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=609420481
+  FormDataChangedInfo.Init(True);
+  FormDataChangedInfo.NeedProcess := True;
+ end
+ else
+ begin
+  Assert(False);
+  Result := inherited DoLoadState(aState, aStateType);
+ end;
+//#UC END# *49807428008C_49539DBA029D_impl*
+end;//TExTextForm.DoLoadState
 {$IfEnd} //not NoVCM
 
 function TExTextForm.CanAddToControl: Boolean;
@@ -6607,6 +6867,7 @@ begin
     if l_LeftIndent < cnAACRightLeftIndentMin then
      l_LeftIndent := cnAACRightLeftIndentMin;
     Text.LeftIndentDelta := l_LeftIndent - Text.LMargin; // http://mdp.garant.ru/pages/viewpage.action?pageId=388860126
+    Text.LeftIndentDelta := Text.LeftIndentDelta - 23; // http://mdp.garant.ru/pages/viewpage.action?pageId=617799931
    end;
   dftAACLeft:
    begin

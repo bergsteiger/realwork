@@ -2,6 +2,7 @@ unit NOT_FINISHED_TestFrameWork;
 
 // Модуль: "w:\common\components\rtl\external\DUnit\src\NOT_FINISHED_TestFrameWork.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "TestFrameWork" MUID: (4B2A0DCE03A9)
 
 interface
 

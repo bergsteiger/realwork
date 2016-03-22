@@ -3,6 +3,7 @@ unit evMultiSelectEditorWindow;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evMultiSelectEditorWindow.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TevMultiSelectEditorWindow" MUID: (4829D8C50010)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,8 @@ unit K517772970_TCheckSaveToStream;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TCheckSaveToStream.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TCheckSaveToStream" MUID: (532008240001)
+// Имя типа: "TK517772970_TCheckSaveToStream"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

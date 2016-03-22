@@ -3,6 +3,7 @@ unit AutoTestsSuite;
 
 // Модуль: "w:\common\components\rtl\Garant\DUnit_Script_Support\AutoTestsSuite.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TAutoTestsSuite" MUID: (4DC24756009A)
 
 {$Include w:\common\components\rtl\Garant\DUnit_Script_Support\dsDefine.inc}
 

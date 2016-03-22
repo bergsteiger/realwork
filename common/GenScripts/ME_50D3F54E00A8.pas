@@ -2,6 +2,7 @@ unit evReqRowPainter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evReqRowPainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevReqRowPainter" MUID: (50D3F54E00A8)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

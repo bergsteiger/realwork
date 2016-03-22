@@ -2,6 +2,7 @@ unit ddGetTaskRequestPrim;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ddGetTaskRequestPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddGetTaskRequestPrim" MUID: (53B6859A023A)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

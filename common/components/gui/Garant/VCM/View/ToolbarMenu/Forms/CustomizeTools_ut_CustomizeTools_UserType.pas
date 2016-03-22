@@ -3,6 +3,7 @@ unit CustomizeTools_ut_CustomizeTools_UserType;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\CustomizeTools_ut_CustomizeTools_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "ut_CustomizeTools" MUID: (5787C08EFD86)
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 
@@ -32,26 +33,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_CustomizeTools = {final} class(TtfwInteger)
   {* Слово словаря для типа формы ut_CustomizeTools }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_ut_CustomizeTools
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_ut_CustomizeTools.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::ut_CustomizeTools';
-end;//Tkw_FormUserType_ut_CustomizeTools.GetWordNameForRegister
-
 function Tkw_FormUserType_ut_CustomizeTools.GetInteger: Integer;
 begin
  Result := ut_CustomizeTools;
 end;//Tkw_FormUserType_ut_CustomizeTools.GetInteger
+
+class function Tkw_FormUserType_ut_CustomizeTools.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_CustomizeTools';
+end;//Tkw_FormUserType_ut_CustomizeTools.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

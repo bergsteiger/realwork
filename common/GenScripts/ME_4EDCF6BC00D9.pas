@@ -3,6 +3,7 @@ unit dsTranslationWarning;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Document\dsTranslationWarning.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "TdsTranslationWarning" MUID: (4EDCF6BC00D9)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

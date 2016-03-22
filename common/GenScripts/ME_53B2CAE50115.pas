@@ -2,6 +2,8 @@ unit kwIsMyDocumentsEmpty;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwIsMyDocumentsEmpty.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "IsMyDocumentsEmpty" MUID: (53B2CAE50115)
+// Имя типа: "TkwIsMyDocumentsEmpty"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

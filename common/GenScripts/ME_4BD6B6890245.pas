@@ -3,6 +3,7 @@ unit ListInfoUserTypes_liListInfo_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ListInfoUserTypes_liListInfo_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "liListInfo" MUID: (4BD6B6890245)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_liListInfo = {final} class(TtfwInteger)
   {* Слово словаря для типа формы liListInfo }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_liListInfo
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_liListInfo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::liListInfo';
-end;//Tkw_FormUserType_liListInfo.GetWordNameForRegister
-
 function Tkw_FormUserType_liListInfo.GetInteger: Integer;
 begin
  Result := liListInfo;
 end;//Tkw_FormUserType_liListInfo.GetInteger
+
+class function Tkw_FormUserType_liListInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::liListInfo';
+end;//Tkw_FormUserType_liListInfo.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

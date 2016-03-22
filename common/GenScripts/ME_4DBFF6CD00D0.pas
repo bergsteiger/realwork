@@ -2,6 +2,7 @@ unit BaloonWarningUserTypes_OldBaseWarning_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_OldBaseWarning_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "OldBaseWarning" MUID: (4DBFF6CD00D0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -11,7 +12,6 @@ interface
 uses
  l3IntfUses
  , BaloonWarningUserTypes_TrialModeWarning_UserType
- , BaloonWarningUserTypes_Fake_UserType
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -34,26 +34,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_OldBaseWarning = {final} class(TtfwInteger)
   {* Слово словаря для типа формы OldBaseWarning }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_OldBaseWarning
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_OldBaseWarning.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::OldBaseWarning';
-end;//Tkw_FormUserType_OldBaseWarning.GetWordNameForRegister
-
 function Tkw_FormUserType_OldBaseWarning.GetInteger: Integer;
 begin
  Result := OldBaseWarning;
 end;//Tkw_FormUserType_OldBaseWarning.GetInteger
+
+class function Tkw_FormUserType_OldBaseWarning.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::OldBaseWarning';
+end;//Tkw_FormUserType_OldBaseWarning.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

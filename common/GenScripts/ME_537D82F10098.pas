@@ -2,6 +2,7 @@ unit vcmChromeLikeTypes;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmChromeLikeTypes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmChromeLikeTypes" MUID: (537D82F10098)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -65,20 +65,6 @@ ref; // ME_5EB2A8313CF2 anIndex
 
 ref; // ME_76ED4B50CB4A GetItem
 
-: ME_FD7E4207A0AB
- CONST UID 'FD7E4207A0AB'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_TreeView_GetItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F4C36DEF11AB // pop_TreeView_GetItem
- ;
-
-ref; // ME_FD7E4207A0AB Ini_Reg
-
 : ME_ADADE3CAA339
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -102,8 +88,6 @@ ref; // ME_ADADE3CAA339
 ref; // ME_EA12D2044C4D 
 
 : ME_4DAEEDE10285_ME_F4C36DEF11AB
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_F4C36DEF11AB // pop_TreeView_GetItem
@@ -111,19 +95,7 @@ ref; // ME_EA12D2044C4D
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F4C36DEF11AB DoDoIt
 
-: ME_4DB0614603C8_ME_F4C36DEF11AB
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_F4C36DEF11AB // pop_TreeView_GetItem
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_F4C36DEF11AB GetWordNameForRegister
-
 : ME_551544E2001A_ME_F4C36DEF11AB
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_F4C36DEF11AB // pop_TreeView_GetItem
@@ -132,8 +104,6 @@ ref; // ME_4DB0614603C8_ME_F4C36DEF11AB GetWordNameForRegister
 ref; // ME_551544E2001A_ME_F4C36DEF11AB GetResultTypeInfo
 
 : ME_559687E6025A_ME_F4C36DEF11AB
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_F4C36DEF11AB // pop_TreeView_GetItem
@@ -142,8 +112,6 @@ ref; // ME_551544E2001A_ME_F4C36DEF11AB GetResultTypeInfo
 ref; // ME_559687E6025A_ME_F4C36DEF11AB GetAllParamsCount
 
 : ME_5617F4D00243_ME_F4C36DEF11AB
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_F4C36DEF11AB // pop_TreeView_GetItem
@@ -169,7 +137,6 @@ ref; // ME_5617F4D00243_ME_F4C36DEF11AB ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_76ED4B50CB4A // GetItem
- ME_FD7E4207A0AB // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -177,8 +144,7 @@ ref; // ME_5617F4D00243_ME_F4C36DEF11AB ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_F4C36DEF11AB // GetWordNameForRegister
- ME_551544E2001A_ME_F4C36DEF11AB // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_F4C36DEF11AB // GetResultTypeInfo
  ME_559687E6025A_ME_F4C36DEF11AB // GetAllParamsCount
  ME_5617F4D00243_ME_F4C36DEF11AB // ParamsTypes
  )
@@ -436,20 +402,6 @@ ref; // ME_A9177B2901DB aTreeNode
 
 ref; // ME_F036C8335C15 GetNext
 
-: ME_C0C5C05B443D
- CONST UID 'C0C5C05B443D'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_TreeNode_GetNext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A78303612230 // pop_TreeNode_GetNext
- ;
-
-ref; // ME_C0C5C05B443D Ini_Reg
-
 : ME_526DB4ECB888
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -473,8 +425,6 @@ ref; // ME_526DB4ECB888
 ref; // ME_796847EEEE79 
 
 : ME_4DAEEDE10285_ME_A78303612230
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_A78303612230 // pop_TreeNode_GetNext
@@ -482,19 +432,7 @@ ref; // ME_796847EEEE79
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_A78303612230 DoDoIt
 
-: ME_4DB0614603C8_ME_A78303612230
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_A78303612230 // pop_TreeNode_GetNext
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_A78303612230 GetWordNameForRegister
-
 : ME_551544E2001A_ME_A78303612230
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_A78303612230 // pop_TreeNode_GetNext
@@ -503,8 +441,6 @@ ref; // ME_4DB0614603C8_ME_A78303612230 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_A78303612230 GetResultTypeInfo
 
 : ME_559687E6025A_ME_A78303612230
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_A78303612230 // pop_TreeNode_GetNext
@@ -513,8 +449,6 @@ ref; // ME_551544E2001A_ME_A78303612230 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_A78303612230 GetAllParamsCount
 
 : ME_5617F4D00243_ME_A78303612230
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_A78303612230 // pop_TreeNode_GetNext
@@ -540,7 +474,6 @@ ref; // ME_5617F4D00243_ME_A78303612230 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_F036C8335C15 // GetNext
- ME_C0C5C05B443D // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -548,8 +481,7 @@ ref; // ME_5617F4D00243_ME_A78303612230 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_A78303612230 // GetWordNameForRegister
- ME_551544E2001A_ME_A78303612230 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_A78303612230 // GetResultTypeInfo
  ME_559687E6025A_ME_A78303612230 // GetAllParamsCount
  ME_5617F4D00243_ME_A78303612230 // ParamsTypes
  )
@@ -624,20 +556,6 @@ ref; // ME_EFF0963C81DA aTreeNode
 
 ref; // ME_A5D06F0C77D0 HasChildren
 
-: ME_00D69C1D220A
- CONST UID '00D69C1D220A'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_TreeNode_HasChildren' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5E7363490ED0 // pop_TreeNode_HasChildren
- ;
-
-ref; // ME_00D69C1D220A Ini_Reg
-
 : ME_C47A3345B696
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -661,8 +579,6 @@ ref; // ME_C47A3345B696
 ref; // ME_7C3E4F9C1BEA 
 
 : ME_4DAEEDE10285_ME_5E7363490ED0
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_5E7363490ED0 // pop_TreeNode_HasChildren
@@ -670,19 +586,7 @@ ref; // ME_7C3E4F9C1BEA
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_5E7363490ED0 DoDoIt
 
-: ME_4DB0614603C8_ME_5E7363490ED0
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_5E7363490ED0 // pop_TreeNode_HasChildren
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_5E7363490ED0 GetWordNameForRegister
-
 : ME_551544E2001A_ME_5E7363490ED0
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_5E7363490ED0 // pop_TreeNode_HasChildren
@@ -691,8 +595,6 @@ ref; // ME_4DB0614603C8_ME_5E7363490ED0 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_5E7363490ED0 GetResultTypeInfo
 
 : ME_559687E6025A_ME_5E7363490ED0
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_5E7363490ED0 // pop_TreeNode_HasChildren
@@ -701,8 +603,6 @@ ref; // ME_551544E2001A_ME_5E7363490ED0 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_5E7363490ED0 GetAllParamsCount
 
 : ME_5617F4D00243_ME_5E7363490ED0
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_5E7363490ED0 // pop_TreeNode_HasChildren
@@ -728,7 +628,6 @@ ref; // ME_5617F4D00243_ME_5E7363490ED0 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_A5D06F0C77D0 // HasChildren
- ME_00D69C1D220A // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -736,8 +635,7 @@ ref; // ME_5617F4D00243_ME_5E7363490ED0 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_5E7363490ED0 // GetWordNameForRegister
- ME_551544E2001A_ME_5E7363490ED0 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_5E7363490ED0 // GetResultTypeInfo
  ME_559687E6025A_ME_5E7363490ED0 // GetAllParamsCount
  ME_5617F4D00243_ME_5E7363490ED0 // ParamsTypes
  )
@@ -812,20 +710,6 @@ ref; // ME_83D4A136D12F aTreeNode
 
 ref; // ME_AB6849BAAE6B GetPrev
 
-: ME_49D3D5B68851
- CONST UID '49D3D5B68851'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_TreeNode_GetPrev' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55B024C23EBF // pop_TreeNode_GetPrev
- ;
-
-ref; // ME_49D3D5B68851 Ini_Reg
-
 : ME_0FF9EFE6345F
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -849,8 +733,6 @@ ref; // ME_0FF9EFE6345F
 ref; // ME_CE6A280072A8 
 
 : ME_4DAEEDE10285_ME_55B024C23EBF
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_55B024C23EBF // pop_TreeNode_GetPrev
@@ -858,19 +740,7 @@ ref; // ME_CE6A280072A8
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_55B024C23EBF DoDoIt
 
-: ME_4DB0614603C8_ME_55B024C23EBF
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_55B024C23EBF // pop_TreeNode_GetPrev
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_55B024C23EBF GetWordNameForRegister
-
 : ME_551544E2001A_ME_55B024C23EBF
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_55B024C23EBF // pop_TreeNode_GetPrev
@@ -879,8 +749,6 @@ ref; // ME_4DB0614603C8_ME_55B024C23EBF GetWordNameForRegister
 ref; // ME_551544E2001A_ME_55B024C23EBF GetResultTypeInfo
 
 : ME_559687E6025A_ME_55B024C23EBF
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_55B024C23EBF // pop_TreeNode_GetPrev
@@ -889,8 +757,6 @@ ref; // ME_551544E2001A_ME_55B024C23EBF GetResultTypeInfo
 ref; // ME_559687E6025A_ME_55B024C23EBF GetAllParamsCount
 
 : ME_5617F4D00243_ME_55B024C23EBF
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_55B024C23EBF // pop_TreeNode_GetPrev
@@ -916,7 +782,6 @@ ref; // ME_5617F4D00243_ME_55B024C23EBF ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_AB6849BAAE6B // GetPrev
- ME_49D3D5B68851 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -924,8 +789,7 @@ ref; // ME_5617F4D00243_ME_55B024C23EBF ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_55B024C23EBF // GetWordNameForRegister
- ME_551544E2001A_ME_55B024C23EBF // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_55B024C23EBF // GetResultTypeInfo
  ME_559687E6025A_ME_55B024C23EBF // GetAllParamsCount
  ME_5617F4D00243_ME_55B024C23EBF // ParamsTypes
  )
@@ -1000,20 +864,6 @@ ref; // ME_78D48713A2DD aTreeNode
 
 ref; // ME_200474EC25F0 GetFirstChild
 
-: ME_98215A728036
- CONST UID '98215A728036'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_TreeNode_GetFirstChild' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5EA990C4D795 // pop_TreeNode_GetFirstChild
- ;
-
-ref; // ME_98215A728036 Ini_Reg
-
 : ME_DD1E382BF201
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1037,8 +887,6 @@ ref; // ME_DD1E382BF201
 ref; // ME_C435C8DAB845 
 
 : ME_4DAEEDE10285_ME_5EA990C4D795
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_5EA990C4D795 // pop_TreeNode_GetFirstChild
@@ -1046,19 +894,7 @@ ref; // ME_C435C8DAB845
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_5EA990C4D795 DoDoIt
 
-: ME_4DB0614603C8_ME_5EA990C4D795
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_5EA990C4D795 // pop_TreeNode_GetFirstChild
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_5EA990C4D795 GetWordNameForRegister
-
 : ME_551544E2001A_ME_5EA990C4D795
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_5EA990C4D795 // pop_TreeNode_GetFirstChild
@@ -1067,8 +903,6 @@ ref; // ME_4DB0614603C8_ME_5EA990C4D795 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_5EA990C4D795 GetResultTypeInfo
 
 : ME_559687E6025A_ME_5EA990C4D795
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_5EA990C4D795 // pop_TreeNode_GetFirstChild
@@ -1077,8 +911,6 @@ ref; // ME_551544E2001A_ME_5EA990C4D795 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_5EA990C4D795 GetAllParamsCount
 
 : ME_5617F4D00243_ME_5EA990C4D795
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_5EA990C4D795 // pop_TreeNode_GetFirstChild
@@ -1104,7 +936,6 @@ ref; // ME_5617F4D00243_ME_5EA990C4D795 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_200474EC25F0 // GetFirstChild
- ME_98215A728036 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -1112,8 +943,7 @@ ref; // ME_5617F4D00243_ME_5EA990C4D795 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_5EA990C4D795 // GetWordNameForRegister
- ME_551544E2001A_ME_5EA990C4D795 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_5EA990C4D795 // GetResultTypeInfo
  ME_559687E6025A_ME_5EA990C4D795 // GetAllParamsCount
  ME_5617F4D00243_ME_5EA990C4D795 // ParamsTypes
  )
@@ -1188,20 +1018,6 @@ ref; // ME_C6F50A93B567 aTreeNode
 
 ref; // ME_E2F8A6090E56 GetLastChild
 
-: ME_B2E2C55F228C
- CONST UID 'B2E2C55F228C'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_TreeNode_GetLastChild' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_C6C1AF6914F1 // pop_TreeNode_GetLastChild
- ;
-
-ref; // ME_B2E2C55F228C Ini_Reg
-
 : ME_62951A3E5158
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1225,8 +1041,6 @@ ref; // ME_62951A3E5158
 ref; // ME_65C3B5071279 
 
 : ME_4DAEEDE10285_ME_C6C1AF6914F1
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_C6C1AF6914F1 // pop_TreeNode_GetLastChild
@@ -1234,19 +1048,7 @@ ref; // ME_65C3B5071279
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_C6C1AF6914F1 DoDoIt
 
-: ME_4DB0614603C8_ME_C6C1AF6914F1
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_C6C1AF6914F1 // pop_TreeNode_GetLastChild
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_C6C1AF6914F1 GetWordNameForRegister
-
 : ME_551544E2001A_ME_C6C1AF6914F1
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_C6C1AF6914F1 // pop_TreeNode_GetLastChild
@@ -1255,8 +1057,6 @@ ref; // ME_4DB0614603C8_ME_C6C1AF6914F1 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_C6C1AF6914F1 GetResultTypeInfo
 
 : ME_559687E6025A_ME_C6C1AF6914F1
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_C6C1AF6914F1 // pop_TreeNode_GetLastChild
@@ -1265,8 +1065,6 @@ ref; // ME_551544E2001A_ME_C6C1AF6914F1 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_C6C1AF6914F1 GetAllParamsCount
 
 : ME_5617F4D00243_ME_C6C1AF6914F1
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_C6C1AF6914F1 // pop_TreeNode_GetLastChild
@@ -1292,7 +1090,6 @@ ref; // ME_5617F4D00243_ME_C6C1AF6914F1 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_E2F8A6090E56 // GetLastChild
- ME_B2E2C55F228C // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -1300,8 +1097,7 @@ ref; // ME_5617F4D00243_ME_C6C1AF6914F1 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_C6C1AF6914F1 // GetWordNameForRegister
- ME_551544E2001A_ME_C6C1AF6914F1 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_C6C1AF6914F1 // GetResultTypeInfo
  ME_559687E6025A_ME_C6C1AF6914F1 // GetAllParamsCount
  ME_5617F4D00243_ME_C6C1AF6914F1 // ParamsTypes
  )
@@ -1376,20 +1172,6 @@ ref; // ME_80F55C2450A3 aTreeNode
 
 ref; // ME_B86DC202F7D8 GetNextSibling
 
-: ME_C16E1E2CCF34
- CONST UID 'C16E1E2CCF34'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_TreeNode_GetNextSibling' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_D75C1EAFB29F // pop_TreeNode_GetNextSibling
- ;
-
-ref; // ME_C16E1E2CCF34 Ini_Reg
-
 : ME_A6A1BBA51173
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1413,8 +1195,6 @@ ref; // ME_A6A1BBA51173
 ref; // ME_0E066FB2F062 
 
 : ME_4DAEEDE10285_ME_D75C1EAFB29F
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_D75C1EAFB29F // pop_TreeNode_GetNextSibling
@@ -1422,19 +1202,7 @@ ref; // ME_0E066FB2F062
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_D75C1EAFB29F DoDoIt
 
-: ME_4DB0614603C8_ME_D75C1EAFB29F
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_D75C1EAFB29F // pop_TreeNode_GetNextSibling
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_D75C1EAFB29F GetWordNameForRegister
-
 : ME_551544E2001A_ME_D75C1EAFB29F
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_D75C1EAFB29F // pop_TreeNode_GetNextSibling
@@ -1443,8 +1211,6 @@ ref; // ME_4DB0614603C8_ME_D75C1EAFB29F GetWordNameForRegister
 ref; // ME_551544E2001A_ME_D75C1EAFB29F GetResultTypeInfo
 
 : ME_559687E6025A_ME_D75C1EAFB29F
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_D75C1EAFB29F // pop_TreeNode_GetNextSibling
@@ -1453,8 +1219,6 @@ ref; // ME_551544E2001A_ME_D75C1EAFB29F GetResultTypeInfo
 ref; // ME_559687E6025A_ME_D75C1EAFB29F GetAllParamsCount
 
 : ME_5617F4D00243_ME_D75C1EAFB29F
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_D75C1EAFB29F // pop_TreeNode_GetNextSibling
@@ -1480,7 +1244,6 @@ ref; // ME_5617F4D00243_ME_D75C1EAFB29F ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_B86DC202F7D8 // GetNextSibling
- ME_C16E1E2CCF34 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -1488,8 +1251,7 @@ ref; // ME_5617F4D00243_ME_D75C1EAFB29F ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_D75C1EAFB29F // GetWordNameForRegister
- ME_551544E2001A_ME_D75C1EAFB29F // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_D75C1EAFB29F // GetResultTypeInfo
  ME_559687E6025A_ME_D75C1EAFB29F // GetAllParamsCount
  ME_5617F4D00243_ME_D75C1EAFB29F // ParamsTypes
  )
@@ -1564,20 +1326,6 @@ ref; // ME_872A8934A575 aTreeNode
 
 ref; // ME_CBAF62383CA2 GetPrevSibling
 
-: ME_39EAF0559009
- CONST UID '39EAF0559009'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_TreeNode_GetPrevSibling' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_35C934477819 // pop_TreeNode_GetPrevSibling
- ;
-
-ref; // ME_39EAF0559009 Ini_Reg
-
 : ME_3DFA0D878F27
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1601,8 +1349,6 @@ ref; // ME_3DFA0D878F27
 ref; // ME_CA6806354662 
 
 : ME_4DAEEDE10285_ME_35C934477819
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_35C934477819 // pop_TreeNode_GetPrevSibling
@@ -1610,19 +1356,7 @@ ref; // ME_CA6806354662
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_35C934477819 DoDoIt
 
-: ME_4DB0614603C8_ME_35C934477819
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_35C934477819 // pop_TreeNode_GetPrevSibling
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_35C934477819 GetWordNameForRegister
-
 : ME_551544E2001A_ME_35C934477819
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_35C934477819 // pop_TreeNode_GetPrevSibling
@@ -1631,8 +1365,6 @@ ref; // ME_4DB0614603C8_ME_35C934477819 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_35C934477819 GetResultTypeInfo
 
 : ME_559687E6025A_ME_35C934477819
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_35C934477819 // pop_TreeNode_GetPrevSibling
@@ -1641,8 +1373,6 @@ ref; // ME_551544E2001A_ME_35C934477819 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_35C934477819 GetAllParamsCount
 
 : ME_5617F4D00243_ME_35C934477819
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_35C934477819 // pop_TreeNode_GetPrevSibling
@@ -1668,7 +1398,6 @@ ref; // ME_5617F4D00243_ME_35C934477819 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_CBAF62383CA2 // GetPrevSibling
- ME_39EAF0559009 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -1676,8 +1405,7 @@ ref; // ME_5617F4D00243_ME_35C934477819 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_35C934477819 // GetWordNameForRegister
- ME_551544E2001A_ME_35C934477819 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_35C934477819 // GetResultTypeInfo
  ME_559687E6025A_ME_35C934477819 // GetAllParamsCount
  ME_5617F4D00243_ME_35C934477819 // ParamsTypes
  )
@@ -1752,20 +1480,6 @@ ref; // ME_92CAA369AC37 aTreeNode
 
 ref; // ME_8DB4489FF36F GetNextVisible
 
-: ME_DA005915F432
- CONST UID 'DA005915F432'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_TreeNode_GetNextVisible' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D009DB53D61 // pop_TreeNode_GetNextVisible
- ;
-
-ref; // ME_DA005915F432 Ini_Reg
-
 : ME_8E165F81A55D
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1789,8 +1503,6 @@ ref; // ME_8E165F81A55D
 ref; // ME_4D27CA7963EE 
 
 : ME_4DAEEDE10285_ME_4D009DB53D61
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4D009DB53D61 // pop_TreeNode_GetNextVisible
@@ -1798,19 +1510,7 @@ ref; // ME_4D27CA7963EE
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4D009DB53D61 DoDoIt
 
-: ME_4DB0614603C8_ME_4D009DB53D61
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_4D009DB53D61 // pop_TreeNode_GetNextVisible
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4D009DB53D61 GetWordNameForRegister
-
 : ME_551544E2001A_ME_4D009DB53D61
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_4D009DB53D61 // pop_TreeNode_GetNextVisible
@@ -1819,8 +1519,6 @@ ref; // ME_4DB0614603C8_ME_4D009DB53D61 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_4D009DB53D61 GetResultTypeInfo
 
 : ME_559687E6025A_ME_4D009DB53D61
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_4D009DB53D61 // pop_TreeNode_GetNextVisible
@@ -1829,8 +1527,6 @@ ref; // ME_551544E2001A_ME_4D009DB53D61 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_4D009DB53D61 GetAllParamsCount
 
 : ME_5617F4D00243_ME_4D009DB53D61
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_4D009DB53D61 // pop_TreeNode_GetNextVisible
@@ -1856,7 +1552,6 @@ ref; // ME_5617F4D00243_ME_4D009DB53D61 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_8DB4489FF36F // GetNextVisible
- ME_DA005915F432 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -1864,8 +1559,7 @@ ref; // ME_5617F4D00243_ME_4D009DB53D61 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_4D009DB53D61 // GetWordNameForRegister
- ME_551544E2001A_ME_4D009DB53D61 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_4D009DB53D61 // GetResultTypeInfo
  ME_559687E6025A_ME_4D009DB53D61 // GetAllParamsCount
  ME_5617F4D00243_ME_4D009DB53D61 // ParamsTypes
  )
@@ -1940,20 +1634,6 @@ ref; // ME_D9B7A299D6FE aTreeNode
 
 ref; // ME_4529C267C83B GetPrevVisible
 
-: ME_F36DAA3E6E48
- CONST UID 'F36DAA3E6E48'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_TreeNode_GetPrevVisible' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_CA039569FA58 // pop_TreeNode_GetPrevVisible
- ;
-
-ref; // ME_F36DAA3E6E48 Ini_Reg
-
 : ME_5FE17238780F
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -1977,8 +1657,6 @@ ref; // ME_5FE17238780F
 ref; // ME_5AA90EE5A1BB 
 
 : ME_4DAEEDE10285_ME_CA039569FA58
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_CA039569FA58 // pop_TreeNode_GetPrevVisible
@@ -1986,19 +1664,7 @@ ref; // ME_5AA90EE5A1BB
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_CA039569FA58 DoDoIt
 
-: ME_4DB0614603C8_ME_CA039569FA58
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_CA039569FA58 // pop_TreeNode_GetPrevVisible
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_CA039569FA58 GetWordNameForRegister
-
 : ME_551544E2001A_ME_CA039569FA58
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_CA039569FA58 // pop_TreeNode_GetPrevVisible
@@ -2007,8 +1673,6 @@ ref; // ME_4DB0614603C8_ME_CA039569FA58 GetWordNameForRegister
 ref; // ME_551544E2001A_ME_CA039569FA58 GetResultTypeInfo
 
 : ME_559687E6025A_ME_CA039569FA58
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_CA039569FA58 // pop_TreeNode_GetPrevVisible
@@ -2017,8 +1681,6 @@ ref; // ME_551544E2001A_ME_CA039569FA58 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_CA039569FA58 GetAllParamsCount
 
 : ME_5617F4D00243_ME_CA039569FA58
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_CA039569FA58 // pop_TreeNode_GetPrevVisible
@@ -2044,7 +1706,6 @@ ref; // ME_5617F4D00243_ME_CA039569FA58 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_4529C267C83B // GetPrevVisible
- ME_F36DAA3E6E48 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -2052,8 +1713,7 @@ ref; // ME_5617F4D00243_ME_CA039569FA58 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_CA039569FA58 // GetWordNameForRegister
- ME_551544E2001A_ME_CA039569FA58 // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_CA039569FA58 // GetResultTypeInfo
  ME_559687E6025A_ME_CA039569FA58 // GetAllParamsCount
  ME_5617F4D00243_ME_CA039569FA58 // ParamsTypes
  )
@@ -2137,20 +1797,6 @@ ref; // ME_C14BCE515807 aRecurse
 
 ref; // ME_64F2C36D9582 Expand
 
-: ME_CE1672FBEA5E
- CONST UID 'CE1672FBEA5E'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация pop_TreeNode_Expand' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53AEF2794BFD // pop_TreeNode_Expand
- ;
-
-ref; // ME_CE1672FBEA5E Ini_Reg
-
 : ME_90A3741894E3
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -2174,8 +1820,6 @@ ref; // ME_90A3741894E3
 ref; // ME_6B3247A8F179 
 
 : ME_4DAEEDE10285_ME_53AEF2794BFD
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_53AEF2794BFD // pop_TreeNode_Expand
@@ -2183,19 +1827,7 @@ ref; // ME_6B3247A8F179
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_53AEF2794BFD DoDoIt
 
-: ME_4DB0614603C8_ME_53AEF2794BFD
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_53AEF2794BFD // pop_TreeNode_Expand
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_53AEF2794BFD GetWordNameForRegister
-
 : ME_551544E2001A_ME_53AEF2794BFD
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_53AEF2794BFD // pop_TreeNode_Expand
@@ -2204,8 +1836,6 @@ ref; // ME_4DB0614603C8_ME_53AEF2794BFD GetWordNameForRegister
 ref; // ME_551544E2001A_ME_53AEF2794BFD GetResultTypeInfo
 
 : ME_559687E6025A_ME_53AEF2794BFD
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_53AEF2794BFD // pop_TreeNode_Expand
@@ -2214,8 +1844,6 @@ ref; // ME_551544E2001A_ME_53AEF2794BFD GetResultTypeInfo
 ref; // ME_559687E6025A_ME_53AEF2794BFD GetAllParamsCount
 
 : ME_5617F4D00243_ME_53AEF2794BFD
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_53AEF2794BFD // pop_TreeNode_Expand
@@ -2241,7 +1869,6 @@ ref; // ME_5617F4D00243_ME_53AEF2794BFD ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_64F2C36D9582 // Expand
- ME_CE1672FBEA5E // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -2249,8 +1876,7 @@ ref; // ME_5617F4D00243_ME_53AEF2794BFD ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_53AEF2794BFD // GetWordNameForRegister
- ME_551544E2001A_ME_53AEF2794BFD // GetResultTypeInfo
+   Seq: ( ME_551544E2001A_ME_53AEF2794BFD // GetResultTypeInfo
  ME_559687E6025A_ME_53AEF2794BFD // GetAllParamsCount
  ME_5617F4D00243_ME_53AEF2794BFD // ParamsTypes
  )

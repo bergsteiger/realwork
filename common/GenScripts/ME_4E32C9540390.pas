@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\ColumnResizeByMouse.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "ColumnResizeByMouse" MUID: (4E32C9540390)
+// Имя типа: "_ColumnResizeByMouse_"
 
 {$Define ColumnResizeByMouse_imp}
 

@@ -2,6 +2,8 @@ unit kwClearDocumentContextSearchHistory;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwClearDocumentContextSearchHistory.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "ClearDocumentContextSearchHistory" MUID: (53B12B8A03DC)
+// Имя типа: "TkwClearDocumentContextSearchHistory"
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

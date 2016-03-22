@@ -2,6 +2,7 @@ unit ddStyleSegment;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddStyleSegment.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddStyleSegment" MUID: (54D9B8E801EA)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
@@ -57,7 +58,7 @@ begin
 //#UC START# *54D888450259_54D9B8E801EA_impl*
  StartTextSegment(Generator);
  try
-  DoWriteSegmentProps(Generator, aCHP, aParentCHP, LiteVersion);
+  DoWriteSegmentProps(Generator, aCHP, aParentCHP, aLiteVersion);
  finally
   Generator.Finish;
  end; // k2_idTextSegment
@@ -90,9 +91,9 @@ function TddStyleSegment.SkipSegment(aDiffCHP: TddCharacterProperty;
 //#UC END# *54E4325C00BE_54D9B8E801EA_var*
 begin
 //#UC START# *54E4325C00BE_54D9B8E801EA_impl*
- if LiteVersion then
+ if aLiteVersion > dd_lvNone then
   lp_ConvertkBold2Style;
- Result := ((CHP.Style = 0) or (CHP.Style = propUndefined)) and (LiteVersion or (aDiffCHP = nil));
+ Result := ((CHP.Style = 0) or (CHP.Style = propUndefined)) and ((aLiteVersion > dd_lvNone) or (aDiffCHP = nil));
 //#UC END# *54E4325C00BE_54D9B8E801EA_impl*
 end;//TddStyleSegment.SkipSegment
 
@@ -112,7 +113,7 @@ begin
  if (CHP.Style <> 0) and (CHP.Style <> propUndefined) then
   Generator.AddIntegerAtom(k2_tiStyle, CHP.Style)
  else
-  if not LiteVersion and (aCHP <> nil) then
+  if (aLiteVersion = dd_lvNone) and (aCHP <> nil) then
   begin
    if aCHP.Hidden then
     Generator.AddBoolAtom(k2_tiVisible, ByteBool(False));
@@ -167,7 +168,7 @@ begin
       cpSubScript: Generator.AddIntegerAtom(k2_tiIndex,
                                             ord(l3_fiSub));
      end;
-     if (Underline <> aParentCHP.Underline) then
+     if (Underline <> aParentCHP.Underline) and (Underline <> utNotDefined) then
       Generator.AddBoolAtom(k2_tiUnderline,
                             (Underline <> utNone) and
                             (Underline <> utNotDefined));

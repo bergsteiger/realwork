@@ -2,6 +2,7 @@ unit nsJournalTreeStruct;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\WorkJournal\nsJournalTreeStruct.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsJournalTreeStruct" MUID: (4A8260EC0099)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

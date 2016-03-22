@@ -3,6 +3,7 @@ unit L10nInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\L10nInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "L10nInterfaces" MUID: (499192F203B4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

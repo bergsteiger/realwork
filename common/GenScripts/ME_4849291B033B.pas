@@ -3,6 +3,8 @@ unit k2l3Base_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2l3Base_Const.pas"
 // Стереотип: "Atom"
+// Элемент модели: "l3Base" MUID: (4849291B033B)
+// Имя типа: "l3BaseAtom"
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

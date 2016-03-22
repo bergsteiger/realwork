@@ -3,6 +3,7 @@ unit evCopyTableCellWidth;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCopyTableCellWidth.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCopyTableCellWidth" MUID: (4F28F7160399)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

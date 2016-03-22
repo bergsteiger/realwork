@@ -3,6 +3,8 @@ unit TurnOnTimeMachine_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\TurnOnTimeMachine_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "TurnOnTimeMachine" MUID: (4AB135BD01C2)
+// Имя типа: "Ten_TurnOnTimeMachine"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -804,7 +804,8 @@ int CorrRefCollection::Intersect (SortedCollection& collection) {
 				Ref	item;
 				item.DocId = ptr [i].DocId;
 				item.Sub = ptr [i].Block;
-				while (CompRefs (&collection_ref [k],&item) < 0) {
+				//while (CompRefsPlus (&collection_ref [k],&item) < 0) {
+				while (collection_ref [k].DocId < item.DocId) {
 					if (++ k >= collection.Count [page2]) {
 						if (++page2 >= collection.PageCount) {
 							Count [page++] = j;
@@ -817,7 +818,8 @@ int CorrRefCollection::Intersect (SortedCollection& collection) {
 						k = 0;
 					}
 				}
-				if (!CompRefs (&collection_ref [k],&item))
+				//if (!CompRefsPlus (&collection_ref [k],&item))
+				if (collection_ref [k].DocId == item.DocId)
 					ptr [j++] = ptr [i];
 			}
 

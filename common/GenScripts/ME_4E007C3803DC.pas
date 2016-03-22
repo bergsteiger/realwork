@@ -2,6 +2,7 @@ unit arDocumentContainer;
 
 // Модуль: "w:\archi\source\projects\Archi\Editor\arDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TarDocumentContainer" MUID: (4E007C3803DC)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

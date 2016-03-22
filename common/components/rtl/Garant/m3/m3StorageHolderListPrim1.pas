@@ -5,7 +5,7 @@ unit m3StorageHolderListPrim1;
 // Библиотека "m3"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3StorageHolderListPrim1.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3::StorageHolder::Tm3StorageHolderListPrim1
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::StorageHolder::Tm3StorageHolderListPrim1
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

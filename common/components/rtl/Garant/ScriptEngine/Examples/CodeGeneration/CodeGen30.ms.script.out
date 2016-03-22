@@ -233,6 +233,8 @@ VOID Test CodeGen
 
 Dictionary: axiom:char
 Dictionary: axiom:class
+Dictionary: axiom:CompiledProcedure
+TkwCompiledProcedure CompiledProcedure:Create
 Dictionary: axiom:CompiledWordWorkerWord
 TtfwWord pop:CompiledWordWorkerWord:Compiled
 Dictionary: axiom:Component
@@ -245,6 +247,8 @@ Dictionary: axiom:exception
 Dictionary: axiom:Finder
 VOID pop:Finder:SetToCtx
 Dictionary: axiom:guid
+Dictionary: axiom:KeyValues
+TkwKeyValues KeyValues:Create
 Dictionary: axiom:Mouse
 mouse:GetCursorIndex
 mouse:GetCursorNameByIndex
@@ -290,9 +294,6 @@ REDIFINITION STRING FUNCTION : pop:SV:ToPrintable
  OPERATOR :: IN : aValue
  REDIFINITION STRING FUNCTION :: ToPrintable : Result
 ; // pop:SV:ToPrintable
-Dictionary: axiom:TagGenerator
-VOID pop:TagGenerator:generators_Execute
-Ik2TagGenerator pop:TagGenerator:generators_Link
 Dictionary: axiom:TColor
 TColor TColor::cl3DDkShadow
 TColor TColor::cl3DLight
@@ -361,8 +362,10 @@ VOID OPERATOR : Tests:@[
 tests:CheckEtalon
 tests:CheckOutputWithInput
 Dictionary: axiom:text
+Dictionary: axiom:WordBox
+TtfwWord pop:WordBox:Boxed
 Dictionary: axiom:WString
-Dictionary: CodeGen30.ms.script
+Dictionary: J:\ScriptEngine\Examples\CodeGeneration\CodeGen30.ms.script
  Uses: 
   axiom:axiom
   axiom:Ctx
@@ -395,7 +398,6 @@ Dictionary: CodeGen30.ms.script
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\Exports.script
   J:\ScriptEngine\Examples\CodeGeneration\axiom_push.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\macro.ms.dict
@@ -450,7 +452,6 @@ Dictionary: axiom:axiom
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
  ;
  Exports: 
   axiom:Ctx
@@ -483,7 +484,6 @@ Dictionary: axiom:axiom
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
  ;
 INTEGER -
 INTEGER --
@@ -553,11 +553,9 @@ OBJECT OPERATOR : %%
  OBJECT OPERATOR :: %% : Result
 ; // %%
 IMMEDIATE VOID OPERATOR :: NamedWordProducer : %CHILDREN
-IMMEDIATE VOID OPERATOR : %DISABLE_CASCADE_DICT
 IMMEDIATE VOID OPERATOR :: NamedInitedVarProducer : %DOCUMENTATION
  ^ OPERATOR :: IN : aValue
 ; // %DOCUMENTATION
-%INCLUDES
 IMMEDIATE VOID OPERATOR :: NamedWordProducer : %INHERITS
 OBJECT FUNCTION : %P
  OPERATOR :: IN : %S
@@ -629,7 +627,7 @@ ARRAY FUNCTION : .join>
 ; // .join>
 IMMEDIATE VOID OPERATOR :: MACRO : .map>
  Documentation:
-  Трансформирует массив фнуктором aFunctor
+  Трансформирует массив функтором aFunctor
  ^ OPERATOR :: IN : aFunctor
 ; // .map>
 ARRAY .reverted>
@@ -745,6 +743,12 @@ TtfwWord OPERATOR : |^@
  ^@ OPERATOR :: IN : aSelf
  TtfwWord OPERATOR :: |^@ : Result
 ; // |^@
+TtfwWord OPERATOR : |^@Deepest
+ Documentation:
+  Получает ссылку на параметр слева
+ ^@ OPERATOR :: IN : aSelf
+ TtfwWord OPERATOR :: |^@Deepest : Result
+; // |^@Deepest
 BOOLEAN ||
 STRING FUNCTION : |N
  OPERATOR :: IN : %S
@@ -947,25 +951,25 @@ INTEGER Array:Count
 ARRAY Array:Filter
 ARRAY Array:FunctorToIterator
 BOOLEAN FUNCTION : array:Has
+ Documentation:
+  Проверяет, что массив содержит значение
  ARRAY OPERATOR :: IN : anArray
  OPERATOR :: IN : aValue
  BOOLEAN FUNCTION :: array:Has : Result
 ; // array:Has
 BOOLEAN FUNCTION : array:HasString
+ Documentation:
+  Проверяет, что массив содержит строку. С учётом регистра
  ARRAY OPERATOR :: IN : anArray
  STRING OPERATOR :: IN : aString
  BOOLEAN FUNCTION :: array:HasString : Result
- VOID OPERATOR :: PROCEDURE : Поиск
-  STRING OPERATOR :: IN : anItem
- ; // Поиск
 ; // array:HasString
 BOOLEAN FUNCTION : array:HasText
+ Documentation:
+  Проверяет, что массив содержит строку. Без учёта регистра
  ARRAY OPERATOR :: IN : anArray
  STRING OPERATOR :: IN : aString
  BOOLEAN FUNCTION :: array:HasText : Result
- VOID OPERATOR :: PROCEDURE : Поиск
-  STRING OPERATOR :: IN : anItem
- ; // Поиск
 ; // array:HasText
 Struct Array:Item
 VOID Array:Iterate
@@ -1008,6 +1012,7 @@ IMMEDIATE VOID OPERATOR : axiom:CLASS
 IMMEDIATE VOID OPERATOR : axiom:CompileSetValueTypes
  TtfwValueTypes OPERATOR :: IN : aValues
 ; // axiom:CompileSetValueTypes
+PROTECTED : : axiom:DefineBox
 PROTECTED : : axiom:DefineVar
 PROTECTED VOID : : axiom:DefineVarWithInit
  STRING OPERATOR :: IN : aName
@@ -1040,6 +1045,9 @@ STRING OPERATOR : axiom:SourceInfo
 begin
 BEGIN
 IMMEDIATE VOID OPERATOR : BOOLEAN
+IMMEDIATE VOID OPERATOR : BOX
+ ^L OPERATOR :: IN : aName
+; // BOX
 VOID break
 VOID BREAK
 VOID BREAK-ITERATOR
@@ -1174,6 +1182,7 @@ TClass class::TkwClipboardGetFormattedText
 TClass class::TkwClipboardSetText
 TClass class::TkwCloseArray
 TClass class::TkwCloseBracket
+TClass class::TkwCompareFiles
 TClass class::TkwCompareStr
 TClass class::TkwCompareText
 TClass class::TkwCompiledArray
@@ -1184,10 +1193,12 @@ TClass class::TkwCompiledIfElse
 TClass class::TkwCompiledIncluded
 TClass class::TkwCompiledMain
 TClass class::TkwCompiledProcedure
+TClass class::TkwCompiledProcedureCreate
 TClass class::TkwCompiledProcedureWithStackChecking
 TClass class::TkwCompiledPushWord
 TClass class::TkwCompiledRules
 TClass class::TkwCompiledScriptCompileAndProcess
+TClass class::TkwCompiledScriptCompileStringAndProcess
 TClass class::TkwCompiledTryExcept
 TClass class::TkwCompiledTryFinally
 TClass class::TkwCompiledVar
@@ -1281,6 +1292,7 @@ TClass class::TkwFileOpenWrite
 TClass class::TkwFileReadLines
 TClass class::TkwFileReadLn
 TClass class::TkwFileReadWStrLn
+TClass class::TkwFileSize
 TClass class::TkwFileWriteChar
 TClass class::TkwFileWriteLn
 TClass class::TkwFileWriteStr
@@ -1300,8 +1312,6 @@ TClass class::TkwForwardDeclaration
 TClass class::TkwForwardDeclarationHolder
 TClass class::TkwFUNCTION
 TClass class::TkwGeneratePDFForEtalon
-TClass class::TkwGeneratorsExecute
-TClass class::TkwGeneratorsLink
 TClass class::TkwGetLocalDate
 TClass class::TkwGetLocalDateTime
 TClass class::TkwGetLocalTime
@@ -1318,11 +1328,7 @@ TClass class::TkwInc
 TClass class::TkwInclude
 TClass class::TkwIncluded
 TClass class::TkwIncludedPrim
-TClass class::TkwINCLUDES
-TClass class::TkwIncludesInChildren
 TClass class::TkwInlinedWord
-TClass class::TkwInnerIncluded
-TClass class::TkwInnerIncludedInChildren
 TClass class::TkwInteger
 TClass class::TkwIntToStr
 TClass class::TkwInvertROT
@@ -1339,6 +1345,8 @@ TClass class::TkwIsTypeOf
 TClass class::TkwIsUnder64
 TClass class::TkwIsVoid
 TClass class::TkwIsXE
+TClass class::TkwKeyValues
+TClass class::TkwKeyValuesCreate
 TClass class::TkwLeftParam
 TClass class::TkwLeftWordRefParam
 TClass class::TkwLESS
@@ -1412,8 +1420,10 @@ TClass class::TkwPopKeyWordDictionary
 TClass class::TkwPopKeywordFinderKeywordByName
 TClass class::TkwPopKeywordFinderParentFinder
 TClass class::TkwPopKeyWordName
+TClass class::TkwPopKeyWordSetWord
 TClass class::TkwPopKeyWordWord
 TClass class::TkwPopMainDictionaryCompiledCode
+TClass class::TkwPopNewWordDefinitorCheckRefcountVar
 TClass class::TkwPopNewWordDefinitorCheckVar
 TClass class::TkwPopNewWordDefinitorCheckWord
 TClass class::TkwPopNewWordDefinitorDefineInParameter
@@ -1441,7 +1451,6 @@ TClass class::TkwPopParserTokenLongString
 TClass class::TkwPopParserTokenType
 TClass class::TkwPopScriptEngineAddInitialization
 TClass class::TkwPopScriptEngineAsKeywordFinder
-TClass class::TkwPopScriptEngineCascadeDict
 TClass class::TkwPopScriptEngineCurrentCompilingDictionary
 TClass class::TkwPopScriptEngineDisableForHelp
 TClass class::TkwPopValueTypesAccepts
@@ -1453,6 +1462,8 @@ TClass class::TkwPopValueTypesEQ
 TClass class::TkwPopValueTypesHas
 TClass class::TkwPopValueTypesMakeCustomName
 TClass class::TkwPopValueTypesName
+TClass class::TkwPopWordBox
+TClass class::TkwPopWordBoxBoxed
 TClass class::TkwPopWordCodeIterator
 TClass class::TkwPopWordDecRef
 TClass class::TkwPopWordDirectives
@@ -1490,8 +1501,9 @@ TClass class::TkwPopWordMembersIterator
 TClass class::TkwPopWordName
 TClass class::TkwPopWordParent
 TClass class::TkwPopWordProducer
-TClass class::TkwPopWordPublicateInMainDictionary
 TClass class::TkwPopWordRedefines
+TClass class::TkwPopWordSetKey
+TClass class::TkwPopWordSetParent
 TClass class::TkwPopWordSetProducer
 TClass class::TkwPopWordSetValue
 TClass class::TkwPopWordSetValuePrim
@@ -1506,6 +1518,8 @@ TClass class::TkwRAISE
 TClass class::TkwRandom
 TClass class::TkwRandomize
 TClass class::TkwReduceStackLevel
+TClass class::TkwRefcountGlobalVar
+TClass class::TkwRefcountVar
 TClass class::TkwRefParam
 TClass class::TkwRenameFile
 TClass class::TkwRGB2String
@@ -1521,6 +1535,7 @@ TClass class::TkwRuntimeWordWithCodeExecution
 TClass class::TkwSameStr
 TClass class::TkwSameText
 TClass class::TkwScriptCompileAndProcess
+TClass class::TkwScriptCompileStringAndProcess
 TClass class::TkwScriptExceptionStack
 TClass class::TkwScriptFileName
 TClass class::TkwSendInputSupport
@@ -1547,17 +1562,25 @@ TClass class::TkwString
 TClass class::TkwStringChar
 TClass class::TkwStringCodePage
 TClass class::TkwStringConsistsOf
+TClass class::TkwStringDeleteDoubleChars
+TClass class::TkwStringDeleteDoubleSpaces
 TClass class::TkwStringFirstChar
 TClass class::TkwStringHasAnyOf
 TClass class::TkwStringInc
 TClass class::TkwStringLen
+TClass class::TkwStringLower
 TClass class::TkwStringPos
 TClass class::TkwStringPosEx
 TClass class::TkwStringReplace
 TClass class::TkwStringReplaceFirst
 TClass class::TkwStringShift
 TClass class::TkwStringSplit
+TClass class::TkwStringSubstring
 TClass class::TkwStringToChar
+TClass class::TkwStringTrim
+TClass class::TkwStringTrimLeft
+TClass class::TkwStringTrimRight
+TClass class::TkwStringUpper
 TClass class::TkwStrToInt
 TClass class::TkwSub
 TClass class::TkwSWAP
@@ -1664,6 +1687,7 @@ IMMEDIATE VOID OPERATOR : ClassProducer
 ; // ClassProducer
 ARRAY CodeIterator
 IMMEDIATE VOID OPERATOR :: TYPE : COMPARABLE
+BOOLEAN CompareFiles
 INTEGER CompareStr
 INTEGER CompareText
 VOID CompileRef
@@ -1854,6 +1878,7 @@ VOID File:WriteLn
 VOID File:WriteStr
 VOID File:WriteWStr
 VOID File:WriteWStrLn
+INTEGER FileSize
 ARRAY FILTER
 IMMEDIATE VOID OPERATOR : FINAL
 FINALLY
@@ -1882,7 +1907,6 @@ VOID GetLocalTime
 INTEGER GetTickCount
 BOOLEAN GREATER
 STRING guid::IInterface
-STRING guid::Ik2TagGenerator
 STRING guid::Il3Base
 STRING guid::Il3FontInfo
 STRING guid::ItfwFile
@@ -1893,6 +1917,7 @@ STRING guid::ItfwScriptCaller
 STRING guid::ItfwScriptEngine
 STRING guid::ItfwStoredValuesStack
 STRING guid::ItfwValueList
+STRING guid::ItfwWordBox
 VOID HALT
 BOOLEAN HasTabs
 VOID OPERATOR :: PROCEDURE : help
@@ -1901,7 +1926,6 @@ VOID OPERATOR :: PROCEDURE : help
 ; // help
 if
 IInterface
-Ik2TagGenerator
 Il3Base
 Il3FontInfo
 VOID IMMEDIATE
@@ -1918,7 +1942,6 @@ VOID OPERATOR : INC
  ^ OPERATOR :: IN : aWhatToIncrement
 ; // INC
 INCLUDE
-INCLUDES
 STRING FUNCTION : IndentStr
  INTEGER OPERATOR :: IN : anIndent
  STRING FUNCTION :: IndentStr : Result
@@ -1986,6 +2009,7 @@ ItfwScriptCaller
 ItfwScriptEngine
 ItfwStoredValuesStack
 ItfwValueList
+ItfwWordBox
 ARRAY Join
 ARRAY JOIN
 IMMEDIATE VOID OPERATOR :: TYPE : Lambda
@@ -2147,12 +2171,15 @@ INTEGER pop:String:CodePage
 INTEGER pop:String:CompareStr
 INTEGER pop:String:CompareText
 BOOLEAN pop:String:ConsistsOf
+STRING pop:String:DeleteDoubleChars
+STRING pop:String:DeleteDoubleSpaces
 BOOLEAN pop:String:EndsStr
 BOOLEAN pop:String:EndsText
 CHAR pop:String:FirstChar
 BOOLEAN pop:String:HasAnyOf
 STRING pop:String:Inc
 INTEGER pop:String:Len
+STRING pop:String:Lower
 INTEGER pop:String:Pos
 INTEGER pop:String:PosEx
 STRING pop:String:Replace
@@ -2164,9 +2191,14 @@ STRING pop:String:Split
 BOOLEAN pop:String:StartsStr
 BOOLEAN pop:String:StartsText
 INTEGER pop:String:StrToInt
+STRING pop:String:Substring
 STRING pop:String:text_Replace
 STRING pop:String:text_ReplaceFirst
 CHAR pop:String:ToChar
+STRING pop:String:Trim
+STRING pop:String:TrimLeft
+STRING pop:String:TrimRight
+STRING pop:String:Upper
 VOID OPERATOR :: PROCEDURE : Print
  PRINTABLE OPERATOR :: IN : aValue
 ; // Print
@@ -2267,9 +2299,7 @@ IMMEDIATE VOID OPERATOR : StereotypeStereotypeProducer
 INTEGER StopTimer
 INTEGER StopTimerEx
 IMMEDIATE VOID OPERATOR : string
-String
 IMMEDIATE VOID OPERATOR : STRING
-IMMEDIATE VOID OPERATOR : String$Define
 CHAR string:[]
 CHAR string:[]++!
 CHAR string:[i]
@@ -2279,9 +2309,12 @@ STRING string:++
 VOID string:++!
 INTEGER string:CodePage
 BOOLEAN string:ConsistsOf
+STRING string:DeleteDoubleChars
+STRING string:DeleteDoubleSpaces
 BOOLEAN string:HasAnyOf
 INTEGER string:Len
 VOID string:--Len!
+STRING string:Lower
 INTEGER string:Pos
 INTEGER string:PosEx
 STRING string:Replace
@@ -2289,7 +2322,12 @@ STRING string:ReplaceFirst
 STRING string:RSplitTo!
 STRING string:Split
 STRING string:SplitTo!
+STRING string:Substring
 CHAR string:ToChar
+STRING string:Trim
+STRING string:TrimLeft
+STRING string:TrimRight
+STRING string:Upper
 STRING FUNCTION : strings:Cat
  ARRAY OPERATOR :: IN : anArray
  STRING FUNCTION :: strings:Cat : Result
@@ -2362,6 +2400,7 @@ TkwClipboardGetFormattedText
 TkwClipboardSetText
 TkwCloseArray
 TkwCloseBracket
+TkwCompareFiles
 TkwCompareStr
 TkwCompareText
 TkwCompiledArray
@@ -2372,10 +2411,12 @@ TkwCompiledIfElse
 TkwCompiledIncluded
 TkwCompiledMain
 TkwCompiledProcedure
+TkwCompiledProcedureCreate
 TkwCompiledProcedureWithStackChecking
 TkwCompiledPushWord
 TkwCompiledRules
 TkwCompiledScriptCompileAndProcess
+TkwCompiledScriptCompileStringAndProcess
 TkwCompiledTryExcept
 TkwCompiledTryFinally
 TkwCompiledVar
@@ -2469,6 +2510,7 @@ TkwFileOpenWrite
 TkwFileReadLines
 TkwFileReadLn
 TkwFileReadWStrLn
+TkwFileSize
 TkwFileWriteChar
 TkwFileWriteLn
 TkwFileWriteStr
@@ -2488,8 +2530,6 @@ TkwForwardDeclaration
 TkwForwardDeclarationHolder
 TkwFUNCTION
 TkwGeneratePDFForEtalon
-TkwGeneratorsExecute
-TkwGeneratorsLink
 TkwGetLocalDate
 TkwGetLocalDateTime
 TkwGetLocalTime
@@ -2506,11 +2546,7 @@ TkwInc
 TkwInclude
 TkwIncluded
 TkwIncludedPrim
-TkwINCLUDES
-TkwIncludesInChildren
 TkwInlinedWord
-TkwInnerIncluded
-TkwInnerIncludedInChildren
 TkwInteger
 TkwIntToStr
 TkwInvertROT
@@ -2527,6 +2563,8 @@ TkwIsTypeOf
 TkwIsUnder64
 TkwIsVoid
 TkwIsXE
+TkwKeyValues
+TkwKeyValuesCreate
 TkwLeftParam
 TkwLeftWordRefParam
 TkwLESS
@@ -2600,8 +2638,10 @@ TkwPopKeyWordDictionary
 TkwPopKeywordFinderKeywordByName
 TkwPopKeywordFinderParentFinder
 TkwPopKeyWordName
+TkwPopKeyWordSetWord
 TkwPopKeyWordWord
 TkwPopMainDictionaryCompiledCode
+TkwPopNewWordDefinitorCheckRefcountVar
 TkwPopNewWordDefinitorCheckVar
 TkwPopNewWordDefinitorCheckWord
 TkwPopNewWordDefinitorDefineInParameter
@@ -2629,7 +2669,6 @@ TkwPopParserTokenLongString
 TkwPopParserTokenType
 TkwPopScriptEngineAddInitialization
 TkwPopScriptEngineAsKeywordFinder
-TkwPopScriptEngineCascadeDict
 TkwPopScriptEngineCurrentCompilingDictionary
 TkwPopScriptEngineDisableForHelp
 TkwPopValueTypesAccepts
@@ -2641,6 +2680,8 @@ TkwPopValueTypesEQ
 TkwPopValueTypesHas
 TkwPopValueTypesMakeCustomName
 TkwPopValueTypesName
+TkwPopWordBox
+TkwPopWordBoxBoxed
 TkwPopWordCodeIterator
 TkwPopWordDecRef
 TkwPopWordDirectives
@@ -2678,8 +2719,9 @@ TkwPopWordMembersIterator
 TkwPopWordName
 TkwPopWordParent
 TkwPopWordProducer
-TkwPopWordPublicateInMainDictionary
 TkwPopWordRedefines
+TkwPopWordSetKey
+TkwPopWordSetParent
 TkwPopWordSetProducer
 TkwPopWordSetValue
 TkwPopWordSetValuePrim
@@ -2694,6 +2736,8 @@ TkwRAISE
 TkwRandom
 TkwRandomize
 TkwReduceStackLevel
+TkwRefcountGlobalVar
+TkwRefcountVar
 TkwRefParam
 TkwRenameFile
 TkwRGB2String
@@ -2709,6 +2753,7 @@ TkwRuntimeWordWithCodeExecution
 TkwSameStr
 TkwSameText
 TkwScriptCompileAndProcess
+TkwScriptCompileStringAndProcess
 TkwScriptExceptionStack
 TkwScriptFileName
 TkwSendInputSupport
@@ -2735,17 +2780,25 @@ TkwString
 TkwStringChar
 TkwStringCodePage
 TkwStringConsistsOf
+TkwStringDeleteDoubleChars
+TkwStringDeleteDoubleSpaces
 TkwStringFirstChar
 TkwStringHasAnyOf
 TkwStringInc
 TkwStringLen
+TkwStringLower
 TkwStringPos
 TkwStringPosEx
 TkwStringReplace
 TkwStringReplaceFirst
 TkwStringShift
 TkwStringSplit
+TkwStringSubstring
 TkwStringToChar
+TkwStringTrim
+TkwStringTrimLeft
+TkwStringTrimRight
+TkwStringUpper
 TkwStrToInt
 TkwSub
 TkwSWAP
@@ -2900,15 +2953,12 @@ IMMEDIATE VOID OPERATOR : var
 IMMEDIATE VOID OPERATOR : VAR
  ^L OPERATOR :: IN : aName
 ; // VAR
-IMMEDIATE VOID OPERATOR : var$Define
- ^L OPERATOR :: IN : aName
-; // var$Define
 IMMEDIATE VOID OPERATOR :: TYPE : VAR_REF
 IMMEDIATE VOID OPERATOR :: TYPE : VARIANT
 STRING FUNCTION : VarMsgToStr
  OBJECT OPERATOR :: IN : aMessage
  OPERATOR :: VAR : l_Msg
- STRING FUNCTION :: FUNCTION : Result
+ STRING FUNCTION :: VarMsgToStr : Result
 ; // VarMsgToStr
 IMMEDIATE VOID OPERATOR : VarProducer
  ^L OPERATOR :: IN : aName
@@ -3084,6 +3134,7 @@ TtfwValueTypes Ctx:ValueTypes
 TtfwWord Ctx:WordDefiningNow
 TtfwWordInfo Ctx:WordInfo
 Dictionary: axiom:NewWordDefinitor
+TtfwWord pop:NewWordDefinitor:CheckRefcountVar
 TtfwWord pop:NewWordDefinitor:CheckVar
 TtfwKeyWord pop:NewWordDefinitor:CheckWord
 TtfwWord pop:NewWordDefinitor:DefineInParameter
@@ -3096,6 +3147,7 @@ TtfwWord pop:Compiler:KeywordFinder
 TtfwWord pop:Compiler:NewWordDefinitor
 VOID pop:Compiler:SetToCtx
 Dictionary: axiom:Word
+ItfwWordBox pop:Word:Box
 ARRAY pop:Word:CodeIterator
 VOID pop:Word:DecRef
 STRING pop:Word:Directives
@@ -3108,6 +3160,10 @@ TtfwWord OPERATOR : pop:Word:GetRefDeep
  TtfwWord OPERATOR :: IN : aSelf
  TtfwWord OPERATOR :: pop:Word:GetRefDeep : Result
 ; // pop:Word:GetRefDeep
+TtfwWord OPERATOR : pop:Word:GetRefDeepest
+ TtfwWord OPERATOR :: IN : aSelf
+ TtfwWord OPERATOR :: pop:Word:GetRefDeepest : Result
+; // pop:Word:GetRefDeepest
 VOID pop:Word:IncRef
 TtfwWordInfo pop:Word:Info
 TtfwDictionary pop:Word:InnerDictionary
@@ -3126,8 +3182,9 @@ VOID OPERATOR :: PROCEDURE : pop:Word:Print
  TtfwWord OPERATOR :: IN : aWord
 ; // pop:Word:Print
 TtfwWord pop:Word:Producer
-VOID pop:Word:PublicateInMainDictionary
 TtfwWord pop:Word:Redefines
+VOID pop:Word:SetKey
+VOID pop:Word:SetParent
 VOID pop:Word:SetProducer
 VOID pop:Word:SetValue
 VOID pop:Word:SetValuePrim
@@ -3140,6 +3197,7 @@ VOID OPERATOR :: PROCEDURE : pop:KeyWord:Print
  STRING OPERATOR :: IN : anIndent
  TtfwWord OPERATOR :: VAR : l_Word
 ; // pop:KeyWord:Print
+VOID pop:KeyWord:SetWord
 TtfwWord pop:KeyWord:Word
 Dictionary: axiom:Parser
 STRING pop:Parser:FileName
@@ -3150,6 +3208,7 @@ STRING pop:Parser:TokenLongString
 Tl3TokenType pop:Parser:TokenType
 Dictionary: axiom:script
 script:CompileAndProcess
+script:CompileStringAndProcess
 ARRAY script:ExceptionStack
 STRING script:FileName
 Dictionary: axiom:sysutils
@@ -3172,7 +3231,6 @@ STRING application:ExeName
 Dictionary: axiom:ScriptEngine
 VOID pop:ScriptEngine:AddInitialization
 TtfwWord pop:ScriptEngine:AsKeywordFinder
-BOOLEAN pop:ScriptEngine:CascadeDict
 TtfwDictionaryEx pop:ScriptEngine:CurrentCompilingDictionary
 VOID pop:ScriptEngine:DisableForHelp
 Dictionary: axiom:DictionaryEx
@@ -3204,7 +3262,6 @@ STRING TtfwValueType:ValueToName
 Dictionary: axiom:TtfwWordModifier
 TtfwWordModifier TtfwWordModifier::tfw_wmAbstract
 TtfwWordModifier TtfwWordModifier::tfw_wmCaller
-TtfwWordModifier TtfwWordModifier::tfw_wmCanBeMerged
 TtfwWordModifier TtfwWordModifier::tfw_wmFinal
 TtfwWordModifier TtfwWordModifier::tfw_wmImmediate
 TtfwWordModifier TtfwWordModifier::tfw_wmInline
@@ -3239,6 +3296,10 @@ PRIVATE STRING FUNCTION : private:CheckSpaces
  STRING OPERATOR :: IN : aName
  PRIVATE STRING FUNCTION :: private:CheckSpaces : Result
 ; // private:CheckSpaces
+PRIVATE : : private:DefineBoxEx
+ STRING OPERATOR :: IN : aName
+ OBJECT OPERATOR :: IN : aStereo
+; // private:DefineBoxEx
 IMMEDIATE PRIVATE VOID OPERATOR : private:DefineNameParam
 PRIVATE OPERATOR : private:DefineParam
 PRIVATE : : private:DefineVarEx
@@ -3354,9 +3415,6 @@ BOOLEAN pop:Font:IsStrikeOut
 BOOLEAN pop:Font:IsUnderline
 STRING pop:Font:Name
 INTEGER pop:Font:Size
-Dictionary: axiom:generators
-VOID generators:Execute
-Ik2TagGenerator generators:Link
 Dictionary: J:\ScriptEngine\Examples\CodeGeneration\Exports.script
  Uses: 
   axiom:axiom
@@ -3390,7 +3448,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\Exports.script
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\axiom_push.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\macro.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\types.ms.dict
@@ -3441,7 +3498,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\Exports.script
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\axiom_push.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\macro.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\types.ms.dict
@@ -3494,7 +3550,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\axiom_push.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
  ;
 VOID OPERATOR :: PROCEDURE : axiom:PushSymbol
  Documentation:
@@ -3539,7 +3594,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\macro.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\axiom_push.ms.dict
  ;
 IMMEDIATE VOID OPERATOR : __MACRO
@@ -3580,7 +3634,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\types.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
  ;
 IMMEDIATE VOID OPERATOR :: TYPE : ANY
 IMMEDIATE VOID OPERATOR :: TYPE : ITERATABLE
@@ -3618,7 +3671,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\core.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\axiom_push.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\macro.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\types.ms.dict
@@ -3693,7 +3745,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\Documentation.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\Literal.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\macro.ms.dict
  ;
@@ -3740,7 +3791,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\Literal.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\axiom_push.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\macro.ms.dict
  ;
@@ -3780,7 +3830,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\NoStrangeSymbols.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\Documentation.ms.dict
  ;
 STRING FUNCTION : .Name
@@ -3830,7 +3879,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\NoCapsLock.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\Documentation.ms.dict
  ;
 VOID CALLER OPERATOR : ?Assure
@@ -3891,7 +3939,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\params.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\axiom_push.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\macro.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\Documentation.ms.dict
@@ -3957,7 +4004,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\math.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
  ;
 INTEGER FUNCTION : Dec1
  INTEGER OPERATOR :: IN : aValue
@@ -4018,7 +4064,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\io.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
  ;
 REDIFINITION : : Print
 ==> Redefines
@@ -4057,7 +4102,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\arrays.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\to.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\filter.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\map.ms.dict
@@ -4096,7 +4140,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\arrays.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\to.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\filter.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\map.ms.dict
@@ -4161,7 +4204,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\to.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
  ;
 ARRAY OPERATOR : to
  ^@ OPERATOR :: IN : aFrom
@@ -4201,7 +4243,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\filter.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
  ;
 ARRAY FUNCTION : >filter>
  ^ OPERATOR :: IN : aFunctor
@@ -4242,7 +4283,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\map.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
  ;
 ARRAY FUNCTION : >map>
  ^ OPERATOR :: IN : aFunctor
@@ -4283,7 +4323,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\reverted.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
  ;
 ARRAY >reverted>
 ARRAY reverted
@@ -4321,7 +4360,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\string.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
  ;
 : : (string)
  ^ OPERATOR :: IN : aValue
@@ -4368,7 +4406,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\CodeDump.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\core.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\arrays.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\to.ms.dict
@@ -4394,7 +4431,7 @@ VOID OPERATOR :: PROCEDURE : DumpCodeCall
   OBJECT OPERATOR :: IN : aCode
   STRING OPERATOR :: IN : aName
   INTEGER OPERATOR :: VAR : l_LeftWordRefsCount
-  STRING FUNCTION :: FUNCTION : Result
+  STRING FUNCTION :: CalcLeftParams : Result
  ; // CalcLeftParams
  STRING OPERATOR :: VAR : l_Name
  BOOLEAN OPERATOR :: VAR : l_NeedBracket
@@ -4466,7 +4503,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\Exports.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\axiom_push.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\macro.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\types.ms.dict
@@ -4517,7 +4553,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\Exports.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\axiom_push.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\macro.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\types.ms.dict
@@ -4570,7 +4605,6 @@ Dictionary: J:\ScriptEngine\Examples\CodeGeneration\metaMACRO.ms.dict
   axiom:File
   axiom:clipboard
   axiom:Font
-  axiom:generators
   J:\ScriptEngine\Examples\CodeGeneration\params.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\Literal.ms.dict
   J:\ScriptEngine\Examples\CodeGeneration\macro.ms.dict

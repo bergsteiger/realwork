@@ -3,6 +3,7 @@ unit nevLeafPara;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevLeafPara.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevLeafPara" MUID: (48D0F828032E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

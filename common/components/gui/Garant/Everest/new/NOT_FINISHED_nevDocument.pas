@@ -2,6 +2,7 @@ unit NOT_FINISHED_nevDocument;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_nevDocument.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevDocument" MUID: (53D26DA30178)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

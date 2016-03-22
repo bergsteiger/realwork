@@ -3,6 +3,8 @@ unit K585129079_NSRC_KeepExisting;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\K585129079_NSRC_KeepExisting.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K585129079_NSRC_KeepExisting" MUID: (5491B41C0353)
+// Имя типа: "TK585129079_NSRC_KeepExisting"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

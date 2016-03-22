@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas"
 // Стереотип: "ViewAreaControllerImp"
+// Элемент модели: "dsBaseSearchSupportQuery" MUID: (496F3F2500A8)
+// Имя типа: "_dsBaseSearchSupportQuery_"
 
 {$Define dsBaseSearchSupportQuery_imp}
 

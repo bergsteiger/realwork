@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\CellSelectionByMouse.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "CellSelectionByMouse" MUID: (4E97EE2D00D7)
+// Имя типа: "_CellSelectionByMouse_"
 
 {$Define CellSelectionByMouse_imp}
 

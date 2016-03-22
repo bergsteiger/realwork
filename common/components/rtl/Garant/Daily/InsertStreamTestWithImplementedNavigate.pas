@@ -1,79 +1,55 @@
 unit InsertStreamTestWithImplementedNavigate;
+ {* То же что и TInsertStreamTest, но с пустым Navigate }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/Daily/InsertStreamTestWithImplementedNavigate.pas"
-// Начат: 28.07.2010 15:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::EditorTests::TInsertStreamTestWithImplementedNavigate
-//
-// То же что и TInsertStreamTest, но с пустым Navigate
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\InsertStreamTestWithImplementedNavigate.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TInsertStreamTestWithImplementedNavigate" MUID: (4C501582010E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  InsertStreamTest,
-  evCustomEditorWindow,
-  l3Variant
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , InsertStreamTest
+ , evCustomEditorWindow
+ , l3Variant
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TInsertStreamTestWithImplementedNavigate = {abstract} class(TInsertStreamTest)
   {* То же что и TInsertStreamTest, но с пустым Navigate }
- protected
- // realized methods
+  protected
    procedure Navigate(aText: TevCustomEditorWindow;
     const anOp: Il3OpPack); override;
-     {* Устанавливает курсор или выделение }
- protected
- // overridden protected methods
+    {* Устанавливает курсор или выделение }
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TInsertStreamTestWithImplementedNavigate
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TInsertStreamTestWithImplementedNavigate
+ l3ImplUses
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 procedure TInsertStreamTestWithImplementedNavigate.Navigate(aText: TevCustomEditorWindow;
-  const anOp: Il3OpPack);
+ const anOp: Il3OpPack);
+ {* Устанавливает курсор или выделение }
 //#UC START# *4C4FE56300FB_4C501582010E_var*
 //#UC END# *4C4FE56300FB_4C501582010E_var*
 begin
@@ -83,17 +59,16 @@ begin
 end;//TInsertStreamTestWithImplementedNavigate.Navigate
 
 function TInsertStreamTestWithImplementedNavigate.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TInsertStreamTestWithImplementedNavigate.GetFolder
 
 function TInsertStreamTestWithImplementedNavigate.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4C501582010E';
 end;//TInsertStreamTestWithImplementedNavigate.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

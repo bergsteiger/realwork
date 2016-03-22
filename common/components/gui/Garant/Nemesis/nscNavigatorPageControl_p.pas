@@ -2,6 +2,7 @@ unit nscNavigatorPageControl_p;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscNavigatorPageControl_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TnscNavigatorPageControl" MUID: (499ABFF4003B)
 
 {$Include w:\common\components\gui\Garant\Nemesis\l3Define.inc}
 

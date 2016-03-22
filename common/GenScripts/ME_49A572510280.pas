@@ -2,6 +2,7 @@ unit Control_p;
 
 // Модуль: "w:\common\components\gui\Garant\AFW\Control_p.pas"
 // Стереотип: "TestClass"
+// Элемент модели: "TControl" MUID: (49A572510280)
 
 {$Include w:\common\components\l3Define.inc}
 

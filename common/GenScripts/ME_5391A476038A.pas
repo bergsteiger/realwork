@@ -3,6 +3,8 @@ unit MemoryUsagePrim_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MemoryUsagePrim_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "MemoryUsagePrim" MUID: (5391A476038A)
+// Имя типа: "TMemoryUsagePrimForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

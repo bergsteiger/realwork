@@ -3,6 +3,7 @@ unit CompareEditions_Controls;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\CompareEditions_Controls.pas"
 // Стереотип: "VCMControls"
+// Элемент модели: "CompareEditions" MUID: (4A897A0F0097)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

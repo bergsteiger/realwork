@@ -2,6 +2,7 @@ unit evSub_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evSub_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WevSub" MUID: (484F98D00070)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

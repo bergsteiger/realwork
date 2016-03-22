@@ -2,6 +2,7 @@ unit nsParaListNodeModelPart;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParaListNodeModelPart.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsParaListNodeModelPart" MUID: (4CEFA95A0301)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

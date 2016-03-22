@@ -3,6 +3,7 @@ unit evContentsTree;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evContentsTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevContentsTree" MUID: (4DFEEEA000DA)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

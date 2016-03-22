@@ -2,6 +2,7 @@ unit pgDataProvider;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgDataProvider.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgDataProvider" MUID: (55D6DA9E00BF)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
@@ -55,6 +56,8 @@ type
    f_CurrentFreeIDHelper: TpgFreeIDHelper;
    f_FunctionFactory: TpgFunctionFactory;
    f_SetGlobalDataProvider: Boolean;
+   f_HasAdminRights: Boolean;
+   f_AlienSessionID: TdaSessionID;
   private
    procedure ReadIniFile;
    function RegionQuery: IdaTabledQuery;
@@ -111,6 +114,7 @@ type
    function RegisterFreeExtDocID(aFamilyID: TdaFamilyID;
     const aKey: AnsiString;
     anID: TdaDocID): Boolean;
+   procedure SetAlienJournalData(aSessionID: TdaSessionID);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -187,7 +191,7 @@ constructor TpgDataProvider.Create(aParams: TpgDataProviderParams;
 begin
 //#UC START# *55E00D5A0297_55D6DA9E00BF_impl*
  inherited Create;
- f_Connection := TpgConnection.Create;
+ f_SetGlobalDataProvider := SetGlobalDataProvider;
  f_DataConverter := TpgDataConverter.Make;
  f_ForCheckLogin := ForCheckLogin;
  f_LongProcessList := TdaLongProcessSubscriberList.Make;
@@ -196,6 +200,10 @@ begin
 // f_Helper := ThtDataSchemeHelper.Make(f_Params);
  f_AllowClearLocks := AllowClearLocks;
  f_ImpersonatedUserID := 0;
+ f_CurHomePath:=aParams.HomeDirPath;
+ f_Connection := TpgConnection.Create(f_LongProcessList);
+ f_FunctionFactory := TpgFunctionFactory.Create(f_Connection, f_DataConverter);
+ f_AlienSessionID := BlankSession;
 //#UC END# *55E00D5A0297_55D6DA9E00BF_impl*
 end;//TpgDataProvider.Create
 
@@ -348,7 +356,11 @@ begin
  try
   Result := Get_UserManager.CheckPassword(aLogin, aPassword, IsRequireAdminRights, l_UserID);
   if Result = da_leOk then
+  begin
    f_Params.UserID := l_UserID;
+   f_CurHomePath := GetHomePath(l_UserID);
+   f_RequireAdminRights := IsRequireAdminRights;
+  end;
  except
   on E: Exception do
   begin
@@ -356,18 +368,6 @@ begin
    Result := da_leSQLError;
   end;
  end;
-
- (* l_Result:= GlobalHtServer.xxxCheckArchivariusPassword(aLogin, aPassword, IsRequireAdminRights);
- f_Params.UserID := GlobalHTServer.xxxUserID;
- if l_Result then
-  Result := da_leOk
- else
- begin
-  if IsRequireAdminRights and GlobalHtServer.xxxCheckArchivariusPassword(aLogin, aPassword, False) then
-   Result := da_leInsufficientRights
-  else
-   Result := da_leUserParamsWrong;
- end;*)
 //#UC END# *551BE2D701DE_55D6DA9E00BF_impl*
 end;//TpgDataProvider.CheckLogin
 
@@ -394,31 +394,81 @@ function TpgDataProvider.IsRegionExists(anID: TdaRegionID): Boolean;
 //#UC END# *551D2C300060_55D6DA9E00BF_var*
 begin
 //#UC START# *551D2C300060_55D6DA9E00BF_impl*
- Result := False;
- Assert(False);
-// !!! Needs to be implemented !!!
+ Result := not RegionResultSet(anId).IsEmpty;
 //#UC END# *551D2C300060_55D6DA9E00BF_impl*
 end;//TpgDataProvider.IsRegionExists
 
 function TpgDataProvider.GetRegionName(anID: TdaRegionID): AnsiString;
 //#UC START# *551D2C3603E0_55D6DA9E00BF_var*
+var
+ l_ResultSet: IdaResultSet;
 //#UC END# *551D2C3603E0_55D6DA9E00BF_var*
 begin
 //#UC START# *551D2C3603E0_55D6DA9E00BF_impl*
- Result := '';
- Assert(False);
-// !!! Needs to be implemented !!!
+ l_ResultSet := RegionResultSet(anId);
+ if l_ResultSet.IsEmpty then
+  Result := ''
+ else
+  Result := l_ResultSet.Field['Name'].AsString;
 //#UC END# *551D2C3603E0_55D6DA9E00BF_impl*
 end;//TpgDataProvider.GetRegionName
 
 procedure TpgDataProvider.FillRegionDataList(aList: Tl3StringDataList;
  Caps: Boolean);
 //#UC START# *551D35040362_55D6DA9E00BF_var*
+var
+ l_Query: IdaTabledQuery;
+ l_ResultSet: IdaResultSet;
+
+ procedure lp_FillListFromResultSet(const aResultSet : IdaResultSet; aList : Tl3StringDataList; Caps : Boolean);
+ var
+  l_SaveState : Boolean;
+  l_Str: AnsiString;
+  l_ID: TdaDictID;
+ begin
+  l_SaveState := aList.NeedAllocStr;
+  aList.NeedAllocStr := False;
+  try
+   while not aResultSet.EOF do
+   begin
+    l_ID := aResultSet.Field['ID'].AsByte;
+    l_Str := aResultSet.Field['Name'].AsString;
+    if Caps then
+     m2XLTConvertBuff(PAnsiChar(l_Str), Length(l_Str), Cm2XLTANSI2Upper);
+    aList.AddStr(l_Str, @l_ID);
+    aResultSet.Next;
+   end;
+  finally
+   aList.NeedAllocStr := l_SaveState;
+  end;
+ end;
+
 //#UC END# *551D35040362_55D6DA9E00BF_var*
 begin
 //#UC START# *551D35040362_55D6DA9E00BF_impl*
- Assert(False);
-// !!! Needs to be implemented !!!
+ l_Query := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtRegions));
+ try
+  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtRegions).Field['ID']));
+  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtRegions).Field['Name']));
+  l_ResultSet := l_Query.OpenResultSet;
+  try
+   aList.Changing;
+   try
+    aList.Clear;
+    aList.DataSize:=SizeOf(TdaDictID);
+    aList.NeedAllocStr:=True;
+    if l_ResultSet.IsEmpty then
+     exit;
+    lp_FillListFromResultSet(l_ResultSet,aList,Caps);
+   finally
+    aList.Changed;
+   end;
+  finally
+   l_ResultSet := nil;
+  end;
+ finally
+  l_Query := nil;
+ end;
 //#UC END# *551D35040362_55D6DA9E00BF_impl*
 end;//TpgDataProvider.FillRegionDataList
 
@@ -436,7 +486,7 @@ function TpgDataProvider.Get_AdminRights: Boolean;
 //#UC END# *551E6389027F_55D6DA9E00BFget_var*
 begin
 //#UC START# *551E6389027F_55D6DA9E00BFget_impl*
- Result := f_RequireAdminRights;
+ Result := f_HasAdminRights;
 //#UC END# *551E6389027F_55D6DA9E00BFget_impl*
 end;//TpgDataProvider.Get_AdminRights
 
@@ -464,9 +514,18 @@ function TpgDataProvider.GetFreeExtObjID(aFamily: TdaFamilyID): TdaDocID;
 //#UC END# *551E7E1501D8_55D6DA9E00BF_var*
 begin
 //#UC START# *551E7E1501D8_55D6DA9E00BF_impl*
- Result := 0;
- Assert(False);
-// !!! Needs to be implemented !!!
+ try
+  Result := FreeIDHelper[aFamily].GetFree(ftnImgHandle);
+ except
+  Result := 0;
+ end;
+
+ if (Result <= 0) then
+ try
+  Result := FreeIDHelper[aFamily].GetFree(ftnDocIDExternal);
+ except
+  Result := 0;
+ end;
 //#UC END# *551E7E1501D8_55D6DA9E00BF_impl*
 end;//TpgDataProvider.GetFreeExtObjID
 
@@ -475,9 +534,12 @@ function TpgDataProvider.GetFreeExtDocID(aFamily: TdaFamilyID): TdaDocID;
 //#UC END# *551E7E35030B_55D6DA9E00BF_var*
 begin
 //#UC START# *551E7E35030B_55D6DA9E00BF_impl*
- Result := 0;
- Assert(False);
-// !!! Needs to be implemented !!!
+ if not ExtDocIDsFromRange then
+  Result := 0
+ else
+  repeat
+   Result := FreeIDHelper[aFamily].GetFree(ftnDocIDExternal);
+  until Renum.ConvertToRealNumber(Result) = cUndefDocID;
 //#UC END# *551E7E35030B_55D6DA9E00BF_impl*
 end;//TpgDataProvider.GetFreeExtDocID
 
@@ -486,9 +548,12 @@ function TpgDataProvider.LockAll: Boolean;
 //#UC END# *5522326E0355_55D6DA9E00BF_var*
 begin
 //#UC START# *5522326E0355_55D6DA9E00BF_impl*
- Result := False;
- Assert(False);
-// !!! Needs to be implemented !!!
+ f_Connection.Unlock(pg_llShared);
+ Result := f_Connection.Lock(pg_llExclusive);
+ if Result then
+  Inc(f_LockCounter)
+ else
+  f_Connection.Lock(pg_llShared);
 //#UC END# *5522326E0355_55D6DA9E00BF_impl*
 end;//TpgDataProvider.LockAll
 
@@ -497,8 +562,10 @@ procedure TpgDataProvider.UnlockAll;
 //#UC END# *5522327B01D9_55D6DA9E00BF_var*
 begin
 //#UC START# *5522327B01D9_55D6DA9E00BF_impl*
- Assert(False);
-// !!! Needs to be implemented !!!
+ f_Connection.Unlock(pg_llExclusive);
+ Dec(f_LockCounter);
+ if not f_Connection.Lock(pg_llShared) then
+  EPgError.Create('Не удалось захватить базу');
 //#UC END# *5522327B01D9_55D6DA9E00BF_impl*
 end;//TpgDataProvider.UnlockAll
 
@@ -509,7 +576,6 @@ var
 //#UC END# *5522496C00CD_55D6DA9E00BFget_var*
 begin
 //#UC START# *5522496C00CD_55D6DA9E00BFget_impl*
-
  if f_BaseLang = nil then
  begin
   f_BaseLang:= TLanguageObj.Create;
@@ -530,9 +596,7 @@ function TpgDataProvider.Get_TextBase(aFamily: TdaFamilyID): AnsiString;
 //#UC END# *55226E4B01E0_55D6DA9E00BFget_var*
 begin
 //#UC START# *55226E4B01E0_55D6DA9E00BFget_impl*
- Result := '';
- Assert(False);
-// !!! Needs to be implemented !!!
+ Result := FamilyHelper.FamilyPath(aFamily) + 'bserv' + IntToHex(aFamily, 3);
 //#UC END# *55226E4B01E0_55D6DA9E00BFget_impl*
 end;//TpgDataProvider.Get_TextBase
 
@@ -541,9 +605,7 @@ function TpgDataProvider.GetHomePathName(aUserID: TdaUserID): TdaPathStr;
 //#UC END# *552391490184_55D6DA9E00BF_var*
 begin
 //#UC START# *552391490184_55D6DA9E00BF_impl*
- Result := '';
- Assert(False);
-// !!! Needs to be implemented !!!
+ Result := IncludeTrailingPathDelimiter(ConcatDirName(f_Params.HomeDirPath, GetHomePathCode(aUserID)));
 //#UC END# *552391490184_55D6DA9E00BF_impl*
 end;//TpgDataProvider.GetHomePathName
 
@@ -552,9 +614,8 @@ function TpgDataProvider.GetHomePath(aUserID: TdaUserID): TdaPathStr;
 //#UC END# *552391830231_55D6DA9E00BF_var*
 begin
 //#UC START# *552391830231_55D6DA9E00BF_impl*
- Result := '';
- Assert(False);
-// !!! Needs to be implemented !!!
+ Result := GetHomePathName(aUserID);
+ ForceDirectories(Result);
 //#UC END# *552391830231_55D6DA9E00BF_impl*
 end;//TpgDataProvider.GetHomePath
 
@@ -563,9 +624,7 @@ function TpgDataProvider.Get_CurHomePath: TdaPathStr;
 //#UC END# *5523983D0254_55D6DA9E00BFget_var*
 begin
 //#UC START# *5523983D0254_55D6DA9E00BFget_impl*
- Result := '';
- Assert(False);
-// !!! Needs to be implemented !!!
+ Result := f_CurHomePath;
 //#UC END# *5523983D0254_55D6DA9E00BFget_impl*
 end;//TpgDataProvider.Get_CurHomePath
 
@@ -574,20 +633,41 @@ function TpgDataProvider.Get_GlobalHomePath: TdaPathStr;
 //#UC END# *5523984A0349_55D6DA9E00BFget_var*
 begin
 //#UC START# *5523984A0349_55D6DA9E00BFget_impl*
- Result := '';
- Assert(False);
-// !!! Needs to be implemented !!!
+ Result := f_Params.HomeDirPath;
 //#UC END# *5523984A0349_55D6DA9E00BFget_impl*
 end;//TpgDataProvider.Get_GlobalHomePath
 
 function TpgDataProvider.ConvertAliasPath(const CurPath: TdaPathStr): TdaPathStr;
 //#UC START# *5523BD100174_55D6DA9E00BF_var*
+var
+ SecondPos : Byte;
+ CfgPath,
+ PathConst: AnsiString;
+ SaveSection : AnsiString;
 //#UC END# *5523BD100174_55D6DA9E00BF_var*
 begin
 //#UC START# *5523BD100174_55D6DA9E00BF_impl*
- Result := '';
- Assert(False);
-// !!! Needs to be implemented !!!
+ If CurPath[1]='%' then
+ Begin
+   SecondPos:=PosEx('%',CurPath,2);
+   If SecondPos=0 then
+    raise EPgError.Create('Путь не найден');
+   PathConst:= AnsiDequotedStr(CurPath, '%'); // Copy(CurPath,2,SecondPos-2);
+   CfgPath := IncludeTrailingBackslash(GetAliasValue(PathConst));
+
+   If SecondPos=Length(CurPath) then
+    Result:=CfgPath
+   else
+   Begin
+    If CurPath[SecondPos+1]='\' then
+     Result:=CfgPath+Copy(CurPath,SecondPos+2,Length(CurPath))
+    else
+     Result:=CfgPath+Copy(CurPath,SecondPos+1,Length(CurPath));
+   end;
+  end
+ else
+  Result := CurPath;
+ Result := IncludeTrailingBackslash(Result);
 //#UC END# *5523BD100174_55D6DA9E00BF_impl*
 end;//TpgDataProvider.ConvertAliasPath
 
@@ -638,21 +718,40 @@ begin
 //#UC START# *5526537A00CE_55D6DA9E00BF_impl*
  if f_IsStarted then
   Exit;
- Assert(GlobalDataProvider = nil);
- if GlobalDataProvider = nil then
+ if f_SetGlobalDataProvider then
  begin
-  SetGlobalDataProvider(Self);
-  f_NeedClearGlobalDataProvider := True;
+  Assert(GlobalDataProvider = nil);
+  if GlobalDataProvider = nil then
+  begin
+   SetGlobalDataProvider(Self);
+   f_NeedClearGlobalDataProvider := True;
+  end;
  end;
  try
   f_Connection.Connect(f_Params);
+  If not f_ForCheckLogin then
+  begin
+   if f_RequireAdminRights or ((Get_UserID <> usSupervisor) and (Get_UserID < usAdminReserved)) then
+   begin
+//!! !!! Need to be implemented !!!
+//    UserManager.GetUserGroup(fUserID); // load groups for logined user
+    f_CurHomePath:=GetHomePath(Get_UserID);
+//    AccessServer.ReLoadMasks(MainTblsFamily); // Перегружаем маски доступа к документам
+   end;
+   f_HasAdminRights := Get_UserManager.IsUserAdmin(Get_UserID);
+  end;
  except
   Stop;
   raise;
  end;
  ReadIniFile;
  if not f_ForCheckLogin then
-  Get_Journal.UserID := f_Params.UserID;
+ begin
+  if f_AlienSessionID <> BlankSession then
+   (Get_Journal as IdaComboAccessJournalHelper).SetAlienData(Get_UserID, f_AlienSessionID)
+  else
+   Get_Journal.UserID := Get_UserID;
+ end;
  f_IsStarted := True;
 //#UC END# *5526537A00CE_55D6DA9E00BF_impl*
 end;//TpgDataProvider.Start
@@ -672,6 +771,7 @@ begin
  if f_Connection.Connected then
   f_Connection.Disconnect;
  FreeAndNil(f_BaseLang);
+ f_IsStarted := False; 
 //#UC END# *5526538202A5_55D6DA9E00BF_impl*
 end;//TpgDataProvider.Stop
 
@@ -682,8 +782,11 @@ begin
 //#UC START# *55409258013F_55D6DA9E00BFget_impl*
  if f_Journal = nil then
  begin
-  f_Journal := TpgJournal.Make(Get_TableQueryFactory);
-  f_Journal.UserID := Get_UserID;
+  f_Journal := TpgJournal.Make(f_Connection, Get_TableQueryFactory);
+  if f_AlienSessionID <> BlankSession then
+   (f_Journal as IdaComboAccessJournalHelper).SetAlienData(Get_UserID, f_AlienSessionID)
+  else
+   f_Journal.UserID := Get_UserID;
   f_UserManager := nil; // ???
  end;
  Result := f_Journal;
@@ -775,6 +878,17 @@ begin
 //#UC END# *56BC6437030F_55D6DA9E00BF_impl*
 end;//TpgDataProvider.RegisterFreeExtDocID
 
+procedure TpgDataProvider.SetAlienJournalData(aSessionID: TdaSessionID);
+//#UC START# *56EBDD7002F8_55D6DA9E00BF_var*
+//#UC END# *56EBDD7002F8_55D6DA9E00BF_var*
+begin
+//#UC START# *56EBDD7002F8_55D6DA9E00BF_impl*
+ f_AlienSessionID := aSessionID;
+ if Assigned(f_Journal) then
+  (f_Journal as IdaComboAccessJournalHelper).SetAlienData(Get_UserID, f_AlienSessionID);
+//#UC END# *56EBDD7002F8_55D6DA9E00BF_impl*
+end;//TpgDataProvider.SetAlienJournalData
+
 procedure TpgDataProvider.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55D6DA9E00BF_var*
@@ -782,7 +896,12 @@ procedure TpgDataProvider.Cleanup;
 begin
 //#UC START# *479731C50290_55D6DA9E00BF_impl*
  Assert(not f_Connection.Connected);
-
+ FreeAndNil(f_FunctionFactory);
+ FreeAndNil(f_MainFreeIDHelper);
+ FreeAndNil(f_CurrentFreeIDHelper);
+ FreeAndNil(f_Renum);
+ FreeAndNil(f_FamilyHelper);
+ f_RegionQuery := nil;
  FreeAndNil(f_BaseLang);
  FreeAndNil(f_Params);
  FreeAndNil(f_LongProcessList);
@@ -791,8 +910,6 @@ begin
  f_UserManager := nil;
  f_Journal := nil;
  f_DataConverter := nil;
-// f_Helper := nil;
-// !!! Needs to be implemented !!!
  FreeANdNil(f_Connection);
  inherited;
 //#UC END# *479731C50290_55D6DA9E00BF_impl*

@@ -42,13 +42,23 @@
 
 				:: garantInternet {
 					pushd "garantInternet"
-						:: garantInternet-2.00 {
+						:: garantInternet-2.02 {
 							if exist "garantInternet-2.02.bat" (call "garantInternet-2.02.bat")
 
 							if exist "garantInternet-2.02-xback.bat" (call "garantInternet-2.02-xback.bat")
-						:: } garantInternet-2.00
+						:: } garantInternet-2.02
 					popd
 				:: } garantInternet
+
+				:: garantMini4 {
+					pushd "garantMini4"
+						:: garantMini4-1.00 {
+							if exist "garantMini4-1.00.bat" (call "garantMini4-1.00.bat")
+
+							if exist "garantMini4-1.00-xback.bat" (call "garantMini4-1.00-xback.bat")
+						:: } garantMini4-1.00
+					popd
+				:: } garantMini4
 
 				net use "N:" /delete /y 1>nul 2>&1
 				net use "N:" "\\10.0.1.155\garant-nemesis" 1>nul 2>&1

@@ -39,6 +39,7 @@ uses
  l3Base,
 
  daTypes,
+ daSchemeConsts,
 
  DT_Types, DT_Const, dt_AttrSchema,
  dtIntf, dt_Sab, DT_Dict;

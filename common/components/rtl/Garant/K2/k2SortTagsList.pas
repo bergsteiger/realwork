@@ -2,6 +2,7 @@ unit k2SortTagsList;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2SortTagsList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2SortTagsList" MUID: (4DDA76400330)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

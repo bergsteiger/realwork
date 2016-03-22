@@ -2,6 +2,7 @@ unit nsCustomStyleProcessor;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsCustomStyleProcessor.pas"
 // Стереотип: "ServiceImplementation"
+// Элемент модели: "TnsCustomStyleProcessor" MUID: (53AC08C900D0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

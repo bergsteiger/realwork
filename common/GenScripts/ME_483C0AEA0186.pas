@@ -2,6 +2,7 @@ unit atGblAdapterWorker;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atGblAdapterWorker.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "atGblAdapterWorker" MUID: (483C0AEA0186)
 
 interface
 

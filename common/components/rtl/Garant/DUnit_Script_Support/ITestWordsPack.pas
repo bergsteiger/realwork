@@ -2,6 +2,7 @@ unit ITestWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\DUnit_Script_Support\ITestWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "ITestWordsPack" MUID: (55C9F202036D)
 
 {$Include w:\common\components\rtl\Garant\DUnit_Script_Support\dsDefine.inc}
 
@@ -184,11 +185,6 @@ begin
  aCtx.rEngine.PushString(Name(aCtx, l_aTest));
 end;//TkwPopTestName.DoDoIt
 
-class function TkwPopTestName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Test:Name';
-end;//TkwPopTestName.GetWordNameForRegister
-
 procedure TkwPopTestName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -209,6 +205,11 @@ function TkwPopTestName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ITest)]);
 end;//TkwPopTestName.ParamsTypes
+
+class function TkwPopTestName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Test:Name';
+end;//TkwPopTestName.GetWordNameForRegister
 
 function TkwPopTestEnabled.Enabled(const aCtx: TtfwContext;
  const aTest: ITest): Boolean;
@@ -232,11 +233,6 @@ begin
  aCtx.rEngine.PushBool(Enabled(aCtx, l_aTest));
 end;//TkwPopTestEnabled.DoDoIt
 
-class function TkwPopTestEnabled.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Test:Enabled';
-end;//TkwPopTestEnabled.GetWordNameForRegister
-
 procedure TkwPopTestEnabled.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -257,6 +253,11 @@ function TkwPopTestEnabled.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ITest)]);
 end;//TkwPopTestEnabled.ParamsTypes
+
+class function TkwPopTestEnabled.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Test:Enabled';
+end;//TkwPopTestEnabled.GetWordNameForRegister
 
 function TkwPopTestSubFolder.SubFolder(const aCtx: TtfwContext;
  const aTest: ITest): AnsiString;
@@ -284,11 +285,6 @@ begin
  aCtx.rEngine.PushString(SubFolder(aCtx, l_aTest));
 end;//TkwPopTestSubFolder.DoDoIt
 
-class function TkwPopTestSubFolder.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Test:SubFolder';
-end;//TkwPopTestSubFolder.GetWordNameForRegister
-
 procedure TkwPopTestSubFolder.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -309,6 +305,11 @@ function TkwPopTestSubFolder.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ITest)]);
 end;//TkwPopTestSubFolder.ParamsTypes
+
+class function TkwPopTestSubFolder.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Test:SubFolder';
+end;//TkwPopTestSubFolder.GetWordNameForRegister
 
 function TkwPopTestHasScriptChildren.HasScriptChildren(const aCtx: TtfwContext;
  const aTest: ITest): Boolean;
@@ -332,11 +333,6 @@ begin
  aCtx.rEngine.PushBool(HasScriptChildren(aCtx, l_aTest));
 end;//TkwPopTestHasScriptChildren.DoDoIt
 
-class function TkwPopTestHasScriptChildren.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Test:HasScriptChildren';
-end;//TkwPopTestHasScriptChildren.GetWordNameForRegister
-
 procedure TkwPopTestHasScriptChildren.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -358,6 +354,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ITest)]);
 end;//TkwPopTestHasScriptChildren.ParamsTypes
 
+class function TkwPopTestHasScriptChildren.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Test:HasScriptChildren';
+end;//TkwPopTestHasScriptChildren.GetWordNameForRegister
+
 function TkwTestShouldStop.test_ShouldStop(const aCtx: TtfwContext): Boolean;
  {* Реализация слова скрипта test:ShouldStop }
 //#UC START# *4E0E008C1CF6_AFCC4A8F1DF4_var*
@@ -373,11 +374,6 @@ begin
  aCtx.rEngine.PushBool(test_ShouldStop(aCtx));
 end;//TkwTestShouldStop.DoDoIt
 
-class function TkwTestShouldStop.GetWordNameForRegister: AnsiString;
-begin
- Result := 'test:ShouldStop';
-end;//TkwTestShouldStop.GetWordNameForRegister
-
 function TkwTestShouldStop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -392,6 +388,11 @@ function TkwTestShouldStop.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwTestShouldStop.ParamsTypes
+
+class function TkwTestShouldStop.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'test:ShouldStop';
+end;//TkwTestShouldStop.GetWordNameForRegister
 
 initialization
  TITestWordsPackResNameGetter.Register;

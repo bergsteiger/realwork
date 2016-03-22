@@ -2,6 +2,7 @@ unit l3CEmptyString;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CEmptyString.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CEmptyString" MUID: (4F5CBEC30305)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -3,6 +3,8 @@ unit PrimSettings_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimSettings_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "PrimSettings" MUID: (4AC63ADF023F)
+// Имя типа: "TPrimSettingsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

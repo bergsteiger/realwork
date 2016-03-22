@@ -3,6 +3,7 @@ unit l3ObjectCache;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ObjectCache.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ObjectCache" MUID: (4773DB430315)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

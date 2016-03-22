@@ -67,9 +67,17 @@ type
    ['{9794D84D-10DE-4BC6-A05D-F4C88FBEEBC7}']
  end;//PictureFormDef
 
+//#UC START# *4AAFCF930362ci*
+//#UC END# *4AAFCF930362ci*
+//#UC START# *4AAFCF930362cit*
+//#UC END# *4AAFCF930362cit*
   TPictureForm = {final form} class(TPrimPictureOptionsForm, PictureFormDef)
    {* Рисунок }
   Entities : TvcmEntities;
+//#UC START# *4AAFCF930362publ*
+  published
+   property Scale;
+//#UC END# *4AAFCF930362publ*
   end;//TPictureForm
 {$IfEnd} //not Admin AND not Monitorings
 
@@ -95,6 +103,9 @@ uses
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 
+
+//#UC START# *4AAFCF930362impl*
+//#UC END# *4AAFCF930362impl*
 
 {$IfEnd} //not Admin AND not Monitorings
 

@@ -77,33 +77,7 @@ ref; // ME_5E0D3F501471 utEmptyMainWindowConstants
 
 FORWARD ME_BD980C2F0BF3
 
-: ME_540AFDFB20AC
- CONST UID '540AFDFB20AC'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_FormUserType_utEmptyMainWindow' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_BD980C2F0BF3 // Tkw_FormUserType_utEmptyMainWindow
- ;
-
-ref; // ME_540AFDFB20AC Ini_Reg
-
-: ME_4DB0614603C8_ME_BD980C2F0BF3
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_BD980C2F0BF3 // Tkw_FormUserType_utEmptyMainWindow
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_BD980C2F0BF3 GetWordNameForRegister
-
 : ME_4EE1DC8903BB_ME_BD980C2F0BF3
- CONST UID '4EE1DC8903BB'
- CONST Name 'GetInteger'
  : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
  ;
  : Implementor ME_BD980C2F0BF3 // Tkw_FormUserType_utEmptyMainWindow
@@ -127,13 +101,8 @@ ref; // ME_4EE1DC8903BB_ME_BD980C2F0BF3 GetInteger
    Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_540AFDFB20AC // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_BD980C2F0BF3 // GetWordNameForRegister
- ME_4EE1DC8903BB_ME_BD980C2F0BF3 // GetInteger
+   Seq: ( ME_4EE1DC8903BB_ME_BD980C2F0BF3 // GetInteger
  )
  ; // Overridden
  CONST "NameForScript" 'тип_формы::utEmptyMainWindow'
@@ -367,7 +336,6 @@ ref; // ME_25C19092138D Init_Str_utEmptyMainWindowSettingsCaption
 ref; // ME_0A22AE23AB3C Ini_Reg_Class
 
 : ME_BE3F24D0F58F
- CONST UID 'BE3F24D0F58F'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -379,7 +347,6 @@ ref; // ME_0A22AE23AB3C Ini_Reg_Class
 ref; // ME_BE3F24D0F58F 
 
 : ME_B900EA68AB55
- CONST UID 'B900EA68AB55'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -391,7 +358,6 @@ ref; // ME_BE3F24D0F58F
 ref; // ME_B900EA68AB55 
 
 : ME_0AB8F0933CC1
- CONST UID '0AB8F0933CC1'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -403,8 +369,6 @@ ref; // ME_B900EA68AB55
 ref; // ME_0AB8F0933CC1 
 
 : ME_49803F5503AA_ME_4AA919040176
- CONST UID '49803F5503AA'
- CONST Name 'DoInit'
  : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
  ;
  : Implementor ME_4AA919040176 // PrimMonitoringsMain
@@ -616,7 +580,6 @@ ref; // ME_7DE84C1ACFF7 Ini_Reg_Class
 ref; // ME_14FDCD5D4A1E Ini_FormFactory_MonitoringsMain$Def
 
 : ME_2126BF9F8AFF
- CONST UID '2126BF9F8AFF'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -734,33 +697,7 @@ FORWARD ME_ED33546FFF82
 
 FORWARD ME_B0D3CFD6A5B0
 
-: ME_75B37732A064
- CONST UID '75B37732A064'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_Form_MonitoringsMain' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B0D3CFD6A5B0 // Tkw_Form_MonitoringsMain
- ;
-
-ref; // ME_75B37732A064 Ini_Reg
-
-: ME_4DB0614603C8_ME_B0D3CFD6A5B0
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_B0D3CFD6A5B0 // Tkw_Form_MonitoringsMain
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_B0D3CFD6A5B0 GetWordNameForRegister
-
 : ME_4DDFD2EA0116_ME_B0D3CFD6A5B0
- CONST UID '4DDFD2EA0116'
- CONST Name 'GetString'
  : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
  ;
  : Implementor ME_B0D3CFD6A5B0 // Tkw_Form_MonitoringsMain
@@ -784,13 +721,8 @@ ref; // ME_4DDFD2EA0116_ME_B0D3CFD6A5B0 GetString
    Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_75B37732A064 // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_B0D3CFD6A5B0 // GetWordNameForRegister
- ME_4DDFD2EA0116_ME_B0D3CFD6A5B0 // GetString
+   Seq: ( ME_4DDFD2EA0116_ME_B0D3CFD6A5B0 // GetString
  )
  ; // Overridden
  CONST "NameForScript" 'форма::MonitoringsMain'
@@ -808,22 +740,7 @@ ref; // ME_B0D3CFD6A5B0 Tkw_Form_MonitoringsMain
 
 FORWARD ME_316064C7D78A
 
-: ME_B432B8BDD3EE
- CONST UID 'B432B8BDD3EE'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_StatusBar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_316064C7D78A // Tkw_MonitoringsMain_Control_StatusBar
- ;
-
-ref; // ME_B432B8BDD3EE Ini_Reg
-
 : ME_A4AE2FB39822
- CONST UID 'A4AE2FB39822'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -835,7 +752,6 @@ ref; // ME_B432B8BDD3EE Ini_Reg
 ref; // ME_A4AE2FB39822 
 
 : ME_655DCB02CB1E
- CONST UID '655DCB02CB1E'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -846,19 +762,7 @@ ref; // ME_A4AE2FB39822
 
 ref; // ME_655DCB02CB1E 
 
-: ME_4DB0614603C8_ME_316064C7D78A
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_316064C7D78A // Tkw_MonitoringsMain_Control_StatusBar
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_316064C7D78A GetWordNameForRegister
-
 : ME_4DDFD2EA0116_ME_316064C7D78A
- CONST UID '4DDFD2EA0116'
- CONST Name 'GetString'
  : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
  ;
  : Implementor ME_316064C7D78A // Tkw_MonitoringsMain_Control_StatusBar
@@ -867,8 +771,6 @@ ref; // ME_4DB0614603C8_ME_316064C7D78A GetWordNameForRegister
 ref; // ME_4DDFD2EA0116_ME_316064C7D78A GetString
 
 : ME_52A086150180_ME_316064C7D78A
- CONST UID '52A086150180'
- CONST Name 'RegisterInEngine'
  : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
  ;
  : Implementor ME_316064C7D78A // Tkw_MonitoringsMain_Control_StatusBar
@@ -893,13 +795,8 @@ ref; // ME_52A086150180_ME_316064C7D78A RegisterInEngine
    Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B432B8BDD3EE // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_316064C7D78A // GetWordNameForRegister
- ME_4DDFD2EA0116_ME_316064C7D78A // GetString
+   Seq: ( ME_4DDFD2EA0116_ME_316064C7D78A // GetString
  ME_52A086150180_ME_316064C7D78A // RegisterInEngine
  )
  ; // Overridden
@@ -922,39 +819,13 @@ ref; // ME_316064C7D78A Tkw_MonitoringsMain_Control_StatusBar
 
 FORWARD ME_4C036AED963F
 
-: ME_85814D586F7D
- CONST UID '85814D586F7D'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_StatusBar_Push' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C036AED963F // Tkw_MonitoringsMain_Control_StatusBar_Push
- ;
-
-ref; // ME_85814D586F7D Ini_Reg
-
 : ME_4DAEEDE10285_ME_4C036AED963F
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4C036AED963F // Tkw_MonitoringsMain_Control_StatusBar_Push
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4DAEEDE10285_ME_4C036AED963F DoDoIt
-
-: ME_4DB0614603C8_ME_4C036AED963F
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_4C036AED963F // Tkw_MonitoringsMain_Control_StatusBar_Push
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4C036AED963F GetWordNameForRegister
 
 : ME_4C036AED963F
  CONST UID '4C036AED963F'
@@ -972,13 +843,8 @@ ref; // ME_4DB0614603C8_ME_4C036AED963F GetWordNameForRegister
    Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_85814D586F7D // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DAEEDE10285_ME_4C036AED963F // DoDoIt
- ME_4DB0614603C8_ME_4C036AED963F // GetWordNameForRegister
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::StatusBar:push'
@@ -995,22 +861,7 @@ ref; // ME_4C036AED963F Tkw_MonitoringsMain_Control_StatusBar_Push
 
 FORWARD ME_9EA55C0FD677
 
-: ME_38639607B500
- CONST UID '38639607B500'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ClientZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_9EA55C0FD677 // Tkw_MonitoringsMain_Control_ClientZone
- ;
-
-ref; // ME_38639607B500 Ini_Reg
-
 : ME_20A0056A89D3
- CONST UID '20A0056A89D3'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1022,7 +873,6 @@ ref; // ME_38639607B500 Ini_Reg
 ref; // ME_20A0056A89D3 
 
 : ME_5F22E05B5FEC
- CONST UID '5F22E05B5FEC'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1033,19 +883,7 @@ ref; // ME_20A0056A89D3
 
 ref; // ME_5F22E05B5FEC 
 
-: ME_4DB0614603C8_ME_9EA55C0FD677
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_9EA55C0FD677 // Tkw_MonitoringsMain_Control_ClientZone
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_9EA55C0FD677 GetWordNameForRegister
-
 : ME_4DDFD2EA0116_ME_9EA55C0FD677
- CONST UID '4DDFD2EA0116'
- CONST Name 'GetString'
  : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
  ;
  : Implementor ME_9EA55C0FD677 // Tkw_MonitoringsMain_Control_ClientZone
@@ -1054,8 +892,6 @@ ref; // ME_4DB0614603C8_ME_9EA55C0FD677 GetWordNameForRegister
 ref; // ME_4DDFD2EA0116_ME_9EA55C0FD677 GetString
 
 : ME_52A086150180_ME_9EA55C0FD677
- CONST UID '52A086150180'
- CONST Name 'RegisterInEngine'
  : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
  ;
  : Implementor ME_9EA55C0FD677 // Tkw_MonitoringsMain_Control_ClientZone
@@ -1080,13 +916,8 @@ ref; // ME_52A086150180_ME_9EA55C0FD677 RegisterInEngine
    Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_38639607B500 // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_9EA55C0FD677 // GetWordNameForRegister
- ME_4DDFD2EA0116_ME_9EA55C0FD677 // GetString
+   Seq: ( ME_4DDFD2EA0116_ME_9EA55C0FD677 // GetString
  ME_52A086150180_ME_9EA55C0FD677 // RegisterInEngine
  )
  ; // Overridden
@@ -1109,39 +940,13 @@ ref; // ME_9EA55C0FD677 Tkw_MonitoringsMain_Control_ClientZone
 
 FORWARD ME_8EA5A22D1155
 
-: ME_6B4E7CFA49E1
- CONST UID '6B4E7CFA49E1'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ClientZone_Push' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_8EA5A22D1155 // Tkw_MonitoringsMain_Control_ClientZone_Push
- ;
-
-ref; // ME_6B4E7CFA49E1 Ini_Reg
-
 : ME_4DAEEDE10285_ME_8EA5A22D1155
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_8EA5A22D1155 // Tkw_MonitoringsMain_Control_ClientZone_Push
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4DAEEDE10285_ME_8EA5A22D1155 DoDoIt
-
-: ME_4DB0614603C8_ME_8EA5A22D1155
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_8EA5A22D1155 // Tkw_MonitoringsMain_Control_ClientZone_Push
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_8EA5A22D1155 GetWordNameForRegister
 
 : ME_8EA5A22D1155
  CONST UID '8EA5A22D1155'
@@ -1159,13 +964,8 @@ ref; // ME_4DB0614603C8_ME_8EA5A22D1155 GetWordNameForRegister
    Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6B4E7CFA49E1 // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DAEEDE10285_ME_8EA5A22D1155 // DoDoIt
- ME_4DB0614603C8_ME_8EA5A22D1155 // GetWordNameForRegister
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::ClientZone:push'
@@ -1182,22 +982,7 @@ ref; // ME_8EA5A22D1155 Tkw_MonitoringsMain_Control_ClientZone_Push
 
 FORWARD ME_765E81224A01
 
-: ME_BD26EC31101E
- CONST UID 'BD26EC31101E'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_MainZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_765E81224A01 // Tkw_MonitoringsMain_Control_MainZone
- ;
-
-ref; // ME_BD26EC31101E Ini_Reg
-
 : ME_0F35D28D8B53
- CONST UID '0F35D28D8B53'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1209,7 +994,6 @@ ref; // ME_BD26EC31101E Ini_Reg
 ref; // ME_0F35D28D8B53 
 
 : ME_5C0CE7103DA7
- CONST UID '5C0CE7103DA7'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1220,19 +1004,7 @@ ref; // ME_0F35D28D8B53
 
 ref; // ME_5C0CE7103DA7 
 
-: ME_4DB0614603C8_ME_765E81224A01
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_765E81224A01 // Tkw_MonitoringsMain_Control_MainZone
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_765E81224A01 GetWordNameForRegister
-
 : ME_4DDFD2EA0116_ME_765E81224A01
- CONST UID '4DDFD2EA0116'
- CONST Name 'GetString'
  : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
  ;
  : Implementor ME_765E81224A01 // Tkw_MonitoringsMain_Control_MainZone
@@ -1241,8 +1013,6 @@ ref; // ME_4DB0614603C8_ME_765E81224A01 GetWordNameForRegister
 ref; // ME_4DDFD2EA0116_ME_765E81224A01 GetString
 
 : ME_52A086150180_ME_765E81224A01
- CONST UID '52A086150180'
- CONST Name 'RegisterInEngine'
  : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
  ;
  : Implementor ME_765E81224A01 // Tkw_MonitoringsMain_Control_MainZone
@@ -1267,13 +1037,8 @@ ref; // ME_52A086150180_ME_765E81224A01 RegisterInEngine
    Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BD26EC31101E // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_765E81224A01 // GetWordNameForRegister
- ME_4DDFD2EA0116_ME_765E81224A01 // GetString
+   Seq: ( ME_4DDFD2EA0116_ME_765E81224A01 // GetString
  ME_52A086150180_ME_765E81224A01 // RegisterInEngine
  )
  ; // Overridden
@@ -1296,39 +1061,13 @@ ref; // ME_765E81224A01 Tkw_MonitoringsMain_Control_MainZone
 
 FORWARD ME_DA6B495B8E07
 
-: ME_2A6961DB501A
- CONST UID '2A6961DB501A'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_MainZone_Push' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_DA6B495B8E07 // Tkw_MonitoringsMain_Control_MainZone_Push
- ;
-
-ref; // ME_2A6961DB501A Ini_Reg
-
 : ME_4DAEEDE10285_ME_DA6B495B8E07
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_DA6B495B8E07 // Tkw_MonitoringsMain_Control_MainZone_Push
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4DAEEDE10285_ME_DA6B495B8E07 DoDoIt
-
-: ME_4DB0614603C8_ME_DA6B495B8E07
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_DA6B495B8E07 // Tkw_MonitoringsMain_Control_MainZone_Push
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_DA6B495B8E07 GetWordNameForRegister
 
 : ME_DA6B495B8E07
  CONST UID 'DA6B495B8E07'
@@ -1346,13 +1085,8 @@ ref; // ME_4DB0614603C8_ME_DA6B495B8E07 GetWordNameForRegister
    Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2A6961DB501A // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DAEEDE10285_ME_DA6B495B8E07 // DoDoIt
- ME_4DB0614603C8_ME_DA6B495B8E07 // GetWordNameForRegister
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::MainZone:push'
@@ -1369,22 +1103,7 @@ ref; // ME_DA6B495B8E07 Tkw_MonitoringsMain_Control_MainZone_Push
 
 FORWARD ME_A3BCD85EFE5D
 
-: ME_F55FE67362B0
- CONST UID 'F55FE67362B0'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ParentZonePanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A3BCD85EFE5D // Tkw_MonitoringsMain_Control_ParentZonePanel
- ;
-
-ref; // ME_F55FE67362B0 Ini_Reg
-
 : ME_D1ED7042DD76
- CONST UID 'D1ED7042DD76'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1396,7 +1115,6 @@ ref; // ME_F55FE67362B0 Ini_Reg
 ref; // ME_D1ED7042DD76 
 
 : ME_3686504FD3CE
- CONST UID '3686504FD3CE'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1407,19 +1125,7 @@ ref; // ME_D1ED7042DD76
 
 ref; // ME_3686504FD3CE 
 
-: ME_4DB0614603C8_ME_A3BCD85EFE5D
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_A3BCD85EFE5D // Tkw_MonitoringsMain_Control_ParentZonePanel
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_A3BCD85EFE5D GetWordNameForRegister
-
 : ME_4DDFD2EA0116_ME_A3BCD85EFE5D
- CONST UID '4DDFD2EA0116'
- CONST Name 'GetString'
  : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
  ;
  : Implementor ME_A3BCD85EFE5D // Tkw_MonitoringsMain_Control_ParentZonePanel
@@ -1428,8 +1134,6 @@ ref; // ME_4DB0614603C8_ME_A3BCD85EFE5D GetWordNameForRegister
 ref; // ME_4DDFD2EA0116_ME_A3BCD85EFE5D GetString
 
 : ME_52A086150180_ME_A3BCD85EFE5D
- CONST UID '52A086150180'
- CONST Name 'RegisterInEngine'
  : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
  ;
  : Implementor ME_A3BCD85EFE5D // Tkw_MonitoringsMain_Control_ParentZonePanel
@@ -1454,13 +1158,8 @@ ref; // ME_52A086150180_ME_A3BCD85EFE5D RegisterInEngine
    Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F55FE67362B0 // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_A3BCD85EFE5D // GetWordNameForRegister
- ME_4DDFD2EA0116_ME_A3BCD85EFE5D // GetString
+   Seq: ( ME_4DDFD2EA0116_ME_A3BCD85EFE5D // GetString
  ME_52A086150180_ME_A3BCD85EFE5D // RegisterInEngine
  )
  ; // Overridden
@@ -1483,39 +1182,13 @@ ref; // ME_A3BCD85EFE5D Tkw_MonitoringsMain_Control_ParentZonePanel
 
 FORWARD ME_470C255C1280
 
-: ME_7264A9748BD3
- CONST UID '7264A9748BD3'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ParentZonePanel_Push' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_470C255C1280 // Tkw_MonitoringsMain_Control_ParentZonePanel_Push
- ;
-
-ref; // ME_7264A9748BD3 Ini_Reg
-
 : ME_4DAEEDE10285_ME_470C255C1280
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_470C255C1280 // Tkw_MonitoringsMain_Control_ParentZonePanel_Push
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4DAEEDE10285_ME_470C255C1280 DoDoIt
-
-: ME_4DB0614603C8_ME_470C255C1280
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_470C255C1280 // Tkw_MonitoringsMain_Control_ParentZonePanel_Push
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_470C255C1280 GetWordNameForRegister
 
 : ME_470C255C1280
  CONST UID '470C255C1280'
@@ -1533,13 +1206,8 @@ ref; // ME_4DB0614603C8_ME_470C255C1280 GetWordNameForRegister
    Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7264A9748BD3 // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DAEEDE10285_ME_470C255C1280 // DoDoIt
- ME_4DB0614603C8_ME_470C255C1280 // GetWordNameForRegister
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::ParentZonePanel:push'
@@ -1556,22 +1224,7 @@ ref; // ME_470C255C1280 Tkw_MonitoringsMain_Control_ParentZonePanel_Push
 
 FORWARD ME_A6AB0E00A47C
 
-: ME_7B9ECD6D1A7A
- CONST UID '7B9ECD6D1A7A'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ChildZonePanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A6AB0E00A47C // Tkw_MonitoringsMain_Control_ChildZonePanel
- ;
-
-ref; // ME_7B9ECD6D1A7A Ini_Reg
-
 : ME_FA30251A0E46
- CONST UID 'FA30251A0E46'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1583,7 +1236,6 @@ ref; // ME_7B9ECD6D1A7A Ini_Reg
 ref; // ME_FA30251A0E46 
 
 : ME_A58B372ED588
- CONST UID 'A58B372ED588'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1594,19 +1246,7 @@ ref; // ME_FA30251A0E46
 
 ref; // ME_A58B372ED588 
 
-: ME_4DB0614603C8_ME_A6AB0E00A47C
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_A6AB0E00A47C // Tkw_MonitoringsMain_Control_ChildZonePanel
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_A6AB0E00A47C GetWordNameForRegister
-
 : ME_4DDFD2EA0116_ME_A6AB0E00A47C
- CONST UID '4DDFD2EA0116'
- CONST Name 'GetString'
  : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
  ;
  : Implementor ME_A6AB0E00A47C // Tkw_MonitoringsMain_Control_ChildZonePanel
@@ -1615,8 +1255,6 @@ ref; // ME_4DB0614603C8_ME_A6AB0E00A47C GetWordNameForRegister
 ref; // ME_4DDFD2EA0116_ME_A6AB0E00A47C GetString
 
 : ME_52A086150180_ME_A6AB0E00A47C
- CONST UID '52A086150180'
- CONST Name 'RegisterInEngine'
  : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
  ;
  : Implementor ME_A6AB0E00A47C // Tkw_MonitoringsMain_Control_ChildZonePanel
@@ -1641,13 +1279,8 @@ ref; // ME_52A086150180_ME_A6AB0E00A47C RegisterInEngine
    Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7B9ECD6D1A7A // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_A6AB0E00A47C // GetWordNameForRegister
- ME_4DDFD2EA0116_ME_A6AB0E00A47C // GetString
+   Seq: ( ME_4DDFD2EA0116_ME_A6AB0E00A47C // GetString
  ME_52A086150180_ME_A6AB0E00A47C // RegisterInEngine
  )
  ; // Overridden
@@ -1670,39 +1303,13 @@ ref; // ME_A6AB0E00A47C Tkw_MonitoringsMain_Control_ChildZonePanel
 
 FORWARD ME_65B854BE4D29
 
-: ME_01570BD5DCA0
- CONST UID '01570BD5DCA0'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ChildZonePanel_Push' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_65B854BE4D29 // Tkw_MonitoringsMain_Control_ChildZonePanel_Push
- ;
-
-ref; // ME_01570BD5DCA0 Ini_Reg
-
 : ME_4DAEEDE10285_ME_65B854BE4D29
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_65B854BE4D29 // Tkw_MonitoringsMain_Control_ChildZonePanel_Push
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4DAEEDE10285_ME_65B854BE4D29 DoDoIt
-
-: ME_4DB0614603C8_ME_65B854BE4D29
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_65B854BE4D29 // Tkw_MonitoringsMain_Control_ChildZonePanel_Push
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_65B854BE4D29 GetWordNameForRegister
 
 : ME_65B854BE4D29
  CONST UID '65B854BE4D29'
@@ -1720,13 +1327,8 @@ ref; // ME_4DB0614603C8_ME_65B854BE4D29 GetWordNameForRegister
    Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_01570BD5DCA0 // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DAEEDE10285_ME_65B854BE4D29 // DoDoIt
- ME_4DB0614603C8_ME_65B854BE4D29 // GetWordNameForRegister
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::ChildZonePanel:push'
@@ -1743,22 +1345,7 @@ ref; // ME_65B854BE4D29 Tkw_MonitoringsMain_Control_ChildZonePanel_Push
 
 FORWARD ME_A5889E612903
 
-: ME_BD899F48F162
- CONST UID 'BD899F48F162'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_BaseSearchPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A5889E612903 // Tkw_MonitoringsMain_Control_BaseSearchPanel
- ;
-
-ref; // ME_BD899F48F162 Ini_Reg
-
 : ME_393F0EB2AA5E
- CONST UID '393F0EB2AA5E'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1770,7 +1357,6 @@ ref; // ME_BD899F48F162 Ini_Reg
 ref; // ME_393F0EB2AA5E 
 
 : ME_9AC2E151AED2
- CONST UID '9AC2E151AED2'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1781,19 +1367,7 @@ ref; // ME_393F0EB2AA5E
 
 ref; // ME_9AC2E151AED2 
 
-: ME_4DB0614603C8_ME_A5889E612903
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_A5889E612903 // Tkw_MonitoringsMain_Control_BaseSearchPanel
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_A5889E612903 GetWordNameForRegister
-
 : ME_4DDFD2EA0116_ME_A5889E612903
- CONST UID '4DDFD2EA0116'
- CONST Name 'GetString'
  : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
  ;
  : Implementor ME_A5889E612903 // Tkw_MonitoringsMain_Control_BaseSearchPanel
@@ -1802,8 +1376,6 @@ ref; // ME_4DB0614603C8_ME_A5889E612903 GetWordNameForRegister
 ref; // ME_4DDFD2EA0116_ME_A5889E612903 GetString
 
 : ME_52A086150180_ME_A5889E612903
- CONST UID '52A086150180'
- CONST Name 'RegisterInEngine'
  : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
  ;
  : Implementor ME_A5889E612903 // Tkw_MonitoringsMain_Control_BaseSearchPanel
@@ -1828,13 +1400,8 @@ ref; // ME_52A086150180_ME_A5889E612903 RegisterInEngine
    Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BD899F48F162 // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_A5889E612903 // GetWordNameForRegister
- ME_4DDFD2EA0116_ME_A5889E612903 // GetString
+   Seq: ( ME_4DDFD2EA0116_ME_A5889E612903 // GetString
  ME_52A086150180_ME_A5889E612903 // RegisterInEngine
  )
  ; // Overridden
@@ -1857,39 +1424,13 @@ ref; // ME_A5889E612903 Tkw_MonitoringsMain_Control_BaseSearchPanel
 
 FORWARD ME_897FF1B160A5
 
-: ME_F5E71ED11C22
- CONST UID 'F5E71ED11C22'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_BaseSearchPanel_Push' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_897FF1B160A5 // Tkw_MonitoringsMain_Control_BaseSearchPanel_Push
- ;
-
-ref; // ME_F5E71ED11C22 Ini_Reg
-
 : ME_4DAEEDE10285_ME_897FF1B160A5
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_897FF1B160A5 // Tkw_MonitoringsMain_Control_BaseSearchPanel_Push
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4DAEEDE10285_ME_897FF1B160A5 DoDoIt
-
-: ME_4DB0614603C8_ME_897FF1B160A5
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_897FF1B160A5 // Tkw_MonitoringsMain_Control_BaseSearchPanel_Push
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_897FF1B160A5 GetWordNameForRegister
 
 : ME_897FF1B160A5
  CONST UID '897FF1B160A5'
@@ -1907,13 +1448,8 @@ ref; // ME_4DB0614603C8_ME_897FF1B160A5 GetWordNameForRegister
    Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F5E71ED11C22 // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DAEEDE10285_ME_897FF1B160A5 // DoDoIt
- ME_4DB0614603C8_ME_897FF1B160A5 // GetWordNameForRegister
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::BaseSearchPanel:push'
@@ -1930,22 +1466,7 @@ ref; // ME_897FF1B160A5 Tkw_MonitoringsMain_Control_BaseSearchPanel_Push
 
 FORWARD ME_4499FD73873B
 
-: ME_C8165FC95580
- CONST UID 'C8165FC95580'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_LeftNavigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4499FD73873B // Tkw_MonitoringsMain_Control_LeftNavigator
- ;
-
-ref; // ME_C8165FC95580 Ini_Reg
-
 : ME_0CF546F6DAF6
- CONST UID '0CF546F6DAF6'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1957,7 +1478,6 @@ ref; // ME_C8165FC95580 Ini_Reg
 ref; // ME_0CF546F6DAF6 
 
 : ME_4D0D897093AC
- CONST UID '4D0D897093AC'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1968,19 +1488,7 @@ ref; // ME_0CF546F6DAF6
 
 ref; // ME_4D0D897093AC 
 
-: ME_4DB0614603C8_ME_4499FD73873B
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_4499FD73873B // Tkw_MonitoringsMain_Control_LeftNavigator
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4499FD73873B GetWordNameForRegister
-
 : ME_4DDFD2EA0116_ME_4499FD73873B
- CONST UID '4DDFD2EA0116'
- CONST Name 'GetString'
  : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
  ;
  : Implementor ME_4499FD73873B // Tkw_MonitoringsMain_Control_LeftNavigator
@@ -1989,8 +1497,6 @@ ref; // ME_4DB0614603C8_ME_4499FD73873B GetWordNameForRegister
 ref; // ME_4DDFD2EA0116_ME_4499FD73873B GetString
 
 : ME_52A086150180_ME_4499FD73873B
- CONST UID '52A086150180'
- CONST Name 'RegisterInEngine'
  : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
  ;
  : Implementor ME_4499FD73873B // Tkw_MonitoringsMain_Control_LeftNavigator
@@ -2015,13 +1521,8 @@ ref; // ME_52A086150180_ME_4499FD73873B RegisterInEngine
    Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C8165FC95580 // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_4499FD73873B // GetWordNameForRegister
- ME_4DDFD2EA0116_ME_4499FD73873B // GetString
+   Seq: ( ME_4DDFD2EA0116_ME_4499FD73873B // GetString
  ME_52A086150180_ME_4499FD73873B // RegisterInEngine
  )
  ; // Overridden
@@ -2044,39 +1545,13 @@ ref; // ME_4499FD73873B Tkw_MonitoringsMain_Control_LeftNavigator
 
 FORWARD ME_0F416FA0FB28
 
-: ME_D7CFC24720FF
- CONST UID 'D7CFC24720FF'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_LeftNavigator_Push' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_0F416FA0FB28 // Tkw_MonitoringsMain_Control_LeftNavigator_Push
- ;
-
-ref; // ME_D7CFC24720FF Ini_Reg
-
 : ME_4DAEEDE10285_ME_0F416FA0FB28
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_0F416FA0FB28 // Tkw_MonitoringsMain_Control_LeftNavigator_Push
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4DAEEDE10285_ME_0F416FA0FB28 DoDoIt
-
-: ME_4DB0614603C8_ME_0F416FA0FB28
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_0F416FA0FB28 // Tkw_MonitoringsMain_Control_LeftNavigator_Push
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_0F416FA0FB28 GetWordNameForRegister
 
 : ME_0F416FA0FB28
  CONST UID '0F416FA0FB28'
@@ -2094,13 +1569,8 @@ ref; // ME_4DB0614603C8_ME_0F416FA0FB28 GetWordNameForRegister
    Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D7CFC24720FF // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DAEEDE10285_ME_0F416FA0FB28 // DoDoIt
- ME_4DB0614603C8_ME_0F416FA0FB28 // GetWordNameForRegister
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::LeftNavigator:push'
@@ -2117,22 +1587,7 @@ ref; // ME_0F416FA0FB28 Tkw_MonitoringsMain_Control_LeftNavigator_Push
 
 FORWARD ME_87474E831116
 
-: ME_440C4A26759B
- CONST UID '440C4A26759B'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_RightNavigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_87474E831116 // Tkw_MonitoringsMain_Control_RightNavigator
- ;
-
-ref; // ME_440C4A26759B Ini_Reg
-
 : ME_D51BCA91DEB7
- CONST UID 'D51BCA91DEB7'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2144,7 +1599,6 @@ ref; // ME_440C4A26759B Ini_Reg
 ref; // ME_D51BCA91DEB7 
 
 : ME_66A5F66C4E5E
- CONST UID '66A5F66C4E5E'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2155,19 +1609,7 @@ ref; // ME_D51BCA91DEB7
 
 ref; // ME_66A5F66C4E5E 
 
-: ME_4DB0614603C8_ME_87474E831116
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_87474E831116 // Tkw_MonitoringsMain_Control_RightNavigator
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_87474E831116 GetWordNameForRegister
-
 : ME_4DDFD2EA0116_ME_87474E831116
- CONST UID '4DDFD2EA0116'
- CONST Name 'GetString'
  : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
  ;
  : Implementor ME_87474E831116 // Tkw_MonitoringsMain_Control_RightNavigator
@@ -2176,8 +1618,6 @@ ref; // ME_4DB0614603C8_ME_87474E831116 GetWordNameForRegister
 ref; // ME_4DDFD2EA0116_ME_87474E831116 GetString
 
 : ME_52A086150180_ME_87474E831116
- CONST UID '52A086150180'
- CONST Name 'RegisterInEngine'
  : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
  ;
  : Implementor ME_87474E831116 // Tkw_MonitoringsMain_Control_RightNavigator
@@ -2202,13 +1642,8 @@ ref; // ME_52A086150180_ME_87474E831116 RegisterInEngine
    Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_440C4A26759B // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_87474E831116 // GetWordNameForRegister
- ME_4DDFD2EA0116_ME_87474E831116 // GetString
+   Seq: ( ME_4DDFD2EA0116_ME_87474E831116 // GetString
  ME_52A086150180_ME_87474E831116 // RegisterInEngine
  )
  ; // Overridden
@@ -2232,39 +1667,13 @@ ref; // ME_87474E831116 Tkw_MonitoringsMain_Control_RightNavigator
 
 FORWARD ME_A63382FBE37E
 
-: ME_555A9CDDF3B6
- CONST UID '555A9CDDF3B6'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_RightNavigator_Push' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A63382FBE37E // Tkw_MonitoringsMain_Control_RightNavigator_Push
- ;
-
-ref; // ME_555A9CDDF3B6 Ini_Reg
-
 : ME_4DAEEDE10285_ME_A63382FBE37E
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_A63382FBE37E // Tkw_MonitoringsMain_Control_RightNavigator_Push
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4DAEEDE10285_ME_A63382FBE37E DoDoIt
-
-: ME_4DB0614603C8_ME_A63382FBE37E
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_A63382FBE37E // Tkw_MonitoringsMain_Control_RightNavigator_Push
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_A63382FBE37E GetWordNameForRegister
 
 : ME_A63382FBE37E
  CONST UID 'A63382FBE37E'
@@ -2282,13 +1691,8 @@ ref; // ME_4DB0614603C8_ME_A63382FBE37E GetWordNameForRegister
    Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_555A9CDDF3B6 // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DAEEDE10285_ME_A63382FBE37E // DoDoIt
- ME_4DB0614603C8_ME_A63382FBE37E // GetWordNameForRegister
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::RightNavigator:push'
@@ -2311,7 +1715,6 @@ FORWARD ME_CD17D1A09864
 FORWARD ME_74561386DA27
 
 : ME_D3B5F227EDB2
- CONST UID 'D3B5F227EDB2'
  CONST Name 'aCtx'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -2322,7 +1725,6 @@ FORWARD ME_74561386DA27
 ref; // ME_D3B5F227EDB2 aCtx
 
 : ME_D3B5F227EDB3
- CONST UID 'D3B5F227EDB3'
  CONST Name 'aMonitoringsMainForm'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -2354,22 +1756,7 @@ ref; // ME_D3B5F227EDB3 aMonitoringsMainForm
 
 ref; // ME_CD17D1A09864 StatusBar
 
-: ME_A61B89C18258
- CONST UID 'A61B89C18258'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MonitoringsMainForm_StatusBar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_74561386DA27 // MonitoringsMainForm_StatusBar
- ;
-
-ref; // ME_A61B89C18258 Ini_Reg
-
 : ME_F7DE6A7795B2
- CONST UID 'F7DE6A7795B2'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2381,7 +1768,6 @@ ref; // ME_A61B89C18258 Ini_Reg
 ref; // ME_F7DE6A7795B2 
 
 : ME_628D6C13418E
- CONST UID '628D6C13418E'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2393,8 +1779,6 @@ ref; // ME_F7DE6A7795B2
 ref; // ME_628D6C13418E 
 
 : ME_4DAEEDE10285_ME_74561386DA27
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_74561386DA27 // MonitoringsMainForm_StatusBar
@@ -2402,19 +1786,7 @@ ref; // ME_628D6C13418E
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_74561386DA27 DoDoIt
 
-: ME_4DB0614603C8_ME_74561386DA27
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_74561386DA27 // MonitoringsMainForm_StatusBar
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_74561386DA27 GetWordNameForRegister
-
 : ME_52D00B00031A_ME_74561386DA27
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_74561386DA27 // MonitoringsMainForm_StatusBar
@@ -2423,8 +1795,6 @@ ref; // ME_4DB0614603C8_ME_74561386DA27 GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_74561386DA27 SetValuePrim
 
 : ME_551544E2001A_ME_74561386DA27
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_74561386DA27 // MonitoringsMainForm_StatusBar
@@ -2433,8 +1803,6 @@ ref; // ME_52D00B00031A_ME_74561386DA27 SetValuePrim
 ref; // ME_551544E2001A_ME_74561386DA27 GetResultTypeInfo
 
 : ME_559687E6025A_ME_74561386DA27
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_74561386DA27 // MonitoringsMainForm_StatusBar
@@ -2443,8 +1811,6 @@ ref; // ME_551544E2001A_ME_74561386DA27 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_74561386DA27 GetAllParamsCount
 
 : ME_5617F4D00243_ME_74561386DA27
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_74561386DA27 // MonitoringsMainForm_StatusBar
@@ -2470,7 +1836,6 @@ ref; // ME_5617F4D00243_ME_74561386DA27 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_CD17D1A09864 // StatusBar
- ME_A61B89C18258 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -2478,8 +1843,7 @@ ref; // ME_5617F4D00243_ME_74561386DA27 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_74561386DA27 // GetWordNameForRegister
- ME_52D00B00031A_ME_74561386DA27 // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_74561386DA27 // SetValuePrim
  ME_551544E2001A_ME_74561386DA27 // GetResultTypeInfo
  ME_559687E6025A_ME_74561386DA27 // GetAllParamsCount
  ME_5617F4D00243_ME_74561386DA27 // ParamsTypes
@@ -2514,7 +1878,6 @@ FORWARD ME_6FA7F60149FC
 FORWARD ME_67275B119336
 
 : ME_2DB6A31A02B3
- CONST UID '2DB6A31A02B3'
  CONST Name 'aCtx'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -2525,7 +1888,6 @@ FORWARD ME_67275B119336
 ref; // ME_2DB6A31A02B3 aCtx
 
 : ME_2DB6A31A02B4
- CONST UID '2DB6A31A02B4'
  CONST Name 'aMonitoringsMainForm'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -2557,22 +1919,7 @@ ref; // ME_2DB6A31A02B4 aMonitoringsMainForm
 
 ref; // ME_6FA7F60149FC ClientZone
 
-: ME_DA48CB37C6BD
- CONST UID 'DA48CB37C6BD'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MonitoringsMainForm_ClientZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_67275B119336 // MonitoringsMainForm_ClientZone
- ;
-
-ref; // ME_DA48CB37C6BD Ini_Reg
-
 : ME_0CD1AE4B532C
- CONST UID '0CD1AE4B532C'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2584,7 +1931,6 @@ ref; // ME_DA48CB37C6BD Ini_Reg
 ref; // ME_0CD1AE4B532C 
 
 : ME_369A1967EC80
- CONST UID '369A1967EC80'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2596,8 +1942,6 @@ ref; // ME_0CD1AE4B532C
 ref; // ME_369A1967EC80 
 
 : ME_4DAEEDE10285_ME_67275B119336
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_67275B119336 // MonitoringsMainForm_ClientZone
@@ -2605,19 +1949,7 @@ ref; // ME_369A1967EC80
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_67275B119336 DoDoIt
 
-: ME_4DB0614603C8_ME_67275B119336
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_67275B119336 // MonitoringsMainForm_ClientZone
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_67275B119336 GetWordNameForRegister
-
 : ME_52D00B00031A_ME_67275B119336
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_67275B119336 // MonitoringsMainForm_ClientZone
@@ -2626,8 +1958,6 @@ ref; // ME_4DB0614603C8_ME_67275B119336 GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_67275B119336 SetValuePrim
 
 : ME_551544E2001A_ME_67275B119336
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_67275B119336 // MonitoringsMainForm_ClientZone
@@ -2636,8 +1966,6 @@ ref; // ME_52D00B00031A_ME_67275B119336 SetValuePrim
 ref; // ME_551544E2001A_ME_67275B119336 GetResultTypeInfo
 
 : ME_559687E6025A_ME_67275B119336
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_67275B119336 // MonitoringsMainForm_ClientZone
@@ -2646,8 +1974,6 @@ ref; // ME_551544E2001A_ME_67275B119336 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_67275B119336 GetAllParamsCount
 
 : ME_5617F4D00243_ME_67275B119336
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_67275B119336 // MonitoringsMainForm_ClientZone
@@ -2673,7 +1999,6 @@ ref; // ME_5617F4D00243_ME_67275B119336 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_6FA7F60149FC // ClientZone
- ME_DA48CB37C6BD // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -2681,8 +2006,7 @@ ref; // ME_5617F4D00243_ME_67275B119336 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_67275B119336 // GetWordNameForRegister
- ME_52D00B00031A_ME_67275B119336 // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_67275B119336 // SetValuePrim
  ME_551544E2001A_ME_67275B119336 // GetResultTypeInfo
  ME_559687E6025A_ME_67275B119336 // GetAllParamsCount
  ME_5617F4D00243_ME_67275B119336 // ParamsTypes
@@ -2717,7 +2041,6 @@ FORWARD ME_F9F28A3E58E6
 FORWARD ME_FB177BDCBB79
 
 : ME_7938711D8B03
- CONST UID '7938711D8B03'
  CONST Name 'aCtx'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -2728,7 +2051,6 @@ FORWARD ME_FB177BDCBB79
 ref; // ME_7938711D8B03 aCtx
 
 : ME_7938711D8B04
- CONST UID '7938711D8B04'
  CONST Name 'aMonitoringsMainForm'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -2760,22 +2082,7 @@ ref; // ME_7938711D8B04 aMonitoringsMainForm
 
 ref; // ME_F9F28A3E58E6 MainZone
 
-: ME_270904124683
- CONST UID '270904124683'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MonitoringsMainForm_MainZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
- ;
-
-ref; // ME_270904124683 Ini_Reg
-
 : ME_CAF79A339241
- CONST UID 'CAF79A339241'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2787,7 +2094,6 @@ ref; // ME_270904124683 Ini_Reg
 ref; // ME_CAF79A339241 
 
 : ME_3B22830471FA
- CONST UID '3B22830471FA'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2799,8 +2105,6 @@ ref; // ME_CAF79A339241
 ref; // ME_3B22830471FA 
 
 : ME_4DAEEDE10285_ME_FB177BDCBB79
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
@@ -2808,19 +2112,7 @@ ref; // ME_3B22830471FA
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_FB177BDCBB79 DoDoIt
 
-: ME_4DB0614603C8_ME_FB177BDCBB79
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_FB177BDCBB79 GetWordNameForRegister
-
 : ME_52D00B00031A_ME_FB177BDCBB79
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
@@ -2829,8 +2121,6 @@ ref; // ME_4DB0614603C8_ME_FB177BDCBB79 GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_FB177BDCBB79 SetValuePrim
 
 : ME_551544E2001A_ME_FB177BDCBB79
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
@@ -2839,8 +2129,6 @@ ref; // ME_52D00B00031A_ME_FB177BDCBB79 SetValuePrim
 ref; // ME_551544E2001A_ME_FB177BDCBB79 GetResultTypeInfo
 
 : ME_559687E6025A_ME_FB177BDCBB79
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
@@ -2849,8 +2137,6 @@ ref; // ME_551544E2001A_ME_FB177BDCBB79 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_FB177BDCBB79 GetAllParamsCount
 
 : ME_5617F4D00243_ME_FB177BDCBB79
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_FB177BDCBB79 // MonitoringsMainForm_MainZone
@@ -2876,7 +2162,6 @@ ref; // ME_5617F4D00243_ME_FB177BDCBB79 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_F9F28A3E58E6 // MainZone
- ME_270904124683 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -2884,8 +2169,7 @@ ref; // ME_5617F4D00243_ME_FB177BDCBB79 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_FB177BDCBB79 // GetWordNameForRegister
- ME_52D00B00031A_ME_FB177BDCBB79 // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_FB177BDCBB79 // SetValuePrim
  ME_551544E2001A_ME_FB177BDCBB79 // GetResultTypeInfo
  ME_559687E6025A_ME_FB177BDCBB79 // GetAllParamsCount
  ME_5617F4D00243_ME_FB177BDCBB79 // ParamsTypes
@@ -2920,7 +2204,6 @@ FORWARD ME_4F149155C44B
 FORWARD ME_F9BD5754D88D
 
 : ME_761C6210F64E
- CONST UID '761C6210F64E'
  CONST Name 'aCtx'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -2931,7 +2214,6 @@ FORWARD ME_F9BD5754D88D
 ref; // ME_761C6210F64E aCtx
 
 : ME_761C6210F64F
- CONST UID '761C6210F64F'
  CONST Name 'aMonitoringsMainForm'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -2963,22 +2245,7 @@ ref; // ME_761C6210F64F aMonitoringsMainForm
 
 ref; // ME_4F149155C44B ParentZonePanel
 
-: ME_0353D83FC0A1
- CONST UID '0353D83FC0A1'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MonitoringsMainForm_ParentZonePanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
- ;
-
-ref; // ME_0353D83FC0A1 Ini_Reg
-
 : ME_455767124536
- CONST UID '455767124536'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2990,7 +2257,6 @@ ref; // ME_0353D83FC0A1 Ini_Reg
 ref; // ME_455767124536 
 
 : ME_0F95B52C45CB
- CONST UID '0F95B52C45CB'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3002,8 +2268,6 @@ ref; // ME_455767124536
 ref; // ME_0F95B52C45CB 
 
 : ME_4DAEEDE10285_ME_F9BD5754D88D
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
@@ -3011,19 +2275,7 @@ ref; // ME_0F95B52C45CB
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F9BD5754D88D DoDoIt
 
-: ME_4DB0614603C8_ME_F9BD5754D88D
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_F9BD5754D88D GetWordNameForRegister
-
 : ME_52D00B00031A_ME_F9BD5754D88D
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
@@ -3032,8 +2284,6 @@ ref; // ME_4DB0614603C8_ME_F9BD5754D88D GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_F9BD5754D88D SetValuePrim
 
 : ME_551544E2001A_ME_F9BD5754D88D
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
@@ -3042,8 +2292,6 @@ ref; // ME_52D00B00031A_ME_F9BD5754D88D SetValuePrim
 ref; // ME_551544E2001A_ME_F9BD5754D88D GetResultTypeInfo
 
 : ME_559687E6025A_ME_F9BD5754D88D
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
@@ -3052,8 +2300,6 @@ ref; // ME_551544E2001A_ME_F9BD5754D88D GetResultTypeInfo
 ref; // ME_559687E6025A_ME_F9BD5754D88D GetAllParamsCount
 
 : ME_5617F4D00243_ME_F9BD5754D88D
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_F9BD5754D88D // MonitoringsMainForm_ParentZonePanel
@@ -3079,7 +2325,6 @@ ref; // ME_5617F4D00243_ME_F9BD5754D88D ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_4F149155C44B // ParentZonePanel
- ME_0353D83FC0A1 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -3087,8 +2332,7 @@ ref; // ME_5617F4D00243_ME_F9BD5754D88D ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_F9BD5754D88D // GetWordNameForRegister
- ME_52D00B00031A_ME_F9BD5754D88D // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_F9BD5754D88D // SetValuePrim
  ME_551544E2001A_ME_F9BD5754D88D // GetResultTypeInfo
  ME_559687E6025A_ME_F9BD5754D88D // GetAllParamsCount
  ME_5617F4D00243_ME_F9BD5754D88D // ParamsTypes
@@ -3123,7 +2367,6 @@ FORWARD ME_3831ABA283C2
 FORWARD ME_B530B36B6E25
 
 : ME_34F42F0A1EBE
- CONST UID '34F42F0A1EBE'
  CONST Name 'aCtx'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -3134,7 +2377,6 @@ FORWARD ME_B530B36B6E25
 ref; // ME_34F42F0A1EBE aCtx
 
 : ME_34F42F0A1EBF
- CONST UID '34F42F0A1EBF'
  CONST Name 'aMonitoringsMainForm'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -3166,22 +2408,7 @@ ref; // ME_34F42F0A1EBF aMonitoringsMainForm
 
 ref; // ME_3831ABA283C2 ChildZonePanel
 
-: ME_80201F478842
- CONST UID '80201F478842'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MonitoringsMainForm_ChildZonePanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
- ;
-
-ref; // ME_80201F478842 Ini_Reg
-
 : ME_6D8266AA2A41
- CONST UID '6D8266AA2A41'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3193,7 +2420,6 @@ ref; // ME_80201F478842 Ini_Reg
 ref; // ME_6D8266AA2A41 
 
 : ME_9C73D3D861F5
- CONST UID '9C73D3D861F5'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3205,8 +2431,6 @@ ref; // ME_6D8266AA2A41
 ref; // ME_9C73D3D861F5 
 
 : ME_4DAEEDE10285_ME_B530B36B6E25
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
@@ -3214,19 +2438,7 @@ ref; // ME_9C73D3D861F5
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_B530B36B6E25 DoDoIt
 
-: ME_4DB0614603C8_ME_B530B36B6E25
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_B530B36B6E25 GetWordNameForRegister
-
 : ME_52D00B00031A_ME_B530B36B6E25
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
@@ -3235,8 +2447,6 @@ ref; // ME_4DB0614603C8_ME_B530B36B6E25 GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_B530B36B6E25 SetValuePrim
 
 : ME_551544E2001A_ME_B530B36B6E25
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
@@ -3245,8 +2455,6 @@ ref; // ME_52D00B00031A_ME_B530B36B6E25 SetValuePrim
 ref; // ME_551544E2001A_ME_B530B36B6E25 GetResultTypeInfo
 
 : ME_559687E6025A_ME_B530B36B6E25
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
@@ -3255,8 +2463,6 @@ ref; // ME_551544E2001A_ME_B530B36B6E25 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_B530B36B6E25 GetAllParamsCount
 
 : ME_5617F4D00243_ME_B530B36B6E25
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_B530B36B6E25 // MonitoringsMainForm_ChildZonePanel
@@ -3282,7 +2488,6 @@ ref; // ME_5617F4D00243_ME_B530B36B6E25 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_3831ABA283C2 // ChildZonePanel
- ME_80201F478842 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -3290,8 +2495,7 @@ ref; // ME_5617F4D00243_ME_B530B36B6E25 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_B530B36B6E25 // GetWordNameForRegister
- ME_52D00B00031A_ME_B530B36B6E25 // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_B530B36B6E25 // SetValuePrim
  ME_551544E2001A_ME_B530B36B6E25 // GetResultTypeInfo
  ME_559687E6025A_ME_B530B36B6E25 // GetAllParamsCount
  ME_5617F4D00243_ME_B530B36B6E25 // ParamsTypes
@@ -3326,7 +2530,6 @@ FORWARD ME_72A41DCEECB1
 FORWARD ME_01806529867E
 
 : ME_CE8B7FDFBCFB
- CONST UID 'CE8B7FDFBCFB'
  CONST Name 'aCtx'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -3337,7 +2540,6 @@ FORWARD ME_01806529867E
 ref; // ME_CE8B7FDFBCFB aCtx
 
 : ME_CE8B7FDFBCFC
- CONST UID 'CE8B7FDFBCFC'
  CONST Name 'aMonitoringsMainForm'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -3369,22 +2571,7 @@ ref; // ME_CE8B7FDFBCFC aMonitoringsMainForm
 
 ref; // ME_72A41DCEECB1 BaseSearchPanel
 
-: ME_6F177ECC6ED1
- CONST UID '6F177ECC6ED1'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MonitoringsMainForm_BaseSearchPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
- ;
-
-ref; // ME_6F177ECC6ED1 Ini_Reg
-
 : ME_134E24138037
- CONST UID '134E24138037'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3396,7 +2583,6 @@ ref; // ME_6F177ECC6ED1 Ini_Reg
 ref; // ME_134E24138037 
 
 : ME_1BF56628812D
- CONST UID '1BF56628812D'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3408,8 +2594,6 @@ ref; // ME_134E24138037
 ref; // ME_1BF56628812D 
 
 : ME_4DAEEDE10285_ME_01806529867E
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
@@ -3417,19 +2601,7 @@ ref; // ME_1BF56628812D
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_01806529867E DoDoIt
 
-: ME_4DB0614603C8_ME_01806529867E
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_01806529867E GetWordNameForRegister
-
 : ME_52D00B00031A_ME_01806529867E
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
@@ -3438,8 +2610,6 @@ ref; // ME_4DB0614603C8_ME_01806529867E GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_01806529867E SetValuePrim
 
 : ME_551544E2001A_ME_01806529867E
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
@@ -3448,8 +2618,6 @@ ref; // ME_52D00B00031A_ME_01806529867E SetValuePrim
 ref; // ME_551544E2001A_ME_01806529867E GetResultTypeInfo
 
 : ME_559687E6025A_ME_01806529867E
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
@@ -3458,8 +2626,6 @@ ref; // ME_551544E2001A_ME_01806529867E GetResultTypeInfo
 ref; // ME_559687E6025A_ME_01806529867E GetAllParamsCount
 
 : ME_5617F4D00243_ME_01806529867E
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_01806529867E // MonitoringsMainForm_BaseSearchPanel
@@ -3485,7 +2651,6 @@ ref; // ME_5617F4D00243_ME_01806529867E ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_72A41DCEECB1 // BaseSearchPanel
- ME_6F177ECC6ED1 // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -3493,8 +2658,7 @@ ref; // ME_5617F4D00243_ME_01806529867E ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_01806529867E // GetWordNameForRegister
- ME_52D00B00031A_ME_01806529867E // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_01806529867E // SetValuePrim
  ME_551544E2001A_ME_01806529867E // GetResultTypeInfo
  ME_559687E6025A_ME_01806529867E // GetAllParamsCount
  ME_5617F4D00243_ME_01806529867E // ParamsTypes
@@ -3529,7 +2693,6 @@ FORWARD ME_E6DE2A6C9CE6
 FORWARD ME_B2F985D76D09
 
 : ME_28DFEF89A082
- CONST UID '28DFEF89A082'
  CONST Name 'aCtx'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -3540,7 +2703,6 @@ FORWARD ME_B2F985D76D09
 ref; // ME_28DFEF89A082 aCtx
 
 : ME_28DFEF89A083
- CONST UID '28DFEF89A083'
  CONST Name 'aMonitoringsMainForm'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -3572,22 +2734,7 @@ ref; // ME_28DFEF89A083 aMonitoringsMainForm
 
 ref; // ME_E6DE2A6C9CE6 LeftNavigator
 
-: ME_BF30A0F6629B
- CONST UID 'BF30A0F6629B'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MonitoringsMainForm_LeftNavigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
- ;
-
-ref; // ME_BF30A0F6629B Ini_Reg
-
 : ME_7C58ADA11C9C
- CONST UID '7C58ADA11C9C'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3599,7 +2746,6 @@ ref; // ME_BF30A0F6629B Ini_Reg
 ref; // ME_7C58ADA11C9C 
 
 : ME_0A4A86F8D72C
- CONST UID '0A4A86F8D72C'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3611,8 +2757,6 @@ ref; // ME_7C58ADA11C9C
 ref; // ME_0A4A86F8D72C 
 
 : ME_4DAEEDE10285_ME_B2F985D76D09
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
@@ -3620,19 +2764,7 @@ ref; // ME_0A4A86F8D72C
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_B2F985D76D09 DoDoIt
 
-: ME_4DB0614603C8_ME_B2F985D76D09
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_B2F985D76D09 GetWordNameForRegister
-
 : ME_52D00B00031A_ME_B2F985D76D09
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
@@ -3641,8 +2773,6 @@ ref; // ME_4DB0614603C8_ME_B2F985D76D09 GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_B2F985D76D09 SetValuePrim
 
 : ME_551544E2001A_ME_B2F985D76D09
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
@@ -3651,8 +2781,6 @@ ref; // ME_52D00B00031A_ME_B2F985D76D09 SetValuePrim
 ref; // ME_551544E2001A_ME_B2F985D76D09 GetResultTypeInfo
 
 : ME_559687E6025A_ME_B2F985D76D09
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
@@ -3661,8 +2789,6 @@ ref; // ME_551544E2001A_ME_B2F985D76D09 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_B2F985D76D09 GetAllParamsCount
 
 : ME_5617F4D00243_ME_B2F985D76D09
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_B2F985D76D09 // MonitoringsMainForm_LeftNavigator
@@ -3688,7 +2814,6 @@ ref; // ME_5617F4D00243_ME_B2F985D76D09 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_E6DE2A6C9CE6 // LeftNavigator
- ME_BF30A0F6629B // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -3696,8 +2821,7 @@ ref; // ME_5617F4D00243_ME_B2F985D76D09 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_B2F985D76D09 // GetWordNameForRegister
- ME_52D00B00031A_ME_B2F985D76D09 // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_B2F985D76D09 // SetValuePrim
  ME_551544E2001A_ME_B2F985D76D09 // GetResultTypeInfo
  ME_559687E6025A_ME_B2F985D76D09 // GetAllParamsCount
  ME_5617F4D00243_ME_B2F985D76D09 // ParamsTypes
@@ -3732,7 +2856,6 @@ FORWARD ME_FCF0556B863F
 FORWARD ME_F9DA87AC99B7
 
 : ME_732565F9B63F
- CONST UID '732565F9B63F'
  CONST Name 'aCtx'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -3743,7 +2866,6 @@ FORWARD ME_F9DA87AC99B7
 ref; // ME_732565F9B63F aCtx
 
 : ME_732565F9B640
- CONST UID '732565F9B640'
  CONST Name 'aMonitoringsMainForm'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -3775,22 +2897,7 @@ ref; // ME_732565F9B640 aMonitoringsMainForm
 
 ref; // ME_FCF0556B863F RightNavigator
 
-: ME_0F82E0AC5C7D
- CONST UID '0F82E0AC5C7D'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MonitoringsMainForm_RightNavigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
- ;
-
-ref; // ME_0F82E0AC5C7D Ini_Reg
-
 : ME_B2765F91F5B4
- CONST UID 'B2765F91F5B4'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3802,7 +2909,6 @@ ref; // ME_0F82E0AC5C7D Ini_Reg
 ref; // ME_B2765F91F5B4 
 
 : ME_44E0E39ADF27
- CONST UID '44E0E39ADF27'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3814,8 +2920,6 @@ ref; // ME_B2765F91F5B4
 ref; // ME_44E0E39ADF27 
 
 : ME_4DAEEDE10285_ME_F9DA87AC99B7
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
@@ -3823,19 +2927,7 @@ ref; // ME_44E0E39ADF27
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F9DA87AC99B7 DoDoIt
 
-: ME_4DB0614603C8_ME_F9DA87AC99B7
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- : Implementor ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_F9DA87AC99B7 GetWordNameForRegister
-
 : ME_52D00B00031A_ME_F9DA87AC99B7
- CONST UID '52D00B00031A'
- CONST Name 'SetValuePrim'
  : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
  ;
  : Implementor ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
@@ -3844,8 +2936,6 @@ ref; // ME_4DB0614603C8_ME_F9DA87AC99B7 GetWordNameForRegister
 ref; // ME_52D00B00031A_ME_F9DA87AC99B7 SetValuePrim
 
 : ME_551544E2001A_ME_F9DA87AC99B7
- CONST UID '551544E2001A'
- CONST Name 'GetResultTypeInfo'
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
  : Implementor ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
@@ -3854,8 +2944,6 @@ ref; // ME_52D00B00031A_ME_F9DA87AC99B7 SetValuePrim
 ref; // ME_551544E2001A_ME_F9DA87AC99B7 GetResultTypeInfo
 
 : ME_559687E6025A_ME_F9DA87AC99B7
- CONST UID '559687E6025A'
- CONST Name 'GetAllParamsCount'
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
  : Implementor ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
@@ -3864,8 +2952,6 @@ ref; // ME_551544E2001A_ME_F9DA87AC99B7 GetResultTypeInfo
 ref; // ME_559687E6025A_ME_F9DA87AC99B7 GetAllParamsCount
 
 : ME_5617F4D00243_ME_F9DA87AC99B7
- CONST UID '5617F4D00243'
- CONST Name 'ParamsTypes'
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
  ;
  : Implementor ME_F9DA87AC99B7 // MonitoringsMainForm_RightNavigator
@@ -3891,7 +2977,6 @@ ref; // ME_5617F4D00243_ME_F9DA87AC99B7 ParamsTypes
  ; // Inherits
  : Operations
    Seq: ( ME_FCF0556B863F // RightNavigator
- ME_0F82E0AC5C7D // Ini_Reg
  )
  ; // Operations
  : Implemented
@@ -3899,8 +2984,7 @@ ref; // ME_5617F4D00243_ME_F9DA87AC99B7 ParamsTypes
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_F9DA87AC99B7 // GetWordNameForRegister
- ME_52D00B00031A_ME_F9DA87AC99B7 // SetValuePrim
+   Seq: ( ME_52D00B00031A_ME_F9DA87AC99B7 // SetValuePrim
  ME_551544E2001A_ME_F9DA87AC99B7 // GetResultTypeInfo
  ME_559687E6025A_ME_F9DA87AC99B7 // GetAllParamsCount
  ME_5617F4D00243_ME_F9DA87AC99B7 // ParamsTypes
@@ -4388,7 +3472,6 @@ ref; // ME_716467C59F40 Reg_Type_TvtSizeablePanel
 ref; // ME_A0B5D0B7F269 Reg_Type_TnscNavigator
 
 : ME_E1F3B2ABF931
- CONST UID 'E1F3B2ABF931'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4400,7 +3483,6 @@ ref; // ME_A0B5D0B7F269 Reg_Type_TnscNavigator
 ref; // ME_E1F3B2ABF931 
 
 : ME_A57CFBB4AD10
- CONST UID 'A57CFBB4AD10'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_injects::Dependency ;
@@ -4412,7 +3494,6 @@ ref; // ME_E1F3B2ABF931
 ref; // ME_A57CFBB4AD10 
 
 : ME_F9DD98B86F1E
- CONST UID 'F9DD98B86F1E'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4552,7 +3633,6 @@ ref; // ME_5F742ACC56BA TvcmApplicationRef
 ref; // ME_DA5A0975D373 Init_Str_MonitoringTitle
 
 : ME_4AA919EF02D4
- CONST UID '4AA919EF02D4'
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4AA9038C0387 // Monitorings
@@ -4563,7 +3643,6 @@ ref; // ME_DA5A0975D373 Init_Str_MonitoringTitle
 ref; // ME_4AA919EF02D4 
 
 : ME_36D286A3861D
- CONST UID '36D286A3861D'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4575,7 +3654,6 @@ ref; // ME_4AA919EF02D4
 ref; // ME_36D286A3861D 
 
 : ME_93C7CD5A16C3
- CONST UID '93C7CD5A16C3'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4587,7 +3665,6 @@ ref; // ME_36D286A3861D
 ref; // ME_93C7CD5A16C3 
 
 : ME_399C0DBAA7F9
- CONST UID '399C0DBAA7F9'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4599,7 +3676,6 @@ ref; // ME_93C7CD5A16C3
 ref; // ME_399C0DBAA7F9 
 
 : ME_102A8289E472
- CONST UID '102A8289E472'
  CONST IsSummoned true
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4611,8 +3687,6 @@ ref; // ME_399C0DBAA7F9
 ref; // ME_102A8289E472 
 
 : ME_4AA7E4DC0047_ME_4AA9038C0387
- CONST UID '4AA7E4DC0047'
- CONST Name 'DoRun'
  : Original WL 'ME_4AA7E4DC0047' '4986ECDF01F4.pas.ms.script' // DoRun
  ;
  : Implementor ME_4AA9038C0387 // Monitorings

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\MixIns\atTypedObjectList.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "atTypedObjectList" MUID: (4807692D0057)
+// Имя типа: "_atTypedObjectList_"
 
 {$Define atTypedObjectList_imp}
 

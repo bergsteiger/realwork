@@ -2,6 +2,7 @@ unit nsFoundRangeCollector;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsFoundRangeCollector.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsFoundRangeCollector" MUID: (4D8A2C1700FD)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

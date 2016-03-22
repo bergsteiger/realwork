@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmEntityForm;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmEntityForm.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmEntityForm" MUID: (49525B34022A)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
@@ -136,13 +137,13 @@ uses
  , vcmFormsUtils
  , vcmControlList
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , VCMFormsProcessingPack
  {$IfEnd} // NOT Defined(NoScripts)
  , afwFacade
  , afwSettingsChangePublisher
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , l3Base
  , l3MinMax
  , RTLConsts

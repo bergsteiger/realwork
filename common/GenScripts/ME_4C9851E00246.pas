@@ -3,6 +3,7 @@ unit PrimShutDown_sftNone_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimShutDown_sftNone_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "sftNone" MUID: (4C9851E00246)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -31,26 +32,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_sftNone = {final} class(TtfwInteger)
   {* Слово словаря для типа формы sftNone }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_sftNone
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_sftNone.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::sftNone';
-end;//Tkw_FormUserType_sftNone.GetWordNameForRegister
-
 function Tkw_FormUserType_sftNone.GetInteger: Integer;
 begin
  Result := sftNone;
 end;//Tkw_FormUserType_sftNone.GetInteger
+
+class function Tkw_FormUserType_sftNone.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::sftNone';
+end;//Tkw_FormUserType_sftNone.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

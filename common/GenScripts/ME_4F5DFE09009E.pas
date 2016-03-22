@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimSaveLoadUserTypes" MUID: (4F5DFE09009E)
+// Имя типа: "_PrimSaveLoadUserTypes_"
 
 {$Define PrimSaveLoadUserTypes_imp}
 

@@ -2,6 +2,7 @@ unit kwComponentFromStackWord;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwComponentFromStackWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwComponentFromStackWord" MUID: (4F2148300318)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

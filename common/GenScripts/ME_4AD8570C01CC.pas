@@ -2,6 +2,7 @@ unit nsContextHistory;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsContextHistory.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsContextHistory" MUID: (4AD8570C01CC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit PrimDiction_utDiction_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimDiction_utDiction_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "utDiction" MUID: (4BD71EBC00ED)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utDiction = {final} class(TtfwInteger)
   {* Слово словаря для типа формы utDiction }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_utDiction
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_utDiction.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::utDiction';
-end;//Tkw_FormUserType_utDiction.GetWordNameForRegister
-
 function Tkw_FormUserType_utDiction.GetInteger: Integer;
 begin
  Result := utDiction;
 end;//Tkw_FormUserType_utDiction.GetInteger
+
+class function Tkw_FormUserType_utDiction.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utDiction';
+end;//Tkw_FormUserType_utDiction.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

@@ -3,6 +3,7 @@ unit bsConsultation;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\bsConsultation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TbsConsultation" MUID: (49228BA50210)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

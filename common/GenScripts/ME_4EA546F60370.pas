@@ -2,6 +2,7 @@ unit NOT_FINISHED_ddSpaceTrimmer;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddSpaceTrimmer.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "ddSpaceTrimmer" MUID: (4EA546F60370)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

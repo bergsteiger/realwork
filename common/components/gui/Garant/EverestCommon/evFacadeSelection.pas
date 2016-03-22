@@ -2,6 +2,7 @@ unit evFacadeSelection;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evFacadeSelection.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evFacadeSelection" MUID: (48EEF8240298)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

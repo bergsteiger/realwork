@@ -3,6 +3,7 @@ unit alcuServerTaskManagerFactory;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuServerTaskManagerFactory.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuServerTaskManagerFactory" MUID: (52FA29AE02C2)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

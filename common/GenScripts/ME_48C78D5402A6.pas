@@ -2,6 +2,7 @@ unit StdCtrls;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\StdCtrls.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "StdCtrls" MUID: (48C78D5402A6)
 
 interface
 
@@ -87,6 +88,12 @@ uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , RadioButtonWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , vtComboBoxWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 

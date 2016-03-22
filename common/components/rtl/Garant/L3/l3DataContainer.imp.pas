@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3DataContainer.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3DataContainer" MUID: (4A54DFCC0370)
+// Имя типа: "_l3DataContainer_"
 
 {$Define l3DataContainer_imp}
 

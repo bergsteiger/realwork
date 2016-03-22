@@ -2,6 +2,7 @@ unit k2IUnknownTag;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2IUnknownTag.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tk2IUnknownTag" MUID: (531F2B0B0102)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

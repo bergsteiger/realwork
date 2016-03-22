@@ -2,6 +2,7 @@ unit evTabStopsFilter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTabStopsFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTabStopsFilter" MUID: (4E5E1032016E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

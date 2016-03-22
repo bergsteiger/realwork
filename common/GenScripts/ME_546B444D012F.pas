@@ -2,6 +2,7 @@ unit ncsGetTaskDescription;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsGetTaskDescription.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsGetTaskDescription" MUID: (546B444D012F)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

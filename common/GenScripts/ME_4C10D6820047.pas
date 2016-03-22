@@ -3,6 +3,8 @@ unit EVDtoEVDSectionRepairTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoEVDSectionRepairTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "EVDtoEVDSectionRepairTest" MUID: (4C10D6820047)
+// Имя типа: "TEVDtoEVDSectionRepairTest"
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

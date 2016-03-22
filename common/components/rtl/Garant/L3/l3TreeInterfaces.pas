@@ -3,6 +3,7 @@ unit l3TreeInterfaces;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3TreeInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "l3TreeInterfaces" MUID: (4682595B0268)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

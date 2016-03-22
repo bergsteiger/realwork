@@ -3,6 +3,7 @@ unit NOT_FINISHED_evCustomNSRCWriter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomNSRCWriter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevCustomNSRCWriter" MUID: (4836C0A201C1)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

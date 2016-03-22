@@ -3,6 +3,8 @@ unit PrimUnderControlOptions_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControl\Forms\PrimUnderControlOptions_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimUnderControlOptions" MUID: (4C7E4A45018F)
+// Имя типа: "TPrimUnderControlOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

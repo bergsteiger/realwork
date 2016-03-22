@@ -3,6 +3,7 @@ unit PasteColumnTest;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\PasteColumnTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TPasteColumnTest" MUID: (4C88AA1A00AB)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

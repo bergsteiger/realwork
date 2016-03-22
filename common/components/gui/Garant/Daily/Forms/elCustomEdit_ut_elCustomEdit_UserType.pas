@@ -1,80 +1,65 @@
 unit elCustomEdit_ut_elCustomEdit_UserType;
+ {* Форма для тестирования TelCustomEdit }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Forms"
-// Модуль: "w:/common/components/gui/Garant/Daily/Forms/elCustomEdit_ut_elCustomEdit_UserType.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> Shared Delphi Operations For Tests::TestForms::Forms::Everest::elCustomEdit::ut_elCustomEdit
-//
-// Форма для тестирования TelCustomEdit
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\Forms\elCustomEdit_ut_elCustomEdit_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "ut_elCustomEdit" MUID: (ADA641CE296E)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  vcmUserControls
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ , vcmUserControls
+;
 
 const
-   { Константы для типа формы ut_elCustomEdit }
-  ut_elCustomEditName = 'ut_elCustomEdit';
-   { Строковый идентификатор пользовательского типа "Форма для тестирования TelCustomEdit" }
-  ut_elCustomEdit = TvcmUserType(0);
-   { Форма для тестирования TelCustomEdit }
-{$IfEnd} //nsTest AND not NoVCM
+ {* Константы для типа формы ut_elCustomEdit }
+ ut_elCustomEditName = 'ut_elCustomEdit';
+  {* Строковый идентификатор пользовательского типа "Форма для тестирования TelCustomEdit" }
+ ut_elCustomEdit = TvcmUserType(0);
+  {* Форма для тестирования TelCustomEdit }
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_ut_elCustomEdit = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы ut_elCustomEdit }
+ Tkw_FormUserType_ut_elCustomEdit = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы ut_elCustomEdit }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_ut_elCustomEdit
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_ut_elCustomEdit
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-
-// start class Tkw_FormUserType_ut_elCustomEdit
-
-class function Tkw_FormUserType_ut_elCustomEdit.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::ut_elCustomEdit';
-end;//Tkw_FormUserType_ut_elCustomEdit.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_elCustomEdit.GetInteger: Integer;
- {-}
 begin
  Result := ut_elCustomEdit;
 end;//Tkw_FormUserType_ut_elCustomEdit.GetInteger
 
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
-{$IfEnd} //nsTest AND not NoVCM
+class function Tkw_FormUserType_ut_elCustomEdit.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::ut_elCustomEdit';
+end;//Tkw_FormUserType_ut_elCustomEdit.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация Tkw_FormUserType_ut_elCustomEdit
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_elCustomEdit.RegisterInEngine;
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
+ {* Регистрация Tkw_FormUserType_ut_elCustomEdit }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

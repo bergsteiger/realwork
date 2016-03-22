@@ -2,6 +2,7 @@ unit NOT_FINISHED_tfwScriptDebugger;
 
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\NOT_FINISHED_tfwScriptDebugger.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "tfwScriptDebugger" MUID: (4DB1629901E8)
 
 {$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 

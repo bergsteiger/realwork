@@ -2,6 +2,7 @@ unit kwDiffIteratorNext;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwDiffIteratorNext.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwDiffIteratorNext" MUID: (4EB25F5F0340)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

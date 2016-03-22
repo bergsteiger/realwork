@@ -2,6 +2,7 @@ unit evPara_Wrap;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evPara_Wrap.pas"
 // Стереотип: "Wrapper"
+// Элемент модели: "WevPara" MUID: (484FD34600BA)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

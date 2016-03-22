@@ -3,6 +3,7 @@ unit sdsChangesBetweenEditions;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\sdsChangesBetweenEditions.pas"
 // Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsChangesBetweenEditions" MUID: (4DDCD7D0002E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -59,6 +60,7 @@ type
    {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
  end;//TsdsChangesBetweenEditions
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -151,6 +153,13 @@ begin
  Result := nsTabIconIndex(titChangesBetweenEditions);
 //#UC END# *53B3BF9C00EF_4DDCD7D0002E_impl*
 end;//TsdsChangesBetweenEditions.DoGetFormSetImageIndex
+
+procedure TsdsChangesBetweenEditions.ClearFields;
+begin
+ f_Changes := nil;
+ f_EditionsList := nil;
+ inherited;
+end;//TsdsChangesBetweenEditions.ClearFields
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

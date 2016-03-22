@@ -5,9 +5,15 @@ unit evCustomEditorWindow;
 { Автор: Люлин А.В. ©     }
 { Модуль: evEditorWindow - оконный элемент для отображения содержимого документа}
 { Начат: 17.03.1997 19:20 }
-{ $Id: evCustomEditorWindow.pas,v 1.147 2015/10/28 07:44:13 dinishev Exp $ }
+{ $Id: evCustomEditorWindow.pas,v 1.149 2016/03/09 15:18:26 lulin Exp $ }
 
 // $Log: evCustomEditorWindow.pas,v $
+// Revision 1.149  2016/03/09 15:18:26  lulin
+// - перегенерация.
+//
+// Revision 1.148  2016/02/07 15:24:57  kostitsin
+// - чиню сборку
+//
 // Revision 1.147  2015/10/28 07:44:13  dinishev
 // {Requestlink:610313141}
 //
@@ -4628,7 +4634,7 @@ unit evCustomEditorWindow;
 // - new behavior: сделана вставка в "резиновые" псевдотаблицы в режиме рисования линий.
 //
 // Revision 1.239  2002/05/17 10:41:07  law
-// - new commands: ev_ocDeleteWordLeft, ev_ocDeleteWordRight.
+// - new _commands: ev_ocDeleteWordLeft, ev_ocDeleteWordRight.
 //
 // Revision 1.238  2002/05/16 08:26:50  law
 // - new operation: удаление слова слева по Ctrl-Backspace.
@@ -8900,7 +8906,7 @@ begin
       begin
        Inc(f_InPaint);
        try
-        with Canvas do
+        with Il3Canvas(Canvas) do
         begin
          BeginPaint;
          try
@@ -9331,7 +9337,7 @@ begin
   end//not CanScroll..
   else
   begin
-   with Canvas do
+   with Il3Canvas(Canvas) do
     Result := Self.ScrollWindow(LP2DP(Tl3Point(aDelta)).Zoom(Zoom));
    if Result then
    begin

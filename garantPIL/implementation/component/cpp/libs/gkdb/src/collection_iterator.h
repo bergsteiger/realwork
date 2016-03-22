@@ -136,6 +136,10 @@ public:
 		return m_index;
 	}
 
+	Collection* collection () const {
+		return m_coll;
+	}
+
 private:
 	friend class boost::iterator_core_access;
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmBaseMenuForChromeLike;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_FINISHED_vcmBaseMenuForChromeLike.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TvcmBaseMenuForChromeLike" MUID: (545C51CB0171)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

@@ -82,9 +82,9 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"output.xml:*562F5C2503C0LABEL_CONTENT*"
-		    value      	
+		    value      	(value Text 
 |<!--UC_BEGIN*562F5C2503C0LABEL_CONTENT*-->¤			<!--UC_END*562F5C2503C0LABEL_CONTENT*-->
-		    ))
+		    )))
 	    quid       	"562F5C2503C0"
 	    documentation 	"îòîáðàæåíèå â Èíñòðóìåíòû ýêñïîðòà îò÷åòà î ðàáîòå uvs îòäåëà â äîê"
 	    stereotype 	"WebItem"
@@ -114,7 +114,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"java:*562F5E820397_CUSTOM_IMPORT*"
-		    value      	"//#UC START# *562F5E820397_CUSTOM_IMPORT*¤import com.atlassian.confluence.labels.Label;¤import com.atlassian.confluence.pages.AbstractPage;¤import com.atlassian.confluence.pages.Page;¤¤import com.atlassian.confluence.security.Permission;¤import com.atlassian.confluence.security.PermissionManager;¤import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;¤import com.atlassian.user.User;¤¤import ru.garant.MDProcess.DocCardChange.DocCardCommon.DPOUVSManager;¤//#UC END# *562F5E820397_CUSTOM_IMPORT*")
+		    value      	"//#UC START# *562F5E820397_CUSTOM_IMPORT*¤import com.atlassian.confluence.labels.Label;¤import com.atlassian.confluence.pages.AbstractPage;¤import com.atlassian.confluence.pages.BlogPost;¤import com.atlassian.confluence.pages.Page;¤¤import com.atlassian.confluence.security.Permission;¤import com.atlassian.confluence.security.PermissionManager;¤import com.atlassian.confluence.user.AuthenticatedUserThreadLocal;¤import com.atlassian.user.User;¤¤import ru.garant.MDProcess.DocCardChange.DocCardCommon.DPOUVSManager;¤//#UC END# *562F5E820397_CUSTOM_IMPORT*")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"java:*562F5E820397_CUSTOM_CLASS_DEFINITION*"
@@ -122,9 +122,9 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"java:*562F5E820397_CUSTOM_METHODS_AND_DATA*"
-		    value      	
-|//#UC START# *562F5E820397_CUSTOM_METHODS_AND_DATA*¤	@Override¤	protected boolean shouldDisplay(WebInterfaceContext context) {¤		final AbstractPage pageObj = context.getPage();¤		if (pageObj instanceof Page == false) {¤			return false;¤		}¤		final Page page = (Page) pageObj;¤¤		Label monthlyReportLabel = ContainerManager.Factory.get().getLabelManager().getLabel("monthly_report");¤		if(page.getLabels().contains(monthlyReportLabel) == false){¤			return false;¤		}¤		¤		PermissionManager pm = ContainerManager.Factory.get().getPermissionManager();¤		if (!pm.hasPermission(context.getUser(), Permission.VIEW, page)) {¤			return false;¤		}¤		¤		User user = AuthenticatedUserThreadLocal.getUser();¤		DPOUVSManager manager = DPOUVSManager.Factory.get(pageObj.getSpaceKey());¤		¤		User dpoUvsLeader = manager.getLeaderDpoUvs();¤		User odUoLeader = manager.getLeaderOdUo();¤		User ribLeader = manager.getLeaderRib();¤		User uoLeader = manager.getLeaderUo();¤		User uvsLeader = manager.getLeaderUvs();¤¤		if(dpoUvsLeader != null && dpoUvsLeader.getName().equals(user.getName()) ||¤				odUoLeader != null && odUoLeader.getName().equals(user.getName()) ||¤						ribLeader != null && ribLeader.getName().equals(user.getName()) ||¤								uoLeader != null && uoLeader.getName().equals(user.getName()) ||¤										uvsLeader != null && uvsLeader.getName().equals(user.getName()) ¤		){¤			return true;¤		}¤		¤		return false;¤	}¤	//#UC END# *562F5E820397_CUSTOM_METHODS_AND_DATA*
-		    ))
+		    value      	(value Text 
+|//#UC START# *562F5E820397_CUSTOM_METHODS_AND_DATA*¤	@Override¤	protected boolean shouldDisplay(WebInterfaceContext context) {¤		final AbstractPage blogPostObj = context.getPage();¤		if (blogPostObj instanceof BlogPost == false) {¤			return false;¤		}¤		final BlogPost blogPost = (BlogPost) blogPostObj;¤¤		Label monthlyReportLabel = ContainerManager.Factory.get().getLabelManager().getLabel("monthly_report");¤		if(blogPost.getLabels().contains(monthlyReportLabel) == false){¤			return false;¤		}¤		¤		PermissionManager pm = ContainerManager.Factory.get().getPermissionManager();¤		if (!pm.hasPermission(context.getUser(), Permission.VIEW, blogPost)) {¤			return false;¤		}¤		¤		User user = AuthenticatedUserThreadLocal.getUser();¤		DPOUVSManager manager = DPOUVSManager.Factory.get(blogPost.getSpaceKey());¤		¤		User dpoUvsLeader = manager.getLeaderDpoUvs();¤		User odUoLeader = manager.getLeaderOdUo();¤		User ribLeader = manager.getLeaderRib();¤		User uoLeader = manager.getLeaderUo();¤		User uvsLeader = manager.getLeaderUvs();¤¤		if(dpoUvsLeader != null && dpoUvsLeader.getName().equals(user.getName()) ||¤				odUoLeader != null && odUoLeader.getName().equals(user.getName()) ||¤						ribLeader != null && ribLeader.getName().equals(user.getName()) ||¤								uoLeader != null && uoLeader.getName().equals(user.getName()) ||¤										uvsLeader != null && uvsLeader.getName().equals(user.getName()) ¤		){¤			return true;¤		}¤		¤		return false;¤	}¤	//#UC END# *562F5E820397_CUSTOM_METHODS_AND_DATA*
+		    )))
 	    quid       	"562F5E820397"
 	    documentation 	"ìîãóò ýêñïîðòèðîâàòü òîëüêî ðóêîâîäèòåëè ïîäðàçäåëåíèé"
 	    stereotype 	"SimpleClass"
@@ -164,7 +164,7 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"java:*562F605803CD_CUSTOM_IMPORT*"
-		    value      	"//#UC START# *562F605803CD_CUSTOM_IMPORT*¤//#UC END# *562F605803CD_CUSTOM_IMPORT*")
+		    value      	"//#UC START# *562F605803CD_CUSTOM_IMPORT*¤import com.atlassian.confluence.pages.BlogPost;¤import com.atlassian.confluence.setup.BootstrapUtils;¤¤import com.lowagie.text.Cell;¤import com.lowagie.text.Chunk;¤import com.lowagie.text.Document;¤import com.lowagie.text.Element;¤import com.lowagie.text.Font;¤import com.lowagie.text.FontFactory;¤import com.lowagie.text.PageSize;¤import com.lowagie.text.Paragraph;¤import com.lowagie.text.Table;¤import com.lowagie.text.rtf.RtfWriter2;¤¤import java.awt.Color;¤import java.io.File;¤import java.io.IOException;¤import java.io.OutputStream;¤¤import java.text.SimpleDateFormat;¤¤import java.util.ArrayList;¤import java.util.Date;¤import java.util.List;¤//#UC END# *562F605803CD_CUSTOM_IMPORT*")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"java:*562F605803CD_CUSTOM_CLASS_DEFINITION*"
@@ -172,15 +172,15 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"java:*562F605803CD_ACTION_NAME*"
-		    value      	
+		    value      	(value Text 
 |//#UC START# *562F605803CD_ACTION_NAME*¤		return new String (getClass ().getName ());¤		//#UC END# *562F605803CD_ACTION_NAME*
-		    )
+		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"java:*562F605803CD_CUSTOM_METHODS_AND_DATA*"
-		    value      	
-|//#UC START# *562F605803CD_CUSTOM_METHODS_AND_DATA*¤	public String execute(){¤		Page page = ContainerManager.Factory.get().getPageManager().getPage(pageId_);¤		if(page == null){¤			Logs.LOG_E("ERROR! Not page pageId=" + pageId_);¤		}¤		return SUCCESS;¤	}¤	¤	private long pageId_;¤	¤	public long getPageId(){¤		return pageId_;¤	}¤¤	public void setPageId(long pageId){¤		pageId_ = pageId;¤	}¤	//#UC END# *562F605803CD_CUSTOM_METHODS_AND_DATA*
-		    )
+		    value      	(value Text 
+|//#UC START# *562F605803CD_CUSTOM_METHODS_AND_DATA*¤	public org.jsoup.select.Elements parseHTMLString(final String content){¤		org.jsoup.nodes.Document doc = Jsoup.parse(content);¤		org.jsoup.select.Elements elsTr = doc.getElementsByTag("tr");¤		return elsTr;¤	}¤	¤	public void registerFont(){¤		String fontPath = BootstrapUtils.getBootstrapManager().getConfluenceHome() + File.separator +  "fonts" + File.separator;¤		FontFactory.register(fontPath + "arial.ttf");¤	}¤	¤	public Chunk getFirstRow(final String title){¤		Font font = FontFactory.getFont("Arial", 10, Font.NORMAL);¤		//íàçâàíèå ñòðàíèöû â íà÷àëî äîêóìåíòà¤		String listHeader = LINE_FEED_FOR_SIMPLE_TEXT + LINE_FEED_FOR_SIMPLE_TEXT ¤				  + title¤				  + LINE_FEED_FOR_SIMPLE_TEXT + LINE_FEED_FOR_SIMPLE_TEXT;			¤		Chunk chunk = new Chunk(listHeader, font);¤		return chunk;¤	}¤	¤	//ñîçäàåì òàáëèöó¤	public Table getTable() throws Exception{¤		Table table = new Table(COLUMNS_SIZE);¤		table.setBorderWidthTop(1);¤		table.setBorderWidthLeft(1);¤		table.setBorderWidthRight(1);¤		table.setBorderWidthBottom(1);¤//		table.setWidth(100);¤		table.setWidth(200);¤		table.setWidths(new int[]{5, 15, 80, 25, 25, 25, 25});¤		return table;¤	}¤	¤	¤	public List<Element> getRTFElements(final String title, final org.jsoup.select.Elements elsTr) throws Exception{¤		registerFont();¤		List<Element> elementsList = new ArrayList<Element>();¤		elementsList.add(getFirstRow(title));¤		¤		Table table = getTable();¤		boolean isHeader = true;   ¤¤		for (org.jsoup.nodes.Element el : elsTr) {¤			List<Cell> cells = putCelsInTable(el, isHeader);¤			for(Cell cell : cells){¤				table.addCell(cell);¤			}¤			isHeader = false;¤		}¤		¤		elementsList.add(table);¤		return elementsList;¤	}¤	¤	public List<Cell> putCelsInTable(final org.jsoup.nodes.Element initTableEl, final boolean isHeader) throws Exception{¤		org.jsoup.select.Elements els = initTableEl.getElementsByTag("th");¤¤		boolean hasHiddenColumn = (els.size() == 2);¤		els.addAll(initTableEl.getElementsByTag("td"));¤		List<Cell> cells = getCellsFromElements(els, isHeader, hasHiddenColumn);¤		return cells;¤	}¤	//ïîëó÷àåì íóæíûå íàñòðîéêè è ïåðåäàåì ¤	public List<Cell> getCellsFromElements(final org.jsoup.select.Elements els, final boolean isHeader, final boolean hasHiddenColumn) throws Exception{¤		int index = 0;¤		int startColorFill = COLUMN_COLOR_FILL;¤		if(hasHiddenColumn){¤			index++;¤		}¤		List<Cell> cells = new ArrayList<Cell>();¤		for (org.jsoup.nodes.Element el : els) {¤			if(index < COLUMNS_SIZE){¤				int shrift = Font.NORMAL;¤				if(el.getElementsByTag("th").size() > 0){¤					shrift = Font.BOLD;¤				}¤				Integer colspan = null;¤				if(el.hasAttr("colspan")){¤					colspan = Integer.valueOf(el.attr("colspan"));¤					index += colspan - 1;¤				}	¤				Integer rowspan = null;¤				if(el.hasAttr("rowspan")){¤					rowspan = Integer.valueOf(el.attr("rowspan"));¤				}	¤				if(el.getElementsByTag("div").size() > 0){¤					el = el.getElementsByTag("div").get(0);¤				}¤				List<Node> childNodes = el.childNodes();¤				String val = childNodes.get(0).outerHtml();¤¤¤				Cell cell = putStringInCellForWord(val, index, isHeader, colspan, rowspan, shrift, startColorFill);¤				cells.add(cell);¤				index++;¤			}	¤		}¤		return cells;¤	}¤	¤	//âûñòàâëÿåì íóæíûå íàñòðîéêè äëÿ ÿ÷åéêè¤	public Cell putStringInCellForWord(final String val, final int rowIndex, final boolean isHeader, final Integer colspan, final Integer rowspan, final int shrift, final int startColorFill) throws Exception{¤//		Font rowFont = new Font(Font.COURIER, 10, shrift);¤		¤		Font rowFont = FontFactory.getFont("Arial", 10, shrift);¤¤		¤		Color color = null;¤		if(rowIndex == startColorFill){¤//			color = Color.CYAN;¤			color = new Color(55, 175, 255);¤		}else if(rowIndex == startColorFill + 1){¤//			color = Color.YELLOW;¤			color = new Color(255, 211, 32);¤		}else if(rowIndex == startColorFill + 2){¤//			color = Color.LIGHT_GRAY;¤			color = new Color(255, 255, 204);¤		}else if(rowIndex == startColorFill + 3){¤//			color = Color.GREEN;¤			color = new Color(0, 255, 0);¤		}¤	    String val2 = val;¤		if(isHeader){¤			val2 = "\n\n" + val + "\n\n\n";¤		}¤		Cell cell = new Cell(new Paragraph(val2, rowFont));¤		cell.setHeader(isHeader);¤		¤		if(colspan != null){¤			cell.setColspan(colspan);¤		}¤		if(rowspan != null){¤			cell.setRowspan(rowspan);¤		}¤		if(color != null){¤			cell.setBackgroundColor(color);¤		}¤		cell.setHorizontalAlignment(Element.ALIGN_CENTER);¤	    cell.setVerticalAlignment(Element.ALIGN_MIDDLE);¤	    ¤		return cell;¤	}¤	//ñîõðàíÿåì ðåçóëüòàò¤	public void saveResult(OutputStream os, List<Element> elementsList)throws ServletException, IOException {¤		try {¤			Document document = new Document(PageSize.A4);¤			RtfWriter2 rtf = RtfWriter2.getInstance(document, os);¤			document.open();¤			for(Element elem : elementsList){¤				document.add(elem);¤			}¤			document.close();¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤			throw new ServletException (e.getMessage());¤		}¤	}¤¤	private String LINE_FEED_FOR_SIMPLE_TEXT = "\n";¤	private int COLUMNS_HEADERS_SIZE = 6;¤	private int COLUMNS_SIZE = 7;¤	private int COLUMN_COLOR_FILL = 3;¤	//#UC END# *562F605803CD_CUSTOM_METHODS_AND_DATA*
+		    ))
 		(object Attribute
 		    tool       	"MDA Generator User Properties"
 		    name       	"Factory auto reg"
@@ -220,15 +220,15 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"java:*562F605803CD_INIT_IMPLEMETATION*"
-		    value      	
+		    value      	(value Text 
 |//#UC START# *562F605803CD_INIT_IMPLEMETATION*¤		//#UC END# *562F605803CD_INIT_IMPLEMETATION*
-		    )
+		    ))
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"java:*562F605803CD_SERVICE_IMPLEMETATION*"
-		    value      	
-|//#UC START# *562F605803CD_SERVICE_IMPLEMETATION*¤		//#UC END# *562F605803CD_SERVICE_IMPLEMETATION*
-		    ))
+		    value      	(value Text 
+|//#UC START# *562F605803CD_SERVICE_IMPLEMETATION*¤		try{¤			final String pageIdString = request.getParameter("pageId");¤			long pageId = Long.parseLong(pageIdString);¤			BlogPost blogPost = ContainerManager.Factory.get().getPageManager().getBlogPost(pageId);¤			if(blogPost == null){¤				Logs.LOG_E("ERROR! Not page pageId=" + pageId);¤			}¤			¤			response.setHeader("Cache-Control", "max-age=5");¤			response.setHeader("Pragma", "");¤			response.setDateHeader("Expires", System.currentTimeMillis() + 300);¤//			response.setContentType("application/rtf;charset=UTF-8");¤			response.setContentType("application/doc;charset=UTF-8");¤			String dateString = new SimpleDateFormat("yyyy-MM-dd").format(new Date());¤//			response.setHeader( "Content-Disposition", "attachment; filename=\"MonthlyReport_" + dateString + ".rtf\"" );¤			response.setHeader( "Content-Disposition", "attachment; filename=\"MonthlyReport_" + dateString + ".doc\"" );¤			org.jsoup.select.Elements els = parseHTMLString(blogPost.getContent());¤			List<Element> elementsList = getRTFElements(blogPost.getTitle(), els);¤			saveResult(response.getOutputStream(), elementsList);¤		}catch(Exception ex){¤			Logs.LOG_SEX(ex);¤		}¤		//#UC END# *562F605803CD_SERVICE_IMPLEMETATION*
+		    )))
 	    quid       	"562F605803CD"
 	    documentation 	"ýêñïîðò îò÷åòà î ðàáîòå uvs îòäåëà â äîê ñ ðàñêðàñêîé êîëîíîê â öâåòà"
 	    stereotype 	"KServletPlugin"
@@ -298,7 +298,47 @@
 	    origin_x   	0
 	    origin_y   	0
 	    items      	(list diagram_item_list
-		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::ExportSupport::ExportUvsQueryMonthlyReportWebItem" @1
+		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::ExportSupport::ExportDocReportCondition" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1503, 348)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(1248, 319)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	510
+			justify    	0
+			label      	"ExportDocReportCondition")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(1248, 269)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	510
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"562F5E820397"
+		    width      	528
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::ExportSupport::ExportUvsQueryMonthlyReportWebItem" @2
 		    ShowCompartmentStereotypes 	TRUE
 		    SuppressOperation 	TRUE
 		    IncludeAttribute 	TRUE
@@ -316,7 +356,7 @@
 			color      	0
 			default_color 	TRUE)
 		    label      	(object ItemLabel
-			Parent_View 	@1
+			Parent_View 	@2
 			location   	(241, 640)
 			fill_color 	13434879
 			nlines     	1
@@ -324,7 +364,7 @@
 			justify    	0
 			label      	"• ExportUvsQueryMonthlyReportWebItem")
 		    stereotype 	(object ItemLabel
-			Parent_View 	@1
+			Parent_View 	@2
 			location   	(241, 590)
 			fill_color 	13434879
 			anchor     	10
@@ -336,46 +376,6 @@
 		    fill_color 	15448575
 		    quidu      	"562F5C2503C0"
 		    width      	802
-		    height     	182
-		    annotation 	8
-		    autoResize 	TRUE)
-		(object ClassView "Class" "Logical View::MDProcess::DocCardChange::ExportSupport::ExportDocReportCondition" @2
-		    ShowCompartmentStereotypes 	TRUE
-		    IncludeAttribute 	TRUE
-		    IncludeOperation 	TRUE
-		    ShowOperationSignature 	TRUE
-		    location   	(1503, 348)
-		    font       	(object Font
-			size       	10
-			face       	"Arial"
-			charSet    	204
-			bold       	FALSE
-			italics    	FALSE
-			underline  	FALSE
-			strike     	FALSE
-			color      	0
-			default_color 	TRUE)
-		    label      	(object ItemLabel
-			Parent_View 	@2
-			location   	(1248, 319)
-			fill_color 	13434879
-			nlines     	1
-			max_width  	510
-			justify    	0
-			label      	"ExportDocReportCondition")
-		    stereotype 	(object ItemLabel
-			Parent_View 	@2
-			location   	(1248, 269)
-			fill_color 	13434879
-			anchor     	10
-			nlines     	1
-			max_width  	510
-			justify    	0
-			label      	"<<SimpleClass>>")
-		    icon_style 	"Label"
-		    fill_color 	12842465
-		    quidu      	"562F5E820397"
-		    width      	528
 		    height     	182
 		    annotation 	8
 		    autoResize 	TRUE)
@@ -433,7 +433,7 @@
 			    line_color 	3342489
 			    quidu      	"562F5F8F003C"
 			    client     	@3
-			    supplier   	@2
+			    supplier   	@1
 			    vertices   	(list Points
 				(928, 342)
 				(1239, 342))
@@ -447,7 +447,7 @@
 			    line_color 	3342489
 			    quidu      	"562F5F8F003E"
 			    client     	@3
-			    supplier   	@1
+			    supplier   	@2
 			    vertices   	(list Points
 				(928, 342)
 				(852, 342)
@@ -541,7 +541,7 @@
 		    stereotype 	TRUE
 		    line_color 	3342489
 		    quidu      	"562F65F30017"
-		    client     	@2
+		    client     	@1
 		    supplier   	@8
 		    vertices   	(list Points
 			(1767, 312)
@@ -583,7 +583,7 @@
 		    line_color 	3342489
 		    quidu      	"562F73880157"
 		    client     	@7
-		    supplier   	@2
+		    supplier   	@1
 		    vertices   	(list Points
 			(1608, 823)
 			(1523, 439))

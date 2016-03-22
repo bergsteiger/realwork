@@ -2,6 +2,7 @@ unit nsListEvents;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\nsListEvents.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsListEvents" MUID: (52A821F90360)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

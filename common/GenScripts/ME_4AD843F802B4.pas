@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsContextHistoryPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nsContextHistoryPrim" MUID: (4AD843F802B4)
+// Имя типа: "_nsContextHistoryPrim_"
 
 {$Define nsContextHistoryPrim_imp}
 

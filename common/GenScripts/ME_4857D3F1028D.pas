@@ -2,6 +2,8 @@ unit evSBSRow_InterfaceFactory;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evSBSRow_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
+// Элемент модели: "TevSBSRow" MUID: (4857D3F1028D)
+// Имя типа: "TevSBSRowInterfaceFactory"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

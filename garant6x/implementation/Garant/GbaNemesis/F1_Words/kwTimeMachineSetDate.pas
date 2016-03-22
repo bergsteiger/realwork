@@ -1,57 +1,37 @@
 unit kwTimeMachineSetDate;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwTimeMachineSetDate.pas"
-// Начат: 06.05.2011 15:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Поддержка тестов::F1 Words::Words::TkwTimeMachineSetDate
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwTimeMachineSetDate.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwTimeMachineSetDate" MUID: (4DC3D8E200AF)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwTimeMachineSetDate = {scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwTimeMachineSetDate = class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwTimeMachineSetDate
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  DataAdapter,
-  l3DateSt,
-  bsConvert
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwTimeMachineSetDate
+ l3ImplUses
+ , DataAdapter
+ , l3DateSt
+ , bsConvert
+;
 
 procedure TkwTimeMachineSetDate.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DC3D8E200AF_var*
@@ -63,17 +43,13 @@ begin
 end;//TkwTimeMachineSetDate.DoDoIt
 
 class function TkwTimeMachineSetDate.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'timemachine:SetDate';
 end;//TkwTimeMachineSetDate.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwTimeMachineSetDate
  TkwTimeMachineSetDate.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwTimeMachineSetDate }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

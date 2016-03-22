@@ -3,6 +3,7 @@ unit F1LikeFormWithBSKeywordsPack;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\F1LikeFormWithBSKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "F1LikeFormWithBSKeywordsPack" MUID: (CF5BE49179EF)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
@@ -51,8 +52,8 @@ type
 'aControl' форма::F1LikeFormWithBS TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_F1LikeFormWithBS
 
  Tkw_F1LikeFormWithBS_Control_BaseSearchControl = {final} class(TtfwControlString)
@@ -63,9 +64,9 @@ type
 контрол::BaseSearchControl TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_F1LikeFormWithBS_Control_BaseSearchControl
 
  Tkw_F1LikeFormWithBS_Control_BaseSearchControl_Push = {final} class(TkwBynameControlPush)
@@ -88,9 +89,9 @@ type
 контрол::Text TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_F1LikeFormWithBS_Control_Text
 
  Tkw_F1LikeFormWithBS_Control_Text_Push = {final} class(TkwBynameControlPush)
@@ -113,9 +114,9 @@ type
 компонент::TextSource TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_F1LikeFormWithBS_Component_TextSource
 
  Tkw_F1LikeFormWithBS_Component_LoadManager = {final} class(TtfwControlString)
@@ -126,9 +127,9 @@ type
 компонент::LoadManager TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_F1LikeFormWithBS_Component_LoadManager
 
  TkwF1LikeFormWithBSFormBaseSearchControl = {final} class(TtfwPropertyLike)
@@ -227,20 +228,15 @@ OBJECT VAR l_TevLoadDocumentManager
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwF1LikeFormWithBSFormLoadManager
 
-class function Tkw_Form_F1LikeFormWithBS.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::F1LikeFormWithBS';
-end;//Tkw_Form_F1LikeFormWithBS.GetWordNameForRegister
-
 function Tkw_Form_F1LikeFormWithBS.GetString: AnsiString;
 begin
  Result := 'F1LikeFormWithBSForm';
 end;//Tkw_Form_F1LikeFormWithBS.GetString
 
-class function Tkw_F1LikeFormWithBS_Control_BaseSearchControl.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_F1LikeFormWithBS.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::BaseSearchControl';
-end;//Tkw_F1LikeFormWithBS_Control_BaseSearchControl.GetWordNameForRegister
+ Result := 'форма::F1LikeFormWithBS';
+end;//Tkw_Form_F1LikeFormWithBS.GetWordNameForRegister
 
 function Tkw_F1LikeFormWithBS_Control_BaseSearchControl.GetString: AnsiString;
 begin
@@ -253,6 +249,11 @@ begin
  TtfwClassRef.Register(TnscTreeComboWithHistoryAndOperations);
 end;//Tkw_F1LikeFormWithBS_Control_BaseSearchControl.RegisterInEngine
 
+class function Tkw_F1LikeFormWithBS_Control_BaseSearchControl.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::BaseSearchControl';
+end;//Tkw_F1LikeFormWithBS_Control_BaseSearchControl.GetWordNameForRegister
+
 procedure Tkw_F1LikeFormWithBS_Control_BaseSearchControl_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('BaseSearchControl');
@@ -263,11 +264,6 @@ class function Tkw_F1LikeFormWithBS_Control_BaseSearchControl_Push.GetWordNameFo
 begin
  Result := 'контрол::BaseSearchControl:push';
 end;//Tkw_F1LikeFormWithBS_Control_BaseSearchControl_Push.GetWordNameForRegister
-
-class function Tkw_F1LikeFormWithBS_Control_Text.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::Text';
-end;//Tkw_F1LikeFormWithBS_Control_Text.GetWordNameForRegister
 
 function Tkw_F1LikeFormWithBS_Control_Text.GetString: AnsiString;
 begin
@@ -280,6 +276,11 @@ begin
  TtfwClassRef.Register(TeeEditorExport);
 end;//Tkw_F1LikeFormWithBS_Control_Text.RegisterInEngine
 
+class function Tkw_F1LikeFormWithBS_Control_Text.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::Text';
+end;//Tkw_F1LikeFormWithBS_Control_Text.GetWordNameForRegister
+
 procedure Tkw_F1LikeFormWithBS_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('Text');
@@ -290,11 +291,6 @@ class function Tkw_F1LikeFormWithBS_Control_Text_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::Text:push';
 end;//Tkw_F1LikeFormWithBS_Control_Text_Push.GetWordNameForRegister
-
-class function Tkw_F1LikeFormWithBS_Component_TextSource.GetWordNameForRegister: AnsiString;
-begin
- Result := 'компонент::TextSource';
-end;//Tkw_F1LikeFormWithBS_Component_TextSource.GetWordNameForRegister
 
 function Tkw_F1LikeFormWithBS_Component_TextSource.GetString: AnsiString;
 begin
@@ -307,10 +303,10 @@ begin
  TtfwClassRef.Register(TeeTextSourceExport);
 end;//Tkw_F1LikeFormWithBS_Component_TextSource.RegisterInEngine
 
-class function Tkw_F1LikeFormWithBS_Component_LoadManager.GetWordNameForRegister: AnsiString;
+class function Tkw_F1LikeFormWithBS_Component_TextSource.GetWordNameForRegister: AnsiString;
 begin
- Result := 'компонент::LoadManager';
-end;//Tkw_F1LikeFormWithBS_Component_LoadManager.GetWordNameForRegister
+ Result := 'компонент::TextSource';
+end;//Tkw_F1LikeFormWithBS_Component_TextSource.GetWordNameForRegister
 
 function Tkw_F1LikeFormWithBS_Component_LoadManager.GetString: AnsiString;
 begin
@@ -322,6 +318,11 @@ begin
  inherited;
  TtfwClassRef.Register(TevLoadDocumentManager);
 end;//Tkw_F1LikeFormWithBS_Component_LoadManager.RegisterInEngine
+
+class function Tkw_F1LikeFormWithBS_Component_LoadManager.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'компонент::LoadManager';
+end;//Tkw_F1LikeFormWithBS_Component_LoadManager.GetWordNameForRegister
 
 function TkwF1LikeFormWithBSFormBaseSearchControl.BaseSearchControl(const aCtx: TtfwContext;
  aF1LikeFormWithBSForm: TF1LikeFormWithBSForm): TnscTreeComboWithHistoryAndOperations;
@@ -345,11 +346,6 @@ begin
  aCtx.rEngine.PushObj(BaseSearchControl(aCtx, l_aF1LikeFormWithBSForm));
 end;//TkwF1LikeFormWithBSFormBaseSearchControl.DoDoIt
 
-class function TkwF1LikeFormWithBSFormBaseSearchControl.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TF1LikeFormWithBSForm.BaseSearchControl';
-end;//TkwF1LikeFormWithBSFormBaseSearchControl.GetWordNameForRegister
-
 procedure TkwF1LikeFormWithBSFormBaseSearchControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -370,6 +366,11 @@ function TkwF1LikeFormWithBSFormBaseSearchControl.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TF1LikeFormWithBSForm)]);
 end;//TkwF1LikeFormWithBSFormBaseSearchControl.ParamsTypes
+
+class function TkwF1LikeFormWithBSFormBaseSearchControl.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TF1LikeFormWithBSForm.BaseSearchControl';
+end;//TkwF1LikeFormWithBSFormBaseSearchControl.GetWordNameForRegister
 
 function TkwF1LikeFormWithBSFormText.Text(const aCtx: TtfwContext;
  aF1LikeFormWithBSForm: TF1LikeFormWithBSForm): TeeEditorExport;
@@ -393,11 +394,6 @@ begin
  aCtx.rEngine.PushObj(Text(aCtx, l_aF1LikeFormWithBSForm));
 end;//TkwF1LikeFormWithBSFormText.DoDoIt
 
-class function TkwF1LikeFormWithBSFormText.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TF1LikeFormWithBSForm.Text';
-end;//TkwF1LikeFormWithBSFormText.GetWordNameForRegister
-
 procedure TkwF1LikeFormWithBSFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -418,6 +414,11 @@ function TkwF1LikeFormWithBSFormText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TF1LikeFormWithBSForm)]);
 end;//TkwF1LikeFormWithBSFormText.ParamsTypes
+
+class function TkwF1LikeFormWithBSFormText.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TF1LikeFormWithBSForm.Text';
+end;//TkwF1LikeFormWithBSFormText.GetWordNameForRegister
 
 function TkwF1LikeFormWithBSFormTextSource.TextSource(const aCtx: TtfwContext;
  aF1LikeFormWithBSForm: TF1LikeFormWithBSForm): TeeTextSourceExport;
@@ -441,11 +442,6 @@ begin
  aCtx.rEngine.PushObj(TextSource(aCtx, l_aF1LikeFormWithBSForm));
 end;//TkwF1LikeFormWithBSFormTextSource.DoDoIt
 
-class function TkwF1LikeFormWithBSFormTextSource.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TF1LikeFormWithBSForm.TextSource';
-end;//TkwF1LikeFormWithBSFormTextSource.GetWordNameForRegister
-
 procedure TkwF1LikeFormWithBSFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -466,6 +462,11 @@ function TkwF1LikeFormWithBSFormTextSource.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TF1LikeFormWithBSForm)]);
 end;//TkwF1LikeFormWithBSFormTextSource.ParamsTypes
+
+class function TkwF1LikeFormWithBSFormTextSource.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TF1LikeFormWithBSForm.TextSource';
+end;//TkwF1LikeFormWithBSFormTextSource.GetWordNameForRegister
 
 function TkwF1LikeFormWithBSFormLoadManager.LoadManager(const aCtx: TtfwContext;
  aF1LikeFormWithBSForm: TF1LikeFormWithBSForm): TevLoadDocumentManager;
@@ -489,11 +490,6 @@ begin
  aCtx.rEngine.PushObj(LoadManager(aCtx, l_aF1LikeFormWithBSForm));
 end;//TkwF1LikeFormWithBSFormLoadManager.DoDoIt
 
-class function TkwF1LikeFormWithBSFormLoadManager.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TF1LikeFormWithBSForm.LoadManager';
-end;//TkwF1LikeFormWithBSFormLoadManager.GetWordNameForRegister
-
 procedure TkwF1LikeFormWithBSFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -514,6 +510,11 @@ function TkwF1LikeFormWithBSFormLoadManager.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TF1LikeFormWithBSForm)]);
 end;//TkwF1LikeFormWithBSFormLoadManager.ParamsTypes
+
+class function TkwF1LikeFormWithBSFormLoadManager.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TF1LikeFormWithBSForm.LoadManager';
+end;//TkwF1LikeFormWithBSFormLoadManager.GetWordNameForRegister
 
 initialization
  Tkw_Form_F1LikeFormWithBS.RegisterInEngine;

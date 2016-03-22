@@ -2,6 +2,7 @@ unit kwDiffIteratorWord;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwDiffIteratorWord.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwDiffIteratorWord" MUID: (4EB2632A02DD)
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 

@@ -2,6 +2,8 @@ unit AdminMain_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AdminMain_Form.pas"
 // Стереотип: "VCMMainForm"
+// Элемент модели: "AdminMain" MUID: (4F7C3C0B035C)
+// Имя типа: "TAdminMainForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

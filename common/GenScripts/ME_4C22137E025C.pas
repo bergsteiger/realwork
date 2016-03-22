@@ -2,6 +2,7 @@ unit evHAFPainterEx;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evHAFPainterEx.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evHAFPainterEx" MUID: (4C22137E025C)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,7 @@ unit IOUnit;
 
 // Модуль: "w:\shared\tie\Garant\GCI\IOUnit.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "IO" MUID: (4423F94903C8)
 
 interface
 

@@ -2,6 +2,8 @@ unit PrimWorkJournal_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\Forms\PrimWorkJournal_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimWorkJournal" MUID: (4BD6D6EA0075)
+// Имя типа: "TPrimWorkJournalForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

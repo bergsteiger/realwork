@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwOtherWordRunner.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "tfwOtherWordRunner" MUID: (556305F800A9)
+// Имя типа: "_tfwOtherWordRunner_"
 
 {$Define tfwOtherWordRunner_imp}
 

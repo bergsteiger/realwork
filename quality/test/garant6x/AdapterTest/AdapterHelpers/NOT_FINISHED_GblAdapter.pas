@@ -3,6 +3,7 @@ unit NOT_FINISHED_GblAdapter;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\NOT_FINISHED_GblAdapter.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "GblAdapter" MUID: (4AC2178C0370)
 
 interface
 

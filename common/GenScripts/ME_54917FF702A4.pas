@@ -2,6 +2,7 @@ unit ncsServerTransporterPtrPool;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsServerTransporterPtrPool.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TncsServerTransporterPtrPool" MUID: (54917FF702A4)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

@@ -2,6 +2,7 @@ unit f1ChildMaker;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1ChildMaker.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tf1ChildMaker" MUID: (4CEBB7C80129)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

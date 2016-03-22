@@ -9,8 +9,6 @@ unit PrimCommonDictionOptions_Form;
 // Родные Delphi интерфейсы (.pas)
 // Generated from UML model, root element: <<VCMForm::Class>> F1 Встроенные продукты::Diction::View::Diction::PrimCommonDictionOptions
 //
-// Совет дня
-//
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".
 //
@@ -76,7 +74,6 @@ uses
 {$If not defined(Admin) AND not defined(Monitorings)}
 type
  TPrimCommonDictionOptionsForm = {form} class(TPrimCommonDictionForm, IbsCommonDictionListener)
-  {* Совет дня }
  private
  // private fields
    f_BackgroundPanel : TvtPanel;
@@ -211,7 +208,8 @@ uses
   nsMedicDictCache,
   DataAdapter,
   nsDictionTree,
-  BaseTypesUnit
+  BaseTypesUnit,
+  Windows
   {$If not defined(NoScripts)}
   ,
   TtfwClassRef_Proxy
@@ -562,6 +560,8 @@ begin
    end;//if not l3IsNil(dsCommonDiction.Context) then
   end;//if not aFromHistory then
  end;//dsCommonDiction <> nil
+
+ PostMessage(WordsTree.Handle, msg_vtInvalidateNCArea, 0, 0);
 //#UC END# *497469C90140_4C87A1DF00B4_impl*
 end;//TPrimCommonDictionOptionsForm.NotifyDataSourceChanged
 {$IfEnd} //not NoVCM

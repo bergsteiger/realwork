@@ -2,6 +2,8 @@ unit PrimAdmin_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimAdmin_Form.pas"
 // Стереотип: "VCMContainer"
+// Элемент модели: "PrimAdmin" MUID: (4AFB0146035B)
+// Имя типа: "TPrimAdminForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

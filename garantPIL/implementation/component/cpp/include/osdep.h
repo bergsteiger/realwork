@@ -151,6 +151,8 @@
 			#define __OSDEP_USE_ATTRIBUTE_PACKED
 		#endif
 	#else
+		#define __OSDEP_NEED_GETOPT
+		#define __OSDEP_NEED_CADDR_T
 		#if (_MSC_VER < 1800)
 			#define __OSDEP_NEED_OFF_T
 			#define __OSDEP_NEED_BZERO
@@ -160,8 +162,6 @@
 			#define __OSDEP_HAS_CHSIZE
 			#define __OSDEP_HAS_STR_I_FUNCS
 			#define __OSDEP_NEED_MKSTEMP
-			#define __OSDEP_NEED_GETOPT
-			#define __OSDEP_NEED_CADDR_T
 			#define __OSDEP_MS_POINTERS_STYLE
 			#define __OSDEP_NEED_SLEEP
 			//		#define __OSDEP_NEED_ALLOCA

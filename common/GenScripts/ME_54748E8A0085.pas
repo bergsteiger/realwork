@@ -2,6 +2,7 @@ unit alcuTaskProgressExecutor;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuTaskProgressExecutor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuTaskProgressExecutor" MUID: (54748E8A0085)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

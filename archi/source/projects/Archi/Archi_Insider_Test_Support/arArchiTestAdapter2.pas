@@ -25,6 +25,7 @@ procedure AcSaveDocAs(const aFileName: AnsiString);
 procedure AcSaveTextAs(const aFileName: AnsiString);
 procedure ArClearTemplateStorage;
 procedure AcMainFormFormClose;
+procedure AcClearConfig;
 {$IfEnd} //InsiderTest AND nsTest
 
 implementation
@@ -274,6 +275,15 @@ begin
  end;
 //#UC END# *53EB19C20101_4E4B5F29031C_impl*
 end;//AcMainFormFormClose
+
+procedure AcClearConfig;
+//#UC START# *56A09EF601E1_4E4B5F29031C_var*
+//#UC END# *56A09EF601E1_4E4B5F29031C_var*
+begin
+//#UC START# *56A09EF601E1_4E4B5F29031C_impl*
+ //arExtractUserIniFile;
+//#UC END# *56A09EF601E1_4E4B5F29031C_impl*
+end;//AcClearConfig
 {$IfEnd} //InsiderTest AND nsTest
 
 end.

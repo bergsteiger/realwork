@@ -3,6 +3,8 @@ unit moMainMenu;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moMainMenu.pas"
 // Стереотип: "VCMUseCaseRealization"
+// Элемент модели: "MainMenu" MUID: (4AA7A24203B1)
+// Имя типа: "Tmo_MainMenu"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

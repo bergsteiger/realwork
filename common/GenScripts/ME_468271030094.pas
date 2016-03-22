@@ -2,6 +2,7 @@ unit nsNodeStorable;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Components\nsNodeStorable.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsNodeStorable" MUID: (468271030094)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3CharSkipper;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3CharSkipper.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CharSkipper" MUID: (5604FB3502B9)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

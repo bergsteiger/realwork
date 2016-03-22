@@ -1,8 +1,20 @@
 unit ddMDPIntegration;
 
-{ $Id: ddMDPIntegration.pas,v 1.76 2015/10/19 18:18:28 lulin Exp $ }
+{ $Id: ddMDPIntegration.pas,v 1.80 2016/02/15 14:02:02 fireton Exp $ }
 
 // $Log: ddMDPIntegration.pas,v $
+// Revision 1.80  2016/02/15 14:02:02  fireton
+// - gardoc_hang + рефакторинг
+//
+// Revision 1.79  2015/12/11 06:43:21  lukyanets
+// Логируем код региона
+//
+// Revision 1.78  2015/12/11 06:23:23  lukyanets
+// Логируем код региона
+//
+// Revision 1.77  2015/11/26 08:45:43  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.76  2015/10/19 18:18:28  lulin
 // - заготовочка.
 //
@@ -322,7 +334,7 @@ type
   procedure AddToName(const aDate: TDateTime); overload;
   procedure AddToName(const aStr: AnsiString; aNeedSpace: Boolean = True); overload;
   procedure AddType(const aGDRec: TGardoc);
-  function CheckIfJustACard(const aGDRec: TGardoc): Boolean;
+  function DocHasALabel(const aGDRec: TGardoc; const aLabel: AnsiString): Boolean;
   function DetectNSRInImages(aGDRec: TGardoc): Boolean;
   procedure DoReport(const aMsg: AnsiString);
   procedure DropResult;
@@ -371,7 +383,8 @@ type
   procedure SaveLastTimestamp(const aTimestamp: TDateTime; const aBatchType: TddMDPDocBatchType);
   {$ENDIF}
  public
-  procedure Import(aOnError: TddErrorEvent;
+  procedure Import(AllowZeroRegion: Boolean;
+                   aOnError: TddErrorEvent;
                    aOnResult: TddMDPImportResultEvent;
                    aBeforeBatch: TddMDPImportBatchEvent;
                    anAfterBatchSuccess: TddMDPImportBatchEvent;
@@ -413,6 +426,7 @@ uses
  TextPara_Const,
 
  daDataProvider,
+ daSchemeConsts,
 
  DT_Const,
  {$IFNDEF MDP_TEST}
@@ -524,7 +538,9 @@ begin
  l_Status := 0;
  if aGDRec.rIsInternet then
   l3SetMask(l_Status, dstatInternet);
- if l_Status <> 0 then // это всё на случай, если позже мы будем добавлять другие флажки
+ if DocHasALabel(aGDRec, 'GARDOC_HANG') then
+  l3SetMask(l_Status, dstatHang);
+ if l_Status <> 0 then 
   AddIntegerAtom(k2_tiPriceLevel, l_Status);
 end;
 
@@ -539,8 +555,24 @@ var
  J: Integer;
  l_Str: IString;
  l_IsCard : Boolean;
+ l_CStr: Il3CString;
 begin
- l_IsCard := CheckIfJustACard(aGDRec); // проверим, что документ-просто карточка и поставим группу доступа KART, ежели так
+ l_IsCard := DocHasALabel(aGDRec, 'GARDOC_KART'); // проверим, что документ-просто карточка и поставим группу доступа KART, ежели так
+ if l_IsCard then
+ begin
+  StartTag(k2_tiAccGroups);
+  try
+   StartChild(k2_typDictItem);
+   try
+    AddStringAtom(k2_tiShortName, 'KART');
+   finally
+    Finish; // k2_typDictItem
+   end;
+  finally
+   Finish; // k2_tiAccGroups
+  end;
+ end;
+
  if aGDRec.rBlocks <> nil then
  begin
   if aGDRec.rBlocks.Count > 0 then
@@ -649,55 +681,6 @@ begin
   end;
  finally
   Finish;
- end;
-end;
-
-function TddMDPReader.CheckIfJustACard(const aGDRec: TGardoc): Boolean;
-var
- I, J: Integer;
- l_Img: TImage;
- l_IStr: IString;
- l_Str: Il3CString;
-begin
- // если в метках образов есть gardoc_kart, надо добавить группу доступа KART
- Result := False;
- if aGDRec.rImages <> nil then
-  for I := 0 to aGDRec.rImages.Count - 1 do
-  begin
-   aGDRec.rImages.pm_GetItem(I, l_Img);
-   try
-    if l_Img.rLabels <> nil then
-     for J := 0 to l_Img.rLabels.Count - 1 do
-     begin
-      l_Img.rLabels.pm_GetItem(J, l_IStr);
-      try
-       l_Str := l3CStr(l_IStr);
-       Result := l3Same(l_Str, 'gardoc_kart', True);
-       if Result then
-        Break;
-      finally
-       l_IStr := nil;
-      end;
-     end;
-   finally
-    Finalize(l_Img);
-   end;
-   if Result then
-    Break;
-  end;
- if Result then
- begin
-  StartTag(k2_tiAccGroups);
-  try
-   StartChild(k2_typDictItem);
-   try
-    AddStringAtom(k2_tiShortName, 'KART');
-   finally
-    Finish; // k2_typDictItem
-   end;
-  finally
-   Finish; // k2_tiAccGroups
-  end;
  end;
 end;
 
@@ -1293,7 +1276,8 @@ begin
 {$ENDIF}
 end;
 
-procedure TddMDPImporter.Import(aOnError: TddErrorEvent;
+procedure TddMDPImporter.Import(AllowZeroRegion: Boolean;
+                                aOnError: TddErrorEvent;
                                 aOnResult: TddMDPImportResultEvent;
                                 aBeforeBatch: TddMDPImportBatchEvent;
                                 anAfterBatchSuccess: TddMDPImportBatchEvent;
@@ -1347,6 +1331,8 @@ begin
      l_MaxCount := aMaxCount;
      {$IFNDEF MDP_TEST}
      l_Region := IntToStr(GlobalDataProvider.RegionID);
+     if (l_Region = '0') and not AllowZeroRegion then
+      raise Exception.Create('Нельзя импортировать документы из Гардок для нулевого региона'); 
      {$ELSE}
      l_Region := '0';
      {$ENDIF}
@@ -1364,8 +1350,8 @@ begin
        l3DateTimeToBox(l_TStamp, l_Date);
        try
         with l_Date do
-         l3System.Msg2Log('Синхронизация %s документов с MDP с %s',
-                          [c_BatchType[l_Batch], Format('%.2d.%.2d.%4d %.2d:%.2d', [rDay, rMounth, rYear, rHour, rMinute])]);
+         l3System.Msg2Log('Синхронизация %s документов (для региона %s) с MDP с %s',
+                          [c_BatchType[l_Batch], l_Region, Format('%.2d.%.2d.%4d %.2d:%.2d', [rDay, rMounth, rYear, rHour, rMinute])]);
 
         {$IFDEF MDP_EXACTDOC}
         if l_Batch = btTop then
@@ -1374,7 +1360,7 @@ begin
          try
           l_TopicList := l_DLL.MakeLongList;
           try
-           l_TopicList.Add(71008350); // топик, который хотим получить
+           l_TopicList.Add(71227336); // топик, который хотим получить
            l_Getter.GardocsByTopicList(l_TopicList, l_List);
           finally
            l_TopicList := nil;
@@ -1523,6 +1509,40 @@ end;
 procedure TddMDPReader.AbortImport;
 begin
  f_Aborted := True;
+end;
+
+function TddMDPReader.DocHasALabel(const aGDRec: TGardoc; const aLabel: AnsiString): Boolean;
+var
+ I, J: Integer;
+ l_Img: TImage;
+ l_IStr: IString;
+ l_Str: Il3CString;
+begin
+ Result := False;
+ if aGDRec.rImages <> nil then
+  for I := 0 to aGDRec.rImages.Count - 1 do
+  begin
+   aGDRec.rImages.pm_GetItem(I, l_Img);
+   try
+    if l_Img.rLabels <> nil then
+     for J := 0 to l_Img.rLabels.Count - 1 do
+     begin
+      l_Img.rLabels.pm_GetItem(J, l_IStr);
+      try
+       l_Str := l3CStr(l_IStr);
+       Result := l3Same(aLabel, l_Str, True);
+       if Result then
+        Break;
+      finally
+       l_IStr := nil;
+      end;
+     end;
+   finally
+    Finalize(l_Img);
+   end;
+   if Result then
+    Break;
+  end;
 end;
 
 end.

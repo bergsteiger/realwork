@@ -2,6 +2,7 @@ unit deDocumentList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\deDocumentList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdeDocumentList" MUID: (492FF76202CA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -75,7 +76,7 @@ constructor TdeDocumentList.CreateClonned(const aList: IDynList;
 begin
 //#UC START# *4B1F7A850082_492FF76202CA_impl*
  Create(aList, aOpenFrom, aTimeMachineOff,
-   aWhatDoingIfOneDoc, aNodeForPositioning, aSearchInfo, pm_GetAllDocumentsFiltered, True);
+   aWhatDoingIfOneDoc, aNodeForPositioning, aSearchInfo, pm_GetAllDocumentsFiltered, True, pm_GetIsChanged);
 //#UC END# *4B1F7A850082_492FF76202CA_impl*
 end;//TdeDocumentList.CreateClonned
 
@@ -98,7 +99,8 @@ begin
                   aNodeForPositioning,
                   aSearchInfo,
                   aAllDocumentsFiltered,
-                  aNeedApplyPermanentFilters);
+                  aNeedApplyPermanentFilters,
+                  aIsChanged);
  f_OpenFrom := aOpenFrom;
 //#UC END# *4B1F7AFB00BF_492FF76202CA_impl*
 end;//TdeDocumentList.Create

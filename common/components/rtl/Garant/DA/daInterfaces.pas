@@ -34,6 +34,8 @@ type
    ['{5450DF32-F7B8-4889-B03B-B1B4E5BA5C40}']
    function DoLongProcessNotify(aState: TdaProcessState): Boolean;
  end;//IdaLongProcessSubscriber
+ PIdaLongProcessSubscriber = ^IdaLongProcessSubscriber;
+
 
  IdaParamsStorage = interface(IUnknown)
   {* Абстрагирует откуда именно надо читать параметры }
@@ -121,9 +123,13 @@ type
    function Get_IsDublicate: Boolean;
    function Get_IsFake: Boolean;
    function Get_Kind: TdaTables;
-   function Get_Code: AnsiString;
-   function Get_Name: AnsiString;
+   function Get_SQLName: AnsiString;
+   function Get_Scheme: AnsiString;
+   function Get_FieldsCount: Integer;
+   function Get_FieldsCountWithoutTree: Integer;
+   function Get_IsTree: Boolean;
    function Get_Field(const FIeldName: AnsiString): IdaFieldDescription;
+   function FieldByIndex(anIndex: Integer): IdaFieldDescription;
    property Description: AnsiString
      read Get_Description;
    property IsDublicate: Boolean
@@ -134,10 +140,16 @@ type
      {* Совсем виртуальная таблица }
    property Kind: TdaTables
      read Get_Kind;
-   property Code: AnsiString
-     read Get_Code;
-   property Name: AnsiString
-     read Get_Name;
+   property SQLName: AnsiString
+     read Get_SQLName;
+   property Scheme: AnsiString
+     read Get_Scheme;
+   property FieldsCount: Integer
+     read Get_FieldsCount;
+   property FieldsCountWithoutTree: Integer
+     read Get_FieldsCountWithoutTree;
+   property IsTree: Boolean
+     read Get_IsTree;
    property Field[const FIeldName: AnsiString]: IdaFieldDescription
      read Get_Field;
      default;
@@ -150,6 +162,7 @@ type
    function Get_CurStatisticTreeRoot: Il3RootNode;
    function Get_UserID: TdaUserID;
    procedure Set_UserID(aValue: TdaUserID);
+   function Get_CurSessionID: TdaSessionID;
    procedure CalcStatistics(FromDate: TStDate;
     ToDate: TStDate;
     aDocID: TdaDocID;
@@ -190,6 +203,8 @@ type
    property UserID: TdaUserID
      read Get_UserID
      write Set_UserID;
+   property CurSessionID: TdaSessionID
+     read Get_CurSessionID;
  end;//IdaJournal
 
  IdaSelectField = interface(IUnknown)
@@ -212,17 +227,17 @@ type
 
  IdaFieldDescription = interface(IUnknown)
    ['{D2CE49CF-F261-47FA-8E38-C372CB79783E}']
-   function Get_Name: AnsiString;
+   function Get_SQLName: AnsiString;
    function Get_Description: AnsiString;
    function Get_DataType: TdaDataType;
    function Get_Required: Boolean;
    function Get_Table: IdaTableDescription;
    function Get_Index: Integer;
-   function Get_SIze: Integer;
+   function Get_Size: Integer;
    procedure BindToTable(const aTable: IdaTableDescription = nil;
     anIndex: Integer = -1);
-   property Name: AnsiString
-     read Get_Name;
+   property SQLName: AnsiString
+     read Get_SQLName;
    property Description: AnsiString
      read Get_Description;
    property DataType: TdaDataType
@@ -234,8 +249,8 @@ type
      {* Должно быть Weak }
    property Index: Integer
      read Get_Index;
-   property SIze: Integer
-     read Get_SIze;
+   property Size: Integer
+     read Get_Size;
  end;//IdaFieldDescription
 
  IdaParamDescription = interface(IUnknown)
@@ -243,12 +258,15 @@ type
    function Get_Name: AnsiString;
    function Get_DataType: TdaDataType;
    function Get_Size: Integer;
+   function Get_ParamType: TdaParamType;
    property Name: AnsiString
      read Get_Name;
    property DataType: TdaDataType
      read Get_DataType;
    property Size: Integer
      read Get_Size;
+   property ParamType: TdaParamType
+     read Get_ParamType;
  end;//IdaParamDescription
 
  IdaFromTable = interface(IUnknown)
@@ -274,6 +292,9 @@ type
    procedure Set_AsString(const aValue: AnsiString);
    function Get_AsStDate: TStDate;
    procedure Set_AsStDate(aValue: TStDate);
+   function Get_AsStTime: TStTime;
+   procedure Set_AsStTime(aValue: TStTime);
+   function Get_ParamType: TdaParamType;
    function IsSameType(const aDesc: IdaParamDescription): Boolean;
    property Name: AnsiString
      read Get_Name;
@@ -291,6 +312,11 @@ type
    property AsStDate: TStDate
      read Get_AsStDate
      write Set_AsStDate;
+   property AsStTime: TStTime
+     read Get_AsStTime
+     write Set_AsStTime;
+   property ParamType: TdaParamType
+     read Get_ParamType;
  end;//IdaParam
 
  IdaField = interface(IUnknown)
@@ -324,7 +350,7 @@ type
    procedure ParamToDataBase(const aDescription: IdaParamDescription;
     ClientBufferFormat: TdaDataType;
     aClientBuffer: Pointer;
-    aServerBuffer: Pointer);
+    var aServerBuffer: Pointer);
    procedure ParamFromDataBase(const aDescription: IdaParamDescription;
     ClientBufferFormat: TdaDataType;
     aServerBuffer: Pointer;
@@ -342,45 +368,38 @@ type
    property Field[const anAlias: AnsiString]: IdaField
      read Get_Field;
  end;//IdaResultSet
+ IdaCondition = interface;
+ { - предварительное описание IdaCondition. }
+
+
+  daConditionIterator_Iterate_Action = function (const anItem: IdaCondition): Boolean;
+   {* Тип подитеративной функции для daConditionIterator.Iterate }
+
+(*
+ daConditionIterator = PureMixIn
+   {iterator} procedure Iterate(anAction: daConditionIterator_Iterate_Action);
+   {iterator} procedure IterateF(anAction: daConditionIterator_Iterate_Action);
+ end;//daConditionIterator
+*)
 
  IdaCondition = interface(IUnknown)
    ['{EC607AF4-F1DA-4322-8BD3-6932EE2BB0EE}']
    function BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
+  // daConditionIterator
+   {iterator} procedure Iterate(anAction: daConditionIterator_Iterate_Action);
+   {iterator} procedure IterateF(anAction: daConditionIterator_Iterate_Action);
  end;//IdaCondition
 
  IdaQuery = interface(IUnknown)
-   ['{F3159211-0A1B-4F31-8BD5-17E6B8443F61}']
-   function Get_WhereCondition: IdaCondition;
-   procedure Set_WhereCondition(const aValue: IdaCondition);
+   ['{B09183CF-00DE-48AC-B7F6-0E440637550C}']
    function Get_Param(const aName: AnsiString): IdaParam;
    function OpenResultSet(Unidirectional: Boolean = True): IdaResultSet;
    procedure Prepare;
-   procedure AddSelectField(const aField: IdaSelectField);
-   procedure AddFromTable(const aTable: IdaFromTable);
    procedure UnPrepare;
-   property WhereCondition: IdaCondition
-     read Get_WhereCondition
-     write Set_WhereCondition;
+   function BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
    property Param[const aName: AnsiString]: IdaParam
      read Get_Param;
  end;//IdaQuery
-
- IdaTableQueryFactory = interface(IUnknown)
-   ['{158601ED-CBAB-4A68-975A-8A6590602F42}']
-   function Get_DataConverter: IdaDataConverter;
-   function MakeTabledQuery(const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaQuery;
-   function MakeSelectField(const aTableAlias: AnsiString;
-    const aField: IdaFieldDescription;
-    const anAlias: AnsiString = ''): IdaSelectField;
-   function MakeParamsCondition(const aTableAlias: AnsiString;
-    const aField: IdaFieldDescription;
-    anOperation: TdaCompareOperation;
-    const aParamName: AnsiString): IdaCondition;
-   function GetUserNameStr(anUserID: LargeInt): AnsiString;
-   property DataConverter: IdaDataConverter
-     read Get_DataConverter;
- end;//IdaTableQueryFactory
 
  IdaResultBuffer = interface(IUnknown)
    ['{5E8352D2-D847-437E-8BD8-EAF59267A5C6}']
@@ -405,13 +424,87 @@ type
     const aPassword: AnsiString;
     RequireAdminRights: Boolean;
     out theUserID: TdaUserID): TdaLoginError;
+   function IsUserAdmin(anUserID: TdaUserID): Boolean;
  end;//IdaUserManager
+
+ IdaSortField = interface(IUnknown)
+   ['{9416DE56-ABBE-4945-B6C7-BBBBC4584860}']
+   function Get_SelectField: IdaSelectField;
+   function Get_SortOrder: TdaSortOrder;
+   property SelectField: IdaSelectField
+     read Get_SelectField;
+   property SortOrder: TdaSortOrder
+     read Get_SortOrder;
+ end;//IdaSortField
+
+const
+  { UserFlagConst }
+ usActive = 1;
+ usAdmin = 2;
+ usDeleted = 4;
+
+type
+ IdaAtomicCondition = interface(IUnknown)
+   ['{3EDD2B55-9527-4684-A646-45D8953FA44A}']
+   function Get_Operation: TdaCompareOperation;
+   property Operation: TdaCompareOperation
+     read Get_Operation;
+ end;//IdaAtomicCondition
+
+ IdaTabledQuery = interface(IdaQuery)
+   ['{F3159211-0A1B-4F31-8BD5-17E6B8443F61}']
+   function Get_WhereCondition: IdaCondition;
+   procedure Set_WhereCondition(const aValue: IdaCondition);
+   function Get_Table: IdaFromTable;
+   procedure AddSelectField(const aField: IdaSelectField);
+   procedure AddOrderBy(const aSortField: IdaSortField);
+   property WhereCondition: IdaCondition
+     read Get_WhereCondition
+     write Set_WhereCondition;
+   property Table: IdaFromTable
+     read Get_Table;
+ end;//IdaTabledQuery
+
+const
+  { UndefinedIDs }
+ cUndefDocID : TdaDocID = -1;
+
+type
+ IdaTableQueryFactory = interface(IUnknown)
+   ['{158601ED-CBAB-4A68-975A-8A6590602F42}']
+   function Get_DataConverter: IdaDataConverter;
+   function MakeTabledQuery(const aTable: IdaTableDescription;
+    const anAlias: AnsiString = ''): IdaTabledQuery;
+   function MakeSelectField(const aTableAlias: AnsiString;
+    const aField: IdaFieldDescription;
+    const anAlias: AnsiString = ''): IdaSelectField;
+   function MakeParamsCondition(const aTableAlias: AnsiString;
+    const aField: IdaFieldDescription;
+    anOperation: TdaCompareOperation;
+    const aParamName: AnsiString): IdaCondition;
+   function GetUserNameStr(anUserID: LargeInt): AnsiString;
+   function MakeLogicCondition(const aLeft: IdaCondition;
+    anOperation: TdaLogicOperation;
+    const aRight: IdaCondition): IdaCondition;
+   function MakeSubQueryCondition(const aTableAlias: AnsiString;
+    const aField: IdaFieldDescription;
+    const aQuery: IdaTabledQuery): IdaCondition;
+   function MakeSortField(const aSelectField: IdaSelectField;
+    aSortOrder: TdaSortOrder = da_soAscending): IdaSortField;
+   property DataConverter: IdaDataConverter
+     read Get_DataConverter;
+ end;//IdaTableQueryFactory
+
+ IdaFunction = interface(IdaQuery)
+   ['{6EA115C8-7CB5-491C-B44C-F9D45EE48050}']
+   procedure Execute;
+ end;//IdaFunction
 
  IdaDataProvider = interface(IUnknown)
    ['{CB4A320D-C320-42C5-AD66-8C45A9DD91AC}']
    procedure InitRegionFromIni(aDefaultRegion: TdaRegionID);
-   function IsRegionExists(aID: TdaRegionID): Boolean;
-   function GetRegionName(aID: TdaRegionID): AnsiString;
+   function IsRegionExists(anID: TdaRegionID): Boolean;
+   function GetRegionName(anID: TdaRegionID): AnsiString;
    procedure FillRegionDataList(aList: Tl3StringDataList;
      Caps: Boolean);
    procedure Start;
@@ -449,6 +542,7 @@ type
    procedure UnSubscribeProgress(const aSubscriber: IdaProgressSubscriber);
    procedure BeginImpersonate(anUserID: TdaUserID);
    procedure EndImpersonate;
+   function HasJournal: Boolean;
    property UserID: TdaUserID
      read Get_UserID;
    property RegionID: TdaRegionID
@@ -479,22 +573,45 @@ type
      read Get_TextBase;
  end;//IdaDataProvider
 
-const
-  { UserFlagConst }
- usActive = 1;
- usAdmin = 2;
- usDeleted = 4;
+ IdaComboAccessDataProviderHelper = interface(IUnknown)
+   ['{603EDD09-200D-48A3-A7AC-E58665C5439E}']
+   function RegisterFreeExtObjID(aFamilyID: TdaFamilyID;
+    const aKey: AnsiString;
+    anID: TdaDocID): Boolean;
+   function RegisterFreeExtDocID(aFamilyID: TdaFamilyID;
+    const aKey: AnsiString;
+    anID: TdaDocID): Boolean;
+   procedure SetAlienJournalData(aSessionID: TdaSessionID);
+ end;//IdaComboAccessDataProviderHelper
 
-type
- IdaAtomicCondition = interface(IUnknown)
-   ['{3EDD2B55-9527-4684-A646-45D8953FA44A}']
-   function Get_Operation: TdaCompareOperation;
-   property Operation: TdaCompareOperation
-     read Get_Operation;
- end;//IdaAtomicCondition
+ IdaComboAccessJournalHelper = interface(IUnknown)
+   ['{9C5AF6B0-E3D5-419F-9136-E0280619B32D}']
+   procedure SetAlienData(anUserID: TdaUserID;
+    aSessionID: TdaSessionID);
+   procedure LogAlienEvent(aOperation: TdaJournalOperation;
+    aFamilyID: TdaFamilyID;
+    aExtID: LongInt;
+    aData: LongInt);
+   function MakeAlienResultSet(FromDate: TStDate;
+    ToDate: TStDate;
+    aDocID: TdaDocID;
+    UserOrGroupID: TdaUserID;
+    UserGr: Boolean): IdaResultSet;
+ end;//IdaComboAccessJournalHelper
+
+ IdaComboAccessQueryHelper = interface(IUnknown)
+   ['{DE5DF01D-A926-43A4-8A09-6614873CA019}']
+   function AddParam(const aParamDesc: IdaParamDescription): IdaParam;
+ end;//IdaComboAccessQueryHelper
+
+const
+  { SessionConst }
+ BlankSession : TdaSessionID = -1;
 
 function L2DaTableDescriptionIteratorIterateFieldsFAction(anAction: pointer): daTableDescriptionIterator_IterateFieldsF_Action;
    {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daTableDescriptionIterator.IterateFieldsF }
+function L2DaConditionIteratorIterateAction(anAction: pointer): daConditionIterator_Iterate_Action;
+   {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daConditionIterator.Iterate }
 
 implementation
 
@@ -509,5 +626,11 @@ function L2DaTableDescriptionIteratorIterateFieldsFAction(anAction: pointer): da
 asm
  jmp l3LocalStub
 end;//L2DaTableDescriptionIteratorIterateFieldsFAction
+
+function L2DaConditionIteratorIterateAction(anAction: pointer): daConditionIterator_Iterate_Action;
+ {-}
+asm
+ jmp l3LocalStub
+end;//L2DaConditionIteratorIterateAction
 
 end.

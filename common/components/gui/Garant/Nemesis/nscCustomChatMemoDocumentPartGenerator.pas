@@ -2,6 +2,7 @@ unit nscCustomChatMemoDocumentPartGenerator;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscCustomChatMemoDocumentPartGenerator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnscCustomChatMemoDocumentPartGenerator" MUID: (4A8BB357000F)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

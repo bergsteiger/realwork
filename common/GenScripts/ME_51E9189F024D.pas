@@ -2,6 +2,7 @@ unit ddCustomDestination;
 
 // Модуль: "w:\common\components\rtl\Garant\dd\ddCustomDestination.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TddCustomDestination" MUID: (51E9189F024D)
 
 {$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 

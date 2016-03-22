@@ -2,6 +2,7 @@ unit alcuDetachedExecutorPool;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuDetachedExecutorPool.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuDetachedExecutorPool" MUID: (54BE32A30011)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

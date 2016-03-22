@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevParaListTool" MUID: (480F4E9301DE)
+// Имя типа: "_nevParaListTool_"
 
 {$Define nevParaListTool_imp}
 

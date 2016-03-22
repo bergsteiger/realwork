@@ -7,6 +7,8 @@ aSubDescrObj subdescriptor:GetDrawType
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetDrawType.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "subdescriptor_GetDrawType" MUID: (52D65F690396)
+// Имя типа: "TkwSubdescriptorGetDrawType"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

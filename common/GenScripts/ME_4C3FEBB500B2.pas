@@ -3,6 +3,7 @@ unit OldNSRCFlagCnahge;
 
 // Модуль: "w:\common\components\gui\Garant\Daily\OldNSRCFlagCnahge.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TOldNSRCFlagCnahge" MUID: (4C3FEBB500B2)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 

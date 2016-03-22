@@ -3,6 +3,7 @@ unit DocumentUserTypes_dftDrugSynchroView_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes_dftDrugSynchroView_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "dftDrugSynchroView" MUID: (4B0410A102E1)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -35,26 +36,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftDrugSynchroView = {final} class(TtfwInteger)
   {* Слово словаря для типа формы dftDrugSynchroView }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_dftDrugSynchroView
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_dftDrugSynchroView.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::dftDrugSynchroView';
-end;//Tkw_FormUserType_dftDrugSynchroView.GetWordNameForRegister
-
 function Tkw_FormUserType_dftDrugSynchroView.GetInteger: Integer;
 begin
  Result := dftDrugSynchroView;
 end;//Tkw_FormUserType_dftDrugSynchroView.GetInteger
+
+class function Tkw_FormUserType_dftDrugSynchroView.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::dftDrugSynchroView';
+end;//Tkw_FormUserType_dftDrugSynchroView.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

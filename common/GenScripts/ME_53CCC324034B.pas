@@ -2,6 +2,7 @@ unit alcuAsyncSubmitterManager;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuAsyncSubmitterManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TalcuAsyncSubmitterManager" MUID: (53CCC324034B)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

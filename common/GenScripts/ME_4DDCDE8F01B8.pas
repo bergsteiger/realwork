@@ -3,6 +3,7 @@ unit PrimChangesBetweenEditons_DocumentChanges_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\PrimChangesBetweenEditons_DocumentChanges_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "DocumentChanges" MUID: (4DDCDE8F01B8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -34,26 +35,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_DocumentChanges = {final} class(TtfwInteger)
   {* Слово словаря для типа формы DocumentChanges }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_DocumentChanges
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_DocumentChanges.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::DocumentChanges';
-end;//Tkw_FormUserType_DocumentChanges.GetWordNameForRegister
-
 function Tkw_FormUserType_DocumentChanges.GetInteger: Integer;
 begin
  Result := DocumentChanges;
 end;//Tkw_FormUserType_DocumentChanges.GetInteger
+
+class function Tkw_FormUserType_DocumentChanges.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::DocumentChanges';
+end;//Tkw_FormUserType_DocumentChanges.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

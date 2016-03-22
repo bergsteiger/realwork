@@ -351,16 +351,10 @@ void GetProtInfo ( struct PROTINFO * P_I, const char * NDTPath, int Ver )
 	unsigned short xor_factor = P_I -> Reserved;
 	P_I -> Reserved ^= xors [P_I -> VerType & 3];
 
-#ifdef	_GCD_CLIENT
-	if ( ( (Ver&0x0FFF) == VERTYPE_LOCAL ) || ( (Ver&0x0FFF) == VERTYPE_NET ) || ( (Ver&0x0FFF) == VERTYPE_NET_ONEUSER ) ) {
-#else
-	if ( ( (Ver&0x0FFF) == VERTYPE_LOCAL ) || ( (Ver&0x0FFF) == VERTYPE_DEMO ) ) {
-#endif
+	if ((Ver & VERTYPE_MASK) != VERTYPE_NET_ONEUSER) {
 		P_I -> HardwareID = GetComputerID ();
-		//unsigned short xor_factor = (unsigned short) ((xors [P_I -> VerType & 3] << (P_I -> VerType & 3)) & 0xFFFF);
 		P_I -> HardwareID ^= xor_factor;
-	}
-	else {
+	} else {
 		P_I -> HardwareID = 0;
 		if ((Ver & 0x8000) == 0) {
 			if (NDTPath [0]) {

@@ -26,6 +26,8 @@ uses
 type
 //#UC START# *45F6CDFF01C5ci*
 //#UC END# *45F6CDFF01C5ci*
+//#UC START# *45F6CDFF01C5cit*
+//#UC END# *45F6CDFF01C5cit*
  FlagNodeStub = {final} class(FlagNodeBase)
  protected
  // realized methods

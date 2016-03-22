@@ -2,6 +2,7 @@ unit InterfacedNodeWords;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\InterfacedNodeWords.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "InterfacedNodeWords" MUID: (53B532DE0203)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -146,11 +147,6 @@ begin
  aCtx.rEngine.PushString(Caption(aCtx, l_aNode));
 end;//TkwNodeCaption.DoDoIt
 
-class function TkwNodeCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Node:Caption';
-end;//TkwNodeCaption.GetWordNameForRegister
-
 procedure TkwNodeCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -171,6 +167,11 @@ function TkwNodeCaption.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3Node)]);
 end;//TkwNodeCaption.ParamsTypes
+
+class function TkwNodeCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Node:Caption';
+end;//TkwNodeCaption.GetWordNameForRegister
 
 function TkwNodeIndex.Index(const aCtx: TtfwContext;
  const aNode: Il3Node): Integer;
@@ -198,11 +199,6 @@ begin
  aCtx.rEngine.PushInt(Index(aCtx, l_aNode));
 end;//TkwNodeIndex.DoDoIt
 
-class function TkwNodeIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Node:Index';
-end;//TkwNodeIndex.GetWordNameForRegister
-
 procedure TkwNodeIndex.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -223,6 +219,11 @@ function TkwNodeIndex.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3Node)]);
 end;//TkwNodeIndex.ParamsTypes
+
+class function TkwNodeIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Node:Index';
+end;//TkwNodeIndex.GetWordNameForRegister
 
 function TkwNodeIndexInTree.IndexInTree(const aCtx: TtfwContext;
  const aNode: Il3Node): Integer;
@@ -264,11 +265,6 @@ begin
  aCtx.rEngine.PushInt(IndexInTree(aCtx, l_aNode));
 end;//TkwNodeIndexInTree.DoDoIt
 
-class function TkwNodeIndexInTree.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Node:IndexInTree';
-end;//TkwNodeIndexInTree.GetWordNameForRegister
-
 procedure TkwNodeIndexInTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -289,6 +285,11 @@ function TkwNodeIndexInTree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3Node)]);
 end;//TkwNodeIndexInTree.ParamsTypes
+
+class function TkwNodeIndexInTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Node:IndexInTree';
+end;//TkwNodeIndexInTree.GetWordNameForRegister
 
 initialization
  TInterfacedNodeWordsResNameGetter.Register;

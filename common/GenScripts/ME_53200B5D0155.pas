@@ -3,6 +3,8 @@ unit K517772970_TddProcessTask;
 
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddProcessTask.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "K517772970_TddProcessTask" MUID: (53200B5D0155)
+// Имя типа: "TK517772970_TddProcessTask"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 

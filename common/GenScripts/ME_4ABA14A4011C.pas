@@ -3,6 +3,8 @@ unit StyleEditorExample_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorExample_Form.pas"
 // Стереотип: "VCMFinalForm"
+// Элемент модели: "StyleEditorExample" MUID: (4ABA14A4011C)
+// Имя типа: "TStyleEditorExampleForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\AACSpaceDrawing.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "AACSpaceDrawing" MUID: (5062BFDB025E)
+// Имя типа: "_AACSpaceDrawing_"
 
 {$Define AACSpaceDrawing_imp}
 

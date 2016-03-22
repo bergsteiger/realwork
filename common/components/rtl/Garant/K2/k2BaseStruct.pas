@@ -3,6 +3,7 @@ unit k2BaseStruct;
 
 // Модуль: "w:\common\components\rtl\Garant\K2\k2BaseStruct.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "k2BaseStruct" MUID: (4A65EFB60037)
 
 {$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 

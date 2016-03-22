@@ -3,6 +3,7 @@ unit InsertPictureTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\InsertPictureTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TInsertPictureTest" MUID: (4D513D6D0209)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

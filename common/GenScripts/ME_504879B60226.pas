@@ -2,6 +2,7 @@ unit AACContainerPrim_AACContentsContainer_UserType;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainerPrim_AACContentsContainer_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "AACContentsContainer" MUID: (504879B60226)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -33,26 +34,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_AACContentsContainer = {final} class(TtfwInteger)
   {* Слово словаря для типа формы AACContentsContainer }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_AACContentsContainer
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_AACContentsContainer.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::AACContentsContainer';
-end;//Tkw_FormUserType_AACContentsContainer.GetWordNameForRegister
-
 function Tkw_FormUserType_AACContentsContainer.GetInteger: Integer;
 begin
  Result := AACContentsContainer;
 end;//Tkw_FormUserType_AACContentsContainer.GetInteger
+
+class function Tkw_FormUserType_AACContentsContainer.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::AACContentsContainer';
+end;//Tkw_FormUserType_AACContentsContainer.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

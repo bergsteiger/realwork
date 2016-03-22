@@ -1,79 +1,54 @@
 unit K517772970_TRemoteDictEditQueryDefault;
+ {* [RequestLink:517772970] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Low Level Tests"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tests/Tasks/SaveLoadWithDefault/K517772970_TRemoteDictEditQueryDefault.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> archi$AutoPipeServer$Garant::Low Level Tests::TasksSaveLoadWithDefault::K517772970_TRemoteDictEditQueryDefault
-//
-// {RequestLink:517772970}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TRemoteDictEditQueryDefault.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K517772970_TRemoteDictEditQueryDefault" MUID: (53197E5501B8)
+// Имя типа: "TK517772970_TRemoteDictEditQueryDefault"
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(InsiderTest) AND defined(RemoteDict)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest) AND Defined(RemoteDict)}
 uses
-  K517772970_TCheckSaveToStreamDefault
-  {$If not defined(Nemesis)}
-  ,
-  ddServerTask
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest AND RemoteDict
+ l3IntfUses
+ , K517772970_TCheckSaveToStreamDefault
+ {$If NOT Defined(Nemesis)}
+ , ddServerTask
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(AppServerSide) AND defined(InsiderTest) AND defined(RemoteDict)}
 type
  TK517772970_TRemoteDictEditQueryDefault = class(TK517772970_TCheckSaveToStreamDefault)
   {* [RequestLink:517772970] }
- protected
- // realized methods
+  protected
    function GetTaskClass: TddTaskClass; override;
- protected
- // overridden protected methods
-   {$If defined(nsTest)}
+   {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   {$IfEnd} //nsTest
-   {$If defined(nsTest)}
+    {* Папка в которую входит тест }
+   {$IfEnd} // Defined(nsTest)
+   {$If Defined(nsTest)}
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
-   {$IfEnd} //nsTest
+    {* Идентификатор элемента модели, который описывает тест }
+   {$IfEnd} // Defined(nsTest)
  end;//TK517772970_TRemoteDictEditQueryDefault
-{$IfEnd} //AppServerSide AND InsiderTest AND RemoteDict
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest) AND Defined(RemoteDict)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(InsiderTest) AND defined(RemoteDict)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest) AND Defined(RemoteDict)}
 uses
-  Classes
-  {$If not defined(Nemesis)}
-  ,
-  csServerTaskTypes
-  {$IfEnd} //not Nemesis
-  
-  {$If defined(nsTest)}
-  ,
-  TestFrameWork
-  {$IfEnd} //nsTest
-  ,
-  l3Filer,
-  SysUtils
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest AND RemoteDict
-
-{$If defined(AppServerSide) AND defined(InsiderTest) AND defined(RemoteDict)}
-
-// start class TK517772970_TRemoteDictEditQueryDefault
+ l3ImplUses
+ {$If NOT Defined(Nemesis)}
+ , csServerTaskTypes
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(nsTest)}
+ , TestFrameWork
+ {$IfEnd} // Defined(nsTest)
+ , l3Filer
+ , SysUtils
+;
 
 function TK517772970_TRemoteDictEditQueryDefault.GetTaskClass: TddTaskClass;
 //#UC START# *53170E4100CF_53197E5501B8_var*
@@ -84,25 +59,24 @@ begin
 //#UC END# *53170E4100CF_53197E5501B8_impl*
 end;//TK517772970_TRemoteDictEditQueryDefault.GetTaskClass
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 function TK517772970_TRemoteDictEditQueryDefault.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'TasksSaveLoadWithDefault';
 end;//TK517772970_TRemoteDictEditQueryDefault.GetFolder
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 function TK517772970_TRemoteDictEditQueryDefault.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '53197E5501B8';
 end;//TK517772970_TRemoteDictEditQueryDefault.GetModelElementGUID
-{$IfEnd} //nsTest
-
-{$IfEnd} //AppServerSide AND InsiderTest AND RemoteDict
+{$IfEnd} // Defined(nsTest)
 
 initialization
  TestFramework.RegisterTest(TK517772970_TRemoteDictEditQueryDefault.Suite);
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest) AND Defined(RemoteDict)
 
 end.

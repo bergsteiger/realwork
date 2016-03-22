@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3RangeManager;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3RangeManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3RangeManager" MUID: (4B9FBF5A021A)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

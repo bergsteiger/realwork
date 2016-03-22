@@ -2,6 +2,7 @@ unit NOT_FINISHED_d_edMSub;
 
 // Модуль: "w:\archi\source\projects\Common\Dialogs\NOT_FINISHED_d_edMSub.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "d_edMSub" MUID: (4DFB50900299)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 

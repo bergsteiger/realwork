@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3ObjectRefListPrim" MUID: (47B5A0AE03CC)
+// Имя типа: "_l3ObjectRefListPrim_"
 
 {$Define l3ObjectRefListPrim_imp}
 

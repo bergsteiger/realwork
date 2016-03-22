@@ -60,6 +60,11 @@ uses
   pgDataProviderFactory
   {$IfEnd} //UsePostgres
   
+  {$If defined(TestComboAccess) AND defined(UsePostgres)}
+  ,
+  caDataProviderFactory
+  {$IfEnd} //TestComboAccess AND UsePostgres
+  
   {$If defined(AppServerSide) AND not defined(Nemesis)}
   ,
   ncsServerParamsStorage
@@ -98,6 +103,9 @@ var
  l_HyTechProviderFactory : ThtDataProviderFactory;
 {$IFDEF UsePostgres}
  l_PostgressProviderFactory : TpgDataProviderFactory;
+{$IFDEF TestComboAccess}
+ l_ComboAccessProviderFactory : TcaDataProviderFactory;
+{$ENDIF TestComboAccess}
 {$ENDIF UsePostgres}
 //#UC END# *54FE9A000180_54FE99C90168_var*
 begin
@@ -111,17 +119,25 @@ begin
   try
    TdaDataProviderSuperFactory.Instance.Register(l_HyTechProviderFactory);
    TdaDataProviderSuperFactory.Instance.DefaultFactory := l_HyTechProviderFactory;
+{$IFDEF UsePostgres}
+   l_PostgressProviderFactory := TpgDataProviderFactory.Create;
+   try
+    TdaDataProviderSuperFactory.Instance.Register(l_PostgressProviderFactory);
+{$IFDEF TestComboAccess}
+    l_ComboAccessProviderFactory := TcaDataProviderFactory.Create(l_HyTechProviderFactory, l_PostgressProviderFactory);
+    try
+     TdaDataProviderSuperFactory.Instance.Register(l_ComboAccessProviderFactory);
+    finally
+     FreeAndNil(l_ComboAccessProviderFactory);
+    end;
+{$ENDIF TestComboAccess}
+   finally
+    FreeAndNil(l_PostgressProviderFactory);
+   end;
+{$ENDIF UsePostgres}
   finally
    FreeAndNil(l_HyTechProviderFactory);
   end;
-{$IFDEF UsePostgres}
-  l_PostgressProviderFactory := TpgDataProviderFactory.Create;
-  try
-   TdaDataProviderSuperFactory.Instance.Register(l_PostgressProviderFactory);
-  finally
-   FreeAndNil(l_PostgressProviderFactory);
-  end;
-{$ENDIF UsePostgres}
  end;
 //#UC END# *54FE9A000180_54FE99C90168_impl*
 end;//TncsDataAccessServices.InitClient
@@ -132,6 +148,9 @@ var
  l_HyTechProviderFactory : ThtDataProviderFactory;
 {$IFDEF UsePostgres}
  l_PostgressProviderFactory : TpgDataProviderFactory;
+{$IFDEF TestComboAccess}
+ l_ComboAccessProviderFactory : TcaDataProviderFactory;
+{$ENDIF TestComboAccess}
 {$ENDIF UsePostgres}
 //#UC END# *5502A9100004_54FE99C90168_var*
 begin
@@ -153,6 +172,14 @@ begin
   l_PostgressProviderFactory := TpgDataProviderFactory.Create;
   try
    TdaDataProviderSuperFactory.Instance.Register(l_PostgressProviderFactory);
+{$IFDEF TestComboAccess}
+   l_ComboAccessProviderFactory := TcaDataProviderFactory.Create(l_HyTechProviderFactory, l_PostgressProviderFactory);
+   try
+    TdaDataProviderSuperFactory.Instance.Register(l_ComboAccessProviderFactory);
+   finally
+    FreeAndNil(l_ComboAccessProviderFactory);
+   end;
+{$ENDIF TestComboAccess}
   finally
    FreeAndNil(l_PostgressProviderFactory);
   end;

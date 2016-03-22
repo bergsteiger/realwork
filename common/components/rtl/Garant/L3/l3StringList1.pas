@@ -2,6 +2,7 @@ unit l3StringList1;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3StringList1.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3StringList1" MUID: (47B9CBAA037F)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

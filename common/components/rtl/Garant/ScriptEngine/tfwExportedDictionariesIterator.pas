@@ -2,6 +2,7 @@ unit tfwExportedDictionariesIterator;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwExportedDictionariesIterator.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwExportedDictionariesIterator" MUID: (55AE650002D8)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

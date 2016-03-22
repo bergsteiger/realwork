@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CheckStamp.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3CheckStamp" MUID: (4BE42D490361)
+// Имя типа: "_l3CheckStamp_"
 
 {$Define l3CheckStamp_imp}
 

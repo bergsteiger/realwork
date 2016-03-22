@@ -2,6 +2,7 @@ unit nsFindSelectDialog;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\nsFindSelectDialog.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsFindSelectDialog" MUID: (4AAF996900DC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

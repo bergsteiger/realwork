@@ -2,6 +2,7 @@ unit nsContentsTree;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsContentsTree.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsContentsTree" MUID: (4683630000A0)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

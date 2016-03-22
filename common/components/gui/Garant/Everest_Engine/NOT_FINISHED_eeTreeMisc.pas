@@ -2,6 +2,7 @@ unit NOT_FINISHED_eeTreeMisc;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeTreeMisc.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "eeTreeMisc" MUID: (4912E178000B)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

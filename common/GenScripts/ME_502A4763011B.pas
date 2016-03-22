@@ -2,6 +2,7 @@ unit atSyncedStringFileReader;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atSyncedStringFileReader.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatSyncedStringFileReader" MUID: (502A4763011B)
 
 interface
 

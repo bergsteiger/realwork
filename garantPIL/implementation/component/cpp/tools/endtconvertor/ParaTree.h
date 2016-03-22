@@ -355,6 +355,7 @@ namespace EndtConvertor {
 			m_has_legal_content = copy.m_has_legal_content;
 			m_style = copy.m_style;
 			m_para_style = copy.m_para_style;
+			m_is_endt_comments = copy.m_is_endt_comments;
 			return *this;
 		}
 
@@ -388,11 +389,23 @@ namespace EndtConvertor {
 		}
 
 		inline bool has_legal_bmp () const { 
-			return (m_has_bmp && m_is_legal_comment); 
+			return (m_has_bmp && m_is_legal_comment);
 		}
 
 		inline unsigned get_doc () const { 
-			return m_doc; 
+			return m_doc;
+		}
+
+		inline bool is_endt_comments () const { 
+			return (m_is_endt_comments);
+		}
+
+		inline void set_legal_comment () { 
+			m_is_legal_comment = true;
+		}
+
+		inline void reset_legal_comment () { 
+			m_is_legal_comment = false;
 		}
 
 		inline const Positions& get_obj_seg_positions () const {
@@ -526,6 +539,7 @@ namespace EndtConvertor {
 		bool m_has_comment_handle;
 		bool m_is_legal_comment;
 		bool m_is_comment_in_chain;
+		bool m_is_endt_comments;
 
 		char m_style;
 		unsigned m_doc;

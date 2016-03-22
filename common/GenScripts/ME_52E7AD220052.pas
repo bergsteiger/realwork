@@ -2,6 +2,7 @@ unit NOT_FINISHED_arTextUtils;
 
 // Модуль: "w:\archi\source\projects\Common\Utils\NOT_FINISHED_arTextUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "arTextUtils" MUID: (52E7AD220052)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 

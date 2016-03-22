@@ -2,12 +2,15 @@
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "atOpenFoldersObjectAddon" MUID: (4FD0D1E00242)
+// Имя типа: "_atOpenFoldersObjectAddon_"
 
 {$Define atOpenFoldersObjectAddon_imp}
 
 const
  PN_IS_EMULATE_OPENING: AnsiString = 'is_emulate_opening';
 
+type
  _atOpenFoldersObjectAddon_ = class(_atOpenFoldersObjectAddon_Parent_, IatFoldersNodeCallback)
   protected
    f_IsEmulateOpening: Boolean;

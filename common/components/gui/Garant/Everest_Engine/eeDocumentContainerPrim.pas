@@ -2,6 +2,7 @@ unit eeDocumentContainerPrim;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocumentContainerPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TeeDocumentContainerPrim" MUID: (4D9357060196)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

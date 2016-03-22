@@ -2,6 +2,8 @@
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableBitmap.imp.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrintableBitmap" MUID: (4CDACCDF0368)
+// Имя типа: "_PrintableBitmap_"
 
 {$Define PrintableBitmap_imp}
 

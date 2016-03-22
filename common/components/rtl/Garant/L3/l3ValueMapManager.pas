@@ -3,6 +3,7 @@ unit l3ValueMapManager;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ValueMapManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3ValueMapManager" MUID: (478E372C025D)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

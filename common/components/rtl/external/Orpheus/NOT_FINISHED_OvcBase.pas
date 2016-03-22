@@ -3,6 +3,7 @@ unit NOT_FINISHED_OvcBase;
 
 // Модуль: "w:\common\components\rtl\external\Orpheus\NOT_FINISHED_OvcBase.pas"
 // Стереотип: "GuiControl"
+// Элемент модели: "TOvcBase" MUID: (475410380119)
 
 {$Include w:\common\components\rtl\external\Orpheus\OVC.INC}
 

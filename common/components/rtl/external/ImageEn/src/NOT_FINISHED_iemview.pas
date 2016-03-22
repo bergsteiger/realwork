@@ -2,6 +2,7 @@ unit NOT_FINISHED_iemview;
 
 // Модуль: "w:\common\components\rtl\external\ImageEn\src\NOT_FINISHED_iemview.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "iemview" MUID: (4ACDC3F80345)
 
 interface
 

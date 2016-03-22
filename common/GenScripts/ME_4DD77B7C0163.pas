@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevTableRowBaseLineCommon.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevTableRowBaseLineCommon" MUID: (4DD77B7C0163)
+// Имя типа: "_nevTableRowBaseLineCommon_"
 
 {$Define nevTableRowBaseLineCommon_imp}
 

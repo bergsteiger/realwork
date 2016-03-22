@@ -3,6 +3,8 @@ unit PrimF1Common_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "PrimF1Common" MUID: (4A92C1380380)
+// Имя типа: "TPrimF1CommonModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

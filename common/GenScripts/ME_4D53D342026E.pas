@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "HotSpotTools" MUID: (4D53D342026E)
+// Имя типа: "_HotSpotTools_"
 
 {$Define HotSpotTools_imp}
 

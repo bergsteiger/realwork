@@ -3,6 +3,7 @@ unit evTableFilter;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evTableFilter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevTableFilter" MUID: (4E48B5AE01E3)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

@@ -3,6 +3,8 @@ unit PrimNavigator_Form;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimNavigator_Form.pas"
 // Стереотип: "VCMForm"
+// Элемент модели: "PrimNavigator" MUID: (4AEEE269033F)
+// Имя типа: "TPrimNavigatorForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit NOT_FINISHED_l3IEBitmapContainer;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3IEBitmapContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3IEBitmapContainer" MUID: (48E6486F0123)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

@@ -13,7 +13,7 @@
 
 int main (int a_argc, char* a_argv []) {
 	ACE_OS::printf (
-		"\nDIFF TOOL \"%s\" (C) SIE \"GARANT-SERVICE-UNIVERSITY\" LLC, 1990-2015\n"
+		"\nDIFF TOOL \"%s\" (C) SIE \"GARANT-SERVICE-UNIVERSITY\" LLC, 1990-2016\n"
 		, ACE::basename ((assert (a_argv [0] != 0), a_argv [0]))
 	);
 

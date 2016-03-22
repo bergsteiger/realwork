@@ -5,7 +5,7 @@ unit m3StorageElementIDList;
 // Библиотека "m3$DB"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3StorageElementIDList.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3$DB::m3DBContainers::Tm3StorageElementIDList
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DBContainers::Tm3StorageElementIDList
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

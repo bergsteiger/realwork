@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "vcmTinyUseCaseController" MUID: (494778CD004F)
+// Имя типа: "_vcmTinyUseCaseController_"
 
 {$Define vcmTinyUseCaseController_imp}
 

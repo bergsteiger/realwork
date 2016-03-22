@@ -2,6 +2,8 @@ unit kwPopControlScrollInfo;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopControlScrollInfo.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_control_ScrollInfo" MUID: (51793AE70134)
+// Имя типа: "TkwPopControlScrollInfo"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

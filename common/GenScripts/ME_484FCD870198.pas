@@ -3,6 +3,8 @@ unit Check_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\Check_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "Check" MUID: (484FCD870198)
+// Имя типа: "CheckTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

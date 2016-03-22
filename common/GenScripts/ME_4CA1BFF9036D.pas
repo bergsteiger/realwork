@@ -2,6 +2,7 @@ unit NOT_FINISHED_Contents_int;
 
 // Модуль: "w:\common\components\rtl\Garant\ServerGate\NOT_FINISHED_Contents_int.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "Contents_int" MUID: (4CA1BFF9036D)
 
 interface
 

@@ -2,6 +2,7 @@ unit nsTrialSupport;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsTrialSupport.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsTrialSupport" MUID: (4951292D01DA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

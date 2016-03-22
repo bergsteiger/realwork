@@ -1,88 +1,68 @@
 unit PrimFoldersTree_utSaveOpen_UserType;
+ {* Мои документы }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Folders/Forms/PrimFoldersTree_utSaveOpen_UserType.pas"
-// Начат: 26.01.2009 18:19
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UserType::Class>> F1 Основные прецеденты::Folders::View::Folders::PrimFoldersTree::utSaveOpen
-//
-// Мои документы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersTree_utSaveOpen_UserType.pas"
+// Стереотип: "UserType"
+// Элемент модели: "utSaveOpen" MUID: (4BD6EB3F017A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimFoldersTree_utFoldersTree_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3IntfUses
+ , PrimFoldersTree_utFoldersTree_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { Константы для типа формы utSaveOpen }
-  utSaveOpenName = 'utSaveOpen';
-   { Строковый идентификатор пользовательского типа "Мои документы" }
-  utSaveOpen = TvcmUserType(utFoldersTree + 1);
-   { Мои документы }
-{$IfEnd} //not Admin AND not Monitorings
+ {* Константы для типа формы utSaveOpen }
+ utSaveOpenName = 'utSaveOpen';
+  {* Строковый идентификатор пользовательского типа "Мои документы" }
+ utSaveOpen = TvcmUserType(utFoldersTree + 1);
+  {* Мои документы }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+{$If NOT Defined(NoScripts)}
 type
-  Tkw_FormUserType_utSaveOpen = {final scriptword} class(TtfwInteger)
-   {* Слово словаря для типа формы utSaveOpen }
+ Tkw_FormUserType_utSaveOpen = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы utSaveOpen }
   protected
-  // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
-  end;//Tkw_FormUserType_utSaveOpen
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_FormUserType_utSaveOpen
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_FormUserType_utSaveOpen
-
-class function Tkw_FormUserType_utSaveOpen.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'тип_формы::utSaveOpen';
-end;//Tkw_FormUserType_utSaveOpen.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utSaveOpen.GetInteger: Integer;
- {-}
 begin
  Result := utSaveOpen;
 end;//Tkw_FormUserType_utSaveOpen.GetInteger
 
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$IfEnd} //not Admin AND not Monitorings
+class function Tkw_FormUserType_utSaveOpen.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::utSaveOpen';
+end;//Tkw_FormUserType_utSaveOpen.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_FormUserType_utSaveOpen
+{$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utSaveOpen.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_FormUserType_utSaveOpen }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

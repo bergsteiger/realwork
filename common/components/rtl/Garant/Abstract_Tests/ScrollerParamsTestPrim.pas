@@ -1,87 +1,62 @@
 unit ScrollerParamsTestPrim;
+ {* Тесты для провкрки параметров скроллера при прокрутке и переходе по сабам документа. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Abstract Tests"
-// Модуль: "w:/common/components/rtl/Garant/Abstract_Tests/ScrollerParamsTestPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::Abstract Tests::EditorTests::TScrollerParamsTestPrim
-//
-// Тесты для провкрки параметров скроллера при прокрутке и переходе по сабам документа.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\ScrollerParamsTestPrim.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TScrollerParamsTestPrim" MUID: (4D720B6900FC)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Abstract_Tests\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TextViaEditorProcessorWithExternalSave,
-  l3Filer
-  {$If defined(nsTest) AND not defined(NoVCM)}
-  ,
-  PrimTextLoad_Form
-  {$IfEnd} //nsTest AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , TextViaEditorProcessorWithExternalSave
+ {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Filer
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TScrollerParamsTestPrim = {abstract} class(TTextViaEditorProcessorWithExternalSave)
   {* Тесты для провкрки параметров скроллера при прокрутке и переходе по сабам документа. }
- protected
- // realized methods
+  protected
    procedure DoSave(aForm: TPrimTextLoadForm;
-     aFiler: Tl3CustomFiler); override;
- protected
- // overridden protected methods
+    aFiler: Tl3CustomFiler); override;
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-    {$If defined(nsTest) AND not defined(NoVCM)}
+    {* Папка в которую входит тест }
+   {$If NOT Defined(NoVCM)}
    function EtalonFileExtension: AnsiString; override;
-     {* Расширение эталонного файла }
-    {$IfEnd} //nsTest AND not NoVCM
-    {$If defined(nsTest) AND not defined(NoVCM)}
+    {* Расширение эталонного файла }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function HeaderBegin: AnsiChar; override;
-    {$IfEnd} //nsTest AND not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TScrollerParamsTestPrim
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  TestFrameWork
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TScrollerParamsTestPrim
+ l3ImplUses
+ , SysUtils
+ , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 procedure TScrollerParamsTestPrim.DoSave(aForm: TPrimTextLoadForm;
-  aFiler: Tl3CustomFiler);
+ aFiler: Tl3CustomFiler);
 //#UC START# *4D0771F102B6_4D720B6900FC_var*
 //#UC END# *4D0771F102B6_4D720B6900FC_var*
 begin
@@ -100,13 +75,14 @@ begin
 end;//TScrollerParamsTestPrim.DoSave
 
 function TScrollerParamsTestPrim.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'EditorTests';
 end;//TScrollerParamsTestPrim.GetFolder
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TScrollerParamsTestPrim.EtalonFileExtension: AnsiString;
+ {* Расширение эталонного файла }
 //#UC START# *4D0769150130_4D720B6900FC_var*
 //#UC END# *4D0769150130_4D720B6900FC_var*
 begin
@@ -114,9 +90,9 @@ begin
  Result := 'scroll';
 //#UC END# *4D0769150130_4D720B6900FC_impl*
 end;//TScrollerParamsTestPrim.EtalonFileExtension
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TScrollerParamsTestPrim.HeaderBegin: AnsiChar;
 //#UC START# *4D07693F0262_4D720B6900FC_var*
 //#UC END# *4D07693F0262_4D720B6900FC_var*
@@ -125,14 +101,13 @@ begin
  Result := #0;
 //#UC END# *4D07693F0262_4D720B6900FC_impl*
 end;//TScrollerParamsTestPrim.HeaderBegin
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TScrollerParamsTestPrim.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4D720B6900FC';
 end;//TScrollerParamsTestPrim.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

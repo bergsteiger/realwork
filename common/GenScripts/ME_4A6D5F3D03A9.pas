@@ -2,6 +2,8 @@ unit BaseEditions_Module;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\BaseEditions_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "BaseEditions" MUID: (4A6D5F3D03A9)
+// Имя типа: "TBaseEditionsModule"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

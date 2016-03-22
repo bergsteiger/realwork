@@ -2,6 +2,7 @@ unit nsTextWithCommentsRes;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsTextWithCommentsRes.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsTextWithCommentsRes" MUID: (4D5A701702B4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

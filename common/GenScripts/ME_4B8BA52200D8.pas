@@ -2,6 +2,7 @@ unit nevInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevInterfaces.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nevInterfaces" MUID: (4B8BA52200D8)
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 

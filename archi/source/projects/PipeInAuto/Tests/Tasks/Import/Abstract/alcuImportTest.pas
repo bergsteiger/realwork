@@ -1,103 +1,72 @@
 unit alcuImportTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Low Level Tests"
-// Автор: Люлин А.В.
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tests/Tasks/Import/Abstract/alcuImportTest.pas"
-// Начат: 13.05.2014 18:07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> archi$AutoPipeServer$Garant::Low Level Tests::AbstractImportTasks::TalcuImportTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\Import\Abstract\alcuImportTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TalcuImportTest" MUID: (5372265401B9)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  BaseTest
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  {$If not defined(Nemesis)}
-  ,
-  ddServerTask
-  {$IfEnd} //not Nemesis
-  
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest
+ l3IntfUses
+ {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
+ , BaseTest
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
+ {$If NOT Defined(Nemesis)}
+ , ddServerTask
+ {$IfEnd} // NOT Defined(Nemesis)
+;
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
 type
  _TaskSaver_Parent_ = TBaseTest;
  {$Include w:\archi\source\projects\PipeInAuto\Tests\TaskSaver.imp.pas}
  TalcuImportTest = {abstract} class(_TaskSaver_)
- protected
- // overridden protected methods
-   {$If defined(nsTest)}
+  protected
+   {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-   {$IfEnd} //nsTest
-   {$If defined(nsTest)}
+    {* Папка в которую входит тест }
+   {$IfEnd} // Defined(nsTest)
+   {$If Defined(nsTest)}
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
-   {$IfEnd} //nsTest
- published
- // published methods
+    {* Идентификатор элемента модели, который описывает тест }
+   {$IfEnd} // Defined(nsTest)
+  published
    procedure DoIt;
  end;//TalcuImportTest
-{$IfEnd} //AppServerSide AND InsiderTest
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
+{$If Defined(AppServerSide) AND Defined(InsiderTest)}
 uses
-  alcuServer
-  {$If not defined(Nemesis)}
-  ,
-  csImport
-  {$IfEnd} //not Nemesis
-  ,
-  SysUtils,
-  ddFileIterator
-  {$If defined(ServerTasks)}
-  ,
-  alcuImport
-  {$IfEnd} //ServerTasks
-  ,
-  afwFacade,
-  ddAppConfig,
-  l3FileUtils,
-  l3Stream,
-  l3Types
-  {$If not defined(Nemesis)}
-  ,
-  csLoopBack
-  {$IfEnd} //not Nemesis
-  
-  {$If defined(nsTest)}
-  ,
-  TestFrameWork
-  {$IfEnd} //nsTest
-  ,
-  l3Filer
-  ;
-{$IfEnd} //AppServerSide AND InsiderTest
+ l3ImplUses
+ , alcuServer
+ {$If NOT Defined(Nemesis)}
+ , csImport
+ {$IfEnd} // NOT Defined(Nemesis)
+ , SysUtils
+ , ddFileIterator
+ {$If Defined(ServerTasks)}
+ , alcuImport
+ {$IfEnd} // Defined(ServerTasks)
+ , afwFacade
+ , ddAppConfig
+ , l3FileUtils
+ , l3Stream
+ , l3Types
+ {$If NOT Defined(Nemesis)}
+ , csLoopBack
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(nsTest)}
+ , TestFrameWork
+ {$IfEnd} // Defined(nsTest)
+ , l3Filer
+;
 
-{$If defined(AppServerSide) AND defined(InsiderTest)}
-
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
 {$Include w:\archi\source\projects\PipeInAuto\Tests\TaskSaver.imp.pas}
-
-// start class TalcuImportTest
 
 procedure TalcuImportTest.DoIt;
 //#UC START# *537226BB0284_5372265401B9_var*
@@ -168,22 +137,18 @@ begin
 //#UC END# *537226BB0284_5372265401B9_impl*
 end;//TalcuImportTest.DoIt
 
-{$If defined(nsTest)}
 function TalcuImportTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'AbstractImportTasks';
 end;//TalcuImportTest.GetFolder
-{$IfEnd} //nsTest
 
-{$If defined(nsTest)}
 function TalcuImportTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '5372265401B9';
 end;//TalcuImportTest.GetModelElementGUID
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //AppServerSide AND InsiderTest
-
+{$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 end.

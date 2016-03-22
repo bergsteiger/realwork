@@ -6,34 +6,6 @@ FORWARD ME_4ACDBC26003C
 
 FORWARD ME_4ACDBC4A0003
 
-FORWARD ME_4ACDBC6101A6
-
-: ME_ED06A9EFC4C7
- CONST UID 'ED06A9EFC4C7'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TImageEnView' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ACDBC6101A6 // TImageEnView
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_ED06A9EFC4C7 Ini_Reg_Class
-
-: ME_003D26D1450D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4ACDBC6101A6 // TImageEnView
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_003D26D1450D 
-
 : ME_4ACDBC6101A6
  CONST UID '4ACDBC6101A6'
  CONST Name 'TImageEnView'
@@ -44,14 +16,6 @@ ref; // ME_003D26D1450D
  CONST Abstraction at_regular
  : Parent ME_4ACDBC4A0003 // imageenview
  ;
- : Operations
-   Seq: ( ME_ED06A9EFC4C7 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_003D26D1450D // 
- )
- ; // Dependencies
  : Injected
    Seq: ( WL 'ME_54F4642100D0' '52E20E0E0059.pas.ms.script' // 
  )
@@ -369,10 +333,6 @@ ref; // ME_524970860109 giflzw
  ME_524970860109 // giflzw
  )
  ; // Children
- : Depends
-   Seq: ( WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
- )
- ; // Depends
  CONST "path prefix" '/src'
  CONST intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
 

@@ -2,6 +2,7 @@ unit FontWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\FontWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "FontWordsPack" MUID: (5190B264037C)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -260,11 +261,6 @@ begin
  aCtx.rEngine.PushInt(Integer(Color(aCtx, l_aFont)));
 end;//TkwFontColor.DoDoIt
 
-class function TkwFontColor.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Font:Color';
-end;//TkwFontColor.GetWordNameForRegister
-
 procedure TkwFontColor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -285,6 +281,11 @@ function TkwFontColor.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontColor.ParamsTypes
+
+class function TkwFontColor.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Font:Color';
+end;//TkwFontColor.GetWordNameForRegister
 
 function TkwFontBackColor.BackColor(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Tl3Color;
@@ -312,11 +313,6 @@ begin
  aCtx.rEngine.PushInt(Integer(BackColor(aCtx, l_aFont)));
 end;//TkwFontBackColor.DoDoIt
 
-class function TkwFontBackColor.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Font:BackColor';
-end;//TkwFontBackColor.GetWordNameForRegister
-
 procedure TkwFontBackColor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -337,6 +333,11 @@ function TkwFontBackColor.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontBackColor.ParamsTypes
+
+class function TkwFontBackColor.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Font:BackColor';
+end;//TkwFontBackColor.GetWordNameForRegister
 
 function TkwFontIsBold.IsBold(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Boolean;
@@ -364,11 +365,6 @@ begin
  aCtx.rEngine.PushBool(IsBold(aCtx, l_aFont));
 end;//TkwFontIsBold.DoDoIt
 
-class function TkwFontIsBold.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Font:IsBold';
-end;//TkwFontIsBold.GetWordNameForRegister
-
 procedure TkwFontIsBold.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -389,6 +385,11 @@ function TkwFontIsBold.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontIsBold.ParamsTypes
+
+class function TkwFontIsBold.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Font:IsBold';
+end;//TkwFontIsBold.GetWordNameForRegister
 
 function TkwFontIsItalic.IsItalic(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Boolean;
@@ -416,11 +417,6 @@ begin
  aCtx.rEngine.PushBool(IsItalic(aCtx, l_aFont));
 end;//TkwFontIsItalic.DoDoIt
 
-class function TkwFontIsItalic.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Font:IsItalic';
-end;//TkwFontIsItalic.GetWordNameForRegister
-
 procedure TkwFontIsItalic.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -441,6 +437,11 @@ function TkwFontIsItalic.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontIsItalic.ParamsTypes
+
+class function TkwFontIsItalic.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Font:IsItalic';
+end;//TkwFontIsItalic.GetWordNameForRegister
 
 function TkwFontIsUnderline.IsUnderline(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Boolean;
@@ -468,11 +469,6 @@ begin
  aCtx.rEngine.PushBool(IsUnderline(aCtx, l_aFont));
 end;//TkwFontIsUnderline.DoDoIt
 
-class function TkwFontIsUnderline.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Font:IsUnderline';
-end;//TkwFontIsUnderline.GetWordNameForRegister
-
 procedure TkwFontIsUnderline.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -493,6 +489,11 @@ function TkwFontIsUnderline.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontIsUnderline.ParamsTypes
+
+class function TkwFontIsUnderline.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Font:IsUnderline';
+end;//TkwFontIsUnderline.GetWordNameForRegister
 
 function TkwFontIsStrikeOut.IsStrikeOut(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Boolean;
@@ -520,11 +521,6 @@ begin
  aCtx.rEngine.PushBool(IsStrikeOut(aCtx, l_aFont));
 end;//TkwFontIsStrikeOut.DoDoIt
 
-class function TkwFontIsStrikeOut.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Font:IsStrikeOut';
-end;//TkwFontIsStrikeOut.GetWordNameForRegister
-
 procedure TkwFontIsStrikeOut.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -545,6 +541,11 @@ function TkwFontIsStrikeOut.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontIsStrikeOut.ParamsTypes
+
+class function TkwFontIsStrikeOut.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Font:IsStrikeOut';
+end;//TkwFontIsStrikeOut.GetWordNameForRegister
 
 function TkwFontName.Name(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): AnsiString;
@@ -572,11 +573,6 @@ begin
  aCtx.rEngine.PushString(Name(aCtx, l_aFont));
 end;//TkwFontName.DoDoIt
 
-class function TkwFontName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Font:Name';
-end;//TkwFontName.GetWordNameForRegister
-
 procedure TkwFontName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -597,6 +593,11 @@ function TkwFontName.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontName.ParamsTypes
+
+class function TkwFontName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Font:Name';
+end;//TkwFontName.GetWordNameForRegister
 
 function TkwFontSize.Size(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Integer;
@@ -624,11 +625,6 @@ begin
  aCtx.rEngine.PushInt(Size(aCtx, l_aFont));
 end;//TkwFontSize.DoDoIt
 
-class function TkwFontSize.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Font:Size';
-end;//TkwFontSize.GetWordNameForRegister
-
 procedure TkwFontSize.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -649,6 +645,11 @@ function TkwFontSize.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontSize.ParamsTypes
+
+class function TkwFontSize.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Font:Size';
+end;//TkwFontSize.GetWordNameForRegister
 
 initialization
  TFontWordsPackResNameGetter.Register;

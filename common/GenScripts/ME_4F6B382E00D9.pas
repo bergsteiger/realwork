@@ -2,6 +2,8 @@ unit MainPrim_Form;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\MainPrim_Form.pas"
 // Стереотип: "VCMMainForm"
+// Элемент модели: "MainPrim" MUID: (4F6B382E00D9)
+// Имя типа: "TMainPrimForm"
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
@@ -50,9 +52,9 @@ type
 
  // BaseSeachZone
 
- {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  {$Define HasRightNavigator}
- {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
  TMainPrimForm = class(TOfficeLikeMainForm, InsMainFormChildZoneManager)
   private

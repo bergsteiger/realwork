@@ -2,6 +2,7 @@ unit kwCompiledWordWorkerEx;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordWorkerEx.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwCompiledWordWorkerEx" MUID: (5512E3740036)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

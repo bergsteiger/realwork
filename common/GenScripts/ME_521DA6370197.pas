@@ -3,6 +3,8 @@ unit List_Module;
 
 // Модуль: "w:\common\components\SandBox\VCM\View\List\List_Module.pas"
 // Стереотип: "VCMFormsPack"
+// Элемент модели: "List" MUID: (521DA6370197)
+// Имя типа: "TListModule"
 
 {$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 

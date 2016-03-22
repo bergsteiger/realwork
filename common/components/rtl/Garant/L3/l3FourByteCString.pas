@@ -2,6 +2,7 @@ unit l3FourByteCString;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3FourByteCString.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3FourByteCString" MUID: (4F5D87440315)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

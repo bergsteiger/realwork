@@ -2,6 +2,7 @@ unit nevTable;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevTable.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnevTable" MUID: (52B2A333009E)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

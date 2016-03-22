@@ -2,6 +2,7 @@ unit evResultFontInterfaces;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evResultFontInterfaces.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evResultFontInterfaces" MUID: (4E68E4D40035)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

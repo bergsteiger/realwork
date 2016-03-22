@@ -2,6 +2,7 @@ unit PrimChild_cutForDiction_UserType;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_cutForDiction_UserType.pas"
 // Стереотип: "UserType"
+// Элемент модели: "cutForDiction" MUID: (4D9AE78D0196)
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
@@ -30,26 +31,26 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+{$If NOT Defined(NoScripts)}
 type
- {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_cutForDiction = {final} class(TtfwInteger)
   {* Слово словаря для типа формы cutForDiction }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetInteger: Integer; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FormUserType_cutForDiction
- {$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_FormUserType_cutForDiction.GetWordNameForRegister: AnsiString;
-begin
- Result := 'тип_формы::cutForDiction';
-end;//Tkw_FormUserType_cutForDiction.GetWordNameForRegister
-
 function Tkw_FormUserType_cutForDiction.GetInteger: Integer;
 begin
  Result := cutForDiction;
 end;//Tkw_FormUserType_cutForDiction.GetInteger
+
+class function Tkw_FormUserType_cutForDiction.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::cutForDiction';
+end;//Tkw_FormUserType_cutForDiction.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

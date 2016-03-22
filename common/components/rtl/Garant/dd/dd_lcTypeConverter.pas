@@ -1,9 +1,12 @@
 unit dd_lcTypeConverter;
 // Преобразование внешних типов во внутренние
 
-{ $Id: dd_lcTypeConverter.pas,v 1.12 2014/04/10 11:59:56 lulin Exp $ }
+{ $Id: dd_lcTypeConverter.pas,v 1.13 2016/02/16 07:31:33 lukyanets Exp $ }
 
 // $Log: dd_lcTypeConverter.pas,v $
+// Revision 1.13  2016/02/16 07:31:33  lukyanets
+// Не собиралось
+//
 // Revision 1.12  2014/04/10 11:59:56  lulin
 // - переходим от интерфейсов к объектам.
 //
@@ -82,7 +85,7 @@ implementation
 uses
  l3Variant,
  k2Tags,
- DictItem_Const, l3String, TextPara_Const, l3LingLib, k2Base, StrUtils,
+ DictItem_Const, l3String, TextPara_Const, l3LingLib, l3SpellMisc, k2Base, StrUtils,
  SysUtils, ddUtils;
 
 procedure Tdd_lcTypeConverter.DoAddAtomEx(AtomIndex: Long; const Value: Tk2Variant);

@@ -338,7 +338,7 @@ var
    lLinkServ.Links[lDictID].Table.StopCaching;
   end;
 
-  lRootNode.Save;
+  //lRootNode.Save;
  end;
 
 procedure ApplyClassDeltaFile(aFamily : TFamilyID; aDeltaFileName : TFileName);
@@ -462,7 +462,7 @@ procedure ApplyClassDeltaFile(aFamily : TFamilyID; aDeltaFileName : TFileName);
    l3Free(lCurFile);
   end;
 
-  lRootNode.Save;
+  //lRootNode.Save;
  end;
 
  function tdwFindReadNodeByHandle(const aRootNode : Il3Node;
@@ -584,11 +584,11 @@ procedure TTreeDesignerForm.FormCloseQuery(Sender: TObject; var CanClose: Boolea
 begin
  inherited FormCloseQuery(Sender, CanClose);
 
- if CanClose then
- begin
-  if ShowMode = dmEdit then {DD ћне кажетс€, нет смысла сохран€ть режим просмотра }
-   DictServ.DictRootNode[DictID].Save;
- end;
+ //if CanClose then
+ //begin
+ // if ShowMode = dmEdit then {DD ћне кажетс€, нет смысла сохран€ть режим просмотра }
+ //  DictServ.DictRootNode[DictID].Save;
+ //end;
 end;
 
 function  TTreeDesignerForm.GetDictServ : TDictionaryServer;

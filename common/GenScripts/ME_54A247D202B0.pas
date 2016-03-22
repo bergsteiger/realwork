@@ -2,6 +2,7 @@ unit csTasksHelpers;
 
 // Модуль: "w:\common\components\rtl\Garant\cs\csTasksHelpers.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "csTasksHelpers" MUID: (54A247D202B0)
 
 {$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 

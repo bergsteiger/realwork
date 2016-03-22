@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsSubImplementation;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\NOT_FINISHED_nsSubImplementation.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsSubImplementation" MUID: (4683589D0031)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

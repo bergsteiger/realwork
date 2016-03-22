@@ -3,6 +3,7 @@ unit ActiveX;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\ActiveX.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "ActiveX" MUID: (46A0E6C5023A)
 
 interface
 

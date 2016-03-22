@@ -2,6 +2,7 @@ unit InsContextSearchHistoryNotifierList;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\InsContextSearchHistoryNotifierList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TInsContextSearchHistoryNotifierList" MUID: (4AD83627037B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -3,6 +3,7 @@ unit MemoryUsageKeywordsPack;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MemoryUsageKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "MemoryUsageKeywordsPack" MUID: (88265B7C3032)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -48,8 +49,8 @@ type
 'aControl' форма::MemoryUsage TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_MemoryUsage
 
  Tkw_MemoryUsage_Control_pnTagTree = {final} class(TtfwControlString)
@@ -60,9 +61,9 @@ type
 контрол::pnTagTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_pnTagTree
 
  Tkw_MemoryUsage_Control_pnTagTree_Push = {final} class(TkwBynameControlPush)
@@ -85,9 +86,9 @@ type
 контрол::TagTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_TagTree
 
  Tkw_MemoryUsage_Control_TagTree_Push = {final} class(TkwBynameControlPush)
@@ -110,9 +111,9 @@ type
 контрол::pnMemClasses TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_pnMemClasses
 
  Tkw_MemoryUsage_Control_pnMemClasses_Push = {final} class(TkwBynameControlPush)
@@ -135,9 +136,9 @@ type
 контрол::memClasses TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_memClasses
 
  Tkw_MemoryUsage_Control_memClasses_Push = {final} class(TkwBynameControlPush)
@@ -160,9 +161,9 @@ type
 контрол::pnSummary TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_pnSummary
 
  Tkw_MemoryUsage_Control_pnSummary_Push = {final} class(TkwBynameControlPush)
@@ -185,9 +186,9 @@ type
 контрол::lbLocalMemory TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_lbLocalMemory
 
  Tkw_MemoryUsage_Control_lbLocalMemory_Push = {final} class(TkwBynameControlPush)
@@ -210,9 +211,9 @@ type
 контрол::lbObjectMemory TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_lbObjectMemory
 
  Tkw_MemoryUsage_Control_lbObjectMemory_Push = {final} class(TkwBynameControlPush)
@@ -235,9 +236,9 @@ type
 контрол::lbObjectCount TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_lbObjectCount
 
  Tkw_MemoryUsage_Control_lbObjectCount_Push = {final} class(TkwBynameControlPush)
@@ -260,9 +261,9 @@ type
 контрол::lbGlobalMemory TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_lbGlobalMemory
 
  Tkw_MemoryUsage_Control_lbGlobalMemory_Push = {final} class(TkwBynameControlPush)
@@ -285,9 +286,9 @@ type
 контрол::lbDocumentsInCacheCount TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_lbDocumentsInCacheCount
 
  Tkw_MemoryUsage_Control_lbDocumentsInCacheCount_Push = {final} class(TkwBynameControlPush)
@@ -310,9 +311,9 @@ type
 контрол::lbAllLocalMemory TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_lbAllLocalMemory
 
  Tkw_MemoryUsage_Control_lbAllLocalMemory_Push = {final} class(TkwBynameControlPush)
@@ -335,9 +336,9 @@ type
 контрол::lbTotalMemory TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_lbTotalMemory
 
  Tkw_MemoryUsage_Control_lbTotalMemory_Push = {final} class(TkwBynameControlPush)
@@ -640,20 +641,15 @@ OBJECT VAR l_TvtLabel
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwMemoryUsageFormLbTotalMemory
 
-class function Tkw_Form_MemoryUsage.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::MemoryUsage';
-end;//Tkw_Form_MemoryUsage.GetWordNameForRegister
-
 function Tkw_Form_MemoryUsage.GetString: AnsiString;
 begin
  Result := 'MemoryUsageForm';
 end;//Tkw_Form_MemoryUsage.GetString
 
-class function Tkw_MemoryUsage_Control_pnTagTree.GetWordNameForRegister: AnsiString;
+class function Tkw_Form_MemoryUsage.GetWordNameForRegister: AnsiString;
 begin
- Result := 'контрол::pnTagTree';
-end;//Tkw_MemoryUsage_Control_pnTagTree.GetWordNameForRegister
+ Result := 'форма::MemoryUsage';
+end;//Tkw_Form_MemoryUsage.GetWordNameForRegister
 
 function Tkw_MemoryUsage_Control_pnTagTree.GetString: AnsiString;
 begin
@@ -666,6 +662,11 @@ begin
  TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MemoryUsage_Control_pnTagTree.RegisterInEngine
 
+class function Tkw_MemoryUsage_Control_pnTagTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnTagTree';
+end;//Tkw_MemoryUsage_Control_pnTagTree.GetWordNameForRegister
+
 procedure Tkw_MemoryUsage_Control_pnTagTree_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnTagTree');
@@ -676,11 +677,6 @@ class function Tkw_MemoryUsage_Control_pnTagTree_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::pnTagTree:push';
 end;//Tkw_MemoryUsage_Control_pnTagTree_Push.GetWordNameForRegister
-
-class function Tkw_MemoryUsage_Control_TagTree.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::TagTree';
-end;//Tkw_MemoryUsage_Control_TagTree.GetWordNameForRegister
 
 function Tkw_MemoryUsage_Control_TagTree.GetString: AnsiString;
 begin
@@ -693,6 +689,11 @@ begin
  TtfwClassRef.Register(TeeTreeView);
 end;//Tkw_MemoryUsage_Control_TagTree.RegisterInEngine
 
+class function Tkw_MemoryUsage_Control_TagTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::TagTree';
+end;//Tkw_MemoryUsage_Control_TagTree.GetWordNameForRegister
+
 procedure Tkw_MemoryUsage_Control_TagTree_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('TagTree');
@@ -703,11 +704,6 @@ class function Tkw_MemoryUsage_Control_TagTree_Push.GetWordNameForRegister: Ansi
 begin
  Result := 'контрол::TagTree:push';
 end;//Tkw_MemoryUsage_Control_TagTree_Push.GetWordNameForRegister
-
-class function Tkw_MemoryUsage_Control_pnMemClasses.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnMemClasses';
-end;//Tkw_MemoryUsage_Control_pnMemClasses.GetWordNameForRegister
 
 function Tkw_MemoryUsage_Control_pnMemClasses.GetString: AnsiString;
 begin
@@ -720,6 +716,11 @@ begin
  TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_MemoryUsage_Control_pnMemClasses.RegisterInEngine
 
+class function Tkw_MemoryUsage_Control_pnMemClasses.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnMemClasses';
+end;//Tkw_MemoryUsage_Control_pnMemClasses.GetWordNameForRegister
+
 procedure Tkw_MemoryUsage_Control_pnMemClasses_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnMemClasses');
@@ -730,11 +731,6 @@ class function Tkw_MemoryUsage_Control_pnMemClasses_Push.GetWordNameForRegister:
 begin
  Result := 'контрол::pnMemClasses:push';
 end;//Tkw_MemoryUsage_Control_pnMemClasses_Push.GetWordNameForRegister
-
-class function Tkw_MemoryUsage_Control_memClasses.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::memClasses';
-end;//Tkw_MemoryUsage_Control_memClasses.GetWordNameForRegister
 
 function Tkw_MemoryUsage_Control_memClasses.GetString: AnsiString;
 begin
@@ -747,6 +743,11 @@ begin
  TtfwClassRef.Register(TevMemo);
 end;//Tkw_MemoryUsage_Control_memClasses.RegisterInEngine
 
+class function Tkw_MemoryUsage_Control_memClasses.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::memClasses';
+end;//Tkw_MemoryUsage_Control_memClasses.GetWordNameForRegister
+
 procedure Tkw_MemoryUsage_Control_memClasses_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('memClasses');
@@ -757,11 +758,6 @@ class function Tkw_MemoryUsage_Control_memClasses_Push.GetWordNameForRegister: A
 begin
  Result := 'контрол::memClasses:push';
 end;//Tkw_MemoryUsage_Control_memClasses_Push.GetWordNameForRegister
-
-class function Tkw_MemoryUsage_Control_pnSummary.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::pnSummary';
-end;//Tkw_MemoryUsage_Control_pnSummary.GetWordNameForRegister
 
 function Tkw_MemoryUsage_Control_pnSummary.GetString: AnsiString;
 begin
@@ -774,6 +770,11 @@ begin
  TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_MemoryUsage_Control_pnSummary.RegisterInEngine
 
+class function Tkw_MemoryUsage_Control_pnSummary.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::pnSummary';
+end;//Tkw_MemoryUsage_Control_pnSummary.GetWordNameForRegister
+
 procedure Tkw_MemoryUsage_Control_pnSummary_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('pnSummary');
@@ -784,11 +785,6 @@ class function Tkw_MemoryUsage_Control_pnSummary_Push.GetWordNameForRegister: An
 begin
  Result := 'контрол::pnSummary:push';
 end;//Tkw_MemoryUsage_Control_pnSummary_Push.GetWordNameForRegister
-
-class function Tkw_MemoryUsage_Control_lbLocalMemory.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lbLocalMemory';
-end;//Tkw_MemoryUsage_Control_lbLocalMemory.GetWordNameForRegister
 
 function Tkw_MemoryUsage_Control_lbLocalMemory.GetString: AnsiString;
 begin
@@ -801,6 +797,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_MemoryUsage_Control_lbLocalMemory.RegisterInEngine
 
+class function Tkw_MemoryUsage_Control_lbLocalMemory.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lbLocalMemory';
+end;//Tkw_MemoryUsage_Control_lbLocalMemory.GetWordNameForRegister
+
 procedure Tkw_MemoryUsage_Control_lbLocalMemory_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lbLocalMemory');
@@ -811,11 +812,6 @@ class function Tkw_MemoryUsage_Control_lbLocalMemory_Push.GetWordNameForRegister
 begin
  Result := 'контрол::lbLocalMemory:push';
 end;//Tkw_MemoryUsage_Control_lbLocalMemory_Push.GetWordNameForRegister
-
-class function Tkw_MemoryUsage_Control_lbObjectMemory.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lbObjectMemory';
-end;//Tkw_MemoryUsage_Control_lbObjectMemory.GetWordNameForRegister
 
 function Tkw_MemoryUsage_Control_lbObjectMemory.GetString: AnsiString;
 begin
@@ -828,6 +824,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_MemoryUsage_Control_lbObjectMemory.RegisterInEngine
 
+class function Tkw_MemoryUsage_Control_lbObjectMemory.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lbObjectMemory';
+end;//Tkw_MemoryUsage_Control_lbObjectMemory.GetWordNameForRegister
+
 procedure Tkw_MemoryUsage_Control_lbObjectMemory_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lbObjectMemory');
@@ -838,11 +839,6 @@ class function Tkw_MemoryUsage_Control_lbObjectMemory_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::lbObjectMemory:push';
 end;//Tkw_MemoryUsage_Control_lbObjectMemory_Push.GetWordNameForRegister
-
-class function Tkw_MemoryUsage_Control_lbObjectCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lbObjectCount';
-end;//Tkw_MemoryUsage_Control_lbObjectCount.GetWordNameForRegister
 
 function Tkw_MemoryUsage_Control_lbObjectCount.GetString: AnsiString;
 begin
@@ -855,6 +851,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_MemoryUsage_Control_lbObjectCount.RegisterInEngine
 
+class function Tkw_MemoryUsage_Control_lbObjectCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lbObjectCount';
+end;//Tkw_MemoryUsage_Control_lbObjectCount.GetWordNameForRegister
+
 procedure Tkw_MemoryUsage_Control_lbObjectCount_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lbObjectCount');
@@ -865,11 +866,6 @@ class function Tkw_MemoryUsage_Control_lbObjectCount_Push.GetWordNameForRegister
 begin
  Result := 'контрол::lbObjectCount:push';
 end;//Tkw_MemoryUsage_Control_lbObjectCount_Push.GetWordNameForRegister
-
-class function Tkw_MemoryUsage_Control_lbGlobalMemory.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lbGlobalMemory';
-end;//Tkw_MemoryUsage_Control_lbGlobalMemory.GetWordNameForRegister
 
 function Tkw_MemoryUsage_Control_lbGlobalMemory.GetString: AnsiString;
 begin
@@ -882,6 +878,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_MemoryUsage_Control_lbGlobalMemory.RegisterInEngine
 
+class function Tkw_MemoryUsage_Control_lbGlobalMemory.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lbGlobalMemory';
+end;//Tkw_MemoryUsage_Control_lbGlobalMemory.GetWordNameForRegister
+
 procedure Tkw_MemoryUsage_Control_lbGlobalMemory_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lbGlobalMemory');
@@ -892,11 +893,6 @@ class function Tkw_MemoryUsage_Control_lbGlobalMemory_Push.GetWordNameForRegiste
 begin
  Result := 'контрол::lbGlobalMemory:push';
 end;//Tkw_MemoryUsage_Control_lbGlobalMemory_Push.GetWordNameForRegister
-
-class function Tkw_MemoryUsage_Control_lbDocumentsInCacheCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lbDocumentsInCacheCount';
-end;//Tkw_MemoryUsage_Control_lbDocumentsInCacheCount.GetWordNameForRegister
 
 function Tkw_MemoryUsage_Control_lbDocumentsInCacheCount.GetString: AnsiString;
 begin
@@ -909,6 +905,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_MemoryUsage_Control_lbDocumentsInCacheCount.RegisterInEngine
 
+class function Tkw_MemoryUsage_Control_lbDocumentsInCacheCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lbDocumentsInCacheCount';
+end;//Tkw_MemoryUsage_Control_lbDocumentsInCacheCount.GetWordNameForRegister
+
 procedure Tkw_MemoryUsage_Control_lbDocumentsInCacheCount_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lbDocumentsInCacheCount');
@@ -919,11 +920,6 @@ class function Tkw_MemoryUsage_Control_lbDocumentsInCacheCount_Push.GetWordNameF
 begin
  Result := 'контрол::lbDocumentsInCacheCount:push';
 end;//Tkw_MemoryUsage_Control_lbDocumentsInCacheCount_Push.GetWordNameForRegister
-
-class function Tkw_MemoryUsage_Control_lbAllLocalMemory.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lbAllLocalMemory';
-end;//Tkw_MemoryUsage_Control_lbAllLocalMemory.GetWordNameForRegister
 
 function Tkw_MemoryUsage_Control_lbAllLocalMemory.GetString: AnsiString;
 begin
@@ -936,6 +932,11 @@ begin
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_MemoryUsage_Control_lbAllLocalMemory.RegisterInEngine
 
+class function Tkw_MemoryUsage_Control_lbAllLocalMemory.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lbAllLocalMemory';
+end;//Tkw_MemoryUsage_Control_lbAllLocalMemory.GetWordNameForRegister
+
 procedure Tkw_MemoryUsage_Control_lbAllLocalMemory_Push.DoDoIt(const aCtx: TtfwContext);
 begin
  aCtx.rEngine.PushString('lbAllLocalMemory');
@@ -947,11 +948,6 @@ begin
  Result := 'контрол::lbAllLocalMemory:push';
 end;//Tkw_MemoryUsage_Control_lbAllLocalMemory_Push.GetWordNameForRegister
 
-class function Tkw_MemoryUsage_Control_lbTotalMemory.GetWordNameForRegister: AnsiString;
-begin
- Result := 'контрол::lbTotalMemory';
-end;//Tkw_MemoryUsage_Control_lbTotalMemory.GetWordNameForRegister
-
 function Tkw_MemoryUsage_Control_lbTotalMemory.GetString: AnsiString;
 begin
  Result := 'lbTotalMemory';
@@ -962,6 +958,11 @@ begin
  inherited;
  TtfwClassRef.Register(TvtLabel);
 end;//Tkw_MemoryUsage_Control_lbTotalMemory.RegisterInEngine
+
+class function Tkw_MemoryUsage_Control_lbTotalMemory.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::lbTotalMemory';
+end;//Tkw_MemoryUsage_Control_lbTotalMemory.GetWordNameForRegister
 
 procedure Tkw_MemoryUsage_Control_lbTotalMemory_Push.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -996,11 +997,6 @@ begin
  aCtx.rEngine.PushObj(pnTagTree(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormPnTagTree.DoDoIt
 
-class function TkwMemoryUsageFormPnTagTree.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TMemoryUsageForm.pnTagTree';
-end;//TkwMemoryUsageFormPnTagTree.GetWordNameForRegister
-
 procedure TkwMemoryUsageFormPnTagTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1021,6 +1017,11 @@ function TkwMemoryUsageFormPnTagTree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormPnTagTree.ParamsTypes
+
+class function TkwMemoryUsageFormPnTagTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TMemoryUsageForm.pnTagTree';
+end;//TkwMemoryUsageFormPnTagTree.GetWordNameForRegister
 
 function TkwMemoryUsageFormTagTree.TagTree(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TeeTreeView;
@@ -1044,11 +1045,6 @@ begin
  aCtx.rEngine.PushObj(TagTree(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormTagTree.DoDoIt
 
-class function TkwMemoryUsageFormTagTree.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TMemoryUsageForm.TagTree';
-end;//TkwMemoryUsageFormTagTree.GetWordNameForRegister
-
 procedure TkwMemoryUsageFormTagTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1069,6 +1065,11 @@ function TkwMemoryUsageFormTagTree.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormTagTree.ParamsTypes
+
+class function TkwMemoryUsageFormTagTree.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TMemoryUsageForm.TagTree';
+end;//TkwMemoryUsageFormTagTree.GetWordNameForRegister
 
 function TkwMemoryUsageFormPnMemClasses.pnMemClasses(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtSizeablePanel;
@@ -1092,11 +1093,6 @@ begin
  aCtx.rEngine.PushObj(pnMemClasses(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormPnMemClasses.DoDoIt
 
-class function TkwMemoryUsageFormPnMemClasses.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TMemoryUsageForm.pnMemClasses';
-end;//TkwMemoryUsageFormPnMemClasses.GetWordNameForRegister
-
 procedure TkwMemoryUsageFormPnMemClasses.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1117,6 +1113,11 @@ function TkwMemoryUsageFormPnMemClasses.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormPnMemClasses.ParamsTypes
+
+class function TkwMemoryUsageFormPnMemClasses.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TMemoryUsageForm.pnMemClasses';
+end;//TkwMemoryUsageFormPnMemClasses.GetWordNameForRegister
 
 function TkwMemoryUsageFormMemClasses.memClasses(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TevMemo;
@@ -1140,11 +1141,6 @@ begin
  aCtx.rEngine.PushObj(memClasses(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormMemClasses.DoDoIt
 
-class function TkwMemoryUsageFormMemClasses.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TMemoryUsageForm.memClasses';
-end;//TkwMemoryUsageFormMemClasses.GetWordNameForRegister
-
 procedure TkwMemoryUsageFormMemClasses.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1165,6 +1161,11 @@ function TkwMemoryUsageFormMemClasses.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormMemClasses.ParamsTypes
+
+class function TkwMemoryUsageFormMemClasses.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TMemoryUsageForm.memClasses';
+end;//TkwMemoryUsageFormMemClasses.GetWordNameForRegister
 
 function TkwMemoryUsageFormPnSummary.pnSummary(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtSizeablePanel;
@@ -1188,11 +1189,6 @@ begin
  aCtx.rEngine.PushObj(pnSummary(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormPnSummary.DoDoIt
 
-class function TkwMemoryUsageFormPnSummary.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TMemoryUsageForm.pnSummary';
-end;//TkwMemoryUsageFormPnSummary.GetWordNameForRegister
-
 procedure TkwMemoryUsageFormPnSummary.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1213,6 +1209,11 @@ function TkwMemoryUsageFormPnSummary.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormPnSummary.ParamsTypes
+
+class function TkwMemoryUsageFormPnSummary.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TMemoryUsageForm.pnSummary';
+end;//TkwMemoryUsageFormPnSummary.GetWordNameForRegister
 
 function TkwMemoryUsageFormLbLocalMemory.lbLocalMemory(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -1236,11 +1237,6 @@ begin
  aCtx.rEngine.PushObj(lbLocalMemory(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormLbLocalMemory.DoDoIt
 
-class function TkwMemoryUsageFormLbLocalMemory.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TMemoryUsageForm.lbLocalMemory';
-end;//TkwMemoryUsageFormLbLocalMemory.GetWordNameForRegister
-
 procedure TkwMemoryUsageFormLbLocalMemory.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1261,6 +1257,11 @@ function TkwMemoryUsageFormLbLocalMemory.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormLbLocalMemory.ParamsTypes
+
+class function TkwMemoryUsageFormLbLocalMemory.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TMemoryUsageForm.lbLocalMemory';
+end;//TkwMemoryUsageFormLbLocalMemory.GetWordNameForRegister
 
 function TkwMemoryUsageFormLbObjectMemory.lbObjectMemory(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -1284,11 +1285,6 @@ begin
  aCtx.rEngine.PushObj(lbObjectMemory(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormLbObjectMemory.DoDoIt
 
-class function TkwMemoryUsageFormLbObjectMemory.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TMemoryUsageForm.lbObjectMemory';
-end;//TkwMemoryUsageFormLbObjectMemory.GetWordNameForRegister
-
 procedure TkwMemoryUsageFormLbObjectMemory.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1309,6 +1305,11 @@ function TkwMemoryUsageFormLbObjectMemory.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormLbObjectMemory.ParamsTypes
+
+class function TkwMemoryUsageFormLbObjectMemory.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TMemoryUsageForm.lbObjectMemory';
+end;//TkwMemoryUsageFormLbObjectMemory.GetWordNameForRegister
 
 function TkwMemoryUsageFormLbObjectCount.lbObjectCount(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -1332,11 +1333,6 @@ begin
  aCtx.rEngine.PushObj(lbObjectCount(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormLbObjectCount.DoDoIt
 
-class function TkwMemoryUsageFormLbObjectCount.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TMemoryUsageForm.lbObjectCount';
-end;//TkwMemoryUsageFormLbObjectCount.GetWordNameForRegister
-
 procedure TkwMemoryUsageFormLbObjectCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1357,6 +1353,11 @@ function TkwMemoryUsageFormLbObjectCount.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormLbObjectCount.ParamsTypes
+
+class function TkwMemoryUsageFormLbObjectCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TMemoryUsageForm.lbObjectCount';
+end;//TkwMemoryUsageFormLbObjectCount.GetWordNameForRegister
 
 function TkwMemoryUsageFormLbGlobalMemory.lbGlobalMemory(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -1380,11 +1381,6 @@ begin
  aCtx.rEngine.PushObj(lbGlobalMemory(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormLbGlobalMemory.DoDoIt
 
-class function TkwMemoryUsageFormLbGlobalMemory.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TMemoryUsageForm.lbGlobalMemory';
-end;//TkwMemoryUsageFormLbGlobalMemory.GetWordNameForRegister
-
 procedure TkwMemoryUsageFormLbGlobalMemory.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1405,6 +1401,11 @@ function TkwMemoryUsageFormLbGlobalMemory.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormLbGlobalMemory.ParamsTypes
+
+class function TkwMemoryUsageFormLbGlobalMemory.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TMemoryUsageForm.lbGlobalMemory';
+end;//TkwMemoryUsageFormLbGlobalMemory.GetWordNameForRegister
 
 function TkwMemoryUsageFormLbDocumentsInCacheCount.lbDocumentsInCacheCount(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -1428,11 +1429,6 @@ begin
  aCtx.rEngine.PushObj(lbDocumentsInCacheCount(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormLbDocumentsInCacheCount.DoDoIt
 
-class function TkwMemoryUsageFormLbDocumentsInCacheCount.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TMemoryUsageForm.lbDocumentsInCacheCount';
-end;//TkwMemoryUsageFormLbDocumentsInCacheCount.GetWordNameForRegister
-
 procedure TkwMemoryUsageFormLbDocumentsInCacheCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1453,6 +1449,11 @@ function TkwMemoryUsageFormLbDocumentsInCacheCount.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormLbDocumentsInCacheCount.ParamsTypes
+
+class function TkwMemoryUsageFormLbDocumentsInCacheCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TMemoryUsageForm.lbDocumentsInCacheCount';
+end;//TkwMemoryUsageFormLbDocumentsInCacheCount.GetWordNameForRegister
 
 function TkwMemoryUsageFormLbAllLocalMemory.lbAllLocalMemory(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -1476,11 +1477,6 @@ begin
  aCtx.rEngine.PushObj(lbAllLocalMemory(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormLbAllLocalMemory.DoDoIt
 
-class function TkwMemoryUsageFormLbAllLocalMemory.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TMemoryUsageForm.lbAllLocalMemory';
-end;//TkwMemoryUsageFormLbAllLocalMemory.GetWordNameForRegister
-
 procedure TkwMemoryUsageFormLbAllLocalMemory.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1501,6 +1497,11 @@ function TkwMemoryUsageFormLbAllLocalMemory.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormLbAllLocalMemory.ParamsTypes
+
+class function TkwMemoryUsageFormLbAllLocalMemory.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TMemoryUsageForm.lbAllLocalMemory';
+end;//TkwMemoryUsageFormLbAllLocalMemory.GetWordNameForRegister
 
 function TkwMemoryUsageFormLbTotalMemory.lbTotalMemory(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -1524,11 +1525,6 @@ begin
  aCtx.rEngine.PushObj(lbTotalMemory(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormLbTotalMemory.DoDoIt
 
-class function TkwMemoryUsageFormLbTotalMemory.GetWordNameForRegister: AnsiString;
-begin
- Result := '.TMemoryUsageForm.lbTotalMemory';
-end;//TkwMemoryUsageFormLbTotalMemory.GetWordNameForRegister
-
 procedure TkwMemoryUsageFormLbTotalMemory.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -1549,6 +1545,11 @@ function TkwMemoryUsageFormLbTotalMemory.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormLbTotalMemory.ParamsTypes
+
+class function TkwMemoryUsageFormLbTotalMemory.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TMemoryUsageForm.lbTotalMemory';
+end;//TkwMemoryUsageFormLbTotalMemory.GetWordNameForRegister
 
 initialization
  Tkw_Form_MemoryUsage.RegisterInEngine;

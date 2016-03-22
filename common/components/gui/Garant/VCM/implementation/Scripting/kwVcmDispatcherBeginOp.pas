@@ -2,6 +2,8 @@ unit kwVcmDispatcherBeginOp;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmDispatcherBeginOp.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "vcm_Dispatcher_BeginOp" MUID: (4F69BC1C02CC)
+// Имя типа: "TkwVcmDispatcherBeginOp"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

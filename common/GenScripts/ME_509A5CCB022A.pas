@@ -5,6 +5,8 @@ unit kwLoadFromFile;
 
 // Модуль: "w:\common\components\rtl\Garant\Keywords4Daily\kwLoadFromFile.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "LoadFromFile" MUID: (509A5CCB022A)
+// Имя типа: "TkwLoadFromFile"
 
 interface
 

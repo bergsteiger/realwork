@@ -2,6 +2,7 @@ unit l3NodesKeyWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\l3NodesKeyWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "l3NodesKeyWordsPack" MUID: (54EF449A0213)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -168,11 +169,6 @@ begin
  aCtx.rEngine.PushBool(IsFirst(aCtx, l_aNode));
 end;//TkwNodeIsFirst.DoDoIt
 
-class function TkwNodeIsFirst.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Node:IsFirst';
-end;//TkwNodeIsFirst.GetWordNameForRegister
-
 procedure TkwNodeIsFirst.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -193,6 +189,11 @@ function TkwNodeIsFirst.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3SimpleNode)]);
 end;//TkwNodeIsFirst.ParamsTypes
+
+class function TkwNodeIsFirst.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Node:IsFirst';
+end;//TkwNodeIsFirst.GetWordNameForRegister
 
 function TkwNodeIsLast.IsLast(const aCtx: TtfwContext;
  const aNode: Il3SimpleNode): Boolean;
@@ -216,11 +217,6 @@ begin
  aCtx.rEngine.PushBool(IsLast(aCtx, l_aNode));
 end;//TkwNodeIsLast.DoDoIt
 
-class function TkwNodeIsLast.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Node:IsLast';
-end;//TkwNodeIsLast.GetWordNameForRegister
-
 procedure TkwNodeIsLast.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -241,6 +237,11 @@ function TkwNodeIsLast.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3SimpleNode)]);
 end;//TkwNodeIsLast.ParamsTypes
+
+class function TkwNodeIsLast.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Node:IsLast';
+end;//TkwNodeIsLast.GetWordNameForRegister
 
 function TkwNodeFlags.Flags(const aCtx: TtfwContext;
  const aNode: Il3SimpleNode): Integer;
@@ -264,11 +265,6 @@ begin
  aCtx.rEngine.PushInt(Flags(aCtx, l_aNode));
 end;//TkwNodeFlags.DoDoIt
 
-class function TkwNodeFlags.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Node:Flags';
-end;//TkwNodeFlags.GetWordNameForRegister
-
 procedure TkwNodeFlags.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -289,6 +285,11 @@ function TkwNodeFlags.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3SimpleNode)]);
 end;//TkwNodeFlags.ParamsTypes
+
+class function TkwNodeFlags.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Node:Flags';
+end;//TkwNodeFlags.GetWordNameForRegister
 
 function TkwNodeText.Text(const aCtx: TtfwContext;
  const aNode: Il3SimpleNode): Tl3WString;
@@ -312,11 +313,6 @@ begin
  aCtx.rEngine.PushString(Text(aCtx, l_aNode));
 end;//TkwNodeText.DoDoIt
 
-class function TkwNodeText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Node:Text';
-end;//TkwNodeText.GetWordNameForRegister
-
 procedure TkwNodeText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
@@ -337,6 +333,11 @@ function TkwNodeText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3SimpleNode)]);
 end;//TkwNodeText.ParamsTypes
+
+class function TkwNodeText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Node:Text';
+end;//TkwNodeText.GetWordNameForRegister
 
 initialization
  Tl3NodesKeyWordsPackResNameGetter.Register;

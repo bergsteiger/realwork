@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\nevStringCacheHackBecauseMl3Uknown.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "nevStringCacheHackBecauseMl3Uknown" MUID: (4E71FF0D011C)
+// Имя типа: "_nevStringCacheHackBecauseMl3Uknown_"
 
 {$Define nevStringCacheHackBecauseMl3Uknown_imp}
 

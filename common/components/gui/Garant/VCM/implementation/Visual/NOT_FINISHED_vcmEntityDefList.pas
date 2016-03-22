@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmEntityDefList;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmEntityDefList.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmEntityDefList" MUID: (564AE8B10025)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

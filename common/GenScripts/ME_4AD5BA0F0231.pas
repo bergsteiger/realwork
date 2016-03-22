@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsIntegerValueMapFactory;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsIntegerValueMapFactory.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "nsIntegerValueMapFactory" MUID: (4AD5BA0F0231)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

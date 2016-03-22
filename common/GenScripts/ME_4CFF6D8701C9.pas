@@ -2,6 +2,7 @@ unit NOT_FINISHED_Buttons;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\NOT_FINISHED_Buttons.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Buttons" MUID: (4CFF6D8701C9)
 
 interface
 

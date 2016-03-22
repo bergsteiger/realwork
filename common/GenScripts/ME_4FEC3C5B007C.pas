@@ -2,6 +2,7 @@ unit nscStatusBarDelimiterDef;
 
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscStatusBarDelimiterDef.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnscStatusBarDelimiterDef" MUID: (4FEC3C5B007C)
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 

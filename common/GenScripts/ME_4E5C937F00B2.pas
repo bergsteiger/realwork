@@ -2,6 +2,7 @@ unit kwDocumentSpravka;
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Script_Engine\kwDocumentSpravka.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "TkwDocumentSpravka" MUID: (4E5C937F00B2)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 

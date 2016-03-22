@@ -2,6 +2,7 @@ unit NOT_FINISHED_l3DropSource;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3DropSource.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3DropSource" MUID: (48C68724011E)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

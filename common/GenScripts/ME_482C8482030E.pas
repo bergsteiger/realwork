@@ -2,6 +2,7 @@ unit Clipbrd;
 
 // Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Clipbrd.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "Clipbrd" MUID: (482C8482030E)
 
 interface
 

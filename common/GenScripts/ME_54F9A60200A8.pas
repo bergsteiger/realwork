@@ -2,6 +2,7 @@ unit daDataProviderParams;
 
 // Модуль: "w:\common\components\rtl\Garant\DA\daDataProviderParams.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdaDataProviderParams" MUID: (54F9A60200A8)
 
 {$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
@@ -246,7 +247,9 @@ procedure TdaDataProviderParams.CorrectAfterSet;
 //#UC END# *55194F830311_54F9A60200A8_var*
 begin
 //#UC START# *55194F830311_54F9A60200A8_impl*
-// Do Nothing;
+ f_AliasesList.Clear;
+ if DocStoragePath <> '' then
+  f_AliasesList.Add(Format('FamilyPath=%s', [DocStoragePath]));
 //#UC END# *55194F830311_54F9A60200A8_impl*
 end;//TdaDataProviderParams.CorrectAfterSet
 
@@ -275,6 +278,7 @@ begin
  HomeDirPath := aParams.HomeDirPath;
  DocBaseVersion := aParams.DocBaseVersion;
  AdminBaseVersion := aParams.AdminBaseVersion;
+ AliasesList.Assign(aParams.AliasesList);
 //#UC END# *553A37E902C9_54F9A60200A8_impl*
 end;//TdaDataProviderParams.AssignParams
 

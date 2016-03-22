@@ -2,6 +2,7 @@ unit nsSearchWindowManager;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsSearchWindowManager.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsSearchWindowManager" MUID: (56163B0902D7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

@@ -2,6 +2,7 @@ unit NOT_FINISHED_evLoadDocumentManager;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\ext\NOT_FINISHED_evLoadDocumentManager.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evLoadDocumentManager" MUID: (4B322B8C02A7)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

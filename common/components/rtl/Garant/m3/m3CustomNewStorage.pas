@@ -5,7 +5,7 @@ unit m3CustomNewStorage;
 // Библиотека "m3"
 // Модуль: "w:/common/components/rtl/Garant/m3/m3CustomNewStorage.pas"
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3::m3CoreObjects::Tm3CustomNewStorage
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3::m3CoreObjects::Tm3CustomNewStorage
 //
 //
 // Все права принадлежат ООО НПП "Гарант-Сервис".

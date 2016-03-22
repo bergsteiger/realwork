@@ -2,6 +2,7 @@ unit NOT_FINISHED_evSubNode;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_evSubNode.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "evSubNode" MUID: (47F258C60223)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

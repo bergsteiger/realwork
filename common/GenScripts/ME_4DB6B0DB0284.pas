@@ -2,6 +2,8 @@ unit toK64;
 
 // Модуль: "w:\common\components\DailyTest\toK64.pas"
 // Стереотип: "TestResults"
+// Элемент модели: "toK64" MUID: (4DB6B0DB0284)
+// Имя типа: "TtoK64"
 
 {$Include w:\common\components\DailyTest\DailyTest.inc}
 

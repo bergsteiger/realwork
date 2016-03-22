@@ -2,6 +2,7 @@ unit tfwStoredValuesStack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValuesStack.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwStoredValuesStack" MUID: (4F49416600CB)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -168,7 +169,7 @@ begin
   for l_Index := 0 to Pred(aDictionary.Count) do
   begin
    l_W := TtfwKeyWord(aDictionary.Items[l_Index]).Word;
-   if l_W.IsVarLike then
+   if l_W.IsVarLike AND not l_W.IsGlobalVar then
    begin
     if (l_SV = nil) then
      l_SV := TtfwStoredValues.Make;

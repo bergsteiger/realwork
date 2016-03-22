@@ -2,6 +2,7 @@ unit atFileInitializer;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atFileInitializer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatFileInitializer" MUID: (50294907000B)
 
 interface
 

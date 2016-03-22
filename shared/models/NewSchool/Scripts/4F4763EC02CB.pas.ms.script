@@ -82,20 +82,6 @@ ref; // ME_4DC2E0300240 DoIt
 
 ref; // ME_4DC2E00703AA Create
 
-: ME_0BA4D56CBF3F
- CONST UID '0BA4D56CBF3F'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwIncluded' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DC2DF5D0167 // TkwIncluded
- ;
-
-ref; // ME_0BA4D56CBF3F Ini_Reg
-
 : ME_4DC2E4470233
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -177,8 +163,6 @@ ref; // ME_4F40655803D0
 ref; // ME_52F4EE310190 
 
 : ME_4DAEEDE10285_ME_4DC2DF5D0167
- CONST UID '4DAEEDE10285'
- CONST Name 'DoDoIt'
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  : Implementor ME_4DC2DF5D0167 // TkwIncluded
@@ -187,8 +171,6 @@ ref; // ME_52F4EE310190
 ref; // ME_4DAEEDE10285_ME_4DC2DF5D0167 DoDoIt
 
 : ME_4DB6C99F026E_ME_4DC2DF5D0167
- CONST UID '4DB6C99F026E'
- CONST Name 'EndBracket'
  : Original WL 'ME_4DB6C99F026E' '54F079B5035C.pas.ms.script' // EndBracket
  ;
  : Implementor ME_4DC2DF5D0167 // TkwIncluded
@@ -197,8 +179,6 @@ ref; // ME_4DAEEDE10285_ME_4DC2DF5D0167 DoDoIt
 ref; // ME_4DB6C99F026E_ME_4DC2DF5D0167 EndBracket
 
 : ME_4DB6F2760023_ME_4DC2DF5D0167
- CONST UID '4DB6F2760023'
- CONST Name 'UnknownWord'
  : Original WL 'ME_4DB6F2760023' '54F079B5035C.pas.ms.script' // UnknownWord
  ;
  : Implementor ME_4DC2DF5D0167 // TkwIncluded
@@ -226,7 +206,6 @@ ref; // ME_4DB6F2760023_ME_4DC2DF5D0167 UnknownWord
  ; // Attributes
  : Operations
    Seq: ( ME_4DC2E00703AA // Create
- ME_0BA4D56CBF3F // Ini_Reg
  )
  ; // Operations
  : Overridden
@@ -405,21 +384,6 @@ ref; // ME_4F47675C032D DoIt
 
 ref; // ME_4F47673F03B0 MakeIncluded
 
-: ME_6415B4347705
- CONST UID '6415B4347705'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TtfwIncludeLike' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DC3A1A30235 // TtfwIncludeLike
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_6415B4347705 Ini_Reg_Class
-
 : ME_4DC3A20801DD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -461,8 +425,6 @@ ref; // ME_4DC3A24101DA
 ref; // ME_4F3E9C3301CE 
 
 : ME_4DB6CE2302C9_ME_4DC3A1A30235
- CONST UID '4DB6CE2302C9'
- CONST Name 'AfterCompile'
  : Original WL 'ME_4DB6CE2302C9' '54F079B5035C.pas.ms.script' // AfterCompile
  ;
  : Implementor ME_4DC3A1A30235 // TtfwIncludeLike
@@ -471,8 +433,6 @@ ref; // ME_4F3E9C3301CE
 ref; // ME_4DB6CE2302C9_ME_4DC3A1A30235 AfterCompile
 
 : ME_4DB9B502013D_ME_4DC3A1A30235
- CONST UID '4DB9B502013D'
- CONST Name 'AcceptsKeyWordAfter'
  : Original WL 'ME_4DB9B502013D' '54F079B5035C.pas.ms.script' // AcceptsKeyWordAfter
  ;
  : Implementor ME_4DC3A1A30235 // TtfwIncludeLike
@@ -481,8 +441,6 @@ ref; // ME_4DB6CE2302C9_ME_4DC3A1A30235 AfterCompile
 ref; // ME_4DB9B502013D_ME_4DC3A1A30235 AcceptsKeyWordAfter
 
 : ME_4DC19432023E_ME_4DC3A1A30235
- CONST UID '4DC19432023E'
- CONST Name 'DoStringToken'
  : Original WL 'ME_4DC19432023E' '54F079B5035C.pas.ms.script' // DoStringToken
  ;
  : Implementor ME_4DC3A1A30235 // TtfwIncludeLike
@@ -509,7 +467,6 @@ ref; // ME_4DC19432023E_ME_4DC3A1A30235 DoStringToken
    Seq: ( ME_4DC3A24D0330 // DoIncluded
  ME_4F3AA4E10327 // GetIncludedClass
  ME_4F47673F03B0 // MakeIncluded
- ME_6415B4347705 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -540,21 +497,6 @@ ref; // ME_4DC3A1A30235 TtfwIncludeLike
 
 FORWARD ME_4F37D458015C
 
-: ME_FDB419156088
- CONST UID 'FDB419156088'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TkwUsesLike' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F37D458015C // TkwUsesLike
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_FDB419156088 Ini_Reg_Class
-
 : ME_52D7AECC010B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -576,8 +518,6 @@ ref; // ME_52D7AECC010B
 ref; // ME_559EB0940071 
 
 : ME_4DB6C99F026E_ME_4F37D458015C
- CONST UID '4DB6C99F026E'
- CONST Name 'EndBracket'
  : Original WL 'ME_4DB6C99F026E' '54F079B5035C.pas.ms.script' // EndBracket
  ;
  : Implementor ME_4F37D458015C // TkwUsesLike
@@ -586,8 +526,6 @@ ref; // ME_559EB0940071
 ref; // ME_4DB6C99F026E_ME_4F37D458015C EndBracket
 
 : ME_4DB6F2760023_ME_4F37D458015C
- CONST UID '4DB6F2760023'
- CONST Name 'UnknownWord'
  : Original WL 'ME_4DB6F2760023' '54F079B5035C.pas.ms.script' // UnknownWord
  ;
  : Implementor ME_4F37D458015C // TkwUsesLike
@@ -609,10 +547,6 @@ ref; // ME_4DB6F2760023_ME_4F37D458015C UnknownWord
    Seq: ( ME_4DC3A1A30235 // TtfwIncludeLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_FDB419156088 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DB6C99F026E_ME_4F37D458015C // EndBracket
  )
@@ -643,20 +577,6 @@ FORWARD ME_4F476424014E
 
 FORWARD ME_4DC1949F00E1
 
-: ME_16FA182C9DE4
- CONST UID '16FA182C9DE4'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Include' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DC1949F00E1 // Include
- ;
-
-ref; // ME_16FA182C9DE4 Ini_Reg
-
 : ME_4DC2DF9D0108
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -678,8 +598,6 @@ ref; // ME_4DC2DF9D0108
 ref; // ME_4DC2E6B600CB 
 
 : ME_4DB6C99F026E_ME_4DC1949F00E1
- CONST UID '4DB6C99F026E'
- CONST Name 'EndBracket'
  : Original WL 'ME_4DB6C99F026E' '54F079B5035C.pas.ms.script' // EndBracket
  ;
  : Implementor ME_4DC1949F00E1 // Include
@@ -688,8 +606,6 @@ ref; // ME_4DC2E6B600CB
 ref; // ME_4DB6C99F026E_ME_4DC1949F00E1 EndBracket
 
 : ME_4DB0614603C8_ME_4DC1949F00E1
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
  : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
  ;
  : Implementor ME_4DC1949F00E1 // Include
@@ -698,8 +614,6 @@ ref; // ME_4DB6C99F026E_ME_4DC1949F00E1 EndBracket
 ref; // ME_4DB0614603C8_ME_4DC1949F00E1 GetWordNameForRegister
 
 : ME_4DB9B446039A_ME_4DC1949F00E1
- CONST UID '4DB9B446039A'
- CONST Name 'AfterWordMaxCount'
  : Original WL 'ME_4DB9B446039A' '54F079B5035C.pas.ms.script' // AfterWordMaxCount
  ;
  : Implementor ME_4DC1949F00E1 // Include
@@ -722,10 +636,6 @@ ref; // ME_4DB9B446039A_ME_4DC1949F00E1 AfterWordMaxCount
    Seq: ( ME_4DC3A1A30235 // TtfwIncludeLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_16FA182C9DE4 // Ini_Reg
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DB6C99F026E_ME_4DC1949F00E1 // EndBracket
  )
@@ -757,23 +667,7 @@ ref; // ME_4DC1949F00E1 Include
 
 FORWARD ME_4DC3A27D0253
 
-: ME_F6902A9D5A40
- CONST UID 'F6902A9D5A40'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Uses' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DC3A27D0253 // Uses
- ;
-
-ref; // ME_F6902A9D5A40 Ini_Reg
-
 : ME_4DB0614603C8_ME_4DC3A27D0253
- CONST UID '4DB0614603C8'
- CONST Name 'GetWordNameForRegister'
  : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
  ;
  : Implementor ME_4DC3A27D0253 // Uses
@@ -796,10 +690,6 @@ ref; // ME_4DB0614603C8_ME_4DC3A27D0253 GetWordNameForRegister
    Seq: ( ME_4F37D458015C // TkwUsesLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F6902A9D5A40 // Ini_Reg
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4DB0614603C8_ME_4DC3A27D0253 // GetWordNameForRegister
  )

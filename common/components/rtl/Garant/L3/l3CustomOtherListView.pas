@@ -2,6 +2,7 @@ unit l3CustomOtherListView;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3CustomOtherListView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3CustomOtherListView" MUID: (4DEFAF740194)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

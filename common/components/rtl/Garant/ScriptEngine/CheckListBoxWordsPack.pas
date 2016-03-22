@@ -2,6 +2,7 @@ unit CheckListBoxWordsPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\CheckListBoxWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "CheckListBoxWordsPack" MUID: (552D23C300F1)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -139,11 +140,6 @@ begin
  aCtx.rEngine.PushBool(GetChecked(aCtx, l_aCheckListBox, l_anIndex));
 end;//TkwPopCheckListBoxGetChecked.DoDoIt
 
-class function TkwPopCheckListBoxGetChecked.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:CheckListBox:GetChecked';
-end;//TkwPopCheckListBoxGetChecked.GetWordNameForRegister
-
 function TkwPopCheckListBoxGetChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -158,6 +154,11 @@ function TkwPopCheckListBoxGetChecked.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCheckListBox), TypeInfo(Integer)]);
 end;//TkwPopCheckListBoxGetChecked.ParamsTypes
+
+class function TkwPopCheckListBoxGetChecked.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:CheckListBox:GetChecked';
+end;//TkwPopCheckListBoxGetChecked.GetWordNameForRegister
 
 procedure TkwPopCheckListBoxSetChecked.SetChecked(const aCtx: TtfwContext;
  aCheckListBox: TCheckListBox;
@@ -207,11 +208,6 @@ begin
  SetChecked(aCtx, l_aCheckListBox, l_anIndex, l_aValue);
 end;//TkwPopCheckListBoxSetChecked.DoDoIt
 
-class function TkwPopCheckListBoxSetChecked.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:CheckListBox:SetChecked';
-end;//TkwPopCheckListBoxSetChecked.GetWordNameForRegister
-
 function TkwPopCheckListBoxSetChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -226,6 +222,11 @@ function TkwPopCheckListBoxSetChecked.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCheckListBox), TypeInfo(Integer), TypeInfo(Boolean)]);
 end;//TkwPopCheckListBoxSetChecked.ParamsTypes
+
+class function TkwPopCheckListBoxSetChecked.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:CheckListBox:SetChecked';
+end;//TkwPopCheckListBoxSetChecked.GetWordNameForRegister
 
 procedure TkwPopCheckListBoxUncheckAll.UncheckAll(const aCtx: TtfwContext;
  aCheckListBox: TCheckListBox);
@@ -256,11 +257,6 @@ begin
  UncheckAll(aCtx, l_aCheckListBox);
 end;//TkwPopCheckListBoxUncheckAll.DoDoIt
 
-class function TkwPopCheckListBoxUncheckAll.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:CheckListBox:UncheckAll';
-end;//TkwPopCheckListBoxUncheckAll.GetWordNameForRegister
-
 function TkwPopCheckListBoxUncheckAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -275,6 +271,11 @@ function TkwPopCheckListBoxUncheckAll.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCheckListBox)]);
 end;//TkwPopCheckListBoxUncheckAll.ParamsTypes
+
+class function TkwPopCheckListBoxUncheckAll.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:CheckListBox:UncheckAll';
+end;//TkwPopCheckListBoxUncheckAll.GetWordNameForRegister
 
 initialization
  TkwPopCheckListBoxGetChecked.RegisterInEngine;

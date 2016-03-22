@@ -3,6 +3,7 @@ unit evDefaultStylesFontSizesPrim;
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evDefaultStylesFontSizesPrim.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevDefaultStylesFontSizesPrim" MUID: (4E3173F50217)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 

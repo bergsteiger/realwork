@@ -25,6 +25,7 @@ std::map<long, long> map_edition_doc;
 std::set<long> docs;
 std::map<long, std::set<long> > map_doc_editions;
 std::map<long, long> map_doc_paraid;
+std::set<long> negative_doc_ids;
 
 std::set<long> docs_for_smart; //документы, для которых надо будет пустить smartenumnextdoc
 std::set<long>::iterator docs_for_smart_it;
@@ -501,8 +502,13 @@ void	EnumNextDoc (long docId, long prevId, long* paraIds, Base* whereprev, Base*
 			newParaIds [I] = ++para_id + (newParaIds [I] & 0x40000000);
 	delete [] tocheck;
 
-	for (I = 0; I < paraCount0; I++)
+	bool negative = false;
+	for (I = 0; I < paraCount0; I++) {
+		negative |= newParaIds [I] < 0;
 		para_id = std::max <long> (newParaIds [I] & 0x3FFFFFFF, para_id);
+	}
+	if (negative)
+		negative_doc_ids.insert (docId);
 
 	for ( I = 0; I < paraCount0; I++ )
 		delete lines0[ I ];
@@ -1064,9 +1070,14 @@ void	SmartEnumNextDoc (/*long docId, long prevId, long* paraIds, std::set<long> 
 
 	DocInfo docinfo;
 	{
+		bool negative = false;
+		for (int i = 0; i < paraCount0; i++)
+			negative |= newParaIds [i] < 0;
 #ifdef	MULTITHREAD
 		GUARD (smart_mutex);
 #endif
+		if (negative)
+			negative_doc_ids.insert (docId);
 		base->ReplaceAttrEx (docId, IDD2_PARAIDS, newParaIds, sizeof (para_id) * paraCount0);
 		set_paraid_for (docId, para_id);
 
@@ -2253,6 +2264,70 @@ int main_logic ( int argc, char *argv[] )
 			if (base->FindDocInfo (doc_id, docinfo) == sizeof (DocInfo)) {
 				docinfo.lastParaID = para_id;
 				base->ReplaceAttr (doc_id, IDD_INFO, &docinfo, sizeof (docinfo));
+			}
+		}
+
+		if (negative_doc_ids.size ()) {			
+			printf ("negative: %ld\n", negative_doc_ids.size ());
+			map_edition_doc.clear ();
+			map_doc_editions.clear ();
+			LoadEdis ();
+			std::set<long> docs_to_correct;
+			std::set<long>::const_iterator it;
+			for (it = negative_doc_ids.begin (); it != negative_doc_ids.end (); it++) {
+				long id = *it;
+				DocInfo docinfo;
+				if (base->FindDocInfo (id, docinfo) == sizeof (DocInfo)) {
+					if (docinfo.Status & DS_EDITION)
+						docs_to_correct.insert (map_edition_doc.find (id)->second);
+					else
+						docs_to_correct.insert (id);
+				}
+			}
+			for (it = docs_to_correct.begin (); it != docs_to_correct.end (); it++) {
+				long id = *it;
+				printf ("correct %ld\n", id);
+				set_paraid_for (id, 0);
+				DocInfo docinfo;
+				base->FindDocInfo (id, docinfo);
+				EnumDoc (id, false);
+				docinfo.lastParaID = get_paraid_for (id);
+				base->ReplaceAttr (id, IDD_INFO, &docinfo, sizeof (docinfo));
+
+				std::set<long> processed_ids;
+				smartenumnextdoc_params params;
+				params.processed_ids = &processed_ids;
+
+				std::map<long,std::set<long> >::const_iterator map_it = map_doc_editions.find (id);
+				if (map_it != map_doc_editions.end ()) {
+					std::set<long>::const_iterator it2;
+					for (it2 = map_it->second.begin (); it2 != map_it->second.end (); it2++)
+						map_doc_paraid.insert (std::map<long,long>::value_type (*it2, docinfo.lastParaID));
+
+					if (docinfo.prevEdition) {
+						long size, *para_ids = (long*) base->LoadAttrEx (id, IDD2_PARAIDS, size);
+						params.docId = docinfo.prevEdition;
+						params.prevId = id;
+						params.paraIds = para_ids;
+						params.prev_edition = true;
+						SmartEnumNextDoc (params);
+					}
+					if (docinfo.nextEdition) {
+						long size, *para_ids = (long*) base->LoadAttrEx (id, IDD2_PARAIDS, size);
+						params.docId = docinfo.nextEdition;
+						params.prevId = id;
+						params.paraIds = para_ids;
+						params.prev_edition = false;
+						SmartEnumNextDoc (params);
+					}
+					
+					for (it2 = map_it->second.begin (); it2 != map_it->second.end (); it2++) {
+						long doc_id = *it2;
+						base->FindDocInfo (doc_id, docinfo);
+						docinfo.lastParaID = get_paraid_for (doc_id);
+						base->ReplaceAttr (doc_id, IDD_INFO, &docinfo, sizeof (docinfo));
+					}
+				}
 			}
 		}
 

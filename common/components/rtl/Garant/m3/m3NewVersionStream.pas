@@ -7,7 +7,7 @@ unit m3NewVersionStream;
 // Модуль: "w:/common/components/rtl/Garant/m3/m3NewVersionStream.pas"
 // Начат: 17.03.2009 20:57
 // Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For Archi::m3$DB::m3DB::Tm3NewVersionStream
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::m3$DB::m3DB::Tm3NewVersionStream
 //
 // Поток, создавший новую версию документа
 //

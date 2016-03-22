@@ -4,9 +4,12 @@ unit D_DeltaKWLoad;
   Часть механизма импорта ключевых слов.
 }
 
-{ $Id: D_DeltaKWLoad.pas,v 1.24 2015/07/02 11:41:02 lukyanets Exp $ }
+{ $Id: D_DeltaKWLoad.pas,v 1.25 2015/11/26 08:45:28 lukyanets Exp $ }
 
 // $Log: D_DeltaKWLoad.pas,v $
+// Revision 1.25  2015/11/26 08:45:28  lukyanets
+// КОнстанты переехали
+//
 // Revision 1.24  2015/07/02 11:41:02  lukyanets
 // Описываем словари
 //
@@ -128,6 +131,7 @@ Uses
  l3FileUtils,
 
  daTypes,
+ daSchemeConsts,
 
  dt_DictTypes, dt_Const, dt_AttrSchema,
  dt_DictConst, dt_DictIntf,

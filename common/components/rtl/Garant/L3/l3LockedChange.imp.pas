@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3LockedChange.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "l3LockedChange" MUID: (492ABDE901A7)
+// Имя типа: "_l3LockedChange_"
 
 {$Define l3LockedChange_imp}
 

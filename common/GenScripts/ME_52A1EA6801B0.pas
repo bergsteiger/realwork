@@ -2,6 +2,7 @@ unit NOT_FINISHED_vcmComponent;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmComponent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TvcmComponent" MUID: (52A1EA6801B0)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

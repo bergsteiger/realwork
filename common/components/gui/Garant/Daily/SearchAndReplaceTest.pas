@@ -1,77 +1,54 @@
 unit SearchAndReplaceTest;
+ {* Тест поиска/замены }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Модуль: "w:/common/components/gui/Garant/Daily/SearchAndReplaceTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TSearchAndReplaceTest
-//
-// Тест поиска/замены
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\SearchAndReplaceTest.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TSearchAndReplaceTest" MUID: (4BE04F030356)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  SearchAndReplacePrimTest,
-  nevTools,
-  evTypes
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , SearchAndReplacePrimTest
+ , nevTools
+ , evTypes
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  TSearchAndReplaceTest = {abstract} class(TSearchAndReplacePrimTest)
   {* Тест поиска/замены }
- protected
- // realized methods
+  protected
+   function StringForSearch: AnsiString; virtual; abstract;
+    {* Строка для поиска }
+   function StringForReplace: AnsiString; virtual; abstract;
+    {* Строка для замены }
    function Searcher: IevSearcher; override;
    function Replacer: IevReplacer; override;
    function Options: TevSearchOptionSet; override;
- protected
- // overridden protected methods
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected methods
-   function StringForSearch: AnsiString; virtual; abstract;
-     {* Строка для поиска }
-   function StringForReplace: AnsiString; virtual; abstract;
-     {* Строка для замены }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TSearchAndReplaceTest
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  evSearch,
-  TestFrameWork,
-  vcmBase,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TSearchAndReplaceTest
+ l3ImplUses
+ , evSearch
+ , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+;
 
 function TSearchAndReplaceTest.Searcher: IevSearcher;
 //#UC START# *4C288BAA0058_4BE04F030356_var*
@@ -101,17 +78,16 @@ begin
 end;//TSearchAndReplaceTest.Options
 
 function TSearchAndReplaceTest.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TSearchAndReplaceTest.GetFolder
 
 function TSearchAndReplaceTest.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4BE04F030356';
 end;//TSearchAndReplaceTest.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

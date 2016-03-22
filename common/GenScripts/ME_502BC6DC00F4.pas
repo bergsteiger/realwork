@@ -2,6 +2,7 @@ unit vcmToolbarUtils;
 
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmToolbarUtils.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "vcmToolbarUtils" MUID: (502BC6DC00F4)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 

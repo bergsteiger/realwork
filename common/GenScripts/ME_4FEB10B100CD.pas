@@ -2,6 +2,7 @@ unit atLockFile;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atLockFile.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatLockFile" MUID: (4FEB10B100CD)
 
 interface
 

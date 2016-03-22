@@ -2,6 +2,7 @@ unit pgField;
 
 // Модуль: "w:\common\components\rtl\Garant\PG\pgField.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TpgField" MUID: (5627445F00C1)
 
 {$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 

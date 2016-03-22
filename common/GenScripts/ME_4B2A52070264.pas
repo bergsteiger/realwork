@@ -2,6 +2,7 @@ unit TestFilerCopyViaReadLn;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\TestFilerCopyViaReadLn.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTestFilerCopyViaReadLn" MUID: (4B2A52070264)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -18,7 +18,7 @@
 #include "boost/algorithm/string/split.hpp"
 
 //#UC START# *4D306C4201BA_CUSTOM_INCLUDES*
-#include <set>
+#include "shared/Morpho/impl/Impl/MorphoAnalyzer.h"
 //#UC END# *4D306C4201BA_CUSTOM_INCLUDES*
 
 namespace Morpho {
@@ -89,12 +89,14 @@ void PartsSpeechAnalyzer::get_templates (const std::string& req, DBCore::PSDTemp
 
 	Parts parts;
 
+	Impl::MorphoAnalyzer analyzer (0, 0);
+
 	for (std::vector <std::string>::iterator it = context.begin (); it != context.end (); ++it) {
 		if (*(it->rbegin ()) == '!') {
 			it->erase (it->size () - 1);
 		}
 
-		//PartsSpeechAnalyzer::get_parts_of_speech (*it, parts);
+		analyzer.get_parts_of_speech (*it, parts);
 
 		if (out.empty ()) {
 			for (Parts::const_iterator _it = parts.begin (); _it != parts.end (); ++_it) {

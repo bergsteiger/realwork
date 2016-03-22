@@ -1,160 +1,128 @@
 unit PreviewTestBefore235875079;
+ {* Тест построения Preview }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TestFormsTest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Daily/PreviewTestBefore235875079.pas"
-// Начат: 07.05.2010 18:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Operations For Tests::TestFormsTest::Everest::TPreviewTestBefore235875079
-//
-// Тест построения Preview
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\PreviewTestBefore235875079.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "TPreviewTestBefore235875079" MUID: (4BE429BA0233)
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  afwInterfaces,
-  TextEditorVisitor,
-  evHAFPainterEx,
-  nevShapesPaintedSpy,
-  afwPreviewPageSpy,
-  l3PureMixIns,
-  PrimTextLoad_Form,
-  nevTools,
-  afwPreviewPage
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , TextEditorVisitor
+ , afwInterfaces
+ , nevShapesPaintedSpy
+ , afwPreviewPageSpy
+ , evHAFPainterEx
+ , PrimTextLoad_Form
+ , nevTools
+ , afwPreviewPage
+ , l3PureMixIns
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
  _l3CheckStamp_Parent_ = TTextEditorVisitor;
  {$Include w:\common\components\rtl\Garant\L3\l3CheckStamp.imp.pas}
  TPreviewTestBefore235875079 = {abstract} class(_l3CheckStamp_, IafwPreviewPanel, InevShapesLogger, IafwPagesLogger)
   {* Тест построения Preview }
- private
- // private fields
-   f_Done : Boolean;
-   f_Now : Cardinal;
-    {* Время начала теста}
-   f_PageCount : Integer;
-   f_PrintedPageCount : Integer;
- protected
- // realized methods
+  private
+   f_Done: Boolean;
+   f_Now: Cardinal;
+    {* Время начала теста }
+   f_PageCount: Integer;
+   f_PrintedPageCount: Integer;
+  protected
+   f_LogNumber: Integer;
+   f_CurrentOutput: AnsiString;
+  protected
+   function PageFileName(aNumber: Integer;
+    aWidthNumber: Integer;
+    aCounter: Boolean;
+    anEtalon: Boolean): AnsiString;
+    {* Имя файла для сохранения страницы }
+   function IsBefore235875079: Boolean; virtual;
+   function IsBefore278833302: Boolean; virtual;
+   function OnlyCheckPageCount: Boolean; virtual;
+   procedure ReadColontituls(var theColontituls: TevColontituls); virtual;
+   function GetHAFFontSize: Integer; virtual;
+    {* Размер колонтитулов. 0 - по-умолчанию }
    procedure SetCurrentPage(aValue: Integer);
    procedure Invalidate;
    procedure Done;
    procedure pm_SetPreviewCanvas(const aValue: IafwPreviewCanvas);
    function pm_GetPainted: Boolean;
    procedure DoVisit(aForm: TPrimTextLoadForm); override;
-     {* Обработать текст }
+    {* Обработать текст }
    function OpenLog(const aView: InevView): AnsiString;
    procedure CloseLog(const aLogName: AnsiString);
    function LogScreen(const aView: InevView): Boolean;
    procedure LogPage(aPage: TafwPreviewPage;
-     aCounter: Boolean);
+    aCounter: Boolean);
    function ShouldStop: Boolean;
    procedure IncCounterPageNumer;
- protected
- // overridden protected methods
    procedure InitFields; override;
-    {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+   {$If NOT Defined(NotTunedDUnit)}
    function FileForOutput: AnsiString; override;
-     {* Стандартный файл для вывода, для текщего теста }
-    {$IfEnd} //nsTest AND not NotTunedDUnit
+    {* Стандартный файл для вывода, для текщего теста }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
    function GetNormalFontSize: Integer; override;
-     {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
+    {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
-    {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+    {* Папка в которую входит тест }
+   {$If NOT Defined(NotTunedDUnit)}
    function RaiseIfEtalonCreated: Boolean; override;
-    {$IfEnd} //nsTest AND not NotTunedDUnit
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
- protected
- // protected fields
-   f_LogNumber : Integer;
-   f_CurrentOutput : AnsiString;
- protected
- // protected methods
-   function PageFileName(aNumber: Integer;
-     aWidthNumber: Integer;
-     aCounter: Boolean;
-     anEtalon: Boolean): AnsiString;
-     {* Имя файла для сохранения страницы }
-   function IsBefore235875079: Boolean; virtual;
-   function IsBefore278833302: Boolean; virtual;
-   function OnlyCheckPageCount: Boolean; virtual;
-   procedure ReadColontituls(var theColontituls: TevColontituls); virtual;
-   function GetHAFFontSize: Integer; virtual;
-     {* Размер колонтитулов. 0 - по-умолчанию }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TPreviewTestBefore235875079
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  Windows,
-  evStyleInterface,
-  evdStyles,
-  SysUtils,
-  vtPreviewPanel
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3String,
-  l3Stream,
-  l3Types
-  {$If not defined(NoImageEn)}
-  ,
-  imageenio
-  {$IfEnd} //not NoImageEn
-  ,
-  l3FileUtils,
-  Graphics,
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  ,
-  evPreviewForTestsTuning,
-  l3Defaults,
-  l3CanvasPrim,
-  TestFrameWork,
-  vcmBase,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+ l3ImplUses
+ , Windows
+ , evStyleInterface
+ , evdStyles
+ , SysUtils
+ , vtPreviewPanel
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3String
+ , l3Stream
+ , l3Types
+ {$If NOT Defined(NoImageEn)}
+ , imageenio
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , l3FileUtils
+ , Graphics
+ , Classes
+ {$If NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ , evPreviewForTestsTuning
+ , l3Defaults
+ , l3CanvasPrim
+ , TestFrameWork
+ , vcmBase
+ , l3Base
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3CheckStamp.imp.pas}
 
-// start class TPreviewTestBefore235875079
-
 function TPreviewTestBefore235875079.PageFileName(aNumber: Integer;
-  aWidthNumber: Integer;
-  aCounter: Boolean;
-  anEtalon: Boolean): AnsiString;
+ aWidthNumber: Integer;
+ aCounter: Boolean;
+ anEtalon: Boolean): AnsiString;
+ {* Имя файла для сохранения страницы }
 //#UC START# *4CB808EF02E0_4BE429BA0233_var*
 var
  l_Et : String;
@@ -223,6 +191,7 @@ begin
 end;//TPreviewTestBefore235875079.ReadColontituls
 
 function TPreviewTestBefore235875079.GetHAFFontSize: Integer;
+ {* Размер колонтитулов. 0 - по-умолчанию }
 //#UC START# *4C2224D00159_4BE429BA0233_var*
 //#UC END# *4C2224D00159_4BE429BA0233_var*
 begin
@@ -279,6 +248,7 @@ begin
 end;//TPreviewTestBefore235875079.pm_GetPainted
 
 procedure TPreviewTestBefore235875079.DoVisit(aForm: TPrimTextLoadForm);
+ {* Обработать текст }
 //#UC START# *4BE419AF0217_4BE429BA0233_var*
 var PP : TvtPreviewPanel;
 var
@@ -459,7 +429,7 @@ begin
 end;//TPreviewTestBefore235875079.LogScreen
 
 procedure TPreviewTestBefore235875079.LogPage(aPage: TafwPreviewPage;
-  aCounter: Boolean);
+ aCounter: Boolean);
 //#UC START# *4CB6E39A019E_4BE429BA0233_var*
 var
  l_EN  : String;
@@ -550,8 +520,9 @@ begin
 //#UC END# *4B30EEA10210_4BE429BA0233_impl*
 end;//TPreviewTestBefore235875079.InitFields
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 function TPreviewTestBefore235875079.FileForOutput: AnsiString;
+ {* Стандартный файл для вывода, для текщего теста }
 //#UC START# *4B4F588B0241_4BE429BA0233_var*
 //#UC END# *4B4F588B0241_4BE429BA0233_var*
 begin
@@ -560,9 +531,10 @@ begin
  Result := f_CurrentOutput;
 //#UC END# *4B4F588B0241_4BE429BA0233_impl*
 end;//TPreviewTestBefore235875079.FileForOutput
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
 function TPreviewTestBefore235875079.GetNormalFontSize: Integer;
+ {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
 //#UC START# *4C07AC6F036D_4BE429BA0233_var*
 //#UC END# *4C07AC6F036D_4BE429BA0233_var*
 begin
@@ -572,12 +544,12 @@ begin
 end;//TPreviewTestBefore235875079.GetNormalFontSize
 
 function TPreviewTestBefore235875079.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := 'Everest';
 end;//TPreviewTestBefore235875079.GetFolder
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 function TPreviewTestBefore235875079.RaiseIfEtalonCreated: Boolean;
 //#UC START# *4CA5DAD4014C_4BE429BA0233_var*
 //#UC END# *4CA5DAD4014C_4BE429BA0233_var*
@@ -586,14 +558,13 @@ begin
  Result := false;
 //#UC END# *4CA5DAD4014C_4BE429BA0233_impl*
 end;//TPreviewTestBefore235875079.RaiseIfEtalonCreated
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
 function TPreviewTestBefore235875079.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4BE429BA0233';
 end;//TPreviewTestBefore235875079.GetModelElementGUID
-
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

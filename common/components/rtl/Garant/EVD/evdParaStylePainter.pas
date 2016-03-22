@@ -2,6 +2,7 @@ unit evdParaStylePainter;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdParaStylePainter.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TevdParaStylePainter" MUID: (535E29A5027B)
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
@@ -18,7 +19,7 @@ type
  TevdParaStylePainter = class(TevdLeafParaFilter)
   private
    f_TargetStyle: Integer;
-    {* Поле для свойства TargetStyle }
+    {* Стиль, которым будем красить все параграфы }
   protected
    function pm_GetTargetStyle: Integer;
    procedure DoWritePara(aLeaf: Tl3Variant); override;

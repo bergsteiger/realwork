@@ -2322,34 +2322,6 @@ ref; // ME_5154042F0083 cFocusRectBounds
 
 ref; // ME_515403ED0216 vtLister Internal Const
 
-FORWARD ME_4CFFE39F00E7
-
-: ME_739F8C4C1E3C
- CONST UID '739F8C4C1E3C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtItemStorageViewer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CFFE39F00E7 // TvtItemStorageViewer
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_739F8C4C1E3C Ini_Reg_Class
-
-: ME_1B7B25CD0490
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CFFE39F00E7 // TvtItemStorageViewer
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_1B7B25CD0490 
-
 : ME_4CFFE39F00E7
  CONST UID '4CFFE39F00E7'
  CONST Name 'TvtItemStorageViewer'
@@ -2365,14 +2337,6 @@ ref; // ME_1B7B25CD0490
    Seq: ( WL 'ME_47E1382301A5' '467BA8C8017E.pas.ms.script' // TafwInputControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_739F8C4C1E3C // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_1B7B25CD0490 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -5289,1296 +5253,6 @@ ref; // ME_526E15560085 OnNeedRecalcConstraints
  ;
 
 ref; // ME_52F33F6803B6 f_States
-
-: ME_12155F0C48D7
- CONST UID '12155F0C48D7'
- CONST Name 'f_SelectArray'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SelectArray' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_514C641101A7' '4A6D65B9022A.pas.ms.script' // Tl3LogicalArray
- ;
- CONST extprop:clearViaProperty 'SelectArray'
-
-ref; // ME_12155F0C48D7 f_SelectArray
-
-: ME_89DA4CE9EFCA
- CONST UID '89DA4CE9EFCA'
- CONST Name 'f_ViewOptions'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ViewOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_47D0368C0272' '47D036150077.pas.ms.script' // TvtViewOptions
- ;
- CONST extprop:clearViaProperty 'ViewOptions'
-
-ref; // ME_89DA4CE9EFCA f_ViewOptions
-
-: ME_73A507D23C40
- CONST UID '73A507D23C40'
- CONST Name 'f_DrawPoints'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DrawPoints' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
- ;
-
-ref; // ME_73A507D23C40 f_DrawPoints
-
-: ME_1D5BC2E13F05
- CONST UID '1D5BC2E13F05'
- CONST Name 'f_AllowWithoutCurrent'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AllowWithoutCurrent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'AllowWithoutCurrent'
-
-ref; // ME_1D5BC2E13F05 f_AllowWithoutCurrent
-
-: ME_04B70EC20F74
- CONST UID '04B70EC20F74'
- CONST Name 'f_Caret'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Caret' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_480DDF270394' '47877A6F000A.pas.ms.script' // TafwCaret
- ;
-
-ref; // ME_04B70EC20F74 f_Caret
-
-: ME_124D2DFD7F1E
- CONST UID '124D2DFD7F1E'
- CONST Name 'f_VJustify'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства VJustify' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_4ED4D6950214 // TvtVJustify
- ;
- CONST extprop:clearViaProperty 'VJustify'
-
-ref; // ME_124D2DFD7F1E f_VJustify
-
-: ME_B09E2E8442A7
- CONST UID 'B09E2E8442A7'
- CONST Name 'f_FooterCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FooterCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'FooterCaption'
-
-ref; // ME_B09E2E8442A7 f_FooterCaption
-
-: ME_C4F8E06107EC
- CONST UID 'C4F8E06107EC'
- CONST Name 'f_FooterVisible'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FooterVisible' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'FooterVisible'
-
-ref; // ME_C4F8E06107EC f_FooterVisible
-
-: ME_FD3BEF67F1D1
- CONST UID 'FD3BEF67F1D1'
- CONST Name 'f_FooterStyleID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FooterStyleID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A107D600F2' '4677FBA70343.pas.ms.script' // Tl3StyleId
- ;
- CONST extprop:clearViaProperty 'FooterStyleID'
-
-ref; // ME_FD3BEF67F1D1 f_FooterStyleID
-
-: ME_8B4BF6095D1B
- CONST UID '8B4BF6095D1B'
- CONST Name 'f_FooterActiveStyleID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FooterActiveStyleID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A107D600F2' '4677FBA70343.pas.ms.script' // Tl3StyleId
- ;
- CONST extprop:clearViaProperty 'FooterActiveStyleID'
-
-ref; // ME_8B4BF6095D1B f_FooterActiveStyleID
-
-: ME_89C129AA9E4D
- CONST UID '89C129AA9E4D'
- CONST Name 'f_FooterFont'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FooterFont' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_47E120930217' '55C4AEC801CA.pas.ms.script' // TFont
- ;
- CONST extprop:clearViaProperty 'FooterFont'
-
-ref; // ME_89C129AA9E4D f_FooterFont
-
-: ME_DFF2AE9AA1C6
- CONST UID 'DFF2AE9AA1C6'
- CONST Name 'f_FooterActiveFont'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FooterActiveFont' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_47E120930217' '55C4AEC801CA.pas.ms.script' // TFont
- ;
- CONST extprop:clearViaProperty 'FooterActiveFont'
-
-ref; // ME_DFF2AE9AA1C6 f_FooterActiveFont
-
-: ME_7C4C2B9E2276
- CONST UID '7C4C2B9E2276'
- CONST Name 'f_OnFooterClick'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnFooterClick' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnFooterClick'
-
-ref; // ME_7C4C2B9E2276 f_OnFooterClick
-
-: ME_1052F2AD9B2C
- CONST UID '1052F2AD9B2C'
- CONST Name 'f_FooterSelected'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FooterSelected' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'FooterSelected'
-
-ref; // ME_1052F2AD9B2C f_FooterSelected
-
-: ME_CEBB0A32E151
- CONST UID 'CEBB0A32E151'
- CONST Name 'f_InterRowIndent'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства InterRowIndent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'InterRowIndent'
-
-ref; // ME_CEBB0A32E151 f_InterRowIndent
-
-: ME_AD3B01613C35
- CONST UID 'AD3B01613C35'
- CONST Name 'f_OnVScrollVisibleChanged'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnVScrollVisibleChanged' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnVScrollVisibleChanged'
-
-ref; // ME_AD3B01613C35 f_OnVScrollVisibleChanged
-
-: ME_260E9A409548
- CONST UID '260E9A409548'
- CONST Name 'f_OnHScrollVisibleChanged'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnHScrollVisibleChanged' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnHScrollVisibleChanged'
-
-ref; // ME_260E9A409548 f_OnHScrollVisibleChanged
-
-: ME_53A302DB34E0
- CONST UID '53A302DB34E0'
- CONST Name 'f_SearchStr'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SearchStr' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:clearViaProperty 'SearchStr'
-
-ref; // ME_53A302DB34E0 f_SearchStr
-
-: ME_20AA22CA41F2
- CONST UID '20AA22CA41F2'
- CONST Name 'f_AutoRowHeight'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AutoRowHeight' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'AutoRowHeight'
-
-ref; // ME_20AA22CA41F2 f_AutoRowHeight
-
-: ME_BA3B730F1A1F
- CONST UID 'BA3B730F1A1F'
- CONST Name 'f_Columns'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Columns' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
- ;
- CONST extprop:clearViaProperty 'Columns'
-
-ref; // ME_BA3B730F1A1F f_Columns
-
-: ME_22DABA1D70EF
- CONST UID '22DABA1D70EF'
- CONST Name 'f_Header'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Header' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B3E890126 // TvtListerHeader
- ;
-
-ref; // ME_22DABA1D70EF f_Header
-
-: ME_AADC07F7A3B7
- CONST UID 'AADC07F7A3B7'
- CONST Name 'f_IntegralHeight'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IntegralHeight' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'IntegralHeight'
-
-ref; // ME_AADC07F7A3B7 f_IntegralHeight
-
-: ME_A988007A1788
- CONST UID 'A988007A1788'
- CONST Name 'f_Current'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Current' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
- CONST extprop:clearViaProperty 'Current'
-
-ref; // ME_A988007A1788 f_Current
-
-: ME_BC4D2DBA94A4
- CONST UID 'BC4D2DBA94A4'
- CONST Name 'f_Images'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Images' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
- CONST extprop:clearViaProperty 'Images'
-
-ref; // ME_BC4D2DBA94A4 f_Images
-
-: ME_C34A31DF540C
- CONST UID 'C34A31DF540C'
- CONST Name 'f_MultiStrokeItem'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MultiStrokeItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'MultiStrokeItem'
-
-ref; // ME_C34A31DF540C f_MultiStrokeItem
-
-: ME_A3F1FEE5AFF8
- CONST UID 'A3F1FEE5AFF8'
- CONST Name 'f_PickedList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PickedList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'PickedList'
-
-ref; // ME_A3F1FEE5AFF8 f_PickedList
-
-: ME_2804A4BCB94F
- CONST UID '2804A4BCB94F'
- CONST Name 'f_TriplePicked'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TriplePicked' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'TriplePicked'
-
-ref; // ME_2804A4BCB94F f_TriplePicked
-
-: ME_042DD3248FFA
- CONST UID '042DD3248FFA'
- CONST Name 'f_ReadOnly'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ReadOnly' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'ReadOnly'
-
-ref; // ME_042DD3248FFA f_ReadOnly
-
-: ME_EDB2C972ED74
- CONST UID 'EDB2C972ED74'
- CONST Name 'f_MultiSelect'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MultiSelect' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'MultiSelect'
-
-ref; // ME_EDB2C972ED74 f_MultiSelect
-
-: ME_21CC62C522A8
- CONST UID '21CC62C522A8'
- CONST Name 'f_Options'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Options' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_4DF9FB2F010D' '47D036150077.pas.ms.script' // TvlOptions
- ;
- CONST extprop:clearViaProperty 'Options'
-
-ref; // ME_21CC62C522A8 f_Options
-
-: ME_6FFF76294B68
- CONST UID '6FFF76294B68'
- CONST Name 'f_Total'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Total' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
- CONST extprop:clearViaProperty 'Total'
-
-ref; // ME_6FFF76294B68 f_Total
-
-: ME_247D7FCEA6A6
- CONST UID '247D7FCEA6A6'
- CONST Name 'f_ProtectColor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ProtectColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_514C8A3B0262' '4754101B004F.pas.ms.script' // TOvcColors
- ;
- CONST extprop:clearViaProperty 'ProtectColor'
-
-ref; // ME_247D7FCEA6A6 f_ProtectColor
-
-: ME_C8D23401BB40
- CONST UID 'C8D23401BB40'
- CONST Name 'f_SelectColor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SelectColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_514C8A3B0262' '4754101B004F.pas.ms.script' // TOvcColors
- ;
- CONST extprop:clearViaProperty 'SelectColor'
-
-ref; // ME_C8D23401BB40 f_SelectColor
-
-: ME_00BF22D944C1
- CONST UID '00BF22D944C1'
- CONST Name 'f_SelectNonFocusColor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SelectNonFocusColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_514C8A3B0262' '4754101B004F.pas.ms.script' // TOvcColors
- ;
- CONST extprop:clearViaProperty 'SelectNonFocusColor'
-
-ref; // ME_00BF22D944C1 f_SelectNonFocusColor
-
-: ME_A2A25E2671CF
- CONST UID 'A2A25E2671CF'
- CONST Name 'f_DisableAlignTopIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DisableAlignTopIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'DisableAlignTopIndex'
-
-ref; // ME_A2A25E2671CF f_DisableAlignTopIndex
-
-: ME_0D9D499ABF5E
- CONST UID '0D9D499ABF5E'
- CONST Name 'f_TopIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TopIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
- CONST extprop:clearViaProperty 'TopIndex'
-
-ref; // ME_0D9D499ABF5E f_TopIndex
-
-: ME_2F1131442221
- CONST UID '2F1131442221'
- CONST Name 'f_UseTabStops'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства UseTabStops' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'UseTabStops'
-
-ref; // ME_2F1131442221 f_UseTabStops
-
-: ME_20006B295BD5
- CONST UID '20006B295BD5'
- CONST Name 'f_FixAnchor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FixAnchor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'FixAnchor'
-
-ref; // ME_20006B295BD5 f_FixAnchor
-
-: ME_F3D94BD22474
- CONST UID 'F3D94BD22474'
- CONST Name 'f_UseStyleTable'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства UseStyleTable' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'UseStyleTable'
-
-ref; // ME_F3D94BD22474 f_UseStyleTable
-
-: ME_B39ED280C65D
- CONST UID 'B39ED280C65D'
- CONST Name 'f_StyleId'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства StyleId' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A107D600F2' '4677FBA70343.pas.ms.script' // Tl3StyleId
- ;
- CONST extprop:clearViaProperty 'StyleId'
-
-ref; // ME_B39ED280C65D f_StyleId
-
-: ME_46EC82E8F526
- CONST UID '46EC82E8F526'
- CONST Name 'f_ActionElementMode'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ActionElementMode' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_47D63BA9029A' '47D036150077.pas.ms.script' // Tl3ActionElementMode
- ;
- CONST extprop:clearViaProperty 'ActionElementMode'
-
-ref; // ME_46EC82E8F526 f_ActionElementMode
-
-: ME_6B611BE78E04
- CONST UID '6B611BE78E04'
- CONST Name 'f_DrawGrid'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DrawGrid' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'DrawGrid'
-
-ref; // ME_6B611BE78E04 f_DrawGrid
-
-: ME_04AD2D4E48E3
- CONST UID '04AD2D4E48E3'
- CONST Name 'f_TreatDefaultColorAsWindowColor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TreatDefaultColorAsWindowColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'TreatDefaultColorAsWindowColor'
-
-ref; // ME_04AD2D4E48E3 f_TreatDefaultColorAsWindowColor
-
-: ME_52E8AB418688
- CONST UID '52E8AB418688'
- CONST Name 'f_NonTrackScroll'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NonTrackScroll' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "ifdef" 'Nemesis'
- CONST extprop:clearViaProperty 'NonTrackScroll'
-
-ref; // ME_52E8AB418688 f_NonTrackScroll
-
-: ME_E1D5AB857242
- CONST UID 'E1D5AB857242'
- CONST Name 'f_OnToggleSelection'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnToggleSelection' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B3EB603D9 // TvtToggleSelectionEvent
- ;
- CONST extprop:clearViaProperty 'OnToggleSelection'
-
-ref; // ME_E1D5AB857242 f_OnToggleSelection
-
-: ME_7C4A97FE1A94
- CONST UID '7C4A97FE1A94'
- CONST Name 'f_OnCharToItem'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnCharToItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B2F3601BC // TCharToItemEvent
- ;
- CONST extprop:clearViaProperty 'OnCharToItem'
-
-ref; // ME_7C4A97FE1A94 f_OnCharToItem
-
-: ME_18CA279D767C
- CONST UID '18CA279D767C'
- CONST Name 'f_OnGetItemPainter'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetItemPainter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B32A50061 // TGetItemPainterEvent
- ;
- CONST extprop:clearViaProperty 'OnGetItemPainter'
-
-ref; // ME_18CA279D767C f_OnGetItemPainter
-
-: ME_B3D4FC81D03A
- CONST UID 'B3D4FC81D03A'
- CONST Name 'f_OnGetStrItem'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetStrItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B2FDC00CF // TGetStrItemEvent
- ;
- CONST extprop:clearViaProperty 'OnGetStrItem'
-
-ref; // ME_B3D4FC81D03A f_OnGetStrItem
-
-: ME_B1818B189400
- CONST UID 'B1818B189400'
- CONST Name 'f_OnGetPCharItem'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetPCharItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B30250331 // TGetPCharItemEvent
- ;
- CONST extprop:clearViaProperty 'OnGetPCharItem'
-
-ref; // ME_B1818B189400 f_OnGetPCharItem
-
-: ME_79C9C23C189C
- CONST UID '79C9C23C189C'
- CONST Name 'f_OnGetItemImageIndex'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetItemImageIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_51506507008E // TGetItemImageIndex
- ;
- CONST extprop:clearViaProperty 'OnGetItemImageIndex'
-
-ref; // ME_79C9C23C189C f_OnGetItemImageIndex
-
-: ME_F2A9CEAAF528
- CONST UID 'F2A9CEAAF528'
- CONST Name 'f_OnGetItemImageOverlays'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetItemImageOverlays' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B33AC02EC // TOnGetItemImageOverlays
- ;
- CONST extprop:clearViaProperty 'OnGetItemImageOverlays'
-
-ref; // ME_F2A9CEAAF528 f_OnGetItemImageOverlays
-
-: ME_D8BC6A6FA137
- CONST UID 'D8BC6A6FA137'
- CONST Name 'f_OnGetItemPickImage'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetItemPickImage' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B344503D3 // TGetPickItemImage
- ;
- CONST extprop:clearViaProperty 'OnGetItemPickImage'
-
-ref; // ME_D8BC6A6FA137 f_OnGetItemPickImage
-
-: ME_9FE5B72DF84C
- CONST UID '9FE5B72DF84C'
- CONST Name 'f_OnGetItemIconHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetItemIconHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B34AD015C // TGetItemHint
- ;
- CONST extprop:clearViaProperty 'OnGetItemIconHint'
-
-ref; // ME_9FE5B72DF84C f_OnGetItemIconHint
-
-: ME_1D1E6847BAB4
- CONST UID '1D1E6847BAB4'
- CONST Name 'f_OnGetItemTextHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetItemTextHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B3629029D // TGetItemTextHint
- ;
- CONST extprop:clearViaProperty 'OnGetItemTextHint'
-
-ref; // ME_1D1E6847BAB4 f_OnGetItemTextHint
-
-: ME_E28372D06005
- CONST UID 'E28372D06005'
- CONST Name 'f_OnGetItemCursor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetItemCursor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B3667022C // TGetItemCursor
- ;
- CONST extprop:clearViaProperty 'OnGetItemCursor'
-
-ref; // ME_E28372D06005 f_OnGetItemCursor
-
-: ME_5AFA117952B4
- CONST UID '5AFA117952B4'
- CONST Name 'f_OnGetItemColor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetItemColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B36C1038C // TGetItemColorEvent
- ;
- CONST extprop:clearViaProperty 'OnGetItemColor'
-
-ref; // ME_5AFA117952B4 f_OnGetItemColor
-
-: ME_64FA7E8D135E
- CONST UID '64FA7E8D135E'
- CONST Name 'f_OnGetItemFont'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetItemFont' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B370503CC // TGetItemFontEvent
- ;
- CONST extprop:clearViaProperty 'OnGetItemFont'
-
-ref; // ME_64FA7E8D135E f_OnGetItemFont
-
-: ME_E9BF1F816A95
- CONST UID 'E9BF1F816A95'
- CONST Name 'f_OnGetItemImageState'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetItemImageState' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B379501D9 // TGetItemImageState
- ;
- CONST extprop:clearViaProperty 'OnGetItemImageState'
-
-ref; // ME_E9BF1F816A95 f_OnGetItemImageState
-
-: ME_560BC3369295
- CONST UID '560BC3369295'
- CONST Name 'f_OnGetItemStatus'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetItemStatus' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B38730371 // TGetItemStatusEvent
- ;
- CONST extprop:clearViaProperty 'OnGetItemStatus'
-
-ref; // ME_560BC3369295 f_OnGetItemStatus
-
-: ME_33CEA6B7BDA8
- CONST UID '33CEA6B7BDA8'
- CONST Name 'f_OnIsSelected'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnIsSelected' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B38D4038C // TIsSelectedEvent
- ;
- CONST extprop:clearViaProperty 'OnIsSelected'
-
-ref; // ME_33CEA6B7BDA8 f_OnIsSelected
-
-: ME_D254C62347F4
- CONST UID 'D254C62347F4'
- CONST Name 'f_OnSelect'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnSelect' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B39850152 // TSelectEvent
- ;
- CONST extprop:clearViaProperty 'OnSelect'
-
-ref; // ME_D254C62347F4 f_OnSelect
-
-: ME_DEACC9424A23
- CONST UID 'DEACC9424A23'
- CONST Name 'f_OnSelectChange'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnSelectChange' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B39850152 // TSelectEvent
- ;
- CONST extprop:clearViaProperty 'OnSelectChange'
-
-ref; // ME_DEACC9424A23 f_OnSelectChange
-
-: ME_C2207E3B415E
- CONST UID 'C2207E3B415E'
- CONST Name 'f_OnSelectChanged'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnSelectChanged' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B39850152 // TSelectEvent
- ;
- CONST extprop:clearViaProperty 'OnSelectChanged'
-
-ref; // ME_C2207E3B415E f_OnSelectChanged
-
-: ME_1683B2E74731
- CONST UID '1683B2E74731'
- CONST Name 'f_OnTopIndexChanged'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnTopIndexChanged' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B39ED0011 // TTopIndexChanged
- ;
- CONST extprop:clearViaProperty 'OnTopIndexChanged'
-
-ref; // ME_1683B2E74731 f_OnTopIndexChanged
-
-: ME_F2C3D42B9105
- CONST UID 'F2C3D42B9105'
- CONST Name 'f_OnCurrentChanged'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnCurrentChanged' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_5143220D002B // TCurrentChanged
- ;
- CONST extprop:clearViaProperty 'OnCurrentChanged'
-
-ref; // ME_F2C3D42B9105 f_OnCurrentChanged
-
-: ME_689FD3CE44AD
- CONST UID '689FD3CE44AD'
- CONST Name 'f_OnValidateCurrent'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnValidateCurrent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B3A4302C6 // TValidateCurrent
- ;
- CONST extprop:clearViaProperty 'OnValidateCurrent'
-
-ref; // ME_689FD3CE44AD f_OnValidateCurrent
-
-: ME_132224EE6099
- CONST UID '132224EE6099'
- CONST Name 'f_OnCountChanged'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnCountChanged' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514321950319 // TCountChanged
- ;
- CONST extprop:clearViaProperty 'OnCountChanged'
-
-ref; // ME_132224EE6099 f_OnCountChanged
-
-: ME_D066B54D7089
- CONST UID 'D066B54D7089'
- CONST Name 'f_OnUserCommand'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnUserCommand' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_515181D600DD' '4A3FAF1003DA.pas.ms.script' // TUserCommandEvent
- ;
- CONST extprop:clearViaProperty 'OnUserCommand'
-
-ref; // ME_D066B54D7089 f_OnUserCommand
-
-: ME_EA688D81B2BD
- CONST UID 'EA688D81B2BD'
- CONST Name 'f_OnIsCommandProcessed'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnIsCommandProcessed' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B3AD903AA // TCommandProcessedEvent
- ;
- CONST extprop:clearViaProperty 'OnIsCommandProcessed'
-
-ref; // ME_EA688D81B2BD f_OnIsCommandProcessed
-
-: ME_63869DF0C2DB
- CONST UID '63869DF0C2DB'
- CONST Name 'f_OnActionElement'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnActionElement' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_51432026033F // TActionElement
- ;
- CONST extprop:clearViaProperty 'OnActionElement'
-
-ref; // ME_63869DF0C2DB f_OnActionElement
-
-: ME_5E33F544C2DA
- CONST UID '5E33F544C2DA'
- CONST Name 'f_OnResize'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnResize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnResize'
-
-ref; // ME_5E33F544C2DA f_OnResize
-
-: ME_0ABB2E42D52D
- CONST UID '0ABB2E42D52D'
- CONST Name 'f_OnRMouseDown'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnRMouseDown' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_515183DD03C3' '4799D29F033F.pas.ms.script' // TMouseEvent
- ;
- CONST extprop:clearViaProperty 'OnRMouseDown'
-
-ref; // ME_0ABB2E42D52D f_OnRMouseDown
-
-: ME_3F76C8DE1AB7
- CONST UID '3F76C8DE1AB7'
- CONST Name 'f_OnLMouseDown'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnLMouseDown' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_515183DD03C3' '4799D29F033F.pas.ms.script' // TMouseEvent
- ;
- CONST extprop:clearViaProperty 'OnLMouseDown'
-
-ref; // ME_3F76C8DE1AB7 f_OnLMouseDown
-
-: ME_89B855CAA186
- CONST UID '89B855CAA186'
- CONST Name 'f_OnQuickSearchStrChanged'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnQuickSearchStrChanged' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B3A75011F // TQuickSearchStrChanged
- ;
- CONST extprop:clearViaProperty 'OnQuickSearchStrChanged'
-
-ref; // ME_89B855CAA186 f_OnQuickSearchStrChanged
-
-: ME_C42325378A85
- CONST UID 'C42325378A85'
- CONST Name 'f_OnGetCellItemImage'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnGetCellItemImage' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target ME_514B33E3026A // TGetCellItemImage
- ;
- CONST extprop:clearViaProperty 'OnGetCellItemImage'
-
-ref; // ME_C42325378A85 f_OnGetCellItemImage
-
-: ME_7A160EB09C7B
- CONST UID '7A160EB09C7B'
- CONST Name 'f_OnNeedRecalcConstraints'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства OnNeedRecalcConstraints' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
- ;
- CONST extprop:clearViaProperty 'OnNeedRecalcConstraints'
-
-ref; // ME_7A160EB09C7B f_OnNeedRecalcConstraints
 
 FORWARD ME_508F81C1004D
 
@@ -13701,21 +12375,6 @@ ref; // ME_EF11BF564CE4 HeaderStored
 
 ref; // ME_03FA4B130756 ImagesStored
 
-: ME_5C4C3483F0C8
- CONST UID '5C4C3483F0C8'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomListerPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5C4C3483F0C8 Ini_Reg_Class
-
 : ME_515851F3028D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -14007,20 +12666,7 @@ ref; // ME_5159AA53025B
 
 ref; // ME_515B01EE0204 
 
-: ME_4786C834EEC4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CFFE36B00FA // TvtCustomListerPrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4786C834EEC4 
-
 : ME_467D2CB10135_ME_4CFFE36B00FA
- CONST UID '467D2CB10135'
- CONST Name 'StyleTableChanged'
  : Original WL 'ME_467D2CB10135' '467823B7002C.pas.ms.script' // StyleTableChanged
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14029,8 +12675,6 @@ ref; // ME_4786C834EEC4
 ref; // ME_467D2CB10135_ME_4CFFE36B00FA StyleTableChanged
 
 : ME_479731C50290_ME_4CFFE36B00FA
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14039,8 +12683,6 @@ ref; // ME_467D2CB10135_ME_4CFFE36B00FA StyleTableChanged
 ref; // ME_479731C50290_ME_4CFFE36B00FA Cleanup
 
 : ME_47D1602000C6_ME_4CFFE36B00FA
- CONST UID '47D1602000C6'
- CONST Name 'Create'
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14049,8 +12691,6 @@ ref; // ME_479731C50290_ME_4CFFE36B00FA Cleanup
 ref; // ME_47D1602000C6_ME_4CFFE36B00FA Create
 
 : ME_47E136A80191_ME_4CFFE36B00FA
- CONST UID '47E136A80191'
- CONST Name 'WndProc'
  : Original WL 'ME_47E136A80191' '4799D29F033F.pas.ms.script' // WndProc
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14059,8 +12699,6 @@ ref; // ME_47D1602000C6_ME_4CFFE36B00FA Create
 ref; // ME_47E136A80191_ME_4CFFE36B00FA WndProc
 
 : ME_484516C00214_ME_4CFFE36B00FA
- CONST UID '484516C00214'
- CONST Name 'Loaded'
  : Original WL 'ME_484516C00214' '4AB0997B00A2.pas.ms.script' // Loaded
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14069,8 +12707,6 @@ ref; // ME_47E136A80191_ME_4CFFE36B00FA WndProc
 ref; // ME_484516C00214_ME_4CFFE36B00FA Loaded
 
 : ME_48BD1E3C03B5_ME_4CFFE36B00FA
- CONST UID '48BD1E3C03B5'
- CONST Name 'GetCommands'
  : Original WL 'ME_48BD1E3C03B5' '467BA8C8017E.pas.ms.script' // GetCommands
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14079,8 +12715,6 @@ ref; // ME_484516C00214_ME_4CFFE36B00FA Loaded
 ref; // ME_48BD1E3C03B5_ME_4CFFE36B00FA GetCommands
 
 : ME_48BD22E601F2_ME_4CFFE36B00FA
- CONST UID '48BD22E601F2'
- CONST Name 'DoProcessCommand'
  : Original WL 'ME_48BD22E601F2' '467BA8C8017E.pas.ms.script' // DoProcessCommand
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14089,8 +12723,6 @@ ref; // ME_48BD1E3C03B5_ME_4CFFE36B00FA GetCommands
 ref; // ME_48BD22E601F2_ME_4CFFE36B00FA DoProcessCommand
 
 : ME_48BD5F8303C4_ME_4CFFE36B00FA
- CONST UID '48BD5F8303C4'
- CONST Name 'DoChanged'
  : Original WL 'ME_48BD5F8303C4' '467BA8C8017E.pas.ms.script' // DoChanged
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14099,8 +12731,6 @@ ref; // ME_48BD22E601F2_ME_4CFFE36B00FA DoProcessCommand
 ref; // ME_48BD5F8303C4_ME_4CFFE36B00FA DoChanged
 
 : ME_48C6B7E80104_ME_4CFFE36B00FA
- CONST UID '48C6B7E80104'
- CONST Name 'GetCaret'
  : Original WL 'ME_48C6B7E80104' '467BA8C8017E.pas.ms.script' // GetCaret
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14109,8 +12739,6 @@ ref; // ME_48BD5F8303C4_ME_4CFFE36B00FA DoChanged
 ref; // ME_48C6B7E80104_ME_4CFFE36B00FA GetCaret
 
 : ME_48C6C044025E_ME_4CFFE36B00FA
- CONST UID '48C6C044025E'
- CONST Name 'Paint'
  : Original WL 'ME_48C6C044025E' '467BA8C8017E.pas.ms.script' // Paint
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14119,8 +12747,6 @@ ref; // ME_48C6B7E80104_ME_4CFFE36B00FA GetCaret
 ref; // ME_48C6C044025E_ME_4CFFE36B00FA Paint
 
 : ME_48C6C421015B_ME_4CFFE36B00FA
- CONST UID '48C6C421015B'
- CONST Name 'InUpdating'
  : Original WL 'ME_48C6C421015B' '467BA8C8017E.pas.ms.script' // InUpdating
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14129,8 +12755,6 @@ ref; // ME_48C6C044025E_ME_4CFFE36B00FA Paint
 ref; // ME_48C6C421015B_ME_4CFFE36B00FA InUpdating
 
 : ME_48C7925A02E5_ME_4CFFE36B00FA
- CONST UID '48C7925A02E5'
- CONST Name 'CreateParams'
  : Original WL 'ME_48C7925A02E5' '4799D29F033F.pas.ms.script' // CreateParams
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14139,8 +12763,6 @@ ref; // ME_48C6C421015B_ME_4CFFE36B00FA InUpdating
 ref; // ME_48C7925A02E5_ME_4CFFE36B00FA CreateParams
 
 : ME_4B05241502C5_ME_4CFFE36B00FA
- CONST UID '4B05241502C5'
- CONST Name 'DoMenuUnlockedFixUp'
  : Original WL 'ME_4B05241502C5' '467BA8C8017E.pas.ms.script' // DoMenuUnlockedFixUp
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14149,8 +12771,6 @@ ref; // ME_48C7925A02E5_ME_4CFFE36B00FA CreateParams
 ref; // ME_4B05241502C5_ME_4CFFE36B00FA DoMenuUnlockedFixUp
 
 : ME_4CC8414403B8_ME_4CFFE36B00FA
- CONST UID '4CC8414403B8'
- CONST Name 'CreateWnd'
  : Original WL 'ME_4CC8414403B8' '4799D29F033F.pas.ms.script' // CreateWnd
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14159,8 +12779,6 @@ ref; // ME_4B05241502C5_ME_4CFFE36B00FA DoMenuUnlockedFixUp
 ref; // ME_4CC8414403B8_ME_4CFFE36B00FA CreateWnd
 
 : ME_4F2A599E0283_ME_4CFFE36B00FA
- CONST UID '4F2A599E0283'
- CONST Name 'SetBounds'
  : Original WL 'ME_4F2A599E0283' '4799D29F033F.pas.ms.script' // SetBounds
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14169,8 +12787,6 @@ ref; // ME_4CC8414403B8_ME_4CFFE36B00FA CreateWnd
 ref; // ME_4F2A599E0283_ME_4CFFE36B00FA SetBounds
 
 : ME_4F884378016A_ME_4CFFE36B00FA
- CONST UID '4F884378016A'
- CONST Name 'Notification'
  : Original WL 'ME_4F884378016A' '4AB0997B00A2.pas.ms.script' // Notification
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14179,8 +12795,6 @@ ref; // ME_4F2A599E0283_ME_4CFFE36B00FA SetBounds
 ref; // ME_4F884378016A_ME_4CFFE36B00FA Notification
 
 : ME_515317860183_ME_4CFFE36B00FA
- CONST UID '515317860183'
- CONST Name 'MouseWheelHandler'
  : Original WL 'ME_515317860183' '4799D29F033F.pas.ms.script' // MouseWheelHandler
  ;
  : Implementor ME_4CFFE36B00FA // TvtCustomListerPrim
@@ -14338,82 +12952,6 @@ ref; // ME_515317860183_ME_4CFFE36B00FA MouseWheelHandler
  ME_525E51D80163 // f_VScrollPersistent
  ME_526E15560085 // OnNeedRecalcConstraints
  ME_52F33F6803B6 // f_States
- ME_12155F0C48D7 // f_SelectArray
- ME_89DA4CE9EFCA // f_ViewOptions
- ME_73A507D23C40 // f_DrawPoints
- ME_1D5BC2E13F05 // f_AllowWithoutCurrent
- ME_04B70EC20F74 // f_Caret
- ME_124D2DFD7F1E // f_VJustify
- ME_B09E2E8442A7 // f_FooterCaption
- ME_C4F8E06107EC // f_FooterVisible
- ME_FD3BEF67F1D1 // f_FooterStyleID
- ME_8B4BF6095D1B // f_FooterActiveStyleID
- ME_89C129AA9E4D // f_FooterFont
- ME_DFF2AE9AA1C6 // f_FooterActiveFont
- ME_7C4C2B9E2276 // f_OnFooterClick
- ME_1052F2AD9B2C // f_FooterSelected
- ME_CEBB0A32E151 // f_InterRowIndent
- ME_AD3B01613C35 // f_OnVScrollVisibleChanged
- ME_260E9A409548 // f_OnHScrollVisibleChanged
- ME_53A302DB34E0 // f_SearchStr
- ME_20AA22CA41F2 // f_AutoRowHeight
- ME_BA3B730F1A1F // f_Columns
- ME_22DABA1D70EF // f_Header
- ME_AADC07F7A3B7 // f_IntegralHeight
- ME_A988007A1788 // f_Current
- ME_BC4D2DBA94A4 // f_Images
- ME_C34A31DF540C // f_MultiStrokeItem
- ME_A3F1FEE5AFF8 // f_PickedList
- ME_2804A4BCB94F // f_TriplePicked
- ME_042DD3248FFA // f_ReadOnly
- ME_EDB2C972ED74 // f_MultiSelect
- ME_21CC62C522A8 // f_Options
- ME_6FFF76294B68 // f_Total
- ME_247D7FCEA6A6 // f_ProtectColor
- ME_C8D23401BB40 // f_SelectColor
- ME_00BF22D944C1 // f_SelectNonFocusColor
- ME_A2A25E2671CF // f_DisableAlignTopIndex
- ME_0D9D499ABF5E // f_TopIndex
- ME_2F1131442221 // f_UseTabStops
- ME_20006B295BD5 // f_FixAnchor
- ME_F3D94BD22474 // f_UseStyleTable
- ME_B39ED280C65D // f_StyleId
- ME_46EC82E8F526 // f_ActionElementMode
- ME_6B611BE78E04 // f_DrawGrid
- ME_04AD2D4E48E3 // f_TreatDefaultColorAsWindowColor
- ME_52E8AB418688 // f_NonTrackScroll
- ME_E1D5AB857242 // f_OnToggleSelection
- ME_7C4A97FE1A94 // f_OnCharToItem
- ME_18CA279D767C // f_OnGetItemPainter
- ME_B3D4FC81D03A // f_OnGetStrItem
- ME_B1818B189400 // f_OnGetPCharItem
- ME_79C9C23C189C // f_OnGetItemImageIndex
- ME_F2A9CEAAF528 // f_OnGetItemImageOverlays
- ME_D8BC6A6FA137 // f_OnGetItemPickImage
- ME_9FE5B72DF84C // f_OnGetItemIconHint
- ME_1D1E6847BAB4 // f_OnGetItemTextHint
- ME_E28372D06005 // f_OnGetItemCursor
- ME_5AFA117952B4 // f_OnGetItemColor
- ME_64FA7E8D135E // f_OnGetItemFont
- ME_E9BF1F816A95 // f_OnGetItemImageState
- ME_560BC3369295 // f_OnGetItemStatus
- ME_33CEA6B7BDA8 // f_OnIsSelected
- ME_D254C62347F4 // f_OnSelect
- ME_DEACC9424A23 // f_OnSelectChange
- ME_C2207E3B415E // f_OnSelectChanged
- ME_1683B2E74731 // f_OnTopIndexChanged
- ME_F2C3D42B9105 // f_OnCurrentChanged
- ME_689FD3CE44AD // f_OnValidateCurrent
- ME_132224EE6099 // f_OnCountChanged
- ME_D066B54D7089 // f_OnUserCommand
- ME_EA688D81B2BD // f_OnIsCommandProcessed
- ME_63869DF0C2DB // f_OnActionElement
- ME_5E33F544C2DA // f_OnResize
- ME_0ABB2E42D52D // f_OnRMouseDown
- ME_3F76C8DE1AB7 // f_OnLMouseDown
- ME_89B855CAA186 // f_OnQuickSearchStrChanged
- ME_C42325378A85 // f_OnGetCellItemImage
- ME_7A160EB09C7B // f_OnNeedRecalcConstraints
  )
  ; // Attributes
  : Operations
@@ -14603,7 +13141,6 @@ ref; // ME_515317860183_ME_4CFFE36B00FA MouseWheelHandler
  ME_8B2B603F5F28 // FooterActiveFontStored
  ME_EF11BF564CE4 // HeaderStored
  ME_03FA4B130756 // ImagesStored
- ME_5C4C3483F0C8 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -14668,7 +13205,6 @@ ref; // ME_515317860183_ME_4CFFE36B00FA MouseWheelHandler
  ME_5159A8C60316 // 
  ME_5159AA53025B // 
  ME_515B01EE0204 // 
- ME_4786C834EEC4 // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -14715,32 +13251,6 @@ ref; // ME_515AEA320254 DO
 
 ref; // ME_515AEA0D02C1 FontStore
 
-: ME_F3109AF0172A
- CONST UID 'F3109AF0172A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomLister' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_515062D301C4 // TvtCustomLister
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F3109AF0172A Ini_Reg_Class
-
-: ME_A713EF835006
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_515062D301C4 // TvtCustomLister
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_A713EF835006 
-
 : ME_515062D301C4
  CONST UID '515062D301C4'
  CONST Name 'TvtCustomLister'
@@ -14757,13 +13267,8 @@ ref; // ME_A713EF835006
  ; // Inherits
  : Operations
    Seq: ( ME_515AEA0D02C1 // FontStore
- ME_F3109AF0172A // Ini_Reg_Class
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_A713EF835006 // 
- )
- ; // Dependencies
  : Injected
    Seq: ( WL 'ME_FF0FE00994E3' '4F6094D80196.pas.ms.script' // 
  )
@@ -14797,23 +13302,6 @@ FORWARD ME_515404B3000F
  CONST "pm" true
 
 ref; // ME_5154139F022E Items
-
-: ME_A39D6ADAE4B9
- CONST UID 'A39D6ADAE4B9'
- CONST Name 'f_Items'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Items' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_515404B3000F // TvtCustomDataListerPrim
- ;
- : Target WL 'ME_515413060215' '47913B47006E.pas.ms.script' // Tl3CustomDataList
- ;
- CONST extprop:clearViaProperty 'Items'
-
-ref; // ME_A39D6ADAE4B9 f_Items
 
 FORWARD ME_51541632014E
 
@@ -14941,35 +13429,7 @@ ref; // ME_515416640057 DoIt
 
 ref; // ME_51541654007B DStrOnSelect
 
-: ME_20984C522FAE
- CONST UID '20984C522FAE'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomDataListerPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_515404B3000F // TvtCustomDataListerPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_20984C522FAE Ini_Reg_Class
-
-: ME_75504A260CEB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_515404B3000F // TvtCustomDataListerPrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_75504A260CEB 
-
 : ME_479731C50290_ME_515404B3000F
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_515404B3000F // TvtCustomDataListerPrim
@@ -14978,8 +13438,6 @@ ref; // ME_75504A260CEB
 ref; // ME_479731C50290_ME_515404B3000F Cleanup
 
 : ME_47D1602000C6_ME_515404B3000F
- CONST UID '47D1602000C6'
- CONST Name 'Create'
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
  : Implementor ME_515404B3000F // TvtCustomDataListerPrim
@@ -14988,8 +13446,6 @@ ref; // ME_479731C50290_ME_515404B3000F Cleanup
 ref; // ME_47D1602000C6_ME_515404B3000F Create
 
 : ME_48BD5F8303C4_ME_515404B3000F
- CONST UID '48BD5F8303C4'
- CONST Name 'DoChanged'
  : Original WL 'ME_48BD5F8303C4' '467BA8C8017E.pas.ms.script' // DoChanged
  ;
  : Implementor ME_515404B3000F // TvtCustomDataListerPrim
@@ -14998,8 +13454,6 @@ ref; // ME_47D1602000C6_ME_515404B3000F Create
 ref; // ME_48BD5F8303C4_ME_515404B3000F DoChanged
 
 : ME_514C82280017_ME_515404B3000F
- CONST UID '514C82280017'
- CONST Name 'SelectedCount'
  : Original ME_514C82280017 // SelectedCount
  ;
  : Implementor ME_515404B3000F // TvtCustomDataListerPrim
@@ -15025,13 +13479,11 @@ ref; // ME_514C82280017_ME_515404B3000F SelectedCount
  ; // Inherits
  : Attributes
    Seq: ( ME_5154139F022E // Items
- ME_A39D6ADAE4B9 // f_Items
  )
  ; // Attributes
  : Operations
    Seq: ( ME_51541632014E // DStrOnIsSelected
  ME_51541654007B // DStrOnSelect
- ME_20984C522FAE // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -15041,10 +13493,6 @@ ref; // ME_514C82280017_ME_515404B3000F SelectedCount
  ME_514C82280017_ME_515404B3000F // SelectedCount
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_75504A260CEB // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -15054,34 +13502,6 @@ ref; // ME_514C82280017_ME_515404B3000F SelectedCount
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_515404B3000F TvtCustomDataListerPrim
-
-FORWARD ME_515414CF022C
-
-: ME_D8286E2FA6AE
- CONST UID 'D8286E2FA6AE'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomDataLister' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_515414CF022C // TvtCustomDataLister
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_D8286E2FA6AE Ini_Reg_Class
-
-: ME_E48656CF3CB5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_515414CF022C // TvtCustomDataLister
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E48656CF3CB5 
 
 : ME_515414CF022C
  CONST UID '515414CF022C'
@@ -15097,14 +13517,6 @@ ref; // ME_E48656CF3CB5
    Seq: ( ME_515404B3000F // TvtCustomDataListerPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D8286E2FA6AE // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_E48656CF3CB5 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
@@ -15134,23 +13546,6 @@ FORWARD ME_5154154E0275
  CONST "reads field" true
 
 ref; // ME_51541D370323 Items
-
-: ME_C9D7B6735A24
- CONST UID 'C9D7B6735A24'
- CONST Name 'f_Items'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Items' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5154154E0275 // TvtCustomIStrListListerPrim
- ;
- : Target WL 'ME_476FA74D003C' '467C0CAA02AB.pas.ms.script' // Il3ViewStringList
- ;
- CONST extprop:clearViaProperty 'Items'
-
-ref; // ME_C9D7B6735A24 f_Items
 
 FORWARD ME_51541D65039B
 
@@ -15184,35 +13579,7 @@ ref; // ME_51541D740079 DoIt
 
 ref; // ME_51541D65039B GetItems
 
-: ME_DFD3B37CDBFC
- CONST UID 'DFD3B37CDBFC'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomIStrListListerPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5154154E0275 // TvtCustomIStrListListerPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_DFD3B37CDBFC Ini_Reg_Class
-
-: ME_305EEC7C0DA5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5154154E0275 // TvtCustomIStrListListerPrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_305EEC7C0DA5 
-
 : ME_479731C50290_ME_5154154E0275
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_5154154E0275 // TvtCustomIStrListListerPrim
@@ -15221,8 +13588,6 @@ ref; // ME_305EEC7C0DA5
 ref; // ME_479731C50290_ME_5154154E0275 Cleanup
 
 : ME_48BD5F8303C4_ME_5154154E0275
- CONST UID '48BD5F8303C4'
- CONST Name 'DoChanged'
  : Original WL 'ME_48BD5F8303C4' '467BA8C8017E.pas.ms.script' // DoChanged
  ;
  : Implementor ME_5154154E0275 // TvtCustomIStrListListerPrim
@@ -15230,19 +13595,7 @@ ref; // ME_479731C50290_ME_5154154E0275 Cleanup
  CONST OpKind opkind_Overridden
 ref; // ME_48BD5F8303C4_ME_5154154E0275 DoChanged
 
-: ME_5000565C019C_ME_5154154E0275
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_5154154E0275 // TvtCustomIStrListListerPrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_5154154E0275 ClearFields
-
 : ME_5152C3EC011B_ME_5154154E0275
- CONST UID '5152C3EC011B'
- CONST Name 'DoOnGetItem'
  : Original ME_5152C3EC011B // DoOnGetItem
  ;
  : Implementor ME_5154154E0275 // TvtCustomIStrListListerPrim
@@ -15266,25 +13619,18 @@ ref; // ME_5152C3EC011B_ME_5154154E0275 DoOnGetItem
  ; // Inherits
  : Attributes
    Seq: ( ME_51541D370323 // Items
- ME_C9D7B6735A24 // f_Items
  )
  ; // Attributes
  : Operations
    Seq: ( ME_51541D65039B // GetItems
- ME_DFD3B37CDBFC // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_5154154E0275 // Cleanup
  ME_48BD5F8303C4_ME_5154154E0275 // DoChanged
- ME_5000565C019C_ME_5154154E0275 // ClearFields
  ME_5152C3EC011B_ME_5154154E0275 // DoOnGetItem
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_305EEC7C0DA5 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -15294,34 +13640,6 @@ ref; // ME_5152C3EC011B_ME_5154154E0275 DoOnGetItem
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5154154E0275 TvtCustomIStrListListerPrim
-
-FORWARD ME_515405400086
-
-: ME_CBEE2FD1B65B
- CONST UID 'CBEE2FD1B65B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomIStrListLister' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_515405400086 // TvtCustomIStrListLister
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CBEE2FD1B65B Ini_Reg_Class
-
-: ME_890FB03E8B53
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_515405400086 // TvtCustomIStrListLister
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_890FB03E8B53 
 
 : ME_515405400086
  CONST UID '515405400086'
@@ -15337,14 +13655,6 @@ ref; // ME_890FB03E8B53
    Seq: ( ME_5154154E0275 // TvtCustomIStrListListerPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_CBEE2FD1B65B // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_890FB03E8B53 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
@@ -15463,35 +13773,7 @@ ref; // ME_51541BA300BD DoIt
 
 ref; // ME_51541B9501F1 CharToItem
 
-: ME_3FFAE69FA3AD
- CONST UID '3FFAE69FA3AD'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomDStringLister' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_515405080211 // TvtCustomDStringLister
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_3FFAE69FA3AD Ini_Reg_Class
-
-: ME_1D37EF06B44B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_515405080211 // TvtCustomDStringLister
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_1D37EF06B44B 
-
 : ME_5152C3EC011B_ME_515405080211
- CONST UID '5152C3EC011B'
- CONST Name 'DoOnGetItem'
  : Original ME_5152C3EC011B // DoOnGetItem
  ;
  : Implementor ME_515405080211 // TvtCustomDStringLister
@@ -15521,17 +13803,12 @@ ref; // ME_5152C3EC011B_ME_515405080211 DoOnGetItem
  ; // Attributes
  : Operations
    Seq: ( ME_51541B9501F1 // CharToItem
- ME_3FFAE69FA3AD // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
    Seq: ( ME_5152C3EC011B_ME_515405080211 // DoOnGetItem
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_1D37EF06B44B // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -15541,34 +13818,6 @@ ref; // ME_5152C3EC011B_ME_515405080211 DoOnGetItem
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_515405080211 TvtCustomDStringLister
-
-FORWARD ME_515405590022
-
-: ME_32558C1372E8
- CONST UID '32558C1372E8'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtIStrListLister' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_515405590022 // TvtIStrListLister
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_32558C1372E8 Ini_Reg_Class
-
-: ME_E0EEF1EE8EEC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_515405590022 // TvtIStrListLister
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E0EEF1EE8EEC 
 
 : ME_515405590022
  CONST UID '515405590022'
@@ -15585,14 +13834,6 @@ ref; // ME_E0EEF1EE8EEC
    Seq: ( ME_515405400086 // TvtCustomIStrListLister
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_32558C1372E8 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_E0EEF1EE8EEC // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
@@ -15603,34 +13844,6 @@ ref; // ME_E0EEF1EE8EEC
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_515405590022 TvtIStrListLister
-
-FORWARD ME_51541B4700C9
-
-: ME_20BE229FEE49
- CONST UID '20BE229FEE49'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtDStringLister' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51541B4700C9 // TvtDStringLister
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_20BE229FEE49 Ini_Reg_Class
-
-: ME_288FE89FDDAE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_51541B4700C9 // TvtDStringLister
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_288FE89FDDAE 
 
 : ME_51541B4700C9
  CONST UID '51541B4700C9'
@@ -15646,14 +13859,6 @@ ref; // ME_288FE89FDDAE
    Seq: ( ME_515405080211 // TvtCustomDStringLister
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_20BE229FEE49 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_288FE89FDDAE // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
@@ -15664,34 +13869,6 @@ ref; // ME_288FE89FDDAE
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_51541B4700C9 TvtDStringLister
-
-FORWARD ME_515404E40394
-
-: ME_4F4CFE770185
- CONST UID '4F4CFE770185'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtDataLister' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_515404E40394 // TvtDataLister
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4F4CFE770185 Ini_Reg_Class
-
-: ME_0CC01280CE37
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_515404E40394 // TvtDataLister
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_0CC01280CE37 
 
 : ME_515404E40394
  CONST UID '515404E40394'
@@ -15707,14 +13884,6 @@ ref; // ME_0CC01280CE37
    Seq: ( ME_515414CF022C // TvtCustomDataLister
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4F4CFE770185 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_0CC01280CE37 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
  CONST "needs InstanceR" 'undefined'
@@ -15725,32 +13894,6 @@ ref; // ME_0CC01280CE37
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_515404E40394 TvtDataLister
-
-: ME_B3B84D265050
- CONST UID 'B3B84D265050'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtLister' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CFFE3470249 // TvtLister
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B3B84D265050 Ini_Reg_Class
-
-: ME_218A078CB066
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CFFE3470249 // TvtLister
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_218A078CB066 
 
 : ME_4CFFE3470249
  CONST UID '4CFFE3470249'
@@ -15767,10 +13910,6 @@ ref; // ME_218A078CB066
    Seq: ( ME_515062D301C4 // TvtCustomLister
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B3B84D265050 // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_4ED4D6950214 // TvtVJustify
  ME_51432026033F // TActionElement
@@ -15823,10 +13962,6 @@ ref; // ME_218A078CB066
  ME_515403ED0216 // vtLister Internal Const
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_218A078CB066 // 
- )
- ; // Dependencies
  CONST "UseNewGen" true
  CONST "base wnd class" 'CWnd'
  CONST "need UC" true
@@ -16012,8 +14147,6 @@ ref; // ME_5166E1ED02B9
 ref; // ME_8403C8A1B4A3 
 
 : ME_47D1602000C6_ME_4B97EA0802EB
- CONST UID '47D1602000C6'
- CONST Name 'Create'
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
  : Implementor ME_4B97EA0802EB // TvtOutlinerWithQuickSearch
@@ -16334,21 +14467,6 @@ ref; // ME_52DD107201CC DoIt
 
 ref; // ME_52DD106403D3 DataObjectClass
 
-: ME_200572DF8C73
- CONST UID '200572DF8C73'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtOutlinerWithDragDrop' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B97E8130272 // TvtOutlinerWithDragDrop
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_200572DF8C73 Ini_Reg_Class
-
 : ME_4B97E841019C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -16358,17 +14476,6 @@ ref; // ME_200572DF8C73 Ini_Reg_Class
  ;
 
 ref; // ME_4B97E841019C 
-
-: ME_7ED12468C688
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B97E8130272 // TvtOutlinerWithDragDrop
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_7ED12468C688 
 
 : ME_4B97E8130272
  CONST UID '4B97E8130272'
@@ -16387,7 +14494,6 @@ ref; // ME_7ED12468C688
  : Operations
    Seq: ( ME_51EEB81F017C // CanAcceptData
  ME_52DD106403D3 // DataObjectClass
- ME_200572DF8C73 // Ini_Reg_Class
  )
  ; // Operations
  : Children
@@ -16399,7 +14505,6 @@ ref; // ME_7ED12468C688
  ; // Children
  : Dependencies
    Seq: ( ME_4B97E841019C // 
- ME_7ED12468C688 // 
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -16444,8 +14549,6 @@ ref; // ME_6B36D2A28749 Ini_Reg_Class
 ref; // ME_31298341E3F0 
 
 : ME_46A5AA4B003C_ME_4D46A125003A
- CONST UID '46A5AA4B003C'
- CONST Name 'Invalidate'
  : Original WL 'ME_46A5AA4B003C' '4677FBA70343.pas.ms.script' // Invalidate
  ;
  : Implementor ME_4D46A125003A // TvtOutlinerControl
@@ -17699,8 +15802,6 @@ ref; // ME_5C20D9FB18AD Ini_Reg_Class
 ref; // ME_7023B6997FF5 
 
 : ME_477252C801B5_ME_515EE352036E
- CONST UID '477252C801B5'
- CONST Name 'Tree'
  : Original WL 'ME_477252C801B5' '4682595B0268.pas.ms.script' // Tree
  ;
  : Implementor ME_515EE352036E // TvtSimpleOutliner
@@ -20540,8 +18641,6 @@ ref; // ME_4F0E6A36C654 Ini_Reg_Class
 ref; // ME_F9162EAAC6BD 
 
 : ME_46A454B40054_ME_4CFFBEEA0109
- CONST UID '46A454B40054'
- CONST Name 'SelectCountChanged'
  : Original WL 'ME_46A454B40054' '4677FBA70343.pas.ms.script' // SelectCountChanged
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20550,8 +18649,6 @@ ref; // ME_F9162EAAC6BD
 ref; // ME_46A454B40054_ME_4CFFBEEA0109 SelectCountChanged
 
 : ME_46A4555F0031_ME_4CFFBEEA0109
- CONST UID '46A4555F0031'
- CONST Name 'ExternalVisibleCountChanged'
  : Original WL 'ME_46A4555F0031' '4677FBA70343.pas.ms.script' // ExternalVisibleCountChanged
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20560,8 +18657,6 @@ ref; // ME_46A454B40054_ME_4CFFBEEA0109 SelectCountChanged
 ref; // ME_46A4555F0031_ME_4CFFBEEA0109 ExternalVisibleCountChanged
 
 : ME_46A455900227_ME_4CFFBEEA0109
- CONST UID '46A455900227'
- CONST Name 'ExternalInvalidate'
  : Original WL 'ME_46A455900227' '4677FBA70343.pas.ms.script' // ExternalInvalidate
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20570,8 +18665,6 @@ ref; // ME_46A4555F0031_ME_4CFFBEEA0109 ExternalVisibleCountChanged
 ref; // ME_46A455900227_ME_4CFFBEEA0109 ExternalInvalidate
 
 : ME_46A455A60278_ME_4CFFBEEA0109
- CONST UID '46A455A60278'
- CONST Name 'ExternalModified'
  : Original WL 'ME_46A455A60278' '4677FBA70343.pas.ms.script' // ExternalModified
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20580,8 +18673,6 @@ ref; // ME_46A455900227_ME_4CFFBEEA0109 ExternalInvalidate
 ref; // ME_46A455A60278_ME_4CFFBEEA0109 ExternalModified
 
 : ME_477187FD0168_ME_4CFFBEEA0109
- CONST UID '477187FD0168'
- CONST Name 'Tree'
  : Original WL 'ME_477187FD0168' '476BF10A0280.pas.ms.script' // Tree
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20591,8 +18682,6 @@ ref; // ME_46A455A60278_ME_4CFFBEEA0109 ExternalModified
 ref; // ME_477187FD0168_ME_4CFFBEEA0109 Tree
 
 : ME_477250FC0040_ME_4CFFBEEA0109
- CONST UID '477250FC0040'
- CONST Name 'RequestReapply'
  : Original WL 'ME_477250FC0040' '4682595B0268.pas.ms.script' // RequestReapply
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20601,8 +18690,6 @@ ref; // ME_477187FD0168_ME_4CFFBEEA0109 Tree
 ref; // ME_477250FC0040_ME_4CFFBEEA0109 RequestReapply
 
 : ME_4772510D0043_ME_4CFFBEEA0109
- CONST UID '4772510D0043'
- CONST Name 'RequestClearAndTurnOff'
  : Original WL 'ME_4772510D0043' '4682595B0268.pas.ms.script' // RequestClearAndTurnOff
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20611,8 +18698,6 @@ ref; // ME_477250FC0040_ME_4CFFBEEA0109 RequestReapply
 ref; // ME_4772510D0043_ME_4CFFBEEA0109 RequestClearAndTurnOff
 
 : ME_4772511D0316_ME_4CFFBEEA0109
- CONST UID '4772511D0316'
- CONST Name 'RequestCheckValid'
  : Original WL 'ME_4772511D0316' '4682595B0268.pas.ms.script' // RequestCheckValid
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20621,8 +18706,6 @@ ref; // ME_4772510D0043_ME_4CFFBEEA0109 RequestClearAndTurnOff
 ref; // ME_4772511D0316_ME_4CFFBEEA0109 RequestCheckValid
 
 : ME_477251CC02BD_ME_4CFFBEEA0109
- CONST UID '477251CC02BD'
- CONST Name 'SubscribeToContextFilter'
  : Original WL 'ME_477251CC02BD' '4682595B0268.pas.ms.script' // SubscribeToContextFilter
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20631,8 +18714,6 @@ ref; // ME_4772511D0316_ME_4CFFBEEA0109 RequestCheckValid
 ref; // ME_477251CC02BD_ME_4CFFBEEA0109 SubscribeToContextFilter
 
 : ME_477251E203DD_ME_4CFFBEEA0109
- CONST UID '477251E203DD'
- CONST Name 'UnSubscribeFromContextFilter'
  : Original WL 'ME_477251E203DD' '4682595B0268.pas.ms.script' // UnSubscribeFromContextFilter
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20641,8 +18722,6 @@ ref; // ME_477251CC02BD_ME_4CFFBEEA0109 SubscribeToContextFilter
 ref; // ME_477251E203DD_ME_4CFFBEEA0109 UnSubscribeFromContextFilter
 
 : ME_4772521703E3_ME_4CFFBEEA0109
- CONST UID '4772521703E3'
- CONST Name 'IsSameContext'
  : Original WL 'ME_4772521703E3' '4682595B0268.pas.ms.script' // IsSameContext
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20651,8 +18730,6 @@ ref; // ME_477251E203DD_ME_4CFFBEEA0109 UnSubscribeFromContextFilter
 ref; // ME_4772521703E3_ME_4CFFBEEA0109 IsSameContext
 
 : ME_4772524F0087_ME_4CFFBEEA0109
- CONST UID '4772524F0087'
- CONST Name 'Unfold'
  : Original WL 'ME_4772524F0087' '4682595B0268.pas.ms.script' // Unfold
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20661,8 +18738,6 @@ ref; // ME_4772521703E3_ME_4CFFBEEA0109 IsSameContext
 ref; // ME_4772524F0087_ME_4CFFBEEA0109 Unfold
 
 : ME_515EF1880228_ME_4CFFBEEA0109
- CONST UID '515EF1880228'
- CONST Name 'MakeTreeStruct'
  : Original ME_515EF1880228 // MakeTreeStruct
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20671,8 +18746,6 @@ ref; // ME_4772524F0087_ME_4CFFBEEA0109 Unfold
 ref; // ME_515EF1880228_ME_4CFFBEEA0109 MakeTreeStruct
 
 : ME_515EF27A028F_ME_4CFFBEEA0109
- CONST UID '515EF27A028F'
- CONST Name 'TreeStruct'
  : Original ME_515EF27A028F // TreeStruct
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20682,8 +18755,6 @@ ref; // ME_515EF1880228_ME_4CFFBEEA0109 MakeTreeStruct
 ref; // ME_515EF27A028F_ME_4CFFBEEA0109 TreeStruct
 
 : ME_479731C50290_ME_4CFFBEEA0109
- CONST UID '479731C50290'
- CONST Name 'Cleanup'
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20692,8 +18763,6 @@ ref; // ME_515EF27A028F_ME_4CFFBEEA0109 TreeStruct
 ref; // ME_479731C50290_ME_4CFFBEEA0109 Cleanup
 
 : ME_47D1602000C6_ME_4CFFBEEA0109
- CONST UID '47D1602000C6'
- CONST Name 'Create'
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20702,8 +18771,6 @@ ref; // ME_479731C50290_ME_4CFFBEEA0109 Cleanup
 ref; // ME_47D1602000C6_ME_4CFFBEEA0109 Create
 
 : ME_47E138F90081_ME_4CFFBEEA0109
- CONST UID '47E138F90081'
- CONST Name 'MouseAction'
  : Original WL 'ME_47E138F90081' '467BA8C8017E.pas.ms.script' // MouseAction
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20712,8 +18779,6 @@ ref; // ME_47D1602000C6_ME_4CFFBEEA0109 Create
 ref; // ME_47E138F90081_ME_4CFFBEEA0109 MouseAction
 
 : ME_48BD5F73035B_ME_4CFFBEEA0109
- CONST UID '48BD5F73035B'
- CONST Name 'DoChanging'
  : Original WL 'ME_48BD5F73035B' '467BA8C8017E.pas.ms.script' // DoChanging
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20722,8 +18787,6 @@ ref; // ME_47E138F90081_ME_4CFFBEEA0109 MouseAction
 ref; // ME_48BD5F73035B_ME_4CFFBEEA0109 DoChanging
 
 : ME_48BD5F8303C4_ME_4CFFBEEA0109
- CONST UID '48BD5F8303C4'
- CONST Name 'DoChanged'
  : Original WL 'ME_48BD5F8303C4' '467BA8C8017E.pas.ms.script' // DoChanged
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20732,8 +18795,6 @@ ref; // ME_48BD5F73035B_ME_4CFFBEEA0109 DoChanging
 ref; // ME_48BD5F8303C4_ME_4CFFBEEA0109 DoChanged
 
 : ME_48C6C044025E_ME_4CFFBEEA0109
- CONST UID '48C6C044025E'
- CONST Name 'Paint'
  : Original WL 'ME_48C6C044025E' '467BA8C8017E.pas.ms.script' // Paint
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20742,8 +18803,6 @@ ref; // ME_48BD5F8303C4_ME_4CFFBEEA0109 DoChanged
 ref; // ME_48C6C044025E_ME_4CFFBEEA0109 Paint
 
 : ME_4F884378016A_ME_4CFFBEEA0109
- CONST UID '4F884378016A'
- CONST Name 'Notification'
  : Original WL 'ME_4F884378016A' '4AB0997B00A2.pas.ms.script' // Notification
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20752,8 +18811,6 @@ ref; // ME_48C6C044025E_ME_4CFFBEEA0109 Paint
 ref; // ME_4F884378016A_ME_4CFFBEEA0109 Notification
 
 : ME_514C7F9103BB_ME_4CFFBEEA0109
- CONST UID '514C7F9103BB'
- CONST Name 'Images'
  : Original ME_514C7F9103BB // Images
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20765,8 +18822,6 @@ ref; // ME_4F884378016A_ME_4CFFBEEA0109 Notification
 ref; // ME_514C7F9103BB_ME_4CFFBEEA0109 Images
 
 : ME_514C82280017_ME_4CFFBEEA0109
- CONST UID '514C82280017'
- CONST Name 'SelectedCount'
  : Original ME_514C82280017 // SelectedCount
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20776,8 +18831,6 @@ ref; // ME_514C7F9103BB_ME_4CFFBEEA0109 Images
 ref; // ME_514C82280017_ME_4CFFBEEA0109 SelectedCount
 
 : ME_514C89A601FE_ME_4CFFBEEA0109
- CONST UID '514C89A601FE'
- CONST Name 'Total'
  : Original ME_514C89A601FE // Total
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20788,8 +18841,6 @@ ref; // ME_514C82280017_ME_4CFFBEEA0109 SelectedCount
 ref; // ME_514C89A601FE_ME_4CFFBEEA0109 Total
 
 : ME_5151AC21016D_ME_4CFFBEEA0109
- CONST UID '5151AC21016D'
- CONST Name 'IsNeedScrollBars'
  : Original ME_5151AC21016D // IsNeedScrollBars
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20798,8 +18849,6 @@ ref; // ME_514C89A601FE_ME_4CFFBEEA0109 Total
 ref; // ME_5151AC21016D_ME_4CFFBEEA0109 IsNeedScrollBars
 
 : ME_5151ADD102D9_ME_4CFFBEEA0109
- CONST UID '5151ADD102D9'
- CONST Name 'IsHintNeededForAnElement'
  : Original ME_5151ADD102D9 // IsHintNeededForAnElement
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20808,8 +18857,6 @@ ref; // ME_5151AC21016D_ME_4CFFBEEA0109 IsNeedScrollBars
 ref; // ME_5151ADD102D9_ME_4CFFBEEA0109 IsHintNeededForAnElement
 
 : ME_5151AF3B039A_ME_4CFFBEEA0109
- CONST UID '5151AF3B039A'
- CONST Name 'GetImagesStored'
  : Original ME_5151AF3B039A // GetImagesStored
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20818,8 +18865,6 @@ ref; // ME_5151ADD102D9_ME_4CFFBEEA0109 IsHintNeededForAnElement
 ref; // ME_5151AF3B039A_ME_4CFFBEEA0109 GetImagesStored
 
 : ME_5151AF650239_ME_4CFFBEEA0109
- CONST UID '5151AF650239'
- CONST Name 'DoOnGetItemIndent'
  : Original ME_5151AF650239 // DoOnGetItemIndent
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20828,8 +18873,6 @@ ref; // ME_5151AF3B039A_ME_4CFFBEEA0109 GetImagesStored
 ref; // ME_5151AF650239_ME_4CFFBEEA0109 DoOnGetItemIndent
 
 : ME_5151B1F30312_ME_4CFFBEEA0109
- CONST UID '5151B1F30312'
- CONST Name 'ItemOnScreen'
  : Original ME_5151B1F30312 // ItemOnScreen
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20838,8 +18881,6 @@ ref; // ME_5151AF650239_ME_4CFFBEEA0109 DoOnGetItemIndent
 ref; // ME_5151B1F30312_ME_4CFFBEEA0109 ItemOnScreen
 
 : ME_5151B22F0281_ME_4CFFBEEA0109
- CONST UID '5151B22F0281'
- CONST Name 'MakeDrawPoints'
  : Original ME_5151B22F0281 // MakeDrawPoints
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20848,8 +18889,6 @@ ref; // ME_5151B1F30312_ME_4CFFBEEA0109 ItemOnScreen
 ref; // ME_5151B22F0281_ME_4CFFBEEA0109 MakeDrawPoints
 
 : ME_5151B2C70248_ME_4CFFBEEA0109
- CONST UID '5151B2C70248'
- CONST Name 'CalcTopIndex'
  : Original ME_5151B2C70248 // CalcTopIndex
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20858,8 +18897,6 @@ ref; // ME_5151B22F0281_ME_4CFFBEEA0109 MakeDrawPoints
 ref; // ME_5151B2C70248_ME_4CFFBEEA0109 CalcTopIndex
 
 : ME_5152BAD2033B_ME_4CFFBEEA0109
- CONST UID '5152BAD2033B'
- CONST Name 'NeedInitScrollInfoInvlbInitScrollInfo'
  : Original ME_5152BAD2033B // NeedInitScrollInfoInvlbInitScrollInfo
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20868,8 +18905,6 @@ ref; // ME_5151B2C70248_ME_4CFFBEEA0109 CalcTopIndex
 ref; // ME_5152BAD2033B_ME_4CFFBEEA0109 NeedInitScrollInfoInvlbInitScrollInfo
 
 : ME_5152BD3E036D_ME_4CFFBEEA0109
- CONST UID '5152BD3E036D'
- CONST Name 'vlbDrawFocusRect'
  : Original ME_5152BD3E036D // vlbDrawFocusRect
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20878,8 +18913,6 @@ ref; // ME_5152BAD2033B_ME_4CFFBEEA0109 NeedInitScrollInfoInvlbInitScrollInfo
 ref; // ME_5152BD3E036D_ME_4CFFBEEA0109 vlbDrawFocusRect
 
 : ME_5152C09F00DB_ME_4CFFBEEA0109
- CONST UID '5152C09F00DB'
- CONST Name 'vlbItemHitTest'
  : Original ME_5152C09F00DB // vlbItemHitTest
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20888,8 +18921,6 @@ ref; // ME_5152BD3E036D_ME_4CFFBEEA0109 vlbDrawFocusRect
 ref; // ME_5152C09F00DB_ME_4CFFBEEA0109 vlbItemHitTest
 
 : ME_5152C3EC011B_ME_4CFFBEEA0109
- CONST UID '5152C3EC011B'
- CONST Name 'DoOnGetItem'
  : Original ME_5152C3EC011B // DoOnGetItem
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20898,8 +18929,6 @@ ref; // ME_5152C09F00DB_ME_4CFFBEEA0109 vlbItemHitTest
 ref; // ME_5152C3EC011B_ME_4CFFBEEA0109 DoOnGetItem
 
 : ME_5152C5EF02BC_ME_4CFFBEEA0109
- CONST UID '5152C5EF02BC'
- CONST Name 'DoOnGetItemPickImage'
  : Original ME_5152C5EF02BC // DoOnGetItemPickImage
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20908,8 +18937,6 @@ ref; // ME_5152C3EC011B_ME_4CFFBEEA0109 DoOnGetItem
 ref; // ME_5152C5EF02BC_ME_4CFFBEEA0109 DoOnGetItemPickImage
 
 : ME_5152C7D50201_ME_4CFFBEEA0109
- CONST UID '5152C7D50201'
- CONST Name 'DoOnGetItemFont'
  : Original ME_5152C7D50201 // DoOnGetItemFont
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20918,8 +18945,6 @@ ref; // ME_5152C5EF02BC_ME_4CFFBEEA0109 DoOnGetItemPickImage
 ref; // ME_5152C7D50201_ME_4CFFBEEA0109 DoOnGetItemFont
 
 : ME_5152C8300174_ME_4CFFBEEA0109
- CONST UID '5152C8300174'
- CONST Name 'DoOnIsSelected'
  : Original ME_5152C8300174 // DoOnIsSelected
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20928,8 +18953,6 @@ ref; // ME_5152C7D50201_ME_4CFFBEEA0109 DoOnGetItemFont
 ref; // ME_5152C8300174_ME_4CFFBEEA0109 DoOnIsSelected
 
 : ME_5152C85403DA_ME_4CFFBEEA0109
- CONST UID '5152C85403DA'
- CONST Name 'DoOnSelect'
  : Original ME_5152C85403DA // DoOnSelect
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20938,8 +18961,6 @@ ref; // ME_5152C8300174_ME_4CFFBEEA0109 DoOnIsSelected
 ref; // ME_5152C85403DA_ME_4CFFBEEA0109 DoOnSelect
 
 : ME_5152C88400DC_ME_4CFFBEEA0109
- CONST UID '5152C88400DC'
- CONST Name 'DoOnSelectOutRange'
  : Original ME_5152C88400DC // DoOnSelectOutRange
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20948,8 +18969,6 @@ ref; // ME_5152C85403DA_ME_4CFFBEEA0109 DoOnSelect
 ref; // ME_5152C88400DC_ME_4CFFBEEA0109 DoOnSelectOutRange
 
 : ME_5152C93400EB_ME_4CFFBEEA0109
- CONST UID '5152C93400EB'
- CONST Name 'DoDoProcessCommand'
  : Original ME_5152C93400EB // DoDoProcessCommand
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20958,8 +18977,6 @@ ref; // ME_5152C88400DC_ME_4CFFBEEA0109 DoOnSelectOutRange
 ref; // ME_5152C93400EB_ME_4CFFBEEA0109 DoDoProcessCommand
 
 : ME_5152CCBA007C_ME_4CFFBEEA0109
- CONST UID '5152CCBA007C'
- CONST Name 'DoCountChanged'
  : Original ME_5152CCBA007C // DoCountChanged
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20968,8 +18985,6 @@ ref; // ME_5152C93400EB_ME_4CFFBEEA0109 DoDoProcessCommand
 ref; // ME_5152CCBA007C_ME_4CFFBEEA0109 DoCountChanged
 
 : ME_5152CE76012B_ME_4CFFBEEA0109
- CONST UID '5152CE76012B'
- CONST Name 'GetHint'
  : Original ME_5152CE76012B // GetHint
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20978,8 +18993,6 @@ ref; // ME_5152CCBA007C_ME_4CFFBEEA0109 DoCountChanged
 ref; // ME_5152CE76012B_ME_4CFFBEEA0109 GetHint
 
 : ME_5152CFA002C3_ME_4CFFBEEA0109
- CONST UID '5152CFA002C3'
- CONST Name 'UseDrawPoints'
  : Original ME_5152CFA002C3 // UseDrawPoints
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20988,8 +19001,6 @@ ref; // ME_5152CE76012B_ME_4CFFBEEA0109 GetHint
 ref; // ME_5152CFA002C3_ME_4CFFBEEA0109 UseDrawPoints
 
 : ME_5155852A01C2_ME_4CFFBEEA0109
- CONST UID '5155852A01C2'
- CONST Name 'InvalidateItem'
  : Original ME_5155852A01C2 // InvalidateItem
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -20998,8 +19009,6 @@ ref; // ME_5152CFA002C3_ME_4CFFBEEA0109 UseDrawPoints
 ref; // ME_5155852A01C2_ME_4CFFBEEA0109 InvalidateItem
 
 : ME_515585B90316_ME_4CFFBEEA0109
- CONST UID '515585B90316'
- CONST Name 'GetItemTextIndent'
  : Original ME_515585B90316 // GetItemTextIndent
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner
@@ -21008,8 +19017,6 @@ ref; // ME_5155852A01C2_ME_4CFFBEEA0109 InvalidateItem
 ref; // ME_515585B90316_ME_4CFFBEEA0109 GetItemTextIndent
 
 : ME_51558620037C_ME_4CFFBEEA0109
- CONST UID '51558620037C'
- CONST Name 'GetItemDim'
  : Original ME_51558620037C // GetItemDim
  ;
  : Implementor ME_4CFFBEEA0109 // TvtCustomOutliner

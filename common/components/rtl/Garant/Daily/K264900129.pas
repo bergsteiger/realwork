@@ -1,83 +1,61 @@
 unit K264900129;
+ {* [$264900129] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DailyTest"
-// Модуль: "w:/common/components/rtl/Garant/Daily/K264900129.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestCase::Class>> Shared Delphi Tests::DailyTest::7.7::K264900129
-//
-// [$264900129]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\Daily\K264900129.pas"
+// Стереотип: "TestCase"
+// Элемент модели: "K264900129" MUID: (4DB658500049)
+// Имя типа: "TK264900129"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Daily\TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  ScrollByArrowAndCheckShapesTest,
-  Types
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , ScrollByArrowAndCheckShapesTest
+ , Types
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
  TK264900129 = class(TScrollByArrowAndCheckShapesTest)
   {* [$264900129] }
- protected
- // realized methods
+  protected
    function GetScrollCount: Integer; override;
- protected
- // overridden protected methods
-   {$If defined(nsTest) AND not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    function GetNormalFontSize: Integer; override;
-     {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
-   {$IfEnd} //nsTest AND not NoVCM
-   {$If defined(nsTest) AND not defined(NoVCM)}
+    {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function FormExtent: TPoint; override;
-     {* Размеры формы }
-   {$IfEnd} //nsTest AND not NoVCM
+    {* Размеры формы }
+   {$IfEnd} // NOT Defined(NoVCM)
    function GetFolder: AnsiString; override;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK264900129
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork,
-  evMsgCode,
-  evOp,
-  l3InternalInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  nevTools
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils,
-  l3Base
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TK264900129
+ l3ImplUses
+ , TestFrameWork
+ , evMsgCode
+ , evOp
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nevTools
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ , l3Base
+;
 
 function TK264900129.GetScrollCount: Integer;
 //#UC START# *4D80BB670151_4DB658500049_var*
@@ -88,8 +66,9 @@ begin
 //#UC END# *4D80BB670151_4DB658500049_impl*
 end;//TK264900129.GetScrollCount
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TK264900129.GetNormalFontSize: Integer;
+ {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
 //#UC START# *4C07AC6F036D_4DB658500049_var*
 //#UC END# *4C07AC6F036D_4DB658500049_var*
 begin
@@ -97,10 +76,11 @@ begin
  Result := 12;
 //#UC END# *4C07AC6F036D_4DB658500049_impl*
 end;//TK264900129.GetNormalFontSize
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TK264900129.FormExtent: TPoint;
+ {* Размеры формы }
 //#UC START# *4C08CF700318_4DB658500049_var*
 //#UC END# *4C08CF700318_4DB658500049_var*
 begin
@@ -109,23 +89,22 @@ begin
  Result.Y := 710;
 //#UC END# *4C08CF700318_4DB658500049_impl*
 end;//TK264900129.FormExtent
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TK264900129.GetFolder: AnsiString;
- {-}
+ {* Папка в которую входит тест }
 begin
  Result := '7.7';
 end;//TK264900129.GetFolder
 
 function TK264900129.GetModelElementGUID: AnsiString;
- {-}
+ {* Идентификатор элемента модели, который описывает тест }
 begin
  Result := '4DB658500049';
 end;//TK264900129.GetModelElementGUID
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
  TestFramework.RegisterTest(TK264900129.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

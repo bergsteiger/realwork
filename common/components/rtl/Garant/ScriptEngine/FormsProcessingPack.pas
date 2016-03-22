@@ -2,6 +2,7 @@ unit FormsProcessingPack;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\FormsProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
+// Элемент модели: "FormsProcessingPack" MUID: (50741A1F028C)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -331,11 +332,6 @@ begin
  aCtx.rEngine.PushObj(pop_form_ActiveMDIChild(aCtx, l_aForm));
 end;//TkwPopFormActiveMDIChild.DoDoIt
 
-class function TkwPopFormActiveMDIChild.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:form:ActiveMDIChild';
-end;//TkwPopFormActiveMDIChild.GetWordNameForRegister
-
 function TkwPopFormActiveMDIChild.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TForm);
@@ -350,6 +346,11 @@ function TkwPopFormActiveMDIChild.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormActiveMDIChild.ParamsTypes
+
+class function TkwPopFormActiveMDIChild.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:form:ActiveMDIChild';
+end;//TkwPopFormActiveMDIChild.GetWordNameForRegister
 
 procedure TkwPopFormClose.pop_form_Close(const aCtx: TtfwContext;
  aForm: TForm);
@@ -377,11 +378,6 @@ begin
  pop_form_Close(aCtx, l_aForm);
 end;//TkwPopFormClose.DoDoIt
 
-class function TkwPopFormClose.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:form:Close';
-end;//TkwPopFormClose.GetWordNameForRegister
-
 function TkwPopFormClose.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -396,6 +392,11 @@ function TkwPopFormClose.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormClose.ParamsTypes
+
+class function TkwPopFormClose.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:form:Close';
+end;//TkwPopFormClose.GetWordNameForRegister
 
 function TkwPopFormFindMenuItem.pop_form_FindMenuItem(const aCtx: TtfwContext;
  aForm: TForm;
@@ -496,11 +497,6 @@ begin
  aCtx.rEngine.PushObj(pop_form_FindMenuItem(aCtx, l_aForm, l_aName));
 end;//TkwPopFormFindMenuItem.DoDoIt
 
-class function TkwPopFormFindMenuItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:form:FindMenuItem';
-end;//TkwPopFormFindMenuItem.GetWordNameForRegister
-
 function TkwPopFormFindMenuItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TMenuItem);
@@ -515,6 +511,11 @@ function TkwPopFormFindMenuItem.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm), @tfw_tiString]);
 end;//TkwPopFormFindMenuItem.ParamsTypes
+
+class function TkwPopFormFindMenuItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:form:FindMenuItem';
+end;//TkwPopFormFindMenuItem.GetWordNameForRegister
 
 function TkwPopFormGetWindowState.pop_form_GetWindowState(const aCtx: TtfwContext;
  aForm: TForm): TWindowState;
@@ -542,11 +543,6 @@ begin
  aCtx.rEngine.PushInt(Ord(pop_form_GetWindowState(aCtx, l_aForm)));
 end;//TkwPopFormGetWindowState.DoDoIt
 
-class function TkwPopFormGetWindowState.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:form:GetWindowState';
-end;//TkwPopFormGetWindowState.GetWordNameForRegister
-
 function TkwPopFormGetWindowState.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TWindowState);
@@ -561,6 +557,11 @@ function TkwPopFormGetWindowState.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormGetWindowState.ParamsTypes
+
+class function TkwPopFormGetWindowState.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:form:GetWindowState';
+end;//TkwPopFormGetWindowState.GetWordNameForRegister
 
 function TkwPopFormHasControl.pop_form_HasControl(const aCtx: TtfwContext;
  aForm: TForm;
@@ -599,11 +600,6 @@ begin
  aCtx.rEngine.PushBool(pop_form_HasControl(aCtx, l_aForm, l_aName));
 end;//TkwPopFormHasControl.DoDoIt
 
-class function TkwPopFormHasControl.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:form:HasControl';
-end;//TkwPopFormHasControl.GetWordNameForRegister
-
 function TkwPopFormHasControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -618,6 +614,11 @@ function TkwPopFormHasControl.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm), @tfw_tiString]);
 end;//TkwPopFormHasControl.ParamsTypes
+
+class function TkwPopFormHasControl.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:form:HasControl';
+end;//TkwPopFormHasControl.GetWordNameForRegister
 
 function TkwPopFormMDIChildCount.pop_form_MDIChildCount(const aCtx: TtfwContext;
  aForm: TForm): Integer;
@@ -645,11 +646,6 @@ begin
  aCtx.rEngine.PushInt(pop_form_MDIChildCount(aCtx, l_aForm));
 end;//TkwPopFormMDIChildCount.DoDoIt
 
-class function TkwPopFormMDIChildCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:form:MDIChildCount';
-end;//TkwPopFormMDIChildCount.GetWordNameForRegister
-
 function TkwPopFormMDIChildCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -664,6 +660,11 @@ function TkwPopFormMDIChildCount.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormMDIChildCount.ParamsTypes
+
+class function TkwPopFormMDIChildCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:form:MDIChildCount';
+end;//TkwPopFormMDIChildCount.GetWordNameForRegister
 
 function TkwPopFormMDIChildren.pop_form_MDIChildren(const aCtx: TtfwContext;
  aForm: TForm;
@@ -702,11 +703,6 @@ begin
  aCtx.rEngine.PushObj(pop_form_MDIChildren(aCtx, l_aForm, l_anIndex));
 end;//TkwPopFormMDIChildren.DoDoIt
 
-class function TkwPopFormMDIChildren.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:form:MDIChildren';
-end;//TkwPopFormMDIChildren.GetWordNameForRegister
-
 function TkwPopFormMDIChildren.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TForm);
@@ -721,6 +717,11 @@ function TkwPopFormMDIChildren.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm), TypeInfo(Integer)]);
 end;//TkwPopFormMDIChildren.ParamsTypes
+
+class function TkwPopFormMDIChildren.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:form:MDIChildren';
+end;//TkwPopFormMDIChildren.GetWordNameForRegister
 
 function TkwPopFormModalResult.pop_form_ModalResult(const aCtx: TtfwContext;
  aForm: TForm): Integer;
@@ -749,11 +750,6 @@ begin
  aCtx.rEngine.PushInt(pop_form_ModalResult(aCtx, l_aForm));
 end;//TkwPopFormModalResult.DoDoIt
 
-class function TkwPopFormModalResult.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:form:ModalResult';
-end;//TkwPopFormModalResult.GetWordNameForRegister
-
 function TkwPopFormModalResult.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -768,6 +764,11 @@ function TkwPopFormModalResult.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormModalResult.ParamsTypes
+
+class function TkwPopFormModalResult.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:form:ModalResult';
+end;//TkwPopFormModalResult.GetWordNameForRegister
 
 procedure TkwPopFormNext.pop_form_Next(const aCtx: TtfwContext;
  aForm: TForm);
@@ -795,11 +796,6 @@ begin
  pop_form_Next(aCtx, l_aForm);
 end;//TkwPopFormNext.DoDoIt
 
-class function TkwPopFormNext.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:form:Next';
-end;//TkwPopFormNext.GetWordNameForRegister
-
 function TkwPopFormNext.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -814,6 +810,11 @@ function TkwPopFormNext.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormNext.ParamsTypes
+
+class function TkwPopFormNext.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:form:Next';
+end;//TkwPopFormNext.GetWordNameForRegister
 
 procedure TkwPopFormSetWindowState.pop_form_SetWindowState(const aCtx: TtfwContext;
  aForm: TForm;
@@ -852,11 +853,6 @@ begin
  pop_form_SetWindowState(aCtx, l_aForm, l_aValue);
 end;//TkwPopFormSetWindowState.DoDoIt
 
-class function TkwPopFormSetWindowState.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:form:SetWindowState';
-end;//TkwPopFormSetWindowState.GetWordNameForRegister
-
 function TkwPopFormSetWindowState.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -871,6 +867,11 @@ function TkwPopFormSetWindowState.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm), TypeInfo(TWindowState)]);
 end;//TkwPopFormSetWindowState.ParamsTypes
+
+class function TkwPopFormSetWindowState.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:form:SetWindowState';
+end;//TkwPopFormSetWindowState.GetWordNameForRegister
 
 function TkwPopFormFindActionList.pop_form_FindActionList(const aCtx: TtfwContext;
  aForm: TForm;
@@ -929,11 +930,6 @@ begin
  aCtx.rEngine.PushObj(pop_form_FindActionList(aCtx, l_aForm, l_aListName));
 end;//TkwPopFormFindActionList.DoDoIt
 
-class function TkwPopFormFindActionList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:form:FindActionList';
-end;//TkwPopFormFindActionList.GetWordNameForRegister
-
 function TkwPopFormFindActionList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TActionList);
@@ -948,6 +944,11 @@ function TkwPopFormFindActionList.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TForm), @tfw_tiString]);
 end;//TkwPopFormFindActionList.ParamsTypes
+
+class function TkwPopFormFindActionList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:form:FindActionList';
+end;//TkwPopFormFindActionList.GetWordNameForRegister
 
 procedure TkwIterateForms.IterateForms(const aCtx: TtfwContext;
  aLambda: TtfwWord);
@@ -994,11 +995,6 @@ begin
  IterateForms(aCtx, l_aLambda);
 end;//TkwIterateForms.DoDoIt
 
-class function TkwIterateForms.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IterateForms';
-end;//TkwIterateForms.GetWordNameForRegister
-
 function TkwIterateForms.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1013,6 +1009,11 @@ function TkwIterateForms.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
 end;//TkwIterateForms.ParamsTypes
+
+class function TkwIterateForms.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IterateForms';
+end;//TkwIterateForms.GetWordNameForRegister
 
 initialization
  TFormsProcessingPackResNameGetter.Register;

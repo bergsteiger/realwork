@@ -3,6 +3,7 @@ unit deDocInfo;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\deDocInfo.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TdeDocInfo" MUID: (491C0BE302FF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

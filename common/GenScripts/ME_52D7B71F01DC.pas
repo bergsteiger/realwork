@@ -2,6 +2,8 @@ unit kwEND;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEND.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "END" MUID: (52D7B71F01DC)
+// Имя типа: "TkwEND"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

@@ -2,6 +2,7 @@ unit tfwLambdedArrayView;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwLambdedArrayView.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwLambdedArrayView" MUID: (52E666BC0270)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
@@ -21,7 +22,6 @@ type
  TtfwTwoLambdas = {abstract} class(TkwCompiledWordWorker)
   private
    f_ItemsCountInSlice: Integer;
-    {* Поле для свойства ItemsCountInSlice }
   protected
    f_Lambda: TtfwWord;
   protected

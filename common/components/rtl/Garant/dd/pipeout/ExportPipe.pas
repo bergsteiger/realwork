@@ -1,8 +1,15 @@
 Unit ExportPipe;
 
-{ $Id: ExportPipe.pas,v 1.225 2015/10/14 10:18:46 fireton Exp $ }
+{ $Id: ExportPipe.pas,v 1.227 2015/12/23 07:48:24 fireton Exp $ }
 
 // $Log: ExportPipe.pas,v $
+// Revision 1.227  2015/12/23 07:48:24  fireton
+// - используем SkipInvalidPictures чтобы пропускать невалидные картинки в NSRC
+//
+// Revision 1.226  2015/11/11 13:16:42  fireton
+// - Ќормальна€ диагностика ошибок при экспорте
+// - —читаем пустые документы, справки и аннотации правильно
+//
 // Revision 1.225  2015/10/14 10:18:46  fireton
 // - cleanup
 //
@@ -644,6 +651,7 @@ Uses
   l3InterfacedComponent,
   l3RangeManager,
   l3RecList,
+  l3StringList,
 
   k2FileGenerator,
 
@@ -658,8 +666,7 @@ Uses
 
   SewerPipe, ddProgressObj,
   l3ObjectRefList,
-  l3StringList
-  , k2TagFilter, k2TagGen, k2Prim, DT_Query, ddDocTypeDetector,
+  k2TagFilter, k2TagGen, k2Prim, DT_Query, ddDocTypeDetector,
   ddTiffProcessor,
   k2Interfaces,
   l3ProtoObject,
@@ -668,7 +675,7 @@ Uses
   ;
 
 type
-  TepCalculationDone = procedure (Sender: TObject; Value: Int64; EmptyCount: Integer) of object;
+  TepCalculationDone = procedure (Sender: TObject; Value: Int64) of object;
   TepPatternType     = (patAccGroup, patNumber, patDate);
   TepPatternsArray   = array[TepPatternType] of AnsiString;
 
@@ -689,7 +696,7 @@ type
     f_Pipe: TSewerPipe;
     f_Writer: Tk2CustomFileGenerator;
     f_Running: Boolean;
-    f_ErrorList: TStrings;
+    f_ErrorList: Tl3StringList;
     f_OutFileType: TepSupportFileType;
     {$IFDEF Bend}
     f_Bend: TddPipeBend;
@@ -724,6 +731,7 @@ type
     f_OnlyStructure: Boolean;
     f_OutBend: Ik2TagGenerator;
     f_ObjectList: Tl3StringList;
+    f_OnError: TddErrorEvent;
     function GetExportAnnotation: Boolean;
     function pm_GetDocSab: ISab;
     function pm_GetExportEditions: Boolean;
@@ -750,6 +758,7 @@ type
     function pm_GetExportDate: TDateTime;
     function pm_GetLowcaseNames: Boolean;
     function pm_GetFileMask(aPart: TddExportDocPart): Il3CString;
+    function pm_GetOnReportEmpty: TddReportEmptyEvent;
     function pm_GetOutputFileSize: Longint;
     function pm_GetUpdateFiles: Boolean;
     procedure pm_SetCodePage(const Value: Long);
@@ -757,6 +766,7 @@ type
     procedure pm_SetExportDate(const Value: TDateTime);
     procedure pm_SetLowcaseNames(const Value: Boolean);
     procedure pm_SetFileMask(aPart: TddExportDocPart; const Value: Il3CString);
+    procedure pm_SetOnReportEmpty(const Value: TddReportEmptyEvent);
     procedure pm_SetOutputFileSize(const Value: Longint);
     procedure pm_SetUpdateFiles(const Value: Boolean);
   protected
@@ -809,8 +819,7 @@ type
     property DocSab: ISab read pm_GetDocSab write pm_SetDocSab;
     property ErrorFound: Boolean
      read f_ErrorFound;
-   property ErrorList: TStrings
-    read f_ErrorList;
+    property ErrorList: Tl3StringList read f_ErrorList;
     property ExportDate: TDateTime read pm_GetExportDate write pm_SetExportDate;
     property ExportEditions: Boolean read pm_GetExportEditions write pm_SetExportEditions;
     property FormulaAsPicture: Boolean read f_FormulaAsPicture write
@@ -820,6 +829,8 @@ type
     property FileMask[aPart: TddExportDocPart]: Il3CString read pm_GetFileMask write pm_SetFileMask;
     property OnlyDocImagesHeader: Boolean read f_OnlyDocImagesHeader write f_OnlyDocImagesHeader;
     property OnlyStructure: Boolean read f_OnlyStructure write pm_SetOnlyStructure;
+    property OnError: TddErrorEvent read f_OnError write f_OnError;
+    property OnReportEmpty: TddReportEmptyEvent read pm_GetOnReportEmpty write pm_SetOnReportEmpty;
     property Query: TdtQuery write pm_SetQuery;
     property TotalDone: Int64 read pm_GetTotalDone;
   published
@@ -827,9 +838,10 @@ type
         SetExportAnnotation;
     property ObjTopicFileName: AnsiString read FObjTopicFileName write
         SetObjTopicFileName;
+
     property ExportEmpty: Boolean
       read f_ExportEmpty write f_ExportEmpty;
-
+    
     property ExportDocument: Boolean
       read f_ExportDoc write f_ExportDoc;
 
@@ -900,7 +912,7 @@ uses
 
   ddUtils,  {$IFDEF AAC}dd_lcDossierDecorator,{$ENDIF}
 
-  Document_Const, DT_ImgContainer, l3ProtoPtrRecListPrim;
+  Document_Const, DT_ImgContainer, l3ProtoPtrRecListPrim, l3StringListPrim;
 
 resourcestring
  epsArticleSubstring = '—“ј“№я ';
@@ -944,7 +956,7 @@ begin
   f_InternalFormat:= False;
 
   f_UnnecessaryDataList:= Tl3StringList.Create;
-  f_ErrorList:= TStringList.Create;
+  f_ErrorList:= Tl3StringList.Make;
   f_ExportRTFBody:= False;
   OutPutFileSize := 0;
   f_OnlyDocImagesHeader:= False;
@@ -1027,7 +1039,7 @@ begin
   {else
    ExportDocument:= True};
   f_Pipe.ExportKW:= ExportKW;
-  f_Pipe.ExportEmpty:= ExportEmpty;
+  f_Pipe.ExportEmpty := ExportEmpty;
   f_Pipe.MultiUser:= MultiUser;
   f_Pipe.KWFileName:= KWFileName;
   if f_Pipe.KWFileName = '' then
@@ -1173,7 +1185,10 @@ end;
 
 procedure TExportPipe.ErrorEvent(const aMsg: AnsiString; aCategory: Integer = 0);
 begin
+ f_ErrorFound := True;
  f_ErrorList.Add(aMsg);
+ if Assigned(f_OnError) then
+  f_OnError(aMsg, aCategory);
 end;
 
 procedure TExportPipe.Export2NSRC;
@@ -1188,6 +1203,7 @@ begin
   TddNSRCGenerator(f_Writer).ExportDirectory:= ExportDirectory;
   TddNSRCGenerator(f_Writer).OnError:= ErrorEvent;
   TddNSRCGenerator(f_Writer).LinkPathListner(Self);
+  TddNSRCGenerator(f_Writer).SkipInvalidPictures := True; // пропускаем невалидные картинки и не рушим экспорт
   TevSimpleTextPainter.SetTo(l_G);
   TevCustomTextFormatter(l_G).CodePage:= CodePage;
   TevdEmptyRowFilter.SetTo(l_G);
@@ -1743,7 +1759,7 @@ end;
 procedure TExportPipe._OnCalcDone(Sender: TObject);
 begin
  if Assigned(FOnCalculationDone) then
-  FOnCalculationDone(Self, TSewerPipe(Sender).AllTopicsSize, TSewerPipe(Sender).EmptyCount);
+  FOnCalculationDone(Self, TSewerPipe(Sender).AllTopicsSize);
 end;
 
 procedure TExportPipe.NeedDeleteFileData;
@@ -1811,6 +1827,11 @@ begin
  Result := f_FilerDispatcher.FileMask[aPart];
 end;
 
+function TExportPipe.pm_GetOnReportEmpty: TddReportEmptyEvent;
+begin
+ Result := f_Pipe.OnReportEmpty;
+end;
+
 function TExportPipe.pm_GetOutputFileSize: Longint;
 begin
  Result := f_FilerDispatcher.FilePartSize;
@@ -1845,6 +1866,11 @@ end;
 procedure TExportPipe.pm_SetFileMask(aPart: TddExportDocPart; const Value: Il3CString);
 begin
  f_FilerDispatcher.FileMask[aPart] := Value;
+end;
+
+procedure TExportPipe.pm_SetOnReportEmpty(const Value: TddReportEmptyEvent);
+begin
+ f_Pipe.OnReportEmpty := Value;
 end;
 
 procedure TExportPipe.pm_SetOutputFileSize(const Value: Longint);

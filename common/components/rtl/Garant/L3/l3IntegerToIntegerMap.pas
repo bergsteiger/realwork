@@ -2,6 +2,7 @@ unit l3IntegerToIntegerMap;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3IntegerToIntegerMap.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "Tl3IntegerToIntegerMap" MUID: (56090A5401A5)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 

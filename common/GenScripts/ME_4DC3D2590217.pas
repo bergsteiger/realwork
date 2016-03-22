@@ -2,6 +2,7 @@ unit CustomInsiderScripter;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptTestLibrary\CustomInsiderScripter.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TCustomInsiderScripter" MUID: (4DC3D2590217)
 
 interface
 

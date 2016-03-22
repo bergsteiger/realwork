@@ -8,6 +8,8 @@ focused:control:push pop:editor:PrintTableCellsParams
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPrintTableCellsParams.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_PrintTableCellsParams" MUID: (5028D0B602D0)
+// Имя типа: "TkwPopEditorPrintTableCellsParams"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

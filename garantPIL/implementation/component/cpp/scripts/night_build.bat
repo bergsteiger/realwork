@@ -1,4 +1,4 @@
-echo %time% : night_build start >> c:\night_build.log
+echo %date% %time% : night_build start >> c:\night_build.log
 echo locked > R:\develop.781\builds\current\current.lock
 subst w: /D
 subst x: /D
@@ -8,6 +8,7 @@ mkdir r:\develop.781\builds\%date%
 mkdir r:\develop.781\builds\%date%\64x
 mkdir r:\develop.781\builds\%date%\vs12-64x
 mkdir r:\develop.781\builds\%date%\other
+mkdir r:\develop.781\builds\%date%\64x\other
 copy R:\develop.781\builds\version.rps r:\develop.781\builds\%date%\
 subst w: c:\builds\%date%
 w:
@@ -57,47 +58,49 @@ del w:\build /q /s
 echo %time% : build clone win32 >> c:\night_build.log
 start /wait devenv w:\garantPIL\implementation\Projects\GDK_on_NDTClone.sln /Build "Final|Win32" /project T_NSRC_Compiler
 start /wait devenv w:\garantPIL\implementation\Projects\GDK_on_NDTClone.sln /Build "Final|Win32" /project T_NDT_ContextBuilder
-rename w:\build\bin\Final_Static\gctx.exe gctx_clone.exe 
+::rename w:\build\bin\Final_Static\gctx.exe gctx_clone.exe 
 copy w:\build\bin\Final_Static\*.* r:\develop.781\builds\%date%\
 echo %time% : copy clone 32 >> c:\night_build.log
 del w:\build /q /s
 subst x: /D
 subst x: C:\Disks\X\msvc9\win64+stlport
 echo %time% : build win64 >> c:\night_build.log
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_Gkdbcmp
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_Fix_newcorr
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_KindCorr_super
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_SearchProfiler
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_CSAdapter
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_Gdm
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_GGDlt
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_GSplit
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_GCCheck
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_RelCalculator
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_Kindcorr_regpart
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_CompareNwcntxtContext
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_GGU
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_CalcSearchResults
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_Fastrev_thr
-echo %time% : build samedocs64 >> c:\night_build.log
-start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_Samedocs
+start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64"
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_Gkdbcmp
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_Fix_newcorr
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_KindCorr_super
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_SearchProfiler
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_CSAdapter
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_Gdm
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_GGDlt
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_GSplit
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_GCCheck
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_RelCalculator
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_Kindcorr_regpart
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_CompareNwcntxtContext
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_GGU
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_CalcSearchResults
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_Fastrev_thr
+::echo %time% : build samedocs64 >> c:\night_build.log
+::start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_Samedocs
 echo %time% : copy win64 >> c:\night_build.log
-copy w:\build\bin\Final_Static\SearchProfiler.exe r:\develop.781\builds\%date%\64x\
-copy w:\build\bin\Final_Static\kindcorr_super.exe r:\develop.781\builds\%date%\64x\
-copy w:\build\bin\Final_Static\RelCalculator.exe r:\develop.781\builds\%date%\64x\
-copy w:\build\bin\Final_Static\CSAdapter.dll r:\develop.781\builds\%date%\64x\
-copy w:\build\bin\Final_Static\samedocs.exe r:\develop.781\builds\%date%\64x\
-copy w:\build\bin\Final_Static\gdm.exe r:\develop.781\builds\%date%\64x\
-copy w:\build\bin\Final_Static\fix_newcorr.exe r:\develop.781\builds\%date%\64x\
-copy w:\build\bin\Final_Static\gdlt.exe r:\develop.781\builds\%date%\64x\
-copy w:\build\bin\Final_Static\gu.exe r:\develop.781\builds\%date%\64x\
-copy w:\build\bin\Final_Static\gsplit.exe r:\develop.781\builds\%date%\64x\
-copy w:\build\bin\Final_Static\gkdbcmp.exe r:\develop.781\builds\%date%\64x\
-copy w:\build\bin\Final_Static\gc_check.exe r:\develop.781\builds\%date%\64x\
-copy w:\build\bin\Final_Static\kindcorr_regpart.exe r:\develop.781\builds\%date%\64x\
-copy w:\build\bin\Final_Static\compare_nwcntxt_context.exe r:\develop.781\builds\%date%\64x\
-copy w:\build\bin\Final_Static\fastrev_thr.exe r:\develop.781\builds\%date%\64x\
-copy w:\build\bin\Final_Static\calc_searchresults.exe r:\develop.781\builds\%date%\64x\
+copy w:\build\bin\Final_Static\*.* r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\SearchProfiler.exe r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\kindcorr_super.exe r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\RelCalculator.exe r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\CSAdapter.dll r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\samedocs.exe r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\gdm.exe r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\fix_newcorr.exe r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\gdlt.exe r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\gu.exe r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\gsplit.exe r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\gkdbcmp.exe r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\gc_check.exe r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\kindcorr_regpart.exe r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\compare_nwcntxt_context.exe r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\fastrev_thr.exe r:\develop.781\builds\%date%\64x\
+::copy w:\build\bin\Final_Static\calc_searchresults.exe r:\develop.781\builds\%date%\64x\
 del w:\build /q /s
 echo %time% : build clone 64 >> c:\night_build.log
 start /wait devenv w:\garantPIL\implementation\Projects\garant_tools.sln /Build "Final|x64" /project T_GGDlt_clone
@@ -113,6 +116,7 @@ copy r:\develop.781\tools\win32\mlma32ru.dll r:\develop.781\builds\%date%\
 copy r:\develop.781\tools\win64\mlma32ru.dll r:\develop.781\builds\%date%\64x\
 move r:\develop.781\builds\%date%\ConnectedContexts.exe r:\develop.781\builds\%date%\other
 move r:\develop.781\builds\%date%\InformDict.exe r:\develop.781\builds\%date%\other
+move r:\develop.781\builds\%date%\InformersMake.exe r:\develop.781\builds\%date%\other
 move r:\develop.781\builds\%date%\MorphoAnalyzer.exe r:\develop.781\builds\%date%\other
 move r:\develop.781\builds\%date%\RelCalculator.exe r:\develop.781\builds\%date%\other
 move r:\develop.781\builds\%date%\EntryPointAnalyzer.exe r:\develop.781\builds\%date%\other
@@ -128,7 +132,26 @@ move r:\develop.781\builds\%date%\search.exe r:\develop.781\builds\%date%\other
 move r:\develop.781\builds\%date%\SearchProfiler.exe r:\develop.781\builds\%date%\other
 move r:\develop.781\builds\%date%\TopLexemes.exe r:\develop.781\builds\%date%\other
 move r:\develop.781\builds\%date%\stats.exe r:\develop.781\builds\%date%\other
+move r:\develop.781\builds\%date%\64x\ConnectedContexts.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\InformDict.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\InformersMake.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\MorphoAnalyzer.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\RelCalculator.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\EntryPointAnalyzer.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\RequestRateAnalyzer.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\RequestTransform.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\SearchProfiler.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\SynMake.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\TypingErrorAnalyzer.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\TypingErrors.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\NormDef.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\RDict.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\search.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\SearchProfiler.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\TopLexemes.exe r:\develop.781\builds\%date%\64x\other
+move r:\develop.781\builds\%date%\64x\stats.exe r:\develop.781\builds\%date%\64x\other
 ren R:\develop.781\builds\%date%\EndtConvertor.exe convertor.exe
+ren R:\develop.781\builds\%date%\64x\EndtConvertor.exe convertor.exe
 echo %time% : -z >> c:\night_build.log
 r:\develop.781\builds\%date%\64x\gc -z
 r:\develop.781\builds\%date%\64x\gctx -z
@@ -159,6 +182,21 @@ r:\develop.781\builds\%date%\gstatus -z
 r:\develop.781\builds\%date%\gsplit -z
 r:\develop.781\builds\%date%\gu -z
 r:\develop.781\builds\%date%\hisync -z
+r:\develop.781\builds\%date%\64x\baseinfo -z
+r:\develop.781\builds\%date%\64x\gkdumpi -z
+r:\develop.781\builds\%date%\64x\gkdumpkw -z
+r:\develop.781\builds\%date%\64x\gkgetdoc -z
+r:\develop.781\builds\%date%\64x\gl -z
+r:\develop.781\builds\%date%\64x\gm -z
+r:\develop.781\builds\%date%\64x\gopt -z
+r:\develop.781\builds\%date%\64x\gpack -z
+r:\develop.781\builds\%date%\64x\gready -z
+r:\develop.781\builds\%date%\64x\gregtst -z
+r:\develop.781\builds\%date%\64x\grev -z
+r:\develop.781\builds\%date%\64x\gsetname -z
+r:\develop.781\builds\%date%\64x\gsetrev -z
+r:\develop.781\builds\%date%\64x\gstatus -z
+r:\develop.781\builds\%date%\64x\hisync -z
 
 echo %time% : start vs12 >> c:\night_build.log
 subst x: /D
@@ -195,12 +233,16 @@ copy R:\develop.781\builds\current\mlma32ru.dll "T:\CRDR\Test F1\_Tools\"
 copy R:\develop.781\builds\current\other\SearchProfiler.exe "T:\CRDR\Test F1\_Tools\" 
 copy R:\develop.781\builds\current\other\RelCalculator.exe "T:\CRDR\Test F1\_Tools\" 
 copy R:\develop.781\builds\current\other\RequestTransform.exe "T:\CRDR\Test F1\_Tools\" 
+copy R:\develop.781\builds\current\other\SynMake.exe "T:\CRDR\Test F1\_Tools\" 
+copy R:\develop.781\builds\current\other\InformersMake.exe "T:\CRDR\Test F1\_Tools\" 
+copy R:\develop.781\builds\current\other\MorphoAnalyzer.exe "T:\CRDR\Test F1\_Tools\"
+copy R:\develop.781\builds\current\other\search.exe "T:\CRDR\Test F1\_Tools\"
 
 copy R:\develop.781\builds\current\64x\CSAdapter.dll "T:\CRDR\Test F1\_Tools\64x" 
 copy R:\develop.781\builds\current\64x\mlma32ru.dll "T:\CRDR\Test F1\_Tools\64x" 
 copy R:\develop.781\builds\current\64x\RelCalculator.exe "T:\CRDR\Test F1\_Tools\64x" 
 
 del R:\develop.781\builds\current\current.lock
-echo %time% : night_build end >> c:\night_build.log
+echo %date% %time% : night_build end >> c:\night_build.log
 :finish
 echo ------------------------------ >> c:\night_build.log

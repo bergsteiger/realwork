@@ -1,32 +1,30 @@
 {$IfNDef kwPermanentFilterExistsUses_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1 Words"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1_Words/kwPermanentFilterExistsUses.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> F1 Поддержка тестов::F1 Words::Words::kwPermanentFilterExistsUses
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwPermanentFilterExistsUses.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "kwPermanentFilterExistsUses" MUID: (54E2143501BA)
+// Имя типа: "_kwPermanentFilterExistsUses_"
 
 {$Define kwPermanentFilterExistsUses_imp}
-{$If not defined(NoScripts)}
- _kwPermanentFilterExistsUses_ = {abstract mixin} class(_kwPermanentFilterExistsUses_Parent_)
+
+{$If NOT Defined(NoScripts)}
+ _kwPermanentFilterExistsUses_ = {abstract} class(_kwPermanentFilterExistsUses_Parent_)
  end;//_kwPermanentFilterExistsUses_
-{$Else}
 
- _kwPermanentFilterExistsUses_ = _kwPermanentFilterExistsUses_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_kwPermanentFilterExistsUses_ = _kwPermanentFilterExistsUses_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else kwPermanentFilterExistsUses_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef kwPermanentFilterExistsUses_imp_impl}
 
+{$Define kwPermanentFilterExistsUses_imp_impl}
 
-{$IfEnd} //not NoScripts
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf kwPermanentFilterExistsUses_imp_impl}
 
 {$EndIf kwPermanentFilterExistsUses_imp}
+

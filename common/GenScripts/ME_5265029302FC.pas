@@ -8,6 +8,8 @@ Test.rtf CF_RTF  focused:control:push pop:editor:InsertStream
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorInsertStream.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_InsertStream" MUID: (5265029302FC)
+// Имя типа: "TkwPopEditorInsertStream"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

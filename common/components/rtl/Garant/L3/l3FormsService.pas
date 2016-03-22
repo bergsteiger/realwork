@@ -2,6 +2,7 @@ unit l3FormsService;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3FormsService.pas"
 // Стереотип: "Service"
+// Элемент модели: "Tl3FormsService" MUID: (5506D56601D6)
 
 {$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
@@ -40,7 +41,7 @@ type
  Tl3FormsService = {final} class(Tl3ProtoObject)
   private
    f_Alien: Il3FormsService;
-    {* Поле для свойства Alien }
+    {* Внешняя реализация сервиса Il3FormsService }
   protected
    procedure pm_SetAlien(const aValue: Il3FormsService);
    procedure ClearFields; override;

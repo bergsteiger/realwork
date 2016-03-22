@@ -3,6 +3,7 @@ unit Translate2TextTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\Translate2TextTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TTranslate2TextTest" MUID: (4C3463D800E5)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

@@ -1,48 +1,28 @@
 unit kwOpen;
+ {* *Формат:*  Open
+*Описание:* Отрывает документ с расширением .evd и именем теста в новом окне редактора.
+ *Пример:*
+ [code]
+Open
+ [code]
+ *Результат:* Будет открыт новый документ с именем файла и расширением .evd }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestTestSupport"
-// Модуль: "w:/archi/source/projects/Everest/Lite/7.0/Express/EverestTestSupport/kwOpen.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$EverestLite$TestSupport::EverestTestSupport::EverestLiteKeyWords::Open
-//
-// *Формат:*  Open
-// *Описание:* Отрывает документ с расширением .evd и именем теста в новом окне редактора.
-// *Пример:*
-// {code}
-// Open
-// {code}
-// *Результат:* Будет открыт новый документ с именем файла и расширением .evd
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\kwOpen.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "Open" MUID: (512D9C56000B)
+// Имя типа: "TkwOpen"
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  tfwRegisterableWord
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //InsiderTest AND nsTest
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If defined(InsiderTest) AND defined(nsTest)}
 type
- TkwOpen = {final scriptword} class(TtfwRegisterableWord)
+ TkwOpen = {final} class(TtfwRegisterableWord)
   {* *Формат:*  Open
 *Описание:* Отрывает документ с расширением .evd и именем теста в новом окне редактора.
  *Пример:*
@@ -50,33 +30,21 @@ type
 Open
  [code]
  *Результат:* Будет открыт новый документ с именем файла и расширением .evd }
- protected
- // realized methods
-    {$If not defined(NoScripts)}
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
-    {$IfEnd} //not NoScripts
- protected
- // overridden protected methods
-   {$If not defined(NoScripts)}
    class function GetWordNameForRegister: AnsiString; override;
-   {$IfEnd} //not NoScripts
  end;//TkwOpen
-{$IfEnd} //InsiderTest AND nsTest
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  EverestLiteAdapter,
-  SysUtils
-  ;
-{$IfEnd} //InsiderTest AND nsTest
+ l3ImplUses
+ , EverestLiteAdapter
+ , SysUtils
+;
 
-{$If defined(InsiderTest) AND defined(nsTest)}
-
-// start class TkwOpen
-
-{$If not defined(NoScripts)}
 procedure TkwOpen.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_512D9C56000B_var*
 var
@@ -91,22 +59,15 @@ begin
  OpenDocument(l_FileName);
 //#UC END# *4DAEEDE10285_512D9C56000B_impl*
 end;//TkwOpen.DoDoIt
-{$IfEnd} //not NoScripts
 
-{$If not defined(NoScripts)}
 class function TkwOpen.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Open';
 end;//TkwOpen.GetWordNameForRegister
-{$IfEnd} //not NoScripts
-
-{$IfEnd} //InsiderTest AND nsTest
 
 initialization
-{$If defined(InsiderTest) AND defined(nsTest)}
-// Регистрация Open
  TkwOpen.RegisterInEngine;
-{$IfEnd} //InsiderTest AND nsTest
+ {* Регистрация Open }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

@@ -2,6 +2,7 @@ unit NOT_FINISHED_TextTestRunner;
 
 // Модуль: "w:\common\components\rtl\external\DUnit\src\NOT_FINISHED_TextTestRunner.pas"
 // Стереотип: "UtilityPack"
+// Элемент модели: "TextTestRunner" MUID: (4B2A0D8A03A0)
 
 interface
 

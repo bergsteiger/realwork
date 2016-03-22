@@ -2,6 +2,8 @@ unit kwPopEditorCheckContinueCells;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCheckContinueCells.pas"
 // Стереотип: "ScriptKeyword"
+// Элемент модели: "pop_editor_CheckContinueCells" MUID: (507510BF02AB)
+// Имя типа: "TkwPopEditorCheckContinueCells"
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

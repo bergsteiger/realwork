@@ -2,6 +2,7 @@ unit nsDPIEvent;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsDPIEvent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDPIEvent" MUID: (4B0BB0A502EC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

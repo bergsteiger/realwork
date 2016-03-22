@@ -16,7 +16,7 @@
 #include "shared/Core/sys/std_inc.h"
 #include "shared/GCL/data/std_defs.h"
 #include "shared/Morpho/Def/Def.h"
-#include "garantPIL/implementation/component/cpp/libs/gkdb/src/SearchB.h"
+#include "garantPIL/implementation/component/cpp/libs/gkdb/src/Base.h"
 
 namespace Search {
 
@@ -32,7 +32,7 @@ private:
 //////////////////////////////////////////////////////////////////////////////////////////
 // constructors and destructor
 public:
-	explicit RequestSplit (SearchBase* base);
+	explicit RequestSplit (Base* base);
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // self methods

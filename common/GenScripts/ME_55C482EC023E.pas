@@ -2,6 +2,7 @@ unit callMSSRunner;
 
 // Модуль: "w:\common\components\callMSS\callMSSRunner.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TcallMSSRunner" MUID: (55C482EC023E)
 
 {$Include w:\common\components\callMSS\callMSS.inc}
 
@@ -50,6 +51,8 @@ uses
 
 class procedure TcallMSSRunner.Run;
 //#UC START# *55C483850136_55C482EC023E_var*
+var
+ l_WasError : Boolean;
 
  procedure RunScript(const aFileName: AnsiString);
  begin//RunScript
@@ -57,7 +60,10 @@ class procedure TcallMSSRunner.Run;
    TtfwScriptEngine.ScriptFromFile(aFileName, TtfwConsoleScriptCaller.Make);
   except
    on E: Exception do
-    System.WriteLn(E.Message);
+   begin
+    l_WasError := true;
+    System.WriteLn(ExtractFileName(aFileName) + ' : ' + E.Message);
+   end;//on E: Exception
   end;//try..except
  end;//RunScript
 
@@ -65,73 +71,20 @@ class procedure TcallMSSRunner.Run;
  var
   l_OutName : AnsiString;
  begin//RunScriptWithOutput
-  try
-   CloseFile(Output);
-  except
-  end;//try..except
   l_OutName := aFileName + '.out';
-  AssignFile(Output, l_OutName);
-  Rewrite(Output);
   try
-   RunScript(aFileName);
-  finally
-   try
-    CloseFile(Output);
-   except
-   end;//try..except 
-  end;//try..finally
-  if (l3FileUtils.GetFileSize(l_OutName) = 0) then
-   SysUtils.DeleteFile(l_OutName);
+   TtfwScriptEngine.ScriptFromFile(aFileName, TtfwOutToFileScriptCaller.Make(l_OutName));
+  except
+   on E: Exception do
+   begin
+    l_WasError := true;
+    l3System.Msg2Log(ExtractFileName(aFileName) + ' : ' + E.Message);
+   end;//on E: Exception
+  end;//try..except
+  if FileExists(l_OutName) then
+   if (l3FileUtils.GetFileSize(l_OutName) = 0) then
+    SysUtils.DeleteFile(l_OutName);
  end;//RunScriptWithOutput
-
- procedure RunScriptsListPrim(const aFileName: AnsiString);
- var
-  l_F : Text;
-  l_S : AnsiString;
-  l_Now : Cardinal;
-  l_L : Tl3StringList;
-  l_Index : Integer;
- begin
-  AssignFile(l_F, aFileName);
-  Reset(l_F);
-  try
-   l_L := Tl3StringList.Create;
-   try
-    l_L.Sorted := true;
-    l_Now := GetTickCount;
-    l3System.Msg2Log('start ' + aFileName);
-    try
-     while not EOF(l_F) do
-     begin
-      ReadLn(l_F, l_S);
-      if not l_L.FindData(l_S, l_Index) then
-      begin
-       l_L.Add(l_S);
-       RunScriptWithOutput(l_S);
-      end;//not l_L.FindData(l_S, l_Index)
-     end;//while not EOF(l_F)
-    finally
-     l3System.Msg2Log('finish ' + aFileName + ' ' + IntToStr((GetTickCount - l_Now) div 1000) );
-    end;//try..finally
-   finally
-    FreeAndNil(l_L);
-   end;//try..finally
-  finally
-   CloseFile(l_F);
-  end;//try..finally
- end;
-
- const
-  cList = '-list:';
-
- procedure RunScriptsList(const aFileName: AnsiString);
- var
-  l_N : AnsiString;
- begin
-  l_N := aFileName;
-  Delete(l_N, 1, Length(cList));
-  RunScriptsListPrim(l_N);
- end;
 
  procedure RunScriptsByMask(const aFileName: AnsiString);
  var
@@ -152,7 +105,7 @@ class procedure TcallMSSRunner.Run;
    l_Now := GetTickCount;
    l3System.Msg2Log('start ' + aFileName);
    try
-    while (l_FindResult = 0) do
+    while (l_FindResult = 0) {AND not l_WasError} do
     begin
      if ((l_SearchRec.Attr and (faDirectory or faVolumeID or faSymLink)) = 0) then
       RunScriptWithOutput(ConcatDirName(l_DirName, l_SearchRec.Name));
@@ -166,12 +119,85 @@ class procedure TcallMSSRunner.Run;
   end;//try..finally
  end;
 
+ const
+  cMask = '*';
+
+ procedure RunScriptsListPrim(const aFileName: AnsiString);
+ var
+  l_F : Text;
+  l_S : AnsiString;
+  l_Now : Cardinal;
+  l_L : Tl3StringList;
+  l_In : Tl3StringList;
+  l_Index : Integer;
+  l_I : Integer;
+ begin
+  AssignFile(l_F, aFileName);
+  l_In := Tl3StringList.Create;
+  try
+   Reset(l_F);
+   try
+    while not EOF(l_F) do
+    begin
+     ReadLn(l_F, l_S);
+     l_In.Add(l_S);
+    end;//while not EOF(l_F)
+   finally
+    CloseFile(l_F);
+   end;//try..finally
+   l_L := Tl3StringList.Create;
+   try
+    l_L.Sorted := true;
+    l_Now := GetTickCount;
+    l3System.Msg2Log('start ' + aFileName);
+    try
+     for l_I := 0 to Pred(l_In.Count) do
+     begin
+      l_S := l_In.Items[l_I].AsString;
+      if not l_L.FindData(l_S, l_Index) then
+      begin
+       l_L.Add(l_S);
+       if (Pos(cMask, aFileName) <= 0) then
+       begin
+        l_S := TtfwConsoleScriptCaller.DoResolveIncludedFilePath(l_S);
+        if FileExists(l_S) then
+         RunScriptWithOutput(l_S)
+        else
+         l3System.Msg2Log('Не найден файл: ' + l_S);
+       end//Pos(cMask, aFileName) <= 0
+       else
+        RunScriptsByMask(l_S);
+      end;//not l_L.FindData(l_S, l_Index)
+     end;//while not EOF(l_F)
+    finally
+     l3System.Msg2Log('finish ' + aFileName + ' ' + IntToStr((GetTickCount - l_Now) div 1000) );
+    end;//try..finally
+   finally
+    FreeAndNil(l_L);
+   end;//try..finally
+  finally
+   FreeAndNil(l_In);
+  end;//try..finally
+ end;
+
+ const
+  cList = '-list:';
+
+ procedure RunScriptsList(const aFileName: AnsiString);
+ var
+  l_N : AnsiString;
+ begin
+  l_N := aFileName;
+  Delete(l_N, 1, Length(cList));
+  RunScriptsListPrim(l_N);
+ end;
+
  procedure RunScripts(const aFileName: AnsiString);
  begin//RunScripts
-  if AnsiStartsStr('-list:', aFilename) then
+  if AnsiStartsStr(cList, aFilename) then
    RunScriptsList(aFilename)
   else
-  if (Pos('*', aFileName) <= 0) then
+  if (Pos(cMask, aFileName) <= 0) then
    RunScript(aFileName)
   else
    RunScriptsByMask(aFileName);
@@ -180,7 +206,10 @@ class procedure TcallMSSRunner.Run;
 //#UC END# *55C483850136_55C482EC023E_var*
 begin
 //#UC START# *55C483850136_55C482EC023E_impl*
+ l_WasError := false;
  RunScripts(ParamStr(1));
+ if l_WasError then
+  Halt(2);
 //#UC END# *55C483850136_55C482EC023E_impl*
 end;//TcallMSSRunner.Run
 

@@ -715,8 +715,6 @@ ref; // ME_50FE9EFE0042
 ref; // ME_1B0577E51991 
 
 : ME_47D1602000C6_ME_50FD1AE5027A
- CONST UID '47D1602000C6'
- CONST Name 'Create'
  : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
  ;
  : Implementor ME_50FD1AE5027A // TvtCustomPanel
@@ -725,8 +723,6 @@ ref; // ME_1B0577E51991
 ref; // ME_47D1602000C6_ME_50FD1AE5027A Create
 
 : ME_48C6C044025E_ME_50FD1AE5027A
- CONST UID '48C6C044025E'
- CONST Name 'Paint'
  : Original WL 'ME_48C6C044025E' '467BA8C8017E.pas.ms.script' // Paint
  ;
  : Implementor ME_50FD1AE5027A // TvtCustomPanel
@@ -735,8 +731,6 @@ ref; // ME_47D1602000C6_ME_50FD1AE5027A Create
 ref; // ME_48C6C044025E_ME_50FD1AE5027A Paint
 
 : ME_48C7925A02E5_ME_50FD1AE5027A
- CONST UID '48C7925A02E5'
- CONST Name 'CreateParams'
  : Original WL 'ME_48C7925A02E5' '4799D29F033F.pas.ms.script' // CreateParams
  ;
  : Implementor ME_50FD1AE5027A // TvtCustomPanel
@@ -745,8 +739,6 @@ ref; // ME_48C6C044025E_ME_50FD1AE5027A Paint
 ref; // ME_48C7925A02E5_ME_50FD1AE5027A CreateParams
 
 : ME_5028E66702B0_ME_50FD1AE5027A
- CONST UID '5028E66702B0'
- CONST Name 'AlignControls'
  : Original WL 'ME_5028E66702B0' '4799D29F033F.pas.ms.script' // AlignControls
  ;
  : Implementor ME_50FD1AE5027A // TvtCustomPanel
@@ -755,8 +747,6 @@ ref; // ME_48C7925A02E5_ME_50FD1AE5027A CreateParams
 ref; // ME_5028E66702B0_ME_50FD1AE5027A AlignControls
 
 : ME_50FD31EE009B_ME_50FD1AE5027A
- CONST UID '50FD31EE009B'
- CONST Name 'SetParentBackground'
  : Original WL 'ME_50FD31EE009B' '4799D29F033F.pas.ms.script' // SetParentBackground
  ;
  : Implementor ME_50FD1AE5027A // TvtCustomPanel
@@ -947,34 +937,6 @@ ref; // ME_4F71F9080285 TvtProportionalCustomPanel
 
 ref; // ME_4A7AD11C028B TvtProportionalPanel
 
-FORWARD ME_4C2238D10107
-
-: ME_B535CFCF119D
- CONST UID 'B535CFCF119D'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomPreviewPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C2238D10107 // TvtCustomPreviewPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B535CFCF119D Ini_Reg_Class
-
-: ME_B620CCF60AB7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C2238D10107 // TvtCustomPreviewPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_B620CCF60AB7 
-
 : ME_4C2238D10107
  CONST UID '4C2238D10107'
  CONST Name 'TvtCustomPreviewPanel'
@@ -989,14 +951,6 @@ ref; // ME_B620CCF60AB7
    Seq: ( WL 'ME_48BBE37E00A2' '467BA8C8017E.pas.ms.script' // TafwCustomCommonControl
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B535CFCF119D // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_B620CCF60AB7 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
@@ -1009,34 +963,6 @@ ref; // ME_B620CCF60AB7
  CONST extprop:pas:UnitName 'vtCustomPreviewPanel'
 
 ref; // ME_4C2238D10107 TvtCustomPreviewPanel
-
-FORWARD ME_4C2238BC037D
-
-: ME_57BA4B02CA37
- CONST UID '57BA4B02CA37'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtPreviewPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C2238BC037D // TvtPreviewPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_57BA4B02CA37 Ini_Reg_Class
-
-: ME_F8643F11B997
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C2238BC037D // TvtPreviewPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_F8643F11B997 
 
 : ME_4C2238BC037D
  CONST UID '4C2238BC037D'
@@ -1052,14 +978,6 @@ ref; // ME_F8643F11B997
    Seq: ( ME_4C2238D10107 // TvtCustomPreviewPanel
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_57BA4B02CA37 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_F8643F11B997 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
@@ -1072,34 +990,6 @@ ref; // ME_F8643F11B997
  CONST extprop:pas:UnitName 'vtPreviewPanel'
 
 ref; // ME_4C2238BC037D TvtPreviewPanel
-
-FORWARD ME_52B99162037C
-
-: ME_4E1440C54E93
- CONST UID '4E1440C54E93'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TvtCustomCommonPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52B99162037C // TvtCustomCommonPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4E1440C54E93 Ini_Reg_Class
-
-: ME_3AA6FF5FB622
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52B99162037C // TvtCustomCommonPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_3AA6FF5FB622 
 
 : ME_52B99162037C
  CONST UID '52B99162037C'
@@ -1115,14 +1005,6 @@ ref; // ME_3AA6FF5FB622
    Seq: ( ME_4A7961A701CF // TvtPanel
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4E1440C54E93 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_3AA6FF5FB622 // 
- )
- ; // Dependencies
  CONST "base wnd class" 'CWnd'
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'

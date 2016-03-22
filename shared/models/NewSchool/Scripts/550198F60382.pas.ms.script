@@ -57,8 +57,6 @@ ref; // ME_513A59658F12 Ml3MenuManagerHelper
 FORWARD ME_0BEB6CFDB3DA
 
 : ME_9CBAC5378D28_ME_0BEB6CFDB3DA
- CONST UID '9CBAC5378D28'
- CONST Name 'CreateManager'
  : Original ME_9CBAC5378D28 // CreateManager
  ;
  : Implementor ME_0BEB6CFDB3DA // Il3MenuManagerHelper
@@ -67,8 +65,6 @@ FORWARD ME_0BEB6CFDB3DA
 ref; // ME_9CBAC5378D28_ME_0BEB6CFDB3DA CreateManager
 
 : ME_FFCD4B7E45D8_ME_0BEB6CFDB3DA
- CONST UID 'FFCD4B7E45D8'
- CONST Name 'FreeManager'
  : Original ME_FFCD4B7E45D8 // FreeManager
  ;
  : Implementor ME_0BEB6CFDB3DA // Il3MenuManagerHelper
@@ -122,23 +118,6 @@ ref; // ME_0BEB6CFDB3DA Il3MenuManagerHelper
 
 ref; // ME_11A29D4E6B77 Alien
 
-: ME_F8B51AEA986B
- CONST UID 'F8B51AEA986B'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_550199070251 // Tl3MenuManagerHelper
- ;
- : Target ME_0BEB6CFDB3DA // Il3MenuManagerHelper
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_F8B51AEA986B f_Alien
-
 : ME_5506A8670291
  CONST UID '5506A8670291'
  CONST Name 'CreateManager'
@@ -166,8 +145,6 @@ ref; // ME_5506A8670291 CreateManager
 ref; // ME_5506A87D008E FreeManager
 
 : ME_9CBAC5378D28_ME_550199070251
- CONST UID '9CBAC5378D28'
- CONST Name 'CreateManager'
  : Original ME_9CBAC5378D28 // CreateManager
  ;
  : Implementor ME_550199070251 // Tl3MenuManagerHelper
@@ -176,24 +153,12 @@ ref; // ME_5506A87D008E FreeManager
 ref; // ME_9CBAC5378D28_ME_550199070251 CreateManager
 
 : ME_FFCD4B7E45D8_ME_550199070251
- CONST UID 'FFCD4B7E45D8'
- CONST Name 'FreeManager'
  : Original ME_FFCD4B7E45D8 // FreeManager
  ;
  : Implementor ME_550199070251 // Tl3MenuManagerHelper
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_FFCD4B7E45D8_ME_550199070251 FreeManager
-
-: ME_5000565C019C_ME_550199070251
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_550199070251 // Tl3MenuManagerHelper
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_550199070251 ClearFields
 
 : ME_550199070251
  CONST UID '550199070251'
@@ -215,7 +180,6 @@ ref; // ME_5000565C019C_ME_550199070251 ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_11A29D4E6B77 // Alien
- ME_F8B51AEA986B // f_Alien
  )
  ; // Attributes
  : Operations
@@ -228,10 +192,6 @@ ref; // ME_5000565C019C_ME_550199070251 ClearFields
  ME_FFCD4B7E45D8_ME_550199070251 // FreeManager
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_550199070251 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_513A59658F12 // Ml3MenuManagerHelper
  ME_0BEB6CFDB3DA // Il3MenuManagerHelper
@@ -287,8 +247,6 @@ ref; // ME_1FB1A07FEA18 Ml3DispatcherHelper
 FORWARD ME_0DC9B60865A3
 
 : ME_CA1F3F463873_ME_0DC9B60865A3
- CONST UID 'CA1F3F463873'
- CONST Name 'ClearHistory'
  : Original ME_CA1F3F463873 // ClearHistory
  ;
  : Implementor ME_0DC9B60865A3 // Il3DispatcherHelper
@@ -341,23 +299,6 @@ ref; // ME_0DC9B60865A3 Il3DispatcherHelper
 
 ref; // ME_C08C1B480486 Alien
 
-: ME_882A733FAA36
- CONST UID '882A733FAA36'
- CONST Name 'f_Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Alien' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_5501A3AE02AA // Tl3DispatcherHelper
- ;
- : Target ME_0DC9B60865A3 // Il3DispatcherHelper
- ;
- CONST extprop:clearViaProperty 'Alien'
-
-ref; // ME_882A733FAA36 f_Alien
-
 : ME_55069D5903C8
  CONST UID '55069D5903C8'
  CONST Name 'ClearHistory'
@@ -371,24 +312,12 @@ ref; // ME_882A733FAA36 f_Alien
 ref; // ME_55069D5903C8 ClearHistory
 
 : ME_CA1F3F463873_ME_5501A3AE02AA
- CONST UID 'CA1F3F463873'
- CONST Name 'ClearHistory'
  : Original ME_CA1F3F463873 // ClearHistory
  ;
  : Implementor ME_5501A3AE02AA // Tl3DispatcherHelper
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_CA1F3F463873_ME_5501A3AE02AA ClearHistory
-
-: ME_5000565C019C_ME_5501A3AE02AA
- CONST UID '5000565C019C'
- CONST Name 'ClearFields'
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_5501A3AE02AA // Tl3DispatcherHelper
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_5501A3AE02AA ClearFields
 
 : ME_5501A3AE02AA
  CONST UID '5501A3AE02AA'
@@ -410,7 +339,6 @@ ref; // ME_5000565C019C_ME_5501A3AE02AA ClearFields
  ; // Implements
  : Attributes
    Seq: ( ME_C08C1B480486 // Alien
- ME_882A733FAA36 // f_Alien
  )
  ; // Attributes
  : Operations
@@ -421,10 +349,6 @@ ref; // ME_5000565C019C_ME_5501A3AE02AA ClearFields
    Seq: ( ME_CA1F3F463873_ME_5501A3AE02AA // ClearHistory
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_5501A3AE02AA // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_1FB1A07FEA18 // Ml3DispatcherHelper
  ME_0DC9B60865A3 // Il3DispatcherHelper

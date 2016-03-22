@@ -187,16 +187,12 @@ void ViewAsSequence_i::mutate (const std::string& str, RequestsInfo& info) {
 }
 
 // модификация списка синонимичных запросов
-size_t ViewAsSequence_i::transform (
-	RequestsInfo& info
-	, const GCL::StrVector& data
-	, const DBComm::PSDTemplates& templates
-) {
+size_t ViewAsSequence_i::transform (RequestsInfo& info) {
 	//#UC START# *53919DC90201*
 	size_t ret = 0, i = 0, count = info.size ();
 
 	for (; i < count && ret <= MAX_WORDS_COUNT; ++i) {
-		ret += m_transformer->exclude (info [i].text, data, templates, false); // исключение стоп-слов
+		ret += ContextUtility::get_words_count (info [i].text);
 	}
 
 	if (i != count) {
@@ -212,7 +208,7 @@ size_t ViewAsSequence_i::transform (
 
 // implemented method from Search::IRequestView
 // создать
-bool ViewAsSequence_i::build (const Search::Phrase& in, const Morpho::Def::StrStrMap& pseudo, const std::string& src) {
+bool ViewAsSequence_i::build (const Search::Phrase& in, const std::string& src) {
 	//#UC START# *528CD00602B1_5390900700B2*
 	GDS_ASSERT (in.empty () == false);
 
@@ -243,28 +239,19 @@ bool ViewAsSequence_i::build (const Search::Phrase& in, const Morpho::Def::StrSt
 
 	//print_info (info);
 
-	// Исключение стоп-слов & формирование результирующего контейнера
+	// Формирование результирующего контейнера
 
-	const GCL::StrVector& exl_data = m_communicator->get_exclude_data ();
-
-	const DBComm::PSDTemplates fake;
-	//const DBComm::PSDTemplates& templates = (ext_multiply)? m_communicator->get_templates () : fake;
-
-	bool invalid_req_size = (this->transform (info, exl_data, fake) > MAX_WORDS_COUNT);
+	bool invalid_req_size = (this->transform (info) > MAX_WORDS_COUNT);
 
 	GCL::StrSet ret;
 
 	if (was_exceeded_limit || invalid_req_size) {
 		std::string corrected = src;
-		m_transformer->exclude (corrected,  exl_data, fake, false);
+		m_transformer->exclude (corrected,  m_communicator->get_exclude_data ());
 		ret.insert (corrected); // исходный исправленный запрос
 	}
 
 	for (RequestsInfo::iterator it = info.begin (); it != info.end (); ++it) {
-		if (pseudo.empty () == false) {
-			ContextUtility::replace (it->text, pseudo); // заменяем псевдонормализованные формы на исходные
-		}
-
 		ret.insert (it->text);
 	}
 

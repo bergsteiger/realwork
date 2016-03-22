@@ -87,7 +87,19 @@
 	(object Attribute
 	    tool       	"MDA Generator"
 	    name       	"SourceType (pas.script)"
-	    value      	"file"))
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (pas.script.runner)"
+	    value      	"w:/shared/models/NewSchool/Scripts/55C482960214.pas.ms.script.runner")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (pas.script.runner)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ApplyedGens"
+	    value      	"Delphi èíòåðôåéñû è ðåàëèçàöèÿ|ModelBuilding|Äîêóìåíòàöèÿ"))
     quid       	"55C482960214"
     documentation 	"Çàïóñêàëêà ñêðèïòîâ"
     stereotype 	"ExeTarget"
@@ -175,10 +187,18 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SELF GENERATED FILE (pas.script)"
-		    value      	"w:/shared/models/NewSchool/Scripts/55C482EC023E.pas.ms.script")
+		    value      	"")
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"SourceType (pas.script)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (pas.script.runner)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (pas.script.runner)"
 		    value      	"file"))
 	    quid       	"55C482EC023E"
 	    stereotype 	"SimpleClass"
@@ -225,11 +245,11 @@
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*55C483850136_55C482EC023E_var*"
-			    value      	"//#UC START# *55C483850136_55C482EC023E_var*¤¤ procedure RunScript(const aFileName: AnsiString);¤ begin//RunScript¤  try¤   TtfwScriptEngine.ScriptFromFile(aFileName, TtfwConsoleScriptCaller.Make);¤  except¤   on E: Exception do¤    System.WriteLn(E.Message);¤  end;//try..except¤ end;//RunScript¤¤ procedure RunScriptWithOutput(const aFileName: AnsiString);¤ var¤  l_OutName : AnsiString;¤ begin//RunScriptWithOutput¤  try¤   CloseFile(Output);¤  except¤  end;//try..except¤  l_OutName := aFileName + '.out';¤  AssignFile(Output, l_OutName);¤  Rewrite(Output);¤  try¤   RunScript(aFileName);¤  finally¤   try¤    CloseFile(Output);¤   except¤   end;//try..except ¤  end;//try..finally¤  if (l3FileUtils.GetFileSize(l_OutName) = 0) then¤   SysUtils.DeleteFile(l_OutName);¤ end;//RunScriptWithOutput¤¤ const¤  cList = '-list:';¤¤ procedure RunScriptsList(const aFileName: AnsiString);¤ var¤  l_F : Text;¤  l_N : AnsiString;¤  l_S : AnsiString;¤  l_Now : Cardinal;¤ begin¤  l_N := aFileName;¤  Delete(l_N, 1, Length(cList));¤  AssignFile(l_F, l_N);¤  Reset(l_F);¤  try¤   l_Now := GetTickCount;¤   l3System.Msg2Log('start ' + aFileName);¤   try¤    while not EOF(l_F) do¤    begin¤     ReadLn(l_F, l_S);¤     RunScriptWithOutput(l_S);¤    end;//while not EOF(l_F)¤   finally¤    l3System.Msg2Log('finish ' + aFileName + ' ' + IntToStr((GetTickCount - l_Now) div 1000) );¤   end;//try..finally¤  finally¤   CloseFile(l_F);¤  end;//try..finally¤ end;¤¤ procedure RunScripts(const aFileName: AnsiString);¤ var¤  l_SearchRec  : TSearchRec;¤  l_FindResult : Integer;¤  l_DirName : AnsiString;¤  l_FileName : AnsiString;¤  l_Now : Cardinal;¤ begin//RunScripts¤  if AnsiStartsStr('-list:', aFilename) then¤   RunScriptsList(aFilename)¤  else¤  if (Pos('*', aFileName) <= 0) then¤   RunScript(aFileName)¤  else¤  begin¤   l_DirName := ExtractFilePath(aFileName);¤   if (l_DirName = '') then¤    l_DirName := SysUtils.GetCurrentDir;¤   l_FileName := ExtractFileName(aFileName);¤   l_FindResult := FindFirst(ConcatDirName(l_DirName, l_FileName),¤                             faAnyFile,¤                             l_SearchRec);¤   try¤    l_Now := GetTickCount;¤    l3System.Msg2Log('start ' + aFileName);¤    try¤     while (l_FindResult = 0) do¤     begin¤      if ((l_SearchRec.Attr and (faDirectory or faVolumeID or faSymLink)) = 0) then¤       RunScriptWithOutput(ConcatDirName(l_DirName, l_SearchRec.Name));¤      l_FindResult := FindNext(l_SearchRec);¤     end; // while l_FindResult = 0 do¤    finally¤     l3System.Msg2Log('finish ' + aFileName + ' ' + IntToStr((GetTickCount - l_Now) div 1000) );¤    end;//try..finally¤   finally¤    SysUtils.FindClose(l_SearchRec);¤   end;//try..finally¤  end;//Pos(aFileName, '*') <= 0¤ end;//RunScripts¤¤//#UC END# *55C483850136_55C482EC023E_var*")
+			    value      	"//#UC START# *55C483850136_55C482EC023E_var*¤var¤ l_WasError : Boolean;¤¤ procedure RunScript(const aFileName: AnsiString);¤ begin//RunScript¤  try¤   TtfwScriptEngine.ScriptFromFile(aFileName, TtfwConsoleScriptCaller.Make);¤  except¤   on E: Exception do¤   begin¤    l_WasError := true;¤    System.WriteLn(ExtractFileName(aFileName) + ' : ' + E.Message);¤   end;//on E: Exception¤  end;//try..except¤ end;//RunScript¤¤ procedure RunScriptWithOutput(const aFileName: AnsiString);¤ var¤  l_OutName : AnsiString;¤ begin//RunScriptWithOutput¤  l_OutName := aFileName + '.out';¤  try¤   TtfwScriptEngine.ScriptFromFile(aFileName, TtfwOutToFileScriptCaller.Make(l_OutName));¤  except¤   on E: Exception do¤   begin¤    l_WasError := true;¤    l3System.Msg2Log(ExtractFileName(aFileName) + ' : ' + E.Message);¤   end;//on E: Exception¤  end;//try..except¤  if FileExists(l_OutName) then¤   if (l3FileUtils.GetFileSize(l_OutName) = 0) then¤    SysUtils.DeleteFile(l_OutName);¤ end;//RunScriptWithOutput¤¤ procedure RunScriptsByMask(const aFileName: AnsiString);¤ var¤  l_SearchRec  : TSearchRec;¤  l_FindResult : Integer;¤  l_DirName : AnsiString;¤  l_FileName : AnsiString;¤  l_Now : Cardinal;¤ begin¤  l_DirName := ExtractFilePath(aFileName);¤  if (l_DirName = '') then¤   l_DirName := SysUtils.GetCurrentDir;¤  l_FileName := ExtractFileName(aFileName);¤  l_FindResult := FindFirst(ConcatDirName(l_DirName, l_FileName),¤                            faAnyFile,¤                            l_SearchRec);¤  try¤   l_Now := GetTickCount;¤   l3System.Msg2Log('start ' + aFileName);¤   try¤    while (l_FindResult = 0) {AND not l_WasError} do¤    begin¤     if ((l_SearchRec.Attr and (faDirectory or faVolumeID or faSymLink)) = 0) then¤      RunScriptWithOutput(ConcatDirName(l_DirName, l_SearchRec.Name));¤     l_FindResult := FindNext(l_SearchRec);¤    end; // while l_FindResult = 0 do¤   finally¤    l3System.Msg2Log('finish ' + aFileName + ' ' + IntToStr((GetTickCount - l_Now) div 1000) );¤   end;//try..finally¤  finally¤   SysUtils.FindClose(l_SearchRec);¤  end;//try..finally¤ end;¤¤ const¤  cMask = '*';¤¤ procedure RunScriptsListPrim(const aFileName: AnsiString);¤ var¤  l_F : Text;¤  l_S : AnsiString;¤  l_Now : Cardinal;¤  l_L : Tl3StringList;¤  l_In : Tl3StringList;¤  l_Index : Integer;¤  l_I : Integer;¤ begin¤  AssignFile(l_F, aFileName);¤  l_In := Tl3StringList.Create;¤  try¤   Reset(l_F);¤   try¤    while not EOF(l_F) do¤    begin¤     ReadLn(l_F, l_S);¤     l_In.Add(l_S);¤    end;//while not EOF(l_F)¤   finally¤    CloseFile(l_F);¤   end;//try..finally¤   l_L := Tl3StringList.Create;¤   try¤    l_L.Sorted := true;¤    l_Now := GetTickCount;¤    l3System.Msg2Log('start ' + aFileName);¤    try¤     for l_I := 0 to Pred(l_In.Count) do¤     begin¤      l_S := l_In.Items[l_I].AsString;¤      if not l_L.FindData(l_S, l_Index) then¤      begin¤       l_L.Add(l_S);¤       if (Pos(cMask, aFileName) <= 0) then¤       begin¤        l_S := TtfwConsoleScriptCaller.DoResolveIncludedFilePath(l_S);¤        if FileExists(l_S) then¤         RunScriptWithOutput(l_S)¤        else¤         l3System.Msg2Log('Íå íàéäåí ôàéë: ' + l_S);¤       end//Pos(cMask, aFileName) <= 0¤       else¤        RunScriptsByMask(l_S);¤      end;//not l_L.FindData(l_S, l_Index)¤     end;//while not EOF(l_F)¤    finally¤     l3System.Msg2Log('finish ' + aFileName + ' ' + IntToStr((GetTickCount - l_Now) div 1000) );¤    end;//try..finally¤   finally¤    FreeAndNil(l_L);¤   end;//try..finally¤  finally¤   FreeAndNil(l_In);¤  end;//try..finally¤ end;¤¤ const¤  cList = '-list:';¤¤ procedure RunScriptsList(const aFileName: AnsiString);¤ var¤  l_N : AnsiString;¤ begin¤  l_N := aFileName;¤  Delete(l_N, 1, Length(cList));¤  RunScriptsListPrim(l_N);¤ end;¤¤ procedure RunScripts(const aFileName: AnsiString);¤ begin//RunScripts¤  if AnsiStartsStr(cList, aFilename) then¤   RunScriptsList(aFilename)¤  else¤  if (Pos(cMask, aFileName) <= 0) then¤   RunScript(aFileName)¤  else¤   RunScriptsByMask(aFileName);¤ end;//RunScripts¤¤//#UC END# *55C483850136_55C482EC023E_var*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"intf.pas:*55C483850136_55C482EC023E_impl*"
-			    value      	"//#UC START# *55C483850136_55C482EC023E_impl*¤ RunScripts(ParamStr(1));¤//#UC END# *55C483850136_55C482EC023E_impl*")
+			    value      	"//#UC START# *55C483850136_55C482EC023E_impl*¤ l_WasError := false;¤ RunScripts(ParamStr(1));¤ if l_WasError then¤  Halt(2);¤//#UC END# *55C483850136_55C482EC023E_impl*")
 			(object Attribute
 			    tool       	"MDA Generator"
 			    name       	"SELF GENERATED FILE (pas.script)"
@@ -516,7 +536,25 @@
 			    quid       	"563CB8030308"
 			    stereotype 	"uses"
 			    supplier   	"Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::L3::l3CoreObjects::Tl3StringList"
-			    quidu      	"4773DCE302FF"))))))
+			    quidu      	"4773DCE302FF")
+			(object Uses_Relationship
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"1447390971676173")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false"))
+			    quid       	"56456EFB02A4"
+			    stereotype 	"uses"
+			    supplier   	"Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptCallers::TtfwOutToFileScriptCaller"
+			    quidu      	"56456E3E01E4"))))))
     logical_presentations 	(list unit_reference_list
 	(object ClassDiagram "Main"
 	    quid       	"55C482E702C9"
@@ -1146,7 +1184,11 @@
 		(object Attribute
 		    tool       	"MDA Generator"
 		    name       	"ClassUID"
-		    value      	"55C482EC023E"))
+		    value      	"55C482EC023E")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
 	    quid       	"55C4837F019B"
 	    title      	"Main"
 	    zoom       	100
@@ -2166,4 +2208,85 @@
 		    vertices   	(list Points
 			(677, 700)
 			(2123, 268))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Shared Delphi Core And Low Level::Shared Delphi Low Level::ScriptEngine$Core::ScriptCallers::TtfwOutToFileScriptCaller" @64
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2394, 570)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705320
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@64
+			location   	(2152, 542)
+			nlines     	1
+			max_width  	484
+			justify    	0
+			label      	"TtfwOutToFileScriptCaller")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@64
+			location   	(2152, 492)
+			anchor     	10
+			nlines     	1
+			max_width  	484
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	705320
+		    fill_color 	16777215
+		    quidu      	"56456E3E01E4"
+		    width      	502
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @65
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @66
+			Parent_View 	@65
+			location   	(1398, 547)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"56456EFB02A4"
+		    client     	@27
+		    supplier   	@64
+		    vertices   	(list Points
+			(677, 737)
+			(2142, 593))
 		    line_style 	0)))))

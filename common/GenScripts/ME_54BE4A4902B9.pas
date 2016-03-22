@@ -2,6 +2,7 @@ unit eeTextParaCursor;
 
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeTextParaCursor.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TeeTextParaCursor" MUID: (54BE4A4902B9)
 
 {$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 

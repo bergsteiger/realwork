@@ -3,6 +3,7 @@ unit HotSpotSelectionTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\HotSpotSelectionTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "THotSpotSelectionTest" MUID: (4CED106503D0)
 
 {$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 

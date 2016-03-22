@@ -2,6 +2,8 @@
 
 // Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\PrintRowCompare.imp.pas"
 // Стереотип: "Impurity"
+// Элемент модели: "PrintRowCompare" MUID: (4DF1E0DC0289)
+// Имя типа: "_PrintRowCompare_"
 
 {$Define PrintRowCompare_imp}
 

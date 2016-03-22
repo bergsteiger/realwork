@@ -3,6 +3,8 @@ unit PageProperties_Const;
 
 // Модуль: "w:\common\components\rtl\Garant\EVD\PageProperties_Const.pas"
 // Стереотип: "Tag"
+// Элемент модели: "PageProperties" MUID: (4856576801CA)
+// Имя типа: "PagePropertiesTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 

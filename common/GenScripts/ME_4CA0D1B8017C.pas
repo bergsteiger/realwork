@@ -2,6 +2,7 @@ unit GarORBInitializerImpl;
 
 // Модуль: "w:\common\components\rtl\Garant\GarORB\GarORBInitializerImpl.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TGarORBInitializerImpl" MUID: (4CA0D1B8017C)
 
 {$Include w:\common\components\rtl\Garant\GarORB\tfwDefine.inc}
 

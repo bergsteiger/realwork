@@ -2,6 +2,7 @@ unit nsDocumentPreviewWithoutBlockNames;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsDocumentPreviewWithoutBlockNames.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsDocumentPreviewWithoutBlockNames" MUID: (54DC54FD024B)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

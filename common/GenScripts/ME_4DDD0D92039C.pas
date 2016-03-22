@@ -3,6 +3,7 @@ unit nsChangesBetweenEditionsDocumentContainer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\nsChangesBetweenEditionsDocumentContainer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsChangesBetweenEditionsDocumentContainer" MUID: (4DDD0D92039C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

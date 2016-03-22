@@ -2,6 +2,7 @@ unit tfwIteratableParent;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIteratableParent.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TtfwIteratableParent" MUID: (52E29ED5016B)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

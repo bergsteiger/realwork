@@ -3,6 +3,8 @@ unit fsSituationFilter;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\fsSituationFilter.pas"
 // Стереотип: "VCMFormSetFactory"
+// Элемент модели: "SituationFilter" MUID: (4AA7A4E3032E)
+// Имя типа: "Tfs_SituationFilter"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

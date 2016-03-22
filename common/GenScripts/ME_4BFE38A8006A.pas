@@ -3,6 +3,7 @@ unit ScrollAndSelectPtTest;
 
 // Модуль: "w:\common\components\rtl\Garant\Daily\ScrollAndSelectPtTest.pas"
 // Стереотип: "TestCase"
+// Элемент модели: "TScrollAndSelectPtTest" MUID: (4BFE38A8006A)
 
 {$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 

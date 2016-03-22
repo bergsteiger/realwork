@@ -1,53 +1,36 @@
 unit kwPreview;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/kwPreview.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> archi$TestSupport::Archi Insider Test Support::CommonArchiWords::Preview
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPreview.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "Preview" MUID: (530B30360258)
+// Имя типа: "TkwPreview"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
 type
- TkwPreview = {final scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwPreview = {final} class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPreview
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
-  arArchiTestAdapter2
-  ;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
-
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwPreview
+ l3ImplUses
+ , arArchiTestAdapter2
+;
 
 procedure TkwPreview.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_530B30360258_var*
@@ -59,17 +42,13 @@ begin
 end;//TkwPreview.DoDoIt
 
 class function TkwPreview.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Preview';
 end;//TkwPreview.GetWordNameForRegister
 
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
-
 initialization
-{$If defined(AppClientSide) AND defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// Регистрация Preview
  TkwPreview.RegisterInEngine;
-{$IfEnd} //AppClientSide AND InsiderTest AND nsTest AND not NoScripts
+ {* Регистрация Preview }
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
 end.

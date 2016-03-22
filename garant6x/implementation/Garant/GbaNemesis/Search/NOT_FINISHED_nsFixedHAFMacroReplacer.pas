@@ -2,6 +2,7 @@ unit NOT_FINISHED_nsFixedHAFMacroReplacer;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\NOT_FINISHED_nsFixedHAFMacroReplacer.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TnsFixedHAFMacroReplacer" MUID: (495878B40393)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

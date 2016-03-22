@@ -3,6 +3,7 @@ unit DayTipsInterfaces;
 
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DayTips\DayTipsInterfaces.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "DayTipsInterfaces" MUID: (4991C6930254)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 

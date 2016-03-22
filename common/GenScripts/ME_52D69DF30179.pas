@@ -2,6 +2,7 @@ unit kwRuntimeWordWithCodeExecution;
 
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwRuntimeWordWithCodeExecution.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TkwRuntimeWordWithCodeExecution" MUID: (52D69DF30179)
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 

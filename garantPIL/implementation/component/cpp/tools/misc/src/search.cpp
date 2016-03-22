@@ -29,7 +29,9 @@ int main_logic ( int argc, char *argv[] )
 	if ( argc < 2 )
 		return 0;
 
-	ToolsBase *base = new ToolsBase (argv [1]);
+	SearchBase *base = new SearchBase (argv [1]);
+	base->YBase::IsOk ();
+	base->check_version ();
 
 	bool b_docsonly = argv [3] && !stricmp (argv [3], "docs");
 

@@ -1,6 +1,6 @@
 unit DocIntf;
 
-{ $Id: DocIntf.pas,v 1.96 2015/10/06 13:54:06 voba Exp $ }
+{ $Id: DocIntf.pas,v 1.99 2016/01/21 09:44:43 voba Exp $ }
 
 {$I l3Define.inc}
 
@@ -737,6 +737,7 @@ uses
 
   daDataProvider,
   daTypes,
+  daSchemeConsts,
 
   dt_Serv,
   dt_Record,
@@ -1359,7 +1360,7 @@ end;
 
 function TarCustomDocument.GetLocalStoragePath : TPathStr;
 begin
- Result := format('%s%d', [IniRec.PathToLocalSaveDir, DocID]);
+ Result := ConcatDirName(IniRec.PathToLocalSaveDir, IntToStr(DocID));
 end;
 
 function  TarCustomDocument.GetGlobalStoragePath : TPathStr;
@@ -4055,7 +4056,7 @@ procedure DeleteLocalCopy(aDocID : TDocID);
  var
   l_DB : Im3DB;
  begin
- l_DB := Tm3SimpleDB.Make(format('%s%d', [IniRec.PathToLocalSaveDir, aDocID]));
+ l_DB := Tm3SimpleDB.Make(ConcatDirName(IniRec.PathToLocalSaveDir, IntToStr(aDocID)));
  try
   l_DB.DeleteVersion;
  finally

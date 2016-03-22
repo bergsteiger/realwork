@@ -3,6 +3,7 @@ unit atNamedMutex;
 
 // Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atNamedMutex.pas"
 // Стереотип: "SimpleClass"
+// Элемент модели: "TatNamedMutex" MUID: (491D8DFA00BB)
 
 interface
 
