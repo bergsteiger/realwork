@@ -2665,6 +2665,10 @@ function Tm3IndexSearcher.GetResult(const ANormalizater : Im3Normalizater;
                       const AHashSize    : LongInt;
                       const AHashVersion : Word): Word;
   begin
+   l3System.Msg2Log('__MakeHash:' + aValue);
+   l3System.Msg2Log('AHashCount:' + IntToStr(AHashCount));
+   l3System.Msg2Log('AHashSize:' + IntToStr(AHashSize));
+   l3System.Msg2Log('AHashVersion' + IntToStr(AHashVersion));
    Result:=Tm3HashHandleList.MakeHash(AValue,AHashCount,AHashSize,AHashVersion);
   end;
 
@@ -2675,7 +2679,9 @@ function Tm3IndexSearcher.GetResult(const ANormalizater : Im3Normalizater;
                       STGM_SHARE_EXCLUSIVE or
                       STGM_DIRECT;
   begin
+   l3System.Msg2Log('Индекс хеша: ' + IntToStr(anIndex));
    Result := m3COMOpenStorage(aStorage, anIndex, CStatStgReadMode, false);
+   Assert(Result <> nil, 'Не открыли хэш');
   end;
 
   function __OpenStream(const AStorage : Im3IndexedStorage;
@@ -2690,11 +2696,19 @@ function Tm3IndexSearcher.GetResult(const ANormalizater : Im3Normalizater;
 
  begin//__GetHashDataStream
   try
+   Assert(AHashDataStorage <> nil);
    Result:=__OpenStream(__OpenStorage(AHashDataStorage,__MakeHash(AValue,AHashCount,AHashSize,AHashVersion)),l3PCharLen(AValue));
+   if (Result = nil) then
+    l3System.Msg2Log('nil: ' + aValue)
+   else
+    l3System.Msg2Log('Found: ' + aValue);
   except
    on E: EOleSysError do
     if (E.ErrorCode = STG_E_FILENOTFOUND) then
+    begin
+     l3System.Msg2Log('Not found: ' + aValue);
      Result:=nil
+    end 
     else
      raise;
   end;//try..except
@@ -2753,17 +2767,23 @@ function Tm3IndexSearcher.GetResult(const ANormalizater : Im3Normalizater;
  begin//__MergeHashData
   LTempStream:=Tm3TempStream.Create;
   try
+   l3System.Msg2Log('LTempStream:=Tm3TempStream.Create;');
    LBuffStream:=Tm3BuffStream.Create(LTempStream);
    try
+    l3System.Msg2Log('LBuffStream:=Tm3BuffStream.Create(LTempStream);');
     repeat
      LItem:=nil;
      LFound:=-1;
      for LIndex:=0 to Pred(Length(ASearchInfoArray)) do begin
       with ASearchInfoArray[LIndex] do begin
+        Assert(rStream <> nil);
         if (RStream <> nil) then begin
          if RNeedLoad then begin
           if FIndexReader.Get(RStream,RItem,FItemSize) then
-           RNeedLoad := false
+          begin
+           l3System.Msg2Log('FIndexReader.Get(RStream,RItem,FItemSize)');
+           RNeedLoad := false;
+          end
           else begin
            RStream := nil;
            Continue;
@@ -2783,6 +2803,7 @@ function Tm3IndexSearcher.GetResult(const ANormalizater : Im3Normalizater;
       with ASearchInfoArray[LFound] do begin
        RNeedLoad:=True;
        FIndexWriter.Put(LBuffStream, RItem, FItemSize);
+       l3System.Msg2Log('FIndexWriter.Put(LBuffStream, RItem, FItemSize);');
       end//with ASearchInfoArray[LFound]
      else
        Break;

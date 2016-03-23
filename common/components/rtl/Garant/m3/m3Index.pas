@@ -210,7 +210,7 @@ begin
  Result := IndexStorage;
  if (Result = nil) then begin
   if aReadOnly then
-   Result := {Tm3ReadModeStorageManager}Tm3ConstantStorageManager.MakeInterface(f_IndexStorageName)
+   Result := Tm3ReadModeStorageManager{Tm3ConstantStorageManager}.MakeInterface(f_IndexStorageName)
   else
    Result := Tm3FullModeStorageManager.MakeInterface(f_IndexStorageName);
  end;//Result = nil

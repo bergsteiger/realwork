@@ -2103,6 +2103,8 @@ begin
  l3Free(fAddresses);
  lIDList := m4SearchByFormula(GetTextIndexPath(CurrentFamily, fIndexType), l3PCharLen(fFormula), @fAddresses);
  try
+  if (lIDList <> nil) then
+  l3System.Msg2Log('Found: ' + IntToStr(lIDList.Count));
   fSab := MakeValueSet(MainTblPhoto.Table, fID_Fld, lIDList);
   fSab.RecordsByKey;
  finally
