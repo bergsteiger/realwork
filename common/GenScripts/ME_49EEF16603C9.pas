@@ -86,13 +86,13 @@ type
   ns_ukDocIDWithPageNumber, ns_ukFull);
 const
  //Общая регулярка
- cBaseDocumentMask: String = 'https?\:\/\/(base.garant.ru)\/[0-9]+\/?([0-9]+)(\/)?(#(block_)?[0-9]+)?$';
+ cBaseDocumentMask: String = 'https?\:\/\/(base.garant.ru)\/[0-9]+\/?([0-9]+)(\/)?(#(block_)?[0-9]+)$';
  //Только номер документа
- cDocIDOnlyMask: String = 'https?\:\/\/(base.garant.ru)\/[0-9]+\/$';
+ cDocIDOnlyMask: String = 'https?\:\/\/(base.garant.ru)\/[0-9]+\/?$';
  //Номер документа с сабом
  cDocIDWithSubIDMask: String = 'https?\:\/\/(base.garant.ru)\/[0-9]+\/(#(block_)?[0-9]+)$';
  //Номер документа со страницей
- cDocIDWithPageNumberMask: String = 'https?\:\/\/(base.garant.ru)\/[0-9]+\/[0-9]+\/$';
+ cDocIDWithPageNumberMask: String = 'https?\:\/\/(base.garant.ru)\/[0-9]+\/[0-9]+\/?$';
  //Номер документа со страницей и сабом:
  cDocIDWithPageNumAndSubIDMask: String = 'https?\:\/\/(base.garant.ru)\/[0-9]+\/([0-9]+)(\/)(#(block_)?[0-9]+)$';
  cSharpChar: String = '#';
