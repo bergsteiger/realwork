@@ -200,7 +200,7 @@ procedure TPrimContentsOptionsForm.File_ToMSWord_Test(const aParams: IvcmTestPar
 begin
 //#UC START# *495238EB0160_4C878FA60351test_impl*
  aParams.Op.Flag[vcm_ofEnabled] := (ContentsTree.Total > 0);
- nsDisableOperationInTrialMode(aParams);
+ //nsDisableOperationInTrialMode(aParams);
  TnsToMSWordOp.Test(aParams);
 //#UC END# *495238EB0160_4C878FA60351test_impl*
 end;//TPrimContentsOptionsForm.File_ToMSWord_Test
