@@ -117,6 +117,7 @@ begin
  l_Result := PQprepare(f_Connection.Handle, PAnsiChar(f_QueryName),  PAnsiChar(BuildSQL), Params.Count, nil);
  try
   pgCheckStatus(l_Result);
+  f_Connection.CommitTransaction;
  finally
   PQclear(l_Result);
  end;
@@ -130,9 +131,7 @@ var
 //#UC END# *566A893B03C7_55F960D502F6_var*
 begin
 //#UC START# *566A893B03C7_55F960D502F6_impl*
- f_QueryName := '';
- exit;
- l_Result := PQExec(f_Connection.Handle, PAnsiChar(Format('DEALLOCATE %s', [f_QueryName])));
+ l_Result := PQExec(f_Connection.Handle, PAnsiChar(Format('DEALLOCATE PREPARE "%s"', [f_QueryName])));
  try
   pgCheckStatus(l_Result);
   f_QueryName := '';

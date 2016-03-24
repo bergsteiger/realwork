@@ -778,9 +778,10 @@ begin
    g_Dispatcher.FormDispatcher.Unlock;
   end;//try..finally
   if not l_Accept then
-  begin
-   Result := Forward;
-  end;
+   if CanForward then
+    Result := Forward
+   else
+    Back(True);
  end;//f_Current >= 0
 //#UC END# *49955A3202E4_5506D56E02FB_impl*
 end;//TvcmHistory.Forward

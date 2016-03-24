@@ -156,7 +156,7 @@ var
 //#UC END# *564C66BE013F_564B212F02DA_var*
 begin
 //#UC START# *564C66BE013F_564B212F02DA_impl*
- l_Result := PQExec(f_Connection.Handle, PAnsiChar(Format('DEALLOCATE PREPARED %s', [f_InsertName])));
+ l_Result := PQExec(f_Connection.Handle, PAnsiChar(Format('DEALLOCATE PREPARE "%s"', [f_InsertName])));
  try
   f_InsertName := '';
   pgCheckStatus(l_Result);

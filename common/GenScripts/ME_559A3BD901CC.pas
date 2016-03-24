@@ -48,6 +48,8 @@ type
     UserGr: Boolean): IdaResultSet; virtual; abstract;
    procedure CorrectDates(var FromDate: TStDate;
     const ToDate: TStDate);
+   function NeedLogSessionBegin: Boolean; virtual;
+   function NeedLogSessionEnd: Boolean; virtual;
    function Get_CurStatisticTreeRoot: Il3RootNode;
    procedure CalcStatistics(const FromDate: TStDate;
     const ToDate: TStDate;
@@ -98,6 +100,7 @@ type
     UserOrGroupID: TdaUserID;
     UserGr: Boolean): IdaResultSet;
    function Get_CurSessionID: TdaSessionID;
+   function IsSessionActive: Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
@@ -295,12 +298,12 @@ begin
  CurS_ID:=0;
  CurS_Node:=nil;
 
- l_SessionField := aLog.Field['ID_Session'];
+ l_SessionField := aLog.Field['session_id'];
  l_DateField := aLog.Field['Date'];
  l_TimeField := aLog.Field['Time'];
- l_OperationField := aLog.Field['ID_Operat'];
+ l_OperationField := aLog.Field['operation_id'];
  l_AdditionalInfoField := aLog.Field['Additional'];
- l_ExtIDField := aLog.Field['ID_Ext'];
+ l_ExtIDField := aLog.Field['ext_id'];
 
  while not aLog.EOF do
  begin
@@ -435,6 +438,24 @@ begin
   ToDate := CurrentDate + 5;
 //#UC END# *55657CD20360_559A3BD901CC_impl*
 end;//TdaJournal.CorrectDates
+
+function TdaJournal.NeedLogSessionBegin: Boolean;
+//#UC START# *56F2622600C7_559A3BD901CC_var*
+//#UC END# *56F2622600C7_559A3BD901CC_var*
+begin
+//#UC START# *56F2622600C7_559A3BD901CC_impl*
+ Result := True;
+//#UC END# *56F2622600C7_559A3BD901CC_impl*
+end;//TdaJournal.NeedLogSessionBegin
+
+function TdaJournal.NeedLogSessionEnd: Boolean;
+//#UC START# *56F271D602AB_559A3BD901CC_var*
+//#UC END# *56F271D602AB_559A3BD901CC_var*
+begin
+//#UC START# *56F271D602AB_559A3BD901CC_impl*
+ Result := True;
+//#UC END# *56F271D602AB_559A3BD901CC_impl*
+end;//TdaJournal.NeedLogSessionEnd
 
 function TdaJournal.Get_CurStatisticTreeRoot: Il3RootNode;
 //#UC START# *554092F701E2_559A3BD901CCget_var*
@@ -671,7 +692,7 @@ procedure TdaJournal.SetAlienData(anUserID: TdaUserID;
 //#UC END# *56E2A25501A6_559A3BD901CC_var*
 begin
 //#UC START# *56E2A25501A6_559A3BD901CC_impl*
- if f_CurUser <> anUserID then
+ if (f_CurUser <> anUserID) or (f_CurSessionID <> aSessionID) then
  begin
   if f_CurSessionID <> BlankSession then
   begin
@@ -723,6 +744,15 @@ begin
  Result := f_CurSessionID;
 //#UC END# *56EBDD1F0184_559A3BD901CCget_impl*
 end;//TdaJournal.Get_CurSessionID
+
+function TdaJournal.IsSessionActive: Boolean;
+//#UC START# *56F2627200AE_559A3BD901CC_var*
+//#UC END# *56F2627200AE_559A3BD901CC_var*
+begin
+//#UC START# *56F2627200AE_559A3BD901CC_impl*
+ Result := f_CurSessionID <> BlankSession;
+//#UC END# *56F2627200AE_559A3BD901CC_impl*
+end;//TdaJournal.IsSessionActive
 
 procedure TdaJournal.Cleanup;
  {* Функция очистки полей объекта. }

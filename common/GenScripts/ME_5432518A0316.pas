@@ -188,6 +188,7 @@ type
   procedure StartCaching;
   procedure StopCaching;
   procedure SessionDone;
+  function IsSessionActive: Boolean;
   property CurStatisticTreeRoot: Il3RootNode
    read Get_CurStatisticTreeRoot;
   property UserID: TdaUserID
@@ -439,6 +440,7 @@ type
   function Get_Table: IdaFromTable;
   procedure AddSelectField(const aField: IdaSelectField);
   procedure AddOrderBy(const aSortField: IdaSortField);
+  function SelectFieldByName(const anAlias: AnsiString): IdaSelectField;
   property WhereCondition: IdaCondition
    read Get_WhereCondition
    write Set_WhereCondition;
@@ -516,6 +518,7 @@ type
   procedure UnSubscribeProgress(const aSubscriber: IdaProgressSubscriber);
   procedure BeginImpersonate(anUserID: TdaUserID);
   procedure EndImpersonate;
+  function HasJournal: Boolean;
   property UserID: TdaUserID
    read Get_UserID;
   property RegionID: TdaRegionID

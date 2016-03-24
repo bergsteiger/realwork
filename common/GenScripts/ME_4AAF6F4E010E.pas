@@ -189,7 +189,7 @@ begin
  if not IsReady then
   aParams.Op.Flag[vcm_ofEnabled] := false;
  {$If not defined(Admin) AND not defined(Monitorings)} 
- nsDisableOperationInTrialMode(aParams);
+ //nsDisableOperationInTrialMode(aParams);
  {$IfEnd} //not Admin AND not Monitorings
 //#UC END# *49521D8E0295_4AAF6F4E010Etest_impl*
 end;//TPrimPreviewForm.File_Print_Test
@@ -204,7 +204,7 @@ begin
  if not IsReady then
   aParams.Op.Flag[vcm_ofEnabled] := false;
  {$If not defined(Admin) AND not defined(Monitorings)} 
- nsDisableOperationInTrialMode(aParams);
+ //nsDisableOperationInTrialMode(aParams);
  {$IfEnd} //not Admin AND not Monitorings
 //#UC END# *495220DE0298_4AAF6F4E010Etest_impl*
 end;//TPrimPreviewForm.File_PrintDialog_Test
@@ -235,7 +235,7 @@ begin
  if not IsReady then
   aParams.Op.Flag[vcm_ofEnabled] := false;
  {$If not defined(Admin) AND not defined(Monitorings)}
- nsDisableOperationInTrialMode(aParams);
+ //nsDisableOperationInTrialMode(aParams);
  {$IfEnd} //not Admin AND not Monitorings
 //#UC END# *4A97EBE702F8_4AAF6F4E010Etest_impl*
 end;//TPrimPreviewForm.Result_Ok_Test

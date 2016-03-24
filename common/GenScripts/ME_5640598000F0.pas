@@ -71,12 +71,12 @@ begin
 end;//TdaLogicCondition.Make
 
 procedure TdaLogicCondition.Iterate(anAction: daConditionIterator_Iterate_Action);
-//#UC START# *5641CAC802C3_5640598000F0_var*
-//#UC END# *5641CAC802C3_5640598000F0_var*
+//#UC START# *56F3A69D0089_5640598000F0_var*
+//#UC END# *56F3A69D0089_5640598000F0_var*
 begin
-//#UC START# *5641CAC802C3_5640598000F0_impl*
+//#UC START# *56F3A69D0089_5640598000F0_impl*
  !!! Needs to be implemented !!!
-//#UC END# *5641CAC802C3_5640598000F0_impl*
+//#UC END# *56F3A69D0089_5640598000F0_impl*
 end;//TdaLogicCondition.Iterate
 
 function TdaLogicCondition.DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString;

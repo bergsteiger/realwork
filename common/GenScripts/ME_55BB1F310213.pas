@@ -55,22 +55,13 @@ type
  TddBlockInfoStack = {final} class(_l3UncomparabeObjectRefList_)
  end;//TddBlockInfoStack
 
- TddSyleEnum = (
-  dd_wsNone
-  , dd_wsCheckCollapsed
-  , dd_wsOtherStyle
-  , dd_wsExpandedText
- );//TddSyleEnum
-
  TddRTFExpandedTextWriter = class(TddRTFSegmentWriter)
   private
    f_BlockStack: TddBlockInfoStack;
    f_StyledSpace: LongInt;
-   f_FindStyle: TddSyleEnum;
    f_AddBlockStyle: Boolean;
   private
    function NeedCheckCollapsed(aStyle: Integer): Boolean;
-   function NeedCorrectIndent(aStyle: Integer): Boolean;
    function GetStyleLeftIndent(aStyleID: Integer): Integer;
   protected
    procedure Cleanup; override;
@@ -165,15 +156,6 @@ begin
  Result := aStyle = ev_saExpandedText;
 //#UC END# *55BB652A0311_55BB1F310213_impl*
 end;//TddRTFExpandedTextWriter.NeedCheckCollapsed
-
-function TddRTFExpandedTextWriter.NeedCorrectIndent(aStyle: Integer): Boolean;
-//#UC START# *55BB65F40177_55BB1F310213_var*
-//#UC END# *55BB65F40177_55BB1F310213_var*
-begin
-//#UC START# *55BB65F40177_55BB1F310213_impl*
- Result := aStyle = ev_saExpandedText;
-//#UC END# *55BB65F40177_55BB1F310213_impl*
-end;//TddRTFExpandedTextWriter.NeedCorrectIndent
 
 function TddRTFExpandedTextWriter.GetStyleLeftIndent(aStyleID: Integer): Integer;
 //#UC START# *55BF76DD00EB_55BB1F310213_var*

@@ -23,6 +23,9 @@ type
   private
    f_DataConverter: IpgDataConverter;
    f_Connection: TpgConnection;
+   f_UserNameQuery: IdaTabledQuery;
+  private
+   function UserNameQuery: IdaTabledQuery;
   protected
    function MakeTabledQuery(const aTable: IdaTableDescription;
     const anAlias: AnsiString = ''): IdaTabledQuery;
@@ -93,6 +96,22 @@ begin
  end;//try..finally
 end;//TpgTableQueryFactory.Make
 
+function TpgTableQueryFactory.UserNameQuery: IdaTabledQuery;
+//#UC START# *56F11DEF037F_55F81B3F024D_var*
+//#UC END# *56F11DEF037F_55F81B3F024D_var*
+begin
+//#UC START# *56F11DEF037F_55F81B3F024D_impl*
+ if f_UserNameQuery = nil then
+ begin
+  f_UserNameQuery := MakeTabledQuery(TdaScheme.Instance.Table(da_mtUsers));
+  f_UserNameQuery.AddSelectField(MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['user_name']));
+  f_UserNameQuery.WhereCondition := MakeParamsCondition('', TdaScheme.Instance.Table(da_mtUsers)['ID'], da_copEqual, 'p_UserID');
+  f_UserNameQuery.Prepare;
+ end;
+ Result := f_UserNameQuery;
+//#UC END# *56F11DEF037F_55F81B3F024D_impl*
+end;//TpgTableQueryFactory.UserNameQuery
+
 function TpgTableQueryFactory.MakeTabledQuery(const aTable: IdaTableDescription;
  const anAlias: AnsiString = ''): IdaTabledQuery;
 //#UC START# *5549C65D038D_55F81B3F024D_var*
@@ -129,25 +148,16 @@ end;//TpgTableQueryFactory.MakeParamsCondition
 function TpgTableQueryFactory.GetUserNameStr(anUserID: LargeInt): AnsiString;
 //#UC START# *559BAF4401C8_55F81B3F024D_var*
 var
- l_Query: IdaTabledQuery;
  l_ResultSet: IdaResultSet;
 //#UC END# *559BAF4401C8_55F81B3F024D_var*
 begin
 //#UC START# *559BAF4401C8_55F81B3F024D_impl*
- l_Query := MakeTabledQuery(TdaScheme.Instance.Table(da_mtUsers));
+ UserNameQuery.Param['p_UserID'].AsLargeInt := anUserID;
+ l_ResultSet := UserNameQuery.OpenResultSet;
  try
-  l_Query.AddSelectField(MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['UserName']));
-  l_Query.WhereCondition := MakeParamsCondition('', TdaScheme.Instance.Table(da_mtUsers)['ID'], da_copEqual, 'p_UserID');
-  l_Query.Prepare;
-  l_Query.Param['p_UserID'].AsLargeInt := anUserID;
-  l_ResultSet := l_Query.OpenResultSet;
-  try
-   Result := l_ResultSet.Field['UserName'].AsString;
-  finally
-   l_ResultSet := nil;
-  end;
+  Result := l_ResultSet.Field['user_name'].AsString;
  finally
-  l_Query := nil;
+  l_ResultSet := nil;
  end;
 //#UC END# *559BAF4401C8_55F81B3F024D_impl*
 end;//TpgTableQueryFactory.GetUserNameStr
@@ -199,6 +209,7 @@ procedure TpgTableQueryFactory.Cleanup;
 //#UC END# *479731C50290_55F81B3F024D_var*
 begin
 //#UC START# *479731C50290_55F81B3F024D_impl*
+ f_UserNameQuery := nil;
  f_DataConverter := nil;
  FreeAndNil(f_Connection);
  inherited;

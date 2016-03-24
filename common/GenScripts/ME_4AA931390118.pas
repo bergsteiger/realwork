@@ -182,7 +182,7 @@ function TCommonSearchModule.CanPrint: Boolean;
 //#UC END# *473D8FB70042_4AA931390118_var*
 begin
 //#UC START# *473D8FB70042_4AA931390118_impl*
- Result := not DefDataAdapter.IsTrialMode;
+ Result := True{not DefDataAdapter.IsTrialMode};
 //#UC END# *473D8FB70042_4AA931390118_impl*
 end;//TCommonSearchModule.CanPrint
 

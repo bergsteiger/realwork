@@ -47,6 +47,7 @@ type
    function Get_Table: IdaFromTable;
    function DoBuildSQLValue(const aHelper: IdaParamListHelper): AnsiString; override;
    procedure AddOrderBy(const aSortField: IdaSortField);
+   function SelectFieldByName(const anAlias: AnsiString): IdaSelectField;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
@@ -267,6 +268,15 @@ begin
  f_OrderBy.Add(aSortField);
 //#UC END# *567D12D00384_5600FA2301B9_impl*
 end;//TdaTabledQuery.AddOrderBy
+
+function TdaTabledQuery.SelectFieldByName(const anAlias: AnsiString): IdaSelectField;
+//#UC START# *56F3D89F01C8_5600FA2301B9_var*
+//#UC END# *56F3D89F01C8_5600FA2301B9_var*
+begin
+//#UC START# *56F3D89F01C8_5600FA2301B9_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *56F3D89F01C8_5600FA2301B9_impl*
+end;//TdaTabledQuery.SelectFieldByName
 
 procedure TdaTabledQuery.Cleanup;
  {* Функция очистки полей объекта. }

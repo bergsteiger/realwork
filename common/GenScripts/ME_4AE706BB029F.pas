@@ -1317,8 +1317,8 @@ begin
  {$If not defined(Admin) AND not defined(Monitorings)}
   if (DefDataAdapter <> nil) then
   begin
-    ElementName.DisableDragAndDropSupport := DefDataAdapter.IsTrialMode;
-    ElementComment.DisableDragAndDropSupport := DefDataAdapter.IsTrialMode;
+    //ElementName.DisableDragAndDropSupport := DefDataAdapter.IsTrialMode;
+    //ElementComment.DisableDragAndDropSupport := DefDataAdapter.IsTrialMode;
   end;
  {$IfEnd} //not Admin AND not Monitorings
 //#UC END# *49803F5503AA_4AE706BB029F_impl*

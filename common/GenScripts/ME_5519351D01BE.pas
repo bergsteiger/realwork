@@ -82,6 +82,7 @@ type
    procedure BeginImpersonate(anUserID: TdaUserID);
    procedure EndImpersonate;
    function Get_UserManager: IdaUserManager;
+   function HasJournal: Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -457,6 +458,7 @@ begin
  if Assigned(f_Journal) then
   f_Journal.SessionDone;
  f_Journal := nil;
+ f_UserManager := nil;
  if GlobalHTServer <> nil then
   DestroyHt;
  f_IsStarted := False; 
@@ -539,6 +541,15 @@ begin
  Result := f_UserManager;
 //#UC END# *5628D25600E6_5519351D01BEget_impl*
 end;//ThtDataProvider.Get_UserManager
+
+function ThtDataProvider.HasJournal: Boolean;
+//#UC START# *56F0F6180156_5519351D01BE_var*
+//#UC END# *56F0F6180156_5519351D01BE_var*
+begin
+//#UC START# *56F0F6180156_5519351D01BE_impl*
+ Result := Assigned(f_Journal);
+//#UC END# *56F0F6180156_5519351D01BE_impl*
+end;//ThtDataProvider.HasJournal
 
 procedure ThtDataProvider.Cleanup;
  {* Функция очистки полей объекта. }

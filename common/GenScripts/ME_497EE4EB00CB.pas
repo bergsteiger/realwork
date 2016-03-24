@@ -633,7 +633,8 @@ procedure TPrimMedicFirmListForm.File_Print_Test(const aParams: IvcmTestParamsPr
 //#UC END# *49521D8E0295_497EE4EB00CBtest_var*
 begin
 //#UC START# *49521D8E0295_497EE4EB00CBtest_impl*
- ListOpsWithTrialModeTest(aParams);
+ //ListOpsWithTrialModeTest(aParams);
+ ListOpsTest(aParams);
 //#UC END# *49521D8E0295_497EE4EB00CBtest_impl*
 end;//TPrimMedicFirmListForm.File_Print_Test
 
@@ -657,7 +658,8 @@ procedure TPrimMedicFirmListForm.File_PrintDialog_Test(const aParams: IvcmTestPa
 //#UC END# *495220DE0298_497EE4EB00CBtest_var*
 begin
 //#UC START# *495220DE0298_497EE4EB00CBtest_impl*
- ListOpsWithTrialModeTest(aParams);
+ //ListOpsWithTrialModeTest(aParams);
+ ListOpsTest(aParams);
 //#UC END# *495220DE0298_497EE4EB00CBtest_impl*
 end;//TPrimMedicFirmListForm.File_PrintDialog_Test
 
@@ -695,7 +697,8 @@ procedure TPrimMedicFirmListForm.File_PrintPreview_Test(const aParams: IvcmTestP
 //#UC END# *495220F2033A_497EE4EB00CBtest_var*
 begin
 //#UC START# *495220F2033A_497EE4EB00CBtest_impl*
- ListOpsWithTrialModeTest(aParams);
+ //ListOpsWithTrialModeTest(aParams);
+ ListOpsTest(aParams);
 //#UC END# *495220F2033A_497EE4EB00CBtest_impl*
 end;//TPrimMedicFirmListForm.File_PrintPreview_Test
 
@@ -715,7 +718,8 @@ procedure TPrimMedicFirmListForm.File_Save_Test(const aParams: IvcmTestParamsPri
 //#UC END# *495235F401C0_497EE4EB00CBtest_var*
 begin
 //#UC START# *495235F401C0_497EE4EB00CBtest_impl*
- ListOpsWithTrialModeTest(aParams);
+ //ListOpsWithTrialModeTest(aParams);
+ ListOpsTest(aParams);
 //#UC END# *495235F401C0_497EE4EB00CBtest_impl*
 end;//TPrimMedicFirmListForm.File_Save_Test
 
@@ -735,7 +739,8 @@ procedure TPrimMedicFirmListForm.File_ToMSWord_Test(const aParams: IvcmTestParam
 //#UC END# *495238EB0160_497EE4EB00CBtest_var*
 begin
 //#UC START# *495238EB0160_497EE4EB00CBtest_impl*
- ListOpsWithTrialModeTest(aParams);
+ //ListOpsWithTrialModeTest(aParams);
+ ListOpsTest(aParams);
  TnsToMSWordOp.Test(aParams);
 //#UC END# *495238EB0160_497EE4EB00CBtest_impl*
 end;//TPrimMedicFirmListForm.File_ToMSWord_Test
@@ -780,7 +785,8 @@ procedure TPrimMedicFirmListForm.File_SendMailAsAttachment_Test(const aParams: I
 //#UC END# *495253870002_497EE4EB00CBtest_var*
 begin
 //#UC START# *495253870002_497EE4EB00CBtest_impl*
- ListOpsWithTrialModeTest(aParams);
+ //ListOpsWithTrialModeTest(aParams);
+ ListOpsTest(aParams);
 //#UC END# *495253870002_497EE4EB00CBtest_impl*
 end;//TPrimMedicFirmListForm.File_SendMailAsAttachment_Test
 
