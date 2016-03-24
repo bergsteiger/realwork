@@ -89,12 +89,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , RadioButtonWordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , vtComboBoxWordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure TCustomLabel.AdjustBounds;

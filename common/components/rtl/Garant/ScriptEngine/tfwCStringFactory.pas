@@ -35,6 +35,7 @@ type
    class function CatSep(const aA: Il3CString;
     const aSep: Il3CString;
     const aB: Il3CString): Il3CString;
+   class function ToUnicode(const aString: Il3CString): Il3CString;
    class function Instance: TtfwCStringFactory;
     {* Метод получения экземпляра синглетона TtfwCStringFactory }
    class function Exists: Boolean;
@@ -49,6 +50,7 @@ uses
  , tfwCStringArraySing
  , tfwCStringArraySing2
  , l3Types
+ , l3Chars
  , SysUtils
  , l3Base
 ;
@@ -285,6 +287,23 @@ begin
   Result := Cat([aA, aSep, aB]);
 //#UC END# *5602A7F8015D_4F473F9402D8_impl*
 end;//TtfwCStringFactory.CatSep
+
+class function TtfwCStringFactory.ToUnicode(const aString: Il3CString): Il3CString;
+//#UC START# *56F3E7140106_4F473F9402D8_var*
+//#UC END# *56F3E7140106_4F473F9402D8_var*
+begin
+//#UC START# *56F3E7140106_4F473F9402D8_impl*
+ if l3IsNil(aString) then
+  Result := aString
+ else
+ if (aString.AsWStr.SCodePage = CP_Unicode) then
+  Result := aString
+ else
+  Result := l3CStr(l3DStr(aString));
+  //Result := l3CStr(l3PCharLen(l3DStr(aString)));
+  //Result := C(l3PCharLen(l3DStr(aString)));
+//#UC END# *56F3E7140106_4F473F9402D8_impl*
+end;//TtfwCStringFactory.ToUnicode
 
 class function TtfwCStringFactory.Instance: TtfwCStringFactory;
  {* Метод получения экземпляра синглетона TtfwCStringFactory }

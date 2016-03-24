@@ -35,6 +35,7 @@ function nsNeedOpenLinkInExternalBrowser(const anURL: WideString): Boolean;
 function nsIsObtainRequisitesForMobileAccessURL(const anURL: WideString): Boolean;
 function nsIsMunicipalDecisionsArchiveURL(const anURL: WideString): Boolean;
 function nsNeedOpenLinkInInternalBrowser(const anURL: WideString): Boolean;
+function nsIsMailtoURL(const anURL: WideString): Boolean;
 {$IfEnd} // Defined(Nemesis)
 
 implementation
@@ -307,6 +308,17 @@ begin
  end;
 //#UC END# *553A26CA015B_49EEF16603C9_impl*
 end;//nsNeedOpenLinkInInternalBrowser
+
+function nsIsMailtoURL(const anURL: WideString): Boolean;
+//#UC START# *56F37FFB010E_49EEF16603C9_var*
+const
+ cMailToMask: String = 'mailto:.*$';
+//#UC END# *56F37FFB010E_49EEF16603C9_var*
+begin
+//#UC START# *56F37FFB010E_49EEF16603C9_impl*
+ Result := l3CheckStrByPattern(cMailToMask, l3PCharLen(anURL));
+//#UC END# *56F37FFB010E_49EEF16603C9_impl*
+end;//nsIsMailtoURL
 {$IfEnd} // Defined(Nemesis)
 
 end.

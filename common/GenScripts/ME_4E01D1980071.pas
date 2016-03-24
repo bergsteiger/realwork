@@ -431,9 +431,9 @@ end;//Tl3MessageID.Fake
 
 constructor Tl3MessageID.Init;
 begin
-//#UC START# *4E01D1E002AEInit_impl*
+//#UC START# *4E01D1E002AEInit_4E01D1E002AE_impl*
  !!! Needs to be implemented !!!
-//#UC END# *4E01D1E002AEInit_impl*
+//#UC END# *4E01D1E002AEInit_4E01D1E002AE_impl*
 end;//Tl3MessageID.Init
 
 initialization
