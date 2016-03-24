@@ -2112,7 +2112,7 @@ begin
  if (aParams.Control = tvList) then
  begin
   SelectionOpsTest(aParams);
-  nsDisableOperationInTrialMode(aParams);
+  //nsDisableOperationInTrialMode(aParams);
  end//aParams.Control = tvList
  else
   if not aParams.CallControl then
