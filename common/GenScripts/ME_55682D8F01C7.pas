@@ -20,22 +20,43 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwIteratableParent
+ , tfwScriptingInterfaces
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
- , tfwScriptingInterfaces
  , TypInfo
  , tfwRegisterableWord
  , tfwWordWorkerEx
+ , tfwGlobalKeyWord
  , l3String
  , l3Types
  , l3Chars
  , l3Base
+ , m2HasLib
+ , tfwHash16Table
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils
 ;
 
 type
+ TtfwStringIterator = class(TtfwIteratableParent, ItfwValueList)
+  private
+   f_String: Il3CString;
+  protected
+   procedure SetItem(anIndex: Integer;
+    const aValue: TtfwStackValue);
+   function ItemsCountInSlice: Integer;
+   procedure ClearFields; override;
+  public
+   constructor Create(const aString: Il3CString); reintroduce;
+   class function Make(const aString: Il3CString): ItfwValueList; reintroduce;
+   procedure ForEach(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext);
+   procedure ForEachBack(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext);
+ end;//TtfwStringIterator
+
  //#UC START# *1C3B459FC59Bci*
  //#UC END# *1C3B459FC59Bci*
  //#UC START# *1C3B459FC59Bcit*
@@ -848,6 +869,132 @@ STRING VAR l_Il3CString
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwStringUpper
 
+ TkwStringToUnicode = {final} class(TtfwClassLike)
+  {* Слово скрипта string:ToUnicode
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aString string:ToUnicode >>> l_Il3CString
+[code]  }
+  private
+   function string_ToUnicode(const aCtx: TtfwContext;
+    const aString: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:ToUnicode }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringToUnicode
+
+ TkwStringHash = {final} class(TtfwClassLike)
+  {* Слово скрипта string:Hash
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aString string:Hash >>> l_Integer
+[code]  }
+  private
+   function string_Hash(const aCtx: TtfwContext;
+    const aString: Il3CString): Integer;
+    {* Реализация слова скрипта string:Hash }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringHash
+
+ TkwStringSmallHash = {final} class(TtfwClassLike)
+  {* Слово скрипта string:SmallHash
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aString string:SmallHash >>> l_Integer
+[code]  }
+  private
+   function string_SmallHash(const aCtx: TtfwContext;
+    const aString: Il3CString): Integer;
+    {* Реализация слова скрипта string:SmallHash }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringSmallHash
+
+ TkwStringIterator = {final} class(TtfwClassLike)
+  {* Слово скрипта string:Iterator
+*Тип результата:* ItfwValueList
+*Пример:*
+[code]
+ARRAY VAR l_ItfwValueList
+ aString string:Iterator >>> l_ItfwValueList
+[code]  }
+  private
+   function string_Iterator(const aCtx: TtfwContext;
+    const aString: Il3CString): ItfwValueList;
+    {* Реализация слова скрипта string:Iterator }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringIterator
+
+ TkwStringHashNew = {final} class(TtfwClassLike)
+  {* Слово скрипта string:Hash:New
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aString string:Hash:New >>> l_Integer
+[code]  }
+  private
+   function string_Hash_New(const aCtx: TtfwContext;
+    const aString: Il3CString): Integer;
+    {* Реализация слова скрипта string:Hash:New }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringHashNew
+
+ TkwStringSmallHashNew = {final} class(TtfwClassLike)
+  {* Слово скрипта string:SmallHash:New
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aString string:SmallHash:New >>> l_Integer
+[code]  }
+  private
+   function string_SmallHash_New(const aCtx: TtfwContext;
+    const aString: Il3CString): Integer;
+    {* Реализация слова скрипта string:SmallHash:New }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringSmallHashNew
+
  TkwVarDecLen = {final} class(TtfwWordWorkerEx)
   {* Слово скрипта string:--Len!
 *Пример:*
@@ -976,6 +1123,109 @@ CHAR VAR l_Char
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwVarPushCharAndInc
+
+ TkwHash16Table = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта Hash16Table
+*Тип результата:* ItfwValueList
+*Пример:*
+[code]
+ARRAY VAR l_ItfwValueList
+ Hash16Table >>> l_ItfwValueList
+[code]  }
+  private
+   function Hash16Table(const aCtx: TtfwContext): ItfwValueList;
+    {* Реализация слова скрипта Hash16Table }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwHash16Table
+
+constructor TtfwStringIterator.Create(const aString: Il3CString);
+//#UC START# *56F3EF17004C_56F3EEE50232_var*
+//#UC END# *56F3EF17004C_56F3EEE50232_var*
+begin
+//#UC START# *56F3EF17004C_56F3EEE50232_impl*
+ inherited Create;
+ f_String := aString;
+//#UC END# *56F3EF17004C_56F3EEE50232_impl*
+end;//TtfwStringIterator.Create
+
+class function TtfwStringIterator.Make(const aString: Il3CString): ItfwValueList;
+var
+ l_Inst : TtfwStringIterator;
+begin
+ l_Inst := Create(aString);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TtfwStringIterator.Make
+
+procedure TtfwStringIterator.ForEach(aLambda: TtfwWordPrim;
+ const aCtx: TtfwContext);
+//#UC START# *52E23B7A00EC_56F3EEE50232_var*
+var
+ l_S : Tl3WString;
+ l_Index : Integer;
+//#UC END# *52E23B7A00EC_56F3EEE50232_var*
+begin
+//#UC START# *52E23B7A00EC_56F3EEE50232_impl*
+ l_S := f_String.AsWStr;
+ for l_Index := 0 to Pred(l_S.SLen) do
+ begin
+  aCtx.rEngine.PushChar(l3Char(l_S, l_Index));
+  aLambda.DoIt(aCtx);
+ end;//for l_Index
+//#UC END# *52E23B7A00EC_56F3EEE50232_impl*
+end;//TtfwStringIterator.ForEach
+
+procedure TtfwStringIterator.ForEachBack(aLambda: TtfwWordPrim;
+ const aCtx: TtfwContext);
+//#UC START# *52E23BB102FA_56F3EEE50232_var*
+var
+ l_S : Tl3WString;
+ l_Index : Integer;
+//#UC END# *52E23BB102FA_56F3EEE50232_var*
+begin
+//#UC START# *52E23BB102FA_56F3EEE50232_impl*
+ l_S := f_String.AsWStr;
+ for l_Index := Pred(l_S.SLen) downto 0 do
+ begin
+  aCtx.rEngine.PushChar(l3Char(l_S, l_Index));
+  aLambda.DoIt(aCtx);
+ end;//for l_Index
+//#UC END# *52E23BB102FA_56F3EEE50232_impl*
+end;//TtfwStringIterator.ForEachBack
+
+procedure TtfwStringIterator.SetItem(anIndex: Integer;
+ const aValue: TtfwStackValue);
+//#UC START# *55CDF40C03D4_56F3EEE50232_var*
+//#UC END# *55CDF40C03D4_56F3EEE50232_var*
+begin
+//#UC START# *55CDF40C03D4_56F3EEE50232_impl*
+ EtfwCheck.Fail('Массив неизменяемый');
+//#UC END# *55CDF40C03D4_56F3EEE50232_impl*
+end;//TtfwStringIterator.SetItem
+
+function TtfwStringIterator.ItemsCountInSlice: Integer;
+//#UC START# *55E849210175_56F3EEE50232_var*
+//#UC END# *55E849210175_56F3EEE50232_var*
+begin
+//#UC START# *55E849210175_56F3EEE50232_impl*
+ Result := 1;
+//#UC END# *55E849210175_56F3EEE50232_impl*
+end;//TtfwStringIterator.ItemsCountInSlice
+
+procedure TtfwStringIterator.ClearFields;
+begin
+ f_String := nil;
+ inherited;
+end;//TtfwStringIterator.ClearFields
 
 class function TtfwIl3CStringPackResNameGetter.ResName: AnsiString;
 begin
@@ -3037,6 +3287,282 @@ begin
  Result := 'string:Upper';
 end;//TkwStringUpper.GetWordNameForRegister
 
+function TkwStringToUnicode.string_ToUnicode(const aCtx: TtfwContext;
+ const aString: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:ToUnicode }
+//#UC START# *379CE3C7BE29_F137872D0D02_var*
+//#UC END# *379CE3C7BE29_F137872D0D02_var*
+begin
+//#UC START# *379CE3C7BE29_F137872D0D02_impl*
+ Result := TtfwCStringFactory.ToUnicode(aString);
+//#UC END# *379CE3C7BE29_F137872D0D02_impl*
+end;//TkwStringToUnicode.string_ToUnicode
+
+procedure TkwStringToUnicode.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_ToUnicode(aCtx, l_aString));
+end;//TkwStringToUnicode.DoDoIt
+
+function TkwStringToUnicode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwStringToUnicode.GetResultTypeInfo
+
+function TkwStringToUnicode.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringToUnicode.GetAllParamsCount
+
+function TkwStringToUnicode.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringToUnicode.ParamsTypes
+
+class function TkwStringToUnicode.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:ToUnicode';
+end;//TkwStringToUnicode.GetWordNameForRegister
+
+function TkwStringHash.string_Hash(const aCtx: TtfwContext;
+ const aString: Il3CString): Integer;
+ {* Реализация слова скрипта string:Hash }
+//#UC START# *CCA8B4B34AEE_58C52E8D04B3_var*
+//#UC END# *CCA8B4B34AEE_58C52E8D04B3_var*
+begin
+//#UC START# *CCA8B4B34AEE_58C52E8D04B3_impl*
+ Result := m2Hash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC);
+//#UC END# *CCA8B4B34AEE_58C52E8D04B3_impl*
+end;//TkwStringHash.string_Hash
+
+procedure TkwStringHash.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(string_Hash(aCtx, l_aString));
+end;//TkwStringHash.DoDoIt
+
+function TkwStringHash.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Integer);
+end;//TkwStringHash.GetResultTypeInfo
+
+function TkwStringHash.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringHash.GetAllParamsCount
+
+function TkwStringHash.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringHash.ParamsTypes
+
+class function TkwStringHash.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Hash';
+end;//TkwStringHash.GetWordNameForRegister
+
+function TkwStringSmallHash.string_SmallHash(const aCtx: TtfwContext;
+ const aString: Il3CString): Integer;
+ {* Реализация слова скрипта string:SmallHash }
+//#UC START# *996EB442FD96_15AF617143C8_var*
+//#UC END# *996EB442FD96_15AF617143C8_var*
+begin
+//#UC START# *996EB442FD96_15AF617143C8_impl*
+ Result := m2SmallHash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC);
+//#UC END# *996EB442FD96_15AF617143C8_impl*
+end;//TkwStringSmallHash.string_SmallHash
+
+procedure TkwStringSmallHash.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(string_SmallHash(aCtx, l_aString));
+end;//TkwStringSmallHash.DoDoIt
+
+function TkwStringSmallHash.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Integer);
+end;//TkwStringSmallHash.GetResultTypeInfo
+
+function TkwStringSmallHash.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringSmallHash.GetAllParamsCount
+
+function TkwStringSmallHash.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringSmallHash.ParamsTypes
+
+class function TkwStringSmallHash.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:SmallHash';
+end;//TkwStringSmallHash.GetWordNameForRegister
+
+function TkwStringIterator.string_Iterator(const aCtx: TtfwContext;
+ const aString: Il3CString): ItfwValueList;
+ {* Реализация слова скрипта string:Iterator }
+//#UC START# *5A085B77B272_AE2A1F9F2367_var*
+//#UC END# *5A085B77B272_AE2A1F9F2367_var*
+begin
+//#UC START# *5A085B77B272_AE2A1F9F2367_impl*
+ Result := TtfwStringIterator.Make(aString);
+//#UC END# *5A085B77B272_AE2A1F9F2367_impl*
+end;//TkwStringIterator.string_Iterator
+
+procedure TkwStringIterator.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushList(string_Iterator(aCtx, l_aString));
+end;//TkwStringIterator.DoDoIt
+
+function TkwStringIterator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(ItfwValueList);
+end;//TkwStringIterator.GetResultTypeInfo
+
+function TkwStringIterator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringIterator.GetAllParamsCount
+
+function TkwStringIterator.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringIterator.ParamsTypes
+
+class function TkwStringIterator.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Iterator';
+end;//TkwStringIterator.GetWordNameForRegister
+
+function TkwStringHashNew.string_Hash_New(const aCtx: TtfwContext;
+ const aString: Il3CString): Integer;
+ {* Реализация слова скрипта string:Hash:New }
+//#UC START# *9A63750A932F_B0A153973998_var*
+//#UC END# *9A63750A932F_B0A153973998_var*
+begin
+//#UC START# *9A63750A932F_B0A153973998_impl*
+ Result := m2Hash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC + 1);
+//#UC END# *9A63750A932F_B0A153973998_impl*
+end;//TkwStringHashNew.string_Hash_New
+
+procedure TkwStringHashNew.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(string_Hash_New(aCtx, l_aString));
+end;//TkwStringHashNew.DoDoIt
+
+function TkwStringHashNew.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Integer);
+end;//TkwStringHashNew.GetResultTypeInfo
+
+function TkwStringHashNew.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringHashNew.GetAllParamsCount
+
+function TkwStringHashNew.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringHashNew.ParamsTypes
+
+class function TkwStringHashNew.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Hash:New';
+end;//TkwStringHashNew.GetWordNameForRegister
+
+function TkwStringSmallHashNew.string_SmallHash_New(const aCtx: TtfwContext;
+ const aString: Il3CString): Integer;
+ {* Реализация слова скрипта string:SmallHash:New }
+//#UC START# *BF1566C329E5_A91467BC2C27_var*
+//#UC END# *BF1566C329E5_A91467BC2C27_var*
+begin
+//#UC START# *BF1566C329E5_A91467BC2C27_impl*
+ Result := m2SmallHash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC + 1);
+//#UC END# *BF1566C329E5_A91467BC2C27_impl*
+end;//TkwStringSmallHashNew.string_SmallHash_New
+
+procedure TkwStringSmallHashNew.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(string_SmallHash_New(aCtx, l_aString));
+end;//TkwStringSmallHashNew.DoDoIt
+
+function TkwStringSmallHashNew.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Integer);
+end;//TkwStringSmallHashNew.GetResultTypeInfo
+
+function TkwStringSmallHashNew.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringSmallHashNew.GetAllParamsCount
+
+function TkwStringSmallHashNew.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringSmallHashNew.ParamsTypes
+
+class function TkwStringSmallHashNew.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:SmallHash:New';
+end;//TkwStringSmallHashNew.GetWordNameForRegister
+
 procedure TkwVarDecLen.VarDecLen(const aCtx: TtfwContext;
  aVar: TtfwWord);
  {* Реализация слова скрипта string:--Len! }
@@ -3457,6 +3983,41 @@ begin
  Result := 'string:[]++!';
 end;//TkwVarPushCharAndInc.GetWordNameForRegister
 
+function TkwHash16Table.Hash16Table(const aCtx: TtfwContext): ItfwValueList;
+ {* Реализация слова скрипта Hash16Table }
+//#UC START# *38279256623E_01887D1A0952_var*
+//#UC END# *38279256623E_01887D1A0952_var*
+begin
+//#UC START# *38279256623E_01887D1A0952_impl*
+ Result := TtfwHash16Table.Make;
+//#UC END# *38279256623E_01887D1A0952_impl*
+end;//TkwHash16Table.Hash16Table
+
+procedure TkwHash16Table.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushList(Hash16Table(aCtx));
+end;//TkwHash16Table.DoDoIt
+
+function TkwHash16Table.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(ItfwValueList);
+end;//TkwHash16Table.GetResultTypeInfo
+
+function TkwHash16Table.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 0;
+end;//TkwHash16Table.GetAllParamsCount
+
+function TkwHash16Table.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([]);
+end;//TkwHash16Table.ParamsTypes
+
+class function TkwHash16Table.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Hash16Table';
+end;//TkwHash16Table.GetWordNameForRegister
+
 initialization
  TtfwIl3CStringPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
@@ -3532,6 +4093,18 @@ initialization
  {* Регистрация string_Lower }
  TkwStringUpper.RegisterInEngine;
  {* Регистрация string_Upper }
+ TkwStringToUnicode.RegisterInEngine;
+ {* Регистрация string_ToUnicode }
+ TkwStringHash.RegisterInEngine;
+ {* Регистрация string_Hash }
+ TkwStringSmallHash.RegisterInEngine;
+ {* Регистрация string_SmallHash }
+ TkwStringIterator.RegisterInEngine;
+ {* Регистрация string_Iterator }
+ TkwStringHashNew.RegisterInEngine;
+ {* Регистрация string_Hash_New }
+ TkwStringSmallHashNew.RegisterInEngine;
+ {* Регистрация string_SmallHash_New }
  TkwVarDecLen.RegisterInEngine;
  {* Регистрация VarDecLen }
  TkwVarInc.RegisterInEngine;
@@ -3544,6 +4117,8 @@ initialization
  {* Регистрация SplitTo }
  TkwVarPushCharAndInc.RegisterInEngine;
  {* Регистрация VarPushCharAndInc }
+ TkwHash16Table.RegisterInEngine;
+ {* Регистрация Hash16Table }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
@@ -3554,6 +4129,8 @@ initialization
  {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(AnsiChar));
  {* Регистрация типа Char }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(ItfwValueList));
+ {* Регистрация типа ItfwValueList }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));
  {* Регистрация типа TtfwWord }
 {$IfEnd} // NOT Defined(NoScripts)
