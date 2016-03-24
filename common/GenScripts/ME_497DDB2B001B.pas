@@ -36,6 +36,7 @@ uses
  {$If Defined(Nemesis)}
  , nscContextFilter
  {$IfEnd} // Defined(Nemesis)
+ , vtFocusLabel
  , FoldersDomainInterfaces
  , l3TreeInterfaces
  , FiltersUnit
@@ -239,6 +240,10 @@ type
     {* Поле для свойства tvList }
    f_cfList: TnscContextFilter;
     {* Поле для свойства cfList }
+   f_ExSearchPanel: TvtPanel;
+    {* Поле для свойства ExSearchPanel }
+   f_ExSearchLabel: TvtFocusLabel;
+    {* Поле для свойства ExSearchLabel }
    f_CanSwithToFullList: Boolean;
     {* Поле для свойства CanSwithToFullList }
   protected
@@ -295,6 +300,7 @@ type
    procedure tvListFooterClick(Sender: TObject);
    function tvListGetNodeType(anIndex: Integer): TbsListNodeType;
    procedure CallCurrentChanged;
+   procedure ExSearchLabelClick(Sender: TObject);
   protected
    function pm_GetNoMoreThanOneSelected: Boolean;
    function pm_GetOnlyOneSelected: Boolean;
@@ -324,6 +330,7 @@ type
    function HasContextFiltration: Boolean;
    procedure InitNewContainerBaseSearch(const aContainer: IvcmContainer;
     aOpenKind: TvcmMainFormOpenKind);
+   procedure CheckExSearchPanelVisibility; virtual;
    procedure ShowEditorOrList(const aTree: Il3SimpleTree); virtual; abstract;
    function ApplyFilter(const aFilter: IFilterFromQuery;
     aAdd: Boolean = False): Boolean; virtual; abstract;
@@ -760,6 +767,7 @@ uses
  , Windows
  , nscDocumentHistory
  , vtLister
+ , Graphics
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
@@ -1903,6 +1911,24 @@ begin
  end;
 //#UC END# *5527D24201E7_497DDB2B001B_impl*
 end;//TPrimListForm.CallCurrentChanged
+
+procedure TPrimListForm.ExSearchLabelClick(Sender: TObject);
+//#UC START# *56F3F0580255_497DDB2B001B_var*
+//#UC END# *56F3F0580255_497DDB2B001B_var*
+begin
+//#UC START# *56F3F0580255_497DDB2B001B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *56F3F0580255_497DDB2B001B_impl*
+end;//TPrimListForm.ExSearchLabelClick
+
+procedure TPrimListForm.CheckExSearchPanelVisibility;
+//#UC START# *56F412F403C7_497DDB2B001B_var*
+//#UC END# *56F412F403C7_497DDB2B001B_var*
+begin
+//#UC START# *56F412F403C7_497DDB2B001B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *56F412F403C7_497DDB2B001B_impl*
+end;//TPrimListForm.CheckExSearchPanelVisibility
 
 function TPrimListForm.HasCurrent: Boolean;
 //#UC START# *4AF846E90103_497DDB2B001B_var*

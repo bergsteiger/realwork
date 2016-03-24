@@ -4629,7 +4629,8 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
  CheckIsDocumentSub(aParams);
  if aParams.Op.Flag[vcm_ofEnabled] then
-  NotEmptyDocumentWithTrialModeTest(aParams);
+  //NotEmptyDocumentWithTrialModeTest(aParams);
+  NotEmptyDocumentTest(aParams);
  TnsToMSWordOp.Test(aParams);
 //#UC END# *4C3B17ED0192_49539DBA029Dtest_impl*
 end;//TExTextForm.DocumentBlockHeader_ToMSWord_Test
@@ -4654,7 +4655,7 @@ begin
 // DisableOperation(aParams);
  // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
  File_Print_Test(aParams);
- nsDisableOperationInTrialMode(aParams);
+ //nsDisableOperationInTrialMode(aParams);
  CheckIsDocumentSub(aParams);
 //#UC END# *4C3B17FF03D2_49539DBA029Dtest_impl*
 end;//TExTextForm.DocumentBlockHeader_Print_Test
@@ -4677,7 +4678,7 @@ begin
 // DisableOperation(aParams);
  // http://mdp.garant.ru/pages/viewpage.action?pageId=273590436
  File_Print_Test(aParams);
- nsDisableOperationInTrialMode(aParams);
+ //nsDisableOperationInTrialMode(aParams);
  CheckIsDocumentSub(aParams);
 //#UC END# *4C3B180E038F_49539DBA029Dtest_impl*
 end;//TExTextForm.DocumentBlockHeader_PrintDialog_Test

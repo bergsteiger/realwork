@@ -26,6 +26,7 @@ uses
  {$If Defined(Nemesis)}
  , nscContextFilter
  {$IfEnd} // Defined(Nemesis)
+ , vtFocusLabel
  , bsTypes
  , l3TreeInterfaces
 ;
@@ -264,6 +265,56 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_cfList_Push
 
+ Tkw_List_Control_ExSearchPanel = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола ExSearchPanel
+----
+*Пример использования*:
+[code]
+контрол::ExSearchPanel TryFocus ASSERT
+[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_List_Control_ExSearchPanel
+
+ Tkw_List_Control_ExSearchPanel_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола ExSearchPanel
+----
+*Пример использования*:
+[code]
+контрол::ExSearchPanel:push pop:control:SetFocus ASSERT
+[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_List_Control_ExSearchPanel_Push
+
+ Tkw_List_Control_ExSearchLabel = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола ExSearchLabel
+----
+*Пример использования*:
+[code]
+контрол::ExSearchLabel TryFocus ASSERT
+[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_List_Control_ExSearchLabel
+
+ Tkw_List_Control_ExSearchLabel_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола ExSearchLabel
+----
+*Пример использования*:
+[code]
+контрол::ExSearchLabel:push pop:control:SetFocus ASSERT
+[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_List_Control_ExSearchLabel_Push
+
  TkwEfListRemindersLine = {final} class(TtfwPropertyLike)
   {* Слово скрипта .TefList.RemindersLine
 [panel]Контрол RemindersLine формы TefList[panel]
@@ -455,6 +506,54 @@ OBJECT VAR l_TnscContextFilter
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEfListCfList
+
+ TkwEfListExSearchPanel = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .TefList.ExSearchPanel
+[panel]Контрол ExSearchPanel формы TefList[panel]
+*Тип результата:* TvtPanel
+*Пример:*
+[code]
+OBJECT VAR l_TvtPanel
+ aefList .TefList.ExSearchPanel >>> l_TvtPanel
+[code]  }
+  private
+   function ExSearchPanel(const aCtx: TtfwContext;
+    aefList: TefList): TvtPanel;
+    {* Реализация слова скрипта .TefList.ExSearchPanel }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwEfListExSearchPanel
+
+ TkwEfListExSearchLabel = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .TefList.ExSearchLabel
+[panel]Контрол ExSearchLabel формы TefList[panel]
+*Тип результата:* TvtFocusLabel
+*Пример:*
+[code]
+OBJECT VAR l_TvtFocusLabel
+ aefList .TefList.ExSearchLabel >>> l_TvtFocusLabel
+[code]  }
+  private
+   function ExSearchLabel(const aCtx: TtfwContext;
+    aefList: TefList): TvtFocusLabel;
+    {* Реализация слова скрипта .TefList.ExSearchLabel }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwEfListExSearchLabel
 
 function Tkw_Form_List.GetString: AnsiString;
 begin
@@ -681,6 +780,60 @@ class function Tkw_List_Control_cfList_Push.GetWordNameForRegister: AnsiString;
 begin
  Result := 'контрол::cfList:push';
 end;//Tkw_List_Control_cfList_Push.GetWordNameForRegister
+
+function Tkw_List_Control_ExSearchPanel.GetString: AnsiString;
+begin
+ Result := 'ExSearchPanel';
+end;//Tkw_List_Control_ExSearchPanel.GetString
+
+class procedure Tkw_List_Control_ExSearchPanel.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
+end;//Tkw_List_Control_ExSearchPanel.RegisterInEngine
+
+class function Tkw_List_Control_ExSearchPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ExSearchPanel';
+end;//Tkw_List_Control_ExSearchPanel.GetWordNameForRegister
+
+procedure Tkw_List_Control_ExSearchPanel_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('ExSearchPanel');
+ inherited;
+end;//Tkw_List_Control_ExSearchPanel_Push.DoDoIt
+
+class function Tkw_List_Control_ExSearchPanel_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ExSearchPanel:push';
+end;//Tkw_List_Control_ExSearchPanel_Push.GetWordNameForRegister
+
+function Tkw_List_Control_ExSearchLabel.GetString: AnsiString;
+begin
+ Result := 'ExSearchLabel';
+end;//Tkw_List_Control_ExSearchLabel.GetString
+
+class procedure Tkw_List_Control_ExSearchLabel.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TvtFocusLabel);
+end;//Tkw_List_Control_ExSearchLabel.RegisterInEngine
+
+class function Tkw_List_Control_ExSearchLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ExSearchLabel';
+end;//Tkw_List_Control_ExSearchLabel.GetWordNameForRegister
+
+procedure Tkw_List_Control_ExSearchLabel_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('ExSearchLabel');
+ inherited;
+end;//Tkw_List_Control_ExSearchLabel_Push.DoDoIt
+
+class function Tkw_List_Control_ExSearchLabel_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::ExSearchLabel:push';
+end;//Tkw_List_Control_ExSearchLabel_Push.GetWordNameForRegister
 
 function TkwEfListRemindersLine.RemindersLine(const aCtx: TtfwContext;
  aefList: TefList): TnscRemindersLine;
@@ -1066,6 +1219,102 @@ begin
  Result := '.TefList.cfList';
 end;//TkwEfListCfList.GetWordNameForRegister
 
+function TkwEfListExSearchPanel.ExSearchPanel(const aCtx: TtfwContext;
+ aefList: TefList): TvtPanel;
+ {* Реализация слова скрипта .TefList.ExSearchPanel }
+begin
+ Result := aefList.ExSearchPanel;
+end;//TkwEfListExSearchPanel.ExSearchPanel
+
+procedure TkwEfListExSearchPanel.DoDoIt(const aCtx: TtfwContext);
+var l_aefList: TefList;
+begin
+ try
+  l_aefList := TefList(aCtx.rEngine.PopObjAs(TefList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefList: TefList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ExSearchPanel(aCtx, l_aefList));
+end;//TkwEfListExSearchPanel.DoDoIt
+
+procedure TkwEfListExSearchPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству ExSearchPanel', aCtx);
+end;//TkwEfListExSearchPanel.SetValuePrim
+
+function TkwEfListExSearchPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TvtPanel);
+end;//TkwEfListExSearchPanel.GetResultTypeInfo
+
+function TkwEfListExSearchPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwEfListExSearchPanel.GetAllParamsCount
+
+function TkwEfListExSearchPanel.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TefList)]);
+end;//TkwEfListExSearchPanel.ParamsTypes
+
+class function TkwEfListExSearchPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefList.ExSearchPanel';
+end;//TkwEfListExSearchPanel.GetWordNameForRegister
+
+function TkwEfListExSearchLabel.ExSearchLabel(const aCtx: TtfwContext;
+ aefList: TefList): TvtFocusLabel;
+ {* Реализация слова скрипта .TefList.ExSearchLabel }
+begin
+ Result := aefList.ExSearchLabel;
+end;//TkwEfListExSearchLabel.ExSearchLabel
+
+procedure TkwEfListExSearchLabel.DoDoIt(const aCtx: TtfwContext);
+var l_aefList: TefList;
+begin
+ try
+  l_aefList := TefList(aCtx.rEngine.PopObjAs(TefList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefList: TefList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ExSearchLabel(aCtx, l_aefList));
+end;//TkwEfListExSearchLabel.DoDoIt
+
+procedure TkwEfListExSearchLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству ExSearchLabel', aCtx);
+end;//TkwEfListExSearchLabel.SetValuePrim
+
+function TkwEfListExSearchLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TvtFocusLabel);
+end;//TkwEfListExSearchLabel.GetResultTypeInfo
+
+function TkwEfListExSearchLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwEfListExSearchLabel.GetAllParamsCount
+
+function TkwEfListExSearchLabel.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TefList)]);
+end;//TkwEfListExSearchLabel.ParamsTypes
+
+class function TkwEfListExSearchLabel.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefList.ExSearchLabel';
+end;//TkwEfListExSearchLabel.GetWordNameForRegister
+
 initialization
  Tkw_Form_List.RegisterInEngine;
  {* Регистрация Tkw_Form_List }
@@ -1101,6 +1350,14 @@ initialization
  {* Регистрация Tkw_List_Control_cfList }
  Tkw_List_Control_cfList_Push.RegisterInEngine;
  {* Регистрация Tkw_List_Control_cfList_Push }
+ Tkw_List_Control_ExSearchPanel.RegisterInEngine;
+ {* Регистрация Tkw_List_Control_ExSearchPanel }
+ Tkw_List_Control_ExSearchPanel_Push.RegisterInEngine;
+ {* Регистрация Tkw_List_Control_ExSearchPanel_Push }
+ Tkw_List_Control_ExSearchLabel.RegisterInEngine;
+ {* Регистрация Tkw_List_Control_ExSearchLabel }
+ Tkw_List_Control_ExSearchLabel_Push.RegisterInEngine;
+ {* Регистрация Tkw_List_Control_ExSearchLabel_Push }
  TkwEfListRemindersLine.RegisterInEngine;
  {* Регистрация efList_RemindersLine }
  TkwEfListRemListFiltered.RegisterInEngine;
@@ -1117,6 +1374,10 @@ initialization
  {* Регистрация efList_tvList }
  TkwEfListCfList.RegisterInEngine;
  {* Регистрация efList_cfList }
+ TkwEfListExSearchPanel.RegisterInEngine;
+ {* Регистрация efList_ExSearchPanel }
+ TkwEfListExSearchLabel.RegisterInEngine;
+ {* Регистрация efList_ExSearchLabel }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefList));
@@ -1133,6 +1394,8 @@ initialization
  {* Регистрация типа TnscDocumentListTreeView }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscContextFilter));
  {* Регистрация типа TnscContextFilter }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TvtFocusLabel));
+ {* Регистрация типа TvtFocusLabel }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
 end.
