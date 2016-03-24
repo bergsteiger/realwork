@@ -159,3 +159,20 @@ var
 //#UC END# *499C5013009E_499C264700BD_impl*
 //#UC START# *499C5013009E_499C264700BD_var*
 //#UC END# *499C5013009E_499C264700BD_var*
+//#UC START# *56E71A2400F9_499C264700BDget_impl*
+  if Supports(GetCurrentNode, IDynListNode, l_DynListNode) then
+  begin
+    l_DynListNode.GetSnippetText(l_RawStr);
+    if l_RawStr <> nil then
+      l_SnippetText := l_RawStr.GetData;
+  end;
+  Result := l3Str(GetCurrentNode.Text);
+  if l_SnippetText <> '' then
+    Result := Result + '\' + l_SnippetText;
+//#UC END# *56E71A2400F9_499C264700BDget_impl*
+//#UC START# *56E71A2400F9_499C264700BDget_var*
+  var
+    l_DynListNode : IDynListNode;
+    l_SnippetText : String;
+    l_RawStr : IString;
+//#UC END# *56E71A2400F9_499C264700BDget_var*

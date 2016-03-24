@@ -69,6 +69,16 @@ var
 //#UC END# *357C9EA3B36D_807D7A8440DD_impl*
 //#UC START# *357C9EA3B36D_807D7A8440DD_var*
 //#UC END# *357C9EA3B36D_807D7A8440DD_var*
+//#UC START# *379CE3C7BE29_F137872D0D02_impl*
+ Result := TtfwCStringFactory.ToUnicode(aString);
+//#UC END# *379CE3C7BE29_F137872D0D02_impl*
+//#UC START# *379CE3C7BE29_F137872D0D02_var*
+//#UC END# *379CE3C7BE29_F137872D0D02_var*
+//#UC START# *38279256623E_01887D1A0952_impl*
+ Result := TtfwHash16Table.Make;
+//#UC END# *38279256623E_01887D1A0952_impl*
+//#UC START# *38279256623E_01887D1A0952_var*
+//#UC END# *38279256623E_01887D1A0952_var*
 //#UC START# *3F9E9C8EDF9E_CA33F456975C_impl*
  RunnerAssert(aString.AsWStr.SLen = 1, 'Длина строки должна равняться 1', aCtx);
  Result := aString.AsWStr.S[0];
@@ -119,11 +129,58 @@ var
 var
  l_P : Tl3PCharLen;
 //#UC END# *5123A135DDBC_6014F0D564E4_var*
+//#UC START# *52E23B7A00EC_56F3EEE50232_impl*
+ l_S := f_String.AsWStr;
+ for l_Index := 0 to Pred(l_S.SLen) do
+ begin
+  aCtx.rEngine.PushChar(l3Char(l_S, l_Index));
+  aLambda.DoIt(aCtx);
+ end;//for l_Index
+//#UC END# *52E23B7A00EC_56F3EEE50232_impl*
+//#UC START# *52E23B7A00EC_56F3EEE50232_var*
+var
+ l_S : Tl3WString;
+ l_Index : Integer;
+//#UC END# *52E23B7A00EC_56F3EEE50232_var*
+//#UC START# *52E23BB102FA_56F3EEE50232_impl*
+ l_S := f_String.AsWStr;
+ for l_Index := Pred(l_S.SLen) downto 0 do
+ begin
+  aCtx.rEngine.PushChar(l3Char(l_S, l_Index));
+  aLambda.DoIt(aCtx);
+ end;//for l_Index
+//#UC END# *52E23BB102FA_56F3EEE50232_impl*
+//#UC START# *52E23BB102FA_56F3EEE50232_var*
+var
+ l_S : Tl3WString;
+ l_Index : Integer;
+//#UC END# *52E23BB102FA_56F3EEE50232_var*
 //#UC START# *53DA3FC40405_0E02A0729BA6_impl*
  Result := l3Compare(l3PCharLen(anOther), l3PCharLen(aString), l3_siCaseUnsensitive);
 //#UC END# *53DA3FC40405_0E02A0729BA6_impl*
 //#UC START# *53DA3FC40405_0E02A0729BA6_var*
 //#UC END# *53DA3FC40405_0E02A0729BA6_var*
+//#UC START# *55CDF40C03D4_56F3EEE50232_impl*
+ EtfwCheck.Fail('Массив неизменяемый');
+//#UC END# *55CDF40C03D4_56F3EEE50232_impl*
+//#UC START# *55CDF40C03D4_56F3EEE50232_var*
+//#UC END# *55CDF40C03D4_56F3EEE50232_var*
+//#UC START# *55E849210175_56F3EEE50232_impl*
+ Result := 1;
+//#UC END# *55E849210175_56F3EEE50232_impl*
+//#UC START# *55E849210175_56F3EEE50232_var*
+//#UC END# *55E849210175_56F3EEE50232_var*
+//#UC START# *56F3EF17004C_56F3EEE50232_impl*
+ inherited Create;
+ f_String := aString;
+//#UC END# *56F3EF17004C_56F3EEE50232_impl*
+//#UC START# *56F3EF17004C_56F3EEE50232_var*
+//#UC END# *56F3EF17004C_56F3EEE50232_var*
+//#UC START# *5A085B77B272_AE2A1F9F2367_impl*
+ Result := TtfwStringIterator.Make(aString);
+//#UC END# *5A085B77B272_AE2A1F9F2367_impl*
+//#UC START# *5A085B77B272_AE2A1F9F2367_var*
+//#UC END# *5A085B77B272_AE2A1F9F2367_var*
 //#UC START# *60E71D4C9014_C670925F6482_impl*
  Result := l3Compare(l3PCharLen(anOther), l3PCharLen(aString));
 //#UC END# *60E71D4C9014_C670925F6482_impl*
@@ -243,6 +300,16 @@ var
  l_Pref : Il3CString;
  l_Suff : Il3CString;
 //#UC END# *94300FB9FFA5_BF0C6B892128_var*
+//#UC START# *996EB442FD96_15AF617143C8_impl*
+ Result := m2SmallHash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC);
+//#UC END# *996EB442FD96_15AF617143C8_impl*
+//#UC START# *996EB442FD96_15AF617143C8_var*
+//#UC END# *996EB442FD96_15AF617143C8_var*
+//#UC START# *9A63750A932F_B0A153973998_impl*
+ Result := m2Hash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC + 1);
+//#UC END# *9A63750A932F_B0A153973998_impl*
+//#UC START# *9A63750A932F_B0A153973998_var*
+//#UC END# *9A63750A932F_B0A153973998_var*
 //#UC START# *9B83E2E03D3D_FF1E0A42BBEF_impl*
  Result := l3StringReplace(aMain,
                            l3PCharLen(aFrom),
@@ -284,6 +351,11 @@ var
 //#UC END# *B1D7965F0E30_B79BEA825961_impl*
 //#UC START# *B1D7965F0E30_B79BEA825961_var*
 //#UC END# *B1D7965F0E30_B79BEA825961_var*
+//#UC START# *BF1566C329E5_A91467BC2C27_impl*
+ Result := m2SmallHash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC + 1);
+//#UC END# *BF1566C329E5_A91467BC2C27_impl*
+//#UC START# *BF1566C329E5_A91467BC2C27_var*
+//#UC END# *BF1566C329E5_A91467BC2C27_var*
 //#UC START# *C0B325EEBDF3_0527F8C9DF24_impl*
  Result := l3StringReplace(aMain,
                            l3PCharLen(aFrom),
@@ -315,6 +387,11 @@ var
  l_C : TChars;
  l_Index : Integer;
 //#UC END# *C17F9AF1604A_5F306006344B_var*
+//#UC START# *CCA8B4B34AEE_58C52E8D04B3_impl*
+ Result := m2Hash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC);
+//#UC END# *CCA8B4B34AEE_58C52E8D04B3_impl*
+//#UC START# *CCA8B4B34AEE_58C52E8D04B3_var*
+//#UC END# *CCA8B4B34AEE_58C52E8D04B3_var*
 //#UC START# *CDE072F795B4_D5F09D866A34_impl*
  Result := TtfwCStringFactory.C(l3DeleteDoubleSpace(aString));
 //#UC END# *CDE072F795B4_D5F09D866A34_impl*

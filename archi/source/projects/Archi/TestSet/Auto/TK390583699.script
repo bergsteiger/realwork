@@ -45,38 +45,36 @@ PROCEDURE "Копирование исполняемых файлов" STRING IN aDestDir STRING IN aSourceD
 ;
 
 PROCEDURE "Запуск второй копии тестового Архивариуса" STRING IN aSourceDir STRING IN aDestDir
-	STRING VAR l_File
- 	STRING VAR l_TempFile
- 	STRING VAR l_CMD 
- 	script:FileName '' sysutils:ChangeFileExt
- 	sysutils:ExtractFileName >>> l_File
- 	l_File >>> l_TempFile 
- 	l_TempFile '_' + >>> l_TempFile
+	STRING VAR l_OneTest
+	[ ' -File:' aDestDir '\' 'OneTest.txt' ] strings:Cat >>>  l_OneTest
  	STRING VAR l_CMDLINE
- 	[ "Путь к копии Архивариуса {(aSourceDir)}" >>> aDestDir 'ArchiTest.exe TestSet\' '-toK -FakeK -File:OneTest.txt' l_TempFile ' TestSet\' l_File ' -a'] strings:Cat >>> l_CMDLINE	
+	[ aDestDir '\' 'ArchiTest.exe ' '-toK -FakeK' l_OneTest ' /D' ] strings:Cat >>> l_CMDLINE
 	l_CMDLINE WinExec
- 	5000 SLEEP // Чтобы предыдущаяя программа могла спокойно выполниться !
- 	[ "Путь к копии Архивариуса {(aSourceDir)}" >>> aDestDir 'TestSet\' l_TempFile ] strings:Cat >>> l_TempFile
+ 	500 SLEEP // Чтобы предыдущаяя программа могла спокойно выполниться !
 ;
 
 Тест TK390583699
 	Параметры: ( 
-		"Не открывать документ" 
+		"Не открывать документ"
 	)
 	Выполнить (
 		STRING VAR l_SourceDir
            	"Путь Архивариуса" >>> l_SourceDir
           	STRING VAR l_DestDir 
            	"Путь к копии Архивариуса {(l_SourceDir)}" >>> l_DestDir
+		STRING VAR l_ArchiTestSet
+ 		[ l_DestDir '\' 'TestSet' ] strings:Cat >>>  l_ArchiTestSet
 	TRY 
 		"Подготовка к копированию {(l_DestDir)}"
+		"Подготовка к копированию {(l_ArchiTestSet)}"
 		"Копирование исполняемых файлов {(l_DestDir)} {(l_SourceDir)}"   		
 		"Распаковка тестовой базы"
 		"Запуск второй копии тестового Архивариуса {(l_SourceDir)} {(l_DestDir)}"
-		"Сравнить с эталоном количество открытых окон Арчи"
+		"Сравнить с эталоном текстовый файл {(l_DestDir)} {('ArchiTest_267330013.runned.txt')}"
 	FINALLY
                 "Очистка после теста"
-		"Очистить каталог {(l_DestDir)}"	
+		"Очистить каталог {(l_ArchiTestSet)}"
+		//"Очистить каталог {(l_DestDir)}"
 	END
 	)
 ;

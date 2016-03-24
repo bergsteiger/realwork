@@ -64,7 +64,19 @@ var
 //#UC START# *56BD9BFD0109_56BD8F200154_impl*
  inherited Create(aFactory);
  f_HTJournal := aHTJournal;
- f_PGJournal := aHTJournal;
+ f_PGJournal := aPGJournal;
 //#UC END# *56BD9BFD0109_56BD8F200154_impl*
 //#UC START# *56BD9BFD0109_56BD8F200154_var*
 //#UC END# *56BD9BFD0109_56BD8F200154_var*
+//#UC START# *56F2622600C7_56BD8F200154_impl*
+ Result := not f_HTJournal.IsSessionActive;
+ Assert(f_HTJournal.IsSessionActive = f_PGJournal.IsSessionActive)
+//#UC END# *56F2622600C7_56BD8F200154_impl*
+//#UC START# *56F2622600C7_56BD8F200154_var*
+//#UC END# *56F2622600C7_56BD8F200154_var*
+//#UC START# *56F271D602AB_56BD8F200154_impl*
+ Result := f_HTJournal.IsSessionActive;
+ Assert(f_HTJournal.IsSessionActive = f_PGJournal.IsSessionActive)
+//#UC END# *56F271D602AB_56BD8F200154_impl*
+//#UC START# *56F271D602AB_56BD8F200154_var*
+//#UC END# *56F271D602AB_56BD8F200154_var*

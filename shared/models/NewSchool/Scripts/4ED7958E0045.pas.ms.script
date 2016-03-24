@@ -6,6 +6,192 @@ FORWARD ME_4ED7958E0045
 
 FORWARD ME_55682D8F01C7
 
+FORWARD ME_56F3EEE50232
+
+: ME_56F3EEFA0215
+ CONST UID '56F3EEFA0215'
+ CONST Name 'f_String'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_56F3EEE50232 // TtfwStringIterator
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_56F3EEFA0215 f_String
+
+FORWARD ME_56F3EF17004C
+
+: ME_56F3EF27039D
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_56F3EF27039D aString
+
+: ME_56F3EF1D03E2
+ CONST UID '56F3EF1D03E2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56F3EF17004C // Create
+ ;
+ : Parameters
+   Seq: ( ME_56F3EF27039D // aString
+ )
+ ; // Parameters
+
+ref; // ME_56F3EF1D03E2 DoIt
+
+: ME_56F3EF17004C
+ CONST UID '56F3EF17004C'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56F3EEE50232 // TtfwStringIterator
+ ;
+ : Operations
+   Seq: ( ME_56F3EF1D03E2 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56F3EF17004C Create
+
+FORWARD ME_56F3EF2B012F
+
+: ME_14A212816986
+ CONST Name 'aString'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_14A212816986 aString
+
+: ME_13CF3DA2FF9B
+ CONST UID '13CF3DA2FF9B'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TtfwStringIterator.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56F3EF2B012F // Make
+ ;
+ : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ ;
+ : Parameters
+   Seq: ( ME_14A212816986 // aString
+ )
+ ; // Parameters
+
+ref; // ME_13CF3DA2FF9B DoIt
+
+: ME_56F3EF2B012F
+ CONST UID '56F3EF2B012F'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56F3EEE50232 // TtfwStringIterator
+ ;
+ : Inherits
+   Seq: ( ME_56F3EF17004C // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_13CF3DA2FF9B // DoIt
+ )
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_56F3EF2B012F Make
+
+: ME_52E23B7A00EC_ME_56F3EEE50232
+ : Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.pas.ms.script' // ForEach
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_52E23B7A00EC_ME_56F3EEE50232 ForEach
+
+: ME_52E23BB102FA_ME_56F3EEE50232
+ : Original WL 'ME_52E23BB102FA' '4DAF19F600C5.pas.ms.script' // ForEachBack
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_52E23BB102FA_ME_56F3EEE50232 ForEachBack
+
+: ME_55CDF40C03D4_ME_56F3EEE50232
+ : Original WL 'ME_55CDF40C03D4' '4DAF19F600C5.pas.ms.script' // SetItem
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_55CDF40C03D4_ME_56F3EEE50232 SetItem
+
+: ME_55E849210175_ME_56F3EEE50232
+ : Original WL 'ME_55E849210175' '4DAF19F600C5.pas.ms.script' // ItemsCountInSlice
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_55E849210175_ME_56F3EEE50232 ItemsCountInSlice
+
+: ME_56F3EEE50232
+ CONST UID '56F3EEE50232'
+ CONST Name 'TtfwStringIterator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_52E29ED5016B' '54F0A4A302FF.pas.ms.script' // TtfwIteratableParent
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_56F3EEFA0215 // f_String
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_56F3EF17004C // Create
+ ME_56F3EF2B012F // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_52E23B7A00EC_ME_56F3EEE50232 // ForEach
+ ME_52E23BB102FA_ME_56F3EEE50232 // ForEachBack
+ ME_55CDF40C03D4_ME_56F3EEE50232 // SetItem
+ ME_55E849210175_ME_56F3EEE50232 // ItemsCountInSlice
+ )
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:rc:SelfName 'StringIterator'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56F3EEE50232 TtfwStringIterator
+
 FORWARD ME_1C3B459FC59B
 
 : ME_4F89A7033378
@@ -24,8 +210,6 @@ ref; // ME_4F89A7033378 RegAxiom
 
 : ME_55B7A3AF0359_ME_1C3B459FC59B
  : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- : Implementor ME_1C3B459FC59B // TtfwIl3CStringPackResNameGetter
  ;
  CONST OpKind opkind_Implemented
  CONST "is static" true
@@ -149,15 +333,11 @@ ref; // ME_84E43389365D
 : ME_4DAEEDE10285_ME_0093B3082714
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_0093B3082714 // StartsStr
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0093B3082714 DoDoIt
 
 : ME_551544E2001A_ME_0093B3082714
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_0093B3082714 // StartsStr
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_0093B3082714 GetResultTypeInfo
@@ -165,15 +345,11 @@ ref; // ME_551544E2001A_ME_0093B3082714 GetResultTypeInfo
 : ME_559687E6025A_ME_0093B3082714
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_0093B3082714 // StartsStr
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_0093B3082714 GetAllParamsCount
 
 : ME_5617F4D00243_ME_0093B3082714
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_0093B3082714 // StartsStr
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_0093B3082714 ParamsTypes
@@ -314,15 +490,11 @@ ref; // ME_1FA401812E14
 : ME_4DAEEDE10285_ME_9996D7566EDE
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_9996D7566EDE // StartsText
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_9996D7566EDE DoDoIt
 
 : ME_551544E2001A_ME_9996D7566EDE
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_9996D7566EDE // StartsText
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_9996D7566EDE GetResultTypeInfo
@@ -330,15 +502,11 @@ ref; // ME_551544E2001A_ME_9996D7566EDE GetResultTypeInfo
 : ME_559687E6025A_ME_9996D7566EDE
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_9996D7566EDE // StartsText
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_9996D7566EDE GetAllParamsCount
 
 : ME_5617F4D00243_ME_9996D7566EDE
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_9996D7566EDE // StartsText
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_9996D7566EDE ParamsTypes
@@ -479,15 +647,11 @@ ref; // ME_6F2B7A377AA1
 : ME_4DAEEDE10285_ME_397C461D6C30
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_397C461D6C30 // EndsStr
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_397C461D6C30 DoDoIt
 
 : ME_551544E2001A_ME_397C461D6C30
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_397C461D6C30 // EndsStr
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_397C461D6C30 GetResultTypeInfo
@@ -495,15 +659,11 @@ ref; // ME_551544E2001A_ME_397C461D6C30 GetResultTypeInfo
 : ME_559687E6025A_ME_397C461D6C30
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_397C461D6C30 // EndsStr
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_397C461D6C30 GetAllParamsCount
 
 : ME_5617F4D00243_ME_397C461D6C30
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_397C461D6C30 // EndsStr
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_397C461D6C30 ParamsTypes
@@ -644,15 +804,11 @@ ref; // ME_D0FACAC08538
 : ME_4DAEEDE10285_ME_8997C15C6CA8
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_8997C15C6CA8 // EndsText
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_8997C15C6CA8 DoDoIt
 
 : ME_551544E2001A_ME_8997C15C6CA8
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_8997C15C6CA8 // EndsText
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_8997C15C6CA8 GetResultTypeInfo
@@ -660,15 +816,11 @@ ref; // ME_551544E2001A_ME_8997C15C6CA8 GetResultTypeInfo
 : ME_559687E6025A_ME_8997C15C6CA8
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_8997C15C6CA8 // EndsText
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_8997C15C6CA8 GetAllParamsCount
 
 : ME_5617F4D00243_ME_8997C15C6CA8
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_8997C15C6CA8 // EndsText
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_8997C15C6CA8 ParamsTypes
@@ -809,15 +961,11 @@ ref; // ME_556CE3EA474B
 : ME_4DAEEDE10285_ME_2309401B7CC1
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_2309401B7CC1 // SameStr
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_2309401B7CC1 DoDoIt
 
 : ME_551544E2001A_ME_2309401B7CC1
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_2309401B7CC1 // SameStr
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_2309401B7CC1 GetResultTypeInfo
@@ -825,15 +973,11 @@ ref; // ME_551544E2001A_ME_2309401B7CC1 GetResultTypeInfo
 : ME_559687E6025A_ME_2309401B7CC1
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_2309401B7CC1 // SameStr
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_2309401B7CC1 GetAllParamsCount
 
 : ME_5617F4D00243_ME_2309401B7CC1
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_2309401B7CC1 // SameStr
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_2309401B7CC1 ParamsTypes
@@ -974,15 +1118,11 @@ ref; // ME_09B0FBFF2D7A
 : ME_4DAEEDE10285_ME_9FC28ACB9AA1
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_9FC28ACB9AA1 // SameText
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_9FC28ACB9AA1 DoDoIt
 
 : ME_551544E2001A_ME_9FC28ACB9AA1
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_9FC28ACB9AA1 // SameText
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_9FC28ACB9AA1 GetResultTypeInfo
@@ -990,15 +1130,11 @@ ref; // ME_551544E2001A_ME_9FC28ACB9AA1 GetResultTypeInfo
 : ME_559687E6025A_ME_9FC28ACB9AA1
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_9FC28ACB9AA1 // SameText
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_9FC28ACB9AA1 GetAllParamsCount
 
 : ME_5617F4D00243_ME_9FC28ACB9AA1
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_9FC28ACB9AA1 // SameText
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_9FC28ACB9AA1 ParamsTypes
@@ -1139,15 +1275,11 @@ ref; // ME_E26A359FB711
 : ME_4DAEEDE10285_ME_C670925F6482
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_C670925F6482 // CompareStr
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_C670925F6482 DoDoIt
 
 : ME_551544E2001A_ME_C670925F6482
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_C670925F6482 // CompareStr
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_C670925F6482 GetResultTypeInfo
@@ -1155,15 +1287,11 @@ ref; // ME_551544E2001A_ME_C670925F6482 GetResultTypeInfo
 : ME_559687E6025A_ME_C670925F6482
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_C670925F6482 // CompareStr
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_C670925F6482 GetAllParamsCount
 
 : ME_5617F4D00243_ME_C670925F6482
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_C670925F6482 // CompareStr
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_C670925F6482 ParamsTypes
@@ -1304,15 +1432,11 @@ ref; // ME_33CAF7790427
 : ME_4DAEEDE10285_ME_0E02A0729BA6
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_0E02A0729BA6 // CompareText
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0E02A0729BA6 DoDoIt
 
 : ME_551544E2001A_ME_0E02A0729BA6
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_0E02A0729BA6 // CompareText
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_0E02A0729BA6 GetResultTypeInfo
@@ -1320,15 +1444,11 @@ ref; // ME_551544E2001A_ME_0E02A0729BA6 GetResultTypeInfo
 : ME_559687E6025A_ME_0E02A0729BA6
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_0E02A0729BA6 // CompareText
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_0E02A0729BA6 GetAllParamsCount
 
 : ME_5617F4D00243_ME_0E02A0729BA6
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_0E02A0729BA6 // CompareText
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_0E02A0729BA6 ParamsTypes
@@ -1458,15 +1578,11 @@ ref; // ME_DB2F1FC43EE7
 : ME_4DAEEDE10285_ME_09008856C703
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_09008856C703 // StrToInt
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_09008856C703 DoDoIt
 
 : ME_551544E2001A_ME_09008856C703
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_09008856C703 // StrToInt
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_09008856C703 GetResultTypeInfo
@@ -1474,15 +1590,11 @@ ref; // ME_551544E2001A_ME_09008856C703 GetResultTypeInfo
 : ME_559687E6025A_ME_09008856C703
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_09008856C703 // StrToInt
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_09008856C703 GetAllParamsCount
 
 : ME_5617F4D00243_ME_09008856C703
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_09008856C703 // StrToInt
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_09008856C703 ParamsTypes
@@ -1623,15 +1735,11 @@ ref; // ME_2B6B98354FA6
 : ME_4DAEEDE10285_ME_DD57CECF347C
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_DD57CECF347C // Cat
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_DD57CECF347C DoDoIt
 
 : ME_551544E2001A_ME_DD57CECF347C
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_DD57CECF347C // Cat
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_DD57CECF347C GetResultTypeInfo
@@ -1639,15 +1747,11 @@ ref; // ME_551544E2001A_ME_DD57CECF347C GetResultTypeInfo
 : ME_559687E6025A_ME_DD57CECF347C
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_DD57CECF347C // Cat
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_DD57CECF347C GetAllParamsCount
 
 : ME_5617F4D00243_ME_DD57CECF347C
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_DD57CECF347C // Cat
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_DD57CECF347C ParamsTypes
@@ -1788,15 +1892,11 @@ ref; // ME_B35989DD1435
 : ME_4DAEEDE10285_ME_5F306006344B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_5F306006344B // string_ConsistsOf
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_5F306006344B DoDoIt
 
 : ME_551544E2001A_ME_5F306006344B
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_5F306006344B // string_ConsistsOf
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_5F306006344B GetResultTypeInfo
@@ -1804,15 +1904,11 @@ ref; // ME_551544E2001A_ME_5F306006344B GetResultTypeInfo
 : ME_559687E6025A_ME_5F306006344B
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_5F306006344B // string_ConsistsOf
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_5F306006344B GetAllParamsCount
 
 : ME_5617F4D00243_ME_5F306006344B
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_5F306006344B // string_ConsistsOf
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_5F306006344B ParamsTypes
@@ -1953,15 +2049,11 @@ ref; // ME_FA8EC04C0E2B
 : ME_4DAEEDE10285_ME_2256016890B3
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_2256016890B3 // string_HasAnyOf
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_2256016890B3 DoDoIt
 
 : ME_551544E2001A_ME_2256016890B3
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_2256016890B3 // string_HasAnyOf
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_2256016890B3 GetResultTypeInfo
@@ -1969,15 +2061,11 @@ ref; // ME_551544E2001A_ME_2256016890B3 GetResultTypeInfo
 : ME_559687E6025A_ME_2256016890B3
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_2256016890B3 // string_HasAnyOf
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_2256016890B3 GetAllParamsCount
 
 : ME_5617F4D00243_ME_2256016890B3
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_2256016890B3 // string_HasAnyOf
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_2256016890B3 ParamsTypes
@@ -2118,15 +2206,11 @@ ref; // ME_01CF907383DE
 : ME_4DAEEDE10285_ME_851E99BEB53B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_851E99BEB53B // string_Pos
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_851E99BEB53B DoDoIt
 
 : ME_551544E2001A_ME_851E99BEB53B
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_851E99BEB53B // string_Pos
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_851E99BEB53B GetResultTypeInfo
@@ -2134,15 +2218,11 @@ ref; // ME_551544E2001A_ME_851E99BEB53B GetResultTypeInfo
 : ME_559687E6025A_ME_851E99BEB53B
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_851E99BEB53B // string_Pos
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_851E99BEB53B GetAllParamsCount
 
 : ME_5617F4D00243_ME_851E99BEB53B
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_851E99BEB53B // string_Pos
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_851E99BEB53B ParamsTypes
@@ -2294,15 +2374,11 @@ ref; // ME_3595DA77126E
 : ME_4DAEEDE10285_ME_24901BF384F4
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_24901BF384F4 // string_PosEx
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_24901BF384F4 DoDoIt
 
 : ME_551544E2001A_ME_24901BF384F4
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_24901BF384F4 // string_PosEx
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_24901BF384F4 GetResultTypeInfo
@@ -2310,15 +2386,11 @@ ref; // ME_551544E2001A_ME_24901BF384F4 GetResultTypeInfo
 : ME_559687E6025A_ME_24901BF384F4
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_24901BF384F4 // string_PosEx
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_24901BF384F4 GetAllParamsCount
 
 : ME_5617F4D00243_ME_24901BF384F4
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_24901BF384F4 // string_PosEx
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_24901BF384F4 ParamsTypes
@@ -2470,15 +2542,11 @@ ref; // ME_940572B893BE
 : ME_4DAEEDE10285_ME_AA63BC1F51EC
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_AA63BC1F51EC // string_Split
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_AA63BC1F51EC DoDoIt
 
 : ME_551544E2001A_ME_AA63BC1F51EC
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_AA63BC1F51EC // string_Split
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_AA63BC1F51EC GetResultTypeInfo
@@ -2486,15 +2554,11 @@ ref; // ME_551544E2001A_ME_AA63BC1F51EC GetResultTypeInfo
 : ME_559687E6025A_ME_AA63BC1F51EC
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_AA63BC1F51EC // string_Split
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_AA63BC1F51EC GetAllParamsCount
 
 : ME_5617F4D00243_ME_AA63BC1F51EC
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_AA63BC1F51EC // string_Split
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_AA63BC1F51EC ParamsTypes
@@ -2646,15 +2710,11 @@ ref; // ME_BFF0B9F20C0F
 : ME_4DAEEDE10285_ME_8CA688C2805E
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_8CA688C2805E // string_Replace
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_8CA688C2805E DoDoIt
 
 : ME_551544E2001A_ME_8CA688C2805E
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_8CA688C2805E // string_Replace
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_8CA688C2805E GetResultTypeInfo
@@ -2662,15 +2722,11 @@ ref; // ME_551544E2001A_ME_8CA688C2805E GetResultTypeInfo
 : ME_559687E6025A_ME_8CA688C2805E
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_8CA688C2805E // string_Replace
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_8CA688C2805E GetAllParamsCount
 
 : ME_5617F4D00243_ME_8CA688C2805E
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_8CA688C2805E // string_Replace
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_8CA688C2805E ParamsTypes
@@ -2822,15 +2878,11 @@ ref; // ME_78FE7682365E
 : ME_4DAEEDE10285_ME_FF1E0A42BBEF
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_FF1E0A42BBEF // string_ReplaceFirst
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_FF1E0A42BBEF DoDoIt
 
 : ME_551544E2001A_ME_FF1E0A42BBEF
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_FF1E0A42BBEF // string_ReplaceFirst
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_FF1E0A42BBEF GetResultTypeInfo
@@ -2838,15 +2890,11 @@ ref; // ME_551544E2001A_ME_FF1E0A42BBEF GetResultTypeInfo
 : ME_559687E6025A_ME_FF1E0A42BBEF
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_FF1E0A42BBEF // string_ReplaceFirst
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_FF1E0A42BBEF GetAllParamsCount
 
 : ME_5617F4D00243_ME_FF1E0A42BBEF
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_FF1E0A42BBEF // string_ReplaceFirst
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_FF1E0A42BBEF ParamsTypes
@@ -2998,15 +3046,11 @@ ref; // ME_F0E4C538EE4D
 : ME_4DAEEDE10285_ME_6F240EDBC3AE
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_6F240EDBC3AE // text_Replace
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_6F240EDBC3AE DoDoIt
 
 : ME_551544E2001A_ME_6F240EDBC3AE
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_6F240EDBC3AE // text_Replace
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_6F240EDBC3AE GetResultTypeInfo
@@ -3014,15 +3058,11 @@ ref; // ME_551544E2001A_ME_6F240EDBC3AE GetResultTypeInfo
 : ME_559687E6025A_ME_6F240EDBC3AE
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_6F240EDBC3AE // text_Replace
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_6F240EDBC3AE GetAllParamsCount
 
 : ME_5617F4D00243_ME_6F240EDBC3AE
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_6F240EDBC3AE // text_Replace
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_6F240EDBC3AE ParamsTypes
@@ -3174,15 +3214,11 @@ ref; // ME_6FC38E4CB252
 : ME_4DAEEDE10285_ME_0527F8C9DF24
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_0527F8C9DF24 // text_ReplaceFirst
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0527F8C9DF24 DoDoIt
 
 : ME_551544E2001A_ME_0527F8C9DF24
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_0527F8C9DF24 // text_ReplaceFirst
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_0527F8C9DF24 GetResultTypeInfo
@@ -3190,15 +3226,11 @@ ref; // ME_551544E2001A_ME_0527F8C9DF24 GetResultTypeInfo
 : ME_559687E6025A_ME_0527F8C9DF24
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_0527F8C9DF24 // text_ReplaceFirst
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_0527F8C9DF24 GetAllParamsCount
 
 : ME_5617F4D00243_ME_0527F8C9DF24
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_0527F8C9DF24 // text_ReplaceFirst
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_0527F8C9DF24 ParamsTypes
@@ -3339,15 +3371,11 @@ ref; // ME_3D83442D46B5
 : ME_4DAEEDE10285_ME_9597582C9BD4
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_9597582C9BD4 // string_Char
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_9597582C9BD4 DoDoIt
 
 : ME_551544E2001A_ME_9597582C9BD4
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_9597582C9BD4 // string_Char
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_9597582C9BD4 GetResultTypeInfo
@@ -3355,15 +3383,11 @@ ref; // ME_551544E2001A_ME_9597582C9BD4 GetResultTypeInfo
 : ME_559687E6025A_ME_9597582C9BD4
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_9597582C9BD4 // string_Char
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_9597582C9BD4 GetAllParamsCount
 
 : ME_5617F4D00243_ME_9597582C9BD4
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_9597582C9BD4 // string_Char
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_9597582C9BD4 ParamsTypes
@@ -3493,15 +3517,11 @@ ref; // ME_740621460D7E
 : ME_4DAEEDE10285_ME_6CAF85926E0C
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_6CAF85926E0C // string_CodePage
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_6CAF85926E0C DoDoIt
 
 : ME_551544E2001A_ME_6CAF85926E0C
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_6CAF85926E0C // string_CodePage
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_6CAF85926E0C GetResultTypeInfo
@@ -3509,15 +3529,11 @@ ref; // ME_551544E2001A_ME_6CAF85926E0C GetResultTypeInfo
 : ME_559687E6025A_ME_6CAF85926E0C
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_6CAF85926E0C // string_CodePage
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_6CAF85926E0C GetAllParamsCount
 
 : ME_5617F4D00243_ME_6CAF85926E0C
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_6CAF85926E0C // string_CodePage
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_6CAF85926E0C ParamsTypes
@@ -3647,15 +3663,11 @@ ref; // ME_87F2DD14E824
 : ME_4DAEEDE10285_ME_0BA6E62BEF84
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_0BA6E62BEF84 // string_Len
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0BA6E62BEF84 DoDoIt
 
 : ME_551544E2001A_ME_0BA6E62BEF84
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_0BA6E62BEF84 // string_Len
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_0BA6E62BEF84 GetResultTypeInfo
@@ -3663,15 +3675,11 @@ ref; // ME_551544E2001A_ME_0BA6E62BEF84 GetResultTypeInfo
 : ME_559687E6025A_ME_0BA6E62BEF84
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_0BA6E62BEF84 // string_Len
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_0BA6E62BEF84 GetAllParamsCount
 
 : ME_5617F4D00243_ME_0BA6E62BEF84
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_0BA6E62BEF84 // string_Len
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_0BA6E62BEF84 ParamsTypes
@@ -3801,15 +3809,11 @@ ref; // ME_35DFFD2F4A48
 : ME_4DAEEDE10285_ME_CA33F456975C
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_CA33F456975C // string_ToChar
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_CA33F456975C DoDoIt
 
 : ME_551544E2001A_ME_CA33F456975C
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_CA33F456975C // string_ToChar
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_CA33F456975C GetResultTypeInfo
@@ -3817,15 +3821,11 @@ ref; // ME_551544E2001A_ME_CA33F456975C GetResultTypeInfo
 : ME_559687E6025A_ME_CA33F456975C
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_CA33F456975C // string_ToChar
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_CA33F456975C GetAllParamsCount
 
 : ME_5617F4D00243_ME_CA33F456975C
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_CA33F456975C // string_ToChar
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_CA33F456975C ParamsTypes
@@ -3955,15 +3955,11 @@ ref; // ME_DBAFF77F9221
 : ME_4DAEEDE10285_ME_4C3CAF64FEF3
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_4C3CAF64FEF3 // char_ToString
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4C3CAF64FEF3 DoDoIt
 
 : ME_551544E2001A_ME_4C3CAF64FEF3
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_4C3CAF64FEF3 // char_ToString
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_4C3CAF64FEF3 GetResultTypeInfo
@@ -3971,15 +3967,11 @@ ref; // ME_551544E2001A_ME_4C3CAF64FEF3 GetResultTypeInfo
 : ME_559687E6025A_ME_4C3CAF64FEF3
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_4C3CAF64FEF3 // char_ToString
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_4C3CAF64FEF3 GetAllParamsCount
 
 : ME_5617F4D00243_ME_4C3CAF64FEF3
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_4C3CAF64FEF3 // char_ToString
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_4C3CAF64FEF3 ParamsTypes
@@ -4120,15 +4112,11 @@ ref; // ME_17AE546E003E
 : ME_4DAEEDE10285_ME_355A8C3D70FA
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_355A8C3D70FA // char_Dupe
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_355A8C3D70FA DoDoIt
 
 : ME_551544E2001A_ME_355A8C3D70FA
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_355A8C3D70FA // char_Dupe
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_355A8C3D70FA GetResultTypeInfo
@@ -4136,15 +4124,11 @@ ref; // ME_551544E2001A_ME_355A8C3D70FA GetResultTypeInfo
 : ME_559687E6025A_ME_355A8C3D70FA
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_355A8C3D70FA // char_Dupe
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_355A8C3D70FA GetAllParamsCount
 
 : ME_5617F4D00243_ME_355A8C3D70FA
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_355A8C3D70FA // char_Dupe
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_355A8C3D70FA ParamsTypes
@@ -4274,15 +4258,11 @@ ref; // ME_BB7EE5700A30
 : ME_4DAEEDE10285_ME_F3116B965978
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_F3116B965978 // string_Inc
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F3116B965978 DoDoIt
 
 : ME_551544E2001A_ME_F3116B965978
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_F3116B965978 // string_Inc
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_F3116B965978 GetResultTypeInfo
@@ -4290,15 +4270,11 @@ ref; // ME_551544E2001A_ME_F3116B965978 GetResultTypeInfo
 : ME_559687E6025A_ME_F3116B965978
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_F3116B965978 // string_Inc
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_F3116B965978 GetAllParamsCount
 
 : ME_5617F4D00243_ME_F3116B965978
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_F3116B965978 // string_Inc
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_F3116B965978 ParamsTypes
@@ -4439,15 +4415,11 @@ ref; // ME_17870B6CDD71
 : ME_4DAEEDE10285_ME_EFB7A59A9041
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_EFB7A59A9041 // string_Shift
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_EFB7A59A9041 DoDoIt
 
 : ME_551544E2001A_ME_EFB7A59A9041
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_EFB7A59A9041 // string_Shift
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_EFB7A59A9041 GetResultTypeInfo
@@ -4455,15 +4427,11 @@ ref; // ME_551544E2001A_ME_EFB7A59A9041 GetResultTypeInfo
 : ME_559687E6025A_ME_EFB7A59A9041
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_EFB7A59A9041 // string_Shift
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_EFB7A59A9041 GetAllParamsCount
 
 : ME_5617F4D00243_ME_EFB7A59A9041
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_EFB7A59A9041 // string_Shift
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_EFB7A59A9041 ParamsTypes
@@ -4593,15 +4561,11 @@ ref; // ME_4263D094FE6D
 : ME_4DAEEDE10285_ME_4E9A5EC5FAC6
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_4E9A5EC5FAC6 // string_FirstChar
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4E9A5EC5FAC6 DoDoIt
 
 : ME_551544E2001A_ME_4E9A5EC5FAC6
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_4E9A5EC5FAC6 // string_FirstChar
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_4E9A5EC5FAC6 GetResultTypeInfo
@@ -4609,15 +4573,11 @@ ref; // ME_551544E2001A_ME_4E9A5EC5FAC6 GetResultTypeInfo
 : ME_559687E6025A_ME_4E9A5EC5FAC6
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_4E9A5EC5FAC6 // string_FirstChar
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_4E9A5EC5FAC6 GetAllParamsCount
 
 : ME_5617F4D00243_ME_4E9A5EC5FAC6
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_4E9A5EC5FAC6 // string_FirstChar
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_4E9A5EC5FAC6 ParamsTypes
@@ -4747,15 +4707,11 @@ ref; // ME_3478C62E2BDA
 : ME_4DAEEDE10285_ME_95D9D233CD72
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_95D9D233CD72 // string_Trim
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_95D9D233CD72 DoDoIt
 
 : ME_551544E2001A_ME_95D9D233CD72
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_95D9D233CD72 // string_Trim
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_95D9D233CD72 GetResultTypeInfo
@@ -4763,15 +4719,11 @@ ref; // ME_551544E2001A_ME_95D9D233CD72 GetResultTypeInfo
 : ME_559687E6025A_ME_95D9D233CD72
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_95D9D233CD72 // string_Trim
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_95D9D233CD72 GetAllParamsCount
 
 : ME_5617F4D00243_ME_95D9D233CD72
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_95D9D233CD72 // string_Trim
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_95D9D233CD72 ParamsTypes
@@ -4901,15 +4853,11 @@ ref; // ME_60721698B32B
 : ME_4DAEEDE10285_ME_2D2FC66E49DD
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_2D2FC66E49DD // string_TrimLeft
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_2D2FC66E49DD DoDoIt
 
 : ME_551544E2001A_ME_2D2FC66E49DD
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_2D2FC66E49DD // string_TrimLeft
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_2D2FC66E49DD GetResultTypeInfo
@@ -4917,15 +4865,11 @@ ref; // ME_551544E2001A_ME_2D2FC66E49DD GetResultTypeInfo
 : ME_559687E6025A_ME_2D2FC66E49DD
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_2D2FC66E49DD // string_TrimLeft
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_2D2FC66E49DD GetAllParamsCount
 
 : ME_5617F4D00243_ME_2D2FC66E49DD
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_2D2FC66E49DD // string_TrimLeft
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_2D2FC66E49DD ParamsTypes
@@ -5055,15 +4999,11 @@ ref; // ME_6587292FC94C
 : ME_4DAEEDE10285_ME_807D7A8440DD
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_807D7A8440DD // string_TrimRight
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_807D7A8440DD DoDoIt
 
 : ME_551544E2001A_ME_807D7A8440DD
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_807D7A8440DD // string_TrimRight
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_807D7A8440DD GetResultTypeInfo
@@ -5071,15 +5011,11 @@ ref; // ME_551544E2001A_ME_807D7A8440DD GetResultTypeInfo
 : ME_559687E6025A_ME_807D7A8440DD
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_807D7A8440DD // string_TrimRight
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_807D7A8440DD GetAllParamsCount
 
 : ME_5617F4D00243_ME_807D7A8440DD
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_807D7A8440DD // string_TrimRight
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_807D7A8440DD ParamsTypes
@@ -5209,15 +5145,11 @@ ref; // ME_287C4761B794
 : ME_4DAEEDE10285_ME_D5F09D866A34
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_D5F09D866A34 // string_DeleteDoubleSpaces
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_D5F09D866A34 DoDoIt
 
 : ME_551544E2001A_ME_D5F09D866A34
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_D5F09D866A34 // string_DeleteDoubleSpaces
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_D5F09D866A34 GetResultTypeInfo
@@ -5225,15 +5157,11 @@ ref; // ME_551544E2001A_ME_D5F09D866A34 GetResultTypeInfo
 : ME_559687E6025A_ME_D5F09D866A34
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_D5F09D866A34 // string_DeleteDoubleSpaces
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_D5F09D866A34 GetAllParamsCount
 
 : ME_5617F4D00243_ME_D5F09D866A34
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_D5F09D866A34 // string_DeleteDoubleSpaces
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_D5F09D866A34 ParamsTypes
@@ -5374,15 +5302,11 @@ ref; // ME_D4FA9BC1B9A4
 : ME_4DAEEDE10285_ME_30A1EAD7A5D9
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_30A1EAD7A5D9 // string_DeleteDoubleChars
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_30A1EAD7A5D9 DoDoIt
 
 : ME_551544E2001A_ME_30A1EAD7A5D9
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_30A1EAD7A5D9 // string_DeleteDoubleChars
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_30A1EAD7A5D9 GetResultTypeInfo
@@ -5390,15 +5314,11 @@ ref; // ME_551544E2001A_ME_30A1EAD7A5D9 GetResultTypeInfo
 : ME_559687E6025A_ME_30A1EAD7A5D9
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_30A1EAD7A5D9 // string_DeleteDoubleChars
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_30A1EAD7A5D9 GetAllParamsCount
 
 : ME_5617F4D00243_ME_30A1EAD7A5D9
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_30A1EAD7A5D9 // string_DeleteDoubleChars
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_30A1EAD7A5D9 ParamsTypes
@@ -5550,15 +5470,11 @@ ref; // ME_F33DE0641201
 : ME_4DAEEDE10285_ME_2E3FD122E430
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_2E3FD122E430 // string_Substring
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_2E3FD122E430 DoDoIt
 
 : ME_551544E2001A_ME_2E3FD122E430
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_2E3FD122E430 // string_Substring
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_2E3FD122E430 GetResultTypeInfo
@@ -5566,15 +5482,11 @@ ref; // ME_551544E2001A_ME_2E3FD122E430 GetResultTypeInfo
 : ME_559687E6025A_ME_2E3FD122E430
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_2E3FD122E430 // string_Substring
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_2E3FD122E430 GetAllParamsCount
 
 : ME_5617F4D00243_ME_2E3FD122E430
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_2E3FD122E430 // string_Substring
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_2E3FD122E430 ParamsTypes
@@ -5704,15 +5616,11 @@ ref; // ME_797107749127
 : ME_4DAEEDE10285_ME_B79BEA825961
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_B79BEA825961 // string_Lower
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_B79BEA825961 DoDoIt
 
 : ME_551544E2001A_ME_B79BEA825961
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_B79BEA825961 // string_Lower
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_B79BEA825961 GetResultTypeInfo
@@ -5720,15 +5628,11 @@ ref; // ME_551544E2001A_ME_B79BEA825961 GetResultTypeInfo
 : ME_559687E6025A_ME_B79BEA825961
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_B79BEA825961 // string_Lower
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_B79BEA825961 GetAllParamsCount
 
 : ME_5617F4D00243_ME_B79BEA825961
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_B79BEA825961 // string_Lower
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_B79BEA825961 ParamsTypes
@@ -5858,15 +5762,11 @@ ref; // ME_675454981C35
 : ME_4DAEEDE10285_ME_8BA4B632B802
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
- : Implementor ME_8BA4B632B802 // string_Upper
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_8BA4B632B802 DoDoIt
 
 : ME_551544E2001A_ME_8BA4B632B802
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- : Implementor ME_8BA4B632B802 // string_Upper
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_8BA4B632B802 GetResultTypeInfo
@@ -5874,15 +5774,11 @@ ref; // ME_551544E2001A_ME_8BA4B632B802 GetResultTypeInfo
 : ME_559687E6025A_ME_8BA4B632B802
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_8BA4B632B802 // string_Upper
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_8BA4B632B802 GetAllParamsCount
 
 : ME_5617F4D00243_ME_8BA4B632B802
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_8BA4B632B802 // string_Upper
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_8BA4B632B802 ParamsTypes
@@ -5938,6 +5834,882 @@ ref; // ME_5617F4D00243_ME_8BA4B632B802 ParamsTypes
  ;
 
 ref; // ME_8BA4B632B802 string_Upper
+
+FORWARD ME_56F3E6A203DB
+
+FORWARD ME_379CE3C7BE29
+
+FORWARD ME_F137872D0D02
+
+: ME_299611CEFA31
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_299611CEFA31 aCtx
+
+: ME_299611CEFA32
+ CONST Name 'aString'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_299611CEFA32 aString
+
+: ME_379CE3C7BE29
+ CONST UID '379CE3C7BE29'
+ CONST Name 'string_ToUnicode'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта string:ToUnicode' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_F137872D0D02 // string_ToUnicode
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   Seq: ( ME_299611CEFA31 // aCtx
+ ME_299611CEFA32 // aString
+ )
+ ; // Parameters
+ : SpelledFor ME_56F3E6A203DB // string_ToUnicode
+ ;
+
+ref; // ME_379CE3C7BE29 string_ToUnicode
+
+: ME_9A671DC70BF6
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_F137872D0D02 // string_ToUnicode
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_9A671DC70BF6 
+
+: ME_4C3FC1C1C8BE
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_F137872D0D02 // string_ToUnicode
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4C3FC1C1C8BE 
+
+: ME_4DAEEDE10285_ME_F137872D0D02
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_F137872D0D02 DoDoIt
+
+: ME_551544E2001A_ME_F137872D0D02
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_F137872D0D02 GetResultTypeInfo
+
+: ME_559687E6025A_ME_F137872D0D02
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_F137872D0D02 GetAllParamsCount
+
+: ME_5617F4D00243_ME_F137872D0D02
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_F137872D0D02 ParamsTypes
+
+: ME_F137872D0D02
+ CONST UID 'F137872D0D02'
+ CONST Name 'string_ToUnicode'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта string:ToUnicode'#13#10'*Тип результата:* Il3CString'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_Il3CString'#13#10' aString string:ToUnicode >>> l_Il3CString'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_379CE3C7BE29 // string_ToUnicode
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_F137872D0D02 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_551544E2001A_ME_F137872D0D02 // GetResultTypeInfo
+ ME_559687E6025A_ME_F137872D0D02 // GetAllParamsCount
+ ME_5617F4D00243_ME_F137872D0D02 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_9A671DC70BF6 // 
+ ME_4C3FC1C1C8BE // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'string:ToUnicode'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwStringToUnicode'
+ CONST extprop:rc:SelfName 'StringToUnicode'
+ CONST extprop:rc:isAcceptableForScripts true
+ : Speller WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : SpelledFor ME_56F3E6A203DB // string_ToUnicode
+ ;
+ : Stub ME_379CE3C7BE29 // string_ToUnicode
+ ;
+
+ref; // ME_F137872D0D02 string_ToUnicode
+
+FORWARD ME_56F3E6BE0100
+
+FORWARD ME_CCA8B4B34AEE
+
+FORWARD ME_58C52E8D04B3
+
+: ME_58EF24ABA02E
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_58EF24ABA02E aCtx
+
+: ME_58EF24ABA02F
+ CONST Name 'aString'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_58EF24ABA02F aString
+
+: ME_CCA8B4B34AEE
+ CONST UID 'CCA8B4B34AEE'
+ CONST Name 'string_Hash'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта string:Hash' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_58C52E8D04B3 // string_Hash
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   Seq: ( ME_58EF24ABA02E // aCtx
+ ME_58EF24ABA02F // aString
+ )
+ ; // Parameters
+ : SpelledFor ME_56F3E6BE0100 // string_Hash
+ ;
+
+ref; // ME_CCA8B4B34AEE string_Hash
+
+: ME_F618A824FD02
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_58C52E8D04B3 // string_Hash
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_F618A824FD02 
+
+: ME_6E5B2ABE4F93
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_58C52E8D04B3 // string_Hash
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_6E5B2ABE4F93 
+
+: ME_4DAEEDE10285_ME_58C52E8D04B3
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_58C52E8D04B3 DoDoIt
+
+: ME_551544E2001A_ME_58C52E8D04B3
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_58C52E8D04B3 GetResultTypeInfo
+
+: ME_559687E6025A_ME_58C52E8D04B3
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_58C52E8D04B3 GetAllParamsCount
+
+: ME_5617F4D00243_ME_58C52E8D04B3
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_58C52E8D04B3 ParamsTypes
+
+: ME_58C52E8D04B3
+ CONST UID '58C52E8D04B3'
+ CONST Name 'string_Hash'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта string:Hash'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aString string:Hash >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_CCA8B4B34AEE // string_Hash
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_58C52E8D04B3 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_551544E2001A_ME_58C52E8D04B3 // GetResultTypeInfo
+ ME_559687E6025A_ME_58C52E8D04B3 // GetAllParamsCount
+ ME_5617F4D00243_ME_58C52E8D04B3 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_F618A824FD02 // 
+ ME_6E5B2ABE4F93 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'string:Hash'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwStringHash'
+ CONST extprop:rc:SelfName 'StringHash'
+ CONST extprop:rc:isAcceptableForScripts true
+ : Speller WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : SpelledFor ME_56F3E6BE0100 // string_Hash
+ ;
+ : Stub ME_CCA8B4B34AEE // string_Hash
+ ;
+
+ref; // ME_58C52E8D04B3 string_Hash
+
+FORWARD ME_56F3E6D102C5
+
+FORWARD ME_996EB442FD96
+
+FORWARD ME_15AF617143C8
+
+: ME_0F75F148088D
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_0F75F148088D aCtx
+
+: ME_0F75F148088E
+ CONST Name 'aString'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_0F75F148088E aString
+
+: ME_996EB442FD96
+ CONST UID '996EB442FD96'
+ CONST Name 'string_SmallHash'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта string:SmallHash' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_15AF617143C8 // string_SmallHash
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   Seq: ( ME_0F75F148088D // aCtx
+ ME_0F75F148088E // aString
+ )
+ ; // Parameters
+ : SpelledFor ME_56F3E6D102C5 // string_SmallHash
+ ;
+
+ref; // ME_996EB442FD96 string_SmallHash
+
+: ME_F0EEE591C8D1
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_15AF617143C8 // string_SmallHash
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_F0EEE591C8D1 
+
+: ME_C3F5DA2F47DD
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_15AF617143C8 // string_SmallHash
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_C3F5DA2F47DD 
+
+: ME_4DAEEDE10285_ME_15AF617143C8
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_15AF617143C8 DoDoIt
+
+: ME_551544E2001A_ME_15AF617143C8
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_15AF617143C8 GetResultTypeInfo
+
+: ME_559687E6025A_ME_15AF617143C8
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_15AF617143C8 GetAllParamsCount
+
+: ME_5617F4D00243_ME_15AF617143C8
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_15AF617143C8 ParamsTypes
+
+: ME_15AF617143C8
+ CONST UID '15AF617143C8'
+ CONST Name 'string_SmallHash'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта string:SmallHash'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aString string:SmallHash >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_996EB442FD96 // string_SmallHash
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_15AF617143C8 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_551544E2001A_ME_15AF617143C8 // GetResultTypeInfo
+ ME_559687E6025A_ME_15AF617143C8 // GetAllParamsCount
+ ME_5617F4D00243_ME_15AF617143C8 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_F0EEE591C8D1 // 
+ ME_C3F5DA2F47DD // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'string:SmallHash'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwStringSmallHash'
+ CONST extprop:rc:SelfName 'StringSmallHash'
+ CONST extprop:rc:isAcceptableForScripts true
+ : Speller WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : SpelledFor ME_56F3E6D102C5 // string_SmallHash
+ ;
+ : Stub ME_996EB442FD96 // string_SmallHash
+ ;
+
+ref; // ME_15AF617143C8 string_SmallHash
+
+FORWARD ME_56F3EF7C0205
+
+FORWARD ME_5A085B77B272
+
+FORWARD ME_AE2A1F9F2367
+
+: ME_19DE6C869B7C
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_19DE6C869B7C aCtx
+
+: ME_19DE6C869B7D
+ CONST Name 'aString'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_19DE6C869B7D aString
+
+: ME_5A085B77B272
+ CONST UID '5A085B77B272'
+ CONST Name 'string_Iterator'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта string:Iterator' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_AE2A1F9F2367 // string_Iterator
+ ;
+ : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ ;
+ : Parameters
+   Seq: ( ME_19DE6C869B7C // aCtx
+ ME_19DE6C869B7D // aString
+ )
+ ; // Parameters
+ : SpelledFor ME_56F3EF7C0205 // string_Iterator
+ ;
+
+ref; // ME_5A085B77B272 string_Iterator
+
+: ME_BE8E3271CE8D
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_AE2A1F9F2367 // string_Iterator
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_BE8E3271CE8D 
+
+: ME_5C187EBC9FA6
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_AE2A1F9F2367 // string_Iterator
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_5C187EBC9FA6 
+
+: ME_4DAEEDE10285_ME_AE2A1F9F2367
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_AE2A1F9F2367 DoDoIt
+
+: ME_551544E2001A_ME_AE2A1F9F2367
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_AE2A1F9F2367 GetResultTypeInfo
+
+: ME_559687E6025A_ME_AE2A1F9F2367
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_AE2A1F9F2367 GetAllParamsCount
+
+: ME_5617F4D00243_ME_AE2A1F9F2367
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_AE2A1F9F2367 ParamsTypes
+
+: ME_AE2A1F9F2367
+ CONST UID 'AE2A1F9F2367'
+ CONST Name 'string_Iterator'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта string:Iterator'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' aString string:Iterator >>> l_ItfwValueList'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_5A085B77B272 // string_Iterator
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_AE2A1F9F2367 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_551544E2001A_ME_AE2A1F9F2367 // GetResultTypeInfo
+ ME_559687E6025A_ME_AE2A1F9F2367 // GetAllParamsCount
+ ME_5617F4D00243_ME_AE2A1F9F2367 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_BE8E3271CE8D // 
+ ME_5C187EBC9FA6 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'string:Iterator'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwStringIterator'
+ CONST extprop:rc:SelfName 'StringIterator'
+ CONST extprop:rc:isAcceptableForScripts true
+ : Speller WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : SpelledFor ME_56F3EF7C0205 // string_Iterator
+ ;
+ : Stub ME_5A085B77B272 // string_Iterator
+ ;
+
+ref; // ME_AE2A1F9F2367 string_Iterator
+
+FORWARD ME_56F40BBA029D
+
+FORWARD ME_9A63750A932F
+
+FORWARD ME_B0A153973998
+
+: ME_0B0FF396EFF1
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_0B0FF396EFF1 aCtx
+
+: ME_0B0FF396EFF2
+ CONST Name 'aString'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_0B0FF396EFF2 aString
+
+: ME_9A63750A932F
+ CONST UID '9A63750A932F'
+ CONST Name 'string_Hash_New'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта string:Hash:New' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B0A153973998 // string_Hash_New
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   Seq: ( ME_0B0FF396EFF1 // aCtx
+ ME_0B0FF396EFF2 // aString
+ )
+ ; // Parameters
+ : SpelledFor ME_56F40BBA029D // string_Hash_New
+ ;
+
+ref; // ME_9A63750A932F string_Hash_New
+
+: ME_AA8EF92D6C9B
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B0A153973998 // string_Hash_New
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_AA8EF92D6C9B 
+
+: ME_10F751BD4E28
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B0A153973998 // string_Hash_New
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_10F751BD4E28 
+
+: ME_4DAEEDE10285_ME_B0A153973998
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_B0A153973998 DoDoIt
+
+: ME_551544E2001A_ME_B0A153973998
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_B0A153973998 GetResultTypeInfo
+
+: ME_559687E6025A_ME_B0A153973998
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_B0A153973998 GetAllParamsCount
+
+: ME_5617F4D00243_ME_B0A153973998
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_B0A153973998 ParamsTypes
+
+: ME_B0A153973998
+ CONST UID 'B0A153973998'
+ CONST Name 'string_Hash_New'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта string:Hash:New'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aString string:Hash:New >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_9A63750A932F // string_Hash_New
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_B0A153973998 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_551544E2001A_ME_B0A153973998 // GetResultTypeInfo
+ ME_559687E6025A_ME_B0A153973998 // GetAllParamsCount
+ ME_5617F4D00243_ME_B0A153973998 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_AA8EF92D6C9B // 
+ ME_10F751BD4E28 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'string:Hash:New'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwStringHashNew'
+ CONST extprop:rc:SelfName 'StringHashNew'
+ CONST extprop:rc:isAcceptableForScripts true
+ : Speller WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : SpelledFor ME_56F40BBA029D // string_Hash_New
+ ;
+ : Stub ME_9A63750A932F // string_Hash_New
+ ;
+
+ref; // ME_B0A153973998 string_Hash_New
+
+FORWARD ME_56F40BD3026A
+
+FORWARD ME_BF1566C329E5
+
+FORWARD ME_A91467BC2C27
+
+: ME_039897CA55FC
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_039897CA55FC aCtx
+
+: ME_039897CA55FD
+ CONST Name 'aString'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_039897CA55FD aString
+
+: ME_BF1566C329E5
+ CONST UID 'BF1566C329E5'
+ CONST Name 'string_SmallHash_New'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта string:SmallHash:New' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_A91467BC2C27 // string_SmallHash_New
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   Seq: ( ME_039897CA55FC // aCtx
+ ME_039897CA55FD // aString
+ )
+ ; // Parameters
+ : SpelledFor ME_56F40BD3026A // string_SmallHash_New
+ ;
+
+ref; // ME_BF1566C329E5 string_SmallHash_New
+
+: ME_A84FECF5FA54
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_A91467BC2C27 // string_SmallHash_New
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_A84FECF5FA54 
+
+: ME_5ED2102713F8
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_A91467BC2C27 // string_SmallHash_New
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_5ED2102713F8 
+
+: ME_4DAEEDE10285_ME_A91467BC2C27
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_A91467BC2C27 DoDoIt
+
+: ME_551544E2001A_ME_A91467BC2C27
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_A91467BC2C27 GetResultTypeInfo
+
+: ME_559687E6025A_ME_A91467BC2C27
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_A91467BC2C27 GetAllParamsCount
+
+: ME_5617F4D00243_ME_A91467BC2C27
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_A91467BC2C27 ParamsTypes
+
+: ME_A91467BC2C27
+ CONST UID 'A91467BC2C27'
+ CONST Name 'string_SmallHash_New'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта string:SmallHash:New'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aString string:SmallHash:New >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_BF1566C329E5 // string_SmallHash_New
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_A91467BC2C27 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_551544E2001A_ME_A91467BC2C27 // GetResultTypeInfo
+ ME_559687E6025A_ME_A91467BC2C27 // GetAllParamsCount
+ ME_5617F4D00243_ME_A91467BC2C27 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_A84FECF5FA54 // 
+ ME_5ED2102713F8 // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'string:SmallHash:New'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwStringSmallHashNew'
+ CONST extprop:rc:SelfName 'StringSmallHashNew'
+ CONST extprop:rc:isAcceptableForScripts true
+ : Speller WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : SpelledFor ME_56F40BD3026A // string_SmallHash_New
+ ;
+ : Stub ME_BF1566C329E5 // string_SmallHash_New
+ ;
+
+ref; // ME_A91467BC2C27 string_SmallHash_New
 
 FORWARD ME_55686F4301AB
 
@@ -6010,15 +6782,11 @@ ref; // ME_106AED257B89
 : ME_52E9282B0271_ME_5B249AD9723E
  : Original WL 'ME_52E9282B0271' '4DAF19F600C5.pas.ms.script' // RightParamsCount
  ;
- : Implementor ME_5B249AD9723E // VarDecLen
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_52E9282B0271_ME_5B249AD9723E RightParamsCount
 
 : ME_5512949D0048_ME_5B249AD9723E
  : Original WL 'ME_5512949D0048' '54F079B5035C.pas.ms.script' // DoRun
- ;
- : Implementor ME_5B249AD9723E // VarDecLen
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5512949D0048_ME_5B249AD9723E DoRun
@@ -6026,23 +6794,17 @@ ref; // ME_5512949D0048_ME_5B249AD9723E DoRun
 : ME_551544E2001A_ME_5B249AD9723E
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
- : Implementor ME_5B249AD9723E // VarDecLen
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_5B249AD9723E GetResultTypeInfo
 
 : ME_559687E6025A_ME_5B249AD9723E
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_5B249AD9723E // VarDecLen
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_5B249AD9723E GetAllParamsCount
 
 : ME_5617F4D00243_ME_5B249AD9723E
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_5B249AD9723E // VarDecLen
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_5B249AD9723E ParamsTypes
@@ -6166,15 +6928,11 @@ ref; // ME_03C2E61F3FA1
 : ME_52E9282B0271_ME_FF4D82AA3241
  : Original WL 'ME_52E9282B0271' '4DAF19F600C5.pas.ms.script' // RightParamsCount
  ;
- : Implementor ME_FF4D82AA3241 // VarInc
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_52E9282B0271_ME_FF4D82AA3241 RightParamsCount
 
 : ME_5512949D0048_ME_FF4D82AA3241
  : Original WL 'ME_5512949D0048' '54F079B5035C.pas.ms.script' // DoRun
- ;
- : Implementor ME_FF4D82AA3241 // VarInc
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5512949D0048_ME_FF4D82AA3241 DoRun
@@ -6182,23 +6940,17 @@ ref; // ME_5512949D0048_ME_FF4D82AA3241 DoRun
 : ME_551544E2001A_ME_FF4D82AA3241
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
- : Implementor ME_FF4D82AA3241 // VarInc
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_FF4D82AA3241 GetResultTypeInfo
 
 : ME_559687E6025A_ME_FF4D82AA3241
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_FF4D82AA3241 // VarInc
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_FF4D82AA3241 GetAllParamsCount
 
 : ME_5617F4D00243_ME_FF4D82AA3241
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_FF4D82AA3241 // VarInc
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_FF4D82AA3241 ParamsTypes
@@ -6335,15 +7087,11 @@ ref; // ME_AE7E9C6169DD
 : ME_52E9282B0271_ME_D442EF995DFF
  : Original WL 'ME_52E9282B0271' '4DAF19F600C5.pas.ms.script' // RightParamsCount
  ;
- : Implementor ME_D442EF995DFF // RSplitTo
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_52E9282B0271_ME_D442EF995DFF RightParamsCount
 
 : ME_5512949D0048_ME_D442EF995DFF
  : Original WL 'ME_5512949D0048' '54F079B5035C.pas.ms.script' // DoRun
- ;
- : Implementor ME_D442EF995DFF // RSplitTo
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5512949D0048_ME_D442EF995DFF DoRun
@@ -6351,23 +7099,17 @@ ref; // ME_5512949D0048_ME_D442EF995DFF DoRun
 : ME_551544E2001A_ME_D442EF995DFF
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
- : Implementor ME_D442EF995DFF // RSplitTo
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_D442EF995DFF GetResultTypeInfo
 
 : ME_559687E6025A_ME_D442EF995DFF
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_D442EF995DFF // RSplitTo
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_D442EF995DFF GetAllParamsCount
 
 : ME_5617F4D00243_ME_D442EF995DFF
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_D442EF995DFF // RSplitTo
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_D442EF995DFF ParamsTypes
@@ -6502,15 +7244,11 @@ ref; // ME_444247C43C9E
 : ME_52E9282B0271_ME_E1736F173AD3
  : Original WL 'ME_52E9282B0271' '4DAF19F600C5.pas.ms.script' // RightParamsCount
  ;
- : Implementor ME_E1736F173AD3 // VarShift
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_52E9282B0271_ME_E1736F173AD3 RightParamsCount
 
 : ME_5512949D0048_ME_E1736F173AD3
  : Original WL 'ME_5512949D0048' '54F079B5035C.pas.ms.script' // DoRun
- ;
- : Implementor ME_E1736F173AD3 // VarShift
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5512949D0048_ME_E1736F173AD3 DoRun
@@ -6518,23 +7256,17 @@ ref; // ME_5512949D0048_ME_E1736F173AD3 DoRun
 : ME_551544E2001A_ME_E1736F173AD3
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
- : Implementor ME_E1736F173AD3 // VarShift
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_E1736F173AD3 GetResultTypeInfo
 
 : ME_559687E6025A_ME_E1736F173AD3
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_E1736F173AD3 // VarShift
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_E1736F173AD3 GetAllParamsCount
 
 : ME_5617F4D00243_ME_E1736F173AD3
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_E1736F173AD3 // VarShift
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_E1736F173AD3 ParamsTypes
@@ -6671,15 +7403,11 @@ ref; // ME_4F6F12D188D5
 : ME_52E9282B0271_ME_BF0C6B892128
  : Original WL 'ME_52E9282B0271' '4DAF19F600C5.pas.ms.script' // RightParamsCount
  ;
- : Implementor ME_BF0C6B892128 // SplitTo
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_52E9282B0271_ME_BF0C6B892128 RightParamsCount
 
 : ME_5512949D0048_ME_BF0C6B892128
  : Original WL 'ME_5512949D0048' '54F079B5035C.pas.ms.script' // DoRun
- ;
- : Implementor ME_BF0C6B892128 // SplitTo
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5512949D0048_ME_BF0C6B892128 DoRun
@@ -6687,23 +7415,17 @@ ref; // ME_5512949D0048_ME_BF0C6B892128 DoRun
 : ME_551544E2001A_ME_BF0C6B892128
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
- : Implementor ME_BF0C6B892128 // SplitTo
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_BF0C6B892128 GetResultTypeInfo
 
 : ME_559687E6025A_ME_BF0C6B892128
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_BF0C6B892128 // SplitTo
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_BF0C6B892128 GetAllParamsCount
 
 : ME_5617F4D00243_ME_BF0C6B892128
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_BF0C6B892128 // SplitTo
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_BF0C6B892128 ParamsTypes
@@ -6829,15 +7551,11 @@ ref; // ME_7AEEE3483CB4
 : ME_52E9282B0271_ME_6014F0D564E4
  : Original WL 'ME_52E9282B0271' '4DAF19F600C5.pas.ms.script' // RightParamsCount
  ;
- : Implementor ME_6014F0D564E4 // VarPushCharAndInc
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_52E9282B0271_ME_6014F0D564E4 RightParamsCount
 
 : ME_5512949D0048_ME_6014F0D564E4
  : Original WL 'ME_5512949D0048' '54F079B5035C.pas.ms.script' // DoRun
- ;
- : Implementor ME_6014F0D564E4 // VarPushCharAndInc
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5512949D0048_ME_6014F0D564E4 DoRun
@@ -6845,23 +7563,17 @@ ref; // ME_5512949D0048_ME_6014F0D564E4 DoRun
 : ME_551544E2001A_ME_6014F0D564E4
  : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
  ;
- : Implementor ME_6014F0D564E4 // VarPushCharAndInc
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_551544E2001A_ME_6014F0D564E4 GetResultTypeInfo
 
 : ME_559687E6025A_ME_6014F0D564E4
  : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
  ;
- : Implementor ME_6014F0D564E4 // VarPushCharAndInc
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_559687E6025A_ME_6014F0D564E4 GetAllParamsCount
 
 : ME_5617F4D00243_ME_6014F0D564E4
  : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- : Implementor ME_6014F0D564E4 // VarPushCharAndInc
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5617F4D00243_ME_6014F0D564E4 ParamsTypes
@@ -6913,6 +7625,139 @@ ref; // ME_5617F4D00243_ME_6014F0D564E4 ParamsTypes
  ;
 
 ref; // ME_6014F0D564E4 VarPushCharAndInc
+
+FORWARD ME_56F3E8880129
+
+FORWARD ME_38279256623E
+
+FORWARD ME_01887D1A0952
+
+: ME_54B91A212B8B
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_54B91A212B8B aCtx
+
+: ME_38279256623E
+ CONST UID '38279256623E'
+ CONST Name 'Hash16Table'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта Hash16Table' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_01887D1A0952 // Hash16Table
+ ;
+ : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ ;
+ : Parameters
+   Seq: ( ME_54B91A212B8B // aCtx
+ )
+ ; // Parameters
+ : SpelledFor ME_56F3E8880129 // Hash16Table
+ ;
+
+ref; // ME_38279256623E Hash16Table
+
+: ME_139DEF1E4991
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_01887D1A0952 // Hash16Table
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_139DEF1E4991 
+
+: ME_FC6C1FC14E1C
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_01887D1A0952 // Hash16Table
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_FC6C1FC14E1C 
+
+: ME_4DAEEDE10285_ME_01887D1A0952
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_01887D1A0952 DoDoIt
+
+: ME_551544E2001A_ME_01887D1A0952
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_01887D1A0952 GetResultTypeInfo
+
+: ME_559687E6025A_ME_01887D1A0952
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_01887D1A0952 GetAllParamsCount
+
+: ME_5617F4D00243_ME_01887D1A0952
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_01887D1A0952 ParamsTypes
+
+: ME_01887D1A0952
+ CONST UID '01887D1A0952'
+ CONST Name 'Hash16Table'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта Hash16Table'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' Hash16Table >>> l_ItfwValueList'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_38279256623E // Hash16Table
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_01887D1A0952 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_551544E2001A_ME_01887D1A0952 // GetResultTypeInfo
+ ME_559687E6025A_ME_01887D1A0952 // GetAllParamsCount
+ ME_5617F4D00243_ME_01887D1A0952 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_139DEF1E4991 // 
+ ME_FC6C1FC14E1C // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'Hash16Table'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwHash16Table'
+ CONST extprop:rc:SelfName 'Hash16Table'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_56F3E8880129 // Hash16Table
+ ;
+ : Stub ME_38279256623E // Hash16Table
+ ;
+
+ref; // ME_01887D1A0952 Hash16Table
 
 : ME_55682E210194
  CONST Name 'aSubStr'
@@ -8123,6 +8968,136 @@ ref; // ME_56AB7AC10249 string_Lower
 
 ref; // ME_56AB7AD00352 string_Upper
 
+: ME_56F3E6A203DB
+ CONST UID '56F3E6A203DB'
+ CONST Name 'string_ToUnicode'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+ : Speller ME_F137872D0D02 // string_ToUnicode
+ ;
+
+ref; // ME_56F3E6A203DB string_ToUnicode
+
+: ME_56F3E6BE0100
+ CONST UID '56F3E6BE0100'
+ CONST Name 'string_Hash'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+ : Speller ME_58C52E8D04B3 // string_Hash
+ ;
+
+ref; // ME_56F3E6BE0100 string_Hash
+
+: ME_56F3E6D102C5
+ CONST UID '56F3E6D102C5'
+ CONST Name 'string_SmallHash'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+ : Speller ME_15AF617143C8 // string_SmallHash
+ ;
+
+ref; // ME_56F3E6D102C5 string_SmallHash
+
+: ME_56F3E8880129
+ CONST UID '56F3E8880129'
+ CONST Name 'Hash16Table'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ ;
+ : Speller ME_01887D1A0952 // Hash16Table
+ ;
+
+ref; // ME_56F3E8880129 Hash16Table
+
+: ME_56F3EF7C0205
+ CONST UID '56F3EF7C0205'
+ CONST Name 'string_Iterator'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+ : Speller ME_AE2A1F9F2367 // string_Iterator
+ ;
+
+ref; // ME_56F3EF7C0205 string_Iterator
+
+: ME_56F40BBA029D
+ CONST UID '56F40BBA029D'
+ CONST Name 'string_Hash_New'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+ : Speller ME_B0A153973998 // string_Hash_New
+ ;
+
+ref; // ME_56F40BBA029D string_Hash_New
+
+: ME_56F40BD3026A
+ CONST UID '56F40BD3026A'
+ CONST Name 'string_SmallHash_New'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+ : Speller ME_A91467BC2C27 // string_SmallHash_New
+ ;
+
+ref; // ME_56F40BD3026A string_SmallHash_New
+
 : ME_3D95A4A91861
  CONST UID '3D95A4A91861'
  CONST Name 'Reg_Type_TtfwContext'
@@ -8203,6 +9178,22 @@ ref; // ME_AAEC7D283934 Reg_Type_Integer
 
 ref; // ME_5C7667971622 Reg_Type_Char
 
+: ME_C563AA3E982B
+ CONST UID 'C563AA3E982B'
+ CONST Name 'Reg_Type_ItfwValueList'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа ItfwValueList' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : SpelledFor WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ ;
+
+ref; // ME_C563AA3E982B Reg_Type_ItfwValueList
+
 : ME_4919361078A2
  CONST UID '4919361078A2'
  CONST Name 'Reg_Type_TtfwWord'
@@ -8259,6 +9250,28 @@ ref; // ME_556851ED032E
 
 ref; // ME_56028ED70054 
 
+: ME_56F3E68102BB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Target WL 'ME_53FF366C021B' '47BF042D029B.pas.ms.script' // m2HasLib
+ ;
+
+ref; // ME_56F3E68102BB 
+
+FORWARD ME_56F3E80A018E
+
+: ME_56F3E85603D3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Target ME_56F3E80A018E // TtfwHash16Table
+ ;
+
+ref; // ME_56F3E85603D3 
+
 : ME_356D4FCF241E
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -8294,8 +9307,6 @@ ref; // ME_EAA0B9BB44F4
 
 : ME_46780DEF03E5_ME_55682D8F01C7
  : Original WL 'ME_46780DEF03E5' '4677FBA70343.pas.ms.script' // AsWStr
- ;
- : Implementor ME_55682D8F01C7 // tfwIl3CStringPack
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" true
@@ -8358,11 +9369,19 @@ ref; // ME_46780DEF03E5_ME_55682D8F01C7 AsWStr
  ME_569E357D015D // string_Substring
  ME_56AB7AC10249 // string_Lower
  ME_56AB7AD00352 // string_Upper
+ ME_56F3E6A203DB // string_ToUnicode
+ ME_56F3E6BE0100 // string_Hash
+ ME_56F3E6D102C5 // string_SmallHash
+ ME_56F3E8880129 // Hash16Table
+ ME_56F3EF7C0205 // string_Iterator
+ ME_56F40BBA029D // string_Hash_New
+ ME_56F40BD3026A // string_SmallHash_New
  ME_3D95A4A91861 // Reg_Type_TtfwContext
  ME_C931EF002EA0 // Reg_Type_Il3CString
  ME_3FD573D2D0F1 // Reg_Type_Boolean
  ME_AAEC7D283934 // Reg_Type_Integer
  ME_5C7667971622 // Reg_Type_Char
+ ME_C563AA3E982B // Reg_Type_ItfwValueList
  ME_4919361078A2 // Reg_Type_TtfwWord
  )
  ; // Operations
@@ -8371,7 +9390,8 @@ ref; // ME_46780DEF03E5_ME_55682D8F01C7 AsWStr
  )
  ; // Implemented
  : Children
-   Seq: ( ME_1C3B459FC59B // TtfwIl3CStringPackResNameGetter
+   Seq: ( ME_56F3EEE50232 // TtfwStringIterator
+ ME_1C3B459FC59B // TtfwIl3CStringPackResNameGetter
  ME_0093B3082714 // StartsStr
  ME_9996D7566EDE // StartsText
  ME_397C461D6C30 // EndsStr
@@ -8408,12 +9428,19 @@ ref; // ME_46780DEF03E5_ME_55682D8F01C7 AsWStr
  ME_2E3FD122E430 // string_Substring
  ME_B79BEA825961 // string_Lower
  ME_8BA4B632B802 // string_Upper
+ ME_F137872D0D02 // string_ToUnicode
+ ME_58C52E8D04B3 // string_Hash
+ ME_15AF617143C8 // string_SmallHash
+ ME_AE2A1F9F2367 // string_Iterator
+ ME_B0A153973998 // string_Hash_New
+ ME_A91467BC2C27 // string_SmallHash_New
  ME_5B249AD9723E // VarDecLen
  ME_FF4D82AA3241 // VarInc
  ME_D442EF995DFF // RSplitTo
  ME_E1736F173AD3 // VarShift
  ME_BF0C6B892128 // SplitTo
  ME_6014F0D564E4 // VarPushCharAndInc
+ ME_01887D1A0952 // Hash16Table
  )
  ; // Children
  : Dependencies
@@ -8421,6 +9448,8 @@ ref; // ME_46780DEF03E5_ME_55682D8F01C7 AsWStr
  ME_55683DB20118 // 
  ME_556851ED032E // 
  ME_56028ED70054 // 
+ ME_56F3E68102BB // 
+ ME_56F3E85603D3 // 
  ME_356D4FCF241E // 
  ME_E29135ED23EF // 
  ME_EAA0B9BB44F4 // 
@@ -8436,6 +9465,161 @@ ref; // ME_46780DEF03E5_ME_55682D8F01C7 AsWStr
 
 ref; // ME_55682D8F01C7 tfwIl3CStringPack
 
+FORWARD ME_56F3E8BE02A5
+
+: ME_56F3E8D60391
+ CONST UID '56F3E8D60391'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56F3E8BE02A5 // Create
+ ;
+
+ref; // ME_56F3E8D60391 DoIt
+
+: ME_56F3E8BE02A5
+ CONST UID '56F3E8BE02A5'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56F3E80A018E // TtfwHash16Table
+ ;
+ : Operations
+   Seq: ( ME_56F3E8D60391 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56F3E8BE02A5 Create
+
+FORWARD ME_56F3E8C900CA
+
+: ME_106B863D6A93
+ CONST UID '106B863D6A93'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TtfwHash16Table.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56F3E8C900CA // Make
+ ;
+ : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ ;
+
+ref; // ME_106B863D6A93 DoIt
+
+: ME_56F3E8C900CA
+ CONST UID '56F3E8C900CA'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56F3E80A018E // TtfwHash16Table
+ ;
+ : Inherits
+   Seq: ( ME_56F3E8BE02A5 // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_106B863D6A93 // DoIt
+ )
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_56F3E8C900CA Make
+
+: ME_56F3E86C00C5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56F3E80A018E // TtfwHash16Table
+ ;
+ : Target WL 'ME_53FF366C021B' '47BF042D029B.pas.ms.script' // m2HasLib
+ ;
+
+ref; // ME_56F3E86C00C5 
+
+: ME_52E23B7A00EC_ME_56F3E80A018E
+ : Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.pas.ms.script' // ForEach
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_52E23B7A00EC_ME_56F3E80A018E ForEach
+
+: ME_52E23BB102FA_ME_56F3E80A018E
+ : Original WL 'ME_52E23BB102FA' '4DAF19F600C5.pas.ms.script' // ForEachBack
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_52E23BB102FA_ME_56F3E80A018E ForEachBack
+
+: ME_55CDF40C03D4_ME_56F3E80A018E
+ : Original WL 'ME_55CDF40C03D4' '4DAF19F600C5.pas.ms.script' // SetItem
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_55CDF40C03D4_ME_56F3E80A018E SetItem
+
+: ME_55E849210175_ME_56F3E80A018E
+ : Original WL 'ME_55E849210175' '4DAF19F600C5.pas.ms.script' // ItemsCountInSlice
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_55E849210175_ME_56F3E80A018E ItemsCountInSlice
+
+: ME_56F3E80A018E
+ CONST UID '56F3E80A018E'
+ CONST Name 'TtfwHash16Table'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ED7958E0045 // StringProcessing
+ ;
+ : Inherits
+   Seq: ( WL 'ME_52E29ED5016B' '54F0A4A302FF.pas.ms.script' // TtfwIteratableParent
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_56F3E8BE02A5 // Create
+ ME_56F3E8C900CA // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_52E23B7A00EC_ME_56F3E80A018E // ForEach
+ ME_52E23BB102FA_ME_56F3E80A018E // ForEachBack
+ ME_55CDF40C03D4_ME_56F3E80A018E // SetItem
+ ME_55E849210175_ME_56F3E80A018E // ItemsCountInSlice
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_56F3E86C00C5 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwHash16Table.pas'
+ CONST extprop:rc:SelfName 'Hash16Table'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwHash16Table'
+
+ref; // ME_56F3E80A018E TtfwHash16Table
+
 : ME_4ED7958E0045
  CONST UID '4ED7958E0045'
  CONST Name 'StringProcessing'
@@ -8447,6 +9631,7 @@ ref; // ME_55682D8F01C7 tfwIl3CStringPack
  ;
  : Children
    Seq: ( ME_55682D8F01C7 // tfwIl3CStringPack
+ ME_56F3E80A018E // TtfwHash16Table
  )
  ; // Children
  : Depends
@@ -8455,11 +9640,13 @@ ref; // ME_55682D8F01C7 tfwIl3CStringPack
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47BF042D029B' '47BF042D029B.pas.ms.script' // m2
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_54F079B5035C' '54F079B5035C.pas.ms.script' // CompiledWords
+ WL 'ME_54F0A4A302FF' '54F0A4A302FF.pas.ms.script' // Array
  WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
  WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes

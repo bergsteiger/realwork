@@ -1043,8 +1043,6 @@ ref; // ME_569F6ADC0330 FieldByIndex
 : ME_55C860390259_ME_552FADE50173
  : Original ME_55C860390259 // IterateFieldsF
  ;
- : Implementor ME_552FADE50173 // IdaTableDescription
- ;
  CONST OpKind opkind_Implemented
  CONST "needs index" false
  CONST "needs result" false
@@ -1684,6 +1682,19 @@ ref; // ME_5541F6FB0124 StopCaching
 
 ref; // ME_554A037B0325 SessionDone
 
+: ME_56F2627200AE
+ CONST UID '56F2627200AE'
+ CONST Name 'IsSessionActive'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5540922C0376 // IdaJournal
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56F2627200AE IsSessionActive
+
 : ME_5540922C0376
  CONST UID '5540922C0376'
  CONST GUID '8628085D-2AA4-4174-BE8D-7E55B9B71B8F'
@@ -1718,6 +1729,7 @@ ref; // ME_554A037B0325 SessionDone
  ME_5541F6EC00DE // StartCaching
  ME_5541F6FB0124 // StopCaching
  ME_554A037B0325 // SessionDone
+ ME_56F2627200AE // IsSessionActive
  )
  ; // Operations
  CONST extprop:rc:SelfName 'daJournal'
@@ -3030,8 +3042,6 @@ ref; // ME_5608E5FE0355 BuildSQLValue
 : ME_564089E3039B_ME_5551DC5C020D
  : Original ME_564089E3039B // Iterate
  ;
- : Implementor ME_5551DC5C020D // IdaCondition
- ;
  CONST OpKind opkind_Implemented
  CONST "needs index" false
  CONST "needs result" false
@@ -3714,10 +3724,34 @@ ref; // ME_568107B2034D aSortField
 
 ref; // ME_567D12D00384 AddOrderBy
 
+: ME_56F3D8CA00C9
+ CONST Name 'anAlias'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_56F3D8CA00C9 anAlias
+
+: ME_56F3D89F01C8
+ CONST UID '56F3D89F01C8'
+ CONST Name 'SelectFieldByName'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5549C4060117 // IdaTabledQuery
+ ;
+ : Target ME_5551DC0F012D // IdaSelectField
+ ;
+ : Parameters
+   Seq: ( ME_56F3D8CA00C9 // anAlias
+ )
+ ; // Parameters
+
+ref; // ME_56F3D89F01C8 SelectFieldByName
+
 : ME_5549C42400DA_ME_5549C4060117
  : Original ME_5549C42400DA // OpenResultSet
- ;
- : Implementor ME_5549C4060117 // IdaTabledQuery
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5549C42400DA_ME_5549C4060117 OpenResultSet
@@ -3725,15 +3759,11 @@ ref; // ME_5549C42400DA_ME_5549C4060117 OpenResultSet
 : ME_5551BB340256_ME_5549C4060117
  : Original ME_5551BB340256 // Prepare
  ;
- : Implementor ME_5549C4060117 // IdaTabledQuery
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_5551BB340256_ME_5549C4060117 Prepare
 
 : ME_5551BEA500AE_ME_5549C4060117
  : Original ME_5551BEA500AE // Param
- ;
- : Implementor ME_5549C4060117 // IdaTabledQuery
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -3742,15 +3772,11 @@ ref; // ME_5551BEA500AE_ME_5549C4060117 Param
 : ME_555334DD023B_ME_5549C4060117
  : Original ME_555334DD023B // UnPrepare
  ;
- : Implementor ME_5549C4060117 // IdaTabledQuery
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_555334DD023B_ME_5549C4060117 UnPrepare
 
 : ME_564318160268_ME_5549C4060117
  : Original ME_564318160268 // BuildSQLValue
- ;
- : Implementor ME_5549C4060117 // IdaTabledQuery
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_564318160268_ME_5549C4060117 BuildSQLValue
@@ -3778,6 +3804,7 @@ ref; // ME_564318160268_ME_5549C4060117 BuildSQLValue
  : Operations
    Seq: ( ME_5551DC42038C // AddSelectField
  ME_567D12D00384 // AddOrderBy
+ ME_56F3D89F01C8 // SelectFieldByName
  )
  ; // Operations
  : Implemented
@@ -4221,23 +4248,17 @@ ref; // ME_5666D0EB0129 Execute
 : ME_5549C42400DA_ME_5666D0D8031A
  : Original ME_5549C42400DA // OpenResultSet
  ;
- : Implementor ME_5666D0D8031A // IdaFunction
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_5549C42400DA_ME_5666D0D8031A OpenResultSet
 
 : ME_5551BB340256_ME_5666D0D8031A
  : Original ME_5551BB340256 // Prepare
  ;
- : Implementor ME_5666D0D8031A // IdaFunction
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_5551BB340256_ME_5666D0D8031A Prepare
 
 : ME_5551BEA500AE_ME_5666D0D8031A
  : Original ME_5551BEA500AE // Param
- ;
- : Implementor ME_5666D0D8031A // IdaFunction
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -4246,15 +4267,11 @@ ref; // ME_5551BEA500AE_ME_5666D0D8031A Param
 : ME_555334DD023B_ME_5666D0D8031A
  : Original ME_555334DD023B // UnPrepare
  ;
- : Implementor ME_5666D0D8031A // IdaFunction
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_555334DD023B_ME_5666D0D8031A UnPrepare
 
 : ME_564318160268_ME_5666D0D8031A
  : Original ME_564318160268 // BuildSQLValue
- ;
- : Implementor ME_5666D0D8031A // IdaFunction
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_564318160268_ME_5666D0D8031A BuildSQLValue

@@ -682,6 +682,51 @@ ref; // ME_553A271B012A DoIt
 
 ref; // ME_553A26CA015B NeedOpenLinkInInternalBrowser
 
+FORWARD ME_56F37FFB010E
+
+: ME_56F38016029E
+ CONST Name 'anURL'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
+ ;
+
+ref; // ME_56F38016029E anURL
+
+: ME_56F3800E022C
+ CONST UID '56F3800E022C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56F37FFB010E // IsMailtoURL
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_56F38016029E // anURL
+ )
+ ; // Parameters
+
+ref; // ME_56F3800E022C DoIt
+
+: ME_56F37FFB010E
+ CONST UID '56F37FFB010E'
+ CONST Name 'IsMailtoURL'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49EEF16603C9 // nsInternetUtils
+ ;
+ : Operations
+   Seq: ( ME_56F3800E022C // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56F37FFB010E IsMailtoURL
+
 : ME_49EEF16603C9
  CONST UID '49EEF16603C9'
  CONST Name 'nsInternetUtils'
@@ -703,6 +748,7 @@ ref; // ME_553A26CA015B NeedOpenLinkInInternalBrowser
  ME_524E5895037F // IsObtainRequisitesForMobileAccessURL
  ME_5524E8BE0065 // IsMunicipalDecisionsArchiveURL
  ME_553A26CA015B // NeedOpenLinkInInternalBrowser
+ ME_56F37FFB010E // IsMailtoURL
  )
  ; // Operations
  : Constants

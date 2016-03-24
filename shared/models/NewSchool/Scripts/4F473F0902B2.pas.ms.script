@@ -34,16 +34,12 @@ ref; // ME_4F4745DD0295
 : ME_47B07CF403D0_ME_4F473F4E01E5
  : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
  ;
- : Implementor ME_4F473F4E01E5 // TtfwCStringListPrim
- ;
  CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_4F473F4E01E5 IsSameItems
 
 : ME_47B2C42A0163_ME_4F473F4E01E5
  : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
- ;
- : Implementor ME_4F473F4E01E5 // TtfwCStringListPrim
  ;
  CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
@@ -52,8 +48,6 @@ ref; // ME_47B2C42A0163_ME_4F473F4E01E5 AssignItem
 
 : ME_47B99D4503A2_ME_4F473F4E01E5
  : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
- ;
- : Implementor ME_4F473F4E01E5 // TtfwCStringListPrim
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_4F473F4E01E5 CompareExistingItems
@@ -127,8 +121,6 @@ ref; // ME_4F4745B903B7
 
 : ME_47B9BAFD01F4_ME_4F473F370158
  : Original WL 'ME_47B9BAFD01F4' '47BB24D30205.pas.ms.script' // CompareItemWithData
- ;
- : Implementor ME_4F473F370158 // TtfwCStringList
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_47B9BAFD01F4_ME_4F473F370158 CompareItemWithData
@@ -709,6 +701,52 @@ ref; // ME_5602A80201BB DoIt
 
 ref; // ME_5602A7F8015D CatSep
 
+FORWARD ME_56F3E7140106
+
+: ME_56F3E739022C
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_56F3E739022C aString
+
+: ME_56F3E723018B
+ CONST UID '56F3E723018B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56F3E7140106 // ToUnicode
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   Seq: ( ME_56F3E739022C // aString
+ )
+ ; // Parameters
+
+ref; // ME_56F3E723018B DoIt
+
+: ME_56F3E7140106
+ CONST UID '56F3E7140106'
+ CONST Name 'ToUnicode'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Operations
+   Seq: ( ME_56F3E723018B // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_56F3E7140106 ToUnicode
+
 : ME_4F47455900E4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -753,10 +791,18 @@ ref; // ME_4F4D42E70139
 
 ref; // ME_4F4D435B01F0 
 
+: ME_56F3F01E0282
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F473F9402D8 // TtfwCStringFactory
+ ;
+ : Target WL 'ME_49082AE80393' '476BE98C01B8.pas.ms.script' // Code Pages
+ ;
+
+ref; // ME_56F3F01E0282 
+
 : ME_47A042E100E2_ME_4F473F9402D8
  : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
- ;
- : Implementor ME_4F473F9402D8 // TtfwCStringFactory
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_4F473F9402D8 InitFields
@@ -786,6 +832,7 @@ ref; // ME_47A042E100E2_ME_4F473F9402D8 InitFields
  ME_56028DB8038D // Cat$Many
  ME_56029758029D // ViewOf
  ME_5602A7F8015D // CatSep
+ ME_56F3E7140106 // ToUnicode
  )
  ; // Operations
  : Overridden
@@ -801,6 +848,7 @@ ref; // ME_47A042E100E2_ME_4F473F9402D8 InitFields
  ME_4F4D3884004D // 
  ME_4F4D42E70139 // 
  ME_4F4D435B01F0 // 
+ ME_56F3F01E0282 // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -935,6 +983,7 @@ ref; // ME_4F4D42D9035C TtfwCStringArraySing2
  : Depends
    Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
  )

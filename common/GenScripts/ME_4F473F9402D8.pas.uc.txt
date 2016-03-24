@@ -181,3 +181,16 @@ const
 //#UC END# *5602A7F8015D_4F473F9402D8_impl*
 //#UC START# *5602A7F8015D_4F473F9402D8_var*
 //#UC END# *5602A7F8015D_4F473F9402D8_var*
+//#UC START# *56F3E7140106_4F473F9402D8_impl*
+ if l3IsNil(aString) then
+  Result := aString
+ else
+ if (aString.AsWStr.SCodePage = CP_Unicode) then
+  Result := aString
+ else
+  Result := l3CStr(l3DStr(aString));
+  //Result := l3CStr(l3PCharLen(l3DStr(aString)));
+  //Result := C(l3PCharLen(l3DStr(aString)));
+//#UC END# *56F3E7140106_4F473F9402D8_impl*
+//#UC START# *56F3E7140106_4F473F9402D8_var*
+//#UC END# *56F3E7140106_4F473F9402D8_var*

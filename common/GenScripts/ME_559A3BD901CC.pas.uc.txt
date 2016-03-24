@@ -170,7 +170,9 @@ var
  l_ResultSet: IdaResultSet;
 //#UC END# *5549F9E70184_559A3BD901CC_var*
 //#UC START# *554A037B0325_559A3BD901CC_impl*
- LogEvent(da_oobSessionEnd, 0, 0, 0);
+ if NeedLogSessionEnd then
+  LogEvent(da_oobSessionEnd, 0, 0, 0);
+ f_CurSessionID := BlankSession;
 //#UC END# *554A037B0325_559A3BD901CC_impl*
 //#UC START# *554A037B0325_559A3BD901CC_var*
 //#UC END# *554A037B0325_559A3BD901CC_var*
@@ -190,12 +192,12 @@ var
  CurS_ID:=0;
  CurS_Node:=nil;
 
- l_SessionField := aLog.Field['ID_Session'];
+ l_SessionField := aLog.Field['session_id'];
  l_DateField := aLog.Field['Date'];
  l_TimeField := aLog.Field['Time'];
- l_OperationField := aLog.Field['ID_Operat'];
+ l_OperationField := aLog.Field['operation_id'];
  l_AdditionalInfoField := aLog.Field['Additional'];
- l_ExtIDField := aLog.Field['ID_Ext'];
+ l_ExtIDField := aLog.Field['ext_id'];
 
  while not aLog.EOF do
  begin
@@ -435,12 +437,14 @@ Var
 //#UC START# *559A424301EE_559A3BD901CC_var*
 //#UC END# *559A424301EE_559A3BD901CC_var*
 //#UC START# *56E2A25501A6_559A3BD901CC_impl*
- if f_CurUser <> anUserID then
+ if (f_CurUser <> anUserID) or (f_CurSessionID <> aSessionID) then
  begin
   if f_CurSessionID <> BlankSession then
   begin
-   LogEvent(da_oobSessionEnd, 0, 0, 0);
-   f_CurSessionID := BlankSession
+   f_CurSessionID := BlankSession;
+   SessionChanged;
+   if NeedLogSessionEnd then
+    LogEvent(da_oobSessionEnd, 0, 0, 0);
   end;
   f_CurUser := anUserID;
   UserChanged(f_CurUser);
@@ -448,7 +452,8 @@ Var
   begin
     f_CurSessionID := aSessionID;
     SessionChanged;
-    LogEvent(da_oobSessionBegin, 0, LongInt(f_CurUser), 0);
+    if NeedLogSessionBegin then
+     LogEvent(da_oobSessionBegin, 0, LongInt(f_CurUser), 0);
   end;
  end;
 //#UC END# *56E2A25501A6_559A3BD901CC_impl*
@@ -469,3 +474,18 @@ Var
 //#UC END# *56EBDD1F0184_559A3BD901CCget_impl*
 //#UC START# *56EBDD1F0184_559A3BD901CCget_var*
 //#UC END# *56EBDD1F0184_559A3BD901CCget_var*
+//#UC START# *56F2622600C7_559A3BD901CC_impl*
+ Result := True;
+//#UC END# *56F2622600C7_559A3BD901CC_impl*
+//#UC START# *56F2622600C7_559A3BD901CC_var*
+//#UC END# *56F2622600C7_559A3BD901CC_var*
+//#UC START# *56F2627200AE_559A3BD901CC_impl*
+ Result := f_CurSessionID <> BlankSession;
+//#UC END# *56F2627200AE_559A3BD901CC_impl*
+//#UC START# *56F2627200AE_559A3BD901CC_var*
+//#UC END# *56F2627200AE_559A3BD901CC_var*
+//#UC START# *56F271D602AB_559A3BD901CC_impl*
+ Result := True;
+//#UC END# *56F271D602AB_559A3BD901CC_impl*
+//#UC START# *56F271D602AB_559A3BD901CC_var*
+//#UC END# *56F271D602AB_559A3BD901CC_var*

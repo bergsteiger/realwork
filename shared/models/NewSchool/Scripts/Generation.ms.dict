@@ -1129,6 +1129,8 @@ STRING FUNCTION RemoveDuplicatedIfDef
  ) // aValue ',' string:Split:for>
 ; // RemoveDuplicatedIfDef
 
+ModelElement CompileTime-VAR g_Implementor nil
+
 STRING elem_func IfDefStr
  Cached:
  (
@@ -1152,7 +1154,7 @@ STRING elem_func IfDefStr
     end // ( Result IsNil )
    end // ( l_ParentIfDefStr IsNil ! )
   end // ( l_Parent IsNil ! )
-  Self .Implementor >>> l_Parent
+/*  g_Implementor >>> l_Parent
   if ( l_Parent IsNil ! ) then
   begin
    VAR l_ParentIfDefStr
@@ -1168,7 +1170,7 @@ STRING elem_func IfDefStr
      l_ParentIfDefStr ',' Result Cat Cat >>> Result
     end // ( Result IsNil )
    end // ( l_ParentIfDefStr IsNil ! )
-  end // ( l_Parent IsNil ! )
+  end // ( l_Parent IsNil ! )*/
   Result RemoveDuplicatedIfDef
  )
  >>> Result 
@@ -1197,7 +1199,7 @@ STRING elem_func IfNDefStr
     end // ( Result IsNil )
    end // ( l_ParentIfDefStr IsNil ! )
   end // ( l_Parent IsNil ! )
-  Self .Implementor >>> l_Parent
+/*  g_Implementor >>> l_Parent
   if ( l_Parent IsNil ! ) then
   begin
    VAR l_ParentIfDefStr
@@ -1213,7 +1215,7 @@ STRING elem_func IfNDefStr
      l_ParentIfDefStr ',' Result Cat Cat >>> Result
     end // ( Result IsNil )
    end // ( l_ParentIfDefStr IsNil ! )
-  end // ( l_Parent IsNil ! )
+  end // ( l_Parent IsNil ! )*/
   Result RemoveDuplicatedIfDef
  )
  >>> Result 
@@ -1690,9 +1692,9 @@ elem_proc PredefinedMethodUserCodeWithoutVar:
 ; // PredefinedMethodUserCodeWithoutVar:
   
 ModelElement elem_func ImplementorOrParent
- Cached:
+ //Cached:
  (
-  Self .Implementor >>> Result
+  g_Implementor >>> Result
   
   if ( Result IsNil ) then
   begin
@@ -3829,7 +3831,8 @@ elem_proc UserCode:
     end // ( Self .IsFactory )
     
    (
-    ( Self .Implementor IsNil ) // - метод новый, а не перекрытый
+    ( Self .OpKind opkind_Normal == ) // - метод новый, а не перекрытый
+    //( Self .Implementor IsNil ) // - метод новый, а не перекрытый
     AND ( l_Op IsNil ! )
     AND ( l_Self IsNil ! )
     AND ( l_Implementor .IsSummoned )
@@ -4175,7 +4178,7 @@ INTERFACE elem_func OverrideMethod
  (
    IN aMethod
   aMethod -> OpKind := opkind_Overridden
-  aMethod -> Implementor := Self
+  //aMethod -> Implementor := Self
  ) // anOriginalMethod .DecorateMethod:
  >>> Result
 ; // OverrideMethod
@@ -5915,14 +5918,17 @@ elem_proc OutClassInner
  Indented: (
   Self .Fields .ByVisibility> .FieldVisibility .OutField
   
-  VAR l_AllOps
-  Self .AllOperationsForOverload >>> l_AllOps
-  
-  Self .AllOperationsForDefine 
-  .ByVisibility> .MethodVisibility
-  .MethodInterfaceFor: l_AllOps
-
-  Self .ClassProperties .ByVisibility> .Visibility .OutProperty
+  TF g_Implementor (
+   Self >>> g_Implementor
+   VAR l_AllOps
+   Self .AllOperationsForOverload >>> l_AllOps
+   
+   Self .AllOperationsForDefine 
+   .ByVisibility> .MethodVisibility
+   .MethodInterfaceFor: l_AllOps
+ 
+   Self .ClassProperties .ByVisibility> .Visibility .OutProperty
+  ) // TF g_Implementor
   
   if ( Self .IsStaticObject ) then
   begin
@@ -7378,32 +7384,35 @@ elem_proc OutClassImplementation
    end // ( Self .AllInlinedOperations .CountIt > 0 )
   end // ( Self .ImplementsMixIn )
   
-  BOOLEAN VAR l_WasFirst
-  false >>> l_WasFirst
-  TF g_EnableAutoEOL (
-   false >>> g_EnableAutoEOL
-   TF g_EnableMethodDocumentation (
-    false >>> g_EnableMethodDocumentation
-    Self .AllInlinedOperations 
-    .filter> (
-      IN aMethod
-     if l_WasFirst then
-      true
-     else
-     begin
-      true >>> l_WasFirst
-      false
-     end
-    ) // .filter>
-    .for> .MethodInterfaceForEx: nil (
-      IN aMethod
-     ' forward;' .Out
-     OutLn
-     OutLn
-    ) // .for> .MethodInterfaceForEx: nil
-   ) // TF g_EnableMethodDocumentation
-  ) // TF g_EnableAutoEOL 
-  Self .AllInlinedOperations .for> .MethodInterfaceForEx: nil .MethodBody
+  TF g_Implementor (
+   Self >>> g_Implementor
+   BOOLEAN VAR l_WasFirst
+   false >>> l_WasFirst
+   TF g_EnableAutoEOL (
+    false >>> g_EnableAutoEOL
+    TF g_EnableMethodDocumentation (
+     false >>> g_EnableMethodDocumentation
+     Self .AllInlinedOperations 
+     .filter> (
+       IN aMethod
+      if l_WasFirst then
+       true
+      else
+      begin
+       true >>> l_WasFirst
+       false
+      end
+     ) // .filter>
+     .for> .MethodInterfaceForEx: nil (
+       IN aMethod
+      ' forward;' .Out
+      OutLn
+      OutLn
+     ) // .for> .MethodInterfaceForEx: nil
+    ) // TF g_EnableMethodDocumentation
+   ) // TF g_EnableAutoEOL 
+   Self .AllInlinedOperations .for> .MethodInterfaceForEx: nil .MethodBody
+  ) // TF g_Implementor
   
   VAR l_WasInstanceR
   Self .IsMixIn >>> l_WasInstanceR
@@ -7428,16 +7437,19 @@ elem_proc OutClassImplementation
    OutLn
   ) // .for>
   
-  TF g_MethodParentPrefix (
-   Self .TypeName >>> g_MethodParentPrefix
-   g_MethodParentPrefix '.' Cat >>> g_MethodParentPrefix
-   TF g_EnableMethodDirectives (
-    false >>> g_EnableMethodDirectives
-    Self .AllOperationsForDefine 
-    .filter> ( .MethodAbstraction at_abstract != )
-    .for> .MethodInterfaceForEx: nil .MethodBody
-   ) // TF g_EnableMethodDirectives
-  ) // TF g_MethodParentPrefix
+  TF g_Implementor (
+   Self >>> g_Implementor
+   TF g_MethodParentPrefix (
+    Self .TypeName >>> g_MethodParentPrefix
+    g_MethodParentPrefix '.' Cat >>> g_MethodParentPrefix
+    TF g_EnableMethodDirectives (
+     false >>> g_EnableMethodDirectives
+     Self .AllOperationsForDefine 
+     .filter> ( .MethodAbstraction at_abstract != )
+     .for> .MethodInterfaceForEx: nil .MethodBody
+    ) // TF g_EnableMethodDirectives
+   ) // TF g_MethodParentPrefix
+  ) // TF g_Implementor 
   
   if ( Self .UPisTrue "need UC" ) then
   begin
@@ -8058,28 +8070,31 @@ elem_proc OutUnitHeader
 
 PROCEDURE DoOutUnit
  ^ IN aLambda
- TF g_WasTypeOpener (
-  nil >>> g_WasTypeOpener
-  TF g_WasConst (
-   false >>> g_WasConst
-   TF g_WasForwarded (
-    false >>> g_WasForwarded
-    TF g_WasType (
-     DropWasType
-     TF g_MixInValues (
-      [] >>> g_MixInValues
-      TF g_OutedTypes (
-       [] >>> g_OutedTypes
-       TF g_ForwardedTypes (
-        [] >>> g_ForwardedTypes
-        aLambda DO
-       ) // TF g_ForwardedTypes
-      ) // TF g_OutedTypes 
-     ) // TF g_MixInValues
-    ) // TF g_WasType
-   ) // TF g_WasForwarded
-  ) // TF g_WasConst
- ) // TF g_WasTypeOpener
+ TF g_Implementor (
+  nil >>> g_Implementor
+  TF g_WasTypeOpener (
+   nil >>> g_WasTypeOpener
+   TF g_WasConst (
+    false >>> g_WasConst
+    TF g_WasForwarded (
+     false >>> g_WasForwarded
+     TF g_WasType (
+      DropWasType
+      TF g_MixInValues (
+       [] >>> g_MixInValues
+       TF g_OutedTypes (
+        [] >>> g_OutedTypes
+        TF g_ForwardedTypes (
+         [] >>> g_ForwardedTypes
+         aLambda DO
+        ) // TF g_ForwardedTypes
+       ) // TF g_OutedTypes 
+      ) // TF g_MixInValues
+     ) // TF g_WasType
+    ) // TF g_WasForwarded
+   ) // TF g_WasConst
+  ) // TF g_WasTypeOpener
+ ) // TF g_Implementor
 ; // DoOutUnit
 
 elem_proc OutUnit
@@ -8543,20 +8558,24 @@ elem_generator rc.script
      l_NameForScript
     ] .Out
     
-    VAR l_CanonicName
-    [ 
-     'pop:' 
-     aG .SelfName
-     ':' 
-     anOp .Name 
-      'pop_' .CutPrefix
-      [ aG .SelfName string:Lower '_' ] strings:Cat .CutPrefix
-    ] strings:Cat >>> l_CanonicName
-    
-    if ( l_CanonicName l_NameForScript != ) then
+    if ( anOp .IsCreator ! ) then
     begin
-     [ 'WordAlias ' l_CanonicName cSpace l_NameForScript ] .Out
-    end // ( l_CanonicName l_NameForScript != )
+     VAR l_CanonicName
+     [ 
+      'pop:' 
+      aG .SelfName
+      ':' 
+      anOp .Name 
+       'pop_' .CutPrefix
+       [ aG .SelfName string:Lower '_' ] strings:Cat .CutPrefix
+       '_' ':' string:Replace
+     ] strings:Cat >>> l_CanonicName
+     
+     if ( l_CanonicName l_NameForScript != ) then
+     begin
+      [ 'WordAlias ' l_CanonicName cSpace l_NameForScript ] .Out
+     end // ( l_CanonicName l_NameForScript != )
+    end // ( anOp .IsCreator ! )
     
    ) // Self .Operations
    

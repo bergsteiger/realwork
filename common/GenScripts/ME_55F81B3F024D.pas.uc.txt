@@ -1,4 +1,5 @@
 //#UC START# *479731C50290_55F81B3F024D_impl*
+ f_UserNameQuery := nil;
  f_DataConverter := nil;
  FreeAndNil(f_Connection);
  inherited;
@@ -21,25 +22,16 @@
 //#UC START# *559B810003CF_55F81B3F024D_var*
 //#UC END# *559B810003CF_55F81B3F024D_var*
 //#UC START# *559BAF4401C8_55F81B3F024D_impl*
- l_Query := MakeTabledQuery(TdaScheme.Instance.Table(da_mtUsers));
+ UserNameQuery.Param['p_UserID'].AsLargeInt := anUserID;
+ l_ResultSet := UserNameQuery.OpenResultSet;
  try
-  l_Query.AddSelectField(MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['UserName']));
-  l_Query.WhereCondition := MakeParamsCondition('', TdaScheme.Instance.Table(da_mtUsers)['ID'], da_copEqual, 'p_UserID');
-  l_Query.Prepare;
-  l_Query.Param['p_UserID'].AsLargeInt := anUserID;
-  l_ResultSet := l_Query.OpenResultSet;
-  try
-   Result := l_ResultSet.Field['UserName'].AsString;
-  finally
-   l_ResultSet := nil;
-  end;
+  Result := l_ResultSet.Field['user_name'].AsString;
  finally
-  l_Query := nil;
+  l_ResultSet := nil;
  end;
 //#UC END# *559BAF4401C8_55F81B3F024D_impl*
 //#UC START# *559BAF4401C8_55F81B3F024D_var*
 var
- l_Query: IdaTabledQuery;
  l_ResultSet: IdaResultSet;
 //#UC END# *559BAF4401C8_55F81B3F024D_var*
 //#UC START# *55C1BFA402E3_55F81B3F024Dget_impl*
@@ -69,3 +61,15 @@ var
 //#UC END# *56811844032C_55F81B3F024D_impl*
 //#UC START# *56811844032C_55F81B3F024D_var*
 //#UC END# *56811844032C_55F81B3F024D_var*
+//#UC START# *56F11DEF037F_55F81B3F024D_impl*
+ if f_UserNameQuery = nil then
+ begin
+  f_UserNameQuery := MakeTabledQuery(TdaScheme.Instance.Table(da_mtUsers));
+  f_UserNameQuery.AddSelectField(MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['user_name']));
+  f_UserNameQuery.WhereCondition := MakeParamsCondition('', TdaScheme.Instance.Table(da_mtUsers)['ID'], da_copEqual, 'p_UserID');
+  f_UserNameQuery.Prepare;
+ end;
+ Result := f_UserNameQuery;
+//#UC END# *56F11DEF037F_55F81B3F024D_impl*
+//#UC START# *56F11DEF037F_55F81B3F024D_var*
+//#UC END# *56F11DEF037F_55F81B3F024D_var*

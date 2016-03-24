@@ -430,8 +430,6 @@ ref; // ME_2D552A64622C
 : ME_53AC03EE01FD_ME_54F9A60200A8
  : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
  ;
- : Implementor ME_54F9A60200A8 // TdaDataProviderParams
- ;
  CONST OpKind opkind_Implemented
  CONST "is static" true
 ref; // ME_53AC03EE01FD_ME_54F9A60200A8 GetTaggedDataType
@@ -439,15 +437,11 @@ ref; // ME_53AC03EE01FD_ME_54F9A60200A8 GetTaggedDataType
 : ME_479731C50290_ME_54F9A60200A8
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
- : Implementor ME_54F9A60200A8 // TdaDataProviderParams
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_54F9A60200A8 Cleanup
 
 : ME_47A042E100E2_ME_54F9A60200A8
  : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
- ;
- : Implementor ME_54F9A60200A8 // TdaDataProviderParams
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_54F9A60200A8 InitFields
@@ -1392,15 +1386,11 @@ ref; // ME_55116BE1004F
 : ME_479731C50290_ME_54F85EE102D1
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
- : Implementor ME_54F85EE102D1 // TdaDataProviderFactory
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_54F85EE102D1 Cleanup
 
 : ME_5000565C019C_ME_54F85EE102D1
  : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_54F85EE102D1 // TdaDataProviderFactory
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_54F85EE102D1 ClearFields
@@ -1484,8 +1474,6 @@ ref; // ME_54F98A770324 ItemType
 : ME_47B2C42A0163_ME_54F98A56030A
  : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
  ;
- : Implementor ME_54F98A56030A // TdaDataProviderFactoryList
- ;
  CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
  CONST "ifndef" 'l3Items_NoSort'
@@ -1493,8 +1481,6 @@ ref; // ME_47B2C42A0163_ME_54F98A56030A AssignItem
 
 : ME_47B99D4503A2_ME_54F98A56030A
  : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
- ;
- : Implementor ME_54F98A56030A // TdaDataProviderFactoryList
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_54F98A56030A CompareExistingItems
@@ -2446,23 +2432,17 @@ ref; // ME_5512CB6F01FC
 : ME_479731C50290_ME_54F85B590251
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
- : Implementor ME_54F85B590251 // TdaDataProviderSuperFactory
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_54F85B590251 Cleanup
 
 : ME_47A042E100E2_ME_54F85B590251
  : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
  ;
- : Implementor ME_54F85B590251 // TdaDataProviderSuperFactory
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_54F85B590251 InitFields
 
 : ME_5000565C019C_ME_54F85B590251
  : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_54F85B590251 // TdaDataProviderSuperFactory
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_54F85B590251 ClearFields
@@ -2925,8 +2905,6 @@ ref; // ME_5525244202B3 Make
 
 : ME_552514570311_ME_552523F2014F
  : Original WL 'ME_552514570311' '5432518A0316.pas.ms.script' // DoProgressNotify
- ;
- : Implementor ME_552523F2014F // TdaProgressProcHolder
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_552514570311_ME_552523F2014F DoProgressNotify
@@ -3624,6 +3602,70 @@ ref; // ME_55657CED021D DoIt
 
 ref; // ME_55657CD20360 CorrectDates
 
+FORWARD ME_56F2622600C7
+
+: ME_56F26236030F
+ CONST UID '56F26236030F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56F2622600C7 // NeedLogSessionBegin
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56F26236030F DoIt
+
+: ME_56F2622600C7
+ CONST UID '56F2622600C7'
+ CONST Name 'NeedLogSessionBegin'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_559A3BD901CC // TdaJournal
+ ;
+ : Operations
+   Seq: ( ME_56F26236030F // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56F2622600C7 NeedLogSessionBegin
+
+FORWARD ME_56F271D602AB
+
+: ME_56F271E40285
+ CONST UID '56F271E40285'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56F271D602AB // NeedLogSessionEnd
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56F271E40285 DoIt
+
+: ME_56F271D602AB
+ CONST UID '56F271D602AB'
+ CONST Name 'NeedLogSessionEnd'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_559A3BD901CC // TdaJournal
+ ;
+ : Operations
+   Seq: ( ME_56F271E40285 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56F271D602AB NeedLogSessionEnd
+
 : ME_559B638402DE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3687,8 +3729,6 @@ ref; // ME_56EFCC4C01C4
 : ME_554092F701E2_ME_559A3BD901CC
  : Original WL 'ME_554092F701E2' '5432518A0316.pas.ms.script' // CurStatisticTreeRoot
  ;
- : Implementor ME_559A3BD901CC // TdaJournal
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_554092F701E2_ME_559A3BD901CC CurStatisticTreeRoot
@@ -3696,15 +3736,11 @@ ref; // ME_554092F701E2_ME_559A3BD901CC CurStatisticTreeRoot
 : ME_554093EC02FE_ME_559A3BD901CC
  : Original WL 'ME_554093EC02FE' '5432518A0316.pas.ms.script' // CalcStatistics
  ;
- : Implementor ME_559A3BD901CC // TdaJournal
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_554093EC02FE_ME_559A3BD901CC CalcStatistics
 
 : ME_55409430035F_ME_559A3BD901CC
  : Original WL 'ME_55409430035F' '5432518A0316.pas.ms.script' // LogExport
- ;
- : Implementor ME_559A3BD901CC // TdaJournal
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_55409430035F_ME_559A3BD901CC LogExport
@@ -3712,15 +3748,11 @@ ref; // ME_55409430035F_ME_559A3BD901CC LogExport
 : ME_5540943F02DB_ME_559A3BD901CC
  : Original WL 'ME_5540943F02DB' '5432518A0316.pas.ms.script' // LogImport
  ;
- : Implementor ME_559A3BD901CC // TdaJournal
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_5540943F02DB_ME_559A3BD901CC LogImport
 
 : ME_5540945201E3_ME_559A3BD901CC
  : Original WL 'ME_5540945201E3' '5432518A0316.pas.ms.script' // LogPause
- ;
- : Implementor ME_559A3BD901CC // TdaJournal
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5540945201E3_ME_559A3BD901CC LogPause
@@ -3728,15 +3760,11 @@ ref; // ME_5540945201E3_ME_559A3BD901CC LogPause
 : ME_55409462014D_ME_559A3BD901CC
  : Original WL 'ME_55409462014D' '5432518A0316.pas.ms.script' // LogPrintDoc
  ;
- : Implementor ME_559A3BD901CC // TdaJournal
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_55409462014D_ME_559A3BD901CC LogPrintDoc
 
 : ME_554094740288_ME_559A3BD901CC
  : Original WL 'ME_554094740288' '5432518A0316.pas.ms.script' // LogSaveDoc
- ;
- : Implementor ME_559A3BD901CC // TdaJournal
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_554094740288_ME_559A3BD901CC LogSaveDoc
@@ -3744,15 +3772,11 @@ ref; // ME_554094740288_ME_559A3BD901CC LogSaveDoc
 : ME_554096B30178_ME_559A3BD901CC
  : Original WL 'ME_554096B30178' '5432518A0316.pas.ms.script' // LogEditDoc
  ;
- : Implementor ME_559A3BD901CC // TdaJournal
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_554096B30178_ME_559A3BD901CC LogEditDoc
 
 : ME_5540970E00EA_ME_559A3BD901CC
  : Original WL 'ME_5540970E00EA' '5432518A0316.pas.ms.script' // LogEditDoc
- ;
- : Implementor ME_559A3BD901CC // TdaJournal
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5540970E00EA_ME_559A3BD901CC LogEditDoc
@@ -3760,15 +3784,11 @@ ref; // ME_5540970E00EA_ME_559A3BD901CC LogEditDoc
 : ME_554097C303BF_ME_559A3BD901CC
  : Original WL 'ME_554097C303BF' '5432518A0316.pas.ms.script' // LogDeleteDoc
  ;
- : Implementor ME_559A3BD901CC // TdaJournal
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_554097C303BF_ME_559A3BD901CC LogDeleteDoc
 
 : ME_554097DC02FC_ME_559A3BD901CC
  : Original WL 'ME_554097DC02FC' '5432518A0316.pas.ms.script' // LogEditDict
- ;
- : Implementor ME_559A3BD901CC // TdaJournal
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_554097DC02FC_ME_559A3BD901CC LogEditDict
@@ -3776,15 +3796,11 @@ ref; // ME_554097DC02FC_ME_559A3BD901CC LogEditDict
 : ME_554098710243_ME_559A3BD901CC
  : Original WL 'ME_554098710243' '5432518A0316.pas.ms.script' // LogCreateDoc
  ;
- : Implementor ME_559A3BD901CC // TdaJournal
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_554098710243_ME_559A3BD901CC LogCreateDoc
 
 : ME_554098930337_ME_559A3BD901CC
  : Original WL 'ME_554098930337' '5432518A0316.pas.ms.script' // LogAutoClass
- ;
- : Implementor ME_559A3BD901CC // TdaJournal
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_554098930337_ME_559A3BD901CC LogAutoClass
@@ -3792,15 +3808,11 @@ ref; // ME_554098930337_ME_559A3BD901CC LogAutoClass
 : ME_554098A40242_ME_559A3BD901CC
  : Original WL 'ME_554098A40242' '5432518A0316.pas.ms.script' // LogOpenDoc
  ;
- : Implementor ME_559A3BD901CC // TdaJournal
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_554098A40242_ME_559A3BD901CC LogOpenDoc
 
 : ME_5541F3E6031F_ME_559A3BD901CC
  : Original WL 'ME_5541F3E6031F' '5432518A0316.pas.ms.script' // UserID
- ;
- : Implementor ME_559A3BD901CC // TdaJournal
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -3809,15 +3821,11 @@ ref; // ME_5541F3E6031F_ME_559A3BD901CC UserID
 : ME_5541F6EC00DE_ME_559A3BD901CC
  : Original WL 'ME_5541F6EC00DE' '5432518A0316.pas.ms.script' // StartCaching
  ;
- : Implementor ME_559A3BD901CC // TdaJournal
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_5541F6EC00DE_ME_559A3BD901CC StartCaching
 
 : ME_5541F6FB0124_ME_559A3BD901CC
  : Original WL 'ME_5541F6FB0124' '5432518A0316.pas.ms.script' // StopCaching
- ;
- : Implementor ME_559A3BD901CC // TdaJournal
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_5541F6FB0124_ME_559A3BD901CC StopCaching
@@ -3825,15 +3833,11 @@ ref; // ME_5541F6FB0124_ME_559A3BD901CC StopCaching
 : ME_554A037B0325_ME_559A3BD901CC
  : Original WL 'ME_554A037B0325' '5432518A0316.pas.ms.script' // SessionDone
  ;
- : Implementor ME_559A3BD901CC // TdaJournal
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_554A037B0325_ME_559A3BD901CC SessionDone
 
 : ME_56E2A25501A6_ME_559A3BD901CC
  : Original WL 'ME_56E2A25501A6' '5432518A0316.pas.ms.script' // SetAlienData
- ;
- : Implementor ME_559A3BD901CC // TdaJournal
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_56E2A25501A6_ME_559A3BD901CC SetAlienData
@@ -3841,15 +3845,11 @@ ref; // ME_56E2A25501A6_ME_559A3BD901CC SetAlienData
 : ME_56E2A7DB03CE_ME_559A3BD901CC
  : Original WL 'ME_56E2A7DB03CE' '5432518A0316.pas.ms.script' // LogAlienEvent
  ;
- : Implementor ME_559A3BD901CC // TdaJournal
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_56E2A7DB03CE_ME_559A3BD901CC LogAlienEvent
 
 : ME_56E2B57C01FA_ME_559A3BD901CC
  : Original WL 'ME_56E2B57C01FA' '5432518A0316.pas.ms.script' // MakeAlienResultSet
- ;
- : Implementor ME_559A3BD901CC // TdaJournal
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_56E2B57C01FA_ME_559A3BD901CC MakeAlienResultSet
@@ -3857,24 +3857,24 @@ ref; // ME_56E2B57C01FA_ME_559A3BD901CC MakeAlienResultSet
 : ME_56EBDD1F0184_ME_559A3BD901CC
  : Original WL 'ME_56EBDD1F0184' '5432518A0316.pas.ms.script' // CurSessionID
  ;
- : Implementor ME_559A3BD901CC // TdaJournal
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_56EBDD1F0184_ME_559A3BD901CC CurSessionID
 
+: ME_56F2627200AE_ME_559A3BD901CC
+ : Original WL 'ME_56F2627200AE' '5432518A0316.pas.ms.script' // IsSessionActive
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56F2627200AE_ME_559A3BD901CC IsSessionActive
+
 : ME_479731C50290_ME_559A3BD901CC
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- : Implementor ME_559A3BD901CC // TdaJournal
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_559A3BD901CC Cleanup
 
 : ME_5000565C019C_ME_559A3BD901CC
  : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_559A3BD901CC // TdaJournal
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_559A3BD901CC ClearFields
@@ -3920,6 +3920,8 @@ ref; // ME_5000565C019C_ME_559A3BD901CC ClearFields
  ME_5563292201CF // AnalyseLog
  ME_559CF9D300FA // MakeResultSet
  ME_55657CD20360 // CorrectDates
+ ME_56F2622600C7 // NeedLogSessionBegin
+ ME_56F271D602AB // NeedLogSessionEnd
  )
  ; // Operations
  : Implemented
@@ -3945,6 +3947,7 @@ ref; // ME_5000565C019C_ME_559A3BD901CC ClearFields
  ME_56E2A7DB03CE_ME_559A3BD901CC // LogAlienEvent
  ME_56E2B57C01FA_ME_559A3BD901CC // MakeAlienResultSet
  ME_56EBDD1F0184_ME_559A3BD901CC // CurSessionID
+ ME_56F2627200AE_ME_559A3BD901CC // IsSessionActive
  )
  ; // Implemented
  : Overridden
@@ -4555,16 +4558,12 @@ ref; // ME_5551F6EC0008 Make
 : ME_555351D702B3_ME_5551DCD200EE
  : Original WL 'ME_555351D702B3' '5432518A0316.pas.ms.script' // TableAlias
  ;
- : Implementor ME_5551DCD200EE // TdaSelectField
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_555351D702B3_ME_5551DCD200EE TableAlias
 
 : ME_555351F500BC_ME_5551DCD200EE
  : Original WL 'ME_555351F500BC' '5432518A0316.pas.ms.script' // Field
- ;
- : Implementor ME_5551DCD200EE // TdaSelectField
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -4573,8 +4572,6 @@ ref; // ME_555351F500BC_ME_5551DCD200EE Field
 : ME_555352070022_ME_5551DCD200EE
  : Original WL 'ME_555352070022' '5432518A0316.pas.ms.script' // Alias
  ;
- : Implementor ME_5551DCD200EE // TdaSelectField
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_555352070022_ME_5551DCD200EE Alias
@@ -4582,15 +4579,11 @@ ref; // ME_555352070022_ME_5551DCD200EE Alias
 : ME_5608E5A4025F_ME_5551DCD200EE
  : Original WL 'ME_5608E5A4025F' '5432518A0316.pas.ms.script' // BuildSQLValue
  ;
- : Implementor ME_5551DCD200EE // TdaSelectField
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_5608E5A4025F_ME_5551DCD200EE BuildSQLValue
 
 : ME_479731C50290_ME_5551DCD200EE
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- : Implementor ME_5551DCD200EE // TdaSelectField
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5551DCD200EE Cleanup
@@ -4667,16 +4660,12 @@ ref; // ME_5551E0CB035B ItemType
 : ME_47B07CF403D0_ME_5551E0B301DC
  : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
  ;
- : Implementor ME_5551E0B301DC // TdaSelectFieldListPrim
- ;
  CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_5551E0B301DC IsSameItems
 
 : ME_47B2C42A0163_ME_5551E0B301DC
  : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
- ;
- : Implementor ME_5551E0B301DC // TdaSelectFieldListPrim
  ;
  CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
@@ -4685,8 +4674,6 @@ ref; // ME_47B2C42A0163_ME_5551E0B301DC AssignItem
 
 : ME_47B99D4503A2_ME_5551E0B301DC
  : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
- ;
- : Implementor ME_5551E0B301DC // TdaSelectFieldListPrim
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_5551E0B301DC CompareExistingItems
@@ -4759,8 +4746,6 @@ ref; // ME_55C857AC038E
 
 : ME_47B9BAFD01F4_ME_55C84D190010
  : Original WL 'ME_47B9BAFD01F4' '47BB24D30205.pas.ms.script' // CompareItemWithData
- ;
- : Implementor ME_55C84D190010 // TdaSelectFieldList
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_47B9BAFD01F4_ME_55C84D190010 CompareItemWithData
@@ -4856,15 +4841,11 @@ ref; // ME_56408E7F01A1 DoBuildSQL
 : ME_5608E5FE0355_ME_56408DB303B7
  : Original WL 'ME_5608E5FE0355' '5432518A0316.pas.ms.script' // BuildSQLValue
  ;
- : Implementor ME_56408DB303B7 // TdaCondition
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_5608E5FE0355_ME_56408DB303B7 BuildSQLValue
 
 : ME_564089E3039B_ME_56408DB303B7
  : Original WL 'ME_564089E3039B' '5432518A0316.pas.ms.script' // Iterate
- ;
- : Implementor ME_56408DB303B7 // TdaCondition
  ;
  CONST OpKind opkind_Implemented
  CONST "needs index" false
@@ -5080,8 +5061,6 @@ ref; // ME_5555AD9F03E4 Make
 : ME_5555CC750283_ME_5555AD2A0004
  : Original WL 'ME_5555CC750283' '5432518A0316.pas.ms.script' // Name
  ;
- : Implementor ME_5555AD2A0004 // TdaParam
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5555CC750283_ME_5555AD2A0004 Name
@@ -5089,15 +5068,11 @@ ref; // ME_5555CC750283_ME_5555AD2A0004 Name
 : ME_5555D4F5030D_ME_5555AD2A0004
  : Original WL 'ME_5555D4F5030D' '5432518A0316.pas.ms.script' // IsSameType
  ;
- : Implementor ME_5555AD2A0004 // TdaParam
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_5555D4F5030D_ME_5555AD2A0004 IsSameType
 
 : ME_5555E85C00B8_ME_5555AD2A0004
  : Original WL 'ME_5555E85C00B8' '5432518A0316.pas.ms.script' // AsInteger
- ;
- : Implementor ME_5555AD2A0004 // TdaParam
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -5106,16 +5081,12 @@ ref; // ME_5555E85C00B8_ME_5555AD2A0004 AsInteger
 : ME_555D928D00E0_ME_5555AD2A0004
  : Original WL 'ME_555D928D00E0' '5432518A0316.pas.ms.script' // DataBuffer
  ;
- : Implementor ME_5555AD2A0004 // TdaParam
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_555D928D00E0_ME_5555AD2A0004 DataBuffer
 
 : ME_55FA75FD01D3_ME_5555AD2A0004
  : Original WL 'ME_55FA75FD01D3' '5432518A0316.pas.ms.script' // AsLargeInt
- ;
- : Implementor ME_5555AD2A0004 // TdaParam
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -5124,16 +5095,12 @@ ref; // ME_55FA75FD01D3_ME_5555AD2A0004 AsLargeInt
 : ME_560CEA210293_ME_5555AD2A0004
  : Original WL 'ME_560CEA210293' '5432518A0316.pas.ms.script' // AsString
  ;
- : Implementor ME_5555AD2A0004 // TdaParam
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_560CEA210293_ME_5555AD2A0004 AsString
 
 : ME_563C8B50016A_ME_5555AD2A0004
  : Original WL 'ME_563C8B50016A' '5432518A0316.pas.ms.script' // AsStDate
- ;
- : Implementor ME_5555AD2A0004 // TdaParam
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -5142,8 +5109,6 @@ ref; // ME_563C8B50016A_ME_5555AD2A0004 AsStDate
 : ME_564C37CF00C4_ME_5555AD2A0004
  : Original WL 'ME_564C37CF00C4' '5432518A0316.pas.ms.script' // AsStTime
  ;
- : Implementor ME_5555AD2A0004 // TdaParam
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_564C37CF00C4_ME_5555AD2A0004 AsStTime
@@ -5151,16 +5116,12 @@ ref; // ME_564C37CF00C4_ME_5555AD2A0004 AsStTime
 : ME_5666822101CA_ME_5555AD2A0004
  : Original WL 'ME_5666822101CA' '5432518A0316.pas.ms.script' // ParamType
  ;
- : Implementor ME_5555AD2A0004 // TdaParam
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5666822101CA_ME_5555AD2A0004 ParamType
 
 : ME_479731C50290_ME_5555AD2A0004
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- : Implementor ME_5555AD2A0004 // TdaParam
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5555AD2A0004 Cleanup
@@ -5251,16 +5212,12 @@ ref; // ME_5555CFC5009E
 : ME_47B07CF403D0_ME_5555A0950303
  : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
  ;
- : Implementor ME_5555A0950303 // TdaParamListPrim
- ;
  CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_5555A0950303 IsSameItems
 
 : ME_47B2C42A0163_ME_5555A0950303
  : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
- ;
- : Implementor ME_5555A0950303 // TdaParamListPrim
  ;
  CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
@@ -5269,8 +5226,6 @@ ref; // ME_47B2C42A0163_ME_5555A0950303 AssignItem
 
 : ME_47B99D4503A2_ME_5555A0950303
  : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
- ;
- : Implementor ME_5555A0950303 // TdaParamListPrim
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_5555A0950303 CompareExistingItems
@@ -5393,15 +5348,11 @@ ref; // ME_5555CFE3017C
 : ME_5608FDF0029C_ME_5555C169038C
  : Original WL 'ME_5608FDF0029C' '5432518A0316.pas.ms.script' // GetParamCode
  ;
- : Implementor ME_5555C169038C // TdaParamList
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_5608FDF0029C_ME_5555C169038C GetParamCode
 
 : ME_47B9BAFD01F4_ME_5555C169038C
  : Original WL 'ME_47B9BAFD01F4' '47BB24D30205.pas.ms.script' // CompareItemWithData
- ;
- : Implementor ME_5555C169038C // TdaParamList
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_47B9BAFD01F4_ME_5555C169038C CompareItemWithData
@@ -5476,16 +5427,12 @@ ref; // ME_55530829001C ItemType
 : ME_47B07CF403D0_ME_5553080E0352
  : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
  ;
- : Implementor ME_5553080E0352 // TdaFromTableListPrim
- ;
  CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_5553080E0352 IsSameItems
 
 : ME_47B2C42A0163_ME_5553080E0352
  : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
- ;
- : Implementor ME_5553080E0352 // TdaFromTableListPrim
  ;
  CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
@@ -5494,8 +5441,6 @@ ref; // ME_47B2C42A0163_ME_5553080E0352 AssignItem
 
 : ME_47B99D4503A2_ME_5553080E0352
  : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
- ;
- : Implementor ME_5553080E0352 // TdaFromTableListPrim
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_5553080E0352 CompareExistingItems
@@ -5568,8 +5513,6 @@ ref; // ME_555CABAF0159
 
 : ME_47B9BAFD01F4_ME_555CA6E80352
  : Original WL 'ME_47B9BAFD01F4' '47BB24D30205.pas.ms.script' // CompareItemWithData
- ;
- : Implementor ME_555CA6E80352 // TdaFromTableList
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_47B9BAFD01F4_ME_555CA6E80352 CompareItemWithData
@@ -5872,16 +5815,12 @@ ref; // ME_566583B503AF
 : ME_5553634C0218_ME_55FFB14A031C
  : Original WL 'ME_5553634C0218' '5432518A0316.pas.ms.script' // TableAlias
  ;
- : Implementor ME_55FFB14A031C // TdaFromTable
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5553634C0218_ME_55FFB14A031C TableAlias
 
 : ME_555363590242_ME_55FFB14A031C
  : Original WL 'ME_555363590242' '5432518A0316.pas.ms.script' // Table
- ;
- : Implementor ME_55FFB14A031C // TdaFromTable
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -5890,15 +5829,11 @@ ref; // ME_555363590242_ME_55FFB14A031C Table
 : ME_5608E5F20118_ME_55FFB14A031C
  : Original WL 'ME_5608E5F20118' '5432518A0316.pas.ms.script' // BuildSQLValue
  ;
- : Implementor ME_55FFB14A031C // TdaFromTable
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_5608E5F20118_ME_55FFB14A031C BuildSQLValue
 
 : ME_479731C50290_ME_55FFB14A031C
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- : Implementor ME_55FFB14A031C // TdaFromTable
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_55FFB14A031C Cleanup
@@ -6371,23 +6306,17 @@ ref; // ME_55FFE2B60146
 : ME_5549C42400DA_ME_566A7DCD0151
  : Original WL 'ME_5549C42400DA' '5432518A0316.pas.ms.script' // OpenResultSet
  ;
- : Implementor ME_566A7DCD0151 // TdaQuery
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_5549C42400DA_ME_566A7DCD0151 OpenResultSet
 
 : ME_5551BB340256_ME_566A7DCD0151
  : Original WL 'ME_5551BB340256' '5432518A0316.pas.ms.script' // Prepare
  ;
- : Implementor ME_566A7DCD0151 // TdaQuery
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_5551BB340256_ME_566A7DCD0151 Prepare
 
 : ME_5551BEA500AE_ME_566A7DCD0151
  : Original WL 'ME_5551BEA500AE' '5432518A0316.pas.ms.script' // Param
- ;
- : Implementor ME_566A7DCD0151 // TdaQuery
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -6396,15 +6325,11 @@ ref; // ME_5551BEA500AE_ME_566A7DCD0151 Param
 : ME_555334DD023B_ME_566A7DCD0151
  : Original WL 'ME_555334DD023B' '5432518A0316.pas.ms.script' // UnPrepare
  ;
- : Implementor ME_566A7DCD0151 // TdaQuery
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_555334DD023B_ME_566A7DCD0151 UnPrepare
 
 : ME_564318160268_ME_566A7DCD0151
  : Original WL 'ME_564318160268' '5432518A0316.pas.ms.script' // BuildSQLValue
- ;
- : Implementor ME_566A7DCD0151 // TdaQuery
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_564318160268_ME_566A7DCD0151 BuildSQLValue
@@ -6412,23 +6337,17 @@ ref; // ME_564318160268_ME_566A7DCD0151 BuildSQLValue
 : ME_56E152F4011D_ME_566A7DCD0151
  : Original WL 'ME_56E152F4011D' '5432518A0316.pas.ms.script' // AddParam
  ;
- : Implementor ME_566A7DCD0151 // TdaQuery
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_56E152F4011D_ME_566A7DCD0151 AddParam
 
 : ME_479731C50290_ME_566A7DCD0151
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
- : Implementor ME_566A7DCD0151 // TdaQuery
- ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_566A7DCD0151 Cleanup
 
 : ME_49BFC98902FF_ME_566A7DCD0151
  : Original WL 'ME_49BFC98902FF' '51612EBB02F5.pas.ms.script' // BeforeRelease
- ;
- : Implementor ME_566A7DCD0151 // TdaQuery
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_49BFC98902FF_ME_566A7DCD0151 BeforeRelease
@@ -6531,8 +6450,6 @@ ref; // ME_56374A3C00D8
 
 : ME_47B9BAFD01F4_ME_5637497102C9
  : Original WL 'ME_47B9BAFD01F4' '47BB24D30205.pas.ms.script' // CompareItemWithData
- ;
- : Implementor ME_5637497102C9 // TdaFieldList
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_47B9BAFD01F4_ME_5637497102C9 CompareItemWithData
@@ -6767,8 +6684,8 @@ ref; // ME_127019C45D87 DoIt
 
 ref; // ME_56405A3D0253 Make
 
-: ME_5641CAC802C3
- CONST UID '5641CAC802C3'
+: ME_56F3A69D0089
+ CONST UID '56F3A69D0089'
  CONST Name 'IterateX'
  CONST Class class_Class
  : Stereotype st_Iterator ;
@@ -6784,7 +6701,7 @@ ref; // ME_56405A3D0253 Make
  CONST "needs index" true
  CONST "needs result" true
 
-ref; // ME_5641CAC802C3 IterateX
+ref; // ME_56F3A69D0089 IterateX
 
 : ME_56407C4D02E4
  CONST Class class_Dependency
@@ -6799,15 +6716,11 @@ ref; // ME_56407C4D02E4
 : ME_56408E7F01A1_ME_5640598000F0
  : Original ME_56408E7F01A1 // DoBuildSQL
  ;
- : Implementor ME_5640598000F0 // TdaLogicCondition
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_56408E7F01A1_ME_5640598000F0 DoBuildSQL
 
 : ME_479731C50290_ME_5640598000F0
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- : Implementor ME_5640598000F0 // TdaLogicCondition
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5640598000F0 Cleanup
@@ -6826,10 +6739,6 @@ ref; // ME_479731C50290_ME_5640598000F0 Cleanup
    Seq: ( ME_56408DB303B7 // TdaCondition
  )
  ; // Inherits
- : Implements
-   Seq: ( WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
- )
- ; // Implements
  : Attributes
    Seq: ( ME_56405A73021E // f_Left
  ME_56405A7B026F // f_Right
@@ -6839,7 +6748,7 @@ ref; // ME_479731C50290_ME_5640598000F0 Cleanup
  : Operations
    Seq: ( ME_564059E50042 // Create
  ME_56405A3D0253 // Make
- ME_5641CAC802C3 // IterateX
+ ME_56F3A69D0089 // IterateX
  )
  ; // Operations
  : Implemented
@@ -7147,16 +7056,12 @@ ref; // ME_56094000015F
 : ME_555351D702B3_ME_5551DD0F02A1
  : Original WL 'ME_555351D702B3' '5432518A0316.pas.ms.script' // TableAlias
  ;
- : Implementor ME_5551DD0F02A1 // TdaParamsCondition
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_555351D702B3_ME_5551DD0F02A1 TableAlias
 
 : ME_555351F500BC_ME_5551DD0F02A1
  : Original WL 'ME_555351F500BC' '5432518A0316.pas.ms.script' // Field
- ;
- : Implementor ME_5551DD0F02A1 // TdaParamsCondition
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -7165,16 +7070,12 @@ ref; // ME_555351F500BC_ME_5551DD0F02A1 Field
 : ME_5555C5620242_ME_5551DD0F02A1
  : Original WL 'ME_5555C5620242' '5432518A0316.pas.ms.script' // Name
  ;
- : Implementor ME_5551DD0F02A1 // TdaParamsCondition
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5555C5620242_ME_5551DD0F02A1 Name
 
 : ME_5555C57C023A_ME_5551DD0F02A1
  : Original WL 'ME_5555C57C023A' '5432518A0316.pas.ms.script' // DataType
- ;
- : Implementor ME_5551DD0F02A1 // TdaParamsCondition
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -7183,16 +7084,12 @@ ref; // ME_5555C57C023A_ME_5551DD0F02A1 DataType
 : ME_5555C5AB0144_ME_5551DD0F02A1
  : Original WL 'ME_5555C5AB0144' '5432518A0316.pas.ms.script' // Size
  ;
- : Implementor ME_5551DD0F02A1 // TdaParamsCondition
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5555C5AB0144_ME_5551DD0F02A1 Size
 
 : ME_555D9A290122_ME_5551DD0F02A1
  : Original WL 'ME_555D9A290122' '5432518A0316.pas.ms.script' // Operation
- ;
- : Implementor ME_5551DD0F02A1 // TdaParamsCondition
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -7201,15 +7098,11 @@ ref; // ME_555D9A290122_ME_5551DD0F02A1 Operation
 : ME_56408E7F01A1_ME_5551DD0F02A1
  : Original ME_56408E7F01A1 // DoBuildSQL
  ;
- : Implementor ME_5551DD0F02A1 // TdaParamsCondition
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_56408E7F01A1_ME_5551DD0F02A1 DoBuildSQL
 
 : ME_56725D45021B_ME_5551DD0F02A1
  : Original WL 'ME_56725D45021B' '5432518A0316.pas.ms.script' // ParamType
- ;
- : Implementor ME_5551DD0F02A1 // TdaParamsCondition
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -7217,8 +7110,6 @@ ref; // ME_56725D45021B_ME_5551DD0F02A1 ParamType
 
 : ME_479731C50290_ME_5551DD0F02A1
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- : Implementor ME_5551DD0F02A1 // TdaParamsCondition
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5551DD0F02A1 Cleanup
@@ -7475,6 +7366,25 @@ ref; // ME_3D6FB1A68E11 new_operation
 
 ref; // ME_5641ED7C0238 Make
 
+: ME_56F3AB4F0096
+ CONST UID '56F3AB4F0096'
+ CONST Name 'IterateX'
+ CONST Class class_Class
+ : Stereotype st_Iterator ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5641ED5A01D1 // TdaSubQueryCondition
+ ;
+ : Inherits
+   Seq: ( WL 'ME_564089E3039B' '5432518A0316.pas.ms.script' // Iterate
+ )
+ ; // Inherits
+ CONST "needs index" true
+ CONST "needs result" true
+
+ref; // ME_56F3AB4F0096 IterateX
+
 : ME_5642FECE0340
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -7488,15 +7398,11 @@ ref; // ME_5642FECE0340
 : ME_56408E7F01A1_ME_5641ED5A01D1
  : Original ME_56408E7F01A1 // DoBuildSQL
  ;
- : Implementor ME_5641ED5A01D1 // TdaSubQueryCondition
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_56408E7F01A1_ME_5641ED5A01D1 DoBuildSQL
 
 : ME_479731C50290_ME_5641ED5A01D1
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- : Implementor ME_5641ED5A01D1 // TdaSubQueryCondition
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5641ED5A01D1 Cleanup
@@ -7524,6 +7430,7 @@ ref; // ME_479731C50290_ME_5641ED5A01D1 Cleanup
  : Operations
    Seq: ( ME_5641ED7401B8 // Create
  ME_5641ED7C0238 // Make
+ ME_56F3AB4F0096 // IterateX
  )
  ; // Operations
  : Implemented
@@ -7569,16 +7476,12 @@ ref; // ME_5680F62101A0 ItemType
 : ME_47B07CF403D0_ME_5680F609012D
  : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
  ;
- : Implementor ME_5680F609012D // TdaSortFieldList
- ;
  CONST OpKind opkind_Implemented
  CONST "ifndef" 'l3Items_IsAtomic'
 ref; // ME_47B07CF403D0_ME_5680F609012D IsSameItems
 
 : ME_47B2C42A0163_ME_5680F609012D
  : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
- ;
- : Implementor ME_5680F609012D // TdaSortFieldList
  ;
  CONST OpKind opkind_Implemented
  CONST "ifdef" 'l3Items_NeedsAssignItem'
@@ -7587,8 +7490,6 @@ ref; // ME_47B2C42A0163_ME_5680F609012D AssignItem
 
 : ME_47B99D4503A2_ME_5680F609012D
  : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
- ;
- : Implementor ME_5680F609012D // TdaSortFieldList
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_47B99D4503A2_ME_5680F609012D CompareExistingItems
@@ -7754,16 +7655,12 @@ ref; // ME_566E73610319 Make
 : ME_5555C5620242_ME_566E71FA000F
  : Original WL 'ME_5555C5620242' '5432518A0316.pas.ms.script' // Name
  ;
- : Implementor ME_566E71FA000F // TdaFieldParamDescription
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5555C5620242_ME_566E71FA000F Name
 
 : ME_5555C57C023A_ME_566E71FA000F
  : Original WL 'ME_5555C57C023A' '5432518A0316.pas.ms.script' // DataType
- ;
- : Implementor ME_566E71FA000F // TdaFieldParamDescription
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -7772,8 +7669,6 @@ ref; // ME_5555C57C023A_ME_566E71FA000F DataType
 : ME_5555C5AB0144_ME_566E71FA000F
  : Original WL 'ME_5555C5AB0144' '5432518A0316.pas.ms.script' // Size
  ;
- : Implementor ME_566E71FA000F // TdaFieldParamDescription
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5555C5AB0144_ME_566E71FA000F Size
@@ -7781,16 +7676,12 @@ ref; // ME_5555C5AB0144_ME_566E71FA000F Size
 : ME_56725D45021B_ME_566E71FA000F
  : Original WL 'ME_56725D45021B' '5432518A0316.pas.ms.script' // ParamType
  ;
- : Implementor ME_566E71FA000F // TdaFieldParamDescription
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_56725D45021B_ME_566E71FA000F ParamType
 
 : ME_479731C50290_ME_566E71FA000F
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- : Implementor ME_566E71FA000F // TdaFieldParamDescription
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_566E71FA000F Cleanup
@@ -8009,8 +7900,6 @@ ref; // ME_5680EF7D0314 Make
 : ME_5680EEB20163_ME_5680EF290107
  : Original WL 'ME_5680EEB20163' '5432518A0316.pas.ms.script' // SelectField
  ;
- : Implementor ME_5680EF290107 // TdaSortField
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5680EEB20163_ME_5680EF290107 SelectField
@@ -8018,16 +7907,12 @@ ref; // ME_5680EEB20163_ME_5680EF290107 SelectField
 : ME_5680EEDA03E3_ME_5680EF290107
  : Original WL 'ME_5680EEDA03E3' '5432518A0316.pas.ms.script' // SortOrder
  ;
- : Implementor ME_5680EF290107 // TdaSortField
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5680EEDA03E3_ME_5680EF290107 SortOrder
 
 : ME_479731C50290_ME_5680EF290107
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- : Implementor ME_5680EF290107 // TdaSortField
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5680EF290107 Cleanup
@@ -8569,15 +8454,11 @@ ref; // ME_566AA117019D
 : ME_5551DC42038C_ME_5600FA2301B9
  : Original WL 'ME_5551DC42038C' '5432518A0316.pas.ms.script' // AddSelectField
  ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_5551DC42038C_ME_5600FA2301B9 AddSelectField
 
 : ME_56010A7801F2_ME_5600FA2301B9
  : Original ME_56010A7801F2 // MakeResultSet
- ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_56010A7801F2_ME_5600FA2301B9 MakeResultSet
@@ -8585,23 +8466,17 @@ ref; // ME_56010A7801F2_ME_5600FA2301B9 MakeResultSet
 : ME_56010AB70258_ME_5600FA2301B9
  : Original ME_56010AB70258 // PrepareQuery
  ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_56010AB70258_ME_5600FA2301B9 PrepareQuery
 
 : ME_56010ACB00F0_ME_5600FA2301B9
  : Original ME_56010ACB00F0 // UnprepareQuery
  ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_56010ACB00F0_ME_5600FA2301B9 UnprepareQuery
 
 : ME_563B18FB0212_ME_5600FA2301B9
  : Original WL 'ME_563B18FB0212' '5432518A0316.pas.ms.script' // WhereCondition
- ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
  ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
@@ -8610,8 +8485,6 @@ ref; // ME_563B18FB0212_ME_5600FA2301B9 WhereCondition
 : ME_5666B5E20108_ME_5600FA2301B9
  : Original WL 'ME_5666B5E20108' '5432518A0316.pas.ms.script' // Table
  ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
- ;
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_5666B5E20108_ME_5600FA2301B9 Table
@@ -8619,31 +8492,29 @@ ref; // ME_5666B5E20108_ME_5600FA2301B9 Table
 : ME_566A850001E5_ME_5600FA2301B9
  : Original ME_566A850001E5 // DoBuildSQLValue
  ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_566A850001E5_ME_5600FA2301B9 DoBuildSQLValue
 
 : ME_567D12D00384_ME_5600FA2301B9
  : Original WL 'ME_567D12D00384' '5432518A0316.pas.ms.script' // AddOrderBy
  ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
- ;
  CONST OpKind opkind_Implemented
 ref; // ME_567D12D00384_ME_5600FA2301B9 AddOrderBy
 
+: ME_56F3D89F01C8_ME_5600FA2301B9
+ : Original WL 'ME_56F3D89F01C8' '5432518A0316.pas.ms.script' // SelectFieldByName
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56F3D89F01C8_ME_5600FA2301B9 SelectFieldByName
+
 : ME_479731C50290_ME_5600FA2301B9
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
- ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_5600FA2301B9 Cleanup
 
 : ME_5000565C019C_ME_5600FA2301B9
  : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- : Implementor ME_5600FA2301B9 // TdaTabledQuery
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_5000565C019C_ME_5600FA2301B9 ClearFields
@@ -8697,6 +8568,7 @@ ref; // ME_5000565C019C_ME_5600FA2301B9 ClearFields
  ME_5666B5E20108_ME_5600FA2301B9 // Table
  ME_566A850001E5_ME_5600FA2301B9 // DoBuildSQLValue
  ME_567D12D00384_ME_5600FA2301B9 // AddOrderBy
+ ME_56F3D89F01C8_ME_5600FA2301B9 // SelectFieldByName
  )
  ; // Implemented
  : Overridden

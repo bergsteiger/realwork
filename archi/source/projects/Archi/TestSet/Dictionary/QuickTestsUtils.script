@@ -1279,12 +1279,14 @@ STRING FUNCTION "Путь к копии Архивариуса" STRING IN aSourceDir
 PROCEDURE "Распаковка тестовой базы"
 	"Закрыть все окна"
 	"Обработать сообщения" 
-	'testbase.zip' "Путь к копии базы" ClearDataBase 
+	csArchiveWithBaseName csTestDataBasePathNew ClearDataBase // csArchiveWithBaseName - имя БД 'testbase.zip'
 ;
 
 PROCEDURE "Очистка после теста"
 	"Почистить за собой"
-	"Очистить каталог {('C:\Base\testbase2')}"
+	"Закрыть все окна"
+	"Обработать сообщения"
+	"Очистить каталог {(csTestDataBasePathNew)}"
 ;
 
 // Перебор и сравнение с эталоном

@@ -139,6 +139,14 @@ PROCEDURE "Сравнить с эталоном KW" STRING IN l_DocName
 	l_FullFileName ';' tests:CheckEtalon
 ;
 
+// проверка тхт файла
+PROCEDURE "Сравнить с эталоном текстовый файл" STRING IN aDocDir STRING IN l_DocName
+	STRING VAR l_FullFileName
+	[ aDocDir '\' l_DocName ] strings:Cat >>> l_FullFileName 
+	l_FullFileName sysutils:FileExists ?ASSURE [ 'txt файл не создался: ' l_FullFileName ]
+	l_FullFileName ';' tests:CheckEtalon
+;
+
 PROCEDURE "Выбрать 'Экспортировать Текущий документ'"
          "Контрол по имени {("Тип экспорта выборки")} " pop:RadioGroup:ItemIndex := "Текущий документ"
 ;
