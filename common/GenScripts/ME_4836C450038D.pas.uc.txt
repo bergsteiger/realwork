@@ -224,10 +224,17 @@ var
 //#UC START# *4836E100028A_4836C450038D_var*
 //#UC END# *4836E100028A_4836C450038D_var*
 //#UC START# *4A116B45039B_4836C450038D_impl*
+ {$IfDef evOutDecorToNSRC}
+ if (f_OldNSRC > 0) then
+  Result := inherited NeedAddSpaces
+ else
+  Result := false;
+ {$Else  evOutDecorToNSRC}
  if (f_OldNSRC > 0) then
   Result := inherited NeedAddSpaces
  else
   Result := (f_InCell = 0) AND not f_WasSoftEnter;
+ {$EndIf evOutDecorToNSRC}
 //#UC END# *4A116B45039B_4836C450038D_impl*
 //#UC START# *4A116B45039B_4836C450038D_var*
 //#UC END# *4A116B45039B_4836C450038D_var*
