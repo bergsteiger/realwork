@@ -1,57 +1,40 @@
 unit l3Printer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В. ©
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Printer.pas"
-// Начат: 28.12.2004 16:12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::Print::l3Printer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Printer.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "l3Printer" MUID: (4799D83F0260)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Core,
-  l3Units,
-  Classes,
-  Printers,
-  Windows,
-  l3PrinterInterfaces,
-  l3PureMixIns
-  ;
+ l3IntfUses
+ , Printers
+ , l3Interfaces
+ , l3PrinterInterfaces
+ , l3Units
+ , l3PureMixIns
+;
 
 type
  _l3Castable_Parent_ = TPrinter;
- {$Include ..\L3\l3Castable.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Castable.imp.pas}
  Tl3CastablePrinter = class(_l3Castable_)
   {* Принтер с методом QueryInterface. }
  end;//Tl3CastablePrinter
 
  _l3Unknown_Parent_ = Tl3CastablePrinter;
- {$Include ..\L3\l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  Tl3Printer = class(_l3Unknown_, Il3Printer)
- private
- // private fields
-   f_NoPrinter : Boolean;
- private
- // private methods
+  private
+   f_NoPrinter: Boolean;
+  private
    function LP2DP(const P: Tl3_Point): Tl3SPoint;
    function DP2LP(const P: Tl3_SPoint): Tl3Point;
- protected
- // realized methods
+  protected
    function HasPrinter: Boolean;
-     {* есть ли принтер для печати. }
+    {* есть ли принтер для печати. }
    function Get_PrinterIndex: Integer;
    procedure Set_PrinterIndex(aValue: Integer);
    function Get_Title: Il3CString;
@@ -70,61 +53,59 @@ type
    procedure Set_Copies(aValue: Integer);
    function Get_PaperExtent: Tl3_Point;
    function Clone: Il3Printer;
-     {* Клонирует принтер }
+    {* Клонирует принтер }
    function Get_Collate: Boolean;
    procedure Set_Collate(aValue: Boolean);
    function Get_CanCollate: Boolean;
    procedure Refresh;
-     {* Обновляет список принтеров }
- protected
- // overridden protected methods
+    {* Обновляет список принтеров }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function Make: Il3Printer; reintroduce;
  end;//Tl3Printer
 
 implementation
 
 uses
-  l3Defaults,
-  l3Base,
-  SysUtils,
-  l3String,
-  l3PrinterIC,
-  l3Const,
-  l3Math,
-  Consts,
-  l3MemUtils,
-  l3Interlocked,
-  l3InternalInterfaces
-  ;
+ l3ImplUses
+ , Classes
+ , Windows
+ , l3Core
+ , l3PrinterIC
+ , l3InternalInterfaces
+ , l3Defaults
+ , l3Base
+ , SysUtils
+ , l3String
+ , l3Const
+ , l3Math
+ , Consts
+ , l3MemUtils
+ , l3Interlocked
+;
 
 type
  THackPrinter = class(TObject)
- private
- // private fields
-   FCanvas : TCanvas;
-   FFonts : TStrings;
-   FPageNumber : Integer;
-   FPrinters : TStrings;
-   FPrinterIndex : Integer;
-   FTitle : AnsiString;
-   FPrinting : Boolean;
-   FAborted : Boolean;
-   FCapabilities : TPrinterCapabilities;
-   State : TPrinterState;
-   DC : hDC;
-   DevMode : PDeviceMode;
-   DeviceMode : THandle;
+  private
+   FCanvas: TCanvas;
+   FFonts: TStrings;
+   FPageNumber: Integer;
+   FPrinters: TStrings;
+   FPrinterIndex: Integer;
+   FTitle: AnsiString;
+   FPrinting: Boolean;
+   FAborted: Boolean;
+   FCapabilities: TPrinterCapabilities;
+   State: TPrinterState;
+   DC: hDC;
+   DevMode: PDeviceMode;
+   DeviceMode: THandle;
  end;//THackPrinter
 
-{$Include ..\L3\l3Castable.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Castable.imp.pas}
 
-{$Include ..\L3\l3Unknown.imp.pas}
-
-// start class Tl3Printer
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 class function Tl3Printer.Make: Il3Printer;
 var
@@ -136,7 +117,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3Printer.Make
 
 function Tl3Printer.LP2DP(const P: Tl3_Point): Tl3SPoint;
 //#UC START# *49BAA08901A2_4799D40F0004_var*
@@ -159,6 +140,7 @@ begin
 end;//Tl3Printer.DP2LP
 
 function Tl3Printer.HasPrinter: Boolean;
+ {* есть ли принтер для печати. }
 //#UC START# *46A465CD021A_4799D40F0004_var*
 //#UC END# *46A465CD021A_4799D40F0004_var*
 begin
@@ -509,6 +491,7 @@ begin
 end;//Tl3Printer.Get_PaperExtent
 
 function Tl3Printer.Clone: Il3Printer;
+ {* Клонирует принтер }
 //#UC START# *49BAA14602EC_4799D40F0004_var*
 
 (* function CopyData(Handle: THandle): THandle;
@@ -602,6 +585,7 @@ begin
 end;//Tl3Printer.Get_CanCollate
 
 procedure Tl3Printer.Refresh;
+ {* Обновляет список принтеров }
 //#UC START# *4F36910C00F8_4799D40F0004_var*
 //#UC END# *4F36910C00F8_4799D40F0004_var*
 begin
@@ -611,6 +595,7 @@ begin
 end;//Tl3Printer.Refresh
 
 procedure Tl3Printer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4799D40F0004_var*
 //#UC END# *479731C50290_4799D40F0004_var*
 begin

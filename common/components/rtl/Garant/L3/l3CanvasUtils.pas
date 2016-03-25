@@ -1,89 +1,80 @@
 unit l3CanvasUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3CanvasUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3Canvas::l3CanvasUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3CanvasUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "l3CanvasUtils" MUID: (56AB78880104)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Types,
-  Graphics,
-  Windows
-  ;
+ l3IntfUses
+ , Windows
+ , l3Interfaces
+ , Types
+ , Graphics
+;
 
 type
  TRGB = packed record
-   R : Byte;
-   G : Byte;
-   B : Byte;
+  R: Byte;
+  G: Byte;
+  B: Byte;
  end;//TRGB
 
  THSV = packed record
-   H : Integer;
-   S : Integer;
-   V : Integer;
+  H: Integer;
+  S: Integer;
+  V: Integer;
  end;//THSV
 
  TYIQ = packed record
-   Y : Integer;
-   I : Integer;
-   Q : Integer;
+  Y: Integer;
+  I: Integer;
+  Q: Integer;
  end;//TYIQ
 
  {$Define UseHSV}
+
 function ApplyLineSpacing(aValue: Integer;
-  aLineSpacing: Integer): Integer;
+ aLineSpacing: Integer): Integer;
 procedure SystemTextExtent(aDC: hDC;
-  const aStr: Tl3WString;
-  var theExtent: TSize;
-  aLineSpacing: Integer);
+ const aStr: Tl3WString;
+ var theExtent: TSize;
+ aLineSpacing: Integer);
 procedure CheckColors(var aFore: TColor;
-  var aBack: TColor);
+ var aBack: TColor);
 procedure CheckColorsHSV(var aFore: TColor;
-  var aBack: TColor);
+ var aBack: TColor);
 procedure CheckColorsYIQ(var aFC: TColor;
-  var aBC: TColor;
-  aDeltaY: Byte = 100);
+ var aBC: TColor;
+ aDeltaY: Byte = 100);
 procedure HSV2RGB(out px: TRGB;
-  const HSV: THSV);
-function L3CharsToInch(aCount: Integer;
-  aFontSize: Integer): Integer;
+ const HSV: THSV);
+function l3CharsToInch(aCount: Integer;
+ aFontSize: Integer): Integer;
 procedure RGB2HSV(const RGB: TRGB;
-  out HSV: THSV);
+ out HSV: THSV);
 procedure RGB2YIQ(const RGB: TRGB;
-  out YIQ: TYIQ);
+ out YIQ: TYIQ);
 procedure YIQ2RGB(out RGB: TRGB;
-  const YIQ: TYIQ);
+ const YIQ: TYIQ);
 function InvertColor(aColor: TColor): TColor;
 
 implementation
 
 uses
-  l3Math,
-  l3MinMax,
-  l3InternalInterfaces,
-  l3ScreenIC,
-  l3String
-  ;
-
-// unit methods
+ l3ImplUses
+ , l3Math
+ , l3MinMax
+ , l3InternalInterfaces
+ , l3ScreenIC
+ , l3String
+;
 
 function ApplyLineSpacing(aValue: Integer;
-  aLineSpacing: Integer): Integer;
+ aLineSpacing: Integer): Integer;
 //#UC START# *56AB78E40273_56AB78880104_var*
 //#UC END# *56AB78E40273_56AB78880104_var*
 begin
@@ -96,9 +87,9 @@ begin
 end;//ApplyLineSpacing
 
 procedure SystemTextExtent(aDC: hDC;
-  const aStr: Tl3WString;
-  var theExtent: TSize;
-  aLineSpacing: Integer);
+ const aStr: Tl3WString;
+ var theExtent: TSize;
+ aLineSpacing: Integer);
 //#UC START# *56AB792702C4_56AB78880104_var*
 //#UC END# *56AB792702C4_56AB78880104_var*
 begin
@@ -112,7 +103,7 @@ begin
 end;//SystemTextExtent
 
 procedure CheckColors(var aFore: TColor;
-  var aBack: TColor);
+ var aBack: TColor);
 //#UC START# *56AB7A760174_56AB78880104_var*
 const
  l_Add = 170;
@@ -163,7 +154,7 @@ begin
 end;//CheckColors
 
 procedure CheckColorsHSV(var aFore: TColor;
-  var aBack: TColor);
+ var aBack: TColor);
 //#UC START# *56AB7B600252_56AB78880104_var*
 var
  l_F1: TRGB absolute aFore;
@@ -211,8 +202,8 @@ begin
 end;//CheckColorsHSV
 
 procedure CheckColorsYIQ(var aFC: TColor;
-  var aBC: TColor;
-  aDeltaY: Byte = 100);
+ var aBC: TColor;
+ aDeltaY: Byte = 100);
 //#UC START# *56AB7B7C0391_56AB78880104_var*
 var
  l_F1: TRGB absolute aFC;
@@ -243,7 +234,7 @@ begin
 end;//CheckColorsYIQ
 
 procedure HSV2RGB(out px: TRGB;
-  const HSV: THSV);
+ const HSV: THSV);
 //#UC START# *56AB7BAE011A_56AB78880104_var*
 const
  Divisor: Integer = 99*60;
@@ -314,8 +305,8 @@ begin
 //#UC END# *56AB7BAE011A_56AB78880104_impl*
 end;//HSV2RGB
 
-function L3CharsToInch(aCount: Integer;
-  aFontSize: Integer): Integer;
+function l3CharsToInch(aCount: Integer;
+ aFontSize: Integer): Integer;
 //#UC START# *56AB7CBA02F1_56AB78880104_var*
 const
  def_FontName = 'Arial CYR';  
@@ -332,10 +323,10 @@ begin
  l_ICN.Font.Pitch := fpDefault;
  Result := l_ICN.TextExtent(l3PCharLen('w')).X * aCount;
 //#UC END# *56AB7CBA02F1_56AB78880104_impl*
-end;//L3CharsToInch
+end;//l3CharsToInch
 
 procedure RGB2HSV(const RGB: TRGB;
-  out HSV: THSV);
+ out HSV: THSV);
 //#UC START# *56AB7CED004F_56AB78880104_var*
  procedure MinMax3(const i,j,k:integer; var min, max:integer);
  begin//MinMax3
@@ -385,7 +376,7 @@ begin
 end;//RGB2HSV
 
 procedure RGB2YIQ(const RGB: TRGB;
-  out YIQ: TYIQ);
+ out YIQ: TYIQ);
 //#UC START# *56AB7D0F0094_56AB78880104_var*
 //#UC END# *56AB7D0F0094_56AB78880104_var*
 begin
@@ -397,7 +388,7 @@ begin
 end;//RGB2YIQ
 
 procedure YIQ2RGB(out RGB: TRGB;
-  const YIQ: TYIQ);
+ const YIQ: TYIQ);
 //#UC START# *56AB7D3500FB_56AB78880104_var*
  function lpByte(aValue : Integer) : Byte;
  begin

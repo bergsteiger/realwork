@@ -1,59 +1,48 @@
 unit l3StopWatch;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3StopWatch.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3Utils::l3StopWatch
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3StopWatch.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "l3StopWatch" MUID: (5480073300B1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  SyncObjs
-  ;
+ l3IntfUses
+ , SyncObjs
+;
 
 type
- Tl3StopWatch = {$IfDef XE4}record{$Else}object{$EndIf}
+ Tl3StopWatch = object
   {* Секундомер для профилирования }
- private
-   f_Count : Integer;
-   f_Start : Int64;
-   f_Total : Int64;
- public
-    procedure Add(const aSource: Tl3StopWatch);
-    procedure Reset;
-    procedure Start;
-    procedure Stop(aCount: Integer = 1);
-    function Time: Double;
-     {* Общее время выполнения (теоретически в секундах) }
-    function AvgTime: Double;
-     {* Среднее время выполнения 1 операции (теоретически в секундах) }
-    function OpsPerSec: Double;
-     {* Операций в секунду }
-    function OpsCount: Integer;
+  private
+   f_Count: Integer;
+   f_Start: Int64;
+   f_Total: Int64;
+  public
+   procedure Add(const aSource: Tl3StopWatch);
+   procedure Reset;
+   procedure Start;
+   procedure Stop(aCount: Integer = 1);
+   function Time: Double;
+    {* Общее время выполнения (теоретически в секундах) }
+   function AvgTime: Double;
+    {* Среднее время выполнения 1 операции (теоретически в секундах) }
+   function OpsPerSec: Double;
+    {* Операций в секунду }
+   function OpsCount: Integer;
  end;//Tl3StopWatch
 
 implementation
 
 uses
-  Windows
-  ;
+ l3ImplUses
+ , Windows
+;
 
-var g_Freq : Int64;
-
-var g_StopSection : TCriticalSection;
-
-// start class Tl3StopWatch
+var g_Freq: Int64;
+var g_StopSection: TCriticalSection;
 
 procedure Tl3StopWatch.Add(const aSource: Tl3StopWatch);
 //#UC START# *54800888018B_548007530030_var*
@@ -105,6 +94,7 @@ begin
 end;//Tl3StopWatch.Stop
 
 function Tl3StopWatch.Time: Double;
+ {* Общее время выполнения (теоретически в секундах) }
 //#UC START# *5480097D00D1_548007530030_var*
 //#UC END# *5480097D00D1_548007530030_var*
 begin
@@ -114,6 +104,7 @@ begin
 end;//Tl3StopWatch.Time
 
 function Tl3StopWatch.AvgTime: Double;
+ {* Среднее время выполнения 1 операции (теоретически в секундах) }
 //#UC START# *548009B60076_548007530030_var*
 //#UC END# *548009B60076_548007530030_var*
 begin
@@ -126,6 +117,7 @@ begin
 end;//Tl3StopWatch.AvgTime
 
 function Tl3StopWatch.OpsPerSec: Double;
+ {* Операций в секунду }
 //#UC START# *548009FB0066_548007530030_var*
 //#UC END# *548009FB0066_548007530030_var*
 begin

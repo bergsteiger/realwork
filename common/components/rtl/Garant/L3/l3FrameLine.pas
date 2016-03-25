@@ -1,69 +1,65 @@
 unit l3FrameLine;
+ {* Выравнивающая линия }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3FrameLine.pas"
-// Начат: 02.10.06 16:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3Canvas::l3FrameLine
-//
-// Выравнивающая линия
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3FrameLine.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "l3FrameLine" MUID: (48CA546C01B0)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3InternalInterfaces,
-  l3Const,
-  l3ProtoDataContainer,
-  l3CProtoObject,
-  l3Memory,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3Const
+ , l3CProtoObject
+ , l3Interfaces
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Core
+ , l3Except
+ , Classes
+ , l3InternalInterfaces
+;
+
+const
+ {* Константы для выравнивания отрезков линий. }
+ cWaitAlignMean = l3Const.l3ShapeNil - 1;
+  {* Ждать появления выравнивающего значения (нижней границы строки таблицы) }
+ cAlingByBoundary = l3Const.l3ShapeNil - 2;
+  {* Выравнивать по нижней границе объекта отрисовки (таблицы) - ждать пока будет вызвано FrameAlignObject }
 
 type
  Tl3FrameLinePrim = class(Tl3CProtoObject)
   {* Это чтобы избежать Tl3FrameLine "[Error] l3FrameLine.pas(40): Type 'Tl3FrameLine' is not yet completely defined" }
- private
- // private fields
-   f_LineCoordinate : Integer;
-    {* Поле для свойства LineCoordinate}
- protected
- // protected methods
+  private
+   f_LineCoordinate: Integer;
+    {* Поле для свойства LineCoordinate }
+  protected
    procedure ChangeLine(aSource: Tl3FrameLinePrim;
     aDest: Tl3FrameLinePrim); virtual; abstract;
-     {* Сменить линию }
- public
- // public properties
+    {* Сменить линию }
+  public
    property LineCoordinate: Integer
-     read f_LineCoordinate
-     write f_LineCoordinate;
-     {* Начальная точка линии в дюймах }
+    read f_LineCoordinate
+    write f_LineCoordinate;
+    {* Начальная точка линии в дюймах }
  end;//Tl3FrameLinePrim
 
- Tl3LinePart = {$IfDef XE4}record{$Else}object{$EndIf}
+ Tl3LinePart = object
   {* Массив отрезков }
- public
-   rWasDrawn : Boolean; // Уже была отрисована
-   rStart : Tl3FrameLinePrim; // Линия окончания
-   rFinish : Tl3FrameLinePrim; // Линия начала
-   rDrawType : Tl3LinePartDrawType; // Тип отрисовки
- public
-    function EQ(const Another: Tl3LinePart): Boolean;
+  public
+   rWasDrawn: Boolean;
+    {* Уже была отрисована }
+   rStart: Tl3FrameLinePrim;
+    {* Линия окончания }
+   rFinish: Tl3FrameLinePrim;
+    {* Линия начала }
+   rDrawType: Tl3LinePartDrawType;
+    {* Тип отрисовки }
+  public
+   function EQ(const Another: Tl3LinePart): Boolean;
  end;//Tl3LinePart
 
  {$Define l3Items_NoSort}
@@ -71,74 +67,59 @@ type
  _ItemType_ = Tl3LinePart;
  _l3RecordWithEQList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include ..\L3\l3RecordWithEQList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
  Tl3LineParts = class(_l3RecordWithEQList_)
   {* Отрезок }
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+  protected
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
  end;//Tl3LineParts
 
-const
-  { Константы для выравнивания отрезков линий. }
- cWaitAlignMean = l3Const.l3ShapeNil - 1;
-  { Ждать появления выравнивающего значения (нижней границы строки таблицы) }
- cAlingByBoundary = l3Const.l3ShapeNil - 2;
-  { Выравнивать по нижней границе объекта отрисовки (таблицы) - ждать пока будет вызвано FrameAlignObject }
-
-type
  Tl3FrameLine = class(Tl3FrameLinePrim)
   {* Выравнивающая линия }
- private
- // private fields
-   f_BoundsArray : Tl3LineParts;
-    {* Массив частей линии. http://mdp.garant.ru/pages/viewpage.action?pageId=89096241&focusedCommentId=115344375#comment-115344375}
- protected
- // realized methods
+  private
+   f_BoundsArray: Tl3LineParts;
+    {* Массив частей линии. http://mdp.garant.ru/pages/viewpage.action?pageId=89096241&focusedCommentId=115344375#comment-115344375 }
+  protected
    procedure ChangeLine(aSource: Tl3FrameLinePrim;
     aDest: Tl3FrameLinePrim); override;
-     {* Сменить линию }
- protected
- // overridden protected methods
+    {* Сменить линию }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure AssignData(aValue: Tl3FrameLine);
-     {* Копируем данные об объекте }
+    {* Копируем данные об объекте }
    procedure DrawLine(const aCanvas: Il3Canvas;
     const aColorArray: Tl3LinesColorArray;
     aVert: Boolean;
     aWidth: Integer);
-     {* Нарисовать линию }
+    {* Нарисовать линию }
    procedure AddBounds(aMinBound: Tl3FrameLine;
     aMaxBound: Tl3FrameLine;
     aColor: Integer;
     aLinePartType: Tl3LinePartDrawType);
-     {* Добавляет границы для отрезка линии и корректирует её видимость }
+    {* Добавляет границы для отрезка линии и корректирует её видимость }
    constructor Create(aLineCoordinate: Integer); reintroduce;
    procedure CheckCoordinate(aMinBound: Integer;
     aMaxBound: Integer);
-     {* Функция проверяющая лежит находится ли коррдината линии в заданных пределах и если находится, то линия будет выравнена при следующем вызове AlignBoundary (используется для выравнивания нижних границ ячейек по нижней границе строки) }
+    {* Функция проверяющая лежит находится ли коррдината линии в заданных пределах и если находится, то линия будет выравнена при следующем вызове AlignBoundary (используется для выравнивания нижних границ ячейек по нижней границе строки) }
    function GetBoundsArray: Tl3LineParts;
  end;//Tl3FrameLine
 
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  l3Units,
-  Windows,
-  l3UnitsTools
-  ;
-
-// start class Tl3LinePart
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+ , l3Units
+ , Windows
+ , l3UnitsTools
+;
 
 function Tl3LinePart.EQ(const Another: Tl3LinePart): Boolean;
 //#UC START# *4BE2E84C0134_48CA54C5025F_var*
@@ -152,13 +133,12 @@ begin
   (rDrawType = Another.rDrawType);
 //#UC END# *4BE2E84C0134_48CA54C5025F_impl*
 end;//Tl3LinePart.EQ
-// start class Tl3LineParts
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_48CA557F02FF_var*
 //#UC END# *47B2C42A0163_48CA557F02FF_var*
 begin
@@ -166,9 +146,10 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_48CA557F02FF_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_48CA557F02FF_var*
 //#UC END# *47B99D4503A2_48CA557F02FF_var*
 begin
@@ -180,12 +161,11 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3LineParts;
 
-{$Include ..\L3\l3RecordWithEQList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
 
-// start class Tl3LineParts
-
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tl3LineParts.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_48CA557F02FF_var*
 //#UC END# *47A6FEE600FC_48CA557F02FF_var*
 begin
@@ -193,10 +173,10 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_48CA557F02FF_impl*
 end;//Tl3LineParts.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
-// start class Tl3FrameLine
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure Tl3FrameLine.AssignData(aValue: Tl3FrameLine);
+ {* Копируем данные об объекте }
 //#UC START# *48CA574603C2_48CA54A000F7_var*
 var
  i          : Integer;
@@ -226,9 +206,10 @@ begin
 end;//Tl3FrameLine.AssignData
 
 procedure Tl3FrameLine.DrawLine(const aCanvas: Il3Canvas;
-  const aColorArray: Tl3LinesColorArray;
-  aVert: Boolean;
-  aWidth: Integer);
+ const aColorArray: Tl3LinesColorArray;
+ aVert: Boolean;
+ aWidth: Integer);
+ {* Нарисовать линию }
 //#UC START# *48CA575E00E2_48CA54A000F7_var*
 var
  i       : Integer;
@@ -307,9 +288,10 @@ begin
 end;//Tl3FrameLine.DrawLine
 
 procedure Tl3FrameLine.AddBounds(aMinBound: Tl3FrameLine;
-  aMaxBound: Tl3FrameLine;
-  aColor: Integer;
-  aLinePartType: Tl3LinePartDrawType);
+ aMaxBound: Tl3FrameLine;
+ aColor: Integer;
+ aLinePartType: Tl3LinePartDrawType);
+ {* Добавляет границы для отрезка линии и корректирует её видимость }
 //#UC START# *48CA578300F4_48CA54A000F7_var*
 var                                 
  i           : Integer;
@@ -392,7 +374,8 @@ begin
 end;//Tl3FrameLine.Create
 
 procedure Tl3FrameLine.CheckCoordinate(aMinBound: Integer;
-  aMaxBound: Integer);
+ aMaxBound: Integer);
+ {* Функция проверяющая лежит находится ли коррдината линии в заданных пределах и если находится, то линия будет выравнена при следующем вызове AlignBoundary (используется для выравнивания нижних границ ячейек по нижней границе строки) }
 //#UC START# *491449690084_48CA54A000F7_var*
 //#UC END# *491449690084_48CA54A000F7_var*
 begin
@@ -413,7 +396,8 @@ begin
 end;//Tl3FrameLine.GetBoundsArray
 
 procedure Tl3FrameLine.ChangeLine(aSource: Tl3FrameLinePrim;
-  aDest: Tl3FrameLinePrim);
+ aDest: Tl3FrameLinePrim);
+ {* Сменить линию }
 //#UC START# *48CA56FC0278_48CA54A000F7_var*
 var
  i      : Integer;
@@ -439,6 +423,7 @@ begin
 end;//Tl3FrameLine.ChangeLine
 
 procedure Tl3FrameLine.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48CA54A000F7_var*
 //#UC END# *479731C50290_48CA54A000F7_var*
 begin

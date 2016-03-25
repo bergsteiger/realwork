@@ -432,7 +432,8 @@ end;//Tl3MessageID.Fake
 constructor Tl3MessageID.Init;
 begin
 //#UC START# *4E01D1E002AEInit_4E01D1E002AE_impl*
- !!! Needs to be implemented !!!
+ DoInit;
+ TPl3MessageIDList.Instance.Add(@Self);
 //#UC END# *4E01D1E002AEInit_4E01D1E002AE_impl*
 end;//Tl3MessageID.Init
 

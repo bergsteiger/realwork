@@ -1,51 +1,40 @@
 unit l3DwmUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3DwmUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3Dwm::l3DwmUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3DwmUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "l3DwmUtils" MUID: (53395AF50223)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  Types,
-  Messages
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ , Types
+;
 
 procedure ShowSystemMenu(aForm: TForm;
-  const aMessage: TWMNCHitMessage);
-   {* Показать системное меню окна }
+ const aMessage: TWMNCHitMessage);
+ {* Показать системное меню окна }
 function GetDwmBorderIconsRect(aForm: TForm): TRect;
-   {* Возвращает границы системных кнопок заголовка окна }
+ {* Возвращает границы системных кнопок заголовка окна }
 
 implementation
 
 uses
-  Windows,
-  l3DwmApi,
-  SysUtils
-  ;
-
-// unit methods
+ l3ImplUses
+ , Windows
+ , l3DwmApi
+ , SysUtils
+;
 
 procedure ShowSystemMenu(aForm: TForm;
-  const aMessage: TWMNCHitMessage);
+ const aMessage: TWMNCHitMessage);
+ {* Показать системное меню окна }
 //#UC START# *53395B1F0193_53395AF50223_var*
 var
  l_Cmd: WPARAM;
@@ -89,6 +78,7 @@ begin
 end;//ShowSystemMenu
 
 function GetDwmBorderIconsRect(aForm: TForm): TRect;
+ {* Возвращает границы системных кнопок заголовка окна }
 //#UC START# *53395B500390_53395AF50223_var*
 //#UC END# *53395B500390_53395AF50223_var*
 begin

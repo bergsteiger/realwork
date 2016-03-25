@@ -1,139 +1,126 @@
 unit l3StringIDEx;
+ {* Строка для локализации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3StringIDEx.pas"
-// Начат: 30.12.2009 14:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::Поддержка локализованных сообщений::l3StringIDEx
-//
-// Строка для локализации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3StringIDEx.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "l3StringIDEx" MUID: (4B3B36EC03B2)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Types,
-  l3ProtoObject,
-  l3ProtoDataContainer,
-  l3Memory,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3Interfaces
+ , l3Types
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Core
+ , l3Except
+ , Classes
+ , l3ProtoObject
+;
 
 type
+ Pl3StringIDEx = ^Tl3StringIDEx;
+
  Tl3StringIDExPrim = object(Tl3StringID)
- public
-   rLocalized : Boolean; // Строка локализована
+  public
+   rLocalized: Boolean;
+    {* Строка локализована }
  end;//Tl3StringIDExPrim
 
  Tl3StringIDEx = object(Tl3StringIDExPrim)
- public
-   rKey : AnsiString; // Ключ
-   rValue : AnsiString; // Значение
- public
-    procedure Localize(const aRus: AnsiString;
-     const anAlien: AnsiString);
-     {* Локализовать }
-    function AsWideString: WideString;
-    function AsWStr: Tl3PCharLen;
-    function AsCStr: Il3CString;
-    function AsStr: AnsiString;
-    procedure Init;
-     {* Инициализирует строку }
+  public
+   rKey: AnsiString;
+    {* Ключ }
+   rValue: AnsiString;
+    {* Значение }
+  public
+   procedure Localize(const aRus: AnsiString;
+    const anAlien: AnsiString);
+    {* Локализовать }
+   function AsWideString: WideString;
+   function AsWStr: Tl3PCharLen;
+   function AsCStr: Il3CString;
+   function AsStr: AnsiString;
+   procedure Init;
+    {* Инициализирует строку }
  end;//Tl3StringIDEx
-
- Pl3StringIDEx = ^Tl3StringIDEx;
 
  {$Undef l3Items_NoSort}
 
  _ItemType_ = Pl3StringIDEx;
  _l3AtomicListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include ..\L3\l3AtomicListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3AtomicListPrim.imp.pas}
  Tl3ConstStringsPrim = class(_l3AtomicListPrim_)
- protected
- // overridden protected methods
+  protected
    procedure InitFields; override;
  end;//Tl3ConstStringsPrim
 
-(*
- Ml3StringIDExHelper = PureMixIn
+ (*
+ Ml3StringIDExHelper = interface
   {* Контракт сервиса Tl3StringIDExHelper }
-   function AsCStr(const aStr: Tl3StringIDEx): Il3CString;
-   function AsStr(const aStr: Tl3StringIDEx): AnsiString;
-   procedure Init(var theStr: Tl3StringIDEx);
+  function AsCStr(const aStr: Tl3StringIDEx): Il3CString;
+  function AsStr(const aStr: Tl3StringIDEx): AnsiString;
+  procedure Init(var theStr: Tl3StringIDEx);
  end;//Ml3StringIDExHelper
-*)
+ *)
 
- Il3StringIDExHelper = interface(IUnknown)
+ Il3StringIDExHelper = interface
   {* Интерфейс сервиса Tl3StringIDExHelper }
-   ['{8AB76DA9-7B40-4325-8F71-3EAA5DB9E047}']
-  // Ml3StringIDExHelper
-   function AsCStr(const aStr: Tl3StringIDEx): Il3CString;
-   function AsStr(const aStr: Tl3StringIDEx): AnsiString;
-   procedure Init(var theStr: Tl3StringIDEx);
+  ['{8AB76DA9-7B40-4325-8F71-3EAA5DB9E047}']
+  function AsCStr(const aStr: Tl3StringIDEx): Il3CString;
+  function AsStr(const aStr: Tl3StringIDEx): AnsiString;
+  procedure Init(var theStr: Tl3StringIDEx);
  end;//Il3StringIDExHelper
 
  Tl3StringIDExHelper = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3StringIDExHelper;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3StringIDExHelper;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3StringIDExHelper);
- public
- // realized methods
+   procedure ClearFields; override;
+  public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
    procedure Init(var theStr: Tl3StringIDEx);
    function AsCStr(const aStr: Tl3StringIDEx): Il3CString;
    function AsStr(const aStr: Tl3StringIDEx): AnsiString;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3StringIDExHelper
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3StringIDExHelper }
- public
- // singleton factory method
    class function Instance: Tl3StringIDExHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3StringIDExHelper }
+  public
+   property Alien: Il3StringIDExHelper
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3StringIDExHelper }
  end;//Tl3StringIDExHelper
 
 implementation
 
 uses
-  l3String,
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  l3ConstStrings
-  ;
+ l3ImplUses
+ , l3String
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+ , l3ConstStrings
+;
 
-// start class Tl3StringIDEx
+var g_Tl3StringIDExHelper: Tl3StringIDExHelper = nil;
+ {* Экземпляр синглетона Tl3StringIDExHelper }
+
+procedure Tl3StringIDExHelperFree;
+ {* Метод освобождения экземпляра синглетона Tl3StringIDExHelper }
+begin
+ l3Free(g_Tl3StringIDExHelper);
+end;//Tl3StringIDExHelperFree
 
 procedure Tl3StringIDEx.Localize(const aRus: AnsiString;
-  const anAlien: AnsiString);
+ const anAlien: AnsiString);
+ {* Локализовать }
 //#UC START# *4BB9D8550292_4B3B3728004C_var*
 //#UC END# *4BB9D8550292_4B3B3728004C_var*
 begin
@@ -180,6 +167,7 @@ begin
 end;//Tl3StringIDEx.AsStr
 
 procedure Tl3StringIDEx.Init;
+ {* Инициализирует строку }
 //#UC START# *4B3B4D0A0026_4B3B3728004C_var*
 //#UC END# *4B3B4D0A0026_4B3B3728004C_var*
 begin
@@ -187,9 +175,9 @@ begin
  Tl3StringIDExHelper.Instance.Init(Self);
 //#UC END# *4B3B4D0A0026_4B3B3728004C_impl*
 end;//Tl3StringIDEx.Init
-// start class Tl3ConstStringsPrim
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_4BA223D801B3_var*
 //#UC END# *47B99D4503A2_4BA223D801B3_var*
 begin
@@ -207,9 +195,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3ConstStringsPrim;
 
-{$Include ..\L3\l3AtomicListPrim.imp.pas}
-
-// start class Tl3ConstStringsPrim
+{$Include w:\common\components\rtl\Garant\L3\l3AtomicListPrim.imp.pas}
 
 procedure Tl3ConstStringsPrim.InitFields;
 //#UC START# *47A042E100E2_4BA223D801B3_var*
@@ -221,35 +207,14 @@ begin
 //#UC END# *47A042E100E2_4BA223D801B3_impl*
 end;//Tl3ConstStringsPrim.InitFields
 
-// start class Tl3StringIDExHelper
-
-var g_Tl3StringIDExHelper : Tl3StringIDExHelper = nil;
-
-procedure Tl3StringIDExHelperFree;
-begin
- l3Free(g_Tl3StringIDExHelper);
-end;
-
-class function Tl3StringIDExHelper.Instance: Tl3StringIDExHelper;
-begin
- if (g_Tl3StringIDExHelper = nil) then
- begin
-  l3System.AddExitProc(Tl3StringIDExHelperFree);
-  g_Tl3StringIDExHelper := Create;
- end;
- Result := g_Tl3StringIDExHelper;
-end;
-
-
 procedure Tl3StringIDExHelper.pm_SetAlien(const aValue: Il3StringIDExHelper);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3StringIDExHelper.pm_SetAlien
 
 class function Tl3StringIDExHelper.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3StringIDExHelper <> nil;
 end;//Tl3StringIDExHelper.Exists
@@ -298,8 +263,18 @@ begin
 //#UC END# *74E80608E1B4_4B98D6C201AD_impl*
 end;//Tl3StringIDExHelper.AsStr
 
+class function Tl3StringIDExHelper.Instance: Tl3StringIDExHelper;
+ {* Метод получения экземпляра синглетона Tl3StringIDExHelper }
+begin
+ if (g_Tl3StringIDExHelper = nil) then
+ begin
+  l3System.AddExitProc(Tl3StringIDExHelperFree);
+  g_Tl3StringIDExHelper := Create;
+ end;
+ Result := g_Tl3StringIDExHelper;
+end;//Tl3StringIDExHelper.Instance
+
 procedure Tl3StringIDExHelper.ClearFields;
- {-}
 begin
  Alien := nil;
  inherited;

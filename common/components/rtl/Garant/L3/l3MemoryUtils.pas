@@ -1,47 +1,39 @@
 unit l3MemoryUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3MemoryUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3Utils::l3MemoryUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3MemoryUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "l3MemoryUtils" MUID: (56937C98002D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  Windows
-  ;
+ l3IntfUses
+ , Windows
+;
 
 type
  Tl3MemKind = (
-   l3_mkFree
- , l3_mkReserved
+  l3_mkFree
+  , l3_mkReserved
  );//Tl3MemKind
-function L3GetMaxMemoryAvail(aKind: Tl3MemKind = l3_mkFree): DWORD;
-   {* Размер максимального непрерывного куска памяти }
-procedure L3GetMemoryAvail(aKind: Tl3MemKind;
-  out theMax: DWORD;
-  out theAll: DWORD);
+
+function l3GetMaxMemoryAvail(aKind: Tl3MemKind = l3_mkFree): DWORD;
+ {* Размер максимального непрерывного куска памяти }
+procedure l3GetMemoryAvail(aKind: Tl3MemKind;
+ out theMax: DWORD;
+ out theAll: DWORD);
 
 implementation
 
 uses
-  SysUtils
-  ;
+ l3ImplUses
+ , SysUtils
+;
 
-// unit methods
-
-function L3GetMaxMemoryAvail(aKind: Tl3MemKind = l3_mkFree): DWORD;
+function l3GetMaxMemoryAvail(aKind: Tl3MemKind = l3_mkFree): DWORD;
+ {* Размер максимального непрерывного куска памяти }
 //#UC START# *56937CAF0279_56937C98002D_var*
 var
  l_Info: TMemoryBasicInformation;
@@ -78,11 +70,11 @@ begin
    Result := l_Entry.dwUnCommittedSize;
  end;
 //#UC END# *56937CAF0279_56937C98002D_impl*
-end;//L3GetMaxMemoryAvail
+end;//l3GetMaxMemoryAvail
 
-procedure L3GetMemoryAvail(aKind: Tl3MemKind;
-  out theMax: DWORD;
-  out theAll: DWORD);
+procedure l3GetMemoryAvail(aKind: Tl3MemKind;
+ out theMax: DWORD;
+ out theAll: DWORD);
 //#UC START# *56A9E4250177_56937C98002D_var*
 var
  l_Info: TMemoryBasicInformation;
@@ -114,6 +106,6 @@ begin
   l_Res := VirtualQuery(l_Ptr, l_Info, SizeOf(l_Info));
  end;
 //#UC END# *56A9E4250177_56937C98002D_impl*
-end;//L3GetMemoryAvail
+end;//l3GetMemoryAvail
 
 end.

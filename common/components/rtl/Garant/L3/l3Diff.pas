@@ -1,58 +1,52 @@
 unit l3Diff;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Diff.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::Diff::l3Diff
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Diff.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "l3Diff" MUID: (5644774902C8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
- Tl3DiffCompareFunc = function (I: Integer;
+ Tl3DiffCompareFunc = function(I: Integer;
   J: Integer): Boolean;
 
  Tl3DiffOperation = (
-   l3diffSame
- , l3diffDeleted
- , l3diffAdded
+  l3diffSame
+  , l3diffDeleted
+  , l3diffAdded
  );//Tl3DiffOperation
 
  Tl3DiffReportRec = record
-   rOp : Tl3DiffOperation;
-   rLeftIdx : Integer;
-   rRightIdx : Integer;
+  rOp: Tl3DiffOperation;
+  rLeftIdx: Integer;
+  rRightIdx: Integer;
  end;//Tl3DiffReportRec
 
- Tl3DiffReportProc = procedure (const aRR: Tl3DiffReportRec);
-procedure L3DoDiff(aCountLeft: Integer;
-  aCountRight: Integer;
-  aCompareFunc: Tl3DiffCompareFunc;
-  aReportProc: Tl3DiffReportProc);
+ Tl3DiffReportProc = procedure(const aRR: Tl3DiffReportRec);
+
+procedure l3DoDiff(aCountLeft: Integer;
+ aCountRight: Integer;
+ aCompareFunc: Tl3DiffCompareFunc;
+ aReportProc: Tl3DiffReportProc);
 
 implementation
 
 uses
-  Math,
-  l3Base
-  ;
+ l3ImplUses
+ , Math
+ , l3Base
+;
 
-// unit methods
-
-procedure L3DoDiff(aCountLeft: Integer;
-  aCountRight: Integer;
-  aCompareFunc: Tl3DiffCompareFunc;
-  aReportProc: Tl3DiffReportProc);
+procedure l3DoDiff(aCountLeft: Integer;
+ aCountRight: Integer;
+ aCompareFunc: Tl3DiffCompareFunc;
+ aReportProc: Tl3DiffReportProc);
 //#UC START# *56447A0802A9_5644774902C8_var*
 var
  l_LCSMatrix: PIntegerArray;
@@ -130,6 +124,6 @@ begin
   l3System.FreeLocalMem(l_LCSMatrix);
  end;
 //#UC END# *56447A0802A9_5644774902C8_impl*
-end;//L3DoDiff
+end;//l3DoDiff
 
 end.

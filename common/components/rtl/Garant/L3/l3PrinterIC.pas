@@ -1,48 +1,34 @@
 unit l3PrinterIC;
+ {* Принтерная канва. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В. ©
-// Модуль: "w:/common/components/rtl/Garant/L3/l3PrinterIC.pas"
-// Начат: 26.05.2005 15:31
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::Print::l3PrinterIC
-//
-// Принтерная канва.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3PrinterIC.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "l3PrinterIC" MUID: (4799F47002E2)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3InternalInterfaces
-  ;
+ l3IntfUses
+ , l3InternalInterfaces
+;
 
-function L3PrnIC: Il3InfoCanvas;
+function l3PrnIC: Il3InfoCanvas;
 
 implementation
 
 uses
-  Printers,
-  l3ScreenIC,
-  l3Printer,
-  l3Base,
-  l3Canvas
-  ;
+ l3ImplUses
+ , Printers
+ , l3ScreenIC
+ , l3Printer
+ , l3Base
+ , l3Canvas
+;
 
-var f_PrnIC : Pointer = nil;
-
-var f_InCreatePrnIC : Boolean = false;
-
-// unit methods
+var f_PrnIC: Pointer = nil;
+var f_InCreatePrnIC: Boolean = False;
 
 procedure FreeInfoCanvas;
 //#UC START# *4799F5200358_4799F47002E2_var*
@@ -53,7 +39,7 @@ begin
 //#UC END# *4799F5200358_4799F47002E2_impl*
 end;//FreeInfoCanvas
 
-function L3PrnIC: Il3InfoCanvas;
+function l3PrnIC: Il3InfoCanvas;
 //#UC START# *4799F4970301_4799F47002E2_var*
 //#UC END# *4799F4970301_4799F47002E2_var*
 begin
@@ -91,6 +77,6 @@ begin
  else
   Result := l3CrtIC;
 //#UC END# *4799F4970301_4799F47002E2_impl*
-end;//L3PrnIC
+end;//l3PrnIC
 
 end.

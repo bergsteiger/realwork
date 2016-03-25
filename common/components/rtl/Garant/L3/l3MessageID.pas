@@ -1,155 +1,219 @@
 unit l3MessageID;
+ {* Поддержка локализуемых сообщений }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3MessageID.pas"
-// Начат: 22.06.2011 15:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::Поддержка локализованных сообщений::l3MessageID
-//
-// Поддержка локализуемых сообщений
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3MessageID.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "l3MessageID" MUID: (4E01D1980071)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  l3StringIDEx,
-  Pl3StringIDExList
-  ;
+ l3IntfUses
+ , l3StringIDEx
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Interfaces
+ , Pl3StringIDExList
+;
+
+const
+ {* Локализуемые строки Local }
+ str_vcmRememberChoice: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmRememberChoice'; rValue : 'Запомнить выбор и больше не показывать это сообщение.');
+  {* 'Запомнить выбор и больше не показывать это сообщение.' }
+ str_vcmNotShowDlg: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmNotShowDlg'; rValue : 'Больше не показывать это сообщение.');
+  {* 'Больше не показывать это сообщение.' }
 
 type
- Tl3MessageData = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   {$If not defined(NoVCL)}
-   rDlgType : TMsgDlgType;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   rButtons : TMsgDlgButtons;
-   {$IfEnd} //not NoVCL
-   rNeedCheck : Boolean;
-   {$If not defined(NoVCL)}
-   rDefaultButton : TMsgDlgBtn;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   rCancelButton : TMsgDlgBtn;
-   {$IfEnd} //not NoVCL
-   rHelpCtx : Integer;
-   rDefaultChoice : Integer;
-   rCustomChoice : Integer;
-   rFooterInfo : Il3CString; // Информация для вывода в подвале диалога, в формате "wiki"
-   rCustomButtonCaption : AnsiString;
-   rSettingsCaptionOld : AnsiString;
-   rLongHintOld : AnsiString;
-   rCheckCaption : Pl3StringIDEx;
-   rLongHint : Pl3StringIDEx;
-   rSettingsCaption : Pl3StringIDEx;
-   rChoices : TPl3StringIDExList;
+ Pl3MessageID = ^Tl3MessageID;
+
+ Tl3MessageData = object
+  public
+   {$If NOT Defined(NoVCL)}
+   rDlgType: TMsgDlgType;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   rButtons: TMsgDlgButtons;
+   {$IfEnd} // NOT Defined(NoVCL)
+   rNeedCheck: Boolean;
+   {$If NOT Defined(NoVCL)}
+   rDefaultButton: TMsgDlgBtn;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   rCancelButton: TMsgDlgBtn;
+   {$IfEnd} // NOT Defined(NoVCL)
+   rHelpCtx: Integer;
+   rDefaultChoice: Integer;
+   rCustomChoice: Integer;
+   rFooterInfo: Il3CString;
+    {* Информация для вывода в подвале диалога, в формате "wiki" }
+   rCustomButtonCaption: AnsiString;
+   rSettingsCaptionOld: AnsiString;
+   rLongHintOld: AnsiString;
+   rCheckCaption: Pl3StringIDEx;
+   rLongHint: Pl3StringIDEx;
+   rSettingsCaption: Pl3StringIDEx;
+   rChoices: TPl3StringIDExList;
  end;//Tl3MessageData
 
- Tl3Message = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   rData : Tl3MessageData;
-   rMessage : Il3CString;
-   rName : AnsiString;
- public
-    function ChangeMessage(const aNewMessage: Il3CString): Tl3Message;
-    function ChangeCheckCaption(const aNewMessage: Tl3StringIDEx): Tl3Message;
-    function ChangeFooterInfo(const aNewInfo: Il3CString): Tl3Message;
-    function SettingsCaption: AnsiString;
-    function LongHint: AnsiString;
-    function CheckCaption: AnsiString;
+ Tl3Message = object
+  public
+   rData: Tl3MessageData;
+   rMessage: Il3CString;
+   rName: AnsiString;
+  public
+   function ChangeMessage(const aNewMessage: Il3CString): Tl3Message;
+   function ChangeCheckCaption(const aNewMessage: Tl3StringIDEx): Tl3Message;
+   function ChangeFooterInfo(const aNewInfo: Il3CString): Tl3Message;
+   function SettingsCaption: AnsiString;
+   function LongHint: AnsiString;
+   function CheckCaption: AnsiString;
  end;//Tl3Message
 
  Tl3MessageID = object(Tl3StringIDEx)
   {* Локализуемое сообщение }
- private
-    procedure DoInit;
- protected
- // property methods
+  public
+   rData: Tl3MessageData;
+  private
+   procedure DoInit;
+   procedure Fake; virtual;
+    {* это нужно чтобы правильно генерировались вызовы методов доступа к свойствам }
+  protected
    function pm_GetAsMessage: Tl3Message;
- public
-   rData : Tl3MessageData;
- public
-    procedure AddChoice(const aChoice: Tl3StringIDEx);
-     {* Добавляет выбор у диалога }
-    procedure AddCustomChoice(const aChoice: Tl3StringIDEx);
-    procedure AddDefaultChoice(const aChoice: Tl3StringIDEx);
-     {$If not defined(NoVCL)}
+  public
+   procedure AddChoice(const aChoice: Tl3StringIDEx);
+    {* Добавляет выбор у диалога }
+   procedure AddCustomChoice(const aChoice: Tl3StringIDEx);
+   procedure AddDefaultChoice(const aChoice: Tl3StringIDEx);
+   {$If NOT Defined(NoVCL)}
    procedure SetDlgType(aType: TMsgDlgType);
-    {$IfEnd} //not NoVCL
-    procedure SetCheckCaption(const aValue: Tl3StringIDEx);
-    procedure SetSettingsCaption(const aValue: Tl3StringIDEx);
-    procedure SetLongHint(const aValue: Tl3StringIDEx);
-    procedure SetNeedCheck(aValue: Boolean);
-    procedure Cleanup;
+   {$IfEnd} // NOT Defined(NoVCL)
+   procedure SetCheckCaption(const aValue: Tl3StringIDEx);
+   procedure SetSettingsCaption(const aValue: Tl3StringIDEx);
+   procedure SetLongHint(const aValue: Tl3StringIDEx);
+   procedure SetNeedCheck(aValue: Boolean);
+   procedure Cleanup;
+   constructor Init; reintroduce;
   public
    property AsMessage: Tl3Message
-     read pm_GetAsMessage;
- {$IfNDef XE4}
- private
-   procedure Fake; virtual; // - это нужно чтобы правильно генерировались вызовы методов доступа к свойствам
- {$EndIf XE4}
- public
-   constructor Init;
+    read pm_GetAsMessage;
  end;//Tl3MessageID
 
- Pl3MessageID = ^Tl3MessageID;
-
-var
-  { Локализуемые строки Local }
- str_vcmRememberChoice : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmRememberChoice'; rValue : 'Запомнить выбор и больше не показывать это сообщение.');
-  { 'Запомнить выбор и больше не показывать это сообщение.' }
- str_vcmNotShowDlg : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmNotShowDlg'; rValue : 'Больше не показывать это сообщение.');
-  { 'Больше не показывать это сообщение.' }
-
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function Tl3Message_C(const aString: Tl3StringIDEx;
-     aType: TMsgDlgType): Tl3Message; overload;
-{$IfEnd} //not NoVCL
-{$If not defined(NoVCL)}
+ aType: TMsgDlgType): Tl3Message; overload;
+{$IfEnd} // NOT Defined(NoVCL)
+{$If NOT Defined(NoVCL)}
 function Tl3Message_C(const aString: Il3CString;
-     const aKey: AnsiString;
-     aType: TMsgDlgType): Tl3Message; overload;
-{$IfEnd} //not NoVCL
-{$If not defined(NoVCL)}
+ const aKey: AnsiString;
+ aType: TMsgDlgType): Tl3Message; overload;
+{$IfEnd} // NOT Defined(NoVCL)
+{$If NOT Defined(NoVCL)}
 function Tl3Message_C(const aString: Il3CString;
-     const aKey: AnsiString;
-     aType: TMsgDlgType;
-     aButtons: TMsgDlgButtons): Tl3Message; overload;
-{$IfEnd} //not NoVCL
-{$If not defined(NoVCL)}
+ const aKey: AnsiString;
+ aType: TMsgDlgType;
+ aButtons: TMsgDlgButtons): Tl3Message; overload;
+{$IfEnd} // NOT Defined(NoVCL)
+{$If NOT Defined(NoVCL)}
 function Tl3Message_C(const aString: Tl3StringIDEx;
-     aType: TMsgDlgType;
-     aButtons: TMsgDlgButtons): Tl3Message; overload;
-{$IfEnd} //not NoVCL
-
+ aType: TMsgDlgType;
+ aButtons: TMsgDlgButtons): Tl3Message; overload;
+{$IfEnd} // NOT Defined(NoVCL)
 function Tl3Message_C(const anID: Tl3MessageID): Tl3Message; overload;
 
 implementation
 
 uses
-  l3String,
-  SysUtils,
-  Pl3MessageIDList
-  ;
+ l3ImplUses
+ , Pl3MessageIDList
+ , l3String
+ , SysUtils
+;
 
-// start class Tl3Message
+{$If NOT Defined(NoVCL)}
+function Tl3Message_C(const aString: Tl3StringIDEx;
+ aType: TMsgDlgType): Tl3Message;
+//#UC START# *4E0A09990038_4E08A63701DB_var*
+//#UC END# *4E0A09990038_4E08A63701DB_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *4E0A09990038_4E08A63701DB_impl*
+ Result := Tl3Message_C(aString.AsCStr, aString.rKey, aType);
+//#UC END# *4E0A09990038_4E08A63701DB_impl*
+end;//Tl3Message_C
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+function Tl3Message_C(const aString: Il3CString;
+ const aKey: AnsiString;
+ aType: TMsgDlgType): Tl3Message;
+//#UC START# *4E0A10B2022E_4E08A63701DB_var*
+//#UC END# *4E0A10B2022E_4E08A63701DB_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *4E0A10B2022E_4E08A63701DB_impl*
+ Result.rData.rDlgType := aType;
+ if (Result.rData.rDlgType = mtConfirmation) then
+  Result.rData.rButtons := [mbYes, mbNo]
+ else
+  Result.rData.rButtons := [mbOk];
+ Result.rData.rDefaultButton := mbOk;
+ Result.rData.rCancelButton := mbCancel;
+ Result.rName := aKey;
+ Result.rMessage := aString;
+//#UC END# *4E0A10B2022E_4E08A63701DB_impl*
+end;//Tl3Message_C
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+function Tl3Message_C(const aString: Il3CString;
+ const aKey: AnsiString;
+ aType: TMsgDlgType;
+ aButtons: TMsgDlgButtons): Tl3Message;
+//#UC START# *4E0A1B0E03A6_4E08A63701DB_var*
+//#UC END# *4E0A1B0E03A6_4E08A63701DB_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *4E0A1B0E03A6_4E08A63701DB_impl*
+ Result := Tl3Message_C(aString, aKey, aType);
+ Result.rData.rButtons := aButtons;
+//#UC END# *4E0A1B0E03A6_4E08A63701DB_impl*
+end;//Tl3Message_C
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+function Tl3Message_C(const aString: Tl3StringIDEx;
+ aType: TMsgDlgType;
+ aButtons: TMsgDlgButtons): Tl3Message;
+//#UC START# *4E0A1C590137_4E08A63701DB_var*
+//#UC END# *4E0A1C590137_4E08A63701DB_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *4E0A1C590137_4E08A63701DB_impl*
+ Result := Tl3Message_C(aString, aType);
+ Result.rData.rButtons := aButtons;
+//#UC END# *4E0A1C590137_4E08A63701DB_impl*
+end;//Tl3Message_C
+{$IfEnd} // NOT Defined(NoVCL)
+
+function Tl3Message_C(const anID: Tl3MessageID): Tl3Message;
+//#UC START# *4E08A68B0019_4E0B04C801EC_var*
+//#UC END# *4E08A68B0019_4E0B04C801EC_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *4E08A68B0019_4E0B04C801EC_impl*
+ Result.rData := anID.rData;
+ Result.rName := anID.rKey;
+ Result.rMessage := anID.AsCStr;
+//#UC END# *4E08A68B0019_4E0B04C801EC_impl*
+end;//Tl3Message_C
 
 function Tl3Message.ChangeMessage(const aNewMessage: Il3CString): Tl3Message;
 //#UC START# *4E09C8E1001E_4E08A63701DB_var*
@@ -170,85 +234,6 @@ begin
  Result.rData.rCheckCaption := @aNewMessage;
 //#UC END# *4E09FB8101AB_4E08A63701DB_impl*
 end;//Tl3Message.ChangeCheckCaption
-
-{$If not defined(NoVCL)}
-function Tl3Message_C(const aString: Tl3StringIDEx;
-        aType: TMsgDlgType): Tl3Message;
-//#UC START# *4E0A09990038_4E08A63701DB_var*
-//#UC END# *4E0A09990038_4E08A63701DB_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4E0A09990038_4E08A63701DB_impl*
- Result := Tl3Message_C(aString.AsCStr, aString.rKey, aType);
-//#UC END# *4E0A09990038_4E08A63701DB_impl*
-end;//Tl3Message.C
-
-{$IfEnd} //not NoVCL
-
-
-{$If not defined(NoVCL)}
-function Tl3Message_C(const aString: Il3CString;
-        const aKey: AnsiString;
-        aType: TMsgDlgType): Tl3Message;
-//#UC START# *4E0A10B2022E_4E08A63701DB_var*
-//#UC END# *4E0A10B2022E_4E08A63701DB_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4E0A10B2022E_4E08A63701DB_impl*
- Result.rData.rDlgType := aType;
- if (Result.rData.rDlgType = mtConfirmation) then
-  Result.rData.rButtons := [mbYes, mbNo]
- else
-  Result.rData.rButtons := [mbOk];
- Result.rData.rDefaultButton := mbOk;
- Result.rData.rCancelButton := mbCancel;
- Result.rName := aKey;
- Result.rMessage := aString;
-//#UC END# *4E0A10B2022E_4E08A63701DB_impl*
-end;//Tl3Message.C
-
-{$IfEnd} //not NoVCL
-
-
-{$If not defined(NoVCL)}
-function Tl3Message_C(const aString: Il3CString;
-        const aKey: AnsiString;
-        aType: TMsgDlgType;
-        aButtons: TMsgDlgButtons): Tl3Message;
-//#UC START# *4E0A1B0E03A6_4E08A63701DB_var*
-//#UC END# *4E0A1B0E03A6_4E08A63701DB_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4E0A1B0E03A6_4E08A63701DB_impl*
- Result := Tl3Message_C(aString, aKey, aType);
- Result.rData.rButtons := aButtons;
-//#UC END# *4E0A1B0E03A6_4E08A63701DB_impl*
-end;//Tl3Message.C
-
-{$IfEnd} //not NoVCL
-
-
-{$If not defined(NoVCL)}
-function Tl3Message_C(const aString: Tl3StringIDEx;
-        aType: TMsgDlgType;
-        aButtons: TMsgDlgButtons): Tl3Message;
-//#UC START# *4E0A1C590137_4E08A63701DB_var*
-//#UC END# *4E0A1C590137_4E08A63701DB_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4E0A1C590137_4E08A63701DB_impl*
- Result := Tl3Message_C(aString, aType);
- Result.rData.rButtons := aButtons;
-//#UC END# *4E0A1C590137_4E08A63701DB_impl*
-end;//Tl3Message.C
-
-{$IfEnd} //not NoVCL
-
-// start class Tl3Message
 
 function Tl3Message.ChangeFooterInfo(const aNewInfo: Il3CString): Tl3Message;
 //#UC START# *4E0B39BC0383_4E08A63701DB_var*
@@ -307,7 +292,15 @@ begin
 //  Result := l3Str(rMessage);
 //#UC END# *4F8EA27801A4_4E08A63701DB_impl*
 end;//Tl3Message.CheckCaption
-// start class Tl3MessageID
+
+function Tl3MessageID.pm_GetAsMessage: Tl3Message;
+//#UC START# *4E0B01570024_4E01D1E002AEget_var*
+//#UC END# *4E0B01570024_4E01D1E002AEget_var*
+begin
+//#UC START# *4E0B01570024_4E01D1E002AEget_impl*
+ Result := Tl3Message_C(Self);
+//#UC END# *4E0B01570024_4E01D1E002AEget_impl*
+end;//Tl3MessageID.pm_GetAsMessage
 
 procedure Tl3MessageID.DoInit;
 //#UC START# *4E01D26702F9_4E01D1E002AE_var*
@@ -325,6 +318,7 @@ begin
 end;//Tl3MessageID.DoInit
 
 procedure Tl3MessageID.AddChoice(const aChoice: Tl3StringIDEx);
+ {* Добавляет выбор у диалога }
 //#UC START# *4E09C6930204_4E01D1E002AE_var*
 //#UC END# *4E09C6930204_4E01D1E002AE_var*
 begin
@@ -361,7 +355,7 @@ begin
 //#UC END# *4E0A010A0200_4E01D1E002AE_impl*
 end;//Tl3MessageID.AddDefaultChoice
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure Tl3MessageID.SetDlgType(aType: TMsgDlgType);
 //#UC START# *4E0A074B000E_4E01D1E002AE_var*
 //#UC END# *4E0A074B000E_4E01D1E002AE_var*
@@ -381,7 +375,7 @@ begin
  end;//Case aType
 //#UC END# *4E0A074B000E_4E01D1E002AE_impl*
 end;//Tl3MessageID.SetDlgType
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure Tl3MessageID.SetCheckCaption(const aValue: Tl3StringIDEx);
 //#UC START# *4E9E81D40059_4E01D1E002AE_var*
@@ -429,48 +423,24 @@ begin
 //#UC END# *4F9BCBC101F7_4E01D1E002AE_impl*
 end;//Tl3MessageID.Cleanup
 
-function Tl3MessageID.pm_GetAsMessage: Tl3Message;
-//#UC START# *4E0B01570024_4E01D1E002AEget_var*
-//#UC END# *4E0B01570024_4E01D1E002AEget_var*
-begin
-//#UC START# *4E0B01570024_4E01D1E002AEget_impl*
- Result := Tl3Message_C(Self);
-//#UC END# *4E0B01570024_4E01D1E002AEget_impl*
-end;//Tl3MessageID.pm_GetAsMessage
-
-{$IfNDef XE4}
 procedure Tl3MessageID.Fake;
+ {* это нужно чтобы правильно генерировались вызовы методов доступа к свойствам }
 begin
  Assert(false);
-end;
-{$EndIf XE4}
+end;//Tl3MessageID.Fake
 
 constructor Tl3MessageID.Init;
 begin
-//#UC START# *4E01D1E002AEInit*
+//#UC START# *4E01D1E002AEInit_4E01D1E002AE_impl*
  DoInit;
  TPl3MessageIDList.Instance.Add(@Self);
-//#UC END# *4E01D1E002AEInit*
-end;
-
-function Tl3Message_C(const anID: Tl3MessageID): Tl3Message;
-//#UC START# *4E08A68B0019_4E0B04C801EC_var*
-//#UC END# *4E08A68B0019_4E0B04C801EC_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4E08A68B0019_4E0B04C801EC_impl*
- Result.rData := anID.rData;
- Result.rName := anID.rKey;
- Result.rMessage := anID.AsCStr;
-//#UC END# *4E08A68B0019_4E0B04C801EC_impl*
-end;//Tl3MessageC.C
-
+//#UC END# *4E01D1E002AEInit_4E01D1E002AE_impl*
+end;//Tl3MessageID.Init
 
 initialization
-// Инициализация str_vcmRememberChoice
  str_vcmRememberChoice.Init;
-// Инициализация str_vcmNotShowDlg
+ {* Инициализация str_vcmRememberChoice }
  str_vcmNotShowDlg.Init;
+ {* Инициализация str_vcmNotShowDlg }
 
 end.

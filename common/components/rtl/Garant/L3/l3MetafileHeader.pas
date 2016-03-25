@@ -1,50 +1,43 @@
 unit l3MetafileHeader;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3MetafileHeader.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3Canvas::l3MetafileHeader
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3MetafileHeader.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "l3MetafileHeader" MUID: (552616EE02DF)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  Windows
-  ;
-
-type
- Tl3MetafileHeader = packed record
-   Key : LongInt;
-   Handle : SmallInt;
-   Box : TSmallRect;
-   Inch : Word;
-   Reserved : LongInt;
-   CheckSum : Word;
- end;//Tl3MetafileHeader
-
- Pl3MetafileHeader = ^Tl3MetafileHeader;
+ l3IntfUses
+ , Windows
+;
 
 const
-  { WMF Constants }
  c_WMFKey = Integer($9AC6CDD7);
-function L3IsValidMetafileHeader(const aWMFHeader: Tl3MetafileHeader): Boolean;
-function L3ComputeAldusChecksum(var theWMF: Tl3MetafileHeader): Word;
+
+type
+ Pl3MetafileHeader = ^Tl3MetafileHeader;
+
+ Tl3MetafileHeader = packed record
+  Key: LongInt;
+  Handle: SmallInt;
+  Box: TSmallRect;
+  Inch: Word;
+  Reserved: LongInt;
+  CheckSum: Word;
+ end;//Tl3MetafileHeader
+
+function l3IsValidMetafileHeader(const aWMFHeader: Tl3MetafileHeader): Boolean;
+function l3ComputeAldusChecksum(var theWMF: Tl3MetafileHeader): Word;
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
-function L3IsValidMetafileHeader(const aWMFHeader: Tl3MetafileHeader): Boolean;
+function l3IsValidMetafileHeader(const aWMFHeader: Tl3MetafileHeader): Boolean;
 //#UC START# *55262EC601CF_552616EE02DF_var*
 var
  l_WH : Tl3MetafileHeader;
@@ -54,9 +47,9 @@ begin
  l_WH := aWMFHeader;
  Result := (aWMFHeader.Key = c_WMFKEY) and (l3ComputeAldusChecksum(l_WH) = aWMFHeader.CheckSum);
 //#UC END# *55262EC601CF_552616EE02DF_impl*
-end;//L3IsValidMetafileHeader
+end;//l3IsValidMetafileHeader
 
-function L3ComputeAldusChecksum(var theWMF: Tl3MetafileHeader): Word;
+function l3ComputeAldusChecksum(var theWMF: Tl3MetafileHeader): Word;
 //#UC START# *55262F470207_552616EE02DF_var*
 type
  PWord = ^Word;
@@ -75,6 +68,6 @@ begin
   Inc(Longint(pW), SizeOf(Word));
  end;
 //#UC END# *55262F470207_552616EE02DF_impl*
-end;//L3ComputeAldusChecksum
+end;//l3ComputeAldusChecksum
 
 end.
