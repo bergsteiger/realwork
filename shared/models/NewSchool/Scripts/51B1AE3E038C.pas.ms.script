@@ -6,34 +6,11 @@ FORWARD ME_51B1AE3E038C
 
 FORWARD ME_51B1AE6001BB
 
-: ME_2C6DDEB670B6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_51B1AE6001BB // K460262716
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_2C6DDEB670B6 
-
 : ME_51B1C57B014C_ME_51B1AE6001BB
  : Original WL 'ME_51B1C57B014C' '51B1ADB40318.pas.ms.script' // DoDoit
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_51B1C57B014C_ME_51B1AE6001BB DoDoit
-
-: ME_4C937013031D_ME_51B1AE6001BB
- : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C937013031D_ME_51B1AE6001BB GetFolder
-
-: ME_4DAED6F60146_ME_51B1AE6001BB
- : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAED6F60146_ME_51B1AE6001BB GetModelElementGUID
 
 : ME_51B1AE6001BB
  CONST UID '51B1AE6001BB'
@@ -54,15 +31,6 @@ ref; // ME_4DAED6F60146_ME_51B1AE6001BB GetModelElementGUID
    Seq: ( ME_51B1C57B014C_ME_51B1AE6001BB // DoDoit
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4C937013031D_ME_51B1AE6001BB // GetFolder
- ME_4DAED6F60146_ME_51B1AE6001BB // GetModelElementGUID
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_2C6DDEB670B6 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -89,8 +57,7 @@ ref; // ME_51B1AE6001BB K460262716
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
- WL 'ME_51B1ADB40318' '51B1ADB40318.pas.ms.script' // CheckFilesInFolderTest
+   Seq: ( WL 'ME_51B1ADB40318' '51B1ADB40318.pas.ms.script' // CheckFilesInFolderTest
  )
  ; // Depends
 

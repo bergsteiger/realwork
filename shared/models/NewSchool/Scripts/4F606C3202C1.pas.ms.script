@@ -4,31 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4F606C3202C1
 
-FORWARD ME_4F606C5E035E
-
-: ME_E28557D69629
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F606C5E035E // K342859055
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_E28557D69629 
-
-: ME_4C937013031D_ME_4F606C5E035E
- : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C937013031D_ME_4F606C5E035E GetFolder
-
-: ME_4DAED6F60146_ME_4F606C5E035E
- : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAED6F60146_ME_4F606C5E035E GetModelElementGUID
-
 : ME_4F606C5E035E
  CONST UID '4F606C5E035E'
  CONST Name 'K342859055'
@@ -44,15 +19,6 @@ ref; // ME_4DAED6F60146_ME_4F606C5E035E GetModelElementGUID
    Seq: ( WL 'ME_4DE4827600CA' '4DE3425B01DA.pas.ms.script' // TArchiInsiderTest
  )
  ; // Inherits
- : Overridden
-   Seq: ( ME_4C937013031D_ME_4F606C5E035E // GetFolder
- ME_4DAED6F60146_ME_4F606C5E035E // GetModelElementGUID
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_E28557D69629 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -79,8 +45,7 @@ ref; // ME_4F606C5E035E K342859055
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
- WL 'ME_4DE3425B01DA' '4DE3425B01DA.pas.ms.script' // ArchiScriptSupport
+   Seq: ( WL 'ME_4DE3425B01DA' '4DE3425B01DA.pas.ms.script' // ArchiScriptSupport
  )
  ; // Depends
 

@@ -349,29 +349,6 @@ ref; // ME_4C07BCCA008B theGenerator
 
 ref; // ME_4C07BCBE01F2 SetFilters
 
-: ME_75F098E08980
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BACDDB500CE // WriterTest
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_75F098E08980 
-
-: ME_4C937013031D_ME_4BACDDB500CE
- : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C937013031D_ME_4BACDDB500CE GetFolder
-
-: ME_4DAED6F60146_ME_4BACDDB500CE
- : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAED6F60146_ME_4BACDDB500CE GetModelElementGUID
-
 : ME_4BACDDB500CE
  CONST UID '4BACDDB500CE'
  CONST Name 'WriterTest'
@@ -396,15 +373,6 @@ ref; // ME_4DAED6F60146_ME_4BACDDB500CE GetModelElementGUID
  ME_4C07BCBE01F2 // SetFilters
  )
  ; // Operations
- : Overridden
-   Seq: ( ME_4C937013031D_ME_4BACDDB500CE // GetFolder
- ME_4DAED6F60146_ME_4BACDDB500CE // GetModelElementGUID
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_75F098E08980 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -439,7 +407,6 @@ ref; // ME_4BACDDB500CE WriterTest
  WL 'ME_482D6E960087' '482D6E960087.pas.ms.script' // Readers
  WL 'ME_4A4DE16302A2' '4A4DE16302A2.pas.ms.script' // k2Core
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
  )
  ; // Depends

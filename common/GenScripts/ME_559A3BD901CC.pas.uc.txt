@@ -170,7 +170,9 @@ var
  l_ResultSet: IdaResultSet;
 //#UC END# *5549F9E70184_559A3BD901CC_var*
 //#UC START# *554A037B0325_559A3BD901CC_impl*
- LogEvent(da_oobSessionEnd, 0, 0, 0);
+ if NeedLogSessionEnd then
+  LogEvent(da_oobSessionEnd, 0, 0, 0);
+ f_CurSessionID := BlankSession;
 //#UC END# *554A037B0325_559A3BD901CC_impl*
 //#UC START# *554A037B0325_559A3BD901CC_var*
 //#UC END# *554A037B0325_559A3BD901CC_var*
@@ -439,8 +441,10 @@ Var
  begin
   if f_CurSessionID <> BlankSession then
   begin
-   LogEvent(da_oobSessionEnd, 0, 0, 0);
-   f_CurSessionID := BlankSession
+   f_CurSessionID := BlankSession;
+   SessionChanged;
+   if NeedLogSessionEnd then
+    LogEvent(da_oobSessionEnd, 0, 0, 0);
   end;
   f_CurUser := anUserID;
   UserChanged(f_CurUser);
@@ -448,7 +452,8 @@ Var
   begin
     f_CurSessionID := aSessionID;
     SessionChanged;
-    LogEvent(da_oobSessionBegin, 0, LongInt(f_CurUser), 0);
+    if NeedLogSessionBegin then
+     LogEvent(da_oobSessionBegin, 0, LongInt(f_CurUser), 0);
   end;
  end;
 //#UC END# *56E2A25501A6_559A3BD901CC_impl*

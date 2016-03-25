@@ -194,29 +194,6 @@ ref; // ME_4FA15EE103C0
 
 ref; // ME_4FBB8EF10123 
 
-: ME_3BD2D87A91FA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4FA137DD03E4 // TArchiStorageTest
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_3BD2D87A91FA 
-
-: ME_4C937013031D_ME_4FA137DD03E4
- : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C937013031D_ME_4FA137DD03E4 GetFolder
-
-: ME_4DAED6F60146_ME_4FA137DD03E4
- : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAED6F60146_ME_4FA137DD03E4 GetModelElementGUID
-
 : ME_4FA164500031_ME_4FA137DD03E4
  : Original WL 'ME_4FA164500031' '4B2A112B011A.pas.ms.script' // NeedCreateEtalonsWhileCheckingOutputWithInput
  ;
@@ -244,9 +221,7 @@ ref; // ME_4FA164500031_ME_4FA137DD03E4 NeedCreateEtalonsWhileCheckingOutputWith
  )
  ; // Operations
  : Overridden
-   Seq: ( ME_4C937013031D_ME_4FA137DD03E4 // GetFolder
- ME_4DAED6F60146_ME_4FA137DD03E4 // GetModelElementGUID
- ME_4FA164500031_ME_4FA137DD03E4 // NeedCreateEtalonsWhileCheckingOutputWithInput
+   Seq: ( ME_4FA164500031_ME_4FA137DD03E4 // NeedCreateEtalonsWhileCheckingOutputWithInput
  )
  ; // Overridden
  : Dependencies
@@ -260,7 +235,6 @@ ref; // ME_4FA164500031_ME_4FA137DD03E4 NeedCreateEtalonsWhileCheckingOutputWith
  ME_4FA15D660130 // 
  ME_4FA15EE103C0 // 
  ME_4FBB8EF10123 // 
- ME_3BD2D87A91FA // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -275,29 +249,6 @@ ref; // ME_4FA164500031_ME_4FA137DD03E4 NeedCreateEtalonsWhileCheckingOutputWith
 ref; // ME_4FA137DD03E4 TArchiStorageTest
 
 FORWARD ME_4FBB6C0D0366
-
-: ME_DDF89F04E086
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4FBB6C0D0366 // TArchiStorageTestWithRename
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_DDF89F04E086 
-
-: ME_4C937013031D_ME_4FBB6C0D0366
- : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C937013031D_ME_4FBB6C0D0366 GetFolder
-
-: ME_4DAED6F60146_ME_4FBB6C0D0366
- : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAED6F60146_ME_4FBB6C0D0366 GetModelElementGUID
 
 : ME_4FBB73390387_ME_4FBB6C0D0366
  : Original ME_4FBB73390387 // NeedTestRenaming
@@ -320,15 +271,9 @@ ref; // ME_4FBB73390387_ME_4FBB6C0D0366 NeedTestRenaming
  )
  ; // Inherits
  : Overridden
-   Seq: ( ME_4C937013031D_ME_4FBB6C0D0366 // GetFolder
- ME_4DAED6F60146_ME_4FBB6C0D0366 // GetModelElementGUID
- ME_4FBB73390387_ME_4FBB6C0D0366 // NeedTestRenaming
+   Seq: ( ME_4FBB73390387_ME_4FBB6C0D0366 // NeedTestRenaming
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_DDF89F04E086 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -364,7 +309,6 @@ ref; // ME_4FBB6C0D0366 TArchiStorageTestWithRename
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_48294AA903A6' '48294AA903A6.pas.ms.script' // m3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
  WL 'ME_5485B0D1026C' '5485B0D1026C.pas.ms.script' // Streams
  )

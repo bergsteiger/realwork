@@ -812,7 +812,7 @@ ref; // ME_4CFCE29E009B FlashTimer
  CONST LinkType lt_agr
  : Parent ME_4AB791130260 // PrimBaseSearch
  ;
- : Target WL 'ME_496B629D0188' '4A9F98B901A5.pas.ms.script' // InsBaseSearcherWindowData
+ : Target WL 'ME_496B5FCE02FD' '4A9F98B901A5.pas.ms.script' // InsBaseSearcher
  ;
 
 ref; // ME_4AC5E764017D f_BaseSearcher
@@ -2555,6 +2555,20 @@ ref; // ME_55321ADE02E9_ME_4AB791130260 NotifyContainersChanged
  CONST "pm" true
 ref; // ME_567290190285_ME_4AB791130260 IsActive
 
+: ME_56E13D0501D6_ME_4AB791130260
+ : Original WL 'ME_56E13D0501D6' '4A9F98B901A5.pas.ms.script' // IsMainInUseCase
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_56E13D0501D6_ME_4AB791130260 IsMainInUseCase
+
+: ME_56F5028901D2_ME_4AB791130260
+ : Original WL 'ME_56F5028901D2' '4A9F98B901A5.pas.ms.script' // Visible
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_56F5028901D2_ME_4AB791130260 Visible
+
 : ME_479731C50290_ME_4AB791130260
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -2736,6 +2750,8 @@ ref; // ME_55B9F0BD0069_ME_4AB791130260 DoGetNeedSaveToTabHistory
  ME_5437B4340246_ME_4AB791130260 // ForceUpdateClassForHistory
  ME_55321ADE02E9_ME_4AB791130260 // NotifyContainersChanged
  ME_567290190285_ME_4AB791130260 // IsActive
+ ME_56E13D0501D6_ME_4AB791130260 // IsMainInUseCase
+ ME_56F5028901D2_ME_4AB791130260 // Visible
  )
  ; // Implemented
  : Overridden
@@ -18181,22 +18197,6 @@ FORWARD ME_4AB7881B00EA
 
 ref; // ME_4AB78870034B Container
 
-: ME_4AB788960313
- CONST UID '4AB788960313'
- CONST Name 'Opener'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_4AB7881B00EA // OpenBaseSearch
- ;
- : Target WL 'ME_496B52CD024B' '4A9F98B901A5.pas.ms.script' // InsBaseSearchWindowOpener
- ;
- CONST "IsResult" false
-
-ref; // ME_4AB788960313 Opener
-
 : ME_4AB788B203DD
  CONST UID '4AB788B203DD'
  CONST Name 'Processor'
@@ -18277,6 +18277,16 @@ ref; // ME_4AE986FB0290
 
 ref; // ME_4AE989BB0286 
 
+: ME_56F4EBF600E1
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AB7881B00EA // OpenBaseSearch
+ ;
+ : Target WL 'ME_563875050317' '563874EF0183.pas.ms.script' // TnsBaseSearchService
+ ;
+
+ref; // ME_56F4EBF600E1 
+
 : ME_4AB7881B00EA
  CONST UID '4AB7881B00EA'
  CONST Name 'OpenBaseSearch'
@@ -18289,7 +18299,6 @@ ref; // ME_4AE989BB0286
  ;
  : Attributes
    Seq: ( ME_4AB78870034B // Container
- ME_4AB788960313 // Opener
  ME_4AB788B203DD // Processor
  )
  ; // Attributes
@@ -18301,6 +18310,7 @@ ref; // ME_4AE989BB0286
    Seq: ( ME_4AB78E8A0298 // 
  ME_4AE986FB0290 // 
  ME_4AE989BB0286 // 
+ ME_56F4EBF600E1 // 
  )
  ; // Dependencies
 

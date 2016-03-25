@@ -112,29 +112,6 @@ ref; // ME_51BB092403AB
 
 ref; // ME_4F6840D602F3 DoIt
 
-: ME_47417D3123B9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F68409203D1 // RegExpTest
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_47417D3123B9 
-
-: ME_4C937013031D_ME_4F68409203D1
- : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C937013031D_ME_4F68409203D1 GetFolder
-
-: ME_4DAED6F60146_ME_4F68409203D1
- : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAED6F60146_ME_4F68409203D1 GetModelElementGUID
-
 : ME_4F68409203D1
  CONST UID '4F68409203D1'
  CONST Name 'RegExpTest'
@@ -153,15 +130,6 @@ ref; // ME_4DAED6F60146_ME_4F68409203D1 GetModelElementGUID
    Seq: ( ME_4F6840D602F3 // DoIt
  )
  ; // Operations
- : Overridden
-   Seq: ( ME_4C937013031D_ME_4F68409203D1 // GetFolder
- ME_4DAED6F60146_ME_4F68409203D1 // GetModelElementGUID
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_47417D3123B9 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -184,17 +152,6 @@ FORWARD ME_51BB006C01A6
  ;
 
 ref; // ME_51BB0151026A 
-
-: ME_C95DB6991A17
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_51BB006C01A6 // TK460275638
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_C95DB6991A17 
 
 : ME_4C937013031D_ME_51BB006C01A6
  : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
@@ -237,7 +194,6 @@ ref; // ME_4EA553E901DB_ME_51BB006C01A6 Suite
  ; // Overridden
  : Dependencies
    Seq: ( ME_51BB0151026A // 
- ME_C95DB6991A17 // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -271,7 +227,6 @@ ref; // ME_51BB006C01A6 TK460275638
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_47EA946A0315' '47EA946A0315.pas.ms.script' // l3Misc
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
  WL 'ME_4C1B474600AD' '4C1B474600AD.pas.ms.script' // Parser
  WL 'ME_51BAFFE20206' '51BAFFE20206.pas.ms.script' // RegExpUtils

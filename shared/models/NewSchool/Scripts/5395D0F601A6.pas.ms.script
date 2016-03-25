@@ -19,29 +19,6 @@ FORWARD ME_5395D124034E
 
 ref; // ME_5395D1AB0313 DoIt
 
-: ME_582842E75F6C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5395D124034E // TarchiExportActionTest
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_582842E75F6C 
-
-: ME_4C937013031D_ME_5395D124034E
- : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C937013031D_ME_5395D124034E GetFolder
-
-: ME_4DAED6F60146_ME_5395D124034E
- : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAED6F60146_ME_5395D124034E GetModelElementGUID
-
 : ME_5395D124034E
  CONST UID '5395D124034E'
  CONST Name 'TarchiExportActionTest'
@@ -60,15 +37,6 @@ ref; // ME_4DAED6F60146_ME_5395D124034E GetModelElementGUID
    Seq: ( ME_5395D1AB0313 // DoIt
  )
  ; // Operations
- : Overridden
-   Seq: ( ME_4C937013031D_ME_5395D124034E // GetFolder
- ME_4DAED6F60146_ME_5395D124034E // GetModelElementGUID
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_582842E75F6C // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -95,8 +63,7 @@ ref; // ME_5395D124034E TarchiExportActionTest
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
- WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
+   Seq: ( WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
  )
  ; // Depends
  CONST "path prefix" '/NewActions/Export'

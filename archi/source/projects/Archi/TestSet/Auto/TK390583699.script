@@ -1,3 +1,4 @@
+// После теста нет очистки. Каталоги C:\Base\testbase2 и W:\binout\Archi\TK390583699 можно удалить вручную.
 USES
 	ArchiControls.script
 	QuickTestsUtils.script
@@ -60,23 +61,21 @@ PROCEDURE "Запуск второй копии тестового Архивариуса" STRING IN aSourceDir STRIN
 	Выполнить (
 		STRING VAR l_SourceDir
            	"Путь Архивариуса" >>> l_SourceDir
+		STRING VAR l_ArchiTestSet
+ 		[ l_SourceDir '\' 'TestSet' ] strings:Cat >>>  l_ArchiTestSet
           	STRING VAR l_DestDir 
            	"Путь к копии Архивариуса {(l_SourceDir)}" >>> l_DestDir
-		STRING VAR l_ArchiTestSet
- 		[ l_DestDir '\' 'TestSet' ] strings:Cat >>>  l_ArchiTestSet
-	TRY 
+		STRING VAR l_ArchiTestSetNew
+ 		[ l_DestDir '\' 'TestSet' ] strings:Cat >>>  l_ArchiTestSetNew
 		"Подготовка к копированию {(l_DestDir)}"
-		"Подготовка к копированию {(l_ArchiTestSet)}"
+		"Подготовка к копированию {(l_ArchiTestSetNew)}"
 		"Копирование исполняемых файлов {(l_DestDir)} {(l_SourceDir)}"   		
 		"Распаковка тестовой базы"
 		"Запуск второй копии тестового Архивариуса {(l_SourceDir)} {(l_DestDir)}"
-		"Сравнить с эталоном текстовый файл {(l_DestDir)} {('ArchiTest_267330013.runned.txt')}"
-	FINALLY
-                "Очистка после теста"
-		"Очистить каталог {(l_ArchiTestSet)}"
-		//"Очистить каталог {(l_DestDir)}"
-	END
+		"Копировать из каталога {(l_DestDir)} в каталог {(l_ArchiTestSet)} для теста исполняемый файл {('ArchiTest_267330013.runned.txt')}"
+		"Сравнить с эталоном текстовый файл {(l_ArchiTestSet)} {('ArchiTest_267330013.runned.txt')}"
 	)
+
 ;
 
 TK390583699

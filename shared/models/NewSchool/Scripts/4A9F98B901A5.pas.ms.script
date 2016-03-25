@@ -4,72 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4A9F98B901A5
 
-FORWARD ME_49512DE00227
-
-: ME_496B525B0033
- CONST UID '496B525B0033'
- CONST Name 'Local'
- CONST Class class_Attribute
- %SUMMARY 'Локальный поиск контекста (Ctrl+F)' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_49512DE00227 // TnsBaseSearchOpenKind
- ;
-
-ref; // ME_496B525B0033 Local
-
-: ME_496B52670133
- CONST UID '496B52670133'
- CONST Name 'Specify'
- CONST Class class_Attribute
- %SUMMARY 'Уточнить' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_49512DE00227 // TnsBaseSearchOpenKind
- ;
-
-ref; // ME_496B52670133 Specify
-
-: ME_496B526F0235
- CONST UID '496B526F0235'
- CONST Name 'Global'
- CONST Class class_Attribute
- %SUMMARY 'Глобальный поиск (F4)' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_49512DE00227 // TnsBaseSearchOpenKind
- ;
-
-ref; // ME_496B526F0235 Global
-
-: ME_49512DE00227
- CONST UID '49512DE00227'
- CONST Name 'TnsBaseSearchOpenKind'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Типы открытия базового поиска' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
- ;
- : Attributes
-   Seq: ( ME_496B525B0033 // Local
- ME_496B52670133 // Specify
- ME_496B526F0235 // Global
- )
- ; // Attributes
- CONST "children prefix" 'bsok'
- CONST "elements prefix" 'ns'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:ElementPrefixBase 'ns'
- CONST extprop:pas:ElementPrefix 'ns_bsok'
-
-ref; // ME_49512DE00227 TnsBaseSearchOpenKind
-
 FORWARD ME_496B51660087
 
 : ME_496B51730362
@@ -642,6 +576,38 @@ FORWARD ME_496B51A10197
 
 ref; // ME_567290190285 IsActive
 
+: ME_56E13D0501D6
+ CONST UID '56E13D0501D6'
+ CONST Name 'IsMainInUseCase'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B51A10197 // InsSearchWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_56E13D0501D6 IsMainInUseCase
+
+: ME_56F5028901D2
+ CONST UID '56F5028901D2'
+ CONST Name 'Visible'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_496B51A10197 // InsSearchWindow
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_56F5028901D2 Visible
+
 : ME_4ACB63B502EA
  CONST UID '4ACB63B502EA'
  CONST Name 'Container'
@@ -787,6 +753,8 @@ ref; // ME_5437B4340246 ForceUpdateClassForHistory
  ;
  : Attributes
    Seq: ( ME_567290190285 // IsActive
+ ME_56E13D0501D6 // IsMainInUseCase
+ ME_56F5028901D2 // Visible
  ME_4ACB63B502EA // Container
  )
  ; // Attributes
@@ -1237,6 +1205,89 @@ ref; // ME_4D90B949007A rZone
 
 ref; // ME_4D90B8C60164 TnsContainerForBaseSearchInfo
 
+FORWARD ME_49512DE00227
+
+: ME_496B525B0033
+ CONST UID '496B525B0033'
+ CONST Name 'Local'
+ CONST Class class_Attribute
+ %SUMMARY 'Локальный поиск контекста (Ctrl+F)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49512DE00227 // TnsBaseSearchOpenKind
+ ;
+
+ref; // ME_496B525B0033 Local
+
+: ME_496B52670133
+ CONST UID '496B52670133'
+ CONST Name 'Specify'
+ CONST Class class_Attribute
+ %SUMMARY 'Уточнить' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49512DE00227 // TnsBaseSearchOpenKind
+ ;
+
+ref; // ME_496B52670133 Specify
+
+: ME_496B526F0235
+ CONST UID '496B526F0235'
+ CONST Name 'Global'
+ CONST Class class_Attribute
+ %SUMMARY 'Глобальный поиск (F4)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49512DE00227 // TnsBaseSearchOpenKind
+ ;
+
+ref; // ME_496B526F0235 Global
+
+: ME_49512DE00227
+ CONST UID '49512DE00227'
+ CONST Name 'TnsBaseSearchOpenKind'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Типы открытия базового поиска' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_496B525B0033 // Local
+ ME_496B52670133 // Specify
+ ME_496B526F0235 // Global
+ )
+ ; // Attributes
+ CONST "children prefix" 'bsok'
+ CONST "elements prefix" 'ns'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:ElementPrefixBase 'ns'
+ CONST extprop:pas:ElementPrefix 'ns_bsok'
+
+ref; // ME_49512DE00227 TnsBaseSearchOpenKind
+
+: ME_496B500E0283
+ CONST UID '496B500E0283'
+ CONST Name 'ETryToFindEmptyContext'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ )
+ ; // Inherits
+
+ref; // ME_496B500E0283 ETryToFindEmptyContext
+
 FORWARD ME_4F22C29301C6
 
 FORWARD ME_4F22C2D00369
@@ -1289,69 +1340,6 @@ ref; // ME_4F22C2D00369 FormCloseWasRequested
  ; // Operations
 
 ref; // ME_4F22C29301C6 MnsBaseSearchPresentationState
-
-: ME_496B500E0283
- CONST UID '496B500E0283'
- CONST Name 'ETryToFindEmptyContext'
- CONST Class class_Class
- : Stereotype st_Exception ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
- ;
- : Inherits
-   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
- )
- ; // Inherits
-
-ref; // ME_496B500E0283 ETryToFindEmptyContext
-
-FORWARD ME_496B52CD024B
-
-: ME_496B52D80371
- CONST Name 'OpenKind'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_49512DE00227 // TnsBaseSearchOpenKind
- ;
-
-ref; // ME_496B52D80371 OpenKind
-
-: ME_496B52D602EE
- CONST UID '496B52D602EE'
- CONST Name 'OpenWindow'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_496B52CD024B // InsBaseSearchWindowOpener
- ;
- : Parameters
-   Seq: ( ME_496B52D80371 // OpenKind
- )
- ; // Parameters
-
-ref; // ME_496B52D602EE OpenWindow
-
-: ME_496B52CD024B
- CONST UID '496B52CD024B'
- CONST GUID '5D504A4A-A102-4393-A6E3-7B05893425C5'
- CONST Name 'InsBaseSearchWindowOpener'
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
- ;
- : Operations
-   Seq: ( ME_496B52D602EE // OpenWindow
- )
- ; // Operations
- CONST extprop:rc:SelfName 'BaseSearchWindowOpener'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_496B52CD024B InsBaseSearchWindowOpener
 
 FORWARD ME_49916BFE01A4
 
@@ -2719,268 +2707,6 @@ ref; // ME_562752420083 GetClassByPath
 
 ref; // ME_496B5FAB039D InsBaseSearchClasses
 
-FORWARD ME_562DE21C0240
-
-: ME_562DE24C01CD
- CONST UID '562DE24C01CD'
- CONST Name 'Closed'
- CONST Class class_Attribute
- %SUMMARY 'Окно закрыто' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_562DE21C0240 // TnsBaseSearchWindowState
- ;
-
-ref; // ME_562DE24C01CD Closed
-
-: ME_562DE251012C
- CONST UID '562DE251012C'
- CONST Name 'Opened'
- CONST Class class_Attribute
- %SUMMARY 'Окно открыто' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_562DE21C0240 // TnsBaseSearchWindowState
- ;
-
-ref; // ME_562DE251012C Opened
-
-: ME_562DE25601C0
- CONST UID '562DE25601C0'
- CONST Name 'Force'
- CONST Class class_Attribute
- %SUMMARY 'Окно было открыто пользователем' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_562DE21C0240 // TnsBaseSearchWindowState
- ;
-
-ref; // ME_562DE25601C0 Force
-
-: ME_562DE21C0240
- CONST UID '562DE21C0240'
- CONST Name 'TnsBaseSearchWindowState'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
- ;
- : Attributes
-   Seq: ( ME_562DE24C01CD // Closed
- ME_562DE251012C // Opened
- ME_562DE25601C0 // Force
- )
- ; // Attributes
- CONST "children prefix" 'ws'
- CONST "elements prefix" 'ns'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:ElementPrefixBase 'ns'
- CONST extprop:pas:ElementPrefix 'ns_ws'
-
-ref; // ME_562DE21C0240 TnsBaseSearchWindowState
-
-FORWARD ME_562DE146027E
-
-: ME_562DE1B50368
- CONST UID '562DE1B50368'
- CONST Name 'ActiveClass'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_562DE146027E // InsBaseSearcherWindowDataState
- ;
- : Target ME_496B5F7603B4 // InsBaseSearchClass
- ;
- CONST "pm" true
-
-ref; // ME_562DE1B50368 ActiveClass
-
-: ME_562DE1D5038F
- CONST UID '562DE1D5038F'
- CONST Name 'Context'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_562DE146027E // InsBaseSearcherWindowDataState
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
- CONST "pm" true
-
-ref; // ME_562DE1D5038F Context
-
-: ME_562DE26B0160
- CONST UID '562DE26B0160'
- CONST Name 'WindowState'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_562DE146027E // InsBaseSearcherWindowDataState
- ;
- : Target ME_562DE21C0240 // TnsBaseSearchWindowState
- ;
- CONST "pm" true
-
-ref; // ME_562DE26B0160 WindowState
-
-: ME_562DE146027E
- CONST UID '562DE146027E'
- CONST GUID 'FEF02F60-B5AC-4322-B2AD-D71F9F0AC310'
- CONST Name 'InsBaseSearcherWindowDataState'
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
- ;
- : Attributes
-   Seq: ( ME_562DE1B50368 // ActiveClass
- ME_562DE1D5038F // Context
- ME_562DE26B0160 // WindowState
- )
- ; // Attributes
- CONST extprop:rc:SelfName 'BaseSearcherWindowDataState'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_562DE146027E InsBaseSearcherWindowDataState
-
-FORWARD ME_562F5C450383
-
-: ME_562F5C6E019F
- CONST UID '562F5C6E019F'
- CONST Name 'Context'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_562F5C450383 // TnsBaseSearcherChangeElement
- ;
-
-ref; // ME_562F5C6E019F Context
-
-: ME_562F5C8100D5
- CONST UID '562F5C8100D5'
- CONST Name 'ActiveClass'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_562F5C450383 // TnsBaseSearcherChangeElement
- ;
-
-ref; // ME_562F5C8100D5 ActiveClass
-
-: ME_562F5C8703D8
- CONST UID '562F5C8703D8'
- CONST Name 'SearchArea'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_562F5C450383 // TnsBaseSearcherChangeElement
- ;
-
-ref; // ME_562F5C8703D8 SearchArea
-
-: ME_562F5C450383
- CONST UID '562F5C450383'
- CONST Name 'TnsBaseSearcherChangeElement'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
- ;
- : Attributes
-   Seq: ( ME_562F5C6E019F // Context
- ME_562F5C8100D5 // ActiveClass
- ME_562F5C8703D8 // SearchArea
- )
- ; // Attributes
- CONST "children prefix" 'ce'
- CONST "elements prefix" 'ns'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:ElementPrefixBase 'ns'
- CONST extprop:pas:ElementPrefix 'ns_ce'
-
-ref; // ME_562F5C450383 TnsBaseSearcherChangeElement
-
-: ME_562F5CC60355
- CONST UID '562F5CC60355'
- CONST Name 'TnsBaseSearcherChangeElements'
- CONST Class class_Class
- : Stereotype st_SetOf ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
- ;
- : Inherits
-   Seq: ( ME_562F5C450383 // TnsBaseSearcherChangeElement
- )
- ; // Inherits
-
-ref; // ME_562F5CC60355 TnsBaseSearcherChangeElements
-
-FORWARD ME_562F5C9401F0
-
-: ME_562F5D0401AB
- CONST Name 'aChangedElements'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_562F5CC60355 // TnsBaseSearcherChangeElements
- ;
-
-ref; // ME_562F5D0401AB aChangedElements
-
-: ME_562F5CE2001C
- CONST UID '562F5CE2001C'
- CONST Name 'NotifyBaseSearcherDataChanged'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_562F5C9401F0 // InsBaseSearchWindowDataListener
- ;
- : Parameters
-   Seq: ( ME_562F5D0401AB // aChangedElements
- )
- ; // Parameters
-
-ref; // ME_562F5CE2001C NotifyBaseSearcherDataChanged
-
-: ME_562F5C9401F0
- CONST UID '562F5C9401F0'
- CONST GUID '077A6E65-4EFE-4D18-B636-37CE23834A28'
- CONST Name 'InsBaseSearchWindowDataListener'
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
- ;
- : Operations
-   Seq: ( ME_562F5CE2001C // NotifyBaseSearcherDataChanged
- )
- ; // Operations
- CONST extprop:rc:SelfName 'BaseSearchWindowDataListener'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_562F5C9401F0 InsBaseSearchWindowDataListener
-
 FORWARD ME_496B629D0188
 
 : ME_496B630301B5
@@ -3226,167 +2952,6 @@ ref; // ME_496B63D40168 ExampleText
 
 ref; // ME_4EE5F8200085 ActiveClassForSaveState
 
-FORWARD ME_562E027100BA
-
-: ME_562E027A03BA
- CONST UID '562E027A03BA'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_562E027100BA // MakeState
- ;
- : Target ME_562DE146027E // InsBaseSearcherWindowDataState
- ;
-
-ref; // ME_562E027A03BA DoIt
-
-: ME_562E027100BA
- CONST UID '562E027100BA'
- CONST Name 'MakeState'
- CONST Class class_Class
- : Stereotype st_facetmethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_496B629D0188 // InsBaseSearcherWindowData
- ;
- : Operations
-   Seq: ( ME_562E027A03BA // DoIt
- )
- ; // Operations
-
-ref; // ME_562E027100BA MakeState
-
-FORWARD ME_562E02880261
-
-: ME_562E0297000E
- CONST Name 'aState'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_562DE146027E // InsBaseSearcherWindowDataState
- ;
-
-ref; // ME_562E0297000E aState
-
-: ME_562E029202B3
- CONST UID '562E029202B3'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_562E02880261 // AssignState
- ;
- : Parameters
-   Seq: ( ME_562E0297000E // aState
- )
- ; // Parameters
-
-ref; // ME_562E029202B3 DoIt
-
-: ME_562E02880261
- CONST UID '562E02880261'
- CONST Name 'AssignState'
- CONST Class class_Class
- : Stereotype st_facetmethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_496B629D0188 // InsBaseSearcherWindowData
- ;
- : Operations
-   Seq: ( ME_562E029202B3 // DoIt
- )
- ; // Operations
-
-ref; // ME_562E02880261 AssignState
-
-FORWARD ME_562F5D4E0001
-
-: ME_562F5D60017D
- CONST Name 'aListener'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_562F5C9401F0 // InsBaseSearchWindowDataListener
- ;
-
-ref; // ME_562F5D60017D aListener
-
-: ME_562F5D5502E6
- CONST UID '562F5D5502E6'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_562F5D4E0001 // Subscribe
- ;
- : Parameters
-   Seq: ( ME_562F5D60017D // aListener
- )
- ; // Parameters
-
-ref; // ME_562F5D5502E6 DoIt
-
-: ME_562F5D4E0001
- CONST UID '562F5D4E0001'
- CONST Name 'Subscribe'
- CONST Class class_Class
- : Stereotype st_facetmethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_496B629D0188 // InsBaseSearcherWindowData
- ;
- : Operations
-   Seq: ( ME_562F5D5502E6 // DoIt
- )
- ; // Operations
-
-ref; // ME_562F5D4E0001 Subscribe
-
-FORWARD ME_562F5D6503B6
-
-: ME_562F5D76034D
- CONST Name 'aListener'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_562F5C9401F0 // InsBaseSearchWindowDataListener
- ;
-
-ref; // ME_562F5D76034D aListener
-
-: ME_562F5D6D008E
- CONST UID '562F5D6D008E'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_562F5D6503B6 // Unsubscribe
- ;
- : Parameters
-   Seq: ( ME_562F5D76034D // aListener
- )
- ; // Parameters
-
-ref; // ME_562F5D6D008E DoIt
-
-: ME_562F5D6503B6
- CONST UID '562F5D6503B6'
- CONST Name 'Unsubscribe'
- CONST Class class_Class
- : Stereotype st_facetmethod ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_496B629D0188 // InsBaseSearcherWindowData
- ;
- : Operations
-   Seq: ( ME_562F5D6D008E // DoIt
- )
- ; // Operations
-
-ref; // ME_562F5D6503B6 Unsubscribe
-
 : ME_4C04A80C018D
  CONST UID '4C04A80C018D'
  CONST Name 'StoreActiveClass'
@@ -3451,11 +3016,7 @@ ref; // ME_4F1EA8A202D8_ME_496B629D0188 ValidateBaseSearchForm
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_562E027100BA // MakeState
- ME_562E02880261 // AssignState
- ME_562F5D4E0001 // Subscribe
- ME_562F5D6503B6 // Unsubscribe
- ME_4C04A80C018D // StoreActiveClass
+   Seq: ( ME_4C04A80C018D // StoreActiveClass
  )
  ; // Operations
  : Implemented
@@ -3911,6 +3472,268 @@ ref; // ME_4F1EA8A202D8_ME_496B5FCE02FD ValidateBaseSearchForm
 
 ref; // ME_496B5FCE02FD InsBaseSearcher
 
+FORWARD ME_562DE21C0240
+
+: ME_562DE24C01CD
+ CONST UID '562DE24C01CD'
+ CONST Name 'Closed'
+ CONST Class class_Attribute
+ %SUMMARY 'Окно закрыто' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_562DE21C0240 // TnsBaseSearchWindowState
+ ;
+
+ref; // ME_562DE24C01CD Closed
+
+: ME_562DE251012C
+ CONST UID '562DE251012C'
+ CONST Name 'Opened'
+ CONST Class class_Attribute
+ %SUMMARY 'Окно открыто' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_562DE21C0240 // TnsBaseSearchWindowState
+ ;
+
+ref; // ME_562DE251012C Opened
+
+: ME_562DE25601C0
+ CONST UID '562DE25601C0'
+ CONST Name 'Force'
+ CONST Class class_Attribute
+ %SUMMARY 'Окно было открыто пользователем' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_562DE21C0240 // TnsBaseSearchWindowState
+ ;
+
+ref; // ME_562DE25601C0 Force
+
+: ME_562DE21C0240
+ CONST UID '562DE21C0240'
+ CONST Name 'TnsBaseSearchWindowState'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_562DE24C01CD // Closed
+ ME_562DE251012C // Opened
+ ME_562DE25601C0 // Force
+ )
+ ; // Attributes
+ CONST "children prefix" 'ws'
+ CONST "elements prefix" 'ns'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:ElementPrefixBase 'ns'
+ CONST extprop:pas:ElementPrefix 'ns_ws'
+
+ref; // ME_562DE21C0240 TnsBaseSearchWindowState
+
+FORWARD ME_562DE146027E
+
+: ME_562DE1B50368
+ CONST UID '562DE1B50368'
+ CONST Name 'ActiveClass'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_562DE146027E // InsBaseSearcherWindowDataState
+ ;
+ : Target ME_496B5F7603B4 // InsBaseSearchClass
+ ;
+ CONST "pm" true
+
+ref; // ME_562DE1B50368 ActiveClass
+
+: ME_562DE1D5038F
+ CONST UID '562DE1D5038F'
+ CONST Name 'Context'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_562DE146027E // InsBaseSearcherWindowDataState
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_562DE1D5038F Context
+
+: ME_562DE26B0160
+ CONST UID '562DE26B0160'
+ CONST Name 'WindowState'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_562DE146027E // InsBaseSearcherWindowDataState
+ ;
+ : Target ME_562DE21C0240 // TnsBaseSearchWindowState
+ ;
+ CONST "pm" true
+
+ref; // ME_562DE26B0160 WindowState
+
+: ME_562DE146027E
+ CONST UID '562DE146027E'
+ CONST GUID 'FEF02F60-B5AC-4322-B2AD-D71F9F0AC310'
+ CONST Name 'InsBaseSearcherWindowDataState'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_562DE1B50368 // ActiveClass
+ ME_562DE1D5038F // Context
+ ME_562DE26B0160 // WindowState
+ )
+ ; // Attributes
+ CONST extprop:rc:SelfName 'BaseSearcherWindowDataState'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_562DE146027E InsBaseSearcherWindowDataState
+
+FORWARD ME_562F5C450383
+
+: ME_562F5C6E019F
+ CONST UID '562F5C6E019F'
+ CONST Name 'Context'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_562F5C450383 // TnsBaseSearcherChangeElement
+ ;
+
+ref; // ME_562F5C6E019F Context
+
+: ME_562F5C8100D5
+ CONST UID '562F5C8100D5'
+ CONST Name 'ActiveClass'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_562F5C450383 // TnsBaseSearcherChangeElement
+ ;
+
+ref; // ME_562F5C8100D5 ActiveClass
+
+: ME_562F5C8703D8
+ CONST UID '562F5C8703D8'
+ CONST Name 'SearchArea'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_562F5C450383 // TnsBaseSearcherChangeElement
+ ;
+
+ref; // ME_562F5C8703D8 SearchArea
+
+: ME_562F5C450383
+ CONST UID '562F5C450383'
+ CONST Name 'TnsBaseSearcherChangeElement'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_562F5C6E019F // Context
+ ME_562F5C8100D5 // ActiveClass
+ ME_562F5C8703D8 // SearchArea
+ )
+ ; // Attributes
+ CONST "children prefix" 'ce'
+ CONST "elements prefix" 'ns'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:ElementPrefixBase 'ns'
+ CONST extprop:pas:ElementPrefix 'ns_ce'
+
+ref; // ME_562F5C450383 TnsBaseSearcherChangeElement
+
+: ME_562F5CC60355
+ CONST UID '562F5CC60355'
+ CONST Name 'TnsBaseSearcherChangeElements'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Inherits
+   Seq: ( ME_562F5C450383 // TnsBaseSearcherChangeElement
+ )
+ ; // Inherits
+
+ref; // ME_562F5CC60355 TnsBaseSearcherChangeElements
+
+FORWARD ME_562F5C9401F0
+
+: ME_562F5D0401AB
+ CONST Name 'aChangedElements'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_562F5CC60355 // TnsBaseSearcherChangeElements
+ ;
+
+ref; // ME_562F5D0401AB aChangedElements
+
+: ME_562F5CE2001C
+ CONST UID '562F5CE2001C'
+ CONST Name 'NotifyBaseSearcherDataChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_562F5C9401F0 // InsBaseSearchWindowDataListener
+ ;
+ : Parameters
+   Seq: ( ME_562F5D0401AB // aChangedElements
+ )
+ ; // Parameters
+
+ref; // ME_562F5CE2001C NotifyBaseSearcherDataChanged
+
+: ME_562F5C9401F0
+ CONST UID '562F5C9401F0'
+ CONST GUID '077A6E65-4EFE-4D18-B636-37CE23834A28'
+ CONST Name 'InsBaseSearchWindowDataListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Operations
+   Seq: ( ME_562F5CE2001C // NotifyBaseSearcherDataChanged
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'BaseSearchWindowDataListener'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_562F5C9401F0 InsBaseSearchWindowDataListener
+
 FORWARD ME_5631AC50016C
 
 : ME_5631AC7700D9
@@ -3986,6 +3809,672 @@ ref; // ME_5673E95D0119 ns_sseAll
 
 ref; // ME_5673E9380067 SearchStateElementConstants
 
+: ME_56D42F8A0266
+ CONST UID '56D42F8A0266'
+ CONST Name 'TnsSearchAreas'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Inherits
+   Seq: ( ME_495132300336 // TnsSearchArea
+ )
+ ; // Inherits
+
+ref; // ME_56D42F8A0266 TnsSearchAreas
+
+FORWARD ME_56D42F1903CF
+
+FORWARD ME_56EFA9F700FB
+
+FORWARD ME_56D42F09009E
+
+: ME_56D42F43033E
+ CONST UID '56D42F43033E'
+ CONST Name 'ActiveClass'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56D42F09009E // InsBaseSearchModel
+ ;
+ : Target ME_496B5F7603B4 // InsBaseSearchClass
+ ;
+ CONST "pm" true
+
+ref; // ME_56D42F43033E ActiveClass
+
+: ME_56D42F4C032F
+ CONST UID '56D42F4C032F'
+ CONST Name 'Context'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56D42F09009E // InsBaseSearchModel
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_56D42F4C032F Context
+
+: ME_56D42F5801B5
+ CONST UID '56D42F5801B5'
+ CONST Name 'Area'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56D42F09009E // InsBaseSearchModel
+ ;
+ : Target ME_495132300336 // TnsSearchArea
+ ;
+ CONST "pm" true
+
+ref; // ME_56D42F5801B5 Area
+
+: ME_56D42FB300D9
+ CONST UID '56D42FB300D9'
+ CONST Name 'AvailableAreas'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56D42F09009E // InsBaseSearchModel
+ ;
+ : Target ME_56D42F8A0266 // TnsSearchAreas
+ ;
+ CONST "pm" true
+
+ref; // ME_56D42FB300D9 AvailableAreas
+
+: ME_56D4300D027E
+ CONST UID '56D4300D027E'
+ CONST Name 'FindBackSupported'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56D42F09009E // InsBaseSearchModel
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_56D4300D027E FindBackSupported
+
+: ME_56D4301A00C4
+ CONST UID '56D4301A00C4'
+ CONST Name 'FindBackEnabled'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56D42F09009E // InsBaseSearchModel
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_56D4301A00C4 FindBackEnabled
+
+: ME_56EF9DE2023E
+ CONST UID '56EF9DE2023E'
+ CONST Name 'FindEnabled'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56D42F09009E // InsBaseSearchModel
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_56EF9DE2023E FindEnabled
+
+: ME_56F122950394
+ CONST UID '56F122950394'
+ CONST Name 'IsLocalSearchArea'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56D42F09009E // InsBaseSearchModel
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_56F122950394 IsLocalSearchArea
+
+: ME_56F2592D029E
+ CONST UID '56F2592D029E'
+ CONST Name 'ExampleText'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56D42F09009E // InsBaseSearchModel
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_56F2592D029E ExampleText
+
+: ME_56D42FF7032E
+ CONST Name 'aProcessor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_495132860112' '4D7A0528021A.pas.ms.script' // InsBaseSearchResultProcessor
+ ;
+
+ref; // ME_56D42FF7032E aProcessor
+
+: ME_56D42FE5023F
+ CONST UID '56D42FE5023F'
+ CONST Name 'Find'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56D42F09009E // InsBaseSearchModel
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_56D42FF7032E // aProcessor
+ )
+ ; // Parameters
+
+ref; // ME_56D42FE5023F Find
+
+: ME_56D4300302CC
+ CONST Name 'aProcessor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_495132860112' '4D7A0528021A.pas.ms.script' // InsBaseSearchResultProcessor
+ ;
+
+ref; // ME_56D4300302CC aProcessor
+
+: ME_56D42FFF0321
+ CONST UID '56D42FFF0321'
+ CONST Name 'FindBack'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56D42F09009E // InsBaseSearchModel
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_56D4300302CC // aProcessor
+ )
+ ; // Parameters
+
+ref; // ME_56D42FFF0321 FindBack
+
+: ME_56D430AA00D9
+ CONST Name 'aVie'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_56D42F1903CF // InsBaseSearchView
+ ;
+
+ref; // ME_56D430AA00D9 aVie
+
+: ME_56D4309E031C
+ CONST UID '56D4309E031C'
+ CONST Name 'AddView'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56D42F09009E // InsBaseSearchModel
+ ;
+ : Parameters
+   Seq: ( ME_56D430AA00D9 // aVie
+ )
+ ; // Parameters
+
+ref; // ME_56D4309E031C AddView
+
+: ME_56D430B4024F
+ CONST Name 'aView'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_56D42F1903CF // InsBaseSearchView
+ ;
+
+ref; // ME_56D430B4024F aView
+
+: ME_56D430AD02C7
+ CONST UID '56D430AD02C7'
+ CONST Name 'RemoveView'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56D42F09009E // InsBaseSearchModel
+ ;
+ : Parameters
+   Seq: ( ME_56D430B4024F // aView
+ )
+ ; // Parameters
+
+ref; // ME_56D430AD02C7 RemoveView
+
+: ME_56EFAA4F01D4
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_56EFA9F700FB // InsBaseSearchModelListener
+ ;
+
+ref; // ME_56EFAA4F01D4 aListener
+
+: ME_56EFAA430205
+ CONST UID '56EFAA430205'
+ CONST Name 'SubscribeListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56D42F09009E // InsBaseSearchModel
+ ;
+ : Parameters
+   Seq: ( ME_56EFAA4F01D4 // aListener
+ )
+ ; // Parameters
+
+ref; // ME_56EFAA430205 SubscribeListener
+
+: ME_56EFAA55012F
+ CONST Name 'aListener'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_56EFA9F700FB // InsBaseSearchModelListener
+ ;
+
+ref; // ME_56EFAA55012F aListener
+
+: ME_56EFAA520307
+ CONST UID '56EFAA520307'
+ CONST Name 'UnsubscribeListener'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56D42F09009E // InsBaseSearchModel
+ ;
+ : Parameters
+   Seq: ( ME_56EFAA55012F // aListener
+ )
+ ; // Parameters
+
+ref; // ME_56EFAA520307 UnsubscribeListener
+
+: ME_56D42F09009E
+ CONST UID '56D42F09009E'
+ CONST GUID 'A177D497-27C7-44EC-AE4F-1F7E80356A8E'
+ CONST Name 'InsBaseSearchModel'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_56D42F43033E // ActiveClass
+ ME_56D42F4C032F // Context
+ ME_56D42F5801B5 // Area
+ ME_56D42FB300D9 // AvailableAreas
+ ME_56D4300D027E // FindBackSupported
+ ME_56D4301A00C4 // FindBackEnabled
+ ME_56EF9DE2023E // FindEnabled
+ ME_56F122950394 // IsLocalSearchArea
+ ME_56F2592D029E // ExampleText
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_56D42FE5023F // Find
+ ME_56D42FFF0321 // FindBack
+ ME_56D4309E031C // AddView
+ ME_56D430AD02C7 // RemoveView
+ ME_56EFAA430205 // SubscribeListener
+ ME_56EFAA520307 // UnsubscribeListener
+ )
+ ; // Operations
+ : Forwarded
+   Seq: ( ME_56D42F1903CF // InsBaseSearchView
+ ME_56EFA9F700FB // InsBaseSearchModelListener
+ )
+ ; // Forwarded
+ CONST extprop:rc:SelfName 'BaseSearchModel'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56D42F09009E InsBaseSearchModel
+
+FORWARD ME_56D696CD007B
+
+: ME_56EBA1AA03CC
+ CONST UID '56EBA1AA03CC'
+ CONST Name 'BaseSearchController'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56D42F1903CF // InsBaseSearchView
+ ;
+ : Target ME_56D696CD007B // InsBaseSearchController
+ ;
+ CONST "pm" true
+
+ref; // ME_56EBA1AA03CC BaseSearchController
+
+: ME_56D430970129
+ CONST Name 'aModel'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_56D42F09009E // InsBaseSearchModel
+ ;
+
+ref; // ME_56D430970129 aModel
+
+: ME_56D4305A00EA
+ CONST UID '56D4305A00EA'
+ CONST Name 'NotifyBaseSearchModelChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56D42F1903CF // InsBaseSearchView
+ ;
+ : Parameters
+   Seq: ( ME_56D430970129 // aModel
+ )
+ ; // Parameters
+
+ref; // ME_56D4305A00EA NotifyBaseSearchModelChanged
+
+: ME_56D42F1903CF
+ CONST UID '56D42F1903CF'
+ CONST GUID 'D7052746-10B0-4077-976C-EE5166E62B84'
+ CONST Name 'InsBaseSearchView'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_56EBA1AA03CC // BaseSearchController
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_56D4305A00EA // NotifyBaseSearchModelChanged
+ )
+ ; // Operations
+ : Forwarded
+   Seq: ( ME_56D696CD007B // InsBaseSearchController
+ )
+ ; // Forwarded
+ CONST extprop:rc:SelfName 'BaseSearchView'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56D42F1903CF InsBaseSearchView
+
+: ME_56EBA1C10179
+ CONST UID '56EBA1C10179'
+ CONST Name 'BaseSearchModel'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56D696CD007B // InsBaseSearchController
+ ;
+ : Target ME_56D42F09009E // InsBaseSearchModel
+ ;
+ CONST "pm" true
+
+ref; // ME_56EBA1C10179 BaseSearchModel
+
+: ME_496B4C41023E_ME_56D696CD007B
+ : Original ME_496B4C41023E // WindowRequired
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4C41023E_ME_56D696CD007B WindowRequired
+
+: ME_496B4C500246_ME_56D696CD007B
+ : Original ME_496B4C500246 // WindowCloseable
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4C500246_ME_56D696CD007B WindowCloseable
+
+: ME_496B4CA000B6_ME_56D696CD007B
+ : Original ME_496B4CA000B6 // CanCloseWindow
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4CA000B6_ME_56D696CD007B CanCloseWindow
+
+: ME_496B4CD9005F_ME_56D696CD007B
+ : Original ME_496B4CD9005F // IsQueryCard
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4CD9005F_ME_56D696CD007B IsQueryCard
+
+: ME_496B4CE30132_ME_56D696CD007B
+ : Original ME_496B4CE30132 // TreatSuccessSearchAsManualOpen
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4CE30132_ME_56D696CD007B TreatSuccessSearchAsManualOpen
+
+: ME_496B4CED0306_ME_56D696CD007B
+ : Original ME_496B4CED0306 // AutoActivateWindow
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_496B4CED0306_ME_56D696CD007B AutoActivateWindow
+
+: ME_4ACA17770179_ME_56D696CD007B
+ : Original ME_4ACA17770179 // SupportDisabled
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4ACA17770179_ME_56D696CD007B SupportDisabled
+
+: ME_4ACA195801CB_ME_56D696CD007B
+ : Original ME_4ACA195801CB // ContainerForBaseSearch
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4ACA195801CB_ME_56D696CD007B ContainerForBaseSearch
+
+: ME_4AD6EAA3034A_ME_56D696CD007B
+ : Original ME_4AD6EAA3034A // ContextSearcher
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4AD6EAA3034A_ME_56D696CD007B ContextSearcher
+
+: ME_4F1D607E0027_ME_56D696CD007B
+ : Original ME_4F1D607E0027 // NeedSaveActiveClassBeforeSearch
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_4F1D607E0027_ME_56D696CD007B NeedSaveActiveClassBeforeSearch
+
+: ME_4F22C2D00369_ME_56D696CD007B
+ : Original ME_4F22C2D00369 // FormCloseWasRequested
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F22C2D00369_ME_56D696CD007B FormCloseWasRequested
+
+: ME_56D696CD007B
+ CONST UID '56D696CD007B'
+ CONST GUID '45CA43A1-2CEA-4D58-AF9A-3209F08E099A'
+ CONST Name 'InsBaseSearchController'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Inherits
+   Seq: ( ME_496B4C2700D5 // InsBaseSearchPresentation
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_56EBA1C10179 // BaseSearchModel
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_496B4C41023E_ME_56D696CD007B // WindowRequired
+ ME_496B4C500246_ME_56D696CD007B // WindowCloseable
+ ME_496B4CA000B6_ME_56D696CD007B // CanCloseWindow
+ ME_496B4CD9005F_ME_56D696CD007B // IsQueryCard
+ ME_496B4CE30132_ME_56D696CD007B // TreatSuccessSearchAsManualOpen
+ ME_496B4CED0306_ME_56D696CD007B // AutoActivateWindow
+ ME_4ACA17770179_ME_56D696CD007B // SupportDisabled
+ ME_4ACA195801CB_ME_56D696CD007B // ContainerForBaseSearch
+ ME_4AD6EAA3034A_ME_56D696CD007B // ContextSearcher
+ ME_4F1D607E0027_ME_56D696CD007B // NeedSaveActiveClassBeforeSearch
+ ME_4F22C2D00369_ME_56D696CD007B // FormCloseWasRequested
+ )
+ ; // Implemented
+ CONST extprop:rc:SelfName 'BaseSearchController'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56D696CD007B InsBaseSearchController
+
+FORWARD ME_56D6971F02B9
+
+: ME_56EBF63E0338
+ CONST UID '56EBF63E0338'
+ CONST Name 'ActiveClass'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56D6971F02B9 // InsBaseSearcherState
+ ;
+ : Target ME_496B5F7603B4 // InsBaseSearchClass
+ ;
+ CONST "pm" true
+
+ref; // ME_56EBF63E0338 ActiveClass
+
+: ME_56EBF64A01E3
+ CONST UID '56EBF64A01E3'
+ CONST Name 'Area'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56D6971F02B9 // InsBaseSearcherState
+ ;
+ : Target ME_495132300336 // TnsSearchArea
+ ;
+ CONST "pm" true
+
+ref; // ME_56EBF64A01E3 Area
+
+: ME_56EBF65F02B0
+ CONST UID '56EBF65F02B0'
+ CONST Name 'Context'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56D6971F02B9 // InsBaseSearcherState
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST "pm" true
+
+ref; // ME_56EBF65F02B0 Context
+
+: ME_56D6971F02B9
+ CONST UID '56D6971F02B9'
+ CONST GUID '2E299BC4-4889-4C2D-BFF6-E0F740D84E63'
+ CONST Name 'InsBaseSearcherState'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_56EBF63E0338 // ActiveClass
+ ME_56EBF64A01E3 // Area
+ ME_56EBF65F02B0 // Context
+ )
+ ; // Attributes
+ CONST extprop:rc:SelfName 'BaseSearcherState'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56D6971F02B9 InsBaseSearcherState
+
+: ME_56EFAA1D0087
+ CONST Name 'aModel'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_56D42F09009E // InsBaseSearchModel
+ ;
+
+ref; // ME_56EFAA1D0087 aModel
+
+: ME_56EFAA0C032F
+ CONST UID '56EFAA0C032F'
+ CONST Name 'NotifyBaseSearchModelChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56EFA9F700FB // InsBaseSearchModelListener
+ ;
+ : Parameters
+   Seq: ( ME_56EFAA1D0087 // aModel
+ )
+ ; // Parameters
+
+ref; // ME_56EFAA0C032F NotifyBaseSearchModelChanged
+
+: ME_56EFA9F700FB
+ CONST UID '56EFA9F700FB'
+ CONST GUID '1DC524FF-884C-41F7-B466-84D4A3F890DB'
+ CONST Name 'InsBaseSearchModelListener'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9F98B901A5 // BaseSearchInterfaces
+ ;
+ : Operations
+   Seq: ( ME_56EFAA0C032F // NotifyBaseSearchModelChanged
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'BaseSearchModelListener'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56EFA9F700FB InsBaseSearchModelListener
+
 : ME_4A9F98B901A5
  CONST UID '4A9F98B901A5'
  CONST Name 'BaseSearchInterfaces'
@@ -3996,8 +4485,7 @@ ref; // ME_5673E9380067 SearchStateElementConstants
  : Parent WL 'ME_4A9FFD3F01AD' '4A9FFD3F01AD.pas.ms.script' // Search
  ;
  : Children
-   Seq: ( ME_49512DE00227 // TnsBaseSearchOpenKind
- ME_496B51660087 // InsBaseSearchVisibleWatcher
+   Seq: ( ME_496B51660087 // InsBaseSearchVisibleWatcher
  ME_4951327800EE // InsBaseSearchContextProvider
  ME_496B5F7603B4 // InsBaseSearchClass
  ME_5625E70C0151 // InsBaseSearchClassesEnumerator
@@ -4010,9 +4498,9 @@ ref; // ME_5673E9380067 SearchStateElementConstants
  ME_49513222021F // InsContextSearcher
  ME_496B512E026D // InsMistakesCorrector
  ME_4D90B8C60164 // TnsContainerForBaseSearchInfo
- ME_4F22C29301C6 // MnsBaseSearchPresentationState
+ ME_49512DE00227 // TnsBaseSearchOpenKind
  ME_496B500E0283 // ETryToFindEmptyContext
- ME_496B52CD024B // InsBaseSearchWindowOpener
+ ME_4F22C29301C6 // MnsBaseSearchPresentationState
  ME_49916BFE01A4 // InsBaseSearchListSource
  ME_496B4C2700D5 // InsBaseSearchPresentation
  ME_4901F73E01D0 // InsCutToLeafFilter
@@ -4028,14 +4516,20 @@ ref; // ME_5673E9380067 SearchStateElementConstants
  ME_5433905403C7 // InsBaseSearcherInitialState
  ME_54327CB100C6 // InsBaseSearchInitialStateProvider
  ME_496B5FAB039D // InsBaseSearchClasses
+ ME_496B629D0188 // InsBaseSearcherWindowData
+ ME_496B5FCE02FD // InsBaseSearcher
  ME_562DE21C0240 // TnsBaseSearchWindowState
  ME_562DE146027E // InsBaseSearcherWindowDataState
  ME_562F5C450383 // TnsBaseSearcherChangeElement
  ME_562F5CC60355 // TnsBaseSearcherChangeElements
  ME_562F5C9401F0 // InsBaseSearchWindowDataListener
- ME_496B629D0188 // InsBaseSearcherWindowData
- ME_496B5FCE02FD // InsBaseSearcher
  ME_5631AC50016C // InsBaseSearcherProvider
+ ME_56D42F8A0266 // TnsSearchAreas
+ ME_56D42F09009E // InsBaseSearchModel
+ ME_56D42F1903CF // InsBaseSearchView
+ ME_56D696CD007B // InsBaseSearchController
+ ME_56D6971F02B9 // InsBaseSearcherState
+ ME_56EFA9F700FB // InsBaseSearchModelListener
  )
  ; // Children
  : Constants

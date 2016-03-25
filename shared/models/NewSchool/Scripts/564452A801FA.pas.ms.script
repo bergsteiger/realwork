@@ -66,29 +66,6 @@ ref; // ME_5645BE980354
 
 ref; // ME_5645BEA10224 
 
-: ME_8BE373F39A26
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_564452C80377 // DiffTest
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_8BE373F39A26 
-
-: ME_4C937013031D_ME_564452C80377
- : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C937013031D_ME_564452C80377 GetFolder
-
-: ME_4DAED6F60146_ME_564452C80377
- : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAED6F60146_ME_564452C80377 GetModelElementGUID
-
 : ME_564452C80377
  CONST UID '564452C80377'
  CONST Name 'DiffTest'
@@ -107,15 +84,9 @@ ref; // ME_4DAED6F60146_ME_564452C80377 GetModelElementGUID
    Seq: ( ME_5644533F0088 // DoIt
  )
  ; // Operations
- : Overridden
-   Seq: ( ME_4C937013031D_ME_564452C80377 // GetFolder
- ME_4DAED6F60146_ME_564452C80377 // GetModelElementGUID
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_5645BE980354 // 
  ME_5645BEA10224 // 
- ME_8BE373F39A26 // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -145,7 +116,6 @@ ref; // ME_564452C80377 DiffTest
  : Depends
    Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
  WL 'ME_564476FF0335' '564476FF0335.pas.ms.script' // Diff
  )

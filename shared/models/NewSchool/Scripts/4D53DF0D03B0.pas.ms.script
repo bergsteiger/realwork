@@ -16,29 +16,6 @@ FORWARD ME_4EA5382F006A
 
 ref; // ME_4EA5644C0099 
 
-: ME_6E4296B559CB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4EA5382F006A // K294595323
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_6E4296B559CB 
-
-: ME_4C937013031D_ME_4EA5382F006A
- : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C937013031D_ME_4EA5382F006A GetFolder
-
-: ME_4DAED6F60146_ME_4EA5382F006A
- : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAED6F60146_ME_4EA5382F006A GetModelElementGUID
-
 : ME_4EA553E901DB_ME_4EA5382F006A
  : Original WL 'ME_4EA553E901DB' '4B2A0D6A0077.pas.ms.script' // Suite
  ;
@@ -62,14 +39,11 @@ ref; // ME_4EA553E901DB_ME_4EA5382F006A Suite
  )
  ; // Inherits
  : Overridden
-   Seq: ( ME_4C937013031D_ME_4EA5382F006A // GetFolder
- ME_4DAED6F60146_ME_4EA5382F006A // GetModelElementGUID
- ME_4EA553E901DB_ME_4EA5382F006A // Suite
+   Seq: ( ME_4EA553E901DB_ME_4EA5382F006A // Suite
  )
  ; // Overridden
  : Dependencies
    Seq: ( ME_4EA5644C0099 // 
- ME_6E4296B559CB // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -97,8 +71,7 @@ ref; // ME_4EA5382F006A K294595323
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
- WL 'ME_4D53DE3F00D1' '4D53DE3F00D1.pas.ms.script' // Filters
+   Seq: ( WL 'ME_4D53DE3F00D1' '4D53DE3F00D1.pas.ms.script' // Filters
  WL 'ME_4EA538A203C7' '4EA538A203C7.pas.ms.script' // MultyFileTests
  )
  ; // Depends

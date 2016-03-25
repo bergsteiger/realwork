@@ -4,31 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_5374C89A012C
 
-FORWARD ME_53736E900198
-
-: ME_16EC716329D4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53736E900198 // K517789752
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_16EC716329D4 
-
-: ME_4C937013031D_ME_53736E900198
- : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C937013031D_ME_53736E900198 GetFolder
-
-: ME_4DAED6F60146_ME_53736E900198
- : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAED6F60146_ME_53736E900198 GetModelElementGUID
-
 : ME_53736E900198
  CONST UID '53736E900198'
  CONST Name 'K517789752'
@@ -44,15 +19,6 @@ ref; // ME_4DAED6F60146_ME_53736E900198 GetModelElementGUID
    Seq: ( WL 'ME_5372265401B9' '5372262D0275.pas.ms.script' // TalcuImportTest
  )
  ; // Inherits
- : Overridden
-   Seq: ( ME_4C937013031D_ME_53736E900198 // GetFolder
- ME_4DAED6F60146_ME_53736E900198 // GetModelElementGUID
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_16EC716329D4 // 
- )
- ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -80,8 +46,7 @@ ref; // ME_53736E900198 K517789752
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
- WL 'ME_5372262D0275' '5372262D0275.pas.ms.script' // AbstractImportTasks
+   Seq: ( WL 'ME_5372262D0275' '5372262D0275.pas.ms.script' // AbstractImportTasks
  )
  ; // Depends
  CONST "path prefix" '/Tasks/Import'

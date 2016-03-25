@@ -69,28 +69,11 @@ ref; // ME_4D46E45F0100 aFileName
 
 ref; // ME_4D46E22801EB Load
 
-: ME_9A22A372C751
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D46B552013B // OutlinerTest
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_9A22A372C751 
-
 : ME_4C937013031D_ME_4D46B552013B
  : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4D46B552013B GetFolder
-
-: ME_4DAED6F60146_ME_4D46B552013B
- : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAED6F60146_ME_4D46B552013B GetModelElementGUID
 
 : ME_4D46B552013B
  CONST UID '4D46B552013B'
@@ -121,13 +104,8 @@ ref; // ME_4DAED6F60146_ME_4D46B552013B GetModelElementGUID
  ; // Operations
  : Overridden
    Seq: ( ME_4C937013031D_ME_4D46B552013B // GetFolder
- ME_4DAED6F60146_ME_4D46B552013B // GetModelElementGUID
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_9A22A372C751 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -154,7 +132,6 @@ ref; // ME_4D46B552013B OutlinerTest
  ; // Children
  : Depends
    Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
  WL 'ME_4B30C6E3023C' '4B30C6E3023C.pas.ms.script' // Forms
  WL 'ME_4BCE9EA0028A' '4BCE9EA0028A.pas.ms.script' // MixIns

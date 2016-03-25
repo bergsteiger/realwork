@@ -16,34 +16,11 @@ FORWARD ME_55E43F0500A2
 
 ref; // ME_55E4440E032D 
 
-: ME_83BC9BB531B4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55E43F0500A2 // K605362960
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_83BC9BB531B4 
-
 : ME_4C4FE56300FB_ME_55E43F0500A2
  : Original WL 'ME_4C4FE56300FB' '4C500D470030.pas.ms.script' // Navigate
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4C4FE56300FB_ME_55E43F0500A2 Navigate
-
-: ME_4C937013031D_ME_55E43F0500A2
- : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C937013031D_ME_55E43F0500A2 GetFolder
-
-: ME_4DAED6F60146_ME_55E43F0500A2
- : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAED6F60146_ME_55E43F0500A2 GetModelElementGUID
 
 : ME_4DF781CB0217_ME_55E43F0500A2
  : Original WL 'ME_4DF781CB0217' '4C4FDBF703DB.pas.ms.script' // CharCount
@@ -68,14 +45,11 @@ ref; // ME_4DF781CB0217_ME_55E43F0500A2 CharCount
  ; // Inherits
  : Overridden
    Seq: ( ME_4C4FE56300FB_ME_55E43F0500A2 // Navigate
- ME_4C937013031D_ME_55E43F0500A2 // GetFolder
- ME_4DAED6F60146_ME_55E43F0500A2 // GetModelElementGUID
  ME_4DF781CB0217_ME_55E43F0500A2 // CharCount
  )
  ; // Overridden
  : Dependencies
    Seq: ( ME_55E4440E032D // 
- ME_83BC9BB531B4 // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -104,7 +78,6 @@ ref; // ME_55E43F0500A2 K605362960
  ; // Children
  : Depends
    Seq: ( WL 'ME_48453A40017C' '48453A40017C.pas.ms.script' // evOp
- WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4C4FDBF703DB' '4C4FDBF703DB.pas.ms.script' // EditorTests
  )
  ; // Depends

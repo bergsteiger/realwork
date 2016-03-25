@@ -38,17 +38,6 @@ ref; // ME_53170E53008F DoIt
 
 ref; // ME_53170E4100CF GetTaskClass
 
-: ME_555D4B51FDF2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53170DE90011 // K517772970_TCheckSaveToStreamDefault
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_555D4B51FDF2 
-
 : ME_5320088202FB_ME_53170DE90011
  : Original WL 'ME_5320088202FB' '531FF6280311.pas.ms.script' // TaskClass
  ;
@@ -60,18 +49,6 @@ ref; // ME_5320088202FB_ME_53170DE90011 TaskClass
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_532008D203BA_ME_53170DE90011 InitTask
-
-: ME_4C937013031D_ME_53170DE90011
- : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C937013031D_ME_53170DE90011 GetFolder
-
-: ME_4DAED6F60146_ME_53170DE90011
- : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAED6F60146_ME_53170DE90011 GetModelElementGUID
 
 : ME_53170DE90011
  CONST UID '53170DE90011'
@@ -97,15 +74,6 @@ ref; // ME_4DAED6F60146_ME_53170DE90011 GetModelElementGUID
  ME_532008D203BA_ME_53170DE90011 // InitTask
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4C937013031D_ME_53170DE90011 // GetFolder
- ME_4DAED6F60146_ME_53170DE90011 // GetModelElementGUID
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_555D4B51FDF2 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -131,8 +99,7 @@ ref; // ME_53170DE90011 K517772970_TCheckSaveToStreamDefault
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
- WL 'ME_52FA49B901D3' '52FA49B901D3.pas.ms.script' // ArchiClientServer
+   Seq: ( WL 'ME_52FA49B901D3' '52FA49B901D3.pas.ms.script' // ArchiClientServer
  WL 'ME_531FF6280311' '531FF6280311.pas.ms.script' // TaskSaveLoad
  )
  ; // Depends

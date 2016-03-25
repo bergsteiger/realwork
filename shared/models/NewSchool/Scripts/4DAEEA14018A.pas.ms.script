@@ -569,6 +569,8 @@ ref; // ME_52F4E9940387
 
 ref; // ME_52F4FB1D0328 
 
+FORWARD ME_56F5563D0109
+
 : ME_4DAEEA9E0049
  CONST UID '4DAEEA9E0049'
  CONST Name 'TtfwScriptEngine'
@@ -599,6 +601,10 @@ ref; // ME_52F4FB1D0328
  ME_52F4FB1D0328 // 
  )
  ; // Dependencies
+ : Injected
+   Seq: ( ME_56F5563D0109 // 
+ )
+ ; // Injected
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -5041,6 +5047,550 @@ ref; // ME_0424A38B84BC
 
 ref; // ME_567ACC1F028D kwKeyValuesPack
 
+FORWARD ME_56F556230193
+
+FORWARD ME_56F5564A035F
+
+FORWARD ME_1DB03B13C581
+
+FORWARD ME_7C9C5C70AAD4
+
+: ME_CCF6C54692F3
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_CCF6C54692F3 aCtx
+
+: ME_CCF6C54692F4
+ CONST Name 'aFile'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_CCF6C54692F4 aFile
+
+: ME_CCF6C54692F5
+ CONST Name 'anOutputFile'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_CCF6C54692F5 anOutputFile
+
+: ME_1DB03B13C581
+ CONST UID '1DB03B13C581'
+ CONST Name 'script_RunFromFile'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта script:RunFromFile' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_7C9C5C70AAD4 // script_RunFromFile
+ ;
+ : Parameters
+   Seq: ( ME_CCF6C54692F3 // aCtx
+ ME_CCF6C54692F4 // aFile
+ ME_CCF6C54692F5 // anOutputFile
+ )
+ ; // Parameters
+ : SpelledFor ME_56F5564A035F // script_RunFromFile
+ ;
+
+ref; // ME_1DB03B13C581 script_RunFromFile
+
+: ME_05536E007228
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_7C9C5C70AAD4 // script_RunFromFile
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_05536E007228 
+
+: ME_DA0518E65C2B
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_7C9C5C70AAD4 // script_RunFromFile
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_DA0518E65C2B 
+
+: ME_4DAEEDE10285_ME_7C9C5C70AAD4
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_7C9C5C70AAD4 DoDoIt
+
+: ME_551544E2001A_ME_7C9C5C70AAD4
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_7C9C5C70AAD4 GetResultTypeInfo
+
+: ME_559687E6025A_ME_7C9C5C70AAD4
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_7C9C5C70AAD4 GetAllParamsCount
+
+: ME_5617F4D00243_ME_7C9C5C70AAD4
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_7C9C5C70AAD4 ParamsTypes
+
+: ME_7C9C5C70AAD4
+ CONST UID '7C9C5C70AAD4'
+ CONST Name 'script_RunFromFile'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта script:RunFromFile'#13#10'*Пример:*'#13#10'{code}'#13#10' anOutputFile aFile script:RunFromFile'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ;
+ : Inherits
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_1DB03B13C581 // script_RunFromFile
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_7C9C5C70AAD4 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_551544E2001A_ME_7C9C5C70AAD4 // GetResultTypeInfo
+ ME_559687E6025A_ME_7C9C5C70AAD4 // GetAllParamsCount
+ ME_5617F4D00243_ME_7C9C5C70AAD4 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_05536E007228 // 
+ ME_DA0518E65C2B // 
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'script:RunFromFile'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwScriptRunFromFile'
+ CONST extprop:rc:SelfName 'ScriptRunFromFile'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_56F5564A035F // script_RunFromFile
+ ;
+ : Stub ME_1DB03B13C581 // script_RunFromFile
+ ;
+
+ref; // ME_7C9C5C70AAD4 script_RunFromFile
+
+: ME_56F556670021
+ CONST Name 'aFile'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_56F556670021 aFile
+
+: ME_56F556670049
+ CONST Name 'anOutputFile'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_56F556670049 anOutputFile
+
+: ME_56F5564A035F
+ CONST UID '56F5564A035F'
+ CONST Name 'script_RunFromFile'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ;
+ : Parameters
+   Seq: ( ME_56F556670021 // aFile
+ ME_56F556670049 // anOutputFile
+ )
+ ; // Parameters
+ : Speller ME_7C9C5C70AAD4 // script_RunFromFile
+ ;
+
+ref; // ME_56F5564A035F script_RunFromFile
+
+: ME_18C7DF7344EB
+ CONST UID '18C7DF7344EB'
+ CONST Name 'Reg_Type_TtfwContext'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ;
+ : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_18C7DF7344EB Reg_Type_TtfwContext
+
+: ME_DA346936B055
+ CONST UID 'DA346936B055'
+ CONST Name 'Reg_Type_String'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа String' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ;
+ : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_DA346936B055 Reg_Type_String
+
+: ME_56F5563502FC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ;
+ : Target ME_4DAEEA9E0049 // TtfwScriptEngine
+ ;
+
+ref; // ME_56F5563502FC 
+
+: ME_56F5563D0109
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ;
+ : Target ME_4DAEEA9E0049 // TtfwScriptEngine
+ ;
+
+ref; // ME_56F5563D0109 
+
+: ME_56F556A502FE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ;
+ : Target WL 'ME_56456E3E01E4' '55C481E00003.pas.ms.script' // TtfwOutToFileScriptCaller
+ ;
+
+ref; // ME_56F556A502FE 
+
+FORWARD ME_56F556CF0371
+
+: ME_56F556E401D7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ;
+ : Target ME_56F556CF0371 // TtfwDebugScriptCaller
+ ;
+
+ref; // ME_56F556E401D7 
+
+: ME_849A7EC05834
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_849A7EC05834 
+
+: ME_AABD2133A98C
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ;
+ : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
+ ;
+
+ref; // ME_AABD2133A98C 
+
+: ME_56F556230193
+ CONST UID '56F556230193'
+ CONST Name 'tfwScriptsRunningAndDebugging'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DAEEA14018A // Scripting Axiomatics
+ ;
+ : Operations
+   Seq: ( ME_56F5564A035F // script_RunFromFile
+ ME_18C7DF7344EB // Reg_Type_TtfwContext
+ ME_DA346936B055 // Reg_Type_String
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_7C9C5C70AAD4 // script_RunFromFile
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_56F5563502FC // 
+ ME_56F5563D0109 // 
+ ME_56F556A502FE // 
+ ME_56F556E401D7 // 
+ ME_849A7EC05834 // 
+ ME_AABD2133A98C // 
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwScriptsRunningAndDebugging.pas'
+ CONST extprop:rc:SelfName 'ScriptsRunningAndDebugging'
+
+ref; // ME_56F556230193 tfwScriptsRunningAndDebugging
+
+FORWARD ME_56F557030356
+
+: ME_56F557180045
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56F556CF0371 // TtfwDebugScriptCaller
+ ;
+ : Target ME_56F557030356 // TtfwDebugService
+ ;
+
+ref; // ME_56F557180045 
+
+: ME_56F55D6803B4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56F556CF0371 // TtfwDebugScriptCaller
+ ;
+ : Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
+ ;
+
+ref; // ME_56F55D6803B4 
+
+: ME_55C491FC025C_ME_56F556CF0371
+ : Original WL 'ME_55C491FC025C' '55C481E00003.pas.ms.script' // DoPrint
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55C491FC025C_ME_56F556CF0371 DoPrint
+
+: ME_56F556CF0371
+ CONST UID '56F556CF0371'
+ CONST Name 'TtfwDebugScriptCaller'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DAEEA14018A // Scripting Axiomatics
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55C482690029' '55C481E00003.pas.ms.script' // TtfwDefaultScriptCaller
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_55C491FC025C_ME_56F556CF0371 // DoPrint
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_56F557180045 // 
+ ME_56F55D6803B4 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDebugScriptCaller.pas'
+ CONST extprop:rc:SelfName 'DebugScriptCaller'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwDebugScriptCaller'
+
+ref; // ME_56F556CF0371 TtfwDebugScriptCaller
+
+FORWARD ME_A92FB72B3275
+
+: ME_5DBF5C8E6606
+ CONST UID '5DBF5C8E6606'
+ CONST Name 'DebugScriptCaller'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_A92FB72B3275 // MtfwDebugService
+ ;
+ : Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
+ ;
+
+ref; // ME_5DBF5C8E6606 DebugScriptCaller
+
+: ME_A92FB72B3275
+ CONST UID 'A92FB72B3275'
+ CONST Name 'MtfwDebugService'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TtfwDebugService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56F557030356 // TtfwDebugService
+ ;
+ : Operations
+   Seq: ( ME_5DBF5C8E6606 // DebugScriptCaller
+ )
+ ; // Operations
+
+ref; // ME_A92FB72B3275 MtfwDebugService
+
+FORWARD ME_CB29B8784B5F
+
+: ME_5DBF5C8E6606_ME_CB29B8784B5F
+ : Original ME_5DBF5C8E6606 // DebugScriptCaller
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5DBF5C8E6606_ME_CB29B8784B5F DebugScriptCaller
+
+: ME_CB29B8784B5F
+ CONST UID 'CB29B8784B5F'
+ CONST GUID '7662D5CA-0B56-4885-9CA3-C71B19B2379F'
+ CONST Name 'ItfwDebugService'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Интерфейс сервиса TtfwDebugService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56F557030356 // TtfwDebugService
+ ;
+ : Implements
+   Seq: ( ME_A92FB72B3275 // MtfwDebugService
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_5DBF5C8E6606_ME_CB29B8784B5F // DebugScriptCaller
+ )
+ ; // Implemented
+ CONST extprop:rc:SelfName 'DebugService'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_CB29B8784B5F ItfwDebugService
+
+: ME_CD3AD81C8E83
+ CONST UID 'CD3AD81C8E83'
+ CONST Name 'Alien'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Внешняя реализация сервиса ItfwDebugService' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_56F557030356 // TtfwDebugService
+ ;
+ : Target ME_CB29B8784B5F // ItfwDebugService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_CD3AD81C8E83 Alien
+
+: ME_56F557410186
+ CONST UID '56F557410186'
+ CONST Name 'DebugScriptCaller'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56F557030356 // TtfwDebugService
+ ;
+ : Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.pas.ms.script' // ItfwScriptCaller
+ ;
+
+ref; // ME_56F557410186 DebugScriptCaller
+
+: ME_5DBF5C8E6606_ME_56F557030356
+ : Original ME_5DBF5C8E6606 // DebugScriptCaller
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5DBF5C8E6606_ME_56F557030356 DebugScriptCaller
+
+: ME_56F557030356
+ CONST UID '56F557030356'
+ CONST Name 'TtfwDebugService'
+ CONST Class class_Class
+ : Stereotype st_Service ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DAEEA14018A // Scripting Axiomatics
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_A92FB72B3275 // MtfwDebugService
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_CD3AD81C8E83 // Alien
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_56F557410186 // DebugScriptCaller
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5DBF5C8E6606_ME_56F557030356 // DebugScriptCaller
+ )
+ ; // Implemented
+ : Children
+   Seq: ( ME_A92FB72B3275 // MtfwDebugService
+ ME_CB29B8784B5F // ItfwDebugService
+ )
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDebugService.pas'
+ CONST extprop:rc:SelfName 'DebugService'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwDebugService'
+
+ref; // ME_56F557030356 TtfwDebugService
+
 : ME_4DAEEA14018A
  CONST UID '4DAEEA14018A'
  CONST Name 'Scripting Axiomatics'
@@ -5082,6 +5632,9 @@ ref; // ME_567ACC1F028D kwKeyValuesPack
  ME_5673E7B00334 // kwCompiledProcedureWordsPack
  ME_567ACBF70376 // TkwKeyValues
  ME_567ACC1F028D // kwKeyValuesPack
+ ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ME_56F556CF0371 // TtfwDebugScriptCaller
+ ME_56F557030356 // TtfwDebugService
  )
  ; // Children
  : Depends
@@ -5115,6 +5668,7 @@ ref; // ME_567ACC1F028D kwKeyValuesPack
  WL 'ME_555F498C03BA' '555F498C03BA.pas.ms.script' // EtalonsServices
  WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ WL 'ME_55C481E00003' '55C481E00003.pas.ms.script' // ScriptCallers
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends

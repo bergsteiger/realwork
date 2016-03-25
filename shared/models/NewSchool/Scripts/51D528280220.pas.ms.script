@@ -64,29 +64,6 @@ ref; // ME_51D546640045 DoIt
 
 ref; // ME_51D5464D033C CheckControl
 
-: ME_8D2FE9FD9177
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_51D5285300B7 // TEmptyFormTest
- ;
- : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
- ;
-
-ref; // ME_8D2FE9FD9177 
-
-: ME_4C937013031D_ME_51D5285300B7
- : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4C937013031D_ME_51D5285300B7 GetFolder
-
-: ME_4DAED6F60146_ME_51D5285300B7
- : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAED6F60146_ME_51D5285300B7 GetModelElementGUID
-
 : ME_51D5285300B7
  CONST UID '51D5285300B7'
  CONST Name 'TEmptyFormTest'
@@ -114,15 +91,6 @@ ref; // ME_4DAED6F60146_ME_51D5285300B7 GetModelElementGUID
  ME_51D5464D033C // CheckControl
  )
  ; // Operations
- : Overridden
-   Seq: ( ME_4C937013031D_ME_51D5285300B7 // GetFolder
- ME_4DAED6F60146_ME_51D5285300B7 // GetModelElementGUID
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_8D2FE9FD9177 // 
- )
- ; // Dependencies
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -150,7 +118,6 @@ ref; // ME_51D5285300B7 TEmptyFormTest
  ; // Children
  : Depends
    Seq: ( WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
- WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
  WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
  WL 'ME_4B30C6E3023C' '4B30C6E3023C.pas.ms.script' // Forms
  WL 'ME_4BCE9EA0028A' '4BCE9EA0028A.pas.ms.script' // MixIns
