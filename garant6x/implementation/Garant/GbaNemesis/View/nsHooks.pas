@@ -1,101 +1,73 @@
 unit nsHooks;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsHooks.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Оболочка Без Прецедентов::F1 Without Usecases::View::Hooks::nsHooks
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsHooks.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsHooks" MUID: (4AA8D62102F5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  l3ProtoObject,
-  Windows
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3Interfaces
+ , Windows
+;
 
 type
  TnsHooks = {final} class(Tl3ProtoObject, Il3WndProcRetListener, Il3MouseListener)
- protected
- // realized methods
+  protected
    procedure MouseListenerNotify(aMouseMessage: WPARAM;
-     aHookStruct: PMouseHookStruct;
-     var theResult: Tl3HookProcResult);
+    aHookStruct: PMouseHookStruct;
+    var theResult: Tl3HookProcResult);
    procedure WndProcRetListenerNotify(Msg: PCWPRetStruct;
-     var theResult: Tl3HookProcResult);
- protected
- // overridden protected methods
+    var theResult: Tl3HookProcResult);
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsHooks;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsHooks }
  end;//TnsHooks
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  Messages
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  DataAdapter,
-  SysUtils,
-  l3ListenersManager
-  ;
+ l3ImplUses
+ , Messages
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , DataAdapter
+ , SysUtils
+ , l3ListenersManager
+ , l3Base
+;
 
-
-// start class TnsHooks
-
-var g_TnsHooks : TnsHooks = nil;
+var g_TnsHooks: TnsHooks = nil;
+ {* Экземпляр синглетона TnsHooks }
 
 procedure TnsHooksFree;
+ {* Метод освобождения экземпляра синглетона TnsHooks }
 begin
  l3Free(g_TnsHooks);
-end;
-
-class function TnsHooks.Instance: TnsHooks;
-begin
- if (g_TnsHooks = nil) then
- begin
-  l3System.AddExitProc(TnsHooksFree);
-  g_TnsHooks := Create;
- end;
- Result := g_TnsHooks;
-end;
-
+end;//TnsHooksFree
 
 class function TnsHooks.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsHooks <> nil;
 end;//TnsHooks.Exists
 
 procedure TnsHooks.MouseListenerNotify(aMouseMessage: WPARAM;
-  aHookStruct: PMouseHookStruct;
-  var theResult: Tl3HookProcResult);
+ aHookStruct: PMouseHookStruct;
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F79CEDF005A_4F7951BC01DF_var*
 const
  c_ServerNames: array [1..1] of string = ('Internet Explorer_Server');
@@ -119,7 +91,7 @@ begin
 end;//TnsHooks.MouseListenerNotify
 
 procedure TnsHooks.WndProcRetListenerNotify(Msg: PCWPRetStruct;
-  var theResult: Tl3HookProcResult);
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F79CF9200A0_4F7951BC01DF_var*
 //#UC END# *4F79CF9200A0_4F7951BC01DF_var*
 begin
@@ -145,7 +117,19 @@ begin
 //#UC END# *4F79CF9200A0_4F7951BC01DF_impl*
 end;//TnsHooks.WndProcRetListenerNotify
 
+class function TnsHooks.Instance: TnsHooks;
+ {* Метод получения экземпляра синглетона TnsHooks }
+begin
+ if (g_TnsHooks = nil) then
+ begin
+  l3System.AddExitProc(TnsHooksFree);
+  g_TnsHooks := Create;
+ end;
+ Result := g_TnsHooks;
+end;//TnsHooks.Instance
+
 procedure TnsHooks.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F7951BC01DF_var*
 //#UC END# *479731C50290_4F7951BC01DF_var*
 begin
@@ -166,13 +150,11 @@ begin
  Tl3ListenersManager.AddWndProcRetListener(Self);
 //#UC END# *47A042E100E2_4F7951BC01DF_impl*
 end;//TnsHooks.InitFields
-{$IfEnd} //not Admin AND not Monitorings
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
 //#UC START# *4F79540E0255*
  TnsHooks.Instance;
 //#UC END# *4F79540E0255*
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

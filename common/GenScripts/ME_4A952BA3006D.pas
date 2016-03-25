@@ -30,7 +30,7 @@ uses
 ;
 
 type
- TMainForm = class(TMainOptionsForm, Il3ItemNotifyRecipient, InsBaseSearchResultProcessor, InsBaseSearchDataReadyChecker, InsBaseSearchWindowOpener, InsBaseSearchQueryDataProcessor, Il3MouseWheelListener, InsIntegrationProcessor, InsNotificationListener, InsBaseSearchInitialStateProvider, Il3TabbedContainersListener, InsBaseSearcherProvider)
+ TMainForm = class(TMainOptionsForm, Il3ItemNotifyRecipient, InsBaseSearchResultProcessor, InsBaseSearchDataReadyChecker, InsBaseSearchQueryDataProcessor, Il3MouseWheelListener, InsIntegrationProcessor, InsNotificationListener, InsBaseSearchInitialStateProvider, Il3TabbedContainersListener, InsBaseSearcherProvider)
   {* Главная форма }
   private
    f_StartupTipsForm: IvcmEntityForm;
@@ -69,7 +69,6 @@ type
    procedure SearchResultEmpty(TryFullList: Boolean);
    procedure SearchResultExists;
    procedure AnotherSearchSuccessed;
-   procedure OpenWindow(OpenKind: TnsBaseSearchOpenKind);
    procedure SetDataFromQuery(const aQuery: IUnknown);
    procedure RequestFind;
    procedure RequestCheckFragmentsCount;
@@ -753,14 +752,14 @@ begin
 //#UC END# *496B4FD20320_4A952BA3006D_impl*
 end;//TMainForm.AnotherSearchSuccessed
 
-procedure TMainForm.OpenWindow(OpenKind: TnsBaseSearchOpenKind);
-//#UC START# *496B52D602EE_4A952BA3006D_var*
-//#UC END# *496B52D602EE_4A952BA3006D_var*
+procedure TMainForm.;
+//#UC START# *_4A952BA3006D_var*
+//#UC END# *_4A952BA3006D_var*
 begin
-//#UC START# *496B52D602EE_4A952BA3006D_impl*
- BaseSearcher.ShowWindowByUser(OpenKind);
-//#UC END# *496B52D602EE_4A952BA3006D_impl*
-end;//TMainForm.OpenWindow
+//#UC START# *_4A952BA3006D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *_4A952BA3006D_impl*
+end;//TMainForm.
 
 procedure TMainForm.SetDataFromQuery(const aQuery: IUnknown);
 //#UC START# *496B534B0098_4A952BA3006D_var*

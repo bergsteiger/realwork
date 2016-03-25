@@ -1,39 +1,32 @@
 unit nsSettingsUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsSettingsUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Оболочка Без Прецедентов::F1 Without Usecases::View::SettingsUtils::nsSettingsUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsSettingsUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsSettingsUtils" MUID: (4AD5BB450335)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3IntfUses
+;
+
+procedure InitialLoadStyleTableFromSettings;
 procedure LoadStyleTableFromSettings;
 procedure SaveStyleTableToSettings;
-procedure InitialLoadStyleTableFromSettings;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  ConfigInterfaces,
-  nsStyleEditor,
-  evDefaultStylesFontSizes
-  ;
-
-// unit methods
+ l3ImplUses
+ , ConfigInterfaces
+ , nsStyleEditor
+ , evDefaultStylesFontSizes
+;
 
 procedure InitialLoadStyleTableFromSettings;
 //#UC START# *4E32B50601F3_4AD5BB450335_var*
@@ -82,6 +75,6 @@ begin
  end;
 //#UC END# *4AD5BB7F00E5_4AD5BB450335_impl*
 end;//SaveStyleTableToSettings
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.
