@@ -1,161 +1,151 @@
 unit evTextParaTools;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evTextParaTools.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::ParaUtils::evTextParaTools
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTextParaTools.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evTextParaTools" MUID: (48D3AF8E024B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  l3Types,
-  nevBase,
-  l3InternalInterfaces,
-  evdTypes,
-  l3Base,
-  nevTools,
-  k2InterfacesEx,
-  l3LineArray,
-  l3Variant
-  ;
+ l3IntfUses
+ , nevTools
+ , l3Base
+ , nevBase
+ , evdTypes
+ , l3Variant
+ , l3Types
+ , k2InterfacesEx
+ , l3InternalInterfaces
+ , l3LineArray
+;
 
-function EvDir_InsertText(const aPara: InevTextPara;
-  aSt: Tl3CustomString;
-  aPos: Integer;
-  UpdateSegments: Boolean;
-  IncludeStart: Boolean = False;
-  const Context: InevOp = nil): Boolean;
-function EvDir_DeleteText(const aPara: InevTextPara;
-  aPos: Integer;
-  Count: Integer;
-  Deleted: PAnsiChar = nil;
-  const anOpPack: InevOp = nil): Boolean;
-procedure EvTextParaAddSegment(const aPara: InevTextPara;
-  aLayerHandle: TevSegmentHandle;
-  Segment: Tl3Tag;
-  const Container: InevOp = nil);
-   {* добавляет отрезок выделения. }
-procedure EvTextParaIterateLines(aMap: TnevFormatInfoPrim;
-  const aText: Tl3PCharLen;
-  const aPara: InevTextPara;
-  Action: Tl3IteratorAction;
-  I1: Tl3Index = l3MinIndex;
-  I2: Tl3Index = l3MaxIndex);
-function EvTextParaGetLine(const aMap: InevLines;
-  const aText: Tl3PCharLen;
-  var aIndex: Integer): Tl3PCharLen;
-function EvTextParaGetLineByPos(aMap: TnevFormatInfoPrim;
-  const aText: Tl3PCharLen;
-  aPos: Integer): Integer;
-   {* возвращает номер строки по смещению от начала параграфа. }
-function EvTextParaGetDeltaByPos(aMap: TnevFormatInfoPrim;
-  const aText: Tl3PCharLen;
-  const aPara: InevTextPara;
-  aPos: Integer;
-  L: Integer): Integer;
-   {* возвращает позицию в дюймах на смещении aPos символов с начала строки L. }
-function EvTextParaGetDeltaByLinePrim(aMap: TnevFormatInfoPrim;
-  const aPara: InevTextPara;
-  aLine: Integer): Integer;
-function EvTextParaGetDeltaByLine(aMap: TnevFormatInfoPrim;
-  const aPara: InevTextPara;
-  aLine: Integer): Integer;
-function EvTextParaGetPosByDelta(aMap: TnevFormatInfoPrim;
-  const aText: Tl3PCharLen;
-  const aPara: InevTextPara;
-  DX: Integer;
-  L: Integer): Integer; overload; 
-   {* возвращает позицию на смещении DХ с начала строки L. }
-function EvTextParaGetPosByLine(const aMap: InevLines;
-  const aText: Tl3PCharLen;
-  var L: Integer): Integer;
-   {* смещение строки L c начала параграфа. }
-procedure EvTextParaGetLineSegment(const aMap: InevLines;
-  const aText: Tl3PCharLen;
-  Li: Integer;
-  Si: Integer;
-  const L: Ik2TagList;
-  S1: Tl3CustomString;
-  S2: Tl3CustomString;
-  S3: Tl3CustomString);
-function EvTextParaGetLineSegments(aMap: TnevFormatInfoPrim;
-  const aText: Tl3PCharLen;
-  const aPara: InevTextPara;
-  Li: Integer): Ik2TagList;
-   {* возвращает индекс начального и конечного отрезков строки L
+function evDir_InsertText(const aPara: InevTextPara;
+ aSt: Tl3CustomString;
+ aPos: Integer;
+ UpdateSegments: Boolean;
+ IncludeStart: Boolean = False;
+ const Context: InevOp = nil): Boolean;
+function evDir_DeleteText(const aPara: InevTextPara;
+ aPos: Integer;
+ Count: Integer;
+ Deleted: PAnsiChar = nil;
+ const anOpPack: InevOp = nil): Boolean;
+procedure evTextParaAddSegment(const aPara: InevTextPara;
+ aLayerHandle: TevSegmentHandle;
+ Segment: Tl3Tag;
+ const Container: InevOp = nil);
+ {* добавляет отрезок выделения. }
+procedure evTextParaIterateLines(aMap: TnevFormatInfoPrim;
+ const aText: Tl3PCharLen;
+ const aPara: InevTextPara;
+ Action: Tl3IteratorAction;
+ I1: Tl3Index = l3MinIndex;
+ I2: Tl3Index = l3MaxIndex);
+function evTextParaGetLine(const aMap: InevLines;
+ const aText: Tl3PCharLen;
+ var aIndex: Integer): Tl3PCharLen;
+function evTextParaGetLineByPos(aMap: TnevFormatInfoPrim;
+ const aText: Tl3PCharLen;
+ aPos: Integer): Integer;
+ {* возвращает номер строки по смещению от начала параграфа. }
+function evTextParaGetDeltaByPos(aMap: TnevFormatInfoPrim;
+ const aText: Tl3PCharLen;
+ const aPara: InevTextPara;
+ aPos: Integer;
+ L: Integer): Integer;
+ {* возвращает позицию в дюймах на смещении aPos символов с начала строки L. }
+function evTextParaGetDeltaByLinePrim(aMap: TnevFormatInfoPrim;
+ const aPara: InevTextPara;
+ aLine: Integer): Integer;
+function evTextParaGetDeltaByLine(aMap: TnevFormatInfoPrim;
+ const aPara: InevTextPara;
+ aLine: Integer): Integer;
+function evTextParaGetPosByDelta(aMap: TnevFormatInfoPrim;
+ const aText: Tl3PCharLen;
+ const aPara: InevTextPara;
+ DX: Integer;
+ L: Integer): Integer; overload;
+ {* возвращает позицию на смещении DХ с начала строки L. }
+function evTextParaGetPosByLine(const aMap: InevLines;
+ const aText: Tl3PCharLen;
+ var L: Integer): Integer;
+ {* смещение строки L c начала параграфа. }
+procedure evTextParaGetLineSegment(const aMap: InevLines;
+ const aText: Tl3PCharLen;
+ Li: Integer;
+ Si: Integer;
+ const L: Ik2TagList;
+ S1: Tl3CustomString;
+ S2: Tl3CustomString;
+ S3: Tl3CustomString);
+function evTextParaGetLineSegments(aMap: TnevFormatInfoPrim;
+ const aText: Tl3PCharLen;
+ const aPara: InevTextPara;
+ Li: Integer): Ik2TagList;
+ {* возвращает индекс начального и конечного отрезков строки L
 SS = -1 если отрезков в строке нет. }
-procedure EvTextParaSetFontParam(const aPara: InevTextPara;
-  anAtom: Integer;
-  aValue: Tl3Variant;
-  const Container: InevOp = nil);
-function EvTextParaLineCount(aMap: TnevFormatInfoPrim): Integer;
-function EvTextParaViewBounds(const aMap: InevMap;
-  const aText: Tl3PCharLen;
-  const aPara: InevTextPara;
-  aPosInLine: Integer;
-  aLine: Integer): TnevRect;
-function EvTextParaGetPosByDelta(aMap: TnevFormatInfoPrim;
-  const aText: Tl3PCharLen;
-  const aPara: InevTextPara;
-  const IC: Il3InfoCanvas;
-  DX: Integer;
-  const PL: Tl3PCharLen;
-  InLI: PevLineInfo;
-  L: Integer): Integer; overload; 
-function EvTextParaGetPosByDelta(aMap: TnevFormatInfoPrim;
-  const aText: Tl3PCharLen;
-  const aPara: InevTextPara;
-  DX: Integer;
-  const PL: Tl3PCharLen;
-  InLI: PevLineInfo;
-  L: Integer): Integer; overload; 
-function EvGetFirstParaHyperlink(const aPara: InevPara;
-  aMap: TnevFormatInfoPrim): Tl3Variant;
-{$IfEnd} //k2ForEditor
+procedure evTextParaSetFontParam(const aPara: InevTextPara;
+ anAtom: Integer;
+ aValue: Tl3Variant;
+ const Container: InevOp = nil);
+function evTextParaLineCount(aMap: TnevFormatInfoPrim): Integer;
+function evTextParaViewBounds(const aMap: InevMap;
+ const aText: Tl3PCharLen;
+ const aPara: InevTextPara;
+ aPosInLine: Integer;
+ aLine: Integer): TnevRect;
+function evTextParaGetPosByDelta(aMap: TnevFormatInfoPrim;
+ const aText: Tl3PCharLen;
+ const aPara: InevTextPara;
+ const IC: Il3InfoCanvas;
+ DX: Integer;
+ const PL: Tl3PCharLen;
+ InLI: PevLineInfo;
+ L: Integer): Integer; overload;
+function evTextParaGetPosByDelta(aMap: TnevFormatInfoPrim;
+ const aText: Tl3PCharLen;
+ const aPara: InevTextPara;
+ DX: Integer;
+ const PL: Tl3PCharLen;
+ InLI: PevLineInfo;
+ L: Integer): Integer; overload;
+function evGetFirstParaHyperlink(const aPara: InevPara;
+ aMap: TnevFormatInfoPrim): Tl3Variant;
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2Tags,
-  l3Utils,
-  ObjectSegment_Const,
-  k2Base,
-  evSegLst,
-  evParaTools,
-  evSegOp,
-  l3String,
-  l3Chars,
-  l3SingleLineInfo,
-  evTypes,
-  l3Interfaces,
-  nevSegmentObject,
-  TableCell_Const,
-  evAlignBySeparatorUtils,
-  nevStringCache,
-  l3MinMax,
-  k2InterfacedTagList,
-  l3Units,
-  nevFacade,
-  evChangeCodePage
-  ;
-
-// unit methods
+ l3ImplUses
+ , k2Tags
+ , l3Utils
+ , ObjectSegment_Const
+ , k2Base
+ , evSegLst
+ , evParaTools
+ , evSegOp
+ , l3String
+ , l3Chars
+ , l3SingleLineInfo
+ , evTypes
+ , l3Interfaces
+ , nevSegmentObject
+ , TableCell_Const
+ , evAlignBySeparatorUtils
+ , nevStringCache
+ , l3MinMax
+ , k2InterfacedTagList
+ , l3Units
+ , nevFacade
+ , evChangeCodePage
+;
 
 function GetD2S(var WC: Integer;
-  var DW: Integer): Integer;
+ var DW: Integer): Integer;
 //#UC START# *529EFA5601C3_48D3AF8E024B_var*
 //#UC END# *529EFA5601C3_48D3AF8E024B_var*
 begin
@@ -174,8 +164,8 @@ begin
 //#UC END# *529EFA5601C3_48D3AF8E024B_impl*
 end;//GetD2S
 
-function EvTextParaGetLineWordCount(const aMap: InevLines;
-  aIndex: Integer): Integer;
+function evTextParaGetLineWordCount(const aMap: InevLines;
+ aIndex: Integer): Integer;
 //#UC START# *529F07BE0069_48D3AF8E024B_var*
 var
  l_O: TObject;
@@ -193,12 +183,12 @@ begin
  else
   Result := 0;
 //#UC END# *529F07BE0069_48D3AF8E024B_impl*
-end;//EvTextParaGetLineWordCount
+end;//evTextParaGetLineWordCount
 
-procedure EvTextParaSetFontParamPrim(const aPara: InevTextPara;
-  P: Integer;
-  aValue: Tl3Variant;
-  const aContext: InevOp);
+procedure evTextParaSetFontParamPrim(const aPara: InevTextPara;
+ P: Integer;
+ aValue: Tl3Variant;
+ const aContext: InevOp);
 //#UC START# *529F149200A7_48D3AF8E024B_var*
 var
  l_Segments: Tl3Variant;
@@ -246,14 +236,14 @@ begin
   end;//l_Prop <> nil..
  end;//with aPara
 //#UC END# *529F149200A7_48D3AF8E024B_impl*
-end;//EvTextParaSetFontParamPrim
+end;//evTextParaSetFontParamPrim
 
-function EvDir_InsertText(const aPara: InevTextPara;
-  aSt: Tl3CustomString;
-  aPos: Integer;
-  UpdateSegments: Boolean;
-  IncludeStart: Boolean = False;
-  const Context: InevOp = nil): Boolean;
+function evDir_InsertText(const aPara: InevTextPara;
+ aSt: Tl3CustomString;
+ aPos: Integer;
+ UpdateSegments: Boolean;
+ IncludeStart: Boolean = False;
+ const Context: InevOp = nil): Boolean;
 //#UC START# *5299C1960391_48D3AF8E024B_var*
  procedure UpdateInsertion(aPos, Len: Long);
    {-}
@@ -338,13 +328,13 @@ begin
    aPara.Invalidate([nev_spExtent]);
  end;//Result
 //#UC END# *5299C1960391_48D3AF8E024B_impl*
-end;//EvDir_InsertText
+end;//evDir_InsertText
 
-function EvDir_DeleteText(const aPara: InevTextPara;
-  aPos: Integer;
-  Count: Integer;
-  Deleted: PAnsiChar = nil;
-  const anOpPack: InevOp = nil): Boolean;
+function evDir_DeleteText(const aPara: InevTextPara;
+ aPos: Integer;
+ Count: Integer;
+ Deleted: PAnsiChar = nil;
+ const anOpPack: InevOp = nil): Boolean;
 //#UC START# *5299C235026F_48D3AF8E024B_var*
  procedure UpdateDeletion(aPos, Len: Long);
 
@@ -490,12 +480,13 @@ begin
   end;//aPos < l_Text.Len
  end;//not l_Text.Empty
 //#UC END# *5299C235026F_48D3AF8E024B_impl*
-end;//EvDir_DeleteText
+end;//evDir_DeleteText
 
-procedure EvTextParaAddSegment(const aPara: InevTextPara;
-  aLayerHandle: TevSegmentHandle;
-  Segment: Tl3Tag;
-  const Container: InevOp = nil);
+procedure evTextParaAddSegment(const aPara: InevTextPara;
+ aLayerHandle: TevSegmentHandle;
+ Segment: Tl3Tag;
+ const Container: InevOp = nil);
+ {* добавляет отрезок выделения. }
 //#UC START# *5299C2A8012B_48D3AF8E024B_var*
 var
  l_Text: Tl3PCharLen;
@@ -531,14 +522,14 @@ begin
   end;//Segment.IntA[k2_tiStart] <= Segment.IntA[k2_tiFinish]
  end;//not l_Text.Empty
 //#UC END# *5299C2A8012B_48D3AF8E024B_impl*
-end;//EvTextParaAddSegment
+end;//evTextParaAddSegment
 
-procedure EvTextParaIterateLines(aMap: TnevFormatInfoPrim;
-  const aText: Tl3PCharLen;
-  const aPara: InevTextPara;
-  Action: Tl3IteratorAction;
-  I1: Tl3Index = l3MinIndex;
-  I2: Tl3Index = l3MaxIndex);
+procedure evTextParaIterateLines(aMap: TnevFormatInfoPrim;
+ const aText: Tl3PCharLen;
+ const aPara: InevTextPara;
+ Action: Tl3IteratorAction;
+ I1: Tl3Index = l3MinIndex;
+ I2: Tl3Index = l3MaxIndex);
 //#UC START# *5299C2F90260_48D3AF8E024B_var*
 var
  l_PrevLineInfo: PevLineInfo;
@@ -634,11 +625,11 @@ begin
   end;//l_O is TevLineArray
  end;//not aMap.rMap.IsValid
 //#UC END# *5299C2F90260_48D3AF8E024B_impl*
-end;//EvTextParaIterateLines
+end;//evTextParaIterateLines
 
-function EvTextParaGetLine(const aMap: InevLines;
-  const aText: Tl3PCharLen;
-  var aIndex: Integer): Tl3PCharLen;
+function evTextParaGetLine(const aMap: InevLines;
+ const aText: Tl3PCharLen;
+ var aIndex: Integer): Tl3PCharLen;
 //#UC START# *5299C3AD0239_48D3AF8E024B_var*
 var
  l_O: TObject;                           
@@ -668,11 +659,12 @@ begin
    Result := aText;
  end;//l_Text.Empty
 //#UC END# *5299C3AD0239_48D3AF8E024B_impl*
-end;//EvTextParaGetLine
+end;//evTextParaGetLine
 
-function EvTextParaGetLineByPos(aMap: TnevFormatInfoPrim;
-  const aText: Tl3PCharLen;
-  aPos: Integer): Integer;
+function evTextParaGetLineByPos(aMap: TnevFormatInfoPrim;
+ const aText: Tl3PCharLen;
+ aPos: Integer): Integer;
+ {* возвращает номер строки по смещению от начала параграфа. }
 //#UC START# *5299C3E90278_48D3AF8E024B_var*
 var
  LID: Long;
@@ -717,13 +709,14 @@ begin
   if (Result < 1) then Result := 1;
  end//aPos <= 0
 //#UC END# *5299C3E90278_48D3AF8E024B_impl*
-end;//EvTextParaGetLineByPos
+end;//evTextParaGetLineByPos
 
-function EvTextParaGetDeltaByPos(aMap: TnevFormatInfoPrim;
-  const aText: Tl3PCharLen;
-  const aPara: InevTextPara;
-  aPos: Integer;
-  L: Integer): Integer;
+function evTextParaGetDeltaByPos(aMap: TnevFormatInfoPrim;
+ const aText: Tl3PCharLen;
+ const aPara: InevTextPara;
+ aPos: Integer;
+ L: Integer): Integer;
+ {* возвращает позицию в дюймах на смещении aPos символов с начала строки L. }
 //#UC START# *5299C4EF03B7_48D3AF8E024B_var*
 var
  CN: Il3InfoCanvas;
@@ -967,11 +960,11 @@ begin
    end;//try..finally
   end;//with aPara
 //#UC END# *5299C4EF03B7_48D3AF8E024B_impl*
-end;//EvTextParaGetDeltaByPos
+end;//evTextParaGetDeltaByPos
 
-function EvTextParaGetDeltaByLinePrim(aMap: TnevFormatInfoPrim;
-  const aPara: InevTextPara;
-  aLine: Integer): Integer;
+function evTextParaGetDeltaByLinePrim(aMap: TnevFormatInfoPrim;
+ const aPara: InevTextPara;
+ aLine: Integer): Integer;
 //#UC START# *5299C52501E3_48D3AF8E024B_var*
 var
  l_Result: Integer absolute Result;
@@ -998,11 +991,11 @@ begin
   end;//try..finally
  end;//aLine > 0
 //#UC END# *5299C52501E3_48D3AF8E024B_impl*
-end;//EvTextParaGetDeltaByLinePrim
+end;//evTextParaGetDeltaByLinePrim
 
-function EvTextParaGetDeltaByLine(aMap: TnevFormatInfoPrim;
-  const aPara: InevTextPara;
-  aLine: Integer): Integer;
+function evTextParaGetDeltaByLine(aMap: TnevFormatInfoPrim;
+ const aPara: InevTextPara;
+ aLine: Integer): Integer;
 //#UC START# *5299C54E02CD_48D3AF8E024B_var*
 //#UC END# *5299C54E02CD_48D3AF8E024B_var*
 begin
@@ -1015,13 +1008,14 @@ begin
  else
   Result := 0;
 //#UC END# *5299C54E02CD_48D3AF8E024B_impl*
-end;//EvTextParaGetDeltaByLine
+end;//evTextParaGetDeltaByLine
 
-function EvTextParaGetPosByDelta(aMap: TnevFormatInfoPrim;
-  const aText: Tl3PCharLen;
-  const aPara: InevTextPara;
-  DX: Integer;
-  L: Integer): Integer;
+function evTextParaGetPosByDelta(aMap: TnevFormatInfoPrim;
+ const aText: Tl3PCharLen;
+ const aPara: InevTextPara;
+ DX: Integer;
+ L: Integer): Integer;
+ {* возвращает позицию на смещении DХ с начала строки L. }
 //#UC START# *5299C580016A_48D3AF8E024B_var*
 var
  PL: Tl3PCharLen;
@@ -1122,11 +1116,12 @@ begin
    end;//L > 0..}
   end;//with aPara
 //#UC END# *5299C580016A_48D3AF8E024B_impl*
-end;//EvTextParaGetPosByDelta
+end;//evTextParaGetPosByDelta
 
-function EvTextParaGetPosByLine(const aMap: InevLines;
-  const aText: Tl3PCharLen;
-  var L: Integer): Integer;
+function evTextParaGetPosByLine(const aMap: InevLines;
+ const aText: Tl3PCharLen;
+ var L: Integer): Integer;
+ {* смещение строки L c начала параграфа. }
 //#UC START# *5299C5F601CA_48D3AF8E024B_var*
 var
  PL: Tl3PCharLen;
@@ -1149,16 +1144,16 @@ begin
   end;//l3IsNil(aText)
  end;//L <= 1
 //#UC END# *5299C5F601CA_48D3AF8E024B_impl*
-end;//EvTextParaGetPosByLine
+end;//evTextParaGetPosByLine
 
-procedure EvTextParaGetLineSegment(const aMap: InevLines;
-  const aText: Tl3PCharLen;
-  Li: Integer;
-  Si: Integer;
-  const L: Ik2TagList;
-  S1: Tl3CustomString;
-  S2: Tl3CustomString;
-  S3: Tl3CustomString);
+procedure evTextParaGetLineSegment(const aMap: InevLines;
+ const aText: Tl3PCharLen;
+ Li: Integer;
+ Si: Integer;
+ const L: Ik2TagList;
+ S1: Tl3CustomString;
+ S2: Tl3CustomString;
+ S3: Tl3CustomString);
 //#UC START# *5299C64702E6_48D3AF8E024B_var*
 var
  B1, B2: Long;
@@ -1211,12 +1206,14 @@ begin
    with evTextParaGetLine(aMap, aText, Li)
     do S1.AssignSt(aText.S, 0, SLen, aText.SCodePage);
 //#UC END# *5299C64702E6_48D3AF8E024B_impl*
-end;//EvTextParaGetLineSegment
+end;//evTextParaGetLineSegment
 
-function EvTextParaGetLineSegments(aMap: TnevFormatInfoPrim;
-  const aText: Tl3PCharLen;
-  const aPara: InevTextPara;
-  Li: Integer): Ik2TagList;
+function evTextParaGetLineSegments(aMap: TnevFormatInfoPrim;
+ const aText: Tl3PCharLen;
+ const aPara: InevTextPara;
+ Li: Integer): Ik2TagList;
+ {* возвращает индекс начального и конечного отрезков строки L
+SS = -1 если отрезков в строке нет. }
 //#UC START# *5299C6810392_48D3AF8E024B_var*
 var
  l_List : Tk2InterfacedTagList;
@@ -1271,12 +1268,12 @@ begin
   end;
  end;//aMap = nil
 //#UC END# *5299C6810392_48D3AF8E024B_impl*
-end;//EvTextParaGetLineSegments
+end;//evTextParaGetLineSegments
 
-procedure EvTextParaSetFontParam(const aPara: InevTextPara;
-  anAtom: Integer;
-  aValue: Tl3Variant;
-  const Container: InevOp = nil);
+procedure evTextParaSetFontParam(const aPara: InevTextPara;
+ anAtom: Integer;
+ aValue: Tl3Variant;
+ const Container: InevOp = nil);
 //#UC START# *5299C6B30321_48D3AF8E024B_var*
 var
  l_S: Tl3PCharLen;
@@ -1294,9 +1291,9 @@ begin
   OevChangeCodePage.ToUndo(Container, l_S.SCodePage, l_Text.CodePage, l_Text);
  end;//l_S.Empty
 //#UC END# *5299C6B30321_48D3AF8E024B_impl*
-end;//EvTextParaSetFontParam
+end;//evTextParaSetFontParam
 
-function EvTextParaLineCount(aMap: TnevFormatInfoPrim): Integer;
+function evTextParaLineCount(aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *5299C6C9020D_48D3AF8E024B_var*
 //#UC END# *5299C6C9020D_48D3AF8E024B_var*
 begin
@@ -1306,13 +1303,13 @@ begin
  else
   Result := 1;
 //#UC END# *5299C6C9020D_48D3AF8E024B_impl*
-end;//EvTextParaLineCount
+end;//evTextParaLineCount
 
-function EvTextParaViewBounds(const aMap: InevMap;
-  const aText: Tl3PCharLen;
-  const aPara: InevTextPara;
-  aPosInLine: Integer;
-  aLine: Integer): TnevRect;
+function evTextParaViewBounds(const aMap: InevMap;
+ const aText: Tl3PCharLen;
+ const aPara: InevTextPara;
+ aPosInLine: Integer;
+ aLine: Integer): TnevRect;
 //#UC START# *5299C7050151_48D3AF8E024B_var*
 var
  l_FI: TInevFormatInfoRet;
@@ -1330,16 +1327,16 @@ begin
   Result.Right := Result.Left;
  end; 
 //#UC END# *5299C7050151_48D3AF8E024B_impl*
-end;//EvTextParaViewBounds
+end;//evTextParaViewBounds
 
-function EvTextParaGetPosByDelta(aMap: TnevFormatInfoPrim;
-  const aText: Tl3PCharLen;
-  const aPara: InevTextPara;
-  const IC: Il3InfoCanvas;
-  DX: Integer;
-  const PL: Tl3PCharLen;
-  InLI: PevLineInfo;
-  L: Integer): Integer;
+function evTextParaGetPosByDelta(aMap: TnevFormatInfoPrim;
+ const aText: Tl3PCharLen;
+ const aPara: InevTextPara;
+ const IC: Il3InfoCanvas;
+ DX: Integer;
+ const PL: Tl3PCharLen;
+ InLI: PevLineInfo;
+ L: Integer): Integer;
 //#UC START# *529F090703D7_48D3AF8E024B_var*
 var
  l_Continue: Bool;
@@ -1592,15 +1589,15 @@ begin
   end;//IC <> nil
  end;//not l3IsNil(PL)
 //#UC END# *529F090703D7_48D3AF8E024B_impl*
-end;//EvTextParaGetPosByDelta
+end;//evTextParaGetPosByDelta
 
-function EvTextParaGetPosByDelta(aMap: TnevFormatInfoPrim;
-  const aText: Tl3PCharLen;
-  const aPara: InevTextPara;
-  DX: Integer;
-  const PL: Tl3PCharLen;
-  InLI: PevLineInfo;
-  L: Integer): Integer;
+function evTextParaGetPosByDelta(aMap: TnevFormatInfoPrim;
+ const aText: Tl3PCharLen;
+ const aPara: InevTextPara;
+ DX: Integer;
+ const PL: Tl3PCharLen;
+ InLI: PevLineInfo;
+ L: Integer): Integer;
 //#UC START# *529F095900AD_48D3AF8E024B_var*
 var
  l_CN: Il3InfoCanvas;
@@ -1625,10 +1622,10 @@ begin
   l_CN := nil;
  end;//try..finally
 //#UC END# *529F095900AD_48D3AF8E024B_impl*
-end;//EvTextParaGetPosByDelta
+end;//evTextParaGetPosByDelta
 
-function EvGetFirstParaHyperlink(const aPara: InevPara;
-  aMap: TnevFormatInfoPrim): Tl3Variant;
+function evGetFirstParaHyperlink(const aPara: InevPara;
+ aMap: TnevFormatInfoPrim): Tl3Variant;
 //#UC START# *552FA1440245_48D3AF8E024B_var*
 var
  l_Text           : Tl3Variant;
@@ -1653,7 +1650,7 @@ begin
   end; // if l_Text.IsValid and not l_Text.Empty then
  end; // if (ParaX.PID = 0) and ParaX.OwnerPara.IsValid and EvExpandedText(ParaX.OwnerPara.AsObject) then
 //#UC END# *552FA1440245_48D3AF8E024B_impl*
-end;//EvGetFirstParaHyperlink
-{$IfEnd} //k2ForEditor
+end;//evGetFirstParaHyperlink
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

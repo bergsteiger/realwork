@@ -1,91 +1,79 @@
 unit evTableTools;
+ {* Всякие полезные инструменты для работы с таблицами. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evTableTools.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::CellUtils::evTableTools
-//
-// Всякие полезные инструменты для работы с таблицами.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableTools.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evTableTools" MUID: (4F2B77C00327)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  nevTools,
-  evEditorInterfaces
-  ;
+ l3IntfUses
+ , evEditorInterfaces
+ , l3Interfaces
+ , nevTools
+;
 
- {$If not defined(Nemesis)}
-function EvMakeTableRegular(const aRange: IedRange;
-  const aProgress: Il3Progress = nil): Boolean; overload; 
-   {* делает таблицу "регулярной" структуры, т.е. подгоняет ширины ячеек. }
- {$IfEnd} //not Nemesis
- {$If not defined(Nemesis)}
-function EvTableFixNSRCWidth(const aRange: IedRange;
-  aWidth: LongInt = 0): Boolean; overload; 
-   {* устанавливает ширину колонки таблицы для выливки в NSRC. }
- {$IfEnd} //not Nemesis
- {$If not defined(Nemesis)}
-function EvTableFixNSRCWidth(const aColumnsIterator: IedColumnsIterator;
-  aWidth: LongInt = 0): Boolean; overload; 
- {$IfEnd} //not Nemesis
- {$If not defined(Nemesis)}
-function EvTableFixNSRCWidth(const aColumn: IedColumn;
-  aWidth: LongInt = 0): Boolean; overload; 
- {$IfEnd} //not Nemesis
- {$If not defined(Nemesis)}
-function EvMakeTableRegular(const aTable: IedTable;
-  aSeparateOp: Boolean;
-  const aProgress: Il3Progress = nil): Boolean; overload; 
- {$IfEnd} //not Nemesis
-function EvTableGetNeighbour(const aView: InevView;
-  const aCell: InevPara;
-  anUp: TevNeighbourPos): InevPara;
+{$If NOT Defined(Nemesis)}
+function evMakeTableRegular(const aRange: IedRange;
+ const aProgress: Il3Progress = nil): Boolean; overload;
+ {* делает таблицу "регулярной" структуры, т.е. подгоняет ширины ячеек. }
+{$IfEnd} // NOT Defined(Nemesis)
+{$If NOT Defined(Nemesis)}
+function evTable_FixNSRCWidth(const aRange: IedRange;
+ aWidth: LongInt = 0): Boolean; overload;
+ {* устанавливает ширину колонки таблицы для выливки в NSRC. }
+{$IfEnd} // NOT Defined(Nemesis)
+{$If NOT Defined(Nemesis)}
+function evTable_FixNSRCWidth(const aColumnsIterator: IedColumnsIterator;
+ aWidth: LongInt = 0): Boolean; overload;
+{$IfEnd} // NOT Defined(Nemesis)
+{$If NOT Defined(Nemesis)}
+function evTable_FixNSRCWidth(const aColumn: IedColumn;
+ aWidth: LongInt = 0): Boolean; overload;
+{$IfEnd} // NOT Defined(Nemesis)
+{$If NOT Defined(Nemesis)}
+function evMakeTableRegular(const aTable: IedTable;
+ aSeparateOp: Boolean;
+ const aProgress: Il3Progress = nil): Boolean; overload;
+{$IfEnd} // NOT Defined(Nemesis)
+function evTable_GetNeighbour(const aView: InevView;
+ const aCell: InevPara;
+ anUp: TevNeighbourPos): InevPara;
 
 implementation
 
 uses
-  k2Interfaces,
-  l3CustomString,
-  evCellsWidthCorrecter,
-  l3Base,
-  evMsgCode,
-  afwFacade,
-  k2Op,
-  evExcept,
-  l3MinMax,
-  l3String,
-  l3Chars,
-  l3UnitsTools,
-  l3InterfacesMisc
-  {$If defined(k2ForEditor)}
-  ,
-  evTableCellUtils
-  {$IfEnd} //k2ForEditor
-  ,
-  evOp,
-  evConst,
-  nevFacade,
-  k2Tags,
-  l3Variant
-  ;
+ l3ImplUses
+ , k2Tags
+ , l3Variant
+ , k2Interfaces
+ , l3CustomString
+ , evCellsWidthCorrecter
+ , l3Base
+ , evMsgCode
+ , afwFacade
+ , k2Op
+ , evExcept
+ , l3MinMax
+ , l3String
+ , l3Chars
+ , l3UnitsTools
+ , l3InterfacesMisc
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
+ , evOp
+ , evConst
+ , nevFacade
+;
 
-// unit methods
-
-{$If not defined(Nemesis)}
-function EvTableCalculateNSRCWidth(const aColumn: IedColumn;
-  out theWidth: LongInt): Boolean;
+{$If NOT Defined(Nemesis)}
+function evTable_CalculateNSRCWidth(const aColumn: IedColumn;
+ out theWidth: LongInt): Boolean;
+ {* вычисляет ширину колонки таблицы для выливки в NSRC. }
 //#UC START# *4F2B7DD502A3_4F2B77C00327_var*
 var
  l_MaxWidth : LongInt;
@@ -143,11 +131,11 @@ begin
    end;//try..finally
  end;//aColumn <> nil 
 //#UC END# *4F2B7DD502A3_4F2B77C00327_impl*
-end;//EvTableCalculateNSRCWidth
-{$IfEnd} //not Nemesis
+end;//evTable_CalculateNSRCWidth
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$If not defined(Nemesis)}
-procedure EvCheckTableRegular(const aTable: IedTable);
+{$If NOT Defined(Nemesis)}
+procedure evCheckTableRegular(const aTable: IedTable);
 //#UC START# *4F2BBCB400BF_4F2B77C00327_var*
 var
  l_Iterator    : IedColumnsIterator;
@@ -180,12 +168,13 @@ begin
  if l_MakeRegular then
   evMakeTableRegular(aTable, False);
 //#UC END# *4F2BBCB400BF_4F2B77C00327_impl*
-end;//EvCheckTableRegular
-{$IfEnd} //not Nemesis
+end;//evCheckTableRegular
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$If not defined(Nemesis)}
-function EvMakeTableRegular(const aRange: IedRange;
-  const aProgress: Il3Progress = nil): Boolean;
+{$If NOT Defined(Nemesis)}
+function evMakeTableRegular(const aRange: IedRange;
+ const aProgress: Il3Progress = nil): Boolean;
+ {* делает таблицу "регулярной" структуры, т.е. подгоняет ширины ячеек. }
 //#UC START# *4F2B77FD0024_4F2B77C00327_var*
 //#UC END# *4F2B77FD0024_4F2B77C00327_var*
 begin
@@ -195,12 +184,13 @@ begin
  else
   Result := evMakeTableRegular(aRange.Table, True, aProgress);
 //#UC END# *4F2B77FD0024_4F2B77C00327_impl*
-end;//EvMakeTableRegular
-{$IfEnd} //not Nemesis
+end;//evMakeTableRegular
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$If not defined(Nemesis)}
-function EvTableFixNSRCWidth(const aRange: IedRange;
-  aWidth: LongInt = 0): Boolean;
+{$If NOT Defined(Nemesis)}
+function evTable_FixNSRCWidth(const aRange: IedRange;
+ aWidth: LongInt = 0): Boolean;
+ {* устанавливает ширину колонки таблицы для выливки в NSRC. }
 //#UC START# *4F2B781C0164_4F2B77C00327_var*
 var
  l_Table : IedTable;
@@ -241,12 +231,12 @@ begin
   end;//l_Table <> nil
  end;//aRange <> nil
 //#UC END# *4F2B781C0164_4F2B77C00327_impl*
-end;//EvTableFixNSRCWidth
-{$IfEnd} //not Nemesis
+end;//evTable_FixNSRCWidth
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$If not defined(Nemesis)}
-function EvTableFixNSRCWidth(const aColumnsIterator: IedColumnsIterator;
-  aWidth: LongInt = 0): Boolean;
+{$If NOT Defined(Nemesis)}
+function evTable_FixNSRCWidth(const aColumnsIterator: IedColumnsIterator;
+ aWidth: LongInt = 0): Boolean;
 //#UC START# *4F2BBD58017D_4F2B77C00327_var*
 var
  l_Column : IedColumn;
@@ -271,12 +261,12 @@ begin
   end;
  end;//aColumnsIterator <> nil
 //#UC END# *4F2BBD58017D_4F2B77C00327_impl*
-end;//EvTableFixNSRCWidth
-{$IfEnd} //not Nemesis
+end;//evTable_FixNSRCWidth
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$If not defined(Nemesis)}
-function EvTableFixNSRCWidth(const aColumn: IedColumn;
-  aWidth: LongInt = 0): Boolean;
+{$If NOT Defined(Nemesis)}
+function evTable_FixNSRCWidth(const aColumn: IedColumn;
+ aWidth: LongInt = 0): Boolean;
 //#UC START# *4F2BBD9400E2_4F2B77C00327_var*
 var
  l_Width : LongInt;
@@ -299,25 +289,25 @@ begin
  if Result then
   aColumn.Width := l_Width;
 //#UC END# *4F2BBD9400E2_4F2B77C00327_impl*
-end;//EvTableFixNSRCWidth
-{$IfEnd} //not Nemesis
+end;//evTable_FixNSRCWidth
+{$IfEnd} // NOT Defined(Nemesis)
 
-{$If not defined(Nemesis)}
-function EvMakeTableRegular(const aTable: IedTable;
-  aSeparateOp: Boolean;
-  const aProgress: Il3Progress = nil): Boolean;
+{$If NOT Defined(Nemesis)}
+function evMakeTableRegular(const aTable: IedTable;
+ aSeparateOp: Boolean;
+ const aProgress: Il3Progress = nil): Boolean;
 //#UC START# *4F2BBFAC0192_4F2B77C00327_var*
 //#UC END# *4F2BBFAC0192_4F2B77C00327_var*
 begin
 //#UC START# *4F2BBFAC0192_4F2B77C00327_impl*
  Result := TevCellsWidthCorrecter.DoCorrection(aTable, nil, aSeparateOp, aProgress);
 //#UC END# *4F2BBFAC0192_4F2B77C00327_impl*
-end;//EvMakeTableRegular
-{$IfEnd} //not Nemesis
+end;//evMakeTableRegular
+{$IfEnd} // NOT Defined(Nemesis)
 
-function EvTableGetNeighbour(const aView: InevView;
-  const aCell: InevPara;
-  anUp: TevNeighbourPos): InevPara;
+function evTable_GetNeighbour(const aView: InevView;
+ const aCell: InevPara;
+ anUp: TevNeighbourPos): InevPara;
 //#UC START# *4F2BC0450156_4F2B77C00327_var*
 var
  l_RowCursor  : InevBasePoint;
@@ -369,6 +359,6 @@ begin
   l_Point := nil;
  end;//try..finally
 //#UC END# *4F2BC0450156_4F2B77C00327_impl*
-end;//EvTableGetNeighbour
+end;//evTable_GetNeighbour
 
 end.

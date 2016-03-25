@@ -1,47 +1,33 @@
 unit evRange;
+ {* Реализация интерфейса IedRange }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evRange.pas"
-// Начат: 20.06.2000 17:53
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Editors::evRange
-//
-// Реализация интерфейса IedRange
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evRange.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evRange" MUID: (48E385660374)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  k2ProcTagTool,
-  nevTools,
-  evEditorInterfaces,
-  nevNavigation,
-  l3Interfaces,
-  Windows
-  ;
+ l3IntfUses
+ , k2ProcTagTool
+ , evEditorInterfaces
+ , nevTools
+ , nevBase
+ , nevNavigation
+ , l3Interfaces
+ , Windows
+;
 
 type
  TedRangeImplementation = class(Tk2ProcTagTool, IedRange)
   {* Реализация интерфейса IedRange }
- private
- // private fields
-   f_TextParagraph : IedTextParagraph;
-   f_View : InevView;
-   f_Loc : InevLocation;
- protected
- // realized methods
+  private
+   f_TextParagraph: IedTextParagraph;
+   f_View: InevView;
+   f_Loc: InevLocation;
+  protected
    function Get_Paragraph: IedParagraph;
    function Get_Table: IedTable;
    function Get_Hyperlink: IevHyperlink;
@@ -50,21 +36,21 @@ type
    function pm_GetPart(aPart: TedRangePart): IedRange;
    function pm_GetDocument: IevDocument;
    function ContainsOneLeaf: Boolean;
-     {* проверяет содержит ли диапазон только один листьевой параграф }
+    {* проверяет содержит ли диапазон только один листьевой параграф }
    function AsString(aFormat: Tl3ClipboardFormat = cf_Text): AnsiString;
-     {* получает текст в диапазоне }
-   function Delete(aMode: TevClearMode = ev_cmKeepOne): Boolean;
-     {* удаляет содержимое диапазона }
+    {* получает текст в диапазоне }
+   function Delete(aMode: TevClearMode = nevTools.ev_cmKeepOne): Boolean;
+    {* удаляет содержимое диапазона }
    function InsertData(aFormat: Tl3ClipboardFormat;
     aData: THandle;
-    aNeedClearOld: Boolean = false): Boolean;
-     {* вставить данные из памяти в формате aFormat }
+    aNeedClearOld: Boolean = False): Boolean;
+    {* вставить данные из памяти в формате aFormat }
    procedure InsertFrom(const aTextSource: InevTagReader;
     const aFilters: InevTagGenerator);
-     {* вставить данные из другого источника текста }
+    {* вставить данные из другого источника текста }
    function InsertString(const aSt: Tl3PCharLenPrim;
-    aFormat: Tl3ClipboardFormat = cf_Text): Boolean; overload; 
-     {* вставить строку aSt в текущую позицию курсора.
+    aFormat: Tl3ClipboardFormat = cf_Text): Boolean; overload;
+    {* вставить строку aSt в текущую позицию курсора.
          |* Пример использования метода InsertString.
           !begin
           ! CurrentEditor.Range.InsertString(l3PCharLen('Hello world!', -1, CP_ANSI));
@@ -72,8 +58,8 @@ type
           !end;
          |* }
    function InsertString(const aSt: AnsiString;
-    aFormat: Tl3ClipboardFormat = cf_Text): Boolean; overload; 
-     {* вставить строку aSt в текущую позицию курсора.
+    aFormat: Tl3ClipboardFormat = cf_Text): Boolean; overload;
+    {* вставить строку aSt в текущую позицию курсора.
          |* Пример использования метода InsertString.
           !begin
           ! CurrentEditor.Range.InsertString('Hello world!');
@@ -81,47 +67,32 @@ type
           !end;
          |* }
    function InsertParaBreak: Boolean;
-     {* вставляет разрыв параграфов }
+    {* вставляет разрыв параграфов }
    function DeleteChar: Boolean;
-     {* удаляет текущий символ }
+    {* удаляет текущий символ }
    function Save(aFormat: Tl3ClipboardFormat;
     const outPool: IStream;
     const aFilters: InevTagGenerator;
-    anInternal: Boolean = false;
-    ChildrenOnly: Boolean = false): Boolean;
-     {* сохранить выделение }
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+    anInternal: Boolean = False;
+    ChildrenOnly: Boolean = False): Boolean;
+    {* сохранить выделение }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aView: InevView;
-     const aLoc: InevLocation;
-     const aProcessor: InevProcessor;
-     const aTextParagraph: IedTextParagraph = nil); reintroduce;
+    const aLoc: InevLocation;
+    const aProcessor: InevProcessor;
+    const aTextParagraph: IedTextParagraph = nil); reintroduce;
    class function Make(const aView: InevView;
-     const aLoc: InevLocation;
-     const aProcessor: InevProcessor;
-     const aTextParagraph: IedTextParagraph = nil): IedRange; reintroduce;
-     {* Сигнатура фабрики TedRangeImplementation.Make }
+    const aLoc: InevLocation;
+    const aProcessor: InevProcessor;
+    const aTextParagraph: IedTextParagraph = nil): IedRange; reintroduce;
    function Collapse: Boolean;
-   {iterator} procedure IterateLeafParagraphs(anAction: IedRange_IterateLeafParagraphs_Action;
-    const aProgress: Il3Progress = nil
-    {* Индикатор прогресса};
-    anOpCode: Integer = 1
-    {* Идентификатор операции});
-     {* перебирает все листьевые параграфы }
-   {iterator} procedure IterateLeafParagraphsF(anAction: IedRange_IterateLeafParagraphs_Action;
-    const aProgress: Il3Progress = nil
-    {* Индикатор прогресса};
-    anOpCode: Integer = 1
-    {* Идентификатор операции});
-     {* перебирает все листьевые параграфы }
+   procedure Iterate;
+    {* Итератор по листьевым параграфам }
  end;//TedRangeImplementation
 
  TedRange = class(TedRangeImplementation)
@@ -131,45 +102,38 @@ type
 implementation
 
 uses
-  l3Base,
-  ParaList_Const,
-  Table_Const,
-  SysUtils
-  {$If defined(evNeedEditableCursors) AND defined(k2ForEditor)}
-  ,
-  evParaUtilClasses
-  {$IfEnd} //evNeedEditableCursors AND k2ForEditor
-  ,
-  l3Memory,
-  evTypes,
-  nevFacade,
-  evOp,
-  evEditorInterfacesMisc,
-  Messages,
-  evBitmapReader,
-  evExcept,
-  l3String,
-  l3Chars,
-  evMsgCode,
-  evdInterfaces
-  {$If defined(k2ForEditor)}
-  ,
-  evUsialParagraph
-  {$IfEnd} //k2ForEditor
-  
-  {$If not defined(NoScripts)}
-  ,
-  IedRangeWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TedRangeImplementation
+ l3ImplUses
+ , ParaList_Const
+ , Table_Const
+ , SysUtils
+ {$If Defined(k2ForEditor) AND Defined(evNeedEditableCursors)}
+ , evParaUtilClasses
+ {$IfEnd} // Defined(k2ForEditor) AND Defined(evNeedEditableCursors)
+ , l3Memory
+ , l3Base
+ , evTypes
+ , nevFacade
+ , evOp
+ , evEditorInterfacesMisc
+ , Messages
+ , evBitmapReader
+ , evExcept
+ , l3String
+ , l3Chars
+ , evMsgCode
+ , evdInterfaces
+ {$If Defined(k2ForEditor)}
+ , evUsialParagraph
+ {$IfEnd} // Defined(k2ForEditor)
+ {$If NOT Defined(NoScripts)}
+ , IedRangeWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 constructor TedRangeImplementation.Create(const aView: InevView;
-  const aLoc: InevLocation;
-  const aProcessor: InevProcessor;
-  const aTextParagraph: IedTextParagraph = nil);
+ const aLoc: InevLocation;
+ const aProcessor: InevProcessor;
+ const aTextParagraph: IedTextParagraph = nil);
 //#UC START# *4BBCC34901B7_48E3859101D5_var*
 //#UC END# *4BBCC34901B7_48E3859101D5_var*
 begin
@@ -182,9 +146,9 @@ begin
 end;//TedRangeImplementation.Create
 
 class function TedRangeImplementation.Make(const aView: InevView;
-  const aLoc: InevLocation;
-  const aProcessor: InevProcessor;
-  const aTextParagraph: IedTextParagraph = nil): IedRange;
+ const aLoc: InevLocation;
+ const aProcessor: InevProcessor;
+ const aTextParagraph: IedTextParagraph = nil): IedRange;
 var
  l_Inst : TedRangeImplementation;
 begin
@@ -194,7 +158,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TedRangeImplementation.Make
 
 function TedRangeImplementation.Collapse: Boolean;
 //#UC START# *4BBD95BE014E_48E3859101D5_var*
@@ -214,21 +178,21 @@ begin
 //#UC END# *4BBD95BE014E_48E3859101D5_impl*
 end;//TedRangeImplementation.Collapse
 
-{iterator} procedure TedRangeImplementation.IterateLeafParagraphs(anAction: IedRange_IterateLeafParagraphs_Action;
-  const aProgress: Il3Progress = nil
-  {* Индикатор прогресса};
-  anOpCode: Integer = 1
-  {* Идентификатор операции});
-var
- l_Cont : Boolean;
+procedure TedRangeImplementation.Iterate;
+ {* Итератор по листьевым параграфам }
+var l_Cont: Boolean;
+var l_OpPack: InevOp;
 
  procedure IterateRange;
+  {* Перебирает диапазон }
 
   function BlockAction(const anItem: InevRange;
-    anIndex: Integer): Boolean;
+   anIndex: Integer): Boolean;
+   {* Подитеративная функция для вызова L2InevRangePrimIterateAction из IterateRange }
 
    function DoIt(const anItem: InevRange;
-     anIndex: Integer): Boolean;
+    anIndex: Integer): Boolean;
+    {* Подитеративная функция для вызова L2InevRangePrimIterateAction из BlockAction }
    //#UC START# *1B9BCE274A0B__var*
    //#UC END# *1B9BCE274A0B__var*
    begin
@@ -244,7 +208,7 @@ var
    if anItem.Obj.AsObject.IsKindOf(k2_typParaList) then
     anItem.
    //#UC END# *4BBF194202E8iter*
-    IterateF(L2InevRangePrimIterateAction(@DoIt))
+   IterateF(L2InevRangePrimIterateAction(@DoIt))
    //#UC START# *4BBF194202E8afteriter*
    else
     l_Cont := anAction(TevLeafParagraph.Make(f_View, Processor, anItem));
@@ -258,48 +222,16 @@ var
   //#UC START# *4BBF18C801F5iter*
   f_Loc.Range.
   //#UC END# *4BBF18C801F5iter*
-   IterateF(L2InevRangePrimIterateAction(@BlockAction));
+  IterateF(L2InevRangePrimIterateAction(@BlockAction));
  end;//IterateRange
 
 //#UC START# *4BBF09C60382_48E3859101D5_var*
 //#UC END# *4BBF09C60382_48E3859101D5_var*
-var
- l_OpPack : InevOp;
 begin
-//#UC START# *4BBDD4900292_48E3859101D5_impl*
- l_Cont := true;
- if (f_Loc.Range <> nil) then
- begin
-  if (Processor = nil) then
-   l_OpPack := nil
-  else
-   l_OpPack := Processor.StartOp(anOpCode);
-  try
-   IterateRange;
-  finally
-   l_OpPack := nil;
-  end;//try..finally
- end//f_Loc.Range <> nil
- else
- if (f_Loc.AsPoint <> nil) then
-  anAction(TevLeafParagraph.Make(f_View, Processor, f_Loc.AsPoint.MostInner.Obj.Range));
-//#UC END# *4BBDD4900292_48E3859101D5_impl*
-end;//TedRangeImplementation.IterateLeafParagraphs
-
-{iterator} procedure TedRangeImplementation.IterateLeafParagraphsF(anAction: IedRange_IterateLeafParagraphs_Action;
-  const aProgress: Il3Progress = nil
-  {* Индикатор прогресса};
-  anOpCode: Integer = 1
-  {* Идентификатор операции});
-var
- Hack : Pointer absolute anAction;
-begin
- try
-  IterateLeafParagraphs(anAction, aProgress, anOpCode);
- finally
-  l3FreeLocalStub(Hack);
- end;//try..finally
-end;
+//#UC START# *4BBF09C60382_48E3859101D5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4BBF09C60382_48E3859101D5_impl*
+end;//TedRangeImplementation.Iterate
 
 function TedRangeImplementation.Get_Paragraph: IedParagraph;
 //#UC START# *4BBCB16B01A8_48E3859101D5get_var*
@@ -481,6 +413,7 @@ begin
 end;//TedRangeImplementation.pm_GetDocument
 
 function TedRangeImplementation.ContainsOneLeaf: Boolean;
+ {* проверяет содержит ли диапазон только один листьевой параграф }
 //#UC START# *4BBCB2AD02B2_48E3859101D5_var*
 var
  l_Start, l_Finish : InevBasePoint;
@@ -511,6 +444,7 @@ begin
 end;//TedRangeImplementation.ContainsOneLeaf
 
 function TedRangeImplementation.AsString(aFormat: Tl3ClipboardFormat = cf_Text): AnsiString;
+ {* получает текст в диапазоне }
 //#UC START# *4BBCB2C003AE_48E3859101D5_var*
 var
  l_String : Tl3String;
@@ -544,7 +478,8 @@ begin
 //#UC END# *4BBCB2C003AE_48E3859101D5_impl*
 end;//TedRangeImplementation.AsString
 
-function TedRangeImplementation.Delete(aMode: TevClearMode = ev_cmKeepOne): Boolean;
+function TedRangeImplementation.Delete(aMode: TevClearMode = nevTools.ev_cmKeepOne): Boolean;
+ {* удаляет содержимое диапазона }
 //#UC START# *4BBCB3350175_48E3859101D5_var*
 var
  l_OpPack : InevOp;
@@ -573,8 +508,9 @@ begin
 end;//TedRangeImplementation.Delete
 
 function TedRangeImplementation.InsertData(aFormat: Tl3ClipboardFormat;
-  aData: THandle;
-  aNeedClearOld: Boolean = false): Boolean;
+ aData: THandle;
+ aNeedClearOld: Boolean = False): Boolean;
+ {* вставить данные из памяти в формате aFormat }
 //#UC START# *4BBCB34C003A_48E3859101D5_var*
 var
  l_BitmapReader : TevBitmapHandleReader;
@@ -645,7 +581,8 @@ begin
 end;//TedRangeImplementation.InsertData
 
 procedure TedRangeImplementation.InsertFrom(const aTextSource: InevTagReader;
-  const aFilters: InevTagGenerator);
+ const aFilters: InevTagGenerator);
+ {* вставить данные из другого источника текста }
 //#UC START# *4BBCB36D03B8_48E3859101D5_var*
 var
  l_MemoryPool : Tl3MemoryPool;
@@ -663,7 +600,14 @@ begin
 end;//TedRangeImplementation.InsertFrom
 
 function TedRangeImplementation.InsertString(const aSt: Tl3PCharLenPrim;
-  aFormat: Tl3ClipboardFormat = cf_Text): Boolean;
+ aFormat: Tl3ClipboardFormat = cf_Text): Boolean;
+ {* вставить строку aSt в текущую позицию курсора.
+         |* Пример использования метода InsertString.
+          !begin
+          ! CurrentEditor.Range.InsertString(l3PCharLen('Hello world!', -1, CP_ANSI));
+          ! // - в текущую позицию курсора вставляется строка 'Hello word!' в кодировке CP_ANSI.
+          !end;
+         |* }
 //#UC START# *4BBCB38B00C2_48E3859101D5_var*
 var
  l_Mem : Tl3ConstMemoryStream;
@@ -680,7 +624,14 @@ begin
 end;//TedRangeImplementation.InsertString
 
 function TedRangeImplementation.InsertString(const aSt: AnsiString;
-  aFormat: Tl3ClipboardFormat = cf_Text): Boolean;
+ aFormat: Tl3ClipboardFormat = cf_Text): Boolean;
+ {* вставить строку aSt в текущую позицию курсора.
+         |* Пример использования метода InsertString.
+          !begin
+          ! CurrentEditor.Range.InsertString('Hello world!');
+          ! // - в текущую позицию курсора вставляется строка 'Hello word!' в кодировке CP_ANSI.
+          !end;
+         |* }
 //#UC START# *4BBCB3B2009F_48E3859101D5_var*
 //#UC END# *4BBCB3B2009F_48E3859101D5_var*
 begin
@@ -690,6 +641,7 @@ begin
 end;//TedRangeImplementation.InsertString
 
 function TedRangeImplementation.InsertParaBreak: Boolean;
+ {* вставляет разрыв параграфов }
 //#UC START# *4BBCB3D20184_48E3859101D5_var*
 //#UC END# *4BBCB3D20184_48E3859101D5_var*
 begin
@@ -699,6 +651,7 @@ begin
 end;//TedRangeImplementation.InsertParaBreak
 
 function TedRangeImplementation.DeleteChar: Boolean;
+ {* удаляет текущий символ }
 //#UC START# *4BBCB3EB003D_48E3859101D5_var*
 var 
  l_OpPack : InevOp; 
@@ -727,10 +680,11 @@ begin
 end;//TedRangeImplementation.DeleteChar
 
 function TedRangeImplementation.Save(aFormat: Tl3ClipboardFormat;
-  const outPool: IStream;
-  const aFilters: InevTagGenerator;
-  anInternal: Boolean = false;
-  ChildrenOnly: Boolean = false): Boolean;
+ const outPool: IStream;
+ const aFilters: InevTagGenerator;
+ anInternal: Boolean = False;
+ ChildrenOnly: Boolean = False): Boolean;
+ {* сохранить выделение }
 //#UC START# *4BBCB3FE033D_48E3859101D5_var*
 var
  l_Block : InevRange;
@@ -756,8 +710,9 @@ begin
 //#UC END# *4BBCB3FE033D_48E3859101D5_impl*
 end;//TedRangeImplementation.Save
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TedRangeImplementation.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_48E3859101D5_var*
 //#UC END# *47A6FEE600FC_48E3859101D5_var*
 begin
@@ -765,14 +720,14 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_48E3859101D5_impl*
 end;//TedRangeImplementation.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TedRangeImplementation.ClearFields;
- {-}
 begin
  f_TextParagraph := nil;
  f_View := nil;
  f_Loc := nil;
  inherited;
 end;//TedRangeImplementation.ClearFields
+
 end.

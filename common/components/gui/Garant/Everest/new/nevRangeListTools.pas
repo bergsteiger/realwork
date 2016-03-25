@@ -1,47 +1,40 @@
 unit nevRangeListTools;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevRangeListTools.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::nevUtils::nevRangeListTools
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevRangeListTools.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nevRangeListTools" MUID: (4A23BAEF006A)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  nevRangeList
-  ;
+ l3IntfUses
+ , nevRangeList
+ , nevTools
+;
 
-function NevAddRangeToList(aList: TnevRangeList;
-  const aRange: InevRange): Boolean;
-   {* Проверяет и добавляет Range к списку.
+function nevAddRangeToList(aList: TnevRangeList;
+ const aRange: InevRange): Boolean;
+ {* Проверяет и добавляет Range к списку.
 Контролирует пересечение и вложенность.
 Возвращает признак того, что Range был реально добавлен к списку }
 
 implementation
 
 uses
-  l3Types,
-  evRangeTools,
-  l3MinMax,
-  l3Base
-  ;
+ l3ImplUses
+ , l3Types
+ , evRangeTools
+ , l3MinMax
+ , l3Base
+;
 
-// unit methods
-
-function NevAddRangeToList(aList: TnevRangeList;
-  const aRange: InevRange): Boolean;
+function nevAddRangeToList(aList: TnevRangeList;
+ const aRange: InevRange): Boolean;
+ {* Проверяет и добавляет Range к списку.
+Контролирует пересечение и вложенность.
+Возвращает признак того, что Range был реально добавлен к списку }
 //#UC START# *4A23BB1700A7_4A23BAEF006A_var*
 var
  l_From,
@@ -101,6 +94,6 @@ begin
   end;//l_From >= 0
  end;
 //#UC END# *4A23BB1700A7_4A23BAEF006A_impl*
-end;//NevAddRangeToList
+end;//nevAddRangeToList
 
 end.

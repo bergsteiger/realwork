@@ -1,215 +1,200 @@
 unit evParaTools;
+ {* Реализация интерфейсов различных параграфов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evParaTools.pas"
-// Начат: 22.06.2000 17:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::ParaUtils::evParaTools
-//
-// Реализация интерфейсов различных параграфов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaTools.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evParaTools" MUID: (47F1F3BC0330)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  l3Interfaces,
-  k2Interfaces,
-  nevBase,
-  l3IID,
-  k2Base,
-  nevTools,
-  evTypes,
-  evInternalInterfaces,
-  evdInterfaces,
-  l3Variant
-  ;
+ l3IntfUses
+ , nevTools
+ , l3Interfaces
+ , evInternalInterfaces
+ , l3Variant
+ , evdInterfaces
+ , nevBase
+ , l3IID
+ , k2Base
+ , evTypes
+ , k2Interfaces
+;
 
-function EvSearchPara(const aList: InevObject;
-  const aSearcher: IevSearcher;
-  out aPara: InevObject;
-  StopOnBlock: Boolean = false;
-  aBlock: PIevDataObject = nil): Boolean; overload; 
-function EvSearchPara(aList: Tl3Variant;
-  const aSearcher: IevSearcher;
-  out aBlock: IevdDataObject): Boolean; overload; 
-function EvQueryParaInterface(const aView: InevView;
-  const aContext: InevProcessor;
-  const aTagWrap: InevPara;
-  const anIID: Tl3GUID;
-  out Obj): hResult;
-   {* Возвращает интерфейс anIID для aTagWrap и aContext }
-procedure EvClearPara(const aView: InevView;
-  const aPara: InevObject;
-  const anOp: InevOp;
-  aMode: TevClearMode = ev_cmKeepOne;
-  const aTopPara: InevPara = nil);
-   {* Очищает параграф aPara }
-function EvCopyParaList(const aView: InevView;
-  const aContext: InevProcessor;
-  const aDest: InevPara;
-  const aSource: InevPara;
-  aFlags: TevLoadFlags = evDefaultCopyFlags;
-  SkipEmpty: Boolean = false;
-  const aStart: InevPoint = nil;
-  NeedDelete: Boolean = false): Boolean;
-   {* Копирует содержимое из aSource в aDest }
-function EvMergeParaText(const aView: InevView;
-  const aParaList: InevParaList;
-  const anOpPack: InevOp = nil): Boolean;
-   {* Объединяет текст списка параграфов }
-function EvInPara(anAtom: Tl3Variant;
-  aTypeID: Tk2Type;
-  out theParent: Tl3Variant): Boolean; overload; 
-   {* Возвращает является ли атом anAtom или кто-то из его владельцев наследником от aTypeID.
+function evInPara(anAtom: Tl3Variant;
+ aTypeID: Tk2Type;
+ const anExclude: array of Tl3VariantDef;
+ out theParent: Tl3Variant): Boolean; overload;
+ {* Возвращает является ли атом anAtom или кто-то из его владельцев наследником от aTypeID.  theParent - найденный владелец подходящего типа. Можно задавать исключения в наследовании }
+function evIsInReadOnlyPara(const aPara: InevPara): Boolean;
+function evDeleteIfReadOnly(const aPara: InevPara): Boolean;
+function evInPara(aFi: TnevFormatInfoPrim;
+ aTypeID: Tk2Type;
+ out theParent: Tl3Variant): Boolean; overload;
+function evMergeParaListWithNext(const aView: InevView;
+ const aParaList: InevParaList;
+ aType: TevMergeParaListType;
+ const aProcessor: InevProcessor;
+ aFinish: Integer = MaxInt;
+ const anIndicator: InevProgress = nil): Boolean;
+ {* Объединяет список параграфов со следующим }
+function evHasOwnStyle(const anObject: InevObjectPrim): Boolean;
+procedure evSetStyle2Block(aTag: Tl3Variant;
+ const anOp: InevOp;
+ aStyleID: Integer);
+function evHasAACStyle(aPara: Tl3Variant): Boolean;
+ {* Проверяет принадлежит ли стиль параграфа к стилям, используемым в ААК. }
+function evAACStyle(aStyleID: Integer): Boolean;
+procedure evSetStyle2Table(aTag: Tl3Variant;
+ const anOp: InevOp;
+ aStyleID: Integer);
+function evExpandedText(aPara: Tl3Variant): Boolean;
+procedure evCheckCollapsed(const anObject: Tl3Variant;
+ var aValue: Boolean);
+function EvParentGetLeftIndent(aPara: Tl3Variant): Integer;
+function evExpandOrCollapse(const aView: InevControlView;
+ const aTextPara: InevPara): Boolean;
+function evBlockCollapsed(const aView: InevView;
+ const aTextPara: InevPara): Boolean;
+function evHeaderTextPara(const aPara: InevObjectPrim): Boolean; overload;
+procedure evExpandOwnerStyleBlocks(const aPara: InevObject;
+ const aView: InevControlView);
+function evNeedDrawParaInCollapsedMode(const aPara: InevObjectPrim): Boolean;
+function evHeaderTextPara(aPara: Tl3Variant): Boolean; overload;
+function evSearchPara(const aList: InevObject;
+ const aSearcher: IevSearcher;
+ out aPara: InevObject;
+ StopOnBlock: Boolean = False;
+ aBlock: PIevDataObject = nil): Boolean; overload;
+function evSearchPara(aList: Tl3Variant;
+ const aSearcher: IevSearcher;
+ out aBlock: IevdDataObject): Boolean; overload;
+function evQueryParaInterface(const aView: InevView;
+ const aContext: InevProcessor;
+ const aTagWrap: InevPara;
+ const anIID: Tl3GUID;
+ out Obj): hResult;
+ {* Возвращает интерфейс anIID для aTagWrap и aContext }
+procedure evClearPara(const aView: InevView;
+ const aPara: InevObject;
+ const anOp: InevOp;
+ aMode: TevClearMode = nevTools.ev_cmKeepOne;
+ const aTopPara: InevPara = nil);
+ {* Очищает параграф aPara }
+function evCopyParaList(const aView: InevView;
+ const aContext: InevProcessor;
+ const aDest: InevPara;
+ const aSource: InevPara;
+ aFlags: TevLoadFlags = nevBase.evDefaultCopyFlags;
+ SkipEmpty: Boolean = False;
+ const aStart: InevPoint = nil;
+ NeedDelete: Boolean = False): Boolean;
+ {* Копирует содержимое из aSource в aDest }
+function evMergeParaText(const aView: InevView;
+ const aParaList: InevParaList;
+ const anOpPack: InevOp = nil): Boolean;
+ {* Объединяет текст списка параграфов }
+function evInPara(anAtom: Tl3Variant;
+ aTypeID: Tk2Type;
+ out theParent: Tl3Variant): Boolean; overload;
+ {* Возвращает является ли атом anAtom или кто-то из его владельцев наследником от aTypeID.
        theParent - найденный владелец подходящего типа }
-function EvInPara(anAtom: Tl3Variant;
-  aTypeID: Tk2Type): Boolean; overload; 
-   {* Возвращает является ли атом anAtom или кто-то из его владельцев наследником от aTypeID }
-function EvHasText(anAtom: Tl3Variant): Boolean;
-   {* Возвращает есть ли у параграфа непустой текст }
-function EvTextLength(anAtom: Tl3Variant): Integer;
-   {* Возвращает длину текста параграфа }
-procedure EvMoveBorders(const aView: InevView;
-  var aBlock: IevdDataObject;
-  aD1: Integer;
-  aD2: Integer);
-function EvReplaceInPara(const aList: InevPara;
-  const aSearcher: IevSearcher;
-  const aReplacer: IevReplacer;
-  const aConfirm: InevConfirm = nil;
-  const aFromPoint: InevBasePoint = nil): Boolean;
-function EvGetParaTextByCondition(const aPara: InevObject;
-  const aSearcher: IevSearcher;
-  out theText: Il3CString;
-  aFormat: TevFormat = cf_Text): Boolean;
-function EvCheckParaTextByCondition(const aPara: InevPara;
-  const aSearcher: IevSearcher): Boolean;
-function EvGetParaTextByMask(const aPara: InevObject;
-  const aMask: AnsiString;
-  out theText: Il3CString;
-  aIgnoreCase: Boolean = true;
-  aFormat: TevFormat = cf_Text): Boolean;
-function EvCheckParaTextByMask(const aPara: InevPara;
-  const aMask: AnsiString;
-  aIgnoreCase: Boolean = true): Boolean;
-function EvFindNumberedPara(const aPara: InevObject;
-  aSearchDown: Boolean = False;
-  aDivergentSearch: Boolean = true): InevLeafPara;
-   {* Ищет ближайший нумерованный параграф,
+function evInPara(anAtom: Tl3Variant;
+ aTypeID: Tk2Type): Boolean; overload;
+ {* Возвращает является ли атом anAtom или кто-то из его владельцев наследником от aTypeID }
+function evHasText(anAtom: Tl3Variant): Boolean;
+ {* Возвращает есть ли у параграфа непустой текст }
+function evTextLength(anAtom: Tl3Variant): Integer;
+ {* Возвращает длину текста параграфа }
+procedure evMoveBorders(const aView: InevView;
+ var aBlock: IevdDataObject;
+ aD1: Integer;
+ aD2: Integer);
+function evReplaceInPara(const aList: InevPara;
+ const aSearcher: IevSearcher;
+ const aReplacer: IevReplacer;
+ const aConfirm: InevConfirm = nil;
+ const aFromPoint: InevBasePoint = nil): Boolean;
+function evGetParaTextByCondition(const aPara: InevObject;
+ const aSearcher: IevSearcher;
+ out theText: Il3CString;
+ aFormat: TevFormat = cf_Text): Boolean;
+function evCheckParaTextByCondition(const aPara: InevPara;
+ const aSearcher: IevSearcher): Boolean;
+function evGetParaTextByMask(const aPara: InevObject;
+ const aMask: AnsiString;
+ out theText: Il3CString;
+ aIgnoreCase: Boolean = True;
+ aFormat: TevFormat = cf_Text): Boolean;
+function evCheckParaTextByMask(const aPara: InevPara;
+ const aMask: AnsiString;
+ aIgnoreCase: Boolean = True): Boolean;
+function evFindNumberedPara(const aPara: InevObject;
+ aSearchDown: Boolean = False;
+ aDivergentSearch: Boolean = True): InevLeafPara;
+ {* Ищет ближайший нумерованный параграф,
     aSearchDown - искать сначала вниз, иначе искать сначала вверх
     aDivergentSearch - если в одну сторону не нашли - искать в противоположную }
-function EvPrevOverallPara(const aPara: InevPara): InevPara;
-   {* Ищет предыдущий параграф, с заходом в родителей }
-function EvNextOverallPara(const aPara: InevPara): InevPara;
-   {* Ищет следующий параграф, с заходом в родителей }
-function EvAsString(const aData: IevdDataObject;
-  aFormat: Tl3ClipboardFormat = cf_Text;
-  StoreParaEnd: Boolean = false;
-  const aFilters: Ik2TagGenerator = nil): Il3CString;
-   {* Преобразует объект данных к строке. Замена IevDataObject.AsString }
-function EvInPara(anAtom: Tl3Variant;
-  aTypeID: Tk2Type;
-  const anExclude: array of Tl3VariantDef;
-  out theParent: Tl3Variant): Boolean; overload; 
-   {* Возвращает является ли атом anAtom или кто-то из его владельцев наследником от aTypeID.  theParent - найденный владелец подходящего типа. Можно задавать исключения в наследовании }
-function EvIsInReadOnlyPara(const aPara: InevPara): Boolean;
-function EvDeleteIfReadOnly(const aPara: InevPara): Boolean;
-function EvInPara(aFi: TnevFormatInfoPrim;
-  aTypeID: Tk2Type;
-  out theParent: Tl3Variant): Boolean; overload; 
-function EvMergeParaListWithNext(const aView: InevView;
-  const aParaList: InevParaList;
-  aType: TevMergeParaListType;
-  const aProcessor: InevProcessor;
-  aFinish: Integer = MaxInt;
-  const anIndicator: InevProgress = nil): Boolean;
-   {* Объединяет список параграфов со следующим }
-function EvHasOwnStyle(const anObject: InevObjectPrim): Boolean;
-procedure EvSetStyle2Block(aTag: Tl3Variant;
-  const anOp: InevOp;
-  aStyleID: Integer);
-function EvHasAACStyle(aPara: Tl3Variant): Boolean;
-   {* Проверяет принадлежит ли стиль параграфа к стилям, используемым в ААК. }
-function EvAACStyle(aStyleID: Integer): Boolean;
-procedure EvSetStyle2Table(aTag: Tl3Variant;
-  const anOp: InevOp;
-  aStyleID: Integer);
-function EvExpandedText(aPara: Tl3Variant): Boolean;
-procedure EvCheckCollapsed(const anObject: Tl3Variant;
-  var aValue: Boolean);
-function EvParentGetLeftIndent(aPara: Tl3Variant): Integer;
-function EvExpandOrCollapse(const aView: InevControlView;
-  const aTextPara: InevPara): Boolean;
-function EvBlockCollapsed(const aView: InevView;
-  const aTextPara: InevPara): Boolean;
-function EvHeaderTextPara(const aPara: InevObjectPrim): Boolean; overload; 
-procedure EvExpandOwnerStyleBlocks(const aPara: InevObject;
-  const aView: InevControlView);
-function EvNeedDrawParaInCollapsedMode(const aPara: InevObjectPrim): Boolean;
-function EvHeaderTextPara(aPara: Tl3Variant): Boolean; overload; 
-{$IfEnd} //k2ForEditor
+function evPrevOverallPara(const aPara: InevPara): InevPara;
+ {* Ищет предыдущий параграф, с заходом в родителей }
+function evNextOverallPara(const aPara: InevPara): InevPara;
+ {* Ищет следующий параграф, с заходом в родителей }
+function evAsString(const aData: IevdDataObject;
+ aFormat: Tl3ClipboardFormat = cf_Text;
+ StoreParaEnd: Boolean = False;
+ const aFilters: Ik2TagGenerator = nil): Il3CString;
+ {* Преобразует объект данных к строке. Замена IevDataObject.AsString }
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2Const,
-  evdStyles,
-  evdFrame_Const,
-  evSearch,
-  nevConfirm,
-  l3Base,
-  evExcept
-  {$If defined(evNeedEditableCursors) AND defined(k2ForEditor)}
-  ,
-  evParaUtilClasses
-  {$IfEnd} //evNeedEditableCursors AND k2ForEditor
-  ,
-  evEditorInterfaces,
-  k2Tags,
-  l3Memory,
-  evMsgCode,
-  evOp,
-  l3Chars,
-  l3InterfacedString,
-  evCursorTools,
-  l3String,
-  k2OpMisc,
-  SysUtils,
-  evdTypes,
-  TableCell_Const,
-  ParaList_Const,
-  TextPara_Const,
-  k2Context,
-  Block_Const,
-  LeafPara_Const,
-  Formula_Const,
-  DecorTextPara_Const,
-  Document_Const
-  ;
+ l3ImplUses
+ , evSearch
+ , nevConfirm
+ , l3Base
+ , evExcept
+ {$If Defined(evNeedEditableCursors)}
+ , evParaUtilClasses
+ {$IfEnd} // Defined(evNeedEditableCursors)
+ , evEditorInterfaces
+ , k2Tags
+ , l3Memory
+ , evMsgCode
+ , evOp
+ , l3Chars
+ , l3InterfacedString
+ , evCursorTools
+ , l3String
+ , k2OpMisc
+ , SysUtils
+ , evdTypes
+ , TableCell_Const
+ , ParaList_Const
+ , TextPara_Const
+ , k2Context
+ , Block_Const
+ , LeafPara_Const
+ , Formula_Const
+ , DecorTextPara_Const
+ , Document_Const
+ , k2Const
+ , evdStyles
+ , evdFrame_Const
+;
 
-// unit methods
-
-function EvInPara(anAtom: Tl3Variant;
-  aTypeID: Tk2Type;
-  const anExclude: array of Tl3VariantDef;
-  out theParent: Tl3Variant): Boolean;
+function evInPara(anAtom: Tl3Variant;
+ aTypeID: Tk2Type;
+ const anExclude: array of Tl3VariantDef;
+ out theParent: Tl3Variant): Boolean;
+ {* Возвращает является ли атом anAtom или кто-то из его владельцев наследником от aTypeID.  theParent - найденный владелец подходящего типа. Можно задавать исключения в наследовании }
+var l_Parent: Tl3Variant;
 //#UC START# *4A829D3500A9_47F1F3BC0330_var*
 //#UC END# *4A829D3500A9_47F1F3BC0330_var*
-var
- l_Parent : Tl3Variant;
 begin
 //#UC START# *4A829D3500A9_47F1F3BC0330_impl*
  Result := false;
@@ -225,14 +210,13 @@ begin
   l_Parent := l_Parent.Owner;
  end;//while l_Parent.IsValid
 //#UC END# *4A829D3500A9_47F1F3BC0330_impl*
-end;//EvInPara
+end;//evInPara
 
-function EvIsInReadOnlyPara(const aPara: InevPara): Boolean;
+function evIsInReadOnlyPara(const aPara: InevPara): Boolean;
+var l_Container: InevDocumentContainer;
+var l_E: IevF1LikeEditor;
 //#UC START# *4A8C2CE10376_47F1F3BC0330_var*
 //#UC END# *4A8C2CE10376_47F1F3BC0330_var*
-var
- l_Container : InevDocumentContainer;
- l_E : IevF1LikeEditor;
 begin
 //#UC START# *4A8C2CE10376_47F1F3BC0330_impl*
  l_Container := aPara.DocumentContainer;
@@ -246,14 +230,13 @@ begin
  else
   Result := false; 
 //#UC END# *4A8C2CE10376_47F1F3BC0330_impl*
-end;//EvIsInReadOnlyPara
+end;//evIsInReadOnlyPara
 
-function EvDeleteIfReadOnly(const aPara: InevPara): Boolean;
+function evDeleteIfReadOnly(const aPara: InevPara): Boolean;
+var l_Container: InevDocumentContainer;
+var l_E: IevF1LikeEditor;
 //#UC START# *4A8C2EBB03A8_47F1F3BC0330_var*
 //#UC END# *4A8C2EBB03A8_47F1F3BC0330_var*
-var
- l_Container : InevDocumentContainer;
- l_E : IevF1LikeEditor;
 begin
 //#UC START# *4A8C2EBB03A8_47F1F3BC0330_impl*
  l_Container := aPara.DocumentContainer;
@@ -267,11 +250,11 @@ begin
  else
   Result := false; 
 //#UC END# *4A8C2EBB03A8_47F1F3BC0330_impl*
-end;//EvDeleteIfReadOnly
+end;//evDeleteIfReadOnly
 
-function EvInPara(aFi: TnevFormatInfoPrim;
-  aTypeID: Tk2Type;
-  out theParent: Tl3Variant): Boolean;
+function evInPara(aFi: TnevFormatInfoPrim;
+ aTypeID: Tk2Type;
+ out theParent: Tl3Variant): Boolean;
 //#UC START# *4E5E693B0035_47F1F3BC0330_var*
 var
  l_Parent : TnevFormatInfoPrim;
@@ -293,14 +276,15 @@ begin
   l_Parent := l_Parent.ParentInfo;
  end;//while l_Parent.IsValid
 //#UC END# *4E5E693B0035_47F1F3BC0330_impl*
-end;//EvInPara
+end;//evInPara
 
-function EvMergeParaListWithNext(const aView: InevView;
-  const aParaList: InevParaList;
-  aType: TevMergeParaListType;
-  const aProcessor: InevProcessor;
-  aFinish: Integer = MaxInt;
-  const anIndicator: InevProgress = nil): Boolean;
+function evMergeParaListWithNext(const aView: InevView;
+ const aParaList: InevParaList;
+ aType: TevMergeParaListType;
+ const aProcessor: InevProcessor;
+ aFinish: Integer = MaxInt;
+ const anIndicator: InevProgress = nil): Boolean;
+ {* Объединяет список параграфов со следующим }
 //#UC START# *4F6AE2E80217_47F1F3BC0330_var*
 var
  l_Point    : InevBasePoint;
@@ -403,20 +387,20 @@ begin
   l_Point := nil;
  end;//try..finally
 //#UC END# *4F6AE2E80217_47F1F3BC0330_impl*
-end;//EvMergeParaListWithNext
+end;//evMergeParaListWithNext
 
-function EvHasOwnStyle(const anObject: InevObjectPrim): Boolean;
+function evHasOwnStyle(const anObject: InevObjectPrim): Boolean;
 //#UC START# *4FBDEF6A019B_47F1F3BC0330_var*
 //#UC END# *4FBDEF6A019B_47F1F3BC0330_var*
 begin
 //#UC START# *4FBDEF6A019B_47F1F3BC0330_impl*
  Result := anObject.AsObject.Attr[k2_tiStyle].IsValid and (anObject.AsObject.IntA[k2_tiStyle] <> k2_TransparentValue);
 //#UC END# *4FBDEF6A019B_47F1F3BC0330_impl*
-end;//EvHasOwnStyle
+end;//evHasOwnStyle
 
-procedure EvSetStyle2Block(aTag: Tl3Variant;
-  const anOp: InevOp;
-  aStyleID: Integer);
+procedure evSetStyle2Block(aTag: Tl3Variant;
+ const anOp: InevOp;
+ aStyleID: Integer);
 //#UC START# *4FD84DC20233_47F1F3BC0330_var*
 var
  l_Para: InevPara;
@@ -439,9 +423,10 @@ begin
  else
   Assert(False);
 //#UC END# *4FD84DC20233_47F1F3BC0330_impl*
-end;//EvSetStyle2Block
+end;//evSetStyle2Block
 
-function EvHasAACStyle(aPara: Tl3Variant): Boolean;
+function evHasAACStyle(aPara: Tl3Variant): Boolean;
+ {* Проверяет принадлежит ли стиль параграфа к стилям, используемым в ААК. }
 //#UC START# *50629BBB03DC_47F1F3BC0330_var*
 var
  l_StyleID: Integer;
@@ -455,9 +440,9 @@ begin
   Result := EvAACStyle(l_StyleID);
  end; // if Result then
 //#UC END# *50629BBB03DC_47F1F3BC0330_impl*
-end;//EvHasAACStyle
+end;//evHasAACStyle
 
-function EvAACStyle(aStyleID: Integer): Boolean;
+function evAACStyle(aStyleID: Integer): Boolean;
 //#UC START# *5069781D0126_47F1F3BC0330_var*
 //#UC END# *5069781D0126_47F1F3BC0330_var*
 begin
@@ -467,11 +452,11 @@ begin
   Result := (aStyleID = ev_saFormulaInAAC) or (aStyleID = ev_saAttention) or
             (aStyleID = ev_saWriteToUs);
 //#UC END# *5069781D0126_47F1F3BC0330_impl*
-end;//EvAACStyle
+end;//evAACStyle
 
-procedure EvSetStyle2Table(aTag: Tl3Variant;
-  const anOp: InevOp;
-  aStyleID: Integer);
+procedure evSetStyle2Table(aTag: Tl3Variant;
+ const anOp: InevOp;
+ aStyleID: Integer);
 //#UC START# *52B15CA1039C_47F1F3BC0330_var*
 
  function lp_IterateRow(aRow: Tl3Variant; Index: LongInt): Boolean;
@@ -508,9 +493,9 @@ begin
  else
   Assert(False);
 //#UC END# *52B15CA1039C_47F1F3BC0330_impl*
-end;//EvSetStyle2Table
+end;//evSetStyle2Table
 
-function EvExpandedText(aPara: Tl3Variant): Boolean;
+function evExpandedText(aPara: Tl3Variant): Boolean;
 //#UC START# *5519015202C1_47F1F3BC0330_var*
 //#UC END# *5519015202C1_47F1F3BC0330_var*
 begin
@@ -519,10 +504,10 @@ begin
  if Result then
   Result := aPara.Attr[k2_tiStyle].BoolA[k2_tiCollapsable];
 //#UC END# *5519015202C1_47F1F3BC0330_impl*
-end;//EvExpandedText
+end;//evExpandedText
 
-procedure EvCheckCollapsed(const anObject: Tl3Variant;
-  var aValue: Boolean);
+procedure evCheckCollapsed(const anObject: Tl3Variant;
+ var aValue: Boolean);
 //#UC START# *5523B5A1010B_47F1F3BC0330_var*
 //#UC END# *5523B5A1010B_47F1F3BC0330_var*
 begin
@@ -537,7 +522,7 @@ begin
   end; // with anObject.AsObject do
  {$ENDIF Nemesis}  
 //#UC END# *5523B5A1010B_47F1F3BC0330_impl*
-end;//EvCheckCollapsed
+end;//evCheckCollapsed
 
 function EvParentGetLeftIndent(aPara: Tl3Variant): Integer;
 //#UC START# *5530AB81002B_47F1F3BC0330_var*
@@ -553,8 +538,8 @@ begin
 //#UC END# *5530AB81002B_47F1F3BC0330_impl*
 end;//EvParentGetLeftIndent
 
-function EvExpandOrCollapse(const aView: InevControlView;
-  const aTextPara: InevPara): Boolean;
+function evExpandOrCollapse(const aView: InevControlView;
+ const aTextPara: InevPara): Boolean;
 //#UC START# *5530BEFD0336_47F1F3BC0330_var*
 var
  l_Block    : InevPara;
@@ -573,10 +558,10 @@ begin
  end;
  Result := true;
 //#UC END# *5530BEFD0336_47F1F3BC0330_impl*
-end;//EvExpandOrCollapse
+end;//evExpandOrCollapse
 
-function EvBlockCollapsed(const aView: InevView;
-  const aTextPara: InevPara): Boolean;
+function evBlockCollapsed(const aView: InevView;
+ const aTextPara: InevPara): Boolean;
 //#UC START# *55B785E003CD_47F1F3BC0330_var*
 var
  l_Block    : InevPara;
@@ -587,9 +572,9 @@ begin
  l_Block := aTextPara.OwnerPara;
  Result := aView.IsObjectCollapsed[l_Block];
 //#UC END# *55B785E003CD_47F1F3BC0330_impl*
-end;//EvBlockCollapsed
+end;//evBlockCollapsed
 
-function EvHeaderTextPara(const aPara: InevObjectPrim): Boolean;
+function evHeaderTextPara(const aPara: InevObjectPrim): Boolean;
 //#UC START# *552FA1280185_47F1F3BC0330_var*
 var
  l_Parent : Tl3Variant;
@@ -611,10 +596,10 @@ begin
   else
    Result := (aPara.PID = 0)
 //#UC END# *552FA1280185_47F1F3BC0330_impl*
-end;//EvHeaderTextPara
+end;//evHeaderTextPara
 
-procedure EvExpandOwnerStyleBlocks(const aPara: InevObject;
-  const aView: InevControlView);
+procedure evExpandOwnerStyleBlocks(const aPara: InevObject;
+ const aView: InevControlView);
 //#UC START# *55F7F2C60135_47F1F3BC0330_var*
 var
   l_OwnerPara: InevObjectList;
@@ -635,18 +620,18 @@ begin
   if EvExpandedText(aPara.AsObject) then
    aView.IsObjectCollapsed[aPara] := False;
 //#UC END# *55F7F2C60135_47F1F3BC0330_impl*
-end;//EvExpandOwnerStyleBlocks
+end;//evExpandOwnerStyleBlocks
 
-function EvNeedDrawParaInCollapsedMode(const aPara: InevObjectPrim): Boolean;
+function evNeedDrawParaInCollapsedMode(const aPara: InevObjectPrim): Boolean;
 //#UC START# *5600F8C80213_47F1F3BC0330_var*
 //#UC END# *5600F8C80213_47F1F3BC0330_var*
 begin
 //#UC START# *5600F8C80213_47F1F3BC0330_impl*
  Result := ((aPara.PID = 0) and aPara.IsKindOf(k2_typDecorTextPara)) or EvHeaderTextPara(aPara);
 //#UC END# *5600F8C80213_47F1F3BC0330_impl*
-end;//EvNeedDrawParaInCollapsedMode
+end;//evNeedDrawParaInCollapsedMode
 
-function EvHeaderTextPara(aPara: Tl3Variant): Boolean;
+function evHeaderTextPara(aPara: Tl3Variant): Boolean;
 //#UC START# *5603D8AD0108_47F1F3BC0330_var*
 var
  l_Para: InevPara;
@@ -656,13 +641,13 @@ begin
  aPara.QT(InevPara, l_Para);
  Result := EvHeaderTextPara(l_Para);
 //#UC END# *5603D8AD0108_47F1F3BC0330_impl*
-end;//EvHeaderTextPara
+end;//evHeaderTextPara
 
-function EvSearchPara(const aList: InevObject;
-  const aSearcher: IevSearcher;
-  out aPara: InevObject;
-  StopOnBlock: Boolean = false;
-  aBlock: PIevDataObject = nil): Boolean;
+function evSearchPara(const aList: InevObject;
+ const aSearcher: IevSearcher;
+ out aPara: InevObject;
+ StopOnBlock: Boolean = False;
+ aBlock: PIevDataObject = nil): Boolean;
 //#UC START# *47F1F3EF01BC_47F1F3BC0330_var*
 {$IfDef evUseVisibleCursors}
 var
@@ -712,11 +697,11 @@ begin
  Assert(false);
  {$EndIf evUseVisibleCursors}
 //#UC END# *47F1F3EF01BC_47F1F3BC0330_impl*
-end;//EvSearchPara
+end;//evSearchPara
 
-function EvSearchPara(aList: Tl3Variant;
-  const aSearcher: IevSearcher;
-  out aBlock: IevdDataObject): Boolean;
+function evSearchPara(aList: Tl3Variant;
+ const aSearcher: IevSearcher;
+ out aBlock: IevdDataObject): Boolean;
 //#UC START# *47F1F42F032D_47F1F3BC0330_var*
 var
  l_ParaList : InevPara;
@@ -727,13 +712,14 @@ begin
  aList.QT(InevPara, l_ParaList);
  Result := evSearchPara(l_ParaList, aSearcher, l_Para, False, @aBlock);
 //#UC END# *47F1F42F032D_47F1F3BC0330_impl*
-end;//EvSearchPara
+end;//evSearchPara
 
-function EvQueryParaInterface(const aView: InevView;
-  const aContext: InevProcessor;
-  const aTagWrap: InevPara;
-  const anIID: Tl3GUID;
-  out Obj): hResult;
+function evQueryParaInterface(const aView: InevView;
+ const aContext: InevProcessor;
+ const aTagWrap: InevPara;
+ const anIID: Tl3GUID;
+ out Obj): hResult;
+ {* Возвращает интерфейс anIID для aTagWrap и aContext }
 //#UC START# *48E4E9370259_47F1F3BC0330_var*
 {$IfDef evUseVisibleCursors}
 var
@@ -790,13 +776,14 @@ begin
  Assert(false);  
  {$EndIf evUseVisibleCursors}
 //#UC END# *48E4E9370259_47F1F3BC0330_impl*
-end;//EvQueryParaInterface
+end;//evQueryParaInterface
 
-procedure EvClearPara(const aView: InevView;
-  const aPara: InevObject;
-  const anOp: InevOp;
-  aMode: TevClearMode = ev_cmKeepOne;
-  const aTopPara: InevPara = nil);
+procedure evClearPara(const aView: InevView;
+ const aPara: InevObject;
+ const anOp: InevOp;
+ aMode: TevClearMode = nevTools.ev_cmKeepOne;
+ const aTopPara: InevPara = nil);
+ {* Очищает параграф aPara }
 //#UC START# *48E4E992004F_47F1F3BC0330_var*
 
  procedure ClearSubs(aPara : Tl3Variant);
@@ -822,16 +809,17 @@ begin
   aMode := ev_cmKeepOne;
  aPara.Range.Modify.Delete(aView, anOp, aMode, aTopPara);
 //#UC END# *48E4E992004F_47F1F3BC0330_impl*
-end;//EvClearPara
+end;//evClearPara
 
-function EvCopyParaList(const aView: InevView;
-  const aContext: InevProcessor;
-  const aDest: InevPara;
-  const aSource: InevPara;
-  aFlags: TevLoadFlags = evDefaultCopyFlags;
-  SkipEmpty: Boolean = false;
-  const aStart: InevPoint = nil;
-  NeedDelete: Boolean = false): Boolean;
+function evCopyParaList(const aView: InevView;
+ const aContext: InevProcessor;
+ const aDest: InevPara;
+ const aSource: InevPara;
+ aFlags: TevLoadFlags = nevBase.evDefaultCopyFlags;
+ SkipEmpty: Boolean = False;
+ const aStart: InevPoint = nil;
+ NeedDelete: Boolean = False): Boolean;
+ {* Копирует содержимое из aSource в aDest }
 //#UC START# *48E4E9B50256_47F1F3BC0330_var*
 {$IfDef evUseVisibleCursors}
 var
@@ -905,11 +893,12 @@ begin
  Assert(false);
  {$EndIf evUseVisibleCursors}
 //#UC END# *48E4E9B50256_47F1F3BC0330_impl*
-end;//EvCopyParaList
+end;//evCopyParaList
 
-function EvMergeParaText(const aView: InevView;
-  const aParaList: InevParaList;
-  const anOpPack: InevOp = nil): Boolean;
+function evMergeParaText(const aView: InevView;
+ const aParaList: InevParaList;
+ const anOpPack: InevOp = nil): Boolean;
+ {* Объединяет текст списка параграфов }
 //#UC START# *48E4EA2D0094_47F1F3BC0330_var*
 var
  l_Cursor : InevPoint;
@@ -952,11 +941,13 @@ begin
    end;//try..finally
   end;//ChildrenCount > 2
 //#UC END# *48E4EA2D0094_47F1F3BC0330_impl*
-end;//EvMergeParaText
+end;//evMergeParaText
 
-function EvInPara(anAtom: Tl3Variant;
-  aTypeID: Tk2Type;
-  out theParent: Tl3Variant): Boolean;
+function evInPara(anAtom: Tl3Variant;
+ aTypeID: Tk2Type;
+ out theParent: Tl3Variant): Boolean;
+ {* Возвращает является ли атом anAtom или кто-то из его владельцев наследником от aTypeID.
+       theParent - найденный владелец подходящего типа }
 //#UC START# *48E4EE7002FB_47F1F3BC0330_var*
 var
  l_Parent : Tl3Variant;
@@ -976,10 +967,11 @@ begin
   l_Parent := l_Parent.Owner;
  end;//while l_Parent.IsValid
 //#UC END# *48E4EE7002FB_47F1F3BC0330_impl*
-end;//EvInPara
+end;//evInPara
 
-function EvInPara(anAtom: Tl3Variant;
-  aTypeID: Tk2Type): Boolean;
+function evInPara(anAtom: Tl3Variant;
+ aTypeID: Tk2Type): Boolean;
+ {* Возвращает является ли атом anAtom или кто-то из его владельцев наследником от aTypeID }
 //#UC START# *48E4EE990334_47F1F3BC0330_var*
 var
  l_Parent : Tl3Variant;
@@ -988,30 +980,32 @@ begin
 //#UC START# *48E4EE990334_47F1F3BC0330_impl*
  Result := evInPara(anAtom, aTypeID, l_Parent);
 //#UC END# *48E4EE990334_47F1F3BC0330_impl*
-end;//EvInPara
+end;//evInPara
 
-function EvHasText(anAtom: Tl3Variant): Boolean;
+function evHasText(anAtom: Tl3Variant): Boolean;
+ {* Возвращает есть ли у параграфа непустой текст }
 //#UC START# *48E4EEB300BF_47F1F3BC0330_var*
 //#UC END# *48E4EEB300BF_47F1F3BC0330_var*
 begin
 //#UC START# *48E4EEB300BF_47F1F3BC0330_impl*
  Result := evTextLength(anAtom) > 0;
 //#UC END# *48E4EEB300BF_47F1F3BC0330_impl*
-end;//EvHasText
+end;//evHasText
 
-function EvTextLength(anAtom: Tl3Variant): Integer;
+function evTextLength(anAtom: Tl3Variant): Integer;
+ {* Возвращает длину текста параграфа }
 //#UC START# *48E4EEC2031D_47F1F3BC0330_var*
 //#UC END# *48E4EEC2031D_47F1F3BC0330_var*
 begin
 //#UC START# *48E4EEC2031D_47F1F3BC0330_impl*
  Result := anAtom.PCharLenA[k2_tiText].SLen;
 //#UC END# *48E4EEC2031D_47F1F3BC0330_impl*
-end;//EvTextLength
+end;//evTextLength
 
-procedure EvMoveBorders(const aView: InevView;
-  var aBlock: IevdDataObject;
-  aD1: Integer;
-  aD2: Integer);
+procedure evMoveBorders(const aView: InevView;
+ var aBlock: IevdDataObject;
+ aD1: Integer;
+ aD2: Integer);
 //#UC START# *48E4EED700C0_47F1F3BC0330_var*
 var
  l_Sel   : InevRange;
@@ -1033,13 +1027,13 @@ begin
   aBlock := l_Block.Data;
  end;
 //#UC END# *48E4EED700C0_47F1F3BC0330_impl*
-end;//EvMoveBorders
+end;//evMoveBorders
 
-function EvReplaceInPara(const aList: InevPara;
-  const aSearcher: IevSearcher;
-  const aReplacer: IevReplacer;
-  const aConfirm: InevConfirm = nil;
-  const aFromPoint: InevBasePoint = nil): Boolean;
+function evReplaceInPara(const aList: InevPara;
+ const aSearcher: IevSearcher;
+ const aReplacer: IevReplacer;
+ const aConfirm: InevConfirm = nil;
+ const aFromPoint: InevBasePoint = nil): Boolean;
 //#UC START# *48E4EEF300D4_47F1F3BC0330_var*
 var
  l_Block   : InevRange;
@@ -1071,12 +1065,12 @@ begin
   l_Block := nil;
  end;//try..finally
 //#UC END# *48E4EEF300D4_47F1F3BC0330_impl*
-end;//EvReplaceInPara
+end;//evReplaceInPara
 
-function EvGetParaTextByCondition(const aPara: InevObject;
-  const aSearcher: IevSearcher;
-  out theText: Il3CString;
-  aFormat: TevFormat = cf_Text): Boolean;
+function evGetParaTextByCondition(const aPara: InevObject;
+ const aSearcher: IevSearcher;
+ out theText: Il3CString;
+ aFormat: TevFormat = cf_Text): Boolean;
 //#UC START# *48E4EF06007B_47F1F3BC0330_var*
 var
  l_Block : IevdDataObject;
@@ -1095,10 +1089,10 @@ begin
    l_Block := nil;
   end;//try..finally
 //#UC END# *48E4EF06007B_47F1F3BC0330_impl*
-end;//EvGetParaTextByCondition
+end;//evGetParaTextByCondition
 
-function EvCheckParaTextByCondition(const aPara: InevPara;
-  const aSearcher: IevSearcher): Boolean;
+function evCheckParaTextByCondition(const aPara: InevPara;
+ const aSearcher: IevSearcher): Boolean;
 //#UC START# *48E4EF1E02EB_47F1F3BC0330_var*
 var
  l_S : ^Il3CString;
@@ -1108,13 +1102,13 @@ begin
  l_S := nil;
  Result := evGetParaTextByCondition(aPara, aSearcher, l_S^);
 //#UC END# *48E4EF1E02EB_47F1F3BC0330_impl*
-end;//EvCheckParaTextByCondition
+end;//evCheckParaTextByCondition
 
-function EvGetParaTextByMask(const aPara: InevObject;
-  const aMask: AnsiString;
-  out theText: Il3CString;
-  aIgnoreCase: Boolean = true;
-  aFormat: TevFormat = cf_Text): Boolean;
+function evGetParaTextByMask(const aPara: InevObject;
+ const aMask: AnsiString;
+ out theText: Il3CString;
+ aIgnoreCase: Boolean = True;
+ aFormat: TevFormat = cf_Text): Boolean;
 //#UC START# *48E4EF360192_47F1F3BC0330_var*
 {$IfDef evUseVisibleCursors}
 var
@@ -1134,11 +1128,11 @@ begin
  Assert(false);
  {$EndIf evUseVisibleCursors}
 //#UC END# *48E4EF360192_47F1F3BC0330_impl*
-end;//EvGetParaTextByMask
+end;//evGetParaTextByMask
 
-function EvCheckParaTextByMask(const aPara: InevPara;
-  const aMask: AnsiString;
-  aIgnoreCase: Boolean = true): Boolean;
+function evCheckParaTextByMask(const aPara: InevPara;
+ const aMask: AnsiString;
+ aIgnoreCase: Boolean = True): Boolean;
 //#UC START# *48E4EF550336_47F1F3BC0330_var*
 var
  l_S : ^Il3CString;
@@ -1148,11 +1142,14 @@ begin
  l_S := nil;
  Result := evGetParaTextByMask(aPara, aMask, l_S^, aIgnoreCase);
 //#UC END# *48E4EF550336_47F1F3BC0330_impl*
-end;//EvCheckParaTextByMask
+end;//evCheckParaTextByMask
 
-function EvFindNumberedPara(const aPara: InevObject;
-  aSearchDown: Boolean = False;
-  aDivergentSearch: Boolean = true): InevLeafPara;
+function evFindNumberedPara(const aPara: InevObject;
+ aSearchDown: Boolean = False;
+ aDivergentSearch: Boolean = True): InevLeafPara;
+ {* Ищет ближайший нумерованный параграф,
+    aSearchDown - искать сначала вниз, иначе искать сначала вверх
+    aDivergentSearch - если в одну сторону не нашли - искать в противоположную }
 //#UC START# *48E4EF6B00D3_47F1F3BC0330_var*
 
  function GetNumberedPara(const aPara : InevLeafPara; 
@@ -1198,9 +1195,10 @@ begin
   l_Para := nil;
  end;//try..finally
 //#UC END# *48E4EF6B00D3_47F1F3BC0330_impl*
-end;//EvFindNumberedPara
+end;//evFindNumberedPara
 
-function EvPrevOverallPara(const aPara: InevPara): InevPara;
+function evPrevOverallPara(const aPara: InevPara): InevPara;
+ {* Ищет предыдущий параграф, с заходом в родителей }
 //#UC START# *48E4EF91007F_47F1F3BC0330_var*
 var
  l_Parent : InevPara;
@@ -1245,9 +1243,10 @@ begin
    l_Leaf := nil;
   end;//try..finally
 //#UC END# *48E4EF91007F_47F1F3BC0330_impl*
-end;//EvPrevOverallPara
+end;//evPrevOverallPara
 
-function EvNextOverallPara(const aPara: InevPara): InevPara;
+function evNextOverallPara(const aPara: InevPara): InevPara;
+ {* Ищет следующий параграф, с заходом в родителей }
 //#UC START# *48E4EFA1005F_47F1F3BC0330_var*
 var
  l_Parent : InevPara;
@@ -1292,12 +1291,13 @@ begin
    l_Leaf := nil;
   end;//try..finally
 //#UC END# *48E4EFA1005F_47F1F3BC0330_impl*
-end;//EvNextOverallPara
+end;//evNextOverallPara
 
-function EvAsString(const aData: IevdDataObject;
-  aFormat: Tl3ClipboardFormat = cf_Text;
-  StoreParaEnd: Boolean = false;
-  const aFilters: Ik2TagGenerator = nil): Il3CString;
+function evAsString(const aData: IevdDataObject;
+ aFormat: Tl3ClipboardFormat = cf_Text;
+ StoreParaEnd: Boolean = False;
+ const aFilters: Ik2TagGenerator = nil): Il3CString;
+ {* Преобразует объект данных к строке. Замена IevDataObject.AsString }
 //#UC START# *48F5BD610106_47F1F3BC0330_var*
 var
  l_String : Tl3InterfacedString;
@@ -1326,7 +1326,7 @@ begin
   end;//try..finally
  end;//aData = nil
 //#UC END# *48F5BD610106_47F1F3BC0330_impl*
-end;//EvAsString
-{$IfEnd} //k2ForEditor
+end;//evAsString
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

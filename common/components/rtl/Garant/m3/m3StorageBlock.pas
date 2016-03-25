@@ -1,92 +1,73 @@
 unit m3StorageBlock;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3StorageBlock.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::m3::m3CoreObjects::m3StorageBlock
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3StorageBlock.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "m3StorageBlock" MUID: (5411C54C0194)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3_String,
-  l3Memory,
-  l3CProtoObject,
-  m3StoreHeaderDataPrim,
-  m3RootStreamManagerPrimPrim,
-  m3FileRegion
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , l3Memory
+ , m3RootStreamManagerPrimPrim
+ , l3_String
+ , m3StoreHeaderDataPrim
+ , m3FileRegion
+;
+
+const
+ m3ClusterSize = 256;
 
 type
+ Rm3StorageBlock = class of Tm3StorageBlock;
+
  Tm3StorageBlockHeaderData = packed record
-//#UC START# *544F7C6800E1publ*
+ //#UC START# *544F7C6800E1publ*
    rNextPosition: Int64;
      {* - следующий блок. }
    rPrevPosition: Int64;
      {* - предыдущий блок. }
-//#UC END# *544F7C6800E1publ*
+ //#UC END# *544F7C6800E1publ*
  end;//Tm3StorageBlockHeaderData
 
-const
-  { Defaults }
- m3ClusterSize = 256;
-
-type
  Tm3StorageBlockHeader = packed record
-   rData : Tm3StorageBlockHeaderData;
-//#UC START# *5411C56D039Cpubl*
+  rData: Tm3StorageBlockHeaderData;
+ //#UC START# *5411C56D039Cpubl*
    {$IfDef m3ClusterHasCRC}
    rBodyCRC: LongInt;
    {$EndIf m3ClusterHasCRC}
      {* - контрольная сумма. }
-//#UC END# *5411C56D039Cpubl*
+ //#UC END# *5411C56D039Cpubl*
  end;//Tm3StorageBlockHeader
 
  Tm3LockedRegion = record
-   rForRead : Boolean;
-   rRegion : Tm3FileRegion;
+  rForRead: Boolean;
+  rRegion: Tm3FileRegion;
  end;//Tm3LockedRegion
 
- Rm3StorageBlock = class of Tm3StorageBlock;
-
  Tm3StorageBlock = class(Tl3CProtoObject)
- private
- // private fields
-   rHeader : Tm3StorageBlockHeader;
-   f_BufferModified : Boolean;
-   f_Body : PANSIChar;
-   f_Manager : Tm3RootStreamManagerPrimPrim;
-   f_HeaderData : Tm3StoreHeaderDataPrim;
-   f_IsReadOnly : Boolean;
-   f_PrevBlock : Tm3StorageBlock;
-   f_Offset : Int64;
-   rHeaderCompare : Tm3StorageBlockHeaderData;
-   f_Position : Int64;
-    {* Поле для свойства Position}
-   f_Name : Tl3_String;
-    {* Поле для свойства Name}
-   f_Index : Int64;
-    {* Поле для свойства Index}
- protected
- // property methods
+  private
+   rHeader: Tm3StorageBlockHeader;
+   f_BufferModified: Boolean;
+   f_Body: PANSIChar;
+   f_Manager: Tm3RootStreamManagerPrimPrim;
+   f_HeaderData: Tm3StoreHeaderDataPrim;
+   f_IsReadOnly: Boolean;
+   f_PrevBlock: Tm3StorageBlock;
+   f_Offset: Int64;
+   rHeaderCompare: Tm3StorageBlockHeaderData;
+   f_Position: Int64;
+    {* Поле для свойства Position }
+   f_Name: Tl3_String;
+    {* Поле для свойства Name }
+   f_Index: Int64;
+    {* Поле для свойства Index }
+  protected
    function pm_GetNextPosition: Int64;
    procedure pm_SetNextPosition(aValue: Int64);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
    procedure Save;
    function Modified: Boolean;
    procedure Load;
@@ -95,57 +76,85 @@ type
    function CheckBody: PANSIChar;
    function HeaderModified: Boolean;
    constructor CreatePrim(aManager: Tm3RootStreamManagerPrimPrim;
-     aName: Tl3_String;
-     aReadOnly: Boolean;
-     aPosition: Int64;
-     aPrevBlock: Tm3StorageBlock;
-     anIndex: Int64);
- public
- // public methods
+    aName: Tl3_String;
+    aReadOnly: Boolean;
+    aPosition: Int64;
+    aPrevBlock: Tm3StorageBlock;
+    anIndex: Int64); reintroduce;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aHeaderData: Tm3StoreHeaderDataPrim); reintroduce;
    function CreatePrev: Tm3StorageBlock;
    function Read(aBuffer: PANSIChar;
-     aSizeToRead: Integer): Integer;
+    aSizeToRead: Integer): Integer;
    function Write(aBuffer: PANSIChar;
-     aSizeToWrite: Integer): Integer;
+    aSizeToWrite: Integer): Integer;
    function IsFull: Boolean;
    function CreateNext: Tm3StorageBlock;
    procedure SetPositionInStream(aPosition: Int64);
- protected
- // protected properties
+  protected
    property Position: Int64
-     read f_Position;
- public
- // public properties
+    read f_Position;
+  public
    property Name: Tl3_String
-     read f_Name;
+    read f_Name;
    property Index: Int64
-     read f_Index;
+    read f_Index;
    property NextPosition: Int64
-     read pm_GetNextPosition
-     write pm_SetNextPosition;
+    read pm_GetNextPosition
+    write pm_SetNextPosition;
  end;//Tm3StorageBlock
 
 function Tm3LockedRegion_C(aForRead: Boolean;
-     const aRegion: Tm3FileRegion): Tm3LockedRegion;
+ const aRegion: Tm3FileRegion): Tm3LockedRegion;
 
-var
-   m3TOCBuffers : Pl3MemoryChain;
+var m3TOCBuffers: Pl3MemoryChain;
 
 implementation
 
 uses
-  m3Exceptions,
-  m2MemLib,
-  SysUtils,
-  m2S32Lib,
-  m2S64Lib,
-  ComObj,
-  Windows,
-  l3Base
-  ;
+ l3ImplUses
+ , SysUtils
+ , m2S32Lib
+ , m2S64Lib
+ , ComObj
+ , Windows
+ , l3Base
+ , m3Exceptions
+ , m2MemLib
+;
 
-// start class Tm3StorageBlock
+function Tm3LockedRegion_C(aForRead: Boolean;
+ const aRegion: Tm3FileRegion): Tm3LockedRegion;
+//#UC START# *5450E3910297_5450E35203B6_var*
+//#UC END# *5450E3910297_5450E35203B6_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *5450E3910297_5450E35203B6_impl*
+ Result.rForRead := aForRead;
+ Result.rRegion := aRegion;
+//#UC END# *5450E3910297_5450E35203B6_impl*
+end;//Tm3LockedRegion_C
+
+function Tm3StorageBlock.pm_GetNextPosition: Int64;
+//#UC START# *5448EBF902BB_5411C58501E2get_var*
+//#UC END# *5448EBF902BB_5411C58501E2get_var*
+begin
+//#UC START# *5448EBF902BB_5411C58501E2get_impl*
+ Result := Self.rHeader.rData.rNextPosition;
+//#UC END# *5448EBF902BB_5411C58501E2get_impl*
+end;//Tm3StorageBlock.pm_GetNextPosition
+
+procedure Tm3StorageBlock.pm_SetNextPosition(aValue: Int64);
+//#UC START# *5448EBF902BB_5411C58501E2set_var*
+//#UC END# *5448EBF902BB_5411C58501E2set_var*
+begin
+//#UC START# *5448EBF902BB_5411C58501E2set_impl*
+ Self.rHeader.rData.rNextPosition := aValue;
+//#UC END# *5448EBF902BB_5411C58501E2set_impl*
+end;//Tm3StorageBlock.pm_SetNextPosition
 
 constructor Tm3StorageBlock.Create(aHeaderData: Tm3StoreHeaderDataPrim);
 //#UC START# *5413163101BA_5411C58501E2_var*
@@ -410,7 +419,7 @@ begin
 end;//Tm3StorageBlock.HeaderModified
 
 function Tm3StorageBlock.Read(aBuffer: PANSIChar;
-  aSizeToRead: Integer): Integer;
+ aSizeToRead: Integer): Integer;
 //#UC START# *544F498B01DC_5411C58501E2_var*
 var
  l_Body : PANSIChar;
@@ -433,7 +442,7 @@ begin
 end;//Tm3StorageBlock.Read
 
 function Tm3StorageBlock.Write(aBuffer: PANSIChar;
-  aSizeToWrite: Integer): Integer;
+ aSizeToWrite: Integer): Integer;
 //#UC START# *544F49CF014E_5411C58501E2_var*
 var
  l_Body : PANSIChar;
@@ -494,11 +503,11 @@ begin
 end;//Tm3StorageBlock.CreateNext
 
 constructor Tm3StorageBlock.CreatePrim(aManager: Tm3RootStreamManagerPrimPrim;
-  aName: Tl3_String;
-  aReadOnly: Boolean;
-  aPosition: Int64;
-  aPrevBlock: Tm3StorageBlock;
-  anIndex: Int64);
+ aName: Tl3_String;
+ aReadOnly: Boolean;
+ aPosition: Int64;
+ aPrevBlock: Tm3StorageBlock;
+ anIndex: Int64);
 //#UC START# *5446556801C7_5411C58501E2_var*
 var
  l_PrevPosition : Int64;
@@ -557,39 +566,8 @@ begin
 //#UC END# *5450F5B9010F_5411C58501E2_impl*
 end;//Tm3StorageBlock.SetPositionInStream
 
-function Tm3LockedRegion_C(aForRead: Boolean;
-         const aRegion: Tm3FileRegion): Tm3LockedRegion;
-//#UC START# *5450E3910297_5450E35203B6_var*
-//#UC END# *5450E3910297_5450E35203B6_var*
-begin
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *5450E3910297_5450E35203B6_impl*
- Result.rForRead := aForRead;
- Result.rRegion := aRegion;
-//#UC END# *5450E3910297_5450E35203B6_impl*
-end;//Tm3LockedRegion.C
-
-// start class Tm3StorageBlock
-
-function Tm3StorageBlock.pm_GetNextPosition: Int64;
-//#UC START# *5448EBF902BB_5411C58501E2get_var*
-//#UC END# *5448EBF902BB_5411C58501E2get_var*
-begin
-//#UC START# *5448EBF902BB_5411C58501E2get_impl*
- Result := Self.rHeader.rData.rNextPosition;
-//#UC END# *5448EBF902BB_5411C58501E2get_impl*
-end;//Tm3StorageBlock.pm_GetNextPosition
-
-procedure Tm3StorageBlock.pm_SetNextPosition(aValue: Int64);
-//#UC START# *5448EBF902BB_5411C58501E2set_var*
-//#UC END# *5448EBF902BB_5411C58501E2set_var*
-begin
-//#UC START# *5448EBF902BB_5411C58501E2set_impl*
- Self.rHeader.rData.rNextPosition := aValue;
-//#UC END# *5448EBF902BB_5411C58501E2set_impl*
-end;//Tm3StorageBlock.pm_SetNextPosition
-
 procedure Tm3StorageBlock.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5411C58501E2_var*
 
  procedure DoSave;

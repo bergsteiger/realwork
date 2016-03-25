@@ -1,54 +1,44 @@
 unit evSegment;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evSegment.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::ParaUtils::evSegment
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSegment.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evSegment" MUID: (4A3919200142)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevBase,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3Variant
+ , nevBase
+;
 
-function EvSegmentHasSomeFormat(aSegment: Tl3Variant): Boolean;
-   {* определяет - имеет ли сегмент хоть какое-то оформление, отличное от стандартного. }
-procedure EvSegmentSetFontParam(aSegment: Tl3Variant;
-  anAtom: LongInt;
-  aValue: Tl3Variant;
-  const aContext: InevOp = nil);
-{$IfEnd} //k2ForEditor
+function evSegmentHasSomeFormat(aSegment: Tl3Variant): Boolean;
+ {* определяет - имеет ли сегмент хоть какое-то оформление, отличное от стандартного. }
+procedure evSegment_SetFontParam(aSegment: Tl3Variant;
+ anAtom: LongInt;
+ aValue: Tl3Variant;
+ const aContext: InevOp = nil);
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  Segment_Const,
-  k2Tags,
-  evResultFont,
-  k2Prim,
-  k2Except,
-  k2BaseTypes,
-  k2Base,
-  l3Types
-  ;
+ l3ImplUses
+ , Segment_Const
+ , k2Tags
+ , evResultFont
+ , k2Prim
+ , k2Except
+ , k2BaseTypes
+ , k2Base
+ , l3Types
+;
 
-// unit methods
-
-{$If defined(k2ForEditor) AND not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 function CheckApply2Para(anAtom: Tl3Variant): Boolean;
 //#UC START# *502206170304_4A3919200142_var*
 //#UC END# *502206170304_4A3919200142_var*
@@ -59,11 +49,11 @@ begin
   Result := anAtom.BoolA[k2_tiApply2Para];
 //#UC END# *502206170304_4A3919200142_impl*
 end;//CheckApply2Para
-{$IfEnd} //k2ForEditor AND not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
-procedure EvSegmentAssignSegment(aDestSegment: Tl3Variant;
-  aSegment: Tl3Variant;
-  const anOpPack: InevOp);
+procedure evSegment_AssignSegment(aDestSegment: Tl3Variant;
+ aSegment: Tl3Variant;
+ const anOpPack: InevOp);
 //#UC START# *502206D80305_4A3919200142_var*
 
   function AssignToFont(aFont: Tl3Variant): Boolean;
@@ -228,9 +218,10 @@ begin
                  k2_amAll - [k2_amTransparent],
                  anOpPack);*)
 //#UC END# *502206D80305_4A3919200142_impl*
-end;//EvSegmentAssignSegment
+end;//evSegment_AssignSegment
 
-function EvSegmentHasSomeFormat(aSegment: Tl3Variant): Boolean;
+function evSegmentHasSomeFormat(aSegment: Tl3Variant): Boolean;
+ {* определяет - имеет ли сегмент хоть какое-то оформление, отличное от стандартного. }
 //#UC START# *502205210291_4A3919200142_var*
 var
  l_Index : LongInt;
@@ -248,12 +239,12 @@ begin
     break;
    end;//rOwnAtom(TagType.Prop[l_Paras[l_Index]]).IsValid
 //#UC END# *502205210291_4A3919200142_impl*
-end;//EvSegmentHasSomeFormat
+end;//evSegmentHasSomeFormat
 
-procedure EvSegmentSetFontParam(aSegment: Tl3Variant;
-  anAtom: LongInt;
-  aValue: Tl3Variant;
-  const aContext: InevOp = nil);
+procedure evSegment_SetFontParam(aSegment: Tl3Variant;
+ anAtom: LongInt;
+ aValue: Tl3Variant;
+ const aContext: InevOp = nil);
 //#UC START# *502205480080_4A3919200142_var*
 var
  l_Prop : Tk2CustomPropertyPrim;
@@ -274,7 +265,7 @@ begin
     cAtom(k2_tiFont, aContext).AttrW[anAtom, aContext] := aValue;
   end;//with aSegment
 //#UC END# *502205480080_4A3919200142_impl*
-end;//EvSegmentSetFontParam
-{$IfEnd} //k2ForEditor
+end;//evSegment_SetFontParam
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

@@ -1,55 +1,44 @@
 unit evTextParaMarkers;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evTextParaMarkers.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Cursors::evTextParaMarkers
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTextParaMarkers.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evTextParaMarkers" MUID: (4A3911C50154)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evMarker,
-  nevBase
-  ;
+ l3IntfUses
+ , evMarker
+ , nevBase
+;
 
 type
  TevTextParaRightIndentMarker = class(TevMarker)
- protected
- // overridden protected methods
+  protected
    procedure SetClientValue(aValue: Integer;
-     const aContext: InevOp); override;
+    const aContext: InevOp); override;
    function DoGetClientValue: Integer; override;
    procedure DoSetValue(aValue: Integer;
-     const Context: InevOp); override;
+    const Context: InevOp); override;
  end;//TevTextParaRightIndentMarker
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  k2Tags,
-  evConst,
-  l3Units,
-  evdTypes
-  ;
-
-// start class TevTextParaRightIndentMarker
+ l3ImplUses
+ , k2Tags
+ , evConst
+ , l3Units
+ , evdTypes
+;
 
 procedure TevTextParaRightIndentMarker.SetClientValue(aValue: Integer;
-  const aContext: InevOp);
+ const aContext: InevOp);
 //#UC START# *4E3A3F0D0388_4A3911D80203_var*
 var
  l_OldValue : LongInt;
@@ -93,7 +82,7 @@ begin
 end;//TevTextParaRightIndentMarker.DoGetClientValue
 
 procedure TevTextParaRightIndentMarker.DoSetValue(aValue: Integer;
-  const Context: InevOp);
+ const Context: InevOp);
 //#UC START# *4ED31DEA0077_4A3911D80203_var*
 //#UC END# *4ED31DEA0077_4A3911D80203_var*
 begin
@@ -105,6 +94,6 @@ begin
  end;//Self.Value <> aValue
 //#UC END# *4ED31DEA0077_4A3911D80203_impl*
 end;//TevTextParaRightIndentMarker.DoSetValue
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

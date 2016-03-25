@@ -1,53 +1,43 @@
 unit evParaDrawTools;
+ {* Выделенные когда-то из evTextSource методы рисования/печати }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evParaDrawTools.pas"
-// Начат: 13.01.2004 18:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Printing::evParaDrawTools
-//
-// Выделенные когда-то из evTextSource методы рисования/печати
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaDrawTools.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evParaDrawTools" MUID: (481D76A4005D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  nevRealTools
-  ;
+ l3IntfUses
+ , nevRealTools
+ , nevTools
+;
 
 function EvDrawPara(const anArea: TnevShapeArea;
-  const aPara: InevObject;
-  const aTop: InevBasePoint;
-  const aBlock: InevRange;
-  aPrevHeight: Integer): TnevShapeInfo;
-   {* Метод рисования параграфа }
+ const aPara: InevObject;
+ const aTop: InevBasePoint;
+ const aBlock: InevRange;
+ aPrevHeight: Integer): TnevShapeInfo;
+ {* Метод рисования параграфа }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 function EvDrawPara(const anArea: TnevShapeArea;
-  const aPara: InevObject;
-  const aTop: InevBasePoint;
-  const aBlock: InevRange;
-  aPrevHeight: Integer): TnevShapeInfo;
+ const aPara: InevObject;
+ const aTop: InevBasePoint;
+ const aBlock: InevRange;
+ aPrevHeight: Integer): TnevShapeInfo;
+ {* Метод рисования параграфа }
+var l_Painter: InevDrawingShape;
+var l_Points: TnevShapePoints;
 //#UC START# *49CCC052009F_481D76A4005D_var*
 //#UC END# *49CCC052009F_481D76A4005D_var*
-var
- l_Painter : InevDrawingShape;
- l_Points : TnevShapePoints;
 begin
 //#UC START# *49CCC052009F_481D76A4005D_impl*
  anArea.rCanvas.BeginPaint;

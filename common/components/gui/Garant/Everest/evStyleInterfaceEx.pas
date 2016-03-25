@@ -1,103 +1,84 @@
 unit evStyleInterfaceEx;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evStyleInterfaceEx.pas"
-// Начат: 20.05.2005 17:28
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::StyleTable::evStyleInterfaceEx
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evStyleInterfaceEx.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evStyleInterfaceEx" MUID: (4857EFDA01E5)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  Classes,
-  k2TagGen,
-  nevInternalInterfaces,
-  k2DocumentGenerator,
-  evStyleInterface,
-  k2Dictionary
-  ;
+ l3IntfUses
+ , evStyleInterface
+ , k2DocumentGenerator
+ , nevInternalInterfaces
+ , Classes
+ , k2TagGen
+;
 
 type
  TevStyleInterfaceEx = class(TevStyleInterface)
- private
- // private fields
-   f_ForExport : Boolean;
-    {* Поле для свойства ForExport}
- protected
- // overridden protected methods
-   procedure InitFields; override;
- protected
- // protected methods
+  private
+   f_ForExport: Boolean;
+    {* Поле для свойства ForExport }
+  protected
    function DoFinishAtom(G: Tk2DocumentGenerator;
-     var Atom: Tk2StackAtom): Boolean;
- public
- // public methods
-   procedure Load(const Reader: Tk2CustomReader); overload; 
-   procedure Load(S: TStream); overload; 
-   procedure Save(G: Tk2TagGenerator); overload; 
+    var Atom: Tk2StackAtom): Boolean;
+   procedure InitFields; override;
+  public
+   procedure Load(const Reader: Tk2CustomReader); overload;
+   procedure Load(S: TStream); overload;
+   procedure Save(G: Tk2TagGenerator); overload;
    procedure Save(S: TStream;
-     aBinary: Boolean = False); overload; 
+    aBinary: Boolean = False); overload;
    procedure SaveCurrent(G: Tk2TagGenerator);
- public
- // public properties
+  public
    property ForExport: Boolean
-     read f_ForExport
-     write f_ForExport;
+    read f_ForExport
+    write f_ForExport;
  end;//TevStyleInterfaceEx
 
-var g_InCreateDocumentSchema : Boolean;
+var g_InCreateDocumentSchema: Boolean;
 
 implementation
 
 uses
-  k2Tags,
-  l3Variant,
-  Style_Const,
-  k2BaseTypes,
-  evdStyles,
-  Graphics,
-  evOpProc,
-  k2Context,
-  nevBase,
-  l3Base,
-  l3Filer,
-  evdNativeReader,
-  StrUtils,
-  k2Base,
-  k2SimpleTagList,
-  evStyleTableFontSizeCorrector,
-  l3Types,
-  k2NonOptimizeContext,
-  evdNativeWriter
-  ;
+ l3ImplUses
+ , k2Dictionary
+ , k2Tags
+ , l3Variant
+ , Style_Const
+ , k2BaseTypes
+ , evdStyles
+ , Graphics
+ , evOpProc
+ , k2Context
+ , nevBase
+ , l3Base
+ , l3Filer
+ , evdNativeReader
+ , StrUtils
+ , k2Base
+ , k2SimpleTagList
+ , evStyleTableFontSizeCorrector
+ , l3Types
+ , k2NonOptimizeContext
+ , evdNativeWriter
+;
 
 type
+ Tk2DictionaryFriend = {abstract} class(Tk2Dictionary)
+  {* Друг для Tk2Dictionary }
+ end;//Tk2DictionaryFriend
+
  TevStyleTableGenerator = class(Tk2DocumentGenerator)
- private
- // private fields
-   f_StyleTable : Tk2Dictionary;
+  private
+   f_StyleTable: Tk2Dictionary;
  end;//TevStyleTableGenerator
 
-  Tk2DictionaryFriend = {abstract} class(Tk2Dictionary)
-   {* Друг для Tk2Dictionary }
-  end;//Tk2DictionaryFriend
-
-// start class TevStyleInterfaceEx
-
 function TevStyleInterfaceEx.DoFinishAtom(G: Tk2DocumentGenerator;
-  var Atom: Tk2StackAtom): Boolean;
+ var Atom: Tk2StackAtom): Boolean;
 //#UC START# *55522C52008B_55522B5101D3_var*
 {$IfDef Nemesis}
 const
@@ -368,7 +349,7 @@ begin
 end;//TevStyleInterfaceEx.Save
 
 procedure TevStyleInterfaceEx.Save(S: TStream;
-  aBinary: Boolean = False);
+ aBinary: Boolean = False);
 //#UC START# *55522D1803AB_55522B5101D3_var*
 var
  F: Tl3CustomFiler;

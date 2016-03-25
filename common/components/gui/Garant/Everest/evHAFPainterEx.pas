@@ -1,103 +1,79 @@
 unit evHAFPainterEx;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evHAFPainterEx.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Printing::evHAFPainterEx
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evHAFPainterEx.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evHAFPainterEx" MUID: (4C22137E025C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  afwInterfaces,
-  evTypes,
-  evHAFPainter,
-  l3InternalInterfaces,
-  l3Variant
-  ;
+ l3IntfUses
+ , evTypes
+ , l3Interfaces
+ , evHAFPainter
+ , afwInterfaces
+ , l3InternalInterfaces
+ , l3Variant
+;
 
 type
  TevColontituls = array [TevPageColontituls] of Il3CString;
 
- TevReadColontitulsEvent = procedure (var theColontituls: TevColontituls) of object;
+ TevReadColontitulsEvent = procedure(var theColontituls: TevColontituls) of object;
 
  _afwSettingChanged_Parent_ = TevHAFPainter;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
  _afwSettingsReplace_Parent_ = _afwSettingChanged_;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
  TevHAFPainterEx = class(_afwSettingsReplace_)
- protected
- // realized methods
-   procedure TuneHeader(const aCanvas: Il3Canvas;
-     aHeader: Tl3Variant;
-     aTop: Boolean); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function DoSettingChanged(const aSettingId: TafwSettingId): Boolean; override;
-     {* Обработчик изменения указанной настройки }
-   procedure SettingsReplaceFinish; override;
-   function DoNeedPagesCount: Boolean; override;
- public
- // overridden public methods
-   constructor Create(const aMacroReplacer: Il3HAFMacroReplacer); override;
- protected
- // protected fields
-   f_Colontituls : TevColontituls;
- protected
- // protected methods
+  protected
+   f_Colontituls: TevColontituls;
+  protected
    function IsSettingAffectsUs(const aSettingId: TafwSettingId): Boolean; virtual;
    function GetAppTitle: AnsiString; virtual;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function DoSettingChanged(const aSettingId: TafwSettingId): Boolean; override;
+    {* Обработчик изменения указанной настройки }
+   procedure SettingsReplaceFinish; override;
+   function DoNeedPagesCount: Boolean; override;
+  public
    procedure ReadColontitulSettings; virtual;
-     {* Сигнатура метода ReadColontitulSettings }
+   procedure TuneHeader(const aCanvas: Il3Canvas;
+    aHeader: Tl3Variant;
+    aTop: Boolean); override;
+   constructor Create(const aMacroReplacer: Il3HAFMacroReplacer); override;
  end;//TevHAFPainterEx
 
-var g_OnReadColontituls : TevReadColontitulsEvent;
+var g_OnReadColontituls: TevReadColontitulsEvent;
 
 implementation
 
 uses
-  afwFacade,
-  afwSettingsChangePublisher,
-  l3String,
-  evHAFPainterMacros,
-  k2Tags
-  {$If defined(k2ForEditor)}
-  ,
-  evSBSPar
-  {$IfEnd} //k2ForEditor
-  ,
-  l3Const,
-  evdStyles,
-  nevInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  SysUtils,
-  l3Base
-  ;
+ l3ImplUses
+ , l3String
+ , evHAFPainterMacros
+ , k2Tags
+ {$If Defined(k2ForEditor)}
+ , evSBSPar
+ {$IfEnd} // Defined(k2ForEditor)
+ , l3Const
+ , evdStyles
+ , nevInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
+ , l3Base
+ , afwFacade
+ , afwSettingsChangePublisher
+;
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
-
-// start class TevHAFPainterEx
 
 function TevHAFPainterEx.IsSettingAffectsUs(const aSettingId: TafwSettingId): Boolean;
 //#UC START# *5243E95503E4_47F352A30004_var*
@@ -133,8 +109,8 @@ begin
 end;//TevHAFPainterEx.GetAppTitle
 
 procedure TevHAFPainterEx.TuneHeader(const aCanvas: Il3Canvas;
-  aHeader: Tl3Variant;
-  aTop: Boolean);
+ aHeader: Tl3Variant;
+ aTop: Boolean);
 //#UC START# *5243CD850286_47F352A30004_var*
  procedure TuneColontitul(const aCanvas: Il3Canvas; aPara: Tl3Variant; const aFormat: Il3CString; aLeft: Boolean);
  const
@@ -210,6 +186,7 @@ begin
 end;//TevHAFPainterEx.TuneHeader
 
 procedure TevHAFPainterEx.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47F352A30004_var*
 var
  I: TevPageColontituls;
@@ -223,6 +200,7 @@ begin
 end;//TevHAFPainterEx.Cleanup
 
 function TevHAFPainterEx.DoSettingChanged(const aSettingId: TafwSettingId): Boolean;
+ {* Обработчик изменения указанной настройки }
 //#UC START# *47EA863A035C_47F352A30004_var*
 //#UC END# *47EA863A035C_47F352A30004_var*
 begin

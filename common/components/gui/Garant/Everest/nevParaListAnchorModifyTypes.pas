@@ -1,36 +1,32 @@
 unit nevParaListAnchorModifyTypes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/nevParaListAnchorModifyTypes.pas"
-// Начат: 02.03.2011 19:37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Cursors::nevParaListAnchorModifyTypes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\nevParaListAnchorModifyTypes.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nevParaListAnchorModifyTypes" MUID: (4D6E722D0214)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
+uses
+ l3IntfUses
+;
+
 type
  TnevChildrenInfo = record
-   rLinear : Boolean;
-   rLeafCount : Integer;
-   rCountMinus1 : Integer;
+  rLinear: Boolean;
+  rLeafCount: Integer;
+  rCountMinus1: Integer;
  end;//TnevChildrenInfo
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
-{$IfEnd} //evUseVisibleCursors
+{$If Defined(evUseVisibleCursors)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(evUseVisibleCursors)
+
 end.

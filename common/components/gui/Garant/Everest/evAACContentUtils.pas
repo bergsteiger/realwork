@@ -1,69 +1,59 @@
 unit evAACContentUtils;
+ {* [$602009846] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evAACContentUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::ParaUtils::evAACContentUtils
-//
-// [$602009846]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evAACContentUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evAACContentUtils" MUID: (55CB06D00354)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevBase,
-  nevTools
-  ;
+ l3IntfUses
+ , nevBase
+ , nevTools
+;
 
 const
-  { AACConst }
  cnAACLeftBackColor = $C48B5C;
  cnAACContentsLeftIndent = 750;
  cnTopAACItem = nevInch div 16;
  cnAACSeparatorSpace = 1050;
  cnAACContentsRigthIndent = 450;
  cnAACRightBottomSpace = 1350;
-function EvIsAACItem(aSegment: Tl3Variant;
-  aTextLen: Integer;
-  aCheckInternal: Boolean): Boolean;
-   {* Проверяет покрывает ли гиперссылка весь параграф. }
-procedure EvSelectAACHyperlink(const aView: InevControlView;
-  aHyperlink: Tl3Variant;
-  const aOwnerPara: InevObject;
-  aCheckInternal: Boolean);
-function EvIsAACHyperlink(aPara: Tl3Variant;
-  aCheckInternal: Boolean): Boolean;
-function EvAACNeedSpaceBefore(aPara: Tl3Variant): Boolean;
-{$IfEnd} //k2ForEditor
+
+function evIsAACItem(aSegment: Tl3Variant;
+ aTextLen: Integer;
+ aCheckInternal: Boolean): Boolean;
+ {* Проверяет покрывает ли гиперссылка весь параграф. }
+procedure evSelectAACHyperlink(const aView: InevControlView;
+ aHyperlink: Tl3Variant;
+ const aOwnerPara: InevObject;
+ aCheckInternal: Boolean);
+function evIsAACHyperlink(aPara: Tl3Variant;
+ aCheckInternal: Boolean): Boolean;
+function evAACNeedSpaceBefore(aPara: Tl3Variant): Boolean;
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  HyperLink_Const,
-  evdStyles,
-  evdTypes,
-  k2Tags,
-  evSegLst,
-  evParaTools
-  ;
+ l3ImplUses
+ , HyperLink_Const
+ , evdStyles
+ , evdTypes
+ , k2Tags
+ , evSegLst
+ , evParaTools
+;
 
-// unit methods
-
-function EvIsAACItem(aSegment: Tl3Variant;
-  aTextLen: Integer;
-  aCheckInternal: Boolean): Boolean;
+function evIsAACItem(aSegment: Tl3Variant;
+ aTextLen: Integer;
+ aCheckInternal: Boolean): Boolean;
+ {* Проверяет покрывает ли гиперссылка весь параграф. }
 //#UC START# *502205C20239_55CB06D00354_var*
 var
  l_Type : Integer;
@@ -87,12 +77,12 @@ begin
   end; // if Result then
  end; // if Result then
 //#UC END# *502205C20239_55CB06D00354_impl*
-end;//EvIsAACItem
+end;//evIsAACItem
 
-procedure EvSelectAACHyperlink(const aView: InevControlView;
-  aHyperlink: Tl3Variant;
-  const aOwnerPara: InevObject;
-  aCheckInternal: Boolean);
+procedure evSelectAACHyperlink(const aView: InevControlView;
+ aHyperlink: Tl3Variant;
+ const aOwnerPara: InevObject;
+ aCheckInternal: Boolean);
 //#UC START# *5063E9CC0008_55CB06D00354_var*
 var
  l_Start          : InevBasePoint;
@@ -117,10 +107,10 @@ begin
   aView.Control.Selection.Select(l_Block, False);
  end; // if aHyperlink <> nil then
 //#UC END# *5063E9CC0008_55CB06D00354_impl*
-end;//EvSelectAACHyperlink
+end;//evSelectAACHyperlink
 
-function EvIsAACHyperlink(aPara: Tl3Variant;
-  aCheckInternal: Boolean): Boolean;
+function evIsAACHyperlink(aPara: Tl3Variant;
+ aCheckInternal: Boolean): Boolean;
 //#UC START# *50223AB403B3_55CB06D00354_var*
 var
  l_Pos      : Integer;
@@ -144,9 +134,9 @@ begin
   end;{Seg = nil}
  end; // if l_Segments.IsValid then
 //#UC END# *50223AB403B3_55CB06D00354_impl*
-end;//EvIsAACHyperlink
+end;//evIsAACHyperlink
 
-function EvAACNeedSpaceBefore(aPara: Tl3Variant): Boolean;
+function evAACNeedSpaceBefore(aPara: Tl3Variant): Boolean;
 //#UC START# *55CB274E02B4_55CB06D00354_var*
 var
  l_Para: InevPara;
@@ -174,7 +164,7 @@ begin
   end; // while (l_Para <> nil) and l_Para.IsValid do
  end; // if Result then
 //#UC END# *55CB274E02B4_55CB06D00354_impl*
-end;//EvAACNeedSpaceBefore
-{$IfEnd} //k2ForEditor
+end;//evAACNeedSpaceBefore
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

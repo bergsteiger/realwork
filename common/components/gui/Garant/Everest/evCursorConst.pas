@@ -1,38 +1,32 @@
 unit evCursorConst;
+ {* Константы для работы с курсором }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCursorConst.pas"
-// Начат: 18.12.2002 17:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Cursors::evCursorConst
-//
-// Константы для работы с курсором
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCursorConst.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evCursorConst" MUID: (4A38ED8203CD)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
+uses
+ l3IntfUses
+;
+
 const
-  { Cursor Positions }
  ev_cpTop = -1;
  ev_cpBottom = -2;
  ev_cpNull = -3;
  ev_cpAtEnd = High(Integer);
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
-{$IfEnd} //evUseVisibleCursors
+{$If Defined(evUseVisibleCursors)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(evUseVisibleCursors)
+
 end.

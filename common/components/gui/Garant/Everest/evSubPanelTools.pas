@@ -1,47 +1,37 @@
 unit evSubPanelTools;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evSubPanelTools.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::SubPanel::evSubPanelTools
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSubPanelTools.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evSubPanelTools" MUID: (5480995800BA)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Units,
-  Windows
-  ;
+ l3IntfUses
+ , Windows
+ , l3Units
+;
 
-procedure EvInvalidateRect(H: THandle;
-  const R: Tl3Rect);
+procedure evInvalidateRect(H: THandle;
+ const R: Tl3Rect);
 
 implementation
 
 uses
-  nevFacade
-  ;
+ l3ImplUses
+ , nevFacade
+;
 
-// unit methods
-
-procedure EvInvalidateRect(H: THandle;
-  const R: Tl3Rect);
+procedure evInvalidateRect(H: THandle;
+ const R: Tl3Rect);
 //#UC START# *4B87BB100265_5480995800BA_var*
 //#UC END# *4B87BB100265_5480995800BA_var*
 begin
 //#UC START# *4B87BB100265_5480995800BA_impl*
   nev.CrtIC.LR2DR(R).Invalidate(H, False);
 //#UC END# *4B87BB100265_5480995800BA_impl*
-end;//EvInvalidateRect
+end;//evInvalidateRect
 
 end.

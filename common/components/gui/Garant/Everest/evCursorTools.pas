@@ -1,130 +1,117 @@
 unit evCursorTools;
+ {* Вспомогательные функции для работы с курсорами. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evCursorTools.pas"
-// Начат: 30.08.2000 16:58
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::ParaUtils::evCursorTools
-//
-// Вспомогательные функции для работы с курсорами.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCursorTools.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evCursorTools" MUID: (48453B7601F9)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  l3Types,
-  nevBase,
-  k2Base,
-  nevTools,
-  evInternalInterfaces,
-  l3Variant
-  ;
+ l3IntfUses
+ , nevTools
+ , l3Variant
+ , l3Types
+ , k2Base
+ , evInternalInterfaces
+ , nevBase
+;
 
 type
  TevBool2FlagsAtEnd = array [Boolean] of TevInsertParaFlags;
 
 const
-  { FlagsConstant }
- AtEndFromBool : TevBool2FlagsAtEnd = ([], [ev_ipfAtEnd]);
+ AtEndFromBool: TevBool2FlagsAtEnd = ([], [ev_ipfAtEnd]);
 
-function EvShrinkCursorChildren(const aCursor: InevBasePoint;
-  aTag: Tl3Variant): Boolean;
-   {* обрезает дочерние курсоры до aTag }
-procedure EvIterateCursorsF(aTag: Tl3Variant;
-  Action: Tl3IteratorAction);
-   {* перебирает все курсоры для тега aTag, с освобождением заглушки для Action }
-function EvSelectTablePara(const aContext: InevSelection;
-  const aPara: InevParaList): Boolean;
-   {* Выделяет таблицу/строку/ячейку }
-function EvSelectTableColumn(const aContext: InevSelection;
-  const aTable: InevParaList;
-  aColumnIndex: Integer): Boolean;
-   {* выделяет колонку таблицы }
-function EvSelectBlock(const aContext: InevSelection;
-  const aBlock: InevParaList): Boolean;
-   {* Выделяет блок целиком }
-function EvInPara(const aCursor: InevBasePoint;
-  aTypeID: Tk2Type;
-  out theParaCursor: InevBasePoint;
-  anExcludeType: Tk2Type = nil): Boolean; overload; 
-   {* курсор в параграфе который наследуется от типа aTypeID? }
-function EvInPara(const aCursor: InevBasePoint;
-  aTypeID: Tk2Type;
-  anExcludeType: Tk2Type = nil): Boolean; overload; 
-   {* курсор в параграфе который наследуется от типа aTypeID? }
-function EvMergeParaList(const aView: InevView;
-  const aCursor: InevBasePoint;
-  const aParaList: InevParaList;
-  aType: TevMergeParaListType;
-  const anOp: InevOp;
-  aFrom: Integer;
-  pListEnd: PIUnknown = nil;
-  const anIndicator: InevProgress = nil): Boolean;
-   {* объединяет список параграфов aCursor.Target с содержимым aParaList }
-function EvDeletePara(const anOpPack: InevOp;
-  const aCursor: InevBasePoint;
-  aFlags: TevDeleteParaFlags = [ev_dpfAtEnd]): Boolean;
-function EvInsertPara(const aProcessor: InevProcessor;
-  const aCursor: InevBasePoint;
-  aPara: Tl3Variant;
-  aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean; overload; 
-function EvInsertPara(const anOpPack: InevOp;
-  const aCursor: InevBasePoint;
-  aPara: Tl3Variant;
-  aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean; overload; 
-function EvCalcDiffInLines(const aView: InevView;
-  const aFirstPoint: InevBasePoint;
-  const aSecondPoint: InevBasePoint;
-  aParentFI: TnevFormatInfoPrim): Integer;
-function EvCalcDiffInLines4Block(const aView: InevView;
-  const aTop: InevBasePoint;
-  const aBottom: InevBasePoint;
-  aParentFI: TnevFormatInfoPrim): Integer;
-function EvCalcDiffInLines4MakePointVisible(const aView: InevView;
-  const aTop: InevBasePoint;
-  const aBottom: InevBasePoint;
-  aParentFI: TnevFormatInfoPrim): Integer;
-function EvGetColumnBlock(const aView: InevView;
-  const aTable: InevParaList;
-  aColumnIndex: Integer): InevRange;
-{$IfEnd} //k2ForEditor
+function evMergeParaList(const aView: InevView;
+ const aCursor: InevBasePoint;
+ const aParaList: InevParaList;
+ aType: TevMergeParaListType;
+ const anOp: InevOp;
+ aFrom: Integer;
+ pListEnd: PIUnknown = nil;
+ const anIndicator: InevProgress = nil): Boolean;
+ {* объединяет список параграфов aCursor.Target с содержимым aParaList }
+function evDeletePara(const anOpPack: InevOp;
+ const aCursor: InevBasePoint;
+ aFlags: TevDeleteParaFlags = [ev_dpfAtEnd]): Boolean;
+function evInsertPara(const aProcessor: InevProcessor;
+ const aCursor: InevBasePoint;
+ aPara: Tl3Variant;
+ aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean; overload;
+function evInsertPara(const anOpPack: InevOp;
+ const aCursor: InevBasePoint;
+ aPara: Tl3Variant;
+ aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean; overload;
+function evCalcDiffInLines(const aView: InevView;
+ const aFirstPoint: InevBasePoint;
+ const aSecondPoint: InevBasePoint;
+ aParentFI: TnevFormatInfoPrim): Integer;
+function evCalcDiffInLines4Block(const aView: InevView;
+ const aTop: InevBasePoint;
+ const aBottom: InevBasePoint;
+ aParentFI: TnevFormatInfoPrim): Integer;
+function evCalcDiffInLines4MakePointVisible(const aView: InevView;
+ const aTop: InevBasePoint;
+ const aBottom: InevBasePoint;
+ aParentFI: TnevFormatInfoPrim): Integer;
+function evGetColumnBlock(const aView: InevView;
+ const aTable: InevParaList;
+ aColumnIndex: Integer): InevRange;
+function evShrinkCursorChildren(const aCursor: InevBasePoint;
+ aTag: Tl3Variant): Boolean;
+ {* обрезает дочерние курсоры до aTag }
+procedure evIterateCursorsF(aTag: Tl3Variant;
+ Action: Tl3IteratorAction);
+ {* перебирает все курсоры для тега aTag, с освобождением заглушки для Action }
+function evSelectTablePara(const aContext: InevSelection;
+ const aPara: InevParaList): Boolean;
+ {* Выделяет таблицу/строку/ячейку }
+function evSelectTableColumn(const aContext: InevSelection;
+ const aTable: InevParaList;
+ aColumnIndex: Integer): Boolean;
+ {* выделяет колонку таблицы }
+function evSelectBlock(const aContext: InevSelection;
+ const aBlock: InevParaList): Boolean;
+ {* Выделяет блок целиком }
+function evInPara(const aCursor: InevBasePoint;
+ aTypeID: Tk2Type;
+ out theParaCursor: InevBasePoint;
+ anExcludeType: Tk2Type = nil): Boolean; overload;
+ {* курсор в параграфе который наследуется от типа aTypeID? }
+function evInPara(const aCursor: InevBasePoint;
+ aTypeID: Tk2Type;
+ anExcludeType: Tk2Type = nil): Boolean; overload;
+ {* курсор в параграфе который наследуется от типа aTypeID? }
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevFacade,
-  SysUtils,
-  k2OpMisc,
-  evMsgCode,
-  l3Base,
-  evOp,
-  k2Tags,
-  k2InterfaceFactory
-  ;
+ l3ImplUses
+ , SysUtils
+ , k2OpMisc
+ , evMsgCode
+ , l3Base
+ , evOp
+ , k2Tags
+ , k2InterfaceFactory
+ , nevFacade
+;
 
-// unit methods
-
-function EvMergeParaList(const aView: InevView;
-  const aCursor: InevBasePoint;
-  const aParaList: InevParaList;
-  aType: TevMergeParaListType;
-  const anOp: InevOp;
-  aFrom: Integer;
-  pListEnd: PIUnknown = nil;
-  const anIndicator: InevProgress = nil): Boolean;
+function evMergeParaList(const aView: InevView;
+ const aCursor: InevBasePoint;
+ const aParaList: InevParaList;
+ aType: TevMergeParaListType;
+ const anOp: InevOp;
+ aFrom: Integer;
+ pListEnd: PIUnknown = nil;
+ const anIndicator: InevProgress = nil): Boolean;
+ {* объединяет список параграфов aCursor.Target с содержимым aParaList }
 //#UC START# *4F6AE7A70152_48453B7601F9_var*
 var
  l_RowID        : Integer;
@@ -203,11 +190,11 @@ begin
   Assert(False, 'Не поддерживается список параграфов');
  Result := True;
 //#UC END# *4F6AE7A70152_48453B7601F9_impl*
-end;//EvMergeParaList
+end;//evMergeParaList
 
-function EvDeletePara(const anOpPack: InevOp;
-  const aCursor: InevBasePoint;
-  aFlags: TevDeleteParaFlags = [ev_dpfAtEnd]): Boolean;
+function evDeletePara(const anOpPack: InevOp;
+ const aCursor: InevBasePoint;
+ aFlags: TevDeleteParaFlags = [ev_dpfAtEnd]): Boolean;
 //#UC START# *4F6B07C20045_48453B7601F9_var*
 var
  l_Op : IevOpDeletePara;
@@ -223,12 +210,12 @@ begin
  else
   Result := false;
 //#UC END# *4F6B07C20045_48453B7601F9_impl*
-end;//EvDeletePara
+end;//evDeletePara
 
-function EvInsertPara(const aProcessor: InevProcessor;
-  const aCursor: InevBasePoint;
-  aPara: Tl3Variant;
-  aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean;
+function evInsertPara(const aProcessor: InevProcessor;
+ const aCursor: InevBasePoint;
+ aPara: Tl3Variant;
+ aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean;
 //#UC START# *4F6B0ECD019E_48453B7601F9_var*
 //#UC END# *4F6B0ECD019E_48453B7601F9_var*
 begin
@@ -238,12 +225,12 @@ begin
  else
   Result := evInsertPara(k2StartOp(aProcessor, ev_msgInsertPara), aCursor, aPara, aFlags);
 //#UC END# *4F6B0ECD019E_48453B7601F9_impl*
-end;//EvInsertPara
+end;//evInsertPara
 
-function EvInsertPara(const anOpPack: InevOp;
-  const aCursor: InevBasePoint;
-  aPara: Tl3Variant;
-  aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean;
+function evInsertPara(const anOpPack: InevOp;
+ const aCursor: InevBasePoint;
+ aPara: Tl3Variant;
+ aFlags: TevInsertParaFlags = [ev_ipfAtEnd]): Boolean;
 //#UC START# *4F6B0F34012A_48453B7601F9_var*
 var
  l_Op : IevOpInsertPara;
@@ -259,12 +246,12 @@ begin
  else
   Result := False;
 //#UC END# *4F6B0F34012A_48453B7601F9_impl*
-end;//EvInsertPara
+end;//evInsertPara
 
-function EvCalcDiffInLines(const aView: InevView;
-  const aFirstPoint: InevBasePoint;
-  const aSecondPoint: InevBasePoint;
-  aParentFI: TnevFormatInfoPrim): Integer;
+function evCalcDiffInLines(const aView: InevView;
+ const aFirstPoint: InevBasePoint;
+ const aSecondPoint: InevBasePoint;
+ aParentFI: TnevFormatInfoPrim): Integer;
 //#UC START# *50C6F95E02D3_48453B7601F9_var*
 var
  l_LinesCount : Integer absolute Result;
@@ -309,12 +296,12 @@ begin
   l_Top.Obj^.AsPara.AsList.IterateParaF(nevL2PIA(@lp_IncLines), l_Start, l_Finish);
  end;
 //#UC END# *50C6F95E02D3_48453B7601F9_impl*
-end;//EvCalcDiffInLines
+end;//evCalcDiffInLines
 
-function EvCalcDiffInLines4Block(const aView: InevView;
-  const aTop: InevBasePoint;
-  const aBottom: InevBasePoint;
-  aParentFI: TnevFormatInfoPrim): Integer;
+function evCalcDiffInLines4Block(const aView: InevView;
+ const aTop: InevBasePoint;
+ const aBottom: InevBasePoint;
+ aParentFI: TnevFormatInfoPrim): Integer;
 //#UC START# *50FF931D03C5_48453B7601F9_var*
 var
  l_Line: Integer;
@@ -330,12 +317,12 @@ begin
   Inc(Result);
  end // while l_Bottom.Diff(aView, l_Top, aParentFI) <> 0 do
 //#UC END# *50FF931D03C5_48453B7601F9_impl*
-end;//EvCalcDiffInLines4Block
+end;//evCalcDiffInLines4Block
 
-function EvCalcDiffInLines4MakePointVisible(const aView: InevView;
-  const aTop: InevBasePoint;
-  const aBottom: InevBasePoint;
-  aParentFI: TnevFormatInfoPrim): Integer;
+function evCalcDiffInLines4MakePointVisible(const aView: InevView;
+ const aTop: InevBasePoint;
+ const aBottom: InevBasePoint;
+ aParentFI: TnevFormatInfoPrim): Integer;
 //#UC START# *50FF94E8029B_48453B7601F9_var*
 const
  cnMaxLineCount = 10; // Экспериментально число строк, при котором пробуем смещать табилцу без виртуальной перерисовки. 
@@ -358,11 +345,11 @@ begin
   end; //if Result > cnMaxLineCount then*)
  end // while l_Bottom.Diff(aView, l_Top, aParentFI) <> 0 do
 //#UC END# *50FF94E8029B_48453B7601F9_impl*
-end;//EvCalcDiffInLines4MakePointVisible
+end;//evCalcDiffInLines4MakePointVisible
 
-function EvGetColumnBlock(const aView: InevView;
-  const aTable: InevParaList;
-  aColumnIndex: Integer): InevRange;
+function evGetColumnBlock(const aView: InevView;
+ const aTable: InevParaList;
+ aColumnIndex: Integer): InevRange;
 //#UC START# *52B444FA01BE_48453B7601F9_var*
 var
  l_PID           : Integer;
@@ -421,10 +408,11 @@ begin
   end;//ChildrenCount > 0
  end;//with aTable do
 //#UC END# *52B444FA01BE_48453B7601F9_impl*
-end;//EvGetColumnBlock
+end;//evGetColumnBlock
 
-function EvShrinkCursorChildren(const aCursor: InevBasePoint;
-  aTag: Tl3Variant): Boolean;
+function evShrinkCursorChildren(const aCursor: InevBasePoint;
+ aTag: Tl3Variant): Boolean;
+ {* обрезает дочерние курсоры до aTag }
 //#UC START# *48E50160015B_48453B7601F9_var*
 var
  l_Cursor : InevBasePoint;  
@@ -450,10 +438,11 @@ begin
   end;//l_Cursor <> nil
  end;//aCursor <> nil
 //#UC END# *48E50160015B_48453B7601F9_impl*
-end;//EvShrinkCursorChildren
+end;//evShrinkCursorChildren
 
-procedure EvIterateCursorsF(aTag: Tl3Variant;
-  Action: Tl3IteratorAction);
+procedure evIterateCursorsF(aTag: Tl3Variant;
+ Action: Tl3IteratorAction);
+ {* перебирает все курсоры для тега aTag, с освобождением заглушки для Action }
 //#UC START# *48E501750350_48453B7601F9_var*
 var
  l_CursorCache : Tk2InterfaceFactory;
@@ -468,10 +457,11 @@ begin
   l3FreeIA(Action);
  end;{try..finally}
 //#UC END# *48E501750350_48453B7601F9_impl*
-end;//EvIterateCursorsF
+end;//evIterateCursorsF
 
-function EvSelectTablePara(const aContext: InevSelection;
-  const aPara: InevParaList): Boolean;
+function evSelectTablePara(const aContext: InevSelection;
+ const aPara: InevParaList): Boolean;
+ {* Выделяет таблицу/строку/ячейку }
 //#UC START# *48E5018C028D_48453B7601F9_var*
 var
  l_Block  : InevRange;
@@ -503,11 +493,12 @@ begin
   Result := True;
  end;//if (aContext <> nil) then
 //#UC END# *48E5018C028D_48453B7601F9_impl*
-end;//EvSelectTablePara
+end;//evSelectTablePara
 
-function EvSelectTableColumn(const aContext: InevSelection;
-  const aTable: InevParaList;
-  aColumnIndex: Integer): Boolean;
+function evSelectTableColumn(const aContext: InevSelection;
+ const aTable: InevParaList;
+ aColumnIndex: Integer): Boolean;
+ {* выделяет колонку таблицы }
 //#UC START# *48E501A60222_48453B7601F9_var*
 var
  l_Block: InevRange;
@@ -525,10 +516,11 @@ begin
   end; // if l_Block <> nil then
  end;//aContext <> nil
 //#UC END# *48E501A60222_48453B7601F9_impl*
-end;//EvSelectTableColumn
+end;//evSelectTableColumn
 
-function EvSelectBlock(const aContext: InevSelection;
-  const aBlock: InevParaList): Boolean;
+function evSelectBlock(const aContext: InevSelection;
+ const aBlock: InevParaList): Boolean;
+ {* Выделяет блок целиком }
 //#UC START# *48E501BE009F_48453B7601F9_var*
 var
  l_Block  : InevRange;
@@ -549,12 +541,13 @@ begin
   Result := True;
  end;//if (aContext <> nil) then
 //#UC END# *48E501BE009F_48453B7601F9_impl*
-end;//EvSelectBlock
+end;//evSelectBlock
 
-function EvInPara(const aCursor: InevBasePoint;
-  aTypeID: Tk2Type;
-  out theParaCursor: InevBasePoint;
-  anExcludeType: Tk2Type = nil): Boolean;
+function evInPara(const aCursor: InevBasePoint;
+ aTypeID: Tk2Type;
+ out theParaCursor: InevBasePoint;
+ anExcludeType: Tk2Type = nil): Boolean;
+ {* курсор в параграфе который наследуется от типа aTypeID? }
 //#UC START# *48E501F60339_48453B7601F9_var*
 var
  l_Cursor : InevBasePoint;
@@ -581,11 +574,12 @@ begin
     l_Cursor := l_Cursor.ParentPoint;
  end;//aCursor <> nil
 //#UC END# *48E501F60339_48453B7601F9_impl*
-end;//EvInPara
+end;//evInPara
 
-function EvInPara(const aCursor: InevBasePoint;
-  aTypeID: Tk2Type;
-  anExcludeType: Tk2Type = nil): Boolean;
+function evInPara(const aCursor: InevBasePoint;
+ aTypeID: Tk2Type;
+ anExcludeType: Tk2Type = nil): Boolean;
+ {* курсор в параграфе который наследуется от типа aTypeID? }
 //#UC START# *48E5021F003F_48453B7601F9_var*
 var
  l_FakeCursor : InevBasePoint;
@@ -594,7 +588,7 @@ begin
 //#UC START# *48E5021F003F_48453B7601F9_impl*
  Result := evInPara(aCursor, aTypeID, l_FakeCursor, anExcludeType);
 //#UC END# *48E5021F003F_48453B7601F9_impl*
-end;//EvInPara
-{$IfEnd} //k2ForEditor
+end;//evInPara
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

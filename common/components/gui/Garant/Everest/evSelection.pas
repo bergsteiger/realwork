@@ -1,55 +1,80 @@
 unit evSelection;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evSelection.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Cursors::evSelection
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSelection.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evSelection" MUID: (4A2D30DB039E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  l3Interfaces,
-  k2Interfaces,
-  l3Types,
-  nevBase,
-  nevTools,
-  evdInterfaces,
-  nevRangePrim,
-  l3Core,
-  l3Variant,
-  k2ToolPrim,
-  evTypes
-  ;
+ l3IntfUses
+ , nevRangePrim
+ , nevTools
+ , evdInterfaces
+ , k2Interfaces
+ , nevBase
+ , l3Interfaces
+ , l3Types
+ , evTypes
+ , l3Variant
+ , l3Core
+ , k2ToolPrim
+;
 
 type
  TevRange = class(TnevRangePrim, InevRange, InevStorable, IevdDataObject, InevDataObjectPrim2, InevRangeModify, InevRangeFactory, IevRange)
- private
- // private fields
-   f_Sharp : Boolean;
-    {* Поле для свойства Sharp}
- protected
- // realized methods
+  private
+   f_Sharp: Boolean;
+    {* Поле для свойства Sharp }
+  protected
+   procedure DoStore(const aView: InevView;
+    const G: Ik2TagGenerator;
+    aFlags: TevStoreFlags); virtual;
+   {$If Defined(evNeedEditableCursors)}
+   function DoDelete(const aView: InevView;
+    const anOpPack: InevOp = nil;
+    aMode: TevClearMode = nevTools.ev_cmAll;
+    const aPara: InevPara = nil): Boolean; virtual;
+   {$IfEnd} // Defined(evNeedEditableCursors)
+   function DoGetChildSel(const aView: InevView;
+    aChildIndex: LongInt;
+    aForDrawing: Boolean): InevRange; virtual;
+   procedure DoRefreshBorders; virtual;
+   procedure DeleteBeforeInsert(const aView: InevView;
+    const anOp: InevOp); virtual;
+   function SearchPrim(const aView: InevView;
+    const aSearcher: IevSearcher;
+    const Progress: Il3Progress;
+    const aStart: InevBasePoint;
+    out cFStart: InevBasePoint;
+    out cFFinish: InevBasePoint): Boolean; virtual;
+    {* ищет подстроку и возвращает найденную позицию в (cFStart, cFFinish) }
+   function IsSolid(const aView: InevView): Boolean; virtual; abstract;
+   function IsCollapsed(const aView: InevView): Boolean; virtual;
+   function GetContainsEnd(const aView: InevView): Boolean; virtual;
+   function TagReader: InevTagReader; virtual;
+   function DoBottomChildBlock(const aView: InevView): InevRange; virtual;
+   function DoGetBorders: TevPair; virtual;
+   procedure DoGetBorderPoints(out theStart: InevBasePoint;
+    out theFinish: InevBasePoint); virtual;
+   function DoSearchReplace(const aSearcher: IevSearcher;
+    const aReplacer: IevReplacer;
+    const aConfirm: InevConfirm;
+    const Cursor: InevBasePoint = nil;
+    const anOpPack: InevOp = nil;
+    aNeedProgress: Boolean = True): Boolean; virtual;
    procedure Store(const aView: InevView;
     const G: InevTagGenerator;
-    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload; 
-     {* сохраняет выделение в G. }
+    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags); overload;
+    {* сохраняет выделение в G. }
    function Store(aFormat: TevdClipboardFormat;
     const aPool: IStream;
     const aFilters: TevdTagGenerator;
-    aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean; overload; 
-     {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
+    aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean; overload;
+    {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
    function SolidBottomChildBlock(const aView: InevView): InevRange;
    function GetChildSel(const aView: InevView;
     aChildIndex: Integer;
@@ -59,9 +84,9 @@ type
    function BottomChildBlock(const aView: InevView): InevRange;
    function CloneSel(const aView: InevView): InevRange;
    function Delete(const aView: InevView;
-     const anOp: InevOp = nil;
-     aMode: TevClearMode = ev_cmAll;
-     const aPara: InevPara = nil): Boolean;
+    const anOp: InevOp = nil;
+    aMode: TevClearMode = ev_cmAll;
+    const aPara: InevPara = nil): Boolean;
    function Modify: InevRangeModify;
    function ParentRange(aLevel: Integer = 0): InevRange;
    function Contains(const aView: InevView;
@@ -69,52 +94,33 @@ type
    procedure Select(const aView: InevView;
     const C: InevBasePoint;
     aTarget: TevSelectTarget;
-    const Ctx: InevOp = nil); overload; 
+    const Ctx: InevOp = nil); overload;
    procedure Select(const aView: InevView;
     const C: InevBasePoint;
     aOpen: Integer;
     aClose: Integer;
-    const Ctx: InevOp = nil); overload; 
+    const Ctx: InevOp = nil); overload;
    function pm_GetBorders: TevPair;
    function pm_GetData: IevdDataObject;
    procedure Init(const aStart: InevBasePoint;
-     const aFinish: InevBasePoint;
-     aSharp: Boolean = false);
+    const aFinish: InevBasePoint;
+    aSharp: Boolean = False);
    function Solid(const aView: InevView): Boolean;
    function ContainsEnd(const aView: InevView): Boolean;
    function Collapsed(const aView: InevView): Boolean;
    procedure AssignSel(const aView: InevView;
     const aSource: InevRange);
-     {* присваивает одно выделение другому }
+    {* присваивает одно выделение другому }
    function GetBlock: InevRange;
-     {* получить текущий объект выделения }
+    {* получить текущий объект выделения }
    procedure SetToStart;
-     {* установить выделение в начало }
+    {* установить выделение в начало }
    function Unselect(const aView: InevView): Boolean;
-     {* снять выделение }
+    {* снять выделение }
    function AsStorable: InevDataObjectPrim2;
    procedure SetToFinish(aMoveUpInLines: Integer);
    procedure RefreshBorders;
-     {* Обновляет границы блока. http://mdp.garant.ru/pages/viewpage.action?pageId=409750147 }
- public
- // realized methods
-   function SearchReplace(const aSearcher: IevSearcher;
-     const aReplacer: IevReplacer;
-     const aConfirm: InevConfirm;
-     const aCursor: InevBasePoint = nil;
-     const anOpPack: InevOp = nil;
-     aNeedProgress: Boolean = true): Boolean;
-     {* процесс поиска/замены. Возвращает - была ли отмена замены. }
-   function Search(const aView: InevView;
-     const aSearcher: IevSearcher;
-     const Progress: Il3Progress;
-     const aStart: InevBasePoint;
-     out cFStart: InevBasePoint;
-     out cFFinish: InevBasePoint): Boolean;
-     {* ищет в выделении критерий ОnSearch
-             и возвращает начало и конец найденного фрагмента в (cFStart, cFFinish). }
- protected
- // overridden protected methods
+    {* Обновляет границы блока. http://mdp.garant.ru/pages/viewpage.action?pageId=409750147 }
    function GetRange: InevRange; override;
    function GetAsPoint: InevBasePoint; override;
    function DoGetStyle(Stop: PInteger): Tl3Variant; override;
@@ -127,104 +133,75 @@ type
     const anOp: InevOp;
     aFlags: TevLoadFlags;
     aCodePage: Integer): Boolean; override;
- public
- // overridden public methods
-   procedure Assign(Source: Tk2ToolPrim); override;
- protected
- // protected methods
-   procedure DoStore(const aView: InevView;
-     const G: Ik2TagGenerator;
-     aFlags: TevStoreFlags); virtual;
-    {$If defined(evNeedEditableCursors) AND defined(evUseVisibleCursors)}
-   function DoDelete(const aView: InevView;
-     const anOpPack: InevOp = nil;
-     aMode: TevClearMode = ev_cmAll;
-     const aPara: InevPara = nil): Boolean; virtual;
-    {$IfEnd} //evNeedEditableCursors AND evUseVisibleCursors
-   function DoGetChildSel(const aView: InevView;
-     aChildIndex: LongInt;
-     aForDrawing: Boolean): InevRange; virtual;
-   procedure DoRefreshBorders; virtual;
-     {* Сигнатура метода DoRefreshBorders }
-   procedure DeleteBeforeInsert(const aView: InevView;
-     const anOp: InevOp); virtual;
-   function SearchPrim(const aView: InevView;
-     const aSearcher: IevSearcher;
-     const Progress: Il3Progress;
-     const aStart: InevBasePoint;
-     out cFStart: InevBasePoint;
-     out cFFinish: InevBasePoint): Boolean; virtual;
-     {* ищет подстроку и возвращает найденную позицию в (cFStart, cFFinish) }
-   function IsSolid(const aView: InevView): Boolean; virtual; abstract;
-   function IsCollapsed(const aView: InevView): Boolean; virtual;
-   function GetContainsEnd(const aView: InevView): Boolean; virtual;
-   function TagReader: InevTagReader; virtual;
-   function DoBottomChildBlock(const aView: InevView): InevRange; virtual;
-   function DoGetBorders: TevPair; virtual;
-   procedure DoGetBorderPoints(out theStart: InevBasePoint;
-     out theFinish: InevBasePoint); virtual;
-   function DoSearchReplace(const aSearcher: IevSearcher;
-     const aReplacer: IevReplacer;
-     const aConfirm: InevConfirm;
-     const Cursor: InevBasePoint = nil;
-     const anOpPack: InevOp = nil;
-     aNeedProgress: Boolean = True): Boolean; virtual;
- public
- // public methods
+  public
    procedure DoInit(const aStart: InevBasePoint;
-     const aFinish: InevBasePoint;
-     aSharp: Boolean); virtual;
+    const aFinish: InevBasePoint;
+    aSharp: Boolean); virtual;
    procedure DoIterate(anAction: InevRangePrim_Iterate_Action;
-     const Progress: Il3Progress = nil;
-     const aMessage: Il3CString = nil;
-     aStart: LongInt = l3MinIndex);
-     {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
+    const Progress: Il3Progress = nil;
+    const aMessage: Il3CString = nil;
+    aStart: LongInt = l3Types.l3MinIndex);
+    {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
    procedure DoIterateBack(anAction: InevRangePrim_Iterate_Action;
-     const Progress: Il3Progress = nil;
-     const aMessage: Il3CString = nil);
-     {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
+    const Progress: Il3Progress = nil;
+    const aMessage: Il3CString = nil);
+    {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
    procedure DoIterateF(anAction: InevRangePrim_Iterate_Action;
-     const Progress: Il3Progress = nil;
-     const aMessage: Il3CString = nil;
-     aStart: LongInt = l3MinIndex);
-     {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
+    const Progress: Il3Progress = nil;
+    const aMessage: Il3CString = nil;
+    aStart: LongInt = l3Types.l3MinIndex);
+    {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
    procedure DoIterateBackF(anAction: InevRangePrim_Iterate_Action;
-     const Progress: Il3Progress = nil;
-     const aMessage: Il3CString = nil);
-     {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
- public
- // public properties
+    const Progress: Il3Progress = nil;
+    const aMessage: Il3CString = nil);
+    {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
+   function SearchReplace(const aSearcher: IevSearcher;
+    const aReplacer: IevReplacer;
+    const aConfirm: InevConfirm;
+    const aCursor: InevBasePoint = nil;
+    const anOpPack: InevOp = nil;
+    aNeedProgress: Boolean = True): Boolean;
+    {* процесс поиска/замены. Возвращает - была ли отмена замены. }
+   function Search(const aView: InevView;
+    const aSearcher: IevSearcher;
+    const Progress: Il3Progress;
+    const aStart: InevBasePoint;
+    out cFStart: InevBasePoint;
+    out cFFinish: InevBasePoint): Boolean;
+    {* ищет в выделении критерий ОnSearch
+             и возвращает начало и конец найденного фрагмента в (cFStart, cFFinish). }
+   procedure Assign(Source: Tk2ToolPrim); override;
+  public
    property Sharp: Boolean
-     read f_Sharp
-     write f_Sharp;
+    read f_Sharp
+    write f_Sharp;
    property Borders: TevPair
-     read pm_GetBorders;
+    read pm_GetBorders;
  end;//TevRange
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  Classes,
-  ParaList_Const,
-  l3Stream,
-  SysUtils,
-  l3String,
-  l3Base,
-  nevInterfaces,
-  nevFacade,
-  Para_Const,
-  evSelectConst,
-  k2Tags,
-  k2Base
-  ;
-
-// start class TevRange
+ l3ImplUses
+ , Classes
+ , ParaList_Const
+ , l3Stream
+ , SysUtils
+ , l3String
+ , l3Base
+ , nevInterfaces
+ , nevFacade
+ , Para_Const
+ , evSelectConst
+ , k2Tags
+ , k2Base
+;
 
 procedure TevRange.DoInit(const aStart: InevBasePoint;
-  const aFinish: InevBasePoint;
-  aSharp: Boolean);
+ const aFinish: InevBasePoint;
+ aSharp: Boolean);
 //#UC START# *5108D53B0312_4A2D2D4300BE_var*
 //#UC END# *5108D53B0312_4A2D2D4300BE_var*
 begin
@@ -234,8 +211,8 @@ begin
 end;//TevRange.DoInit
 
 procedure TevRange.DoStore(const aView: InevView;
-  const G: Ik2TagGenerator;
-  aFlags: TevStoreFlags);
+ const G: Ik2TagGenerator;
+ aFlags: TevStoreFlags);
 //#UC START# *5108D5CB0048_4A2D2D4300BE_var*
 //#UC END# *5108D5CB0048_4A2D2D4300BE_var*
 begin
@@ -252,11 +229,11 @@ begin
 //#UC END# *5108D5CB0048_4A2D2D4300BE_impl*
 end;//TevRange.DoStore
 
-{$If defined(evNeedEditableCursors) AND defined(evUseVisibleCursors)}
+{$If Defined(evNeedEditableCursors)}
 function TevRange.DoDelete(const aView: InevView;
-  const anOpPack: InevOp = nil;
-  aMode: TevClearMode = ev_cmAll;
-  const aPara: InevPara = nil): Boolean;
+ const anOpPack: InevOp = nil;
+ aMode: TevClearMode = nevTools.ev_cmAll;
+ const aPara: InevPara = nil): Boolean;
 //#UC START# *5108D66900C9_4A2D2D4300BE_var*
 //#UC END# *5108D66900C9_4A2D2D4300BE_var*
 begin
@@ -264,11 +241,11 @@ begin
  Result := False;
 //#UC END# *5108D66900C9_4A2D2D4300BE_impl*
 end;//TevRange.DoDelete
-{$IfEnd} //evNeedEditableCursors AND evUseVisibleCursors
+{$IfEnd} // Defined(evNeedEditableCursors)
 
 function TevRange.DoGetChildSel(const aView: InevView;
-  aChildIndex: LongInt;
-  aForDrawing: Boolean): InevRange;
+ aChildIndex: LongInt;
+ aForDrawing: Boolean): InevRange;
 //#UC START# *52D79DFC0347_4A2D2D4300BE_var*
 //#UC END# *52D79DFC0347_4A2D2D4300BE_var*
 begin
@@ -287,7 +264,7 @@ begin
 end;//TevRange.DoRefreshBorders
 
 procedure TevRange.DeleteBeforeInsert(const aView: InevView;
-  const anOp: InevOp);
+ const anOp: InevOp);
 //#UC START# *52D79E97007C_4A2D2D4300BE_var*
 //#UC END# *52D79E97007C_4A2D2D4300BE_var*
 begin
@@ -299,11 +276,12 @@ begin
 end;//TevRange.DeleteBeforeInsert
 
 function TevRange.SearchPrim(const aView: InevView;
-  const aSearcher: IevSearcher;
-  const Progress: Il3Progress;
-  const aStart: InevBasePoint;
-  out cFStart: InevBasePoint;
-  out cFFinish: InevBasePoint): Boolean;
+ const aSearcher: IevSearcher;
+ const Progress: Il3Progress;
+ const aStart: InevBasePoint;
+ out cFStart: InevBasePoint;
+ out cFFinish: InevBasePoint): Boolean;
+ {* ищет подстроку и возвращает найденную позицию в (cFStart, cFFinish) }
 //#UC START# *52D79F3B0081_4A2D2D4300BE_var*
 //#UC END# *52D79F3B0081_4A2D2D4300BE_var*
 begin
@@ -360,7 +338,7 @@ begin
 end;//TevRange.DoGetBorders
 
 procedure TevRange.DoGetBorderPoints(out theStart: InevBasePoint;
-  out theFinish: InevBasePoint);
+ out theFinish: InevBasePoint);
 //#UC START# *52D7A56B029E_4A2D2D4300BE_var*
 //#UC END# *52D7A56B029E_4A2D2D4300BE_var*
 begin
@@ -370,9 +348,10 @@ begin
 end;//TevRange.DoGetBorderPoints
 
 procedure TevRange.DoIterate(anAction: InevRangePrim_Iterate_Action;
-  const Progress: Il3Progress = nil;
-  const aMessage: Il3CString = nil;
-  aStart: LongInt = l3MinIndex);
+ const Progress: Il3Progress = nil;
+ const aMessage: Il3CString = nil;
+ aStart: LongInt = l3Types.l3MinIndex);
+ {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
 //#UC START# *52D7C54903BD_4A2D2D4300BE_var*
 
   function ChildFunc(Child: Tl3Variant; Index: Long): Boolean;
@@ -423,8 +402,9 @@ begin
 end;//TevRange.DoIterate
 
 procedure TevRange.DoIterateBack(anAction: InevRangePrim_Iterate_Action;
-  const Progress: Il3Progress = nil;
-  const aMessage: Il3CString = nil);
+ const Progress: Il3Progress = nil;
+ const aMessage: Il3CString = nil);
+ {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
 //#UC START# *52D7CB7B01EE_4A2D2D4300BE_var*
 
   function ChildFunc(Child: Tl3Variant; Index: Long): Boolean;
@@ -475,9 +455,10 @@ begin
 end;//TevRange.DoIterateBack
 
 procedure TevRange.DoIterateF(anAction: InevRangePrim_Iterate_Action;
-  const Progress: Il3Progress = nil;
-  const aMessage: Il3CString = nil;
-  aStart: LongInt = l3MinIndex);
+ const Progress: Il3Progress = nil;
+ const aMessage: Il3CString = nil;
+ aStart: LongInt = l3Types.l3MinIndex);
+ {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
 //#UC START# *52D7CBD0020F_4A2D2D4300BE_var*
 //#UC END# *52D7CBD0020F_4A2D2D4300BE_var*
 begin
@@ -491,8 +472,9 @@ begin
 end;//TevRange.DoIterateF
 
 procedure TevRange.DoIterateBackF(anAction: InevRangePrim_Iterate_Action;
-  const Progress: Il3Progress = nil;
-  const aMessage: Il3CString = nil);
+ const Progress: Il3Progress = nil;
+ const aMessage: Il3CString = nil);
+ {* перебирает подтеги, входящие в выделение и вызывает anAction для каждого }
 //#UC START# *52D7CC2F036B_4A2D2D4300BE_var*
 //#UC END# *52D7CC2F036B_4A2D2D4300BE_var*
 begin
@@ -506,11 +488,11 @@ begin
 end;//TevRange.DoIterateBackF
 
 function TevRange.DoSearchReplace(const aSearcher: IevSearcher;
-  const aReplacer: IevReplacer;
-  const aConfirm: InevConfirm;
-  const Cursor: InevBasePoint = nil;
-  const anOpPack: InevOp = nil;
-  aNeedProgress: Boolean = True): Boolean;
+ const aReplacer: IevReplacer;
+ const aConfirm: InevConfirm;
+ const Cursor: InevBasePoint = nil;
+ const anOpPack: InevOp = nil;
+ aNeedProgress: Boolean = True): Boolean;
 //#UC START# *52D7CCD70340_4A2D2D4300BE_var*
 //#UC END# *52D7CCD70340_4A2D2D4300BE_var*
 begin
@@ -520,8 +502,9 @@ begin
 end;//TevRange.DoSearchReplace
 
 procedure TevRange.Store(const aView: InevView;
-  const G: InevTagGenerator;
-  aFlags: TevdStoreFlags = evDefaultStoreFlags);
+ const G: InevTagGenerator;
+ aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags);
+ {* сохраняет выделение в G. }
 //#UC START# *47C68BFD011C_4A2D2D4300BE_var*
 //#UC END# *47C68BFD011C_4A2D2D4300BE_var*
 begin
@@ -532,9 +515,10 @@ begin
 end;//TevRange.Store
 
 function TevRange.Store(aFormat: TevdClipboardFormat;
-  const aPool: IStream;
-  const aFilters: TevdTagGenerator;
-  aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean;
+ const aPool: IStream;
+ const aFilters: TevdTagGenerator;
+ aFlags: TevdStoreFlags = [evd_sfStoreParaEnd]): Boolean;
+ {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
 //#UC START# *47C68C6701AF_4A2D2D4300BE_var*
 var
  l_TSR: InevTagReader;
@@ -568,8 +552,8 @@ begin
 end;//TevRange.SolidBottomChildBlock
 
 function TevRange.GetChildSel(const aView: InevView;
-  aChildIndex: Integer;
-  aForDrawing: Boolean): InevRange;
+ aChildIndex: Integer;
+ aForDrawing: Boolean): InevRange;
 //#UC START# *47C691F0012A_4A2D2D4300BE_var*
 //#UC END# *47C691F0012A_4A2D2D4300BE_var*
 begin
@@ -579,7 +563,7 @@ begin
 end;//TevRange.GetChildSel
 
 procedure TevRange.GetBorderPoints(out BS: InevBasePoint;
-  out BF: InevBasePoint);
+ out BF: InevBasePoint);
 //#UC START# *47C691FB0055_4A2D2D4300BE_var*
 //#UC END# *47C691FB0055_4A2D2D4300BE_var*
 begin
@@ -617,9 +601,9 @@ begin
 end;//TevRange.CloneSel
 
 function TevRange.Delete(const aView: InevView;
-  const anOp: InevOp = nil;
-  aMode: TevClearMode = ev_cmAll;
-  const aPara: InevPara = nil): Boolean;
+ const anOp: InevOp = nil;
+ aMode: TevClearMode = ev_cmAll;
+ const aPara: InevPara = nil): Boolean;
 //#UC START# *47C6928C0243_4A2D2D4300BE_var*
 //#UC END# *47C6928C0243_4A2D2D4300BE_var*
 begin
@@ -689,7 +673,7 @@ begin
 end;//TevRange.ParentRange
 
 function TevRange.Contains(const aView: InevView;
-  const aPoint: InevBasePoint): Boolean;
+ const aPoint: InevBasePoint): Boolean;
 //#UC START# *47C692CC024C_4A2D2D4300BE_var*
 var
  l_S,
@@ -713,9 +697,9 @@ begin
 end;//TevRange.Contains
 
 procedure TevRange.Select(const aView: InevView;
-  const C: InevBasePoint;
-  aTarget: TevSelectTarget;
-  const Ctx: InevOp = nil);
+ const C: InevBasePoint;
+ aTarget: TevSelectTarget;
+ const Ctx: InevOp = nil);
 //#UC START# *47C6960502ED_4A2D2D4300BE_var*
 //#UC END# *47C6960502ED_4A2D2D4300BE_var*
 begin
@@ -726,10 +710,10 @@ begin
 end;//TevRange.Select
 
 procedure TevRange.Select(const aView: InevView;
-  const C: InevBasePoint;
-  aOpen: Integer;
-  aClose: Integer;
-  const Ctx: InevOp = nil);
+ const C: InevBasePoint;
+ aOpen: Integer;
+ aClose: Integer;
+ const Ctx: InevOp = nil);
 //#UC START# *47C696160251_4A2D2D4300BE_var*
 var
  Start,
@@ -793,8 +777,8 @@ begin
 end;//TevRange.pm_GetData
 
 procedure TevRange.Init(const aStart: InevBasePoint;
-  const aFinish: InevBasePoint;
-  aSharp: Boolean = false);
+ const aFinish: InevBasePoint;
+ aSharp: Boolean = False);
 //#UC START# *47C696E302FE_4A2D2D4300BE_var*
 //#UC END# *47C696E302FE_4A2D2D4300BE_var*
 begin
@@ -831,7 +815,8 @@ begin
 end;//TevRange.Collapsed
 
 procedure TevRange.AssignSel(const aView: InevView;
-  const aSource: InevRange);
+ const aSource: InevRange);
+ {* присваивает одно выделение другому }
 //#UC START# *48E25C7E0366_4A2D2D4300BE_var*
 var
  l_S, l_F: InevBasePoint;  
@@ -849,6 +834,7 @@ begin
 end;//TevRange.AssignSel
 
 function TevRange.GetBlock: InevRange;
+ {* получить текущий объект выделения }
 //#UC START# *48E25C980073_4A2D2D4300BE_var*
 //#UC END# *48E25C980073_4A2D2D4300BE_var*
 begin
@@ -858,6 +844,7 @@ begin
 end;//TevRange.GetBlock
 
 procedure TevRange.SetToStart;
+ {* установить выделение в начало }
 //#UC START# *48E25CA5027C_4A2D2D4300BE_var*
 //#UC END# *48E25CA5027C_4A2D2D4300BE_var*
 begin
@@ -866,6 +853,7 @@ begin
 end;//TevRange.SetToStart
 
 function TevRange.Unselect(const aView: InevView): Boolean;
+ {* снять выделение }
 //#UC START# *48E25CB3032B_4A2D2D4300BE_var*
 var
  l_Start,
@@ -904,11 +892,12 @@ begin
 end;//TevRange.AsStorable
 
 function TevRange.SearchReplace(const aSearcher: IevSearcher;
-  const aReplacer: IevReplacer;
-  const aConfirm: InevConfirm;
-  const aCursor: InevBasePoint = nil;
-  const anOpPack: InevOp = nil;
-  aNeedProgress: Boolean = true): Boolean;
+ const aReplacer: IevReplacer;
+ const aConfirm: InevConfirm;
+ const aCursor: InevBasePoint = nil;
+ const anOpPack: InevOp = nil;
+ aNeedProgress: Boolean = True): Boolean;
+ {* процесс поиска/замены. Возвращает - была ли отмена замены. }
 //#UC START# *49E83F480351_4A2D2D4300BE_var*
 //#UC END# *49E83F480351_4A2D2D4300BE_var*
 begin
@@ -918,11 +907,13 @@ begin
 end;//TevRange.SearchReplace
 
 function TevRange.Search(const aView: InevView;
-  const aSearcher: IevSearcher;
-  const Progress: Il3Progress;
-  const aStart: InevBasePoint;
-  out cFStart: InevBasePoint;
-  out cFFinish: InevBasePoint): Boolean;
+ const aSearcher: IevSearcher;
+ const Progress: Il3Progress;
+ const aStart: InevBasePoint;
+ out cFStart: InevBasePoint;
+ out cFFinish: InevBasePoint): Boolean;
+ {* ищет в выделении критерий ОnSearch
+             и возвращает начало и конец найденного фрагмента в (cFStart, cFFinish). }
 //#UC START# *49E843B10236_4A2D2D4300BE_var*
 //#UC END# *49E843B10236_4A2D2D4300BE_var*
 begin
@@ -947,6 +938,7 @@ begin
 end;//TevRange.SetToFinish
 
 procedure TevRange.RefreshBorders;
+ {* Обновляет границы блока. http://mdp.garant.ru/pages/viewpage.action?pageId=409750147 }
 //#UC START# *50B727F00221_4A2D2D4300BE_var*
 //#UC END# *50B727F00221_4A2D2D4300BE_var*
 begin
@@ -987,8 +979,8 @@ begin
 end;//TevRange.DoGetStyle
 
 function TevRange.DoGetFont(const aView: InevView;
-  aMap: TnevFormatInfoPrim;
-  Stop: PInteger): InevFontPrim;
+ aMap: TnevFormatInfoPrim;
+ Stop: PInteger): InevFontPrim;
 //#UC START# *4A29477801BF_4A2D2D4300BE_var*
 //#UC END# *4A29477801BF_4A2D2D4300BE_var*
 begin
@@ -1002,11 +994,11 @@ begin
 end;//TevRange.DoGetFont
 
 function TevRange.DoInsertStream(const aView: InevView;
-  const aStream: IStream;
-  aFormat: TnevFormat;
-  const anOp: InevOp;
-  aFlags: TevLoadFlags;
-  aCodePage: Integer): Boolean;
+ const aStream: IStream;
+ aFormat: TnevFormat;
+ const anOp: InevOp;
+ aFlags: TevLoadFlags;
+ aCodePage: Integer): Boolean;
 //#UC START# *4A3A8BEE029F_4A2D2D4300BE_var*
 const
  cLen = 2;  
@@ -1072,6 +1064,6 @@ begin
   inherited; 
 //#UC END# *52BC1DD60298_4A2D2D4300BE_impl*
 end;//TevRange.Assign
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

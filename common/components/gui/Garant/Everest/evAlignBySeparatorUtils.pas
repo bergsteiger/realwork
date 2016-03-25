@@ -1,82 +1,70 @@
 unit evAlignBySeparatorUtils;
+ {* Утилиты работы с выравниванием по точке. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evAlignBySeparatorUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::ParaUtils::evAlignBySeparatorUtils
-//
-// Утилиты работы с выравниванием по точке.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evAlignBySeparatorUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evAlignBySeparatorUtils" MUID: (4E3BB8760238)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  l3Interfaces,
-  k2Interfaces,
-  l3Types,
-  nevBase,
-  l3InternalInterfaces,
-  evdTypes,
-  nevTools,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3Interfaces
+ , l3Variant
+ , nevTools
+ , nevBase
+ , l3Types
+ , evdTypes
+ , l3InternalInterfaces
+ , k2Interfaces
+;
 
-function EvGetDecimalTabIndentTag(aPara: Tl3Variant;
-  out aTag: Tl3Variant): Boolean;
-function EvHasDecimalTabIndent(aPara: Tl3Variant): Boolean;
-function EvDeleteIndentMarker(const aPara: InevPara;
-  const anOpPack: InevOp): Boolean;
-function EvNewIndentMarker(const aView: InevView;
-  aValue: Integer;
-  const aPara: InevPara;
-  const anOpPack: InevOp): Boolean;
-function EvCalcDecimalTabIndent(const aPara: InevTextPara;
-  const aText: Tl3PCharLen;
-  aJustification: TevIndentType;
-  aLineCount: Integer;
-  const aCanvas: Il3InfoCanvas;
-  const aGen: Ik2TagGenerator = nil): Integer;
-function EvGetSeparatorPos(const aTextPara: InevPara;
-  aMap: TnevFormatInfoPrim): Integer;
-function EvCanInsertSeparator(const aTextPara: InevPara;
-  aMap: TnevFormatInfoPrim): Boolean;
-{$IfEnd} //k2ForEditor
+function evGetDecimalTabIndentTag(aPara: Tl3Variant;
+ out aTag: Tl3Variant): Boolean;
+function evHasDecimalTabIndent(aPara: Tl3Variant): Boolean;
+function evDeleteIndentMarker(const aPara: InevPara;
+ const anOpPack: InevOp): Boolean;
+function evNewIndentMarker(const aView: InevView;
+ aValue: Integer;
+ const aPara: InevPara;
+ const anOpPack: InevOp): Boolean;
+function evCalcDecimalTabIndent(const aPara: InevTextPara;
+ const aText: Tl3PCharLen;
+ aJustification: TevIndentType;
+ aLineCount: Integer;
+ const aCanvas: Il3InfoCanvas;
+ const aGen: Ik2TagGenerator = nil): Integer;
+function evGetSeparatorPos(const aTextPara: InevPara;
+ aMap: TnevFormatInfoPrim): Integer;
+function evCanInsertSeparator(const aTextPara: InevPara;
+ aMap: TnevFormatInfoPrim): Boolean;
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  k2Base,
-  l3Units,
-  l3Base,
-  l3String,
-  SysUtils,
-  l3Chars,
-  evTextParaTools,
-  k2Tags
-  ;
+ l3ImplUses
+ , k2Tags
+ , k2Base
+ , l3Units
+ , l3Base
+ , l3String
+ , SysUtils
+ , l3Chars
+ , evTextParaTools
+;
+
+var g_AllowChars: TCharSet;
 
 const
-  { evAlignBySeparatorConst }
  evAllowJustify4DecimalIndent = [ev_itLeft, ev_itWidth];
 
-var g_AllowChars : TCharSet;
-
-// unit methods
-
-function EvGetDecimalTabIndentTag(aPara: Tl3Variant;
-  out aTag: Tl3Variant): Boolean;
+function evGetDecimalTabIndentTag(aPara: Tl3Variant;
+ out aTag: Tl3Variant): Boolean;
 //#UC START# *4E3A50710388_4E3BB8760238_var*
 var
  l_TabStops : Tl3Variant;
@@ -92,9 +80,9 @@ begin
   Result := aTag.IsValid and (Tl3TabStopStyle(aTag.IntA[k2_tiType]) = l3_tssDecimal);
  end; // if l_TabStops.IsValid and (l_TabStops.ChildrenCount > 0) then
 //#UC END# *4E3A50710388_4E3BB8760238_impl*
-end;//EvGetDecimalTabIndentTag
+end;//evGetDecimalTabIndentTag
 
-function EvHasDecimalTabIndent(aPara: Tl3Variant): Boolean;
+function evHasDecimalTabIndent(aPara: Tl3Variant): Boolean;
 //#UC START# *4E3BB9360103_4E3BB8760238_var*
 var
  l_TabStops : Tl3Variant;
@@ -110,10 +98,10 @@ begin
   Result := l_TabStop.IsValid and (Tl3TabStopStyle(l_TabStop.IntA[k2_tiType]) = l3_tssDecimal);
  end;
 //#UC END# *4E3BB9360103_4E3BB8760238_impl*
-end;//EvHasDecimalTabIndent
+end;//evHasDecimalTabIndent
 
-function EvDeleteIndentMarker(const aPara: InevPara;
-  const anOpPack: InevOp): Boolean;
+function evDeleteIndentMarker(const aPara: InevPara;
+ const anOpPack: InevOp): Boolean;
 //#UC START# *4E3BB95C01B5_4E3BB8760238_var*
 //#UC END# *4E3BB95C01B5_4E3BB8760238_var*
 begin
@@ -121,12 +109,12 @@ begin
  Result := True;
  aPara.AsObject.AttrW[k2_tiTabStops, anOpPack] := nil;
 //#UC END# *4E3BB95C01B5_4E3BB8760238_impl*
-end;//EvDeleteIndentMarker
+end;//evDeleteIndentMarker
 
-function EvNewIndentMarker(const aView: InevView;
-  aValue: Integer;
-  const aPara: InevPara;
-  const anOpPack: InevOp): Boolean;
+function evNewIndentMarker(const aView: InevView;
+ aValue: Integer;
+ const aPara: InevPara;
+ const anOpPack: InevOp): Boolean;
 //#UC START# *4E3BB98B003F_4E3BB8760238_var*
 var
  l_Map      : TnevFormatInfoPrim;
@@ -166,14 +154,14 @@ begin
  else
   Result := False;
 //#UC END# *4E3BB98B003F_4E3BB8760238_impl*
-end;//EvNewIndentMarker
+end;//evNewIndentMarker
 
-function EvCalcDecimalTabIndent(const aPara: InevTextPara;
-  const aText: Tl3PCharLen;
-  aJustification: TevIndentType;
-  aLineCount: Integer;
-  const aCanvas: Il3InfoCanvas;
-  const aGen: Ik2TagGenerator = nil): Integer;
+function evCalcDecimalTabIndent(const aPara: InevTextPara;
+ const aText: Tl3PCharLen;
+ aJustification: TevIndentType;
+ aLineCount: Integer;
+ const aCanvas: Il3InfoCanvas;
+ const aGen: Ik2TagGenerator = nil): Integer;
 //#UC START# *4E3BB9C7005A_4E3BB8760238_var*
 var
  l_TabStop   : Tl3TabStop;
@@ -210,10 +198,10 @@ begin
   end; // if (l_TabStop.rStyle = l3_tssDecimal) then
  end; // if (aPara.TabStops <> nil) and (aJustification in evAllowJustify4DecimalIndent) then
 //#UC END# *4E3BB9C7005A_4E3BB8760238_impl*
-end;//EvCalcDecimalTabIndent
+end;//evCalcDecimalTabIndent
 
-function EvGetSeparatorPos(const aTextPara: InevPara;
-  aMap: TnevFormatInfoPrim): Integer;
+function evGetSeparatorPos(const aTextPara: InevPara;
+ aMap: TnevFormatInfoPrim): Integer;
 //#UC START# *508FC8CA018C_4E3BB8760238_var*
 //#UC END# *508FC8CA018C_4E3BB8760238_var*
 begin
@@ -222,10 +210,10 @@ begin
  if EvCanInsertSeparator(aTextPara, aMap) then
   Result := ev_lpCharIndex(AnsiChar({$IfDef XE}FormatSettings.{$EndIf}DecimalSeparator), aTextPara.Text) + 1;
 //#UC END# *508FC8CA018C_4E3BB8760238_impl*
-end;//EvGetSeparatorPos
+end;//evGetSeparatorPos
 
-function EvCanInsertSeparator(const aTextPara: InevPara;
-  aMap: TnevFormatInfoPrim): Boolean;
+function evCanInsertSeparator(const aTextPara: InevPara;
+ aMap: TnevFormatInfoPrim): Boolean;
 //#UC START# *5090CDD80266_4E3BB8760238_var*
 var
  l_Text: Tl3PCharLen;
@@ -235,11 +223,9 @@ begin
  l_Text := aTextPara.Text;
  Result := (evTextParaLineCount(aMap) = 1) and (l3Trim(l_Text, g_AllowChars).SLen = 0) and (l_Text.SLen > 0);
 //#UC END# *5090CDD80266_4E3BB8760238_impl*
-end;//EvCanInsertSeparator
-{$IfEnd} //k2ForEditor
+end;//evCanInsertSeparator
 
 initialization
-{$If defined(k2ForEditor)}
 //#UC START# *5090C942039A*
  g_AllowChars := cc_Digits
  {$IfDef XE}
@@ -248,6 +234,6 @@ initialization
  + [DecimalSeparator]
  {$EndIf};
 //#UC END# *5090C942039A*
-{$IfEnd} //k2ForEditor
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

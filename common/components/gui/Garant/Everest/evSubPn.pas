@@ -1,26 +1,17 @@
 unit evSubPn;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evSubPn.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::ToolPanel::evSubPn
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSubPn.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evSubPn" MUID: (547DC5BA0275)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evSubPanel
-  ;
+ l3IntfUses
+ , evSubPanel
+;
 
 type
  TevSubPanel = evSubPanel.TevSubPanel;
@@ -36,5 +27,9 @@ type
  TevSubDescriptors = evSubPanel.TevSubDescriptors;
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

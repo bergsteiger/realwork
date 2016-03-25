@@ -1,81 +1,66 @@
 unit k2SizedMemoryPool;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/k2SizedMemoryPool.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::K2::Standard::k2SizedMemoryPool
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\k2SizedMemoryPool.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "k2SizedMemoryPool" MUID: (53B5469D0049)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Classes,
-  l3Memory,
-  k2Base,
-  l3Variant,
-  k2TagList,
-  k2Prim,
-  k2BaseStruct,
-  k2BaseTypes,
-  l3Types,
-  l3IID
-  ;
+ l3IntfUses
+ , Classes
+ , l3Memory
+ , k2Base
+ , l3Variant
+ , l3Interfaces
+ , k2BaseStruct
+ , k2TagList
+ , k2Prim
+ , l3IID
+ , k2BaseTypes
+ , l3Types
+;
 
-(*
- StreamCopying = PureMixIn
-   procedure CopyFrom(Source: TStream;
-     Count: Int64);
-   procedure CopyTo(Dest: TStream;
-     Count: Int64);
+ (*
+ StreamCopying = interface
+  procedure CopyFrom(Source: TStream;
+   Count: Int64);
+  procedure CopyTo(Dest: TStream;
+   Count: Int64);
  end;//StreamCopying
-*)
+ *)
 
  {$Define k2Tag_No_f_TagType}
 
 type
  _k2Tag_Parent_ = Tl3SizedMemoryPool;
- {$Include ..\K2\k2Tag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
  Tk2SizedMemoryPool = class(_k2Tag_)
- protected
- // realized methods
-   {$If not defined(k2TagIsAtomic)}
+  protected
+   {$If NOT Defined(k2TagIsAtomic)}
    function SetAtomPrim(const aProp: _PropIn_;
     var V: Tk2Values): Boolean; override;
-   {$IfEnd} //not k2TagIsAtomic
- public
- // realized methods
-   procedure CopyFrom(Source: TStream;
-     Count: Int64);
-   procedure CopyTo(Dest: TStream;
-     Count: Int64);
- protected
- // overridden protected methods
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
    procedure InitFields; override;
    function GetIsStream(out theStream: IStream): Boolean; override;
    function GetMemoryPoolAdapterClass: Rl3MemoryPoolAdapter; override;
    function GetMemoryStreamClass: Rl3MemoryStream; override;
    function GetIsOrd: Boolean; override;
    function GetTagType: Tl3VariantDef; override;
- public
- // public methods
-   constructor Create(aType: Tk2Type); reintroduce; overload; 
-   constructor Create; overload; 
-   class function Make(aType: Tk2Type): Il3TagRef; overload; 
-   constructor CreateFromStream(aStream: TStream);
+  public
+   constructor Create(aType: Tk2Type); reintroduce; overload;
+   constructor Create; reintroduce; overload;
+   class function Make(aType: Tk2Type): Il3TagRef; overload;
+   constructor CreateFromStream(aStream: TStream); reintroduce;
    class function CreateFromString(aString: Tl3PrimString): Tk2SizedMemoryPool;
    class function CreateFromFile(const aFileName: AnsiString): Tk2SizedMemoryPool;
-   constructor CreateFromIStream(const aStream: IStream);
+   constructor CreateFromIStream(const aStream: IStream); reintroduce;
+   procedure CopyFrom(Source: TStream;
+    Count: Int64);
+   procedure CopyTo(Dest: TStream;
+    Count: Int64);
  end;//Tk2SizedMemoryPool
 
  Tk2RawData = Tk2SizedMemoryPool;
@@ -83,42 +68,41 @@ type
 implementation
 
 uses
-  SysUtils,
-  ComObj,
-  l3Stream,
-  l3BaseStream,
-  k2RawData_Const,
-  k2MemoryPoolAdapter,
-  k2MemoryStream,
-  l3TempMemoryStream,
-  k2Tags,
-  l3Dict,
-  k2Const,
-  l3Const,
-  l3String,
-  k2Except,
-  k2Strings,
-  TypInfo,
-  l3Base,
-  k2Facade,
-  k2OList_Const,
-  k2Dictionary,
-  k2NonOptimizeContext,
-  k2VariantImpl,
-  k2Bool_Const,
-  k2String,
-  k2List,
-  k2NullTagImpl,
-  k2Interfaces,
-  k2DictionaryPrim,
-  k2InterfaceFactory
-  ;
+ l3ImplUses
+ , k2RawData_Const
+ , k2MemoryPoolAdapter
+ , k2MemoryStream
+ , l3TempMemoryStream
+ , k2Tags
+ , l3Dict
+ , k2Const
+ , l3Const
+ , SysUtils
+ , l3String
+ , k2Except
+ , k2Strings
+ , TypInfo
+ , l3Stream
+ , l3Base
+ , k2Facade
+ , k2OList_Const
+ , k2Dictionary
+ , k2NonOptimizeContext
+ , k2VariantImpl
+ , k2Bool_Const
+ , k2String
+ , k2NullTagImpl
+ , k2Interfaces
+ , k2DictionaryPrim
+ , k2InterfaceFactory
+ , k2List
+ , ComObj
+ , l3BaseStream
+;
 
 type _Instance_R_ = Tk2SizedMemoryPool;
 
-{$Include ..\K2\k2Tag.imp.pas}
-
-// start class Tk2SizedMemoryPool
+{$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
 
 constructor Tk2SizedMemoryPool.Create(aType: Tk2Type);
 //#UC START# *530770EB0342_53076BA10113_var*
@@ -260,9 +244,9 @@ begin
 //#UC END# *53C3CD600278_53076BA10113_impl*
 end;//Tk2SizedMemoryPool.CreateFromIStream
 
-{$If not defined(k2TagIsAtomic)}
+{$If NOT Defined(k2TagIsAtomic)}
 function Tk2SizedMemoryPool.SetAtomPrim(const aProp: _PropIn_;
-  var V: Tk2Values): Boolean;
+ var V: Tk2Values): Boolean;
 //#UC START# *49A545580241_53076BA10113_var*
 //#UC END# *49A545580241_53076BA10113_var*
 begin
@@ -271,10 +255,10 @@ begin
  Result := false;
 //#UC END# *49A545580241_53076BA10113_impl*
 end;//Tk2SizedMemoryPool.SetAtomPrim
-{$IfEnd} //not k2TagIsAtomic
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
 
 procedure Tk2SizedMemoryPool.CopyFrom(Source: TStream;
-  Count: Int64);
+ Count: Int64);
 //#UC START# *53B55ED6016D_53076BA10113_var*
 var
  l_Stream : TStream;
@@ -292,7 +276,7 @@ begin
 end;//Tk2SizedMemoryPool.CopyFrom
 
 procedure Tk2SizedMemoryPool.CopyTo(Dest: TStream;
-  Count: Int64);
+ Count: Int64);
 //#UC START# *53B55EF0025D_53076BA10113_var*
 var
  l_Stream : TStream;

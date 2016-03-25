@@ -44,6 +44,7 @@ uses
  , l3Base
  , tfwAutoregisteredDiction
  , tfwParser
+ , tfwScriptsRunningAndDebugging
  , SysUtils
  , l3Chars
  , TypInfo

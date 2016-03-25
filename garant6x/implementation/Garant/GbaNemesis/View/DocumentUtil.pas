@@ -1,47 +1,36 @@
 unit DocumentUtil;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/DocumentUtil.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Работа с документом и списком документов::Document::View::DocumentUtils::DocumentUtil
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentUtil.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "DocumentUtil" MUID: (4FF34A48018C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3StringIDEx
-  ;
+ l3IntfUses
+ , l3StringIDEx
+;
 
-var
-  { Локализуемые строки Local }
- str_IsDocumentUsefulCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'IsDocumentUsefulCaption'; rValue : 'Полезен ли документ?');
-  { 'Полезен ли документ?' }
-{$IfEnd} //not Admin AND not Monitorings
+const
+ {* Локализуемые строки Local }
+ str_IsDocumentUsefulCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'IsDocumentUsefulCaption'; rValue : 'Полезен ли документ?');
+  {* 'Полезен ли документ?' }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3MessageID
-  ;
-
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3MessageID
+;
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_IsDocumentUsefulCaption
  str_IsDocumentUsefulCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_IsDocumentUsefulCaption }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

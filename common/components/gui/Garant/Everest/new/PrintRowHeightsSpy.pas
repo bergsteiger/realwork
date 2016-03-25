@@ -1,45 +1,35 @@
 unit PrintRowHeightsSpy;
+ {* Проверяльщик высот строк на разных страницах }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/PrintRowHeightsSpy.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::nevUtils::PrintRowHeightsSpy
-//
-// Проверяльщик высот строк на разных страницах
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\PrintRowHeightsSpy.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "PrintRowHeightsSpy" MUID: (4DF1C6E90221)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  l3Filer,
-  l3ProtoObject,
-  l3ProtoDataContainer,
-  l3Memory,
-  l3Interfaces,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+ , l3ProtoObject
+ , l3Filer
+;
 
 type
  TRowHeight = record
-   rTableID : Integer;
-   rRowID : Integer;
-   rHeight : Integer;
-   rPage : Integer;
-   rTopAnchorID : Integer;
+  rTableID: Integer;
+  rRowID: Integer;
+  rHeight: Integer;
+  rPage: Integer;
+  rTopAnchorID: Integer;
  end;//TRowHeight
 
  _ItemType_ = TRowHeight;
@@ -51,57 +41,58 @@ type
 
  TPrintRowHeightsSpy = class(Tl3ProtoObject)
   {* Следилка за высотами строк на разных страницах }
- private
- // private fields
-   f_Filer : Tl3CustomFiler;
- protected
- // overridden protected methods
+  private
+   f_Filer: Tl3CustomFiler;
+  public
+   f_RowHeights: TRowHeightsList;
+  protected
    procedure Release; override;
    procedure BeforeAddToCache; override;
-     {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
- public
- // public fields
-   f_RowHeights : TRowHeightsList;
- public
- // public methods
+    {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
+  public
    procedure AddRowData(const aData: TRowHeight);
-     {* Добавить данные о высоте строки. }
+    {* Добавить данные о высоте строки. }
    procedure ClearData;
-     {* Очистить данные о строках. }
+    {* Очистить данные о строках. }
    class function Exists: Boolean;
    procedure StartLogging(const aLogName: AnsiString);
    procedure StopLogging;
- public
- // singleton factory method
    class function Instance: TPrintRowHeightsSpy;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TPrintRowHeightsSpy }
  end;//TPrintRowHeightsSpy
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  evConst
-  ;
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+ , evConst
+;
 
-// start class TRowHeightsList
+var g_TPrintRowHeightsSpy: TPrintRowHeightsSpy = nil;
+ {* Экземпляр синглетона TPrintRowHeightsSpy }
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+procedure TPrintRowHeightsSpyFree;
+ {* Метод освобождения экземпляра синглетона TPrintRowHeightsSpy }
+begin
+ l3Free(g_TPrintRowHeightsSpy);
+end;//TPrintRowHeightsSpyFree
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If not defined(l3Items_IsAtomic)}
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_4DF1C7F20336_var*
 //#UC END# *47B07CF403D0_4DF1C7F20336_var*
 begin
@@ -110,11 +101,11 @@ begin
            (A.rRowID = B.rRowID) and (A.rPage = B.rPage);
 //#UC END# *47B07CF403D0_4DF1C7F20336_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_4DF1C7F20336_var*
 //#UC END# *47B2C42A0163_4DF1C7F20336_var*
 begin
@@ -122,9 +113,10 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_4DF1C7F20336_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_4DF1C7F20336_var*
 //#UC END# *47B99D4503A2_4DF1C7F20336_var*
 begin
@@ -141,28 +133,8 @@ type _Instance_R_ = TRowHeightsList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
-
-// start class TPrintRowHeightsSpy
-
-var g_TPrintRowHeightsSpy : TPrintRowHeightsSpy = nil;
-
-procedure TPrintRowHeightsSpyFree;
-begin
- l3Free(g_TPrintRowHeightsSpy);
-end;
-
-class function TPrintRowHeightsSpy.Instance: TPrintRowHeightsSpy;
-begin
- if (g_TPrintRowHeightsSpy = nil) then
- begin
-  l3System.AddExitProc(TPrintRowHeightsSpyFree);
-  g_TPrintRowHeightsSpy := Create;
- end;
- Result := g_TPrintRowHeightsSpy;
-end;
-
-
 procedure TPrintRowHeightsSpy.AddRowData(const aData: TRowHeight);
+ {* Добавить данные о высоте строки. }
 //#UC START# *4DF1C9B1012D_4DF1C7300012_var*
 
   function MangleCoord(aValue : Integer): Integer;
@@ -194,6 +166,7 @@ begin
 end;//TPrintRowHeightsSpy.AddRowData
 
 procedure TPrintRowHeightsSpy.ClearData;
+ {* Очистить данные о строках. }
 //#UC START# *4DF1CA0803E2_4DF1C7300012_var*
 //#UC END# *4DF1CA0803E2_4DF1C7300012_var*
 begin
@@ -239,6 +212,17 @@ begin
 //#UC END# *4DF869520107_4DF1C7300012_impl*
 end;//TPrintRowHeightsSpy.StopLogging
 
+class function TPrintRowHeightsSpy.Instance: TPrintRowHeightsSpy;
+ {* Метод получения экземпляра синглетона TPrintRowHeightsSpy }
+begin
+ if (g_TPrintRowHeightsSpy = nil) then
+ begin
+  l3System.AddExitProc(TPrintRowHeightsSpyFree);
+  g_TPrintRowHeightsSpy := Create;
+ end;
+ Result := g_TPrintRowHeightsSpy;
+end;//TPrintRowHeightsSpy.Instance
+
 procedure TPrintRowHeightsSpy.Release;
 //#UC START# *479F2AFB0397_4DF1C7300012_var*
 //#UC END# *479F2AFB0397_4DF1C7300012_var*
@@ -249,6 +233,7 @@ begin
 end;//TPrintRowHeightsSpy.Release
 
 procedure TPrintRowHeightsSpy.BeforeAddToCache;
+ {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
 //#UC START# *479F2B3302C1_4DF1C7300012_var*
 //#UC END# *479F2B3302C1_4DF1C7300012_var*
 begin
@@ -257,6 +242,6 @@ begin
   f_RowHeights.Clear;
 //#UC END# *479F2B3302C1_4DF1C7300012_impl*
 end;//TPrintRowHeightsSpy.BeforeAddToCache
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 end.

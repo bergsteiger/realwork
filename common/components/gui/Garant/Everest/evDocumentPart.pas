@@ -1,60 +1,48 @@
 unit evDocumentPart;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evDocumentPart.pas"
-// Начат: 18.10.2000 13:01
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::ParaUtils::evDocumentPart
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentPart.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evDocumentPart" MUID: (4857B15A000E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevBase,
-  evConst,
-  l3CustomString,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3CustomString
+ , l3Variant
+ , nevBase
+ , evConst
+;
 
 const
-  { Defaults }
  evDocumentPartMargin = evConst.evInchMul div 8;
  evDocumentPartLineSpace = evDocumentPartMargin div 2;
-function EvGetBlockName(const aPara: Tl3Variant): Tl3CustomString;
-procedure EvDocumentPartSetShowLevel(const aDocument: Tl3Variant;
-  aLevel: LongInt;
-  const aProcessor: InevProcessor);
-{$IfEnd} //k2ForEditor
+
+function evGetBlockName(const aPara: Tl3Variant): Tl3CustomString;
+procedure evDocumentPartSetShowLevel(const aDocument: Tl3Variant;
+ aLevel: LongInt;
+ const aProcessor: InevProcessor);
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  TextPara_Const,
-  Block_Const,
-  Document_Const,
-  ParaList_Const,
-  k2Tags
-  ;
+ l3ImplUses
+ , k2Tags
+ , TextPara_Const
+ , Block_Const
+ , Document_Const
+ , ParaList_Const
+;
 
-// unit methods
-
-procedure EvParaListSetLevel(const aList: Tl3Variant;
-  aLevel: LongInt;
-  aCurrentLevel: LongInt;
-  const anOpPack: InevOp);
+procedure evParaListSetLevel(const aList: Tl3Variant;
+ aLevel: LongInt;
+ aCurrentLevel: LongInt;
+ const anOpPack: InevOp);
 //#UC START# *4F7D72CD0155_4857B15A000E_var*
 
  function lp_SetChildLevel(aChild: Tl3Variant; anIndex: LongInt): Boolean; far;
@@ -77,9 +65,9 @@ begin
    IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@lp_SetChildLevel));
  end;//with aList
 //#UC END# *4F7D72CD0155_4857B15A000E_impl*
-end;//EvParaListSetLevel
+end;//evParaListSetLevel
 
-function EvGetBlockName(const aPara: Tl3Variant): Tl3CustomString;
+function evGetBlockName(const aPara: Tl3Variant): Tl3CustomString;
 //#UC START# *4DFF31800349_4857B15A000E_var*
 var
  l_Child  : Tl3Variant;
@@ -134,11 +122,11 @@ begin
     Result := AsObject As Tl3CustomString;
  end;//aPara.IsKindOf(k2_typTextPara)
 //#UC END# *4DFF31800349_4857B15A000E_impl*
-end;//EvGetBlockName
+end;//evGetBlockName
 
-procedure EvDocumentPartSetShowLevel(const aDocument: Tl3Variant;
-  aLevel: LongInt;
-  const aProcessor: InevProcessor);
+procedure evDocumentPartSetShowLevel(const aDocument: Tl3Variant;
+ aLevel: LongInt;
+ const aProcessor: InevProcessor);
 //#UC START# *4F7D70BC039D_4857B15A000E_var*
 var
  l_OpPack : InevOp;
@@ -155,7 +143,7 @@ begin
   l_OpPack := nil;
  end;//try..finally
 //#UC END# *4F7D70BC039D_4857B15A000E_impl*
-end;//EvDocumentPartSetShowLevel
-{$IfEnd} //k2ForEditor
+end;//evDocumentPartSetShowLevel
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

@@ -1,104 +1,69 @@
 unit evStyleTableSpy;
+ {* Модуль для поддержки с нотификации об изменении таблицы стилей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evStyleTableSpy.pas"
-// Начат: 23.09.2002 09:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::StyleTable::evStyleTableSpy
-//
-// Модуль для поддержки с нотификации об изменении таблицы стилей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evStyleTableSpy.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evStyleTableSpy" MUID: (47ECB297037D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 uses
-  afwInterfaces,
-  l3InterfacePtrList
-  ;
+ l3IntfUses
+ , afwInterfaces
+ , l3InterfacePtrList
+;
 
 type
  TevSpies = class(Tl3InterfacePtrList)
- public
- // public methods
+  public
    class function Exists: Boolean;
- public
- // singleton factory method
    class function Instance: TevSpies;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TevSpies }
  end;//TevSpies
 
-procedure EvAddStyleTableSpy(const aSpy: IafwStyleTableSpy;
-  SelfNotify: Boolean = false;
-  aAtEnd: Boolean = true);
-   {* добавить объект принимающий нотификации об изменении таблицы стилей. }
-procedure EvDelStyleTableSpy(const aSpy: IafwStyleTableSpy);
-   {* удалить объект принимающий нотификации об изменении таблицы стилей. }
-procedure EvNotifyStyleTableChanging;
-   {* рассылает нотификацию об начале изменения таблицы стилей всем заинтересованным. }
-procedure EvNotifyStyleTableChanged(aCancel: Boolean = false);
-   {* рассылает нотификацию об изменении таблицы стилей всем заинтересованным. }
-{$IfEnd} //not DesignTimeLibrary
+procedure evAddStyleTableSpy(const aSpy: IafwStyleTableSpy;
+ SelfNotify: Boolean = False;
+ aAtEnd: Boolean = True);
+ {* добавить объект принимающий нотификации об изменении таблицы стилей. }
+procedure evDelStyleTableSpy(const aSpy: IafwStyleTableSpy);
+ {* удалить объект принимающий нотификации об изменении таблицы стилей. }
+procedure evNotifyStyleTableChanging;
+ {* рассылает нотификацию об начале изменения таблицы стилей всем заинтересованным. }
+procedure evNotifyStyleTableChanged(aCancel: Boolean = False);
+ {* рассылает нотификацию об изменении таблицы стилей всем заинтересованным. }
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 implementation
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 uses
-  l3Base {a},
-  evStyleInterface,
-  k2Facade,
-  l3Types,
-  SysUtils,
-  evResultFont,
-  k2Tags
-  ;
+ l3ImplUses
+ , evStyleInterface
+ , k2Facade
+ , l3Base
+ , l3Types
+ , SysUtils
+ , evResultFont
+ , k2Tags
+;
 
-var f_Changes : Integer = 0;
-
-
-// start class TevSpies
-
-var g_TevSpies : TevSpies = nil;
+var g_TevSpies: TevSpies = nil;
+ {* Экземпляр синглетона TevSpies }
+var f_Changes: Integer = 0;
 
 procedure TevSpiesFree;
+ {* Метод освобождения экземпляра синглетона TevSpies }
 begin
  l3Free(g_TevSpies);
-end;
+end;//TevSpiesFree
 
-class function TevSpies.Instance: TevSpies;
-begin
- if (g_TevSpies = nil) then
- begin
-  l3System.AddExitProc(TevSpiesFree);
-  g_TevSpies := Create;
- end;
- Result := g_TevSpies;
-end;
-
-
-class function TevSpies.Exists: Boolean;
-//#UC START# *4DD3D2A20200_4DD3D2710378_var*
-//#UC END# *4DD3D2A20200_4DD3D2710378_var*
-begin
-//#UC START# *4DD3D2A20200_4DD3D2710378_impl*
- Result := (g_TevSpies <> nil);
-//#UC END# *4DD3D2A20200_4DD3D2710378_impl*
-end;//TevSpies.Exists
-
-procedure EvAddStyleTableSpy(const aSpy: IafwStyleTableSpy;
-  SelfNotify: Boolean = false;
-  aAtEnd: Boolean = true);
+procedure evAddStyleTableSpy(const aSpy: IafwStyleTableSpy;
+ SelfNotify: Boolean = False;
+ aAtEnd: Boolean = True);
+ {* добавить объект принимающий нотификации об изменении таблицы стилей. }
 //#UC START# *47ECB2BC01DF_47ECB297037D_var*
 var
  l_Index : Integer;
@@ -120,9 +85,10 @@ begin
  if SelfNotify then
   aSpy.StyleTableChanged;
 //#UC END# *47ECB2BC01DF_47ECB297037D_impl*
-end;//EvAddStyleTableSpy
+end;//evAddStyleTableSpy
 
-procedure EvDelStyleTableSpy(const aSpy: IafwStyleTableSpy);
+procedure evDelStyleTableSpy(const aSpy: IafwStyleTableSpy);
+ {* удалить объект принимающий нотификации об изменении таблицы стилей. }
 //#UC START# *480DA98F0055_47ECB297037D_var*
 //#UC END# *480DA98F0055_47ECB297037D_var*
 begin
@@ -130,18 +96,20 @@ begin
  if TevSpies.Exists then
   TevSpies.Instance.Remove(aSpy);
 //#UC END# *480DA98F0055_47ECB297037D_impl*
-end;//EvDelStyleTableSpy
+end;//evDelStyleTableSpy
 
-procedure EvNotifyStyleTableChanging;
+procedure evNotifyStyleTableChanging;
+ {* рассылает нотификацию об начале изменения таблицы стилей всем заинтересованным. }
 //#UC START# *480DA99E035A_47ECB297037D_var*
 //#UC END# *480DA99E035A_47ECB297037D_var*
 begin
 //#UC START# *480DA99E035A_47ECB297037D_impl*
  Inc(f_Changes);
 //#UC END# *480DA99E035A_47ECB297037D_impl*
-end;//EvNotifyStyleTableChanging
+end;//evNotifyStyleTableChanging
 
-procedure EvNotifyStyleTableChanged(aCancel: Boolean = false);
+procedure evNotifyStyleTableChanged(aCancel: Boolean = False);
+ {* рассылает нотификацию об изменении таблицы стилей всем заинтересованным. }
 //#UC START# *480DA9AC0180_47ECB297037D_var*
 
  function _SendNormal(pSpy: PIUnknown; anIndex: Integer): Bool;
@@ -181,7 +149,27 @@ begin
     l_Spies.IterateAllF(l3L2IA(@_SendAlways));
  end;
 //#UC END# *480DA9AC0180_47ECB297037D_impl*
-end;//EvNotifyStyleTableChanged
-{$IfEnd} //not DesignTimeLibrary
+end;//evNotifyStyleTableChanged
+
+class function TevSpies.Exists: Boolean;
+//#UC START# *4DD3D2A20200_4DD3D2710378_var*
+//#UC END# *4DD3D2A20200_4DD3D2710378_var*
+begin
+//#UC START# *4DD3D2A20200_4DD3D2710378_impl*
+ Result := (g_TevSpies <> nil);
+//#UC END# *4DD3D2A20200_4DD3D2710378_impl*
+end;//TevSpies.Exists
+
+class function TevSpies.Instance: TevSpies;
+ {* Метод получения экземпляра синглетона TevSpies }
+begin
+ if (g_TevSpies = nil) then
+ begin
+  l3System.AddExitProc(TevSpiesFree);
+  g_TevSpies := Create;
+ end;
+ Result := g_TevSpies;
+end;//TevSpies.Instance
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

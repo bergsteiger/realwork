@@ -1,144 +1,89 @@
 unit evTableColumn;
+ {* Реализация интерфейса IedColumn для колонки таблицы. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evTableColumn.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Cursors::evTableColumn
-//
-// Реализация интерфейса IedColumn для колонки таблицы.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableColumn.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evTableColumn" MUID: (4F4C6AF301AE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevBase,
-  nevTools,
-  evEditorInterfaces,
-  evColumnBorderMarker,
-  l3Variant
-  ;
+ l3IntfUses
+ , evColumnBorderMarker
+ , evEditorInterfaces
+ , nevBase
+ , nevTools
+ , l3Variant
+;
 
-{$If defined(evNeedEditableCursors) AND defined(evUseVisibleCursors)}
+{$If Defined(evNeedEditableCursors)}
 type
  TevColumn = class(TevColumnBorderMarker, IedCellsIterator, IedColumn)
   {* Реализует интерфейс IedColumn для колонки таблицы. }
- private
- // private fields
-   f_RowIndex : Integer;
-   f_Processor : InevProcessor;
-    {* Поле для свойства Processor}
- protected
- // property methods
+  private
+   f_RowIndex: Integer;
+   f_Processor: InevProcessor;
+    {* Поле для свойства Processor }
+  protected
    function Get_Width: Integer;
    procedure Set_Width(aValue: Integer);
- protected
- // realized methods
    function pm_GetBackIterator: IedBackCellsIterator;
    function First(aNeedNeighbours: Boolean): IedCell;
-     {* возвращает первую ячейку и начинает перебор }
+    {* возвращает первую ячейку и начинает перебор }
    function Next: IedCell;
-     {* возвращает следующую ячейку или nil, если перебор закончен }
+    {* возвращает следующую ячейку или nil, если перебор закончен }
    function CellsCount: Integer;
-     {* Количество ячеек }
+    {* Количество ячеек }
    function pm_GetCellsIterator: IedCellsIterator;
    function pm_GetWidth: Integer;
    procedure pm_SetWidth(aValue: Integer);
    function pm_GetID: Integer;
    function Get_Processor: Ik2Processor;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aView: InevView;
-     aPara: Tl3Variant;
-     aColumnID: LongInt;
-     const aProcessor: InevProcessor); reintroduce;
+    aPara: Tl3Variant;
+    aColumnID: LongInt;
+    const aProcessor: InevProcessor); reintroduce;
    class function Make(const aView: InevView;
-     aPara: Tl3Variant;
-     aColumnID: LongInt;
-     const aProcessor: InevProcessor): IedColumn;
- public
- // public properties
+    aPara: Tl3Variant;
+    aColumnID: LongInt;
+    const aProcessor: InevProcessor): IedColumn;
+  public
    property Processor: InevProcessor
-     read f_Processor
-     write f_Processor;
-     {* Процессор операций. }
+    read f_Processor
+    write f_Processor;
+    {* Процессор операций. }
    property Width: Integer
-     read Get_Width
-     write Set_Width;
-     {* Ширина колонки. }
+    read Get_Width
+    write Set_Width;
+    {* Ширина колонки. }
  end;//TevColumn
-{$IfEnd} //evNeedEditableCursors AND evUseVisibleCursors
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evNeedEditableCursors)
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  l3Base,
-  k2Tags,
-  k2OpMisc,
-  evMsgCode,
-  l3InterfacesMisc,
-  l3IID
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  
-  ;
+ l3ImplUses
+ , l3Base
+ , k2Tags
+ , k2OpMisc
+ , evMsgCode
+ , l3InterfacesMisc
+ , l3IID
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+;
 
-{$If defined(evNeedEditableCursors) AND defined(evUseVisibleCursors)}
-
-// start class TevColumn
-
-constructor TevColumn.Create(const aView: InevView;
-  aPara: Tl3Variant;
-  aColumnID: LongInt;
-  const aProcessor: InevProcessor);
-//#UC START# *4F4C72360323_4F4C6B940246_var*
-//#UC END# *4F4C72360323_4F4C6B940246_var*
-begin
-//#UC START# *4F4C72360323_4F4C6B940246_impl*
- inherited Create(aView, aPara, aColumnID + 1);
- Processor := aProcessor;
-//#UC END# *4F4C72360323_4F4C6B940246_impl*
-end;//TevColumn.Create
-
-class function TevColumn.Make(const aView: InevView;
-  aPara: Tl3Variant;
-  aColumnID: LongInt;
-  const aProcessor: InevProcessor): IedColumn;
-//#UC START# *4F4C728500F4_4F4C6B940246_var*
-var
- l_Column : TevColumn;
-//#UC END# *4F4C728500F4_4F4C6B940246_var*
-begin
-//#UC START# *4F4C728500F4_4F4C6B940246_impl*
- l_Column := Create(aView, aPara, aColumnID, aProcessor);
- try
-  Result := l_Column;
- finally
-  l3Free(l_Column);
- end;//try..finally
-//#UC END# *4F4C728500F4_4F4C6B940246_impl*
-end;//TevColumn.Make
-
+{$If Defined(evNeedEditableCursors)}
 function TevColumn.Get_Width: Integer;
 //#UC START# *4F4C6F8902DF_4F4C6B940246get_var*
 //#UC END# *4F4C6F8902DF_4F4C6B940246get_var*
@@ -159,6 +104,38 @@ begin
 //#UC END# *4F4C6F8902DF_4F4C6B940246set_impl*
 end;//TevColumn.Set_Width
 
+constructor TevColumn.Create(const aView: InevView;
+ aPara: Tl3Variant;
+ aColumnID: LongInt;
+ const aProcessor: InevProcessor);
+//#UC START# *4F4C72360323_4F4C6B940246_var*
+//#UC END# *4F4C72360323_4F4C6B940246_var*
+begin
+//#UC START# *4F4C72360323_4F4C6B940246_impl*
+ inherited Create(aView, aPara, aColumnID + 1);
+ Processor := aProcessor;
+//#UC END# *4F4C72360323_4F4C6B940246_impl*
+end;//TevColumn.Create
+
+class function TevColumn.Make(const aView: InevView;
+ aPara: Tl3Variant;
+ aColumnID: LongInt;
+ const aProcessor: InevProcessor): IedColumn;
+//#UC START# *4F4C728500F4_4F4C6B940246_var*
+var
+ l_Column : TevColumn;
+//#UC END# *4F4C728500F4_4F4C6B940246_var*
+begin
+//#UC START# *4F4C728500F4_4F4C6B940246_impl*
+ l_Column := Create(aView, aPara, aColumnID, aProcessor);
+ try
+  Result := l_Column;
+ finally
+  l3Free(l_Column);
+ end;//try..finally
+//#UC END# *4F4C728500F4_4F4C6B940246_impl*
+end;//TevColumn.Make
+
 function TevColumn.pm_GetBackIterator: IedBackCellsIterator;
 //#UC START# *4BBC9430038B_4F4C6B940246get_var*
 //#UC END# *4BBC9430038B_4F4C6B940246get_var*
@@ -170,6 +147,7 @@ begin
 end;//TevColumn.pm_GetBackIterator
 
 function TevColumn.First(aNeedNeighbours: Boolean): IedCell;
+ {* возвращает первую ячейку и начинает перебор }
 //#UC START# *4BBC944C0195_4F4C6B940246_var*
 //#UC END# *4BBC944C0195_4F4C6B940246_var*
 begin
@@ -180,6 +158,7 @@ begin
 end;//TevColumn.First
 
 function TevColumn.Next: IedCell;
+ {* возвращает следующую ячейку или nil, если перебор закончен }
 //#UC START# *4BBC94640082_4F4C6B940246_var*
 var
  l_Row  : InevPara;
@@ -216,6 +195,7 @@ begin
 end;//TevColumn.Next
 
 function TevColumn.CellsCount: Integer;
+ {* Количество ячеек }
 //#UC START# *4BBC947B0399_4F4C6B940246_var*
 //#UC END# *4BBC947B0399_4F4C6B940246_var*
 begin
@@ -270,6 +250,7 @@ begin
 end;//TevColumn.Get_Processor
 
 procedure TevColumn.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F4C6B940246_var*
 //#UC END# *479731C50290_4F4C6B940246_var*
 begin
@@ -280,15 +261,11 @@ begin
 end;//TevColumn.Cleanup
 
 procedure TevColumn.ClearFields;
- {-}
 begin
- {$If defined(evNeedEditableCursors) AND defined(evUseVisibleCursors)}
  Processor := nil;
- {$IfEnd} //evNeedEditableCursors AND evUseVisibleCursors
  inherited;
 end;//TevColumn.ClearFields
+{$IfEnd} // Defined(evNeedEditableCursors)
 
-{$IfEnd} //evNeedEditableCursors AND evUseVisibleCursors
-{$IfEnd} //evUseVisibleCursors
-
+{$IfEnd} // Defined(evUseVisibleCursors)
 end.

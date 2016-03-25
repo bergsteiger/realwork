@@ -1914,19 +1914,33 @@ end;//TPrimListForm.CallCurrentChanged
 
 procedure TPrimListForm.ExSearchLabelClick(Sender: TObject);
 //#UC START# *56F3F0580255_497DDB2B001B_var*
+var
+ l_Url: IString;
 //#UC END# *56F3F0580255_497DDB2B001B_var*
 begin
 //#UC START# *56F3F0580255_497DDB2B001B_impl*
- !!! Needs to be implemented !!!
+ Assert(Assigned(f_SearchContext));
+ defDataAdapter.NativeAdapter.MakeDecisionsArchiveSupport.GetSearchServerUrl(nsIStr(f_SearchContext), l_Url);
+ RunValidBrowser(nsCStr(l_Url));
 //#UC END# *56F3F0580255_497DDB2B001B_impl*
 end;//TPrimListForm.ExSearchLabelClick
 
 procedure TPrimListForm.CheckExSearchPanelVisibility;
 //#UC START# *56F412F403C7_497DDB2B001B_var*
+var
+ l_BS: InsBaseSearcher;
 //#UC END# *56F412F403C7_497DDB2B001B_var*
 begin
 //#UC START# *56F412F403C7_497DDB2B001B_impl*
- !!! Needs to be implemented !!!
+ l_BS := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
+
+ ExSearchPanel.Visible := Assigned(l_BS)
+                      and Assigned(l_BS.SearchWindow)
+                      and l_BS.SearchWindow.Visible
+                      and Assigned(dsDocumentList)
+                      and dsDocumentList.IsSnippet
+                      and not dsDocumentList.IsChanged
+                      and defDataAdapter.NativeAdapter.MakeDecisionsArchiveSupport.SearchServerAvailable;
 //#UC END# *56F412F403C7_497DDB2B001B_impl*
 end;//TPrimListForm.CheckExSearchPanelVisibility
 

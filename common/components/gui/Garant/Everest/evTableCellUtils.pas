@@ -1,87 +1,76 @@
 unit evTableCellUtils;
+ {* Различные вспомогательные функции для работы с ячейками таблицы. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/evTableCellUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::ParaUtils::evTableCellUtils
-//
-// Различные вспомогательные функции для работы с ячейками таблицы.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evTableCellUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evTableCellUtils" MUID: (4C3849220132)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  nevBase,
-  nevTools,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3Variant
+ , nevTools
+ , nevBase
+;
 
-function EvCheckCellWidth(aValue: Integer;
-  aOnlySymbol: Boolean = False): Integer; overload; 
-   {* Корректирует ширину/изменение ширины ячейки, чтобы она была кратна ширине символов, aOnlySymbol - возвращаемая ширина не может быть меньше одного символа }
-function EvCheckCellWidth(aValue: Integer;
-  aOuterWidth: Integer): Integer; overload; 
-   {* Корректирует ширину ячейки, чтобы она была кратна ширине символов, Если полученная ширина меньше aOuterWidth, то возвращается aOuterWidth. }
-function EvHasFormulaOnly(const aPara: InevPara;
-  aFI: TnevFormatInfoPrim): Boolean;
-function EvInEmptyTableCell(const aStart: InevBasePoint;
-  const aFinish: InevBasePoint): Boolean;
-   {* Проверяет попадают ли точки в пустую ячейку. }
-function EvCloneCell(const aPack: InevOp;
-  aCell: Tl3Variant): Il3TagRef;
-   {* Создает копию ячейки. }
-function EvCheckSingleContinueCell(const aPara: InevPara): Boolean;
-   {* Проверяет содержит ли строка одну ячейку и эта ячейка часть объединения MergeStatus = ev_msContinue. }
-function EvIsPointHeadCell(const aView: InevView;
-  const aPoint: InevBasePoint): InevBasePoint;
-   {* Проверяет указывает ли точка на начальную ячейку объединения. }
-procedure EvCorrectTablePoint(aStart: Boolean;
-  const aView: InevView;
-  const aPoint: InevBasePoint;
-  const aPointCopy: InevBasePoint;
-  const aHeadPoint: InevBasePoint);
-   {* Корректирует точку при необходимости }
-function EvIsPointTextInCell(const aPoint: InevBasePoint): Boolean;
-   {* Проверяет находится ли точка, указывающая на текст в ячейке таблицы. }
-function EvMoreOrEqualOffset(const aFirst: Integer;
-  aSecond: Integer): Boolean;
-function EvEqualOffset(aFirst: Integer;
-  aSecond: Integer): Boolean;
-function EvCanDeleteRow(aRow: Tl3Tag;
-  anIgnoreEmtpyRow: Boolean): Boolean;
-{$IfEnd} //k2ForEditor
+function evIsPointTextInCell(const aPoint: InevBasePoint): Boolean;
+ {* Проверяет находится ли точка, указывающая на текст в ячейке таблицы. }
+function evMoreOrEqualOffset(const aFirst: Integer;
+ aSecond: Integer): Boolean;
+function evEqualOffset(aFirst: Integer;
+ aSecond: Integer): Boolean;
+function evCanDeleteRow(aRow: Tl3Tag;
+ anIgnoreEmtpyRow: Boolean): Boolean;
+function evCheckCellWidth(aValue: Integer;
+ aOnlySymbol: Boolean = False): Integer; overload;
+ {* Корректирует ширину/изменение ширины ячейки, чтобы она была кратна ширине символов, aOnlySymbol - возвращаемая ширина не может быть меньше одного символа }
+function evCheckCellWidth(aValue: Integer;
+ aOuterWidth: Integer): Integer; overload;
+ {* Корректирует ширину ячейки, чтобы она была кратна ширине символов, Если полученная ширина меньше aOuterWidth, то возвращается aOuterWidth. }
+function evHasFormulaOnly(const aPara: InevPara;
+ aFI: TnevFormatInfoPrim): Boolean;
+function evInEmptyTableCell(const aStart: InevBasePoint;
+ const aFinish: InevBasePoint): Boolean;
+ {* Проверяет попадают ли точки в пустую ячейку. }
+function evCloneCell(const aPack: InevOp;
+ aCell: Tl3Variant): Il3TagRef;
+ {* Создает копию ячейки. }
+function evCheckSingleContinueCell(const aPara: InevPara): Boolean;
+ {* Проверяет содержит ли строка одну ячейку и эта ячейка часть объединения MergeStatus = ev_msContinue. }
+function evIsPointHeadCell(const aView: InevView;
+ const aPoint: InevBasePoint): InevBasePoint;
+ {* Проверяет указывает ли точка на начальную ячейку объединения. }
+procedure evCorrectTablePoint(aStart: Boolean;
+ const aView: InevView;
+ const aPoint: InevBasePoint;
+ const aPointCopy: InevBasePoint;
+ const aHeadPoint: InevBasePoint);
+ {* Корректирует точку при необходимости }
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
 
-{$If defined(k2ForEditor)}
+{$If Defined(k2ForEditor)}
 uses
-  l3LongintList,
-  Math,
-  l3UnitsTools,
-  ObjectSegment_Const,
-  Formula_Const,
-  k2Base,
-  TableCell_Const,
-  evdTypes,
-  evOp,
-  k2Tags
-  ;
+ l3ImplUses
+ , Math
+ , l3UnitsTools
+ , ObjectSegment_Const
+ , Formula_Const
+ , k2Base
+ , TableCell_Const
+ , evdTypes
+ , evOp
+ , k2Tags
+ , l3LongintList
+;
 
-// unit methods
-
-function EvIsPointTextInCell(const aPoint: InevBasePoint): Boolean;
+function evIsPointTextInCell(const aPoint: InevBasePoint): Boolean;
+ {* Проверяет находится ли точка, указывающая на текст в ячейке таблицы. }
 //#UC START# *4F44B12A0166_4C3849220132_var*
 var
  l_Parent: InevBasePoint;
@@ -93,10 +82,10 @@ begin
  if Result then
   Result := l_Parent.AsObject.IsKindOf(k2_typTableCell);
 //#UC END# *4F44B12A0166_4C3849220132_impl*
-end;//EvIsPointTextInCell
+end;//evIsPointTextInCell
 
-function EvMoreOrEqualOffset(const aFirst: Integer;
-  aSecond: Integer): Boolean;
+function evMoreOrEqualOffset(const aFirst: Integer;
+ aSecond: Integer): Boolean;
 //#UC START# *50F5119003E5_4C3849220132_var*
 var
  l_Rslt: Integer;
@@ -106,20 +95,20 @@ begin
  l_Rslt := aFirst - aSecond;
  Result := (Abs(l_Rslt) <= evCellWidthEpsilon) or (l_Rslt > evCellWidthEpsilon);
 //#UC END# *50F5119003E5_4C3849220132_impl*
-end;//EvMoreOrEqualOffset
+end;//evMoreOrEqualOffset
 
-function EvEqualOffset(aFirst: Integer;
-  aSecond: Integer): Boolean;
+function evEqualOffset(aFirst: Integer;
+ aSecond: Integer): Boolean;
 //#UC START# *50F516FA010B_4C3849220132_var*
 //#UC END# *50F516FA010B_4C3849220132_var*
 begin
 //#UC START# *50F516FA010B_4C3849220132_impl*
  Result := Abs(aFirst - aSecond) <= evCellWidthEpsilon;
 //#UC END# *50F516FA010B_4C3849220132_impl*
-end;//EvEqualOffset
+end;//evEqualOffset
 
-function EvCanDeleteRow(aRow: Tl3Tag;
-  anIgnoreEmtpyRow: Boolean): Boolean;
+function evCanDeleteRow(aRow: Tl3Tag;
+ anIgnoreEmtpyRow: Boolean): Boolean;
 //#UC START# *5379A05600E1_4C3849220132_var*
 var
  l_CellCount       : Integer;
@@ -146,10 +135,11 @@ begin
  if anIgnoreEmtpyRow and Result then
   Result := l_CellCount > 0;
 //#UC END# *5379A05600E1_4C3849220132_impl*
-end;//EvCanDeleteRow
+end;//evCanDeleteRow
 
-function EvCheckCellWidth(aValue: Integer;
-  aOnlySymbol: Boolean = False): Integer;
+function evCheckCellWidth(aValue: Integer;
+ aOnlySymbol: Boolean = False): Integer;
+ {* Корректирует ширину/изменение ширины ячейки, чтобы она была кратна ширине символов, aOnlySymbol - возвращаемая ширина не может быть меньше одного символа }
 //#UC START# *4C38498D00D0_4C3849220132_var*
 var
  l_Epsilon : Integer;
@@ -175,10 +165,11 @@ begin
  if aOnlySymbol and (Result < l_Epsilon) then
   Result := l_Epsilon;
 //#UC END# *4C38498D00D0_4C3849220132_impl*
-end;//EvCheckCellWidth
+end;//evCheckCellWidth
 
-function EvCheckCellWidth(aValue: Integer;
-  aOuterWidth: Integer): Integer;
+function evCheckCellWidth(aValue: Integer;
+ aOuterWidth: Integer): Integer;
+ {* Корректирует ширину ячейки, чтобы она была кратна ширине символов, Если полученная ширина меньше aOuterWidth, то возвращается aOuterWidth. }
 //#UC START# *4C384A440171_4C3849220132_var*
 //#UC END# *4C384A440171_4C3849220132_var*
 begin
@@ -187,10 +178,10 @@ begin
  if (aOuterWidth - Result) < evCellWidthEpsilon then
   Result := aValue;
 //#UC END# *4C384A440171_4C3849220132_impl*
-end;//EvCheckCellWidth
+end;//evCheckCellWidth
 
-function EvHasFormulaOnly(const aPara: InevPara;
-  aFI: TnevFormatInfoPrim): Boolean;
+function evHasFormulaOnly(const aPara: InevPara;
+ aFI: TnevFormatInfoPrim): Boolean;
 //#UC START# *4C77545B0230_4C3849220132_var*
 var
  l_HasFormula: Boolean absolute Result;
@@ -225,10 +216,11 @@ begin
     IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@CheckSegment));
  end; // if aPara.ChildrenCount = 1 then
 //#UC END# *4C77545B0230_4C3849220132_impl*
-end;//EvHasFormulaOnly
+end;//evHasFormulaOnly
 
-function EvInEmptyTableCell(const aStart: InevBasePoint;
-  const aFinish: InevBasePoint): Boolean;
+function evInEmptyTableCell(const aStart: InevBasePoint;
+ const aFinish: InevBasePoint): Boolean;
+ {* Проверяет попадают ли точки в пустую ячейку. }
 //#UC START# *4C7E0ABF0116_4C3849220132_var*
 var
  l_Point: InevBasePoint;
@@ -251,10 +243,11 @@ begin
   end; // while l_Point <> nil do
  end;//aStart.Compare(aFinish) = 0
 //#UC END# *4C7E0ABF0116_4C3849220132_impl*
-end;//EvInEmptyTableCell
+end;//evInEmptyTableCell
 
-function EvCloneCell(const aPack: InevOp;
-  aCell: Tl3Variant): Il3TagRef;
+function evCloneCell(const aPack: InevOp;
+ aCell: Tl3Variant): Il3TagRef;
+ {* Создает копию ячейки. }
 //#UC START# *4C8DF2F600EA_4C3849220132_var*
 var
  l_Text : Tl3Variant;
@@ -269,9 +262,10 @@ begin
  l_Text := Tk2Type(l_O.TagType).ArrayProp[k2_tiChildren].DefaultChildType.MakeTag.AsObject;
  l_O.AddChild(l_Text);
 //#UC END# *4C8DF2F600EA_4C3849220132_impl*
-end;//EvCloneCell
+end;//evCloneCell
 
-function EvCheckSingleContinueCell(const aPara: InevPara): Boolean;
+function evCheckSingleContinueCell(const aPara: InevPara): Boolean;
+ {* Проверяет содержит ли строка одну ячейку и эта ячейка часть объединения MergeStatus = ev_msContinue. }
 //#UC START# *4CA1ECEB001A_4C3849220132_var*
 //#UC END# *4CA1ECEB001A_4C3849220132_var*
 begin
@@ -280,10 +274,11 @@ begin
  if Result then
   Result := TevMergeStatus(aPara.AsObject.Child[0].IntA[k2_tiMergeStatus]) = ev_msContinue;
 //#UC END# *4CA1ECEB001A_4C3849220132_impl*
-end;//EvCheckSingleContinueCell
+end;//evCheckSingleContinueCell
 
-function EvIsPointHeadCell(const aView: InevView;
-  const aPoint: InevBasePoint): InevBasePoint;
+function evIsPointHeadCell(const aView: InevView;
+ const aPoint: InevBasePoint): InevBasePoint;
+ {* Проверяет указывает ли точка на начальную ячейку объединения. }
 //#UC START# *4D38236B03AD_4C3849220132_var*
 var
  l_Inner: InevBasePoint;
@@ -298,13 +293,14 @@ begin
  else
   Result := l_Inner.ClonePoint(aView)
 //#UC END# *4D38236B03AD_4C3849220132_impl*
-end;//EvIsPointHeadCell
+end;//evIsPointHeadCell
 
-procedure EvCorrectTablePoint(aStart: Boolean;
-  const aView: InevView;
-  const aPoint: InevBasePoint;
-  const aPointCopy: InevBasePoint;
-  const aHeadPoint: InevBasePoint);
+procedure evCorrectTablePoint(aStart: Boolean;
+ const aView: InevView;
+ const aPoint: InevBasePoint;
+ const aPointCopy: InevBasePoint;
+ const aHeadPoint: InevBasePoint);
+ {* Корректирует точку при необходимости }
 //#UC START# *4D3823BB00DA_4C3849220132_var*
 var
  l_Point     : InevBasePoint;
@@ -352,7 +348,7 @@ begin
     lp_CheckPoint;
  end; // if l_Inner <> nil then
 //#UC END# *4D3823BB00DA_4C3849220132_impl*
-end;//EvCorrectTablePoint
-{$IfEnd} //k2ForEditor
+end;//evCorrectTablePoint
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

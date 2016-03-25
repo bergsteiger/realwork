@@ -1,52 +1,44 @@
 unit nevPersistentDocumentContainer;
+ {* Контейнер документа с поддержкой записи/чтения в различных форматах. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevPersistentDocumentContainer.pas"
-// Начат: 14.07.2005 11:28
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::DocumentContainers::nevPersistentDocumentContainer
-//
-// Контейнер документа с поддержкой записи/чтения в различных форматах.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevPersistentDocumentContainer.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nevPersistentDocumentContainer" MUID: (483E6CFE02DC)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  k2TagGen,
-  evDocumentContainerWithProcessor,
-  k2CustomReader,
-  l3Interfaces,
-  nevInternalInterfaces
-  ;
+ l3IntfUses
+ , evDocumentContainerWithProcessor
+ , nevBase
+ , k2TagGen
+ , nevInternalInterfaces
+ , l3Interfaces
+ , k2CustomReader
+;
 
 type
- TevGetWriterProc = procedure (Sender: TObject;
+ TevGetWriterProc = procedure(Sender: TObject;
   aFormat: TnevFormat;
   var Writer: Tk2TagGenerator);
-   {* процедура для получения объекта для записи текста в формате aFormat. }
+  {* процедура для получения объекта для записи текста в формате aFormat. }
 
- TevGetReaderProc = procedure (Sender: TObject;
+ TevGetReaderProc = procedure(Sender: TObject;
   aFormat: TnevFormat;
   var Reader: Tk2CustomReader;
   const aFileName: AnsiString = '');
-   {* процедура для получения объекта для чтения текста в формате aFormat. }
+  {* процедура для получения объекта для чтения текста в формате aFormat. }
 
  TnevPersistentDocumentContainer = class(TevDocumentContainerWithProcessor)
   {* Контейнер документа с поддержкой записи/чтения в различных форматах. }
- protected
- // overridden protected methods
+  protected
+   function UseWikiMarkup: Boolean; virtual;
+   procedure DoGetWriter(aFormat: TnevFormat;
+    anInternal: Boolean;
+    var theWriter: Tk2TagGenerator;
+    aCodePage: Integer); virtual;
    procedure GetWriter(aFormat: TnevFormat;
     anInternal: Boolean;
     out theWriter: Tk2TagGenerator;
@@ -60,46 +52,37 @@ type
     anInternal: Boolean;
     aCodePage: Integer;
     const aBlock: IUnknown); override;
- protected
- // protected methods
-   function UseWikiMarkup: Boolean; virtual;
-   procedure DoGetWriter(aFormat: TnevFormat;
-    anInternal: Boolean;
-    var theWriter: Tk2TagGenerator;
-    aCodePage: Integer); virtual;
  end;//TnevPersistentDocumentContainer
 
-var evGetWriterProc : TevGetWriterProc = nil;
- {* Callback для получения писателя.}
-
-var evGetReaderProc : TevGetReaderProc = nil;
- {* Callback для получения читателя.}
+var evGetWriterProc: TevGetWriterProc = nil;
+ {* Callback для получения писателя. }
+var evGetReaderProc: TevGetReaderProc = nil;
+ {* Callback для получения читателя. }
 
 implementation
 
 uses
-  k2Tags,
-  evCustomTxtReader,
-  evTypes,
-  evdNativeReader,
-  k2CustomFileGenerator,
-  evTextFormatter,
-  evdPlainTextWriter,
-  nevInterfaces,
-  l3Chars,
-  SysUtils,
-  l3Base,
-  evdNativeWriter,
-  Document_Const,
-  evMergedCellFilter,
-  ShellAPI,
-  evCustomWikiReader,
-  evdTextStyle_Const,
-  evStyleHeaderAdder,
-  evdNativeUnpackedWriter
-  ;
-
-// start class TnevPersistentDocumentContainer
+ l3ImplUses
+ , k2Tags
+ , evCustomTxtReader
+ , evTypes
+ , evdNativeReader
+ , k2CustomFileGenerator
+ , evTextFormatter
+ , evdPlainTextWriter
+ , nevInterfaces
+ , l3Chars
+ , SysUtils
+ , l3Base
+ , evdNativeWriter
+ , Document_Const
+ , evMergedCellFilter
+ , ShellAPI
+ , evCustomWikiReader
+ , evdTextStyle_Const
+ , evStyleHeaderAdder
+ , evdNativeUnpackedWriter
+;
 
 function TnevPersistentDocumentContainer.UseWikiMarkup: Boolean;
 //#UC START# *4D6BAFE8013D_47F351160396_var*
@@ -111,9 +94,9 @@ begin
 end;//TnevPersistentDocumentContainer.UseWikiMarkup
 
 procedure TnevPersistentDocumentContainer.DoGetWriter(aFormat: TnevFormat;
-  anInternal: Boolean;
-  var theWriter: Tk2TagGenerator;
-  aCodePage: Integer);
+ anInternal: Boolean;
+ var theWriter: Tk2TagGenerator;
+ aCodePage: Integer);
 //#UC START# *483E6C150277_47F351160396_var*
 //#UC END# *483E6C150277_47F351160396_var*
 begin
@@ -132,12 +115,12 @@ begin
 end;//TnevPersistentDocumentContainer.DoGetWriter
 
 procedure TnevPersistentDocumentContainer.GetWriter(aFormat: TnevFormat;
-  anInternal: Boolean;
-  out theWriter: Tk2TagGenerator;
-  out theCharCountMul: Integer;
-  out theFormatName: Il3CString;
-  const aFilters: InevTagGenerator;
-  aCodePage: Integer);
+ anInternal: Boolean;
+ out theWriter: Tk2TagGenerator;
+ out theCharCountMul: Integer;
+ out theFormatName: Il3CString;
+ const aFilters: InevTagGenerator;
+ aCodePage: Integer);
 //#UC START# *47F0BE5A00C9_47F351160396_var*
 var
  l_PTG : Tk2CustomFileGenerator;
@@ -301,11 +284,11 @@ begin
 end;//TnevPersistentDocumentContainer.GetWriter
 
 procedure TnevPersistentDocumentContainer.DoGetReader(aFormat: TnevFormat;
-  const aPool: IStream;
-  out theReader: Tk2CustomReader;
-  anInternal: Boolean;
-  aCodePage: Integer;
-  const aBlock: IUnknown);
+ const aPool: IStream;
+ out theReader: Tk2CustomReader;
+ anInternal: Boolean;
+ aCodePage: Integer;
+ const aBlock: IUnknown);
 //#UC START# *47F25391018B_47F351160396_var*
 var
  l_Handle           : THandle;

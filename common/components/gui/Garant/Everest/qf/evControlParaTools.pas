@@ -1,110 +1,102 @@
 unit evControlParaTools;
+ {* Утилиты для работы с параграфами, представляющие контролы ввода. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/qf/evControlParaTools.pas"
-// Начат: 15.11.2004 18:07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::qf::evControlParaTools
-//
-// Утилиты для работы с параграфами, представляющие контролы ввода.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\qf\evControlParaTools.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evControlParaTools" MUID: (47CFFEDE0215)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  nevBase,
-  evdTypes,
-  evQueryCardInt,
-  l3Variant
-  ;
+ l3IntfUses
+ , evQueryCardInt
+ , l3Interfaces
+ , l3Variant
+ , nevBase
+ , evdTypes
+;
 
-function EvGetEditorControl(aPara: Tl3Variant): IevEditorControl;
-   {* Возвращает указатель на контрол для параграфа. }
-function EvGetCustomControl(aPara: Tl3Variant): IevCustomEditorControl;
-   {* Возвращает указатель на контрол для параграфа }
-function EvGetQueryGroup(aPara: Tl3Variant): IevQueryGroup;
-   {* Возвращает указатель на группу для параграфа }
-function EvGetField(aPara: Tl3Variant): IevEditorControlField;
-   {* Возвращает указатель на поле для параграфа }
-procedure EvGetCustomImageList(const aPara: TnevControlInfo;
-  out theImageInfo: TnevControlImageInfo;
-  AType: TevControlType);
-   {* Возвращает AImgIndex и ImageList, для контрола, если такие существуют }
-function EvChecked2State(aPara: Tl3Variant): Tl3ButtonState;
-   {* Возвращает состояние кнопки, в зависимости от тега }
-function EvMakeDateMaskText: Il3CString;
-   {* Возвращает шаблон для поля даты }
-function EvGetFullPathStr(const aTree: InevSimpleTree;
-  const aNode: InevSimpleNode): Il3CString;
-function EvIsFieldSet(const aField: IevEditorControlField;
-  IgnoreDefaultValue: Boolean): Boolean;
-function EvIsSomeFieldFilled(const aReq: IevReq;
-  IgnoreDefaultValue: Boolean): Boolean;
+function evGetEditorControl(aPara: Tl3Variant): IevEditorControl;
+ {* Возвращает указатель на контрол для параграфа. }
+function evGetCustomControl(aPara: Tl3Variant): IevCustomEditorControl;
+ {* Возвращает указатель на контрол для параграфа }
+function evGetQueryGroup(aPara: Tl3Variant): IevQueryGroup;
+ {* Возвращает указатель на группу для параграфа }
+function evGetField(aPara: Tl3Variant): IevEditorControlField;
+ {* Возвращает указатель на поле для параграфа }
+procedure evGetCustomImageList(const aPara: TnevControlInfo;
+ out theImageInfo: TnevControlImageInfo;
+ AType: TevControlType);
+ {* Возвращает AImgIndex и ImageList, для контрола, если такие существуют }
+function evChecked2State(aPara: Tl3Variant): Tl3ButtonState;
+ {* Возвращает состояние кнопки, в зависимости от тега }
+function evMakeDateMaskText: Il3CString;
+ {* Возвращает шаблон для поля даты }
+function evGetFullPathStr(const aTree: InevSimpleTree;
+ const aNode: InevSimpleNode): Il3CString;
+function evIsFieldSet(const aField: IevEditorControlField;
+ IgnoreDefaultValue: Boolean): Boolean;
+function evIsSomeFieldFilled(const aReq: IevReq;
+ IgnoreDefaultValue: Boolean): Boolean;
 
 implementation
 
 uses
-  k2Tags,
-  l3Base,
-  l3String,
-  SysUtils,
-  l3Date,
-  l3TreeInterfaces
-  ;
+ l3ImplUses
+ , k2Tags
+ , l3Base
+ , l3String
+ , SysUtils
+ , l3Date
+ , l3TreeInterfaces
+;
 
-// unit methods
-
-function EvGetEditorControl(aPara: Tl3Variant): IevEditorControl;
+function evGetEditorControl(aPara: Tl3Variant): IevEditorControl;
+ {* Возвращает указатель на контрол для параграфа. }
 //#UC START# *47CFFF5D028A_47CFFEDE0215_var*
 //#UC END# *47CFFF5D028A_47CFFEDE0215_var*
 begin
 //#UC START# *47CFFF5D028A_47CFFEDE0215_impl*
  aPara.QT(IevEditorControl, Result);
 //#UC END# *47CFFF5D028A_47CFFEDE0215_impl*
-end;//EvGetEditorControl
+end;//evGetEditorControl
 
-function EvGetCustomControl(aPara: Tl3Variant): IevCustomEditorControl;
+function evGetCustomControl(aPara: Tl3Variant): IevCustomEditorControl;
+ {* Возвращает указатель на контрол для параграфа }
 //#UC START# *48DCFE370302_47CFFEDE0215_var*
 //#UC END# *48DCFE370302_47CFFEDE0215_var*
 begin
 //#UC START# *48DCFE370302_47CFFEDE0215_impl*
  aPara.QT(IevCustomEditorControl, Result);
 //#UC END# *48DCFE370302_47CFFEDE0215_impl*
-end;//EvGetCustomControl
+end;//evGetCustomControl
 
-function EvGetQueryGroup(aPara: Tl3Variant): IevQueryGroup;
+function evGetQueryGroup(aPara: Tl3Variant): IevQueryGroup;
+ {* Возвращает указатель на группу для параграфа }
 //#UC START# *48DCFE4D00E0_47CFFEDE0215_var*
 //#UC END# *48DCFE4D00E0_47CFFEDE0215_var*
 begin
 //#UC START# *48DCFE4D00E0_47CFFEDE0215_impl*
  aPara.QT(IevQueryGroup, Result);
 //#UC END# *48DCFE4D00E0_47CFFEDE0215_impl*
-end;//EvGetQueryGroup
+end;//evGetQueryGroup
 
-function EvGetField(aPara: Tl3Variant): IevEditorControlField;
+function evGetField(aPara: Tl3Variant): IevEditorControlField;
+ {* Возвращает указатель на поле для параграфа }
 //#UC START# *48DCFE6000C3_47CFFEDE0215_var*
 //#UC END# *48DCFE6000C3_47CFFEDE0215_var*
 begin
 //#UC START# *48DCFE6000C3_47CFFEDE0215_impl*
  aPara.QT(IevEditorControlField, Result);
 //#UC END# *48DCFE6000C3_47CFFEDE0215_impl*
-end;//EvGetField
+end;//evGetField
 
-procedure EvGetCustomImageList(const aPara: TnevControlInfo;
-  out theImageInfo: TnevControlImageInfo;
-  AType: TevControlType);
+procedure evGetCustomImageList(const aPara: TnevControlInfo;
+ out theImageInfo: TnevControlImageInfo;
+ AType: TevControlType);
+ {* Возвращает AImgIndex и ImageList, для контрола, если такие существуют }
 //#UC START# *48DCFE79022C_47CFFEDE0215_var*
 //#UC END# *48DCFE79022C_47CFFEDE0215_var*
 begin
@@ -129,9 +121,10 @@ begin
   else
    theImageInfo.rFirstIndex := aPara.rControl.AsObject.IntA[k2_tiStateIndex];
 //#UC END# *48DCFE79022C_47CFFEDE0215_impl*
-end;//EvGetCustomImageList
+end;//evGetCustomImageList
 
-function EvChecked2State(aPara: Tl3Variant): Tl3ButtonState;
+function evChecked2State(aPara: Tl3Variant): Tl3ButtonState;
+ {* Возвращает состояние кнопки, в зависимости от тега }
 //#UC START# *48DCFE9C0079_47CFFEDE0215_var*
 //#UC END# *48DCFE9C0079_47CFFEDE0215_var*
 begin
@@ -141,19 +134,20 @@ begin
  else
   Result := l3_bsUp;
 //#UC END# *48DCFE9C0079_47CFFEDE0215_impl*
-end;//EvChecked2State
+end;//evChecked2State
 
-function EvMakeDateMaskText: Il3CString;
+function evMakeDateMaskText: Il3CString;
+ {* Возвращает шаблон для поля даты }
 //#UC START# *48DCFEB301AB_47CFFEDE0215_var*
 //#UC END# *48DCFEB301AB_47CFFEDE0215_var*
 begin
 //#UC START# *48DCFEB301AB_47CFFEDE0215_impl*
  Result := l3CStr('  ' + {$IfDef XE}FormatSettings.{$EndIf}DateSeparator + '  ' + {$IfDef XE}FormatSettings.{$EndIf}DateSeparator + '  ');
 //#UC END# *48DCFEB301AB_47CFFEDE0215_impl*
-end;//EvMakeDateMaskText
+end;//evMakeDateMaskText
 
-function EvGetFullPathStr(const aTree: InevSimpleTree;
-  const aNode: InevSimpleNode): Il3CString;
+function evGetFullPathStr(const aTree: InevSimpleTree;
+ const aNode: InevSimpleNode): Il3CString;
 //#UC START# *48DCFEC302C1_47CFFEDE0215_var*
 
  function GetPath(const aNode: InevSimpleNode): Il3CString;
@@ -182,10 +176,10 @@ begin
  else
   Result := GetPath(aNode);
 //#UC END# *48DCFEC302C1_47CFFEDE0215_impl*
-end;//EvGetFullPathStr
+end;//evGetFullPathStr
 
-function EvIsFieldSet(const aField: IevEditorControlField;
-  IgnoreDefaultValue: Boolean): Boolean;
+function evIsFieldSet(const aField: IevEditorControlField;
+ IgnoreDefaultValue: Boolean): Boolean;
 //#UC START# *48DCFEE70217_47CFFEDE0215_var*
 var
  l_TF  : IevEditorFieldWithTree;
@@ -248,10 +242,10 @@ begin
   end;//aField.Para.IntA[k2_tiType] = ev_ctCalEdit
  end;//aField = nil
 //#UC END# *48DCFEE70217_47CFFEDE0215_impl*
-end;//EvIsFieldSet
+end;//evIsFieldSet
 
-function EvIsSomeFieldFilled(const aReq: IevReq;
-  IgnoreDefaultValue: Boolean): Boolean;
+function evIsSomeFieldFilled(const aReq: IevReq;
+ IgnoreDefaultValue: Boolean): Boolean;
 //#UC START# *48DCFEF8007D_47CFFEDE0215_var*
 var
  l_Index : Integer;
@@ -286,6 +280,6 @@ begin
     end;//try..finally
   end;//for l_Index
 //#UC END# *48DCFEF8007D_47CFFEDE0215_impl*
-end;//EvIsSomeFieldFilled
+end;//evIsSomeFieldFilled
 
 end.

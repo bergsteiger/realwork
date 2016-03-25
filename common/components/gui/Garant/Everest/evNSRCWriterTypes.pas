@@ -1,66 +1,55 @@
 unit evNSRCWriterTypes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evNSRCWriterTypes.pas"
-// Начат: 26.03.2010 14:28
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Generators::evNSRCWriterTypes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evNSRCWriterTypes.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evNSRCWriterTypes" MUID: (4BAC9A2A03A8)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdTypes
-  ;
+ l3IntfUses
+ , evdTypes
+;
 
 type
- TevNSRCParaStyle = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   Letter : AnsiChar;
-   ParaLI : Integer;
-   ParaWC : Integer;
-   ParaFI : Integer;
-   IsDecorPara : Boolean;
-   PrintFontSize : Integer;
-   StyleID : Integer;
- public
-    function EQ(const anOther: TevNSRCParaStyle): Boolean;
-     {* Функция проверки эквивалентности }
-    procedure Clear;
+ TevNSRCParaStyle = object
+  public
+   Letter: AnsiChar;
+   ParaLI: Integer;
+   ParaWC: Integer;
+   ParaFI: Integer;
+   IsDecorPara: Boolean;
+   PrintFontSize: Integer;
+   StyleID: Integer;
+  public
+   function EQ(const anOther: TevNSRCParaStyle): Boolean;
+    {* Функция проверки эквивалентности }
+   procedure Clear;
  end;//TevNSRCParaStyle
 
- TevNSRCParaParas = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   Justification : TevIndentType;
-   Width : Integer;
-   FirstIndent : Integer;
-   LeftIndent : Integer;
-   Style : TevNSRCParaStyle;
- public
-    procedure Clear;
+ TevNSRCParaParas = object
+  public
+   Justification: TevIndentType;
+   Width: Integer;
+   FirstIndent: Integer;
+   LeftIndent: Integer;
+   Style: TevNSRCParaStyle;
+  public
+   procedure Clear;
  end;//TevNSRCParaParas
 
 implementation
 
 uses
-  l3Base,
-  l3Const
-  ;
-
-// start class TevNSRCParaStyle
+ l3ImplUses
+ , l3Base
+ , l3Const
+;
 
 function TevNSRCParaStyle.EQ(const anOther: TevNSRCParaStyle): Boolean;
+ {* Функция проверки эквивалентности }
 //#UC START# *4BACA14E0110_4BAC9A7301E3_var*
 //#UC END# *4BACA14E0110_4BAC9A7301E3_var*
 begin
@@ -84,7 +73,6 @@ begin
  l3FillChar(Self, SizeOf(Self));
 //#UC END# *4BACA4BF01A5_4BAC9A7301E3_impl*
 end;//TevNSRCParaStyle.Clear
-// start class TevNSRCParaParas
 
 procedure TevNSRCParaParas.Clear;
 //#UC START# *4BACA4D403D4_4BAC9ADB0162_var*

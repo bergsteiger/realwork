@@ -1,55 +1,43 @@
 unit nevFormatInfoUtils;
+ {* Модуль, появившийся в результате оптимизации - см. [Requestlink:377753634] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/nevFormatInfoUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Rendering::nevFormatInfoUtils
-//
-// Модуль, появившийся в результате оптимизации - см. {Requestlink:377753634}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevFormatInfoUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nevFormatInfoUtils" MUID: (50052D550208)
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  nevTools
-  ;
+ l3IntfUses
+ , nevTools
+ , nevBase
+;
 
-function EvGetContinueCell(const aTableFI: TnevFormatInfoPrim;
-  const anCellObj: InevPara;
-  anUp: Boolean): InevPara;
-function EvGetHeadCell(const aTableFI: TnevFormatInfoPrim;
-  const anCellObj: InevPara;
-  aUseCellFI: Boolean): InevPara;
-function EvHasContinueCell(const aCellInfo: TnevFormatInfoPrim;
-  const anCellObj: InevPara;
-  anUp: Boolean;
-  out aCell: InevPara): Boolean;
-function EvNeedIncludeHeight(const aPara: InevPara;
-  aFI: TnevFormatInfoPrim): Boolean;
+function evGetContinueCell(const aTableFI: TnevFormatInfoPrim;
+ const anCellObj: InevPara;
+ anUp: Boolean): InevPara;
+function evGetHeadCell(const aTableFI: TnevFormatInfoPrim;
+ const anCellObj: InevPara;
+ aUseCellFI: Boolean): InevPara;
+function evHasContinueCell(const aCellInfo: TnevFormatInfoPrim;
+ const anCellObj: InevPara;
+ anUp: Boolean;
+ out aCell: InevPara): Boolean;
+function evNeedIncludeHeight(const aPara: InevPara;
+ aFI: TnevFormatInfoPrim): Boolean;
 
 implementation
 
 uses
-  nevTableCellFormatInfo
-  ;
+ l3ImplUses
+ , nevTableCellFormatInfo
+;
 
-// unit methods
-
-function EvGetContinueCell(const aTableFI: TnevFormatInfoPrim;
-  const anCellObj: InevPara;
-  anUp: Boolean): InevPara;
+function evGetContinueCell(const aTableFI: TnevFormatInfoPrim;
+ const anCellObj: InevPara;
+ anUp: Boolean): InevPara;
 //#UC START# *5005218F0347_50052D550208_var*
 var
  l_FI   : TnevFormatInfoPrim;
@@ -68,11 +56,11 @@ begin
  if (l_Cell <> nil) and l_Cell.AsObject.IsValid then
   Result := l_Cell;
 //#UC END# *5005218F0347_50052D550208_impl*
-end;//EvGetContinueCell
+end;//evGetContinueCell
 
-function EvGetHeadCell(const aTableFI: TnevFormatInfoPrim;
-  const anCellObj: InevPara;
-  aUseCellFI: Boolean): InevPara;
+function evGetHeadCell(const aTableFI: TnevFormatInfoPrim;
+ const anCellObj: InevPara;
+ aUseCellFI: Boolean): InevPara;
 //#UC START# *5005221A0152_50052D550208_var*
 var
  l_FI   : TnevFormatInfoPrim;
@@ -93,12 +81,12 @@ begin
  if (l_Cell <> nil) and l_Cell.AsObject.IsValid then
   Result := l_Cell;
 //#UC END# *5005221A0152_50052D550208_impl*
-end;//EvGetHeadCell
+end;//evGetHeadCell
 
-function EvHasContinueCell(const aCellInfo: TnevFormatInfoPrim;
-  const anCellObj: InevPara;
-  anUp: Boolean;
-  out aCell: InevPara): Boolean;
+function evHasContinueCell(const aCellInfo: TnevFormatInfoPrim;
+ const anCellObj: InevPara;
+ anUp: Boolean;
+ out aCell: InevPara): Boolean;
 //#UC START# *5005794B03CD_50052D550208_var*
 var
  l_Cell : InevPara;
@@ -115,10 +103,10 @@ begin
  if Result then
   aCell := l_Cell;
 //#UC END# *5005794B03CD_50052D550208_impl*
-end;//EvHasContinueCell
+end;//evHasContinueCell
 
-function EvNeedIncludeHeight(const aPara: InevPara;
-  aFI: TnevFormatInfoPrim): Boolean;
+function evNeedIncludeHeight(const aPara: InevPara;
+ aFI: TnevFormatInfoPrim): Boolean;
 //#UC START# *5006A0AE03C2_50052D550208_var*
 var
  l_MS : TOverlapType;
@@ -129,6 +117,6 @@ begin
  l_MS := aPara.OverlapType;
  // Result := (l_MS = otNone) or ((l_MS = otUpper) and not EvHasContinueCell(aFI, aPara, False));
 //#UC END# *5006A0AE03C2_50052D550208_impl*
-end;//EvNeedIncludeHeight
+end;//evNeedIncludeHeight
 
 end.

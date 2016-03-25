@@ -1,48 +1,37 @@
 unit evDocumentMarkers;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evDocumentMarkers.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::ParaList Cursors::evDocumentMarkers
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentMarkers.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evDocumentMarkers" MUID: (4A4C8FC00259)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evMarker,
-  nevBase
-  ;
+ l3IntfUses
+ , evMarker
+ , nevBase
+;
 
 type
  TevDocumentRightMarginMarker = class(TevMarker)
- protected
- // overridden protected methods
+  protected
    function DoGetValue: Integer; override;
    procedure DoSetValue(aValue: Integer;
-     const Context: InevOp); override;
+    const Context: InevOp); override;
  end;//TevDocumentRightMarginMarker
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  k2Tags,
-  evConst
-  ;
-
-// start class TevDocumentRightMarginMarker
+ l3ImplUses
+ , k2Tags
+ , evConst
+;
 
 function TevDocumentRightMarginMarker.DoGetValue: Integer;
 //#UC START# *4ECF8E2C007D_4A4C8FD901F5_var*
@@ -56,7 +45,7 @@ begin
 end;//TevDocumentRightMarginMarker.DoGetValue
 
 procedure TevDocumentRightMarginMarker.DoSetValue(aValue: Integer;
-  const Context: InevOp);
+ const Context: InevOp);
 //#UC START# *4ED31DEA0077_4A4C8FD901F5_var*
 var
  l_OldValue : Integer;
@@ -72,6 +61,6 @@ begin
  end;{l_OldValue <> Value}
 //#UC END# *4ED31DEA0077_4A4C8FD901F5_impl*
 end;//TevDocumentRightMarginMarker.DoSetValue
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

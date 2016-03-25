@@ -1,82 +1,67 @@
 unit evSavedCursor;
+ {* Объект для сохранения курсора. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evSavedCursor.pas"
-// Начат: 21.03.2008 19:09
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Cursors::evSavedCursor
-//
-// Объект для сохранения курсора.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evSavedCursor.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evSavedCursor" MUID: (47E3E20C02D1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  nevTools,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , nevTools
+;
 
 type
+ PevSavedCursor = ^TevSavedCursor;
+
  TevSavedCursor = class(Tl3ProtoObject)
   {* Объект для сохранения курсора. }
- private
- // private fields
-   f_Cursor : InevBasePoint;
-    {* Поле для свойства Cursor}
-   f_Old : IevSavedCursor;
-    {* Поле для свойства Old}
-   f_New : IevSavedCursor;
-    {* Поле для свойства New}
- protected
- // overridden protected methods
+  private
+   f_Cursor: InevBasePoint;
+    {* Поле для свойства Cursor }
+   f_Old: IevSavedCursor;
+    {* Поле для свойства Old }
+   f_New: IevSavedCursor;
+    {* Поле для свойства New }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aCursor: InevBasePoint;
     const aOld: IevSavedCursor;
     const aNew: IevSavedCursor); reintroduce;
- public
- // public properties
+  public
    property Cursor: InevBasePoint
-     read f_Cursor
-     write f_Cursor;
-     {* курсор, который изменялся. }
+    read f_Cursor
+    write f_Cursor;
+    {* курсор, который изменялся. }
    property Old: IevSavedCursor
-     read f_Old
-     write f_Old;
-     {* старое значение курсора. }
+    read f_Old
+    write f_Old;
+    {* старое значение курсора. }
    property New: IevSavedCursor
-     read f_New
-     write f_New;
-     {* новое значение курсора. }
+    read f_New
+    write f_New;
+    {* новое значение курсора. }
  end;//TevSavedCursor
-
- PevSavedCursor = ^TevSavedCursor;
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
-// start class TevSavedCursor
+{$If Defined(evUseVisibleCursors)}
+uses
+ l3ImplUses
+;
 
 constructor TevSavedCursor.Create(const aCursor: InevBasePoint;
-  const aOld: IevSavedCursor;
-  const aNew: IevSavedCursor);
+ const aOld: IevSavedCursor;
+ const aNew: IevSavedCursor);
 //#UC START# *47E3E1DE01E5_47E3DFD00379_var*
 //#UC END# *47E3E1DE01E5_47E3DFD00379_var*
 begin
@@ -89,6 +74,7 @@ begin
 end;//TevSavedCursor.Create
 
 procedure TevSavedCursor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47E3DFD00379_var*
 //#UC END# *479731C50290_47E3DFD00379_var*
 begin
@@ -101,19 +87,12 @@ begin
 end;//TevSavedCursor.Cleanup
 
 procedure TevSavedCursor.ClearFields;
- {-}
 begin
- {$If defined(evUseVisibleCursors)}
  Cursor := nil;
- {$IfEnd} //evUseVisibleCursors
- {$If defined(evUseVisibleCursors)}
  Old := nil;
- {$IfEnd} //evUseVisibleCursors
- {$If defined(evUseVisibleCursors)}
  New := nil;
- {$IfEnd} //evUseVisibleCursors
  inherited;
 end;//TevSavedCursor.ClearFields
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

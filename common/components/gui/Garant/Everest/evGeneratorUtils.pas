@@ -1,44 +1,34 @@
 unit evGeneratorUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evGeneratorUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Generators::evGeneratorUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evGeneratorUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evGeneratorUtils" MUID: (5549F1AA032E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdStyles,
-  k2TagGen
-  ;
+ l3IntfUses
+ , k2TagGen
+ , evdStyles
+;
 
-procedure EvSetFilters4PDF(var aGenerator: Tk2TagGenerator;
-  aHiddenStyles: TevStandardStyles);
+procedure evSetFilters4PDF(var aGenerator: Tk2TagGenerator;
+ aHiddenStyles: TevStandardStyles);
 
 implementation
 
 uses
-  evHiddenFilter,
-  evdPageParamsFilter,
-  evUserCommentFilter,
-  evStyleHeaderAdder
-  ;
+ l3ImplUses
+ , evHiddenFilter
+ , evdPageParamsFilter
+ , evUserCommentFilter
+ , evStyleHeaderAdder
+;
 
-// unit methods
-
-procedure EvSetFilters4PDF(var aGenerator: Tk2TagGenerator;
-  aHiddenStyles: TevStandardStyles);
+procedure evSetFilters4PDF(var aGenerator: Tk2TagGenerator;
+ aHiddenStyles: TevStandardStyles);
 //#UC START# *5549F1C50037_5549F1AA032E_var*
 //#UC END# *5549F1C50037_5549F1AA032E_var*
 begin
@@ -50,6 +40,6 @@ begin
  TevUserCommentFilter.SetTo(aGenerator);
  TevHiddenFilter.SetTo(aHiddenStyles, true, aGenerator);
 //#UC END# *5549F1C50037_5549F1AA032E_impl*
-end;//EvSetFilters4PDF
+end;//evSetFilters4PDF
 
 end.

@@ -1,46 +1,38 @@
 unit evCustomPrintDataSaver;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/evCustomPrintDataSaver.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Printing::evCustomPrintDataSaver
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evCustomPrintDataSaver.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evCustomPrintDataSaver" MUID: (4F72F4E202FB)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(InsiderTest)}
+{$If Defined(InsiderTest)}
 uses
-  afwInterfaces,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , afwInterfaces
+;
 
 type
  TevCustomPrintDataSaver = class(Tl3ProtoObject)
- public
- // public methods
+  public
    function GetPanel: IafwPreviewPanel; virtual; abstract;
    procedure CheckResult; virtual; abstract;
    function IsWaitingPrint: Boolean; virtual; abstract;
    class procedure SetPrintDataSaver(const aSaver: TevCustomPrintDataSaver);
  end;//TevCustomPrintDataSaver
 
-var g_PrintDataSaver : TevCustomPrintDataSaver;
-{$IfEnd} //InsiderTest
+var g_PrintDataSaver: TevCustomPrintDataSaver;
+{$IfEnd} // Defined(InsiderTest)
 
 implementation
 
-{$If defined(InsiderTest)}
-// start class TevCustomPrintDataSaver
+{$If Defined(InsiderTest)}
+uses
+ l3ImplUses
+;
 
 class procedure TevCustomPrintDataSaver.SetPrintDataSaver(const aSaver: TevCustomPrintDataSaver);
 //#UC START# *4F7972A6004D_4F72F0A30036_var*
@@ -50,6 +42,6 @@ begin
   g_PrintDataSaver := aSaver;
 //#UC END# *4F7972A6004D_4F72F0A30036_impl*
 end;//TevCustomPrintDataSaver.SetPrintDataSaver
-{$IfEnd} //InsiderTest
+{$IfEnd} // Defined(InsiderTest)
 
 end.

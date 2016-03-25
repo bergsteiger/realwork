@@ -1,61 +1,47 @@
 unit nsListEvents;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/List/nsListEvents.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Работа с документом и списком документов::WorkWithList::View::List::nsListEvents
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\nsListEvents.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsListEvents" MUID: (52A821F90360)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  nsLogEvent,
-  DocumentInterfaces
-  ;
+ l3IntfUses
+ , nsLogEvent
+ , DocumentUnit
+ , DocumentInterfaces
+;
 
 type
  TnsOpenDocumentFromListEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log(const aDoc: IDocument;
-     aNumber: Integer;
-     aRelevance: Integer;
-     aSubBlock: Integer;
-     aPara: Integer); overload; 
-   class procedure Log(const aDocInfo: IdeDocInfo); overload; 
+    aNumber: Integer;
+    aRelevance: Integer;
+    aSubBlock: Integer;
+    aPara: Integer); overload;
+   class procedure Log(const aDocInfo: IdeDocInfo); overload;
  end;//TnsOpenDocumentFromListEvent
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  LoggingUnit,
-  bsTypesNew,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces
-  ;
-
-// start class TnsOpenDocumentFromListEvent
+ l3ImplUses
+ , LoggingUnit
+ , bsTypesNew
+;
 
 class procedure TnsOpenDocumentFromListEvent.Log(const aDoc: IDocument;
-  aNumber: Integer;
-  aRelevance: Integer;
-  aSubBlock: Integer;
-  aPara: Integer);
+ aNumber: Integer;
+ aRelevance: Integer;
+ aSubBlock: Integer;
+ aPara: Integer);
 //#UC START# *52A826610281_4B0A69600050_var*
 var
  l_Data: InsLogEventData;
@@ -93,6 +79,6 @@ begin
  Log(aDocInfo.Doc, 1, 0, l_DocSub, l_Para);
 //#UC END# *52A826A80339_4B0A69600050_impl*
 end;//TnsOpenDocumentFromListEvent.Log
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.
