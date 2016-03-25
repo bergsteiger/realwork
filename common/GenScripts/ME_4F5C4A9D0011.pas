@@ -3,6 +3,7 @@ unit NOT_FINISHED_evOldEverestTypes;
 
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\NOT_FINISHED_evOldEverestTypes.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "evOldEverestTypes" MUID: (4F5C4A9D0011)
 
 {$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 

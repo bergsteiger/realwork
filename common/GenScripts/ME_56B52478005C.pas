@@ -2,8 +2,9 @@ unit l3OldInterfaceIDs;
 
 // Модуль: "w:\common\components\rtl\Garant\L3\l3OldInterfaceIDs.pas"
 // Стереотип: "Interfaces"
+// Элемент модели: "l3OldInterfaceIDs" MUID: (56B52478005C)
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
