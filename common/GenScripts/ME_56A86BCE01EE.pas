@@ -32,7 +32,9 @@ type
    f_DataConverter: IcaDataConverter;
    f_UserManager: IdaUserManager;
    f_Factory: IdaTableQueryFactory;
-   f_ForCHeckLogin: Boolean;
+   f_AlienSessionID: TdaSessionID;
+  private
+   procedure SetAlienJournalData(aSessionID: TdaSessionID);
   protected
    function Get_UserID: TdaUserID;
    function Get_RegionID: TdaRegionID;
@@ -72,6 +74,7 @@ type
    procedure BeginImpersonate(anUserID: TdaUserID);
    procedure EndImpersonate;
    function Get_UserManager: IdaUserManager;
+   function HasJournal: Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -117,8 +120,8 @@ begin
  aParams.SetRefTo(f_Params);
  f_HTProvider := aHTProvider;
  f_PGProvider := aPGProvider;
- f_ForCheckLogin := ForCheckLogin;
  f_DataConverter := TcaDataConverter.Make(f_HTProvider.DataConverter as IhtDataConverter, f_PGProvider.DataConverter as IpgDataConverter);
+ f_AlienSessionID := BlankSession;
 //#UC END# *56BB1FC50359_56A86BCE01EE_impl*
 end;//TcaDataProvider.Create
 
@@ -137,6 +140,17 @@ begin
   l_Inst.Free;
  end;//try..finally
 end;//TcaDataProvider.Make
+
+procedure TcaDataProvider.SetAlienJournalData(aSessionID: TdaSessionID);
+//#UC START# *56F0E44D0379_56A86BCE01EE_var*
+//#UC END# *56F0E44D0379_56A86BCE01EE_var*
+begin
+//#UC START# *56F0E44D0379_56A86BCE01EE_impl*
+ f_AlienSessionID := aSessionID;
+ if Assigned(f_Journal) then
+  (f_Journal as IdaComboAccessJournalHelper).SetAlienData(Get_UserID, f_AlienSessionID);
+//#UC END# *56F0E44D0379_56A86BCE01EE_impl*
+end;//TcaDataProvider.SetAlienJournalData
 
 function TcaDataProvider.Get_UserID: TdaUserID;
 //#UC START# *551A929E02D5_56A86BCE01EEget_var*
@@ -479,9 +493,11 @@ begin
   f_NeedClearGlobalDataProvider := True;
  end;
  f_HTProvider.Start;
- if not f_ForCheckLogin then // или DataProvider.HasJournal или DataProvider.SessionID
+ if f_HTProvider.HasJournal then
+ begin
   (f_PGProvider as IdaComboAccessDataProviderHelper).SetAlienJournalData(f_HTProvider.Journal.CurSessionID);
-//!! !!! need to be implemented // Поставить сразу и себе (caJournal) SessionID нужный.  
+  SetAlienJournalData(f_HTProvider.Journal.CurSessionID);
+ end;
  f_PGProvider.Start;
  f_IsStarted := True;
 //#UC END# *5526537A00CE_56A86BCE01EE_impl*
@@ -496,9 +512,10 @@ begin
   Exit;
  if f_NeedClearGlobalDataProvider then
   SetGlobalDataProvider(nil);
+ f_Journal := nil;
+ f_UserManager := nil;
  f_HTProvider.Stop;
  f_PGProvider.Stop;
- f_Journal := nil;
  f_IsStarted := False;
 //#UC END# *5526538202A5_56A86BCE01EE_impl*
 end;//TcaDataProvider.Stop
@@ -511,7 +528,10 @@ begin
  if f_Journal = nil then
  begin
   f_Journal := TcaJournal.Make(Get_TableQueryFactory, f_HTProvider.Journal, f_PGProvider.Journal);
-  f_Journal.UserID := Get_UserID;
+  if f_AlienSessionID <> BlankSession then
+   (f_Journal as IdaComboAccessJournalHelper).SetAlienData(Get_UserID, f_AlienSessionID)
+  else
+   f_Journal.UserID := Get_UserID;
  end;
  Result := f_Journal;
 //#UC END# *55409258013F_56A86BCE01EEget_impl*
@@ -582,6 +602,15 @@ begin
  Result := f_UserManager;
 //#UC END# *5628D25600E6_56A86BCE01EEget_impl*
 end;//TcaDataProvider.Get_UserManager
+
+function TcaDataProvider.HasJournal: Boolean;
+//#UC START# *56F0F6180156_56A86BCE01EE_var*
+//#UC END# *56F0F6180156_56A86BCE01EE_var*
+begin
+//#UC START# *56F0F6180156_56A86BCE01EE_impl*
+ Result := Assigned(f_Journal);
+//#UC END# *56F0F6180156_56A86BCE01EE_impl*
+end;//TcaDataProvider.HasJournal
 
 procedure TcaDataProvider.Cleanup;
  {* Функция очистки полей объекта. }

@@ -40,6 +40,8 @@ type
     UserGr: Boolean): IdaResultSet; override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function NeedLogSessionBegin: Boolean; override;
+   function NeedLogSessionEnd: Boolean; override;
   public
    constructor Create(const aFactory: IdaTableQueryFactory;
     const aHTJournal: IdaJournal;
@@ -190,6 +192,26 @@ begin
  inherited;
 //#UC END# *479731C50290_56BD8F200154_impl*
 end;//TcaJournal.Cleanup
+
+function TcaJournal.NeedLogSessionBegin: Boolean;
+//#UC START# *56F2622600C7_56BD8F200154_var*
+//#UC END# *56F2622600C7_56BD8F200154_var*
+begin
+//#UC START# *56F2622600C7_56BD8F200154_impl*
+ Result := not f_HTJournal.IsSessionActive;
+ Assert(f_HTJournal.IsSessionActive = f_PGJournal.IsSessionActive)
+//#UC END# *56F2622600C7_56BD8F200154_impl*
+end;//TcaJournal.NeedLogSessionBegin
+
+function TcaJournal.NeedLogSessionEnd: Boolean;
+//#UC START# *56F271D602AB_56BD8F200154_var*
+//#UC END# *56F271D602AB_56BD8F200154_var*
+begin
+//#UC START# *56F271D602AB_56BD8F200154_impl*
+ Result := f_HTJournal.IsSessionActive;
+ Assert(f_HTJournal.IsSessionActive = f_PGJournal.IsSessionActive)
+//#UC END# *56F271D602AB_56BD8F200154_impl*
+end;//TcaJournal.NeedLogSessionEnd
 {$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 end.

@@ -115,6 +115,7 @@ type
     const aKey: AnsiString;
     anID: TdaDocID): Boolean;
    procedure SetAlienJournalData(aSessionID: TdaSessionID);
+   function HasJournal: Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -888,6 +889,15 @@ begin
   (f_Journal as IdaComboAccessJournalHelper).SetAlienData(Get_UserID, f_AlienSessionID);
 //#UC END# *56EBDD7002F8_55D6DA9E00BF_impl*
 end;//TpgDataProvider.SetAlienJournalData
+
+function TpgDataProvider.HasJournal: Boolean;
+//#UC START# *56F0F6180156_55D6DA9E00BF_var*
+//#UC END# *56F0F6180156_55D6DA9E00BF_var*
+begin
+//#UC START# *56F0F6180156_55D6DA9E00BF_impl*
+ Result := Assigned(f_Journal);
+//#UC END# *56F0F6180156_55D6DA9E00BF_impl*
+end;//TpgDataProvider.HasJournal
 
 procedure TpgDataProvider.Cleanup;
  {* Функция очистки полей объекта. }
