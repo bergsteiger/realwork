@@ -23,6 +23,7 @@ type
  TK517772970_TalcuHavanskyExportTask = class(TK517772970_TalcuExport)
   {* [RequestLink:517772970] }
   protected
+   function TaskClass: TddTaskClass; override;
    {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
@@ -31,7 +32,6 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-   function TaskClass: TddTaskClass; override;
  end;//TK517772970_TalcuHavanskyExportTask
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
@@ -48,6 +48,15 @@ uses
  {$IfEnd} // Defined(nsTest)
 ;
 
+function TK517772970_TalcuHavanskyExportTask.TaskClass: TddTaskClass;
+//#UC START# *5320088202FB_5321847300AB_var*
+//#UC END# *5320088202FB_5321847300AB_var*
+begin
+//#UC START# *5320088202FB_5321847300AB_impl*
+ result := TalcuHavanskyExportTask;
+//#UC END# *5320088202FB_5321847300AB_impl*
+end;//TK517772970_TalcuHavanskyExportTask.TaskClass
+
 {$If Defined(nsTest)}
 function TK517772970_TalcuHavanskyExportTask.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -63,15 +72,6 @@ begin
  Result := '5321847300AB';
 end;//TK517772970_TalcuHavanskyExportTask.GetModelElementGUID
 {$IfEnd} // Defined(nsTest)
-
-function TK517772970_TalcuHavanskyExportTask.TaskClass: TddTaskClass;
-//#UC START# *5320088202FB_5321847300AB_var*
-//#UC END# *5320088202FB_5321847300AB_var*
-begin
-//#UC START# *5320088202FB_5321847300AB_impl*
- result := TalcuHavanskyExportTask;
-//#UC END# *5320088202FB_5321847300AB_impl*
-end;//TK517772970_TalcuHavanskyExportTask.TaskClass
 
 initialization
  TestFramework.RegisterTest(TK517772970_TalcuHavanskyExportTask.Suite);

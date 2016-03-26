@@ -1,33 +1,23 @@
 unit nsIntegrationModelPart;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Integration"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Integration/Implementation/nsIntegrationModelPart.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Оболочка Без Прецедентов::F1 Without Usecases::Integration::Implementation::nsIntegrationModelPart
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Integration\Implementation\nsIntegrationModelPart.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsIntegrationModelPart" MUID: (51371A9402FA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Types,
-  SysUtils,
-  Classes,
-  Windows
-  ;
+ l3IntfUses
+ , Windows
+ , Types
+ , Classes
+ , SysUtils
+;
 
 const
-  { Integration Constants }
  CDefaultIniValue = 'ApplicationAdapterOptions';
  CDefaultIniParamName = '-GCMConfigFile';
  CLauncher = 'garant.exe';
@@ -42,63 +32,61 @@ const
  CMainTabbedWindowClass = 'TvcmTabbedContainerForm';
 
 type
- TLongArrayRange = 0..2147483646;
+ PLongArray = ^TLongArray;
+
+ TLongArrayRange = 0 .. 2147483646;
 
  TLongArray = array [TLongArrayRange] of Byte;
 
  ELauncherError = class(Exception)
  end;//ELauncherError
 
- TRunWaitFunc = procedure  of object;
+ TRunWaitFunc = procedure of object;
 
- PLongArray = ^TLongArray;
-
-var g_QueueLock : TRTLCriticalSection;
-
-var g_Message : THandle;
-
-var g_LastMainWindowMessage : THandle;
 function GarantShowLink(aRef: PAnsiChar;
-  aOpenInNewWindow: Boolean;
-  aTimeOut: DWORD): Integer; stdcall;
+ aOpenInNewWindow: Boolean;
+ aTimeOut: DWORD): Integer; stdcall;
 function AquireGarant(var aWnd: HWND;
-  aTimeOut: DWORD;
-  out aJustLaunched: Boolean;
-  const aLauncherPath: AnsiString = ''): Integer;
+ aTimeOut: DWORD;
+ out aJustLaunched: Boolean;
+ const aLauncherPath: AnsiString = ''): Integer;
 function BuildLink(aRef: PAnsiChar;
-  aOpenInNewWindow: Boolean;
-  out aSize: Integer): Pointer;
+ aOpenInNewWindow: Boolean;
+ out aSize: Integer): Pointer;
 function TrySend(aWnd: HWND;
-  aData: Pointer;
-  aDataSize: Integer): Integer;
+ aData: Pointer;
+ aDataSize: Integer): Integer;
 function AquireLauncher: AnsiString;
 function RunProcess(const aApplication: AnsiString;
-  const aCommandLine: AnsiString;
-  const aCurrentDirectory: AnsiString;
-  aWaitForExit: Boolean = True;
-  aWaitFunc: TRunWaitFunc = nil): DWORD;
+ const aCommandLine: AnsiString;
+ const aCurrentDirectory: AnsiString;
+ aWaitForExit: Boolean = True;
+ aWaitFunc: TRunWaitFunc = nil): DWORD;
 procedure FillFixCommaText(aList: TStrings;
-  const aValue: AnsiString;
-  aSeparator: AnsiChar);
+ const aValue: AnsiString;
+ aSeparator: AnsiChar);
 function QuoteStringIfNeed(const aString: AnsiString): AnsiString;
-{$IfEnd} //not Admin AND not Monitorings
+
+var g_QueueLock: TRTLCriticalSection;
+var g_Message: THandle;
+var g_LastMainWindowMessage: THandle;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsIntegrationSupport,
-  l3Base,
-  Messages,
-  Registry,
-  LocaleMessages
-  ;
-
-// unit methods
+ l3ImplUses
+ , nsIntegrationSupport
+ , l3Base
+ , Messages
+ , Registry
+ , LocaleMessages
+;
 
 function GarantShowLink(aRef: PAnsiChar;
-  aOpenInNewWindow: Boolean;
-  aTimeOut: DWORD): Integer;
+ aOpenInNewWindow: Boolean;
+ aTimeOut: DWORD): Integer;
 //#UC START# *51371BFC01BD_51371A9402FA_var*
 var
  l_Wnd: HWND;
@@ -133,9 +121,9 @@ begin
 end;//GarantShowLink
 
 function AquireGarant(var aWnd: HWND;
-  aTimeOut: DWORD;
-  out aJustLaunched: Boolean;
-  const aLauncherPath: AnsiString = ''): Integer;
+ aTimeOut: DWORD;
+ out aJustLaunched: Boolean;
+ const aLauncherPath: AnsiString = ''): Integer;
 //#UC START# *51371F1602E9_51371A9402FA_var*
 var
  l_Tick: DWORD;
@@ -218,8 +206,8 @@ begin
 end;//AquireGarant
 
 function BuildLink(aRef: PAnsiChar;
-  aOpenInNewWindow: Boolean;
-  out aSize: Integer): Pointer;
+ aOpenInNewWindow: Boolean;
+ out aSize: Integer): Pointer;
 //#UC START# *513720A3039A_51371A9402FA_var*
 //#UC END# *513720A3039A_51371A9402FA_var*
 begin
@@ -238,8 +226,8 @@ begin
 end;//BuildLink
 
 function TrySend(aWnd: HWND;
-  aData: Pointer;
-  aDataSize: Integer): Integer;
+ aData: Pointer;
+ aDataSize: Integer): Integer;
 //#UC START# *51373C010355_51371A9402FA_var*
 var
  l_Result: LRESULT;
@@ -306,13 +294,12 @@ begin
  end;
 //#UC END# *5137406E02B6_51371A9402FA_impl*
 end;//AquireLauncher
-// unit methods
 
 function RunProcess(const aApplication: AnsiString;
-  const aCommandLine: AnsiString;
-  const aCurrentDirectory: AnsiString;
-  aWaitForExit: Boolean = True;
-  aWaitFunc: TRunWaitFunc = nil): DWORD;
+ const aCommandLine: AnsiString;
+ const aCurrentDirectory: AnsiString;
+ aWaitForExit: Boolean = True;
+ aWaitFunc: TRunWaitFunc = nil): DWORD;
 //#UC START# *5137451100D9_51371A9402FA_var*
  function GetCreationFlags: DWORD;
  begin
@@ -377,8 +364,8 @@ begin
 end;//RunProcess
 
 procedure FillFixCommaText(aList: TStrings;
-  const aValue: AnsiString;
-  aSeparator: AnsiChar);
+ const aValue: AnsiString;
+ aSeparator: AnsiChar);
 //#UC START# *5137495300DB_51371A9402FA_var*
 var
   P, P1: PAnsiChar;
@@ -439,23 +426,19 @@ begin
   Result := aString;
 //#UC END# *513744E00069_51371A9402FA_impl*
 end;//QuoteStringIfNeed
-{$IfEnd} //not Admin AND not Monitorings
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
 //#UC START# *5137215D0134*
  g_Message := RegisterWindowMessage(c_IntegrationMessageName);
  g_LastMainWindowMessage := RegisterWindowMessage(c_LastMainWindowMessageName);
  //
  InitializeCriticalSection(g_QueueLock);
 //#UC END# *5137215D0134*
-{$IfEnd} //not Admin AND not Monitorings
 
 finalization
-{$If not defined(Admin) AND not defined(Monitorings)}
 //#UC START# *5137217100C6*
  DeleteCriticalSection(g_QueueLock);
 //#UC END# *5137217100C6*
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

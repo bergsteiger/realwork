@@ -59,10 +59,10 @@ uses
  {$If NOT Defined(Nemesis)}
  , csLoopBack
  {$IfEnd} // NOT Defined(Nemesis)
+ , l3Filer
  {$If Defined(nsTest)}
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
- , l3Filer
 ;
 
 {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}

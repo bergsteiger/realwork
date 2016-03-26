@@ -35,14 +35,14 @@ type
     {* Процедура настройки трубы. Метод для перекрытия в потомках. }
    function GetResultHeaderStartingChar: AnsiChar; virtual;
    procedure Cleanup; override;
-   function GetFolder: AnsiString; override;
-    {* Папка в которую входит тест }
-   function GetModelElementGUID: AnsiString; override;
-    {* Идентификатор элемента модели, который описывает тест }
    {$If NOT Defined(NotTunedDUnit)}
    function OutputFolderName: AnsiString; override;
     {* Папка, в которую пишутся выходные файлы. }
    {$IfEnd} // NOT Defined(NotTunedDUnit)
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
   published
    procedure DoExport;
     {* Собственно, экспорт }
@@ -71,7 +71,6 @@ uses
  , dt_LinkServ
  {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
  , SysUtils
- , TestFrameWork
  , ddPipeOutInterfaces
  , l3Base
  {$If NOT Defined(Nemesis)}
@@ -86,6 +85,7 @@ uses
  , l3Filer
  , l3Interfaces
  , l3String
+ , TestFrameWork
 ;
 
 {$Include w:\archi\source\projects\ImportExportTest\DTTypesUser.imp.pas}
@@ -325,18 +325,6 @@ begin
 //#UC END# *4B2F40FD0088_55ED52510115_impl*
 end;//TExportPipeTestPrim.Cleanup
 
-function TExportPipeTestPrim.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := 'ExportPipeTests';
-end;//TExportPipeTestPrim.GetFolder
-
-function TExportPipeTestPrim.GetModelElementGUID: AnsiString;
- {* Идентификатор элемента модели, который описывает тест }
-begin
- Result := '55ED52510115';
-end;//TExportPipeTestPrim.GetModelElementGUID
-
 {$If NOT Defined(NotTunedDUnit)}
 function TExportPipeTestPrim.OutputFolderName: AnsiString;
  {* Папка, в которую пишутся выходные файлы. }
@@ -349,5 +337,17 @@ begin
 end;//TExportPipeTestPrim.OutputFolderName
 {$IfEnd} // NOT Defined(NotTunedDUnit)
 
+function TExportPipeTestPrim.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'ExportPipeTests';
+end;//TExportPipeTestPrim.GetFolder
+
+function TExportPipeTestPrim.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '55ED52510115';
+end;//TExportPipeTestPrim.GetModelElementGUID
 {$IfEnd} // Defined(nsTest)
+
 end.

@@ -23,6 +23,7 @@ type
  TK517772970_TddCommonDataRequest = class(TK517772970_TddRequestTask)
   {* [RequestLink:517772970] }
   protected
+   function TaskClass: TddTaskClass; override;
    {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
@@ -31,7 +32,6 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-   function TaskClass: TddTaskClass; override;
  end;//TK517772970_TddCommonDataRequest
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
@@ -48,6 +48,15 @@ uses
  {$IfEnd} // Defined(nsTest)
 ;
 
+function TK517772970_TddCommonDataRequest.TaskClass: TddTaskClass;
+//#UC START# *5320088202FB_5320228E011B_var*
+//#UC END# *5320088202FB_5320228E011B_var*
+begin
+//#UC START# *5320088202FB_5320228E011B_impl*
+ result := TddCommonDataRequest;
+//#UC END# *5320088202FB_5320228E011B_impl*
+end;//TK517772970_TddCommonDataRequest.TaskClass
+
 {$If Defined(nsTest)}
 function TK517772970_TddCommonDataRequest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -63,15 +72,6 @@ begin
  Result := '5320228E011B';
 end;//TK517772970_TddCommonDataRequest.GetModelElementGUID
 {$IfEnd} // Defined(nsTest)
-
-function TK517772970_TddCommonDataRequest.TaskClass: TddTaskClass;
-//#UC START# *5320088202FB_5320228E011B_var*
-//#UC END# *5320088202FB_5320228E011B_var*
-begin
-//#UC START# *5320088202FB_5320228E011B_impl*
- result := TddCommonDataRequest;
-//#UC END# *5320088202FB_5320228E011B_impl*
-end;//TK517772970_TddCommonDataRequest.TaskClass
 
 initialization
  TestFramework.RegisterTest(TK517772970_TddCommonDataRequest.Suite);

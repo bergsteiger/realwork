@@ -54,7 +54,6 @@ uses
  , KTestRunner
  {$IfEnd} // NOT Defined(NotTunedDUnit)
  , l3IniFile
- , TestFrameWork
  , dt_AttrSchema
  {$If Defined(Archi) AND NOT Defined(Nemesis)}
  , dt_LinkServ
@@ -69,6 +68,7 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_Renum
  {$IfEnd} // NOT Defined(Nemesis)
+ , TestFrameWork
 ;
 
 procedure TietBaseTest.DoIt;

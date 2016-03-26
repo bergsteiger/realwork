@@ -37,9 +37,6 @@ implementation
 {$If Defined(AppServerSide) AND Defined(InsiderTest)}
 uses
  l3ImplUses
- {$If Defined(nsTest)}
- , TestFrameWork
- {$IfEnd} // Defined(nsTest)
  {$If NOT Defined(Nemesis)}
  , CsReplyProcedures
  {$IfEnd} // NOT Defined(Nemesis)
@@ -53,6 +50,9 @@ uses
  , l3Filer
  , SysUtils
  , TypInfo
+ {$If Defined(nsTest)}
+ , TestFrameWork
+ {$IfEnd} // Defined(nsTest)
 ;
 
 {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}

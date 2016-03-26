@@ -23,6 +23,7 @@ type
  TK517772970_TaskRequest = class(TK517772970_TddRequestTask)
   {* [RequestLink:517772970] }
   protected
+   function TaskClass: TddTaskClass; override;
    {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
@@ -31,7 +32,6 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-   function TaskClass: TddTaskClass; override;
  end;//TK517772970_TaskRequest
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
@@ -51,6 +51,15 @@ uses
  {$IfEnd} // Defined(nsTest)
 ;
 
+function TK517772970_TaskRequest.TaskClass: TddTaskClass;
+//#UC START# *5320088202FB_53202A820364_var*
+//#UC END# *5320088202FB_53202A820364_var*
+begin
+//#UC START# *5320088202FB_53202A820364_impl*
+ Result := TaskRequest;
+//#UC END# *5320088202FB_53202A820364_impl*
+end;//TK517772970_TaskRequest.TaskClass
+
 {$If Defined(nsTest)}
 function TK517772970_TaskRequest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -66,15 +75,6 @@ begin
  Result := '53202A820364';
 end;//TK517772970_TaskRequest.GetModelElementGUID
 {$IfEnd} // Defined(nsTest)
-
-function TK517772970_TaskRequest.TaskClass: TddTaskClass;
-//#UC START# *5320088202FB_53202A820364_var*
-//#UC END# *5320088202FB_53202A820364_var*
-begin
-//#UC START# *5320088202FB_53202A820364_impl*
- Result := TaskRequest;
-//#UC END# *5320088202FB_53202A820364_impl*
-end;//TK517772970_TaskRequest.TaskClass
 
 initialization
  TestFramework.RegisterTest(TK517772970_TaskRequest.Suite);

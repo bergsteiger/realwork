@@ -23,6 +23,8 @@ type
  TK517772970_TDictEditQuery = class(TK517772970_TddProcessTask)
   {* [RequestLink:517772970] }
   protected
+   function TaskClass: TddTaskClass; override;
+   procedure InitTask(Task: TddTaskItem); override;
    {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
@@ -31,8 +33,6 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-   function TaskClass: TddTaskClass; override;
-   procedure InitTask(Task: TddTaskItem); override;
  end;//TK517772970_TDictEditQuery
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
@@ -48,22 +48,6 @@ uses
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
 ;
-
-{$If Defined(nsTest)}
-function TK517772970_TDictEditQuery.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := 'TaskSaveLoad';
-end;//TK517772970_TDictEditQuery.GetFolder
-{$IfEnd} // Defined(nsTest)
-
-{$If Defined(nsTest)}
-function TK517772970_TDictEditQuery.GetModelElementGUID: AnsiString;
- {* Идентификатор элемента модели, который описывает тест }
-begin
- Result := '532150C50123';
-end;//TK517772970_TDictEditQuery.GetModelElementGUID
-{$IfEnd} // Defined(nsTest)
 
 function TK517772970_TDictEditQuery.TaskClass: TddTaskClass;
 //#UC START# *5320088202FB_532150C50123_var*
@@ -92,6 +76,22 @@ begin
  end;
 //#UC END# *532008D203BA_532150C50123_impl*
 end;//TK517772970_TDictEditQuery.InitTask
+
+{$If Defined(nsTest)}
+function TK517772970_TDictEditQuery.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'TaskSaveLoad';
+end;//TK517772970_TDictEditQuery.GetFolder
+{$IfEnd} // Defined(nsTest)
+
+{$If Defined(nsTest)}
+function TK517772970_TDictEditQuery.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '532150C50123';
+end;//TK517772970_TDictEditQuery.GetModelElementGUID
+{$IfEnd} // Defined(nsTest)
 
 initialization
  TestFramework.RegisterTest(TK517772970_TDictEditQuery.Suite);

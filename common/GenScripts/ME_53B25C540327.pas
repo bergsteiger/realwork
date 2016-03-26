@@ -23,6 +23,8 @@ type
  TK517772970_TcsSpellCorrectTask = class(TK517772970_TddProcessTask)
   {* [RequestLink:517772970] }
   protected
+   function TaskClass: TddTaskClass; override;
+   procedure InitTask(Task: TddTaskItem); override;
    {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
@@ -31,8 +33,6 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-   function TaskClass: TddTaskClass; override;
-   procedure InitTask(Task: TddTaskItem); override;
  end;//TK517772970_TcsSpellCorrectTask
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
@@ -48,22 +48,6 @@ uses
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
 ;
-
-{$If Defined(nsTest)}
-function TK517772970_TcsSpellCorrectTask.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := 'TaskSaveLoad';
-end;//TK517772970_TcsSpellCorrectTask.GetFolder
-{$IfEnd} // Defined(nsTest)
-
-{$If Defined(nsTest)}
-function TK517772970_TcsSpellCorrectTask.GetModelElementGUID: AnsiString;
- {* Идентификатор элемента модели, который описывает тест }
-begin
- Result := '53B25C540327';
-end;//TK517772970_TcsSpellCorrectTask.GetModelElementGUID
-{$IfEnd} // Defined(nsTest)
 
 function TK517772970_TcsSpellCorrectTask.TaskClass: TddTaskClass;
 //#UC START# *5320088202FB_53B25C540327_var*
@@ -83,6 +67,22 @@ begin
  (Task As TcsSpellCorrectTask).ReplacementFile.Name := Self.FileFromCurrent('A.evd');
 //#UC END# *532008D203BA_53B25C540327_impl*
 end;//TK517772970_TcsSpellCorrectTask.InitTask
+
+{$If Defined(nsTest)}
+function TK517772970_TcsSpellCorrectTask.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'TaskSaveLoad';
+end;//TK517772970_TcsSpellCorrectTask.GetFolder
+{$IfEnd} // Defined(nsTest)
+
+{$If Defined(nsTest)}
+function TK517772970_TcsSpellCorrectTask.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '53B25C540327';
+end;//TK517772970_TcsSpellCorrectTask.GetModelElementGUID
+{$IfEnd} // Defined(nsTest)
 
 initialization
  TestFramework.RegisterTest(TK517772970_TcsSpellCorrectTask.Suite);

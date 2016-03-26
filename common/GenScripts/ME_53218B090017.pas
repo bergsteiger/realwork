@@ -23,6 +23,7 @@ type
  TK517772970_TcsAACImport = class(TK517772970_TcsImportTaskItem)
   {* [RequestLink:517772970] }
   protected
+   function TaskClass: TddTaskClass; override;
    {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
@@ -31,7 +32,6 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-   function TaskClass: TddTaskClass; override;
  end;//TK517772970_TcsAACImport
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
@@ -51,6 +51,15 @@ uses
  {$IfEnd} // Defined(nsTest)
 ;
 
+function TK517772970_TcsAACImport.TaskClass: TddTaskClass;
+//#UC START# *5320088202FB_53218B090017_var*
+//#UC END# *5320088202FB_53218B090017_var*
+begin
+//#UC START# *5320088202FB_53218B090017_impl*
+ Result := TcsAACImport;
+//#UC END# *5320088202FB_53218B090017_impl*
+end;//TK517772970_TcsAACImport.TaskClass
+
 {$If Defined(nsTest)}
 function TK517772970_TcsAACImport.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -66,15 +75,6 @@ begin
  Result := '53218B090017';
 end;//TK517772970_TcsAACImport.GetModelElementGUID
 {$IfEnd} // Defined(nsTest)
-
-function TK517772970_TcsAACImport.TaskClass: TddTaskClass;
-//#UC START# *5320088202FB_53218B090017_var*
-//#UC END# *5320088202FB_53218B090017_var*
-begin
-//#UC START# *5320088202FB_53218B090017_impl*
- Result := TcsAACImport;
-//#UC END# *5320088202FB_53218B090017_impl*
-end;//TK517772970_TcsAACImport.TaskClass
 
 initialization
  TestFramework.RegisterTest(TK517772970_TcsAACImport.Suite);
