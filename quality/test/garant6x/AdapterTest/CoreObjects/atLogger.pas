@@ -1,120 +1,97 @@
 unit atLogger;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/CoreObjects/atLogger.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> garant6x_test::AdapterTest::CoreObjects::atLogger
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\CoreObjects\atLogger.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "atLogger" MUID: (4808B6A20344)
 
 interface
 
 uses
-  SysUtils,
-  atInterfaces,
-  SyncObjs,
-  Windows
-  ;
+ l3IntfUses
+ , atInterfaces
+ , Windows
+ , SyncObjs
+ , SysUtils
+;
 
 type
- TatLogMessageType = (
-   lmtNone
- , lmtInfo
- , lmtWarning
- , lmtError
- , lmtException
- );//TatLogMessageType
-
  PFormatSettings = ^TFormatSettings;
 
+ TatLogMessageType = (
+  lmtNone
+  , lmtInfo
+  , lmtWarning
+  , lmtError
+  , lmtException
+ );//TatLogMessageType
+
  TatLogger = class(TInterfacedObject, IatLogger)
- private
- // private fields
-   f_TlsIndex : DWORD;
-   f_CS : TCriticalSection;
- private
- // private methods
+  private
+   f_TlsIndex: DWORD;
+   f_CS: TCriticalSection;
+  private
    function GetFormatSettings: PFormatSettings; virtual;
- protected
- // realized methods
-   function Info(const msg: AnsiString): AnsiString; overload; 
-   function Warning(const msg: AnsiString): AnsiString; overload; 
-   function Error(const msg: AnsiString): AnsiString; overload; 
-   procedure Exception(ex: Exception;
-    const prefix: AnsiString = '');
-   function Info(const aFormat: AnsiString;
-    const anArgs: array of const): AnsiString; overload; 
-   function Warning(const aFormat: AnsiString;
-    const anArgs: array of const): AnsiString; overload; 
-   function Error(const aFormat: AnsiString;
-    const anArgs: array of const): AnsiString; overload; 
- public
- // overridden public methods
-   destructor Destroy; override;
- protected
- // protected methods
+  protected
    procedure WriteMessage(const formattedMsg: AnsiString); virtual; abstract;
    procedure AddMessage(msgType: TatLogMessageType;
     const msg: AnsiString);
- public
- // public methods
-   constructor Create; reintroduce;
- end;//TatLogger
-
- TatLoggerStub = class(TInterfacedObject, IatLogger)
- protected
- // realized methods
-   function Info(const msg: AnsiString): AnsiString; overload; 
-   function Warning(const msg: AnsiString): AnsiString; overload; 
-   function Error(const msg: AnsiString): AnsiString; overload; 
+   function Info(const msg: AnsiString): AnsiString; overload;
+   function Warning(const msg: AnsiString): AnsiString; overload;
+   function Error(const msg: AnsiString): AnsiString; overload;
    procedure Exception(ex: Exception;
     const prefix: AnsiString = '');
    function Info(const aFormat: AnsiString;
-    const anArgs: array of const): AnsiString; overload; 
+    const anArgs: array of const): AnsiString; overload;
    function Warning(const aFormat: AnsiString;
-    const anArgs: array of const): AnsiString; overload; 
+    const anArgs: array of const): AnsiString; overload;
    function Error(const aFormat: AnsiString;
-    const anArgs: array of const): AnsiString; overload; 
+    const anArgs: array of const): AnsiString; overload;
+  public
+   constructor Create; reintroduce;
+   destructor Destroy; override;
+ end;//TatLogger
+
+ TatLoggerStub = class(TInterfacedObject, IatLogger)
+  protected
+   function Info(const msg: AnsiString): AnsiString; overload;
+   function Warning(const msg: AnsiString): AnsiString; overload;
+   function Error(const msg: AnsiString): AnsiString; overload;
+   procedure Exception(ex: Exception;
+    const prefix: AnsiString = '');
+   function Info(const aFormat: AnsiString;
+    const anArgs: array of const): AnsiString; overload;
+   function Warning(const aFormat: AnsiString;
+    const anArgs: array of const): AnsiString; overload;
+   function Error(const aFormat: AnsiString;
+    const anArgs: array of const): AnsiString; overload;
  end;//TatLoggerStub
 
  TatConsoleLogger = class(TatLogger)
- protected
- // realized methods
+  protected
    procedure WriteMessage(const formattedMsg: AnsiString); override;
  end;//TatConsoleLogger
 
  TatFileLogger = class(TatLogger)
- private
- // private fields
-   f_File : Text;
- protected
- // realized methods
+  private
+   f_File: Text;
+  protected
    procedure WriteMessage(const formattedMsg: AnsiString); override;
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  public
    constructor Create(const fileName: AnsiString); reintroduce;
+   destructor Destroy; override;
  end;//TatFileLogger
 
-var Logger : IatLogger;
-
-var DbgLogger : IatLogger;
+var Logger: IatLogger;
+var DbgLogger: IatLogger;
 
 implementation
 
-// start class TatLogger
+uses
+ l3ImplUses
+;
 
 procedure TatLogger.AddMessage(msgType: TatLogMessageType;
-  const msg: AnsiString);
+ const msg: AnsiString);
 //#UC START# *4808B7CF01A2_4808A17901C6_var*
   type
     TatLogMessageHeaders = array[TatLogMessageType] of string;
@@ -208,7 +185,7 @@ begin
 end;//TatLogger.Error
 
 procedure TatLogger.Exception(ex: Exception;
-  const prefix: AnsiString = '');
+ const prefix: AnsiString = '');
 //#UC START# *4808B46D01DF_4808A17901C6_var*
   var
    l_P : String;
@@ -225,7 +202,7 @@ begin
 end;//TatLogger.Exception
 
 function TatLogger.Info(const aFormat: AnsiString;
-  const anArgs: array of const): AnsiString;
+ const anArgs: array of const): AnsiString;
 //#UC START# *484A74A700FD_4808A17901C6_var*
 //#UC END# *484A74A700FD_4808A17901C6_var*
 begin
@@ -235,7 +212,7 @@ begin
 end;//TatLogger.Info
 
 function TatLogger.Warning(const aFormat: AnsiString;
-  const anArgs: array of const): AnsiString;
+ const anArgs: array of const): AnsiString;
 //#UC START# *484A76C6037D_4808A17901C6_var*
 //#UC END# *484A76C6037D_4808A17901C6_var*
 begin
@@ -245,7 +222,7 @@ begin
 end;//TatLogger.Warning
 
 function TatLogger.Error(const aFormat: AnsiString;
-  const anArgs: array of const): AnsiString;
+ const anArgs: array of const): AnsiString;
 //#UC START# *484A76ED00FD_4808A17901C6_var*
 //#UC END# *484A76ED00FD_4808A17901C6_var*
 begin
@@ -265,7 +242,6 @@ begin
   inherited;
 //#UC END# *48077504027E_4808A17901C6_impl*
 end;//TatLogger.Destroy
-// start class TatLoggerStub
 
 function TatLoggerStub.Info(const msg: AnsiString): AnsiString;
 //#UC START# *4808B42B0093_4808BAD201EB_var*
@@ -295,7 +271,7 @@ begin
 end;//TatLoggerStub.Error
 
 procedure TatLoggerStub.Exception(ex: Exception;
-  const prefix: AnsiString = '');
+ const prefix: AnsiString = '');
 //#UC START# *4808B46D01DF_4808BAD201EB_var*
 //#UC END# *4808B46D01DF_4808BAD201EB_var*
 begin
@@ -305,7 +281,7 @@ begin
 end;//TatLoggerStub.Exception
 
 function TatLoggerStub.Info(const aFormat: AnsiString;
-  const anArgs: array of const): AnsiString;
+ const anArgs: array of const): AnsiString;
 //#UC START# *484A74A700FD_4808BAD201EB_var*
 //#UC END# *484A74A700FD_4808BAD201EB_var*
 begin
@@ -315,7 +291,7 @@ begin
 end;//TatLoggerStub.Info
 
 function TatLoggerStub.Warning(const aFormat: AnsiString;
-  const anArgs: array of const): AnsiString;
+ const anArgs: array of const): AnsiString;
 //#UC START# *484A76C6037D_4808BAD201EB_var*
 //#UC END# *484A76C6037D_4808BAD201EB_var*
 begin
@@ -325,7 +301,7 @@ begin
 end;//TatLoggerStub.Warning
 
 function TatLoggerStub.Error(const aFormat: AnsiString;
-  const anArgs: array of const): AnsiString;
+ const anArgs: array of const): AnsiString;
 //#UC START# *484A76ED00FD_4808BAD201EB_var*
 //#UC END# *484A76ED00FD_4808BAD201EB_var*
 begin
@@ -333,7 +309,6 @@ begin
  // это заглушка
 //#UC END# *484A76ED00FD_4808BAD201EB_impl*
 end;//TatLoggerStub.Error
-// start class TatConsoleLogger
 
 procedure TatConsoleLogger.WriteMessage(const formattedMsg: AnsiString);
 //#UC START# *4808B7840086_4808BB4F028A_var*
@@ -348,7 +323,6 @@ begin
   WriteLn(tmpStr);
 //#UC END# *4808B7840086_4808BB4F028A_impl*
 end;//TatConsoleLogger.WriteMessage
-// start class TatFileLogger
 
 constructor TatFileLogger.Create(const fileName: AnsiString);
 //#UC START# *4808BC73011C_4808BC490355_var*

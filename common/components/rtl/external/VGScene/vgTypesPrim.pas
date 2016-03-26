@@ -1,37 +1,30 @@
 unit vgTypesPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/external/VGScene/vgTypesPrim.pas"
-// Начат: 11.02.2011 15:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VGScene::Core::vgTypesPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\vgTypesPrim.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vgTypesPrim" MUID: (4D552A2E00A3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  vgCustomObject
-  ;
+ l3IntfUses
+ , vgCustomObject
+;
 
 type
- TvgObjectSortCompare = function (item1: TvgCustomObject;
+ TvgObjectSortCompare = function(item1: TvgCustomObject;
   item2: TvgCustomObject): integer;
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
-{$IfEnd} //not NoVGScene
+{$If NOT Defined(NoVGScene)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVGScene)
+
 end.

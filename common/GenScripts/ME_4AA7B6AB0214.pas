@@ -92,7 +92,7 @@ type
     aSubUserType: TvcmUserType);
     {* форма которая должна быть закрыта при переходе по истории }
    function HasInPreviousStep(const aFormClass: TvcmFormID;
-    aUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean;
+    aUserType: TvcmUserType = vcm_utAny): Boolean;
    function Back(aTruncate: Boolean = False): Boolean; overload;
    function Forward: Boolean; overload;
    procedure Back(const aParams: IvcmExecuteParamsPrim;
@@ -632,7 +632,7 @@ begin
 end;//TvcmHistory.SaveClose
 
 function TvcmHistory.HasInPreviousStep(const aFormClass: TvcmFormID;
- aUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean;
+ aUserType: TvcmUserType = vcm_utAny): Boolean;
 //#UC START# *49955A0E01FD_5506D56E02FB_var*
  function Check(const aItem: IvcmHistoryItem): Boolean;
  var

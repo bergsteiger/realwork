@@ -1,94 +1,76 @@
 unit ddRTFdestination;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddRTFdestination.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::RTFSupport::ddRTFdestination
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddRTFdestination.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ddRTFdestination" MUID: (5190A37F0134)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  k2Interfaces,
-  l3Base,
-  RTFtypes,
-  ddRTFState,
-  ddCustomRTFReader,
-  ddCustomDestination
-  ;
+ l3IntfUses
+ , ddCustomDestination
+ , RTFtypes
+ , ddCustomRTFReader
+ , ddRTFState
+ , l3Base
+ , k2Interfaces
+;
 
 type
  TddRTFDestination = class(TddCustomDestination)
- private
- // private fields
-   f_RDS : TRDS;
-    {* Поле для свойства RDS}
- protected
- // realized methods
-   procedure BeforeCloseParagraph(const aDocAtom: TObject;
-     var aNewStyle: Integer); override;
- protected
- // overridden property methods
+  private
+   f_RDS: TRDS;
+    {* Поле для свойства RDS }
+  protected
+   f_CustomRTFReader: TddCustomRTFReader;
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    function pm_GetLiteVersion: Boolean; override;
    function pm_GetIdenticalRowWidths: Boolean; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   function GetMinPictureWidth: Integer; override;
-   function GetMinPictureHeight: Integer; override;
- protected
- // protected fields
-   f_CustomRTFReader : TddCustomRTFReader;
- public
- // public methods
+  public
    procedure Clear; virtual;
    procedure AddAnsiChar(aText: AnsiChar;
-     aState: TddRTFState); virtual;
+    aState: TddRTFState); virtual;
    procedure AddString(aText: Tl3String;
-     aState: TddRTFState); virtual;
+    aState: TddRTFState); virtual;
    procedure AddUnicodeChar(aText: Word;
-     aState: TddRTFState); virtual;
+    aState: TddRTFState); virtual;
    procedure ApplyProperty(propType: TPropType;
-     What: TIProp;
-     Value: LongInt;
-     aState: TddRTFState); virtual;
+    What: TIProp;
+    Value: LongInt;
+    aState: TddRTFState); virtual;
    procedure ParseSymbol(Symbol: Integer;
-     propType: TPropType;
-     aState: TddRTFState); virtual;
+    propType: TPropType;
+    aState: TddRTFState); virtual;
    procedure Write(const aGenerator: Ik2TagGenerator); virtual;
    procedure WriteText(aText: Tl3String;
-     aState: TddRTFState); overload;  virtual;
+    aState: TddRTFState); overload; virtual;
    procedure Close(aState: TddRTFState;
-     aNewDest: TddRTFDestination); virtual; abstract;
+    aNewDest: TddRTFDestination); virtual; abstract;
    procedure WriteText(aRDS: TRDS;
-     aText: Tl3String;
-     aState: TddRTFState); overload;  virtual; abstract;
+    aText: Tl3String;
+    aState: TddRTFState); overload; virtual; abstract;
    function ReadData: Boolean; virtual;
    procedure FlushBuffer(aState: TddRTFState); virtual;
    constructor Create(aRTFReader: TddCustomRTFReader); reintroduce; virtual;
- public
- // public properties
+   procedure BeforeCloseParagraph(const aDocAtom: TObject;
+    var aNewStyle: Integer); override;
+   function GetMinPictureWidth: Integer; override;
+   function GetMinPictureHeight: Integer; override;
+  public
    property RDS: TRDS
-     read f_RDS
-     write f_RDS;
+    read f_RDS
+    write f_RDS;
  end;//TddRTFDestination
 
 implementation
 
-// start class TddRTFDestination
+uses
+ l3ImplUses
+;
 
 procedure TddRTFDestination.Clear;
 //#UC START# *51D27A48038E_51D276C40106_var*
@@ -99,7 +81,7 @@ begin
 end;//TddRTFDestination.Clear
 
 procedure TddRTFDestination.AddAnsiChar(aText: AnsiChar;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51D27C0402E9_51D276C40106_var*
 //#UC END# *51D27C0402E9_51D276C40106_var*
 begin
@@ -108,7 +90,7 @@ begin
 end;//TddRTFDestination.AddAnsiChar
 
 procedure TddRTFDestination.AddString(aText: Tl3String;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51D27C3302EC_51D276C40106_var*
 //#UC END# *51D27C3302EC_51D276C40106_var*
 begin
@@ -117,7 +99,7 @@ begin
 end;//TddRTFDestination.AddString
 
 procedure TddRTFDestination.AddUnicodeChar(aText: Word;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51D27DFA0308_51D276C40106_var*
 //#UC END# *51D27DFA0308_51D276C40106_var*
 begin
@@ -126,9 +108,9 @@ begin
 end;//TddRTFDestination.AddUnicodeChar
 
 procedure TddRTFDestination.ApplyProperty(propType: TPropType;
-  What: TIProp;
-  Value: LongInt;
-  aState: TddRTFState);
+ What: TIProp;
+ Value: LongInt;
+ aState: TddRTFState);
 //#UC START# *51D27EC50388_51D276C40106_var*
 //#UC END# *51D27EC50388_51D276C40106_var*
 begin
@@ -137,8 +119,8 @@ begin
 end;//TddRTFDestination.ApplyProperty
 
 procedure TddRTFDestination.ParseSymbol(Symbol: Integer;
-  propType: TPropType;
-  aState: TddRTFState);
+ propType: TPropType;
+ aState: TddRTFState);
 //#UC START# *51E8CFEF027A_51D276C40106_var*
 //#UC END# *51E8CFEF027A_51D276C40106_var*
 begin
@@ -155,7 +137,7 @@ begin
 end;//TddRTFDestination.Write
 
 procedure TddRTFDestination.WriteText(aText: Tl3String;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51E8D0710060_51D276C40106_var*
 //#UC END# *51E8D0710060_51D276C40106_var*
 begin
@@ -192,7 +174,7 @@ begin
 end;//TddRTFDestination.Create
 
 procedure TddRTFDestination.BeforeCloseParagraph(const aDocAtom: TObject;
-  var aNewStyle: Integer);
+ var aNewStyle: Integer);
 //#UC START# *534F9B57003E_51D276C40106_var*
 //#UC END# *534F9B57003E_51D276C40106_var*
 begin
@@ -201,6 +183,7 @@ begin
 end;//TddRTFDestination.BeforeCloseParagraph
 
 procedure TddRTFDestination.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51D276C40106_var*
 //#UC END# *479731C50290_51D276C40106_var*
 begin

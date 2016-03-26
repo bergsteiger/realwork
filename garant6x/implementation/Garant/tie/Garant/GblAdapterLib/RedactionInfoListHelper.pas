@@ -1,92 +1,85 @@
 unit RedactionInfoListHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/RedactionInfoListHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> garant6x::GblAdapterLib::DocumentHelper::RedactionInfoListHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\RedactionInfoListHelper.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "RedactionInfoListHelper" MUID: (462895DD0240)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DocumentUnit
-  ;
+ l3IntfUses
+ , DocumentUnit
+;
 
-function FindRedaction(const redaction_info_list: IRedactionInfoList;
-  to_find: TRedactionID): integer; overload; 
-function FindRedaction(const redaction_info_list: IRedactionInfoList;
-  const to_find: TRedactionInfo): integer; overload; 
-function FindActualRedaction(const redaction_info_list: IRedactionInfoList): integer;
-procedure PrevRedactions(const redaction_info_list: IRedactionInfoList;
-  id: TRedactionID;
-  var prev_list: IRedactionInfoList);
-procedure CurAndNextRedactions(const redaction_info_list: IRedactionInfoList;
-  id: TRedactionID;
-  var next_list: IRedactionInfoList);
+function find_redaction(const redaction_info_list: IRedactionInfoList;
+ to_find: TRedactionID): integer; overload;
+function find_redaction(const redaction_info_list: IRedactionInfoList;
+ const to_find: TRedactionInfo): integer; overload;
+function find_actual_redaction(const redaction_info_list: IRedactionInfoList): integer;
+procedure prev_redactions(const redaction_info_list: IRedactionInfoList;
+ id: TRedactionID;
+ var prev_list: IRedactionInfoList);
+procedure cur_and_next_redactions(const redaction_info_list: IRedactionInfoList;
+ id: TRedactionID;
+ var next_list: IRedactionInfoList);
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
-function FindRedaction(const redaction_info_list: IRedactionInfoList;
-  to_find: TRedactionID): integer;
+function find_redaction(const redaction_info_list: IRedactionInfoList;
+ to_find: TRedactionID): integer;
 //#UC START# *462896090184_462895DD0240_var*
 //#UC END# *462896090184_462895DD0240_var*
 begin
 //#UC START# *462896090184_462895DD0240_impl*
  !!! Needs to be implemented !!!
 //#UC END# *462896090184_462895DD0240_impl*
-end;//FindRedaction
+end;//find_redaction
 
-function FindRedaction(const redaction_info_list: IRedactionInfoList;
-  const to_find: TRedactionInfo): integer;
+function find_redaction(const redaction_info_list: IRedactionInfoList;
+ const to_find: TRedactionInfo): integer;
 //#UC START# *46289660023F_462895DD0240_var*
 //#UC END# *46289660023F_462895DD0240_var*
 begin
 //#UC START# *46289660023F_462895DD0240_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46289660023F_462895DD0240_impl*
-end;//FindRedaction
+end;//find_redaction
 
-function FindActualRedaction(const redaction_info_list: IRedactionInfoList): integer;
+function find_actual_redaction(const redaction_info_list: IRedactionInfoList): integer;
 //#UC START# *4628969F03E4_462895DD0240_var*
 //#UC END# *4628969F03E4_462895DD0240_var*
 begin
 //#UC START# *4628969F03E4_462895DD0240_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4628969F03E4_462895DD0240_impl*
-end;//FindActualRedaction
+end;//find_actual_redaction
 
-procedure PrevRedactions(const redaction_info_list: IRedactionInfoList;
-  id: TRedactionID;
-  var prev_list: IRedactionInfoList);
+procedure prev_redactions(const redaction_info_list: IRedactionInfoList;
+ id: TRedactionID;
+ var prev_list: IRedactionInfoList);
 //#UC START# *4A8145520247_462895DD0240_var*
 //#UC END# *4A8145520247_462895DD0240_var*
 begin
 //#UC START# *4A8145520247_462895DD0240_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4A8145520247_462895DD0240_impl*
-end;//PrevRedactions
+end;//prev_redactions
 
-procedure CurAndNextRedactions(const redaction_info_list: IRedactionInfoList;
-  id: TRedactionID;
-  var next_list: IRedactionInfoList);
+procedure cur_and_next_redactions(const redaction_info_list: IRedactionInfoList;
+ id: TRedactionID;
+ var next_list: IRedactionInfoList);
 //#UC START# *4B556E69014E_462895DD0240_var*
 //#UC END# *4B556E69014E_462895DD0240_var*
 begin
 //#UC START# *4B556E69014E_462895DD0240_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4B556E69014E_462895DD0240_impl*
-end;//CurAndNextRedactions
+end;//cur_and_next_redactions
 
 end.

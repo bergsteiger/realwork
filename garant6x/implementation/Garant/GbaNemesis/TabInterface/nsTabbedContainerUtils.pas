@@ -1,31 +1,19 @@
 unit nsTabbedContainerUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "TabInterface"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/TabInterface/nsTabbedContainerUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::LegalDomain::TabInterface::TabbedInterfaceSupport::nsTabbedContainerUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\TabInterface\nsTabbedContainerUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsTabbedContainerUtils" MUID: (53A403330029)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 function nsDocumentsFromListOpenKind: TvcmMainFormOpenKind;
 function nsLinksFromDocumentOpenKind: TvcmMainFormOpenKind;
@@ -33,11 +21,10 @@ function nsLinksFromDocumentOpenKind: TvcmMainFormOpenKind;
 implementation
 
 uses
-  nsConst,
-  afwFacade
-  ;
-
-// unit methods
+ l3ImplUses
+ , nsConst
+ , afwFacade
+;
 
 function nsGetOpenKindSettingsValue(const aSettingsName: AnsiString): TvcmMainFormOpenKind;
 //#UC START# *53A40360003B_53A403330029_var*

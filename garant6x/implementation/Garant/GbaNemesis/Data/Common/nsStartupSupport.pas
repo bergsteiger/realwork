@@ -1,60 +1,43 @@
 unit nsStartupSupport;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Common/nsStartupSupport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Common::nsStartupSupport
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStartupSupport.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsStartupSupport" MUID: (55B26A1C0277)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  Messages,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  SyncObjs,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ , Windows
+ , SyncObjs
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+ , Messages
+;
 
 type
  TnsStartupSupport = class(TvcmCacheableBase)
- private
- // private fields
-   f_CheckRunTimer : TTimer;
-   f_DataInstallerCommandLine : AnsiString;
-   f_DataUpdaterCommandLine : AnsiString;
-   f_DownloaderCommandLine : AnsiString;
-   f_DataInstallerProcessHandle : THandle;
-   f_DataUpdaterProcessHandle : THandle;
-   f_DownloaderProcessHandle : THandle;
-   f_StartupSupportWindow : THandle;
-   f_LoginLockCount : Integer;
- private
- // private methods
+  private
+   f_CheckRunTimer: TTimer;
+   f_DataInstallerCommandLine: AnsiString;
+   f_DataUpdaterCommandLine: AnsiString;
+   f_DownloaderCommandLine: AnsiString;
+   f_DataInstallerProcessHandle: THandle;
+   f_DataUpdaterProcessHandle: THandle;
+   f_DownloaderProcessHandle: THandle;
+   f_StartupSupportWindow: THandle;
+   f_LoginLockCount: Integer;
+  private
    class function UniqueClassName: AnsiString;
    class function ShowActiveFormMessage: LongWord;
    class function UnlockLoginMessage: LongWord;
@@ -64,9 +47,9 @@ type
    class function RunDataUpdaterMessage: LongWord;
    class function RunDownloaderMessage: LongWord;
    class function TrySendMessage(const aClassName: AnsiString;
-     aMessage: LongWord;
-     aCopyDataBuffer: Pointer = nil;
-     aCopyDataBufferLength: Integer = 0): Boolean;
+    aMessage: LongWord;
+    aCopyDataBuffer: Pointer = nil;
+    aCopyDataBufferLength: Integer = 0): Boolean;
    class function IsParamStrExist(const aParamStr: AnsiString): Boolean;
    class function QuoteStringIfNeed(const aString: AnsiString): AnsiString;
    class function GetCommandLine: AnsiString;
@@ -82,40 +65,38 @@ type
    class function GetShutdownEventName: AnsiString;
    class function GetStartupMutexName: AnsiString;
    class function IsCopyRunning(var aMutexHandle: THandle;
-     var aMutexHoldCount: Integer;
-     const aMutexName: AnsiString): Boolean;
+    var aMutexHoldCount: Integer;
+    const aMutexName: AnsiString): Boolean;
    class procedure InitMutex(var aMutexHandle: THandle;
-     var aMutexHoldCount: Integer;
-     const aMutexName: AnsiString;
-     aResult: PBoolean = nil);
+    var aMutexHoldCount: Integer;
+    const aMutexName: AnsiString;
+    aResult: PBoolean = nil);
    class procedure DoneMutex(var aMutexHandle: THandle;
-     var aMutexHoldCount: Integer);
+    var aMutexHoldCount: Integer);
    class procedure InitEvent(var aEventHandle: THandle;
-     var aEventOpenCount: Integer;
-     const aEventName: AnsiString);
+    var aEventOpenCount: Integer;
+    const aEventName: AnsiString);
    class procedure DoneEvent(var aEventHandle: THandle;
-     var aEventOpenCount: Integer);
+    var aEventOpenCount: Integer);
    class procedure WaitEvent(const aEventName: AnsiString;
-     var aMutexHandle: THandle;
-     var aMutexHoldCount: Integer;
-     const aMutexName: AnsiString);
+    var aMutexHandle: THandle;
+    var aMutexHoldCount: Integer;
+    const aMutexName: AnsiString);
    class procedure WaitWhileMutexNotExist(const aMutexName: AnsiString);
    function AllocateHWnd(aWndMethod: TWndMethod): THandle;
    procedure DeallocateHWnd(var aHWnd: THandle);
    procedure WndProc(var aMessage: TMessage);
    procedure LockLogin;
-     {* Сигнатура метода LockLogin }
    procedure UnlockLogin;
-     {* Сигнатура метода UnlockLogin }
    function IsLoginLocked: Boolean;
    function ShowActiveForm: Boolean;
    procedure RunProcess(const aProcessName: AnsiString;
-     const aCommandLine: AnsiString;
-     var aProcessHandle: THandle);
+    const aCommandLine: AnsiString;
+    var aProcessHandle: THandle);
    function IsProcessRunning(aProcessHandle: THandle): Boolean;
    function WaitWhileProcessIsRunning(aHardWait: Boolean;
-     aIsProcessRunning: Boolean;
-     var aProcessHandle: THandle): Boolean;
+    aIsProcessRunning: Boolean;
+    var aProcessHandle: THandle): Boolean;
    procedure RunDataInstallerProcess(const aCommandLine: AnsiString);
    function IsDataInstallerProcessRunning: Boolean;
    function WaitWhileDataInstallerProcessIsRunning(aHardWait: Boolean): Boolean;
@@ -126,17 +107,12 @@ type
    function IsDownloaderProcessRunning: Boolean;
    function WaitWhileDownloaderProcessIsRunning(aHardWait: Boolean): Boolean;
    procedure OnTimer(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    class procedure DestroyInstance;
-     {* Сигнатура метода DestroyInstance }
    class function IsRunDataInstallerParamExist: Boolean;
    class function IsRunDataUpdaterParamExist: Boolean;
    class function IsRunDownloaderParamExist: Boolean;
@@ -148,83 +124,90 @@ type
    class function IsAdminCopyRunning: Boolean;
    class function TryUnlockLogin: Boolean;
    class procedure TrySendOpenByNumer;
-     {* Сигнатура метода TrySendOpenByNumer }
    class function TryRunDataInstaller: Boolean;
    class function TryRunDataUpdater: Boolean;
    class function TryRunDownloader: Boolean;
    class function TrySwitchToOtherRunningCopy: Boolean;
    class function CheckAndCreatePrimeRunningCopyMutex: Boolean;
    class procedure CreatePrimeRunningCopyMutex;
-     {* Сигнатура метода CreatePrimeRunningCopyMutex }
    class procedure ReleasePrimeRunningCopyMutex;
-     {* Сигнатура метода ReleasePrimeRunningCopyMutex }
    class function CheckAndCreateShellRunningCopyMutex: Boolean;
    class procedure CreateShellRunningCopyMutex;
-     {* Сигнатура метода CreateShellRunningCopyMutex }
    class procedure ReleaseShellRunningCopyMutex;
-     {* Сигнатура метода ReleaseShellRunningCopyMutex }
    class function CheckAndCreateAdminRunningCopyMutex: Boolean;
    class procedure CreateAdminRunningCopyMutex;
-     {* Сигнатура метода CreateAdminRunningCopyMutex }
    class procedure ReleaseAdminRunningCopyMutex;
-     {* Сигнатура метода ReleaseAdminRunningCopyMutex }
    class function CheckAndCreateRunningCopyMutex: Boolean;
    class procedure CreateRunningCopyMutex;
-     {* Сигнатура метода CreateRunningCopyMutex }
    class procedure ReleaseRunningCopyMutex;
-     {* Сигнатура метода ReleaseRunningCopyMutex }
    class procedure ShutdownPendingNotify;
-     {* Сигнатура метода ShutdownPendingNotify }
    class procedure ShutdownCompletedNotify;
-     {* Сигнатура метода ShutdownCompletedNotify }
    class procedure StartupPendingNotify;
-     {* Сигнатура метода StartupPendingNotify }
    class procedure StartupCompletedNotify;
-     {* Сигнатура метода StartupCompletedNotify }
    class procedure WaitForDataInstallerExit;
-     {* Сигнатура метода WaitForDataInstallerExit }
    class procedure WaitForDataUpdaterExit;
-     {* Сигнатура метода WaitForDataUpdaterExit }
    class procedure WaitForDownloaderExit;
-     {* Сигнатура метода WaitForDownloaderExit }
    function CheckAndRunSupportProcessesIfNeed: Boolean;
    procedure TryActivateMainForm;
-     {* Сигнатура метода TryActivateMainForm }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsStartupSupport;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsStartupSupport }
  end;//TnsStartupSupport
-function NsIsOtherPrimeOrShellRunning(aTopForm: TCustomForm): Boolean;
-procedure NsCheckRequiredFonts(aTopForm: TCustomForm);
+
+function nsIsOtherPrimeOrShellRunning(aTopForm: TCustomForm): Boolean;
+procedure nsCheckRequiredFonts(aTopForm: TCustomForm);
 
 implementation
 
 uses
-  l3Base {a},
-  SysUtils,
-  ShellAPI,
-  l3Types,
-  l3FontManager,
-  l3Interlocked,
-  afwFacade,
-  nsUtils
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  
-  ;
+ l3ImplUses
+ , SysUtils
+ , ShellAPI
+ , l3Types
+ , l3FontManager
+ , l3Interlocked
+ , afwFacade
+ , nsUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+;
+
+var g_TnsStartupSupport: TnsStartupSupport = nil;
+ {* Экземпляр синглетона TnsStartupSupport }
+var g_DataInstallerMutexHandle: THandle = THandle(INVALID_HANDLE_VALUE);
+var g_DataInstallerMutexHoldCount: Integer = 0;
+var g_DataUpdaterMutexHandle: THandle = THandle(INVALID_HANDLE_VALUE);
+var g_DataUpdaterMutexHoldCount: Integer = 0;
+var g_DownloaderMutexHandle: THandle = THandle(INVALID_HANDLE_VALUE);
+var g_DownloaderMutexHoldCount: Integer = 0;
+var g_StartupSupportMutexHandle: THandle = THandle(INVALID_HANDLE_VALUE);
+var g_StartupSupportMutexHoldCount: Integer = 0;
+var g_PrimeRunningCopyMutexHandle: THandle = THandle(INVALID_HANDLE_VALUE);
+var g_PrimeRunningCopyMutexHoldCount: Integer = 0;
+var g_ShellRunningCopyMutexHandle: THandle = THandle(INVALID_HANDLE_VALUE);
+var g_ShellRunningCopyMutexHoldCount: Integer = 0;
+var g_AdminRunningCopyMutexHandle: THandle = THandle(INVALID_HANDLE_VALUE);
+var g_AdminRunningCopyMutexHoldCount: Integer = 0;
+var g_StartupMutex: THandle = THandle(INVALID_HANDLE_VALUE);
+var g_StartupMutexHoldCount: Integer = 0;
+var g_ShutdownEvent: THandle = THandle(INVALID_HANDLE_VALUE);
+var g_ShutdownEventOpenCount: Integer = 0;
+var g_ShowActiveFormMessage: LongWord = 0;
+var g_UnlockLoginMessage: LongWord = 0;
+var g_OpenByNumberMessage: LongWord = 0;
+var g_RunDataInstallerMessage: LongWord = 0;
+var g_RunDataUpdaterMessage: LongWord = 0;
+var g_RunDownloaderMessage: LongWord = 0;
+var g_GetAppHandleMessage: LongWord = 0;
+var g_CriticalSection: TCriticalSection = nil;
 
 const
-  { Constants }
  c_RunDataInstallerParamStr = '-RunDataInstaller';
  c_DataInstallerProcessName = 'F1DataSetup.run';
  c_DataInstallerDefaultCommandLine = 'C:\\';
@@ -244,78 +227,119 @@ const
  c_GetAppHandleMessageName = '{90F2FE9B-2BE0-4BA1-9779-447B716884BD}';
  c_SleepTime = 250;
 
-var g_DataInstallerMutexHandle : THandle = THandle(INVALID_HANDLE_VALUE);
-
-var g_DataInstallerMutexHoldCount : Integer = 0;
-
-var g_DataUpdaterMutexHandle : THandle = THandle(INVALID_HANDLE_VALUE);
-
-var g_DataUpdaterMutexHoldCount : Integer = 0;
-
-var g_DownloaderMutexHandle : THandle = THandle(INVALID_HANDLE_VALUE);
-
-var g_DownloaderMutexHoldCount : Integer = 0;
-
-var g_StartupSupportMutexHandle : THandle = THandle(INVALID_HANDLE_VALUE);
-
-var g_StartupSupportMutexHoldCount : Integer = 0;
-
-var g_PrimeRunningCopyMutexHandle : THandle = THandle(INVALID_HANDLE_VALUE);
-
-var g_PrimeRunningCopyMutexHoldCount : Integer = 0;
-
-var g_ShellRunningCopyMutexHandle : THandle = THandle(INVALID_HANDLE_VALUE);
-
-var g_ShellRunningCopyMutexHoldCount : Integer = 0;
-
-var g_AdminRunningCopyMutexHandle : THandle = THandle(INVALID_HANDLE_VALUE);
-
-var g_AdminRunningCopyMutexHoldCount : Integer = 0;
-
-var g_StartupMutex : THandle = THandle(INVALID_HANDLE_VALUE);
-
-var g_StartupMutexHoldCount : Integer = 0;
-
-var g_ShutdownEvent : THandle = THandle(INVALID_HANDLE_VALUE);
-
-var g_ShutdownEventOpenCount : Integer = 0;
-
-var g_ShowActiveFormMessage : LongWord = 0;
-
-var g_UnlockLoginMessage : LongWord = 0;
-
-var g_OpenByNumberMessage : LongWord = 0;
-
-var g_RunDataInstallerMessage : LongWord = 0;
-
-var g_RunDataUpdaterMessage : LongWord = 0;
-
-var g_RunDownloaderMessage : LongWord = 0;
-
-var g_GetAppHandleMessage : LongWord = 0;
-
-var g_CriticalSection : TCriticalSection = nil;
-
-
-// start class TnsStartupSupport
-
-var g_TnsStartupSupport : TnsStartupSupport = nil;
-
 procedure TnsStartupSupportFree;
+ {* Метод освобождения экземпляра синглетона TnsStartupSupport }
 begin
  l3Free(g_TnsStartupSupport);
-end;
+end;//TnsStartupSupportFree
 
-class function TnsStartupSupport.Instance: TnsStartupSupport;
+function nsIsOtherPrimeOrShellRunning(aTopForm: TCustomForm): Boolean;
+//#UC START# *55B26D620046_55B26A1C0277_var*
+//#UC END# *55B26D620046_55B26A1C0277_var*
 begin
- if (g_TnsStartupSupport = nil) then
+//#UC START# *55B26D620046_55B26A1C0277_impl*
+ Result := False;
+ //
+ if (aTopForm <> nil) then
  begin
-  l3System.AddExitProc(TnsStartupSupportFree);
-  g_TnsStartupSupport := Create;
+  aTopForm.Hide;
+  afw.ProcessMessages;
  end;
- Result := g_TnsStartupSupport;
-end;
+ //
+ try
+  with TnsStartupSupport do
+  begin
+{$IFDEF Monitorings}
+   if (IsShellCopyRunning) then
+   begin
+    vcmSay(err_ShellIsRunning);
+    Result := True;
+   end;
+   if (IsAdminCopyRunning) then
+   begin
+    vcmSay(err_AdminIsRunningForPrime);
+    Result := True;
+   end;
+{$ELSEIF defined(Admin)}
+   if (IsShellCopyRunning) then
+   begin
+    vcmSay(err_ShellIsRunningForAdmin);
+    Result := True;
+   end;
+   if (IsPrimeCopyRunning) then
+   begin
+    vcmSay(err_PrimeIsRunningForAdmin);
+    Result := True;
+   end;
+{$ELSE  Monitorings}
+   if (IsPrimeCopyRunning) then
+   begin
+    vcmSay(err_PrimeIsRunning);
+    Result := True;
+   end;
+   if (IsAdminCopyRunning) then
+   begin
+    vcmSay(err_AdminIsRunningForShell);
+    Result := True;
+   end;
+{$IFEND Monitorings}
+  end;
+ finally
+  if (aTopForm <> nil) then
+  begin
+   aTopForm.Show;
+   afw.ProcessMessages;
+  end;
+ end;
+//#UC END# *55B26D620046_55B26A1C0277_impl*
+end;//nsIsOtherPrimeOrShellRunning
 
+procedure nsCheckRequiredFonts(aTopForm: TCustomForm);
+//#UC START# *55B26D77039C_55B26A1C0277_var*
+var
+ l_ArialNotExist: Boolean;
+ l_CourierNewNotExist: Boolean;
+ //
+ function Iterator(aFont: PObject; aIndex: Long): Boolean;
+ begin
+  Result := True;
+  //
+  with Tl3LogFont(aFont^).LogFont.elfLogFont do
+   if (StrIComp(@lfFaceName, PChar('Arial')) = 0) then
+    l_ArialNotExist := False
+   else
+    if (StrIComp(@lfFaceName, PChar('Courier New')) = 0) then
+     l_CourierNewNotExist := False;
+ end;
+ //
+//#UC END# *55B26D77039C_55B26A1C0277_var*
+begin
+//#UC START# *55B26D77039C_55B26A1C0277_impl*
+ l_ArialNotExist := True;
+ l_CourierNewNotExist := True;
+ //
+ with Fonts do
+  IterateAllF(l3L2IA(@Iterator));
+ //
+ if (l_ArialNotExist or l_CourierNewNotExist) then
+ begin
+  if (aTopForm <> nil) then
+  begin
+   aTopForm.Hide;
+   afw.ProcessMessages;
+  end;
+  try
+   vcmSay(war_RequiredFontsNotExist);
+  finally
+   if (aTopForm <> nil) then
+   begin
+    aTopForm.Show;
+    afw.ProcessMessages;
+   end;
+  end;
+ end;
+//#UC END# *55B26D77039C_55B26A1C0277_impl*
+end;//nsCheckRequiredFonts
 
 class function TnsStartupSupport.UniqueClassName: AnsiString;
 //#UC START# *55B25BCC01C6_4AA7C26401C4_var*
@@ -390,9 +414,9 @@ begin
 end;//TnsStartupSupport.RunDownloaderMessage
 
 class function TnsStartupSupport.TrySendMessage(const aClassName: AnsiString;
-  aMessage: LongWord;
-  aCopyDataBuffer: Pointer = nil;
-  aCopyDataBufferLength: Integer = 0): Boolean;
+ aMessage: LongWord;
+ aCopyDataBuffer: Pointer = nil;
+ aCopyDataBufferLength: Integer = 0): Boolean;
 //#UC START# *55B25CC900E7_4AA7C26401C4_var*
 var
  l_CopyDataStruct: TCopyDataStruct;
@@ -602,8 +626,8 @@ begin
 end;//TnsStartupSupport.GetStartupMutexName
 
 class function TnsStartupSupport.IsCopyRunning(var aMutexHandle: THandle;
-  var aMutexHoldCount: Integer;
-  const aMutexName: AnsiString): Boolean;
+ var aMutexHoldCount: Integer;
+ const aMutexName: AnsiString): Boolean;
 //#UC START# *55B2632C005B_4AA7C26401C4_var*
 //#UC END# *55B2632C005B_4AA7C26401C4_var*
 begin
@@ -650,9 +674,9 @@ begin
 end;//TnsStartupSupport.IsCopyRunning
 
 class procedure TnsStartupSupport.InitMutex(var aMutexHandle: THandle;
-  var aMutexHoldCount: Integer;
-  const aMutexName: AnsiString;
-  aResult: PBoolean = nil);
+ var aMutexHoldCount: Integer;
+ const aMutexName: AnsiString;
+ aResult: PBoolean = nil);
 //#UC START# *55B263F301B5_4AA7C26401C4_var*
 //#UC END# *55B263F301B5_4AA7C26401C4_var*
 begin
@@ -714,7 +738,7 @@ begin
 end;//TnsStartupSupport.InitMutex
 
 class procedure TnsStartupSupport.DoneMutex(var aMutexHandle: THandle;
-  var aMutexHoldCount: Integer);
+ var aMutexHoldCount: Integer);
 //#UC START# *55B2641602E0_4AA7C26401C4_var*
 //#UC END# *55B2641602E0_4AA7C26401C4_var*
 begin
@@ -743,8 +767,8 @@ begin
 end;//TnsStartupSupport.DoneMutex
 
 class procedure TnsStartupSupport.InitEvent(var aEventHandle: THandle;
-  var aEventOpenCount: Integer;
-  const aEventName: AnsiString);
+ var aEventOpenCount: Integer;
+ const aEventName: AnsiString);
 //#UC START# *55B2643203DB_4AA7C26401C4_var*
 //#UC END# *55B2643203DB_4AA7C26401C4_var*
 begin
@@ -773,7 +797,7 @@ begin
 end;//TnsStartupSupport.InitEvent
 
 class procedure TnsStartupSupport.DoneEvent(var aEventHandle: THandle;
-  var aEventOpenCount: Integer);
+ var aEventOpenCount: Integer);
 //#UC START# *55B2645A02AB_4AA7C26401C4_var*
 //#UC END# *55B2645A02AB_4AA7C26401C4_var*
 begin
@@ -802,9 +826,9 @@ begin
 end;//TnsStartupSupport.DoneEvent
 
 class procedure TnsStartupSupport.WaitEvent(const aEventName: AnsiString;
-  var aMutexHandle: THandle;
-  var aMutexHoldCount: Integer;
-  const aMutexName: AnsiString);
+ var aMutexHandle: THandle;
+ var aMutexHoldCount: Integer;
+ const aMutexName: AnsiString);
 //#UC START# *55B26474016B_4AA7C26401C4_var*
 var
  l_Event: THandle;
@@ -1153,8 +1177,8 @@ begin
 end;//TnsStartupSupport.ShowActiveForm
 
 procedure TnsStartupSupport.RunProcess(const aProcessName: AnsiString;
-  const aCommandLine: AnsiString;
-  var aProcessHandle: THandle);
+ const aCommandLine: AnsiString;
+ var aProcessHandle: THandle);
 //#UC START# *55B265B50159_4AA7C26401C4_var*
  function GetCreationFlags: DWORD;
  begin
@@ -1272,8 +1296,8 @@ begin
 end;//TnsStartupSupport.IsProcessRunning
 
 function TnsStartupSupport.WaitWhileProcessIsRunning(aHardWait: Boolean;
-  aIsProcessRunning: Boolean;
-  var aProcessHandle: THandle): Boolean;
+ aIsProcessRunning: Boolean;
+ var aProcessHandle: THandle): Boolean;
 //#UC START# *55B265EB03AD_4AA7C26401C4_var*
 var
  l_ExitCode: DWORD absolute ExitCode;
@@ -1981,12 +2005,24 @@ begin
 end;//TnsStartupSupport.TryActivateMainForm
 
 class function TnsStartupSupport.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsStartupSupport <> nil;
 end;//TnsStartupSupport.Exists
 
+class function TnsStartupSupport.Instance: TnsStartupSupport;
+ {* Метод получения экземпляра синглетона TnsStartupSupport }
+begin
+ if (g_TnsStartupSupport = nil) then
+ begin
+  l3System.AddExitProc(TnsStartupSupportFree);
+  g_TnsStartupSupport := Create;
+ end;
+ Result := g_TnsStartupSupport;
+end;//TnsStartupSupport.Instance
+
 procedure TnsStartupSupport.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AA7C26401C4_var*
 //#UC END# *479731C50290_4AA7C26401C4_var*
 begin
@@ -1999,114 +2035,6 @@ begin
  inherited;
 //#UC END# *479731C50290_4AA7C26401C4_impl*
 end;//TnsStartupSupport.Cleanup
-
-function NsIsOtherPrimeOrShellRunning(aTopForm: TCustomForm): Boolean;
-//#UC START# *55B26D620046_55B26A1C0277_var*
-//#UC END# *55B26D620046_55B26A1C0277_var*
-begin
-//#UC START# *55B26D620046_55B26A1C0277_impl*
- Result := False;
- //
- if (aTopForm <> nil) then
- begin
-  aTopForm.Hide;
-  afw.ProcessMessages;
- end;
- //
- try
-  with TnsStartupSupport do
-  begin
-{$IFDEF Monitorings}
-   if (IsShellCopyRunning) then
-   begin
-    vcmSay(err_ShellIsRunning);
-    Result := True;
-   end;
-   if (IsAdminCopyRunning) then
-   begin
-    vcmSay(err_AdminIsRunningForPrime);
-    Result := True;
-   end;
-{$ELSEIF defined(Admin)}
-   if (IsShellCopyRunning) then
-   begin
-    vcmSay(err_ShellIsRunningForAdmin);
-    Result := True;
-   end;
-   if (IsPrimeCopyRunning) then
-   begin
-    vcmSay(err_PrimeIsRunningForAdmin);
-    Result := True;
-   end;
-{$ELSE  Monitorings}
-   if (IsPrimeCopyRunning) then
-   begin
-    vcmSay(err_PrimeIsRunning);
-    Result := True;
-   end;
-   if (IsAdminCopyRunning) then
-   begin
-    vcmSay(err_AdminIsRunningForShell);
-    Result := True;
-   end;
-{$IFEND Monitorings}
-  end;
- finally
-  if (aTopForm <> nil) then
-  begin
-   aTopForm.Show;
-   afw.ProcessMessages;
-  end;
- end;
-//#UC END# *55B26D620046_55B26A1C0277_impl*
-end;//NsIsOtherPrimeOrShellRunning
-
-procedure NsCheckRequiredFonts(aTopForm: TCustomForm);
-//#UC START# *55B26D77039C_55B26A1C0277_var*
-var
- l_ArialNotExist: Boolean;
- l_CourierNewNotExist: Boolean;
- //
- function Iterator(aFont: PObject; aIndex: Long): Boolean;
- begin
-  Result := True;
-  //
-  with Tl3LogFont(aFont^).LogFont.elfLogFont do
-   if (StrIComp(@lfFaceName, PChar('Arial')) = 0) then
-    l_ArialNotExist := False
-   else
-    if (StrIComp(@lfFaceName, PChar('Courier New')) = 0) then
-     l_CourierNewNotExist := False;
- end;
- //
-//#UC END# *55B26D77039C_55B26A1C0277_var*
-begin
-//#UC START# *55B26D77039C_55B26A1C0277_impl*
- l_ArialNotExist := True;
- l_CourierNewNotExist := True;
- //
- with Fonts do
-  IterateAllF(l3L2IA(@Iterator));
- //
- if (l_ArialNotExist or l_CourierNewNotExist) then
- begin
-  if (aTopForm <> nil) then
-  begin
-   aTopForm.Hide;
-   afw.ProcessMessages;
-  end;
-  try
-   vcmSay(war_RequiredFontsNotExist);
-  finally
-   if (aTopForm <> nil) then
-   begin
-    aTopForm.Show;
-    afw.ProcessMessages;
-   end;
-  end;
- end;
-//#UC END# *55B26D77039C_55B26A1C0277_impl*
-end;//NsCheckRequiredFonts
 
 initialization
 //#UC START# *55B271BE0327*

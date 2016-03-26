@@ -1,187 +1,158 @@
 unit vcmFormSetHistory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/ChromeLike/vcmFormSetHistory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM$Visual::Visual$ChromeLike::vcmFormSetHistory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmFormSetHistory.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vcmFormSetHistory" MUID: (55A4AE2A01E5)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
-  vcmExternalInterfaces,
-  vcmInterfaces,
-  vcmEntityForm,
-  vcmUserControls,
-  l3ProtoObject,
-  l3ProtoDataContainer,
-  vcmFormSetFormItemList,
-  vcmBaseTypes,
-  l3TabbedContainersDispatcher,
-  vcmFormSetHistoryItemList,
-  vcmFormSetFormHistoryItemList,
-  vcmFormSetHistoryStepItemList,
-  vcmFormSetHistoryStepList,
-  l3Memory,
-  l3Interfaces,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , vcmInterfaces
+ , vcmExternalInterfaces
+ , vcmFormSetFormHistoryItemList
+ , vcmFormSetFormItemList
+ , vcmUserControls
+ , vcmEntityForm
+ , vcmBaseTypes
+ , vcmFormSetHistoryStepList
+ , l3TabbedContainersDispatcher
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+ , vcmFormSetHistoryItemList
+ , vcmFormSetHistoryStepItemList
+;
 
 type
+ PvcmHistoryFormCacheItem = ^TvcmHistoryFormCacheItem;
+
  TvcmBaseFormSetHistoryItem = class(Tl3ProtoObject, IvcmFormSetHistoryItem)
- private
- // private fields
-   f_Caption : IvcmCString;
-   f_Items : TvcmFormSetFormHistoryItemList;
-   f_ContainedFormHistoryState : IvcmHistoryState;
-   f_ContainerData : IvcmBase;
- private
- // private methods
+  private
+   f_Caption: IvcmCString;
+   f_Items: TvcmFormSetFormHistoryItemList;
+   f_ContainedFormHistoryState: IvcmHistoryState;
+   f_ContainerData: IvcmBase;
+  private
    procedure LoadFormsState;
-     {* Сигнатура метода LoadFormsState }
- protected
- // realized methods
+  protected
+   procedure FillItems(const aFormSet: IvcmFormSet;
+    const aContainer: IvcmContainer;
+    aItems: TvcmFormSetFormHistoryItemList); virtual;
+   function MakeItem(const aFormSet: IvcmFormSet;
+    const aContainer: IvcmContainer;
+    const aForm: IvcmEntityForm): IvcmFormSetFormHistoryItem; virtual; abstract;
+   function DoMakeFormSet(const aContainer: IvcmContainer;
+    out aFormSet: IvcmFormSet): Boolean; virtual; abstract;
+   procedure DoLoadFormState(const aForm: IvcmEntityForm;
+    const aFormItem: IvcmFormSetFormHistoryItem); virtual;
    function pm_GetCaption: IvcmCString;
    function pm_GetItemCount: Integer;
    function GetItem(aIndex: Integer): IvcmFormSetFormHistoryItem;
    function MakeFormSet(const aContainer: IvcmContainer;
-     out aFormSet: IvcmFormSet;
-     aNeedAssignHistory: Boolean): Boolean;
- protected
- // overridden protected methods
+    out aFormSet: IvcmFormSet;
+    aNeedAssignHistory: Boolean): Boolean;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
-   procedure FillItems(const aFormSet: IvcmFormSet;
-     const aContainer: IvcmContainer;
-     aItems: TvcmFormSetFormHistoryItemList); virtual;
-   function MakeItem(const aFormSet: IvcmFormSet;
-     const aContainer: IvcmContainer;
-     const aForm: IvcmEntityForm): IvcmFormSetFormHistoryItem; virtual; abstract;
-   function DoMakeFormSet(const aContainer: IvcmContainer;
-     out aFormSet: IvcmFormSet): Boolean; virtual; abstract;
-   procedure DoLoadFormState(const aForm: IvcmEntityForm;
-     const aFormItem: IvcmFormSetFormHistoryItem); virtual;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aFormSet: IvcmFormSet;
-     const aContainer: IvcmContainer;
-     aForClone: Boolean); reintroduce;
+    const aContainer: IvcmContainer;
+    aForClone: Boolean); reintroduce;
  end;//TvcmBaseFormSetHistoryItem
 
  TvcmFormSetHistoryItem = class(TvcmBaseFormSetHistoryItem)
- private
- // private fields
-   f_Factory : IvcmFormSetSimpleFactory;
-   f_DataSource : IvcmFormSetDataSource;
-   f_FormList : TvcmFormSetFormList;
-   f_FormSetToClone : IvcmFormSet;
- protected
- // realized methods
+  private
+   f_Factory: IvcmFormSetSimpleFactory;
+   f_DataSource: IvcmFormSetDataSource;
+   f_FormList: TvcmFormSetFormList;
+   f_FormSetToClone: IvcmFormSet;
+  protected
    function MakeItem(const aFormSet: IvcmFormSet;
-     const aContainer: IvcmContainer;
-     const aForm: IvcmEntityForm): IvcmFormSetFormHistoryItem; override;
+    const aContainer: IvcmContainer;
+    const aForm: IvcmEntityForm): IvcmFormSetFormHistoryItem; override;
    function DoMakeFormSet(const aContainer: IvcmContainer;
-     out aFormSet: IvcmFormSet): Boolean; override;
- protected
- // overridden protected methods
+    out aFormSet: IvcmFormSet): Boolean; override;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure FillItems(const aFormSet: IvcmFormSet;
-     const aContainer: IvcmContainer;
-     aItems: TvcmFormSetFormHistoryItemList); override;
- public
- // public methods
+    const aContainer: IvcmContainer;
+    aItems: TvcmFormSetFormHistoryItemList); override;
+  public
    constructor Create(const aFormSet: IvcmFormSet;
-     const aContainer: IvcmContainer;
-     aForClone: Boolean); reintroduce;
+    const aContainer: IvcmContainer;
+    aForClone: Boolean); reintroduce;
    class function Make(const aFormSet: IvcmFormSet;
-     const aContainer: IvcmContainer;
-     aForClone: Boolean): IvcmFormSetHistoryItem; reintroduce;
-     {* Сигнатура фабрики TvcmFormSetHistoryItem.Make }
+    const aContainer: IvcmContainer;
+    aForClone: Boolean): IvcmFormSetHistoryItem; reintroduce;
  end;//TvcmFormSetHistoryItem
 
- TvcmHistoryFormCacheItem = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   rForm : IvcmEntityForm;
-   rGUID : TGUID;
- public
-    function EQ(const aAnother: TvcmHistoryFormCacheItem): Boolean;
+ TvcmHistoryFormCacheItem = object
+  public
+   rForm: IvcmEntityForm;
+   rGUID: TGUID;
+  public
+   function EQ(const aAnother: TvcmHistoryFormCacheItem): Boolean;
  end;//TvcmHistoryFormCacheItem
 
  TvcmFormSetFormHistoryItem = class(Tl3ProtoObject, IvcmFormSetFormHistoryItem)
- private
- // private fields
-   f_ZoneType : TvcmZoneType;
-   f_UserType : TvcmUserType;
-   f_SubUserType : TvcmUserType;
-   f_DataSource : IvcmFormDataSource;
-   f_FormData : IvcmBase;
-   f_FormClass : RvcmEntityForm;
-   f_FormID : TvcmFormID;
-   f_GUID : TGUID;
-   f_ContainerGUID : TGUID;
- protected
- // realized methods
+  private
+   f_ZoneType: TvcmZoneType;
+   f_UserType: TvcmUserType;
+   f_SubUserType: TvcmUserType;
+   f_DataSource: IvcmFormDataSource;
+   f_FormData: IvcmBase;
+   f_FormClass: RvcmEntityForm;
+   f_FormID: TvcmFormID;
+   f_GUID: TGUID;
+   f_ContainerGUID: TGUID;
+  protected
    function pm_GetZoneType: TvcmZoneType;
    function pm_GetUserType: TvcmUserType;
    function pm_GetSubUserType: TvcmUserType;
    function pm_GetDataSource: IvcmFormDataSource;
    function pm_GetFormData: IvcmBase;
    function MakeForm(const aContainer: IvcmContainer;
-     const aFormSet: IvcmFormSet;
-     const aAggregate: IvcmAggregate;
-     out aForm: IvcmEntityForm): Boolean;
+    const aFormSet: IvcmFormSet;
+    const aAggregate: IvcmAggregate;
+    out aForm: IvcmEntityForm): Boolean;
    function pm_GetFormID: TvcmFormID;
    function pm_GetGUID: TGUID;
    function pm_GetContainerGUID: TGUID;
- public
- // public methods
+  public
    constructor Create(const aForm: IvcmEntityForm); reintroduce;
    class function Make(const aForm: IvcmEntityForm): IvcmFormSetFormHistoryItem; reintroduce;
-     {* Сигнатура фабрики TvcmFormSetFormHistoryItem.Make }
  end;//TvcmFormSetFormHistoryItem
 
  TvcmFormSetHistory = class(Tl3ProtoObject, IvcmFormSetHistory)
- private
- // private fields
-   f_Items : TvcmFormSetHistoryStepList;
-   f_InBF : Boolean;
-   f_ContainerInOp : Pointer;
- private
- // private methods
+  private
+   f_Items: TvcmFormSetHistoryStepList;
+   f_InBF: Boolean;
+   f_ContainerInOp: Pointer;
+  private
    procedure SaveFormSet(const aFormSet: IvcmFormSet);
    function CloneContainer(const aContainer: IvcmContainer;
-     const aContainerMaker: IvcmContainerMaker): IvcmContainer;
+    const aContainerMaker: IvcmContainerMaker): IvcmContainer;
    procedure SaveForms(const aContainer: IvcmContainer);
    function GetFormset(const aContainer: IvcmContainer;
-     out aFormSet: IvcmFormSet): Boolean;
+    out aFormSet: IvcmFormSet): Boolean;
    procedure StartOp(const aContainer: IvcmContainer);
    procedure EndOp(const aContainer: IvcmContainer);
    function MakeStepItems(const aContainer: IvcmContainer;
-     aForClone: Boolean): IvcmFormSetHistoryStepItems;
+    aForClone: Boolean): IvcmFormSetHistoryStepItems;
    function HasAnyFormSet(const aContainer: IvcmContainer): Boolean;
    function HasNonFormsetForms(const aContainer: IvcmContainer): Boolean;
    function IsInFormset(const aForm: IvcmEntityForm): Boolean;
    function MakeStep(const aContainer: IvcmContainer;
-     aForClone: Boolean): IvcmFormSetHistoryStep;
- protected
- // realized methods
+    aForClone: Boolean): IvcmFormSetHistoryStep;
+  protected
    procedure Back(const aContainer: IvcmContainer);
    function pm_GetItemCount: Integer;
    procedure CloneTab(const aTab: Il3FormTab);
@@ -189,16 +160,11 @@ type
    function CanBack: Boolean;
    function pm_GetInBF: Boolean;
    function IsContainerInOp(const aContainer: IvcmContainer): Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    class function Make: IvcmFormSetHistory; reintroduce;
-     {* Сигнатура фабрики TvcmFormSetHistory.Make }
  end;//TvcmFormSetHistory
 
  _ItemType_ = TvcmHistoryFormCacheItem;
@@ -206,182 +172,148 @@ type
  {$Define l3Items_IsProto}
  {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
  TvcmHistoryFormCache = class(_l3RecordWithEQList_)
- public
- // public methods
+  public
    function FindForm(const aGUID: TGUID): IvcmEntityForm;
  end;//TvcmHistoryFormCache
 
  TvcmLegacyFormSetHistoryItem = class(TvcmBaseFormSetHistoryItem)
- private
- // private fields
-   f_FormCache : TvcmHistoryFormCache;
-   f_ActiveFormStored : Boolean;
-   f_ActiveFormID : TvcmFormID;
-   f_ActiveFormUserType : TvcmUserType;
-   f_ActiveFormSubUserType : TvcmUserType;
-   f_ActiveFormZoneType : TvcmZoneType;
- private
- // private methods
+  private
+   f_FormCache: TvcmHistoryFormCache;
+   f_ActiveFormStored: Boolean;
+   f_ActiveFormID: TvcmFormID;
+   f_ActiveFormUserType: TvcmUserType;
+   f_ActiveFormSubUserType: TvcmUserType;
+   f_ActiveFormZoneType: TvcmZoneType;
+  private
    function GetFormContainer(const aItem: IvcmFormSetFormHistoryItem): IvcmContainer;
    function NeedMakeForm(const anItem: IvcmFormSetFormHistoryItem;
-     const aContainer: IvcmContainer): Boolean;
- protected
- // realized methods
+    const aContainer: IvcmContainer): Boolean;
+  protected
    function MakeItem(const aFormSet: IvcmFormSet;
-     const aContainer: IvcmContainer;
-     const aForm: IvcmEntityForm): IvcmFormSetFormHistoryItem; override;
+    const aContainer: IvcmContainer;
+    const aForm: IvcmEntityForm): IvcmFormSetFormHistoryItem; override;
    function DoMakeFormSet(const aContainer: IvcmContainer;
-     out aFormSet: IvcmFormSet): Boolean; override;
- protected
- // overridden protected methods
+    out aFormSet: IvcmFormSet): Boolean; override;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure FillItems(const aFormSet: IvcmFormSet;
-     const aContainer: IvcmContainer;
-     aItems: TvcmFormSetFormHistoryItemList); override;
- public
- // public methods
+    const aContainer: IvcmContainer;
+    aItems: TvcmFormSetFormHistoryItemList); override;
+  public
    constructor Create(const aContainer: IvcmContainer;
-     aForClone: Boolean); reintroduce;
+    aForClone: Boolean); reintroduce;
    class function Make(const aContainer: IvcmContainer;
-     aForClone: Boolean): IvcmFormSetHistoryItem; reintroduce;
-     {* Сигнатура фабрики TvcmLegacyFormSetHistoryItem.Make }
+    aForClone: Boolean): IvcmFormSetHistoryItem; reintroduce;
  end;//TvcmLegacyFormSetHistoryItem
 
- PvcmHistoryFormCacheItem = ^TvcmHistoryFormCacheItem;
-
  TvcmBaseFormSetHistoryStepItem = class(Tl3ProtoObject, IvcmFormSetHistoryStepItem)
- private
- // private fields
-   f_FormSetItems : TvcmFormSetHistoryItemList;
-   f_TabParams : Il3TabParams;
- protected
- // realized methods
-   procedure Restore(const aContainer: IvcmContainer;
-     const aFormSetToClone: IvcmFormSet;
-     aNeedAssignHistory: Boolean);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
+  private
+   f_FormSetItems: TvcmFormSetHistoryItemList;
+   f_TabParams: Il3TabParams;
+  protected
    procedure FillItems(const aContainer: IvcmContainer;
-     aForClone: Boolean); virtual;
- public
- // public methods
+    aForClone: Boolean); virtual;
+   procedure Restore(const aContainer: IvcmContainer;
+    const aFormSetToClone: IvcmFormSet;
+    aNeedAssignHistory: Boolean);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aContainer: IvcmContainer;
-     aForClone: Boolean); reintroduce;
+    aForClone: Boolean); reintroduce;
    class function Make(const aContainer: IvcmContainer;
-     aForClone: Boolean): IvcmFormSetHistoryStepItem; reintroduce;
-     {* Сигнатура фабрики TvcmBaseFormSetHistoryStepItem.Make }
+    aForClone: Boolean): IvcmFormSetHistoryStepItem; reintroduce;
  end;//TvcmBaseFormSetHistoryStepItem
 
  TvcmFormSetHistoryItemStep = class(TvcmBaseFormSetHistoryStepItem)
- protected
- // overridden protected methods
+  protected
    procedure FillItems(const aContainer: IvcmContainer;
-     aForClone: Boolean); override;
+    aForClone: Boolean); override;
  end;//TvcmFormSetHistoryItemStep
 
  TvcmLegacyFormSetHistoryItemStep = class(TvcmBaseFormSetHistoryStepItem)
- protected
- // overridden protected methods
+  protected
    procedure FillItems(const aContainer: IvcmContainer;
-     aForClone: Boolean); override;
+    aForClone: Boolean); override;
  end;//TvcmLegacyFormSetHistoryItemStep
 
  TvcmFormSetHistoryStepItems = class(Tl3ProtoObject, IvcmFormSetHistoryStepItems)
- private
- // private fields
-   f_Steps : TvcmFormSetHistoryStepItemList;
-   f_CurrentIndex : Integer;
- protected
- // realized methods
+  private
+   f_Steps: TvcmFormSetHistoryStepItemList;
+   f_CurrentIndex: Integer;
+  protected
    function pm_GetNext: Boolean;
    function Get_Current: IvcmFormSetHistoryStepItem;
    procedure Add(const anItem: IvcmFormSetHistoryStepItem);
    procedure Reset;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    class function Make: IvcmFormSetHistoryStepItems; reintroduce;
-     {* Сигнатура фабрики TvcmFormSetHistoryStepItems.Make }
  end;//TvcmFormSetHistoryStepItems
 
  TvcmFormSetHistoryStep = class(Tl3ProtoObject, IvcmFormSetHistoryStep)
- private
- // private fields
-   f_Steps : IvcmFormSetHistoryStepItems;
- protected
- // realized methods
+  private
+   f_Steps: IvcmFormSetHistoryStepItems;
+  protected
    function pm_GetNext: Boolean;
    function Get_Current: IvcmFormSetHistoryStepItem;
    procedure Add(const anItem: IvcmFormSetHistoryStepItem);
    procedure Restore(const aContainer: IvcmContainer;
-     const aFormSetToClone: IvcmFormSet;
-     aNeedAssignHistory: Boolean);
+    const aFormSetToClone: IvcmFormSet;
+    aNeedAssignHistory: Boolean);
    procedure Reset;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aSteps: IvcmFormSetHistoryStepItems); reintroduce;
    class function Make(const aSteps: IvcmFormSetHistoryStepItems): IvcmFormSetHistoryStep; reintroduce;
-     {* Сигнатура фабрики TvcmFormSetHistoryStep.Make }
  end;//TvcmFormSetHistoryStep
 
 function TvcmHistoryFormCacheItem_C(const aForm: IvcmEntityForm;
-    const aGUID: TGUID): TvcmHistoryFormCacheItem;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ const aGUID: TGUID): TvcmHistoryFormCacheItem;
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  vcmIEntityFormList,
-  l3InterfacesMisc,
-  vcmFormSetContainerRegistry,
-  vcmAggregate,
-  vcmBase,
-  vcmTabbedContainerFormDispatcher
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmIEntityFormList
+ , l3InterfacesMisc
+ , vcmFormSetContainerRegistry
+ , vcmAggregate
+ , vcmBase
+ , vcmTabbedContainerFormDispatcher
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+;
 
-// start class TvcmBaseFormSetHistoryItem
-
-procedure TvcmBaseFormSetHistoryItem.LoadFormsState;
-//#UC START# *55C9B6EF01AE_55A4AE43002D_var*
-//#UC END# *55C9B6EF01AE_55A4AE43002D_var*
+function TvcmHistoryFormCacheItem_C(const aForm: IvcmEntityForm;
+ const aGUID: TGUID): TvcmHistoryFormCacheItem;
+//#UC START# *55C8648A0397_55C86432033A_var*
+//#UC END# *55C8648A0397_55C86432033A_var*
 begin
-//#UC START# *55C9B6EF01AE_55A4AE43002D_impl*
- Assert(False);
-//#UC END# *55C9B6EF01AE_55A4AE43002D_impl*
-end;//TvcmBaseFormSetHistoryItem.LoadFormsState
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *55C8648A0397_55C86432033A_impl*
+ Result.rGUID := aGUID;
+ Result.rForm := aForm;
+//#UC END# *55C8648A0397_55C86432033A_impl*
+end;//TvcmHistoryFormCacheItem_C
 
 procedure TvcmBaseFormSetHistoryItem.FillItems(const aFormSet: IvcmFormSet;
-  const aContainer: IvcmContainer;
-  aItems: TvcmFormSetFormHistoryItemList);
+ const aContainer: IvcmContainer;
+ aItems: TvcmFormSetFormHistoryItemList);
 //#UC START# *55A4BB09012B_55A4AE43002D_var*
 //#UC END# *55A4BB09012B_55A4AE43002D_var*
 begin
@@ -391,8 +323,8 @@ begin
 end;//TvcmBaseFormSetHistoryItem.FillItems
 
 constructor TvcmBaseFormSetHistoryItem.Create(const aFormSet: IvcmFormSet;
-  const aContainer: IvcmContainer;
-  aForClone: Boolean);
+ const aContainer: IvcmContainer;
+ aForClone: Boolean);
 //#UC START# *55A4BBCC00E5_55A4AE43002D_var*
 var
  l_ContainedForm: IvcmContainedForm;
@@ -411,8 +343,17 @@ begin
 //#UC END# *55A4BBCC00E5_55A4AE43002D_impl*
 end;//TvcmBaseFormSetHistoryItem.Create
 
+procedure TvcmBaseFormSetHistoryItem.LoadFormsState;
+//#UC START# *55C9B6EF01AE_55A4AE43002D_var*
+//#UC END# *55C9B6EF01AE_55A4AE43002D_var*
+begin
+//#UC START# *55C9B6EF01AE_55A4AE43002D_impl*
+ Assert(False);
+//#UC END# *55C9B6EF01AE_55A4AE43002D_impl*
+end;//TvcmBaseFormSetHistoryItem.LoadFormsState
+
 procedure TvcmBaseFormSetHistoryItem.DoLoadFormState(const aForm: IvcmEntityForm;
-  const aFormItem: IvcmFormSetFormHistoryItem);
+ const aFormItem: IvcmFormSetFormHistoryItem);
 //#UC START# *55C9B70700FF_55A4AE43002D_var*
 //#UC END# *55C9B70700FF_55A4AE43002D_var*
 begin
@@ -449,8 +390,8 @@ begin
 end;//TvcmBaseFormSetHistoryItem.GetItem
 
 function TvcmBaseFormSetHistoryItem.MakeFormSet(const aContainer: IvcmContainer;
-  out aFormSet: IvcmFormSet;
-  aNeedAssignHistory: Boolean): Boolean;
+ out aFormSet: IvcmFormSet;
+ aNeedAssignHistory: Boolean): Boolean;
 //#UC START# *55A4A5A90145_55A4AE43002D_var*
 var
  l_ContainedForm: IvcmContainedForm;
@@ -469,6 +410,7 @@ begin
 end;//TvcmBaseFormSetHistoryItem.MakeFormSet
 
 procedure TvcmBaseFormSetHistoryItem.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55A4AE43002D_var*
 //#UC END# *479731C50290_55A4AE43002D_var*
 begin
@@ -479,11 +421,10 @@ begin
  inherited;
 //#UC END# *479731C50290_55A4AE43002D_impl*
 end;//TvcmBaseFormSetHistoryItem.Cleanup
-// start class TvcmFormSetHistoryItem
 
 constructor TvcmFormSetHistoryItem.Create(const aFormSet: IvcmFormSet;
-  const aContainer: IvcmContainer;
-  aForClone: Boolean);
+ const aContainer: IvcmContainer;
+ aForClone: Boolean);
 //#UC START# *55A4BC700145_55A4BC100361_var*
 //#UC END# *55A4BC700145_55A4BC100361_var*
 begin
@@ -506,8 +447,8 @@ begin
 end;//TvcmFormSetHistoryItem.Create
 
 class function TvcmFormSetHistoryItem.Make(const aFormSet: IvcmFormSet;
-  const aContainer: IvcmContainer;
-  aForClone: Boolean): IvcmFormSetHistoryItem;
+ const aContainer: IvcmContainer;
+ aForClone: Boolean): IvcmFormSetHistoryItem;
 var
  l_Inst : TvcmFormSetHistoryItem;
 begin
@@ -517,11 +458,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmFormSetHistoryItem.Make
 
 function TvcmFormSetHistoryItem.MakeItem(const aFormSet: IvcmFormSet;
-  const aContainer: IvcmContainer;
-  const aForm: IvcmEntityForm): IvcmFormSetFormHistoryItem;
+ const aContainer: IvcmContainer;
+ const aForm: IvcmEntityForm): IvcmFormSetFormHistoryItem;
 //#UC START# *55A4BB850020_55A4BC100361_var*
 //#UC END# *55A4BB850020_55A4BC100361_var*
 begin
@@ -531,7 +472,7 @@ begin
 end;//TvcmFormSetHistoryItem.MakeItem
 
 function TvcmFormSetHistoryItem.DoMakeFormSet(const aContainer: IvcmContainer;
-  out aFormSet: IvcmFormSet): Boolean;
+ out aFormSet: IvcmFormSet): Boolean;
 //#UC START# *55A4C21A006B_55A4BC100361_var*
 
  function lp_GetFormItem(const aForm: IvcmEntityForm): IvcmFormSetFormHistoryItem;
@@ -579,6 +520,7 @@ begin
 end;//TvcmFormSetHistoryItem.DoMakeFormSet
 
 procedure TvcmFormSetHistoryItem.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55A4BC100361_var*
 //#UC END# *479731C50290_55A4BC100361_var*
 begin
@@ -589,8 +531,8 @@ begin
 end;//TvcmFormSetHistoryItem.Cleanup
 
 procedure TvcmFormSetHistoryItem.FillItems(const aFormSet: IvcmFormSet;
-  const aContainer: IvcmContainer;
-  aItems: TvcmFormSetFormHistoryItemList);
+ const aContainer: IvcmContainer;
+ aItems: TvcmFormSetFormHistoryItemList);
 //#UC START# *55A4BB09012B_55A4BC100361_var*
 var
  l_Index: Integer;
@@ -610,7 +552,6 @@ begin
  end;
 //#UC END# *55A4BB09012B_55A4BC100361_impl*
 end;//TvcmFormSetHistoryItem.FillItems
-// start class TvcmHistoryFormCacheItem
 
 function TvcmHistoryFormCacheItem.EQ(const aAnother: TvcmHistoryFormCacheItem): Boolean;
 //#UC START# *55C86479026B_55C86432033A_var*
@@ -621,21 +562,6 @@ begin
            IsEqualGUID(aAnother.rGUID, rGUID);
 //#UC END# *55C86479026B_55C86432033A_impl*
 end;//TvcmHistoryFormCacheItem.EQ
-
-function TvcmHistoryFormCacheItem_C(const aForm: IvcmEntityForm;
-       const aGUID: TGUID): TvcmHistoryFormCacheItem;
-//#UC START# *55C8648A0397_55C86432033A_var*
-//#UC END# *55C8648A0397_55C86432033A_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *55C8648A0397_55C86432033A_impl*
- Result.rGUID := aGUID;
- Result.rForm := aForm;
-//#UC END# *55C8648A0397_55C86432033A_impl*
-end;//TvcmHistoryFormCacheItem.C
-
-// start class TvcmFormSetFormHistoryItem
 
 constructor TvcmFormSetFormHistoryItem.Create(const aForm: IvcmEntityForm);
 //#UC START# *55A4E8DA034B_55A4C8F4024D_var*
@@ -666,7 +592,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmFormSetFormHistoryItem.Make
 
 function TvcmFormSetFormHistoryItem.pm_GetZoneType: TvcmZoneType;
 //#UC START# *55A4A5290317_55A4C8F4024Dget_var*
@@ -714,9 +640,9 @@ begin
 end;//TvcmFormSetFormHistoryItem.pm_GetFormData
 
 function TvcmFormSetFormHistoryItem.MakeForm(const aContainer: IvcmContainer;
-  const aFormSet: IvcmFormSet;
-  const aAggregate: IvcmAggregate;
-  out aForm: IvcmEntityForm): Boolean;
+ const aFormSet: IvcmFormSet;
+ const aAggregate: IvcmAggregate;
+ out aForm: IvcmEntityForm): Boolean;
 //#UC START# *55A4A5F30313_55A4C8F4024D_var*
 var
  l_GUID: TGUID;
@@ -757,7 +683,28 @@ begin
  Result := f_ContainerGUID;
 //#UC END# *55C4920F0257_55A4C8F4024Dget_impl*
 end;//TvcmFormSetFormHistoryItem.pm_GetContainerGUID
-// start class TvcmFormSetHistory
+
+constructor TvcmFormSetHistory.Create;
+//#UC START# *55A63AE5034E_55A5EB6F0346_var*
+//#UC END# *55A63AE5034E_55A5EB6F0346_var*
+begin
+//#UC START# *55A63AE5034E_55A5EB6F0346_impl*
+ inherited;
+ f_Items := TvcmFormSetHistoryStepList.Create;
+//#UC END# *55A63AE5034E_55A5EB6F0346_impl*
+end;//TvcmFormSetHistory.Create
+
+class function TvcmFormSetHistory.Make: IvcmFormSetHistory;
+var
+ l_Inst : TvcmFormSetHistory;
+begin
+ l_Inst := Create;
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TvcmFormSetHistory.Make
 
 procedure TvcmFormSetHistory.SaveFormSet(const aFormSet: IvcmFormSet);
 //#UC START# *55A7402F0390_55A5EB6F0346_var*
@@ -769,7 +716,7 @@ begin
 end;//TvcmFormSetHistory.SaveFormSet
 
 function TvcmFormSetHistory.CloneContainer(const aContainer: IvcmContainer;
-  const aContainerMaker: IvcmContainerMaker): IvcmContainer;
+ const aContainerMaker: IvcmContainerMaker): IvcmContainer;
 //#UC START# *55A77BB20049_55A5EB6F0346_var*
 var
  l_Step: IvcmFormSetHistoryStep;
@@ -824,7 +771,7 @@ begin
 end;//TvcmFormSetHistory.SaveForms
 
 function TvcmFormSetHistory.GetFormset(const aContainer: IvcmContainer;
-  out aFormSet: IvcmFormSet): Boolean;
+ out aFormSet: IvcmFormSet): Boolean;
 //#UC START# *55AF6AB902E5_55A5EB6F0346_var*
 //#UC END# *55AF6AB902E5_55A5EB6F0346_var*
 begin
@@ -855,7 +802,7 @@ begin
 end;//TvcmFormSetHistory.EndOp
 
 function TvcmFormSetHistory.MakeStepItems(const aContainer: IvcmContainer;
-  aForClone: Boolean): IvcmFormSetHistoryStepItems;
+ aForClone: Boolean): IvcmFormSetHistoryStepItems;
 //#UC START# *55E54A7100E5_55A5EB6F0346_var*
 //#UC END# *55E54A7100E5_55A5EB6F0346_var*
 begin
@@ -950,7 +897,7 @@ begin
 end;//TvcmFormSetHistory.IsInFormset
 
 function TvcmFormSetHistory.MakeStep(const aContainer: IvcmContainer;
-  aForClone: Boolean): IvcmFormSetHistoryStep;
+ aForClone: Boolean): IvcmFormSetHistoryStep;
 //#UC START# *56024FA0004B_55A5EB6F0346_var*
 //#UC END# *56024FA0004B_55A5EB6F0346_var*
 begin
@@ -958,28 +905,6 @@ begin
  Result := TvcmFormSetHistoryStep.Make(MakeStepItems(aContainer, aForClone));
 //#UC END# *56024FA0004B_55A5EB6F0346_impl*
 end;//TvcmFormSetHistory.MakeStep
-
-constructor TvcmFormSetHistory.Create;
-//#UC START# *55A63AE5034E_55A5EB6F0346_var*
-//#UC END# *55A63AE5034E_55A5EB6F0346_var*
-begin
-//#UC START# *55A63AE5034E_55A5EB6F0346_impl*
- inherited;
- f_Items := TvcmFormSetHistoryStepList.Create;
-//#UC END# *55A63AE5034E_55A5EB6F0346_impl*
-end;//TvcmFormSetHistory.Create
-
-class function TvcmFormSetHistory.Make: IvcmFormSetHistory;
-var
- l_Inst : TvcmFormSetHistory;
-begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
 
 procedure TvcmFormSetHistory.Back(const aContainer: IvcmContainer);
 //#UC START# *55A4A45E022B_55A5EB6F0346_var*
@@ -1079,6 +1004,7 @@ begin
 end;//TvcmFormSetHistory.IsContainerInOp
 
 procedure TvcmFormSetHistory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55A5EB6F0346_var*
 //#UC END# *479731C50290_55A5EB6F0346_var*
 begin
@@ -1087,13 +1013,12 @@ begin
  inherited;
 //#UC END# *479731C50290_55A5EB6F0346_impl*
 end;//TvcmFormSetHistory.Cleanup
-// start class TvcmHistoryFormCache
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_55C864BA02BE_var*
 //#UC END# *47B2C42A0163_55C864BA02BE_var*
 begin
@@ -1101,9 +1026,10 @@ begin
  Assert(False);
 //#UC END# *47B2C42A0163_55C864BA02BE_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_55C864BA02BE_var*
 //#UC END# *47B99D4503A2_55C864BA02BE_var*
 begin
@@ -1116,8 +1042,6 @@ end;//CompareExistingItems
 type _Instance_R_ = TvcmHistoryFormCache;
 
 {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
-
-// start class TvcmHistoryFormCache
 
 function TvcmHistoryFormCache.FindForm(const aGUID: TGUID): IvcmEntityForm;
 //#UC START# *55C893D00196_55C864BA02BE_var*
@@ -1139,7 +1063,30 @@ begin
  Result := l_Form;
 //#UC END# *55C893D00196_55C864BA02BE_impl*
 end;//TvcmHistoryFormCache.FindForm
-// start class TvcmLegacyFormSetHistoryItem
+
+constructor TvcmLegacyFormSetHistoryItem.Create(const aContainer: IvcmContainer;
+ aForClone: Boolean);
+//#UC START# *55A4BCC1028B_55A4BC2300E5_var*
+//#UC END# *55A4BCC1028B_55A4BC2300E5_var*
+begin
+//#UC START# *55A4BCC1028B_55A4BC2300E5_impl*
+ f_FormCache := TvcmHistoryFormCache.Create;
+ inherited Create(nil, aContainer, aForClone);
+//#UC END# *55A4BCC1028B_55A4BC2300E5_impl*
+end;//TvcmLegacyFormSetHistoryItem.Create
+
+class function TvcmLegacyFormSetHistoryItem.Make(const aContainer: IvcmContainer;
+ aForClone: Boolean): IvcmFormSetHistoryItem;
+var
+ l_Inst : TvcmLegacyFormSetHistoryItem;
+begin
+ l_Inst := Create(aContainer, aForClone);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TvcmLegacyFormSetHistoryItem.Make
 
 function TvcmLegacyFormSetHistoryItem.GetFormContainer(const aItem: IvcmFormSetFormHistoryItem): IvcmContainer;
 //#UC START# *55C4923D0196_55A4BC2300E5_var*
@@ -1162,7 +1109,7 @@ begin
 end;//TvcmLegacyFormSetHistoryItem.GetFormContainer
 
 function TvcmLegacyFormSetHistoryItem.NeedMakeForm(const anItem: IvcmFormSetFormHistoryItem;
-  const aContainer: IvcmContainer): Boolean;
+ const aContainer: IvcmContainer): Boolean;
 //#UC START# *55FFA8C202CD_55A4BC2300E5_var*
 var
  l_Form: IvcmEntityForm;
@@ -1174,33 +1121,9 @@ begin
 //#UC END# *55FFA8C202CD_55A4BC2300E5_impl*
 end;//TvcmLegacyFormSetHistoryItem.NeedMakeForm
 
-constructor TvcmLegacyFormSetHistoryItem.Create(const aContainer: IvcmContainer;
-  aForClone: Boolean);
-//#UC START# *55A4BCC1028B_55A4BC2300E5_var*
-//#UC END# *55A4BCC1028B_55A4BC2300E5_var*
-begin
-//#UC START# *55A4BCC1028B_55A4BC2300E5_impl*
- f_FormCache := TvcmHistoryFormCache.Create;
- inherited Create(nil, aContainer, aForClone);
-//#UC END# *55A4BCC1028B_55A4BC2300E5_impl*
-end;//TvcmLegacyFormSetHistoryItem.Create
-
-class function TvcmLegacyFormSetHistoryItem.Make(const aContainer: IvcmContainer;
-  aForClone: Boolean): IvcmFormSetHistoryItem;
-var
- l_Inst : TvcmLegacyFormSetHistoryItem;
-begin
- l_Inst := Create(aContainer, aForClone);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
 function TvcmLegacyFormSetHistoryItem.MakeItem(const aFormSet: IvcmFormSet;
-  const aContainer: IvcmContainer;
-  const aForm: IvcmEntityForm): IvcmFormSetFormHistoryItem;
+ const aContainer: IvcmContainer;
+ const aForm: IvcmEntityForm): IvcmFormSetFormHistoryItem;
 //#UC START# *55A4BB850020_55A4BC2300E5_var*
 //#UC END# *55A4BB850020_55A4BC2300E5_var*
 begin
@@ -1210,7 +1133,7 @@ begin
 end;//TvcmLegacyFormSetHistoryItem.MakeItem
 
 function TvcmLegacyFormSetHistoryItem.DoMakeFormSet(const aContainer: IvcmContainer;
-  out aFormSet: IvcmFormSet): Boolean;
+ out aFormSet: IvcmFormSet): Boolean;
 //#UC START# *55A4C21A006B_55A4BC2300E5_var*
 var
  l_ActiveInParentForm: IvcmEntityForm;
@@ -1260,6 +1183,7 @@ begin
 end;//TvcmLegacyFormSetHistoryItem.DoMakeFormSet
 
 procedure TvcmLegacyFormSetHistoryItem.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55A4BC2300E5_var*
 //#UC END# *479731C50290_55A4BC2300E5_var*
 begin
@@ -1270,8 +1194,8 @@ begin
 end;//TvcmLegacyFormSetHistoryItem.Cleanup
 
 procedure TvcmLegacyFormSetHistoryItem.FillItems(const aFormSet: IvcmFormSet;
-  const aContainer: IvcmContainer;
-  aItems: TvcmFormSetFormHistoryItemList);
+ const aContainer: IvcmContainer;
+ aItems: TvcmFormSetFormHistoryItemList);
 //#UC START# *55A4BB09012B_55A4BC2300E5_var*
 var
  l_List: TvcmIEntityFormList;
@@ -1353,10 +1277,9 @@ begin
  end;
 //#UC END# *55A4BB09012B_55A4BC2300E5_impl*
 end;//TvcmLegacyFormSetHistoryItem.FillItems
-// start class TvcmBaseFormSetHistoryStepItem
 
 constructor TvcmBaseFormSetHistoryStepItem.Create(const aContainer: IvcmContainer;
-  aForClone: Boolean);
+ aForClone: Boolean);
 //#UC START# *55E409B1026B_55E4091E0038_var*
 var
  l_Tab: Il3FormTab;
@@ -1377,7 +1300,7 @@ begin
 end;//TvcmBaseFormSetHistoryStepItem.Create
 
 class function TvcmBaseFormSetHistoryStepItem.Make(const aContainer: IvcmContainer;
-  aForClone: Boolean): IvcmFormSetHistoryStepItem;
+ aForClone: Boolean): IvcmFormSetHistoryStepItem;
 var
  l_Inst : TvcmBaseFormSetHistoryStepItem;
 begin
@@ -1387,10 +1310,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmBaseFormSetHistoryStepItem.Make
 
 procedure TvcmBaseFormSetHistoryStepItem.FillItems(const aContainer: IvcmContainer;
-  aForClone: Boolean);
+ aForClone: Boolean);
 //#UC START# *55E40ECA011A_55E4091E0038_var*
 //#UC END# *55E40ECA011A_55E4091E0038_var*
 begin
@@ -1399,8 +1322,8 @@ begin
 end;//TvcmBaseFormSetHistoryStepItem.FillItems
 
 procedure TvcmBaseFormSetHistoryStepItem.Restore(const aContainer: IvcmContainer;
-  const aFormSetToClone: IvcmFormSet;
-  aNeedAssignHistory: Boolean);
+ const aFormSetToClone: IvcmFormSet;
+ aNeedAssignHistory: Boolean);
 //#UC START# *55E4037A0376_55E4091E0038_var*
 var
  l_Index: Integer;
@@ -1425,6 +1348,7 @@ begin
 end;//TvcmBaseFormSetHistoryStepItem.Restore
 
 procedure TvcmBaseFormSetHistoryStepItem.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55E4091E0038_var*
 //#UC END# *479731C50290_55E4091E0038_var*
 begin
@@ -1433,10 +1357,9 @@ begin
  inherited;
 //#UC END# *479731C50290_55E4091E0038_impl*
 end;//TvcmBaseFormSetHistoryStepItem.Cleanup
-// start class TvcmFormSetHistoryItemStep
 
 procedure TvcmFormSetHistoryItemStep.FillItems(const aContainer: IvcmContainer;
-  aForClone: Boolean);
+ aForClone: Boolean);
 //#UC START# *55E40ECA011A_55E55065035D_var*
 
  function lp_DoAddItem(const aFormSet: IvcmFormSet): Boolean;
@@ -1453,10 +1376,9 @@ begin
   ForEachF(L2TvcmFormSetContainerMapIteratorForEachFAction(@lp_DoAddItem), aContainer);
 //#UC END# *55E40ECA011A_55E55065035D_impl*
 end;//TvcmFormSetHistoryItemStep.FillItems
-// start class TvcmLegacyFormSetHistoryItemStep
 
 procedure TvcmLegacyFormSetHistoryItemStep.FillItems(const aContainer: IvcmContainer;
-  aForClone: Boolean);
+ aForClone: Boolean);
 //#UC START# *55E40ECA011A_55E5507203BD_var*
 //#UC END# *55E40ECA011A_55E5507203BD_var*
 begin
@@ -1464,7 +1386,6 @@ begin
  f_FormSetItems.Add(TvcmLegacyFormSetHistoryItem.Make(aContainer, aForClone));
 //#UC END# *55E40ECA011A_55E5507203BD_impl*
 end;//TvcmLegacyFormSetHistoryItemStep.FillItems
-// start class TvcmFormSetHistoryStepItems
 
 constructor TvcmFormSetHistoryStepItems.Create;
 //#UC START# *55F7CDE00187_55F7CD4B039A_var*
@@ -1487,7 +1408,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmFormSetHistoryStepItems.Make
 
 function TvcmFormSetHistoryStepItems.pm_GetNext: Boolean;
 //#UC START# *55F7CCDD01AE_55F7CD4B039Aget_var*
@@ -1528,6 +1449,7 @@ begin
 end;//TvcmFormSetHistoryStepItems.Reset
 
 procedure TvcmFormSetHistoryStepItems.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55F7CD4B039A_var*
 //#UC END# *479731C50290_55F7CD4B039A_var*
 begin
@@ -1536,7 +1458,6 @@ begin
  inherited;
 //#UC END# *479731C50290_55F7CD4B039A_impl*
 end;//TvcmFormSetHistoryStepItems.Cleanup
-// start class TvcmFormSetHistoryStep
 
 constructor TvcmFormSetHistoryStep.Create(const aSteps: IvcmFormSetHistoryStepItems);
 //#UC START# *56024E5400EC_56024DEC0148_var*
@@ -1558,7 +1479,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmFormSetHistoryStep.Make
 
 function TvcmFormSetHistoryStep.pm_GetNext: Boolean;
 //#UC START# *55F7CCDD01AE_56024DEC0148get_var*
@@ -1588,8 +1509,8 @@ begin
 end;//TvcmFormSetHistoryStep.Add
 
 procedure TvcmFormSetHistoryStep.Restore(const aContainer: IvcmContainer;
-  const aFormSetToClone: IvcmFormSet;
-  aNeedAssignHistory: Boolean);
+ const aFormSetToClone: IvcmFormSet;
+ aNeedAssignHistory: Boolean);
 //#UC START# *560246E502E8_56024DEC0148_var*
 //#UC END# *560246E502E8_56024DEC0148_var*
 begin
@@ -1610,6 +1531,7 @@ begin
 end;//TvcmFormSetHistoryStep.Reset
 
 procedure TvcmFormSetHistoryStep.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56024DEC0148_var*
 //#UC END# *479731C50290_56024DEC0148_var*
 begin
@@ -1618,6 +1540,6 @@ begin
  inherited;
 //#UC END# *479731C50290_56024DEC0148_impl*
 end;//TvcmFormSetHistoryStep.Cleanup
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 end.

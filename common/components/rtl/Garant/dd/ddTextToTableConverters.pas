@@ -1,139 +1,111 @@
 unit ddTextToTableConverters;
+ {* Набор классов для преобразования различных текстов в таблицы }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddTextToTableConverters.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::Convertors::ddTextToTableConverters
-//
-// Набор классов для преобразования различных текстов в таблицы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddTextToTableConverters.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ddTextToTableConverters" MUID: (4DCA38890051)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  evdTypes,
-  l3Base,
-  l3StringList,
-  l3Parser,
-  ddTableConvTypes,
-  ddDocument,
-  ddVirtualTable,
-  ddTableCell,
-  ddTableRow,
-  ddRowList,
-  ddTextParagraph
-  ;
+ l3IntfUses
+ , l3Base
+ , ddTextParagraph
+ , l3StringList
+ , ddTableConvTypes
+ , ddDocument
+ , ddRowList
+ , ddTableRow
+ , ddVirtualTable
+ , evdTypes
+ , ddTableCell
+ , l3Parser
+;
 
 type
  TddAbstractTable = {abstract} class(Tl3Base)
- private
- // private fields
-   f_CurLine : Integer;
-   f_RowList : TddRowList;
-   f_Row : TddTableRow;
-   f_Lines : Tl3StringList;
-    {* Поле для свойства Lines}
-   f_AutoFit : TddAutoFitBehavior;
-    {* Поле для свойства AutoFit}
-   f_CellCount : Integer;
-    {* Поле для свойства CellCount}
-   f_ComplexTable : Boolean;
-    {* Поле для свойства ComplexTable}
-   f_FormatBuffer : TddDocument;
-    {* Поле для свойства FormatBuffer}
-   f_RowCount : Integer;
-    {* Поле для свойства RowCount}
-   f_GlueLines : Boolean;
-    {* Поле для свойства GlueLines}
-   f_TableWidth : Integer;
-    {* Поле для свойства TableWidth}
- protected
- // property methods
+  private
+   f_CurLine: Integer;
+   f_RowList: TddRowList;
+   f_Row: TddTableRow;
+   f_Lines: Tl3StringList;
+    {* Поле для свойства Lines }
+   f_AutoFit: TddAutoFitBehavior;
+    {* Поле для свойства AutoFit }
+   f_CellCount: Integer;
+    {* Поле для свойства CellCount }
+   f_ComplexTable: Boolean;
+    {* Поле для свойства ComplexTable }
+   f_FormatBuffer: TddDocument;
+    {* Поле для свойства FormatBuffer }
+   f_RowCount: Integer;
+    {* Поле для свойства RowCount }
+   f_GlueLines: Boolean;
+    {* Поле для свойства GlueLines }
+   f_TableWidth: Integer;
+    {* Поле для свойства TableWidth }
+  protected
    procedure pm_SetLines(aValue: Tl3StringList);
    procedure pm_SetAutoFit(aValue: TddAutoFitBehavior);
    procedure pm_SetCellCount(aValue: Integer);
    procedure pm_SetFormatBuffer(aValue: TddDocument);
    procedure pm_SetRowCount(aValue: Integer);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   constructor Create; override;
-     {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
- protected
- // protected methods
    procedure RecalcRows; virtual;
    function ApplyFormatting(aP: TddTextParagraph;
-     const aCell: TddTableCell): Boolean;
+    const aCell: TddTableCell): Boolean;
    function GetPrevCell(aCell: TddTableCell): TddTableCell;
- public
- // public methods
-   procedure Analyze(const aAutoFit: TddAutoFitBehavior = afContent); virtual;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
+   procedure Analyze(const aAutoFit: TddAutoFitBehavior = ddTableConvTypes.afContent); virtual;
    procedure CopyToVirtualTable(aTable: TddVirtualTable); virtual;
    function CheckJustification(aText: Tl3String;
-     aCellWidth: Integer): TevIndentType;
+    aCellWidth: Integer): TevIndentType;
    procedure AddParagraph(aText: Tl3String = nil;
-     aCell: TddTableCell = nil);
+    aCell: TddTableCell = nil);
    procedure AddText(aCell: TddTableCell;
-     aText: Tl3String); overload; 
+    aText: Tl3String); overload;
    procedure AddText(aCell: TddTableCell;
-     aText: Tl3String;
-     aStart: Integer;
-     aLen: Integer); overload; 
- public
- // public properties
+    aText: Tl3String;
+    aStart: Integer;
+    aLen: Integer); overload;
+   constructor Create; override;
+    {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
+  public
    property Lines: Tl3StringList
-     read f_Lines
-     write pm_SetLines;
+    read f_Lines
+    write pm_SetLines;
    property AutoFit: TddAutoFitBehavior
-     read f_AutoFit
-     write pm_SetAutoFit;
+    read f_AutoFit
+    write pm_SetAutoFit;
    property CellCount: Integer
-     read f_CellCount
-     write pm_SetCellCount;
+    read f_CellCount
+    write pm_SetCellCount;
    property ComplexTable: Boolean
-     read f_ComplexTable;
+    read f_ComplexTable;
    property FormatBuffer: TddDocument
-     read f_FormatBuffer
-     write pm_SetFormatBuffer;
+    read f_FormatBuffer
+    write pm_SetFormatBuffer;
    property RowCount: Integer
-     read f_RowCount
-     write pm_SetRowCount;
+    read f_RowCount
+    write pm_SetRowCount;
    property GlueLines: Boolean
-     read f_GlueLines
-     write f_GlueLines;
+    read f_GlueLines
+    write f_GlueLines;
    property TableWidth: Integer
-     read f_TableWidth
-     write f_TableWidth;
+    read f_TableWidth
+    write f_TableWidth;
  end;//TddAbstractTable
 
  TddGraphicTable = class(TddAbstractTable)
- private
- // private fields
-   f_LineParser : Tl3CustomParser;
-   f_Text : Tl3String;
-   f_LogicalTable : Boolean;
-    {* Флаг несоответствия количества ячеек в текущей строке и следующей.}
- protected
- // overridden protected methods
-   procedure RecalcRows; override;
- public
- // overridden public methods
-   procedure Analyze(const aAutoFit: TddAutoFitBehavior = afContent); override;
- protected
- // protected methods
+  private
+   f_LineParser: Tl3CustomParser;
+   f_Text: Tl3String;
+   f_LogicalTable: Boolean;
+    {* Флаг несоответствия количества ячеек в текущей строке и следующей. }
+  protected
    function CheckRowEnd: Boolean;
    procedure CheckMixed(const OnlySpaces: Boolean = False);
    procedure CheckOnlyGraphic;
@@ -143,75 +115,66 @@ type
    procedure CorrectRow;
    function ConvertCellToRow(aBottomBorder: Boolean): Boolean;
    function GetPrevVMergeCell(aPos: Integer;
-     aNeedCheckVMerge: Boolean): TddTableCell;
+    aNeedCheckVMerge: Boolean): TddTableCell;
+   procedure RecalcRows; override;
+  public
+   procedure Analyze(const aAutoFit: TddAutoFitBehavior = ddTableConvTypes.afContent); override;
  end;//TddGraphicTable
 
  TddSpaceTable = class(TddAbstractTable)
- public
- // overridden public methods
-   procedure Analyze(const aAutoFit: TddAutoFitBehavior = afContent); override;
- protected
- // protected methods
+  protected
    procedure Map2Row(aMap: Tl3String);
+  public
+   procedure Analyze(const aAutoFit: TddAutoFitBehavior = ddTableConvTypes.afContent); override;
  end;//TddSpaceTable
 
  TddSeparatorTable = class(TddAbstractTable)
- private
- // private fields
-   f_Separator : AnsiChar;
-    {* Поле для свойства Separator}
- protected
- // property methods
+  private
+   f_Separator: AnsiChar;
+    {* Поле для свойства Separator }
+  protected
    procedure pm_SetSeparator(aValue: AnsiChar); virtual;
- protected
- // overridden protected methods
    procedure RecalcRows; override;
- public
- // overridden public methods
-   procedure Analyze(const aAutoFit: TddAutoFitBehavior = afContent); override;
- public
- // public methods
+  public
    constructor Create(aSeparator: AnsiChar); reintroduce;
- public
- // public properties
+   procedure Analyze(const aAutoFit: TddAutoFitBehavior = ddTableConvTypes.afContent); override;
+  public
    property Separator: AnsiChar
-     read f_Separator
-     write pm_SetSeparator;
+    read f_Separator
+    write pm_SetSeparator;
  end;//TddSeparatorTable
 
  TddParagraphTable = class(TddAbstractTable)
   {* TddParagraphTable }
- public
- // overridden public methods
-   procedure Analyze(const aAutoFit: TddAutoFitBehavior = afContent); override;
- protected
- // protected methods
+  protected
    function CalcTextLen(aText: Tl3String): Integer;
+  public
+   procedure Analyze(const aAutoFit: TddAutoFitBehavior = ddTableConvTypes.afContent); override;
  end;//TddParagraphTable
 
 implementation
 
 uses
-  l3MinMax,
-  l3String,
-  SysUtils,
-  ddTextSegment,
-  ddDocumentAtom,
-  ddBase,
-  ddDocumentAtomList,
-  ddTextParaString,
-  Classes,
-  l3Interfaces,
-  l3Memory,
-  l3Filer,
-  RTFtypes,
-  ddCellProperty,
-  l3Types,
-  l3Chars
-  ;
+ l3ImplUses
+ , l3Chars
+ , l3String
+ , ddTextSegment
+ , ddDocumentAtom
+ , ddBase
+ , ddDocumentAtomList
+ , ddTextParaString
+ , l3MinMax
+ , SysUtils
+ , RTFtypes
+ , ddCellProperty
+ , Classes
+ , l3Interfaces
+ , l3Memory
+ , l3Filer
+ , l3Types
+;
 
 const
-  { TextToTableConstants }
  cc_CellChar = 'X';
  cc_BreakChar = '|';
  CellStartChars = [cc_RightCross, cc_LeftCross, cc_Cross, cc_UpCross, cc_TopLeft, cc_TopRight];
@@ -222,9 +185,8 @@ const
  CellOverChars = [cc_Cross, cc_DownCross];
  CellCLoseTable = [cc_BottomLeft, cc_BottomRight];
 
-// unit methods
-
 function OnlyGraphic(aText: Tl3String): Boolean;
+ {* Строка содержит только псевдографику или пуста }
 //#UC START# *4FACF2810235_4DCA38890051_var*
 //#UC END# *4FACF2810235_4DCA38890051_var*
 begin
@@ -245,7 +207,7 @@ begin
 end;//OnlyGraphicAndSpace
 
 procedure AdjustSegments(Index: Integer;
-  aPara: TddTextParagraph);
+ aPara: TddTextParagraph);
 //#UC START# *4FACF2E00126_4DCA38890051_var*
 var
  i: Integer;
@@ -265,7 +227,7 @@ begin
 end;//AdjustSegments
 
 procedure AdjustTrimAll(aPara: TddTextParagraph;
-  aText: Tl3String);
+ aText: Tl3String);
 //#UC START# *4FACF3110346_4DCA38890051_var*
 var
  i: Integer;
@@ -302,9 +264,61 @@ begin
  end; // if not aText.Empty then
 //#UC END# *4FACF3110346_4DCA38890051_impl*
 end;//AdjustTrimAll
-// start class TddAbstractTable
 
-procedure TddAbstractTable.Analyze(const aAutoFit: TddAutoFitBehavior = afContent);
+procedure TddAbstractTable.pm_SetLines(aValue: Tl3StringList);
+//#UC START# *4FACDCB300D7_4DCA38AF0022set_var*
+//#UC END# *4FACDCB300D7_4DCA38AF0022set_var*
+begin
+//#UC START# *4FACDCB300D7_4DCA38AF0022set_impl*
+ f_Lines.Assign(aValue);
+//#UC END# *4FACDCB300D7_4DCA38AF0022set_impl*
+end;//TddAbstractTable.pm_SetLines
+
+procedure TddAbstractTable.pm_SetAutoFit(aValue: TddAutoFitBehavior);
+//#UC START# *4FACDD0C02C4_4DCA38AF0022set_var*
+//#UC END# *4FACDD0C02C4_4DCA38AF0022set_var*
+begin
+//#UC START# *4FACDD0C02C4_4DCA38AF0022set_impl*
+ f_AutoFit:= aValue;
+//#UC END# *4FACDD0C02C4_4DCA38AF0022set_impl*
+end;//TddAbstractTable.pm_SetAutoFit
+
+procedure TddAbstractTable.pm_SetCellCount(aValue: Integer);
+//#UC START# *4FACDD520175_4DCA38AF0022set_var*
+//#UC END# *4FACDD520175_4DCA38AF0022set_var*
+begin
+//#UC START# *4FACDD520175_4DCA38AF0022set_impl*
+ if CellCount <> aValue then
+ begin
+  f_CellCount:= aValue;
+  RecalcRows;
+ end;
+//#UC END# *4FACDD520175_4DCA38AF0022set_impl*
+end;//TddAbstractTable.pm_SetCellCount
+
+procedure TddAbstractTable.pm_SetFormatBuffer(aValue: TddDocument);
+//#UC START# *4FACDED5010D_4DCA38AF0022set_var*
+//#UC END# *4FACDED5010D_4DCA38AF0022set_var*
+begin
+//#UC START# *4FACDED5010D_4DCA38AF0022set_impl*
+ f_FormatBuffer.Assign(aValue);
+//#UC END# *4FACDED5010D_4DCA38AF0022set_impl*
+end;//TddAbstractTable.pm_SetFormatBuffer
+
+procedure TddAbstractTable.pm_SetRowCount(aValue: Integer);
+//#UC START# *4FACDF1401DC_4DCA38AF0022set_var*
+//#UC END# *4FACDF1401DC_4DCA38AF0022set_var*
+begin
+//#UC START# *4FACDF1401DC_4DCA38AF0022set_impl*
+ if RowCount <> aValue then
+ begin
+  f_RowCount:= aValue;
+  RecalcRows;
+ end;
+//#UC END# *4FACDF1401DC_4DCA38AF0022set_impl*
+end;//TddAbstractTable.pm_SetRowCount
+
+procedure TddAbstractTable.Analyze(const aAutoFit: TddAutoFitBehavior = ddTableConvTypes.afContent);
 //#UC START# *4FACDFA2002E_4DCA38AF0022_var*
 //#UC END# *4FACDFA2002E_4DCA38AF0022_var*
 begin
@@ -338,7 +352,7 @@ begin
 end;//TddAbstractTable.CopyToVirtualTable
 
 function TddAbstractTable.CheckJustification(aText: Tl3String;
-  aCellWidth: Integer): TevIndentType;
+ aCellWidth: Integer): TevIndentType;
 //#UC START# *4FACE6BE00D9_4DCA38AF0022_var*
 var
  l_Left  : Integer;
@@ -370,7 +384,7 @@ begin
 end;//TddAbstractTable.CheckJustification
 
 procedure TddAbstractTable.AddParagraph(aText: Tl3String = nil;
-  aCell: TddTableCell = nil);
+ aCell: TddTableCell = nil);
 //#UC START# *4FACE73000CE_4DCA38AF0022_var*
 var
  l_Para : TddTextParagraph;
@@ -406,7 +420,7 @@ begin
 end;//TddAbstractTable.AddParagraph
 
 procedure TddAbstractTable.AddText(aCell: TddTableCell;
-  aText: Tl3String);
+ aText: Tl3String);
 //#UC START# *4FACE8BC035B_4DCA38AF0022_var*
 var
  l_Len  : Integer;
@@ -437,9 +451,9 @@ begin
 end;//TddAbstractTable.AddText
 
 procedure TddAbstractTable.AddText(aCell: TddTableCell;
-  aText: Tl3String;
-  aStart: Integer;
-  aLen: Integer);
+ aText: Tl3String;
+ aStart: Integer;
+ aLen: Integer);
 //#UC START# *4FACE8DF0349_4DCA38AF0022_var*
 var
  l_Len     : Integer;
@@ -493,7 +507,7 @@ begin
 end;//TddAbstractTable.AddText
 
 function TddAbstractTable.ApplyFormatting(aP: TddTextParagraph;
-  const aCell: TddTableCell): Boolean;
+ const aCell: TddTableCell): Boolean;
 //#UC START# *4FACFE6F02DF_4DCA38AF0022_var*
 var
  l_A      : TddDocumentAtom;
@@ -572,7 +586,8 @@ begin
    end; // for i
    //Result:= False;
   end;
- end; // l_A.AtomType = dd_docTextParagraph//#UC END# *4FACFE6F02DF_4DCA38AF0022_impl*
+ end; // l_A.AtomType = dd_docTextParagraph
+//#UC END# *4FACFE6F02DF_4DCA38AF0022_impl*
 end;//TddAbstractTable.ApplyFormatting
 
 function TddAbstractTable.GetPrevCell(aCell: TddTableCell): TddTableCell;
@@ -587,60 +602,8 @@ begin
 //#UC END# *528CA17D0210_4DCA38AF0022_impl*
 end;//TddAbstractTable.GetPrevCell
 
-procedure TddAbstractTable.pm_SetLines(aValue: Tl3StringList);
-//#UC START# *4FACDCB300D7_4DCA38AF0022set_var*
-//#UC END# *4FACDCB300D7_4DCA38AF0022set_var*
-begin
-//#UC START# *4FACDCB300D7_4DCA38AF0022set_impl*
- f_Lines.Assign(aValue);
-//#UC END# *4FACDCB300D7_4DCA38AF0022set_impl*
-end;//TddAbstractTable.pm_SetLines
-
-procedure TddAbstractTable.pm_SetAutoFit(aValue: TddAutoFitBehavior);
-//#UC START# *4FACDD0C02C4_4DCA38AF0022set_var*
-//#UC END# *4FACDD0C02C4_4DCA38AF0022set_var*
-begin
-//#UC START# *4FACDD0C02C4_4DCA38AF0022set_impl*
- f_AutoFit:= aValue;
-//#UC END# *4FACDD0C02C4_4DCA38AF0022set_impl*
-end;//TddAbstractTable.pm_SetAutoFit
-
-procedure TddAbstractTable.pm_SetCellCount(aValue: Integer);
-//#UC START# *4FACDD520175_4DCA38AF0022set_var*
-//#UC END# *4FACDD520175_4DCA38AF0022set_var*
-begin
-//#UC START# *4FACDD520175_4DCA38AF0022set_impl*
- if CellCount <> aValue then
- begin
-  f_CellCount:= aValue;
-  RecalcRows;
- end;
-//#UC END# *4FACDD520175_4DCA38AF0022set_impl*
-end;//TddAbstractTable.pm_SetCellCount
-
-procedure TddAbstractTable.pm_SetFormatBuffer(aValue: TddDocument);
-//#UC START# *4FACDED5010D_4DCA38AF0022set_var*
-//#UC END# *4FACDED5010D_4DCA38AF0022set_var*
-begin
-//#UC START# *4FACDED5010D_4DCA38AF0022set_impl*
- f_FormatBuffer.Assign(aValue);
-//#UC END# *4FACDED5010D_4DCA38AF0022set_impl*
-end;//TddAbstractTable.pm_SetFormatBuffer
-
-procedure TddAbstractTable.pm_SetRowCount(aValue: Integer);
-//#UC START# *4FACDF1401DC_4DCA38AF0022set_var*
-//#UC END# *4FACDF1401DC_4DCA38AF0022set_var*
-begin
-//#UC START# *4FACDF1401DC_4DCA38AF0022set_impl*
- if RowCount <> aValue then
- begin
-  f_RowCount:= aValue;
-  RecalcRows;
- end;
-//#UC END# *4FACDF1401DC_4DCA38AF0022set_impl*
-end;//TddAbstractTable.pm_SetRowCount
-
 constructor TddAbstractTable.Create;
+ {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
 //#UC START# *47914F960008_4DCA38AF0022_var*
 //#UC END# *47914F960008_4DCA38AF0022_var*
 begin
@@ -656,6 +619,7 @@ begin
 end;//TddAbstractTable.Create
 
 procedure TddAbstractTable.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DCA38AF0022_var*
 //#UC END# *479731C50290_4DCA38AF0022_var*
 begin
@@ -666,7 +630,6 @@ begin
  inherited;
 //#UC END# *479731C50290_4DCA38AF0022_impl*
 end;//TddAbstractTable.Cleanup
-// start class TddGraphicTable
 
 function TddGraphicTable.CheckRowEnd: Boolean;
 //#UC START# *4FACEB5D0335_4DCA38C7030D_var*
@@ -826,7 +789,8 @@ begin
      VMerged := True;
     end; // f_Text.Ch[i] in [cc_VLine, cc_LeftCross]
   end // f_Text.Ch[i] in (CellAdvStartChars + [cc_VLine])
- end; // for i//#UC END# *4FACEBB6021F_4DCA38C7030D_impl*
+ end; // for i
+//#UC END# *4FACEBB6021F_4DCA38C7030D_impl*
 end;//TddGraphicTable.CheckMixed
 
 procedure TddGraphicTable.CheckOnlyGraphic;
@@ -1276,7 +1240,7 @@ begin
 end;//TddGraphicTable.ConvertCellToRow
 
 function TddGraphicTable.GetPrevVMergeCell(aPos: Integer;
-  aNeedCheckVMerge: Boolean): TddTableCell;
+ aNeedCheckVMerge: Boolean): TddTableCell;
 //#UC START# *4FACECAA0043_4DCA38C7030D_var*
 var
  i : Integer;
@@ -1302,7 +1266,7 @@ begin
 //#UC END# *4FACECAA0043_4DCA38C7030D_impl*
 end;//TddGraphicTable.GetPrevVMergeCell
 
-procedure TddGraphicTable.Analyze(const aAutoFit: TddAutoFitBehavior = afContent);
+procedure TddGraphicTable.Analyze(const aAutoFit: TddAutoFitBehavior = ddTableConvTypes.afContent);
 //#UC START# *4FACDFA2002E_4DCA38C7030D_var*
 var
  i              : Integer;
@@ -1357,7 +1321,6 @@ begin
  f_RowCount:= 0;
 //#UC END# *4FACDFDE03BB_4DCA38C7030D_impl*
 end;//TddGraphicTable.RecalcRows
-// start class TddSpaceTable
 
 procedure TddSpaceTable.Map2Row(aMap: Tl3String);
 //#UC START# *4FACED7B0253_4DCA38EB0022_var*
@@ -1381,7 +1344,7 @@ begin
 //#UC END# *4FACED7B0253_4DCA38EB0022_impl*
 end;//TddSpaceTable.Map2Row
 
-procedure TddSpaceTable.Analyze(const aAutoFit: TddAutoFitBehavior = afContent);
+procedure TddSpaceTable.Analyze(const aAutoFit: TddAutoFitBehavior = ddTableConvTypes.afContent);
 //#UC START# *4FACDFA2002E_4DCA38EB0022_var*
 var
  i, j      : Integer;
@@ -1517,17 +1480,6 @@ begin
  end; // l_Map
 //#UC END# *4FACDFA2002E_4DCA38EB0022_impl*
 end;//TddSpaceTable.Analyze
-// start class TddSeparatorTable
-
-constructor TddSeparatorTable.Create(aSeparator: AnsiChar);
-//#UC START# *4FACEE4703D3_4DCA38F901D7_var*
-//#UC END# *4FACEE4703D3_4DCA38F901D7_var*
-begin
-//#UC START# *4FACEE4703D3_4DCA38F901D7_impl*
- inherited Create;
- f_Separator := aSeparator;
-//#UC END# *4FACEE4703D3_4DCA38F901D7_impl*
-end;//TddSeparatorTable.Create
 
 procedure TddSeparatorTable.pm_SetSeparator(aValue: AnsiChar);
 //#UC START# *4FACEE7E0008_4DCA38F901D7set_var*
@@ -1542,7 +1494,17 @@ begin
 //#UC END# *4FACEE7E0008_4DCA38F901D7set_impl*
 end;//TddSeparatorTable.pm_SetSeparator
 
-procedure TddSeparatorTable.Analyze(const aAutoFit: TddAutoFitBehavior = afContent);
+constructor TddSeparatorTable.Create(aSeparator: AnsiChar);
+//#UC START# *4FACEE4703D3_4DCA38F901D7_var*
+//#UC END# *4FACEE4703D3_4DCA38F901D7_var*
+begin
+//#UC START# *4FACEE4703D3_4DCA38F901D7_impl*
+ inherited Create;
+ f_Separator := aSeparator;
+//#UC END# *4FACEE4703D3_4DCA38F901D7_impl*
+end;//TddSeparatorTable.Create
+
+procedure TddSeparatorTable.Analyze(const aAutoFit: TddAutoFitBehavior = ddTableConvTypes.afContent);
 //#UC START# *4FACDFA2002E_4DCA38F901D7_var*
 var
  i, j, C: Integer;
@@ -1629,7 +1591,6 @@ begin
 //#UC START# *4FACDFDE03BB_4DCA38F901D7_impl*
 //#UC END# *4FACDFDE03BB_4DCA38F901D7_impl*
 end;//TddSeparatorTable.RecalcRows
-// start class TddParagraphTable
 
 function TddParagraphTable.CalcTextLen(aText: Tl3String): Integer;
 //#UC START# *4FACEEC102E8_4DCA391B015A_var*
@@ -1655,7 +1616,7 @@ begin
 //#UC END# *4FACEEC102E8_4DCA391B015A_impl*
 end;//TddParagraphTable.CalcTextLen
 
-procedure TddParagraphTable.Analyze(const aAutoFit: TddAutoFitBehavior = afContent);
+procedure TddParagraphTable.Analyze(const aAutoFit: TddAutoFitBehavior = ddTableConvTypes.afContent);
 //#UC START# *4FACDFA2002E_4DCA391B015A_var*
 var
  i           : Integer;

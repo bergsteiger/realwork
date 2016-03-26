@@ -1,275 +1,208 @@
 unit ddAppConfigStrings;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd$AppConfig"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddAppConfigStrings.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd$AppConfig::AppConfig::ddAppConfigStrings
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigStrings.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfigStrings" MUID: (4B9E62980158)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  ddAppConfigTypes,
-  ddAppConfigConst,
-  ddConfigStorages
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ , ddAppConfigTypes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+ , ddAppConfigConst
+ , ddConfigStorages
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
  TddStringConfigItem = class(TddVisualConfigItem)
- private
- // private fields
-   f_PasswordChar : AnsiChar;
-    {* Поле для свойства PasswordChar}
- private
- // private methods
+  private
+   f_PasswordChar: AnsiChar;
+    {* Поле для свойства PasswordChar }
+  private
    procedure DoOnChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- protected
- // realized methods
+  protected
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
+   procedure AdjustReadOnly(aControl: TControl); override;
+  public
+   constructor Make(const aAlias: AnsiString;
+    const aCaption: AnsiString;
+    const aDefault: AnsiString = '';
+    aMasterItem: TddBaseConfigItem = nil); reintroduce;
    function ControlHeight(aParent: TWinControl): Integer; override;
    procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
    procedure SetValueToControl(aDefault: Boolean); override;
- protected
- // overridden protected methods
-   procedure AdjustReadOnly(aControl: TControl); override;
- public
- // overridden public methods
    procedure Assign(Source: TPersistent); override;
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    function MinWidth(aParent: TWinControl): Integer; override;
- public
- // public methods
-   constructor Make(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefault: AnsiString = '';
-     aMasterItem: TddBaseConfigItem = nil);
- public
- // public properties
+  public
    property PasswordChar: AnsiChar
-     read f_PasswordChar
-     write f_PasswordChar;
+    read f_PasswordChar
+    write f_PasswordChar;
  end;//TddStringConfigItem
 
  TddFillType = (
-   dd_ftAsIs
- , dd_ftFull
- , dd_ftShort
+  dd_ftAsIs
+  , dd_ftFull
+  , dd_ftShort
  );//TddFillType
 
  TddBrowseConfigItem = class(TddStringConfigItem)
- private
- // private fields
-   f_BrowseButton : TButton;
-   f_TestButton : TButton;
-   f_AllowTest : Boolean;
-    {* Поле для свойства AllowTest}
-   f_TestButtonCaption : AnsiString;
-    {* Поле для свойства TestButtonCaption}
-   f_PathFill : TddFillType;
-    {* Поле для свойства PathFill}
- protected
- // overridden property methods
+  private
+   f_BrowseButton: TButton;
+   f_TestButton: TButton;
+   f_AllowTest: Boolean;
+    {* Поле для свойства AllowTest }
+   f_TestButtonCaption: AnsiString;
+    {* Поле для свойства TestButtonCaption }
+   f_PathFill: TddFillType;
+    {* Поле для свойства PathFill }
+  protected
+   function MakeFullPath(const aValue: AnsiString): AnsiString; virtual;
+   function MakeShortPath(const aValue: AnsiString): AnsiString; virtual;
+   procedure OnBrowseClick(Sender: TObject); virtual; abstract;
+   procedure OnTestClick(Sender: TObject); virtual; abstract;
+   function CorrectValue(const aValue: AnsiString): AnsiString;
    function pm_GetEnabled: Boolean; override;
    procedure pm_SetEnabled(aValue: Boolean); override;
    function pm_GetStringValue: AnsiString; override;
    procedure pm_SetStringValue(const aValue: AnsiString); override;
- protected
- // overridden protected methods
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
    procedure AdjustReadOnly(aControl: TControl); override;
- public
- // overridden public methods
+   procedure ClearFields; override;
+  public
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    function MinWidth(aParent: TWinControl): Integer; override;
- protected
- // protected methods
-   function MakeFullPath(const aValue: AnsiString): AnsiString; virtual;
-   function MakeShortPath(const aValue: AnsiString): AnsiString; virtual;
-   procedure OnBrowseClick(Sender: TObject); virtual; abstract;
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure OnTestClick(Sender: TObject); virtual; abstract;
-     {* TNotifyEvent is used for events that do not require parameters. }
-   function CorrectValue(const aValue: AnsiString): AnsiString;
- public
- // public properties
+  public
    property AllowTest: Boolean
-     read f_AllowTest
-     write f_AllowTest;
+    read f_AllowTest
+    write f_AllowTest;
    property TestButtonCaption: AnsiString
-     read f_TestButtonCaption
-     write f_TestButtonCaption;
+    read f_TestButtonCaption
+    write f_TestButtonCaption;
    property PathFill: TddFillType
-     read f_PathFill
-     write f_PathFill;
+    read f_PathFill
+    write f_PathFill;
  end;//TddBrowseConfigItem
 
  TddFolderNameConfigItem = class(TddBrowseConfigItem)
- private
- // private fields
-   f_AllowProcessDir : Boolean;
-    {* Поле для свойства AllowProcessDir}
- private
- // private methods
+  private
+   f_AllowProcessDir: Boolean;
+    {* Поле для свойства AllowProcessDir }
+  private
    procedure Validate;
-     {* Сигнатура метода Validate }
- protected
- // realized methods
+  protected
    procedure OnBrowseClick(Sender: TObject); override;
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure OnTestClick(Sender: TObject); override;
-     {* TNotifyEvent is used for events that do not require parameters. }
- public
- // overridden public methods
+  public
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
- public
- // public properties
+  public
    property AllowProcessDir: Boolean
-     read f_AllowProcessDir
-     write f_AllowProcessDir;
+    read f_AllowProcessDir
+    write f_AllowProcessDir;
  end;//TddFolderNameConfigItem
 
  TddFileNameConfigItem = class(TddBrowseConfigItem)
- private
- // private fields
-   f_FilterMask : AnsiString;
-    {* Поле для свойства FilterMask}
- protected
- // realized methods
+  private
+   f_FilterMask: AnsiString;
+    {* Поле для свойства FilterMask }
+  protected
    procedure OnBrowseClick(Sender: TObject); override;
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure OnTestClick(Sender: TObject); override;
-     {* TNotifyEvent is used for events that do not require parameters. }
- public
- // public properties
+   procedure ClearFields; override;
+  public
    property FilterMask: AnsiString
-     read f_FilterMask
-     write f_FilterMask;
+    read f_FilterMask
+    write f_FilterMask;
  end;//TddFileNameConfigItem
 
  TddSoundFileNameConfigItem = class(TddFileNameConfigItem)
- protected
- // overridden protected methods
+  protected
    procedure OnTestClick(Sender: TObject); override;
-     {* TNotifyEvent is used for events that do not require parameters. }
- public
- // overridden public methods
+  public
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
  end;//TddSoundFileNameConfigItem
 
  TddTextConfigItem = class(TddVisualConfigItem)
- protected
- // realized methods
+  protected
+   procedure DoOnChange(Sender: TObject);
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
+   procedure AdjustReadOnly(aControl: TControl); override;
+  public
+   constructor Make(const aAlias: AnsiString;
+    const aCaption: AnsiString;
+    const aDefault: AnsiString = '';
+    aMasterItem: TddBaseConfigItem = nil); reintroduce;
    function ControlHeight(aParent: TWinControl): Integer; override;
    procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
    procedure SetValueToControl(aDefault: Boolean); override;
- protected
- // overridden protected methods
-   procedure AdjustReadOnly(aControl: TControl); override;
- public
- // overridden public methods
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    function MinWidth(aParent: TWinControl): Integer; override;
- protected
- // protected methods
-   procedure DoOnChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- public
- // public methods
-   constructor Make(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefault: AnsiString = '';
-     aMasterItem: TddBaseConfigItem = nil);
  end;//TddTextConfigItem
 
 implementation
 
 uses
-  l3FileUtils,
-  ddAppConfigStringsRes,
-  l3Base,
-  l3String,
-  SysUtils,
-  StrUtils,
-  l3Base64
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  FileCtrl
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  MMSystem,
-  l3Utils
-  ;
+ l3ImplUses
+ , ddAppConfigStringsRes
+ , l3Base
+ , l3String
+ , SysUtils
+ , StrUtils
+ , l3Base64
+ , l3FileUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , FileCtrl
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , MMSystem
+ , l3Utils
+;
 
 const
-  { ddAppConfigstrings const }
  PasswordPrefix = 'Base64:';
-
-// unit methods
 
 function MaskCRLF(const aString: AnsiString): AnsiString;
 //#UC START# *523039D00197_4B9E62980158_var*
@@ -288,7 +221,6 @@ begin
  Result := StringReplace(aString, '<13><10>', #13#10, [rfReplaceAll]);
 //#UC END# *523039F8035E_4B9E62980158_impl*
 end;//UnMaskCRLF
-// start class TddStringConfigItem
 
 procedure TddStringConfigItem.DoOnChange(Sender: TObject);
 //#UC START# *523037EC01EB_4B9E62B50054_var*
@@ -300,9 +232,9 @@ begin
 end;//TddStringConfigItem.DoOnChange
 
 constructor TddStringConfigItem.Make(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefault: AnsiString = '';
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefault: AnsiString = '';
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5230388E009E_4B9E62B50054_var*
 var
  l_Default: TddConfigValue;
@@ -317,9 +249,9 @@ begin
 end;//TddStringConfigItem.Make
 
 function TddStringConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_4B9E62B50054_var*
 //#UC END# *521761BB03DE_4B9E62B50054_var*
 begin
@@ -384,9 +316,9 @@ begin
 end;//TddStringConfigItem.Assign
 
 constructor TddStringConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_4B9E62B50054_var*
 //#UC END# *5217273F000F_4B9E62B50054_var*
 begin
@@ -444,7 +376,6 @@ begin
   TEdit(aControl).ReadOnly := ReadOnly;
 //#UC END# *552BB745031E_4B9E62B50054_impl*
 end;//TddStringConfigItem.AdjustReadOnly
-// start class TddBrowseConfigItem
 
 function TddBrowseConfigItem.MakeFullPath(const aValue: AnsiString): AnsiString;
 //#UC START# *52303E6A0263_523038C603B2_var*
@@ -526,9 +457,9 @@ begin
 end;//TddBrowseConfigItem.pm_SetStringValue
 
 constructor TddBrowseConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_523038C603B2_var*
 //#UC END# *5217273F000F_523038C603B2_var*
 begin
@@ -541,9 +472,9 @@ begin
 end;//TddBrowseConfigItem.Create
 
 function TddBrowseConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_523038C603B2_var*
 var
  l_Delta: Integer;
@@ -609,7 +540,12 @@ begin
   f_TestButton.Enabled := not ReadOnly;
 //#UC END# *552BB745031E_523038C603B2_impl*
 end;//TddBrowseConfigItem.AdjustReadOnly
-// start class TddFolderNameConfigItem
+
+procedure TddBrowseConfigItem.ClearFields;
+begin
+ TestButtonCaption := '';
+ inherited;
+end;//TddBrowseConfigItem.ClearFields
 
 procedure TddFolderNameConfigItem.Validate;
 //#UC START# *5446141E00FA_523038DB01A5_var*
@@ -649,9 +585,9 @@ begin
 end;//TddFolderNameConfigItem.OnTestClick
 
 constructor TddFolderNameConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_523038DB01A5_var*
 //#UC END# *5217273F000F_523038DB01A5_var*
 begin
@@ -670,7 +606,6 @@ begin
  inherited;
 //#UC END# *521B058801FD_523038DB01A5_impl*
 end;//TddFolderNameConfigItem.GetValueFromControl
-// start class TddFileNameConfigItem
 
 procedure TddFileNameConfigItem.OnBrowseClick(Sender: TObject);
 //#UC START# *52303EBD00B4_523038EA00E7_var*
@@ -698,12 +633,17 @@ begin
 //#UC START# *52303ECC02B3_523038EA00E7_impl*
 //#UC END# *52303ECC02B3_523038EA00E7_impl*
 end;//TddFileNameConfigItem.OnTestClick
-// start class TddSoundFileNameConfigItem
+
+procedure TddFileNameConfigItem.ClearFields;
+begin
+ FilterMask := '';
+ inherited;
+end;//TddFileNameConfigItem.ClearFields
 
 constructor TddSoundFileNameConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_523038F9027B_var*
 //#UC END# *5217273F000F_523038F9027B_var*
 begin
@@ -723,12 +663,11 @@ begin
  sndPlaySoundA(PAnsiChar((Control as TEdit).Text), SND_NOSTOP or SND_ASYNC or SND_NODEFAULT);
 //#UC END# *52303ECC02B3_523038F9027B_impl*
 end;//TddSoundFileNameConfigItem.OnTestClick
-// start class TddTextConfigItem
 
 constructor TddTextConfigItem.Make(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefault: AnsiString = '';
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefault: AnsiString = '';
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5230411D0123_5230390C00FC_var*
 var
  l_Default: TddConfigValue;
@@ -752,9 +691,9 @@ begin
 end;//TddTextConfigItem.DoOnChange
 
 function TddTextConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_5230390C00FC_var*
 //#UC END# *521761BB03DE_5230390C00FC_var*
 begin
@@ -807,9 +746,9 @@ begin
 end;//TddTextConfigItem.SetValueToControl
 
 constructor TddTextConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_5230390C00FC_var*
 //#UC END# *5217273F000F_5230390C00FC_var*
 begin

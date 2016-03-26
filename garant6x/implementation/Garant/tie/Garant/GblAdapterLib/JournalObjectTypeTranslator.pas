@@ -1,50 +1,43 @@
 unit JournalObjectTypeTranslator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/JournalObjectTypeTranslator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> garant6x::GblAdapterLib::UserJournal_i::JournalObjectTypeTranslator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\JournalObjectTypeTranslator.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "JournalObjectTypeTranslator" MUID: (4A94342100B3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  UserJournalUnit
-  ;
+ l3IntfUses
+ , UserJournalUnit
+;
 
-procedure Translate(adapter_type: TJournalObjectType); overload; 
-function Translate(server_type): TJournalObjectType; overload; 
+procedure translate(adapter_type: TJournalObjectType); overload;
+function translate(const server_type): TJournalObjectType; overload;
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
-procedure Translate(adapter_type: TJournalObjectType);
+procedure translate(adapter_type: TJournalObjectType);
 //#UC START# *4A9434510206_4A94342100B3_var*
 //#UC END# *4A9434510206_4A94342100B3_var*
 begin
 //#UC START# *4A9434510206_4A94342100B3_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4A9434510206_4A94342100B3_impl*
-end;//Translate
+end;//translate
 
-function Translate(server_type): TJournalObjectType;
+function translate(const server_type): TJournalObjectType;
 //#UC START# *4A94348F01E6_4A94342100B3_var*
 //#UC END# *4A94348F01E6_4A94342100B3_var*
 begin
 //#UC START# *4A94348F01E6_4A94342100B3_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4A94348F01E6_4A94342100B3_impl*
-end;//Translate
+end;//translate
 
 end.

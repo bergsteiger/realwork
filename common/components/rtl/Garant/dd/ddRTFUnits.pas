@@ -1,47 +1,40 @@
 unit ddRTFUnits;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddRTFUnits.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::ddCommon::ddRTFUnits
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddRTFUnits.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ddRTFUnits" MUID: (521AFA27009B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 function Inch2Pixel(aInch: Integer;
-  aDPI: Integer = 96): Integer;
+ aDPI: Integer = 96): Integer;
 function Inch2Point(aInch: Integer): Integer;
 function Inch2Twip(aInch: Integer): Integer;
 function Pixel2Inch(aPixel: Integer;
-  aDPI: Integer = 96): Integer;
+ aDPI: Integer = 96): Integer;
 function Pixel2Twip(aPixels: Integer;
-  aDPI: Integer = 96): Integer;
+ aDPI: Integer = 96): Integer;
 function Point2Inch(aPoints: Integer): Integer;
 function Twip2Inch(aTwip: Integer): Integer;
 function Twip2Pixel(aTwips: Integer;
-  aDPI: Integer = 96): Integer;
+ aDPI: Integer = 96): Integer;
 
 implementation
 
 uses
-  l3Math,
-  RTFtypes
-  ;
-
-// unit methods
+ l3ImplUses
+ , l3Math
+ , RTFtypes
+;
 
 function Inch2Pixel(aInch: Integer;
-  aDPI: Integer = 96): Integer;
+ aDPI: Integer = 96): Integer;
 //#UC START# *521AFAF9024B_521AFA27009B_var*
 //#UC END# *521AFAF9024B_521AFA27009B_var*
 begin
@@ -69,7 +62,7 @@ begin
 end;//Inch2Twip
 
 function Pixel2Inch(aPixel: Integer;
-  aDPI: Integer = 96): Integer;
+ aDPI: Integer = 96): Integer;
 //#UC START# *521AFB5E039F_521AFA27009B_var*
 //#UC END# *521AFB5E039F_521AFA27009B_var*
 begin
@@ -79,7 +72,7 @@ begin
 end;//Pixel2Inch
 
 function Pixel2Twip(aPixels: Integer;
-  aDPI: Integer = 96): Integer;
+ aDPI: Integer = 96): Integer;
 //#UC START# *521AFB8401C4_521AFA27009B_var*
 //#UC END# *521AFB8401C4_521AFA27009B_var*
 begin
@@ -107,7 +100,7 @@ begin
 end;//Twip2Inch
 
 function Twip2Pixel(aTwips: Integer;
-  aDPI: Integer = 96): Integer;
+ aDPI: Integer = 96): Integer;
 //#UC START# *521AFBE20296_521AFA27009B_var*
 //#UC END# *521AFBE20296_521AFA27009B_var*
 begin

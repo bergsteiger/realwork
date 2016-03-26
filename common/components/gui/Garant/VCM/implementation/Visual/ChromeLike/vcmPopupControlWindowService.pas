@@ -1,82 +1,56 @@
 unit vcmPopupControlWindowService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/ChromeLike/vcmPopupControlWindowService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM$Visual::Visual$ChromeLike::vcmPopupControlWindowService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmPopupControlWindowService.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vcmPopupControlWindowService" MUID: (5587AAF10290)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
-  l3ProtoObject,
-  l3PopupControlService,
-  Windows
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3PopupControlService
+ , Windows
+;
 
 type
  TvcmPopupControlWindowService = {final} class(Tl3ProtoObject, Il3PopupControlService)
- public
- // realized methods
-   function IsPopupControlWindow(aControlWnd: HWND): Boolean;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   function IsPopupControlWindow(aControlWnd: HWND): Boolean;
    class function Instance: TvcmPopupControlWindowService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvcmPopupControlWindowService }
  end;//TvcmPopupControlWindowService
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
-  l3Base {a},
-  vcmDropDownMenuForChromeLike
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3ImplUses
+ , vcmDropDownMenuForChromeLike
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TvcmPopupControlWindowService
-
-var g_TvcmPopupControlWindowService : TvcmPopupControlWindowService = nil;
+var g_TvcmPopupControlWindowService: TvcmPopupControlWindowService = nil;
+ {* Экземпляр синглетона TvcmPopupControlWindowService }
 
 procedure TvcmPopupControlWindowServiceFree;
+ {* Метод освобождения экземпляра синглетона TvcmPopupControlWindowService }
 begin
  l3Free(g_TvcmPopupControlWindowService);
-end;
-
-class function TvcmPopupControlWindowService.Instance: TvcmPopupControlWindowService;
-begin
- if (g_TvcmPopupControlWindowService = nil) then
- begin
-  l3System.AddExitProc(TvcmPopupControlWindowServiceFree);
-  g_TvcmPopupControlWindowService := Create;
- end;
- Result := g_TvcmPopupControlWindowService;
-end;
-
+end;//TvcmPopupControlWindowServiceFree
 
 class function TvcmPopupControlWindowService.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TvcmPopupControlWindowService <> nil;
 end;//TvcmPopupControlWindowService.Exists
@@ -103,12 +77,21 @@ begin
  end;
 //#UC END# *D2E4642CC7BC_5587AB210223_impl*
 end;//TvcmPopupControlWindowService.IsPopupControlWindow
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+
+class function TvcmPopupControlWindowService.Instance: TvcmPopupControlWindowService;
+ {* Метод получения экземпляра синглетона TvcmPopupControlWindowService }
+begin
+ if (g_TvcmPopupControlWindowService = nil) then
+ begin
+  l3System.AddExitProc(TvcmPopupControlWindowServiceFree);
+  g_TvcmPopupControlWindowService := Create;
+ end;
+ Result := g_TvcmPopupControlWindowService;
+end;//TvcmPopupControlWindowService.Instance
 
 initialization
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-// Регистрация TvcmPopupControlWindowService
  Tl3PopupControlService.Instance.Alien := TvcmPopupControlWindowService.Instance;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ {* Регистрация TvcmPopupControlWindowService }
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 end.

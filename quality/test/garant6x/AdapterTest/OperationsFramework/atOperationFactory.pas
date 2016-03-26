@@ -1,71 +1,47 @@
 unit atOperationFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/OperationsFramework/atOperationFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> garant6x_test::AdapterTest::OperationsFramework::atOperationFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atOperationFactory.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "atOperationFactory" MUID: (4808A9F301D4)
 
 interface
 
 uses
-  SysUtils,
-  atStringListWithOwn,
-  atOperationBase
-  ;
+ l3IntfUses
+ , atStringListWithOwn
+ , atOperationBase
+ , SysUtils
+;
 
 type
  EOperationNotRegistered = class(Exception)
  end;//EOperationNotRegistered
 
  TatOperationFactory = class(TObject)
- private
- // private fields
-   f_Operations : TatStringListWithOwn;
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  private
+   f_Operations: TatStringListWithOwn;
+  public
    constructor Create; reintroduce;
    procedure RegisterOperation(opClass: CTatOperationBase);
    function MakeOperation(const name: AnsiString): TatOperationBase;
+   destructor Destroy; override;
  end;//TatOperationFactory
 
-var OperationFactory : TatOperationFactory = nil;
+var OperationFactory: TatOperationFactory = nil;
 
 implementation
 
+uses
+ l3ImplUses
+;
+
 type
  TatClassContainer = class(TObject)
- public
- // public fields
-   F_OpClass : CTatOperationBase;
- public
- // public methods
+  public
+   F_OpClass: CTatOperationBase;
+  public
    constructor Create(opClass: CTatOperationBase); reintroduce;
  end;//TatClassContainer
-
-// start class TatClassContainer
-
-constructor TatClassContainer.Create(opClass: CTatOperationBase);
-//#UC START# *4808A92C0073_4808A8F6016B_var*
-//#UC END# *4808A92C0073_4808A8F6016B_var*
-begin
-//#UC START# *4808A92C0073_4808A8F6016B_impl*
-    inherited Create;
-    F_OpClass := opClass;
-//#UC END# *4808A92C0073_4808A8F6016B_impl*
-end;//TatClassContainer.Create
-// start class TatOperationFactory
 
 constructor TatOperationFactory.Create;
 //#UC START# *4808AA940289_4808AA270314_var*
@@ -110,6 +86,16 @@ begin
     inherited;
 //#UC END# *48077504027E_4808AA270314_impl*
 end;//TatOperationFactory.Destroy
+
+constructor TatClassContainer.Create(opClass: CTatOperationBase);
+//#UC START# *4808A92C0073_4808A8F6016B_var*
+//#UC END# *4808A92C0073_4808A8F6016B_var*
+begin
+//#UC START# *4808A92C0073_4808A8F6016B_impl*
+    inherited Create;
+    F_OpClass := opClass;
+//#UC END# *4808A92C0073_4808A8F6016B_impl*
+end;//TatClassContainer.Create
 
 initialization
 //#UC START# *4808AA000171*

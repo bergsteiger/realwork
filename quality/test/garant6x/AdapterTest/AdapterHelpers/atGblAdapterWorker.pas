@@ -1,187 +1,161 @@
 unit atGblAdapterWorker;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/AdapterHelpers/atGblAdapterWorker.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> garant6x_test::AdapterTest::AdapterHelpers::atGblAdapterWorker
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atGblAdapterWorker.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "atGblAdapterWorker" MUID: (483C0AEA0186)
 
 interface
 
 uses
-  StartUnit,
-  FoldersUnit,
-  DynamicTreeUnit,
-  NotifyUnit,
-  SettingsUnit,
-  UnderControlUnit,
-  l3_Base,
-  atInterfaces,
-  atNotifier,
-  GblAdapter,
-  atChatWorker
-  ;
+ l3IntfUses
+ , atInterfaces
+ , NotifyUnit
+ , GblAdapter
+ , StartUnit
+ , FoldersUnit
+ , DynamicTreeUnit
+ , SettingsUnit
+ , atChatWorker
+ , UnderControlUnit
+ , l3_Base
+;
+
+const
+ TAT_USER_NAME = 'Console Adapter Test';
 
 type
  TatNotifierFacade = class
- private
- // private fields
-   F_LongOperationStart : IatNotifier;
-   F_LongOperationEnd : IatNotifier;
-   F_PredefinedDataLogout : IatNotifier;
-   F_Shutdown : IatNotifier;
-   F_BaseUpdateStart : IatNotifier;
-   F_BasesUpdateEnd : IatNotifier;
-   F_BaseUpdateFailed : IatNotifier;
-   F_ConsultationReceived : IatNotifier;
-   F_ConsultationNotSent : IatNotifier;
-   F_NoSubscription : IatNotifier;
-   F_Logout : IatNotifier;
- public
- // public methods
+  private
+   F_LongOperationStart: IatNotifier;
+   F_LongOperationEnd: IatNotifier;
+   F_PredefinedDataLogout: IatNotifier;
+   F_Shutdown: IatNotifier;
+   F_BaseUpdateStart: IatNotifier;
+   F_BasesUpdateEnd: IatNotifier;
+   F_BaseUpdateFailed: IatNotifier;
+   F_ConsultationReceived: IatNotifier;
+   F_ConsultationNotSent: IatNotifier;
+   F_NoSubscription: IatNotifier;
+   F_Logout: IatNotifier;
+  public
    constructor Create(const aNotifyManager: INotifyManager); reintroduce;
  end;//TatNotifierFacade
 
  TatLoggedAs = (
-   tlasGuest
- , tlasCommonUser
+  tlasGuest
+  , tlasCommonUser
  );//TatLoggedAs
 
  TatGblAdapterWorker = class(TObject)
- private
- // private fields
-   f_Configuration : IConfiguration;
-   f_ConfigurationManager : IConfigurationManager;
-   f_IsLoggedIn : Boolean;
-    {* Поле для свойства IsLoggedIn}
-   f_GblAdapterDll : IGblAdapterDll;
-    {* Поле для свойства GblAdapterDll}
-   f_NotifierFacade : TatNotifierFacade;
-    {* Поле для свойства NotifierFacade}
-   f_Authorization : IAuthorization;
-    {* Поле для свойства Authorization}
-   f_Common : ICommon;
-    {* Поле для свойства Common}
-   f_Folders : IFolders;
-    {* Поле для свойства Folders}
-   f_MyDocuments : IFoldersNode;
-    {* Поле для свойства MyDocuments}
-   f_CRTreeRoot : INodeBase;
-    {* Поле для свойства CRTreeRoot}
-   f_SettingsManager : ISettingsManager;
-    {* Поле для свойства SettingsManager}
-   f_LoggedAs : TatLoggedAs;
-    {* Поле для свойства LoggedAs}
-   f_ChatWorker : TatChatWorker;
-    {* Поле для свойства ChatWorker}
-   f_MainMenuRoot : INodeBase;
-    {* Поле для свойства MainMenuRoot}
-   f_ControlManager : IControlManager;
-    {* Поле для свойства ControlManager}
- private
- // private methods
+  private
+   f_Configuration: IConfiguration;
+   f_ConfigurationManager: IConfigurationManager;
+   f_IsLoggedIn: Boolean;
+    {* Поле для свойства IsLoggedIn }
+   f_GblAdapterDll: IGblAdapterDll;
+    {* Поле для свойства GblAdapterDll }
+   f_NotifierFacade: TatNotifierFacade;
+    {* Поле для свойства NotifierFacade }
+   f_Authorization: IAuthorization;
+    {* Поле для свойства Authorization }
+   f_Common: ICommon;
+    {* Поле для свойства Common }
+   f_Folders: IFolders;
+    {* Поле для свойства Folders }
+   f_MyDocuments: IFoldersNode;
+    {* Поле для свойства MyDocuments }
+   f_CRTreeRoot: INodeBase;
+    {* Поле для свойства CRTreeRoot }
+   f_SettingsManager: ISettingsManager;
+    {* Поле для свойства SettingsManager }
+   f_LoggedAs: TatLoggedAs;
+    {* Поле для свойства LoggedAs }
+   f_ChatWorker: TatChatWorker;
+    {* Поле для свойства ChatWorker }
+   f_MainMenuRoot: INodeBase;
+    {* Поле для свойства MainMenuRoot }
+   f_ControlManager: IControlManager;
+    {* Поле для свойства ControlManager }
+  private
    constructor Create; reintroduce;
    procedure InitFieldsAfterLogin; virtual;
    procedure InitAdapter; virtual;
    procedure CloseAdapter; virtual;
- protected
- // property methods
+  protected
    function pm_GetCommon: ICommon; virtual;
    function pm_GetMyDocuments: IFoldersNode; virtual;
    function pm_GetCRTreeRoot: INodeBase; virtual;
    function pm_GetMainMenuRoot: INodeBase; virtual;
- public
- // overridden public methods
-   destructor Destroy; override;
- public
- // public methods
+  public
    class function Instance: TatGblAdapterWorker; virtual;
    class procedure InstanceFree; virtual;
    procedure Logout; virtual;
    function ForceLogin(const anUserName: AnsiString;
     const aPassword: AnsiString): Boolean; virtual;
    function GuestLogin: AnsiString; virtual;
- public
- // public properties
+   destructor Destroy; override;
+  public
    property IsLoggedIn: Boolean
-     read f_IsLoggedIn;
+    read f_IsLoggedIn;
    property GblAdapterDll: IGblAdapterDll
-     read f_GblAdapterDll;
+    read f_GblAdapterDll;
    property NotifierFacade: TatNotifierFacade
-     read f_NotifierFacade;
+    read f_NotifierFacade;
    property Authorization: IAuthorization
-     read f_Authorization;
+    read f_Authorization;
    property Common: ICommon
-     read pm_GetCommon;
+    read pm_GetCommon;
    property Folders: IFolders
-     read f_Folders;
+    read f_Folders;
    property MyDocuments: IFoldersNode
-     read pm_GetMyDocuments;
+    read pm_GetMyDocuments;
    property CRTreeRoot: INodeBase
-     read pm_GetCRTreeRoot;
+    read pm_GetCRTreeRoot;
    property SettingsManager: ISettingsManager
-     read f_SettingsManager;
+    read f_SettingsManager;
    property LoggedAs: TatLoggedAs
-     read f_LoggedAs;
+    read f_LoggedAs;
    property ChatWorker: TatChatWorker
-     read f_ChatWorker;
+    read f_ChatWorker;
    property MainMenuRoot: INodeBase
-     read pm_GetMainMenuRoot;
+    read pm_GetMainMenuRoot;
    property ControlManager: IControlManager
-     read f_ControlManager;
+    read f_ControlManager;
  end;//TatGblAdapterWorker
 
-const
-  { UserName }
- TAT_USER_NAME = 'Console Adapter Test';
-
-type
  TatControlledChangeNotifier = class(Tl3_Base, IControlledChangeNotifier)
- protected
- // realized methods
-   procedure Fire; stdcall;
-     {* сообщает о том что контролируемые объекты изменились. }
- public
- // public methods
+  protected
+   procedure fire;
+    {* сообщает о том что контролируемые объекты изменились. }
+  public
    class function Make: IControlledChangeNotifier; reintroduce;
  end;//TatControlledChangeNotifier
 
 implementation
 
 uses
-  SysUtils,
-  atFoldersHelper,
-  SecurityUnit,
-  atNotification,
-  atUserJournalHelper,
-  atLogger,
-  IOUnit
-  ;
-
-var gbl_AdapterWorkerInstance : TatGblAdapterWorker;
+ l3ImplUses
+ , atNotifier
+ , atLogger
+ , IOUnit
+ , SysUtils
+ , atFoldersHelper
+ , SecurityUnit
+ , atNotification
+ , atUserJournalHelper
+;
 
 type
-  TatFromShellNotifier = class(TatNotifier, IListener)
+ TatFromShellNotifier = class(TatNotifier, IListener)
   private
-  // private fields
-   f_NotifyType : TNotifyType;
+   f_NotifyType: TNotifyType;
   protected
-  // realized methods
-   procedure Fire(const aNotify: INotification); stdcall;
+   procedure fire(const notify: INotification);
   public
-  // public methods
    constructor Create(aNotifyType: TNotifyType); reintroduce;
-  end;//TatFromShellNotifier
+ end;//TatFromShellNotifier
 
-// start class TatFromShellNotifier
+var gbl_AdapterWorkerInstance: TatGblAdapterWorker;
 
 constructor TatFromShellNotifier.Create(aNotifyType: TNotifyType);
 //#UC START# *4AC2018D006C_4AC200650301_var*
@@ -193,7 +167,7 @@ begin
 //#UC END# *4AC2018D006C_4AC200650301_impl*
 end;//TatFromShellNotifier.Create
 
-procedure TatFromShellNotifier.Fire(const aNotify: INotification);
+procedure TatFromShellNotifier.fire(const notify: INotification);
 //#UC START# *45EEDE9D01C5_4AC200650301_var*
   function NTTypeToStr : String;
   begin
@@ -227,7 +201,7 @@ begin
     Trigger(Self, l_Notification);
   end;
 //#UC END# *45EEDE9D01C5_4AC200650301_impl*
-end;//TatFromShellNotifier.Fire
+end;//TatFromShellNotifier.fire
 
 constructor TatNotifierFacade.Create(const aNotifyManager: INotifyManager);
 //#UC START# *4AC20023031C_4AC2000A021C_var*
@@ -254,7 +228,6 @@ begin
   F_NoSubscription        := RegisterNotifier(NT_NO_SUBSCRIPTION);
 //#UC END# *4AC20023031C_4AC2000A021C_impl*
 end;//TatNotifierFacade.Create
-// start class TatGblAdapterWorker
 
 function TatGblAdapterWorker.pm_GetCommon: ICommon;
 //#UC START# *4AC218D80016_483C0B6B0167get_var*
@@ -456,7 +429,7 @@ begin
 end;//TatGblAdapterWorker.Logout
 
 function TatGblAdapterWorker.ForceLogin(const anUserName: AnsiString;
-  const aPassword: AnsiString): Boolean;
+ const aPassword: AnsiString): Boolean;
 //#UC START# *4AC21A7F01E4_483C0B6B0167_var*
 //#UC END# *4AC21A7F01E4_483C0B6B0167_var*
 begin
@@ -586,7 +559,6 @@ begin
   inherited;
 //#UC END# *48077504027E_483C0B6B0167_impl*
 end;//TatGblAdapterWorker.Destroy
-// start class TatControlledChangeNotifier
 
 class function TatControlledChangeNotifier.Make: IControlledChangeNotifier;
 var
@@ -598,16 +570,17 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TatControlledChangeNotifier.Make
 
-procedure TatControlledChangeNotifier.Fire;
+procedure TatControlledChangeNotifier.fire;
+ {* сообщает о том что контролируемые объекты изменились. }
 //#UC START# *45F118D40054_504FB0DC0131_var*
 //#UC END# *45F118D40054_504FB0DC0131_var*
 begin
 //#UC START# *45F118D40054_504FB0DC0131_impl*
   Logger.Info('Нотификация: документы на контроле изменились');
 //#UC END# *45F118D40054_504FB0DC0131_impl*
-end;//TatControlledChangeNotifier.Fire
+end;//TatControlledChangeNotifier.fire
 
 initialization
 //#UC START# *4AC224FF02C0*

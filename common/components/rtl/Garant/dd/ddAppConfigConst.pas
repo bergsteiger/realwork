@@ -1,30 +1,24 @@
 unit ddAppConfigConst;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd$AppConfig"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddAppConfigConst.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd$AppConfig::AppConfig::ddAppConfigConst
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigConst.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfigConst" MUID: (4E304DD10316)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TddValueKind = (
-   dd_vkString
- , dd_vkInteger
- , dd_vkBoolean
- , dd_vkDateTime
- , dd_vkObject
+  dd_vkString
+  , dd_vkInteger
+  , dd_vkBoolean
+  , dd_vkDateTime
+  , dd_vkObject
  );//TddValueKind
 
  TddConfigValue = record
@@ -37,71 +31,68 @@ type
  end;//TddConfigValue
 
  TddConfigItemType = (
-   dd_citUserDefined
- , dd_citGroup
- , dd_citString
- , dd_citBoolean
- , dd_citInteger
- , dd_citRadioGroup
- , dd_citDate
- , dd_citTime
- , dd_citFileName
- , dd_citFolderName
- , dd_citList
- , dd_citColorName
- , dd_citFont
+  dd_citUserDefined
+  , dd_citGroup
+  , dd_citString
+  , dd_citBoolean
+  , dd_citInteger
+  , dd_citRadioGroup
+  , dd_citDate
+  , dd_citTime
+  , dd_citFileName
+  , dd_citFolderName
+  , dd_citList
+  , dd_citColorName
+  , dd_citFont
  );//TddConfigItemType
 
  ddStringArrayOfBool = array [Boolean] of AnsiString;
 
 const
-  { EmptyValues }
- ddEmptyValue : TddConfigValue = (Kind: dd_vkString; AsString: '');
- ddEmptyIntValue : TddConfigValue = (Kind: dd_vkInteger; AsInteger: 0);
- ddEmptyDateValue : TddConfigValue = (Kind: dd_vkDateTime; AsDateTime: 1);
- ddEmptyObjectValue : TddConfigValue = (Kind: dd_vkObject; AsObject: nil);
-  { ddAppConfigConst const }
+ ddEmptyValue: TddConfigValue = (Kind: dd_vkString; AsString: '');
+ ddEmptyIntValue: TddConfigValue = (Kind: dd_vkInteger; AsInteger: 0);
+ ddEmptyDateValue: TddConfigValue = (Kind: dd_vkDateTime; AsDateTime: 1);
+ ddEmptyObjectValue: TddConfigValue = (Kind: dd_vkObject; AsObject: nil);
  c_ConfigItemLeft = 10;
  c_ConfigItemTop = 4;
- ddBooleanNames : ddStringArrayOfBool = ('False', 'True');
- ddPasswordChar : AnsiChar = #149;
- ddRequiredSign : AnsiChar = '*';
- ddRequiredFont : AnsiString = 'Windings2';
- {$If defined(ddUseVTSpin)}
-  ddMaxInt = High(Integer);
-  {$IfEnd} //ddUseVTSpin
- {$If not defined(ddUseVTSpin)}
-  ddMaxInt = High(SmallInt);
-  {$IfEnd} //not ddUseVTSpin
- {$If defined(ddUseVTSpin)}
-  ddMinInt = Succ(Low(Integer));
-  {$IfEnd} //ddUseVTSpin
- {$If not defined(ddUseVTSpin)}
-  ddMinInt = Succ(Low(Smallint));
-  {$IfEnd} //not ddUseVTSpin
+ ddBooleanNames: ddStringArrayOfBool = ('False', 'True');
+ ddPasswordChar: AnsiChar = #149;
+ ddRequiredSign: AnsiChar = '*';
+ ddRequiredFont: AnsiString = 'Windings2';
+ {$If Defined(ddUseVTSpin)}
+ ddMaxInt = High(Integer);
+ {$IfEnd} // Defined(ddUseVTSpin)
+ {$If NOT Defined(ddUseVTSpin)}
+ ddMaxInt = High(SmallInt);
+ {$IfEnd} // NOT Defined(ddUseVTSpin)
+ {$If Defined(ddUseVTSpin)}
+ ddMinInt = Succ(Low(Integer));
+ {$IfEnd} // Defined(ddUseVTSpin)
+ {$If NOT Defined(ddUseVTSpin)}
+ ddMinInt = Succ(Low(Smallint));
+ {$IfEnd} // NOT Defined(ddUseVTSpin)
 
-var c_ScrollBarWidth : Integer;
-
-var c_ConfigItemRight : Integer;
 function EmptyConfigValue: TddConfigValue;
 function IsValueEmpty(const aValue: TddConfigValue): Boolean;
 function MakeIntValue(aValue: Integer): TddConfigValue;
 function MakeBoolValue(aValue: Boolean = False): TddConfigValue;
-function MakeDateValue(aDateTime: TDateTime): TddConfigValue; overload; 
+function MakeDateValue(aDateTime: TDateTime): TddConfigValue; overload;
 function MakeDateValue(aYear: Word = 0;
-  aMonth: Word = 1;
-  aDay: Word = 1): TddConfigValue; overload; 
+ aMonth: Word = 1;
+ aDay: Word = 1): TddConfigValue; overload;
 function MakeStrValue(const aValue: AnsiString): TddConfigValue;
+
+var c_ScrollBarWidth: Integer;
+var c_ConfigItemRight: Integer;
 
 implementation
 
 uses
-  l3Base,
-  SysUtils,
-  Windows
-  ;
-
-// unit methods
+ l3ImplUses
+ , l3Base
+ , SysUtils
+ , Windows
+;
 
 function EmptyConfigValue: TddConfigValue;
 //#UC START# *522DAC7C00FA_4E304DD10316_var*
@@ -160,8 +151,8 @@ begin
 end;//MakeDateValue
 
 function MakeDateValue(aYear: Word = 0;
-  aMonth: Word = 1;
-  aDay: Word = 1): TddConfigValue;
+ aMonth: Word = 1;
+ aDay: Word = 1): TddConfigValue;
 //#UC START# *522DAE820041_4E304DD10316_var*
 //#UC END# *522DAE820041_4E304DD10316_var*
 begin

@@ -1,88 +1,89 @@
 unit bsConsultationManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Consultation"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Consultation/bsConsultationManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Пользовательские сервисы::Consultation::Consultation::Consultation::bsConsultationManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\bsConsultationManager.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "bsConsultationManager" MUID: (55FAEA9B0079)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  bsTypes,
-  bsInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  l3Interfaces,
-  l3NotifyPtrList
-  ;
+ l3IntfUses
+ , bsInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , bsTypes
+ , l3Interfaces
+ , l3NotifyPtrList
+;
 
 type
  _l3Notifier_Parent_ = TvcmBase;
  {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
  TbsConsultationManager = {final} class(_l3Notifier_, IbsConsultationManager)
- private
- // private fields
-   f_Unread : Integer;
-   f_CurrentStatus : TbsConsultationOperations;
- private
- // private methods
+  private
+   f_Unread: Integer;
+   f_CurrentStatus: TbsConsultationOperations;
+  private
    procedure UpdateUnread;
-     {* Сигнатура метода UpdateUnread }
- protected
- // realized methods
+  protected
+   function As_Il3ChangeNotifier: Il3ChangeNotifier;
+    {* Метод приведения нашего интерфейса к Il3ChangeNotifier }
    procedure UnreadChanged;
-     {* изменилось количество не прочтенных }
+    {* изменилось количество не прочтенных }
    procedure NoConnection;
-     {* нет доступа к серверу консультаций }
+    {* нет доступа к серверу консультаций }
    procedure NoSubscription;
-     {* у пользователя нет доступа к сервису консультаций }
+    {* у пользователя нет доступа к сервису консультаций }
    procedure InternetConnected;
    function pm_GetHasUnread: Boolean;
    procedure InternetDisConnected;
    function pm_GetCurrentStatus: TbsConsultationOperations;
- public
- // public methods
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    class function Make: IbsConsultationManager; reintroduce;
-     {* Сигнатура фабрики TbsConsultationManager.Make }
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_Il3ChangeNotifier: Il3ChangeNotifier;
  end;//TbsConsultationManager
-function G_ConsultationManager: IbsConsultationManager;
+
+function g_ConsultationManager: IbsConsultationManager;
 function IsConsultationManagerAssigned: Boolean;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DataAdapter,
-  l3Base,
-  SysUtils
-  ;
+ l3ImplUses
+ , DataAdapter
+ , l3Base
+ , SysUtils
+;
 
-var gv_ConsultationManager : IbsConsultationManager = nil;
+var gv_ConsultationManager: IbsConsultationManager = nil;
+
+function g_ConsultationManager: IbsConsultationManager;
+//#UC START# *55FAEB22015B_55FAEA9B0079_var*
+//#UC END# *55FAEB22015B_55FAEA9B0079_var*
+begin
+//#UC START# *55FAEB22015B_55FAEA9B0079_impl*
+ if not Assigned(gv_ConsultationManager) then
+  gv_ConsultationManager := TbsConsultationManager.Make;
+ Result := gv_ConsultationManager;
+//#UC END# *55FAEB22015B_55FAEA9B0079_impl*
+end;//g_ConsultationManager
+
+function IsConsultationManagerAssigned: Boolean;
+//#UC START# *55FBE42C03DF_55FAEA9B0079_var*
+//#UC END# *55FBE42C03DF_55FAEA9B0079_var*
+begin
+//#UC START# *55FBE42C03DF_55FAEA9B0079_impl*
+ Result := Assigned(gv_ConsultationManager);
+//#UC END# *55FBE42C03DF_55FAEA9B0079_impl*
+end;//IsConsultationManagerAssigned
 
 {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
-
-// start class TbsConsultationManager
 
 procedure TbsConsultationManager.UpdateUnread;
 //#UC START# *55FACCF500B4_492FFDF7011A_var*
@@ -113,9 +114,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TbsConsultationManager.Make
+
+function TbsConsultationManager.As_Il3ChangeNotifier: Il3ChangeNotifier;
+ {* Метод приведения нашего интерфейса к Il3ChangeNotifier }
+begin
+ Result := Self;
+end;//TbsConsultationManager.As_Il3ChangeNotifier
 
 procedure TbsConsultationManager.UnreadChanged;
+ {* изменилось количество не прочтенных }
 //#UC START# *495279E501CB_492FFDF7011A_var*
 //#UC END# *495279E501CB_492FFDF7011A_var*
 begin
@@ -127,6 +135,7 @@ begin
 end;//TbsConsultationManager.UnreadChanged
 
 procedure TbsConsultationManager.NoConnection;
+ {* нет доступа к серверу консультаций }
 //#UC START# *495279F20005_492FFDF7011A_var*
 //#UC END# *495279F20005_492FFDF7011A_var*
 begin
@@ -139,6 +148,7 @@ begin
 end;//TbsConsultationManager.NoConnection
 
 procedure TbsConsultationManager.NoSubscription;
+ {* у пользователя нет доступа к сервису консультаций }
 //#UC START# *495279FD039E_492FFDF7011A_var*
 //#UC END# *495279FD039E_492FFDF7011A_var*
 begin
@@ -188,45 +198,14 @@ begin
 //#UC END# *5501366003A9_492FFDF7011Aget_impl*
 end;//TbsConsultationManager.pm_GetCurrentStatus
 
-// Методы преобразования к реализуемым интерфейсам
-
-function TbsConsultationManager.As_Il3ChangeNotifier: Il3ChangeNotifier;
-begin
- Result := Self;
-end;
-
-function G_ConsultationManager: IbsConsultationManager;
-//#UC START# *55FAEB22015B_55FAEA9B0079_var*
-//#UC END# *55FAEB22015B_55FAEA9B0079_var*
-begin
-//#UC START# *55FAEB22015B_55FAEA9B0079_impl*
- if not Assigned(gv_ConsultationManager) then
-  gv_ConsultationManager := TbsConsultationManager.Make;
- Result := gv_ConsultationManager;
-//#UC END# *55FAEB22015B_55FAEA9B0079_impl*
-end;//G_ConsultationManager
-
-function IsConsultationManagerAssigned: Boolean;
-//#UC START# *55FBE42C03DF_55FAEA9B0079_var*
-//#UC END# *55FBE42C03DF_55FAEA9B0079_var*
-begin
-//#UC START# *55FBE42C03DF_55FAEA9B0079_impl*
- Result := Assigned(gv_ConsultationManager);
-//#UC END# *55FBE42C03DF_55FAEA9B0079_impl*
-end;//IsConsultationManagerAssigned
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
 //#UC START# *55FAFF0C0027*
 //#UC END# *55FAFF0C0027*
-{$IfEnd} //not Admin AND not Monitorings
 
 finalization
-{$If not defined(Admin) AND not defined(Monitorings)}
 //#UC START# *55FAEB6B0372*
  gv_ConsultationManager := nil;
 //#UC END# *55FAEB6B0372*
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

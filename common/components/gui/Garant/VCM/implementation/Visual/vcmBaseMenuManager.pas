@@ -1,597 +1,515 @@
 unit vcmBaseMenuManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmBaseMenuManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM$Visual::Visual::vcmBaseMenuManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmBaseMenuManager.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vcmBaseMenuManager" MUID: (4AB24EF502BB)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  afwInterfaces,
-  vcmExternalInterfaces,
-  vcmInterfaces,
-  Types,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  ActnList
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Menus
-  {$IfEnd} //not NoVCL
-  ,
-  vcmBase,
-  vcmEntityForm,
-  vcmUserControls,
-  l3ProtoObject
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  vcmModule,
-  vcmModulesCollection,
-  l3StringIDEx,
-  vcmMenus,
-  vcmPopupMenuPrim,
-  l3ProtoObjectRefList,
-  vcmBaseOperationsCollectionItem,
-  vcmRepOperationsCollectionItem,
-  vcmBaseCollectionItem,
-  vcmBaseTypes,
-  vcmBaseEntities
-  {$If not defined(XE)}
-  ,
-  ToolsAPI
-  {$IfEnd} //not XE
-  ,
-  vcmStringCollection,
-  vcmFormsCollection,
-  vcmMessagesCollection,
-  vcmRepEntitiesCollectionItem,
-  vcmMenuManagerTypes,
-  vcmMenuItemClickListenerList
-  {$If not defined(NoVCL)}
-  ,
-  l3PopupMenuHelper
-  {$IfEnd} //not NoVCL
-  ,
-  vcmBaseCollection
-  ;
+ l3IntfUses
+ , l3StringIDEx
+ , vcmBase
+ , vcmBaseOperationsCollectionItem
+ , vcmRepOperationsCollectionItem
+ , vcmInterfaces
+ , vcmBaseTypes
+ , vcmExternalInterfaces
+ , l3ProtoObjectRefList
+ , vcmModule
+ , vcmBaseEntities
+ , vcmStringCollection
+ , vcmModulesCollection
+ , vcmFormsCollection
+ , vcmMessagesCollection
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmPopupMenuPrim
+ {$If NOT Defined(XE)}
+ , ToolsAPI
+ {$IfEnd} // NOT Defined(XE)
+ , vcmMenuItemClickListenerList
+ , vcmUserControls
+ , vcmEntityForm
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmRepEntitiesCollectionItem
+ , vcmBaseCollectionItem
+ {$If NOT Defined(NoVCL)}
+ , ActnList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , afwInterfaces
+ , vcmMenuManagerTypes
+ , vcmMenus
+ , Classes
+ , vcmBaseCollection
+ , Types
+ , l3ProtoObject
+ {$If NOT Defined(NoVCL)}
+ , l3PopupMenuHelper
+ {$IfEnd} // NOT Defined(NoVCL)
+;
+
+const
+ c_vcmTableName = 'vcmTable';
+ c_vcmStopTableName = 'vcmStopTable';
+ vcm_HistoryZones = [vcm_ztParent];
+  {* зоны в которых формы сохраняются в историю }
+ vcm_SaveFormZones = [vcm_ztNavigator];
+  {* сохранять формы в настройки при изменении родителя если они находятся в перечисленных зонах }
 
 type
  TvcmOperationManager = class(TvcmCacheableBase)
   {* менеждер операции. Перехватывает операции OnTest и OnExecute операции, для управления формой }
- private
- // private fields
-   f_OldOnTest : TvcmTestEvent;
-   f_OldOnContextTest : TvcmTestEvent;
-   f_OldOnExecute : TvcmExecuteEvent;
-   f_OldOnContextExecute : TvcmExecuteEvent;
-   f_FormID : TvcmFormID;
-   f_Operation : TvcmBaseOperationsCollectionItem;
-    {* Поле для свойства Operation}
-   f_FormActivate : TvcmFormActivate;
-    {* Поле для свойства FormActivate}
-   f_Form : IvcmEntityForm;
-    {* Поле для свойства Form}
- protected
- // property methods
+  private
+   f_OldOnTest: TvcmTestEvent;
+   f_OldOnContextTest: TvcmTestEvent;
+   f_OldOnExecute: TvcmExecuteEvent;
+   f_OldOnContextExecute: TvcmExecuteEvent;
+   f_FormID: TvcmFormID;
+   f_Operation: TvcmBaseOperationsCollectionItem;
+    {* Поле для свойства Operation }
+   f_FormActivate: TvcmFormActivate;
+    {* Поле для свойства FormActivate }
+   f_Form: IvcmEntityForm;
+    {* Поле для свойства Form }
+  protected
    procedure pm_SetOperation(aValue: TvcmBaseOperationsCollectionItem);
    procedure pm_SetFormActivate(aValue: TvcmFormActivate);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
    procedure DoTest(const aParams: IvcmTestParamsPrim;
-     aHandler: TvcmTestEvent);
-     {* проверяет наличие и активность формы }
+    aHandler: TvcmTestEvent);
+    {* проверяет наличие и активность формы }
    procedure DoExecute(const aParams: IvcmExecuteParams;
-     aHandler: TvcmExecuteEvent);
-     {* скрывает форму если активна, или активирует }
+    aHandler: TvcmExecuteEvent);
+    {* скрывает форму если активна, или активирует }
    procedure OnTest(const aParams: IvcmTestParamsPrim);
-     {* проверяет наличие и активность формы }
+    {* проверяет наличие и активность формы }
    procedure OnExecute(const aParams: IvcmExecuteParams);
-     {* скрывает форму если активна, или активирует }
+    {* скрывает форму если активна, или активирует }
    procedure OnContextTest(const aParams: IvcmTestParamsPrim);
-     {* проверяет наличие и активность формы }
+    {* проверяет наличие и активность формы }
    procedure OnContextExecute(const aParams: IvcmExecuteParams);
-     {* скрывает форму если активна, или активирует }
+    {* скрывает форму если активна, или активирует }
    function FindForm(const aParams: IvcmContainer;
-     theForm: PIvcmEntityForm = nil): Boolean;
-     {* ищет форму в приложении используя информацию поля FormActivate }
- public
- // public methods
+    theForm: PIvcmEntityForm = nil): Boolean;
+    {* ищет форму в приложении используя информацию поля FormActivate }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  public
    constructor Create(const aForm: IvcmEntityForm;
-     aFormActivate: TvcmFormActivate;
-     aOperation: TvcmBaseOperationsCollectionItem); reintroduce;
- public
- // public properties
+    aFormActivate: TvcmFormActivate;
+    aOperation: TvcmBaseOperationsCollectionItem); reintroduce;
+  public
    property Operation: TvcmBaseOperationsCollectionItem
-     read f_Operation
-     write pm_SetOperation;
+    read f_Operation
+    write pm_SetOperation;
    property FormActivate: TvcmFormActivate
-     read f_FormActivate
-     write pm_SetFormActivate;
+    read f_FormActivate
+    write pm_SetFormActivate;
    property Form: IvcmEntityForm
-     read f_Form;
+    read f_Form;
  end;//TvcmOperationManager
 
-const
-  { MenuManager String constants }
- c_vcmTableName = 'vcmTable';
- c_vcmStopTableName = 'vcmStopTable';
-
-const
-  { vcmBaseMenuManager const }
- vcm_HistoryZones = [vcm_ztParent];
-  { зоны в которых формы сохраняются в историю }
- vcm_SaveFormZones = [vcm_ztNavigator];
-  { сохранять формы в настройки при изменении родителя если они находятся в перечисленных зонах }
-
-type
  TvcmOperationManagers = class(TvcmCacheableBase)
   {* список менеджеров операции }
- private
- // private fields
-  {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
-   f_Managers : Tl3ProtoObjectRefList;
-  {$IfEnd} //not DesignTimeLibrary AND not NoVCM
- protected
- // property methods
+  private
+   {$If NOT Defined(DesignTimeLibrary)}
+   f_Managers: Tl3ProtoObjectRefList;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  protected
    function pm_GetCount: Integer;
    function pm_GetItems(anIndex: Integer): TvcmOperationManager; virtual;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    procedure Add(aManager: TvcmOperationManager);
    procedure Delete(const aForm: IvcmEntityForm);
- public
- // public properties
+  public
    property Count: Integer
-     read pm_GetCount;
+    read pm_GetCount;
    property Items[anIndex: Integer]: TvcmOperationManager
-     read pm_GetItems;
-     default;
+    read pm_GetItems;
+    default;
  end;//TvcmOperationManagers
 
  TvcmFormActivateOperations = class(TvcmCacheableBase)
   {* список операций модулей и сущностей заявленных на управление формой (FormActivate <> '') }
- private
- // private fields
-   f_IsModulesLoad : Boolean;
-   f_IsEntitiesLoad : Boolean;
-   f_Operations : TvcmObjectList;
- protected
- // property methods
+  private
+   f_IsModulesLoad: Boolean;
+   f_IsEntitiesLoad: Boolean;
+   f_Operations: TvcmObjectList;
+  protected
    function pm_GetCount: Integer;
    function pm_GetItems(anIndex: Integer): TvcmBaseOperationsCollectionItem;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
    procedure LoadOperations;
-     {* Сигнатура метода LoadOperations }
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    function GetFormActivate(aOperation: TvcmBaseOperationsCollectionItem): TvcmFormActivate;
-     {* возвращает FormActivate, если операция заявлена на управление формой }
+    {* возвращает FormActivate, если операция заявлена на управление формой }
    procedure AddOperation(aOperation: TvcmRepOperationsCollectionItem);
-     {* добавляет в список операцию заявленную на управление формой }
- public
- // public properties
+    {* добавляет в список операцию заявленную на управление формой }
+  public
    property Count: Integer
-     read pm_GetCount;
+    read pm_GetCount;
    property Items[anIndex: Integer]: TvcmBaseOperationsCollectionItem
-     read pm_GetItems;
+    read pm_GetItems;
  end;//TvcmFormActivateOperations
 
  TvcmFormActivateManager = class(TvcmCacheableBase)
   {* координтор управления активностью форм }
- private
- // private fields
-   f_Managers : TvcmOperationManagers;
-   f_Operations : TvcmFormActivateOperations;
-    {* Поле для свойства Operations}
- protected
- // property methods
+  private
+   f_Managers: TvcmOperationManagers;
+   f_Operations: TvcmFormActivateOperations;
+    {* Поле для свойства Operations }
+  protected
    function pm_GetItems(anIndex: Integer): TvcmOperationManager;
    function pm_GetCount: Integer;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
    procedure RegOperation(aOperation: TvcmBaseOperationsCollectionItem;
-     const aForm: IvcmEntityForm);
-     {* если данная операция заявлена на управление формой, то получает FormActivate у TvcmFormActivateOperations и создаёт TvcmOperationManager }
- public
- // public methods
+    const aForm: IvcmEntityForm);
+    {* если данная операция заявлена на управление формой, то получает FormActivate у TvcmFormActivateOperations и создаёт TvcmOperationManager }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    procedure AddForm(const aForm: IvcmEntityForm);
-     {* регистрирует операции сущностей }
+    {* регистрирует операции сущностей }
    procedure RemoveForm(const aForm: IvcmEntityForm);
-     {* при удалении формы удаляет созданные TvcmOperationManager-ы }
+    {* при удалении формы удаляет созданные TvcmOperationManager-ы }
    procedure AddModule(aModule: TvcmModule);
-     {* регистрирует операции модуля }
- public
- // public properties
+    {* регистрирует операции модуля }
+  public
    property Operations: TvcmFormActivateOperations
-     read f_Operations;
+    read f_Operations;
    property Items[anIndex: Integer]: TvcmOperationManager
-     read pm_GetItems;
+    read pm_GetItems;
    property Count: Integer
-     read pm_GetCount;
+    read pm_GetCount;
  end;//TvcmFormActivateManager
 
- TvcmInitCommandsEvent = procedure (aSender: TObject;
+ TvcmInitCommandsEvent = procedure(aSender: TObject;
   aCommands: TObject) of object;
 
- TvcmOperationExecuteNotify = procedure (aType: TvcmOperationCallType;
+ TvcmOperationExecuteNotify = procedure(aType: TvcmOperationCallType;
   const anOperation: IvcmOperationDef) of object;
+  {* сигнатура события о выполении операции }
 
  TvcmBaseMenuManagerPrim = class(TvcmBaseEntities, IvcmResources)
- private
- // private fields
-   f_KeywordsRegistered : Boolean;
-  {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
-   f_FormActivateManager : TvcmFormActivateManager;
-  {$IfEnd} //not DesignTimeLibrary AND not NoVCM
-   f_Strings : TvcmStringCollection;
-    {* Поле для свойства Strings}
-   f_HistoryZones : TvcmEffectiveZoneTypes;
-    {* Поле для свойства HistoryZones}
-   f_SaveFormZones : TvcmEffectiveZoneTypes;
-    {* Поле для свойства SaveFormZones}
-   f_Modules : TvcmModulesCollection;
-    {* Поле для свойства Modules}
-   f_AppForms : TvcmFormsCollection;
-    {* Поле для свойства AppForms}
-   f_Messages : TvcmMessagesCollection;
-    {* Поле для свойства Messages}
-   f_SmallImages : TCustomImageList;
-    {* Поле для свойства SmallImages}
-   f_LargeImages : TCustomImageList;
-    {* Поле для свойства LargeImages}
-   f_ToolbarPopup : TvcmPopupMenuPrim;
-    {* Поле для свойства ToolbarPopup}
-   f_OnInitCommands : TvcmInitCommandsEvent;
-    {* Поле для свойства OnInitCommands}
-   f_OnOperationExecuteNotify : TvcmOperationExecuteNotify;
-    {* Поле для свойства OnOperationExecuteNotify}
-   f_MenuItemClickListeners : TvcmMenuItemClickListenerList;
-    {* Поле для свойства MenuItemClickListeners}
- private
- // private methods
+  private
+   f_KeywordsRegistered: Boolean;
+   {$If NOT Defined(DesignTimeLibrary)}
+   f_FormActivateManager: TvcmFormActivateManager;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   f_Strings: TvcmStringCollection;
+    {* Поле для свойства Strings }
+   f_HistoryZones: TvcmEffectiveZoneTypes;
+    {* Поле для свойства HistoryZones }
+   f_SaveFormZones: TvcmEffectiveZoneTypes;
+    {* Поле для свойства SaveFormZones }
+   f_Modules: TvcmModulesCollection;
+    {* Поле для свойства Modules }
+   f_AppForms: TvcmFormsCollection;
+    {* Поле для свойства AppForms }
+   f_Messages: TvcmMessagesCollection;
+    {* Поле для свойства Messages }
+   f_SmallImages: TCustomImageList;
+    {* Поле для свойства SmallImages }
+   f_LargeImages: TCustomImageList;
+    {* Поле для свойства LargeImages }
+   f_ToolbarPopup: TvcmPopupMenuPrim;
+    {* Поле для свойства ToolbarPopup }
+   f_OnInitCommands: TvcmInitCommandsEvent;
+    {* Поле для свойства OnInitCommands }
+   f_OnOperationExecuteNotify: TvcmOperationExecuteNotify;
+    {* Поле для свойства OnOperationExecuteNotify }
+   f_MenuItemClickListeners: TvcmMenuItemClickListenerList;
+    {* Поле для свойства MenuItemClickListeners }
+  private
    procedure NotifyMenuItemClickListeners(aMenuItem: TvcmMenuItem);
- protected
- // property methods
+  protected
    procedure pm_SetStrings(aValue: TvcmStringCollection);
-   {$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
+   {$If Defined(DesignTimeLibrary)}
    function pm_GetUnitName: AnsiString;
-   {$IfEnd} //DesignTimeLibrary AND not NoVCM
+   {$IfEnd} // Defined(DesignTimeLibrary)
    function pm_GetModules: TvcmModulesCollection;
    procedure pm_SetModules(aValue: TvcmModulesCollection);
    procedure pm_SetAppForms(aValue: TvcmFormsCollection);
    procedure pm_SetMessages(aValue: TvcmMessagesCollection);
    procedure pm_SetSmallImages(aValue: TCustomImageList);
    procedure pm_SetLargeImages(aValue: TCustomImageList);
-   {$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
+   {$If Defined(DesignTimeLibrary)}
    function pm_GetModule: IOTAModule;
-   {$IfEnd} //DesignTimeLibrary AND not NoVCM
-   {$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
+   {$IfEnd} // Defined(DesignTimeLibrary)
+   {$If Defined(DesignTimeLibrary)}
    function pm_GetEditor: IOTAEditor;
-   {$IfEnd} //DesignTimeLibrary AND not NoVCM
-   {$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
+   {$IfEnd} // Defined(DesignTimeLibrary)
+   {$If Defined(DesignTimeLibrary)}
    function pm_GetSourceEditor: IOTASourceEditor;
-   {$IfEnd} //DesignTimeLibrary AND not NoVCM
+   {$IfEnd} // Defined(DesignTimeLibrary)
    function pm_GetMenuItemClickListeners: TvcmMenuItemClickListenerList; virtual;
- protected
- // realized methods
+   {$If Defined(DesignTimeLibrary)}
+   procedure WriteRes;
+   {$IfEnd} // Defined(DesignTimeLibrary)
+   {$If Defined(DesignTimeLibrary)}
+   procedure RegisterEntities;
+   {$IfEnd} // Defined(DesignTimeLibrary)
+   function DoShortCutCommand(aCommand: Word): Boolean;
+   function GetModulesCollectionClass: RvcmModulesCollection; virtual;
    procedure Define(const aName: AnsiString;
     const aRus: AnsiString;
     const anAlien: AnsiString);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure Loaded; override;
    procedure Notification(AComponent: TComponent;
-     Operation: TOperation); override;
+    Operation: TOperation); override;
    procedure WriteState(Writer: TWriter); override;
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
-   class function GetEntitiesCollectionClass: RvcmBaseCollection; override;
- protected
- // protected methods
-    {$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
-   procedure WriteRes;
-     {* Сигнатура метода WriteRes }
-    {$IfEnd} //DesignTimeLibrary AND not NoVCM
-    {$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
-   procedure RegisterEntities;
-     {* Сигнатура метода RegisterEntities }
-    {$IfEnd} //DesignTimeLibrary AND not NoVCM
-   function DoShortCutCommand(aCommand: Word): Boolean;
-   function GetModulesCollectionClass: RvcmModulesCollection; virtual;
- public
- // public methods
+  public
    procedure OperationExecuteNotify(aType: TvcmOperationCallType;
-     const anOperation: IvcmOperationDef);
-     {* нотификация о выполении операции. Вызывается перед выполением операции. При вызове ShortCut, anAction не заполняется, вызывается непосредственно операция. Если будет необходимо обязательно получать имя операции, то параметр anAction нужно будет переделать например на IvcmOperationDef }
+    const anOperation: IvcmOperationDef);
+    {* нотификация о выполении операции. Вызывается перед выполением операции. При вызове ShortCut, anAction не заполняется, вызывается непосредственно операция. Если будет необходимо обязательно получать имя операции, то параметр anAction нужно будет переделать например на IvcmOperationDef }
    procedure RegisterKeywords;
-     {* Сигнатура метода RegisterKeywords }
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure RegisterModuleInMenu(aForm: TvcmEntityForm;
-     const aModuleDef: IvcmModuleDef); virtual;
-     {* регистрирует модуль в меню, toolbar'ах, etc. Для перекрытия в потомках. }
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCM
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+    const aModuleDef: IvcmModuleDef); virtual;
+    {* регистрирует модуль в меню, toolbar'ах, etc. Для перекрытия в потомках. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure MainCreated(aForm: TvcmEntityForm); virtual;
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCM
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure RegisterMainInMenu(aForm: TvcmEntityForm); virtual;
-     {* регистрирует основную форму в меню, toolbar'ах, etc. Для перекрытия в потомках. }
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+    {* регистрирует основную форму в меню, toolbar'ах, etc. Для перекрытия в потомках. }
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure RegisterChildInMenu(aForm: TvcmEntityForm); virtual;
-     {* регистрирует дочернюю форму в меню, toolbar'ах, etc. Для перекрытия в потомках. }
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCM
+    {* регистрирует дочернюю форму в меню, toolbar'ах, etc. Для перекрытия в потомках. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    function GetPopupMenu: TPopupMenu; virtual;
    function GetOperationableObjectByID(anID: Integer): TvcmRepEntitiesCollectionItem;
    function GetOperationableObjectByName(const aName: AnsiString;
-     aModule: Boolean): TvcmRepEntitiesCollectionItem;
+    aModule: Boolean): TvcmRepEntitiesCollectionItem;
    procedure RegisterOperation(const aControl: IvcmIdentifiedUserFriendlyControl;
-     const anOp: IvcmOperationDef;
-     anUFHolder: TObject;
-     anOpHolder: TObject);
+    const anOp: IvcmOperationDef;
+    anUFHolder: TObject;
+    anOpHolder: TObject);
    procedure AddForm(const aForm: IvcmEntityForm);
    procedure RemoveForm(const aForm: IvcmEntityForm);
    procedure ReloadToolbars(const aForm: IvcmEntityForm); virtual;
    procedure ReloadAllToolbars;
-     {* Сигнатура метода ReloadAllToolbars }
    procedure PostBuild(aForm: TvcmEntityForm;
-     aFollowDocks: Boolean = False); virtual;
+    aFollowDocks: Boolean = False); virtual;
    procedure LoadShortcuts(aResetToDefault: Boolean = False);
    function MergedToMainForm(aForm: TvcmEntityForm): Boolean; virtual;
    procedure AddModule(aModule: TvcmModule);
    procedure BackupOpStatus; virtual;
-     {* Сигнатура метода BackupOpStatus }
    procedure RestoreOpStatus; virtual;
-     {* Сигнатура метода RestoreOpStatus }
    procedure BeginOp; virtual;
-     {* Сигнатура метода BeginOp }
    function GetOpLock: Boolean; virtual;
    procedure EndOp; virtual;
-     {* Сигнатура метода EndOp }
    procedure FastenToolbars; virtual;
-     {* Сигнатура метода FastenToolbars }
    function GetFastenMode: Boolean; virtual;
-   function BuildVirtualForm(aFormClass: RvcmEntityForm;
-     out NeedFreeForm: Boolean;
-     aUserType: TvcmUserType = vcm_utAny): TvcmEntityForm;
+   function BuildVirtualForm(const aFormClass: RvcmEntityForm;
+    out NeedFreeForm: Boolean;
+    aUserType: TvcmUserType = vcm_utAny): TvcmEntityForm;
    function ObjectByType(anObject: TvcmObject;
-     const anObjectName: AnsiString;
-     const aSubName: AnsiString = '';
-     ForceCreate: Boolean = False): TvcmBaseCollectionItem; virtual;
+    const anObjectName: AnsiString;
+    const aSubName: AnsiString = '';
+    ForceCreate: Boolean = False): TvcmBaseCollectionItem; virtual;
    procedure DefineObjectProp(anObject: TvcmObject;
-     const anObjectName: AnsiString;
-     const aSubName: AnsiString;
-     const aProp: AnsiString;
-     const aValue: AnsiString);
+    const anObjectName: AnsiString;
+    const aSubName: AnsiString;
+    const aProp: AnsiString;
+    const aValue: AnsiString);
    function OpDefBySelector(const anOp: TvcmOpSelector): IvcmOperationDef;
    function BuildAction(const anOp: TvcmOpSelector;
-     aDefaultAction: TCustomAction = nil): TCustomAction;
+    aDefaultAction: TCustomAction = nil): TCustomAction;
    function UnlockInProgress: Boolean; virtual;
    procedure AddControlForUnlockPostBuild(const aControl: IafwMenuUnlockedPostBuild); virtual;
    procedure ListenerControlDestroying(const aControl: IafwMenuUnlockedPostBuild); virtual;
    procedure SubscribeMenuItemClickListener(const aListener: IvcmMenuItemClickListener);
    procedure UnsubscribeMenuItemClickListener(const aListener: IvcmMenuItemClickListener);
    procedure NotifyMenuItemClick(aMenuItem: TvcmMenuItem);
- protected
- // protected properties
-    {$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
+   constructor Create(AOwner: TComponent); override;
+   class function GetEntitiesCollectionClass: RvcmBaseCollection; override;
+  protected
+   {$If Defined(DesignTimeLibrary)}
    property Module: IOTAModule
-     read pm_GetModule;
-    {$IfEnd} //DesignTimeLibrary AND not NoVCM
-    {$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
+    read pm_GetModule;
+   {$IfEnd} // Defined(DesignTimeLibrary)
+   {$If Defined(DesignTimeLibrary)}
    property Editor: IOTAEditor
-     read pm_GetEditor;
-    {$IfEnd} //DesignTimeLibrary AND not NoVCM
-    {$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
+    read pm_GetEditor;
+   {$IfEnd} // Defined(DesignTimeLibrary)
+   {$If Defined(DesignTimeLibrary)}
    property SourceEditor: IOTASourceEditor
-     read pm_GetSourceEditor;
-    {$IfEnd} //DesignTimeLibrary AND not NoVCM
+    read pm_GetSourceEditor;
+   {$IfEnd} // Defined(DesignTimeLibrary)
    property MenuItemClickListeners: TvcmMenuItemClickListenerList
-     read pm_GetMenuItemClickListeners;
- public
- // public properties
+    read pm_GetMenuItemClickListeners;
+  public
    property Strings: TvcmStringCollection
-     read f_Strings
-     write pm_SetStrings;
+    read f_Strings
+    write pm_SetStrings;
    property HistoryZones: TvcmEffectiveZoneTypes
-     read f_HistoryZones
-     write f_HistoryZones;
-     {* формы зон, которые сохраняются в историю }
+    read f_HistoryZones
+    write f_HistoryZones;
+    {* формы зон, которые сохраняются в историю }
    property SaveFormZones: TvcmEffectiveZoneTypes
-     read f_SaveFormZones
-     write f_SaveFormZones;
-     {* сохранять формы в настройки при изменении родителя если они находятся в перечисленных зонах. }
-    {$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
+    read f_SaveFormZones
+    write f_SaveFormZones;
+    {* сохранять формы в настройки при изменении родителя если они находятся в перечисленных зонах. }
+   {$If Defined(DesignTimeLibrary)}
    property UnitName: AnsiString
-     read pm_GetUnitName;
-    {$IfEnd} //DesignTimeLibrary AND not NoVCM
+    read pm_GetUnitName;
+   {$IfEnd} // Defined(DesignTimeLibrary)
    property Modules: TvcmModulesCollection
-     read pm_GetModules
-     write pm_SetModules;
-     {* коллекция модулей }
+    read pm_GetModules
+    write pm_SetModules;
+    {* коллекция модулей }
    property AppForms: TvcmFormsCollection
-     read f_AppForms
-     write pm_SetAppForms;
+    read f_AppForms
+    write pm_SetAppForms;
    property Messages: TvcmMessagesCollection
-     read f_Messages
-     write pm_SetMessages;
+    read f_Messages
+    write pm_SetMessages;
    property SmallImages: TCustomImageList
-     read f_SmallImages
-     write pm_SetSmallImages;
+    read f_SmallImages
+    write pm_SetSmallImages;
    property LargeImages: TCustomImageList
-     read f_LargeImages
-     write pm_SetLargeImages;
+    read f_LargeImages
+    write pm_SetLargeImages;
    property ToolbarPopup: TvcmPopupMenuPrim
-     read f_ToolbarPopup;
+    read f_ToolbarPopup;
    property OnInitCommands: TvcmInitCommandsEvent
-     read f_OnInitCommands
-     write f_OnInitCommands;
+    read f_OnInitCommands
+    write f_OnInitCommands;
    property OnOperationExecuteNotify: TvcmOperationExecuteNotify
-     read f_OnOperationExecuteNotify
-     write f_OnOperationExecuteNotify;
-     {* событие возникает перед выполением операции }
+    read f_OnOperationExecuteNotify
+    write f_OnOperationExecuteNotify;
+    {* событие возникает перед выполением операции }
  end;//TvcmBaseMenuManagerPrim
 
- TvcmPopupMenuHelper = {final} class(Tl3ProtoObject {$If not defined(NoVCL)}, Il3PopupMenuHelper{$IfEnd} //not NoVCL
+ TvcmPopupMenuHelper = {final} class(Tl3ProtoObject{$If NOT Defined(NoVCL)}
+ , Il3PopupMenuHelper
+ {$IfEnd} // NOT Defined(NoVCL)
  )
- private
- // private fields
-   f_Popup : TPopupMenu;
-   f_PopupForm : TvcmEntityForm;
- private
- // private methods
+  private
+   f_Popup: TPopupMenu;
+   f_PopupForm: TvcmEntityForm;
+  private
    function CheckPopup(const anEntityDef: IvcmEntityDef): IvcmEntity;
- public
- // realized methods
-   {$If not defined(NoVCL)}
+  public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+   {$If NOT Defined(NoVCL)}
    function GetPopupMenu(aControl: TComponent;
     const aPoint: TPoint): TMenuItem;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure GetPopupMenuForComponentInfo(aControl: TComponent;
     const aPoint: TPoint;
     aCallback: Tl3PopupMenuHelperCallback);
-   {$IfEnd} //not NoVCL
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+   {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvcmPopupMenuHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvcmPopupMenuHelper }
  end;//TvcmPopupMenuHelper
 
-//#UC START# *52A1F4A201F9ci*
-//#UC END# *52A1F4A201F9ci*
-//#UC START# *52A1F4A201F9cit*
-//#UC END# *52A1F4A201F9cit*
+ //#UC START# *52A1F4A201F9ci*
+ //#UC END# *52A1F4A201F9ci*
+ //#UC START# *52A1F4A201F9cit*
+ //#UC END# *52A1F4A201F9cit*
  TvcmBaseMenuManager = class(TvcmBaseMenuManagerPrim)
- public
- // public methods
+  public
    function FillPopupMenu(const aPopupPoint: TPoint;
-     aPopupComponent: TComponent): TvcmPopupMenuPrim; virtual;
-//#UC START# *52A1F4A201F9publ*
+    aPopupComponent: TComponent): TvcmPopupMenuPrim; virtual;
+ //#UC START# *52A1F4A201F9publ*
   public
    property HistoryZones default vcm_HistoryZones;
    property SaveFormZones default vcm_SaveFormZones;
-//#UC END# *52A1F4A201F9publ*
+ //#UC END# *52A1F4A201F9publ*
  end;//TvcmBaseMenuManager
 
-var g_MenuManager : TvcmBaseMenuManager;
 procedure _DoInitConstString(var anID: Tl3StringIDEx);
-procedure VcmStartupComplete;
-   {* Сигнатура метода vcmStartupComplete }
-{$IfEnd} //not NoVCM
+procedure vcmStartupComplete;
+
+var g_MenuManager: TvcmBaseMenuManager;
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  SysUtils
-  {$If not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  kwEntityOperation
-  {$IfEnd} //not NoScripts AND not NoVCM
-  
-  {$If not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  kwOperationsRegistrar
-  {$IfEnd} //not NoScripts AND not NoVCM
-  ,
-  l3Base {a},
-  vcmEntitiesDefIteratorForContextMenu
-  {$If not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  VCMWordsPack
-  {$IfEnd} //not NoScripts AND not NoVCM
-  ,
-  vtUtils,
-  vcmBaseMenuManagerRes,
-  l3ConstStrings,
-  vcmExportConst,
-  StrUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  vcmContentConst,
-  vcmOVCCommands,
-  vcmModulesCollectionItem,
-  l3InterfacesMisc,
-  vcmRepEntitiesCollection,
-  vcmBaseEntitiesCollectionItem,
-  vcmBaseEntitiesCollection,
-  afwFacade,
-  vcmModuleDef,
-  l3Interfaces,
-  OvcController,
-  vcmSettings,
-  vcmMainForm,
-  vcmFormsCollectionItem,
-  l3String,
-  TypInfo,
-  vcmModuleAction,
-  vcmEntityAction,
-  vcmOperationsManager,
-  vcmCustomHelpers,
-  vcmOperationsCollectionItem,
-  vcmEntitiesCollectionItem,
-  vcmUtils
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtUtils
+ , vcmBaseMenuManagerRes
+ , l3ConstStrings
+ , vcmExportConst
+ , StrUtils
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmContentConst
+ , vcmOVCCommands
+ , vcmModulesCollectionItem
+ , l3InterfacesMisc
+ , vcmRepEntitiesCollection
+ , vcmBaseEntitiesCollectionItem
+ , vcmBaseEntitiesCollection
+ , afwFacade
+ , vcmModuleDef
+ , l3Interfaces
+ , OvcController
+ , vcmSettings
+ , vcmMainForm
+ , vcmFormsCollectionItem
+ , l3String
+ , TypInfo
+ , vcmModuleAction
+ , vcmEntityAction
+ , vcmOperationsManager
+ , l3Base
+ , vcmCustomHelpers
+ , vcmOperationsCollectionItem
+ , vcmEntitiesCollectionItem
+ , vcmUtils
+ {$If NOT Defined(NoScripts)}
+ , kwEntityOperation
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwOperationsRegistrar
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , VCMWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , vcmEntitiesDefIteratorForContextMenu
+;
 
-// unit methods
+type
+ TControlFriend = {abstract} class(TControl)
+  {* Друг для TControl }
+ end;//TControlFriend
+
+var g_TvcmPopupMenuHelper: TvcmPopupMenuHelper = nil;
+ {* Экземпляр синглетона TvcmPopupMenuHelper }
+var g_ShortcutProcessingEnabled: Boolean;
+var g_FirstShortCutLoad: Boolean;
+
+procedure TvcmPopupMenuHelperFree;
+ {* Метод освобождения экземпляра синглетона TvcmPopupMenuHelper }
+begin
+ l3Free(g_TvcmPopupMenuHelper);
+end;//TvcmPopupMenuHelperFree
 
 procedure ConstStringsToMenuManager;
 //#UC START# *52A2012B01A7_4AB24EF502BB_var*
@@ -625,15 +543,84 @@ begin
  {$EndIf  DesignTimeLibrary}
 //#UC END# *52A2012B01A7_4AB24EF502BB_impl*
 end;//ConstStringsToMenuManager
-var g_ShortcutProcessingEnabled : Boolean;
 
-var g_FirstShortCutLoad : Boolean;
+procedure _DoInitConstString(var anID: Tl3StringIDEx);
+//#UC START# *52A1F94201E8_4AB24EF502BB_var*
+{$IfNDef DesignTimeLibrary}
+var
+ l_Item : TvcmBaseCollectionItem;
+{$EndIf  DesignTimeLibrary} 
+//#UC END# *52A1F94201E8_4AB24EF502BB_var*
+begin
+//#UC START# *52A1F94201E8_4AB24EF502BB_impl*
+ Assert((l3StrRefCount(anID.rKey) = -1));
+ if not anID.rLocalized then
+  Assert((l3StrRefCount(anID.rValue) = -1));
+ {$IfDef DesignTimeLibrary}
+ Assert(anID.rS = -1);
+ anID.rS := Integer(@anID.rValue);
+ {$Else  DesignTimeLibrary}
+ if (g_MenuManager = nil) then
+  Exit;
+ with g_MenuManager.Strings do
+ begin
+  l_Item := FindItemByName(anID.rKey);
+  if (l_Item = nil) then
+  begin
+   l_Item := TvcmBaseCollectionItem(Add);
+   l_Item.Name := anID.rKey;
+   l_Item.Caption := anID.rValue;
+  end//l_Item = nil
+  else
+   Assert(l_Item.Caption = anID.rValue, 'Локализуемую строковую константу ' + anID.rKey + ' надо править на модели');
+  Assert((anID.rS = -1) or (anID.rS = l_Item.Index));
+  anID.rS := l_Item.Index;
+ end;//with g_MenuManager.Strings
+ {$EndIf  DesignTimeLibrary}
+//#UC END# *52A1F94201E8_4AB24EF502BB_impl*
+end;//_DoInitConstString
 
-// start class TvcmOperationManager
+procedure vcmStartupComplete;
+//#UC START# *52A1F95A0358_4AB24EF502BB_var*
+//#UC END# *52A1F95A0358_4AB24EF502BB_var*
+begin
+//#UC START# *52A1F95A0358_4AB24EF502BB_impl*
+ g_ShortcutProcessingEnabled := True;
+//#UC END# *52A1F95A0358_4AB24EF502BB_impl*
+end;//vcmStartupComplete
+
+procedure TvcmOperationManager.pm_SetOperation(aValue: TvcmBaseOperationsCollectionItem);
+//#UC START# *52A6FBB20278_52A1D6020217set_var*
+//#UC END# *52A6FBB20278_52A1D6020217set_var*
+begin
+//#UC START# *52A6FBB20278_52A1D6020217set_impl*
+ f_Operation := aValue;
+ { Запомним прежние значения }
+ f_OldOnExecute := aValue.OnExecute;
+ f_OldOnTest := aValue.OnTest;
+ f_OldOnContextExecute := aValue.OnContextExecute;
+ f_OldOnContextTest := aValue.OnContextTest;
+ { Устновим новые значения }
+ aValue.OnExecute := OnExecute;
+ aValue.OnTest := OnTest;
+ aValue.OnContextExecute := OnContextExecute;
+ aValue.OnContextTest := OnContextTest;
+//#UC END# *52A6FBB20278_52A1D6020217set_impl*
+end;//TvcmOperationManager.pm_SetOperation
+
+procedure TvcmOperationManager.pm_SetFormActivate(aValue: TvcmFormActivate);
+//#UC START# *52A6FBC9005C_52A1D6020217set_var*
+//#UC END# *52A6FBC9005C_52A1D6020217set_var*
+begin
+//#UC START# *52A6FBC9005C_52A1D6020217set_impl*
+ f_FormActivate := aValue;
+ f_FormID.rName := aValue.Name;
+//#UC END# *52A6FBC9005C_52A1D6020217set_impl*
+end;//TvcmOperationManager.pm_SetFormActivate
 
 constructor TvcmOperationManager.Create(const aForm: IvcmEntityForm;
-  aFormActivate: TvcmFormActivate;
-  aOperation: TvcmBaseOperationsCollectionItem);
+ aFormActivate: TvcmFormActivate;
+ aOperation: TvcmBaseOperationsCollectionItem);
 //#UC START# *52A1D76D0351_52A1D6020217_var*
 //#UC END# *52A1D76D0351_52A1D6020217_var*
 begin
@@ -646,7 +633,8 @@ begin
 end;//TvcmOperationManager.Create
 
 procedure TvcmOperationManager.DoTest(const aParams: IvcmTestParamsPrim;
-  aHandler: TvcmTestEvent);
+ aHandler: TvcmTestEvent);
+ {* проверяет наличие и активность формы }
 //#UC START# *52A1D7950232_52A1D6020217_var*
 var
  l_Form : IvcmEntityForm;
@@ -690,7 +678,8 @@ begin
 end;//TvcmOperationManager.DoTest
 
 procedure TvcmOperationManager.DoExecute(const aParams: IvcmExecuteParams;
-  aHandler: TvcmExecuteEvent);
+ aHandler: TvcmExecuteEvent);
+ {* скрывает форму если активна, или активирует }
 //#UC START# *52A1D7CA00CD_52A1D6020217_var*
 var
  l_MenuItem: Boolean;
@@ -816,6 +805,7 @@ begin
 end;//TvcmOperationManager.DoExecute
 
 procedure TvcmOperationManager.OnTest(const aParams: IvcmTestParamsPrim);
+ {* проверяет наличие и активность формы }
 //#UC START# *52A1D8080172_52A1D6020217_var*
 //#UC END# *52A1D8080172_52A1D6020217_var*
 begin
@@ -825,6 +815,7 @@ begin
 end;//TvcmOperationManager.OnTest
 
 procedure TvcmOperationManager.OnExecute(const aParams: IvcmExecuteParams);
+ {* скрывает форму если активна, или активирует }
 //#UC START# *52A1D8460273_52A1D6020217_var*
 //#UC END# *52A1D8460273_52A1D6020217_var*
 begin
@@ -834,6 +825,7 @@ begin
 end;//TvcmOperationManager.OnExecute
 
 procedure TvcmOperationManager.OnContextTest(const aParams: IvcmTestParamsPrim);
+ {* проверяет наличие и активность формы }
 //#UC START# *52A1D8630372_52A1D6020217_var*
 var
  l_OnTestEvent: TvcmTestEvent;
@@ -852,6 +844,7 @@ begin
 end;//TvcmOperationManager.OnContextTest
 
 procedure TvcmOperationManager.OnContextExecute(const aParams: IvcmExecuteParams);
+ {* скрывает форму если активна, или активирует }
 //#UC START# *52A1D87D00CD_52A1D6020217_var*
 var
  l_OnExecuteEvent: TvcmExecuteEvent;
@@ -870,7 +863,8 @@ begin
 end;//TvcmOperationManager.OnContextExecute
 
 function TvcmOperationManager.FindForm(const aParams: IvcmContainer;
-  theForm: PIvcmEntityForm = nil): Boolean;
+ theForm: PIvcmEntityForm = nil): Boolean;
+ {* ищет форму в приложении используя информацию поля FormActivate }
 //#UC START# *52A1D8A90263_52A1D6020217_var*
 //#UC END# *52A1D8A90263_52A1D6020217_var*
 begin
@@ -884,36 +878,8 @@ begin
 //#UC END# *52A1D8A90263_52A1D6020217_impl*
 end;//TvcmOperationManager.FindForm
 
-procedure TvcmOperationManager.pm_SetOperation(aValue: TvcmBaseOperationsCollectionItem);
-//#UC START# *52A6FBB20278_52A1D6020217set_var*
-//#UC END# *52A6FBB20278_52A1D6020217set_var*
-begin
-//#UC START# *52A6FBB20278_52A1D6020217set_impl*
- f_Operation := aValue;
- { Запомним прежние значения }
- f_OldOnExecute := aValue.OnExecute;
- f_OldOnTest := aValue.OnTest;
- f_OldOnContextExecute := aValue.OnContextExecute;
- f_OldOnContextTest := aValue.OnContextTest;
- { Устновим новые значения }
- aValue.OnExecute := OnExecute;
- aValue.OnTest := OnTest;
- aValue.OnContextExecute := OnContextExecute;
- aValue.OnContextTest := OnContextTest;
-//#UC END# *52A6FBB20278_52A1D6020217set_impl*
-end;//TvcmOperationManager.pm_SetOperation
-
-procedure TvcmOperationManager.pm_SetFormActivate(aValue: TvcmFormActivate);
-//#UC START# *52A6FBC9005C_52A1D6020217set_var*
-//#UC END# *52A6FBC9005C_52A1D6020217set_var*
-begin
-//#UC START# *52A6FBC9005C_52A1D6020217set_impl*
- f_FormActivate := aValue;
- f_FormID.rName := aValue.Name;
-//#UC END# *52A6FBC9005C_52A1D6020217set_impl*
-end;//TvcmOperationManager.pm_SetFormActivate
-
 procedure TvcmOperationManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52A1D6020217_var*
 //#UC END# *479731C50290_52A1D6020217_var*
 begin
@@ -935,14 +901,36 @@ begin
 end;//TvcmOperationManager.Cleanup
 
 procedure TvcmOperationManager.ClearFields;
- {-}
 begin
- {$If not defined(NoVCM)}
  f_Form := nil;
- {$IfEnd} //not NoVCM
  inherited;
 end;//TvcmOperationManager.ClearFields
-// start class TvcmOperationManagers
+
+function TvcmOperationManagers.pm_GetCount: Integer;
+//#UC START# *52A6FC8B021D_52A1DD06008Fget_var*
+//#UC END# *52A6FC8B021D_52A1DD06008Fget_var*
+begin
+//#UC START# *52A6FC8B021D_52A1DD06008Fget_impl*
+ {$IfNDef DesignTimeLibrary}
+ Result := f_Managers.Count;
+ {$Else  DesignTimeLibrary}
+ Result := 0;
+ {$EndIf DesignTimeLibrary}
+//#UC END# *52A6FC8B021D_52A1DD06008Fget_impl*
+end;//TvcmOperationManagers.pm_GetCount
+
+function TvcmOperationManagers.pm_GetItems(anIndex: Integer): TvcmOperationManager;
+//#UC START# *52A6FC9C0200_52A1DD06008Fget_var*
+//#UC END# *52A6FC9C0200_52A1DD06008Fget_var*
+begin
+//#UC START# *52A6FC9C0200_52A1DD06008Fget_impl*
+ {$IfNDef DesignTimeLibrary}
+ Result := TvcmOperationManager(f_Managers.Items[anIndex]);
+ {$Else  DesignTimeLibrary}
+ Result := nil;
+ {$EndIf DesignTimeLibrary}
+//#UC END# *52A6FC9C0200_52A1DD06008Fget_impl*
+end;//TvcmOperationManagers.pm_GetItems
 
 constructor TvcmOperationManagers.Create;
 //#UC START# *52A1DDD400EE_52A1DD06008F_var*
@@ -982,33 +970,8 @@ begin
 //#UC END# *52A6FD0E01FE_52A1DD06008F_impl*
 end;//TvcmOperationManagers.Delete
 
-function TvcmOperationManagers.pm_GetCount: Integer;
-//#UC START# *52A6FC8B021D_52A1DD06008Fget_var*
-//#UC END# *52A6FC8B021D_52A1DD06008Fget_var*
-begin
-//#UC START# *52A6FC8B021D_52A1DD06008Fget_impl*
- {$IfNDef DesignTimeLibrary}
- Result := f_Managers.Count;
- {$Else  DesignTimeLibrary}
- Result := 0;
- {$EndIf DesignTimeLibrary}
-//#UC END# *52A6FC8B021D_52A1DD06008Fget_impl*
-end;//TvcmOperationManagers.pm_GetCount
-
-function TvcmOperationManagers.pm_GetItems(anIndex: Integer): TvcmOperationManager;
-//#UC START# *52A6FC9C0200_52A1DD06008Fget_var*
-//#UC END# *52A6FC9C0200_52A1DD06008Fget_var*
-begin
-//#UC START# *52A6FC9C0200_52A1DD06008Fget_impl*
- {$IfNDef DesignTimeLibrary}
- Result := TvcmOperationManager(f_Managers.Items[anIndex]);
- {$Else  DesignTimeLibrary}
- Result := nil;
- {$EndIf DesignTimeLibrary}
-//#UC END# *52A6FC9C0200_52A1DD06008Fget_impl*
-end;//TvcmOperationManagers.pm_GetItems
-
 procedure TvcmOperationManagers.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52A1DD06008F_var*
 //#UC END# *479731C50290_52A1DD06008F_var*
 begin
@@ -1019,7 +982,24 @@ begin
  inherited;
 //#UC END# *479731C50290_52A1DD06008F_impl*
 end;//TvcmOperationManagers.Cleanup
-// start class TvcmFormActivateOperations
+
+function TvcmFormActivateOperations.pm_GetCount: Integer;
+//#UC START# *52A6FAA300CC_52A1DDF20272get_var*
+//#UC END# *52A6FAA300CC_52A1DDF20272get_var*
+begin
+//#UC START# *52A6FAA300CC_52A1DDF20272get_impl*
+ Result := f_Operations.Count;
+//#UC END# *52A6FAA300CC_52A1DDF20272get_impl*
+end;//TvcmFormActivateOperations.pm_GetCount
+
+function TvcmFormActivateOperations.pm_GetItems(anIndex: Integer): TvcmBaseOperationsCollectionItem;
+//#UC START# *52A6FAB70156_52A1DDF20272get_var*
+//#UC END# *52A6FAB70156_52A1DDF20272get_var*
+begin
+//#UC START# *52A6FAB70156_52A1DDF20272get_impl*
+ Result := TvcmBaseOperationsCollectionItem(f_Operations[anIndex]);
+//#UC END# *52A6FAB70156_52A1DDF20272get_impl*
+end;//TvcmFormActivateOperations.pm_GetItems
 
 constructor TvcmFormActivateOperations.Create;
 //#UC START# *52A1DE69039A_52A1DDF20272_var*
@@ -1038,6 +1018,7 @@ begin
 end;//TvcmFormActivateOperations.Create
 
 function TvcmFormActivateOperations.GetFormActivate(aOperation: TvcmBaseOperationsCollectionItem): TvcmFormActivate;
+ {* возвращает FormActivate, если операция заявлена на управление формой }
 //#UC START# *52A1DE8F0369_52A1DDF20272_var*
 
   function CheckOwnersAndNames(aDest, aSource : TvcmBaseOperationsCollectionItem) : Boolean;
@@ -1097,6 +1078,7 @@ begin
 end;//TvcmFormActivateOperations.GetFormActivate
 
 procedure TvcmFormActivateOperations.AddOperation(aOperation: TvcmRepOperationsCollectionItem);
+ {* добавляет в список операцию заявленную на управление формой }
 //#UC START# *52A1DEB300EC_52A1DDF20272_var*
 //#UC END# *52A1DEB300EC_52A1DDF20272_var*
 begin
@@ -1141,25 +1123,8 @@ begin
 //#UC END# *52A1DF8C0277_52A1DDF20272_impl*
 end;//TvcmFormActivateOperations.LoadOperations
 
-function TvcmFormActivateOperations.pm_GetCount: Integer;
-//#UC START# *52A6FAA300CC_52A1DDF20272get_var*
-//#UC END# *52A6FAA300CC_52A1DDF20272get_var*
-begin
-//#UC START# *52A6FAA300CC_52A1DDF20272get_impl*
- Result := f_Operations.Count;
-//#UC END# *52A6FAA300CC_52A1DDF20272get_impl*
-end;//TvcmFormActivateOperations.pm_GetCount
-
-function TvcmFormActivateOperations.pm_GetItems(anIndex: Integer): TvcmBaseOperationsCollectionItem;
-//#UC START# *52A6FAB70156_52A1DDF20272get_var*
-//#UC END# *52A6FAB70156_52A1DDF20272get_var*
-begin
-//#UC START# *52A6FAB70156_52A1DDF20272get_impl*
- Result := TvcmBaseOperationsCollectionItem(f_Operations[anIndex]);
-//#UC END# *52A6FAB70156_52A1DDF20272get_impl*
-end;//TvcmFormActivateOperations.pm_GetItems
-
 procedure TvcmFormActivateOperations.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52A1DDF20272_var*
 //#UC END# *479731C50290_52A1DDF20272_var*
 begin
@@ -1168,7 +1133,24 @@ begin
  inherited;
 //#UC END# *479731C50290_52A1DDF20272_impl*
 end;//TvcmFormActivateOperations.Cleanup
-// start class TvcmFormActivateManager
+
+function TvcmFormActivateManager.pm_GetItems(anIndex: Integer): TvcmOperationManager;
+//#UC START# *52A6FB31009B_52A1D5F50368get_var*
+//#UC END# *52A6FB31009B_52A1D5F50368get_var*
+begin
+//#UC START# *52A6FB31009B_52A1D5F50368get_impl*
+ Result := f_Managers[anIndex];
+//#UC END# *52A6FB31009B_52A1D5F50368get_impl*
+end;//TvcmFormActivateManager.pm_GetItems
+
+function TvcmFormActivateManager.pm_GetCount: Integer;
+//#UC START# *52A6FB4F0160_52A1D5F50368get_var*
+//#UC END# *52A6FB4F0160_52A1D5F50368get_var*
+begin
+//#UC START# *52A6FB4F0160_52A1D5F50368get_impl*
+ Result := f_Managers.Count;
+//#UC END# *52A6FB4F0160_52A1D5F50368get_impl*
+end;//TvcmFormActivateManager.pm_GetCount
 
 constructor TvcmFormActivateManager.Create;
 //#UC START# *52A1E4770365_52A1D5F50368_var*
@@ -1182,6 +1164,7 @@ begin
 end;//TvcmFormActivateManager.Create
 
 procedure TvcmFormActivateManager.AddForm(const aForm: IvcmEntityForm);
+ {* регистрирует операции сущностей }
 //#UC START# *52A1E48D0308_52A1D5F50368_var*
 var
  I, J : Integer;
@@ -1204,6 +1187,7 @@ begin
 end;//TvcmFormActivateManager.AddForm
 
 procedure TvcmFormActivateManager.RemoveForm(const aForm: IvcmEntityForm);
+ {* при удалении формы удаляет созданные TvcmOperationManager-ы }
 //#UC START# *52A1E4AA035B_52A1D5F50368_var*
 //#UC END# *52A1E4AA035B_52A1D5F50368_var*
 begin
@@ -1213,6 +1197,7 @@ begin
 end;//TvcmFormActivateManager.RemoveForm
 
 procedure TvcmFormActivateManager.AddModule(aModule: TvcmModule);
+ {* регистрирует операции модуля }
 //#UC START# *52A1E4DC01BE_52A1D5F50368_var*
 var
  l_Index : Integer;
@@ -1230,7 +1215,8 @@ begin
 end;//TvcmFormActivateManager.AddModule
 
 procedure TvcmFormActivateManager.RegOperation(aOperation: TvcmBaseOperationsCollectionItem;
-  const aForm: IvcmEntityForm);
+ const aForm: IvcmEntityForm);
+ {* если данная операция заявлена на управление формой, то получает FormActivate у TvcmFormActivateOperations и создаёт TvcmOperationManager }
 //#UC START# *52A1E4FC035C_52A1D5F50368_var*
 var
  l_Form : TvcmFormActivate;
@@ -1255,25 +1241,8 @@ begin
 //#UC END# *52A1E4FC035C_52A1D5F50368_impl*
 end;//TvcmFormActivateManager.RegOperation
 
-function TvcmFormActivateManager.pm_GetItems(anIndex: Integer): TvcmOperationManager;
-//#UC START# *52A6FB31009B_52A1D5F50368get_var*
-//#UC END# *52A6FB31009B_52A1D5F50368get_var*
-begin
-//#UC START# *52A6FB31009B_52A1D5F50368get_impl*
- Result := f_Managers[anIndex];
-//#UC END# *52A6FB31009B_52A1D5F50368get_impl*
-end;//TvcmFormActivateManager.pm_GetItems
-
-function TvcmFormActivateManager.pm_GetCount: Integer;
-//#UC START# *52A6FB4F0160_52A1D5F50368get_var*
-//#UC END# *52A6FB4F0160_52A1D5F50368get_var*
-begin
-//#UC START# *52A6FB4F0160_52A1D5F50368get_impl*
- Result := f_Managers.Count;
-//#UC END# *52A6FB4F0160_52A1D5F50368get_impl*
-end;//TvcmFormActivateManager.pm_GetCount
-
 procedure TvcmFormActivateManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52A1D5F50368_var*
 //#UC END# *479731C50290_52A1D5F50368_var*
 begin
@@ -1283,34 +1252,166 @@ begin
  inherited;
 //#UC END# *479731C50290_52A1D5F50368_impl*
 end;//TvcmFormActivateManager.Cleanup
-// start class TvcmBaseMenuManagerPrim
 
-procedure TvcmBaseMenuManagerPrim.NotifyMenuItemClickListeners(aMenuItem: TvcmMenuItem);
-//#UC START# *53E9E9EC013B_4AD5DBBD0147_var*
-
- function lp_DoNotifyListeners(anItem: PvcmMenuItemClickListener;
-                               anIndex: Integer): Boolean;
- var
-  l_Listener: IvcmMenuItemClickListener;
- begin
-  l_Listener := anItem^;
-  Assert(l_Listener <> nil);
-  try
-   l_Listener.NotifyMenuItemClicked(aMenuItem);
-  finally
-   l_Listener := nil;
-  end;
-  Result := True;
- end;//lp_DoNotifyListeners
-
-//#UC END# *53E9E9EC013B_4AD5DBBD0147_var*
+procedure TvcmBaseMenuManagerPrim.pm_SetStrings(aValue: TvcmStringCollection);
+//#UC START# *52A6F87B015A_4AD5DBBD0147set_var*
+//#UC END# *52A6F87B015A_4AD5DBBD0147set_var*
 begin
-//#UC START# *53E9E9EC013B_4AD5DBBD0147_impl*
- MenuItemClickListeners.IterateAllF(l3L2IA(@lp_DoNotifyListeners));
-//#UC END# *53E9E9EC013B_4AD5DBBD0147_impl*
-end;//TvcmBaseMenuManagerPrim.NotifyMenuItemClickListeners
+//#UC START# *52A6F87B015A_4AD5DBBD0147set_impl*
+ f_Strings.Assign(aValue);
+//#UC END# *52A6F87B015A_4AD5DBBD0147set_impl*
+end;//TvcmBaseMenuManagerPrim.pm_SetStrings
 
-{$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If Defined(DesignTimeLibrary)}
+function TvcmBaseMenuManagerPrim.pm_GetUnitName: AnsiString;
+//#UC START# *52A6F8EB0138_4AD5DBBD0147get_var*
+var
+ l_TI : PTypeData;
+//#UC END# *52A6F8EB0138_4AD5DBBD0147get_var*
+begin
+//#UC START# *52A6F8EB0138_4AD5DBBD0147get_impl*
+ if (Owner = nil) then
+  Result := ''
+ else 
+ begin
+  l_TI := GetTypeData(Owner.ClassInfo);
+  Result := l_TI.UnitName;
+ end;//Owner <> nil
+//#UC END# *52A6F8EB0138_4AD5DBBD0147get_impl*
+end;//TvcmBaseMenuManagerPrim.pm_GetUnitName
+{$IfEnd} // Defined(DesignTimeLibrary)
+
+function TvcmBaseMenuManagerPrim.pm_GetModules: TvcmModulesCollection;
+//#UC START# *52A6F909022C_4AD5DBBD0147get_var*
+//#UC END# *52A6F909022C_4AD5DBBD0147get_var*
+begin
+//#UC START# *52A6F909022C_4AD5DBBD0147get_impl*
+ Result := f_Modules;
+//#UC END# *52A6F909022C_4AD5DBBD0147get_impl*
+end;//TvcmBaseMenuManagerPrim.pm_GetModules
+
+procedure TvcmBaseMenuManagerPrim.pm_SetModules(aValue: TvcmModulesCollection);
+//#UC START# *52A6F909022C_4AD5DBBD0147set_var*
+//#UC END# *52A6F909022C_4AD5DBBD0147set_var*
+begin
+//#UC START# *52A6F909022C_4AD5DBBD0147set_impl*
+ f_Modules.Assign(aValue);
+//#UC END# *52A6F909022C_4AD5DBBD0147set_impl*
+end;//TvcmBaseMenuManagerPrim.pm_SetModules
+
+procedure TvcmBaseMenuManagerPrim.pm_SetAppForms(aValue: TvcmFormsCollection);
+//#UC START# *52A6F92B0035_4AD5DBBD0147set_var*
+//#UC END# *52A6F92B0035_4AD5DBBD0147set_var*
+begin
+//#UC START# *52A6F92B0035_4AD5DBBD0147set_impl*
+ f_AppForms.Assign(aValue);
+//#UC END# *52A6F92B0035_4AD5DBBD0147set_impl*
+end;//TvcmBaseMenuManagerPrim.pm_SetAppForms
+
+procedure TvcmBaseMenuManagerPrim.pm_SetMessages(aValue: TvcmMessagesCollection);
+//#UC START# *52A6F9410290_4AD5DBBD0147set_var*
+//#UC END# *52A6F9410290_4AD5DBBD0147set_var*
+begin
+//#UC START# *52A6F9410290_4AD5DBBD0147set_impl*
+ f_Messages.Assign(aValue);
+//#UC END# *52A6F9410290_4AD5DBBD0147set_impl*
+end;//TvcmBaseMenuManagerPrim.pm_SetMessages
+
+procedure TvcmBaseMenuManagerPrim.pm_SetSmallImages(aValue: TCustomImageList);
+//#UC START# *52A6F96303A9_4AD5DBBD0147set_var*
+//#UC END# *52A6F96303A9_4AD5DBBD0147set_var*
+begin
+//#UC START# *52A6F96303A9_4AD5DBBD0147set_impl*
+ if f_SmallImages <> nil then
+  f_SmallImages.RemoveFreeNotification(Self);
+ f_SmallImages := aValue;
+ if f_SmallImages <> nil then
+  f_SmallImages.FreeNotification(Self);
+//#UC END# *52A6F96303A9_4AD5DBBD0147set_impl*
+end;//TvcmBaseMenuManagerPrim.pm_SetSmallImages
+
+procedure TvcmBaseMenuManagerPrim.pm_SetLargeImages(aValue: TCustomImageList);
+//#UC START# *52A6F97B01E6_4AD5DBBD0147set_var*
+//#UC END# *52A6F97B01E6_4AD5DBBD0147set_var*
+begin
+//#UC START# *52A6F97B01E6_4AD5DBBD0147set_impl*
+ if f_LargeImages <> nil then
+  f_LargeImages.RemoveFreeNotification(Self);
+ f_LargeImages := aValue;
+ if f_LargeImages <> nil then
+  f_LargeImages.FreeNotification(Self);
+//#UC END# *52A6F97B01E6_4AD5DBBD0147set_impl*
+end;//TvcmBaseMenuManagerPrim.pm_SetLargeImages
+
+{$If Defined(DesignTimeLibrary)}
+function TvcmBaseMenuManagerPrim.pm_GetModule: IOTAModule;
+//#UC START# *52A6F9FB00AD_4AD5DBBD0147get_var*
+//#UC END# *52A6F9FB00AD_4AD5DBBD0147get_var*
+begin
+//#UC START# *52A6F9FB00AD_4AD5DBBD0147get_impl*
+ Result := nil;
+// Result := f_Modules;
+//#UC END# *52A6F9FB00AD_4AD5DBBD0147get_impl*
+end;//TvcmBaseMenuManagerPrim.pm_GetModule
+{$IfEnd} // Defined(DesignTimeLibrary)
+
+{$If Defined(DesignTimeLibrary)}
+function TvcmBaseMenuManagerPrim.pm_GetEditor: IOTAEditor;
+//#UC START# *52A6FA110112_4AD5DBBD0147get_var*
+var
+ l_MS : IOTAModuleServices;
+ l_M : IOTAModule;
+//#UC END# *52A6FA110112_4AD5DBBD0147get_var*
+begin
+//#UC START# *52A6FA110112_4AD5DBBD0147get_impl*
+ l_MS := vcmGetTAModules;
+ if (l_MS <> nil) then
+  try
+   l_M := l_MS.CurrentModule;
+   if (l_M <> nil) then
+   begin
+    Result := l_M.CurrentEditor;
+   end;//l_M <> nil
+  finally
+   l_MS := nil;
+  end;//try..finally
+//#UC END# *52A6FA110112_4AD5DBBD0147get_impl*
+end;//TvcmBaseMenuManagerPrim.pm_GetEditor
+{$IfEnd} // Defined(DesignTimeLibrary)
+
+{$If Defined(DesignTimeLibrary)}
+function TvcmBaseMenuManagerPrim.pm_GetSourceEditor: IOTASourceEditor;
+//#UC START# *52A6FA2F011A_4AD5DBBD0147get_var*
+var
+ l_M : IOTAModule;
+ l_Index : Integer;
+//#UC END# *52A6FA2F011A_4AD5DBBD0147get_var*
+begin
+//#UC START# *52A6FA2F011A_4AD5DBBD0147get_impl*
+ Result := nil;
+ l_M := Module;
+ if (l_M <> nil) then
+ begin
+  for l_Index := 0 to Pred(l_M.ModuleFileCount) do
+   if Supports(l_M.ModuleFileEditors[l_Index], IOTASourceEditor, Result) then
+    Exit;
+ end;//l_M <> nil
+//#UC END# *52A6FA2F011A_4AD5DBBD0147get_impl*
+end;//TvcmBaseMenuManagerPrim.pm_GetSourceEditor
+{$IfEnd} // Defined(DesignTimeLibrary)
+
+function TvcmBaseMenuManagerPrim.pm_GetMenuItemClickListeners: TvcmMenuItemClickListenerList;
+//#UC START# *53E9DE6F0274_4AD5DBBD0147get_var*
+//#UC END# *53E9DE6F0274_4AD5DBBD0147get_var*
+begin
+//#UC START# *53E9DE6F0274_4AD5DBBD0147get_impl*
+ if (f_MenuItemClickListeners = nil) then
+  f_MenuItemClickListeners := TvcmMenuItemClickListenerList.Create;
+ Result := f_MenuItemClickListeners;
+//#UC END# *53E9DE6F0274_4AD5DBBD0147get_impl*
+end;//TvcmBaseMenuManagerPrim.pm_GetMenuItemClickListeners
+
+{$If Defined(DesignTimeLibrary)}
 procedure TvcmBaseMenuManagerPrim.WriteRes;
 //#UC START# *52A1FA92012A_4AD5DBBD0147_var*
 const
@@ -1669,9 +1770,9 @@ begin
  end;//Entities <> nil
 //#UC END# *52A1FA92012A_4AD5DBBD0147_impl*
 end;//TvcmBaseMenuManagerPrim.WriteRes
-{$IfEnd} //DesignTimeLibrary AND not NoVCM
+{$IfEnd} // Defined(DesignTimeLibrary)
 
-{$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If Defined(DesignTimeLibrary)}
 procedure TvcmBaseMenuManagerPrim.RegisterEntities;
 //#UC START# *52A1FAC302BD_4AD5DBBD0147_var*
 var
@@ -1724,7 +1825,7 @@ begin
  end;//l_MS <> nil
 //#UC END# *52A1FAC302BD_4AD5DBBD0147_impl*
 end;//TvcmBaseMenuManagerPrim.RegisterEntities
-{$IfEnd} //DesignTimeLibrary AND not NoVCM
+{$IfEnd} // Defined(DesignTimeLibrary)
 
 function TvcmBaseMenuManagerPrim.DoShortCutCommand(aCommand: Word): Boolean;
 //#UC START# *52A1FAE000ED_4AD5DBBD0147_var*
@@ -1798,7 +1899,8 @@ begin
 end;//TvcmBaseMenuManagerPrim.GetModulesCollectionClass
 
 procedure TvcmBaseMenuManagerPrim.OperationExecuteNotify(aType: TvcmOperationCallType;
-  const anOperation: IvcmOperationDef);
+ const anOperation: IvcmOperationDef);
+ {* нотификация о выполении операции. Вызывается перед выполением операции. При вызове ShortCut, anAction не заполняется, вызывается непосредственно операция. Если будет необходимо обязательно получать имя операции, то параметр anAction нужно будет переделать например на IvcmOperationDef }
 //#UC START# *52A1FB9A0265_4AD5DBBD0147_var*
 //#UC END# *52A1FB9A0265_4AD5DBBD0147_var*
 begin
@@ -1837,18 +1939,19 @@ begin
 //#UC END# *52A1FBE502A6_4AD5DBBD0147_impl*
 end;//TvcmBaseMenuManagerPrim.RegisterKeywords
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TvcmBaseMenuManagerPrim.RegisterModuleInMenu(aForm: TvcmEntityForm;
-  const aModuleDef: IvcmModuleDef);
+ const aModuleDef: IvcmModuleDef);
+ {* регистрирует модуль в меню, toolbar'ах, etc. Для перекрытия в потомках. }
 //#UC START# *52A1FC0C0333_4AD5DBBD0147_var*
 //#UC END# *52A1FC0C0333_4AD5DBBD0147_var*
 begin
 //#UC START# *52A1FC0C0333_4AD5DBBD0147_impl*
 //#UC END# *52A1FC0C0333_4AD5DBBD0147_impl*
 end;//TvcmBaseMenuManagerPrim.RegisterModuleInMenu
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TvcmBaseMenuManagerPrim.MainCreated(aForm: TvcmEntityForm);
 //#UC START# *52A1FC3D0231_4AD5DBBD0147_var*
 //#UC END# *52A1FC3D0231_4AD5DBBD0147_var*
@@ -1857,9 +1960,10 @@ begin
  RegisterKeywords;
 //#UC END# *52A1FC3D0231_4AD5DBBD0147_impl*
 end;//TvcmBaseMenuManagerPrim.MainCreated
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TvcmBaseMenuManagerPrim.RegisterMainInMenu(aForm: TvcmEntityForm);
+ {* регистрирует основную форму в меню, toolbar'ах, etc. Для перекрытия в потомках. }
 //#UC START# *52A1FC5500AC_4AD5DBBD0147_var*
 //#UC END# *52A1FC5500AC_4AD5DBBD0147_var*
 begin
@@ -1867,15 +1971,16 @@ begin
 //#UC END# *52A1FC5500AC_4AD5DBBD0147_impl*
 end;//TvcmBaseMenuManagerPrim.RegisterMainInMenu
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TvcmBaseMenuManagerPrim.RegisterChildInMenu(aForm: TvcmEntityForm);
+ {* регистрирует дочернюю форму в меню, toolbar'ах, etc. Для перекрытия в потомках. }
 //#UC START# *52A1FC79004A_4AD5DBBD0147_var*
 //#UC END# *52A1FC79004A_4AD5DBBD0147_var*
 begin
 //#UC START# *52A1FC79004A_4AD5DBBD0147_impl*
 //#UC END# *52A1FC79004A_4AD5DBBD0147_impl*
 end;//TvcmBaseMenuManagerPrim.RegisterChildInMenu
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 function TvcmBaseMenuManagerPrim.GetPopupMenu: TPopupMenu;
 //#UC START# *52A1FCA20227_4AD5DBBD0147_var*
@@ -1912,7 +2017,7 @@ begin
 end;//TvcmBaseMenuManagerPrim.GetOperationableObjectByID
 
 function TvcmBaseMenuManagerPrim.GetOperationableObjectByName(const aName: AnsiString;
-  aModule: Boolean): TvcmRepEntitiesCollectionItem;
+ aModule: Boolean): TvcmRepEntitiesCollectionItem;
 //#UC START# *52A1FCDB0027_4AD5DBBD0147_var*
 var
  l_CEn : TvcmRepEntitiesCollection;
@@ -1935,9 +2040,9 @@ begin
 end;//TvcmBaseMenuManagerPrim.GetOperationableObjectByName
 
 procedure TvcmBaseMenuManagerPrim.RegisterOperation(const aControl: IvcmIdentifiedUserFriendlyControl;
-  const anOp: IvcmOperationDef;
-  anUFHolder: TObject;
-  anOpHolder: TObject);
+ const anOp: IvcmOperationDef;
+ anUFHolder: TObject;
+ anOpHolder: TObject);
 //#UC START# *52A1FD0300F5_4AD5DBBD0147_var*
 var
  l_Mo : IvcmModuleDef;
@@ -2117,7 +2222,7 @@ begin
 end;//TvcmBaseMenuManagerPrim.ReloadAllToolbars
 
 procedure TvcmBaseMenuManagerPrim.PostBuild(aForm: TvcmEntityForm;
-  aFollowDocks: Boolean = False);
+ aFollowDocks: Boolean = False);
 //#UC START# *52A1FD7301A8_4AD5DBBD0147_var*
 //#UC END# *52A1FD7301A8_4AD5DBBD0147_var*
 begin
@@ -2327,9 +2432,9 @@ begin
 //#UC END# *52A1FE730278_4AD5DBBD0147_impl*
 end;//TvcmBaseMenuManagerPrim.GetFastenMode
 
-function TvcmBaseMenuManagerPrim.BuildVirtualForm(aFormClass: RvcmEntityForm;
-  out NeedFreeForm: Boolean;
-  aUserType: TvcmUserType = vcm_utAny): TvcmEntityForm;
+function TvcmBaseMenuManagerPrim.BuildVirtualForm(const aFormClass: RvcmEntityForm;
+ out NeedFreeForm: Boolean;
+ aUserType: TvcmUserType = vcm_utAny): TvcmEntityForm;
 //#UC START# *52A1FEC30321_4AD5DBBD0147_var*
 var
  l_Index : Integer;
@@ -2364,9 +2469,9 @@ begin
 end;//TvcmBaseMenuManagerPrim.BuildVirtualForm
 
 function TvcmBaseMenuManagerPrim.ObjectByType(anObject: TvcmObject;
-  const anObjectName: AnsiString;
-  const aSubName: AnsiString = '';
-  ForceCreate: Boolean = False): TvcmBaseCollectionItem;
+ const anObjectName: AnsiString;
+ const aSubName: AnsiString = '';
+ ForceCreate: Boolean = False): TvcmBaseCollectionItem;
 //#UC START# *52A1FF0902CE_4AD5DBBD0147_var*
 var
  l_Item : TvcmBaseEntitiesCollectionItem;
@@ -2434,10 +2539,10 @@ begin
 end;//TvcmBaseMenuManagerPrim.ObjectByType
 
 procedure TvcmBaseMenuManagerPrim.DefineObjectProp(anObject: TvcmObject;
-  const anObjectName: AnsiString;
-  const aSubName: AnsiString;
-  const aProp: AnsiString;
-  const aValue: AnsiString);
+ const anObjectName: AnsiString;
+ const aSubName: AnsiString;
+ const aProp: AnsiString;
+ const aValue: AnsiString);
 //#UC START# *52A1FF9A0004_4AD5DBBD0147_var*
 var
  l_Object : TObject;
@@ -2469,7 +2574,7 @@ begin
 end;//TvcmBaseMenuManagerPrim.OpDefBySelector
 
 function TvcmBaseMenuManagerPrim.BuildAction(const anOp: TvcmOpSelector;
-  aDefaultAction: TCustomAction = nil): TCustomAction;
+ aDefaultAction: TCustomAction = nil): TCustomAction;
 //#UC START# *52A20071016B_4AD5DBBD0147_var*
 //#UC END# *52A20071016B_4AD5DBBD0147_var*
 begin
@@ -2541,167 +2646,34 @@ begin
 //#UC END# *53E9E9BC021D_4AD5DBBD0147_impl*
 end;//TvcmBaseMenuManagerPrim.NotifyMenuItemClick
 
-procedure TvcmBaseMenuManagerPrim.pm_SetStrings(aValue: TvcmStringCollection);
-//#UC START# *52A6F87B015A_4AD5DBBD0147set_var*
-//#UC END# *52A6F87B015A_4AD5DBBD0147set_var*
-begin
-//#UC START# *52A6F87B015A_4AD5DBBD0147set_impl*
- f_Strings.Assign(aValue);
-//#UC END# *52A6F87B015A_4AD5DBBD0147set_impl*
-end;//TvcmBaseMenuManagerPrim.pm_SetStrings
+procedure TvcmBaseMenuManagerPrim.NotifyMenuItemClickListeners(aMenuItem: TvcmMenuItem);
+//#UC START# *53E9E9EC013B_4AD5DBBD0147_var*
 
-{$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
-function TvcmBaseMenuManagerPrim.pm_GetUnitName: AnsiString;
-//#UC START# *52A6F8EB0138_4AD5DBBD0147get_var*
-var
- l_TI : PTypeData;
-//#UC END# *52A6F8EB0138_4AD5DBBD0147get_var*
-begin
-//#UC START# *52A6F8EB0138_4AD5DBBD0147get_impl*
- if (Owner = nil) then
-  Result := ''
- else 
+ function lp_DoNotifyListeners(anItem: PvcmMenuItemClickListener;
+                               anIndex: Integer): Boolean;
+ var
+  l_Listener: IvcmMenuItemClickListener;
  begin
-  l_TI := GetTypeData(Owner.ClassInfo);
-  Result := l_TI.UnitName;
- end;//Owner <> nil
-//#UC END# *52A6F8EB0138_4AD5DBBD0147get_impl*
-end;//TvcmBaseMenuManagerPrim.pm_GetUnitName
-{$IfEnd} //DesignTimeLibrary AND not NoVCM
-
-function TvcmBaseMenuManagerPrim.pm_GetModules: TvcmModulesCollection;
-//#UC START# *52A6F909022C_4AD5DBBD0147get_var*
-//#UC END# *52A6F909022C_4AD5DBBD0147get_var*
-begin
-//#UC START# *52A6F909022C_4AD5DBBD0147get_impl*
- Result := f_Modules;
-//#UC END# *52A6F909022C_4AD5DBBD0147get_impl*
-end;//TvcmBaseMenuManagerPrim.pm_GetModules
-
-procedure TvcmBaseMenuManagerPrim.pm_SetModules(aValue: TvcmModulesCollection);
-//#UC START# *52A6F909022C_4AD5DBBD0147set_var*
-//#UC END# *52A6F909022C_4AD5DBBD0147set_var*
-begin
-//#UC START# *52A6F909022C_4AD5DBBD0147set_impl*
- f_Modules.Assign(aValue);
-//#UC END# *52A6F909022C_4AD5DBBD0147set_impl*
-end;//TvcmBaseMenuManagerPrim.pm_SetModules
-
-procedure TvcmBaseMenuManagerPrim.pm_SetAppForms(aValue: TvcmFormsCollection);
-//#UC START# *52A6F92B0035_4AD5DBBD0147set_var*
-//#UC END# *52A6F92B0035_4AD5DBBD0147set_var*
-begin
-//#UC START# *52A6F92B0035_4AD5DBBD0147set_impl*
- f_AppForms.Assign(aValue);
-//#UC END# *52A6F92B0035_4AD5DBBD0147set_impl*
-end;//TvcmBaseMenuManagerPrim.pm_SetAppForms
-
-procedure TvcmBaseMenuManagerPrim.pm_SetMessages(aValue: TvcmMessagesCollection);
-//#UC START# *52A6F9410290_4AD5DBBD0147set_var*
-//#UC END# *52A6F9410290_4AD5DBBD0147set_var*
-begin
-//#UC START# *52A6F9410290_4AD5DBBD0147set_impl*
- f_Messages.Assign(aValue);
-//#UC END# *52A6F9410290_4AD5DBBD0147set_impl*
-end;//TvcmBaseMenuManagerPrim.pm_SetMessages
-
-procedure TvcmBaseMenuManagerPrim.pm_SetSmallImages(aValue: TCustomImageList);
-//#UC START# *52A6F96303A9_4AD5DBBD0147set_var*
-//#UC END# *52A6F96303A9_4AD5DBBD0147set_var*
-begin
-//#UC START# *52A6F96303A9_4AD5DBBD0147set_impl*
- if f_SmallImages <> nil then
-  f_SmallImages.RemoveFreeNotification(Self);
- f_SmallImages := aValue;
- if f_SmallImages <> nil then
-  f_SmallImages.FreeNotification(Self);
-//#UC END# *52A6F96303A9_4AD5DBBD0147set_impl*
-end;//TvcmBaseMenuManagerPrim.pm_SetSmallImages
-
-procedure TvcmBaseMenuManagerPrim.pm_SetLargeImages(aValue: TCustomImageList);
-//#UC START# *52A6F97B01E6_4AD5DBBD0147set_var*
-//#UC END# *52A6F97B01E6_4AD5DBBD0147set_var*
-begin
-//#UC START# *52A6F97B01E6_4AD5DBBD0147set_impl*
- if f_LargeImages <> nil then
-  f_LargeImages.RemoveFreeNotification(Self);
- f_LargeImages := aValue;
- if f_LargeImages <> nil then
-  f_LargeImages.FreeNotification(Self);
-//#UC END# *52A6F97B01E6_4AD5DBBD0147set_impl*
-end;//TvcmBaseMenuManagerPrim.pm_SetLargeImages
-
-{$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
-function TvcmBaseMenuManagerPrim.pm_GetModule: IOTAModule;
-//#UC START# *52A6F9FB00AD_4AD5DBBD0147get_var*
-//#UC END# *52A6F9FB00AD_4AD5DBBD0147get_var*
-begin
-//#UC START# *52A6F9FB00AD_4AD5DBBD0147get_impl*
- Result := nil;
-// Result := f_Modules;
-//#UC END# *52A6F9FB00AD_4AD5DBBD0147get_impl*
-end;//TvcmBaseMenuManagerPrim.pm_GetModule
-{$IfEnd} //DesignTimeLibrary AND not NoVCM
-
-{$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
-function TvcmBaseMenuManagerPrim.pm_GetEditor: IOTAEditor;
-//#UC START# *52A6FA110112_4AD5DBBD0147get_var*
-var
- l_MS : IOTAModuleServices;
- l_M : IOTAModule;
-//#UC END# *52A6FA110112_4AD5DBBD0147get_var*
-begin
-//#UC START# *52A6FA110112_4AD5DBBD0147get_impl*
- l_MS := vcmGetTAModules;
- if (l_MS <> nil) then
+  l_Listener := anItem^;
+  Assert(l_Listener <> nil);
   try
-   l_M := l_MS.CurrentModule;
-   if (l_M <> nil) then
-   begin
-    Result := l_M.CurrentEditor;
-   end;//l_M <> nil
+   l_Listener.NotifyMenuItemClicked(aMenuItem);
   finally
-   l_MS := nil;
-  end;//try..finally
-//#UC END# *52A6FA110112_4AD5DBBD0147get_impl*
-end;//TvcmBaseMenuManagerPrim.pm_GetEditor
-{$IfEnd} //DesignTimeLibrary AND not NoVCM
+   l_Listener := nil;
+  end;
+  Result := True;
+ end;//lp_DoNotifyListeners
 
-{$If defined(DesignTimeLibrary) AND not defined(NoVCM)}
-function TvcmBaseMenuManagerPrim.pm_GetSourceEditor: IOTASourceEditor;
-//#UC START# *52A6FA2F011A_4AD5DBBD0147get_var*
-var
- l_M : IOTAModule;
- l_Index : Integer;
-//#UC END# *52A6FA2F011A_4AD5DBBD0147get_var*
+//#UC END# *53E9E9EC013B_4AD5DBBD0147_var*
 begin
-//#UC START# *52A6FA2F011A_4AD5DBBD0147get_impl*
- Result := nil;
- l_M := Module;
- if (l_M <> nil) then
- begin
-  for l_Index := 0 to Pred(l_M.ModuleFileCount) do
-   if Supports(l_M.ModuleFileEditors[l_Index], IOTASourceEditor, Result) then
-    Exit;
- end;//l_M <> nil
-//#UC END# *52A6FA2F011A_4AD5DBBD0147get_impl*
-end;//TvcmBaseMenuManagerPrim.pm_GetSourceEditor
-{$IfEnd} //DesignTimeLibrary AND not NoVCM
-
-function TvcmBaseMenuManagerPrim.pm_GetMenuItemClickListeners: TvcmMenuItemClickListenerList;
-//#UC START# *53E9DE6F0274_4AD5DBBD0147get_var*
-//#UC END# *53E9DE6F0274_4AD5DBBD0147get_var*
-begin
-//#UC START# *53E9DE6F0274_4AD5DBBD0147get_impl*
- if (f_MenuItemClickListeners = nil) then
-  f_MenuItemClickListeners := TvcmMenuItemClickListenerList.Create;
- Result := f_MenuItemClickListeners;
-//#UC END# *53E9DE6F0274_4AD5DBBD0147get_impl*
-end;//TvcmBaseMenuManagerPrim.pm_GetMenuItemClickListeners
+//#UC START# *53E9E9EC013B_4AD5DBBD0147_impl*
+ MenuItemClickListeners.IterateAllF(l3L2IA(@lp_DoNotifyListeners));
+//#UC END# *53E9E9EC013B_4AD5DBBD0147_impl*
+end;//TvcmBaseMenuManagerPrim.NotifyMenuItemClickListeners
 
 procedure TvcmBaseMenuManagerPrim.Define(const aName: AnsiString;
-  const aRus: AnsiString;
-  const anAlien: AnsiString);
+ const aRus: AnsiString;
+ const anAlien: AnsiString);
 //#UC START# *4BB9C06901AE_4AD5DBBD0147_var*
 const
  cTypes : array [TvcmObject] of AnsiString =
@@ -2754,6 +2726,7 @@ begin
 end;//TvcmBaseMenuManagerPrim.Define
 
 procedure TvcmBaseMenuManagerPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AD5DBBD0147_var*
 //#UC END# *479731C50290_4AD5DBBD0147_var*
 begin
@@ -2835,7 +2808,7 @@ begin
 end;//TvcmBaseMenuManagerPrim.Loaded
 
 procedure TvcmBaseMenuManagerPrim.Notification(AComponent: TComponent;
-  Operation: TOperation);
+ Operation: TOperation);
 //#UC START# *4F884378016A_4AD5DBBD0147_var*
 //#UC END# *4F884378016A_4AD5DBBD0147_var*
 begin
@@ -2870,44 +2843,6 @@ begin
  Result := TvcmRepEntitiesCollection;
 //#UC END# *52A1ED12039D_4AD5DBBD0147_impl*
 end;//TvcmBaseMenuManagerPrim.GetEntitiesCollectionClass
-// start class TvcmBaseMenuManager
-
-function TvcmBaseMenuManager.FillPopupMenu(const aPopupPoint: TPoint;
-  aPopupComponent: TComponent): TvcmPopupMenuPrim;
-//#UC START# *52A841C500C5_52A1F4A201F9_var*
-//#UC END# *52A841C500C5_52A1F4A201F9_var*
-begin
-//#UC START# *52A841C500C5_52A1F4A201F9_impl*
- Result := nil;
-//#UC END# *52A841C500C5_52A1F4A201F9_impl*
-end;//TvcmBaseMenuManager.FillPopupMenu
-
-// start class TvcmPopupMenuHelper
-
-var g_TvcmPopupMenuHelper : TvcmPopupMenuHelper = nil;
-
-procedure TvcmPopupMenuHelperFree;
-begin
- l3Free(g_TvcmPopupMenuHelper);
-end;
-
-class function TvcmPopupMenuHelper.Instance: TvcmPopupMenuHelper;
-begin
- if (g_TvcmPopupMenuHelper = nil) then
- begin
-  l3System.AddExitProc(TvcmPopupMenuHelperFree);
-  g_TvcmPopupMenuHelper := Create;
- end;
- Result := g_TvcmPopupMenuHelper;
-end;
-
-
-type
-   TControlFriend = {abstract} class(TControl)
-    {* Друг для TControl }
-   end;//TControlFriend
-
-// start class TvcmPopupMenuHelper
 
 function TvcmPopupMenuHelper.CheckPopup(const anEntityDef: IvcmEntityDef): IvcmEntity;
 //#UC START# *51ED0195036B_55002183037A_var*
@@ -2926,14 +2861,14 @@ begin
 end;//TvcmPopupMenuHelper.CheckPopup
 
 class function TvcmPopupMenuHelper.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TvcmPopupMenuHelper <> nil;
 end;//TvcmPopupMenuHelper.Exists
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TvcmPopupMenuHelper.GetPopupMenu(aControl: TComponent;
-  const aPoint: TPoint): TMenuItem;
+ const aPoint: TPoint): TMenuItem;
 //#UC START# *1FF8AE53688A_55002183037A_var*
 var
  l_M : TvcmPopupMenuPrim;
@@ -2948,12 +2883,12 @@ begin
   Result := l_M.Items;
 //#UC END# *1FF8AE53688A_55002183037A_impl*
 end;//TvcmPopupMenuHelper.GetPopupMenu
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvcmPopupMenuHelper.GetPopupMenuForComponentInfo(aControl: TComponent;
-  const aPoint: TPoint;
-  aCallback: Tl3PopupMenuHelperCallback);
+ const aPoint: TPoint;
+ aCallback: Tl3PopupMenuHelperCallback);
 //#UC START# *E1C719B751DC_55002183037A_var*
  procedure GetvcmPopupMenu(aControl: TComponent; aMenu: TMenuItem);
  var
@@ -2998,71 +2933,42 @@ begin
  end;
 //#UC END# *E1C719B751DC_55002183037A_impl*
 end;//TvcmPopupMenuHelper.GetPopupMenuForComponentInfo
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
+
+class function TvcmPopupMenuHelper.Instance: TvcmPopupMenuHelper;
+ {* Метод получения экземпляра синглетона TvcmPopupMenuHelper }
+begin
+ if (g_TvcmPopupMenuHelper = nil) then
+ begin
+  l3System.AddExitProc(TvcmPopupMenuHelperFree);
+  g_TvcmPopupMenuHelper := Create;
+ end;
+ Result := g_TvcmPopupMenuHelper;
+end;//TvcmPopupMenuHelper.Instance
+
+function TvcmBaseMenuManager.FillPopupMenu(const aPopupPoint: TPoint;
+ aPopupComponent: TComponent): TvcmPopupMenuPrim;
+//#UC START# *52A841C500C5_52A1F4A201F9_var*
+//#UC END# *52A841C500C5_52A1F4A201F9_var*
+begin
+//#UC START# *52A841C500C5_52A1F4A201F9_impl*
+ Result := nil;
+//#UC END# *52A841C500C5_52A1F4A201F9_impl*
+end;//TvcmBaseMenuManager.FillPopupMenu
 
 //#UC START# *52A1F4A201F9impl*
 //#UC END# *52A1F4A201F9impl*
 
-procedure _DoInitConstString(var anID: Tl3StringIDEx);
-//#UC START# *52A1F94201E8_4AB24EF502BB_var*
-{$IfNDef DesignTimeLibrary}
-var
- l_Item : TvcmBaseCollectionItem;
-{$EndIf  DesignTimeLibrary} 
-//#UC END# *52A1F94201E8_4AB24EF502BB_var*
-begin
-//#UC START# *52A1F94201E8_4AB24EF502BB_impl*
- Assert((l3StrRefCount(anID.rKey) = -1));
- if not anID.rLocalized then
-  Assert((l3StrRefCount(anID.rValue) = -1));
- {$IfDef DesignTimeLibrary}
- Assert(anID.rS = -1);
- anID.rS := Integer(@anID.rValue);
- {$Else  DesignTimeLibrary}
- if (g_MenuManager = nil) then
-  Exit;
- with g_MenuManager.Strings do
- begin
-  l_Item := FindItemByName(anID.rKey);
-  if (l_Item = nil) then
-  begin
-   l_Item := TvcmBaseCollectionItem(Add);
-   l_Item.Name := anID.rKey;
-   l_Item.Caption := anID.rValue;
-  end//l_Item = nil
-  else
-   Assert(l_Item.Caption = anID.rValue, 'Локализуемую строковую константу ' + anID.rKey + ' надо править на модели');
-  Assert((anID.rS = -1) or (anID.rS = l_Item.Index));
-  anID.rS := l_Item.Index;
- end;//with g_MenuManager.Strings
- {$EndIf  DesignTimeLibrary}
-//#UC END# *52A1F94201E8_4AB24EF502BB_impl*
-end;//_DoInitConstString
-
-procedure VcmStartupComplete;
-//#UC START# *52A1F95A0358_4AB24EF502BB_var*
-//#UC END# *52A1F95A0358_4AB24EF502BB_var*
-begin
-//#UC START# *52A1F95A0358_4AB24EF502BB_impl*
- g_ShortcutProcessingEnabled := True;
-//#UC END# *52A1F95A0358_4AB24EF502BB_impl*
-end;//VcmStartupComplete
-{$IfEnd} //not NoVCM
-
 initialization
-{$If not defined(NoVCM)}
-// Регистрация TvcmPopupMenuHelper
- {$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
  Tl3PopupMenuHelper.Instance.Alien := TvcmPopupMenuHelper.Instance;
- {$IfEnd} //not NoVCL
-
-{$IfEnd} //not NoVCM
-{$If not defined(NoVCM)}
+{$IfEnd} // NOT Defined(NoVCL)
+ {* Регистрация TvcmPopupMenuHelper }
 //#UC START# *52A1F92402C1*
  g_MenuManager := nil;
  g_ShortcutProcessingEnabled := False;
  g_FirstShortCutLoad := True;
 //#UC END# *52A1F92402C1*
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

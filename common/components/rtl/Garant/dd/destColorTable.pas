@@ -1,66 +1,54 @@
 unit destColorTable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/destColorTable.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::RTFSupport::destColorTable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\destColorTable.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "destColorTable" MUID: (54DDD58A004A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  Graphics,
-  l3ProtoObject,
-  l3ProtoDataContainer,
-  ddRTFdestination,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes,
-  ddRTFState,
-  RTFtypes,
-  ddCustomRTFReader,
-  l3Base
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+ , ddRTFdestination
+ , Graphics
+ , ddRTFState
+ , RTFtypes
+ , l3Base
+ , ddCustomRTFReader
+;
 
 type
  TddColorEntry = class(Tl3ProtoObject)
- private
- // private fields
-   f_Blue : Byte;
-    {* Поле для свойства Blue}
-   f_Green : Byte;
-    {* Поле для свойства Green}
-   f_Red : Byte;
-    {* Поле для свойства Red}
- protected
- // property methods
+  private
+   f_Blue: Byte;
+    {* Поле для свойства Blue }
+   f_Green: Byte;
+    {* Поле для свойства Green }
+   f_Red: Byte;
+    {* Поле для свойства Red }
+  protected
    function pm_GetColor: LongInt;
- public
- // public properties
+  public
    property Blue: Byte
-     read f_Blue
-     write f_Blue;
+    read f_Blue
+    write f_Blue;
    property Green: Byte
-     read f_Green
-     write f_Green;
+    read f_Green
+    write f_Green;
    property Red: Byte
-     read f_Red
-     write f_Red;
+    read f_Red
+    write f_Red;
    property Color: LongInt
-     read pm_GetColor;
+    read pm_GetColor;
  end;//TddColorEntry
 
  _ItemType_ = TddColorEntry;
@@ -71,48 +59,40 @@ type
  end;//TddColorEntryList
 
  TdestColorTable = class(TddRTFDestination)
- private
- // private fields
-   f_Colors : TddColorEntryList;
-   f_ColorEntry : TddColorEntry;
- protected
- // realized methods
-   procedure Close(aState: TddRTFState;
-     aNewDest: TddRTFDestination); override;
-   procedure WriteText(aRDS: TRDS;
-     aText: Tl3String;
-     aState: TddRTFState); override;
- protected
- // overridden protected methods
+  private
+   f_Colors: TddColorEntryList;
+   f_ColorEntry: TddColorEntry;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
+   function ColorByIndex(aColorIndex: Integer): TColor;
+   procedure Close(aState: TddRTFState;
+    aNewDest: TddRTFDestination); override;
+   procedure WriteText(aRDS: TRDS;
+    aText: Tl3String;
+    aState: TddRTFState); override;
    procedure Clear; override;
    procedure AddAnsiChar(aText: AnsiChar;
-     aState: TddRTFState); override;
+    aState: TddRTFState); override;
    procedure ApplyProperty(propType: TPropType;
-     What: TIProp;
-     Value: LongInt;
-     aState: TddRTFState); override;
+    What: TIProp;
+    Value: LongInt;
+    aState: TddRTFState); override;
    constructor Create(aRTFReader: TddCustomRTFReader); override;
- public
- // public methods
-   function ColorByIndex(aColorIndex: Integer): TColor;
  end;//TdestColorTable
 
 implementation
 
 uses
-  Windows,
-  ddTypes,
-  Math,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-
-// start class TddColorEntry
+ l3ImplUses
+ , Windows
+ , ddTypes
+ , Math
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 function TddColorEntry.pm_GetColor: LongInt;
 //#UC START# *54DDD6F2017F_54DDD5B90290get_var*
@@ -122,13 +102,12 @@ begin
  Result:= RGB(RED, Green, Blue);
 //#UC END# *54DDD6F2017F_54DDD5B90290get_impl*
 end;//TddColorEntry.pm_GetColor
-// start class TddColorEntryList
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_54DDD74E01E5_var*
 //#UC END# *47B2C42A0163_54DDD74E01E5_var*
 begin
@@ -136,9 +115,10 @@ begin
  Assert(False);
 //#UC END# *47B2C42A0163_54DDD74E01E5_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_54DDD74E01E5_var*
 //#UC END# *47B99D4503A2_54DDD74E01E5_var*
 begin
@@ -152,8 +132,6 @@ type _Instance_R_ = TddColorEntryList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
-// start class TdestColorTable
-
 function TdestColorTable.ColorByIndex(aColorIndex: Integer): TColor;
 //#UC START# *54DDD8790277_54DDD793020C_var*
 //#UC END# *54DDD8790277_54DDD793020C_var*
@@ -166,7 +144,7 @@ begin
 end;//TdestColorTable.ColorByIndex
 
 procedure TdestColorTable.Close(aState: TddRTFState;
-  aNewDest: TddRTFDestination);
+ aNewDest: TddRTFDestination);
 //#UC START# *5461BEC2017D_54DDD793020C_var*
 //#UC END# *5461BEC2017D_54DDD793020C_var*
 begin
@@ -175,8 +153,8 @@ begin
 end;//TdestColorTable.Close
 
 procedure TdestColorTable.WriteText(aRDS: TRDS;
-  aText: Tl3String;
-  aState: TddRTFState);
+ aText: Tl3String;
+ aState: TddRTFState);
 //#UC START# *54E1F08400F9_54DDD793020C_var*
 //#UC END# *54E1F08400F9_54DDD793020C_var*
 begin
@@ -186,6 +164,7 @@ begin
 end;//TdestColorTable.WriteText
 
 procedure TdestColorTable.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54DDD793020C_var*
 //#UC END# *479731C50290_54DDD793020C_var*
 begin
@@ -206,7 +185,7 @@ begin
 end;//TdestColorTable.Clear
 
 procedure TdestColorTable.AddAnsiChar(aText: AnsiChar;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51D27C0402E9_54DDD793020C_var*
 //#UC END# *51D27C0402E9_54DDD793020C_var*
 begin
@@ -220,9 +199,9 @@ begin
 end;//TdestColorTable.AddAnsiChar
 
 procedure TdestColorTable.ApplyProperty(propType: TPropType;
-  What: TIProp;
-  Value: LongInt;
-  aState: TddRTFState);
+ What: TIProp;
+ Value: LongInt;
+ aState: TddRTFState);
 //#UC START# *51D27EC50388_54DDD793020C_var*
 //#UC END# *51D27EC50388_54DDD793020C_var*
 begin

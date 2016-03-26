@@ -1,92 +1,64 @@
 unit vcmCustomizeToolsRes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmCustomizeToolsRes.pas"
-// Начат: 03.03.2010 20:31
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM::vcmL10nImpl::vcmCustomizeToolsRes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmCustomizeToolsRes.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vcmCustomizeToolsRes" MUID: (4B8E9CF900FD)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmUserControls,
-  l3StringIDEx
-  ;
-
-var
-  { Локализуемые строки ToolbarPos }
- str_vcmetbpTop : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmetbpTop'; rValue : 'Верхняя');
-  { 'Верхняя' }
- str_vcmetbpBottom : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmetbpBottom'; rValue : 'Нижняя');
-  { 'Нижняя' }
- str_vcmetbpLeft : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmetbpLeft'; rValue : 'Левая');
-  { 'Левая' }
- str_vcmetbpRight : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmetbpRight'; rValue : 'Правая');
-  { 'Правая' }
+ l3IntfUses
+ , vcmUserControls
+ , l3StringIDEx
+;
 
 const
-  { Карта преобразования локализованных строк ToolbarPos }
- ToolbarPosMap : array [TvcmEffectiveToolBarPos] of Pl3StringIDEx = (
-  @str_vcmetbpTop
-  , @str_vcmetbpBottom
-  , @str_vcmetbpLeft
-  , @str_vcmetbpRight
- );//ToolbarPosMap
-
-var
-  { Локализуемые строки Local }
- str_vcmSeparator : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmSeparator'; rValue : '- Разделитель -');
-  { '- Разделитель -' }
- str_vcmAskResoreToolbar : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmAskResoreToolbar'; rValue : 'Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?');
-  { 'Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?' }
-{$IfEnd} //not NoVCM
+ {* Локализуемые строки ToolbarPos }
+ str_vcmetbpTop: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmetbpTop'; rValue : 'Верхняя');
+  {* 'Верхняя' }
+ str_vcmetbpBottom: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmetbpBottom'; rValue : 'Нижняя');
+  {* 'Нижняя' }
+ str_vcmetbpLeft: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmetbpLeft'; rValue : 'Левая');
+  {* 'Левая' }
+ str_vcmetbpRight: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmetbpRight'; rValue : 'Правая');
+  {* 'Правая' }
+ {* Карта преобразования локализованных строк ToolbarPos }
+ ToolbarPosMap: array [TvcmEffectiveToolBarPos] of Pl3StringIDEx = (@str_vcmetbpTop
+ , @str_vcmetbpBottom
+ , @str_vcmetbpLeft
+ , @str_vcmetbpRight
+ );
+ {* Локализуемые строки Local }
+ str_vcmSeparator: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmSeparator'; rValue : '- Разделитель -');
+  {* '- Разделитель -' }
+ str_vcmAskResoreToolbar: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmAskResoreToolbar'; rValue : 'Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?');
+  {* 'Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?' }
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3MessageID
-  ;
-
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ , l3MessageID
+;
 
 initialization
-{$If not defined(NoVCM)}
-// Инициализация str_vcmetbpTop
  str_vcmetbpTop.Init;
-{$IfEnd} //not NoVCM
-{$If not defined(NoVCM)}
-// Инициализация str_vcmetbpBottom
+ {* Инициализация str_vcmetbpTop }
  str_vcmetbpBottom.Init;
-{$IfEnd} //not NoVCM
-{$If not defined(NoVCM)}
-// Инициализация str_vcmetbpLeft
+ {* Инициализация str_vcmetbpBottom }
  str_vcmetbpLeft.Init;
-{$IfEnd} //not NoVCM
-{$If not defined(NoVCM)}
-// Инициализация str_vcmetbpRight
+ {* Инициализация str_vcmetbpLeft }
  str_vcmetbpRight.Init;
-{$IfEnd} //not NoVCM
-{$If not defined(NoVCM)}
-// Инициализация str_vcmSeparator
+ {* Инициализация str_vcmetbpRight }
  str_vcmSeparator.Init;
-{$IfEnd} //not NoVCM
-{$If not defined(NoVCM)}
-// Инициализация str_vcmAskResoreToolbar
+ {* Инициализация str_vcmSeparator }
  str_vcmAskResoreToolbar.Init;
-{$IfEnd} //not NoVCM
+ {* Инициализация str_vcmAskResoreToolbar }
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

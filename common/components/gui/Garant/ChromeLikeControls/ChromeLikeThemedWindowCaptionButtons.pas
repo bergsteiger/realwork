@@ -1,72 +1,54 @@
 unit ChromeLikeThemedWindowCaptionButtons;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/ChromeLikeThemedWindowCaptionButtons.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeWindowCaptionButtons::ChromeLikeThemedWindowCaptionButtons
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeThemedWindowCaptionButtons.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ChromeLikeThemedWindowCaptionButtons" MUID: (533D1518032F)
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  ChromeLikeBaseThemedWindowCaptionButton,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , ChromeLikeBaseThemedWindowCaptionButton
+ , l3Interfaces
+;
 
 type
  TChromeLikeThemedCloseCaptionButton = class(TChromeLikeBaseThemedWindowCaptionButton)
- protected
- // overridden protected methods
+  protected
    function GetPaintParams: TChromeLikeThemedWindowCaptionButtonPaintParams; override;
    function GetHintText: Il3CString; override;
  end;//TChromeLikeThemedCloseCaptionButton
 
  TChromeLikeThemedMaximizeCaptionButton = class(TChromeLikeBaseThemedWindowCaptionButton)
- protected
- // overridden protected methods
+  protected
    function GetPaintParams: TChromeLikeThemedWindowCaptionButtonPaintParams; override;
    function NeedUpdateHint: Boolean; override;
    function GetHintText: Il3CString; override;
  end;//TChromeLikeThemedMaximizeCaptionButton
 
  TChromeLikeThemedMinimizeCaptionButton = class(TChromeLikeBaseThemedWindowCaptionButton)
- protected
- // overridden protected methods
+  protected
    function GetPaintParams: TChromeLikeThemedWindowCaptionButtonPaintParams; override;
    function GetHintText: Il3CString; override;
  end;//TChromeLikeThemedMinimizeCaptionButton
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  UxTheme
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  ChromeLikeBaseWindowCaptionButton,
-  ChromeLikeWindowCaptionButtonsRes
-  ;
-
-// start class TChromeLikeThemedCloseCaptionButton
+ l3ImplUses
+ , UxTheme
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ChromeLikeBaseWindowCaptionButton
+ , ChromeLikeWindowCaptionButtonsRes
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TChromeLikeThemedCloseCaptionButton.GetPaintParams: TChromeLikeThemedWindowCaptionButtonPaintParams;
 //#UC START# *533D091902B8_533D0B3A02F3_var*
@@ -93,7 +75,6 @@ begin
  Result := str_Close.AsCStr;
 //#UC END# *5474500600DA_533D0B3A02F3_impl*
 end;//TChromeLikeThemedCloseCaptionButton.GetHintText
-// start class TChromeLikeThemedMaximizeCaptionButton
 
 function TChromeLikeThemedMaximizeCaptionButton.GetPaintParams: TChromeLikeThemedWindowCaptionButtonPaintParams;
 //#UC START# *533D091902B8_533D0B640155_var*
@@ -148,7 +129,6 @@ begin
   Result := str_Maximize.AsCStr;
 //#UC END# *5474500600DA_533D0B640155_impl*
 end;//TChromeLikeThemedMaximizeCaptionButton.GetHintText
-// start class TChromeLikeThemedMinimizeCaptionButton
 
 function TChromeLikeThemedMinimizeCaptionButton.GetPaintParams: TChromeLikeThemedWindowCaptionButtonPaintParams;
 //#UC START# *533D091902B8_533D0B4B022A_var*
@@ -175,20 +155,20 @@ begin
  Result := str_Minimize.AsCStr;
 //#UC END# *5474500600DA_533D0B4B022A_impl*
 end;//TChromeLikeThemedMinimizeCaptionButton.GetHintText
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-// Регистрация TChromeLikeThemedCloseCaptionButton
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TChromeLikeThemedCloseCaptionButton);
-{$IfEnd} //not NoScripts AND not NoTabs AND not NoVCM AND not NoVGScene
-{$If not defined(NoScripts) AND not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-// Регистрация TChromeLikeThemedMaximizeCaptionButton
+ {* Регистрация TChromeLikeThemedCloseCaptionButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TChromeLikeThemedMaximizeCaptionButton);
-{$IfEnd} //not NoScripts AND not NoTabs AND not NoVCM AND not NoVGScene
-{$If not defined(NoScripts) AND not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-// Регистрация TChromeLikeThemedMinimizeCaptionButton
+ {* Регистрация TChromeLikeThemedMaximizeCaptionButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TChromeLikeThemedMinimizeCaptionButton);
-{$IfEnd} //not NoScripts AND not NoTabs AND not NoVCM AND not NoVGScene
+ {* Регистрация TChromeLikeThemedMinimizeCaptionButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

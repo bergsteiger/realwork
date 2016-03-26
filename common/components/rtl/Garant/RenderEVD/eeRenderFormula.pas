@@ -1,102 +1,88 @@
 unit eeRenderFormula;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "RenderEVD"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/RenderEVD/eeRenderFormula.pas"
-// Начат: 27.11.2007 15:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Tools::RenderEVD::Implementation::eeRenderFormula
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\RenderEVD\eeRenderFormula.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "eeRenderFormula" MUID: (4B72DF7B0164)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\RenderEVD\evDefine.inc}
+{$Include w:\common\components\rtl\Garant\RenderEVD\evDefine.inc}
 
 interface
 
 uses
-  l3InternalInterfaces,
-  ActiveX,
-  nevDocumentContainer,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3InternalInterfaces
+ , l3Variant
+ , ActiveX
+;
 
 type
  TeeRenderTarget = (
-   ee_rtPNG
- , ee_rtBMP
- , ee_rtRawBMP
+  ee_rtPNG
+  , ee_rtBMP
+  , ee_rtRawBMP
  );//TeeRenderTarget
+
 function RenderFormula(aBuf: PAnsiChar;
-  aSize: Integer;
-  aNumber: Integer;
-  aZoom: Integer;
-  const aPicture: IStream): Boolean; stdcall;
+ aSize: Integer;
+ aNumber: Integer;
+ aZoom: Integer;
+ const aPicture: IStream): Boolean; stdcall;
 function RenderFormulaPrim(aBuf: PAnsiChar;
-  aSize: Integer;
-  aNumber: Integer;
-  aZoom: Integer;
-  const aPicture: IStream;
-  aTarget: TeeRenderTarget): Boolean; stdcall;
+ aSize: Integer;
+ aNumber: Integer;
+ aZoom: Integer;
+ const aPicture: IStream;
+ aTarget: TeeRenderTarget): Boolean; stdcall;
 
 implementation
 
 uses
-  Table_Const,
-  TableRow_Const,
-  TableCell_Const
-  {$If not defined(notDebugStackTrace)}
-  ,
-  jclDebug
-  {$IfEnd} //not notDebugStackTrace
-  ,
-  l3Memory,
-  Classes,
-  k2DocumentBuffer,
-  evdNativeReader,
-  l3BitmapContainer
-  {$If not defined(NoImageEn)}
-  ,
-  imageenio
-  {$IfEnd} //not NoImageEn
-  ,
-  k2Tags,
-  evdTypes,
-  SysUtils,
-  l3Stream,
-  l3Base,
-  l3Math,
-  l3Interfaces,
-  evdVer,
-  TextPara_Const,
-  l3Units,
-  nevTools,
-  nevBase,
-  Document_Const,
-  nevVirtualDrawView,
-  l3ScreenIC,
-  Formula_Const,
-  Graphics,
-  l3ImageUtils,
-  evdSchema,
-  l3StringIDEx
-  ;
+ l3ImplUses
+ , nevDocumentContainer
+ , evdSchema
+ , l3StringIDEx
+ , Table_Const
+ , TableRow_Const
+ , TableCell_Const
+ {$If NOT Defined(notDebugStackTrace)}
+ , jclDebug
+ {$IfEnd} // NOT Defined(notDebugStackTrace)
+ , l3Memory
+ , Classes
+ , k2DocumentBuffer
+ , evdNativeReader
+ , l3BitmapContainer
+ {$If NOT Defined(NoImageEn)}
+ , imageenio
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , k2Tags
+ , evdTypes
+ , SysUtils
+ , l3Stream
+ , l3Base
+ , l3Math
+ , l3Interfaces
+ , evdVer
+ , TextPara_Const
+ , l3Units
+ , nevTools
+ , nevBase
+ , Document_Const
+ , nevVirtualDrawView
+ , l3ScreenIC
+ , Formula_Const
+ , Graphics
+ , l3ImageUtils
+;
 
 type
  TnevDocumentContainerHack = {abstract} class(TnevDocumentContainer)
  end;//TnevDocumentContainerHack
 
-// unit methods
-
 function DoRender(aText: Tl3Variant;
-  aFormula: Tl3Variant;
-  aZoom: Integer): Il3Bitmap;
+ aFormula: Tl3Variant;
+ aZoom: Integer): Il3Bitmap;
+ {* Собствеено рендерит формулу }
 //#UC START# *4EF0A285035D_4B72DF7B0164_var*
 var
  l_TextO    : InevObject;
@@ -174,10 +160,10 @@ begin
 end;//DoRender
 
 function RenderFormula(aBuf: PAnsiChar;
-  aSize: Integer;
-  aNumber: Integer;
-  aZoom: Integer;
-  const aPicture: IStream): Boolean;
+ aSize: Integer;
+ aNumber: Integer;
+ aZoom: Integer;
+ const aPicture: IStream): Boolean;
 //#UC START# *53BE8DDD026E_4B72DF7B0164_var*
 //#UC END# *53BE8DDD026E_4B72DF7B0164_var*
 begin
@@ -187,11 +173,11 @@ begin
 end;//RenderFormula
 
 function RenderFormulaPrim(aBuf: PAnsiChar;
-  aSize: Integer;
-  aNumber: Integer;
-  aZoom: Integer;
-  const aPicture: IStream;
-  aTarget: TeeRenderTarget): Boolean;
+ aSize: Integer;
+ aNumber: Integer;
+ aZoom: Integer;
+ const aPicture: IStream;
+ aTarget: TeeRenderTarget): Boolean;
 //#UC START# *4B72DF930061_4B72DF7B0164_var*
 
  {$IfNDef notDebugStackTrace}

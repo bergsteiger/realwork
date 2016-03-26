@@ -1,44 +1,40 @@
 unit m4DictTypes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m4"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/m4/m4DictTypes.pas"
-// Начат: 18.09.2009 17:40
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::m4::Dict::m4DictTypes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m4\m4DictTypes.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "m4DictTypes" MUID: (4AB38D7F0007)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m4\m4Define.inc}
+{$Include w:\common\components\rtl\Garant\m4\m4Define.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
- Tm4DictItemID = System.Integer;
+ Tm4DictItemID = Integer;
   {* Идентификатор элемента словаря }
 
- Tm4WordID = System.Integer;
+ Tm4WordID = Integer;
   {* Буква в строке }
 
  Tm4DictItemAddr = record
-   rID : Tm4DictItemID;
-   rDictionaryID : Integer;
+  rID: Tm4DictItemID;
+  rDictionaryID: Integer;
  end;//Tm4DictItemAddr
 
 function Tm4DictItemAddr_C(anID: Tm4DictItemID;
-    aDictionaryID: Integer): Tm4DictItemAddr;
+ aDictionaryID: Integer): Tm4DictItemAddr;
 
 implementation
 
+uses
+ l3ImplUses
+;
+
 function Tm4DictItemAddr_C(anID: Tm4DictItemID;
-       aDictionaryID: Integer): Tm4DictItemAddr;
+ aDictionaryID: Integer): Tm4DictItemAddr;
 //#UC START# *4ABA24E701F2_4ABA246700B4_var*
 //#UC END# *4ABA24E701F2_4ABA246700B4_var*
 begin
@@ -47,6 +43,6 @@ begin
  Result.rID := anID;
  Result.rDictionaryID := aDictionaryID;
 //#UC END# *4ABA24E701F2_4ABA246700B4_impl*
-end;//Tm4DictItemAddr.C
+end;//Tm4DictItemAddr_C
 
 end.

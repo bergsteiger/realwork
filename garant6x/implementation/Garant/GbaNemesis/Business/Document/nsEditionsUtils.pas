@@ -1,54 +1,42 @@
 unit nsEditionsUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/nsEditionsUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Core::Common::Business::BaseDocument::nsEditionsUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsEditionsUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsEditionsUtils" MUID: (4B2895E80398)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3TreeInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-function NsCalcEditionImageIndex(const anEdition: Il3SimpleNode;
-  var theImages: TCustomImageList;
-  aForEditionsTree: Boolean): Integer;
-{$IfEnd} //not Admin AND not Monitorings
+function nsCalcEditionImageIndex(const anEdition: Il3SimpleNode;
+ var theImages: TCustomImageList;
+ aForEditionsTree: Boolean): Integer;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentRes,
-  nsEditionNodes,
-  DocumentUnit,
-  SysUtils,
-  SearchRes
-  ;
+ l3ImplUses
+ , DocumentRes
+ , nsEditionNodes
+ , DocumentUnit
+ , SysUtils
+ , SearchRes
+;
 
-// unit methods
-
-function NsCalcEditionImageIndex(const anEdition: Il3SimpleNode;
-  var theImages: TCustomImageList;
-  aForEditionsTree: Boolean): Integer;
+function nsCalcEditionImageIndex(const anEdition: Il3SimpleNode;
+ var theImages: TCustomImageList;
+ aForEditionsTree: Boolean): Integer;
 //#UC START# *4B2896B900F3_4B2895E80398_var*
 var
  l_EditionNode : InsEditionNode;
@@ -110,7 +98,7 @@ begin
  else
   Result := diilActualRedaction;
 //#UC END# *4B2896B900F3_4B2895E80398_impl*
-end;//NsCalcEditionImageIndex
-{$IfEnd} //not Admin AND not Monitorings
+end;//nsCalcEditionImageIndex
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

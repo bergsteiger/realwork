@@ -1,83 +1,71 @@
 unit eeEVDtoRTF;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "RenderEVD"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/RenderEVD/eeEVDtoRTF.pas"
-// Начат: 19.01.2009 12:11
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Tools::RenderEVD::Implementation::eeEVDtoRTF
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\RenderEVD\eeEVDtoRTF.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "eeEVDtoRTF" MUID: (4B72B41502F5)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\RenderEVD\evDefine.inc}
+{$Include w:\common\components\rtl\Garant\RenderEVD\evDefine.inc}
 
 interface
 
 uses
-  l3Types,
-  ActiveX,
-  evdStyles,
-  k2TagGen,
-  evdNativeReader,
-  ddRTFWriter
-  ;
+ l3IntfUses
+ , evdNativeReader
+ , k2TagGen
+ , ddRTFWriter
+ , evdStyles
+ , ActiveX
+ , l3Types
+;
 
 function EVDtoRTFWithoutCommentDecor(const aEVD: IStream;
-  const aRTF: IStream;
-  Hidden: PLong;
-  HiddenCount: Integer;
-  aHost: PAnsiChar): Boolean; stdcall;
+ const aRTF: IStream;
+ Hidden: PLong;
+ HiddenCount: Integer;
+ aHost: PAnsiChar): Boolean; stdcall;
 function EVDtoRTF(const aEVD: IStream;
-  const aRTF: IStream;
-  Hidden: PLong;
-  HiddenCount: Integer;
-  aHost: PAnsiChar): Boolean; stdcall;
+ const aRTF: IStream;
+ Hidden: PLong;
+ HiddenCount: Integer;
+ aHost: PAnsiChar): Boolean; stdcall;
 function SetStyleTable(aStyleBuf: PAnsiChar;
-  aStyleBufSize: Integer): Boolean; stdcall;
+ aStyleBufSize: Integer): Boolean; stdcall;
 
 implementation
 
 uses
-  l3Base,
-  ddSectionRepair
-  {$If not defined(notDebugStackTrace)}
-  ,
-  jclDebug
-  {$IfEnd} //not notDebugStackTrace
-  ,
-  evHiddenFilter,
-  evNestedDocumentEliminator,
-  SysUtils,
-  evdPageParamsFilter,
-  evStyleInterfaceEx,
-  evCommentDecorator,
-  evdBlockNameAdder,
-  evStyleHeaderAdder,
-  evdScriptHyperlinkEliminator,
-  l3Memory
-  {$If defined(Nemesis)}
-  ,
-  F1_Schema
-  {$IfEnd} //Nemesis
-  ,
-  evdSchema
-  ;
-
-// unit methods
+ l3ImplUses
+ {$If Defined(Nemesis)}
+ , F1_Schema
+ {$IfEnd} // Defined(Nemesis)
+ , evdSchema
+ , l3Base
+ , ddSectionRepair
+ {$If NOT Defined(notDebugStackTrace)}
+ , jclDebug
+ {$IfEnd} // NOT Defined(notDebugStackTrace)
+ , evHiddenFilter
+ , evNestedDocumentEliminator
+ , SysUtils
+ , evdPageParamsFilter
+ , evStyleInterfaceEx
+ , evCommentDecorator
+ , evdBlockNameAdder
+ , evStyleHeaderAdder
+ , evdScriptHyperlinkEliminator
+ , l3Memory
+;
 
 function DoEVDtoRTF(const aEVD: IStream;
-  const aRTF: IStream;
-  Hidden: PLong;
-  HiddenCount: Integer;
-  aHost: PAnsiChar;
-  aNeedEliminateCommentDecor: Boolean): Boolean;
+ const aRTF: IStream;
+ Hidden: PLong;
+ HiddenCount: Integer;
+ aHost: PAnsiChar;
+ aNeedEliminateCommentDecor: Boolean): Boolean;
+var l_Reader: TevdNativeReader;
+var l_G: Tk2TagGenerator;
+var l_Writer: TevRTFObjectGenerator;
+var l_Styles: TevStandardStyles;
 //#UC START# *4B72B44A0392_4B72B41502F5_var*
 
  {$IfNDef notDebugStackTrace}
@@ -103,11 +91,6 @@ var
  l_Written : Longint;
  l_Index   : Integer;
 //#UC END# *4B72B44A0392_4B72B41502F5_var*
-var
- l_Reader : TevdNativeReader;
- l_G : Tk2TagGenerator;
- l_Writer : TevRTFObjectGenerator;
- l_Styles : TevStandardStyles;
 begin
 //#UC START# *4B72B44A0392_4B72B41502F5_impl*
  l3System.EnterGlobalCS;
@@ -199,10 +182,10 @@ begin
 end;//DoEVDtoRTF
 
 function EVDtoRTFWithoutCommentDecor(const aEVD: IStream;
-  const aRTF: IStream;
-  Hidden: PLong;
-  HiddenCount: Integer;
-  aHost: PAnsiChar): Boolean;
+ const aRTF: IStream;
+ Hidden: PLong;
+ HiddenCount: Integer;
+ aHost: PAnsiChar): Boolean;
 //#UC START# *530C8AA4024F_4B72B41502F5_var*
 //#UC END# *530C8AA4024F_4B72B41502F5_var*
 begin
@@ -213,10 +196,10 @@ begin
 end;//EVDtoRTFWithoutCommentDecor
 
 function EVDtoRTF(const aEVD: IStream;
-  const aRTF: IStream;
-  Hidden: PLong;
-  HiddenCount: Integer;
-  aHost: PAnsiChar): Boolean;
+ const aRTF: IStream;
+ Hidden: PLong;
+ HiddenCount: Integer;
+ aHost: PAnsiChar): Boolean;
 //#UC START# *530C9AB60327_4B72B41502F5_var*
 //#UC END# *530C9AB60327_4B72B41502F5_var*
 begin
@@ -227,7 +210,7 @@ begin
 end;//EVDtoRTF
 
 function SetStyleTable(aStyleBuf: PAnsiChar;
-  aStyleBufSize: Integer): Boolean;
+ aStyleBufSize: Integer): Boolean;
 //#UC START# *53CD1F8A0194_4B72B41502F5_var*
 var
  l_CMS : Tl3ConstMemoryStream;

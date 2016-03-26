@@ -1,79 +1,55 @@
 unit vcmStringIDExHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmStringIDExHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM::Implementation::vcmStringIDExHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmStringIDExHelper.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vcmStringIDExHelper" MUID: (55714DD30399)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3ProtoObject,
-  l3StringIDEx,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3StringIDEx
+ , l3Interfaces
+;
 
 type
  TvcmStringIDExHelper = {final} class(Tl3ProtoObject, Il3StringIDExHelper)
- public
- // realized methods
+  public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
    procedure Init(var theStr: Tl3StringIDEx);
    function AsCStr(const aStr: Tl3StringIDEx): Il3CString;
    function AsStr(const aStr: Tl3StringIDEx): AnsiString;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
    class function Instance: TvcmStringIDExHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvcmStringIDExHelper }
  end;//TvcmStringIDExHelper
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base {a},
-  vcmBase
-  ;
+ l3ImplUses
+ , vcmBase
+ , l3Base
+ , SysUtils
+;
 
-
-// start class TvcmStringIDExHelper
-
-var g_TvcmStringIDExHelper : TvcmStringIDExHelper = nil;
+var g_TvcmStringIDExHelper: TvcmStringIDExHelper = nil;
+ {* Экземпляр синглетона TvcmStringIDExHelper }
 
 procedure TvcmStringIDExHelperFree;
+ {* Метод освобождения экземпляра синглетона TvcmStringIDExHelper }
 begin
  l3Free(g_TvcmStringIDExHelper);
-end;
-
-class function TvcmStringIDExHelper.Instance: TvcmStringIDExHelper;
-begin
- if (g_TvcmStringIDExHelper = nil) then
- begin
-  l3System.AddExitProc(TvcmStringIDExHelperFree);
-  g_TvcmStringIDExHelper := Create;
- end;
- Result := g_TvcmStringIDExHelper;
-end;
-
+end;//TvcmStringIDExHelperFree
 
 class function TvcmStringIDExHelper.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TvcmStringIDExHelper <> nil;
 end;//TvcmStringIDExHelper.Exists
@@ -124,12 +100,21 @@ begin
  {$IfEnd}
 //#UC END# *74E80608E1B4_4B98D9FD038B_impl*
 end;//TvcmStringIDExHelper.AsStr
-{$IfEnd} //not NoVCM
+
+class function TvcmStringIDExHelper.Instance: TvcmStringIDExHelper;
+ {* Метод получения экземпляра синглетона TvcmStringIDExHelper }
+begin
+ if (g_TvcmStringIDExHelper = nil) then
+ begin
+  l3System.AddExitProc(TvcmStringIDExHelperFree);
+  g_TvcmStringIDExHelper := Create;
+ end;
+ Result := g_TvcmStringIDExHelper;
+end;//TvcmStringIDExHelper.Instance
 
 initialization
-{$If not defined(NoVCM)}
-// Регистрация TvcmStringIDExHelper
  Tl3StringIDExHelper.Instance.Alien := TvcmStringIDExHelper.Instance;
-{$IfEnd} //not NoVCM
+ {* Регистрация TvcmStringIDExHelper }
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

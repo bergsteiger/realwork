@@ -1,95 +1,69 @@
 unit vcmCustomHelpers;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmCustomHelpers.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM$Visual::Visual::vcmCustomHelpers
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmCustomHelpers.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vcmCustomHelpers" MUID: (551442A301CD)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3ProtoObject
-  {$If not defined(NoVCL)}
-  ,
-  l3FormatActionInfoHelper
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  ActnList
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ {$If NOT Defined(NoVCL)}
+ , l3FormatActionInfoHelper
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , ActnList
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
- TvcmFormatActionInfoHelper = {final} class(Tl3ProtoObject {$If not defined(NoVCL)}, Il3FormatActionInfoHelper{$IfEnd} //not NoVCL
+ TvcmFormatActionInfoHelper = {final} class(Tl3ProtoObject{$If NOT Defined(NoVCL)}
+ , Il3FormatActionInfoHelper
+ {$IfEnd} // NOT Defined(NoVCL)
  )
- public
- // realized methods
-    {$If not defined(NoVCL)}
-   function Format(anAction: TCustomAction): AnsiString;
-    {$IfEnd} //not NoVCL
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   {$If NOT Defined(NoVCL)}
+   function Format(anAction: TCustomAction): AnsiString;
+   {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvcmFormatActionInfoHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvcmFormatActionInfoHelper }
  end;//TvcmFormatActionInfoHelper
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base {a},
-  vcmModuleAction,
-  vcmOperationAction,
-  vcmEntityAction
-  ;
+ l3ImplUses
+ , vcmModuleAction
+ , vcmOperationAction
+ , vcmEntityAction
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TvcmFormatActionInfoHelper
-
-var g_TvcmFormatActionInfoHelper : TvcmFormatActionInfoHelper = nil;
+var g_TvcmFormatActionInfoHelper: TvcmFormatActionInfoHelper = nil;
+ {* Экземпляр синглетона TvcmFormatActionInfoHelper }
 
 procedure TvcmFormatActionInfoHelperFree;
+ {* Метод освобождения экземпляра синглетона TvcmFormatActionInfoHelper }
 begin
  l3Free(g_TvcmFormatActionInfoHelper);
-end;
-
-class function TvcmFormatActionInfoHelper.Instance: TvcmFormatActionInfoHelper;
-begin
- if (g_TvcmFormatActionInfoHelper = nil) then
- begin
-  l3System.AddExitProc(TvcmFormatActionInfoHelperFree);
-  g_TvcmFormatActionInfoHelper := Create;
- end;
- Result := g_TvcmFormatActionInfoHelper;
-end;
-
+end;//TvcmFormatActionInfoHelperFree
 
 class function TvcmFormatActionInfoHelper.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TvcmFormatActionInfoHelper <> nil;
 end;//TvcmFormatActionInfoHelper.Exists
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TvcmFormatActionInfoHelper.Format(anAction: TCustomAction): AnsiString;
 //#UC START# *781F06EEA149_551442CF02AD_var*
  procedure AddInfo(var theInfo: AnsiString;
@@ -122,16 +96,24 @@ begin
  end;
 //#UC END# *781F06EEA149_551442CF02AD_impl*
 end;//TvcmFormatActionInfoHelper.Format
-{$IfEnd} //not NoVCL
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCL)
+
+class function TvcmFormatActionInfoHelper.Instance: TvcmFormatActionInfoHelper;
+ {* Метод получения экземпляра синглетона TvcmFormatActionInfoHelper }
+begin
+ if (g_TvcmFormatActionInfoHelper = nil) then
+ begin
+  l3System.AddExitProc(TvcmFormatActionInfoHelperFree);
+  g_TvcmFormatActionInfoHelper := Create;
+ end;
+ Result := g_TvcmFormatActionInfoHelper;
+end;//TvcmFormatActionInfoHelper.Instance
 
 initialization
-{$If not defined(NoVCM)}
-// Регистрация TvcmFormatActionInfoHelper
- {$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
  Tl3FormatActionInfoHelper.Instance.Alien := TvcmFormatActionInfoHelper.Instance;
- {$IfEnd} //not NoVCL
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCL)
+ {* Регистрация TvcmFormatActionInfoHelper }
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

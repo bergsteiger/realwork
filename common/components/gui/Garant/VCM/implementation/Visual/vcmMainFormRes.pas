@@ -1,73 +1,51 @@
 unit vcmMainFormRes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmMainFormRes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM$Visual::Visual::vcmMainFormRes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMainFormRes.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vcmMainFormRes" MUID: (51E7E79A0341)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3StringIDEx,
-  l3MessageID
-  ;
+ l3IntfUses
+ , l3MessageID
+;
 
-var
-  { Локализуемые строки Local }
- str_TooManyWindowsOpened : Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'TooManyWindowsOpened'; rValue : 'Открыто максимальное количество окон системы ГАРАНТ. Закройте ненужные окна или продолжайте работу в текущем окне');
-  { 'Открыто максимальное количество окон системы ГАРАНТ. Закройте ненужные окна или продолжайте работу в текущем окне' }
-{$IfEnd} //not NoVCM
+const
+ {* Локализуемые строки Local }
+ str_TooManyWindowsOpened: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'TooManyWindowsOpened'; rValue : 'Открыто максимальное количество окон системы ГАРАНТ. Закройте ненужные окна или продолжайте работу в текущем окне');
+  {* 'Открыто максимальное количество окон системы ГАРАНТ. Закройте ненужные окна или продолжайте работу в текущем окне' }
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3ImplUses
+ , l3StringIDEx
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-var
-  { Варианты выбора для диалога TooManyWindowsOpened }
- str_TooManyWindowsOpened_Choice_First : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TooManyWindowsOpened_Choice_First'; rValue : 'Открыть в текущем окне');
-  { 'Открыть в текущем окне' }
- str_TooManyWindowsOpened_Choice_Second : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TooManyWindowsOpened_Choice_Second'; rValue : 'Отмена');
-  { 'Отмена' }
-
-{$IfEnd} //not NoVCM
+const
+ {* Варианты выбора для диалога TooManyWindowsOpened }
+ str_TooManyWindowsOpened_Choice_First: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TooManyWindowsOpened_Choice_First'; rValue : 'Открыть в текущем окне');
+  {* 'Открыть в текущем окне' }
+ str_TooManyWindowsOpened_Choice_Second: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TooManyWindowsOpened_Choice_Second'; rValue : 'Отмена');
+  {* 'Отмена' }
 
 initialization
-{$If not defined(NoVCM)}
-// Инициализация str_TooManyWindowsOpened_Choice_First
  str_TooManyWindowsOpened_Choice_First.Init;
-{$IfEnd} //not NoVCM
-{$If not defined(NoVCM)}
-// Инициализация str_TooManyWindowsOpened_Choice_Second
+ {* Инициализация str_TooManyWindowsOpened_Choice_First }
  str_TooManyWindowsOpened_Choice_Second.Init;
-{$IfEnd} //not NoVCM
-{$If not defined(NoVCM)}
-// Инициализация str_TooManyWindowsOpened
+ {* Инициализация str_TooManyWindowsOpened_Choice_Second }
  str_TooManyWindowsOpened.Init;
- str_TooManyWindowsOpened.AddChoice(str_TooManyWindowsOpened_Choice_First);
- str_TooManyWindowsOpened.AddChoice(str_TooManyWindowsOpened_Choice_Second);
- str_TooManyWindowsOpened.AddCustomChoice(str_TooManyWindowsOpened_Choice_Second);
- str_TooManyWindowsOpened.AddDefaultChoice(str_TooManyWindowsOpened_Choice_First);
- str_TooManyWindowsOpened.SetDlgType(mtConfirmation);
-{$IfEnd} //not NoVCM
+!!! Lost Message ini !!!
+ {* Инициализация str_TooManyWindowsOpened }
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

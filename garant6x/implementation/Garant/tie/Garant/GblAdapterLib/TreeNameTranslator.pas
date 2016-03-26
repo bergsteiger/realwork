@@ -1,46 +1,35 @@
 unit TreeNameTranslator;
+ {* Конвертертер имен деревьев }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/TreeNameTranslator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> garant6x::GblAdapterLib::Convertors::TreeNameTranslator
-//
-// Конвертертер имен деревьев
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\TreeNameTranslator.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "TreeNameTranslator" MUID: (47500DB5025A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  SearchDefinesUnit
-  ;
+ l3IntfUses
+ , SearchDefinesUnit
+;
 
-function ShellToAdapter(shell_name: PAnsiChar): TAttributeTag;
+function shell_to_adapter(shell_name: PAnsiChar): TAttributeTag;
 
 implementation
 
 uses
-  SearchUnit
-  ;
+ l3ImplUses
+ , SearchUnit
+;
 
-// unit methods
-
-function ShellToAdapter(shell_name: PAnsiChar): TAttributeTag;
+function shell_to_adapter(shell_name: PAnsiChar): TAttributeTag;
 //#UC START# *475012FB000C_47500DB5025A_var*
 //#UC END# *475012FB000C_47500DB5025A_var*
 begin
 //#UC START# *475012FB000C_47500DB5025A_impl*
  !!! Needs to be implemented !!!
 //#UC END# *475012FB000C_47500DB5025A_impl*
-end;//ShellToAdapter
+end;//shell_to_adapter
 
 end.

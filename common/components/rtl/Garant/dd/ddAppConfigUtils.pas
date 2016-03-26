@@ -1,164 +1,133 @@
 unit ddAppConfigUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd$AppConfig"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddAppConfigUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd$AppConfig::AppConfig::ddAppConfigUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfigUtils" MUID: (51D559ED033C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  ddConfigStorages,
-  ddAppConfigTypes
-  ;
+ l3IntfUses
+ , ddAppConfigTypes
+ , ddConfigStorages
+ , l3ProtoObject
+;
 
 type
  TddItemLink = class(Tl3ProtoObject)
- private
- // private fields
-   Item : TddVisualConfigItem;
-   Next : TddItemLink;
- public
- // public methods
+  private
+   Item: TddVisualConfigItem;
+   Next: TddItemLink;
+  public
    constructor Create(aItem: TddVisualConfigItem;
-     aNext: TddItemLink); reintroduce;
+    aNext: TddItemLink); reintroduce;
  end;//TddItemLink
+
 function ExecuteNodeDialog(aNode: TddAppConfigNode;
-  aValidate: Boolean = False): Boolean;
+ aValidate: Boolean = False): Boolean;
 function MakeString(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefault: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink; overload; 
+ const aCaption: AnsiString;
+ const aDefault: AnsiString;
+ aNext: TddItemLink = nil): TddItemLink; overload;
 function MakeString(const aCaption: AnsiString;
-  const aDefault: AnsiString;
-  aPassChar: AnsiChar;
-  aNext: TddItemLink = nil): TddItemLink; overload; 
+ const aDefault: AnsiString;
+ aPassChar: AnsiChar;
+ aNext: TddItemLink = nil): TddItemLink; overload;
 function MakeFileName(const aCaption: AnsiString;
-  const aFilter: AnsiString;
-  const aDefault: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink; overload; 
+ const aFilter: AnsiString;
+ const aDefault: AnsiString;
+ aNext: TddItemLink = nil): TddItemLink; overload;
 function MakeFileName(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aFilter: AnsiString;
-  const aDefault: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink; overload; 
+ const aCaption: AnsiString;
+ const aFilter: AnsiString;
+ const aDefault: AnsiString;
+ aNext: TddItemLink = nil): TddItemLink; overload;
 function MakeInteger(const aCaption: AnsiString;
-  aDefault: Integer;
-  aNext: TddItemLink = nil): TddItemLink; overload; 
+ aDefault: Integer;
+ aNext: TddItemLink = nil): TddItemLink; overload;
 function MakeInteger(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  aDefault: Integer;
-  aNext: TddItemLink = nil): TddItemLink; overload; 
+ const aCaption: AnsiString;
+ aDefault: Integer;
+ aNext: TddItemLink = nil): TddItemLink; overload;
 procedure AppendNode(aNode: TddAppConfigNode;
-  aItems: TddItemLink);
- {$If not defined(Nemesis)}
+ aItems: TddItemLink);
+{$If NOT Defined(Nemesis)}
 function MakeDefaultStorage: IddConfigStorage;
- {$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 function MakeFolderName(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefault: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink; overload; 
+ const aCaption: AnsiString;
+ const aDefault: AnsiString;
+ aNext: TddItemLink = nil): TddItemLink; overload;
 function MakeFolderName(const aCaption: AnsiString;
-  const aDefault: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink; overload; 
+ const aDefault: AnsiString;
+ aNext: TddItemLink = nil): TddItemLink; overload;
 function MakeDate(const aCaption: AnsiString;
-  aDefault: TDateTime;
-  aNext: TddItemLink = nil): TddItemLink;
+ aDefault: TDateTime;
+ aNext: TddItemLink = nil): TddItemLink;
 function MakeNode(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  aLabelTop: Boolean;
-  aItems: TddItemLink): TddAppConfigNode;
+ const aCaption: AnsiString;
+ aLabelTop: Boolean;
+ aItems: TddItemLink): TddAppConfigNode;
 function MakeBoolean(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  aDefault: Boolean;
-  aNext: TddItemLink = nil): TddItemLink; overload; 
+ const aCaption: AnsiString;
+ aDefault: Boolean;
+ aNext: TddItemLink = nil): TddItemLink; overload;
 function MakeStrings(const aCaption: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink;
+ aNext: TddItemLink = nil): TddItemLink;
 function MakeCustomItem(aItem: TddVisualConfigItem;
-  aNext: TddItemLink = nil): TddItemLink;
+ aNext: TddItemLink = nil): TddItemLink;
 function MakeBoolean(const aCaption: AnsiString;
-  aDefault: Boolean;
-  aNext: TddItemLink = nil): TddItemLink; overload; 
+ aDefault: Boolean;
+ aNext: TddItemLink = nil): TddItemLink; overload;
 function MakeString(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefault: AnsiString;
-  aPassChar: AnsiChar;
-  aNext: TddItemLink = nil): TddItemLink; overload; 
+ const aCaption: AnsiString;
+ const aDefault: AnsiString;
+ aPassChar: AnsiChar;
+ aNext: TddItemLink = nil): TddItemLink; overload;
 function MakeString(const aCaption: AnsiString;
-  const aDefault: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink; overload; 
+ const aDefault: AnsiString;
+ aNext: TddItemLink = nil): TddItemLink; overload;
 function MakeDivider(const aCaption: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink;
- {$If not defined(Nemesis)}
+ aNext: TddItemLink = nil): TddItemLink;
+{$If NOT Defined(Nemesis)}
 function MakeTime(const aCaption: AnsiString;
-  aDefault: TDateTime;
-  aNext: TddItemLink = nil): TddItemLink;
- {$IfEnd} //not Nemesis
+ aDefault: TDateTime;
+ aNext: TddItemLink = nil): TddItemLink;
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
 uses
-  SysUtils,
-  Windows,
-  Math,
-  StrUtils
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  ddAppConfigSimpleBFrame,
-  ddAppConfigStrings,
-  ddAppConfigConst,
-  ddAppConfigDates,
-  ddAppConfigLists,
-  afwVCL
-  {$If not defined(Nemesis)}
-  ,
-  ddIniStorage
-  {$IfEnd} //not Nemesis
-  ,
-  l3Base
-  ;
-
-// start class TddItemLink
-
-constructor TddItemLink.Create(aItem: TddVisualConfigItem;
-  aNext: TddItemLink);
-//#UC START# *52307CDE03D5_522F684203BF_var*
-//#UC END# *52307CDE03D5_522F684203BF_var*
-begin
-//#UC START# *52307CDE03D5_522F684203BF_impl*
- inherited Create;
- Item := aItem;
- Next := aNext;
-//#UC END# *52307CDE03D5_522F684203BF_impl*
-end;//TddItemLink.Create
+ l3ImplUses
+ , SysUtils
+ , Windows
+ , Math
+ , StrUtils
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ddAppConfigSimpleBFrame
+ , ddAppConfigStrings
+ , ddAppConfigConst
+ , ddAppConfigDates
+ , ddAppConfigLists
+ , afwVCL
+ {$If NOT Defined(Nemesis)}
+ , ddIniStorage
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3Base
+;
 
 function ExecuteNodeDialog(aNode: TddAppConfigNode;
-  aValidate: Boolean = False): Boolean;
+ aValidate: Boolean = False): Boolean;
 //#UC START# *52307C3D02F6_51D559ED033C_var*
 var
  l_Dlg: TForm;
@@ -251,9 +220,9 @@ begin
 end;//ExecuteNodeDialog
 
 function MakeString(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefault: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink;
+ const aCaption: AnsiString;
+ const aDefault: AnsiString;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *52307D2E00B5_51D559ED033C_var*
 //#UC END# *52307D2E00B5_51D559ED033C_var*
 begin
@@ -263,9 +232,9 @@ begin
 end;//MakeString
 
 function MakeString(const aCaption: AnsiString;
-  const aDefault: AnsiString;
-  aPassChar: AnsiChar;
-  aNext: TddItemLink = nil): TddItemLink;
+ const aDefault: AnsiString;
+ aPassChar: AnsiChar;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *52307D6901A1_51D559ED033C_var*
 //#UC END# *52307D6901A1_51D559ED033C_var*
 begin
@@ -275,9 +244,9 @@ begin
 end;//MakeString
 
 function MakeFileName(const aCaption: AnsiString;
-  const aFilter: AnsiString;
-  const aDefault: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink;
+ const aFilter: AnsiString;
+ const aDefault: AnsiString;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *52307DAE02AF_51D559ED033C_var*
 var
  l_Value: TddConfigValue;
@@ -292,10 +261,10 @@ begin
 end;//MakeFileName
 
 function MakeFileName(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aFilter: AnsiString;
-  const aDefault: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink;
+ const aCaption: AnsiString;
+ const aFilter: AnsiString;
+ const aDefault: AnsiString;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *52307DDE001A_51D559ED033C_var*
 var
  l_Value: TddConfigValue;
@@ -310,8 +279,8 @@ begin
 end;//MakeFileName
 
 function MakeInteger(const aCaption: AnsiString;
-  aDefault: Integer;
-  aNext: TddItemLink = nil): TddItemLink;
+ aDefault: Integer;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *52307E12007E_51D559ED033C_var*
 //#UC END# *52307E12007E_51D559ED033C_var*
 begin
@@ -321,9 +290,9 @@ begin
 end;//MakeInteger
 
 function MakeInteger(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  aDefault: Integer;
-  aNext: TddItemLink = nil): TddItemLink;
+ const aCaption: AnsiString;
+ aDefault: Integer;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *52307E30023F_51D559ED033C_var*
 var
  l_Value: TddConfigValue;
@@ -337,7 +306,7 @@ begin
 end;//MakeInteger
 
 procedure AppendNode(aNode: TddAppConfigNode;
-  aItems: TddItemLink);
+ aItems: TddItemLink);
 //#UC START# *52307E6B0051_51D559ED033C_var*
 var
  l_ItemLink: TddItemLink;
@@ -356,7 +325,7 @@ begin
 //#UC END# *52307E6B0051_51D559ED033C_impl*
 end;//AppendNode
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 function MakeDefaultStorage: IddConfigStorage;
 //#UC START# *52307E89023B_51D559ED033C_var*
 //#UC END# *52307E89023B_51D559ED033C_var*
@@ -365,12 +334,12 @@ begin
  Result := TddIniStorage.Create(ChangeFileExt(Application.ExeName, '.ini'));
 //#UC END# *52307E89023B_51D559ED033C_impl*
 end;//MakeDefaultStorage
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 function MakeFolderName(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefault: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink;
+ const aCaption: AnsiString;
+ const aDefault: AnsiString;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *52307ED502A2_51D559ED033C_var*
 var
  l_Value: TddConfigValue;
@@ -384,8 +353,8 @@ begin
 end;//MakeFolderName
 
 function MakeFolderName(const aCaption: AnsiString;
-  const aDefault: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink;
+ const aDefault: AnsiString;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *52307EFF0216_51D559ED033C_var*
 //#UC END# *52307EFF0216_51D559ED033C_var*
 begin
@@ -395,8 +364,8 @@ begin
 end;//MakeFolderName
 
 function MakeDate(const aCaption: AnsiString;
-  aDefault: TDateTime;
-  aNext: TddItemLink = nil): TddItemLink;
+ aDefault: TDateTime;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *52307F4602C7_51D559ED033C_var*
 var
  l_Value: TddConfigValue;
@@ -410,9 +379,9 @@ begin
 end;//MakeDate
 
 function MakeNode(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  aLabelTop: Boolean;
-  aItems: TddItemLink): TddAppConfigNode;
+ const aCaption: AnsiString;
+ aLabelTop: Boolean;
+ aItems: TddItemLink): TddAppConfigNode;
 //#UC START# *52307F8F0103_51D559ED033C_var*
 var
  l_ItemLink: TddItemLink;
@@ -434,9 +403,9 @@ begin
 end;//MakeNode
 
 function MakeBoolean(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  aDefault: Boolean;
-  aNext: TddItemLink = nil): TddItemLink;
+ const aCaption: AnsiString;
+ aDefault: Boolean;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *5230801702A0_51D559ED033C_var*
 var
  l_Value: TddConfigValue;
@@ -450,7 +419,7 @@ begin
 end;//MakeBoolean
 
 function MakeStrings(const aCaption: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *523080530337_51D559ED033C_var*
 //#UC END# *523080530337_51D559ED033C_var*
 begin
@@ -460,7 +429,7 @@ begin
 end;//MakeStrings
 
 function MakeCustomItem(aItem: TddVisualConfigItem;
-  aNext: TddItemLink = nil): TddItemLink;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *523080A201D2_51D559ED033C_var*
 //#UC END# *523080A201D2_51D559ED033C_var*
 begin
@@ -470,8 +439,8 @@ begin
 end;//MakeCustomItem
 
 function MakeBoolean(const aCaption: AnsiString;
-  aDefault: Boolean;
-  aNext: TddItemLink = nil): TddItemLink;
+ aDefault: Boolean;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *523081B70301_51D559ED033C_var*
 //#UC END# *523081B70301_51D559ED033C_var*
 begin
@@ -481,10 +450,10 @@ begin
 end;//MakeBoolean
 
 function MakeString(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefault: AnsiString;
-  aPassChar: AnsiChar;
-  aNext: TddItemLink = nil): TddItemLink;
+ const aCaption: AnsiString;
+ const aDefault: AnsiString;
+ aPassChar: AnsiChar;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *5230831903A5_51D559ED033C_var*
 var
  l_Value: TddConfigValue;
@@ -499,8 +468,8 @@ begin
 end;//MakeString
 
 function MakeString(const aCaption: AnsiString;
-  const aDefault: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink;
+ const aDefault: AnsiString;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *523083C403D7_51D559ED033C_var*
 //#UC END# *523083C403D7_51D559ED033C_var*
 begin
@@ -510,7 +479,7 @@ begin
 end;//MakeString
 
 function MakeDivider(const aCaption: AnsiString;
-  aNext: TddItemLink = nil): TddItemLink;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *5230842302DB_51D559ED033C_var*
 //#UC END# *5230842302DB_51D559ED033C_var*
 begin
@@ -519,10 +488,10 @@ begin
 //#UC END# *5230842302DB_51D559ED033C_impl*
 end;//MakeDivider
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 function MakeTime(const aCaption: AnsiString;
-  aDefault: TDateTime;
-  aNext: TddItemLink = nil): TddItemLink;
+ aDefault: TDateTime;
+ aNext: TddItemLink = nil): TddItemLink;
 //#UC START# *523084490017_51D559ED033C_var*
 var
  l_Value: TddConfigValue;
@@ -534,6 +503,18 @@ begin
  Result := MakeCustomItem(TddTimeConfigItem.Create('Item', aCaption, l_Value), aNext);
 //#UC END# *523084490017_51D559ED033C_impl*
 end;//MakeTime
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
+
+constructor TddItemLink.Create(aItem: TddVisualConfigItem;
+ aNext: TddItemLink);
+//#UC START# *52307CDE03D5_522F684203BF_var*
+//#UC END# *52307CDE03D5_522F684203BF_var*
+begin
+//#UC START# *52307CDE03D5_522F684203BF_impl*
+ inherited Create;
+ Item := aItem;
+ Next := aNext;
+//#UC END# *52307CDE03D5_522F684203BF_impl*
+end;//TddItemLink.Create
 
 end.

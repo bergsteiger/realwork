@@ -1,49 +1,34 @@
 unit vcmMessagesSupport;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmMessagesSupport.pas"
-// Начат: 22.06.2011 15:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM$Visual::Visual::vcmMessagesSupport
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMessagesSupport.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vcmMessagesSupport" MUID: (4E01D696020C)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Interfaces,
-  afwInterfaces,
-  SysUtils,
-  evCustomEditorWindow,
-  vcmGUI,
-  l3ProtoObject,
-  afwNavigation
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  l3StringIDEx,
-  l3MessageID,
-  vcmMessagesCollectionItem,
-  Pl3StringIDExList
-  {$If not defined(NoVCL)}
-  ,
-  l3HugeMessageDlgWithWikiHelper
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ , l3StringIDEx
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3MessageID
+ , Pl3StringIDExList
+ , evCustomEditorWindow
+ , vcmGUI
+ , vcmMessagesCollectionItem
+ , l3Interfaces
+ , SysUtils
+ , l3ProtoObject
+ {$If NOT Defined(NoVCL)}
+ , l3HugeMessageDlgWithWikiHelper
+ {$IfEnd} // NOT Defined(NoVCL)
+ , afwInterfaces
+ , afwNavigation
+;
 
 type
  EvcmDialogHasChoices = class(Exception)
@@ -55,118 +40,114 @@ type
  EvcmUnwaitedDialog = class(Exception)
  end;//EvcmUnwaitedDialog
 
- TvcmHugeMessageDlgWithWikiImpl = {final} class(Tl3ProtoObject {$If not defined(NoVCL)}, Il3HugeMessageDlgWithWikiHelper{$IfEnd} //not NoVCL
+ TvcmHugeMessageDlgWithWikiImpl = {final} class(Tl3ProtoObject{$If NOT Defined(NoVCL)}
+ , Il3HugeMessageDlgWithWikiHelper
+ {$IfEnd} // NOT Defined(NoVCL)
  )
- private
- // private fields
-   f_OnClick : Tl3WikiLinkClicked;
- private
- // private methods
+  private
+   f_OnClick: Tl3WikiLinkClicked;
+  private
    function OnJumpTo(Sender: TObject;
-     anEffects: TafwJumpToEffects;
-     const aMoniker: IevMoniker): Boolean;
- public
- // realized methods
-    {$If not defined(NoVCL)}
-   procedure Say(const aText: AnsiString;
-     aClickCallback: Tl3WikiLinkClicked);
-    {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
-   function FormatCloak(const aCaption: AnsiString;
-     const aText: AnsiString): AnsiString;
-    {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
-   function FormatLink(const aLinkText: AnsiString;
-     const aLinkData: AnsiString): AnsiString;
-    {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
-   function CanUseWiki: Boolean;
-    {$IfEnd} //not NoVCL
- public
- // public methods
+    anEffects: TafwJumpToEffects;
+    const aMoniker: IevMoniker): Boolean;
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   {$If NOT Defined(NoVCL)}
+   procedure Say(const aText: AnsiString;
+    aClickCallback: Tl3WikiLinkClicked);
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   function FormatCloak(const aCaption: AnsiString;
+    const aText: AnsiString): AnsiString;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   function FormatLink(const aLinkText: AnsiString;
+    const aLinkData: AnsiString): AnsiString;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   function CanUseWiki: Boolean;
+   {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvcmHugeMessageDlgWithWikiImpl;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvcmHugeMessageDlgWithWikiImpl }
  end;//TvcmHugeMessageDlgWithWikiImpl
 
-var g_HasMesssage : Boolean;
 procedure vcmSay(const aMsg: Tl3StringIDEx;
-  aDlgType: TMsgDlgType = mtError); overload; 
+ aDlgType: TMsgDlgType = Dialogs.mtError); overload;
 function vcmShowMessageDlg(const aMsg: Tl3Message;
-  out theChecked: Boolean;
-  aChoices: TPl3StringIDExList;
-  aJumpTo: TevJumpToEvent = nil): Integer; overload; 
-function vcmAsk(const aMsg: TvcmMessageID): Boolean; overload; 
-function vcmMessageDlg(const aMsg: TvcmMessageID): Integer; overload; 
+ out theChecked: Boolean;
+ aChoices: TPl3StringIDExList;
+ aJumpTo: TevJumpToEvent = nil): Integer; overload;
+function vcmAsk(const aMsg: TvcmMessageID): Boolean; overload;
+function vcmMessageDlg(const aMsg: TvcmMessageID): Integer; overload;
 function vcmMessageDlg(const aMsg: TvcmMessageID;
-  const aData: array of const): Integer; overload; 
+ const aData: array of const): Integer; overload;
 procedure vcmSay(const aMsg: Tl3StringIDEx;
-  const aData: array of const;
-  aDlgType: TMsgDlgType = mtError); overload; 
-procedure vcmSay(const aMsg: TvcmMessageID); overload; 
+ const aData: array of const;
+ aDlgType: TMsgDlgType = Dialogs.mtError); overload;
+procedure vcmSay(const aMsg: TvcmMessageID); overload;
 procedure vcmSay(const aMsg: TvcmMessageID;
-  const aData: array of const); overload; 
+ const aData: array of const); overload;
 function vcmAsk(const aMsg: TvcmMessageID;
-  const aData: array of const): Boolean; overload; 
+ const aData: array of const): Boolean; overload;
 function vcmMessageDlg(const anItem: Tl3Message;
-  aJumpTo: TevJumpToEvent = nil): Integer; overload; 
+ aJumpTo: TevJumpToEvent = nil): Integer; overload;
 function vcmGetVisibleName(const aName: Il3CString;
-  aChoices: TPl3StringIDExList;
-  aDlgType: TMsgDlgType): Il3CString;
+ aChoices: TPl3StringIDExList;
+ aDlgType: TMsgDlgType): Il3CString;
 function vcmMessageIDToMessage(const aMsgID: TvcmMessageID;
-  const aMessage: Il3CString): Tl3Message;
+ const aMessage: Il3CString): Tl3Message;
 function vcmMessageDlg(const aMsgId: TvcmMessageID;
-  const aMessage: Il3CString): Integer; overload; 
-function vcmShowMessageDlg(const aMsg: Tl3Message): Integer; overload; 
+ const aMessage: Il3CString): Integer; overload;
+function vcmShowMessageDlg(const aMsg: Tl3Message): Integer; overload;
 function vcmAsk(const aMsg: Tl3MessageID;
-  const aData: array of const): Boolean; overload; 
+ const aData: array of const): Boolean; overload;
 function vcmMessageDlg(const aMsg: Tl3MessageID;
-  const aData: array of const): Integer; overload; 
-{$IfEnd} //not NoVCM
+ const aData: array of const): Integer; overload;
+
+var g_HasMesssage: Boolean;
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  vcmBase,
-  l3VCLFormPtrList,
-  l3String
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  vtDialogsResEx,
-  vcmBaseMenuManager,
-  vcmSettings,
-  l3Bits,
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  afwAnswer
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base,
-  vcmMessageQueuePrim,
-  vcmMessageQueue
-  {$If not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmDialogs
-  {$IfEnd} //not NoVCM AND not NoVGScene
-  ,
-  l3BatchService
-  ;
+ l3ImplUses
+ , vcmMessageQueue
+ {$If NOT Defined(NoVGScene)}
+ , vcmDialogs
+ {$IfEnd} // NOT Defined(NoVGScene)
+ , l3BatchService
+ , vcmInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmBase
+ , l3VCLFormPtrList
+ , l3String
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtDialogsResEx
+ , vcmBaseMenuManager
+ , vcmSettings
+ , l3Bits
+ , Classes
+ {$If NOT Defined(NoScripts)}
+ , afwAnswer
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3Base
+ , vcmMessageQueuePrim
+;
 
-// unit methods
+var g_TvcmHugeMessageDlgWithWikiImpl: TvcmHugeMessageDlgWithWikiImpl = nil;
+ {* Экземпляр синглетона TvcmHugeMessageDlgWithWikiImpl }
+
+procedure TvcmHugeMessageDlgWithWikiImplFree;
+ {* Метод освобождения экземпляра синглетона TvcmHugeMessageDlgWithWikiImpl }
+begin
+ l3Free(g_TvcmHugeMessageDlgWithWikiImpl);
+end;//TvcmHugeMessageDlgWithWikiImplFree
 
 procedure vcmProcessMessageFromQueue;
 //#UC START# *4E01EF000123_4E01D696020C_var*
@@ -187,8 +168,8 @@ begin
 end;//vcmProcessMessageFromQueue
 
 function vcmAddMessageToQueue(aItem: TvcmMessagesCollectionItem;
-  const aMsg: TvcmMessageID;
-  const aData: array of const): Boolean;
+ const aMsg: TvcmMessageID;
+ const aData: array of const): Boolean;
 //#UC START# *4E01EF180178_4E01D696020C_var*
 var
  l_Item: TvcmMessageQueueItem;
@@ -214,7 +195,7 @@ begin
 end;//vcmAddMessageToQueue
 
 procedure vcmSay(const aMsg: Tl3StringIDEx;
-  aDlgType: TMsgDlgType = mtError);
+ aDlgType: TMsgDlgType = Dialogs.mtError);
 //#UC START# *4A9D129E00FA_4E01D696020C_var*
 //#UC END# *4A9D129E00FA_4E01D696020C_var*
 begin
@@ -224,9 +205,9 @@ begin
 end;//vcmSay
 
 function vcmShowMessageDlg(const aMsg: Tl3Message;
-  out theChecked: Boolean;
-  aChoices: TPl3StringIDExList;
-  aJumpTo: TevJumpToEvent = nil): Integer;
+ out theChecked: Boolean;
+ aChoices: TPl3StringIDExList;
+ aJumpTo: TevJumpToEvent = nil): Integer;
 //#UC START# *4A9D12BB00CC_4E01D696020C_var*
   
  function GetCurrentMainFormHWnd: HWnd;
@@ -332,7 +313,7 @@ begin
 end;//vcmMessageDlg
 
 function vcmMessageDlg(const aMsg: TvcmMessageID;
-  const aData: array of const): Integer;
+ const aData: array of const): Integer;
 //#UC START# *4E01E0B8018E_4E01D696020C_var*
 var
  l_Str  : Il3CString;
@@ -363,8 +344,8 @@ begin
 end;//vcmMessageDlg
 
 procedure vcmSay(const aMsg: Tl3StringIDEx;
-  const aData: array of const;
-  aDlgType: TMsgDlgType = mtError);
+ const aData: array of const;
+ aDlgType: TMsgDlgType = Dialogs.mtError);
 //#UC START# *4E01E11201EB_4E01D696020C_var*
 //#UC END# *4E01E11201EB_4E01D696020C_var*
 begin
@@ -383,7 +364,7 @@ begin
 end;//vcmSay
 
 procedure vcmSay(const aMsg: TvcmMessageID;
-  const aData: array of const);
+ const aData: array of const);
 //#UC START# *4E01E15B03AA_4E01D696020C_var*
 //#UC END# *4E01E15B03AA_4E01D696020C_var*
 begin
@@ -393,7 +374,7 @@ begin
 end;//vcmSay
 
 function vcmAsk(const aMsg: TvcmMessageID;
-  const aData: array of const): Boolean;
+ const aData: array of const): Boolean;
 //#UC START# *4E01E19B00CB_4E01D696020C_var*
 var
  l_Result : Integer;
@@ -408,7 +389,7 @@ begin
 end;//vcmAsk
 
 function vcmMessageDlg(const anItem: Tl3Message;
-  aJumpTo: TevJumpToEvent = nil): Integer;
+ aJumpTo: TevJumpToEvent = nil): Integer;
 //#UC START# *4E01E90202D0_4E01D696020C_var*
 
  function lp_GetDlgButtons(aModalResult: TModalResult): TMsgDlgButtons;
@@ -577,8 +558,8 @@ begin
 end;//vcmMessageDlg
 
 function vcmGetVisibleName(const aName: Il3CString;
-  aChoices: TPl3StringIDExList;
-  aDlgType: TMsgDlgType): Il3CString;
+ aChoices: TPl3StringIDExList;
+ aDlgType: TMsgDlgType): Il3CString;
 //#UC START# *4E0890BE038F_4E01D696020C_var*
 var
  l_Len : Integer;
@@ -609,7 +590,7 @@ begin
 end;//vcmGetVisibleName
 
 function vcmMessageIDToMessage(const aMsgID: TvcmMessageID;
-  const aMessage: Il3CString): Tl3Message;
+ const aMessage: Il3CString): Tl3Message;
 //#UC START# *4E08A89601F5_4E01D696020C_var*
 var
  l_Item : TvcmMessagesCollectionItem;
@@ -633,7 +614,7 @@ begin
 end;//vcmMessageIDToMessage
 
 function vcmMessageDlg(const aMsgId: TvcmMessageID;
-  const aMessage: Il3CString): Integer;
+ const aMessage: Il3CString): Integer;
 //#UC START# *4E08A8FC038F_4E01D696020C_var*
 //#UC END# *4E08A8FC038F_4E01D696020C_var*
 begin
@@ -654,7 +635,7 @@ begin
 end;//vcmShowMessageDlg
 
 function vcmAsk(const aMsg: Tl3MessageID;
-  const aData: array of const): Boolean;
+ const aData: array of const): Boolean;
 //#UC START# *4E7CA37100CD_4E01D696020C_var*
 var
  l_Result : Integer;
@@ -668,7 +649,7 @@ begin
 end;//vcmAsk
 
 function vcmMessageDlg(const aMsg: Tl3MessageID;
-  const aData: array of const): Integer;
+ const aData: array of const): Integer;
 //#UC START# *4E9E898302DC_4E01D696020C_var*
 //#UC END# *4E9E898302DC_4E01D696020C_var*
 begin
@@ -677,29 +658,9 @@ begin
 //#UC END# *4E9E898302DC_4E01D696020C_impl*
 end;//vcmMessageDlg
 
-// start class TvcmHugeMessageDlgWithWikiImpl
-
-var g_TvcmHugeMessageDlgWithWikiImpl : TvcmHugeMessageDlgWithWikiImpl = nil;
-
-procedure TvcmHugeMessageDlgWithWikiImplFree;
-begin
- l3Free(g_TvcmHugeMessageDlgWithWikiImpl);
-end;
-
-class function TvcmHugeMessageDlgWithWikiImpl.Instance: TvcmHugeMessageDlgWithWikiImpl;
-begin
- if (g_TvcmHugeMessageDlgWithWikiImpl = nil) then
- begin
-  l3System.AddExitProc(TvcmHugeMessageDlgWithWikiImplFree);
-  g_TvcmHugeMessageDlgWithWikiImpl := Create;
- end;
- Result := g_TvcmHugeMessageDlgWithWikiImpl;
-end;
-
-
 function TvcmHugeMessageDlgWithWikiImpl.OnJumpTo(Sender: TObject;
-  anEffects: TafwJumpToEffects;
-  const aMoniker: IevMoniker): Boolean;
+ anEffects: TafwJumpToEffects;
+ const aMoniker: IevMoniker): Boolean;
 //#UC START# *5515515F0098_5515501B009E_var*
 var
  l_URL: IevAddressMoniker;
@@ -717,14 +678,14 @@ begin
 end;//TvcmHugeMessageDlgWithWikiImpl.OnJumpTo
 
 class function TvcmHugeMessageDlgWithWikiImpl.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TvcmHugeMessageDlgWithWikiImpl <> nil;
 end;//TvcmHugeMessageDlgWithWikiImpl.Exists
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvcmHugeMessageDlgWithWikiImpl.Say(const aText: AnsiString;
-  aClickCallback: Tl3WikiLinkClicked);
+ aClickCallback: Tl3WikiLinkClicked);
 //#UC START# *03211FE23BF3_5515501B009E_var*
 //#UC END# *03211FE23BF3_5515501B009E_var*
 begin
@@ -733,11 +694,11 @@ begin
  vcmMessageDlg(Tl3Message_C(vcmCStr(aText), '', mtInformation), OnJumpTo);
 //#UC END# *03211FE23BF3_5515501B009E_impl*
 end;//TvcmHugeMessageDlgWithWikiImpl.Say
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TvcmHugeMessageDlgWithWikiImpl.FormatCloak(const aCaption: AnsiString;
-  const aText: AnsiString): AnsiString;
+ const aText: AnsiString): AnsiString;
 //#UC START# *3CDB8D32C712_5515501B009E_var*
 //#UC END# *3CDB8D32C712_5515501B009E_var*
 begin
@@ -745,11 +706,11 @@ begin
  Result := '{cloak}'#13#10 + aCaption + #13#10 + aText + #13#10'{/cloak}'#13#10;
 //#UC END# *3CDB8D32C712_5515501B009E_impl*
 end;//TvcmHugeMessageDlgWithWikiImpl.FormatCloak
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TvcmHugeMessageDlgWithWikiImpl.FormatLink(const aLinkText: AnsiString;
-  const aLinkData: AnsiString): AnsiString;
+ const aLinkData: AnsiString): AnsiString;
 //#UC START# *5AFFFDE1F6AB_5515501B009E_var*
 //#UC END# *5AFFFDE1F6AB_5515501B009E_var*
 begin
@@ -757,9 +718,9 @@ begin
  Result := '[' + aLinkText + '|' + aLinkData + ']';
 //#UC END# *5AFFFDE1F6AB_5515501B009E_impl*
 end;//TvcmHugeMessageDlgWithWikiImpl.FormatLink
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TvcmHugeMessageDlgWithWikiImpl.CanUseWiki: Boolean;
 //#UC START# *CDCC556698E5_5515501B009E_var*
 //#UC END# *CDCC556698E5_5515501B009E_var*
@@ -768,16 +729,24 @@ begin
  Result := True;
 //#UC END# *CDCC556698E5_5515501B009E_impl*
 end;//TvcmHugeMessageDlgWithWikiImpl.CanUseWiki
-{$IfEnd} //not NoVCL
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCL)
+
+class function TvcmHugeMessageDlgWithWikiImpl.Instance: TvcmHugeMessageDlgWithWikiImpl;
+ {* Метод получения экземпляра синглетона TvcmHugeMessageDlgWithWikiImpl }
+begin
+ if (g_TvcmHugeMessageDlgWithWikiImpl = nil) then
+ begin
+  l3System.AddExitProc(TvcmHugeMessageDlgWithWikiImplFree);
+  g_TvcmHugeMessageDlgWithWikiImpl := Create;
+ end;
+ Result := g_TvcmHugeMessageDlgWithWikiImpl;
+end;//TvcmHugeMessageDlgWithWikiImpl.Instance
 
 initialization
-{$If not defined(NoVCM)}
-// Регистрация TvcmHugeMessageDlgWithWikiImpl
- {$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
  Tl3HugeMessageDlgWithWikiHelper.Instance.Alien := TvcmHugeMessageDlgWithWikiImpl.Instance;
- {$IfEnd} //not NoVCL
-
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCL)
+ {* Регистрация TvcmHugeMessageDlgWithWikiImpl }
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -1,100 +1,78 @@
 unit destFontTable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/destFontTable.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::RTFSupport::destFontTable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\destFontTable.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "destFontTable" MUID: (54E1900902C9)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3StringList,
-  ddRTFdestination,
-  ddRTFProperties,
-  ddRTFState,
-  l3Base,
-  RTFtypes,
-  ddCustomRTFReader
-  ;
+ l3IntfUses
+ , l3StringList
+ , ddRTFProperties
+ , ddRTFdestination
+ , ddRTFState
+ , RTFtypes
+ , l3Base
+ , ddCustomRTFReader
+;
 
 type
  TddFontTable = class(Tl3StringList)
- protected
- // property methods
+  protected
    function pm_GetFonts(anIndex: Integer): TddFontEntry;
    function pm_GetFontNames(anIndex: Integer): AnsiString;
- public
- // public properties
+  public
    property Fonts[anIndex: Integer]: TddFontEntry
-     read pm_GetFonts;
+    read pm_GetFonts;
    property FontNames[anIndex: Integer]: AnsiString
-     read pm_GetFontNames;
+    read pm_GetFontNames;
  end;//TddFontTable
 
  TdestFontTable = class(TddRTFDestination)
- private
- // private fields
-   f_Fonts : TddFontTable;
- protected
- // property methods
+  private
+   f_Fonts: TddFontTable;
+  protected
    function pm_GetCount: Integer;
    function pm_GetCurFont: TddFontEntry; virtual;
    function pm_GetItems(anIndex: Integer): TddFontEntry;
- protected
- // realized methods
-   procedure Close(aState: TddRTFState;
-     aNewDest: TddRTFDestination); override;
-   procedure WriteText(aRDS: TRDS;
-     aText: Tl3String;
-     aState: TddRTFState); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   procedure AddAnsiChar(aText: AnsiChar;
-     aState: TddRTFState); override;
-   procedure AddString(aText: Tl3String;
-     aState: TddRTFState); override;
-   procedure ApplyProperty(propType: TPropType;
-     What: TIProp;
-     Value: LongInt;
-     aState: TddRTFState); override;
-   constructor Create(aRTFReader: TddCustomRTFReader); override;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure AddFont;
    function FontByNumber(aNumber: Integer): TddFontEntry;
- public
- // public properties
+   procedure Close(aState: TddRTFState;
+    aNewDest: TddRTFDestination); override;
+   procedure WriteText(aRDS: TRDS;
+    aText: Tl3String;
+    aState: TddRTFState); override;
+   procedure AddAnsiChar(aText: AnsiChar;
+    aState: TddRTFState); override;
+   procedure AddString(aText: Tl3String;
+    aState: TddRTFState); override;
+   procedure ApplyProperty(propType: TPropType;
+    What: TIProp;
+    Value: LongInt;
+    aState: TddRTFState); override;
+   constructor Create(aRTFReader: TddCustomRTFReader); override;
+  public
    property Count: Integer
-     read pm_GetCount;
+    read pm_GetCount;
    property CurFont: TddFontEntry
-     read pm_GetCurFont;
+    read pm_GetCurFont;
    property Items[anIndex: Integer]: TddFontEntry
-     read pm_GetItems;
-     default;
+    read pm_GetItems;
+    default;
  end;//TdestFontTable
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TddFontTable
+ l3ImplUses
+ , SysUtils
+;
 
 function TddFontTable.pm_GetFonts(anIndex: Integer): TddFontEntry;
 //#UC START# *54E194240104_54E1908B0336get_var*
@@ -129,7 +107,36 @@ begin
   Result := l_F.AsString;
 //#UC END# *54E194A303CE_54E1908B0336get_impl*
 end;//TddFontTable.pm_GetFontNames
-// start class TdestFontTable
+
+function TdestFontTable.pm_GetCount: Integer;
+//#UC START# *54E195C3012F_54E190B601ECget_var*
+//#UC END# *54E195C3012F_54E190B601ECget_var*
+begin
+//#UC START# *54E195C3012F_54E190B601ECget_impl*
+ Result := f_Fonts.Count;
+//#UC END# *54E195C3012F_54E190B601ECget_impl*
+end;//TdestFontTable.pm_GetCount
+
+function TdestFontTable.pm_GetCurFont: TddFontEntry;
+//#UC START# *54E198280123_54E190B601ECget_var*
+//#UC END# *54E198280123_54E190B601ECget_var*
+begin
+//#UC START# *54E198280123_54E190B601ECget_impl*
+ if (f_Fonts = nil) or (f_Fonts.Count = 0) then
+  Result := nil
+ else
+  Result := TddFontEntry(f_Fonts.Last);
+//#UC END# *54E198280123_54E190B601ECget_impl*
+end;//TdestFontTable.pm_GetCurFont
+
+function TdestFontTable.pm_GetItems(anIndex: Integer): TddFontEntry;
+//#UC START# *54E19857032C_54E190B601ECget_var*
+//#UC END# *54E19857032C_54E190B601ECget_var*
+begin
+//#UC START# *54E19857032C_54E190B601ECget_impl*
+ Result := TddFontEntry(f_Fonts[anIndex]);
+//#UC END# *54E19857032C_54E190B601ECget_impl*
+end;//TdestFontTable.pm_GetItems
 
 procedure TdestFontTable.AddFont;
 //#UC START# *54E197950160_54E190B601EC_var*
@@ -166,38 +173,8 @@ begin
 //#UC END# *54E197B702C1_54E190B601EC_impl*
 end;//TdestFontTable.FontByNumber
 
-function TdestFontTable.pm_GetCount: Integer;
-//#UC START# *54E195C3012F_54E190B601ECget_var*
-//#UC END# *54E195C3012F_54E190B601ECget_var*
-begin
-//#UC START# *54E195C3012F_54E190B601ECget_impl*
- Result := f_Fonts.Count;
-//#UC END# *54E195C3012F_54E190B601ECget_impl*
-end;//TdestFontTable.pm_GetCount
-
-function TdestFontTable.pm_GetCurFont: TddFontEntry;
-//#UC START# *54E198280123_54E190B601ECget_var*
-//#UC END# *54E198280123_54E190B601ECget_var*
-begin
-//#UC START# *54E198280123_54E190B601ECget_impl*
- if (f_Fonts = nil) or (f_Fonts.Count = 0) then
-  Result := nil
- else
-  Result := TddFontEntry(f_Fonts.Last);
-//#UC END# *54E198280123_54E190B601ECget_impl*
-end;//TdestFontTable.pm_GetCurFont
-
-function TdestFontTable.pm_GetItems(anIndex: Integer): TddFontEntry;
-//#UC START# *54E19857032C_54E190B601ECget_var*
-//#UC END# *54E19857032C_54E190B601ECget_var*
-begin
-//#UC START# *54E19857032C_54E190B601ECget_impl*
- Result := TddFontEntry(f_Fonts[anIndex]);
-//#UC END# *54E19857032C_54E190B601ECget_impl*
-end;//TdestFontTable.pm_GetItems
-
 procedure TdestFontTable.Close(aState: TddRTFState;
-  aNewDest: TddRTFDestination);
+ aNewDest: TddRTFDestination);
 //#UC START# *5461BEC2017D_54E190B601EC_var*
 //#UC END# *5461BEC2017D_54E190B601EC_var*
 begin
@@ -206,8 +183,8 @@ begin
 end;//TdestFontTable.Close
 
 procedure TdestFontTable.WriteText(aRDS: TRDS;
-  aText: Tl3String;
-  aState: TddRTFState);
+ aText: Tl3String;
+ aState: TddRTFState);
 //#UC START# *54E1F08400F9_54E190B601EC_var*
 //#UC END# *54E1F08400F9_54E190B601EC_var*
 begin
@@ -226,6 +203,7 @@ begin
 end;//TdestFontTable.WriteText
 
 procedure TdestFontTable.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_54E190B601EC_var*
 //#UC END# *479731C50290_54E190B601EC_var*
 begin
@@ -236,7 +214,7 @@ begin
 end;//TdestFontTable.Cleanup
 
 procedure TdestFontTable.AddAnsiChar(aText: AnsiChar;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51D27C0402E9_54E190B601EC_var*
 var
  l_CurFont: TddFontEntry;
@@ -253,7 +231,7 @@ begin
 end;//TdestFontTable.AddAnsiChar
 
 procedure TdestFontTable.AddString(aText: Tl3String;
-  aState: TddRTFState);
+ aState: TddRTFState);
 //#UC START# *51D27C3302EC_54E190B601EC_var*
 var
  l_CurFont: TddFontEntry;
@@ -267,9 +245,9 @@ begin
 end;//TdestFontTable.AddString
 
 procedure TdestFontTable.ApplyProperty(propType: TPropType;
-  What: TIProp;
-  Value: LongInt;
-  aState: TddRTFState);
+ What: TIProp;
+ Value: LongInt;
+ aState: TddRTFState);
 //#UC START# *51D27EC50388_54E190B601EC_var*
 var
  l_CurFont: TddFontEntry;

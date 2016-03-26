@@ -1,34 +1,28 @@
 unit vtHideFieldUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/vtHideFieldUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VT::HideFields::vtHideFieldUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtHideFieldUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vtHideFieldUtils" MUID: (5110ED94010E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
-var g_HideFieldCount : Integer;
- {* для присвоения уникальных имен компонентам, для назначения обработчиков событий на форме}
+uses
+ l3IntfUses
+;
+
 function MakeName(const aName: AnsiString): AnsiString;
+
+var g_HideFieldCount: Integer;
+ {* для присвоения уникальных имен компонентам, для назначения обработчиков событий на форме }
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// unit methods
+ l3ImplUses
+ , SysUtils
+;
 
 function MakeName(const aName: AnsiString): AnsiString;
 //#UC START# *5110EDE70381_5110ED94010E_var*

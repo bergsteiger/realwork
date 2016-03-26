@@ -1,80 +1,62 @@
 unit atOperationBase;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/OperationsFramework/atOperationBase.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> garant6x_test::AdapterTest::OperationsFramework::atOperationBase
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\OperationsFramework\atOperationBase.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "atOperationBase" MUID: (48089D120398)
 
 interface
 
 uses
-  SysUtils,
-  l3_Base,
-  Contnrs,
-  atExecutionContext,
-  atOperationParameter,
-  atOperationParametersList,
-  atOperationEnv
-  ;
+ l3IntfUses
+ , l3_Base
+ , atExecutionContext
+ , atOperationParametersList
+ , atOperationParameter
+ , atOperationEnv
+ , Contnrs
+ , SysUtils
+;
 
 type
- EInvalidOpParams = class(Exception)
- end;//EInvalidOpParams
-
+ CTatOperationBase = class of TatOperationBase;
 
  TatOperationsList = class;
 
+ EInvalidOpParams = class(Exception)
+ end;//EInvalidOpParams
+
  TatOperationBase = class(Tl3_Base)
- private
- // private fields
-   f_ChildOperations : TatOperationsList;
-   f_ExecutionContext : TatExecutionContext;
-    {* Поле для свойства ExecutionContext}
- protected
- // property methods
+  private
+   f_ChildOperations: TatOperationsList;
+   f_ExecutionContext: TatExecutionContext;
+    {* Поле для свойства ExecutionContext }
+  protected
+   f_ParamList: TatOperationParametersList;
+  protected
    function pm_GetParameters(const aName: AnsiString): TatOperationParameter;
    function pm_GetEnv: TatOperationEnv;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
- protected
- // protected fields
-   f_ParamList : TatOperationParametersList;
- protected
- // protected methods
    procedure InitParamList; virtual;
    procedure ExecuteSelf; virtual; abstract;
    procedure ExecuteChilds; virtual;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+  public
    class function GetName: AnsiString; virtual;
    procedure Execute(eCtxt: TatExecutionContext);
    procedure AddChild(childOperation: TatOperationBase);
    procedure AfterFillingParamList; virtual;
-     {* Вызывается генератором сценария после заполнения значений параметров.
+    {* Вызывается генератором сценария после заполнения значений параметров.
 Если операции надо что-то инициализировать, и для этого нужны значения параметров из сценария. }
- protected
- // protected properties
+  protected
    property ExecutionContext: TatExecutionContext
-     read f_ExecutionContext
-     write f_ExecutionContext;
+    read f_ExecutionContext
+    write f_ExecutionContext;
    property Env: TatOperationEnv
-     read pm_GetEnv;
- public
- // public properties
+    read pm_GetEnv;
+  public
    property Parameters[const aName: AnsiString]: TatOperationParameter
-     read pm_GetParameters;
+    read pm_GetParameters;
  end;//TatOperationBase
 
  _ObjectListElement_ = TatOperationBase;
@@ -83,16 +65,13 @@ type
  TatOperationsList = class(_atTypedObjectList_)
  end;//TatOperationsList
 
- CTatOperationBase = class of TatOperationBase;
-
 implementation
 
 uses
-  Math,
-  atLogger
-  ;
-
-// start class TatOperationBase
+ l3ImplUses
+ , Math
+ , atLogger
+;
 
 function TatOperationBase.pm_GetParameters(const aName: AnsiString): TatOperationParameter;
 //#UC START# *4808A004003A_48076E9D013Eget_var*
@@ -202,6 +181,8 @@ begin
 end;//TatOperationBase.AddChild
 
 procedure TatOperationBase.AfterFillingParamList;
+ {* Вызывается генератором сценария после заполнения значений параметров.
+Если операции надо что-то инициализировать, и для этого нужны значения параметров из сценария. }
 //#UC START# *492188F70140_48076E9D013E_var*
 //#UC END# *492188F70140_48076E9D013E_var*
 begin
@@ -211,6 +192,7 @@ begin
 end;//TatOperationBase.AfterFillingParamList
 
 procedure TatOperationBase.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48076E9D013E_var*
 //#UC END# *479731C50290_48076E9D013E_var*
 begin
@@ -232,6 +214,7 @@ begin
   InitParamList;
 //#UC END# *47A042E100E2_48076E9D013E_impl*
 end;//TatOperationBase.InitFields
+
 {$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedObjectList.imp.pas}
 
 end.

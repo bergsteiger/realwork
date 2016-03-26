@@ -732,16 +732,16 @@ type
    aZoneType: TvcmZoneType = vcm_ztAny;
    aRecursive: Boolean = True;
    theForm: PIvcmEntityForm = nil;
-   aUserType: TvcmUserType = vcmUserControls.vcm_utAny;
+   aUserType: TvcmUserType = vcm_utAny;
    aGUID: PGUID = nil;
-   aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean; overload;
+   aSubUserType: TvcmUserType = vcm_utAny): Boolean; overload;
    {* проверяет есть ли в контейнере такая форма }
   function HasForm(aZoneType: TvcmZoneType = vcm_ztAny;
    aRecursive: Boolean = True;
    theForm: PIvcmEntityForm = nil;
-   aUserType: TvcmUserType = vcmUserControls.vcm_utAny;
+   aUserType: TvcmUserType = vcm_utAny;
    aGUID: PGUID = nil;
-   aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean; overload;
+   aSubUserType: TvcmUserType = vcm_utAny): Boolean; overload;
    {* проверяет есть ли в контейнере такая форма }
   function Operation(const anOp: TvcmOPID;
    const aParams: IvcmExecuteParams): Boolean; overload;
@@ -905,7 +905,7 @@ type
    aSubUserType: TvcmUserType);
    {* форма которая должна быть закрыта при переходе по истории }
   function HasInPreviousStep(const aFormClass: TvcmFormID;
-   aUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean;
+   aUserType: TvcmUserType = vcm_utAny): Boolean;
   function Back(aTruncate: Boolean = False): Boolean; overload;
   function Forward: Boolean; overload;
   procedure Back(const aParams: IvcmExecuteParamsPrim;

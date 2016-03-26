@@ -1,150 +1,136 @@
 unit nsEditionNodes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Common$Lib"
-// Автор: Тучнин Д.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Common/nsEditionNodes.pas"
-// Начат: 2003/09/05 16:07:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Core::Common::Common$Lib::DocumentContainers::nsEditionNodes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsEditionNodes.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsEditionNodes" MUID: (4909F71E02EA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  l3TreeInterfaces,
-  l3Tree_TLB,
-  nsNodes,
-  l3StringIDEx,
-  l3Variant,
-  l3Interfaces,
-  l3Types,
-  l3IID,
-  l3VirtualNode
-  ;
+ l3IntfUses
+ , DocumentUnit
+ , nsNodes
+ , l3TreeInterfaces
+ , l3Tree_TLB
+ , l3IID
+ , l3VirtualNode
+ , l3Types
+ , l3Variant
+;
 
 type
- InsDocument = interface(IUnknown)
-   ['{EF6DC964-DC92-4144-9F95-376CD6936E90}']
-   procedure pm_SetDocument(const aValue: IDocument);
-   property Document: IDocument
-     write pm_SetDocument;
+ InsDocument = interface
+  ['{EF6DC964-DC92-4144-9F95-376CD6936E90}']
+  procedure pm_SetDocument(const aValue: IDocument);
+  property Document: IDocument
+   write pm_SetDocument;
  end;//InsDocument
 
-  TnsEditionNodeCheckType = (
-    ns_enctUnchecked // Не выбрана
-  , ns_enctMain // Ведущая
-  , ns_enctAdditional // Дополнительная
-  );//TnsEditionNodeCheckType
+ TnsEditionNodeCheckType = (
+  ns_enctUnchecked
+   {* Не выбрана }
+  , ns_enctMain
+   {* Ведущая }
+  , ns_enctAdditional
+   {* Дополнительная }
+ );//TnsEditionNodeCheckType
 
-  InsEditionsTree = l3TreeInterfaces.Il3SimpleTree;
+ InsEditionNode = interface;
 
-  TnsEditionNodeGroupBeginType = (
-   {* Тип группы дерева, которую начинает нода }
-    ns_gbtNew // Новые редакции
-  , ns_gbtActual // Актуальная редакция
-  , ns_gbtOld // Старые редакции
-  , ns_gbtNone // Нода находится внутри группы
-  );//TnsEditionNodeGroupBeginType
+ InsEditionsTree = Il3SimpleTree;
 
- InsEditionNode = interface(IUnknown{, Правила выбора редакций, Список редакций должен быть разделён на группы})
-   ['{FD80E9DF-AB62-4C73-AA84-E6AE0274DDA3}']
-   procedure TryMarkAsMain(const aTree: InsEditionsTree);
-     {* Пытается пометить ноду, как Ведущую, если ведущих выбрано не было }
-   function ReadyForCompare(const aTree: InsEditionsTree): Boolean;
-   procedure GetDocumentsForCompare(const aTree: InsEditionsTree;
-     out aLeft: IDocument;
-     out aRight: IDocument);
-   procedure ChangeCheckTypeViaClick(const aTree: InsEditionsTree);
-   function pm_GetEditionID: Integer;
-   function pm_GetEditionType: TRedactionType;
-   function Get_CheckType: TnsEditionNodeCheckType;
-   procedure Set_CheckType(aValue: TnsEditionNodeCheckType);
-   function Get_GroupBeginType: TnsEditionNodeGroupBeginType;
-   function IsSameID(aID: Integer): Boolean;
-   property EditionID: Integer
-     read pm_GetEditionID;
-   property EditionType: TRedactionType
-     read pm_GetEditionType;
-   property CheckType: TnsEditionNodeCheckType
-     read Get_CheckType
-     write Set_CheckType;
-   property GroupBeginType: TnsEditionNodeGroupBeginType
-     read Get_GroupBeginType;
+ TnsEditionNodeGroupBeginType = (
+  {* Тип группы дерева, которую начинает нода }
+  ns_gbtNew
+   {* Новые редакции }
+  , ns_gbtActual
+   {* Актуальная редакция }
+  , ns_gbtOld
+   {* Старые редакции }
+  , ns_gbtNone
+   {* Нода находится внутри группы }
+ );//TnsEditionNodeGroupBeginType
+
+ InsEditionNode = interface
+  ['{FD80E9DF-AB62-4C73-AA84-E6AE0274DDA3}']
+  function pm_GetEditionID: Integer;
+  function pm_GetEditionType: TRedactionType;
+  function Get_CheckType: TnsEditionNodeCheckType;
+  procedure Set_CheckType(aValue: TnsEditionNodeCheckType);
+  function Get_GroupBeginType: TnsEditionNodeGroupBeginType;
+  procedure TryMarkAsMain(const aTree: InsEditionsTree);
+   {* Пытается пометить ноду, как Ведущую, если ведущих выбрано не было }
+  function ReadyForCompare(const aTree: InsEditionsTree): Boolean;
+  procedure GetDocumentsForCompare(const aTree: InsEditionsTree;
+   out aLeft: IDocument;
+   out aRight: IDocument);
+  procedure ChangeCheckTypeViaClick(const aTree: InsEditionsTree);
+  function IsSameID(aID: Integer): Boolean;
+  property EditionID: Integer
+   read pm_GetEditionID;
+  property EditionType: TRedactionType
+   read pm_GetEditionType;
+  property CheckType: TnsEditionNodeCheckType
+   read Get_CheckType
+   write Set_CheckType;
+  property GroupBeginType: TnsEditionNodeGroupBeginType
+   read Get_GroupBeginType;
  end;//InsEditionNode
 
  TnsEditionsTreeKind = (
-   ns_etkAll
- , ns_etkPrev
- , ns_etkNext
+  ns_etkAll
+  , ns_etkPrev
+  , ns_etkNext
  );//TnsEditionsTreeKind
 
  TnsEditionsRoot = class(TnsCacheableNode, Il3Wake, InsDocument)
- private
- // private fields
-   f_Document : IDocument;
-   f_Sleep : Boolean;
-   f_OnlyPrevEditions : TnsEditionsTreeKind;
- protected
- // realized methods
+  private
+   f_Document: IDocument;
+   f_Sleep: Boolean;
+   f_OnlyPrevEditions: TnsEditionsTreeKind;
+  protected
    function Wake: Boolean;
    function Get_IsSleep: Boolean;
    procedure pm_SetDocument(const aValue: IDocument);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    function ChildNodeClass: Rl3CustomVirtualNode; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Make(const aDocument: IDocument;
-     aOnlyPrevEditions: TnsEditionsTreeKind = ns_etkAll): Il3Node; reintroduce;
+    aOnlyPrevEditions: TnsEditionsTreeKind = ns_etkAll): Il3Node; reintroduce;
    class function MakeForPrevEditions(const aDocument: IDocument): Il3Node;
    class function MakeForNextEditions(const aDocument: IDocument): Il3Node;
    constructor Create(const aDocument: IDocument;
-     aOnlyPrevEditions: TnsEditionsTreeKind); reintroduce; overload; 
-   constructor Create(const aDocument: IDocument); overload; 
+    aOnlyPrevEditions: TnsEditionsTreeKind); reintroduce; overload;
+   constructor Create(const aDocument: IDocument); reintroduce; overload;
    class function MakeAsSimpleRoot(const aDocument: IDocument): Il3SimpleRootNode; reintroduce;
-     {* Сигнатура фабрики TnsEditionsRoot.MakeAsSimpleRoot }
  end;//TnsEditionsRoot
 
  TnsEditionNode = class(TnsCacheableNode, InsEditionNode)
- private
- // private fields
-   f_Handle : Integer;
-   f_EType : TRedactionType;
-   f_Presentation : Tl3Tag;
-    {* Представление ноды}
-   f_CheckType : TnsEditionNodeCheckType;
- private
- // private methods
+  private
+   f_Handle: Integer;
+   f_EType: TRedactionType;
+   f_Presentation: Tl3Tag;
+    {* Представление ноды }
+   f_CheckType: TnsEditionNodeCheckType;
+  private
    function Presentation: Tl3Tag;
    function EditionNumber: Integer;
-     {* Номер редакции в списке редакций }
+    {* Номер редакции в списке редакций }
    function HasMainChecked(const aTree: InsEditionsTree): Boolean;
-     {* Есть ли уже отмеченная Ведущая редакция }
+    {* Есть ли уже отмеченная Ведущая редакция }
    procedure UncheckAllAdditional(const aTree: InsEditionsTree);
-     {* Снимает выделение со всех Дополнительных редакций (на самом деле - она одна такая) }
+    {* Снимает выделение со всех Дополнительных редакций (на самом деле - она одна такая) }
    function HasAdditionalChecked(const aTree: InsEditionsTree): Boolean;
- protected
- // realized methods
+  protected
    function IsSameID(aID: Integer): Boolean;
    function pm_GetEditionID: Integer;
    function pm_GetEditionType: TRedactionType;
@@ -152,60 +138,65 @@ type
    procedure Set_CheckType(aValue: TnsEditionNodeCheckType);
    procedure ChangeCheckTypeViaClick(const aTree: InsEditionsTree);
    procedure TryMarkAsMain(const aTree: InsEditionsTree);
-     {* Пытается пометить ноду, как Ведущую, если ведущих выбрано не было }
+    {* Пытается пометить ноду, как Ведущую, если ведущих выбрано не было }
    function ReadyForCompare(const aTree: InsEditionsTree): Boolean;
    procedure GetDocumentsForCompare(const aTree: InsEditionsTree;
-     out aLeft: IDocument;
-     out aRight: IDocument);
+    out aLeft: IDocument;
+    out aRight: IDocument);
    function Get_GroupBeginType: TnsEditionNodeGroupBeginType;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    function GetIsSame(const aNode: Il3SimpleNode): Boolean; override;
- public
- // public methods
+  public
    constructor Create(aHandle: Integer;
-     aEType: TRedactionType); reintroduce;
+    aEType: TRedactionType); reintroduce;
    class function Make(aHandle: Integer;
-     aEType: TRedactionType): Il3Node; reintroduce;
+    aEType: TRedactionType): Il3Node; reintroduce;
  end;//TnsEditionNode
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base,
-  nsTypes
-  {$If defined(Nemesis)}
-  ,
-  f1TextStyle_Const
-  {$IfEnd} //Nemesis
-  ,
-  TextSegment_Const,
-  ControlsBlock_Const,
-  NodeGroup_Const,
-  l3Nodes,
-  SysUtils,
-  evNodePainter,
-  l3InternalInterfaces,
-  TextPara_Const,
-  k2Tags,
-  evCustomWikiReader,
-  l3String,
-  evdTypes,
-  l3MessageID
-  ;
+ l3ImplUses
+ , l3StringIDEx
+ , l3Base
+ , nsTypes
+ , SysUtils
+ , evNodePainter
+ , l3InternalInterfaces
+ , TextPara_Const
+ , k2Tags
+ , evCustomWikiReader
+ , l3String
+ , evdTypes
+ , ControlsBlock_Const
+ , l3MessageID
+ {$If Defined(Nemesis)}
+ , f1TextStyle_Const
+ {$IfEnd} // Defined(Nemesis)
+ , TextSegment_Const
+ , l3Interfaces
+ , NodeGroup_Const
+ , l3Nodes
+;
 
-// start class TnsEditionsRoot
+const
+ {* Локализуемые строки EditionNodeGroupCaptions }
+ str_engcNew: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'engcNew'; rValue : 'Не вступившие в силу');
+  {* 'Не вступившие в силу' }
+ str_engcActual: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'engcActual'; rValue : 'Актуальная');
+  {* 'Актуальная' }
+ str_engcOld: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'engcOld'; rValue : 'Недействующие');
+  {* 'Недействующие' }
 
 class function TnsEditionsRoot.Make(const aDocument: IDocument;
-  aOnlyPrevEditions: TnsEditionsTreeKind = ns_etkAll): Il3Node;
+ aOnlyPrevEditions: TnsEditionsTreeKind = ns_etkAll): Il3Node;
 var
  l_Inst : TnsEditionsRoot;
 begin
@@ -215,7 +206,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsEditionsRoot.Make
 
 class function TnsEditionsRoot.MakeForPrevEditions(const aDocument: IDocument): Il3Node;
 //#UC START# *4B1CEAD7018E_492182D60225_var*
@@ -236,7 +227,7 @@ begin
 end;//TnsEditionsRoot.MakeForNextEditions
 
 constructor TnsEditionsRoot.Create(const aDocument: IDocument;
-  aOnlyPrevEditions: TnsEditionsTreeKind);
+ aOnlyPrevEditions: TnsEditionsTreeKind);
 //#UC START# *4B1CEA1701AC_492182D60225_var*
 //#UC END# *4B1CEA1701AC_492182D60225_var*
 begin
@@ -267,7 +258,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsEditionsRoot.MakeAsSimpleRoot
 
 function TnsEditionsRoot.Wake: Boolean;
 //#UC START# *477252760154_492182D60225_var*
@@ -361,6 +352,7 @@ begin
 end;//TnsEditionsRoot.pm_SetDocument
 
 procedure TnsEditionsRoot.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_492182D60225_var*
 //#UC END# *479731C50290_492182D60225_var*
 begin
@@ -381,7 +373,8 @@ begin
 end;//TnsEditionsRoot.DoSetAsPCharLen
 
 function TnsEditionsRoot.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_492182D60225_var*
 //#UC END# *4A60B23E00C3_492182D60225_var*
 begin
@@ -411,23 +404,35 @@ begin
 end;//TnsEditionsRoot.ChildNodeClass
 
 procedure TnsEditionsRoot.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Document := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsEditionsRoot.ClearFields
-var
-   { Локализуемые строки EditionNodeGroupCaptions }
-  str_engcNew : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'engcNew'; rValue : 'Не вступившие в силу');
-   { 'Не вступившие в силу' }
-  str_engcActual : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'engcActual'; rValue : 'Актуальная');
-   { 'Актуальная' }
-  str_engcOld : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'engcOld'; rValue : 'Недействующие');
-   { 'Недействующие' }
 
-// start class TnsEditionNode
+constructor TnsEditionNode.Create(aHandle: Integer;
+ aEType: TRedactionType);
+//#UC START# *4B1CE99E0212_4B1CE8B50207_var*
+//#UC END# *4B1CE99E0212_4B1CE8B50207_var*
+begin
+//#UC START# *4B1CE99E0212_4B1CE8B50207_impl*
+ inherited Create(nil, -1, -1);
+ f_Handle := aHandle;
+ f_EType := aEType;
+//#UC END# *4B1CE99E0212_4B1CE8B50207_impl*
+end;//TnsEditionNode.Create
+
+class function TnsEditionNode.Make(aHandle: Integer;
+ aEType: TRedactionType): Il3Node;
+var
+ l_Inst : TnsEditionNode;
+begin
+ l_Inst := Create(aHandle, aEType);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TnsEditionNode.Make
 
 function TnsEditionNode.Presentation: Tl3Tag;
 //#UC START# *4EC25E6B006A_4B1CE8B50207_var*
@@ -522,6 +527,7 @@ begin
 end;//TnsEditionNode.Presentation
 
 function TnsEditionNode.EditionNumber: Integer;
+ {* Номер редакции в списке редакций }
 //#UC START# *4EC28EB6019F_4B1CE8B50207_var*
 //#UC END# *4EC28EB6019F_4B1CE8B50207_var*
 begin
@@ -531,6 +537,7 @@ begin
 end;//TnsEditionNode.EditionNumber
 
 function TnsEditionNode.HasMainChecked(const aTree: InsEditionsTree): Boolean;
+ {* Есть ли уже отмеченная Ведущая редакция }
 //#UC START# *4EC3CA120205_4B1CE8B50207_var*
 
  function DoFind(const anIntf: Il3SimpleNode) : Boolean;
@@ -559,6 +566,7 @@ begin
 end;//TnsEditionNode.HasMainChecked
 
 procedure TnsEditionNode.UncheckAllAdditional(const aTree: InsEditionsTree);
+ {* Снимает выделение со всех Дополнительных редакций (на самом деле - она одна такая) }
 //#UC START# *4EC3D2720139_4B1CE8B50207_var*
 
  procedure DoUncheck(const anIntf: Il3SimpleNode);
@@ -608,31 +616,6 @@ begin
  aTree.SimpleIterateF(l3L2SNA(@DoFind), imCheckResult);
 //#UC END# *4EC3D6300158_4B1CE8B50207_impl*
 end;//TnsEditionNode.HasAdditionalChecked
-
-constructor TnsEditionNode.Create(aHandle: Integer;
-  aEType: TRedactionType);
-//#UC START# *4B1CE99E0212_4B1CE8B50207_var*
-//#UC END# *4B1CE99E0212_4B1CE8B50207_var*
-begin
-//#UC START# *4B1CE99E0212_4B1CE8B50207_impl*
- inherited Create(nil, -1, -1);
- f_Handle := aHandle;
- f_EType := aEType;
-//#UC END# *4B1CE99E0212_4B1CE8B50207_impl*
-end;//TnsEditionNode.Create
-
-class function TnsEditionNode.Make(aHandle: Integer;
-  aEType: TRedactionType): Il3Node;
-var
- l_Inst : TnsEditionNode;
-begin
- l_Inst := Create(aHandle, aEType);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
 
 function TnsEditionNode.IsSameID(aID: Integer): Boolean;
 //#UC START# *4B1CE85D0167_4B1CE8B50207_var*
@@ -719,6 +702,7 @@ begin
 end;//TnsEditionNode.ChangeCheckTypeViaClick
 
 procedure TnsEditionNode.TryMarkAsMain(const aTree: InsEditionsTree);
+ {* Пытается пометить ноду, как Ведущую, если ведущих выбрано не было }
 //#UC START# *4EC3C9D20140_4B1CE8B50207_var*
 var
  l_D : IDocument;
@@ -758,8 +742,8 @@ begin
 end;//TnsEditionNode.ReadyForCompare
 
 procedure TnsEditionNode.GetDocumentsForCompare(const aTree: InsEditionsTree;
-  out aLeft: IDocument;
-  out aRight: IDocument);
+ out aLeft: IDocument;
+ out aRight: IDocument);
 //#UC START# *4EC4E7BF029B_4B1CE8B50207_var*
 var
  l_Main : Il3SimpleNode;
@@ -896,6 +880,7 @@ begin
 end;//TnsEditionNode.Get_GroupBeginType
 
 procedure TnsEditionNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4B1CE8B50207_var*
 //#UC END# *479731C50290_4B1CE8B50207_var*
 begin
@@ -917,7 +902,8 @@ begin
 end;//TnsEditionNode.DoSetAsPCharLen
 
 function TnsEditionNode.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4B1CE8B50207_var*
 var
  l_P : Tl3Tag;
@@ -970,20 +956,14 @@ begin
  end;//not Result
 //#UC END# *54C78D9201B9_4B1CE8B50207_impl*
 end;//TnsEditionNode.GetIsSame
-{$IfEnd} //not Admin AND not Monitorings
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_engcNew
  str_engcNew.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_engcActual
+ {* Инициализация str_engcNew }
  str_engcActual.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_engcOld
+ {* Инициализация str_engcActual }
  str_engcOld.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_engcOld }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

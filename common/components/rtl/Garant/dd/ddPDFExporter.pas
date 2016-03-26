@@ -1,130 +1,104 @@
 unit ddPDFExporter;
+ {* Обертка eDocEngine с нашей стороны. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddPDFExporter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::PDFSupport::ddPDFExporter
-//
-// Обертка eDocEngine с нашей стороны.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddPDFExporter.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ddPDFExporter" MUID: (53FF071F01E3)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3InternalInterfaces,
-  Classes,
-  l3Canvas,
-  Printers,
-  l3SimpleObject,
-  l3Metafile,
-  GarantPDFDocument,
-  l3PrinterInterfaces,
-  l3Core,
-  l3Units
-  ;
+ l3IntfUses
+ , Printers
+ , l3Canvas
+ , l3PrinterInterfaces
+ , l3Core
+ , l3Units
+ , l3InternalInterfaces
+ , l3SimpleObject
+ , l3Metafile
+ , Classes
+ , GarantPDFDocument
+;
 
 type
- IddPDFDoc = interface(IUnknown)
+ IddPDFDoc = interface
   {* Интерфейс для управления созданием интерфейса. }
-   ['{E6E53277-C4AE-498E-8F56-5704832CCA61}']
-   procedure NewPage(aOrientation: TPrinterOrientation);
-   procedure EndDoc;
+  ['{E6E53277-C4AE-498E-8F56-5704832CCA61}']
+  procedure NewPage(aOrientation: TPrinterOrientation);
+  procedure EndDoc;
  end;//IddPDFDoc
-
 
  TddPDFExporter = class;
 
  TddPDFCanvas = class(Tl3Canvas)
   {* Канвая для экспорта. }
- private
- // private fields
-   f_PDFDoc : IddPDFDoc;
- protected
- // overridden protected methods
+  private
+   f_PDFDoc: IddPDFDoc;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure FillRectPrim(const R: TRect); override;
    procedure DoFillForeRect(const R: Tl3SRect); override;
    procedure DoStartDrawAAC(aType: TspBlockType); override;
    procedure DoEndDrawAAC(const R: Tl3Rect); override;
    function IsPreview: Boolean; override;
    procedure StartPage; override;
-     {* Сигнатура метода StartPage }
    procedure DoEndPaint; override;
-     {* Сигнатура метода DoEndPaint }
- public
- // public methods
+  public
    constructor Create(const anExpoter: TddPDFExporter;
     const aPrinter: Il3Printer); reintroduce;
  end;//TddPDFCanvas
 
  TddPDFExporter = class(Tl3SimpleObject, IddPDFDoc)
   {* Класс-обертка над gtPDFEng. }
- private
- // private fields
-   f_Metafile : Tl3Metafile;
-   f_Stream : TStream;
-    {* ссылка на "внешний" поток.}
-   f_PDFEngine : TGarantPDFDocument;
-   f_Orientation : TPrinterOrientation;
-   f_Canvas : TddPDFCanvas;
-    {* Поле для свойства Canvas}
- private
- // private methods
+  private
+   f_Metafile: Tl3Metafile;
+   f_Stream: TStream;
+    {* ссылка на "внешний" поток. }
+   f_PDFEngine: TGarantPDFDocument;
+   f_Orientation: TPrinterOrientation;
+   f_Canvas: TddPDFCanvas;
+    {* Поле для свойства Canvas }
+  private
    procedure CheckMetaFile;
    procedure ClearMetaFile;
    procedure CreatePDFEngine;
    procedure DeInitPDFEngine;
    procedure CreateCanvas(const aPrinter: Il3Printer);
    procedure DropMetaFile2PDF;
- protected
- // property methods
+  protected
    function pm_GetCanvas: TddPDFCanvas; virtual;
- protected
- // realized methods
    procedure NewPage(aOrientation: TPrinterOrientation);
    procedure EndDoc;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aFileStream: TStream); reintroduce;
    function GetCanvas(const aPrinter: Il3Printer): Il3Canvas;
- private
- // private properties
+  private
    property Canvas: TddPDFCanvas
-     read pm_GetCanvas;
+    read pm_GetCanvas;
  end;//TddPDFExporter
 
 implementation
 
 uses
-  Graphics,
-  SysUtils,
-  l3Defaults,
-  ddPicturePathListner,
-  l3Math,
-  l3Const,
-  Windows,
-  SynPDF
-  ;
-
-// start class TddPDFCanvas
+ l3ImplUses
+ , Graphics
+ , SysUtils
+ , l3Defaults
+ , ddPicturePathListner
+ , l3Math
+ , l3Const
+ , Windows
+ , SynPDF
+;
 
 constructor TddPDFCanvas.Create(const anExpoter: TddPDFExporter;
-  const aPrinter: Il3Printer);
+ const aPrinter: Il3Printer);
 //#UC START# *53FF0CB80082_53FF077501B7_var*
 //#UC END# *53FF0CB80082_53FF077501B7_var*
 begin
@@ -135,6 +109,7 @@ begin
 end;//TddPDFCanvas.Create
 
 procedure TddPDFCanvas.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53FF077501B7_var*
 //#UC END# *479731C50290_53FF077501B7_var*
 begin
@@ -256,7 +231,15 @@ begin
  end; // if not Drawing then
 //#UC END# *56B4BDA30301_53FF077501B7_impl*
 end;//TddPDFCanvas.DoEndPaint
-// start class TddPDFExporter
+
+function TddPDFExporter.pm_GetCanvas: TddPDFCanvas;
+//#UC START# *53FF0B94012E_53FF07670079get_var*
+//#UC END# *53FF0B94012E_53FF07670079get_var*
+begin
+//#UC START# *53FF0B94012E_53FF07670079get_impl*
+ Result := f_Canvas;
+//#UC END# *53FF0B94012E_53FF07670079get_impl*
+end;//TddPDFExporter.pm_GetCanvas
 
 procedure TddPDFExporter.CheckMetaFile;
 //#UC START# *53FF142B018D_53FF07670079_var*
@@ -390,15 +373,6 @@ begin
 //#UC END# *53FF2DAF030C_53FF07670079_impl*
 end;//TddPDFExporter.GetCanvas
 
-function TddPDFExporter.pm_GetCanvas: TddPDFCanvas;
-//#UC START# *53FF0B94012E_53FF07670079get_var*
-//#UC END# *53FF0B94012E_53FF07670079get_var*
-begin
-//#UC START# *53FF0B94012E_53FF07670079get_impl*
- Result := f_Canvas;
-//#UC END# *53FF0B94012E_53FF07670079get_impl*
-end;//TddPDFExporter.pm_GetCanvas
-
 procedure TddPDFExporter.NewPage(aOrientation: TPrinterOrientation);
 //#UC START# *53FF090F032F_53FF07670079_var*
 //#UC END# *53FF090F032F_53FF07670079_var*
@@ -428,6 +402,7 @@ begin
 end;//TddPDFExporter.EndDoc
 
 procedure TddPDFExporter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53FF07670079_var*
 //#UC END# *479731C50290_53FF07670079_var*
 begin

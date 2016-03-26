@@ -1,82 +1,79 @@
 unit vcmFormDataSourceRef;
+ {* Самоочищающаяся ссылка на бизнес объект формы }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Автор: Морозов М.А.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmFormDataSourceRef.pas"
-// Начат: 14.12.2005 17.33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM::Implementation::vcmFormDataSourceRef
-//
-// Самоочищающаяся ссылка на бизнес объект формы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceRef.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vcmFormDataSourceRef" MUID: (4982B6510327)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Interfaces,
-  vcmControllers,
-  l3ProtoObject,
-  vcmBaseTypes,
-  vcmInterfaces
-  ;
+ l3IntfUses
+ , vcmControllers
+ , l3ProtoObject
+ , l3Interfaces
+ , vcmBaseTypes
+ , vcmInterfaces
+;
 
 type
  TvcmFormDataSourceRef = class(Tl3ProtoObject, Il3ItemNotifyRecipient, IvcmFormDataSourceRef)
   {* Реализация ссылки на бизнес объект формы }
- private
- // private fields
-   f_DataSource : Pointer;
-   f_NeedMake : TvcmNeedMakeDS;
- protected
- // realized methods
+  private
+   f_DataSource: Pointer;
+   f_NeedMake: TvcmNeedMakeDS;
+  protected
    procedure Notify(const aNotifier: Il3ChangeNotifier;
     aOperation: Integer;
     aIndex: Integer);
-     {* прошла операция. }
+    {* прошла операция. }
    procedure Clear;
-     {* сбрасывает ссылку на _DataSource и NeedMake устанавливает как vcm_nmNo }
+    {* сбрасывает ссылку на _DataSource и NeedMake устанавливает как vcm_nmNo }
    procedure SetIfNeedMakeNo(aValue: TvcmNeedMakeDS);
-     {* устанавливаем флаг если его значение vcm_nmNo }
+    {* устанавливаем флаг если его значение vcm_nmNo }
    procedure Assign(const aSource: IvcmFormDataSourceRef);
-     {* скопировать данные aSource }
+    {* скопировать данные aSource }
    function pm_GetReferred: IvcmFormDataSource;
    procedure pm_SetReferred(const aValue: IvcmFormDataSource);
    function pm_GetNeedMake: TvcmNeedMakeDS;
    procedure pm_SetNeedMake(aValue: TvcmNeedMakeDS);
    function pm_GetIsEmpty: Boolean;
    function pm_GetCanBeClosed: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aNeedMake: TvcmNeedMakeDS); reintroduce;
    class function Make(aNeedMake: TvcmNeedMakeDS = vcm_nmNo): IvcmFormDataSourceRef; reintroduce;
-     {* Фабричный метод }
+    {* Фабричный метод }
  end;//TvcmFormDataSourceRef
 
  TvcmViewAreaControllerRef = TvcmFormDataSourceRef;
 
-function VcmCheckAndMake(var aRef: IvcmFormDataSourceRef;
-  aNeedMake: TvcmNeedMakeDS = vcm_nmNo): IvcmFormDataSourceRef;
-{$IfEnd} //not NoVCM
+function vcmCheckAndMake(var aRef: IvcmFormDataSourceRef;
+ aNeedMake: TvcmNeedMakeDS = vcm_nmNo): IvcmFormDataSourceRef;
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
-// start class TvcmFormDataSourceRef
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
+
+function vcmCheckAndMake(var aRef: IvcmFormDataSourceRef;
+ aNeedMake: TvcmNeedMakeDS = vcm_nmNo): IvcmFormDataSourceRef;
+//#UC START# *4982B743016E_4982B6510327_var*
+//#UC END# *4982B743016E_4982B6510327_var*
+begin
+//#UC START# *4982B743016E_4982B6510327_impl*
+ if (aRef = nil) then
+  aRef := TvcmFormDataSourceRef.Make(aNeedMake);
+ Result := aRef;
+//#UC END# *4982B743016E_4982B6510327_impl*
+end;//vcmCheckAndMake
 
 constructor TvcmFormDataSourceRef.Create(aNeedMake: TvcmNeedMakeDS);
 //#UC START# *4982B8A602BB_47EB55FD007A_var*
@@ -90,6 +87,7 @@ begin
 end;//TvcmFormDataSourceRef.Create
 
 class function TvcmFormDataSourceRef.Make(aNeedMake: TvcmNeedMakeDS = vcm_nmNo): IvcmFormDataSourceRef;
+ {* Фабричный метод }
 var
  l_Inst : TvcmFormDataSourceRef;
 begin
@@ -99,11 +97,12 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TvcmFormDataSourceRef.Make
 
 procedure TvcmFormDataSourceRef.Notify(const aNotifier: Il3ChangeNotifier;
-  aOperation: Integer;
-  aIndex: Integer);
+ aOperation: Integer;
+ aIndex: Integer);
+ {* прошла операция. }
 //#UC START# *46A4504B03C4_47EB55FD007A_var*
 //#UC END# *46A4504B03C4_47EB55FD007A_var*
 begin
@@ -116,6 +115,7 @@ begin
 end;//TvcmFormDataSourceRef.Notify
 
 procedure TvcmFormDataSourceRef.Clear;
+ {* сбрасывает ссылку на _DataSource и NeedMake устанавливает как vcm_nmNo }
 //#UC START# *4982B3B10155_47EB55FD007A_var*
 //#UC END# *4982B3B10155_47EB55FD007A_var*
 begin
@@ -126,6 +126,7 @@ begin
 end;//TvcmFormDataSourceRef.Clear
 
 procedure TvcmFormDataSourceRef.SetIfNeedMakeNo(aValue: TvcmNeedMakeDS);
+ {* устанавливаем флаг если его значение vcm_nmNo }
 //#UC START# *4982B40202EE_47EB55FD007A_var*
 //#UC END# *4982B40202EE_47EB55FD007A_var*
 begin
@@ -136,6 +137,7 @@ begin
 end;//TvcmFormDataSourceRef.SetIfNeedMakeNo
 
 procedure TvcmFormDataSourceRef.Assign(const aSource: IvcmFormDataSourceRef);
+ {* скопировать данные aSource }
 //#UC START# *4982B4280318_47EB55FD007A_var*
 //#UC END# *4982B4280318_47EB55FD007A_var*
 begin
@@ -207,6 +209,7 @@ begin
 end;//TvcmFormDataSourceRef.pm_GetCanBeClosed
 
 procedure TvcmFormDataSourceRef.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47EB55FD007A_var*
 //#UC END# *479731C50290_47EB55FD007A_var*
 begin
@@ -215,18 +218,6 @@ begin
  inherited;
 //#UC END# *479731C50290_47EB55FD007A_impl*
 end;//TvcmFormDataSourceRef.Cleanup
-
-function VcmCheckAndMake(var aRef: IvcmFormDataSourceRef;
-  aNeedMake: TvcmNeedMakeDS = vcm_nmNo): IvcmFormDataSourceRef;
-//#UC START# *4982B743016E_4982B6510327_var*
-//#UC END# *4982B743016E_4982B6510327_var*
-begin
-//#UC START# *4982B743016E_4982B6510327_impl*
- if (aRef = nil) then
-  aRef := TvcmFormDataSourceRef.Make(aNeedMake);
- Result := aRef;
-//#UC END# *4982B743016E_4982B6510327_impl*
-end;//VcmCheckAndMake
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -1,74 +1,61 @@
 unit nsTagNodeToolsNew;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/nsTagNodeToolsNew.pas"
-// Начат: 22.09.2010 14:51
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::nsTagNodeToolsNew
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsTagNodeToolsNew.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsTagNodeToolsNew" MUID: (4C99DF8C0241)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DocumentUnit,
-  DynamicTreeUnit,
-  k2Base,
-  l3Variant
-  ;
+ l3IntfUses
+ , DynamicTreeUnit
+ , DocumentUnit
+ , k2Base
+ , l3Variant
+;
 
-function NsFindTagByID(aTag: Tl3Tag;
-  aType: Tk2Type;
-  anID: Integer): Tl3Tag;
-function NsTagByPath(aDocument: Tl3Tag;
-  const aPath: INodeIndexPath;
-  aNewSchool: Boolean): Tl3Tag;
+function nsFindTagByID(aTag: Tl3Tag;
+ aType: Tk2Type;
+ anID: Integer): Tl3Tag;
+function nsTagByPath(aDocument: Tl3Tag;
+ const aPath: INodeIndexPath;
+ aNewSchool: Boolean): Tl3Tag;
 
 implementation
 
 uses
-  SysUtils,
-  nsTagNodeTools,
-  Block_Const,
-  ParaList_Const,
-  LeafPara_Const,
-  Sub_Const,
-  k2Facade,
-  BaseTypesUnit,
-  Bookmark_Const,
-  k2Tags,
-  evdTypes,
-  CommentPara_Const,
-  DecorTextPara_Const,
-  LeafParaDecorationsHolder_Const
-  ;
+ l3ImplUses
+ , SysUtils
+ , nsTagNodeTools
+ , Block_Const
+ , ParaList_Const
+ , LeafPara_Const
+ , Sub_Const
+ , k2Facade
+ , BaseTypesUnit
+ , Bookmark_Const
+ , k2Tags
+ , evdTypes
+ , CommentPara_Const
+ , DecorTextPara_Const
+ , LeafParaDecorationsHolder_Const
+;
 
-// unit methods
-
-function NsFindTagByID(aTag: Tl3Tag;
-  aType: Tk2Type;
-  anID: Integer): Tl3Tag;
+function nsFindTagByID(aTag: Tl3Tag;
+ aType: Tk2Type;
+ anID: Integer): Tl3Tag;
+var l_Path: INodeIndexPath;
+var l_List: IFilterList;
+var l_Provider: IDocumentTextProvider;
+var l_Type: Tk2Type;
 //#UC START# *4C99D9AF02E2_4C99DF8C0241_var*
 var
  l_NeedCheckBookmark : Boolean;
  l_ProviderPrim : IDocumentTextProvider;
  l_AACLike : Boolean;
 //#UC END# *4C99D9AF02E2_4C99DF8C0241_var*
-var
- l_Path : INodeIndexPath;
- l_List : IFilterList;
- l_Provider : IDocumentTextProvider;
- l_Type : Tk2Type;
 begin
 //#UC START# *4C99D9AF02E2_4C99DF8C0241_impl*
  Result := nil;
@@ -197,18 +184,17 @@ begin
    l_Provider := nil;
   end;//try..finally
 //#UC END# *4C99D9AF02E2_4C99DF8C0241_impl*
-end;//NsFindTagByID
+end;//nsFindTagByID
 
-function NsTagByPath(aDocument: Tl3Tag;
-  const aPath: INodeIndexPath;
-  aNewSchool: Boolean): Tl3Tag;
+function nsTagByPath(aDocument: Tl3Tag;
+ const aPath: INodeIndexPath;
+ aNewSchool: Boolean): Tl3Tag;
+var l_Index: Integer;
+var l_Child: Tl3Tag;
 //#UC START# *4C72558F00BC_4C99DF8C0241_var*
 var
  l_J : Integer;
 //#UC END# *4C72558F00BC_4C99DF8C0241_var*
-var
- l_Index : Integer;
- l_Child : Tl3Tag;
 begin
 //#UC START# *4C72558F00BC_4C99DF8C0241_impl*
  if (aPath <> nil) AND (aPath.Count > 0) then
@@ -255,6 +241,6 @@ begin
  else
   Result := nil;
 //#UC END# *4C72558F00BC_4C99DF8C0241_impl*
-end;//NsTagByPath
+end;//nsTagByPath
 
 end.

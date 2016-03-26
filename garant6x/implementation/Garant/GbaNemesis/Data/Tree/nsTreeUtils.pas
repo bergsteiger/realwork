@@ -1,72 +1,59 @@
 unit nsTreeUtils;
+ {* общие функции для работы с деревом }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/nsTreeUtils.pas"
-// Начат: 2006/12/13 15:46:59
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Tree::nsTreeUtils
-//
-// общие функции для работы с деревом
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsTreeUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsTreeUtils" MUID: (4912DBE30091)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  BaseTreeSupportUnit,
-  DynamicTreeUnit,
-  FiltersUnit,
-  UnderControlUnit,
-  l3TreeInterfaces,
-  l3Tree_TLB,
-  eeInterfaces
-  ;
+ l3IntfUses
+ , DynamicTreeUnit
+ , eeInterfaces
+ , l3Tree_TLB
+ , l3TreeInterfaces
+ , BaseTreeSupportUnit
+ , UnderControlUnit
+ , FiltersUnit
+;
 
 function GetTwinNode(const aTree: Il3SimpleTree;
-  const aNode: INodeBase): INodeBase;
-   {* поиск в переданном дереве ноды, эквивалентной "чужой" ноде, пришедшей из
+ const aNode: INodeBase): INodeBase;
+ {* поиск в переданном дереве ноды, эквивалентной "чужой" ноде, пришедшей из
      query, например. Вероятно надобность отпадёт после починки нового дерева - нет ничего более посстоянного, чем временное }
 function NodeInvertExpandedCollapsed(const eeTreeView: IeeTreeView): Boolean;
 function FindOnAdapterNode(const aTree: IeeTree;
-  const aAdapterNode: INode): IeeNode; overload; 
+ const aAdapterNode: INode): IeeNode; overload;
 function FindOnAdapterNode(const aRoot: IeeNode;
-  const aAdapterNode: INode): IeeNode; overload; 
+ const aAdapterNode: INode): IeeNode; overload;
 function FindOnAdapterNode(const aRoot: Il3Node;
-  const aAdapterNode: INode): Il3Node; overload; 
+ const aAdapterNode: INode): Il3Node; overload;
 function FindOnControllable(const aRoot: Il3Node;
-  const aControllable: IControllable): Il3Node;
+ const aControllable: IControllable): Il3Node;
 procedure DeselectAllNodesInTree(const aTree: IeeTree);
 function FindOnFilter(const aRoot: IeeNode;
-  const aFilter: IFilterFromQuery): IeeNode; overload; 
+ const aFilter: IFilterFromQuery): IeeNode; overload;
 function FindOnFilter(const aRoot: Il3Node;
-  const aFilter: IFilterFromQuery): Il3Node; overload; 
+ const aFilter: IFilterFromQuery): Il3Node; overload;
 
 implementation
 
 uses
-  SysUtils
-  {$If defined(Nemesis)}
-  ,
-  eeTreeMisc
-  {$IfEnd} //Nemesis
-  ,
-  l3Nodes
-  ;
-
-// unit methods
+ l3ImplUses
+ , SysUtils
+ {$If Defined(Nemesis)}
+ , eeTreeMisc
+ {$IfEnd} // Defined(Nemesis)
+ , l3Nodes
+;
 
 function GetTwinNode(const aTree: Il3SimpleTree;
-  const aNode: INodeBase): INodeBase;
+ const aNode: INodeBase): INodeBase;
+ {* поиск в переданном дереве ноды, эквивалентной "чужой" ноде, пришедшей из
+     query, например. Вероятно надобность отпадёт после починки нового дерева - нет ничего более посстоянного, чем временное }
 //#UC START# *4912DC1303B0_4912DBE30091_var*
 var
  l_Root      : INodeBase;
@@ -121,7 +108,7 @@ begin
 end;//NodeInvertExpandedCollapsed
 
 function FindOnAdapterNode(const aTree: IeeTree;
-  const aAdapterNode: INode): IeeNode;
+ const aAdapterNode: INode): IeeNode;
 //#UC START# *4912DC5203B4_4912DBE30091_var*
 
  function FindNode(const anIntf: IeeNode) : Boolean;
@@ -141,7 +128,7 @@ begin
 end;//FindOnAdapterNode
 
 function FindOnAdapterNode(const aRoot: IeeNode;
-  const aAdapterNode: INode): IeeNode;
+ const aAdapterNode: INode): IeeNode;
 //#UC START# *4912DC6803CB_4912DBE30091_var*
 
  function FindNode(const anIntf: IeeNode) : Boolean;
@@ -161,7 +148,7 @@ begin
 end;//FindOnAdapterNode
 
 function FindOnAdapterNode(const aRoot: Il3Node;
-  const aAdapterNode: INode): Il3Node;
+ const aAdapterNode: INode): Il3Node;
 //#UC START# *4912DC8500F0_4912DBE30091_var*
 
  function FindNode(const anIntf: Il3Node) : Boolean;
@@ -181,7 +168,7 @@ begin
 end;//FindOnAdapterNode
 
 function FindOnControllable(const aRoot: Il3Node;
-  const aControllable: IControllable): Il3Node;
+ const aControllable: IControllable): Il3Node;
 //#UC START# *4912DC9B037B_4912DBE30091_var*
 
  function FindNode(const anIntf: Il3Node) : Boolean;
@@ -215,7 +202,7 @@ begin
 end;//DeselectAllNodesInTree
 
 function FindOnFilter(const aRoot: IeeNode;
-  const aFilter: IFilterFromQuery): IeeNode;
+ const aFilter: IFilterFromQuery): IeeNode;
 //#UC START# *4CB2FE6701DB_4912DBE30091_var*
  function FindNode(const anIntf: IeeNode) : Boolean;
  var
@@ -238,7 +225,7 @@ begin
 end;//FindOnFilter
 
 function FindOnFilter(const aRoot: Il3Node;
-  const aFilter: IFilterFromQuery): Il3Node;
+ const aFilter: IFilterFromQuery): Il3Node;
 //#UC START# *4F991AC20207_4912DBE30091_var*
  function FindNode(const anIntf: Il3Node) : Boolean;
  var

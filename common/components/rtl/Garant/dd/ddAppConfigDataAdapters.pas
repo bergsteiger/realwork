@@ -1,108 +1,88 @@
 unit ddAppConfigDataAdapters;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd$AppConfig"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddAppConfigDataAdapters.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd$AppConfig::AppConfig::ddAppConfigDataAdapters
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigDataAdapters.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfigDataAdapters" MUID: (5214CC01030F)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  Classes,
-  l3ProtoPersistentRefList,
-  ddAppConfigConst,
-  ddConfigStorages,
-  ddAppConfigTypes,
-  ddAppConfigBase
-  ;
+ l3IntfUses
+ , ddAppConfigBase
+ , ddConfigStorages
+ , ddAppConfigTypes
+ , ddAppConfigConst
+ , l3ProtoPersistentRefList
+ , Classes
+;
 
 type
  TddBaseConfigDataAdapter = class(TddAppConfigBase)
- private
- // private fields
-   f_Alias : AnsiString;
-    {* Поле для свойства Alias}
-   f_IsChanged : Boolean;
-    {* Поле для свойства IsChanged}
- protected
- // property methods
+  private
+   f_Alias: AnsiString;
+    {* Поле для свойства Alias }
+   f_IsChanged: Boolean;
+    {* Поле для свойства IsChanged }
+  protected
    procedure pm_SetAlias(const aValue: AnsiString); virtual;
    procedure pm_SetIsChanged(aValue: Boolean);
    function pm_GetCount: Integer; virtual;
    function pm_GetObjects(anIndex: Integer): TObject; virtual;
    function pm_GetStrings(anIndex: Integer): AnsiString; virtual;
- protected
- // protected methods
    procedure SetIsChangedToItems(aValue: Boolean); virtual;
- public
- // public methods
+   procedure ClearFields; override;
+  public
    function AddItem: Integer; virtual;
    function AsObject: TObject; virtual;
    function DeleteItem(anIndex: Integer): Boolean; virtual;
    function DownItem(anIndex: Integer): Boolean; virtual;
    function EditItem(anIndex: Integer): Boolean; virtual;
    procedure Load(const aStorage: IddConfigStorage;
-     const anAlias: AnsiString); virtual;
+    const anAlias: AnsiString); virtual;
    procedure Save(const aStorage: IddConfigStorage;
-     const anAlias: AnsiString); virtual;
+    const anAlias: AnsiString); virtual;
    function UpItem(anIndex: Integer): Boolean; virtual;
    procedure ClearItems; virtual; abstract;
-     {* Сигнатура метода ClearItems }
- public
- // public properties
+  public
    property Alias: AnsiString
-     read f_Alias
-     write pm_SetAlias;
+    read f_Alias
+    write pm_SetAlias;
    property IsChanged: Boolean
-     read f_IsChanged
-     write pm_SetIsChanged;
+    read f_IsChanged
+    write pm_SetIsChanged;
    property Count: Integer
-     read pm_GetCount;
+    read pm_GetCount;
    property Objects[anIndex: Integer]: TObject
-     read pm_GetObjects;
+    read pm_GetObjects;
    property Strings[anIndex: Integer]: AnsiString
-     read pm_GetStrings;
+    read pm_GetStrings;
  end;//TddBaseConfigDataAdapter
 
  TddSimpleListDataAdapter = class(TddBaseConfigDataAdapter)
- private
- // private fields
-   f_Items : Tl3ProtoPersistentRefList;
-   f_DataConfig : TddAppConfigNode;
-    {* Поле для свойства DataConfig}
- protected
- // property methods
+  private
+   f_Items: Tl3ProtoPersistentRefList;
+   f_DataConfig: TddAppConfigNode;
+    {* Поле для свойства DataConfig }
+  protected
    procedure pm_SetDataConfig(aValue: TddAppConfigNode);
-   function pm_GetValues(anIndex: Integer; const anAlias: AnsiString): TddConfigValue; virtual;
-   procedure pm_SetValues(anIndex: Integer; const anAlias: AnsiString; const aValue: TddConfigValue); virtual;
- protected
- // realized methods
-   procedure ClearItems; override;
-     {* Сигнатура метода ClearItems }
- protected
- // overridden property methods
+   function pm_GetValues(anIndex: Integer;
+    const anAlias: AnsiString): TddConfigValue; virtual;
+   procedure pm_SetValues(anIndex: Integer;
+    const anAlias: AnsiString;
+    const aValue: TddConfigValue); virtual;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    procedure pm_SetAlias(const aValue: AnsiString); override;
    function pm_GetCount: Integer; override;
    function pm_GetObjects(anIndex: Integer): TObject; override;
    function pm_GetStrings(anIndex: Integer): AnsiString; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
    procedure SetIsChangedToItems(aValue: Boolean); override;
- public
- // overridden public methods
+  public
+   function MakeItem: TddAppConfigNode;
+   constructor Make(const anAlias: AnsiString); reintroduce;
+   procedure ClearItems; override;
    procedure Assign(Source: TPersistent); override;
    function AddItem: Integer; override;
    function AsObject: TObject; override;
@@ -110,76 +90,107 @@ type
    function DownItem(anIndex: Integer): Boolean; override;
    function EditItem(anIndex: Integer): Boolean; override;
    procedure Load(const aStorage: IddConfigStorage;
-     const anAlias: AnsiString); override;
+    const anAlias: AnsiString); override;
    procedure Save(const aStorage: IddConfigStorage;
-     const anAlias: AnsiString); override;
+    const anAlias: AnsiString); override;
    function UpItem(anIndex: Integer): Boolean; override;
    constructor Create; override;
- public
- // public methods
-   function MakeItem: TddAppConfigNode;
-   constructor Make(const anAlias: AnsiString);
- public
- // public properties
+  public
    property DataConfig: TddAppConfigNode
-     read f_DataConfig
-     write pm_SetDataConfig;
+    read f_DataConfig
+    write pm_SetDataConfig;
    property Values[anIndex: Integer; const anAlias: AnsiString]: TddConfigValue
-     read pm_GetValues
-     write pm_SetValues;
+    read pm_GetValues
+    write pm_SetValues;
  end;//TddSimpleListDataAdapter
 
  TddStringDataAdapter = class(TddBaseConfigDataAdapter)
- private
- // private fields
-   f_Strings : TStrings;
- protected
- // realized methods
-   procedure ClearItems; override;
-     {* Сигнатура метода ClearItems }
- protected
- // overridden property methods
+  private
+   f_Strings: TStrings;
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    function pm_GetCount: Integer; override;
    function pm_GetStrings(anIndex: Integer): AnsiString; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+  public
+   function GetStrings: TStrings;
+   procedure ClearItems; override;
    procedure Assign(Source: TPersistent); override;
    function AsObject: TObject; override;
    function DeleteItem(anIndex: Integer): Boolean; override;
    function DownItem(anIndex: Integer): Boolean; override;
    function EditItem(anIndex: Integer): Boolean; override;
    procedure Load(const aStorage: IddConfigStorage;
-     const anAlias: AnsiString); override;
+    const anAlias: AnsiString); override;
    procedure Save(const aStorage: IddConfigStorage;
-     const anAlias: AnsiString); override;
+    const anAlias: AnsiString); override;
    function UpItem(anIndex: Integer): Boolean; override;
    constructor Create; override;
- public
- // public methods
-   function GetStrings: TStrings;
  end;//TddStringDataAdapter
 
 implementation
 
 uses
-  SysUtils,
-  l3String,
-  l3Base,
-  Math,
-  ddAppConfigStrings,
-  ddAppConfigUtils
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3String
+ , l3Base
+ , Math
+ , ddAppConfigStrings
+ , ddAppConfigUtils
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-// start class TddBaseConfigDataAdapter
+procedure TddBaseConfigDataAdapter.pm_SetAlias(const aValue: AnsiString);
+//#UC START# *522EDF8F0390_5214CC1D02F4set_var*
+//#UC END# *522EDF8F0390_5214CC1D02F4set_var*
+begin
+//#UC START# *522EDF8F0390_5214CC1D02F4set_impl*
+ f_Alias := aValue;
+//#UC END# *522EDF8F0390_5214CC1D02F4set_impl*
+end;//TddBaseConfigDataAdapter.pm_SetAlias
+
+procedure TddBaseConfigDataAdapter.pm_SetIsChanged(aValue: Boolean);
+//#UC START# *522EDFCE0135_5214CC1D02F4set_var*
+//#UC END# *522EDFCE0135_5214CC1D02F4set_var*
+begin
+//#UC START# *522EDFCE0135_5214CC1D02F4set_impl*
+ if f_IsChanged <> aValue then
+ begin
+  f_IsChanged := aValue;
+  SetIsChangedToItems(aValue);
+ end;
+//#UC END# *522EDFCE0135_5214CC1D02F4set_impl*
+end;//TddBaseConfigDataAdapter.pm_SetIsChanged
+
+function TddBaseConfigDataAdapter.pm_GetCount: Integer;
+//#UC START# *522EDFF601C6_5214CC1D02F4get_var*
+//#UC END# *522EDFF601C6_5214CC1D02F4get_var*
+begin
+//#UC START# *522EDFF601C6_5214CC1D02F4get_impl*
+ Result := 0;
+//#UC END# *522EDFF601C6_5214CC1D02F4get_impl*
+end;//TddBaseConfigDataAdapter.pm_GetCount
+
+function TddBaseConfigDataAdapter.pm_GetObjects(anIndex: Integer): TObject;
+//#UC START# *522EE02F00FF_5214CC1D02F4get_var*
+//#UC END# *522EE02F00FF_5214CC1D02F4get_var*
+begin
+//#UC START# *522EE02F00FF_5214CC1D02F4get_impl*
+ Result := nil;
+//#UC END# *522EE02F00FF_5214CC1D02F4get_impl*
+end;//TddBaseConfigDataAdapter.pm_GetObjects
+
+function TddBaseConfigDataAdapter.pm_GetStrings(anIndex: Integer): AnsiString;
+//#UC START# *522EE0530101_5214CC1D02F4get_var*
+//#UC END# *522EE0530101_5214CC1D02F4get_var*
+begin
+//#UC START# *522EE0530101_5214CC1D02F4get_impl*
+ Result := '';
+//#UC END# *522EE0530101_5214CC1D02F4get_impl*
+end;//TddBaseConfigDataAdapter.pm_GetStrings
 
 procedure TddBaseConfigDataAdapter.SetIsChangedToItems(aValue: Boolean);
 //#UC START# *522EE0A00116_5214CC1D02F4_var*
@@ -235,7 +246,7 @@ begin
 end;//TddBaseConfigDataAdapter.EditItem
 
 procedure TddBaseConfigDataAdapter.Load(const aStorage: IddConfigStorage;
-  const anAlias: AnsiString);
+ const anAlias: AnsiString);
 //#UC START# *522EE1B9018D_5214CC1D02F4_var*
 //#UC END# *522EE1B9018D_5214CC1D02F4_var*
 begin
@@ -244,7 +255,7 @@ begin
 end;//TddBaseConfigDataAdapter.Load
 
 procedure TddBaseConfigDataAdapter.Save(const aStorage: IddConfigStorage;
-  const anAlias: AnsiString);
+ const anAlias: AnsiString);
 //#UC START# *522EE1D7016D_5214CC1D02F4_var*
 //#UC END# *522EE1D7016D_5214CC1D02F4_var*
 begin
@@ -261,55 +272,44 @@ begin
 //#UC END# *522EE1F7018F_5214CC1D02F4_impl*
 end;//TddBaseConfigDataAdapter.UpItem
 
-procedure TddBaseConfigDataAdapter.pm_SetAlias(const aValue: AnsiString);
-//#UC START# *522EDF8F0390_5214CC1D02F4set_var*
-//#UC END# *522EDF8F0390_5214CC1D02F4set_var*
+procedure TddBaseConfigDataAdapter.ClearFields;
 begin
-//#UC START# *522EDF8F0390_5214CC1D02F4set_impl*
- f_Alias := aValue;
-//#UC END# *522EDF8F0390_5214CC1D02F4set_impl*
-end;//TddBaseConfigDataAdapter.pm_SetAlias
+ Alias := '';
+ inherited;
+end;//TddBaseConfigDataAdapter.ClearFields
 
-procedure TddBaseConfigDataAdapter.pm_SetIsChanged(aValue: Boolean);
-//#UC START# *522EDFCE0135_5214CC1D02F4set_var*
-//#UC END# *522EDFCE0135_5214CC1D02F4set_var*
+procedure TddSimpleListDataAdapter.pm_SetDataConfig(aValue: TddAppConfigNode);
+//#UC START# *522EE27A017F_522EDF570036set_var*
+//#UC END# *522EE27A017F_522EDF570036set_var*
 begin
-//#UC START# *522EDFCE0135_5214CC1D02F4set_impl*
- if f_IsChanged <> aValue then
- begin
-  f_IsChanged := aValue;
-  SetIsChangedToItems(aValue);
- end;
-//#UC END# *522EDFCE0135_5214CC1D02F4set_impl*
-end;//TddBaseConfigDataAdapter.pm_SetIsChanged
+//#UC START# *522EE27A017F_522EDF570036set_impl*
+ l3Free(f_DataConfig);
+ f_DataConfig:= aValue;
+//#UC END# *522EE27A017F_522EDF570036set_impl*
+end;//TddSimpleListDataAdapter.pm_SetDataConfig
 
-function TddBaseConfigDataAdapter.pm_GetCount: Integer;
-//#UC START# *522EDFF601C6_5214CC1D02F4get_var*
-//#UC END# *522EDFF601C6_5214CC1D02F4get_var*
+function TddSimpleListDataAdapter.pm_GetValues(anIndex: Integer;
+ const anAlias: AnsiString): TddConfigValue;
+//#UC START# *522EE2F603A2_522EDF570036get_var*
+//#UC END# *522EE2F603A2_522EDF570036get_var*
 begin
-//#UC START# *522EDFF601C6_5214CC1D02F4get_impl*
- Result := 0;
-//#UC END# *522EDFF601C6_5214CC1D02F4get_impl*
-end;//TddBaseConfigDataAdapter.pm_GetCount
+//#UC START# *522EE2F603A2_522EDF570036get_impl*
+ if InRange(anIndex, 0, Pred(Count)) then
+  Result := TddAppConfigNode(Objects[anIndex]).ItemByAlias[anAlias].Value
+ else
+  raise EListError.CreateFmt('Отсутствует элемент с индексом %d в списке из %d элементов', [anIndex, Count]);
+//#UC END# *522EE2F603A2_522EDF570036get_impl*
+end;//TddSimpleListDataAdapter.pm_GetValues
 
-function TddBaseConfigDataAdapter.pm_GetObjects(anIndex: Integer): TObject;
-//#UC START# *522EE02F00FF_5214CC1D02F4get_var*
-//#UC END# *522EE02F00FF_5214CC1D02F4get_var*
+procedure TddSimpleListDataAdapter.pm_SetValues(anIndex: Integer;
+ const anAlias: AnsiString;
+ const aValue: TddConfigValue);
+//#UC START# *522EE2F603A2_522EDF570036set_var*
+//#UC END# *522EE2F603A2_522EDF570036set_var*
 begin
-//#UC START# *522EE02F00FF_5214CC1D02F4get_impl*
- Result := nil;
-//#UC END# *522EE02F00FF_5214CC1D02F4get_impl*
-end;//TddBaseConfigDataAdapter.pm_GetObjects
-
-function TddBaseConfigDataAdapter.pm_GetStrings(anIndex: Integer): AnsiString;
-//#UC START# *522EE0530101_5214CC1D02F4get_var*
-//#UC END# *522EE0530101_5214CC1D02F4get_var*
-begin
-//#UC START# *522EE0530101_5214CC1D02F4get_impl*
- Result := '';
-//#UC END# *522EE0530101_5214CC1D02F4get_impl*
-end;//TddBaseConfigDataAdapter.pm_GetStrings
-// start class TddSimpleListDataAdapter
+//#UC START# *522EE2F603A2_522EDF570036set_impl*
+//#UC END# *522EE2F603A2_522EDF570036set_impl*
+end;//TddSimpleListDataAdapter.pm_SetValues
 
 function TddSimpleListDataAdapter.MakeItem: TddAppConfigNode;
 //#UC START# *522EE4200381_522EDF570036_var*
@@ -334,36 +334,6 @@ begin
  f_DataConfig.Alias:= anAlias;
 //#UC END# *522EE43E0110_522EDF570036_impl*
 end;//TddSimpleListDataAdapter.Make
-
-procedure TddSimpleListDataAdapter.pm_SetDataConfig(aValue: TddAppConfigNode);
-//#UC START# *522EE27A017F_522EDF570036set_var*
-//#UC END# *522EE27A017F_522EDF570036set_var*
-begin
-//#UC START# *522EE27A017F_522EDF570036set_impl*
- l3Free(f_DataConfig);
- f_DataConfig:= aValue;
-//#UC END# *522EE27A017F_522EDF570036set_impl*
-end;//TddSimpleListDataAdapter.pm_SetDataConfig
-
-function TddSimpleListDataAdapter.pm_GetValues(anIndex: Integer; const anAlias: AnsiString): TddConfigValue;
-//#UC START# *522EE2F603A2_522EDF570036get_var*
-//#UC END# *522EE2F603A2_522EDF570036get_var*
-begin
-//#UC START# *522EE2F603A2_522EDF570036get_impl*
- if InRange(anIndex, 0, Pred(Count)) then
-  Result := TddAppConfigNode(Objects[anIndex]).ItemByAlias[anAlias].Value
- else
-  raise EListError.CreateFmt('Отсутствует элемент с индексом %d в списке из %d элементов', [anIndex, Count]);
-//#UC END# *522EE2F603A2_522EDF570036get_impl*
-end;//TddSimpleListDataAdapter.pm_GetValues
-
-procedure TddSimpleListDataAdapter.pm_SetValues(anIndex: Integer; const anAlias: AnsiString; const aValue: TddConfigValue);
-//#UC START# *522EE2F603A2_522EDF570036set_var*
-//#UC END# *522EE2F603A2_522EDF570036set_var*
-begin
-//#UC START# *522EE2F603A2_522EDF570036set_impl*
-//#UC END# *522EE2F603A2_522EDF570036set_impl*
-end;//TddSimpleListDataAdapter.pm_SetValues
 
 procedure TddSimpleListDataAdapter.ClearItems;
 //#UC START# *56D93DBD039D_522EDF570036_var*
@@ -403,6 +373,7 @@ begin
 end;//TddSimpleListDataAdapter.Assign
 
 procedure TddSimpleListDataAdapter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_522EDF570036_var*
 //#UC END# *479731C50290_522EDF570036_var*
 begin
@@ -536,7 +507,7 @@ begin
 end;//TddSimpleListDataAdapter.EditItem
 
 procedure TddSimpleListDataAdapter.Load(const aStorage: IddConfigStorage;
-  const anAlias: AnsiString);
+ const anAlias: AnsiString);
 //#UC START# *522EE1B9018D_522EDF570036_var*
 var
  l_Count, I: Integer;
@@ -561,7 +532,7 @@ begin
 end;//TddSimpleListDataAdapter.Load
 
 procedure TddSimpleListDataAdapter.Save(const aStorage: IddConfigStorage;
-  const anAlias: AnsiString);
+ const anAlias: AnsiString);
 //#UC START# *522EE1D7016D_522EDF570036_var*
 var
  I: Integer;
@@ -595,7 +566,6 @@ begin
  f_DataConfig.AddItem(TddStringConfigItem.Create('Caption', 'Название', ddEmptyValue))
 //#UC END# *5301EC5A006A_522EDF570036_impl*
 end;//TddSimpleListDataAdapter.Create
-// start class TddStringDataAdapter
 
 function TddStringDataAdapter.GetStrings: TStrings;
 //#UC START# *522EE4E000E1_522EDF6702AF_var*
@@ -628,6 +598,7 @@ begin
 end;//TddStringDataAdapter.Assign
 
 procedure TddStringDataAdapter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_522EDF6702AF_var*
 //#UC END# *479731C50290_522EDF6702AF_var*
 begin
@@ -705,7 +676,7 @@ begin
 end;//TddStringDataAdapter.EditItem
 
 procedure TddStringDataAdapter.Load(const aStorage: IddConfigStorage;
-  const anAlias: AnsiString);
+ const anAlias: AnsiString);
 //#UC START# *522EE1B9018D_522EDF6702AF_var*
 var
  I: Integer;
@@ -721,7 +692,7 @@ begin
 end;//TddStringDataAdapter.Load
 
 procedure TddStringDataAdapter.Save(const aStorage: IddConfigStorage;
-  const anAlias: AnsiString);
+ const anAlias: AnsiString);
 //#UC START# *522EE1D7016D_522EDF6702AF_var*
 var
  I: Integer;

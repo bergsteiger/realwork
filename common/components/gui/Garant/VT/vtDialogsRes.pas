@@ -1,155 +1,136 @@
 unit vtDialogsRes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$Core"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VT/vtDialogsRes.pas"
-// Начат: 03.03.2010 16:43
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VT$Core::Dialogs::vtDialogsRes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtDialogsRes.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vtDialogsRes" MUID: (4B8E6793024B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3StringIDEx
-  ;
+ l3IntfUses
+ , l3StringIDEx
+;
 
-var
-  { Локализуемые строки TvtMiscMessages }
- str_vtDefaultOpenDlgFilter : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtDefaultOpenDlgFilter'; rValue : 'Все файлы|*.*');
-  { 'Все файлы|*.*' }
-
-{$If not defined(Nemesis)}
-var
-  { Локализуемые строки MsgDlg }
- str_vtMsgDlgWarning : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgWarning'; rValue : 'Warning');
-  { 'Warning' }
- str_vtMsgDlgError : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgError'; rValue : 'Error');
-  { 'Error' }
- str_vtMsgDlgInformation : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgInformation'; rValue : 'Information');
-  { 'Information' }
- str_vtMsgDlgConfirm : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgConfirm'; rValue : 'Confirm');
-  { 'Confirm' }
-{$IfEnd} //not Nemesis
-
-{$If defined(Nemesis)}
-var
-  { Локализуемые строки MsgDlgNemesis }
- str_vtMsgDlgWarning : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgWarning'; rValue : 'Предупреждение');
-  { 'Предупреждение' }
- str_vtMsgDlgError : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgError'; rValue : 'Ошибка');
-  { 'Ошибка' }
- str_vtMsgDlgInformation : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgInformation'; rValue : 'Информация');
-  { 'Информация' }
- str_vtMsgDlgConfirm : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgConfirm'; rValue : 'Подтверждение');
-  { 'Подтверждение' }
-{$IfEnd} //Nemesis
-
-var
-  { Локализуемые строки Custom }
- str_vtMsgDlgCustom : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgCustom'; rValue : '');
-  { '' }
-
-var
-  { Локализуемые строки MsgDlgButtons }
- str_vtMsgDlgYes : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgYes'; rValue : '&Да');
-  { '&Да' }
- str_vtMsgDlgNo : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgNo'; rValue : '&Нет');
-  { '&Нет' }
- str_vtMsgDlgOK : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgOK'; rValue : 'OK');
-  { 'OK' }
- str_vtMsgDlgCancel : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgCancel'; rValue : '&Отмена');
-  { '&Отмена' }
- str_vtMsgDlgAbort : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgAbort'; rValue : '&Прервать');
-  { '&Прервать' }
- str_vtMsgDlgRetry : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgRetry'; rValue : 'Пов&торить');
-  { 'Пов&торить' }
- str_vtMsgDlgIgnore : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgIgnore'; rValue : '&Игнорировать');
-  { '&Игнорировать' }
- str_vtMsgDlgAll : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgAll'; rValue : '&Все');
-  { '&Все' }
- str_vtMsgDlgNoToAll : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgNoToAll'; rValue : '&Нет для всех');
-  { '&Нет для всех' }
- str_vtMsgDlgYesToAll : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgYesToAll'; rValue : '&Да для всех');
-  { '&Да для всех' }
- str_vtMsgDlgHelp : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgHelp'; rValue : '&Справка');
-  { '&Справка' }
+const
+ {* Локализуемые строки TvtMiscMessages }
+ str_vtDefaultOpenDlgFilter: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtDefaultOpenDlgFilter'; rValue : 'Все файлы|*.*');
+  {* 'Все файлы|*.*' }
+{$If NOT Defined(Nemesis)}
+ {* Локализуемые строки MsgDlg }
+ str_vtMsgDlgWarning: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgWarning'; rValue : 'Warning');
+  {* 'Warning' }
+ str_vtMsgDlgError: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgError'; rValue : 'Error');
+  {* 'Error' }
+ str_vtMsgDlgInformation: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgInformation'; rValue : 'Information');
+  {* 'Information' }
+ str_vtMsgDlgConfirm: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgConfirm'; rValue : 'Confirm');
+  {* 'Confirm' }
+{$IfEnd} // NOT Defined(Nemesis)
+{$If Defined(Nemesis)}
+ {* Локализуемые строки MsgDlgNemesis }
+ str_vtMsgDlgWarning: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgWarning'; rValue : 'Предупреждение');
+  {* 'Предупреждение' }
+ str_vtMsgDlgError: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgError'; rValue : 'Ошибка');
+  {* 'Ошибка' }
+ str_vtMsgDlgInformation: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgInformation'; rValue : 'Информация');
+  {* 'Информация' }
+ str_vtMsgDlgConfirm: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgConfirm'; rValue : 'Подтверждение');
+  {* 'Подтверждение' }
+{$IfEnd} // Defined(Nemesis)
+ {* Локализуемые строки Custom }
+ str_vtMsgDlgCustom: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgCustom'; rValue : '');
+  {* '' }
+ {* Локализуемые строки MsgDlgButtons }
+ str_vtMsgDlgYes: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgYes'; rValue : '&Да');
+  {* '&Да' }
+ str_vtMsgDlgNo: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgNo'; rValue : '&Нет');
+  {* '&Нет' }
+ str_vtMsgDlgOK: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgOK'; rValue : 'OK');
+  {* 'OK' }
+ str_vtMsgDlgCancel: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgCancel'; rValue : '&Отмена');
+  {* '&Отмена' }
+ str_vtMsgDlgAbort: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgAbort'; rValue : '&Прервать');
+  {* '&Прервать' }
+ str_vtMsgDlgRetry: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgRetry'; rValue : 'Пов&торить');
+  {* 'Пов&торить' }
+ str_vtMsgDlgIgnore: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgIgnore'; rValue : '&Игнорировать');
+  {* '&Игнорировать' }
+ str_vtMsgDlgAll: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgAll'; rValue : '&Все');
+  {* '&Все' }
+ str_vtMsgDlgNoToAll: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgNoToAll'; rValue : '&Нет для всех');
+  {* '&Нет для всех' }
+ str_vtMsgDlgYesToAll: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgYesToAll'; rValue : '&Да для всех');
+  {* '&Да для всех' }
+ str_vtMsgDlgHelp: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgHelp'; rValue : '&Справка');
+  {* '&Справка' }
 
 implementation
 
 uses
-  l3MessageID
-  ;
-
+ l3ImplUses
+ , l3MessageID
+;
 
 initialization
-// Инициализация str_vtDefaultOpenDlgFilter
  str_vtDefaultOpenDlgFilter.Init;
-{$If not defined(Nemesis)}
-// Инициализация str_vtMsgDlgWarning
+ {* Инициализация str_vtDefaultOpenDlgFilter }
+{$If NOT Defined(Nemesis)}
  str_vtMsgDlgWarning.Init;
-{$IfEnd} //not Nemesis
-{$If not defined(Nemesis)}
-// Инициализация str_vtMsgDlgError
+ {* Инициализация str_vtMsgDlgWarning }
+{$IfEnd} // NOT Defined(Nemesis)
+{$If NOT Defined(Nemesis)}
  str_vtMsgDlgError.Init;
-{$IfEnd} //not Nemesis
-{$If not defined(Nemesis)}
-// Инициализация str_vtMsgDlgInformation
+ {* Инициализация str_vtMsgDlgError }
+{$IfEnd} // NOT Defined(Nemesis)
+{$If NOT Defined(Nemesis)}
  str_vtMsgDlgInformation.Init;
-{$IfEnd} //not Nemesis
-{$If not defined(Nemesis)}
-// Инициализация str_vtMsgDlgConfirm
+ {* Инициализация str_vtMsgDlgInformation }
+{$IfEnd} // NOT Defined(Nemesis)
+{$If NOT Defined(Nemesis)}
  str_vtMsgDlgConfirm.Init;
-{$IfEnd} //not Nemesis
-{$If defined(Nemesis)}
-// Инициализация str_vtMsgDlgWarning
+ {* Инициализация str_vtMsgDlgConfirm }
+{$IfEnd} // NOT Defined(Nemesis)
+{$If Defined(Nemesis)}
  str_vtMsgDlgWarning.Init;
-{$IfEnd} //Nemesis
-{$If defined(Nemesis)}
-// Инициализация str_vtMsgDlgError
+ {* Инициализация str_vtMsgDlgWarning }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  str_vtMsgDlgError.Init;
-{$IfEnd} //Nemesis
-{$If defined(Nemesis)}
-// Инициализация str_vtMsgDlgInformation
+ {* Инициализация str_vtMsgDlgError }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  str_vtMsgDlgInformation.Init;
-{$IfEnd} //Nemesis
-{$If defined(Nemesis)}
-// Инициализация str_vtMsgDlgConfirm
+ {* Инициализация str_vtMsgDlgInformation }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  str_vtMsgDlgConfirm.Init;
-{$IfEnd} //Nemesis
-// Инициализация str_vtMsgDlgCustom
+ {* Инициализация str_vtMsgDlgConfirm }
+{$IfEnd} // Defined(Nemesis)
  str_vtMsgDlgCustom.Init;
-// Инициализация str_vtMsgDlgYes
+ {* Инициализация str_vtMsgDlgCustom }
  str_vtMsgDlgYes.Init;
-// Инициализация str_vtMsgDlgNo
+ {* Инициализация str_vtMsgDlgYes }
  str_vtMsgDlgNo.Init;
-// Инициализация str_vtMsgDlgOK
+ {* Инициализация str_vtMsgDlgNo }
  str_vtMsgDlgOK.Init;
-// Инициализация str_vtMsgDlgCancel
+ {* Инициализация str_vtMsgDlgOK }
  str_vtMsgDlgCancel.Init;
-// Инициализация str_vtMsgDlgAbort
+ {* Инициализация str_vtMsgDlgCancel }
  str_vtMsgDlgAbort.Init;
-// Инициализация str_vtMsgDlgRetry
+ {* Инициализация str_vtMsgDlgAbort }
  str_vtMsgDlgRetry.Init;
-// Инициализация str_vtMsgDlgIgnore
+ {* Инициализация str_vtMsgDlgRetry }
  str_vtMsgDlgIgnore.Init;
-// Инициализация str_vtMsgDlgAll
+ {* Инициализация str_vtMsgDlgIgnore }
  str_vtMsgDlgAll.Init;
-// Инициализация str_vtMsgDlgNoToAll
+ {* Инициализация str_vtMsgDlgAll }
  str_vtMsgDlgNoToAll.Init;
-// Инициализация str_vtMsgDlgYesToAll
+ {* Инициализация str_vtMsgDlgNoToAll }
  str_vtMsgDlgYesToAll.Init;
-// Инициализация str_vtMsgDlgHelp
+ {* Инициализация str_vtMsgDlgYesToAll }
  str_vtMsgDlgHelp.Init;
+ {* Инициализация str_vtMsgDlgHelp }
 
 end.

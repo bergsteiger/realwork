@@ -1,230 +1,181 @@
 unit vcmDialogs;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmDialogs.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM$Visual::Visual::vcmDialogs
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmDialogs.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vcmDialogs" MUID: (4B8E676500AD)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene)}
 uses
-  nevBase,
-  Types,
-  Classes,
-  evCustomEditorWindow,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  vtVGButton,
-  l3MessageID,
-  vcmMessageFormPrim,
-  Pl3StringIDExList,
-  l3PrinterInterfaces,
-  Messages
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
-
-type
- TvtEffectiveDialogButton = class(TvtVGButton)
- protected
- // property methods
-   function pm_GetCaption: WideString;
-   procedure pm_SetCaption(aValue: WideString);
- protected
- // overridden protected methods
-   procedure ApplyStyle; override;
- public
- // public properties
-   property Caption: WideString
-     read pm_GetCaption
-     write pm_SetCaption;
- end;//TvtEffectiveDialogButton
+ l3IntfUses
+ , l3MessageID
+ , Classes
+ , Windows
+ , Pl3StringIDExList
+ , evCustomEditorWindow
+ , Types
+ , l3PrinterInterfaces
+ , vcmMessageFormPrim
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nevBase
+ , Messages
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtVGButton
+;
 
 const
-  { vcmMessageDlgPublicConst }
  vcm_mrCustomButton = mrYesToAll + 1000;
-
-const
-  { vcmMessageDlgPrivateConst }
  cCustomButtonName = 'Custom';
  cCheckName = 'Check';
  cChoicesName = 'Choices';
-
-const
-  { cMsgDlgBtnOrder }
- cMsgDlgBtnOrder : array [TMsgDlgBtn] of TMsgDlgBtn = (
-  mbYes
-  , mbAll
-  , mbYesToAll
-  , mbNo
-  , mbNoToAll
-  , mbOk
-  , mbCancel
-  , mbAbort
-  , mbRetry
-  , mbIgnore
-  , mbHelp
-  {$If defined(XE) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  , mbClose
-  {$IfEnd} //XE AND not NoVCM AND not NoVGScene
- );//cMsgDlgBtnOrder
+ cMsgDlgBtnOrder: array [TMsgDlgBtn] of TMsgDlgBtn = (mbYes
+ , mbAll
+ , mbYesToAll
+ , mbNo
+ , mbNoToAll
+ , mbOk
+ , mbCancel
+ , mbAbort
+ , mbRetry
+ , mbIgnore
+ , mbHelp
+ , mbClose
+ );
 
 type
+ TMessageFormClass = class of TMessageForm;
+
+ TvtEffectiveDialogButton = class(TvtVGButton)
+  protected
+   function pm_GetCaption: WideString;
+   procedure pm_SetCaption(aValue: WideString);
+   procedure ApplyStyle; override;
+  public
+   property Caption: WideString
+    read pm_GetCaption
+    write pm_SetCaption;
+ end;//TvtEffectiveDialogButton
+
  TButtonWidths = array [TMsgDlgBtn] of integer;
 
  TMessageForm = class(TvcmMessageFormPrim)
- private
- // private fields
-   f_WndParent : HWND;
-   f_CloseTimer : TTimer;
-   f_AutoCloseButton : TvtEffectiveDialogButton;
-   f_AutoCloseCaption : WideString;
-   f_CloseInterval : integer;
-   f_NeedShowInTaskBar : Boolean;
-    {* Поле для свойства NeedShowInTaskBar}
- private
- // private methods
+  private
+   f_WndParent: HWND;
+   f_CloseTimer: TTimer;
+   f_AutoCloseButton: TvtEffectiveDialogButton;
+   f_AutoCloseCaption: WideString;
+   f_CloseInterval: integer;
+   f_NeedShowInTaskBar: Boolean;
+    {* Поле для свойства NeedShowInTaskBar }
+  private
    procedure HelpButtonClick(Sender: TObject);
-   procedure EvntOnCloseTimer(Sender: TObject);
-   procedure EvntOnClickFocusLabel(Sender: TObject);
+   procedure evntOnCloseTimer(Sender: TObject);
+   procedure evntOnClickFocusLabel(Sender: TObject);
    procedure UpdateAutoCloseButton;
- protected
- // property methods
+  protected
    function pm_GetNeedShowInTaskBar: Boolean; virtual;
    procedure pm_SetNeedShowInTaskBar(aValue: Boolean); virtual;
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
-   procedure WndProc(var Message: TMessage); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure CreateParams(var Params: TCreateParams); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure DoShow; override;
-   {$IfEnd} //not NoVCL
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
-   {$If not defined(NoVCL)}
-   constructor CreateNew(AOwner: TComponent;
-    Dummy: Integer = 0); override;
-   {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
-   function ShowModal: Integer; override;
-    {$IfEnd} //not NoVCL
- protected
- // protected methods
    procedure TextSourceGetControlItemImg(aSender: TObject;
-     const aControl: TnevControlInfo;
-     out theImageInfo: TnevControlImageInfo);
+    const aControl: TnevControlInfo;
+    out theImageInfo: TnevControlImageInfo);
    procedure DoAfterAdjustHeight(Sender: TObject;
-     anOldHeight: Integer;
-     aNewHeight: Integer);
- public
- // public methods
+    anOldHeight: Integer;
+    aNewHeight: Integer);
+   {$If NOT Defined(NoVCL)}
+   procedure WndProc(var Message: TMessage); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure CreateParams(var Params: TCreateParams); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure DoShow; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    procedure SetCloseInterval(aCloseInterval: Integer);
    procedure SetAutoCloseButton(const Value: TvtEffectiveDialogButton);
    constructor CreateNewEx(aWndParent: HWND;
     AOwner: TComponent;
-    Dummy: Integer = 0); virtual;
- public
- // public properties
+    Dummy: Integer = 0); reintroduce; virtual;
+   constructor Create(AOwner: TComponent); override;
+   {$If NOT Defined(NoVCL)}
+   constructor CreateNew(AOwner: TComponent;
+    Dummy: Integer = 0); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   function ShowModal: Integer; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    property NeedShowInTaskBar: Boolean
-     read pm_GetNeedShowInTaskBar
-     write pm_SetNeedShowInTaskBar;
+    read pm_GetNeedShowInTaskBar
+    write pm_SetNeedShowInTaskBar;
  end;//TMessageForm
 
- TMessageFormClass = class of TMessageForm;
+function vcmMessageDlgPrim(const aMsg: Tl3Message;
+ out Checked: Boolean;
+ aTextAlign: TAlignment = Classes.taCenter;
+ aWndParent: HWND = 0;
+ aChoices: TPl3StringIDExList = nil;
+ aJumpTo: TevJumpToEvent = nil;
+ aNeedShowInTaskBar: Boolean = False): Integer;
 
-var ButtonWidths : TButtonWidths;
-function VcmMessageDlgPrim(const aMsg: Tl3Message;
-  out Checked: Boolean;
-  aTextAlign: TAlignment = taCenter;
-  aWndParent: HWND = 0;
-  aChoices: TPl3StringIDExList = nil;
-  aJumpTo: TevJumpToEvent = nil;
-  aNeedShowInTaskBar: Boolean = False): Integer;
-{$IfEnd} //not NoVCM AND not NoVGScene
+var ButtonWidths: TButtonWidths;
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene)}
 uses
-  nscSimpleEditorForDialogs,
-  vtStdRes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  vtFocusLabel,
-  l3Base,
-  Graphics,
-  l3String,
-  vg_controls
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  l3WinControlCanvas,
-  l3FormCanvas,
-  l3Math,
-  l3MinMax,
-  Cloak_Const,
-  vg_objects,
-  vtUtils,
-  afwVCL,
-  vcmInterfaces,
-  vtDialogsRes,
-  vtVGSceneRes,
-  vtF1InterfaceConst,
-  vtDialogsResEx,
-  vg_scene
-  {$If not defined(NoScripts)}
-  ,
-  afwAnswer
-  {$IfEnd} //not NoScripts
-  ,
-  vcmMessagesSupport,
-  SysUtils,
-  vtCheckBox,
-  afwFacade,
-  l3BatchService,
-  l3Interfaces
-  ;
-
-// unit methods
+ l3ImplUses
+ , vtDialogsRes
+ , vtVGSceneRes
+ , vtF1InterfaceConst
+ , vtDialogsResEx
+ , vg_scene
+ {$If NOT Defined(NoScripts)}
+ , afwAnswer
+ {$IfEnd} // NOT Defined(NoScripts)
+ , vcmMessagesSupport
+ , SysUtils
+ , vtCheckBox
+ , afwFacade
+ , l3BatchService
+ , l3Interfaces
+ , nscSimpleEditorForDialogs
+ , vtStdRes
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtFocusLabel
+ , l3Base
+ , Graphics
+ , l3String
+ , vg_controls
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3WinControlCanvas
+ , l3FormCanvas
+ , l3Math
+ , l3MinMax
+ , Cloak_Const
+ , vg_objects
+ , vtUtils
+ , afwVCL
+ , vcmInterfaces
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function GetAvgCharSize(aCanvas: TCanvas): TPoint;
 //#UC START# *4F8FFF1901ED_4B8E676500AD_var*
@@ -241,13 +192,13 @@ begin
 //#UC END# *4F8FFF1901ED_4B8E676500AD_impl*
 end;//GetAvgCharSize
 
-function VtCreateMessageDialog(const aMsg: Tl3Message;
-  aFormClass: TMessageFormClass;
-  aTextAlign: TAlignment;
-  aWndParent: HWND;
-  aAutoCloseInterval: Integer;
-  aChoices: TPl3StringIDExList;
-  aJumpTo: TevJumpToEvent = nil): TMessageForm;
+function vtCreateMessageDialog(const aMsg: Tl3Message;
+ aFormClass: TMessageFormClass;
+ aTextAlign: TAlignment;
+ aWndParent: HWND;
+ aAutoCloseInterval: Integer;
+ aChoices: TPl3StringIDExList;
+ aJumpTo: TevJumpToEvent = nil): TMessageForm;
 //#UC START# *4F915A68031C_4B8E676500AD_var*
 const
   mcHorzMargin      = 8;
@@ -854,15 +805,15 @@ begin
  // - заточка для того, чтобы дёрнуть TvcmEntityForm.Loaded, в котором на самом деле инициализируется вся обвязка VCM
  //   при отказе от dfm'ов - это должно куда-то переехать.
 //#UC END# *4F915A68031C_4B8E676500AD_impl*
-end;//VtCreateMessageDialog
+end;//vtCreateMessageDialog
 
-function VcmMessageDlgPrim(const aMsg: Tl3Message;
-  out Checked: Boolean;
-  aTextAlign: TAlignment = taCenter;
-  aWndParent: HWND = 0;
-  aChoices: TPl3StringIDExList = nil;
-  aJumpTo: TevJumpToEvent = nil;
-  aNeedShowInTaskBar: Boolean = False): Integer;
+function vcmMessageDlgPrim(const aMsg: Tl3Message;
+ out Checked: Boolean;
+ aTextAlign: TAlignment = Classes.taCenter;
+ aWndParent: HWND = 0;
+ aChoices: TPl3StringIDExList = nil;
+ aJumpTo: TevJumpToEvent = nil;
+ aNeedShowInTaskBar: Boolean = False): Integer;
 //#UC START# *4B8E6787035D_4B8E676500AD_var*
  function lp_GetChoiceIndex(aOwner: TForm): Integer;
  var
@@ -963,111 +914,7 @@ begin
    Free;
   end;//try..finally
 //#UC END# *4B8E6787035D_4B8E676500AD_impl*
-end;//VcmMessageDlgPrim
-// start class TMessageForm
-
-procedure TMessageForm.HelpButtonClick(Sender: TObject);
-//#UC START# *4F9016AC027C_4F9000EA02E5_var*
-//#UC END# *4F9016AC027C_4F9000EA02E5_var*
-begin
-//#UC START# *4F9016AC027C_4F9000EA02E5_impl*
- Application.HelpContext(HelpContext);
-//#UC END# *4F9016AC027C_4F9000EA02E5_impl*
-end;//TMessageForm.HelpButtonClick
-
-procedure TMessageForm.EvntOnCloseTimer(Sender: TObject);
-//#UC START# *4F901822022E_4F9000EA02E5_var*
-//#UC END# *4F901822022E_4F9000EA02E5_var*
-begin
-//#UC START# *4F901822022E_4F9000EA02E5_impl*
- Dec(f_CloseInterval);
- UpdateAutoCloseButton;
- if f_CloseInterval <= 0 then
-  ModalResult := vtGetDlgBtnResult(f_DefaultButton);
-//#UC END# *4F901822022E_4F9000EA02E5_impl*
-end;//TMessageForm.EvntOnCloseTimer
-
-procedure TMessageForm.EvntOnClickFocusLabel(Sender: TObject);
-//#UC START# *4F90183A00D5_4F9000EA02E5_var*
-//#UC END# *4F90183A00D5_4F9000EA02E5_var*
-begin
-//#UC START# *4F90183A00D5_4F9000EA02E5_impl*
- ModalResult := vtGetDlgBtnResult(f_DefaultButton);
-//#UC END# *4F90183A00D5_4F9000EA02E5_impl*
-end;//TMessageForm.EvntOnClickFocusLabel
-
-procedure TMessageForm.UpdateAutoCloseButton;
-//#UC START# *4F90186F0386_4F9000EA02E5_var*
-//#UC END# *4F90186F0386_4F9000EA02E5_var*
-begin
-//#UC START# *4F90186F0386_4F9000EA02E5_impl*
- if (f_AutoCloseButton <> nil) then
- begin
-  f_AutoCloseButton.Caption := f_AutoCloseCaption;
-  if f_CloseInterval > 0 then
-   f_AutoCloseButton.Caption := f_AutoCloseButton.Caption + ' (' + IntToStr(f_CloseInterval) + ')';
- end;
-//#UC END# *4F90186F0386_4F9000EA02E5_impl*
-end;//TMessageForm.UpdateAutoCloseButton
-
-procedure TMessageForm.SetCloseInterval(aCloseInterval: Integer);
-//#UC START# *4F90082D0015_4F9000EA02E5_var*
-//#UC END# *4F90082D0015_4F9000EA02E5_var*
-begin
-//#UC START# *4F90082D0015_4F9000EA02E5_impl*
- if Assigned(f_CloseTimer) then
-  FreeAndNil(f_CloseTimer);
-
- if aCloseInterval > 0 then
- begin
-  f_CloseTimer := TTimer.Create(Self);
-  f_CloseTimer.Interval := 1000;
-  f_CloseInterval := aCloseInterval;
-  f_CloseTimer.OnTimer := evntOnCloseTimer;
-  UpdateAutoCloseButton;
- end;
-//#UC END# *4F90082D0015_4F9000EA02E5_impl*
-end;//TMessageForm.SetCloseInterval
-
-procedure TMessageForm.SetAutoCloseButton(const Value: TvtEffectiveDialogButton);
-//#UC START# *4F9008560068_4F9000EA02E5_var*
-//#UC END# *4F9008560068_4F9000EA02E5_var*
-begin
-//#UC START# *4F9008560068_4F9000EA02E5_impl*
- f_AutoCloseButton := Value;
- f_AutoCloseCaption := Value.Caption;
- if f_CloseInterval > 0 then
-  UpdateAutoCloseButton; 
-//#UC END# *4F9008560068_4F9000EA02E5_impl*
-end;//TMessageForm.SetAutoCloseButton
-
-procedure TMessageForm.TextSourceGetControlItemImg(aSender: TObject;
-  const aControl: TnevControlInfo;
-  out theImageInfo: TnevControlImageInfo);
-//#UC START# *4F914AE901C1_4F9000EA02E5_var*
-//#UC END# *4F914AE901C1_4F9000EA02E5_var*
-begin
-//#UC START# *4F914AE901C1_4F9000EA02E5_impl*
- if aControl.rControl.AsObject.IsKindOf(k2_typCloak) then
- begin
-  theImageInfo.rImageList := vtMakeImageListWrapper(vtResources.EditorImages);
-  theImageInfo.rFirstIndex := -1;
-  theImageInfo.rLastIndex := 0;
- end;//aControl.InheritsFrom(k2_idCloak)
-//#UC END# *4F914AE901C1_4F9000EA02E5_impl*
-end;//TMessageForm.TextSourceGetControlItemImg
-
-procedure TMessageForm.DoAfterAdjustHeight(Sender: TObject;
-  anOldHeight: Integer;
-  aNewHeight: Integer);
-//#UC START# *4F914B470122_4F9000EA02E5_var*
-//#UC END# *4F914B470122_4F9000EA02E5_var*
-begin
-//#UC START# *4F914B470122_4F9000EA02E5_impl*
- Self.Height := Self.Height - anOldHeight + aNewHeight;
-//#UC END# *4F914B470122_4F9000EA02E5_impl*
-end;//TMessageForm.DoAfterAdjustHeight
-// start class TvtEffectiveDialogButton
+end;//vcmMessageDlgPrim
 
 function TvtEffectiveDialogButton.pm_GetCaption: WideString;
 //#UC START# *4F8FFFC80242_4F8FFF7302A2get_var*
@@ -1144,9 +991,111 @@ begin
 //#UC END# *54507466026E_4F9000EA02E5set_impl*
 end;//TMessageForm.pm_SetNeedShowInTaskBar
 
+procedure TMessageForm.SetCloseInterval(aCloseInterval: Integer);
+//#UC START# *4F90082D0015_4F9000EA02E5_var*
+//#UC END# *4F90082D0015_4F9000EA02E5_var*
+begin
+//#UC START# *4F90082D0015_4F9000EA02E5_impl*
+ if Assigned(f_CloseTimer) then
+  FreeAndNil(f_CloseTimer);
+
+ if aCloseInterval > 0 then
+ begin
+  f_CloseTimer := TTimer.Create(Self);
+  f_CloseTimer.Interval := 1000;
+  f_CloseInterval := aCloseInterval;
+  f_CloseTimer.OnTimer := evntOnCloseTimer;
+  UpdateAutoCloseButton;
+ end;
+//#UC END# *4F90082D0015_4F9000EA02E5_impl*
+end;//TMessageForm.SetCloseInterval
+
+procedure TMessageForm.HelpButtonClick(Sender: TObject);
+//#UC START# *4F9016AC027C_4F9000EA02E5_var*
+//#UC END# *4F9016AC027C_4F9000EA02E5_var*
+begin
+//#UC START# *4F9016AC027C_4F9000EA02E5_impl*
+ Application.HelpContext(HelpContext);
+//#UC END# *4F9016AC027C_4F9000EA02E5_impl*
+end;//TMessageForm.HelpButtonClick
+
+procedure TMessageForm.evntOnCloseTimer(Sender: TObject);
+//#UC START# *4F901822022E_4F9000EA02E5_var*
+//#UC END# *4F901822022E_4F9000EA02E5_var*
+begin
+//#UC START# *4F901822022E_4F9000EA02E5_impl*
+ Dec(f_CloseInterval);
+ UpdateAutoCloseButton;
+ if f_CloseInterval <= 0 then
+  ModalResult := vtGetDlgBtnResult(f_DefaultButton);
+//#UC END# *4F901822022E_4F9000EA02E5_impl*
+end;//TMessageForm.evntOnCloseTimer
+
+procedure TMessageForm.evntOnClickFocusLabel(Sender: TObject);
+//#UC START# *4F90183A00D5_4F9000EA02E5_var*
+//#UC END# *4F90183A00D5_4F9000EA02E5_var*
+begin
+//#UC START# *4F90183A00D5_4F9000EA02E5_impl*
+ ModalResult := vtGetDlgBtnResult(f_DefaultButton);
+//#UC END# *4F90183A00D5_4F9000EA02E5_impl*
+end;//TMessageForm.evntOnClickFocusLabel
+
+procedure TMessageForm.UpdateAutoCloseButton;
+//#UC START# *4F90186F0386_4F9000EA02E5_var*
+//#UC END# *4F90186F0386_4F9000EA02E5_var*
+begin
+//#UC START# *4F90186F0386_4F9000EA02E5_impl*
+ if (f_AutoCloseButton <> nil) then
+ begin
+  f_AutoCloseButton.Caption := f_AutoCloseCaption;
+  if f_CloseInterval > 0 then
+   f_AutoCloseButton.Caption := f_AutoCloseButton.Caption + ' (' + IntToStr(f_CloseInterval) + ')';
+ end;
+//#UC END# *4F90186F0386_4F9000EA02E5_impl*
+end;//TMessageForm.UpdateAutoCloseButton
+
+procedure TMessageForm.SetAutoCloseButton(const Value: TvtEffectiveDialogButton);
+//#UC START# *4F9008560068_4F9000EA02E5_var*
+//#UC END# *4F9008560068_4F9000EA02E5_var*
+begin
+//#UC START# *4F9008560068_4F9000EA02E5_impl*
+ f_AutoCloseButton := Value;
+ f_AutoCloseCaption := Value.Caption;
+ if f_CloseInterval > 0 then
+  UpdateAutoCloseButton; 
+//#UC END# *4F9008560068_4F9000EA02E5_impl*
+end;//TMessageForm.SetAutoCloseButton
+
+procedure TMessageForm.TextSourceGetControlItemImg(aSender: TObject;
+ const aControl: TnevControlInfo;
+ out theImageInfo: TnevControlImageInfo);
+//#UC START# *4F914AE901C1_4F9000EA02E5_var*
+//#UC END# *4F914AE901C1_4F9000EA02E5_var*
+begin
+//#UC START# *4F914AE901C1_4F9000EA02E5_impl*
+ if aControl.rControl.AsObject.IsKindOf(k2_typCloak) then
+ begin
+  theImageInfo.rImageList := vtMakeImageListWrapper(vtResources.EditorImages);
+  theImageInfo.rFirstIndex := -1;
+  theImageInfo.rLastIndex := 0;
+ end;//aControl.InheritsFrom(k2_idCloak)
+//#UC END# *4F914AE901C1_4F9000EA02E5_impl*
+end;//TMessageForm.TextSourceGetControlItemImg
+
+procedure TMessageForm.DoAfterAdjustHeight(Sender: TObject;
+ anOldHeight: Integer;
+ aNewHeight: Integer);
+//#UC START# *4F914B470122_4F9000EA02E5_var*
+//#UC END# *4F914B470122_4F9000EA02E5_var*
+begin
+//#UC START# *4F914B470122_4F9000EA02E5_impl*
+ Self.Height := Self.Height - anOldHeight + aNewHeight;
+//#UC END# *4F914B470122_4F9000EA02E5_impl*
+end;//TMessageForm.DoAfterAdjustHeight
+
 constructor TMessageForm.CreateNewEx(aWndParent: HWND;
-  AOwner: TComponent;
-  Dummy: Integer = 0);
+ AOwner: TComponent;
+ Dummy: Integer = 0);
 //#UC START# *4F9007D9001B_4F9000EA02E5_var*
 //#UC END# *4F9007D9001B_4F9000EA02E5_var*
 begin
@@ -1176,7 +1125,7 @@ begin
 //#UC END# *47D1602000C6_4F9000EA02E5_impl*
 end;//TMessageForm.Create
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TMessageForm.WndProc(var Message: TMessage);
 //#UC START# *47E136A80191_4F9000EA02E5_var*
 const
@@ -1232,9 +1181,9 @@ begin
  inherited;
 //#UC END# *47E136A80191_4F9000EA02E5_impl*
 end;//TMessageForm.WndProc
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TMessageForm.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_4F9000EA02E5_var*
 //#UC END# *48C7925A02E5_4F9000EA02E5_var*
@@ -1247,9 +1196,9 @@ begin
   Params.ExStyle := Params.ExStyle or WS_EX_APPWINDOW;
 //#UC END# *48C7925A02E5_4F9000EA02E5_impl*
 end;//TMessageForm.CreateParams
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TMessageForm.DoShow;
 //#UC START# *4B321D1301DD_4F9000EA02E5_var*
 var
@@ -1266,11 +1215,11 @@ begin
  SetForegroundWindow(Handle);
 //#UC END# *4B321D1301DD_4F9000EA02E5_impl*
 end;//TMessageForm.DoShow
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 constructor TMessageForm.CreateNew(AOwner: TComponent;
-  Dummy: Integer = 0);
+ Dummy: Integer = 0);
 //#UC START# *4F9007B20376_4F9000EA02E5_var*
 //#UC END# *4F9007B20376_4F9000EA02E5_var*
 begin
@@ -1280,9 +1229,9 @@ begin
  ZoneType := vcm_ztModal;
 //#UC END# *4F9007B20376_4F9000EA02E5_impl*
 end;//TMessageForm.CreateNew
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TMessageForm.ShowModal: Integer;
 //#UC START# *520B42AF0115_4F9000EA02E5_var*
 //#UC END# *520B42AF0115_4F9000EA02E5_var*
@@ -1293,22 +1242,20 @@ begin
  Result := inherited ShowModal;
 //#UC END# *520B42AF0115_4F9000EA02E5_impl*
 end;//TMessageForm.ShowModal
-{$IfEnd} //not NoVCL
-{$IfEnd} //not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM) AND not defined(NoVGScene)}
-// Регистрация TvtEffectiveDialogButton
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtEffectiveDialogButton);
-{$IfEnd} //not NoScripts AND not NoVCM AND not NoVGScene
-{$If not defined(NoScripts) AND not defined(NoVCM) AND not defined(NoVGScene)}
-// Регистрация TMessageForm
+ {* Регистрация TvtEffectiveDialogButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TMessageForm);
-{$IfEnd} //not NoScripts AND not NoVCM AND not NoVGScene
-{$If not defined(NoVCM) AND not defined(NoVGScene)}
+ {* Регистрация TMessageForm }
+{$IfEnd} // NOT Defined(NoScripts)
 //#UC START# *4F9151EF00EF*
  l3FillChar(ButtonWidths, SizeOf(TButtonWidths));
 //#UC END# *4F9151EF00EF*
-{$IfEnd} //not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene)
 
 end.

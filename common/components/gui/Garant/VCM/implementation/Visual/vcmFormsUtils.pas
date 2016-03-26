@@ -1,34 +1,25 @@
 unit vcmFormsUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmFormsUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM$Visual::Visual::vcmFormsUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmFormsUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vcmFormsUtils" MUID: (511389AC0205)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3SimpleDataContainer,
-  vcmEntityForm,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3SimpleDataContainer
+ , vcmEntityForm
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
  _ItemType_ = TvcmEntityForm;
@@ -36,38 +27,46 @@ type
  {$Define l3Items_IsProto}
  {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  TvcmSlayedEntityFormsList = class(_l3ObjectPtrList_)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TvcmSlayedEntityFormsList;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvcmSlayedEntityFormsList }
  end;//TvcmSlayedEntityFormsList
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base {a},
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
-
-// start class TvcmSlayedEntityFormsList
-
-var g_TvcmSlayedEntityFormsList : TvcmSlayedEntityFormsList = nil;
+var g_TvcmSlayedEntityFormsList: TvcmSlayedEntityFormsList = nil;
+ {* Экземпляр синглетона TvcmSlayedEntityFormsList }
 
 procedure TvcmSlayedEntityFormsListFree;
+ {* Метод освобождения экземпляра синглетона TvcmSlayedEntityFormsList }
 begin
  l3Free(g_TvcmSlayedEntityFormsList);
-end;
+end;//TvcmSlayedEntityFormsListFree
+
+type _Instance_R_ = TvcmSlayedEntityFormsList;
+
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
+
+class function TvcmSlayedEntityFormsList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmSlayedEntityFormsList <> nil;
+end;//TvcmSlayedEntityFormsList.Exists
 
 class function TvcmSlayedEntityFormsList.Instance: TvcmSlayedEntityFormsList;
+ {* Метод получения экземпляра синглетона TvcmSlayedEntityFormsList }
 begin
  if (g_TvcmSlayedEntityFormsList = nil) then
  begin
@@ -75,20 +74,7 @@ begin
   g_TvcmSlayedEntityFormsList := Create;
  end;
  Result := g_TvcmSlayedEntityFormsList;
-end;
-
-
-type _Instance_R_ = TvcmSlayedEntityFormsList;
-
-{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
-
-// start class TvcmSlayedEntityFormsList
-
-class function TvcmSlayedEntityFormsList.Exists: Boolean;
- {-}
-begin
- Result := g_TvcmSlayedEntityFormsList <> nil;
-end;//TvcmSlayedEntityFormsList.Exists
-{$IfEnd} //not NoVCM
+end;//TvcmSlayedEntityFormsList.Instance
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

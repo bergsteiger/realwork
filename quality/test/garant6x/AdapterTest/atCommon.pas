@@ -1,38 +1,28 @@
 unit atCommon;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/atCommon.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> garant6x_test::AdapterTest::Common::atCommon
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\atCommon.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "atCommon" MUID: (48172C290190)
 
 interface
 
 uses
-  ActiveX
-  ;
+ l3IntfUses
+ , ActiveX
+;
 
 function GetRandomStr(const strLength: Integer): AnsiString;
 function GetTimeStamp: AnsiString;
 function Less(anItem1: Pointer;
-  anItem2: Pointer): Integer;
+ anItem2: Pointer): Integer;
 function ReadStream(const aStream: IStream): Integer;
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// unit methods
+ l3ImplUses
+ , SysUtils
+;
 
 function GetRandomStr(const strLength: Integer): AnsiString;
 //#UC START# *48172C380180_48172C290190_var*
@@ -60,7 +50,7 @@ begin
 end;//GetTimeStamp
 
 function Less(anItem1: Pointer;
-  anItem2: Pointer): Integer;
+ anItem2: Pointer): Integer;
 //#UC START# *4B75913601D9_48172C290190_var*
 //#UC END# *4B75913601D9_48172C290190_var*
 begin

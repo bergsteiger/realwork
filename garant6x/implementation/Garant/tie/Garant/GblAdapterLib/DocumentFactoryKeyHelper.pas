@@ -1,58 +1,49 @@
 unit DocumentFactoryKeyHelper;
+ {* Получение ключа мультифабрики по серверному документу или PID }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/DocumentFactoryKeyHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> garant6x::GblAdapterLib::DocumentHelper::DocumentFactoryKeyHelper
-//
-// Получение ключа мультифабрики по серверному документу или PID
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DocumentFactoryKeyHelper.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "DocumentFactoryKeyHelper" MUID: (47ED11E002A7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DocumentUnit
-  ;
+ l3IntfUses
+ , DocumentUnit
+;
 
-function ServerDocumentToKey(document): TFactoryKey;
-   {* По серверному документу }
-function PIDToKey(pid): TFactoryKey;
-   {* По PID'у }
+function server_document_to_key(const document): TFactoryKey;
+ {* По серверному документу }
+function PID_to_key(const pid): TFactoryKey;
+ {* По PID'у }
 
 implementation
 
 uses
-  ApplicationHelper
-  ;
+ l3ImplUses
+ , ApplicationHelper
+;
 
-// unit methods
-
-function ServerDocumentToKey(document): TFactoryKey;
+function server_document_to_key(const document): TFactoryKey;
+ {* По серверному документу }
 //#UC START# *47ED12200202_47ED11E002A7_var*
 //#UC END# *47ED12200202_47ED11E002A7_var*
 begin
 //#UC START# *47ED12200202_47ED11E002A7_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47ED12200202_47ED11E002A7_impl*
-end;//ServerDocumentToKey
+end;//server_document_to_key
 
-function PIDToKey(pid): TFactoryKey;
+function PID_to_key(const pid): TFactoryKey;
+ {* По PID'у }
 //#UC START# *47ED1269019D_47ED11E002A7_var*
 //#UC END# *47ED1269019D_47ED11E002A7_var*
 begin
 //#UC START# *47ED1269019D_47ED11E002A7_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47ED1269019D_47ED11E002A7_impl*
-end;//PIDToKey
+end;//PID_to_key
 
 end.

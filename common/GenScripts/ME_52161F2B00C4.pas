@@ -1954,7 +1954,7 @@ procedure TddBaseConfigItem.ClearFields;
 begin
  Alias := '';
  Caption := '';
- Finalize(DefaultValue);
+ Finalize(f_DefaultValue);
  inherited;
 end;//TddBaseConfigItem.ClearFields
 
@@ -2004,7 +2004,7 @@ end;//TMapValue.Create
 
 procedure TMapValue.ClearFields;
 begin
- Finalize(Value);
+ Finalize(f_Value);
  Caption := '';
  inherited;
 end;//TMapValue.ClearFields

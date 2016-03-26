@@ -1,75 +1,57 @@
 unit vtPngImgList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$ImgList"
-// Модуль: "w:/common/components/gui/Garant/VT/vtPngImgList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VT$ImgList::vtImgLists::vtPngImgList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtPngImgList.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vtPngImgList" MUID: (4ACB4A41034D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3InternalInterfaces,
-  l3Core,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoImageEn)}
-  ,
-  hyieutils
-  {$IfEnd} //not NoImageEn
-  ,
-  vtInterfaces,
-  vtPngImgListUtils,
-  l3PrinterInterfaces,
-  Classes,
-  Graphics,
-  Types
-  ;
+ l3IntfUses
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtInterfaces
+ , vtPngImgListUtils
+ {$If NOT Defined(NoImageEn)}
+ , hyieutils
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , l3InternalInterfaces
+ , l3PrinterInterfaces
+ , l3Core
+ , Graphics
+ , Classes
+ , Types
+;
 
 type
-//#UC START# *4ACB4A5201FCci*
-//#UC END# *4ACB4A5201FCci*
-//#UC START# *4ACB4A5201FCcit*
-//#UC END# *4ACB4A5201FCcit*
+ //#UC START# *4ACB4A5201FCci*
+ //#UC END# *4ACB4A5201FCci*
+ //#UC START# *4ACB4A5201FCcit*
+ //#UC END# *4ACB4A5201FCcit*
  TvtNonFixedPngImageListPrim = class(TCustomImageList, IvtFlashImageList)
- private
- // private fields
-   f_Glyph : TaBPPGlyphs;
-   f_OldHeight : Integer;
-   f_OldWidth : Integer;
-   f_NeedPrepareAlphaDrawCache : Boolean;
-   f_Rebuilding : Boolean;
-   f_DrawCache : TBitmap;
-   f_AlphaDrawCache : TBitmap;
-   f_Count : Integer;
-    {* Поле для свойства Count}
-   f_CurBPP : TvtPILBpp;
-    {* Поле для свойства CurBPP}
- private
- // private methods
+  private
+   f_Glyph: TaBPPGlyphs;
+   f_OldHeight: Integer;
+   f_OldWidth: Integer;
+   f_NeedPrepareAlphaDrawCache: Boolean;
+   f_Rebuilding: Boolean;
+   f_DrawCache: TBitmap;
+   f_AlphaDrawCache: TBitmap;
+   f_Count: Integer;
+    {* Поле для свойства Count }
+   f_CurBPP: TvtPILBpp;
+    {* Поле для свойства CurBPP }
+  private
    procedure CalcCount;
    procedure ResizeAll(aCount: Integer);
    function CanAlphaDraw(aBpp: TvtPILBpp): Boolean;
    procedure ClearAlphaDrawCache;
- protected
- // property methods
+  protected
    procedure pm_SetCurBPP(aValue: TvtPILBpp);
- protected
- // realized methods
    procedure Draw(Canvas: TCanvas;
     X: Integer;
     Y: Integer;
@@ -77,82 +59,75 @@ type
     Enabled: Boolean = True;
     HalfTransparent: Boolean = True);
    procedure SaveImageToStream(aStream: TStream;
-     aIndex: TImageIndex;
-     aBpp: TvtPILBpp);
- protected
- // overridden protected methods
-    {$If not defined(NoVCL)}
+    aIndex: TImageIndex;
+    aBpp: TvtPILBpp);
+   {$If NOT Defined(NoVCL)}
    procedure Change; override;
-     {* Сигнатура метода Change }
-    {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure DefineProperties(Filer: TFiler); override;
-    {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure ReadData(Stream: TStream); override;
-    {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure WriteData(Stream: TStream); override;
-    {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure WriteState(Writer: TWriter); override;
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
-   destructor Destroy; override;
-    {$If not defined(NoVCL)}
-   procedure DoDraw(Index: Integer;
-     Canvas: TCanvas;
-     X: Integer;
-     Y: Integer;
-     Style: Cardinal;
-     Enabled: Boolean); override;
-    {$IfEnd} //not NoVCL
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCL) AND not defined(XE)}
-   function ImageExtent(anIndex: Integer): TPoint; override;
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCL AND not XE
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCL) AND not defined(XE)}
-   function IsSmart: Boolean; override;
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCL AND not XE
- public
- // public methods
+  public
    procedure ClearCache;
    function AddItem: Integer;
    procedure Delete(aIndex: Integer);
    procedure AddImage(Index: Integer;
-     Bpp: TvtPILBpp;
-     Image: TIEBitmap);
+    Bpp: TvtPILBpp;
+    Image: TIEBitmap);
    procedure GetImage(Index: Integer;
-     Bpp: TvtPILBpp;
-     Image: TIEBitmap);
+    Bpp: TvtPILBpp;
+    Image: TIEBitmap);
    procedure Clear;
    procedure DrawGlyphSpecified(Index: Integer;
-     const Canvas: Il3Canvas;
-     Bpp: TvtPILBpp;
-     X: Integer;
-     Y: Integer;
-     Enabled: Boolean); overload; 
+    const Canvas: Il3Canvas;
+    Bpp: TvtPILBpp;
+    X: Integer;
+    Y: Integer;
+    Enabled: Boolean); overload;
    procedure DrawGlyphSpecified(Index: Integer;
-     Canvas: TCanvas;
-     Bpp: TvtPILBpp;
-     X: Integer;
-     Y: Integer;
-     Enabled: Boolean;
-     HalfTransparent: Boolean = False); overload; 
+    Canvas: TCanvas;
+    Bpp: TvtPILBpp;
+    X: Integer;
+    Y: Integer;
+    Enabled: Boolean;
+    HalfTransparent: Boolean = False); overload;
    procedure SaveImage(const aFilename: AnsiString;
-     aIndex: Integer;
-     aBpp: TvtPILBpp);
+    aIndex: Integer;
+    aBpp: TvtPILBpp);
    procedure Exchange(Index1: Integer;
-     Index2: Integer);
-    {$If defined(DesignTimeLibrary)}
+    Index2: Integer);
+   {$If Defined(DesignTimeLibrary)}
    function ImageExtent(anIndex: Integer): TPoint;
-    {$IfEnd} //DesignTimeLibrary
- public
- // public properties
+   {$IfEnd} // Defined(DesignTimeLibrary)
+   constructor Create(AOwner: TComponent); override;
+   destructor Destroy; override;
+   {$If NOT Defined(NoVCL)}
+   procedure DoDraw(Index: Integer;
+    Canvas: TCanvas;
+    X: Integer;
+    Y: Integer;
+    Style: Cardinal;
+    Enabled: Boolean); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)}
+   function ImageExtent(anIndex: Integer): TPoint; override;
+   {$IfEnd} // NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)
+   {$If NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)}
+   function IsSmart: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)
+  public
    property Count: Integer
-     read f_Count;
+    read f_Count;
    property CurBPP: TvtPILBpp
-     read f_CurBPP
-     write pm_SetCurBPP;
-     {* default bpp24 }
-//#UC START# *4ACB4A5201FCpubl*
+    read f_CurBPP
+    write pm_SetCurBPP;
+    {* default bpp24 }
+ //#UC START# *4ACB4A5201FCpubl*
   {$IFDEF DesignTimeLibrary}
   procedure RebuildForDesignTime;
   {$ENDIF}
@@ -162,7 +137,7 @@ type
    function GetCount: Integer; override;
    {$EndIf}
    {$endif}
-//#UC END# *4ACB4A5201FCpubl*
+ //#UC END# *4ACB4A5201FCpubl*
  end;//TvtNonFixedPngImageListPrim
 
  TvtBPPGlyphs = array [TvtPILBpp] of TIEBitmap;
@@ -173,42 +148,37 @@ type
 
  TvtPILSizeBoolArray = array [TvtPILSize] of Boolean;
 
-//#UC START# *4FD0A98C01BDci*
-//#UC END# *4FD0A98C01BDci*
-//#UC START# *4FD0A98C01BDcit*
-//#UC END# *4FD0A98C01BDcit*
+ //#UC START# *4FD0A98C01BDci*
+ //#UC END# *4FD0A98C01BDci*
+ //#UC START# *4FD0A98C01BDcit*
+ //#UC END# *4FD0A98C01BDcit*
  TvtPngImageListPrim = class(TCustomImageList, IvtFlashImageList)
- private
- // private fields
-   f_ChangeOn : Boolean;
-   f_Glyph : TvtSizeBPPGlyphs;
-   f_DrawCache : TvtPILSizeBitmapArray;
-   f_AlphaDrawCache : TvtPILSizeBitmapArray;
-   f_NeedPrepareAlphaDrawCache : TvtPILSizeBoolArray;
-   f_Rebuilding : Boolean;
-   f_AvailableSizes : TvtPILSizes;
-    {* Поле для свойства AvailableSizes}
-   f_Count : Integer;
-    {* Поле для свойства Count}
-   f_CurBPP : TvtPILBpp;
-    {* Поле для свойства CurBPP}
-   f_CurSize : TvtPILSize;
-    {* Поле для свойства CurSize}
- private
- // private methods
+  private
+   f_ChangeOn: Boolean;
+   f_Glyph: TvtSizeBPPGlyphs;
+   f_DrawCache: TvtPILSizeBitmapArray;
+   f_AlphaDrawCache: TvtPILSizeBitmapArray;
+   f_NeedPrepareAlphaDrawCache: TvtPILSizeBoolArray;
+   f_Rebuilding: Boolean;
+   f_AvailableSizes: TvtPILSizes;
+    {* Поле для свойства AvailableSizes }
+   f_Count: Integer;
+    {* Поле для свойства Count }
+   f_CurBPP: TvtPILBpp;
+    {* Поле для свойства CurBPP }
+   f_CurSize: TvtPILSize;
+    {* Поле для свойства CurSize }
+  private
    procedure CalcCount(UseNewSizes: Boolean = True);
    procedure ResizeAll(aCount: Integer);
    function CanAlphaDraw(aBpp: TvtPILBpp;
-     aSize: TvtPILSize): Boolean;
+    aSize: TvtPILSize): Boolean;
    procedure ClearAlphaDrawCache;
- protected
- // property methods
+  protected
    procedure pm_SetAvailableSizes(aValue: TvtPILSizes); virtual;
    function pm_GetCount: Integer; virtual;
    procedure pm_SetCurBPP(aValue: TvtPILBpp);
    procedure pm_SetCurSize(aValue: TvtPILSize);
- protected
- // realized methods
    procedure Draw(Canvas: TCanvas;
     X: Integer;
     Y: Integer;
@@ -216,91 +186,84 @@ type
     Enabled: Boolean = True;
     HalfTransparent: Boolean = True);
    procedure SaveImageToStream(aStream: TStream;
-     aIndex: TImageIndex;
-     aBpp: TvtPILBpp);
- protected
- // overridden protected methods
-    {$If not defined(NoVCL)}
+    aIndex: TImageIndex;
+    aBpp: TvtPILBpp);
+   {$If NOT Defined(NoVCL)}
    procedure Change; override;
-     {* Сигнатура метода Change }
-    {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure DefineProperties(Filer: TFiler); override;
-    {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure ReadData(Stream: TStream); override;
-    {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure WriteData(Stream: TStream); override;
-    {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure WriteState(Writer: TWriter); override;
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
-   destructor Destroy; override;
-    {$If not defined(NoVCL)}
-   procedure DoDraw(Index: Integer;
-     Canvas: TCanvas;
-     X: Integer;
-     Y: Integer;
-     Style: Cardinal;
-     Enabled: Boolean); override;
-    {$IfEnd} //not NoVCL
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCL) AND not defined(XE)}
-   function ImageExtent(anIndex: Integer): TPoint; override;
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCL AND not XE
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCL) AND not defined(XE)}
-   function IsSmart: Boolean; override;
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCL AND not XE
- public
- // public methods
+  public
    procedure ClearCache;
    function AddItem: Integer;
    procedure Delete(aIndex: Integer);
    procedure AddImage(Index: Integer;
-     Size: TvtPILSize;
-     Bpp: TvtPILBpp;
-     Image: TIEBitmap);
+    Size: TvtPILSize;
+    Bpp: TvtPILBpp;
+    Image: TIEBitmap);
    procedure DrawGlyphSpecified(Index: Integer;
-     const Canvas: Il3Canvas;
-     Size: TvtPILSize;
-     Bpp: TvtPILBpp;
-     X: Integer;
-     Y: Integer;
-     Enabled: Boolean); overload; 
+    const Canvas: Il3Canvas;
+    Size: TvtPILSize;
+    Bpp: TvtPILBpp;
+    X: Integer;
+    Y: Integer;
+    Enabled: Boolean); overload;
    procedure Exchange(Index1: Integer;
-     Index2: Integer);
-   procedure RepairSizes;
+    Index2: Integer);
+   procedure _RepairSizes;
    procedure Clear;
    procedure CopySizeToSize(aSizeFrom: TvtPILSize;
-     aSizeTo: TvtPILSize);
+    aSizeTo: TvtPILSize);
    procedure SaveImage(const aFilename: AnsiString;
-     aIndex: Integer;
-     aSize: TvtPILSize;
-     aBpp: TvtPILBpp);
+    aIndex: Integer;
+    aSize: TvtPILSize;
+    aBpp: TvtPILBpp);
    procedure DrawGlyphSpecified(Index: Integer;
-     Canvas: TCanvas;
-     Size: TvtPILSize;
-     Bpp: TvtPILBpp;
-     X: Integer;
-     Y: Integer;
-     Enabled: Boolean;
-     HalfTransparent: Boolean = False); overload; 
-    {$If defined(DesignTimeLibrary)}
+    Canvas: TCanvas;
+    Size: TvtPILSize;
+    Bpp: TvtPILBpp;
+    X: Integer;
+    Y: Integer;
+    Enabled: Boolean;
+    HalfTransparent: Boolean = False); overload;
+   {$If Defined(DesignTimeLibrary)}
    function ImageExtent(anIndex: Integer): TPoint;
-    {$IfEnd} //DesignTimeLibrary
- public
- // public properties
+   {$IfEnd} // Defined(DesignTimeLibrary)
+   constructor Create(AOwner: TComponent); override;
+   destructor Destroy; override;
+   {$If NOT Defined(NoVCL)}
+   procedure DoDraw(Index: Integer;
+    Canvas: TCanvas;
+    X: Integer;
+    Y: Integer;
+    Style: Cardinal;
+    Enabled: Boolean); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)}
+   function ImageExtent(anIndex: Integer): TPoint; override;
+   {$IfEnd} // NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)
+   {$If NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)}
+   function IsSmart: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)
+  public
    property AvailableSizes: TvtPILSizes
-     read f_AvailableSizes
-     write pm_SetAvailableSizes;
+    read f_AvailableSizes
+    write pm_SetAvailableSizes;
    property Count: Integer
-     read pm_GetCount;
+    read pm_GetCount;
    property CurBPP: TvtPILBpp
-     read f_CurBPP
-     write pm_SetCurBPP;
+    read f_CurBPP
+    write pm_SetCurBPP;
    property CurSize: TvtPILSize
-     read f_CurSize
-     write pm_SetCurSize;
-//#UC START# *4FD0A98C01BDpubl*
+    read f_CurSize
+    write pm_SetCurSize;
+ //#UC START# *4FD0A98C01BDpubl*
   {$IFDEF DesignTimeLibrary}
   procedure RebuildForDesignTime;
   {$ENDIF}
@@ -310,31 +273,26 @@ type
    function GetCount: Integer; override;
    {$EndIf}
    {$endif}
-//#UC END# *4FD0A98C01BDpubl*
+ //#UC END# *4FD0A98C01BDpubl*
  end;//TvtPngImageListPrim
 
-//#UC START# *4FD0BFBC00F9ci*
-//#UC END# *4FD0BFBC00F9ci*
-//#UC START# *4FD0BFBC00F9cit*
-//#UC END# *4FD0BFBC00F9cit*
+ //#UC START# *4FD0BFBC00F9ci*
+ //#UC END# *4FD0BFBC00F9ci*
+ //#UC START# *4FD0BFBC00F9cit*
+ //#UC END# *4FD0BFBC00F9cit*
  TvtFixedSizeProxyPngImageListPrim = class(TCustomImageList, IvtFlashImageList)
- private
- // private fields
-   f_ImageChangeLink : TChangeLink;
-   f_FixedSize : TvtPILSize;
-    {* Поле для свойства FixedSize}
-   f_OriginalImgList : TvtPngImageListPrim;
-    {* Поле для свойства OriginalImgList}
- private
- // private methods
+  private
+   f_ImageChangeLink: TChangeLink;
+   f_FixedSize: TvtPILSize;
+    {* Поле для свойства FixedSize }
+   f_OriginalImgList: TvtPngImageListPrim;
+    {* Поле для свойства OriginalImgList }
+  private
    procedure ImageListChange(Sender: TObject);
- protected
- // property methods
+  protected
    procedure pm_SetFixedSize(aValue: TvtPILSize);
    procedure pm_SetOriginalImgList(aValue: TvtPngImageListPrim);
    function pm_GetCount: Integer; virtual;
- protected
- // realized methods
    procedure Draw(Canvas: TCanvas;
     X: Integer;
     Y: Integer;
@@ -342,79 +300,77 @@ type
     Enabled: Boolean = True;
     HalfTransparent: Boolean = True);
    procedure SaveImageToStream(aStream: TStream;
-     aIndex: TImageIndex;
-     aBpp: TvtPILBpp);
- public
- // overridden public methods
+    aIndex: TImageIndex;
+    aBpp: TvtPILBpp);
+  public
    constructor Create(AOwner: TComponent); override;
    destructor Destroy; override;
-    {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure DoDraw(Index: Integer;
-     Canvas: TCanvas;
-     X: Integer;
-     Y: Integer;
-     Style: Cardinal;
-     Enabled: Boolean); override;
-    {$IfEnd} //not NoVCL
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCL) AND not defined(XE)}
+    Canvas: TCanvas;
+    X: Integer;
+    Y: Integer;
+    Style: Cardinal;
+    Enabled: Boolean); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)}
    function IsSmart: Boolean; override;
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCL AND not XE
- public
- // public properties
+   {$IfEnd} // NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)
+  public
    property FixedSize: TvtPILSize
-     read f_FixedSize
-     write pm_SetFixedSize;
+    read f_FixedSize
+    write pm_SetFixedSize;
    property OriginalImgList: TvtPngImageListPrim
-     read f_OriginalImgList
-     write pm_SetOriginalImgList;
+    read f_OriginalImgList
+    write pm_SetOriginalImgList;
    property Count: Integer
-     read pm_GetCount;
-//#UC START# *4FD0BFBC00F9publ*
+    read pm_GetCount;
+ //#UC START# *4FD0BFBC00F9publ*
    {$ifndef DesignTimeLibrary}
    {$IfNDef XE}
   protected
    function GetCount: Integer; override;
    {$EndIf}
    {$endif}
-//#UC END# *4FD0BFBC00F9publ*
+ //#UC END# *4FD0BFBC00F9publ*
  end;//TvtFixedSizeProxyPngImageListPrim
 
-//#UC START# *4FD224430014ci*
-//#UC END# *4FD224430014ci*
-//#UC START# *4FD224430014cit*
-//#UC END# *4FD224430014cit*
+ //#UC START# *4FD224430014ci*
+ //#UC END# *4FD224430014ci*
+ //#UC START# *4FD224430014cit*
+ //#UC END# *4FD224430014cit*
  TvtNonFixedPngImageList = class(TvtNonFixedPngImageListPrim)
-//#UC START# *4FD224430014publ*
+ //#UC START# *4FD224430014publ*
  published
   property CurBpp;
   property Width;
   property Height;
-//#UC END# *4FD224430014publ*
+ //#UC END# *4FD224430014publ*
  end;//TvtNonFixedPngImageList
 
-//#UC START# *4FD2246B017Bci*
-//#UC END# *4FD2246B017Bci*
-//#UC START# *4FD2246B017Bcit*
-//#UC END# *4FD2246B017Bcit*
+ //#UC START# *4FD2246B017Bci*
+ //#UC END# *4FD2246B017Bci*
+ //#UC START# *4FD2246B017Bcit*
+ //#UC END# *4FD2246B017Bcit*
  TvtPngImageList = class(TvtPngImageListPrim)
-//#UC START# *4FD2246B017Bpubl*
+ //#UC START# *4FD2246B017Bpubl*
  published
   property AvailableSizes;
   property CurBpp;
   property CurSize;
-//#UC END# *4FD2246B017Bpubl*
+ //#UC END# *4FD2246B017Bpubl*
  end;//TvtPngImageList
 
-//#UC START# *4FD2248F001Bci*
-//#UC END# *4FD2248F001Bci*
-//#UC START# *4FD2248F001Bcit*
-//#UC END# *4FD2248F001Bcit*
+ //#UC START# *4FD2248F001Bci*
+ //#UC END# *4FD2248F001Bci*
+ //#UC START# *4FD2248F001Bcit*
+ //#UC END# *4FD2248F001Bcit*
  TvtFixedSizeProxyPngImageList = class(TvtFixedSizeProxyPngImageListPrim)
-//#UC START# *4FD2248F001Bpubl*
+ //#UC START# *4FD2248F001Bpubl*
  published
   property FixedSize;
   property OriginalImgList;
-//#UC END# *4FD2248F001Bpubl*
+ //#UC END# *4FD2248F001Bpubl*
  end;//TvtFixedSizeProxyPngImageList
 
  TBitmap = vtPngImgListUtils.TBitmap;
@@ -422,25 +378,33 @@ type
 implementation
 
 uses
-  l3Bitmap,
-  l3Base
-  {$If not defined(NoImageEn)}
-  ,
-  hyiedefs
-  {$IfEnd} //not NoImageEn
-  
-  {$If not defined(NoImageEn)}
-  ,
-  imageenio
-  {$IfEnd} //not NoImageEn
-  ,
-  l3ObjectList,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3Bitmap
+ , l3Base
+ {$If NOT Defined(NoImageEn)}
+ , hyiedefs
+ {$IfEnd} // NOT Defined(NoImageEn)
+ {$If NOT Defined(NoImageEn)}
+ , imageenio
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , l3ObjectList
+ , SysUtils
+;
 
-var g_BlendOp : TBlendFunction = (BlendOp: AC_SRC_OVER; BlendFlags: 0; SourceConstantAlpha: cFullAlpha; AlphaFormat: AC_SRC_ALPHA);
+var g_BlendOp: TBlendFunction = (BlendOp: AC_SRC_OVER; BlendFlags: 0; SourceConstantAlpha: cFullAlpha; AlphaFormat: AC_SRC_ALPHA);
 
-// start class TvtNonFixedPngImageListPrim
+procedure TvtNonFixedPngImageListPrim.pm_SetCurBPP(aValue: TvtPILBpp);
+//#UC START# *4FD089B50350_4ACB4A5201FCset_var*
+//#UC END# *4FD089B50350_4ACB4A5201FCset_var*
+begin
+//#UC START# *4FD089B50350_4ACB4A5201FCset_impl*
+ if f_CurBpp <> aValue then
+ begin
+  f_CurBpp := aValue;
+  Change;
+ end;
+//#UC END# *4FD089B50350_4ACB4A5201FCset_impl*
+end;//TvtNonFixedPngImageListPrim.pm_SetCurBPP
 
 procedure TvtNonFixedPngImageListPrim.CalcCount;
 //#UC START# *4FD08DA20340_4ACB4A5201FC_var*
@@ -557,8 +521,8 @@ begin
 end;//TvtNonFixedPngImageListPrim.Delete
 
 procedure TvtNonFixedPngImageListPrim.AddImage(Index: Integer;
-  Bpp: TvtPILBpp;
-  Image: TIEBitmap);
+ Bpp: TvtPILBpp;
+ Image: TIEBitmap);
 //#UC START# *4FD0947D03BE_4ACB4A5201FC_var*
 var
  lShiftY: Integer;
@@ -579,8 +543,8 @@ begin
 end;//TvtNonFixedPngImageListPrim.AddImage
 
 procedure TvtNonFixedPngImageListPrim.GetImage(Index: Integer;
-  Bpp: TvtPILBpp;
-  Image: TIEBitmap);
+ Bpp: TvtPILBpp;
+ Image: TIEBitmap);
 //#UC START# *4FD094A5039B_4ACB4A5201FC_var*
 //#UC END# *4FD094A5039B_4ACB4A5201FC_var*
 begin
@@ -609,11 +573,11 @@ begin
 end;//TvtNonFixedPngImageListPrim.Clear
 
 procedure TvtNonFixedPngImageListPrim.DrawGlyphSpecified(Index: Integer;
-  const Canvas: Il3Canvas;
-  Bpp: TvtPILBpp;
-  X: Integer;
-  Y: Integer;
-  Enabled: Boolean);
+ const Canvas: Il3Canvas;
+ Bpp: TvtPILBpp;
+ X: Integer;
+ Y: Integer;
+ Enabled: Boolean);
 //#UC START# *4FD094DB01A3_4ACB4A5201FC_var*
 //#UC END# *4FD094DB01A3_4ACB4A5201FC_var*
 begin
@@ -623,12 +587,12 @@ begin
 end;//TvtNonFixedPngImageListPrim.DrawGlyphSpecified
 
 procedure TvtNonFixedPngImageListPrim.DrawGlyphSpecified(Index: Integer;
-  Canvas: TCanvas;
-  Bpp: TvtPILBpp;
-  X: Integer;
-  Y: Integer;
-  Enabled: Boolean;
-  HalfTransparent: Boolean = False);
+ Canvas: TCanvas;
+ Bpp: TvtPILBpp;
+ X: Integer;
+ Y: Integer;
+ Enabled: Boolean;
+ HalfTransparent: Boolean = False);
 //#UC START# *4FD095010268_4ACB4A5201FC_var*
 var
  lAlpha: Byte;
@@ -697,8 +661,8 @@ begin
 end;//TvtNonFixedPngImageListPrim.DrawGlyphSpecified
 
 procedure TvtNonFixedPngImageListPrim.SaveImage(const aFilename: AnsiString;
-  aIndex: Integer;
-  aBpp: TvtPILBpp);
+ aIndex: Integer;
+ aBpp: TvtPILBpp);
 //#UC START# *4FD0969703D3_4ACB4A5201FC_var*
 var
  l_Img: TIEBitmap;
@@ -735,7 +699,7 @@ begin
 end;//TvtNonFixedPngImageListPrim.SaveImage
 
 procedure TvtNonFixedPngImageListPrim.Exchange(Index1: Integer;
-  Index2: Integer);
+ Index2: Integer);
 //#UC START# *4FD0A70C03C5_4ACB4A5201FC_var*
 var
  lBpp: TvtPILBpp;
@@ -765,7 +729,7 @@ begin
 //#UC END# *4FD0A70C03C5_4ACB4A5201FC_impl*
 end;//TvtNonFixedPngImageListPrim.Exchange
 
-{$If defined(DesignTimeLibrary)}
+{$If Defined(DesignTimeLibrary)}
 function TvtNonFixedPngImageListPrim.ImageExtent(anIndex: Integer): TPoint;
 //#UC START# *5025442B0365_4ACB4A5201FC_var*
 //#UC END# *5025442B0365_4ACB4A5201FC_var*
@@ -775,27 +739,14 @@ begin
  Result.Y := Height;
 //#UC END# *5025442B0365_4ACB4A5201FC_impl*
 end;//TvtNonFixedPngImageListPrim.ImageExtent
-{$IfEnd} //DesignTimeLibrary
-
-procedure TvtNonFixedPngImageListPrim.pm_SetCurBPP(aValue: TvtPILBpp);
-//#UC START# *4FD089B50350_4ACB4A5201FCset_var*
-//#UC END# *4FD089B50350_4ACB4A5201FCset_var*
-begin
-//#UC START# *4FD089B50350_4ACB4A5201FCset_impl*
- if f_CurBpp <> aValue then
- begin
-  f_CurBpp := aValue;
-  Change;
- end;
-//#UC END# *4FD089B50350_4ACB4A5201FCset_impl*
-end;//TvtNonFixedPngImageListPrim.pm_SetCurBPP
+{$IfEnd} // Defined(DesignTimeLibrary)
 
 procedure TvtNonFixedPngImageListPrim.Draw(Canvas: TCanvas;
-  X: Integer;
-  Y: Integer;
-  Index: TImageIndex;
-  Enabled: Boolean = True;
-  HalfTransparent: Boolean = True);
+ X: Integer;
+ Y: Integer;
+ Index: TImageIndex;
+ Enabled: Boolean = True;
+ HalfTransparent: Boolean = True);
 //#UC START# *4F950C6D03BE_4ACB4A5201FC_var*
 //#UC END# *4F950C6D03BE_4ACB4A5201FC_var*
 begin
@@ -807,8 +758,8 @@ begin
 end;//TvtNonFixedPngImageListPrim.Draw
 
 procedure TvtNonFixedPngImageListPrim.SaveImageToStream(aStream: TStream;
-  aIndex: TImageIndex;
-  aBpp: TvtPILBpp);
+ aIndex: TImageIndex;
+ aBpp: TvtPILBpp);
 //#UC START# *53282D3E0350_4ACB4A5201FC_var*
 var
  l_Img: TIEBitmap;
@@ -898,7 +849,7 @@ begin
 //#UC END# *48077504027E_4ACB4A5201FC_impl*
 end;//TvtNonFixedPngImageListPrim.Destroy
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtNonFixedPngImageListPrim.Change;
 //#UC START# *4FD08E8503DC_4ACB4A5201FC_var*
 //#UC END# *4FD08E8503DC_4ACB4A5201FC_var*
@@ -915,7 +866,7 @@ begin
  ClearAlphaDrawCache;
 //#UC END# *4FD08E8503DC_4ACB4A5201FC_impl*
 end;//TvtNonFixedPngImageListPrim.Change
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TvtNonFixedPngImageListPrim.DefineProperties(Filer: TFiler);
 //#UC START# *4FD08EF002D0_4ACB4A5201FC_var*
@@ -935,7 +886,7 @@ begin
 //#UC END# *4FD08EF002D0_4ACB4A5201FC_impl*
 end;//TvtNonFixedPngImageListPrim.DefineProperties
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtNonFixedPngImageListPrim.ReadData(Stream: TStream);
 //#UC START# *4FD08F7F01AD_4ACB4A5201FC_var*
 var
@@ -960,9 +911,9 @@ begin
  {$ENDIF}
 //#UC END# *4FD08F7F01AD_4ACB4A5201FC_impl*
 end;//TvtNonFixedPngImageListPrim.ReadData
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtNonFixedPngImageListPrim.WriteData(Stream: TStream);
 //#UC START# *4FD08FA7008C_4ACB4A5201FC_var*
 var
@@ -983,7 +934,7 @@ begin
  end;
 //#UC END# *4FD08FA7008C_4ACB4A5201FC_impl*
 end;//TvtNonFixedPngImageListPrim.WriteData
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TvtNonFixedPngImageListPrim.WriteState(Writer: TWriter);
 //#UC START# *4FD092040227_4ACB4A5201FC_var*
@@ -997,13 +948,13 @@ begin
 //#UC END# *4FD092040227_4ACB4A5201FC_impl*
 end;//TvtNonFixedPngImageListPrim.WriteState
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtNonFixedPngImageListPrim.DoDraw(Index: Integer;
-  Canvas: TCanvas;
-  X: Integer;
-  Y: Integer;
-  Style: Cardinal;
-  Enabled: Boolean);
+ Canvas: TCanvas;
+ X: Integer;
+ Y: Integer;
+ Style: Cardinal;
+ Enabled: Boolean);
 //#UC START# *4FD093CB025F_4ACB4A5201FC_var*
 //#UC END# *4FD093CB025F_4ACB4A5201FC_var*
 begin
@@ -1013,9 +964,9 @@ begin
  DrawGlyphSpecified(Index, Canvas, f_CurBpp, X, Y, Enabled);
 //#UC END# *4FD093CB025F_4ACB4A5201FC_impl*
 end;//TvtNonFixedPngImageListPrim.DoDraw
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCL) AND not defined(XE)}
+{$If NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)}
 function TvtNonFixedPngImageListPrim.ImageExtent(anIndex: Integer): TPoint;
 //#UC START# *4FD0944D0202_4ACB4A5201FC_var*
 //#UC END# *4FD0944D0202_4ACB4A5201FC_var*
@@ -1025,9 +976,9 @@ begin
  Result.Y := Height;
 //#UC END# *4FD0944D0202_4ACB4A5201FC_impl*
 end;//TvtNonFixedPngImageListPrim.ImageExtent
-{$IfEnd} //not DesignTimeLibrary AND not NoVCL AND not XE
+{$IfEnd} // NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCL) AND not defined(XE)}
+{$If NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)}
 function TvtNonFixedPngImageListPrim.IsSmart: Boolean;
 //#UC START# *4FD095D20217_4ACB4A5201FC_var*
 //#UC END# *4FD095D20217_4ACB4A5201FC_var*
@@ -1036,7 +987,7 @@ begin
  Result := True;
 //#UC END# *4FD095D20217_4ACB4A5201FC_impl*
 end;//TvtNonFixedPngImageListPrim.IsSmart
-{$IfEnd} //not DesignTimeLibrary AND not NoVCL AND not XE
+{$IfEnd} // NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)
 
 //#UC START# *4ACB4A5201FCimpl*
 {$ifndef DesignTimeLibrary}
@@ -1048,7 +999,89 @@ end;
 {$endif}
 {$endif}
 //#UC END# *4ACB4A5201FCimpl*
-// start class TvtPngImageListPrim
+
+procedure TvtPngImageListPrim.pm_SetAvailableSizes(aValue: TvtPILSizes);
+//#UC START# *4FD0A9FC01F1_4FD0A98C01BDset_var*
+var
+ lSize: TvtPILSize;
+
+ procedure TrimSize(aSize: TvtPILSize);
+ var
+  lBpp: TvtPILBpp;
+ begin
+  for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
+   f_Glyph[aSize, lBpp].Resize(1, 1, 0, 0, iehLeft, ievTop);
+ end;
+
+ procedure RebuildSize(aSize: TvtPILSize);
+ var
+  lBpp: TvtPILBpp;
+ begin
+  if f_Count = 0 then
+   Exit;
+  for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
+   f_Glyph[aSize, lBpp].Resize(f_Count*PILSize[aSize], PILSize[aSize], 0, 0, iehLeft, ievTop);
+ end;
+//#UC END# *4FD0A9FC01F1_4FD0A98C01BDset_var*
+begin
+//#UC START# *4FD0A9FC01F1_4FD0A98C01BDset_impl*
+ if f_AvailableSizes <> aValue then
+ begin
+  for lSize := Low(TvtPILSize) to High(TvtPILSize) do
+  begin
+   if (lSize in f_AvailableSizes) and not (lSize in aValue) then
+    TrimSize(lSize)
+   else
+    if not (lSize in f_AvailableSizes) and (lSize in aValue) then
+     RebuildSize(lSize);
+  end;
+  f_AvailableSizes := aValue;
+  Change;
+ end;
+//#UC END# *4FD0A9FC01F1_4FD0A98C01BDset_impl*
+end;//TvtPngImageListPrim.pm_SetAvailableSizes
+
+function TvtPngImageListPrim.pm_GetCount: Integer;
+//#UC START# *4FD0AA8C002B_4FD0A98C01BDget_var*
+//#UC END# *4FD0AA8C002B_4FD0A98C01BDget_var*
+begin
+//#UC START# *4FD0AA8C002B_4FD0A98C01BDget_impl*
+ Result := f_Count;
+//#UC END# *4FD0AA8C002B_4FD0A98C01BDget_impl*
+end;//TvtPngImageListPrim.pm_GetCount
+
+procedure TvtPngImageListPrim.pm_SetCurBPP(aValue: TvtPILBpp);
+//#UC START# *4FD0ACBB038A_4FD0A98C01BDset_var*
+//#UC END# *4FD0ACBB038A_4FD0A98C01BDset_var*
+begin
+//#UC START# *4FD0ACBB038A_4FD0A98C01BDset_impl*
+ if f_CurBpp <> aValue then
+ begin
+  f_CurBpp := aValue;
+  Change;
+ end;
+//#UC END# *4FD0ACBB038A_4FD0A98C01BDset_impl*
+end;//TvtPngImageListPrim.pm_SetCurBPP
+
+procedure TvtPngImageListPrim.pm_SetCurSize(aValue: TvtPILSize);
+//#UC START# *4FD0ACFD0363_4FD0A98C01BDset_var*
+//#UC END# *4FD0ACFD0363_4FD0A98C01BDset_var*
+begin
+//#UC START# *4FD0ACFD0363_4FD0A98C01BDset_impl*
+ if (f_CurSize <> aValue) and (aValue in f_AvailableSizes) then
+ begin
+  f_CurSize := aValue;
+  f_ChangeOn := False;
+  try
+   Width := PILSize[f_CurSize];
+   Height := PILSize[f_CurSize];
+  finally
+   f_ChangeOn := True;
+  end; {try..finally}
+  Change;
+ end;
+//#UC END# *4FD0ACFD0363_4FD0A98C01BDset_impl*
+end;//TvtPngImageListPrim.pm_SetCurSize
 
 procedure TvtPngImageListPrim.CalcCount(UseNewSizes: Boolean = True);
 //#UC START# *4FD0B13F0065_4FD0A98C01BD_var*
@@ -1095,7 +1128,7 @@ begin
 end;//TvtPngImageListPrim.ResizeAll
 
 function TvtPngImageListPrim.CanAlphaDraw(aBpp: TvtPILBpp;
-  aSize: TvtPILSize): Boolean;
+ aSize: TvtPILSize): Boolean;
 //#UC START# *4FD0B1FB01EA_4FD0A98C01BD_var*
 //#UC END# *4FD0B1FB01EA_4FD0A98C01BD_var*
 begin
@@ -1198,9 +1231,9 @@ begin
 end;//TvtPngImageListPrim.Delete
 
 procedure TvtPngImageListPrim.AddImage(Index: Integer;
-  Size: TvtPILSize;
-  Bpp: TvtPILBpp;
-  Image: TIEBitmap);
+ Size: TvtPILSize;
+ Bpp: TvtPILBpp;
+ Image: TIEBitmap);
 //#UC START# *4FD0B3500288_4FD0A98C01BD_var*
 var
  lShiftY: Integer;
@@ -1223,12 +1256,12 @@ begin
 end;//TvtPngImageListPrim.AddImage
 
 procedure TvtPngImageListPrim.DrawGlyphSpecified(Index: Integer;
-  const Canvas: Il3Canvas;
-  Size: TvtPILSize;
-  Bpp: TvtPILBpp;
-  X: Integer;
-  Y: Integer;
-  Enabled: Boolean);
+ const Canvas: Il3Canvas;
+ Size: TvtPILSize;
+ Bpp: TvtPILBpp;
+ X: Integer;
+ Y: Integer;
+ Enabled: Boolean);
 //#UC START# *4FD0B37801F0_4FD0A98C01BD_var*
 //#UC END# *4FD0B37801F0_4FD0A98C01BD_var*
 begin
@@ -1238,7 +1271,7 @@ begin
 end;//TvtPngImageListPrim.DrawGlyphSpecified
 
 procedure TvtPngImageListPrim.Exchange(Index1: Integer;
-  Index2: Integer);
+ Index2: Integer);
 //#UC START# *4FD0B43A020D_4FD0A98C01BD_var*
 var
  lBpp: TvtPILBpp;
@@ -1273,7 +1306,7 @@ begin
 //#UC END# *4FD0B43A020D_4FD0A98C01BD_impl*
 end;//TvtPngImageListPrim.Exchange
 
-procedure TvtPngImageListPrim.RepairSizes;
+procedure TvtPngImageListPrim._RepairSizes;
 //#UC START# *4FD0B4640341_4FD0A98C01BD_var*
 var
  I: Integer;
@@ -1316,7 +1349,7 @@ begin
  end;
  Change;
 //#UC END# *4FD0B4640341_4FD0A98C01BD_impl*
-end;//TvtPngImageListPrim.RepairSizes
+end;//TvtPngImageListPrim._RepairSizes
 
 procedure TvtPngImageListPrim.Clear;
 //#UC START# *4FD0B4D500C1_4FD0A98C01BD_var*
@@ -1332,7 +1365,7 @@ begin
 end;//TvtPngImageListPrim.Clear
 
 procedure TvtPngImageListPrim.CopySizeToSize(aSizeFrom: TvtPILSize;
-  aSizeTo: TvtPILSize);
+ aSizeTo: TvtPILSize);
 //#UC START# *4FD0B4EF00CE_4FD0A98C01BD_var*
 var
  lBpp: TvtPILBpp;
@@ -1354,9 +1387,9 @@ begin
 end;//TvtPngImageListPrim.CopySizeToSize
 
 procedure TvtPngImageListPrim.SaveImage(const aFilename: AnsiString;
-  aIndex: Integer;
-  aSize: TvtPILSize;
-  aBpp: TvtPILBpp);
+ aIndex: Integer;
+ aSize: TvtPILSize;
+ aBpp: TvtPILBpp);
 //#UC START# *4FD0B54000ED_4FD0A98C01BD_var*
 var
  l_Img: TIEBitmap;
@@ -1396,13 +1429,13 @@ begin
 end;//TvtPngImageListPrim.SaveImage
 
 procedure TvtPngImageListPrim.DrawGlyphSpecified(Index: Integer;
-  Canvas: TCanvas;
-  Size: TvtPILSize;
-  Bpp: TvtPILBpp;
-  X: Integer;
-  Y: Integer;
-  Enabled: Boolean;
-  HalfTransparent: Boolean = False);
+ Canvas: TCanvas;
+ Size: TvtPILSize;
+ Bpp: TvtPILBpp;
+ X: Integer;
+ Y: Integer;
+ Enabled: Boolean;
+ HalfTransparent: Boolean = False);
 //#UC START# *4FD0B8CB02B7_4FD0A98C01BD_var*
 var
  lAlpha: Byte;
@@ -1460,7 +1493,7 @@ begin
 //#UC END# *4FD0B8CB02B7_4FD0A98C01BD_impl*
 end;//TvtPngImageListPrim.DrawGlyphSpecified
 
-{$If defined(DesignTimeLibrary)}
+{$If Defined(DesignTimeLibrary)}
 function TvtPngImageListPrim.ImageExtent(anIndex: Integer): TPoint;
 //#UC START# *502543E60239_4FD0A98C01BD_var*
 //#UC END# *502543E60239_4FD0A98C01BD_var*
@@ -1470,97 +1503,14 @@ begin
  Result.Y := Height;
 //#UC END# *502543E60239_4FD0A98C01BD_impl*
 end;//TvtPngImageListPrim.ImageExtent
-{$IfEnd} //DesignTimeLibrary
-
-procedure TvtPngImageListPrim.pm_SetAvailableSizes(aValue: TvtPILSizes);
-//#UC START# *4FD0A9FC01F1_4FD0A98C01BDset_var*
-var
- lSize: TvtPILSize;
-
- procedure TrimSize(aSize: TvtPILSize);
- var
-  lBpp: TvtPILBpp;
- begin
-  for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
-   f_Glyph[aSize, lBpp].Resize(1, 1, 0, 0, iehLeft, ievTop);
- end;
-
- procedure RebuildSize(aSize: TvtPILSize);
- var
-  lBpp: TvtPILBpp;
- begin
-  if f_Count = 0 then
-   Exit;
-  for lBpp := Low(TvtPILBpp) to High(TvtPILBpp) do
-   f_Glyph[aSize, lBpp].Resize(f_Count*PILSize[aSize], PILSize[aSize], 0, 0, iehLeft, ievTop);
- end;
-//#UC END# *4FD0A9FC01F1_4FD0A98C01BDset_var*
-begin
-//#UC START# *4FD0A9FC01F1_4FD0A98C01BDset_impl*
- if f_AvailableSizes <> aValue then
- begin
-  for lSize := Low(TvtPILSize) to High(TvtPILSize) do
-  begin
-   if (lSize in f_AvailableSizes) and not (lSize in aValue) then
-    TrimSize(lSize)
-   else
-    if not (lSize in f_AvailableSizes) and (lSize in aValue) then
-     RebuildSize(lSize);
-  end;
-  f_AvailableSizes := aValue;
-  Change;
- end;
-//#UC END# *4FD0A9FC01F1_4FD0A98C01BDset_impl*
-end;//TvtPngImageListPrim.pm_SetAvailableSizes
-
-function TvtPngImageListPrim.pm_GetCount: Integer;
-//#UC START# *4FD0AA8C002B_4FD0A98C01BDget_var*
-//#UC END# *4FD0AA8C002B_4FD0A98C01BDget_var*
-begin
-//#UC START# *4FD0AA8C002B_4FD0A98C01BDget_impl*
- Result := f_Count;
-//#UC END# *4FD0AA8C002B_4FD0A98C01BDget_impl*
-end;//TvtPngImageListPrim.pm_GetCount
-
-procedure TvtPngImageListPrim.pm_SetCurBPP(aValue: TvtPILBpp);
-//#UC START# *4FD0ACBB038A_4FD0A98C01BDset_var*
-//#UC END# *4FD0ACBB038A_4FD0A98C01BDset_var*
-begin
-//#UC START# *4FD0ACBB038A_4FD0A98C01BDset_impl*
- if f_CurBpp <> aValue then
- begin
-  f_CurBpp := aValue;
-  Change;
- end;
-//#UC END# *4FD0ACBB038A_4FD0A98C01BDset_impl*
-end;//TvtPngImageListPrim.pm_SetCurBPP
-
-procedure TvtPngImageListPrim.pm_SetCurSize(aValue: TvtPILSize);
-//#UC START# *4FD0ACFD0363_4FD0A98C01BDset_var*
-//#UC END# *4FD0ACFD0363_4FD0A98C01BDset_var*
-begin
-//#UC START# *4FD0ACFD0363_4FD0A98C01BDset_impl*
- if (f_CurSize <> aValue) and (aValue in f_AvailableSizes) then
- begin
-  f_CurSize := aValue;
-  f_ChangeOn := False;
-  try
-   Width := PILSize[f_CurSize];
-   Height := PILSize[f_CurSize];
-  finally
-   f_ChangeOn := True;
-  end; {try..finally}
-  Change;
- end;
-//#UC END# *4FD0ACFD0363_4FD0A98C01BDset_impl*
-end;//TvtPngImageListPrim.pm_SetCurSize
+{$IfEnd} // Defined(DesignTimeLibrary)
 
 procedure TvtPngImageListPrim.Draw(Canvas: TCanvas;
-  X: Integer;
-  Y: Integer;
-  Index: TImageIndex;
-  Enabled: Boolean = True;
-  HalfTransparent: Boolean = True);
+ X: Integer;
+ Y: Integer;
+ Index: TImageIndex;
+ Enabled: Boolean = True;
+ HalfTransparent: Boolean = True);
 //#UC START# *4F950C6D03BE_4FD0A98C01BD_var*
 //#UC END# *4F950C6D03BE_4FD0A98C01BD_var*
 begin
@@ -1572,8 +1522,8 @@ begin
 end;//TvtPngImageListPrim.Draw
 
 procedure TvtPngImageListPrim.SaveImageToStream(aStream: TStream;
-  aIndex: TImageIndex;
-  aBpp: TvtPILBpp);
+ aIndex: TImageIndex;
+ aBpp: TvtPILBpp);
 //#UC START# *53282D3E0350_4FD0A98C01BD_var*
 //#UC END# *53282D3E0350_4FD0A98C01BD_var*
 begin
@@ -1642,7 +1592,7 @@ begin
 //#UC END# *48077504027E_4FD0A98C01BD_impl*
 end;//TvtPngImageListPrim.Destroy
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtPngImageListPrim.Change;
 //#UC START# *4FD08E8503DC_4FD0A98C01BD_var*
 //#UC END# *4FD08E8503DC_4FD0A98C01BD_var*
@@ -1653,7 +1603,7 @@ begin
  ClearAlphaDrawCache; 
 //#UC END# *4FD08E8503DC_4FD0A98C01BD_impl*
 end;//TvtPngImageListPrim.Change
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TvtPngImageListPrim.DefineProperties(Filer: TFiler);
 //#UC START# *4FD08EF002D0_4FD0A98C01BD_var*
@@ -1673,7 +1623,7 @@ begin
 //#UC END# *4FD08EF002D0_4FD0A98C01BD_impl*
 end;//TvtPngImageListPrim.DefineProperties
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtPngImageListPrim.ReadData(Stream: TStream);
 //#UC START# *4FD08F7F01AD_4FD0A98C01BD_var*
 var
@@ -1718,9 +1668,9 @@ begin
  {$ENDIF}
 //#UC END# *4FD08F7F01AD_4FD0A98C01BD_impl*
 end;//TvtPngImageListPrim.ReadData
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtPngImageListPrim.WriteData(Stream: TStream);
 //#UC START# *4FD08FA7008C_4FD0A98C01BD_var*
 var
@@ -1743,7 +1693,7 @@ begin
  end;
 //#UC END# *4FD08FA7008C_4FD0A98C01BD_impl*
 end;//TvtPngImageListPrim.WriteData
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TvtPngImageListPrim.WriteState(Writer: TWriter);
 //#UC START# *4FD092040227_4FD0A98C01BD_var*
@@ -1757,13 +1707,13 @@ begin
 //#UC END# *4FD092040227_4FD0A98C01BD_impl*
 end;//TvtPngImageListPrim.WriteState
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtPngImageListPrim.DoDraw(Index: Integer;
-  Canvas: TCanvas;
-  X: Integer;
-  Y: Integer;
-  Style: Cardinal;
-  Enabled: Boolean);
+ Canvas: TCanvas;
+ X: Integer;
+ Y: Integer;
+ Style: Cardinal;
+ Enabled: Boolean);
 //#UC START# *4FD093CB025F_4FD0A98C01BD_var*
 //#UC END# *4FD093CB025F_4FD0A98C01BD_var*
 begin
@@ -1773,9 +1723,9 @@ begin
  DrawGlyphSpecified(Index, Canvas, f_CurSize, f_CurBpp, X, Y, Enabled);
 //#UC END# *4FD093CB025F_4FD0A98C01BD_impl*
 end;//TvtPngImageListPrim.DoDraw
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCL) AND not defined(XE)}
+{$If NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)}
 function TvtPngImageListPrim.ImageExtent(anIndex: Integer): TPoint;
 //#UC START# *4FD0944D0202_4FD0A98C01BD_var*
 //#UC END# *4FD0944D0202_4FD0A98C01BD_var*
@@ -1785,9 +1735,9 @@ begin
  Result.Y := Height;
 //#UC END# *4FD0944D0202_4FD0A98C01BD_impl*
 end;//TvtPngImageListPrim.ImageExtent
-{$IfEnd} //not DesignTimeLibrary AND not NoVCL AND not XE
+{$IfEnd} // NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCL) AND not defined(XE)}
+{$If NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)}
 function TvtPngImageListPrim.IsSmart: Boolean;
 //#UC START# *4FD095D20217_4FD0A98C01BD_var*
 //#UC END# *4FD095D20217_4FD0A98C01BD_var*
@@ -1796,7 +1746,7 @@ begin
  Result := True;
 //#UC END# *4FD095D20217_4FD0A98C01BD_impl*
 end;//TvtPngImageListPrim.IsSmart
-{$IfEnd} //not DesignTimeLibrary AND not NoVCL AND not XE
+{$IfEnd} // NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)
 
 //#UC START# *4FD0A98C01BDimpl*
 {$ifndef DesignTimeLibrary}
@@ -1808,16 +1758,6 @@ end;
 {$endif}
 {$endif}
 //#UC END# *4FD0A98C01BDimpl*
-// start class TvtFixedSizeProxyPngImageListPrim
-
-procedure TvtFixedSizeProxyPngImageListPrim.ImageListChange(Sender: TObject);
-//#UC START# *4FD0C2760204_4FD0BFBC00F9_var*
-//#UC END# *4FD0C2760204_4FD0BFBC00F9_var*
-begin
-//#UC START# *4FD0C2760204_4FD0BFBC00F9_impl*
- Change;
-//#UC END# *4FD0C2760204_4FD0BFBC00F9_impl*
-end;//TvtFixedSizeProxyPngImageListPrim.ImageListChange
 
 procedure TvtFixedSizeProxyPngImageListPrim.pm_SetFixedSize(aValue: TvtPILSize);
 //#UC START# *4FD0C074032D_4FD0BFBC00F9set_var*
@@ -1866,12 +1806,21 @@ begin
 //#UC END# *4FD0C1BF0313_4FD0BFBC00F9get_impl*
 end;//TvtFixedSizeProxyPngImageListPrim.pm_GetCount
 
+procedure TvtFixedSizeProxyPngImageListPrim.ImageListChange(Sender: TObject);
+//#UC START# *4FD0C2760204_4FD0BFBC00F9_var*
+//#UC END# *4FD0C2760204_4FD0BFBC00F9_var*
+begin
+//#UC START# *4FD0C2760204_4FD0BFBC00F9_impl*
+ Change;
+//#UC END# *4FD0C2760204_4FD0BFBC00F9_impl*
+end;//TvtFixedSizeProxyPngImageListPrim.ImageListChange
+
 procedure TvtFixedSizeProxyPngImageListPrim.Draw(Canvas: TCanvas;
-  X: Integer;
-  Y: Integer;
-  Index: TImageIndex;
-  Enabled: Boolean = True;
-  HalfTransparent: Boolean = True);
+ X: Integer;
+ Y: Integer;
+ Index: TImageIndex;
+ Enabled: Boolean = True;
+ HalfTransparent: Boolean = True);
 //#UC START# *4F950C6D03BE_4FD0BFBC00F9_var*
 //#UC END# *4F950C6D03BE_4FD0BFBC00F9_var*
 begin
@@ -1884,8 +1833,8 @@ begin
 end;//TvtFixedSizeProxyPngImageListPrim.Draw
 
 procedure TvtFixedSizeProxyPngImageListPrim.SaveImageToStream(aStream: TStream;
-  aIndex: TImageIndex;
-  aBpp: TvtPILBpp);
+ aIndex: TImageIndex;
+ aBpp: TvtPILBpp);
 //#UC START# *53282D3E0350_4FD0BFBC00F9_var*
 //#UC END# *53282D3E0350_4FD0BFBC00F9_var*
 begin
@@ -1919,13 +1868,13 @@ begin
 //#UC END# *48077504027E_4FD0BFBC00F9_impl*
 end;//TvtFixedSizeProxyPngImageListPrim.Destroy
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtFixedSizeProxyPngImageListPrim.DoDraw(Index: Integer;
-  Canvas: TCanvas;
-  X: Integer;
-  Y: Integer;
-  Style: Cardinal;
-  Enabled: Boolean);
+ Canvas: TCanvas;
+ X: Integer;
+ Y: Integer;
+ Style: Cardinal;
+ Enabled: Boolean);
 //#UC START# *4FD093CB025F_4FD0BFBC00F9_var*
 //#UC END# *4FD093CB025F_4FD0BFBC00F9_var*
 begin
@@ -1934,9 +1883,9 @@ begin
   f_OriginalImgList.DrawGlyphSpecified(Index, Canvas, f_FixedSize, f_OriginalImgList.CurBpp, X, Y, Enabled);
 //#UC END# *4FD093CB025F_4FD0BFBC00F9_impl*
 end;//TvtFixedSizeProxyPngImageListPrim.DoDraw
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCL) AND not defined(XE)}
+{$If NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)}
 function TvtFixedSizeProxyPngImageListPrim.IsSmart: Boolean;
 //#UC START# *4FD095D20217_4FD0BFBC00F9_var*
 //#UC END# *4FD095D20217_4FD0BFBC00F9_var*
@@ -1945,7 +1894,7 @@ begin
  Result := True;
 //#UC END# *4FD095D20217_4FD0BFBC00F9_impl*
 end;//TvtFixedSizeProxyPngImageListPrim.IsSmart
-{$IfEnd} //not DesignTimeLibrary AND not NoVCL AND not XE
+{$IfEnd} // NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)
 
 //#UC START# *4FD0BFBC00F9impl*
 {$ifndef DesignTimeLibrary}
@@ -2027,4 +1976,5 @@ end;
 
 //#UC START# *4FD2248F001Bimpl*
 //#UC END# *4FD2248F001Bimpl*
+
 end.

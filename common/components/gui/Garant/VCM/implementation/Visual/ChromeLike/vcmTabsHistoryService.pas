@@ -1,89 +1,62 @@
 unit vcmTabsHistoryService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/ChromeLike/vcmTabsHistoryService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM$Visual::Visual$ChromeLike::vcmTabsHistoryService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabsHistoryService.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vcmTabsHistoryService" MUID: (559BA3CE0056)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
-  l3ProtoObject,
-  vcmHistoryService,
-  vcmInterfaces
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , vcmHistoryService
+ , vcmInterfaces
+;
 
 type
  TvcmTabsHistoryService = {final} class(Tl3ProtoObject, IvcmHistoryService)
- public
- // realized methods
+  public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
    function Back(const aForm: IvcmEntityForm): Boolean;
    function GetContainerHistory(const aContainer: IvcmContainer): IvcmHistory;
    function GetFormHistory(const aForm: IvcmEntityForm): IvcmHistory;
    procedure SaveFormState(const aForm: IvcmEntityForm);
    function IsInBF(const aForm: IvcmEntityForm): Boolean;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
    class function Instance: TvcmTabsHistoryService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvcmTabsHistoryService }
  end;//TvcmTabsHistoryService
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
-  l3Base {a},
-  l3TabbedContainersDispatcher
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  SysUtils,
-  vcmBase,
-  vcmFormSetHistory
-  ;
+ l3ImplUses
+ , l3TabbedContainersDispatcher
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
+ , vcmBase
+ , vcmFormSetHistory
+ , l3Base
+;
 
-
-// start class TvcmTabsHistoryService
-
-var g_TvcmTabsHistoryService : TvcmTabsHistoryService = nil;
+var g_TvcmTabsHistoryService: TvcmTabsHistoryService = nil;
+ {* Экземпляр синглетона TvcmTabsHistoryService }
 
 procedure TvcmTabsHistoryServiceFree;
+ {* Метод освобождения экземпляра синглетона TvcmTabsHistoryService }
 begin
  l3Free(g_TvcmTabsHistoryService);
-end;
-
-class function TvcmTabsHistoryService.Instance: TvcmTabsHistoryService;
-begin
- if (g_TvcmTabsHistoryService = nil) then
- begin
-  l3System.AddExitProc(TvcmTabsHistoryServiceFree);
-  g_TvcmTabsHistoryService := Create;
- end;
- Result := g_TvcmTabsHistoryService;
-end;
-
+end;//TvcmTabsHistoryServiceFree
 
 class function TvcmTabsHistoryService.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TvcmTabsHistoryService <> nil;
 end;//TvcmTabsHistoryService.Exists
@@ -170,15 +143,21 @@ begin
  Result := Tl3TabbedContainersDispatcher.Instance.IsInBF(aForm.VCLWinControl as TForm);
 //#UC END# *A872A2AAB575_559BA3E6014C_impl*
 end;//TvcmTabsHistoryService.IsInBF
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+
+class function TvcmTabsHistoryService.Instance: TvcmTabsHistoryService;
+ {* Метод получения экземпляра синглетона TvcmTabsHistoryService }
+begin
+ if (g_TvcmTabsHistoryService = nil) then
+ begin
+  l3System.AddExitProc(TvcmTabsHistoryServiceFree);
+  g_TvcmTabsHistoryService := Create;
+ end;
+ Result := g_TvcmTabsHistoryService;
+end;//TvcmTabsHistoryService.Instance
 
 initialization
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-// Регистрация TvcmTabsHistoryService
- {$If not defined(NoVCM)}
  TvcmHistoryService.Instance.Alien := TvcmTabsHistoryService.Instance;
- {$IfEnd} //not NoVCM
-
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ {* Регистрация TvcmTabsHistoryService }
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 end.

@@ -1,46 +1,34 @@
 unit nsUserNodes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/nsUserNodes.pas"
-// Начат: 2004/02/12 13:28:43
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Администратор::Admin::Admin::Users::nsUserNodes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsUserNodes.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsUserNodes" MUID: (49E5BB5F02B7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  l3TreeInterfaces
-  ;
+ l3IntfUses
+ , l3TreeInterfaces
+;
 
 function GetUserID(const aNode: Il3SimpleNode): Integer;
 function GetUserByID(aUserID: Integer;
-  const aTreeStruct: Il3SimpleTree): Il3SimpleNode;
-{$IfEnd} //Admin
+ const aTreeStruct: Il3SimpleTree): Il3SimpleNode;
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  SysUtils,
-  SecurityUnit,
-  nsConst,
-  l3Nodes
-  ;
-
-// unit methods
+ l3ImplUses
+ , SysUtils
+ , SecurityUnit
+ , nsConst
+ , l3Nodes
+;
 
 function GetUserID(const aNode: Il3SimpleNode): Integer;
 //#UC START# *4AD5ACC50294_49E5BB5F02B7_var*
@@ -57,7 +45,7 @@ begin
 end;//GetUserID
 
 function GetUserByID(aUserID: Integer;
-  const aTreeStruct: Il3SimpleTree): Il3SimpleNode;
+ const aTreeStruct: Il3SimpleTree): Il3SimpleNode;
 //#UC START# *4B1CD6EE038B_49E5BB5F02B7_var*
 
  function FindNode(const aIntf : Il3SimpleNode) : Boolean;
@@ -71,6 +59,6 @@ begin
  Result := aTreeStruct.SimpleIterateF(l3L2SNA(@FindNode), imCheckResult);
 //#UC END# *4B1CD6EE038B_49E5BB5F02B7_impl*
 end;//GetUserByID
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 end.

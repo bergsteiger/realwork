@@ -1,58 +1,50 @@
 unit f1TagDataFromDTP;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/f1TagDataFromDTP.pas"
-// Начат: 23.08.2010 20:38
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::TagDataProviders::f1TagDataFromDTP
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataFromDTP.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "f1TagDataFromDTP" MUID: (4C72A40000A6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DocumentUnit,
-  k2Base,
-  F1TagDataProviderInterface,
-  l3Interfaces,
-  l3CProtoObject,
-  IOUnit,
-  nevBase,
-  l3Variant
-  ;
+ l3IntfUses
+ , DocumentUnit
+ , F1TagDataProviderInterface
+ , k2Base
+ , IOUnit
+ , l3Interfaces
+ , l3Variant
+ , nevBase
+ , l3CProtoObject
+;
 
 type
- DTPLayerID = DocumentUnit.TLayerID;
-
+ DTPLayerID = TLayerID;
 
  Tf1ListTagDataFromDTPPrim = class;
 
- {$Include ..\f1DocumentTagsImplementation\f1TagDataProviderPrim.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataProviderPrim.imp.pas}
  Tf1TagDataFromDTP = {abstract} class(_f1TagDataProviderPrim_, If1TagDataProvider)
   {* Базовый поставщик данных о параграфе }
- protected
- // property methods
-   function pm_GetFProvider: IDocumentTextProvider; virtual;
+  protected
+   f_f_Provider: IDocumentTextProvider;
+  protected
+   function pm_Getf_Provider: IDocumentTextProvider; virtual;
    function pm_GetEntryPoint: TEntryPoint;
    function pm_GetChild(anIndex: TChildID): If1TagDataProvider; virtual;
    function pm_GetParentPrim: Tf1ListTagDataFromDTPPrim; virtual;
- protected
- // realized methods
+   function DoGetType: Tk2Type; virtual;
+   function GetChildID: TChildID; virtual; abstract;
+   function GetParentLayerID: DTPLayerID; virtual; abstract;
+   function GetAllParaChildrenCount: Integer; virtual;
+   function GetChildrenCount: Integer; virtual;
    function Get_Caption: IString;
    function Get_Style: IStream;
    function Get_ExternalID: Integer;
    function Get_TypeID: Tk2Type;
-   procedure Set_WStyle(const aValue: IStream);
+   procedure Set_wStyle(const aValue: IStream);
    function Get_AllParaChildrenCount: Integer;
    function Get_ChildrenCount: Integer;
    function Get_FirstChild: If1TagDataProvider;
@@ -62,115 +54,70 @@ type
    function Get_Comment: IStream;
    function Get_TechComment: IString;
    function Get_IsProviderGot: Boolean;
- public
- // realized methods
+   procedure ClearFields; override;
+  public
+   constructor Create(const aProvider: IDocumentTextProvider); reintroduce;
    procedure CreateNewNode(var theIndex: Integer;
     var theNode: Tl3Tag;
     const aMaker: If1ChildMaker;
     const anOp: InevOp);
    procedure BuildSubs(aProp: Tk2CustomProperty;
     const aChecker: If1AtomChecker);
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_f_Provider : IDocumentTextProvider;
- protected
- // protected methods
-   function DoGetType: Tk2Type; virtual;
-   function GetChildID: TChildID; virtual; abstract;
-   function GetParentLayerID: DTPLayerID; virtual; abstract;
-   function GetAllParaChildrenCount: Integer; virtual;
-   function GetChildrenCount: Integer; virtual;
- public
- // public methods
-   constructor Create(const aProvider: IDocumentTextProvider); reintroduce;
- private
- // private properties
+  private
    property ParentPrim: Tf1ListTagDataFromDTPPrim
-     read pm_GetParentPrim;
- protected
- // protected properties
+    read pm_GetParentPrim;
+  protected
    property f_Provider: IDocumentTextProvider
-     read pm_GetFProvider;
+    read pm_Getf_Provider;
    property EntryPoint: TEntryPoint
-     read pm_GetEntryPoint;
+    read pm_GetEntryPoint;
    property Child[anIndex: TChildID]: If1TagDataProvider
-     read pm_GetChild;
+    read pm_GetChild;
  end;//Tf1TagDataFromDTP
 
  Tf1ListTagDataFromDTPPrim = class(Tf1TagDataFromDTP)
   {* Поставщик данных о списке параграфов }
- private
- // private fields
-   f_LayerID : DTPLayerID;
-    {* Поле для свойства LayerID}
- protected
- // property methods
+  private
+   f_LayerID: DTPLayerID;
+    {* Поле для свойства LayerID }
+  protected
    function pm_GetLayerID: DTPLayerID;
- protected
- // overridden property methods
-   function pm_GetChild(anIndex: TChildID): If1TagDataProvider; override;
- protected
- // overridden protected methods
    procedure InitFields; override;
    function GetAllParaChildrenCount: Integer; override;
    function GetChildrenCount: Integer; override;
- public
- // public properties
+   function pm_GetChild(anIndex: TChildID): If1TagDataProvider; override;
+  public
    property LayerID: DTPLayerID
-     read pm_GetLayerID;
+    read pm_GetLayerID;
  end;//Tf1ListTagDataFromDTPPrim
 
 implementation
 
 uses
-  k2Facade,
-  LeafParaDecorationsHolder_Const,
-  nevTools,
-  LeafPara_Const,
-  nsNativeCommentPara,
-  CommentPara_Const,
-  k2Tags,
-  nsLeafParaDecorationsHolder,
-  nsCommentModifier,
-  nsParaModifier,
-  f1TagDataFromDTPFactory
-  ;
+ l3ImplUses
+ , LeafParaDecorationsHolder_Const
+ , nevTools
+ , LeafPara_Const
+ , nsNativeCommentPara
+ , CommentPara_Const
+ , k2Tags
+ , nsLeafParaDecorationsHolder
+ , nsCommentModifier
+ , nsParaModifier
+ , k2Facade
+ , f1TagDataFromDTPFactory
+;
 
-{$Include ..\f1DocumentTagsImplementation\f1TagDataProviderPrim.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataProviderPrim.imp.pas}
 
-// start class Tf1TagDataFromDTP
-
-constructor Tf1TagDataFromDTP.Create(const aProvider: IDocumentTextProvider);
-//#UC START# *4C727B5001D1_4C727ADB0312_var*
-//#UC END# *4C727B5001D1_4C727ADB0312_var*
-begin
-//#UC START# *4C727B5001D1_4C727ADB0312_impl*
- inherited Create;
- f_f_Provider := aProvider;
-//#UC END# *4C727B5001D1_4C727ADB0312_impl*
-end;//Tf1TagDataFromDTP.Create
-
-function Tf1TagDataFromDTP.DoGetType: Tk2Type;
-//#UC START# *4D66B40B02C4_4C727ADB0312_var*
-//#UC END# *4D66B40B02C4_4C727ADB0312_var*
-begin
-//#UC START# *4D66B40B02C4_4C727ADB0312_impl*
- Result := k2.TypeTable.TypeByHandle[Ord(f_Provider.GetChildType(Self.EntryPoint))];
-//#UC END# *4D66B40B02C4_4C727ADB0312_impl*
-end;//Tf1TagDataFromDTP.DoGetType
-
-function Tf1TagDataFromDTP.pm_GetFProvider: IDocumentTextProvider;
+function Tf1TagDataFromDTP.pm_Getf_Provider: IDocumentTextProvider;
 //#UC START# *4C727B320016_4C727ADB0312get_var*
 //#UC END# *4C727B320016_4C727ADB0312get_var*
 begin
 //#UC START# *4C727B320016_4C727ADB0312get_impl*
  Result := f_f_Provider;
 //#UC END# *4C727B320016_4C727ADB0312get_impl*
-end;//Tf1TagDataFromDTP.pm_GetFProvider
+end;//Tf1TagDataFromDTP.pm_Getf_Provider
 
 function Tf1TagDataFromDTP.pm_GetEntryPoint: TEntryPoint;
 //#UC START# *4C727F1A00BC_4C727ADB0312get_var*
@@ -200,6 +147,25 @@ begin
  Result := nil;
 //#UC END# *4C72A6B5000F_4C727ADB0312get_impl*
 end;//Tf1TagDataFromDTP.pm_GetParentPrim
+
+constructor Tf1TagDataFromDTP.Create(const aProvider: IDocumentTextProvider);
+//#UC START# *4C727B5001D1_4C727ADB0312_var*
+//#UC END# *4C727B5001D1_4C727ADB0312_var*
+begin
+//#UC START# *4C727B5001D1_4C727ADB0312_impl*
+ inherited Create;
+ f_f_Provider := aProvider;
+//#UC END# *4C727B5001D1_4C727ADB0312_impl*
+end;//Tf1TagDataFromDTP.Create
+
+function Tf1TagDataFromDTP.DoGetType: Tk2Type;
+//#UC START# *4D66B40B02C4_4C727ADB0312_var*
+//#UC END# *4D66B40B02C4_4C727ADB0312_var*
+begin
+//#UC START# *4D66B40B02C4_4C727ADB0312_impl*
+ Result := k2.TypeTable.TypeByHandle[Ord(f_Provider.GetChildType(Self.EntryPoint))];
+//#UC END# *4D66B40B02C4_4C727ADB0312_impl*
+end;//Tf1TagDataFromDTP.DoGetType
 
 function Tf1TagDataFromDTP.GetAllParaChildrenCount: Integer;
 //#UC START# *4C7294F40339_4C727ADB0312_var*
@@ -257,14 +223,14 @@ begin
 //#UC END# *4C6EA8390114_4C727ADB0312get_impl*
 end;//Tf1TagDataFromDTP.Get_TypeID
 
-procedure Tf1TagDataFromDTP.Set_WStyle(const aValue: IStream);
+procedure Tf1TagDataFromDTP.Set_wStyle(const aValue: IStream);
 //#UC START# *4C6EAB57003B_4C727ADB0312set_var*
 //#UC END# *4C6EAB57003B_4C727ADB0312set_var*
 begin
 //#UC START# *4C6EAB57003B_4C727ADB0312set_impl*
  DoSetWStyle(aValue);
 //#UC END# *4C6EAB57003B_4C727ADB0312set_impl*
-end;//Tf1TagDataFromDTP.Set_WStyle
+end;//Tf1TagDataFromDTP.Set_wStyle
 
 function Tf1TagDataFromDTP.Get_AllParaChildrenCount: Integer;
 //#UC START# *4C6EB42D017A_4C727ADB0312get_var*
@@ -285,9 +251,9 @@ begin
 end;//Tf1TagDataFromDTP.Get_ChildrenCount
 
 procedure Tf1TagDataFromDTP.CreateNewNode(var theIndex: Integer;
-  var theNode: Tl3Tag;
-  const aMaker: If1ChildMaker;
-  const anOp: InevOp);
+ var theNode: Tl3Tag;
+ const aMaker: If1ChildMaker;
+ const anOp: InevOp);
 //#UC START# *4C6EB48D0004_4C727ADB0312_var*
 var
  l_Holder  : Tl3Tag;
@@ -349,7 +315,7 @@ begin
 end;//Tf1TagDataFromDTP.Get_FirstChild
 
 procedure Tf1TagDataFromDTP.BuildSubs(aProp: Tk2CustomProperty;
-  const aChecker: If1AtomChecker);
+ const aChecker: If1AtomChecker);
 //#UC START# *4C722FCA0397_4C727ADB0312_var*
 //#UC END# *4C722FCA0397_4C727ADB0312_var*
 begin
@@ -417,12 +383,10 @@ begin
 end;//Tf1TagDataFromDTP.Get_IsProviderGot
 
 procedure Tf1TagDataFromDTP.ClearFields;
- {-}
 begin
  f_f_Provider := nil;
  inherited;
 end;//Tf1TagDataFromDTP.ClearFields
-// start class Tf1ListTagDataFromDTPPrim
 
 function Tf1ListTagDataFromDTPPrim.pm_GetLayerID: DTPLayerID;
 //#UC START# *4C72897703B9_4C727C5B007Bget_var*

@@ -1,44 +1,33 @@
 unit vtPngImgListUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$ImgList"
-// Модуль: "w:/common/components/gui/Garant/VT/vtPngImgListUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VT$ImgList::vtImgLists::vtPngImgListUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtPngImgListUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vtPngImgListUtils" MUID: (4FD1F6B00129)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3Types,
-  l3ObjectList,
-  l3ProcedureList,
-  Graphics,
-  Windows,
-  l3ProtoObject
-  {$If not defined(NoImageEn)}
-  ,
-  hyieutils
-  {$IfEnd} //not NoImageEn
-  ,
-  vtInterfaces
-  ;
+ l3IntfUses
+ , l3ObjectList
+ {$If NOT Defined(NoImageEn)}
+ , hyieutils
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , Graphics
+ , Windows
+ , l3Types
+ , vtInterfaces
+ , l3ProcedureList
+ , l3ProtoObject
+;
 
 type
- TvtImageListCreatorProc = function : TObject;
-
  PvtImageListCreatorProc = ^TvtImageListCreatorProc;
 
- TAlphaBlendFunc = function (DestDC: hDC;
+ TvtImageListCreatorProc = function: TObject;
+
+ TAlphaBlendFunc = function(DestDC: hDC;
   X: Integer;
   Y: Integer;
   Width: Integer;
@@ -51,102 +40,102 @@ type
   const BlendFunc: TBlendFunction): Boolean;
 
  TvtilCreators = class(Tl3ProcedureList)
- public
- // public methods
+  public
    class function IsAssigned: Boolean;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TvtilCreators;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvtilCreators }
  end;//TvtilCreators
 
  ImgLibraryManager = class(Tl3ProtoObject)
- private
- // private fields
-   f_ImgDLL : THandle;
- protected
- // overridden protected methods
+  private
+   f_ImgDLL: THandle;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: ImgLibraryManager;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона ImgLibraryManager }
  end;//ImgLibraryManager
 
  TaBPPGlyphs = array [TvtPILBpp] of TIEBitmap;
 
  TaPILSizes = array [TvtPILSize] of Integer;
 
-const
-  { vtPngImgList Constants }
- PILSize : TaPILSizes = (16, 32, 24);
- cDefaultAvailableSizes = [ps16x16, ps32x32, ps24x24];
-
-type
  TBitmap = Graphics.TBitmap;
 
 const
-  { vtPngImgList const2 }
+ PILSize: TaPILSizes = (16, 32, 24);
+ cDefaultAvailableSizes = [ps16x16, ps32x32, ps24x24];
  cFullAlpha = 255;
  cDisabledAlpha = 192;
- OldPILSize : TaPILSizes = (18, 34, 26);
+ OldPILSize: TaPILSizes = (18, 34, 26);
 
-var g_PILList : Tl3ObjectList;
-
-var g_AlphaBlendFunc : TAlphaBlendFunc;
 procedure PrepareAlphaBitmap(aSource: TIEBitmap;
-  aDest: TBitmap);
+ aDest: TBitmap);
 function AlphaBlend(DestDC: hDC;
-  X: Integer;
-  Y: Integer;
-  Width: Integer;
-  Height: Integer;
-  SrcDC: hDC;
-  XSrc: Integer;
-  YSrc: Integer;
-  SrcWidth: Integer;
-  SrcHeight: Integer;
-  const BlendFunc: TBlendFunction): Boolean;
+ X: Integer;
+ Y: Integer;
+ Width: Integer;
+ Height: Integer;
+ SrcDC: hDC;
+ XSrc: Integer;
+ YSrc: Integer;
+ SrcWidth: Integer;
+ SrcHeight: Integer;
+ const BlendFunc: TBlendFunction): Boolean;
 function CalcTransparenctColor(aTransparensy: Byte;
-  HalfTransparent: Boolean): Byte;
+ HalfTransparent: Boolean): Byte;
 procedure IterateExistingImageListsF(anAction: Tl3IteratorAction);
 procedure AddImageListCreator(aCreator: PvtImageListCreatorProc);
 procedure AddImageListCreatorPrim(aCreator: TvtImageListCreatorProc);
-function GetAnother(aSize: TvtPILSize): TvtPILSize; overload; 
-function GetAnother(aBpp: TvtPILBpp): TvtPILBpp; overload; 
+function GetAnother(aSize: TvtPILSize): TvtPILSize; overload;
+function GetAnother(aBpp: TvtPILBpp): TvtPILBpp; overload;
 function GetScreenColorDepth: Integer;
 function AutoDetectColorDepth: TvtPILBpp;
 procedure SetColorDepthGlobal(aBpp: TvtPILBpp);
 
+var g_PILList: Tl3ObjectList;
+var g_AlphaBlendFunc: TAlphaBlendFunc;
+
 implementation
 
 uses
-  vtPngImgList,
-  l3Base {a},
-  l3Bitmap,
-  SysUtils,
-  l3MinMax
-  {$If not defined(NoImageEn)}
-  ,
-  hyiedefs
-  {$IfEnd} //not NoImageEn
-  
-  ;
+ l3ImplUses
+ , l3Bitmap
+ , SysUtils
+ , l3MinMax
+ , l3Base
+ {$If NOT Defined(NoImageEn)}
+ , hyiedefs
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , vtPngImgList
+;
 
-var g_ScreenColorDepth : Integer;
+var g_TvtilCreators: TvtilCreators = nil;
+ {* Экземпляр синглетона TvtilCreators }
+var g_ImgLibraryManager: ImgLibraryManager = nil;
+ {* Экземпляр синглетона ImgLibraryManager }
+var g_ScreenColorDepth: Integer;
 
-// unit methods
+procedure TvtilCreatorsFree;
+ {* Метод освобождения экземпляра синглетона TvtilCreators }
+begin
+ l3Free(g_TvtilCreators);
+end;//TvtilCreatorsFree
+
+procedure ImgLibraryManagerFree;
+ {* Метод освобождения экземпляра синглетона ImgLibraryManager }
+begin
+ l3Free(g_ImgLibraryManager);
+end;//ImgLibraryManagerFree
 
 procedure PrepareAlphaBitmap(aSource: TIEBitmap;
-  aDest: TBitmap);
+ aDest: TBitmap);
 //#UC START# *4FD1F66B03D5_4FD1F6B00129_var*
 var
  l_LineIdx, l_PixelIdx: integer;
@@ -197,16 +186,16 @@ begin
 end;//PrepareAlphaBitmap
 
 function AlphaBlend(DestDC: hDC;
-  X: Integer;
-  Y: Integer;
-  Width: Integer;
-  Height: Integer;
-  SrcDC: hDC;
-  XSrc: Integer;
-  YSrc: Integer;
-  SrcWidth: Integer;
-  SrcHeight: Integer;
-  const BlendFunc: TBlendFunction): Boolean;
+ X: Integer;
+ Y: Integer;
+ Width: Integer;
+ Height: Integer;
+ SrcDC: hDC;
+ XSrc: Integer;
+ YSrc: Integer;
+ SrcWidth: Integer;
+ SrcHeight: Integer;
+ const BlendFunc: TBlendFunction): Boolean;
 //#UC START# *4FD1F6FB00AF_4FD1F6B00129_var*
 //#UC END# *4FD1F6FB00AF_4FD1F6B00129_var*
 begin
@@ -223,7 +212,7 @@ begin
 end;//AlphaBlend
 
 function CalcTransparenctColor(aTransparensy: Byte;
-  HalfTransparent: Boolean): Byte;
+ HalfTransparent: Boolean): Byte;
 //#UC START# *4FD1F75F023A_4FD1F6B00129_var*
 //#UC END# *4FD1F75F023A_4FD1F6B00129_var*
 begin
@@ -363,26 +352,6 @@ begin
 //#UC END# *4FD1F9E601E9_4FD1F6B00129_impl*
 end;//SetColorDepthGlobal
 
-// start class TvtilCreators
-
-var g_TvtilCreators : TvtilCreators = nil;
-
-procedure TvtilCreatorsFree;
-begin
- l3Free(g_TvtilCreators);
-end;
-
-class function TvtilCreators.Instance: TvtilCreators;
-begin
- if (g_TvtilCreators = nil) then
- begin
-  l3System.AddExitProc(TvtilCreatorsFree);
-  g_TvtilCreators := Create;
- end;
- Result := g_TvtilCreators;
-end;
-
-
 class function TvtilCreators.IsAssigned: Boolean;
 //#UC START# *4FD318100335_4FD31272000C_var*
 //#UC END# *4FD318100335_4FD31272000C_var*
@@ -393,21 +362,30 @@ begin
 end;//TvtilCreators.IsAssigned
 
 class function TvtilCreators.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TvtilCreators <> nil;
 end;//TvtilCreators.Exists
 
-// start class ImgLibraryManager
-
-var g_ImgLibraryManager : ImgLibraryManager = nil;
-
-procedure ImgLibraryManagerFree;
+class function TvtilCreators.Instance: TvtilCreators;
+ {* Метод получения экземпляра синглетона TvtilCreators }
 begin
- l3Free(g_ImgLibraryManager);
-end;
+ if (g_TvtilCreators = nil) then
+ begin
+  l3System.AddExitProc(TvtilCreatorsFree);
+  g_TvtilCreators := Create;
+ end;
+ Result := g_TvtilCreators;
+end;//TvtilCreators.Instance
+
+class function ImgLibraryManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_ImgLibraryManager <> nil;
+end;//ImgLibraryManager.Exists
 
 class function ImgLibraryManager.Instance: ImgLibraryManager;
+ {* Метод получения экземпляра синглетона ImgLibraryManager }
 begin
  if (g_ImgLibraryManager = nil) then
  begin
@@ -415,16 +393,10 @@ begin
   g_ImgLibraryManager := Create;
  end;
  Result := g_ImgLibraryManager;
-end;
-
-
-class function ImgLibraryManager.Exists: Boolean;
- {-}
-begin
- Result := g_ImgLibraryManager <> nil;
-end;//ImgLibraryManager.Exists
+end;//ImgLibraryManager.Instance
 
 procedure ImgLibraryManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_502518C60255_var*
 //#UC END# *479731C50290_502518C60255_var*
 begin

@@ -1,141 +1,123 @@
 unit ddAppConfigTypes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd$AppConfig"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddAppConfigTypes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd$AppConfig::AppConfig::ddAppConfigTypes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfigTypes" MUID: (52161F2B00C4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Types,
-  l3ObjectList,
-  SysUtils,
-  Classes,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Contnrs,
-  l3VCLStrings
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  vtComboBoxQS
-  {$If not defined(NoVCL)}
-  ,
-  ComCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  vtLabel,
-  l3ProtoPersistentRefList,
-  ddAppConfigConst,
-  ddConfigStorages,
-  ddAppConfigBase
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+ , ddConfigStorages
+ , SysUtils
+ , ddAppConfigConst
+ , ddAppConfigBase
+ , l3ObjectList
+ , l3ProtoPersistentRefList
+ , l3Interfaces
+ , vtLabel
+ , Graphics
+ {$If NOT Defined(NoVCL)}
+ , ComCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3VCLStrings
+ , Contnrs
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Types
+ , vtComboBoxQS
+;
 
 type
- IddMasterItem = interface(IUnknown)
-   ['{7186411A-F177-458A-802C-2A40BE15A74A}']
-   function pm_GetBooleanValue: Boolean;
-   property BooleanValue: Boolean
-     read pm_GetBooleanValue;
+ RddBaseConfigItem = class of TddBaseConfigItem;
+
+ RddBaseConfigNode = class of TddCustomConfigNode;
+
+ IddMasterItem = interface
+  ['{7186411A-F177-458A-802C-2A40BE15A74A}']
+  function pm_GetBooleanValue: Boolean;
+  property BooleanValue: Boolean
+   read pm_GetBooleanValue;
  end;//IddMasterItem
 
- IddConfigNode = interface(IUnknown)
-   ['{66FB62AB-6EBC-45C3-88BD-2EE1037AAE9C}']
-   procedure ClearControls;
-     {* Сигнатура метода ClearControls }
-   function CreateFrame(aOwner: TComponent;
-     aTag: Integer): TCustomFrame;
-   procedure FrameSize(aParent: TWinControl;
-     out aHeight: Integer;
-     out aWidth: Integer);
-   procedure GetControlValues;
-     {* Сигнатура метода GetControlValues }
-   function IsItem(aItem: TObject): Boolean;
-   procedure LoadData(const aStorage: IddConfigStorage);
-   procedure ResetToDefault;
-     {* Сигнатура метода ResetToDefault }
-   procedure SaveData(const aStorage: IddConfigStorage);
-   procedure SetControlValues(aDefault: Boolean);
-   function pm_GetChanged: Boolean;
-   property Changed: Boolean
-     read pm_GetChanged;
+ IddConfigNode = interface
+  ['{66FB62AB-6EBC-45C3-88BD-2EE1037AAE9C}']
+  function pm_GetChanged: Boolean;
+  procedure ClearControls;
+  function CreateFrame(aOwner: TComponent;
+   aTag: Integer): TCustomFrame;
+  procedure FrameSize(aParent: TWinControl;
+   out aHeight: Integer;
+   out aWidth: Integer);
+  procedure GetControlValues;
+  function IsItem(aItem: TObject): Boolean;
+  procedure LoadData(const aStorage: IddConfigStorage);
+  procedure ResetToDefault;
+  procedure SaveData(const aStorage: IddConfigStorage);
+  procedure SetControlValues(aDefault: Boolean);
+  property Changed: Boolean
+   read pm_GetChanged;
  end;//IddConfigNode
 
  EddConfigError = class(Exception)
  end;//EddConfigError
 
-
  TddBaseConfigItem = class;
 
- TddValueChangedEvent = procedure (aItem: TddBaseConfigItem;
+ TddValueChangedEvent = procedure(aItem: TddBaseConfigItem;
   const aValue: TddConfigValue) of object;
 
  TddConfigItemLabelType = (
-   dd_cilMain
- , dd_cilAdditional
- , dd_cilRequired
+  dd_cilMain
+  , dd_cilAdditional
+  , dd_cilRequired
  );//TddConfigItemLabelType
 
  TddBaseConfigItem = class(TddAppConfigBase)
- private
- // private fields
-   f_Locked : Integer;
-   f_Slaves : Tl3ObjectList;
-   f_NotifyList : Tl3ObjectList;
-   f_AbsoluteIndex : Integer;
-    {* Поле для свойства AbsoluteIndex}
-   f_Alias : AnsiString;
-    {* Поле для свойства Alias}
-   f_Caption : AnsiString;
-    {* Поле для свойства Caption}
-   f_Changed : Boolean;
-    {* Поле для свойства Changed}
-   f_DefaultValue : TddConfigValue;
-    {* Поле для свойства DefaultValue}
-   f_Enabled : Boolean;
-    {* Поле для свойства Enabled}
-   f_HelpContext : Integer;
-    {* Поле для свойства HelpContext}
-   f_MasterItem : TddBaseConfigItem;
-    {* Поле для свойства MasterItem}
-   f_Required : Boolean;
-    {* Поле для свойства Required}
-   f_OnChange : TNotifyEvent;
-    {* Поле для свойства OnChange}
-   f_OnNotify : TddValueChangedEvent;
-    {* Поле для свойства OnNotify}
-   f_ReadOnly : Boolean;
-    {* Поле для свойства ReadOnly}
- private
- // private methods
+  private
+   f_Locked: Integer;
+   f_Slaves: Tl3ObjectList;
+   f_NotifyList: Tl3ObjectList;
+   f_AbsoluteIndex: Integer;
+    {* Поле для свойства AbsoluteIndex }
+   f_Alias: AnsiString;
+    {* Поле для свойства Alias }
+   f_Caption: AnsiString;
+    {* Поле для свойства Caption }
+   f_Changed: Boolean;
+    {* Поле для свойства Changed }
+   f_DefaultValue: TddConfigValue;
+    {* Поле для свойства DefaultValue }
+   f_Enabled: Boolean;
+    {* Поле для свойства Enabled }
+   f_HelpContext: Integer;
+    {* Поле для свойства HelpContext }
+   f_MasterItem: TddBaseConfigItem;
+    {* Поле для свойства MasterItem }
+   f_Required: Boolean;
+    {* Поле для свойства Required }
+   f_OnChange: TNotifyEvent;
+    {* Поле для свойства OnChange }
+   f_OnNotify: TddValueChangedEvent;
+    {* Поле для свойства OnNotify }
+   f_ReadOnly: Boolean;
+    {* Поле для свойства ReadOnly }
+  protected
+   f_Value: TddConfigValue;
+  private
    procedure AddSlave(aSlave: TddBaseConfigItem);
    procedure RemoveSlave(aSlave: TddBaseConfigItem);
- protected
- // property methods
+  protected
    procedure pm_SetAlias(const aValue: AnsiString); virtual;
    function pm_GetBooleanValue: Boolean; virtual;
    procedure pm_SetBooleanValue(aValue: Boolean); virtual;
@@ -169,960 +151,764 @@ type
    function pm_GetValue: TddConfigValue; virtual;
    procedure pm_SetValue(const aValue: TddConfigValue); virtual;
    procedure pm_SetReadOnly(aValue: Boolean);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   procedure Assign(Source: TPersistent); override;
-   function Clone: Pointer; override;
- protected
- // protected fields
-   f_Value : TddConfigValue;
- protected
- // protected methods
    procedure Changing;
-     {* Сигнатура метода Changing }
    procedure DoEnabled; virtual;
-     {* Сигнатура метода DoEnabled }
    function MayBeRequired: Boolean; virtual;
    procedure ProcessNotify(const aValue: TddConfigValue);
    procedure ReadOnlyChanged; virtual;
-     {* Сигнатура метода ReadOnlyChanged }
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  public
    procedure Reset; virtual;
-     {* Сигнатура метода Reset }
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); reintroduce; virtual;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); reintroduce; virtual;
    procedure AddNotify(aItem: TddBaseConfigItem);
    procedure AssignValue(const aValue: TddConfigValue;
-     aOnChange: Boolean = False); virtual;
-     {* функция сравнения объекта с другим объектом.  Для перекрытия в потомках. }
+    aOnChange: Boolean = False); virtual;
+    {* функция сравнения объекта с другим объектом.  Для перекрытия в потомках. }
    function HasValue(const anAlias: AnsiString;
-     out theItem: TddBaseConfigItem): Boolean; overload;  virtual;
-   function HasValue(const anAlias: AnsiString): Boolean; overload;  virtual;
+    out theItem: TddBaseConfigItem): Boolean; overload; virtual;
+   function HasValue(const anAlias: AnsiString): Boolean; overload; virtual;
    function IsLocked: Boolean;
    procedure Load(const aStorage: IddConfigStorage);
    procedure LoadValue(const aStorage: IddConfigStorage); virtual;
    procedure Lock;
-     {* Сигнатура метода Lock }
    procedure Unlock;
-     {* Сигнатура метода Unlock }
    procedure RemoveNotify(aItem: TddBaseConfigItem);
    procedure ResetToDefault;
-     {* Сигнатура метода ResetToDefault }
    procedure Save(const aStorage: IddConfigStorage);
    procedure SaveValue(const aStorage: IddConfigStorage); virtual;
- public
- // public properties
+   procedure Assign(Source: TPersistent); override;
+   function Clone: Pointer; override;
+  public
    property AbsoluteIndex: Integer
-     read f_AbsoluteIndex
-     write f_AbsoluteIndex;
+    read f_AbsoluteIndex
+    write f_AbsoluteIndex;
    property Alias: AnsiString
-     read f_Alias
-     write pm_SetAlias;
+    read f_Alias
+    write pm_SetAlias;
    property BooleanValue: Boolean
-     read pm_GetBooleanValue
-     write pm_SetBooleanValue;
+    read pm_GetBooleanValue
+    write pm_SetBooleanValue;
    property Caption: AnsiString
-     read f_Caption
-     write f_Caption;
+    read f_Caption
+    write f_Caption;
    property Changed: Boolean
-     read pm_GetChanged
-     write pm_SetChanged;
+    read pm_GetChanged
+    write pm_SetChanged;
    property DateTimeValue: TDateTime
-     read pm_GetDateTimeValue
-     write pm_SetDateTimeValue;
+    read pm_GetDateTimeValue
+    write pm_SetDateTimeValue;
    property DefaultBooleanValue: Boolean
-     read pm_GetDefaultBooleanValue
-     write pm_SetDefaultBooleanValue;
+    read pm_GetDefaultBooleanValue
+    write pm_SetDefaultBooleanValue;
    property DefaultDateTimeValue: TDateTime
-     read pm_GetDefaultDateTimeValue
-     write pm_SetDefaultDateTimeValue;
+    read pm_GetDefaultDateTimeValue
+    write pm_SetDefaultDateTimeValue;
    property DefaultIntegerValue: Integer
-     read pm_GetDefaultIntegerValue
-     write pm_SetDefaultIntegerValue;
+    read pm_GetDefaultIntegerValue
+    write pm_SetDefaultIntegerValue;
    property DefaultObjectValue: TObject
-     read pm_GetDefaultObjectValue
-     write pm_SetDefaultObjectValue;
+    read pm_GetDefaultObjectValue
+    write pm_SetDefaultObjectValue;
    property DefaultStringValue: AnsiString
-     read pm_GetDefaultStringValue
-     write pm_SetDefaultStringValue;
+    read pm_GetDefaultStringValue
+    write pm_SetDefaultStringValue;
    property DefaultValue: TddConfigValue
-     read f_DefaultValue
-     write pm_SetDefaultValue;
+    read f_DefaultValue
+    write pm_SetDefaultValue;
    property Enabled: Boolean
-     read pm_GetEnabled
-     write pm_SetEnabled;
+    read pm_GetEnabled
+    write pm_SetEnabled;
    property HelpContext: Integer
-     read f_HelpContext
-     write f_HelpContext;
+    read f_HelpContext
+    write f_HelpContext;
    property IntegerValue: Integer
-     read pm_GetIntegerValue
-     write pm_SetIntegerValue;
+    read pm_GetIntegerValue
+    write pm_SetIntegerValue;
    property IsRequired: Boolean
-     read pm_GetIsRequired;
+    read pm_GetIsRequired;
    property MasterItem: TddBaseConfigItem
-     read f_MasterItem
-     write pm_SetMasterItem;
+    read f_MasterItem
+    write pm_SetMasterItem;
    property ObjectValue: TObject
-     read pm_GetObjectValue
-     write pm_SetObjectValue;
+    read pm_GetObjectValue
+    write pm_SetObjectValue;
    property Required: Boolean
-     read pm_GetRequired
-     write pm_SetRequired;
+    read pm_GetRequired
+    write pm_SetRequired;
    property StringValue: AnsiString
-     read pm_GetStringValue
-     write pm_SetStringValue;
+    read pm_GetStringValue
+    write pm_SetStringValue;
    property Value: TddConfigValue
-     read pm_GetValue
-     write pm_SetValue;
+    read pm_GetValue
+    write pm_SetValue;
    property OnChange: TNotifyEvent
-     read f_OnChange
-     write f_OnChange;
+    read f_OnChange
+    write f_OnChange;
    property OnNotify: TddValueChangedEvent
-     read f_OnNotify
-     write f_OnNotify;
+    read f_OnNotify
+    write f_OnNotify;
    property ReadOnly: Boolean
-     read f_ReadOnly
-     write pm_SetReadOnly;
+    read f_ReadOnly
+    write pm_SetReadOnly;
  end;//TddBaseConfigItem
 
  TddButtonPlace = (
-   dd_bpAsDefine
- , dd_bpBottomRight
+  dd_bpAsDefine
+  , dd_bpBottomRight
  );//TddButtonPlace
 
  TMapValue = class(TddAppConfigBase)
- private
- // private fields
-   f_Value : TddConfigValue;
-    {* Поле для свойства Value}
-   f_Caption : AnsiString;
-    {* Поле для свойства Caption}
- protected
- // property methods
+  private
+   f_Value: TddConfigValue;
+    {* Поле для свойства Value }
+   f_Caption: AnsiString;
+    {* Поле для свойства Caption }
+  protected
    procedure pm_SetValue(const aValue: TddConfigValue);
    procedure pm_SetCaption(const aValue: AnsiString);
- public
- // overridden public methods
+   procedure ClearFields; override;
+  public
    procedure Assign(Source: TPersistent); override;
    constructor Create; override;
- public
- // public properties
+  public
    property Value: TddConfigValue
-     read f_Value
-     write pm_SetValue;
+    read f_Value
+    write pm_SetValue;
    property Caption: AnsiString
-     read f_Caption
-     write pm_SetCaption;
+    read f_Caption
+    write pm_SetCaption;
  end;//TMapValue
 
  TMapValues = class(TddAppConfigBase)
- private
- // private fields
-   f_List : Tl3ProtoPersistentRefList;
-   f_MapKind : TddValueKind;
-    {* Поле для свойства MapKind}
- private
- // private methods
+  private
+   f_List: Tl3ProtoPersistentRefList;
+   f_MapKind: TddValueKind;
+    {* Поле для свойства MapKind }
+  private
    procedure CheckValueType(aKind: TddValueKind);
- protected
- // property methods
+  protected
    function pm_GetCount: Integer; virtual;
    function pm_GetItems(aIndex: Integer): TMapValue;
-   procedure pm_SetItems(aIndex: Integer; aValue: TMapValue);
- protected
- // overridden protected methods
+   procedure pm_SetItems(aIndex: Integer;
+    aValue: TMapValue);
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   procedure Assign(Source: TPersistent); override;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    function IndexOfCaption(const aCaption: Il3CString): Integer;
    function IndexOfValue(const aValue: TddConfigValue): Integer;
    procedure Clear; virtual;
-     {* Сигнатура метода Clear }
    procedure AddMapValue(const aCaption: AnsiString;
-     const aValue: TddConfigValue);
+    const aValue: TddConfigValue);
    constructor Create(aKind: TddValueKind); reintroduce;
- public
- // public properties
+   procedure Assign(Source: TPersistent); override;
+  public
    property MapKind: TddValueKind
-     read f_MapKind;
+    read f_MapKind;
    property Count: Integer
-     read pm_GetCount;
+    read pm_GetCount;
    property Items[aIndex: Integer]: TMapValue
-     read pm_GetItems
-     write pm_SetItems;
-     default;
+    read pm_GetItems
+    write pm_SetItems;
+    default;
  end;//TMapValues
 
  TddVisualConfigItem = class(TddBaseConfigItem)
- private
- // private fields
-   f_Label : TvtLabel;
-   f_RequiredLabel : TvtLabel;
-   f_Control : TControl;
-    {* Поле для свойства Control}
-   f_FirstLabel : TvtLabel;
-    {* Поле для свойства FirstLabel}
-   f_Hint : AnsiString;
-    {* Поле для свойства Hint}
-   f_Labeled : Boolean;
-    {* Поле для свойства Labeled}
-   f_Visible : Boolean;
-    {* Поле для свойства Visible}
- protected
- // property methods
+  private
+   f_Label: TvtLabel;
+   f_RequiredLabel: TvtLabel;
+   f_Control: TControl;
+    {* Поле для свойства Control }
+   f_FirstLabel: TvtLabel;
+    {* Поле для свойства FirstLabel }
+   f_Hint: AnsiString;
+    {* Поле для свойства Hint }
+   f_Labeled: Boolean;
+    {* Поле для свойства Labeled }
+   f_Visible: Boolean;
+    {* Поле для свойства Visible }
+  protected
+   f_LabelTop: Boolean;
+  protected
    function pm_GetLabeled: Boolean; virtual;
    function pm_GetLabelTop: Boolean; virtual;
    procedure pm_SetLabelTop(aValue: Boolean); virtual;
    function pm_GetFullControlHeight(aParent: TWinControl): Integer; virtual;
- protected
- // overridden property methods
+   procedure AdjustLabel(theControl: TControl;
+    theLabel: TvtLabel);
+   procedure AfterConstruct(var aLeft: Integer;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    theControl: TControl;
+    theLabel: TvtLabel); virtual;
+   procedure BeforeConstruct(var aLeft: Integer;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl); virtual;
+   procedure ChangeSlaveStatus(aEnabled: Boolean);
+   function ConstructControl(var aLeft: Integer;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; virtual; abstract;
+   function CreateLabel(aParent: TWinControl;
+    const aCaption: AnsiString;
+    var aLeft: Integer;
+    var aTop: Integer;
+    aLabelType: TddConfigItemLabelType = dd_cilMain): TvtLabel;
+   function GetCanvas(aParent: TWinControl): TCanvas;
+   function GetForm(aParent: TWinControl): TCustomForm;
+   procedure SplitCaption(const aCaption: AnsiString;
+    out aPrefix: AnsiString;
+    out aSuffix: AnsiString);
+   procedure AdjustReadOnly(aControl: TControl); virtual;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure DoEnabled; override;
    function pm_GetChanged: Boolean; override;
    procedure pm_SetChanged(aValue: Boolean); override;
    function pm_GetValue: TddConfigValue; override;
    procedure pm_SetValue(const aValue: TddConfigValue); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure DoEnabled; override;
-     {* Сигнатура метода DoEnabled }
    procedure ReadOnlyChanged; override;
-     {* Сигнатура метода ReadOnlyChanged }
- public
- // overridden public methods
-   procedure Assign(Source: TPersistent); override;
-   constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
- protected
- // protected fields
-   f_LabelTop : Boolean;
- protected
- // protected methods
-   procedure AdjustLabel(theControl: TControl;
-     theLabel: TvtLabel);
-   procedure AfterConstruct(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     theControl: TControl;
-     theLabel: TvtLabel); virtual;
-   procedure BeforeConstruct(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl); virtual;
-   procedure ChangeSlaveStatus(aEnabled: Boolean);
-   function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; virtual; abstract;
-   function CreateLabel(aParent: TWinControl;
-     const aCaption: AnsiString;
-     var aLeft: Integer;
-     var aTop: Integer;
-     aLabelType: TddConfigItemLabelType = dd_cilMain): TvtLabel;
-   function GetCanvas(aParent: TWinControl): TCanvas;
-   function GetForm(aParent: TWinControl): TCustomForm;
-   procedure SplitCaption(const aCaption: AnsiString;
-     out aPrefix: AnsiString;
-     out aSuffix: AnsiString);
-   procedure AdjustReadOnly(aControl: TControl); virtual;
- public
- // public methods
+   procedure ClearFields; override;
+  public
    function IsSame(anItem: TObject): Boolean; virtual;
    procedure ClearControl; virtual;
-     {* Сигнатура метода ClearControl }
    function ControlHeight(aParent: TWinControl): Integer; virtual; abstract;
    function CreateControl(aLeft: Integer;
-     aMaxLeft: Integer;
-     aTop: Integer;
-     aParent: TWinControl): TControl;
+    aMaxLeft: Integer;
+    aTop: Integer;
+    aParent: TWinControl): TControl;
    procedure GetValueFromControl; virtual; abstract;
-     {* Сигнатура метода GetValueFromControl }
    function LabelHeight(aParent: TWinControl): Integer;
    function LabelWidth(aParent: TWinControl): Integer; virtual;
    function MinWidth(aParent: TWinControl): Integer; virtual;
    procedure SetValueToControl(aDefault: Boolean); virtual; abstract;
- protected
- // protected properties
+   procedure Assign(Source: TPersistent); override;
+   constructor Create(const aAlias: AnsiString;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
+  protected
    property FirstLabel: TvtLabel
-     read f_FirstLabel
-     write f_FirstLabel;
- public
- // public properties
+    read f_FirstLabel
+    write f_FirstLabel;
+  public
    property Control: TControl
-     read f_Control
-     write f_Control;
+    read f_Control
+    write f_Control;
    property Hint: AnsiString
-     read f_Hint
-     write f_Hint;
+    read f_Hint
+    write f_Hint;
    property Labeled: Boolean
-     read pm_GetLabeled
-     write f_Labeled;
+    read pm_GetLabeled
+    write f_Labeled;
    property LabelTop: Boolean
-     read pm_GetLabelTop
-     write pm_SetLabelTop;
+    read pm_GetLabelTop
+    write pm_SetLabelTop;
    property Visible: Boolean
-     read f_Visible
-     write f_Visible;
+    read f_Visible
+    write f_Visible;
    property FullControlHeight[aParent: TWinControl]: Integer
-     read pm_GetFullControlHeight;
+    read pm_GetFullControlHeight;
  end;//TddVisualConfigItem
 
  TddIntegerConfigItem = class(TddVisualConfigItem)
- private
- // private fields
-   f_UpDown : TUpDown;
-   f_MaxValue : Integer;
-    {* Поле для свойства MaxValue}
-   f_MinValue : Integer;
-    {* Поле для свойства MinValue}
- protected
- // property methods
+  private
+   f_UpDown: TUpDown;
+   f_MaxValue: Integer;
+    {* Поле для свойства MaxValue }
+   f_MinValue: Integer;
+    {* Поле для свойства MinValue }
+  protected
    procedure pm_SetMaxValue(aValue: Integer);
    procedure pm_SetMinValue(aValue: Integer);
- protected
- // realized methods
+   procedure Validate;
+   procedure DoOnChange(Sender: TObject); virtual;
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
-   function ControlHeight(aParent: TWinControl): Integer; override;
-   procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
-   procedure SetValueToControl(aDefault: Boolean); override;
- protected
- // overridden property methods
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
    function pm_GetLabelTop: Boolean; override;
    procedure pm_SetLabelTop(aValue: Boolean); override;
- protected
- // overridden protected methods
    procedure AdjustReadOnly(aControl: TControl); override;
- public
- // overridden public methods
+  public
+   constructor CreateItem(const aAlias: AnsiString;
+    const aCaption: AnsiString;
+    aDefaultValue: Integer;
+    aMasterItem: TddBaseConfigItem = nil); reintroduce;
+   function ControlHeight(aParent: TWinControl): Integer; override;
+   procedure GetValueFromControl; override;
+   procedure SetValueToControl(aDefault: Boolean); override;
    procedure Assign(Source: TPersistent); override;
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    procedure ClearControl; override;
-     {* Сигнатура метода ClearControl }
    function MinWidth(aParent: TWinControl): Integer; override;
- protected
- // protected methods
-   procedure Validate;
-     {* Сигнатура метода Validate }
-   procedure DoOnChange(Sender: TObject); virtual;
-     {* TNotifyEvent is used for events that do not require parameters. }
- public
- // public methods
-   constructor CreateItem(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     aDefaultValue: Integer;
-     aMasterItem: TddBaseConfigItem = nil);
- public
- // public properties
+  public
    property MaxValue: Integer
-     read f_MaxValue
-     write pm_SetMaxValue;
+    read f_MaxValue
+    write pm_SetMaxValue;
    property MinValue: Integer
-     read f_MinValue
-     write pm_SetMinValue;
+    read f_MinValue
+    write pm_SetMinValue;
  end;//TddIntegerConfigItem
 
  EddInvalidValue = class(EddConfigError)
- private
- // private fields
-   f_Item : TddVisualConfigItem;
-    {* Поле для свойства Item}
- public
- // public methods
+  private
+   f_Item: TddVisualConfigItem;
+    {* Поле для свойства Item }
+  public
    constructor CreateFmt(const aMsg: AnsiString;
-     const Args: array of const;
-     aItem: TddVisualConfigItem);
- public
- // public properties
+    const Args: array of const;
+    aItem: TddVisualConfigItem); reintroduce;
+  public
    property Item: TddVisualConfigItem
-     read f_Item;
+    read f_Item;
  end;//EddInvalidValue
 
  TddMapValueConfigItem = class(TddVisualConfigItem)
- private
- // private fields
-   f_ValueKind : TddValueKind;
-   f_ValueMap : Il3ValueMap;
-    {* Поле для свойства ValueMap}
- private
- // private methods
+  private
+   f_ValueKind: TddValueKind;
+   f_ValueMap: Il3ValueMap;
+    {* Поле для свойства ValueMap }
+  protected
+   f_MapValues: TMapValues;
+  private
    function DisplayNameToValue(const aName: Il3CString): TddConfigValue;
- protected
- // property methods
+  protected
    procedure pm_SetItem(const aValue: AnsiString);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   procedure Assign(Source: TPersistent); override;
-   procedure LoadValue(const aStorage: IddConfigStorage); override;
-   procedure SaveValue(const aStorage: IddConfigStorage); override;
-   function Clone: Pointer; override;
- protected
- // protected fields
-   f_MapValues : TMapValues;
- protected
- // protected methods
    function DisplayNameContainer: Tl3Strings; virtual; abstract;
    function IsSet: Boolean;
    function CalcDisplayName(const aValue: TddConfigValue): AnsiString;
    function CalcValue(const aName: Il3CString): TddConfigValue;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure ClearFields; override;
+  public
    procedure AddMapValue(const aCaption: AnsiString;
-     const aValue: TddConfigValue); overload; 
+    const aValue: TddConfigValue); overload;
    procedure AddMapValue(const aCaption: AnsiString;
-     aValue: Integer); overload; 
+    aValue: Integer); overload;
    procedure AddMapValue(const aCaption: AnsiString;
-     const aValue: AnsiString); overload; 
+    const aValue: AnsiString); overload;
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     const aValueMap: Il3ValueMap = nil;
-     aMasterItem: TddBaseConfigItem = nil); reintroduce;
- public
- // public properties
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    const aValueMap: Il3ValueMap = nil;
+    aMasterItem: TddBaseConfigItem = nil); reintroduce;
+   procedure Assign(Source: TPersistent); override;
+   procedure LoadValue(const aStorage: IddConfigStorage); override;
+   procedure SaveValue(const aStorage: IddConfigStorage); override;
+   function Clone: Pointer; override;
+  public
    property Item: AnsiString
-     write pm_SetItem;
+    write pm_SetItem;
    property ValueMap: Il3ValueMap
-     read f_ValueMap;
+    read f_ValueMap;
  end;//TddMapValueConfigItem
 
- RddBaseConfigItem = class of TddBaseConfigItem;
-
  TddRadioGroupConfigItem = class(TddIntegerConfigItem)
- private
- // private fields
-   f_Items : TStrings;
-   f_MaxCount : Integer;
-    {* Поле для свойства MaxCount}
- protected
- // property methods
+  private
+   f_Items: TStrings;
+   f_MaxCount: Integer;
+    {* Поле для свойства MaxCount }
+  protected
    procedure pm_SetMaxCount(aValue: Integer);
- protected
- // overridden property methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    function pm_GetLabelTop: Boolean; override;
    procedure pm_SetLabelTop(aValue: Boolean); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
    procedure DoOnChange(Sender: TObject); override;
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure AdjustReadOnly(aControl: TControl); override;
- public
- // overridden public methods
+  public
+   procedure Add(const aItem: AnsiString);
    procedure Assign(Source: TPersistent); override;
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    function ControlHeight(aParent: TWinControl): Integer; override;
    procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
    procedure SetValueToControl(aDefault: Boolean); override;
- public
- // public methods
-   procedure Add(const aItem: AnsiString);
- public
- // public properties
+  public
    property MaxCount: Integer
-     read f_MaxCount
-     write pm_SetMaxCount;
+    read f_MaxCount
+    write pm_SetMaxCount;
  end;//TddRadioGroupConfigItem
 
  TddRadioConfigItem = class(TddVisualConfigItem)
- protected
- // realized methods
+  protected
+   procedure DoOnChange(Sender: TObject);
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
+   procedure AdjustReadOnly(aControl: TControl); override;
+  public
+   constructor CreateItem(const aAlias: AnsiString;
+    const aCaption: AnsiString;
+    aDefaultValue: Boolean;
+    aMasterItem: TddBaseConfigItem = nil); reintroduce;
    function ControlHeight(aParent: TWinControl): Integer; override;
    procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
    procedure SetValueToControl(aDefault: Boolean); override;
- protected
- // overridden protected methods
-   procedure AdjustReadOnly(aControl: TControl); override;
- public
- // overridden public methods
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    function MinWidth(aParent: TWinControl): Integer; override;
- protected
- // protected methods
-   procedure DoOnChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- public
- // public methods
-   constructor CreateItem(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     aDefaultValue: Boolean;
-     aMasterItem: TddBaseConfigItem = nil);
  end;//TddRadioConfigItem
 
  TddGroupConfigItem = class(TddVisualConfigItem)
- private
- // private fields
-   f_SubItems : TObjectList;
-    {* Поле для свойства SubItems}
-   f_ShowCaption : Boolean;
-    {* Поле для свойства ShowCaption}
- private
- // private methods
+  private
+   f_SubItems: TObjectList;
+    {* Поле для свойства SubItems }
+   f_ShowCaption: Boolean;
+    {* Поле для свойства ShowCaption }
+  private
    procedure DoOnChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- protected
- // property methods
+  protected
    function pm_GetSubItem(Index: Integer): TddVisualConfigItem;
    function pm_GetCount: Integer;
- protected
- // realized methods
+   function HeaderHeight(aParent: TWinControl): Integer; virtual;
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
-   function ControlHeight(aParent: TWinControl): Integer; override;
-   procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
-   procedure SetValueToControl(aDefault: Boolean); override;
- protected
- // overridden property methods
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    function pm_GetChanged: Boolean; override;
    procedure pm_SetChanged(aValue: Boolean); override;
    function pm_GetEnabled: Boolean; override;
    procedure pm_SetEnabled(aValue: Boolean); override;
-   function pm_GetFullControlHeight(aParent: TWinControl): Integer; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
    function MayBeRequired: Boolean; override;
+   function pm_GetFullControlHeight(aParent: TWinControl): Integer; override;
    procedure ReadOnlyChanged; override;
-     {* Сигнатура метода ReadOnlyChanged }
- public
- // overridden public methods
+  public
+   constructor SimpleCreate(const aAlias: AnsiString;
+    const aCaption: AnsiString;
+    aMasterItem: TddBaseConfigItem = nil); reintroduce;
+   function ItemsLabelWidth(aParent: TWinControl;
+    var aLeftLabeled: Integer): Integer;
+   function Add(aItem: TddBaseConfigItem): TddBaseConfigItem; virtual;
+   function ControlHeight(aParent: TWinControl): Integer; override;
+   procedure GetValueFromControl; override;
+   procedure SetValueToControl(aDefault: Boolean); override;
    procedure Assign(Source: TPersistent); override;
    procedure Reset; override;
-     {* Сигнатура метода Reset }
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    function HasValue(const anAlias: AnsiString;
-     out theItem: TddBaseConfigItem): Boolean; override;
+    out theItem: TddBaseConfigItem): Boolean; override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    function IsSame(anItem: TObject): Boolean; override;
    procedure ClearControl; override;
-     {* Сигнатура метода ClearControl }
    function LabelWidth(aParent: TWinControl): Integer; override;
    function MinWidth(aParent: TWinControl): Integer; override;
- protected
- // protected methods
-   function HeaderHeight(aParent: TWinControl): Integer; virtual;
- public
- // public methods
-   constructor SimpleCreate(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     aMasterItem: TddBaseConfigItem = nil);
-   function ItemsLabelWidth(aParent: TWinControl;
-     var aLeftLabeled: Integer): Integer;
-   function Add(aItem: TddBaseConfigItem): TddBaseConfigItem; virtual;
- public
- // public properties
+  public
    property SubItems: TObjectList
-     read f_SubItems;
+    read f_SubItems;
    property ShowCaption: Boolean
-     read f_ShowCaption
-     write f_ShowCaption;
+    read f_ShowCaption
+    write f_ShowCaption;
    property SubItem[Index: Integer]: TddVisualConfigItem
-     read pm_GetSubItem;
+    read pm_GetSubItem;
    property Count: Integer
-     read pm_GetCount;
+    read pm_GetCount;
  end;//TddGroupConfigItem
 
  TddFontConfigItem = class(TddVisualConfigItem)
- protected
- // realized methods
+  protected
+   procedure FontButtonClick(Sender: TObject);
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
+   procedure AfterConstruct(var aLeft: Integer;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    theControl: TControl;
+    theLabel: TvtLabel); override;
+   procedure AdjustReadOnly(aControl: TControl); override;
+  public
    function ControlHeight(aParent: TWinControl): Integer; override;
    procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
    procedure SetValueToControl(aDefault: Boolean); override;
- protected
- // overridden protected methods
-   procedure AfterConstruct(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     theControl: TControl;
-     theLabel: TvtLabel); override;
-   procedure AdjustReadOnly(aControl: TControl); override;
- public
- // overridden public methods
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
- protected
- // protected methods
-   procedure FontButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
  end;//TddFontConfigItem
 
  TddBaseStringsConfigItem = {abstract} class(TddMapValueConfigItem)
- protected
- // property methods
+  protected
    function pm_GetControlClass: TControlClass; virtual;
    function pm_GetSelectedItemIndex: Integer; virtual;
    procedure pm_SetSelectedItemIndex(aValue: Integer); virtual;
    function pm_GetControlStrings: Il3StringsEx; virtual;
- protected
- // realized methods
-   function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
-   function ControlHeight(aParent: TWinControl): Integer; override;
-   procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
-   procedure SetValueToControl(aDefault: Boolean); override;
-   function DisplayNameContainer: Tl3Strings; override;
- protected
- // protected methods
    procedure DoOnChange(aSender: TObject); virtual;
    procedure CheckLoadItems; virtual;
    procedure SelectValue(aValue: Integer); virtual;
    procedure InitControl(aControl: TControl); virtual;
    procedure AssignStringsToControl(const aStrings: Il3StringsEx); virtual;
- protected
- // protected properties
+   function ConstructControl(var aLeft: Integer;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
+   function DisplayNameContainer: Tl3Strings; override;
+  public
+   function ControlHeight(aParent: TWinControl): Integer; override;
+   procedure GetValueFromControl; override;
+   procedure SetValueToControl(aDefault: Boolean); override;
+  protected
    property ControlClass: TControlClass
-     read pm_GetControlClass;
+    read pm_GetControlClass;
    property SelectedItemIndex: Integer
-     read pm_GetSelectedItemIndex
-     write pm_SetSelectedItemIndex;
+    read pm_GetSelectedItemIndex
+    write pm_SetSelectedItemIndex;
    property ControlStrings: Il3StringsEx
-     read pm_GetControlStrings;
+    read pm_GetControlStrings;
  end;//TddBaseStringsConfigItem
 
- RddBaseConfigNode = class of TddCustomConfigNode;
-
  TddCustomConfigNode = class(TddBaseConfigItem, IddConfigNode)
- private
- // private fields
-   f_Alias : AnsiString;
-    {* Поле для свойства Alias}
-   f_Caption : AnsiString;
-    {* Поле для свойства Caption}
-   f_OnChange : TNotifyEvent;
-    {* Поле для свойства OnChange}
-   f_HelpContext : Integer;
-    {* Поле для свойства HelpContext}
-   f_Parent : TddCustomConfigNode;
-    {* Поле для свойства Parent}
-   f_ParentAlias : AnsiString;
-    {* Поле для свойства ParentAlias}
-   f_ScrollBars : TScrollStyle;
-    {* Поле для свойства ScrollBars}
- protected
- // property methods
+  private
+   f_Alias: AnsiString;
+    {* Поле для свойства Alias }
+   f_Caption: AnsiString;
+    {* Поле для свойства Caption }
+   f_OnChange: TNotifyEvent;
+    {* Поле для свойства OnChange }
+   f_HelpContext: Integer;
+    {* Поле для свойства HelpContext }
+   f_Parent: TddCustomConfigNode;
+    {* Поле для свойства Parent }
+   f_ParentAlias: AnsiString;
+    {* Поле для свойства ParentAlias }
+   f_ScrollBars: TScrollStyle;
+    {* Поле для свойства ScrollBars }
+  protected
+   f_Children: Tl3ProtoPersistentRefList;
+  protected
    function pm_GetChildrenCount: Integer;
    function pm_GetChildren(anIndex: Integer): TddCustomConfigNode; virtual;
    function pm_GetIsHorizontalScrollBar: Boolean;
    function pm_GetIsVerticalScrollBar: Boolean;
    procedure pm_SetParent(aValue: TddCustomConfigNode);
- protected
- // realized methods
-   procedure ClearControls;
-     {* Сигнатура метода ClearControls }
-   function CreateFrame(aOwner: TComponent;
-     aTag: Integer): TCustomFrame;
-   procedure FrameSize(aParent: TWinControl;
-     out aHeight: Integer;
-     out aWidth: Integer);
-   procedure GetControlValues;
-     {* Сигнатура метода GetControlValues }
-   function IsItem(aItem: TObject): Boolean;
-   procedure LoadData(const aStorage: IddConfigStorage);
-   procedure ResetToDefault;
-     {* Сигнатура метода ResetToDefault }
-   procedure SaveData(const aStorage: IddConfigStorage);
-   procedure SetControlValues(aDefault: Boolean);
- protected
- // overridden property methods
-   function pm_GetChanged: Boolean; override;
-   procedure pm_SetChanged(aValue: Boolean); override;
-   function pm_GetValue: TddConfigValue; override;
-   procedure pm_SetValue(const aValue: TddConfigValue); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure ReadOnlyChanged; override;
-     {* Сигнатура метода ReadOnlyChanged }
- public
- // overridden public methods
-   procedure Assign(Source: TPersistent); override;
-   function Clone: Pointer; override;
- protected
- // protected fields
-   f_Children : Tl3ProtoPersistentRefList;
- protected
- // protected methods
    procedure ItemChanged(Sender: TObject);
    procedure DoClearControls; virtual; abstract;
    function DoCreateFrame(aOwner: TComponent;
-     aTag: Integer): TCustomFrame; virtual; abstract;
+    aTag: Integer): TCustomFrame; virtual; abstract;
    procedure DoFrameSize(aParent: TWinControl;
-     out aHeight: Integer;
-     out aWidth: Integer); virtual;
+    out aHeight: Integer;
+    out aWidth: Integer); virtual;
    procedure DoGetControlValues; virtual; abstract;
    function DoIsItem(aItem: TObject): Boolean; virtual; abstract;
    procedure DoLoad(const aStorage: IddConfigStorage); virtual; abstract;
    procedure DoResetToDefault; virtual;
    procedure DoSave(const aStorage: IddConfigStorage); virtual; abstract;
    procedure DoSetControlValues(aDefault: Boolean); virtual; abstract;
- public
- // public methods
+   procedure ClearControls;
+   function CreateFrame(aOwner: TComponent;
+    aTag: Integer): TCustomFrame;
+   procedure FrameSize(aParent: TWinControl;
+    out aHeight: Integer;
+    out aWidth: Integer);
+   procedure GetControlValues;
+   function IsItem(aItem: TObject): Boolean;
+   procedure LoadData(const aStorage: IddConfigStorage);
+   procedure ResetToDefault;
+   procedure SaveData(const aStorage: IddConfigStorage);
+   procedure SetControlValues(aDefault: Boolean);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function pm_GetChanged: Boolean; override;
+   procedure pm_SetChanged(aValue: Boolean); override;
+   function pm_GetValue: TddConfigValue; override;
+   procedure pm_SetValue(const aValue: TddConfigValue); override;
+   procedure ReadOnlyChanged; override;
+   procedure ClearFields; override;
+  public
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString); reintroduce;
-   function AddNode(const aAlias: AnsiString): TddCustomConfigNode; overload; 
+    const aCaption: AnsiString); reintroduce;
+   function AddNode(const aAlias: AnsiString): TddCustomConfigNode; overload;
    function AddNode(const aAlias: AnsiString;
-     const aCaption: AnsiString): TddCustomConfigNode; overload; 
-   function AddNode(aNode: TddCustomConfigNode): TddCustomConfigNode; overload; 
+    const aCaption: AnsiString): TddCustomConfigNode; overload;
+   function AddNode(aNode: TddCustomConfigNode): TddCustomConfigNode; overload;
    function IsRequired(out aMessage: AnsiString): Boolean; virtual;
    procedure PostEdit; virtual;
-     {* Сигнатура метода PostEdit }
- public
- // public properties
+   procedure Assign(Source: TPersistent); override;
+   function Clone: Pointer; override;
+  public
    property Alias: AnsiString
-     read f_Alias
-     write f_Alias;
+    read f_Alias
+    write f_Alias;
    property Caption: AnsiString
-     read f_Caption
-     write f_Caption;
+    read f_Caption
+    write f_Caption;
    property ChildrenCount: Integer
-     read pm_GetChildrenCount;
+    read pm_GetChildrenCount;
    property Children[anIndex: Integer]: TddCustomConfigNode
-     read pm_GetChildren;
+    read pm_GetChildren;
    property IsHorizontalScrollBar: Boolean
-     read pm_GetIsHorizontalScrollBar;
+    read pm_GetIsHorizontalScrollBar;
    property IsVerticalScrollBar: Boolean
-     read pm_GetIsVerticalScrollBar;
+    read pm_GetIsVerticalScrollBar;
    property OnChange: TNotifyEvent
-     read f_OnChange
-     write f_OnChange;
+    read f_OnChange
+    write f_OnChange;
    property HelpContext: Integer
-     read f_HelpContext
-     write f_HelpContext;
+    read f_HelpContext
+    write f_HelpContext;
    property Parent: TddCustomConfigNode
-     read f_Parent
-     write pm_SetParent;
+    read f_Parent
+    write pm_SetParent;
    property ParentAlias: AnsiString
-     read f_ParentAlias;
+    read f_ParentAlias;
    property ScrollBars: TScrollStyle
-     read f_ScrollBars
-     write f_ScrollBars;
+    read f_ScrollBars
+    write f_ScrollBars;
  end;//TddCustomConfigNode
 
  TddBooleanConfigItem = class(TddVisualConfigItem, IddMasterItem)
- private
- // private methods
+  private
    procedure OnClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- protected
- // realized methods
+  protected
    function pm_GetBooleanValue: Boolean;
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
-   function ControlHeight(aParent: TWinControl): Integer; override;
-   procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
-   procedure SetValueToControl(aDefault: Boolean); override;
- protected
- // overridden property methods
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
    function pm_GetRequired: Boolean; override;
    procedure pm_SetRequired(aValue: Boolean); override;
-   function pm_GetFullControlHeight(aParent: TWinControl): Integer; override;
- protected
- // overridden protected methods
    function MayBeRequired: Boolean; override;
+   function pm_GetFullControlHeight(aParent: TWinControl): Integer; override;
    procedure AdjustReadOnly(aControl: TControl); override;
- public
- // overridden public methods
+  public
+   function ControlHeight(aParent: TWinControl): Integer; override;
+   procedure GetValueFromControl; override;
+   procedure SetValueToControl(aDefault: Boolean); override;
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    function MinWidth(aParent: TWinControl): Integer; override;
  end;//TddBooleanConfigItem
 
  TddButtonConfigItem = class(TddVisualConfigItem)
- private
- // private fields
-   f_OnClick : TNotifyEvent;
-    {* Поле для свойства OnClick}
-   f_ButtonPlace : TddButtonPlace;
-    {* Поле для свойства ButtonPlace}
- private
- // private methods
+  private
+   f_OnClick: TNotifyEvent;
+    {* Поле для свойства OnClick }
+   f_ButtonPlace: TddButtonPlace;
+    {* Поле для свойства ButtonPlace }
+  private
    procedure ButtonSize(aParent: TWinControl;
-     out aSize: TSize);
- protected
- // property methods
+    out aSize: TSize);
+  protected
    procedure pm_SetOnClick(aValue: TNotifyEvent);
- protected
- // realized methods
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
-   function ControlHeight(aParent: TWinControl): Integer; override;
-   procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
-   procedure SetValueToControl(aDefault: Boolean); override;
- protected
- // overridden property methods
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
    function pm_GetRequired: Boolean; override;
    procedure pm_SetRequired(aValue: Boolean); override;
- protected
- // overridden protected methods
    function MayBeRequired: Boolean; override;
    procedure AdjustReadOnly(aControl: TControl); override;
- public
- // overridden public methods
+  public
+   constructor Create(const anAlias: AnsiString;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aClick: TNotifyEvent;
+    aMasterItem: TddBaseConfigItem = nil); reintroduce;
+   function ControlHeight(aParent: TWinControl): Integer; override;
+   procedure GetValueFromControl; override;
+   procedure SetValueToControl(aDefault: Boolean); override;
    procedure Assign(Source: TPersistent); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    function MinWidth(aParent: TWinControl): Integer; override;
- public
- // public methods
-   constructor Create(const anAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aClick: TNotifyEvent;
-     aMasterItem: TddBaseConfigItem = nil); reintroduce;
- public
- // public properties
+  public
    property OnClick: TNotifyEvent
-     read f_OnClick
-     write pm_SetOnClick;
+    read f_OnClick
+    write pm_SetOnClick;
    property ButtonPlace: TddButtonPlace
-     read f_ButtonPlace
-     write f_ButtonPlace;
+    read f_ButtonPlace
+    write f_ButtonPlace;
  end;//TddButtonConfigItem
 
  TddColorConfigItem = class(TddIntegerConfigItem)
- protected
- // overridden protected methods
+  protected
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
    procedure DoOnChange(Sender: TObject); override;
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure AdjustReadOnly(aControl: TControl); override;
- public
- // overridden public methods
+  public
    procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
    procedure SetValueToControl(aDefault: Boolean); override;
  end;//TddColorConfigItem
 
- TddConfigChangedEvent = procedure (Sender: TddCustomConfigNode) of object;
+ TddConfigChangedEvent = procedure(Sender: TddCustomConfigNode) of object;
 
  TddCheckListConfigItem = class(TddRadioGroupConfigItem)
- private
- // private fields
-   f_Columns : Integer;
-    {* Поле для свойства Columns}
- protected
- // overridden protected methods
+  private
+   f_Columns: Integer;
+    {* Поле для свойства Columns }
+  protected
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
    procedure AdjustReadOnly(aControl: TControl); override;
- public
- // overridden public methods
+  public
    procedure Assign(Source: TPersistent); override;
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    function ControlHeight(aParent: TWinControl): Integer; override;
    procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
    procedure SetValueToControl(aDefault: Boolean); override;
- public
- // public properties
+  public
    property Columns: Integer
-     read f_Columns
-     write f_Columns;
+    read f_Columns
+    write f_Columns;
  end;//TddCheckListConfigItem
 
  TddDividerConfigItem = class(TddVisualConfigItem)
- protected
- // realized methods
+  protected
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
+   function MayBeRequired: Boolean; override;
+  public
    function ControlHeight(aParent: TWinControl): Integer; override;
    procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
    procedure SetValueToControl(aDefault: Boolean); override;
- protected
- // overridden protected methods
-   function MayBeRequired: Boolean; override;
- public
- // overridden public methods
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    function LabelWidth(aParent: TWinControl): Integer; override;
@@ -1130,397 +916,329 @@ type
  end;//TddDividerConfigItem
 
  TddAppConfigNode = class(TddCustomConfigNode)
- private
- // private fields
-   f_Objects : Tl3ProtoPersistentRefList;
-    {* Поле для свойства Objects}
-   f_LabelTop : Boolean;
-    {* Поле для свойства LabelTop}
- protected
- // property methods
+  private
+   f_Objects: Tl3ProtoPersistentRefList;
+    {* Поле для свойства Objects }
+   f_LabelTop: Boolean;
+    {* Поле для свойства LabelTop }
+  protected
    procedure pm_SetObjects(aValue: Tl3ProtoPersistentRefList);
    procedure pm_SetLabelTop(aValue: Boolean);
    function pm_GetItems(anIndex: Integer): TddVisualConfigItem;
    function pm_GetItemByIndex(anIndex: Integer): TddVisualConfigItem;
    function pm_GetAsBoolean(const anAlias: AnsiString): Boolean;
-   procedure pm_SetAsBoolean(const anAlias: AnsiString; aValue: Boolean);
+   procedure pm_SetAsBoolean(const anAlias: AnsiString;
+    aValue: Boolean);
    function pm_GetAsDateTime(const anAlias: AnsiString): TDateTime;
-   procedure pm_SetAsDateTime(const anAlias: AnsiString; aValue: TDateTime);
+   procedure pm_SetAsDateTime(const anAlias: AnsiString;
+    aValue: TDateTime);
    function pm_GetAsInteger(const anAlias: AnsiString): Integer;
-   procedure pm_SetAsInteger(const anAlias: AnsiString; aValue: Integer);
+   procedure pm_SetAsInteger(const anAlias: AnsiString;
+    aValue: Integer);
    function pm_GetAsObject(const anAlias: AnsiString): TObject;
-   procedure pm_SetAsObject(const anAlias: AnsiString; aValue: TObject);
+   procedure pm_SetAsObject(const anAlias: AnsiString;
+    aValue: TObject);
    function pm_GetAsString(const anAlias: AnsiString): AnsiString;
-   procedure pm_SetAsString(const anAlias: AnsiString; const aValue: AnsiString);
+   procedure pm_SetAsString(const anAlias: AnsiString;
+    const aValue: AnsiString);
    function pm_GetCount: Integer;
    function pm_GetItemByAlias(const anAlias: AnsiString): TddBaseConfigItem;
- protected
- // realized methods
    procedure DoClearControls; override;
    function DoCreateFrame(aOwner: TComponent;
-     aTag: Integer): TCustomFrame; override;
+    aTag: Integer): TCustomFrame; override;
    procedure DoGetControlValues; override;
    function DoIsItem(aItem: TObject): Boolean; override;
    procedure DoLoad(const aStorage: IddConfigStorage); override;
    procedure DoSave(const aStorage: IddConfigStorage); override;
    procedure DoSetControlValues(aDefault: Boolean); override;
- protected
- // overridden property methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    function pm_GetChanged: Boolean; override;
    procedure pm_SetChanged(aValue: Boolean); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
    procedure DoFrameSize(aParent: TWinControl;
-     out aHeight: Integer;
-     out aWidth: Integer); override;
+    out aHeight: Integer;
+    out aWidth: Integer); override;
    procedure DoResetToDefault; override;
    procedure ReadOnlyChanged; override;
-     {* Сигнатура метода ReadOnlyChanged }
- public
- // overridden public methods
+  public
+   constructor Create(const aAlias: AnsiString;
+    const aCaption: AnsiString); reintroduce;
+   function AddItem(aItem: TddBaseConfigItem): TddBaseConfigItem;
    procedure Assign(Source: TPersistent); override;
    function HasValue(const anAlias: AnsiString;
-     out theItem: TddBaseConfigItem): Boolean; override;
+    out theItem: TddBaseConfigItem): Boolean; override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    function IsRequired(out aMessage: AnsiString): Boolean; override;
    function Clone: Pointer; override;
- public
- // public methods
-   constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString); reintroduce;
-   function AddItem(aItem: TddBaseConfigItem): TddBaseConfigItem;
- public
- // public properties
+  public
    property Objects: Tl3ProtoPersistentRefList
-     read f_Objects
-     write pm_SetObjects;
+    read f_Objects
+    write pm_SetObjects;
    property LabelTop: Boolean
-     read f_LabelTop
-     write pm_SetLabelTop;
+    read f_LabelTop
+    write pm_SetLabelTop;
    property Items[anIndex: Integer]: TddVisualConfigItem
-     read pm_GetItems;
+    read pm_GetItems;
    property ItemByIndex[anIndex: Integer]: TddVisualConfigItem
-     read pm_GetItemByIndex;
+    read pm_GetItemByIndex;
    property AsBoolean[const anAlias: AnsiString]: Boolean
-     read pm_GetAsBoolean
-     write pm_SetAsBoolean;
+    read pm_GetAsBoolean
+    write pm_SetAsBoolean;
    property AsDateTime[const anAlias: AnsiString]: TDateTime
-     read pm_GetAsDateTime
-     write pm_SetAsDateTime;
+    read pm_GetAsDateTime
+    write pm_SetAsDateTime;
    property AsInteger[const anAlias: AnsiString]: Integer
-     read pm_GetAsInteger
-     write pm_SetAsInteger;
+    read pm_GetAsInteger
+    write pm_SetAsInteger;
    property AsObject[const anAlias: AnsiString]: TObject
-     read pm_GetAsObject
-     write pm_SetAsObject;
+    read pm_GetAsObject
+    write pm_SetAsObject;
    property AsString[const anAlias: AnsiString]: AnsiString
-     read pm_GetAsString
-     write pm_SetAsString;
+    read pm_GetAsString
+    write pm_SetAsString;
    property Count: Integer
-     read pm_GetCount;
+    read pm_GetCount;
    property ItemByAlias[const anAlias: AnsiString]: TddBaseConfigItem
-     read pm_GetItemByAlias;
-     default;
+    read pm_GetItemByAlias;
+    default;
  end;//TddAppConfigNode
 
  TddMasterSlaveConfigItem = class(TddGroupConfigItem)
- private
- // private fields
-   f_Captions : TStrings;
-   f_ListItems : Tl3ProtoPersistentRefList;
-   f_ComboBox : TvtComboBoxQS;
-   f_PrevIndex : Integer;
- private
- // private methods
+  private
+   f_Captions: TStrings;
+   f_ListItems: Tl3ProtoPersistentRefList;
+   f_ComboBox: TvtComboBoxQS;
+   f_PrevIndex: Integer;
+  private
    function CheckItem(const aAlias: AnsiString): Boolean;
    procedure OnChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    function FirstItem(aItemIndex: Integer): Integer;
    procedure ChangeItem;
-     {* Сигнатура метода ChangeItem }
    procedure AssignDataFromDetail;
-     {* Сигнатура метода AssignDataFromDetail }
    procedure UpdateDataItems(aItemIndex: Integer);
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
    function HeaderHeight(aParent: TWinControl): Integer; override;
    procedure AdjustReadOnly(aControl: TControl); override;
- public
- // overridden public methods
+  public
+   procedure AddStructureItem(aItem: TddBaseConfigItem);
+   procedure AddCaption(const aCaption: AnsiString;
+    const aAliasPrefix: AnsiString);
+   function AddAlias(const aAlias: AnsiString): TddBaseConfigItem;
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    procedure SetValueToControl(aDefault: Boolean); override;
- public
- // public methods
-   procedure AddStructureItem(aItem: TddBaseConfigItem);
-   procedure AddCaption(const aCaption: AnsiString;
-     const aAliasPrefix: AnsiString);
-   function AddAlias(const aAlias: AnsiString): TddBaseConfigItem;
  end;//TddMasterSlaveConfigItem
 
  TddContainerConfigItem = class(TddGroupConfigItem)
- private
- // private fields
-   f_InCreate : Boolean;
-   f_Left : Integer;
-   f_MaxLeft : Integer;
-   f_LastIndex : Integer;
-   f_ForceComboBox : Boolean;
-    {* Поле для свойства ForceComboBox}
- private
- // private methods
+  private
+   f_InCreate: Boolean;
+   f_Left: Integer;
+   f_MaxLeft: Integer;
+   f_LastIndex: Integer;
+   f_ForceComboBox: Boolean;
+    {* Поле для свойства ForceComboBox }
+  private
    function GetCaseIndex: Integer;
    procedure ConstructSubItems(aLeft: Integer;
-     aMaxLeft: Integer);
+    aMaxLeft: Integer);
    procedure DestroySubItems;
-     {* Сигнатура метода DestroySubItems }
    procedure SetValueToSubitems(aDefault: Boolean);
    procedure OnClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    function UseCheckBox: Boolean;
- protected
- // overridden property methods
+  protected
    function pm_GetBooleanValue: Boolean; override;
    procedure pm_SetBooleanValue(aValue: Boolean); override;
-   function pm_GetLabeled: Boolean; override;
- protected
- // overridden protected methods
    function MayBeRequired: Boolean; override;
+   function pm_GetLabeled: Boolean; override;
    procedure AfterConstruct(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     theControl: TControl;
-     theLabel: TvtLabel); override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    theControl: TControl;
+    theLabel: TvtLabel); override;
    procedure BeforeConstruct(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl); override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl); override;
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
    procedure AdjustReadOnly(aControl: TControl); override;
- public
- // overridden public methods
+  public
+   procedure AddCase(const aCaption: AnsiString);
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    function ControlHeight(aParent: TWinControl): Integer; override;
    procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
    function LabelWidth(aParent: TWinControl): Integer; override;
    procedure SetValueToControl(aDefault: Boolean); override;
    function Add(aItem: TddBaseConfigItem): TddBaseConfigItem; override;
- public
- // public methods
-   procedure AddCase(const aCaption: AnsiString);
- public
- // public properties
+  public
    property ForceComboBox: Boolean
-     read f_ForceComboBox
-     write f_ForceComboBox;
+    read f_ForceComboBox
+    write f_ForceComboBox;
  end;//TddContainerConfigItem
 
  TddComboBoxConfigItem = class(TddBaseStringsConfigItem, IddMasterItem)
- private
- // private fields
-   f_MasterIndex : Integer;
-   f_ComboBoxStyle : TComboBoxStyle;
-    {* Поле для свойства ComboBoxStyle}
-   f_DropDownCount : Integer;
-    {* Поле для свойства DropDownCount}
- private
- // private methods
+  private
+   f_MasterIndex: Integer;
+   f_ComboBoxStyle: TComboBoxStyle;
+    {* Поле для свойства ComboBoxStyle }
+   f_DropDownCount: Integer;
+    {* Поле для свойства DropDownCount }
+  private
    procedure OnExit(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- protected
- // property methods
+  protected
    procedure pm_SetComboBoxStyle(aValue: TComboBoxStyle);
    procedure pm_SetDropDownCount(aValue: Integer);
- protected
- // realized methods
+   procedure DoExit; virtual;
    function pm_GetBooleanValue: Boolean;
- protected
- // overridden property methods
-   function pm_GetControlClass: TControlClass; override;
-   function pm_GetSelectedItemIndex: Integer; override;
-   procedure pm_SetSelectedItemIndex(aValue: Integer); override;
-   function pm_GetControlStrings: Il3StringsEx; override;
- protected
- // overridden protected methods
    function DisplayNameContainer: Tl3Strings; override;
+   function pm_GetControlClass: TControlClass; override;
    procedure DoOnChange(aSender: TObject); override;
    procedure SelectValue(aValue: Integer); override;
+   function pm_GetSelectedItemIndex: Integer; override;
+   procedure pm_SetSelectedItemIndex(aValue: Integer); override;
    procedure InitControl(aControl: TControl); override;
+   function pm_GetControlStrings: Il3StringsEx; override;
    procedure AssignStringsToControl(const aStrings: Il3StringsEx); override;
- public
- // overridden public methods
+  public
+   constructor Create(const aAlias: AnsiString;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    const aValueMap: Il3ValueMap = nil;
+    aMasterItem: TddBaseConfigItem = nil;
+    aMasterIndex: Integer = -1); reintroduce; virtual;
    function ControlHeight(aParent: TWinControl): Integer; override;
    function Clone: Pointer; override;
- protected
- // protected methods
-   procedure DoExit; virtual;
-     {* Сигнатура метода DoExit }
- public
- // public methods
-   constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     const aValueMap: Il3ValueMap = nil;
-     aMasterItem: TddBaseConfigItem = nil;
-     aMasterIndex: Integer = -1); reintroduce; virtual;
- public
- // public properties
+  public
    property ComboBoxStyle: TComboBoxStyle
-     read f_ComboBoxStyle
-     write pm_SetComboBoxStyle;
+    read f_ComboBoxStyle
+    write pm_SetComboBoxStyle;
    property DropDownCount: Integer
-     read f_DropDownCount
-     write pm_SetDropDownCount;
+    read f_DropDownCount
+    write pm_SetDropDownCount;
  end;//TddComboBoxConfigItem
 
  TddMapRadioGroupConfigItem = class(TddBaseStringsConfigItem)
- private
- // private fields
-   f_ControlStrings : Tl3Strings;
- protected
- // overridden property methods
+  private
+   f_ControlStrings: Tl3Strings;
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function ConstructControl(var aLeft: Integer;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
+   function DisplayNameContainer: Tl3Strings; override;
    function pm_GetControlClass: TControlClass; override;
    function pm_GetSelectedItemIndex: Integer; override;
    procedure pm_SetSelectedItemIndex(aValue: Integer); override;
-   function pm_GetControlStrings: Il3StringsEx; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
-   function DisplayNameContainer: Tl3Strings; override;
    procedure InitControl(aControl: TControl); override;
+   function pm_GetControlStrings: Il3StringsEx; override;
    procedure AssignStringsToControl(const aStrings: Il3StringsEx); override;
- public
- // overridden public methods
+  public
    function ControlHeight(aParent: TWinControl): Integer; override;
  end;//TddMapRadioGroupConfigItem
 
  TddContainerComboConfigItem = class(TddGroupConfigItem)
- private
- // private fields
-   f_InCreate : Boolean;
-   f_LastIndex : Integer;
-   f_Left : Integer;
-   f_MaxLeft : Integer;
- private
- // private methods
+  private
+   f_InCreate: Boolean;
+   f_LastIndex: Integer;
+   f_Left: Integer;
+   f_MaxLeft: Integer;
+  private
    procedure ConstructSubItems(aLeft: Integer;
-     aMaxLeft: Integer);
+    aMaxLeft: Integer);
    procedure DestroySubItems;
-     {* Сигнатура метода DestroySubItems }
    procedure OnClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    function GetCaseCode: AnsiString;
    procedure SetValueToSubItems(aDefault: Boolean);
    function GetCaseIndex: Integer;
- protected
- // overridden property methods
-   function pm_GetLabeled: Boolean; override;
- protected
- // overridden protected methods
+  protected
    function MayBeRequired: Boolean; override;
+   function pm_GetLabeled: Boolean; override;
    procedure AfterConstruct(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     theControl: TControl;
-     theLabel: TvtLabel); override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    theControl: TControl;
+    theLabel: TvtLabel); override;
    procedure BeforeConstruct(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl); override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl); override;
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
    procedure AdjustReadOnly(aControl: TControl); override;
- public
- // overridden public methods
+  public
+   procedure AddCase(const aCaseCode: AnsiString;
+    const aCaption: AnsiString);
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    function ControlHeight(aParent: TWinControl): Integer; override;
    procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
    function LabelWidth(aParent: TWinControl): Integer; override;
    procedure SetValueToControl(aDefault: Boolean); override;
    function Add(aItem: TddBaseConfigItem): TddBaseConfigItem; override;
- public
- // public methods
-   procedure AddCase(const aCaseCode: AnsiString;
-     const aCaption: AnsiString);
  end;//TddContainerComboConfigItem
+
 function RequiredSignWidth(aParent: TWinControl): Integer;
 
 implementation
 
 uses
-  l3String,
-  DateUtils,
-  l3Base,
-  StrUtils,
-  Math,
-  ddAppConfigTypesRes,
-  vtSpinEdit
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  vtRadioButton,
-  vtGroupBox
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  vtPanel,
-  vtButton,
-  vtCheckBox
-  {$If not defined(NoVCL)}
-  ,
-  CheckLst
-  {$IfEnd} //not NoVCL
-  ,
-  l3Bits,
-  ddAppConfigRes,
-  l3Defaults,
-  l3ValueMap
-  ;
-
-// unit methods
+ l3ImplUses
+ , ddAppConfigTypesRes
+ , l3String
+ , DateUtils
+ , l3Base
+ , StrUtils
+ , Math
+ , vtSpinEdit
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtRadioButton
+ , vtGroupBox
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtPanel
+ , vtButton
+ , vtCheckBox
+ {$If NOT Defined(NoVCL)}
+ , CheckLst
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Bits
+ , ddAppConfigRes
+ , l3Defaults
+ , l3ValueMap
+;
 
 function GetGroupHeaderHeight(aParent: TWinControl;
-  const aCaption: AnsiString;
-  aShowCaption: Boolean): Integer;
+ const aCaption: AnsiString;
+ aShowCaption: Boolean): Integer;
 //#UC START# *53A2C016009F_52161F2B00C4_var*
 var
   l_Label: TStaticText;
@@ -1547,259 +1265,23 @@ begin
  end;
 //#UC END# *53A2C016009F_52161F2B00C4_impl*
 end;//GetGroupHeaderHeight
-// start class TddBaseConfigItem
 
-procedure TddBaseConfigItem.AddSlave(aSlave: TddBaseConfigItem);
-//#UC START# *52171C590103_4E302F4201D5_var*
-//#UC END# *52171C590103_4E302F4201D5_var*
+function RequiredSignWidth(aParent: TWinControl): Integer;
+//#UC START# *5216245D03BA_52161F2B00C4_var*
+//#UC END# *5216245D03BA_52161F2B00C4_var*
 begin
-//#UC START# *52171C590103_4E302F4201D5_impl*
- f_Slaves.Add(aSlave);
-//#UC END# *52171C590103_4E302F4201D5_impl*
-end;//TddBaseConfigItem.AddSlave
-
-procedure TddBaseConfigItem.RemoveSlave(aSlave: TddBaseConfigItem);
-//#UC START# *52171C8500C0_4E302F4201D5_var*
-//#UC END# *52171C8500C0_4E302F4201D5_var*
-begin
-//#UC START# *52171C8500C0_4E302F4201D5_impl*
- f_Slaves.Remove(aSlave);
-//#UC END# *52171C8500C0_4E302F4201D5_impl*
-end;//TddBaseConfigItem.RemoveSlave
-
-procedure TddBaseConfigItem.Changing;
-//#UC START# *52171CBA0170_4E302F4201D5_var*
-var
- I: Integer;
-//#UC END# *52171CBA0170_4E302F4201D5_var*
-begin
-//#UC START# *52171CBA0170_4E302F4201D5_impl*
- Changed := True;
- if not IsLocked then
-  for I := 0 to f_NotifyList.Hi do
-   TddBaseConfigItem(f_NotifyList.Items[I]).ProcessNotify(Self.Value);
-//#UC END# *52171CBA0170_4E302F4201D5_impl*
-end;//TddBaseConfigItem.Changing
-
-procedure TddBaseConfigItem.DoEnabled;
-//#UC START# *52171D0D031D_4E302F4201D5_var*
-//#UC END# *52171D0D031D_4E302F4201D5_var*
-begin
-//#UC START# *52171D0D031D_4E302F4201D5_impl*
- //virtual
-//#UC END# *52171D0D031D_4E302F4201D5_impl*
-end;//TddBaseConfigItem.DoEnabled
-
-function TddBaseConfigItem.MayBeRequired: Boolean;
-//#UC START# *521725C301A5_4E302F4201D5_var*
-//#UC END# *521725C301A5_4E302F4201D5_var*
-begin
-//#UC START# *521725C301A5_4E302F4201D5_impl*
- Result := True;
-//#UC END# *521725C301A5_4E302F4201D5_impl*
-end;//TddBaseConfigItem.MayBeRequired
-
-procedure TddBaseConfigItem.ProcessNotify(const aValue: TddConfigValue);
-//#UC START# *521725E40234_4E302F4201D5_var*
-//#UC END# *521725E40234_4E302F4201D5_var*
-begin
-//#UC START# *521725E40234_4E302F4201D5_impl*
- if Assigned(f_OnNotify) then
-  f_OnNotify(Self, aValue);
-//#UC END# *521725E40234_4E302F4201D5_impl*
-end;//TddBaseConfigItem.ProcessNotify
-
-procedure TddBaseConfigItem.Reset;
-//#UC START# *521726060214_4E302F4201D5_var*
-//#UC END# *521726060214_4E302F4201D5_var*
-begin
-//#UC START# *521726060214_4E302F4201D5_impl*
- Value := DefaultValue;
-//#UC END# *521726060214_4E302F4201D5_impl*
-end;//TddBaseConfigItem.Reset
-
-constructor TddBaseConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
-//#UC START# *5217273F000F_4E302F4201D5_var*
-//#UC END# *5217273F000F_4E302F4201D5_var*
-begin
-//#UC START# *5217273F000F_4E302F4201D5_impl*
- inherited Create;
- f_Slaves := Tl3ObjectList.Create;
- f_NotifyList := Tl3ObjectList.Create;
- f_Alias := aAlias;
- f_Caption := aCaption;
- f_Enabled := True;
- f_AbsoluteIndex := -1;
- DefaultValue := aDefaultValue;
-//#UC END# *5217273F000F_4E302F4201D5_impl*
-end;//TddBaseConfigItem.Create
-
-procedure TddBaseConfigItem.AddNotify(aItem: TddBaseConfigItem);
-//#UC START# *521727EA03C9_4E302F4201D5_var*
-//#UC END# *521727EA03C9_4E302F4201D5_var*
-begin
-//#UC START# *521727EA03C9_4E302F4201D5_impl*
- f_NotifyList.Add(aItem)
-//#UC END# *521727EA03C9_4E302F4201D5_impl*
-end;//TddBaseConfigItem.AddNotify
-
-procedure TddBaseConfigItem.AssignValue(const aValue: TddConfigValue;
-  aOnChange: Boolean = False);
-//#UC START# *5217286C0304_4E302F4201D5_var*
-//#UC END# *5217286C0304_4E302F4201D5_var*
-begin
-//#UC START# *5217286C0304_4E302F4201D5_impl*
- if aOnChange then
- case aValue.Kind of
-  dd_vkBoolean: BooleanValue := aValue.AsBoolean;
-  dd_vkDateTime: DateTimeValue := aValue.AsDateTime;
-  dd_vkInteger: IntegerValue := aValue.AsInteger;
-  dd_vkObject: ObjectValue := aValue.AsObject;
-  dd_vkString: StringValue := aValue.AsString;
- end
- else
-  f_Value := aValue;
-//#UC END# *5217286C0304_4E302F4201D5_impl*
-end;//TddBaseConfigItem.AssignValue
-
-function TddBaseConfigItem.HasValue(const anAlias: AnsiString;
-  out theItem: TddBaseConfigItem): Boolean;
-//#UC START# *52172A7700CB_4E302F4201D5_var*
-//#UC END# *52172A7700CB_4E302F4201D5_var*
-begin
-//#UC START# *52172A7700CB_4E302F4201D5_impl*
- Result := AnsiCompareText(anAlias, Alias) = 0;
- if Result then
-  theItem := Self
- else
-  theItem := nil;
-//#UC END# *52172A7700CB_4E302F4201D5_impl*
-end;//TddBaseConfigItem.HasValue
-
-function TddBaseConfigItem.HasValue(const anAlias: AnsiString): Boolean;
-//#UC START# *52172AE002EA_4E302F4201D5_var*
-var
- l_Obj: TddBaseConfigItem;
-//#UC END# *52172AE002EA_4E302F4201D5_var*
-begin
-//#UC START# *52172AE002EA_4E302F4201D5_impl*
- Result := HasValue(anAlias, l_Obj);
-//#UC END# *52172AE002EA_4E302F4201D5_impl*
-end;//TddBaseConfigItem.HasValue
-
-function TddBaseConfigItem.IsLocked: Boolean;
-//#UC START# *52172B0A003B_4E302F4201D5_var*
-//#UC END# *52172B0A003B_4E302F4201D5_var*
-begin
-//#UC START# *52172B0A003B_4E302F4201D5_impl*
- Result := f_Locked > 0;
-//#UC END# *52172B0A003B_4E302F4201D5_impl*
-end;//TddBaseConfigItem.IsLocked
-
-procedure TddBaseConfigItem.Load(const aStorage: IddConfigStorage);
-//#UC START# *52172B340290_4E302F4201D5_var*
-//#UC END# *52172B340290_4E302F4201D5_var*
-begin
-//#UC START# *52172B340290_4E302F4201D5_impl*
- Lock;
+//#UC START# *5216245D03BA_52161F2B00C4_impl*
+ with TvtLabel.Create(aParent) do
  try
-  LoadValue(aStorage);
- except
-  on E: Exception do
-   l3System.Msg2Log('Ошибка "%s" загрузки значения элемента "%s"', [E.Message, Alias]);
+  Parent := aParent;
+  CCaption := l3CStr(ddRequiredSign);
+  Font.Name := ddRequiredFont;
+  Result := Width;
+ finally
+  Free;
  end;
- Unlock;
- Changed := False;
-//#UC END# *52172B340290_4E302F4201D5_impl*
-end;//TddBaseConfigItem.Load
-
-procedure TddBaseConfigItem.LoadValue(const aStorage: IddConfigStorage);
-//#UC START# *52172B72014C_4E302F4201D5_var*
-//#UC END# *52172B72014C_4E302F4201D5_var*
-begin
-//#UC START# *52172B72014C_4E302F4201D5_impl*
- case f_Value.Kind of
-  dd_vkBoolean: f_Value.AsBoolean := aStorage.ReadBool(f_Alias, f_DefaultValue.AsBoolean);
-  dd_vkDateTime: f_Value.AsDateTime := aStorage.ReadDateTime(f_Alias, f_DefaultValue.AsDateTime);
-  dd_vkInteger: f_Value.AsInteger := aStorage.ReadInteger(f_Alias, f_DefaultValue.AsInteger);
-  dd_vkString: f_Value.AsString := l3Str(aStorage.ReadString(f_Alias, f_DefaultValue.AsString));
- end;
-//#UC END# *52172B72014C_4E302F4201D5_impl*
-end;//TddBaseConfigItem.LoadValue
-
-procedure TddBaseConfigItem.Lock;
-//#UC START# *52172BB502E3_4E302F4201D5_var*
-//#UC END# *52172BB502E3_4E302F4201D5_var*
-begin
-//#UC START# *52172BB502E3_4E302F4201D5_impl*
- Inc(f_Locked);
-//#UC END# *52172BB502E3_4E302F4201D5_impl*
-end;//TddBaseConfigItem.Lock
-
-procedure TddBaseConfigItem.Unlock;
-//#UC START# *52172BC5003D_4E302F4201D5_var*
-//#UC END# *52172BC5003D_4E302F4201D5_var*
-begin
-//#UC START# *52172BC5003D_4E302F4201D5_impl*
- Assert(f_Locked > 0);
- Dec(f_Locked);
-//#UC END# *52172BC5003D_4E302F4201D5_impl*
-end;//TddBaseConfigItem.Unlock
-
-procedure TddBaseConfigItem.RemoveNotify(aItem: TddBaseConfigItem);
-//#UC START# *52172C2E00D0_4E302F4201D5_var*
-//#UC END# *52172C2E00D0_4E302F4201D5_var*
-begin
-//#UC START# *52172C2E00D0_4E302F4201D5_impl*
- f_NotifyList.Remove(aItem);
-//#UC END# *52172C2E00D0_4E302F4201D5_impl*
-end;//TddBaseConfigItem.RemoveNotify
-
-procedure TddBaseConfigItem.ResetToDefault;
-//#UC START# *52172C50023A_4E302F4201D5_var*
-//#UC END# *52172C50023A_4E302F4201D5_var*
-begin
-//#UC START# *52172C50023A_4E302F4201D5_impl*
- { TODO -oДмитрий Дудко -cРазвитие : Сброс всех значений в значение по умолчанию }
-//#UC END# *52172C50023A_4E302F4201D5_impl*
-end;//TddBaseConfigItem.ResetToDefault
-
-procedure TddBaseConfigItem.Save(const aStorage: IddConfigStorage);
-//#UC START# *52172C68039D_4E302F4201D5_var*
-//#UC END# *52172C68039D_4E302F4201D5_var*
-begin
-//#UC START# *52172C68039D_4E302F4201D5_impl*
- if Changed then
-  SaveValue(aStorage);
-//#UC END# *52172C68039D_4E302F4201D5_impl*
-end;//TddBaseConfigItem.Save
-
-procedure TddBaseConfigItem.SaveValue(const aStorage: IddConfigStorage);
-//#UC START# *52172CA801E3_4E302F4201D5_var*
-//#UC END# *52172CA801E3_4E302F4201D5_var*
-begin
-//#UC START# *52172CA801E3_4E302F4201D5_impl*
- if f_Changed then
-  case f_Value.Kind of
-   dd_vkBoolean: aStorage.WriteBool(f_Alias, f_Value.AsBoolean);
-   dd_vkDateTime: aStorage.WriteDateTime(f_Alias, f_Value.AsDateTime);
-   dd_vkInteger: aStorage.WriteInteger(f_Alias, f_Value.AsInteger);
-   dd_vkString: aStorage.WriteString(f_Alias, f_Value.AsString);
-  end;
-//#UC END# *52172CA801E3_4E302F4201D5_impl*
-end;//TddBaseConfigItem.SaveValue
-
-procedure TddBaseConfigItem.ReadOnlyChanged;
-//#UC START# *552BA9B9039B_4E302F4201D5_var*
-//#UC END# *552BA9B9039B_4E302F4201D5_var*
-begin
-//#UC START# *552BA9B9039B_4E302F4201D5_impl*
-// DoNothing
-//#UC END# *552BA9B9039B_4E302F4201D5_impl*
-end;//TddBaseConfigItem.ReadOnlyChanged
+//#UC END# *5216245D03BA_52161F2B00C4_impl*
+end;//RequiredSignWidth
 
 procedure TddBaseConfigItem.pm_SetAlias(const aValue: AnsiString);
 //#UC START# *52171FCA00C1_4E302F4201D5set_var*
@@ -2170,6 +1652,259 @@ begin
 //#UC END# *552BA4A103A3_4E302F4201D5set_impl*
 end;//TddBaseConfigItem.pm_SetReadOnly
 
+procedure TddBaseConfigItem.AddSlave(aSlave: TddBaseConfigItem);
+//#UC START# *52171C590103_4E302F4201D5_var*
+//#UC END# *52171C590103_4E302F4201D5_var*
+begin
+//#UC START# *52171C590103_4E302F4201D5_impl*
+ f_Slaves.Add(aSlave);
+//#UC END# *52171C590103_4E302F4201D5_impl*
+end;//TddBaseConfigItem.AddSlave
+
+procedure TddBaseConfigItem.RemoveSlave(aSlave: TddBaseConfigItem);
+//#UC START# *52171C8500C0_4E302F4201D5_var*
+//#UC END# *52171C8500C0_4E302F4201D5_var*
+begin
+//#UC START# *52171C8500C0_4E302F4201D5_impl*
+ f_Slaves.Remove(aSlave);
+//#UC END# *52171C8500C0_4E302F4201D5_impl*
+end;//TddBaseConfigItem.RemoveSlave
+
+procedure TddBaseConfigItem.Changing;
+//#UC START# *52171CBA0170_4E302F4201D5_var*
+var
+ I: Integer;
+//#UC END# *52171CBA0170_4E302F4201D5_var*
+begin
+//#UC START# *52171CBA0170_4E302F4201D5_impl*
+ Changed := True;
+ if not IsLocked then
+  for I := 0 to f_NotifyList.Hi do
+   TddBaseConfigItem(f_NotifyList.Items[I]).ProcessNotify(Self.Value);
+//#UC END# *52171CBA0170_4E302F4201D5_impl*
+end;//TddBaseConfigItem.Changing
+
+procedure TddBaseConfigItem.DoEnabled;
+//#UC START# *52171D0D031D_4E302F4201D5_var*
+//#UC END# *52171D0D031D_4E302F4201D5_var*
+begin
+//#UC START# *52171D0D031D_4E302F4201D5_impl*
+ //virtual
+//#UC END# *52171D0D031D_4E302F4201D5_impl*
+end;//TddBaseConfigItem.DoEnabled
+
+function TddBaseConfigItem.MayBeRequired: Boolean;
+//#UC START# *521725C301A5_4E302F4201D5_var*
+//#UC END# *521725C301A5_4E302F4201D5_var*
+begin
+//#UC START# *521725C301A5_4E302F4201D5_impl*
+ Result := True;
+//#UC END# *521725C301A5_4E302F4201D5_impl*
+end;//TddBaseConfigItem.MayBeRequired
+
+procedure TddBaseConfigItem.ProcessNotify(const aValue: TddConfigValue);
+//#UC START# *521725E40234_4E302F4201D5_var*
+//#UC END# *521725E40234_4E302F4201D5_var*
+begin
+//#UC START# *521725E40234_4E302F4201D5_impl*
+ if Assigned(f_OnNotify) then
+  f_OnNotify(Self, aValue);
+//#UC END# *521725E40234_4E302F4201D5_impl*
+end;//TddBaseConfigItem.ProcessNotify
+
+procedure TddBaseConfigItem.Reset;
+//#UC START# *521726060214_4E302F4201D5_var*
+//#UC END# *521726060214_4E302F4201D5_var*
+begin
+//#UC START# *521726060214_4E302F4201D5_impl*
+ Value := DefaultValue;
+//#UC END# *521726060214_4E302F4201D5_impl*
+end;//TddBaseConfigItem.Reset
+
+constructor TddBaseConfigItem.Create(const aAlias: AnsiString;
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
+//#UC START# *5217273F000F_4E302F4201D5_var*
+//#UC END# *5217273F000F_4E302F4201D5_var*
+begin
+//#UC START# *5217273F000F_4E302F4201D5_impl*
+ inherited Create;
+ f_Slaves := Tl3ObjectList.Create;
+ f_NotifyList := Tl3ObjectList.Create;
+ f_Alias := aAlias;
+ f_Caption := aCaption;
+ f_Enabled := True;
+ f_AbsoluteIndex := -1;
+ DefaultValue := aDefaultValue;
+//#UC END# *5217273F000F_4E302F4201D5_impl*
+end;//TddBaseConfigItem.Create
+
+procedure TddBaseConfigItem.AddNotify(aItem: TddBaseConfigItem);
+//#UC START# *521727EA03C9_4E302F4201D5_var*
+//#UC END# *521727EA03C9_4E302F4201D5_var*
+begin
+//#UC START# *521727EA03C9_4E302F4201D5_impl*
+ f_NotifyList.Add(aItem)
+//#UC END# *521727EA03C9_4E302F4201D5_impl*
+end;//TddBaseConfigItem.AddNotify
+
+procedure TddBaseConfigItem.AssignValue(const aValue: TddConfigValue;
+ aOnChange: Boolean = False);
+ {* функция сравнения объекта с другим объектом.  Для перекрытия в потомках. }
+//#UC START# *5217286C0304_4E302F4201D5_var*
+//#UC END# *5217286C0304_4E302F4201D5_var*
+begin
+//#UC START# *5217286C0304_4E302F4201D5_impl*
+ if aOnChange then
+ case aValue.Kind of
+  dd_vkBoolean: BooleanValue := aValue.AsBoolean;
+  dd_vkDateTime: DateTimeValue := aValue.AsDateTime;
+  dd_vkInteger: IntegerValue := aValue.AsInteger;
+  dd_vkObject: ObjectValue := aValue.AsObject;
+  dd_vkString: StringValue := aValue.AsString;
+ end
+ else
+  f_Value := aValue;
+//#UC END# *5217286C0304_4E302F4201D5_impl*
+end;//TddBaseConfigItem.AssignValue
+
+function TddBaseConfigItem.HasValue(const anAlias: AnsiString;
+ out theItem: TddBaseConfigItem): Boolean;
+//#UC START# *52172A7700CB_4E302F4201D5_var*
+//#UC END# *52172A7700CB_4E302F4201D5_var*
+begin
+//#UC START# *52172A7700CB_4E302F4201D5_impl*
+ Result := AnsiCompareText(anAlias, Alias) = 0;
+ if Result then
+  theItem := Self
+ else
+  theItem := nil;
+//#UC END# *52172A7700CB_4E302F4201D5_impl*
+end;//TddBaseConfigItem.HasValue
+
+function TddBaseConfigItem.HasValue(const anAlias: AnsiString): Boolean;
+//#UC START# *52172AE002EA_4E302F4201D5_var*
+var
+ l_Obj: TddBaseConfigItem;
+//#UC END# *52172AE002EA_4E302F4201D5_var*
+begin
+//#UC START# *52172AE002EA_4E302F4201D5_impl*
+ Result := HasValue(anAlias, l_Obj);
+//#UC END# *52172AE002EA_4E302F4201D5_impl*
+end;//TddBaseConfigItem.HasValue
+
+function TddBaseConfigItem.IsLocked: Boolean;
+//#UC START# *52172B0A003B_4E302F4201D5_var*
+//#UC END# *52172B0A003B_4E302F4201D5_var*
+begin
+//#UC START# *52172B0A003B_4E302F4201D5_impl*
+ Result := f_Locked > 0;
+//#UC END# *52172B0A003B_4E302F4201D5_impl*
+end;//TddBaseConfigItem.IsLocked
+
+procedure TddBaseConfigItem.Load(const aStorage: IddConfigStorage);
+//#UC START# *52172B340290_4E302F4201D5_var*
+//#UC END# *52172B340290_4E302F4201D5_var*
+begin
+//#UC START# *52172B340290_4E302F4201D5_impl*
+ Lock;
+ try
+  LoadValue(aStorage);
+ except
+  on E: Exception do
+   l3System.Msg2Log('Ошибка "%s" загрузки значения элемента "%s"', [E.Message, Alias]);
+ end;
+ Unlock;
+ Changed := False;
+//#UC END# *52172B340290_4E302F4201D5_impl*
+end;//TddBaseConfigItem.Load
+
+procedure TddBaseConfigItem.LoadValue(const aStorage: IddConfigStorage);
+//#UC START# *52172B72014C_4E302F4201D5_var*
+//#UC END# *52172B72014C_4E302F4201D5_var*
+begin
+//#UC START# *52172B72014C_4E302F4201D5_impl*
+ case f_Value.Kind of
+  dd_vkBoolean: f_Value.AsBoolean := aStorage.ReadBool(f_Alias, f_DefaultValue.AsBoolean);
+  dd_vkDateTime: f_Value.AsDateTime := aStorage.ReadDateTime(f_Alias, f_DefaultValue.AsDateTime);
+  dd_vkInteger: f_Value.AsInteger := aStorage.ReadInteger(f_Alias, f_DefaultValue.AsInteger);
+  dd_vkString: f_Value.AsString := l3Str(aStorage.ReadString(f_Alias, f_DefaultValue.AsString));
+ end;
+//#UC END# *52172B72014C_4E302F4201D5_impl*
+end;//TddBaseConfigItem.LoadValue
+
+procedure TddBaseConfigItem.Lock;
+//#UC START# *52172BB502E3_4E302F4201D5_var*
+//#UC END# *52172BB502E3_4E302F4201D5_var*
+begin
+//#UC START# *52172BB502E3_4E302F4201D5_impl*
+ Inc(f_Locked);
+//#UC END# *52172BB502E3_4E302F4201D5_impl*
+end;//TddBaseConfigItem.Lock
+
+procedure TddBaseConfigItem.Unlock;
+//#UC START# *52172BC5003D_4E302F4201D5_var*
+//#UC END# *52172BC5003D_4E302F4201D5_var*
+begin
+//#UC START# *52172BC5003D_4E302F4201D5_impl*
+ Assert(f_Locked > 0);
+ Dec(f_Locked);
+//#UC END# *52172BC5003D_4E302F4201D5_impl*
+end;//TddBaseConfigItem.Unlock
+
+procedure TddBaseConfigItem.RemoveNotify(aItem: TddBaseConfigItem);
+//#UC START# *52172C2E00D0_4E302F4201D5_var*
+//#UC END# *52172C2E00D0_4E302F4201D5_var*
+begin
+//#UC START# *52172C2E00D0_4E302F4201D5_impl*
+ f_NotifyList.Remove(aItem);
+//#UC END# *52172C2E00D0_4E302F4201D5_impl*
+end;//TddBaseConfigItem.RemoveNotify
+
+procedure TddBaseConfigItem.ResetToDefault;
+//#UC START# *52172C50023A_4E302F4201D5_var*
+//#UC END# *52172C50023A_4E302F4201D5_var*
+begin
+//#UC START# *52172C50023A_4E302F4201D5_impl*
+ { TODO -oДмитрий Дудко -cРазвитие : Сброс всех значений в значение по умолчанию }
+//#UC END# *52172C50023A_4E302F4201D5_impl*
+end;//TddBaseConfigItem.ResetToDefault
+
+procedure TddBaseConfigItem.Save(const aStorage: IddConfigStorage);
+//#UC START# *52172C68039D_4E302F4201D5_var*
+//#UC END# *52172C68039D_4E302F4201D5_var*
+begin
+//#UC START# *52172C68039D_4E302F4201D5_impl*
+ if Changed then
+  SaveValue(aStorage);
+//#UC END# *52172C68039D_4E302F4201D5_impl*
+end;//TddBaseConfigItem.Save
+
+procedure TddBaseConfigItem.SaveValue(const aStorage: IddConfigStorage);
+//#UC START# *52172CA801E3_4E302F4201D5_var*
+//#UC END# *52172CA801E3_4E302F4201D5_var*
+begin
+//#UC START# *52172CA801E3_4E302F4201D5_impl*
+ if f_Changed then
+  case f_Value.Kind of
+   dd_vkBoolean: aStorage.WriteBool(f_Alias, f_Value.AsBoolean);
+   dd_vkDateTime: aStorage.WriteDateTime(f_Alias, f_Value.AsDateTime);
+   dd_vkInteger: aStorage.WriteInteger(f_Alias, f_Value.AsInteger);
+   dd_vkString: aStorage.WriteString(f_Alias, f_Value.AsString);
+  end;
+//#UC END# *52172CA801E3_4E302F4201D5_impl*
+end;//TddBaseConfigItem.SaveValue
+
+procedure TddBaseConfigItem.ReadOnlyChanged;
+//#UC START# *552BA9B9039B_4E302F4201D5_var*
+//#UC END# *552BA9B9039B_4E302F4201D5_var*
+begin
+//#UC START# *552BA9B9039B_4E302F4201D5_impl*
+// DoNothing
+//#UC END# *552BA9B9039B_4E302F4201D5_impl*
+end;//TddBaseConfigItem.ReadOnlyChanged
+
 procedure TddBaseConfigItem.Assign(Source: TPersistent);
 //#UC START# *478CF34E02CE_4E302F4201D5_var*
 //#UC END# *478CF34E02CE_4E302F4201D5_var*
@@ -2194,6 +1929,7 @@ begin
 end;//TddBaseConfigItem.Assign
 
 procedure TddBaseConfigItem.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E302F4201D5_var*
 //#UC END# *479731C50290_4E302F4201D5_var*
 begin
@@ -2213,7 +1949,14 @@ begin
  TddBaseConfigItem(Result).Assign(Self);
 //#UC END# *5301EC7500FF_4E302F4201D5_impl*
 end;//TddBaseConfigItem.Clone
-// start class TMapValue
+
+procedure TddBaseConfigItem.ClearFields;
+begin
+ Alias := '';
+ Caption := '';
+ Finalize(f_DefaultValue);
+ inherited;
+end;//TddBaseConfigItem.ClearFields
 
 procedure TMapValue.pm_SetValue(const aValue: TddConfigValue);
 //#UC START# *521625BD02ED_521624EA0293set_var*
@@ -2259,33 +2002,41 @@ begin
 //#UC END# *5301EC5A006A_521624EA0293_impl*
 end;//TMapValue.Create
 
-function RequiredSignWidth(aParent: TWinControl): Integer;
-//#UC START# *5216245D03BA_52161F2B00C4_var*
-//#UC END# *5216245D03BA_52161F2B00C4_var*
+procedure TMapValue.ClearFields;
 begin
-//#UC START# *5216245D03BA_52161F2B00C4_impl*
- with TvtLabel.Create(aParent) do
- try
-  Parent := aParent;
-  CCaption := l3CStr(ddRequiredSign);
-  Font.Name := ddRequiredFont;
-  Result := Width;
- finally
-  Free;
- end;
-//#UC END# *5216245D03BA_52161F2B00C4_impl*
-end;//RequiredSignWidth
-// start class TMapValues
+ Finalize(f_Value);
+ Caption := '';
+ inherited;
+end;//TMapValue.ClearFields
 
-procedure TMapValues.CheckValueType(aKind: TddValueKind);
-//#UC START# *521634D401C2_5216255500D5_var*
-//#UC END# *521634D401C2_5216255500D5_var*
+function TMapValues.pm_GetCount: Integer;
+//#UC START# *52162709029F_5216255500D5get_var*
+//#UC END# *52162709029F_5216255500D5get_var*
 begin
-//#UC START# *521634D401C2_5216255500D5_impl*
- if aKind <> f_MapKind then
-  raise EddConfigError.Create('Несовпадение типа map-value');
-//#UC END# *521634D401C2_5216255500D5_impl*
-end;//TMapValues.CheckValueType
+//#UC START# *52162709029F_5216255500D5get_impl*
+ Assert(f_List <> nil);
+ Result := f_List.Count;
+//#UC END# *52162709029F_5216255500D5get_impl*
+end;//TMapValues.pm_GetCount
+
+function TMapValues.pm_GetItems(aIndex: Integer): TMapValue;
+//#UC START# *5216295D00DB_5216255500D5get_var*
+//#UC END# *5216295D00DB_5216255500D5get_var*
+begin
+//#UC START# *5216295D00DB_5216255500D5get_impl*
+ Result := TMapValue(f_List.Items[aIndex]);
+//#UC END# *5216295D00DB_5216255500D5get_impl*
+end;//TMapValues.pm_GetItems
+
+procedure TMapValues.pm_SetItems(aIndex: Integer;
+ aValue: TMapValue);
+//#UC START# *5216295D00DB_5216255500D5set_var*
+//#UC END# *5216295D00DB_5216255500D5set_var*
+begin
+//#UC START# *5216295D00DB_5216255500D5set_impl*
+ TMapValue(f_List.Items[aIndex]).Assign(aValue);
+//#UC END# *5216295D00DB_5216255500D5set_impl*
+end;//TMapValues.pm_SetItems
 
 function TMapValues.IndexOfCaption(const aCaption: Il3CString): Integer;
 //#UC START# *5216272A0158_5216255500D5_var*
@@ -2345,7 +2096,7 @@ begin
 end;//TMapValues.Clear
 
 procedure TMapValues.AddMapValue(const aCaption: AnsiString;
-  const aValue: TddConfigValue);
+ const aValue: TddConfigValue);
 //#UC START# *5216279203D3_5216255500D5_var*
 var
  l_MapValue: TMapValue;
@@ -2375,33 +2126,15 @@ begin
 //#UC END# *521627BB0336_5216255500D5_impl*
 end;//TMapValues.Create
 
-function TMapValues.pm_GetCount: Integer;
-//#UC START# *52162709029F_5216255500D5get_var*
-//#UC END# *52162709029F_5216255500D5get_var*
+procedure TMapValues.CheckValueType(aKind: TddValueKind);
+//#UC START# *521634D401C2_5216255500D5_var*
+//#UC END# *521634D401C2_5216255500D5_var*
 begin
-//#UC START# *52162709029F_5216255500D5get_impl*
- Assert(f_List <> nil);
- Result := f_List.Count;
-//#UC END# *52162709029F_5216255500D5get_impl*
-end;//TMapValues.pm_GetCount
-
-function TMapValues.pm_GetItems(aIndex: Integer): TMapValue;
-//#UC START# *5216295D00DB_5216255500D5get_var*
-//#UC END# *5216295D00DB_5216255500D5get_var*
-begin
-//#UC START# *5216295D00DB_5216255500D5get_impl*
- Result := TMapValue(f_List.Items[aIndex]);
-//#UC END# *5216295D00DB_5216255500D5get_impl*
-end;//TMapValues.pm_GetItems
-
-procedure TMapValues.pm_SetItems(aIndex: Integer; aValue: TMapValue);
-//#UC START# *5216295D00DB_5216255500D5set_var*
-//#UC END# *5216295D00DB_5216255500D5set_var*
-begin
-//#UC START# *5216295D00DB_5216255500D5set_impl*
- TMapValue(f_List.Items[aIndex]).Assign(aValue);
-//#UC END# *5216295D00DB_5216255500D5set_impl*
-end;//TMapValues.pm_SetItems
+//#UC START# *521634D401C2_5216255500D5_impl*
+ if aKind <> f_MapKind then
+  raise EddConfigError.Create('Несовпадение типа map-value');
+//#UC END# *521634D401C2_5216255500D5_impl*
+end;//TMapValues.CheckValueType
 
 procedure TMapValues.Assign(Source: TPersistent);
 //#UC START# *478CF34E02CE_5216255500D5_var*
@@ -2418,6 +2151,7 @@ begin
 end;//TMapValues.Assign
 
 procedure TMapValues.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5216255500D5_var*
 //#UC END# *479731C50290_5216255500D5_var*
 begin
@@ -2427,10 +2161,50 @@ begin
  inherited;
 //#UC END# *479731C50290_5216255500D5_impl*
 end;//TMapValues.Cleanup
-// start class TddVisualConfigItem
+
+function TddVisualConfigItem.pm_GetLabeled: Boolean;
+//#UC START# *5217600501C4_4E302F24003Fget_var*
+//#UC END# *5217600501C4_4E302F24003Fget_var*
+begin
+//#UC START# *5217600501C4_4E302F24003Fget_impl*
+ Result := f_Labeled;
+//#UC END# *5217600501C4_4E302F24003Fget_impl*
+end;//TddVisualConfigItem.pm_GetLabeled
+
+function TddVisualConfigItem.pm_GetLabelTop: Boolean;
+//#UC START# *5217602C020A_4E302F24003Fget_var*
+//#UC END# *5217602C020A_4E302F24003Fget_var*
+begin
+//#UC START# *5217602C020A_4E302F24003Fget_impl*
+ Result := f_LabelTop;
+//#UC END# *5217602C020A_4E302F24003Fget_impl*
+end;//TddVisualConfigItem.pm_GetLabelTop
+
+procedure TddVisualConfigItem.pm_SetLabelTop(aValue: Boolean);
+//#UC START# *5217602C020A_4E302F24003Fset_var*
+//#UC END# *5217602C020A_4E302F24003Fset_var*
+begin
+//#UC START# *5217602C020A_4E302F24003Fset_impl*
+ if Pos('|', Caption) = 0 then
+  f_LabelTop := aValue
+ else
+  f_LabelTop := False;
+//#UC END# *5217602C020A_4E302F24003Fset_impl*
+end;//TddVisualConfigItem.pm_SetLabelTop
+
+function TddVisualConfigItem.pm_GetFullControlHeight(aParent: TWinControl): Integer;
+//#UC START# *521760660110_4E302F24003Fget_var*
+//#UC END# *521760660110_4E302F24003Fget_var*
+begin
+//#UC START# *521760660110_4E302F24003Fget_impl*
+ Result := LabelHeight(aParent) + ControlHeight(aParent);
+ if LabelTop then
+  Inc(Result, c_ConfigItemTop);
+//#UC END# *521760660110_4E302F24003Fget_impl*
+end;//TddVisualConfigItem.pm_GetFullControlHeight
 
 procedure TddVisualConfigItem.AdjustLabel(theControl: TControl;
-  theLabel: TvtLabel);
+ theLabel: TvtLabel);
 //#UC START# *521760A4009E_4E302F24003F_var*
 //#UC END# *521760A4009E_4E302F24003F_var*
 begin
@@ -2446,10 +2220,10 @@ begin
 end;//TddVisualConfigItem.AdjustLabel
 
 procedure TddVisualConfigItem.AfterConstruct(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  theControl: TControl;
-  theLabel: TvtLabel);
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ theControl: TControl;
+ theLabel: TvtLabel);
 //#UC START# *521760C60369_4E302F24003F_var*
 //#UC END# *521760C60369_4E302F24003F_var*
 begin
@@ -2464,9 +2238,9 @@ begin
 end;//TddVisualConfigItem.AfterConstruct
 
 procedure TddVisualConfigItem.BeforeConstruct(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl);
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl);
 //#UC START# *5217612C01B6_4E302F24003F_var*
 //#UC END# *5217612C01B6_4E302F24003F_var*
 begin
@@ -2488,10 +2262,10 @@ begin
 end;//TddVisualConfigItem.ChangeSlaveStatus
 
 function TddVisualConfigItem.CreateLabel(aParent: TWinControl;
-  const aCaption: AnsiString;
-  var aLeft: Integer;
-  var aTop: Integer;
-  aLabelType: TddConfigItemLabelType = dd_cilMain): TvtLabel;
+ const aCaption: AnsiString;
+ var aLeft: Integer;
+ var aTop: Integer;
+ aLabelType: TddConfigItemLabelType = dd_cilMain): TvtLabel;
 //#UC START# *5217620D0151_4E302F24003F_var*
 var
  l_Prefix,
@@ -2586,8 +2360,8 @@ begin
 end;//TddVisualConfigItem.GetForm
 
 procedure TddVisualConfigItem.SplitCaption(const aCaption: AnsiString;
-  out aPrefix: AnsiString;
-  out aSuffix: AnsiString);
+ out aPrefix: AnsiString;
+ out aSuffix: AnsiString);
 //#UC START# *521B048C0198_4E302F24003F_var*
 var
  l_Pos: Integer;
@@ -2634,9 +2408,9 @@ begin
 end;//TddVisualConfigItem.ClearControl
 
 function TddVisualConfigItem.CreateControl(aLeft: Integer;
-  aMaxLeft: Integer;
-  aTop: Integer;
-  aParent: TWinControl): TControl;
+ aMaxLeft: Integer;
+ aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521B0563000D_4E302F24003F_var*
 var
  l_Label: TvtLabel;
@@ -2741,47 +2515,6 @@ begin
 //#UC END# *552BB745031E_4E302F24003F_impl*
 end;//TddVisualConfigItem.AdjustReadOnly
 
-function TddVisualConfigItem.pm_GetLabeled: Boolean;
-//#UC START# *5217600501C4_4E302F24003Fget_var*
-//#UC END# *5217600501C4_4E302F24003Fget_var*
-begin
-//#UC START# *5217600501C4_4E302F24003Fget_impl*
- Result := f_Labeled;
-//#UC END# *5217600501C4_4E302F24003Fget_impl*
-end;//TddVisualConfigItem.pm_GetLabeled
-
-function TddVisualConfigItem.pm_GetLabelTop: Boolean;
-//#UC START# *5217602C020A_4E302F24003Fget_var*
-//#UC END# *5217602C020A_4E302F24003Fget_var*
-begin
-//#UC START# *5217602C020A_4E302F24003Fget_impl*
- Result := f_LabelTop;
-//#UC END# *5217602C020A_4E302F24003Fget_impl*
-end;//TddVisualConfigItem.pm_GetLabelTop
-
-procedure TddVisualConfigItem.pm_SetLabelTop(aValue: Boolean);
-//#UC START# *5217602C020A_4E302F24003Fset_var*
-//#UC END# *5217602C020A_4E302F24003Fset_var*
-begin
-//#UC START# *5217602C020A_4E302F24003Fset_impl*
- if Pos('|', Caption) = 0 then
-  f_LabelTop := aValue
- else
-  f_LabelTop := False;
-//#UC END# *5217602C020A_4E302F24003Fset_impl*
-end;//TddVisualConfigItem.pm_SetLabelTop
-
-function TddVisualConfigItem.pm_GetFullControlHeight(aParent: TWinControl): Integer;
-//#UC START# *521760660110_4E302F24003Fget_var*
-//#UC END# *521760660110_4E302F24003Fget_var*
-begin
-//#UC START# *521760660110_4E302F24003Fget_impl*
- Result := LabelHeight(aParent) + ControlHeight(aParent);
- if LabelTop then
-  Inc(Result, c_ConfigItemTop);
-//#UC END# *521760660110_4E302F24003Fget_impl*
-end;//TddVisualConfigItem.pm_GetFullControlHeight
-
 procedure TddVisualConfigItem.Assign(Source: TPersistent);
 //#UC START# *478CF34E02CE_4E302F24003F_var*
 //#UC END# *478CF34E02CE_4E302F24003F_var*
@@ -2800,6 +2533,7 @@ begin
 end;//TddVisualConfigItem.Assign
 
 procedure TddVisualConfigItem.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E302F24003F_var*
 //#UC END# *479731C50290_4E302F24003F_var*
 begin
@@ -2894,9 +2628,9 @@ begin
 end;//TddVisualConfigItem.pm_SetValue
 
 constructor TddVisualConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_4E302F24003F_var*
 //#UC END# *5217273F000F_4E302F24003F_var*
 begin
@@ -2921,52 +2655,12 @@ begin
   AdjustReadOnly(f_Control);
 //#UC END# *552BA9B9039B_4E302F24003F_impl*
 end;//TddVisualConfigItem.ReadOnlyChanged
-// start class TddIntegerConfigItem
 
-procedure TddIntegerConfigItem.Validate;
-//#UC START# *5220C05000A7_5220BFBC0399_var*
-//#UC END# *5220C05000A7_5220BFBC0399_var*
+procedure TddVisualConfigItem.ClearFields;
 begin
-//#UC START# *5220C05000A7_5220BFBC0399_impl*
- if (IntegerValue > MaxValue) or (IntegerValue < MinValue) then
-  raise EddInvalidValue.CreateFmt(str_ddcmErrorIntegerRange.AsStr,
-    [IntegerValue, MinValue, MaxValue], Self);
-//#UC END# *5220C05000A7_5220BFBC0399_impl*
-end;//TddIntegerConfigItem.Validate
-
-procedure TddIntegerConfigItem.DoOnChange(Sender: TObject);
-//#UC START# *5220C06103B2_5220BFBC0399_var*
-//#UC END# *5220C06103B2_5220BFBC0399_var*
-begin
-//#UC START# *5220C06103B2_5220BFBC0399_impl*
- {$IFDEF ddUseVTSpin}
- Assert(Control is TvtSpinEdit, Control.ClassName); 
- Changed := TvtSpinEdit(Control).Text <> IntToStr(IntegerValue);
- {$ELSE}
- Assert(Control is TEdit, Control.ClassName); 
- Changed := TEdit(Control).Text <> IntToStr(IntegerValue);
- {$ENDIF}
-//#UC END# *5220C06103B2_5220BFBC0399_impl*
-end;//TddIntegerConfigItem.DoOnChange
-
-constructor TddIntegerConfigItem.CreateItem(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  aDefaultValue: Integer;
-  aMasterItem: TddBaseConfigItem = nil);
-//#UC START# *5220C0FF0081_5220BFBC0399_var*
-var
- l_Value : TddConfigValue;
-//#UC END# *5220C0FF0081_5220BFBC0399_var*
-begin
-//#UC START# *5220C0FF0081_5220BFBC0399_impl*
- with l_Value do
- begin
-  Kind := dd_vkInteger;
-  AsInteger := aDefaultValue;
- end;
- Create(aAlias, aCaption, l_Value, aMasterItem);
-//#UC END# *5220C0FF0081_5220BFBC0399_impl*
-end;//TddIntegerConfigItem.CreateItem
+ Hint := '';
+ inherited;
+end;//TddVisualConfigItem.ClearFields
 
 procedure TddIntegerConfigItem.pm_SetMaxValue(aValue: Integer);
 //#UC START# *5220C01C00FF_5220BFBC0399set_var*
@@ -2998,10 +2692,55 @@ begin
 //#UC END# *5220C02A0383_5220BFBC0399set_impl*
 end;//TddIntegerConfigItem.pm_SetMinValue
 
+procedure TddIntegerConfigItem.Validate;
+//#UC START# *5220C05000A7_5220BFBC0399_var*
+//#UC END# *5220C05000A7_5220BFBC0399_var*
+begin
+//#UC START# *5220C05000A7_5220BFBC0399_impl*
+ if (IntegerValue > MaxValue) or (IntegerValue < MinValue) then
+  raise EddInvalidValue.CreateFmt(str_ddcmErrorIntegerRange.AsStr,
+    [IntegerValue, MinValue, MaxValue], Self);
+//#UC END# *5220C05000A7_5220BFBC0399_impl*
+end;//TddIntegerConfigItem.Validate
+
+procedure TddIntegerConfigItem.DoOnChange(Sender: TObject);
+//#UC START# *5220C06103B2_5220BFBC0399_var*
+//#UC END# *5220C06103B2_5220BFBC0399_var*
+begin
+//#UC START# *5220C06103B2_5220BFBC0399_impl*
+ {$IFDEF ddUseVTSpin}
+ Assert(Control is TvtSpinEdit, Control.ClassName); 
+ Changed := TvtSpinEdit(Control).Text <> IntToStr(IntegerValue);
+ {$ELSE}
+ Assert(Control is TEdit, Control.ClassName); 
+ Changed := TEdit(Control).Text <> IntToStr(IntegerValue);
+ {$ENDIF}
+//#UC END# *5220C06103B2_5220BFBC0399_impl*
+end;//TddIntegerConfigItem.DoOnChange
+
+constructor TddIntegerConfigItem.CreateItem(const aAlias: AnsiString;
+ const aCaption: AnsiString;
+ aDefaultValue: Integer;
+ aMasterItem: TddBaseConfigItem = nil);
+//#UC START# *5220C0FF0081_5220BFBC0399_var*
+var
+ l_Value : TddConfigValue;
+//#UC END# *5220C0FF0081_5220BFBC0399_var*
+begin
+//#UC START# *5220C0FF0081_5220BFBC0399_impl*
+ with l_Value do
+ begin
+  Kind := dd_vkInteger;
+  AsInteger := aDefaultValue;
+ end;
+ Create(aAlias, aCaption, l_Value, aMasterItem);
+//#UC END# *5220C0FF0081_5220BFBC0399_impl*
+end;//TddIntegerConfigItem.CreateItem
+
 function TddIntegerConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_5220BFBC0399_var*
 var
  l_MaxValue: Integer;
@@ -3143,9 +2882,9 @@ begin
 end;//TddIntegerConfigItem.Assign
 
 constructor TddIntegerConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_5220BFBC0399_var*
 //#UC END# *5217273F000F_5220BFBC0399_var*
 begin
@@ -3234,11 +2973,10 @@ begin
  end;
 //#UC END# *552BB745031E_5220BFBC0399_impl*
 end;//TddIntegerConfigItem.AdjustReadOnly
-// start class EddInvalidValue
 
 constructor EddInvalidValue.CreateFmt(const aMsg: AnsiString;
-  const Args: array of const;
-  aItem: TddVisualConfigItem);
+ const Args: array of const;
+ aItem: TddVisualConfigItem);
 //#UC START# *521622D00234_521621FD0394_var*
 //#UC END# *521622D00234_521621FD0394_var*
 begin
@@ -3247,24 +2985,18 @@ begin
  f_Item := aItem;
 //#UC END# *521622D00234_521621FD0394_impl*
 end;//EddInvalidValue.CreateFmt
-// start class TddMapValueConfigItem
 
-function TddMapValueConfigItem.DisplayNameToValue(const aName: Il3CString): TddConfigValue;
-//#UC START# *52245E3E0387_4E302F130143_var*
-//#UC END# *52245E3E0387_4E302F130143_var*
+procedure TddMapValueConfigItem.pm_SetItem(const aValue: AnsiString);
+//#UC START# *52245AE202CF_4E302F130143set_var*
+//#UC END# *52245AE202CF_4E302F130143set_var*
 begin
-//#UC START# *52245E3E0387_4E302F130143_impl*
- Result.Kind := f_MapValues.MapKind;
- case f_ValueKind of
-  dd_vkString: Result.AsString := l3Str(aName);
- else
-  raise EddInvalidValue.Create(str_ddcmInvalidMapValue.AsStr);
- end;
-//#UC END# *52245E3E0387_4E302F130143_impl*
-end;//TddMapValueConfigItem.DisplayNameToValue
+//#UC START# *52245AE202CF_4E302F130143set_impl*
+ AddMapValue(aValue, aValue);
+//#UC END# *52245AE202CF_4E302F130143set_impl*
+end;//TddMapValueConfigItem.pm_SetItem
 
 procedure TddMapValueConfigItem.AddMapValue(const aCaption: AnsiString;
-  const aValue: TddConfigValue);
+ const aValue: TddConfigValue);
 //#UC START# *52245B740188_4E302F130143_var*
 //#UC END# *52245B740188_4E302F130143_var*
 begin
@@ -3275,7 +3007,7 @@ begin
 end;//TddMapValueConfigItem.AddMapValue
 
 procedure TddMapValueConfigItem.AddMapValue(const aCaption: AnsiString;
-  aValue: Integer);
+ aValue: Integer);
 //#UC START# *52245B81014A_4E302F130143_var*
 var
  l_Value : TddConfigValue;
@@ -3292,7 +3024,7 @@ begin
 end;//TddMapValueConfigItem.AddMapValue
 
 procedure TddMapValueConfigItem.AddMapValue(const aCaption: AnsiString;
-  const aValue: AnsiString);
+ const aValue: AnsiString);
 //#UC START# *52245B900389_4E302F130143_var*
 var
  l_Value : TddConfigValue;
@@ -3309,10 +3041,10 @@ begin
 end;//TddMapValueConfigItem.AddMapValue
 
 constructor TddMapValueConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  const aValueMap: Il3ValueMap = nil;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ const aValueMap: Il3ValueMap = nil;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *52245BFF021F_4E302F130143_var*
 //#UC END# *52245BFF021F_4E302F130143_var*
 begin
@@ -3381,14 +3113,19 @@ begin
 //#UC END# *52245DCB009E_4E302F130143_impl*
 end;//TddMapValueConfigItem.CalcValue
 
-procedure TddMapValueConfigItem.pm_SetItem(const aValue: AnsiString);
-//#UC START# *52245AE202CF_4E302F130143set_var*
-//#UC END# *52245AE202CF_4E302F130143set_var*
+function TddMapValueConfigItem.DisplayNameToValue(const aName: Il3CString): TddConfigValue;
+//#UC START# *52245E3E0387_4E302F130143_var*
+//#UC END# *52245E3E0387_4E302F130143_var*
 begin
-//#UC START# *52245AE202CF_4E302F130143set_impl*
- AddMapValue(aValue, aValue);
-//#UC END# *52245AE202CF_4E302F130143set_impl*
-end;//TddMapValueConfigItem.pm_SetItem
+//#UC START# *52245E3E0387_4E302F130143_impl*
+ Result.Kind := f_MapValues.MapKind;
+ case f_ValueKind of
+  dd_vkString: Result.AsString := l3Str(aName);
+ else
+  raise EddInvalidValue.Create(str_ddcmInvalidMapValue.AsStr);
+ end;
+//#UC END# *52245E3E0387_4E302F130143_impl*
+end;//TddMapValueConfigItem.DisplayNameToValue
 
 procedure TddMapValueConfigItem.Assign(Source: TPersistent);
 //#UC START# *478CF34E02CE_4E302F130143_var*
@@ -3407,6 +3144,7 @@ begin
 end;//TddMapValueConfigItem.Assign
 
 procedure TddMapValueConfigItem.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E302F130143_var*
 //#UC END# *479731C50290_4E302F130143_var*
 begin
@@ -3418,7 +3156,6 @@ begin
 end;//TddMapValueConfigItem.Cleanup
 
 procedure TddMapValueConfigItem.ClearFields;
- {-}
 begin
  f_ValueMap := nil;
  inherited;
@@ -3466,7 +3203,15 @@ begin
  TddMapValueConfigItem(Result).Assign(Self);
 //#UC END# *5301EC7500FF_4E302F130143_impl*
 end;//TddMapValueConfigItem.Clone
-// start class TddRadioGroupConfigItem
+
+procedure TddRadioGroupConfigItem.pm_SetMaxCount(aValue: Integer);
+//#UC START# *5226101F0249_52260D9A0238set_var*
+//#UC END# *5226101F0249_52260D9A0238set_var*
+begin
+//#UC START# *5226101F0249_52260D9A0238set_impl*
+ f_MaxCount := Min(32, aValue);
+//#UC END# *5226101F0249_52260D9A0238set_impl*
+end;//TddRadioGroupConfigItem.pm_SetMaxCount
 
 procedure TddRadioGroupConfigItem.Add(const aItem: AnsiString);
 //#UC START# *522610770231_52260D9A0238_var*
@@ -3480,15 +3225,6 @@ begin
 //#UC END# *522610770231_52260D9A0238_impl*
 end;//TddRadioGroupConfigItem.Add
 
-procedure TddRadioGroupConfigItem.pm_SetMaxCount(aValue: Integer);
-//#UC START# *5226101F0249_52260D9A0238set_var*
-//#UC END# *5226101F0249_52260D9A0238set_var*
-begin
-//#UC START# *5226101F0249_52260D9A0238set_impl*
- f_MaxCount := Min(32, aValue);
-//#UC END# *5226101F0249_52260D9A0238set_impl*
-end;//TddRadioGroupConfigItem.pm_SetMaxCount
-
 procedure TddRadioGroupConfigItem.Assign(Source: TPersistent);
 //#UC START# *478CF34E02CE_52260D9A0238_var*
 //#UC END# *478CF34E02CE_52260D9A0238_var*
@@ -3501,6 +3237,7 @@ begin
 end;//TddRadioGroupConfigItem.Assign
 
 procedure TddRadioGroupConfigItem.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52260D9A0238_var*
 //#UC END# *479731C50290_52260D9A0238_var*
 begin
@@ -3511,9 +3248,9 @@ begin
 end;//TddRadioGroupConfigItem.Cleanup
 
 constructor TddRadioGroupConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_52260D9A0238_var*
 //#UC END# *5217273F000F_52260D9A0238_var*
 begin
@@ -3545,9 +3282,9 @@ begin
 end;//TddRadioGroupConfigItem.pm_SetLabelTop
 
 function TddRadioGroupConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_52260D9A0238_var*
 //#UC END# *521761BB03DE_52260D9A0238_var*
 begin
@@ -3618,12 +3355,11 @@ begin
   TRadioGroup(aControl).Enabled := TRadioGroup(aControl).Enabled and not ReadOnly;
 //#UC END# *552BB745031E_52260D9A0238_impl*
 end;//TddRadioGroupConfigItem.AdjustReadOnly
-// start class TddRadioConfigItem
 
 constructor TddRadioConfigItem.CreateItem(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  aDefaultValue: Boolean;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ aDefaultValue: Boolean;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *522447C701ED_522446F90281_var*
 var
  l_Value : TddConfigValue;
@@ -3650,9 +3386,9 @@ begin
 end;//TddRadioConfigItem.DoOnChange
 
 function TddRadioConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_522446F90281_var*
 //#UC END# *521761BB03DE_522446F90281_var*
 begin
@@ -3707,9 +3443,9 @@ begin
 end;//TddRadioConfigItem.SetValueToControl
 
 constructor TddRadioConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_522446F90281_var*
 //#UC END# *5217273F000F_522446F90281_var*
 begin
@@ -3747,7 +3483,28 @@ begin
   TvtRadioButton(aControl).Enabled := TvtRadioButton(aControl).Enabled and not ReadOnly;
 //#UC END# *552BB745031E_522446F90281_impl*
 end;//TddRadioConfigItem.AdjustReadOnly
-// start class TddGroupConfigItem
+
+function TddGroupConfigItem.pm_GetSubItem(Index: Integer): TddVisualConfigItem;
+//#UC START# *5227080C0080_5227064102D9get_var*
+//#UC END# *5227080C0080_5227064102D9get_var*
+begin
+//#UC START# *5227080C0080_5227064102D9get_impl*
+ Assert(f_SubItems <> nil);
+ Result := TddVisualConfigItem(f_SubItems.Items[Index]);
+//#UC END# *5227080C0080_5227064102D9get_impl*
+end;//TddGroupConfigItem.pm_GetSubItem
+
+function TddGroupConfigItem.pm_GetCount: Integer;
+//#UC START# *5227088402CF_5227064102D9get_var*
+//#UC END# *5227088402CF_5227064102D9get_var*
+begin
+//#UC START# *5227088402CF_5227064102D9get_impl*
+ if (f_SubItems = nil) then
+  Result := 0
+ else
+  Result := f_SubItems.Count;
+//#UC END# *5227088402CF_5227064102D9get_impl*
+end;//TddGroupConfigItem.pm_GetCount
 
 procedure TddGroupConfigItem.DoOnChange(Sender: TObject);
 //#UC START# *52270A5C030E_5227064102D9_var*
@@ -3772,8 +3529,8 @@ begin
 end;//TddGroupConfigItem.HeaderHeight
 
 constructor TddGroupConfigItem.SimpleCreate(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *52270ABC00D6_5227064102D9_var*
 //#UC END# *52270ABC00D6_5227064102D9_var*
 begin
@@ -3783,7 +3540,7 @@ begin
 end;//TddGroupConfigItem.SimpleCreate
 
 function TddGroupConfigItem.ItemsLabelWidth(aParent: TWinControl;
-  var aLeftLabeled: Integer): Integer;
+ var aLeftLabeled: Integer): Integer;
 //#UC START# *52270AE801AC_5227064102D9_var*
 var
  lIndex, l_Index2 : Integer;
@@ -3821,32 +3578,10 @@ begin
 //#UC END# *52270B070394_5227064102D9_impl*
 end;//TddGroupConfigItem.Add
 
-function TddGroupConfigItem.pm_GetSubItem(Index: Integer): TddVisualConfigItem;
-//#UC START# *5227080C0080_5227064102D9get_var*
-//#UC END# *5227080C0080_5227064102D9get_var*
-begin
-//#UC START# *5227080C0080_5227064102D9get_impl*
- Assert(f_SubItems <> nil);
- Result := TddVisualConfigItem(f_SubItems.Items[Index]);
-//#UC END# *5227080C0080_5227064102D9get_impl*
-end;//TddGroupConfigItem.pm_GetSubItem
-
-function TddGroupConfigItem.pm_GetCount: Integer;
-//#UC START# *5227088402CF_5227064102D9get_var*
-//#UC END# *5227088402CF_5227064102D9get_var*
-begin
-//#UC START# *5227088402CF_5227064102D9get_impl*
- if (f_SubItems = nil) then
-  Result := 0
- else
-  Result := f_SubItems.Count;
-//#UC END# *5227088402CF_5227064102D9get_impl*
-end;//TddGroupConfigItem.pm_GetCount
-
 function TddGroupConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_5227064102D9_var*
 var
  I: Integer;
@@ -3968,6 +3703,7 @@ begin
 end;//TddGroupConfigItem.Assign
 
 procedure TddGroupConfigItem.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5227064102D9_var*
 //#UC END# *479731C50290_5227064102D9_var*
 begin
@@ -4054,9 +3790,9 @@ begin
 end;//TddGroupConfigItem.Reset
 
 constructor TddGroupConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_5227064102D9_var*
 //#UC END# *5217273F000F_5227064102D9_var*
 begin
@@ -4069,7 +3805,7 @@ begin
 end;//TddGroupConfigItem.Create
 
 function TddGroupConfigItem.HasValue(const anAlias: AnsiString;
-  out theItem: TddBaseConfigItem): Boolean;
+ out theItem: TddBaseConfigItem): Boolean;
 //#UC START# *52172A7700CB_5227064102D9_var*
 var
  I: Integer;
@@ -4199,7 +3935,6 @@ begin
   SubItem[l_IDX].ReadOnly := ReadOnly;
 //#UC END# *552BA9B9039B_5227064102D9_impl*
 end;//TddGroupConfigItem.ReadOnlyChanged
-// start class TddFontConfigItem
 
 procedure TddFontConfigItem.FontButtonClick(Sender: TObject);
 //#UC START# *522457330322_4B9E682C038E_var*
@@ -4221,9 +3956,9 @@ begin
 end;//TddFontConfigItem.FontButtonClick
 
 function TddFontConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_4B9E682C038E_var*
 var
  l_Panel: TvtPanel;
@@ -4322,9 +4057,9 @@ begin
 end;//TddFontConfigItem.SetValueToControl
 
 constructor TddFontConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_4B9E682C038E_var*
 //#UC END# *5217273F000F_4B9E682C038E_var*
 begin
@@ -4379,10 +4114,10 @@ begin
 end;//TddFontConfigItem.SaveValue
 
 procedure TddFontConfigItem.AfterConstruct(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  theControl: TControl;
-  theLabel: TvtLabel);
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ theControl: TControl;
+ theLabel: TvtLabel);
 //#UC START# *521760C60369_4B9E682C038E_var*
 //#UC END# *521760C60369_4B9E682C038E_var*
 begin
@@ -4407,7 +4142,42 @@ for I := 0 to (Control as TvtPanel).ControlCount-1 do
  end;
 //#UC END# *552BB745031E_4B9E682C038E_impl*
 end;//TddFontConfigItem.AdjustReadOnly
-// start class TddBaseStringsConfigItem
+
+function TddBaseStringsConfigItem.pm_GetControlClass: TControlClass;
+//#UC START# *53A299B303CB_53A297C601F0get_var*
+//#UC END# *53A299B303CB_53A297C601F0get_var*
+begin
+//#UC START# *53A299B303CB_53A297C601F0get_impl*
+ Assert(False);
+//#UC END# *53A299B303CB_53A297C601F0get_impl*
+end;//TddBaseStringsConfigItem.pm_GetControlClass
+
+function TddBaseStringsConfigItem.pm_GetSelectedItemIndex: Integer;
+//#UC START# *53A29D68029C_53A297C601F0get_var*
+//#UC END# *53A29D68029C_53A297C601F0get_var*
+begin
+//#UC START# *53A29D68029C_53A297C601F0get_impl*
+ Assert(False);
+//#UC END# *53A29D68029C_53A297C601F0get_impl*
+end;//TddBaseStringsConfigItem.pm_GetSelectedItemIndex
+
+procedure TddBaseStringsConfigItem.pm_SetSelectedItemIndex(aValue: Integer);
+//#UC START# *53A29D68029C_53A297C601F0set_var*
+//#UC END# *53A29D68029C_53A297C601F0set_var*
+begin
+//#UC START# *53A29D68029C_53A297C601F0set_impl*
+ Assert(False);
+//#UC END# *53A29D68029C_53A297C601F0set_impl*
+end;//TddBaseStringsConfigItem.pm_SetSelectedItemIndex
+
+function TddBaseStringsConfigItem.pm_GetControlStrings: Il3StringsEx;
+//#UC START# *53A3BE140327_53A297C601F0get_var*
+//#UC END# *53A3BE140327_53A297C601F0get_var*
+begin
+//#UC START# *53A3BE140327_53A297C601F0get_impl*
+ Assert(False);
+//#UC END# *53A3BE140327_53A297C601F0get_impl*
+end;//TddBaseStringsConfigItem.pm_GetControlStrings
 
 procedure TddBaseStringsConfigItem.DoOnChange(aSender: TObject);
 //#UC START# *53A29C9C00DA_53A297C601F0_var*
@@ -4490,46 +4260,10 @@ begin
 //#UC END# *53A3D16C014B_53A297C601F0_impl*
 end;//TddBaseStringsConfigItem.AssignStringsToControl
 
-function TddBaseStringsConfigItem.pm_GetControlClass: TControlClass;
-//#UC START# *53A299B303CB_53A297C601F0get_var*
-//#UC END# *53A299B303CB_53A297C601F0get_var*
-begin
-//#UC START# *53A299B303CB_53A297C601F0get_impl*
- Assert(False);
-//#UC END# *53A299B303CB_53A297C601F0get_impl*
-end;//TddBaseStringsConfigItem.pm_GetControlClass
-
-function TddBaseStringsConfigItem.pm_GetSelectedItemIndex: Integer;
-//#UC START# *53A29D68029C_53A297C601F0get_var*
-//#UC END# *53A29D68029C_53A297C601F0get_var*
-begin
-//#UC START# *53A29D68029C_53A297C601F0get_impl*
- Assert(False);
-//#UC END# *53A29D68029C_53A297C601F0get_impl*
-end;//TddBaseStringsConfigItem.pm_GetSelectedItemIndex
-
-procedure TddBaseStringsConfigItem.pm_SetSelectedItemIndex(aValue: Integer);
-//#UC START# *53A29D68029C_53A297C601F0set_var*
-//#UC END# *53A29D68029C_53A297C601F0set_var*
-begin
-//#UC START# *53A29D68029C_53A297C601F0set_impl*
- Assert(False);
-//#UC END# *53A29D68029C_53A297C601F0set_impl*
-end;//TddBaseStringsConfigItem.pm_SetSelectedItemIndex
-
-function TddBaseStringsConfigItem.pm_GetControlStrings: Il3StringsEx;
-//#UC START# *53A3BE140327_53A297C601F0get_var*
-//#UC END# *53A3BE140327_53A297C601F0get_var*
-begin
-//#UC START# *53A3BE140327_53A297C601F0get_impl*
- Assert(False);
-//#UC END# *53A3BE140327_53A297C601F0get_impl*
-end;//TddBaseStringsConfigItem.pm_GetControlStrings
-
 function TddBaseStringsConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_53A297C601F0_var*
 //#UC END# *521761BB03DE_53A297C601F0_var*
 begin
@@ -4607,107 +4341,6 @@ begin
  Assert(False);
 //#UC END# *52245D1400E9_53A297C601F0_impl*
 end;//TddBaseStringsConfigItem.DisplayNameContainer
-// start class TddCustomConfigNode
-
-procedure TddCustomConfigNode.ItemChanged(Sender: TObject);
-//#UC START# *521B21AC0008_51D547DD026C_var*
-//#UC END# *521B21AC0008_51D547DD026C_var*
-begin
-//#UC START# *521B21AC0008_51D547DD026C_impl*
- Changed := True;
-//#UC END# *521B21AC0008_51D547DD026C_impl*
-end;//TddCustomConfigNode.ItemChanged
-
-constructor TddCustomConfigNode.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString);
-//#UC START# *521B21EE02E6_51D547DD026C_var*
-//#UC END# *521B21EE02E6_51D547DD026C_var*
-begin
-//#UC START# *521B21EE02E6_51D547DD026C_impl*
- inherited Create(aAlias, aCaption, ddEmptyObjectValue);
- f_Children := Tl3ProtoPersistentRefList.Create;
- f_Alias := aAlias;
- f_Caption := aCaption;
- f_ScrollBars := ssNone;
-//#UC END# *521B21EE02E6_51D547DD026C_impl*
-end;//TddCustomConfigNode.Create
-
-function TddCustomConfigNode.AddNode(const aAlias: AnsiString): TddCustomConfigNode;
-//#UC START# *521B2293010A_51D547DD026C_var*
-//#UC END# *521B2293010A_51D547DD026C_var*
-begin
-//#UC START# *521B2293010A_51D547DD026C_impl*
- Result := AddNode(TddAppConfigNode.Create(aAlias, ''));
-//#UC END# *521B2293010A_51D547DD026C_impl*
-end;//TddCustomConfigNode.AddNode
-
-function TddCustomConfigNode.AddNode(const aAlias: AnsiString;
-  const aCaption: AnsiString): TddCustomConfigNode;
-//#UC START# *521B22D3023D_51D547DD026C_var*
-//#UC END# *521B22D3023D_51D547DD026C_var*
-begin
-//#UC START# *521B22D3023D_51D547DD026C_impl*
- Result := AddNode(TddAppConfigNode.Create(aAlias, aCaption));
-//#UC END# *521B22D3023D_51D547DD026C_impl*
-end;//TddCustomConfigNode.AddNode
-
-function TddCustomConfigNode.AddNode(aNode: TddCustomConfigNode): TddCustomConfigNode;
-//#UC START# *521B22E003E5_51D547DD026C_var*
-//#UC END# *521B22E003E5_51D547DD026C_var*
-begin
-//#UC START# *521B22E003E5_51D547DD026C_impl*
- if aNode <> nil then
- begin
-  aNode.Parent := Self;
-  aNode.ReadOnly := ReadOnly;
-  f_Children.Add(aNode);
-  FreeAndNil(aNode);
-  Result := TddCustomConfigNode(f_Children.Last);
- end
- else
-  Result := nil;
-//#UC END# *521B22E003E5_51D547DD026C_impl*
-end;//TddCustomConfigNode.AddNode
-
-function TddCustomConfigNode.IsRequired(out aMessage: AnsiString): Boolean;
-//#UC START# *521B251D0001_51D547DD026C_var*
-//#UC END# *521B251D0001_51D547DD026C_var*
-begin
-//#UC START# *521B251D0001_51D547DD026C_impl*
- Result := False;
- aMessage := '';
-//#UC END# *521B251D0001_51D547DD026C_impl*
-end;//TddCustomConfigNode.IsRequired
-
-procedure TddCustomConfigNode.PostEdit;
-//#UC START# *521B25470196_51D547DD026C_var*
-//#UC END# *521B25470196_51D547DD026C_var*
-begin
-//#UC START# *521B25470196_51D547DD026C_impl*
- // Вызывается по окончании редактирования для возможных дополнительных действий
-//#UC END# *521B25470196_51D547DD026C_impl*
-end;//TddCustomConfigNode.PostEdit
-
-procedure TddCustomConfigNode.DoFrameSize(aParent: TWinControl;
-  out aHeight: Integer;
-  out aWidth: Integer);
-//#UC START# *521B28930009_51D547DD026C_var*
-//#UC END# *521B28930009_51D547DD026C_var*
-begin
-//#UC START# *521B28930009_51D547DD026C_impl*
- aHeight := 0;
- aWidth := 0;
-//#UC END# *521B28930009_51D547DD026C_impl*
-end;//TddCustomConfigNode.DoFrameSize
-
-procedure TddCustomConfigNode.DoResetToDefault;
-//#UC START# *521B293B0012_51D547DD026C_var*
-//#UC END# *521B293B0012_51D547DD026C_var*
-begin
-//#UC START# *521B293B0012_51D547DD026C_impl*
- { TODO -oДмитрий Дудко -cРазвитие : Сброс всех значений в значение по умолчанию }
-//#UC END# *521B293B0012_51D547DD026C_impl*
-end;//TddCustomConfigNode.DoResetToDefault
 
 function TddCustomConfigNode.pm_GetChildrenCount: Integer;
 //#UC START# *521B26D40382_51D547DD026Cget_var*
@@ -4762,6 +4395,106 @@ begin
 //#UC END# *521B277C02F3_51D547DD026Cset_impl*
 end;//TddCustomConfigNode.pm_SetParent
 
+procedure TddCustomConfigNode.ItemChanged(Sender: TObject);
+//#UC START# *521B21AC0008_51D547DD026C_var*
+//#UC END# *521B21AC0008_51D547DD026C_var*
+begin
+//#UC START# *521B21AC0008_51D547DD026C_impl*
+ Changed := True;
+//#UC END# *521B21AC0008_51D547DD026C_impl*
+end;//TddCustomConfigNode.ItemChanged
+
+constructor TddCustomConfigNode.Create(const aAlias: AnsiString;
+ const aCaption: AnsiString);
+//#UC START# *521B21EE02E6_51D547DD026C_var*
+//#UC END# *521B21EE02E6_51D547DD026C_var*
+begin
+//#UC START# *521B21EE02E6_51D547DD026C_impl*
+ inherited Create(aAlias, aCaption, ddEmptyObjectValue);
+ f_Children := Tl3ProtoPersistentRefList.Create;
+ f_Alias := aAlias;
+ f_Caption := aCaption;
+ f_ScrollBars := ssNone;
+//#UC END# *521B21EE02E6_51D547DD026C_impl*
+end;//TddCustomConfigNode.Create
+
+function TddCustomConfigNode.AddNode(const aAlias: AnsiString): TddCustomConfigNode;
+//#UC START# *521B2293010A_51D547DD026C_var*
+//#UC END# *521B2293010A_51D547DD026C_var*
+begin
+//#UC START# *521B2293010A_51D547DD026C_impl*
+ Result := AddNode(TddAppConfigNode.Create(aAlias, ''));
+//#UC END# *521B2293010A_51D547DD026C_impl*
+end;//TddCustomConfigNode.AddNode
+
+function TddCustomConfigNode.AddNode(const aAlias: AnsiString;
+ const aCaption: AnsiString): TddCustomConfigNode;
+//#UC START# *521B22D3023D_51D547DD026C_var*
+//#UC END# *521B22D3023D_51D547DD026C_var*
+begin
+//#UC START# *521B22D3023D_51D547DD026C_impl*
+ Result := AddNode(TddAppConfigNode.Create(aAlias, aCaption));
+//#UC END# *521B22D3023D_51D547DD026C_impl*
+end;//TddCustomConfigNode.AddNode
+
+function TddCustomConfigNode.AddNode(aNode: TddCustomConfigNode): TddCustomConfigNode;
+//#UC START# *521B22E003E5_51D547DD026C_var*
+//#UC END# *521B22E003E5_51D547DD026C_var*
+begin
+//#UC START# *521B22E003E5_51D547DD026C_impl*
+ if aNode <> nil then
+ begin
+  aNode.Parent := Self;
+  aNode.ReadOnly := ReadOnly;
+  f_Children.Add(aNode);
+  FreeAndNil(aNode);
+  Result := TddCustomConfigNode(f_Children.Last);
+ end
+ else
+  Result := nil;
+//#UC END# *521B22E003E5_51D547DD026C_impl*
+end;//TddCustomConfigNode.AddNode
+
+function TddCustomConfigNode.IsRequired(out aMessage: AnsiString): Boolean;
+//#UC START# *521B251D0001_51D547DD026C_var*
+//#UC END# *521B251D0001_51D547DD026C_var*
+begin
+//#UC START# *521B251D0001_51D547DD026C_impl*
+ Result := False;
+ aMessage := '';
+//#UC END# *521B251D0001_51D547DD026C_impl*
+end;//TddCustomConfigNode.IsRequired
+
+procedure TddCustomConfigNode.PostEdit;
+//#UC START# *521B25470196_51D547DD026C_var*
+//#UC END# *521B25470196_51D547DD026C_var*
+begin
+//#UC START# *521B25470196_51D547DD026C_impl*
+ // Вызывается по окончании редактирования для возможных дополнительных действий
+//#UC END# *521B25470196_51D547DD026C_impl*
+end;//TddCustomConfigNode.PostEdit
+
+procedure TddCustomConfigNode.DoFrameSize(aParent: TWinControl;
+ out aHeight: Integer;
+ out aWidth: Integer);
+//#UC START# *521B28930009_51D547DD026C_var*
+//#UC END# *521B28930009_51D547DD026C_var*
+begin
+//#UC START# *521B28930009_51D547DD026C_impl*
+ aHeight := 0;
+ aWidth := 0;
+//#UC END# *521B28930009_51D547DD026C_impl*
+end;//TddCustomConfigNode.DoFrameSize
+
+procedure TddCustomConfigNode.DoResetToDefault;
+//#UC START# *521B293B0012_51D547DD026C_var*
+//#UC END# *521B293B0012_51D547DD026C_var*
+begin
+//#UC START# *521B293B0012_51D547DD026C_impl*
+ { TODO -oДмитрий Дудко -cРазвитие : Сброс всех значений в значение по умолчанию }
+//#UC END# *521B293B0012_51D547DD026C_impl*
+end;//TddCustomConfigNode.DoResetToDefault
+
 procedure TddCustomConfigNode.ClearControls;
 //#UC START# *52162011011D_51D547DD026C_var*
 //#UC END# *52162011011D_51D547DD026C_var*
@@ -4772,7 +4505,7 @@ begin
 end;//TddCustomConfigNode.ClearControls
 
 function TddCustomConfigNode.CreateFrame(aOwner: TComponent;
-  aTag: Integer): TCustomFrame;
+ aTag: Integer): TCustomFrame;
 //#UC START# *52162023035F_51D547DD026C_var*
 //#UC END# *52162023035F_51D547DD026C_var*
 begin
@@ -4782,8 +4515,8 @@ begin
 end;//TddCustomConfigNode.CreateFrame
 
 procedure TddCustomConfigNode.FrameSize(aParent: TWinControl;
-  out aHeight: Integer;
-  out aWidth: Integer);
+ out aHeight: Integer;
+ out aWidth: Integer);
 //#UC START# *5216204C0197_51D547DD026C_var*
 //#UC END# *5216204C0197_51D547DD026C_var*
 begin
@@ -4878,6 +4611,7 @@ begin
 end;//TddCustomConfigNode.Assign
 
 procedure TddCustomConfigNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51D547DD026C_var*
 //#UC END# *479731C50290_51D547DD026C_var*
 begin
@@ -4965,7 +4699,14 @@ begin
  end;
 //#UC END# *552BA9B9039B_51D547DD026C_impl*
 end;//TddCustomConfigNode.ReadOnlyChanged
-// start class TddBooleanConfigItem
+
+procedure TddCustomConfigNode.ClearFields;
+begin
+ Alias := '';
+ Caption := '';
+ f_ParentAlias := '';
+ inherited;
+end;//TddCustomConfigNode.ClearFields
 
 procedure TddBooleanConfigItem.OnClick(Sender: TObject);
 //#UC START# *5225E578019A_5225E4F80224_var*
@@ -4995,9 +4736,9 @@ begin
 end;//TddBooleanConfigItem.pm_GetBooleanValue
 
 function TddBooleanConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_5225E4F80224_var*
 //#UC END# *521761BB03DE_5225E4F80224_var*
 begin
@@ -5085,9 +4826,9 @@ begin
 end;//TddBooleanConfigItem.MayBeRequired
 
 constructor TddBooleanConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_5225E4F80224_var*
 //#UC END# *5217273F000F_5225E4F80224_var*
 begin
@@ -5148,10 +4889,24 @@ begin
   TvtCheckBox(aControl).Enabled := TvtCheckBox(aControl).Enabled and not ReadOnly;
 //#UC END# *552BB745031E_5225E4F80224_impl*
 end;//TddBooleanConfigItem.AdjustReadOnly
-// start class TddButtonConfigItem
+
+procedure TddButtonConfigItem.pm_SetOnClick(aValue: TNotifyEvent);
+//#UC START# *5225EB4F012A_5225EB120246set_var*
+//#UC END# *5225EB4F012A_5225EB120246set_var*
+begin
+//#UC START# *5225EB4F012A_5225EB120246set_impl*
+ f_OnClick := aValue;
+ if Assigned(Control) then
+ begin
+  Assert(Control Is TvtButton, Control.ClassName);
+  TvtButton(Control).OnClick := aValue;
+ end;
+ Enabled := Assigned(f_OnClick);
+//#UC END# *5225EB4F012A_5225EB120246set_impl*
+end;//TddButtonConfigItem.pm_SetOnClick
 
 procedure TddButtonConfigItem.ButtonSize(aParent: TWinControl;
-  out aSize: TSize);
+ out aSize: TSize);
 //#UC START# *5225EC1300A1_5225EB120246_var*
 var
  l_Button: TvtButton;
@@ -5174,10 +4929,10 @@ begin
 end;//TddButtonConfigItem.ButtonSize
 
 constructor TddButtonConfigItem.Create(const anAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aClick: TNotifyEvent;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aClick: TNotifyEvent;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5225EF6D0040_5225EB120246_var*
 //#UC END# *5225EF6D0040_5225EB120246_var*
 begin
@@ -5190,25 +4945,10 @@ begin
 //#UC END# *5225EF6D0040_5225EB120246_impl*
 end;//TddButtonConfigItem.Create
 
-procedure TddButtonConfigItem.pm_SetOnClick(aValue: TNotifyEvent);
-//#UC START# *5225EB4F012A_5225EB120246set_var*
-//#UC END# *5225EB4F012A_5225EB120246set_var*
-begin
-//#UC START# *5225EB4F012A_5225EB120246set_impl*
- f_OnClick := aValue;
- if Assigned(Control) then
- begin
-  Assert(Control Is TvtButton, Control.ClassName);
-  TvtButton(Control).OnClick := aValue;
- end;
- Enabled := Assigned(f_OnClick);
-//#UC END# *5225EB4F012A_5225EB120246set_impl*
-end;//TddButtonConfigItem.pm_SetOnClick
-
 function TddButtonConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_5225EB120246_var*
 //#UC END# *521761BB03DE_5225EB120246_var*
 begin
@@ -5332,12 +5072,11 @@ begin
   TvtButton(aControl).Enabled := TvtButton(aControl).Enabled and not ReadOnly;
 //#UC END# *552BB745031E_5225EB120246_impl*
 end;//TddButtonConfigItem.AdjustReadOnly
-// start class TddColorConfigItem
 
 function TddColorConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_52260D070311_var*
 //#UC END# *521761BB03DE_52260D070311_var*
 begin
@@ -5409,7 +5148,6 @@ begin
   TColorBox(aControl).Enabled := TColorBox(aControl).Enabled and not ReadOnly;
 //#UC END# *552BB745031E_52260D070311_impl*
 end;//TddColorConfigItem.AdjustReadOnly
-// start class TddCheckListConfigItem
 
 procedure TddCheckListConfigItem.Assign(Source: TPersistent);
 //#UC START# *478CF34E02CE_5226188001A3_var*
@@ -5423,9 +5161,9 @@ begin
 end;//TddCheckListConfigItem.Assign
 
 constructor TddCheckListConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_5226188001A3_var*
 //#UC END# *5217273F000F_5226188001A3_var*
 begin
@@ -5437,9 +5175,9 @@ begin
 end;//TddCheckListConfigItem.Create
 
 function TddCheckListConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_5226188001A3_var*
 //#UC END# *521761BB03DE_5226188001A3_var*
 begin
@@ -5508,12 +5246,11 @@ begin
   TCheckListBox(aControl).Enabled := TCheckListBox(aControl).Enabled and not ReadOnly;
 //#UC END# *552BB745031E_5226188001A3_impl*
 end;//TddCheckListConfigItem.AdjustReadOnly
-// start class TddDividerConfigItem
 
 function TddDividerConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_522623110098_var*
 var
  l_Bevel: TBevel;
@@ -5580,9 +5317,9 @@ begin
 end;//TddDividerConfigItem.MayBeRequired
 
 constructor TddDividerConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_522623110098_var*
 //#UC END# *5217273F000F_522623110098_var*
 begin
@@ -5635,34 +5372,6 @@ begin
  Result := LabelWidth(aParent) + 50;
 //#UC END# *521B061A0387_522623110098_impl*
 end;//TddDividerConfigItem.MinWidth
-// start class TddAppConfigNode
-
-constructor TddAppConfigNode.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString);
-//#UC START# *5225BC4B01A6_51D547F700AB_var*
-//#UC END# *5225BC4B01A6_51D547F700AB_var*
-begin
-//#UC START# *5225BC4B01A6_51D547F700AB_impl*
- inherited;
- f_Objects := Tl3ProtoPersistentRefList.Create;
- f_LabelTop := True;
-//#UC END# *5225BC4B01A6_51D547F700AB_impl*
-end;//TddAppConfigNode.Create
-
-function TddAppConfigNode.AddItem(aItem: TddBaseConfigItem): TddBaseConfigItem;
-//#UC START# *5225BCAE02EE_51D547F700AB_var*
-//#UC END# *5225BCAE02EE_51D547F700AB_var*
-begin
-//#UC START# *5225BCAE02EE_51D547F700AB_impl*
- Result := aItem;
- aItem.ReadOnly := ReadOnly;
- Result.OnChange := ItemChanged;
- if (Result is TddVisualConfigItem) then
-  TddVisualConfigItem(Result).LabelTop := LabelTop;
- f_Objects.Add(Result);
- FreeAndNil(aItem);
-//#UC END# *5225BCAE02EE_51D547F700AB_impl*
-end;//TddAppConfigNode.AddItem
 
 procedure TddAppConfigNode.pm_SetObjects(aValue: Tl3ProtoPersistentRefList);
 //#UC START# *5225B8100090_51D547F700ABset_var*
@@ -5728,7 +5437,8 @@ begin
 //#UC END# *5225BA060217_51D547F700ABget_impl*
 end;//TddAppConfigNode.pm_GetAsBoolean
 
-procedure TddAppConfigNode.pm_SetAsBoolean(const anAlias: AnsiString; aValue: Boolean);
+procedure TddAppConfigNode.pm_SetAsBoolean(const anAlias: AnsiString;
+ aValue: Boolean);
 //#UC START# *5225BA060217_51D547F700ABset_var*
 var
  l_Value: TddConfigValue;
@@ -5757,7 +5467,8 @@ begin
 //#UC END# *5225BAF902D3_51D547F700ABget_impl*
 end;//TddAppConfigNode.pm_GetAsDateTime
 
-procedure TddAppConfigNode.pm_SetAsDateTime(const anAlias: AnsiString; aValue: TDateTime);
+procedure TddAppConfigNode.pm_SetAsDateTime(const anAlias: AnsiString;
+ aValue: TDateTime);
 //#UC START# *5225BAF902D3_51D547F700ABset_var*
 var
  l_Value: TddConfigValue;
@@ -5786,7 +5497,8 @@ begin
 //#UC END# *5225BB4B0246_51D547F700ABget_impl*
 end;//TddAppConfigNode.pm_GetAsInteger
 
-procedure TddAppConfigNode.pm_SetAsInteger(const anAlias: AnsiString; aValue: Integer);
+procedure TddAppConfigNode.pm_SetAsInteger(const anAlias: AnsiString;
+ aValue: Integer);
 //#UC START# *5225BB4B0246_51D547F700ABset_var*
 var
  l_Value: TddConfigValue;
@@ -5815,7 +5527,8 @@ begin
 //#UC END# *5225BB59010E_51D547F700ABget_impl*
 end;//TddAppConfigNode.pm_GetAsObject
 
-procedure TddAppConfigNode.pm_SetAsObject(const anAlias: AnsiString; aValue: TObject);
+procedure TddAppConfigNode.pm_SetAsObject(const anAlias: AnsiString;
+ aValue: TObject);
 //#UC START# *5225BB59010E_51D547F700ABset_var*
 var
  l_Value: TddConfigValue;
@@ -5844,7 +5557,8 @@ begin
 //#UC END# *5225BB630324_51D547F700ABget_impl*
 end;//TddAppConfigNode.pm_GetAsString
 
-procedure TddAppConfigNode.pm_SetAsString(const anAlias: AnsiString; const aValue: AnsiString);
+procedure TddAppConfigNode.pm_SetAsString(const anAlias: AnsiString;
+ const aValue: AnsiString);
 //#UC START# *5225BB630324_51D547F700ABset_var*
 var
  l_Value: TddConfigValue;
@@ -5888,6 +5602,33 @@ begin
 //#UC END# *5225C9B80025_51D547F700ABget_impl*
 end;//TddAppConfigNode.pm_GetItemByAlias
 
+constructor TddAppConfigNode.Create(const aAlias: AnsiString;
+ const aCaption: AnsiString);
+//#UC START# *5225BC4B01A6_51D547F700AB_var*
+//#UC END# *5225BC4B01A6_51D547F700AB_var*
+begin
+//#UC START# *5225BC4B01A6_51D547F700AB_impl*
+ inherited;
+ f_Objects := Tl3ProtoPersistentRefList.Create;
+ f_LabelTop := True;
+//#UC END# *5225BC4B01A6_51D547F700AB_impl*
+end;//TddAppConfigNode.Create
+
+function TddAppConfigNode.AddItem(aItem: TddBaseConfigItem): TddBaseConfigItem;
+//#UC START# *5225BCAE02EE_51D547F700AB_var*
+//#UC END# *5225BCAE02EE_51D547F700AB_var*
+begin
+//#UC START# *5225BCAE02EE_51D547F700AB_impl*
+ Result := aItem;
+ aItem.ReadOnly := ReadOnly;
+ Result.OnChange := ItemChanged;
+ if (Result is TddVisualConfigItem) then
+  TddVisualConfigItem(Result).LabelTop := LabelTop;
+ f_Objects.Add(Result);
+ FreeAndNil(aItem);
+//#UC END# *5225BCAE02EE_51D547F700AB_impl*
+end;//TddAppConfigNode.AddItem
+
 procedure TddAppConfigNode.DoClearControls;
 //#UC START# *521B285C035B_51D547F700AB_var*
 var
@@ -5903,7 +5644,7 @@ begin
 end;//TddAppConfigNode.DoClearControls
 
 function TddAppConfigNode.DoCreateFrame(aOwner: TComponent;
-  aTag: Integer): TCustomFrame;
+ aTag: Integer): TCustomFrame;
 //#UC START# *521B28760177_51D547F700AB_var*
 var
   l_MaxLeft: Integer;
@@ -6162,6 +5903,7 @@ begin
 end;//TddAppConfigNode.Assign
 
 procedure TddAppConfigNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51D547F700AB_var*
 //#UC END# *479731C50290_51D547F700AB_var*
 begin
@@ -6206,7 +5948,7 @@ begin
 end;//TddAppConfigNode.pm_SetChanged
 
 function TddAppConfigNode.HasValue(const anAlias: AnsiString;
-  out theItem: TddBaseConfigItem): Boolean;
+ out theItem: TddBaseConfigItem): Boolean;
 //#UC START# *52172A7700CB_51D547F700AB_var*
 var
  I: Integer;
@@ -6290,8 +6032,8 @@ begin
 end;//TddAppConfigNode.IsRequired
 
 procedure TddAppConfigNode.DoFrameSize(aParent: TWinControl;
-  out aHeight: Integer;
-  out aWidth: Integer);
+ out aHeight: Integer;
+ out aWidth: Integer);
 //#UC START# *521B28930009_51D547F700AB_var*
 var
   I: Integer;
@@ -6394,7 +6136,6 @@ begin
   Items[l_IDX].ReadOnly := ReadOnly;
 //#UC END# *552BA9B9039B_51D547F700AB_impl*
 end;//TddAppConfigNode.ReadOnlyChanged
-// start class TddMasterSlaveConfigItem
 
 function TddMasterSlaveConfigItem.CheckItem(const aAlias: AnsiString): Boolean;
 //#UC START# *52270BD70078_5227065901DC_var*
@@ -6469,29 +6210,6 @@ begin
 //#UC END# *52270C5C02D6_5227065901DC_impl*
 end;//TddMasterSlaveConfigItem.AssignDataFromDetail
 
-procedure TddMasterSlaveConfigItem.UpdateDataItems(aItemIndex: Integer);
-//#UC START# *5228420602FA_5227065901DC_var*
-var
- lSource: TddVisualConfigItem;
- lDest: TddBaseConfigItem;
- lItem: Integer;
- lIndex: Integer;
-//#UC END# *5228420602FA_5227065901DC_var*
-begin
-//#UC START# *5228420602FA_5227065901DC_impl*
- if (aItemIndex = -1) or (aItemIndex > Pred(f_ComboBox.Items.Count)) then
-  Exit;
- lItem := FirstItem(aItemIndex);
- for lIndex := 0 to Pred(f_SubItems.Count) do
- begin
-  lSource := SubItem[lIndex];
-  lSource.GetValueFromControl;
-  lDest := TddBaseConfigItem(f_ListItems[lIndex + lItem]);
-  lDest.AssignValue(lSource.Value, True);
- end;
-//#UC END# *5228420602FA_5227065901DC_impl*
-end;//TddMasterSlaveConfigItem.UpdateDataItems
-
 procedure TddMasterSlaveConfigItem.AddStructureItem(aItem: TddBaseConfigItem);
 //#UC START# *52270CA70249_5227065901DC_var*
 //#UC END# *52270CA70249_5227065901DC_var*
@@ -6502,7 +6220,7 @@ begin
 end;//TddMasterSlaveConfigItem.AddStructureItem
 
 procedure TddMasterSlaveConfigItem.AddCaption(const aCaption: AnsiString;
-  const aAliasPrefix: AnsiString);
+ const aAliasPrefix: AnsiString);
 //#UC START# *52270CC9030D_5227065901DC_var*
 var
  lIndex : Integer;
@@ -6553,7 +6271,31 @@ begin
 //#UC END# *52270CF103B7_5227065901DC_impl*
 end;//TddMasterSlaveConfigItem.AddAlias
 
+procedure TddMasterSlaveConfigItem.UpdateDataItems(aItemIndex: Integer);
+//#UC START# *5228420602FA_5227065901DC_var*
+var
+ lSource: TddVisualConfigItem;
+ lDest: TddBaseConfigItem;
+ lItem: Integer;
+ lIndex: Integer;
+//#UC END# *5228420602FA_5227065901DC_var*
+begin
+//#UC START# *5228420602FA_5227065901DC_impl*
+ if (aItemIndex = -1) or (aItemIndex > Pred(f_ComboBox.Items.Count)) then
+  Exit;
+ lItem := FirstItem(aItemIndex);
+ for lIndex := 0 to Pred(f_SubItems.Count) do
+ begin
+  lSource := SubItem[lIndex];
+  lSource.GetValueFromControl;
+  lDest := TddBaseConfigItem(f_ListItems[lIndex + lItem]);
+  lDest.AssignValue(lSource.Value, True);
+ end;
+//#UC END# *5228420602FA_5227065901DC_impl*
+end;//TddMasterSlaveConfigItem.UpdateDataItems
+
 procedure TddMasterSlaveConfigItem.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5227065901DC_var*
 //#UC END# *479731C50290_5227065901DC_var*
 begin
@@ -6565,9 +6307,9 @@ begin
 end;//TddMasterSlaveConfigItem.Cleanup
 
 constructor TddMasterSlaveConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_5227065901DC_var*
 //#UC END# *5217273F000F_5227065901DC_var*
 begin
@@ -6609,9 +6351,9 @@ begin
 end;//TddMasterSlaveConfigItem.SaveValue
 
 function TddMasterSlaveConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_5227065901DC_var*
 var
  lLabel : TvtLabel;
@@ -6686,7 +6428,6 @@ begin
  f_ComboBox.Enabled := f_ComboBox.Enabled and not ReadOnly;
 //#UC END# *552BB745031E_5227065901DC_impl*
 end;//TddMasterSlaveConfigItem.AdjustReadOnly
-// start class TddContainerConfigItem
 
 function TddContainerConfigItem.GetCaseIndex: Integer;
 //#UC START# *522711880283_5227066903AF_var*
@@ -6701,7 +6442,7 @@ begin
 end;//TddContainerConfigItem.GetCaseIndex
 
 procedure TddContainerConfigItem.ConstructSubItems(aLeft: Integer;
-  aMaxLeft: Integer);
+ aMaxLeft: Integer);
 //#UC START# *52271241038E_5227066903AF_var*
 var
  I: Integer;
@@ -6754,6 +6495,21 @@ begin
 //#UC END# *522713BB02EE_5227066903AF_impl*
 end;//TddContainerConfigItem.SetValueToSubitems
 
+procedure TddContainerConfigItem.AddCase(const aCaption: AnsiString);
+//#UC START# *522713E90174_5227066903AF_var*
+var
+ l_Group: TddGroupConfigItem;
+//#UC END# *522713E90174_5227066903AF_var*
+begin
+//#UC START# *522713E90174_5227066903AF_impl*
+ l_Group := TddGroupConfigItem.SimpleCreate(Alias + IntToStr(SubItems.Count), aCaption);
+ l_Group.ReadOnly := ReadOnly;
+ l_Group.ShowCaption := False;
+ l_Group.LabelTop := False;
+ SubItems.Add(l_Group);
+//#UC END# *522713E90174_5227066903AF_impl*
+end;//TddContainerConfigItem.AddCase
+
 procedure TddContainerConfigItem.OnClick(Sender: TObject);
 //#UC START# *522843D202FB_5227066903AF_var*
 var
@@ -6795,21 +6551,6 @@ begin
 //#UC END# *5514FCD10138_5227066903AF_impl*
 end;//TddContainerConfigItem.UseCheckBox
 
-procedure TddContainerConfigItem.AddCase(const aCaption: AnsiString);
-//#UC START# *522713E90174_5227066903AF_var*
-var
- l_Group: TddGroupConfigItem;
-//#UC END# *522713E90174_5227066903AF_var*
-begin
-//#UC START# *522713E90174_5227066903AF_impl*
- l_Group := TddGroupConfigItem.SimpleCreate(Alias + IntToStr(SubItems.Count), aCaption);
- l_Group.ReadOnly := ReadOnly;
- l_Group.ShowCaption := False;
- l_Group.LabelTop := False;
- SubItems.Add(l_Group);
-//#UC END# *522713E90174_5227066903AF_impl*
-end;//TddContainerConfigItem.AddCase
-
 function TddContainerConfigItem.pm_GetBooleanValue: Boolean;
 //#UC START# *52171FDF0382_5227066903AFget_var*
 //#UC END# *52171FDF0382_5227066903AFget_var*
@@ -6850,9 +6591,9 @@ begin
 end;//TddContainerConfigItem.MayBeRequired
 
 constructor TddContainerConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_5227066903AF_var*
 var
  l_Value : TddConfigValue;
@@ -6928,10 +6669,10 @@ begin
 end;//TddContainerConfigItem.pm_GetLabeled
 
 procedure TddContainerConfigItem.AfterConstruct(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  theControl: TControl;
-  theLabel: TvtLabel);
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ theControl: TControl;
+ theLabel: TvtLabel);
 //#UC START# *521760C60369_5227066903AF_var*
 //#UC END# *521760C60369_5227066903AF_var*
 begin
@@ -6943,9 +6684,9 @@ begin
 end;//TddContainerConfigItem.AfterConstruct
 
 procedure TddContainerConfigItem.BeforeConstruct(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl);
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl);
 //#UC START# *5217612C01B6_5227066903AF_var*
 //#UC END# *5217612C01B6_5227066903AF_var*
 begin
@@ -6956,9 +6697,9 @@ begin
 end;//TddContainerConfigItem.BeforeConstruct
 
 function TddContainerConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_5227066903AF_var*
 var
  I: Integer;
@@ -7148,52 +6889,6 @@ begin
   TvtComboBoxQS(aControl).Enabled := TvtComboBoxQS(aControl).Enabled and not ReadOnly;
 //#UC END# *552BB745031E_5227066903AF_impl*
 end;//TddContainerConfigItem.AdjustReadOnly
-// start class TddComboBoxConfigItem
-
-procedure TddComboBoxConfigItem.OnExit(Sender: TObject);
-//#UC START# *5225991403D3_522461B00212_var*
-//#UC END# *5225991403D3_522461B00212_var*
-begin
-//#UC START# *5225991403D3_522461B00212_impl*
- DoExit;
-//#UC END# *5225991403D3_522461B00212_impl*
-end;//TddComboBoxConfigItem.OnExit
-
-procedure TddComboBoxConfigItem.DoExit;
-//#UC START# *522599F1033C_522461B00212_var*
-//#UC END# *522599F1033C_522461B00212_var*
-begin
-//#UC START# *522599F1033C_522461B00212_impl*
- // virtual
-//#UC END# *522599F1033C_522461B00212_impl*
-end;//TddComboBoxConfigItem.DoExit
-
-constructor TddComboBoxConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  const aValueMap: Il3ValueMap = nil;
-  aMasterItem: TddBaseConfigItem = nil;
-  aMasterIndex: Integer = -1);
-//#UC START# *52259A2E028E_522461B00212_var*
-var
- l_Caption : AnsiString;
-//#UC END# *52259A2E028E_522461B00212_var*
-begin
-//#UC START# *52259A2E028E_522461B00212_impl*
- l_Caption := aCaption;
- if (aMasterItem <> nil) then
-  if (aMasterItem.Caption = l_Caption) OR
-     (aMasterItem.Caption = l_Caption + ':') then
-   l_Caption := '';
- inherited Create(aAlias, l_Caption, aDefaultValue, aValueMap, aMasterItem);
- if f_ValueKind = dd_vkBoolean then
-  Assert((aMasterIndex=-1),'Unsupported params');
- f_DropDownCount := 8;
- f_ComboBoxStyle := csDropDownList;
- f_MasterIndex := aMasterIndex;
- Labeled := True;
-//#UC END# *52259A2E028E_522461B00212_impl*
-end;//TddComboBoxConfigItem.Create
 
 procedure TddComboBoxConfigItem.pm_SetComboBoxStyle(aValue: TComboBoxStyle);
 //#UC START# *5225983A0002_522461B00212set_var*
@@ -7217,6 +6912,51 @@ begin
  f_DropDownCount := aValue;
 //#UC END# *5225988B0236_522461B00212set_impl*
 end;//TddComboBoxConfigItem.pm_SetDropDownCount
+
+procedure TddComboBoxConfigItem.OnExit(Sender: TObject);
+//#UC START# *5225991403D3_522461B00212_var*
+//#UC END# *5225991403D3_522461B00212_var*
+begin
+//#UC START# *5225991403D3_522461B00212_impl*
+ DoExit;
+//#UC END# *5225991403D3_522461B00212_impl*
+end;//TddComboBoxConfigItem.OnExit
+
+procedure TddComboBoxConfigItem.DoExit;
+//#UC START# *522599F1033C_522461B00212_var*
+//#UC END# *522599F1033C_522461B00212_var*
+begin
+//#UC START# *522599F1033C_522461B00212_impl*
+ // virtual
+//#UC END# *522599F1033C_522461B00212_impl*
+end;//TddComboBoxConfigItem.DoExit
+
+constructor TddComboBoxConfigItem.Create(const aAlias: AnsiString;
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ const aValueMap: Il3ValueMap = nil;
+ aMasterItem: TddBaseConfigItem = nil;
+ aMasterIndex: Integer = -1);
+//#UC START# *52259A2E028E_522461B00212_var*
+var
+ l_Caption : AnsiString;
+//#UC END# *52259A2E028E_522461B00212_var*
+begin
+//#UC START# *52259A2E028E_522461B00212_impl*
+ l_Caption := aCaption;
+ if (aMasterItem <> nil) then
+  if (aMasterItem.Caption = l_Caption) OR
+     (aMasterItem.Caption = l_Caption + ':') then
+   l_Caption := '';
+ inherited Create(aAlias, l_Caption, aDefaultValue, aValueMap, aMasterItem);
+ if f_ValueKind = dd_vkBoolean then
+  Assert((aMasterIndex=-1),'Unsupported params');
+ f_DropDownCount := 8;
+ f_ComboBoxStyle := csDropDownList;
+ f_MasterIndex := aMasterIndex;
+ Labeled := True;
+//#UC END# *52259A2E028E_522461B00212_impl*
+end;//TddComboBoxConfigItem.Create
 
 function TddComboBoxConfigItem.pm_GetBooleanValue: Boolean;
 //#UC START# *52161FC80131_522461B00212get_var*
@@ -7360,9 +7100,9 @@ begin
  TvtComboBoxQS(Control).Items.Assign(aStrings.Items);
 //#UC END# *53A3D16C014B_522461B00212_impl*
 end;//TddComboBoxConfigItem.AssignStringsToControl
-// start class TddMapRadioGroupConfigItem
 
 procedure TddMapRadioGroupConfigItem.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53A2A70E0369_var*
 //#UC END# *479731C50290_53A2A70E0369_var*
 begin
@@ -7373,9 +7113,9 @@ begin
 end;//TddMapRadioGroupConfigItem.Cleanup
 
 function TddMapRadioGroupConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_53A2A70E0369_var*
 var
  l_Width: Integer;
@@ -7485,10 +7225,25 @@ begin
  TRadioGroup(Control).Items.Assign(aStrings.Items);
 //#UC END# *53A3D16C014B_53A2A70E0369_impl*
 end;//TddMapRadioGroupConfigItem.AssignStringsToControl
-// start class TddContainerComboConfigItem
+
+procedure TddContainerComboConfigItem.AddCase(const aCaseCode: AnsiString;
+ const aCaption: AnsiString);
+//#UC START# *5440C90D0156_5440C8300216_var*
+var
+ l_Group: TddGroupConfigItem;
+//#UC END# *5440C90D0156_5440C8300216_var*
+begin
+//#UC START# *5440C90D0156_5440C8300216_impl*
+ l_Group := TddGroupConfigItem.SimpleCreate(aCaseCode, aCaption);
+ l_Group.ReadOnly := ReadOnly;
+ l_Group.ShowCaption := False;
+ l_Group.LabelTop := False;
+ SubItems.Add(l_Group);
+//#UC END# *5440C90D0156_5440C8300216_impl*
+end;//TddContainerComboConfigItem.AddCase
 
 procedure TddContainerComboConfigItem.ConstructSubItems(aLeft: Integer;
-  aMaxLeft: Integer);
+ aMaxLeft: Integer);
 //#UC START# *5440C91D0309_5440C8300216_var*
 var
  I: Integer;
@@ -7594,22 +7349,6 @@ begin
 //#UC END# *5440E47601D2_5440C8300216_impl*
 end;//TddContainerComboConfigItem.GetCaseIndex
 
-procedure TddContainerComboConfigItem.AddCase(const aCaseCode: AnsiString;
-  const aCaption: AnsiString);
-//#UC START# *5440C90D0156_5440C8300216_var*
-var
- l_Group: TddGroupConfigItem;
-//#UC END# *5440C90D0156_5440C8300216_var*
-begin
-//#UC START# *5440C90D0156_5440C8300216_impl*
- l_Group := TddGroupConfigItem.SimpleCreate(aCaseCode, aCaption);
- l_Group.ReadOnly := ReadOnly;
- l_Group.ShowCaption := False;
- l_Group.LabelTop := False;
- SubItems.Add(l_Group);
-//#UC END# *5440C90D0156_5440C8300216_impl*
-end;//TddContainerComboConfigItem.AddCase
-
 function TddContainerComboConfigItem.MayBeRequired: Boolean;
 //#UC START# *521725C301A5_5440C8300216_var*
 //#UC END# *521725C301A5_5440C8300216_var*
@@ -7620,9 +7359,9 @@ begin
 end;//TddContainerComboConfigItem.MayBeRequired
 
 constructor TddContainerComboConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_5440C8300216_var*
 var
  l_Value : TddConfigValue;
@@ -7697,10 +7436,10 @@ begin
 end;//TddContainerComboConfigItem.pm_GetLabeled
 
 procedure TddContainerComboConfigItem.AfterConstruct(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  theControl: TControl;
-  theLabel: TvtLabel);
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ theControl: TControl;
+ theLabel: TvtLabel);
 //#UC START# *521760C60369_5440C8300216_var*
 //#UC END# *521760C60369_5440C8300216_var*
 begin
@@ -7712,9 +7451,9 @@ begin
 end;//TddContainerComboConfigItem.AfterConstruct
 
 procedure TddContainerComboConfigItem.BeforeConstruct(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl);
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl);
 //#UC START# *5217612C01B6_5440C8300216_var*
 //#UC END# *5217612C01B6_5440C8300216_var*
 begin
@@ -7725,9 +7464,9 @@ begin
 end;//TddContainerComboConfigItem.BeforeConstruct
 
 function TddContainerComboConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_5440C8300216_var*
 var
  I: Integer;

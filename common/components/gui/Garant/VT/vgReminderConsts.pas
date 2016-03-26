@@ -1,42 +1,39 @@
 unit vgReminderConsts;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$Rem"
-// Модуль: "w:/common/components/gui/Garant/VT/vgReminderConsts.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VT$Rem::NewReminders::vgReminderConsts
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vgReminderConsts.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vgReminderConsts" MUID: (53344F290121)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
+uses
+ l3IntfUses
+;
+
 const
-  { New Reminder Consts }
  c_ReminderDistance = 0;
-  { Расстояние между медалями в линии }
+  {* Расстояние между медалями в линии }
  c_FlashInterval = 400;
-  { Полпериода мигания медали }
+  {* Полпериода мигания медали }
  c_DefaultReminderOpacity = 0.7;
-  { Прозрачность медали по умолчанию }
+  {* Прозрачность медали по умолчанию }
  c_FlashingReminderOpacity = 0.4;
-  { Прозрачность медали при мигании }
+  {* Прозрачность медали при мигании }
  c_ReminderTextHIndent = 7;
-  { Отступ текста по горизонтали в плашке с текстом }
+  {* Отступ текста по горизонтали в плашке с текстом }
  c_ReminderTextVIndent = 5;
-  { Отступ текста по вертикали в плашке с текстом }
-{$IfEnd} //not NoVGScene
+  {* Отступ текста по вертикали в плашке с текстом }
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
-{$IfEnd} //not NoVGScene
+{$If NOT Defined(NoVGScene)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVGScene)
+
 end.

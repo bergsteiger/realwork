@@ -1,30 +1,21 @@
 unit ddBase;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddBase.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::ddCommon::ddBase
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddBase.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ddBase" MUID: (4F6843D50173)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  evdTypes,
-  ddTypes
-  ;
+ l3IntfUses
+ , ddTypes
+ , evdTypes
+;
 
-function K2JustToJust(Just: TevIndentType): TJust;
-function DdGetMinimalCellWidth: Integer;
+function k2JustToJust(Just: TevIndentType): TJust;
+function ddGetMinimalCellWidth: Integer;
 function ColorToHighlight(Color: LongInt): Integer;
 function HighlightToColor(No: Integer): LongInt;
 function ConvertStyleNumber(aNum: LongInt): Integer;
@@ -32,22 +23,20 @@ function ConvertStyleNumber(aNum: LongInt): Integer;
 implementation
 
 uses
-  l3UnitsTools,
-  Graphics
-  ;
+ l3ImplUses
+ , l3UnitsTools
+ , Graphics
+;
 
 type
- TddColorSetRange = 1..16;
+ TddColorSetRange = 1 .. 16;
 
  TddColorArray = array [TddColorSetRange] of LongInt;
 
 const
-  { ddInternalConts }
- cddColorSet : TddColorArray = (clBlack, clBlue, clAqua, clLime, clFuchsia, clRed, clYellow, clWhite, clNavy,clTeal, clGreen, clPurple,clMaroon, clOlive, clGray, clSilver);
+ cddColorSet: TddColorArray = (clBlack, clBlue, clAqua, clLime, clFuchsia, clRed, clYellow, clWhite, clNavy,clTeal, clGreen, clPurple,clMaroon, clOlive, clGray, clSilver);
 
-// unit methods
-
-function K2JustToJust(Just: TevIndentType): TJust;
+function k2JustToJust(Just: TevIndentType): TJust;
 //#UC START# *5111FEEE0291_4F6843D50173_var*
 //#UC END# *5111FEEE0291_4F6843D50173_var*
 begin
@@ -61,16 +50,16 @@ begin
   Result := justL;
  end; { case Just}
 //#UC END# *5111FEEE0291_4F6843D50173_impl*
-end;//K2JustToJust
+end;//k2JustToJust
 
-function DdGetMinimalCellWidth: Integer;
+function ddGetMinimalCellWidth: Integer;
 //#UC START# *52CFB420035C_4F6843D50173_var*
 //#UC END# *52CFB420035C_4F6843D50173_var*
 begin
 //#UC START# *52CFB420035C_4F6843D50173_impl*
  Result := 2 * evGetMinimalCellWidth;
 //#UC END# *52CFB420035C_4F6843D50173_impl*
-end;//DdGetMinimalCellWidth
+end;//ddGetMinimalCellWidth
 
 function ColorToHighlight(Color: LongInt): Integer;
 //#UC START# *52CFE5490025_4F6843D50173_var*

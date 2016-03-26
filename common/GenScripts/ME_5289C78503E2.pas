@@ -69,7 +69,7 @@ type
 function TvcmFormSetFormItemDescr_C(const aFormID: TvcmFormID;
  aZoneType: TvcmZoneType;
  aUserType: TvcmUserType;
- aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): TvcmFormSetFormItemDescr;
+ aSubUserType: TvcmUserType = vcm_utAny): TvcmFormSetFormItemDescr;
 function TvcmFormSetFormItem_C(const aKey: TvcmFormSetFormItemDescr;
  aNeedMake: TvcmNeedMakeDS = vcmBaseTypes.vcm_nmNo): TvcmFormSetFormItem;
 {$IfEnd} // NOT Defined(NoVCM)
@@ -88,7 +88,7 @@ uses
 function TvcmFormSetFormItemDescr_C(const aFormID: TvcmFormID;
  aZoneType: TvcmZoneType;
  aUserType: TvcmUserType;
- aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): TvcmFormSetFormItemDescr;
+ aSubUserType: TvcmUserType = vcm_utAny): TvcmFormSetFormItemDescr;
 //#UC START# *528B525300DE_5289C7D4012A_var*
 //#UC END# *528B525300DE_5289C7D4012A_var*
 begin

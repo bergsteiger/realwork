@@ -1,52 +1,47 @@
 unit ContentChecker;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GblAdapterLib"
-// Модуль: "w:/garant6x/implementation/Garant/tie/Garant/GblAdapterLib/ContentChecker.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> garant6x::GblAdapterLib::FoldersHelper::ContentChecker
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ContentChecker.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ContentChecker" MUID: (461CD65E0280)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-function CheckContent(content): Boolean;
-   {* Проверка контента на существование }
-function CheckServerContent(content): Boolean;
-   {* Проверка существует ли контент (лезем на сервер) }
+uses
+ l3IntfUses
+;
+
+function check_content(const content): Boolean;
+ {* Проверка контента на существование }
+function check_server_content(const content): Boolean;
+ {* Проверка существует ли контент (лезем на сервер) }
 
 implementation
 
 uses
-  ApplicationHelper
-  ;
+ l3ImplUses
+ , ApplicationHelper
+;
 
-// unit methods
-
-function CheckContent(content): Boolean;
+function check_content(const content): Boolean;
+ {* Проверка контента на существование }
 //#UC START# *45F8045C03D2_461CD65E0280_var*
 //#UC END# *45F8045C03D2_461CD65E0280_var*
 begin
 //#UC START# *45F8045C03D2_461CD65E0280_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F8045C03D2_461CD65E0280_impl*
-end;//CheckContent
+end;//check_content
 
-function CheckServerContent(content): Boolean;
+function check_server_content(const content): Boolean;
+ {* Проверка существует ли контент (лезем на сервер) }
 //#UC START# *45F804B50161_461CD65E0280_var*
 //#UC END# *45F804B50161_461CD65E0280_var*
 begin
 //#UC START# *45F804B50161_461CD65E0280_impl*
  !!! Needs to be implemented !!!
 //#UC END# *45F804B50161_461CD65E0280_impl*
-end;//CheckServerContent
+end;//check_server_content
 
 end.

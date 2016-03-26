@@ -1,44 +1,36 @@
 unit vcmChromeLikeTypes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/vcmChromeLikeTypes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM::vcmChromeLikeSupport::vcmChromeLikeTypes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\vcmChromeLikeTypes.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vcmChromeLikeTypes" MUID: (537D82F10098)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VCM\vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Menus
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
- IvcmMenuHolder = interface(IUnknown)
-   ['{06E8AA85-09B4-4185-839F-66D5F1138AA0}']
-   function Get_MainMenu: TMenuItem;
-   property MainMenu: TMenuItem
-     read Get_MainMenu;
+ IvcmMenuHolder = interface
+  ['{06E8AA85-09B4-4185-839F-66D5F1138AA0}']
+  function Get_MainMenu: TMenuItem;
+  property MainMenu: TMenuItem
+   read Get_MainMenu;
  end;//IvcmMenuHolder
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
-{$IfEnd} //not NoVCM
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVCM)
+
 end.

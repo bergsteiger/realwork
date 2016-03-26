@@ -1,85 +1,57 @@
 unit ddAppConfigLists;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd$AppConfig"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddAppConfigLists.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd$AppConfig::AppConfig::ddAppConfigLists
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigLists.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfigLists" MUID: (4B9E5DE1008B)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  ddAppConfigUtils,
-  ddAppConfigDataAdapters,
-  ddAppConfigTypes,
-  ddAppConfigConst,
-  ddConfigStorages
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ , ddAppConfigTypes
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ddAppConfigDataAdapters
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ddAppConfigConst
+ , Classes
+ , ddConfigStorages
+ , ddAppConfigUtils
+;
 
 type
  TddListConfigItem = class(TddVisualConfigItem)
- private
- // private fields
-   f_AddButton : TButton;
-   f_DeleteButton : TButton;
-   f_EditButton : TButton;
-   f_DownButton : TButton;
-   f_UpButton : TButton;
-   f_ListBox : TListBox;
-   f_DataAdapter : TddBaseConfigDataAdapter;
-    {* Поле для свойства DataAdapter}
-   f_ShowMoveButtons : Boolean;
-    {* Поле для свойства ShowMoveButtons}
- private
- // private methods
+  private
+   f_AddButton: TButton;
+   f_DeleteButton: TButton;
+   f_EditButton: TButton;
+   f_DownButton: TButton;
+   f_UpButton: TButton;
+   f_ListBox: TListBox;
+   f_DataAdapter: TddBaseConfigDataAdapter;
+    {* Поле для свойства DataAdapter }
+   f_ShowMoveButtons: Boolean;
+    {* Поле для свойства ShowMoveButtons }
+  private
    procedure AddButtonCLick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure DeleteButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure DownButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure EditButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure ListDblClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure UpButtonCLick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- protected
- // property methods
+  protected
    procedure pm_SetDataAdapter(aValue: TddBaseConfigDataAdapter);
- protected
- // realized methods
    function ConstructControl(var aLeft: Integer;
-     var aMaxLeft: Integer;
-     var aTop: Integer;
-     aParent: TWinControl): TControl; override;
-   function ControlHeight(aParent: TWinControl): Integer; override;
-   procedure GetValueFromControl; override;
-     {* Сигнатура метода GetValueFromControl }
-   procedure SetValueToControl(aDefault: Boolean); override;
- protected
- // overridden property methods
+    var aMaxLeft: Integer;
+    var aTop: Integer;
+    aParent: TWinControl): TControl; override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    procedure pm_SetAlias(const aValue: AnsiString); override;
    function pm_GetBooleanValue: Boolean; override;
    procedure pm_SetBooleanValue(aValue: Boolean); override;
@@ -89,83 +61,84 @@ type
    procedure pm_SetValue(const aValue: TddConfigValue); override;
    function pm_GetLabelTop: Boolean; override;
    procedure pm_SetLabelTop(aValue: Boolean); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+  public
+   constructor Make(const aAlias: AnsiString;
+    const aCaption: AnsiString;
+    aDataAdapter: TddBaseConfigDataAdapter;
+    aMasterItem: TddBaseConfigItem = nil); reintroduce;
+   function ControlHeight(aParent: TWinControl): Integer; override;
+   procedure GetValueFromControl; override;
+   procedure SetValueToControl(aDefault: Boolean); override;
    procedure Assign(Source: TPersistent); override;
    constructor Create(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     const aDefaultValue: TddConfigValue;
-     aMasterItem: TddBaseConfigItem = nil); override;
+    const aCaption: AnsiString;
+    const aDefaultValue: TddConfigValue;
+    aMasterItem: TddBaseConfigItem = nil); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
- public
- // public methods
-   constructor Make(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     aDataAdapter: TddBaseConfigDataAdapter;
-     aMasterItem: TddBaseConfigItem = nil);
- public
- // public properties
+  public
    property DataAdapter: TddBaseConfigDataAdapter
-     read f_DataAdapter
-     write pm_SetDataAdapter;
+    read f_DataAdapter
+    write pm_SetDataAdapter;
    property ShowMoveButtons: Boolean
-     read f_ShowMoveButtons
-     write f_ShowMoveButtons;
+    read f_ShowMoveButtons
+    write f_ShowMoveButtons;
  end;//TddListConfigItem
 
  TddSimpleListConfigItem = {final} class(TddListConfigItem)
- protected
- // property methods
+  protected
    function pm_GetConfig: TddAppConfigNode;
    function pm_GetTitleCaption: AnsiString;
    procedure pm_SetTitleCaption(const aValue: AnsiString);
- public
- // public methods
+  public
    constructor Make(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     aMasterItem: TddBaseConfigItem = nil); overload; 
+    const aCaption: AnsiString;
+    aMasterItem: TddBaseConfigItem = nil); reintroduce; overload;
    constructor Make(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     aItems: TddItemLink;
-     aMasterItem: TddBaseConfigItem = nil); overload; 
- public
- // public properties
+    const aCaption: AnsiString;
+    aItems: TddItemLink;
+    aMasterItem: TddBaseConfigItem = nil); reintroduce; overload;
+  public
    property Config: TddAppConfigNode
-     read pm_GetConfig;
+    read pm_GetConfig;
    property TitleCaption: AnsiString
-     read pm_GetTitleCaption
-     write pm_SetTitleCaption;
+    read pm_GetTitleCaption
+    write pm_SetTitleCaption;
  end;//TddSimpleListConfigItem
 
  TddStringListConfigItem = class(TddListConfigItem)
- public
- // public methods
+  public
    constructor Make(const aAlias: AnsiString;
-     const aCaption: AnsiString;
-     aMasterItem: TddBaseConfigItem = nil);
+    const aCaption: AnsiString;
+    aMasterItem: TddBaseConfigItem = nil); reintroduce;
  end;//TddStringListConfigItem
 
 implementation
 
 uses
-  ddAppConfigListsRes,
-  l3Base,
-  l3String,
-  vtGroupBox,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3ImplUses
+ , ddAppConfigListsRes
+ , l3Base
+ , l3String
+ , vtGroupBox
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-// start class TddListConfigItem
+procedure TddListConfigItem.pm_SetDataAdapter(aValue: TddBaseConfigDataAdapter);
+//#UC START# *522F5D3D03D0_4B9E5DF90347set_var*
+//#UC END# *522F5D3D03D0_4B9E5DF90347set_var*
+begin
+//#UC START# *522F5D3D03D0_4B9E5DF90347set_impl*
+ if f_DataAdapter <> aValue then
+ begin
+  l3Set(f_DataAdapter, aValue);
+  f_DataAdapter.Alias := Alias;
+ end; // f_DataAdapter <> aValue
+//#UC END# *522F5D3D03D0_4B9E5DF90347set_impl*
+end;//TddListConfigItem.pm_SetDataAdapter
 
 procedure TddListConfigItem.AddButtonCLick(Sender: TObject);
 //#UC START# *522F5E79020B_4B9E5DF90347_var*
@@ -263,9 +236,9 @@ begin
 end;//TddListConfigItem.UpButtonCLick
 
 constructor TddListConfigItem.Make(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  aDataAdapter: TddBaseConfigDataAdapter;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ aDataAdapter: TddBaseConfigDataAdapter;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *522F60FA01BA_4B9E5DF90347_var*
 //#UC END# *522F60FA01BA_4B9E5DF90347_var*
 begin
@@ -277,23 +250,10 @@ begin
 //#UC END# *522F60FA01BA_4B9E5DF90347_impl*
 end;//TddListConfigItem.Make
 
-procedure TddListConfigItem.pm_SetDataAdapter(aValue: TddBaseConfigDataAdapter);
-//#UC START# *522F5D3D03D0_4B9E5DF90347set_var*
-//#UC END# *522F5D3D03D0_4B9E5DF90347set_var*
-begin
-//#UC START# *522F5D3D03D0_4B9E5DF90347set_impl*
- if f_DataAdapter <> aValue then
- begin
-  l3Set(f_DataAdapter, aValue);
-  f_DataAdapter.Alias := Alias;
- end; // f_DataAdapter <> aValue
-//#UC END# *522F5D3D03D0_4B9E5DF90347set_impl*
-end;//TddListConfigItem.pm_SetDataAdapter
-
 function TddListConfigItem.ConstructControl(var aLeft: Integer;
-  var aMaxLeft: Integer;
-  var aTop: Integer;
-  aParent: TWinControl): TControl;
+ var aMaxLeft: Integer;
+ var aTop: Integer;
+ aParent: TWinControl): TControl;
 //#UC START# *521761BB03DE_4B9E5DF90347_var*
 var
  l_Top, l_Left: Integer;
@@ -454,6 +414,7 @@ begin
 end;//TddListConfigItem.Assign
 
 procedure TddListConfigItem.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4B9E5DF90347_var*
 //#UC END# *479731C50290_4B9E5DF90347_var*
 begin
@@ -538,9 +499,9 @@ begin
 end;//TddListConfigItem.pm_SetValue
 
 constructor TddListConfigItem.Create(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  const aDefaultValue: TddConfigValue;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ const aDefaultValue: TddConfigValue;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *5217273F000F_4B9E5DF90347_var*
 //#UC END# *5217273F000F_4B9E5DF90347_var*
 begin
@@ -588,45 +549,6 @@ begin
  inherited pm_SetLabelTop(True);
 //#UC END# *5217602C020A_4B9E5DF90347set_impl*
 end;//TddListConfigItem.pm_SetLabelTop
-// start class TddSimpleListConfigItem
-
-constructor TddSimpleListConfigItem.Make(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  aMasterItem: TddBaseConfigItem = nil);
-//#UC START# *522F631301D6_522F629801CA_var*
-var
- l_DA: TddSimpleListDataAdapter;
-//#UC END# *522F631301D6_522F629801CA_var*
-begin
-//#UC START# *522F631301D6_522F629801CA_impl*
- l_DA:= TddSimpleListDataAdapter.Make(aAlias);
- try
-  inherited Make(aAlias, aCaption, l_DA, aMasterItem);
- finally
-  l3Free(l_DA);
- end;
-//#UC END# *522F631301D6_522F629801CA_impl*
-end;//TddSimpleListConfigItem.Make
-
-constructor TddSimpleListConfigItem.Make(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  aItems: TddItemLink;
-  aMasterItem: TddBaseConfigItem = nil);
-//#UC START# *522F634D02E1_522F629801CA_var*
-var
- l_DA: TddSimpleListDataAdapter;
-//#UC END# *522F634D02E1_522F629801CA_var*
-begin
-//#UC START# *522F634D02E1_522F629801CA_impl*
- l_DA:= TddSimpleListDataAdapter.Make(aAlias);
- try
-  l_DA.DataConfig:= MakeNode('Adapter', 'Новый элемент', False, aItems);
-  inherited Make(aAlias, aCaption, l_DA, aMasterItem);
- finally
-  l3Free(l_DA);
- end;
-//#UC END# *522F634D02E1_522F629801CA_impl*
-end;//TddSimpleListConfigItem.Make
 
 function TddSimpleListConfigItem.pm_GetConfig: TddAppConfigNode;
 //#UC START# *522F62CB01EC_522F629801CAget_var*
@@ -655,11 +577,48 @@ begin
   (DataAdapter as TddSimpleListDataAdapter).DataConfig.Items[0].Caption := aValue;
 //#UC END# *522F62FC023F_522F629801CAset_impl*
 end;//TddSimpleListConfigItem.pm_SetTitleCaption
-// start class TddStringListConfigItem
+
+constructor TddSimpleListConfigItem.Make(const aAlias: AnsiString;
+ const aCaption: AnsiString;
+ aMasterItem: TddBaseConfigItem = nil);
+//#UC START# *522F631301D6_522F629801CA_var*
+var
+ l_DA: TddSimpleListDataAdapter;
+//#UC END# *522F631301D6_522F629801CA_var*
+begin
+//#UC START# *522F631301D6_522F629801CA_impl*
+ l_DA:= TddSimpleListDataAdapter.Make(aAlias);
+ try
+  inherited Make(aAlias, aCaption, l_DA, aMasterItem);
+ finally
+  l3Free(l_DA);
+ end;
+//#UC END# *522F631301D6_522F629801CA_impl*
+end;//TddSimpleListConfigItem.Make
+
+constructor TddSimpleListConfigItem.Make(const aAlias: AnsiString;
+ const aCaption: AnsiString;
+ aItems: TddItemLink;
+ aMasterItem: TddBaseConfigItem = nil);
+//#UC START# *522F634D02E1_522F629801CA_var*
+var
+ l_DA: TddSimpleListDataAdapter;
+//#UC END# *522F634D02E1_522F629801CA_var*
+begin
+//#UC START# *522F634D02E1_522F629801CA_impl*
+ l_DA:= TddSimpleListDataAdapter.Make(aAlias);
+ try
+  l_DA.DataConfig:= MakeNode('Adapter', 'Новый элемент', False, aItems);
+  inherited Make(aAlias, aCaption, l_DA, aMasterItem);
+ finally
+  l3Free(l_DA);
+ end;
+//#UC END# *522F634D02E1_522F629801CA_impl*
+end;//TddSimpleListConfigItem.Make
 
 constructor TddStringListConfigItem.Make(const aAlias: AnsiString;
-  const aCaption: AnsiString;
-  aMasterItem: TddBaseConfigItem = nil);
+ const aCaption: AnsiString;
+ aMasterItem: TddBaseConfigItem = nil);
 //#UC START# *522F638F01DD_522F636B02B5_var*
 var
  l_A: TddBaseConfigDataAdapter;

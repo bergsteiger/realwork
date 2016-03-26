@@ -1,34 +1,29 @@
 unit atCRC32;
+ {* Расчет контрольной суммы CRC32 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/atCRC32.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> garant6x_test::AdapterTest::Common::atCRC32
-//
-// Расчет контрольной суммы CRC32
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\atCRC32.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "atCRC32" MUID: (4A4B91810237)
 
 interface
 
+uses
+ l3IntfUses
+;
+
 function ComputeCRC32(const Buf: Pointer;
-  const BufLength: Longword): Longword;
+ const BufLength: Longword): Longword;
 procedure UpdateCRC32(Buf: PAnsiChar;
-  const BufLength: Longword;
-  var CRC32: Longword);
+ const BufLength: Longword;
+ var CRC32: Longword);
 
 implementation
 
-var CRC32Table : array of Longword;
+uses
+ l3ImplUses
+;
 
-// unit methods
+var CRC32Table: array of Longword;
 
 procedure InitCRC32Table;
 //#UC START# *4A4B93380119_4A4B91810237_var*
@@ -51,7 +46,7 @@ begin
 end;//InitCRC32Table
 
 function ComputeCRC32(const Buf: Pointer;
-  const BufLength: Longword): Longword;
+ const BufLength: Longword): Longword;
 //#UC START# *4A4B91EE0198_4A4B91810237_var*
 //#UC END# *4A4B91EE0198_4A4B91810237_var*
 begin
@@ -63,8 +58,8 @@ begin
 end;//ComputeCRC32
 
 procedure UpdateCRC32(Buf: PAnsiChar;
-  const BufLength: Longword;
-  var CRC32: Longword);
+ const BufLength: Longword;
+ var CRC32: Longword);
 //#UC START# *4A4B91F8033D_4A4B91810237_var*
   var
     BufEnd : PChar;

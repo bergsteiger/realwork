@@ -1,76 +1,60 @@
 unit ddAppConfigVersions;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd$AppConfig"
-// Модуль: "w:/common/components/rtl/Garant/dd/ddAppConfigVersions.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd$AppConfig::AppConfig::ddAppConfigVersions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigVersions.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ddAppConfigVersions" MUID: (52149B3F0208)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Base,
-  l3RecList,
-  ddConfigStorages
-  ;
+ l3IntfUses
+ , ddConfigStorages
+ , l3Base
+ , l3RecList
+;
 
 type
- Tdd_acVersionUpgradeProc = procedure (const aStorage: IddConfigStorage);
+ Pdd_acVersionHandler = ^Tdd_acVersionHandler;
+
+ Tdd_acVersionUpgradeProc = procedure(const aStorage: IddConfigStorage);
 
  Tdd_acVersionHandler = record
-   FromVersion : Integer;
-   ToVersion : Integer;
-   Proc : Tdd_acVersionUpgradeProc;
+  FromVersion: Integer;
+  ToVersion: Integer;
+  Proc: Tdd_acVersionUpgradeProc;
  end;//Tdd_acVersionHandler
 
  TddAppConfigVersionManager = class(Tl3Base)
- private
- // private fields
-   f_Handlers : Tl3RecList;
- private
- // private methods
+  private
+   f_Handlers: Tl3RecList;
+  private
    function FindHandler(aFromVersion: Integer;
-     out aHandler: Tdd_acVersionHandler): Boolean;
- protected
- // overridden protected methods
+    out aHandler: Tdd_acVersionHandler): Boolean;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   constructor Create; override;
-     {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure AddHandler(aFromVersion: Integer;
-     aToVersion: Integer;
-     aProc: Tdd_acVersionUpgradeProc);
+    aToVersion: Integer;
+    aProc: Tdd_acVersionUpgradeProc);
    procedure Upgrade(aFromVersion: Integer;
-     aToVersion: Integer;
-     const aStorage: IddConfigStorage);
+    aToVersion: Integer;
+    const aStorage: IddConfigStorage);
+   constructor Create; override;
+    {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
  end;//TddAppConfigVersionManager
-
- Pdd_acVersionHandler = ^Tdd_acVersionHandler;
 
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TddAppConfigVersionManager
+ l3ImplUses
+ , SysUtils
+;
 
 function TddAppConfigVersionManager.FindHandler(aFromVersion: Integer;
-  out aHandler: Tdd_acVersionHandler): Boolean;
+ out aHandler: Tdd_acVersionHandler): Boolean;
 //#UC START# *52315563028B_52149B620261_var*
 var
  I: Integer;
@@ -93,8 +77,8 @@ begin
 end;//TddAppConfigVersionManager.FindHandler
 
 procedure TddAppConfigVersionManager.AddHandler(aFromVersion: Integer;
-  aToVersion: Integer;
-  aProc: Tdd_acVersionUpgradeProc);
+ aToVersion: Integer;
+ aProc: Tdd_acVersionUpgradeProc);
 //#UC START# *5231558003C0_52149B620261_var*
 var
  l_H: Tdd_acVersionHandler;
@@ -114,8 +98,8 @@ begin
 end;//TddAppConfigVersionManager.AddHandler
 
 procedure TddAppConfigVersionManager.Upgrade(aFromVersion: Integer;
-  aToVersion: Integer;
-  const aStorage: IddConfigStorage);
+ aToVersion: Integer;
+ const aStorage: IddConfigStorage);
 //#UC START# *523155A20230_52149B620261_var*
 var
  l_Handler: Tdd_acVersionHandler;
@@ -136,6 +120,7 @@ begin
 end;//TddAppConfigVersionManager.Upgrade
 
 constructor TddAppConfigVersionManager.Create;
+ {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
 //#UC START# *47914F960008_52149B620261_var*
 //#UC END# *47914F960008_52149B620261_var*
 begin
@@ -146,6 +131,7 @@ begin
 end;//TddAppConfigVersionManager.Create
 
 procedure TddAppConfigVersionManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52149B620261_var*
 //#UC END# *479731C50290_52149B620261_var*
 begin

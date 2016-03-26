@@ -1,76 +1,68 @@
 unit atOperationImpl;
+ {* Регистрирует в фабрике операции. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AdapterTest"
-// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atOperationImpl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> garant6x_test::AdapterTest::Operations::atOperationImpl
-//
-// Регистрирует в фабрике операции.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\quality\test\garant6x\AdapterTest\Operations\atOperationImpl.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "atOperationImpl" MUID: (4AC1FBBB0248)
 
 interface
 
+uses
+ l3IntfUses
+;
 
 implementation
 
 uses
-  atDeleteBookmarkOperation,
-  atDeleteCommentOperation,
-  atDeleteListOperation,
-  atDeleteFoldersOperation,
-  atGetCRListFromDocumentOperation,
-  atGuestLoginOperation,
-  atLoadDocumentsByIDFromListOperation,
-  atLoginOperation,
-  atLogoutOperation,
-  atOpenDocumentsFromListOperation,
-  atOpenRedactionsOperation,
-  atSynchroPointOperation,
-  atSortListOperation,
-  atPauseOperation,
-  atSaveListToFolderOperation,
-  atSemaphoreOperation,
-  atSendConsultationOperation,
-  atSetBookmarkOperation,
-  atSetCommentOperation,
-  atSleepOperation,
-  atAbortOperation,
-  atBaseSearchOperation,
-  atCreateFoldersOperation,
-  atCycleOperation,
-  atDeleteAllOperation,
-  atOperationFactory,
-  atTestChatOperation,
-  atOpenListByRubricatorOperation,
-  atCompareRedactionsOperation,
-  atExecuteUserJournalOperation,
-  atClearUserJournalOperation,
-  atOpenSavedBookmarkOperation,
-  atOpenSavedListOperation,
-  atExecuteSavedQueryOperation,
-  atLoginFromListOperation,
-  atSaveFoldersQueryToXMLOperation,
-  atSaveJournalQueryToXMLOperation,
-  atExecuteQueryFromXMLOperation,
-  atAddLastQueryToJournalOperation,
-  atFiltrateTreeOperation,
-  atDumpTreeOperation,
-  atContextSearchInDocumentOperation,
-  atDocumentUnderControlOperation,
-  atIterateDocumentsUnderControlOperation,
-  atJurQueryTestOperation,
-  atSaveListToFileOperation,
-  atCompareSavedListOperation
-  ;
-
+ l3ImplUses
+ , atDeleteBookmarkOperation
+ , atDeleteCommentOperation
+ , atDeleteListOperation
+ , atDeleteFoldersOperation
+ , atGetCRListFromDocumentOperation
+ , atGuestLoginOperation
+ , atLoadDocumentsByIDFromListOperation
+ , atLoginOperation
+ , atLogoutOperation
+ , atOpenDocumentsFromListOperation
+ , atOpenRedactionsOperation
+ , atSynchroPointOperation
+ , atSortListOperation
+ , atPauseOperation
+ , atSaveListToFolderOperation
+ , atSemaphoreOperation
+ , atSendConsultationOperation
+ , atSetBookmarkOperation
+ , atSetCommentOperation
+ , atSleepOperation
+ , atAbortOperation
+ , atBaseSearchOperation
+ , atCreateFoldersOperation
+ , atCycleOperation
+ , atDeleteAllOperation
+ , atOperationFactory
+ , atTestChatOperation
+ , atOpenListByRubricatorOperation
+ , atCompareRedactionsOperation
+ , atExecuteUserJournalOperation
+ , atClearUserJournalOperation
+ , atOpenSavedBookmarkOperation
+ , atOpenSavedListOperation
+ , atExecuteSavedQueryOperation
+ , atLoginFromListOperation
+ , atSaveFoldersQueryToXMLOperation
+ , atSaveJournalQueryToXMLOperation
+ , atExecuteQueryFromXMLOperation
+ , atAddLastQueryToJournalOperation
+ , atFiltrateTreeOperation
+ , atDumpTreeOperation
+ , atContextSearchInDocumentOperation
+ , atDocumentUnderControlOperation
+ , atIterateDocumentsUnderControlOperation
+ , atJurQueryTestOperation
+ , atSaveListToFileOperation
+ , atCompareSavedListOperation
+;
 
 initialization
 //#UC START# *4AC1FD2D02BF*

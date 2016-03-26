@@ -1567,7 +1567,7 @@ procedure TddAppConfiguration.WorkupChanged;
 //#UC END# *5214A03602D0_4B990F100126_var*
 begin
 //#UC START# *5214A03602D0_4B990F100126_impl*
- !!! Needs to be implemented !!!
+ _work(f_Root);
 //#UC END# *5214A03602D0_4B990F100126_impl*
 end;//TddAppConfiguration.WorkupChanged
 

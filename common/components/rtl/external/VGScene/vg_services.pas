@@ -1,203 +1,187 @@
 unit vg_services;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Модуль: "w:/common/components/rtl/external/VGScene/vg_services.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VGScene::Impl::vg_services
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\vg_services.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "vg_services" MUID: (551ABCF10068)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  l3ProtoObject
-  {$If not defined(NoVCL)}
-  ,
-  l3IterateComponentParents
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  l3GetComponentFromPointHelper
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  l3FormatObjectInfoHelper
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  l3GetCaptureHelper
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  l3GetComponentBoundsHelper
-  {$IfEnd} //not NoVCL
-  ,
-  Types,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3RTTI
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ {$If NOT Defined(NoVCL)}
+ , l3GetComponentFromPointHelper
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Types
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , l3FormatObjectInfoHelper
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3RTTI
+ {$If NOT Defined(NoVCL)}
+ , l3IterateComponentParents
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , l3GetCaptureHelper
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , l3GetComponentBoundsHelper
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
- TvgGetComponentFromPointImpl = {final} class(Tl3ProtoObject {$If not defined(NoVCL)}, Il3GetComponentFromPointHelper{$IfEnd} //not NoVCL
+ TvgGetComponentFromPointImpl = {final} class(Tl3ProtoObject{$If NOT Defined(NoVCL)}
+ , Il3GetComponentFromPointHelper
+ {$IfEnd} // NOT Defined(NoVCL)
  )
- public
- // realized methods
-    {$If not defined(NoVCL)}
-   procedure GetComponent(const aPoint: TPoint;
-     out aComponent: TComponent;
-     out aBindedControl: TControl);
-     {* aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель }
-    {$IfEnd} //not NoVCL
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   {$If NOT Defined(NoVCL)}
+   procedure GetComponent(const aPoint: TPoint;
+    out aComponent: TComponent;
+    out aBindedControl: TControl);
+    {* aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель }
+   {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvgGetComponentFromPointImpl;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvgGetComponentFromPointImpl }
  end;//TvgGetComponentFromPointImpl
 
- TvgFormatObjectInfoImpl = {final} class(Tl3ProtoObject {$If not defined(NoVCL)}, Il3FormatObjectInfoHelper{$IfEnd} //not NoVCL
+ TvgFormatObjectInfoImpl = {final} class(Tl3ProtoObject{$If NOT Defined(NoVCL)}
+ , Il3FormatObjectInfoHelper
+ {$IfEnd} // NOT Defined(NoVCL)
  )
- public
- // realized methods
-    {$If not defined(NoVCL)}
-   function Format(anObject: TObject;
-     aShortInfo: Boolean;
-     anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;
-    {$IfEnd} //not NoVCL
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   {$If NOT Defined(NoVCL)}
+   function Format(anObject: TObject;
+    aShortInfo: Boolean;
+    anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;
+   {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvgFormatObjectInfoImpl;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvgFormatObjectInfoImpl }
  end;//TvgFormatObjectInfoImpl
 
- TvgIterateComponentsImpl = {final} class(Tl3ProtoObject {$If not defined(NoVCL)}, Il3IterateComponentParents{$IfEnd} //not NoVCL
+ TvgIterateComponentsImpl = {final} class(Tl3ProtoObject{$If NOT Defined(NoVCL)}
+ , Il3IterateComponentParents
+ {$IfEnd} // NOT Defined(NoVCL)
  )
- public
- // realized methods
-    {$If not defined(NoVCL)}
-   {iterator} procedure IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
-     aComponent: TComponent);
-    {$IfEnd} //not NoVCL
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   {$If NOT Defined(NoVCL)}
+   procedure IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
+    aComponent: TComponent);
+   {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvgIterateComponentsImpl;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvgIterateComponentsImpl }
  end;//TvgIterateComponentsImpl
 
- TvgGetCaptureImpl = {final} class(Tl3ProtoObject {$If not defined(NoVCL)}, Il3GetCaptureHelper{$IfEnd} //not NoVCL
+ TvgGetCaptureImpl = {final} class(Tl3ProtoObject{$If NOT Defined(NoVCL)}
+ , Il3GetCaptureHelper
+ {$IfEnd} // NOT Defined(NoVCL)
  )
- public
- // realized methods
-    {$If not defined(NoVCL)}
-   function GetCapture: TComponent;
-    {$IfEnd} //not NoVCL
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   {$If NOT Defined(NoVCL)}
+   function GetCapture: TComponent;
+   {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvgGetCaptureImpl;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvgGetCaptureImpl }
  end;//TvgGetCaptureImpl
 
- TvgGetComponentBoundsImpl = {final} class(Tl3ProtoObject {$If not defined(NoVCL)}, Il3GetComponentBoundsHelper{$IfEnd} //not NoVCL
+ TvgGetComponentBoundsImpl = {final} class(Tl3ProtoObject{$If NOT Defined(NoVCL)}
+ , Il3GetComponentBoundsHelper
+ {$IfEnd} // NOT Defined(NoVCL)
  )
- public
- // realized methods
-    {$If not defined(NoVCL)}
-   function GetBounds(aComponent: TComponent): TRect;
-    {$IfEnd} //not NoVCL
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   {$If NOT Defined(NoVCL)}
+   function GetBounds(aComponent: TComponent): TRect;
+   {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvgGetComponentBoundsImpl;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvgGetComponentBoundsImpl }
  end;//TvgGetComponentBoundsImpl
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  l3Base {a}
-  {$If not defined(NoVCL)}
-  ,
-  l3HugeMessageDlgWithWikiHelper
-  {$IfEnd} //not NoVCL
-  ,
-  SysUtils,
-  vgObject,
-  Windows,
-  vg_scene,
-  vg_controls,
-  vgVisualObject
-  ;
+ l3ImplUses
+ , vg_scene
+ , vg_controls
+ , vgVisualObject
+ , SysUtils
+ , l3Base
+ {$If NOT Defined(NoVCL)}
+ , l3HugeMessageDlgWithWikiHelper
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vgObject
+ , Windows
+;
 
-
-// start class TvgGetComponentFromPointImpl
-
-var g_TvgGetComponentFromPointImpl : TvgGetComponentFromPointImpl = nil;
+var g_TvgGetComponentFromPointImpl: TvgGetComponentFromPointImpl = nil;
+ {* Экземпляр синглетона TvgGetComponentFromPointImpl }
+var g_TvgFormatObjectInfoImpl: TvgFormatObjectInfoImpl = nil;
+ {* Экземпляр синглетона TvgFormatObjectInfoImpl }
+var g_TvgIterateComponentsImpl: TvgIterateComponentsImpl = nil;
+ {* Экземпляр синглетона TvgIterateComponentsImpl }
+var g_TvgGetCaptureImpl: TvgGetCaptureImpl = nil;
+ {* Экземпляр синглетона TvgGetCaptureImpl }
+var g_TvgGetComponentBoundsImpl: TvgGetComponentBoundsImpl = nil;
+ {* Экземпляр синглетона TvgGetComponentBoundsImpl }
 
 procedure TvgGetComponentFromPointImplFree;
+ {* Метод освобождения экземпляра синглетона TvgGetComponentFromPointImpl }
 begin
  l3Free(g_TvgGetComponentFromPointImpl);
-end;
+end;//TvgGetComponentFromPointImplFree
 
-class function TvgGetComponentFromPointImpl.Instance: TvgGetComponentFromPointImpl;
+procedure TvgFormatObjectInfoImplFree;
+ {* Метод освобождения экземпляра синглетона TvgFormatObjectInfoImpl }
 begin
- if (g_TvgGetComponentFromPointImpl = nil) then
- begin
-  l3System.AddExitProc(TvgGetComponentFromPointImplFree);
-  g_TvgGetComponentFromPointImpl := Create;
- end;
- Result := g_TvgGetComponentFromPointImpl;
-end;
+ l3Free(g_TvgFormatObjectInfoImpl);
+end;//TvgFormatObjectInfoImplFree
 
+procedure TvgIterateComponentsImplFree;
+ {* Метод освобождения экземпляра синглетона TvgIterateComponentsImpl }
+begin
+ l3Free(g_TvgIterateComponentsImpl);
+end;//TvgIterateComponentsImplFree
+
+procedure TvgGetCaptureImplFree;
+ {* Метод освобождения экземпляра синглетона TvgGetCaptureImpl }
+begin
+ l3Free(g_TvgGetCaptureImpl);
+end;//TvgGetCaptureImplFree
+
+procedure TvgGetComponentBoundsImplFree;
+ {* Метод освобождения экземпляра синглетона TvgGetComponentBoundsImpl }
+begin
+ l3Free(g_TvgGetComponentBoundsImpl);
+end;//TvgGetComponentBoundsImplFree
 
 class function TvgGetComponentFromPointImpl.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TvgGetComponentFromPointImpl <> nil;
 end;//TvgGetComponentFromPointImpl.Exists
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvgGetComponentFromPointImpl.GetComponent(const aPoint: TPoint;
-  out aComponent: TComponent;
-  out aBindedControl: TControl);
+ out aComponent: TComponent;
+ out aBindedControl: TControl);
+ {* aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель }
 //#UC START# *77F02E022F3C_551ABD0E013B_var*
 var
  l_CPos: TPoint;
@@ -214,38 +198,29 @@ begin
    aComponent := nil;
 //#UC END# *77F02E022F3C_551ABD0E013B_impl*
 end;//TvgGetComponentFromPointImpl.GetComponent
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-// start class TvgFormatObjectInfoImpl
-
-var g_TvgFormatObjectInfoImpl : TvgFormatObjectInfoImpl = nil;
-
-procedure TvgFormatObjectInfoImplFree;
+class function TvgGetComponentFromPointImpl.Instance: TvgGetComponentFromPointImpl;
+ {* Метод получения экземпляра синглетона TvgGetComponentFromPointImpl }
 begin
- l3Free(g_TvgFormatObjectInfoImpl);
-end;
-
-class function TvgFormatObjectInfoImpl.Instance: TvgFormatObjectInfoImpl;
-begin
- if (g_TvgFormatObjectInfoImpl = nil) then
+ if (g_TvgGetComponentFromPointImpl = nil) then
  begin
-  l3System.AddExitProc(TvgFormatObjectInfoImplFree);
-  g_TvgFormatObjectInfoImpl := Create;
+  l3System.AddExitProc(TvgGetComponentFromPointImplFree);
+  g_TvgGetComponentFromPointImpl := Create;
  end;
- Result := g_TvgFormatObjectInfoImpl;
-end;
-
+ Result := g_TvgGetComponentFromPointImpl;
+end;//TvgGetComponentFromPointImpl.Instance
 
 class function TvgFormatObjectInfoImpl.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TvgFormatObjectInfoImpl <> nil;
 end;//TvgFormatObjectInfoImpl.Exists
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TvgFormatObjectInfoImpl.Format(anObject: TObject;
-  aShortInfo: Boolean;
-  anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;
+ aShortInfo: Boolean;
+ anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;
 //#UC START# *D4A861440DBF_551BCE070003_var*
  procedure lp_AddInfo(var theInfo: AnsiString;
   const aCaption: AnsiString;
@@ -295,37 +270,28 @@ begin
   Result := L3FormatRTTIInfo(anObject, True, anObjectPropFound, Tl3HugeMessageDlgWithWikiHelper.Instance.CanUseWiki);
 //#UC END# *D4A861440DBF_551BCE070003_impl*
 end;//TvgFormatObjectInfoImpl.Format
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-// start class TvgIterateComponentsImpl
-
-var g_TvgIterateComponentsImpl : TvgIterateComponentsImpl = nil;
-
-procedure TvgIterateComponentsImplFree;
+class function TvgFormatObjectInfoImpl.Instance: TvgFormatObjectInfoImpl;
+ {* Метод получения экземпляра синглетона TvgFormatObjectInfoImpl }
 begin
- l3Free(g_TvgIterateComponentsImpl);
-end;
-
-class function TvgIterateComponentsImpl.Instance: TvgIterateComponentsImpl;
-begin
- if (g_TvgIterateComponentsImpl = nil) then
+ if (g_TvgFormatObjectInfoImpl = nil) then
  begin
-  l3System.AddExitProc(TvgIterateComponentsImplFree);
-  g_TvgIterateComponentsImpl := Create;
+  l3System.AddExitProc(TvgFormatObjectInfoImplFree);
+  g_TvgFormatObjectInfoImpl := Create;
  end;
- Result := g_TvgIterateComponentsImpl;
-end;
-
+ Result := g_TvgFormatObjectInfoImpl;
+end;//TvgFormatObjectInfoImpl.Instance
 
 class function TvgIterateComponentsImpl.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TvgIterateComponentsImpl <> nil;
 end;//TvgIterateComponentsImpl.Exists
 
-{$If not defined(NoVCL)}
-{iterator} procedure TvgIterateComponentsImpl.IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
-  aComponent: TComponent);
+{$If NOT Defined(NoVCL)}
+procedure TvgIterateComponentsImpl.IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
+ aComponent: TComponent);
 //#UC START# *3410F441967F_551C4D2300E5_var*
 var
  Hack : Pointer absolute anAction;
@@ -363,35 +329,26 @@ begin
  end;
 //#UC END# *3410F441967F_551C4D2300E5_impl*
 end;//TvgIterateComponentsImpl.IterateF
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-// start class TvgGetCaptureImpl
-
-var g_TvgGetCaptureImpl : TvgGetCaptureImpl = nil;
-
-procedure TvgGetCaptureImplFree;
+class function TvgIterateComponentsImpl.Instance: TvgIterateComponentsImpl;
+ {* Метод получения экземпляра синглетона TvgIterateComponentsImpl }
 begin
- l3Free(g_TvgGetCaptureImpl);
-end;
-
-class function TvgGetCaptureImpl.Instance: TvgGetCaptureImpl;
-begin
- if (g_TvgGetCaptureImpl = nil) then
+ if (g_TvgIterateComponentsImpl = nil) then
  begin
-  l3System.AddExitProc(TvgGetCaptureImplFree);
-  g_TvgGetCaptureImpl := Create;
+  l3System.AddExitProc(TvgIterateComponentsImplFree);
+  g_TvgIterateComponentsImpl := Create;
  end;
- Result := g_TvgGetCaptureImpl;
-end;
-
+ Result := g_TvgIterateComponentsImpl;
+end;//TvgIterateComponentsImpl.Instance
 
 class function TvgGetCaptureImpl.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TvgGetCaptureImpl <> nil;
 end;//TvgGetCaptureImpl.Exists
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TvgGetCaptureImpl.GetCapture: TComponent;
 //#UC START# *FC96CEF34C46_55226D5F0212_var*
 var
@@ -412,35 +369,26 @@ begin
   end;
 //#UC END# *FC96CEF34C46_55226D5F0212_impl*
 end;//TvgGetCaptureImpl.GetCapture
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-// start class TvgGetComponentBoundsImpl
-
-var g_TvgGetComponentBoundsImpl : TvgGetComponentBoundsImpl = nil;
-
-procedure TvgGetComponentBoundsImplFree;
+class function TvgGetCaptureImpl.Instance: TvgGetCaptureImpl;
+ {* Метод получения экземпляра синглетона TvgGetCaptureImpl }
 begin
- l3Free(g_TvgGetComponentBoundsImpl);
-end;
-
-class function TvgGetComponentBoundsImpl.Instance: TvgGetComponentBoundsImpl;
-begin
- if (g_TvgGetComponentBoundsImpl = nil) then
+ if (g_TvgGetCaptureImpl = nil) then
  begin
-  l3System.AddExitProc(TvgGetComponentBoundsImplFree);
-  g_TvgGetComponentBoundsImpl := Create;
+  l3System.AddExitProc(TvgGetCaptureImplFree);
+  g_TvgGetCaptureImpl := Create;
  end;
- Result := g_TvgGetComponentBoundsImpl;
-end;
-
+ Result := g_TvgGetCaptureImpl;
+end;//TvgGetCaptureImpl.Instance
 
 class function TvgGetComponentBoundsImpl.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TvgGetComponentBoundsImpl <> nil;
 end;//TvgGetComponentBoundsImpl.Exists
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TvgGetComponentBoundsImpl.GetBounds(aComponent: TComponent): TRect;
 //#UC START# *BB0BB5CAA29B_5522D81901CB_var*
 var
@@ -461,44 +409,40 @@ begin
   Result := c_EmptyRect;
 //#UC END# *BB0BB5CAA29B_5522D81901CB_impl*
 end;//TvgGetComponentBoundsImpl.GetBounds
-{$IfEnd} //not NoVCL
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVCL)
+
+class function TvgGetComponentBoundsImpl.Instance: TvgGetComponentBoundsImpl;
+ {* Метод получения экземпляра синглетона TvgGetComponentBoundsImpl }
+begin
+ if (g_TvgGetComponentBoundsImpl = nil) then
+ begin
+  l3System.AddExitProc(TvgGetComponentBoundsImplFree);
+  g_TvgGetComponentBoundsImpl := Create;
+ end;
+ Result := g_TvgGetComponentBoundsImpl;
+end;//TvgGetComponentBoundsImpl.Instance
 
 initialization
-{$If not defined(NoVGScene)}
-// Регистрация TvgGetComponentFromPointImpl
- {$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
  Tl3GetComponentFromPointHelper.Instance.Alien := TvgGetComponentFromPointImpl.Instance;
- {$IfEnd} //not NoVCL
-
-{$IfEnd} //not NoVGScene
-{$If not defined(NoVGScene)}
-// Регистрация TvgFormatObjectInfoImpl
- {$If not defined(NoVCL)}
+{$IfEnd} // NOT Defined(NoVCL)
+ {* Регистрация TvgGetComponentFromPointImpl }
+{$If NOT Defined(NoVCL)}
  Tl3FormatObjectInfoHelper.Instance.Alien := TvgFormatObjectInfoImpl.Instance;
- {$IfEnd} //not NoVCL
-
-{$IfEnd} //not NoVGScene
-{$If not defined(NoVGScene)}
-// Регистрация TvgIterateComponentsImpl
- {$If not defined(NoVCL)}
+{$IfEnd} // NOT Defined(NoVCL)
+ {* Регистрация TvgFormatObjectInfoImpl }
+{$If NOT Defined(NoVCL)}
  Tl3IterateComponentParents.Instance.Alien := TvgIterateComponentsImpl.Instance;
- {$IfEnd} //not NoVCL
-
-{$IfEnd} //not NoVGScene
-{$If not defined(NoVGScene)}
-// Регистрация TvgGetCaptureImpl
- {$If not defined(NoVCL)}
+{$IfEnd} // NOT Defined(NoVCL)
+ {* Регистрация TvgIterateComponentsImpl }
+{$If NOT Defined(NoVCL)}
  Tl3GetCaptureHelper.Instance.Alien := TvgGetCaptureImpl.Instance;
- {$IfEnd} //not NoVCL
-
-{$IfEnd} //not NoVGScene
-{$If not defined(NoVGScene)}
-// Регистрация TvgGetComponentBoundsImpl
- {$If not defined(NoVCL)}
+{$IfEnd} // NOT Defined(NoVCL)
+ {* Регистрация TvgGetCaptureImpl }
+{$If NOT Defined(NoVCL)}
  Tl3GetComponentBoundsHelper.Instance.Alien := TvgGetComponentBoundsImpl.Instance;
- {$IfEnd} //not NoVCL
-
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVCL)
+ {* Регистрация TvgGetComponentBoundsImpl }
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

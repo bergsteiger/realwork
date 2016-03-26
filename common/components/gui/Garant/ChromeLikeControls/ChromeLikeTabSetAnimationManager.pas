@@ -1,135 +1,126 @@
 unit ChromeLikeTabSetAnimationManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/ChromeLikeTabSetAnimationManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeTabSet::ChromeLikeTabSetAnimationManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetAnimationManager.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ChromeLikeTabSetAnimationManager" MUID: (550A6034036F)
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  Classes,
-  l3LongintList,
-  SyncObjs,
-  l3ProtoObject,
-  ChromeLikeTabSetTypes
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , Classes
+ , SyncObjs
+ , l3LongintList
+ , ChromeLikeTabSetTypes
+;
 
 type
  TChromeLikeThreadTimer = class(Tl3ProtoObject)
- private
- // private fields
-   f_Continue : Boolean;
-   f_Running : Boolean;
-   f_TimerThread : TThread;
-   f_NeedAnimateEvent : TEvent;
-   f_Interval : Integer;
-    {* Поле для свойства Interval}
-   f_Enabled : Boolean;
-    {* Поле для свойства Enabled}
-   f_OnTimer : TNotifyEvent;
-    {* Поле для свойства OnTimer}
- private
- // private methods
+  private
+   f_Continue: Boolean;
+   f_Running: Boolean;
+   f_TimerThread: TThread;
+   f_NeedAnimateEvent: TEvent;
+   f_Interval: Integer;
+    {* Поле для свойства Interval }
+   f_Enabled: Boolean;
+    {* Поле для свойства Enabled }
+   f_OnTimer: TNotifyEvent;
+    {* Поле для свойства OnTimer }
+  private
    procedure StartTimer;
-     {* Сигнатура метода StartTimer }
    procedure StopTimer;
-     {* Сигнатура метода StopTimer }
- protected
- // property methods
+  protected
    procedure pm_SetEnabled(aValue: Boolean);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aNeedAnimateEvent: TEvent); reintroduce;
- public
- // public properties
+  public
    property Interval: Integer
-     read f_Interval
-     write f_Interval;
+    read f_Interval
+    write f_Interval;
    property Enabled: Boolean
-     read f_Enabled
-     write pm_SetEnabled;
+    read f_Enabled
+    write pm_SetEnabled;
    property OnTimer: TNotifyEvent
-     read f_OnTimer
-     write f_OnTimer;
+    read f_OnTimer
+    write f_OnTimer;
  end;//TChromeLikeThreadTimer
 
  TChromeLikeTimerThread = class(TThread)
- private
- // private fields
-   f_Timer : TChromeLikeThreadTimer;
-   f_NeedAnimateEvent : TEvent;
- private
- // private methods
+  private
+   f_Timer: TChromeLikeThreadTimer;
+   f_NeedAnimateEvent: TEvent;
+  private
    procedure DoExecute;
-     {* Сигнатура метода DoExecute }
- protected
- // realized methods
+  protected
    procedure Execute; override;
- public
- // public methods
+  public
    constructor Create(aTimer: TChromeLikeThreadTimer;
-     aNeedAnimateEvent: TEvent); reintroduce;
+    aNeedAnimateEvent: TEvent); reintroduce;
  end;//TChromeLikeTimerThread
 
  TChromeLikeTabSetAnimationManager = class(Tl3ProtoObject)
- private
- // private fields
-   f_Animables : Tl3LongintList;
-   f_Timer : TChromeLikeThreadTimer;
-   f_NeedAnimateEvent : TEvent;
- private
- // private methods
+  private
+   f_Animables: Tl3LongintList;
+   f_Timer: TChromeLikeThreadTimer;
+   f_NeedAnimateEvent: TEvent;
+  private
    procedure DoOnAnimationTimer(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure CheckNeedAnimate;
-     {* Сигнатура метода CheckNeedAnimate }
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure AddAnimable(const aAnimable: IChromeLikeTabSetAnimable);
    procedure RemoveAnimable(const aAnimable: IChromeLikeTabSetAnimable);
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    procedure FinishAllImmediately;
-     {* Сигнатура метода FinishAllImmediately }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TChromeLikeTabSetAnimationManager;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TChromeLikeTabSetAnimationManager }
  end;//TChromeLikeTabSetAnimationManager
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  l3Base {a},
-  SysUtils,
-  MMSystem,
-  Windows
-  ;
+ l3ImplUses
+ , SysUtils
+ , MMSystem
+ , Windows
+ , l3Base
+;
 
-// start class TChromeLikeThreadTimer
+var g_TChromeLikeTabSetAnimationManager: TChromeLikeTabSetAnimationManager = nil;
+ {* Экземпляр синглетона TChromeLikeTabSetAnimationManager }
+
+procedure TChromeLikeTabSetAnimationManagerFree;
+ {* Метод освобождения экземпляра синглетона TChromeLikeTabSetAnimationManager }
+begin
+ l3Free(g_TChromeLikeTabSetAnimationManager);
+end;//TChromeLikeTabSetAnimationManagerFree
+
+procedure TChromeLikeThreadTimer.pm_SetEnabled(aValue: Boolean);
+//#UC START# *550A62970061_550A606F030Dset_var*
+//#UC END# *550A62970061_550A606F030Dset_var*
+begin
+//#UC START# *550A62970061_550A606F030Dset_impl*
+ if (aValue <> f_Enabled) then
+ begin
+  f_Enabled := aValue;
+  if f_Enabled then
+   StartTimer
+  else
+   StopTimer;
+ end;
+//#UC END# *550A62970061_550A606F030Dset_impl*
+end;//TChromeLikeThreadTimer.pm_SetEnabled
 
 procedure TChromeLikeThreadTimer.StartTimer;
 //#UC START# *550A630D0016_550A606F030D_var*
@@ -176,23 +167,8 @@ begin
 //#UC END# *551B9C3F038F_550A606F030D_impl*
 end;//TChromeLikeThreadTimer.Create
 
-procedure TChromeLikeThreadTimer.pm_SetEnabled(aValue: Boolean);
-//#UC START# *550A62970061_550A606F030Dset_var*
-//#UC END# *550A62970061_550A606F030Dset_var*
-begin
-//#UC START# *550A62970061_550A606F030Dset_impl*
- if (aValue <> f_Enabled) then
- begin
-  f_Enabled := aValue;
-  if f_Enabled then
-   StartTimer
-  else
-   StopTimer;
- end;
-//#UC END# *550A62970061_550A606F030Dset_impl*
-end;//TChromeLikeThreadTimer.pm_SetEnabled
-
 procedure TChromeLikeThreadTimer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_550A606F030D_var*
 //#UC END# *479731C50290_550A606F030D_var*
 begin
@@ -201,7 +177,6 @@ begin
  inherited;
 //#UC END# *479731C50290_550A606F030D_impl*
 end;//TChromeLikeThreadTimer.Cleanup
-// start class TChromeLikeTimerThread
 
 procedure TChromeLikeTimerThread.DoExecute;
 //#UC START# *550A6158014E_550A606001EE_var*
@@ -214,7 +189,7 @@ begin
 end;//TChromeLikeTimerThread.DoExecute
 
 constructor TChromeLikeTimerThread.Create(aTimer: TChromeLikeThreadTimer;
-  aNeedAnimateEvent: TEvent);
+ aNeedAnimateEvent: TEvent);
 //#UC START# *550A616A02E0_550A606001EE_var*
 //#UC END# *550A616A02E0_550A606001EE_var*
 begin
@@ -246,26 +221,6 @@ begin
 //#UC END# *4FFFDF740099_550A606001EE_impl*
 end;//TChromeLikeTimerThread.Execute
 
-// start class TChromeLikeTabSetAnimationManager
-
-var g_TChromeLikeTabSetAnimationManager : TChromeLikeTabSetAnimationManager = nil;
-
-procedure TChromeLikeTabSetAnimationManagerFree;
-begin
- l3Free(g_TChromeLikeTabSetAnimationManager);
-end;
-
-class function TChromeLikeTabSetAnimationManager.Instance: TChromeLikeTabSetAnimationManager;
-begin
- if (g_TChromeLikeTabSetAnimationManager = nil) then
- begin
-  l3System.AddExitProc(TChromeLikeTabSetAnimationManagerFree);
-  g_TChromeLikeTabSetAnimationManager := Create;
- end;
- Result := g_TChromeLikeTabSetAnimationManager;
-end;
-
-
 procedure TChromeLikeTabSetAnimationManager.DoOnAnimationTimer(Sender: TObject);
 //#UC START# *550A64410080_550A638900A0_var*
 var
@@ -285,19 +240,6 @@ begin
  end;//for l_Index...
 //#UC END# *550A64410080_550A638900A0_impl*
 end;//TChromeLikeTabSetAnimationManager.DoOnAnimationTimer
-
-procedure TChromeLikeTabSetAnimationManager.CheckNeedAnimate;
-//#UC START# *551BA1000265_550A638900A0_var*
-//#UC END# *551BA1000265_550A638900A0_var*
-begin
-//#UC START# *551BA1000265_550A638900A0_impl*
- if (f_Animables.Count = 0) then
-  f_NeedAnimateEvent.ResetEvent
- else
- if (f_Animables.Count = 1) then
-  f_NeedAnimateEvent.SetEvent;
-//#UC END# *551BA1000265_550A638900A0_impl*
-end;//TChromeLikeTabSetAnimationManager.CheckNeedAnimate
 
 procedure TChromeLikeTabSetAnimationManager.AddAnimable(const aAnimable: IChromeLikeTabSetAnimable);
 //#UC START# *550A645801E2_550A638900A0_var*
@@ -339,6 +281,19 @@ begin
 //#UC END# *55111F0A00F9_550A638900A0_impl*
 end;//TChromeLikeTabSetAnimationManager.Create
 
+procedure TChromeLikeTabSetAnimationManager.CheckNeedAnimate;
+//#UC START# *551BA1000265_550A638900A0_var*
+//#UC END# *551BA1000265_550A638900A0_var*
+begin
+//#UC START# *551BA1000265_550A638900A0_impl*
+ if (f_Animables.Count = 0) then
+  f_NeedAnimateEvent.ResetEvent
+ else
+ if (f_Animables.Count = 1) then
+  f_NeedAnimateEvent.SetEvent;
+//#UC END# *551BA1000265_550A638900A0_impl*
+end;//TChromeLikeTabSetAnimationManager.CheckNeedAnimate
+
 procedure TChromeLikeTabSetAnimationManager.FinishAllImmediately;
 //#UC START# *55ACE28F00B0_550A638900A0_var*
 var
@@ -360,12 +315,24 @@ begin
 end;//TChromeLikeTabSetAnimationManager.FinishAllImmediately
 
 class function TChromeLikeTabSetAnimationManager.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TChromeLikeTabSetAnimationManager <> nil;
 end;//TChromeLikeTabSetAnimationManager.Exists
 
+class function TChromeLikeTabSetAnimationManager.Instance: TChromeLikeTabSetAnimationManager;
+ {* Метод получения экземпляра синглетона TChromeLikeTabSetAnimationManager }
+begin
+ if (g_TChromeLikeTabSetAnimationManager = nil) then
+ begin
+  l3System.AddExitProc(TChromeLikeTabSetAnimationManagerFree);
+  g_TChromeLikeTabSetAnimationManager := Create;
+ end;
+ Result := g_TChromeLikeTabSetAnimationManager;
+end;//TChromeLikeTabSetAnimationManager.Instance
+
 procedure TChromeLikeTabSetAnimationManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_550A638900A0_var*
 //#UC END# *479731C50290_550A638900A0_var*
 begin
@@ -377,6 +344,6 @@ begin
  inherited;
 //#UC END# *479731C50290_550A638900A0_impl*
 end;//TChromeLikeTabSetAnimationManager.Cleanup
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

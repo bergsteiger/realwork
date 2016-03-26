@@ -1,59 +1,50 @@
 unit ChromeLikeWinUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/ChromeLikeWinUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeWindowCaptionButtons::ChromeLikeWinUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeWinUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ChromeLikeWinUtils" MUID: (533D33DC0092)
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  Types,
-  Graphics,
-  Windows,
-  ChromeLikeTypes
-  ;
+ l3IntfUses
+ , Windows
+ , Types
+ , Graphics
+ , ChromeLikeTypes
+;
 
 procedure UpdateWindowFrame(aHWnd: HWND);
-   {* Заставляет перерисовать неклиентскую область окна }
+ {* Заставляет перерисовать неклиентскую область окна }
 function FillGradient(aDC: hDC;
-  const aRect: TRect;
-  aColorCount: Integer;
-  aStartColor: TColor;
-  aEndColor: TColor;
-  aDirection: TGradientDirection): Boolean;
+ const aRect: TRect;
+ aColorCount: Integer;
+ aStartColor: TColor;
+ aEndColor: TColor;
+ aDirection: TGradientDirection): Boolean;
 function IsWindowsVistaOrLater: Boolean;
 function IsWindowsXP: Boolean;
 function GetVistaWindowCaptionMetrics(aParentHWnd: HWND): TVistaWindowCaptionMetrics;
-   {* Получает размеры элементов заголовка окна для текущего оформления Windows Vista и новее }
+ {* Получает размеры элементов заголовка окна для текущего оформления Windows Vista и новее }
 function GetWindowZOrderInfo(aHWnd: HWND): TWindowZOrderInfo;
-   {* Получает Z-Order окна }
+ {* Получает Z-Order окна }
 procedure SetWindowZOrderInfo(aHWnd: HWND;
-  const aZOrderInfo: TWindowZOrderInfo);
-   {* Устанавливает Z-Order окну }
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ const aZOrderInfo: TWindowZOrderInfo);
+ {* Устанавливает Z-Order окну }
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  SysUtils,
-  l3Base
-  ;
-
-// unit methods
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
 procedure UpdateWindowFrame(aHWnd: HWND);
+ {* Заставляет перерисовать неклиентскую область окна }
 //#UC START# *53C4BE5F0029_533D33DC0092_var*
 //#UC END# *53C4BE5F0029_533D33DC0092_var*
 begin
@@ -64,11 +55,11 @@ begin
 end;//UpdateWindowFrame
 
 function FillGradient(aDC: hDC;
-  const aRect: TRect;
-  aColorCount: Integer;
-  aStartColor: TColor;
-  aEndColor: TColor;
-  aDirection: TGradientDirection): Boolean;
+ const aRect: TRect;
+ aColorCount: Integer;
+ aStartColor: TColor;
+ aEndColor: TColor;
+ aDirection: TGradientDirection): Boolean;
 //#UC START# *53C4BE7000A3_533D33DC0092_var*
 var
  l_StartRGB: array [0..2] of Byte;
@@ -144,6 +135,7 @@ begin
 end;//IsWindowsXP
 
 function GetVistaWindowCaptionMetrics(aParentHWnd: HWND): TVistaWindowCaptionMetrics;
+ {* Получает размеры элементов заголовка окна для текущего оформления Windows Vista и новее }
 //#UC START# *53C4BE9B03E2_533D33DC0092_var*
 const
  cWndClassName: PWideChar = 'ChromeLikeStyledUtilWindow';
@@ -203,6 +195,7 @@ begin
 end;//GetVistaWindowCaptionMetrics
 
 function GetWindowZOrderInfo(aHWnd: HWND): TWindowZOrderInfo;
+ {* Получает Z-Order окна }
 //#UC START# *53C4BEB2027A_533D33DC0092_var*
 //#UC END# *53C4BEB2027A_533D33DC0092_var*
 begin
@@ -214,7 +207,8 @@ begin
 end;//GetWindowZOrderInfo
 
 procedure SetWindowZOrderInfo(aHWnd: HWND;
-  const aZOrderInfo: TWindowZOrderInfo);
+ const aZOrderInfo: TWindowZOrderInfo);
+ {* Устанавливает Z-Order окну }
 //#UC START# *53C4BEBD012C_533D33DC0092_var*
 //#UC END# *53C4BEBD012C_533D33DC0092_var*
 begin
@@ -224,6 +218,6 @@ begin
    SWP_NOMOVE or SWP_NOACTIVATE);
 //#UC END# *53C4BEBD012C_533D33DC0092_impl*
 end;//SetWindowZOrderInfo
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

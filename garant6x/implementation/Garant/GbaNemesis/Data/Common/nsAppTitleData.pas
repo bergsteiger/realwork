@@ -1,75 +1,53 @@
 unit nsAppTitleData;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Common/nsAppTitleData.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Common::nsAppTitleData
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsAppTitleData.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsAppTitleData" MUID: (53EDD46F03D2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TnsAppTitleData = class
- private
- // private fields
-   f_Initialized : Boolean;
-   f_Title : AnsiString;
-    {* Поле для свойства Title}
- protected
- // property methods
+  private
+   f_Initialized: Boolean;
+   f_Title: AnsiString;
+    {* Поле для свойства Title }
+  protected
    function pm_GetTitle: AnsiString;
    procedure pm_SetTitle(const aValue: AnsiString);
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Title: AnsiString
-     read pm_GetTitle
-     write pm_SetTitle;
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsAppTitleData;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsAppTitleData }
+  public
+   property Title: AnsiString
+    read pm_GetTitle
+    write pm_SetTitle;
  end;//TnsAppTitleData
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TnsAppTitleData
-
-var g_TnsAppTitleData : TnsAppTitleData = nil;
+var g_TnsAppTitleData: TnsAppTitleData = nil;
+ {* Экземпляр синглетона TnsAppTitleData }
 
 procedure TnsAppTitleDataFree;
+ {* Метод освобождения экземпляра синглетона TnsAppTitleData }
 begin
  l3Free(g_TnsAppTitleData);
-end;
-
-class function TnsAppTitleData.Instance: TnsAppTitleData;
-begin
- if (g_TnsAppTitleData = nil) then
- begin
-  l3System.AddExitProc(TnsAppTitleDataFree);
-  g_TnsAppTitleData := Create;
- end;
- Result := g_TnsAppTitleData;
-end;
-
+end;//TnsAppTitleDataFree
 
 function TnsAppTitleData.pm_GetTitle: AnsiString;
 //#UC START# *53EDD57A01CA_53EDD51203D9get_var*
@@ -92,9 +70,20 @@ begin
 end;//TnsAppTitleData.pm_SetTitle
 
 class function TnsAppTitleData.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TnsAppTitleData <> nil;
 end;//TnsAppTitleData.Exists
+
+class function TnsAppTitleData.Instance: TnsAppTitleData;
+ {* Метод получения экземпляра синглетона TnsAppTitleData }
+begin
+ if (g_TnsAppTitleData = nil) then
+ begin
+  l3System.AddExitProc(TnsAppTitleDataFree);
+  g_TnsAppTitleData := Create;
+ end;
+ Result := g_TnsAppTitleData;
+end;//TnsAppTitleData.Instance
 
 end.

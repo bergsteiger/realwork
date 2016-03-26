@@ -1,25 +1,18 @@
 unit SystemStr;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Common/SystemStr.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Common::SystemStr
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\SystemStr.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "SystemStr" MUID: (54F443CF018E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 const
-  {  }
  cMainFormPath = 'Настройки форм/utMainWindow/';
  cFrmIDMainMenu = cMainFormPath + 'utNavigator/';
  cFrmIDConfList = cMainFormPath + 'utConfigurationList/';
@@ -53,5 +46,9 @@ const
  ccakRegionalLaw = 'Региональное законодательство';
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

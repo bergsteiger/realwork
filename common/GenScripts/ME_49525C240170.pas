@@ -66,16 +66,16 @@ type
     aZoneType: TvcmZoneType = vcm_ztAny;
     aRecursive: Boolean = True;
     theForm: PIvcmEntityForm = nil;
-    aUserType: TvcmUserType = vcmUserControls.vcm_utAny;
+    aUserType: TvcmUserType = vcm_utAny;
     aGUID: PGUID = nil;
-    aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean; overload;
+    aSubUserType: TvcmUserType = vcm_utAny): Boolean; overload;
     {* проверяет есть ли в контейнере такая форма }
    function HasForm(aZoneType: TvcmZoneType = vcm_ztAny;
     aRecursive: Boolean = True;
     theForm: PIvcmEntityForm = nil;
-    aUserType: TvcmUserType = vcmUserControls.vcm_utAny;
+    aUserType: TvcmUserType = vcm_utAny;
     aGUID: PGUID = nil;
-    aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean; overload;
+    aSubUserType: TvcmUserType = vcm_utAny): Boolean; overload;
     {* проверяет есть ли в контейнере такая форма }
    function Operation(const anOp: TvcmOPID;
     const aParams: IvcmExecuteParams): Boolean; overload;
@@ -232,9 +232,9 @@ function TvcmContainerForm.HasForm(const aName: TvcmFormID;
  aZoneType: TvcmZoneType = vcm_ztAny;
  aRecursive: Boolean = True;
  theForm: PIvcmEntityForm = nil;
- aUserType: TvcmUserType = vcmUserControls.vcm_utAny;
+ aUserType: TvcmUserType = vcm_utAny;
  aGUID: PGUID = nil;
- aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean;
+ aSubUserType: TvcmUserType = vcm_utAny): Boolean;
  {* проверяет есть ли в контейнере такая форма }
 //#UC START# *4995536001FF_49525C240170_var*
 //#UC END# *4995536001FF_49525C240170_var*
@@ -247,9 +247,9 @@ end;//TvcmContainerForm.HasForm
 function TvcmContainerForm.HasForm(aZoneType: TvcmZoneType = vcm_ztAny;
  aRecursive: Boolean = True;
  theForm: PIvcmEntityForm = nil;
- aUserType: TvcmUserType = vcmUserControls.vcm_utAny;
+ aUserType: TvcmUserType = vcm_utAny;
  aGUID: PGUID = nil;
- aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean;
+ aSubUserType: TvcmUserType = vcm_utAny): Boolean;
  {* проверяет есть ли в контейнере такая форма }
 //#UC START# *499554390363_49525C240170_var*
 //#UC END# *499554390363_49525C240170_var*
