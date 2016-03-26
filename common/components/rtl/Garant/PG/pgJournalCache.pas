@@ -1,42 +1,35 @@
 unit pgJournalCache;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "PG"
-// Модуль: "w:/common/components/rtl/Garant/PG/pgJournalCache.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::PG::Provider::pgJournalCache
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\PG\pgJournalCache.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "pgJournalCache" MUID: (564ACBC5032E)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\PG\pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3ProtoDataContainer,
-  daTypes,
-  l3Memory,
-  l3Interfaces,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , daTypes
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
- TpgJournalCacheRec = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   rOperation : TdaJournalOperation;
-   rFamilyID : TdaFamilyID;
-   rExtID : LongInt;
-   rData : LongInt;
+ PpgJournalCacheRec = ^TpgJournalCacheRec;
+
+ TpgJournalCacheRec = object
+  public
+   rOperation: TdaJournalOperation;
+   rFamilyID: TdaFamilyID;
+   rExtID: LongInt;
+   rData: LongInt;
  end;//TpgJournalCacheRec
 
  _ItemType_ = TpgJournalCacheRec;
@@ -46,29 +39,27 @@ type
  TpgJournalCacheList = class(_l3RecordListPrim_)
  end;//TpgJournalCacheList
 
- PpgJournalCacheRec = ^TpgJournalCacheRec;
-
 function TpgJournalCacheRec_C(aOperation: TdaJournalOperation;
-     aFamilyID: TdaFamilyID;
-     aExtID: LongInt;
-     aData: LongInt): TpgJournalCacheRec;
-{$IfEnd} //UsePostgres
+ aFamilyID: TdaFamilyID;
+ aExtID: LongInt;
+ aData: LongInt): TpgJournalCacheRec;
+{$IfEnd} // Defined(UsePostgres)
 
 implementation
 
-{$If defined(UsePostgres)}
+{$If Defined(UsePostgres)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 function TpgJournalCacheRec_C(aOperation: TdaJournalOperation;
-        aFamilyID: TdaFamilyID;
-        aExtID: LongInt;
-        aData: LongInt): TpgJournalCacheRec;
+ aFamilyID: TdaFamilyID;
+ aExtID: LongInt;
+ aData: LongInt): TpgJournalCacheRec;
 //#UC START# *564ACD9A000D_564ACBEE0302_var*
 //#UC END# *564ACD9A000D_564ACBEE0302_var*
 begin
@@ -79,21 +70,18 @@ begin
  Result.rExtID :=aExtID;
  Result.rData := aData;
 //#UC END# *564ACD9A000D_564ACBEE0302_impl*
-end;//TpgJournalCacheRec.C
+end;//TpgJournalCacheRec_C
 
-// start class TpgJournalCacheList
-
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If not defined(l3Items_IsAtomic)}
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_564AD17C02DC_var*
 //#UC END# *47B07CF403D0_564AD17C02DC_var*
 begin
@@ -102,11 +90,11 @@ begin
  Assert(false);
 //#UC END# *47B07CF403D0_564AD17C02DC_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_564AD17C02DC_var*
 //#UC END# *47B2C42A0163_564AD17C02DC_var*
 begin
@@ -114,9 +102,10 @@ begin
  aTo := aFrom;
 //#UC END# *47B2C42A0163_564AD17C02DC_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_564AD17C02DC_var*
 //#UC END# *47B99D4503A2_564AD17C02DC_var*
 begin
@@ -129,6 +118,6 @@ end;//CompareExistingItems
 type _Instance_R_ = TpgJournalCacheList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
+{$IfEnd} // Defined(UsePostgres)
 
-{$IfEnd} //UsePostgres
 end.

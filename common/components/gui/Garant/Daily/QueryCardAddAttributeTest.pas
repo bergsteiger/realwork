@@ -22,12 +22,12 @@ type
   protected
    procedure Process(aForm: TPrimTextLoadForm); override;
     {* Собственно процесс обработки текста }
-   function GetFolder: AnsiString; override;
-    {* Папка в которую входит тест }
    function QFLike: Boolean; override;
     {* Создать форму-редактор для работы с КЗ. }
    procedure DoBeforeLoad(aForm: TPrimTextLoadForm); override;
     {* Операции предшествующие загрузке документа }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
  end;//TQueryCardAddAttributeTest
@@ -68,12 +68,6 @@ begin
 //#UC END# *4BE13147032C_4CA099DB01B7_impl*
 end;//TQueryCardAddAttributeTest.Process
 
-function TQueryCardAddAttributeTest.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := 'Everest';
-end;//TQueryCardAddAttributeTest.GetFolder
-
 function TQueryCardAddAttributeTest.QFLike: Boolean;
  {* Создать форму-редактор для работы с КЗ. }
 //#UC START# *4CA0947C03CE_4CA099DB01B7_var*
@@ -94,6 +88,12 @@ begin
  aForm.Text.TextSource.DocumentContainer := TevQueryDocumentContainer.Make;
 //#UC END# *4CA18D6B0088_4CA099DB01B7_impl*
 end;//TQueryCardAddAttributeTest.DoBeforeLoad
+
+function TQueryCardAddAttributeTest.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'Everest';
+end;//TQueryCardAddAttributeTest.GetFolder
 
 function TQueryCardAddAttributeTest.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }

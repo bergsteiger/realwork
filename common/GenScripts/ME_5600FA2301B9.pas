@@ -271,10 +271,15 @@ end;//TdaTabledQuery.AddOrderBy
 
 function TdaTabledQuery.SelectFieldByName(const anAlias: AnsiString): IdaSelectField;
 //#UC START# *56F3D89F01C8_5600FA2301B9_var*
+var
+ l_IDX: Integer;
 //#UC END# *56F3D89F01C8_5600FA2301B9_var*
 begin
 //#UC START# *56F3D89F01C8_5600FA2301B9_impl*
- !!! Needs to be implemented !!!
+ if f_SelectFields.FindData(anAlias, l_IDX) then
+  Result := f_SelectFields[l_IDX]
+ else
+  Result := nil;
 //#UC END# *56F3D89F01C8_5600FA2301B9_impl*
 end;//TdaTabledQuery.SelectFieldByName
 

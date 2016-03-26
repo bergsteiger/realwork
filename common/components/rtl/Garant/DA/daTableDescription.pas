@@ -1,45 +1,34 @@
 unit daTableDescription;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daTableDescription.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::DA::DataScheme::daTableDescription
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daTableDescription.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "daTableDescription" MUID: (55CB200E0058)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  daTypes,
-  daInterfaces,
-  daFieldDescriptionList
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , daInterfaces
+ , daTypes
+ , daFieldDescriptionList
+;
 
 type
  TdaTableDescription = class(Tl3ProtoObject, IdaTableDescription)
- private
- // private fields
-   f_Description : AnsiString;
-   f_IsDublicate : Boolean;
-   f_IsFake : Boolean;
-   f_FieldList : TdaFieldDescriptionList;
-   f_SQLName : AnsiString;
-   f_Scheme : AnsiString;
-   f_IsTree : Boolean;
-   f_Kind : TdaTables;
-    {* Поле для свойства Kind}
- protected
- // realized methods
+  private
+   f_Description: AnsiString;
+   f_IsDublicate: Boolean;
+   f_IsFake: Boolean;
+   f_FieldList: TdaFieldDescriptionList;
+   f_SQLName: AnsiString;
+   f_Scheme: AnsiString;
+   f_IsTree: Boolean;
+   f_Kind: TdaTables;
+    {* Поле для свойства Kind }
+  protected
    function Get_Description: AnsiString;
    function Get_IsDublicate: Boolean;
    function Get_IsFake: Boolean;
@@ -51,43 +40,35 @@ type
    function Get_FieldsCount: Integer;
    function Get_FieldsCountWithoutTree: Integer;
    function Get_IsTree: Boolean;
- public
- // realized methods
-   {iterator} procedure IterateFieldsF(anAction: daTableDescriptionIterator_IterateFieldsF_Action);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    constructor Create(aKind: TdaTables;
-     const aSQLName: AnsiString;
-     const aDescription: AnsiString;
-     const aScheme: AnsiString = '';
-     aDublicate: Boolean = False;
-     aFake: Boolean = False;
-     aIsTree: Boolean = False); reintroduce;
+    const aSQLName: AnsiString;
+    const aDescription: AnsiString;
+    const aScheme: AnsiString = '';
+    aDublicate: Boolean = False;
+    aFake: Boolean = False;
+    aIsTree: Boolean = False); reintroduce;
    procedure AddField(const aField: IdaFieldDescription);
- public
- // public properties
+   procedure IterateFieldsF(anAction: daTableDescriptionIterator_IterateFieldsF_Action);
+  public
    property Kind: TdaTables
-     read f_Kind;
+    read f_Kind;
  end;//TdaTableDescription
 
 implementation
 
 uses
-  l3Types,
-  SysUtils,
-  Classes,
-  l3Base
-  ;
-
-// unit methods
+ l3ImplUses
+ , l3Types
+ , SysUtils
+ , Classes
+;
 
 function CompareFields(Item1: Pointer;
-  Item2: Pointer): Integer;
+ Item2: Pointer): Integer;
 //#UC START# *55CB2045030F_55CB200E0058_var*
 //#UC END# *55CB2045030F_55CB200E0058_var*
 begin
@@ -95,15 +76,14 @@ begin
  Result := IdaFieldDescription(Item1).Index - IdaFieldDescription(Item2).Index;
 //#UC END# *55CB2045030F_55CB200E0058_impl*
 end;//CompareFields
-// start class TdaTableDescription
 
 constructor TdaTableDescription.Create(aKind: TdaTables;
-  const aSQLName: AnsiString;
-  const aDescription: AnsiString;
-  const aScheme: AnsiString = '';
-  aDublicate: Boolean = False;
-  aFake: Boolean = False;
-  aIsTree: Boolean = False);
+ const aSQLName: AnsiString;
+ const aDescription: AnsiString;
+ const aScheme: AnsiString = '';
+ aDublicate: Boolean = False;
+ aFake: Boolean = False;
+ aIsTree: Boolean = False);
 //#UC START# *55360BAB0116_55360B420250_var*
 //#UC END# *55360BAB0116_55360B420250_var*
 begin
@@ -179,7 +159,7 @@ begin
 //#UC END# *55379DA40290_55360B420250get_impl*
 end;//TdaTableDescription.Get_Field
 
-{iterator} procedure TdaTableDescription.IterateFieldsF(anAction: daTableDescriptionIterator_IterateFieldsF_Action);
+procedure TdaTableDescription.IterateFieldsF(anAction: daTableDescriptionIterator_IterateFieldsF_Action);
 //#UC START# *55C860390259_55360B420250_var*
 
 var
@@ -282,6 +262,7 @@ begin
 end;//TdaTableDescription.Get_IsTree
 
 procedure TdaTableDescription.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55360B420250_var*
 //#UC END# *479731C50290_55360B420250_var*
 begin

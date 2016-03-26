@@ -1,35 +1,28 @@
 unit daDataProvider;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daDataProvider.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::DA::Provider::daDataProvider
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daDataProvider.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "daDataProvider" MUID: (551A7D7402B4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  daInterfaces
-  ;
+ l3IntfUses
+ , daInterfaces
+;
 
 function GlobalDataProvider: IdaDataProvider;
 procedure SetGlobalDataProvider(const aProvider: IdaDataProvider);
 
 implementation
 
-var g_GlobalDataProvider : Pointer;
+uses
+ l3ImplUses
+;
 
-// unit methods
+var g_GlobalDataProvider: Pointer;
 
 function GlobalDataProvider: IdaDataProvider;
 //#UC START# *551A7D9602DC_551A7D7402B4_var*

@@ -40,11 +40,11 @@ uses
  , ddTaskClassManager
  {$IfEnd} // NOT Defined(Nemesis)
  , evdTaskTypes
- , TestFrameWork
  , l3Filer
  , SysUtils
  , TypInfo
  , k2Base
+ , TestFrameWork
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

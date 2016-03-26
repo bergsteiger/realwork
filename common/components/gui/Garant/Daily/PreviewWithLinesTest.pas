@@ -17,9 +17,9 @@ uses
 type
  TPreviewWithLinesTest = {abstract} class(TPreviewWithLinesTestBefore235875079)
   protected
+   function IsBefore235875079: Boolean; override;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
-   function IsBefore235875079: Boolean; override;
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
  end;//TPreviewWithLinesTest
@@ -39,12 +39,6 @@ uses
  , l3Base
 ;
 
-function TPreviewWithLinesTest.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := 'Everest';
-end;//TPreviewWithLinesTest.GetFolder
-
 function TPreviewWithLinesTest.IsBefore235875079: Boolean;
 //#UC START# *4D18990C0329_4D1898CF02B1_var*
 //#UC END# *4D18990C0329_4D1898CF02B1_var*
@@ -53,6 +47,12 @@ begin
  Result := false;
 //#UC END# *4D18990C0329_4D1898CF02B1_impl*
 end;//TPreviewWithLinesTest.IsBefore235875079
+
+function TPreviewWithLinesTest.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'Everest';
+end;//TPreviewWithLinesTest.GetFolder
 
 function TPreviewWithLinesTest.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }

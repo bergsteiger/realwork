@@ -1,44 +1,34 @@
 unit daUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::DA::Provider::daUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "daUtils" MUID: (5437B276039C)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
 uses
-  daTypes
-  ;
+ l3IntfUses
+ , daTypes
+;
 
 function GetHomePathCode(aUserID: TdaUserID): TdaPathStr;
 procedure CheckDbVersion(DocBaseVersion: Integer;
-  AdminBaseVersion: Integer);
+ AdminBaseVersion: Integer);
 function UserIDBelongsToRegion(aUserID: TdaUserID;
-  aRegion: TdaRegionID): Boolean;
+ aRegion: TdaRegionID): Boolean;
 function UserIsService(aUserID: TdaUserID): Boolean;
 function IsUserRequireReports(aUserID: TdaUserID): Boolean;
 
 implementation
 
 uses
-  SysUtils,
-  daInterfaces,
-  daDataProvider
-  ;
-
-// unit methods
+ l3ImplUses
+ , SysUtils
+ , daInterfaces
+ , daDataProvider
+;
 
 function GetHomePathCode(aUserID: TdaUserID): TdaPathStr;
 //#UC START# *551E861C0377_5437B276039C_var*
@@ -50,7 +40,7 @@ begin
 end;//GetHomePathCode
 
 procedure CheckDbVersion(DocBaseVersion: Integer;
-  AdminBaseVersion: Integer);
+ AdminBaseVersion: Integer);
 //#UC START# *552279710064_5437B276039C_var*
 //#UC END# *552279710064_5437B276039C_var*
 begin
@@ -71,7 +61,7 @@ begin
 end;//CheckDbVersion
 
 function UserIDBelongsToRegion(aUserID: TdaUserID;
-  aRegion: TdaRegionID): Boolean;
+ aRegion: TdaRegionID): Boolean;
 //#UC START# *552287F70191_5437B276039C_var*
 //#UC END# *552287F70191_5437B276039C_var*
 begin

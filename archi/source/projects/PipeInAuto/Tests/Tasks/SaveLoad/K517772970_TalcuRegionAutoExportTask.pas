@@ -23,6 +23,8 @@ type
  TK517772970_TalcuRegionAutoExportTask = class(TK517772970_TddProcessTask)
   {* [RequestLink:517772970] }
   protected
+   function TaskClass: TddTaskClass; override;
+   procedure InitTask(Task: TddTaskItem); override;
    {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
@@ -31,8 +33,6 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-   function TaskClass: TddTaskClass; override;
-   procedure InitTask(Task: TddTaskItem); override;
  end;//TK517772970_TalcuRegionAutoExportTask
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
@@ -48,22 +48,6 @@ uses
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
 ;
-
-{$If Defined(nsTest)}
-function TK517772970_TalcuRegionAutoExportTask.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := 'TaskSaveLoad';
-end;//TK517772970_TalcuRegionAutoExportTask.GetFolder
-{$IfEnd} // Defined(nsTest)
-
-{$If Defined(nsTest)}
-function TK517772970_TalcuRegionAutoExportTask.GetModelElementGUID: AnsiString;
- {* Идентификатор элемента модели, который описывает тест }
-begin
- Result := '53214D920123';
-end;//TK517772970_TalcuRegionAutoExportTask.GetModelElementGUID
-{$IfEnd} // Defined(nsTest)
 
 function TK517772970_TalcuRegionAutoExportTask.TaskClass: TddTaskClass;
 //#UC START# *5320088202FB_53214D920123_var*
@@ -85,6 +69,22 @@ begin
  (Task as TalcuRegionAutoExportTask).RegionIndex := IntConst;
 //#UC END# *532008D203BA_53214D920123_impl*
 end;//TK517772970_TalcuRegionAutoExportTask.InitTask
+
+{$If Defined(nsTest)}
+function TK517772970_TalcuRegionAutoExportTask.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'TaskSaveLoad';
+end;//TK517772970_TalcuRegionAutoExportTask.GetFolder
+{$IfEnd} // Defined(nsTest)
+
+{$If Defined(nsTest)}
+function TK517772970_TalcuRegionAutoExportTask.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '53214D920123';
+end;//TK517772970_TalcuRegionAutoExportTask.GetModelElementGUID
+{$IfEnd} // Defined(nsTest)
 
 initialization
  TestFramework.RegisterTest(TK517772970_TalcuRegionAutoExportTask.Suite);

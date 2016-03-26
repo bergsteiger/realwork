@@ -67,8 +67,8 @@ type
    procedure DropActiveClass;
     {* http://mdp.garant.ru/pages/viewpage.action?pageId=269069309&focusedCommentId=296624258#comment-296624258 }
    function pm_GetActiveClassForSaveState: InsBaseSearchClass;
-   function MakeState: InsBaseSearcherInitialState; overload;
-   procedure AssignState(const aState: InsBaseSearcherInitialState); overload;
+   function MakeState: InsBaseSearcherInitialState;
+   procedure AssignState(const aState: InsBaseSearcherInitialState);
    procedure ForceUpdateClassForHistory;
    function MakeStateParams(aStateElements: TnsBaseSearchStateElements;
     aForClone: Boolean): InsBaseSearcherInitialState;
@@ -80,12 +80,8 @@ type
    function pm_GetSearchWindow: InsSearchWindow;
    procedure pm_SetSearchWindow(const aValue: InsSearchWindow);
    function pm_GetPromptTree: Il3SimpleTree;
-   function MakeState: InsBaseSearcherWindowDataState; overload;
-   procedure AssignState(const aState: InsBaseSearcherWindowDataState); overload;
    function pm_GetErrorWords: IvcmStrings;
    procedure pm_SetErrorWords(const aValue: IvcmStrings);
-   procedure Subscribe(const aListener: InsBaseSearchWindowDataListener);
-   procedure Unsubscribe(const aListener: InsBaseSearchWindowDataListener);
   public
    procedure RemovePresentation(const aPresentation: InsBaseSearchPresentation);
    function ValidateBaseSearchForm(const aForm: IvcmEntityForm): Boolean;
@@ -560,23 +556,23 @@ begin
 //#UC END# *562DB68E022A_4AC226030181get_impl*
 end;//TnsBaseSearcher.pm_GetPromptTree
 
-function TnsBaseSearcher.MakeState: InsBaseSearcherWindowDataState;
-//#UC START# *562E027100BA_4AC226030181_var*
-//#UC END# *562E027100BA_4AC226030181_var*
+procedure TnsBaseSearcher.;
+//#UC START# *_4AC226030181_var*
+//#UC END# *_4AC226030181_var*
 begin
-//#UC START# *562E027100BA_4AC226030181_impl*
+//#UC START# *_4AC226030181_impl*
  !!! Needs to be implemented !!!
-//#UC END# *562E027100BA_4AC226030181_impl*
-end;//TnsBaseSearcher.MakeState
+//#UC END# *_4AC226030181_impl*
+end;//TnsBaseSearcher.
 
-procedure TnsBaseSearcher.AssignState(const aState: InsBaseSearcherWindowDataState);
-//#UC START# *562E02880261_4AC226030181_var*
-//#UC END# *562E02880261_4AC226030181_var*
+procedure TnsBaseSearcher.;
+//#UC START# *_4AC226030181_var*
+//#UC END# *_4AC226030181_var*
 begin
-//#UC START# *562E02880261_4AC226030181_impl*
+//#UC START# *_4AC226030181_impl*
  !!! Needs to be implemented !!!
-//#UC END# *562E02880261_4AC226030181_impl*
-end;//TnsBaseSearcher.AssignState
+//#UC END# *_4AC226030181_impl*
+end;//TnsBaseSearcher.
 
 function TnsBaseSearcher.pm_GetErrorWords: IvcmStrings;
 //#UC START# *562F3AFA00EF_4AC226030181get_var*
@@ -596,23 +592,23 @@ begin
 //#UC END# *562F3AFA00EF_4AC226030181set_impl*
 end;//TnsBaseSearcher.pm_SetErrorWords
 
-procedure TnsBaseSearcher.Subscribe(const aListener: InsBaseSearchWindowDataListener);
-//#UC START# *562F5D4E0001_4AC226030181_var*
-//#UC END# *562F5D4E0001_4AC226030181_var*
+procedure TnsBaseSearcher.;
+//#UC START# *_4AC226030181_var*
+//#UC END# *_4AC226030181_var*
 begin
-//#UC START# *562F5D4E0001_4AC226030181_impl*
+//#UC START# *_4AC226030181_impl*
  !!! Needs to be implemented !!!
-//#UC END# *562F5D4E0001_4AC226030181_impl*
-end;//TnsBaseSearcher.Subscribe
+//#UC END# *_4AC226030181_impl*
+end;//TnsBaseSearcher.
 
-procedure TnsBaseSearcher.Unsubscribe(const aListener: InsBaseSearchWindowDataListener);
-//#UC START# *562F5D6503B6_4AC226030181_var*
-//#UC END# *562F5D6503B6_4AC226030181_var*
+procedure TnsBaseSearcher.;
+//#UC START# *_4AC226030181_var*
+//#UC END# *_4AC226030181_var*
 begin
-//#UC START# *562F5D6503B6_4AC226030181_impl*
+//#UC START# *_4AC226030181_impl*
  !!! Needs to be implemented !!!
-//#UC END# *562F5D6503B6_4AC226030181_impl*
-end;//TnsBaseSearcher.Unsubscribe
+//#UC END# *_4AC226030181_impl*
+end;//TnsBaseSearcher.
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

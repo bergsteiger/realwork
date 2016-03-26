@@ -1,64 +1,61 @@
 unit CsCommon;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/CsCommon.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::cs::Core::CsCommon
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\CsCommon.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "CsCommon" MUID: (537F49C801FE)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  IdGlobal,
-  daTypes,
-  daDataProviderParams
-  ;
+ l3IntfUses
+ , IdGlobal
+ , daTypes
+ , daDataProviderParams
+;
 
 type
- TCsPort = IdGlobal.TIdPort;
+ TCsPort = TIdPort;
 
- TCsClientId = daTypes.TdaUserID;
+ TCsClientId = TdaUserID;
 
- TCsIp = System.AnsiString;
+ TCsIp = AnsiString;
   {* заменить на ченить поприличней }
 
- TcsError = System.Integer;
+ TcsError = Integer;
 
- TcsLoginExDataEvent = procedure (out aDataParams: TdaDataProviderParams;
+ TcsLoginExDataEvent = procedure(out aDataParams: TdaDataProviderParams;
   out TheFlags: TdaBaseFlags) of object;
 
  TcsUserConnectKind = (
-   cs_uckRegular // Коннект с обычными правами
- , cs_uckDeveloper // Коннект на залоченную базу и пр.
- , cs_uckRequireAdminRights
+  cs_uckRegular
+   {* Коннект с обычными правами }
+  , cs_uckDeveloper
+   {* Коннект на залоченную базу и пр. }
+  , cs_uckRequireAdminRights
  );//TcsUserConnectKind
 
  TcsConnectResult = (
-   cs_crOk
- , cs_crNetworkError
- , cs_crUserParamsWrong
- , cs_crDuplicateClient
- , cs_crDeadClient
- , cs_crBaseLocked
- , cs_crInsufficientRights
+  cs_crOk
+  , cs_crNetworkError
+  , cs_crUserParamsWrong
+  , cs_crDuplicateClient
+  , cs_crDeadClient
+  , cs_crBaseLocked
+  , cs_crInsufficientRights
  );//TcsConnectResult
 
- TcsGetIsBaseLockedEvent = procedure (out theIsLocked: Boolean) of object;
-{$IfEnd} //not Nemesis
+ TcsGetIsBaseLockedEvent = procedure(out theIsLocked: Boolean) of object;
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
-{$IfEnd} //not Nemesis
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Nemesis)
+
 end.

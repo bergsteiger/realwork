@@ -1,61 +1,58 @@
 unit daSchemeConsts;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DA"
-// Модуль: "w:/common/components/rtl/Garant/DA/daSchemeConsts.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::DA::DataScheme::daSchemeConsts
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DA\daSchemeConsts.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "daSchemeConsts" MUID: (5654635F0268)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DA\daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 const
-  { Free Table Names }
+ {* Free Table Names }
  ftnDocIDExternal = 'DOCIDEXT';
  ftnDocIDForLists = 'DOCIDLST';
-  { для выделения DocID при обработке реестра (К:119473985) }
+  {* для выделения DocID при обработке реестра (К:119473985) }
  ftnDocIDLawCase = 'LAWCASE';
-  { диапазон номеров для Постановлений АС }
+  {* диапазон номеров для Постановлений АС }
  ftnDocIDVAS = 'VASCASE';
-  { постановления ВАС }
+  {* постановления ВАС }
  ftnDocID1st = 'SPBDOC';
-  { Документы судов первой инстанции }
+  {* Документы судов первой инстанции }
  ftnDocIDFAS1 = 'FAS1';
-  { ФАС ДВО }
+  {* ФАС ДВО }
  ftnDocIDFAS2 = 'FAS2';
-  { ФАС ВСО }
+  {* ФАС ВСО }
  ftnDocIDFAS3 = 'FAS3';
-  { ФАС ЗСО }
+  {* ФАС ЗСО }
  ftnDocIDFAS4 = 'FAS4';
-  { ФАС УРО }
+  {* ФАС УРО }
  ftnDocIDFAS5 = 'FAS5';
-  { ФАС ПО }
+  {* ФАС ПО }
  ftnDocIDFAS6 = 'FAS6';
-  { ФАС ВВО }
+  {* ФАС ВВО }
  ftnDocIDFAS7 = 'FAS7';
-  { ФАС ЦО }
+  {* ФАС ЦО }
  ftnDocIDFAS8 = 'FAS8';
-  { ФАС СКО }
+  {* ФАС СКО }
  ftnDocIDFAS9 = 'FAS9';
-  { ФАС СЗО }
+  {* ФАС СЗО }
  ftnDocIDFAS10 = 'FAS10';
-  { ФАС МО }
+  {* ФАС МО }
  ftnImgHandle = 'HIMAGE';
-  { для получения ID используйте function GlobalDataProvider.GetFreeExtObjID(aFamily : TFamilyID): TDocID; }
+  {* для получения ID используйте function GlobalDataProvider.GetFreeExtObjID(aFamily : TFamilyID): TDocID; }
  NameDictExternalNumber = 'DictExtN';
-  { cFamilies }
  MainTblsFamily = 0;
  CurrentFamily = 1;
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

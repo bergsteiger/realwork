@@ -1,121 +1,101 @@
 unit csTasksHelpers;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csTasksHelpers.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::cs::Tasks::csTasksHelpers
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csTasksHelpers.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "csTasksHelpers" MUID: (54A247D202B0)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Variant,
-  evdTasksHelpers,
-  Classes
-  ;
+ l3IntfUses
+ , evdTasksHelpers
+ , Classes
+ , l3Variant
+;
 
 type
- ReplacementFileHelper = interface(IUnknown{, FileTag})
-   ['{F8F4240B-F6FA-4A16-9D97-F74A37E37C6B}']
-   function Get_Name: AnsiString;
-   procedure Set_Name(const aValue: AnsiString);
-   property Name: AnsiString
-     read Get_Name
-     write Set_Name;
+ ReplacementFileHelper = interface
+  ['{F8F4240B-F6FA-4A16-9D97-F74A37E37C6B}']
+  function Get_Name: AnsiString;
+  procedure Set_Name(const aValue: AnsiString);
+  property Name: AnsiString
+   read Get_Name
+   write Set_Name;
  end;//ReplacementFileHelper
 
- AdditionalFilesHelper = interface(StringListHelper{, PlainFileTag})
-   ['{BFED0922-1466-47EF-ACB3-538D574F74ED}']
-   procedure ChangeName(anIndex: Integer;
-     const aValue: AnsiString);
+ AdditionalFilesHelper = interface(StringListHelper)
+  ['{BFED0922-1466-47EF-ACB3-538D574F74ED}']
+  procedure ChangeName(anIndex: Integer;
+   const aValue: AnsiString);
  end;//AdditionalFilesHelper
 
- SourceFilesHelper = interface(AdditionalFilesHelper{, FileTag})
-   ['{D13DC0D8-257A-4B1F-90CD-0DD2B70AD91A}']
-   function Get_AdditionalFiles(anIndex: Integer): AdditionalFilesHelper;
-   property AdditionalFiles[anIndex: Integer]: AdditionalFilesHelper
-     read Get_AdditionalFiles;
+ SourceFilesHelper = interface(AdditionalFilesHelper)
+  ['{D13DC0D8-257A-4B1F-90CD-0DD2B70AD91A}']
+  function Get_AdditionalFiles(anIndex: Integer): AdditionalFilesHelper;
+  property AdditionalFiles[anIndex: Integer]: AdditionalFilesHelper
+   read Get_AdditionalFiles;
  end;//SourceFilesHelper
 
  TAdditionalFilesHelper = class(TAbstractStringListHelper, AdditionalFilesHelper)
- protected
- // realized methods
+  protected
    procedure DoAdd(const anItem: AnsiString); override;
    function DoGetStrings(anIndex: Integer): AnsiString; override;
    procedure ChangeName(anIndex: Integer;
-     const aValue: AnsiString);
- public
- // public methods
+    const aValue: AnsiString);
+  public
    class function Make(aValue: Tl3Tag): AdditionalFilesHelper; reintroduce;
-     {* Сигнатура фабрики TAdditionalFilesHelper.Make }
  end;//TAdditionalFilesHelper
 
  TSourceFilesHelper = class(TAdditionalFilesHelper, SourceFilesHelper)
- private
- // private methods
+  private
    procedure CheckNSRC(anIndex: Integer;
-     const anItem: AnsiString);
- protected
- // realized methods
-   function Get_AdditionalFiles(anIndex: Integer): AdditionalFilesHelper;
- protected
- // overridden protected methods
-   procedure DoAdd(const anItem: AnsiString); override;
- protected
- // protected methods
+    const anItem: AnsiString);
+  protected
    function NeedCheckNSRC: Boolean; virtual;
- public
- // public methods
+   function Get_AdditionalFiles(anIndex: Integer): AdditionalFilesHelper;
+   procedure DoAdd(const anItem: AnsiString); override;
+  public
    class function Make(aValue: Tl3Tag): SourceFilesHelper; reintroduce;
-     {* Сигнатура фабрики TSourceFilesHelper.Make }
  end;//TSourceFilesHelper
 
  TReplacementFileHelper = class(TSourceFilesHelper, ReplacementFileHelper)
- protected
- // realized methods
+  protected
    function Get_Name: AnsiString;
    procedure Set_Name(const aValue: AnsiString);
- protected
- // overridden protected methods
    function NeedCheckNSRC: Boolean; override;
- public
- // public methods
+  public
    class function Make(aValue: Tl3Tag): ReplacementFileHelper; reintroduce;
-     {* Сигнатура фабрики TReplacementFileHelper.Make }
  end;//TReplacementFileHelper
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  PlainFile_Const,
-  l3Base,
-  l3Stream,
-  SysUtils,
-  l3Types,
-  ddSegmentScanner,
-  StrUtils,
-  l3String,
-  l3FileUtils,
-  l3Const,
-  ddNSRCSegments,
-  File_Const,
-  evNSRCConst
-  ;
+ l3ImplUses
+ , PlainFile_Const
+ , File_Const
+ , evNSRCConst
+ , l3Base
+ , l3Stream
+ , SysUtils
+ , l3Types
+ , ddSegmentScanner
+ , StrUtils
+ , l3String
+ , l3FileUtils
+ , l3Const
+ , ddNSRCSegments
+;
 
-// start class TAdditionalFilesHelper
+const
+ cPicToken = ev_NSRCFormula + 'pic:';
+ cObjToken = '!OBJPATH ';
+ cTopicToken = '!TOPIC ';
+ cObjTopicToken = '!OBJTOPIC ';
 
 class function TAdditionalFilesHelper.Make(aValue: Tl3Tag): AdditionalFilesHelper;
 var
@@ -127,7 +107,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TAdditionalFilesHelper.Make
 
 procedure TAdditionalFilesHelper.DoAdd(const anItem: AnsiString);
 //#UC START# *53EDDCE10317_54B3B12C007B_var*
@@ -152,7 +132,7 @@ begin
 end;//TAdditionalFilesHelper.DoGetStrings
 
 procedure TAdditionalFilesHelper.ChangeName(anIndex: Integer;
-  const aValue: AnsiString);
+ const aValue: AnsiString);
 //#UC START# *54B7ABF7033F_54B3B12C007B_var*
 //#UC END# *54B7ABF7033F_54B3B12C007B_var*
 begin
@@ -160,17 +140,30 @@ begin
  Value.Child[anIndex].StrW[k2_attrName, nil] := aValue;
 //#UC END# *54B7ABF7033F_54B3B12C007B_impl*
 end;//TAdditionalFilesHelper.ChangeName
-const
-   { SearchTokens }
-  cPicToken = ev_NSRCFormula + 'pic:';
-  cObjToken = '!OBJPATH ';
-  cTopicToken = '!TOPIC ';
-  cObjTopicToken = '!OBJTOPIC ';
 
-// start class TSourceFilesHelper
+class function TSourceFilesHelper.Make(aValue: Tl3Tag): SourceFilesHelper;
+var
+ l_Inst : TSourceFilesHelper;
+begin
+ l_Inst := Create(aValue);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TSourceFilesHelper.Make
+
+function TSourceFilesHelper.NeedCheckNSRC: Boolean;
+//#UC START# *54B3C3F4029A_53BFCD060366_var*
+//#UC END# *54B3C3F4029A_53BFCD060366_var*
+begin
+//#UC START# *54B3C3F4029A_53BFCD060366_impl*
+ Result := True;
+//#UC END# *54B3C3F4029A_53BFCD060366_impl*
+end;//TSourceFilesHelper.NeedCheckNSRC
 
 procedure TSourceFilesHelper.CheckNSRC(anIndex: Integer;
-  const anItem: AnsiString);
+ const anItem: AnsiString);
 //#UC START# *54B3C6080134_53BFCD060366_var*
 var
  l_Stream: Tl3TextStream;
@@ -242,27 +235,6 @@ begin
 //#UC END# *54B3C6080134_53BFCD060366_impl*
 end;//TSourceFilesHelper.CheckNSRC
 
-class function TSourceFilesHelper.Make(aValue: Tl3Tag): SourceFilesHelper;
-var
- l_Inst : TSourceFilesHelper;
-begin
- l_Inst := Create(aValue);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
-function TSourceFilesHelper.NeedCheckNSRC: Boolean;
-//#UC START# *54B3C3F4029A_53BFCD060366_var*
-//#UC END# *54B3C3F4029A_53BFCD060366_var*
-begin
-//#UC START# *54B3C3F4029A_53BFCD060366_impl*
- Result := True;
-//#UC END# *54B3C3F4029A_53BFCD060366_impl*
-end;//TSourceFilesHelper.NeedCheckNSRC
-
 function TSourceFilesHelper.Get_AdditionalFiles(anIndex: Integer): AdditionalFilesHelper;
 //#UC START# *54B3BCB10348_53BFCD060366get_var*
 //#UC END# *54B3BCB10348_53BFCD060366get_var*
@@ -287,7 +259,6 @@ begin
   CheckNSRC(l_IDX, anItem);
 //#UC END# *53EDDCE10317_53BFCD060366_impl*
 end;//TSourceFilesHelper.DoAdd
-// start class TReplacementFileHelper
 
 class function TReplacementFileHelper.Make(aValue: Tl3Tag): ReplacementFileHelper;
 var
@@ -299,7 +270,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TReplacementFileHelper.Make
 
 function TReplacementFileHelper.Get_Name: AnsiString;
 //#UC START# *53C3A69D00D9_53C3A63C0315get_var*
@@ -334,6 +305,6 @@ begin
  Result := False;
 //#UC END# *54B3C3F4029A_53C3A63C0315_impl*
 end;//TReplacementFileHelper.NeedCheckNSRC
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

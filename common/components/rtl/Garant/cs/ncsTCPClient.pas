@@ -1,34 +1,29 @@
 unit ncsTCPClient;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsTCPClient.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::cs::Core::ncsTCPClient
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsTCPClient.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ncsTCPClient" MUID: (545229E7037D)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  idTCPClient
-  ;
+ l3IntfUses
+ , idTCPClient
+;
 
 type
- TncsTCPClient = idTCPClient.TidTCPClient;
-{$IfEnd} //not Nemesis
+ TncsTCPClient = TidTCPClient;
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
-{$IfEnd} //not Nemesis
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Nemesis)
+
 end.

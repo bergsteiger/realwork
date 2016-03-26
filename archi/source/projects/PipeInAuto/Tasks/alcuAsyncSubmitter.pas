@@ -1,162 +1,132 @@
 unit alcuAsyncSubmitter;
+ {* Асинхронно посылает с сервера запросы на выполнение утилите. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Tasks"
-// Модуль: "w:/archi/source/projects/PipeInAuto/Tasks/alcuAsyncSubmitter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi$AutoPipeServer$Garant::Tasks::ServerAsyncExecution::alcuAsyncSubmitter
-//
-// Асинхронно посылает с сервера запросы на выполнение утилите.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAsyncSubmitter.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "alcuAsyncSubmitter" MUID: (53C900CA012E)
 
 {$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks) AND Defined(AppServerSide)}
 uses
-  l3Base,
-  dt_Types,
-  l3ProtoObject
-  {$If not defined(Nemesis)}
-  ,
-  csProcessTask
-  {$IfEnd} //not Nemesis
-  ,
-  alcuServerAsyncExecutionInterfaces,
-  alcuAsyncTaskFinishedNotifierList
-  ;
+ l3IntfUses
+ , l3Base
+ , l3ProtoObject
+ {$If NOT Defined(Nemesis)}
+ , csProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ , dt_Types
+ , alcuServerAsyncExecutionInterfaces
+ , alcuAsyncTaskFinishedNotifierList
+;
 
 type
+ PalcuSubmitterWorkThread = ^TalcuSubmitterWorkThread;
+
  TalcuWorkThreadContainer = class(Tl3ThreadContainer)
- private
- // private fields
-   f_TaskFileName : AnsiString;
-   f_ServerHostName : AnsiString;
-   f_UserName : AnsiString;
-   f_Password : AnsiString;
-   f_ServerPort : Integer;
-   f_ExitCode : Cardinal;
-    {* Поле для свойства ExitCode}
- protected
- // realized methods
-   procedure DoExecute; override;
-     {* основная процедура нити. Для перекрытия в потомках }
- protected
- // protected methods
+  private
+   f_TaskFileName: AnsiString;
+   f_ServerHostName: AnsiString;
+   f_UserName: AnsiString;
+   f_Password: AnsiString;
+   f_ServerPort: Integer;
+   f_ExitCode: Cardinal;
+    {* Поле для свойства ExitCode }
+  protected
    procedure SubmitTask(const aTaskFile: AnsiString);
- public
- // public methods
+   procedure DoExecute; override;
+    {* основная процедура нити. Для перекрытия в потомках }
+  public
    constructor Create(const anHostName: AnsiString;
-     aPort: Integer;
-     const aUserName: AnsiString;
-     const aPassword: AnsiString); reintroduce;
+    aPort: Integer;
+    const aUserName: AnsiString;
+    const aPassword: AnsiString); reintroduce;
    class function AssistantFileName: AnsiString;
- public
- // public properties
+  public
    property ExitCode: Cardinal
-     read f_ExitCode;
-     {* Чем процесс завершился }
+    read f_ExitCode;
+    {* Чем процесс завершился }
  end;//TalcuWorkThreadContainer
 
- TalcuSubmitterWorkThread = class(Tl3ProtoObject {$If not defined(Nemesis)}, IcsExternalTaskAbortProcessor{$IfEnd} //not Nemesis
+ TalcuSubmitterWorkThread = class(Tl3ProtoObject{$If NOT Defined(Nemesis)}
+ , IcsExternalTaskAbortProcessor
+ {$IfEnd} // NOT Defined(Nemesis)
  )
- private
- // private fields
-   f_Thread : TalcuWorkThreadContainer;
-   f_FinishNotifierList : TalcuAsyncTaskFinishedNotifierList;
-   f_TaskFileName : AnsiString;
-   f_SubmitGuard : Integer;
-   f_CheckExecutionGuard : Integer;
-   f_UserID : TUserID;
-    {* Поле для свойства UserID}
-   f_ActiveTask : TddProcessTask;
-    {* Поле для свойства ActiveTask}
-   f_Manager : IalcuAsyncSubmitterManager;
-    {* Поле для свойства Manager}
-   f_Active : Boolean;
-    {* Поле для свойства Active}
- private
- // private methods
+  private
+   f_Thread: TalcuWorkThreadContainer;
+   f_FinishNotifierList: TalcuAsyncTaskFinishedNotifierList;
+   f_TaskFileName: AnsiString;
+   f_SubmitGuard: Integer;
+   f_CheckExecutionGuard: Integer;
+   f_UserID: TUserID;
+    {* Поле для свойства UserID }
+   f_ActiveTask: TddProcessTask;
+    {* Поле для свойства ActiveTask }
+   f_Manager: IalcuAsyncSubmitterManager;
+    {* Поле для свойства Manager }
+   f_Active: Boolean;
+    {* Поле для свойства Active }
+  private
    procedure NotifySubscribers;
- protected
- // property methods
+  protected
    function pm_GetStillRunning: Boolean;
- protected
- // realized methods
-   {$If not defined(Nemesis)}
+   {$If NOT Defined(Nemesis)}
    function ProcessAbort(const aTask: TddProcessTask): Boolean;
-     {* Если успешно абортировала задачу вернет True. Тогда штатная обработка обключается }
-   {$IfEnd} //not Nemesis
- protected
- // overridden protected methods
+    {* Если успешно абортировала задачу вернет True. Тогда штатная обработка обключается }
+   {$IfEnd} // NOT Defined(Nemesis)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(aUserID: TUserID;
-     const aManager: IalcuAsyncSubmitterManager); reintroduce;
+    const aManager: IalcuAsyncSubmitterManager); reintroduce;
    function SubmitTask(const aTask: TddProcessTask): Boolean;
    procedure CheckExecution(const aServices: IcsRunTaskServices);
-     {* Проверить что процесс завершился и освободиться по необходимости }
+    {* Проверить что процесс завершился и освободиться по необходимости }
    procedure RegisterNotifier(const aNotifier: IalcuAsyncTaskFinishedNotifier);
    procedure UnRegisterNotifier(const aNotifier: IalcuAsyncTaskFinishedNotifier);
    class function AssistantExists: Boolean;
- protected
- // protected properties
+  protected
    property UserID: TUserID
-     read f_UserID;
+    read f_UserID;
    property ActiveTask: TddProcessTask
-     read f_ActiveTask;
+    read f_ActiveTask;
    property Manager: IalcuAsyncSubmitterManager
-     read f_Manager;
- public
- // public properties
+    read f_Manager;
+  public
    property StillRunning: Boolean
-     read pm_GetStillRunning;
+    read pm_GetStillRunning;
    property Active: Boolean
-     read f_Active
-     write f_Active;
-     {* Можно ли отцеплять утилиту }
+    read f_Active
+    write f_Active;
+    {* Можно ли отцеплять утилиту }
  end;//TalcuSubmitterWorkThread
-
- PalcuSubmitterWorkThread = ^TalcuSubmitterWorkThread;
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 implementation
 
-{$If defined(AppServerSide) AND defined(ServerTasks)}
+{$If Defined(ServerTasks) AND Defined(AppServerSide)}
 uses
-  Classes,
-  l3Stream,
-  l3Types,
-  l3FileUtils
-  {$If not defined(Nemesis)}
-  ,
-  csTaskTypes
-  {$IfEnd} //not Nemesis
-  ,
-  l3Interlocked,
-  Windows,
-  SysUtils,
-  l3Base64
-  ;
-
-// start class TalcuWorkThreadContainer
+ l3ImplUses
+ , Windows
+ , SysUtils
+ , l3Base64
+ {$If NOT Defined(Nemesis)}
+ , csTaskTypes
+ {$IfEnd} // NOT Defined(Nemesis)
+ , Classes
+ , l3Stream
+ , l3Types
+ , l3FileUtils
+ , l3Interlocked
+;
 
 constructor TalcuWorkThreadContainer.Create(const anHostName: AnsiString;
-  aPort: Integer;
-  const aUserName: AnsiString;
-  const aPassword: AnsiString);
+ aPort: Integer;
+ const aUserName: AnsiString;
+ const aPassword: AnsiString);
 //#UC START# *53CCF6F70264_53C9011903D6_var*
 //#UC END# *53CCF6F70264_53C9011903D6_var*
 begin
@@ -191,6 +161,7 @@ begin
 end;//TalcuWorkThreadContainer.AssistantFileName
 
 procedure TalcuWorkThreadContainer.DoExecute;
+ {* основная процедура нити. Для перекрытия в потомках }
 //#UC START# *4911B69E037D_53C9011903D6_var*
 var
   l_StartupInfo: TStartupInfo;
@@ -232,10 +203,18 @@ begin
   end;
 //#UC END# *4911B69E037D_53C9011903D6_impl*
 end;//TalcuWorkThreadContainer.DoExecute
-// start class TalcuSubmitterWorkThread
+
+function TalcuSubmitterWorkThread.pm_GetStillRunning: Boolean;
+//#UC START# *53CF9DAC004E_53C92B390005get_var*
+//#UC END# *53CF9DAC004E_53C92B390005get_var*
+begin
+//#UC START# *53CF9DAC004E_53C92B390005get_impl*
+ Result := Assigned(f_ActiveTask) and (ActiveTask.Status in [cs_tsAsyncRun, cs_tsFrozenRun]); 
+//#UC END# *53CF9DAC004E_53C92B390005get_impl*
+end;//TalcuSubmitterWorkThread.pm_GetStillRunning
 
 constructor TalcuSubmitterWorkThread.Create(aUserID: TUserID;
-  const aManager: IalcuAsyncSubmitterManager);
+ const aManager: IalcuAsyncSubmitterManager);
 //#UC START# *53CCF726039A_53C92B390005_var*
 var
   l_UserName: AnsiString;
@@ -254,15 +233,6 @@ begin
  f_Active := True;
 //#UC END# *53CCF726039A_53C92B390005_impl*
 end;//TalcuSubmitterWorkThread.Create
-
-function TalcuSubmitterWorkThread.pm_GetStillRunning: Boolean;
-//#UC START# *53CF9DAC004E_53C92B390005get_var*
-//#UC END# *53CF9DAC004E_53C92B390005get_var*
-begin
-//#UC START# *53CF9DAC004E_53C92B390005get_impl*
- Result := Assigned(f_ActiveTask) and (ActiveTask.Status in [cs_tsAsyncRun, cs_tsFrozenRun]); 
-//#UC END# *53CF9DAC004E_53C92B390005get_impl*
-end;//TalcuSubmitterWorkThread.pm_GetStillRunning
 
 function TalcuSubmitterWorkThread.SubmitTask(const aTask: TddProcessTask): Boolean;
 //#UC START# *53CCF77201EF_53C92B390005_var*
@@ -306,6 +276,7 @@ begin
 end;//TalcuSubmitterWorkThread.SubmitTask
 
 procedure TalcuSubmitterWorkThread.CheckExecution(const aServices: IcsRunTaskServices);
+ {* Проверить что процесс завершился и освободиться по необходимости }
 //#UC START# *53CDF9B0012E_53C92B390005_var*
 //#UC END# *53CDF9B0012E_53C92B390005_var*
 begin
@@ -392,8 +363,9 @@ begin
 //#UC END# *5404732A00CC_53C92B390005_impl*
 end;//TalcuSubmitterWorkThread.AssistantExists
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 function TalcuSubmitterWorkThread.ProcessAbort(const aTask: TddProcessTask): Boolean;
+ {* Если успешно абортировала задачу вернет True. Тогда штатная обработка обключается }
 //#UC START# *53CF5E600196_53C92B390005_var*
 //#UC END# *53CF5E600196_53C92B390005_var*
 begin
@@ -401,9 +373,10 @@ begin
   Manager.SendAbortNotification(f_UserID);
 //#UC END# *53CF5E600196_53C92B390005_impl*
 end;//TalcuSubmitterWorkThread.ProcessAbort
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 procedure TalcuSubmitterWorkThread.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53C92B390005_var*
 //#UC END# *479731C50290_53C92B390005_var*
 begin
@@ -417,13 +390,10 @@ begin
 end;//TalcuSubmitterWorkThread.Cleanup
 
 procedure TalcuSubmitterWorkThread.ClearFields;
- {-}
 begin
- {$If defined(AppServerSide) AND defined(ServerTasks)}
  f_Manager := nil;
- {$IfEnd} //AppServerSide AND ServerTasks
  inherited;
 end;//TalcuSubmitterWorkThread.ClearFields
-{$IfEnd} //AppServerSide AND ServerTasks
+{$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 end.

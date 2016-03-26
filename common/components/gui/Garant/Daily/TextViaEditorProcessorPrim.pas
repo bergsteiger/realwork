@@ -71,9 +71,9 @@ type
    function WithBaseSearch: Boolean; virtual;
     {* Форма со строкой базового поиска. }
    procedure FormMade(const aForm: _FormClass_); override;
+   function MakeFormClass: FormClassRef; override;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
-   function MakeFormClass: FormClassRef; override;
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
   public
@@ -93,7 +93,6 @@ uses
  , F1LikeTextLoad_Form
  , QFLikeTextLoad_Form
  , F1LikeFormWithBS_Form
- , TestFrameWork
  , vcmBase
  , SysUtils
  {$If NOT Defined(NoVCL)}
@@ -109,6 +108,7 @@ uses
  , Windows
  , evCustomEditorWindow
  , Messages
+ , TestFrameWork
 ;
 
 {$If NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}
@@ -459,12 +459,6 @@ begin
 //#UC END# *4C08D61F0231_4BE047320379_impl*
 end;//TTextViaEditorProcessorPrim.FormMade
 
-function TTextViaEditorProcessorPrim.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := 'Everest';
-end;//TTextViaEditorProcessorPrim.GetFolder
-
 function TTextViaEditorProcessorPrim.MakeFormClass: FormClassRef;
 //#UC START# *4C9B2B7F0266_4BE047320379_var*
 //#UC END# *4C9B2B7F0266_4BE047320379_var*
@@ -482,6 +476,12 @@ begin
   Result := TTextLoadForm;
 //#UC END# *4C9B2B7F0266_4BE047320379_impl*
 end;//TTextViaEditorProcessorPrim.MakeFormClass
+
+function TTextViaEditorProcessorPrim.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'Everest';
+end;//TTextViaEditorProcessorPrim.GetFolder
 
 function TTextViaEditorProcessorPrim.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }

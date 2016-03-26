@@ -1,37 +1,30 @@
 unit TestForm4Scripts;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Shared Delphi Tests Common"
-// Модуль: "w:/common/components/rtl/Garant/Shared_Delphi_Tests_Common/TestForm4Scripts.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Testing Framework::Shared Delphi Tests Common::Tests Res Common::TestForm4Scripts
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\TestForm4Scripts.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "TestForm4Scripts" MUID: (51349B6001D3)
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  GUITestRunner
-  ;
+ l3IntfUses
+ , GUITestRunner
+;
 
 procedure LinkTestForm(const aForm: TGUITestRunner);
 procedure UnLinkTestForm;
 function GetTestForm: TGUITestRunner;
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
-var g_TestsForm : TGUITestRunner;
+{$If Defined(nsTest)}
+uses
+ l3ImplUses
+;
 
-// unit methods
+var g_TestsForm: TGUITestRunner;
 
 procedure LinkTestForm(const aForm: TGUITestRunner);
 //#UC START# *51349D1803A7_51349B6001D3_var*
@@ -59,6 +52,6 @@ begin
  Result := g_TestsForm;
 //#UC END# *51349D4E02CB_51349B6001D3_impl*
 end;//GetTestForm
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 end.

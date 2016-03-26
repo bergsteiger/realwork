@@ -1,56 +1,43 @@
 unit nsDocumentToolsNew;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "F1DocumentProcessing"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/F1DocumentProcessing/nsDocumentToolsNew.pas"
-// Начат: 11.10.2010 15:02
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Core::Common::F1DocumentProcessing::F1DocumentContainers::nsDocumentToolsNew
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentToolsNew.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsDocumentToolsNew" MUID: (4CB2EE9F02FE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  nevTools,
-  nevObjectHolder,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3Variant
+ , nevTools
+ , nevObjectHolder
+ , DocumentUnit
+;
 
-procedure NsGetText(const aDocument: IDocument;
-  out theStream: InevObjectHolder);
-{$IfEnd} //not Admin AND not Monitorings
+procedure nsGetText(const aDocument: IDocument;
+ out theStream: InevObjectHolder);
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsF1DocumentTagNode,
-  SysUtils
-  ;
+ l3ImplUses
+ , nsF1DocumentTagNode
+ , SysUtils
+;
 
-// unit methods
-
-procedure NsGetText(const aDocument: IDocument;
-  out theStream: InevObjectHolder);
+procedure nsGetText(const aDocument: IDocument;
+ out theStream: InevObjectHolder);
+var l_Tag: Tl3Tag;
+var l_Obj: InevObject;
+var l_Holder: TnevObjectHolder;
+var l_Provider: IDocumentTextProvider;
 //#UC START# *4D3EC093030F_4CB2EE9F02FE_var*
 //#UC END# *4D3EC093030F_4CB2EE9F02FE_var*
-var
- l_Tag : Tl3Tag;
- l_Obj : InevObject;
- l_Holder : TnevObjectHolder;
- l_Provider : IDocumentTextProvider;
 begin
 //#UC START# *4D3EC093030F_4CB2EE9F02FE_impl*
  if (aDocument <> nil) then
@@ -77,7 +64,7 @@ begin
   end;//try..finally
  end;//(aDocument <> nil)
 //#UC END# *4D3EC093030F_4CB2EE9F02FE_impl*
-end;//NsGetText
-{$IfEnd} //not Admin AND not Monitorings
+end;//nsGetText
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

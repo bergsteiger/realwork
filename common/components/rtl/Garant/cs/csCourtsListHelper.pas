@@ -1,62 +1,49 @@
 unit csCourtsListHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csCourtsListHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::cs::CourtDecisionSabCheckerParams::csCourtsListHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csCourtsListHelper.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "csCourtsListHelper" MUID: (53F19F280320)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Variant,
-  evdTasksHelpers
-  ;
+ l3IntfUses
+ , l3Variant
+ , evdTasksHelpers
+;
 
 type
- CourtsListHelper = interface(IUnknown{, CourtDescriptionTag})
-   ['{E39A76B6-04C6-4A36-B818-E4DB65DD387A}']
-   procedure Add(anItem: Tl3Tag);
-   function Get_Count: Integer;
-   function Get_Courts(anIndex: Integer): Tl3Tag;
-   property Count: Integer
-     read Get_Count;
-   property Courts[anIndex: Integer]: Tl3Tag
-     read Get_Courts;
+ CourtsListHelper = interface
+  ['{E39A76B6-04C6-4A36-B818-E4DB65DD387A}']
+  function Get_Count: Integer;
+  function Get_Courts(anIndex: Integer): Tl3Tag;
+  procedure Add(anItem: Tl3Tag);
+  property Count: Integer
+   read Get_Count;
+  property Courts[anIndex: Integer]: Tl3Tag
+   read Get_Courts;
  end;//CourtsListHelper
 
  TCourtsListHelper = class(TevdTagHelper, CourtsListHelper)
- protected
- // realized methods
+  protected
    function Get_Count: Integer;
    procedure Add(anItem: Tl3Tag);
    function Get_Courts(anIndex: Integer): Tl3Tag;
- public
- // public methods
+  public
    class function Make(aValue: Tl3Tag): CourtsListHelper; reintroduce;
-     {* Сигнатура фабрики TCourtsListHelper.Make }
  end;//TCourtsListHelper
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  CourtDescription_Const
-  ;
-
-// start class TCourtsListHelper
+ l3ImplUses
+ , CourtDescription_Const
+;
 
 class function TCourtsListHelper.Make(aValue: Tl3Tag): CourtsListHelper;
 var
@@ -68,7 +55,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TCourtsListHelper.Make
 
 function TCourtsListHelper.Get_Count: Integer;
 //#UC START# *53F1A0C00041_53F19FD5004Bget_var*
@@ -97,6 +84,6 @@ begin
  Result := Value.Child[anIndex];
 //#UC END# *53F1E757017F_53F19FD5004Bget_impl*
 end;//TCourtsListHelper.Get_Courts
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

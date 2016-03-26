@@ -1,62 +1,49 @@
 unit ncsFileDescHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsFileDescHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::cs::ResultDelivery::ncsFileDescHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsFileDescHelper.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ncsFileDescHelper" MUID: (546EF5650026)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Variant,
-  evdTasksHelpers
-  ;
+ l3IntfUses
+ , l3Variant
+ , evdTasksHelpers
+;
 
 type
- FileDescHelper = interface(IUnknown{, FileDescTag})
-   ['{80CB6FA6-C4E8-4EEC-B04A-F4EAA6DD7800}']
-   procedure Add(anItem: Tl3Tag);
-   function Get_Count: Integer;
-   function Get_Files(anIndex: Integer): Tl3Tag;
-   property Count: Integer
-     read Get_Count;
-   property Files[anIndex: Integer]: Tl3Tag
-     read Get_Files;
+ FileDescHelper = interface
+  ['{80CB6FA6-C4E8-4EEC-B04A-F4EAA6DD7800}']
+  function Get_Count: Integer;
+  function Get_Files(anIndex: Integer): Tl3Tag;
+  procedure Add(anItem: Tl3Tag);
+  property Count: Integer
+   read Get_Count;
+  property Files[anIndex: Integer]: Tl3Tag
+   read Get_Files;
  end;//FileDescHelper
 
  TFileDescHelper = class(TevdTagHelper, FileDescHelper)
- protected
- // realized methods
+  protected
    function Get_Count: Integer;
    function Get_Files(anIndex: Integer): Tl3Tag;
    procedure Add(anItem: Tl3Tag);
- public
- // public methods
+  public
    class function Make(aValue: Tl3Tag): FileDescHelper; reintroduce;
-     {* Сигнатура фабрики TFileDescHelper.Make }
  end;//TFileDescHelper
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  FileDesc_Const
-  ;
-
-// start class TFileDescHelper
+ l3ImplUses
+ , FileDesc_Const
+;
 
 class function TFileDescHelper.Make(aValue: Tl3Tag): FileDescHelper;
 var
@@ -68,7 +55,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TFileDescHelper.Make
 
 function TFileDescHelper.Get_Count: Integer;
 //#UC START# *546EF5C00189_546EF62900AAget_var*
@@ -97,6 +84,6 @@ begin
  Value.AddChild(anItem);
 //#UC END# *546EF5F6032D_546EF62900AA_impl*
 end;//TFileDescHelper.Add
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

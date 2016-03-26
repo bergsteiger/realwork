@@ -46,12 +46,8 @@ type
    procedure StoreActiveClass;
    function pm_GetActiveClassForSaveState: InsBaseSearchClass;
    function pm_GetPromptTree: Il3SimpleTree;
-   function MakeState: InsBaseSearcherWindowDataState;
-   procedure AssignState(const aState: InsBaseSearcherWindowDataState);
    function pm_GetErrorWords: IvcmStrings;
    procedure pm_SetErrorWords(const aValue: IvcmStrings);
-   procedure Subscribe(const aListener: InsBaseSearchWindowDataListener);
-   procedure Unsubscribe(const aListener: InsBaseSearchWindowDataListener);
   public
    procedure RemovePresentation(const aPresentation: InsBaseSearchPresentation);
    function ValidateBaseSearchForm(const aForm: IvcmEntityForm): Boolean;
@@ -333,23 +329,23 @@ begin
 //#UC END# *562DB68E022A_5628BBF40355get_impl*
 end;//TnsBaseSearcherWindowData.pm_GetPromptTree
 
-function TnsBaseSearcherWindowData.MakeState: InsBaseSearcherWindowDataState;
-//#UC START# *562E027100BA_5628BBF40355_var*
-//#UC END# *562E027100BA_5628BBF40355_var*
+procedure TnsBaseSearcherWindowData.;
+//#UC START# *_5628BBF40355_var*
+//#UC END# *_5628BBF40355_var*
 begin
-//#UC START# *562E027100BA_5628BBF40355_impl*
+//#UC START# *_5628BBF40355_impl*
  !!! Needs to be implemented !!!
-//#UC END# *562E027100BA_5628BBF40355_impl*
-end;//TnsBaseSearcherWindowData.MakeState
+//#UC END# *_5628BBF40355_impl*
+end;//TnsBaseSearcherWindowData.
 
-procedure TnsBaseSearcherWindowData.AssignState(const aState: InsBaseSearcherWindowDataState);
-//#UC START# *562E02880261_5628BBF40355_var*
-//#UC END# *562E02880261_5628BBF40355_var*
+procedure TnsBaseSearcherWindowData.;
+//#UC START# *_5628BBF40355_var*
+//#UC END# *_5628BBF40355_var*
 begin
-//#UC START# *562E02880261_5628BBF40355_impl*
+//#UC START# *_5628BBF40355_impl*
  !!! Needs to be implemented !!!
-//#UC END# *562E02880261_5628BBF40355_impl*
-end;//TnsBaseSearcherWindowData.AssignState
+//#UC END# *_5628BBF40355_impl*
+end;//TnsBaseSearcherWindowData.
 
 function TnsBaseSearcherWindowData.pm_GetErrorWords: IvcmStrings;
 //#UC START# *562F3AFA00EF_5628BBF40355get_var*
@@ -369,23 +365,23 @@ begin
 //#UC END# *562F3AFA00EF_5628BBF40355set_impl*
 end;//TnsBaseSearcherWindowData.pm_SetErrorWords
 
-procedure TnsBaseSearcherWindowData.Subscribe(const aListener: InsBaseSearchWindowDataListener);
-//#UC START# *562F5D4E0001_5628BBF40355_var*
-//#UC END# *562F5D4E0001_5628BBF40355_var*
+procedure TnsBaseSearcherWindowData.;
+//#UC START# *_5628BBF40355_var*
+//#UC END# *_5628BBF40355_var*
 begin
-//#UC START# *562F5D4E0001_5628BBF40355_impl*
+//#UC START# *_5628BBF40355_impl*
  !!! Needs to be implemented !!!
-//#UC END# *562F5D4E0001_5628BBF40355_impl*
-end;//TnsBaseSearcherWindowData.Subscribe
+//#UC END# *_5628BBF40355_impl*
+end;//TnsBaseSearcherWindowData.
 
-procedure TnsBaseSearcherWindowData.Unsubscribe(const aListener: InsBaseSearchWindowDataListener);
-//#UC START# *562F5D6503B6_5628BBF40355_var*
-//#UC END# *562F5D6503B6_5628BBF40355_var*
+procedure TnsBaseSearcherWindowData.;
+//#UC START# *_5628BBF40355_var*
+//#UC END# *_5628BBF40355_var*
 begin
-//#UC START# *562F5D6503B6_5628BBF40355_impl*
+//#UC START# *_5628BBF40355_impl*
  !!! Needs to be implemented !!!
-//#UC END# *562F5D6503B6_5628BBF40355_impl*
-end;//TnsBaseSearcherWindowData.Unsubscribe
+//#UC END# *_5628BBF40355_impl*
+end;//TnsBaseSearcherWindowData.
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

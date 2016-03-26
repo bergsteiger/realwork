@@ -23,6 +23,8 @@ type
  TK517772970_TRemoteDictEditQuery = class(TK517772970_TddProcessTask)
   {* [RequestLink:517772970] }
   protected
+   function TaskClass: TddTaskClass; override;
+   procedure InitTask(Task: TddTaskItem); override;
    {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
@@ -31,8 +33,6 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-   function TaskClass: TddTaskClass; override;
-   procedure InitTask(Task: TddTaskItem); override;
  end;//TK517772970_TRemoteDictEditQuery
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest) AND Defined(RemoteDict)
 
@@ -48,22 +48,6 @@ uses
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
 ;
-
-{$If Defined(nsTest)}
-function TK517772970_TRemoteDictEditQuery.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := 'TaskSaveLoad';
-end;//TK517772970_TRemoteDictEditQuery.GetFolder
-{$IfEnd} // Defined(nsTest)
-
-{$If Defined(nsTest)}
-function TK517772970_TRemoteDictEditQuery.GetModelElementGUID: AnsiString;
- {* Идентификатор элемента модели, который описывает тест }
-begin
- Result := '53214F530029';
-end;//TK517772970_TRemoteDictEditQuery.GetModelElementGUID
-{$IfEnd} // Defined(nsTest)
 
 function TK517772970_TRemoteDictEditQuery.TaskClass: TddTaskClass;
 //#UC START# *5320088202FB_53214F530029_var*
@@ -98,6 +82,22 @@ begin
  end;
 //#UC END# *532008D203BA_53214F530029_impl*
 end;//TK517772970_TRemoteDictEditQuery.InitTask
+
+{$If Defined(nsTest)}
+function TK517772970_TRemoteDictEditQuery.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'TaskSaveLoad';
+end;//TK517772970_TRemoteDictEditQuery.GetFolder
+{$IfEnd} // Defined(nsTest)
+
+{$If Defined(nsTest)}
+function TK517772970_TRemoteDictEditQuery.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '53214F530029';
+end;//TK517772970_TRemoteDictEditQuery.GetModelElementGUID
+{$IfEnd} // Defined(nsTest)
 
 initialization
  TestFramework.RegisterTest(TK517772970_TRemoteDictEditQuery.Suite);

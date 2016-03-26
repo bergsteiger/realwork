@@ -1,37 +1,30 @@
 unit EverestLiteAdapter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestTestSupport"
-// Модуль: "w:/archi/source/projects/Everest/Lite/7.0/Express/EverestTestSupport/EverestLiteAdapter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi$EverestLite$TestSupport::EverestTestSupport::EverestLiteTestUnit::EverestLiteAdapter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\EverestLiteAdapter.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "EverestLiteAdapter" MUID: (512DBB5502E6)
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest)}
+uses
+ l3IntfUses
+;
+
 procedure CreateNewDocument;
 procedure OpenDocument(const aFileName: AnsiString);
 procedure CloseDocument;
 procedure SaveDocumentAs(const aFileName: AnsiString);
 function IsPreviewInProcess: Boolean;
-{$IfEnd} //InsiderTest AND nsTest
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest)}
 uses
-  MainEditor
-  ;
-
-// unit methods
+ l3ImplUses
+ , MainEditor
+;
 
 procedure CreateNewDocument;
 //#UC START# *512DBB8A00BE_512DBB5502E6_var*
@@ -89,6 +82,6 @@ begin
    Result := ActiveEditor.IsPreviewInProgress;
 //#UC END# *532171DE00C1_512DBB5502E6_impl*
 end;//IsPreviewInProcess
-{$IfEnd} //InsiderTest AND nsTest
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 
 end.

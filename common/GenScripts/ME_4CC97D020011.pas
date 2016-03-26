@@ -54,6 +54,7 @@ uses
  , SysUtils
  , Search_Strange_Controls
  , SearchLite_Strange_Controls
+ , nsBaseSearchService
  , PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType
 ;
 
@@ -79,7 +80,6 @@ end;//TBaseSearchModule.TryAnotherBaseSearch
 procedure TBaseSearchModule.OpenBaseSearch(OpenKind: TnsBaseSearchOpenKind;
  const aQuery: IQuery);
 var l_Container: IvcmContainer;
-var l_Opener: InsBaseSearchWindowOpener;
 var l_Processor: InsBaseSearchQueryDataProcessor;
 //#UC START# *4AB7881B00EA_4CC97D020011_var*
 //#UC END# *4AB7881B00EA_4CC97D020011_var*

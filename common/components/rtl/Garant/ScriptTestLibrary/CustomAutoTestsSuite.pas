@@ -1,62 +1,63 @@
 unit CustomAutoTestsSuite;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptTestLibrary"
-// Модуль: "w:/common/components/rtl/Garant/ScriptTestLibrary/CustomAutoTestsSuite.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Testing Framework::ScriptTestLibrary::AutoTests::CustomAutoTestsSuite
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\Garant\ScriptTestLibrary\CustomAutoTestsSuite.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "CustomAutoTestsSuite" MUID: (4DC24CA4037E)
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  TestFrameWork
-  ;
+ l3IntfUses
+ , TestFrameWork
+;
 
 type
  TCustomAutoTestSuite = class(TTestSuite)
- private
- // private methods
+  private
    procedure CheckExists(const aDirName: AnsiString);
    function Try2FindTest(const aTestName: AnsiString): Boolean;
- protected
- // overridden protected methods
-   function DoHasScriptChildren: Boolean; override;
- public
- // overridden public methods
-   procedure AddTests(aTestClass: TTestCaseClass); override;
- protected
- // protected methods
+  protected
    function GetDataFolder: AnsiString; virtual;
-     {* Возвращает папку с данными для создания тестов. }
+    {* Возвращает папку с данными для создания тестов. }
    function GetExt: AnsiString; virtual;
+   function DoHasScriptChildren: Boolean; override;
+  public
+   procedure AddTests(aTestClass: TTestCaseClass); override;
  end;//TCustomAutoTestSuite
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  ,
-  SysUtils,
-  l3Base,
-  l3FileUtils
-  ;
+ l3ImplUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ , SysUtils
+ , l3Base
+ , l3FileUtils
+;
 
-// start class TCustomAutoTestSuite
+function TCustomAutoTestSuite.GetDataFolder: AnsiString;
+ {* Возвращает папку с данными для создания тестов. }
+//#UC START# *4EA50B95037D_4DC40A7E00C8_var*
+//#UC END# *4EA50B95037D_4DC40A7E00C8_var*
+begin
+//#UC START# *4EA50B95037D_4DC40A7E00C8_impl*
+ Result := 'Auto';
+//#UC END# *4EA50B95037D_4DC40A7E00C8_impl*
+end;//TCustomAutoTestSuite.GetDataFolder
+
+function TCustomAutoTestSuite.GetExt: AnsiString;
+//#UC START# *4EA50C04021B_4DC40A7E00C8_var*
+//#UC END# *4EA50C04021B_4DC40A7E00C8_var*
+begin
+//#UC START# *4EA50C04021B_4DC40A7E00C8_impl*
+ Result := '.script';
+//#UC END# *4EA50C04021B_4DC40A7E00C8_impl*
+end;//TCustomAutoTestSuite.GetExt
 
 procedure TCustomAutoTestSuite.CheckExists(const aDirName: AnsiString);
 //#UC START# *506D80B002A6_4DC40A7E00C8_var*
@@ -95,24 +96,6 @@ begin
   end; // if (FTests[i] as ITest).Name = aTestName then
 //#UC END# *506D8174020F_4DC40A7E00C8_impl*
 end;//TCustomAutoTestSuite.Try2FindTest
-
-function TCustomAutoTestSuite.GetDataFolder: AnsiString;
-//#UC START# *4EA50B95037D_4DC40A7E00C8_var*
-//#UC END# *4EA50B95037D_4DC40A7E00C8_var*
-begin
-//#UC START# *4EA50B95037D_4DC40A7E00C8_impl*
- Result := 'Auto';
-//#UC END# *4EA50B95037D_4DC40A7E00C8_impl*
-end;//TCustomAutoTestSuite.GetDataFolder
-
-function TCustomAutoTestSuite.GetExt: AnsiString;
-//#UC START# *4EA50C04021B_4DC40A7E00C8_var*
-//#UC END# *4EA50C04021B_4DC40A7E00C8_var*
-begin
-//#UC START# *4EA50C04021B_4DC40A7E00C8_impl*
- Result := '.script';
-//#UC END# *4EA50C04021B_4DC40A7E00C8_impl*
-end;//TCustomAutoTestSuite.GetExt
 
 procedure TCustomAutoTestSuite.AddTests(aTestClass: TTestCaseClass);
 //#UC START# *4DC38C96018E_4DC40A7E00C8_var*
@@ -165,6 +148,6 @@ begin
  Result := True;
 //#UC END# *4DCCD004030E_4DC40A7E00C8_impl*
 end;//TCustomAutoTestSuite.DoHasScriptChildren
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

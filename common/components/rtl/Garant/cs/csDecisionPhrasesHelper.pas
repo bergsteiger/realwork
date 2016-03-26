@@ -1,55 +1,42 @@
 unit csDecisionPhrasesHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csDecisionPhrasesHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::cs::CourtDecisionSabCheckerParams::csDecisionPhrasesHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csDecisionPhrasesHelper.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "csDecisionPhrasesHelper" MUID: (53EDECDF01AA)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Variant,
-  evdTasksHelpers,
-  Classes
-  ;
+ l3IntfUses
+ , evdTasksHelpers
+ , Classes
+ , l3Variant
+;
 
 type
- DecisionPhrasesHelper = interface(StringListHelper{, CourtDecisionPhraseTag})
-   ['{346E9451-D5D3-4B6F-B24E-34E87B721E5D}']
+ DecisionPhrasesHelper = interface(StringListHelper)
+  ['{346E9451-D5D3-4B6F-B24E-34E87B721E5D}']
  end;//DecisionPhrasesHelper
 
  TDecisionPhrasesHelper = class(TAbstractStringListHelper, DecisionPhrasesHelper)
- protected
- // realized methods
+  protected
    procedure DoAdd(const anItem: AnsiString); override;
    function DoGetStrings(anIndex: Integer): AnsiString; override;
- public
- // public methods
+  public
    class function Make(aValue: Tl3Tag): DecisionPhrasesHelper; reintroduce;
-     {* Сигнатура фабрики TDecisionPhrasesHelper.Make }
  end;//TDecisionPhrasesHelper
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  CourtDecisionPhrase_Const
-  ;
-
-// start class TDecisionPhrasesHelper
+ l3ImplUses
+ , CourtDecisionPhrase_Const
+;
 
 class function TDecisionPhrasesHelper.Make(aValue: Tl3Tag): DecisionPhrasesHelper;
 var
@@ -61,7 +48,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TDecisionPhrasesHelper.Make
 
 procedure TDecisionPhrasesHelper.DoAdd(const anItem: AnsiString);
 //#UC START# *53EDDCE10317_53EDE216017A_var*
@@ -84,6 +71,6 @@ begin
  Result := Value.Child[anIndex].StrA[k2_attrPhrase];
 //#UC END# *53F1FD130157_53EDE216017A_impl*
 end;//TDecisionPhrasesHelper.DoGetStrings
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

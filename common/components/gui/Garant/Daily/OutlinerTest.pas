@@ -42,13 +42,13 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , TestFrameWork
  , vcmBase
  , SysUtils
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ , TestFrameWork
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

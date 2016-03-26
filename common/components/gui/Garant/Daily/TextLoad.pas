@@ -37,13 +37,13 @@ implementation
 uses
  l3ImplUses
  , TextLoad_Form
- , TestFrameWork
  , k2Base
  , ddSectionRepair
  , k2DocumentBuffer
  , SysUtils
  , k2TagGen
  , l3Variant
+ , TestFrameWork
  , vcmBase
  {$If NOT Defined(NoVCL)}
  , Forms

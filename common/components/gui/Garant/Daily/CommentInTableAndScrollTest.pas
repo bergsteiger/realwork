@@ -26,14 +26,14 @@ type
   protected
    procedure CheckTopAnchor(const aView: InevInputView); override;
     {* проверить якорь начала отрисовки после окончания прокрутки }
-   function GetFolder: AnsiString; override;
-    {* Папка в которую входит тест }
    procedure MoveCursor4Insert(aForm: TPrimTextLoadForm); override;
     {* Переместить курсор перед вставкой комментария. }
    function GetUserComment(const aPoint: InevBasePoint): InevBasePoint; override;
     {* Получить пользовательский комментарий }
    procedure DoScroll(aForm: TPrimTextLoadForm); override;
     {* Прокрутка текста в редакторе (если нужна). }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
  end;//TCommentInTableAndScrollTest
@@ -94,12 +94,6 @@ begin
 //#UC END# *4C1F0A260192_4CA2F3AA0033_impl*
 end;//TCommentInTableAndScrollTest.CheckTopAnchor
 
-function TCommentInTableAndScrollTest.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := 'Everest';
-end;//TCommentInTableAndScrollTest.GetFolder
-
 procedure TCommentInTableAndScrollTest.MoveCursor4Insert(aForm: TPrimTextLoadForm);
  {* Переместить курсор перед вставкой комментария. }
 //#UC START# *4CA2F33F01E5_4CA2F3AA0033_var*
@@ -148,6 +142,12 @@ begin
   ScrollByLine(aForm, 1, False, False);
 //#UC END# *4CA982800281_4CA2F3AA0033_impl*
 end;//TCommentInTableAndScrollTest.DoScroll
+
+function TCommentInTableAndScrollTest.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'Everest';
+end;//TCommentInTableAndScrollTest.GetFolder
 
 function TCommentInTableAndScrollTest.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }

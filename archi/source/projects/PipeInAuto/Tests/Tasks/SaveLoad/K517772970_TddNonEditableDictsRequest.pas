@@ -23,6 +23,7 @@ type
  TK517772970_TddNonEditableDictsRequest = class(TK517772970_TddRequestTask)
   {* [RequestLink:517772970] }
   protected
+   function TaskClass: TddTaskClass; override;
    {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
@@ -31,7 +32,6 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-   function TaskClass: TddTaskClass; override;
  end;//TK517772970_TddNonEditableDictsRequest
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest) AND Defined(RemoteDict)
 
@@ -48,6 +48,15 @@ uses
  {$IfEnd} // Defined(nsTest)
 ;
 
+function TK517772970_TddNonEditableDictsRequest.TaskClass: TddTaskClass;
+//#UC START# *5320088202FB_5320282A0092_var*
+//#UC END# *5320088202FB_5320282A0092_var*
+begin
+//#UC START# *5320088202FB_5320282A0092_impl*
+ result := TddNonEditableDictsRequest;
+//#UC END# *5320088202FB_5320282A0092_impl*
+end;//TK517772970_TddNonEditableDictsRequest.TaskClass
+
 {$If Defined(nsTest)}
 function TK517772970_TddNonEditableDictsRequest.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -63,15 +72,6 @@ begin
  Result := '5320282A0092';
 end;//TK517772970_TddNonEditableDictsRequest.GetModelElementGUID
 {$IfEnd} // Defined(nsTest)
-
-function TK517772970_TddNonEditableDictsRequest.TaskClass: TddTaskClass;
-//#UC START# *5320088202FB_5320282A0092_var*
-//#UC END# *5320088202FB_5320282A0092_var*
-begin
-//#UC START# *5320088202FB_5320282A0092_impl*
- result := TddNonEditableDictsRequest;
-//#UC END# *5320088202FB_5320282A0092_impl*
-end;//TK517772970_TddNonEditableDictsRequest.TaskClass
 
 initialization
  TestFramework.RegisterTest(TK517772970_TddNonEditableDictsRequest.Suite);

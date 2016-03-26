@@ -45,9 +45,7 @@
   TdaScheme.Instance.Table(da_mtJournal).IterateFieldsF(L2DaTableDescriptionIteratorIterateFieldsFAction(@lp_AddSelectField));
   Result := TcaResultSet.Make(l_SelectFields,
     (f_HTJournal as IdaComboAccessJournalHelper).MakeAlienResultSet(FromDate, ToDate, aDocID, UserOrGroupID, UserGr),
-    (f_HTJournal as IdaComboAccessJournalHelper).MakeAlienResultSet(FromDate, ToDate, aDocID, UserOrGroupID, UserGr));
-//    (f_PGJournal as IdaComboAccessJournalHelper).MakeAlienResultSet(FromDate, ToDate, aDocID, UserOrGroupID, UserGr),
-//    (f_PGJournal as IdaComboAccessJournalHelper).MakeAlienResultSet(FromDate, ToDate, aDocID, UserOrGroupID, UserGr));
+    (f_PGJournal as IdaComboAccessJournalHelper).MakeAlienResultSet(FromDate, ToDate, aDocID, UserOrGroupID, UserGr));
  finally
   FreeAndNil(l_SelectFields);
  end;
@@ -66,7 +64,7 @@ var
 //#UC START# *56BD9BFD0109_56BD8F200154_impl*
  inherited Create(aFactory);
  f_HTJournal := aHTJournal;
- f_PGJournal := aPGJournal;
+ f_PGJournal := aHTJournal;
 //#UC END# *56BD9BFD0109_56BD8F200154_impl*
 //#UC START# *56BD9BFD0109_56BD8F200154_var*
 //#UC END# *56BD9BFD0109_56BD8F200154_var*

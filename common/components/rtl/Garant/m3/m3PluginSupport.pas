@@ -1,60 +1,50 @@
 unit m3PluginSupport;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3$Plugin"
-// Модуль: "w:/common/components/rtl/Garant/m3/m3PluginSupport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::m3$Plugin::PluginSupport::m3PluginSupport
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\m3PluginSupport.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "m3PluginSupport" MUID: (556DC961003A)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  ActiveX
-  ;
+ l3IntfUses
+ , ActiveX
+;
 
 function _CoCreateInstance(const aCLSID: TCLSID;
-  aUnknown: IUnknown;
-  aContext: LongInt;
-  const aIID: TIID;
-  out aResult): hResult; stdcall;
+ aUnknown: IUnknown;
+ aContext: LongInt;
+ const aIID: TIID;
+ out aResult): hResult; stdcall;
 function _CoInitialize(_unused: Pointer): hResult; stdcall;
 procedure _CoTaskMemFree(APointer: Pointer); stdcall;
 procedure _CoUninitialize; stdcall;
 function _StgOpenStorage(aName: PWideChar;
-  aPriority: IStorage;
-  aStatStgMode: LongInt;
-  aExclude: TSNB;
-  _unused: LongInt;
-  out AStorage: IStorage): hResult; stdcall;
+ aPriority: IStorage;
+ aStatStgMode: LongInt;
+ aExclude: TSNB;
+ _unused: LongInt;
+ out AStorage: IStorage): hResult; stdcall;
 
 implementation
 
 uses
-  SysUtils,
-  Windows,
-  m3StorageInterfaces,
-  m3StgMgr,
-  l3Chars,
-  l3String
-  ;
-
-// unit methods
+ l3ImplUses
+ , SysUtils
+ , Windows
+ , m3StorageInterfaces
+ , m3StgMgr
+ , l3Chars
+ , l3String
+;
 
 function _CoCreateInstance(const aCLSID: TCLSID;
-  aUnknown: IUnknown;
-  aContext: LongInt;
-  const aIID: TIID;
-  out aResult): hResult;
+ aUnknown: IUnknown;
+ aContext: LongInt;
+ const aIID: TIID;
+ out aResult): hResult;
 //#UC START# *556DC988009C_556DC961003A_var*
 //#UC END# *556DC988009C_556DC961003A_var*
 begin
@@ -91,11 +81,11 @@ begin
 end;//_CoUninitialize
 
 function _StgOpenStorage(aName: PWideChar;
-  aPriority: IStorage;
-  aStatStgMode: LongInt;
-  aExclude: TSNB;
-  _unused: LongInt;
-  out AStorage: IStorage): hResult;
+ aPriority: IStorage;
+ aStatStgMode: LongInt;
+ aExclude: TSNB;
+ _unused: LongInt;
+ out AStorage: IStorage): hResult;
 //#UC START# *556DCB240338_556DC961003A_var*
 var
  l_Name : AnsiString;

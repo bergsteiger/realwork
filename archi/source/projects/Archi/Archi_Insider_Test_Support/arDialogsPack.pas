@@ -1,36 +1,30 @@
 unit arDialogsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/arDialogsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi$TestSupport::Archi Insider Test Support::Scripting::arDialogsPack
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\arDialogsPack.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "arDialogsPack" MUID: (4E244C8400D2)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  kwOpenInsDWin,
-  kwMakeChangeDoc,
-  kwInsertDocChanges,
-  kwIniRecSetZoom,
-  kwIniRecGetZoom
-  ;
+ l3ImplUses
+ , kwOpenInsDWin
+ , kwMakeChangeDoc
+ , kwInsertDocChanges
+ , kwIniRecSetZoom
+ , kwIniRecGetZoom
+;
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
 end.

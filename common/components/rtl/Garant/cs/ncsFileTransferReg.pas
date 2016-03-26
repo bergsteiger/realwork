@@ -1,51 +1,42 @@
 unit ncsFileTransferReg;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsFileTransferReg.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::cs::ResultDelivery::ncsFileTransferReg
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsFileTransferReg.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ncsFileTransferReg" MUID: (54645E360193)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
-procedure NcsServerRegister;
-   {* Сигнатура метода ncsServerRegister }
-procedure NcsClientRegister;
-   {* Сигнатура метода ncsClientRegister }
-{$IfEnd} //not Nemesis
+{$If NOT Defined(Nemesis)}
+uses
+ l3IntfUses
+;
+
+procedure ncsServerRegister;
+procedure ncsClientRegister;
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsMessageFactory,
-  ncsGetReadyToDeliveryTasks,
-  ncsGetTaskDescription,
-  ncsTaskProgress,
-  ncsDeliveryResult,
-  ncsGetFilePart,
-  nscMessagesReg,
-  ncsCorrectFolder,
-  ncsGetReadyToDeliveryTasksReply,
-  ncsGetTaskDescriptionReply,
-  ncsGetFilePartReply,
-  ncsPushFilePart
-  ;
+ l3ImplUses
+ , ncsMessageFactory
+ , ncsGetReadyToDeliveryTasks
+ , ncsGetTaskDescription
+ , ncsTaskProgress
+ , ncsDeliveryResult
+ , ncsGetFilePart
+ , nscMessagesReg
+ , ncsCorrectFolder
+ , ncsGetReadyToDeliveryTasksReply
+ , ncsGetTaskDescriptionReply
+ , ncsGetFilePartReply
+ , ncsPushFilePart
+;
 
-// unit methods
-
-procedure NcsServerRegister;
+procedure ncsServerRegister;
 //#UC START# *54645E5F018E_54645E360193_var*
 //#UC END# *54645E5F018E_54645E360193_var*
 begin
@@ -58,9 +49,9 @@ begin
  TncsMessageFactory.Instance.Register(TncsDeliveryResult);
  TncsMessageFactory.Instance.Register(TncsCorrectFolder);
 //#UC END# *54645E5F018E_54645E360193_impl*
-end;//NcsServerRegister
+end;//ncsServerRegister
 
-procedure NcsClientRegister;
+procedure ncsClientRegister;
 //#UC START# *54645E7C0285_54645E360193_var*
 //#UC END# *54645E7C0285_54645E360193_var*
 begin
@@ -71,7 +62,7 @@ begin
  TncsMessageFactory.Instance.Register(TncsGetFilePartReply);
  TncsMessageFactory.Instance.Register(TncsPushFilePart);
 //#UC END# *54645E7C0285_54645E360193_impl*
-end;//NcsClientRegister
-{$IfEnd} //not Nemesis
+end;//ncsClientRegister
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

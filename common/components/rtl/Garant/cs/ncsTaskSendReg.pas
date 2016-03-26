@@ -1,48 +1,39 @@
 unit ncsTaskSendReg;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/ncsTaskSendReg.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::cs::TaskSend::ncsTaskSendReg
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsTaskSendReg.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "ncsTaskSendReg" MUID: (54855CA501E1)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
-procedure NcsServerRegister;
-   {* Сигнатура метода ncsServerRegister }
-procedure NcsClientRegister;
-   {* Сигнатура метода ncsClientRegister }
-{$IfEnd} //not Nemesis
+{$If NOT Defined(Nemesis)}
+uses
+ l3IntfUses
+;
+
+procedure ncsServerRegister;
+procedure ncsClientRegister;
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ncsMessageFactory,
-  nscMessagesReg,
-  ncsSendTask,
-  ncsGetTaskDescriptionReply,
-  ncsPushFilePart,
-  ncsGetFilePartReply,
-  ncsSendTaskReply,
-  ncsGetPartialTaskDescription,
-  ncsGetFilePart
-  ;
+ l3ImplUses
+ , ncsMessageFactory
+ , nscMessagesReg
+ , ncsSendTask
+ , ncsGetTaskDescriptionReply
+ , ncsPushFilePart
+ , ncsGetFilePartReply
+ , ncsSendTaskReply
+ , ncsGetPartialTaskDescription
+ , ncsGetFilePart
+;
 
-// unit methods
-
-procedure NcsServerRegister;
+procedure ncsServerRegister;
 //#UC START# *54855CCF019F_54855CA501E1_var*
 //#UC END# *54855CCF019F_54855CA501E1_var*
 begin
@@ -53,9 +44,9 @@ begin
  TncsMessageFactory.Instance.Register(TncsPushFilePart);
  TncsMessageFactory.Instance.Register(TncsGetFilePartReply);
 //#UC END# *54855CCF019F_54855CA501E1_impl*
-end;//NcsServerRegister
+end;//ncsServerRegister
 
-procedure NcsClientRegister;
+procedure ncsClientRegister;
 //#UC START# *54855CE1027C_54855CA501E1_var*
 //#UC END# *54855CE1027C_54855CA501E1_var*
 begin
@@ -65,7 +56,7 @@ begin
  TncsMessageFactory.Instance.Register(TncsGetPartialTaskDescription);
  TncsMessageFactory.Instance.Register(TncsGetFilePart);
 //#UC END# *54855CE1027C_54855CA501E1_impl*
-end;//NcsClientRegister
-{$IfEnd} //not Nemesis
+end;//ncsClientRegister
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

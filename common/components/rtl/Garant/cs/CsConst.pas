@@ -1,45 +1,30 @@
 unit CsConst;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/CsConst.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::cs::Core::CsConst
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\CsConst.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "CsConst" MUID: (538DA49902A4)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  daInterfaces
-  ;
+ l3IntfUses
+ , daInterfaces
+;
 
 const
-  { cProtocolVersion }
  c_CsVersion = 25;
-
-const
-  { cPredefinedClients }
  c_AllStations = '*';
-  { адрес для широковещания }
+  {* адрес для широковещания }
  c_WrongClientId = daInterfaces.usWrongClient;
-  { говорит об отказе в регистрации }
+  {* говорит об отказе в регистрации }
  c_DuplicateClient = daInterfaces.usDuplicateClient;
-  { попытка войти повторно }
+  {* попытка войти повторно }
  c_DeadClient = daInterfaces.usDeadClient;
-  { не отвечает на запросы }
-
-const
-  { коды ошибок обработки запросов }
+  {* не отвечает на запросы }
+ {* коды ошибок обработки запросов }
  cs_errOk = 0;
  cs_errError = 1;
  cs_errConnClosedGracefully = 2;
@@ -48,10 +33,14 @@ const
  cs_errConnAborted = 5;
  cs_errConnRefused = 6;
  cs_errWrongServerVersion = 7;
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
-{$IfEnd} //not Nemesis
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Nemesis)
+
 end.

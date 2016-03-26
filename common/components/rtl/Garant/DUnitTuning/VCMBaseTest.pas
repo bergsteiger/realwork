@@ -1,49 +1,36 @@
 unit VCMBaseTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DUnitTuning"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/DUnitTuning/VCMBaseTest.pas"
-// Начат: 23.12.209 18:30
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Testing Framework::DUnitTuning::VCM_TFW::VCMBaseTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DUnitTuning\VCMBaseTest.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "VCMBaseTest" MUID: (4B3235370235)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\DUnitTuning\tfwDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  BaseTest
-  ;
+ l3IntfUses
+ , BaseTest
+;
 
 type
  TVCMBaseTest = {abstract} class(TBaseTest)
   {* Базовый тест для тестирования объектов VCM }
- protected
- // overridden protected methods
+  protected
    procedure InitFields; override;
  end;//TVCMBaseTest
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  l3Base,
-  SysUtils,
-  l3MenuManagerHelper
-  ;
-
-// unit methods
+ l3ImplUses
+ , l3Base
+ , SysUtils
+ , l3MenuManagerHelper
+;
 
 procedure FreeMM;
 //#UC START# *4B323587024D_4B3235370235_var*
@@ -54,7 +41,6 @@ begin
   Tl3MenuManagerHelper.Instance.FreeManager;
 //#UC END# *4B323587024D_4B3235370235_impl*
 end;//FreeMM
-// start class TVCMBaseTest
 
 procedure TVCMBaseTest.InitFields;
 //#UC START# *4B30EEA10210_4B30EEEB01EF_var*
@@ -66,6 +52,6 @@ begin
   l3System.AddExitProc(FreeMM);
 //#UC END# *4B30EEA10210_4B30EEEB01EF_impl*
 end;//TVCMBaseTest.InitFields
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

@@ -23,6 +23,7 @@ type
  TK517772970_TcsAutoAnnoExport = class(TK517772970_TcsExport)
   {* [RequestLink:517772970] }
   protected
+   function TaskClass: TddTaskClass; override;
    {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
@@ -31,7 +32,6 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-   function TaskClass: TddTaskClass; override;
  end;//TK517772970_TcsAutoAnnoExport
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
@@ -48,6 +48,15 @@ uses
  {$IfEnd} // Defined(nsTest)
 ;
 
+function TK517772970_TcsAutoAnnoExport.TaskClass: TddTaskClass;
+//#UC START# *5320088202FB_53217E7F02A0_var*
+//#UC END# *5320088202FB_53217E7F02A0_var*
+begin
+//#UC START# *5320088202FB_53217E7F02A0_impl*
+ result := TcsAutoAnnoExport;
+//#UC END# *5320088202FB_53217E7F02A0_impl*
+end;//TK517772970_TcsAutoAnnoExport.TaskClass
+
 {$If Defined(nsTest)}
 function TK517772970_TcsAutoAnnoExport.GetFolder: AnsiString;
  {* Папка в которую входит тест }
@@ -63,15 +72,6 @@ begin
  Result := '53217E7F02A0';
 end;//TK517772970_TcsAutoAnnoExport.GetModelElementGUID
 {$IfEnd} // Defined(nsTest)
-
-function TK517772970_TcsAutoAnnoExport.TaskClass: TddTaskClass;
-//#UC START# *5320088202FB_53217E7F02A0_var*
-//#UC END# *5320088202FB_53217E7F02A0_var*
-begin
-//#UC START# *5320088202FB_53217E7F02A0_impl*
- result := TcsAutoAnnoExport;
-//#UC END# *5320088202FB_53217E7F02A0_impl*
-end;//TK517772970_TcsAutoAnnoExport.TaskClass
 
 initialization
  TestFramework.RegisterTest(TK517772970_TcsAutoAnnoExport.Suite);

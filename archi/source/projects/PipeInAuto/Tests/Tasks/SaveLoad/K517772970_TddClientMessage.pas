@@ -23,6 +23,9 @@ type
  TK517772970_TddClientMessage = class(TK517772970_TddRequestTask)
   {* [RequestLink:517772970] }
   protected
+   function TaskClass: TddTaskClass; override;
+   procedure InitTask(Task: TddTaskItem); override;
+   function CreateTask(aUserID: LongWord): TddTaskItem; override;
    {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
@@ -31,9 +34,6 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-   function TaskClass: TddTaskClass; override;
-   procedure InitTask(Task: TddTaskItem); override;
-   function CreateTask(aUserID: LongWord): TddTaskItem; override;
  end;//TK517772970_TddClientMessage
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
@@ -52,22 +52,6 @@ uses
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
 ;
-
-{$If Defined(nsTest)}
-function TK517772970_TddClientMessage.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := 'TaskSaveLoad';
-end;//TK517772970_TddClientMessage.GetFolder
-{$IfEnd} // Defined(nsTest)
-
-{$If Defined(nsTest)}
-function TK517772970_TddClientMessage.GetModelElementGUID: AnsiString;
- {* Идентификатор элемента модели, который описывает тест }
-begin
- Result := '53200C460255';
-end;//TK517772970_TddClientMessage.GetModelElementGUID
-{$IfEnd} // Defined(nsTest)
 
 function TK517772970_TddClientMessage.TaskClass: TddTaskClass;
 //#UC START# *5320088202FB_53200C460255_var*
@@ -107,6 +91,22 @@ begin
  Result := TddClientMessage.Create(aUserID, IntConst, NotificationType, ClassName);
 //#UC END# *5388508D03DE_53200C460255_impl*
 end;//TK517772970_TddClientMessage.CreateTask
+
+{$If Defined(nsTest)}
+function TK517772970_TddClientMessage.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'TaskSaveLoad';
+end;//TK517772970_TddClientMessage.GetFolder
+{$IfEnd} // Defined(nsTest)
+
+{$If Defined(nsTest)}
+function TK517772970_TddClientMessage.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '53200C460255';
+end;//TK517772970_TddClientMessage.GetModelElementGUID
+{$IfEnd} // Defined(nsTest)
 
 initialization
  TestFramework.RegisterTest(TK517772970_TddClientMessage.Suite);

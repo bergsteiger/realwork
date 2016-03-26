@@ -1,34 +1,21 @@
 unit nsSettingsConst;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/common/components/gui/Garant/VCM/View/ParentAndChild/nsSettingsConst.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi F1 Like Application::F1Like::View::ParentAndChild::nsSettingsConst
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\nsSettingsConst.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsSettingsConst" MUID: (4F7B037D01FF)
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vtNavigator
-  {$IfEnd} //not NoVCM
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vtNavigator
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-  { Settings Const }
  gi_Internal = 'Внутренняя';
  pi_Navigator_RightSize = gi_Internal + '/Навигатор/Правый размер';
  pi_Navigator_LeftSize = gi_Internal + '/Навигатор/Левый размер';
@@ -48,5 +35,9 @@ const
  dv_rnAutoHideFloat = False;
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

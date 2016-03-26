@@ -115,7 +115,7 @@ type
    f_FlashTimer: TTimer;
     {* Поле для свойства FlashTimer }
   protected
-   f_BaseSearcher: InsBaseSearcherWindowData;
+   f_BaseSearcher: InsBaseSearcher;
    f_LockParamsChange: Integer;
    f_ActiveClassForSaveInHistory: InsBaseSearchClass;
   private
@@ -186,6 +186,8 @@ type
    procedure ForceUpdateClassForHistory;
    procedure NotifyContainersChanged(aNotification: Tl3TabbedContainerNotificationType);
    function pm_GetIsActive: Boolean;
+   function pm_GetIsMainInUseCase: Boolean;
+   function pm_GetVisible: Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure FinishDataUpdate; override;
@@ -1319,6 +1321,24 @@ begin
  Result := f_IsActive;
 //#UC END# *567290190285_4AB791130260get_impl*
 end;//TPrimBaseSearchForm.pm_GetIsActive
+
+function TPrimBaseSearchForm.pm_GetIsMainInUseCase: Boolean;
+//#UC START# *56E13D0501D6_4AB791130260get_var*
+//#UC END# *56E13D0501D6_4AB791130260get_var*
+begin
+//#UC START# *56E13D0501D6_4AB791130260get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *56E13D0501D6_4AB791130260get_impl*
+end;//TPrimBaseSearchForm.pm_GetIsMainInUseCase
+
+function TPrimBaseSearchForm.pm_GetVisible: Boolean;
+//#UC START# *56F5028901D2_4AB791130260get_var*
+//#UC END# *56F5028901D2_4AB791130260get_var*
+begin
+//#UC START# *56F5028901D2_4AB791130260get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *56F5028901D2_4AB791130260get_impl*
+end;//TPrimBaseSearchForm.pm_GetVisible
 
 procedure TPrimBaseSearchForm.Cleanup;
  {* Функция очистки полей объекта. }

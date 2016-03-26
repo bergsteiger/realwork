@@ -1,57 +1,40 @@
 unit nsFindSelectDialog;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Monitorings/nsFindSelectDialog.pas"
-// Начат: 15.09.2009 17:41
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Common For Shell And Monitoring::PostingOrder::View::Monitorings::nsFindSelectDialog
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\nsFindSelectDialog.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsFindSelectDialog" MUID: (4AAF996900DC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3Core,
-  Windows
-  ;
+ l3IntfUses
+ , l3Core
+ , Windows
+;
 
 function FindSelectDialog(aWnd: hWnd;
-  aParam: Pointer): WinBool; stdcall;
-{$IfEnd} //not Admin
+ aParam: Pointer): WinBool; stdcall;
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Messages
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
-
-// unit methods
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 function FindSelectDialog(aWnd: hWnd;
-  aParam: Pointer): WinBool;
+ aParam: Pointer): WinBool;
 //#UC START# *4AAF99C703C7_4AAF996900DC_var*
 var
  ProcessID: Cardinal;
@@ -70,6 +53,6 @@ begin
  end;
 //#UC END# *4AAF99C703C7_4AAF996900DC_impl*
 end;//FindSelectDialog
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

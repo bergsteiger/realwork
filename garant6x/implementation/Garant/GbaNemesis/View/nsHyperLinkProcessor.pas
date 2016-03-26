@@ -1,179 +1,224 @@
 unit nsHyperLinkProcessor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsHyperLinkProcessor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Core::Base Operations::View::Navigation::nsHyperLinkProcessor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsHyperLinkProcessor.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "nsHyperLinkProcessor" MUID: (4A8199550084)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  DocumentUnit,
-  ExternalObjectUnit,
-  ExternalOperationUnit,
-  SearchUnit,
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentDomainInterfaces,
-  nevNavigation,
-  NavigationInterfaces,
-  bsTypesNew,
-  bsHyperLinkProcessorPrim
-  ;
+ l3IntfUses
+ , nevNavigation
+ , NavigationInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUnit
+ , afwInterfaces
+;
 
-function NsProcessHyperLink(const aHyperLink: IevHyperlink;
-  inNewWindow: Boolean;
-  const aHelper: IbsHyperLinkProcessorHelper;
-  const anAggregate: IvcmAggregate;
-  const aDocument: IDocument): Boolean; overload; 
-procedure NsCheckHyperLinkInfo(const aHyperLink: IevHyperlink;
-  const aHelper: IbsHyperLinkProcessorHelper;
-  var theInfo: TafwCursorInfo;
-  const aDocument: IDocument = nil);
-procedure NsSaveHyperLinkExternalObject(const aHyperLink: IevHyperlink;
-  const aHelper: IbsHyperLinkProcessorHelper;
-  const aDocument: IDocument = nil);
-function NsProcessHyperLink(const aHyperLink: IevHyperlink;
-  aBehaviour: TbsProcessHyperLinkBehaviour;
-  const aHelper: IbsHyperLinkProcessorHelper;
-  const anAggregate: IvcmAggregate;
-  const aDocument: IDocument): Boolean; overload; 
-{$IfEnd} //not Admin AND not Monitorings
+function nsProcessHyperLink(const aHyperLink: IevHyperlink;
+ inNewWindow: Boolean;
+ const aHelper: IbsHyperLinkProcessorHelper;
+ const anAggregate: IvcmAggregate;
+ const aDocument: IDocument): Boolean; overload;
+procedure nsCheckHyperLinkInfo(const aHyperLink: IevHyperlink;
+ const aHelper: IbsHyperLinkProcessorHelper;
+ var theInfo: TafwCursorInfo;
+ const aDocument: IDocument = nil);
+procedure nsSaveHyperLinkExternalObject(const aHyperLink: IevHyperlink;
+ const aHelper: IbsHyperLinkProcessorHelper;
+ const aDocument: IDocument = nil);
+function nsProcessHyperLink(const aHyperLink: IevHyperlink;
+ aBehaviour: TbsProcessHyperLinkBehaviour;
+ const aHelper: IbsHyperLinkProcessorHelper;
+ const anAggregate: IvcmAggregate;
+ const aDocument: IDocument): Boolean; overload;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  bsHyperlinkProcessorContainerMaker
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptEngine
-  {$IfEnd} //not NoScripts
-  ,
-  nsTypesNew
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  DataAdapter
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils,
-  bsDocumentMissingMessage,
-  BaseTypesUnit,
-  l3Base
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  nsUtils,
-  bsTypes,
-  nsExternalObjectPrim,
-  nsExternalObjectModelPart,
-  nsQueryUtils,
-  DocumentInterfaces,
-  Base_Operations_Editions_Controls,
-  DocumentAndListInterfaces,
-  Base_Operations_Strange_Controls,
-  nsExternalObjectData,
-  bsUtils,
-  nsENOIntegration,
-  evdTypes,
-  l3String,
-  nsTypes,
-  WarningConst,
-  l3Types,
-  LoggingUnit,
-  nsHyperlinkProcessorTypes,
-  nsOpenDocumentFromLinkEvent,
-  nsTryingToOpenMissingDocumentFromLinkEvent
-  {$If not defined(NoScripts)}
-  ,
-  F1ScriptEngine
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , bsHyperLinkProcessorPrim
+ , DocumentDomainInterfaces
+ , DynamicDocListUnit
+ , ExternalObjectUnit
+ , SearchUnit
+ , ExternalOperationUnit
+ , bsTypesNew
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptEngine
+ {$IfEnd} // NOT Defined(NoScripts)
+ , nsTypesNew
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DataAdapter
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ , bsDocumentMissingMessage
+ , BaseTypesUnit
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsUtils
+ , bsTypes
+ , nsExternalObjectPrim
+ , nsExternalObjectModelPart
+ , nsQueryUtils
+ , DocumentInterfaces
+ , Base_Operations_Editions_Controls
+ , DocumentAndListInterfaces
+ , Base_Operations_Strange_Controls
+ , nsExternalObjectData
+ , bsUtils
+ , nsENOIntegration
+ , evdTypes
+ , l3String
+ , nsTypes
+ , WarningConst
+ , l3Types
+ , LoggingUnit
+ , nsHyperlinkProcessorTypes
+ , bsHyperlinkProcessorContainerMaker
+ , nsOpenDocumentFromLinkEvent
+ , nsTryingToOpenMissingDocumentFromLinkEvent
+ {$If NOT Defined(NoScripts)}
+ , F1ScriptEngine
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 type
+ TNewWindowBehaviourArr = array [Boolean] of TbsProcessHyperLinkBehaviour;
+
  TbsHyperLinkProcessor = class(TbsHyperLinkProcessorPrim)
- private
- // private fields
-   f_Document : IDocument;
-   f_HyperLink : IevHyperlink;
-   f_Helper : IbsHyperLinkProcessorHelper;
-   f_Aggregate : IvcmAggregate;
- private
- // private methods
+  private
+   f_Document: IDocument;
+   f_HyperLink: IevHyperlink;
+   f_Helper: IbsHyperLinkProcessorHelper;
+   f_Aggregate: IvcmAggregate;
+  private
    procedure GetLinkedObj(out anObjType: TLinkedObjectType;
-     out anObject: IUnknown);
+    out anObject: IUnknown);
    procedure ConvertHyperlink(out aTopic: TTopic;
-     out aRID: TRedactionID);
+    out aRID: TRedactionID);
    procedure OpenExternalObject(const aExternalObject: InsLinkedObjectData;
-     aBehaviour: TbsProcessHyperLinkBehaviour);
+    aBehaviour: TbsProcessHyperLinkBehaviour);
    procedure OpenMultiLink(const aList: IDynList;
-     aBehaviour: TbsProcessHyperLinkBehaviour);
+    aBehaviour: TbsProcessHyperLinkBehaviour);
    procedure OpenExternalLink(const aExternalLink: IExternalLink;
-     aBehaviour: TbsProcessHyperLinkBehaviour);
+    aBehaviour: TbsProcessHyperLinkBehaviour);
    procedure OpenQueryLink(const aQuery: IQuery;
-     aBehaviour: TbsProcessHyperLinkBehaviour);
+    aBehaviour: TbsProcessHyperLinkBehaviour);
    procedure OpenAutoreferatLink(const aDocument: IDocument;
-     aBehaviour: TbsProcessHyperLinkBehaviour);
+    aBehaviour: TbsProcessHyperLinkBehaviour);
    procedure OpenExternalOperationLink(const aExternalOperation: IExternalOperation);
    procedure OpenDocumentLink(const aDocument: IDocument;
-     aSub: Cardinal;
-     aBehaviour: TbsProcessHyperLinkBehaviour;
-     aNeedCorrectRedaction: Boolean;
-     aForceOpen: Boolean = False;
-     aPointType: TDocumentPositionType = dptSub);
+    aSub: Cardinal;
+    aBehaviour: TbsProcessHyperLinkBehaviour;
+    aNeedCorrectRedaction: Boolean;
+    aForceOpen: Boolean = False;
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub);
    function GetContainer(aBehaviour: TbsProcessHyperLinkBehaviour): IvcmContainer;
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aHyperLink: IevHyperlink;
-     const aHelper: IbsHyperLinkProcessorHelper;
-     const anAggregate: IvcmAggregate;
-     const aDocument: IDocument); reintroduce;
-   function OpenHyperLink(inNewWindow: Boolean): Boolean; overload; 
+    const aHelper: IbsHyperLinkProcessorHelper;
+    const anAggregate: IvcmAggregate;
+    const aDocument: IDocument); reintroduce;
+   function OpenHyperLink(inNewWindow: Boolean): Boolean; overload;
    procedure GetInfo(var theInfo: TafwCursorInfo);
    procedure SaveExternalObject;
-     {* Сигнатура метода SaveExternalObject }
-   function OpenHyperLink(aBehaviour: TbsProcessHyperLinkBehaviour): Boolean; overload; 
+   function OpenHyperLink(aBehaviour: TbsProcessHyperLinkBehaviour): Boolean; overload;
  end;//TbsHyperLinkProcessor
 
-  TNewWindowBehaviourArr = array [Boolean] of TbsProcessHyperLinkBehaviour;
 const
-   { Private constants }
-  cNewWindowBehaviourMap : TNewWindowBehaviourArr = (phbInSameContainer, phbInNewWindow);
+ cNewWindowBehaviourMap: TNewWindowBehaviourArr = (phbInSameContainer, phbInNewWindow);
 
-// start class TbsHyperLinkProcessor
+function nsProcessHyperLink(const aHyperLink: IevHyperlink;
+ inNewWindow: Boolean;
+ const aHelper: IbsHyperLinkProcessorHelper;
+ const anAggregate: IvcmAggregate;
+ const aDocument: IDocument): Boolean;
+//#UC START# *4C7F905401FD_4A8199550084_var*
+//#UC END# *4C7F905401FD_4A8199550084_var*
+begin
+//#UC START# *4C7F905401FD_4A8199550084_impl*
+ Result := nsProcessHyperLink(aHyperLink, cNewWindowBehaviourMap[inNewWindow],
+  aHelper, anAggregate, aDocument);
+//#UC END# *4C7F905401FD_4A8199550084_impl*
+end;//nsProcessHyperLink
+
+procedure nsCheckHyperLinkInfo(const aHyperLink: IevHyperlink;
+ const aHelper: IbsHyperLinkProcessorHelper;
+ var theInfo: TafwCursorInfo;
+ const aDocument: IDocument = nil);
+//#UC START# *51AF1F7202F8_4A8199550084_var*
+var
+ l_Processor: TbsHyperLinkProcessor;
+//#UC END# *51AF1F7202F8_4A8199550084_var*
+begin
+//#UC START# *51AF1F7202F8_4A8199550084_impl*
+ l_Processor := TbsHyperLinkProcessor.Create(aHyperLink, aHelper, nil, aDocument);
+ try
+  l_Processor.GetInfo(theInfo);
+ finally
+  FreeAndNil(l_Processor);
+ end;
+//#UC END# *51AF1F7202F8_4A8199550084_impl*
+end;//nsCheckHyperLinkInfo
+
+procedure nsSaveHyperLinkExternalObject(const aHyperLink: IevHyperlink;
+ const aHelper: IbsHyperLinkProcessorHelper;
+ const aDocument: IDocument = nil);
+//#UC START# *51AF250D0230_4A8199550084_var*
+var
+ l_Processor: TbsHyperLinkProcessor;
+//#UC END# *51AF250D0230_4A8199550084_var*
+begin
+//#UC START# *51AF250D0230_4A8199550084_impl*
+ l_Processor := TbsHyperLinkProcessor.Create(aHyperLink, aHelper, nil, aDocument);
+ try
+  l_Processor.SaveExternalObject;
+ finally
+  FreeAndNil(l_Processor);
+ end;
+//#UC END# *51AF250D0230_4A8199550084_impl*
+end;//nsSaveHyperLinkExternalObject
+
+function nsProcessHyperLink(const aHyperLink: IevHyperlink;
+ aBehaviour: TbsProcessHyperLinkBehaviour;
+ const aHelper: IbsHyperLinkProcessorHelper;
+ const anAggregate: IvcmAggregate;
+ const aDocument: IDocument): Boolean;
+//#UC START# *53A920C400E4_4A8199550084_var*
+var
+ l_Processor: TbsHyperLinkProcessor;
+//#UC END# *53A920C400E4_4A8199550084_var*
+begin
+//#UC START# *53A920C400E4_4A8199550084_impl*
+ Result := False;
+ l_Processor := TbsHyperLinkProcessor.Create(aHyperLink, aHelper, anAggregate, aDocument);
+ try
+  Result := l_Processor.OpenHyperLink(aBehaviour);
+ finally
+  FreeAndNil(l_Processor);
+ end;
+//#UC END# *53A920C400E4_4A8199550084_impl*
+end;//nsProcessHyperLink
 
 procedure TbsHyperLinkProcessor.GetLinkedObj(out anObjType: TLinkedObjectType;
-  out anObject: IUnknown);
+ out anObject: IUnknown);
 //#UC START# *51AF288F01AD_4B0A77F30378_var*
 var
  l_Topic : TTopic;
@@ -218,7 +263,7 @@ begin
 end;//TbsHyperLinkProcessor.GetLinkedObj
 
 procedure TbsHyperLinkProcessor.ConvertHyperlink(out aTopic: TTopic;
-  out aRID: TRedactionID);
+ out aRID: TRedactionID);
 //#UC START# *51AF28B10028_4B0A77F30378_var*
 //#UC END# *51AF28B10028_4B0A77F30378_var*
 begin
@@ -243,7 +288,7 @@ begin
 end;//TbsHyperLinkProcessor.ConvertHyperlink
 
 procedure TbsHyperLinkProcessor.OpenExternalObject(const aExternalObject: InsLinkedObjectData;
-  aBehaviour: TbsProcessHyperLinkBehaviour);
+ aBehaviour: TbsProcessHyperLinkBehaviour);
 //#UC START# *51AF29070012_4B0A77F30378_var*
 var
  l_Container: IvcmContainer;
@@ -270,7 +315,7 @@ begin
 end;//TbsHyperLinkProcessor.OpenExternalObject
 
 procedure TbsHyperLinkProcessor.OpenMultiLink(const aList: IDynList;
-  aBehaviour: TbsProcessHyperLinkBehaviour);
+ aBehaviour: TbsProcessHyperLinkBehaviour);
 //#UC START# *51AF293B00F7_4B0A77F30378_var*
 var
  l_Cont: IvcmContainer;
@@ -285,7 +330,7 @@ begin
 end;//TbsHyperLinkProcessor.OpenMultiLink
 
 procedure TbsHyperLinkProcessor.OpenExternalLink(const aExternalLink: IExternalLink;
-  aBehaviour: TbsProcessHyperLinkBehaviour);
+ aBehaviour: TbsProcessHyperLinkBehaviour);
 //#UC START# *51AF296C01DD_4B0A77F30378_var*
 var
  l_ContainerMaker: IvcmContainerMaker;
@@ -302,7 +347,7 @@ begin
 end;//TbsHyperLinkProcessor.OpenExternalLink
 
 procedure TbsHyperLinkProcessor.OpenQueryLink(const aQuery: IQuery;
-  aBehaviour: TbsProcessHyperLinkBehaviour);
+ aBehaviour: TbsProcessHyperLinkBehaviour);
 //#UC START# *51AF299202E3_4B0A77F30378_var*
 var
  l_List: IDynList;
@@ -325,7 +370,7 @@ begin
 end;//TbsHyperLinkProcessor.OpenQueryLink
 
 procedure TbsHyperLinkProcessor.OpenAutoreferatLink(const aDocument: IDocument;
-  aBehaviour: TbsProcessHyperLinkBehaviour);
+ aBehaviour: TbsProcessHyperLinkBehaviour);
 //#UC START# *51AF29C30280_4B0A77F30378_var*
 var
  l_Document : IDocument;
@@ -357,11 +402,11 @@ begin
 end;//TbsHyperLinkProcessor.OpenExternalOperationLink
 
 procedure TbsHyperLinkProcessor.OpenDocumentLink(const aDocument: IDocument;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour;
-  aNeedCorrectRedaction: Boolean;
-  aForceOpen: Boolean = False;
-  aPointType: TDocumentPositionType = dptSub);
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour;
+ aNeedCorrectRedaction: Boolean;
+ aForceOpen: Boolean = False;
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub);
 //#UC START# *51AF2A2E0257_4B0A77F30378_var*
   function lpDocInfo(const aData: IdeDocInfo): Boolean;
   {* При открытии ссылки на документ. }
@@ -445,26 +490,10 @@ begin
 //#UC END# *51AF2A2E0257_4B0A77F30378_impl*
 end;//TbsHyperLinkProcessor.OpenDocumentLink
 
-function TbsHyperLinkProcessor.GetContainer(aBehaviour: TbsProcessHyperLinkBehaviour): IvcmContainer;
-//#UC START# *53A93A0800CA_4B0A77F30378_var*
-var
- l_ContainerMaker: IvcmContainerMaker;
-//#UC END# *53A93A0800CA_4B0A77F30378_var*
-begin
-//#UC START# *53A93A0800CA_4B0A77F30378_impl*
- l_ContainerMaker := TbsHyperlinkProcessorContainerMaker.Make(aBehaviour, f_Helper);
- try
-  Result := l_ContainerMaker.MakeContainer;
- finally
-  l_ContainerMaker := nil;
- end;
-//#UC END# *53A93A0800CA_4B0A77F30378_impl*
-end;//TbsHyperLinkProcessor.GetContainer
-
 constructor TbsHyperLinkProcessor.Create(const aHyperLink: IevHyperlink;
-  const aHelper: IbsHyperLinkProcessorHelper;
-  const anAggregate: IvcmAggregate;
-  const aDocument: IDocument);
+ const aHelper: IbsHyperLinkProcessorHelper;
+ const anAggregate: IvcmAggregate;
+ const aDocument: IDocument);
 //#UC START# *51AF2ABC0119_4B0A77F30378_var*
 var
  l_Handle: Integer;
@@ -835,7 +864,24 @@ begin
 //#UC END# *53A92141005B_4B0A77F30378_impl*
 end;//TbsHyperLinkProcessor.OpenHyperLink
 
+function TbsHyperLinkProcessor.GetContainer(aBehaviour: TbsProcessHyperLinkBehaviour): IvcmContainer;
+//#UC START# *53A93A0800CA_4B0A77F30378_var*
+var
+ l_ContainerMaker: IvcmContainerMaker;
+//#UC END# *53A93A0800CA_4B0A77F30378_var*
+begin
+//#UC START# *53A93A0800CA_4B0A77F30378_impl*
+ l_ContainerMaker := TbsHyperlinkProcessorContainerMaker.Make(aBehaviour, f_Helper);
+ try
+  Result := l_ContainerMaker.MakeContainer;
+ finally
+  l_ContainerMaker := nil;
+ end;
+//#UC END# *53A93A0800CA_4B0A77F30378_impl*
+end;//TbsHyperLinkProcessor.GetContainer
+
 procedure TbsHyperLinkProcessor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4B0A77F30378_var*
 //#UC END# *479731C50290_4B0A77F30378_var*
 begin
@@ -847,78 +893,6 @@ begin
  inherited;
 //#UC END# *479731C50290_4B0A77F30378_impl*
 end;//TbsHyperLinkProcessor.Cleanup
-
-function NsProcessHyperLink(const aHyperLink: IevHyperlink;
-  inNewWindow: Boolean;
-  const aHelper: IbsHyperLinkProcessorHelper;
-  const anAggregate: IvcmAggregate;
-  const aDocument: IDocument): Boolean;
-//#UC START# *4C7F905401FD_4A8199550084_var*
-//#UC END# *4C7F905401FD_4A8199550084_var*
-begin
-//#UC START# *4C7F905401FD_4A8199550084_impl*
- Result := nsProcessHyperLink(aHyperLink, cNewWindowBehaviourMap[inNewWindow],
-  aHelper, anAggregate, aDocument);
-//#UC END# *4C7F905401FD_4A8199550084_impl*
-end;//NsProcessHyperLink
-
-procedure NsCheckHyperLinkInfo(const aHyperLink: IevHyperlink;
-  const aHelper: IbsHyperLinkProcessorHelper;
-  var theInfo: TafwCursorInfo;
-  const aDocument: IDocument = nil);
-//#UC START# *51AF1F7202F8_4A8199550084_var*
-var
- l_Processor: TbsHyperLinkProcessor;
-//#UC END# *51AF1F7202F8_4A8199550084_var*
-begin
-//#UC START# *51AF1F7202F8_4A8199550084_impl*
- l_Processor := TbsHyperLinkProcessor.Create(aHyperLink, aHelper, nil, aDocument);
- try
-  l_Processor.GetInfo(theInfo);
- finally
-  FreeAndNil(l_Processor);
- end;
-//#UC END# *51AF1F7202F8_4A8199550084_impl*
-end;//NsCheckHyperLinkInfo
-
-procedure NsSaveHyperLinkExternalObject(const aHyperLink: IevHyperlink;
-  const aHelper: IbsHyperLinkProcessorHelper;
-  const aDocument: IDocument = nil);
-//#UC START# *51AF250D0230_4A8199550084_var*
-var
- l_Processor: TbsHyperLinkProcessor;
-//#UC END# *51AF250D0230_4A8199550084_var*
-begin
-//#UC START# *51AF250D0230_4A8199550084_impl*
- l_Processor := TbsHyperLinkProcessor.Create(aHyperLink, aHelper, nil, aDocument);
- try
-  l_Processor.SaveExternalObject;
- finally
-  FreeAndNil(l_Processor);
- end;
-//#UC END# *51AF250D0230_4A8199550084_impl*
-end;//NsSaveHyperLinkExternalObject
-
-function NsProcessHyperLink(const aHyperLink: IevHyperlink;
-  aBehaviour: TbsProcessHyperLinkBehaviour;
-  const aHelper: IbsHyperLinkProcessorHelper;
-  const anAggregate: IvcmAggregate;
-  const aDocument: IDocument): Boolean;
-//#UC START# *53A920C400E4_4A8199550084_var*
-var
- l_Processor: TbsHyperLinkProcessor;
-//#UC END# *53A920C400E4_4A8199550084_var*
-begin
-//#UC START# *53A920C400E4_4A8199550084_impl*
- Result := False;
- l_Processor := TbsHyperLinkProcessor.Create(aHyperLink, aHelper, anAggregate, aDocument);
- try
-  Result := l_Processor.OpenHyperLink(aBehaviour);
- finally
-  FreeAndNil(l_Processor);
- end;
-//#UC END# *53A920C400E4_4A8199550084_impl*
-end;//NsProcessHyperLink
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

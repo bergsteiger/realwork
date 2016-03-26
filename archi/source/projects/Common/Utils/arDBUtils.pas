@@ -1,25 +1,18 @@
 unit arDBUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Utils"
-// Модуль: "w:/archi/source/projects/Common/Utils/arDBUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi$common::Utils::DataBaseUtils::arDBUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Common\Utils\arDBUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "arDBUtils" MUID: (4E4A364200F7)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 const
-  { TestBaseConst }
  csBaseFileName = 'EtalonBase.zip';
  csTestBaseDir = 'C:\Base\testbase';
  csTestDocsDir = 'w:\archi\source\projects\Archi\TestSet\ForBase\';
@@ -27,29 +20,30 @@ const
  csTestBaseArchive = 'w:\archi\source\projects\Archi\TestSet\testbase.zip';
  csUserConfigDir = 'w:\archi\source\projects\Archi\TestSet\TestUserConfig';
  cnArchiTestUserID = 176;
-function ArUnackBaseFromArchive(const aFileName: AnsiString;
-  const aDirName: AnsiString;
-  out aMessage: AnsiString): Boolean;
-   {* Распаковать базу данных в заданный каталог. }
+
+function arUnackBaseFromArchive(const aFileName: AnsiString;
+ const aDirName: AnsiString;
+ out aMessage: AnsiString): Boolean;
+ {* Распаковать базу данных в заданный каталог. }
 function CreateTestBaseArchive: Boolean;
-   {* Создает testbase.zip в CVS на основе C:\Base\TestBase и удаляет предыдущий }
+ {* Создает testbase.zip в CVS на основе C:\Base\TestBase и удаляет предыдущий }
 
 implementation
 
 uses
-  SysUtils,
-  l3FileUtils,
-  JclMiscel,
-  Windows,
-  ddZipUtils,
-  l3Base
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3FileUtils
+ , JclMiscel
+ , Windows
+ , ddZipUtils
+ , l3Base
+;
 
-// unit methods
-
-function ArUnackBaseFromArchive(const aFileName: AnsiString;
-  const aDirName: AnsiString;
-  out aMessage: AnsiString): Boolean;
+function arUnackBaseFromArchive(const aFileName: AnsiString;
+ const aDirName: AnsiString;
+ out aMessage: AnsiString): Boolean;
+ {* Распаковать базу данных в заданный каталог. }
 //#UC START# *4E4A366801E7_4E4A364200F7_var*
 var
  l_ExtractBaseCmd : string;
@@ -85,9 +79,10 @@ begin
   Result:= False;
  end;
 //#UC END# *4E4A366801E7_4E4A364200F7_impl*
-end;//ArUnackBaseFromArchive
+end;//arUnackBaseFromArchive
 
 function CreateTestBaseArchive: Boolean;
+ {* Создает testbase.zip в CVS на основе C:\Base\TestBase и удаляет предыдущий }
 //#UC START# *527A05660188_4E4A364200F7_var*
 //#UC END# *527A05660188_4E4A364200F7_var*
 begin

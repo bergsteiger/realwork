@@ -1,49 +1,38 @@
 unit FolderSupport;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DUnit"
-// Модуль: "w:/common/components/rtl/external/DUnit/src/FolderSupport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Testing Framework::DUnit::Source::FolderSupport
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\DUnit\src\FolderSupport.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "FolderSupport" MUID: (5136F46C0163)
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  ComCtrls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , ComCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 const
-  { FoldersConstants }
  csRegistryShowFolder = 'ShowFolder';
+
 function IsNodeFolder(aNode: TTreeNode): Boolean;
 function AddFolderNode(const aTree: TTreeView;
-  const aNode: TTreeNode;
-  const aFoldeName: AnsiString): TTreeNode;
-{$IfEnd} //nsTest
+ const aNode: TTreeNode;
+ const aFoldeName: AnsiString): TTreeNode;
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
-const
-  { InternalFolderConstants }
- cnFolderIndex = High(Integer);
-  { Признак папки }
+{$If Defined(nsTest)}
+uses
+ l3ImplUses
+;
 
-// unit methods
+const
+ cnFolderIndex = High(Integer);
+  {* Признак папки }
 
 function IsNodeFolder(aNode: TTreeNode): Boolean;
 //#UC START# *5136F4820266_5136F46C0163_var*
@@ -58,8 +47,8 @@ begin
 end;//IsNodeFolder
 
 function AddFolderNode(const aTree: TTreeView;
-  const aNode: TTreeNode;
-  const aFoldeName: AnsiString): TTreeNode;
+ const aNode: TTreeNode;
+ const aFoldeName: AnsiString): TTreeNode;
 //#UC START# *5136F4DC012D_5136F46C0163_var*
  var
   i      : Integer;
@@ -89,6 +78,6 @@ begin
    Result := aNode;
 //#UC END# *5136F4DC012D_5136F46C0163_impl*
 end;//AddFolderNode
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 end.

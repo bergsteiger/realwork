@@ -1,195 +1,173 @@
 unit evCommonUtils;
+ {* Процедуры общие для Эвереста и Арчи. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Utils"
-// Модуль: "w:/archi/source/projects/Common/Utils/evCommonUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi$common::Utils::Tools::evCommonUtils
-//
-// Процедуры общие для Эвереста и Арчи.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Common\Utils\evCommonUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evCommonUtils" MUID: (4F5755FB0362)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 
 uses
-  l3Types,
-  Classes,
-  dt_Types,
-  nevTools,
-  nevInternalInterfaces,
-  evCustomEditor,
-  evCustomEditorWindow,
-  evCommonTypes,
-  nevGUIInterfaces,
-  vtLister,
-  arCommonTypes,
-  l3Variant
-  ;
+ l3IntfUses
+ , nevGUIInterfaces
+ , evCustomEditor
+ , l3Variant
+ , nevInternalInterfaces
+ , evCustomEditorWindow
+ , evCommonTypes
+ , nevTools
+ , arCommonTypes
+ , Classes
+ , dt_Types
+ , vtLister
+ , l3Types
+;
 
 type
  TevSetSubParam = record
-   rEditor : TevCustomEditor;
-   rSubType : TSubType;
-   rCodePage : Integer;
-   rAutoMode : Boolean;
-   rWithConfirm : Boolean;
-   rSubNumFormula : AnsiString;
-   rUserType : TUserType;
-   rCanStylizeBlocks : Boolean;
+  rEditor: TevCustomEditor;
+  rSubType: TSubType;
+  rCodePage: Integer;
+  rAutoMode: Boolean;
+  rWithConfirm: Boolean;
+  rSubNumFormula: AnsiString;
+  rUserType: TUserType;
+  rCanStylizeBlocks: Boolean;
  end;//TevSetSubParam
 
  TevSubEditParam = record
-   rEditor : TevCustomEditor;
-   rSubID : TSubID;
-   rUserType : TUserType;
-   rCanStylizeBlocks : Boolean;
-   rIsDocEditor : Boolean;
-   rSubList : TvtDStringLister;
-   rFamilyID : TFamilyID;
-   rDocID : TDocID;
+  rEditor: TevCustomEditor;
+  rSubID: TSubID;
+  rUserType: TUserType;
+  rCanStylizeBlocks: Boolean;
+  rIsDocEditor: Boolean;
+  rSubList: TvtDStringLister;
+  rFamilyID: TFamilyID;
+  rDocID: TDocID;
  end;//TevSubEditParam
 
  TevSubEditParamEX = record
-   rEditor : TevCustomEditor;
-   rSubID : TSubID;
-   rSubName : Tl3PCharLen;
-   rStyleID : Integer;
-   rViewKind : Integer;
-   rIsDocEditor : Boolean;
-   rSubList : TvtDStringLister;
-   rFamilyID : TFamilyID;
-   rDocID : TDocID;
+  rEditor: TevCustomEditor;
+  rSubID: TSubID;
+  rSubName: Tl3PCharLen;
+  rStyleID: Integer;
+  rViewKind: Integer;
+  rIsDocEditor: Boolean;
+  rSubList: TvtDStringLister;
+  rFamilyID: TFamilyID;
+  rDocID: TDocID;
  end;//TevSubEditParamEX
 
-{$If defined(nsTest)}
-var g_DisableMergeCellFilter : Boolean = False;
-{$IfEnd} //nsTest
-function CnvDate2Text(var aStr: PAnsiChar;
-  var aLength: LongInt;
-  aData: Pointer): Boolean;
-function EvEditPicture(const aHotSpot: IevHotSpot;
-  const aEditor: TevCustomEditor;
-  var aNeedAsyncLoop: Boolean): Boolean;
-function EvEditFormula(const aHotSpot: IevHotSpot;
-  const aEditor: TevCustomEditor;
-  var aNeedAsyncLoop: Boolean): Boolean;
-function EvIsFormula(const aHotSpot: IevHotSpot;
-  out theFormula: Tl3Tag): Boolean;
-function EvIsPicture(const aHotSpot: IevHotSpot;
-  out thePicture: Tl3Tag): Boolean;
-procedure EvInsertFormula(const aEditor: TevCustomEditor);
-procedure EvAlignCellsBoundary(const aEditor: TevCustomEditor);
-procedure EvCopyWidthOfCells(const anEditor: TevCustomEditor);
-procedure EvApplyWidthOfCells(const anEditor: TevCustomEditor);
-procedure EvLinkTableFilters(var aGen: Tk2TagGenerator;
-  aNeedInit: Boolean);
-function EvSetTableStyle(const anEditor: TevCustomEditorWindow): Boolean;
-   {* Выставляет стиль на таблицу. }
-function EvSetSubPrim(const aParam: TevSetSubParam;
-  out aChangeDocData: Boolean;
-  const aBlock: IevCommonDataObject = nil): Integer;
-procedure EvSubNameEdit(const aParam: TevSubEditParam;
-  out aNeedRefresh: Boolean);
-   {* Общий метод редактирования саба. }
-procedure EvEditSubPrim(const aParam: TevSubEditParamEX;
-  const aSub: IevSub;
-  out aNeedRefresh: Boolean;
-  const aCheckTypeBlok: IarCheckLeftOrRightBlock = nil);
-procedure EvSetStyleByName(const anEditor: TevCustomEditorWindow;
-  const anItems: TStrings;
-  const aText: AnsiString;
-  anExpired: Boolean);
-procedure EvSetExpiredStyle(const anEditor: TevCustomEditorWindow;
-  aStyleID: Integer);
+function cnvDate2Text(var aStr: PAnsiChar;
+ var aLength: LongInt;
+ aData: Pointer): Boolean;
+function evEditPicture(const aHotSpot: IevHotSpot;
+ const aEditor: TevCustomEditor;
+ var aNeedAsyncLoop: Boolean): Boolean;
+function evEditFormula(const aHotSpot: IevHotSpot;
+ const aEditor: TevCustomEditor;
+ var aNeedAsyncLoop: Boolean): Boolean;
+function evIsFormula(const aHotSpot: IevHotSpot;
+ out theFormula: Tl3Tag): Boolean;
+function evIsPicture(const aHotSpot: IevHotSpot;
+ out thePicture: Tl3Tag): Boolean;
+procedure evInsertFormula(const aEditor: TevCustomEditor);
+procedure evAlignCellsBoundary(const aEditor: TevCustomEditor);
+procedure evCopyWidthOfCells(const anEditor: TevCustomEditor);
+procedure evApplyWidthOfCells(const anEditor: TevCustomEditor);
+procedure evLinkTableFilters(var aGen: Tk2TagGenerator;
+ aNeedInit: Boolean);
+function evSetTableStyle(const anEditor: TevCustomEditorWindow): Boolean;
+ {* Выставляет стиль на таблицу. }
+function evSetSubPrim(const aParam: TevSetSubParam;
+ out aChangeDocData: Boolean;
+ const aBlock: IevCommonDataObject = nil): Integer;
+procedure evSubNameEdit(const aParam: TevSubEditParam;
+ out aNeedRefresh: Boolean);
+ {* Общий метод редактирования саба. }
+procedure evEditSubPrim(const aParam: TevSubEditParamEX;
+ const aSub: IevSub;
+ out aNeedRefresh: Boolean;
+ const aCheckTypeBlok: IarCheckLeftOrRightBlock = nil);
+procedure evSetStyleByName(const anEditor: TevCustomEditorWindow;
+ const anItems: TStrings;
+ const aText: AnsiString;
+ anExpired: Boolean);
+procedure evSetExpiredStyle(const anEditor: TevCustomEditorWindow;
+ aStyleID: Integer);
+
+{$If Defined(nsTest)}
+var g_DisableMergeCellFilter: Boolean = False;
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
 uses
-  DateUtils,
-  SysUtils,
-  l3DateSt,
-  l3Date,
-  l3Chars,
-  nevBase,
-  D_PicSizeEdit,
-  evConst,
-  evBitmapParaBitmapContainer,
-  evFacadeGUI,
-  afwInterfaces,
-  ObjectSegment_Const,
-  BitmapPara_Const,
-  k2Tags,
-  ExprEditForm
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base,
-  Formula_Const,
-  l3Interfaces,
-  evTableTools,
-  evCopyTableCellWidth,
-  evTabStopsFilter,
-  evdEmptyRowFilter,
-  evTableFilter,
-  evMergedCellFilter,
-  evTextInTableCorrector
-  {$If defined(k2ForEditor)}
-  ,
-  evTableCellUtils
-  {$IfEnd} //k2ForEditor
-  ,
-  evdStyles,
-  evOp
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  Table_Const,
-  evFacadeSelection
-  {$If not defined(Nemesis)}
-  ,
-  vtDialogs
-  {$IfEnd} //not Nemesis
-  ,
-  evCommonRes
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  evFacadeSub,
-  d_edMSub,
-  l3String,
-  evMsgCode,
-  arTextUtils,
-  l3SimpleCalc,
-  dt_Const,
-  evdTypes
-  {$If defined(Archi) AND not defined(Nemesis)}
-  ,
-  dt_LinkServ
-  {$IfEnd} //Archi AND not Nemesis
-  ,
-  evEditorInterfaces
-  ;
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
+ , DateUtils
+ , SysUtils
+ , l3DateSt
+ , l3Date
+ , l3Chars
+ , nevBase
+ , D_PicSizeEdit
+ , evConst
+ , evBitmapParaBitmapContainer
+ , evFacadeGUI
+ , afwInterfaces
+ , ObjectSegment_Const
+ , BitmapPara_Const
+ , k2Tags
+ , ExprEditForm
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+ , Formula_Const
+ , l3Interfaces
+ , evTableTools
+ , evCopyTableCellWidth
+ , evTabStopsFilter
+ , evdEmptyRowFilter
+ , evTableFilter
+ , evMergedCellFilter
+ , evTextInTableCorrector
+ , evdStyles
+ , evOp
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , Table_Const
+ , evFacadeSelection
+ {$If NOT Defined(Nemesis)}
+ , vtDialogs
+ {$IfEnd} // NOT Defined(Nemesis)
+ , evCommonRes
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , evFacadeSub
+ , d_edMSub
+ , l3String
+ , evMsgCode
+ , arTextUtils
+ , l3SimpleCalc
+ , dt_Const
+ , evdTypes
+ {$If Defined(Archi) AND NOT Defined(Nemesis)}
+ , dt_LinkServ
+ {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
+ , evEditorInterfaces
+;
 
-// unit methods
-
-function CnvDate2Text(var aStr: PAnsiChar;
-  var aLength: LongInt;
-  aData: Pointer): Boolean;
+function cnvDate2Text(var aStr: PAnsiChar;
+ var aLength: LongInt;
+ aData: Pointer): Boolean;
 //#UC START# *4F57565E01C1_4F5755FB0362_var*
 var
  l_Index    : Integer;
@@ -237,11 +215,11 @@ begin
  end;
  Result := True;
 //#UC END# *4F57565E01C1_4F5755FB0362_impl*
-end;//CnvDate2Text
+end;//cnvDate2Text
 
-function EvEditPicture(const aHotSpot: IevHotSpot;
-  const aEditor: TevCustomEditor;
-  var aNeedAsyncLoop: Boolean): Boolean;
+function evEditPicture(const aHotSpot: IevHotSpot;
+ const aEditor: TevCustomEditor;
+ var aNeedAsyncLoop: Boolean): Boolean;
 //#UC START# *4F5756B50357_4F5755FB0362_var*
 var
  l_Op         : InevOp;
@@ -304,11 +282,11 @@ begin
  else
   Result := False;
 //#UC END# *4F5756B50357_4F5755FB0362_impl*
-end;//EvEditPicture
+end;//evEditPicture
 
-function EvEditFormula(const aHotSpot: IevHotSpot;
-  const aEditor: TevCustomEditor;
-  var aNeedAsyncLoop: Boolean): Boolean;
+function evEditFormula(const aHotSpot: IevHotSpot;
+ const aEditor: TevCustomEditor;
+ var aNeedAsyncLoop: Boolean): Boolean;
 //#UC START# *4F5756E10027_4F5755FB0362_var*
 var
  l_EE      : TExprEditor;
@@ -337,10 +315,10 @@ begin
  else
   Result := False;
 //#UC END# *4F5756E10027_4F5755FB0362_impl*
-end;//EvEditFormula
+end;//evEditFormula
 
-function EvIsFormula(const aHotSpot: IevHotSpot;
-  out theFormula: Tl3Tag): Boolean;
+function evIsFormula(const aHotSpot: IevHotSpot;
+ out theFormula: Tl3Tag): Boolean;
 //#UC START# *4F57571402D8_4F5755FB0362_var*
 var
  l_Tag : Il3TagRef;
@@ -359,10 +337,10 @@ begin
    l_Tag := nil;
   end;//try..finally
 //#UC END# *4F57571402D8_4F5755FB0362_impl*
-end;//EvIsFormula
+end;//evIsFormula
 
-function EvIsPicture(const aHotSpot: IevHotSpot;
-  out thePicture: Tl3Tag): Boolean;
+function evIsPicture(const aHotSpot: IevHotSpot;
+ out thePicture: Tl3Tag): Boolean;
 //#UC START# *4F57573E01FA_4F5755FB0362_var*
 var
  l_Tag : Il3TagRef;
@@ -382,9 +360,9 @@ begin
    l_Tag := nil;
   end;//try..finally
 //#UC END# *4F57573E01FA_4F5755FB0362_impl*
-end;//EvIsPicture
+end;//evIsPicture
 
-procedure EvInsertFormula(const aEditor: TevCustomEditor);
+procedure evInsertFormula(const aEditor: TevCustomEditor);
 //#UC START# *4F57575F0146_4F5755FB0362_var*
 var
  l_EE : TExprEditor;
@@ -399,9 +377,9 @@ begin
   l3Free(l_EE);
  end;//try..finally
 //#UC END# *4F57575F0146_4F5755FB0362_impl*
-end;//EvInsertFormula
+end;//evInsertFormula
 
-procedure EvAlignCellsBoundary(const aEditor: TevCustomEditor);
+procedure evAlignCellsBoundary(const aEditor: TevCustomEditor);
 //#UC START# *4FC712940276_4F5755FB0362_var*
 var
  l_Progress : Il3Progress;
@@ -416,9 +394,9 @@ begin
   l_Progress := nil;
  end;
 //#UC END# *4FC712940276_4F5755FB0362_impl*
-end;//EvAlignCellsBoundary
+end;//evAlignCellsBoundary
 
-procedure EvCopyWidthOfCells(const anEditor: TevCustomEditor);
+procedure evCopyWidthOfCells(const anEditor: TevCustomEditor);
 //#UC START# *50926C5802E1_4F5755FB0362_var*
 //#UC END# *50926C5802E1_4F5755FB0362_var*
 begin
@@ -426,9 +404,9 @@ begin
  InevSelection(anEditor.Selection).Unselect;
  TevCopyTableCellWidth.Instance.RememberWidths(anEditor.Range);
 //#UC END# *50926C5802E1_4F5755FB0362_impl*
-end;//EvCopyWidthOfCells
+end;//evCopyWidthOfCells
 
-procedure EvApplyWidthOfCells(const anEditor: TevCustomEditor);
+procedure evApplyWidthOfCells(const anEditor: TevCustomEditor);
 //#UC START# *50926CE4004C_4F5755FB0362_var*
 var
  l_Progress : Il3Progress;
@@ -443,10 +421,10 @@ begin
   l_Progress := nil;
  end;
 //#UC END# *50926CE4004C_4F5755FB0362_impl*
-end;//EvApplyWidthOfCells
+end;//evApplyWidthOfCells
 
-procedure EvLinkTableFilters(var aGen: Tk2TagGenerator;
-  aNeedInit: Boolean);
+procedure evLinkTableFilters(var aGen: Tk2TagGenerator;
+ aNeedInit: Boolean);
 //#UC START# *517F693A03DF_4F5755FB0362_var*
 //#UC END# *517F693A03DF_4F5755FB0362_var*
 begin
@@ -465,9 +443,10 @@ begin
  TevTabStopsFilter.SetTo(aGen);
  TevTextInTableCorrector.SetTo(aGen);
 //#UC END# *517F693A03DF_4F5755FB0362_impl*
-end;//EvLinkTableFilters
+end;//evLinkTableFilters
 
-function EvSetTableStyle(const anEditor: TevCustomEditorWindow): Boolean;
+function evSetTableStyle(const anEditor: TevCustomEditorWindow): Boolean;
+ {* Выставляет стиль на таблицу. }
 //#UC START# *52B44C960040_4F5755FB0362_var*
 var
  l_MI     : InevBasePoint;
@@ -488,11 +467,11 @@ begin
   Result := True;
  end; // if EvIsPointTextInCell(l_MI) then
 //#UC END# *52B44C960040_4F5755FB0362_impl*
-end;//EvSetTableStyle
+end;//evSetTableStyle
 
-function EvSetSubPrim(const aParam: TevSetSubParam;
-  out aChangeDocData: Boolean;
-  const aBlock: IevCommonDataObject = nil): Integer;
+function evSetSubPrim(const aParam: TevSetSubParam;
+ out aChangeDocData: Boolean;
+ const aBlock: IevCommonDataObject = nil): Integer;
 //#UC START# *52E78F2D0266_4F5755FB0362_var*
 var
  l_BC           : InevCommonPoint;
@@ -741,10 +720,11 @@ begin
   lBlock := nil;
  end;{try..finally}
 //#UC END# *52E78F2D0266_4F5755FB0362_impl*
-end;//EvSetSubPrim
+end;//evSetSubPrim
 
-procedure EvSubNameEdit(const aParam: TevSubEditParam;
-  out aNeedRefresh: Boolean);
+procedure evSubNameEdit(const aParam: TevSubEditParam;
+ out aNeedRefresh: Boolean);
+ {* Общий метод редактирования саба. }
 //#UC START# *52E8A0960362_4F5755FB0362_var*
 var
  I               : Integer;
@@ -865,12 +845,12 @@ begin
    Free;
   end;
 //#UC END# *52E8A0960362_4F5755FB0362_impl*
-end;//EvSubNameEdit
+end;//evSubNameEdit
 
-procedure EvEditSubPrim(const aParam: TevSubEditParamEX;
-  const aSub: IevSub;
-  out aNeedRefresh: Boolean;
-  const aCheckTypeBlok: IarCheckLeftOrRightBlock = nil);
+procedure evEditSubPrim(const aParam: TevSubEditParamEX;
+ const aSub: IevSub;
+ out aNeedRefresh: Boolean;
+ const aCheckTypeBlok: IarCheckLeftOrRightBlock = nil);
 //#UC START# *52E8A1AD03A9_4F5755FB0362_var*
 var
  l_ViewKind  : TevBlockViewKind;
@@ -968,12 +948,12 @@ begin
   end;
  end; // if Supports(aSub, IevDocumentPart, l_Part) then
 //#UC END# *52E8A1AD03A9_4F5755FB0362_impl*
-end;//EvEditSubPrim
+end;//evEditSubPrim
 
-procedure EvSetStyleByName(const anEditor: TevCustomEditorWindow;
-  const anItems: TStrings;
-  const aText: AnsiString;
-  anExpired: Boolean);
+procedure evSetStyleByName(const anEditor: TevCustomEditorWindow;
+ const anItems: TStrings;
+ const aText: AnsiString;
+ anExpired: Boolean);
 //#UC START# *5332DB3201C3_4F5755FB0362_var*
 var
  l_ID    : Integer;
@@ -998,10 +978,10 @@ begin
    anEditor.ScrollToCursor(anEditor.Selection.Cursor);
  end; // if l_Index >= 0 then
 //#UC END# *5332DB3201C3_4F5755FB0362_impl*
-end;//EvSetStyleByName
+end;//evSetStyleByName
 
-procedure EvSetExpiredStyle(const anEditor: TevCustomEditorWindow;
-  aStyleID: Integer);
+procedure evSetExpiredStyle(const anEditor: TevCustomEditorWindow;
+ aStyleID: Integer);
 //#UC START# *5332E025004C_4F5755FB0362_var*
 
  function IterFunc(const aLeafParagraph: IedLeafParagraph): Boolean;
@@ -1021,6 +1001,6 @@ begin
   with anEditor do
    Range.IterateLeafParagraphsF(L2IedRangeIterateLeafParagraphsAction(@IterFunc), TextSource);
 //#UC END# *5332E025004C_4F5755FB0362_impl*
-end;//EvSetExpiredStyle
+end;//evSetExpiredStyle
 
 end.

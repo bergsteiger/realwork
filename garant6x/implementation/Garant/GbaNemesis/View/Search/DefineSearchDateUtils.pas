@@ -1,44 +1,34 @@
 unit DefineSearchDateUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/DefineSearchDateUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Основные прецеденты::Search::View::Search::DefineSearchDateUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\DefineSearchDateUtils.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "DefineSearchDateUtils" MUID: (51B5CB1100AE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3IntfUses
+;
+
 function CompareButtons(Item1: Pointer;
-  Item2: Pointer): Integer;
-{$IfEnd} //not Admin AND not Monitorings
+ Item2: Pointer): Integer;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
-
-// unit methods
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 function CompareButtons(Item1: Pointer;
-  Item2: Pointer): Integer;
+ Item2: Pointer): Integer;
 //#UC START# *51B5CA81031F_51B5CB1100AE_var*
 //#UC END# *51B5CA81031F_51B5CB1100AE_var*
 begin
@@ -46,6 +36,6 @@ begin
  Result := TWinControl(Item1).TabOrder - TWinControl(Item2).TabOrder;
 //#UC END# *51B5CA81031F_51B5CB1100AE_impl*
 end;//CompareButtons
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

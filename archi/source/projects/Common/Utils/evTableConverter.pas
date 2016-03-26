@@ -1,84 +1,66 @@
 unit evTableConverter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Utils"
-// Модуль: "w:/archi/source/projects/Common/Utils/evTableConverter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi$common::Utils::Tools::evTableConverter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Common\Utils\evTableConverter.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "evTableConverter" MUID: (4DCA3A7302B1)
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 
 uses
-  l3Base,
-  l3StringList,
-  Classes,
-  l3Memory,
-  evCustomEditor,
-  k2CustomFileParser,
-  ddTextToTableConverters,
-  ddTableConvTypes,
-  ddDocument,
-  ddVirtualTable,
-  ddBorder,
-  ddTableConvParamDlg
-  ;
+ l3IntfUses
+ , evCustomEditor
+ , k2CustomFileParser
+ , ddTableConvTypes
+ , l3Memory
+ , l3StringList
+ , ddTableConvParamDlg
+ , ddVirtualTable
+ , ddDocument
+ , l3Base
+ , ddBorder
+ , Classes
+ , ddTextToTableConverters
+;
 
 type
  TddTextAndTableConverterRow = array [TddCellSeparator] of TddAbstractTable;
 
  TddTextAndTableConverter = class(Tk2CustomFileParser)
- private
- // private fields
-   f_CellCount : LongInt;
-   f_MyStream : Tl3MemoryStream;
-   f_Lines : Tl3StringList;
-   f_GlueLines : Boolean;
-   f_AbortConversion : Boolean;
-   f_ColumnSeparator : AnsiString;
-   f_Dialog : TTableConvParamDialog;
-   f_Rows : TddTextAndTableConverterRow;
-    {* "Эталонные" ячейки}
-   f_Table : TddVirtualTable;
-    {* Ячейки с текстом}
-   f_DocGen : TddDocumentGenerator;
-   f_PreviewEnabled : Boolean;
-   f_Editor : TevCustomEditor;
-    {* Поле для свойства Editor}
-   f_CellSeparator : TddCellSeparator;
-    {* Поле для свойства CellSeparator}
-   f_TableWidth : LongInt;
-    {* Поле для свойства TableWidth}
-   f_CodePageIn : LongInt;
-    {* Поле для свойства CodePageIn}
-   f_CodePageOut : LongInt;
-    {* Поле для свойства CodePageOut}
- protected
- // property methods
+  private
+   f_CellCount: LongInt;
+   f_MyStream: Tl3MemoryStream;
+   f_Lines: Tl3StringList;
+   f_GlueLines: Boolean;
+   f_AbortConversion: Boolean;
+   f_ColumnSeparator: AnsiString;
+   f_Dialog: TTableConvParamDialog;
+   f_Rows: TddTextAndTableConverterRow;
+    {* "Эталонные" ячейки }
+   f_Table: TddVirtualTable;
+    {* Ячейки с текстом }
+   f_DocGen: TddDocumentGenerator;
+   f_PreviewEnabled: Boolean;
+   f_Editor: TevCustomEditor;
+    {* Поле для свойства Editor }
+   f_CellSeparator: TddCellSeparator;
+    {* Поле для свойства CellSeparator }
+   f_TableWidth: LongInt;
+    {* Поле для свойства TableWidth }
+   f_CodePageIn: LongInt;
+    {* Поле для свойства CodePageIn }
+   f_CodePageOut: LongInt;
+    {* Поле для свойства CodePageOut }
+  protected
    procedure pm_SetEditor(aValue: TevCustomEditor); virtual;
    procedure pm_SetTableWidth(aValue: LongInt); virtual;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure Read; override;
- protected
- // protected methods
    procedure DialogShowPreview(Enable: Boolean);
-     {* Начальное определение количества ячеек и строк для каждого типа разделителя }
+    {* Начальное определение количества ячеек и строк для каждого типа разделителя }
    procedure AnalyzeStream;
-     {* перерасчет количества СТРОК в зависимости от количества ячеек для каждого типа разделителя }
+    {* перерасчет количества СТРОК в зависимости от количества ячеек для каждого типа разделителя }
    procedure CorrectCellLen(aText: Tl3String;
-     var CellLen: LongInt);
+    var CellLen: LongInt);
    procedure WriteBorders(aBorder: TddBorder);
    procedure WriteToPreview;
    procedure DialogCellCount(aCellCount: LongInt);
@@ -86,72 +68,192 @@ type
    procedure DialogAutoFit(aAutoFit: TddAutoFitBehavior);
    procedure DialogGlueLines(Enable: Boolean);
    procedure RecalcRows;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure Read; override;
+  public
    function GetTable: TddVirtualTable;
    procedure Tune;
    procedure Text2Table;
    constructor Create(anOwner: TComponent = nil); reintroduce;
- public
- // public properties
+  public
    property Editor: TevCustomEditor
-     read f_Editor
-     write pm_SetEditor;
+    read f_Editor
+    write pm_SetEditor;
    property CellSeparator: TddCellSeparator
-     read f_CellSeparator
-     write f_CellSeparator;
+    read f_CellSeparator
+    write f_CellSeparator;
    property TableWidth: LongInt
-     read f_TableWidth
-     write pm_SetTableWidth;
+    read f_TableWidth
+    write pm_SetTableWidth;
    property CodePageIn: LongInt
-     read f_CodePageIn
-     write f_CodePageIn;
+    read f_CodePageIn
+    write f_CodePageIn;
    property CodePageOut: LongInt
-     read f_CodePageOut
-     write f_CodePageOut;
+    read f_CodePageOut
+    write f_CodePageOut;
  end;//TddTextAndTableConverter
+
 procedure ConvertText2Table(anEditor: TevCustomEditor);
 
 implementation
 
 uses
-  nevTools,
-  l3Filer,
-  l3Stream,
-  l3Interfaces,
-  evdInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  nevInternalInterfaces,
-  nevBase,
-  evOp,
-  evdEmptyRowFilter,
-  evTableFilter,
-  k2TagGen,
-  Document_Const,
-  Table_Const,
-  TableRow_Const,
-  TableCell_Const,
-  evdTypes,
-  l3UnitsTools,
-  evdStyles,
-  ddTableCell,
-  ddTableRow,
-  ddTextParagraph,
-  ddTextSegment,
-  RTFtypes,
-  ddCellProperty,
-  k2Tags,
-  ddTypes,
-  l3Chars
-  ;
+ l3ImplUses
+ , l3Chars
+ , ddTableCell
+ , ddTableRow
+ , ddTextParagraph
+ , ddTextSegment
+ , RTFtypes
+ , ddCellProperty
+ , k2Tags
+ , ddTypes
+ , nevTools
+ , l3Filer
+ , l3Stream
+ , l3Interfaces
+ , evdInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nevInternalInterfaces
+ , nevBase
+ , evOp
+ , evdEmptyRowFilter
+ , evTableFilter
+ , k2TagGen
+ , Document_Const
+ , Table_Const
+ , TableRow_Const
+ , TableCell_Const
+ , evdTypes
+ , l3UnitsTools
+ , evdStyles
+;
 
-// start class TddTextAndTableConverter
+procedure ConvertText2Table(anEditor: TevCustomEditor);
+//#UC START# *4DCA3AE202DB_4DCA3A7302B1_var*
+var
+ l_TableConv: TddTextAndTableConverter;
+//#UC END# *4DCA3AE202DB_4DCA3A7302B1_var*
+begin
+//#UC START# *4DCA3AE202DB_4DCA3A7302B1_impl*
+ if not anEditor.InSBS and not anEditor.InTable then
+ begin
+  l_TableConv := TddTextAndTableConverter.Create(nil);
+  try
+   l_TableConv.CodePageIn := cp_OEM;
+   l_TableConv.CodePageOut := cp_ANSI;
+   l_TableConv.Editor := anEditor;
+   l_TableConv.Tune;
+   l_TableConv.Text2Table;
+  finally
+   l3Free(l_TableConv);
+  end;
+ end; // if not anEditor.InSBS and not anEditor.InTable then
+//#UC END# *4DCA3AE202DB_4DCA3A7302B1_impl*
+end;//ConvertText2Table
+
+procedure TddTextAndTableConverter.pm_SetEditor(aValue: TevCustomEditor);
+//#UC START# *4F6834C40073_4DCA3AB8028Eset_var*
+var
+ l_Block     : InevDataObjectPrim2;
+ l_Pack      : InevOp;
+ i           : TddCellSeparator;
+ l_Filer     : Tl3CustomFiler;
+ l_MemStream : Tl3MemoryStream;
+ l_SubStream : TStream;
+ l_Size      : LongInt;
+ l_S         : Tl3String;
+//#UC END# *4F6834C40073_4DCA3AB8028Eset_var*
+begin
+//#UC START# *4F6834C40073_4DCA3AB8028Eset_impl*
+ if Editor <> aValue then
+ begin  
+  f_Editor:= aValue;
+  if not Editor.Selection.Collapsed then
+  begin
+   l_MemStream:= Tl3MemoryStream.Create;
+   try                                                                  
+    l_Pack := Editor.StartOp(0);
+    try
+     l_Block := InevSelection(Editor.Selection).GetBlock.AsStorable;
+     try                                                                                         
+      Editor.TextSource.DocumentContainer.TagReader.ReadTagEx(f_DocGen, nil, l_Block);       
+      l_Size := Editor.TextSource.DocumentContainer.TagReader.ReadTag(cf_OEMText, l_MemStream, nil, l_Block, [evd_sfInternal]);
+      l_MemStream.Seek(0, soBeginning);
+      l_SubStream := Tl3SubStream.Create(l_MemStream, 0, l_Size);
+      try
+       l3Set(f_MyStream, l_SubStream);
+       l_Filer:= Tl3CustomFiler.Create(nil);
+       try
+        l_Filer.Stream:= l_SubStream;
+        l_Filer.CodePage:= f_CodePageIn;
+        while not l_Filer.EOF do
+        begin
+         l_S:= Tl3String.Make(l_Filer.Readln);
+         try
+          f_Lines.Add(l_S);
+         finally
+          l3Free(l_S);
+         end;//try..finally
+        end;
+       finally
+        l3Free(l_Filer);
+       end;
+      finally
+       l3Free(l_SubStream);
+      end;{try..finally}
+     finally
+      l_Block := nil;
+     end;//try..finally
+    finally
+     l_Pack:= nil;
+    end;//try..finally
+   finally
+    l3Free(l_MemStream);
+   end;{try..finally}
+
+   with Editor.Document do
+    f_Table.MaxWidth := IntA[k2_tiWidth]
+                       - IntA[k2_tiLeftIndent]
+                       - IntA[k2_tiRightIndent];
+   TableWidth:= Pixel2Char(f_Table.MaxWidth);
+   for i:= Low(TddCellSeparator) to High(TddCellSeparator) do
+   begin
+    f_Rows[i].Lines:= f_Lines;
+    f_Rows[i].FormatBuffer:= f_DocGen.Document;
+   end;
+
+   AnalyzeStream;
+   RecalcRows;
+   f_GlueLines := not ((CellSeparator = csSpace) and (f_Table.RowCount = 1));
+  end
+  else
+   l3Free(f_MyStream);
+ end;
+//#UC END# *4F6834C40073_4DCA3AB8028Eset_impl*
+end;//TddTextAndTableConverter.pm_SetEditor
+
+procedure TddTextAndTableConverter.pm_SetTableWidth(aValue: LongInt);
+//#UC START# *4F6838BF03B2_4DCA3AB8028Eset_var*
+var
+ i: TddCellSeparator;
+//#UC END# *4F6838BF03B2_4DCA3AB8028Eset_var*
+begin
+//#UC START# *4F6838BF03B2_4DCA3AB8028Eset_impl*
+ if aValue <> f_TableWidth then
+ begin
+  f_TableWidth := aValue;
+  for i := Low(TddCellSeparator) to High(TddCellSeparator) do
+   f_Rows[i].TableWidth:= f_TableWidth;
+ end; // if Value <> f_TableWidth
+//#UC END# *4F6838BF03B2_4DCA3AB8028Eset_impl*
+end;//TddTextAndTableConverter.pm_SetTableWidth
 
 procedure TddTextAndTableConverter.DialogShowPreview(Enable: Boolean);
+ {* Начальное определение количества ячеек и строк для каждого типа разделителя }
 //#UC START# *4F683E3D003E_4DCA3AB8028E_var*
 //#UC END# *4F683E3D003E_4DCA3AB8028E_var*
 begin
@@ -163,6 +265,7 @@ begin
 end;//TddTextAndTableConverter.DialogShowPreview
 
 procedure TddTextAndTableConverter.AnalyzeStream;
+ {* перерасчет количества СТРОК в зависимости от количества ячеек для каждого типа разделителя }
 //#UC START# *4F683E6502E7_4DCA3AB8028E_var*
 var
  l_ParaCount    : Integer;
@@ -219,7 +322,7 @@ begin
 end;//TddTextAndTableConverter.AnalyzeStream
 
 procedure TddTextAndTableConverter.CorrectCellLen(aText: Tl3String;
-  var CellLen: LongInt);
+ var CellLen: LongInt);
 //#UC START# *4F683E990117_4DCA3AB8028E_var*
 var
  i, k: Integer;
@@ -529,104 +632,8 @@ begin
 //#UC END# *4F6852880115_4DCA3AB8028E_impl*
 end;//TddTextAndTableConverter.Create
 
-procedure TddTextAndTableConverter.pm_SetEditor(aValue: TevCustomEditor);
-//#UC START# *4F6834C40073_4DCA3AB8028Eset_var*
-var
- l_Block     : InevDataObjectPrim2;
- l_Pack      : InevOp;
- i           : TddCellSeparator;
- l_Filer     : Tl3CustomFiler;
- l_MemStream : Tl3MemoryStream;
- l_SubStream : TStream;
- l_Size      : LongInt;
- l_S         : Tl3String;
-//#UC END# *4F6834C40073_4DCA3AB8028Eset_var*
-begin
-//#UC START# *4F6834C40073_4DCA3AB8028Eset_impl*
- if Editor <> aValue then
- begin  
-  f_Editor:= aValue;
-  if not Editor.Selection.Collapsed then
-  begin
-   l_MemStream:= Tl3MemoryStream.Create;
-   try                                                                  
-    l_Pack := Editor.StartOp(0);
-    try
-     l_Block := InevSelection(Editor.Selection).GetBlock.AsStorable;
-     try                                                                                         
-      Editor.TextSource.DocumentContainer.TagReader.ReadTagEx(f_DocGen, nil, l_Block);       
-      l_Size := Editor.TextSource.DocumentContainer.TagReader.ReadTag(cf_OEMText, l_MemStream, nil, l_Block, [evd_sfInternal]);
-      l_MemStream.Seek(0, soBeginning);
-      l_SubStream := Tl3SubStream.Create(l_MemStream, 0, l_Size);
-      try
-       l3Set(f_MyStream, l_SubStream);
-       l_Filer:= Tl3CustomFiler.Create(nil);
-       try
-        l_Filer.Stream:= l_SubStream;
-        l_Filer.CodePage:= f_CodePageIn;
-        while not l_Filer.EOF do
-        begin
-         l_S:= Tl3String.Make(l_Filer.Readln);
-         try
-          f_Lines.Add(l_S);
-         finally
-          l3Free(l_S);
-         end;//try..finally
-        end;
-       finally
-        l3Free(l_Filer);
-       end;
-      finally
-       l3Free(l_SubStream);
-      end;{try..finally}
-     finally
-      l_Block := nil;
-     end;//try..finally
-    finally
-     l_Pack:= nil;
-    end;//try..finally
-   finally
-    l3Free(l_MemStream);
-   end;{try..finally}
-
-   with Editor.Document do
-    f_Table.MaxWidth := IntA[k2_tiWidth]
-                       - IntA[k2_tiLeftIndent]
-                       - IntA[k2_tiRightIndent];
-   TableWidth:= Pixel2Char(f_Table.MaxWidth);
-   for i:= Low(TddCellSeparator) to High(TddCellSeparator) do
-   begin
-    f_Rows[i].Lines:= f_Lines;
-    f_Rows[i].FormatBuffer:= f_DocGen.Document;
-   end;
-
-   AnalyzeStream;
-   RecalcRows;
-   f_GlueLines := not ((CellSeparator = csSpace) and (f_Table.RowCount = 1));
-  end
-  else
-   l3Free(f_MyStream);
- end;
-//#UC END# *4F6834C40073_4DCA3AB8028Eset_impl*
-end;//TddTextAndTableConverter.pm_SetEditor
-
-procedure TddTextAndTableConverter.pm_SetTableWidth(aValue: LongInt);
-//#UC START# *4F6838BF03B2_4DCA3AB8028Eset_var*
-var
- i: TddCellSeparator;
-//#UC END# *4F6838BF03B2_4DCA3AB8028Eset_var*
-begin
-//#UC START# *4F6838BF03B2_4DCA3AB8028Eset_impl*
- if aValue <> f_TableWidth then
- begin
-  f_TableWidth := aValue;
-  for i := Low(TddCellSeparator) to High(TddCellSeparator) do
-   f_Rows[i].TableWidth:= f_TableWidth;
- end; // if Value <> f_TableWidth
-//#UC END# *4F6838BF03B2_4DCA3AB8028Eset_impl*
-end;//TddTextAndTableConverter.pm_SetTableWidth
-
 procedure TddTextAndTableConverter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DCA3AB8028E_var*
 var
  i: TddCellSeparator;
@@ -767,28 +774,5 @@ begin
  end; // f_Table.RowList.Count > 0
 //#UC END# *4F68343D038D_4DCA3AB8028E_impl*
 end;//TddTextAndTableConverter.Read
-
-procedure ConvertText2Table(anEditor: TevCustomEditor);
-//#UC START# *4DCA3AE202DB_4DCA3A7302B1_var*
-var
- l_TableConv: TddTextAndTableConverter;
-//#UC END# *4DCA3AE202DB_4DCA3A7302B1_var*
-begin
-//#UC START# *4DCA3AE202DB_4DCA3A7302B1_impl*
- if not anEditor.InSBS and not anEditor.InTable then
- begin
-  l_TableConv := TddTextAndTableConverter.Create(nil);
-  try
-   l_TableConv.CodePageIn := cp_OEM;
-   l_TableConv.CodePageOut := cp_ANSI;
-   l_TableConv.Editor := anEditor;
-   l_TableConv.Tune;
-   l_TableConv.Text2Table;
-  finally
-   l3Free(l_TableConv);
-  end;
- end; // if not anEditor.InSBS and not anEditor.InTable then
-//#UC END# *4DCA3AE202DB_4DCA3A7302B1_impl*
-end;//ConvertText2Table
 
 end.

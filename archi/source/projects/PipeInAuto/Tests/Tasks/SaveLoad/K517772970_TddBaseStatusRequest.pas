@@ -23,6 +23,8 @@ type
  TK517772970_TddBaseStatusRequest = class(TK517772970_TddRequestTask)
   {* [RequestLink:517772970] }
   protected
+   function TaskClass: TddTaskClass; override;
+   procedure InitTask(Task: TddTaskItem); override;
    {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
@@ -31,8 +33,6 @@ type
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$IfEnd} // Defined(nsTest)
-   function TaskClass: TddTaskClass; override;
-   procedure InitTask(Task: TddTaskItem); override;
  end;//TK517772970_TddBaseStatusRequest
 {$IfEnd} // Defined(AppServerSide) AND Defined(InsiderTest)
 
@@ -48,22 +48,6 @@ uses
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
 ;
-
-{$If Defined(nsTest)}
-function TK517772970_TddBaseStatusRequest.GetFolder: AnsiString;
- {* Папка в которую входит тест }
-begin
- Result := 'TaskSaveLoad';
-end;//TK517772970_TddBaseStatusRequest.GetFolder
-{$IfEnd} // Defined(nsTest)
-
-{$If Defined(nsTest)}
-function TK517772970_TddBaseStatusRequest.GetModelElementGUID: AnsiString;
- {* Идентификатор элемента модели, который описывает тест }
-begin
- Result := '53202365007E';
-end;//TK517772970_TddBaseStatusRequest.GetModelElementGUID
-{$IfEnd} // Defined(nsTest)
 
 function TK517772970_TddBaseStatusRequest.TaskClass: TddTaskClass;
 //#UC START# *5320088202FB_53202365007E_var*
@@ -86,6 +70,22 @@ begin
  end;
 //#UC END# *532008D203BA_53202365007E_impl*
 end;//TK517772970_TddBaseStatusRequest.InitTask
+
+{$If Defined(nsTest)}
+function TK517772970_TddBaseStatusRequest.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'TaskSaveLoad';
+end;//TK517772970_TddBaseStatusRequest.GetFolder
+{$IfEnd} // Defined(nsTest)
+
+{$If Defined(nsTest)}
+function TK517772970_TddBaseStatusRequest.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '53202365007E';
+end;//TK517772970_TddBaseStatusRequest.GetModelElementGUID
+{$IfEnd} // Defined(nsTest)
 
 initialization
  TestFramework.RegisterTest(TK517772970_TddBaseStatusRequest.Suite);
